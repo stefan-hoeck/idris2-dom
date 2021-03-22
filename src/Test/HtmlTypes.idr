@@ -151,7 +151,7 @@ test48 _ = ()
 test49 : JSAny -> ()
 test49 _ = ()
 
-test50 : Promise JSAny -> ()
+test50 : JSPromise JSAny -> ()
 test50 _ = ()
 
 test51 : JSAny -> ()
@@ -292,7 +292,7 @@ test95 _ = ()
 test96 : String -> ()
 test96 _ = ()
 
-test97 : Promise CustomElementConstructor -> ()
+test97 : JSPromise CustomElementConstructor -> ()
 test97 _ = ()
 
 test98 : String -> ()
@@ -1141,7 +1141,7 @@ test378 _ = ()
 test379 : String -> ()
 test379 _ = ()
 
-test380 : Promise Undefined -> ()
+test380 : JSPromise Undefined -> ()
 test380 _ = ()
 
 test381 : String -> ()
@@ -1543,7 +1543,7 @@ test512 _ = ()
 test513 : Bool -> ()
 test513 _ = ()
 
-test514 : Promise Undefined -> ()
+test514 : JSPromise Undefined -> ()
 test514 _ = ()
 
 test515 : Undefined -> ()
@@ -2635,7 +2635,7 @@ test876 _ = ()
 test877 : ImageBitmap -> ()
 test877 _ = ()
 
-test878 : Promise Blob -> ()
+test878 : JSPromise Blob -> ()
 test878 _ = ()
 
 test879 : ImageEncodeOptions -> ()
@@ -2671,7 +2671,7 @@ test888 _ = ()
 test889 : PromiseRejectionEventInit -> ()
 test889 _ = ()
 
-test890 : Promise JSAny -> ()
+test890 : JSPromise JSAny -> ()
 test890 _ = ()
 
 test891 : JSAny -> ()
@@ -3304,7 +3304,7 @@ test1099 _ = ()
 test1100 : String -> ()
 test1100 _ = ()
 
-test1101 : Promise Undefined -> ()
+test1101 : JSPromise Undefined -> ()
 test1101 _ = ()
 
 test1102 : String -> ()

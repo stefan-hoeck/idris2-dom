@@ -144,10 +144,10 @@ test45 _ = ()
 test46 : Bool -> ()
 test46 _ = ()
 
-test47 : Promise Animation -> ()
+test47 : JSPromise Animation -> ()
 test47 _ = ()
 
-test48 : Promise Animation -> ()
+test48 : JSPromise Animation -> ()
 test48 _ = ()
 
 test49 : EventHandler -> ()

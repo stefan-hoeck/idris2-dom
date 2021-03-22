@@ -34,7 +34,7 @@ test9 _ = ()
 test10 : EventHandler -> ()
 test10 _ = ()
 
-test11 : Promise PermissionStatus -> ()
+test11 : JSPromise PermissionStatus -> ()
 test11 _ = ()
 
 test12 : JSObject -> ()

@@ -40,10 +40,10 @@ test11 _ = ()
 test12 : ReadableStream -> ()
 test12 _ = ()
 
-test13 : Promise String -> ()
+test13 : JSPromise String -> ()
 test13 _ = ()
 
-test14 : Promise ArrayBuffer -> ()
+test14 : JSPromise ArrayBuffer -> ()
 test14 _ = ()
 
 test15 : JSArray BlobPart -> ()

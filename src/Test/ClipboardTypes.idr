@@ -25,19 +25,19 @@ test6 _ = ()
 test7 : Maybe DataTransfer -> ()
 test7 _ = ()
 
-test8 : Promise ClipboardItems -> ()
+test8 : JSPromise ClipboardItems -> ()
 test8 _ = ()
 
-test9 : Promise String -> ()
+test9 : JSPromise String -> ()
 test9 _ = ()
 
-test10 : Promise Undefined -> ()
+test10 : JSPromise Undefined -> ()
 test10 _ = ()
 
 test11 : ClipboardItems -> ()
 test11 _ = ()
 
-test12 : Promise Undefined -> ()
+test12 : JSPromise Undefined -> ()
 test12 _ = ()
 
 test13 : String -> ()
@@ -70,7 +70,7 @@ test21 _ = ()
 test22 : JSArray String -> ()
 test22 _ = ()
 
-test23 : Promise Blob -> ()
+test23 : JSPromise Blob -> ()
 test23 _ = ()
 
 test24 : String -> ()
@@ -85,5 +85,5 @@ test26 _ = ()
 test27 : NS I [ String , Blob ] -> ()
 test27 _ = ()
 
-test28 : Promise ClipboardItemDataType -> ()
+test28 : JSPromise ClipboardItemDataType -> ()
 test28 _ = ()

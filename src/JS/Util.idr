@@ -38,7 +38,7 @@ export
 data JSArray : Type -> Type where [external]
 
 export
-data Promise : Type -> Type where [external]
+data JSPromise : Type -> Type where [external]
 
 export
 data XMLHttpRequestBodyInit : Type where [external]
