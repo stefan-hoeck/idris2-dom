@@ -13,3 +13,17 @@ executable = runTest
 sourcedir  = "src"
 
 depends    = base        >= 0.3.0
+           , sop         >= 0.1.1
+
+modules = JS.Util
+
+        , Test.AnimationTypes
+        , Test.ClipboardTypes
+        , Test.CssTypes
+        , Test.DomTypes
+        , Test.EventTypes
+        , Test.FileTypes
+        , Test.HtmlTypes
+        , Test.PermissionsTypes
+        , Test.SvgTypes
+        , Test.XhrTypes
