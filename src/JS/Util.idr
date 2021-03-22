@@ -32,13 +32,13 @@ export
 data Undefined : Type where [external]
 
 export
-data FormDataEntryValue : Type where [external]
-
-export
 data JSArray : Type -> Type where [external]
 
 export
 data JSPromise : Type -> Type where [external]
+
+export
+data JSRecord : Type -> Type -> Type where [external]
 
 export
 data XMLHttpRequestBodyInit : Type where [external]
@@ -83,15 +83,6 @@ export
 data WindowProxy : Type where [external]
 
 export
-data HTMLOrSVGImageElement : Type where [external]
-
-export
-data HTMLOrSVGScriptElement : Type where [external]
-
-export
-data CanvasImageSource : Type where [external]
-
-export
 data MediaSource : Type where [external]
 
 export
@@ -116,25 +107,13 @@ export
 data ArrayBuffer : Type where [external]
 
 export
-data OffscreenRenderingContext : Type where [external]
-
-export
-data MessageEventSource : Type where [external]
-
-export
 data Uint8ClampedArray : Type where [external]
 
 export
 data SelectionMode : Type where [external]
 
 export
-data MediaProvider : Type where [external]
-
-export
 data BlobCallback : Type where [external]
-
-export
-data RenderingContext : Type where [external]
 
 export
 data FunctionStringCallback : Type where [external]
@@ -147,9 +126,6 @@ data BufferSource : Type where [external]
 
 export
 data DOMException : Type where [external]
-
-export
-data BlobPart : Type where [external]
 
 export
 data ReadableStream : Type where [external]
@@ -173,16 +149,4 @@ export
 data CSSOMString : Type where [external]
 
 export
-data ClipboardItemDataType : Type where [external]
-
-export
-data ClipboardItemData : Type where [external]
-
-export
-data ClipboardItems : Type where [external]
-
-export
 data ClipboardItemDelayedCallback : Type where [external]
-
-export
-data JSRecord : Type -> Type -> Type where [external]
