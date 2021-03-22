@@ -1,39 +1,23 @@
 module JS.DOM.Raw.Clipboard
 
-import Data.Maybe
+import JS.DOM.Raw.Types
 
 --------------------------------------------------------------------------------
---          Enums
+--          Casts
 --------------------------------------------------------------------------------
 
-namespace PresentationStyle
-  
-  public export
-  data PresentationStyle = Unspecified | Inline | Attachment
+export
+Cast Clipboard EventTarget where
+  cast = believe_me
 
-  public export
-  Show PresentationStyle where
-    show Unspecified = "unspecified"
-    show Inline = "inline"
-    show Attachment = "attachment"
+export
+Cast ClipboardEvent Event where
+  cast = believe_me
 
-  public export
-  Eq PresentationStyle where
-    (==) = (==) `on` show
+export
+Cast ClipboardEventInit EventInit where
+  cast = believe_me
 
-  public export
-  Ord PresentationStyle where
-    compare = compare `on` show
-
-  public export
-  read : String -> Maybe PresentationStyle
-  read "unspecified" = Just Unspecified
-  read "inline" = Just Inline
-  read "attachment" = Just Attachment
-  read _ = Nothing
-
-  public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (PresentationStyle.read s)}
-             -> PresentationStyle
-  fromString s = fromJust $ read s
+export
+Cast ClipboardPermissionDescriptor PermissionDescriptor where
+  cast = believe_me

@@ -6,9 +6,25 @@ sourcedir  = "src"
 depends    = base        >= 0.3.0
 
 modules = JS.Util
+
+        , JS.DOM.Raw.Animation
+        , JS.DOM.Raw.AnimationTypes
         , JS.DOM.Raw.Clipboard
+        , JS.DOM.Raw.ClipboardTypes
+        , JS.DOM.Raw.Css
+        , JS.DOM.Raw.CssTypes
         , JS.DOM.Raw.Dom
+        , JS.DOM.Raw.DomTypes
         , JS.DOM.Raw.Event
+        , JS.DOM.Raw.EventTypes
         , JS.DOM.Raw.File
+        , JS.DOM.Raw.FileTypes
         , JS.DOM.Raw.Html
+        , JS.DOM.Raw.HtmlTypes
+        , JS.DOM.Raw.Permissions
+        , JS.DOM.Raw.PermissionsTypes
+        , JS.DOM.Raw.Svg
+        , JS.DOM.Raw.SvgTypes
+        , JS.DOM.Raw.Types
         , JS.DOM.Raw.Xhr
+        , JS.DOM.Raw.XhrTypes

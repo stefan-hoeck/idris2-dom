@@ -1,37 +1,19 @@
 module JS.DOM.Raw.File
 
-import Data.Maybe
+import JS.DOM.Raw.Types
 
 --------------------------------------------------------------------------------
---          Enums
+--          Casts
 --------------------------------------------------------------------------------
 
-namespace EndingType
-  
-  public export
-  data EndingType = Transparent | Native
+export
+Cast File Blob where
+  cast = believe_me
 
-  public export
-  Show EndingType where
-    show Transparent = "transparent"
-    show Native = "native"
+export
+Cast FilePropertyBag BlobPropertyBag where
+  cast = believe_me
 
-  public export
-  Eq EndingType where
-    (==) = (==) `on` show
-
-  public export
-  Ord EndingType where
-    compare = compare `on` show
-
-  public export
-  read : String -> Maybe EndingType
-  read "transparent" = Just Transparent
-  read "native" = Just Native
-  read _ = Nothing
-
-  public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (EndingType.read s)}
-             -> EndingType
-  fromString s = fromJust $ read s
+export
+Cast FileReader EventTarget where
+  cast = believe_me

@@ -1,4 +1,4 @@
-module JS.DOM.Raw.Xhr
+module JS.DOM.Raw.Permissions
 
 import JS.DOM.Raw.Types
 
@@ -7,21 +7,21 @@ import JS.DOM.Raw.Types
 --------------------------------------------------------------------------------
 
 export
-Cast ProgressEvent Event where
+Cast CameraDevicePermissionDescriptor DevicePermissionDescriptor where
   cast = believe_me
 
 export
-Cast ProgressEventInit EventInit where
+Cast DevicePermissionDescriptor PermissionDescriptor where
   cast = believe_me
 
 export
-Cast XMLHttpRequest XMLHttpRequestEventTarget where
+Cast MidiPermissionDescriptor PermissionDescriptor where
   cast = believe_me
 
 export
-Cast XMLHttpRequestEventTarget EventTarget where
+Cast PermissionStatus EventTarget where
   cast = believe_me
 
 export
-Cast XMLHttpRequestUpload XMLHttpRequestEventTarget where
+Cast PushPermissionDescriptor PermissionDescriptor where
   cast = believe_me
