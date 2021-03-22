@@ -6,3 +6,9 @@ sourcedir  = "src"
 depends    = base        >= 0.3.0
 
 modules = JS.Util
+        , JS.DOM.Raw.Clipboard
+        , JS.DOM.Raw.Dom
+        , JS.DOM.Raw.Event
+        , JS.DOM.Raw.File
+        , JS.DOM.Raw.Html
+        , JS.DOM.Raw.Xhr
