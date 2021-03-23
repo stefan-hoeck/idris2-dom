@@ -7,6 +7,36 @@ module JS.Util
 --          JS Primitives
 --------------------------------------------------------------------------------
 
+doubleToBool : Double -> Bool
+doubleToBool d = d /= 0.0
+
+export
+data Undefined : Type where [external]
+
+export
+Eq Undefined where
+  _ == _ = True
+
+export
+Show Undefined where
+  show _ = "undefined"
+
+%foreign "javascript:lambda:(x)=>{if (x === undefined) {return 1} else {return 0}}"
+prim__isUndefined : AnyPtr -> Double
+
+%foreign "javascript:lambda:()=>undefined"
+prim__undefined : Undefined
+
+export
+undefined : Undefined
+undefined = prim__undefined
+
+
+export
+isUndefined : a -> Bool
+isUndefined v = doubleToBool $ prim__isUndefined (believe_me v)
+
+
 -- The dummies below are primitive JS types that need proper
 -- implementations (my todo)
 
@@ -14,10 +44,11 @@ export
 data JSAny : Type where [external]
 
 export
-data JSObject : Type where [external]
+Cast a JSAny where
+  cast = believe_me
 
 export
-data Undefined : Type where [external]
+data JSObject : Type where [external]
 
 export
 data JSULong : Type where [external]

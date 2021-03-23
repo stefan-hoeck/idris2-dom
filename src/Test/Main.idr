@@ -1,4 +1,6 @@
 module Test.Main
 
+import Test.Util
+
 main : IO ()
-main = pure ()
+main = Test.Util.test
