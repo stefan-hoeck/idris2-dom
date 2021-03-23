@@ -1,23 +1,19 @@
-module JS.DOM.Raw.Clipboard
+module Web.File
 
-import JS.DOM.Raw.Types
+import Web.Types
 
 --------------------------------------------------------------------------------
 --          Casts
 --------------------------------------------------------------------------------
 
 export
-Cast Clipboard EventTarget where
+Cast File Blob where
   cast = believe_me
 
 export
-Cast ClipboardEvent Event where
+Cast FilePropertyBag BlobPropertyBag where
   cast = believe_me
 
 export
-Cast ClipboardEventInit EventInit where
-  cast = believe_me
-
-export
-Cast ClipboardPermissionDescriptor PermissionDescriptor where
+Cast FileReader EventTarget where
   cast = believe_me

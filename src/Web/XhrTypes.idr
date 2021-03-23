@@ -1,4 +1,4 @@
-module JS.DOM.Raw.XhrTypes
+module Web.XhrTypes
 
 import Data.Maybe
 

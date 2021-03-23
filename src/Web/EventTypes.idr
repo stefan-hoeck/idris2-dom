@@ -1,4 +1,4 @@
-module JS.DOM.Raw.EventTypes
+module Web.EventTypes
 
 
 

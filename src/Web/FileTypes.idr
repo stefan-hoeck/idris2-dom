@@ -1,4 +1,4 @@
-module JS.DOM.Raw.ClipboardTypes
+module Web.FileTypes
 
 import Data.Maybe
 
@@ -6,36 +6,34 @@ import Data.Maybe
 --          Enums
 --------------------------------------------------------------------------------
 
-namespace PresentationStyle
+namespace EndingType
   
   public export
-  data PresentationStyle = Unspecified | Inline | Attachment
+  data EndingType = Transparent | Native
 
   public export
-  Show PresentationStyle where
-    show Unspecified = "unspecified"
-    show Inline = "inline"
-    show Attachment = "attachment"
+  Show EndingType where
+    show Transparent = "transparent"
+    show Native = "native"
 
   public export
-  Eq PresentationStyle where
+  Eq EndingType where
     (==) = (==) `on` show
 
   public export
-  Ord PresentationStyle where
+  Ord EndingType where
     compare = compare `on` show
 
   public export
-  read : String -> Maybe PresentationStyle
-  read "unspecified" = Just Unspecified
-  read "inline" = Just Inline
-  read "attachment" = Just Attachment
+  read : String -> Maybe EndingType
+  read "transparent" = Just Transparent
+  read "native" = Just Native
   read _ = Nothing
 
   public export
   fromString :  (s : String)
-             -> {auto 0 _ : IsJust (PresentationStyle.read s)}
-             -> PresentationStyle
+             -> {auto 0 _ : IsJust (EndingType.read s)}
+             -> EndingType
   fromString s = fromJust $ read s
 
 --------------------------------------------------------------------------------
@@ -43,13 +41,19 @@ namespace PresentationStyle
 --------------------------------------------------------------------------------
 
 export
-data Clipboard : Type where [external]
+data Blob : Type where [external]
 
 export
-data ClipboardEvent : Type where [external]
+data File : Type where [external]
 
 export
-data ClipboardItem : Type where [external]
+data FileList : Type where [external]
+
+export
+data FileReader : Type where [external]
+
+export
+data FileReaderSync : Type where [external]
 
 
 --------------------------------------------------------------------------------
@@ -57,10 +61,7 @@ data ClipboardItem : Type where [external]
 --------------------------------------------------------------------------------
 
 export
-data ClipboardEventInit : Type where [external]
+data BlobPropertyBag : Type where [external]
 
 export
-data ClipboardItemOptions : Type where [external]
-
-export
-data ClipboardPermissionDescriptor : Type where [external]
+data FilePropertyBag : Type where [external]

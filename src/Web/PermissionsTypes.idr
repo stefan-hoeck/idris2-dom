@@ -1,4 +1,4 @@
-module JS.DOM.Raw.PermissionsTypes
+module Web.PermissionsTypes
 
 import Data.Maybe
 

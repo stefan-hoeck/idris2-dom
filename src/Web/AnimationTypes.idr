@@ -1,4 +1,4 @@
-module JS.DOM.Raw.AnimationTypes
+module Web.AnimationTypes
 
 import Data.Maybe
 

@@ -1,6 +1,6 @@
-module JS.DOM.Raw.Permissions
+module Web.Permissions
 
-import JS.DOM.Raw.Types
+import Web.Types
 
 --------------------------------------------------------------------------------
 --          Casts

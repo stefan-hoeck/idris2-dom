@@ -1,6 +1,6 @@
-module JS.DOM.Raw.Svg
+module Web.Svg
 
-import JS.DOM.Raw.Types
+import Web.Types
 
 --------------------------------------------------------------------------------
 --          Casts

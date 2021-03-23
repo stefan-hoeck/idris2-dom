@@ -1,4 +1,4 @@
-module JS.DOM.Raw.HtmlTypes
+module Web.HtmlTypes
 
 import Data.Maybe
 

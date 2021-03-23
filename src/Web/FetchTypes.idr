@@ -1,4 +1,4 @@
-module JS.DOM.Raw.FetchTypes
+module Web.FetchTypes
 
 import Data.Maybe
 

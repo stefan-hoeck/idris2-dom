@@ -1,7 +1,7 @@
 module Test.FetchTypes
 
 import Data.SOP
-import JS.DOM.Raw.Types
+import Web.Types
 import JS.Util
 
 test1 : String -> ()

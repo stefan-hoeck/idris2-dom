@@ -7,6 +7,9 @@ module JS.Util
 --          JS Primitives
 --------------------------------------------------------------------------------
 
+-- The dummies below are primitive JS types that need proper
+-- implementations (my todo)
+
 export
 data JSAny : Type where [external]
 
@@ -42,6 +45,15 @@ data JSPromise : Type -> Type where [external]
 
 export
 data JSRecord : Type -> Type -> Type where [external]
+
+export
+data ArrayBufferView : Type where [external]
+
+export
+data ArrayBuffer : Type where [external]
+
+export
+data Uint8ClampedArray : Type where [external]
 
 --------------------------------------------------------------------------------
 --          Aliases
@@ -92,15 +104,6 @@ data OnErrorEventHandler : Type where [external]
 
 export
 data WorkerNavigator : Type where [external]
-
-export
-data ArrayBufferView : Type where [external]
-
-export
-data ArrayBuffer : Type where [external]
-
-export
-data Uint8ClampedArray : Type where [external]
 
 export
 data SelectionMode : Type where [external]

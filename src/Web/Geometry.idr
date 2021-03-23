@@ -1,6 +1,6 @@
-module JS.DOM.Raw.Geometry
+module Web.Geometry
 
-import JS.DOM.Raw.Types
+import Web.Types
 
 --------------------------------------------------------------------------------
 --          Casts

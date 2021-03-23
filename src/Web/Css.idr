@@ -1,6 +1,6 @@
-module JS.DOM.Raw.Css
+module Web.Css
 
-import JS.DOM.Raw.Types
+import Web.Types
 
 --------------------------------------------------------------------------------
 --          Casts

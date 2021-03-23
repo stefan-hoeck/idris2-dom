@@ -1,4 +1,4 @@
-module JS.DOM.Raw.DomTypes
+module Web.DomTypes
 
 import Data.Maybe
 

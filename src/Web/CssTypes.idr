@@ -1,4 +1,4 @@
-module JS.DOM.Raw.CssTypes
+module Web.CssTypes
 
 
 

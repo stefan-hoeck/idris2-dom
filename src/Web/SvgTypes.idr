@@ -1,4 +1,4 @@
-module JS.DOM.Raw.SvgTypes
+module Web.SvgTypes
 
 
 

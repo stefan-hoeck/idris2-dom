@@ -1,4 +1,4 @@
-module JS.DOM.Raw.UrlTypes
+module Web.UrlTypes
 
 
 

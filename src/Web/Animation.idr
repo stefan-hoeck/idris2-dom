@@ -1,6 +1,6 @@
-module JS.DOM.Raw.Animation
+module Web.Animation
 
-import JS.DOM.Raw.Types
+import Web.Types
 
 --------------------------------------------------------------------------------
 --          Casts

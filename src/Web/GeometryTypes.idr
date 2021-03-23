@@ -1,4 +1,4 @@
-module JS.DOM.Raw.GeometryTypes
+module Web.GeometryTypes
 
 
 

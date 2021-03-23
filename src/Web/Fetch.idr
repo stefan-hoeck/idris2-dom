@@ -1,6 +1,6 @@
-module JS.DOM.Raw.Fetch
+module Web.Fetch
 
-import JS.DOM.Raw.Types
+import Web.Types
 
 --------------------------------------------------------------------------------
 --          Casts

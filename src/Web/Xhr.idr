@@ -1,6 +1,6 @@
-module JS.DOM.Raw.Xhr
+module Web.Xhr
 
-import JS.DOM.Raw.Types
+import Web.Types
 
 --------------------------------------------------------------------------------
 --          Casts

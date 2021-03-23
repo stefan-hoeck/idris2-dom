@@ -1,4 +1,4 @@
-module JS.DOM.Raw.FileTypes
+module Web.ClipboardTypes
 
 import Data.Maybe
 
@@ -6,34 +6,36 @@ import Data.Maybe
 --          Enums
 --------------------------------------------------------------------------------
 
-namespace EndingType
+namespace PresentationStyle
   
   public export
-  data EndingType = Transparent | Native
+  data PresentationStyle = Unspecified | Inline | Attachment
 
   public export
-  Show EndingType where
-    show Transparent = "transparent"
-    show Native = "native"
+  Show PresentationStyle where
+    show Unspecified = "unspecified"
+    show Inline = "inline"
+    show Attachment = "attachment"
 
   public export
-  Eq EndingType where
+  Eq PresentationStyle where
     (==) = (==) `on` show
 
   public export
-  Ord EndingType where
+  Ord PresentationStyle where
     compare = compare `on` show
 
   public export
-  read : String -> Maybe EndingType
-  read "transparent" = Just Transparent
-  read "native" = Just Native
+  read : String -> Maybe PresentationStyle
+  read "unspecified" = Just Unspecified
+  read "inline" = Just Inline
+  read "attachment" = Just Attachment
   read _ = Nothing
 
   public export
   fromString :  (s : String)
-             -> {auto 0 _ : IsJust (EndingType.read s)}
-             -> EndingType
+             -> {auto 0 _ : IsJust (PresentationStyle.read s)}
+             -> PresentationStyle
   fromString s = fromJust $ read s
 
 --------------------------------------------------------------------------------
@@ -41,19 +43,13 @@ namespace EndingType
 --------------------------------------------------------------------------------
 
 export
-data Blob : Type where [external]
+data Clipboard : Type where [external]
 
 export
-data File : Type where [external]
+data ClipboardEvent : Type where [external]
 
 export
-data FileList : Type where [external]
-
-export
-data FileReader : Type where [external]
-
-export
-data FileReaderSync : Type where [external]
+data ClipboardItem : Type where [external]
 
 
 --------------------------------------------------------------------------------
@@ -61,7 +57,10 @@ data FileReaderSync : Type where [external]
 --------------------------------------------------------------------------------
 
 export
-data BlobPropertyBag : Type where [external]
+data ClipboardEventInit : Type where [external]
 
 export
-data FilePropertyBag : Type where [external]
+data ClipboardItemOptions : Type where [external]
+
+export
+data ClipboardPermissionDescriptor : Type where [external]

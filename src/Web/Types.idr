@@ -1,20 +1,20 @@
-module JS.DOM.Raw.Types
+module Web.Types
 
 import Data.SOP
 import JS.Util
-import public JS.DOM.Raw.AnimationTypes as Types
-import public JS.DOM.Raw.ClipboardTypes as Types
-import public JS.DOM.Raw.CssTypes as Types
-import public JS.DOM.Raw.DomTypes as Types
-import public JS.DOM.Raw.EventTypes as Types
-import public JS.DOM.Raw.FetchTypes as Types
-import public JS.DOM.Raw.FileTypes as Types
-import public JS.DOM.Raw.GeometryTypes as Types
-import public JS.DOM.Raw.HtmlTypes as Types
-import public JS.DOM.Raw.PermissionsTypes as Types
-import public JS.DOM.Raw.SvgTypes as Types
-import public JS.DOM.Raw.UrlTypes as Types
-import public JS.DOM.Raw.XhrTypes as Types
+import public Web.AnimationTypes as Types
+import public Web.ClipboardTypes as Types
+import public Web.CssTypes as Types
+import public Web.DomTypes as Types
+import public Web.EventTypes as Types
+import public Web.FetchTypes as Types
+import public Web.FileTypes as Types
+import public Web.GeometryTypes as Types
+import public Web.HtmlTypes as Types
+import public Web.PermissionsTypes as Types
+import public Web.SvgTypes as Types
+import public Web.UrlTypes as Types
+import public Web.XhrTypes as Types
 
 --------------------------------------------------------------------------------
 --          Typedefs
