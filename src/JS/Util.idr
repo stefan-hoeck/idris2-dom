@@ -32,6 +32,12 @@ export
 data JSArray : Type -> Type where [external]
 
 export
+data Float32Array : Type where [external]
+
+export
+data Float64Array : Type where [external]
+
+export
 data JSPromise : Type -> Type where [external]
 
 export
@@ -53,27 +59,6 @@ CSSOMString = String
 -- The dummies below are types that appear in a DOM function or
 -- type alias but are either not yet in the specification (my fault)
 -- or need proper implementation and bindings here (my todo).
-
-export
-data DOMPoint : Type where [external]
-
-export
-data DOMMatrix2DInit : Type where [external]
-
-export
-data DOMMatrix : Type where [external]
-
-export
-data DOMPointInit : Type where [external]
-
-export
-data DOMRect : Type where [external]
-
-export
-data DOMRectReadOnly : Type where [external]
-
-export
-data DOMPointReadOnly : Type where [external]
 
 export
 data CustomElementConstructor : Type where [external]

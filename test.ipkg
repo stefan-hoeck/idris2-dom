@@ -24,6 +24,7 @@ modules = JS.Util
         , Test.EventTypes
         , Test.FetchTypes
         , Test.FileTypes
+        , Test.GeometryTypes
         , Test.HtmlTypes
         , Test.PermissionsTypes
         , Test.SvgTypes

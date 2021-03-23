@@ -22,6 +22,8 @@ modules = JS.Util
         , JS.DOM.Raw.FetchTypes
         , JS.DOM.Raw.File
         , JS.DOM.Raw.FileTypes
+        , JS.DOM.Raw.Geometry
+        , JS.DOM.Raw.GeometryTypes
         , JS.DOM.Raw.Html
         , JS.DOM.Raw.HtmlTypes
         , JS.DOM.Raw.Permissions
