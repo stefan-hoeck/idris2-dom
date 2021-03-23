@@ -7,10 +7,10 @@ import JS.Util
 test1 : Bool -> ()
 test1 _ = ()
 
-test2 : JSULong -> ()
+test2 : UInt64 -> ()
 test2 _ = ()
 
-test3 : JSULong -> ()
+test3 : UInt64 -> ()
 test3 _ = ()
 
 test4 : EventHandler -> ()
@@ -37,22 +37,22 @@ test10 _ = ()
 test11 : EventHandler -> ()
 test11 _ = ()
 
-test12 : JSUInt -> ()
+test12 : UInt16 -> ()
 test12 _ = ()
 
-test13 : JSUInt -> ()
+test13 : UInt16 -> ()
 test13 _ = ()
 
-test14 : JSUInt -> ()
+test14 : UInt16 -> ()
 test14 _ = ()
 
-test15 : JSUInt -> ()
+test15 : UInt16 -> ()
 test15 _ = ()
 
-test16 : JSUInt -> ()
+test16 : UInt16 -> ()
 test16 _ = ()
 
-test17 : JSUInt -> ()
+test17 : UInt16 -> ()
 test17 _ = ()
 
 test18 : Undefined -> ()
@@ -91,7 +91,7 @@ test28 _ = ()
 test29 : String -> ()
 test29 _ = ()
 
-test30 : JSULong -> ()
+test30 : UInt32 -> ()
 test30 _ = ()
 
 test31 : Bool -> ()
@@ -112,7 +112,7 @@ test35 _ = ()
 test36 : String -> ()
 test36 _ = ()
 
-test37 : JSUInt -> ()
+test37 : UInt16 -> ()
 test37 _ = ()
 
 test38 : String -> ()
@@ -229,10 +229,10 @@ test74 _ = ()
 test75 : Bool -> ()
 test75 _ = ()
 
-test76 : JSULong -> ()
+test76 : UInt64 -> ()
 test76 _ = ()
 
-test77 : JSULong -> ()
+test77 : UInt64 -> ()
 test77 _ = ()
 
 test78 : NS I [ File , String ] -> ()

@@ -43,7 +43,7 @@ test12 _ = ()
 test13 : JSAny -> ()
 test13 _ = ()
 
-test14 : JSUInt -> ()
+test14 : UInt16 -> ()
 test14 _ = ()
 
 test15 : String -> ()
@@ -166,7 +166,7 @@ test53 _ = ()
 test54 : String -> ()
 test54 _ = ()
 
-test55 : JSUInt -> ()
+test55 : UInt16 -> ()
 test55 _ = ()
 
 test56 : ResponseType -> ()
@@ -178,7 +178,7 @@ test57 _ = ()
 test58 : Bool -> ()
 test58 _ = ()
 
-test59 : JSUInt -> ()
+test59 : UInt16 -> ()
 test59 _ = ()
 
 test60 : Bool -> ()

@@ -61,7 +61,7 @@ test18 _ = ()
 test19 : PresentationStyle -> ()
 test19 _ = ()
 
-test20 : JSLong -> ()
+test20 : Int64 -> ()
 test20 _ = ()
 
 test21 : Bool -> ()

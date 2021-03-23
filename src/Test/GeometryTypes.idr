@@ -205,13 +205,13 @@ test66 _ = ()
 test67 : Double -> ()
 test67 _ = ()
 
-test68 : JSULong -> ()
+test68 : UInt32 -> ()
 test68 _ = ()
 
 test69 : Maybe DOMRect -> ()
 test69 _ = ()
 
-test70 : JSULong -> ()
+test70 : UInt32 -> ()
 test70 _ = ()
 
 test71 : DOMQuad -> ()

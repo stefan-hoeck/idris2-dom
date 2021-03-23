@@ -22,7 +22,7 @@ test5 _ = ()
 test6 : Bool -> ()
 test6 _ = ()
 
-test7 : JSUInt -> ()
+test7 : UInt16 -> ()
 test7 _ = ()
 
 test8 : String -> ()
@@ -70,10 +70,10 @@ test21 _ = ()
 test22 : String -> ()
 test22 _ = ()
 
-test23 : JSULong -> ()
+test23 : UInt32 -> ()
 test23 _ = ()
 
-test24 : JSULong -> ()
+test24 : UInt32 -> ()
 test24 _ = ()
 
 test25 : JSAny -> ()
@@ -103,10 +103,10 @@ test32 _ = ()
 test33 : ColorSpaceConversion -> ()
 test33 _ = ()
 
-test34 : JSULong -> ()
+test34 : UInt32 -> ()
 test34 _ = ()
 
-test35 : JSULong -> ()
+test35 : UInt32 -> ()
 test35 _ = ()
 
 test36 : ResizeQuality -> ()
@@ -193,13 +193,13 @@ test62 _ = ()
 test63 : RequestCredentials -> ()
 test63 _ = ()
 
-test64 : JSULong -> ()
+test64 : UInt32 -> ()
 test64 _ = ()
 
 test65 : AudioTrack -> ()
 test65 _ = ()
 
-test66 : JSULong -> ()
+test66 : UInt32 -> ()
 test66 _ = ()
 
 test67 : Maybe AudioTrack -> ()
@@ -268,7 +268,7 @@ test87 _ = ()
 test88 : Bool -> ()
 test88 _ = ()
 
-test89 : JSUInt -> ()
+test89 : UInt16 -> ()
 test89 _ = ()
 
 test90 : String -> ()
@@ -313,13 +313,13 @@ test102 _ = ()
 test103 : DOMParserSupportedType -> ()
 test103 _ = ()
 
-test104 : JSULong -> ()
+test104 : UInt32 -> ()
 test104 _ = ()
 
 test105 : Maybe String -> ()
 test105 _ = ()
 
-test106 : JSULong -> ()
+test106 : UInt32 -> ()
 test106 _ = ()
 
 test107 : Bool -> ()
@@ -364,10 +364,10 @@ test119 _ = ()
 test120 : Element -> ()
 test120 _ = ()
 
-test121 : JSInt -> ()
+test121 : Int32 -> ()
 test121 _ = ()
 
-test122 : JSInt -> ()
+test122 : Int32 -> ()
 test122 _ = ()
 
 test123 : JSArray String -> ()
@@ -412,13 +412,13 @@ test135 _ = ()
 test136 : Maybe File -> ()
 test136 _ = ()
 
-test137 : JSULong -> ()
+test137 : UInt32 -> ()
 test137 _ = ()
 
 test138 : DataTransferItem -> ()
 test138 _ = ()
 
-test139 : JSULong -> ()
+test139 : UInt32 -> ()
 test139 _ = ()
 
 test140 : Maybe DataTransferItem -> ()
@@ -439,7 +439,7 @@ test144 _ = ()
 test145 : Undefined -> ()
 test145 _ = ()
 
-test146 : JSULong -> ()
+test146 : UInt32 -> ()
 test146 _ = ()
 
 test147 : Undefined -> ()
@@ -541,10 +541,10 @@ test178 _ = ()
 test179 : String -> ()
 test179 _ = ()
 
-test180 : JSULong -> ()
+test180 : UInt32 -> ()
 test180 _ = ()
 
-test181 : JSULong -> ()
+test181 : UInt32 -> ()
 test181 _ = ()
 
 test182 : JSAny -> ()
@@ -562,16 +562,16 @@ test185 _ = ()
 test186 : Bool -> ()
 test186 _ = ()
 
-test187 : JSUInt -> ()
+test187 : UInt16 -> ()
 test187 _ = ()
 
-test188 : JSUInt -> ()
+test188 : UInt16 -> ()
 test188 _ = ()
 
-test189 : JSUInt -> ()
+test189 : UInt16 -> ()
 test189 _ = ()
 
-test190 : JSUInt -> ()
+test190 : UInt16 -> ()
 test190 _ = ()
 
 test191 : EventHandler -> ()
@@ -607,7 +607,7 @@ test200 _ = ()
 test201 : Undefined -> ()
 test201 _ = ()
 
-test202 : JSULong -> ()
+test202 : UInt32 -> ()
 test202 _ = ()
 
 test203 : Undefined -> ()
@@ -637,13 +637,13 @@ test210 _ = ()
 test211 : FormData -> ()
 test211 _ = ()
 
-test212 : JSULong -> ()
+test212 : UInt32 -> ()
 test212 _ = ()
 
 test213 : Element -> ()
 test213 _ = ()
 
-test214 : JSULong -> ()
+test214 : UInt32 -> ()
 test214 _ = ()
 
 test215 : Maybe (NS I [ HTMLCollection , Element ]) -> ()
@@ -772,10 +772,10 @@ test255 _ = ()
 test256 : NodeList -> ()
 test256 _ = ()
 
-test257 : JSULong -> ()
+test257 : UInt32 -> ()
 test257 _ = ()
 
-test258 : JSULong -> ()
+test258 : UInt32 -> ()
 test258 _ = ()
 
 test259 : Maybe RenderingContext -> ()
@@ -985,13 +985,13 @@ test326 _ = ()
 test327 : HTMLFormControlsCollection -> ()
 test327 _ = ()
 
-test328 : JSULong -> ()
+test328 : UInt32 -> ()
 test328 _ = ()
 
 test329 : Element -> ()
 test329 _ = ()
 
-test330 : JSULong -> ()
+test330 : UInt32 -> ()
 test330 _ = ()
 
 test331 : NS I [ RadioNodeList , Element ] -> ()
@@ -1114,16 +1114,16 @@ test369 _ = ()
 test370 : Bool -> ()
 test370 _ = ()
 
-test371 : JSULong -> ()
+test371 : UInt32 -> ()
 test371 _ = ()
 
-test372 : JSULong -> ()
+test372 : UInt32 -> ()
 test372 _ = ()
 
-test373 : JSULong -> ()
+test373 : UInt32 -> ()
 test373 _ = ()
 
-test374 : JSULong -> ()
+test374 : UInt32 -> ()
 test374 _ = ()
 
 test375 : Bool -> ()
@@ -1186,7 +1186,7 @@ test393 _ = ()
 test394 : String -> ()
 test394 _ = ()
 
-test395 : JSULong -> ()
+test395 : UInt32 -> ()
 test395 _ = ()
 
 test396 : Bool -> ()
@@ -1198,13 +1198,13 @@ test397 _ = ()
 test398 : String -> ()
 test398 _ = ()
 
-test399 : JSInt -> ()
+test399 : Int32 -> ()
 test399 _ = ()
 
 test400 : String -> ()
 test400 _ = ()
 
-test401 : JSInt -> ()
+test401 : Int32 -> ()
 test401 _ = ()
 
 test402 : Bool -> ()
@@ -1225,7 +1225,7 @@ test406 _ = ()
 test407 : Bool -> ()
 test407 _ = ()
 
-test408 : JSULong -> ()
+test408 : UInt32 -> ()
 test408 _ = ()
 
 test409 : String -> ()
@@ -1249,19 +1249,19 @@ test414 _ = ()
 test415 : Double -> ()
 test415 _ = ()
 
-test416 : JSULong -> ()
+test416 : UInt32 -> ()
 test416 _ = ()
 
 test417 : Undefined -> ()
 test417 _ = ()
 
-test418 : JSInt -> ()
+test418 : Int32 -> ()
 test418 _ = ()
 
 test419 : Undefined -> ()
 test419 _ = ()
 
-test420 : JSInt -> ()
+test420 : Int32 -> ()
 test420 _ = ()
 
 test421 : Bool -> ()
@@ -1291,10 +1291,10 @@ test428 _ = ()
 test429 : Undefined -> ()
 test429 _ = ()
 
-test430 : Maybe JSULong -> ()
+test430 : Maybe UInt32 -> ()
 test430 _ = ()
 
-test431 : Maybe JSULong -> ()
+test431 : Maybe UInt32 -> ()
 test431 _ = ()
 
 test432 : Maybe String -> ()
@@ -1312,10 +1312,10 @@ test435 _ = ()
 test436 : String -> ()
 test436 _ = ()
 
-test437 : JSULong -> ()
+test437 : UInt32 -> ()
 test437 _ = ()
 
-test438 : JSULong -> ()
+test438 : UInt32 -> ()
 test438 _ = ()
 
 test439 : SelectionMode -> ()
@@ -1324,16 +1324,16 @@ test439 _ = ()
 test440 : Undefined -> ()
 test440 _ = ()
 
-test441 : JSULong -> ()
+test441 : UInt32 -> ()
 test441 _ = ()
 
-test442 : JSULong -> ()
+test442 : UInt32 -> ()
 test442 _ = ()
 
 test443 : String -> ()
 test443 _ = ()
 
-test444 : JSInt -> ()
+test444 : Int32 -> ()
 test444 _ = ()
 
 test445 : Maybe HTMLFormElement -> ()
@@ -1408,22 +1408,22 @@ test467 _ = ()
 test468 : String -> ()
 test468 _ = ()
 
-test469 : JSULong -> ()
+test469 : UInt32 -> ()
 test469 _ = ()
 
-test470 : JSInt -> ()
+test470 : Int32 -> ()
 test470 _ = ()
 
-test471 : JSULong -> ()
+test471 : UInt32 -> ()
 test471 _ = ()
 
-test472 : JSULong -> ()
+test472 : UInt32 -> ()
 test472 _ = ()
 
 test473 : Bool -> ()
 test473 _ = ()
 
-test474 : JSULong -> ()
+test474 : UInt32 -> ()
 test474 _ = ()
 
 test475 : String -> ()
@@ -1450,19 +1450,19 @@ test481 _ = ()
 test482 : Maybe String -> ()
 test482 _ = ()
 
-test483 : JSUInt -> ()
+test483 : UInt16 -> ()
 test483 _ = ()
 
-test484 : JSUInt -> ()
+test484 : UInt16 -> ()
 test484 _ = ()
 
-test485 : JSUInt -> ()
+test485 : UInt16 -> ()
 test485 _ = ()
 
-test486 : JSUInt -> ()
+test486 : UInt16 -> ()
 test486 _ = ()
 
-test487 : JSUInt -> ()
+test487 : UInt16 -> ()
 test487 _ = ()
 
 test488 : String -> ()
@@ -1480,22 +1480,22 @@ test491 _ = ()
 test492 : String -> ()
 test492 _ = ()
 
-test493 : JSUInt -> ()
+test493 : UInt16 -> ()
 test493 _ = ()
 
-test494 : JSUInt -> ()
+test494 : UInt16 -> ()
 test494 _ = ()
 
-test495 : JSUInt -> ()
+test495 : UInt16 -> ()
 test495 _ = ()
 
-test496 : JSUInt -> ()
+test496 : UInt16 -> ()
 test496 _ = ()
 
-test497 : JSUInt -> ()
+test497 : UInt16 -> ()
 test497 _ = ()
 
-test498 : JSUInt -> ()
+test498 : UInt16 -> ()
 test498 _ = ()
 
 test499 : Bool -> ()
@@ -1621,7 +1621,7 @@ test538 _ = ()
 test539 : Bool -> ()
 test539 _ = ()
 
-test540 : JSInt -> ()
+test540 : Int32 -> ()
 test540 _ = ()
 
 test541 : String -> ()
@@ -1702,16 +1702,16 @@ test565 _ = ()
 test566 : String -> ()
 test566 _ = ()
 
-test567 : JSInt -> ()
+test567 : Int32 -> ()
 test567 _ = ()
 
-test568 : JSULong -> ()
+test568 : UInt32 -> ()
 test568 _ = ()
 
 test569 : Undefined -> ()
 test569 _ = ()
 
-test570 : JSULong -> ()
+test570 : UInt32 -> ()
 test570 _ = ()
 
 test571 : Maybe HTMLOptionElement -> ()
@@ -1723,16 +1723,16 @@ test572 _ = ()
 test573 : NS I [ HTMLOptionElement , HTMLOptGroupElement ] -> ()
 test573 _ = ()
 
-test574 : Maybe (NS I [ HTMLElement , JSInt ]) -> ()
+test574 : Maybe (NS I [ HTMLElement , Int32 ]) -> ()
 test574 _ = ()
 
 test575 : Undefined -> ()
 test575 _ = ()
 
-test576 : JSInt -> ()
+test576 : Int32 -> ()
 test576 _ = ()
 
-test577 : JSInt -> ()
+test577 : Int32 -> ()
 test577 _ = ()
 
 test578 : DOMTokenList -> ()
@@ -1843,7 +1843,7 @@ test612 _ = ()
 test613 : Bool -> ()
 test613 _ = ()
 
-test614 : JSULong -> ()
+test614 : UInt32 -> ()
 test614 _ = ()
 
 test615 : String -> ()
@@ -1852,13 +1852,13 @@ test615 _ = ()
 test616 : HTMLOptionsCollection -> ()
 test616 _ = ()
 
-test617 : JSULong -> ()
+test617 : UInt32 -> ()
 test617 _ = ()
 
 test618 : Maybe Element -> ()
 test618 _ = ()
 
-test619 : JSULong -> ()
+test619 : UInt32 -> ()
 test619 _ = ()
 
 test620 : Maybe HTMLOptionElement -> ()
@@ -1873,7 +1873,7 @@ test622 _ = ()
 test623 : NS I [ HTMLOptionElement , HTMLOptGroupElement ] -> ()
 test623 _ = ()
 
-test624 : Maybe (NS I [ HTMLElement , JSInt ]) -> ()
+test624 : Maybe (NS I [ HTMLElement , Int32 ]) -> ()
 test624 _ = ()
 
 test625 : Undefined -> ()
@@ -1882,13 +1882,13 @@ test625 _ = ()
 test626 : Undefined -> ()
 test626 _ = ()
 
-test627 : JSInt -> ()
+test627 : Int32 -> ()
 test627 _ = ()
 
 test628 : Undefined -> ()
 test628 _ = ()
 
-test629 : JSULong -> ()
+test629 : UInt32 -> ()
 test629 _ = ()
 
 test630 : Maybe HTMLOptionElement -> ()
@@ -1897,7 +1897,7 @@ test630 _ = ()
 test631 : HTMLCollection -> ()
 test631 _ = ()
 
-test632 : JSInt -> ()
+test632 : Int32 -> ()
 test632 _ = ()
 
 test633 : String -> ()
@@ -1957,25 +1957,25 @@ test650 _ = ()
 test651 : String -> ()
 test651 _ = ()
 
-test652 : JSULong -> ()
+test652 : UInt32 -> ()
 test652 _ = ()
 
-test653 : JSULong -> ()
+test653 : UInt32 -> ()
 test653 _ = ()
 
 test654 : String -> ()
 test654 _ = ()
 
-test655 : JSULong -> ()
+test655 : UInt32 -> ()
 test655 _ = ()
 
-test656 : JSULong -> ()
+test656 : UInt32 -> ()
 test656 _ = ()
 
 test657 : String -> ()
 test657 _ = ()
 
-test658 : JSInt -> ()
+test658 : Int32 -> ()
 test658 _ = ()
 
 test659 : String -> ()
@@ -1984,7 +1984,7 @@ test659 _ = ()
 test660 : String -> ()
 test660 _ = ()
 
-test661 : JSULong -> ()
+test661 : UInt32 -> ()
 test661 _ = ()
 
 test662 : Maybe HTMLTableCaptionElement -> ()
@@ -2026,19 +2026,19 @@ test673 _ = ()
 test674 : HTMLTableRowElement -> ()
 test674 _ = ()
 
-test675 : JSInt -> ()
+test675 : Int32 -> ()
 test675 _ = ()
 
 test676 : Undefined -> ()
 test676 _ = ()
 
-test677 : JSInt -> ()
+test677 : Int32 -> ()
 test677 _ = ()
 
-test678 : JSInt -> ()
+test678 : Int32 -> ()
 test678 _ = ()
 
-test679 : JSInt -> ()
+test679 : Int32 -> ()
 test679 _ = ()
 
 test680 : HTMLCollection -> ()
@@ -2047,13 +2047,13 @@ test680 _ = ()
 test681 : HTMLTableCellElement -> ()
 test681 _ = ()
 
-test682 : JSInt -> ()
+test682 : Int32 -> ()
 test682 _ = ()
 
 test683 : Undefined -> ()
 test683 _ = ()
 
-test684 : JSInt -> ()
+test684 : Int32 -> ()
 test684 _ = ()
 
 test685 : HTMLCollection -> ()
@@ -2062,13 +2062,13 @@ test685 _ = ()
 test686 : HTMLTableRowElement -> ()
 test686 _ = ()
 
-test687 : JSInt -> ()
+test687 : Int32 -> ()
 test687 _ = ()
 
 test688 : Undefined -> ()
 test688 _ = ()
 
-test689 : JSInt -> ()
+test689 : Int32 -> ()
 test689 _ = ()
 
 test690 : DocumentFragment -> ()
@@ -2077,7 +2077,7 @@ test690 _ = ()
 test691 : String -> ()
 test691 _ = ()
 
-test692 : JSULong -> ()
+test692 : UInt32 -> ()
 test692 _ = ()
 
 test693 : String -> ()
@@ -2089,10 +2089,10 @@ test694 _ = ()
 test695 : Maybe HTMLFormElement -> ()
 test695 _ = ()
 
-test696 : JSInt -> ()
+test696 : Int32 -> ()
 test696 _ = ()
 
-test697 : JSInt -> ()
+test697 : Int32 -> ()
 test697 _ = ()
 
 test698 : String -> ()
@@ -2107,7 +2107,7 @@ test700 _ = ()
 test701 : Bool -> ()
 test701 _ = ()
 
-test702 : JSULong -> ()
+test702 : UInt32 -> ()
 test702 _ = ()
 
 test703 : String -> ()
@@ -2122,7 +2122,7 @@ test705 _ = ()
 test706 : String -> ()
 test706 _ = ()
 
-test707 : JSULong -> ()
+test707 : UInt32 -> ()
 test707 _ = ()
 
 test708 : Bool -> ()
@@ -2152,10 +2152,10 @@ test715 _ = ()
 test716 : Undefined -> ()
 test716 _ = ()
 
-test717 : JSULong -> ()
+test717 : UInt32 -> ()
 test717 _ = ()
 
-test718 : JSULong -> ()
+test718 : UInt32 -> ()
 test718 _ = ()
 
 test719 : String -> ()
@@ -2173,10 +2173,10 @@ test722 _ = ()
 test723 : String -> ()
 test723 _ = ()
 
-test724 : JSULong -> ()
+test724 : UInt32 -> ()
 test724 _ = ()
 
-test725 : JSULong -> ()
+test725 : UInt32 -> ()
 test725 _ = ()
 
 test726 : SelectionMode -> ()
@@ -2185,10 +2185,10 @@ test726 _ = ()
 test727 : Undefined -> ()
 test727 _ = ()
 
-test728 : JSULong -> ()
+test728 : UInt32 -> ()
 test728 _ = ()
 
-test729 : JSULong -> ()
+test729 : UInt32 -> ()
 test729 _ = ()
 
 test730 : String -> ()
@@ -2215,34 +2215,34 @@ test736 _ = ()
 test737 : Bool -> ()
 test737 _ = ()
 
-test738 : JSUInt -> ()
+test738 : UInt16 -> ()
 test738 _ = ()
 
-test739 : JSUInt -> ()
+test739 : UInt16 -> ()
 test739 _ = ()
 
-test740 : JSUInt -> ()
+test740 : UInt16 -> ()
 test740 _ = ()
 
-test741 : JSUInt -> ()
+test741 : UInt16 -> ()
 test741 _ = ()
 
-test742 : JSUInt -> ()
+test742 : UInt16 -> ()
 test742 _ = ()
 
 test743 : TextTrack -> ()
 test743 _ = ()
 
-test744 : JSULong -> ()
+test744 : UInt32 -> ()
 test744 _ = ()
 
-test745 : JSULong -> ()
+test745 : UInt32 -> ()
 test745 _ = ()
 
-test746 : JSULong -> ()
+test746 : UInt32 -> ()
 test746 _ = ()
 
-test747 : JSULong -> ()
+test747 : UInt32 -> ()
 test747 _ = ()
 
 test748 : String -> ()
@@ -2263,7 +2263,7 @@ test752 _ = ()
 test753 : String -> ()
 test753 _ = ()
 
-test754 : JSULong -> ()
+test754 : UInt32 -> ()
 test754 _ = ()
 
 test755 : ScrollRestoration -> ()
@@ -2275,7 +2275,7 @@ test756 _ = ()
 test757 : Undefined -> ()
 test757 _ = ()
 
-test758 : JSInt -> ()
+test758 : Int32 -> ()
 test758 _ = ()
 
 test759 : Undefined -> ()
@@ -2308,10 +2308,10 @@ test767 _ = ()
 test768 : Maybe String -> ()
 test768 _ = ()
 
-test769 : JSULong -> ()
+test769 : UInt32 -> ()
 test769 _ = ()
 
-test770 : JSULong -> ()
+test770 : UInt32 -> ()
 test770 _ = ()
 
 test771 : Undefined -> ()
@@ -2383,25 +2383,25 @@ test792 _ = ()
 test793 : Double -> ()
 test793 _ = ()
 
-test794 : JSULong -> ()
+test794 : UInt32 -> ()
 test794 _ = ()
 
-test795 : JSULong -> ()
+test795 : UInt32 -> ()
 test795 _ = ()
 
 test796 : Uint8ClampedArray -> ()
 test796 _ = ()
 
-test797 : JSULong -> ()
+test797 : UInt32 -> ()
 test797 _ = ()
 
-test798 : JSULong -> ()
+test798 : UInt32 -> ()
 test798 _ = ()
 
-test799 : JSULong -> ()
+test799 : UInt32 -> ()
 test799 _ = ()
 
-test800 : JSULong -> ()
+test800 : UInt32 -> ()
 test800 _ = ()
 
 test801 : Uint8ClampedArray -> ()
@@ -2464,19 +2464,19 @@ test819 _ = ()
 test820 : DOMStringList -> ()
 test820 _ = ()
 
-test821 : JSUInt -> ()
+test821 : UInt16 -> ()
 test821 _ = ()
 
-test822 : JSUInt -> ()
+test822 : UInt16 -> ()
 test822 _ = ()
 
-test823 : JSUInt -> ()
+test823 : UInt16 -> ()
 test823 _ = ()
 
-test824 : JSUInt -> ()
+test824 : UInt16 -> ()
 test824 _ = ()
 
-test825 : JSUInt -> ()
+test825 : UInt16 -> ()
 test825 _ = ()
 
 test826 : String -> ()
@@ -2569,13 +2569,13 @@ test854 _ = ()
 test855 : Undefined -> ()
 test855 _ = ()
 
-test856 : JSULong -> ()
+test856 : UInt32 -> ()
 test856 _ = ()
 
 test857 : Maybe JSObject -> ()
 test857 _ = ()
 
-test858 : JSULong -> ()
+test858 : UInt32 -> ()
 test858 _ = ()
 
 test859 : Maybe JSObject -> ()
@@ -2584,13 +2584,13 @@ test859 _ = ()
 test860 : String -> ()
 test860 _ = ()
 
-test861 : JSULong -> ()
+test861 : UInt32 -> ()
 test861 _ = ()
 
 test862 : Maybe JSObject -> ()
 test862 _ = ()
 
-test863 : JSULong -> ()
+test863 : UInt32 -> ()
 test863 _ = ()
 
 test864 : Maybe JSObject -> ()
@@ -2611,16 +2611,16 @@ test868 _ = ()
 test869 : Undefined -> ()
 test869 _ = ()
 
-test870 : JSULong -> ()
+test870 : UInt64 -> ()
 test870 _ = ()
 
-test871 : JSULong -> ()
+test871 : UInt64 -> ()
 test871 _ = ()
 
-test872 : JSULong -> ()
+test872 : UInt64 -> ()
 test872 _ = ()
 
-test873 : JSULong -> ()
+test873 : UInt64 -> ()
 test873 _ = ()
 
 test874 : Maybe OffscreenRenderingContext -> ()
@@ -2695,13 +2695,13 @@ test896 _ = ()
 test897 : EventHandler -> ()
 test897 _ = ()
 
-test898 : JSULong -> ()
+test898 : UInt32 -> ()
 test898 _ = ()
 
 test899 : Maybe String -> ()
 test899 _ = ()
 
-test900 : JSULong -> ()
+test900 : UInt32 -> ()
 test900 _ = ()
 
 test901 : Maybe String -> ()
@@ -2845,13 +2845,13 @@ test946 _ = ()
 test947 : EventHandler -> ()
 test947 _ = ()
 
-test948 : JSULong -> ()
+test948 : UInt32 -> ()
 test948 _ = ()
 
 test949 : TextTrackCue -> ()
 test949 _ = ()
 
-test950 : JSULong -> ()
+test950 : UInt32 -> ()
 test950 _ = ()
 
 test951 : Maybe TextTrackCue -> ()
@@ -2860,13 +2860,13 @@ test951 _ = ()
 test952 : String -> ()
 test952 _ = ()
 
-test953 : JSULong -> ()
+test953 : UInt32 -> ()
 test953 _ = ()
 
 test954 : TextTrack -> ()
 test954 _ = ()
 
-test955 : JSULong -> ()
+test955 : UInt32 -> ()
 test955 _ = ()
 
 test956 : Maybe TextTrack -> ()
@@ -2884,19 +2884,19 @@ test959 _ = ()
 test960 : EventHandler -> ()
 test960 _ = ()
 
-test961 : JSULong -> ()
+test961 : UInt32 -> ()
 test961 _ = ()
 
 test962 : Double -> ()
 test962 _ = ()
 
-test963 : JSULong -> ()
+test963 : UInt32 -> ()
 test963 _ = ()
 
 test964 : Double -> ()
 test964 _ = ()
 
-test965 : JSULong -> ()
+test965 : UInt32 -> ()
 test965 _ = ()
 
 test966 : String -> ()
@@ -2941,13 +2941,13 @@ test978 _ = ()
 test979 : Bool -> ()
 test979 _ = ()
 
-test980 : JSULong -> ()
+test980 : UInt32 -> ()
 test980 _ = ()
 
 test981 : VideoTrack -> ()
 test981 _ = ()
 
-test982 : JSULong -> ()
+test982 : UInt32 -> ()
 test982 _ = ()
 
 test983 : Maybe VideoTrack -> ()
@@ -2956,7 +2956,7 @@ test983 _ = ()
 test984 : String -> ()
 test984 _ = ()
 
-test985 : JSInt -> ()
+test985 : Int32 -> ()
 test985 _ = ()
 
 test986 : EventHandler -> ()
@@ -2992,22 +2992,22 @@ test995 _ = ()
 test996 : String -> ()
 test996 _ = ()
 
-test997 : JSUInt -> ()
+test997 : UInt16 -> ()
 test997 _ = ()
 
-test998 : JSUInt -> ()
+test998 : UInt16 -> ()
 test998 _ = ()
 
-test999 : JSUInt -> ()
+test999 : UInt16 -> ()
 test999 _ = ()
 
-test1000 : JSUInt -> ()
+test1000 : UInt16 -> ()
 test1000 _ = ()
 
-test1001 : JSUInt -> ()
+test1001 : UInt16 -> ()
 test1001 _ = ()
 
-test1002 : JSULong -> ()
+test1002 : UInt64 -> ()
 test1002 _ = ()
 
 test1003 : EventHandler -> ()
@@ -3028,7 +3028,7 @@ test1007 _ = ()
 test1008 : Undefined -> ()
 test1008 _ = ()
 
-test1009 : JSUInt -> ()
+test1009 : UInt16 -> ()
 test1009 _ = ()
 
 test1010 : String -> ()
@@ -3124,7 +3124,7 @@ test1039 _ = ()
 test1040 : WindowProxy -> ()
 test1040 _ = ()
 
-test1041 : JSULong -> ()
+test1041 : UInt32 -> ()
 test1041 _ = ()
 
 test1042 : Maybe WindowProxy -> ()
@@ -3988,10 +3988,10 @@ test1327 _ = ()
 test1328 : ImageData -> ()
 test1328 _ = ()
 
-test1329 : JSInt -> ()
+test1329 : Int32 -> ()
 test1329 _ = ()
 
-test1330 : JSInt -> ()
+test1330 : Int32 -> ()
 test1330 _ = ()
 
 test1331 : ImageData -> ()
@@ -4003,16 +4003,16 @@ test1332 _ = ()
 test1333 : ImageData -> ()
 test1333 _ = ()
 
-test1334 : JSInt -> ()
+test1334 : Int32 -> ()
 test1334 _ = ()
 
-test1335 : JSInt -> ()
+test1335 : Int32 -> ()
 test1335 _ = ()
 
-test1336 : JSInt -> ()
+test1336 : Int32 -> ()
 test1336 _ = ()
 
-test1337 : JSInt -> ()
+test1337 : Int32 -> ()
 test1337 _ = ()
 
 test1338 : Undefined -> ()
@@ -4021,10 +4021,10 @@ test1338 _ = ()
 test1339 : ImageData -> ()
 test1339 _ = ()
 
-test1340 : JSInt -> ()
+test1340 : Int32 -> ()
 test1340 _ = ()
 
-test1341 : JSInt -> ()
+test1341 : Int32 -> ()
 test1341 _ = ()
 
 test1342 : Undefined -> ()
@@ -4033,22 +4033,22 @@ test1342 _ = ()
 test1343 : ImageData -> ()
 test1343 _ = ()
 
-test1344 : JSInt -> ()
+test1344 : Int32 -> ()
 test1344 _ = ()
 
-test1345 : JSInt -> ()
+test1345 : Int32 -> ()
 test1345 _ = ()
 
-test1346 : JSInt -> ()
+test1346 : Int32 -> ()
 test1346 _ = ()
 
-test1347 : JSInt -> ()
+test1347 : Int32 -> ()
 test1347 _ = ()
 
-test1348 : JSInt -> ()
+test1348 : Int32 -> ()
 test1348 _ = ()
 
-test1349 : JSInt -> ()
+test1349 : Int32 -> ()
 test1349 _ = ()
 
 test1350 : Double -> ()
@@ -4291,7 +4291,7 @@ test1428 _ = ()
 test1429 : Bool -> ()
 test1429 _ = ()
 
-test1430 : JSULong -> ()
+test1430 : UInt64 -> ()
 test1430 _ = ()
 
 test1431 : EventHandler -> ()
@@ -4339,7 +4339,7 @@ test1444 _ = ()
 test1445 : Bool -> ()
 test1445 _ = ()
 
-test1446 : JSInt -> ()
+test1446 : Int32 -> ()
 test1446 _ = ()
 
 test1447 : Undefined -> ()
@@ -4789,10 +4789,10 @@ test1594 _ = ()
 test1595 : String -> ()
 test1595 _ = ()
 
-test1596 : JSULong -> ()
+test1596 : UInt32 -> ()
 test1596 _ = ()
 
-test1597 : JSULong -> ()
+test1597 : UInt32 -> ()
 test1597 _ = ()
 
 test1598 : String -> ()
@@ -4843,13 +4843,13 @@ test1612 _ = ()
 test1613 : Bool -> ()
 test1613 _ = ()
 
-test1614 : JSULong -> ()
+test1614 : UInt32 -> ()
 test1614 _ = ()
 
 test1615 : String -> ()
 test1615 _ = ()
 
-test1616 : JSULong -> ()
+test1616 : UInt32 -> ()
 test1616 _ = ()
 
 test1617 : String -> ()
@@ -4873,7 +4873,7 @@ test1622 _ = ()
 test1623 : String -> ()
 test1623 _ = ()
 
-test1624 : JSInt -> ()
+test1624 : Int32 -> ()
 test1624 _ = ()
 
 test1625 : String -> ()

@@ -7,28 +7,28 @@ import JS.Util
 test1 : Maybe Window -> ()
 test1 _ = ()
 
-test2 : JSInt -> ()
+test2 : Int32 -> ()
 test2 _ = ()
 
 test3 : Maybe EventTarget -> ()
 test3 _ = ()
 
-test4 : JSInt -> ()
+test4 : Int32 -> ()
 test4 _ = ()
 
-test5 : JSInt -> ()
+test5 : Int32 -> ()
 test5 _ = ()
 
-test6 : JSInt -> ()
+test6 : Int32 -> ()
 test6 _ = ()
 
-test7 : JSInt -> ()
+test7 : Int32 -> ()
 test7 _ = ()
 
-test8 : JSInt -> ()
+test8 : Int16 -> ()
 test8 _ = ()
 
-test9 : JSUInt -> ()
+test9 : UInt16 -> ()
 test9 _ = ()
 
 test10 : Maybe EventTarget -> ()
@@ -85,7 +85,7 @@ test26 _ = ()
 test27 : Double -> ()
 test27 _ = ()
 
-test28 : JSULong -> ()
+test28 : UInt32 -> ()
 test28 _ = ()
 
 test29 : Maybe String -> ()
@@ -103,7 +103,7 @@ test32 _ = ()
 test33 : String -> ()
 test33 _ = ()
 
-test34 : JSULong -> ()
+test34 : UInt32 -> ()
 test34 _ = ()
 
 test35 : Bool -> ()
@@ -124,7 +124,7 @@ test39 _ = ()
 test40 : Maybe Window -> ()
 test40 _ = ()
 
-test41 : JSInt -> ()
+test41 : Int32 -> ()
 test41 _ = ()
 
 test42 : String -> ()
@@ -142,16 +142,16 @@ test45 _ = ()
 test46 : MouseEventInit -> ()
 test46 _ = ()
 
-test47 : JSInt -> ()
+test47 : Int32 -> ()
 test47 _ = ()
 
-test48 : JSInt -> ()
+test48 : Int32 -> ()
 test48 _ = ()
 
-test49 : JSInt -> ()
+test49 : Int32 -> ()
 test49 _ = ()
 
-test50 : JSInt -> ()
+test50 : Int32 -> ()
 test50 _ = ()
 
 test51 : Bool -> ()
@@ -166,10 +166,10 @@ test53 _ = ()
 test54 : Bool -> ()
 test54 _ = ()
 
-test55 : JSInt -> ()
+test55 : Int16 -> ()
 test55 _ = ()
 
-test56 : JSUInt -> ()
+test56 : UInt16 -> ()
 test56 _ = ()
 
 test57 : Maybe EventTarget -> ()
@@ -187,13 +187,13 @@ test60 _ = ()
 test61 : WheelEventInit -> ()
 test61 _ = ()
 
-test62 : JSULong -> ()
+test62 : UInt32 -> ()
 test62 _ = ()
 
-test63 : JSULong -> ()
+test63 : UInt32 -> ()
 test63 _ = ()
 
-test64 : JSULong -> ()
+test64 : UInt32 -> ()
 test64 _ = ()
 
 test65 : Double -> ()
@@ -205,7 +205,7 @@ test66 _ = ()
 test67 : Double -> ()
 test67 _ = ()
 
-test68 : JSULong -> ()
+test68 : UInt32 -> ()
 test68 _ = ()
 
 test69 : String -> ()
@@ -229,16 +229,16 @@ test74 _ = ()
 test75 : KeyboardEventInit -> ()
 test75 _ = ()
 
-test76 : JSULong -> ()
+test76 : UInt32 -> ()
 test76 _ = ()
 
-test77 : JSULong -> ()
+test77 : UInt32 -> ()
 test77 _ = ()
 
-test78 : JSULong -> ()
+test78 : UInt32 -> ()
 test78 _ = ()
 
-test79 : JSULong -> ()
+test79 : UInt32 -> ()
 test79 _ = ()
 
 test80 : String -> ()
@@ -247,7 +247,7 @@ test80 _ = ()
 test81 : String -> ()
 test81 _ = ()
 
-test82 : JSULong -> ()
+test82 : UInt32 -> ()
 test82 _ = ()
 
 test83 : Bool -> ()
@@ -283,17 +283,17 @@ test92 _ = ()
 test93 : String -> ()
 test93 _ = ()
 
-test94 : JSULong -> ()
+test94 : UInt32 -> ()
 test94 _ = ()
 
-test95 : JSULong -> ()
+test95 : UInt32 -> ()
 test95 _ = ()
 
-test96 : JSULong -> ()
+test96 : UInt32 -> ()
 test96 _ = ()
 
-test97 : JSULong -> ()
+test97 : UInt32 -> ()
 test97 _ = ()
 
-test98 : JSULong -> ()
+test98 : UInt32 -> ()
 test98 _ = ()

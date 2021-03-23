@@ -7,13 +7,13 @@ import JS.Util
 test1 : CSSOMString -> ()
 test1 _ = ()
 
-test2 : JSULong -> ()
+test2 : UInt32 -> ()
 test2 _ = ()
 
 test3 : Maybe CSSOMString -> ()
 test3 _ = ()
 
-test4 : JSULong -> ()
+test4 : UInt32 -> ()
 test4 _ = ()
 
 test5 : Undefined -> ()
@@ -55,37 +55,37 @@ test16 _ = ()
 test17 : CSSRuleList -> ()
 test17 _ = ()
 
-test18 : JSULong -> ()
+test18 : UInt32 -> ()
 test18 _ = ()
 
 test19 : CSSOMString -> ()
 test19 _ = ()
 
-test20 : JSULong -> ()
+test20 : UInt32 -> ()
 test20 _ = ()
 
 test21 : Undefined -> ()
 test21 _ = ()
 
-test22 : JSULong -> ()
+test22 : UInt32 -> ()
 test22 _ = ()
 
 test23 : Maybe CSSStyleSheet -> ()
 test23 _ = ()
 
-test24 : JSULong -> ()
+test24 : UInt32 -> ()
 test24 _ = ()
 
-test25 : JSULong -> ()
+test25 : UInt32 -> ()
 test25 _ = ()
 
 test26 : Maybe CSSRule -> ()
 test26 _ = ()
 
-test27 : JSULong -> ()
+test27 : UInt32 -> ()
 test27 _ = ()
 
-test28 : JSULong -> ()
+test28 : UInt32 -> ()
 test28 _ = ()
 
 test29 : CSSOMString -> ()
@@ -97,31 +97,31 @@ test30 _ = ()
 test31 : Maybe CSSStyleSheet -> ()
 test31 _ = ()
 
-test32 : JSUInt -> ()
+test32 : UInt16 -> ()
 test32 _ = ()
 
-test33 : JSUInt -> ()
+test33 : UInt16 -> ()
 test33 _ = ()
 
-test34 : JSUInt -> ()
+test34 : UInt16 -> ()
 test34 _ = ()
 
-test35 : JSUInt -> ()
+test35 : UInt16 -> ()
 test35 _ = ()
 
-test36 : JSUInt -> ()
+test36 : UInt16 -> ()
 test36 _ = ()
 
-test37 : JSUInt -> ()
+test37 : UInt16 -> ()
 test37 _ = ()
 
-test38 : JSUInt -> ()
+test38 : UInt16 -> ()
 test38 _ = ()
 
-test39 : JSUInt -> ()
+test39 : UInt16 -> ()
 test39 _ = ()
 
-test40 : JSUInt -> ()
+test40 : UInt16 -> ()
 test40 _ = ()
 
 test41 : CSSOMString -> ()
@@ -142,19 +142,19 @@ test45 _ = ()
 test46 : CSSRuleList -> ()
 test46 _ = ()
 
-test47 : JSULong -> ()
+test47 : UInt32 -> ()
 test47 _ = ()
 
 test48 : CSSOMString -> ()
 test48 _ = ()
 
-test49 : JSULong -> ()
+test49 : UInt32 -> ()
 test49 _ = ()
 
 test50 : Undefined -> ()
 test50 _ = ()
 
-test51 : JSULong -> ()
+test51 : UInt32 -> ()
 test51 _ = ()
 
 test52 : CSSOMString -> ()
@@ -178,13 +178,13 @@ test57 _ = ()
 test58 : CSSOMString -> ()
 test58 _ = ()
 
-test59 : JSULong -> ()
+test59 : UInt32 -> ()
 test59 _ = ()
 
 test60 : CSSOMString -> ()
 test60 _ = ()
 
-test61 : JSULong -> ()
+test61 : UInt32 -> ()
 test61 _ = ()
 
 test62 : CSSOMString -> ()
@@ -244,7 +244,7 @@ test79 _ = ()
 test80 : CSSRuleList -> ()
 test80 _ = ()
 
-test81 : JSInt -> ()
+test81 : Int32 -> ()
 test81 _ = ()
 
 test82 : String -> ()
@@ -253,13 +253,13 @@ test82 _ = ()
 test83 : String -> ()
 test83 _ = ()
 
-test84 : JSULong -> ()
+test84 : UInt32 -> ()
 test84 _ = ()
 
 test85 : Undefined -> ()
 test85 _ = ()
 
-test86 : JSULong -> ()
+test86 : UInt32 -> ()
 test86 _ = ()
 
 test87 : CSSStyleDeclaration -> ()

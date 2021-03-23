@@ -10,7 +10,7 @@ test1 _ = ()
 test2 : EndingType -> ()
 test2 _ = ()
 
-test3 : JSLong -> ()
+test3 : Int64 -> ()
 test3 _ = ()
 
 test4 : JSArray BlobPart -> ()
@@ -19,7 +19,7 @@ test4 _ = ()
 test5 : BlobPropertyBag -> ()
 test5 _ = ()
 
-test6 : JSULong -> ()
+test6 : UInt64 -> ()
 test6 _ = ()
 
 test7 : String -> ()
@@ -28,10 +28,10 @@ test7 _ = ()
 test8 : Blob -> ()
 test8 _ = ()
 
-test9 : JSLong -> ()
+test9 : Int64 -> ()
 test9 _ = ()
 
-test10 : JSLong -> ()
+test10 : Int64 -> ()
 test10 _ = ()
 
 test11 : String -> ()
@@ -58,16 +58,16 @@ test17 _ = ()
 test18 : String -> ()
 test18 _ = ()
 
-test19 : JSLong -> ()
+test19 : Int64 -> ()
 test19 _ = ()
 
 test20 : Maybe File -> ()
 test20 _ = ()
 
-test21 : JSULong -> ()
+test21 : UInt32 -> ()
 test21 _ = ()
 
-test22 : JSULong -> ()
+test22 : UInt32 -> ()
 test22 _ = ()
 
 test23 : Undefined -> ()
@@ -100,16 +100,16 @@ test31 _ = ()
 test32 : Undefined -> ()
 test32 _ = ()
 
-test33 : JSUInt -> ()
+test33 : UInt16 -> ()
 test33 _ = ()
 
-test34 : JSUInt -> ()
+test34 : UInt16 -> ()
 test34 _ = ()
 
-test35 : JSUInt -> ()
+test35 : UInt16 -> ()
 test35 _ = ()
 
-test36 : JSUInt -> ()
+test36 : UInt16 -> ()
 test36 _ = ()
 
 test37 : Maybe (NS I [ String , ArrayBuffer ]) -> ()

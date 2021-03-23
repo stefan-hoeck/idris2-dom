@@ -69,6 +69,33 @@ export
 checkNull : a -> Maybe a
 checkNull v = toMaybe (not $ isNull v) v
 
+--------------------------------------------------------------------------------
+--          Numbers
+--------------------------------------------------------------------------------
+
+export
+data Int8 : Type where [external]
+
+export
+data UInt8 : Type where [external]
+
+export
+data Int16 : Type where [external]
+
+export
+data UInt16 : Type where [external]
+
+export
+data Int32 : Type where [external]
+
+export
+data UInt32 : Type where [external]
+
+export
+data Int64 : Type where [external]
+
+export
+data UInt64 : Type where [external]
 
 
 -- The dummies below are primitive JS types that need proper
@@ -83,18 +110,6 @@ Cast a JSAny where
 
 export
 data JSObject : Type where [external]
-
-export
-data JSULong : Type where [external]
-
-export
-data JSLong : Type where [external]
-
-export
-data JSUInt : Type where [external]
-
-export
-data JSInt : Type where [external]
 
 export
 data JSArray : Type -> Type where [external]
