@@ -1,6 +1,7 @@
 module Web.PermissionsTypes
 
 import Data.Maybe
+import JS.Util
 
 --------------------------------------------------------------------------------
 --          Enums
@@ -37,6 +38,14 @@ namespace PermissionState
              -> {auto 0 _ : IsJust (PermissionState.read s)}
              -> PermissionState
   fromString s = fromJust $ read s
+
+  export
+  ToJS PermissionState where
+    toJS = toJS . show
+
+  export
+  FromJS PermissionState where
+    fromJS = fromMaybe Granted . read . fromJS
 
 namespace PermissionName
   
@@ -123,6 +132,14 @@ namespace PermissionName
              -> PermissionName
   fromString s = fromJust $ read s
 
+  export
+  ToJS PermissionName where
+    toJS = toJS . show
+
+  export
+  FromJS PermissionName where
+    fromJS = fromMaybe Geolocation . read . fromJS
+
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
@@ -131,7 +148,23 @@ export
 data PermissionStatus : Type where [external]
 
 export
+ToJS PermissionStatus where
+  toJS = believe_me
+
+export
+FromJS PermissionStatus where
+  fromJS = believe_me
+
+export
 data Permissions : Type where [external]
+
+export
+ToJS Permissions where
+  toJS = believe_me
+
+export
+FromJS Permissions where
+  fromJS = believe_me
 
 
 --------------------------------------------------------------------------------
@@ -142,16 +175,64 @@ export
 data CameraDevicePermissionDescriptor : Type where [external]
 
 export
+ToJS CameraDevicePermissionDescriptor where
+  toJS = believe_me
+
+export
+FromJS CameraDevicePermissionDescriptor where
+  fromJS = believe_me
+
+export
 data DevicePermissionDescriptor : Type where [external]
+
+export
+ToJS DevicePermissionDescriptor where
+  toJS = believe_me
+
+export
+FromJS DevicePermissionDescriptor where
+  fromJS = believe_me
 
 export
 data MidiPermissionDescriptor : Type where [external]
 
 export
+ToJS MidiPermissionDescriptor where
+  toJS = believe_me
+
+export
+FromJS MidiPermissionDescriptor where
+  fromJS = believe_me
+
+export
 data PermissionDescriptor : Type where [external]
+
+export
+ToJS PermissionDescriptor where
+  toJS = believe_me
+
+export
+FromJS PermissionDescriptor where
+  fromJS = believe_me
 
 export
 data PermissionSetParameters : Type where [external]
 
 export
+ToJS PermissionSetParameters where
+  toJS = believe_me
+
+export
+FromJS PermissionSetParameters where
+  fromJS = believe_me
+
+export
 data PushPermissionDescriptor : Type where [external]
+
+export
+ToJS PushPermissionDescriptor where
+  toJS = believe_me
+
+export
+FromJS PushPermissionDescriptor where
+  fromJS = believe_me

@@ -1,6 +1,7 @@
 module Web.ClipboardTypes
 
 import Data.Maybe
+import JS.Util
 
 --------------------------------------------------------------------------------
 --          Enums
@@ -38,6 +39,14 @@ namespace PresentationStyle
              -> PresentationStyle
   fromString s = fromJust $ read s
 
+  export
+  ToJS PresentationStyle where
+    toJS = toJS . show
+
+  export
+  FromJS PresentationStyle where
+    fromJS = fromMaybe Unspecified . read . fromJS
+
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
@@ -46,10 +55,34 @@ export
 data Clipboard : Type where [external]
 
 export
+ToJS Clipboard where
+  toJS = believe_me
+
+export
+FromJS Clipboard where
+  fromJS = believe_me
+
+export
 data ClipboardEvent : Type where [external]
 
 export
+ToJS ClipboardEvent where
+  toJS = believe_me
+
+export
+FromJS ClipboardEvent where
+  fromJS = believe_me
+
+export
 data ClipboardItem : Type where [external]
+
+export
+ToJS ClipboardItem where
+  toJS = believe_me
+
+export
+FromJS ClipboardItem where
+  fromJS = believe_me
 
 
 --------------------------------------------------------------------------------
@@ -60,7 +93,31 @@ export
 data ClipboardEventInit : Type where [external]
 
 export
+ToJS ClipboardEventInit where
+  toJS = believe_me
+
+export
+FromJS ClipboardEventInit where
+  fromJS = believe_me
+
+export
 data ClipboardItemOptions : Type where [external]
 
 export
+ToJS ClipboardItemOptions where
+  toJS = believe_me
+
+export
+FromJS ClipboardItemOptions where
+  fromJS = believe_me
+
+export
 data ClipboardPermissionDescriptor : Type where [external]
+
+export
+ToJS ClipboardPermissionDescriptor where
+  toJS = believe_me
+
+export
+FromJS ClipboardPermissionDescriptor where
+  fromJS = believe_me

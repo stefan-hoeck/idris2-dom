@@ -1,6 +1,7 @@
 module Web.AnimationTypes
 
 import Data.Maybe
+import JS.Util
 
 --------------------------------------------------------------------------------
 --          Enums
@@ -40,6 +41,14 @@ namespace AnimationPlayState
              -> AnimationPlayState
   fromString s = fromJust $ read s
 
+  export
+  ToJS AnimationPlayState where
+    toJS = toJS . show
+
+  export
+  FromJS AnimationPlayState where
+    fromJS = fromMaybe Idle . read . fromJS
+
 namespace FillMode
   
   public export
@@ -73,6 +82,14 @@ namespace FillMode
   public export
   fromString : (s : String) -> {auto 0 _ : IsJust (FillMode.read s)} -> FillMode
   fromString s = fromJust $ read s
+
+  export
+  ToJS FillMode where
+    toJS = toJS . show
+
+  export
+  FromJS FillMode where
+    fromJS = fromMaybe None . read . fromJS
 
 namespace PlaybackDirection
   
@@ -108,6 +125,14 @@ namespace PlaybackDirection
              -> PlaybackDirection
   fromString s = fromJust $ read s
 
+  export
+  ToJS PlaybackDirection where
+    toJS = toJS . show
+
+  export
+  FromJS PlaybackDirection where
+    fromJS = fromMaybe Normal . read . fromJS
+
 namespace IterationCompositeOperation
   
   public export
@@ -137,6 +162,14 @@ namespace IterationCompositeOperation
              -> {auto 0 _ : IsJust (IterationCompositeOperation.read s)}
              -> IterationCompositeOperation
   fromString s = fromJust $ read s
+
+  export
+  ToJS IterationCompositeOperation where
+    toJS = toJS . show
+
+  export
+  FromJS IterationCompositeOperation where
+    fromJS = fromMaybe Replace . read . fromJS
 
 namespace CompositeOperation
   
@@ -169,6 +202,14 @@ namespace CompositeOperation
              -> {auto 0 _ : IsJust (CompositeOperation.read s)}
              -> CompositeOperation
   fromString s = fromJust $ read s
+
+  export
+  ToJS CompositeOperation where
+    toJS = toJS . show
+
+  export
+  FromJS CompositeOperation where
+    fromJS = fromMaybe Replace . read . fromJS
 
 namespace CompositeOperationOrAuto
   
@@ -204,6 +245,14 @@ namespace CompositeOperationOrAuto
              -> CompositeOperationOrAuto
   fromString s = fromJust $ read s
 
+  export
+  ToJS CompositeOperationOrAuto where
+    toJS = toJS . show
+
+  export
+  FromJS CompositeOperationOrAuto where
+    fromJS = fromMaybe Replace . read . fromJS
+
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
@@ -212,19 +261,67 @@ export
 data Animation : Type where [external]
 
 export
+ToJS Animation where
+  toJS = believe_me
+
+export
+FromJS Animation where
+  fromJS = believe_me
+
+export
 data AnimationEffect : Type where [external]
+
+export
+ToJS AnimationEffect where
+  toJS = believe_me
+
+export
+FromJS AnimationEffect where
+  fromJS = believe_me
 
 export
 data AnimationPlaybackEvent : Type where [external]
 
 export
+ToJS AnimationPlaybackEvent where
+  toJS = believe_me
+
+export
+FromJS AnimationPlaybackEvent where
+  fromJS = believe_me
+
+export
 data AnimationTimeline : Type where [external]
+
+export
+ToJS AnimationTimeline where
+  toJS = believe_me
+
+export
+FromJS AnimationTimeline where
+  fromJS = believe_me
 
 export
 data DocumentTimeline : Type where [external]
 
 export
+ToJS DocumentTimeline where
+  toJS = believe_me
+
+export
+FromJS DocumentTimeline where
+  fromJS = believe_me
+
+export
 data KeyframeEffect : Type where [external]
+
+export
+ToJS KeyframeEffect where
+  toJS = believe_me
+
+export
+FromJS KeyframeEffect where
+  fromJS = believe_me
 
 --------------------------------------------------------------------------------
 --          Mixins
@@ -232,6 +329,14 @@ data KeyframeEffect : Type where [external]
 
 export
 data Animatable : Type where [external]
+
+export
+ToJS Animatable where
+  toJS = believe_me
+
+export
+FromJS Animatable where
+  fromJS = believe_me
 
 --------------------------------------------------------------------------------
 --          Dictionaries
@@ -241,28 +346,108 @@ export
 data AnimationPlaybackEventInit : Type where [external]
 
 export
+ToJS AnimationPlaybackEventInit where
+  toJS = believe_me
+
+export
+FromJS AnimationPlaybackEventInit where
+  fromJS = believe_me
+
+export
 data BaseComputedKeyframe : Type where [external]
+
+export
+ToJS BaseComputedKeyframe where
+  toJS = believe_me
+
+export
+FromJS BaseComputedKeyframe where
+  fromJS = believe_me
 
 export
 data BaseKeyframe : Type where [external]
 
 export
+ToJS BaseKeyframe where
+  toJS = believe_me
+
+export
+FromJS BaseKeyframe where
+  fromJS = believe_me
+
+export
 data BasePropertyIndexedKeyframe : Type where [external]
+
+export
+ToJS BasePropertyIndexedKeyframe where
+  toJS = believe_me
+
+export
+FromJS BasePropertyIndexedKeyframe where
+  fromJS = believe_me
 
 export
 data ComputedEffectTiming : Type where [external]
 
 export
+ToJS ComputedEffectTiming where
+  toJS = believe_me
+
+export
+FromJS ComputedEffectTiming where
+  fromJS = believe_me
+
+export
 data DocumentTimelineOptions : Type where [external]
+
+export
+ToJS DocumentTimelineOptions where
+  toJS = believe_me
+
+export
+FromJS DocumentTimelineOptions where
+  fromJS = believe_me
 
 export
 data EffectTiming : Type where [external]
 
 export
+ToJS EffectTiming where
+  toJS = believe_me
+
+export
+FromJS EffectTiming where
+  fromJS = believe_me
+
+export
 data KeyframeAnimationOptions : Type where [external]
+
+export
+ToJS KeyframeAnimationOptions where
+  toJS = believe_me
+
+export
+FromJS KeyframeAnimationOptions where
+  fromJS = believe_me
 
 export
 data KeyframeEffectOptions : Type where [external]
 
 export
+ToJS KeyframeEffectOptions where
+  toJS = believe_me
+
+export
+FromJS KeyframeEffectOptions where
+  fromJS = believe_me
+
+export
 data OptionalEffectTiming : Type where [external]
+
+export
+ToJS OptionalEffectTiming where
+  toJS = believe_me
+
+export
+FromJS OptionalEffectTiming where
+  fromJS = believe_me

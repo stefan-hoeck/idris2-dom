@@ -1,6 +1,7 @@
 module Web.FetchTypes
 
 import Data.Maybe
+import JS.Util
 
 --------------------------------------------------------------------------------
 --          Enums
@@ -91,6 +92,14 @@ namespace RequestDestination
              -> RequestDestination
   fromString s = fromJust $ read s
 
+  export
+  ToJS RequestDestination where
+    toJS = toJS . show
+
+  export
+  FromJS RequestDestination where
+    fromJS = fromMaybe Empty . read . fromJS
+
 namespace RequestMode
   
   public export
@@ -125,6 +134,14 @@ namespace RequestMode
              -> RequestMode
   fromString s = fromJust $ read s
 
+  export
+  ToJS RequestMode where
+    toJS = toJS . show
+
+  export
+  FromJS RequestMode where
+    fromJS = fromMaybe Navigate . read . fromJS
+
 namespace RequestCredentials
   
   public export
@@ -156,6 +173,14 @@ namespace RequestCredentials
              -> {auto 0 _ : IsJust (RequestCredentials.read s)}
              -> RequestCredentials
   fromString s = fromJust $ read s
+
+  export
+  ToJS RequestCredentials where
+    toJS = toJS . show
+
+  export
+  FromJS RequestCredentials where
+    fromJS = fromMaybe Omit . read . fromJS
 
 namespace RequestCache
   
@@ -200,6 +225,14 @@ namespace RequestCache
              -> RequestCache
   fromString s = fromJust $ read s
 
+  export
+  ToJS RequestCache where
+    toJS = toJS . show
+
+  export
+  FromJS RequestCache where
+    fromJS = fromMaybe Default . read . fromJS
+
 namespace RequestRedirect
   
   public export
@@ -231,6 +264,14 @@ namespace RequestRedirect
              -> {auto 0 _ : IsJust (RequestRedirect.read s)}
              -> RequestRedirect
   fromString s = fromJust $ read s
+
+  export
+  ToJS RequestRedirect where
+    toJS = toJS . show
+
+  export
+  FromJS RequestRedirect where
+    fromJS = fromMaybe Follow . read . fromJS
 
 namespace ResponseType
   
@@ -269,6 +310,14 @@ namespace ResponseType
              -> {auto 0 _ : IsJust (ResponseType.read s)}
              -> ResponseType
   fromString s = fromJust $ read s
+
+  export
+  ToJS ResponseType where
+    toJS = toJS . show
+
+  export
+  FromJS ResponseType where
+    fromJS = fromMaybe Basic . read . fromJS
 
 namespace ReferrerPolicy
   
@@ -322,6 +371,14 @@ namespace ReferrerPolicy
              -> ReferrerPolicy
   fromString s = fromJust $ read s
 
+  export
+  ToJS ReferrerPolicy where
+    toJS = toJS . show
+
+  export
+  FromJS ReferrerPolicy where
+    fromJS = fromMaybe Empty . read . fromJS
+
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
@@ -330,10 +387,34 @@ export
 data Headers : Type where [external]
 
 export
+ToJS Headers where
+  toJS = believe_me
+
+export
+FromJS Headers where
+  fromJS = believe_me
+
+export
 data Request : Type where [external]
 
 export
+ToJS Request where
+  toJS = believe_me
+
+export
+FromJS Request where
+  fromJS = believe_me
+
+export
 data Response : Type where [external]
+
+export
+ToJS Response where
+  toJS = believe_me
+
+export
+FromJS Response where
+  fromJS = believe_me
 
 --------------------------------------------------------------------------------
 --          Mixins
@@ -341,6 +422,14 @@ data Response : Type where [external]
 
 export
 data Body : Type where [external]
+
+export
+ToJS Body where
+  toJS = believe_me
+
+export
+FromJS Body where
+  fromJS = believe_me
 
 --------------------------------------------------------------------------------
 --          Dictionaries
@@ -350,4 +439,20 @@ export
 data RequestInit : Type where [external]
 
 export
+ToJS RequestInit where
+  toJS = believe_me
+
+export
+FromJS RequestInit where
+  fromJS = believe_me
+
+export
 data ResponseInit : Type where [external]
+
+export
+ToJS ResponseInit where
+  toJS = believe_me
+
+export
+FromJS ResponseInit where
+  fromJS = believe_me

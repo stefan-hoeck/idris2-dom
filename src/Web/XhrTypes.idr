@@ -1,6 +1,7 @@
 module Web.XhrTypes
 
 import Data.Maybe
+import JS.Util
 
 --------------------------------------------------------------------------------
 --          Enums
@@ -49,6 +50,14 @@ namespace XMLHttpRequestResponseType
              -> XMLHttpRequestResponseType
   fromString s = fromJust $ read s
 
+  export
+  ToJS XMLHttpRequestResponseType where
+    toJS = toJS . show
+
+  export
+  FromJS XMLHttpRequestResponseType where
+    fromJS = fromMaybe Empty . read . fromJS
+
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
@@ -57,16 +66,56 @@ export
 data FormData : Type where [external]
 
 export
+ToJS FormData where
+  toJS = believe_me
+
+export
+FromJS FormData where
+  fromJS = believe_me
+
+export
 data ProgressEvent : Type where [external]
+
+export
+ToJS ProgressEvent where
+  toJS = believe_me
+
+export
+FromJS ProgressEvent where
+  fromJS = believe_me
 
 export
 data XMLHttpRequest : Type where [external]
 
 export
+ToJS XMLHttpRequest where
+  toJS = believe_me
+
+export
+FromJS XMLHttpRequest where
+  fromJS = believe_me
+
+export
 data XMLHttpRequestEventTarget : Type where [external]
 
 export
+ToJS XMLHttpRequestEventTarget where
+  toJS = believe_me
+
+export
+FromJS XMLHttpRequestEventTarget where
+  fromJS = believe_me
+
+export
 data XMLHttpRequestUpload : Type where [external]
+
+export
+ToJS XMLHttpRequestUpload where
+  toJS = believe_me
+
+export
+FromJS XMLHttpRequestUpload where
+  fromJS = believe_me
 
 
 --------------------------------------------------------------------------------
@@ -75,3 +124,11 @@ data XMLHttpRequestUpload : Type where [external]
 
 export
 data ProgressEventInit : Type where [external]
+
+export
+ToJS ProgressEventInit where
+  toJS = believe_me
+
+export
+FromJS ProgressEventInit where
+  fromJS = believe_me
