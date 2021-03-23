@@ -1,6 +1,8 @@
 module Test.Main
 
+import Test.Number
 import Test.Util
 
 main : IO ()
-main = Test.Util.test
+main = do Test.Util.test
+          Test.Number.test
