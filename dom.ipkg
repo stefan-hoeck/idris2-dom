@@ -6,7 +6,8 @@ sourcedir  = "src"
 depends    = base        >= 0.3.0
            , sop         >= 0.1.1
 
-modules = JS.Util
+modules = JS.Marshall
+        , JS.Util
 
         , Web.Animation
         , Web.AnimationTypes
