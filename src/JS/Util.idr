@@ -4,12 +4,18 @@
 module JS.Util
 
 --------------------------------------------------------------------------------
---          Dummies
+--          JS Primitives
 --------------------------------------------------------------------------------
 
--- The dummies below are types that appear in a DOM function or
--- type alias but are either not yet in the specification (my fault)
--- or need proper implementation and bindings here (my todo).
+export
+data JSAny : Type where [external]
+
+export
+data JSObject : Type where [external]
+
+export
+data Undefined : Type where [external]
+
 export
 data JSULong : Type where [external]
 
@@ -23,15 +29,6 @@ export
 data JSInt : Type where [external]
 
 export
-data JSAny : Type where [external]
-
-export
-data JSObject : Type where [external]
-
-export
-data Undefined : Type where [external]
-
-export
 data JSArray : Type -> Type where [external]
 
 export
@@ -40,8 +37,22 @@ data JSPromise : Type -> Type where [external]
 export
 data JSRecord : Type -> Type -> Type where [external]
 
-export
-data XMLHttpRequestBodyInit : Type where [external]
+--------------------------------------------------------------------------------
+--          Aliases
+--------------------------------------------------------------------------------
+
+||| A String alias used in some CSS functions.
+public export
+0 CSSOMString : Type
+CSSOMString = String
+
+--------------------------------------------------------------------------------
+--          Dummies
+--------------------------------------------------------------------------------
+
+-- The dummies below are types that appear in a DOM function or
+-- type alias but are either not yet in the specification (my fault)
+-- or need proper implementation and bindings here (my todo).
 
 export
 data DOMPoint : Type where [external]
@@ -63,9 +74,6 @@ data DOMRectReadOnly : Type where [external]
 
 export
 data DOMPointReadOnly : Type where [external]
-
-export
-data EventHandler : Type where [external]
 
 export
 data CustomElementConstructor : Type where [external]
@@ -113,13 +121,7 @@ export
 data SelectionMode : Type where [external]
 
 export
-data BlobCallback : Type where [external]
-
-export
 data FunctionStringCallback : Type where [external]
-
-export
-data RequestCredentials : Type where [external]
 
 export
 data BufferSource : Type where [external]
@@ -137,16 +139,23 @@ export
 data NodeFilter : Type where [external]
 
 export
-data MutationCallback : Type where [external]
+data DOMHighResTimeStamp : Type where [external]
+
+--------------------------------------------------------------------------------
+--          Callbacks
+--------------------------------------------------------------------------------
+
+export
+data BlobCallback : Type where [external]
+
+export
+data ClipboardItemDelayedCallback : Type where [external]
 
 export
 data EventListener : Type where [external]
 
 export
-data DOMHighResTimeStamp : Type where [external]
+data MutationCallback : Type where [external]
 
 export
-data CSSOMString : Type where [external]
-
-export
-data ClipboardItemDelayedCallback : Type where [external]
+data EventHandler : Type where [external]

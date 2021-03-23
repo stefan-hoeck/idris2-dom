@@ -7,10 +7,12 @@ import public JS.DOM.Raw.ClipboardTypes as Types
 import public JS.DOM.Raw.CssTypes as Types
 import public JS.DOM.Raw.DomTypes as Types
 import public JS.DOM.Raw.EventTypes as Types
+import public JS.DOM.Raw.FetchTypes as Types
 import public JS.DOM.Raw.FileTypes as Types
 import public JS.DOM.Raw.HtmlTypes as Types
 import public JS.DOM.Raw.PermissionsTypes as Types
 import public JS.DOM.Raw.SvgTypes as Types
+import public JS.DOM.Raw.UrlTypes as Types
 import public JS.DOM.Raw.XhrTypes as Types
 
 --------------------------------------------------------------------------------
@@ -22,6 +24,10 @@ mutual
   public export
   0 BlobPart : Type
   BlobPart = NS I [ BufferSource , Blob , String ]
+  
+  public export
+  0 BodyInit : Type
+  BodyInit = NS I [ ReadableStream , XMLHttpRequestBodyInit ]
   
   public export
   0 CanvasImageSource : Type
@@ -57,6 +63,10 @@ mutual
   HTMLOrSVGScriptElement = NS I [ HTMLScriptElement , SVGScriptElement ]
   
   public export
+  0 HeadersInit : Type
+  HeadersInit = NS I [ JSArray (JSArray String) , JSRecord String String ]
+  
+  public export
   0 ImageBitmapSource : Type
   ImageBitmapSource = NS I [ CanvasImageSource , Blob , ImageData ]
   
@@ -83,3 +93,16 @@ mutual
                           , WebGLRenderingContext
                           , WebGL2RenderingContext
                           ]
+  
+  public export
+  0 RequestInfo : Type
+  RequestInfo = NS I [ Request , String ]
+  
+  public export
+  0 XMLHttpRequestBodyInit : Type
+  XMLHttpRequestBodyInit = NS I [ Blob
+                                , BufferSource
+                                , FormData
+                                , URLSearchParams
+                                , String
+                                ]

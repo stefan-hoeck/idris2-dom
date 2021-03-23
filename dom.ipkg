@@ -18,6 +18,8 @@ modules = JS.Util
         , JS.DOM.Raw.DomTypes
         , JS.DOM.Raw.Event
         , JS.DOM.Raw.EventTypes
+        , JS.DOM.Raw.Fetch
+        , JS.DOM.Raw.FetchTypes
         , JS.DOM.Raw.File
         , JS.DOM.Raw.FileTypes
         , JS.DOM.Raw.Html
@@ -27,5 +29,7 @@ modules = JS.Util
         , JS.DOM.Raw.Svg
         , JS.DOM.Raw.SvgTypes
         , JS.DOM.Raw.Types
+        , JS.DOM.Raw.Url
+        , JS.DOM.Raw.UrlTypes
         , JS.DOM.Raw.Xhr
         , JS.DOM.Raw.XhrTypes
