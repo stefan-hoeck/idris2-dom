@@ -4,6 +4,8 @@
 module JS.Util
 
 import Data.Maybe
+import public JS.Marshall
+import public JS.Number
 
 --------------------------------------------------------------------------------
 --          JS Primitives
@@ -68,35 +70,6 @@ isNull v = doubleToBool $ prim__isNull (believe_me v)
 export
 checkNull : a -> Maybe a
 checkNull v = toMaybe (not $ isNull v) v
-
---------------------------------------------------------------------------------
---          Numbers
---------------------------------------------------------------------------------
-
-export
-data Int8 : Type where [external]
-
-export
-data UInt8 : Type where [external]
-
-export
-data Int16 : Type where [external]
-
-export
-data UInt16 : Type where [external]
-
-export
-data Int32 : Type where [external]
-
-export
-data UInt32 : Type where [external]
-
-export
-data Int64 : Type where [external]
-
-export
-data UInt64 : Type where [external]
-
 
 -- The dummies below are primitive JS types that need proper
 -- implementations (my todo)
