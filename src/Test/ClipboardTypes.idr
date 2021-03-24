@@ -4,79 +4,79 @@ import Data.SOP
 import Web.Types
 import JS.Util
 
-test1 : ClipboardItemData -> ()
+test1 : Clipboard -> ()
 test1 _ = ()
 
-test2 : Maybe DataTransfer -> ()
+test2 : ClipboardItemData -> ()
 test2 _ = ()
 
-test3 : PresentationStyle -> ()
+test3 : Maybe DataTransfer -> ()
 test3 _ = ()
 
-test4 : Bool -> ()
+test4 : PresentationStyle -> ()
 test4 _ = ()
 
-test5 : String -> ()
+test5 : Bool -> ()
 test5 _ = ()
 
-test6 : ClipboardEventInit -> ()
+test6 : String -> ()
 test6 _ = ()
 
-test7 : Maybe DataTransfer -> ()
+test7 : ClipboardEventInit -> ()
 test7 _ = ()
 
-test8 : JSPromise ClipboardItems -> ()
+test8 : Maybe DataTransfer -> ()
 test8 _ = ()
 
-test9 : JSPromise String -> ()
+test9 : JSPromise ClipboardItems -> ()
 test9 _ = ()
 
-test10 : JSPromise Undefined -> ()
+test10 : JSPromise String -> ()
 test10 _ = ()
 
-test11 : ClipboardItems -> ()
+test11 : JSPromise Undefined -> ()
 test11 _ = ()
 
-test12 : JSPromise Undefined -> ()
+test12 : ClipboardItems -> ()
 test12 _ = ()
 
-test13 : String -> ()
+test13 : JSPromise Undefined -> ()
 test13 _ = ()
 
-test14 : JSRecord String ClipboardItemData -> ()
+test14 : String -> ()
 test14 _ = ()
 
-test15 : ClipboardItemOptions -> ()
+test15 : JSRecord String ClipboardItemData -> ()
 test15 _ = ()
 
-test16 : ClipboardItem -> ()
+test16 : ClipboardItemOptions -> ()
 test16 _ = ()
 
-test17 : JSRecord String ClipboardItemDelayedCallback -> ()
+test17 : ClipboardItem -> ()
 test17 _ = ()
 
-test18 : ClipboardItemOptions -> ()
+test18 : JSRecord String ClipboardItemDelayedCallback -> ()
 test18 _ = ()
 
-test19 : PresentationStyle -> ()
+test19 : ClipboardItemOptions -> ()
 test19 _ = ()
 
-test20 : Int64 -> ()
+test20 : PresentationStyle -> ()
 test20 _ = ()
 
-test21 : Bool -> ()
+test21 : Int64 -> ()
 test21 _ = ()
 
-test22 : JSArray String -> ()
+test22 : Bool -> ()
 test22 _ = ()
 
-test23 : JSPromise Blob -> ()
+test23 : JSArray String -> ()
 test23 _ = ()
 
-test24 : String -> ()
+test24 : JSPromise Blob -> ()
 test24 _ = ()
 
-test25 : Clipboard -> ()
+test25 : String -> ()
 test25 _ = ()
 
 test26 : JSArray ClipboardItem -> ()
