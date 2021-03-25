@@ -2808,6 +2808,17 @@ FromJS EventSourceInit where
   fromJS = believe_me
 
 export
+data FocusOptions : Type where [external]
+
+export
+ToJS FocusOptions where
+  toJS = believe_me
+
+export
+FromJS FocusOptions where
+  fromJS = believe_me
+
+export
 data FormDataEventInit : Type where [external]
 
 export

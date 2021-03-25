@@ -136,9 +136,6 @@ CSSOMString = String
 -- or need proper implementation and bindings here (my todo).
 
 export
-data FocusOptions : Type where [external]
-
-export
 data OnBeforeUnloadEventHandler : Type where [external]
 
 export
