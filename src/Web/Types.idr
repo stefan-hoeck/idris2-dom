@@ -11,6 +11,7 @@ import public Web.FetchTypes as Types
 import public Web.FileTypes as Types
 import public Web.GeometryTypes as Types
 import public Web.HtmlTypes as Types
+import public Web.MediasourceTypes as Types
 import public Web.PermissionsTypes as Types
 import public Web.ServiceworkerTypes as Types
 import public Web.SvgTypes as Types

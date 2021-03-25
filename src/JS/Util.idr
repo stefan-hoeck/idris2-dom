@@ -114,6 +114,10 @@ data ArrayBuffer : Type where [external]
 export
 data Uint8ClampedArray : Type where [external]
 
+||| See [spec](https://html.spec.whatwg.org/#windowproxy)
+export
+data WindowProxy : Type where [external]
+
 --------------------------------------------------------------------------------
 --          Aliases
 --------------------------------------------------------------------------------
@@ -130,12 +134,6 @@ CSSOMString = String
 -- The dummies below are types that appear in a DOM function or
 -- type alias but are either not yet in the specification (my fault)
 -- or need proper implementation and bindings here (my todo).
-
-export
-data WindowProxy : Type where [external]
-
-export
-data MediaSource : Type where [external]
 
 export
 data MediaStream : Type where [external]

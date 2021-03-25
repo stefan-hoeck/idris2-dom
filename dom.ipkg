@@ -28,6 +28,8 @@ modules = JS.Marshall
         , Web.GeometryTypes
         , Web.Html
         , Web.HtmlTypes
+        , Web.Mediasource
+        , Web.MediasourceTypes
         , Web.Permissions
         , Web.PermissionsTypes
         , Web.Serviceworker
