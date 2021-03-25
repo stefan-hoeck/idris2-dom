@@ -149,10 +149,3 @@ data DOMHighResTimeStamp : Type where [external]
 
 export
 data VisibilityState : Type where [external]
-
---------------------------------------------------------------------------------
---          Callbacks
---------------------------------------------------------------------------------
-
-export
-data EventHandler : Type where [external]

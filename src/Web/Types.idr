@@ -75,6 +75,10 @@ mutual
   ConstrainULong = NS I [ UInt32 , ConstrainULongRange ]
   
   public export
+  0 EventHandler : Type
+  EventHandler = Maybe EventHandlerNonNull
+  
+  public export
   0 Float32List : Type
   Float32List = NS I [ Float32Array , JSArray GLfloat ]
   
@@ -236,6 +240,10 @@ mutual
   public export
   0 CustomElementConstructor : Type
   CustomElementConstructor = () -> IO HTMLElement
+  
+  public export
+  0 EventHandlerNonNull : Type
+  EventHandlerNonNull = (event : Event) -> IO JSAny
   
   public export
   0 EventListener : Type
