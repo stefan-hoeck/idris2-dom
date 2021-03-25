@@ -106,7 +106,19 @@ export
 data JSRecord : Type -> Type -> Type where [external]
 
 export
-data ArrayBufferView : Type where [external]
+data DataView : Type where [external]
+
+export
+data Uint16Array : Type where [external]
+
+export
+data Int16Array : Type where [external]
+
+export
+data Int8Array : Type where [external]
+
+export
+data Uint8Array : Type where [external]
 
 export
 data ArrayBuffer : Type where [external]
@@ -134,12 +146,6 @@ CSSOMString = String
 -- The dummies below are types that appear in a DOM function or
 -- type alias but are either not yet in the specification (my fault)
 -- or need proper implementation and bindings here (my todo).
-
-export
-data BufferSource : Type where [external]
-
-export
-data DOMException : Type where [external]
 
 export
 data ReadableStream : Type where [external]

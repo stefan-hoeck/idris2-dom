@@ -40,4 +40,5 @@ modules = JS.Util
         , Test.Util
         , Test.VisibilityTypes
         , Test.WebglTypes
+        , Test.WebidlTypes
         , Test.XhrTypes

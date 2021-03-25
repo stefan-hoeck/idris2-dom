@@ -45,5 +45,7 @@ modules = JS.Marshall
         , Web.VisibilityTypes
         , Web.Webgl
         , Web.WebglTypes
+        , Web.Webidl
+        , Web.WebidlTypes
         , Web.Xhr
         , Web.XhrTypes

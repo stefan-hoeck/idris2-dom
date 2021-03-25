@@ -19,6 +19,7 @@ import public Web.SvgTypes as Types
 import public Web.UrlTypes as Types
 import public Web.VisibilityTypes as Types
 import public Web.WebglTypes as Types
+import public Web.WebidlTypes as Types
 import public Web.XhrTypes as Types
 
 --------------------------------------------------------------------------------
@@ -28,12 +29,30 @@ import public Web.XhrTypes as Types
 mutual
   
   public export
+  0 ArrayBufferView : Type
+  ArrayBufferView = NS I [ Int8Array
+                         , Int16Array
+                         , Int32Array
+                         , Uint8Array
+                         , Uint16Array
+                         , Uint32Array
+                         , Uint8ClampedArray
+                         , Float32Array
+                         , Float64Array
+                         , DataView
+                         ]
+  
+  public export
   0 BlobPart : Type
   BlobPart = NS I [ BufferSource , Blob , String ]
   
   public export
   0 BodyInit : Type
   BodyInit = NS I [ ReadableStream , XMLHttpRequestBodyInit ]
+  
+  public export
+  0 BufferSource : Type
+  BufferSource = NS I [ ArrayBufferView , ArrayBuffer ]
   
   public export
   0 CanvasImageSource : Type
@@ -74,6 +93,10 @@ mutual
   public export
   0 ConstrainULong : Type
   ConstrainULong = NS I [ UInt32 , ConstrainULongRange ]
+  
+  public export
+  0 DOMTimeStamp : Type
+  DOMTimeStamp = UInt64
   
   public export
   0 EventHandler : Type
@@ -284,6 +307,10 @@ mutual
                              -> (colno : UInt32)
                              -> (error : JSAny)
                              -> IO JSAny
+  
+  public export
+  0 VoidFunction : Type
+  VoidFunction = () -> IO ()
   
   public export
   0 XPathNSResolver : Type
