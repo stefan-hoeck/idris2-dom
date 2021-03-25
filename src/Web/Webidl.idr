@@ -108,6 +108,15 @@ namespace DOMException
   public export
   WRONG_DOCUMENT_ERR : UInt16
   WRONG_DOCUMENT_ERR = 4
+  
+  %foreign "browser:lambda:x=>x.code"
+  prim__code : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.message"
+  prim__message : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.name"
+  prim__name : AnyPtr -> PrimIO AnyPtr
 
 
 

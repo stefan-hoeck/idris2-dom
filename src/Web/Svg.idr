@@ -7,6 +7,56 @@ import Web.Types
 --          Interfaces
 --------------------------------------------------------------------------------
 
+namespace SVGAElement
+  
+  %foreign "browser:lambda:x=>x.relList"
+  prim__relList : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.target"
+  prim__target : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.download"
+  prim__download : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.download = v}"
+  prim__setDownload : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.hreflang"
+  prim__hreflang : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.hreflang = v}"
+  prim__setHreflang : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.ping"
+  prim__ping : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.ping = v}"
+  prim__setPing : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.referrerPolicy"
+  prim__referrerPolicy : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.referrerPolicy = v}"
+  prim__setReferrerPolicy : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.rel"
+  prim__rel : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.rel = v}"
+  prim__setRel : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.text"
+  prim__text : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.text = v}"
+  prim__setText : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.type"
+  prim__type : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.type = v}"
+  prim__setType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+
 namespace SVGAngle
   
   public export
@@ -28,6 +78,193 @@ namespace SVGAngle
   public export
   SVG_ANGLETYPE_UNSPECIFIED : UInt16
   SVG_ANGLETYPE_UNSPECIFIED = 1
+  
+  %foreign "browser:lambda:x=>x.unitType"
+  prim__unitType : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.value"
+  prim__value : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.value = v}"
+  prim__setValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.valueAsString"
+  prim__valueAsString : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.valueAsString = v}"
+  prim__setValueAsString : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.valueInSpecifiedUnits"
+  prim__valueInSpecifiedUnits : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.valueInSpecifiedUnits = v}"
+  prim__setValueInSpecifiedUnits : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+
+namespace SVGAnimatedAngle
+  
+  %foreign "browser:lambda:x=>x.animVal"
+  prim__animVal : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.baseVal"
+  prim__baseVal : AnyPtr -> PrimIO AnyPtr
+
+namespace SVGAnimatedBoolean
+  
+  %foreign "browser:lambda:x=>x.animVal"
+  prim__animVal : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.baseVal"
+  prim__baseVal : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.baseVal = v}"
+  prim__setBaseVal : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+
+namespace SVGAnimatedEnumeration
+  
+  %foreign "browser:lambda:x=>x.animVal"
+  prim__animVal : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.baseVal"
+  prim__baseVal : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.baseVal = v}"
+  prim__setBaseVal : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+
+namespace SVGAnimatedInteger
+  
+  %foreign "browser:lambda:x=>x.animVal"
+  prim__animVal : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.baseVal"
+  prim__baseVal : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.baseVal = v}"
+  prim__setBaseVal : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+
+namespace SVGAnimatedLength
+  
+  %foreign "browser:lambda:x=>x.animVal"
+  prim__animVal : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.baseVal"
+  prim__baseVal : AnyPtr -> PrimIO AnyPtr
+
+namespace SVGAnimatedLengthList
+  
+  %foreign "browser:lambda:x=>x.animVal"
+  prim__animVal : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.baseVal"
+  prim__baseVal : AnyPtr -> PrimIO AnyPtr
+
+namespace SVGAnimatedNumber
+  
+  %foreign "browser:lambda:x=>x.animVal"
+  prim__animVal : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.baseVal"
+  prim__baseVal : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.baseVal = v}"
+  prim__setBaseVal : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+
+namespace SVGAnimatedNumberList
+  
+  %foreign "browser:lambda:x=>x.animVal"
+  prim__animVal : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.baseVal"
+  prim__baseVal : AnyPtr -> PrimIO AnyPtr
+
+namespace SVGAnimatedPreserveAspectRatio
+  
+  %foreign "browser:lambda:x=>x.animVal"
+  prim__animVal : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.baseVal"
+  prim__baseVal : AnyPtr -> PrimIO AnyPtr
+
+namespace SVGAnimatedRect
+  
+  %foreign "browser:lambda:x=>x.animVal"
+  prim__animVal : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.baseVal"
+  prim__baseVal : AnyPtr -> PrimIO AnyPtr
+
+namespace SVGAnimatedString
+  
+  %foreign "browser:lambda:x=>x.animVal"
+  prim__animVal : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.baseVal"
+  prim__baseVal : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.baseVal = v}"
+  prim__setBaseVal : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+
+namespace SVGAnimatedTransformList
+  
+  %foreign "browser:lambda:x=>x.animVal"
+  prim__animVal : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.baseVal"
+  prim__baseVal : AnyPtr -> PrimIO AnyPtr
+
+namespace SVGCircleElement
+  
+  %foreign "browser:lambda:x=>x.cx"
+  prim__cx : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.cy"
+  prim__cy : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.r"
+  prim__r : AnyPtr -> PrimIO AnyPtr
+
+namespace SVGElement
+  
+  %foreign "browser:lambda:x=>x.className"
+  prim__className : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.ownerSVGElement"
+  prim__ownerSVGElement : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.viewportElement"
+  prim__viewportElement : AnyPtr -> PrimIO AnyPtr
+
+namespace SVGEllipseElement
+  
+  %foreign "browser:lambda:x=>x.cx"
+  prim__cx : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.cy"
+  prim__cy : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.rx"
+  prim__rx : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.ry"
+  prim__ry : AnyPtr -> PrimIO AnyPtr
+
+namespace SVGForeignObjectElement
+  
+  %foreign "browser:lambda:x=>x.height"
+  prim__height : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.width"
+  prim__width : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.x"
+  prim__x : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.y"
+  prim__y : AnyPtr -> PrimIO AnyPtr
+
+namespace SVGGeometryElement
+  
+  %foreign "browser:lambda:x=>x.pathLength"
+  prim__pathLength : AnyPtr -> PrimIO AnyPtr
 
 namespace SVGGradientElement
   
@@ -46,6 +283,43 @@ namespace SVGGradientElement
   public export
   SVG_SPREADMETHOD_UNKNOWN : UInt16
   SVG_SPREADMETHOD_UNKNOWN = 0o0
+  
+  %foreign "browser:lambda:x=>x.gradientTransform"
+  prim__gradientTransform : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.gradientUnits"
+  prim__gradientUnits : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.spreadMethod"
+  prim__spreadMethod : AnyPtr -> PrimIO AnyPtr
+
+namespace SVGGraphicsElement
+  
+  %foreign "browser:lambda:x=>x.transform"
+  prim__transform : AnyPtr -> PrimIO AnyPtr
+
+namespace SVGImageElement
+  
+  %foreign "browser:lambda:x=>x.height"
+  prim__height : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.preserveAspectRatio"
+  prim__preserveAspectRatio : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.width"
+  prim__width : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.x"
+  prim__x : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.y"
+  prim__y : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.crossOrigin"
+  prim__crossOrigin : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.crossOrigin = v}"
+  prim__setCrossOrigin : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
 namespace SVGLength
   
@@ -92,6 +366,63 @@ namespace SVGLength
   public export
   SVG_LENGTHTYPE_UNKNOWN : UInt16
   SVG_LENGTHTYPE_UNKNOWN = 0o0
+  
+  %foreign "browser:lambda:x=>x.unitType"
+  prim__unitType : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.value"
+  prim__value : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.value = v}"
+  prim__setValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.valueAsString"
+  prim__valueAsString : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.valueAsString = v}"
+  prim__setValueAsString : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.valueInSpecifiedUnits"
+  prim__valueInSpecifiedUnits : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.valueInSpecifiedUnits = v}"
+  prim__setValueInSpecifiedUnits : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+
+namespace SVGLengthList
+  
+  %foreign "browser:lambda:x=>x.length"
+  prim__length : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.numberOfItems"
+  prim__numberOfItems : AnyPtr -> PrimIO AnyPtr
+
+namespace SVGLineElement
+  
+  %foreign "browser:lambda:x=>x.x1"
+  prim__x1 : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.x2"
+  prim__x2 : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.y1"
+  prim__y1 : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.y2"
+  prim__y2 : AnyPtr -> PrimIO AnyPtr
+
+namespace SVGLinearGradientElement
+  
+  %foreign "browser:lambda:x=>x.x1"
+  prim__x1 : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.x2"
+  prim__x2 : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.y1"
+  prim__y1 : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.y2"
+  prim__y2 : AnyPtr -> PrimIO AnyPtr
 
 namespace SVGMarkerElement
   
@@ -118,6 +449,80 @@ namespace SVGMarkerElement
   public export
   SVG_MARKER_ORIENT_UNKNOWN : UInt16
   SVG_MARKER_ORIENT_UNKNOWN = 0o0
+  
+  %foreign "browser:lambda:x=>x.markerHeight"
+  prim__markerHeight : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.markerUnits"
+  prim__markerUnits : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.markerWidth"
+  prim__markerWidth : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.orientAngle"
+  prim__orientAngle : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.orientType"
+  prim__orientType : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.refX"
+  prim__refX : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.refY"
+  prim__refY : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.orient"
+  prim__orient : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.orient = v}"
+  prim__setOrient : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+
+namespace SVGNumber
+  
+  %foreign "browser:lambda:x=>x.value"
+  prim__value : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.value = v}"
+  prim__setValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+
+namespace SVGNumberList
+  
+  %foreign "browser:lambda:x=>x.length"
+  prim__length : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.numberOfItems"
+  prim__numberOfItems : AnyPtr -> PrimIO AnyPtr
+
+namespace SVGPatternElement
+  
+  %foreign "browser:lambda:x=>x.height"
+  prim__height : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.patternContentUnits"
+  prim__patternContentUnits : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.patternTransform"
+  prim__patternTransform : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.patternUnits"
+  prim__patternUnits : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.width"
+  prim__width : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.x"
+  prim__x : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.y"
+  prim__y : AnyPtr -> PrimIO AnyPtr
+
+namespace SVGPointList
+  
+  %foreign "browser:lambda:x=>x.length"
+  prim__length : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.numberOfItems"
+  prim__numberOfItems : AnyPtr -> PrimIO AnyPtr
 
 namespace SVGPreserveAspectRatio
   
@@ -176,6 +581,128 @@ namespace SVGPreserveAspectRatio
   public export
   SVG_PRESERVEASPECTRATIO_XMINYMIN : UInt16
   SVG_PRESERVEASPECTRATIO_XMINYMIN = 2
+  
+  %foreign "browser:lambda:x=>x.align"
+  prim__align : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.align = v}"
+  prim__setAlign : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.meetOrSlice"
+  prim__meetOrSlice : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.meetOrSlice = v}"
+  prim__setMeetOrSlice : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+
+namespace SVGRadialGradientElement
+  
+  %foreign "browser:lambda:x=>x.cx"
+  prim__cx : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.cy"
+  prim__cy : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.fr"
+  prim__fr : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.fx"
+  prim__fx : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.fy"
+  prim__fy : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.r"
+  prim__r : AnyPtr -> PrimIO AnyPtr
+
+namespace SVGRectElement
+  
+  %foreign "browser:lambda:x=>x.height"
+  prim__height : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.rx"
+  prim__rx : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.ry"
+  prim__ry : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.width"
+  prim__width : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.x"
+  prim__x : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.y"
+  prim__y : AnyPtr -> PrimIO AnyPtr
+
+namespace SVGSVGElement
+  
+  %foreign "browser:lambda:x=>x.currentTranslate"
+  prim__currentTranslate : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.height"
+  prim__height : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.width"
+  prim__width : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.x"
+  prim__x : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.y"
+  prim__y : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.currentScale"
+  prim__currentScale : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.currentScale = v}"
+  prim__setCurrentScale : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+
+namespace SVGScriptElement
+  
+  %foreign "browser:lambda:x=>x.crossOrigin"
+  prim__crossOrigin : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.crossOrigin = v}"
+  prim__setCrossOrigin : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.type"
+  prim__type : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.type = v}"
+  prim__setType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+
+namespace SVGStopElement
+  
+  %foreign "browser:lambda:x=>x.offset"
+  prim__offset : AnyPtr -> PrimIO AnyPtr
+
+namespace SVGStringList
+  
+  %foreign "browser:lambda:x=>x.length"
+  prim__length : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.numberOfItems"
+  prim__numberOfItems : AnyPtr -> PrimIO AnyPtr
+
+namespace SVGStyleElement
+  
+  %foreign "browser:lambda:x=>x.media"
+  prim__media : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.media = v}"
+  prim__setMedia : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.title"
+  prim__title : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.title = v}"
+  prim__setTitle : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.type"
+  prim__type : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.type = v}"
+  prim__setType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
 namespace SVGTextContentElement
   
@@ -190,6 +717,12 @@ namespace SVGTextContentElement
   public export
   LENGTHADJUST_UNKNOWN : UInt16
   LENGTHADJUST_UNKNOWN = 0o0
+  
+  %foreign "browser:lambda:x=>x.lengthAdjust"
+  prim__lengthAdjust : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.textLength"
+  prim__textLength : AnyPtr -> PrimIO AnyPtr
 
 namespace SVGTextPathElement
   
@@ -216,6 +749,32 @@ namespace SVGTextPathElement
   public export
   TEXTPATH_SPACINGTYPE_UNKNOWN : UInt16
   TEXTPATH_SPACINGTYPE_UNKNOWN = 0o0
+  
+  %foreign "browser:lambda:x=>x.method"
+  prim__method : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.spacing"
+  prim__spacing : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.startOffset"
+  prim__startOffset : AnyPtr -> PrimIO AnyPtr
+
+namespace SVGTextPositioningElement
+  
+  %foreign "browser:lambda:x=>x.dx"
+  prim__dx : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.dy"
+  prim__dy : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.rotate"
+  prim__rotate : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.x"
+  prim__x : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.y"
+  prim__y : AnyPtr -> PrimIO AnyPtr
 
 namespace SVGTransform
   
@@ -246,6 +805,23 @@ namespace SVGTransform
   public export
   SVG_TRANSFORM_UNKNOWN : UInt16
   SVG_TRANSFORM_UNKNOWN = 0o0
+  
+  %foreign "browser:lambda:x=>x.angle"
+  prim__angle : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.matrix"
+  prim__matrix : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.type"
+  prim__type : AnyPtr -> PrimIO AnyPtr
+
+namespace SVGTransformList
+  
+  %foreign "browser:lambda:x=>x.length"
+  prim__length : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.numberOfItems"
+  prim__numberOfItems : AnyPtr -> PrimIO AnyPtr
 
 namespace SVGUnitTypes
   
@@ -261,7 +837,101 @@ namespace SVGUnitTypes
   SVG_UNIT_TYPE_USERSPACEONUSE : UInt16
   SVG_UNIT_TYPE_USERSPACEONUSE = 1
 
+namespace SVGUseElement
+  
+  %foreign "browser:lambda:x=>x.animatedInstanceRoot"
+  prim__animatedInstanceRoot : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.height"
+  prim__height : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.instanceRoot"
+  prim__instanceRoot : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.width"
+  prim__width : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.x"
+  prim__x : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.y"
+  prim__y : AnyPtr -> PrimIO AnyPtr
 
+namespace ShadowAnimation
+  
+  %foreign "browser:lambda:x=>x.sourceAnimation"
+  prim__sourceAnimation : AnyPtr -> PrimIO AnyPtr
+
+--------------------------------------------------------------------------------
+--          Mixins
+--------------------------------------------------------------------------------
+
+namespace SVGAnimatedPoints
+  
+  %foreign "browser:lambda:x=>x.animatedPoints"
+  prim__animatedPoints : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.points"
+  prim__points : AnyPtr -> PrimIO AnyPtr
+
+namespace SVGElementInstance
+  
+  %foreign "browser:lambda:x=>x.correspondingElement"
+  prim__correspondingElement : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.correspondingUseElement"
+  prim__correspondingUseElement : AnyPtr -> PrimIO AnyPtr
+
+namespace SVGFitToViewBox
+  
+  %foreign "browser:lambda:x=>x.preserveAspectRatio"
+  prim__preserveAspectRatio : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.viewBox"
+  prim__viewBox : AnyPtr -> PrimIO AnyPtr
+
+namespace SVGTests
+  
+  %foreign "browser:lambda:x=>x.requiredExtensions"
+  prim__requiredExtensions : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.systemLanguage"
+  prim__systemLanguage : AnyPtr -> PrimIO AnyPtr
+
+namespace SVGURIReference
+  
+  %foreign "browser:lambda:x=>x.href"
+  prim__href : AnyPtr -> PrimIO AnyPtr
+
+--------------------------------------------------------------------------------
+--          Dictionaries
+--------------------------------------------------------------------------------
+
+namespace SVGBoundingBoxOptions
+  
+  %foreign "browser:lambda:x=>x.clipped"
+  prim__clipped : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.clipped = v}"
+  prim__setClipped : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.fill"
+  prim__fill : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.fill = v}"
+  prim__setFill : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.markers"
+  prim__markers : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.markers = v}"
+  prim__setMarkers : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.stroke"
+  prim__stroke : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.stroke = v}"
+  prim__setStroke : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
 
 

@@ -3841,94 +3841,94 @@ test1278 _ = ()
 test1279 : NS I [ HTMLCanvasElement , OffscreenCanvas ] -> ()
 test1279 _ = ()
 
-test1280 : OffscreenCanvas -> ()
+test1280 : GLsizei -> ()
 test1280 _ = ()
 
 test1281 : GLsizei -> ()
 test1281 _ = ()
 
-test1282 : GLsizei -> ()
+test1282 : Maybe WebGLContextAttributes -> ()
 test1282 _ = ()
 
-test1283 : Maybe WebGLContextAttributes -> ()
+test1283 : Bool -> ()
 test1283 _ = ()
 
-test1284 : Bool -> ()
+test1284 : Maybe (JSArray String) -> ()
 test1284 _ = ()
 
-test1285 : Maybe (JSArray String) -> ()
+test1285 : Maybe JSObject -> ()
 test1285 _ = ()
 
-test1286 : Maybe JSObject -> ()
+test1286 : String -> ()
 test1286 _ = ()
 
-test1287 : String -> ()
+test1287 : Undefined -> ()
 test1287 _ = ()
 
-test1288 : Undefined -> ()
+test1288 : GLenum -> ()
 test1288 _ = ()
 
-test1289 : GLenum -> ()
+test1289 : Undefined -> ()
 test1289 _ = ()
 
-test1290 : Undefined -> ()
+test1290 : WebGLProgram -> ()
 test1290 _ = ()
 
-test1291 : WebGLProgram -> ()
+test1291 : WebGLShader -> ()
 test1291 _ = ()
 
-test1292 : WebGLShader -> ()
+test1292 : Undefined -> ()
 test1292 _ = ()
 
-test1293 : Undefined -> ()
+test1293 : WebGLProgram -> ()
 test1293 _ = ()
 
-test1294 : WebGLProgram -> ()
+test1294 : GLuint -> ()
 test1294 _ = ()
 
-test1295 : GLuint -> ()
+test1295 : String -> ()
 test1295 _ = ()
 
-test1296 : String -> ()
+test1296 : Undefined -> ()
 test1296 _ = ()
 
-test1297 : Undefined -> ()
+test1297 : GLenum -> ()
 test1297 _ = ()
 
-test1298 : GLenum -> ()
+test1298 : Maybe WebGLBuffer -> ()
 test1298 _ = ()
 
-test1299 : Maybe WebGLBuffer -> ()
+test1299 : Undefined -> ()
 test1299 _ = ()
 
-test1300 : Undefined -> ()
+test1300 : GLenum -> ()
 test1300 _ = ()
 
-test1301 : GLenum -> ()
+test1301 : Maybe WebGLFramebuffer -> ()
 test1301 _ = ()
 
-test1302 : Maybe WebGLFramebuffer -> ()
+test1302 : Undefined -> ()
 test1302 _ = ()
 
-test1303 : Undefined -> ()
+test1303 : GLenum -> ()
 test1303 _ = ()
 
-test1304 : GLenum -> ()
+test1304 : Maybe WebGLRenderbuffer -> ()
 test1304 _ = ()
 
-test1305 : Maybe WebGLRenderbuffer -> ()
+test1305 : Undefined -> ()
 test1305 _ = ()
 
-test1306 : Undefined -> ()
+test1306 : GLenum -> ()
 test1306 _ = ()
 
-test1307 : GLenum -> ()
+test1307 : Maybe WebGLTexture -> ()
 test1307 _ = ()
 
-test1308 : Maybe WebGLTexture -> ()
+test1308 : Undefined -> ()
 test1308 _ = ()
 
-test1309 : Undefined -> ()
+test1309 : GLclampf -> ()
 test1309 _ = ()
 
 test1310 : GLclampf -> ()
@@ -3940,34 +3940,34 @@ test1311 _ = ()
 test1312 : GLclampf -> ()
 test1312 _ = ()
 
-test1313 : GLclampf -> ()
+test1313 : Undefined -> ()
 test1313 _ = ()
 
-test1314 : Undefined -> ()
+test1314 : GLenum -> ()
 test1314 _ = ()
 
-test1315 : GLenum -> ()
+test1315 : Undefined -> ()
 test1315 _ = ()
 
-test1316 : Undefined -> ()
+test1316 : GLenum -> ()
 test1316 _ = ()
 
 test1317 : GLenum -> ()
 test1317 _ = ()
 
-test1318 : GLenum -> ()
+test1318 : Undefined -> ()
 test1318 _ = ()
 
-test1319 : Undefined -> ()
+test1319 : GLenum -> ()
 test1319 _ = ()
 
 test1320 : GLenum -> ()
 test1320 _ = ()
 
-test1321 : GLenum -> ()
+test1321 : Undefined -> ()
 test1321 _ = ()
 
-test1322 : Undefined -> ()
+test1322 : GLenum -> ()
 test1322 _ = ()
 
 test1323 : GLenum -> ()
@@ -3985,16 +3985,16 @@ test1326 _ = ()
 test1327 : GLenum -> ()
 test1327 _ = ()
 
-test1328 : GLenum -> ()
+test1328 : Undefined -> ()
 test1328 _ = ()
 
-test1329 : Undefined -> ()
+test1329 : GLbitfield -> ()
 test1329 _ = ()
 
-test1330 : GLbitfield -> ()
+test1330 : Undefined -> ()
 test1330 _ = ()
 
-test1331 : Undefined -> ()
+test1331 : GLclampf -> ()
 test1331 _ = ()
 
 test1332 : GLclampf -> ()
@@ -4006,22 +4006,22 @@ test1333 _ = ()
 test1334 : GLclampf -> ()
 test1334 _ = ()
 
-test1335 : GLclampf -> ()
+test1335 : Undefined -> ()
 test1335 _ = ()
 
-test1336 : Undefined -> ()
+test1336 : GLclampf -> ()
 test1336 _ = ()
 
-test1337 : GLclampf -> ()
+test1337 : Undefined -> ()
 test1337 _ = ()
 
-test1338 : Undefined -> ()
+test1338 : GLint -> ()
 test1338 _ = ()
 
-test1339 : GLint -> ()
+test1339 : Undefined -> ()
 test1339 _ = ()
 
-test1340 : Undefined -> ()
+test1340 : GLboolean -> ()
 test1340 _ = ()
 
 test1341 : GLboolean -> ()
@@ -4033,46 +4033,46 @@ test1342 _ = ()
 test1343 : GLboolean -> ()
 test1343 _ = ()
 
-test1344 : GLboolean -> ()
+test1344 : Undefined -> ()
 test1344 _ = ()
 
-test1345 : Undefined -> ()
+test1345 : WebGLShader -> ()
 test1345 _ = ()
 
-test1346 : WebGLShader -> ()
+test1346 : Undefined -> ()
 test1346 _ = ()
 
-test1347 : Undefined -> ()
+test1347 : GLenum -> ()
 test1347 _ = ()
 
-test1348 : GLenum -> ()
+test1348 : GLint -> ()
 test1348 _ = ()
 
-test1349 : GLint -> ()
+test1349 : GLenum -> ()
 test1349 _ = ()
 
-test1350 : GLenum -> ()
+test1350 : GLint -> ()
 test1350 _ = ()
 
 test1351 : GLint -> ()
 test1351 _ = ()
 
-test1352 : GLint -> ()
+test1352 : GLsizei -> ()
 test1352 _ = ()
 
 test1353 : GLsizei -> ()
 test1353 _ = ()
 
-test1354 : GLsizei -> ()
+test1354 : GLint -> ()
 test1354 _ = ()
 
-test1355 : GLint -> ()
+test1355 : Undefined -> ()
 test1355 _ = ()
 
-test1356 : Undefined -> ()
+test1356 : GLenum -> ()
 test1356 _ = ()
 
-test1357 : GLenum -> ()
+test1357 : GLint -> ()
 test1357 _ = ()
 
 test1358 : GLint -> ()
@@ -4087,157 +4087,157 @@ test1360 _ = ()
 test1361 : GLint -> ()
 test1361 _ = ()
 
-test1362 : GLint -> ()
+test1362 : GLsizei -> ()
 test1362 _ = ()
 
 test1363 : GLsizei -> ()
 test1363 _ = ()
 
-test1364 : GLsizei -> ()
+test1364 : Maybe WebGLBuffer -> ()
 test1364 _ = ()
 
-test1365 : Maybe WebGLBuffer -> ()
+test1365 : Maybe WebGLFramebuffer -> ()
 test1365 _ = ()
 
-test1366 : Maybe WebGLFramebuffer -> ()
+test1366 : Maybe WebGLProgram -> ()
 test1366 _ = ()
 
-test1367 : Maybe WebGLProgram -> ()
+test1367 : Maybe WebGLRenderbuffer -> ()
 test1367 _ = ()
 
-test1368 : Maybe WebGLRenderbuffer -> ()
+test1368 : Maybe WebGLShader -> ()
 test1368 _ = ()
 
-test1369 : Maybe WebGLShader -> ()
+test1369 : GLenum -> ()
 test1369 _ = ()
 
-test1370 : GLenum -> ()
+test1370 : Maybe WebGLTexture -> ()
 test1370 _ = ()
 
-test1371 : Maybe WebGLTexture -> ()
+test1371 : Undefined -> ()
 test1371 _ = ()
 
-test1372 : Undefined -> ()
+test1372 : GLenum -> ()
 test1372 _ = ()
 
-test1373 : GLenum -> ()
+test1373 : Undefined -> ()
 test1373 _ = ()
 
-test1374 : Undefined -> ()
+test1374 : Maybe WebGLBuffer -> ()
 test1374 _ = ()
 
-test1375 : Maybe WebGLBuffer -> ()
+test1375 : Undefined -> ()
 test1375 _ = ()
 
-test1376 : Undefined -> ()
+test1376 : Maybe WebGLFramebuffer -> ()
 test1376 _ = ()
 
-test1377 : Maybe WebGLFramebuffer -> ()
+test1377 : Undefined -> ()
 test1377 _ = ()
 
-test1378 : Undefined -> ()
+test1378 : Maybe WebGLProgram -> ()
 test1378 _ = ()
 
-test1379 : Maybe WebGLProgram -> ()
+test1379 : Undefined -> ()
 test1379 _ = ()
 
-test1380 : Undefined -> ()
+test1380 : Maybe WebGLRenderbuffer -> ()
 test1380 _ = ()
 
-test1381 : Maybe WebGLRenderbuffer -> ()
+test1381 : Undefined -> ()
 test1381 _ = ()
 
-test1382 : Undefined -> ()
+test1382 : Maybe WebGLShader -> ()
 test1382 _ = ()
 
-test1383 : Maybe WebGLShader -> ()
+test1383 : Undefined -> ()
 test1383 _ = ()
 
-test1384 : Undefined -> ()
+test1384 : Maybe WebGLTexture -> ()
 test1384 _ = ()
 
-test1385 : Maybe WebGLTexture -> ()
+test1385 : Undefined -> ()
 test1385 _ = ()
 
-test1386 : Undefined -> ()
+test1386 : GLenum -> ()
 test1386 _ = ()
 
-test1387 : GLenum -> ()
+test1387 : Undefined -> ()
 test1387 _ = ()
 
-test1388 : Undefined -> ()
+test1388 : GLboolean -> ()
 test1388 _ = ()
 
-test1389 : GLboolean -> ()
+test1389 : Undefined -> ()
 test1389 _ = ()
 
-test1390 : Undefined -> ()
+test1390 : GLclampf -> ()
 test1390 _ = ()
 
 test1391 : GLclampf -> ()
 test1391 _ = ()
 
-test1392 : GLclampf -> ()
+test1392 : Undefined -> ()
 test1392 _ = ()
 
-test1393 : Undefined -> ()
+test1393 : WebGLProgram -> ()
 test1393 _ = ()
 
-test1394 : WebGLProgram -> ()
+test1394 : WebGLShader -> ()
 test1394 _ = ()
 
-test1395 : WebGLShader -> ()
+test1395 : Undefined -> ()
 test1395 _ = ()
 
-test1396 : Undefined -> ()
+test1396 : GLenum -> ()
 test1396 _ = ()
 
-test1397 : GLenum -> ()
+test1397 : Undefined -> ()
 test1397 _ = ()
 
-test1398 : Undefined -> ()
+test1398 : GLuint -> ()
 test1398 _ = ()
 
-test1399 : GLuint -> ()
+test1399 : Undefined -> ()
 test1399 _ = ()
 
-test1400 : Undefined -> ()
+test1400 : GLenum -> ()
 test1400 _ = ()
 
-test1401 : GLenum -> ()
+test1401 : GLint -> ()
 test1401 _ = ()
 
-test1402 : GLint -> ()
+test1402 : GLsizei -> ()
 test1402 _ = ()
 
-test1403 : GLsizei -> ()
+test1403 : Undefined -> ()
 test1403 _ = ()
 
-test1404 : Undefined -> ()
+test1404 : GLenum -> ()
 test1404 _ = ()
 
-test1405 : GLenum -> ()
+test1405 : GLsizei -> ()
 test1405 _ = ()
 
-test1406 : GLsizei -> ()
+test1406 : GLenum -> ()
 test1406 _ = ()
 
-test1407 : GLenum -> ()
+test1407 : GLintptr -> ()
 test1407 _ = ()
 
-test1408 : GLintptr -> ()
+test1408 : Undefined -> ()
 test1408 _ = ()
 
-test1409 : Undefined -> ()
+test1409 : GLenum -> ()
 test1409 _ = ()
 
-test1410 : GLenum -> ()
+test1410 : Undefined -> ()
 test1410 _ = ()
 
-test1411 : Undefined -> ()
+test1411 : GLuint -> ()
 test1411 _ = ()
 
-test1412 : GLuint -> ()
+test1412 : Undefined -> ()
 test1412 _ = ()
 
 test1413 : Undefined -> ()
@@ -4246,7 +4246,7 @@ test1413 _ = ()
 test1414 : Undefined -> ()
 test1414 _ = ()
 
-test1415 : Undefined -> ()
+test1415 : GLenum -> ()
 test1415 _ = ()
 
 test1416 : GLenum -> ()
@@ -4255,13 +4255,13 @@ test1416 _ = ()
 test1417 : GLenum -> ()
 test1417 _ = ()
 
-test1418 : GLenum -> ()
+test1418 : Maybe WebGLRenderbuffer -> ()
 test1418 _ = ()
 
-test1419 : Maybe WebGLRenderbuffer -> ()
+test1419 : Undefined -> ()
 test1419 _ = ()
 
-test1420 : Undefined -> ()
+test1420 : GLenum -> ()
 test1420 _ = ()
 
 test1421 : GLenum -> ()
@@ -4270,79 +4270,79 @@ test1421 _ = ()
 test1422 : GLenum -> ()
 test1422 _ = ()
 
-test1423 : GLenum -> ()
+test1423 : Maybe WebGLTexture -> ()
 test1423 _ = ()
 
-test1424 : Maybe WebGLTexture -> ()
+test1424 : GLint -> ()
 test1424 _ = ()
 
-test1425 : GLint -> ()
+test1425 : Undefined -> ()
 test1425 _ = ()
 
-test1426 : Undefined -> ()
+test1426 : GLenum -> ()
 test1426 _ = ()
 
-test1427 : GLenum -> ()
+test1427 : Undefined -> ()
 test1427 _ = ()
 
-test1428 : Undefined -> ()
+test1428 : GLenum -> ()
 test1428 _ = ()
 
-test1429 : GLenum -> ()
+test1429 : Maybe WebGLActiveInfo -> ()
 test1429 _ = ()
 
-test1430 : Maybe WebGLActiveInfo -> ()
+test1430 : WebGLProgram -> ()
 test1430 _ = ()
 
-test1431 : WebGLProgram -> ()
+test1431 : GLuint -> ()
 test1431 _ = ()
 
-test1432 : GLuint -> ()
+test1432 : Maybe WebGLActiveInfo -> ()
 test1432 _ = ()
 
-test1433 : Maybe WebGLActiveInfo -> ()
+test1433 : WebGLProgram -> ()
 test1433 _ = ()
 
-test1434 : WebGLProgram -> ()
+test1434 : GLuint -> ()
 test1434 _ = ()
 
-test1435 : GLuint -> ()
+test1435 : Maybe (JSArray WebGLShader) -> ()
 test1435 _ = ()
 
-test1436 : Maybe (JSArray WebGLShader) -> ()
+test1436 : WebGLProgram -> ()
 test1436 _ = ()
 
-test1437 : WebGLProgram -> ()
+test1437 : GLint -> ()
 test1437 _ = ()
 
-test1438 : GLint -> ()
+test1438 : WebGLProgram -> ()
 test1438 _ = ()
 
-test1439 : WebGLProgram -> ()
+test1439 : String -> ()
 test1439 _ = ()
 
-test1440 : String -> ()
+test1440 : JSAny -> ()
 test1440 _ = ()
 
-test1441 : JSAny -> ()
+test1441 : GLenum -> ()
 test1441 _ = ()
 
 test1442 : GLenum -> ()
 test1442 _ = ()
 
-test1443 : GLenum -> ()
+test1443 : JSAny -> ()
 test1443 _ = ()
 
-test1444 : JSAny -> ()
+test1444 : GLenum -> ()
 test1444 _ = ()
 
 test1445 : GLenum -> ()
 test1445 _ = ()
 
-test1446 : GLenum -> ()
+test1446 : JSAny -> ()
 test1446 _ = ()
 
-test1447 : JSAny -> ()
+test1447 : GLenum -> ()
 test1447 _ = ()
 
 test1448 : GLenum -> ()
@@ -4351,280 +4351,280 @@ test1448 _ = ()
 test1449 : GLenum -> ()
 test1449 _ = ()
 
-test1450 : GLenum -> ()
+test1450 : JSAny -> ()
 test1450 _ = ()
 
-test1451 : JSAny -> ()
+test1451 : WebGLProgram -> ()
 test1451 _ = ()
 
-test1452 : WebGLProgram -> ()
+test1452 : GLenum -> ()
 test1452 _ = ()
 
-test1453 : GLenum -> ()
+test1453 : Maybe String -> ()
 test1453 _ = ()
 
-test1454 : Maybe String -> ()
+test1454 : WebGLProgram -> ()
 test1454 _ = ()
 
-test1455 : WebGLProgram -> ()
+test1455 : JSAny -> ()
 test1455 _ = ()
 
-test1456 : JSAny -> ()
+test1456 : GLenum -> ()
 test1456 _ = ()
 
 test1457 : GLenum -> ()
 test1457 _ = ()
 
-test1458 : GLenum -> ()
+test1458 : JSAny -> ()
 test1458 _ = ()
 
-test1459 : JSAny -> ()
+test1459 : WebGLShader -> ()
 test1459 _ = ()
 
-test1460 : WebGLShader -> ()
+test1460 : GLenum -> ()
 test1460 _ = ()
 
-test1461 : GLenum -> ()
+test1461 : Maybe WebGLShaderPrecisionFormat -> ()
 test1461 _ = ()
 
-test1462 : Maybe WebGLShaderPrecisionFormat -> ()
+test1462 : GLenum -> ()
 test1462 _ = ()
 
 test1463 : GLenum -> ()
 test1463 _ = ()
 
-test1464 : GLenum -> ()
+test1464 : Maybe String -> ()
 test1464 _ = ()
 
-test1465 : Maybe String -> ()
+test1465 : WebGLShader -> ()
 test1465 _ = ()
 
-test1466 : WebGLShader -> ()
+test1466 : Maybe String -> ()
 test1466 _ = ()
 
-test1467 : Maybe String -> ()
+test1467 : WebGLShader -> ()
 test1467 _ = ()
 
-test1468 : WebGLShader -> ()
+test1468 : JSAny -> ()
 test1468 _ = ()
 
-test1469 : JSAny -> ()
+test1469 : GLenum -> ()
 test1469 _ = ()
 
 test1470 : GLenum -> ()
 test1470 _ = ()
 
-test1471 : GLenum -> ()
+test1471 : JSAny -> ()
 test1471 _ = ()
 
-test1472 : JSAny -> ()
+test1472 : WebGLProgram -> ()
 test1472 _ = ()
 
-test1473 : WebGLProgram -> ()
+test1473 : WebGLUniformLocation -> ()
 test1473 _ = ()
 
-test1474 : WebGLUniformLocation -> ()
+test1474 : Maybe WebGLUniformLocation -> ()
 test1474 _ = ()
 
-test1475 : Maybe WebGLUniformLocation -> ()
+test1475 : WebGLProgram -> ()
 test1475 _ = ()
 
-test1476 : WebGLProgram -> ()
+test1476 : String -> ()
 test1476 _ = ()
 
-test1477 : String -> ()
+test1477 : JSAny -> ()
 test1477 _ = ()
 
-test1478 : JSAny -> ()
+test1478 : GLuint -> ()
 test1478 _ = ()
 
-test1479 : GLuint -> ()
+test1479 : GLenum -> ()
 test1479 _ = ()
 
-test1480 : GLenum -> ()
+test1480 : GLintptr -> ()
 test1480 _ = ()
 
-test1481 : GLintptr -> ()
+test1481 : GLuint -> ()
 test1481 _ = ()
 
-test1482 : GLuint -> ()
+test1482 : GLenum -> ()
 test1482 _ = ()
 
-test1483 : GLenum -> ()
+test1483 : Undefined -> ()
 test1483 _ = ()
 
-test1484 : Undefined -> ()
+test1484 : GLenum -> ()
 test1484 _ = ()
 
 test1485 : GLenum -> ()
 test1485 _ = ()
 
-test1486 : GLenum -> ()
+test1486 : GLboolean -> ()
 test1486 _ = ()
 
-test1487 : GLboolean -> ()
+test1487 : Maybe WebGLBuffer -> ()
 test1487 _ = ()
 
-test1488 : Maybe WebGLBuffer -> ()
+test1488 : GLboolean -> ()
 test1488 _ = ()
 
-test1489 : GLboolean -> ()
+test1489 : GLenum -> ()
 test1489 _ = ()
 
-test1490 : GLenum -> ()
+test1490 : GLboolean -> ()
 test1490 _ = ()
 
-test1491 : GLboolean -> ()
+test1491 : Maybe WebGLFramebuffer -> ()
 test1491 _ = ()
 
-test1492 : Maybe WebGLFramebuffer -> ()
+test1492 : GLboolean -> ()
 test1492 _ = ()
 
-test1493 : GLboolean -> ()
+test1493 : Maybe WebGLProgram -> ()
 test1493 _ = ()
 
-test1494 : Maybe WebGLProgram -> ()
+test1494 : GLboolean -> ()
 test1494 _ = ()
 
-test1495 : GLboolean -> ()
+test1495 : Maybe WebGLRenderbuffer -> ()
 test1495 _ = ()
 
-test1496 : Maybe WebGLRenderbuffer -> ()
+test1496 : GLboolean -> ()
 test1496 _ = ()
 
-test1497 : GLboolean -> ()
+test1497 : Maybe WebGLShader -> ()
 test1497 _ = ()
 
-test1498 : Maybe WebGLShader -> ()
+test1498 : GLboolean -> ()
 test1498 _ = ()
 
-test1499 : GLboolean -> ()
+test1499 : Maybe WebGLTexture -> ()
 test1499 _ = ()
 
-test1500 : Maybe WebGLTexture -> ()
+test1500 : Undefined -> ()
 test1500 _ = ()
 
-test1501 : Undefined -> ()
+test1501 : GLfloat -> ()
 test1501 _ = ()
 
-test1502 : GLfloat -> ()
+test1502 : Undefined -> ()
 test1502 _ = ()
 
-test1503 : Undefined -> ()
+test1503 : WebGLProgram -> ()
 test1503 _ = ()
 
-test1504 : WebGLProgram -> ()
+test1504 : Undefined -> ()
 test1504 _ = ()
 
-test1505 : Undefined -> ()
+test1505 : GLenum -> ()
 test1505 _ = ()
 
-test1506 : GLenum -> ()
+test1506 : GLint -> ()
 test1506 _ = ()
 
-test1507 : GLint -> ()
+test1507 : Undefined -> ()
 test1507 _ = ()
 
-test1508 : Undefined -> ()
+test1508 : GLfloat -> ()
 test1508 _ = ()
 
 test1509 : GLfloat -> ()
 test1509 _ = ()
 
-test1510 : GLfloat -> ()
+test1510 : Undefined -> ()
 test1510 _ = ()
 
-test1511 : Undefined -> ()
+test1511 : GLenum -> ()
 test1511 _ = ()
 
 test1512 : GLenum -> ()
 test1512 _ = ()
 
-test1513 : GLenum -> ()
+test1513 : GLsizei -> ()
 test1513 _ = ()
 
 test1514 : GLsizei -> ()
 test1514 _ = ()
 
-test1515 : GLsizei -> ()
+test1515 : Undefined -> ()
 test1515 _ = ()
 
-test1516 : Undefined -> ()
+test1516 : GLclampf -> ()
 test1516 _ = ()
 
-test1517 : GLclampf -> ()
+test1517 : GLboolean -> ()
 test1517 _ = ()
 
-test1518 : GLboolean -> ()
+test1518 : Undefined -> ()
 test1518 _ = ()
 
-test1519 : Undefined -> ()
+test1519 : GLint -> ()
 test1519 _ = ()
 
 test1520 : GLint -> ()
 test1520 _ = ()
 
-test1521 : GLint -> ()
+test1521 : GLsizei -> ()
 test1521 _ = ()
 
 test1522 : GLsizei -> ()
 test1522 _ = ()
 
-test1523 : GLsizei -> ()
+test1523 : Undefined -> ()
 test1523 _ = ()
 
-test1524 : Undefined -> ()
+test1524 : WebGLShader -> ()
 test1524 _ = ()
 
-test1525 : WebGLShader -> ()
+test1525 : String -> ()
 test1525 _ = ()
 
-test1526 : String -> ()
+test1526 : Undefined -> ()
 test1526 _ = ()
 
-test1527 : Undefined -> ()
+test1527 : GLenum -> ()
 test1527 _ = ()
 
-test1528 : GLenum -> ()
+test1528 : GLint -> ()
 test1528 _ = ()
 
-test1529 : GLint -> ()
+test1529 : GLuint -> ()
 test1529 _ = ()
 
-test1530 : GLuint -> ()
+test1530 : Undefined -> ()
 test1530 _ = ()
 
-test1531 : Undefined -> ()
+test1531 : GLenum -> ()
 test1531 _ = ()
 
 test1532 : GLenum -> ()
 test1532 _ = ()
 
-test1533 : GLenum -> ()
+test1533 : GLint -> ()
 test1533 _ = ()
 
-test1534 : GLint -> ()
+test1534 : GLuint -> ()
 test1534 _ = ()
 
-test1535 : GLuint -> ()
+test1535 : Undefined -> ()
 test1535 _ = ()
 
-test1536 : Undefined -> ()
+test1536 : GLuint -> ()
 test1536 _ = ()
 
-test1537 : GLuint -> ()
+test1537 : Undefined -> ()
 test1537 _ = ()
 
-test1538 : Undefined -> ()
+test1538 : GLenum -> ()
 test1538 _ = ()
 
-test1539 : GLenum -> ()
+test1539 : GLuint -> ()
 test1539 _ = ()
 
-test1540 : GLuint -> ()
+test1540 : Undefined -> ()
 test1540 _ = ()
 
-test1541 : Undefined -> ()
+test1541 : GLenum -> ()
 test1541 _ = ()
 
 test1542 : GLenum -> ()
@@ -4633,10 +4633,10 @@ test1542 _ = ()
 test1543 : GLenum -> ()
 test1543 _ = ()
 
-test1544 : GLenum -> ()
+test1544 : Undefined -> ()
 test1544 _ = ()
 
-test1545 : Undefined -> ()
+test1545 : GLenum -> ()
 test1545 _ = ()
 
 test1546 : GLenum -> ()
@@ -4648,58 +4648,58 @@ test1547 _ = ()
 test1548 : GLenum -> ()
 test1548 _ = ()
 
-test1549 : GLenum -> ()
+test1549 : Undefined -> ()
 test1549 _ = ()
 
-test1550 : Undefined -> ()
+test1550 : GLenum -> ()
 test1550 _ = ()
 
 test1551 : GLenum -> ()
 test1551 _ = ()
 
-test1552 : GLenum -> ()
+test1552 : GLfloat -> ()
 test1552 _ = ()
 
-test1553 : GLfloat -> ()
+test1553 : Undefined -> ()
 test1553 _ = ()
 
-test1554 : Undefined -> ()
+test1554 : GLenum -> ()
 test1554 _ = ()
 
 test1555 : GLenum -> ()
 test1555 _ = ()
 
-test1556 : GLenum -> ()
+test1556 : GLint -> ()
 test1556 _ = ()
 
-test1557 : GLint -> ()
+test1557 : Undefined -> ()
 test1557 _ = ()
 
-test1558 : Undefined -> ()
+test1558 : Maybe WebGLUniformLocation -> ()
 test1558 _ = ()
 
-test1559 : Maybe WebGLUniformLocation -> ()
+test1559 : GLfloat -> ()
 test1559 _ = ()
 
-test1560 : GLfloat -> ()
+test1560 : Undefined -> ()
 test1560 _ = ()
 
-test1561 : Undefined -> ()
+test1561 : Maybe WebGLUniformLocation -> ()
 test1561 _ = ()
 
-test1562 : Maybe WebGLUniformLocation -> ()
+test1562 : GLfloat -> ()
 test1562 _ = ()
 
 test1563 : GLfloat -> ()
 test1563 _ = ()
 
-test1564 : GLfloat -> ()
+test1564 : Undefined -> ()
 test1564 _ = ()
 
-test1565 : Undefined -> ()
+test1565 : Maybe WebGLUniformLocation -> ()
 test1565 _ = ()
 
-test1566 : Maybe WebGLUniformLocation -> ()
+test1566 : GLfloat -> ()
 test1566 _ = ()
 
 test1567 : GLfloat -> ()
@@ -4708,13 +4708,13 @@ test1567 _ = ()
 test1568 : GLfloat -> ()
 test1568 _ = ()
 
-test1569 : GLfloat -> ()
+test1569 : Undefined -> ()
 test1569 _ = ()
 
-test1570 : Undefined -> ()
+test1570 : Maybe WebGLUniformLocation -> ()
 test1570 _ = ()
 
-test1571 : Maybe WebGLUniformLocation -> ()
+test1571 : GLfloat -> ()
 test1571 _ = ()
 
 test1572 : GLfloat -> ()
@@ -4726,34 +4726,34 @@ test1573 _ = ()
 test1574 : GLfloat -> ()
 test1574 _ = ()
 
-test1575 : GLfloat -> ()
+test1575 : Undefined -> ()
 test1575 _ = ()
 
-test1576 : Undefined -> ()
+test1576 : Maybe WebGLUniformLocation -> ()
 test1576 _ = ()
 
-test1577 : Maybe WebGLUniformLocation -> ()
+test1577 : GLint -> ()
 test1577 _ = ()
 
-test1578 : GLint -> ()
+test1578 : Undefined -> ()
 test1578 _ = ()
 
-test1579 : Undefined -> ()
+test1579 : Maybe WebGLUniformLocation -> ()
 test1579 _ = ()
 
-test1580 : Maybe WebGLUniformLocation -> ()
+test1580 : GLint -> ()
 test1580 _ = ()
 
 test1581 : GLint -> ()
 test1581 _ = ()
 
-test1582 : GLint -> ()
+test1582 : Undefined -> ()
 test1582 _ = ()
 
-test1583 : Undefined -> ()
+test1583 : Maybe WebGLUniformLocation -> ()
 test1583 _ = ()
 
-test1584 : Maybe WebGLUniformLocation -> ()
+test1584 : GLint -> ()
 test1584 _ = ()
 
 test1585 : GLint -> ()
@@ -4762,13 +4762,13 @@ test1585 _ = ()
 test1586 : GLint -> ()
 test1586 _ = ()
 
-test1587 : GLint -> ()
+test1587 : Undefined -> ()
 test1587 _ = ()
 
-test1588 : Undefined -> ()
+test1588 : Maybe WebGLUniformLocation -> ()
 test1588 _ = ()
 
-test1589 : Maybe WebGLUniformLocation -> ()
+test1589 : GLint -> ()
 test1589 _ = ()
 
 test1590 : GLint -> ()
@@ -4780,46 +4780,46 @@ test1591 _ = ()
 test1592 : GLint -> ()
 test1592 _ = ()
 
-test1593 : GLint -> ()
+test1593 : Undefined -> ()
 test1593 _ = ()
 
-test1594 : Undefined -> ()
+test1594 : Maybe WebGLProgram -> ()
 test1594 _ = ()
 
-test1595 : Maybe WebGLProgram -> ()
+test1595 : Undefined -> ()
 test1595 _ = ()
 
-test1596 : Undefined -> ()
+test1596 : WebGLProgram -> ()
 test1596 _ = ()
 
-test1597 : WebGLProgram -> ()
+test1597 : Undefined -> ()
 test1597 _ = ()
 
-test1598 : Undefined -> ()
+test1598 : GLuint -> ()
 test1598 _ = ()
 
-test1599 : GLuint -> ()
+test1599 : GLfloat -> ()
 test1599 _ = ()
 
-test1600 : GLfloat -> ()
+test1600 : Undefined -> ()
 test1600 _ = ()
 
-test1601 : Undefined -> ()
+test1601 : GLuint -> ()
 test1601 _ = ()
 
-test1602 : GLuint -> ()
+test1602 : GLfloat -> ()
 test1602 _ = ()
 
 test1603 : GLfloat -> ()
 test1603 _ = ()
 
-test1604 : GLfloat -> ()
+test1604 : Undefined -> ()
 test1604 _ = ()
 
-test1605 : Undefined -> ()
+test1605 : GLuint -> ()
 test1605 _ = ()
 
-test1606 : GLuint -> ()
+test1606 : GLfloat -> ()
 test1606 _ = ()
 
 test1607 : GLfloat -> ()
@@ -4828,13 +4828,13 @@ test1607 _ = ()
 test1608 : GLfloat -> ()
 test1608 _ = ()
 
-test1609 : GLfloat -> ()
+test1609 : Undefined -> ()
 test1609 _ = ()
 
-test1610 : Undefined -> ()
+test1610 : GLuint -> ()
 test1610 _ = ()
 
-test1611 : GLuint -> ()
+test1611 : GLfloat -> ()
 test1611 _ = ()
 
 test1612 : GLfloat -> ()
@@ -4846,145 +4846,145 @@ test1613 _ = ()
 test1614 : GLfloat -> ()
 test1614 _ = ()
 
-test1615 : GLfloat -> ()
+test1615 : Undefined -> ()
 test1615 _ = ()
 
-test1616 : Undefined -> ()
+test1616 : GLuint -> ()
 test1616 _ = ()
 
-test1617 : GLuint -> ()
+test1617 : Float32List -> ()
 test1617 _ = ()
 
-test1618 : Float32List -> ()
+test1618 : Undefined -> ()
 test1618 _ = ()
 
-test1619 : Undefined -> ()
+test1619 : GLuint -> ()
 test1619 _ = ()
 
-test1620 : GLuint -> ()
+test1620 : Float32List -> ()
 test1620 _ = ()
 
-test1621 : Float32List -> ()
+test1621 : Undefined -> ()
 test1621 _ = ()
 
-test1622 : Undefined -> ()
+test1622 : GLuint -> ()
 test1622 _ = ()
 
-test1623 : GLuint -> ()
+test1623 : Float32List -> ()
 test1623 _ = ()
 
-test1624 : Float32List -> ()
+test1624 : Undefined -> ()
 test1624 _ = ()
 
-test1625 : Undefined -> ()
+test1625 : GLuint -> ()
 test1625 _ = ()
 
-test1626 : GLuint -> ()
+test1626 : Float32List -> ()
 test1626 _ = ()
 
-test1627 : Float32List -> ()
+test1627 : Undefined -> ()
 test1627 _ = ()
 
-test1628 : Undefined -> ()
+test1628 : GLuint -> ()
 test1628 _ = ()
 
-test1629 : GLuint -> ()
+test1629 : GLint -> ()
 test1629 _ = ()
 
-test1630 : GLint -> ()
+test1630 : GLenum -> ()
 test1630 _ = ()
 
-test1631 : GLenum -> ()
+test1631 : GLboolean -> ()
 test1631 _ = ()
 
-test1632 : GLboolean -> ()
+test1632 : GLsizei -> ()
 test1632 _ = ()
 
-test1633 : GLsizei -> ()
+test1633 : GLintptr -> ()
 test1633 _ = ()
 
-test1634 : GLintptr -> ()
+test1634 : Undefined -> ()
 test1634 _ = ()
 
-test1635 : Undefined -> ()
+test1635 : GLint -> ()
 test1635 _ = ()
 
 test1636 : GLint -> ()
 test1636 _ = ()
 
-test1637 : GLint -> ()
+test1637 : GLsizei -> ()
 test1637 _ = ()
 
 test1638 : GLsizei -> ()
 test1638 _ = ()
 
-test1639 : GLsizei -> ()
+test1639 : Undefined -> ()
 test1639 _ = ()
 
-test1640 : Undefined -> ()
+test1640 : GLenum -> ()
 test1640 _ = ()
 
-test1641 : GLenum -> ()
+test1641 : GLsizeiptr -> ()
 test1641 _ = ()
 
-test1642 : GLsizeiptr -> ()
+test1642 : GLenum -> ()
 test1642 _ = ()
 
-test1643 : GLenum -> ()
+test1643 : Undefined -> ()
 test1643 _ = ()
 
-test1644 : Undefined -> ()
+test1644 : GLenum -> ()
 test1644 _ = ()
 
-test1645 : GLenum -> ()
+test1645 : Maybe BufferSource -> ()
 test1645 _ = ()
 
-test1646 : Maybe BufferSource -> ()
+test1646 : GLenum -> ()
 test1646 _ = ()
 
-test1647 : GLenum -> ()
+test1647 : Undefined -> ()
 test1647 _ = ()
 
-test1648 : Undefined -> ()
+test1648 : GLenum -> ()
 test1648 _ = ()
 
-test1649 : GLenum -> ()
+test1649 : GLintptr -> ()
 test1649 _ = ()
 
-test1650 : GLintptr -> ()
+test1650 : BufferSource -> ()
 test1650 _ = ()
 
-test1651 : BufferSource -> ()
+test1651 : Undefined -> ()
 test1651 _ = ()
 
-test1652 : Undefined -> ()
+test1652 : GLenum -> ()
 test1652 _ = ()
 
-test1653 : GLenum -> ()
+test1653 : GLint -> ()
 test1653 _ = ()
 
-test1654 : GLint -> ()
+test1654 : GLenum -> ()
 test1654 _ = ()
 
-test1655 : GLenum -> ()
+test1655 : GLsizei -> ()
 test1655 _ = ()
 
 test1656 : GLsizei -> ()
 test1656 _ = ()
 
-test1657 : GLsizei -> ()
+test1657 : GLint -> ()
 test1657 _ = ()
 
-test1658 : GLint -> ()
+test1658 : ArrayBufferView -> ()
 test1658 _ = ()
 
-test1659 : ArrayBufferView -> ()
+test1659 : Undefined -> ()
 test1659 _ = ()
 
-test1660 : Undefined -> ()
+test1660 : GLenum -> ()
 test1660 _ = ()
 
-test1661 : GLenum -> ()
+test1661 : GLint -> ()
 test1661 _ = ()
 
 test1662 : GLint -> ()
@@ -4993,100 +4993,100 @@ test1662 _ = ()
 test1663 : GLint -> ()
 test1663 _ = ()
 
-test1664 : GLint -> ()
+test1664 : GLsizei -> ()
 test1664 _ = ()
 
 test1665 : GLsizei -> ()
 test1665 _ = ()
 
-test1666 : GLsizei -> ()
+test1666 : GLenum -> ()
 test1666 _ = ()
 
-test1667 : GLenum -> ()
+test1667 : ArrayBufferView -> ()
 test1667 _ = ()
 
-test1668 : ArrayBufferView -> ()
+test1668 : Undefined -> ()
 test1668 _ = ()
 
-test1669 : Undefined -> ()
+test1669 : GLint -> ()
 test1669 _ = ()
 
 test1670 : GLint -> ()
 test1670 _ = ()
 
-test1671 : GLint -> ()
+test1671 : GLsizei -> ()
 test1671 _ = ()
 
 test1672 : GLsizei -> ()
 test1672 _ = ()
 
-test1673 : GLsizei -> ()
+test1673 : GLenum -> ()
 test1673 _ = ()
 
 test1674 : GLenum -> ()
 test1674 _ = ()
 
-test1675 : GLenum -> ()
+test1675 : Maybe ArrayBufferView -> ()
 test1675 _ = ()
 
-test1676 : Maybe ArrayBufferView -> ()
+test1676 : Undefined -> ()
 test1676 _ = ()
 
-test1677 : Undefined -> ()
+test1677 : GLenum -> ()
 test1677 _ = ()
 
-test1678 : GLenum -> ()
+test1678 : GLint -> ()
 test1678 _ = ()
 
 test1679 : GLint -> ()
 test1679 _ = ()
 
-test1680 : GLint -> ()
+test1680 : GLsizei -> ()
 test1680 _ = ()
 
 test1681 : GLsizei -> ()
 test1681 _ = ()
 
-test1682 : GLsizei -> ()
+test1682 : GLint -> ()
 test1682 _ = ()
 
-test1683 : GLint -> ()
+test1683 : GLenum -> ()
 test1683 _ = ()
 
 test1684 : GLenum -> ()
 test1684 _ = ()
 
-test1685 : GLenum -> ()
+test1685 : Maybe ArrayBufferView -> ()
 test1685 _ = ()
 
-test1686 : Maybe ArrayBufferView -> ()
+test1686 : Undefined -> ()
 test1686 _ = ()
 
-test1687 : Undefined -> ()
+test1687 : GLenum -> ()
 test1687 _ = ()
 
-test1688 : GLenum -> ()
+test1688 : GLint -> ()
 test1688 _ = ()
 
 test1689 : GLint -> ()
 test1689 _ = ()
 
-test1690 : GLint -> ()
+test1690 : GLenum -> ()
 test1690 _ = ()
 
 test1691 : GLenum -> ()
 test1691 _ = ()
 
-test1692 : GLenum -> ()
+test1692 : TexImageSource -> ()
 test1692 _ = ()
 
-test1693 : TexImageSource -> ()
+test1693 : Undefined -> ()
 test1693 _ = ()
 
-test1694 : Undefined -> ()
+test1694 : GLenum -> ()
 test1694 _ = ()
 
-test1695 : GLenum -> ()
+test1695 : GLint -> ()
 test1695 _ = ()
 
 test1696 : GLint -> ()
@@ -5095,28 +5095,28 @@ test1696 _ = ()
 test1697 : GLint -> ()
 test1697 _ = ()
 
-test1698 : GLint -> ()
+test1698 : GLsizei -> ()
 test1698 _ = ()
 
 test1699 : GLsizei -> ()
 test1699 _ = ()
 
-test1700 : GLsizei -> ()
+test1700 : GLenum -> ()
 test1700 _ = ()
 
 test1701 : GLenum -> ()
 test1701 _ = ()
 
-test1702 : GLenum -> ()
+test1702 : Maybe ArrayBufferView -> ()
 test1702 _ = ()
 
-test1703 : Maybe ArrayBufferView -> ()
+test1703 : Undefined -> ()
 test1703 _ = ()
 
-test1704 : Undefined -> ()
+test1704 : GLenum -> ()
 test1704 _ = ()
 
-test1705 : GLenum -> ()
+test1705 : GLint -> ()
 test1705 _ = ()
 
 test1706 : GLint -> ()
@@ -5125,188 +5125,185 @@ test1706 _ = ()
 test1707 : GLint -> ()
 test1707 _ = ()
 
-test1708 : GLint -> ()
+test1708 : GLenum -> ()
 test1708 _ = ()
 
 test1709 : GLenum -> ()
 test1709 _ = ()
 
-test1710 : GLenum -> ()
+test1710 : TexImageSource -> ()
 test1710 _ = ()
 
-test1711 : TexImageSource -> ()
+test1711 : Undefined -> ()
 test1711 _ = ()
 
-test1712 : Undefined -> ()
+test1712 : Maybe WebGLUniformLocation -> ()
 test1712 _ = ()
 
-test1713 : Maybe WebGLUniformLocation -> ()
+test1713 : Float32List -> ()
 test1713 _ = ()
 
-test1714 : Float32List -> ()
+test1714 : Undefined -> ()
 test1714 _ = ()
 
-test1715 : Undefined -> ()
+test1715 : Maybe WebGLUniformLocation -> ()
 test1715 _ = ()
 
-test1716 : Maybe WebGLUniformLocation -> ()
+test1716 : Float32List -> ()
 test1716 _ = ()
 
-test1717 : Float32List -> ()
+test1717 : Undefined -> ()
 test1717 _ = ()
 
-test1718 : Undefined -> ()
+test1718 : Maybe WebGLUniformLocation -> ()
 test1718 _ = ()
 
-test1719 : Maybe WebGLUniformLocation -> ()
+test1719 : Float32List -> ()
 test1719 _ = ()
 
-test1720 : Float32List -> ()
+test1720 : Undefined -> ()
 test1720 _ = ()
 
-test1721 : Undefined -> ()
+test1721 : Maybe WebGLUniformLocation -> ()
 test1721 _ = ()
 
-test1722 : Maybe WebGLUniformLocation -> ()
+test1722 : Float32List -> ()
 test1722 _ = ()
 
-test1723 : Float32List -> ()
+test1723 : Undefined -> ()
 test1723 _ = ()
 
-test1724 : Undefined -> ()
+test1724 : Maybe WebGLUniformLocation -> ()
 test1724 _ = ()
 
-test1725 : Maybe WebGLUniformLocation -> ()
+test1725 : Int32List -> ()
 test1725 _ = ()
 
-test1726 : Int32List -> ()
+test1726 : Undefined -> ()
 test1726 _ = ()
 
-test1727 : Undefined -> ()
+test1727 : Maybe WebGLUniformLocation -> ()
 test1727 _ = ()
 
-test1728 : Maybe WebGLUniformLocation -> ()
+test1728 : Int32List -> ()
 test1728 _ = ()
 
-test1729 : Int32List -> ()
+test1729 : Undefined -> ()
 test1729 _ = ()
 
-test1730 : Undefined -> ()
+test1730 : Maybe WebGLUniformLocation -> ()
 test1730 _ = ()
 
-test1731 : Maybe WebGLUniformLocation -> ()
+test1731 : Int32List -> ()
 test1731 _ = ()
 
-test1732 : Int32List -> ()
+test1732 : Undefined -> ()
 test1732 _ = ()
 
-test1733 : Undefined -> ()
+test1733 : Maybe WebGLUniformLocation -> ()
 test1733 _ = ()
 
-test1734 : Maybe WebGLUniformLocation -> ()
+test1734 : Int32List -> ()
 test1734 _ = ()
 
-test1735 : Int32List -> ()
+test1735 : Undefined -> ()
 test1735 _ = ()
 
-test1736 : Undefined -> ()
+test1736 : Maybe WebGLUniformLocation -> ()
 test1736 _ = ()
 
-test1737 : Maybe WebGLUniformLocation -> ()
+test1737 : GLboolean -> ()
 test1737 _ = ()
 
-test1738 : GLboolean -> ()
+test1738 : Float32List -> ()
 test1738 _ = ()
 
-test1739 : Float32List -> ()
+test1739 : Undefined -> ()
 test1739 _ = ()
 
-test1740 : Undefined -> ()
+test1740 : Maybe WebGLUniformLocation -> ()
 test1740 _ = ()
 
-test1741 : Maybe WebGLUniformLocation -> ()
+test1741 : GLboolean -> ()
 test1741 _ = ()
 
-test1742 : GLboolean -> ()
+test1742 : Float32List -> ()
 test1742 _ = ()
 
-test1743 : Float32List -> ()
+test1743 : Undefined -> ()
 test1743 _ = ()
 
-test1744 : Undefined -> ()
+test1744 : Maybe WebGLUniformLocation -> ()
 test1744 _ = ()
 
-test1745 : Maybe WebGLUniformLocation -> ()
+test1745 : GLboolean -> ()
 test1745 _ = ()
 
-test1746 : GLboolean -> ()
+test1746 : Float32List -> ()
 test1746 _ = ()
 
-test1747 : Float32List -> ()
+test1747 : Int64 -> ()
 test1747 _ = ()
 
-test1748 : Int64 -> ()
+test1748 : UInt64 -> ()
 test1748 _ = ()
 
-test1749 : UInt64 -> ()
+test1749 : NS I [ JSArray UInt32 , JSArray GLuint ] -> ()
 test1749 _ = ()
 
-test1750 : NS I [ JSArray UInt32 , JSArray GLuint ] -> ()
+test1750 : UInt32 -> ()
 test1750 _ = ()
 
-test1751 : UInt32 -> ()
+test1751 : Bool -> ()
 test1751 _ = ()
 
-test1752 : Bool -> ()
+test1752 : UInt32 -> ()
 test1752 _ = ()
 
-test1753 : UInt32 -> ()
+test1753 : Int8 -> ()
 test1753 _ = ()
 
-test1754 : Int8 -> ()
+test1754 : Int16 -> ()
 test1754 _ = ()
 
-test1755 : Int16 -> ()
+test1755 : Int32 -> ()
 test1755 _ = ()
 
 test1756 : Int32 -> ()
 test1756 _ = ()
 
-test1757 : Int32 -> ()
+test1757 : Int64 -> ()
 test1757 _ = ()
 
 test1758 : Int64 -> ()
 test1758 _ = ()
 
-test1759 : Int64 -> ()
+test1759 : UInt8 -> ()
 test1759 _ = ()
 
-test1760 : UInt8 -> ()
+test1760 : UInt16 -> ()
 test1760 _ = ()
 
-test1761 : UInt16 -> ()
+test1761 : UInt32 -> ()
 test1761 _ = ()
 
-test1762 : UInt32 -> ()
+test1762 : Double -> ()
 test1762 _ = ()
 
 test1763 : Double -> ()
 test1763 _ = ()
 
-test1764 : Double -> ()
-test1764 _ = ()
-
-test1765 : NS I [ ImageBitmap
+test1764 : NS I [ ImageBitmap
                 , ImageData
                 , HTMLImageElement
                 , HTMLCanvasElement
                 , HTMLVideoElement
                 , OffscreenCanvas
                 ] -> ()
+test1764 _ = ()
+
+test1765 : NS I [ JSArray Double , JSArray GLfloat ] -> ()
 test1765 _ = ()
 
-test1766 : NS I [ JSArray Double , JSArray GLfloat ] -> ()
+test1766 : NS I [ JSArray Int32 , JSArray GLint ] -> ()
 test1766 _ = ()
-
-test1767 : NS I [ JSArray Int32 , JSArray GLint ] -> ()
-test1767 _ = ()

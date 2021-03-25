@@ -3,6 +3,31 @@ module Web.Webgl
 import JS.Util
 import Web.Types
 
+--------------------------------------------------------------------------------
+--          Interfaces
+--------------------------------------------------------------------------------
+
+namespace WebGLActiveInfo
+  
+  %foreign "browser:lambda:x=>x.name"
+  prim__name : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.size"
+  prim__size : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.type"
+  prim__type : AnyPtr -> PrimIO AnyPtr
+
+namespace WebGLShaderPrecisionFormat
+  
+  %foreign "browser:lambda:x=>x.precision"
+  prim__precision : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.rangeMax"
+  prim__rangeMax : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.rangeMin"
+  prim__rangeMin : AnyPtr -> PrimIO AnyPtr
 
 --------------------------------------------------------------------------------
 --          Mixins
@@ -2247,7 +2272,75 @@ namespace WebGLRenderingContextBase
   public export
   ZERO : GLenum
   ZERO = 0o0
+  
+  %foreign "browser:lambda:x=>x.canvas"
+  prim__canvas : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.drawingBufferHeight"
+  prim__drawingBufferHeight : AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.drawingBufferWidth"
+  prim__drawingBufferWidth : AnyPtr -> PrimIO AnyPtr
 
+--------------------------------------------------------------------------------
+--          Dictionaries
+--------------------------------------------------------------------------------
+
+namespace WebGLContextAttributes
+  
+  %foreign "browser:lambda:x=>x.alpha"
+  prim__alpha : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.alpha = v}"
+  prim__setAlpha : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.antialias"
+  prim__antialias : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.antialias = v}"
+  prim__setAntialias : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.depth"
+  prim__depth : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.depth = v}"
+  prim__setDepth : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.desynchronized"
+  prim__desynchronized : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.desynchronized = v}"
+  prim__setDesynchronized : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.failIfMajorPerformanceCaveat"
+  prim__failIfMajorPerformanceCaveat : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.failIfMajorPerformanceCaveat = v}"
+  prim__setFailIfMajorPerformanceCaveat : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.powerPreference"
+  prim__powerPreference : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.powerPreference = v}"
+  prim__setPowerPreference : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.premultipliedAlpha"
+  prim__premultipliedAlpha : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.premultipliedAlpha = v}"
+  prim__setPremultipliedAlpha : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.preserveDrawingBuffer"
+  prim__preserveDrawingBuffer : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.preserveDrawingBuffer = v}"
+  prim__setPreserveDrawingBuffer : AnyPtr -> AnyPtr -> PrimIO AnyPtr
+  
+  %foreign "browser:lambda:x=>x.stencil"
+  prim__stencil : AnyPtr -> PrimIO AnyPtr
+
+  %foreign "browser:lambda:(x,v)=>{x.stencil = v}"
+  prim__setStencil : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
 
 
