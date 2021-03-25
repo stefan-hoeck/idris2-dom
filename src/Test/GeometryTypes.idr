@@ -253,13 +253,13 @@ test82 _ = ()
 test83 : DOMMatrixReadOnly -> ()
 test83 _ = ()
 
-test84 : Float32Array -> ()
+test84 : JSArray Double -> ()
 test84 _ = ()
 
 test85 : DOMMatrixReadOnly -> ()
 test85 _ = ()
 
-test86 : Float64Array -> ()
+test86 : JSArray Double -> ()
 test86 _ = ()
 
 test87 : Double -> ()
@@ -460,10 +460,10 @@ test151 _ = ()
 test152 : DOMPointInit -> ()
 test152 _ = ()
 
-test153 : Float32Array -> ()
+test153 : JSArray Double -> ()
 test153 _ = ()
 
-test154 : Float64Array -> ()
+test154 : JSArray Double -> ()
 test154 _ = ()
 
 test155 : JSObject -> ()
@@ -478,13 +478,13 @@ test157 _ = ()
 test158 : DOMMatrix -> ()
 test158 _ = ()
 
-test159 : Float32Array -> ()
+test159 : JSArray Double -> ()
 test159 _ = ()
 
 test160 : DOMMatrix -> ()
 test160 _ = ()
 
-test161 : Float64Array -> ()
+test161 : JSArray Double -> ()
 test161 _ = ()
 
 test162 : Double -> ()

@@ -88,18 +88,6 @@ export
 data JSArray : Type -> Type where [external]
 
 export
-data Int32Array : Type where [external]
-
-export
-data Uint32Array : Type where [external]
-
-export
-data Float32Array : Type where [external]
-
-export
-data Float64Array : Type where [external]
-
-export
 data JSPromise : Type -> Type where [external]
 
 export
@@ -109,22 +97,7 @@ export
 data DataView : Type where [external]
 
 export
-data Uint16Array : Type where [external]
-
-export
-data Int16Array : Type where [external]
-
-export
-data Int8Array : Type where [external]
-
-export
-data Uint8Array : Type where [external]
-
-export
 data ArrayBuffer : Type where [external]
-
-export
-data Uint8ClampedArray : Type where [external]
 
 ||| See [spec](https://html.spec.whatwg.org/#windowproxy)
 export

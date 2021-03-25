@@ -103,15 +103,15 @@ test32 _ = ()
 test33 : UInt16 -> ()
 test33 _ = ()
 
-test34 : NS I [ Int8Array
-              , Int16Array
-              , Int32Array
-              , Uint8Array
-              , Uint16Array
-              , Uint32Array
-              , Uint8ClampedArray
-              , Float32Array
-              , Float64Array
+test34 : NS I [ JSArray Int8
+              , JSArray Int16
+              , JSArray Int32
+              , JSArray UInt8
+              , JSArray UInt16
+              , JSArray UInt32
+              , JSArray UInt8
+              , JSArray Double
+              , JSArray Double
               , DataView
               ] -> ()
 test34 _ = ()

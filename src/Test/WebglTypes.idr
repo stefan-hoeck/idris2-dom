@@ -5251,7 +5251,7 @@ test1748 _ = ()
 test1749 : UInt64 -> ()
 test1749 _ = ()
 
-test1750 : NS I [ Uint32Array , JSArray GLuint ] -> ()
+test1750 : NS I [ JSArray UInt32 , JSArray GLuint ] -> ()
 test1750 _ = ()
 
 test1751 : UInt32 -> ()
@@ -5305,8 +5305,8 @@ test1765 : NS I [ ImageBitmap
                 ] -> ()
 test1765 _ = ()
 
-test1766 : NS I [ Float32Array , JSArray GLfloat ] -> ()
+test1766 : NS I [ JSArray Double , JSArray GLfloat ] -> ()
 test1766 _ = ()
 
-test1767 : NS I [ Int32Array , JSArray GLint ] -> ()
+test1767 : NS I [ JSArray Int32 , JSArray GLint ] -> ()
 test1767 _ = ()

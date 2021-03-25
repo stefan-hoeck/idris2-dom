@@ -2734,7 +2734,7 @@ test909 _ = ()
 test910 : UInt32 -> ()
 test910 _ = ()
 
-test911 : Uint8ClampedArray -> ()
+test911 : JSArray UInt8 -> ()
 test911 _ = ()
 
 test912 : UInt32 -> ()
@@ -2749,7 +2749,7 @@ test914 _ = ()
 test915 : UInt32 -> ()
 test915 _ = ()
 
-test916 : Uint8ClampedArray -> ()
+test916 : JSArray UInt8 -> ()
 test916 _ = ()
 
 test917 : NS I [ Path2D , String ] -> ()

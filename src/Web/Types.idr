@@ -31,15 +31,15 @@ mutual
   
   public export
   0 ArrayBufferView : Type
-  ArrayBufferView = NS I [ Int8Array
-                         , Int16Array
-                         , Int32Array
-                         , Uint8Array
-                         , Uint16Array
-                         , Uint32Array
-                         , Uint8ClampedArray
-                         , Float32Array
-                         , Float64Array
+  ArrayBufferView = NS I [ JSArray Int8
+                         , JSArray Int16
+                         , JSArray Int32
+                         , JSArray UInt8
+                         , JSArray UInt16
+                         , JSArray UInt32
+                         , JSArray UInt8
+                         , JSArray Double
+                         , JSArray Double
                          , DataView
                          ]
   
@@ -109,7 +109,7 @@ mutual
   
   public export
   0 Float32List : Type
-  Float32List = NS I [ Float32Array , JSArray GLfloat ]
+  Float32List = NS I [ JSArray Double , JSArray GLfloat ]
   
   public export
   0 FormDataEntryValue : Type
@@ -197,7 +197,7 @@ mutual
   
   public export
   0 Int32List : Type
-  Int32List = NS I [ Int32Array , JSArray GLint ]
+  Int32List = NS I [ JSArray Int32 , JSArray GLint ]
   
   public export
   0 MediaProvider : Type
@@ -259,7 +259,7 @@ mutual
   
   public export
   0 Uint32List : Type
-  Uint32List = NS I [ Uint32Array , JSArray GLuint ]
+  Uint32List = NS I [ JSArray UInt32 , JSArray GLuint ]
   
   public export
   0 XMLHttpRequestBodyInit : Type
