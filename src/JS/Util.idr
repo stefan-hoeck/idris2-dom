@@ -146,6 +146,3 @@ data ReadableStream : Type where [external]
 
 export
 data DOMHighResTimeStamp : Type where [external]
-
-export
-data VisibilityState : Type where [external]

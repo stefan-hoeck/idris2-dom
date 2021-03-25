@@ -916,97 +916,97 @@ test303 _ = ()
 test304 : Maybe SVGSVGElement -> ()
 test304 _ = ()
 
-test305 : DocumentType -> ()
+test305 : Bool -> ()
 test305 _ = ()
 
-test306 : String -> ()
+test306 : VisibilityState -> ()
 test306 _ = ()
 
-test307 : String -> ()
+test307 : EventHandler -> ()
 test307 _ = ()
 
-test308 : String -> ()
+test308 : DocumentType -> ()
 test308 _ = ()
 
-test309 : XMLDocument -> ()
+test309 : String -> ()
 test309 _ = ()
 
-test310 : Maybe String -> ()
+test310 : String -> ()
 test310 _ = ()
 
 test311 : String -> ()
 test311 _ = ()
 
-test312 : Maybe DocumentType -> ()
+test312 : XMLDocument -> ()
 test312 _ = ()
 
-test313 : Document -> ()
+test313 : Maybe String -> ()
 test313 _ = ()
 
 test314 : String -> ()
 test314 _ = ()
 
-test315 : Bool -> ()
+test315 : Maybe DocumentType -> ()
 test315 _ = ()
 
-test316 : String -> ()
+test316 : Document -> ()
 test316 _ = ()
 
 test317 : String -> ()
 test317 _ = ()
 
-test318 : String -> ()
+test318 : Bool -> ()
 test318 _ = ()
 
-test319 : ShadowRootMode -> ()
+test319 : String -> ()
 test319 _ = ()
 
-test320 : Element -> ()
+test320 : String -> ()
 test320 _ = ()
 
-test321 : EventHandler -> ()
+test321 : String -> ()
 test321 _ = ()
 
-test322 : Maybe String -> ()
+test322 : ShadowRootMode -> ()
 test322 _ = ()
 
-test323 : Maybe String -> ()
+test323 : Element -> ()
 test323 _ = ()
 
-test324 : String -> ()
+test324 : EventHandler -> ()
 test324 _ = ()
 
-test325 : String -> ()
+test325 : Maybe String -> ()
 test325 _ = ()
 
-test326 : String -> ()
+test326 : Maybe String -> ()
 test326 _ = ()
 
 test327 : String -> ()
 test327 _ = ()
 
-test328 : DOMTokenList -> ()
+test328 : String -> ()
 test328 _ = ()
 
 test329 : String -> ()
 test329 _ = ()
 
-test330 : Bool -> ()
+test330 : String -> ()
 test330 _ = ()
 
-test331 : NamedNodeMap -> ()
+test331 : DOMTokenList -> ()
 test331 _ = ()
 
-test332 : JSArray String -> ()
+test332 : String -> ()
 test332 _ = ()
 
-test333 : Maybe String -> ()
+test333 : Bool -> ()
 test333 _ = ()
 
-test334 : String -> ()
+test334 : NamedNodeMap -> ()
 test334 _ = ()
 
-test335 : Maybe String -> ()
+test335 : JSArray String -> ()
 test335 _ = ()
 
 test336 : Maybe String -> ()
@@ -1015,10 +1015,10 @@ test336 _ = ()
 test337 : String -> ()
 test337 _ = ()
 
-test338 : Undefined -> ()
+test338 : Maybe String -> ()
 test338 _ = ()
 
-test339 : String -> ()
+test339 : Maybe String -> ()
 test339 _ = ()
 
 test340 : String -> ()
@@ -1027,37 +1027,37 @@ test340 _ = ()
 test341 : Undefined -> ()
 test341 _ = ()
 
-test342 : Maybe String -> ()
+test342 : String -> ()
 test342 _ = ()
 
 test343 : String -> ()
 test343 _ = ()
 
-test344 : String -> ()
+test344 : Undefined -> ()
 test344 _ = ()
 
-test345 : Undefined -> ()
+test345 : Maybe String -> ()
 test345 _ = ()
 
 test346 : String -> ()
 test346 _ = ()
 
-test347 : Undefined -> ()
+test347 : String -> ()
 test347 _ = ()
 
-test348 : Maybe String -> ()
+test348 : Undefined -> ()
 test348 _ = ()
 
 test349 : String -> ()
 test349 _ = ()
 
-test350 : Bool -> ()
+test350 : Undefined -> ()
 test350 _ = ()
 
-test351 : String -> ()
+test351 : Maybe String -> ()
 test351 _ = ()
 
-test352 : Bool -> ()
+test352 : String -> ()
 test352 _ = ()
 
 test353 : Bool -> ()
@@ -1069,22 +1069,22 @@ test354 _ = ()
 test355 : Bool -> ()
 test355 _ = ()
 
-test356 : Maybe String -> ()
+test356 : Bool -> ()
 test356 _ = ()
 
 test357 : String -> ()
 test357 _ = ()
 
-test358 : Maybe Attr -> ()
+test358 : Bool -> ()
 test358 _ = ()
 
-test359 : String -> ()
+test359 : Maybe String -> ()
 test359 _ = ()
 
-test360 : Maybe Attr -> ()
+test360 : String -> ()
 test360 _ = ()
 
-test361 : Maybe String -> ()
+test361 : Maybe Attr -> ()
 test361 _ = ()
 
 test362 : String -> ()
@@ -1093,58 +1093,58 @@ test362 _ = ()
 test363 : Maybe Attr -> ()
 test363 _ = ()
 
-test364 : Attr -> ()
+test364 : Maybe String -> ()
 test364 _ = ()
 
-test365 : Maybe Attr -> ()
+test365 : String -> ()
 test365 _ = ()
 
-test366 : Attr -> ()
+test366 : Maybe Attr -> ()
 test366 _ = ()
 
 test367 : Attr -> ()
 test367 _ = ()
 
-test368 : Attr -> ()
+test368 : Maybe Attr -> ()
 test368 _ = ()
 
-test369 : ShadowRoot -> ()
+test369 : Attr -> ()
 test369 _ = ()
 
-test370 : ShadowRootInit -> ()
+test370 : Attr -> ()
 test370 _ = ()
 
-test371 : Maybe ShadowRoot -> ()
+test371 : Attr -> ()
 test371 _ = ()
 
-test372 : Maybe Element -> ()
+test372 : ShadowRoot -> ()
 test372 _ = ()
 
-test373 : String -> ()
+test373 : ShadowRootInit -> ()
 test373 _ = ()
 
-test374 : Bool -> ()
+test374 : Maybe ShadowRoot -> ()
 test374 _ = ()
 
-test375 : String -> ()
+test375 : Maybe Element -> ()
 test375 _ = ()
 
-test376 : Bool -> ()
+test376 : String -> ()
 test376 _ = ()
 
-test377 : String -> ()
+test377 : Bool -> ()
 test377 _ = ()
 
-test378 : HTMLCollection -> ()
+test378 : String -> ()
 test378 _ = ()
 
-test379 : String -> ()
+test379 : Bool -> ()
 test379 _ = ()
 
-test380 : HTMLCollection -> ()
+test380 : String -> ()
 test380 _ = ()
 
-test381 : Maybe String -> ()
+test381 : HTMLCollection -> ()
 test381 _ = ()
 
 test382 : String -> ()
@@ -1153,52 +1153,52 @@ test382 _ = ()
 test383 : HTMLCollection -> ()
 test383 _ = ()
 
-test384 : String -> ()
+test384 : Maybe String -> ()
 test384 _ = ()
 
-test385 : Maybe Element -> ()
+test385 : String -> ()
 test385 _ = ()
 
-test386 : String -> ()
+test386 : HTMLCollection -> ()
 test386 _ = ()
 
-test387 : Element -> ()
+test387 : String -> ()
 test387 _ = ()
 
-test388 : Undefined -> ()
+test388 : Maybe Element -> ()
 test388 _ = ()
 
 test389 : String -> ()
 test389 _ = ()
 
-test390 : String -> ()
+test390 : Element -> ()
 test390 _ = ()
 
-test391 : Maybe CSSPseudoElement -> ()
+test391 : Undefined -> ()
 test391 _ = ()
 
-test392 : CSSOMString -> ()
+test392 : String -> ()
 test392 _ = ()
 
-test393 : UInt32 -> ()
+test393 : String -> ()
 test393 _ = ()
 
-test394 : Maybe Attr -> ()
+test394 : Maybe CSSPseudoElement -> ()
 test394 _ = ()
 
-test395 : UInt32 -> ()
+test395 : CSSOMString -> ()
 test395 _ = ()
 
-test396 : Maybe Attr -> ()
+test396 : UInt32 -> ()
 test396 _ = ()
 
-test397 : String -> ()
+test397 : Maybe Attr -> ()
 test397 _ = ()
 
-test398 : Maybe Attr -> ()
+test398 : UInt32 -> ()
 test398 _ = ()
 
-test399 : Maybe String -> ()
+test399 : Maybe Attr -> ()
 test399 _ = ()
 
 test400 : String -> ()
@@ -1207,31 +1207,31 @@ test400 _ = ()
 test401 : Maybe Attr -> ()
 test401 _ = ()
 
-test402 : Attr -> ()
+test402 : Maybe String -> ()
 test402 _ = ()
 
-test403 : Maybe Attr -> ()
+test403 : String -> ()
 test403 _ = ()
 
-test404 : Attr -> ()
+test404 : Maybe Attr -> ()
 test404 _ = ()
 
 test405 : Attr -> ()
 test405 _ = ()
 
-test406 : String -> ()
+test406 : Maybe Attr -> ()
 test406 _ = ()
 
 test407 : Attr -> ()
 test407 _ = ()
 
-test408 : Maybe String -> ()
+test408 : Attr -> ()
 test408 _ = ()
 
 test409 : String -> ()
 test409 _ = ()
 
-test410 : Maybe String -> ()
+test410 : Attr -> ()
 test410 _ = ()
 
 test411 : Maybe String -> ()
@@ -1240,43 +1240,43 @@ test411 _ = ()
 test412 : String -> ()
 test412 _ = ()
 
-test413 : String -> ()
+test413 : Maybe String -> ()
 test413 _ = ()
 
-test414 : String -> ()
+test414 : Maybe String -> ()
 test414 _ = ()
 
-test415 : Maybe Element -> ()
+test415 : String -> ()
 test415 _ = ()
 
-test416 : Bool -> ()
+test416 : String -> ()
 test416 _ = ()
 
 test417 : String -> ()
 test417 _ = ()
 
-test418 : UInt32 -> ()
+test418 : Maybe Element -> ()
 test418 _ = ()
 
-test419 : String -> ()
+test419 : Bool -> ()
 test419 _ = ()
 
-test420 : UInt32 -> ()
+test420 : String -> ()
 test420 _ = ()
 
 test421 : UInt32 -> ()
 test421 _ = ()
 
-test422 : Undefined -> ()
+test422 : String -> ()
 test422 _ = ()
 
-test423 : String -> ()
+test423 : UInt32 -> ()
 test423 _ = ()
 
-test424 : Undefined -> ()
+test424 : UInt32 -> ()
 test424 _ = ()
 
-test425 : UInt32 -> ()
+test425 : Undefined -> ()
 test425 _ = ()
 
 test426 : String -> ()
@@ -1288,7 +1288,7 @@ test427 _ = ()
 test428 : UInt32 -> ()
 test428 _ = ()
 
-test429 : UInt32 -> ()
+test429 : String -> ()
 test429 _ = ()
 
 test430 : Undefined -> ()
@@ -1300,55 +1300,55 @@ test431 _ = ()
 test432 : UInt32 -> ()
 test432 _ = ()
 
-test433 : String -> ()
+test433 : Undefined -> ()
 test433 _ = ()
 
-test434 : String -> ()
+test434 : UInt32 -> ()
 test434 _ = ()
 
-test435 : Text -> ()
+test435 : UInt32 -> ()
 test435 _ = ()
 
-test436 : UInt32 -> ()
+test436 : String -> ()
 test436 _ = ()
 
 test437 : String -> ()
 test437 _ = ()
 
-test438 : String -> ()
+test438 : Text -> ()
 test438 _ = ()
 
-test439 : String -> ()
+test439 : UInt32 -> ()
 test439 _ = ()
 
-test440 : Node -> ()
+test440 : String -> ()
 test440 _ = ()
 
-test441 : UInt32 -> ()
+test441 : String -> ()
 test441 _ = ()
 
-test442 : Node -> ()
+test442 : String -> ()
 test442 _ = ()
 
-test443 : UInt32 -> ()
+test443 : Node -> ()
 test443 _ = ()
 
-test444 : Bool -> ()
+test444 : UInt32 -> ()
 test444 _ = ()
 
-test445 : StaticRangeInit -> ()
+test445 : Node -> ()
 test445 _ = ()
 
-test446 : Node -> ()
+test446 : UInt32 -> ()
 test446 _ = ()
 
-test447 : Undefined -> ()
+test447 : Bool -> ()
 test447 _ = ()
 
-test448 : Node -> ()
+test448 : StaticRangeInit -> ()
 test448 _ = ()
 
-test449 : UInt32 -> ()
+test449 : Node -> ()
 test449 _ = ()
 
 test450 : Undefined -> ()
@@ -1366,100 +1366,100 @@ test453 _ = ()
 test454 : Node -> ()
 test454 _ = ()
 
-test455 : Undefined -> ()
+test455 : UInt32 -> ()
 test455 _ = ()
 
-test456 : Node -> ()
+test456 : Undefined -> ()
 test456 _ = ()
 
-test457 : Undefined -> ()
+test457 : Node -> ()
 test457 _ = ()
 
-test458 : Node -> ()
+test458 : Undefined -> ()
 test458 _ = ()
 
-test459 : Undefined -> ()
+test459 : Node -> ()
 test459 _ = ()
 
-test460 : Node -> ()
+test460 : Undefined -> ()
 test460 _ = ()
 
-test461 : Undefined -> ()
+test461 : Node -> ()
 test461 _ = ()
 
-test462 : Bool -> ()
+test462 : Undefined -> ()
 test462 _ = ()
 
-test463 : Undefined -> ()
+test463 : Node -> ()
 test463 _ = ()
 
-test464 : Node -> ()
+test464 : Undefined -> ()
 test464 _ = ()
 
-test465 : Undefined -> ()
+test465 : Bool -> ()
 test465 _ = ()
 
-test466 : Node -> ()
+test466 : Undefined -> ()
 test466 _ = ()
 
-test467 : UInt16 -> ()
+test467 : Node -> ()
 test467 _ = ()
 
-test468 : UInt16 -> ()
+test468 : Undefined -> ()
 test468 _ = ()
 
-test469 : UInt16 -> ()
+test469 : Node -> ()
 test469 _ = ()
 
 test470 : UInt16 -> ()
 test470 _ = ()
 
-test471 : Int16 -> ()
+test471 : UInt16 -> ()
 test471 _ = ()
 
 test472 : UInt16 -> ()
 test472 _ = ()
 
-test473 : Range -> ()
+test473 : UInt16 -> ()
 test473 _ = ()
 
-test474 : Undefined -> ()
+test474 : Int16 -> ()
 test474 _ = ()
 
-test475 : DocumentFragment -> ()
+test475 : UInt16 -> ()
 test475 _ = ()
 
-test476 : DocumentFragment -> ()
+test476 : Range -> ()
 test476 _ = ()
 
 test477 : Undefined -> ()
 test477 _ = ()
 
-test478 : Node -> ()
+test478 : DocumentFragment -> ()
 test478 _ = ()
 
-test479 : Undefined -> ()
+test479 : DocumentFragment -> ()
 test479 _ = ()
 
-test480 : Node -> ()
+test480 : Undefined -> ()
 test480 _ = ()
 
-test481 : Range -> ()
+test481 : Node -> ()
 test481 _ = ()
 
 test482 : Undefined -> ()
 test482 _ = ()
 
-test483 : Bool -> ()
+test483 : Node -> ()
 test483 _ = ()
 
-test484 : Node -> ()
+test484 : Range -> ()
 test484 _ = ()
 
-test485 : UInt32 -> ()
+test485 : Undefined -> ()
 test485 _ = ()
 
-test486 : Int16 -> ()
+test486 : Bool -> ()
 test486 _ = ()
 
 test487 : Node -> ()
@@ -1468,55 +1468,55 @@ test487 _ = ()
 test488 : UInt32 -> ()
 test488 _ = ()
 
-test489 : Bool -> ()
+test489 : Int16 -> ()
 test489 _ = ()
 
 test490 : Node -> ()
 test490 _ = ()
 
-test491 : Node -> ()
+test491 : UInt32 -> ()
 test491 _ = ()
 
-test492 : Node -> ()
+test492 : Bool -> ()
 test492 _ = ()
 
-test493 : Bool -> ()
+test493 : Node -> ()
 test493 _ = ()
 
-test494 : UInt32 -> ()
+test494 : Node -> ()
 test494 _ = ()
 
-test495 : Maybe NodeFilter -> ()
+test495 : Node -> ()
 test495 _ = ()
 
-test496 : Maybe Node -> ()
+test496 : Bool -> ()
 test496 _ = ()
 
-test497 : Maybe Node -> ()
+test497 : UInt32 -> ()
 test497 _ = ()
 
-test498 : Undefined -> ()
+test498 : Maybe NodeFilter -> ()
 test498 _ = ()
 
-test499 : Node -> ()
+test499 : Maybe Node -> ()
 test499 _ = ()
 
-test500 : UInt32 -> ()
+test500 : Maybe Node -> ()
 test500 _ = ()
 
-test501 : Maybe NodeFilter -> ()
+test501 : Undefined -> ()
 test501 _ = ()
 
 test502 : Node -> ()
 test502 _ = ()
 
-test503 : Maybe Node -> ()
+test503 : UInt32 -> ()
 test503 _ = ()
 
-test504 : Maybe Node -> ()
+test504 : Maybe NodeFilter -> ()
 test504 _ = ()
 
-test505 : Maybe Node -> ()
+test505 : Node -> ()
 test505 _ = ()
 
 test506 : Maybe Node -> ()
@@ -1531,40 +1531,40 @@ test508 _ = ()
 test509 : Maybe Node -> ()
 test509 _ = ()
 
-test510 : UInt32 -> ()
+test510 : Maybe Node -> ()
 test510 _ = ()
 
-test511 : Maybe String -> ()
+test511 : Maybe Node -> ()
 test511 _ = ()
 
-test512 : UInt32 -> ()
+test512 : Maybe Node -> ()
 test512 _ = ()
 
-test513 : Bool -> ()
+test513 : UInt32 -> ()
 test513 _ = ()
 
-test514 : String -> ()
+test514 : Maybe String -> ()
 test514 _ = ()
 
-test515 : Undefined -> ()
+test515 : UInt32 -> ()
 test515 _ = ()
 
-test516 : String -> ()
+test516 : Bool -> ()
 test516 _ = ()
 
-test517 : Undefined -> ()
+test517 : String -> ()
 test517 _ = ()
 
-test518 : String -> ()
+test518 : Undefined -> ()
 test518 _ = ()
 
-test519 : Bool -> ()
+test519 : String -> ()
 test519 _ = ()
 
-test520 : String -> ()
+test520 : Undefined -> ()
 test520 _ = ()
 
-test521 : Bool -> ()
+test521 : String -> ()
 test521 _ = ()
 
 test522 : Bool -> ()
@@ -1573,7 +1573,7 @@ test522 _ = ()
 test523 : String -> ()
 test523 _ = ()
 
-test524 : String -> ()
+test524 : Bool -> ()
 test524 _ = ()
 
 test525 : Bool -> ()
@@ -1585,16 +1585,16 @@ test526 _ = ()
 test527 : String -> ()
 test527 _ = ()
 
-test528 : String -> ()
+test528 : Bool -> ()
 test528 _ = ()
 
-test529 : UInt16 -> ()
+test529 : String -> ()
 test529 _ = ()
 
-test530 : UInt16 -> ()
+test530 : String -> ()
 test530 _ = ()
 
-test531 : UInt16 -> ()
+test531 : String -> ()
 test531 _ = ()
 
 test532 : UInt16 -> ()
@@ -1621,155 +1621,164 @@ test538 _ = ()
 test539 : UInt16 -> ()
 test539 _ = ()
 
-test540 : Double -> ()
+test540 : UInt16 -> ()
 test540 _ = ()
 
-test541 : String -> ()
+test541 : UInt16 -> ()
 test541 _ = ()
 
-test542 : Bool -> ()
+test542 : UInt16 -> ()
 test542 _ = ()
 
-test543 : Maybe Node -> ()
+test543 : Double -> ()
 test543 _ = ()
 
-test544 : Bool -> ()
+test544 : String -> ()
 test544 _ = ()
 
-test545 : UInt32 -> ()
+test545 : Bool -> ()
 test545 _ = ()
 
 test546 : Maybe Node -> ()
 test546 _ = ()
 
-test547 : Maybe Node -> ()
+test547 : Bool -> ()
 test547 _ = ()
 
 test548 : UInt32 -> ()
 test548 _ = ()
 
-test549 : XPathResult -> ()
+test549 : Maybe Node -> ()
 test549 _ = ()
 
-test550 : Node -> ()
+test550 : Maybe Node -> ()
 test550 _ = ()
 
-test551 : UInt16 -> ()
+test551 : UInt32 -> ()
 test551 _ = ()
 
-test552 : Maybe XPathResult -> ()
+test552 : XPathResult -> ()
 test552 _ = ()
 
-test553 : Maybe Element -> ()
+test553 : Node -> ()
 test553 _ = ()
 
-test554 : String -> ()
+test554 : UInt16 -> ()
 test554 _ = ()
 
-test555 : StyleSheetList -> ()
+test555 : Maybe XPathResult -> ()
 test555 _ = ()
 
-test556 : HTMLCollection -> ()
+test556 : Maybe Element -> ()
 test556 _ = ()
 
-test557 : Maybe Element -> ()
+test557 : String -> ()
 test557 _ = ()
 
-test558 : Maybe Element -> ()
+test558 : StyleSheetList -> ()
 test558 _ = ()
 
-test559 : UInt32 -> ()
+test559 : HTMLCollection -> ()
 test559 _ = ()
 
-test560 : Undefined -> ()
+test560 : Maybe Element -> ()
 test560 _ = ()
 
-test561 : NS I [ Node , String ] -> ()
+test561 : Maybe Element -> ()
 test561 _ = ()
 
-test562 : Undefined -> ()
+test562 : UInt32 -> ()
 test562 _ = ()
 
-test563 : NS I [ Node , String ] -> ()
+test563 : Undefined -> ()
 test563 _ = ()
 
-test564 : Undefined -> ()
+test564 : NS I [ Node , String ] -> ()
 test564 _ = ()
 
-test565 : NS I [ Node , String ] -> ()
+test565 : Undefined -> ()
 test565 _ = ()
 
-test566 : Maybe Element -> ()
+test566 : NS I [ Node , String ] -> ()
 test566 _ = ()
 
-test567 : String -> ()
+test567 : Undefined -> ()
 test567 _ = ()
 
-test568 : NodeList -> ()
+test568 : NS I [ Node , String ] -> ()
 test568 _ = ()
 
-test569 : String -> ()
+test569 : Maybe Element -> ()
 test569 _ = ()
 
-test570 : Maybe Element -> ()
+test570 : String -> ()
 test570 _ = ()
 
-test571 : Maybe Element -> ()
+test571 : NodeList -> ()
 test571 _ = ()
 
-test572 : Undefined -> ()
+test572 : String -> ()
 test572 _ = ()
 
-test573 : NS I [ Node , String ] -> ()
+test573 : Maybe Element -> ()
 test573 _ = ()
 
-test574 : Undefined -> ()
+test574 : Maybe Element -> ()
 test574 _ = ()
 
-test575 : NS I [ Node , String ] -> ()
+test575 : Undefined -> ()
 test575 _ = ()
 
-test576 : Undefined -> ()
+test576 : NS I [ Node , String ] -> ()
 test576 _ = ()
 
-test577 : NS I [ Node , String ] -> ()
+test577 : Undefined -> ()
 test577 _ = ()
 
-test578 : Undefined -> ()
+test578 : NS I [ Node , String ] -> ()
 test578 _ = ()
 
-test579 : Maybe HTMLSlotElement -> ()
+test579 : Undefined -> ()
 test579 _ = ()
 
-test580 : XPathExpression -> ()
+test580 : NS I [ Node , String ] -> ()
 test580 _ = ()
 
-test581 : String -> ()
+test581 : Undefined -> ()
 test581 _ = ()
 
-test582 : Maybe XPathNSResolver -> ()
+test582 : Maybe HTMLSlotElement -> ()
 test582 _ = ()
 
-test583 : XPathNSResolver -> ()
+test583 : XPathExpression -> ()
 test583 _ = ()
 
-test584 : Node -> ()
+test584 : String -> ()
 test584 _ = ()
 
-test585 : XPathResult -> ()
+test585 : Maybe XPathNSResolver -> ()
 test585 _ = ()
 
-test586 : String -> ()
+test586 : XPathNSResolver -> ()
 test586 _ = ()
 
 test587 : Node -> ()
 test587 _ = ()
 
-test588 : Maybe XPathNSResolver -> ()
+test588 : XPathResult -> ()
 test588 _ = ()
 
-test589 : UInt16 -> ()
+test589 : String -> ()
 test589 _ = ()
 
-test590 : Maybe XPathResult -> ()
+test590 : Node -> ()
 test590 _ = ()
+
+test591 : Maybe XPathNSResolver -> ()
+test591 _ = ()
+
+test592 : UInt16 -> ()
+test592 _ = ()
+
+test593 : Maybe XPathResult -> ()
+test593 _ = ()

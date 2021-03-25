@@ -38,5 +38,6 @@ modules = JS.Util
         , Test.SvgTypes
         , Test.UrlTypes
         , Test.Util
+        , Test.VisibilityTypes
         , Test.WebglTypes
         , Test.XhrTypes
