@@ -88,6 +88,12 @@ export
 data JSArray : Type -> Type where [external]
 
 export
+data Int32Array : Type where [external]
+
+export
+data Uint32Array : Type where [external]
+
+export
 data Float32Array : Type where [external]
 
 export
@@ -126,12 +132,6 @@ CSSOMString = String
 -- or need proper implementation and bindings here (my todo).
 
 export
-data WebGL2RenderingContext : Type where [external]
-
-export
-data WebGLRenderingContext : Type where [external]
-
-export
 data ServiceWorker : Type where [external]
 
 export
@@ -168,20 +168,11 @@ export
 data ReadableStream : Type where [external]
 
 export
-data XPathNSResolver : Type where [external]
-
-export
-data NodeFilter : Type where [external]
-
-export
 data DOMHighResTimeStamp : Type where [external]
 
 --------------------------------------------------------------------------------
 --          Callbacks
 --------------------------------------------------------------------------------
-
-export
-data EventListener : Type where [external]
 
 export
 data EventHandler : Type where [external]

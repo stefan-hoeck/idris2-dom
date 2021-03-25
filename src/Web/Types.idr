@@ -14,6 +14,7 @@ import public Web.HtmlTypes as Types
 import public Web.PermissionsTypes as Types
 import public Web.SvgTypes as Types
 import public Web.UrlTypes as Types
+import public Web.WebglTypes as Types
 import public Web.XhrTypes as Types
 
 --------------------------------------------------------------------------------
@@ -52,8 +53,76 @@ mutual
   ClipboardItems = JSArray ClipboardItem
   
   public export
+  0 Float32List : Type
+  Float32List = NS I [ Float32Array , JSArray GLfloat ]
+  
+  public export
   0 FormDataEntryValue : Type
   FormDataEntryValue = NS I [ File , String ]
+  
+  public export
+  0 GLbitfield : Type
+  GLbitfield = UInt32
+  
+  public export
+  0 GLboolean : Type
+  GLboolean = Bool
+  
+  public export
+  0 GLbyte : Type
+  GLbyte = Int8
+  
+  public export
+  0 GLclampf : Type
+  GLclampf = Double
+  
+  public export
+  0 GLenum : Type
+  GLenum = UInt32
+  
+  public export
+  0 GLfloat : Type
+  GLfloat = Double
+  
+  public export
+  0 GLint : Type
+  GLint = Int32
+  
+  public export
+  0 GLint64 : Type
+  GLint64 = Int64
+  
+  public export
+  0 GLintptr : Type
+  GLintptr = Int64
+  
+  public export
+  0 GLshort : Type
+  GLshort = Int16
+  
+  public export
+  0 GLsizei : Type
+  GLsizei = Int32
+  
+  public export
+  0 GLsizeiptr : Type
+  GLsizeiptr = Int64
+  
+  public export
+  0 GLubyte : Type
+  GLubyte = UInt8
+  
+  public export
+  0 GLuint : Type
+  GLuint = UInt32
+  
+  public export
+  0 GLuint64 : Type
+  GLuint64 = UInt64
+  
+  public export
+  0 GLushort : Type
+  GLushort = UInt16
   
   public export
   0 HTMLOrSVGImageElement : Type
@@ -70,6 +139,10 @@ mutual
   public export
   0 ImageBitmapSource : Type
   ImageBitmapSource = NS I [ CanvasImageSource , Blob , ImageData ]
+  
+  public export
+  0 Int32List : Type
+  Int32List = NS I [ Int32Array , JSArray GLint ]
   
   public export
   0 MediaProvider : Type
@@ -100,6 +173,20 @@ mutual
   RequestInfo = NS I [ Request , String ]
   
   public export
+  0 TexImageSource : Type
+  TexImageSource = NS I [ ImageBitmap
+                        , ImageData
+                        , HTMLImageElement
+                        , HTMLCanvasElement
+                        , HTMLVideoElement
+                        , OffscreenCanvas
+                        ]
+  
+  public export
+  0 Uint32List : Type
+  Uint32List = NS I [ Uint32Array , JSArray GLuint ]
+  
+  public export
   0 XMLHttpRequestBodyInit : Type
   XMLHttpRequestBodyInit = NS I [ Blob
                                 , BufferSource
@@ -121,6 +208,10 @@ mutual
   CustomElementConstructor = () -> IO HTMLElement
   
   public export
+  0 EventListener : Type
+  EventListener = (event : Event) -> IO ()
+  
+  public export
   0 FunctionStringCallback : Type
   FunctionStringCallback = (data_ : String) -> IO ()
   
@@ -129,3 +220,11 @@ mutual
   MutationCallback =  (mutations : JSArray MutationRecord)
                    -> (observer : MutationObserver)
                    -> IO ()
+  
+  public export
+  0 NodeFilter : Type
+  NodeFilter = (node : Node) -> IO UInt16
+  
+  public export
+  0 XPathNSResolver : Type
+  XPathNSResolver = (prefix_ : Maybe String) -> IO (Maybe String)

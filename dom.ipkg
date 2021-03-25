@@ -35,5 +35,7 @@ modules = JS.Marshall
         , Web.Types
         , Web.Url
         , Web.UrlTypes
+        , Web.Webgl
+        , Web.WebglTypes
         , Web.Xhr
         , Web.XhrTypes
