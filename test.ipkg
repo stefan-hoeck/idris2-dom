@@ -32,6 +32,7 @@ modules = JS.Util
         , Test.HtmlTypes
         , Test.Number
         , Test.PermissionsTypes
+        , Test.ServiceworkerTypes
         , Test.SvgTypes
         , Test.UrlTypes
         , Test.Util

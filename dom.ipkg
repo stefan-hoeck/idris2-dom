@@ -30,6 +30,8 @@ modules = JS.Marshall
         , Web.HtmlTypes
         , Web.Permissions
         , Web.PermissionsTypes
+        , Web.Serviceworker
+        , Web.ServiceworkerTypes
         , Web.Svg
         , Web.SvgTypes
         , Web.Types

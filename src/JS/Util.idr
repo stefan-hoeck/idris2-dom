@@ -132,9 +132,6 @@ CSSOMString = String
 -- or need proper implementation and bindings here (my todo).
 
 export
-data ServiceWorker : Type where [external]
-
-export
 data WindowProxy : Type where [external]
 
 export
@@ -169,6 +166,9 @@ data ReadableStream : Type where [external]
 
 export
 data DOMHighResTimeStamp : Type where [external]
+
+export
+data VisibilityState : Type where [external]
 
 --------------------------------------------------------------------------------
 --          Callbacks

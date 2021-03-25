@@ -2926,7 +2926,7 @@ test973 _ = ()
 test974 : Permissions -> ()
 test974 _ = ()
 
-test975 : UInt64 -> ()
+test975 : ServiceWorkerContainer -> ()
 test975 _ = ()
 
 test976 : UInt64 -> ()
@@ -2938,118 +2938,118 @@ test977 _ = ()
 test978 : UInt64 -> ()
 test978 _ = ()
 
-test979 : Maybe OffscreenRenderingContext -> ()
+test979 : UInt64 -> ()
 test979 _ = ()
 
-test980 : OffscreenRenderingContextId -> ()
+test980 : Maybe OffscreenRenderingContext -> ()
 test980 _ = ()
 
-test981 : JSAny -> ()
+test981 : OffscreenRenderingContextId -> ()
 test981 _ = ()
 
-test982 : ImageBitmap -> ()
+test982 : JSAny -> ()
 test982 _ = ()
 
-test983 : JSPromise Blob -> ()
+test983 : ImageBitmap -> ()
 test983 _ = ()
 
-test984 : ImageEncodeOptions -> ()
+test984 : JSPromise Blob -> ()
 test984 _ = ()
 
-test985 : Undefined -> ()
+test985 : ImageEncodeOptions -> ()
 test985 _ = ()
 
-test986 : OffscreenCanvas -> ()
+test986 : Undefined -> ()
 test986 _ = ()
 
-test987 : String -> ()
+test987 : OffscreenCanvas -> ()
 test987 _ = ()
 
-test988 : PageTransitionEventInit -> ()
+test988 : String -> ()
 test988 _ = ()
 
-test989 : Bool -> ()
+test989 : PageTransitionEventInit -> ()
 test989 _ = ()
 
-test990 : String -> ()
+test990 : Bool -> ()
 test990 _ = ()
 
-test991 : PopStateEventInit -> ()
+test991 : String -> ()
 test991 _ = ()
 
-test992 : JSAny -> ()
+test992 : PopStateEventInit -> ()
 test992 _ = ()
 
-test993 : String -> ()
+test993 : JSAny -> ()
 test993 _ = ()
 
-test994 : PromiseRejectionEventInit -> ()
+test994 : String -> ()
 test994 _ = ()
 
-test995 : JSPromise JSAny -> ()
+test995 : PromiseRejectionEventInit -> ()
 test995 _ = ()
 
-test996 : JSAny -> ()
+test996 : JSPromise JSAny -> ()
 test996 _ = ()
 
-test997 : String -> ()
+test997 : JSAny -> ()
 test997 _ = ()
 
-test998 : NS I [ String , WorkerOptions ] -> ()
+test998 : String -> ()
 test998 _ = ()
 
-test999 : MessagePort -> ()
+test999 : NS I [ String , WorkerOptions ] -> ()
 test999 _ = ()
 
-test1000 : String -> ()
+test1000 : MessagePort -> ()
 test1000 _ = ()
 
-test1001 : Undefined -> ()
+test1001 : String -> ()
 test1001 _ = ()
 
-test1002 : EventHandler -> ()
+test1002 : Undefined -> ()
 test1002 _ = ()
 
-test1003 : UInt32 -> ()
+test1003 : EventHandler -> ()
 test1003 _ = ()
 
-test1004 : Maybe String -> ()
+test1004 : UInt32 -> ()
 test1004 _ = ()
 
-test1005 : UInt32 -> ()
+test1005 : Maybe String -> ()
 test1005 _ = ()
 
-test1006 : Maybe String -> ()
+test1006 : UInt32 -> ()
 test1006 _ = ()
 
-test1007 : String -> ()
+test1007 : Maybe String -> ()
 test1007 _ = ()
 
-test1008 : Undefined -> ()
+test1008 : String -> ()
 test1008 _ = ()
 
-test1009 : String -> ()
+test1009 : Undefined -> ()
 test1009 _ = ()
 
 test1010 : String -> ()
 test1010 _ = ()
 
-test1011 : Undefined -> ()
+test1011 : String -> ()
 test1011 _ = ()
 
-test1012 : String -> ()
+test1012 : Undefined -> ()
 test1012 _ = ()
 
-test1013 : Undefined -> ()
+test1013 : String -> ()
 test1013 _ = ()
 
-test1014 : String -> ()
+test1014 : Undefined -> ()
 test1014 _ = ()
 
-test1015 : StorageEventInit -> ()
+test1015 : String -> ()
 test1015 _ = ()
 
-test1016 : Maybe String -> ()
+test1016 : StorageEventInit -> ()
 test1016 _ = ()
 
 test1017 : Maybe String -> ()
@@ -3058,25 +3058,25 @@ test1017 _ = ()
 test1018 : Maybe String -> ()
 test1018 _ = ()
 
-test1019 : String -> ()
+test1019 : Maybe String -> ()
 test1019 _ = ()
 
-test1020 : Maybe Storage -> ()
+test1020 : String -> ()
 test1020 _ = ()
 
-test1021 : Undefined -> ()
+test1021 : Maybe Storage -> ()
 test1021 _ = ()
 
-test1022 : String -> ()
+test1022 : Undefined -> ()
 test1022 _ = ()
 
-test1023 : Bool -> ()
+test1023 : String -> ()
 test1023 _ = ()
 
 test1024 : Bool -> ()
 test1024 _ = ()
 
-test1025 : Maybe String -> ()
+test1025 : Bool -> ()
 test1025 _ = ()
 
 test1026 : Maybe String -> ()
@@ -3085,25 +3085,25 @@ test1026 _ = ()
 test1027 : Maybe String -> ()
 test1027 _ = ()
 
-test1028 : String -> ()
+test1028 : Maybe String -> ()
 test1028 _ = ()
 
-test1029 : Maybe Storage -> ()
+test1029 : String -> ()
 test1029 _ = ()
 
-test1030 : String -> ()
+test1030 : Maybe Storage -> ()
 test1030 _ = ()
 
-test1031 : SubmitEventInit -> ()
+test1031 : String -> ()
 test1031 _ = ()
 
-test1032 : Maybe HTMLElement -> ()
+test1032 : SubmitEventInit -> ()
 test1032 _ = ()
 
-test1033 : TextTrackKind -> ()
+test1033 : Maybe HTMLElement -> ()
 test1033 _ = ()
 
-test1034 : String -> ()
+test1034 : TextTrackKind -> ()
 test1034 _ = ()
 
 test1035 : String -> ()
@@ -3115,82 +3115,82 @@ test1036 _ = ()
 test1037 : String -> ()
 test1037 _ = ()
 
-test1038 : TextTrackMode -> ()
+test1038 : String -> ()
 test1038 _ = ()
 
-test1039 : Maybe TextTrackCueList -> ()
+test1039 : TextTrackMode -> ()
 test1039 _ = ()
 
 test1040 : Maybe TextTrackCueList -> ()
 test1040 _ = ()
 
-test1041 : Undefined -> ()
+test1041 : Maybe TextTrackCueList -> ()
 test1041 _ = ()
 
-test1042 : TextTrackCue -> ()
+test1042 : Undefined -> ()
 test1042 _ = ()
 
-test1043 : Undefined -> ()
+test1043 : TextTrackCue -> ()
 test1043 _ = ()
 
-test1044 : TextTrackCue -> ()
+test1044 : Undefined -> ()
 test1044 _ = ()
 
-test1045 : EventHandler -> ()
+test1045 : TextTrackCue -> ()
 test1045 _ = ()
 
-test1046 : Maybe TextTrack -> ()
+test1046 : EventHandler -> ()
 test1046 _ = ()
 
-test1047 : String -> ()
+test1047 : Maybe TextTrack -> ()
 test1047 _ = ()
 
-test1048 : Double -> ()
+test1048 : String -> ()
 test1048 _ = ()
 
 test1049 : Double -> ()
 test1049 _ = ()
 
-test1050 : Bool -> ()
+test1050 : Double -> ()
 test1050 _ = ()
 
-test1051 : EventHandler -> ()
+test1051 : Bool -> ()
 test1051 _ = ()
 
 test1052 : EventHandler -> ()
 test1052 _ = ()
 
-test1053 : UInt32 -> ()
+test1053 : EventHandler -> ()
 test1053 _ = ()
 
-test1054 : TextTrackCue -> ()
+test1054 : UInt32 -> ()
 test1054 _ = ()
 
-test1055 : UInt32 -> ()
+test1055 : TextTrackCue -> ()
 test1055 _ = ()
 
-test1056 : Maybe TextTrackCue -> ()
+test1056 : UInt32 -> ()
 test1056 _ = ()
 
-test1057 : String -> ()
+test1057 : Maybe TextTrackCue -> ()
 test1057 _ = ()
 
-test1058 : UInt32 -> ()
+test1058 : String -> ()
 test1058 _ = ()
 
-test1059 : TextTrack -> ()
+test1059 : UInt32 -> ()
 test1059 _ = ()
 
-test1060 : UInt32 -> ()
+test1060 : TextTrack -> ()
 test1060 _ = ()
 
-test1061 : Maybe TextTrack -> ()
+test1061 : UInt32 -> ()
 test1061 _ = ()
 
-test1062 : String -> ()
+test1062 : Maybe TextTrack -> ()
 test1062 _ = ()
 
-test1063 : EventHandler -> ()
+test1063 : String -> ()
 test1063 _ = ()
 
 test1064 : EventHandler -> ()
@@ -3199,31 +3199,31 @@ test1064 _ = ()
 test1065 : EventHandler -> ()
 test1065 _ = ()
 
-test1066 : UInt32 -> ()
+test1066 : EventHandler -> ()
 test1066 _ = ()
 
-test1067 : Double -> ()
+test1067 : UInt32 -> ()
 test1067 _ = ()
 
-test1068 : UInt32 -> ()
+test1068 : Double -> ()
 test1068 _ = ()
 
-test1069 : Double -> ()
+test1069 : UInt32 -> ()
 test1069 _ = ()
 
-test1070 : UInt32 -> ()
+test1070 : Double -> ()
 test1070 _ = ()
 
-test1071 : String -> ()
+test1071 : UInt32 -> ()
 test1071 _ = ()
 
-test1072 : TrackEventInit -> ()
+test1072 : String -> ()
 test1072 _ = ()
 
-test1073 : Maybe (NS I [ VideoTrack , AudioTrack , TextTrack ]) -> ()
+test1073 : TrackEventInit -> ()
 test1073 _ = ()
 
-test1074 : Bool -> ()
+test1074 : Maybe (NS I [ VideoTrack , AudioTrack , TextTrack ]) -> ()
 test1074 _ = ()
 
 test1075 : Bool -> ()
@@ -3256,25 +3256,25 @@ test1083 _ = ()
 test1084 : Bool -> ()
 test1084 _ = ()
 
-test1085 : UInt32 -> ()
+test1085 : Bool -> ()
 test1085 _ = ()
 
-test1086 : VideoTrack -> ()
+test1086 : UInt32 -> ()
 test1086 _ = ()
 
-test1087 : UInt32 -> ()
+test1087 : VideoTrack -> ()
 test1087 _ = ()
 
-test1088 : Maybe VideoTrack -> ()
+test1088 : UInt32 -> ()
 test1088 _ = ()
 
-test1089 : String -> ()
+test1089 : Maybe VideoTrack -> ()
 test1089 _ = ()
 
-test1090 : Int32 -> ()
+test1090 : String -> ()
 test1090 _ = ()
 
-test1091 : EventHandler -> ()
+test1091 : Int32 -> ()
 test1091 _ = ()
 
 test1092 : EventHandler -> ()
@@ -3283,7 +3283,7 @@ test1092 _ = ()
 test1093 : EventHandler -> ()
 test1093 _ = ()
 
-test1094 : String -> ()
+test1094 : EventHandler -> ()
 test1094 _ = ()
 
 test1095 : String -> ()
@@ -3295,19 +3295,19 @@ test1096 _ = ()
 test1097 : String -> ()
 test1097 _ = ()
 
-test1098 : Bool -> ()
+test1098 : String -> ()
 test1098 _ = ()
 
-test1099 : String -> ()
+test1099 : Bool -> ()
 test1099 _ = ()
 
-test1100 : NS I [ String , JSArray String ] -> ()
+test1100 : String -> ()
 test1100 _ = ()
 
-test1101 : String -> ()
+test1101 : NS I [ String , JSArray String ] -> ()
 test1101 _ = ()
 
-test1102 : UInt16 -> ()
+test1102 : String -> ()
 test1102 _ = ()
 
 test1103 : UInt16 -> ()
@@ -3322,10 +3322,10 @@ test1105 _ = ()
 test1106 : UInt16 -> ()
 test1106 _ = ()
 
-test1107 : UInt64 -> ()
+test1107 : UInt16 -> ()
 test1107 _ = ()
 
-test1108 : EventHandler -> ()
+test1108 : UInt64 -> ()
 test1108 _ = ()
 
 test1109 : EventHandler -> ()
@@ -3334,73 +3334,73 @@ test1109 _ = ()
 test1110 : EventHandler -> ()
 test1110 _ = ()
 
-test1111 : String -> ()
+test1111 : EventHandler -> ()
 test1111 _ = ()
 
 test1112 : String -> ()
 test1112 _ = ()
 
-test1113 : Undefined -> ()
+test1113 : String -> ()
 test1113 _ = ()
 
-test1114 : UInt16 -> ()
+test1114 : Undefined -> ()
 test1114 _ = ()
 
-test1115 : String -> ()
+test1115 : UInt16 -> ()
 test1115 _ = ()
 
-test1116 : EventHandler -> ()
+test1116 : String -> ()
 test1116 _ = ()
 
-test1117 : BinaryType -> ()
+test1117 : EventHandler -> ()
 test1117 _ = ()
 
-test1118 : Undefined -> ()
+test1118 : BinaryType -> ()
 test1118 _ = ()
 
-test1119 : String -> ()
+test1119 : Undefined -> ()
 test1119 _ = ()
 
-test1120 : Undefined -> ()
+test1120 : String -> ()
 test1120 _ = ()
 
-test1121 : Blob -> ()
+test1121 : Undefined -> ()
 test1121 _ = ()
 
-test1122 : Undefined -> ()
+test1122 : Blob -> ()
 test1122 _ = ()
 
-test1123 : ArrayBuffer -> ()
+test1123 : Undefined -> ()
 test1123 _ = ()
 
-test1124 : Undefined -> ()
+test1124 : ArrayBuffer -> ()
 test1124 _ = ()
 
-test1125 : ArrayBufferView -> ()
+test1125 : Undefined -> ()
 test1125 _ = ()
 
-test1126 : WindowProxy -> ()
+test1126 : ArrayBufferView -> ()
 test1126 _ = ()
 
 test1127 : WindowProxy -> ()
 test1127 _ = ()
 
-test1128 : Document -> ()
+test1128 : WindowProxy -> ()
 test1128 _ = ()
 
-test1129 : String -> ()
+test1129 : Document -> ()
 test1129 _ = ()
 
-test1130 : Location -> ()
+test1130 : String -> ()
 test1130 _ = ()
 
-test1131 : History -> ()
+test1131 : Location -> ()
 test1131 _ = ()
 
-test1132 : CustomElementRegistry -> ()
+test1132 : History -> ()
 test1132 _ = ()
 
-test1133 : BarProp -> ()
+test1133 : CustomElementRegistry -> ()
 test1133 _ = ()
 
 test1134 : BarProp -> ()
@@ -3418,16 +3418,16 @@ test1137 _ = ()
 test1138 : BarProp -> ()
 test1138 _ = ()
 
-test1139 : String -> ()
+test1139 : BarProp -> ()
 test1139 _ = ()
 
-test1140 : Undefined -> ()
+test1140 : String -> ()
 test1140 _ = ()
 
-test1141 : Bool -> ()
+test1141 : Undefined -> ()
 test1141 _ = ()
 
-test1142 : Undefined -> ()
+test1142 : Bool -> ()
 test1142 _ = ()
 
 test1143 : Undefined -> ()
@@ -3436,28 +3436,28 @@ test1143 _ = ()
 test1144 : Undefined -> ()
 test1144 _ = ()
 
-test1145 : WindowProxy -> ()
+test1145 : Undefined -> ()
 test1145 _ = ()
 
-test1146 : UInt32 -> ()
+test1146 : WindowProxy -> ()
 test1146 _ = ()
 
-test1147 : Maybe WindowProxy -> ()
+test1147 : UInt32 -> ()
 test1147 _ = ()
 
-test1148 : JSAny -> ()
+test1148 : Maybe WindowProxy -> ()
 test1148 _ = ()
 
-test1149 : Maybe WindowProxy -> ()
+test1149 : JSAny -> ()
 test1149 _ = ()
 
-test1150 : Maybe Element -> ()
+test1150 : Maybe WindowProxy -> ()
 test1150 _ = ()
 
-test1151 : Maybe WindowProxy -> ()
+test1151 : Maybe Element -> ()
 test1151 _ = ()
 
-test1152 : String -> ()
+test1152 : Maybe WindowProxy -> ()
 test1152 _ = ()
 
 test1153 : String -> ()
@@ -3466,139 +3466,139 @@ test1153 _ = ()
 test1154 : String -> ()
 test1154 _ = ()
 
-test1155 : JSObject -> ()
+test1155 : String -> ()
 test1155 _ = ()
 
-test1156 : String -> ()
+test1156 : JSObject -> ()
 test1156 _ = ()
 
-test1157 : Navigator -> ()
+test1157 : String -> ()
 test1157 _ = ()
 
-test1158 : Bool -> ()
+test1158 : Navigator -> ()
 test1158 _ = ()
 
-test1159 : Undefined -> ()
+test1159 : Bool -> ()
 test1159 _ = ()
 
 test1160 : Undefined -> ()
 test1160 _ = ()
 
-test1161 : String -> ()
+test1161 : Undefined -> ()
 test1161 _ = ()
 
-test1162 : Bool -> ()
+test1162 : String -> ()
 test1162 _ = ()
 
-test1163 : String -> ()
+test1163 : Bool -> ()
 test1163 _ = ()
 
-test1164 : Maybe String -> ()
+test1164 : String -> ()
 test1164 _ = ()
 
-test1165 : String -> ()
+test1165 : Maybe String -> ()
 test1165 _ = ()
 
 test1166 : String -> ()
 test1166 _ = ()
 
-test1167 : Undefined -> ()
+test1167 : String -> ()
 test1167 _ = ()
 
 test1168 : Undefined -> ()
 test1168 _ = ()
 
-test1169 : JSAny -> ()
+test1169 : Undefined -> ()
 test1169 _ = ()
 
-test1170 : String -> ()
+test1170 : JSAny -> ()
 test1170 _ = ()
 
-test1171 : JSArray JSObject -> ()
+test1171 : String -> ()
 test1171 _ = ()
 
-test1172 : Undefined -> ()
+test1172 : JSArray JSObject -> ()
 test1172 _ = ()
 
-test1173 : JSAny -> ()
+test1173 : Undefined -> ()
 test1173 _ = ()
 
-test1174 : WindowPostMessageOptions -> ()
+test1174 : JSAny -> ()
 test1174 _ = ()
 
-test1175 : CSSStyleDeclaration -> ()
+test1175 : WindowPostMessageOptions -> ()
 test1175 _ = ()
 
-test1176 : Element -> ()
+test1176 : CSSStyleDeclaration -> ()
 test1176 _ = ()
 
-test1177 : Maybe CSSOMString -> ()
+test1177 : Element -> ()
 test1177 _ = ()
 
-test1178 : NS I [ Event , Undefined ] -> ()
+test1178 : Maybe CSSOMString -> ()
 test1178 _ = ()
 
-test1179 : Undefined -> ()
+test1179 : NS I [ Event , Undefined ] -> ()
 test1179 _ = ()
 
 test1180 : Undefined -> ()
 test1180 _ = ()
 
-test1181 : External -> ()
+test1181 : Undefined -> ()
 test1181 _ = ()
 
-test1182 : String -> ()
+test1182 : External -> ()
 test1182 _ = ()
 
-test1183 : WorkerOptions -> ()
+test1183 : String -> ()
 test1183 _ = ()
 
-test1184 : Undefined -> ()
+test1184 : WorkerOptions -> ()
 test1184 _ = ()
 
 test1185 : Undefined -> ()
 test1185 _ = ()
 
-test1186 : JSAny -> ()
+test1186 : Undefined -> ()
 test1186 _ = ()
 
-test1187 : JSArray JSObject -> ()
+test1187 : JSAny -> ()
 test1187 _ = ()
 
-test1188 : Undefined -> ()
+test1188 : JSArray JSObject -> ()
 test1188 _ = ()
 
-test1189 : JSAny -> ()
+test1189 : Undefined -> ()
 test1189 _ = ()
 
-test1190 : PostMessageOptions -> ()
+test1190 : JSAny -> ()
 test1190 _ = ()
 
-test1191 : EventHandler -> ()
+test1191 : PostMessageOptions -> ()
 test1191 _ = ()
 
 test1192 : EventHandler -> ()
 test1192 _ = ()
 
-test1193 : WorkerGlobalScope -> ()
+test1193 : EventHandler -> ()
 test1193 _ = ()
 
-test1194 : WorkerLocation -> ()
+test1194 : WorkerGlobalScope -> ()
 test1194 _ = ()
 
-test1195 : WorkerNavigator -> ()
+test1195 : WorkerLocation -> ()
 test1195 _ = ()
 
-test1196 : Undefined -> ()
+test1196 : WorkerNavigator -> ()
 test1196 _ = ()
 
-test1197 : String -> ()
+test1197 : Undefined -> ()
 test1197 _ = ()
 
-test1198 : OnErrorEventHandler -> ()
+test1198 : String -> ()
 test1198 _ = ()
 
-test1199 : EventHandler -> ()
+test1199 : OnErrorEventHandler -> ()
 test1199 _ = ()
 
 test1200 : EventHandler -> ()
@@ -3613,7 +3613,7 @@ test1202 _ = ()
 test1203 : EventHandler -> ()
 test1203 _ = ()
 
-test1204 : String -> ()
+test1204 : EventHandler -> ()
 test1204 _ = ()
 
 test1205 : String -> ()
@@ -3640,16 +3640,16 @@ test1211 _ = ()
 test1212 : String -> ()
 test1212 _ = ()
 
-test1213 : JSPromise Undefined -> ()
+test1213 : String -> ()
 test1213 _ = ()
 
-test1214 : String -> ()
+test1214 : JSPromise Undefined -> ()
 test1214 _ = ()
 
-test1215 : WorkletOptions -> ()
+test1215 : String -> ()
 test1215 _ = ()
 
-test1216 : EventHandler -> ()
+test1216 : WorkletOptions -> ()
 test1216 _ = ()
 
 test1217 : EventHandler -> ()
@@ -3715,10 +3715,10 @@ test1236 _ = ()
 test1237 : EventHandler -> ()
 test1237 _ = ()
 
-test1238 : OnErrorEventHandler -> ()
+test1238 : EventHandler -> ()
 test1238 _ = ()
 
-test1239 : EventHandler -> ()
+test1239 : OnErrorEventHandler -> ()
 test1239 _ = ()
 
 test1240 : EventHandler -> ()
@@ -3853,10 +3853,10 @@ test1282 _ = ()
 test1283 : EventHandler -> ()
 test1283 _ = ()
 
-test1284 : OnBeforeUnloadEventHandler -> ()
+test1284 : EventHandler -> ()
 test1284 _ = ()
 
-test1285 : EventHandler -> ()
+test1285 : OnBeforeUnloadEventHandler -> ()
 test1285 _ = ()
 
 test1286 : EventHandler -> ()
@@ -3904,7 +3904,7 @@ test1299 _ = ()
 test1300 : EventHandler -> ()
 test1300 _ = ()
 
-test1301 : Undefined -> ()
+test1301 : EventHandler -> ()
 test1301 _ = ()
 
 test1302 : Undefined -> ()
@@ -3913,31 +3913,31 @@ test1302 _ = ()
 test1303 : Undefined -> ()
 test1303 _ = ()
 
-test1304 : Double -> ()
+test1304 : Undefined -> ()
 test1304 _ = ()
 
 test1305 : Double -> ()
 test1305 _ = ()
 
-test1306 : Undefined -> ()
+test1306 : Double -> ()
 test1306 _ = ()
 
-test1307 : Double -> ()
+test1307 : Undefined -> ()
 test1307 _ = ()
 
-test1308 : Undefined -> ()
+test1308 : Double -> ()
 test1308 _ = ()
 
-test1309 : Double -> ()
+test1309 : Undefined -> ()
 test1309 _ = ()
 
 test1310 : Double -> ()
 test1310 _ = ()
 
-test1311 : Undefined -> ()
+test1311 : Double -> ()
 test1311 _ = ()
 
-test1312 : Double -> ()
+test1312 : Undefined -> ()
 test1312 _ = ()
 
 test1313 : Double -> ()
@@ -3955,13 +3955,13 @@ test1316 _ = ()
 test1317 : Double -> ()
 test1317 _ = ()
 
-test1318 : DOMMatrix -> ()
+test1318 : Double -> ()
 test1318 _ = ()
 
-test1319 : Undefined -> ()
+test1319 : DOMMatrix -> ()
 test1319 _ = ()
 
-test1320 : Double -> ()
+test1320 : Undefined -> ()
 test1320 _ = ()
 
 test1321 : Double -> ()
@@ -3979,37 +3979,37 @@ test1324 _ = ()
 test1325 : Double -> ()
 test1325 _ = ()
 
-test1326 : Undefined -> ()
+test1326 : Double -> ()
 test1326 _ = ()
 
-test1327 : DOMMatrix2DInit -> ()
+test1327 : Undefined -> ()
 test1327 _ = ()
 
-test1328 : Undefined -> ()
+test1328 : DOMMatrix2DInit -> ()
 test1328 _ = ()
 
-test1329 : Double -> ()
+test1329 : Undefined -> ()
 test1329 _ = ()
 
-test1330 : String -> ()
+test1330 : Double -> ()
 test1330 _ = ()
 
-test1331 : Bool -> ()
+test1331 : String -> ()
 test1331 _ = ()
 
-test1332 : ImageSmoothingQuality -> ()
+test1332 : Bool -> ()
 test1332 _ = ()
 
-test1333 : NS I [ String , CanvasGradient , CanvasPattern ] -> ()
+test1333 : ImageSmoothingQuality -> ()
 test1333 _ = ()
 
 test1334 : NS I [ String , CanvasGradient , CanvasPattern ] -> ()
 test1334 _ = ()
 
-test1335 : CanvasGradient -> ()
+test1335 : NS I [ String , CanvasGradient , CanvasPattern ] -> ()
 test1335 _ = ()
 
-test1336 : Double -> ()
+test1336 : CanvasGradient -> ()
 test1336 _ = ()
 
 test1337 : Double -> ()
@@ -4021,10 +4021,10 @@ test1338 _ = ()
 test1339 : Double -> ()
 test1339 _ = ()
 
-test1340 : CanvasGradient -> ()
+test1340 : Double -> ()
 test1340 _ = ()
 
-test1341 : Double -> ()
+test1341 : CanvasGradient -> ()
 test1341 _ = ()
 
 test1342 : Double -> ()
@@ -4042,16 +4042,16 @@ test1345 _ = ()
 test1346 : Double -> ()
 test1346 _ = ()
 
-test1347 : Maybe CanvasPattern -> ()
+test1347 : Double -> ()
 test1347 _ = ()
 
-test1348 : CanvasImageSource -> ()
+test1348 : Maybe CanvasPattern -> ()
 test1348 _ = ()
 
-test1349 : String -> ()
+test1349 : CanvasImageSource -> ()
 test1349 _ = ()
 
-test1350 : Double -> ()
+test1350 : String -> ()
 test1350 _ = ()
 
 test1351 : Double -> ()
@@ -4060,16 +4060,16 @@ test1351 _ = ()
 test1352 : Double -> ()
 test1352 _ = ()
 
-test1353 : String -> ()
+test1353 : Double -> ()
 test1353 _ = ()
 
 test1354 : String -> ()
 test1354 _ = ()
 
-test1355 : Undefined -> ()
+test1355 : String -> ()
 test1355 _ = ()
 
-test1356 : Double -> ()
+test1356 : Undefined -> ()
 test1356 _ = ()
 
 test1357 : Double -> ()
@@ -4081,10 +4081,10 @@ test1358 _ = ()
 test1359 : Double -> ()
 test1359 _ = ()
 
-test1360 : Undefined -> ()
+test1360 : Double -> ()
 test1360 _ = ()
 
-test1361 : Double -> ()
+test1361 : Undefined -> ()
 test1361 _ = ()
 
 test1362 : Double -> ()
@@ -4096,10 +4096,10 @@ test1363 _ = ()
 test1364 : Double -> ()
 test1364 _ = ()
 
-test1365 : Undefined -> ()
+test1365 : Double -> ()
 test1365 _ = ()
 
-test1366 : Double -> ()
+test1366 : Undefined -> ()
 test1366 _ = ()
 
 test1367 : Double -> ()
@@ -4111,127 +4111,127 @@ test1368 _ = ()
 test1369 : Double -> ()
 test1369 _ = ()
 
-test1370 : Undefined -> ()
+test1370 : Double -> ()
 test1370 _ = ()
 
 test1371 : Undefined -> ()
 test1371 _ = ()
 
-test1372 : CanvasFillRule -> ()
+test1372 : Undefined -> ()
 test1372 _ = ()
 
-test1373 : Undefined -> ()
+test1373 : CanvasFillRule -> ()
 test1373 _ = ()
 
-test1374 : Path2D -> ()
+test1374 : Undefined -> ()
 test1374 _ = ()
 
-test1375 : CanvasFillRule -> ()
+test1375 : Path2D -> ()
 test1375 _ = ()
 
-test1376 : Undefined -> ()
+test1376 : CanvasFillRule -> ()
 test1376 _ = ()
 
 test1377 : Undefined -> ()
 test1377 _ = ()
 
-test1378 : Path2D -> ()
+test1378 : Undefined -> ()
 test1378 _ = ()
 
-test1379 : Undefined -> ()
+test1379 : Path2D -> ()
 test1379 _ = ()
 
-test1380 : CanvasFillRule -> ()
+test1380 : Undefined -> ()
 test1380 _ = ()
 
-test1381 : Undefined -> ()
+test1381 : CanvasFillRule -> ()
 test1381 _ = ()
 
-test1382 : Path2D -> ()
+test1382 : Undefined -> ()
 test1382 _ = ()
 
-test1383 : CanvasFillRule -> ()
+test1383 : Path2D -> ()
 test1383 _ = ()
 
-test1384 : Bool -> ()
+test1384 : CanvasFillRule -> ()
 test1384 _ = ()
 
-test1385 : Double -> ()
+test1385 : Bool -> ()
 test1385 _ = ()
 
 test1386 : Double -> ()
 test1386 _ = ()
 
-test1387 : CanvasFillRule -> ()
+test1387 : Double -> ()
 test1387 _ = ()
 
-test1388 : Bool -> ()
+test1388 : CanvasFillRule -> ()
 test1388 _ = ()
 
-test1389 : Path2D -> ()
+test1389 : Bool -> ()
 test1389 _ = ()
 
-test1390 : Double -> ()
+test1390 : Path2D -> ()
 test1390 _ = ()
 
 test1391 : Double -> ()
 test1391 _ = ()
 
-test1392 : CanvasFillRule -> ()
+test1392 : Double -> ()
 test1392 _ = ()
 
-test1393 : Bool -> ()
+test1393 : CanvasFillRule -> ()
 test1393 _ = ()
 
-test1394 : Double -> ()
+test1394 : Bool -> ()
 test1394 _ = ()
 
 test1395 : Double -> ()
 test1395 _ = ()
 
-test1396 : Bool -> ()
+test1396 : Double -> ()
 test1396 _ = ()
 
-test1397 : Path2D -> ()
+test1397 : Bool -> ()
 test1397 _ = ()
 
-test1398 : Double -> ()
+test1398 : Path2D -> ()
 test1398 _ = ()
 
 test1399 : Double -> ()
 test1399 _ = ()
 
-test1400 : Undefined -> ()
+test1400 : Double -> ()
 test1400 _ = ()
 
-test1401 : Element -> ()
+test1401 : Undefined -> ()
 test1401 _ = ()
 
-test1402 : Undefined -> ()
+test1402 : Element -> ()
 test1402 _ = ()
 
-test1403 : Path2D -> ()
+test1403 : Undefined -> ()
 test1403 _ = ()
 
-test1404 : Element -> ()
+test1404 : Path2D -> ()
 test1404 _ = ()
 
-test1405 : Undefined -> ()
+test1405 : Element -> ()
 test1405 _ = ()
 
 test1406 : Undefined -> ()
 test1406 _ = ()
 
-test1407 : Path2D -> ()
+test1407 : Undefined -> ()
 test1407 _ = ()
 
-test1408 : Undefined -> ()
+test1408 : Path2D -> ()
 test1408 _ = ()
 
-test1409 : String -> ()
+test1409 : Undefined -> ()
 test1409 _ = ()
 
-test1410 : Double -> ()
+test1410 : String -> ()
 test1410 _ = ()
 
 test1411 : Double -> ()
@@ -4240,13 +4240,13 @@ test1411 _ = ()
 test1412 : Double -> ()
 test1412 _ = ()
 
-test1413 : Undefined -> ()
+test1413 : Double -> ()
 test1413 _ = ()
 
-test1414 : String -> ()
+test1414 : Undefined -> ()
 test1414 _ = ()
 
-test1415 : Double -> ()
+test1415 : String -> ()
 test1415 _ = ()
 
 test1416 : Double -> ()
@@ -4255,31 +4255,31 @@ test1416 _ = ()
 test1417 : Double -> ()
 test1417 _ = ()
 
-test1418 : TextMetrics -> ()
+test1418 : Double -> ()
 test1418 _ = ()
 
-test1419 : String -> ()
+test1419 : TextMetrics -> ()
 test1419 _ = ()
 
-test1420 : Undefined -> ()
+test1420 : String -> ()
 test1420 _ = ()
 
-test1421 : CanvasImageSource -> ()
+test1421 : Undefined -> ()
 test1421 _ = ()
 
-test1422 : Double -> ()
+test1422 : CanvasImageSource -> ()
 test1422 _ = ()
 
 test1423 : Double -> ()
 test1423 _ = ()
 
-test1424 : Undefined -> ()
+test1424 : Double -> ()
 test1424 _ = ()
 
-test1425 : CanvasImageSource -> ()
+test1425 : Undefined -> ()
 test1425 _ = ()
 
-test1426 : Double -> ()
+test1426 : CanvasImageSource -> ()
 test1426 _ = ()
 
 test1427 : Double -> ()
@@ -4291,13 +4291,13 @@ test1428 _ = ()
 test1429 : Double -> ()
 test1429 _ = ()
 
-test1430 : Undefined -> ()
+test1430 : Double -> ()
 test1430 _ = ()
 
-test1431 : CanvasImageSource -> ()
+test1431 : Undefined -> ()
 test1431 _ = ()
 
-test1432 : Double -> ()
+test1432 : CanvasImageSource -> ()
 test1432 _ = ()
 
 test1433 : Double -> ()
@@ -4321,16 +4321,16 @@ test1438 _ = ()
 test1439 : Double -> ()
 test1439 _ = ()
 
-test1440 : ImageData -> ()
+test1440 : Double -> ()
 test1440 _ = ()
 
-test1441 : Int32 -> ()
+test1441 : ImageData -> ()
 test1441 _ = ()
 
 test1442 : Int32 -> ()
 test1442 _ = ()
 
-test1443 : ImageData -> ()
+test1443 : Int32 -> ()
 test1443 _ = ()
 
 test1444 : ImageData -> ()
@@ -4339,7 +4339,7 @@ test1444 _ = ()
 test1445 : ImageData -> ()
 test1445 _ = ()
 
-test1446 : Int32 -> ()
+test1446 : ImageData -> ()
 test1446 _ = ()
 
 test1447 : Int32 -> ()
@@ -4351,25 +4351,25 @@ test1448 _ = ()
 test1449 : Int32 -> ()
 test1449 _ = ()
 
-test1450 : Undefined -> ()
+test1450 : Int32 -> ()
 test1450 _ = ()
 
-test1451 : ImageData -> ()
+test1451 : Undefined -> ()
 test1451 _ = ()
 
-test1452 : Int32 -> ()
+test1452 : ImageData -> ()
 test1452 _ = ()
 
 test1453 : Int32 -> ()
 test1453 _ = ()
 
-test1454 : Undefined -> ()
+test1454 : Int32 -> ()
 test1454 _ = ()
 
-test1455 : ImageData -> ()
+test1455 : Undefined -> ()
 test1455 _ = ()
 
-test1456 : Int32 -> ()
+test1456 : ImageData -> ()
 test1456 _ = ()
 
 test1457 : Int32 -> ()
@@ -4387,67 +4387,67 @@ test1460 _ = ()
 test1461 : Int32 -> ()
 test1461 _ = ()
 
-test1462 : Double -> ()
+test1462 : Int32 -> ()
 test1462 _ = ()
 
-test1463 : CanvasLineCap -> ()
+test1463 : Double -> ()
 test1463 _ = ()
 
-test1464 : CanvasLineJoin -> ()
+test1464 : CanvasLineCap -> ()
 test1464 _ = ()
 
-test1465 : Double -> ()
+test1465 : CanvasLineJoin -> ()
 test1465 _ = ()
 
-test1466 : Undefined -> ()
+test1466 : Double -> ()
 test1466 _ = ()
 
-test1467 : JSArray Double -> ()
+test1467 : Undefined -> ()
 test1467 _ = ()
 
 test1468 : JSArray Double -> ()
 test1468 _ = ()
 
-test1469 : Double -> ()
+test1469 : JSArray Double -> ()
 test1469 _ = ()
 
-test1470 : String -> ()
+test1470 : Double -> ()
 test1470 _ = ()
 
-test1471 : CanvasTextAlign -> ()
+test1471 : String -> ()
 test1471 _ = ()
 
-test1472 : CanvasTextBaseline -> ()
+test1472 : CanvasTextAlign -> ()
 test1472 _ = ()
 
-test1473 : CanvasDirection -> ()
+test1473 : CanvasTextBaseline -> ()
 test1473 _ = ()
 
-test1474 : Undefined -> ()
+test1474 : CanvasDirection -> ()
 test1474 _ = ()
 
 test1475 : Undefined -> ()
 test1475 _ = ()
 
-test1476 : Double -> ()
+test1476 : Undefined -> ()
 test1476 _ = ()
 
 test1477 : Double -> ()
 test1477 _ = ()
 
-test1478 : Undefined -> ()
+test1478 : Double -> ()
 test1478 _ = ()
 
-test1479 : Double -> ()
+test1479 : Undefined -> ()
 test1479 _ = ()
 
 test1480 : Double -> ()
 test1480 _ = ()
 
-test1481 : Undefined -> ()
+test1481 : Double -> ()
 test1481 _ = ()
 
-test1482 : Double -> ()
+test1482 : Undefined -> ()
 test1482 _ = ()
 
 test1483 : Double -> ()
@@ -4459,10 +4459,10 @@ test1484 _ = ()
 test1485 : Double -> ()
 test1485 _ = ()
 
-test1486 : Undefined -> ()
+test1486 : Double -> ()
 test1486 _ = ()
 
-test1487 : Double -> ()
+test1487 : Undefined -> ()
 test1487 _ = ()
 
 test1488 : Double -> ()
@@ -4480,10 +4480,10 @@ test1491 _ = ()
 test1492 : Double -> ()
 test1492 _ = ()
 
-test1493 : Undefined -> ()
+test1493 : Double -> ()
 test1493 _ = ()
 
-test1494 : Double -> ()
+test1494 : Undefined -> ()
 test1494 _ = ()
 
 test1495 : Double -> ()
@@ -4498,10 +4498,10 @@ test1497 _ = ()
 test1498 : Double -> ()
 test1498 _ = ()
 
-test1499 : Undefined -> ()
+test1499 : Double -> ()
 test1499 _ = ()
 
-test1500 : Double -> ()
+test1500 : Undefined -> ()
 test1500 _ = ()
 
 test1501 : Double -> ()
@@ -4513,10 +4513,10 @@ test1502 _ = ()
 test1503 : Double -> ()
 test1503 _ = ()
 
-test1504 : Undefined -> ()
+test1504 : Double -> ()
 test1504 _ = ()
 
-test1505 : Double -> ()
+test1505 : Undefined -> ()
 test1505 _ = ()
 
 test1506 : Double -> ()
@@ -4531,13 +4531,13 @@ test1508 _ = ()
 test1509 : Double -> ()
 test1509 _ = ()
 
-test1510 : Bool -> ()
+test1510 : Double -> ()
 test1510 _ = ()
 
-test1511 : Undefined -> ()
+test1511 : Bool -> ()
 test1511 _ = ()
 
-test1512 : Double -> ()
+test1512 : Undefined -> ()
 test1512 _ = ()
 
 test1513 : Double -> ()
@@ -4558,19 +4558,19 @@ test1517 _ = ()
 test1518 : Double -> ()
 test1518 _ = ()
 
-test1519 : Bool -> ()
+test1519 : Double -> ()
 test1519 _ = ()
 
-test1520 : PluginArray -> ()
+test1520 : Bool -> ()
 test1520 _ = ()
 
-test1521 : MimeTypeArray -> ()
+test1521 : PluginArray -> ()
 test1521 _ = ()
 
-test1522 : Bool -> ()
+test1522 : MimeTypeArray -> ()
 test1522 _ = ()
 
-test1523 : String -> ()
+test1523 : Bool -> ()
 test1523 _ = ()
 
 test1524 : String -> ()
@@ -4600,40 +4600,40 @@ test1531 _ = ()
 test1532 : String -> ()
 test1532 _ = ()
 
-test1533 : JSArray String -> ()
+test1533 : String -> ()
 test1533 _ = ()
 
-test1534 : Bool -> ()
+test1534 : JSArray String -> ()
 test1534 _ = ()
 
-test1535 : Undefined -> ()
+test1535 : Bool -> ()
 test1535 _ = ()
 
-test1536 : String -> ()
+test1536 : Undefined -> ()
 test1536 _ = ()
 
 test1537 : String -> ()
 test1537 _ = ()
 
-test1538 : Undefined -> ()
+test1538 : String -> ()
 test1538 _ = ()
 
-test1539 : String -> ()
+test1539 : Undefined -> ()
 test1539 _ = ()
 
 test1540 : String -> ()
 test1540 _ = ()
 
-test1541 : Bool -> ()
+test1541 : String -> ()
 test1541 _ = ()
 
-test1542 : UInt64 -> ()
+test1542 : Bool -> ()
 test1542 _ = ()
 
-test1543 : EventHandler -> ()
+test1543 : UInt64 -> ()
 test1543 _ = ()
 
-test1544 : String -> ()
+test1544 : EventHandler -> ()
 test1544 _ = ()
 
 test1545 : String -> ()
@@ -4666,43 +4666,43 @@ test1553 _ = ()
 test1554 : String -> ()
 test1554 _ = ()
 
-test1555 : DOMStringMap -> ()
+test1555 : String -> ()
 test1555 _ = ()
 
-test1556 : String -> ()
+test1556 : DOMStringMap -> ()
 test1556 _ = ()
 
-test1557 : Bool -> ()
+test1557 : String -> ()
 test1557 _ = ()
 
-test1558 : Int32 -> ()
+test1558 : Bool -> ()
 test1558 _ = ()
 
-test1559 : Undefined -> ()
+test1559 : Int32 -> ()
 test1559 _ = ()
 
-test1560 : FocusOptions -> ()
+test1560 : Undefined -> ()
 test1560 _ = ()
 
-test1561 : Undefined -> ()
+test1561 : FocusOptions -> ()
 test1561 _ = ()
 
-test1562 : String -> ()
+test1562 : Undefined -> ()
 test1562 _ = ()
 
 test1563 : String -> ()
 test1563 _ = ()
 
-test1564 : Bool -> ()
+test1564 : String -> ()
 test1564 _ = ()
 
-test1565 : String -> ()
+test1565 : Bool -> ()
 test1565 _ = ()
 
-test1566 : Maybe String -> ()
+test1566 : String -> ()
 test1566 _ = ()
 
-test1567 : String -> ()
+test1567 : Maybe String -> ()
 test1567 _ = ()
 
 test1568 : String -> ()
@@ -4822,39 +4822,42 @@ test1605 _ = ()
 test1606 : String -> ()
 test1606 _ = ()
 
-test1607 : NS I [ HTMLScriptElement , SVGScriptElement ] -> ()
+test1607 : String -> ()
 test1607 _ = ()
 
-test1608 : NS I [ CanvasRenderingContext2D
+test1608 : NS I [ HTMLScriptElement , SVGScriptElement ] -> ()
+test1608 _ = ()
+
+test1609 : NS I [ CanvasRenderingContext2D
                 , ImageBitmapRenderingContext
                 , WebGLRenderingContext
                 , WebGL2RenderingContext
                 ] -> ()
-test1608 _ = ()
-
-test1609 : NS I [ MediaStream , MediaSource , Blob ] -> ()
 test1609 _ = ()
 
-test1610 : NS I [ CanvasImageSource , Blob , ImageData ] -> ()
+test1610 : NS I [ MediaStream , MediaSource , Blob ] -> ()
 test1610 _ = ()
 
-test1611 : NS I [ HTMLImageElement , SVGImageElement ] -> ()
+test1611 : NS I [ CanvasImageSource , Blob , ImageData ] -> ()
 test1611 _ = ()
 
-test1612 : NS I [ HTMLOrSVGImageElement
+test1612 : NS I [ HTMLImageElement , SVGImageElement ] -> ()
+test1612 _ = ()
+
+test1613 : NS I [ HTMLOrSVGImageElement
                 , HTMLVideoElement
                 , HTMLCanvasElement
                 , ImageBitmap
                 , OffscreenCanvas
                 ] -> ()
-test1612 _ = ()
-
-test1613 : NS I [ WindowProxy , MessagePort , ServiceWorker ] -> ()
 test1613 _ = ()
 
-test1614 : NS I [ OffscreenCanvasRenderingContext2D
+test1614 : NS I [ WindowProxy , MessagePort , ServiceWorker ] -> ()
+test1614 _ = ()
+
+test1615 : NS I [ OffscreenCanvasRenderingContext2D
                 , ImageBitmapRenderingContext
                 , WebGLRenderingContext
                 , WebGL2RenderingContext
                 ] -> ()
-test1614 _ = ()
+test1615 _ = ()
