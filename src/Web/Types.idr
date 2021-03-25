@@ -17,7 +17,7 @@ import public Web.UrlTypes as Types
 import public Web.XhrTypes as Types
 
 --------------------------------------------------------------------------------
---          Typedefs
+--          Typedefs and Callbacks
 --------------------------------------------------------------------------------
 
 mutual
@@ -107,3 +107,25 @@ mutual
                                 , URLSearchParams
                                 , String
                                 ]
+  
+  public export
+  0 BlobCallback : Type
+  BlobCallback = (blob : Maybe Blob) -> IO ()
+  
+  public export
+  0 ClipboardItemDelayedCallback : Type
+  ClipboardItemDelayedCallback = () -> IO ClipboardItemData
+  
+  public export
+  0 CustomElementConstructor : Type
+  CustomElementConstructor = () -> IO HTMLElement
+  
+  public export
+  0 FunctionStringCallback : Type
+  FunctionStringCallback = (data_ : String) -> IO ()
+  
+  public export
+  0 MutationCallback : Type
+  MutationCallback =  (mutations : JSArray MutationRecord)
+                   -> (observer : MutationObserver)
+                   -> IO ()

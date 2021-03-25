@@ -126,9 +126,6 @@ CSSOMString = String
 -- or need proper implementation and bindings here (my todo).
 
 export
-data CustomElementConstructor : Type where [external]
-
-export
 data WebGL2RenderingContext : Type where [external]
 
 export
@@ -162,9 +159,6 @@ export
 data SelectionMode : Type where [external]
 
 export
-data FunctionStringCallback : Type where [external]
-
-export
 data BufferSource : Type where [external]
 
 export
@@ -187,16 +181,7 @@ data DOMHighResTimeStamp : Type where [external]
 --------------------------------------------------------------------------------
 
 export
-data BlobCallback : Type where [external]
-
-export
-data ClipboardItemDelayedCallback : Type where [external]
-
-export
 data EventListener : Type where [external]
-
-export
-data MutationCallback : Type where [external]
 
 export
 data EventHandler : Type where [external]

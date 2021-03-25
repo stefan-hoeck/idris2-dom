@@ -49,59 +49,71 @@ test14 _ = ()
 test15 : String -> ()
 test15 _ = ()
 
-test16 : NS I [ JSArray (JSArray String)
-              , JSRecord String String
-              , String
-              ] -> ()
+test16 : String -> ()
 test16 _ = ()
 
-test17 : Undefined -> ()
+test17 : NS I [ Blob , MediaSource ] -> ()
 test17 _ = ()
 
-test18 : String -> ()
+test18 : Undefined -> ()
 test18 _ = ()
 
 test19 : String -> ()
 test19 _ = ()
 
-test20 : Undefined -> ()
+test20 : NS I [ JSArray (JSArray String)
+              , JSRecord String String
+              , String
+              ] -> ()
 test20 _ = ()
 
-test21 : String -> ()
+test21 : Undefined -> ()
 test21 _ = ()
 
-test22 : Maybe String -> ()
+test22 : String -> ()
 test22 _ = ()
 
 test23 : String -> ()
 test23 _ = ()
 
-test24 : JSArray String -> ()
+test24 : Undefined -> ()
 test24 _ = ()
 
 test25 : String -> ()
 test25 _ = ()
 
-test26 : Bool -> ()
+test26 : Maybe String -> ()
 test26 _ = ()
 
 test27 : String -> ()
 test27 _ = ()
 
-test28 : Undefined -> ()
+test28 : JSArray String -> ()
 test28 _ = ()
 
 test29 : String -> ()
 test29 _ = ()
 
-test30 : String -> ()
+test30 : Bool -> ()
 test30 _ = ()
 
-test31 : Undefined -> ()
+test31 : String -> ()
 test31 _ = ()
 
-test32 : String -> ()
+test32 : Undefined -> ()
 test32 _ = ()
 
 test33 : String -> ()
 test33 _ = ()
+
+test34 : String -> ()
+test34 _ = ()
+
+test35 : Undefined -> ()
+test35 _ = ()
+
+test36 : String -> ()
+test36 _ = ()
+
+test37 : String -> ()
+test37 _ = ()

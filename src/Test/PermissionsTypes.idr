@@ -4,44 +4,38 @@ import Data.SOP
 import Web.Types
 import JS.Util
 
-test1 : Permissions -> ()
+test1 : PermissionName -> ()
 test1 _ = ()
 
-test2 : Permissions -> ()
+test2 : Bool -> ()
 test2 _ = ()
 
-test3 : PermissionName -> ()
+test3 : Bool -> ()
 test3 _ = ()
 
-test4 : Bool -> ()
+test4 : String -> ()
 test4 _ = ()
 
 test5 : Bool -> ()
 test5 _ = ()
 
-test6 : String -> ()
+test6 : PermissionDescriptor -> ()
 test6 _ = ()
 
-test7 : Bool -> ()
+test7 : PermissionState -> ()
 test7 _ = ()
 
-test8 : PermissionDescriptor -> ()
+test8 : Bool -> ()
 test8 _ = ()
 
 test9 : PermissionState -> ()
 test9 _ = ()
 
-test10 : Bool -> ()
+test10 : EventHandler -> ()
 test10 _ = ()
 
-test11 : PermissionState -> ()
+test11 : JSPromise PermissionStatus -> ()
 test11 _ = ()
 
-test12 : EventHandler -> ()
+test12 : JSObject -> ()
 test12 _ = ()
-
-test13 : JSPromise PermissionStatus -> ()
-test13 _ = ()
-
-test14 : JSObject -> ()
-test14 _ = ()
