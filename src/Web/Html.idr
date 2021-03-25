@@ -4,6 +4,120 @@ import JS.Util
 import Web.Types
 
 --------------------------------------------------------------------------------
+--          Interfaces
+--------------------------------------------------------------------------------
+
+namespace EventSource
+  
+  public export
+  CLOSED : UInt16
+  CLOSED = 2
+  
+  public export
+  CONNECTING : UInt16
+  CONNECTING = 0o0
+  
+  public export
+  OPEN : UInt16
+  OPEN = 1
+
+namespace HTMLMediaElement
+  
+  public export
+  HAVE_CURRENT_DATA : UInt16
+  HAVE_CURRENT_DATA = 2
+  
+  public export
+  HAVE_ENOUGH_DATA : UInt16
+  HAVE_ENOUGH_DATA = 4
+  
+  public export
+  HAVE_FUTURE_DATA : UInt16
+  HAVE_FUTURE_DATA = 3
+  
+  public export
+  HAVE_METADATA : UInt16
+  HAVE_METADATA = 1
+  
+  public export
+  HAVE_NOTHING : UInt16
+  HAVE_NOTHING = 0o0
+  
+  public export
+  NETWORK_EMPTY : UInt16
+  NETWORK_EMPTY = 0o0
+  
+  public export
+  NETWORK_IDLE : UInt16
+  NETWORK_IDLE = 1
+  
+  public export
+  NETWORK_LOADING : UInt16
+  NETWORK_LOADING = 2
+  
+  public export
+  NETWORK_NO_SOURCE : UInt16
+  NETWORK_NO_SOURCE = 3
+
+namespace HTMLTrackElement
+  
+  public export
+  ERROR : UInt16
+  ERROR = 3
+  
+  public export
+  LOADED : UInt16
+  LOADED = 2
+  
+  public export
+  LOADING : UInt16
+  LOADING = 1
+  
+  public export
+  NONE : UInt16
+  NONE = 0o0
+
+namespace MediaError
+  
+  public export
+  MEDIA_ERR_ABORTED : UInt16
+  MEDIA_ERR_ABORTED = 1
+  
+  public export
+  MEDIA_ERR_DECODE : UInt16
+  MEDIA_ERR_DECODE = 3
+  
+  public export
+  MEDIA_ERR_NETWORK : UInt16
+  MEDIA_ERR_NETWORK = 2
+  
+  public export
+  MEDIA_ERR_SRC_NOT_SUPPORTED : UInt16
+  MEDIA_ERR_SRC_NOT_SUPPORTED = 4
+
+namespace WebSocket
+  
+  public export
+  CLOSED : UInt16
+  CLOSED = 3
+  
+  public export
+  CLOSING : UInt16
+  CLOSING = 2
+  
+  public export
+  CONNECTING : UInt16
+  CONNECTING = 0o0
+  
+  public export
+  OPEN : UInt16
+  OPEN = 1
+
+
+
+
+
+--------------------------------------------------------------------------------
 --          Casts
 --------------------------------------------------------------------------------
 
