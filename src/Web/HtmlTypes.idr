@@ -2360,6 +2360,17 @@ FromJS WorkerLocation where
   fromJS = believe_me
 
 export
+data WorkerNavigator : Type where [external]
+
+export
+ToJS WorkerNavigator where
+  toJS = believe_me
+
+export
+FromJS WorkerNavigator where
+  fromJS = believe_me
+
+export
 data Worklet : Type where [external]
 
 export

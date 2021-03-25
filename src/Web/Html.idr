@@ -694,3 +694,19 @@ Cast Worker EventTarget where
 export
 Cast WorkerGlobalScope EventTarget where
   cast = believe_me
+
+export
+Cast WorkerNavigator NavigatorConcurrentHardware where
+  cast = believe_me
+
+export
+Cast WorkerNavigator NavigatorID where
+  cast = believe_me
+
+export
+Cast WorkerNavigator NavigatorLanguage where
+  cast = believe_me
+
+export
+Cast WorkerNavigator NavigatorOnLine where
+  cast = believe_me

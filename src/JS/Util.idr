@@ -136,9 +136,6 @@ CSSOMString = String
 -- or need proper implementation and bindings here (my todo).
 
 export
-data WorkerNavigator : Type where [external]
-
-export
 data SelectionMode : Type where [external]
 
 export
