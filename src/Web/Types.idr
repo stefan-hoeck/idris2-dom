@@ -183,6 +183,14 @@ mutual
                                    ]
   
   public export
+  0 OnBeforeUnloadEventHandler : Type
+  OnBeforeUnloadEventHandler = Maybe OnBeforeUnloadEventHandlerNonNull
+  
+  public export
+  0 OnErrorEventHandler : Type
+  OnErrorEventHandler = Maybe OnErrorEventHandlerNonNull
+  
+  public export
   0 RenderingContext : Type
   RenderingContext = NS I [ CanvasRenderingContext2D
                           , ImageBitmapRenderingContext
@@ -254,6 +262,19 @@ mutual
   public export
   0 NodeFilter : Type
   NodeFilter = (node : Node) -> IO UInt16
+  
+  public export
+  0 OnBeforeUnloadEventHandlerNonNull : Type
+  OnBeforeUnloadEventHandlerNonNull = (event : Event) -> IO (Maybe String)
+  
+  public export
+  0 OnErrorEventHandlerNonNull : Type
+  OnErrorEventHandlerNonNull =  (event : NS I [ Event , String ])
+                             -> (source : String)
+                             -> (lineno : UInt32)
+                             -> (colno : UInt32)
+                             -> (error : JSAny)
+                             -> IO JSAny
   
   public export
   0 XPathNSResolver : Type

@@ -136,12 +136,6 @@ CSSOMString = String
 -- or need proper implementation and bindings here (my todo).
 
 export
-data OnBeforeUnloadEventHandler : Type where [external]
-
-export
-data OnErrorEventHandler : Type where [external]
-
-export
 data WorkerNavigator : Type where [external]
 
 export
