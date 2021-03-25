@@ -136,9 +136,6 @@ CSSOMString = String
 -- or need proper implementation and bindings here (my todo).
 
 export
-data SelectionMode : Type where [external]
-
-export
 data BufferSource : Type where [external]
 
 export

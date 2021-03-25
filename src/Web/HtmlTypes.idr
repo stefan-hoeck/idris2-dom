@@ -826,6 +826,48 @@ namespace WorkerType
   FromJS WorkerType where
     fromJS = fromMaybe Classic . read . fromJS
 
+namespace SelectionMode
+  
+  public export
+  data SelectionMode = Select | Start | End | Preserve
+
+  public export
+  Show SelectionMode where
+    show Select = "select"
+    show Start = "start"
+    show End = "end"
+    show Preserve = "preserve"
+
+  public export
+  Eq SelectionMode where
+    (==) = (==) `on` show
+
+  public export
+  Ord SelectionMode where
+    compare = compare `on` show
+
+  public export
+  read : String -> Maybe SelectionMode
+  read "select" = Just Select
+  read "start" = Just Start
+  read "end" = Just End
+  read "preserve" = Just Preserve
+  read _ = Nothing
+
+  public export
+  fromString :  (s : String)
+             -> {auto 0 _ : IsJust (SelectionMode.read s)}
+             -> SelectionMode
+  fromString s = fromJust $ read s
+
+  export
+  ToJS SelectionMode where
+    toJS = toJS . show
+
+  export
+  FromJS SelectionMode where
+    fromJS = fromMaybe Select . read . fromJS
+
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
