@@ -141,14 +141,3 @@ data VarArg : Type -> Type where [external]
 public export
 0 CSSOMString : Type
 CSSOMString = String
-
---------------------------------------------------------------------------------
---          Dummies
---------------------------------------------------------------------------------
-
--- The dummies below are types that appear in a DOM function or
--- type alias but are either not yet in the specification (my fault)
--- or need proper implementation and bindings here (my todo).
-
-export
-data DOMHighResTimeStamp : Type where [external]

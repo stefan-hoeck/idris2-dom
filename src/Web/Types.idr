@@ -96,6 +96,10 @@ mutual
   ConstrainULong = NS I [ UInt32 , ConstrainULongRange ]
   
   public export
+  0 DOMHighResTimeStamp : Type
+  DOMHighResTimeStamp = Double
+  
+  public export
   0 DOMTimeStamp : Type
   DOMTimeStamp = UInt64
   

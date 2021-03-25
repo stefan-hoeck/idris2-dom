@@ -1669,116 +1669,128 @@ test554 _ = ()
 test555 : Maybe XPathResult -> ()
 test555 _ = ()
 
-test556 : Maybe Element -> ()
+test556 : DOMHighResTimeStamp -> ()
 test556 _ = ()
 
-test557 : String -> ()
+test557 : DOMHighResTimeStamp -> ()
 test557 _ = ()
 
-test558 : StyleSheetList -> ()
+test558 : JSObject -> ()
 test558 _ = ()
 
-test559 : HTMLCollection -> ()
+test559 : Maybe Element -> ()
 test559 _ = ()
 
-test560 : Maybe Element -> ()
+test560 : String -> ()
 test560 _ = ()
 
-test561 : Maybe Element -> ()
+test561 : StyleSheetList -> ()
 test561 _ = ()
 
-test562 : UInt32 -> ()
+test562 : HTMLCollection -> ()
 test562 _ = ()
 
-test563 : Undefined -> ()
+test563 : Maybe Element -> ()
 test563 _ = ()
 
-test564 : NS I [ Node , String ] -> ()
+test564 : Maybe Element -> ()
 test564 _ = ()
 
-test565 : Undefined -> ()
+test565 : UInt32 -> ()
 test565 _ = ()
 
-test566 : NS I [ Node , String ] -> ()
+test566 : Undefined -> ()
 test566 _ = ()
 
-test567 : Undefined -> ()
+test567 : NS I [ Node , String ] -> ()
 test567 _ = ()
 
-test568 : NS I [ Node , String ] -> ()
+test568 : Undefined -> ()
 test568 _ = ()
 
-test569 : Maybe Element -> ()
+test569 : NS I [ Node , String ] -> ()
 test569 _ = ()
 
-test570 : String -> ()
+test570 : Undefined -> ()
 test570 _ = ()
 
-test571 : NodeList -> ()
+test571 : NS I [ Node , String ] -> ()
 test571 _ = ()
 
-test572 : String -> ()
+test572 : Maybe Element -> ()
 test572 _ = ()
 
-test573 : Maybe Element -> ()
+test573 : String -> ()
 test573 _ = ()
 
-test574 : Maybe Element -> ()
+test574 : NodeList -> ()
 test574 _ = ()
 
-test575 : Undefined -> ()
+test575 : String -> ()
 test575 _ = ()
 
-test576 : NS I [ Node , String ] -> ()
+test576 : Maybe Element -> ()
 test576 _ = ()
 
-test577 : Undefined -> ()
+test577 : Maybe Element -> ()
 test577 _ = ()
 
-test578 : NS I [ Node , String ] -> ()
+test578 : Undefined -> ()
 test578 _ = ()
 
-test579 : Undefined -> ()
+test579 : NS I [ Node , String ] -> ()
 test579 _ = ()
 
-test580 : NS I [ Node , String ] -> ()
+test580 : Undefined -> ()
 test580 _ = ()
 
-test581 : Undefined -> ()
+test581 : NS I [ Node , String ] -> ()
 test581 _ = ()
 
-test582 : Maybe HTMLSlotElement -> ()
+test582 : Undefined -> ()
 test582 _ = ()
 
-test583 : XPathExpression -> ()
+test583 : NS I [ Node , String ] -> ()
 test583 _ = ()
 
-test584 : String -> ()
+test584 : Undefined -> ()
 test584 _ = ()
 
-test585 : Maybe XPathNSResolver -> ()
+test585 : Maybe HTMLSlotElement -> ()
 test585 _ = ()
 
-test586 : XPathNSResolver -> ()
+test586 : XPathExpression -> ()
 test586 _ = ()
 
-test587 : Node -> ()
+test587 : String -> ()
 test587 _ = ()
 
-test588 : XPathResult -> ()
+test588 : Maybe XPathNSResolver -> ()
 test588 _ = ()
 
-test589 : String -> ()
+test589 : XPathNSResolver -> ()
 test589 _ = ()
 
 test590 : Node -> ()
 test590 _ = ()
 
-test591 : Maybe XPathNSResolver -> ()
+test591 : XPathResult -> ()
 test591 _ = ()
 
-test592 : UInt16 -> ()
+test592 : String -> ()
 test592 _ = ()
 
-test593 : Maybe XPathResult -> ()
+test593 : Node -> ()
 test593 _ = ()
+
+test594 : Maybe XPathNSResolver -> ()
+test594 _ = ()
+
+test595 : UInt16 -> ()
+test595 _ = ()
+
+test596 : Maybe XPathResult -> ()
+test596 _ = ()
+
+test597 : Double -> ()
+test597 _ = ()

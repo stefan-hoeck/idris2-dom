@@ -112,6 +112,10 @@ Cast Node EventTarget where
   cast = believe_me
 
 export
+Cast Performance EventTarget where
+  cast = believe_me
+
+export
 Cast ProcessingInstruction CharacterData where
   cast = believe_me
 

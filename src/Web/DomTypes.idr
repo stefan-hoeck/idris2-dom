@@ -303,6 +303,17 @@ FromJS NodeList where
   fromJS = believe_me
 
 export
+data Performance : Type where [external]
+
+export
+ToJS Performance where
+  toJS = believe_me
+
+export
+FromJS Performance where
+  fromJS = believe_me
+
+export
 data ProcessingInstruction : Type where [external]
 
 export
