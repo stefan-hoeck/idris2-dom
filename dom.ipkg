@@ -36,6 +36,8 @@ modules = JS.Marshall
         , Web.PermissionsTypes
         , Web.Serviceworker
         , Web.ServiceworkerTypes
+        , Web.Streams
+        , Web.StreamsTypes
         , Web.Svg
         , Web.SvgTypes
         , Web.Types

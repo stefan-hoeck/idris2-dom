@@ -35,6 +35,7 @@ modules = JS.Util
         , Test.Number
         , Test.PermissionsTypes
         , Test.ServiceworkerTypes
+        , Test.StreamsTypes
         , Test.SvgTypes
         , Test.UrlTypes
         , Test.Util

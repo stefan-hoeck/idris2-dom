@@ -15,6 +15,7 @@ import public Web.MediasourceTypes as Types
 import public Web.MediastreamTypes as Types
 import public Web.PermissionsTypes as Types
 import public Web.ServiceworkerTypes as Types
+import public Web.StreamsTypes as Types
 import public Web.SvgTypes as Types
 import public Web.UrlTypes as Types
 import public Web.VisibilityTypes as Types
@@ -219,6 +220,18 @@ mutual
   OnErrorEventHandler = Maybe OnErrorEventHandlerNonNull
   
   public export
+  0 ReadableStreamController : Type
+  ReadableStreamController = NS I [ ReadableStreamDefaultController
+                                  , ReadableByteStreamController
+                                  ]
+  
+  public export
+  0 ReadableStreamReader : Type
+  ReadableStreamReader = NS I [ ReadableStreamDefaultReader
+                              , ReadableStreamBYOBReader
+                              ]
+  
+  public export
   0 RenderingContext : Type
   RenderingContext = NS I [ CanvasRenderingContext2D
                           , ImageBitmapRenderingContext
@@ -274,6 +287,10 @@ mutual
   EventListener = (event : Event) -> IO ()
   
   public export
+  0 Function : Type
+  Function = (arguments : VarArg JSAny) -> IO JSAny
+  
+  public export
   0 FunctionStringCallback : Type
   FunctionStringCallback = (data_ : String) -> IO ()
   
@@ -307,6 +324,59 @@ mutual
                              -> (colno : UInt32)
                              -> (error : JSAny)
                              -> IO JSAny
+  
+  public export
+  0 QueuingStrategySize : Type
+  QueuingStrategySize = (chunk : JSAny) -> IO Double
+  
+  public export
+  0 TransformerFlushCallback : Type
+  TransformerFlushCallback =  (controller : TransformStreamDefaultController)
+                           -> IO (JSPromise Undefined)
+  
+  public export
+  0 TransformerStartCallback : Type
+  TransformerStartCallback =  (controller : TransformStreamDefaultController)
+                           -> IO JSAny
+  
+  public export
+  0 TransformerTransformCallback : Type
+  TransformerTransformCallback =  (chunk : JSAny)
+                               -> (controller : TransformStreamDefaultController)
+                               -> IO (JSPromise Undefined)
+  
+  public export
+  0 UnderlyingSinkAbortCallback : Type
+  UnderlyingSinkAbortCallback = (reason : JSAny) -> IO (JSPromise Undefined)
+  
+  public export
+  0 UnderlyingSinkCloseCallback : Type
+  UnderlyingSinkCloseCallback = () -> IO (JSPromise Undefined)
+  
+  public export
+  0 UnderlyingSinkStartCallback : Type
+  UnderlyingSinkStartCallback =  (controller : WritableStreamDefaultController)
+                              -> IO JSAny
+  
+  public export
+  0 UnderlyingSinkWriteCallback : Type
+  UnderlyingSinkWriteCallback =  (chunk : JSAny)
+                              -> (controller : WritableStreamDefaultController)
+                              -> IO (JSPromise Undefined)
+  
+  public export
+  0 UnderlyingSourceCancelCallback : Type
+  UnderlyingSourceCancelCallback = (reason : JSAny) -> IO (JSPromise Undefined)
+  
+  public export
+  0 UnderlyingSourcePullCallback : Type
+  UnderlyingSourcePullCallback =  (controller : ReadableStreamController)
+                               -> IO (JSPromise Undefined)
+  
+  public export
+  0 UnderlyingSourceStartCallback : Type
+  UnderlyingSourceStartCallback =  (controller : ReadableStreamController)
+                                -> IO JSAny
   
   public export
   0 VoidFunction : Type

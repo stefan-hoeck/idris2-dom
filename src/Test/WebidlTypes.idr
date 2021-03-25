@@ -7,10 +7,10 @@ import JS.Util
 test1 : Undefined -> ()
 test1 _ = ()
 
-test2 : String -> ()
+test2 : JSAny -> ()
 test2 _ = ()
 
-test3 : String -> ()
+test3 : JSAny -> ()
 test3 _ = ()
 
 test4 : String -> ()
@@ -19,10 +19,10 @@ test4 _ = ()
 test5 : String -> ()
 test5 _ = ()
 
-test6 : UInt16 -> ()
+test6 : String -> ()
 test6 _ = ()
 
-test7 : UInt16 -> ()
+test7 : String -> ()
 test7 _ = ()
 
 test8 : UInt16 -> ()
@@ -97,7 +97,13 @@ test30 _ = ()
 test31 : UInt16 -> ()
 test31 _ = ()
 
-test32 : NS I [ Int8Array
+test32 : UInt16 -> ()
+test32 _ = ()
+
+test33 : UInt16 -> ()
+test33 _ = ()
+
+test34 : NS I [ Int8Array
               , Int16Array
               , Int32Array
               , Uint8Array
@@ -108,10 +114,10 @@ test32 : NS I [ Int8Array
               , Float64Array
               , DataView
               ] -> ()
-test32 _ = ()
-
-test33 : NS I [ ArrayBufferView , ArrayBuffer ] -> ()
-test33 _ = ()
-
-test34 : UInt64 -> ()
 test34 _ = ()
+
+test35 : NS I [ ArrayBufferView , ArrayBuffer ] -> ()
+test35 _ = ()
+
+test36 : UInt64 -> ()
+test36 _ = ()

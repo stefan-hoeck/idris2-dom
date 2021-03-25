@@ -130,6 +130,9 @@ data Uint8ClampedArray : Type where [external]
 export
 data WindowProxy : Type where [external]
 
+-- TODO: How to handle vararg functions
+export
+data VarArg : Type -> Type where [external]
 --------------------------------------------------------------------------------
 --          Aliases
 --------------------------------------------------------------------------------
@@ -146,9 +149,6 @@ CSSOMString = String
 -- The dummies below are types that appear in a DOM function or
 -- type alias but are either not yet in the specification (my fault)
 -- or need proper implementation and bindings here (my todo).
-
-export
-data ReadableStream : Type where [external]
 
 export
 data DOMHighResTimeStamp : Type where [external]
