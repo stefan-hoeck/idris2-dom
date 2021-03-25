@@ -30,6 +30,8 @@ modules = JS.Marshall
         , Web.HtmlTypes
         , Web.Mediasource
         , Web.MediasourceTypes
+        , Web.Mediastream
+        , Web.MediastreamTypes
         , Web.Permissions
         , Web.PermissionsTypes
         , Web.Serviceworker

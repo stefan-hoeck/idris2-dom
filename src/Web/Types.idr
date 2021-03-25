@@ -12,6 +12,7 @@ import public Web.FileTypes as Types
 import public Web.GeometryTypes as Types
 import public Web.HtmlTypes as Types
 import public Web.MediasourceTypes as Types
+import public Web.MediastreamTypes as Types
 import public Web.PermissionsTypes as Types
 import public Web.ServiceworkerTypes as Types
 import public Web.SvgTypes as Types
@@ -53,6 +54,25 @@ mutual
   public export
   0 ClipboardItems : Type
   ClipboardItems = JSArray ClipboardItem
+  
+  public export
+  0 ConstrainBoolean : Type
+  ConstrainBoolean = NS I [ Bool , ConstrainBooleanParameters ]
+  
+  public export
+  0 ConstrainDOMString : Type
+  ConstrainDOMString = NS I [ String
+                            , JSArray String
+                            , ConstrainDOMStringParameters
+                            ]
+  
+  public export
+  0 ConstrainDouble : Type
+  ConstrainDouble = NS I [ Double , ConstrainDoubleRange ]
+  
+  public export
+  0 ConstrainULong : Type
+  ConstrainULong = NS I [ UInt32 , ConstrainULongRange ]
   
   public export
   0 Float32List : Type
@@ -222,6 +242,14 @@ mutual
   MutationCallback =  (mutations : JSArray MutationRecord)
                    -> (observer : MutationObserver)
                    -> IO ()
+  
+  public export
+  0 NavigatorUserMediaErrorCallback : Type
+  NavigatorUserMediaErrorCallback = (error : DOMException) -> IO ()
+  
+  public export
+  0 NavigatorUserMediaSuccessCallback : Type
+  NavigatorUserMediaSuccessCallback = (stream : MediaStream) -> IO ()
   
   public export
   0 NodeFilter : Type

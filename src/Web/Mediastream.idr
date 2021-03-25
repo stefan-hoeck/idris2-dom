@@ -1,4 +1,4 @@
-module Web.Css
+module Web.Mediastream
 
 import JS.Util
 import Web.Types
@@ -8,49 +8,45 @@ import Web.Types
 --------------------------------------------------------------------------------
 
 export
-Cast CSSGroupingRule CSSRule where
+Cast ConstrainDoubleRange DoubleRange where
   cast = believe_me
 
 export
-Cast CSSImportRule CSSRule where
+Cast ConstrainULongRange ULongRange where
   cast = believe_me
 
 export
-Cast CSSMarginRule CSSRule where
+Cast Constraints ConstraintSet where
   cast = believe_me
 
 export
-Cast CSSNamespaceRule CSSRule where
+Cast InputDeviceInfo MediaDeviceInfo where
   cast = believe_me
 
 export
-Cast CSSPageRule CSSGroupingRule where
+Cast MediaDevices EventTarget where
   cast = believe_me
 
 export
-Cast CSSPseudoElement EventTarget where
+Cast MediaStream EventTarget where
   cast = believe_me
 
 export
-Cast CSSStyleRule CSSRule where
+Cast MediaStreamTrack EventTarget where
   cast = believe_me
 
 export
-Cast CSSStyleSheet StyleSheet where
+Cast MediaStreamTrackEvent Event where
   cast = believe_me
 
 export
-Cast HTMLElement ElementCSSInlineStyle where
+Cast MediaStreamTrackEventInit EventInit where
   cast = believe_me
 
 export
-Cast MathMLElement ElementCSSInlineStyle where
+Cast MediaTrackConstraints MediaTrackConstraintSet where
   cast = believe_me
 
 export
-Cast ProcessingInstruction LinkStyle where
-  cast = believe_me
-
-export
-Cast SVGElement ElementCSSInlineStyle where
+Cast OverconstrainedError DOMException where
   cast = believe_me

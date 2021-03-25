@@ -31,6 +31,7 @@ modules = JS.Util
         , Test.GeometryTypes
         , Test.HtmlTypes
         , Test.MediasourceTypes
+        , Test.MediastreamTypes
         , Test.Number
         , Test.PermissionsTypes
         , Test.ServiceworkerTypes

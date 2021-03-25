@@ -1,5 +1,6 @@
 module Web.Mediasource
 
+import JS.Util
 import Web.Types
 
 --------------------------------------------------------------------------------

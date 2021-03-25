@@ -1,5 +1,6 @@
 module Web.Clipboard
 
+import JS.Util
 import Web.Types
 
 --------------------------------------------------------------------------------

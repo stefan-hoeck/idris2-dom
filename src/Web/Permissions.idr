@@ -1,5 +1,6 @@
 module Web.Permissions
 
+import JS.Util
 import Web.Types
 
 --------------------------------------------------------------------------------

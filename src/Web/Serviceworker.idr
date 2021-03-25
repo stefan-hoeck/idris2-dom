@@ -1,5 +1,6 @@
 module Web.Serviceworker
 
+import JS.Util
 import Web.Types
 
 --------------------------------------------------------------------------------

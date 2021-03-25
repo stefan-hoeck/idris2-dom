@@ -1,5 +1,6 @@
 module Web.Animation
 
+import JS.Util
 import Web.Types
 
 --------------------------------------------------------------------------------

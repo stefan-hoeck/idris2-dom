@@ -136,9 +136,6 @@ CSSOMString = String
 -- or need proper implementation and bindings here (my todo).
 
 export
-data MediaStream : Type where [external]
-
-export
 data FocusOptions : Type where [external]
 
 export
