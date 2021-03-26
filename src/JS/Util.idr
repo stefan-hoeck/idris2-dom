@@ -3,7 +3,8 @@
 ||| own package.
 module JS.Util
 
-import Data.Maybe
+import public Data.Maybe
+import public Data.SOP
 import public JS.Marshall
 import public JS.Number
 
