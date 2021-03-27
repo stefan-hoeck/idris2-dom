@@ -1,6 +1,4 @@
 module Web.DomTypes
-
-import Data.Maybe
 import JS.Util
 
 --------------------------------------------------------------------------------
@@ -48,9 +46,8 @@ namespace ShadowRootMode
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-
 export
-data AbortController : Type where [external]
+data AbortController  : Type where [external]
 
 export
 ToJS AbortController where
@@ -59,9 +56,8 @@ ToJS AbortController where
 export
 FromJS AbortController where
   fromJS = believe_me
-
 export
-data AbortSignal : Type where [external]
+data AbortSignal  : Type where [external]
 
 export
 ToJS AbortSignal where
@@ -70,9 +66,8 @@ ToJS AbortSignal where
 export
 FromJS AbortSignal where
   fromJS = believe_me
-
 export
-data AbstractRange : Type where [external]
+data AbstractRange  : Type where [external]
 
 export
 ToJS AbstractRange where
@@ -81,9 +76,8 @@ ToJS AbstractRange where
 export
 FromJS AbstractRange where
   fromJS = believe_me
-
 export
-data Attr : Type where [external]
+data Attr  : Type where [external]
 
 export
 ToJS Attr where
@@ -92,9 +86,8 @@ ToJS Attr where
 export
 FromJS Attr where
   fromJS = believe_me
-
 export
-data CDATASection : Type where [external]
+data CDATASection  : Type where [external]
 
 export
 ToJS CDATASection where
@@ -103,9 +96,8 @@ ToJS CDATASection where
 export
 FromJS CDATASection where
   fromJS = believe_me
-
 export
-data CharacterData : Type where [external]
+data CharacterData  : Type where [external]
 
 export
 ToJS CharacterData where
@@ -114,9 +106,8 @@ ToJS CharacterData where
 export
 FromJS CharacterData where
   fromJS = believe_me
-
 export
-data Comment : Type where [external]
+data Comment  : Type where [external]
 
 export
 ToJS Comment where
@@ -125,9 +116,8 @@ ToJS Comment where
 export
 FromJS Comment where
   fromJS = believe_me
-
 export
-data CustomEvent : Type where [external]
+data CustomEvent  : Type where [external]
 
 export
 ToJS CustomEvent where
@@ -136,9 +126,8 @@ ToJS CustomEvent where
 export
 FromJS CustomEvent where
   fromJS = believe_me
-
 export
-data DOMImplementation : Type where [external]
+data DOMImplementation  : Type where [external]
 
 export
 ToJS DOMImplementation where
@@ -147,9 +136,8 @@ ToJS DOMImplementation where
 export
 FromJS DOMImplementation where
   fromJS = believe_me
-
 export
-data DOMTokenList : Type where [external]
+data DOMTokenList  : Type where [external]
 
 export
 ToJS DOMTokenList where
@@ -158,9 +146,8 @@ ToJS DOMTokenList where
 export
 FromJS DOMTokenList where
   fromJS = believe_me
-
 export
-data Document : Type where [external]
+data Document  : Type where [external]
 
 export
 ToJS Document where
@@ -169,9 +156,8 @@ ToJS Document where
 export
 FromJS Document where
   fromJS = believe_me
-
 export
-data DocumentFragment : Type where [external]
+data DocumentFragment  : Type where [external]
 
 export
 ToJS DocumentFragment where
@@ -180,9 +166,8 @@ ToJS DocumentFragment where
 export
 FromJS DocumentFragment where
   fromJS = believe_me
-
 export
-data DocumentType : Type where [external]
+data DocumentType  : Type where [external]
 
 export
 ToJS DocumentType where
@@ -191,9 +176,8 @@ ToJS DocumentType where
 export
 FromJS DocumentType where
   fromJS = believe_me
-
 export
-data Element : Type where [external]
+data Element  : Type where [external]
 
 export
 ToJS Element where
@@ -202,9 +186,8 @@ ToJS Element where
 export
 FromJS Element where
   fromJS = believe_me
-
 export
-data Event : Type where [external]
+data Event  : Type where [external]
 
 export
 ToJS Event where
@@ -213,9 +196,8 @@ ToJS Event where
 export
 FromJS Event where
   fromJS = believe_me
-
 export
-data EventTarget : Type where [external]
+data EventTarget  : Type where [external]
 
 export
 ToJS EventTarget where
@@ -224,9 +206,8 @@ ToJS EventTarget where
 export
 FromJS EventTarget where
   fromJS = believe_me
-
 export
-data HTMLCollection : Type where [external]
+data HTMLCollection  : Type where [external]
 
 export
 ToJS HTMLCollection where
@@ -235,9 +216,8 @@ ToJS HTMLCollection where
 export
 FromJS HTMLCollection where
   fromJS = believe_me
-
 export
-data MutationObserver : Type where [external]
+data MutationObserver  : Type where [external]
 
 export
 ToJS MutationObserver where
@@ -246,9 +226,8 @@ ToJS MutationObserver where
 export
 FromJS MutationObserver where
   fromJS = believe_me
-
 export
-data MutationRecord : Type where [external]
+data MutationRecord  : Type where [external]
 
 export
 ToJS MutationRecord where
@@ -257,9 +236,8 @@ ToJS MutationRecord where
 export
 FromJS MutationRecord where
   fromJS = believe_me
-
 export
-data NamedNodeMap : Type where [external]
+data NamedNodeMap  : Type where [external]
 
 export
 ToJS NamedNodeMap where
@@ -268,9 +246,8 @@ ToJS NamedNodeMap where
 export
 FromJS NamedNodeMap where
   fromJS = believe_me
-
 export
-data Node : Type where [external]
+data Node  : Type where [external]
 
 export
 ToJS Node where
@@ -279,9 +256,8 @@ ToJS Node where
 export
 FromJS Node where
   fromJS = believe_me
-
 export
-data NodeIterator : Type where [external]
+data NodeIterator  : Type where [external]
 
 export
 ToJS NodeIterator where
@@ -290,9 +266,8 @@ ToJS NodeIterator where
 export
 FromJS NodeIterator where
   fromJS = believe_me
-
 export
-data NodeList : Type where [external]
+data NodeList  : Type where [external]
 
 export
 ToJS NodeList where
@@ -301,9 +276,8 @@ ToJS NodeList where
 export
 FromJS NodeList where
   fromJS = believe_me
-
 export
-data Performance : Type where [external]
+data Performance  : Type where [external]
 
 export
 ToJS Performance where
@@ -312,9 +286,8 @@ ToJS Performance where
 export
 FromJS Performance where
   fromJS = believe_me
-
 export
-data ProcessingInstruction : Type where [external]
+data ProcessingInstruction  : Type where [external]
 
 export
 ToJS ProcessingInstruction where
@@ -323,9 +296,8 @@ ToJS ProcessingInstruction where
 export
 FromJS ProcessingInstruction where
   fromJS = believe_me
-
 export
-data Range : Type where [external]
+data Range  : Type where [external]
 
 export
 ToJS Range where
@@ -334,9 +306,8 @@ ToJS Range where
 export
 FromJS Range where
   fromJS = believe_me
-
 export
-data ShadowRoot : Type where [external]
+data ShadowRoot  : Type where [external]
 
 export
 ToJS ShadowRoot where
@@ -345,9 +316,8 @@ ToJS ShadowRoot where
 export
 FromJS ShadowRoot where
   fromJS = believe_me
-
 export
-data StaticRange : Type where [external]
+data StaticRange  : Type where [external]
 
 export
 ToJS StaticRange where
@@ -356,9 +326,8 @@ ToJS StaticRange where
 export
 FromJS StaticRange where
   fromJS = believe_me
-
 export
-data Text : Type where [external]
+data Text  : Type where [external]
 
 export
 ToJS Text where
@@ -367,9 +336,8 @@ ToJS Text where
 export
 FromJS Text where
   fromJS = believe_me
-
 export
-data TreeWalker : Type where [external]
+data TreeWalker  : Type where [external]
 
 export
 ToJS TreeWalker where
@@ -378,9 +346,8 @@ ToJS TreeWalker where
 export
 FromJS TreeWalker where
   fromJS = believe_me
-
 export
-data XMLDocument : Type where [external]
+data XMLDocument  : Type where [external]
 
 export
 ToJS XMLDocument where
@@ -389,9 +356,8 @@ ToJS XMLDocument where
 export
 FromJS XMLDocument where
   fromJS = believe_me
-
 export
-data XPathEvaluator : Type where [external]
+data XPathEvaluator  : Type where [external]
 
 export
 ToJS XPathEvaluator where
@@ -400,9 +366,8 @@ ToJS XPathEvaluator where
 export
 FromJS XPathEvaluator where
   fromJS = believe_me
-
 export
-data XPathExpression : Type where [external]
+data XPathExpression  : Type where [external]
 
 export
 ToJS XPathExpression where
@@ -411,9 +376,8 @@ ToJS XPathExpression where
 export
 FromJS XPathExpression where
   fromJS = believe_me
-
 export
-data XPathResult : Type where [external]
+data XPathResult  : Type where [external]
 
 export
 ToJS XPathResult where
@@ -426,9 +390,8 @@ FromJS XPathResult where
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------
-
 export
-data ChildNode : Type where [external]
+data ChildNode  : Type where [external]
 
 export
 ToJS ChildNode where
@@ -437,9 +400,8 @@ ToJS ChildNode where
 export
 FromJS ChildNode where
   fromJS = believe_me
-
 export
-data DocumentOrShadowRoot : Type where [external]
+data DocumentOrShadowRoot  : Type where [external]
 
 export
 ToJS DocumentOrShadowRoot where
@@ -448,9 +410,8 @@ ToJS DocumentOrShadowRoot where
 export
 FromJS DocumentOrShadowRoot where
   fromJS = believe_me
-
 export
-data NonDocumentTypeChildNode : Type where [external]
+data NonDocumentTypeChildNode  : Type where [external]
 
 export
 ToJS NonDocumentTypeChildNode where
@@ -459,9 +420,8 @@ ToJS NonDocumentTypeChildNode where
 export
 FromJS NonDocumentTypeChildNode where
   fromJS = believe_me
-
 export
-data NonElementParentNode : Type where [external]
+data NonElementParentNode  : Type where [external]
 
 export
 ToJS NonElementParentNode where
@@ -470,9 +430,8 @@ ToJS NonElementParentNode where
 export
 FromJS NonElementParentNode where
   fromJS = believe_me
-
 export
-data ParentNode : Type where [external]
+data ParentNode  : Type where [external]
 
 export
 ToJS ParentNode where
@@ -481,9 +440,8 @@ ToJS ParentNode where
 export
 FromJS ParentNode where
   fromJS = believe_me
-
 export
-data Slottable : Type where [external]
+data Slottable  : Type where [external]
 
 export
 ToJS Slottable where
@@ -492,9 +450,8 @@ ToJS Slottable where
 export
 FromJS Slottable where
   fromJS = believe_me
-
 export
-data XPathEvaluatorBase : Type where [external]
+data XPathEvaluatorBase  : Type where [external]
 
 export
 ToJS XPathEvaluatorBase where
@@ -507,9 +464,8 @@ FromJS XPathEvaluatorBase where
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
-
 export
-data AddEventListenerOptions : Type where [external]
+data AddEventListenerOptions  : Type where [external]
 
 export
 ToJS AddEventListenerOptions where
@@ -518,9 +474,8 @@ ToJS AddEventListenerOptions where
 export
 FromJS AddEventListenerOptions where
   fromJS = believe_me
-
 export
-data CustomEventInit : Type where [external]
+data CustomEventInit  : Type where [external]
 
 export
 ToJS CustomEventInit where
@@ -529,9 +484,8 @@ ToJS CustomEventInit where
 export
 FromJS CustomEventInit where
   fromJS = believe_me
-
 export
-data ElementCreationOptions : Type where [external]
+data ElementCreationOptions  : Type where [external]
 
 export
 ToJS ElementCreationOptions where
@@ -540,9 +494,8 @@ ToJS ElementCreationOptions where
 export
 FromJS ElementCreationOptions where
   fromJS = believe_me
-
 export
-data EventInit : Type where [external]
+data EventInit  : Type where [external]
 
 export
 ToJS EventInit where
@@ -551,9 +504,8 @@ ToJS EventInit where
 export
 FromJS EventInit where
   fromJS = believe_me
-
 export
-data EventListenerOptions : Type where [external]
+data EventListenerOptions  : Type where [external]
 
 export
 ToJS EventListenerOptions where
@@ -562,9 +514,8 @@ ToJS EventListenerOptions where
 export
 FromJS EventListenerOptions where
   fromJS = believe_me
-
 export
-data GetRootNodeOptions : Type where [external]
+data GetRootNodeOptions  : Type where [external]
 
 export
 ToJS GetRootNodeOptions where
@@ -573,9 +524,8 @@ ToJS GetRootNodeOptions where
 export
 FromJS GetRootNodeOptions where
   fromJS = believe_me
-
 export
-data MutationObserverInit : Type where [external]
+data MutationObserverInit  : Type where [external]
 
 export
 ToJS MutationObserverInit where
@@ -584,9 +534,8 @@ ToJS MutationObserverInit where
 export
 FromJS MutationObserverInit where
   fromJS = believe_me
-
 export
-data ShadowRootInit : Type where [external]
+data ShadowRootInit  : Type where [external]
 
 export
 ToJS ShadowRootInit where
@@ -595,9 +544,8 @@ ToJS ShadowRootInit where
 export
 FromJS ShadowRootInit where
   fromJS = believe_me
-
 export
-data StaticRangeInit : Type where [external]
+data StaticRangeInit  : Type where [external]
 
 export
 ToJS StaticRangeInit where

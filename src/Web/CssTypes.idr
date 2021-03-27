@@ -1,14 +1,12 @@
 module Web.CssTypes
-
 import JS.Util
 
 
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-
 export
-data CSSGroupingRule : Type where [external]
+data CSSGroupingRule  : Type where [external]
 
 export
 ToJS CSSGroupingRule where
@@ -17,9 +15,8 @@ ToJS CSSGroupingRule where
 export
 FromJS CSSGroupingRule where
   fromJS = believe_me
-
 export
-data CSSImportRule : Type where [external]
+data CSSImportRule  : Type where [external]
 
 export
 ToJS CSSImportRule where
@@ -28,9 +25,8 @@ ToJS CSSImportRule where
 export
 FromJS CSSImportRule where
   fromJS = believe_me
-
 export
-data CSSMarginRule : Type where [external]
+data CSSMarginRule  : Type where [external]
 
 export
 ToJS CSSMarginRule where
@@ -39,9 +35,8 @@ ToJS CSSMarginRule where
 export
 FromJS CSSMarginRule where
   fromJS = believe_me
-
 export
-data CSSNamespaceRule : Type where [external]
+data CSSNamespaceRule  : Type where [external]
 
 export
 ToJS CSSNamespaceRule where
@@ -50,9 +45,8 @@ ToJS CSSNamespaceRule where
 export
 FromJS CSSNamespaceRule where
   fromJS = believe_me
-
 export
-data CSSPageRule : Type where [external]
+data CSSPageRule  : Type where [external]
 
 export
 ToJS CSSPageRule where
@@ -61,9 +55,8 @@ ToJS CSSPageRule where
 export
 FromJS CSSPageRule where
   fromJS = believe_me
-
 export
-data CSSPseudoElement : Type where [external]
+data CSSPseudoElement  : Type where [external]
 
 export
 ToJS CSSPseudoElement where
@@ -72,9 +65,8 @@ ToJS CSSPseudoElement where
 export
 FromJS CSSPseudoElement where
   fromJS = believe_me
-
 export
-data CSSRule : Type where [external]
+data CSSRule  : Type where [external]
 
 export
 ToJS CSSRule where
@@ -83,9 +75,8 @@ ToJS CSSRule where
 export
 FromJS CSSRule where
   fromJS = believe_me
-
 export
-data CSSRuleList : Type where [external]
+data CSSRuleList  : Type where [external]
 
 export
 ToJS CSSRuleList where
@@ -94,9 +85,8 @@ ToJS CSSRuleList where
 export
 FromJS CSSRuleList where
   fromJS = believe_me
-
 export
-data CSSStyleDeclaration : Type where [external]
+data CSSStyleDeclaration  : Type where [external]
 
 export
 ToJS CSSStyleDeclaration where
@@ -105,9 +95,8 @@ ToJS CSSStyleDeclaration where
 export
 FromJS CSSStyleDeclaration where
   fromJS = believe_me
-
 export
-data CSSStyleRule : Type where [external]
+data CSSStyleRule  : Type where [external]
 
 export
 ToJS CSSStyleRule where
@@ -116,9 +105,8 @@ ToJS CSSStyleRule where
 export
 FromJS CSSStyleRule where
   fromJS = believe_me
-
 export
-data CSSStyleSheet : Type where [external]
+data CSSStyleSheet  : Type where [external]
 
 export
 ToJS CSSStyleSheet where
@@ -127,9 +115,8 @@ ToJS CSSStyleSheet where
 export
 FromJS CSSStyleSheet where
   fromJS = believe_me
-
 export
-data MediaList : Type where [external]
+data MediaList  : Type where [external]
 
 export
 ToJS MediaList where
@@ -138,9 +125,8 @@ ToJS MediaList where
 export
 FromJS MediaList where
   fromJS = believe_me
-
 export
-data StyleSheet : Type where [external]
+data StyleSheet  : Type where [external]
 
 export
 ToJS StyleSheet where
@@ -149,9 +135,8 @@ ToJS StyleSheet where
 export
 FromJS StyleSheet where
   fromJS = believe_me
-
 export
-data StyleSheetList : Type where [external]
+data StyleSheetList  : Type where [external]
 
 export
 ToJS StyleSheetList where
@@ -164,9 +149,8 @@ FromJS StyleSheetList where
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------
-
 export
-data ElementCSSInlineStyle : Type where [external]
+data ElementCSSInlineStyle  : Type where [external]
 
 export
 ToJS ElementCSSInlineStyle where
@@ -175,9 +159,8 @@ ToJS ElementCSSInlineStyle where
 export
 FromJS ElementCSSInlineStyle where
   fromJS = believe_me
-
 export
-data LinkStyle : Type where [external]
+data LinkStyle  : Type where [external]
 
 export
 ToJS LinkStyle where

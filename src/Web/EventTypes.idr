@@ -1,14 +1,12 @@
 module Web.EventTypes
-
 import JS.Util
 
 
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-
 export
-data CompositionEvent : Type where [external]
+data CompositionEvent  : Type where [external]
 
 export
 ToJS CompositionEvent where
@@ -17,9 +15,8 @@ ToJS CompositionEvent where
 export
 FromJS CompositionEvent where
   fromJS = believe_me
-
 export
-data FocusEvent : Type where [external]
+data FocusEvent  : Type where [external]
 
 export
 ToJS FocusEvent where
@@ -28,9 +25,8 @@ ToJS FocusEvent where
 export
 FromJS FocusEvent where
   fromJS = believe_me
-
 export
-data InputEvent : Type where [external]
+data InputEvent  : Type where [external]
 
 export
 ToJS InputEvent where
@@ -39,9 +35,8 @@ ToJS InputEvent where
 export
 FromJS InputEvent where
   fromJS = believe_me
-
 export
-data KeyboardEvent : Type where [external]
+data KeyboardEvent  : Type where [external]
 
 export
 ToJS KeyboardEvent where
@@ -50,9 +45,8 @@ ToJS KeyboardEvent where
 export
 FromJS KeyboardEvent where
   fromJS = believe_me
-
 export
-data MouseEvent : Type where [external]
+data MouseEvent  : Type where [external]
 
 export
 ToJS MouseEvent where
@@ -61,9 +55,8 @@ ToJS MouseEvent where
 export
 FromJS MouseEvent where
   fromJS = believe_me
-
 export
-data UIEvent : Type where [external]
+data UIEvent  : Type where [external]
 
 export
 ToJS UIEvent where
@@ -72,9 +65,8 @@ ToJS UIEvent where
 export
 FromJS UIEvent where
   fromJS = believe_me
-
 export
-data WheelEvent : Type where [external]
+data WheelEvent  : Type where [external]
 
 export
 ToJS WheelEvent where
@@ -88,9 +80,8 @@ FromJS WheelEvent where
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
-
 export
-data CompositionEventInit : Type where [external]
+data CompositionEventInit  : Type where [external]
 
 export
 ToJS CompositionEventInit where
@@ -99,9 +90,8 @@ ToJS CompositionEventInit where
 export
 FromJS CompositionEventInit where
   fromJS = believe_me
-
 export
-data EventModifierInit : Type where [external]
+data EventModifierInit  : Type where [external]
 
 export
 ToJS EventModifierInit where
@@ -110,9 +100,8 @@ ToJS EventModifierInit where
 export
 FromJS EventModifierInit where
   fromJS = believe_me
-
 export
-data FocusEventInit : Type where [external]
+data FocusEventInit  : Type where [external]
 
 export
 ToJS FocusEventInit where
@@ -121,9 +110,8 @@ ToJS FocusEventInit where
 export
 FromJS FocusEventInit where
   fromJS = believe_me
-
 export
-data InputEventInit : Type where [external]
+data InputEventInit  : Type where [external]
 
 export
 ToJS InputEventInit where
@@ -132,9 +120,8 @@ ToJS InputEventInit where
 export
 FromJS InputEventInit where
   fromJS = believe_me
-
 export
-data KeyboardEventInit : Type where [external]
+data KeyboardEventInit  : Type where [external]
 
 export
 ToJS KeyboardEventInit where
@@ -143,9 +130,8 @@ ToJS KeyboardEventInit where
 export
 FromJS KeyboardEventInit where
   fromJS = believe_me
-
 export
-data MouseEventInit : Type where [external]
+data MouseEventInit  : Type where [external]
 
 export
 ToJS MouseEventInit where
@@ -154,9 +140,8 @@ ToJS MouseEventInit where
 export
 FromJS MouseEventInit where
   fromJS = believe_me
-
 export
-data UIEventInit : Type where [external]
+data UIEventInit  : Type where [external]
 
 export
 ToJS UIEventInit where
@@ -165,9 +150,8 @@ ToJS UIEventInit where
 export
 FromJS UIEventInit where
   fromJS = believe_me
-
 export
-data WheelEventInit : Type where [external]
+data WheelEventInit  : Type where [external]
 
 export
 ToJS WheelEventInit where

@@ -1,6 +1,4 @@
 module Web.StreamsTypes
-
-import Data.Maybe
 import JS.Util
 
 --------------------------------------------------------------------------------
@@ -82,9 +80,8 @@ namespace ReadableStreamType
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-
 export
-data ByteLengthQueuingStrategy : Type where [external]
+data ByteLengthQueuingStrategy  : Type where [external]
 
 export
 ToJS ByteLengthQueuingStrategy where
@@ -93,9 +90,8 @@ ToJS ByteLengthQueuingStrategy where
 export
 FromJS ByteLengthQueuingStrategy where
   fromJS = believe_me
-
 export
-data CountQueuingStrategy : Type where [external]
+data CountQueuingStrategy  : Type where [external]
 
 export
 ToJS CountQueuingStrategy where
@@ -104,9 +100,8 @@ ToJS CountQueuingStrategy where
 export
 FromJS CountQueuingStrategy where
   fromJS = believe_me
-
 export
-data ReadableByteStreamController : Type where [external]
+data ReadableByteStreamController  : Type where [external]
 
 export
 ToJS ReadableByteStreamController where
@@ -115,9 +110,8 @@ ToJS ReadableByteStreamController where
 export
 FromJS ReadableByteStreamController where
   fromJS = believe_me
-
 export
-data ReadableStream : Type where [external]
+data ReadableStream  : Type where [external]
 
 export
 ToJS ReadableStream where
@@ -126,9 +120,8 @@ ToJS ReadableStream where
 export
 FromJS ReadableStream where
   fromJS = believe_me
-
 export
-data ReadableStreamBYOBReader : Type where [external]
+data ReadableStreamBYOBReader  : Type where [external]
 
 export
 ToJS ReadableStreamBYOBReader where
@@ -137,9 +130,8 @@ ToJS ReadableStreamBYOBReader where
 export
 FromJS ReadableStreamBYOBReader where
   fromJS = believe_me
-
 export
-data ReadableStreamBYOBRequest : Type where [external]
+data ReadableStreamBYOBRequest  : Type where [external]
 
 export
 ToJS ReadableStreamBYOBRequest where
@@ -148,9 +140,8 @@ ToJS ReadableStreamBYOBRequest where
 export
 FromJS ReadableStreamBYOBRequest where
   fromJS = believe_me
-
 export
-data ReadableStreamDefaultController : Type where [external]
+data ReadableStreamDefaultController  : Type where [external]
 
 export
 ToJS ReadableStreamDefaultController where
@@ -159,9 +150,8 @@ ToJS ReadableStreamDefaultController where
 export
 FromJS ReadableStreamDefaultController where
   fromJS = believe_me
-
 export
-data ReadableStreamDefaultReader : Type where [external]
+data ReadableStreamDefaultReader  : Type where [external]
 
 export
 ToJS ReadableStreamDefaultReader where
@@ -170,9 +160,8 @@ ToJS ReadableStreamDefaultReader where
 export
 FromJS ReadableStreamDefaultReader where
   fromJS = believe_me
-
 export
-data TransformStream : Type where [external]
+data TransformStream  : Type where [external]
 
 export
 ToJS TransformStream where
@@ -181,9 +170,8 @@ ToJS TransformStream where
 export
 FromJS TransformStream where
   fromJS = believe_me
-
 export
-data TransformStreamDefaultController : Type where [external]
+data TransformStreamDefaultController  : Type where [external]
 
 export
 ToJS TransformStreamDefaultController where
@@ -192,9 +180,8 @@ ToJS TransformStreamDefaultController where
 export
 FromJS TransformStreamDefaultController where
   fromJS = believe_me
-
 export
-data WritableStream : Type where [external]
+data WritableStream  : Type where [external]
 
 export
 ToJS WritableStream where
@@ -203,9 +190,8 @@ ToJS WritableStream where
 export
 FromJS WritableStream where
   fromJS = believe_me
-
 export
-data WritableStreamDefaultController : Type where [external]
+data WritableStreamDefaultController  : Type where [external]
 
 export
 ToJS WritableStreamDefaultController where
@@ -214,9 +200,8 @@ ToJS WritableStreamDefaultController where
 export
 FromJS WritableStreamDefaultController where
   fromJS = believe_me
-
 export
-data WritableStreamDefaultWriter : Type where [external]
+data WritableStreamDefaultWriter  : Type where [external]
 
 export
 ToJS WritableStreamDefaultWriter where
@@ -229,9 +214,8 @@ FromJS WritableStreamDefaultWriter where
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------
-
 export
-data GenericTransformStream : Type where [external]
+data GenericTransformStream  : Type where [external]
 
 export
 ToJS GenericTransformStream where
@@ -240,9 +224,8 @@ ToJS GenericTransformStream where
 export
 FromJS GenericTransformStream where
   fromJS = believe_me
-
 export
-data ReadableStreamGenericReader : Type where [external]
+data ReadableStreamGenericReader  : Type where [external]
 
 export
 ToJS ReadableStreamGenericReader where
@@ -255,9 +238,8 @@ FromJS ReadableStreamGenericReader where
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
-
 export
-data QueuingStrategy : Type where [external]
+data QueuingStrategy  : Type where [external]
 
 export
 ToJS QueuingStrategy where
@@ -266,9 +248,8 @@ ToJS QueuingStrategy where
 export
 FromJS QueuingStrategy where
   fromJS = believe_me
-
 export
-data QueuingStrategyInit : Type where [external]
+data QueuingStrategyInit  : Type where [external]
 
 export
 ToJS QueuingStrategyInit where
@@ -277,9 +258,8 @@ ToJS QueuingStrategyInit where
 export
 FromJS QueuingStrategyInit where
   fromJS = believe_me
-
 export
-data ReadableStreamBYOBReadResult : Type where [external]
+data ReadableStreamBYOBReadResult  : Type where [external]
 
 export
 ToJS ReadableStreamBYOBReadResult where
@@ -288,9 +268,8 @@ ToJS ReadableStreamBYOBReadResult where
 export
 FromJS ReadableStreamBYOBReadResult where
   fromJS = believe_me
-
 export
-data ReadableStreamDefaultReadResult : Type where [external]
+data ReadableStreamDefaultReadResult  : Type where [external]
 
 export
 ToJS ReadableStreamDefaultReadResult where
@@ -299,9 +278,8 @@ ToJS ReadableStreamDefaultReadResult where
 export
 FromJS ReadableStreamDefaultReadResult where
   fromJS = believe_me
-
 export
-data ReadableStreamGetReaderOptions : Type where [external]
+data ReadableStreamGetReaderOptions  : Type where [external]
 
 export
 ToJS ReadableStreamGetReaderOptions where
@@ -310,9 +288,8 @@ ToJS ReadableStreamGetReaderOptions where
 export
 FromJS ReadableStreamGetReaderOptions where
   fromJS = believe_me
-
 export
-data ReadableStreamIteratorOptions : Type where [external]
+data ReadableStreamIteratorOptions  : Type where [external]
 
 export
 ToJS ReadableStreamIteratorOptions where
@@ -321,9 +298,8 @@ ToJS ReadableStreamIteratorOptions where
 export
 FromJS ReadableStreamIteratorOptions where
   fromJS = believe_me
-
 export
-data ReadableWritablePair : Type where [external]
+data ReadableWritablePair  : Type where [external]
 
 export
 ToJS ReadableWritablePair where
@@ -332,9 +308,8 @@ ToJS ReadableWritablePair where
 export
 FromJS ReadableWritablePair where
   fromJS = believe_me
-
 export
-data StreamPipeOptions : Type where [external]
+data StreamPipeOptions  : Type where [external]
 
 export
 ToJS StreamPipeOptions where
@@ -343,9 +318,8 @@ ToJS StreamPipeOptions where
 export
 FromJS StreamPipeOptions where
   fromJS = believe_me
-
 export
-data Transformer : Type where [external]
+data Transformer  : Type where [external]
 
 export
 ToJS Transformer where
@@ -354,9 +328,8 @@ ToJS Transformer where
 export
 FromJS Transformer where
   fromJS = believe_me
-
 export
-data UnderlyingSink : Type where [external]
+data UnderlyingSink  : Type where [external]
 
 export
 ToJS UnderlyingSink where
@@ -365,9 +338,8 @@ ToJS UnderlyingSink where
 export
 FromJS UnderlyingSink where
   fromJS = believe_me
-
 export
-data UnderlyingSource : Type where [external]
+data UnderlyingSource  : Type where [external]
 
 export
 ToJS UnderlyingSource where

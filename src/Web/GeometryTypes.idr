@@ -1,14 +1,12 @@
 module Web.GeometryTypes
-
 import JS.Util
 
 
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-
 export
-data DOMMatrix : Type where [external]
+data DOMMatrix  : Type where [external]
 
 export
 ToJS DOMMatrix where
@@ -17,9 +15,8 @@ ToJS DOMMatrix where
 export
 FromJS DOMMatrix where
   fromJS = believe_me
-
 export
-data DOMMatrixReadOnly : Type where [external]
+data DOMMatrixReadOnly  : Type where [external]
 
 export
 ToJS DOMMatrixReadOnly where
@@ -28,9 +25,8 @@ ToJS DOMMatrixReadOnly where
 export
 FromJS DOMMatrixReadOnly where
   fromJS = believe_me
-
 export
-data DOMPoint : Type where [external]
+data DOMPoint  : Type where [external]
 
 export
 ToJS DOMPoint where
@@ -39,9 +35,8 @@ ToJS DOMPoint where
 export
 FromJS DOMPoint where
   fromJS = believe_me
-
 export
-data DOMPointReadOnly : Type where [external]
+data DOMPointReadOnly  : Type where [external]
 
 export
 ToJS DOMPointReadOnly where
@@ -50,9 +45,8 @@ ToJS DOMPointReadOnly where
 export
 FromJS DOMPointReadOnly where
   fromJS = believe_me
-
 export
-data DOMQuad : Type where [external]
+data DOMQuad  : Type where [external]
 
 export
 ToJS DOMQuad where
@@ -61,9 +55,8 @@ ToJS DOMQuad where
 export
 FromJS DOMQuad where
   fromJS = believe_me
-
 export
-data DOMRect : Type where [external]
+data DOMRect  : Type where [external]
 
 export
 ToJS DOMRect where
@@ -72,9 +65,8 @@ ToJS DOMRect where
 export
 FromJS DOMRect where
   fromJS = believe_me
-
 export
-data DOMRectList : Type where [external]
+data DOMRectList  : Type where [external]
 
 export
 ToJS DOMRectList where
@@ -83,9 +75,8 @@ ToJS DOMRectList where
 export
 FromJS DOMRectList where
   fromJS = believe_me
-
 export
-data DOMRectReadOnly : Type where [external]
+data DOMRectReadOnly  : Type where [external]
 
 export
 ToJS DOMRectReadOnly where
@@ -99,9 +90,8 @@ FromJS DOMRectReadOnly where
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
-
 export
-data DOMMatrix2DInit : Type where [external]
+data DOMMatrix2DInit  : Type where [external]
 
 export
 ToJS DOMMatrix2DInit where
@@ -110,9 +100,8 @@ ToJS DOMMatrix2DInit where
 export
 FromJS DOMMatrix2DInit where
   fromJS = believe_me
-
 export
-data DOMMatrixInit : Type where [external]
+data DOMMatrixInit  : Type where [external]
 
 export
 ToJS DOMMatrixInit where
@@ -121,9 +110,8 @@ ToJS DOMMatrixInit where
 export
 FromJS DOMMatrixInit where
   fromJS = believe_me
-
 export
-data DOMPointInit : Type where [external]
+data DOMPointInit  : Type where [external]
 
 export
 ToJS DOMPointInit where
@@ -132,9 +120,8 @@ ToJS DOMPointInit where
 export
 FromJS DOMPointInit where
   fromJS = believe_me
-
 export
-data DOMQuadInit : Type where [external]
+data DOMQuadInit  : Type where [external]
 
 export
 ToJS DOMQuadInit where
@@ -143,9 +130,8 @@ ToJS DOMQuadInit where
 export
 FromJS DOMQuadInit where
   fromJS = believe_me
-
 export
-data DOMRectInit : Type where [external]
+data DOMRectInit  : Type where [external]
 
 export
 ToJS DOMRectInit where

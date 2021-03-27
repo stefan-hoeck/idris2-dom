@@ -1,6 +1,4 @@
 module Web.HtmlTypes
-
-import Data.Maybe
 import JS.Util
 
 --------------------------------------------------------------------------------
@@ -871,9 +869,8 @@ namespace SelectionMode
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-
 export
-data AudioTrack : Type where [external]
+data AudioTrack  : Type where [external]
 
 export
 ToJS AudioTrack where
@@ -882,9 +879,8 @@ ToJS AudioTrack where
 export
 FromJS AudioTrack where
   fromJS = believe_me
-
 export
-data AudioTrackList : Type where [external]
+data AudioTrackList  : Type where [external]
 
 export
 ToJS AudioTrackList where
@@ -893,9 +889,8 @@ ToJS AudioTrackList where
 export
 FromJS AudioTrackList where
   fromJS = believe_me
-
 export
-data BarProp : Type where [external]
+data BarProp  : Type where [external]
 
 export
 ToJS BarProp where
@@ -904,9 +899,8 @@ ToJS BarProp where
 export
 FromJS BarProp where
   fromJS = believe_me
-
 export
-data BeforeUnloadEvent : Type where [external]
+data BeforeUnloadEvent  : Type where [external]
 
 export
 ToJS BeforeUnloadEvent where
@@ -915,9 +909,8 @@ ToJS BeforeUnloadEvent where
 export
 FromJS BeforeUnloadEvent where
   fromJS = believe_me
-
 export
-data BroadcastChannel : Type where [external]
+data BroadcastChannel  : Type where [external]
 
 export
 ToJS BroadcastChannel where
@@ -926,9 +919,8 @@ ToJS BroadcastChannel where
 export
 FromJS BroadcastChannel where
   fromJS = believe_me
-
 export
-data CanvasGradient : Type where [external]
+data CanvasGradient  : Type where [external]
 
 export
 ToJS CanvasGradient where
@@ -937,9 +929,8 @@ ToJS CanvasGradient where
 export
 FromJS CanvasGradient where
   fromJS = believe_me
-
 export
-data CanvasPattern : Type where [external]
+data CanvasPattern  : Type where [external]
 
 export
 ToJS CanvasPattern where
@@ -948,9 +939,8 @@ ToJS CanvasPattern where
 export
 FromJS CanvasPattern where
   fromJS = believe_me
-
 export
-data CanvasRenderingContext2D : Type where [external]
+data CanvasRenderingContext2D  : Type where [external]
 
 export
 ToJS CanvasRenderingContext2D where
@@ -959,9 +949,8 @@ ToJS CanvasRenderingContext2D where
 export
 FromJS CanvasRenderingContext2D where
   fromJS = believe_me
-
 export
-data CloseEvent : Type where [external]
+data CloseEvent  : Type where [external]
 
 export
 ToJS CloseEvent where
@@ -970,9 +959,8 @@ ToJS CloseEvent where
 export
 FromJS CloseEvent where
   fromJS = believe_me
-
 export
-data CustomElementRegistry : Type where [external]
+data CustomElementRegistry  : Type where [external]
 
 export
 ToJS CustomElementRegistry where
@@ -981,9 +969,8 @@ ToJS CustomElementRegistry where
 export
 FromJS CustomElementRegistry where
   fromJS = believe_me
-
 export
-data DOMParser : Type where [external]
+data DOMParser  : Type where [external]
 
 export
 ToJS DOMParser where
@@ -992,9 +979,8 @@ ToJS DOMParser where
 export
 FromJS DOMParser where
   fromJS = believe_me
-
 export
-data DOMStringList : Type where [external]
+data DOMStringList  : Type where [external]
 
 export
 ToJS DOMStringList where
@@ -1003,9 +989,8 @@ ToJS DOMStringList where
 export
 FromJS DOMStringList where
   fromJS = believe_me
-
 export
-data DOMStringMap : Type where [external]
+data DOMStringMap  : Type where [external]
 
 export
 ToJS DOMStringMap where
@@ -1014,9 +999,8 @@ ToJS DOMStringMap where
 export
 FromJS DOMStringMap where
   fromJS = believe_me
-
 export
-data DataTransfer : Type where [external]
+data DataTransfer  : Type where [external]
 
 export
 ToJS DataTransfer where
@@ -1025,9 +1009,8 @@ ToJS DataTransfer where
 export
 FromJS DataTransfer where
   fromJS = believe_me
-
 export
-data DataTransferItem : Type where [external]
+data DataTransferItem  : Type where [external]
 
 export
 ToJS DataTransferItem where
@@ -1036,9 +1019,8 @@ ToJS DataTransferItem where
 export
 FromJS DataTransferItem where
   fromJS = believe_me
-
 export
-data DataTransferItemList : Type where [external]
+data DataTransferItemList  : Type where [external]
 
 export
 ToJS DataTransferItemList where
@@ -1047,9 +1029,8 @@ ToJS DataTransferItemList where
 export
 FromJS DataTransferItemList where
   fromJS = believe_me
-
 export
-data DedicatedWorkerGlobalScope : Type where [external]
+data DedicatedWorkerGlobalScope  : Type where [external]
 
 export
 ToJS DedicatedWorkerGlobalScope where
@@ -1058,9 +1039,8 @@ ToJS DedicatedWorkerGlobalScope where
 export
 FromJS DedicatedWorkerGlobalScope where
   fromJS = believe_me
-
 export
-data DragEvent : Type where [external]
+data DragEvent  : Type where [external]
 
 export
 ToJS DragEvent where
@@ -1069,9 +1049,8 @@ ToJS DragEvent where
 export
 FromJS DragEvent where
   fromJS = believe_me
-
 export
-data ElementInternals : Type where [external]
+data ElementInternals  : Type where [external]
 
 export
 ToJS ElementInternals where
@@ -1080,9 +1059,8 @@ ToJS ElementInternals where
 export
 FromJS ElementInternals where
   fromJS = believe_me
-
 export
-data ErrorEvent : Type where [external]
+data ErrorEvent  : Type where [external]
 
 export
 ToJS ErrorEvent where
@@ -1091,9 +1069,8 @@ ToJS ErrorEvent where
 export
 FromJS ErrorEvent where
   fromJS = believe_me
-
 export
-data EventSource : Type where [external]
+data EventSource  : Type where [external]
 
 export
 ToJS EventSource where
@@ -1102,9 +1079,8 @@ ToJS EventSource where
 export
 FromJS EventSource where
   fromJS = believe_me
-
 export
-data External : Type where [external]
+data External  : Type where [external]
 
 export
 ToJS External where
@@ -1113,9 +1089,8 @@ ToJS External where
 export
 FromJS External where
   fromJS = believe_me
-
 export
-data FormDataEvent : Type where [external]
+data FormDataEvent  : Type where [external]
 
 export
 ToJS FormDataEvent where
@@ -1124,9 +1099,8 @@ ToJS FormDataEvent where
 export
 FromJS FormDataEvent where
   fromJS = believe_me
-
 export
-data HTMLAllCollection : Type where [external]
+data HTMLAllCollection  : Type where [external]
 
 export
 ToJS HTMLAllCollection where
@@ -1135,9 +1109,8 @@ ToJS HTMLAllCollection where
 export
 FromJS HTMLAllCollection where
   fromJS = believe_me
-
 export
-data HTMLAnchorElement : Type where [external]
+data HTMLAnchorElement  : Type where [external]
 
 export
 ToJS HTMLAnchorElement where
@@ -1146,9 +1119,8 @@ ToJS HTMLAnchorElement where
 export
 FromJS HTMLAnchorElement where
   fromJS = believe_me
-
 export
-data HTMLAreaElement : Type where [external]
+data HTMLAreaElement  : Type where [external]
 
 export
 ToJS HTMLAreaElement where
@@ -1157,9 +1129,8 @@ ToJS HTMLAreaElement where
 export
 FromJS HTMLAreaElement where
   fromJS = believe_me
-
 export
-data HTMLAudioElement : Type where [external]
+data HTMLAudioElement  : Type where [external]
 
 export
 ToJS HTMLAudioElement where
@@ -1168,9 +1139,8 @@ ToJS HTMLAudioElement where
 export
 FromJS HTMLAudioElement where
   fromJS = believe_me
-
 export
-data HTMLBRElement : Type where [external]
+data HTMLBRElement  : Type where [external]
 
 export
 ToJS HTMLBRElement where
@@ -1179,9 +1149,8 @@ ToJS HTMLBRElement where
 export
 FromJS HTMLBRElement where
   fromJS = believe_me
-
 export
-data HTMLBaseElement : Type where [external]
+data HTMLBaseElement  : Type where [external]
 
 export
 ToJS HTMLBaseElement where
@@ -1190,9 +1159,8 @@ ToJS HTMLBaseElement where
 export
 FromJS HTMLBaseElement where
   fromJS = believe_me
-
 export
-data HTMLBodyElement : Type where [external]
+data HTMLBodyElement  : Type where [external]
 
 export
 ToJS HTMLBodyElement where
@@ -1201,9 +1169,8 @@ ToJS HTMLBodyElement where
 export
 FromJS HTMLBodyElement where
   fromJS = believe_me
-
 export
-data HTMLButtonElement : Type where [external]
+data HTMLButtonElement  : Type where [external]
 
 export
 ToJS HTMLButtonElement where
@@ -1212,9 +1179,8 @@ ToJS HTMLButtonElement where
 export
 FromJS HTMLButtonElement where
   fromJS = believe_me
-
 export
-data HTMLCanvasElement : Type where [external]
+data HTMLCanvasElement  : Type where [external]
 
 export
 ToJS HTMLCanvasElement where
@@ -1223,9 +1189,8 @@ ToJS HTMLCanvasElement where
 export
 FromJS HTMLCanvasElement where
   fromJS = believe_me
-
 export
-data HTMLDListElement : Type where [external]
+data HTMLDListElement  : Type where [external]
 
 export
 ToJS HTMLDListElement where
@@ -1234,9 +1199,8 @@ ToJS HTMLDListElement where
 export
 FromJS HTMLDListElement where
   fromJS = believe_me
-
 export
-data HTMLDataElement : Type where [external]
+data HTMLDataElement  : Type where [external]
 
 export
 ToJS HTMLDataElement where
@@ -1245,9 +1209,8 @@ ToJS HTMLDataElement where
 export
 FromJS HTMLDataElement where
   fromJS = believe_me
-
 export
-data HTMLDataListElement : Type where [external]
+data HTMLDataListElement  : Type where [external]
 
 export
 ToJS HTMLDataListElement where
@@ -1256,9 +1219,8 @@ ToJS HTMLDataListElement where
 export
 FromJS HTMLDataListElement where
   fromJS = believe_me
-
 export
-data HTMLDetailsElement : Type where [external]
+data HTMLDetailsElement  : Type where [external]
 
 export
 ToJS HTMLDetailsElement where
@@ -1267,9 +1229,8 @@ ToJS HTMLDetailsElement where
 export
 FromJS HTMLDetailsElement where
   fromJS = believe_me
-
 export
-data HTMLDialogElement : Type where [external]
+data HTMLDialogElement  : Type where [external]
 
 export
 ToJS HTMLDialogElement where
@@ -1278,9 +1239,8 @@ ToJS HTMLDialogElement where
 export
 FromJS HTMLDialogElement where
   fromJS = believe_me
-
 export
-data HTMLDirectoryElement : Type where [external]
+data HTMLDirectoryElement  : Type where [external]
 
 export
 ToJS HTMLDirectoryElement where
@@ -1289,9 +1249,8 @@ ToJS HTMLDirectoryElement where
 export
 FromJS HTMLDirectoryElement where
   fromJS = believe_me
-
 export
-data HTMLDivElement : Type where [external]
+data HTMLDivElement  : Type where [external]
 
 export
 ToJS HTMLDivElement where
@@ -1300,9 +1259,8 @@ ToJS HTMLDivElement where
 export
 FromJS HTMLDivElement where
   fromJS = believe_me
-
 export
-data HTMLElement : Type where [external]
+data HTMLElement  : Type where [external]
 
 export
 ToJS HTMLElement where
@@ -1311,9 +1269,8 @@ ToJS HTMLElement where
 export
 FromJS HTMLElement where
   fromJS = believe_me
-
 export
-data HTMLEmbedElement : Type where [external]
+data HTMLEmbedElement  : Type where [external]
 
 export
 ToJS HTMLEmbedElement where
@@ -1322,9 +1279,8 @@ ToJS HTMLEmbedElement where
 export
 FromJS HTMLEmbedElement where
   fromJS = believe_me
-
 export
-data HTMLFieldSetElement : Type where [external]
+data HTMLFieldSetElement  : Type where [external]
 
 export
 ToJS HTMLFieldSetElement where
@@ -1333,9 +1289,8 @@ ToJS HTMLFieldSetElement where
 export
 FromJS HTMLFieldSetElement where
   fromJS = believe_me
-
 export
-data HTMLFontElement : Type where [external]
+data HTMLFontElement  : Type where [external]
 
 export
 ToJS HTMLFontElement where
@@ -1344,9 +1299,8 @@ ToJS HTMLFontElement where
 export
 FromJS HTMLFontElement where
   fromJS = believe_me
-
 export
-data HTMLFormControlsCollection : Type where [external]
+data HTMLFormControlsCollection  : Type where [external]
 
 export
 ToJS HTMLFormControlsCollection where
@@ -1355,9 +1309,8 @@ ToJS HTMLFormControlsCollection where
 export
 FromJS HTMLFormControlsCollection where
   fromJS = believe_me
-
 export
-data HTMLFormElement : Type where [external]
+data HTMLFormElement  : Type where [external]
 
 export
 ToJS HTMLFormElement where
@@ -1366,9 +1319,8 @@ ToJS HTMLFormElement where
 export
 FromJS HTMLFormElement where
   fromJS = believe_me
-
 export
-data HTMLFrameElement : Type where [external]
+data HTMLFrameElement  : Type where [external]
 
 export
 ToJS HTMLFrameElement where
@@ -1377,9 +1329,8 @@ ToJS HTMLFrameElement where
 export
 FromJS HTMLFrameElement where
   fromJS = believe_me
-
 export
-data HTMLFrameSetElement : Type where [external]
+data HTMLFrameSetElement  : Type where [external]
 
 export
 ToJS HTMLFrameSetElement where
@@ -1388,9 +1339,8 @@ ToJS HTMLFrameSetElement where
 export
 FromJS HTMLFrameSetElement where
   fromJS = believe_me
-
 export
-data HTMLHRElement : Type where [external]
+data HTMLHRElement  : Type where [external]
 
 export
 ToJS HTMLHRElement where
@@ -1399,9 +1349,8 @@ ToJS HTMLHRElement where
 export
 FromJS HTMLHRElement where
   fromJS = believe_me
-
 export
-data HTMLHeadElement : Type where [external]
+data HTMLHeadElement  : Type where [external]
 
 export
 ToJS HTMLHeadElement where
@@ -1410,9 +1359,8 @@ ToJS HTMLHeadElement where
 export
 FromJS HTMLHeadElement where
   fromJS = believe_me
-
 export
-data HTMLHeadingElement : Type where [external]
+data HTMLHeadingElement  : Type where [external]
 
 export
 ToJS HTMLHeadingElement where
@@ -1421,9 +1369,8 @@ ToJS HTMLHeadingElement where
 export
 FromJS HTMLHeadingElement where
   fromJS = believe_me
-
 export
-data HTMLHtmlElement : Type where [external]
+data HTMLHtmlElement  : Type where [external]
 
 export
 ToJS HTMLHtmlElement where
@@ -1432,9 +1379,8 @@ ToJS HTMLHtmlElement where
 export
 FromJS HTMLHtmlElement where
   fromJS = believe_me
-
 export
-data HTMLIFrameElement : Type where [external]
+data HTMLIFrameElement  : Type where [external]
 
 export
 ToJS HTMLIFrameElement where
@@ -1443,9 +1389,8 @@ ToJS HTMLIFrameElement where
 export
 FromJS HTMLIFrameElement where
   fromJS = believe_me
-
 export
-data HTMLImageElement : Type where [external]
+data HTMLImageElement  : Type where [external]
 
 export
 ToJS HTMLImageElement where
@@ -1454,9 +1399,8 @@ ToJS HTMLImageElement where
 export
 FromJS HTMLImageElement where
   fromJS = believe_me
-
 export
-data HTMLInputElement : Type where [external]
+data HTMLInputElement  : Type where [external]
 
 export
 ToJS HTMLInputElement where
@@ -1465,9 +1409,8 @@ ToJS HTMLInputElement where
 export
 FromJS HTMLInputElement where
   fromJS = believe_me
-
 export
-data HTMLLIElement : Type where [external]
+data HTMLLIElement  : Type where [external]
 
 export
 ToJS HTMLLIElement where
@@ -1476,9 +1419,8 @@ ToJS HTMLLIElement where
 export
 FromJS HTMLLIElement where
   fromJS = believe_me
-
 export
-data HTMLLabelElement : Type where [external]
+data HTMLLabelElement  : Type where [external]
 
 export
 ToJS HTMLLabelElement where
@@ -1487,9 +1429,8 @@ ToJS HTMLLabelElement where
 export
 FromJS HTMLLabelElement where
   fromJS = believe_me
-
 export
-data HTMLLegendElement : Type where [external]
+data HTMLLegendElement  : Type where [external]
 
 export
 ToJS HTMLLegendElement where
@@ -1498,9 +1439,8 @@ ToJS HTMLLegendElement where
 export
 FromJS HTMLLegendElement where
   fromJS = believe_me
-
 export
-data HTMLLinkElement : Type where [external]
+data HTMLLinkElement  : Type where [external]
 
 export
 ToJS HTMLLinkElement where
@@ -1509,9 +1449,8 @@ ToJS HTMLLinkElement where
 export
 FromJS HTMLLinkElement where
   fromJS = believe_me
-
 export
-data HTMLMapElement : Type where [external]
+data HTMLMapElement  : Type where [external]
 
 export
 ToJS HTMLMapElement where
@@ -1520,9 +1459,8 @@ ToJS HTMLMapElement where
 export
 FromJS HTMLMapElement where
   fromJS = believe_me
-
 export
-data HTMLMarqueeElement : Type where [external]
+data HTMLMarqueeElement  : Type where [external]
 
 export
 ToJS HTMLMarqueeElement where
@@ -1531,9 +1469,8 @@ ToJS HTMLMarqueeElement where
 export
 FromJS HTMLMarqueeElement where
   fromJS = believe_me
-
 export
-data HTMLMediaElement : Type where [external]
+data HTMLMediaElement  : Type where [external]
 
 export
 ToJS HTMLMediaElement where
@@ -1542,9 +1479,8 @@ ToJS HTMLMediaElement where
 export
 FromJS HTMLMediaElement where
   fromJS = believe_me
-
 export
-data HTMLMenuElement : Type where [external]
+data HTMLMenuElement  : Type where [external]
 
 export
 ToJS HTMLMenuElement where
@@ -1553,9 +1489,8 @@ ToJS HTMLMenuElement where
 export
 FromJS HTMLMenuElement where
   fromJS = believe_me
-
 export
-data HTMLMetaElement : Type where [external]
+data HTMLMetaElement  : Type where [external]
 
 export
 ToJS HTMLMetaElement where
@@ -1564,9 +1499,8 @@ ToJS HTMLMetaElement where
 export
 FromJS HTMLMetaElement where
   fromJS = believe_me
-
 export
-data HTMLMeterElement : Type where [external]
+data HTMLMeterElement  : Type where [external]
 
 export
 ToJS HTMLMeterElement where
@@ -1575,9 +1509,8 @@ ToJS HTMLMeterElement where
 export
 FromJS HTMLMeterElement where
   fromJS = believe_me
-
 export
-data HTMLModElement : Type where [external]
+data HTMLModElement  : Type where [external]
 
 export
 ToJS HTMLModElement where
@@ -1586,9 +1519,8 @@ ToJS HTMLModElement where
 export
 FromJS HTMLModElement where
   fromJS = believe_me
-
 export
-data HTMLOListElement : Type where [external]
+data HTMLOListElement  : Type where [external]
 
 export
 ToJS HTMLOListElement where
@@ -1597,9 +1529,8 @@ ToJS HTMLOListElement where
 export
 FromJS HTMLOListElement where
   fromJS = believe_me
-
 export
-data HTMLObjectElement : Type where [external]
+data HTMLObjectElement  : Type where [external]
 
 export
 ToJS HTMLObjectElement where
@@ -1608,9 +1539,8 @@ ToJS HTMLObjectElement where
 export
 FromJS HTMLObjectElement where
   fromJS = believe_me
-
 export
-data HTMLOptGroupElement : Type where [external]
+data HTMLOptGroupElement  : Type where [external]
 
 export
 ToJS HTMLOptGroupElement where
@@ -1619,9 +1549,8 @@ ToJS HTMLOptGroupElement where
 export
 FromJS HTMLOptGroupElement where
   fromJS = believe_me
-
 export
-data HTMLOptionElement : Type where [external]
+data HTMLOptionElement  : Type where [external]
 
 export
 ToJS HTMLOptionElement where
@@ -1630,9 +1559,8 @@ ToJS HTMLOptionElement where
 export
 FromJS HTMLOptionElement where
   fromJS = believe_me
-
 export
-data HTMLOptionsCollection : Type where [external]
+data HTMLOptionsCollection  : Type where [external]
 
 export
 ToJS HTMLOptionsCollection where
@@ -1641,9 +1569,8 @@ ToJS HTMLOptionsCollection where
 export
 FromJS HTMLOptionsCollection where
   fromJS = believe_me
-
 export
-data HTMLOutputElement : Type where [external]
+data HTMLOutputElement  : Type where [external]
 
 export
 ToJS HTMLOutputElement where
@@ -1652,9 +1579,8 @@ ToJS HTMLOutputElement where
 export
 FromJS HTMLOutputElement where
   fromJS = believe_me
-
 export
-data HTMLParagraphElement : Type where [external]
+data HTMLParagraphElement  : Type where [external]
 
 export
 ToJS HTMLParagraphElement where
@@ -1663,9 +1589,8 @@ ToJS HTMLParagraphElement where
 export
 FromJS HTMLParagraphElement where
   fromJS = believe_me
-
 export
-data HTMLParamElement : Type where [external]
+data HTMLParamElement  : Type where [external]
 
 export
 ToJS HTMLParamElement where
@@ -1674,9 +1599,8 @@ ToJS HTMLParamElement where
 export
 FromJS HTMLParamElement where
   fromJS = believe_me
-
 export
-data HTMLPictureElement : Type where [external]
+data HTMLPictureElement  : Type where [external]
 
 export
 ToJS HTMLPictureElement where
@@ -1685,9 +1609,8 @@ ToJS HTMLPictureElement where
 export
 FromJS HTMLPictureElement where
   fromJS = believe_me
-
 export
-data HTMLPreElement : Type where [external]
+data HTMLPreElement  : Type where [external]
 
 export
 ToJS HTMLPreElement where
@@ -1696,9 +1619,8 @@ ToJS HTMLPreElement where
 export
 FromJS HTMLPreElement where
   fromJS = believe_me
-
 export
-data HTMLProgressElement : Type where [external]
+data HTMLProgressElement  : Type where [external]
 
 export
 ToJS HTMLProgressElement where
@@ -1707,9 +1629,8 @@ ToJS HTMLProgressElement where
 export
 FromJS HTMLProgressElement where
   fromJS = believe_me
-
 export
-data HTMLQuoteElement : Type where [external]
+data HTMLQuoteElement  : Type where [external]
 
 export
 ToJS HTMLQuoteElement where
@@ -1718,9 +1639,8 @@ ToJS HTMLQuoteElement where
 export
 FromJS HTMLQuoteElement where
   fromJS = believe_me
-
 export
-data HTMLScriptElement : Type where [external]
+data HTMLScriptElement  : Type where [external]
 
 export
 ToJS HTMLScriptElement where
@@ -1729,9 +1649,8 @@ ToJS HTMLScriptElement where
 export
 FromJS HTMLScriptElement where
   fromJS = believe_me
-
 export
-data HTMLSelectElement : Type where [external]
+data HTMLSelectElement  : Type where [external]
 
 export
 ToJS HTMLSelectElement where
@@ -1740,9 +1659,8 @@ ToJS HTMLSelectElement where
 export
 FromJS HTMLSelectElement where
   fromJS = believe_me
-
 export
-data HTMLSlotElement : Type where [external]
+data HTMLSlotElement  : Type where [external]
 
 export
 ToJS HTMLSlotElement where
@@ -1751,9 +1669,8 @@ ToJS HTMLSlotElement where
 export
 FromJS HTMLSlotElement where
   fromJS = believe_me
-
 export
-data HTMLSourceElement : Type where [external]
+data HTMLSourceElement  : Type where [external]
 
 export
 ToJS HTMLSourceElement where
@@ -1762,9 +1679,8 @@ ToJS HTMLSourceElement where
 export
 FromJS HTMLSourceElement where
   fromJS = believe_me
-
 export
-data HTMLSpanElement : Type where [external]
+data HTMLSpanElement  : Type where [external]
 
 export
 ToJS HTMLSpanElement where
@@ -1773,9 +1689,8 @@ ToJS HTMLSpanElement where
 export
 FromJS HTMLSpanElement where
   fromJS = believe_me
-
 export
-data HTMLStyleElement : Type where [external]
+data HTMLStyleElement  : Type where [external]
 
 export
 ToJS HTMLStyleElement where
@@ -1784,9 +1699,8 @@ ToJS HTMLStyleElement where
 export
 FromJS HTMLStyleElement where
   fromJS = believe_me
-
 export
-data HTMLTableCaptionElement : Type where [external]
+data HTMLTableCaptionElement  : Type where [external]
 
 export
 ToJS HTMLTableCaptionElement where
@@ -1795,9 +1709,8 @@ ToJS HTMLTableCaptionElement where
 export
 FromJS HTMLTableCaptionElement where
   fromJS = believe_me
-
 export
-data HTMLTableCellElement : Type where [external]
+data HTMLTableCellElement  : Type where [external]
 
 export
 ToJS HTMLTableCellElement where
@@ -1806,9 +1719,8 @@ ToJS HTMLTableCellElement where
 export
 FromJS HTMLTableCellElement where
   fromJS = believe_me
-
 export
-data HTMLTableColElement : Type where [external]
+data HTMLTableColElement  : Type where [external]
 
 export
 ToJS HTMLTableColElement where
@@ -1817,9 +1729,8 @@ ToJS HTMLTableColElement where
 export
 FromJS HTMLTableColElement where
   fromJS = believe_me
-
 export
-data HTMLTableElement : Type where [external]
+data HTMLTableElement  : Type where [external]
 
 export
 ToJS HTMLTableElement where
@@ -1828,9 +1739,8 @@ ToJS HTMLTableElement where
 export
 FromJS HTMLTableElement where
   fromJS = believe_me
-
 export
-data HTMLTableRowElement : Type where [external]
+data HTMLTableRowElement  : Type where [external]
 
 export
 ToJS HTMLTableRowElement where
@@ -1839,9 +1749,8 @@ ToJS HTMLTableRowElement where
 export
 FromJS HTMLTableRowElement where
   fromJS = believe_me
-
 export
-data HTMLTableSectionElement : Type where [external]
+data HTMLTableSectionElement  : Type where [external]
 
 export
 ToJS HTMLTableSectionElement where
@@ -1850,9 +1759,8 @@ ToJS HTMLTableSectionElement where
 export
 FromJS HTMLTableSectionElement where
   fromJS = believe_me
-
 export
-data HTMLTemplateElement : Type where [external]
+data HTMLTemplateElement  : Type where [external]
 
 export
 ToJS HTMLTemplateElement where
@@ -1861,9 +1769,8 @@ ToJS HTMLTemplateElement where
 export
 FromJS HTMLTemplateElement where
   fromJS = believe_me
-
 export
-data HTMLTextAreaElement : Type where [external]
+data HTMLTextAreaElement  : Type where [external]
 
 export
 ToJS HTMLTextAreaElement where
@@ -1872,9 +1779,8 @@ ToJS HTMLTextAreaElement where
 export
 FromJS HTMLTextAreaElement where
   fromJS = believe_me
-
 export
-data HTMLTimeElement : Type where [external]
+data HTMLTimeElement  : Type where [external]
 
 export
 ToJS HTMLTimeElement where
@@ -1883,9 +1789,8 @@ ToJS HTMLTimeElement where
 export
 FromJS HTMLTimeElement where
   fromJS = believe_me
-
 export
-data HTMLTitleElement : Type where [external]
+data HTMLTitleElement  : Type where [external]
 
 export
 ToJS HTMLTitleElement where
@@ -1894,9 +1799,8 @@ ToJS HTMLTitleElement where
 export
 FromJS HTMLTitleElement where
   fromJS = believe_me
-
 export
-data HTMLTrackElement : Type where [external]
+data HTMLTrackElement  : Type where [external]
 
 export
 ToJS HTMLTrackElement where
@@ -1905,9 +1809,8 @@ ToJS HTMLTrackElement where
 export
 FromJS HTMLTrackElement where
   fromJS = believe_me
-
 export
-data HTMLUListElement : Type where [external]
+data HTMLUListElement  : Type where [external]
 
 export
 ToJS HTMLUListElement where
@@ -1916,9 +1819,8 @@ ToJS HTMLUListElement where
 export
 FromJS HTMLUListElement where
   fromJS = believe_me
-
 export
-data HTMLUnknownElement : Type where [external]
+data HTMLUnknownElement  : Type where [external]
 
 export
 ToJS HTMLUnknownElement where
@@ -1927,9 +1829,8 @@ ToJS HTMLUnknownElement where
 export
 FromJS HTMLUnknownElement where
   fromJS = believe_me
-
 export
-data HTMLVideoElement : Type where [external]
+data HTMLVideoElement  : Type where [external]
 
 export
 ToJS HTMLVideoElement where
@@ -1938,9 +1839,8 @@ ToJS HTMLVideoElement where
 export
 FromJS HTMLVideoElement where
   fromJS = believe_me
-
 export
-data HashChangeEvent : Type where [external]
+data HashChangeEvent  : Type where [external]
 
 export
 ToJS HashChangeEvent where
@@ -1949,9 +1849,8 @@ ToJS HashChangeEvent where
 export
 FromJS HashChangeEvent where
   fromJS = believe_me
-
 export
-data History : Type where [external]
+data History  : Type where [external]
 
 export
 ToJS History where
@@ -1960,9 +1859,8 @@ ToJS History where
 export
 FromJS History where
   fromJS = believe_me
-
 export
-data ImageBitmap : Type where [external]
+data ImageBitmap  : Type where [external]
 
 export
 ToJS ImageBitmap where
@@ -1971,9 +1869,8 @@ ToJS ImageBitmap where
 export
 FromJS ImageBitmap where
   fromJS = believe_me
-
 export
-data ImageBitmapRenderingContext : Type where [external]
+data ImageBitmapRenderingContext  : Type where [external]
 
 export
 ToJS ImageBitmapRenderingContext where
@@ -1982,9 +1879,8 @@ ToJS ImageBitmapRenderingContext where
 export
 FromJS ImageBitmapRenderingContext where
   fromJS = believe_me
-
 export
-data ImageData : Type where [external]
+data ImageData  : Type where [external]
 
 export
 ToJS ImageData where
@@ -1993,9 +1889,8 @@ ToJS ImageData where
 export
 FromJS ImageData where
   fromJS = believe_me
-
 export
-data Location : Type where [external]
+data Location  : Type where [external]
 
 export
 ToJS Location where
@@ -2004,9 +1899,8 @@ ToJS Location where
 export
 FromJS Location where
   fromJS = believe_me
-
 export
-data MediaError : Type where [external]
+data MediaError  : Type where [external]
 
 export
 ToJS MediaError where
@@ -2015,9 +1909,8 @@ ToJS MediaError where
 export
 FromJS MediaError where
   fromJS = believe_me
-
 export
-data MessageChannel : Type where [external]
+data MessageChannel  : Type where [external]
 
 export
 ToJS MessageChannel where
@@ -2026,9 +1919,8 @@ ToJS MessageChannel where
 export
 FromJS MessageChannel where
   fromJS = believe_me
-
 export
-data MessageEvent : Type where [external]
+data MessageEvent  : Type where [external]
 
 export
 ToJS MessageEvent where
@@ -2037,9 +1929,8 @@ ToJS MessageEvent where
 export
 FromJS MessageEvent where
   fromJS = believe_me
-
 export
-data MessagePort : Type where [external]
+data MessagePort  : Type where [external]
 
 export
 ToJS MessagePort where
@@ -2048,9 +1939,8 @@ ToJS MessagePort where
 export
 FromJS MessagePort where
   fromJS = believe_me
-
 export
-data MimeType : Type where [external]
+data MimeType  : Type where [external]
 
 export
 ToJS MimeType where
@@ -2059,9 +1949,8 @@ ToJS MimeType where
 export
 FromJS MimeType where
   fromJS = believe_me
-
 export
-data MimeTypeArray : Type where [external]
+data MimeTypeArray  : Type where [external]
 
 export
 ToJS MimeTypeArray where
@@ -2070,9 +1959,8 @@ ToJS MimeTypeArray where
 export
 FromJS MimeTypeArray where
   fromJS = believe_me
-
 export
-data Navigator : Type where [external]
+data Navigator  : Type where [external]
 
 export
 ToJS Navigator where
@@ -2081,9 +1969,8 @@ ToJS Navigator where
 export
 FromJS Navigator where
   fromJS = believe_me
-
 export
-data OffscreenCanvas : Type where [external]
+data OffscreenCanvas  : Type where [external]
 
 export
 ToJS OffscreenCanvas where
@@ -2092,9 +1979,8 @@ ToJS OffscreenCanvas where
 export
 FromJS OffscreenCanvas where
   fromJS = believe_me
-
 export
-data OffscreenCanvasRenderingContext2D : Type where [external]
+data OffscreenCanvasRenderingContext2D  : Type where [external]
 
 export
 ToJS OffscreenCanvasRenderingContext2D where
@@ -2103,9 +1989,8 @@ ToJS OffscreenCanvasRenderingContext2D where
 export
 FromJS OffscreenCanvasRenderingContext2D where
   fromJS = believe_me
-
 export
-data PageTransitionEvent : Type where [external]
+data PageTransitionEvent  : Type where [external]
 
 export
 ToJS PageTransitionEvent where
@@ -2114,9 +1999,8 @@ ToJS PageTransitionEvent where
 export
 FromJS PageTransitionEvent where
   fromJS = believe_me
-
 export
-data Path2D : Type where [external]
+data Path2D  : Type where [external]
 
 export
 ToJS Path2D where
@@ -2125,9 +2009,8 @@ ToJS Path2D where
 export
 FromJS Path2D where
   fromJS = believe_me
-
 export
-data Plugin : Type where [external]
+data Plugin  : Type where [external]
 
 export
 ToJS Plugin where
@@ -2136,9 +2019,8 @@ ToJS Plugin where
 export
 FromJS Plugin where
   fromJS = believe_me
-
 export
-data PluginArray : Type where [external]
+data PluginArray  : Type where [external]
 
 export
 ToJS PluginArray where
@@ -2147,9 +2029,8 @@ ToJS PluginArray where
 export
 FromJS PluginArray where
   fromJS = believe_me
-
 export
-data PopStateEvent : Type where [external]
+data PopStateEvent  : Type where [external]
 
 export
 ToJS PopStateEvent where
@@ -2158,9 +2039,8 @@ ToJS PopStateEvent where
 export
 FromJS PopStateEvent where
   fromJS = believe_me
-
 export
-data PromiseRejectionEvent : Type where [external]
+data PromiseRejectionEvent  : Type where [external]
 
 export
 ToJS PromiseRejectionEvent where
@@ -2169,9 +2049,8 @@ ToJS PromiseRejectionEvent where
 export
 FromJS PromiseRejectionEvent where
   fromJS = believe_me
-
 export
-data RadioNodeList : Type where [external]
+data RadioNodeList  : Type where [external]
 
 export
 ToJS RadioNodeList where
@@ -2180,9 +2059,8 @@ ToJS RadioNodeList where
 export
 FromJS RadioNodeList where
   fromJS = believe_me
-
 export
-data SharedWorker : Type where [external]
+data SharedWorker  : Type where [external]
 
 export
 ToJS SharedWorker where
@@ -2191,9 +2069,8 @@ ToJS SharedWorker where
 export
 FromJS SharedWorker where
   fromJS = believe_me
-
 export
-data SharedWorkerGlobalScope : Type where [external]
+data SharedWorkerGlobalScope  : Type where [external]
 
 export
 ToJS SharedWorkerGlobalScope where
@@ -2202,9 +2079,8 @@ ToJS SharedWorkerGlobalScope where
 export
 FromJS SharedWorkerGlobalScope where
   fromJS = believe_me
-
 export
-data Storage : Type where [external]
+data Storage  : Type where [external]
 
 export
 ToJS Storage where
@@ -2213,9 +2089,8 @@ ToJS Storage where
 export
 FromJS Storage where
   fromJS = believe_me
-
 export
-data StorageEvent : Type where [external]
+data StorageEvent  : Type where [external]
 
 export
 ToJS StorageEvent where
@@ -2224,9 +2099,8 @@ ToJS StorageEvent where
 export
 FromJS StorageEvent where
   fromJS = believe_me
-
 export
-data SubmitEvent : Type where [external]
+data SubmitEvent  : Type where [external]
 
 export
 ToJS SubmitEvent where
@@ -2235,9 +2109,8 @@ ToJS SubmitEvent where
 export
 FromJS SubmitEvent where
   fromJS = believe_me
-
 export
-data TextMetrics : Type where [external]
+data TextMetrics  : Type where [external]
 
 export
 ToJS TextMetrics where
@@ -2246,9 +2119,8 @@ ToJS TextMetrics where
 export
 FromJS TextMetrics where
   fromJS = believe_me
-
 export
-data TextTrack : Type where [external]
+data TextTrack  : Type where [external]
 
 export
 ToJS TextTrack where
@@ -2257,9 +2129,8 @@ ToJS TextTrack where
 export
 FromJS TextTrack where
   fromJS = believe_me
-
 export
-data TextTrackCue : Type where [external]
+data TextTrackCue  : Type where [external]
 
 export
 ToJS TextTrackCue where
@@ -2268,9 +2139,8 @@ ToJS TextTrackCue where
 export
 FromJS TextTrackCue where
   fromJS = believe_me
-
 export
-data TextTrackCueList : Type where [external]
+data TextTrackCueList  : Type where [external]
 
 export
 ToJS TextTrackCueList where
@@ -2279,9 +2149,8 @@ ToJS TextTrackCueList where
 export
 FromJS TextTrackCueList where
   fromJS = believe_me
-
 export
-data TextTrackList : Type where [external]
+data TextTrackList  : Type where [external]
 
 export
 ToJS TextTrackList where
@@ -2290,9 +2159,8 @@ ToJS TextTrackList where
 export
 FromJS TextTrackList where
   fromJS = believe_me
-
 export
-data TimeRanges : Type where [external]
+data TimeRanges  : Type where [external]
 
 export
 ToJS TimeRanges where
@@ -2301,9 +2169,8 @@ ToJS TimeRanges where
 export
 FromJS TimeRanges where
   fromJS = believe_me
-
 export
-data TrackEvent : Type where [external]
+data TrackEvent  : Type where [external]
 
 export
 ToJS TrackEvent where
@@ -2312,9 +2179,8 @@ ToJS TrackEvent where
 export
 FromJS TrackEvent where
   fromJS = believe_me
-
 export
-data ValidityState : Type where [external]
+data ValidityState  : Type where [external]
 
 export
 ToJS ValidityState where
@@ -2323,9 +2189,8 @@ ToJS ValidityState where
 export
 FromJS ValidityState where
   fromJS = believe_me
-
 export
-data VideoTrack : Type where [external]
+data VideoTrack  : Type where [external]
 
 export
 ToJS VideoTrack where
@@ -2334,9 +2199,8 @@ ToJS VideoTrack where
 export
 FromJS VideoTrack where
   fromJS = believe_me
-
 export
-data VideoTrackList : Type where [external]
+data VideoTrackList  : Type where [external]
 
 export
 ToJS VideoTrackList where
@@ -2345,9 +2209,8 @@ ToJS VideoTrackList where
 export
 FromJS VideoTrackList where
   fromJS = believe_me
-
 export
-data WebSocket : Type where [external]
+data WebSocket  : Type where [external]
 
 export
 ToJS WebSocket where
@@ -2356,9 +2219,8 @@ ToJS WebSocket where
 export
 FromJS WebSocket where
   fromJS = believe_me
-
 export
-data Window : Type where [external]
+data Window  : Type where [external]
 
 export
 ToJS Window where
@@ -2367,9 +2229,8 @@ ToJS Window where
 export
 FromJS Window where
   fromJS = believe_me
-
 export
-data Worker : Type where [external]
+data Worker  : Type where [external]
 
 export
 ToJS Worker where
@@ -2378,9 +2239,8 @@ ToJS Worker where
 export
 FromJS Worker where
   fromJS = believe_me
-
 export
-data WorkerGlobalScope : Type where [external]
+data WorkerGlobalScope  : Type where [external]
 
 export
 ToJS WorkerGlobalScope where
@@ -2389,9 +2249,8 @@ ToJS WorkerGlobalScope where
 export
 FromJS WorkerGlobalScope where
   fromJS = believe_me
-
 export
-data WorkerLocation : Type where [external]
+data WorkerLocation  : Type where [external]
 
 export
 ToJS WorkerLocation where
@@ -2400,9 +2259,8 @@ ToJS WorkerLocation where
 export
 FromJS WorkerLocation where
   fromJS = believe_me
-
 export
-data WorkerNavigator : Type where [external]
+data WorkerNavigator  : Type where [external]
 
 export
 ToJS WorkerNavigator where
@@ -2411,9 +2269,8 @@ ToJS WorkerNavigator where
 export
 FromJS WorkerNavigator where
   fromJS = believe_me
-
 export
-data Worklet : Type where [external]
+data Worklet  : Type where [external]
 
 export
 ToJS Worklet where
@@ -2422,9 +2279,8 @@ ToJS Worklet where
 export
 FromJS Worklet where
   fromJS = believe_me
-
 export
-data WorkletGlobalScope : Type where [external]
+data WorkletGlobalScope  : Type where [external]
 
 export
 ToJS WorkletGlobalScope where
@@ -2437,9 +2293,8 @@ FromJS WorkletGlobalScope where
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------
-
 export
-data ARIAMixin : Type where [external]
+data ARIAMixin  : Type where [external]
 
 export
 ToJS ARIAMixin where
@@ -2448,9 +2303,8 @@ ToJS ARIAMixin where
 export
 FromJS ARIAMixin where
   fromJS = believe_me
-
 export
-data AbstractWorker : Type where [external]
+data AbstractWorker  : Type where [external]
 
 export
 ToJS AbstractWorker where
@@ -2459,9 +2313,8 @@ ToJS AbstractWorker where
 export
 FromJS AbstractWorker where
   fromJS = believe_me
-
 export
-data CanvasCompositing : Type where [external]
+data CanvasCompositing  : Type where [external]
 
 export
 ToJS CanvasCompositing where
@@ -2470,9 +2323,8 @@ ToJS CanvasCompositing where
 export
 FromJS CanvasCompositing where
   fromJS = believe_me
-
 export
-data CanvasDrawImage : Type where [external]
+data CanvasDrawImage  : Type where [external]
 
 export
 ToJS CanvasDrawImage where
@@ -2481,9 +2333,8 @@ ToJS CanvasDrawImage where
 export
 FromJS CanvasDrawImage where
   fromJS = believe_me
-
 export
-data CanvasDrawPath : Type where [external]
+data CanvasDrawPath  : Type where [external]
 
 export
 ToJS CanvasDrawPath where
@@ -2492,9 +2343,8 @@ ToJS CanvasDrawPath where
 export
 FromJS CanvasDrawPath where
   fromJS = believe_me
-
 export
-data CanvasFillStrokeStyles : Type where [external]
+data CanvasFillStrokeStyles  : Type where [external]
 
 export
 ToJS CanvasFillStrokeStyles where
@@ -2503,9 +2353,8 @@ ToJS CanvasFillStrokeStyles where
 export
 FromJS CanvasFillStrokeStyles where
   fromJS = believe_me
-
 export
-data CanvasFilters : Type where [external]
+data CanvasFilters  : Type where [external]
 
 export
 ToJS CanvasFilters where
@@ -2514,9 +2363,8 @@ ToJS CanvasFilters where
 export
 FromJS CanvasFilters where
   fromJS = believe_me
-
 export
-data CanvasImageData : Type where [external]
+data CanvasImageData  : Type where [external]
 
 export
 ToJS CanvasImageData where
@@ -2525,9 +2373,8 @@ ToJS CanvasImageData where
 export
 FromJS CanvasImageData where
   fromJS = believe_me
-
 export
-data CanvasImageSmoothing : Type where [external]
+data CanvasImageSmoothing  : Type where [external]
 
 export
 ToJS CanvasImageSmoothing where
@@ -2536,9 +2383,8 @@ ToJS CanvasImageSmoothing where
 export
 FromJS CanvasImageSmoothing where
   fromJS = believe_me
-
 export
-data CanvasPath : Type where [external]
+data CanvasPath  : Type where [external]
 
 export
 ToJS CanvasPath where
@@ -2547,9 +2393,8 @@ ToJS CanvasPath where
 export
 FromJS CanvasPath where
   fromJS = believe_me
-
 export
-data CanvasPathDrawingStyles : Type where [external]
+data CanvasPathDrawingStyles  : Type where [external]
 
 export
 ToJS CanvasPathDrawingStyles where
@@ -2558,9 +2403,8 @@ ToJS CanvasPathDrawingStyles where
 export
 FromJS CanvasPathDrawingStyles where
   fromJS = believe_me
-
 export
-data CanvasRect : Type where [external]
+data CanvasRect  : Type where [external]
 
 export
 ToJS CanvasRect where
@@ -2569,9 +2413,8 @@ ToJS CanvasRect where
 export
 FromJS CanvasRect where
   fromJS = believe_me
-
 export
-data CanvasShadowStyles : Type where [external]
+data CanvasShadowStyles  : Type where [external]
 
 export
 ToJS CanvasShadowStyles where
@@ -2580,9 +2423,8 @@ ToJS CanvasShadowStyles where
 export
 FromJS CanvasShadowStyles where
   fromJS = believe_me
-
 export
-data CanvasState : Type where [external]
+data CanvasState  : Type where [external]
 
 export
 ToJS CanvasState where
@@ -2591,9 +2433,8 @@ ToJS CanvasState where
 export
 FromJS CanvasState where
   fromJS = believe_me
-
 export
-data CanvasText : Type where [external]
+data CanvasText  : Type where [external]
 
 export
 ToJS CanvasText where
@@ -2602,9 +2443,8 @@ ToJS CanvasText where
 export
 FromJS CanvasText where
   fromJS = believe_me
-
 export
-data CanvasTextDrawingStyles : Type where [external]
+data CanvasTextDrawingStyles  : Type where [external]
 
 export
 ToJS CanvasTextDrawingStyles where
@@ -2613,9 +2453,8 @@ ToJS CanvasTextDrawingStyles where
 export
 FromJS CanvasTextDrawingStyles where
   fromJS = believe_me
-
 export
-data CanvasTransform : Type where [external]
+data CanvasTransform  : Type where [external]
 
 export
 ToJS CanvasTransform where
@@ -2624,9 +2463,8 @@ ToJS CanvasTransform where
 export
 FromJS CanvasTransform where
   fromJS = believe_me
-
 export
-data CanvasUserInterface : Type where [external]
+data CanvasUserInterface  : Type where [external]
 
 export
 ToJS CanvasUserInterface where
@@ -2635,9 +2473,8 @@ ToJS CanvasUserInterface where
 export
 FromJS CanvasUserInterface where
   fromJS = believe_me
-
 export
-data DocumentAndElementEventHandlers : Type where [external]
+data DocumentAndElementEventHandlers  : Type where [external]
 
 export
 ToJS DocumentAndElementEventHandlers where
@@ -2646,9 +2483,8 @@ ToJS DocumentAndElementEventHandlers where
 export
 FromJS DocumentAndElementEventHandlers where
   fromJS = believe_me
-
 export
-data ElementContentEditable : Type where [external]
+data ElementContentEditable  : Type where [external]
 
 export
 ToJS ElementContentEditable where
@@ -2657,9 +2493,8 @@ ToJS ElementContentEditable where
 export
 FromJS ElementContentEditable where
   fromJS = believe_me
-
 export
-data GlobalEventHandlers : Type where [external]
+data GlobalEventHandlers  : Type where [external]
 
 export
 ToJS GlobalEventHandlers where
@@ -2668,9 +2503,8 @@ ToJS GlobalEventHandlers where
 export
 FromJS GlobalEventHandlers where
   fromJS = believe_me
-
 export
-data HTMLHyperlinkElementUtils : Type where [external]
+data HTMLHyperlinkElementUtils  : Type where [external]
 
 export
 ToJS HTMLHyperlinkElementUtils where
@@ -2679,9 +2513,8 @@ ToJS HTMLHyperlinkElementUtils where
 export
 FromJS HTMLHyperlinkElementUtils where
   fromJS = believe_me
-
 export
-data HTMLOrSVGElement : Type where [external]
+data HTMLOrSVGElement  : Type where [external]
 
 export
 ToJS HTMLOrSVGElement where
@@ -2690,9 +2523,8 @@ ToJS HTMLOrSVGElement where
 export
 FromJS HTMLOrSVGElement where
   fromJS = believe_me
-
 export
-data NavigatorConcurrentHardware : Type where [external]
+data NavigatorConcurrentHardware  : Type where [external]
 
 export
 ToJS NavigatorConcurrentHardware where
@@ -2701,9 +2533,8 @@ ToJS NavigatorConcurrentHardware where
 export
 FromJS NavigatorConcurrentHardware where
   fromJS = believe_me
-
 export
-data NavigatorContentUtils : Type where [external]
+data NavigatorContentUtils  : Type where [external]
 
 export
 ToJS NavigatorContentUtils where
@@ -2712,9 +2543,8 @@ ToJS NavigatorContentUtils where
 export
 FromJS NavigatorContentUtils where
   fromJS = believe_me
-
 export
-data NavigatorCookies : Type where [external]
+data NavigatorCookies  : Type where [external]
 
 export
 ToJS NavigatorCookies where
@@ -2723,9 +2553,8 @@ ToJS NavigatorCookies where
 export
 FromJS NavigatorCookies where
   fromJS = believe_me
-
 export
-data NavigatorID : Type where [external]
+data NavigatorID  : Type where [external]
 
 export
 ToJS NavigatorID where
@@ -2734,9 +2563,8 @@ ToJS NavigatorID where
 export
 FromJS NavigatorID where
   fromJS = believe_me
-
 export
-data NavigatorLanguage : Type where [external]
+data NavigatorLanguage  : Type where [external]
 
 export
 ToJS NavigatorLanguage where
@@ -2745,9 +2573,8 @@ ToJS NavigatorLanguage where
 export
 FromJS NavigatorLanguage where
   fromJS = believe_me
-
 export
-data NavigatorOnLine : Type where [external]
+data NavigatorOnLine  : Type where [external]
 
 export
 ToJS NavigatorOnLine where
@@ -2756,9 +2583,8 @@ ToJS NavigatorOnLine where
 export
 FromJS NavigatorOnLine where
   fromJS = believe_me
-
 export
-data NavigatorPlugins : Type where [external]
+data NavigatorPlugins  : Type where [external]
 
 export
 ToJS NavigatorPlugins where
@@ -2767,9 +2593,8 @@ ToJS NavigatorPlugins where
 export
 FromJS NavigatorPlugins where
   fromJS = believe_me
-
 export
-data WindowEventHandlers : Type where [external]
+data WindowEventHandlers  : Type where [external]
 
 export
 ToJS WindowEventHandlers where
@@ -2782,9 +2607,8 @@ FromJS WindowEventHandlers where
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
-
 export
-data AssignedNodesOptions : Type where [external]
+data AssignedNodesOptions  : Type where [external]
 
 export
 ToJS AssignedNodesOptions where
@@ -2793,9 +2617,8 @@ ToJS AssignedNodesOptions where
 export
 FromJS AssignedNodesOptions where
   fromJS = believe_me
-
 export
-data CanvasRenderingContext2DSettings : Type where [external]
+data CanvasRenderingContext2DSettings  : Type where [external]
 
 export
 ToJS CanvasRenderingContext2DSettings where
@@ -2804,9 +2627,8 @@ ToJS CanvasRenderingContext2DSettings where
 export
 FromJS CanvasRenderingContext2DSettings where
   fromJS = believe_me
-
 export
-data CloseEventInit : Type where [external]
+data CloseEventInit  : Type where [external]
 
 export
 ToJS CloseEventInit where
@@ -2815,9 +2637,8 @@ ToJS CloseEventInit where
 export
 FromJS CloseEventInit where
   fromJS = believe_me
-
 export
-data DragEventInit : Type where [external]
+data DragEventInit  : Type where [external]
 
 export
 ToJS DragEventInit where
@@ -2826,9 +2647,8 @@ ToJS DragEventInit where
 export
 FromJS DragEventInit where
   fromJS = believe_me
-
 export
-data ElementDefinitionOptions : Type where [external]
+data ElementDefinitionOptions  : Type where [external]
 
 export
 ToJS ElementDefinitionOptions where
@@ -2837,9 +2657,8 @@ ToJS ElementDefinitionOptions where
 export
 FromJS ElementDefinitionOptions where
   fromJS = believe_me
-
 export
-data ErrorEventInit : Type where [external]
+data ErrorEventInit  : Type where [external]
 
 export
 ToJS ErrorEventInit where
@@ -2848,9 +2667,8 @@ ToJS ErrorEventInit where
 export
 FromJS ErrorEventInit where
   fromJS = believe_me
-
 export
-data EventSourceInit : Type where [external]
+data EventSourceInit  : Type where [external]
 
 export
 ToJS EventSourceInit where
@@ -2859,9 +2677,8 @@ ToJS EventSourceInit where
 export
 FromJS EventSourceInit where
   fromJS = believe_me
-
 export
-data FocusOptions : Type where [external]
+data FocusOptions  : Type where [external]
 
 export
 ToJS FocusOptions where
@@ -2870,9 +2687,8 @@ ToJS FocusOptions where
 export
 FromJS FocusOptions where
   fromJS = believe_me
-
 export
-data FormDataEventInit : Type where [external]
+data FormDataEventInit  : Type where [external]
 
 export
 ToJS FormDataEventInit where
@@ -2881,9 +2697,8 @@ ToJS FormDataEventInit where
 export
 FromJS FormDataEventInit where
   fromJS = believe_me
-
 export
-data HashChangeEventInit : Type where [external]
+data HashChangeEventInit  : Type where [external]
 
 export
 ToJS HashChangeEventInit where
@@ -2892,9 +2707,8 @@ ToJS HashChangeEventInit where
 export
 FromJS HashChangeEventInit where
   fromJS = believe_me
-
 export
-data ImageBitmapOptions : Type where [external]
+data ImageBitmapOptions  : Type where [external]
 
 export
 ToJS ImageBitmapOptions where
@@ -2903,9 +2717,8 @@ ToJS ImageBitmapOptions where
 export
 FromJS ImageBitmapOptions where
   fromJS = believe_me
-
 export
-data ImageBitmapRenderingContextSettings : Type where [external]
+data ImageBitmapRenderingContextSettings  : Type where [external]
 
 export
 ToJS ImageBitmapRenderingContextSettings where
@@ -2914,9 +2727,8 @@ ToJS ImageBitmapRenderingContextSettings where
 export
 FromJS ImageBitmapRenderingContextSettings where
   fromJS = believe_me
-
 export
-data ImageEncodeOptions : Type where [external]
+data ImageEncodeOptions  : Type where [external]
 
 export
 ToJS ImageEncodeOptions where
@@ -2925,9 +2737,8 @@ ToJS ImageEncodeOptions where
 export
 FromJS ImageEncodeOptions where
   fromJS = believe_me
-
 export
-data MessageEventInit : Type where [external]
+data MessageEventInit  : Type where [external]
 
 export
 ToJS MessageEventInit where
@@ -2936,9 +2747,8 @@ ToJS MessageEventInit where
 export
 FromJS MessageEventInit where
   fromJS = believe_me
-
 export
-data PageTransitionEventInit : Type where [external]
+data PageTransitionEventInit  : Type where [external]
 
 export
 ToJS PageTransitionEventInit where
@@ -2947,9 +2757,8 @@ ToJS PageTransitionEventInit where
 export
 FromJS PageTransitionEventInit where
   fromJS = believe_me
-
 export
-data PopStateEventInit : Type where [external]
+data PopStateEventInit  : Type where [external]
 
 export
 ToJS PopStateEventInit where
@@ -2958,9 +2767,8 @@ ToJS PopStateEventInit where
 export
 FromJS PopStateEventInit where
   fromJS = believe_me
-
 export
-data PostMessageOptions : Type where [external]
+data PostMessageOptions  : Type where [external]
 
 export
 ToJS PostMessageOptions where
@@ -2969,9 +2777,8 @@ ToJS PostMessageOptions where
 export
 FromJS PostMessageOptions where
   fromJS = believe_me
-
 export
-data PromiseRejectionEventInit : Type where [external]
+data PromiseRejectionEventInit  : Type where [external]
 
 export
 ToJS PromiseRejectionEventInit where
@@ -2980,9 +2787,8 @@ ToJS PromiseRejectionEventInit where
 export
 FromJS PromiseRejectionEventInit where
   fromJS = believe_me
-
 export
-data StorageEventInit : Type where [external]
+data StorageEventInit  : Type where [external]
 
 export
 ToJS StorageEventInit where
@@ -2991,9 +2797,8 @@ ToJS StorageEventInit where
 export
 FromJS StorageEventInit where
   fromJS = believe_me
-
 export
-data SubmitEventInit : Type where [external]
+data SubmitEventInit  : Type where [external]
 
 export
 ToJS SubmitEventInit where
@@ -3002,9 +2807,8 @@ ToJS SubmitEventInit where
 export
 FromJS SubmitEventInit where
   fromJS = believe_me
-
 export
-data TrackEventInit : Type where [external]
+data TrackEventInit  : Type where [external]
 
 export
 ToJS TrackEventInit where
@@ -3013,9 +2817,8 @@ ToJS TrackEventInit where
 export
 FromJS TrackEventInit where
   fromJS = believe_me
-
 export
-data ValidityStateFlags : Type where [external]
+data ValidityStateFlags  : Type where [external]
 
 export
 ToJS ValidityStateFlags where
@@ -3024,9 +2827,8 @@ ToJS ValidityStateFlags where
 export
 FromJS ValidityStateFlags where
   fromJS = believe_me
-
 export
-data WindowPostMessageOptions : Type where [external]
+data WindowPostMessageOptions  : Type where [external]
 
 export
 ToJS WindowPostMessageOptions where
@@ -3035,9 +2837,8 @@ ToJS WindowPostMessageOptions where
 export
 FromJS WindowPostMessageOptions where
   fromJS = believe_me
-
 export
-data WorkerOptions : Type where [external]
+data WorkerOptions  : Type where [external]
 
 export
 ToJS WorkerOptions where
@@ -3046,9 +2847,8 @@ ToJS WorkerOptions where
 export
 FromJS WorkerOptions where
   fromJS = believe_me
-
 export
-data WorkletOptions : Type where [external]
+data WorkletOptions  : Type where [external]
 
 export
 ToJS WorkletOptions where

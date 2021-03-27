@@ -1,6 +1,4 @@
 module Web.Webgl
-
-import Data.SOP
 import JS.Util
 import Web.Types
 
@@ -8,63 +6,180 @@ import Web.Types
 --          Interfaces
 --------------------------------------------------------------------------------
 
+namespace WebGL2RenderingContext
+  
+  public export
+  JSVal WebGL2RenderingContext where
+    parents =  [ JSObject ]
+
+    mixins =  [ WebGL2RenderingContextBase
+              , WebGL2RenderingContextOverloads
+              , WebGLRenderingContextBase
+              ]
+
 namespace WebGLActiveInfo
+  
+  public export
+  JSVal WebGLActiveInfo where
+    parents =  [ JSObject ]
+
+    mixins =  []
   
   %foreign "browser:lambda:x=>x.name"
   prim__name : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  name :  Cast webGLActiveInfo WebGLActiveInfo
-       => ToJS WebGLActiveInfo
-       => (obj : webGLActiveInfo)
-       -> IO String
+  name : (obj : WebGLActiveInfo) -> IO String
   
   %foreign "browser:lambda:x=>x.size"
   prim__size : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  size :  Cast webGLActiveInfo WebGLActiveInfo
-       => ToJS WebGLActiveInfo
-       => (obj : webGLActiveInfo)
-       -> IO GLint
+  size : (obj : WebGLActiveInfo) -> IO GLint
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  type :  Cast webGLActiveInfo WebGLActiveInfo
-       => ToJS WebGLActiveInfo
-       => (obj : webGLActiveInfo)
-       -> IO GLenum
+  type : (obj : WebGLActiveInfo) -> IO GLenum
+
+namespace WebGLBuffer
+  
+  public export
+  JSVal WebGLBuffer where
+    parents =  [ WebGLObject , JSObject ]
+
+    mixins =  []
+
+namespace WebGLFramebuffer
+  
+  public export
+  JSVal WebGLFramebuffer where
+    parents =  [ WebGLObject , JSObject ]
+
+    mixins =  []
+
+namespace WebGLObject
+  
+  public export
+  JSVal WebGLObject where
+    parents =  [ JSObject ]
+
+    mixins =  []
+
+namespace WebGLProgram
+  
+  public export
+  JSVal WebGLProgram where
+    parents =  [ WebGLObject , JSObject ]
+
+    mixins =  []
+
+namespace WebGLQuery
+  
+  public export
+  JSVal WebGLQuery where
+    parents =  [ WebGLObject , JSObject ]
+
+    mixins =  []
+
+namespace WebGLRenderbuffer
+  
+  public export
+  JSVal WebGLRenderbuffer where
+    parents =  [ WebGLObject , JSObject ]
+
+    mixins =  []
+
+namespace WebGLRenderingContext
+  
+  public export
+  JSVal WebGLRenderingContext where
+    parents =  [ JSObject ]
+
+    mixins =  [ WebGLRenderingContextBase , WebGLRenderingContextOverloads ]
+
+namespace WebGLSampler
+  
+  public export
+  JSVal WebGLSampler where
+    parents =  [ WebGLObject , JSObject ]
+
+    mixins =  []
+
+namespace WebGLShader
+  
+  public export
+  JSVal WebGLShader where
+    parents =  [ WebGLObject , JSObject ]
+
+    mixins =  []
 
 namespace WebGLShaderPrecisionFormat
   
+  public export
+  JSVal WebGLShaderPrecisionFormat where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.precision"
   prim__precision : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  precision :  Cast webGLShaderPrecisionFormat WebGLShaderPrecisionFormat
-            => ToJS WebGLShaderPrecisionFormat
-            => (obj : webGLShaderPrecisionFormat)
-            -> IO GLint
+  precision : (obj : WebGLShaderPrecisionFormat) -> IO GLint
   
   %foreign "browser:lambda:x=>x.rangeMax"
   prim__rangeMax : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  rangeMax :  Cast webGLShaderPrecisionFormat WebGLShaderPrecisionFormat
-           => ToJS WebGLShaderPrecisionFormat
-           => (obj : webGLShaderPrecisionFormat)
-           -> IO GLint
+  rangeMax : (obj : WebGLShaderPrecisionFormat) -> IO GLint
   
   %foreign "browser:lambda:x=>x.rangeMin"
   prim__rangeMin : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  rangeMin :  Cast webGLShaderPrecisionFormat WebGLShaderPrecisionFormat
-           => ToJS WebGLShaderPrecisionFormat
-           => (obj : webGLShaderPrecisionFormat)
-           -> IO GLint
+  rangeMin : (obj : WebGLShaderPrecisionFormat) -> IO GLint
+
+namespace WebGLSync
+  
+  public export
+  JSVal WebGLSync where
+    parents =  [ WebGLObject , JSObject ]
+
+    mixins =  []
+
+namespace WebGLTexture
+  
+  public export
+  JSVal WebGLTexture where
+    parents =  [ WebGLObject , JSObject ]
+
+    mixins =  []
+
+namespace WebGLTransformFeedback
+  
+  public export
+  JSVal WebGLTransformFeedback where
+    parents =  [ WebGLObject , JSObject ]
+
+    mixins =  []
+
+namespace WebGLUniformLocation
+  
+  public export
+  JSVal WebGLUniformLocation where
+    parents =  [ JSObject ]
+
+    mixins =  []
+
+namespace WebGLVertexArrayObject
+  
+  public export
+  JSVal WebGLVertexArrayObject where
+    parents =  [ WebGLObject , JSObject ]
+
+    mixins =  []
 
 --------------------------------------------------------------------------------
 --          Mixins
@@ -1123,6 +1238,7 @@ namespace WebGL2RenderingContextBase
   public export
   WAIT_FAILED : GLenum
   WAIT_FAILED = 0x911D
+
 
 namespace WebGLRenderingContextBase
   
@@ -2312,30 +2428,23 @@ namespace WebGLRenderingContextBase
   
   %foreign "browser:lambda:x=>x.canvas"
   prim__canvas : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  canvas :  Cast webGLRenderingContextBase WebGLRenderingContextBase
-         => ToJS WebGLRenderingContextBase
-         => (obj : webGLRenderingContextBase)
+  canvas :  (obj : WebGLRenderingContextBase)
          -> IO (NS I [ HTMLCanvasElement , OffscreenCanvas ])
   
   %foreign "browser:lambda:x=>x.drawingBufferHeight"
   prim__drawingBufferHeight : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  drawingBufferHeight :  Cast webGLRenderingContextBase WebGLRenderingContextBase
-                      => ToJS WebGLRenderingContextBase
-                      => (obj : webGLRenderingContextBase)
-                      -> IO GLsizei
+  drawingBufferHeight : (obj : WebGLRenderingContextBase) -> IO GLsizei
   
   %foreign "browser:lambda:x=>x.drawingBufferWidth"
   prim__drawingBufferWidth : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  drawingBufferWidth :  Cast webGLRenderingContextBase WebGLRenderingContextBase
-                     => ToJS WebGLRenderingContextBase
-                     => (obj : webGLRenderingContextBase)
-                     -> IO GLsizei
+  drawingBufferWidth : (obj : WebGLRenderingContextBase) -> IO GLsizei
+
 
 --------------------------------------------------------------------------------
 --          Dictionaries
@@ -2343,245 +2452,123 @@ namespace WebGLRenderingContextBase
 
 namespace WebGLContextAttributes
   
+  public export
+  JSVal WebGLContextAttributes where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.alpha"
   prim__alpha : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  alpha :  Cast webGLContextAttributes WebGLContextAttributes
-        => ToJS WebGLContextAttributes
-        => (obj : webGLContextAttributes)
-        -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.alpha = v}"
+  alpha : (obj : WebGLContextAttributes) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.alpha  = v}"
   prim__setAlpha : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setAlpha :  Cast webGLContextAttributes WebGLContextAttributes
-           => ToJS WebGLContextAttributes
-           => (obj : webGLContextAttributes)
-           -> (v : Bool)
-           -> IO ()
+  setAlpha : (obj : WebGLContextAttributes) -> (v : Bool) -> IO ()
   
   %foreign "browser:lambda:x=>x.antialias"
   prim__antialias : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  antialias :  Cast webGLContextAttributes WebGLContextAttributes
-            => ToJS WebGLContextAttributes
-            => (obj : webGLContextAttributes)
-            -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.antialias = v}"
+  antialias : (obj : WebGLContextAttributes) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.antialias  = v}"
   prim__setAntialias : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setAntialias :  Cast webGLContextAttributes WebGLContextAttributes
-               => ToJS WebGLContextAttributes
-               => (obj : webGLContextAttributes)
-               -> (v : Bool)
-               -> IO ()
+  setAntialias : (obj : WebGLContextAttributes) -> (v : Bool) -> IO ()
   
   %foreign "browser:lambda:x=>x.depth"
   prim__depth : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  depth :  Cast webGLContextAttributes WebGLContextAttributes
-        => ToJS WebGLContextAttributes
-        => (obj : webGLContextAttributes)
-        -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.depth = v}"
+  depth : (obj : WebGLContextAttributes) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.depth  = v}"
   prim__setDepth : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setDepth :  Cast webGLContextAttributes WebGLContextAttributes
-           => ToJS WebGLContextAttributes
-           => (obj : webGLContextAttributes)
-           -> (v : Bool)
-           -> IO ()
+  setDepth : (obj : WebGLContextAttributes) -> (v : Bool) -> IO ()
   
   %foreign "browser:lambda:x=>x.desynchronized"
   prim__desynchronized : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  desynchronized :  Cast webGLContextAttributes WebGLContextAttributes
-                 => ToJS WebGLContextAttributes
-                 => (obj : webGLContextAttributes)
-                 -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.desynchronized = v}"
+  desynchronized : (obj : WebGLContextAttributes) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.desynchronized  = v}"
   prim__setDesynchronized : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setDesynchronized :  Cast webGLContextAttributes WebGLContextAttributes
-                    => ToJS WebGLContextAttributes
-                    => (obj : webGLContextAttributes)
-                    -> (v : Bool)
-                    -> IO ()
+  setDesynchronized : (obj : WebGLContextAttributes) -> (v : Bool) -> IO ()
   
   %foreign "browser:lambda:x=>x.failIfMajorPerformanceCaveat"
   prim__failIfMajorPerformanceCaveat : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  failIfMajorPerformanceCaveat :  Cast webGLContextAttributes WebGLContextAttributes
-                               => ToJS WebGLContextAttributes
-                               => (obj : webGLContextAttributes)
-                               -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.failIfMajorPerformanceCaveat = v}"
+  failIfMajorPerformanceCaveat : (obj : WebGLContextAttributes) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.failIfMajorPerformanceCaveat  = v}"
   prim__setFailIfMajorPerformanceCaveat : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setFailIfMajorPerformanceCaveat :  Cast webGLContextAttributes WebGLContextAttributes
-                                  => ToJS WebGLContextAttributes
-                                  => (obj : webGLContextAttributes)
+  setFailIfMajorPerformanceCaveat :  (obj : WebGLContextAttributes)
                                   -> (v : Bool)
                                   -> IO ()
   
   %foreign "browser:lambda:x=>x.powerPreference"
   prim__powerPreference : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  powerPreference :  Cast webGLContextAttributes WebGLContextAttributes
-                  => ToJS WebGLContextAttributes
-                  => (obj : webGLContextAttributes)
-                  -> IO WebGLPowerPreference
-  
-  %foreign "browser:lambda:(x,v)=>{x.powerPreference = v}"
+  powerPreference : (obj : WebGLContextAttributes) -> IO WebGLPowerPreference
+
+  %foreign "browser:lambda:(x,v)=>{x.powerPreference  = v}"
   prim__setPowerPreference : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setPowerPreference :  Cast webGLContextAttributes WebGLContextAttributes
-                     => ToJS WebGLContextAttributes
-                     => Cast webGLPowerPreference WebGLPowerPreference
-                     => ToJS WebGLPowerPreference
-                     => (obj : webGLContextAttributes)
-                     -> (v : webGLPowerPreference)
+  setPowerPreference :  (obj : WebGLContextAttributes)
+                     -> (v : WebGLPowerPreference)
                      -> IO ()
   
   %foreign "browser:lambda:x=>x.premultipliedAlpha"
   prim__premultipliedAlpha : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  premultipliedAlpha :  Cast webGLContextAttributes WebGLContextAttributes
-                     => ToJS WebGLContextAttributes
-                     => (obj : webGLContextAttributes)
-                     -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.premultipliedAlpha = v}"
+  premultipliedAlpha : (obj : WebGLContextAttributes) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.premultipliedAlpha  = v}"
   prim__setPremultipliedAlpha : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setPremultipliedAlpha :  Cast webGLContextAttributes WebGLContextAttributes
-                        => ToJS WebGLContextAttributes
-                        => (obj : webGLContextAttributes)
-                        -> (v : Bool)
-                        -> IO ()
+  setPremultipliedAlpha : (obj : WebGLContextAttributes) -> (v : Bool) -> IO ()
   
   %foreign "browser:lambda:x=>x.preserveDrawingBuffer"
   prim__preserveDrawingBuffer : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  preserveDrawingBuffer :  Cast webGLContextAttributes WebGLContextAttributes
-                        => ToJS WebGLContextAttributes
-                        => (obj : webGLContextAttributes)
-                        -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.preserveDrawingBuffer = v}"
+  preserveDrawingBuffer : (obj : WebGLContextAttributes) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.preserveDrawingBuffer  = v}"
   prim__setPreserveDrawingBuffer : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setPreserveDrawingBuffer :  Cast webGLContextAttributes WebGLContextAttributes
-                           => ToJS WebGLContextAttributes
-                           => (obj : webGLContextAttributes)
+  setPreserveDrawingBuffer :  (obj : WebGLContextAttributes)
                            -> (v : Bool)
                            -> IO ()
   
   %foreign "browser:lambda:x=>x.stencil"
   prim__stencil : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  stencil :  Cast webGLContextAttributes WebGLContextAttributes
-          => ToJS WebGLContextAttributes
-          => (obj : webGLContextAttributes)
-          -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.stencil = v}"
+  stencil : (obj : WebGLContextAttributes) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.stencil  = v}"
   prim__setStencil : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setStencil :  Cast webGLContextAttributes WebGLContextAttributes
-             => ToJS WebGLContextAttributes
-             => (obj : webGLContextAttributes)
-             -> (v : Bool)
-             -> IO ()
+  setStencil : (obj : WebGLContextAttributes) -> (v : Bool) -> IO ()
 
-
-
---------------------------------------------------------------------------------
---          Casts
---------------------------------------------------------------------------------
-
-export
-Cast WebGL2RenderingContext WebGL2RenderingContextBase where
-  cast = believe_me
-
-export
-Cast WebGL2RenderingContext WebGL2RenderingContextOverloads where
-  cast = believe_me
-
-export
-Cast WebGL2RenderingContext WebGLRenderingContextBase where
-  cast = believe_me
-
-export
-Cast WebGLBuffer WebGLObject where
-  cast = believe_me
-
-export
-Cast WebGLFramebuffer WebGLObject where
-  cast = believe_me
-
-export
-Cast WebGLProgram WebGLObject where
-  cast = believe_me
-
-export
-Cast WebGLQuery WebGLObject where
-  cast = believe_me
-
-export
-Cast WebGLRenderbuffer WebGLObject where
-  cast = believe_me
-
-export
-Cast WebGLRenderingContext WebGLRenderingContextBase where
-  cast = believe_me
-
-export
-Cast WebGLRenderingContext WebGLRenderingContextOverloads where
-  cast = believe_me
-
-export
-Cast WebGLSampler WebGLObject where
-  cast = believe_me
-
-export
-Cast WebGLShader WebGLObject where
-  cast = believe_me
-
-export
-Cast WebGLSync WebGLObject where
-  cast = believe_me
-
-export
-Cast WebGLTexture WebGLObject where
-  cast = believe_me
-
-export
-Cast WebGLTransformFeedback WebGLObject where
-  cast = believe_me
-
-export
-Cast WebGLVertexArrayObject WebGLObject where
-  cast = believe_me

@@ -1,6 +1,4 @@
 module Web.Css
-
-import Data.SOP
 import JS.Util
 import Web.Types
 
@@ -10,137 +8,137 @@ import Web.Types
 
 namespace CSSGroupingRule
   
+  public export
+  JSVal CSSGroupingRule where
+    parents =  [ CSSRule , JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.cssRules"
   prim__cssRules : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  cssRules :  Cast cSSGroupingRule CSSGroupingRule
-           => ToJS CSSGroupingRule
-           => (obj : cSSGroupingRule)
-           -> IO CSSRuleList
+  cssRules : (obj : CSSGroupingRule) -> IO CSSRuleList
 
 namespace CSSImportRule
   
+  public export
+  JSVal CSSImportRule where
+    parents =  [ CSSRule , JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.href"
   prim__href : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  href :  Cast cSSImportRule CSSImportRule
-       => ToJS CSSImportRule
-       => (obj : cSSImportRule)
-       -> IO String
+  href : (obj : CSSImportRule) -> IO String
   
   %foreign "browser:lambda:x=>x.media"
   prim__media : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  media :  Cast cSSImportRule CSSImportRule
-        => ToJS CSSImportRule
-        => (obj : cSSImportRule)
-        -> IO MediaList
+  media : (obj : CSSImportRule) -> IO MediaList
   
   %foreign "browser:lambda:x=>x.styleSheet"
   prim__styleSheet : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  styleSheet :  Cast cSSImportRule CSSImportRule
-             => ToJS CSSImportRule
-             => (obj : cSSImportRule)
-             -> IO CSSStyleSheet
+  styleSheet : (obj : CSSImportRule) -> IO CSSStyleSheet
 
 namespace CSSMarginRule
   
+  public export
+  JSVal CSSMarginRule where
+    parents =  [ CSSRule , JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.name"
   prim__name : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  name :  Cast cSSMarginRule CSSMarginRule
-       => ToJS CSSMarginRule
-       => (obj : cSSMarginRule)
-       -> IO CSSOMString
+  name : (obj : CSSMarginRule) -> IO CSSOMString
   
   %foreign "browser:lambda:x=>x.style"
   prim__style : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  style :  Cast cSSMarginRule CSSMarginRule
-        => ToJS CSSMarginRule
-        => (obj : cSSMarginRule)
-        -> IO CSSStyleDeclaration
+  style : (obj : CSSMarginRule) -> IO CSSStyleDeclaration
 
 namespace CSSNamespaceRule
   
+  public export
+  JSVal CSSNamespaceRule where
+    parents =  [ CSSRule , JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.namespaceURI"
   prim__namespaceURI : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  namespaceURI :  Cast cSSNamespaceRule CSSNamespaceRule
-               => ToJS CSSNamespaceRule
-               => (obj : cSSNamespaceRule)
-               -> IO CSSOMString
+  namespaceURI : (obj : CSSNamespaceRule) -> IO CSSOMString
   
   %foreign "browser:lambda:x=>x.prefix"
   prim__prefix_ : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  prefix_ :  Cast cSSNamespaceRule CSSNamespaceRule
-          => ToJS CSSNamespaceRule
-          => (obj : cSSNamespaceRule)
-          -> IO CSSOMString
+  prefix_ : (obj : CSSNamespaceRule) -> IO CSSOMString
 
 namespace CSSPageRule
   
+  public export
+  JSVal CSSPageRule where
+    parents =  [ CSSGroupingRule , CSSRule , JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.style"
   prim__style : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  style :  Cast cSSPageRule CSSPageRule
-        => ToJS CSSPageRule
-        => (obj : cSSPageRule)
-        -> IO CSSStyleDeclaration
+  style : (obj : CSSPageRule) -> IO CSSStyleDeclaration
   
   %foreign "browser:lambda:x=>x.selectorText"
   prim__selectorText : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  selectorText :  Cast cSSPageRule CSSPageRule
-               => ToJS CSSPageRule
-               => (obj : cSSPageRule)
-               -> IO CSSOMString
-  
-  %foreign "browser:lambda:(x,v)=>{x.selectorText = v}"
+  selectorText : (obj : CSSPageRule) -> IO CSSOMString
+
+  %foreign "browser:lambda:(x,v)=>{x.selectorText  = v}"
   prim__setSelectorText : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setSelectorText :  Cast cSSOMString CSSOMString
-                  => ToJS CSSOMString
-                  => Cast cSSPageRule CSSPageRule
-                  => ToJS CSSPageRule
-                  => (obj : cSSPageRule)
-                  -> (v : cSSOMString)
-                  -> IO ()
+  setSelectorText : (obj : CSSPageRule) -> (v : CSSOMString) -> IO ()
 
 namespace CSSPseudoElement
   
+  public export
+  JSVal CSSPseudoElement where
+    parents =  [ EventTarget , JSObject ]
+
+    mixins =  [ Animatable ]
+  
   %foreign "browser:lambda:x=>x.element"
   prim__element : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  element :  Cast cSSPseudoElement CSSPseudoElement
-          => ToJS CSSPseudoElement
-          => (obj : cSSPseudoElement)
-          -> IO Element
+  element : (obj : CSSPseudoElement) -> IO Element
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  type :  Cast cSSPseudoElement CSSPseudoElement
-       => ToJS CSSPseudoElement
-       => (obj : cSSPseudoElement)
-       -> IO CSSOMString
+  type : (obj : CSSPseudoElement) -> IO CSSOMString
 
 namespace CSSRule
+  
+  public export
+  JSVal CSSRule where
+    parents =  [ JSObject ]
+
+    mixins =  []
   
   public export
   CHARSET_RULE : UInt16
@@ -176,279 +174,228 @@ namespace CSSRule
   
   %foreign "browser:lambda:x=>x.parentRule"
   prim__parentRule : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  parentRule :  Cast cSSRule CSSRule
-             => ToJS CSSRule
-             => (obj : cSSRule)
-             -> IO (Maybe CSSRule)
+  parentRule : (obj : CSSRule) -> IO (Maybe CSSRule)
   
   %foreign "browser:lambda:x=>x.parentStyleSheet"
   prim__parentStyleSheet : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  parentStyleSheet :  Cast cSSRule CSSRule
-                   => ToJS CSSRule
-                   => (obj : cSSRule)
-                   -> IO (Maybe CSSStyleSheet)
+  parentStyleSheet : (obj : CSSRule) -> IO (Maybe CSSStyleSheet)
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  type : Cast cSSRule CSSRule => ToJS CSSRule => (obj : cSSRule) -> IO UInt16
+  type : (obj : CSSRule) -> IO UInt16
   
   %foreign "browser:lambda:x=>x.cssText"
   prim__cssText : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  cssText :  Cast cSSRule CSSRule
-          => ToJS CSSRule
-          => (obj : cSSRule)
-          -> IO CSSOMString
-  
-  %foreign "browser:lambda:(x,v)=>{x.cssText = v}"
+  cssText : (obj : CSSRule) -> IO CSSOMString
+
+  %foreign "browser:lambda:(x,v)=>{x.cssText  = v}"
   prim__setCssText : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setCssText :  Cast cSSOMString CSSOMString
-             => ToJS CSSOMString
-             => Cast cSSRule CSSRule
-             => ToJS CSSRule
-             => (obj : cSSRule)
-             -> (v : cSSOMString)
-             -> IO ()
+  setCssText : (obj : CSSRule) -> (v : CSSOMString) -> IO ()
 
 namespace CSSRuleList
   
+  public export
+  JSVal CSSRuleList where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.length"
   prim__length : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  length :  Cast cSSRuleList CSSRuleList
-         => ToJS CSSRuleList
-         => (obj : cSSRuleList)
-         -> IO UInt32
+  length : (obj : CSSRuleList) -> IO UInt32
 
 namespace CSSStyleDeclaration
   
+  public export
+  JSVal CSSStyleDeclaration where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.length"
   prim__length : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  length :  Cast cSSStyleDeclaration CSSStyleDeclaration
-         => ToJS CSSStyleDeclaration
-         => (obj : cSSStyleDeclaration)
-         -> IO UInt32
+  length : (obj : CSSStyleDeclaration) -> IO UInt32
   
   %foreign "browser:lambda:x=>x.parentRule"
   prim__parentRule : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  parentRule :  Cast cSSStyleDeclaration CSSStyleDeclaration
-             => ToJS CSSStyleDeclaration
-             => (obj : cSSStyleDeclaration)
-             -> IO (Maybe CSSRule)
+  parentRule : (obj : CSSStyleDeclaration) -> IO (Maybe CSSRule)
   
   %foreign "browser:lambda:x=>x.cssFloat"
   prim__cssFloat : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  cssFloat :  Cast cSSStyleDeclaration CSSStyleDeclaration
-           => ToJS CSSStyleDeclaration
-           => (obj : cSSStyleDeclaration)
-           -> IO CSSOMString
-  
-  %foreign "browser:lambda:(x,v)=>{x.cssFloat = v}"
+  cssFloat : (obj : CSSStyleDeclaration) -> IO CSSOMString
+
+  %foreign "browser:lambda:(x,v)=>{x.cssFloat  = v}"
   prim__setCssFloat : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setCssFloat :  Cast cSSOMString CSSOMString
-              => ToJS CSSOMString
-              => Cast cSSStyleDeclaration CSSStyleDeclaration
-              => ToJS CSSStyleDeclaration
-              => (obj : cSSStyleDeclaration)
-              -> (v : cSSOMString)
-              -> IO ()
+  setCssFloat : (obj : CSSStyleDeclaration) -> (v : CSSOMString) -> IO ()
   
   %foreign "browser:lambda:x=>x.cssText"
   prim__cssText : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  cssText :  Cast cSSStyleDeclaration CSSStyleDeclaration
-          => ToJS CSSStyleDeclaration
-          => (obj : cSSStyleDeclaration)
-          -> IO CSSOMString
-  
-  %foreign "browser:lambda:(x,v)=>{x.cssText = v}"
+  cssText : (obj : CSSStyleDeclaration) -> IO CSSOMString
+
+  %foreign "browser:lambda:(x,v)=>{x.cssText  = v}"
   prim__setCssText : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setCssText :  Cast cSSOMString CSSOMString
-             => ToJS CSSOMString
-             => Cast cSSStyleDeclaration CSSStyleDeclaration
-             => ToJS CSSStyleDeclaration
-             => (obj : cSSStyleDeclaration)
-             -> (v : cSSOMString)
-             -> IO ()
+  setCssText : (obj : CSSStyleDeclaration) -> (v : CSSOMString) -> IO ()
 
 namespace CSSStyleRule
   
+  public export
+  JSVal CSSStyleRule where
+    parents =  [ CSSRule , JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.style"
   prim__style : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  style :  Cast cSSStyleRule CSSStyleRule
-        => ToJS CSSStyleRule
-        => (obj : cSSStyleRule)
-        -> IO CSSStyleDeclaration
+  style : (obj : CSSStyleRule) -> IO CSSStyleDeclaration
   
   %foreign "browser:lambda:x=>x.selectorText"
   prim__selectorText : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  selectorText :  Cast cSSStyleRule CSSStyleRule
-               => ToJS CSSStyleRule
-               => (obj : cSSStyleRule)
-               -> IO CSSOMString
-  
-  %foreign "browser:lambda:(x,v)=>{x.selectorText = v}"
+  selectorText : (obj : CSSStyleRule) -> IO CSSOMString
+
+  %foreign "browser:lambda:(x,v)=>{x.selectorText  = v}"
   prim__setSelectorText : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setSelectorText :  Cast cSSOMString CSSOMString
-                  => ToJS CSSOMString
-                  => Cast cSSStyleRule CSSStyleRule
-                  => ToJS CSSStyleRule
-                  => (obj : cSSStyleRule)
-                  -> (v : cSSOMString)
-                  -> IO ()
+  setSelectorText : (obj : CSSStyleRule) -> (v : CSSOMString) -> IO ()
 
 namespace CSSStyleSheet
   
+  public export
+  JSVal CSSStyleSheet where
+    parents =  [ StyleSheet , JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.cssRules"
   prim__cssRules : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  cssRules :  Cast cSSStyleSheet CSSStyleSheet
-           => ToJS CSSStyleSheet
-           => (obj : cSSStyleSheet)
-           -> IO CSSRuleList
+  cssRules : (obj : CSSStyleSheet) -> IO CSSRuleList
   
   %foreign "browser:lambda:x=>x.ownerRule"
   prim__ownerRule : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  ownerRule :  Cast cSSStyleSheet CSSStyleSheet
-            => ToJS CSSStyleSheet
-            => (obj : cSSStyleSheet)
-            -> IO (Maybe CSSRule)
+  ownerRule : (obj : CSSStyleSheet) -> IO (Maybe CSSRule)
   
   %foreign "browser:lambda:x=>x.rules"
   prim__rules : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  rules :  Cast cSSStyleSheet CSSStyleSheet
-        => ToJS CSSStyleSheet
-        => (obj : cSSStyleSheet)
-        -> IO CSSRuleList
+  rules : (obj : CSSStyleSheet) -> IO CSSRuleList
 
 namespace MediaList
   
+  public export
+  JSVal MediaList where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.length"
   prim__length : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  length :  Cast mediaList MediaList
-         => ToJS MediaList
-         => (obj : mediaList)
-         -> IO UInt32
+  length : (obj : MediaList) -> IO UInt32
 
 namespace StyleSheet
   
+  public export
+  JSVal StyleSheet where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.href"
   prim__href : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  href :  Cast styleSheet StyleSheet
-       => ToJS StyleSheet
-       => (obj : styleSheet)
-       -> IO (Maybe String)
+  href : (obj : StyleSheet) -> IO (Maybe String)
   
   %foreign "browser:lambda:x=>x.media"
   prim__media : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  media :  Cast styleSheet StyleSheet
-        => ToJS StyleSheet
-        => (obj : styleSheet)
-        -> IO MediaList
+  media : (obj : StyleSheet) -> IO MediaList
   
   %foreign "browser:lambda:x=>x.ownerNode"
   prim__ownerNode : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  ownerNode :  Cast styleSheet StyleSheet
-            => ToJS StyleSheet
-            => (obj : styleSheet)
+  ownerNode :  (obj : StyleSheet)
             -> IO (Maybe (NS I [ Element , ProcessingInstruction ]))
   
   %foreign "browser:lambda:x=>x.parentStyleSheet"
   prim__parentStyleSheet : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  parentStyleSheet :  Cast styleSheet StyleSheet
-                   => ToJS StyleSheet
-                   => (obj : styleSheet)
-                   -> IO (Maybe CSSStyleSheet)
+  parentStyleSheet : (obj : StyleSheet) -> IO (Maybe CSSStyleSheet)
   
   %foreign "browser:lambda:x=>x.title"
   prim__title : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  title :  Cast styleSheet StyleSheet
-        => ToJS StyleSheet
-        => (obj : styleSheet)
-        -> IO (Maybe String)
+  title : (obj : StyleSheet) -> IO (Maybe String)
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  type :  Cast styleSheet StyleSheet
-       => ToJS StyleSheet
-       => (obj : styleSheet)
-       -> IO CSSOMString
+  type : (obj : StyleSheet) -> IO CSSOMString
   
   %foreign "browser:lambda:x=>x.disabled"
   prim__disabled : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  disabled :  Cast styleSheet StyleSheet
-           => ToJS StyleSheet
-           => (obj : styleSheet)
-           -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.disabled = v}"
+  disabled : (obj : StyleSheet) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.disabled  = v}"
   prim__setDisabled : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setDisabled :  Cast styleSheet StyleSheet
-              => ToJS StyleSheet
-              => (obj : styleSheet)
-              -> (v : Bool)
-              -> IO ()
+  setDisabled : (obj : StyleSheet) -> (v : Bool) -> IO ()
 
 namespace StyleSheetList
   
+  public export
+  JSVal StyleSheetList where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.length"
   prim__length : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  length :  Cast styleSheetList StyleSheetList
-         => ToJS StyleSheetList
-         => (obj : styleSheetList)
-         -> IO UInt32
+  length : (obj : StyleSheetList) -> IO UInt32
 
 --------------------------------------------------------------------------------
 --          Mixins
@@ -458,75 +405,20 @@ namespace ElementCSSInlineStyle
   
   %foreign "browser:lambda:x=>x.style"
   prim__style : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  style :  Cast elementCSSInlineStyle ElementCSSInlineStyle
-        => ToJS ElementCSSInlineStyle
-        => (obj : elementCSSInlineStyle)
-        -> IO CSSStyleDeclaration
+  style : (obj : ElementCSSInlineStyle) -> IO CSSStyleDeclaration
 
 namespace LinkStyle
   
   %foreign "browser:lambda:x=>x.sheet"
   prim__sheet : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  sheet :  Cast linkStyle LinkStyle
-        => ToJS LinkStyle
-        => (obj : linkStyle)
-        -> IO (Maybe CSSStyleSheet)
-
+  sheet : (obj : LinkStyle) -> IO (Maybe CSSStyleSheet)
 
 
 
 --------------------------------------------------------------------------------
---          Casts
+--          Namespaces
 --------------------------------------------------------------------------------
-
-export
-Cast CSSGroupingRule CSSRule where
-  cast = believe_me
-
-export
-Cast CSSImportRule CSSRule where
-  cast = believe_me
-
-export
-Cast CSSMarginRule CSSRule where
-  cast = believe_me
-
-export
-Cast CSSNamespaceRule CSSRule where
-  cast = believe_me
-
-export
-Cast CSSPageRule CSSGroupingRule where
-  cast = believe_me
-
-export
-Cast CSSPseudoElement EventTarget where
-  cast = believe_me
-
-export
-Cast CSSStyleRule CSSRule where
-  cast = believe_me
-
-export
-Cast CSSStyleSheet StyleSheet where
-  cast = believe_me
-
-export
-Cast HTMLElement ElementCSSInlineStyle where
-  cast = believe_me
-
-export
-Cast MathMLElement ElementCSSInlineStyle where
-  cast = believe_me
-
-export
-Cast ProcessingInstruction LinkStyle where
-  cast = believe_me
-
-export
-Cast SVGElement ElementCSSInlineStyle where
-  cast = believe_me

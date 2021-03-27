@@ -1,6 +1,4 @@
 module Web.Clipboard
-
-import Data.SOP
 import JS.Util
 import Web.Types
 
@@ -8,54 +6,59 @@ import Web.Types
 --          Interfaces
 --------------------------------------------------------------------------------
 
+namespace Clipboard
+  
+  public export
+  JSVal Clipboard where
+    parents =  [ EventTarget , JSObject ]
+
+    mixins =  []
+
 namespace ClipboardEvent
+  
+  public export
+  JSVal ClipboardEvent where
+    parents =  [ Event , JSObject ]
+
+    mixins =  []
   
   %foreign "browser:lambda:x=>x.clipboardData"
   prim__clipboardData : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  clipboardData :  Cast clipboardEvent ClipboardEvent
-                => ToJS ClipboardEvent
-                => (obj : clipboardEvent)
-                -> IO (Maybe DataTransfer)
+  clipboardData : (obj : ClipboardEvent) -> IO (Maybe DataTransfer)
 
 namespace ClipboardItem
   
+  public export
+  JSVal ClipboardItem where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.delayed"
   prim__delayed : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  delayed :  Cast clipboardItem ClipboardItem
-          => ToJS ClipboardItem
-          => (obj : clipboardItem)
-          -> IO Bool
+  delayed : (obj : ClipboardItem) -> IO Bool
   
   %foreign "browser:lambda:x=>x.lastModified"
   prim__lastModified : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  lastModified :  Cast clipboardItem ClipboardItem
-               => ToJS ClipboardItem
-               => (obj : clipboardItem)
-               -> IO Int64
+  lastModified : (obj : ClipboardItem) -> IO Int64
   
   %foreign "browser:lambda:x=>x.presentationStyle"
   prim__presentationStyle : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  presentationStyle :  Cast clipboardItem ClipboardItem
-                    => ToJS ClipboardItem
-                    => (obj : clipboardItem)
-                    -> IO PresentationStyle
+  presentationStyle : (obj : ClipboardItem) -> IO PresentationStyle
   
   %foreign "browser:lambda:x=>x.types"
   prim__types : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  types :  Cast clipboardItem ClipboardItem
-        => ToJS ClipboardItem
-        => (obj : clipboardItem)
-        -> IO (JSArray String)
+  types : (obj : ClipboardItem) -> IO (JSArray String)
 
 
 --------------------------------------------------------------------------------
@@ -64,89 +67,67 @@ namespace ClipboardItem
 
 namespace ClipboardEventInit
   
+  public export
+  JSVal ClipboardEventInit where
+    parents =  [ EventInit , JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.clipboardData"
   prim__clipboardData : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  clipboardData :  Cast clipboardEventInit ClipboardEventInit
-                => ToJS ClipboardEventInit
-                => (obj : clipboardEventInit)
-                -> IO (Maybe DataTransfer)
-  
-  %foreign "browser:lambda:(x,v)=>{x.clipboardData = v}"
+  clipboardData : (obj : ClipboardEventInit) -> IO (Maybe DataTransfer)
+
+  %foreign "browser:lambda:(x,v)=>{x.clipboardData  = v}"
   prim__setClipboardData : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setClipboardData :  Cast clipboardEventInit ClipboardEventInit
-                   => ToJS ClipboardEventInit
-                   => Cast dataTransfer DataTransfer
-                   => ToJS DataTransfer
-                   => (obj : clipboardEventInit)
-                   -> (v : Maybe dataTransfer)
+  setClipboardData :  (obj : ClipboardEventInit)
+                   -> (v : Maybe DataTransfer)
                    -> IO ()
 
 namespace ClipboardItemOptions
   
+  public export
+  JSVal ClipboardItemOptions where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.presentationStyle"
   prim__presentationStyle : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  presentationStyle :  Cast clipboardItemOptions ClipboardItemOptions
-                    => ToJS ClipboardItemOptions
-                    => (obj : clipboardItemOptions)
-                    -> IO PresentationStyle
-  
-  %foreign "browser:lambda:(x,v)=>{x.presentationStyle = v}"
+  presentationStyle : (obj : ClipboardItemOptions) -> IO PresentationStyle
+
+  %foreign "browser:lambda:(x,v)=>{x.presentationStyle  = v}"
   prim__setPresentationStyle : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setPresentationStyle :  Cast clipboardItemOptions ClipboardItemOptions
-                       => ToJS ClipboardItemOptions
-                       => Cast presentationStyle PresentationStyle
-                       => ToJS PresentationStyle
-                       => (obj : clipboardItemOptions)
-                       -> (v : presentationStyle)
+  setPresentationStyle :  (obj : ClipboardItemOptions)
+                       -> (v : PresentationStyle)
                        -> IO ()
 
 namespace ClipboardPermissionDescriptor
   
+  public export
+  JSVal ClipboardPermissionDescriptor where
+    parents =  [ PermissionDescriptor , JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.allowWithoutGesture"
   prim__allowWithoutGesture : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  allowWithoutGesture :  Cast clipboardPermissionDescriptor ClipboardPermissionDescriptor
-                      => ToJS ClipboardPermissionDescriptor
-                      => (obj : clipboardPermissionDescriptor)
-                      -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.allowWithoutGesture = v}"
+  allowWithoutGesture : (obj : ClipboardPermissionDescriptor) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.allowWithoutGesture  = v}"
   prim__setAllowWithoutGesture : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setAllowWithoutGesture :  Cast clipboardPermissionDescriptor ClipboardPermissionDescriptor
-                         => ToJS ClipboardPermissionDescriptor
-                         => (obj : clipboardPermissionDescriptor)
+  setAllowWithoutGesture :  (obj : ClipboardPermissionDescriptor)
                          -> (v : Bool)
                          -> IO ()
 
-
-
---------------------------------------------------------------------------------
---          Casts
---------------------------------------------------------------------------------
-
-export
-Cast Clipboard EventTarget where
-  cast = believe_me
-
-export
-Cast ClipboardEvent Event where
-  cast = believe_me
-
-export
-Cast ClipboardEventInit EventInit where
-  cast = believe_me
-
-export
-Cast ClipboardPermissionDescriptor PermissionDescriptor where
-  cast = believe_me

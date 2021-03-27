@@ -1,6 +1,4 @@
 module Web.ClipboardTypes
-
-import Data.Maybe
 import JS.Util
 
 --------------------------------------------------------------------------------
@@ -50,9 +48,8 @@ namespace PresentationStyle
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-
 export
-data Clipboard : Type where [external]
+data Clipboard  : Type where [external]
 
 export
 ToJS Clipboard where
@@ -61,9 +58,8 @@ ToJS Clipboard where
 export
 FromJS Clipboard where
   fromJS = believe_me
-
 export
-data ClipboardEvent : Type where [external]
+data ClipboardEvent  : Type where [external]
 
 export
 ToJS ClipboardEvent where
@@ -72,9 +68,8 @@ ToJS ClipboardEvent where
 export
 FromJS ClipboardEvent where
   fromJS = believe_me
-
 export
-data ClipboardItem : Type where [external]
+data ClipboardItem  : Type where [external]
 
 export
 ToJS ClipboardItem where
@@ -88,9 +83,8 @@ FromJS ClipboardItem where
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
-
 export
-data ClipboardEventInit : Type where [external]
+data ClipboardEventInit  : Type where [external]
 
 export
 ToJS ClipboardEventInit where
@@ -99,9 +93,8 @@ ToJS ClipboardEventInit where
 export
 FromJS ClipboardEventInit where
   fromJS = believe_me
-
 export
-data ClipboardItemOptions : Type where [external]
+data ClipboardItemOptions  : Type where [external]
 
 export
 ToJS ClipboardItemOptions where
@@ -110,9 +103,8 @@ ToJS ClipboardItemOptions where
 export
 FromJS ClipboardItemOptions where
   fromJS = believe_me
-
 export
-data ClipboardPermissionDescriptor : Type where [external]
+data ClipboardPermissionDescriptor  : Type where [external]
 
 export
 ToJS ClipboardPermissionDescriptor where

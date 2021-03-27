@@ -1,6 +1,4 @@
 module Web.ServiceworkerTypes
-
-import Data.Maybe
 import JS.Util
 
 --------------------------------------------------------------------------------
@@ -185,9 +183,8 @@ namespace ClientType
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-
 export
-data Cache : Type where [external]
+data Cache  : Type where [external]
 
 export
 ToJS Cache where
@@ -196,9 +193,8 @@ ToJS Cache where
 export
 FromJS Cache where
   fromJS = believe_me
-
 export
-data CacheStorage : Type where [external]
+data CacheStorage  : Type where [external]
 
 export
 ToJS CacheStorage where
@@ -207,9 +203,8 @@ ToJS CacheStorage where
 export
 FromJS CacheStorage where
   fromJS = believe_me
-
 export
-data Client : Type where [external]
+data Client  : Type where [external]
 
 export
 ToJS Client where
@@ -218,9 +213,8 @@ ToJS Client where
 export
 FromJS Client where
   fromJS = believe_me
-
 export
-data Clients : Type where [external]
+data Clients  : Type where [external]
 
 export
 ToJS Clients where
@@ -229,9 +223,8 @@ ToJS Clients where
 export
 FromJS Clients where
   fromJS = believe_me
-
 export
-data ExtendableEvent : Type where [external]
+data ExtendableEvent  : Type where [external]
 
 export
 ToJS ExtendableEvent where
@@ -240,9 +233,8 @@ ToJS ExtendableEvent where
 export
 FromJS ExtendableEvent where
   fromJS = believe_me
-
 export
-data ExtendableMessageEvent : Type where [external]
+data ExtendableMessageEvent  : Type where [external]
 
 export
 ToJS ExtendableMessageEvent where
@@ -251,9 +243,8 @@ ToJS ExtendableMessageEvent where
 export
 FromJS ExtendableMessageEvent where
   fromJS = believe_me
-
 export
-data FetchEvent : Type where [external]
+data FetchEvent  : Type where [external]
 
 export
 ToJS FetchEvent where
@@ -262,9 +253,8 @@ ToJS FetchEvent where
 export
 FromJS FetchEvent where
   fromJS = believe_me
-
 export
-data NavigationPreloadManager : Type where [external]
+data NavigationPreloadManager  : Type where [external]
 
 export
 ToJS NavigationPreloadManager where
@@ -273,9 +263,8 @@ ToJS NavigationPreloadManager where
 export
 FromJS NavigationPreloadManager where
   fromJS = believe_me
-
 export
-data ServiceWorker : Type where [external]
+data ServiceWorker  : Type where [external]
 
 export
 ToJS ServiceWorker where
@@ -284,9 +273,8 @@ ToJS ServiceWorker where
 export
 FromJS ServiceWorker where
   fromJS = believe_me
-
 export
-data ServiceWorkerContainer : Type where [external]
+data ServiceWorkerContainer  : Type where [external]
 
 export
 ToJS ServiceWorkerContainer where
@@ -295,9 +283,8 @@ ToJS ServiceWorkerContainer where
 export
 FromJS ServiceWorkerContainer where
   fromJS = believe_me
-
 export
-data ServiceWorkerGlobalScope : Type where [external]
+data ServiceWorkerGlobalScope  : Type where [external]
 
 export
 ToJS ServiceWorkerGlobalScope where
@@ -306,9 +293,8 @@ ToJS ServiceWorkerGlobalScope where
 export
 FromJS ServiceWorkerGlobalScope where
   fromJS = believe_me
-
 export
-data ServiceWorkerRegistration : Type where [external]
+data ServiceWorkerRegistration  : Type where [external]
 
 export
 ToJS ServiceWorkerRegistration where
@@ -317,9 +303,8 @@ ToJS ServiceWorkerRegistration where
 export
 FromJS ServiceWorkerRegistration where
   fromJS = believe_me
-
 export
-data WindowClient : Type where [external]
+data WindowClient  : Type where [external]
 
 export
 ToJS WindowClient where
@@ -333,9 +318,8 @@ FromJS WindowClient where
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
-
 export
-data CacheQueryOptions : Type where [external]
+data CacheQueryOptions  : Type where [external]
 
 export
 ToJS CacheQueryOptions where
@@ -344,9 +328,8 @@ ToJS CacheQueryOptions where
 export
 FromJS CacheQueryOptions where
   fromJS = believe_me
-
 export
-data ClientQueryOptions : Type where [external]
+data ClientQueryOptions  : Type where [external]
 
 export
 ToJS ClientQueryOptions where
@@ -355,9 +338,8 @@ ToJS ClientQueryOptions where
 export
 FromJS ClientQueryOptions where
   fromJS = believe_me
-
 export
-data ExtendableEventInit : Type where [external]
+data ExtendableEventInit  : Type where [external]
 
 export
 ToJS ExtendableEventInit where
@@ -366,9 +348,8 @@ ToJS ExtendableEventInit where
 export
 FromJS ExtendableEventInit where
   fromJS = believe_me
-
 export
-data ExtendableMessageEventInit : Type where [external]
+data ExtendableMessageEventInit  : Type where [external]
 
 export
 ToJS ExtendableMessageEventInit where
@@ -377,9 +358,8 @@ ToJS ExtendableMessageEventInit where
 export
 FromJS ExtendableMessageEventInit where
   fromJS = believe_me
-
 export
-data FetchEventInit : Type where [external]
+data FetchEventInit  : Type where [external]
 
 export
 ToJS FetchEventInit where
@@ -388,9 +368,8 @@ ToJS FetchEventInit where
 export
 FromJS FetchEventInit where
   fromJS = believe_me
-
 export
-data MultiCacheQueryOptions : Type where [external]
+data MultiCacheQueryOptions  : Type where [external]
 
 export
 ToJS MultiCacheQueryOptions where
@@ -399,9 +378,8 @@ ToJS MultiCacheQueryOptions where
 export
 FromJS MultiCacheQueryOptions where
   fromJS = believe_me
-
 export
-data NavigationPreloadState : Type where [external]
+data NavigationPreloadState  : Type where [external]
 
 export
 ToJS NavigationPreloadState where
@@ -410,9 +388,8 @@ ToJS NavigationPreloadState where
 export
 FromJS NavigationPreloadState where
   fromJS = believe_me
-
 export
-data RegistrationOptions : Type where [external]
+data RegistrationOptions  : Type where [external]
 
 export
 ToJS RegistrationOptions where

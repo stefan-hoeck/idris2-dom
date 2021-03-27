@@ -1,14 +1,12 @@
 module Web.WebidlTypes
-
 import JS.Util
 
 
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-
 export
-data DOMException : Type where [external]
+data DOMException  : Type where [external]
 
 export
 ToJS DOMException where

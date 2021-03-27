@@ -1,6 +1,4 @@
 module Web.Webidl
-
-import Data.SOP
 import JS.Util
 import Web.Types
 
@@ -9,6 +7,12 @@ import Web.Types
 --------------------------------------------------------------------------------
 
 namespace DOMException
+  
+  public export
+  JSVal DOMException where
+    parents =  [ JSObject ]
+
+    mixins =  []
   
   public export
   ABORT_ERR : UInt16
@@ -112,31 +116,21 @@ namespace DOMException
   
   %foreign "browser:lambda:x=>x.code"
   prim__code : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  code :  Cast dOMException DOMException
-       => ToJS DOMException
-       => (obj : dOMException)
-       -> IO UInt16
+  code : (obj : DOMException) -> IO UInt16
   
   %foreign "browser:lambda:x=>x.message"
   prim__message : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  message :  Cast dOMException DOMException
-          => ToJS DOMException
-          => (obj : dOMException)
-          -> IO String
+  message : (obj : DOMException) -> IO String
   
   %foreign "browser:lambda:x=>x.name"
   prim__name : AnyPtr -> PrimIO AnyPtr
-  
-  export
-  name :  Cast dOMException DOMException
-       => ToJS DOMException
-       => (obj : dOMException)
-       -> IO String
 
+  export
+  name : (obj : DOMException) -> IO String
 
 
 

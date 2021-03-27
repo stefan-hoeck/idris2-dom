@@ -1,14 +1,12 @@
 module Web.UrlTypes
-
 import JS.Util
 
 
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-
 export
-data URL : Type where [external]
+data URL  : Type where [external]
 
 export
 ToJS URL where
@@ -17,9 +15,8 @@ ToJS URL where
 export
 FromJS URL where
   fromJS = believe_me
-
 export
-data URLSearchParams : Type where [external]
+data URLSearchParams  : Type where [external]
 
 export
 ToJS URLSearchParams where

@@ -1,6 +1,4 @@
 module Web.VisibilityTypes
-
-import Data.Maybe
 import JS.Util
 
 --------------------------------------------------------------------------------

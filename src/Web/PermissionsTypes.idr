@@ -1,6 +1,4 @@
 module Web.PermissionsTypes
-
-import Data.Maybe
 import JS.Util
 
 --------------------------------------------------------------------------------
@@ -143,9 +141,8 @@ namespace PermissionName
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-
 export
-data PermissionStatus : Type where [external]
+data PermissionStatus  : Type where [external]
 
 export
 ToJS PermissionStatus where
@@ -154,9 +151,8 @@ ToJS PermissionStatus where
 export
 FromJS PermissionStatus where
   fromJS = believe_me
-
 export
-data Permissions : Type where [external]
+data Permissions  : Type where [external]
 
 export
 ToJS Permissions where
@@ -170,9 +166,8 @@ FromJS Permissions where
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
-
 export
-data CameraDevicePermissionDescriptor : Type where [external]
+data CameraDevicePermissionDescriptor  : Type where [external]
 
 export
 ToJS CameraDevicePermissionDescriptor where
@@ -181,9 +176,8 @@ ToJS CameraDevicePermissionDescriptor where
 export
 FromJS CameraDevicePermissionDescriptor where
   fromJS = believe_me
-
 export
-data DevicePermissionDescriptor : Type where [external]
+data DevicePermissionDescriptor  : Type where [external]
 
 export
 ToJS DevicePermissionDescriptor where
@@ -192,9 +186,8 @@ ToJS DevicePermissionDescriptor where
 export
 FromJS DevicePermissionDescriptor where
   fromJS = believe_me
-
 export
-data MidiPermissionDescriptor : Type where [external]
+data MidiPermissionDescriptor  : Type where [external]
 
 export
 ToJS MidiPermissionDescriptor where
@@ -203,9 +196,8 @@ ToJS MidiPermissionDescriptor where
 export
 FromJS MidiPermissionDescriptor where
   fromJS = believe_me
-
 export
-data PermissionDescriptor : Type where [external]
+data PermissionDescriptor  : Type where [external]
 
 export
 ToJS PermissionDescriptor where
@@ -214,9 +206,8 @@ ToJS PermissionDescriptor where
 export
 FromJS PermissionDescriptor where
   fromJS = believe_me
-
 export
-data PermissionSetParameters : Type where [external]
+data PermissionSetParameters  : Type where [external]
 
 export
 ToJS PermissionSetParameters where
@@ -225,9 +216,8 @@ ToJS PermissionSetParameters where
 export
 FromJS PermissionSetParameters where
   fromJS = believe_me
-
 export
-data PushPermissionDescriptor : Type where [external]
+data PushPermissionDescriptor  : Type where [external]
 
 export
 ToJS PushPermissionDescriptor where

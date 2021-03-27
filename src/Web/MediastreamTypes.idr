@@ -1,6 +1,4 @@
 module Web.MediastreamTypes
-
-import Data.Maybe
 import JS.Util
 
 --------------------------------------------------------------------------------
@@ -168,9 +166,8 @@ namespace MediaDeviceKind
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-
 export
-data ConstrainablePattern : Type where [external]
+data ConstrainablePattern  : Type where [external]
 
 export
 ToJS ConstrainablePattern where
@@ -179,9 +176,8 @@ ToJS ConstrainablePattern where
 export
 FromJS ConstrainablePattern where
   fromJS = believe_me
-
 export
-data InputDeviceInfo : Type where [external]
+data InputDeviceInfo  : Type where [external]
 
 export
 ToJS InputDeviceInfo where
@@ -190,9 +186,8 @@ ToJS InputDeviceInfo where
 export
 FromJS InputDeviceInfo where
   fromJS = believe_me
-
 export
-data MediaDeviceInfo : Type where [external]
+data MediaDeviceInfo  : Type where [external]
 
 export
 ToJS MediaDeviceInfo where
@@ -201,9 +196,8 @@ ToJS MediaDeviceInfo where
 export
 FromJS MediaDeviceInfo where
   fromJS = believe_me
-
 export
-data MediaDevices : Type where [external]
+data MediaDevices  : Type where [external]
 
 export
 ToJS MediaDevices where
@@ -212,9 +206,8 @@ ToJS MediaDevices where
 export
 FromJS MediaDevices where
   fromJS = believe_me
-
 export
-data MediaStream : Type where [external]
+data MediaStream  : Type where [external]
 
 export
 ToJS MediaStream where
@@ -223,9 +216,8 @@ ToJS MediaStream where
 export
 FromJS MediaStream where
   fromJS = believe_me
-
 export
-data MediaStreamTrack : Type where [external]
+data MediaStreamTrack  : Type where [external]
 
 export
 ToJS MediaStreamTrack where
@@ -234,9 +226,8 @@ ToJS MediaStreamTrack where
 export
 FromJS MediaStreamTrack where
   fromJS = believe_me
-
 export
-data MediaStreamTrackEvent : Type where [external]
+data MediaStreamTrackEvent  : Type where [external]
 
 export
 ToJS MediaStreamTrackEvent where
@@ -245,9 +236,8 @@ ToJS MediaStreamTrackEvent where
 export
 FromJS MediaStreamTrackEvent where
   fromJS = believe_me
-
 export
-data OverconstrainedError : Type where [external]
+data OverconstrainedError  : Type where [external]
 
 export
 ToJS OverconstrainedError where
@@ -261,9 +251,8 @@ FromJS OverconstrainedError where
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
-
 export
-data Capabilities : Type where [external]
+data Capabilities  : Type where [external]
 
 export
 ToJS Capabilities where
@@ -272,9 +261,8 @@ ToJS Capabilities where
 export
 FromJS Capabilities where
   fromJS = believe_me
-
 export
-data ConstrainBooleanParameters : Type where [external]
+data ConstrainBooleanParameters  : Type where [external]
 
 export
 ToJS ConstrainBooleanParameters where
@@ -283,9 +271,8 @@ ToJS ConstrainBooleanParameters where
 export
 FromJS ConstrainBooleanParameters where
   fromJS = believe_me
-
 export
-data ConstrainDOMStringParameters : Type where [external]
+data ConstrainDOMStringParameters  : Type where [external]
 
 export
 ToJS ConstrainDOMStringParameters where
@@ -294,9 +281,8 @@ ToJS ConstrainDOMStringParameters where
 export
 FromJS ConstrainDOMStringParameters where
   fromJS = believe_me
-
 export
-data ConstrainDoubleRange : Type where [external]
+data ConstrainDoubleRange  : Type where [external]
 
 export
 ToJS ConstrainDoubleRange where
@@ -305,9 +291,8 @@ ToJS ConstrainDoubleRange where
 export
 FromJS ConstrainDoubleRange where
   fromJS = believe_me
-
 export
-data ConstrainULongRange : Type where [external]
+data ConstrainULongRange  : Type where [external]
 
 export
 ToJS ConstrainULongRange where
@@ -316,9 +301,8 @@ ToJS ConstrainULongRange where
 export
 FromJS ConstrainULongRange where
   fromJS = believe_me
-
 export
-data ConstraintSet : Type where [external]
+data ConstraintSet  : Type where [external]
 
 export
 ToJS ConstraintSet where
@@ -327,9 +311,8 @@ ToJS ConstraintSet where
 export
 FromJS ConstraintSet where
   fromJS = believe_me
-
 export
-data Constraints : Type where [external]
+data Constraints  : Type where [external]
 
 export
 ToJS Constraints where
@@ -338,9 +321,8 @@ ToJS Constraints where
 export
 FromJS Constraints where
   fromJS = believe_me
-
 export
-data DoubleRange : Type where [external]
+data DoubleRange  : Type where [external]
 
 export
 ToJS DoubleRange where
@@ -349,9 +331,8 @@ ToJS DoubleRange where
 export
 FromJS DoubleRange where
   fromJS = believe_me
-
 export
-data MediaStreamConstraints : Type where [external]
+data MediaStreamConstraints  : Type where [external]
 
 export
 ToJS MediaStreamConstraints where
@@ -360,9 +341,8 @@ ToJS MediaStreamConstraints where
 export
 FromJS MediaStreamConstraints where
   fromJS = believe_me
-
 export
-data MediaStreamTrackEventInit : Type where [external]
+data MediaStreamTrackEventInit  : Type where [external]
 
 export
 ToJS MediaStreamTrackEventInit where
@@ -371,9 +351,8 @@ ToJS MediaStreamTrackEventInit where
 export
 FromJS MediaStreamTrackEventInit where
   fromJS = believe_me
-
 export
-data MediaTrackCapabilities : Type where [external]
+data MediaTrackCapabilities  : Type where [external]
 
 export
 ToJS MediaTrackCapabilities where
@@ -382,9 +361,8 @@ ToJS MediaTrackCapabilities where
 export
 FromJS MediaTrackCapabilities where
   fromJS = believe_me
-
 export
-data MediaTrackConstraintSet : Type where [external]
+data MediaTrackConstraintSet  : Type where [external]
 
 export
 ToJS MediaTrackConstraintSet where
@@ -393,9 +371,8 @@ ToJS MediaTrackConstraintSet where
 export
 FromJS MediaTrackConstraintSet where
   fromJS = believe_me
-
 export
-data MediaTrackConstraints : Type where [external]
+data MediaTrackConstraints  : Type where [external]
 
 export
 ToJS MediaTrackConstraints where
@@ -404,9 +381,8 @@ ToJS MediaTrackConstraints where
 export
 FromJS MediaTrackConstraints where
   fromJS = believe_me
-
 export
-data MediaTrackSettings : Type where [external]
+data MediaTrackSettings  : Type where [external]
 
 export
 ToJS MediaTrackSettings where
@@ -415,9 +391,8 @@ ToJS MediaTrackSettings where
 export
 FromJS MediaTrackSettings where
   fromJS = believe_me
-
 export
-data MediaTrackSupportedConstraints : Type where [external]
+data MediaTrackSupportedConstraints  : Type where [external]
 
 export
 ToJS MediaTrackSupportedConstraints where
@@ -426,9 +401,8 @@ ToJS MediaTrackSupportedConstraints where
 export
 FromJS MediaTrackSupportedConstraints where
   fromJS = believe_me
-
 export
-data Settings : Type where [external]
+data Settings  : Type where [external]
 
 export
 ToJS Settings where
@@ -437,9 +411,8 @@ ToJS Settings where
 export
 FromJS Settings where
   fromJS = believe_me
-
 export
-data ULongRange : Type where [external]
+data ULongRange  : Type where [external]
 
 export
 ToJS ULongRange where

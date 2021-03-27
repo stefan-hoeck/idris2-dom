@@ -1,6 +1,4 @@
 module Web.Dom
-
-import Data.SOP
 import JS.Util
 import Web.Types
 
@@ -10,868 +8,698 @@ import Web.Types
 
 namespace AbortController
   
+  public export
+  JSVal AbortController where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.signal"
   prim__signal : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  signal :  Cast abortController AbortController
-         => ToJS AbortController
-         => (obj : abortController)
-         -> IO AbortSignal
+  signal : (obj : AbortController) -> IO AbortSignal
 
 namespace AbortSignal
   
+  public export
+  JSVal AbortSignal where
+    parents =  [ EventTarget , JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.aborted"
   prim__aborted : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  aborted :  Cast abortSignal AbortSignal
-          => ToJS AbortSignal
-          => (obj : abortSignal)
-          -> IO Bool
+  aborted : (obj : AbortSignal) -> IO Bool
   
   %foreign "browser:lambda:x=>x.onabort"
   prim__onabort : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  onabort :  Cast abortSignal AbortSignal
-          => ToJS AbortSignal
-          => (obj : abortSignal)
-          -> IO EventHandler
-  
-  %foreign "browser:lambda:(x,v)=>{x.onabort = v}"
+  onabort : (obj : AbortSignal) -> IO EventHandler
+
+  %foreign "browser:lambda:(x,v)=>{x.onabort  = v}"
   prim__setOnabort : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setOnabort :  Cast abortSignal AbortSignal
-             => ToJS AbortSignal
-             => Cast eventHandler EventHandler
-             => ToJS EventHandler
-             => (obj : abortSignal)
-             -> (v : eventHandler)
-             -> IO ()
+  setOnabort : (obj : AbortSignal) -> (v : EventHandler) -> IO ()
 
 namespace AbstractRange
   
+  public export
+  JSVal AbstractRange where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.collapsed"
   prim__collapsed : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  collapsed :  Cast abstractRange AbstractRange
-            => ToJS AbstractRange
-            => (obj : abstractRange)
-            -> IO Bool
+  collapsed : (obj : AbstractRange) -> IO Bool
   
   %foreign "browser:lambda:x=>x.endContainer"
   prim__endContainer : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  endContainer :  Cast abstractRange AbstractRange
-               => ToJS AbstractRange
-               => (obj : abstractRange)
-               -> IO Node
+  endContainer : (obj : AbstractRange) -> IO Node
   
   %foreign "browser:lambda:x=>x.endOffset"
   prim__endOffset : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  endOffset :  Cast abstractRange AbstractRange
-            => ToJS AbstractRange
-            => (obj : abstractRange)
-            -> IO UInt32
+  endOffset : (obj : AbstractRange) -> IO UInt32
   
   %foreign "browser:lambda:x=>x.startContainer"
   prim__startContainer : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  startContainer :  Cast abstractRange AbstractRange
-                 => ToJS AbstractRange
-                 => (obj : abstractRange)
-                 -> IO Node
+  startContainer : (obj : AbstractRange) -> IO Node
   
   %foreign "browser:lambda:x=>x.startOffset"
   prim__startOffset : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  startOffset :  Cast abstractRange AbstractRange
-              => ToJS AbstractRange
-              => (obj : abstractRange)
-              -> IO UInt32
+  startOffset : (obj : AbstractRange) -> IO UInt32
 
 namespace Attr
   
+  public export
+  JSVal Attr where
+    parents =  [ Node , EventTarget , JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.localName"
   prim__localName : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  localName : Cast attr Attr => ToJS Attr => (obj : attr) -> IO String
+  localName : (obj : Attr) -> IO String
   
   %foreign "browser:lambda:x=>x.name"
   prim__name : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  name : Cast attr Attr => ToJS Attr => (obj : attr) -> IO String
+  name : (obj : Attr) -> IO String
   
   %foreign "browser:lambda:x=>x.namespaceURI"
   prim__namespaceURI : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  namespaceURI :  Cast attr Attr
-               => ToJS Attr
-               => (obj : attr)
-               -> IO (Maybe String)
+  namespaceURI : (obj : Attr) -> IO (Maybe String)
   
   %foreign "browser:lambda:x=>x.ownerElement"
   prim__ownerElement : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  ownerElement :  Cast attr Attr
-               => ToJS Attr
-               => (obj : attr)
-               -> IO (Maybe Element)
+  ownerElement : (obj : Attr) -> IO (Maybe Element)
   
   %foreign "browser:lambda:x=>x.prefix"
   prim__prefix_ : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  prefix_ : Cast attr Attr => ToJS Attr => (obj : attr) -> IO (Maybe String)
+  prefix_ : (obj : Attr) -> IO (Maybe String)
   
   %foreign "browser:lambda:x=>x.specified"
   prim__specified : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  specified : Cast attr Attr => ToJS Attr => (obj : attr) -> IO Bool
+  specified : (obj : Attr) -> IO Bool
   
   %foreign "browser:lambda:x=>x.value"
   prim__value : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  value : Cast attr Attr => ToJS Attr => (obj : attr) -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.value = v}"
+  value : (obj : Attr) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.value  = v}"
   prim__setValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setValue :  Cast attr Attr
-           => ToJS Attr
-           => (obj : attr)
-           -> (v : String)
-           -> IO ()
+  setValue : (obj : Attr) -> (v : String) -> IO ()
+
+namespace CDATASection
+  
+  public export
+  JSVal CDATASection where
+    parents =  [ Text , CharacterData , Node , EventTarget , JSObject ]
+
+    mixins =  [ ChildNode , NonDocumentTypeChildNode , Slottable ]
 
 namespace CharacterData
   
+  public export
+  JSVal CharacterData where
+    parents =  [ Node , EventTarget , JSObject ]
+
+    mixins =  [ ChildNode , NonDocumentTypeChildNode ]
+  
   %foreign "browser:lambda:x=>x.length"
   prim__length : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  length :  Cast characterData CharacterData
-         => ToJS CharacterData
-         => (obj : characterData)
-         -> IO UInt32
+  length : (obj : CharacterData) -> IO UInt32
   
   %foreign "browser:lambda:x=>x.data"
   prim__data_ : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  data_ :  Cast characterData CharacterData
-        => ToJS CharacterData
-        => (obj : characterData)
-        -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.data = v}"
+  data_ : (obj : CharacterData) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.data  = v}"
   prim__setData : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setData :  Cast characterData CharacterData
-          => ToJS CharacterData
-          => (obj : characterData)
-          -> (v : String)
-          -> IO ()
+  setData : (obj : CharacterData) -> (v : String) -> IO ()
+
+namespace Comment
+  
+  public export
+  JSVal Comment where
+    parents =  [ CharacterData , Node , EventTarget , JSObject ]
+
+    mixins =  [ ChildNode , NonDocumentTypeChildNode ]
 
 namespace CustomEvent
   
+  public export
+  JSVal CustomEvent where
+    parents =  [ Event , JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.detail"
   prim__detail : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  detail :  Cast customEvent CustomEvent
-         => ToJS CustomEvent
-         => (obj : customEvent)
-         -> IO JSAny
+  detail : (obj : CustomEvent) -> IO JSAny
+
+namespace DOMImplementation
+  
+  public export
+  JSVal DOMImplementation where
+    parents =  [ JSObject ]
+
+    mixins =  []
 
 namespace DOMTokenList
   
+  public export
+  JSVal DOMTokenList where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.length"
   prim__length : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  length :  Cast dOMTokenList DOMTokenList
-         => ToJS DOMTokenList
-         => (obj : dOMTokenList)
-         -> IO UInt32
+  length : (obj : DOMTokenList) -> IO UInt32
 
 namespace Document
   
+  public export
+  JSVal Document where
+    parents =  [ Node , EventTarget , JSObject ]
+
+    mixins =  [ DocumentAndElementEventHandlers
+              , DocumentOrShadowRoot
+              , GlobalEventHandlers
+              , NonElementParentNode
+              , ParentNode
+              , XPathEvaluatorBase
+              ]
+  
   %foreign "browser:lambda:x=>x.URL"
   prim__URL : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  URL : Cast document Document => ToJS Document => (obj : document) -> IO String
+  URL : (obj : Document) -> IO String
   
   %foreign "browser:lambda:x=>x.all"
   prim__all : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  all :  Cast document Document
-      => ToJS Document
-      => (obj : document)
-      -> IO HTMLAllCollection
+  all : (obj : Document) -> IO HTMLAllCollection
   
   %foreign "browser:lambda:x=>x.anchors"
   prim__anchors : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  anchors :  Cast document Document
-          => ToJS Document
-          => (obj : document)
-          -> IO HTMLCollection
+  anchors : (obj : Document) -> IO HTMLCollection
   
   %foreign "browser:lambda:x=>x.applets"
   prim__applets : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  applets :  Cast document Document
-          => ToJS Document
-          => (obj : document)
-          -> IO HTMLCollection
+  applets : (obj : Document) -> IO HTMLCollection
   
   %foreign "browser:lambda:x=>x.characterSet"
   prim__characterSet : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  characterSet :  Cast document Document
-               => ToJS Document
-               => (obj : document)
-               -> IO String
+  characterSet : (obj : Document) -> IO String
   
   %foreign "browser:lambda:x=>x.charset"
   prim__charset : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  charset :  Cast document Document
-          => ToJS Document
-          => (obj : document)
-          -> IO String
+  charset : (obj : Document) -> IO String
   
   %foreign "browser:lambda:x=>x.compatMode"
   prim__compatMode : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  compatMode :  Cast document Document
-             => ToJS Document
-             => (obj : document)
-             -> IO String
+  compatMode : (obj : Document) -> IO String
   
   %foreign "browser:lambda:x=>x.contentType"
   prim__contentType : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  contentType :  Cast document Document
-              => ToJS Document
-              => (obj : document)
-              -> IO String
+  contentType : (obj : Document) -> IO String
   
   %foreign "browser:lambda:x=>x.currentScript"
   prim__currentScript : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  currentScript :  Cast document Document
-                => ToJS Document
-                => (obj : document)
-                -> IO (Maybe HTMLOrSVGScriptElement)
+  currentScript : (obj : Document) -> IO (Maybe HTMLOrSVGScriptElement)
   
   %foreign "browser:lambda:x=>x.defaultView"
   prim__defaultView : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  defaultView :  Cast document Document
-              => ToJS Document
-              => (obj : document)
-              -> IO (Maybe WindowProxy)
+  defaultView : (obj : Document) -> IO (Maybe WindowProxy)
   
   %foreign "browser:lambda:x=>x.doctype"
   prim__doctype : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  doctype :  Cast document Document
-          => ToJS Document
-          => (obj : document)
-          -> IO (Maybe DocumentType)
+  doctype : (obj : Document) -> IO (Maybe DocumentType)
   
   %foreign "browser:lambda:x=>x.documentElement"
   prim__documentElement : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  documentElement :  Cast document Document
-                  => ToJS Document
-                  => (obj : document)
-                  -> IO (Maybe Element)
+  documentElement : (obj : Document) -> IO (Maybe Element)
   
   %foreign "browser:lambda:x=>x.documentURI"
   prim__documentURI : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  documentURI :  Cast document Document
-              => ToJS Document
-              => (obj : document)
-              -> IO String
+  documentURI : (obj : Document) -> IO String
   
   %foreign "browser:lambda:x=>x.embeds"
   prim__embeds : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  embeds :  Cast document Document
-         => ToJS Document
-         => (obj : document)
-         -> IO HTMLCollection
+  embeds : (obj : Document) -> IO HTMLCollection
   
   %foreign "browser:lambda:x=>x.forms"
   prim__forms : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  forms :  Cast document Document
-        => ToJS Document
-        => (obj : document)
-        -> IO HTMLCollection
+  forms : (obj : Document) -> IO HTMLCollection
   
   %foreign "browser:lambda:x=>x.head"
   prim__head : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  head :  Cast document Document
-       => ToJS Document
-       => (obj : document)
-       -> IO (Maybe HTMLHeadElement)
+  head : (obj : Document) -> IO (Maybe HTMLHeadElement)
   
   %foreign "browser:lambda:x=>x.hidden"
   prim__hidden : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  hidden :  Cast document Document
-         => ToJS Document
-         => (obj : document)
-         -> IO Bool
+  hidden : (obj : Document) -> IO Bool
   
   %foreign "browser:lambda:x=>x.images"
   prim__images : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  images :  Cast document Document
-         => ToJS Document
-         => (obj : document)
-         -> IO HTMLCollection
+  images : (obj : Document) -> IO HTMLCollection
   
   %foreign "browser:lambda:x=>x.implementation"
   prim__implementation_ : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  implementation_ :  Cast document Document
-                  => ToJS Document
-                  => (obj : document)
-                  -> IO DOMImplementation
+  implementation_ : (obj : Document) -> IO DOMImplementation
   
   %foreign "browser:lambda:x=>x.inputEncoding"
   prim__inputEncoding : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  inputEncoding :  Cast document Document
-                => ToJS Document
-                => (obj : document)
-                -> IO String
+  inputEncoding : (obj : Document) -> IO String
   
   %foreign "browser:lambda:x=>x.lastModified"
   prim__lastModified : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  lastModified :  Cast document Document
-               => ToJS Document
-               => (obj : document)
-               -> IO String
+  lastModified : (obj : Document) -> IO String
   
   %foreign "browser:lambda:x=>x.links"
   prim__links : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  links :  Cast document Document
-        => ToJS Document
-        => (obj : document)
-        -> IO HTMLCollection
+  links : (obj : Document) -> IO HTMLCollection
   
   %foreign "browser:lambda:x=>x.location"
   prim__location : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  location :  Cast document Document
-           => ToJS Document
-           => (obj : document)
-           -> IO (Maybe Location)
+  location : (obj : Document) -> IO (Maybe Location)
   
   %foreign "browser:lambda:x=>x.plugins"
   prim__plugins : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  plugins :  Cast document Document
-          => ToJS Document
-          => (obj : document)
-          -> IO HTMLCollection
+  plugins : (obj : Document) -> IO HTMLCollection
   
   %foreign "browser:lambda:x=>x.readyState"
   prim__readyState : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  readyState :  Cast document Document
-             => ToJS Document
-             => (obj : document)
-             -> IO DocumentReadyState
+  readyState : (obj : Document) -> IO DocumentReadyState
   
   %foreign "browser:lambda:x=>x.referrer"
   prim__referrer : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  referrer :  Cast document Document
-           => ToJS Document
-           => (obj : document)
-           -> IO String
+  referrer : (obj : Document) -> IO String
   
   %foreign "browser:lambda:x=>x.rootElement"
   prim__rootElement : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  rootElement :  Cast document Document
-              => ToJS Document
-              => (obj : document)
-              -> IO (Maybe SVGSVGElement)
+  rootElement : (obj : Document) -> IO (Maybe SVGSVGElement)
   
   %foreign "browser:lambda:x=>x.scripts"
   prim__scripts : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  scripts :  Cast document Document
-          => ToJS Document
-          => (obj : document)
-          -> IO HTMLCollection
+  scripts : (obj : Document) -> IO HTMLCollection
   
   %foreign "browser:lambda:x=>x.timeline"
   prim__timeline : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  timeline :  Cast document Document
-           => ToJS Document
-           => (obj : document)
-           -> IO DocumentTimeline
+  timeline : (obj : Document) -> IO DocumentTimeline
   
   %foreign "browser:lambda:x=>x.visibilityState"
   prim__visibilityState : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  visibilityState :  Cast document Document
-                  => ToJS Document
-                  => (obj : document)
-                  -> IO VisibilityState
+  visibilityState : (obj : Document) -> IO VisibilityState
   
   %foreign "browser:lambda:x=>x.alinkColor"
   prim__alinkColor : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  alinkColor :  Cast document Document
-             => ToJS Document
-             => (obj : document)
-             -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.alinkColor = v}"
+  alinkColor : (obj : Document) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.alinkColor  = v}"
   prim__setAlinkColor : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setAlinkColor :  Cast document Document
-                => ToJS Document
-                => (obj : document)
-                -> (v : String)
-                -> IO ()
+  setAlinkColor : (obj : Document) -> (v : String) -> IO ()
   
   %foreign "browser:lambda:x=>x.bgColor"
   prim__bgColor : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  bgColor :  Cast document Document
-          => ToJS Document
-          => (obj : document)
-          -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.bgColor = v}"
+  bgColor : (obj : Document) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.bgColor  = v}"
   prim__setBgColor : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setBgColor :  Cast document Document
-             => ToJS Document
-             => (obj : document)
-             -> (v : String)
-             -> IO ()
+  setBgColor : (obj : Document) -> (v : String) -> IO ()
   
   %foreign "browser:lambda:x=>x.body"
   prim__body : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  body :  Cast document Document
-       => ToJS Document
-       => (obj : document)
-       -> IO (Maybe HTMLElement)
-  
-  %foreign "browser:lambda:(x,v)=>{x.body = v}"
+  body : (obj : Document) -> IO (Maybe HTMLElement)
+
+  %foreign "browser:lambda:(x,v)=>{x.body  = v}"
   prim__setBody : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setBody :  Cast document Document
-          => ToJS Document
-          => Cast hTMLElement HTMLElement
-          => ToJS HTMLElement
-          => (obj : document)
-          -> (v : Maybe hTMLElement)
-          -> IO ()
+  setBody : (obj : Document) -> (v : Maybe HTMLElement) -> IO ()
   
   %foreign "browser:lambda:x=>x.cookie"
   prim__cookie : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  cookie :  Cast document Document
-         => ToJS Document
-         => (obj : document)
-         -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.cookie = v}"
+  cookie : (obj : Document) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.cookie  = v}"
   prim__setCookie : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setCookie :  Cast document Document
-            => ToJS Document
-            => (obj : document)
-            -> (v : String)
-            -> IO ()
+  setCookie : (obj : Document) -> (v : String) -> IO ()
   
   %foreign "browser:lambda:x=>x.designMode"
   prim__designMode : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  designMode :  Cast document Document
-             => ToJS Document
-             => (obj : document)
-             -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.designMode = v}"
+  designMode : (obj : Document) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.designMode  = v}"
   prim__setDesignMode : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setDesignMode :  Cast document Document
-                => ToJS Document
-                => (obj : document)
-                -> (v : String)
-                -> IO ()
+  setDesignMode : (obj : Document) -> (v : String) -> IO ()
   
   %foreign "browser:lambda:x=>x.dir"
   prim__dir : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  dir : Cast document Document => ToJS Document => (obj : document) -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.dir = v}"
+  dir : (obj : Document) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.dir  = v}"
   prim__setDir : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setDir :  Cast document Document
-         => ToJS Document
-         => (obj : document)
-         -> (v : String)
-         -> IO ()
+  setDir : (obj : Document) -> (v : String) -> IO ()
   
   %foreign "browser:lambda:x=>x.domain"
   prim__domain : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  domain :  Cast document Document
-         => ToJS Document
-         => (obj : document)
-         -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.domain = v}"
+  domain : (obj : Document) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.domain  = v}"
   prim__setDomain : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setDomain :  Cast document Document
-            => ToJS Document
-            => (obj : document)
-            -> (v : String)
-            -> IO ()
+  setDomain : (obj : Document) -> (v : String) -> IO ()
   
   %foreign "browser:lambda:x=>x.fgColor"
   prim__fgColor : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  fgColor :  Cast document Document
-          => ToJS Document
-          => (obj : document)
-          -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.fgColor = v}"
+  fgColor : (obj : Document) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.fgColor  = v}"
   prim__setFgColor : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setFgColor :  Cast document Document
-             => ToJS Document
-             => (obj : document)
-             -> (v : String)
-             -> IO ()
+  setFgColor : (obj : Document) -> (v : String) -> IO ()
   
   %foreign "browser:lambda:x=>x.linkColor"
   prim__linkColor : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  linkColor :  Cast document Document
-            => ToJS Document
-            => (obj : document)
-            -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.linkColor = v}"
+  linkColor : (obj : Document) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.linkColor  = v}"
   prim__setLinkColor : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setLinkColor :  Cast document Document
-               => ToJS Document
-               => (obj : document)
-               -> (v : String)
-               -> IO ()
+  setLinkColor : (obj : Document) -> (v : String) -> IO ()
   
   %foreign "browser:lambda:x=>x.onreadystatechange"
   prim__onreadystatechange : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  onreadystatechange :  Cast document Document
-                     => ToJS Document
-                     => (obj : document)
-                     -> IO EventHandler
-  
-  %foreign "browser:lambda:(x,v)=>{x.onreadystatechange = v}"
+  onreadystatechange : (obj : Document) -> IO EventHandler
+
+  %foreign "browser:lambda:(x,v)=>{x.onreadystatechange  = v}"
   prim__setOnreadystatechange : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setOnreadystatechange :  Cast document Document
-                        => ToJS Document
-                        => Cast eventHandler EventHandler
-                        => ToJS EventHandler
-                        => (obj : document)
-                        -> (v : eventHandler)
-                        -> IO ()
+  setOnreadystatechange : (obj : Document) -> (v : EventHandler) -> IO ()
   
   %foreign "browser:lambda:x=>x.onvisibilitychange"
   prim__onvisibilitychange : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  onvisibilitychange :  Cast document Document
-                     => ToJS Document
-                     => (obj : document)
-                     -> IO EventHandler
-  
-  %foreign "browser:lambda:(x,v)=>{x.onvisibilitychange = v}"
+  onvisibilitychange : (obj : Document) -> IO EventHandler
+
+  %foreign "browser:lambda:(x,v)=>{x.onvisibilitychange  = v}"
   prim__setOnvisibilitychange : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setOnvisibilitychange :  Cast document Document
-                        => ToJS Document
-                        => Cast eventHandler EventHandler
-                        => ToJS EventHandler
-                        => (obj : document)
-                        -> (v : eventHandler)
-                        -> IO ()
+  setOnvisibilitychange : (obj : Document) -> (v : EventHandler) -> IO ()
   
   %foreign "browser:lambda:x=>x.title"
   prim__title : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  title :  Cast document Document
-        => ToJS Document
-        => (obj : document)
-        -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.title = v}"
+  title : (obj : Document) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.title  = v}"
   prim__setTitle : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setTitle :  Cast document Document
-           => ToJS Document
-           => (obj : document)
-           -> (v : String)
-           -> IO ()
+  setTitle : (obj : Document) -> (v : String) -> IO ()
   
   %foreign "browser:lambda:x=>x.vlinkColor"
   prim__vlinkColor : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  vlinkColor :  Cast document Document
-             => ToJS Document
-             => (obj : document)
-             -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.vlinkColor = v}"
+  vlinkColor : (obj : Document) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.vlinkColor  = v}"
   prim__setVlinkColor : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setVlinkColor :  Cast document Document
-                => ToJS Document
-                => (obj : document)
-                -> (v : String)
-                -> IO ()
+  setVlinkColor : (obj : Document) -> (v : String) -> IO ()
+
+namespace DocumentFragment
+  
+  public export
+  JSVal DocumentFragment where
+    parents =  [ Node , EventTarget , JSObject ]
+
+    mixins =  [ NonElementParentNode , ParentNode ]
 
 namespace DocumentType
   
+  public export
+  JSVal DocumentType where
+    parents =  [ Node , EventTarget , JSObject ]
+
+    mixins =  [ ChildNode ]
+  
   %foreign "browser:lambda:x=>x.name"
   prim__name : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  name :  Cast documentType DocumentType
-       => ToJS DocumentType
-       => (obj : documentType)
-       -> IO String
+  name : (obj : DocumentType) -> IO String
   
   %foreign "browser:lambda:x=>x.publicId"
   prim__publicId : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  publicId :  Cast documentType DocumentType
-           => ToJS DocumentType
-           => (obj : documentType)
-           -> IO String
+  publicId : (obj : DocumentType) -> IO String
   
   %foreign "browser:lambda:x=>x.systemId"
   prim__systemId : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  systemId :  Cast documentType DocumentType
-           => ToJS DocumentType
-           => (obj : documentType)
-           -> IO String
+  systemId : (obj : DocumentType) -> IO String
 
 namespace Element
   
+  public export
+  JSVal Element where
+    parents =  [ Node , EventTarget , JSObject ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , Slottable
+              ]
+  
   %foreign "browser:lambda:x=>x.attributes"
   prim__attributes : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  attributes :  Cast element Element
-             => ToJS Element
-             => (obj : element)
-             -> IO NamedNodeMap
+  attributes : (obj : Element) -> IO NamedNodeMap
   
   %foreign "browser:lambda:x=>x.classList"
   prim__classList : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  classList :  Cast element Element
-            => ToJS Element
-            => (obj : element)
-            -> IO DOMTokenList
+  classList : (obj : Element) -> IO DOMTokenList
   
   %foreign "browser:lambda:x=>x.localName"
   prim__localName : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  localName :  Cast element Element
-            => ToJS Element
-            => (obj : element)
-            -> IO String
+  localName : (obj : Element) -> IO String
   
   %foreign "browser:lambda:x=>x.namespaceURI"
   prim__namespaceURI : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  namespaceURI :  Cast element Element
-               => ToJS Element
-               => (obj : element)
-               -> IO (Maybe String)
+  namespaceURI : (obj : Element) -> IO (Maybe String)
   
   %foreign "browser:lambda:x=>x.prefix"
   prim__prefix_ : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  prefix_ :  Cast element Element
-          => ToJS Element
-          => (obj : element)
-          -> IO (Maybe String)
+  prefix_ : (obj : Element) -> IO (Maybe String)
   
   %foreign "browser:lambda:x=>x.shadowRoot"
   prim__shadowRoot : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  shadowRoot :  Cast element Element
-             => ToJS Element
-             => (obj : element)
-             -> IO (Maybe ShadowRoot)
+  shadowRoot : (obj : Element) -> IO (Maybe ShadowRoot)
   
   %foreign "browser:lambda:x=>x.tagName"
   prim__tagName : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  tagName : Cast element Element => ToJS Element => (obj : element) -> IO String
+  tagName : (obj : Element) -> IO String
   
   %foreign "browser:lambda:x=>x.className"
   prim__className : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  className :  Cast element Element
-            => ToJS Element
-            => (obj : element)
-            -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.className = v}"
+  className : (obj : Element) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.className  = v}"
   prim__setClassName : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setClassName :  Cast element Element
-               => ToJS Element
-               => (obj : element)
-               -> (v : String)
-               -> IO ()
+  setClassName : (obj : Element) -> (v : String) -> IO ()
   
   %foreign "browser:lambda:x=>x.id"
   prim__id : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  id : Cast element Element => ToJS Element => (obj : element) -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.id = v}"
+  id : (obj : Element) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.id  = v}"
   prim__setId : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setId :  Cast element Element
-        => ToJS Element
-        => (obj : element)
-        -> (v : String)
-        -> IO ()
+  setId : (obj : Element) -> (v : String) -> IO ()
   
   %foreign "browser:lambda:x=>x.slot"
   prim__slot : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  slot : Cast element Element => ToJS Element => (obj : element) -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.slot = v}"
+  slot : (obj : Element) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.slot  = v}"
   prim__setSlot : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setSlot :  Cast element Element
-          => ToJS Element
-          => (obj : element)
-          -> (v : String)
-          -> IO ()
+  setSlot : (obj : Element) -> (v : String) -> IO ()
 
 namespace Event
+  
+  public export
+  JSVal Event where
+    parents =  [ JSObject ]
+
+    mixins =  []
   
   public export
   AT_TARGET : UInt16
@@ -891,220 +719,207 @@ namespace Event
   
   %foreign "browser:lambda:x=>x.bubbles"
   prim__bubbles : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  bubbles : Cast event Event => ToJS Event => (obj : event) -> IO Bool
+  bubbles : (obj : Event) -> IO Bool
   
   %foreign "browser:lambda:x=>x.cancelable"
   prim__cancelable : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  cancelable : Cast event Event => ToJS Event => (obj : event) -> IO Bool
+  cancelable : (obj : Event) -> IO Bool
   
   %foreign "browser:lambda:x=>x.composed"
   prim__composed : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  composed : Cast event Event => ToJS Event => (obj : event) -> IO Bool
+  composed : (obj : Event) -> IO Bool
   
   %foreign "browser:lambda:x=>x.currentTarget"
   prim__currentTarget : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  currentTarget :  Cast event Event
-                => ToJS Event
-                => (obj : event)
-                -> IO (Maybe EventTarget)
+  currentTarget : (obj : Event) -> IO (Maybe EventTarget)
   
   %foreign "browser:lambda:x=>x.defaultPrevented"
   prim__defaultPrevented : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  defaultPrevented : Cast event Event => ToJS Event => (obj : event) -> IO Bool
+  defaultPrevented : (obj : Event) -> IO Bool
   
   %foreign "browser:lambda:x=>x.eventPhase"
   prim__eventPhase : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  eventPhase : Cast event Event => ToJS Event => (obj : event) -> IO UInt16
+  eventPhase : (obj : Event) -> IO UInt16
   
   %foreign "browser:lambda:x=>x.isTrusted"
   prim__isTrusted : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  isTrusted : Cast event Event => ToJS Event => (obj : event) -> IO Bool
+  isTrusted : (obj : Event) -> IO Bool
   
   %foreign "browser:lambda:x=>x.srcElement"
   prim__srcElement : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  srcElement :  Cast event Event
-             => ToJS Event
-             => (obj : event)
-             -> IO (Maybe EventTarget)
+  srcElement : (obj : Event) -> IO (Maybe EventTarget)
   
   %foreign "browser:lambda:x=>x.target"
   prim__target : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  target :  Cast event Event
-         => ToJS Event
-         => (obj : event)
-         -> IO (Maybe EventTarget)
+  target : (obj : Event) -> IO (Maybe EventTarget)
   
   %foreign "browser:lambda:x=>x.timeStamp"
   prim__timeStamp : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  timeStamp :  Cast event Event
-            => ToJS Event
-            => (obj : event)
-            -> IO DOMHighResTimeStamp
+  timeStamp : (obj : Event) -> IO DOMHighResTimeStamp
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  type : Cast event Event => ToJS Event => (obj : event) -> IO String
+  type : (obj : Event) -> IO String
   
   %foreign "browser:lambda:x=>x.cancelBubble"
   prim__cancelBubble : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  cancelBubble : Cast event Event => ToJS Event => (obj : event) -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.cancelBubble = v}"
+  cancelBubble : (obj : Event) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.cancelBubble  = v}"
   prim__setCancelBubble : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setCancelBubble :  Cast event Event
-                  => ToJS Event
-                  => (obj : event)
-                  -> (v : Bool)
-                  -> IO ()
+  setCancelBubble : (obj : Event) -> (v : Bool) -> IO ()
   
   %foreign "browser:lambda:x=>x.returnValue"
   prim__returnValue : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  returnValue : Cast event Event => ToJS Event => (obj : event) -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.returnValue = v}"
+  returnValue : (obj : Event) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.returnValue  = v}"
   prim__setReturnValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setReturnValue :  Cast event Event
-                 => ToJS Event
-                 => (obj : event)
-                 -> (v : Bool)
-                 -> IO ()
+  setReturnValue : (obj : Event) -> (v : Bool) -> IO ()
+
+namespace EventTarget
+  
+  public export
+  JSVal EventTarget where
+    parents =  [ JSObject ]
+
+    mixins =  []
 
 namespace HTMLCollection
   
+  public export
+  JSVal HTMLCollection where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.length"
   prim__length : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  length :  Cast hTMLCollection HTMLCollection
-         => ToJS HTMLCollection
-         => (obj : hTMLCollection)
-         -> IO UInt32
+  length : (obj : HTMLCollection) -> IO UInt32
+
+namespace MutationObserver
+  
+  public export
+  JSVal MutationObserver where
+    parents =  [ JSObject ]
+
+    mixins =  []
 
 namespace MutationRecord
   
+  public export
+  JSVal MutationRecord where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.addedNodes"
   prim__addedNodes : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  addedNodes :  Cast mutationRecord MutationRecord
-             => ToJS MutationRecord
-             => (obj : mutationRecord)
-             -> IO NodeList
+  addedNodes : (obj : MutationRecord) -> IO NodeList
   
   %foreign "browser:lambda:x=>x.attributeName"
   prim__attributeName : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  attributeName :  Cast mutationRecord MutationRecord
-                => ToJS MutationRecord
-                => (obj : mutationRecord)
-                -> IO (Maybe String)
+  attributeName : (obj : MutationRecord) -> IO (Maybe String)
   
   %foreign "browser:lambda:x=>x.attributeNamespace"
   prim__attributeNamespace : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  attributeNamespace :  Cast mutationRecord MutationRecord
-                     => ToJS MutationRecord
-                     => (obj : mutationRecord)
-                     -> IO (Maybe String)
+  attributeNamespace : (obj : MutationRecord) -> IO (Maybe String)
   
   %foreign "browser:lambda:x=>x.nextSibling"
   prim__nextSibling : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  nextSibling :  Cast mutationRecord MutationRecord
-              => ToJS MutationRecord
-              => (obj : mutationRecord)
-              -> IO (Maybe Node)
+  nextSibling : (obj : MutationRecord) -> IO (Maybe Node)
   
   %foreign "browser:lambda:x=>x.oldValue"
   prim__oldValue : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  oldValue :  Cast mutationRecord MutationRecord
-           => ToJS MutationRecord
-           => (obj : mutationRecord)
-           -> IO (Maybe String)
+  oldValue : (obj : MutationRecord) -> IO (Maybe String)
   
   %foreign "browser:lambda:x=>x.previousSibling"
   prim__previousSibling : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  previousSibling :  Cast mutationRecord MutationRecord
-                  => ToJS MutationRecord
-                  => (obj : mutationRecord)
-                  -> IO (Maybe Node)
+  previousSibling : (obj : MutationRecord) -> IO (Maybe Node)
   
   %foreign "browser:lambda:x=>x.removedNodes"
   prim__removedNodes : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  removedNodes :  Cast mutationRecord MutationRecord
-               => ToJS MutationRecord
-               => (obj : mutationRecord)
-               -> IO NodeList
+  removedNodes : (obj : MutationRecord) -> IO NodeList
   
   %foreign "browser:lambda:x=>x.target"
   prim__target : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  target :  Cast mutationRecord MutationRecord
-         => ToJS MutationRecord
-         => (obj : mutationRecord)
-         -> IO Node
+  target : (obj : MutationRecord) -> IO Node
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  type :  Cast mutationRecord MutationRecord
-       => ToJS MutationRecord
-       => (obj : mutationRecord)
-       -> IO String
+  type : (obj : MutationRecord) -> IO String
 
 namespace NamedNodeMap
   
+  public export
+  JSVal NamedNodeMap where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.length"
   prim__length : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  length :  Cast namedNodeMap NamedNodeMap
-         => ToJS NamedNodeMap
-         => (obj : namedNodeMap)
-         -> IO UInt32
+  length : (obj : NamedNodeMap) -> IO UInt32
 
 namespace Node
+  
+  public export
+  JSVal Node where
+    parents =  [ EventTarget , JSObject ]
+
+    mixins =  []
   
   public export
   ATTRIBUTE_NODE : UInt16
@@ -1180,198 +995,187 @@ namespace Node
   
   %foreign "browser:lambda:x=>x.baseURI"
   prim__baseURI : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  baseURI : Cast node Node => ToJS Node => (obj : node) -> IO String
+  baseURI : (obj : Node) -> IO String
   
   %foreign "browser:lambda:x=>x.childNodes"
   prim__childNodes : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  childNodes : Cast node Node => ToJS Node => (obj : node) -> IO NodeList
+  childNodes : (obj : Node) -> IO NodeList
   
   %foreign "browser:lambda:x=>x.firstChild"
   prim__firstChild : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  firstChild : Cast node Node => ToJS Node => (obj : node) -> IO (Maybe Node)
+  firstChild : (obj : Node) -> IO (Maybe Node)
   
   %foreign "browser:lambda:x=>x.isConnected"
   prim__isConnected : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  isConnected : Cast node Node => ToJS Node => (obj : node) -> IO Bool
+  isConnected : (obj : Node) -> IO Bool
   
   %foreign "browser:lambda:x=>x.lastChild"
   prim__lastChild : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  lastChild : Cast node Node => ToJS Node => (obj : node) -> IO (Maybe Node)
+  lastChild : (obj : Node) -> IO (Maybe Node)
   
   %foreign "browser:lambda:x=>x.nextSibling"
   prim__nextSibling : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  nextSibling : Cast node Node => ToJS Node => (obj : node) -> IO (Maybe Node)
+  nextSibling : (obj : Node) -> IO (Maybe Node)
   
   %foreign "browser:lambda:x=>x.nodeName"
   prim__nodeName : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  nodeName : Cast node Node => ToJS Node => (obj : node) -> IO String
+  nodeName : (obj : Node) -> IO String
   
   %foreign "browser:lambda:x=>x.nodeType"
   prim__nodeType : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  nodeType : Cast node Node => ToJS Node => (obj : node) -> IO UInt16
+  nodeType : (obj : Node) -> IO UInt16
   
   %foreign "browser:lambda:x=>x.ownerDocument"
   prim__ownerDocument : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  ownerDocument :  Cast node Node
-                => ToJS Node
-                => (obj : node)
-                -> IO (Maybe Document)
+  ownerDocument : (obj : Node) -> IO (Maybe Document)
   
   %foreign "browser:lambda:x=>x.parentElement"
   prim__parentElement : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  parentElement :  Cast node Node
-                => ToJS Node
-                => (obj : node)
-                -> IO (Maybe Element)
+  parentElement : (obj : Node) -> IO (Maybe Element)
   
   %foreign "browser:lambda:x=>x.parentNode"
   prim__parentNode : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  parentNode : Cast node Node => ToJS Node => (obj : node) -> IO (Maybe Node)
+  parentNode : (obj : Node) -> IO (Maybe Node)
   
   %foreign "browser:lambda:x=>x.previousSibling"
   prim__previousSibling : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  previousSibling :  Cast node Node
-                  => ToJS Node
-                  => (obj : node)
-                  -> IO (Maybe Node)
+  previousSibling : (obj : Node) -> IO (Maybe Node)
   
   %foreign "browser:lambda:x=>x.nodeValue"
   prim__nodeValue : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  nodeValue : Cast node Node => ToJS Node => (obj : node) -> IO (Maybe String)
-  
-  %foreign "browser:lambda:(x,v)=>{x.nodeValue = v}"
+  nodeValue : (obj : Node) -> IO (Maybe String)
+
+  %foreign "browser:lambda:(x,v)=>{x.nodeValue  = v}"
   prim__setNodeValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setNodeValue :  Cast node Node
-               => ToJS Node
-               => (obj : node)
-               -> (v : Maybe String)
-               -> IO ()
+  setNodeValue : (obj : Node) -> (v : Maybe String) -> IO ()
   
   %foreign "browser:lambda:x=>x.textContent"
   prim__textContent : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  textContent : Cast node Node => ToJS Node => (obj : node) -> IO (Maybe String)
-  
-  %foreign "browser:lambda:(x,v)=>{x.textContent = v}"
+  textContent : (obj : Node) -> IO (Maybe String)
+
+  %foreign "browser:lambda:(x,v)=>{x.textContent  = v}"
   prim__setTextContent : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setTextContent :  Cast node Node
-                 => ToJS Node
-                 => (obj : node)
-                 -> (v : Maybe String)
-                 -> IO ()
+  setTextContent : (obj : Node) -> (v : Maybe String) -> IO ()
 
 namespace NodeIterator
   
+  public export
+  JSVal NodeIterator where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.filter"
   prim__filter : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  filter :  Cast nodeIterator NodeIterator
-         => ToJS NodeIterator
-         => (obj : nodeIterator)
-         -> IO (Maybe NodeFilter)
+  filter : (obj : NodeIterator) -> IO (Maybe NodeFilter)
   
   %foreign "browser:lambda:x=>x.pointerBeforeReferenceNode"
   prim__pointerBeforeReferenceNode : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  pointerBeforeReferenceNode :  Cast nodeIterator NodeIterator
-                             => ToJS NodeIterator
-                             => (obj : nodeIterator)
-                             -> IO Bool
+  pointerBeforeReferenceNode : (obj : NodeIterator) -> IO Bool
   
   %foreign "browser:lambda:x=>x.referenceNode"
   prim__referenceNode : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  referenceNode :  Cast nodeIterator NodeIterator
-                => ToJS NodeIterator
-                => (obj : nodeIterator)
-                -> IO Node
+  referenceNode : (obj : NodeIterator) -> IO Node
   
   %foreign "browser:lambda:x=>x.root"
   prim__root : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  root :  Cast nodeIterator NodeIterator
-       => ToJS NodeIterator
-       => (obj : nodeIterator)
-       -> IO Node
+  root : (obj : NodeIterator) -> IO Node
   
   %foreign "browser:lambda:x=>x.whatToShow"
   prim__whatToShow : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  whatToShow :  Cast nodeIterator NodeIterator
-             => ToJS NodeIterator
-             => (obj : nodeIterator)
-             -> IO UInt32
+  whatToShow : (obj : NodeIterator) -> IO UInt32
 
 namespace NodeList
   
+  public export
+  JSVal NodeList where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.length"
   prim__length : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  length :  Cast nodeList NodeList
-         => ToJS NodeList
-         => (obj : nodeList)
-         -> IO UInt32
+  length : (obj : NodeList) -> IO UInt32
 
 namespace Performance
   
+  public export
+  JSVal Performance where
+    parents =  [ EventTarget , JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.timeOrigin"
   prim__timeOrigin : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  timeOrigin :  Cast performance Performance
-             => ToJS Performance
-             => (obj : performance)
-             -> IO DOMHighResTimeStamp
+  timeOrigin : (obj : Performance) -> IO DOMHighResTimeStamp
 
 namespace ProcessingInstruction
   
+  public export
+  JSVal ProcessingInstruction where
+    parents =  [ CharacterData , Node , EventTarget , JSObject ]
+
+    mixins =  [ ChildNode , LinkStyle , NonDocumentTypeChildNode ]
+  
   %foreign "browser:lambda:x=>x.target"
   prim__target : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  target :  Cast processingInstruction ProcessingInstruction
-         => ToJS ProcessingInstruction
-         => (obj : processingInstruction)
-         -> IO String
+  target : (obj : ProcessingInstruction) -> IO String
 
 namespace Range
+  
+  public export
+  JSVal Range where
+    parents =  [ AbstractRange , JSObject ]
+
+    mixins =  []
   
   public export
   END_TO_END : UInt16
@@ -1391,113 +1195,139 @@ namespace Range
   
   %foreign "browser:lambda:x=>x.commonAncestorContainer"
   prim__commonAncestorContainer : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  commonAncestorContainer :  Cast range Range
-                          => ToJS Range
-                          => (obj : range)
-                          -> IO Node
+  commonAncestorContainer : (obj : Range) -> IO Node
 
 namespace ShadowRoot
   
+  public export
+  JSVal ShadowRoot where
+    parents =  [ DocumentFragment , Node , EventTarget , JSObject ]
+
+    mixins =  [ DocumentOrShadowRoot , NonElementParentNode , ParentNode ]
+  
   %foreign "browser:lambda:x=>x.host"
   prim__host : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  host :  Cast shadowRoot ShadowRoot
-       => ToJS ShadowRoot
-       => (obj : shadowRoot)
-       -> IO Element
+  host : (obj : ShadowRoot) -> IO Element
   
   %foreign "browser:lambda:x=>x.mode"
   prim__mode : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  mode :  Cast shadowRoot ShadowRoot
-       => ToJS ShadowRoot
-       => (obj : shadowRoot)
-       -> IO ShadowRootMode
+  mode : (obj : ShadowRoot) -> IO ShadowRootMode
   
   %foreign "browser:lambda:x=>x.onslotchange"
   prim__onslotchange : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  onslotchange :  Cast shadowRoot ShadowRoot
-               => ToJS ShadowRoot
-               => (obj : shadowRoot)
-               -> IO EventHandler
-  
-  %foreign "browser:lambda:(x,v)=>{x.onslotchange = v}"
+  onslotchange : (obj : ShadowRoot) -> IO EventHandler
+
+  %foreign "browser:lambda:(x,v)=>{x.onslotchange  = v}"
   prim__setOnslotchange : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setOnslotchange :  Cast eventHandler EventHandler
-                  => ToJS EventHandler
-                  => Cast shadowRoot ShadowRoot
-                  => ToJS ShadowRoot
-                  => (obj : shadowRoot)
-                  -> (v : eventHandler)
-                  -> IO ()
+  setOnslotchange : (obj : ShadowRoot) -> (v : EventHandler) -> IO ()
+
+namespace StaticRange
+  
+  public export
+  JSVal StaticRange where
+    parents =  [ AbstractRange , JSObject ]
+
+    mixins =  []
 
 namespace Text
   
+  public export
+  JSVal Text where
+    parents =  [ CharacterData , Node , EventTarget , JSObject ]
+
+    mixins =  [ ChildNode , NonDocumentTypeChildNode , Slottable ]
+  
   %foreign "browser:lambda:x=>x.wholeText"
   prim__wholeText : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  wholeText : Cast text Text => ToJS Text => (obj : text) -> IO String
+  wholeText : (obj : Text) -> IO String
 
 namespace TreeWalker
   
+  public export
+  JSVal TreeWalker where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.filter"
   prim__filter : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  filter :  Cast treeWalker TreeWalker
-         => ToJS TreeWalker
-         => (obj : treeWalker)
-         -> IO (Maybe NodeFilter)
+  filter : (obj : TreeWalker) -> IO (Maybe NodeFilter)
   
   %foreign "browser:lambda:x=>x.root"
   prim__root : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  root :  Cast treeWalker TreeWalker
-       => ToJS TreeWalker
-       => (obj : treeWalker)
-       -> IO Node
+  root : (obj : TreeWalker) -> IO Node
   
   %foreign "browser:lambda:x=>x.whatToShow"
   prim__whatToShow : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  whatToShow :  Cast treeWalker TreeWalker
-             => ToJS TreeWalker
-             => (obj : treeWalker)
-             -> IO UInt32
+  whatToShow : (obj : TreeWalker) -> IO UInt32
   
   %foreign "browser:lambda:x=>x.currentNode"
   prim__currentNode : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  currentNode :  Cast treeWalker TreeWalker
-              => ToJS TreeWalker
-              => (obj : treeWalker)
-              -> IO Node
-  
-  %foreign "browser:lambda:(x,v)=>{x.currentNode = v}"
+  currentNode : (obj : TreeWalker) -> IO Node
+
+  %foreign "browser:lambda:(x,v)=>{x.currentNode  = v}"
   prim__setCurrentNode : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setCurrentNode :  Cast node Node
-                 => ToJS Node
-                 => Cast treeWalker TreeWalker
-                 => ToJS TreeWalker
-                 => (obj : treeWalker)
-                 -> (v : node)
-                 -> IO ()
+  setCurrentNode : (obj : TreeWalker) -> (v : Node) -> IO ()
+
+namespace XMLDocument
+  
+  public export
+  JSVal XMLDocument where
+    parents =  [ Document , Node , EventTarget , JSObject ]
+
+    mixins =  [ DocumentAndElementEventHandlers
+              , DocumentOrShadowRoot
+              , GlobalEventHandlers
+              , NonElementParentNode
+              , ParentNode
+              , XPathEvaluatorBase
+              ]
+
+namespace XPathEvaluator
+  
+  public export
+  JSVal XPathEvaluator where
+    parents =  [ JSObject ]
+
+    mixins =  [ XPathEvaluatorBase ]
+
+namespace XPathExpression
+  
+  public export
+  JSVal XPathExpression where
+    parents =  [ JSObject ]
+
+    mixins =  []
 
 namespace XPathResult
+  
+  public export
+  JSVal XPathResult where
+    parents =  [ JSObject ]
+
+    mixins =  []
   
   public export
   ANY_TYPE : UInt16
@@ -1541,150 +1371,109 @@ namespace XPathResult
   
   %foreign "browser:lambda:x=>x.booleanValue"
   prim__booleanValue : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  booleanValue :  Cast xPathResult XPathResult
-               => ToJS XPathResult
-               => (obj : xPathResult)
-               -> IO Bool
+  booleanValue : (obj : XPathResult) -> IO Bool
   
   %foreign "browser:lambda:x=>x.invalidIteratorState"
   prim__invalidIteratorState : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  invalidIteratorState :  Cast xPathResult XPathResult
-                       => ToJS XPathResult
-                       => (obj : xPathResult)
-                       -> IO Bool
+  invalidIteratorState : (obj : XPathResult) -> IO Bool
   
   %foreign "browser:lambda:x=>x.numberValue"
   prim__numberValue : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  numberValue :  Cast xPathResult XPathResult
-              => ToJS XPathResult
-              => (obj : xPathResult)
-              -> IO Double
+  numberValue : (obj : XPathResult) -> IO Double
   
   %foreign "browser:lambda:x=>x.resultType"
   prim__resultType : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  resultType :  Cast xPathResult XPathResult
-             => ToJS XPathResult
-             => (obj : xPathResult)
-             -> IO UInt16
+  resultType : (obj : XPathResult) -> IO UInt16
   
   %foreign "browser:lambda:x=>x.singleNodeValue"
   prim__singleNodeValue : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  singleNodeValue :  Cast xPathResult XPathResult
-                  => ToJS XPathResult
-                  => (obj : xPathResult)
-                  -> IO (Maybe Node)
+  singleNodeValue : (obj : XPathResult) -> IO (Maybe Node)
   
   %foreign "browser:lambda:x=>x.snapshotLength"
   prim__snapshotLength : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  snapshotLength :  Cast xPathResult XPathResult
-                 => ToJS XPathResult
-                 => (obj : xPathResult)
-                 -> IO UInt32
+  snapshotLength : (obj : XPathResult) -> IO UInt32
   
   %foreign "browser:lambda:x=>x.stringValue"
   prim__stringValue : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  stringValue :  Cast xPathResult XPathResult
-              => ToJS XPathResult
-              => (obj : xPathResult)
-              -> IO String
+  stringValue : (obj : XPathResult) -> IO String
 
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------
 
+
 namespace DocumentOrShadowRoot
   
   %foreign "browser:lambda:x=>x.styleSheets"
   prim__styleSheets : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  styleSheets :  Cast documentOrShadowRoot DocumentOrShadowRoot
-              => ToJS DocumentOrShadowRoot
-              => (obj : documentOrShadowRoot)
-              -> IO StyleSheetList
+  styleSheets : (obj : DocumentOrShadowRoot) -> IO StyleSheetList
 
 namespace NonDocumentTypeChildNode
   
   %foreign "browser:lambda:x=>x.nextElementSibling"
   prim__nextElementSibling : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  nextElementSibling :  Cast nonDocumentTypeChildNode NonDocumentTypeChildNode
-                     => ToJS NonDocumentTypeChildNode
-                     => (obj : nonDocumentTypeChildNode)
-                     -> IO (Maybe Element)
+  nextElementSibling : (obj : NonDocumentTypeChildNode) -> IO (Maybe Element)
   
   %foreign "browser:lambda:x=>x.previousElementSibling"
   prim__previousElementSibling : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  previousElementSibling :  Cast nonDocumentTypeChildNode NonDocumentTypeChildNode
-                         => ToJS NonDocumentTypeChildNode
-                         => (obj : nonDocumentTypeChildNode)
+  previousElementSibling :  (obj : NonDocumentTypeChildNode)
                          -> IO (Maybe Element)
+
 
 namespace ParentNode
   
   %foreign "browser:lambda:x=>x.childElementCount"
   prim__childElementCount : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  childElementCount :  Cast parentNode ParentNode
-                    => ToJS ParentNode
-                    => (obj : parentNode)
-                    -> IO UInt32
+  childElementCount : (obj : ParentNode) -> IO UInt32
   
   %foreign "browser:lambda:x=>x.children"
   prim__children : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  children :  Cast parentNode ParentNode
-           => ToJS ParentNode
-           => (obj : parentNode)
-           -> IO HTMLCollection
+  children : (obj : ParentNode) -> IO HTMLCollection
   
   %foreign "browser:lambda:x=>x.firstElementChild"
   prim__firstElementChild : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  firstElementChild :  Cast parentNode ParentNode
-                    => ToJS ParentNode
-                    => (obj : parentNode)
-                    -> IO (Maybe Element)
+  firstElementChild : (obj : ParentNode) -> IO (Maybe Element)
   
   %foreign "browser:lambda:x=>x.lastElementChild"
   prim__lastElementChild : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  lastElementChild :  Cast parentNode ParentNode
-                   => ToJS ParentNode
-                   => (obj : parentNode)
-                   -> IO (Maybe Element)
+  lastElementChild : (obj : ParentNode) -> IO (Maybe Element)
 
 namespace Slottable
   
   %foreign "browser:lambda:x=>x.assignedSlot"
   prim__assignedSlot : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  assignedSlot :  Cast slottable Slottable
-               => ToJS Slottable
-               => (obj : slottable)
-               -> IO (Maybe HTMLSlotElement)
+  assignedSlot : (obj : Slottable) -> IO (Maybe HTMLSlotElement)
+
 
 --------------------------------------------------------------------------------
 --          Dictionaries
@@ -1692,470 +1481,358 @@ namespace Slottable
 
 namespace AddEventListenerOptions
   
+  public export
+  JSVal AddEventListenerOptions where
+    parents =  [ EventListenerOptions , JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.once"
   prim__once : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  once :  Cast addEventListenerOptions AddEventListenerOptions
-       => ToJS AddEventListenerOptions
-       => (obj : addEventListenerOptions)
-       -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.once = v}"
+  once : (obj : AddEventListenerOptions) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.once  = v}"
   prim__setOnce : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setOnce :  Cast addEventListenerOptions AddEventListenerOptions
-          => ToJS AddEventListenerOptions
-          => (obj : addEventListenerOptions)
-          -> (v : Bool)
-          -> IO ()
+  setOnce : (obj : AddEventListenerOptions) -> (v : Bool) -> IO ()
   
   %foreign "browser:lambda:x=>x.passive"
   prim__passive : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  passive :  Cast addEventListenerOptions AddEventListenerOptions
-          => ToJS AddEventListenerOptions
-          => (obj : addEventListenerOptions)
-          -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.passive = v}"
+  passive : (obj : AddEventListenerOptions) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.passive  = v}"
   prim__setPassive : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setPassive :  Cast addEventListenerOptions AddEventListenerOptions
-             => ToJS AddEventListenerOptions
-             => (obj : addEventListenerOptions)
-             -> (v : Bool)
-             -> IO ()
+  setPassive : (obj : AddEventListenerOptions) -> (v : Bool) -> IO ()
   
   %foreign "browser:lambda:x=>x.signal"
   prim__signal : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  signal :  Cast addEventListenerOptions AddEventListenerOptions
-         => ToJS AddEventListenerOptions
-         => (obj : addEventListenerOptions)
-         -> IO AbortSignal
-  
-  %foreign "browser:lambda:(x,v)=>{x.signal = v}"
+  signal : (obj : AddEventListenerOptions) -> IO AbortSignal
+
+  %foreign "browser:lambda:(x,v)=>{x.signal  = v}"
   prim__setSignal : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setSignal :  Cast abortSignal AbortSignal
-            => ToJS AbortSignal
-            => Cast addEventListenerOptions AddEventListenerOptions
-            => ToJS AddEventListenerOptions
-            => (obj : addEventListenerOptions)
-            -> (v : abortSignal)
-            -> IO ()
+  setSignal : (obj : AddEventListenerOptions) -> (v : AbortSignal) -> IO ()
 
 namespace CustomEventInit
   
+  public export
+  JSVal CustomEventInit where
+    parents =  [ EventInit , JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.detail"
   prim__detail : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  detail :  Cast customEventInit CustomEventInit
-         => ToJS CustomEventInit
-         => (obj : customEventInit)
-         -> IO JSAny
-  
-  %foreign "browser:lambda:(x,v)=>{x.detail = v}"
+  detail : (obj : CustomEventInit) -> IO JSAny
+
+  %foreign "browser:lambda:(x,v)=>{x.detail  = v}"
   prim__setDetail : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setDetail :  Cast customEventInit CustomEventInit
-            => ToJS CustomEventInit
-            => (obj : customEventInit)
-            -> (v : JSAny)
-            -> IO ()
+  setDetail : (obj : CustomEventInit) -> (v : JSAny) -> IO ()
 
 namespace ElementCreationOptions
   
+  public export
+  JSVal ElementCreationOptions where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.is"
   prim__is : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  is :  Cast elementCreationOptions ElementCreationOptions
-     => ToJS ElementCreationOptions
-     => (obj : elementCreationOptions)
-     -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.is = v}"
+  is : (obj : ElementCreationOptions) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.is  = v}"
   prim__setIs : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setIs :  Cast elementCreationOptions ElementCreationOptions
-        => ToJS ElementCreationOptions
-        => (obj : elementCreationOptions)
-        -> (v : String)
-        -> IO ()
+  setIs : (obj : ElementCreationOptions) -> (v : String) -> IO ()
 
 namespace EventInit
   
+  public export
+  JSVal EventInit where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.bubbles"
   prim__bubbles : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  bubbles :  Cast eventInit EventInit
-          => ToJS EventInit
-          => (obj : eventInit)
-          -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.bubbles = v}"
+  bubbles : (obj : EventInit) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.bubbles  = v}"
   prim__setBubbles : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setBubbles :  Cast eventInit EventInit
-             => ToJS EventInit
-             => (obj : eventInit)
-             -> (v : Bool)
-             -> IO ()
+  setBubbles : (obj : EventInit) -> (v : Bool) -> IO ()
   
   %foreign "browser:lambda:x=>x.cancelable"
   prim__cancelable : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  cancelable :  Cast eventInit EventInit
-             => ToJS EventInit
-             => (obj : eventInit)
-             -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.cancelable = v}"
+  cancelable : (obj : EventInit) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.cancelable  = v}"
   prim__setCancelable : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setCancelable :  Cast eventInit EventInit
-                => ToJS EventInit
-                => (obj : eventInit)
-                -> (v : Bool)
-                -> IO ()
+  setCancelable : (obj : EventInit) -> (v : Bool) -> IO ()
   
   %foreign "browser:lambda:x=>x.composed"
   prim__composed : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  composed :  Cast eventInit EventInit
-           => ToJS EventInit
-           => (obj : eventInit)
-           -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.composed = v}"
+  composed : (obj : EventInit) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.composed  = v}"
   prim__setComposed : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setComposed :  Cast eventInit EventInit
-              => ToJS EventInit
-              => (obj : eventInit)
-              -> (v : Bool)
-              -> IO ()
+  setComposed : (obj : EventInit) -> (v : Bool) -> IO ()
 
 namespace EventListenerOptions
   
+  public export
+  JSVal EventListenerOptions where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.capture"
   prim__capture : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  capture :  Cast eventListenerOptions EventListenerOptions
-          => ToJS EventListenerOptions
-          => (obj : eventListenerOptions)
-          -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.capture = v}"
+  capture : (obj : EventListenerOptions) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.capture  = v}"
   prim__setCapture : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setCapture :  Cast eventListenerOptions EventListenerOptions
-             => ToJS EventListenerOptions
-             => (obj : eventListenerOptions)
-             -> (v : Bool)
-             -> IO ()
+  setCapture : (obj : EventListenerOptions) -> (v : Bool) -> IO ()
 
 namespace GetRootNodeOptions
   
+  public export
+  JSVal GetRootNodeOptions where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.composed"
   prim__composed : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  composed :  Cast getRootNodeOptions GetRootNodeOptions
-           => ToJS GetRootNodeOptions
-           => (obj : getRootNodeOptions)
-           -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.composed = v}"
+  composed : (obj : GetRootNodeOptions) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.composed  = v}"
   prim__setComposed : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setComposed :  Cast getRootNodeOptions GetRootNodeOptions
-              => ToJS GetRootNodeOptions
-              => (obj : getRootNodeOptions)
-              -> (v : Bool)
-              -> IO ()
+  setComposed : (obj : GetRootNodeOptions) -> (v : Bool) -> IO ()
 
 namespace MutationObserverInit
   
+  public export
+  JSVal MutationObserverInit where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.attributeFilter"
   prim__attributeFilter : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  attributeFilter :  Cast mutationObserverInit MutationObserverInit
-                  => ToJS MutationObserverInit
-                  => (obj : mutationObserverInit)
-                  -> IO (JSArray String)
-  
-  %foreign "browser:lambda:(x,v)=>{x.attributeFilter = v}"
+  attributeFilter : (obj : MutationObserverInit) -> IO (JSArray String)
+
+  %foreign "browser:lambda:(x,v)=>{x.attributeFilter  = v}"
   prim__setAttributeFilter : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setAttributeFilter :  Cast mutationObserverInit MutationObserverInit
-                     => ToJS MutationObserverInit
-                     => (obj : mutationObserverInit)
+  setAttributeFilter :  (obj : MutationObserverInit)
                      -> (v : JSArray String)
                      -> IO ()
   
   %foreign "browser:lambda:x=>x.attributeOldValue"
   prim__attributeOldValue : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  attributeOldValue :  Cast mutationObserverInit MutationObserverInit
-                    => ToJS MutationObserverInit
-                    => (obj : mutationObserverInit)
-                    -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.attributeOldValue = v}"
+  attributeOldValue : (obj : MutationObserverInit) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.attributeOldValue  = v}"
   prim__setAttributeOldValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setAttributeOldValue :  Cast mutationObserverInit MutationObserverInit
-                       => ToJS MutationObserverInit
-                       => (obj : mutationObserverInit)
-                       -> (v : Bool)
-                       -> IO ()
+  setAttributeOldValue : (obj : MutationObserverInit) -> (v : Bool) -> IO ()
   
   %foreign "browser:lambda:x=>x.attributes"
   prim__attributes : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  attributes :  Cast mutationObserverInit MutationObserverInit
-             => ToJS MutationObserverInit
-             => (obj : mutationObserverInit)
-             -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.attributes = v}"
+  attributes : (obj : MutationObserverInit) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.attributes  = v}"
   prim__setAttributes : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setAttributes :  Cast mutationObserverInit MutationObserverInit
-                => ToJS MutationObserverInit
-                => (obj : mutationObserverInit)
-                -> (v : Bool)
-                -> IO ()
+  setAttributes : (obj : MutationObserverInit) -> (v : Bool) -> IO ()
   
   %foreign "browser:lambda:x=>x.characterData"
   prim__characterData : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  characterData :  Cast mutationObserverInit MutationObserverInit
-                => ToJS MutationObserverInit
-                => (obj : mutationObserverInit)
-                -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.characterData = v}"
+  characterData : (obj : MutationObserverInit) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.characterData  = v}"
   prim__setCharacterData : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setCharacterData :  Cast mutationObserverInit MutationObserverInit
-                   => ToJS MutationObserverInit
-                   => (obj : mutationObserverInit)
-                   -> (v : Bool)
-                   -> IO ()
+  setCharacterData : (obj : MutationObserverInit) -> (v : Bool) -> IO ()
   
   %foreign "browser:lambda:x=>x.characterDataOldValue"
   prim__characterDataOldValue : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  characterDataOldValue :  Cast mutationObserverInit MutationObserverInit
-                        => ToJS MutationObserverInit
-                        => (obj : mutationObserverInit)
-                        -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.characterDataOldValue = v}"
+  characterDataOldValue : (obj : MutationObserverInit) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.characterDataOldValue  = v}"
   prim__setCharacterDataOldValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setCharacterDataOldValue :  Cast mutationObserverInit MutationObserverInit
-                           => ToJS MutationObserverInit
-                           => (obj : mutationObserverInit)
-                           -> (v : Bool)
-                           -> IO ()
+  setCharacterDataOldValue : (obj : MutationObserverInit) -> (v : Bool) -> IO ()
   
   %foreign "browser:lambda:x=>x.childList"
   prim__childList : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  childList :  Cast mutationObserverInit MutationObserverInit
-            => ToJS MutationObserverInit
-            => (obj : mutationObserverInit)
-            -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.childList = v}"
+  childList : (obj : MutationObserverInit) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.childList  = v}"
   prim__setChildList : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setChildList :  Cast mutationObserverInit MutationObserverInit
-               => ToJS MutationObserverInit
-               => (obj : mutationObserverInit)
-               -> (v : Bool)
-               -> IO ()
+  setChildList : (obj : MutationObserverInit) -> (v : Bool) -> IO ()
   
   %foreign "browser:lambda:x=>x.subtree"
   prim__subtree : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  subtree :  Cast mutationObserverInit MutationObserverInit
-          => ToJS MutationObserverInit
-          => (obj : mutationObserverInit)
-          -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.subtree = v}"
+  subtree : (obj : MutationObserverInit) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.subtree  = v}"
   prim__setSubtree : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setSubtree :  Cast mutationObserverInit MutationObserverInit
-             => ToJS MutationObserverInit
-             => (obj : mutationObserverInit)
-             -> (v : Bool)
-             -> IO ()
+  setSubtree : (obj : MutationObserverInit) -> (v : Bool) -> IO ()
 
 namespace ShadowRootInit
   
+  public export
+  JSVal ShadowRootInit where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.mode"
   prim__mode : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  mode :  Cast shadowRootInit ShadowRootInit
-       => ToJS ShadowRootInit
-       => (obj : shadowRootInit)
-       -> IO ShadowRootMode
-  
-  %foreign "browser:lambda:(x,v)=>{x.mode = v}"
+  mode : (obj : ShadowRootInit) -> IO ShadowRootMode
+
+  %foreign "browser:lambda:(x,v)=>{x.mode  = v}"
   prim__setMode : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setMode :  Cast shadowRootInit ShadowRootInit
-          => ToJS ShadowRootInit
-          => Cast shadowRootMode ShadowRootMode
-          => ToJS ShadowRootMode
-          => (obj : shadowRootInit)
-          -> (v : shadowRootMode)
-          -> IO ()
+  setMode : (obj : ShadowRootInit) -> (v : ShadowRootMode) -> IO ()
   
   %foreign "browser:lambda:x=>x.delegatesFocus"
   prim__delegatesFocus : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  delegatesFocus :  Cast shadowRootInit ShadowRootInit
-                 => ToJS ShadowRootInit
-                 => (obj : shadowRootInit)
-                 -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.delegatesFocus = v}"
+  delegatesFocus : (obj : ShadowRootInit) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.delegatesFocus  = v}"
   prim__setDelegatesFocus : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setDelegatesFocus :  Cast shadowRootInit ShadowRootInit
-                    => ToJS ShadowRootInit
-                    => (obj : shadowRootInit)
-                    -> (v : Bool)
-                    -> IO ()
+  setDelegatesFocus : (obj : ShadowRootInit) -> (v : Bool) -> IO ()
 
 namespace StaticRangeInit
   
+  public export
+  JSVal StaticRangeInit where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.endContainer"
   prim__endContainer : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  endContainer :  Cast staticRangeInit StaticRangeInit
-               => ToJS StaticRangeInit
-               => (obj : staticRangeInit)
-               -> IO Node
-  
-  %foreign "browser:lambda:(x,v)=>{x.endContainer = v}"
+  endContainer : (obj : StaticRangeInit) -> IO Node
+
+  %foreign "browser:lambda:(x,v)=>{x.endContainer  = v}"
   prim__setEndContainer : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setEndContainer :  Cast node Node
-                  => ToJS Node
-                  => Cast staticRangeInit StaticRangeInit
-                  => ToJS StaticRangeInit
-                  => (obj : staticRangeInit)
-                  -> (v : node)
-                  -> IO ()
+  setEndContainer : (obj : StaticRangeInit) -> (v : Node) -> IO ()
   
   %foreign "browser:lambda:x=>x.endOffset"
   prim__endOffset : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  endOffset :  Cast staticRangeInit StaticRangeInit
-            => ToJS StaticRangeInit
-            => (obj : staticRangeInit)
-            -> IO UInt32
-  
-  %foreign "browser:lambda:(x,v)=>{x.endOffset = v}"
+  endOffset : (obj : StaticRangeInit) -> IO UInt32
+
+  %foreign "browser:lambda:(x,v)=>{x.endOffset  = v}"
   prim__setEndOffset : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setEndOffset :  Cast staticRangeInit StaticRangeInit
-               => ToJS StaticRangeInit
-               => (obj : staticRangeInit)
-               -> (v : UInt32)
-               -> IO ()
+  setEndOffset : (obj : StaticRangeInit) -> (v : UInt32) -> IO ()
   
   %foreign "browser:lambda:x=>x.startContainer"
   prim__startContainer : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  startContainer :  Cast staticRangeInit StaticRangeInit
-                 => ToJS StaticRangeInit
-                 => (obj : staticRangeInit)
-                 -> IO Node
-  
-  %foreign "browser:lambda:(x,v)=>{x.startContainer = v}"
+  startContainer : (obj : StaticRangeInit) -> IO Node
+
+  %foreign "browser:lambda:(x,v)=>{x.startContainer  = v}"
   prim__setStartContainer : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setStartContainer :  Cast node Node
-                    => ToJS Node
-                    => Cast staticRangeInit StaticRangeInit
-                    => ToJS StaticRangeInit
-                    => (obj : staticRangeInit)
-                    -> (v : node)
-                    -> IO ()
+  setStartContainer : (obj : StaticRangeInit) -> (v : Node) -> IO ()
   
   %foreign "browser:lambda:x=>x.startOffset"
   prim__startOffset : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  startOffset :  Cast staticRangeInit StaticRangeInit
-              => ToJS StaticRangeInit
-              => (obj : staticRangeInit)
-              -> IO UInt32
-  
-  %foreign "browser:lambda:(x,v)=>{x.startOffset = v}"
+  startOffset : (obj : StaticRangeInit) -> IO UInt32
+
+  %foreign "browser:lambda:(x,v)=>{x.startOffset  = v}"
   prim__setStartOffset : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setStartOffset :  Cast staticRangeInit StaticRangeInit
-                 => ToJS StaticRangeInit
-                 => (obj : staticRangeInit)
-                 -> (v : UInt32)
-                 -> IO ()
+  setStartOffset : (obj : StaticRangeInit) -> (v : UInt32) -> IO ()
 
 --------------------------------------------------------------------------------
 --          Callback Interfaces
 --------------------------------------------------------------------------------
+
 
 namespace NodeFilter
   
@@ -2223,151 +1900,3 @@ namespace NodeFilter
   SHOW_TEXT : UInt32
   SHOW_TEXT = 0x4
 
-
---------------------------------------------------------------------------------
---          Casts
---------------------------------------------------------------------------------
-
-export
-Cast AbortSignal EventTarget where
-  cast = believe_me
-
-export
-Cast AddEventListenerOptions EventListenerOptions where
-  cast = believe_me
-
-export
-Cast Attr Node where
-  cast = believe_me
-
-export
-Cast CDATASection Text where
-  cast = believe_me
-
-export
-Cast CharacterData ChildNode where
-  cast = believe_me
-
-export
-Cast CharacterData Node where
-  cast = believe_me
-
-export
-Cast CharacterData NonDocumentTypeChildNode where
-  cast = believe_me
-
-export
-Cast Comment CharacterData where
-  cast = believe_me
-
-export
-Cast CustomEvent Event where
-  cast = believe_me
-
-export
-Cast CustomEventInit EventInit where
-  cast = believe_me
-
-export
-Cast Document DocumentOrShadowRoot where
-  cast = believe_me
-
-export
-Cast Document Node where
-  cast = believe_me
-
-export
-Cast Document NonElementParentNode where
-  cast = believe_me
-
-export
-Cast Document ParentNode where
-  cast = believe_me
-
-export
-Cast Document XPathEvaluatorBase where
-  cast = believe_me
-
-export
-Cast DocumentFragment Node where
-  cast = believe_me
-
-export
-Cast DocumentFragment NonElementParentNode where
-  cast = believe_me
-
-export
-Cast DocumentFragment ParentNode where
-  cast = believe_me
-
-export
-Cast DocumentType ChildNode where
-  cast = believe_me
-
-export
-Cast DocumentType Node where
-  cast = believe_me
-
-export
-Cast Element ChildNode where
-  cast = believe_me
-
-export
-Cast Element Node where
-  cast = believe_me
-
-export
-Cast Element NonDocumentTypeChildNode where
-  cast = believe_me
-
-export
-Cast Element ParentNode where
-  cast = believe_me
-
-export
-Cast Element Slottable where
-  cast = believe_me
-
-export
-Cast Node EventTarget where
-  cast = believe_me
-
-export
-Cast Performance EventTarget where
-  cast = believe_me
-
-export
-Cast ProcessingInstruction CharacterData where
-  cast = believe_me
-
-export
-Cast Range AbstractRange where
-  cast = believe_me
-
-export
-Cast ShadowRoot DocumentFragment where
-  cast = believe_me
-
-export
-Cast ShadowRoot DocumentOrShadowRoot where
-  cast = believe_me
-
-export
-Cast StaticRange AbstractRange where
-  cast = believe_me
-
-export
-Cast Text CharacterData where
-  cast = believe_me
-
-export
-Cast Text Slottable where
-  cast = believe_me
-
-export
-Cast XMLDocument Document where
-  cast = believe_me
-
-export
-Cast XPathEvaluator XPathEvaluatorBase where
-  cast = believe_me

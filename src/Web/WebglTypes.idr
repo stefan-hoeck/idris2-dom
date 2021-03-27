@@ -1,6 +1,4 @@
 module Web.WebglTypes
-
-import Data.Maybe
 import JS.Util
 
 --------------------------------------------------------------------------------
@@ -50,9 +48,8 @@ namespace WebGLPowerPreference
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-
 export
-data WebGL2RenderingContext : Type where [external]
+data WebGL2RenderingContext  : Type where [external]
 
 export
 ToJS WebGL2RenderingContext where
@@ -61,9 +58,8 @@ ToJS WebGL2RenderingContext where
 export
 FromJS WebGL2RenderingContext where
   fromJS = believe_me
-
 export
-data WebGLActiveInfo : Type where [external]
+data WebGLActiveInfo  : Type where [external]
 
 export
 ToJS WebGLActiveInfo where
@@ -72,9 +68,8 @@ ToJS WebGLActiveInfo where
 export
 FromJS WebGLActiveInfo where
   fromJS = believe_me
-
 export
-data WebGLBuffer : Type where [external]
+data WebGLBuffer  : Type where [external]
 
 export
 ToJS WebGLBuffer where
@@ -83,9 +78,8 @@ ToJS WebGLBuffer where
 export
 FromJS WebGLBuffer where
   fromJS = believe_me
-
 export
-data WebGLFramebuffer : Type where [external]
+data WebGLFramebuffer  : Type where [external]
 
 export
 ToJS WebGLFramebuffer where
@@ -94,9 +88,8 @@ ToJS WebGLFramebuffer where
 export
 FromJS WebGLFramebuffer where
   fromJS = believe_me
-
 export
-data WebGLObject : Type where [external]
+data WebGLObject  : Type where [external]
 
 export
 ToJS WebGLObject where
@@ -105,9 +98,8 @@ ToJS WebGLObject where
 export
 FromJS WebGLObject where
   fromJS = believe_me
-
 export
-data WebGLProgram : Type where [external]
+data WebGLProgram  : Type where [external]
 
 export
 ToJS WebGLProgram where
@@ -116,9 +108,8 @@ ToJS WebGLProgram where
 export
 FromJS WebGLProgram where
   fromJS = believe_me
-
 export
-data WebGLQuery : Type where [external]
+data WebGLQuery  : Type where [external]
 
 export
 ToJS WebGLQuery where
@@ -127,9 +118,8 @@ ToJS WebGLQuery where
 export
 FromJS WebGLQuery where
   fromJS = believe_me
-
 export
-data WebGLRenderbuffer : Type where [external]
+data WebGLRenderbuffer  : Type where [external]
 
 export
 ToJS WebGLRenderbuffer where
@@ -138,9 +128,8 @@ ToJS WebGLRenderbuffer where
 export
 FromJS WebGLRenderbuffer where
   fromJS = believe_me
-
 export
-data WebGLRenderingContext : Type where [external]
+data WebGLRenderingContext  : Type where [external]
 
 export
 ToJS WebGLRenderingContext where
@@ -149,9 +138,8 @@ ToJS WebGLRenderingContext where
 export
 FromJS WebGLRenderingContext where
   fromJS = believe_me
-
 export
-data WebGLSampler : Type where [external]
+data WebGLSampler  : Type where [external]
 
 export
 ToJS WebGLSampler where
@@ -160,9 +148,8 @@ ToJS WebGLSampler where
 export
 FromJS WebGLSampler where
   fromJS = believe_me
-
 export
-data WebGLShader : Type where [external]
+data WebGLShader  : Type where [external]
 
 export
 ToJS WebGLShader where
@@ -171,9 +158,8 @@ ToJS WebGLShader where
 export
 FromJS WebGLShader where
   fromJS = believe_me
-
 export
-data WebGLShaderPrecisionFormat : Type where [external]
+data WebGLShaderPrecisionFormat  : Type where [external]
 
 export
 ToJS WebGLShaderPrecisionFormat where
@@ -182,9 +168,8 @@ ToJS WebGLShaderPrecisionFormat where
 export
 FromJS WebGLShaderPrecisionFormat where
   fromJS = believe_me
-
 export
-data WebGLSync : Type where [external]
+data WebGLSync  : Type where [external]
 
 export
 ToJS WebGLSync where
@@ -193,9 +178,8 @@ ToJS WebGLSync where
 export
 FromJS WebGLSync where
   fromJS = believe_me
-
 export
-data WebGLTexture : Type where [external]
+data WebGLTexture  : Type where [external]
 
 export
 ToJS WebGLTexture where
@@ -204,9 +188,8 @@ ToJS WebGLTexture where
 export
 FromJS WebGLTexture where
   fromJS = believe_me
-
 export
-data WebGLTransformFeedback : Type where [external]
+data WebGLTransformFeedback  : Type where [external]
 
 export
 ToJS WebGLTransformFeedback where
@@ -215,9 +198,8 @@ ToJS WebGLTransformFeedback where
 export
 FromJS WebGLTransformFeedback where
   fromJS = believe_me
-
 export
-data WebGLUniformLocation : Type where [external]
+data WebGLUniformLocation  : Type where [external]
 
 export
 ToJS WebGLUniformLocation where
@@ -226,9 +208,8 @@ ToJS WebGLUniformLocation where
 export
 FromJS WebGLUniformLocation where
   fromJS = believe_me
-
 export
-data WebGLVertexArrayObject : Type where [external]
+data WebGLVertexArrayObject  : Type where [external]
 
 export
 ToJS WebGLVertexArrayObject where
@@ -241,9 +222,8 @@ FromJS WebGLVertexArrayObject where
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------
-
 export
-data WebGL2RenderingContextBase : Type where [external]
+data WebGL2RenderingContextBase  : Type where [external]
 
 export
 ToJS WebGL2RenderingContextBase where
@@ -252,9 +232,8 @@ ToJS WebGL2RenderingContextBase where
 export
 FromJS WebGL2RenderingContextBase where
   fromJS = believe_me
-
 export
-data WebGL2RenderingContextOverloads : Type where [external]
+data WebGL2RenderingContextOverloads  : Type where [external]
 
 export
 ToJS WebGL2RenderingContextOverloads where
@@ -263,9 +242,8 @@ ToJS WebGL2RenderingContextOverloads where
 export
 FromJS WebGL2RenderingContextOverloads where
   fromJS = believe_me
-
 export
-data WebGLRenderingContextBase : Type where [external]
+data WebGLRenderingContextBase  : Type where [external]
 
 export
 ToJS WebGLRenderingContextBase where
@@ -274,9 +252,8 @@ ToJS WebGLRenderingContextBase where
 export
 FromJS WebGLRenderingContextBase where
   fromJS = believe_me
-
 export
-data WebGLRenderingContextOverloads : Type where [external]
+data WebGLRenderingContextOverloads  : Type where [external]
 
 export
 ToJS WebGLRenderingContextOverloads where
@@ -289,9 +266,8 @@ FromJS WebGLRenderingContextOverloads where
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
-
 export
-data WebGLContextAttributes : Type where [external]
+data WebGLContextAttributes  : Type where [external]
 
 export
 ToJS WebGLContextAttributes where

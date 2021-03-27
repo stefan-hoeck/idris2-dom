@@ -1,6 +1,4 @@
 module Web.Serviceworker
-
-import Data.SOP
 import JS.Util
 import Web.Types
 
@@ -8,501 +6,430 @@ import Web.Types
 --          Interfaces
 --------------------------------------------------------------------------------
 
+namespace Cache
+  
+  public export
+  JSVal Cache where
+    parents =  [ JSObject ]
+
+    mixins =  []
+
+namespace CacheStorage
+  
+  public export
+  JSVal CacheStorage where
+    parents =  [ JSObject ]
+
+    mixins =  []
+
 namespace Client
+  
+  public export
+  JSVal Client where
+    parents =  [ JSObject ]
+
+    mixins =  []
   
   %foreign "browser:lambda:x=>x.frameType"
   prim__frameType : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  frameType :  Cast client Client
-            => ToJS Client
-            => (obj : client)
-            -> IO FrameType
+  frameType : (obj : Client) -> IO FrameType
   
   %foreign "browser:lambda:x=>x.id"
   prim__id : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  id : Cast client Client => ToJS Client => (obj : client) -> IO String
+  id : (obj : Client) -> IO String
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  type : Cast client Client => ToJS Client => (obj : client) -> IO ClientType
+  type : (obj : Client) -> IO ClientType
   
   %foreign "browser:lambda:x=>x.url"
   prim__url : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  url : Cast client Client => ToJS Client => (obj : client) -> IO String
+  url : (obj : Client) -> IO String
+
+namespace Clients
+  
+  public export
+  JSVal Clients where
+    parents =  [ JSObject ]
+
+    mixins =  []
+
+namespace ExtendableEvent
+  
+  public export
+  JSVal ExtendableEvent where
+    parents =  [ Event , JSObject ]
+
+    mixins =  []
 
 namespace ExtendableMessageEvent
   
+  public export
+  JSVal ExtendableMessageEvent where
+    parents =  [ ExtendableEvent , Event , JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.data"
   prim__data_ : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  data_ :  Cast extendableMessageEvent ExtendableMessageEvent
-        => ToJS ExtendableMessageEvent
-        => (obj : extendableMessageEvent)
-        -> IO JSAny
+  data_ : (obj : ExtendableMessageEvent) -> IO JSAny
   
   %foreign "browser:lambda:x=>x.lastEventId"
   prim__lastEventId : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  lastEventId :  Cast extendableMessageEvent ExtendableMessageEvent
-              => ToJS ExtendableMessageEvent
-              => (obj : extendableMessageEvent)
-              -> IO String
+  lastEventId : (obj : ExtendableMessageEvent) -> IO String
   
   %foreign "browser:lambda:x=>x.origin"
   prim__origin : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  origin :  Cast extendableMessageEvent ExtendableMessageEvent
-         => ToJS ExtendableMessageEvent
-         => (obj : extendableMessageEvent)
-         -> IO String
+  origin : (obj : ExtendableMessageEvent) -> IO String
   
   %foreign "browser:lambda:x=>x.ports"
   prim__ports : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  ports :  Cast extendableMessageEvent ExtendableMessageEvent
-        => ToJS ExtendableMessageEvent
-        => (obj : extendableMessageEvent)
-        -> IO (JSArray MessagePort)
+  ports : (obj : ExtendableMessageEvent) -> IO (JSArray MessagePort)
   
   %foreign "browser:lambda:x=>x.source"
   prim__source : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  source :  Cast extendableMessageEvent ExtendableMessageEvent
-         => ToJS ExtendableMessageEvent
-         => (obj : extendableMessageEvent)
+  source :  (obj : ExtendableMessageEvent)
          -> IO (Maybe (NS I [ Client , ServiceWorker , MessagePort ]))
 
 namespace FetchEvent
   
+  public export
+  JSVal FetchEvent where
+    parents =  [ ExtendableEvent , Event , JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.clientId"
   prim__clientId : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  clientId :  Cast fetchEvent FetchEvent
-           => ToJS FetchEvent
-           => (obj : fetchEvent)
-           -> IO String
+  clientId : (obj : FetchEvent) -> IO String
   
   %foreign "browser:lambda:x=>x.handled"
   prim__handled : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  handled :  Cast fetchEvent FetchEvent
-          => ToJS FetchEvent
-          => (obj : fetchEvent)
-          -> IO (JSPromise Undefined)
+  handled : (obj : FetchEvent) -> IO (JSPromise Undefined)
   
   %foreign "browser:lambda:x=>x.preloadResponse"
   prim__preloadResponse : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  preloadResponse :  Cast fetchEvent FetchEvent
-                  => ToJS FetchEvent
-                  => (obj : fetchEvent)
-                  -> IO (JSPromise JSAny)
+  preloadResponse : (obj : FetchEvent) -> IO (JSPromise JSAny)
   
   %foreign "browser:lambda:x=>x.replacesClientId"
   prim__replacesClientId : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  replacesClientId :  Cast fetchEvent FetchEvent
-                   => ToJS FetchEvent
-                   => (obj : fetchEvent)
-                   -> IO String
+  replacesClientId : (obj : FetchEvent) -> IO String
   
   %foreign "browser:lambda:x=>x.request"
   prim__request : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  request :  Cast fetchEvent FetchEvent
-          => ToJS FetchEvent
-          => (obj : fetchEvent)
-          -> IO Request
+  request : (obj : FetchEvent) -> IO Request
   
   %foreign "browser:lambda:x=>x.resultingClientId"
   prim__resultingClientId : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  resultingClientId :  Cast fetchEvent FetchEvent
-                    => ToJS FetchEvent
-                    => (obj : fetchEvent)
-                    -> IO String
+  resultingClientId : (obj : FetchEvent) -> IO String
+
+namespace NavigationPreloadManager
+  
+  public export
+  JSVal NavigationPreloadManager where
+    parents =  [ JSObject ]
+
+    mixins =  []
 
 namespace ServiceWorker
   
+  public export
+  JSVal ServiceWorker where
+    parents =  [ EventTarget , JSObject ]
+
+    mixins =  [ AbstractWorker ]
+  
   %foreign "browser:lambda:x=>x.scriptURL"
   prim__scriptURL : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  scriptURL :  Cast serviceWorker ServiceWorker
-            => ToJS ServiceWorker
-            => (obj : serviceWorker)
-            -> IO String
+  scriptURL : (obj : ServiceWorker) -> IO String
   
   %foreign "browser:lambda:x=>x.state"
   prim__state : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  state :  Cast serviceWorker ServiceWorker
-        => ToJS ServiceWorker
-        => (obj : serviceWorker)
-        -> IO ServiceWorkerState
+  state : (obj : ServiceWorker) -> IO ServiceWorkerState
   
   %foreign "browser:lambda:x=>x.onstatechange"
   prim__onstatechange : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  onstatechange :  Cast serviceWorker ServiceWorker
-                => ToJS ServiceWorker
-                => (obj : serviceWorker)
-                -> IO EventHandler
-  
-  %foreign "browser:lambda:(x,v)=>{x.onstatechange = v}"
+  onstatechange : (obj : ServiceWorker) -> IO EventHandler
+
+  %foreign "browser:lambda:(x,v)=>{x.onstatechange  = v}"
   prim__setOnstatechange : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setOnstatechange :  Cast eventHandler EventHandler
-                   => ToJS EventHandler
-                   => Cast serviceWorker ServiceWorker
-                   => ToJS ServiceWorker
-                   => (obj : serviceWorker)
-                   -> (v : eventHandler)
-                   -> IO ()
+  setOnstatechange : (obj : ServiceWorker) -> (v : EventHandler) -> IO ()
 
 namespace ServiceWorkerContainer
   
+  public export
+  JSVal ServiceWorkerContainer where
+    parents =  [ EventTarget , JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.controller"
   prim__controller : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  controller :  Cast serviceWorkerContainer ServiceWorkerContainer
-             => ToJS ServiceWorkerContainer
-             => (obj : serviceWorkerContainer)
-             -> IO (Maybe ServiceWorker)
+  controller : (obj : ServiceWorkerContainer) -> IO (Maybe ServiceWorker)
   
   %foreign "browser:lambda:x=>x.ready"
   prim__ready : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  ready :  Cast serviceWorkerContainer ServiceWorkerContainer
-        => ToJS ServiceWorkerContainer
-        => (obj : serviceWorkerContainer)
+  ready :  (obj : ServiceWorkerContainer)
         -> IO (JSPromise ServiceWorkerRegistration)
   
   %foreign "browser:lambda:x=>x.oncontrollerchange"
   prim__oncontrollerchange : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  oncontrollerchange :  Cast serviceWorkerContainer ServiceWorkerContainer
-                     => ToJS ServiceWorkerContainer
-                     => (obj : serviceWorkerContainer)
-                     -> IO EventHandler
-  
-  %foreign "browser:lambda:(x,v)=>{x.oncontrollerchange = v}"
+  oncontrollerchange : (obj : ServiceWorkerContainer) -> IO EventHandler
+
+  %foreign "browser:lambda:(x,v)=>{x.oncontrollerchange  = v}"
   prim__setOncontrollerchange : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setOncontrollerchange :  Cast eventHandler EventHandler
-                        => ToJS EventHandler
-                        => Cast serviceWorkerContainer ServiceWorkerContainer
-                        => ToJS ServiceWorkerContainer
-                        => (obj : serviceWorkerContainer)
-                        -> (v : eventHandler)
+  setOncontrollerchange :  (obj : ServiceWorkerContainer)
+                        -> (v : EventHandler)
                         -> IO ()
   
   %foreign "browser:lambda:x=>x.onmessage"
   prim__onmessage : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  onmessage :  Cast serviceWorkerContainer ServiceWorkerContainer
-            => ToJS ServiceWorkerContainer
-            => (obj : serviceWorkerContainer)
-            -> IO EventHandler
-  
-  %foreign "browser:lambda:(x,v)=>{x.onmessage = v}"
+  onmessage : (obj : ServiceWorkerContainer) -> IO EventHandler
+
+  %foreign "browser:lambda:(x,v)=>{x.onmessage  = v}"
   prim__setOnmessage : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setOnmessage :  Cast eventHandler EventHandler
-               => ToJS EventHandler
-               => Cast serviceWorkerContainer ServiceWorkerContainer
-               => ToJS ServiceWorkerContainer
-               => (obj : serviceWorkerContainer)
-               -> (v : eventHandler)
-               -> IO ()
+  setOnmessage : (obj : ServiceWorkerContainer) -> (v : EventHandler) -> IO ()
   
   %foreign "browser:lambda:x=>x.onmessageerror"
   prim__onmessageerror : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  onmessageerror :  Cast serviceWorkerContainer ServiceWorkerContainer
-                 => ToJS ServiceWorkerContainer
-                 => (obj : serviceWorkerContainer)
-                 -> IO EventHandler
-  
-  %foreign "browser:lambda:(x,v)=>{x.onmessageerror = v}"
+  onmessageerror : (obj : ServiceWorkerContainer) -> IO EventHandler
+
+  %foreign "browser:lambda:(x,v)=>{x.onmessageerror  = v}"
   prim__setOnmessageerror : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setOnmessageerror :  Cast eventHandler EventHandler
-                    => ToJS EventHandler
-                    => Cast serviceWorkerContainer ServiceWorkerContainer
-                    => ToJS ServiceWorkerContainer
-                    => (obj : serviceWorkerContainer)
-                    -> (v : eventHandler)
+  setOnmessageerror :  (obj : ServiceWorkerContainer)
+                    -> (v : EventHandler)
                     -> IO ()
 
 namespace ServiceWorkerGlobalScope
   
+  public export
+  JSVal ServiceWorkerGlobalScope where
+    parents =  [ WorkerGlobalScope , EventTarget , JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.clients"
   prim__clients : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  clients :  Cast serviceWorkerGlobalScope ServiceWorkerGlobalScope
-          => ToJS ServiceWorkerGlobalScope
-          => (obj : serviceWorkerGlobalScope)
-          -> IO Clients
+  clients : (obj : ServiceWorkerGlobalScope) -> IO Clients
   
   %foreign "browser:lambda:x=>x.registration"
   prim__registration : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  registration :  Cast serviceWorkerGlobalScope ServiceWorkerGlobalScope
-               => ToJS ServiceWorkerGlobalScope
-               => (obj : serviceWorkerGlobalScope)
+  registration :  (obj : ServiceWorkerGlobalScope)
                -> IO ServiceWorkerRegistration
   
   %foreign "browser:lambda:x=>x.serviceWorker"
   prim__serviceWorker : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  serviceWorker :  Cast serviceWorkerGlobalScope ServiceWorkerGlobalScope
-                => ToJS ServiceWorkerGlobalScope
-                => (obj : serviceWorkerGlobalScope)
-                -> IO ServiceWorker
+  serviceWorker : (obj : ServiceWorkerGlobalScope) -> IO ServiceWorker
   
   %foreign "browser:lambda:x=>x.onactivate"
   prim__onactivate : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  onactivate :  Cast serviceWorkerGlobalScope ServiceWorkerGlobalScope
-             => ToJS ServiceWorkerGlobalScope
-             => (obj : serviceWorkerGlobalScope)
-             -> IO EventHandler
-  
-  %foreign "browser:lambda:(x,v)=>{x.onactivate = v}"
+  onactivate : (obj : ServiceWorkerGlobalScope) -> IO EventHandler
+
+  %foreign "browser:lambda:(x,v)=>{x.onactivate  = v}"
   prim__setOnactivate : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setOnactivate :  Cast eventHandler EventHandler
-                => ToJS EventHandler
-                => Cast serviceWorkerGlobalScope ServiceWorkerGlobalScope
-                => ToJS ServiceWorkerGlobalScope
-                => (obj : serviceWorkerGlobalScope)
-                -> (v : eventHandler)
+  setOnactivate :  (obj : ServiceWorkerGlobalScope)
+                -> (v : EventHandler)
                 -> IO ()
   
   %foreign "browser:lambda:x=>x.onfetch"
   prim__onfetch : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  onfetch :  Cast serviceWorkerGlobalScope ServiceWorkerGlobalScope
-          => ToJS ServiceWorkerGlobalScope
-          => (obj : serviceWorkerGlobalScope)
-          -> IO EventHandler
-  
-  %foreign "browser:lambda:(x,v)=>{x.onfetch = v}"
+  onfetch : (obj : ServiceWorkerGlobalScope) -> IO EventHandler
+
+  %foreign "browser:lambda:(x,v)=>{x.onfetch  = v}"
   prim__setOnfetch : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setOnfetch :  Cast eventHandler EventHandler
-             => ToJS EventHandler
-             => Cast serviceWorkerGlobalScope ServiceWorkerGlobalScope
-             => ToJS ServiceWorkerGlobalScope
-             => (obj : serviceWorkerGlobalScope)
-             -> (v : eventHandler)
-             -> IO ()
+  setOnfetch : (obj : ServiceWorkerGlobalScope) -> (v : EventHandler) -> IO ()
   
   %foreign "browser:lambda:x=>x.oninstall"
   prim__oninstall : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  oninstall :  Cast serviceWorkerGlobalScope ServiceWorkerGlobalScope
-            => ToJS ServiceWorkerGlobalScope
-            => (obj : serviceWorkerGlobalScope)
-            -> IO EventHandler
-  
-  %foreign "browser:lambda:(x,v)=>{x.oninstall = v}"
+  oninstall : (obj : ServiceWorkerGlobalScope) -> IO EventHandler
+
+  %foreign "browser:lambda:(x,v)=>{x.oninstall  = v}"
   prim__setOninstall : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setOninstall :  Cast eventHandler EventHandler
-               => ToJS EventHandler
-               => Cast serviceWorkerGlobalScope ServiceWorkerGlobalScope
-               => ToJS ServiceWorkerGlobalScope
-               => (obj : serviceWorkerGlobalScope)
-               -> (v : eventHandler)
-               -> IO ()
+  setOninstall : (obj : ServiceWorkerGlobalScope) -> (v : EventHandler) -> IO ()
   
   %foreign "browser:lambda:x=>x.onmessage"
   prim__onmessage : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  onmessage :  Cast serviceWorkerGlobalScope ServiceWorkerGlobalScope
-            => ToJS ServiceWorkerGlobalScope
-            => (obj : serviceWorkerGlobalScope)
-            -> IO EventHandler
-  
-  %foreign "browser:lambda:(x,v)=>{x.onmessage = v}"
+  onmessage : (obj : ServiceWorkerGlobalScope) -> IO EventHandler
+
+  %foreign "browser:lambda:(x,v)=>{x.onmessage  = v}"
   prim__setOnmessage : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setOnmessage :  Cast eventHandler EventHandler
-               => ToJS EventHandler
-               => Cast serviceWorkerGlobalScope ServiceWorkerGlobalScope
-               => ToJS ServiceWorkerGlobalScope
-               => (obj : serviceWorkerGlobalScope)
-               -> (v : eventHandler)
-               -> IO ()
+  setOnmessage : (obj : ServiceWorkerGlobalScope) -> (v : EventHandler) -> IO ()
   
   %foreign "browser:lambda:x=>x.onmessageerror"
   prim__onmessageerror : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  onmessageerror :  Cast serviceWorkerGlobalScope ServiceWorkerGlobalScope
-                 => ToJS ServiceWorkerGlobalScope
-                 => (obj : serviceWorkerGlobalScope)
-                 -> IO EventHandler
-  
-  %foreign "browser:lambda:(x,v)=>{x.onmessageerror = v}"
+  onmessageerror : (obj : ServiceWorkerGlobalScope) -> IO EventHandler
+
+  %foreign "browser:lambda:(x,v)=>{x.onmessageerror  = v}"
   prim__setOnmessageerror : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setOnmessageerror :  Cast eventHandler EventHandler
-                    => ToJS EventHandler
-                    => Cast serviceWorkerGlobalScope ServiceWorkerGlobalScope
-                    => ToJS ServiceWorkerGlobalScope
-                    => (obj : serviceWorkerGlobalScope)
-                    -> (v : eventHandler)
+  setOnmessageerror :  (obj : ServiceWorkerGlobalScope)
+                    -> (v : EventHandler)
                     -> IO ()
 
 namespace ServiceWorkerRegistration
   
+  public export
+  JSVal ServiceWorkerRegistration where
+    parents =  [ EventTarget , JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.active"
   prim__active : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  active :  Cast serviceWorkerRegistration ServiceWorkerRegistration
-         => ToJS ServiceWorkerRegistration
-         => (obj : serviceWorkerRegistration)
-         -> IO (Maybe ServiceWorker)
+  active : (obj : ServiceWorkerRegistration) -> IO (Maybe ServiceWorker)
   
   %foreign "browser:lambda:x=>x.installing"
   prim__installing : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  installing :  Cast serviceWorkerRegistration ServiceWorkerRegistration
-             => ToJS ServiceWorkerRegistration
-             => (obj : serviceWorkerRegistration)
-             -> IO (Maybe ServiceWorker)
+  installing : (obj : ServiceWorkerRegistration) -> IO (Maybe ServiceWorker)
   
   %foreign "browser:lambda:x=>x.navigationPreload"
   prim__navigationPreload : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  navigationPreload :  Cast serviceWorkerRegistration ServiceWorkerRegistration
-                    => ToJS ServiceWorkerRegistration
-                    => (obj : serviceWorkerRegistration)
+  navigationPreload :  (obj : ServiceWorkerRegistration)
                     -> IO NavigationPreloadManager
   
   %foreign "browser:lambda:x=>x.scope"
   prim__scope : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  scope :  Cast serviceWorkerRegistration ServiceWorkerRegistration
-        => ToJS ServiceWorkerRegistration
-        => (obj : serviceWorkerRegistration)
-        -> IO String
+  scope : (obj : ServiceWorkerRegistration) -> IO String
   
   %foreign "browser:lambda:x=>x.updateViaCache"
   prim__updateViaCache : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  updateViaCache :  Cast serviceWorkerRegistration ServiceWorkerRegistration
-                 => ToJS ServiceWorkerRegistration
-                 => (obj : serviceWorkerRegistration)
+  updateViaCache :  (obj : ServiceWorkerRegistration)
                  -> IO ServiceWorkerUpdateViaCache
   
   %foreign "browser:lambda:x=>x.waiting"
   prim__waiting : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  waiting :  Cast serviceWorkerRegistration ServiceWorkerRegistration
-          => ToJS ServiceWorkerRegistration
-          => (obj : serviceWorkerRegistration)
-          -> IO (Maybe ServiceWorker)
+  waiting : (obj : ServiceWorkerRegistration) -> IO (Maybe ServiceWorker)
   
   %foreign "browser:lambda:x=>x.onupdatefound"
   prim__onupdatefound : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  onupdatefound :  Cast serviceWorkerRegistration ServiceWorkerRegistration
-                => ToJS ServiceWorkerRegistration
-                => (obj : serviceWorkerRegistration)
-                -> IO EventHandler
-  
-  %foreign "browser:lambda:(x,v)=>{x.onupdatefound = v}"
+  onupdatefound : (obj : ServiceWorkerRegistration) -> IO EventHandler
+
+  %foreign "browser:lambda:(x,v)=>{x.onupdatefound  = v}"
   prim__setOnupdatefound : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setOnupdatefound :  Cast eventHandler EventHandler
-                   => ToJS EventHandler
-                   => Cast serviceWorkerRegistration ServiceWorkerRegistration
-                   => ToJS ServiceWorkerRegistration
-                   => (obj : serviceWorkerRegistration)
-                   -> (v : eventHandler)
+  setOnupdatefound :  (obj : ServiceWorkerRegistration)
+                   -> (v : EventHandler)
                    -> IO ()
 
 namespace WindowClient
   
+  public export
+  JSVal WindowClient where
+    parents =  [ Client , JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.ancestorOrigins"
   prim__ancestorOrigins : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  ancestorOrigins :  Cast windowClient WindowClient
-                  => ToJS WindowClient
-                  => (obj : windowClient)
-                  -> IO (JSArray String)
+  ancestorOrigins : (obj : WindowClient) -> IO (JSArray String)
   
   %foreign "browser:lambda:x=>x.focused"
   prim__focused : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  focused :  Cast windowClient WindowClient
-          => ToJS WindowClient
-          => (obj : windowClient)
-          -> IO Bool
+  focused : (obj : WindowClient) -> IO Bool
   
   %foreign "browser:lambda:x=>x.visibilityState"
   prim__visibilityState : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  visibilityState :  Cast windowClient WindowClient
-                  => ToJS WindowClient
-                  => (obj : windowClient)
-                  -> IO VisibilityState
+  visibilityState : (obj : WindowClient) -> IO VisibilityState
 
 
 --------------------------------------------------------------------------------
@@ -511,498 +438,336 @@ namespace WindowClient
 
 namespace CacheQueryOptions
   
+  public export
+  JSVal CacheQueryOptions where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.ignoreMethod"
   prim__ignoreMethod : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  ignoreMethod :  Cast cacheQueryOptions CacheQueryOptions
-               => ToJS CacheQueryOptions
-               => (obj : cacheQueryOptions)
-               -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.ignoreMethod = v}"
+  ignoreMethod : (obj : CacheQueryOptions) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.ignoreMethod  = v}"
   prim__setIgnoreMethod : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setIgnoreMethod :  Cast cacheQueryOptions CacheQueryOptions
-                  => ToJS CacheQueryOptions
-                  => (obj : cacheQueryOptions)
-                  -> (v : Bool)
-                  -> IO ()
+  setIgnoreMethod : (obj : CacheQueryOptions) -> (v : Bool) -> IO ()
   
   %foreign "browser:lambda:x=>x.ignoreSearch"
   prim__ignoreSearch : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  ignoreSearch :  Cast cacheQueryOptions CacheQueryOptions
-               => ToJS CacheQueryOptions
-               => (obj : cacheQueryOptions)
-               -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.ignoreSearch = v}"
+  ignoreSearch : (obj : CacheQueryOptions) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.ignoreSearch  = v}"
   prim__setIgnoreSearch : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setIgnoreSearch :  Cast cacheQueryOptions CacheQueryOptions
-                  => ToJS CacheQueryOptions
-                  => (obj : cacheQueryOptions)
-                  -> (v : Bool)
-                  -> IO ()
+  setIgnoreSearch : (obj : CacheQueryOptions) -> (v : Bool) -> IO ()
   
   %foreign "browser:lambda:x=>x.ignoreVary"
   prim__ignoreVary : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  ignoreVary :  Cast cacheQueryOptions CacheQueryOptions
-             => ToJS CacheQueryOptions
-             => (obj : cacheQueryOptions)
-             -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.ignoreVary = v}"
+  ignoreVary : (obj : CacheQueryOptions) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.ignoreVary  = v}"
   prim__setIgnoreVary : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setIgnoreVary :  Cast cacheQueryOptions CacheQueryOptions
-                => ToJS CacheQueryOptions
-                => (obj : cacheQueryOptions)
-                -> (v : Bool)
-                -> IO ()
+  setIgnoreVary : (obj : CacheQueryOptions) -> (v : Bool) -> IO ()
 
 namespace ClientQueryOptions
   
+  public export
+  JSVal ClientQueryOptions where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.includeUncontrolled"
   prim__includeUncontrolled : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  includeUncontrolled :  Cast clientQueryOptions ClientQueryOptions
-                      => ToJS ClientQueryOptions
-                      => (obj : clientQueryOptions)
-                      -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.includeUncontrolled = v}"
+  includeUncontrolled : (obj : ClientQueryOptions) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.includeUncontrolled  = v}"
   prim__setIncludeUncontrolled : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setIncludeUncontrolled :  Cast clientQueryOptions ClientQueryOptions
-                         => ToJS ClientQueryOptions
-                         => (obj : clientQueryOptions)
-                         -> (v : Bool)
-                         -> IO ()
+  setIncludeUncontrolled : (obj : ClientQueryOptions) -> (v : Bool) -> IO ()
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  type :  Cast clientQueryOptions ClientQueryOptions
-       => ToJS ClientQueryOptions
-       => (obj : clientQueryOptions)
-       -> IO ClientType
-  
-  %foreign "browser:lambda:(x,v)=>{x.type = v}"
+  type : (obj : ClientQueryOptions) -> IO ClientType
+
+  %foreign "browser:lambda:(x,v)=>{x.type  = v}"
   prim__setType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setType :  Cast clientQueryOptions ClientQueryOptions
-          => ToJS ClientQueryOptions
-          => Cast clientType ClientType
-          => ToJS ClientType
-          => (obj : clientQueryOptions)
-          -> (v : clientType)
-          -> IO ()
+  setType : (obj : ClientQueryOptions) -> (v : ClientType) -> IO ()
+
+namespace ExtendableEventInit
+  
+  public export
+  JSVal ExtendableEventInit where
+    parents =  [ EventInit , JSObject ]
+
+    mixins =  []
 
 namespace ExtendableMessageEventInit
   
+  public export
+  JSVal ExtendableMessageEventInit where
+    parents =  [ ExtendableEventInit , EventInit , JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.data"
   prim__data_ : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  data_ :  Cast extendableMessageEventInit ExtendableMessageEventInit
-        => ToJS ExtendableMessageEventInit
-        => (obj : extendableMessageEventInit)
-        -> IO JSAny
-  
-  %foreign "browser:lambda:(x,v)=>{x.data = v}"
+  data_ : (obj : ExtendableMessageEventInit) -> IO JSAny
+
+  %foreign "browser:lambda:(x,v)=>{x.data  = v}"
   prim__setData : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setData :  Cast extendableMessageEventInit ExtendableMessageEventInit
-          => ToJS ExtendableMessageEventInit
-          => (obj : extendableMessageEventInit)
-          -> (v : JSAny)
-          -> IO ()
+  setData : (obj : ExtendableMessageEventInit) -> (v : JSAny) -> IO ()
   
   %foreign "browser:lambda:x=>x.lastEventId"
   prim__lastEventId : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  lastEventId :  Cast extendableMessageEventInit ExtendableMessageEventInit
-              => ToJS ExtendableMessageEventInit
-              => (obj : extendableMessageEventInit)
-              -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.lastEventId = v}"
+  lastEventId : (obj : ExtendableMessageEventInit) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.lastEventId  = v}"
   prim__setLastEventId : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setLastEventId :  Cast extendableMessageEventInit ExtendableMessageEventInit
-                 => ToJS ExtendableMessageEventInit
-                 => (obj : extendableMessageEventInit)
-                 -> (v : String)
-                 -> IO ()
+  setLastEventId : (obj : ExtendableMessageEventInit) -> (v : String) -> IO ()
   
   %foreign "browser:lambda:x=>x.origin"
   prim__origin : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  origin :  Cast extendableMessageEventInit ExtendableMessageEventInit
-         => ToJS ExtendableMessageEventInit
-         => (obj : extendableMessageEventInit)
-         -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.origin = v}"
+  origin : (obj : ExtendableMessageEventInit) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.origin  = v}"
   prim__setOrigin : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setOrigin :  Cast extendableMessageEventInit ExtendableMessageEventInit
-            => ToJS ExtendableMessageEventInit
-            => (obj : extendableMessageEventInit)
-            -> (v : String)
-            -> IO ()
+  setOrigin : (obj : ExtendableMessageEventInit) -> (v : String) -> IO ()
   
   %foreign "browser:lambda:x=>x.ports"
   prim__ports : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  ports :  Cast extendableMessageEventInit ExtendableMessageEventInit
-        => ToJS ExtendableMessageEventInit
-        => (obj : extendableMessageEventInit)
-        -> IO (JSArray MessagePort)
-  
-  %foreign "browser:lambda:(x,v)=>{x.ports = v}"
+  ports : (obj : ExtendableMessageEventInit) -> IO (JSArray MessagePort)
+
+  %foreign "browser:lambda:(x,v)=>{x.ports  = v}"
   prim__setPorts : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setPorts :  Cast extendableMessageEventInit ExtendableMessageEventInit
-           => ToJS ExtendableMessageEventInit
-           => (obj : extendableMessageEventInit)
+  setPorts :  (obj : ExtendableMessageEventInit)
            -> (v : JSArray MessagePort)
            -> IO ()
   
   %foreign "browser:lambda:x=>x.source"
   prim__source : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  source :  Cast extendableMessageEventInit ExtendableMessageEventInit
-         => ToJS ExtendableMessageEventInit
-         => (obj : extendableMessageEventInit)
+  source :  (obj : ExtendableMessageEventInit)
          -> IO (Maybe (NS I [ Client , ServiceWorker , MessagePort ]))
-  
-  %foreign "browser:lambda:(x,v)=>{x.source = v}"
+
+  %foreign "browser:lambda:(x,v)=>{x.source  = v}"
   prim__setSource : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setSource :  Cast extendableMessageEventInit ExtendableMessageEventInit
-            => ToJS ExtendableMessageEventInit
-            => (obj : extendableMessageEventInit)
+  setSource :  (obj : ExtendableMessageEventInit)
             -> (v : Maybe (NS I [ Client , ServiceWorker , MessagePort ]))
             -> IO ()
 
 namespace FetchEventInit
   
+  public export
+  JSVal FetchEventInit where
+    parents =  [ ExtendableEventInit , EventInit , JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.request"
   prim__request : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  request :  Cast fetchEventInit FetchEventInit
-          => ToJS FetchEventInit
-          => (obj : fetchEventInit)
-          -> IO Request
-  
-  %foreign "browser:lambda:(x,v)=>{x.request = v}"
+  request : (obj : FetchEventInit) -> IO Request
+
+  %foreign "browser:lambda:(x,v)=>{x.request  = v}"
   prim__setRequest : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setRequest :  Cast fetchEventInit FetchEventInit
-             => ToJS FetchEventInit
-             => Cast request Request
-             => ToJS Request
-             => (obj : fetchEventInit)
-             -> (v : request)
-             -> IO ()
+  setRequest : (obj : FetchEventInit) -> (v : Request) -> IO ()
   
   %foreign "browser:lambda:x=>x.clientId"
   prim__clientId : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  clientId :  Cast fetchEventInit FetchEventInit
-           => ToJS FetchEventInit
-           => (obj : fetchEventInit)
-           -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.clientId = v}"
+  clientId : (obj : FetchEventInit) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.clientId  = v}"
   prim__setClientId : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setClientId :  Cast fetchEventInit FetchEventInit
-              => ToJS FetchEventInit
-              => (obj : fetchEventInit)
-              -> (v : String)
-              -> IO ()
+  setClientId : (obj : FetchEventInit) -> (v : String) -> IO ()
   
   %foreign "browser:lambda:x=>x.handled"
   prim__handled : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  handled :  Cast fetchEventInit FetchEventInit
-          => ToJS FetchEventInit
-          => (obj : fetchEventInit)
-          -> IO (JSPromise Undefined)
-  
-  %foreign "browser:lambda:(x,v)=>{x.handled = v}"
+  handled : (obj : FetchEventInit) -> IO (JSPromise Undefined)
+
+  %foreign "browser:lambda:(x,v)=>{x.handled  = v}"
   prim__setHandled : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setHandled :  Cast fetchEventInit FetchEventInit
-             => ToJS FetchEventInit
-             => (obj : fetchEventInit)
-             -> (v : JSPromise Undefined)
-             -> IO ()
+  setHandled : (obj : FetchEventInit) -> (v : JSPromise Undefined) -> IO ()
   
   %foreign "browser:lambda:x=>x.preloadResponse"
   prim__preloadResponse : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  preloadResponse :  Cast fetchEventInit FetchEventInit
-                  => ToJS FetchEventInit
-                  => (obj : fetchEventInit)
-                  -> IO (JSPromise JSAny)
-  
-  %foreign "browser:lambda:(x,v)=>{x.preloadResponse = v}"
+  preloadResponse : (obj : FetchEventInit) -> IO (JSPromise JSAny)
+
+  %foreign "browser:lambda:(x,v)=>{x.preloadResponse  = v}"
   prim__setPreloadResponse : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setPreloadResponse :  Cast fetchEventInit FetchEventInit
-                     => ToJS FetchEventInit
-                     => (obj : fetchEventInit)
-                     -> (v : JSPromise JSAny)
-                     -> IO ()
+  setPreloadResponse : (obj : FetchEventInit) -> (v : JSPromise JSAny) -> IO ()
   
   %foreign "browser:lambda:x=>x.replacesClientId"
   prim__replacesClientId : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  replacesClientId :  Cast fetchEventInit FetchEventInit
-                   => ToJS FetchEventInit
-                   => (obj : fetchEventInit)
-                   -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.replacesClientId = v}"
+  replacesClientId : (obj : FetchEventInit) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.replacesClientId  = v}"
   prim__setReplacesClientId : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setReplacesClientId :  Cast fetchEventInit FetchEventInit
-                      => ToJS FetchEventInit
-                      => (obj : fetchEventInit)
-                      -> (v : String)
-                      -> IO ()
+  setReplacesClientId : (obj : FetchEventInit) -> (v : String) -> IO ()
   
   %foreign "browser:lambda:x=>x.resultingClientId"
   prim__resultingClientId : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  resultingClientId :  Cast fetchEventInit FetchEventInit
-                    => ToJS FetchEventInit
-                    => (obj : fetchEventInit)
-                    -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.resultingClientId = v}"
+  resultingClientId : (obj : FetchEventInit) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.resultingClientId  = v}"
   prim__setResultingClientId : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setResultingClientId :  Cast fetchEventInit FetchEventInit
-                       => ToJS FetchEventInit
-                       => (obj : fetchEventInit)
-                       -> (v : String)
-                       -> IO ()
+  setResultingClientId : (obj : FetchEventInit) -> (v : String) -> IO ()
 
 namespace MultiCacheQueryOptions
   
+  public export
+  JSVal MultiCacheQueryOptions where
+    parents =  [ CacheQueryOptions , JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.cacheName"
   prim__cacheName : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  cacheName :  Cast multiCacheQueryOptions MultiCacheQueryOptions
-            => ToJS MultiCacheQueryOptions
-            => (obj : multiCacheQueryOptions)
-            -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.cacheName = v}"
+  cacheName : (obj : MultiCacheQueryOptions) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.cacheName  = v}"
   prim__setCacheName : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setCacheName :  Cast multiCacheQueryOptions MultiCacheQueryOptions
-               => ToJS MultiCacheQueryOptions
-               => (obj : multiCacheQueryOptions)
-               -> (v : String)
-               -> IO ()
+  setCacheName : (obj : MultiCacheQueryOptions) -> (v : String) -> IO ()
 
 namespace NavigationPreloadState
   
+  public export
+  JSVal NavigationPreloadState where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.enabled"
   prim__enabled : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  enabled :  Cast navigationPreloadState NavigationPreloadState
-          => ToJS NavigationPreloadState
-          => (obj : navigationPreloadState)
-          -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.enabled = v}"
+  enabled : (obj : NavigationPreloadState) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.enabled  = v}"
   prim__setEnabled : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setEnabled :  Cast navigationPreloadState NavigationPreloadState
-             => ToJS NavigationPreloadState
-             => (obj : navigationPreloadState)
-             -> (v : Bool)
-             -> IO ()
+  setEnabled : (obj : NavigationPreloadState) -> (v : Bool) -> IO ()
   
   %foreign "browser:lambda:x=>x.headerValue"
   prim__headerValue : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  headerValue :  Cast navigationPreloadState NavigationPreloadState
-              => ToJS NavigationPreloadState
-              => (obj : navigationPreloadState)
-              -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.headerValue = v}"
+  headerValue : (obj : NavigationPreloadState) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.headerValue  = v}"
   prim__setHeaderValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setHeaderValue :  Cast navigationPreloadState NavigationPreloadState
-                 => ToJS NavigationPreloadState
-                 => (obj : navigationPreloadState)
-                 -> (v : String)
-                 -> IO ()
+  setHeaderValue : (obj : NavigationPreloadState) -> (v : String) -> IO ()
 
 namespace RegistrationOptions
   
+  public export
+  JSVal RegistrationOptions where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.scope"
   prim__scope : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  scope :  Cast registrationOptions RegistrationOptions
-        => ToJS RegistrationOptions
-        => (obj : registrationOptions)
-        -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.scope = v}"
+  scope : (obj : RegistrationOptions) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.scope  = v}"
   prim__setScope : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setScope :  Cast registrationOptions RegistrationOptions
-           => ToJS RegistrationOptions
-           => (obj : registrationOptions)
-           -> (v : String)
-           -> IO ()
+  setScope : (obj : RegistrationOptions) -> (v : String) -> IO ()
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  type :  Cast registrationOptions RegistrationOptions
-       => ToJS RegistrationOptions
-       => (obj : registrationOptions)
-       -> IO WorkerType
-  
-  %foreign "browser:lambda:(x,v)=>{x.type = v}"
+  type : (obj : RegistrationOptions) -> IO WorkerType
+
+  %foreign "browser:lambda:(x,v)=>{x.type  = v}"
   prim__setType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setType :  Cast registrationOptions RegistrationOptions
-          => ToJS RegistrationOptions
-          => Cast workerType WorkerType
-          => ToJS WorkerType
-          => (obj : registrationOptions)
-          -> (v : workerType)
-          -> IO ()
+  setType : (obj : RegistrationOptions) -> (v : WorkerType) -> IO ()
   
   %foreign "browser:lambda:x=>x.updateViaCache"
   prim__updateViaCache : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  updateViaCache :  Cast registrationOptions RegistrationOptions
-                 => ToJS RegistrationOptions
-                 => (obj : registrationOptions)
-                 -> IO ServiceWorkerUpdateViaCache
-  
-  %foreign "browser:lambda:(x,v)=>{x.updateViaCache = v}"
+  updateViaCache : (obj : RegistrationOptions) -> IO ServiceWorkerUpdateViaCache
+
+  %foreign "browser:lambda:(x,v)=>{x.updateViaCache  = v}"
   prim__setUpdateViaCache : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setUpdateViaCache :  Cast registrationOptions RegistrationOptions
-                    => ToJS RegistrationOptions
-                    => Cast serviceWorkerUpdateViaCache ServiceWorkerUpdateViaCache
-                    => ToJS ServiceWorkerUpdateViaCache
-                    => (obj : registrationOptions)
-                    -> (v : serviceWorkerUpdateViaCache)
+  setUpdateViaCache :  (obj : RegistrationOptions)
+                    -> (v : ServiceWorkerUpdateViaCache)
                     -> IO ()
 
-
-
---------------------------------------------------------------------------------
---          Casts
---------------------------------------------------------------------------------
-
-export
-Cast ExtendableEvent Event where
-  cast = believe_me
-
-export
-Cast ExtendableEventInit EventInit where
-  cast = believe_me
-
-export
-Cast ExtendableMessageEvent ExtendableEvent where
-  cast = believe_me
-
-export
-Cast ExtendableMessageEventInit ExtendableEventInit where
-  cast = believe_me
-
-export
-Cast FetchEvent ExtendableEvent where
-  cast = believe_me
-
-export
-Cast FetchEventInit ExtendableEventInit where
-  cast = believe_me
-
-export
-Cast MultiCacheQueryOptions CacheQueryOptions where
-  cast = believe_me
-
-export
-Cast ServiceWorker AbstractWorker where
-  cast = believe_me
-
-export
-Cast ServiceWorker EventTarget where
-  cast = believe_me
-
-export
-Cast ServiceWorkerContainer EventTarget where
-  cast = believe_me
-
-export
-Cast ServiceWorkerGlobalScope WorkerGlobalScope where
-  cast = believe_me
-
-export
-Cast ServiceWorkerRegistration EventTarget where
-  cast = believe_me
-
-export
-Cast WindowClient Client where
-  cast = believe_me

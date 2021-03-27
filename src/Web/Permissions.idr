@@ -1,6 +1,4 @@
 module Web.Permissions
-
-import Data.SOP
 import JS.Util
 import Web.Types
 
@@ -10,35 +8,37 @@ import Web.Types
 
 namespace PermissionStatus
   
+  public export
+  JSVal PermissionStatus where
+    parents =  [ EventTarget , JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.state"
   prim__state : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  state :  Cast permissionStatus PermissionStatus
-        => ToJS PermissionStatus
-        => (obj : permissionStatus)
-        -> IO PermissionState
+  state : (obj : PermissionStatus) -> IO PermissionState
   
   %foreign "browser:lambda:x=>x.onchange"
   prim__onchange : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  onchange :  Cast permissionStatus PermissionStatus
-           => ToJS PermissionStatus
-           => (obj : permissionStatus)
-           -> IO EventHandler
-  
-  %foreign "browser:lambda:(x,v)=>{x.onchange = v}"
+  onchange : (obj : PermissionStatus) -> IO EventHandler
+
+  %foreign "browser:lambda:(x,v)=>{x.onchange  = v}"
   prim__setOnchange : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setOnchange :  Cast eventHandler EventHandler
-              => ToJS EventHandler
-              => Cast permissionStatus PermissionStatus
-              => ToJS PermissionStatus
-              => (obj : permissionStatus)
-              -> (v : eventHandler)
-              -> IO ()
+  setOnchange : (obj : PermissionStatus) -> (v : EventHandler) -> IO ()
+
+namespace Permissions
+  
+  public export
+  JSVal Permissions where
+    parents =  [ JSObject ]
+
+    mixins =  []
 
 
 --------------------------------------------------------------------------------
@@ -47,196 +47,149 @@ namespace PermissionStatus
 
 namespace CameraDevicePermissionDescriptor
   
+  public export
+  JSVal CameraDevicePermissionDescriptor where
+    parents =  [ DevicePermissionDescriptor , PermissionDescriptor , JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.panTiltZoom"
   prim__panTiltZoom : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  panTiltZoom :  Cast cameraDevicePermissionDescriptor CameraDevicePermissionDescriptor
-              => ToJS CameraDevicePermissionDescriptor
-              => (obj : cameraDevicePermissionDescriptor)
-              -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.panTiltZoom = v}"
+  panTiltZoom : (obj : CameraDevicePermissionDescriptor) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.panTiltZoom  = v}"
   prim__setPanTiltZoom : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setPanTiltZoom :  Cast cameraDevicePermissionDescriptor CameraDevicePermissionDescriptor
-                 => ToJS CameraDevicePermissionDescriptor
-                 => (obj : cameraDevicePermissionDescriptor)
+  setPanTiltZoom :  (obj : CameraDevicePermissionDescriptor)
                  -> (v : Bool)
                  -> IO ()
 
 namespace DevicePermissionDescriptor
   
+  public export
+  JSVal DevicePermissionDescriptor where
+    parents =  [ PermissionDescriptor , JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.deviceId"
   prim__deviceId : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  deviceId :  Cast devicePermissionDescriptor DevicePermissionDescriptor
-           => ToJS DevicePermissionDescriptor
-           => (obj : devicePermissionDescriptor)
-           -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.deviceId = v}"
+  deviceId : (obj : DevicePermissionDescriptor) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.deviceId  = v}"
   prim__setDeviceId : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setDeviceId :  Cast devicePermissionDescriptor DevicePermissionDescriptor
-              => ToJS DevicePermissionDescriptor
-              => (obj : devicePermissionDescriptor)
-              -> (v : String)
-              -> IO ()
+  setDeviceId : (obj : DevicePermissionDescriptor) -> (v : String) -> IO ()
 
 namespace MidiPermissionDescriptor
   
+  public export
+  JSVal MidiPermissionDescriptor where
+    parents =  [ PermissionDescriptor , JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.sysex"
   prim__sysex : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  sysex :  Cast midiPermissionDescriptor MidiPermissionDescriptor
-        => ToJS MidiPermissionDescriptor
-        => (obj : midiPermissionDescriptor)
-        -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.sysex = v}"
+  sysex : (obj : MidiPermissionDescriptor) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.sysex  = v}"
   prim__setSysex : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setSysex :  Cast midiPermissionDescriptor MidiPermissionDescriptor
-           => ToJS MidiPermissionDescriptor
-           => (obj : midiPermissionDescriptor)
-           -> (v : Bool)
-           -> IO ()
+  setSysex : (obj : MidiPermissionDescriptor) -> (v : Bool) -> IO ()
 
 namespace PermissionDescriptor
   
+  public export
+  JSVal PermissionDescriptor where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.name"
   prim__name : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  name :  Cast permissionDescriptor PermissionDescriptor
-       => ToJS PermissionDescriptor
-       => (obj : permissionDescriptor)
-       -> IO PermissionName
-  
-  %foreign "browser:lambda:(x,v)=>{x.name = v}"
+  name : (obj : PermissionDescriptor) -> IO PermissionName
+
+  %foreign "browser:lambda:(x,v)=>{x.name  = v}"
   prim__setName : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setName :  Cast permissionDescriptor PermissionDescriptor
-          => ToJS PermissionDescriptor
-          => Cast permissionName PermissionName
-          => ToJS PermissionName
-          => (obj : permissionDescriptor)
-          -> (v : permissionName)
-          -> IO ()
+  setName : (obj : PermissionDescriptor) -> (v : PermissionName) -> IO ()
 
 namespace PermissionSetParameters
   
+  public export
+  JSVal PermissionSetParameters where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.descriptor"
   prim__descriptor : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  descriptor :  Cast permissionSetParameters PermissionSetParameters
-             => ToJS PermissionSetParameters
-             => (obj : permissionSetParameters)
-             -> IO PermissionDescriptor
-  
-  %foreign "browser:lambda:(x,v)=>{x.descriptor = v}"
+  descriptor : (obj : PermissionSetParameters) -> IO PermissionDescriptor
+
+  %foreign "browser:lambda:(x,v)=>{x.descriptor  = v}"
   prim__setDescriptor : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setDescriptor :  Cast permissionDescriptor PermissionDescriptor
-                => ToJS PermissionDescriptor
-                => Cast permissionSetParameters PermissionSetParameters
-                => ToJS PermissionSetParameters
-                => (obj : permissionSetParameters)
-                -> (v : permissionDescriptor)
+  setDescriptor :  (obj : PermissionSetParameters)
+                -> (v : PermissionDescriptor)
                 -> IO ()
   
   %foreign "browser:lambda:x=>x.state"
   prim__state : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  state :  Cast permissionSetParameters PermissionSetParameters
-        => ToJS PermissionSetParameters
-        => (obj : permissionSetParameters)
-        -> IO PermissionState
-  
-  %foreign "browser:lambda:(x,v)=>{x.state = v}"
+  state : (obj : PermissionSetParameters) -> IO PermissionState
+
+  %foreign "browser:lambda:(x,v)=>{x.state  = v}"
   prim__setState : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setState :  Cast permissionSetParameters PermissionSetParameters
-           => ToJS PermissionSetParameters
-           => Cast permissionState PermissionState
-           => ToJS PermissionState
-           => (obj : permissionSetParameters)
-           -> (v : permissionState)
-           -> IO ()
+  setState : (obj : PermissionSetParameters) -> (v : PermissionState) -> IO ()
   
   %foreign "browser:lambda:x=>x.oneRealm"
   prim__oneRealm : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  oneRealm :  Cast permissionSetParameters PermissionSetParameters
-           => ToJS PermissionSetParameters
-           => (obj : permissionSetParameters)
-           -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.oneRealm = v}"
+  oneRealm : (obj : PermissionSetParameters) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.oneRealm  = v}"
   prim__setOneRealm : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setOneRealm :  Cast permissionSetParameters PermissionSetParameters
-              => ToJS PermissionSetParameters
-              => (obj : permissionSetParameters)
-              -> (v : Bool)
-              -> IO ()
+  setOneRealm : (obj : PermissionSetParameters) -> (v : Bool) -> IO ()
 
 namespace PushPermissionDescriptor
   
+  public export
+  JSVal PushPermissionDescriptor where
+    parents =  [ PermissionDescriptor , JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.userVisibleOnly"
   prim__userVisibleOnly : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  userVisibleOnly :  Cast pushPermissionDescriptor PushPermissionDescriptor
-                  => ToJS PushPermissionDescriptor
-                  => (obj : pushPermissionDescriptor)
-                  -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.userVisibleOnly = v}"
+  userVisibleOnly : (obj : PushPermissionDescriptor) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.userVisibleOnly  = v}"
   prim__setUserVisibleOnly : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setUserVisibleOnly :  Cast pushPermissionDescriptor PushPermissionDescriptor
-                     => ToJS PushPermissionDescriptor
-                     => (obj : pushPermissionDescriptor)
-                     -> (v : Bool)
-                     -> IO ()
+  setUserVisibleOnly : (obj : PushPermissionDescriptor) -> (v : Bool) -> IO ()
 
-
-
---------------------------------------------------------------------------------
---          Casts
---------------------------------------------------------------------------------
-
-export
-Cast CameraDevicePermissionDescriptor DevicePermissionDescriptor where
-  cast = believe_me
-
-export
-Cast DevicePermissionDescriptor PermissionDescriptor where
-  cast = believe_me
-
-export
-Cast MidiPermissionDescriptor PermissionDescriptor where
-  cast = believe_me
-
-export
-Cast PermissionStatus EventTarget where
-  cast = believe_me
-
-export
-Cast PushPermissionDescriptor PermissionDescriptor where
-  cast = believe_me

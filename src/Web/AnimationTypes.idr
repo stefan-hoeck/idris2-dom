@@ -1,6 +1,4 @@
 module Web.AnimationTypes
-
-import Data.Maybe
 import JS.Util
 
 --------------------------------------------------------------------------------
@@ -256,9 +254,8 @@ namespace CompositeOperationOrAuto
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-
 export
-data Animation : Type where [external]
+data Animation  : Type where [external]
 
 export
 ToJS Animation where
@@ -267,9 +264,8 @@ ToJS Animation where
 export
 FromJS Animation where
   fromJS = believe_me
-
 export
-data AnimationEffect : Type where [external]
+data AnimationEffect  : Type where [external]
 
 export
 ToJS AnimationEffect where
@@ -278,9 +274,8 @@ ToJS AnimationEffect where
 export
 FromJS AnimationEffect where
   fromJS = believe_me
-
 export
-data AnimationPlaybackEvent : Type where [external]
+data AnimationPlaybackEvent  : Type where [external]
 
 export
 ToJS AnimationPlaybackEvent where
@@ -289,9 +284,8 @@ ToJS AnimationPlaybackEvent where
 export
 FromJS AnimationPlaybackEvent where
   fromJS = believe_me
-
 export
-data AnimationTimeline : Type where [external]
+data AnimationTimeline  : Type where [external]
 
 export
 ToJS AnimationTimeline where
@@ -300,9 +294,8 @@ ToJS AnimationTimeline where
 export
 FromJS AnimationTimeline where
   fromJS = believe_me
-
 export
-data DocumentTimeline : Type where [external]
+data DocumentTimeline  : Type where [external]
 
 export
 ToJS DocumentTimeline where
@@ -311,9 +304,8 @@ ToJS DocumentTimeline where
 export
 FromJS DocumentTimeline where
   fromJS = believe_me
-
 export
-data KeyframeEffect : Type where [external]
+data KeyframeEffect  : Type where [external]
 
 export
 ToJS KeyframeEffect where
@@ -326,9 +318,8 @@ FromJS KeyframeEffect where
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------
-
 export
-data Animatable : Type where [external]
+data Animatable  : Type where [external]
 
 export
 ToJS Animatable where
@@ -341,9 +332,8 @@ FromJS Animatable where
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
-
 export
-data AnimationPlaybackEventInit : Type where [external]
+data AnimationPlaybackEventInit  : Type where [external]
 
 export
 ToJS AnimationPlaybackEventInit where
@@ -352,9 +342,8 @@ ToJS AnimationPlaybackEventInit where
 export
 FromJS AnimationPlaybackEventInit where
   fromJS = believe_me
-
 export
-data BaseComputedKeyframe : Type where [external]
+data BaseComputedKeyframe  : Type where [external]
 
 export
 ToJS BaseComputedKeyframe where
@@ -363,9 +352,8 @@ ToJS BaseComputedKeyframe where
 export
 FromJS BaseComputedKeyframe where
   fromJS = believe_me
-
 export
-data BaseKeyframe : Type where [external]
+data BaseKeyframe  : Type where [external]
 
 export
 ToJS BaseKeyframe where
@@ -374,9 +362,8 @@ ToJS BaseKeyframe where
 export
 FromJS BaseKeyframe where
   fromJS = believe_me
-
 export
-data BasePropertyIndexedKeyframe : Type where [external]
+data BasePropertyIndexedKeyframe  : Type where [external]
 
 export
 ToJS BasePropertyIndexedKeyframe where
@@ -385,9 +372,8 @@ ToJS BasePropertyIndexedKeyframe where
 export
 FromJS BasePropertyIndexedKeyframe where
   fromJS = believe_me
-
 export
-data ComputedEffectTiming : Type where [external]
+data ComputedEffectTiming  : Type where [external]
 
 export
 ToJS ComputedEffectTiming where
@@ -396,9 +382,8 @@ ToJS ComputedEffectTiming where
 export
 FromJS ComputedEffectTiming where
   fromJS = believe_me
-
 export
-data DocumentTimelineOptions : Type where [external]
+data DocumentTimelineOptions  : Type where [external]
 
 export
 ToJS DocumentTimelineOptions where
@@ -407,9 +392,8 @@ ToJS DocumentTimelineOptions where
 export
 FromJS DocumentTimelineOptions where
   fromJS = believe_me
-
 export
-data EffectTiming : Type where [external]
+data EffectTiming  : Type where [external]
 
 export
 ToJS EffectTiming where
@@ -418,9 +402,8 @@ ToJS EffectTiming where
 export
 FromJS EffectTiming where
   fromJS = believe_me
-
 export
-data KeyframeAnimationOptions : Type where [external]
+data KeyframeAnimationOptions  : Type where [external]
 
 export
 ToJS KeyframeAnimationOptions where
@@ -429,9 +412,8 @@ ToJS KeyframeAnimationOptions where
 export
 FromJS KeyframeAnimationOptions where
   fromJS = believe_me
-
 export
-data KeyframeEffectOptions : Type where [external]
+data KeyframeEffectOptions  : Type where [external]
 
 export
 ToJS KeyframeEffectOptions where
@@ -440,9 +422,8 @@ ToJS KeyframeEffectOptions where
 export
 FromJS KeyframeEffectOptions where
   fromJS = believe_me
-
 export
-data OptionalEffectTiming : Type where [external]
+data OptionalEffectTiming  : Type where [external]
 
 export
 ToJS OptionalEffectTiming where

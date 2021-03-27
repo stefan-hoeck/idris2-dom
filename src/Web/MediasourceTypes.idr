@@ -1,6 +1,4 @@
 module Web.MediasourceTypes
-
-import Data.Maybe
 import JS.Util
 
 --------------------------------------------------------------------------------
@@ -126,9 +124,8 @@ namespace AppendMode
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-
 export
-data MediaSource : Type where [external]
+data MediaSource  : Type where [external]
 
 export
 ToJS MediaSource where
@@ -137,9 +134,8 @@ ToJS MediaSource where
 export
 FromJS MediaSource where
   fromJS = believe_me
-
 export
-data SourceBuffer : Type where [external]
+data SourceBuffer  : Type where [external]
 
 export
 ToJS SourceBuffer where
@@ -148,9 +144,8 @@ ToJS SourceBuffer where
 export
 FromJS SourceBuffer where
   fromJS = believe_me
-
 export
-data SourceBufferList : Type where [external]
+data SourceBufferList  : Type where [external]
 
 export
 ToJS SourceBufferList where

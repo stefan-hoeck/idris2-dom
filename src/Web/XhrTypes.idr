@@ -1,6 +1,4 @@
 module Web.XhrTypes
-
-import Data.Maybe
 import JS.Util
 
 --------------------------------------------------------------------------------
@@ -61,9 +59,8 @@ namespace XMLHttpRequestResponseType
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-
 export
-data FormData : Type where [external]
+data FormData  : Type where [external]
 
 export
 ToJS FormData where
@@ -72,9 +69,8 @@ ToJS FormData where
 export
 FromJS FormData where
   fromJS = believe_me
-
 export
-data ProgressEvent : Type where [external]
+data ProgressEvent  : Type where [external]
 
 export
 ToJS ProgressEvent where
@@ -83,9 +79,8 @@ ToJS ProgressEvent where
 export
 FromJS ProgressEvent where
   fromJS = believe_me
-
 export
-data XMLHttpRequest : Type where [external]
+data XMLHttpRequest  : Type where [external]
 
 export
 ToJS XMLHttpRequest where
@@ -94,9 +89,8 @@ ToJS XMLHttpRequest where
 export
 FromJS XMLHttpRequest where
   fromJS = believe_me
-
 export
-data XMLHttpRequestEventTarget : Type where [external]
+data XMLHttpRequestEventTarget  : Type where [external]
 
 export
 ToJS XMLHttpRequestEventTarget where
@@ -105,9 +99,8 @@ ToJS XMLHttpRequestEventTarget where
 export
 FromJS XMLHttpRequestEventTarget where
   fromJS = believe_me
-
 export
-data XMLHttpRequestUpload : Type where [external]
+data XMLHttpRequestUpload  : Type where [external]
 
 export
 ToJS XMLHttpRequestUpload where
@@ -121,9 +114,8 @@ FromJS XMLHttpRequestUpload where
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
-
 export
-data ProgressEventInit : Type where [external]
+data ProgressEventInit  : Type where [external]
 
 export
 ToJS ProgressEventInit where

@@ -30,6 +30,126 @@ import public Web.XhrTypes as Types
 mutual
   
   public export
+  0 BlobCallback : Type
+  BlobCallback = (blob : Maybe Blob) -> IO ()
+  
+  public export
+  0 ClipboardItemDelayedCallback : Type
+  ClipboardItemDelayedCallback = () -> IO ClipboardItemData
+  
+  public export
+  0 CustomElementConstructor : Type
+  CustomElementConstructor = () -> IO HTMLElement
+  
+  public export
+  0 EventHandlerNonNull : Type
+  EventHandlerNonNull = (event : Event) -> IO JSAny
+  
+  public export
+  0 EventListener : Type
+  EventListener = (event : Event) -> IO ()
+  
+  public export
+  0 Function : Type
+  Function = (arguments : VarArg JSAny) -> IO JSAny
+  
+  public export
+  0 FunctionStringCallback : Type
+  FunctionStringCallback = (data_ : String) -> IO ()
+  
+  public export
+  0 MutationCallback : Type
+  MutationCallback =  (mutations : JSArray MutationRecord)
+                   -> (observer : MutationObserver)
+                   -> IO ()
+  
+  public export
+  0 NavigatorUserMediaErrorCallback : Type
+  NavigatorUserMediaErrorCallback = (error : DOMException) -> IO ()
+  
+  public export
+  0 NavigatorUserMediaSuccessCallback : Type
+  NavigatorUserMediaSuccessCallback = (stream : MediaStream) -> IO ()
+  
+  public export
+  0 NodeFilter : Type
+  NodeFilter = (node : Node) -> IO UInt16
+  
+  public export
+  0 OnBeforeUnloadEventHandlerNonNull : Type
+  OnBeforeUnloadEventHandlerNonNull = (event : Event) -> IO (Maybe String)
+  
+  public export
+  0 OnErrorEventHandlerNonNull : Type
+  OnErrorEventHandlerNonNull =  (event : NS I [ Event , String ])
+                             -> (source : String)
+                             -> (lineno : UInt32)
+                             -> (colno : UInt32)
+                             -> (error : JSAny)
+                             -> IO JSAny
+  
+  public export
+  0 QueuingStrategySize : Type
+  QueuingStrategySize = (chunk : JSAny) -> IO Double
+  
+  public export
+  0 TransformerFlushCallback : Type
+  TransformerFlushCallback =  (controller : TransformStreamDefaultController)
+                           -> IO (JSPromise Undefined)
+  
+  public export
+  0 TransformerStartCallback : Type
+  TransformerStartCallback =  (controller : TransformStreamDefaultController)
+                           -> IO JSAny
+  
+  public export
+  0 TransformerTransformCallback : Type
+  TransformerTransformCallback =  (chunk : JSAny)
+                               -> (controller : TransformStreamDefaultController)
+                               -> IO (JSPromise Undefined)
+  
+  public export
+  0 UnderlyingSinkAbortCallback : Type
+  UnderlyingSinkAbortCallback = (reason : JSAny) -> IO (JSPromise Undefined)
+  
+  public export
+  0 UnderlyingSinkCloseCallback : Type
+  UnderlyingSinkCloseCallback = () -> IO (JSPromise Undefined)
+  
+  public export
+  0 UnderlyingSinkStartCallback : Type
+  UnderlyingSinkStartCallback =  (controller : WritableStreamDefaultController)
+                              -> IO JSAny
+  
+  public export
+  0 UnderlyingSinkWriteCallback : Type
+  UnderlyingSinkWriteCallback =  (chunk : JSAny)
+                              -> (controller : WritableStreamDefaultController)
+                              -> IO (JSPromise Undefined)
+  
+  public export
+  0 UnderlyingSourceCancelCallback : Type
+  UnderlyingSourceCancelCallback = (reason : JSAny) -> IO (JSPromise Undefined)
+  
+  public export
+  0 UnderlyingSourcePullCallback : Type
+  UnderlyingSourcePullCallback =  (controller : ReadableStreamController)
+                               -> IO (JSPromise Undefined)
+  
+  public export
+  0 UnderlyingSourceStartCallback : Type
+  UnderlyingSourceStartCallback =  (controller : ReadableStreamController)
+                                -> IO JSAny
+  
+  public export
+  0 VoidFunction : Type
+  VoidFunction = () -> IO ()
+  
+  public export
+  0 XPathNSResolver : Type
+  XPathNSResolver = (prefix_ : Maybe String) -> IO (Maybe String)
+  
+  public export
   0 ArrayBufferView : Type
   ArrayBufferView = NS I [ JSArray Int8
                          , JSArray Int16
@@ -269,123 +389,3 @@ mutual
                                 , URLSearchParams
                                 , String
                                 ]
-  
-  public export
-  0 BlobCallback : Type
-  BlobCallback = (blob : Maybe Blob) -> IO ()
-  
-  public export
-  0 ClipboardItemDelayedCallback : Type
-  ClipboardItemDelayedCallback = () -> IO ClipboardItemData
-  
-  public export
-  0 CustomElementConstructor : Type
-  CustomElementConstructor = () -> IO HTMLElement
-  
-  public export
-  0 EventHandlerNonNull : Type
-  EventHandlerNonNull = (event : Event) -> IO JSAny
-  
-  public export
-  0 EventListener : Type
-  EventListener = (event : Event) -> IO ()
-  
-  public export
-  0 Function : Type
-  Function = (arguments : VarArg JSAny) -> IO JSAny
-  
-  public export
-  0 FunctionStringCallback : Type
-  FunctionStringCallback = (data_ : String) -> IO ()
-  
-  public export
-  0 MutationCallback : Type
-  MutationCallback =  (mutations : JSArray MutationRecord)
-                   -> (observer : MutationObserver)
-                   -> IO ()
-  
-  public export
-  0 NavigatorUserMediaErrorCallback : Type
-  NavigatorUserMediaErrorCallback = (error : DOMException) -> IO ()
-  
-  public export
-  0 NavigatorUserMediaSuccessCallback : Type
-  NavigatorUserMediaSuccessCallback = (stream : MediaStream) -> IO ()
-  
-  public export
-  0 NodeFilter : Type
-  NodeFilter = (node : Node) -> IO UInt16
-  
-  public export
-  0 OnBeforeUnloadEventHandlerNonNull : Type
-  OnBeforeUnloadEventHandlerNonNull = (event : Event) -> IO (Maybe String)
-  
-  public export
-  0 OnErrorEventHandlerNonNull : Type
-  OnErrorEventHandlerNonNull =  (event : NS I [ Event , String ])
-                             -> (source : String)
-                             -> (lineno : UInt32)
-                             -> (colno : UInt32)
-                             -> (error : JSAny)
-                             -> IO JSAny
-  
-  public export
-  0 QueuingStrategySize : Type
-  QueuingStrategySize = (chunk : JSAny) -> IO Double
-  
-  public export
-  0 TransformerFlushCallback : Type
-  TransformerFlushCallback =  (controller : TransformStreamDefaultController)
-                           -> IO (JSPromise Undefined)
-  
-  public export
-  0 TransformerStartCallback : Type
-  TransformerStartCallback =  (controller : TransformStreamDefaultController)
-                           -> IO JSAny
-  
-  public export
-  0 TransformerTransformCallback : Type
-  TransformerTransformCallback =  (chunk : JSAny)
-                               -> (controller : TransformStreamDefaultController)
-                               -> IO (JSPromise Undefined)
-  
-  public export
-  0 UnderlyingSinkAbortCallback : Type
-  UnderlyingSinkAbortCallback = (reason : JSAny) -> IO (JSPromise Undefined)
-  
-  public export
-  0 UnderlyingSinkCloseCallback : Type
-  UnderlyingSinkCloseCallback = () -> IO (JSPromise Undefined)
-  
-  public export
-  0 UnderlyingSinkStartCallback : Type
-  UnderlyingSinkStartCallback =  (controller : WritableStreamDefaultController)
-                              -> IO JSAny
-  
-  public export
-  0 UnderlyingSinkWriteCallback : Type
-  UnderlyingSinkWriteCallback =  (chunk : JSAny)
-                              -> (controller : WritableStreamDefaultController)
-                              -> IO (JSPromise Undefined)
-  
-  public export
-  0 UnderlyingSourceCancelCallback : Type
-  UnderlyingSourceCancelCallback = (reason : JSAny) -> IO (JSPromise Undefined)
-  
-  public export
-  0 UnderlyingSourcePullCallback : Type
-  UnderlyingSourcePullCallback =  (controller : ReadableStreamController)
-                               -> IO (JSPromise Undefined)
-  
-  public export
-  0 UnderlyingSourceStartCallback : Type
-  UnderlyingSourceStartCallback =  (controller : ReadableStreamController)
-                                -> IO JSAny
-  
-  public export
-  0 VoidFunction : Type
-  VoidFunction = () -> IO ()
-  
-  public export
-  0 XPathNSResolver : Type
-  XPathNSResolver = (prefix_ : Maybe String) -> IO (Maybe String)

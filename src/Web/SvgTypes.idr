@@ -1,14 +1,12 @@
 module Web.SvgTypes
-
 import JS.Util
 
 
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-
 export
-data MathMLElement : Type where [external]
+data MathMLElement  : Type where [external]
 
 export
 ToJS MathMLElement where
@@ -17,9 +15,8 @@ ToJS MathMLElement where
 export
 FromJS MathMLElement where
   fromJS = believe_me
-
 export
-data SVGAElement : Type where [external]
+data SVGAElement  : Type where [external]
 
 export
 ToJS SVGAElement where
@@ -28,9 +25,8 @@ ToJS SVGAElement where
 export
 FromJS SVGAElement where
   fromJS = believe_me
-
 export
-data SVGAngle : Type where [external]
+data SVGAngle  : Type where [external]
 
 export
 ToJS SVGAngle where
@@ -39,9 +35,8 @@ ToJS SVGAngle where
 export
 FromJS SVGAngle where
   fromJS = believe_me
-
 export
-data SVGAnimatedAngle : Type where [external]
+data SVGAnimatedAngle  : Type where [external]
 
 export
 ToJS SVGAnimatedAngle where
@@ -50,9 +45,8 @@ ToJS SVGAnimatedAngle where
 export
 FromJS SVGAnimatedAngle where
   fromJS = believe_me
-
 export
-data SVGAnimatedBoolean : Type where [external]
+data SVGAnimatedBoolean  : Type where [external]
 
 export
 ToJS SVGAnimatedBoolean where
@@ -61,9 +55,8 @@ ToJS SVGAnimatedBoolean where
 export
 FromJS SVGAnimatedBoolean where
   fromJS = believe_me
-
 export
-data SVGAnimatedEnumeration : Type where [external]
+data SVGAnimatedEnumeration  : Type where [external]
 
 export
 ToJS SVGAnimatedEnumeration where
@@ -72,9 +65,8 @@ ToJS SVGAnimatedEnumeration where
 export
 FromJS SVGAnimatedEnumeration where
   fromJS = believe_me
-
 export
-data SVGAnimatedInteger : Type where [external]
+data SVGAnimatedInteger  : Type where [external]
 
 export
 ToJS SVGAnimatedInteger where
@@ -83,9 +75,8 @@ ToJS SVGAnimatedInteger where
 export
 FromJS SVGAnimatedInteger where
   fromJS = believe_me
-
 export
-data SVGAnimatedLength : Type where [external]
+data SVGAnimatedLength  : Type where [external]
 
 export
 ToJS SVGAnimatedLength where
@@ -94,9 +85,8 @@ ToJS SVGAnimatedLength where
 export
 FromJS SVGAnimatedLength where
   fromJS = believe_me
-
 export
-data SVGAnimatedLengthList : Type where [external]
+data SVGAnimatedLengthList  : Type where [external]
 
 export
 ToJS SVGAnimatedLengthList where
@@ -105,9 +95,8 @@ ToJS SVGAnimatedLengthList where
 export
 FromJS SVGAnimatedLengthList where
   fromJS = believe_me
-
 export
-data SVGAnimatedNumber : Type where [external]
+data SVGAnimatedNumber  : Type where [external]
 
 export
 ToJS SVGAnimatedNumber where
@@ -116,9 +105,8 @@ ToJS SVGAnimatedNumber where
 export
 FromJS SVGAnimatedNumber where
   fromJS = believe_me
-
 export
-data SVGAnimatedNumberList : Type where [external]
+data SVGAnimatedNumberList  : Type where [external]
 
 export
 ToJS SVGAnimatedNumberList where
@@ -127,9 +115,8 @@ ToJS SVGAnimatedNumberList where
 export
 FromJS SVGAnimatedNumberList where
   fromJS = believe_me
-
 export
-data SVGAnimatedPreserveAspectRatio : Type where [external]
+data SVGAnimatedPreserveAspectRatio  : Type where [external]
 
 export
 ToJS SVGAnimatedPreserveAspectRatio where
@@ -138,9 +125,8 @@ ToJS SVGAnimatedPreserveAspectRatio where
 export
 FromJS SVGAnimatedPreserveAspectRatio where
   fromJS = believe_me
-
 export
-data SVGAnimatedRect : Type where [external]
+data SVGAnimatedRect  : Type where [external]
 
 export
 ToJS SVGAnimatedRect where
@@ -149,9 +135,8 @@ ToJS SVGAnimatedRect where
 export
 FromJS SVGAnimatedRect where
   fromJS = believe_me
-
 export
-data SVGAnimatedString : Type where [external]
+data SVGAnimatedString  : Type where [external]
 
 export
 ToJS SVGAnimatedString where
@@ -160,9 +145,8 @@ ToJS SVGAnimatedString where
 export
 FromJS SVGAnimatedString where
   fromJS = believe_me
-
 export
-data SVGAnimatedTransformList : Type where [external]
+data SVGAnimatedTransformList  : Type where [external]
 
 export
 ToJS SVGAnimatedTransformList where
@@ -171,9 +155,8 @@ ToJS SVGAnimatedTransformList where
 export
 FromJS SVGAnimatedTransformList where
   fromJS = believe_me
-
 export
-data SVGCircleElement : Type where [external]
+data SVGCircleElement  : Type where [external]
 
 export
 ToJS SVGCircleElement where
@@ -182,9 +165,8 @@ ToJS SVGCircleElement where
 export
 FromJS SVGCircleElement where
   fromJS = believe_me
-
 export
-data SVGDefsElement : Type where [external]
+data SVGDefsElement  : Type where [external]
 
 export
 ToJS SVGDefsElement where
@@ -193,9 +175,8 @@ ToJS SVGDefsElement where
 export
 FromJS SVGDefsElement where
   fromJS = believe_me
-
 export
-data SVGDescElement : Type where [external]
+data SVGDescElement  : Type where [external]
 
 export
 ToJS SVGDescElement where
@@ -204,9 +185,8 @@ ToJS SVGDescElement where
 export
 FromJS SVGDescElement where
   fromJS = believe_me
-
 export
-data SVGElement : Type where [external]
+data SVGElement  : Type where [external]
 
 export
 ToJS SVGElement where
@@ -215,9 +195,8 @@ ToJS SVGElement where
 export
 FromJS SVGElement where
   fromJS = believe_me
-
 export
-data SVGEllipseElement : Type where [external]
+data SVGEllipseElement  : Type where [external]
 
 export
 ToJS SVGEllipseElement where
@@ -226,9 +205,8 @@ ToJS SVGEllipseElement where
 export
 FromJS SVGEllipseElement where
   fromJS = believe_me
-
 export
-data SVGForeignObjectElement : Type where [external]
+data SVGForeignObjectElement  : Type where [external]
 
 export
 ToJS SVGForeignObjectElement where
@@ -237,9 +215,8 @@ ToJS SVGForeignObjectElement where
 export
 FromJS SVGForeignObjectElement where
   fromJS = believe_me
-
 export
-data SVGGElement : Type where [external]
+data SVGGElement  : Type where [external]
 
 export
 ToJS SVGGElement where
@@ -248,9 +225,8 @@ ToJS SVGGElement where
 export
 FromJS SVGGElement where
   fromJS = believe_me
-
 export
-data SVGGeometryElement : Type where [external]
+data SVGGeometryElement  : Type where [external]
 
 export
 ToJS SVGGeometryElement where
@@ -259,9 +235,8 @@ ToJS SVGGeometryElement where
 export
 FromJS SVGGeometryElement where
   fromJS = believe_me
-
 export
-data SVGGradientElement : Type where [external]
+data SVGGradientElement  : Type where [external]
 
 export
 ToJS SVGGradientElement where
@@ -270,9 +245,8 @@ ToJS SVGGradientElement where
 export
 FromJS SVGGradientElement where
   fromJS = believe_me
-
 export
-data SVGGraphicsElement : Type where [external]
+data SVGGraphicsElement  : Type where [external]
 
 export
 ToJS SVGGraphicsElement where
@@ -281,9 +255,8 @@ ToJS SVGGraphicsElement where
 export
 FromJS SVGGraphicsElement where
   fromJS = believe_me
-
 export
-data SVGImageElement : Type where [external]
+data SVGImageElement  : Type where [external]
 
 export
 ToJS SVGImageElement where
@@ -292,9 +265,8 @@ ToJS SVGImageElement where
 export
 FromJS SVGImageElement where
   fromJS = believe_me
-
 export
-data SVGLength : Type where [external]
+data SVGLength  : Type where [external]
 
 export
 ToJS SVGLength where
@@ -303,9 +275,8 @@ ToJS SVGLength where
 export
 FromJS SVGLength where
   fromJS = believe_me
-
 export
-data SVGLengthList : Type where [external]
+data SVGLengthList  : Type where [external]
 
 export
 ToJS SVGLengthList where
@@ -314,9 +285,8 @@ ToJS SVGLengthList where
 export
 FromJS SVGLengthList where
   fromJS = believe_me
-
 export
-data SVGLineElement : Type where [external]
+data SVGLineElement  : Type where [external]
 
 export
 ToJS SVGLineElement where
@@ -325,9 +295,8 @@ ToJS SVGLineElement where
 export
 FromJS SVGLineElement where
   fromJS = believe_me
-
 export
-data SVGLinearGradientElement : Type where [external]
+data SVGLinearGradientElement  : Type where [external]
 
 export
 ToJS SVGLinearGradientElement where
@@ -336,9 +305,8 @@ ToJS SVGLinearGradientElement where
 export
 FromJS SVGLinearGradientElement where
   fromJS = believe_me
-
 export
-data SVGMarkerElement : Type where [external]
+data SVGMarkerElement  : Type where [external]
 
 export
 ToJS SVGMarkerElement where
@@ -347,9 +315,8 @@ ToJS SVGMarkerElement where
 export
 FromJS SVGMarkerElement where
   fromJS = believe_me
-
 export
-data SVGMetadataElement : Type where [external]
+data SVGMetadataElement  : Type where [external]
 
 export
 ToJS SVGMetadataElement where
@@ -358,9 +325,8 @@ ToJS SVGMetadataElement where
 export
 FromJS SVGMetadataElement where
   fromJS = believe_me
-
 export
-data SVGNumber : Type where [external]
+data SVGNumber  : Type where [external]
 
 export
 ToJS SVGNumber where
@@ -369,9 +335,8 @@ ToJS SVGNumber where
 export
 FromJS SVGNumber where
   fromJS = believe_me
-
 export
-data SVGNumberList : Type where [external]
+data SVGNumberList  : Type where [external]
 
 export
 ToJS SVGNumberList where
@@ -380,9 +345,8 @@ ToJS SVGNumberList where
 export
 FromJS SVGNumberList where
   fromJS = believe_me
-
 export
-data SVGPathElement : Type where [external]
+data SVGPathElement  : Type where [external]
 
 export
 ToJS SVGPathElement where
@@ -391,9 +355,8 @@ ToJS SVGPathElement where
 export
 FromJS SVGPathElement where
   fromJS = believe_me
-
 export
-data SVGPatternElement : Type where [external]
+data SVGPatternElement  : Type where [external]
 
 export
 ToJS SVGPatternElement where
@@ -402,9 +365,8 @@ ToJS SVGPatternElement where
 export
 FromJS SVGPatternElement where
   fromJS = believe_me
-
 export
-data SVGPointList : Type where [external]
+data SVGPointList  : Type where [external]
 
 export
 ToJS SVGPointList where
@@ -413,9 +375,8 @@ ToJS SVGPointList where
 export
 FromJS SVGPointList where
   fromJS = believe_me
-
 export
-data SVGPolygonElement : Type where [external]
+data SVGPolygonElement  : Type where [external]
 
 export
 ToJS SVGPolygonElement where
@@ -424,9 +385,8 @@ ToJS SVGPolygonElement where
 export
 FromJS SVGPolygonElement where
   fromJS = believe_me
-
 export
-data SVGPolylineElement : Type where [external]
+data SVGPolylineElement  : Type where [external]
 
 export
 ToJS SVGPolylineElement where
@@ -435,9 +395,8 @@ ToJS SVGPolylineElement where
 export
 FromJS SVGPolylineElement where
   fromJS = believe_me
-
 export
-data SVGPreserveAspectRatio : Type where [external]
+data SVGPreserveAspectRatio  : Type where [external]
 
 export
 ToJS SVGPreserveAspectRatio where
@@ -446,9 +405,8 @@ ToJS SVGPreserveAspectRatio where
 export
 FromJS SVGPreserveAspectRatio where
   fromJS = believe_me
-
 export
-data SVGRadialGradientElement : Type where [external]
+data SVGRadialGradientElement  : Type where [external]
 
 export
 ToJS SVGRadialGradientElement where
@@ -457,9 +415,8 @@ ToJS SVGRadialGradientElement where
 export
 FromJS SVGRadialGradientElement where
   fromJS = believe_me
-
 export
-data SVGRectElement : Type where [external]
+data SVGRectElement  : Type where [external]
 
 export
 ToJS SVGRectElement where
@@ -468,9 +425,8 @@ ToJS SVGRectElement where
 export
 FromJS SVGRectElement where
   fromJS = believe_me
-
 export
-data SVGSVGElement : Type where [external]
+data SVGSVGElement  : Type where [external]
 
 export
 ToJS SVGSVGElement where
@@ -479,9 +435,8 @@ ToJS SVGSVGElement where
 export
 FromJS SVGSVGElement where
   fromJS = believe_me
-
 export
-data SVGScriptElement : Type where [external]
+data SVGScriptElement  : Type where [external]
 
 export
 ToJS SVGScriptElement where
@@ -490,9 +445,8 @@ ToJS SVGScriptElement where
 export
 FromJS SVGScriptElement where
   fromJS = believe_me
-
 export
-data SVGStopElement : Type where [external]
+data SVGStopElement  : Type where [external]
 
 export
 ToJS SVGStopElement where
@@ -501,9 +455,8 @@ ToJS SVGStopElement where
 export
 FromJS SVGStopElement where
   fromJS = believe_me
-
 export
-data SVGStringList : Type where [external]
+data SVGStringList  : Type where [external]
 
 export
 ToJS SVGStringList where
@@ -512,9 +465,8 @@ ToJS SVGStringList where
 export
 FromJS SVGStringList where
   fromJS = believe_me
-
 export
-data SVGStyleElement : Type where [external]
+data SVGStyleElement  : Type where [external]
 
 export
 ToJS SVGStyleElement where
@@ -523,9 +475,8 @@ ToJS SVGStyleElement where
 export
 FromJS SVGStyleElement where
   fromJS = believe_me
-
 export
-data SVGSwitchElement : Type where [external]
+data SVGSwitchElement  : Type where [external]
 
 export
 ToJS SVGSwitchElement where
@@ -534,9 +485,8 @@ ToJS SVGSwitchElement where
 export
 FromJS SVGSwitchElement where
   fromJS = believe_me
-
 export
-data SVGSymbolElement : Type where [external]
+data SVGSymbolElement  : Type where [external]
 
 export
 ToJS SVGSymbolElement where
@@ -545,9 +495,8 @@ ToJS SVGSymbolElement where
 export
 FromJS SVGSymbolElement where
   fromJS = believe_me
-
 export
-data SVGTSpanElement : Type where [external]
+data SVGTSpanElement  : Type where [external]
 
 export
 ToJS SVGTSpanElement where
@@ -556,9 +505,8 @@ ToJS SVGTSpanElement where
 export
 FromJS SVGTSpanElement where
   fromJS = believe_me
-
 export
-data SVGTextContentElement : Type where [external]
+data SVGTextContentElement  : Type where [external]
 
 export
 ToJS SVGTextContentElement where
@@ -567,9 +515,8 @@ ToJS SVGTextContentElement where
 export
 FromJS SVGTextContentElement where
   fromJS = believe_me
-
 export
-data SVGTextElement : Type where [external]
+data SVGTextElement  : Type where [external]
 
 export
 ToJS SVGTextElement where
@@ -578,9 +525,8 @@ ToJS SVGTextElement where
 export
 FromJS SVGTextElement where
   fromJS = believe_me
-
 export
-data SVGTextPathElement : Type where [external]
+data SVGTextPathElement  : Type where [external]
 
 export
 ToJS SVGTextPathElement where
@@ -589,9 +535,8 @@ ToJS SVGTextPathElement where
 export
 FromJS SVGTextPathElement where
   fromJS = believe_me
-
 export
-data SVGTextPositioningElement : Type where [external]
+data SVGTextPositioningElement  : Type where [external]
 
 export
 ToJS SVGTextPositioningElement where
@@ -600,9 +545,8 @@ ToJS SVGTextPositioningElement where
 export
 FromJS SVGTextPositioningElement where
   fromJS = believe_me
-
 export
-data SVGTitleElement : Type where [external]
+data SVGTitleElement  : Type where [external]
 
 export
 ToJS SVGTitleElement where
@@ -611,9 +555,8 @@ ToJS SVGTitleElement where
 export
 FromJS SVGTitleElement where
   fromJS = believe_me
-
 export
-data SVGTransform : Type where [external]
+data SVGTransform  : Type where [external]
 
 export
 ToJS SVGTransform where
@@ -622,9 +565,8 @@ ToJS SVGTransform where
 export
 FromJS SVGTransform where
   fromJS = believe_me
-
 export
-data SVGTransformList : Type where [external]
+data SVGTransformList  : Type where [external]
 
 export
 ToJS SVGTransformList where
@@ -633,9 +575,8 @@ ToJS SVGTransformList where
 export
 FromJS SVGTransformList where
   fromJS = believe_me
-
 export
-data SVGUnitTypes : Type where [external]
+data SVGUnitTypes  : Type where [external]
 
 export
 ToJS SVGUnitTypes where
@@ -644,9 +585,8 @@ ToJS SVGUnitTypes where
 export
 FromJS SVGUnitTypes where
   fromJS = believe_me
-
 export
-data SVGUseElement : Type where [external]
+data SVGUseElement  : Type where [external]
 
 export
 ToJS SVGUseElement where
@@ -655,9 +595,8 @@ ToJS SVGUseElement where
 export
 FromJS SVGUseElement where
   fromJS = believe_me
-
 export
-data SVGUseElementShadowRoot : Type where [external]
+data SVGUseElementShadowRoot  : Type where [external]
 
 export
 ToJS SVGUseElementShadowRoot where
@@ -666,9 +605,8 @@ ToJS SVGUseElementShadowRoot where
 export
 FromJS SVGUseElementShadowRoot where
   fromJS = believe_me
-
 export
-data SVGViewElement : Type where [external]
+data SVGViewElement  : Type where [external]
 
 export
 ToJS SVGViewElement where
@@ -677,9 +615,8 @@ ToJS SVGViewElement where
 export
 FromJS SVGViewElement where
   fromJS = believe_me
-
 export
-data ShadowAnimation : Type where [external]
+data ShadowAnimation  : Type where [external]
 
 export
 ToJS ShadowAnimation where
@@ -692,9 +629,8 @@ FromJS ShadowAnimation where
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------
-
 export
-data GetSVGDocument : Type where [external]
+data GetSVGDocument  : Type where [external]
 
 export
 ToJS GetSVGDocument where
@@ -703,9 +639,8 @@ ToJS GetSVGDocument where
 export
 FromJS GetSVGDocument where
   fromJS = believe_me
-
 export
-data SVGAnimatedPoints : Type where [external]
+data SVGAnimatedPoints  : Type where [external]
 
 export
 ToJS SVGAnimatedPoints where
@@ -714,9 +649,8 @@ ToJS SVGAnimatedPoints where
 export
 FromJS SVGAnimatedPoints where
   fromJS = believe_me
-
 export
-data SVGElementInstance : Type where [external]
+data SVGElementInstance  : Type where [external]
 
 export
 ToJS SVGElementInstance where
@@ -725,9 +659,8 @@ ToJS SVGElementInstance where
 export
 FromJS SVGElementInstance where
   fromJS = believe_me
-
 export
-data SVGFitToViewBox : Type where [external]
+data SVGFitToViewBox  : Type where [external]
 
 export
 ToJS SVGFitToViewBox where
@@ -736,9 +669,8 @@ ToJS SVGFitToViewBox where
 export
 FromJS SVGFitToViewBox where
   fromJS = believe_me
-
 export
-data SVGTests : Type where [external]
+data SVGTests  : Type where [external]
 
 export
 ToJS SVGTests where
@@ -747,9 +679,8 @@ ToJS SVGTests where
 export
 FromJS SVGTests where
   fromJS = believe_me
-
 export
-data SVGURIReference : Type where [external]
+data SVGURIReference  : Type where [external]
 
 export
 ToJS SVGURIReference where
@@ -762,9 +693,8 @@ FromJS SVGURIReference where
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
-
 export
-data SVGBoundingBoxOptions : Type where [external]
+data SVGBoundingBoxOptions  : Type where [external]
 
 export
 ToJS SVGBoundingBoxOptions where

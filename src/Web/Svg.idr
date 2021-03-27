@@ -1,6 +1,4 @@
 module Web.Svg
-
-import Data.SOP
 import JS.Util
 import Web.Types
 
@@ -8,160 +6,153 @@ import Web.Types
 --          Interfaces
 --------------------------------------------------------------------------------
 
+namespace MathMLElement
+  
+  public export
+  JSVal MathMLElement where
+    parents =  [ Element , Node , EventTarget , JSObject ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , Slottable
+              ]
+
 namespace SVGAElement
+  
+  public export
+  JSVal SVGAElement where
+    parents =  [ SVGGraphicsElement
+               , SVGElement
+               , Element
+               , Node
+               , EventTarget
+               , JSObject
+               ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLHyperlinkElementUtils
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , SVGTests
+              , SVGURIReference
+              , Slottable
+              ]
   
   %foreign "browser:lambda:x=>x.relList"
   prim__relList : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  relList :  Cast sVGAElement SVGAElement
-          => ToJS SVGAElement
-          => (obj : sVGAElement)
-          -> IO DOMTokenList
+  relList : (obj : SVGAElement) -> IO DOMTokenList
   
   %foreign "browser:lambda:x=>x.target"
   prim__target : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  target :  Cast sVGAElement SVGAElement
-         => ToJS SVGAElement
-         => (obj : sVGAElement)
-         -> IO SVGAnimatedString
+  target : (obj : SVGAElement) -> IO SVGAnimatedString
   
   %foreign "browser:lambda:x=>x.download"
   prim__download : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  download :  Cast sVGAElement SVGAElement
-           => ToJS SVGAElement
-           => (obj : sVGAElement)
-           -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.download = v}"
+  download : (obj : SVGAElement) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.download  = v}"
   prim__setDownload : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setDownload :  Cast sVGAElement SVGAElement
-              => ToJS SVGAElement
-              => (obj : sVGAElement)
-              -> (v : String)
-              -> IO ()
+  setDownload : (obj : SVGAElement) -> (v : String) -> IO ()
   
   %foreign "browser:lambda:x=>x.hreflang"
   prim__hreflang : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  hreflang :  Cast sVGAElement SVGAElement
-           => ToJS SVGAElement
-           => (obj : sVGAElement)
-           -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.hreflang = v}"
+  hreflang : (obj : SVGAElement) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.hreflang  = v}"
   prim__setHreflang : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setHreflang :  Cast sVGAElement SVGAElement
-              => ToJS SVGAElement
-              => (obj : sVGAElement)
-              -> (v : String)
-              -> IO ()
+  setHreflang : (obj : SVGAElement) -> (v : String) -> IO ()
   
   %foreign "browser:lambda:x=>x.ping"
   prim__ping : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  ping :  Cast sVGAElement SVGAElement
-       => ToJS SVGAElement
-       => (obj : sVGAElement)
-       -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.ping = v}"
+  ping : (obj : SVGAElement) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.ping  = v}"
   prim__setPing : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setPing :  Cast sVGAElement SVGAElement
-          => ToJS SVGAElement
-          => (obj : sVGAElement)
-          -> (v : String)
-          -> IO ()
+  setPing : (obj : SVGAElement) -> (v : String) -> IO ()
   
   %foreign "browser:lambda:x=>x.referrerPolicy"
   prim__referrerPolicy : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  referrerPolicy :  Cast sVGAElement SVGAElement
-                 => ToJS SVGAElement
-                 => (obj : sVGAElement)
-                 -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.referrerPolicy = v}"
+  referrerPolicy : (obj : SVGAElement) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.referrerPolicy  = v}"
   prim__setReferrerPolicy : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setReferrerPolicy :  Cast sVGAElement SVGAElement
-                    => ToJS SVGAElement
-                    => (obj : sVGAElement)
-                    -> (v : String)
-                    -> IO ()
+  setReferrerPolicy : (obj : SVGAElement) -> (v : String) -> IO ()
   
   %foreign "browser:lambda:x=>x.rel"
   prim__rel : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  rel :  Cast sVGAElement SVGAElement
-      => ToJS SVGAElement
-      => (obj : sVGAElement)
-      -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.rel = v}"
+  rel : (obj : SVGAElement) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.rel  = v}"
   prim__setRel : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setRel :  Cast sVGAElement SVGAElement
-         => ToJS SVGAElement
-         => (obj : sVGAElement)
-         -> (v : String)
-         -> IO ()
+  setRel : (obj : SVGAElement) -> (v : String) -> IO ()
   
   %foreign "browser:lambda:x=>x.text"
   prim__text : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  text :  Cast sVGAElement SVGAElement
-       => ToJS SVGAElement
-       => (obj : sVGAElement)
-       -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.text = v}"
+  text : (obj : SVGAElement) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.text  = v}"
   prim__setText : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setText :  Cast sVGAElement SVGAElement
-          => ToJS SVGAElement
-          => (obj : sVGAElement)
-          -> (v : String)
-          -> IO ()
+  setText : (obj : SVGAElement) -> (v : String) -> IO ()
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  type :  Cast sVGAElement SVGAElement
-       => ToJS SVGAElement
-       => (obj : sVGAElement)
-       -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.type = v}"
+  type : (obj : SVGAElement) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.type  = v}"
   prim__setType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setType :  Cast sVGAElement SVGAElement
-          => ToJS SVGAElement
-          => (obj : sVGAElement)
-          -> (v : String)
-          -> IO ()
+  setType : (obj : SVGAElement) -> (v : String) -> IO ()
 
 namespace SVGAngle
+  
+  public export
+  JSVal SVGAngle where
+    parents =  [ JSObject ]
+
+    mixins =  []
   
   public export
   SVG_ANGLETYPE_DEG : UInt16
@@ -185,506 +176,612 @@ namespace SVGAngle
   
   %foreign "browser:lambda:x=>x.unitType"
   prim__unitType : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  unitType :  Cast sVGAngle SVGAngle
-           => ToJS SVGAngle
-           => (obj : sVGAngle)
-           -> IO UInt16
+  unitType : (obj : SVGAngle) -> IO UInt16
   
   %foreign "browser:lambda:x=>x.value"
   prim__value : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  value :  Cast sVGAngle SVGAngle
-        => ToJS SVGAngle
-        => (obj : sVGAngle)
-        -> IO Double
-  
-  %foreign "browser:lambda:(x,v)=>{x.value = v}"
+  value : (obj : SVGAngle) -> IO Double
+
+  %foreign "browser:lambda:(x,v)=>{x.value  = v}"
   prim__setValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setValue :  Cast sVGAngle SVGAngle
-           => ToJS SVGAngle
-           => (obj : sVGAngle)
-           -> (v : Double)
-           -> IO ()
+  setValue : (obj : SVGAngle) -> (v : Double) -> IO ()
   
   %foreign "browser:lambda:x=>x.valueAsString"
   prim__valueAsString : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  valueAsString :  Cast sVGAngle SVGAngle
-                => ToJS SVGAngle
-                => (obj : sVGAngle)
-                -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.valueAsString = v}"
+  valueAsString : (obj : SVGAngle) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.valueAsString  = v}"
   prim__setValueAsString : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setValueAsString :  Cast sVGAngle SVGAngle
-                   => ToJS SVGAngle
-                   => (obj : sVGAngle)
-                   -> (v : String)
-                   -> IO ()
+  setValueAsString : (obj : SVGAngle) -> (v : String) -> IO ()
   
   %foreign "browser:lambda:x=>x.valueInSpecifiedUnits"
   prim__valueInSpecifiedUnits : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  valueInSpecifiedUnits :  Cast sVGAngle SVGAngle
-                        => ToJS SVGAngle
-                        => (obj : sVGAngle)
-                        -> IO Double
-  
-  %foreign "browser:lambda:(x,v)=>{x.valueInSpecifiedUnits = v}"
+  valueInSpecifiedUnits : (obj : SVGAngle) -> IO Double
+
+  %foreign "browser:lambda:(x,v)=>{x.valueInSpecifiedUnits  = v}"
   prim__setValueInSpecifiedUnits : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setValueInSpecifiedUnits :  Cast sVGAngle SVGAngle
-                           => ToJS SVGAngle
-                           => (obj : sVGAngle)
-                           -> (v : Double)
-                           -> IO ()
+  setValueInSpecifiedUnits : (obj : SVGAngle) -> (v : Double) -> IO ()
 
 namespace SVGAnimatedAngle
   
+  public export
+  JSVal SVGAnimatedAngle where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.animVal"
   prim__animVal : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  animVal :  Cast sVGAnimatedAngle SVGAnimatedAngle
-          => ToJS SVGAnimatedAngle
-          => (obj : sVGAnimatedAngle)
-          -> IO SVGAngle
+  animVal : (obj : SVGAnimatedAngle) -> IO SVGAngle
   
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  baseVal :  Cast sVGAnimatedAngle SVGAnimatedAngle
-          => ToJS SVGAnimatedAngle
-          => (obj : sVGAnimatedAngle)
-          -> IO SVGAngle
+  baseVal : (obj : SVGAnimatedAngle) -> IO SVGAngle
 
 namespace SVGAnimatedBoolean
   
+  public export
+  JSVal SVGAnimatedBoolean where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.animVal"
   prim__animVal : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  animVal :  Cast sVGAnimatedBoolean SVGAnimatedBoolean
-          => ToJS SVGAnimatedBoolean
-          => (obj : sVGAnimatedBoolean)
-          -> IO Bool
+  animVal : (obj : SVGAnimatedBoolean) -> IO Bool
   
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  baseVal :  Cast sVGAnimatedBoolean SVGAnimatedBoolean
-          => ToJS SVGAnimatedBoolean
-          => (obj : sVGAnimatedBoolean)
-          -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.baseVal = v}"
+  baseVal : (obj : SVGAnimatedBoolean) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.baseVal  = v}"
   prim__setBaseVal : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setBaseVal :  Cast sVGAnimatedBoolean SVGAnimatedBoolean
-             => ToJS SVGAnimatedBoolean
-             => (obj : sVGAnimatedBoolean)
-             -> (v : Bool)
-             -> IO ()
+  setBaseVal : (obj : SVGAnimatedBoolean) -> (v : Bool) -> IO ()
 
 namespace SVGAnimatedEnumeration
   
+  public export
+  JSVal SVGAnimatedEnumeration where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.animVal"
   prim__animVal : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  animVal :  Cast sVGAnimatedEnumeration SVGAnimatedEnumeration
-          => ToJS SVGAnimatedEnumeration
-          => (obj : sVGAnimatedEnumeration)
-          -> IO UInt16
+  animVal : (obj : SVGAnimatedEnumeration) -> IO UInt16
   
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  baseVal :  Cast sVGAnimatedEnumeration SVGAnimatedEnumeration
-          => ToJS SVGAnimatedEnumeration
-          => (obj : sVGAnimatedEnumeration)
-          -> IO UInt16
-  
-  %foreign "browser:lambda:(x,v)=>{x.baseVal = v}"
+  baseVal : (obj : SVGAnimatedEnumeration) -> IO UInt16
+
+  %foreign "browser:lambda:(x,v)=>{x.baseVal  = v}"
   prim__setBaseVal : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setBaseVal :  Cast sVGAnimatedEnumeration SVGAnimatedEnumeration
-             => ToJS SVGAnimatedEnumeration
-             => (obj : sVGAnimatedEnumeration)
-             -> (v : UInt16)
-             -> IO ()
+  setBaseVal : (obj : SVGAnimatedEnumeration) -> (v : UInt16) -> IO ()
 
 namespace SVGAnimatedInteger
   
+  public export
+  JSVal SVGAnimatedInteger where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.animVal"
   prim__animVal : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  animVal :  Cast sVGAnimatedInteger SVGAnimatedInteger
-          => ToJS SVGAnimatedInteger
-          => (obj : sVGAnimatedInteger)
-          -> IO Int32
+  animVal : (obj : SVGAnimatedInteger) -> IO Int32
   
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  baseVal :  Cast sVGAnimatedInteger SVGAnimatedInteger
-          => ToJS SVGAnimatedInteger
-          => (obj : sVGAnimatedInteger)
-          -> IO Int32
-  
-  %foreign "browser:lambda:(x,v)=>{x.baseVal = v}"
+  baseVal : (obj : SVGAnimatedInteger) -> IO Int32
+
+  %foreign "browser:lambda:(x,v)=>{x.baseVal  = v}"
   prim__setBaseVal : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setBaseVal :  Cast sVGAnimatedInteger SVGAnimatedInteger
-             => ToJS SVGAnimatedInteger
-             => (obj : sVGAnimatedInteger)
-             -> (v : Int32)
-             -> IO ()
+  setBaseVal : (obj : SVGAnimatedInteger) -> (v : Int32) -> IO ()
 
 namespace SVGAnimatedLength
   
+  public export
+  JSVal SVGAnimatedLength where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.animVal"
   prim__animVal : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  animVal :  Cast sVGAnimatedLength SVGAnimatedLength
-          => ToJS SVGAnimatedLength
-          => (obj : sVGAnimatedLength)
-          -> IO SVGLength
+  animVal : (obj : SVGAnimatedLength) -> IO SVGLength
   
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  baseVal :  Cast sVGAnimatedLength SVGAnimatedLength
-          => ToJS SVGAnimatedLength
-          => (obj : sVGAnimatedLength)
-          -> IO SVGLength
+  baseVal : (obj : SVGAnimatedLength) -> IO SVGLength
 
 namespace SVGAnimatedLengthList
   
+  public export
+  JSVal SVGAnimatedLengthList where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.animVal"
   prim__animVal : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  animVal :  Cast sVGAnimatedLengthList SVGAnimatedLengthList
-          => ToJS SVGAnimatedLengthList
-          => (obj : sVGAnimatedLengthList)
-          -> IO SVGLengthList
+  animVal : (obj : SVGAnimatedLengthList) -> IO SVGLengthList
   
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  baseVal :  Cast sVGAnimatedLengthList SVGAnimatedLengthList
-          => ToJS SVGAnimatedLengthList
-          => (obj : sVGAnimatedLengthList)
-          -> IO SVGLengthList
+  baseVal : (obj : SVGAnimatedLengthList) -> IO SVGLengthList
 
 namespace SVGAnimatedNumber
   
+  public export
+  JSVal SVGAnimatedNumber where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.animVal"
   prim__animVal : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  animVal :  Cast sVGAnimatedNumber SVGAnimatedNumber
-          => ToJS SVGAnimatedNumber
-          => (obj : sVGAnimatedNumber)
-          -> IO Double
+  animVal : (obj : SVGAnimatedNumber) -> IO Double
   
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  baseVal :  Cast sVGAnimatedNumber SVGAnimatedNumber
-          => ToJS SVGAnimatedNumber
-          => (obj : sVGAnimatedNumber)
-          -> IO Double
-  
-  %foreign "browser:lambda:(x,v)=>{x.baseVal = v}"
+  baseVal : (obj : SVGAnimatedNumber) -> IO Double
+
+  %foreign "browser:lambda:(x,v)=>{x.baseVal  = v}"
   prim__setBaseVal : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setBaseVal :  Cast sVGAnimatedNumber SVGAnimatedNumber
-             => ToJS SVGAnimatedNumber
-             => (obj : sVGAnimatedNumber)
-             -> (v : Double)
-             -> IO ()
+  setBaseVal : (obj : SVGAnimatedNumber) -> (v : Double) -> IO ()
 
 namespace SVGAnimatedNumberList
   
+  public export
+  JSVal SVGAnimatedNumberList where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.animVal"
   prim__animVal : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  animVal :  Cast sVGAnimatedNumberList SVGAnimatedNumberList
-          => ToJS SVGAnimatedNumberList
-          => (obj : sVGAnimatedNumberList)
-          -> IO SVGNumberList
+  animVal : (obj : SVGAnimatedNumberList) -> IO SVGNumberList
   
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  baseVal :  Cast sVGAnimatedNumberList SVGAnimatedNumberList
-          => ToJS SVGAnimatedNumberList
-          => (obj : sVGAnimatedNumberList)
-          -> IO SVGNumberList
+  baseVal : (obj : SVGAnimatedNumberList) -> IO SVGNumberList
 
 namespace SVGAnimatedPreserveAspectRatio
   
+  public export
+  JSVal SVGAnimatedPreserveAspectRatio where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.animVal"
   prim__animVal : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  animVal :  Cast sVGAnimatedPreserveAspectRatio SVGAnimatedPreserveAspectRatio
-          => ToJS SVGAnimatedPreserveAspectRatio
-          => (obj : sVGAnimatedPreserveAspectRatio)
-          -> IO SVGPreserveAspectRatio
+  animVal : (obj : SVGAnimatedPreserveAspectRatio) -> IO SVGPreserveAspectRatio
   
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  baseVal :  Cast sVGAnimatedPreserveAspectRatio SVGAnimatedPreserveAspectRatio
-          => ToJS SVGAnimatedPreserveAspectRatio
-          => (obj : sVGAnimatedPreserveAspectRatio)
-          -> IO SVGPreserveAspectRatio
+  baseVal : (obj : SVGAnimatedPreserveAspectRatio) -> IO SVGPreserveAspectRatio
 
 namespace SVGAnimatedRect
   
+  public export
+  JSVal SVGAnimatedRect where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.animVal"
   prim__animVal : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  animVal :  Cast sVGAnimatedRect SVGAnimatedRect
-          => ToJS SVGAnimatedRect
-          => (obj : sVGAnimatedRect)
-          -> IO DOMRectReadOnly
+  animVal : (obj : SVGAnimatedRect) -> IO DOMRectReadOnly
   
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  baseVal :  Cast sVGAnimatedRect SVGAnimatedRect
-          => ToJS SVGAnimatedRect
-          => (obj : sVGAnimatedRect)
-          -> IO DOMRect
+  baseVal : (obj : SVGAnimatedRect) -> IO DOMRect
 
 namespace SVGAnimatedString
   
+  public export
+  JSVal SVGAnimatedString where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.animVal"
   prim__animVal : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  animVal :  Cast sVGAnimatedString SVGAnimatedString
-          => ToJS SVGAnimatedString
-          => (obj : sVGAnimatedString)
-          -> IO String
+  animVal : (obj : SVGAnimatedString) -> IO String
   
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  baseVal :  Cast sVGAnimatedString SVGAnimatedString
-          => ToJS SVGAnimatedString
-          => (obj : sVGAnimatedString)
-          -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.baseVal = v}"
+  baseVal : (obj : SVGAnimatedString) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.baseVal  = v}"
   prim__setBaseVal : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setBaseVal :  Cast sVGAnimatedString SVGAnimatedString
-             => ToJS SVGAnimatedString
-             => (obj : sVGAnimatedString)
-             -> (v : String)
-             -> IO ()
+  setBaseVal : (obj : SVGAnimatedString) -> (v : String) -> IO ()
 
 namespace SVGAnimatedTransformList
   
+  public export
+  JSVal SVGAnimatedTransformList where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.animVal"
   prim__animVal : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  animVal :  Cast sVGAnimatedTransformList SVGAnimatedTransformList
-          => ToJS SVGAnimatedTransformList
-          => (obj : sVGAnimatedTransformList)
-          -> IO SVGTransformList
+  animVal : (obj : SVGAnimatedTransformList) -> IO SVGTransformList
   
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  baseVal :  Cast sVGAnimatedTransformList SVGAnimatedTransformList
-          => ToJS SVGAnimatedTransformList
-          => (obj : sVGAnimatedTransformList)
-          -> IO SVGTransformList
+  baseVal : (obj : SVGAnimatedTransformList) -> IO SVGTransformList
 
 namespace SVGCircleElement
   
+  public export
+  JSVal SVGCircleElement where
+    parents =  [ SVGGeometryElement
+               , SVGGraphicsElement
+               , SVGElement
+               , Element
+               , Node
+               , EventTarget
+               , JSObject
+               ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , SVGTests
+              , Slottable
+              ]
+  
   %foreign "browser:lambda:x=>x.cx"
   prim__cx : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  cx :  Cast sVGCircleElement SVGCircleElement
-     => ToJS SVGCircleElement
-     => (obj : sVGCircleElement)
-     -> IO SVGAnimatedLength
+  cx : (obj : SVGCircleElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.cy"
   prim__cy : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  cy :  Cast sVGCircleElement SVGCircleElement
-     => ToJS SVGCircleElement
-     => (obj : sVGCircleElement)
-     -> IO SVGAnimatedLength
+  cy : (obj : SVGCircleElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.r"
   prim__r : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  r :  Cast sVGCircleElement SVGCircleElement
-    => ToJS SVGCircleElement
-    => (obj : sVGCircleElement)
-    -> IO SVGAnimatedLength
+  r : (obj : SVGCircleElement) -> IO SVGAnimatedLength
+
+namespace SVGDefsElement
+  
+  public export
+  JSVal SVGDefsElement where
+    parents =  [ SVGGraphicsElement
+               , SVGElement
+               , Element
+               , Node
+               , EventTarget
+               , JSObject
+               ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , SVGTests
+              , Slottable
+              ]
+
+namespace SVGDescElement
+  
+  public export
+  JSVal SVGDescElement where
+    parents =  [ SVGElement , Element , Node , EventTarget , JSObject ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , Slottable
+              ]
 
 namespace SVGElement
   
+  public export
+  JSVal SVGElement where
+    parents =  [ Element , Node , EventTarget , JSObject ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , Slottable
+              ]
+  
   %foreign "browser:lambda:x=>x.className"
   prim__className : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  className :  Cast sVGElement SVGElement
-            => ToJS SVGElement
-            => (obj : sVGElement)
-            -> IO SVGAnimatedString
+  className : (obj : SVGElement) -> IO SVGAnimatedString
   
   %foreign "browser:lambda:x=>x.ownerSVGElement"
   prim__ownerSVGElement : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  ownerSVGElement :  Cast sVGElement SVGElement
-                  => ToJS SVGElement
-                  => (obj : sVGElement)
-                  -> IO (Maybe SVGSVGElement)
+  ownerSVGElement : (obj : SVGElement) -> IO (Maybe SVGSVGElement)
   
   %foreign "browser:lambda:x=>x.viewportElement"
   prim__viewportElement : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  viewportElement :  Cast sVGElement SVGElement
-                  => ToJS SVGElement
-                  => (obj : sVGElement)
-                  -> IO (Maybe SVGElement)
+  viewportElement : (obj : SVGElement) -> IO (Maybe SVGElement)
 
 namespace SVGEllipseElement
   
+  public export
+  JSVal SVGEllipseElement where
+    parents =  [ SVGGeometryElement
+               , SVGGraphicsElement
+               , SVGElement
+               , Element
+               , Node
+               , EventTarget
+               , JSObject
+               ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , SVGTests
+              , Slottable
+              ]
+  
   %foreign "browser:lambda:x=>x.cx"
   prim__cx : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  cx :  Cast sVGEllipseElement SVGEllipseElement
-     => ToJS SVGEllipseElement
-     => (obj : sVGEllipseElement)
-     -> IO SVGAnimatedLength
+  cx : (obj : SVGEllipseElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.cy"
   prim__cy : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  cy :  Cast sVGEllipseElement SVGEllipseElement
-     => ToJS SVGEllipseElement
-     => (obj : sVGEllipseElement)
-     -> IO SVGAnimatedLength
+  cy : (obj : SVGEllipseElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.rx"
   prim__rx : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  rx :  Cast sVGEllipseElement SVGEllipseElement
-     => ToJS SVGEllipseElement
-     => (obj : sVGEllipseElement)
-     -> IO SVGAnimatedLength
+  rx : (obj : SVGEllipseElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.ry"
   prim__ry : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  ry :  Cast sVGEllipseElement SVGEllipseElement
-     => ToJS SVGEllipseElement
-     => (obj : sVGEllipseElement)
-     -> IO SVGAnimatedLength
+  ry : (obj : SVGEllipseElement) -> IO SVGAnimatedLength
 
 namespace SVGForeignObjectElement
   
+  public export
+  JSVal SVGForeignObjectElement where
+    parents =  [ SVGGraphicsElement
+               , SVGElement
+               , Element
+               , Node
+               , EventTarget
+               , JSObject
+               ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , SVGTests
+              , Slottable
+              ]
+  
   %foreign "browser:lambda:x=>x.height"
   prim__height : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  height :  Cast sVGForeignObjectElement SVGForeignObjectElement
-         => ToJS SVGForeignObjectElement
-         => (obj : sVGForeignObjectElement)
-         -> IO SVGAnimatedLength
+  height : (obj : SVGForeignObjectElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  width :  Cast sVGForeignObjectElement SVGForeignObjectElement
-        => ToJS SVGForeignObjectElement
-        => (obj : sVGForeignObjectElement)
-        -> IO SVGAnimatedLength
+  width : (obj : SVGForeignObjectElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.x"
   prim__x : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  x :  Cast sVGForeignObjectElement SVGForeignObjectElement
-    => ToJS SVGForeignObjectElement
-    => (obj : sVGForeignObjectElement)
-    -> IO SVGAnimatedLength
+  x : (obj : SVGForeignObjectElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.y"
   prim__y : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  y :  Cast sVGForeignObjectElement SVGForeignObjectElement
-    => ToJS SVGForeignObjectElement
-    => (obj : sVGForeignObjectElement)
-    -> IO SVGAnimatedLength
+  y : (obj : SVGForeignObjectElement) -> IO SVGAnimatedLength
+
+namespace SVGGElement
+  
+  public export
+  JSVal SVGGElement where
+    parents =  [ SVGGraphicsElement
+               , SVGElement
+               , Element
+               , Node
+               , EventTarget
+               , JSObject
+               ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , SVGTests
+              , Slottable
+              ]
 
 namespace SVGGeometryElement
   
+  public export
+  JSVal SVGGeometryElement where
+    parents =  [ SVGGraphicsElement
+               , SVGElement
+               , Element
+               , Node
+               , EventTarget
+               , JSObject
+               ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , SVGTests
+              , Slottable
+              ]
+  
   %foreign "browser:lambda:x=>x.pathLength"
   prim__pathLength : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  pathLength :  Cast sVGGeometryElement SVGGeometryElement
-             => ToJS SVGGeometryElement
-             => (obj : sVGGeometryElement)
-             -> IO SVGAnimatedNumber
+  pathLength : (obj : SVGGeometryElement) -> IO SVGAnimatedNumber
 
 namespace SVGGradientElement
+  
+  public export
+  JSVal SVGGradientElement where
+    parents =  [ SVGElement , Element , Node , EventTarget , JSObject ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , SVGURIReference
+              , Slottable
+              ]
   
   public export
   SVG_SPREADMETHOD_PAD : UInt16
@@ -704,109 +801,123 @@ namespace SVGGradientElement
   
   %foreign "browser:lambda:x=>x.gradientTransform"
   prim__gradientTransform : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  gradientTransform :  Cast sVGGradientElement SVGGradientElement
-                    => ToJS SVGGradientElement
-                    => (obj : sVGGradientElement)
-                    -> IO SVGAnimatedTransformList
+  gradientTransform : (obj : SVGGradientElement) -> IO SVGAnimatedTransformList
   
   %foreign "browser:lambda:x=>x.gradientUnits"
   prim__gradientUnits : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  gradientUnits :  Cast sVGGradientElement SVGGradientElement
-                => ToJS SVGGradientElement
-                => (obj : sVGGradientElement)
-                -> IO SVGAnimatedEnumeration
+  gradientUnits : (obj : SVGGradientElement) -> IO SVGAnimatedEnumeration
   
   %foreign "browser:lambda:x=>x.spreadMethod"
   prim__spreadMethod : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  spreadMethod :  Cast sVGGradientElement SVGGradientElement
-               => ToJS SVGGradientElement
-               => (obj : sVGGradientElement)
-               -> IO SVGAnimatedEnumeration
+  spreadMethod : (obj : SVGGradientElement) -> IO SVGAnimatedEnumeration
 
 namespace SVGGraphicsElement
   
+  public export
+  JSVal SVGGraphicsElement where
+    parents =  [ SVGElement , Element , Node , EventTarget , JSObject ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , SVGTests
+              , Slottable
+              ]
+  
   %foreign "browser:lambda:x=>x.transform"
   prim__transform : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  transform :  Cast sVGGraphicsElement SVGGraphicsElement
-            => ToJS SVGGraphicsElement
-            => (obj : sVGGraphicsElement)
-            -> IO SVGAnimatedTransformList
+  transform : (obj : SVGGraphicsElement) -> IO SVGAnimatedTransformList
 
 namespace SVGImageElement
   
+  public export
+  JSVal SVGImageElement where
+    parents =  [ SVGGraphicsElement
+               , SVGElement
+               , Element
+               , Node
+               , EventTarget
+               , JSObject
+               ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , SVGTests
+              , SVGURIReference
+              , Slottable
+              ]
+  
   %foreign "browser:lambda:x=>x.height"
   prim__height : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  height :  Cast sVGImageElement SVGImageElement
-         => ToJS SVGImageElement
-         => (obj : sVGImageElement)
-         -> IO SVGAnimatedLength
+  height : (obj : SVGImageElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.preserveAspectRatio"
   prim__preserveAspectRatio : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  preserveAspectRatio :  Cast sVGImageElement SVGImageElement
-                      => ToJS SVGImageElement
-                      => (obj : sVGImageElement)
+  preserveAspectRatio :  (obj : SVGImageElement)
                       -> IO SVGAnimatedPreserveAspectRatio
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  width :  Cast sVGImageElement SVGImageElement
-        => ToJS SVGImageElement
-        => (obj : sVGImageElement)
-        -> IO SVGAnimatedLength
+  width : (obj : SVGImageElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.x"
   prim__x : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  x :  Cast sVGImageElement SVGImageElement
-    => ToJS SVGImageElement
-    => (obj : sVGImageElement)
-    -> IO SVGAnimatedLength
+  x : (obj : SVGImageElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.y"
   prim__y : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  y :  Cast sVGImageElement SVGImageElement
-    => ToJS SVGImageElement
-    => (obj : sVGImageElement)
-    -> IO SVGAnimatedLength
+  y : (obj : SVGImageElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.crossOrigin"
   prim__crossOrigin : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  crossOrigin :  Cast sVGImageElement SVGImageElement
-              => ToJS SVGImageElement
-              => (obj : sVGImageElement)
-              -> IO (Maybe String)
-  
-  %foreign "browser:lambda:(x,v)=>{x.crossOrigin = v}"
+  crossOrigin : (obj : SVGImageElement) -> IO (Maybe String)
+
+  %foreign "browser:lambda:(x,v)=>{x.crossOrigin  = v}"
   prim__setCrossOrigin : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setCrossOrigin :  Cast sVGImageElement SVGImageElement
-                 => ToJS SVGImageElement
-                 => (obj : sVGImageElement)
-                 -> (v : Maybe String)
-                 -> IO ()
+  setCrossOrigin : (obj : SVGImageElement) -> (v : Maybe String) -> IO ()
 
 namespace SVGLength
+  
+  public export
+  JSVal SVGLength where
+    parents =  [ JSObject ]
+
+    mixins =  []
   
   public export
   SVG_LENGTHTYPE_CM : UInt16
@@ -854,167 +965,183 @@ namespace SVGLength
   
   %foreign "browser:lambda:x=>x.unitType"
   prim__unitType : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  unitType :  Cast sVGLength SVGLength
-           => ToJS SVGLength
-           => (obj : sVGLength)
-           -> IO UInt16
+  unitType : (obj : SVGLength) -> IO UInt16
   
   %foreign "browser:lambda:x=>x.value"
   prim__value : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  value :  Cast sVGLength SVGLength
-        => ToJS SVGLength
-        => (obj : sVGLength)
-        -> IO Double
-  
-  %foreign "browser:lambda:(x,v)=>{x.value = v}"
+  value : (obj : SVGLength) -> IO Double
+
+  %foreign "browser:lambda:(x,v)=>{x.value  = v}"
   prim__setValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setValue :  Cast sVGLength SVGLength
-           => ToJS SVGLength
-           => (obj : sVGLength)
-           -> (v : Double)
-           -> IO ()
+  setValue : (obj : SVGLength) -> (v : Double) -> IO ()
   
   %foreign "browser:lambda:x=>x.valueAsString"
   prim__valueAsString : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  valueAsString :  Cast sVGLength SVGLength
-                => ToJS SVGLength
-                => (obj : sVGLength)
-                -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.valueAsString = v}"
+  valueAsString : (obj : SVGLength) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.valueAsString  = v}"
   prim__setValueAsString : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setValueAsString :  Cast sVGLength SVGLength
-                   => ToJS SVGLength
-                   => (obj : sVGLength)
-                   -> (v : String)
-                   -> IO ()
+  setValueAsString : (obj : SVGLength) -> (v : String) -> IO ()
   
   %foreign "browser:lambda:x=>x.valueInSpecifiedUnits"
   prim__valueInSpecifiedUnits : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  valueInSpecifiedUnits :  Cast sVGLength SVGLength
-                        => ToJS SVGLength
-                        => (obj : sVGLength)
-                        -> IO Double
-  
-  %foreign "browser:lambda:(x,v)=>{x.valueInSpecifiedUnits = v}"
+  valueInSpecifiedUnits : (obj : SVGLength) -> IO Double
+
+  %foreign "browser:lambda:(x,v)=>{x.valueInSpecifiedUnits  = v}"
   prim__setValueInSpecifiedUnits : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setValueInSpecifiedUnits :  Cast sVGLength SVGLength
-                           => ToJS SVGLength
-                           => (obj : sVGLength)
-                           -> (v : Double)
-                           -> IO ()
+  setValueInSpecifiedUnits : (obj : SVGLength) -> (v : Double) -> IO ()
 
 namespace SVGLengthList
   
+  public export
+  JSVal SVGLengthList where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.length"
   prim__length : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  length :  Cast sVGLengthList SVGLengthList
-         => ToJS SVGLengthList
-         => (obj : sVGLengthList)
-         -> IO UInt32
+  length : (obj : SVGLengthList) -> IO UInt32
   
   %foreign "browser:lambda:x=>x.numberOfItems"
   prim__numberOfItems : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  numberOfItems :  Cast sVGLengthList SVGLengthList
-                => ToJS SVGLengthList
-                => (obj : sVGLengthList)
-                -> IO UInt32
+  numberOfItems : (obj : SVGLengthList) -> IO UInt32
 
 namespace SVGLineElement
   
+  public export
+  JSVal SVGLineElement where
+    parents =  [ SVGGeometryElement
+               , SVGGraphicsElement
+               , SVGElement
+               , Element
+               , Node
+               , EventTarget
+               , JSObject
+               ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , SVGTests
+              , Slottable
+              ]
+  
   %foreign "browser:lambda:x=>x.x1"
   prim__x1 : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  x1 :  Cast sVGLineElement SVGLineElement
-     => ToJS SVGLineElement
-     => (obj : sVGLineElement)
-     -> IO SVGAnimatedLength
+  x1 : (obj : SVGLineElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.x2"
   prim__x2 : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  x2 :  Cast sVGLineElement SVGLineElement
-     => ToJS SVGLineElement
-     => (obj : sVGLineElement)
-     -> IO SVGAnimatedLength
+  x2 : (obj : SVGLineElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.y1"
   prim__y1 : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  y1 :  Cast sVGLineElement SVGLineElement
-     => ToJS SVGLineElement
-     => (obj : sVGLineElement)
-     -> IO SVGAnimatedLength
+  y1 : (obj : SVGLineElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.y2"
   prim__y2 : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  y2 :  Cast sVGLineElement SVGLineElement
-     => ToJS SVGLineElement
-     => (obj : sVGLineElement)
-     -> IO SVGAnimatedLength
+  y2 : (obj : SVGLineElement) -> IO SVGAnimatedLength
 
 namespace SVGLinearGradientElement
   
+  public export
+  JSVal SVGLinearGradientElement where
+    parents =  [ SVGGradientElement
+               , SVGElement
+               , Element
+               , Node
+               , EventTarget
+               , JSObject
+               ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , SVGURIReference
+              , Slottable
+              ]
+  
   %foreign "browser:lambda:x=>x.x1"
   prim__x1 : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  x1 :  Cast sVGLinearGradientElement SVGLinearGradientElement
-     => ToJS SVGLinearGradientElement
-     => (obj : sVGLinearGradientElement)
-     -> IO SVGAnimatedLength
+  x1 : (obj : SVGLinearGradientElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.x2"
   prim__x2 : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  x2 :  Cast sVGLinearGradientElement SVGLinearGradientElement
-     => ToJS SVGLinearGradientElement
-     => (obj : sVGLinearGradientElement)
-     -> IO SVGAnimatedLength
+  x2 : (obj : SVGLinearGradientElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.y1"
   prim__y1 : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  y1 :  Cast sVGLinearGradientElement SVGLinearGradientElement
-     => ToJS SVGLinearGradientElement
-     => (obj : sVGLinearGradientElement)
-     -> IO SVGAnimatedLength
+  y1 : (obj : SVGLinearGradientElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.y2"
   prim__y2 : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  y2 :  Cast sVGLinearGradientElement SVGLinearGradientElement
-     => ToJS SVGLinearGradientElement
-     => (obj : sVGLinearGradientElement)
-     -> IO SVGAnimatedLength
+  y2 : (obj : SVGLinearGradientElement) -> IO SVGAnimatedLength
 
 namespace SVGMarkerElement
+  
+  public export
+  JSVal SVGMarkerElement where
+    parents =  [ SVGElement , Element , Node , EventTarget , JSObject ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , SVGFitToViewBox
+              , Slottable
+              ]
   
   public export
   SVG_MARKERUNITS_STROKEWIDTH : UInt16
@@ -1042,213 +1169,285 @@ namespace SVGMarkerElement
   
   %foreign "browser:lambda:x=>x.markerHeight"
   prim__markerHeight : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  markerHeight :  Cast sVGMarkerElement SVGMarkerElement
-               => ToJS SVGMarkerElement
-               => (obj : sVGMarkerElement)
-               -> IO SVGAnimatedLength
+  markerHeight : (obj : SVGMarkerElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.markerUnits"
   prim__markerUnits : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  markerUnits :  Cast sVGMarkerElement SVGMarkerElement
-              => ToJS SVGMarkerElement
-              => (obj : sVGMarkerElement)
-              -> IO SVGAnimatedEnumeration
+  markerUnits : (obj : SVGMarkerElement) -> IO SVGAnimatedEnumeration
   
   %foreign "browser:lambda:x=>x.markerWidth"
   prim__markerWidth : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  markerWidth :  Cast sVGMarkerElement SVGMarkerElement
-              => ToJS SVGMarkerElement
-              => (obj : sVGMarkerElement)
-              -> IO SVGAnimatedLength
+  markerWidth : (obj : SVGMarkerElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.orientAngle"
   prim__orientAngle : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  orientAngle :  Cast sVGMarkerElement SVGMarkerElement
-              => ToJS SVGMarkerElement
-              => (obj : sVGMarkerElement)
-              -> IO SVGAnimatedAngle
+  orientAngle : (obj : SVGMarkerElement) -> IO SVGAnimatedAngle
   
   %foreign "browser:lambda:x=>x.orientType"
   prim__orientType : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  orientType :  Cast sVGMarkerElement SVGMarkerElement
-             => ToJS SVGMarkerElement
-             => (obj : sVGMarkerElement)
-             -> IO SVGAnimatedEnumeration
+  orientType : (obj : SVGMarkerElement) -> IO SVGAnimatedEnumeration
   
   %foreign "browser:lambda:x=>x.refX"
   prim__refX : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  refX :  Cast sVGMarkerElement SVGMarkerElement
-       => ToJS SVGMarkerElement
-       => (obj : sVGMarkerElement)
-       -> IO SVGAnimatedLength
+  refX : (obj : SVGMarkerElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.refY"
   prim__refY : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  refY :  Cast sVGMarkerElement SVGMarkerElement
-       => ToJS SVGMarkerElement
-       => (obj : sVGMarkerElement)
-       -> IO SVGAnimatedLength
+  refY : (obj : SVGMarkerElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.orient"
   prim__orient : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  orient :  Cast sVGMarkerElement SVGMarkerElement
-         => ToJS SVGMarkerElement
-         => (obj : sVGMarkerElement)
-         -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.orient = v}"
+  orient : (obj : SVGMarkerElement) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.orient  = v}"
   prim__setOrient : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setOrient :  Cast sVGMarkerElement SVGMarkerElement
-            => ToJS SVGMarkerElement
-            => (obj : sVGMarkerElement)
-            -> (v : String)
-            -> IO ()
+  setOrient : (obj : SVGMarkerElement) -> (v : String) -> IO ()
+
+namespace SVGMetadataElement
+  
+  public export
+  JSVal SVGMetadataElement where
+    parents =  [ SVGElement , Element , Node , EventTarget , JSObject ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , Slottable
+              ]
 
 namespace SVGNumber
   
+  public export
+  JSVal SVGNumber where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.value"
   prim__value : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  value :  Cast sVGNumber SVGNumber
-        => ToJS SVGNumber
-        => (obj : sVGNumber)
-        -> IO Double
-  
-  %foreign "browser:lambda:(x,v)=>{x.value = v}"
+  value : (obj : SVGNumber) -> IO Double
+
+  %foreign "browser:lambda:(x,v)=>{x.value  = v}"
   prim__setValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setValue :  Cast sVGNumber SVGNumber
-           => ToJS SVGNumber
-           => (obj : sVGNumber)
-           -> (v : Double)
-           -> IO ()
+  setValue : (obj : SVGNumber) -> (v : Double) -> IO ()
 
 namespace SVGNumberList
   
+  public export
+  JSVal SVGNumberList where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.length"
   prim__length : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  length :  Cast sVGNumberList SVGNumberList
-         => ToJS SVGNumberList
-         => (obj : sVGNumberList)
-         -> IO UInt32
+  length : (obj : SVGNumberList) -> IO UInt32
   
   %foreign "browser:lambda:x=>x.numberOfItems"
   prim__numberOfItems : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  numberOfItems :  Cast sVGNumberList SVGNumberList
-                => ToJS SVGNumberList
-                => (obj : sVGNumberList)
-                -> IO UInt32
+  numberOfItems : (obj : SVGNumberList) -> IO UInt32
+
+namespace SVGPathElement
+  
+  public export
+  JSVal SVGPathElement where
+    parents =  [ SVGGeometryElement
+               , SVGGraphicsElement
+               , SVGElement
+               , Element
+               , Node
+               , EventTarget
+               , JSObject
+               ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , SVGTests
+              , Slottable
+              ]
 
 namespace SVGPatternElement
   
+  public export
+  JSVal SVGPatternElement where
+    parents =  [ SVGElement , Element , Node , EventTarget , JSObject ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , SVGFitToViewBox
+              , SVGURIReference
+              , Slottable
+              ]
+  
   %foreign "browser:lambda:x=>x.height"
   prim__height : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  height :  Cast sVGPatternElement SVGPatternElement
-         => ToJS SVGPatternElement
-         => (obj : sVGPatternElement)
-         -> IO SVGAnimatedLength
+  height : (obj : SVGPatternElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.patternContentUnits"
   prim__patternContentUnits : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  patternContentUnits :  Cast sVGPatternElement SVGPatternElement
-                      => ToJS SVGPatternElement
-                      => (obj : sVGPatternElement)
-                      -> IO SVGAnimatedEnumeration
+  patternContentUnits : (obj : SVGPatternElement) -> IO SVGAnimatedEnumeration
   
   %foreign "browser:lambda:x=>x.patternTransform"
   prim__patternTransform : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  patternTransform :  Cast sVGPatternElement SVGPatternElement
-                   => ToJS SVGPatternElement
-                   => (obj : sVGPatternElement)
-                   -> IO SVGAnimatedTransformList
+  patternTransform : (obj : SVGPatternElement) -> IO SVGAnimatedTransformList
   
   %foreign "browser:lambda:x=>x.patternUnits"
   prim__patternUnits : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  patternUnits :  Cast sVGPatternElement SVGPatternElement
-               => ToJS SVGPatternElement
-               => (obj : sVGPatternElement)
-               -> IO SVGAnimatedEnumeration
+  patternUnits : (obj : SVGPatternElement) -> IO SVGAnimatedEnumeration
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  width :  Cast sVGPatternElement SVGPatternElement
-        => ToJS SVGPatternElement
-        => (obj : sVGPatternElement)
-        -> IO SVGAnimatedLength
+  width : (obj : SVGPatternElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.x"
   prim__x : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  x :  Cast sVGPatternElement SVGPatternElement
-    => ToJS SVGPatternElement
-    => (obj : sVGPatternElement)
-    -> IO SVGAnimatedLength
+  x : (obj : SVGPatternElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.y"
   prim__y : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  y :  Cast sVGPatternElement SVGPatternElement
-    => ToJS SVGPatternElement
-    => (obj : sVGPatternElement)
-    -> IO SVGAnimatedLength
+  y : (obj : SVGPatternElement) -> IO SVGAnimatedLength
 
 namespace SVGPointList
   
+  public export
+  JSVal SVGPointList where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.length"
   prim__length : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  length :  Cast sVGPointList SVGPointList
-         => ToJS SVGPointList
-         => (obj : sVGPointList)
-         -> IO UInt32
+  length : (obj : SVGPointList) -> IO UInt32
   
   %foreign "browser:lambda:x=>x.numberOfItems"
   prim__numberOfItems : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  numberOfItems :  Cast sVGPointList SVGPointList
-                => ToJS SVGPointList
-                => (obj : sVGPointList)
-                -> IO UInt32
+  numberOfItems : (obj : SVGPointList) -> IO UInt32
+
+namespace SVGPolygonElement
+  
+  public export
+  JSVal SVGPolygonElement where
+    parents =  [ SVGGeometryElement
+               , SVGGraphicsElement
+               , SVGElement
+               , Element
+               , Node
+               , EventTarget
+               , JSObject
+               ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGAnimatedPoints
+              , SVGElementInstance
+              , SVGTests
+              , Slottable
+              ]
+
+namespace SVGPolylineElement
+  
+  public export
+  JSVal SVGPolylineElement where
+    parents =  [ SVGGeometryElement
+               , SVGGraphicsElement
+               , SVGElement
+               , Element
+               , Node
+               , EventTarget
+               , JSObject
+               ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGAnimatedPoints
+              , SVGElementInstance
+              , SVGTests
+              , Slottable
+              ]
 
 namespace SVGPreserveAspectRatio
+  
+  public export
+  JSVal SVGPreserveAspectRatio where
+    parents =  [ JSObject ]
+
+    mixins =  []
   
   public export
   SVG_MEETORSLICE_MEET : UInt16
@@ -1308,351 +1507,464 @@ namespace SVGPreserveAspectRatio
   
   %foreign "browser:lambda:x=>x.align"
   prim__align : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  align :  Cast sVGPreserveAspectRatio SVGPreserveAspectRatio
-        => ToJS SVGPreserveAspectRatio
-        => (obj : sVGPreserveAspectRatio)
-        -> IO UInt16
-  
-  %foreign "browser:lambda:(x,v)=>{x.align = v}"
+  align : (obj : SVGPreserveAspectRatio) -> IO UInt16
+
+  %foreign "browser:lambda:(x,v)=>{x.align  = v}"
   prim__setAlign : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setAlign :  Cast sVGPreserveAspectRatio SVGPreserveAspectRatio
-           => ToJS SVGPreserveAspectRatio
-           => (obj : sVGPreserveAspectRatio)
-           -> (v : UInt16)
-           -> IO ()
+  setAlign : (obj : SVGPreserveAspectRatio) -> (v : UInt16) -> IO ()
   
   %foreign "browser:lambda:x=>x.meetOrSlice"
   prim__meetOrSlice : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  meetOrSlice :  Cast sVGPreserveAspectRatio SVGPreserveAspectRatio
-              => ToJS SVGPreserveAspectRatio
-              => (obj : sVGPreserveAspectRatio)
-              -> IO UInt16
-  
-  %foreign "browser:lambda:(x,v)=>{x.meetOrSlice = v}"
+  meetOrSlice : (obj : SVGPreserveAspectRatio) -> IO UInt16
+
+  %foreign "browser:lambda:(x,v)=>{x.meetOrSlice  = v}"
   prim__setMeetOrSlice : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setMeetOrSlice :  Cast sVGPreserveAspectRatio SVGPreserveAspectRatio
-                 => ToJS SVGPreserveAspectRatio
-                 => (obj : sVGPreserveAspectRatio)
-                 -> (v : UInt16)
-                 -> IO ()
+  setMeetOrSlice : (obj : SVGPreserveAspectRatio) -> (v : UInt16) -> IO ()
 
 namespace SVGRadialGradientElement
   
+  public export
+  JSVal SVGRadialGradientElement where
+    parents =  [ SVGGradientElement
+               , SVGElement
+               , Element
+               , Node
+               , EventTarget
+               , JSObject
+               ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , SVGURIReference
+              , Slottable
+              ]
+  
   %foreign "browser:lambda:x=>x.cx"
   prim__cx : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  cx :  Cast sVGRadialGradientElement SVGRadialGradientElement
-     => ToJS SVGRadialGradientElement
-     => (obj : sVGRadialGradientElement)
-     -> IO SVGAnimatedLength
+  cx : (obj : SVGRadialGradientElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.cy"
   prim__cy : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  cy :  Cast sVGRadialGradientElement SVGRadialGradientElement
-     => ToJS SVGRadialGradientElement
-     => (obj : sVGRadialGradientElement)
-     -> IO SVGAnimatedLength
+  cy : (obj : SVGRadialGradientElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.fr"
   prim__fr : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  fr :  Cast sVGRadialGradientElement SVGRadialGradientElement
-     => ToJS SVGRadialGradientElement
-     => (obj : sVGRadialGradientElement)
-     -> IO SVGAnimatedLength
+  fr : (obj : SVGRadialGradientElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.fx"
   prim__fx : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  fx :  Cast sVGRadialGradientElement SVGRadialGradientElement
-     => ToJS SVGRadialGradientElement
-     => (obj : sVGRadialGradientElement)
-     -> IO SVGAnimatedLength
+  fx : (obj : SVGRadialGradientElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.fy"
   prim__fy : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  fy :  Cast sVGRadialGradientElement SVGRadialGradientElement
-     => ToJS SVGRadialGradientElement
-     => (obj : sVGRadialGradientElement)
-     -> IO SVGAnimatedLength
+  fy : (obj : SVGRadialGradientElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.r"
   prim__r : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  r :  Cast sVGRadialGradientElement SVGRadialGradientElement
-    => ToJS SVGRadialGradientElement
-    => (obj : sVGRadialGradientElement)
-    -> IO SVGAnimatedLength
+  r : (obj : SVGRadialGradientElement) -> IO SVGAnimatedLength
 
 namespace SVGRectElement
   
+  public export
+  JSVal SVGRectElement where
+    parents =  [ SVGGeometryElement
+               , SVGGraphicsElement
+               , SVGElement
+               , Element
+               , Node
+               , EventTarget
+               , JSObject
+               ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , SVGTests
+              , Slottable
+              ]
+  
   %foreign "browser:lambda:x=>x.height"
   prim__height : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  height :  Cast sVGRectElement SVGRectElement
-         => ToJS SVGRectElement
-         => (obj : sVGRectElement)
-         -> IO SVGAnimatedLength
+  height : (obj : SVGRectElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.rx"
   prim__rx : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  rx :  Cast sVGRectElement SVGRectElement
-     => ToJS SVGRectElement
-     => (obj : sVGRectElement)
-     -> IO SVGAnimatedLength
+  rx : (obj : SVGRectElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.ry"
   prim__ry : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  ry :  Cast sVGRectElement SVGRectElement
-     => ToJS SVGRectElement
-     => (obj : sVGRectElement)
-     -> IO SVGAnimatedLength
+  ry : (obj : SVGRectElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  width :  Cast sVGRectElement SVGRectElement
-        => ToJS SVGRectElement
-        => (obj : sVGRectElement)
-        -> IO SVGAnimatedLength
+  width : (obj : SVGRectElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.x"
   prim__x : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  x :  Cast sVGRectElement SVGRectElement
-    => ToJS SVGRectElement
-    => (obj : sVGRectElement)
-    -> IO SVGAnimatedLength
+  x : (obj : SVGRectElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.y"
   prim__y : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  y :  Cast sVGRectElement SVGRectElement
-    => ToJS SVGRectElement
-    => (obj : sVGRectElement)
-    -> IO SVGAnimatedLength
+  y : (obj : SVGRectElement) -> IO SVGAnimatedLength
 
 namespace SVGSVGElement
   
+  public export
+  JSVal SVGSVGElement where
+    parents =  [ SVGGraphicsElement
+               , SVGElement
+               , Element
+               , Node
+               , EventTarget
+               , JSObject
+               ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , SVGFitToViewBox
+              , SVGTests
+              , Slottable
+              , WindowEventHandlers
+              ]
+  
   %foreign "browser:lambda:x=>x.currentTranslate"
   prim__currentTranslate : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  currentTranslate :  Cast sVGSVGElement SVGSVGElement
-                   => ToJS SVGSVGElement
-                   => (obj : sVGSVGElement)
-                   -> IO DOMPointReadOnly
+  currentTranslate : (obj : SVGSVGElement) -> IO DOMPointReadOnly
   
   %foreign "browser:lambda:x=>x.height"
   prim__height : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  height :  Cast sVGSVGElement SVGSVGElement
-         => ToJS SVGSVGElement
-         => (obj : sVGSVGElement)
-         -> IO SVGAnimatedLength
+  height : (obj : SVGSVGElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  width :  Cast sVGSVGElement SVGSVGElement
-        => ToJS SVGSVGElement
-        => (obj : sVGSVGElement)
-        -> IO SVGAnimatedLength
+  width : (obj : SVGSVGElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.x"
   prim__x : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  x :  Cast sVGSVGElement SVGSVGElement
-    => ToJS SVGSVGElement
-    => (obj : sVGSVGElement)
-    -> IO SVGAnimatedLength
+  x : (obj : SVGSVGElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.y"
   prim__y : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  y :  Cast sVGSVGElement SVGSVGElement
-    => ToJS SVGSVGElement
-    => (obj : sVGSVGElement)
-    -> IO SVGAnimatedLength
+  y : (obj : SVGSVGElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.currentScale"
   prim__currentScale : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  currentScale :  Cast sVGSVGElement SVGSVGElement
-               => ToJS SVGSVGElement
-               => (obj : sVGSVGElement)
-               -> IO Double
-  
-  %foreign "browser:lambda:(x,v)=>{x.currentScale = v}"
+  currentScale : (obj : SVGSVGElement) -> IO Double
+
+  %foreign "browser:lambda:(x,v)=>{x.currentScale  = v}"
   prim__setCurrentScale : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setCurrentScale :  Cast sVGSVGElement SVGSVGElement
-                  => ToJS SVGSVGElement
-                  => (obj : sVGSVGElement)
-                  -> (v : Double)
-                  -> IO ()
+  setCurrentScale : (obj : SVGSVGElement) -> (v : Double) -> IO ()
 
 namespace SVGScriptElement
   
+  public export
+  JSVal SVGScriptElement where
+    parents =  [ SVGElement , Element , Node , EventTarget , JSObject ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , SVGURIReference
+              , Slottable
+              ]
+  
   %foreign "browser:lambda:x=>x.crossOrigin"
   prim__crossOrigin : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  crossOrigin :  Cast sVGScriptElement SVGScriptElement
-              => ToJS SVGScriptElement
-              => (obj : sVGScriptElement)
-              -> IO (Maybe String)
-  
-  %foreign "browser:lambda:(x,v)=>{x.crossOrigin = v}"
+  crossOrigin : (obj : SVGScriptElement) -> IO (Maybe String)
+
+  %foreign "browser:lambda:(x,v)=>{x.crossOrigin  = v}"
   prim__setCrossOrigin : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setCrossOrigin :  Cast sVGScriptElement SVGScriptElement
-                 => ToJS SVGScriptElement
-                 => (obj : sVGScriptElement)
-                 -> (v : Maybe String)
-                 -> IO ()
+  setCrossOrigin : (obj : SVGScriptElement) -> (v : Maybe String) -> IO ()
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  type :  Cast sVGScriptElement SVGScriptElement
-       => ToJS SVGScriptElement
-       => (obj : sVGScriptElement)
-       -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.type = v}"
+  type : (obj : SVGScriptElement) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.type  = v}"
   prim__setType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setType :  Cast sVGScriptElement SVGScriptElement
-          => ToJS SVGScriptElement
-          => (obj : sVGScriptElement)
-          -> (v : String)
-          -> IO ()
+  setType : (obj : SVGScriptElement) -> (v : String) -> IO ()
 
 namespace SVGStopElement
   
+  public export
+  JSVal SVGStopElement where
+    parents =  [ SVGElement , Element , Node , EventTarget , JSObject ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , Slottable
+              ]
+  
   %foreign "browser:lambda:x=>x.offset"
   prim__offset : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  offset :  Cast sVGStopElement SVGStopElement
-         => ToJS SVGStopElement
-         => (obj : sVGStopElement)
-         -> IO SVGAnimatedNumber
+  offset : (obj : SVGStopElement) -> IO SVGAnimatedNumber
 
 namespace SVGStringList
   
+  public export
+  JSVal SVGStringList where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.length"
   prim__length : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  length :  Cast sVGStringList SVGStringList
-         => ToJS SVGStringList
-         => (obj : sVGStringList)
-         -> IO UInt32
+  length : (obj : SVGStringList) -> IO UInt32
   
   %foreign "browser:lambda:x=>x.numberOfItems"
   prim__numberOfItems : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  numberOfItems :  Cast sVGStringList SVGStringList
-                => ToJS SVGStringList
-                => (obj : sVGStringList)
-                -> IO UInt32
+  numberOfItems : (obj : SVGStringList) -> IO UInt32
 
 namespace SVGStyleElement
   
+  public export
+  JSVal SVGStyleElement where
+    parents =  [ SVGElement , Element , Node , EventTarget , JSObject ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , LinkStyle
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , Slottable
+              ]
+  
   %foreign "browser:lambda:x=>x.media"
   prim__media : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  media :  Cast sVGStyleElement SVGStyleElement
-        => ToJS SVGStyleElement
-        => (obj : sVGStyleElement)
-        -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.media = v}"
+  media : (obj : SVGStyleElement) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.media  = v}"
   prim__setMedia : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setMedia :  Cast sVGStyleElement SVGStyleElement
-           => ToJS SVGStyleElement
-           => (obj : sVGStyleElement)
-           -> (v : String)
-           -> IO ()
+  setMedia : (obj : SVGStyleElement) -> (v : String) -> IO ()
   
   %foreign "browser:lambda:x=>x.title"
   prim__title : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  title :  Cast sVGStyleElement SVGStyleElement
-        => ToJS SVGStyleElement
-        => (obj : sVGStyleElement)
-        -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.title = v}"
+  title : (obj : SVGStyleElement) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.title  = v}"
   prim__setTitle : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setTitle :  Cast sVGStyleElement SVGStyleElement
-           => ToJS SVGStyleElement
-           => (obj : sVGStyleElement)
-           -> (v : String)
-           -> IO ()
+  setTitle : (obj : SVGStyleElement) -> (v : String) -> IO ()
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  type :  Cast sVGStyleElement SVGStyleElement
-       => ToJS SVGStyleElement
-       => (obj : sVGStyleElement)
-       -> IO String
-  
-  %foreign "browser:lambda:(x,v)=>{x.type = v}"
+  type : (obj : SVGStyleElement) -> IO String
+
+  %foreign "browser:lambda:(x,v)=>{x.type  = v}"
   prim__setType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setType :  Cast sVGStyleElement SVGStyleElement
-          => ToJS SVGStyleElement
-          => (obj : sVGStyleElement)
-          -> (v : String)
-          -> IO ()
+  setType : (obj : SVGStyleElement) -> (v : String) -> IO ()
+
+namespace SVGSwitchElement
+  
+  public export
+  JSVal SVGSwitchElement where
+    parents =  [ SVGGraphicsElement
+               , SVGElement
+               , Element
+               , Node
+               , EventTarget
+               , JSObject
+               ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , SVGTests
+              , Slottable
+              ]
+
+namespace SVGSymbolElement
+  
+  public export
+  JSVal SVGSymbolElement where
+    parents =  [ SVGGraphicsElement
+               , SVGElement
+               , Element
+               , Node
+               , EventTarget
+               , JSObject
+               ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , SVGFitToViewBox
+              , SVGTests
+              , Slottable
+              ]
+
+namespace SVGTSpanElement
+  
+  public export
+  JSVal SVGTSpanElement where
+    parents =  [ SVGTextPositioningElement
+               , SVGTextContentElement
+               , SVGGraphicsElement
+               , SVGElement
+               , Element
+               , Node
+               , EventTarget
+               , JSObject
+               ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , SVGTests
+              , Slottable
+              ]
 
 namespace SVGTextContentElement
+  
+  public export
+  JSVal SVGTextContentElement where
+    parents =  [ SVGGraphicsElement
+               , SVGElement
+               , Element
+               , Node
+               , EventTarget
+               , JSObject
+               ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , SVGTests
+              , Slottable
+              ]
   
   public export
   LENGTHADJUST_SPACING : UInt16
@@ -1668,23 +1980,69 @@ namespace SVGTextContentElement
   
   %foreign "browser:lambda:x=>x.lengthAdjust"
   prim__lengthAdjust : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  lengthAdjust :  Cast sVGTextContentElement SVGTextContentElement
-               => ToJS SVGTextContentElement
-               => (obj : sVGTextContentElement)
-               -> IO SVGAnimatedEnumeration
+  lengthAdjust : (obj : SVGTextContentElement) -> IO SVGAnimatedEnumeration
   
   %foreign "browser:lambda:x=>x.textLength"
   prim__textLength : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  textLength :  Cast sVGTextContentElement SVGTextContentElement
-             => ToJS SVGTextContentElement
-             => (obj : sVGTextContentElement)
-             -> IO SVGAnimatedLength
+  textLength : (obj : SVGTextContentElement) -> IO SVGAnimatedLength
+
+namespace SVGTextElement
+  
+  public export
+  JSVal SVGTextElement where
+    parents =  [ SVGTextPositioningElement
+               , SVGTextContentElement
+               , SVGGraphicsElement
+               , SVGElement
+               , Element
+               , Node
+               , EventTarget
+               , JSObject
+               ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , SVGTests
+              , Slottable
+              ]
 
 namespace SVGTextPathElement
+  
+  public export
+  JSVal SVGTextPathElement where
+    parents =  [ SVGTextContentElement
+               , SVGGraphicsElement
+               , SVGElement
+               , Element
+               , Node
+               , EventTarget
+               , JSObject
+               ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , SVGTests
+              , SVGURIReference
+              , Slottable
+              ]
   
   public export
   TEXTPATH_METHODTYPE_ALIGN : UInt16
@@ -1712,79 +2070,103 @@ namespace SVGTextPathElement
   
   %foreign "browser:lambda:x=>x.method"
   prim__method : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  method :  Cast sVGTextPathElement SVGTextPathElement
-         => ToJS SVGTextPathElement
-         => (obj : sVGTextPathElement)
-         -> IO SVGAnimatedEnumeration
+  method : (obj : SVGTextPathElement) -> IO SVGAnimatedEnumeration
   
   %foreign "browser:lambda:x=>x.spacing"
   prim__spacing : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  spacing :  Cast sVGTextPathElement SVGTextPathElement
-          => ToJS SVGTextPathElement
-          => (obj : sVGTextPathElement)
-          -> IO SVGAnimatedEnumeration
+  spacing : (obj : SVGTextPathElement) -> IO SVGAnimatedEnumeration
   
   %foreign "browser:lambda:x=>x.startOffset"
   prim__startOffset : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  startOffset :  Cast sVGTextPathElement SVGTextPathElement
-              => ToJS SVGTextPathElement
-              => (obj : sVGTextPathElement)
-              -> IO SVGAnimatedLength
+  startOffset : (obj : SVGTextPathElement) -> IO SVGAnimatedLength
 
 namespace SVGTextPositioningElement
   
+  public export
+  JSVal SVGTextPositioningElement where
+    parents =  [ SVGTextContentElement
+               , SVGGraphicsElement
+               , SVGElement
+               , Element
+               , Node
+               , EventTarget
+               , JSObject
+               ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , SVGTests
+              , Slottable
+              ]
+  
   %foreign "browser:lambda:x=>x.dx"
   prim__dx : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  dx :  Cast sVGTextPositioningElement SVGTextPositioningElement
-     => ToJS SVGTextPositioningElement
-     => (obj : sVGTextPositioningElement)
-     -> IO SVGAnimatedLengthList
+  dx : (obj : SVGTextPositioningElement) -> IO SVGAnimatedLengthList
   
   %foreign "browser:lambda:x=>x.dy"
   prim__dy : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  dy :  Cast sVGTextPositioningElement SVGTextPositioningElement
-     => ToJS SVGTextPositioningElement
-     => (obj : sVGTextPositioningElement)
-     -> IO SVGAnimatedLengthList
+  dy : (obj : SVGTextPositioningElement) -> IO SVGAnimatedLengthList
   
   %foreign "browser:lambda:x=>x.rotate"
   prim__rotate : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  rotate :  Cast sVGTextPositioningElement SVGTextPositioningElement
-         => ToJS SVGTextPositioningElement
-         => (obj : sVGTextPositioningElement)
-         -> IO SVGAnimatedNumberList
+  rotate : (obj : SVGTextPositioningElement) -> IO SVGAnimatedNumberList
   
   %foreign "browser:lambda:x=>x.x"
   prim__x : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  x :  Cast sVGTextPositioningElement SVGTextPositioningElement
-    => ToJS SVGTextPositioningElement
-    => (obj : sVGTextPositioningElement)
-    -> IO SVGAnimatedLengthList
+  x : (obj : SVGTextPositioningElement) -> IO SVGAnimatedLengthList
   
   %foreign "browser:lambda:x=>x.y"
   prim__y : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  y :  Cast sVGTextPositioningElement SVGTextPositioningElement
-    => ToJS SVGTextPositioningElement
-    => (obj : sVGTextPositioningElement)
-    -> IO SVGAnimatedLengthList
+  y : (obj : SVGTextPositioningElement) -> IO SVGAnimatedLengthList
+
+namespace SVGTitleElement
+  
+  public export
+  JSVal SVGTitleElement where
+    parents =  [ SVGElement , Element , Node , EventTarget , JSObject ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , Slottable
+              ]
 
 namespace SVGTransform
+  
+  public export
+  JSVal SVGTransform where
+    parents =  [ JSObject ]
+
+    mixins =  []
   
   public export
   SVG_TRANSFORM_MATRIX : UInt16
@@ -1816,52 +2198,49 @@ namespace SVGTransform
   
   %foreign "browser:lambda:x=>x.angle"
   prim__angle : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  angle :  Cast sVGTransform SVGTransform
-        => ToJS SVGTransform
-        => (obj : sVGTransform)
-        -> IO Double
+  angle : (obj : SVGTransform) -> IO Double
   
   %foreign "browser:lambda:x=>x.matrix"
   prim__matrix : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  matrix :  Cast sVGTransform SVGTransform
-         => ToJS SVGTransform
-         => (obj : sVGTransform)
-         -> IO DOMMatrix
+  matrix : (obj : SVGTransform) -> IO DOMMatrix
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  type :  Cast sVGTransform SVGTransform
-       => ToJS SVGTransform
-       => (obj : sVGTransform)
-       -> IO UInt16
+  type : (obj : SVGTransform) -> IO UInt16
 
 namespace SVGTransformList
   
+  public export
+  JSVal SVGTransformList where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.length"
   prim__length : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  length :  Cast sVGTransformList SVGTransformList
-         => ToJS SVGTransformList
-         => (obj : sVGTransformList)
-         -> IO UInt32
+  length : (obj : SVGTransformList) -> IO UInt32
   
   %foreign "browser:lambda:x=>x.numberOfItems"
   prim__numberOfItems : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  numberOfItems :  Cast sVGTransformList SVGTransformList
-                => ToJS SVGTransformList
-                => (obj : sVGTransformList)
-                -> IO UInt32
+  numberOfItems : (obj : SVGTransformList) -> IO UInt32
 
 namespace SVGUnitTypes
+  
+  public export
+  JSVal SVGUnitTypes where
+    parents =  [ JSObject ]
+
+    mixins =  []
   
   public export
   SVG_UNIT_TYPE_OBJECTBOUNDINGBOX : UInt16
@@ -1877,165 +2256,177 @@ namespace SVGUnitTypes
 
 namespace SVGUseElement
   
+  public export
+  JSVal SVGUseElement where
+    parents =  [ SVGGraphicsElement
+               , SVGElement
+               , Element
+               , Node
+               , EventTarget
+               , JSObject
+               ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , SVGTests
+              , SVGURIReference
+              , Slottable
+              ]
+  
   %foreign "browser:lambda:x=>x.animatedInstanceRoot"
   prim__animatedInstanceRoot : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  animatedInstanceRoot :  Cast sVGUseElement SVGUseElement
-                       => ToJS SVGUseElement
-                       => (obj : sVGUseElement)
-                       -> IO (Maybe SVGElement)
+  animatedInstanceRoot : (obj : SVGUseElement) -> IO (Maybe SVGElement)
   
   %foreign "browser:lambda:x=>x.height"
   prim__height : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  height :  Cast sVGUseElement SVGUseElement
-         => ToJS SVGUseElement
-         => (obj : sVGUseElement)
-         -> IO SVGAnimatedLength
+  height : (obj : SVGUseElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.instanceRoot"
   prim__instanceRoot : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  instanceRoot :  Cast sVGUseElement SVGUseElement
-               => ToJS SVGUseElement
-               => (obj : sVGUseElement)
-               -> IO (Maybe SVGElement)
+  instanceRoot : (obj : SVGUseElement) -> IO (Maybe SVGElement)
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  width :  Cast sVGUseElement SVGUseElement
-        => ToJS SVGUseElement
-        => (obj : sVGUseElement)
-        -> IO SVGAnimatedLength
+  width : (obj : SVGUseElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.x"
   prim__x : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  x :  Cast sVGUseElement SVGUseElement
-    => ToJS SVGUseElement
-    => (obj : sVGUseElement)
-    -> IO SVGAnimatedLength
+  x : (obj : SVGUseElement) -> IO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.y"
   prim__y : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  y :  Cast sVGUseElement SVGUseElement
-    => ToJS SVGUseElement
-    => (obj : sVGUseElement)
-    -> IO SVGAnimatedLength
+  y : (obj : SVGUseElement) -> IO SVGAnimatedLength
+
+namespace SVGUseElementShadowRoot
+  
+  public export
+  JSVal SVGUseElementShadowRoot where
+    parents =  [ ShadowRoot , DocumentFragment , Node , EventTarget , JSObject ]
+
+    mixins =  [ DocumentOrShadowRoot , NonElementParentNode , ParentNode ]
+
+namespace SVGViewElement
+  
+  public export
+  JSVal SVGViewElement where
+    parents =  [ SVGElement , Element , Node , EventTarget , JSObject ]
+
+    mixins =  [ Animatable
+              , ChildNode
+              , DocumentAndElementEventHandlers
+              , ElementCSSInlineStyle
+              , GlobalEventHandlers
+              , HTMLOrSVGElement
+              , NonDocumentTypeChildNode
+              , ParentNode
+              , SVGElementInstance
+              , SVGFitToViewBox
+              , Slottable
+              ]
 
 namespace ShadowAnimation
   
+  public export
+  JSVal ShadowAnimation where
+    parents =  [ Animation , EventTarget , JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.sourceAnimation"
   prim__sourceAnimation : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  sourceAnimation :  Cast shadowAnimation ShadowAnimation
-                  => ToJS ShadowAnimation
-                  => (obj : shadowAnimation)
-                  -> IO Animation
+  sourceAnimation : (obj : ShadowAnimation) -> IO Animation
 
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------
 
+
 namespace SVGAnimatedPoints
   
   %foreign "browser:lambda:x=>x.animatedPoints"
   prim__animatedPoints : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  animatedPoints :  Cast sVGAnimatedPoints SVGAnimatedPoints
-                 => ToJS SVGAnimatedPoints
-                 => (obj : sVGAnimatedPoints)
-                 -> IO SVGPointList
+  animatedPoints : (obj : SVGAnimatedPoints) -> IO SVGPointList
   
   %foreign "browser:lambda:x=>x.points"
   prim__points : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  points :  Cast sVGAnimatedPoints SVGAnimatedPoints
-         => ToJS SVGAnimatedPoints
-         => (obj : sVGAnimatedPoints)
-         -> IO SVGPointList
+  points : (obj : SVGAnimatedPoints) -> IO SVGPointList
 
 namespace SVGElementInstance
   
   %foreign "browser:lambda:x=>x.correspondingElement"
   prim__correspondingElement : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  correspondingElement :  Cast sVGElementInstance SVGElementInstance
-                       => ToJS SVGElementInstance
-                       => (obj : sVGElementInstance)
-                       -> IO (Maybe SVGElement)
+  correspondingElement : (obj : SVGElementInstance) -> IO (Maybe SVGElement)
   
   %foreign "browser:lambda:x=>x.correspondingUseElement"
   prim__correspondingUseElement : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  correspondingUseElement :  Cast sVGElementInstance SVGElementInstance
-                          => ToJS SVGElementInstance
-                          => (obj : sVGElementInstance)
+  correspondingUseElement :  (obj : SVGElementInstance)
                           -> IO (Maybe SVGUseElement)
 
 namespace SVGFitToViewBox
   
   %foreign "browser:lambda:x=>x.preserveAspectRatio"
   prim__preserveAspectRatio : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  preserveAspectRatio :  Cast sVGFitToViewBox SVGFitToViewBox
-                      => ToJS SVGFitToViewBox
-                      => (obj : sVGFitToViewBox)
+  preserveAspectRatio :  (obj : SVGFitToViewBox)
                       -> IO SVGAnimatedPreserveAspectRatio
   
   %foreign "browser:lambda:x=>x.viewBox"
   prim__viewBox : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  viewBox :  Cast sVGFitToViewBox SVGFitToViewBox
-          => ToJS SVGFitToViewBox
-          => (obj : sVGFitToViewBox)
-          -> IO SVGAnimatedRect
+  viewBox : (obj : SVGFitToViewBox) -> IO SVGAnimatedRect
 
 namespace SVGTests
   
   %foreign "browser:lambda:x=>x.requiredExtensions"
   prim__requiredExtensions : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  requiredExtensions :  Cast sVGTests SVGTests
-                     => ToJS SVGTests
-                     => (obj : sVGTests)
-                     -> IO SVGStringList
+  requiredExtensions : (obj : SVGTests) -> IO SVGStringList
   
   %foreign "browser:lambda:x=>x.systemLanguage"
   prim__systemLanguage : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  systemLanguage :  Cast sVGTests SVGTests
-                 => ToJS SVGTests
-                 => (obj : sVGTests)
-                 -> IO SVGStringList
+  systemLanguage : (obj : SVGTests) -> IO SVGStringList
 
 namespace SVGURIReference
   
   %foreign "browser:lambda:x=>x.href"
   prim__href : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  href :  Cast sVGURIReference SVGURIReference
-       => ToJS SVGURIReference
-       => (obj : sVGURIReference)
-       -> IO SVGAnimatedString
+  href : (obj : SVGURIReference) -> IO SVGAnimatedString
 
 --------------------------------------------------------------------------------
 --          Dictionaries
@@ -2043,344 +2434,57 @@ namespace SVGURIReference
 
 namespace SVGBoundingBoxOptions
   
+  public export
+  JSVal SVGBoundingBoxOptions where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.clipped"
   prim__clipped : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  clipped :  Cast sVGBoundingBoxOptions SVGBoundingBoxOptions
-          => ToJS SVGBoundingBoxOptions
-          => (obj : sVGBoundingBoxOptions)
-          -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.clipped = v}"
+  clipped : (obj : SVGBoundingBoxOptions) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.clipped  = v}"
   prim__setClipped : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setClipped :  Cast sVGBoundingBoxOptions SVGBoundingBoxOptions
-             => ToJS SVGBoundingBoxOptions
-             => (obj : sVGBoundingBoxOptions)
-             -> (v : Bool)
-             -> IO ()
+  setClipped : (obj : SVGBoundingBoxOptions) -> (v : Bool) -> IO ()
   
   %foreign "browser:lambda:x=>x.fill"
   prim__fill : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  fill :  Cast sVGBoundingBoxOptions SVGBoundingBoxOptions
-       => ToJS SVGBoundingBoxOptions
-       => (obj : sVGBoundingBoxOptions)
-       -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.fill = v}"
+  fill : (obj : SVGBoundingBoxOptions) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.fill  = v}"
   prim__setFill : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setFill :  Cast sVGBoundingBoxOptions SVGBoundingBoxOptions
-          => ToJS SVGBoundingBoxOptions
-          => (obj : sVGBoundingBoxOptions)
-          -> (v : Bool)
-          -> IO ()
+  setFill : (obj : SVGBoundingBoxOptions) -> (v : Bool) -> IO ()
   
   %foreign "browser:lambda:x=>x.markers"
   prim__markers : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  markers :  Cast sVGBoundingBoxOptions SVGBoundingBoxOptions
-          => ToJS SVGBoundingBoxOptions
-          => (obj : sVGBoundingBoxOptions)
-          -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.markers = v}"
+  markers : (obj : SVGBoundingBoxOptions) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.markers  = v}"
   prim__setMarkers : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setMarkers :  Cast sVGBoundingBoxOptions SVGBoundingBoxOptions
-             => ToJS SVGBoundingBoxOptions
-             => (obj : sVGBoundingBoxOptions)
-             -> (v : Bool)
-             -> IO ()
+  setMarkers : (obj : SVGBoundingBoxOptions) -> (v : Bool) -> IO ()
   
   %foreign "browser:lambda:x=>x.stroke"
   prim__stroke : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  stroke :  Cast sVGBoundingBoxOptions SVGBoundingBoxOptions
-         => ToJS SVGBoundingBoxOptions
-         => (obj : sVGBoundingBoxOptions)
-         -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.stroke = v}"
+  stroke : (obj : SVGBoundingBoxOptions) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.stroke  = v}"
   prim__setStroke : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setStroke :  Cast sVGBoundingBoxOptions SVGBoundingBoxOptions
-            => ToJS SVGBoundingBoxOptions
-            => (obj : sVGBoundingBoxOptions)
-            -> (v : Bool)
-            -> IO ()
+  setStroke : (obj : SVGBoundingBoxOptions) -> (v : Bool) -> IO ()
 
-
-
---------------------------------------------------------------------------------
---          Casts
---------------------------------------------------------------------------------
-
-export
-Cast MathMLElement DocumentAndElementEventHandlers where
-  cast = believe_me
-
-export
-Cast MathMLElement Element where
-  cast = believe_me
-
-export
-Cast MathMLElement ElementCSSInlineStyle where
-  cast = believe_me
-
-export
-Cast MathMLElement GlobalEventHandlers where
-  cast = believe_me
-
-export
-Cast MathMLElement HTMLOrSVGElement where
-  cast = believe_me
-
-export
-Cast SVGAElement HTMLHyperlinkElementUtils where
-  cast = believe_me
-
-export
-Cast SVGAElement SVGGraphicsElement where
-  cast = believe_me
-
-export
-Cast SVGAElement SVGURIReference where
-  cast = believe_me
-
-export
-Cast SVGCircleElement SVGGeometryElement where
-  cast = believe_me
-
-export
-Cast SVGDefsElement SVGGraphicsElement where
-  cast = believe_me
-
-export
-Cast SVGDescElement SVGElement where
-  cast = believe_me
-
-export
-Cast SVGElement DocumentAndElementEventHandlers where
-  cast = believe_me
-
-export
-Cast SVGElement Element where
-  cast = believe_me
-
-export
-Cast SVGElement GlobalEventHandlers where
-  cast = believe_me
-
-export
-Cast SVGElement HTMLOrSVGElement where
-  cast = believe_me
-
-export
-Cast SVGElement SVGElementInstance where
-  cast = believe_me
-
-export
-Cast SVGEllipseElement SVGGeometryElement where
-  cast = believe_me
-
-export
-Cast SVGForeignObjectElement SVGGraphicsElement where
-  cast = believe_me
-
-export
-Cast SVGGElement SVGGraphicsElement where
-  cast = believe_me
-
-export
-Cast SVGGeometryElement SVGGraphicsElement where
-  cast = believe_me
-
-export
-Cast SVGGradientElement SVGElement where
-  cast = believe_me
-
-export
-Cast SVGGradientElement SVGURIReference where
-  cast = believe_me
-
-export
-Cast SVGGraphicsElement SVGElement where
-  cast = believe_me
-
-export
-Cast SVGGraphicsElement SVGTests where
-  cast = believe_me
-
-export
-Cast SVGImageElement SVGGraphicsElement where
-  cast = believe_me
-
-export
-Cast SVGImageElement SVGURIReference where
-  cast = believe_me
-
-export
-Cast SVGLineElement SVGGeometryElement where
-  cast = believe_me
-
-export
-Cast SVGLinearGradientElement SVGGradientElement where
-  cast = believe_me
-
-export
-Cast SVGMarkerElement SVGElement where
-  cast = believe_me
-
-export
-Cast SVGMarkerElement SVGFitToViewBox where
-  cast = believe_me
-
-export
-Cast SVGMetadataElement SVGElement where
-  cast = believe_me
-
-export
-Cast SVGPathElement SVGGeometryElement where
-  cast = believe_me
-
-export
-Cast SVGPatternElement SVGElement where
-  cast = believe_me
-
-export
-Cast SVGPatternElement SVGFitToViewBox where
-  cast = believe_me
-
-export
-Cast SVGPatternElement SVGURIReference where
-  cast = believe_me
-
-export
-Cast SVGPolygonElement SVGAnimatedPoints where
-  cast = believe_me
-
-export
-Cast SVGPolygonElement SVGGeometryElement where
-  cast = believe_me
-
-export
-Cast SVGPolylineElement SVGAnimatedPoints where
-  cast = believe_me
-
-export
-Cast SVGPolylineElement SVGGeometryElement where
-  cast = believe_me
-
-export
-Cast SVGRadialGradientElement SVGGradientElement where
-  cast = believe_me
-
-export
-Cast SVGRectElement SVGGeometryElement where
-  cast = believe_me
-
-export
-Cast SVGSVGElement SVGFitToViewBox where
-  cast = believe_me
-
-export
-Cast SVGSVGElement SVGGraphicsElement where
-  cast = believe_me
-
-export
-Cast SVGSVGElement WindowEventHandlers where
-  cast = believe_me
-
-export
-Cast SVGScriptElement SVGElement where
-  cast = believe_me
-
-export
-Cast SVGScriptElement SVGURIReference where
-  cast = believe_me
-
-export
-Cast SVGStopElement SVGElement where
-  cast = believe_me
-
-export
-Cast SVGStyleElement LinkStyle where
-  cast = believe_me
-
-export
-Cast SVGStyleElement SVGElement where
-  cast = believe_me
-
-export
-Cast SVGSwitchElement SVGGraphicsElement where
-  cast = believe_me
-
-export
-Cast SVGSymbolElement SVGFitToViewBox where
-  cast = believe_me
-
-export
-Cast SVGSymbolElement SVGGraphicsElement where
-  cast = believe_me
-
-export
-Cast SVGTSpanElement SVGTextPositioningElement where
-  cast = believe_me
-
-export
-Cast SVGTextContentElement SVGGraphicsElement where
-  cast = believe_me
-
-export
-Cast SVGTextElement SVGTextPositioningElement where
-  cast = believe_me
-
-export
-Cast SVGTextPathElement SVGTextContentElement where
-  cast = believe_me
-
-export
-Cast SVGTextPathElement SVGURIReference where
-  cast = believe_me
-
-export
-Cast SVGTextPositioningElement SVGTextContentElement where
-  cast = believe_me
-
-export
-Cast SVGTitleElement SVGElement where
-  cast = believe_me
-
-export
-Cast SVGUseElement SVGGraphicsElement where
-  cast = believe_me
-
-export
-Cast SVGUseElement SVGURIReference where
-  cast = believe_me
-
-export
-Cast SVGUseElementShadowRoot ShadowRoot where
-  cast = believe_me
-
-export
-Cast SVGViewElement SVGElement where
-  cast = believe_me
-
-export
-Cast SVGViewElement SVGFitToViewBox where
-  cast = believe_me
-
-export
-Cast ShadowAnimation Animation where
-  cast = believe_me

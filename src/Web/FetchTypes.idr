@@ -1,6 +1,4 @@
 module Web.FetchTypes
-
-import Data.Maybe
 import JS.Util
 
 --------------------------------------------------------------------------------
@@ -382,9 +380,8 @@ namespace ReferrerPolicy
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-
 export
-data Headers : Type where [external]
+data Headers  : Type where [external]
 
 export
 ToJS Headers where
@@ -393,9 +390,8 @@ ToJS Headers where
 export
 FromJS Headers where
   fromJS = believe_me
-
 export
-data Request : Type where [external]
+data Request  : Type where [external]
 
 export
 ToJS Request where
@@ -404,9 +400,8 @@ ToJS Request where
 export
 FromJS Request where
   fromJS = believe_me
-
 export
-data Response : Type where [external]
+data Response  : Type where [external]
 
 export
 ToJS Response where
@@ -419,9 +414,8 @@ FromJS Response where
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------
-
 export
-data Body : Type where [external]
+data Body  : Type where [external]
 
 export
 ToJS Body where
@@ -434,9 +428,8 @@ FromJS Body where
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
-
 export
-data RequestInit : Type where [external]
+data RequestInit  : Type where [external]
 
 export
 ToJS RequestInit where
@@ -445,9 +438,8 @@ ToJS RequestInit where
 export
 FromJS RequestInit where
   fromJS = believe_me
-
 export
-data ResponseInit : Type where [external]
+data ResponseInit  : Type where [external]
 
 export
 ToJS ResponseInit where

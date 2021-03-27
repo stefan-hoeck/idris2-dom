@@ -1,6 +1,4 @@
 module Web.Streams
-
-import Data.SOP
 import JS.Util
 import Web.Types
 
@@ -10,167 +8,204 @@ import Web.Types
 
 namespace ByteLengthQueuingStrategy
   
+  public export
+  JSVal ByteLengthQueuingStrategy where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.highWaterMark"
   prim__highWaterMark : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  highWaterMark :  Cast byteLengthQueuingStrategy ByteLengthQueuingStrategy
-                => ToJS ByteLengthQueuingStrategy
-                => (obj : byteLengthQueuingStrategy)
-                -> IO Double
+  highWaterMark : (obj : ByteLengthQueuingStrategy) -> IO Double
   
   %foreign "browser:lambda:x=>x.size"
   prim__size : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  size :  Cast byteLengthQueuingStrategy ByteLengthQueuingStrategy
-       => ToJS ByteLengthQueuingStrategy
-       => (obj : byteLengthQueuingStrategy)
-       -> IO Function
+  size : (obj : ByteLengthQueuingStrategy) -> IO Function
 
 namespace CountQueuingStrategy
   
+  public export
+  JSVal CountQueuingStrategy where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.highWaterMark"
   prim__highWaterMark : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  highWaterMark :  Cast countQueuingStrategy CountQueuingStrategy
-                => ToJS CountQueuingStrategy
-                => (obj : countQueuingStrategy)
-                -> IO Double
+  highWaterMark : (obj : CountQueuingStrategy) -> IO Double
   
   %foreign "browser:lambda:x=>x.size"
   prim__size : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  size :  Cast countQueuingStrategy CountQueuingStrategy
-       => ToJS CountQueuingStrategy
-       => (obj : countQueuingStrategy)
-       -> IO Function
+  size : (obj : CountQueuingStrategy) -> IO Function
 
 namespace ReadableByteStreamController
   
+  public export
+  JSVal ReadableByteStreamController where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.byobRequest"
   prim__byobRequest : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  byobRequest :  Cast readableByteStreamController ReadableByteStreamController
-              => ToJS ReadableByteStreamController
-              => (obj : readableByteStreamController)
+  byobRequest :  (obj : ReadableByteStreamController)
               -> IO (Maybe ReadableStreamBYOBRequest)
   
   %foreign "browser:lambda:x=>x.desiredSize"
   prim__desiredSize : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  desiredSize :  Cast readableByteStreamController ReadableByteStreamController
-              => ToJS ReadableByteStreamController
-              => (obj : readableByteStreamController)
-              -> IO (Maybe Double)
+  desiredSize : (obj : ReadableByteStreamController) -> IO (Maybe Double)
 
 namespace ReadableStream
   
+  public export
+  JSVal ReadableStream where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.locked"
   prim__locked : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  locked :  Cast readableStream ReadableStream
-         => ToJS ReadableStream
-         => (obj : readableStream)
-         -> IO Bool
+  locked : (obj : ReadableStream) -> IO Bool
+
+namespace ReadableStreamBYOBReader
+  
+  public export
+  JSVal ReadableStreamBYOBReader where
+    parents =  [ JSObject ]
+
+    mixins =  [ ReadableStreamGenericReader ]
 
 namespace ReadableStreamBYOBRequest
   
+  public export
+  JSVal ReadableStreamBYOBRequest where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.view"
   prim__view : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  view :  Cast readableStreamBYOBRequest ReadableStreamBYOBRequest
-       => ToJS ReadableStreamBYOBRequest
-       => (obj : readableStreamBYOBRequest)
-       -> IO (Maybe ArrayBufferView)
+  view : (obj : ReadableStreamBYOBRequest) -> IO (Maybe ArrayBufferView)
 
 namespace ReadableStreamDefaultController
   
+  public export
+  JSVal ReadableStreamDefaultController where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.desiredSize"
   prim__desiredSize : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  desiredSize :  Cast readableStreamDefaultController ReadableStreamDefaultController
-              => ToJS ReadableStreamDefaultController
-              => (obj : readableStreamDefaultController)
-              -> IO (Maybe Double)
+  desiredSize : (obj : ReadableStreamDefaultController) -> IO (Maybe Double)
+
+namespace ReadableStreamDefaultReader
+  
+  public export
+  JSVal ReadableStreamDefaultReader where
+    parents =  [ JSObject ]
+
+    mixins =  [ ReadableStreamGenericReader ]
 
 namespace TransformStream
   
+  public export
+  JSVal TransformStream where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.readable"
   prim__readable : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  readable :  Cast transformStream TransformStream
-           => ToJS TransformStream
-           => (obj : transformStream)
-           -> IO ReadableStream
+  readable : (obj : TransformStream) -> IO ReadableStream
   
   %foreign "browser:lambda:x=>x.writable"
   prim__writable : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  writable :  Cast transformStream TransformStream
-           => ToJS TransformStream
-           => (obj : transformStream)
-           -> IO WritableStream
+  writable : (obj : TransformStream) -> IO WritableStream
 
 namespace TransformStreamDefaultController
   
+  public export
+  JSVal TransformStreamDefaultController where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.desiredSize"
   prim__desiredSize : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  desiredSize :  Cast transformStreamDefaultController TransformStreamDefaultController
-              => ToJS TransformStreamDefaultController
-              => (obj : transformStreamDefaultController)
-              -> IO (Maybe Double)
+  desiredSize : (obj : TransformStreamDefaultController) -> IO (Maybe Double)
 
 namespace WritableStream
   
+  public export
+  JSVal WritableStream where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.locked"
   prim__locked : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  locked :  Cast writableStream WritableStream
-         => ToJS WritableStream
-         => (obj : writableStream)
-         -> IO Bool
+  locked : (obj : WritableStream) -> IO Bool
+
+namespace WritableStreamDefaultController
+  
+  public export
+  JSVal WritableStreamDefaultController where
+    parents =  [ JSObject ]
+
+    mixins =  []
 
 namespace WritableStreamDefaultWriter
   
+  public export
+  JSVal WritableStreamDefaultWriter where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.closed"
   prim__closed : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  closed :  Cast writableStreamDefaultWriter WritableStreamDefaultWriter
-         => ToJS WritableStreamDefaultWriter
-         => (obj : writableStreamDefaultWriter)
-         -> IO (JSPromise Undefined)
+  closed : (obj : WritableStreamDefaultWriter) -> IO (JSPromise Undefined)
   
   %foreign "browser:lambda:x=>x.desiredSize"
   prim__desiredSize : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  desiredSize :  Cast writableStreamDefaultWriter WritableStreamDefaultWriter
-              => ToJS WritableStreamDefaultWriter
-              => (obj : writableStreamDefaultWriter)
-              -> IO (Maybe Double)
+  desiredSize : (obj : WritableStreamDefaultWriter) -> IO (Maybe Double)
   
   %foreign "browser:lambda:x=>x.ready"
   prim__ready : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  ready :  Cast writableStreamDefaultWriter WritableStreamDefaultWriter
-        => ToJS WritableStreamDefaultWriter
-        => (obj : writableStreamDefaultWriter)
-        -> IO (JSPromise Undefined)
+  ready : (obj : WritableStreamDefaultWriter) -> IO (JSPromise Undefined)
 
 --------------------------------------------------------------------------------
 --          Mixins
@@ -180,32 +215,23 @@ namespace GenericTransformStream
   
   %foreign "browser:lambda:x=>x.readable"
   prim__readable : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  readable :  Cast genericTransformStream GenericTransformStream
-           => ToJS GenericTransformStream
-           => (obj : genericTransformStream)
-           -> IO ReadableStream
+  readable : (obj : GenericTransformStream) -> IO ReadableStream
   
   %foreign "browser:lambda:x=>x.writable"
   prim__writable : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  writable :  Cast genericTransformStream GenericTransformStream
-           => ToJS GenericTransformStream
-           => (obj : genericTransformStream)
-           -> IO WritableStream
+  writable : (obj : GenericTransformStream) -> IO WritableStream
 
 namespace ReadableStreamGenericReader
   
   %foreign "browser:lambda:x=>x.closed"
   prim__closed : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  closed :  Cast readableStreamGenericReader ReadableStreamGenericReader
-         => ToJS ReadableStreamGenericReader
-         => (obj : readableStreamGenericReader)
-         -> IO (JSPromise Undefined)
+  closed : (obj : ReadableStreamGenericReader) -> IO (JSPromise Undefined)
 
 --------------------------------------------------------------------------------
 --          Dictionaries
@@ -213,640 +239,471 @@ namespace ReadableStreamGenericReader
 
 namespace QueuingStrategy
   
+  public export
+  JSVal QueuingStrategy where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.highWaterMark"
   prim__highWaterMark : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  highWaterMark :  Cast queuingStrategy QueuingStrategy
-                => ToJS QueuingStrategy
-                => (obj : queuingStrategy)
-                -> IO Double
-  
-  %foreign "browser:lambda:(x,v)=>{x.highWaterMark = v}"
+  highWaterMark : (obj : QueuingStrategy) -> IO Double
+
+  %foreign "browser:lambda:(x,v)=>{x.highWaterMark  = v}"
   prim__setHighWaterMark : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setHighWaterMark :  Cast queuingStrategy QueuingStrategy
-                   => ToJS QueuingStrategy
-                   => (obj : queuingStrategy)
-                   -> (v : Double)
-                   -> IO ()
+  setHighWaterMark : (obj : QueuingStrategy) -> (v : Double) -> IO ()
   
   %foreign "browser:lambda:x=>x.size"
   prim__size : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  size :  Cast queuingStrategy QueuingStrategy
-       => ToJS QueuingStrategy
-       => (obj : queuingStrategy)
-       -> IO QueuingStrategySize
-  
-  %foreign "browser:lambda:(x,v)=>{x.size = v}"
+  size : (obj : QueuingStrategy) -> IO QueuingStrategySize
+
+  %foreign "browser:lambda:(x,v)=>{x.size  = v}"
   prim__setSize : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setSize :  Cast queuingStrategy QueuingStrategy
-          => ToJS QueuingStrategy
-          => Cast queuingStrategySize QueuingStrategySize
-          => ToJS QueuingStrategySize
-          => (obj : queuingStrategy)
-          -> (v : queuingStrategySize)
-          -> IO ()
+  setSize : (obj : QueuingStrategy) -> (v : QueuingStrategySize) -> IO ()
 
 namespace QueuingStrategyInit
   
+  public export
+  JSVal QueuingStrategyInit where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.highWaterMark"
   prim__highWaterMark : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  highWaterMark :  Cast queuingStrategyInit QueuingStrategyInit
-                => ToJS QueuingStrategyInit
-                => (obj : queuingStrategyInit)
-                -> IO Double
-  
-  %foreign "browser:lambda:(x,v)=>{x.highWaterMark = v}"
+  highWaterMark : (obj : QueuingStrategyInit) -> IO Double
+
+  %foreign "browser:lambda:(x,v)=>{x.highWaterMark  = v}"
   prim__setHighWaterMark : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setHighWaterMark :  Cast queuingStrategyInit QueuingStrategyInit
-                   => ToJS QueuingStrategyInit
-                   => (obj : queuingStrategyInit)
-                   -> (v : Double)
-                   -> IO ()
+  setHighWaterMark : (obj : QueuingStrategyInit) -> (v : Double) -> IO ()
 
 namespace ReadableStreamBYOBReadResult
   
+  public export
+  JSVal ReadableStreamBYOBReadResult where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.done"
   prim__done : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  done :  Cast readableStreamBYOBReadResult ReadableStreamBYOBReadResult
-       => ToJS ReadableStreamBYOBReadResult
-       => (obj : readableStreamBYOBReadResult)
-       -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.done = v}"
+  done : (obj : ReadableStreamBYOBReadResult) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.done  = v}"
   prim__setDone : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setDone :  Cast readableStreamBYOBReadResult ReadableStreamBYOBReadResult
-          => ToJS ReadableStreamBYOBReadResult
-          => (obj : readableStreamBYOBReadResult)
-          -> (v : Bool)
-          -> IO ()
+  setDone : (obj : ReadableStreamBYOBReadResult) -> (v : Bool) -> IO ()
   
   %foreign "browser:lambda:x=>x.value"
   prim__value : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  value :  Cast readableStreamBYOBReadResult ReadableStreamBYOBReadResult
-        => ToJS ReadableStreamBYOBReadResult
-        => (obj : readableStreamBYOBReadResult)
-        -> IO ArrayBufferView
-  
-  %foreign "browser:lambda:(x,v)=>{x.value = v}"
+  value : (obj : ReadableStreamBYOBReadResult) -> IO ArrayBufferView
+
+  %foreign "browser:lambda:(x,v)=>{x.value  = v}"
   prim__setValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setValue :  Cast arrayBufferView ArrayBufferView
-           => ToJS ArrayBufferView
-           => Cast readableStreamBYOBReadResult ReadableStreamBYOBReadResult
-           => ToJS ReadableStreamBYOBReadResult
-           => (obj : readableStreamBYOBReadResult)
-           -> (v : arrayBufferView)
+  setValue :  (obj : ReadableStreamBYOBReadResult)
+           -> (v : ArrayBufferView)
            -> IO ()
 
 namespace ReadableStreamDefaultReadResult
   
+  public export
+  JSVal ReadableStreamDefaultReadResult where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.done"
   prim__done : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  done :  Cast readableStreamDefaultReadResult ReadableStreamDefaultReadResult
-       => ToJS ReadableStreamDefaultReadResult
-       => (obj : readableStreamDefaultReadResult)
-       -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.done = v}"
+  done : (obj : ReadableStreamDefaultReadResult) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.done  = v}"
   prim__setDone : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setDone :  Cast readableStreamDefaultReadResult ReadableStreamDefaultReadResult
-          => ToJS ReadableStreamDefaultReadResult
-          => (obj : readableStreamDefaultReadResult)
-          -> (v : Bool)
-          -> IO ()
+  setDone : (obj : ReadableStreamDefaultReadResult) -> (v : Bool) -> IO ()
   
   %foreign "browser:lambda:x=>x.value"
   prim__value : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  value :  Cast readableStreamDefaultReadResult ReadableStreamDefaultReadResult
-        => ToJS ReadableStreamDefaultReadResult
-        => (obj : readableStreamDefaultReadResult)
-        -> IO JSAny
-  
-  %foreign "browser:lambda:(x,v)=>{x.value = v}"
+  value : (obj : ReadableStreamDefaultReadResult) -> IO JSAny
+
+  %foreign "browser:lambda:(x,v)=>{x.value  = v}"
   prim__setValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setValue :  Cast readableStreamDefaultReadResult ReadableStreamDefaultReadResult
-           => ToJS ReadableStreamDefaultReadResult
-           => (obj : readableStreamDefaultReadResult)
-           -> (v : JSAny)
-           -> IO ()
+  setValue : (obj : ReadableStreamDefaultReadResult) -> (v : JSAny) -> IO ()
 
 namespace ReadableStreamGetReaderOptions
   
+  public export
+  JSVal ReadableStreamGetReaderOptions where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.mode"
   prim__mode : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  mode :  Cast readableStreamGetReaderOptions ReadableStreamGetReaderOptions
-       => ToJS ReadableStreamGetReaderOptions
-       => (obj : readableStreamGetReaderOptions)
-       -> IO ReadableStreamReaderMode
-  
-  %foreign "browser:lambda:(x,v)=>{x.mode = v}"
+  mode : (obj : ReadableStreamGetReaderOptions) -> IO ReadableStreamReaderMode
+
+  %foreign "browser:lambda:(x,v)=>{x.mode  = v}"
   prim__setMode : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setMode :  Cast readableStreamGetReaderOptions ReadableStreamGetReaderOptions
-          => ToJS ReadableStreamGetReaderOptions
-          => Cast readableStreamReaderMode ReadableStreamReaderMode
-          => ToJS ReadableStreamReaderMode
-          => (obj : readableStreamGetReaderOptions)
-          -> (v : readableStreamReaderMode)
+  setMode :  (obj : ReadableStreamGetReaderOptions)
+          -> (v : ReadableStreamReaderMode)
           -> IO ()
 
 namespace ReadableStreamIteratorOptions
   
+  public export
+  JSVal ReadableStreamIteratorOptions where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.preventCancel"
   prim__preventCancel : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  preventCancel :  Cast readableStreamIteratorOptions ReadableStreamIteratorOptions
-                => ToJS ReadableStreamIteratorOptions
-                => (obj : readableStreamIteratorOptions)
-                -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.preventCancel = v}"
+  preventCancel : (obj : ReadableStreamIteratorOptions) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.preventCancel  = v}"
   prim__setPreventCancel : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setPreventCancel :  Cast readableStreamIteratorOptions ReadableStreamIteratorOptions
-                   => ToJS ReadableStreamIteratorOptions
-                   => (obj : readableStreamIteratorOptions)
+  setPreventCancel :  (obj : ReadableStreamIteratorOptions)
                    -> (v : Bool)
                    -> IO ()
 
 namespace ReadableWritablePair
   
+  public export
+  JSVal ReadableWritablePair where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.readable"
   prim__readable : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  readable :  Cast readableWritablePair ReadableWritablePair
-           => ToJS ReadableWritablePair
-           => (obj : readableWritablePair)
-           -> IO ReadableStream
-  
-  %foreign "browser:lambda:(x,v)=>{x.readable = v}"
+  readable : (obj : ReadableWritablePair) -> IO ReadableStream
+
+  %foreign "browser:lambda:(x,v)=>{x.readable  = v}"
   prim__setReadable : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setReadable :  Cast readableStream ReadableStream
-              => ToJS ReadableStream
-              => Cast readableWritablePair ReadableWritablePair
-              => ToJS ReadableWritablePair
-              => (obj : readableWritablePair)
-              -> (v : readableStream)
-              -> IO ()
+  setReadable : (obj : ReadableWritablePair) -> (v : ReadableStream) -> IO ()
   
   %foreign "browser:lambda:x=>x.writable"
   prim__writable : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  writable :  Cast readableWritablePair ReadableWritablePair
-           => ToJS ReadableWritablePair
-           => (obj : readableWritablePair)
-           -> IO WritableStream
-  
-  %foreign "browser:lambda:(x,v)=>{x.writable = v}"
+  writable : (obj : ReadableWritablePair) -> IO WritableStream
+
+  %foreign "browser:lambda:(x,v)=>{x.writable  = v}"
   prim__setWritable : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setWritable :  Cast readableWritablePair ReadableWritablePair
-              => ToJS ReadableWritablePair
-              => Cast writableStream WritableStream
-              => ToJS WritableStream
-              => (obj : readableWritablePair)
-              -> (v : writableStream)
-              -> IO ()
+  setWritable : (obj : ReadableWritablePair) -> (v : WritableStream) -> IO ()
 
 namespace StreamPipeOptions
   
+  public export
+  JSVal StreamPipeOptions where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.preventAbort"
   prim__preventAbort : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  preventAbort :  Cast streamPipeOptions StreamPipeOptions
-               => ToJS StreamPipeOptions
-               => (obj : streamPipeOptions)
-               -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.preventAbort = v}"
+  preventAbort : (obj : StreamPipeOptions) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.preventAbort  = v}"
   prim__setPreventAbort : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setPreventAbort :  Cast streamPipeOptions StreamPipeOptions
-                  => ToJS StreamPipeOptions
-                  => (obj : streamPipeOptions)
-                  -> (v : Bool)
-                  -> IO ()
+  setPreventAbort : (obj : StreamPipeOptions) -> (v : Bool) -> IO ()
   
   %foreign "browser:lambda:x=>x.preventCancel"
   prim__preventCancel : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  preventCancel :  Cast streamPipeOptions StreamPipeOptions
-                => ToJS StreamPipeOptions
-                => (obj : streamPipeOptions)
-                -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.preventCancel = v}"
+  preventCancel : (obj : StreamPipeOptions) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.preventCancel  = v}"
   prim__setPreventCancel : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setPreventCancel :  Cast streamPipeOptions StreamPipeOptions
-                   => ToJS StreamPipeOptions
-                   => (obj : streamPipeOptions)
-                   -> (v : Bool)
-                   -> IO ()
+  setPreventCancel : (obj : StreamPipeOptions) -> (v : Bool) -> IO ()
   
   %foreign "browser:lambda:x=>x.preventClose"
   prim__preventClose : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  preventClose :  Cast streamPipeOptions StreamPipeOptions
-               => ToJS StreamPipeOptions
-               => (obj : streamPipeOptions)
-               -> IO Bool
-  
-  %foreign "browser:lambda:(x,v)=>{x.preventClose = v}"
+  preventClose : (obj : StreamPipeOptions) -> IO Bool
+
+  %foreign "browser:lambda:(x,v)=>{x.preventClose  = v}"
   prim__setPreventClose : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setPreventClose :  Cast streamPipeOptions StreamPipeOptions
-                  => ToJS StreamPipeOptions
-                  => (obj : streamPipeOptions)
-                  -> (v : Bool)
-                  -> IO ()
+  setPreventClose : (obj : StreamPipeOptions) -> (v : Bool) -> IO ()
   
   %foreign "browser:lambda:x=>x.signal"
   prim__signal : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  signal :  Cast streamPipeOptions StreamPipeOptions
-         => ToJS StreamPipeOptions
-         => (obj : streamPipeOptions)
-         -> IO AbortSignal
-  
-  %foreign "browser:lambda:(x,v)=>{x.signal = v}"
+  signal : (obj : StreamPipeOptions) -> IO AbortSignal
+
+  %foreign "browser:lambda:(x,v)=>{x.signal  = v}"
   prim__setSignal : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setSignal :  Cast abortSignal AbortSignal
-            => ToJS AbortSignal
-            => Cast streamPipeOptions StreamPipeOptions
-            => ToJS StreamPipeOptions
-            => (obj : streamPipeOptions)
-            -> (v : abortSignal)
-            -> IO ()
+  setSignal : (obj : StreamPipeOptions) -> (v : AbortSignal) -> IO ()
 
 namespace Transformer
   
+  public export
+  JSVal Transformer where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.flush"
   prim__flush : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  flush :  Cast transformer Transformer
-        => ToJS Transformer
-        => (obj : transformer)
-        -> IO TransformerFlushCallback
-  
-  %foreign "browser:lambda:(x,v)=>{x.flush = v}"
+  flush : (obj : Transformer) -> IO TransformerFlushCallback
+
+  %foreign "browser:lambda:(x,v)=>{x.flush  = v}"
   prim__setFlush : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setFlush :  Cast transformer Transformer
-           => ToJS Transformer
-           => Cast transformerFlushCallback TransformerFlushCallback
-           => ToJS TransformerFlushCallback
-           => (obj : transformer)
-           -> (v : transformerFlushCallback)
-           -> IO ()
+  setFlush : (obj : Transformer) -> (v : TransformerFlushCallback) -> IO ()
   
   %foreign "browser:lambda:x=>x.readableType"
   prim__readableType : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  readableType :  Cast transformer Transformer
-               => ToJS Transformer
-               => (obj : transformer)
-               -> IO JSAny
-  
-  %foreign "browser:lambda:(x,v)=>{x.readableType = v}"
+  readableType : (obj : Transformer) -> IO JSAny
+
+  %foreign "browser:lambda:(x,v)=>{x.readableType  = v}"
   prim__setReadableType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setReadableType :  Cast transformer Transformer
-                  => ToJS Transformer
-                  => (obj : transformer)
-                  -> (v : JSAny)
-                  -> IO ()
+  setReadableType : (obj : Transformer) -> (v : JSAny) -> IO ()
   
   %foreign "browser:lambda:x=>x.start"
   prim__start : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  start :  Cast transformer Transformer
-        => ToJS Transformer
-        => (obj : transformer)
-        -> IO TransformerStartCallback
-  
-  %foreign "browser:lambda:(x,v)=>{x.start = v}"
+  start : (obj : Transformer) -> IO TransformerStartCallback
+
+  %foreign "browser:lambda:(x,v)=>{x.start  = v}"
   prim__setStart : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setStart :  Cast transformer Transformer
-           => ToJS Transformer
-           => Cast transformerStartCallback TransformerStartCallback
-           => ToJS TransformerStartCallback
-           => (obj : transformer)
-           -> (v : transformerStartCallback)
-           -> IO ()
+  setStart : (obj : Transformer) -> (v : TransformerStartCallback) -> IO ()
   
   %foreign "browser:lambda:x=>x.transform"
   prim__transform : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  transform :  Cast transformer Transformer
-            => ToJS Transformer
-            => (obj : transformer)
-            -> IO TransformerTransformCallback
-  
-  %foreign "browser:lambda:(x,v)=>{x.transform = v}"
+  transform : (obj : Transformer) -> IO TransformerTransformCallback
+
+  %foreign "browser:lambda:(x,v)=>{x.transform  = v}"
   prim__setTransform : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setTransform :  Cast transformer Transformer
-               => ToJS Transformer
-               => Cast transformerTransformCallback TransformerTransformCallback
-               => ToJS TransformerTransformCallback
-               => (obj : transformer)
-               -> (v : transformerTransformCallback)
+  setTransform :  (obj : Transformer)
+               -> (v : TransformerTransformCallback)
                -> IO ()
   
   %foreign "browser:lambda:x=>x.writableType"
   prim__writableType : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  writableType :  Cast transformer Transformer
-               => ToJS Transformer
-               => (obj : transformer)
-               -> IO JSAny
-  
-  %foreign "browser:lambda:(x,v)=>{x.writableType = v}"
+  writableType : (obj : Transformer) -> IO JSAny
+
+  %foreign "browser:lambda:(x,v)=>{x.writableType  = v}"
   prim__setWritableType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setWritableType :  Cast transformer Transformer
-                  => ToJS Transformer
-                  => (obj : transformer)
-                  -> (v : JSAny)
-                  -> IO ()
+  setWritableType : (obj : Transformer) -> (v : JSAny) -> IO ()
 
 namespace UnderlyingSink
   
+  public export
+  JSVal UnderlyingSink where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.abort"
   prim__abort : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  abort :  Cast underlyingSink UnderlyingSink
-        => ToJS UnderlyingSink
-        => (obj : underlyingSink)
-        -> IO UnderlyingSinkAbortCallback
-  
-  %foreign "browser:lambda:(x,v)=>{x.abort = v}"
+  abort : (obj : UnderlyingSink) -> IO UnderlyingSinkAbortCallback
+
+  %foreign "browser:lambda:(x,v)=>{x.abort  = v}"
   prim__setAbort : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setAbort :  Cast underlyingSink UnderlyingSink
-           => ToJS UnderlyingSink
-           => Cast underlyingSinkAbortCallback UnderlyingSinkAbortCallback
-           => ToJS UnderlyingSinkAbortCallback
-           => (obj : underlyingSink)
-           -> (v : underlyingSinkAbortCallback)
+  setAbort :  (obj : UnderlyingSink)
+           -> (v : UnderlyingSinkAbortCallback)
            -> IO ()
   
   %foreign "browser:lambda:x=>x.close"
   prim__close : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  close :  Cast underlyingSink UnderlyingSink
-        => ToJS UnderlyingSink
-        => (obj : underlyingSink)
-        -> IO UnderlyingSinkCloseCallback
-  
-  %foreign "browser:lambda:(x,v)=>{x.close = v}"
+  close : (obj : UnderlyingSink) -> IO UnderlyingSinkCloseCallback
+
+  %foreign "browser:lambda:(x,v)=>{x.close  = v}"
   prim__setClose : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setClose :  Cast underlyingSink UnderlyingSink
-           => ToJS UnderlyingSink
-           => Cast underlyingSinkCloseCallback UnderlyingSinkCloseCallback
-           => ToJS UnderlyingSinkCloseCallback
-           => (obj : underlyingSink)
-           -> (v : underlyingSinkCloseCallback)
+  setClose :  (obj : UnderlyingSink)
+           -> (v : UnderlyingSinkCloseCallback)
            -> IO ()
   
   %foreign "browser:lambda:x=>x.start"
   prim__start : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  start :  Cast underlyingSink UnderlyingSink
-        => ToJS UnderlyingSink
-        => (obj : underlyingSink)
-        -> IO UnderlyingSinkStartCallback
-  
-  %foreign "browser:lambda:(x,v)=>{x.start = v}"
+  start : (obj : UnderlyingSink) -> IO UnderlyingSinkStartCallback
+
+  %foreign "browser:lambda:(x,v)=>{x.start  = v}"
   prim__setStart : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setStart :  Cast underlyingSink UnderlyingSink
-           => ToJS UnderlyingSink
-           => Cast underlyingSinkStartCallback UnderlyingSinkStartCallback
-           => ToJS UnderlyingSinkStartCallback
-           => (obj : underlyingSink)
-           -> (v : underlyingSinkStartCallback)
+  setStart :  (obj : UnderlyingSink)
+           -> (v : UnderlyingSinkStartCallback)
            -> IO ()
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  type :  Cast underlyingSink UnderlyingSink
-       => ToJS UnderlyingSink
-       => (obj : underlyingSink)
-       -> IO JSAny
-  
-  %foreign "browser:lambda:(x,v)=>{x.type = v}"
+  type : (obj : UnderlyingSink) -> IO JSAny
+
+  %foreign "browser:lambda:(x,v)=>{x.type  = v}"
   prim__setType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setType :  Cast underlyingSink UnderlyingSink
-          => ToJS UnderlyingSink
-          => (obj : underlyingSink)
-          -> (v : JSAny)
-          -> IO ()
+  setType : (obj : UnderlyingSink) -> (v : JSAny) -> IO ()
   
   %foreign "browser:lambda:x=>x.write"
   prim__write : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  write :  Cast underlyingSink UnderlyingSink
-        => ToJS UnderlyingSink
-        => (obj : underlyingSink)
-        -> IO UnderlyingSinkWriteCallback
-  
-  %foreign "browser:lambda:(x,v)=>{x.write = v}"
+  write : (obj : UnderlyingSink) -> IO UnderlyingSinkWriteCallback
+
+  %foreign "browser:lambda:(x,v)=>{x.write  = v}"
   prim__setWrite : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setWrite :  Cast underlyingSink UnderlyingSink
-           => ToJS UnderlyingSink
-           => Cast underlyingSinkWriteCallback UnderlyingSinkWriteCallback
-           => ToJS UnderlyingSinkWriteCallback
-           => (obj : underlyingSink)
-           -> (v : underlyingSinkWriteCallback)
+  setWrite :  (obj : UnderlyingSink)
+           -> (v : UnderlyingSinkWriteCallback)
            -> IO ()
 
 namespace UnderlyingSource
   
+  public export
+  JSVal UnderlyingSource where
+    parents =  [ JSObject ]
+
+    mixins =  []
+  
   %foreign "browser:lambda:x=>x.autoAllocateChunkSize"
   prim__autoAllocateChunkSize : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  autoAllocateChunkSize :  Cast underlyingSource UnderlyingSource
-                        => ToJS UnderlyingSource
-                        => (obj : underlyingSource)
-                        -> IO UInt64
-  
-  %foreign "browser:lambda:(x,v)=>{x.autoAllocateChunkSize = v}"
+  autoAllocateChunkSize : (obj : UnderlyingSource) -> IO UInt64
+
+  %foreign "browser:lambda:(x,v)=>{x.autoAllocateChunkSize  = v}"
   prim__setAutoAllocateChunkSize : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setAutoAllocateChunkSize :  Cast underlyingSource UnderlyingSource
-                           => ToJS UnderlyingSource
-                           => (obj : underlyingSource)
-                           -> (v : UInt64)
-                           -> IO ()
+  setAutoAllocateChunkSize : (obj : UnderlyingSource) -> (v : UInt64) -> IO ()
   
   %foreign "browser:lambda:x=>x.cancel"
   prim__cancel : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  cancel :  Cast underlyingSource UnderlyingSource
-         => ToJS UnderlyingSource
-         => (obj : underlyingSource)
-         -> IO UnderlyingSourceCancelCallback
-  
-  %foreign "browser:lambda:(x,v)=>{x.cancel = v}"
+  cancel : (obj : UnderlyingSource) -> IO UnderlyingSourceCancelCallback
+
+  %foreign "browser:lambda:(x,v)=>{x.cancel  = v}"
   prim__setCancel : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setCancel :  Cast underlyingSource UnderlyingSource
-            => ToJS UnderlyingSource
-            => Cast underlyingSourceCancelCallback UnderlyingSourceCancelCallback
-            => ToJS UnderlyingSourceCancelCallback
-            => (obj : underlyingSource)
-            -> (v : underlyingSourceCancelCallback)
+  setCancel :  (obj : UnderlyingSource)
+            -> (v : UnderlyingSourceCancelCallback)
             -> IO ()
   
   %foreign "browser:lambda:x=>x.pull"
   prim__pull : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  pull :  Cast underlyingSource UnderlyingSource
-       => ToJS UnderlyingSource
-       => (obj : underlyingSource)
-       -> IO UnderlyingSourcePullCallback
-  
-  %foreign "browser:lambda:(x,v)=>{x.pull = v}"
+  pull : (obj : UnderlyingSource) -> IO UnderlyingSourcePullCallback
+
+  %foreign "browser:lambda:(x,v)=>{x.pull  = v}"
   prim__setPull : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setPull :  Cast underlyingSource UnderlyingSource
-          => ToJS UnderlyingSource
-          => Cast underlyingSourcePullCallback UnderlyingSourcePullCallback
-          => ToJS UnderlyingSourcePullCallback
-          => (obj : underlyingSource)
-          -> (v : underlyingSourcePullCallback)
+  setPull :  (obj : UnderlyingSource)
+          -> (v : UnderlyingSourcePullCallback)
           -> IO ()
   
   %foreign "browser:lambda:x=>x.start"
   prim__start : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  start :  Cast underlyingSource UnderlyingSource
-        => ToJS UnderlyingSource
-        => (obj : underlyingSource)
-        -> IO UnderlyingSourceStartCallback
-  
-  %foreign "browser:lambda:(x,v)=>{x.start = v}"
+  start : (obj : UnderlyingSource) -> IO UnderlyingSourceStartCallback
+
+  %foreign "browser:lambda:(x,v)=>{x.start  = v}"
   prim__setStart : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setStart :  Cast underlyingSource UnderlyingSource
-           => ToJS UnderlyingSource
-           => Cast underlyingSourceStartCallback UnderlyingSourceStartCallback
-           => ToJS UnderlyingSourceStartCallback
-           => (obj : underlyingSource)
-           -> (v : underlyingSourceStartCallback)
+  setStart :  (obj : UnderlyingSource)
+           -> (v : UnderlyingSourceStartCallback)
            -> IO ()
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  type :  Cast underlyingSource UnderlyingSource
-       => ToJS UnderlyingSource
-       => (obj : underlyingSource)
-       -> IO ReadableStreamType
-  
-  %foreign "browser:lambda:(x,v)=>{x.type = v}"
+  type : (obj : UnderlyingSource) -> IO ReadableStreamType
+
+  %foreign "browser:lambda:(x,v)=>{x.type  = v}"
   prim__setType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
-  
+
   export
-  setType :  Cast readableStreamType ReadableStreamType
-          => ToJS ReadableStreamType
-          => Cast underlyingSource UnderlyingSource
-          => ToJS UnderlyingSource
-          => (obj : underlyingSource)
-          -> (v : readableStreamType)
-          -> IO ()
+  setType : (obj : UnderlyingSource) -> (v : ReadableStreamType) -> IO ()
 
-
-
---------------------------------------------------------------------------------
---          Casts
---------------------------------------------------------------------------------
-
-export
-Cast ReadableStreamBYOBReader ReadableStreamGenericReader where
-  cast = believe_me
-
-export
-Cast ReadableStreamDefaultReader ReadableStreamGenericReader where
-  cast = believe_me
