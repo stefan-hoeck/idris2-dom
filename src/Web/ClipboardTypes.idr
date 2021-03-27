@@ -1,5 +1,5 @@
 module Web.ClipboardTypes
-import JS.Util
+import JS
 
 --------------------------------------------------------------------------------
 --          Enums

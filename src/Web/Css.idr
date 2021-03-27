@@ -1,5 +1,5 @@
 module Web.Css
-import JS.Util
+import JS
 import Web.Types
 
 --------------------------------------------------------------------------------

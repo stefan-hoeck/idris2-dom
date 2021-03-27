@@ -1,5 +1,5 @@
 module Web.VisibilityTypes
-import JS.Util
+import JS
 
 --------------------------------------------------------------------------------
 --          Enums

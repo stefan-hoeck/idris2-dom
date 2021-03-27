@@ -1,7 +1,6 @@
 module Web.Types
 
-import Data.SOP
-import JS.Util
+import JS
 import public Web.AnimationTypes as Types
 import public Web.ClipboardTypes as Types
 import public Web.CssTypes as Types

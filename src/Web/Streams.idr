@@ -1,5 +1,5 @@
 module Web.Streams
-import JS.Util
+import JS
 import Web.Types
 
 --------------------------------------------------------------------------------

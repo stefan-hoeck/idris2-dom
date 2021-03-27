@@ -1,5 +1,5 @@
 module Web.Mediastream
-import JS.Util
+import JS
 import Web.Types
 
 --------------------------------------------------------------------------------

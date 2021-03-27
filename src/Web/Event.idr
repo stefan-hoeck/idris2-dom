@@ -1,5 +1,5 @@
 module Web.Event
-import JS.Util
+import JS
 import Web.Types
 
 --------------------------------------------------------------------------------

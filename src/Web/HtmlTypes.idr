@@ -1,5 +1,5 @@
 module Web.HtmlTypes
-import JS.Util
+import JS
 
 --------------------------------------------------------------------------------
 --          Enums

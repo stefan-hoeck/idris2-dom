@@ -1,5 +1,5 @@
 module Web.GeometryTypes
-import JS.Util
+import JS
 
 
 --------------------------------------------------------------------------------

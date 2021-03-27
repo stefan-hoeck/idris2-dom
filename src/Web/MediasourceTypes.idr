@@ -1,5 +1,5 @@
 module Web.MediasourceTypes
-import JS.Util
+import JS
 
 --------------------------------------------------------------------------------
 --          Enums

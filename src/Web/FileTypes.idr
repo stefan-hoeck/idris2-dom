@@ -1,5 +1,5 @@
 module Web.FileTypes
-import JS.Util
+import JS
 
 --------------------------------------------------------------------------------
 --          Enums

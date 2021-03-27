@@ -1,5 +1,5 @@
 module Web.Webidl
-import JS.Util
+import JS
 import Web.Types
 
 --------------------------------------------------------------------------------

@@ -1,5 +1,5 @@
 module Web.AnimationTypes
-import JS.Util
+import JS
 
 --------------------------------------------------------------------------------
 --          Enums

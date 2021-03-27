@@ -1,5 +1,5 @@
 module Web.WebglTypes
-import JS.Util
+import JS
 
 --------------------------------------------------------------------------------
 --          Enums

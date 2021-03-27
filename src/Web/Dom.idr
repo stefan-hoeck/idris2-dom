@@ -1,5 +1,5 @@
 module Web.Dom
-import JS.Util
+import JS
 import Web.Types
 
 --------------------------------------------------------------------------------

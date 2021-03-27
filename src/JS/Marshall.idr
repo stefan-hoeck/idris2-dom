@@ -1,5 +1,30 @@
 module JS.Marshall
 
+--------------------------------------------------------------------------------
+--          Utility Functions and Values
+--------------------------------------------------------------------------------
+
+%foreign "javascript:lambda:v=>Object.prototype.toString.call(v)"
+prim__typeOf : AnyPtr -> String
+
+export
+typeOf : a -> String
+typeOf v = prim__typeOf (believe_me v)
+
+%foreign "javascript:lambda:(a,b)=>a === b?1:0"
+prim__eqv : AnyPtr -> AnyPtr -> Double
+
+||| Heterogeneous pointer equality. This calls the Javascript
+||| `===` operator internally.
+export
+eqv : a -> b -> Bool
+eqv x y = prim__eqv (believe_me x) (believe_me y) == 1.0
+
+--------------------------------------------------------------------------------
+--          Marshalling from and to JS
+--------------------------------------------------------------------------------
+
+
 ||| Interface supporting the use of a value as an
 ||| argument in a foreign function call.
 |||
@@ -40,12 +65,59 @@ export FromJS Integer where fromJS = believe_me
 export FromJS Double where fromJS = believe_me
 export FromJS String where fromJS = believe_me
 
+public export
+interface SafeCast a where
+  safeCast : any -> Maybe a
+
+||| Tries to cast one value to another by comparing the
+||| passed string against the return value of `typeOf`.
+export
+unsafeCastOnTypeString : String -> a -> Maybe b
+unsafeCastOnTypeString s a =
+  if typeOf a == s then Just (believe_me a) else Nothing
+
+||| Interface supporting the safe casting of one JS type
+||| to another. This is mainly used during foreign function
+||| calls or when otherwise processing values of unknown origin.
+export
+SafeCast () where
+  safeCast _ = Just ()
+
+export
+SafeCast Integer where
+  safeCast = unsafeCastOnTypeString "[object BigInt]"
+
+export
+SafeCast Double where
+  safeCast = unsafeCastOnTypeString "[object Number]"
+
+export
+SafeCast String where
+  safeCast = unsafeCastOnTypeString "[object String]"
+
+export
+SafeCast Bits8 where
+  safeCast = map fromInteger . safeCast
+
+export
+SafeCast Bits16 where
+  safeCast = map fromInteger . safeCast
+
+export
+SafeCast Bits32 where
+  safeCast = map fromInteger . safeCast
+
+export
+SafeCast Bits64 where
+  safeCast = map fromInteger . safeCast
+
+export
+SafeCast Int where
+  safeCast = map fromInteger . safeCast
+
 --------------------------------------------------------------------------------
 --          Bool
 --------------------------------------------------------------------------------
-
-%foreign "javascript:lambda:(a,b)=>a === b?1:0"
-prim__eqv : AnyPtr -> AnyPtr -> Double
 
 %foreign "javascript:lambda:()=>true"
 prim__true : AnyPtr

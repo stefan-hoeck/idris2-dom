@@ -1,5 +1,5 @@
 module Web.PermissionsTypes
-import JS.Util
+import JS
 
 --------------------------------------------------------------------------------
 --          Enums

@@ -3,19 +3,24 @@
 ||| own package.
 module JS.Util
 
-import public Data.List.Elem
-import public Data.Maybe
-import public Data.SOP
-import public JS.Inheritance
-import public JS.Marshall
-import public JS.Number
-
---------------------------------------------------------------------------------
---          JS Primitives
---------------------------------------------------------------------------------
-
 doubleToBool : Double -> Bool
 doubleToBool d = d /= 0.0
+
+%foreign "javascript:lambda:v=>Object.prototype.toString.call(v)"
+prim__typeOf : AnyPtr -> String
+
+export
+typeOf : a -> String
+typeOf v = prim__typeOf (believe_me v)
+
+%foreign "javascript:lambda:(a,b)=>a === b?1:0"
+prim__eqv : AnyPtr -> AnyPtr -> Double
+
+||| Heterogeneous pointer equality. This calls the Javascript
+||| `===` operator internally.
+export
+eqv : a -> b -> Bool
+eqv x y = doubleToBool $ prim__eqv (believe_me x) (believe_me y)
 
 --          Undefined
 export

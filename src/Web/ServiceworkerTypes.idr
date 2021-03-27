@@ -1,5 +1,5 @@
 module Web.ServiceworkerTypes
-import JS.Util
+import JS
 
 --------------------------------------------------------------------------------
 --          Enums

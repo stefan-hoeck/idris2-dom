@@ -1,5 +1,5 @@
 module Web.MediastreamTypes
-import JS.Util
+import JS
 
 --------------------------------------------------------------------------------
 --          Enums
