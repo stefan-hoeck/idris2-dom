@@ -41,15 +41,37 @@ a :> _ = up a
 --          Downcasting
 --------------------------------------------------------------------------------
 
+%foreign #"""
+         javascript:lambda:(s,v)=>{
+         var o = v;
+           while (o != null) {
+             var p = Object.getPrototypeOf(o);
+             var cn = p.constructor.name;
+             if (cn === s) {
+               return 1;
+             } else if (cn === "Object") {
+               return 0;
+             }
+             o = p;
+           }
+           return 0;
+         };
+         """#
+prim__hasProtoName : String -> AnyPtr -> Double
+
 public export
 interface SafeCast a where
   safeCast : any -> Maybe a
 
-||| Tries to cast one value to another by comparing the
-||| passed string against the return value of `typeOf`.
 export
-unsafeCastOnTypeString : String -> a -> Maybe b
-unsafeCastOnTypeString s a =
+unsafeCastOnProtoName : String -> a -> Maybe b
+unsafeCastOnProtoName s a =
+  if prim__hasProtoName s (believe_me a) == 1.0
+     then Just (believe_me a)
+     else Nothing
+
+unsafeCastOnTypeof : String -> a -> Maybe b
+unsafeCastOnTypeof s a =
   if typeOf a == s then Just (believe_me a) else Nothing
 
 ||| Interface supporting the safe casting of one JS type
@@ -61,15 +83,15 @@ SafeCast () where
 
 export
 SafeCast Integer where
-  safeCast = unsafeCastOnTypeString "[object BigInt]"
+  safeCast = unsafeCastOnTypeof "[object BigInt]"
 
 export
 SafeCast Double where
-  safeCast = unsafeCastOnTypeString "[object Number]"
+  safeCast = unsafeCastOnTypeof "[object Number]"
 
 export
 SafeCast String where
-  safeCast = unsafeCastOnTypeString "[object String]"
+  safeCast = unsafeCastOnTypeof "[object String]"
 
 export
 SafeCast Bits8 where

@@ -3,6 +3,8 @@
 ||| own package.
 module JS.Util
 
+import Data.Maybe
+
 doubleToBool : Double -> Bool
 doubleToBool d = d /= 0.0
 
