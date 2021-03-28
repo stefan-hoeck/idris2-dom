@@ -42,7 +42,7 @@ mutual
   
   public export
   0 EventHandlerNonNull : Type
-  EventHandlerNonNull = (event : Event) -> IO JSAny
+  EventHandlerNonNull = (event : Event) -> IO Any
   
   public export
   0 EventListener : Type
@@ -50,7 +50,7 @@ mutual
   
   public export
   0 Function : Type
-  Function = (arguments : VarArg JSAny) -> IO JSAny
+  Function = (arguments : VarArg Any) -> IO Any
   
   public export
   0 FunctionStringCallback : Type
@@ -84,12 +84,12 @@ mutual
                              -> (source : String)
                              -> (lineno : UInt32)
                              -> (colno : UInt32)
-                             -> (error : JSAny)
-                             -> IO JSAny
+                             -> (error : Any)
+                             -> IO Any
   
   public export
   0 QueuingStrategySize : Type
-  QueuingStrategySize = (chunk : JSAny) -> IO Double
+  QueuingStrategySize = (chunk : Any) -> IO Double
   
   public export
   0 TransformerFlushCallback : Type
@@ -99,17 +99,17 @@ mutual
   public export
   0 TransformerStartCallback : Type
   TransformerStartCallback =  (controller : TransformStreamDefaultController)
-                           -> IO JSAny
+                           -> IO Any
   
   public export
   0 TransformerTransformCallback : Type
-  TransformerTransformCallback =  (chunk : JSAny)
+  TransformerTransformCallback =  (chunk : Any)
                                -> (controller : TransformStreamDefaultController)
                                -> IO (JSPromise Undefined)
   
   public export
   0 UnderlyingSinkAbortCallback : Type
-  UnderlyingSinkAbortCallback = (reason : JSAny) -> IO (JSPromise Undefined)
+  UnderlyingSinkAbortCallback = (reason : Any) -> IO (JSPromise Undefined)
   
   public export
   0 UnderlyingSinkCloseCallback : Type
@@ -118,17 +118,17 @@ mutual
   public export
   0 UnderlyingSinkStartCallback : Type
   UnderlyingSinkStartCallback =  (controller : WritableStreamDefaultController)
-                              -> IO JSAny
+                              -> IO Any
   
   public export
   0 UnderlyingSinkWriteCallback : Type
-  UnderlyingSinkWriteCallback =  (chunk : JSAny)
+  UnderlyingSinkWriteCallback =  (chunk : Any)
                               -> (controller : WritableStreamDefaultController)
                               -> IO (JSPromise Undefined)
   
   public export
   0 UnderlyingSourceCancelCallback : Type
-  UnderlyingSourceCancelCallback = (reason : JSAny) -> IO (JSPromise Undefined)
+  UnderlyingSourceCancelCallback = (reason : Any) -> IO (JSPromise Undefined)
   
   public export
   0 UnderlyingSourcePullCallback : Type
@@ -138,7 +138,7 @@ mutual
   public export
   0 UnderlyingSourceStartCallback : Type
   UnderlyingSourceStartCallback =  (controller : ReadableStreamController)
-                                -> IO JSAny
+                                -> IO Any
   
   public export
   0 VoidFunction : Type

@@ -9,7 +9,7 @@ import Web.Types
 namespace FormData
   
   public export
-  JSVal FormData where
+  JSType FormData where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -17,7 +17,7 @@ namespace FormData
 namespace ProgressEvent
   
   public export
-  JSVal ProgressEvent where
+  JSType ProgressEvent where
     parents =  [ Event , JSObject ]
 
     mixins =  []
@@ -43,7 +43,7 @@ namespace ProgressEvent
 namespace XMLHttpRequest
   
   public export
-  JSVal XMLHttpRequest where
+  JSType XMLHttpRequest where
     parents =  [ XMLHttpRequestEventTarget , EventTarget , JSObject ]
 
     mixins =  []
@@ -78,7 +78,7 @@ namespace XMLHttpRequest
   prim__response : AnyPtr -> PrimIO AnyPtr
 
   export
-  response : (obj : XMLHttpRequest) -> IO JSAny
+  response : (obj : XMLHttpRequest) -> IO Any
   
   %foreign "browser:lambda:x=>x.responseText"
   prim__responseText : AnyPtr -> PrimIO AnyPtr
@@ -169,7 +169,7 @@ namespace XMLHttpRequest
 namespace XMLHttpRequestEventTarget
   
   public export
-  JSVal XMLHttpRequestEventTarget where
+  JSType XMLHttpRequestEventTarget where
     parents =  [ EventTarget , JSObject ]
 
     mixins =  []
@@ -269,7 +269,7 @@ namespace XMLHttpRequestEventTarget
 namespace XMLHttpRequestUpload
   
   public export
-  JSVal XMLHttpRequestUpload where
+  JSType XMLHttpRequestUpload where
     parents =  [ XMLHttpRequestEventTarget , EventTarget , JSObject ]
 
     mixins =  []
@@ -282,7 +282,7 @@ namespace XMLHttpRequestUpload
 namespace ProgressEventInit
   
   public export
-  JSVal ProgressEventInit where
+  JSType ProgressEventInit where
     parents =  [ EventInit , JSObject ]
 
     mixins =  []

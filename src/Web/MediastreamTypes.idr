@@ -41,7 +41,7 @@ namespace MediaStreamTrackState
 
   export
   FromJS MediaStreamTrackState where
-    fromJS = fromMaybe Live . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace VideoFacingModeEnum
   
@@ -83,7 +83,7 @@ namespace VideoFacingModeEnum
 
   export
   FromJS VideoFacingModeEnum where
-    fromJS = fromMaybe User . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace VideoResizeModeEnum
   
@@ -121,7 +121,7 @@ namespace VideoResizeModeEnum
 
   export
   FromJS VideoResizeModeEnum where
-    fromJS = fromMaybe None . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace MediaDeviceKind
   
@@ -161,263 +161,213 @@ namespace MediaDeviceKind
 
   export
   FromJS MediaDeviceKind where
-    fromJS = fromMaybe Audioinput . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-export
-data ConstrainablePattern  : Type where [external]
+export data ConstrainablePattern : Type where [external]
 
 export
-ToJS ConstrainablePattern where
-  toJS = believe_me
+SafeCast ConstrainablePattern where
+  safeCast = unsafeCastOnPrototypeName "ConstrainablePattern"
+
+export ToJS ConstrainablePattern where toJS = believe_me
+export FromJS ConstrainablePattern where fromJS = safeCast
+export data InputDeviceInfo : Type where [external]
 
 export
-FromJS ConstrainablePattern where
-  fromJS = believe_me
-export
-data InputDeviceInfo  : Type where [external]
+SafeCast InputDeviceInfo where
+  safeCast = unsafeCastOnPrototypeName "InputDeviceInfo"
+
+export ToJS InputDeviceInfo where toJS = believe_me
+export FromJS InputDeviceInfo where fromJS = safeCast
+export data MediaDeviceInfo : Type where [external]
 
 export
-ToJS InputDeviceInfo where
-  toJS = believe_me
+SafeCast MediaDeviceInfo where
+  safeCast = unsafeCastOnPrototypeName "MediaDeviceInfo"
+
+export ToJS MediaDeviceInfo where toJS = believe_me
+export FromJS MediaDeviceInfo where fromJS = safeCast
+export data MediaDevices : Type where [external]
 
 export
-FromJS InputDeviceInfo where
-  fromJS = believe_me
-export
-data MediaDeviceInfo  : Type where [external]
+SafeCast MediaDevices where
+  safeCast = unsafeCastOnPrototypeName "MediaDevices"
+
+export ToJS MediaDevices where toJS = believe_me
+export FromJS MediaDevices where fromJS = safeCast
+export data MediaStream : Type where [external]
 
 export
-ToJS MediaDeviceInfo where
-  toJS = believe_me
+SafeCast MediaStream where
+  safeCast = unsafeCastOnPrototypeName "MediaStream"
+
+export ToJS MediaStream where toJS = believe_me
+export FromJS MediaStream where fromJS = safeCast
+export data MediaStreamTrack : Type where [external]
 
 export
-FromJS MediaDeviceInfo where
-  fromJS = believe_me
-export
-data MediaDevices  : Type where [external]
+SafeCast MediaStreamTrack where
+  safeCast = unsafeCastOnPrototypeName "MediaStreamTrack"
+
+export ToJS MediaStreamTrack where toJS = believe_me
+export FromJS MediaStreamTrack where fromJS = safeCast
+export data MediaStreamTrackEvent : Type where [external]
 
 export
-ToJS MediaDevices where
-  toJS = believe_me
+SafeCast MediaStreamTrackEvent where
+  safeCast = unsafeCastOnPrototypeName "MediaStreamTrackEvent"
+
+export ToJS MediaStreamTrackEvent where toJS = believe_me
+export FromJS MediaStreamTrackEvent where fromJS = safeCast
+export data OverconstrainedError : Type where [external]
 
 export
-FromJS MediaDevices where
-  fromJS = believe_me
-export
-data MediaStream  : Type where [external]
+SafeCast OverconstrainedError where
+  safeCast = unsafeCastOnPrototypeName "OverconstrainedError"
 
-export
-ToJS MediaStream where
-  toJS = believe_me
-
-export
-FromJS MediaStream where
-  fromJS = believe_me
-export
-data MediaStreamTrack  : Type where [external]
-
-export
-ToJS MediaStreamTrack where
-  toJS = believe_me
-
-export
-FromJS MediaStreamTrack where
-  fromJS = believe_me
-export
-data MediaStreamTrackEvent  : Type where [external]
-
-export
-ToJS MediaStreamTrackEvent where
-  toJS = believe_me
-
-export
-FromJS MediaStreamTrackEvent where
-  fromJS = believe_me
-export
-data OverconstrainedError  : Type where [external]
-
-export
-ToJS OverconstrainedError where
-  toJS = believe_me
-
-export
-FromJS OverconstrainedError where
-  fromJS = believe_me
+export ToJS OverconstrainedError where toJS = believe_me
+export FromJS OverconstrainedError where fromJS = safeCast
 
 
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
-export
-data Capabilities  : Type where [external]
+export data Capabilities : Type where [external]
 
 export
-ToJS Capabilities where
-  toJS = believe_me
+SafeCast Capabilities where
+  safeCast = unsafeCastOnPrototypeName "Capabilities"
+
+export ToJS Capabilities where toJS = believe_me
+export FromJS Capabilities where fromJS = safeCast
+export data ConstrainBooleanParameters : Type where [external]
 
 export
-FromJS Capabilities where
-  fromJS = believe_me
-export
-data ConstrainBooleanParameters  : Type where [external]
+SafeCast ConstrainBooleanParameters where
+  safeCast = unsafeCastOnPrototypeName "ConstrainBooleanParameters"
+
+export ToJS ConstrainBooleanParameters where toJS = believe_me
+export FromJS ConstrainBooleanParameters where fromJS = safeCast
+export data ConstrainDOMStringParameters : Type where [external]
 
 export
-ToJS ConstrainBooleanParameters where
-  toJS = believe_me
+SafeCast ConstrainDOMStringParameters where
+  safeCast = unsafeCastOnPrototypeName "ConstrainDOMStringParameters"
+
+export ToJS ConstrainDOMStringParameters where toJS = believe_me
+export FromJS ConstrainDOMStringParameters where fromJS = safeCast
+export data ConstrainDoubleRange : Type where [external]
 
 export
-FromJS ConstrainBooleanParameters where
-  fromJS = believe_me
-export
-data ConstrainDOMStringParameters  : Type where [external]
+SafeCast ConstrainDoubleRange where
+  safeCast = unsafeCastOnPrototypeName "ConstrainDoubleRange"
+
+export ToJS ConstrainDoubleRange where toJS = believe_me
+export FromJS ConstrainDoubleRange where fromJS = safeCast
+export data ConstrainULongRange : Type where [external]
 
 export
-ToJS ConstrainDOMStringParameters where
-  toJS = believe_me
+SafeCast ConstrainULongRange where
+  safeCast = unsafeCastOnPrototypeName "ConstrainULongRange"
+
+export ToJS ConstrainULongRange where toJS = believe_me
+export FromJS ConstrainULongRange where fromJS = safeCast
+export data ConstraintSet : Type where [external]
 
 export
-FromJS ConstrainDOMStringParameters where
-  fromJS = believe_me
-export
-data ConstrainDoubleRange  : Type where [external]
+SafeCast ConstraintSet where
+  safeCast = unsafeCastOnPrototypeName "ConstraintSet"
+
+export ToJS ConstraintSet where toJS = believe_me
+export FromJS ConstraintSet where fromJS = safeCast
+export data Constraints : Type where [external]
 
 export
-ToJS ConstrainDoubleRange where
-  toJS = believe_me
+SafeCast Constraints where
+  safeCast = unsafeCastOnPrototypeName "Constraints"
+
+export ToJS Constraints where toJS = believe_me
+export FromJS Constraints where fromJS = safeCast
+export data DoubleRange : Type where [external]
 
 export
-FromJS ConstrainDoubleRange where
-  fromJS = believe_me
-export
-data ConstrainULongRange  : Type where [external]
+SafeCast DoubleRange where
+  safeCast = unsafeCastOnPrototypeName "DoubleRange"
+
+export ToJS DoubleRange where toJS = believe_me
+export FromJS DoubleRange where fromJS = safeCast
+export data MediaStreamConstraints : Type where [external]
 
 export
-ToJS ConstrainULongRange where
-  toJS = believe_me
+SafeCast MediaStreamConstraints where
+  safeCast = unsafeCastOnPrototypeName "MediaStreamConstraints"
+
+export ToJS MediaStreamConstraints where toJS = believe_me
+export FromJS MediaStreamConstraints where fromJS = safeCast
+export data MediaStreamTrackEventInit : Type where [external]
 
 export
-FromJS ConstrainULongRange where
-  fromJS = believe_me
-export
-data ConstraintSet  : Type where [external]
+SafeCast MediaStreamTrackEventInit where
+  safeCast = unsafeCastOnPrototypeName "MediaStreamTrackEventInit"
+
+export ToJS MediaStreamTrackEventInit where toJS = believe_me
+export FromJS MediaStreamTrackEventInit where fromJS = safeCast
+export data MediaTrackCapabilities : Type where [external]
 
 export
-ToJS ConstraintSet where
-  toJS = believe_me
+SafeCast MediaTrackCapabilities where
+  safeCast = unsafeCastOnPrototypeName "MediaTrackCapabilities"
+
+export ToJS MediaTrackCapabilities where toJS = believe_me
+export FromJS MediaTrackCapabilities where fromJS = safeCast
+export data MediaTrackConstraintSet : Type where [external]
 
 export
-FromJS ConstraintSet where
-  fromJS = believe_me
-export
-data Constraints  : Type where [external]
+SafeCast MediaTrackConstraintSet where
+  safeCast = unsafeCastOnPrototypeName "MediaTrackConstraintSet"
+
+export ToJS MediaTrackConstraintSet where toJS = believe_me
+export FromJS MediaTrackConstraintSet where fromJS = safeCast
+export data MediaTrackConstraints : Type where [external]
 
 export
-ToJS Constraints where
-  toJS = believe_me
+SafeCast MediaTrackConstraints where
+  safeCast = unsafeCastOnPrototypeName "MediaTrackConstraints"
+
+export ToJS MediaTrackConstraints where toJS = believe_me
+export FromJS MediaTrackConstraints where fromJS = safeCast
+export data MediaTrackSettings : Type where [external]
 
 export
-FromJS Constraints where
-  fromJS = believe_me
-export
-data DoubleRange  : Type where [external]
+SafeCast MediaTrackSettings where
+  safeCast = unsafeCastOnPrototypeName "MediaTrackSettings"
+
+export ToJS MediaTrackSettings where toJS = believe_me
+export FromJS MediaTrackSettings where fromJS = safeCast
+export data MediaTrackSupportedConstraints : Type where [external]
 
 export
-ToJS DoubleRange where
-  toJS = believe_me
+SafeCast MediaTrackSupportedConstraints where
+  safeCast = unsafeCastOnPrototypeName "MediaTrackSupportedConstraints"
+
+export ToJS MediaTrackSupportedConstraints where toJS = believe_me
+export FromJS MediaTrackSupportedConstraints where fromJS = safeCast
+export data Settings : Type where [external]
 
 export
-FromJS DoubleRange where
-  fromJS = believe_me
-export
-data MediaStreamConstraints  : Type where [external]
+SafeCast Settings where
+  safeCast = unsafeCastOnPrototypeName "Settings"
+
+export ToJS Settings where toJS = believe_me
+export FromJS Settings where fromJS = safeCast
+export data ULongRange : Type where [external]
 
 export
-ToJS MediaStreamConstraints where
-  toJS = believe_me
+SafeCast ULongRange where
+  safeCast = unsafeCastOnPrototypeName "ULongRange"
 
-export
-FromJS MediaStreamConstraints where
-  fromJS = believe_me
-export
-data MediaStreamTrackEventInit  : Type where [external]
-
-export
-ToJS MediaStreamTrackEventInit where
-  toJS = believe_me
-
-export
-FromJS MediaStreamTrackEventInit where
-  fromJS = believe_me
-export
-data MediaTrackCapabilities  : Type where [external]
-
-export
-ToJS MediaTrackCapabilities where
-  toJS = believe_me
-
-export
-FromJS MediaTrackCapabilities where
-  fromJS = believe_me
-export
-data MediaTrackConstraintSet  : Type where [external]
-
-export
-ToJS MediaTrackConstraintSet where
-  toJS = believe_me
-
-export
-FromJS MediaTrackConstraintSet where
-  fromJS = believe_me
-export
-data MediaTrackConstraints  : Type where [external]
-
-export
-ToJS MediaTrackConstraints where
-  toJS = believe_me
-
-export
-FromJS MediaTrackConstraints where
-  fromJS = believe_me
-export
-data MediaTrackSettings  : Type where [external]
-
-export
-ToJS MediaTrackSettings where
-  toJS = believe_me
-
-export
-FromJS MediaTrackSettings where
-  fromJS = believe_me
-export
-data MediaTrackSupportedConstraints  : Type where [external]
-
-export
-ToJS MediaTrackSupportedConstraints where
-  toJS = believe_me
-
-export
-FromJS MediaTrackSupportedConstraints where
-  fromJS = believe_me
-export
-data Settings  : Type where [external]
-
-export
-ToJS Settings where
-  toJS = believe_me
-
-export
-FromJS Settings where
-  fromJS = believe_me
-export
-data ULongRange  : Type where [external]
-
-export
-ToJS ULongRange where
-  toJS = believe_me
-
-export
-FromJS ULongRange where
-  fromJS = believe_me
+export ToJS ULongRange where toJS = believe_me
+export FromJS ULongRange where fromJS = safeCast

@@ -9,7 +9,7 @@ import Web.Types
 namespace URL
   
   public export
-  JSVal URL where
+  JSType URL where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -137,7 +137,7 @@ namespace URL
 namespace URLSearchParams
   
   public export
-  JSVal URLSearchParams where
+  JSType URLSearchParams where
     parents =  [ JSObject ]
 
     mixins =  []

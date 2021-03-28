@@ -7,21 +7,46 @@ import Data.List.Elem
 --          Upcasting
 --------------------------------------------------------------------------------
 
+||| A `JSType` describes a type's inheritance chains and implemented
+||| mixins. It is used to safely and conveniently cast a value to a
+||| less specific type mentioned either in the list of
+||| mixins or parent types by means of funciton `up` and operator `:>`.
 public export
-interface JSVal a where
+interface JSType a where
+
+  ||| The inheritance chain of parent types of this data type
+  ||| (starting at the direct supertype). At runtime, such an inheritance
+  ||| chain can be inspected by recursively calling the Javascript
+  ||| function `Object.getPrototypeOf`.
   parents : List Type
+
+  ||| A Mixin is a concept from WebIDL: It is as programming interface
+  ||| shared by several types. Unlike a WebIDL interface, a mixin does
+  ||| not describe a type but just set of shared functions and
+  ||| attributes. Mixins are not observable by means of inspecting
+  ||| a value's prototype chain. It is therefore much harder
+  ||| (and right now not supported in this library) to at runtime
+  ||| check, whether a value implements a given mixin.
   mixins : List Type
 
+||| Convenience alias for `parents`, which takes an explicit
+||| erased type argument.
 public export
-Parents : (a : Type) -> JSVal a => List Type
+Parents : (a : Type) -> JSType a => List Type
 Parents a = parents {a}
 
+||| Convenience alias for `mixins`, which takes an explicit
+||| erased type argument.
 public export
-Mixins : (a : Type) -> JSVal a => List Type
+Mixins : (a : Type) -> JSType a => List Type
 Mixins a = mixins {a}
 
+||| Safe upcasting. This uses `believe_me` internally and is
+||| therefore of course only safe, if the `JSType` implementation
+||| is correct according to some specification and the backend
+||| properly adhere to this specification.
 public export %inline
-up :  JSVal a
+up :  JSType a
    => a
    -> {auto 0 _ : Either (Elem b (Parents a)) (Elem b (Mixins a))}
    -> b
@@ -29,8 +54,9 @@ up = believe_me
 
 infixl 1 :>
 
+||| Operator version of `up`.
 public export %inline
-(:>) :  JSVal a
+(:>) :  JSType a
      => a
      -> (0 b : Type)
      -> {auto 0 _ : Either (Elem b (Parents a)) (Elem b (Mixins a))}
@@ -59,56 +85,83 @@ a :> _ = up a
          """#
 prim__hasProtoName : String -> AnyPtr -> Double
 
+||| This is an interface which should be implemented by external
+||| types, the type of which can be inspected at runtime.
+|||
+||| This allows us to at runtime try and safely cast any value 
+||| to the type implementing this interface.
+|||
+||| Typically, there are two mechanisms for inspecting a value's
+||| type at runtime: Function `typeof`, which is mainly useful
+||| for primitives, and function `unsafeCastOnPrototypeName`, which
+||| inspects a value's prototype chain
+||| ([see also](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)).
+|||
+||| Note, that the intention of this interface is to use it
+||| on *external* types and *primitives*, but not on types
+||| defined in Idris2. If you need to marshal Idris2 values
+||| from and to the FFI, use interfaces `ToJS` and `FromJS`.
 public export
 interface SafeCast a where
   safeCast : any -> Maybe a
 
+||| This is a utility function to implement instances of
+||| `SafeCast`. Only use, if you know what you are doing.
 export
-unsafeCastOnProtoName : String -> a -> Maybe b
-unsafeCastOnProtoName s a =
+unsafeCastOnPrototypeName : String -> a -> Maybe b
+unsafeCastOnPrototypeName s a =
   if prim__hasProtoName s (believe_me a) == 1.0
      then Just (believe_me a)
      else Nothing
 
+||| This is a utility function to implement instances of
+||| `SafeCast`. Only use, if you know what you are doing.
+export
 unsafeCastOnTypeof : String -> a -> Maybe b
 unsafeCastOnTypeof s a =
-  if typeOf a == s then Just (believe_me a) else Nothing
-
-||| Interface supporting the safe casting of one JS type
-||| to another. This is mainly used during foreign function
-||| calls or when otherwise processing values of unknown origin.
-export
-SafeCast () where
-  safeCast _ = Just ()
+  if typeof a == s then Just (believe_me a) else Nothing
 
 export
 SafeCast Integer where
-  safeCast = unsafeCastOnTypeof "[object BigInt]"
+  safeCast = unsafeCastOnTypeof "bigint"
 
 export
 SafeCast Double where
-  safeCast = unsafeCastOnTypeof "[object Number]"
+  safeCast = unsafeCastOnTypeof "number"
 
 export
 SafeCast String where
-  safeCast = unsafeCastOnTypeof "[object String]"
+  safeCast = unsafeCastOnTypeof "string"
+
+export
+SafeCast JSObject where
+  safeCast = unsafeCastOnTypeof "object"
+
+bounded : Num a => (min : Integer) -> (max : Integer) -> Integer -> Maybe a
+bounded min max n = if n >= min && n <= max
+                       then Just (fromInteger n)
+                       else Nothing
 
 export
 SafeCast Bits8 where
-  safeCast = map fromInteger . safeCast
+  safeCast ptr = safeCast ptr >>= bounded 0 0xff
 
 export
 SafeCast Bits16 where
-  safeCast = map fromInteger . safeCast
+  safeCast ptr = safeCast ptr >>= bounded 0 0xffff
 
 export
 SafeCast Bits32 where
-  safeCast = map fromInteger . safeCast
+  safeCast ptr = safeCast ptr >>= bounded 0 0xffffffff
 
 export
 SafeCast Bits64 where
-  safeCast = map fromInteger . safeCast
+  safeCast ptr = safeCast ptr >>= bounded 0 0xffffffffffffffff
 
 export
 SafeCast Int where
-  safeCast = map fromInteger . safeCast
+  safeCast ptr = safeCast ptr >>= bounded (- 0x80000000) (0x7fffffff)
+
+export
+SafeCast Undefined where
+  safeCast ptr = if isUndefined ptr then Just undefined else Nothing

@@ -9,7 +9,7 @@ import Web.Types
 namespace Clipboard
   
   public export
-  JSVal Clipboard where
+  JSType Clipboard where
     parents =  [ EventTarget , JSObject ]
 
     mixins =  []
@@ -17,7 +17,7 @@ namespace Clipboard
 namespace ClipboardEvent
   
   public export
-  JSVal ClipboardEvent where
+  JSType ClipboardEvent where
     parents =  [ Event , JSObject ]
 
     mixins =  []
@@ -31,7 +31,7 @@ namespace ClipboardEvent
 namespace ClipboardItem
   
   public export
-  JSVal ClipboardItem where
+  JSType ClipboardItem where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -68,7 +68,7 @@ namespace ClipboardItem
 namespace ClipboardEventInit
   
   public export
-  JSVal ClipboardEventInit where
+  JSType ClipboardEventInit where
     parents =  [ EventInit , JSObject ]
 
     mixins =  []
@@ -90,7 +90,7 @@ namespace ClipboardEventInit
 namespace ClipboardItemOptions
   
   public export
-  JSVal ClipboardItemOptions where
+  JSType ClipboardItemOptions where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -112,7 +112,7 @@ namespace ClipboardItemOptions
 namespace ClipboardPermissionDescriptor
   
   public export
-  JSVal ClipboardPermissionDescriptor where
+  JSType ClipboardPermissionDescriptor where
     parents =  [ PermissionDescriptor , JSObject ]
 
     mixins =  []

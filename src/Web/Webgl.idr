@@ -9,7 +9,7 @@ import Web.Types
 namespace WebGL2RenderingContext
   
   public export
-  JSVal WebGL2RenderingContext where
+  JSType WebGL2RenderingContext where
     parents =  [ JSObject ]
 
     mixins =  [ WebGL2RenderingContextBase
@@ -20,7 +20,7 @@ namespace WebGL2RenderingContext
 namespace WebGLActiveInfo
   
   public export
-  JSVal WebGLActiveInfo where
+  JSType WebGLActiveInfo where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -46,7 +46,7 @@ namespace WebGLActiveInfo
 namespace WebGLBuffer
   
   public export
-  JSVal WebGLBuffer where
+  JSType WebGLBuffer where
     parents =  [ WebGLObject , JSObject ]
 
     mixins =  []
@@ -54,7 +54,7 @@ namespace WebGLBuffer
 namespace WebGLFramebuffer
   
   public export
-  JSVal WebGLFramebuffer where
+  JSType WebGLFramebuffer where
     parents =  [ WebGLObject , JSObject ]
 
     mixins =  []
@@ -62,7 +62,7 @@ namespace WebGLFramebuffer
 namespace WebGLObject
   
   public export
-  JSVal WebGLObject where
+  JSType WebGLObject where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -70,7 +70,7 @@ namespace WebGLObject
 namespace WebGLProgram
   
   public export
-  JSVal WebGLProgram where
+  JSType WebGLProgram where
     parents =  [ WebGLObject , JSObject ]
 
     mixins =  []
@@ -78,7 +78,7 @@ namespace WebGLProgram
 namespace WebGLQuery
   
   public export
-  JSVal WebGLQuery where
+  JSType WebGLQuery where
     parents =  [ WebGLObject , JSObject ]
 
     mixins =  []
@@ -86,7 +86,7 @@ namespace WebGLQuery
 namespace WebGLRenderbuffer
   
   public export
-  JSVal WebGLRenderbuffer where
+  JSType WebGLRenderbuffer where
     parents =  [ WebGLObject , JSObject ]
 
     mixins =  []
@@ -94,7 +94,7 @@ namespace WebGLRenderbuffer
 namespace WebGLRenderingContext
   
   public export
-  JSVal WebGLRenderingContext where
+  JSType WebGLRenderingContext where
     parents =  [ JSObject ]
 
     mixins =  [ WebGLRenderingContextBase , WebGLRenderingContextOverloads ]
@@ -102,7 +102,7 @@ namespace WebGLRenderingContext
 namespace WebGLSampler
   
   public export
-  JSVal WebGLSampler where
+  JSType WebGLSampler where
     parents =  [ WebGLObject , JSObject ]
 
     mixins =  []
@@ -110,7 +110,7 @@ namespace WebGLSampler
 namespace WebGLShader
   
   public export
-  JSVal WebGLShader where
+  JSType WebGLShader where
     parents =  [ WebGLObject , JSObject ]
 
     mixins =  []
@@ -118,7 +118,7 @@ namespace WebGLShader
 namespace WebGLShaderPrecisionFormat
   
   public export
-  JSVal WebGLShaderPrecisionFormat where
+  JSType WebGLShaderPrecisionFormat where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -144,7 +144,7 @@ namespace WebGLShaderPrecisionFormat
 namespace WebGLSync
   
   public export
-  JSVal WebGLSync where
+  JSType WebGLSync where
     parents =  [ WebGLObject , JSObject ]
 
     mixins =  []
@@ -152,7 +152,7 @@ namespace WebGLSync
 namespace WebGLTexture
   
   public export
-  JSVal WebGLTexture where
+  JSType WebGLTexture where
     parents =  [ WebGLObject , JSObject ]
 
     mixins =  []
@@ -160,7 +160,7 @@ namespace WebGLTexture
 namespace WebGLTransformFeedback
   
   public export
-  JSVal WebGLTransformFeedback where
+  JSType WebGLTransformFeedback where
     parents =  [ WebGLObject , JSObject ]
 
     mixins =  []
@@ -168,7 +168,7 @@ namespace WebGLTransformFeedback
 namespace WebGLUniformLocation
   
   public export
-  JSVal WebGLUniformLocation where
+  JSType WebGLUniformLocation where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -176,7 +176,7 @@ namespace WebGLUniformLocation
 namespace WebGLVertexArrayObject
   
   public export
-  JSVal WebGLVertexArrayObject where
+  JSType WebGLVertexArrayObject where
     parents =  [ WebGLObject , JSObject ]
 
     mixins =  []
@@ -2453,7 +2453,7 @@ namespace WebGLRenderingContextBase
 namespace WebGLContextAttributes
   
   public export
-  JSVal WebGLContextAttributes where
+  JSType WebGLContextAttributes where
     parents =  [ JSObject ]
 
     mixins =  []

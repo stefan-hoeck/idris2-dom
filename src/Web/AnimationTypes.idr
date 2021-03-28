@@ -45,7 +45,7 @@ namespace AnimationPlayState
 
   export
   FromJS AnimationPlayState where
-    fromJS = fromMaybe Idle . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace FillMode
   
@@ -87,7 +87,7 @@ namespace FillMode
 
   export
   FromJS FillMode where
-    fromJS = fromMaybe None . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace PlaybackDirection
   
@@ -129,7 +129,7 @@ namespace PlaybackDirection
 
   export
   FromJS PlaybackDirection where
-    fromJS = fromMaybe Normal . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace IterationCompositeOperation
   
@@ -167,7 +167,7 @@ namespace IterationCompositeOperation
 
   export
   FromJS IterationCompositeOperation where
-    fromJS = fromMaybe Replace . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace CompositeOperation
   
@@ -207,7 +207,7 @@ namespace CompositeOperation
 
   export
   FromJS CompositeOperation where
-    fromJS = fromMaybe Replace . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace CompositeOperationOrAuto
   
@@ -249,186 +249,152 @@ namespace CompositeOperationOrAuto
 
   export
   FromJS CompositeOperationOrAuto where
-    fromJS = fromMaybe Replace . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-export
-data Animation  : Type where [external]
+export data Animation : Type where [external]
 
 export
-ToJS Animation where
-  toJS = believe_me
+SafeCast Animation where
+  safeCast = unsafeCastOnPrototypeName "Animation"
+
+export ToJS Animation where toJS = believe_me
+export FromJS Animation where fromJS = safeCast
+export data AnimationEffect : Type where [external]
 
 export
-FromJS Animation where
-  fromJS = believe_me
-export
-data AnimationEffect  : Type where [external]
+SafeCast AnimationEffect where
+  safeCast = unsafeCastOnPrototypeName "AnimationEffect"
+
+export ToJS AnimationEffect where toJS = believe_me
+export FromJS AnimationEffect where fromJS = safeCast
+export data AnimationPlaybackEvent : Type where [external]
 
 export
-ToJS AnimationEffect where
-  toJS = believe_me
+SafeCast AnimationPlaybackEvent where
+  safeCast = unsafeCastOnPrototypeName "AnimationPlaybackEvent"
+
+export ToJS AnimationPlaybackEvent where toJS = believe_me
+export FromJS AnimationPlaybackEvent where fromJS = safeCast
+export data AnimationTimeline : Type where [external]
 
 export
-FromJS AnimationEffect where
-  fromJS = believe_me
-export
-data AnimationPlaybackEvent  : Type where [external]
+SafeCast AnimationTimeline where
+  safeCast = unsafeCastOnPrototypeName "AnimationTimeline"
+
+export ToJS AnimationTimeline where toJS = believe_me
+export FromJS AnimationTimeline where fromJS = safeCast
+export data DocumentTimeline : Type where [external]
 
 export
-ToJS AnimationPlaybackEvent where
-  toJS = believe_me
+SafeCast DocumentTimeline where
+  safeCast = unsafeCastOnPrototypeName "DocumentTimeline"
+
+export ToJS DocumentTimeline where toJS = believe_me
+export FromJS DocumentTimeline where fromJS = safeCast
+export data KeyframeEffect : Type where [external]
 
 export
-FromJS AnimationPlaybackEvent where
-  fromJS = believe_me
-export
-data AnimationTimeline  : Type where [external]
+SafeCast KeyframeEffect where
+  safeCast = unsafeCastOnPrototypeName "KeyframeEffect"
 
-export
-ToJS AnimationTimeline where
-  toJS = believe_me
-
-export
-FromJS AnimationTimeline where
-  fromJS = believe_me
-export
-data DocumentTimeline  : Type where [external]
-
-export
-ToJS DocumentTimeline where
-  toJS = believe_me
-
-export
-FromJS DocumentTimeline where
-  fromJS = believe_me
-export
-data KeyframeEffect  : Type where [external]
-
-export
-ToJS KeyframeEffect where
-  toJS = believe_me
-
-export
-FromJS KeyframeEffect where
-  fromJS = believe_me
+export ToJS KeyframeEffect where toJS = believe_me
+export FromJS KeyframeEffect where fromJS = safeCast
 
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------
-export
-data Animatable  : Type where [external]
+export data Animatable : Type where [external]
 
 export
-ToJS Animatable where
-  toJS = believe_me
+SafeCast Animatable where
+  safeCast = unsafeCastOnPrototypeName "Animatable"
 
-export
-FromJS Animatable where
-  fromJS = believe_me
+export ToJS Animatable where toJS = believe_me
+export FromJS Animatable where fromJS = safeCast
 
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
-export
-data AnimationPlaybackEventInit  : Type where [external]
+export data AnimationPlaybackEventInit : Type where [external]
 
 export
-ToJS AnimationPlaybackEventInit where
-  toJS = believe_me
+SafeCast AnimationPlaybackEventInit where
+  safeCast = unsafeCastOnPrototypeName "AnimationPlaybackEventInit"
+
+export ToJS AnimationPlaybackEventInit where toJS = believe_me
+export FromJS AnimationPlaybackEventInit where fromJS = safeCast
+export data BaseComputedKeyframe : Type where [external]
 
 export
-FromJS AnimationPlaybackEventInit where
-  fromJS = believe_me
-export
-data BaseComputedKeyframe  : Type where [external]
+SafeCast BaseComputedKeyframe where
+  safeCast = unsafeCastOnPrototypeName "BaseComputedKeyframe"
+
+export ToJS BaseComputedKeyframe where toJS = believe_me
+export FromJS BaseComputedKeyframe where fromJS = safeCast
+export data BaseKeyframe : Type where [external]
 
 export
-ToJS BaseComputedKeyframe where
-  toJS = believe_me
+SafeCast BaseKeyframe where
+  safeCast = unsafeCastOnPrototypeName "BaseKeyframe"
+
+export ToJS BaseKeyframe where toJS = believe_me
+export FromJS BaseKeyframe where fromJS = safeCast
+export data BasePropertyIndexedKeyframe : Type where [external]
 
 export
-FromJS BaseComputedKeyframe where
-  fromJS = believe_me
-export
-data BaseKeyframe  : Type where [external]
+SafeCast BasePropertyIndexedKeyframe where
+  safeCast = unsafeCastOnPrototypeName "BasePropertyIndexedKeyframe"
+
+export ToJS BasePropertyIndexedKeyframe where toJS = believe_me
+export FromJS BasePropertyIndexedKeyframe where fromJS = safeCast
+export data ComputedEffectTiming : Type where [external]
 
 export
-ToJS BaseKeyframe where
-  toJS = believe_me
+SafeCast ComputedEffectTiming where
+  safeCast = unsafeCastOnPrototypeName "ComputedEffectTiming"
+
+export ToJS ComputedEffectTiming where toJS = believe_me
+export FromJS ComputedEffectTiming where fromJS = safeCast
+export data DocumentTimelineOptions : Type where [external]
 
 export
-FromJS BaseKeyframe where
-  fromJS = believe_me
-export
-data BasePropertyIndexedKeyframe  : Type where [external]
+SafeCast DocumentTimelineOptions where
+  safeCast = unsafeCastOnPrototypeName "DocumentTimelineOptions"
+
+export ToJS DocumentTimelineOptions where toJS = believe_me
+export FromJS DocumentTimelineOptions where fromJS = safeCast
+export data EffectTiming : Type where [external]
 
 export
-ToJS BasePropertyIndexedKeyframe where
-  toJS = believe_me
+SafeCast EffectTiming where
+  safeCast = unsafeCastOnPrototypeName "EffectTiming"
+
+export ToJS EffectTiming where toJS = believe_me
+export FromJS EffectTiming where fromJS = safeCast
+export data KeyframeAnimationOptions : Type where [external]
 
 export
-FromJS BasePropertyIndexedKeyframe where
-  fromJS = believe_me
-export
-data ComputedEffectTiming  : Type where [external]
+SafeCast KeyframeAnimationOptions where
+  safeCast = unsafeCastOnPrototypeName "KeyframeAnimationOptions"
+
+export ToJS KeyframeAnimationOptions where toJS = believe_me
+export FromJS KeyframeAnimationOptions where fromJS = safeCast
+export data KeyframeEffectOptions : Type where [external]
 
 export
-ToJS ComputedEffectTiming where
-  toJS = believe_me
+SafeCast KeyframeEffectOptions where
+  safeCast = unsafeCastOnPrototypeName "KeyframeEffectOptions"
+
+export ToJS KeyframeEffectOptions where toJS = believe_me
+export FromJS KeyframeEffectOptions where fromJS = safeCast
+export data OptionalEffectTiming : Type where [external]
 
 export
-FromJS ComputedEffectTiming where
-  fromJS = believe_me
-export
-data DocumentTimelineOptions  : Type where [external]
+SafeCast OptionalEffectTiming where
+  safeCast = unsafeCastOnPrototypeName "OptionalEffectTiming"
 
-export
-ToJS DocumentTimelineOptions where
-  toJS = believe_me
-
-export
-FromJS DocumentTimelineOptions where
-  fromJS = believe_me
-export
-data EffectTiming  : Type where [external]
-
-export
-ToJS EffectTiming where
-  toJS = believe_me
-
-export
-FromJS EffectTiming where
-  fromJS = believe_me
-export
-data KeyframeAnimationOptions  : Type where [external]
-
-export
-ToJS KeyframeAnimationOptions where
-  toJS = believe_me
-
-export
-FromJS KeyframeAnimationOptions where
-  fromJS = believe_me
-export
-data KeyframeEffectOptions  : Type where [external]
-
-export
-ToJS KeyframeEffectOptions where
-  toJS = believe_me
-
-export
-FromJS KeyframeEffectOptions where
-  fromJS = believe_me
-export
-data OptionalEffectTiming  : Type where [external]
-
-export
-ToJS OptionalEffectTiming where
-  toJS = believe_me
-
-export
-FromJS OptionalEffectTiming where
-  fromJS = believe_me
+export ToJS OptionalEffectTiming where toJS = believe_me
+export FromJS OptionalEffectTiming where fromJS = safeCast

@@ -5,24 +5,20 @@ import JS
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-export
-data URL  : Type where [external]
+export data URL : Type where [external]
 
 export
-ToJS URL where
-  toJS = believe_me
+SafeCast URL where
+  safeCast = unsafeCastOnPrototypeName "URL"
+
+export ToJS URL where toJS = believe_me
+export FromJS URL where fromJS = safeCast
+export data URLSearchParams : Type where [external]
 
 export
-FromJS URL where
-  fromJS = believe_me
-export
-data URLSearchParams  : Type where [external]
+SafeCast URLSearchParams where
+  safeCast = unsafeCastOnPrototypeName "URLSearchParams"
 
-export
-ToJS URLSearchParams where
-  toJS = believe_me
-
-export
-FromJS URLSearchParams where
-  fromJS = believe_me
+export ToJS URLSearchParams where toJS = believe_me
+export FromJS URLSearchParams where fromJS = safeCast
 

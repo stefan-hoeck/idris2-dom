@@ -39,7 +39,7 @@ namespace ReadableStreamReaderMode
 
   export
   FromJS ReadableStreamReaderMode where
-    fromJS = fromMaybe Byob . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace ReadableStreamType
   
@@ -75,276 +75,224 @@ namespace ReadableStreamType
 
   export
   FromJS ReadableStreamType where
-    fromJS = fromMaybe Bytes . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-export
-data ByteLengthQueuingStrategy  : Type where [external]
+export data ByteLengthQueuingStrategy : Type where [external]
 
 export
-ToJS ByteLengthQueuingStrategy where
-  toJS = believe_me
+SafeCast ByteLengthQueuingStrategy where
+  safeCast = unsafeCastOnPrototypeName "ByteLengthQueuingStrategy"
+
+export ToJS ByteLengthQueuingStrategy where toJS = believe_me
+export FromJS ByteLengthQueuingStrategy where fromJS = safeCast
+export data CountQueuingStrategy : Type where [external]
 
 export
-FromJS ByteLengthQueuingStrategy where
-  fromJS = believe_me
-export
-data CountQueuingStrategy  : Type where [external]
+SafeCast CountQueuingStrategy where
+  safeCast = unsafeCastOnPrototypeName "CountQueuingStrategy"
+
+export ToJS CountQueuingStrategy where toJS = believe_me
+export FromJS CountQueuingStrategy where fromJS = safeCast
+export data ReadableByteStreamController : Type where [external]
 
 export
-ToJS CountQueuingStrategy where
-  toJS = believe_me
+SafeCast ReadableByteStreamController where
+  safeCast = unsafeCastOnPrototypeName "ReadableByteStreamController"
+
+export ToJS ReadableByteStreamController where toJS = believe_me
+export FromJS ReadableByteStreamController where fromJS = safeCast
+export data ReadableStream : Type where [external]
 
 export
-FromJS CountQueuingStrategy where
-  fromJS = believe_me
-export
-data ReadableByteStreamController  : Type where [external]
+SafeCast ReadableStream where
+  safeCast = unsafeCastOnPrototypeName "ReadableStream"
+
+export ToJS ReadableStream where toJS = believe_me
+export FromJS ReadableStream where fromJS = safeCast
+export data ReadableStreamBYOBReader : Type where [external]
 
 export
-ToJS ReadableByteStreamController where
-  toJS = believe_me
+SafeCast ReadableStreamBYOBReader where
+  safeCast = unsafeCastOnPrototypeName "ReadableStreamBYOBReader"
+
+export ToJS ReadableStreamBYOBReader where toJS = believe_me
+export FromJS ReadableStreamBYOBReader where fromJS = safeCast
+export data ReadableStreamBYOBRequest : Type where [external]
 
 export
-FromJS ReadableByteStreamController where
-  fromJS = believe_me
-export
-data ReadableStream  : Type where [external]
+SafeCast ReadableStreamBYOBRequest where
+  safeCast = unsafeCastOnPrototypeName "ReadableStreamBYOBRequest"
+
+export ToJS ReadableStreamBYOBRequest where toJS = believe_me
+export FromJS ReadableStreamBYOBRequest where fromJS = safeCast
+export data ReadableStreamDefaultController : Type where [external]
 
 export
-ToJS ReadableStream where
-  toJS = believe_me
+SafeCast ReadableStreamDefaultController where
+  safeCast = unsafeCastOnPrototypeName "ReadableStreamDefaultController"
+
+export ToJS ReadableStreamDefaultController where toJS = believe_me
+export FromJS ReadableStreamDefaultController where fromJS = safeCast
+export data ReadableStreamDefaultReader : Type where [external]
 
 export
-FromJS ReadableStream where
-  fromJS = believe_me
-export
-data ReadableStreamBYOBReader  : Type where [external]
+SafeCast ReadableStreamDefaultReader where
+  safeCast = unsafeCastOnPrototypeName "ReadableStreamDefaultReader"
+
+export ToJS ReadableStreamDefaultReader where toJS = believe_me
+export FromJS ReadableStreamDefaultReader where fromJS = safeCast
+export data TransformStream : Type where [external]
 
 export
-ToJS ReadableStreamBYOBReader where
-  toJS = believe_me
+SafeCast TransformStream where
+  safeCast = unsafeCastOnPrototypeName "TransformStream"
+
+export ToJS TransformStream where toJS = believe_me
+export FromJS TransformStream where fromJS = safeCast
+export data TransformStreamDefaultController : Type where [external]
 
 export
-FromJS ReadableStreamBYOBReader where
-  fromJS = believe_me
-export
-data ReadableStreamBYOBRequest  : Type where [external]
+SafeCast TransformStreamDefaultController where
+  safeCast = unsafeCastOnPrototypeName "TransformStreamDefaultController"
+
+export ToJS TransformStreamDefaultController where toJS = believe_me
+export FromJS TransformStreamDefaultController where fromJS = safeCast
+export data WritableStream : Type where [external]
 
 export
-ToJS ReadableStreamBYOBRequest where
-  toJS = believe_me
+SafeCast WritableStream where
+  safeCast = unsafeCastOnPrototypeName "WritableStream"
+
+export ToJS WritableStream where toJS = believe_me
+export FromJS WritableStream where fromJS = safeCast
+export data WritableStreamDefaultController : Type where [external]
 
 export
-FromJS ReadableStreamBYOBRequest where
-  fromJS = believe_me
-export
-data ReadableStreamDefaultController  : Type where [external]
+SafeCast WritableStreamDefaultController where
+  safeCast = unsafeCastOnPrototypeName "WritableStreamDefaultController"
+
+export ToJS WritableStreamDefaultController where toJS = believe_me
+export FromJS WritableStreamDefaultController where fromJS = safeCast
+export data WritableStreamDefaultWriter : Type where [external]
 
 export
-ToJS ReadableStreamDefaultController where
-  toJS = believe_me
+SafeCast WritableStreamDefaultWriter where
+  safeCast = unsafeCastOnPrototypeName "WritableStreamDefaultWriter"
 
-export
-FromJS ReadableStreamDefaultController where
-  fromJS = believe_me
-export
-data ReadableStreamDefaultReader  : Type where [external]
-
-export
-ToJS ReadableStreamDefaultReader where
-  toJS = believe_me
-
-export
-FromJS ReadableStreamDefaultReader where
-  fromJS = believe_me
-export
-data TransformStream  : Type where [external]
-
-export
-ToJS TransformStream where
-  toJS = believe_me
-
-export
-FromJS TransformStream where
-  fromJS = believe_me
-export
-data TransformStreamDefaultController  : Type where [external]
-
-export
-ToJS TransformStreamDefaultController where
-  toJS = believe_me
-
-export
-FromJS TransformStreamDefaultController where
-  fromJS = believe_me
-export
-data WritableStream  : Type where [external]
-
-export
-ToJS WritableStream where
-  toJS = believe_me
-
-export
-FromJS WritableStream where
-  fromJS = believe_me
-export
-data WritableStreamDefaultController  : Type where [external]
-
-export
-ToJS WritableStreamDefaultController where
-  toJS = believe_me
-
-export
-FromJS WritableStreamDefaultController where
-  fromJS = believe_me
-export
-data WritableStreamDefaultWriter  : Type where [external]
-
-export
-ToJS WritableStreamDefaultWriter where
-  toJS = believe_me
-
-export
-FromJS WritableStreamDefaultWriter where
-  fromJS = believe_me
+export ToJS WritableStreamDefaultWriter where toJS = believe_me
+export FromJS WritableStreamDefaultWriter where fromJS = safeCast
 
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------
-export
-data GenericTransformStream  : Type where [external]
+export data GenericTransformStream : Type where [external]
 
 export
-ToJS GenericTransformStream where
-  toJS = believe_me
+SafeCast GenericTransformStream where
+  safeCast = unsafeCastOnPrototypeName "GenericTransformStream"
+
+export ToJS GenericTransformStream where toJS = believe_me
+export FromJS GenericTransformStream where fromJS = safeCast
+export data ReadableStreamGenericReader : Type where [external]
 
 export
-FromJS GenericTransformStream where
-  fromJS = believe_me
-export
-data ReadableStreamGenericReader  : Type where [external]
+SafeCast ReadableStreamGenericReader where
+  safeCast = unsafeCastOnPrototypeName "ReadableStreamGenericReader"
 
-export
-ToJS ReadableStreamGenericReader where
-  toJS = believe_me
-
-export
-FromJS ReadableStreamGenericReader where
-  fromJS = believe_me
+export ToJS ReadableStreamGenericReader where toJS = believe_me
+export FromJS ReadableStreamGenericReader where fromJS = safeCast
 
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
-export
-data QueuingStrategy  : Type where [external]
+export data QueuingStrategy : Type where [external]
 
 export
-ToJS QueuingStrategy where
-  toJS = believe_me
+SafeCast QueuingStrategy where
+  safeCast = unsafeCastOnPrototypeName "QueuingStrategy"
+
+export ToJS QueuingStrategy where toJS = believe_me
+export FromJS QueuingStrategy where fromJS = safeCast
+export data QueuingStrategyInit : Type where [external]
 
 export
-FromJS QueuingStrategy where
-  fromJS = believe_me
-export
-data QueuingStrategyInit  : Type where [external]
+SafeCast QueuingStrategyInit where
+  safeCast = unsafeCastOnPrototypeName "QueuingStrategyInit"
+
+export ToJS QueuingStrategyInit where toJS = believe_me
+export FromJS QueuingStrategyInit where fromJS = safeCast
+export data ReadableStreamBYOBReadResult : Type where [external]
 
 export
-ToJS QueuingStrategyInit where
-  toJS = believe_me
+SafeCast ReadableStreamBYOBReadResult where
+  safeCast = unsafeCastOnPrototypeName "ReadableStreamBYOBReadResult"
+
+export ToJS ReadableStreamBYOBReadResult where toJS = believe_me
+export FromJS ReadableStreamBYOBReadResult where fromJS = safeCast
+export data ReadableStreamDefaultReadResult : Type where [external]
 
 export
-FromJS QueuingStrategyInit where
-  fromJS = believe_me
-export
-data ReadableStreamBYOBReadResult  : Type where [external]
+SafeCast ReadableStreamDefaultReadResult where
+  safeCast = unsafeCastOnPrototypeName "ReadableStreamDefaultReadResult"
+
+export ToJS ReadableStreamDefaultReadResult where toJS = believe_me
+export FromJS ReadableStreamDefaultReadResult where fromJS = safeCast
+export data ReadableStreamGetReaderOptions : Type where [external]
 
 export
-ToJS ReadableStreamBYOBReadResult where
-  toJS = believe_me
+SafeCast ReadableStreamGetReaderOptions where
+  safeCast = unsafeCastOnPrototypeName "ReadableStreamGetReaderOptions"
+
+export ToJS ReadableStreamGetReaderOptions where toJS = believe_me
+export FromJS ReadableStreamGetReaderOptions where fromJS = safeCast
+export data ReadableStreamIteratorOptions : Type where [external]
 
 export
-FromJS ReadableStreamBYOBReadResult where
-  fromJS = believe_me
-export
-data ReadableStreamDefaultReadResult  : Type where [external]
+SafeCast ReadableStreamIteratorOptions where
+  safeCast = unsafeCastOnPrototypeName "ReadableStreamIteratorOptions"
+
+export ToJS ReadableStreamIteratorOptions where toJS = believe_me
+export FromJS ReadableStreamIteratorOptions where fromJS = safeCast
+export data ReadableWritablePair : Type where [external]
 
 export
-ToJS ReadableStreamDefaultReadResult where
-  toJS = believe_me
+SafeCast ReadableWritablePair where
+  safeCast = unsafeCastOnPrototypeName "ReadableWritablePair"
+
+export ToJS ReadableWritablePair where toJS = believe_me
+export FromJS ReadableWritablePair where fromJS = safeCast
+export data StreamPipeOptions : Type where [external]
 
 export
-FromJS ReadableStreamDefaultReadResult where
-  fromJS = believe_me
-export
-data ReadableStreamGetReaderOptions  : Type where [external]
+SafeCast StreamPipeOptions where
+  safeCast = unsafeCastOnPrototypeName "StreamPipeOptions"
+
+export ToJS StreamPipeOptions where toJS = believe_me
+export FromJS StreamPipeOptions where fromJS = safeCast
+export data Transformer : Type where [external]
 
 export
-ToJS ReadableStreamGetReaderOptions where
-  toJS = believe_me
+SafeCast Transformer where
+  safeCast = unsafeCastOnPrototypeName "Transformer"
+
+export ToJS Transformer where toJS = believe_me
+export FromJS Transformer where fromJS = safeCast
+export data UnderlyingSink : Type where [external]
 
 export
-FromJS ReadableStreamGetReaderOptions where
-  fromJS = believe_me
-export
-data ReadableStreamIteratorOptions  : Type where [external]
+SafeCast UnderlyingSink where
+  safeCast = unsafeCastOnPrototypeName "UnderlyingSink"
+
+export ToJS UnderlyingSink where toJS = believe_me
+export FromJS UnderlyingSink where fromJS = safeCast
+export data UnderlyingSource : Type where [external]
 
 export
-ToJS ReadableStreamIteratorOptions where
-  toJS = believe_me
+SafeCast UnderlyingSource where
+  safeCast = unsafeCastOnPrototypeName "UnderlyingSource"
 
-export
-FromJS ReadableStreamIteratorOptions where
-  fromJS = believe_me
-export
-data ReadableWritablePair  : Type where [external]
-
-export
-ToJS ReadableWritablePair where
-  toJS = believe_me
-
-export
-FromJS ReadableWritablePair where
-  fromJS = believe_me
-export
-data StreamPipeOptions  : Type where [external]
-
-export
-ToJS StreamPipeOptions where
-  toJS = believe_me
-
-export
-FromJS StreamPipeOptions where
-  fromJS = believe_me
-export
-data Transformer  : Type where [external]
-
-export
-ToJS Transformer where
-  toJS = believe_me
-
-export
-FromJS Transformer where
-  fromJS = believe_me
-export
-data UnderlyingSink  : Type where [external]
-
-export
-ToJS UnderlyingSink where
-  toJS = believe_me
-
-export
-FromJS UnderlyingSink where
-  fromJS = believe_me
-export
-data UnderlyingSource  : Type where [external]
-
-export
-ToJS UnderlyingSource where
-  toJS = believe_me
-
-export
-FromJS UnderlyingSource where
-  fromJS = believe_me
+export ToJS UnderlyingSource where toJS = believe_me
+export FromJS UnderlyingSource where fromJS = safeCast

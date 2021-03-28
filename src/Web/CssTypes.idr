@@ -5,167 +5,135 @@ import JS
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-export
-data CSSGroupingRule  : Type where [external]
+export data CSSGroupingRule : Type where [external]
 
 export
-ToJS CSSGroupingRule where
-  toJS = believe_me
+SafeCast CSSGroupingRule where
+  safeCast = unsafeCastOnPrototypeName "CSSGroupingRule"
+
+export ToJS CSSGroupingRule where toJS = believe_me
+export FromJS CSSGroupingRule where fromJS = safeCast
+export data CSSImportRule : Type where [external]
 
 export
-FromJS CSSGroupingRule where
-  fromJS = believe_me
-export
-data CSSImportRule  : Type where [external]
+SafeCast CSSImportRule where
+  safeCast = unsafeCastOnPrototypeName "CSSImportRule"
+
+export ToJS CSSImportRule where toJS = believe_me
+export FromJS CSSImportRule where fromJS = safeCast
+export data CSSMarginRule : Type where [external]
 
 export
-ToJS CSSImportRule where
-  toJS = believe_me
+SafeCast CSSMarginRule where
+  safeCast = unsafeCastOnPrototypeName "CSSMarginRule"
+
+export ToJS CSSMarginRule where toJS = believe_me
+export FromJS CSSMarginRule where fromJS = safeCast
+export data CSSNamespaceRule : Type where [external]
 
 export
-FromJS CSSImportRule where
-  fromJS = believe_me
-export
-data CSSMarginRule  : Type where [external]
+SafeCast CSSNamespaceRule where
+  safeCast = unsafeCastOnPrototypeName "CSSNamespaceRule"
+
+export ToJS CSSNamespaceRule where toJS = believe_me
+export FromJS CSSNamespaceRule where fromJS = safeCast
+export data CSSPageRule : Type where [external]
 
 export
-ToJS CSSMarginRule where
-  toJS = believe_me
+SafeCast CSSPageRule where
+  safeCast = unsafeCastOnPrototypeName "CSSPageRule"
+
+export ToJS CSSPageRule where toJS = believe_me
+export FromJS CSSPageRule where fromJS = safeCast
+export data CSSPseudoElement : Type where [external]
 
 export
-FromJS CSSMarginRule where
-  fromJS = believe_me
-export
-data CSSNamespaceRule  : Type where [external]
+SafeCast CSSPseudoElement where
+  safeCast = unsafeCastOnPrototypeName "CSSPseudoElement"
+
+export ToJS CSSPseudoElement where toJS = believe_me
+export FromJS CSSPseudoElement where fromJS = safeCast
+export data CSSRule : Type where [external]
 
 export
-ToJS CSSNamespaceRule where
-  toJS = believe_me
+SafeCast CSSRule where
+  safeCast = unsafeCastOnPrototypeName "CSSRule"
+
+export ToJS CSSRule where toJS = believe_me
+export FromJS CSSRule where fromJS = safeCast
+export data CSSRuleList : Type where [external]
 
 export
-FromJS CSSNamespaceRule where
-  fromJS = believe_me
-export
-data CSSPageRule  : Type where [external]
+SafeCast CSSRuleList where
+  safeCast = unsafeCastOnPrototypeName "CSSRuleList"
+
+export ToJS CSSRuleList where toJS = believe_me
+export FromJS CSSRuleList where fromJS = safeCast
+export data CSSStyleDeclaration : Type where [external]
 
 export
-ToJS CSSPageRule where
-  toJS = believe_me
+SafeCast CSSStyleDeclaration where
+  safeCast = unsafeCastOnPrototypeName "CSSStyleDeclaration"
+
+export ToJS CSSStyleDeclaration where toJS = believe_me
+export FromJS CSSStyleDeclaration where fromJS = safeCast
+export data CSSStyleRule : Type where [external]
 
 export
-FromJS CSSPageRule where
-  fromJS = believe_me
-export
-data CSSPseudoElement  : Type where [external]
+SafeCast CSSStyleRule where
+  safeCast = unsafeCastOnPrototypeName "CSSStyleRule"
+
+export ToJS CSSStyleRule where toJS = believe_me
+export FromJS CSSStyleRule where fromJS = safeCast
+export data CSSStyleSheet : Type where [external]
 
 export
-ToJS CSSPseudoElement where
-  toJS = believe_me
+SafeCast CSSStyleSheet where
+  safeCast = unsafeCastOnPrototypeName "CSSStyleSheet"
+
+export ToJS CSSStyleSheet where toJS = believe_me
+export FromJS CSSStyleSheet where fromJS = safeCast
+export data MediaList : Type where [external]
 
 export
-FromJS CSSPseudoElement where
-  fromJS = believe_me
-export
-data CSSRule  : Type where [external]
+SafeCast MediaList where
+  safeCast = unsafeCastOnPrototypeName "MediaList"
+
+export ToJS MediaList where toJS = believe_me
+export FromJS MediaList where fromJS = safeCast
+export data StyleSheet : Type where [external]
 
 export
-ToJS CSSRule where
-  toJS = believe_me
+SafeCast StyleSheet where
+  safeCast = unsafeCastOnPrototypeName "StyleSheet"
+
+export ToJS StyleSheet where toJS = believe_me
+export FromJS StyleSheet where fromJS = safeCast
+export data StyleSheetList : Type where [external]
 
 export
-FromJS CSSRule where
-  fromJS = believe_me
-export
-data CSSRuleList  : Type where [external]
+SafeCast StyleSheetList where
+  safeCast = unsafeCastOnPrototypeName "StyleSheetList"
 
-export
-ToJS CSSRuleList where
-  toJS = believe_me
-
-export
-FromJS CSSRuleList where
-  fromJS = believe_me
-export
-data CSSStyleDeclaration  : Type where [external]
-
-export
-ToJS CSSStyleDeclaration where
-  toJS = believe_me
-
-export
-FromJS CSSStyleDeclaration where
-  fromJS = believe_me
-export
-data CSSStyleRule  : Type where [external]
-
-export
-ToJS CSSStyleRule where
-  toJS = believe_me
-
-export
-FromJS CSSStyleRule where
-  fromJS = believe_me
-export
-data CSSStyleSheet  : Type where [external]
-
-export
-ToJS CSSStyleSheet where
-  toJS = believe_me
-
-export
-FromJS CSSStyleSheet where
-  fromJS = believe_me
-export
-data MediaList  : Type where [external]
-
-export
-ToJS MediaList where
-  toJS = believe_me
-
-export
-FromJS MediaList where
-  fromJS = believe_me
-export
-data StyleSheet  : Type where [external]
-
-export
-ToJS StyleSheet where
-  toJS = believe_me
-
-export
-FromJS StyleSheet where
-  fromJS = believe_me
-export
-data StyleSheetList  : Type where [external]
-
-export
-ToJS StyleSheetList where
-  toJS = believe_me
-
-export
-FromJS StyleSheetList where
-  fromJS = believe_me
+export ToJS StyleSheetList where toJS = believe_me
+export FromJS StyleSheetList where fromJS = safeCast
 
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------
-export
-data ElementCSSInlineStyle  : Type where [external]
+export data ElementCSSInlineStyle : Type where [external]
 
 export
-ToJS ElementCSSInlineStyle where
-  toJS = believe_me
+SafeCast ElementCSSInlineStyle where
+  safeCast = unsafeCastOnPrototypeName "ElementCSSInlineStyle"
+
+export ToJS ElementCSSInlineStyle where toJS = believe_me
+export FromJS ElementCSSInlineStyle where fromJS = safeCast
+export data LinkStyle : Type where [external]
 
 export
-FromJS ElementCSSInlineStyle where
-  fromJS = believe_me
-export
-data LinkStyle  : Type where [external]
+SafeCast LinkStyle where
+  safeCast = unsafeCastOnPrototypeName "LinkStyle"
 
-export
-ToJS LinkStyle where
-  toJS = believe_me
-
-export
-FromJS LinkStyle where
-  fromJS = believe_me
+export ToJS LinkStyle where toJS = believe_me
+export FromJS LinkStyle where fromJS = safeCast

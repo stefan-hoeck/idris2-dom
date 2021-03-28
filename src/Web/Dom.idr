@@ -9,7 +9,7 @@ import Web.Types
 namespace AbortController
   
   public export
-  JSVal AbortController where
+  JSType AbortController where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -23,7 +23,7 @@ namespace AbortController
 namespace AbortSignal
   
   public export
-  JSVal AbortSignal where
+  JSType AbortSignal where
     parents =  [ EventTarget , JSObject ]
 
     mixins =  []
@@ -49,7 +49,7 @@ namespace AbortSignal
 namespace AbstractRange
   
   public export
-  JSVal AbstractRange where
+  JSType AbstractRange where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -87,7 +87,7 @@ namespace AbstractRange
 namespace Attr
   
   public export
-  JSVal Attr where
+  JSType Attr where
     parents =  [ Node , EventTarget , JSObject ]
 
     mixins =  []
@@ -143,7 +143,7 @@ namespace Attr
 namespace CDATASection
   
   public export
-  JSVal CDATASection where
+  JSType CDATASection where
     parents =  [ Text , CharacterData , Node , EventTarget , JSObject ]
 
     mixins =  [ ChildNode , NonDocumentTypeChildNode , Slottable ]
@@ -151,7 +151,7 @@ namespace CDATASection
 namespace CharacterData
   
   public export
-  JSVal CharacterData where
+  JSType CharacterData where
     parents =  [ Node , EventTarget , JSObject ]
 
     mixins =  [ ChildNode , NonDocumentTypeChildNode ]
@@ -177,7 +177,7 @@ namespace CharacterData
 namespace Comment
   
   public export
-  JSVal Comment where
+  JSType Comment where
     parents =  [ CharacterData , Node , EventTarget , JSObject ]
 
     mixins =  [ ChildNode , NonDocumentTypeChildNode ]
@@ -185,7 +185,7 @@ namespace Comment
 namespace CustomEvent
   
   public export
-  JSVal CustomEvent where
+  JSType CustomEvent where
     parents =  [ Event , JSObject ]
 
     mixins =  []
@@ -194,12 +194,12 @@ namespace CustomEvent
   prim__detail : AnyPtr -> PrimIO AnyPtr
 
   export
-  detail : (obj : CustomEvent) -> IO JSAny
+  detail : (obj : CustomEvent) -> IO Any
 
 namespace DOMImplementation
   
   public export
-  JSVal DOMImplementation where
+  JSType DOMImplementation where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -207,7 +207,7 @@ namespace DOMImplementation
 namespace DOMTokenList
   
   public export
-  JSVal DOMTokenList where
+  JSType DOMTokenList where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -221,7 +221,7 @@ namespace DOMTokenList
 namespace Document
   
   public export
-  JSVal Document where
+  JSType Document where
     parents =  [ Node , EventTarget , JSObject ]
 
     mixins =  [ DocumentAndElementEventHandlers
@@ -571,7 +571,7 @@ namespace Document
 namespace DocumentFragment
   
   public export
-  JSVal DocumentFragment where
+  JSType DocumentFragment where
     parents =  [ Node , EventTarget , JSObject ]
 
     mixins =  [ NonElementParentNode , ParentNode ]
@@ -579,7 +579,7 @@ namespace DocumentFragment
 namespace DocumentType
   
   public export
-  JSVal DocumentType where
+  JSType DocumentType where
     parents =  [ Node , EventTarget , JSObject ]
 
     mixins =  [ ChildNode ]
@@ -605,7 +605,7 @@ namespace DocumentType
 namespace Element
   
   public export
-  JSVal Element where
+  JSType Element where
     parents =  [ Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -696,7 +696,7 @@ namespace Element
 namespace Event
   
   public export
-  JSVal Event where
+  JSType Event where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -810,7 +810,7 @@ namespace Event
 namespace EventTarget
   
   public export
-  JSVal EventTarget where
+  JSType EventTarget where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -818,7 +818,7 @@ namespace EventTarget
 namespace HTMLCollection
   
   public export
-  JSVal HTMLCollection where
+  JSType HTMLCollection where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -832,7 +832,7 @@ namespace HTMLCollection
 namespace MutationObserver
   
   public export
-  JSVal MutationObserver where
+  JSType MutationObserver where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -840,7 +840,7 @@ namespace MutationObserver
 namespace MutationRecord
   
   public export
-  JSVal MutationRecord where
+  JSType MutationRecord where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -902,7 +902,7 @@ namespace MutationRecord
 namespace NamedNodeMap
   
   public export
-  JSVal NamedNodeMap where
+  JSType NamedNodeMap where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -916,7 +916,7 @@ namespace NamedNodeMap
 namespace Node
   
   public export
-  JSVal Node where
+  JSType Node where
     parents =  [ EventTarget , JSObject ]
 
     mixins =  []
@@ -1092,7 +1092,7 @@ namespace Node
 namespace NodeIterator
   
   public export
-  JSVal NodeIterator where
+  JSType NodeIterator where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -1130,7 +1130,7 @@ namespace NodeIterator
 namespace NodeList
   
   public export
-  JSVal NodeList where
+  JSType NodeList where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -1144,7 +1144,7 @@ namespace NodeList
 namespace Performance
   
   public export
-  JSVal Performance where
+  JSType Performance where
     parents =  [ EventTarget , JSObject ]
 
     mixins =  []
@@ -1158,7 +1158,7 @@ namespace Performance
 namespace ProcessingInstruction
   
   public export
-  JSVal ProcessingInstruction where
+  JSType ProcessingInstruction where
     parents =  [ CharacterData , Node , EventTarget , JSObject ]
 
     mixins =  [ ChildNode , LinkStyle , NonDocumentTypeChildNode ]
@@ -1172,7 +1172,7 @@ namespace ProcessingInstruction
 namespace Range
   
   public export
-  JSVal Range where
+  JSType Range where
     parents =  [ AbstractRange , JSObject ]
 
     mixins =  []
@@ -1202,7 +1202,7 @@ namespace Range
 namespace ShadowRoot
   
   public export
-  JSVal ShadowRoot where
+  JSType ShadowRoot where
     parents =  [ DocumentFragment , Node , EventTarget , JSObject ]
 
     mixins =  [ DocumentOrShadowRoot , NonElementParentNode , ParentNode ]
@@ -1234,7 +1234,7 @@ namespace ShadowRoot
 namespace StaticRange
   
   public export
-  JSVal StaticRange where
+  JSType StaticRange where
     parents =  [ AbstractRange , JSObject ]
 
     mixins =  []
@@ -1242,7 +1242,7 @@ namespace StaticRange
 namespace Text
   
   public export
-  JSVal Text where
+  JSType Text where
     parents =  [ CharacterData , Node , EventTarget , JSObject ]
 
     mixins =  [ ChildNode , NonDocumentTypeChildNode , Slottable ]
@@ -1256,7 +1256,7 @@ namespace Text
 namespace TreeWalker
   
   public export
-  JSVal TreeWalker where
+  JSType TreeWalker where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -1294,7 +1294,7 @@ namespace TreeWalker
 namespace XMLDocument
   
   public export
-  JSVal XMLDocument where
+  JSType XMLDocument where
     parents =  [ Document , Node , EventTarget , JSObject ]
 
     mixins =  [ DocumentAndElementEventHandlers
@@ -1308,7 +1308,7 @@ namespace XMLDocument
 namespace XPathEvaluator
   
   public export
-  JSVal XPathEvaluator where
+  JSType XPathEvaluator where
     parents =  [ JSObject ]
 
     mixins =  [ XPathEvaluatorBase ]
@@ -1316,7 +1316,7 @@ namespace XPathEvaluator
 namespace XPathExpression
   
   public export
-  JSVal XPathExpression where
+  JSType XPathExpression where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -1324,7 +1324,7 @@ namespace XPathExpression
 namespace XPathResult
   
   public export
-  JSVal XPathResult where
+  JSType XPathResult where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -1482,7 +1482,7 @@ namespace Slottable
 namespace AddEventListenerOptions
   
   public export
-  JSVal AddEventListenerOptions where
+  JSType AddEventListenerOptions where
     parents =  [ EventListenerOptions , JSObject ]
 
     mixins =  []
@@ -1526,7 +1526,7 @@ namespace AddEventListenerOptions
 namespace CustomEventInit
   
   public export
-  JSVal CustomEventInit where
+  JSType CustomEventInit where
     parents =  [ EventInit , JSObject ]
 
     mixins =  []
@@ -1535,18 +1535,18 @@ namespace CustomEventInit
   prim__detail : AnyPtr -> PrimIO AnyPtr
 
   export
-  detail : (obj : CustomEventInit) -> IO JSAny
+  detail : (obj : CustomEventInit) -> IO Any
 
   %foreign "browser:lambda:(x,v)=>{x.detail  = v}"
   prim__setDetail : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDetail : (obj : CustomEventInit) -> (v : JSAny) -> IO ()
+  setDetail : (obj : CustomEventInit) -> (v : Any) -> IO ()
 
 namespace ElementCreationOptions
   
   public export
-  JSVal ElementCreationOptions where
+  JSType ElementCreationOptions where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -1566,7 +1566,7 @@ namespace ElementCreationOptions
 namespace EventInit
   
   public export
-  JSVal EventInit where
+  JSType EventInit where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -1610,7 +1610,7 @@ namespace EventInit
 namespace EventListenerOptions
   
   public export
-  JSVal EventListenerOptions where
+  JSType EventListenerOptions where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -1630,7 +1630,7 @@ namespace EventListenerOptions
 namespace GetRootNodeOptions
   
   public export
-  JSVal GetRootNodeOptions where
+  JSType GetRootNodeOptions where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -1650,7 +1650,7 @@ namespace GetRootNodeOptions
 namespace MutationObserverInit
   
   public export
-  JSVal MutationObserverInit where
+  JSType MutationObserverInit where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -1744,7 +1744,7 @@ namespace MutationObserverInit
 namespace ShadowRootInit
   
   public export
-  JSVal ShadowRootInit where
+  JSType ShadowRootInit where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -1776,7 +1776,7 @@ namespace ShadowRootInit
 namespace StaticRangeInit
   
   public export
-  JSVal StaticRangeInit where
+  JSType StaticRangeInit where
     parents =  [ JSObject ]
 
     mixins =  []

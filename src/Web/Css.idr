@@ -9,7 +9,7 @@ import Web.Types
 namespace CSSGroupingRule
   
   public export
-  JSVal CSSGroupingRule where
+  JSType CSSGroupingRule where
     parents =  [ CSSRule , JSObject ]
 
     mixins =  []
@@ -23,7 +23,7 @@ namespace CSSGroupingRule
 namespace CSSImportRule
   
   public export
-  JSVal CSSImportRule where
+  JSType CSSImportRule where
     parents =  [ CSSRule , JSObject ]
 
     mixins =  []
@@ -49,7 +49,7 @@ namespace CSSImportRule
 namespace CSSMarginRule
   
   public export
-  JSVal CSSMarginRule where
+  JSType CSSMarginRule where
     parents =  [ CSSRule , JSObject ]
 
     mixins =  []
@@ -69,7 +69,7 @@ namespace CSSMarginRule
 namespace CSSNamespaceRule
   
   public export
-  JSVal CSSNamespaceRule where
+  JSType CSSNamespaceRule where
     parents =  [ CSSRule , JSObject ]
 
     mixins =  []
@@ -89,7 +89,7 @@ namespace CSSNamespaceRule
 namespace CSSPageRule
   
   public export
-  JSVal CSSPageRule where
+  JSType CSSPageRule where
     parents =  [ CSSGroupingRule , CSSRule , JSObject ]
 
     mixins =  []
@@ -115,7 +115,7 @@ namespace CSSPageRule
 namespace CSSPseudoElement
   
   public export
-  JSVal CSSPseudoElement where
+  JSType CSSPseudoElement where
     parents =  [ EventTarget , JSObject ]
 
     mixins =  [ Animatable ]
@@ -135,7 +135,7 @@ namespace CSSPseudoElement
 namespace CSSRule
   
   public export
-  JSVal CSSRule where
+  JSType CSSRule where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -205,7 +205,7 @@ namespace CSSRule
 namespace CSSRuleList
   
   public export
-  JSVal CSSRuleList where
+  JSType CSSRuleList where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -219,7 +219,7 @@ namespace CSSRuleList
 namespace CSSStyleDeclaration
   
   public export
-  JSVal CSSStyleDeclaration where
+  JSType CSSStyleDeclaration where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -263,7 +263,7 @@ namespace CSSStyleDeclaration
 namespace CSSStyleRule
   
   public export
-  JSVal CSSStyleRule where
+  JSType CSSStyleRule where
     parents =  [ CSSRule , JSObject ]
 
     mixins =  []
@@ -289,7 +289,7 @@ namespace CSSStyleRule
 namespace CSSStyleSheet
   
   public export
-  JSVal CSSStyleSheet where
+  JSType CSSStyleSheet where
     parents =  [ StyleSheet , JSObject ]
 
     mixins =  []
@@ -315,7 +315,7 @@ namespace CSSStyleSheet
 namespace MediaList
   
   public export
-  JSVal MediaList where
+  JSType MediaList where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -329,7 +329,7 @@ namespace MediaList
 namespace StyleSheet
   
   public export
-  JSVal StyleSheet where
+  JSType StyleSheet where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -386,7 +386,7 @@ namespace StyleSheet
 namespace StyleSheetList
   
   public export
-  JSVal StyleSheetList where
+  JSType StyleSheetList where
     parents =  [ JSObject ]
 
     mixins =  []

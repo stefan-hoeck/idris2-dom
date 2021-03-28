@@ -5,14 +5,12 @@ import JS
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-export
-data DOMException  : Type where [external]
+export data DOMException : Type where [external]
 
 export
-ToJS DOMException where
-  toJS = believe_me
+SafeCast DOMException where
+  safeCast = unsafeCastOnPrototypeName "DOMException"
 
-export
-FromJS DOMException where
-  fromJS = believe_me
+export ToJS DOMException where toJS = believe_me
+export FromJS DOMException where fromJS = safeCast
 

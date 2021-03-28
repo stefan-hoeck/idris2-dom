@@ -9,7 +9,7 @@ import Web.Types
 namespace ConstrainablePattern
   
   public export
-  JSVal ConstrainablePattern where
+  JSType ConstrainablePattern where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -17,7 +17,7 @@ namespace ConstrainablePattern
 namespace InputDeviceInfo
   
   public export
-  JSVal InputDeviceInfo where
+  JSType InputDeviceInfo where
     parents =  [ MediaDeviceInfo , JSObject ]
 
     mixins =  []
@@ -25,7 +25,7 @@ namespace InputDeviceInfo
 namespace MediaDeviceInfo
   
   public export
-  JSVal MediaDeviceInfo where
+  JSType MediaDeviceInfo where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -57,7 +57,7 @@ namespace MediaDeviceInfo
 namespace MediaDevices
   
   public export
-  JSVal MediaDevices where
+  JSType MediaDevices where
     parents =  [ EventTarget , JSObject ]
 
     mixins =  []
@@ -77,7 +77,7 @@ namespace MediaDevices
 namespace MediaStream
   
   public export
-  JSVal MediaStream where
+  JSType MediaStream where
     parents =  [ EventTarget , JSObject ]
 
     mixins =  []
@@ -121,7 +121,7 @@ namespace MediaStream
 namespace MediaStreamTrack
   
   public export
-  JSVal MediaStreamTrack where
+  JSType MediaStreamTrack where
     parents =  [ EventTarget , JSObject ]
 
     mixins =  []
@@ -207,7 +207,7 @@ namespace MediaStreamTrack
 namespace MediaStreamTrackEvent
   
   public export
-  JSVal MediaStreamTrackEvent where
+  JSType MediaStreamTrackEvent where
     parents =  [ Event , JSObject ]
 
     mixins =  []
@@ -221,7 +221,7 @@ namespace MediaStreamTrackEvent
 namespace OverconstrainedError
   
   public export
-  JSVal OverconstrainedError where
+  JSType OverconstrainedError where
     parents =  [ DOMException , JSObject ]
 
     mixins =  []
@@ -240,7 +240,7 @@ namespace OverconstrainedError
 namespace Capabilities
   
   public export
-  JSVal Capabilities where
+  JSType Capabilities where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -248,7 +248,7 @@ namespace Capabilities
 namespace ConstrainBooleanParameters
   
   public export
-  JSVal ConstrainBooleanParameters where
+  JSType ConstrainBooleanParameters where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -280,7 +280,7 @@ namespace ConstrainBooleanParameters
 namespace ConstrainDOMStringParameters
   
   public export
-  JSVal ConstrainDOMStringParameters where
+  JSType ConstrainDOMStringParameters where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -318,7 +318,7 @@ namespace ConstrainDOMStringParameters
 namespace ConstrainDoubleRange
   
   public export
-  JSVal ConstrainDoubleRange where
+  JSType ConstrainDoubleRange where
     parents =  [ DoubleRange , JSObject ]
 
     mixins =  []
@@ -350,7 +350,7 @@ namespace ConstrainDoubleRange
 namespace ConstrainULongRange
   
   public export
-  JSVal ConstrainULongRange where
+  JSType ConstrainULongRange where
     parents =  [ ULongRange , JSObject ]
 
     mixins =  []
@@ -382,7 +382,7 @@ namespace ConstrainULongRange
 namespace ConstraintSet
   
   public export
-  JSVal ConstraintSet where
+  JSType ConstraintSet where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -390,7 +390,7 @@ namespace ConstraintSet
 namespace Constraints
   
   public export
-  JSVal Constraints where
+  JSType Constraints where
     parents =  [ ConstraintSet , JSObject ]
 
     mixins =  []
@@ -410,7 +410,7 @@ namespace Constraints
 namespace DoubleRange
   
   public export
-  JSVal DoubleRange where
+  JSType DoubleRange where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -442,7 +442,7 @@ namespace DoubleRange
 namespace MediaStreamConstraints
   
   public export
-  JSVal MediaStreamConstraints where
+  JSType MediaStreamConstraints where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -480,7 +480,7 @@ namespace MediaStreamConstraints
 namespace MediaStreamTrackEventInit
   
   public export
-  JSVal MediaStreamTrackEventInit where
+  JSType MediaStreamTrackEventInit where
     parents =  [ EventInit , JSObject ]
 
     mixins =  []
@@ -502,7 +502,7 @@ namespace MediaStreamTrackEventInit
 namespace MediaTrackCapabilities
   
   public export
-  JSVal MediaTrackCapabilities where
+  JSType MediaTrackCapabilities where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -700,7 +700,7 @@ namespace MediaTrackCapabilities
 namespace MediaTrackConstraintSet
   
   public export
-  JSVal MediaTrackConstraintSet where
+  JSType MediaTrackConstraintSet where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -912,7 +912,7 @@ namespace MediaTrackConstraintSet
 namespace MediaTrackConstraints
   
   public export
-  JSVal MediaTrackConstraints where
+  JSType MediaTrackConstraints where
     parents =  [ MediaTrackConstraintSet , JSObject ]
 
     mixins =  []
@@ -935,7 +935,7 @@ namespace MediaTrackConstraints
 namespace MediaTrackSettings
   
   public export
-  JSVal MediaTrackSettings where
+  JSType MediaTrackSettings where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -1123,7 +1123,7 @@ namespace MediaTrackSettings
 namespace MediaTrackSupportedConstraints
   
   public export
-  JSVal MediaTrackSupportedConstraints where
+  JSType MediaTrackSupportedConstraints where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -1319,7 +1319,7 @@ namespace MediaTrackSupportedConstraints
 namespace Settings
   
   public export
-  JSVal Settings where
+  JSType Settings where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -1327,7 +1327,7 @@ namespace Settings
 namespace ULongRange
   
   public export
-  JSVal ULongRange where
+  JSType ULongRange where
     parents =  [ JSObject ]
 
     mixins =  []

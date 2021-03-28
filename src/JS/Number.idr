@@ -3,6 +3,7 @@ module JS.Number
 import Data.DPair
 import Data.Bits
 import JS.Marshall
+import JS.Util
 
 --------------------------------------------------------------------------------
 --          Primitives
@@ -40,6 +41,18 @@ prim__shlDblSigned : Double -> Double -> Double -> Double
 
 %foreign "javascript:lambda:(a,x,b)=> (a << b) & x"
 prim__shlDblUnsigned : Double -> Double -> Double -> Double
+
+%foreign "javascript:lambda:x=> Number.isInteger(x)?1:0"
+prim__isInteger : Double -> Double
+
+fromInt :  (min : Double)
+        -> (max : Double)
+        -> (mk : Double -> a)
+        -> Double
+        -> Maybe a
+fromInt min max mk v =
+  if doubleToBool (prim__isInteger v) && min <= v && v <= max
+     then Just (mk v) else Nothing
 
 --------------------------------------------------------------------------------
 --          Int8
@@ -117,7 +130,8 @@ export
 ToJS Int8 where toJS = toJS . value
 
 export
-FromJS Int8 where fromJS ptr = doubleToInt8 (prim__toIntegral ptr)
+FromJS Int8 where
+  fromJS ptr = fromJS ptr >>= fromInt (-128) 127 MkInt8
 
 --------------------------------------------------------------------------------
 --          Int16
@@ -194,7 +208,8 @@ export
 ToJS Int16 where toJS = toJS . value
 
 export
-FromJS Int16 where fromJS ptr = doubleToInt16 (prim__toIntegral ptr)
+FromJS Int16 where
+  fromJS ptr = fromJS ptr >>= fromInt (-32768) 32767 MkInt16
 
 --------------------------------------------------------------------------------
 --          Int32
@@ -276,7 +291,8 @@ export
 ToJS Int32 where toJS = toJS . value
 
 export
-FromJS Int32 where fromJS ptr = doubleToInt32 (prim__toIntegral ptr)
+FromJS Int32 where
+  fromJS ptr = fromJS ptr >>= fromInt (-2147483648) 2147483647 MkInt32
 
 --------------------------------------------------------------------------------
 --          Int64
@@ -329,7 +345,8 @@ export
 ToJS Int64 where toJS = toJS . cast {to = Double} . value
 
 export
-FromJS Int64 where fromJS = MkInt64 . cast {from = Double} . fromJS
+FromJS Int64 where
+  fromJS = map MkInt64 . fromJS
 
 --------------------------------------------------------------------------------
 --          UInt8
@@ -402,7 +419,8 @@ export
 ToJS UInt8 where toJS = toJS . value
 
 export
-FromJS UInt8 where fromJS ptr = doubleToUInt8 (prim__toIntegral ptr)
+FromJS UInt8 where
+  fromJS ptr = fromJS ptr >>= fromInt 0 255 MkUInt8
 
 --------------------------------------------------------------------------------
 --          UInt16
@@ -475,7 +493,8 @@ export
 ToJS UInt16 where toJS = toJS . value
 
 export
-FromJS UInt16 where fromJS ptr = doubleToUInt16 (prim__toIntegral ptr)
+FromJS UInt16 where
+  fromJS ptr = fromJS ptr >>= fromInt 0 65535 MkUInt16
 
 --------------------------------------------------------------------------------
 --          UInt32
@@ -535,7 +554,7 @@ ToJS UInt32 where toJS = toJS . bits32ToDbl . value
 
 export
 FromJS UInt32 where
-  fromJS = MkUInt32 . fromInteger . cast {from = Double} . fromJS
+  fromJS = map MkUInt32 . fromJS
 
 --------------------------------------------------------------------------------
 --          UInt64
@@ -582,4 +601,4 @@ ToJS UInt64 where toJS = toJS . bits64ToDbl . value
 
 export
 FromJS UInt64 where
-  fromJS = MkUInt64 . fromInteger . cast {from = Double} . fromJS
+  fromJS = map MkUInt64 . fromJS

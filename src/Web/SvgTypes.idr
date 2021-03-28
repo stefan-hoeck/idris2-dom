@@ -5,701 +5,563 @@ import JS
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-export
-data MathMLElement  : Type where [external]
+export data MathMLElement : Type where [external]
 
 export
-ToJS MathMLElement where
-  toJS = believe_me
+SafeCast MathMLElement where
+  safeCast = unsafeCastOnPrototypeName "MathMLElement"
 
-export
-FromJS MathMLElement where
-  fromJS = believe_me
-export
-data SVGAElement  : Type where [external]
+export ToJS MathMLElement where toJS = believe_me
+export FromJS MathMLElement where fromJS = safeCast
+export data SVGAElement : Type where [external]
 
 export
-ToJS SVGAElement where
-  toJS = believe_me
+SafeCast SVGAElement where
+  safeCast = unsafeCastOnPrototypeName "SVGAElement"
 
-export
-FromJS SVGAElement where
-  fromJS = believe_me
-export
-data SVGAngle  : Type where [external]
+export ToJS SVGAElement where toJS = believe_me
+export FromJS SVGAElement where fromJS = safeCast
+export data SVGAngle : Type where [external]
 
 export
-ToJS SVGAngle where
-  toJS = believe_me
+SafeCast SVGAngle where
+  safeCast = unsafeCastOnPrototypeName "SVGAngle"
 
-export
-FromJS SVGAngle where
-  fromJS = believe_me
-export
-data SVGAnimatedAngle  : Type where [external]
+export ToJS SVGAngle where toJS = believe_me
+export FromJS SVGAngle where fromJS = safeCast
+export data SVGAnimatedAngle : Type where [external]
 
 export
-ToJS SVGAnimatedAngle where
-  toJS = believe_me
+SafeCast SVGAnimatedAngle where
+  safeCast = unsafeCastOnPrototypeName "SVGAnimatedAngle"
 
-export
-FromJS SVGAnimatedAngle where
-  fromJS = believe_me
-export
-data SVGAnimatedBoolean  : Type where [external]
+export ToJS SVGAnimatedAngle where toJS = believe_me
+export FromJS SVGAnimatedAngle where fromJS = safeCast
+export data SVGAnimatedBoolean : Type where [external]
 
 export
-ToJS SVGAnimatedBoolean where
-  toJS = believe_me
+SafeCast SVGAnimatedBoolean where
+  safeCast = unsafeCastOnPrototypeName "SVGAnimatedBoolean"
 
-export
-FromJS SVGAnimatedBoolean where
-  fromJS = believe_me
-export
-data SVGAnimatedEnumeration  : Type where [external]
+export ToJS SVGAnimatedBoolean where toJS = believe_me
+export FromJS SVGAnimatedBoolean where fromJS = safeCast
+export data SVGAnimatedEnumeration : Type where [external]
 
 export
-ToJS SVGAnimatedEnumeration where
-  toJS = believe_me
+SafeCast SVGAnimatedEnumeration where
+  safeCast = unsafeCastOnPrototypeName "SVGAnimatedEnumeration"
 
-export
-FromJS SVGAnimatedEnumeration where
-  fromJS = believe_me
-export
-data SVGAnimatedInteger  : Type where [external]
+export ToJS SVGAnimatedEnumeration where toJS = believe_me
+export FromJS SVGAnimatedEnumeration where fromJS = safeCast
+export data SVGAnimatedInteger : Type where [external]
 
 export
-ToJS SVGAnimatedInteger where
-  toJS = believe_me
+SafeCast SVGAnimatedInteger where
+  safeCast = unsafeCastOnPrototypeName "SVGAnimatedInteger"
 
-export
-FromJS SVGAnimatedInteger where
-  fromJS = believe_me
-export
-data SVGAnimatedLength  : Type where [external]
+export ToJS SVGAnimatedInteger where toJS = believe_me
+export FromJS SVGAnimatedInteger where fromJS = safeCast
+export data SVGAnimatedLength : Type where [external]
 
 export
-ToJS SVGAnimatedLength where
-  toJS = believe_me
+SafeCast SVGAnimatedLength where
+  safeCast = unsafeCastOnPrototypeName "SVGAnimatedLength"
 
-export
-FromJS SVGAnimatedLength where
-  fromJS = believe_me
-export
-data SVGAnimatedLengthList  : Type where [external]
+export ToJS SVGAnimatedLength where toJS = believe_me
+export FromJS SVGAnimatedLength where fromJS = safeCast
+export data SVGAnimatedLengthList : Type where [external]
 
 export
-ToJS SVGAnimatedLengthList where
-  toJS = believe_me
+SafeCast SVGAnimatedLengthList where
+  safeCast = unsafeCastOnPrototypeName "SVGAnimatedLengthList"
 
-export
-FromJS SVGAnimatedLengthList where
-  fromJS = believe_me
-export
-data SVGAnimatedNumber  : Type where [external]
+export ToJS SVGAnimatedLengthList where toJS = believe_me
+export FromJS SVGAnimatedLengthList where fromJS = safeCast
+export data SVGAnimatedNumber : Type where [external]
 
 export
-ToJS SVGAnimatedNumber where
-  toJS = believe_me
+SafeCast SVGAnimatedNumber where
+  safeCast = unsafeCastOnPrototypeName "SVGAnimatedNumber"
 
-export
-FromJS SVGAnimatedNumber where
-  fromJS = believe_me
-export
-data SVGAnimatedNumberList  : Type where [external]
+export ToJS SVGAnimatedNumber where toJS = believe_me
+export FromJS SVGAnimatedNumber where fromJS = safeCast
+export data SVGAnimatedNumberList : Type where [external]
 
 export
-ToJS SVGAnimatedNumberList where
-  toJS = believe_me
+SafeCast SVGAnimatedNumberList where
+  safeCast = unsafeCastOnPrototypeName "SVGAnimatedNumberList"
 
-export
-FromJS SVGAnimatedNumberList where
-  fromJS = believe_me
-export
-data SVGAnimatedPreserveAspectRatio  : Type where [external]
+export ToJS SVGAnimatedNumberList where toJS = believe_me
+export FromJS SVGAnimatedNumberList where fromJS = safeCast
+export data SVGAnimatedPreserveAspectRatio : Type where [external]
 
 export
-ToJS SVGAnimatedPreserveAspectRatio where
-  toJS = believe_me
+SafeCast SVGAnimatedPreserveAspectRatio where
+  safeCast = unsafeCastOnPrototypeName "SVGAnimatedPreserveAspectRatio"
 
-export
-FromJS SVGAnimatedPreserveAspectRatio where
-  fromJS = believe_me
-export
-data SVGAnimatedRect  : Type where [external]
+export ToJS SVGAnimatedPreserveAspectRatio where toJS = believe_me
+export FromJS SVGAnimatedPreserveAspectRatio where fromJS = safeCast
+export data SVGAnimatedRect : Type where [external]
 
 export
-ToJS SVGAnimatedRect where
-  toJS = believe_me
+SafeCast SVGAnimatedRect where
+  safeCast = unsafeCastOnPrototypeName "SVGAnimatedRect"
 
-export
-FromJS SVGAnimatedRect where
-  fromJS = believe_me
-export
-data SVGAnimatedString  : Type where [external]
+export ToJS SVGAnimatedRect where toJS = believe_me
+export FromJS SVGAnimatedRect where fromJS = safeCast
+export data SVGAnimatedString : Type where [external]
 
 export
-ToJS SVGAnimatedString where
-  toJS = believe_me
+SafeCast SVGAnimatedString where
+  safeCast = unsafeCastOnPrototypeName "SVGAnimatedString"
 
-export
-FromJS SVGAnimatedString where
-  fromJS = believe_me
-export
-data SVGAnimatedTransformList  : Type where [external]
+export ToJS SVGAnimatedString where toJS = believe_me
+export FromJS SVGAnimatedString where fromJS = safeCast
+export data SVGAnimatedTransformList : Type where [external]
 
 export
-ToJS SVGAnimatedTransformList where
-  toJS = believe_me
+SafeCast SVGAnimatedTransformList where
+  safeCast = unsafeCastOnPrototypeName "SVGAnimatedTransformList"
 
-export
-FromJS SVGAnimatedTransformList where
-  fromJS = believe_me
-export
-data SVGCircleElement  : Type where [external]
+export ToJS SVGAnimatedTransformList where toJS = believe_me
+export FromJS SVGAnimatedTransformList where fromJS = safeCast
+export data SVGCircleElement : Type where [external]
 
 export
-ToJS SVGCircleElement where
-  toJS = believe_me
+SafeCast SVGCircleElement where
+  safeCast = unsafeCastOnPrototypeName "SVGCircleElement"
 
-export
-FromJS SVGCircleElement where
-  fromJS = believe_me
-export
-data SVGDefsElement  : Type where [external]
+export ToJS SVGCircleElement where toJS = believe_me
+export FromJS SVGCircleElement where fromJS = safeCast
+export data SVGDefsElement : Type where [external]
 
 export
-ToJS SVGDefsElement where
-  toJS = believe_me
+SafeCast SVGDefsElement where
+  safeCast = unsafeCastOnPrototypeName "SVGDefsElement"
 
-export
-FromJS SVGDefsElement where
-  fromJS = believe_me
-export
-data SVGDescElement  : Type where [external]
+export ToJS SVGDefsElement where toJS = believe_me
+export FromJS SVGDefsElement where fromJS = safeCast
+export data SVGDescElement : Type where [external]
 
 export
-ToJS SVGDescElement where
-  toJS = believe_me
+SafeCast SVGDescElement where
+  safeCast = unsafeCastOnPrototypeName "SVGDescElement"
 
-export
-FromJS SVGDescElement where
-  fromJS = believe_me
-export
-data SVGElement  : Type where [external]
+export ToJS SVGDescElement where toJS = believe_me
+export FromJS SVGDescElement where fromJS = safeCast
+export data SVGElement : Type where [external]
 
 export
-ToJS SVGElement where
-  toJS = believe_me
+SafeCast SVGElement where
+  safeCast = unsafeCastOnPrototypeName "SVGElement"
 
-export
-FromJS SVGElement where
-  fromJS = believe_me
-export
-data SVGEllipseElement  : Type where [external]
+export ToJS SVGElement where toJS = believe_me
+export FromJS SVGElement where fromJS = safeCast
+export data SVGEllipseElement : Type where [external]
 
 export
-ToJS SVGEllipseElement where
-  toJS = believe_me
+SafeCast SVGEllipseElement where
+  safeCast = unsafeCastOnPrototypeName "SVGEllipseElement"
 
-export
-FromJS SVGEllipseElement where
-  fromJS = believe_me
-export
-data SVGForeignObjectElement  : Type where [external]
+export ToJS SVGEllipseElement where toJS = believe_me
+export FromJS SVGEllipseElement where fromJS = safeCast
+export data SVGForeignObjectElement : Type where [external]
 
 export
-ToJS SVGForeignObjectElement where
-  toJS = believe_me
+SafeCast SVGForeignObjectElement where
+  safeCast = unsafeCastOnPrototypeName "SVGForeignObjectElement"
 
-export
-FromJS SVGForeignObjectElement where
-  fromJS = believe_me
-export
-data SVGGElement  : Type where [external]
+export ToJS SVGForeignObjectElement where toJS = believe_me
+export FromJS SVGForeignObjectElement where fromJS = safeCast
+export data SVGGElement : Type where [external]
 
 export
-ToJS SVGGElement where
-  toJS = believe_me
+SafeCast SVGGElement where
+  safeCast = unsafeCastOnPrototypeName "SVGGElement"
 
-export
-FromJS SVGGElement where
-  fromJS = believe_me
-export
-data SVGGeometryElement  : Type where [external]
+export ToJS SVGGElement where toJS = believe_me
+export FromJS SVGGElement where fromJS = safeCast
+export data SVGGeometryElement : Type where [external]
 
 export
-ToJS SVGGeometryElement where
-  toJS = believe_me
+SafeCast SVGGeometryElement where
+  safeCast = unsafeCastOnPrototypeName "SVGGeometryElement"
 
-export
-FromJS SVGGeometryElement where
-  fromJS = believe_me
-export
-data SVGGradientElement  : Type where [external]
+export ToJS SVGGeometryElement where toJS = believe_me
+export FromJS SVGGeometryElement where fromJS = safeCast
+export data SVGGradientElement : Type where [external]
 
 export
-ToJS SVGGradientElement where
-  toJS = believe_me
+SafeCast SVGGradientElement where
+  safeCast = unsafeCastOnPrototypeName "SVGGradientElement"
 
-export
-FromJS SVGGradientElement where
-  fromJS = believe_me
-export
-data SVGGraphicsElement  : Type where [external]
+export ToJS SVGGradientElement where toJS = believe_me
+export FromJS SVGGradientElement where fromJS = safeCast
+export data SVGGraphicsElement : Type where [external]
 
 export
-ToJS SVGGraphicsElement where
-  toJS = believe_me
+SafeCast SVGGraphicsElement where
+  safeCast = unsafeCastOnPrototypeName "SVGGraphicsElement"
 
-export
-FromJS SVGGraphicsElement where
-  fromJS = believe_me
-export
-data SVGImageElement  : Type where [external]
+export ToJS SVGGraphicsElement where toJS = believe_me
+export FromJS SVGGraphicsElement where fromJS = safeCast
+export data SVGImageElement : Type where [external]
 
 export
-ToJS SVGImageElement where
-  toJS = believe_me
+SafeCast SVGImageElement where
+  safeCast = unsafeCastOnPrototypeName "SVGImageElement"
 
-export
-FromJS SVGImageElement where
-  fromJS = believe_me
-export
-data SVGLength  : Type where [external]
+export ToJS SVGImageElement where toJS = believe_me
+export FromJS SVGImageElement where fromJS = safeCast
+export data SVGLength : Type where [external]
 
 export
-ToJS SVGLength where
-  toJS = believe_me
+SafeCast SVGLength where
+  safeCast = unsafeCastOnPrototypeName "SVGLength"
 
-export
-FromJS SVGLength where
-  fromJS = believe_me
-export
-data SVGLengthList  : Type where [external]
+export ToJS SVGLength where toJS = believe_me
+export FromJS SVGLength where fromJS = safeCast
+export data SVGLengthList : Type where [external]
 
 export
-ToJS SVGLengthList where
-  toJS = believe_me
+SafeCast SVGLengthList where
+  safeCast = unsafeCastOnPrototypeName "SVGLengthList"
 
-export
-FromJS SVGLengthList where
-  fromJS = believe_me
-export
-data SVGLineElement  : Type where [external]
+export ToJS SVGLengthList where toJS = believe_me
+export FromJS SVGLengthList where fromJS = safeCast
+export data SVGLineElement : Type where [external]
 
 export
-ToJS SVGLineElement where
-  toJS = believe_me
+SafeCast SVGLineElement where
+  safeCast = unsafeCastOnPrototypeName "SVGLineElement"
 
-export
-FromJS SVGLineElement where
-  fromJS = believe_me
-export
-data SVGLinearGradientElement  : Type where [external]
+export ToJS SVGLineElement where toJS = believe_me
+export FromJS SVGLineElement where fromJS = safeCast
+export data SVGLinearGradientElement : Type where [external]
 
 export
-ToJS SVGLinearGradientElement where
-  toJS = believe_me
+SafeCast SVGLinearGradientElement where
+  safeCast = unsafeCastOnPrototypeName "SVGLinearGradientElement"
 
-export
-FromJS SVGLinearGradientElement where
-  fromJS = believe_me
-export
-data SVGMarkerElement  : Type where [external]
+export ToJS SVGLinearGradientElement where toJS = believe_me
+export FromJS SVGLinearGradientElement where fromJS = safeCast
+export data SVGMarkerElement : Type where [external]
 
 export
-ToJS SVGMarkerElement where
-  toJS = believe_me
+SafeCast SVGMarkerElement where
+  safeCast = unsafeCastOnPrototypeName "SVGMarkerElement"
 
-export
-FromJS SVGMarkerElement where
-  fromJS = believe_me
-export
-data SVGMetadataElement  : Type where [external]
+export ToJS SVGMarkerElement where toJS = believe_me
+export FromJS SVGMarkerElement where fromJS = safeCast
+export data SVGMetadataElement : Type where [external]
 
 export
-ToJS SVGMetadataElement where
-  toJS = believe_me
+SafeCast SVGMetadataElement where
+  safeCast = unsafeCastOnPrototypeName "SVGMetadataElement"
 
-export
-FromJS SVGMetadataElement where
-  fromJS = believe_me
-export
-data SVGNumber  : Type where [external]
+export ToJS SVGMetadataElement where toJS = believe_me
+export FromJS SVGMetadataElement where fromJS = safeCast
+export data SVGNumber : Type where [external]
 
 export
-ToJS SVGNumber where
-  toJS = believe_me
+SafeCast SVGNumber where
+  safeCast = unsafeCastOnPrototypeName "SVGNumber"
 
-export
-FromJS SVGNumber where
-  fromJS = believe_me
-export
-data SVGNumberList  : Type where [external]
+export ToJS SVGNumber where toJS = believe_me
+export FromJS SVGNumber where fromJS = safeCast
+export data SVGNumberList : Type where [external]
 
 export
-ToJS SVGNumberList where
-  toJS = believe_me
+SafeCast SVGNumberList where
+  safeCast = unsafeCastOnPrototypeName "SVGNumberList"
 
-export
-FromJS SVGNumberList where
-  fromJS = believe_me
-export
-data SVGPathElement  : Type where [external]
+export ToJS SVGNumberList where toJS = believe_me
+export FromJS SVGNumberList where fromJS = safeCast
+export data SVGPathElement : Type where [external]
 
 export
-ToJS SVGPathElement where
-  toJS = believe_me
+SafeCast SVGPathElement where
+  safeCast = unsafeCastOnPrototypeName "SVGPathElement"
 
-export
-FromJS SVGPathElement where
-  fromJS = believe_me
-export
-data SVGPatternElement  : Type where [external]
+export ToJS SVGPathElement where toJS = believe_me
+export FromJS SVGPathElement where fromJS = safeCast
+export data SVGPatternElement : Type where [external]
 
 export
-ToJS SVGPatternElement where
-  toJS = believe_me
+SafeCast SVGPatternElement where
+  safeCast = unsafeCastOnPrototypeName "SVGPatternElement"
 
-export
-FromJS SVGPatternElement where
-  fromJS = believe_me
-export
-data SVGPointList  : Type where [external]
+export ToJS SVGPatternElement where toJS = believe_me
+export FromJS SVGPatternElement where fromJS = safeCast
+export data SVGPointList : Type where [external]
 
 export
-ToJS SVGPointList where
-  toJS = believe_me
+SafeCast SVGPointList where
+  safeCast = unsafeCastOnPrototypeName "SVGPointList"
 
-export
-FromJS SVGPointList where
-  fromJS = believe_me
-export
-data SVGPolygonElement  : Type where [external]
+export ToJS SVGPointList where toJS = believe_me
+export FromJS SVGPointList where fromJS = safeCast
+export data SVGPolygonElement : Type where [external]
 
 export
-ToJS SVGPolygonElement where
-  toJS = believe_me
+SafeCast SVGPolygonElement where
+  safeCast = unsafeCastOnPrototypeName "SVGPolygonElement"
 
-export
-FromJS SVGPolygonElement where
-  fromJS = believe_me
-export
-data SVGPolylineElement  : Type where [external]
+export ToJS SVGPolygonElement where toJS = believe_me
+export FromJS SVGPolygonElement where fromJS = safeCast
+export data SVGPolylineElement : Type where [external]
 
 export
-ToJS SVGPolylineElement where
-  toJS = believe_me
+SafeCast SVGPolylineElement where
+  safeCast = unsafeCastOnPrototypeName "SVGPolylineElement"
 
-export
-FromJS SVGPolylineElement where
-  fromJS = believe_me
-export
-data SVGPreserveAspectRatio  : Type where [external]
+export ToJS SVGPolylineElement where toJS = believe_me
+export FromJS SVGPolylineElement where fromJS = safeCast
+export data SVGPreserveAspectRatio : Type where [external]
 
 export
-ToJS SVGPreserveAspectRatio where
-  toJS = believe_me
+SafeCast SVGPreserveAspectRatio where
+  safeCast = unsafeCastOnPrototypeName "SVGPreserveAspectRatio"
 
-export
-FromJS SVGPreserveAspectRatio where
-  fromJS = believe_me
-export
-data SVGRadialGradientElement  : Type where [external]
+export ToJS SVGPreserveAspectRatio where toJS = believe_me
+export FromJS SVGPreserveAspectRatio where fromJS = safeCast
+export data SVGRadialGradientElement : Type where [external]
 
 export
-ToJS SVGRadialGradientElement where
-  toJS = believe_me
+SafeCast SVGRadialGradientElement where
+  safeCast = unsafeCastOnPrototypeName "SVGRadialGradientElement"
 
-export
-FromJS SVGRadialGradientElement where
-  fromJS = believe_me
-export
-data SVGRectElement  : Type where [external]
+export ToJS SVGRadialGradientElement where toJS = believe_me
+export FromJS SVGRadialGradientElement where fromJS = safeCast
+export data SVGRectElement : Type where [external]
 
 export
-ToJS SVGRectElement where
-  toJS = believe_me
+SafeCast SVGRectElement where
+  safeCast = unsafeCastOnPrototypeName "SVGRectElement"
 
-export
-FromJS SVGRectElement where
-  fromJS = believe_me
-export
-data SVGSVGElement  : Type where [external]
+export ToJS SVGRectElement where toJS = believe_me
+export FromJS SVGRectElement where fromJS = safeCast
+export data SVGSVGElement : Type where [external]
 
 export
-ToJS SVGSVGElement where
-  toJS = believe_me
+SafeCast SVGSVGElement where
+  safeCast = unsafeCastOnPrototypeName "SVGSVGElement"
 
-export
-FromJS SVGSVGElement where
-  fromJS = believe_me
-export
-data SVGScriptElement  : Type where [external]
+export ToJS SVGSVGElement where toJS = believe_me
+export FromJS SVGSVGElement where fromJS = safeCast
+export data SVGScriptElement : Type where [external]
 
 export
-ToJS SVGScriptElement where
-  toJS = believe_me
+SafeCast SVGScriptElement where
+  safeCast = unsafeCastOnPrototypeName "SVGScriptElement"
 
-export
-FromJS SVGScriptElement where
-  fromJS = believe_me
-export
-data SVGStopElement  : Type where [external]
+export ToJS SVGScriptElement where toJS = believe_me
+export FromJS SVGScriptElement where fromJS = safeCast
+export data SVGStopElement : Type where [external]
 
 export
-ToJS SVGStopElement where
-  toJS = believe_me
+SafeCast SVGStopElement where
+  safeCast = unsafeCastOnPrototypeName "SVGStopElement"
 
-export
-FromJS SVGStopElement where
-  fromJS = believe_me
-export
-data SVGStringList  : Type where [external]
+export ToJS SVGStopElement where toJS = believe_me
+export FromJS SVGStopElement where fromJS = safeCast
+export data SVGStringList : Type where [external]
 
 export
-ToJS SVGStringList where
-  toJS = believe_me
+SafeCast SVGStringList where
+  safeCast = unsafeCastOnPrototypeName "SVGStringList"
 
-export
-FromJS SVGStringList where
-  fromJS = believe_me
-export
-data SVGStyleElement  : Type where [external]
+export ToJS SVGStringList where toJS = believe_me
+export FromJS SVGStringList where fromJS = safeCast
+export data SVGStyleElement : Type where [external]
 
 export
-ToJS SVGStyleElement where
-  toJS = believe_me
+SafeCast SVGStyleElement where
+  safeCast = unsafeCastOnPrototypeName "SVGStyleElement"
 
-export
-FromJS SVGStyleElement where
-  fromJS = believe_me
-export
-data SVGSwitchElement  : Type where [external]
+export ToJS SVGStyleElement where toJS = believe_me
+export FromJS SVGStyleElement where fromJS = safeCast
+export data SVGSwitchElement : Type where [external]
 
 export
-ToJS SVGSwitchElement where
-  toJS = believe_me
+SafeCast SVGSwitchElement where
+  safeCast = unsafeCastOnPrototypeName "SVGSwitchElement"
 
-export
-FromJS SVGSwitchElement where
-  fromJS = believe_me
-export
-data SVGSymbolElement  : Type where [external]
+export ToJS SVGSwitchElement where toJS = believe_me
+export FromJS SVGSwitchElement where fromJS = safeCast
+export data SVGSymbolElement : Type where [external]
 
 export
-ToJS SVGSymbolElement where
-  toJS = believe_me
+SafeCast SVGSymbolElement where
+  safeCast = unsafeCastOnPrototypeName "SVGSymbolElement"
 
-export
-FromJS SVGSymbolElement where
-  fromJS = believe_me
-export
-data SVGTSpanElement  : Type where [external]
+export ToJS SVGSymbolElement where toJS = believe_me
+export FromJS SVGSymbolElement where fromJS = safeCast
+export data SVGTSpanElement : Type where [external]
 
 export
-ToJS SVGTSpanElement where
-  toJS = believe_me
+SafeCast SVGTSpanElement where
+  safeCast = unsafeCastOnPrototypeName "SVGTSpanElement"
 
-export
-FromJS SVGTSpanElement where
-  fromJS = believe_me
-export
-data SVGTextContentElement  : Type where [external]
+export ToJS SVGTSpanElement where toJS = believe_me
+export FromJS SVGTSpanElement where fromJS = safeCast
+export data SVGTextContentElement : Type where [external]
 
 export
-ToJS SVGTextContentElement where
-  toJS = believe_me
+SafeCast SVGTextContentElement where
+  safeCast = unsafeCastOnPrototypeName "SVGTextContentElement"
 
-export
-FromJS SVGTextContentElement where
-  fromJS = believe_me
-export
-data SVGTextElement  : Type where [external]
+export ToJS SVGTextContentElement where toJS = believe_me
+export FromJS SVGTextContentElement where fromJS = safeCast
+export data SVGTextElement : Type where [external]
 
 export
-ToJS SVGTextElement where
-  toJS = believe_me
+SafeCast SVGTextElement where
+  safeCast = unsafeCastOnPrototypeName "SVGTextElement"
 
-export
-FromJS SVGTextElement where
-  fromJS = believe_me
-export
-data SVGTextPathElement  : Type where [external]
+export ToJS SVGTextElement where toJS = believe_me
+export FromJS SVGTextElement where fromJS = safeCast
+export data SVGTextPathElement : Type where [external]
 
 export
-ToJS SVGTextPathElement where
-  toJS = believe_me
+SafeCast SVGTextPathElement where
+  safeCast = unsafeCastOnPrototypeName "SVGTextPathElement"
 
-export
-FromJS SVGTextPathElement where
-  fromJS = believe_me
-export
-data SVGTextPositioningElement  : Type where [external]
+export ToJS SVGTextPathElement where toJS = believe_me
+export FromJS SVGTextPathElement where fromJS = safeCast
+export data SVGTextPositioningElement : Type where [external]
 
 export
-ToJS SVGTextPositioningElement where
-  toJS = believe_me
+SafeCast SVGTextPositioningElement where
+  safeCast = unsafeCastOnPrototypeName "SVGTextPositioningElement"
 
-export
-FromJS SVGTextPositioningElement where
-  fromJS = believe_me
-export
-data SVGTitleElement  : Type where [external]
+export ToJS SVGTextPositioningElement where toJS = believe_me
+export FromJS SVGTextPositioningElement where fromJS = safeCast
+export data SVGTitleElement : Type where [external]
 
 export
-ToJS SVGTitleElement where
-  toJS = believe_me
+SafeCast SVGTitleElement where
+  safeCast = unsafeCastOnPrototypeName "SVGTitleElement"
 
-export
-FromJS SVGTitleElement where
-  fromJS = believe_me
-export
-data SVGTransform  : Type where [external]
+export ToJS SVGTitleElement where toJS = believe_me
+export FromJS SVGTitleElement where fromJS = safeCast
+export data SVGTransform : Type where [external]
 
 export
-ToJS SVGTransform where
-  toJS = believe_me
+SafeCast SVGTransform where
+  safeCast = unsafeCastOnPrototypeName "SVGTransform"
 
-export
-FromJS SVGTransform where
-  fromJS = believe_me
-export
-data SVGTransformList  : Type where [external]
+export ToJS SVGTransform where toJS = believe_me
+export FromJS SVGTransform where fromJS = safeCast
+export data SVGTransformList : Type where [external]
 
 export
-ToJS SVGTransformList where
-  toJS = believe_me
+SafeCast SVGTransformList where
+  safeCast = unsafeCastOnPrototypeName "SVGTransformList"
 
-export
-FromJS SVGTransformList where
-  fromJS = believe_me
-export
-data SVGUnitTypes  : Type where [external]
+export ToJS SVGTransformList where toJS = believe_me
+export FromJS SVGTransformList where fromJS = safeCast
+export data SVGUnitTypes : Type where [external]
 
 export
-ToJS SVGUnitTypes where
-  toJS = believe_me
+SafeCast SVGUnitTypes where
+  safeCast = unsafeCastOnPrototypeName "SVGUnitTypes"
 
-export
-FromJS SVGUnitTypes where
-  fromJS = believe_me
-export
-data SVGUseElement  : Type where [external]
+export ToJS SVGUnitTypes where toJS = believe_me
+export FromJS SVGUnitTypes where fromJS = safeCast
+export data SVGUseElement : Type where [external]
 
 export
-ToJS SVGUseElement where
-  toJS = believe_me
+SafeCast SVGUseElement where
+  safeCast = unsafeCastOnPrototypeName "SVGUseElement"
 
-export
-FromJS SVGUseElement where
-  fromJS = believe_me
-export
-data SVGUseElementShadowRoot  : Type where [external]
+export ToJS SVGUseElement where toJS = believe_me
+export FromJS SVGUseElement where fromJS = safeCast
+export data SVGUseElementShadowRoot : Type where [external]
 
 export
-ToJS SVGUseElementShadowRoot where
-  toJS = believe_me
+SafeCast SVGUseElementShadowRoot where
+  safeCast = unsafeCastOnPrototypeName "SVGUseElementShadowRoot"
 
-export
-FromJS SVGUseElementShadowRoot where
-  fromJS = believe_me
-export
-data SVGViewElement  : Type where [external]
+export ToJS SVGUseElementShadowRoot where toJS = believe_me
+export FromJS SVGUseElementShadowRoot where fromJS = safeCast
+export data SVGViewElement : Type where [external]
 
 export
-ToJS SVGViewElement where
-  toJS = believe_me
+SafeCast SVGViewElement where
+  safeCast = unsafeCastOnPrototypeName "SVGViewElement"
 
-export
-FromJS SVGViewElement where
-  fromJS = believe_me
-export
-data ShadowAnimation  : Type where [external]
+export ToJS SVGViewElement where toJS = believe_me
+export FromJS SVGViewElement where fromJS = safeCast
+export data ShadowAnimation : Type where [external]
 
 export
-ToJS ShadowAnimation where
-  toJS = believe_me
+SafeCast ShadowAnimation where
+  safeCast = unsafeCastOnPrototypeName "ShadowAnimation"
 
-export
-FromJS ShadowAnimation where
-  fromJS = believe_me
+export ToJS ShadowAnimation where toJS = believe_me
+export FromJS ShadowAnimation where fromJS = safeCast
 
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------
-export
-data GetSVGDocument  : Type where [external]
+export data GetSVGDocument : Type where [external]
 
 export
-ToJS GetSVGDocument where
-  toJS = believe_me
+SafeCast GetSVGDocument where
+  safeCast = unsafeCastOnPrototypeName "GetSVGDocument"
+
+export ToJS GetSVGDocument where toJS = believe_me
+export FromJS GetSVGDocument where fromJS = safeCast
+export data SVGAnimatedPoints : Type where [external]
 
 export
-FromJS GetSVGDocument where
-  fromJS = believe_me
-export
-data SVGAnimatedPoints  : Type where [external]
+SafeCast SVGAnimatedPoints where
+  safeCast = unsafeCastOnPrototypeName "SVGAnimatedPoints"
+
+export ToJS SVGAnimatedPoints where toJS = believe_me
+export FromJS SVGAnimatedPoints where fromJS = safeCast
+export data SVGElementInstance : Type where [external]
 
 export
-ToJS SVGAnimatedPoints where
-  toJS = believe_me
+SafeCast SVGElementInstance where
+  safeCast = unsafeCastOnPrototypeName "SVGElementInstance"
+
+export ToJS SVGElementInstance where toJS = believe_me
+export FromJS SVGElementInstance where fromJS = safeCast
+export data SVGFitToViewBox : Type where [external]
 
 export
-FromJS SVGAnimatedPoints where
-  fromJS = believe_me
-export
-data SVGElementInstance  : Type where [external]
+SafeCast SVGFitToViewBox where
+  safeCast = unsafeCastOnPrototypeName "SVGFitToViewBox"
+
+export ToJS SVGFitToViewBox where toJS = believe_me
+export FromJS SVGFitToViewBox where fromJS = safeCast
+export data SVGTests : Type where [external]
 
 export
-ToJS SVGElementInstance where
-  toJS = believe_me
+SafeCast SVGTests where
+  safeCast = unsafeCastOnPrototypeName "SVGTests"
+
+export ToJS SVGTests where toJS = believe_me
+export FromJS SVGTests where fromJS = safeCast
+export data SVGURIReference : Type where [external]
 
 export
-FromJS SVGElementInstance where
-  fromJS = believe_me
-export
-data SVGFitToViewBox  : Type where [external]
+SafeCast SVGURIReference where
+  safeCast = unsafeCastOnPrototypeName "SVGURIReference"
 
-export
-ToJS SVGFitToViewBox where
-  toJS = believe_me
-
-export
-FromJS SVGFitToViewBox where
-  fromJS = believe_me
-export
-data SVGTests  : Type where [external]
-
-export
-ToJS SVGTests where
-  toJS = believe_me
-
-export
-FromJS SVGTests where
-  fromJS = believe_me
-export
-data SVGURIReference  : Type where [external]
-
-export
-ToJS SVGURIReference where
-  toJS = believe_me
-
-export
-FromJS SVGURIReference where
-  fromJS = believe_me
+export ToJS SVGURIReference where toJS = believe_me
+export FromJS SVGURIReference where fromJS = safeCast
 
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
-export
-data SVGBoundingBoxOptions  : Type where [external]
+export data SVGBoundingBoxOptions : Type where [external]
 
 export
-ToJS SVGBoundingBoxOptions where
-  toJS = believe_me
+SafeCast SVGBoundingBoxOptions where
+  safeCast = unsafeCastOnPrototypeName "SVGBoundingBoxOptions"
 
-export
-FromJS SVGBoundingBoxOptions where
-  fromJS = believe_me
+export ToJS SVGBoundingBoxOptions where toJS = believe_me
+export FromJS SVGBoundingBoxOptions where fromJS = safeCast

@@ -9,7 +9,7 @@ import Web.Types
 namespace Cache
   
   public export
-  JSVal Cache where
+  JSType Cache where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -17,7 +17,7 @@ namespace Cache
 namespace CacheStorage
   
   public export
-  JSVal CacheStorage where
+  JSType CacheStorage where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -25,7 +25,7 @@ namespace CacheStorage
 namespace Client
   
   public export
-  JSVal Client where
+  JSType Client where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -57,7 +57,7 @@ namespace Client
 namespace Clients
   
   public export
-  JSVal Clients where
+  JSType Clients where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -65,7 +65,7 @@ namespace Clients
 namespace ExtendableEvent
   
   public export
-  JSVal ExtendableEvent where
+  JSType ExtendableEvent where
     parents =  [ Event , JSObject ]
 
     mixins =  []
@@ -73,7 +73,7 @@ namespace ExtendableEvent
 namespace ExtendableMessageEvent
   
   public export
-  JSVal ExtendableMessageEvent where
+  JSType ExtendableMessageEvent where
     parents =  [ ExtendableEvent , Event , JSObject ]
 
     mixins =  []
@@ -82,7 +82,7 @@ namespace ExtendableMessageEvent
   prim__data_ : AnyPtr -> PrimIO AnyPtr
 
   export
-  data_ : (obj : ExtendableMessageEvent) -> IO JSAny
+  data_ : (obj : ExtendableMessageEvent) -> IO Any
   
   %foreign "browser:lambda:x=>x.lastEventId"
   prim__lastEventId : AnyPtr -> PrimIO AnyPtr
@@ -112,7 +112,7 @@ namespace ExtendableMessageEvent
 namespace FetchEvent
   
   public export
-  JSVal FetchEvent where
+  JSType FetchEvent where
     parents =  [ ExtendableEvent , Event , JSObject ]
 
     mixins =  []
@@ -133,7 +133,7 @@ namespace FetchEvent
   prim__preloadResponse : AnyPtr -> PrimIO AnyPtr
 
   export
-  preloadResponse : (obj : FetchEvent) -> IO (JSPromise JSAny)
+  preloadResponse : (obj : FetchEvent) -> IO (JSPromise Any)
   
   %foreign "browser:lambda:x=>x.replacesClientId"
   prim__replacesClientId : AnyPtr -> PrimIO AnyPtr
@@ -156,7 +156,7 @@ namespace FetchEvent
 namespace NavigationPreloadManager
   
   public export
-  JSVal NavigationPreloadManager where
+  JSType NavigationPreloadManager where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -164,7 +164,7 @@ namespace NavigationPreloadManager
 namespace ServiceWorker
   
   public export
-  JSVal ServiceWorker where
+  JSType ServiceWorker where
     parents =  [ EventTarget , JSObject ]
 
     mixins =  [ AbstractWorker ]
@@ -196,7 +196,7 @@ namespace ServiceWorker
 namespace ServiceWorkerContainer
   
   public export
-  JSVal ServiceWorkerContainer where
+  JSType ServiceWorkerContainer where
     parents =  [ EventTarget , JSObject ]
 
     mixins =  []
@@ -257,7 +257,7 @@ namespace ServiceWorkerContainer
 namespace ServiceWorkerGlobalScope
   
   public export
-  JSVal ServiceWorkerGlobalScope where
+  JSType ServiceWorkerGlobalScope where
     parents =  [ WorkerGlobalScope , EventTarget , JSObject ]
 
     mixins =  []
@@ -348,7 +348,7 @@ namespace ServiceWorkerGlobalScope
 namespace ServiceWorkerRegistration
   
   public export
-  JSVal ServiceWorkerRegistration where
+  JSType ServiceWorkerRegistration where
     parents =  [ EventTarget , JSObject ]
 
     mixins =  []
@@ -408,7 +408,7 @@ namespace ServiceWorkerRegistration
 namespace WindowClient
   
   public export
-  JSVal WindowClient where
+  JSType WindowClient where
     parents =  [ Client , JSObject ]
 
     mixins =  []
@@ -439,7 +439,7 @@ namespace WindowClient
 namespace CacheQueryOptions
   
   public export
-  JSVal CacheQueryOptions where
+  JSType CacheQueryOptions where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -483,7 +483,7 @@ namespace CacheQueryOptions
 namespace ClientQueryOptions
   
   public export
-  JSVal ClientQueryOptions where
+  JSType ClientQueryOptions where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -515,7 +515,7 @@ namespace ClientQueryOptions
 namespace ExtendableEventInit
   
   public export
-  JSVal ExtendableEventInit where
+  JSType ExtendableEventInit where
     parents =  [ EventInit , JSObject ]
 
     mixins =  []
@@ -523,7 +523,7 @@ namespace ExtendableEventInit
 namespace ExtendableMessageEventInit
   
   public export
-  JSVal ExtendableMessageEventInit where
+  JSType ExtendableMessageEventInit where
     parents =  [ ExtendableEventInit , EventInit , JSObject ]
 
     mixins =  []
@@ -532,13 +532,13 @@ namespace ExtendableMessageEventInit
   prim__data_ : AnyPtr -> PrimIO AnyPtr
 
   export
-  data_ : (obj : ExtendableMessageEventInit) -> IO JSAny
+  data_ : (obj : ExtendableMessageEventInit) -> IO Any
 
   %foreign "browser:lambda:(x,v)=>{x.data  = v}"
   prim__setData : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setData : (obj : ExtendableMessageEventInit) -> (v : JSAny) -> IO ()
+  setData : (obj : ExtendableMessageEventInit) -> (v : Any) -> IO ()
   
   %foreign "browser:lambda:x=>x.lastEventId"
   prim__lastEventId : AnyPtr -> PrimIO AnyPtr
@@ -596,7 +596,7 @@ namespace ExtendableMessageEventInit
 namespace FetchEventInit
   
   public export
-  JSVal FetchEventInit where
+  JSType FetchEventInit where
     parents =  [ ExtendableEventInit , EventInit , JSObject ]
 
     mixins =  []
@@ -641,13 +641,13 @@ namespace FetchEventInit
   prim__preloadResponse : AnyPtr -> PrimIO AnyPtr
 
   export
-  preloadResponse : (obj : FetchEventInit) -> IO (JSPromise JSAny)
+  preloadResponse : (obj : FetchEventInit) -> IO (JSPromise Any)
 
   %foreign "browser:lambda:(x,v)=>{x.preloadResponse  = v}"
   prim__setPreloadResponse : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setPreloadResponse : (obj : FetchEventInit) -> (v : JSPromise JSAny) -> IO ()
+  setPreloadResponse : (obj : FetchEventInit) -> (v : JSPromise Any) -> IO ()
   
   %foreign "browser:lambda:x=>x.replacesClientId"
   prim__replacesClientId : AnyPtr -> PrimIO AnyPtr
@@ -676,7 +676,7 @@ namespace FetchEventInit
 namespace MultiCacheQueryOptions
   
   public export
-  JSVal MultiCacheQueryOptions where
+  JSType MultiCacheQueryOptions where
     parents =  [ CacheQueryOptions , JSObject ]
 
     mixins =  []
@@ -696,7 +696,7 @@ namespace MultiCacheQueryOptions
 namespace NavigationPreloadState
   
   public export
-  JSVal NavigationPreloadState where
+  JSType NavigationPreloadState where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -728,7 +728,7 @@ namespace NavigationPreloadState
 namespace RegistrationOptions
   
   public export
-  JSVal RegistrationOptions where
+  JSType RegistrationOptions where
     parents =  [ JSObject ]
 
     mixins =  []

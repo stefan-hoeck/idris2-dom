@@ -1,5 +1,6 @@
 module JS
 
+import public Control.Monad.Either
 import public Data.List.Elem
 import public Data.Maybe
 import public Data.SOP

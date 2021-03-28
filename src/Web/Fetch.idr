@@ -9,7 +9,7 @@ import Web.Types
 namespace Headers
   
   public export
-  JSVal Headers where
+  JSType Headers where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -17,7 +17,7 @@ namespace Headers
 namespace Request
   
   public export
-  JSVal Request where
+  JSType Request where
     parents =  [ JSObject ]
 
     mixins =  [ Body ]
@@ -115,7 +115,7 @@ namespace Request
 namespace Response
   
   public export
-  JSVal Response where
+  JSType Response where
     parents =  [ JSObject ]
 
     mixins =  [ Body ]
@@ -187,7 +187,7 @@ namespace Body
 namespace RequestInit
   
   public export
-  JSVal RequestInit where
+  JSType RequestInit where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -340,18 +340,18 @@ namespace RequestInit
   prim__window : AnyPtr -> PrimIO AnyPtr
 
   export
-  window : (obj : RequestInit) -> IO JSAny
+  window : (obj : RequestInit) -> IO Any
 
   %foreign "browser:lambda:(x,v)=>{x.window  = v}"
   prim__setWindow : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setWindow : (obj : RequestInit) -> (v : JSAny) -> IO ()
+  setWindow : (obj : RequestInit) -> (v : Any) -> IO ()
 
 namespace ResponseInit
   
   public export
-  JSVal ResponseInit where
+  JSType ResponseInit where
     parents =  [ JSObject ]
 
     mixins =  []

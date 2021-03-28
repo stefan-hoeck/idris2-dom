@@ -43,7 +43,7 @@ namespace PermissionState
 
   export
   FromJS PermissionState where
-    fromJS = fromMaybe Granted . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace PermissionName
   
@@ -136,93 +136,77 @@ namespace PermissionName
 
   export
   FromJS PermissionName where
-    fromJS = fromMaybe Geolocation . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-export
-data PermissionStatus  : Type where [external]
+export data PermissionStatus : Type where [external]
 
 export
-ToJS PermissionStatus where
-  toJS = believe_me
+SafeCast PermissionStatus where
+  safeCast = unsafeCastOnPrototypeName "PermissionStatus"
+
+export ToJS PermissionStatus where toJS = believe_me
+export FromJS PermissionStatus where fromJS = safeCast
+export data Permissions : Type where [external]
 
 export
-FromJS PermissionStatus where
-  fromJS = believe_me
-export
-data Permissions  : Type where [external]
+SafeCast Permissions where
+  safeCast = unsafeCastOnPrototypeName "Permissions"
 
-export
-ToJS Permissions where
-  toJS = believe_me
-
-export
-FromJS Permissions where
-  fromJS = believe_me
+export ToJS Permissions where toJS = believe_me
+export FromJS Permissions where fromJS = safeCast
 
 
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
-export
-data CameraDevicePermissionDescriptor  : Type where [external]
+export data CameraDevicePermissionDescriptor : Type where [external]
 
 export
-ToJS CameraDevicePermissionDescriptor where
-  toJS = believe_me
+SafeCast CameraDevicePermissionDescriptor where
+  safeCast = unsafeCastOnPrototypeName "CameraDevicePermissionDescriptor"
+
+export ToJS CameraDevicePermissionDescriptor where toJS = believe_me
+export FromJS CameraDevicePermissionDescriptor where fromJS = safeCast
+export data DevicePermissionDescriptor : Type where [external]
 
 export
-FromJS CameraDevicePermissionDescriptor where
-  fromJS = believe_me
-export
-data DevicePermissionDescriptor  : Type where [external]
+SafeCast DevicePermissionDescriptor where
+  safeCast = unsafeCastOnPrototypeName "DevicePermissionDescriptor"
+
+export ToJS DevicePermissionDescriptor where toJS = believe_me
+export FromJS DevicePermissionDescriptor where fromJS = safeCast
+export data MidiPermissionDescriptor : Type where [external]
 
 export
-ToJS DevicePermissionDescriptor where
-  toJS = believe_me
+SafeCast MidiPermissionDescriptor where
+  safeCast = unsafeCastOnPrototypeName "MidiPermissionDescriptor"
+
+export ToJS MidiPermissionDescriptor where toJS = believe_me
+export FromJS MidiPermissionDescriptor where fromJS = safeCast
+export data PermissionDescriptor : Type where [external]
 
 export
-FromJS DevicePermissionDescriptor where
-  fromJS = believe_me
-export
-data MidiPermissionDescriptor  : Type where [external]
+SafeCast PermissionDescriptor where
+  safeCast = unsafeCastOnPrototypeName "PermissionDescriptor"
+
+export ToJS PermissionDescriptor where toJS = believe_me
+export FromJS PermissionDescriptor where fromJS = safeCast
+export data PermissionSetParameters : Type where [external]
 
 export
-ToJS MidiPermissionDescriptor where
-  toJS = believe_me
+SafeCast PermissionSetParameters where
+  safeCast = unsafeCastOnPrototypeName "PermissionSetParameters"
+
+export ToJS PermissionSetParameters where toJS = believe_me
+export FromJS PermissionSetParameters where fromJS = safeCast
+export data PushPermissionDescriptor : Type where [external]
 
 export
-FromJS MidiPermissionDescriptor where
-  fromJS = believe_me
-export
-data PermissionDescriptor  : Type where [external]
+SafeCast PushPermissionDescriptor where
+  safeCast = unsafeCastOnPrototypeName "PushPermissionDescriptor"
 
-export
-ToJS PermissionDescriptor where
-  toJS = believe_me
-
-export
-FromJS PermissionDescriptor where
-  fromJS = believe_me
-export
-data PermissionSetParameters  : Type where [external]
-
-export
-ToJS PermissionSetParameters where
-  toJS = believe_me
-
-export
-FromJS PermissionSetParameters where
-  fromJS = believe_me
-export
-data PushPermissionDescriptor  : Type where [external]
-
-export
-ToJS PushPermissionDescriptor where
-  toJS = believe_me
-
-export
-FromJS PushPermissionDescriptor where
-  fromJS = believe_me
+export ToJS PushPermissionDescriptor where toJS = believe_me
+export FromJS PushPermissionDescriptor where fromJS = safeCast

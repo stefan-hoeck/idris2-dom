@@ -96,7 +96,7 @@ namespace RequestDestination
 
   export
   FromJS RequestDestination where
-    fromJS = fromMaybe Empty . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace RequestMode
   
@@ -138,7 +138,7 @@ namespace RequestMode
 
   export
   FromJS RequestMode where
-    fromJS = fromMaybe Navigate . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace RequestCredentials
   
@@ -178,7 +178,7 @@ namespace RequestCredentials
 
   export
   FromJS RequestCredentials where
-    fromJS = fromMaybe Omit . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace RequestCache
   
@@ -229,7 +229,7 @@ namespace RequestCache
 
   export
   FromJS RequestCache where
-    fromJS = fromMaybe Default . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace RequestRedirect
   
@@ -269,7 +269,7 @@ namespace RequestRedirect
 
   export
   FromJS RequestRedirect where
-    fromJS = fromMaybe Follow . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace ResponseType
   
@@ -315,7 +315,7 @@ namespace ResponseType
 
   export
   FromJS ResponseType where
-    fromJS = fromMaybe Basic . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace ReferrerPolicy
   
@@ -375,76 +375,64 @@ namespace ReferrerPolicy
 
   export
   FromJS ReferrerPolicy where
-    fromJS = fromMaybe Empty . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-export
-data Headers  : Type where [external]
+export data Headers : Type where [external]
 
 export
-ToJS Headers where
-  toJS = believe_me
+SafeCast Headers where
+  safeCast = unsafeCastOnPrototypeName "Headers"
+
+export ToJS Headers where toJS = believe_me
+export FromJS Headers where fromJS = safeCast
+export data Request : Type where [external]
 
 export
-FromJS Headers where
-  fromJS = believe_me
-export
-data Request  : Type where [external]
+SafeCast Request where
+  safeCast = unsafeCastOnPrototypeName "Request"
+
+export ToJS Request where toJS = believe_me
+export FromJS Request where fromJS = safeCast
+export data Response : Type where [external]
 
 export
-ToJS Request where
-  toJS = believe_me
+SafeCast Response where
+  safeCast = unsafeCastOnPrototypeName "Response"
 
-export
-FromJS Request where
-  fromJS = believe_me
-export
-data Response  : Type where [external]
-
-export
-ToJS Response where
-  toJS = believe_me
-
-export
-FromJS Response where
-  fromJS = believe_me
+export ToJS Response where toJS = believe_me
+export FromJS Response where fromJS = safeCast
 
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------
-export
-data Body  : Type where [external]
+export data Body : Type where [external]
 
 export
-ToJS Body where
-  toJS = believe_me
+SafeCast Body where
+  safeCast = unsafeCastOnPrototypeName "Body"
 
-export
-FromJS Body where
-  fromJS = believe_me
+export ToJS Body where toJS = believe_me
+export FromJS Body where fromJS = safeCast
 
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
-export
-data RequestInit  : Type where [external]
+export data RequestInit : Type where [external]
 
 export
-ToJS RequestInit where
-  toJS = believe_me
+SafeCast RequestInit where
+  safeCast = unsafeCastOnPrototypeName "RequestInit"
+
+export ToJS RequestInit where toJS = believe_me
+export FromJS RequestInit where fromJS = safeCast
+export data ResponseInit : Type where [external]
 
 export
-FromJS RequestInit where
-  fromJS = believe_me
-export
-data ResponseInit  : Type where [external]
+SafeCast ResponseInit where
+  safeCast = unsafeCastOnPrototypeName "ResponseInit"
 
-export
-ToJS ResponseInit where
-  toJS = believe_me
-
-export
-FromJS ResponseInit where
-  fromJS = believe_me
+export ToJS ResponseInit where toJS = believe_me
+export FromJS ResponseInit where fromJS = safeCast

@@ -3,17 +3,21 @@
 ||| own package.
 module JS.Util
 
+import Control.Monad.Either
 import Data.Maybe
 
+export
 doubleToBool : Double -> Bool
 doubleToBool d = d /= 0.0
 
-%foreign "javascript:lambda:v=>Object.prototype.toString.call(v)"
+%foreign "javascript:lambda:v=>typeof(v)"
 prim__typeOf : AnyPtr -> String
 
+||| Inspect the type of a value at runtime by means of
+||| Javascript function `typeof`.
 export
-typeOf : a -> String
-typeOf v = prim__typeOf (believe_me v)
+typeof : a -> String
+typeof v = prim__typeOf (believe_me v)
 
 %foreign "javascript:lambda:(a,b)=>a === b?1:0"
 prim__eqv : AnyPtr -> AnyPtr -> Double
@@ -24,9 +28,25 @@ export
 eqv : a -> b -> Bool
 eqv x y = doubleToBool $ prim__eqv (believe_me x) (believe_me y)
 
+%foreign "javascript:lambda:x=>String(x)"
+prim__show : AnyPtr -> String
+
+||| Displays a JS value by passing it to `String(...)`.
+export
+jsShow : a -> String
+jsShow v = prim__show (believe_me v)
+
+--------------------------------------------------------------------------------
 --          Undefined
+--------------------------------------------------------------------------------
+
 export
 data Undefined : Type where [external]
+
+||| The `undefined` constant
+export
+%foreign "javascript:lambda:()=>undefined"
+undefined : Undefined
 
 export
 Eq Undefined where
@@ -39,57 +59,63 @@ Show Undefined where
 %foreign "javascript:lambda:x=>x === undefined?1:0"
 prim__isUndefined : AnyPtr -> Double
 
-%foreign "javascript:lambda:()=>undefined"
-prim__undefined : Undefined
-
-export
-undefined : Undefined
-undefined = prim__undefined
-
 ||| Tests, whether a value of questionable origin is undefined
 export
 isUndefined : a -> Bool
 isUndefined v = doubleToBool $ prim__isUndefined (believe_me v)
 
-||| Converts a value of questionable origin to `Nothing`
-||| if it actually is undefined.
-export
-checkUndefined : a -> Maybe a
-checkUndefined v = toMaybe (not $ isUndefined v) v
-
-
---          null
+--------------------------------------------------------------------------------
+--          Null
+--------------------------------------------------------------------------------
 
 %foreign "javascript:lambda:x=>x === null?1:0"
 prim__isNull : AnyPtr -> Double
 
-%foreign "javascript:lambda:()=>null"
-prim__null : AnyPtr
-
 export
+%foreign "javascript:lambda:()=>null"
 null : AnyPtr
-null = prim__null
 
 ||| Tests, whether a value of questionable origin is null
 export
 isNull : a -> Bool
-isNull v = doubleToBool $ prim__isNull (believe_me v)
+isNull = eqv null
 
-||| Converts a value of questionable origin to `Nothing`
-||| if it actually is null.
+--------------------------------------------------------------------------------
+--          IO
+--------------------------------------------------------------------------------
+
+public export
+data JSErr : Type where
+  CastErr : (inFunction : String) -> (value : AnyPtr) -> JSErr
+
+dispErr : JSErr -> String
+dispErr (CastErr inFunction value) = #"""
+  Error when casting a Javascript value in function \#{inFunction}.
+    The value was: \#{jsShow value}.
+    The value's type was \#{typeof value}.
+  """#
+
+
+public export
+JSIO : Type -> Type
+JSIO = EitherT JSErr IO
+
 export
-checkNull : a -> Maybe a
-checkNull v = toMaybe (not $ isNull v) v
-
--- The dummies below are primitive JS types that need proper
--- implementations (my todo)
+runJSWith : (JSErr -> IO a) -> JSIO a -> IO a
+runJSWith f (MkEitherT io) = io >>= either f pure
 
 export
-data JSAny : Type where [external]
+runJS : JSIO () -> IO ()
+runJS = runJSWith (putStrLn . dispErr)
 
-export
-Cast a JSAny where
-  cast = believe_me
+--------------------------------------------------------------------------------
+--          Common external types
+--------------------------------------------------------------------------------
+
+public export
+record Any where
+  constructor MkAny
+  anyVal : a
 
 export
 data JSObject : Type where [external]

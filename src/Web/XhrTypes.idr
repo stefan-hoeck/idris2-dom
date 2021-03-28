@@ -54,73 +54,61 @@ namespace XMLHttpRequestResponseType
 
   export
   FromJS XMLHttpRequestResponseType where
-    fromJS = fromMaybe Empty . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-export
-data FormData  : Type where [external]
+export data FormData : Type where [external]
 
 export
-ToJS FormData where
-  toJS = believe_me
+SafeCast FormData where
+  safeCast = unsafeCastOnPrototypeName "FormData"
+
+export ToJS FormData where toJS = believe_me
+export FromJS FormData where fromJS = safeCast
+export data ProgressEvent : Type where [external]
 
 export
-FromJS FormData where
-  fromJS = believe_me
-export
-data ProgressEvent  : Type where [external]
+SafeCast ProgressEvent where
+  safeCast = unsafeCastOnPrototypeName "ProgressEvent"
+
+export ToJS ProgressEvent where toJS = believe_me
+export FromJS ProgressEvent where fromJS = safeCast
+export data XMLHttpRequest : Type where [external]
 
 export
-ToJS ProgressEvent where
-  toJS = believe_me
+SafeCast XMLHttpRequest where
+  safeCast = unsafeCastOnPrototypeName "XMLHttpRequest"
+
+export ToJS XMLHttpRequest where toJS = believe_me
+export FromJS XMLHttpRequest where fromJS = safeCast
+export data XMLHttpRequestEventTarget : Type where [external]
 
 export
-FromJS ProgressEvent where
-  fromJS = believe_me
-export
-data XMLHttpRequest  : Type where [external]
+SafeCast XMLHttpRequestEventTarget where
+  safeCast = unsafeCastOnPrototypeName "XMLHttpRequestEventTarget"
+
+export ToJS XMLHttpRequestEventTarget where toJS = believe_me
+export FromJS XMLHttpRequestEventTarget where fromJS = safeCast
+export data XMLHttpRequestUpload : Type where [external]
 
 export
-ToJS XMLHttpRequest where
-  toJS = believe_me
+SafeCast XMLHttpRequestUpload where
+  safeCast = unsafeCastOnPrototypeName "XMLHttpRequestUpload"
 
-export
-FromJS XMLHttpRequest where
-  fromJS = believe_me
-export
-data XMLHttpRequestEventTarget  : Type where [external]
-
-export
-ToJS XMLHttpRequestEventTarget where
-  toJS = believe_me
-
-export
-FromJS XMLHttpRequestEventTarget where
-  fromJS = believe_me
-export
-data XMLHttpRequestUpload  : Type where [external]
-
-export
-ToJS XMLHttpRequestUpload where
-  toJS = believe_me
-
-export
-FromJS XMLHttpRequestUpload where
-  fromJS = believe_me
+export ToJS XMLHttpRequestUpload where toJS = believe_me
+export FromJS XMLHttpRequestUpload where fromJS = safeCast
 
 
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
-export
-data ProgressEventInit  : Type where [external]
+export data ProgressEventInit : Type where [external]
 
 export
-ToJS ProgressEventInit where
-  toJS = believe_me
+SafeCast ProgressEventInit where
+  safeCast = unsafeCastOnPrototypeName "ProgressEventInit"
 
-export
-FromJS ProgressEventInit where
-  fromJS = believe_me
+export ToJS ProgressEventInit where toJS = believe_me
+export FromJS ProgressEventInit where fromJS = safeCast

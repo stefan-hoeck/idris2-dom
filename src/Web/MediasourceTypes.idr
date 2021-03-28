@@ -43,7 +43,7 @@ namespace ReadyState
 
   export
   FromJS ReadyState where
-    fromJS = fromMaybe Closed . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace EndOfStreamError
   
@@ -81,7 +81,7 @@ namespace EndOfStreamError
 
   export
   FromJS EndOfStreamError where
-    fromJS = fromMaybe Network . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace AppendMode
   
@@ -119,39 +119,33 @@ namespace AppendMode
 
   export
   FromJS AppendMode where
-    fromJS = fromMaybe Segments . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-export
-data MediaSource  : Type where [external]
+export data MediaSource : Type where [external]
 
 export
-ToJS MediaSource where
-  toJS = believe_me
+SafeCast MediaSource where
+  safeCast = unsafeCastOnPrototypeName "MediaSource"
+
+export ToJS MediaSource where toJS = believe_me
+export FromJS MediaSource where fromJS = safeCast
+export data SourceBuffer : Type where [external]
 
 export
-FromJS MediaSource where
-  fromJS = believe_me
-export
-data SourceBuffer  : Type where [external]
+SafeCast SourceBuffer where
+  safeCast = unsafeCastOnPrototypeName "SourceBuffer"
+
+export ToJS SourceBuffer where toJS = believe_me
+export FromJS SourceBuffer where fromJS = safeCast
+export data SourceBufferList : Type where [external]
 
 export
-ToJS SourceBuffer where
-  toJS = believe_me
+SafeCast SourceBufferList where
+  safeCast = unsafeCastOnPrototypeName "SourceBufferList"
 
-export
-FromJS SourceBuffer where
-  fromJS = believe_me
-export
-data SourceBufferList  : Type where [external]
-
-export
-ToJS SourceBufferList where
-  toJS = believe_me
-
-export
-FromJS SourceBufferList where
-  fromJS = believe_me
+export ToJS SourceBufferList where toJS = believe_me
+export FromJS SourceBufferList where fromJS = safeCast
 

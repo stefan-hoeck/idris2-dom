@@ -9,7 +9,7 @@ import Web.Types
 namespace MediaSource
   
   public export
-  JSVal MediaSource where
+  JSType MediaSource where
     parents =  [ EventTarget , JSObject ]
 
     mixins =  []
@@ -83,7 +83,7 @@ namespace MediaSource
 namespace SourceBuffer
   
   public export
-  JSVal SourceBuffer where
+  JSType SourceBuffer where
     parents =  [ EventTarget , JSObject ]
 
     mixins =  []
@@ -229,7 +229,7 @@ namespace SourceBuffer
 namespace SourceBufferList
   
   public export
-  JSVal SourceBufferList where
+  JSType SourceBufferList where
     parents =  [ EventTarget , JSObject ]
 
     mixins =  []

@@ -9,7 +9,7 @@ import Web.Types
 namespace Animation
   
   public export
-  JSVal Animation where
+  JSType Animation where
     parents =  [ EventTarget , JSObject ]
 
     mixins =  []
@@ -137,7 +137,7 @@ namespace Animation
 namespace AnimationEffect
   
   public export
-  JSVal AnimationEffect where
+  JSType AnimationEffect where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -145,7 +145,7 @@ namespace AnimationEffect
 namespace AnimationPlaybackEvent
   
   public export
-  JSVal AnimationPlaybackEvent where
+  JSType AnimationPlaybackEvent where
     parents =  [ Event , JSObject ]
 
     mixins =  []
@@ -165,7 +165,7 @@ namespace AnimationPlaybackEvent
 namespace AnimationTimeline
   
   public export
-  JSVal AnimationTimeline where
+  JSType AnimationTimeline where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -179,7 +179,7 @@ namespace AnimationTimeline
 namespace DocumentTimeline
   
   public export
-  JSVal DocumentTimeline where
+  JSType DocumentTimeline where
     parents =  [ AnimationTimeline , JSObject ]
 
     mixins =  []
@@ -187,7 +187,7 @@ namespace DocumentTimeline
 namespace KeyframeEffect
   
   public export
-  JSVal KeyframeEffect where
+  JSType KeyframeEffect where
     parents =  [ AnimationEffect , JSObject ]
 
     mixins =  []
@@ -245,7 +245,7 @@ namespace KeyframeEffect
 namespace AnimationPlaybackEventInit
   
   public export
-  JSVal AnimationPlaybackEventInit where
+  JSType AnimationPlaybackEventInit where
     parents =  [ EventInit , JSObject ]
 
     mixins =  []
@@ -281,7 +281,7 @@ namespace AnimationPlaybackEventInit
 namespace BaseComputedKeyframe
   
   public export
-  JSVal BaseComputedKeyframe where
+  JSType BaseComputedKeyframe where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -339,7 +339,7 @@ namespace BaseComputedKeyframe
 namespace BaseKeyframe
   
   public export
-  JSVal BaseKeyframe where
+  JSType BaseKeyframe where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -383,7 +383,7 @@ namespace BaseKeyframe
 namespace BasePropertyIndexedKeyframe
   
   public export
-  JSVal BasePropertyIndexedKeyframe where
+  JSType BasePropertyIndexedKeyframe where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -440,7 +440,7 @@ namespace BasePropertyIndexedKeyframe
 namespace ComputedEffectTiming
   
   public export
-  JSVal ComputedEffectTiming where
+  JSType ComputedEffectTiming where
     parents =  [ EffectTiming , JSObject ]
 
     mixins =  []
@@ -510,7 +510,7 @@ namespace ComputedEffectTiming
 namespace DocumentTimelineOptions
   
   public export
-  JSVal DocumentTimelineOptions where
+  JSType DocumentTimelineOptions where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -532,7 +532,7 @@ namespace DocumentTimelineOptions
 namespace EffectTiming
   
   public export
-  JSVal EffectTiming where
+  JSType EffectTiming where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -636,7 +636,7 @@ namespace EffectTiming
 namespace KeyframeAnimationOptions
   
   public export
-  JSVal KeyframeAnimationOptions where
+  JSType KeyframeAnimationOptions where
     parents =  [ KeyframeEffectOptions , EffectTiming , JSObject ]
 
     mixins =  []
@@ -656,7 +656,7 @@ namespace KeyframeAnimationOptions
 namespace KeyframeEffectOptions
   
   public export
-  JSVal KeyframeEffectOptions where
+  JSType KeyframeEffectOptions where
     parents =  [ EffectTiming , JSObject ]
 
     mixins =  []
@@ -693,7 +693,7 @@ namespace KeyframeEffectOptions
 namespace OptionalEffectTiming
   
   public export
-  JSVal OptionalEffectTiming where
+  JSType OptionalEffectTiming where
     parents =  [ JSObject ]
 
     mixins =  []

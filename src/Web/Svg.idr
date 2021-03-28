@@ -9,7 +9,7 @@ import Web.Types
 namespace MathMLElement
   
   public export
-  JSVal MathMLElement where
+  JSType MathMLElement where
     parents =  [ Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -26,7 +26,7 @@ namespace MathMLElement
 namespace SVGAElement
   
   public export
-  JSVal SVGAElement where
+  JSType SVGAElement where
     parents =  [ SVGGraphicsElement
                , SVGElement
                , Element
@@ -149,7 +149,7 @@ namespace SVGAElement
 namespace SVGAngle
   
   public export
-  JSVal SVGAngle where
+  JSType SVGAngle where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -219,7 +219,7 @@ namespace SVGAngle
 namespace SVGAnimatedAngle
   
   public export
-  JSVal SVGAnimatedAngle where
+  JSType SVGAnimatedAngle where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -239,7 +239,7 @@ namespace SVGAnimatedAngle
 namespace SVGAnimatedBoolean
   
   public export
-  JSVal SVGAnimatedBoolean where
+  JSType SVGAnimatedBoolean where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -265,7 +265,7 @@ namespace SVGAnimatedBoolean
 namespace SVGAnimatedEnumeration
   
   public export
-  JSVal SVGAnimatedEnumeration where
+  JSType SVGAnimatedEnumeration where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -291,7 +291,7 @@ namespace SVGAnimatedEnumeration
 namespace SVGAnimatedInteger
   
   public export
-  JSVal SVGAnimatedInteger where
+  JSType SVGAnimatedInteger where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -317,7 +317,7 @@ namespace SVGAnimatedInteger
 namespace SVGAnimatedLength
   
   public export
-  JSVal SVGAnimatedLength where
+  JSType SVGAnimatedLength where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -337,7 +337,7 @@ namespace SVGAnimatedLength
 namespace SVGAnimatedLengthList
   
   public export
-  JSVal SVGAnimatedLengthList where
+  JSType SVGAnimatedLengthList where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -357,7 +357,7 @@ namespace SVGAnimatedLengthList
 namespace SVGAnimatedNumber
   
   public export
-  JSVal SVGAnimatedNumber where
+  JSType SVGAnimatedNumber where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -383,7 +383,7 @@ namespace SVGAnimatedNumber
 namespace SVGAnimatedNumberList
   
   public export
-  JSVal SVGAnimatedNumberList where
+  JSType SVGAnimatedNumberList where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -403,7 +403,7 @@ namespace SVGAnimatedNumberList
 namespace SVGAnimatedPreserveAspectRatio
   
   public export
-  JSVal SVGAnimatedPreserveAspectRatio where
+  JSType SVGAnimatedPreserveAspectRatio where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -423,7 +423,7 @@ namespace SVGAnimatedPreserveAspectRatio
 namespace SVGAnimatedRect
   
   public export
-  JSVal SVGAnimatedRect where
+  JSType SVGAnimatedRect where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -443,7 +443,7 @@ namespace SVGAnimatedRect
 namespace SVGAnimatedString
   
   public export
-  JSVal SVGAnimatedString where
+  JSType SVGAnimatedString where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -469,7 +469,7 @@ namespace SVGAnimatedString
 namespace SVGAnimatedTransformList
   
   public export
-  JSVal SVGAnimatedTransformList where
+  JSType SVGAnimatedTransformList where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -489,7 +489,7 @@ namespace SVGAnimatedTransformList
 namespace SVGCircleElement
   
   public export
-  JSVal SVGCircleElement where
+  JSType SVGCircleElement where
     parents =  [ SVGGeometryElement
                , SVGGraphicsElement
                , SVGElement
@@ -533,7 +533,7 @@ namespace SVGCircleElement
 namespace SVGDefsElement
   
   public export
-  JSVal SVGDefsElement where
+  JSType SVGDefsElement where
     parents =  [ SVGGraphicsElement
                , SVGElement
                , Element
@@ -558,7 +558,7 @@ namespace SVGDefsElement
 namespace SVGDescElement
   
   public export
-  JSVal SVGDescElement where
+  JSType SVGDescElement where
     parents =  [ SVGElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -576,7 +576,7 @@ namespace SVGDescElement
 namespace SVGElement
   
   public export
-  JSVal SVGElement where
+  JSType SVGElement where
     parents =  [ Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -612,7 +612,7 @@ namespace SVGElement
 namespace SVGEllipseElement
   
   public export
-  JSVal SVGEllipseElement where
+  JSType SVGEllipseElement where
     parents =  [ SVGGeometryElement
                , SVGGraphicsElement
                , SVGElement
@@ -662,7 +662,7 @@ namespace SVGEllipseElement
 namespace SVGForeignObjectElement
   
   public export
-  JSVal SVGForeignObjectElement where
+  JSType SVGForeignObjectElement where
     parents =  [ SVGGraphicsElement
                , SVGElement
                , Element
@@ -711,7 +711,7 @@ namespace SVGForeignObjectElement
 namespace SVGGElement
   
   public export
-  JSVal SVGGElement where
+  JSType SVGGElement where
     parents =  [ SVGGraphicsElement
                , SVGElement
                , Element
@@ -736,7 +736,7 @@ namespace SVGGElement
 namespace SVGGeometryElement
   
   public export
-  JSVal SVGGeometryElement where
+  JSType SVGGeometryElement where
     parents =  [ SVGGraphicsElement
                , SVGElement
                , Element
@@ -767,7 +767,7 @@ namespace SVGGeometryElement
 namespace SVGGradientElement
   
   public export
-  JSVal SVGGradientElement where
+  JSType SVGGradientElement where
     parents =  [ SVGElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -820,7 +820,7 @@ namespace SVGGradientElement
 namespace SVGGraphicsElement
   
   public export
-  JSVal SVGGraphicsElement where
+  JSType SVGGraphicsElement where
     parents =  [ SVGElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -845,7 +845,7 @@ namespace SVGGraphicsElement
 namespace SVGImageElement
   
   public export
-  JSVal SVGImageElement where
+  JSType SVGImageElement where
     parents =  [ SVGGraphicsElement
                , SVGElement
                , Element
@@ -914,7 +914,7 @@ namespace SVGImageElement
 namespace SVGLength
   
   public export
-  JSVal SVGLength where
+  JSType SVGLength where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -1008,7 +1008,7 @@ namespace SVGLength
 namespace SVGLengthList
   
   public export
-  JSVal SVGLengthList where
+  JSType SVGLengthList where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -1028,7 +1028,7 @@ namespace SVGLengthList
 namespace SVGLineElement
   
   public export
-  JSVal SVGLineElement where
+  JSType SVGLineElement where
     parents =  [ SVGGeometryElement
                , SVGGraphicsElement
                , SVGElement
@@ -1078,7 +1078,7 @@ namespace SVGLineElement
 namespace SVGLinearGradientElement
   
   public export
-  JSVal SVGLinearGradientElement where
+  JSType SVGLinearGradientElement where
     parents =  [ SVGGradientElement
                , SVGElement
                , Element
@@ -1127,7 +1127,7 @@ namespace SVGLinearGradientElement
 namespace SVGMarkerElement
   
   public export
-  JSVal SVGMarkerElement where
+  JSType SVGMarkerElement where
     parents =  [ SVGElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -1224,7 +1224,7 @@ namespace SVGMarkerElement
 namespace SVGMetadataElement
   
   public export
-  JSVal SVGMetadataElement where
+  JSType SVGMetadataElement where
     parents =  [ SVGElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -1242,7 +1242,7 @@ namespace SVGMetadataElement
 namespace SVGNumber
   
   public export
-  JSVal SVGNumber where
+  JSType SVGNumber where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -1262,7 +1262,7 @@ namespace SVGNumber
 namespace SVGNumberList
   
   public export
-  JSVal SVGNumberList where
+  JSType SVGNumberList where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -1282,7 +1282,7 @@ namespace SVGNumberList
 namespace SVGPathElement
   
   public export
-  JSVal SVGPathElement where
+  JSType SVGPathElement where
     parents =  [ SVGGeometryElement
                , SVGGraphicsElement
                , SVGElement
@@ -1308,7 +1308,7 @@ namespace SVGPathElement
 namespace SVGPatternElement
   
   public export
-  JSVal SVGPatternElement where
+  JSType SVGPatternElement where
     parents =  [ SVGElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -1370,7 +1370,7 @@ namespace SVGPatternElement
 namespace SVGPointList
   
   public export
-  JSVal SVGPointList where
+  JSType SVGPointList where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -1390,7 +1390,7 @@ namespace SVGPointList
 namespace SVGPolygonElement
   
   public export
-  JSVal SVGPolygonElement where
+  JSType SVGPolygonElement where
     parents =  [ SVGGeometryElement
                , SVGGraphicsElement
                , SVGElement
@@ -1417,7 +1417,7 @@ namespace SVGPolygonElement
 namespace SVGPolylineElement
   
   public export
-  JSVal SVGPolylineElement where
+  JSType SVGPolylineElement where
     parents =  [ SVGGeometryElement
                , SVGGraphicsElement
                , SVGElement
@@ -1444,7 +1444,7 @@ namespace SVGPolylineElement
 namespace SVGPreserveAspectRatio
   
   public export
-  JSVal SVGPreserveAspectRatio where
+  JSType SVGPreserveAspectRatio where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -1532,7 +1532,7 @@ namespace SVGPreserveAspectRatio
 namespace SVGRadialGradientElement
   
   public export
-  JSVal SVGRadialGradientElement where
+  JSType SVGRadialGradientElement where
     parents =  [ SVGGradientElement
                , SVGElement
                , Element
@@ -1593,7 +1593,7 @@ namespace SVGRadialGradientElement
 namespace SVGRectElement
   
   public export
-  JSVal SVGRectElement where
+  JSType SVGRectElement where
     parents =  [ SVGGeometryElement
                , SVGGraphicsElement
                , SVGElement
@@ -1655,7 +1655,7 @@ namespace SVGRectElement
 namespace SVGSVGElement
   
   public export
-  JSVal SVGSVGElement where
+  JSType SVGSVGElement where
     parents =  [ SVGGraphicsElement
                , SVGElement
                , Element
@@ -1724,7 +1724,7 @@ namespace SVGSVGElement
 namespace SVGScriptElement
   
   public export
-  JSVal SVGScriptElement where
+  JSType SVGScriptElement where
     parents =  [ SVGElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -1767,7 +1767,7 @@ namespace SVGScriptElement
 namespace SVGStopElement
   
   public export
-  JSVal SVGStopElement where
+  JSType SVGStopElement where
     parents =  [ SVGElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -1791,7 +1791,7 @@ namespace SVGStopElement
 namespace SVGStringList
   
   public export
-  JSVal SVGStringList where
+  JSType SVGStringList where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -1811,7 +1811,7 @@ namespace SVGStringList
 namespace SVGStyleElement
   
   public export
-  JSVal SVGStyleElement where
+  JSType SVGStyleElement where
     parents =  [ SVGElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -1866,7 +1866,7 @@ namespace SVGStyleElement
 namespace SVGSwitchElement
   
   public export
-  JSVal SVGSwitchElement where
+  JSType SVGSwitchElement where
     parents =  [ SVGGraphicsElement
                , SVGElement
                , Element
@@ -1891,7 +1891,7 @@ namespace SVGSwitchElement
 namespace SVGSymbolElement
   
   public export
-  JSVal SVGSymbolElement where
+  JSType SVGSymbolElement where
     parents =  [ SVGGraphicsElement
                , SVGElement
                , Element
@@ -1917,7 +1917,7 @@ namespace SVGSymbolElement
 namespace SVGTSpanElement
   
   public export
-  JSVal SVGTSpanElement where
+  JSType SVGTSpanElement where
     parents =  [ SVGTextPositioningElement
                , SVGTextContentElement
                , SVGGraphicsElement
@@ -1944,7 +1944,7 @@ namespace SVGTSpanElement
 namespace SVGTextContentElement
   
   public export
-  JSVal SVGTextContentElement where
+  JSType SVGTextContentElement where
     parents =  [ SVGGraphicsElement
                , SVGElement
                , Element
@@ -1993,7 +1993,7 @@ namespace SVGTextContentElement
 namespace SVGTextElement
   
   public export
-  JSVal SVGTextElement where
+  JSType SVGTextElement where
     parents =  [ SVGTextPositioningElement
                , SVGTextContentElement
                , SVGGraphicsElement
@@ -2020,7 +2020,7 @@ namespace SVGTextElement
 namespace SVGTextPathElement
   
   public export
-  JSVal SVGTextPathElement where
+  JSType SVGTextPathElement where
     parents =  [ SVGTextContentElement
                , SVGGraphicsElement
                , SVGElement
@@ -2089,7 +2089,7 @@ namespace SVGTextPathElement
 namespace SVGTextPositioningElement
   
   public export
-  JSVal SVGTextPositioningElement where
+  JSType SVGTextPositioningElement where
     parents =  [ SVGTextContentElement
                , SVGGraphicsElement
                , SVGElement
@@ -2145,7 +2145,7 @@ namespace SVGTextPositioningElement
 namespace SVGTitleElement
   
   public export
-  JSVal SVGTitleElement where
+  JSType SVGTitleElement where
     parents =  [ SVGElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -2163,7 +2163,7 @@ namespace SVGTitleElement
 namespace SVGTransform
   
   public export
-  JSVal SVGTransform where
+  JSType SVGTransform where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -2217,7 +2217,7 @@ namespace SVGTransform
 namespace SVGTransformList
   
   public export
-  JSVal SVGTransformList where
+  JSType SVGTransformList where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -2237,7 +2237,7 @@ namespace SVGTransformList
 namespace SVGUnitTypes
   
   public export
-  JSVal SVGUnitTypes where
+  JSType SVGUnitTypes where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -2257,7 +2257,7 @@ namespace SVGUnitTypes
 namespace SVGUseElement
   
   public export
-  JSVal SVGUseElement where
+  JSType SVGUseElement where
     parents =  [ SVGGraphicsElement
                , SVGElement
                , Element
@@ -2319,7 +2319,7 @@ namespace SVGUseElement
 namespace SVGUseElementShadowRoot
   
   public export
-  JSVal SVGUseElementShadowRoot where
+  JSType SVGUseElementShadowRoot where
     parents =  [ ShadowRoot , DocumentFragment , Node , EventTarget , JSObject ]
 
     mixins =  [ DocumentOrShadowRoot , NonElementParentNode , ParentNode ]
@@ -2327,7 +2327,7 @@ namespace SVGUseElementShadowRoot
 namespace SVGViewElement
   
   public export
-  JSVal SVGViewElement where
+  JSType SVGViewElement where
     parents =  [ SVGElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -2346,7 +2346,7 @@ namespace SVGViewElement
 namespace ShadowAnimation
   
   public export
-  JSVal ShadowAnimation where
+  JSType ShadowAnimation where
     parents =  [ Animation , EventTarget , JSObject ]
 
     mixins =  []
@@ -2435,7 +2435,7 @@ namespace SVGURIReference
 namespace SVGBoundingBoxOptions
   
   public export
-  JSVal SVGBoundingBoxOptions where
+  JSType SVGBoundingBoxOptions where
     parents =  [ JSObject ]
 
     mixins =  []

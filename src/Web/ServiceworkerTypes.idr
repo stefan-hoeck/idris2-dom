@@ -54,7 +54,7 @@ namespace ServiceWorkerState
 
   export
   FromJS ServiceWorkerState where
-    fromJS = fromMaybe Parsed . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace ServiceWorkerUpdateViaCache
   
@@ -94,7 +94,7 @@ namespace ServiceWorkerUpdateViaCache
 
   export
   FromJS ServiceWorkerUpdateViaCache where
-    fromJS = fromMaybe Imports . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace FrameType
   
@@ -136,7 +136,7 @@ namespace FrameType
 
   export
   FromJS FrameType where
-    fromJS = fromMaybe Auxiliary . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace ClientType
   
@@ -178,223 +178,181 @@ namespace ClientType
 
   export
   FromJS ClientType where
-    fromJS = fromMaybe Window . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-export
-data Cache  : Type where [external]
+export data Cache : Type where [external]
 
 export
-ToJS Cache where
-  toJS = believe_me
+SafeCast Cache where
+  safeCast = unsafeCastOnPrototypeName "Cache"
+
+export ToJS Cache where toJS = believe_me
+export FromJS Cache where fromJS = safeCast
+export data CacheStorage : Type where [external]
 
 export
-FromJS Cache where
-  fromJS = believe_me
-export
-data CacheStorage  : Type where [external]
+SafeCast CacheStorage where
+  safeCast = unsafeCastOnPrototypeName "CacheStorage"
+
+export ToJS CacheStorage where toJS = believe_me
+export FromJS CacheStorage where fromJS = safeCast
+export data Client : Type where [external]
 
 export
-ToJS CacheStorage where
-  toJS = believe_me
+SafeCast Client where
+  safeCast = unsafeCastOnPrototypeName "Client"
+
+export ToJS Client where toJS = believe_me
+export FromJS Client where fromJS = safeCast
+export data Clients : Type where [external]
 
 export
-FromJS CacheStorage where
-  fromJS = believe_me
-export
-data Client  : Type where [external]
+SafeCast Clients where
+  safeCast = unsafeCastOnPrototypeName "Clients"
+
+export ToJS Clients where toJS = believe_me
+export FromJS Clients where fromJS = safeCast
+export data ExtendableEvent : Type where [external]
 
 export
-ToJS Client where
-  toJS = believe_me
+SafeCast ExtendableEvent where
+  safeCast = unsafeCastOnPrototypeName "ExtendableEvent"
+
+export ToJS ExtendableEvent where toJS = believe_me
+export FromJS ExtendableEvent where fromJS = safeCast
+export data ExtendableMessageEvent : Type where [external]
 
 export
-FromJS Client where
-  fromJS = believe_me
-export
-data Clients  : Type where [external]
+SafeCast ExtendableMessageEvent where
+  safeCast = unsafeCastOnPrototypeName "ExtendableMessageEvent"
+
+export ToJS ExtendableMessageEvent where toJS = believe_me
+export FromJS ExtendableMessageEvent where fromJS = safeCast
+export data FetchEvent : Type where [external]
 
 export
-ToJS Clients where
-  toJS = believe_me
+SafeCast FetchEvent where
+  safeCast = unsafeCastOnPrototypeName "FetchEvent"
+
+export ToJS FetchEvent where toJS = believe_me
+export FromJS FetchEvent where fromJS = safeCast
+export data NavigationPreloadManager : Type where [external]
 
 export
-FromJS Clients where
-  fromJS = believe_me
-export
-data ExtendableEvent  : Type where [external]
+SafeCast NavigationPreloadManager where
+  safeCast = unsafeCastOnPrototypeName "NavigationPreloadManager"
+
+export ToJS NavigationPreloadManager where toJS = believe_me
+export FromJS NavigationPreloadManager where fromJS = safeCast
+export data ServiceWorker : Type where [external]
 
 export
-ToJS ExtendableEvent where
-  toJS = believe_me
+SafeCast ServiceWorker where
+  safeCast = unsafeCastOnPrototypeName "ServiceWorker"
+
+export ToJS ServiceWorker where toJS = believe_me
+export FromJS ServiceWorker where fromJS = safeCast
+export data ServiceWorkerContainer : Type where [external]
 
 export
-FromJS ExtendableEvent where
-  fromJS = believe_me
-export
-data ExtendableMessageEvent  : Type where [external]
+SafeCast ServiceWorkerContainer where
+  safeCast = unsafeCastOnPrototypeName "ServiceWorkerContainer"
+
+export ToJS ServiceWorkerContainer where toJS = believe_me
+export FromJS ServiceWorkerContainer where fromJS = safeCast
+export data ServiceWorkerGlobalScope : Type where [external]
 
 export
-ToJS ExtendableMessageEvent where
-  toJS = believe_me
+SafeCast ServiceWorkerGlobalScope where
+  safeCast = unsafeCastOnPrototypeName "ServiceWorkerGlobalScope"
+
+export ToJS ServiceWorkerGlobalScope where toJS = believe_me
+export FromJS ServiceWorkerGlobalScope where fromJS = safeCast
+export data ServiceWorkerRegistration : Type where [external]
 
 export
-FromJS ExtendableMessageEvent where
-  fromJS = believe_me
-export
-data FetchEvent  : Type where [external]
+SafeCast ServiceWorkerRegistration where
+  safeCast = unsafeCastOnPrototypeName "ServiceWorkerRegistration"
+
+export ToJS ServiceWorkerRegistration where toJS = believe_me
+export FromJS ServiceWorkerRegistration where fromJS = safeCast
+export data WindowClient : Type where [external]
 
 export
-ToJS FetchEvent where
-  toJS = believe_me
+SafeCast WindowClient where
+  safeCast = unsafeCastOnPrototypeName "WindowClient"
 
-export
-FromJS FetchEvent where
-  fromJS = believe_me
-export
-data NavigationPreloadManager  : Type where [external]
-
-export
-ToJS NavigationPreloadManager where
-  toJS = believe_me
-
-export
-FromJS NavigationPreloadManager where
-  fromJS = believe_me
-export
-data ServiceWorker  : Type where [external]
-
-export
-ToJS ServiceWorker where
-  toJS = believe_me
-
-export
-FromJS ServiceWorker where
-  fromJS = believe_me
-export
-data ServiceWorkerContainer  : Type where [external]
-
-export
-ToJS ServiceWorkerContainer where
-  toJS = believe_me
-
-export
-FromJS ServiceWorkerContainer where
-  fromJS = believe_me
-export
-data ServiceWorkerGlobalScope  : Type where [external]
-
-export
-ToJS ServiceWorkerGlobalScope where
-  toJS = believe_me
-
-export
-FromJS ServiceWorkerGlobalScope where
-  fromJS = believe_me
-export
-data ServiceWorkerRegistration  : Type where [external]
-
-export
-ToJS ServiceWorkerRegistration where
-  toJS = believe_me
-
-export
-FromJS ServiceWorkerRegistration where
-  fromJS = believe_me
-export
-data WindowClient  : Type where [external]
-
-export
-ToJS WindowClient where
-  toJS = believe_me
-
-export
-FromJS WindowClient where
-  fromJS = believe_me
+export ToJS WindowClient where toJS = believe_me
+export FromJS WindowClient where fromJS = safeCast
 
 
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
-export
-data CacheQueryOptions  : Type where [external]
+export data CacheQueryOptions : Type where [external]
 
 export
-ToJS CacheQueryOptions where
-  toJS = believe_me
+SafeCast CacheQueryOptions where
+  safeCast = unsafeCastOnPrototypeName "CacheQueryOptions"
+
+export ToJS CacheQueryOptions where toJS = believe_me
+export FromJS CacheQueryOptions where fromJS = safeCast
+export data ClientQueryOptions : Type where [external]
 
 export
-FromJS CacheQueryOptions where
-  fromJS = believe_me
-export
-data ClientQueryOptions  : Type where [external]
+SafeCast ClientQueryOptions where
+  safeCast = unsafeCastOnPrototypeName "ClientQueryOptions"
+
+export ToJS ClientQueryOptions where toJS = believe_me
+export FromJS ClientQueryOptions where fromJS = safeCast
+export data ExtendableEventInit : Type where [external]
 
 export
-ToJS ClientQueryOptions where
-  toJS = believe_me
+SafeCast ExtendableEventInit where
+  safeCast = unsafeCastOnPrototypeName "ExtendableEventInit"
+
+export ToJS ExtendableEventInit where toJS = believe_me
+export FromJS ExtendableEventInit where fromJS = safeCast
+export data ExtendableMessageEventInit : Type where [external]
 
 export
-FromJS ClientQueryOptions where
-  fromJS = believe_me
-export
-data ExtendableEventInit  : Type where [external]
+SafeCast ExtendableMessageEventInit where
+  safeCast = unsafeCastOnPrototypeName "ExtendableMessageEventInit"
+
+export ToJS ExtendableMessageEventInit where toJS = believe_me
+export FromJS ExtendableMessageEventInit where fromJS = safeCast
+export data FetchEventInit : Type where [external]
 
 export
-ToJS ExtendableEventInit where
-  toJS = believe_me
+SafeCast FetchEventInit where
+  safeCast = unsafeCastOnPrototypeName "FetchEventInit"
+
+export ToJS FetchEventInit where toJS = believe_me
+export FromJS FetchEventInit where fromJS = safeCast
+export data MultiCacheQueryOptions : Type where [external]
 
 export
-FromJS ExtendableEventInit where
-  fromJS = believe_me
-export
-data ExtendableMessageEventInit  : Type where [external]
+SafeCast MultiCacheQueryOptions where
+  safeCast = unsafeCastOnPrototypeName "MultiCacheQueryOptions"
+
+export ToJS MultiCacheQueryOptions where toJS = believe_me
+export FromJS MultiCacheQueryOptions where fromJS = safeCast
+export data NavigationPreloadState : Type where [external]
 
 export
-ToJS ExtendableMessageEventInit where
-  toJS = believe_me
+SafeCast NavigationPreloadState where
+  safeCast = unsafeCastOnPrototypeName "NavigationPreloadState"
+
+export ToJS NavigationPreloadState where toJS = believe_me
+export FromJS NavigationPreloadState where fromJS = safeCast
+export data RegistrationOptions : Type where [external]
 
 export
-FromJS ExtendableMessageEventInit where
-  fromJS = believe_me
-export
-data FetchEventInit  : Type where [external]
+SafeCast RegistrationOptions where
+  safeCast = unsafeCastOnPrototypeName "RegistrationOptions"
 
-export
-ToJS FetchEventInit where
-  toJS = believe_me
-
-export
-FromJS FetchEventInit where
-  fromJS = believe_me
-export
-data MultiCacheQueryOptions  : Type where [external]
-
-export
-ToJS MultiCacheQueryOptions where
-  toJS = believe_me
-
-export
-FromJS MultiCacheQueryOptions where
-  fromJS = believe_me
-export
-data NavigationPreloadState  : Type where [external]
-
-export
-ToJS NavigationPreloadState where
-  toJS = believe_me
-
-export
-FromJS NavigationPreloadState where
-  fromJS = believe_me
-export
-data RegistrationOptions  : Type where [external]
-
-export
-ToJS RegistrationOptions where
-  toJS = believe_me
-
-export
-FromJS RegistrationOptions where
-  fromJS = believe_me
+export ToJS RegistrationOptions where toJS = believe_me
+export FromJS RegistrationOptions where fromJS = safeCast

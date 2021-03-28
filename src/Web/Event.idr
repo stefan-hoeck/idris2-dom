@@ -9,7 +9,7 @@ import Web.Types
 namespace CompositionEvent
   
   public export
-  JSVal CompositionEvent where
+  JSType CompositionEvent where
     parents =  [ UIEvent , Event , JSObject ]
 
     mixins =  []
@@ -23,7 +23,7 @@ namespace CompositionEvent
 namespace FocusEvent
   
   public export
-  JSVal FocusEvent where
+  JSType FocusEvent where
     parents =  [ UIEvent , Event , JSObject ]
 
     mixins =  []
@@ -37,7 +37,7 @@ namespace FocusEvent
 namespace InputEvent
   
   public export
-  JSVal InputEvent where
+  JSType InputEvent where
     parents =  [ UIEvent , Event , JSObject ]
 
     mixins =  []
@@ -63,7 +63,7 @@ namespace InputEvent
 namespace KeyboardEvent
   
   public export
-  JSVal KeyboardEvent where
+  JSType KeyboardEvent where
     parents =  [ UIEvent , Event , JSObject ]
 
     mixins =  []
@@ -153,7 +153,7 @@ namespace KeyboardEvent
 namespace MouseEvent
   
   public export
-  JSVal MouseEvent where
+  JSType MouseEvent where
     parents =  [ UIEvent , Event , JSObject ]
 
     mixins =  []
@@ -227,7 +227,7 @@ namespace MouseEvent
 namespace UIEvent
   
   public export
-  JSVal UIEvent where
+  JSType UIEvent where
     parents =  [ Event , JSObject ]
 
     mixins =  []
@@ -253,7 +253,7 @@ namespace UIEvent
 namespace WheelEvent
   
   public export
-  JSVal WheelEvent where
+  JSType WheelEvent where
     parents =  [ MouseEvent , UIEvent , Event , JSObject ]
 
     mixins =  []
@@ -302,7 +302,7 @@ namespace WheelEvent
 namespace CompositionEventInit
   
   public export
-  JSVal CompositionEventInit where
+  JSType CompositionEventInit where
     parents =  [ UIEventInit , EventInit , JSObject ]
 
     mixins =  []
@@ -322,7 +322,7 @@ namespace CompositionEventInit
 namespace EventModifierInit
   
   public export
-  JSVal EventModifierInit where
+  JSType EventModifierInit where
     parents =  [ UIEventInit , EventInit , JSObject ]
 
     mixins =  []
@@ -498,7 +498,7 @@ namespace EventModifierInit
 namespace FocusEventInit
   
   public export
-  JSVal FocusEventInit where
+  JSType FocusEventInit where
     parents =  [ UIEventInit , EventInit , JSObject ]
 
     mixins =  []
@@ -518,7 +518,7 @@ namespace FocusEventInit
 namespace InputEventInit
   
   public export
-  JSVal InputEventInit where
+  JSType InputEventInit where
     parents =  [ UIEventInit , EventInit , JSObject ]
 
     mixins =  []
@@ -562,7 +562,7 @@ namespace InputEventInit
 namespace KeyboardEventInit
   
   public export
-  JSVal KeyboardEventInit where
+  JSType KeyboardEventInit where
     parents =  [ EventModifierInit , UIEventInit , EventInit , JSObject ]
 
     mixins =  []
@@ -654,7 +654,7 @@ namespace KeyboardEventInit
 namespace MouseEventInit
   
   public export
-  JSVal MouseEventInit where
+  JSType MouseEventInit where
     parents =  [ EventModifierInit , UIEventInit , EventInit , JSObject ]
 
     mixins =  []
@@ -746,7 +746,7 @@ namespace MouseEventInit
 namespace UIEventInit
   
   public export
-  JSVal UIEventInit where
+  JSType UIEventInit where
     parents =  [ EventInit , JSObject ]
 
     mixins =  []
@@ -778,7 +778,7 @@ namespace UIEventInit
 namespace WheelEventInit
   
   public export
-  JSVal WheelEventInit where
+  JSType WheelEventInit where
     parents =  [ MouseEventInit
                , EventModifierInit
                , UIEventInit

@@ -9,7 +9,7 @@ import Web.Types
 namespace PermissionStatus
   
   public export
-  JSVal PermissionStatus where
+  JSType PermissionStatus where
     parents =  [ EventTarget , JSObject ]
 
     mixins =  []
@@ -35,7 +35,7 @@ namespace PermissionStatus
 namespace Permissions
   
   public export
-  JSVal Permissions where
+  JSType Permissions where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -48,7 +48,7 @@ namespace Permissions
 namespace CameraDevicePermissionDescriptor
   
   public export
-  JSVal CameraDevicePermissionDescriptor where
+  JSType CameraDevicePermissionDescriptor where
     parents =  [ DevicePermissionDescriptor , PermissionDescriptor , JSObject ]
 
     mixins =  []
@@ -70,7 +70,7 @@ namespace CameraDevicePermissionDescriptor
 namespace DevicePermissionDescriptor
   
   public export
-  JSVal DevicePermissionDescriptor where
+  JSType DevicePermissionDescriptor where
     parents =  [ PermissionDescriptor , JSObject ]
 
     mixins =  []
@@ -90,7 +90,7 @@ namespace DevicePermissionDescriptor
 namespace MidiPermissionDescriptor
   
   public export
-  JSVal MidiPermissionDescriptor where
+  JSType MidiPermissionDescriptor where
     parents =  [ PermissionDescriptor , JSObject ]
 
     mixins =  []
@@ -110,7 +110,7 @@ namespace MidiPermissionDescriptor
 namespace PermissionDescriptor
   
   public export
-  JSVal PermissionDescriptor where
+  JSType PermissionDescriptor where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -130,7 +130,7 @@ namespace PermissionDescriptor
 namespace PermissionSetParameters
   
   public export
-  JSVal PermissionSetParameters where
+  JSType PermissionSetParameters where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -176,7 +176,7 @@ namespace PermissionSetParameters
 namespace PushPermissionDescriptor
   
   public export
-  JSVal PushPermissionDescriptor where
+  JSType PushPermissionDescriptor where
     parents =  [ PermissionDescriptor , JSObject ]
 
     mixins =  []

@@ -9,7 +9,7 @@ import Web.Types
 namespace Blob
   
   public export
-  JSVal Blob where
+  JSType Blob where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -29,7 +29,7 @@ namespace Blob
 namespace File
   
   public export
-  JSVal File where
+  JSType File where
     parents =  [ Blob , JSObject ]
 
     mixins =  []
@@ -49,7 +49,7 @@ namespace File
 namespace FileList
   
   public export
-  JSVal FileList where
+  JSType FileList where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -63,7 +63,7 @@ namespace FileList
 namespace FileReader
   
   public export
-  JSVal FileReader where
+  JSType FileReader where
     parents =  [ EventTarget , JSObject ]
 
     mixins =  []
@@ -173,7 +173,7 @@ namespace FileReader
 namespace FileReaderSync
   
   public export
-  JSVal FileReaderSync where
+  JSType FileReaderSync where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -186,7 +186,7 @@ namespace FileReaderSync
 namespace BlobPropertyBag
   
   public export
-  JSVal BlobPropertyBag where
+  JSType BlobPropertyBag where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -218,7 +218,7 @@ namespace BlobPropertyBag
 namespace FilePropertyBag
   
   public export
-  JSVal FilePropertyBag where
+  JSType FilePropertyBag where
     parents =  [ BlobPropertyBag , JSObject ]
 
     mixins =  []

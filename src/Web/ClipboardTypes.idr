@@ -43,73 +43,61 @@ namespace PresentationStyle
 
   export
   FromJS PresentationStyle where
-    fromJS = fromMaybe Unspecified . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-export
-data Clipboard  : Type where [external]
+export data Clipboard : Type where [external]
 
 export
-ToJS Clipboard where
-  toJS = believe_me
+SafeCast Clipboard where
+  safeCast = unsafeCastOnPrototypeName "Clipboard"
+
+export ToJS Clipboard where toJS = believe_me
+export FromJS Clipboard where fromJS = safeCast
+export data ClipboardEvent : Type where [external]
 
 export
-FromJS Clipboard where
-  fromJS = believe_me
-export
-data ClipboardEvent  : Type where [external]
+SafeCast ClipboardEvent where
+  safeCast = unsafeCastOnPrototypeName "ClipboardEvent"
+
+export ToJS ClipboardEvent where toJS = believe_me
+export FromJS ClipboardEvent where fromJS = safeCast
+export data ClipboardItem : Type where [external]
 
 export
-ToJS ClipboardEvent where
-  toJS = believe_me
+SafeCast ClipboardItem where
+  safeCast = unsafeCastOnPrototypeName "ClipboardItem"
 
-export
-FromJS ClipboardEvent where
-  fromJS = believe_me
-export
-data ClipboardItem  : Type where [external]
-
-export
-ToJS ClipboardItem where
-  toJS = believe_me
-
-export
-FromJS ClipboardItem where
-  fromJS = believe_me
+export ToJS ClipboardItem where toJS = believe_me
+export FromJS ClipboardItem where fromJS = safeCast
 
 
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
-export
-data ClipboardEventInit  : Type where [external]
+export data ClipboardEventInit : Type where [external]
 
 export
-ToJS ClipboardEventInit where
-  toJS = believe_me
+SafeCast ClipboardEventInit where
+  safeCast = unsafeCastOnPrototypeName "ClipboardEventInit"
+
+export ToJS ClipboardEventInit where toJS = believe_me
+export FromJS ClipboardEventInit where fromJS = safeCast
+export data ClipboardItemOptions : Type where [external]
 
 export
-FromJS ClipboardEventInit where
-  fromJS = believe_me
-export
-data ClipboardItemOptions  : Type where [external]
+SafeCast ClipboardItemOptions where
+  safeCast = unsafeCastOnPrototypeName "ClipboardItemOptions"
+
+export ToJS ClipboardItemOptions where toJS = believe_me
+export FromJS ClipboardItemOptions where fromJS = safeCast
+export data ClipboardPermissionDescriptor : Type where [external]
 
 export
-ToJS ClipboardItemOptions where
-  toJS = believe_me
+SafeCast ClipboardPermissionDescriptor where
+  safeCast = unsafeCastOnPrototypeName "ClipboardPermissionDescriptor"
 
-export
-FromJS ClipboardItemOptions where
-  fromJS = believe_me
-export
-data ClipboardPermissionDescriptor  : Type where [external]
-
-export
-ToJS ClipboardPermissionDescriptor where
-  toJS = believe_me
-
-export
-FromJS ClipboardPermissionDescriptor where
-  fromJS = believe_me
+export ToJS ClipboardPermissionDescriptor where toJS = believe_me
+export FromJS ClipboardPermissionDescriptor where fromJS = safeCast

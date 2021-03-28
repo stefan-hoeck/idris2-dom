@@ -9,7 +9,7 @@ import Web.Types
 namespace ByteLengthQueuingStrategy
   
   public export
-  JSVal ByteLengthQueuingStrategy where
+  JSType ByteLengthQueuingStrategy where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -29,7 +29,7 @@ namespace ByteLengthQueuingStrategy
 namespace CountQueuingStrategy
   
   public export
-  JSVal CountQueuingStrategy where
+  JSType CountQueuingStrategy where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -49,7 +49,7 @@ namespace CountQueuingStrategy
 namespace ReadableByteStreamController
   
   public export
-  JSVal ReadableByteStreamController where
+  JSType ReadableByteStreamController where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -70,7 +70,7 @@ namespace ReadableByteStreamController
 namespace ReadableStream
   
   public export
-  JSVal ReadableStream where
+  JSType ReadableStream where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -84,7 +84,7 @@ namespace ReadableStream
 namespace ReadableStreamBYOBReader
   
   public export
-  JSVal ReadableStreamBYOBReader where
+  JSType ReadableStreamBYOBReader where
     parents =  [ JSObject ]
 
     mixins =  [ ReadableStreamGenericReader ]
@@ -92,7 +92,7 @@ namespace ReadableStreamBYOBReader
 namespace ReadableStreamBYOBRequest
   
   public export
-  JSVal ReadableStreamBYOBRequest where
+  JSType ReadableStreamBYOBRequest where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -106,7 +106,7 @@ namespace ReadableStreamBYOBRequest
 namespace ReadableStreamDefaultController
   
   public export
-  JSVal ReadableStreamDefaultController where
+  JSType ReadableStreamDefaultController where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -120,7 +120,7 @@ namespace ReadableStreamDefaultController
 namespace ReadableStreamDefaultReader
   
   public export
-  JSVal ReadableStreamDefaultReader where
+  JSType ReadableStreamDefaultReader where
     parents =  [ JSObject ]
 
     mixins =  [ ReadableStreamGenericReader ]
@@ -128,7 +128,7 @@ namespace ReadableStreamDefaultReader
 namespace TransformStream
   
   public export
-  JSVal TransformStream where
+  JSType TransformStream where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -148,7 +148,7 @@ namespace TransformStream
 namespace TransformStreamDefaultController
   
   public export
-  JSVal TransformStreamDefaultController where
+  JSType TransformStreamDefaultController where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -162,7 +162,7 @@ namespace TransformStreamDefaultController
 namespace WritableStream
   
   public export
-  JSVal WritableStream where
+  JSType WritableStream where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -176,7 +176,7 @@ namespace WritableStream
 namespace WritableStreamDefaultController
   
   public export
-  JSVal WritableStreamDefaultController where
+  JSType WritableStreamDefaultController where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -184,7 +184,7 @@ namespace WritableStreamDefaultController
 namespace WritableStreamDefaultWriter
   
   public export
-  JSVal WritableStreamDefaultWriter where
+  JSType WritableStreamDefaultWriter where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -240,7 +240,7 @@ namespace ReadableStreamGenericReader
 namespace QueuingStrategy
   
   public export
-  JSVal QueuingStrategy where
+  JSType QueuingStrategy where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -272,7 +272,7 @@ namespace QueuingStrategy
 namespace QueuingStrategyInit
   
   public export
-  JSVal QueuingStrategyInit where
+  JSType QueuingStrategyInit where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -292,7 +292,7 @@ namespace QueuingStrategyInit
 namespace ReadableStreamBYOBReadResult
   
   public export
-  JSVal ReadableStreamBYOBReadResult where
+  JSType ReadableStreamBYOBReadResult where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -326,7 +326,7 @@ namespace ReadableStreamBYOBReadResult
 namespace ReadableStreamDefaultReadResult
   
   public export
-  JSVal ReadableStreamDefaultReadResult where
+  JSType ReadableStreamDefaultReadResult where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -347,18 +347,18 @@ namespace ReadableStreamDefaultReadResult
   prim__value : AnyPtr -> PrimIO AnyPtr
 
   export
-  value : (obj : ReadableStreamDefaultReadResult) -> IO JSAny
+  value : (obj : ReadableStreamDefaultReadResult) -> IO Any
 
   %foreign "browser:lambda:(x,v)=>{x.value  = v}"
   prim__setValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setValue : (obj : ReadableStreamDefaultReadResult) -> (v : JSAny) -> IO ()
+  setValue : (obj : ReadableStreamDefaultReadResult) -> (v : Any) -> IO ()
 
 namespace ReadableStreamGetReaderOptions
   
   public export
-  JSVal ReadableStreamGetReaderOptions where
+  JSType ReadableStreamGetReaderOptions where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -380,7 +380,7 @@ namespace ReadableStreamGetReaderOptions
 namespace ReadableStreamIteratorOptions
   
   public export
-  JSVal ReadableStreamIteratorOptions where
+  JSType ReadableStreamIteratorOptions where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -402,7 +402,7 @@ namespace ReadableStreamIteratorOptions
 namespace ReadableWritablePair
   
   public export
-  JSVal ReadableWritablePair where
+  JSType ReadableWritablePair where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -434,7 +434,7 @@ namespace ReadableWritablePair
 namespace StreamPipeOptions
   
   public export
-  JSVal StreamPipeOptions where
+  JSType StreamPipeOptions where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -490,7 +490,7 @@ namespace StreamPipeOptions
 namespace Transformer
   
   public export
-  JSVal Transformer where
+  JSType Transformer where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -511,13 +511,13 @@ namespace Transformer
   prim__readableType : AnyPtr -> PrimIO AnyPtr
 
   export
-  readableType : (obj : Transformer) -> IO JSAny
+  readableType : (obj : Transformer) -> IO Any
 
   %foreign "browser:lambda:(x,v)=>{x.readableType  = v}"
   prim__setReadableType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setReadableType : (obj : Transformer) -> (v : JSAny) -> IO ()
+  setReadableType : (obj : Transformer) -> (v : Any) -> IO ()
   
   %foreign "browser:lambda:x=>x.start"
   prim__start : AnyPtr -> PrimIO AnyPtr
@@ -549,18 +549,18 @@ namespace Transformer
   prim__writableType : AnyPtr -> PrimIO AnyPtr
 
   export
-  writableType : (obj : Transformer) -> IO JSAny
+  writableType : (obj : Transformer) -> IO Any
 
   %foreign "browser:lambda:(x,v)=>{x.writableType  = v}"
   prim__setWritableType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setWritableType : (obj : Transformer) -> (v : JSAny) -> IO ()
+  setWritableType : (obj : Transformer) -> (v : Any) -> IO ()
 
 namespace UnderlyingSink
   
   public export
-  JSVal UnderlyingSink where
+  JSType UnderlyingSink where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -611,13 +611,13 @@ namespace UnderlyingSink
   prim__type : AnyPtr -> PrimIO AnyPtr
 
   export
-  type : (obj : UnderlyingSink) -> IO JSAny
+  type : (obj : UnderlyingSink) -> IO Any
 
   %foreign "browser:lambda:(x,v)=>{x.type  = v}"
   prim__setType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setType : (obj : UnderlyingSink) -> (v : JSAny) -> IO ()
+  setType : (obj : UnderlyingSink) -> (v : Any) -> IO ()
   
   %foreign "browser:lambda:x=>x.write"
   prim__write : AnyPtr -> PrimIO AnyPtr
@@ -636,7 +636,7 @@ namespace UnderlyingSink
 namespace UnderlyingSource
   
   public export
-  JSVal UnderlyingSource where
+  JSType UnderlyingSource where
     parents =  [ JSObject ]
 
     mixins =  []

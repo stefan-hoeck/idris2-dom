@@ -9,7 +9,7 @@ import Web.Types
 namespace DOMMatrix
   
   public export
-  JSVal DOMMatrix where
+  JSType DOMMatrix where
     parents =  [ DOMMatrixReadOnly , JSObject ]
 
     mixins =  []
@@ -17,7 +17,7 @@ namespace DOMMatrix
 namespace DOMMatrixReadOnly
   
   public export
-  JSVal DOMMatrixReadOnly where
+  JSType DOMMatrixReadOnly where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -169,7 +169,7 @@ namespace DOMMatrixReadOnly
 namespace DOMPoint
   
   public export
-  JSVal DOMPoint where
+  JSType DOMPoint where
     parents =  [ DOMPointReadOnly , JSObject ]
 
     mixins =  []
@@ -177,7 +177,7 @@ namespace DOMPoint
 namespace DOMPointReadOnly
   
   public export
-  JSVal DOMPointReadOnly where
+  JSType DOMPointReadOnly where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -209,7 +209,7 @@ namespace DOMPointReadOnly
 namespace DOMQuad
   
   public export
-  JSVal DOMQuad where
+  JSType DOMQuad where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -241,7 +241,7 @@ namespace DOMQuad
 namespace DOMRect
   
   public export
-  JSVal DOMRect where
+  JSType DOMRect where
     parents =  [ DOMRectReadOnly , JSObject ]
 
     mixins =  []
@@ -249,7 +249,7 @@ namespace DOMRect
 namespace DOMRectList
   
   public export
-  JSVal DOMRectList where
+  JSType DOMRectList where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -263,7 +263,7 @@ namespace DOMRectList
 namespace DOMRectReadOnly
   
   public export
-  JSVal DOMRectReadOnly where
+  JSType DOMRectReadOnly where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -324,7 +324,7 @@ namespace DOMRectReadOnly
 namespace DOMMatrix2DInit
   
   public export
-  JSVal DOMMatrix2DInit where
+  JSType DOMMatrix2DInit where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -476,7 +476,7 @@ namespace DOMMatrix2DInit
 namespace DOMMatrixInit
   
   public export
-  JSVal DOMMatrixInit where
+  JSType DOMMatrixInit where
     parents =  [ DOMMatrix2DInit , JSObject ]
 
     mixins =  []
@@ -616,7 +616,7 @@ namespace DOMMatrixInit
 namespace DOMPointInit
   
   public export
-  JSVal DOMPointInit where
+  JSType DOMPointInit where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -672,7 +672,7 @@ namespace DOMPointInit
 namespace DOMQuadInit
   
   public export
-  JSVal DOMQuadInit where
+  JSType DOMQuadInit where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -728,7 +728,7 @@ namespace DOMQuadInit
 namespace DOMRectInit
   
   public export
-  JSVal DOMRectInit where
+  JSType DOMRectInit where
     parents =  [ JSObject ]
 
     mixins =  []

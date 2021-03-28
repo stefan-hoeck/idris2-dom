@@ -9,7 +9,7 @@ import Web.Types
 namespace AudioTrack
   
   public export
-  JSVal AudioTrack where
+  JSType AudioTrack where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -59,7 +59,7 @@ namespace AudioTrack
 namespace AudioTrackList
   
   public export
-  JSVal AudioTrackList where
+  JSType AudioTrackList where
     parents =  [ EventTarget , JSObject ]
 
     mixins =  []
@@ -109,7 +109,7 @@ namespace AudioTrackList
 namespace BarProp
   
   public export
-  JSVal BarProp where
+  JSType BarProp where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -123,7 +123,7 @@ namespace BarProp
 namespace BeforeUnloadEvent
   
   public export
-  JSVal BeforeUnloadEvent where
+  JSType BeforeUnloadEvent where
     parents =  [ Event , JSObject ]
 
     mixins =  []
@@ -143,7 +143,7 @@ namespace BeforeUnloadEvent
 namespace BroadcastChannel
   
   public export
-  JSVal BroadcastChannel where
+  JSType BroadcastChannel where
     parents =  [ EventTarget , JSObject ]
 
     mixins =  []
@@ -181,7 +181,7 @@ namespace BroadcastChannel
 namespace CanvasGradient
   
   public export
-  JSVal CanvasGradient where
+  JSType CanvasGradient where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -189,7 +189,7 @@ namespace CanvasGradient
 namespace CanvasPattern
   
   public export
-  JSVal CanvasPattern where
+  JSType CanvasPattern where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -197,7 +197,7 @@ namespace CanvasPattern
 namespace CanvasRenderingContext2D
   
   public export
-  JSVal CanvasRenderingContext2D where
+  JSType CanvasRenderingContext2D where
     parents =  [ JSObject ]
 
     mixins =  [ CanvasCompositing
@@ -227,7 +227,7 @@ namespace CanvasRenderingContext2D
 namespace CloseEvent
   
   public export
-  JSVal CloseEvent where
+  JSType CloseEvent where
     parents =  [ Event , JSObject ]
 
     mixins =  []
@@ -253,7 +253,7 @@ namespace CloseEvent
 namespace CustomElementRegistry
   
   public export
-  JSVal CustomElementRegistry where
+  JSType CustomElementRegistry where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -261,7 +261,7 @@ namespace CustomElementRegistry
 namespace DOMParser
   
   public export
-  JSVal DOMParser where
+  JSType DOMParser where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -269,7 +269,7 @@ namespace DOMParser
 namespace DOMStringList
   
   public export
-  JSVal DOMStringList where
+  JSType DOMStringList where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -283,7 +283,7 @@ namespace DOMStringList
 namespace DOMStringMap
   
   public export
-  JSVal DOMStringMap where
+  JSType DOMStringMap where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -291,7 +291,7 @@ namespace DOMStringMap
 namespace DataTransfer
   
   public export
-  JSVal DataTransfer where
+  JSType DataTransfer where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -341,7 +341,7 @@ namespace DataTransfer
 namespace DataTransferItem
   
   public export
-  JSVal DataTransferItem where
+  JSType DataTransferItem where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -361,7 +361,7 @@ namespace DataTransferItem
 namespace DataTransferItemList
   
   public export
-  JSVal DataTransferItemList where
+  JSType DataTransferItemList where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -375,7 +375,7 @@ namespace DataTransferItemList
 namespace DedicatedWorkerGlobalScope
   
   public export
-  JSVal DedicatedWorkerGlobalScope where
+  JSType DedicatedWorkerGlobalScope where
     parents =  [ WorkerGlobalScope , EventTarget , JSObject ]
 
     mixins =  []
@@ -417,7 +417,7 @@ namespace DedicatedWorkerGlobalScope
 namespace DragEvent
   
   public export
-  JSVal DragEvent where
+  JSType DragEvent where
     parents =  [ MouseEvent , UIEvent , Event , JSObject ]
 
     mixins =  []
@@ -431,7 +431,7 @@ namespace DragEvent
 namespace ElementInternals
   
   public export
-  JSVal ElementInternals where
+  JSType ElementInternals where
     parents =  [ JSObject ]
 
     mixins =  [ ARIAMixin ]
@@ -475,7 +475,7 @@ namespace ElementInternals
 namespace ErrorEvent
   
   public export
-  JSVal ErrorEvent where
+  JSType ErrorEvent where
     parents =  [ Event , JSObject ]
 
     mixins =  []
@@ -490,7 +490,7 @@ namespace ErrorEvent
   prim__error : AnyPtr -> PrimIO AnyPtr
 
   export
-  error : (obj : ErrorEvent) -> IO JSAny
+  error : (obj : ErrorEvent) -> IO Any
   
   %foreign "browser:lambda:x=>x.filename"
   prim__filename : AnyPtr -> PrimIO AnyPtr
@@ -513,7 +513,7 @@ namespace ErrorEvent
 namespace EventSource
   
   public export
-  JSVal EventSource where
+  JSType EventSource where
     parents =  [ EventTarget , JSObject ]
 
     mixins =  []
@@ -587,7 +587,7 @@ namespace EventSource
 namespace External
   
   public export
-  JSVal External where
+  JSType External where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -595,7 +595,7 @@ namespace External
 namespace FormDataEvent
   
   public export
-  JSVal FormDataEvent where
+  JSType FormDataEvent where
     parents =  [ Event , JSObject ]
 
     mixins =  []
@@ -609,7 +609,7 @@ namespace FormDataEvent
 namespace HTMLAllCollection
   
   public export
-  JSVal HTMLAllCollection where
+  JSType HTMLAllCollection where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -623,7 +623,7 @@ namespace HTMLAllCollection
 namespace HTMLAnchorElement
   
   public export
-  JSVal HTMLAnchorElement where
+  JSType HTMLAnchorElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -804,7 +804,7 @@ namespace HTMLAnchorElement
 namespace HTMLAreaElement
   
   public export
-  JSVal HTMLAreaElement where
+  JSType HTMLAreaElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -937,7 +937,7 @@ namespace HTMLAreaElement
 namespace HTMLAudioElement
   
   public export
-  JSVal HTMLAudioElement where
+  JSType HTMLAudioElement where
     parents =  [ HTMLMediaElement
                , HTMLElement
                , Element
@@ -961,7 +961,7 @@ namespace HTMLAudioElement
 namespace HTMLBRElement
   
   public export
-  JSVal HTMLBRElement where
+  JSType HTMLBRElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -991,7 +991,7 @@ namespace HTMLBRElement
 namespace HTMLBaseElement
   
   public export
-  JSVal HTMLBaseElement where
+  JSType HTMLBaseElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -1033,7 +1033,7 @@ namespace HTMLBaseElement
 namespace HTMLBodyElement
   
   public export
-  JSVal HTMLBodyElement where
+  JSType HTMLBodyElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -1124,7 +1124,7 @@ namespace HTMLBodyElement
 namespace HTMLButtonElement
   
   public export
-  JSVal HTMLButtonElement where
+  JSType HTMLButtonElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -1280,7 +1280,7 @@ namespace HTMLButtonElement
 namespace HTMLCanvasElement
   
   public export
-  JSVal HTMLCanvasElement where
+  JSType HTMLCanvasElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -1322,7 +1322,7 @@ namespace HTMLCanvasElement
 namespace HTMLDListElement
   
   public export
-  JSVal HTMLDListElement where
+  JSType HTMLDListElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -1352,7 +1352,7 @@ namespace HTMLDListElement
 namespace HTMLDataElement
   
   public export
-  JSVal HTMLDataElement where
+  JSType HTMLDataElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -1382,7 +1382,7 @@ namespace HTMLDataElement
 namespace HTMLDataListElement
   
   public export
-  JSVal HTMLDataListElement where
+  JSType HTMLDataListElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -1406,7 +1406,7 @@ namespace HTMLDataListElement
 namespace HTMLDetailsElement
   
   public export
-  JSVal HTMLDetailsElement where
+  JSType HTMLDetailsElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -1436,7 +1436,7 @@ namespace HTMLDetailsElement
 namespace HTMLDialogElement
   
   public export
-  JSVal HTMLDialogElement where
+  JSType HTMLDialogElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -1478,7 +1478,7 @@ namespace HTMLDialogElement
 namespace HTMLDirectoryElement
   
   public export
-  JSVal HTMLDirectoryElement where
+  JSType HTMLDirectoryElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -1508,7 +1508,7 @@ namespace HTMLDirectoryElement
 namespace HTMLDivElement
   
   public export
-  JSVal HTMLDivElement where
+  JSType HTMLDivElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -1538,7 +1538,7 @@ namespace HTMLDivElement
 namespace HTMLElement
   
   public export
-  JSVal HTMLElement where
+  JSType HTMLElement where
     parents =  [ Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -1682,7 +1682,7 @@ namespace HTMLElement
 namespace HTMLEmbedElement
   
   public export
-  JSVal HTMLEmbedElement where
+  JSType HTMLEmbedElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -1772,7 +1772,7 @@ namespace HTMLEmbedElement
 namespace HTMLFieldSetElement
   
   public export
-  JSVal HTMLFieldSetElement where
+  JSType HTMLFieldSetElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -1850,7 +1850,7 @@ namespace HTMLFieldSetElement
 namespace HTMLFontElement
   
   public export
-  JSVal HTMLFontElement where
+  JSType HTMLFontElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -1904,7 +1904,7 @@ namespace HTMLFontElement
 namespace HTMLFormControlsCollection
   
   public export
-  JSVal HTMLFormControlsCollection where
+  JSType HTMLFormControlsCollection where
     parents =  [ HTMLCollection , JSObject ]
 
     mixins =  []
@@ -1912,7 +1912,7 @@ namespace HTMLFormControlsCollection
 namespace HTMLFormElement
   
   public export
-  JSVal HTMLFormElement where
+  JSType HTMLFormElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -2068,7 +2068,7 @@ namespace HTMLFormElement
 namespace HTMLFrameElement
   
   public export
-  JSVal HTMLFrameElement where
+  JSType HTMLFrameElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -2194,7 +2194,7 @@ namespace HTMLFrameElement
 namespace HTMLFrameSetElement
   
   public export
-  JSVal HTMLFrameSetElement where
+  JSType HTMLFrameSetElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -2237,7 +2237,7 @@ namespace HTMLFrameSetElement
 namespace HTMLHRElement
   
   public export
-  JSVal HTMLHRElement where
+  JSType HTMLHRElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -2315,7 +2315,7 @@ namespace HTMLHRElement
 namespace HTMLHeadElement
   
   public export
-  JSVal HTMLHeadElement where
+  JSType HTMLHeadElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -2333,7 +2333,7 @@ namespace HTMLHeadElement
 namespace HTMLHeadingElement
   
   public export
-  JSVal HTMLHeadingElement where
+  JSType HTMLHeadingElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -2363,7 +2363,7 @@ namespace HTMLHeadingElement
 namespace HTMLHtmlElement
   
   public export
-  JSVal HTMLHtmlElement where
+  JSType HTMLHtmlElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -2393,7 +2393,7 @@ namespace HTMLHtmlElement
 namespace HTMLIFrameElement
   
   public export
-  JSVal HTMLIFrameElement where
+  JSType HTMLIFrameElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -2609,7 +2609,7 @@ namespace HTMLIFrameElement
 namespace HTMLImageElement
   
   public export
-  JSVal HTMLImageElement where
+  JSType HTMLImageElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -2879,7 +2879,7 @@ namespace HTMLImageElement
 namespace HTMLInputElement
   
   public export
-  JSVal HTMLInputElement where
+  JSType HTMLInputElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -3403,7 +3403,7 @@ namespace HTMLInputElement
 namespace HTMLLIElement
   
   public export
-  JSVal HTMLLIElement where
+  JSType HTMLLIElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -3445,7 +3445,7 @@ namespace HTMLLIElement
 namespace HTMLLabelElement
   
   public export
-  JSVal HTMLLabelElement where
+  JSType HTMLLabelElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -3487,7 +3487,7 @@ namespace HTMLLabelElement
 namespace HTMLLegendElement
   
   public export
-  JSVal HTMLLegendElement where
+  JSType HTMLLegendElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -3523,7 +3523,7 @@ namespace HTMLLegendElement
 namespace HTMLLinkElement
   
   public export
-  JSVal HTMLLinkElement where
+  JSType HTMLLinkElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -3734,7 +3734,7 @@ namespace HTMLLinkElement
 namespace HTMLMapElement
   
   public export
-  JSVal HTMLMapElement where
+  JSType HTMLMapElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -3770,7 +3770,7 @@ namespace HTMLMapElement
 namespace HTMLMarqueeElement
   
   public export
-  JSVal HTMLMarqueeElement where
+  JSType HTMLMarqueeElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -3920,7 +3920,7 @@ namespace HTMLMarqueeElement
 namespace HTMLMediaElement
   
   public export
-  JSVal HTMLMediaElement where
+  JSType HTMLMediaElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -4226,7 +4226,7 @@ namespace HTMLMediaElement
 namespace HTMLMenuElement
   
   public export
-  JSVal HTMLMenuElement where
+  JSType HTMLMenuElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -4256,7 +4256,7 @@ namespace HTMLMenuElement
 namespace HTMLMetaElement
   
   public export
-  JSVal HTMLMetaElement where
+  JSType HTMLMetaElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -4322,7 +4322,7 @@ namespace HTMLMetaElement
 namespace HTMLMeterElement
   
   public export
-  JSVal HTMLMeterElement where
+  JSType HTMLMeterElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -4418,7 +4418,7 @@ namespace HTMLMeterElement
 namespace HTMLModElement
   
   public export
-  JSVal HTMLModElement where
+  JSType HTMLModElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -4460,7 +4460,7 @@ namespace HTMLModElement
 namespace HTMLOListElement
   
   public export
-  JSVal HTMLOListElement where
+  JSType HTMLOListElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -4526,7 +4526,7 @@ namespace HTMLOListElement
 namespace HTMLObjectElement
   
   public export
-  JSVal HTMLObjectElement where
+  JSType HTMLObjectElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -4772,7 +4772,7 @@ namespace HTMLObjectElement
 namespace HTMLOptGroupElement
   
   public export
-  JSVal HTMLOptGroupElement where
+  JSType HTMLOptGroupElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -4814,7 +4814,7 @@ namespace HTMLOptGroupElement
 namespace HTMLOptionElement
   
   public export
-  JSVal HTMLOptionElement where
+  JSType HTMLOptionElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -4916,7 +4916,7 @@ namespace HTMLOptionElement
 namespace HTMLOptionsCollection
   
   public export
-  JSVal HTMLOptionsCollection where
+  JSType HTMLOptionsCollection where
     parents =  [ HTMLCollection , JSObject ]
 
     mixins =  []
@@ -4948,7 +4948,7 @@ namespace HTMLOptionsCollection
 namespace HTMLOutputElement
   
   public export
-  JSVal HTMLOutputElement where
+  JSType HTMLOutputElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -5044,7 +5044,7 @@ namespace HTMLOutputElement
 namespace HTMLParagraphElement
   
   public export
-  JSVal HTMLParagraphElement where
+  JSType HTMLParagraphElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -5074,7 +5074,7 @@ namespace HTMLParagraphElement
 namespace HTMLParamElement
   
   public export
-  JSVal HTMLParamElement where
+  JSType HTMLParamElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -5140,7 +5140,7 @@ namespace HTMLParamElement
 namespace HTMLPictureElement
   
   public export
-  JSVal HTMLPictureElement where
+  JSType HTMLPictureElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -5158,7 +5158,7 @@ namespace HTMLPictureElement
 namespace HTMLPreElement
   
   public export
-  JSVal HTMLPreElement where
+  JSType HTMLPreElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -5188,7 +5188,7 @@ namespace HTMLPreElement
 namespace HTMLProgressElement
   
   public export
-  JSVal HTMLProgressElement where
+  JSType HTMLProgressElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -5242,7 +5242,7 @@ namespace HTMLProgressElement
 namespace HTMLQuoteElement
   
   public export
-  JSVal HTMLQuoteElement where
+  JSType HTMLQuoteElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -5272,7 +5272,7 @@ namespace HTMLQuoteElement
 namespace HTMLScriptElement
   
   public export
-  JSVal HTMLScriptElement where
+  JSType HTMLScriptElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -5434,7 +5434,7 @@ namespace HTMLScriptElement
 namespace HTMLSelectElement
   
   public export
-  JSVal HTMLSelectElement where
+  JSType HTMLSelectElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -5608,7 +5608,7 @@ namespace HTMLSelectElement
 namespace HTMLSlotElement
   
   public export
-  JSVal HTMLSlotElement where
+  JSType HTMLSlotElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -5638,7 +5638,7 @@ namespace HTMLSlotElement
 namespace HTMLSourceElement
   
   public export
-  JSVal HTMLSourceElement where
+  JSType HTMLSourceElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -5740,7 +5740,7 @@ namespace HTMLSourceElement
 namespace HTMLSpanElement
   
   public export
-  JSVal HTMLSpanElement where
+  JSType HTMLSpanElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -5758,7 +5758,7 @@ namespace HTMLSpanElement
 namespace HTMLStyleElement
   
   public export
-  JSVal HTMLStyleElement where
+  JSType HTMLStyleElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -5801,7 +5801,7 @@ namespace HTMLStyleElement
 namespace HTMLTableCaptionElement
   
   public export
-  JSVal HTMLTableCaptionElement where
+  JSType HTMLTableCaptionElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -5831,7 +5831,7 @@ namespace HTMLTableCaptionElement
 namespace HTMLTableCellElement
   
   public export
-  JSVal HTMLTableCellElement where
+  JSType HTMLTableCellElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -6023,7 +6023,7 @@ namespace HTMLTableCellElement
 namespace HTMLTableColElement
   
   public export
-  JSVal HTMLTableColElement where
+  JSType HTMLTableColElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -6113,7 +6113,7 @@ namespace HTMLTableColElement
 namespace HTMLTableElement
   
   public export
-  JSVal HTMLTableElement where
+  JSType HTMLTableElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -6293,7 +6293,7 @@ namespace HTMLTableElement
 namespace HTMLTableRowElement
   
   public export
-  JSVal HTMLTableRowElement where
+  JSType HTMLTableRowElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -6389,7 +6389,7 @@ namespace HTMLTableRowElement
 namespace HTMLTableSectionElement
   
   public export
-  JSVal HTMLTableSectionElement where
+  JSType HTMLTableSectionElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -6461,7 +6461,7 @@ namespace HTMLTableSectionElement
 namespace HTMLTemplateElement
   
   public export
-  JSVal HTMLTemplateElement where
+  JSType HTMLTemplateElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -6485,7 +6485,7 @@ namespace HTMLTemplateElement
 namespace HTMLTextAreaElement
   
   public export
-  JSVal HTMLTextAreaElement where
+  JSType HTMLTextAreaElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -6749,7 +6749,7 @@ namespace HTMLTextAreaElement
 namespace HTMLTimeElement
   
   public export
-  JSVal HTMLTimeElement where
+  JSType HTMLTimeElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -6779,7 +6779,7 @@ namespace HTMLTimeElement
 namespace HTMLTitleElement
   
   public export
-  JSVal HTMLTitleElement where
+  JSType HTMLTitleElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -6809,7 +6809,7 @@ namespace HTMLTitleElement
 namespace HTMLTrackElement
   
   public export
-  JSVal HTMLTrackElement where
+  JSType HTMLTrackElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -6915,7 +6915,7 @@ namespace HTMLTrackElement
 namespace HTMLUListElement
   
   public export
-  JSVal HTMLUListElement where
+  JSType HTMLUListElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -6957,7 +6957,7 @@ namespace HTMLUListElement
 namespace HTMLUnknownElement
   
   public export
-  JSVal HTMLUnknownElement where
+  JSType HTMLUnknownElement where
     parents =  [ HTMLElement , Element , Node , EventTarget , JSObject ]
 
     mixins =  [ Animatable
@@ -6975,7 +6975,7 @@ namespace HTMLUnknownElement
 namespace HTMLVideoElement
   
   public export
-  JSVal HTMLVideoElement where
+  JSType HTMLVideoElement where
     parents =  [ HTMLMediaElement
                , HTMLElement
                , Element
@@ -7059,7 +7059,7 @@ namespace HTMLVideoElement
 namespace HashChangeEvent
   
   public export
-  JSVal HashChangeEvent where
+  JSType HashChangeEvent where
     parents =  [ Event , JSObject ]
 
     mixins =  []
@@ -7079,7 +7079,7 @@ namespace HashChangeEvent
 namespace History
   
   public export
-  JSVal History where
+  JSType History where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -7094,7 +7094,7 @@ namespace History
   prim__state : AnyPtr -> PrimIO AnyPtr
 
   export
-  state : (obj : History) -> IO JSAny
+  state : (obj : History) -> IO Any
   
   %foreign "browser:lambda:x=>x.scrollRestoration"
   prim__scrollRestoration : AnyPtr -> PrimIO AnyPtr
@@ -7111,7 +7111,7 @@ namespace History
 namespace ImageBitmap
   
   public export
-  JSVal ImageBitmap where
+  JSType ImageBitmap where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -7131,7 +7131,7 @@ namespace ImageBitmap
 namespace ImageBitmapRenderingContext
   
   public export
-  JSVal ImageBitmapRenderingContext where
+  JSType ImageBitmapRenderingContext where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -7146,7 +7146,7 @@ namespace ImageBitmapRenderingContext
 namespace ImageData
   
   public export
-  JSVal ImageData where
+  JSType ImageData where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -7172,7 +7172,7 @@ namespace ImageData
 namespace Location
   
   public export
-  JSVal Location where
+  JSType Location where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -7276,7 +7276,7 @@ namespace Location
 namespace MediaError
   
   public export
-  JSVal MediaError where
+  JSType MediaError where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -7312,7 +7312,7 @@ namespace MediaError
 namespace MessageChannel
   
   public export
-  JSVal MessageChannel where
+  JSType MessageChannel where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -7332,7 +7332,7 @@ namespace MessageChannel
 namespace MessageEvent
   
   public export
-  JSVal MessageEvent where
+  JSType MessageEvent where
     parents =  [ Event , JSObject ]
 
     mixins =  []
@@ -7341,7 +7341,7 @@ namespace MessageEvent
   prim__data_ : AnyPtr -> PrimIO AnyPtr
 
   export
-  data_ : (obj : MessageEvent) -> IO JSAny
+  data_ : (obj : MessageEvent) -> IO Any
   
   %foreign "browser:lambda:x=>x.lastEventId"
   prim__lastEventId : AnyPtr -> PrimIO AnyPtr
@@ -7370,7 +7370,7 @@ namespace MessageEvent
 namespace MessagePort
   
   public export
-  JSVal MessagePort where
+  JSType MessagePort where
     parents =  [ EventTarget , JSObject ]
 
     mixins =  []
@@ -7402,7 +7402,7 @@ namespace MessagePort
 namespace MimeType
   
   public export
-  JSVal MimeType where
+  JSType MimeType where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -7434,7 +7434,7 @@ namespace MimeType
 namespace MimeTypeArray
   
   public export
-  JSVal MimeTypeArray where
+  JSType MimeTypeArray where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -7448,7 +7448,7 @@ namespace MimeTypeArray
 namespace Navigator
   
   public export
-  JSVal Navigator where
+  JSType Navigator where
     parents =  [ JSObject ]
 
     mixins =  [ NavigatorConcurrentHardware
@@ -7487,7 +7487,7 @@ namespace Navigator
 namespace OffscreenCanvas
   
   public export
-  JSVal OffscreenCanvas where
+  JSType OffscreenCanvas where
     parents =  [ EventTarget , JSObject ]
 
     mixins =  []
@@ -7519,7 +7519,7 @@ namespace OffscreenCanvas
 namespace OffscreenCanvasRenderingContext2D
   
   public export
-  JSVal OffscreenCanvasRenderingContext2D where
+  JSType OffscreenCanvasRenderingContext2D where
     parents =  [ JSObject ]
 
     mixins =  [ CanvasCompositing
@@ -7548,7 +7548,7 @@ namespace OffscreenCanvasRenderingContext2D
 namespace PageTransitionEvent
   
   public export
-  JSVal PageTransitionEvent where
+  JSType PageTransitionEvent where
     parents =  [ Event , JSObject ]
 
     mixins =  []
@@ -7562,7 +7562,7 @@ namespace PageTransitionEvent
 namespace Path2D
   
   public export
-  JSVal Path2D where
+  JSType Path2D where
     parents =  [ JSObject ]
 
     mixins =  [ CanvasPath ]
@@ -7570,7 +7570,7 @@ namespace Path2D
 namespace Plugin
   
   public export
-  JSVal Plugin where
+  JSType Plugin where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -7602,7 +7602,7 @@ namespace Plugin
 namespace PluginArray
   
   public export
-  JSVal PluginArray where
+  JSType PluginArray where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -7616,7 +7616,7 @@ namespace PluginArray
 namespace PopStateEvent
   
   public export
-  JSVal PopStateEvent where
+  JSType PopStateEvent where
     parents =  [ Event , JSObject ]
 
     mixins =  []
@@ -7625,12 +7625,12 @@ namespace PopStateEvent
   prim__state : AnyPtr -> PrimIO AnyPtr
 
   export
-  state : (obj : PopStateEvent) -> IO JSAny
+  state : (obj : PopStateEvent) -> IO Any
 
 namespace PromiseRejectionEvent
   
   public export
-  JSVal PromiseRejectionEvent where
+  JSType PromiseRejectionEvent where
     parents =  [ Event , JSObject ]
 
     mixins =  []
@@ -7639,18 +7639,18 @@ namespace PromiseRejectionEvent
   prim__promise : AnyPtr -> PrimIO AnyPtr
 
   export
-  promise : (obj : PromiseRejectionEvent) -> IO (JSPromise JSAny)
+  promise : (obj : PromiseRejectionEvent) -> IO (JSPromise Any)
   
   %foreign "browser:lambda:x=>x.reason"
   prim__reason : AnyPtr -> PrimIO AnyPtr
 
   export
-  reason : (obj : PromiseRejectionEvent) -> IO JSAny
+  reason : (obj : PromiseRejectionEvent) -> IO Any
 
 namespace RadioNodeList
   
   public export
-  JSVal RadioNodeList where
+  JSType RadioNodeList where
     parents =  [ NodeList , JSObject ]
 
     mixins =  []
@@ -7670,7 +7670,7 @@ namespace RadioNodeList
 namespace SharedWorker
   
   public export
-  JSVal SharedWorker where
+  JSType SharedWorker where
     parents =  [ EventTarget , JSObject ]
 
     mixins =  [ AbstractWorker ]
@@ -7684,7 +7684,7 @@ namespace SharedWorker
 namespace SharedWorkerGlobalScope
   
   public export
-  JSVal SharedWorkerGlobalScope where
+  JSType SharedWorkerGlobalScope where
     parents =  [ WorkerGlobalScope , EventTarget , JSObject ]
 
     mixins =  []
@@ -7710,7 +7710,7 @@ namespace SharedWorkerGlobalScope
 namespace Storage
   
   public export
-  JSVal Storage where
+  JSType Storage where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -7724,7 +7724,7 @@ namespace Storage
 namespace StorageEvent
   
   public export
-  JSVal StorageEvent where
+  JSType StorageEvent where
     parents =  [ Event , JSObject ]
 
     mixins =  []
@@ -7762,7 +7762,7 @@ namespace StorageEvent
 namespace SubmitEvent
   
   public export
-  JSVal SubmitEvent where
+  JSType SubmitEvent where
     parents =  [ Event , JSObject ]
 
     mixins =  []
@@ -7776,7 +7776,7 @@ namespace SubmitEvent
 namespace TextMetrics
   
   public export
-  JSVal TextMetrics where
+  JSType TextMetrics where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -7856,7 +7856,7 @@ namespace TextMetrics
 namespace TextTrack
   
   public export
-  JSVal TextTrack where
+  JSType TextTrack where
     parents =  [ EventTarget , JSObject ]
 
     mixins =  []
@@ -7936,7 +7936,7 @@ namespace TextTrack
 namespace TextTrackCue
   
   public export
-  JSVal TextTrackCue where
+  JSType TextTrackCue where
     parents =  [ EventTarget , JSObject ]
 
     mixins =  []
@@ -8022,7 +8022,7 @@ namespace TextTrackCue
 namespace TextTrackCueList
   
   public export
-  JSVal TextTrackCueList where
+  JSType TextTrackCueList where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -8036,7 +8036,7 @@ namespace TextTrackCueList
 namespace TextTrackList
   
   public export
-  JSVal TextTrackList where
+  JSType TextTrackList where
     parents =  [ EventTarget , JSObject ]
 
     mixins =  []
@@ -8086,7 +8086,7 @@ namespace TextTrackList
 namespace TimeRanges
   
   public export
-  JSVal TimeRanges where
+  JSType TimeRanges where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -8100,7 +8100,7 @@ namespace TimeRanges
 namespace TrackEvent
   
   public export
-  JSVal TrackEvent where
+  JSType TrackEvent where
     parents =  [ Event , JSObject ]
 
     mixins =  []
@@ -8115,7 +8115,7 @@ namespace TrackEvent
 namespace ValidityState
   
   public export
-  JSVal ValidityState where
+  JSType ValidityState where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -8189,7 +8189,7 @@ namespace ValidityState
 namespace VideoTrack
   
   public export
-  JSVal VideoTrack where
+  JSType VideoTrack where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -8239,7 +8239,7 @@ namespace VideoTrack
 namespace VideoTrackList
   
   public export
-  JSVal VideoTrackList where
+  JSType VideoTrackList where
     parents =  [ EventTarget , JSObject ]
 
     mixins =  []
@@ -8295,7 +8295,7 @@ namespace VideoTrackList
 namespace WebSocket
   
   public export
-  JSVal WebSocket where
+  JSType WebSocket where
     parents =  [ EventTarget , JSObject ]
 
     mixins =  []
@@ -8409,7 +8409,7 @@ namespace WebSocket
 namespace Window
   
   public export
-  JSVal Window where
+  JSType Window where
     parents =  [ EventTarget , JSObject ]
 
     mixins =  [ GlobalEventHandlers , WindowEventHandlers ]
@@ -8562,13 +8562,13 @@ namespace Window
   prim__opener : AnyPtr -> PrimIO AnyPtr
 
   export
-  opener : (obj : Window) -> IO JSAny
+  opener : (obj : Window) -> IO Any
 
   %foreign "browser:lambda:(x,v)=>{x.opener  = v}"
   prim__setOpener : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOpener : (obj : Window) -> (v : JSAny) -> IO ()
+  setOpener : (obj : Window) -> (v : Any) -> IO ()
   
   %foreign "browser:lambda:x=>x.status"
   prim__status : AnyPtr -> PrimIO AnyPtr
@@ -8585,7 +8585,7 @@ namespace Window
 namespace Worker
   
   public export
-  JSVal Worker where
+  JSType Worker where
     parents =  [ EventTarget , JSObject ]
 
     mixins =  [ AbstractWorker ]
@@ -8617,7 +8617,7 @@ namespace Worker
 namespace WorkerGlobalScope
   
   public export
-  JSVal WorkerGlobalScope where
+  JSType WorkerGlobalScope where
     parents =  [ EventTarget , JSObject ]
 
     mixins =  []
@@ -8719,7 +8719,7 @@ namespace WorkerGlobalScope
 namespace WorkerLocation
   
   public export
-  JSVal WorkerLocation where
+  JSType WorkerLocation where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -8775,7 +8775,7 @@ namespace WorkerLocation
 namespace WorkerNavigator
   
   public export
-  JSVal WorkerNavigator where
+  JSType WorkerNavigator where
     parents =  [ JSObject ]
 
     mixins =  [ NavigatorConcurrentHardware
@@ -8799,7 +8799,7 @@ namespace WorkerNavigator
 namespace Worklet
   
   public export
-  JSVal Worklet where
+  JSType Worklet where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -8807,7 +8807,7 @@ namespace Worklet
 namespace WorkletGlobalScope
   
   public export
-  JSVal WorkletGlobalScope where
+  JSType WorkletGlobalScope where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -10980,7 +10980,7 @@ namespace WindowEventHandlers
 namespace AssignedNodesOptions
   
   public export
-  JSVal AssignedNodesOptions where
+  JSType AssignedNodesOptions where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -11000,7 +11000,7 @@ namespace AssignedNodesOptions
 namespace CanvasRenderingContext2DSettings
   
   public export
-  JSVal CanvasRenderingContext2DSettings where
+  JSType CanvasRenderingContext2DSettings where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -11034,7 +11034,7 @@ namespace CanvasRenderingContext2DSettings
 namespace CloseEventInit
   
   public export
-  JSVal CloseEventInit where
+  JSType CloseEventInit where
     parents =  [ EventInit , JSObject ]
 
     mixins =  []
@@ -11078,7 +11078,7 @@ namespace CloseEventInit
 namespace DragEventInit
   
   public export
-  JSVal DragEventInit where
+  JSType DragEventInit where
     parents =  [ MouseEventInit
                , EventModifierInit
                , UIEventInit
@@ -11103,7 +11103,7 @@ namespace DragEventInit
 namespace ElementDefinitionOptions
   
   public export
-  JSVal ElementDefinitionOptions where
+  JSType ElementDefinitionOptions where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -11123,7 +11123,7 @@ namespace ElementDefinitionOptions
 namespace ErrorEventInit
   
   public export
-  JSVal ErrorEventInit where
+  JSType ErrorEventInit where
     parents =  [ EventInit , JSObject ]
 
     mixins =  []
@@ -11144,13 +11144,13 @@ namespace ErrorEventInit
   prim__error : AnyPtr -> PrimIO AnyPtr
 
   export
-  error : (obj : ErrorEventInit) -> IO JSAny
+  error : (obj : ErrorEventInit) -> IO Any
 
   %foreign "browser:lambda:(x,v)=>{x.error  = v}"
   prim__setError : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setError : (obj : ErrorEventInit) -> (v : JSAny) -> IO ()
+  setError : (obj : ErrorEventInit) -> (v : Any) -> IO ()
   
   %foreign "browser:lambda:x=>x.filename"
   prim__filename : AnyPtr -> PrimIO AnyPtr
@@ -11191,7 +11191,7 @@ namespace ErrorEventInit
 namespace EventSourceInit
   
   public export
-  JSVal EventSourceInit where
+  JSType EventSourceInit where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -11211,7 +11211,7 @@ namespace EventSourceInit
 namespace FocusOptions
   
   public export
-  JSVal FocusOptions where
+  JSType FocusOptions where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -11231,7 +11231,7 @@ namespace FocusOptions
 namespace FormDataEventInit
   
   public export
-  JSVal FormDataEventInit where
+  JSType FormDataEventInit where
     parents =  [ EventInit , JSObject ]
 
     mixins =  []
@@ -11251,7 +11251,7 @@ namespace FormDataEventInit
 namespace HashChangeEventInit
   
   public export
-  JSVal HashChangeEventInit where
+  JSType HashChangeEventInit where
     parents =  [ EventInit , JSObject ]
 
     mixins =  []
@@ -11283,7 +11283,7 @@ namespace HashChangeEventInit
 namespace ImageBitmapOptions
   
   public export
-  JSVal ImageBitmapOptions where
+  JSType ImageBitmapOptions where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -11369,7 +11369,7 @@ namespace ImageBitmapOptions
 namespace ImageBitmapRenderingContextSettings
   
   public export
-  JSVal ImageBitmapRenderingContextSettings where
+  JSType ImageBitmapRenderingContextSettings where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -11389,7 +11389,7 @@ namespace ImageBitmapRenderingContextSettings
 namespace ImageEncodeOptions
   
   public export
-  JSVal ImageEncodeOptions where
+  JSType ImageEncodeOptions where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -11421,7 +11421,7 @@ namespace ImageEncodeOptions
 namespace MessageEventInit
   
   public export
-  JSVal MessageEventInit where
+  JSType MessageEventInit where
     parents =  [ EventInit , JSObject ]
 
     mixins =  []
@@ -11430,13 +11430,13 @@ namespace MessageEventInit
   prim__data_ : AnyPtr -> PrimIO AnyPtr
 
   export
-  data_ : (obj : MessageEventInit) -> IO JSAny
+  data_ : (obj : MessageEventInit) -> IO Any
 
   %foreign "browser:lambda:(x,v)=>{x.data  = v}"
   prim__setData : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setData : (obj : MessageEventInit) -> (v : JSAny) -> IO ()
+  setData : (obj : MessageEventInit) -> (v : Any) -> IO ()
   
   %foreign "browser:lambda:x=>x.lastEventId"
   prim__lastEventId : AnyPtr -> PrimIO AnyPtr
@@ -11491,7 +11491,7 @@ namespace MessageEventInit
 namespace PageTransitionEventInit
   
   public export
-  JSVal PageTransitionEventInit where
+  JSType PageTransitionEventInit where
     parents =  [ EventInit , JSObject ]
 
     mixins =  []
@@ -11511,7 +11511,7 @@ namespace PageTransitionEventInit
 namespace PopStateEventInit
   
   public export
-  JSVal PopStateEventInit where
+  JSType PopStateEventInit where
     parents =  [ EventInit , JSObject ]
 
     mixins =  []
@@ -11520,18 +11520,18 @@ namespace PopStateEventInit
   prim__state : AnyPtr -> PrimIO AnyPtr
 
   export
-  state : (obj : PopStateEventInit) -> IO JSAny
+  state : (obj : PopStateEventInit) -> IO Any
 
   %foreign "browser:lambda:(x,v)=>{x.state  = v}"
   prim__setState : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setState : (obj : PopStateEventInit) -> (v : JSAny) -> IO ()
+  setState : (obj : PopStateEventInit) -> (v : Any) -> IO ()
 
 namespace PostMessageOptions
   
   public export
-  JSVal PostMessageOptions where
+  JSType PostMessageOptions where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -11551,7 +11551,7 @@ namespace PostMessageOptions
 namespace PromiseRejectionEventInit
   
   public export
-  JSVal PromiseRejectionEventInit where
+  JSType PromiseRejectionEventInit where
     parents =  [ EventInit , JSObject ]
 
     mixins =  []
@@ -11560,32 +11560,30 @@ namespace PromiseRejectionEventInit
   prim__promise : AnyPtr -> PrimIO AnyPtr
 
   export
-  promise : (obj : PromiseRejectionEventInit) -> IO (JSPromise JSAny)
+  promise : (obj : PromiseRejectionEventInit) -> IO (JSPromise Any)
 
   %foreign "browser:lambda:(x,v)=>{x.promise  = v}"
   prim__setPromise : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setPromise :  (obj : PromiseRejectionEventInit)
-             -> (v : JSPromise JSAny)
-             -> IO ()
+  setPromise : (obj : PromiseRejectionEventInit) -> (v : JSPromise Any) -> IO ()
   
   %foreign "browser:lambda:x=>x.reason"
   prim__reason : AnyPtr -> PrimIO AnyPtr
 
   export
-  reason : (obj : PromiseRejectionEventInit) -> IO JSAny
+  reason : (obj : PromiseRejectionEventInit) -> IO Any
 
   %foreign "browser:lambda:(x,v)=>{x.reason  = v}"
   prim__setReason : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setReason : (obj : PromiseRejectionEventInit) -> (v : JSAny) -> IO ()
+  setReason : (obj : PromiseRejectionEventInit) -> (v : Any) -> IO ()
 
 namespace StorageEventInit
   
   public export
-  JSVal StorageEventInit where
+  JSType StorageEventInit where
     parents =  [ EventInit , JSObject ]
 
     mixins =  []
@@ -11653,7 +11651,7 @@ namespace StorageEventInit
 namespace SubmitEventInit
   
   public export
-  JSVal SubmitEventInit where
+  JSType SubmitEventInit where
     parents =  [ EventInit , JSObject ]
 
     mixins =  []
@@ -11673,7 +11671,7 @@ namespace SubmitEventInit
 namespace TrackEventInit
   
   public export
-  JSVal TrackEventInit where
+  JSType TrackEventInit where
     parents =  [ EventInit , JSObject ]
 
     mixins =  []
@@ -11696,7 +11694,7 @@ namespace TrackEventInit
 namespace ValidityStateFlags
   
   public export
-  JSVal ValidityStateFlags where
+  JSType ValidityStateFlags where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -11824,7 +11822,7 @@ namespace ValidityStateFlags
 namespace WindowPostMessageOptions
   
   public export
-  JSVal WindowPostMessageOptions where
+  JSType WindowPostMessageOptions where
     parents =  [ PostMessageOptions , JSObject ]
 
     mixins =  []
@@ -11844,7 +11842,7 @@ namespace WindowPostMessageOptions
 namespace WorkerOptions
   
   public export
-  JSVal WorkerOptions where
+  JSType WorkerOptions where
     parents =  [ JSObject ]
 
     mixins =  []
@@ -11888,7 +11886,7 @@ namespace WorkerOptions
 namespace WorkletOptions
   
   public export
-  JSVal WorkletOptions where
+  JSType WorkletOptions where
     parents =  [ JSObject ]
 
     mixins =  []

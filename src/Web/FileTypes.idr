@@ -41,83 +41,69 @@ namespace EndingType
 
   export
   FromJS EndingType where
-    fromJS = fromMaybe Transparent . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-export
-data Blob  : Type where [external]
+export data Blob : Type where [external]
 
 export
-ToJS Blob where
-  toJS = believe_me
+SafeCast Blob where
+  safeCast = unsafeCastOnPrototypeName "Blob"
+
+export ToJS Blob where toJS = believe_me
+export FromJS Blob where fromJS = safeCast
+export data File : Type where [external]
 
 export
-FromJS Blob where
-  fromJS = believe_me
-export
-data File  : Type where [external]
+SafeCast File where
+  safeCast = unsafeCastOnPrototypeName "File"
+
+export ToJS File where toJS = believe_me
+export FromJS File where fromJS = safeCast
+export data FileList : Type where [external]
 
 export
-ToJS File where
-  toJS = believe_me
+SafeCast FileList where
+  safeCast = unsafeCastOnPrototypeName "FileList"
+
+export ToJS FileList where toJS = believe_me
+export FromJS FileList where fromJS = safeCast
+export data FileReader : Type where [external]
 
 export
-FromJS File where
-  fromJS = believe_me
-export
-data FileList  : Type where [external]
+SafeCast FileReader where
+  safeCast = unsafeCastOnPrototypeName "FileReader"
+
+export ToJS FileReader where toJS = believe_me
+export FromJS FileReader where fromJS = safeCast
+export data FileReaderSync : Type where [external]
 
 export
-ToJS FileList where
-  toJS = believe_me
+SafeCast FileReaderSync where
+  safeCast = unsafeCastOnPrototypeName "FileReaderSync"
 
-export
-FromJS FileList where
-  fromJS = believe_me
-export
-data FileReader  : Type where [external]
-
-export
-ToJS FileReader where
-  toJS = believe_me
-
-export
-FromJS FileReader where
-  fromJS = believe_me
-export
-data FileReaderSync  : Type where [external]
-
-export
-ToJS FileReaderSync where
-  toJS = believe_me
-
-export
-FromJS FileReaderSync where
-  fromJS = believe_me
+export ToJS FileReaderSync where toJS = believe_me
+export FromJS FileReaderSync where fromJS = safeCast
 
 
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
-export
-data BlobPropertyBag  : Type where [external]
+export data BlobPropertyBag : Type where [external]
 
 export
-ToJS BlobPropertyBag where
-  toJS = believe_me
+SafeCast BlobPropertyBag where
+  safeCast = unsafeCastOnPrototypeName "BlobPropertyBag"
+
+export ToJS BlobPropertyBag where toJS = believe_me
+export FromJS BlobPropertyBag where fromJS = safeCast
+export data FilePropertyBag : Type where [external]
 
 export
-FromJS BlobPropertyBag where
-  fromJS = believe_me
-export
-data FilePropertyBag  : Type where [external]
+SafeCast FilePropertyBag where
+  safeCast = unsafeCastOnPrototypeName "FilePropertyBag"
 
-export
-ToJS FilePropertyBag where
-  toJS = believe_me
-
-export
-FromJS FilePropertyBag where
-  fromJS = believe_me
+export ToJS FilePropertyBag where toJS = believe_me
+export FromJS FilePropertyBag where fromJS = safeCast

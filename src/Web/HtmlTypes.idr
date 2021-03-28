@@ -51,7 +51,7 @@ namespace DOMParserSupportedType
 
   export
   FromJS DOMParserSupportedType where
-    fromJS = fromMaybe TextHtml . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace DocumentReadyState
   
@@ -91,7 +91,7 @@ namespace DocumentReadyState
 
   export
   FromJS DocumentReadyState where
-    fromJS = fromMaybe Loading . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace CanPlayTypeResult
   
@@ -131,7 +131,7 @@ namespace CanPlayTypeResult
 
   export
   FromJS CanPlayTypeResult where
-    fromJS = fromMaybe Empty . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace ScrollRestoration
   
@@ -169,7 +169,7 @@ namespace ScrollRestoration
 
   export
   FromJS ScrollRestoration where
-    fromJS = fromMaybe Auto . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace ImageOrientation
   
@@ -207,7 +207,7 @@ namespace ImageOrientation
 
   export
   FromJS ImageOrientation where
-    fromJS = fromMaybe None . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace PremultiplyAlpha
   
@@ -247,7 +247,7 @@ namespace PremultiplyAlpha
 
   export
   FromJS PremultiplyAlpha where
-    fromJS = fromMaybe None . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace ColorSpaceConversion
   
@@ -285,7 +285,7 @@ namespace ColorSpaceConversion
 
   export
   FromJS ColorSpaceConversion where
-    fromJS = fromMaybe None . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace ResizeQuality
   
@@ -327,7 +327,7 @@ namespace ResizeQuality
 
   export
   FromJS ResizeQuality where
-    fromJS = fromMaybe Pixelated . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace CanvasFillRule
   
@@ -365,7 +365,7 @@ namespace CanvasFillRule
 
   export
   FromJS CanvasFillRule where
-    fromJS = fromMaybe Nonzero . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace ImageSmoothingQuality
   
@@ -405,7 +405,7 @@ namespace ImageSmoothingQuality
 
   export
   FromJS ImageSmoothingQuality where
-    fromJS = fromMaybe Low . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace CanvasLineCap
   
@@ -445,7 +445,7 @@ namespace CanvasLineCap
 
   export
   FromJS CanvasLineCap where
-    fromJS = fromMaybe Butt . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace CanvasLineJoin
   
@@ -485,7 +485,7 @@ namespace CanvasLineJoin
 
   export
   FromJS CanvasLineJoin where
-    fromJS = fromMaybe Round . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace CanvasTextAlign
   
@@ -529,7 +529,7 @@ namespace CanvasTextAlign
 
   export
   FromJS CanvasTextAlign where
-    fromJS = fromMaybe Start . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace CanvasTextBaseline
   
@@ -580,7 +580,7 @@ namespace CanvasTextBaseline
 
   export
   FromJS CanvasTextBaseline where
-    fromJS = fromMaybe Top . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace CanvasDirection
   
@@ -620,7 +620,7 @@ namespace CanvasDirection
 
   export
   FromJS CanvasDirection where
-    fromJS = fromMaybe Ltr . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace OffscreenRenderingContextId
   
@@ -662,7 +662,7 @@ namespace OffscreenRenderingContextId
 
   export
   FromJS OffscreenRenderingContextId where
-    fromJS = fromMaybe TwoD . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace TextTrackMode
   
@@ -702,7 +702,7 @@ namespace TextTrackMode
 
   export
   FromJS TextTrackMode where
-    fromJS = fromMaybe Disabled . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace TextTrackKind
   
@@ -746,7 +746,7 @@ namespace TextTrackKind
 
   export
   FromJS TextTrackKind where
-    fromJS = fromMaybe Subtitles . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace BinaryType
   
@@ -784,7 +784,7 @@ namespace BinaryType
 
   export
   FromJS BinaryType where
-    fromJS = fromMaybe Blob . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace WorkerType
   
@@ -822,7 +822,7 @@ namespace WorkerType
 
   export
   FromJS WorkerType where
-    fromJS = fromMaybe Classic . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 namespace SelectionMode
   
@@ -864,1996 +864,1600 @@ namespace SelectionMode
 
   export
   FromJS SelectionMode where
-    fromJS = fromMaybe Select . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-export
-data AudioTrack  : Type where [external]
+export data AudioTrack : Type where [external]
 
 export
-ToJS AudioTrack where
-  toJS = believe_me
+SafeCast AudioTrack where
+  safeCast = unsafeCastOnPrototypeName "AudioTrack"
 
-export
-FromJS AudioTrack where
-  fromJS = believe_me
-export
-data AudioTrackList  : Type where [external]
+export ToJS AudioTrack where toJS = believe_me
+export FromJS AudioTrack where fromJS = safeCast
+export data AudioTrackList : Type where [external]
 
 export
-ToJS AudioTrackList where
-  toJS = believe_me
+SafeCast AudioTrackList where
+  safeCast = unsafeCastOnPrototypeName "AudioTrackList"
 
-export
-FromJS AudioTrackList where
-  fromJS = believe_me
-export
-data BarProp  : Type where [external]
+export ToJS AudioTrackList where toJS = believe_me
+export FromJS AudioTrackList where fromJS = safeCast
+export data BarProp : Type where [external]
 
 export
-ToJS BarProp where
-  toJS = believe_me
+SafeCast BarProp where
+  safeCast = unsafeCastOnPrototypeName "BarProp"
 
-export
-FromJS BarProp where
-  fromJS = believe_me
-export
-data BeforeUnloadEvent  : Type where [external]
+export ToJS BarProp where toJS = believe_me
+export FromJS BarProp where fromJS = safeCast
+export data BeforeUnloadEvent : Type where [external]
 
 export
-ToJS BeforeUnloadEvent where
-  toJS = believe_me
+SafeCast BeforeUnloadEvent where
+  safeCast = unsafeCastOnPrototypeName "BeforeUnloadEvent"
 
-export
-FromJS BeforeUnloadEvent where
-  fromJS = believe_me
-export
-data BroadcastChannel  : Type where [external]
+export ToJS BeforeUnloadEvent where toJS = believe_me
+export FromJS BeforeUnloadEvent where fromJS = safeCast
+export data BroadcastChannel : Type where [external]
 
 export
-ToJS BroadcastChannel where
-  toJS = believe_me
+SafeCast BroadcastChannel where
+  safeCast = unsafeCastOnPrototypeName "BroadcastChannel"
 
-export
-FromJS BroadcastChannel where
-  fromJS = believe_me
-export
-data CanvasGradient  : Type where [external]
+export ToJS BroadcastChannel where toJS = believe_me
+export FromJS BroadcastChannel where fromJS = safeCast
+export data CanvasGradient : Type where [external]
 
 export
-ToJS CanvasGradient where
-  toJS = believe_me
+SafeCast CanvasGradient where
+  safeCast = unsafeCastOnPrototypeName "CanvasGradient"
 
-export
-FromJS CanvasGradient where
-  fromJS = believe_me
-export
-data CanvasPattern  : Type where [external]
+export ToJS CanvasGradient where toJS = believe_me
+export FromJS CanvasGradient where fromJS = safeCast
+export data CanvasPattern : Type where [external]
 
 export
-ToJS CanvasPattern where
-  toJS = believe_me
+SafeCast CanvasPattern where
+  safeCast = unsafeCastOnPrototypeName "CanvasPattern"
 
-export
-FromJS CanvasPattern where
-  fromJS = believe_me
-export
-data CanvasRenderingContext2D  : Type where [external]
+export ToJS CanvasPattern where toJS = believe_me
+export FromJS CanvasPattern where fromJS = safeCast
+export data CanvasRenderingContext2D : Type where [external]
 
 export
-ToJS CanvasRenderingContext2D where
-  toJS = believe_me
+SafeCast CanvasRenderingContext2D where
+  safeCast = unsafeCastOnPrototypeName "CanvasRenderingContext2D"
 
-export
-FromJS CanvasRenderingContext2D where
-  fromJS = believe_me
-export
-data CloseEvent  : Type where [external]
+export ToJS CanvasRenderingContext2D where toJS = believe_me
+export FromJS CanvasRenderingContext2D where fromJS = safeCast
+export data CloseEvent : Type where [external]
 
 export
-ToJS CloseEvent where
-  toJS = believe_me
+SafeCast CloseEvent where
+  safeCast = unsafeCastOnPrototypeName "CloseEvent"
 
-export
-FromJS CloseEvent where
-  fromJS = believe_me
-export
-data CustomElementRegistry  : Type where [external]
+export ToJS CloseEvent where toJS = believe_me
+export FromJS CloseEvent where fromJS = safeCast
+export data CustomElementRegistry : Type where [external]
 
 export
-ToJS CustomElementRegistry where
-  toJS = believe_me
+SafeCast CustomElementRegistry where
+  safeCast = unsafeCastOnPrototypeName "CustomElementRegistry"
 
-export
-FromJS CustomElementRegistry where
-  fromJS = believe_me
-export
-data DOMParser  : Type where [external]
+export ToJS CustomElementRegistry where toJS = believe_me
+export FromJS CustomElementRegistry where fromJS = safeCast
+export data DOMParser : Type where [external]
 
 export
-ToJS DOMParser where
-  toJS = believe_me
+SafeCast DOMParser where
+  safeCast = unsafeCastOnPrototypeName "DOMParser"
 
-export
-FromJS DOMParser where
-  fromJS = believe_me
-export
-data DOMStringList  : Type where [external]
+export ToJS DOMParser where toJS = believe_me
+export FromJS DOMParser where fromJS = safeCast
+export data DOMStringList : Type where [external]
 
 export
-ToJS DOMStringList where
-  toJS = believe_me
+SafeCast DOMStringList where
+  safeCast = unsafeCastOnPrototypeName "DOMStringList"
 
-export
-FromJS DOMStringList where
-  fromJS = believe_me
-export
-data DOMStringMap  : Type where [external]
+export ToJS DOMStringList where toJS = believe_me
+export FromJS DOMStringList where fromJS = safeCast
+export data DOMStringMap : Type where [external]
 
 export
-ToJS DOMStringMap where
-  toJS = believe_me
+SafeCast DOMStringMap where
+  safeCast = unsafeCastOnPrototypeName "DOMStringMap"
 
-export
-FromJS DOMStringMap where
-  fromJS = believe_me
-export
-data DataTransfer  : Type where [external]
+export ToJS DOMStringMap where toJS = believe_me
+export FromJS DOMStringMap where fromJS = safeCast
+export data DataTransfer : Type where [external]
 
 export
-ToJS DataTransfer where
-  toJS = believe_me
+SafeCast DataTransfer where
+  safeCast = unsafeCastOnPrototypeName "DataTransfer"
 
-export
-FromJS DataTransfer where
-  fromJS = believe_me
-export
-data DataTransferItem  : Type where [external]
+export ToJS DataTransfer where toJS = believe_me
+export FromJS DataTransfer where fromJS = safeCast
+export data DataTransferItem : Type where [external]
 
 export
-ToJS DataTransferItem where
-  toJS = believe_me
+SafeCast DataTransferItem where
+  safeCast = unsafeCastOnPrototypeName "DataTransferItem"
 
-export
-FromJS DataTransferItem where
-  fromJS = believe_me
-export
-data DataTransferItemList  : Type where [external]
+export ToJS DataTransferItem where toJS = believe_me
+export FromJS DataTransferItem where fromJS = safeCast
+export data DataTransferItemList : Type where [external]
 
 export
-ToJS DataTransferItemList where
-  toJS = believe_me
+SafeCast DataTransferItemList where
+  safeCast = unsafeCastOnPrototypeName "DataTransferItemList"
 
-export
-FromJS DataTransferItemList where
-  fromJS = believe_me
-export
-data DedicatedWorkerGlobalScope  : Type where [external]
+export ToJS DataTransferItemList where toJS = believe_me
+export FromJS DataTransferItemList where fromJS = safeCast
+export data DedicatedWorkerGlobalScope : Type where [external]
 
 export
-ToJS DedicatedWorkerGlobalScope where
-  toJS = believe_me
+SafeCast DedicatedWorkerGlobalScope where
+  safeCast = unsafeCastOnPrototypeName "DedicatedWorkerGlobalScope"
 
-export
-FromJS DedicatedWorkerGlobalScope where
-  fromJS = believe_me
-export
-data DragEvent  : Type where [external]
+export ToJS DedicatedWorkerGlobalScope where toJS = believe_me
+export FromJS DedicatedWorkerGlobalScope where fromJS = safeCast
+export data DragEvent : Type where [external]
 
 export
-ToJS DragEvent where
-  toJS = believe_me
+SafeCast DragEvent where
+  safeCast = unsafeCastOnPrototypeName "DragEvent"
 
-export
-FromJS DragEvent where
-  fromJS = believe_me
-export
-data ElementInternals  : Type where [external]
+export ToJS DragEvent where toJS = believe_me
+export FromJS DragEvent where fromJS = safeCast
+export data ElementInternals : Type where [external]
 
 export
-ToJS ElementInternals where
-  toJS = believe_me
+SafeCast ElementInternals where
+  safeCast = unsafeCastOnPrototypeName "ElementInternals"
 
-export
-FromJS ElementInternals where
-  fromJS = believe_me
-export
-data ErrorEvent  : Type where [external]
+export ToJS ElementInternals where toJS = believe_me
+export FromJS ElementInternals where fromJS = safeCast
+export data ErrorEvent : Type where [external]
 
 export
-ToJS ErrorEvent where
-  toJS = believe_me
+SafeCast ErrorEvent where
+  safeCast = unsafeCastOnPrototypeName "ErrorEvent"
 
-export
-FromJS ErrorEvent where
-  fromJS = believe_me
-export
-data EventSource  : Type where [external]
+export ToJS ErrorEvent where toJS = believe_me
+export FromJS ErrorEvent where fromJS = safeCast
+export data EventSource : Type where [external]
 
 export
-ToJS EventSource where
-  toJS = believe_me
+SafeCast EventSource where
+  safeCast = unsafeCastOnPrototypeName "EventSource"
 
-export
-FromJS EventSource where
-  fromJS = believe_me
-export
-data External  : Type where [external]
+export ToJS EventSource where toJS = believe_me
+export FromJS EventSource where fromJS = safeCast
+export data External : Type where [external]
 
 export
-ToJS External where
-  toJS = believe_me
+SafeCast External where
+  safeCast = unsafeCastOnPrototypeName "External"
 
-export
-FromJS External where
-  fromJS = believe_me
-export
-data FormDataEvent  : Type where [external]
+export ToJS External where toJS = believe_me
+export FromJS External where fromJS = safeCast
+export data FormDataEvent : Type where [external]
 
 export
-ToJS FormDataEvent where
-  toJS = believe_me
+SafeCast FormDataEvent where
+  safeCast = unsafeCastOnPrototypeName "FormDataEvent"
 
-export
-FromJS FormDataEvent where
-  fromJS = believe_me
-export
-data HTMLAllCollection  : Type where [external]
+export ToJS FormDataEvent where toJS = believe_me
+export FromJS FormDataEvent where fromJS = safeCast
+export data HTMLAllCollection : Type where [external]
 
 export
-ToJS HTMLAllCollection where
-  toJS = believe_me
+SafeCast HTMLAllCollection where
+  safeCast = unsafeCastOnPrototypeName "HTMLAllCollection"
 
-export
-FromJS HTMLAllCollection where
-  fromJS = believe_me
-export
-data HTMLAnchorElement  : Type where [external]
+export ToJS HTMLAllCollection where toJS = believe_me
+export FromJS HTMLAllCollection where fromJS = safeCast
+export data HTMLAnchorElement : Type where [external]
 
 export
-ToJS HTMLAnchorElement where
-  toJS = believe_me
+SafeCast HTMLAnchorElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLAnchorElement"
 
-export
-FromJS HTMLAnchorElement where
-  fromJS = believe_me
-export
-data HTMLAreaElement  : Type where [external]
+export ToJS HTMLAnchorElement where toJS = believe_me
+export FromJS HTMLAnchorElement where fromJS = safeCast
+export data HTMLAreaElement : Type where [external]
 
 export
-ToJS HTMLAreaElement where
-  toJS = believe_me
+SafeCast HTMLAreaElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLAreaElement"
 
-export
-FromJS HTMLAreaElement where
-  fromJS = believe_me
-export
-data HTMLAudioElement  : Type where [external]
+export ToJS HTMLAreaElement where toJS = believe_me
+export FromJS HTMLAreaElement where fromJS = safeCast
+export data HTMLAudioElement : Type where [external]
 
 export
-ToJS HTMLAudioElement where
-  toJS = believe_me
+SafeCast HTMLAudioElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLAudioElement"
 
-export
-FromJS HTMLAudioElement where
-  fromJS = believe_me
-export
-data HTMLBRElement  : Type where [external]
+export ToJS HTMLAudioElement where toJS = believe_me
+export FromJS HTMLAudioElement where fromJS = safeCast
+export data HTMLBRElement : Type where [external]
 
 export
-ToJS HTMLBRElement where
-  toJS = believe_me
+SafeCast HTMLBRElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLBRElement"
 
-export
-FromJS HTMLBRElement where
-  fromJS = believe_me
-export
-data HTMLBaseElement  : Type where [external]
+export ToJS HTMLBRElement where toJS = believe_me
+export FromJS HTMLBRElement where fromJS = safeCast
+export data HTMLBaseElement : Type where [external]
 
 export
-ToJS HTMLBaseElement where
-  toJS = believe_me
+SafeCast HTMLBaseElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLBaseElement"
 
-export
-FromJS HTMLBaseElement where
-  fromJS = believe_me
-export
-data HTMLBodyElement  : Type where [external]
+export ToJS HTMLBaseElement where toJS = believe_me
+export FromJS HTMLBaseElement where fromJS = safeCast
+export data HTMLBodyElement : Type where [external]
 
 export
-ToJS HTMLBodyElement where
-  toJS = believe_me
+SafeCast HTMLBodyElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLBodyElement"
 
-export
-FromJS HTMLBodyElement where
-  fromJS = believe_me
-export
-data HTMLButtonElement  : Type where [external]
+export ToJS HTMLBodyElement where toJS = believe_me
+export FromJS HTMLBodyElement where fromJS = safeCast
+export data HTMLButtonElement : Type where [external]
 
 export
-ToJS HTMLButtonElement where
-  toJS = believe_me
+SafeCast HTMLButtonElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLButtonElement"
 
-export
-FromJS HTMLButtonElement where
-  fromJS = believe_me
-export
-data HTMLCanvasElement  : Type where [external]
+export ToJS HTMLButtonElement where toJS = believe_me
+export FromJS HTMLButtonElement where fromJS = safeCast
+export data HTMLCanvasElement : Type where [external]
 
 export
-ToJS HTMLCanvasElement where
-  toJS = believe_me
+SafeCast HTMLCanvasElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLCanvasElement"
 
-export
-FromJS HTMLCanvasElement where
-  fromJS = believe_me
-export
-data HTMLDListElement  : Type where [external]
+export ToJS HTMLCanvasElement where toJS = believe_me
+export FromJS HTMLCanvasElement where fromJS = safeCast
+export data HTMLDListElement : Type where [external]
 
 export
-ToJS HTMLDListElement where
-  toJS = believe_me
+SafeCast HTMLDListElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLDListElement"
 
-export
-FromJS HTMLDListElement where
-  fromJS = believe_me
-export
-data HTMLDataElement  : Type where [external]
+export ToJS HTMLDListElement where toJS = believe_me
+export FromJS HTMLDListElement where fromJS = safeCast
+export data HTMLDataElement : Type where [external]
 
 export
-ToJS HTMLDataElement where
-  toJS = believe_me
+SafeCast HTMLDataElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLDataElement"
 
-export
-FromJS HTMLDataElement where
-  fromJS = believe_me
-export
-data HTMLDataListElement  : Type where [external]
+export ToJS HTMLDataElement where toJS = believe_me
+export FromJS HTMLDataElement where fromJS = safeCast
+export data HTMLDataListElement : Type where [external]
 
 export
-ToJS HTMLDataListElement where
-  toJS = believe_me
+SafeCast HTMLDataListElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLDataListElement"
 
-export
-FromJS HTMLDataListElement where
-  fromJS = believe_me
-export
-data HTMLDetailsElement  : Type where [external]
+export ToJS HTMLDataListElement where toJS = believe_me
+export FromJS HTMLDataListElement where fromJS = safeCast
+export data HTMLDetailsElement : Type where [external]
 
 export
-ToJS HTMLDetailsElement where
-  toJS = believe_me
+SafeCast HTMLDetailsElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLDetailsElement"
 
-export
-FromJS HTMLDetailsElement where
-  fromJS = believe_me
-export
-data HTMLDialogElement  : Type where [external]
+export ToJS HTMLDetailsElement where toJS = believe_me
+export FromJS HTMLDetailsElement where fromJS = safeCast
+export data HTMLDialogElement : Type where [external]
 
 export
-ToJS HTMLDialogElement where
-  toJS = believe_me
+SafeCast HTMLDialogElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLDialogElement"
 
-export
-FromJS HTMLDialogElement where
-  fromJS = believe_me
-export
-data HTMLDirectoryElement  : Type where [external]
+export ToJS HTMLDialogElement where toJS = believe_me
+export FromJS HTMLDialogElement where fromJS = safeCast
+export data HTMLDirectoryElement : Type where [external]
 
 export
-ToJS HTMLDirectoryElement where
-  toJS = believe_me
+SafeCast HTMLDirectoryElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLDirectoryElement"
 
-export
-FromJS HTMLDirectoryElement where
-  fromJS = believe_me
-export
-data HTMLDivElement  : Type where [external]
+export ToJS HTMLDirectoryElement where toJS = believe_me
+export FromJS HTMLDirectoryElement where fromJS = safeCast
+export data HTMLDivElement : Type where [external]
 
 export
-ToJS HTMLDivElement where
-  toJS = believe_me
+SafeCast HTMLDivElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLDivElement"
 
-export
-FromJS HTMLDivElement where
-  fromJS = believe_me
-export
-data HTMLElement  : Type where [external]
+export ToJS HTMLDivElement where toJS = believe_me
+export FromJS HTMLDivElement where fromJS = safeCast
+export data HTMLElement : Type where [external]
 
 export
-ToJS HTMLElement where
-  toJS = believe_me
+SafeCast HTMLElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLElement"
 
-export
-FromJS HTMLElement where
-  fromJS = believe_me
-export
-data HTMLEmbedElement  : Type where [external]
+export ToJS HTMLElement where toJS = believe_me
+export FromJS HTMLElement where fromJS = safeCast
+export data HTMLEmbedElement : Type where [external]
 
 export
-ToJS HTMLEmbedElement where
-  toJS = believe_me
+SafeCast HTMLEmbedElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLEmbedElement"
 
-export
-FromJS HTMLEmbedElement where
-  fromJS = believe_me
-export
-data HTMLFieldSetElement  : Type where [external]
+export ToJS HTMLEmbedElement where toJS = believe_me
+export FromJS HTMLEmbedElement where fromJS = safeCast
+export data HTMLFieldSetElement : Type where [external]
 
 export
-ToJS HTMLFieldSetElement where
-  toJS = believe_me
+SafeCast HTMLFieldSetElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLFieldSetElement"
 
-export
-FromJS HTMLFieldSetElement where
-  fromJS = believe_me
-export
-data HTMLFontElement  : Type where [external]
+export ToJS HTMLFieldSetElement where toJS = believe_me
+export FromJS HTMLFieldSetElement where fromJS = safeCast
+export data HTMLFontElement : Type where [external]
 
 export
-ToJS HTMLFontElement where
-  toJS = believe_me
+SafeCast HTMLFontElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLFontElement"
 
-export
-FromJS HTMLFontElement where
-  fromJS = believe_me
-export
-data HTMLFormControlsCollection  : Type where [external]
+export ToJS HTMLFontElement where toJS = believe_me
+export FromJS HTMLFontElement where fromJS = safeCast
+export data HTMLFormControlsCollection : Type where [external]
 
 export
-ToJS HTMLFormControlsCollection where
-  toJS = believe_me
+SafeCast HTMLFormControlsCollection where
+  safeCast = unsafeCastOnPrototypeName "HTMLFormControlsCollection"
 
-export
-FromJS HTMLFormControlsCollection where
-  fromJS = believe_me
-export
-data HTMLFormElement  : Type where [external]
+export ToJS HTMLFormControlsCollection where toJS = believe_me
+export FromJS HTMLFormControlsCollection where fromJS = safeCast
+export data HTMLFormElement : Type where [external]
 
 export
-ToJS HTMLFormElement where
-  toJS = believe_me
+SafeCast HTMLFormElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLFormElement"
 
-export
-FromJS HTMLFormElement where
-  fromJS = believe_me
-export
-data HTMLFrameElement  : Type where [external]
+export ToJS HTMLFormElement where toJS = believe_me
+export FromJS HTMLFormElement where fromJS = safeCast
+export data HTMLFrameElement : Type where [external]
 
 export
-ToJS HTMLFrameElement where
-  toJS = believe_me
+SafeCast HTMLFrameElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLFrameElement"
 
-export
-FromJS HTMLFrameElement where
-  fromJS = believe_me
-export
-data HTMLFrameSetElement  : Type where [external]
+export ToJS HTMLFrameElement where toJS = believe_me
+export FromJS HTMLFrameElement where fromJS = safeCast
+export data HTMLFrameSetElement : Type where [external]
 
 export
-ToJS HTMLFrameSetElement where
-  toJS = believe_me
+SafeCast HTMLFrameSetElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLFrameSetElement"
 
-export
-FromJS HTMLFrameSetElement where
-  fromJS = believe_me
-export
-data HTMLHRElement  : Type where [external]
+export ToJS HTMLFrameSetElement where toJS = believe_me
+export FromJS HTMLFrameSetElement where fromJS = safeCast
+export data HTMLHRElement : Type where [external]
 
 export
-ToJS HTMLHRElement where
-  toJS = believe_me
+SafeCast HTMLHRElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLHRElement"
 
-export
-FromJS HTMLHRElement where
-  fromJS = believe_me
-export
-data HTMLHeadElement  : Type where [external]
+export ToJS HTMLHRElement where toJS = believe_me
+export FromJS HTMLHRElement where fromJS = safeCast
+export data HTMLHeadElement : Type where [external]
 
 export
-ToJS HTMLHeadElement where
-  toJS = believe_me
+SafeCast HTMLHeadElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLHeadElement"
 
-export
-FromJS HTMLHeadElement where
-  fromJS = believe_me
-export
-data HTMLHeadingElement  : Type where [external]
+export ToJS HTMLHeadElement where toJS = believe_me
+export FromJS HTMLHeadElement where fromJS = safeCast
+export data HTMLHeadingElement : Type where [external]
 
 export
-ToJS HTMLHeadingElement where
-  toJS = believe_me
+SafeCast HTMLHeadingElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLHeadingElement"
 
-export
-FromJS HTMLHeadingElement where
-  fromJS = believe_me
-export
-data HTMLHtmlElement  : Type where [external]
+export ToJS HTMLHeadingElement where toJS = believe_me
+export FromJS HTMLHeadingElement where fromJS = safeCast
+export data HTMLHtmlElement : Type where [external]
 
 export
-ToJS HTMLHtmlElement where
-  toJS = believe_me
+SafeCast HTMLHtmlElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLHtmlElement"
 
-export
-FromJS HTMLHtmlElement where
-  fromJS = believe_me
-export
-data HTMLIFrameElement  : Type where [external]
+export ToJS HTMLHtmlElement where toJS = believe_me
+export FromJS HTMLHtmlElement where fromJS = safeCast
+export data HTMLIFrameElement : Type where [external]
 
 export
-ToJS HTMLIFrameElement where
-  toJS = believe_me
+SafeCast HTMLIFrameElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLIFrameElement"
 
-export
-FromJS HTMLIFrameElement where
-  fromJS = believe_me
-export
-data HTMLImageElement  : Type where [external]
+export ToJS HTMLIFrameElement where toJS = believe_me
+export FromJS HTMLIFrameElement where fromJS = safeCast
+export data HTMLImageElement : Type where [external]
 
 export
-ToJS HTMLImageElement where
-  toJS = believe_me
+SafeCast HTMLImageElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLImageElement"
 
-export
-FromJS HTMLImageElement where
-  fromJS = believe_me
-export
-data HTMLInputElement  : Type where [external]
+export ToJS HTMLImageElement where toJS = believe_me
+export FromJS HTMLImageElement where fromJS = safeCast
+export data HTMLInputElement : Type where [external]
 
 export
-ToJS HTMLInputElement where
-  toJS = believe_me
+SafeCast HTMLInputElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLInputElement"
 
-export
-FromJS HTMLInputElement where
-  fromJS = believe_me
-export
-data HTMLLIElement  : Type where [external]
+export ToJS HTMLInputElement where toJS = believe_me
+export FromJS HTMLInputElement where fromJS = safeCast
+export data HTMLLIElement : Type where [external]
 
 export
-ToJS HTMLLIElement where
-  toJS = believe_me
+SafeCast HTMLLIElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLLIElement"
 
-export
-FromJS HTMLLIElement where
-  fromJS = believe_me
-export
-data HTMLLabelElement  : Type where [external]
+export ToJS HTMLLIElement where toJS = believe_me
+export FromJS HTMLLIElement where fromJS = safeCast
+export data HTMLLabelElement : Type where [external]
 
 export
-ToJS HTMLLabelElement where
-  toJS = believe_me
+SafeCast HTMLLabelElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLLabelElement"
 
-export
-FromJS HTMLLabelElement where
-  fromJS = believe_me
-export
-data HTMLLegendElement  : Type where [external]
+export ToJS HTMLLabelElement where toJS = believe_me
+export FromJS HTMLLabelElement where fromJS = safeCast
+export data HTMLLegendElement : Type where [external]
 
 export
-ToJS HTMLLegendElement where
-  toJS = believe_me
+SafeCast HTMLLegendElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLLegendElement"
 
-export
-FromJS HTMLLegendElement where
-  fromJS = believe_me
-export
-data HTMLLinkElement  : Type where [external]
+export ToJS HTMLLegendElement where toJS = believe_me
+export FromJS HTMLLegendElement where fromJS = safeCast
+export data HTMLLinkElement : Type where [external]
 
 export
-ToJS HTMLLinkElement where
-  toJS = believe_me
+SafeCast HTMLLinkElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLLinkElement"
 
-export
-FromJS HTMLLinkElement where
-  fromJS = believe_me
-export
-data HTMLMapElement  : Type where [external]
+export ToJS HTMLLinkElement where toJS = believe_me
+export FromJS HTMLLinkElement where fromJS = safeCast
+export data HTMLMapElement : Type where [external]
 
 export
-ToJS HTMLMapElement where
-  toJS = believe_me
+SafeCast HTMLMapElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLMapElement"
 
-export
-FromJS HTMLMapElement where
-  fromJS = believe_me
-export
-data HTMLMarqueeElement  : Type where [external]
+export ToJS HTMLMapElement where toJS = believe_me
+export FromJS HTMLMapElement where fromJS = safeCast
+export data HTMLMarqueeElement : Type where [external]
 
 export
-ToJS HTMLMarqueeElement where
-  toJS = believe_me
+SafeCast HTMLMarqueeElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLMarqueeElement"
 
-export
-FromJS HTMLMarqueeElement where
-  fromJS = believe_me
-export
-data HTMLMediaElement  : Type where [external]
+export ToJS HTMLMarqueeElement where toJS = believe_me
+export FromJS HTMLMarqueeElement where fromJS = safeCast
+export data HTMLMediaElement : Type where [external]
 
 export
-ToJS HTMLMediaElement where
-  toJS = believe_me
+SafeCast HTMLMediaElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLMediaElement"
 
-export
-FromJS HTMLMediaElement where
-  fromJS = believe_me
-export
-data HTMLMenuElement  : Type where [external]
+export ToJS HTMLMediaElement where toJS = believe_me
+export FromJS HTMLMediaElement where fromJS = safeCast
+export data HTMLMenuElement : Type where [external]
 
 export
-ToJS HTMLMenuElement where
-  toJS = believe_me
+SafeCast HTMLMenuElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLMenuElement"
 
-export
-FromJS HTMLMenuElement where
-  fromJS = believe_me
-export
-data HTMLMetaElement  : Type where [external]
+export ToJS HTMLMenuElement where toJS = believe_me
+export FromJS HTMLMenuElement where fromJS = safeCast
+export data HTMLMetaElement : Type where [external]
 
 export
-ToJS HTMLMetaElement where
-  toJS = believe_me
+SafeCast HTMLMetaElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLMetaElement"
 
-export
-FromJS HTMLMetaElement where
-  fromJS = believe_me
-export
-data HTMLMeterElement  : Type where [external]
+export ToJS HTMLMetaElement where toJS = believe_me
+export FromJS HTMLMetaElement where fromJS = safeCast
+export data HTMLMeterElement : Type where [external]
 
 export
-ToJS HTMLMeterElement where
-  toJS = believe_me
+SafeCast HTMLMeterElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLMeterElement"
 
-export
-FromJS HTMLMeterElement where
-  fromJS = believe_me
-export
-data HTMLModElement  : Type where [external]
+export ToJS HTMLMeterElement where toJS = believe_me
+export FromJS HTMLMeterElement where fromJS = safeCast
+export data HTMLModElement : Type where [external]
 
 export
-ToJS HTMLModElement where
-  toJS = believe_me
+SafeCast HTMLModElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLModElement"
 
-export
-FromJS HTMLModElement where
-  fromJS = believe_me
-export
-data HTMLOListElement  : Type where [external]
+export ToJS HTMLModElement where toJS = believe_me
+export FromJS HTMLModElement where fromJS = safeCast
+export data HTMLOListElement : Type where [external]
 
 export
-ToJS HTMLOListElement where
-  toJS = believe_me
+SafeCast HTMLOListElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLOListElement"
 
-export
-FromJS HTMLOListElement where
-  fromJS = believe_me
-export
-data HTMLObjectElement  : Type where [external]
+export ToJS HTMLOListElement where toJS = believe_me
+export FromJS HTMLOListElement where fromJS = safeCast
+export data HTMLObjectElement : Type where [external]
 
 export
-ToJS HTMLObjectElement where
-  toJS = believe_me
+SafeCast HTMLObjectElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLObjectElement"
 
-export
-FromJS HTMLObjectElement where
-  fromJS = believe_me
-export
-data HTMLOptGroupElement  : Type where [external]
+export ToJS HTMLObjectElement where toJS = believe_me
+export FromJS HTMLObjectElement where fromJS = safeCast
+export data HTMLOptGroupElement : Type where [external]
 
 export
-ToJS HTMLOptGroupElement where
-  toJS = believe_me
+SafeCast HTMLOptGroupElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLOptGroupElement"
 
-export
-FromJS HTMLOptGroupElement where
-  fromJS = believe_me
-export
-data HTMLOptionElement  : Type where [external]
+export ToJS HTMLOptGroupElement where toJS = believe_me
+export FromJS HTMLOptGroupElement where fromJS = safeCast
+export data HTMLOptionElement : Type where [external]
 
 export
-ToJS HTMLOptionElement where
-  toJS = believe_me
+SafeCast HTMLOptionElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLOptionElement"
 
-export
-FromJS HTMLOptionElement where
-  fromJS = believe_me
-export
-data HTMLOptionsCollection  : Type where [external]
+export ToJS HTMLOptionElement where toJS = believe_me
+export FromJS HTMLOptionElement where fromJS = safeCast
+export data HTMLOptionsCollection : Type where [external]
 
 export
-ToJS HTMLOptionsCollection where
-  toJS = believe_me
+SafeCast HTMLOptionsCollection where
+  safeCast = unsafeCastOnPrototypeName "HTMLOptionsCollection"
 
-export
-FromJS HTMLOptionsCollection where
-  fromJS = believe_me
-export
-data HTMLOutputElement  : Type where [external]
+export ToJS HTMLOptionsCollection where toJS = believe_me
+export FromJS HTMLOptionsCollection where fromJS = safeCast
+export data HTMLOutputElement : Type where [external]
 
 export
-ToJS HTMLOutputElement where
-  toJS = believe_me
+SafeCast HTMLOutputElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLOutputElement"
 
-export
-FromJS HTMLOutputElement where
-  fromJS = believe_me
-export
-data HTMLParagraphElement  : Type where [external]
+export ToJS HTMLOutputElement where toJS = believe_me
+export FromJS HTMLOutputElement where fromJS = safeCast
+export data HTMLParagraphElement : Type where [external]
 
 export
-ToJS HTMLParagraphElement where
-  toJS = believe_me
+SafeCast HTMLParagraphElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLParagraphElement"
 
-export
-FromJS HTMLParagraphElement where
-  fromJS = believe_me
-export
-data HTMLParamElement  : Type where [external]
+export ToJS HTMLParagraphElement where toJS = believe_me
+export FromJS HTMLParagraphElement where fromJS = safeCast
+export data HTMLParamElement : Type where [external]
 
 export
-ToJS HTMLParamElement where
-  toJS = believe_me
+SafeCast HTMLParamElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLParamElement"
 
-export
-FromJS HTMLParamElement where
-  fromJS = believe_me
-export
-data HTMLPictureElement  : Type where [external]
+export ToJS HTMLParamElement where toJS = believe_me
+export FromJS HTMLParamElement where fromJS = safeCast
+export data HTMLPictureElement : Type where [external]
 
 export
-ToJS HTMLPictureElement where
-  toJS = believe_me
+SafeCast HTMLPictureElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLPictureElement"
 
-export
-FromJS HTMLPictureElement where
-  fromJS = believe_me
-export
-data HTMLPreElement  : Type where [external]
+export ToJS HTMLPictureElement where toJS = believe_me
+export FromJS HTMLPictureElement where fromJS = safeCast
+export data HTMLPreElement : Type where [external]
 
 export
-ToJS HTMLPreElement where
-  toJS = believe_me
+SafeCast HTMLPreElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLPreElement"
 
-export
-FromJS HTMLPreElement where
-  fromJS = believe_me
-export
-data HTMLProgressElement  : Type where [external]
+export ToJS HTMLPreElement where toJS = believe_me
+export FromJS HTMLPreElement where fromJS = safeCast
+export data HTMLProgressElement : Type where [external]
 
 export
-ToJS HTMLProgressElement where
-  toJS = believe_me
+SafeCast HTMLProgressElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLProgressElement"
 
-export
-FromJS HTMLProgressElement where
-  fromJS = believe_me
-export
-data HTMLQuoteElement  : Type where [external]
+export ToJS HTMLProgressElement where toJS = believe_me
+export FromJS HTMLProgressElement where fromJS = safeCast
+export data HTMLQuoteElement : Type where [external]
 
 export
-ToJS HTMLQuoteElement where
-  toJS = believe_me
+SafeCast HTMLQuoteElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLQuoteElement"
 
-export
-FromJS HTMLQuoteElement where
-  fromJS = believe_me
-export
-data HTMLScriptElement  : Type where [external]
+export ToJS HTMLQuoteElement where toJS = believe_me
+export FromJS HTMLQuoteElement where fromJS = safeCast
+export data HTMLScriptElement : Type where [external]
 
 export
-ToJS HTMLScriptElement where
-  toJS = believe_me
+SafeCast HTMLScriptElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLScriptElement"
 
-export
-FromJS HTMLScriptElement where
-  fromJS = believe_me
-export
-data HTMLSelectElement  : Type where [external]
+export ToJS HTMLScriptElement where toJS = believe_me
+export FromJS HTMLScriptElement where fromJS = safeCast
+export data HTMLSelectElement : Type where [external]
 
 export
-ToJS HTMLSelectElement where
-  toJS = believe_me
+SafeCast HTMLSelectElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLSelectElement"
 
-export
-FromJS HTMLSelectElement where
-  fromJS = believe_me
-export
-data HTMLSlotElement  : Type where [external]
+export ToJS HTMLSelectElement where toJS = believe_me
+export FromJS HTMLSelectElement where fromJS = safeCast
+export data HTMLSlotElement : Type where [external]
 
 export
-ToJS HTMLSlotElement where
-  toJS = believe_me
+SafeCast HTMLSlotElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLSlotElement"
 
-export
-FromJS HTMLSlotElement where
-  fromJS = believe_me
-export
-data HTMLSourceElement  : Type where [external]
+export ToJS HTMLSlotElement where toJS = believe_me
+export FromJS HTMLSlotElement where fromJS = safeCast
+export data HTMLSourceElement : Type where [external]
 
 export
-ToJS HTMLSourceElement where
-  toJS = believe_me
+SafeCast HTMLSourceElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLSourceElement"
 
-export
-FromJS HTMLSourceElement where
-  fromJS = believe_me
-export
-data HTMLSpanElement  : Type where [external]
+export ToJS HTMLSourceElement where toJS = believe_me
+export FromJS HTMLSourceElement where fromJS = safeCast
+export data HTMLSpanElement : Type where [external]
 
 export
-ToJS HTMLSpanElement where
-  toJS = believe_me
+SafeCast HTMLSpanElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLSpanElement"
 
-export
-FromJS HTMLSpanElement where
-  fromJS = believe_me
-export
-data HTMLStyleElement  : Type where [external]
+export ToJS HTMLSpanElement where toJS = believe_me
+export FromJS HTMLSpanElement where fromJS = safeCast
+export data HTMLStyleElement : Type where [external]
 
 export
-ToJS HTMLStyleElement where
-  toJS = believe_me
+SafeCast HTMLStyleElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLStyleElement"
 
-export
-FromJS HTMLStyleElement where
-  fromJS = believe_me
-export
-data HTMLTableCaptionElement  : Type where [external]
+export ToJS HTMLStyleElement where toJS = believe_me
+export FromJS HTMLStyleElement where fromJS = safeCast
+export data HTMLTableCaptionElement : Type where [external]
 
 export
-ToJS HTMLTableCaptionElement where
-  toJS = believe_me
+SafeCast HTMLTableCaptionElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLTableCaptionElement"
 
-export
-FromJS HTMLTableCaptionElement where
-  fromJS = believe_me
-export
-data HTMLTableCellElement  : Type where [external]
+export ToJS HTMLTableCaptionElement where toJS = believe_me
+export FromJS HTMLTableCaptionElement where fromJS = safeCast
+export data HTMLTableCellElement : Type where [external]
 
 export
-ToJS HTMLTableCellElement where
-  toJS = believe_me
+SafeCast HTMLTableCellElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLTableCellElement"
 
-export
-FromJS HTMLTableCellElement where
-  fromJS = believe_me
-export
-data HTMLTableColElement  : Type where [external]
+export ToJS HTMLTableCellElement where toJS = believe_me
+export FromJS HTMLTableCellElement where fromJS = safeCast
+export data HTMLTableColElement : Type where [external]
 
 export
-ToJS HTMLTableColElement where
-  toJS = believe_me
+SafeCast HTMLTableColElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLTableColElement"
 
-export
-FromJS HTMLTableColElement where
-  fromJS = believe_me
-export
-data HTMLTableElement  : Type where [external]
+export ToJS HTMLTableColElement where toJS = believe_me
+export FromJS HTMLTableColElement where fromJS = safeCast
+export data HTMLTableElement : Type where [external]
 
 export
-ToJS HTMLTableElement where
-  toJS = believe_me
+SafeCast HTMLTableElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLTableElement"
 
-export
-FromJS HTMLTableElement where
-  fromJS = believe_me
-export
-data HTMLTableRowElement  : Type where [external]
+export ToJS HTMLTableElement where toJS = believe_me
+export FromJS HTMLTableElement where fromJS = safeCast
+export data HTMLTableRowElement : Type where [external]
 
 export
-ToJS HTMLTableRowElement where
-  toJS = believe_me
+SafeCast HTMLTableRowElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLTableRowElement"
 
-export
-FromJS HTMLTableRowElement where
-  fromJS = believe_me
-export
-data HTMLTableSectionElement  : Type where [external]
+export ToJS HTMLTableRowElement where toJS = believe_me
+export FromJS HTMLTableRowElement where fromJS = safeCast
+export data HTMLTableSectionElement : Type where [external]
 
 export
-ToJS HTMLTableSectionElement where
-  toJS = believe_me
+SafeCast HTMLTableSectionElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLTableSectionElement"
 
-export
-FromJS HTMLTableSectionElement where
-  fromJS = believe_me
-export
-data HTMLTemplateElement  : Type where [external]
+export ToJS HTMLTableSectionElement where toJS = believe_me
+export FromJS HTMLTableSectionElement where fromJS = safeCast
+export data HTMLTemplateElement : Type where [external]
 
 export
-ToJS HTMLTemplateElement where
-  toJS = believe_me
+SafeCast HTMLTemplateElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLTemplateElement"
 
-export
-FromJS HTMLTemplateElement where
-  fromJS = believe_me
-export
-data HTMLTextAreaElement  : Type where [external]
+export ToJS HTMLTemplateElement where toJS = believe_me
+export FromJS HTMLTemplateElement where fromJS = safeCast
+export data HTMLTextAreaElement : Type where [external]
 
 export
-ToJS HTMLTextAreaElement where
-  toJS = believe_me
+SafeCast HTMLTextAreaElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLTextAreaElement"
 
-export
-FromJS HTMLTextAreaElement where
-  fromJS = believe_me
-export
-data HTMLTimeElement  : Type where [external]
+export ToJS HTMLTextAreaElement where toJS = believe_me
+export FromJS HTMLTextAreaElement where fromJS = safeCast
+export data HTMLTimeElement : Type where [external]
 
 export
-ToJS HTMLTimeElement where
-  toJS = believe_me
+SafeCast HTMLTimeElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLTimeElement"
 
-export
-FromJS HTMLTimeElement where
-  fromJS = believe_me
-export
-data HTMLTitleElement  : Type where [external]
+export ToJS HTMLTimeElement where toJS = believe_me
+export FromJS HTMLTimeElement where fromJS = safeCast
+export data HTMLTitleElement : Type where [external]
 
 export
-ToJS HTMLTitleElement where
-  toJS = believe_me
+SafeCast HTMLTitleElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLTitleElement"
 
-export
-FromJS HTMLTitleElement where
-  fromJS = believe_me
-export
-data HTMLTrackElement  : Type where [external]
+export ToJS HTMLTitleElement where toJS = believe_me
+export FromJS HTMLTitleElement where fromJS = safeCast
+export data HTMLTrackElement : Type where [external]
 
 export
-ToJS HTMLTrackElement where
-  toJS = believe_me
+SafeCast HTMLTrackElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLTrackElement"
 
-export
-FromJS HTMLTrackElement where
-  fromJS = believe_me
-export
-data HTMLUListElement  : Type where [external]
+export ToJS HTMLTrackElement where toJS = believe_me
+export FromJS HTMLTrackElement where fromJS = safeCast
+export data HTMLUListElement : Type where [external]
 
 export
-ToJS HTMLUListElement where
-  toJS = believe_me
+SafeCast HTMLUListElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLUListElement"
 
-export
-FromJS HTMLUListElement where
-  fromJS = believe_me
-export
-data HTMLUnknownElement  : Type where [external]
+export ToJS HTMLUListElement where toJS = believe_me
+export FromJS HTMLUListElement where fromJS = safeCast
+export data HTMLUnknownElement : Type where [external]
 
 export
-ToJS HTMLUnknownElement where
-  toJS = believe_me
+SafeCast HTMLUnknownElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLUnknownElement"
 
-export
-FromJS HTMLUnknownElement where
-  fromJS = believe_me
-export
-data HTMLVideoElement  : Type where [external]
+export ToJS HTMLUnknownElement where toJS = believe_me
+export FromJS HTMLUnknownElement where fromJS = safeCast
+export data HTMLVideoElement : Type where [external]
 
 export
-ToJS HTMLVideoElement where
-  toJS = believe_me
+SafeCast HTMLVideoElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLVideoElement"
 
-export
-FromJS HTMLVideoElement where
-  fromJS = believe_me
-export
-data HashChangeEvent  : Type where [external]
+export ToJS HTMLVideoElement where toJS = believe_me
+export FromJS HTMLVideoElement where fromJS = safeCast
+export data HashChangeEvent : Type where [external]
 
 export
-ToJS HashChangeEvent where
-  toJS = believe_me
+SafeCast HashChangeEvent where
+  safeCast = unsafeCastOnPrototypeName "HashChangeEvent"
 
-export
-FromJS HashChangeEvent where
-  fromJS = believe_me
-export
-data History  : Type where [external]
+export ToJS HashChangeEvent where toJS = believe_me
+export FromJS HashChangeEvent where fromJS = safeCast
+export data History : Type where [external]
 
 export
-ToJS History where
-  toJS = believe_me
+SafeCast History where
+  safeCast = unsafeCastOnPrototypeName "History"
 
-export
-FromJS History where
-  fromJS = believe_me
-export
-data ImageBitmap  : Type where [external]
+export ToJS History where toJS = believe_me
+export FromJS History where fromJS = safeCast
+export data ImageBitmap : Type where [external]
 
 export
-ToJS ImageBitmap where
-  toJS = believe_me
+SafeCast ImageBitmap where
+  safeCast = unsafeCastOnPrototypeName "ImageBitmap"
 
-export
-FromJS ImageBitmap where
-  fromJS = believe_me
-export
-data ImageBitmapRenderingContext  : Type where [external]
+export ToJS ImageBitmap where toJS = believe_me
+export FromJS ImageBitmap where fromJS = safeCast
+export data ImageBitmapRenderingContext : Type where [external]
 
 export
-ToJS ImageBitmapRenderingContext where
-  toJS = believe_me
+SafeCast ImageBitmapRenderingContext where
+  safeCast = unsafeCastOnPrototypeName "ImageBitmapRenderingContext"
 
-export
-FromJS ImageBitmapRenderingContext where
-  fromJS = believe_me
-export
-data ImageData  : Type where [external]
+export ToJS ImageBitmapRenderingContext where toJS = believe_me
+export FromJS ImageBitmapRenderingContext where fromJS = safeCast
+export data ImageData : Type where [external]
 
 export
-ToJS ImageData where
-  toJS = believe_me
+SafeCast ImageData where
+  safeCast = unsafeCastOnPrototypeName "ImageData"
 
-export
-FromJS ImageData where
-  fromJS = believe_me
-export
-data Location  : Type where [external]
+export ToJS ImageData where toJS = believe_me
+export FromJS ImageData where fromJS = safeCast
+export data Location : Type where [external]
 
 export
-ToJS Location where
-  toJS = believe_me
+SafeCast Location where
+  safeCast = unsafeCastOnPrototypeName "Location"
 
-export
-FromJS Location where
-  fromJS = believe_me
-export
-data MediaError  : Type where [external]
+export ToJS Location where toJS = believe_me
+export FromJS Location where fromJS = safeCast
+export data MediaError : Type where [external]
 
 export
-ToJS MediaError where
-  toJS = believe_me
+SafeCast MediaError where
+  safeCast = unsafeCastOnPrototypeName "MediaError"
 
-export
-FromJS MediaError where
-  fromJS = believe_me
-export
-data MessageChannel  : Type where [external]
+export ToJS MediaError where toJS = believe_me
+export FromJS MediaError where fromJS = safeCast
+export data MessageChannel : Type where [external]
 
 export
-ToJS MessageChannel where
-  toJS = believe_me
+SafeCast MessageChannel where
+  safeCast = unsafeCastOnPrototypeName "MessageChannel"
 
-export
-FromJS MessageChannel where
-  fromJS = believe_me
-export
-data MessageEvent  : Type where [external]
+export ToJS MessageChannel where toJS = believe_me
+export FromJS MessageChannel where fromJS = safeCast
+export data MessageEvent : Type where [external]
 
 export
-ToJS MessageEvent where
-  toJS = believe_me
+SafeCast MessageEvent where
+  safeCast = unsafeCastOnPrototypeName "MessageEvent"
 
-export
-FromJS MessageEvent where
-  fromJS = believe_me
-export
-data MessagePort  : Type where [external]
+export ToJS MessageEvent where toJS = believe_me
+export FromJS MessageEvent where fromJS = safeCast
+export data MessagePort : Type where [external]
 
 export
-ToJS MessagePort where
-  toJS = believe_me
+SafeCast MessagePort where
+  safeCast = unsafeCastOnPrototypeName "MessagePort"
 
-export
-FromJS MessagePort where
-  fromJS = believe_me
-export
-data MimeType  : Type where [external]
+export ToJS MessagePort where toJS = believe_me
+export FromJS MessagePort where fromJS = safeCast
+export data MimeType : Type where [external]
 
 export
-ToJS MimeType where
-  toJS = believe_me
+SafeCast MimeType where
+  safeCast = unsafeCastOnPrototypeName "MimeType"
 
-export
-FromJS MimeType where
-  fromJS = believe_me
-export
-data MimeTypeArray  : Type where [external]
+export ToJS MimeType where toJS = believe_me
+export FromJS MimeType where fromJS = safeCast
+export data MimeTypeArray : Type where [external]
 
 export
-ToJS MimeTypeArray where
-  toJS = believe_me
+SafeCast MimeTypeArray where
+  safeCast = unsafeCastOnPrototypeName "MimeTypeArray"
 
-export
-FromJS MimeTypeArray where
-  fromJS = believe_me
-export
-data Navigator  : Type where [external]
+export ToJS MimeTypeArray where toJS = believe_me
+export FromJS MimeTypeArray where fromJS = safeCast
+export data Navigator : Type where [external]
 
 export
-ToJS Navigator where
-  toJS = believe_me
+SafeCast Navigator where
+  safeCast = unsafeCastOnPrototypeName "Navigator"
 
-export
-FromJS Navigator where
-  fromJS = believe_me
-export
-data OffscreenCanvas  : Type where [external]
+export ToJS Navigator where toJS = believe_me
+export FromJS Navigator where fromJS = safeCast
+export data OffscreenCanvas : Type where [external]
 
 export
-ToJS OffscreenCanvas where
-  toJS = believe_me
+SafeCast OffscreenCanvas where
+  safeCast = unsafeCastOnPrototypeName "OffscreenCanvas"
 
-export
-FromJS OffscreenCanvas where
-  fromJS = believe_me
-export
-data OffscreenCanvasRenderingContext2D  : Type where [external]
+export ToJS OffscreenCanvas where toJS = believe_me
+export FromJS OffscreenCanvas where fromJS = safeCast
+export data OffscreenCanvasRenderingContext2D : Type where [external]
 
 export
-ToJS OffscreenCanvasRenderingContext2D where
-  toJS = believe_me
+SafeCast OffscreenCanvasRenderingContext2D where
+  safeCast = unsafeCastOnPrototypeName "OffscreenCanvasRenderingContext2D"
 
-export
-FromJS OffscreenCanvasRenderingContext2D where
-  fromJS = believe_me
-export
-data PageTransitionEvent  : Type where [external]
+export ToJS OffscreenCanvasRenderingContext2D where toJS = believe_me
+export FromJS OffscreenCanvasRenderingContext2D where fromJS = safeCast
+export data PageTransitionEvent : Type where [external]
 
 export
-ToJS PageTransitionEvent where
-  toJS = believe_me
+SafeCast PageTransitionEvent where
+  safeCast = unsafeCastOnPrototypeName "PageTransitionEvent"
 
-export
-FromJS PageTransitionEvent where
-  fromJS = believe_me
-export
-data Path2D  : Type where [external]
+export ToJS PageTransitionEvent where toJS = believe_me
+export FromJS PageTransitionEvent where fromJS = safeCast
+export data Path2D : Type where [external]
 
 export
-ToJS Path2D where
-  toJS = believe_me
+SafeCast Path2D where
+  safeCast = unsafeCastOnPrototypeName "Path2D"
 
-export
-FromJS Path2D where
-  fromJS = believe_me
-export
-data Plugin  : Type where [external]
+export ToJS Path2D where toJS = believe_me
+export FromJS Path2D where fromJS = safeCast
+export data Plugin : Type where [external]
 
 export
-ToJS Plugin where
-  toJS = believe_me
+SafeCast Plugin where
+  safeCast = unsafeCastOnPrototypeName "Plugin"
 
-export
-FromJS Plugin where
-  fromJS = believe_me
-export
-data PluginArray  : Type where [external]
+export ToJS Plugin where toJS = believe_me
+export FromJS Plugin where fromJS = safeCast
+export data PluginArray : Type where [external]
 
 export
-ToJS PluginArray where
-  toJS = believe_me
+SafeCast PluginArray where
+  safeCast = unsafeCastOnPrototypeName "PluginArray"
 
-export
-FromJS PluginArray where
-  fromJS = believe_me
-export
-data PopStateEvent  : Type where [external]
+export ToJS PluginArray where toJS = believe_me
+export FromJS PluginArray where fromJS = safeCast
+export data PopStateEvent : Type where [external]
 
 export
-ToJS PopStateEvent where
-  toJS = believe_me
+SafeCast PopStateEvent where
+  safeCast = unsafeCastOnPrototypeName "PopStateEvent"
 
-export
-FromJS PopStateEvent where
-  fromJS = believe_me
-export
-data PromiseRejectionEvent  : Type where [external]
+export ToJS PopStateEvent where toJS = believe_me
+export FromJS PopStateEvent where fromJS = safeCast
+export data PromiseRejectionEvent : Type where [external]
 
 export
-ToJS PromiseRejectionEvent where
-  toJS = believe_me
+SafeCast PromiseRejectionEvent where
+  safeCast = unsafeCastOnPrototypeName "PromiseRejectionEvent"
 
-export
-FromJS PromiseRejectionEvent where
-  fromJS = believe_me
-export
-data RadioNodeList  : Type where [external]
+export ToJS PromiseRejectionEvent where toJS = believe_me
+export FromJS PromiseRejectionEvent where fromJS = safeCast
+export data RadioNodeList : Type where [external]
 
 export
-ToJS RadioNodeList where
-  toJS = believe_me
+SafeCast RadioNodeList where
+  safeCast = unsafeCastOnPrototypeName "RadioNodeList"
 
-export
-FromJS RadioNodeList where
-  fromJS = believe_me
-export
-data SharedWorker  : Type where [external]
+export ToJS RadioNodeList where toJS = believe_me
+export FromJS RadioNodeList where fromJS = safeCast
+export data SharedWorker : Type where [external]
 
 export
-ToJS SharedWorker where
-  toJS = believe_me
+SafeCast SharedWorker where
+  safeCast = unsafeCastOnPrototypeName "SharedWorker"
 
-export
-FromJS SharedWorker where
-  fromJS = believe_me
-export
-data SharedWorkerGlobalScope  : Type where [external]
+export ToJS SharedWorker where toJS = believe_me
+export FromJS SharedWorker where fromJS = safeCast
+export data SharedWorkerGlobalScope : Type where [external]
 
 export
-ToJS SharedWorkerGlobalScope where
-  toJS = believe_me
+SafeCast SharedWorkerGlobalScope where
+  safeCast = unsafeCastOnPrototypeName "SharedWorkerGlobalScope"
 
-export
-FromJS SharedWorkerGlobalScope where
-  fromJS = believe_me
-export
-data Storage  : Type where [external]
+export ToJS SharedWorkerGlobalScope where toJS = believe_me
+export FromJS SharedWorkerGlobalScope where fromJS = safeCast
+export data Storage : Type where [external]
 
 export
-ToJS Storage where
-  toJS = believe_me
+SafeCast Storage where
+  safeCast = unsafeCastOnPrototypeName "Storage"
 
-export
-FromJS Storage where
-  fromJS = believe_me
-export
-data StorageEvent  : Type where [external]
+export ToJS Storage where toJS = believe_me
+export FromJS Storage where fromJS = safeCast
+export data StorageEvent : Type where [external]
 
 export
-ToJS StorageEvent where
-  toJS = believe_me
+SafeCast StorageEvent where
+  safeCast = unsafeCastOnPrototypeName "StorageEvent"
 
-export
-FromJS StorageEvent where
-  fromJS = believe_me
-export
-data SubmitEvent  : Type where [external]
+export ToJS StorageEvent where toJS = believe_me
+export FromJS StorageEvent where fromJS = safeCast
+export data SubmitEvent : Type where [external]
 
 export
-ToJS SubmitEvent where
-  toJS = believe_me
+SafeCast SubmitEvent where
+  safeCast = unsafeCastOnPrototypeName "SubmitEvent"
 
-export
-FromJS SubmitEvent where
-  fromJS = believe_me
-export
-data TextMetrics  : Type where [external]
+export ToJS SubmitEvent where toJS = believe_me
+export FromJS SubmitEvent where fromJS = safeCast
+export data TextMetrics : Type where [external]
 
 export
-ToJS TextMetrics where
-  toJS = believe_me
+SafeCast TextMetrics where
+  safeCast = unsafeCastOnPrototypeName "TextMetrics"
 
-export
-FromJS TextMetrics where
-  fromJS = believe_me
-export
-data TextTrack  : Type where [external]
+export ToJS TextMetrics where toJS = believe_me
+export FromJS TextMetrics where fromJS = safeCast
+export data TextTrack : Type where [external]
 
 export
-ToJS TextTrack where
-  toJS = believe_me
+SafeCast TextTrack where
+  safeCast = unsafeCastOnPrototypeName "TextTrack"
 
-export
-FromJS TextTrack where
-  fromJS = believe_me
-export
-data TextTrackCue  : Type where [external]
+export ToJS TextTrack where toJS = believe_me
+export FromJS TextTrack where fromJS = safeCast
+export data TextTrackCue : Type where [external]
 
 export
-ToJS TextTrackCue where
-  toJS = believe_me
+SafeCast TextTrackCue where
+  safeCast = unsafeCastOnPrototypeName "TextTrackCue"
 
-export
-FromJS TextTrackCue where
-  fromJS = believe_me
-export
-data TextTrackCueList  : Type where [external]
+export ToJS TextTrackCue where toJS = believe_me
+export FromJS TextTrackCue where fromJS = safeCast
+export data TextTrackCueList : Type where [external]
 
 export
-ToJS TextTrackCueList where
-  toJS = believe_me
+SafeCast TextTrackCueList where
+  safeCast = unsafeCastOnPrototypeName "TextTrackCueList"
 
-export
-FromJS TextTrackCueList where
-  fromJS = believe_me
-export
-data TextTrackList  : Type where [external]
+export ToJS TextTrackCueList where toJS = believe_me
+export FromJS TextTrackCueList where fromJS = safeCast
+export data TextTrackList : Type where [external]
 
 export
-ToJS TextTrackList where
-  toJS = believe_me
+SafeCast TextTrackList where
+  safeCast = unsafeCastOnPrototypeName "TextTrackList"
 
-export
-FromJS TextTrackList where
-  fromJS = believe_me
-export
-data TimeRanges  : Type where [external]
+export ToJS TextTrackList where toJS = believe_me
+export FromJS TextTrackList where fromJS = safeCast
+export data TimeRanges : Type where [external]
 
 export
-ToJS TimeRanges where
-  toJS = believe_me
+SafeCast TimeRanges where
+  safeCast = unsafeCastOnPrototypeName "TimeRanges"
 
-export
-FromJS TimeRanges where
-  fromJS = believe_me
-export
-data TrackEvent  : Type where [external]
+export ToJS TimeRanges where toJS = believe_me
+export FromJS TimeRanges where fromJS = safeCast
+export data TrackEvent : Type where [external]
 
 export
-ToJS TrackEvent where
-  toJS = believe_me
+SafeCast TrackEvent where
+  safeCast = unsafeCastOnPrototypeName "TrackEvent"
 
-export
-FromJS TrackEvent where
-  fromJS = believe_me
-export
-data ValidityState  : Type where [external]
+export ToJS TrackEvent where toJS = believe_me
+export FromJS TrackEvent where fromJS = safeCast
+export data ValidityState : Type where [external]
 
 export
-ToJS ValidityState where
-  toJS = believe_me
+SafeCast ValidityState where
+  safeCast = unsafeCastOnPrototypeName "ValidityState"
 
-export
-FromJS ValidityState where
-  fromJS = believe_me
-export
-data VideoTrack  : Type where [external]
+export ToJS ValidityState where toJS = believe_me
+export FromJS ValidityState where fromJS = safeCast
+export data VideoTrack : Type where [external]
 
 export
-ToJS VideoTrack where
-  toJS = believe_me
+SafeCast VideoTrack where
+  safeCast = unsafeCastOnPrototypeName "VideoTrack"
 
-export
-FromJS VideoTrack where
-  fromJS = believe_me
-export
-data VideoTrackList  : Type where [external]
+export ToJS VideoTrack where toJS = believe_me
+export FromJS VideoTrack where fromJS = safeCast
+export data VideoTrackList : Type where [external]
 
 export
-ToJS VideoTrackList where
-  toJS = believe_me
+SafeCast VideoTrackList where
+  safeCast = unsafeCastOnPrototypeName "VideoTrackList"
 
-export
-FromJS VideoTrackList where
-  fromJS = believe_me
-export
-data WebSocket  : Type where [external]
+export ToJS VideoTrackList where toJS = believe_me
+export FromJS VideoTrackList where fromJS = safeCast
+export data WebSocket : Type where [external]
 
 export
-ToJS WebSocket where
-  toJS = believe_me
+SafeCast WebSocket where
+  safeCast = unsafeCastOnPrototypeName "WebSocket"
 
-export
-FromJS WebSocket where
-  fromJS = believe_me
-export
-data Window  : Type where [external]
+export ToJS WebSocket where toJS = believe_me
+export FromJS WebSocket where fromJS = safeCast
+export data Window : Type where [external]
 
 export
-ToJS Window where
-  toJS = believe_me
+SafeCast Window where
+  safeCast = unsafeCastOnPrototypeName "Window"
 
-export
-FromJS Window where
-  fromJS = believe_me
-export
-data Worker  : Type where [external]
+export ToJS Window where toJS = believe_me
+export FromJS Window where fromJS = safeCast
+export data Worker : Type where [external]
 
 export
-ToJS Worker where
-  toJS = believe_me
+SafeCast Worker where
+  safeCast = unsafeCastOnPrototypeName "Worker"
 
-export
-FromJS Worker where
-  fromJS = believe_me
-export
-data WorkerGlobalScope  : Type where [external]
+export ToJS Worker where toJS = believe_me
+export FromJS Worker where fromJS = safeCast
+export data WorkerGlobalScope : Type where [external]
 
 export
-ToJS WorkerGlobalScope where
-  toJS = believe_me
+SafeCast WorkerGlobalScope where
+  safeCast = unsafeCastOnPrototypeName "WorkerGlobalScope"
 
-export
-FromJS WorkerGlobalScope where
-  fromJS = believe_me
-export
-data WorkerLocation  : Type where [external]
+export ToJS WorkerGlobalScope where toJS = believe_me
+export FromJS WorkerGlobalScope where fromJS = safeCast
+export data WorkerLocation : Type where [external]
 
 export
-ToJS WorkerLocation where
-  toJS = believe_me
+SafeCast WorkerLocation where
+  safeCast = unsafeCastOnPrototypeName "WorkerLocation"
 
-export
-FromJS WorkerLocation where
-  fromJS = believe_me
-export
-data WorkerNavigator  : Type where [external]
+export ToJS WorkerLocation where toJS = believe_me
+export FromJS WorkerLocation where fromJS = safeCast
+export data WorkerNavigator : Type where [external]
 
 export
-ToJS WorkerNavigator where
-  toJS = believe_me
+SafeCast WorkerNavigator where
+  safeCast = unsafeCastOnPrototypeName "WorkerNavigator"
 
-export
-FromJS WorkerNavigator where
-  fromJS = believe_me
-export
-data Worklet  : Type where [external]
+export ToJS WorkerNavigator where toJS = believe_me
+export FromJS WorkerNavigator where fromJS = safeCast
+export data Worklet : Type where [external]
 
 export
-ToJS Worklet where
-  toJS = believe_me
+SafeCast Worklet where
+  safeCast = unsafeCastOnPrototypeName "Worklet"
 
-export
-FromJS Worklet where
-  fromJS = believe_me
-export
-data WorkletGlobalScope  : Type where [external]
+export ToJS Worklet where toJS = believe_me
+export FromJS Worklet where fromJS = safeCast
+export data WorkletGlobalScope : Type where [external]
 
 export
-ToJS WorkletGlobalScope where
-  toJS = believe_me
+SafeCast WorkletGlobalScope where
+  safeCast = unsafeCastOnPrototypeName "WorkletGlobalScope"
 
-export
-FromJS WorkletGlobalScope where
-  fromJS = believe_me
+export ToJS WorkletGlobalScope where toJS = believe_me
+export FromJS WorkletGlobalScope where fromJS = safeCast
 
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------
-export
-data ARIAMixin  : Type where [external]
+export data ARIAMixin : Type where [external]
 
 export
-ToJS ARIAMixin where
-  toJS = believe_me
+SafeCast ARIAMixin where
+  safeCast = unsafeCastOnPrototypeName "ARIAMixin"
+
+export ToJS ARIAMixin where toJS = believe_me
+export FromJS ARIAMixin where fromJS = safeCast
+export data AbstractWorker : Type where [external]
 
 export
-FromJS ARIAMixin where
-  fromJS = believe_me
-export
-data AbstractWorker  : Type where [external]
+SafeCast AbstractWorker where
+  safeCast = unsafeCastOnPrototypeName "AbstractWorker"
+
+export ToJS AbstractWorker where toJS = believe_me
+export FromJS AbstractWorker where fromJS = safeCast
+export data CanvasCompositing : Type where [external]
 
 export
-ToJS AbstractWorker where
-  toJS = believe_me
+SafeCast CanvasCompositing where
+  safeCast = unsafeCastOnPrototypeName "CanvasCompositing"
+
+export ToJS CanvasCompositing where toJS = believe_me
+export FromJS CanvasCompositing where fromJS = safeCast
+export data CanvasDrawImage : Type where [external]
 
 export
-FromJS AbstractWorker where
-  fromJS = believe_me
-export
-data CanvasCompositing  : Type where [external]
+SafeCast CanvasDrawImage where
+  safeCast = unsafeCastOnPrototypeName "CanvasDrawImage"
+
+export ToJS CanvasDrawImage where toJS = believe_me
+export FromJS CanvasDrawImage where fromJS = safeCast
+export data CanvasDrawPath : Type where [external]
 
 export
-ToJS CanvasCompositing where
-  toJS = believe_me
+SafeCast CanvasDrawPath where
+  safeCast = unsafeCastOnPrototypeName "CanvasDrawPath"
+
+export ToJS CanvasDrawPath where toJS = believe_me
+export FromJS CanvasDrawPath where fromJS = safeCast
+export data CanvasFillStrokeStyles : Type where [external]
 
 export
-FromJS CanvasCompositing where
-  fromJS = believe_me
-export
-data CanvasDrawImage  : Type where [external]
+SafeCast CanvasFillStrokeStyles where
+  safeCast = unsafeCastOnPrototypeName "CanvasFillStrokeStyles"
+
+export ToJS CanvasFillStrokeStyles where toJS = believe_me
+export FromJS CanvasFillStrokeStyles where fromJS = safeCast
+export data CanvasFilters : Type where [external]
 
 export
-ToJS CanvasDrawImage where
-  toJS = believe_me
+SafeCast CanvasFilters where
+  safeCast = unsafeCastOnPrototypeName "CanvasFilters"
+
+export ToJS CanvasFilters where toJS = believe_me
+export FromJS CanvasFilters where fromJS = safeCast
+export data CanvasImageData : Type where [external]
 
 export
-FromJS CanvasDrawImage where
-  fromJS = believe_me
-export
-data CanvasDrawPath  : Type where [external]
+SafeCast CanvasImageData where
+  safeCast = unsafeCastOnPrototypeName "CanvasImageData"
+
+export ToJS CanvasImageData where toJS = believe_me
+export FromJS CanvasImageData where fromJS = safeCast
+export data CanvasImageSmoothing : Type where [external]
 
 export
-ToJS CanvasDrawPath where
-  toJS = believe_me
+SafeCast CanvasImageSmoothing where
+  safeCast = unsafeCastOnPrototypeName "CanvasImageSmoothing"
+
+export ToJS CanvasImageSmoothing where toJS = believe_me
+export FromJS CanvasImageSmoothing where fromJS = safeCast
+export data CanvasPath : Type where [external]
 
 export
-FromJS CanvasDrawPath where
-  fromJS = believe_me
-export
-data CanvasFillStrokeStyles  : Type where [external]
+SafeCast CanvasPath where
+  safeCast = unsafeCastOnPrototypeName "CanvasPath"
+
+export ToJS CanvasPath where toJS = believe_me
+export FromJS CanvasPath where fromJS = safeCast
+export data CanvasPathDrawingStyles : Type where [external]
 
 export
-ToJS CanvasFillStrokeStyles where
-  toJS = believe_me
+SafeCast CanvasPathDrawingStyles where
+  safeCast = unsafeCastOnPrototypeName "CanvasPathDrawingStyles"
+
+export ToJS CanvasPathDrawingStyles where toJS = believe_me
+export FromJS CanvasPathDrawingStyles where fromJS = safeCast
+export data CanvasRect : Type where [external]
 
 export
-FromJS CanvasFillStrokeStyles where
-  fromJS = believe_me
-export
-data CanvasFilters  : Type where [external]
+SafeCast CanvasRect where
+  safeCast = unsafeCastOnPrototypeName "CanvasRect"
+
+export ToJS CanvasRect where toJS = believe_me
+export FromJS CanvasRect where fromJS = safeCast
+export data CanvasShadowStyles : Type where [external]
 
 export
-ToJS CanvasFilters where
-  toJS = believe_me
+SafeCast CanvasShadowStyles where
+  safeCast = unsafeCastOnPrototypeName "CanvasShadowStyles"
+
+export ToJS CanvasShadowStyles where toJS = believe_me
+export FromJS CanvasShadowStyles where fromJS = safeCast
+export data CanvasState : Type where [external]
 
 export
-FromJS CanvasFilters where
-  fromJS = believe_me
-export
-data CanvasImageData  : Type where [external]
+SafeCast CanvasState where
+  safeCast = unsafeCastOnPrototypeName "CanvasState"
+
+export ToJS CanvasState where toJS = believe_me
+export FromJS CanvasState where fromJS = safeCast
+export data CanvasText : Type where [external]
 
 export
-ToJS CanvasImageData where
-  toJS = believe_me
+SafeCast CanvasText where
+  safeCast = unsafeCastOnPrototypeName "CanvasText"
+
+export ToJS CanvasText where toJS = believe_me
+export FromJS CanvasText where fromJS = safeCast
+export data CanvasTextDrawingStyles : Type where [external]
 
 export
-FromJS CanvasImageData where
-  fromJS = believe_me
-export
-data CanvasImageSmoothing  : Type where [external]
+SafeCast CanvasTextDrawingStyles where
+  safeCast = unsafeCastOnPrototypeName "CanvasTextDrawingStyles"
+
+export ToJS CanvasTextDrawingStyles where toJS = believe_me
+export FromJS CanvasTextDrawingStyles where fromJS = safeCast
+export data CanvasTransform : Type where [external]
 
 export
-ToJS CanvasImageSmoothing where
-  toJS = believe_me
+SafeCast CanvasTransform where
+  safeCast = unsafeCastOnPrototypeName "CanvasTransform"
+
+export ToJS CanvasTransform where toJS = believe_me
+export FromJS CanvasTransform where fromJS = safeCast
+export data CanvasUserInterface : Type where [external]
 
 export
-FromJS CanvasImageSmoothing where
-  fromJS = believe_me
-export
-data CanvasPath  : Type where [external]
+SafeCast CanvasUserInterface where
+  safeCast = unsafeCastOnPrototypeName "CanvasUserInterface"
+
+export ToJS CanvasUserInterface where toJS = believe_me
+export FromJS CanvasUserInterface where fromJS = safeCast
+export data DocumentAndElementEventHandlers : Type where [external]
 
 export
-ToJS CanvasPath where
-  toJS = believe_me
+SafeCast DocumentAndElementEventHandlers where
+  safeCast = unsafeCastOnPrototypeName "DocumentAndElementEventHandlers"
+
+export ToJS DocumentAndElementEventHandlers where toJS = believe_me
+export FromJS DocumentAndElementEventHandlers where fromJS = safeCast
+export data ElementContentEditable : Type where [external]
 
 export
-FromJS CanvasPath where
-  fromJS = believe_me
-export
-data CanvasPathDrawingStyles  : Type where [external]
+SafeCast ElementContentEditable where
+  safeCast = unsafeCastOnPrototypeName "ElementContentEditable"
+
+export ToJS ElementContentEditable where toJS = believe_me
+export FromJS ElementContentEditable where fromJS = safeCast
+export data GlobalEventHandlers : Type where [external]
 
 export
-ToJS CanvasPathDrawingStyles where
-  toJS = believe_me
+SafeCast GlobalEventHandlers where
+  safeCast = unsafeCastOnPrototypeName "GlobalEventHandlers"
+
+export ToJS GlobalEventHandlers where toJS = believe_me
+export FromJS GlobalEventHandlers where fromJS = safeCast
+export data HTMLHyperlinkElementUtils : Type where [external]
 
 export
-FromJS CanvasPathDrawingStyles where
-  fromJS = believe_me
-export
-data CanvasRect  : Type where [external]
+SafeCast HTMLHyperlinkElementUtils where
+  safeCast = unsafeCastOnPrototypeName "HTMLHyperlinkElementUtils"
+
+export ToJS HTMLHyperlinkElementUtils where toJS = believe_me
+export FromJS HTMLHyperlinkElementUtils where fromJS = safeCast
+export data HTMLOrSVGElement : Type where [external]
 
 export
-ToJS CanvasRect where
-  toJS = believe_me
+SafeCast HTMLOrSVGElement where
+  safeCast = unsafeCastOnPrototypeName "HTMLOrSVGElement"
+
+export ToJS HTMLOrSVGElement where toJS = believe_me
+export FromJS HTMLOrSVGElement where fromJS = safeCast
+export data NavigatorConcurrentHardware : Type where [external]
 
 export
-FromJS CanvasRect where
-  fromJS = believe_me
-export
-data CanvasShadowStyles  : Type where [external]
+SafeCast NavigatorConcurrentHardware where
+  safeCast = unsafeCastOnPrototypeName "NavigatorConcurrentHardware"
+
+export ToJS NavigatorConcurrentHardware where toJS = believe_me
+export FromJS NavigatorConcurrentHardware where fromJS = safeCast
+export data NavigatorContentUtils : Type where [external]
 
 export
-ToJS CanvasShadowStyles where
-  toJS = believe_me
+SafeCast NavigatorContentUtils where
+  safeCast = unsafeCastOnPrototypeName "NavigatorContentUtils"
+
+export ToJS NavigatorContentUtils where toJS = believe_me
+export FromJS NavigatorContentUtils where fromJS = safeCast
+export data NavigatorCookies : Type where [external]
 
 export
-FromJS CanvasShadowStyles where
-  fromJS = believe_me
-export
-data CanvasState  : Type where [external]
+SafeCast NavigatorCookies where
+  safeCast = unsafeCastOnPrototypeName "NavigatorCookies"
+
+export ToJS NavigatorCookies where toJS = believe_me
+export FromJS NavigatorCookies where fromJS = safeCast
+export data NavigatorID : Type where [external]
 
 export
-ToJS CanvasState where
-  toJS = believe_me
+SafeCast NavigatorID where
+  safeCast = unsafeCastOnPrototypeName "NavigatorID"
+
+export ToJS NavigatorID where toJS = believe_me
+export FromJS NavigatorID where fromJS = safeCast
+export data NavigatorLanguage : Type where [external]
 
 export
-FromJS CanvasState where
-  fromJS = believe_me
-export
-data CanvasText  : Type where [external]
+SafeCast NavigatorLanguage where
+  safeCast = unsafeCastOnPrototypeName "NavigatorLanguage"
+
+export ToJS NavigatorLanguage where toJS = believe_me
+export FromJS NavigatorLanguage where fromJS = safeCast
+export data NavigatorOnLine : Type where [external]
 
 export
-ToJS CanvasText where
-  toJS = believe_me
+SafeCast NavigatorOnLine where
+  safeCast = unsafeCastOnPrototypeName "NavigatorOnLine"
+
+export ToJS NavigatorOnLine where toJS = believe_me
+export FromJS NavigatorOnLine where fromJS = safeCast
+export data NavigatorPlugins : Type where [external]
 
 export
-FromJS CanvasText where
-  fromJS = believe_me
-export
-data CanvasTextDrawingStyles  : Type where [external]
+SafeCast NavigatorPlugins where
+  safeCast = unsafeCastOnPrototypeName "NavigatorPlugins"
+
+export ToJS NavigatorPlugins where toJS = believe_me
+export FromJS NavigatorPlugins where fromJS = safeCast
+export data WindowEventHandlers : Type where [external]
 
 export
-ToJS CanvasTextDrawingStyles where
-  toJS = believe_me
+SafeCast WindowEventHandlers where
+  safeCast = unsafeCastOnPrototypeName "WindowEventHandlers"
 
-export
-FromJS CanvasTextDrawingStyles where
-  fromJS = believe_me
-export
-data CanvasTransform  : Type where [external]
-
-export
-ToJS CanvasTransform where
-  toJS = believe_me
-
-export
-FromJS CanvasTransform where
-  fromJS = believe_me
-export
-data CanvasUserInterface  : Type where [external]
-
-export
-ToJS CanvasUserInterface where
-  toJS = believe_me
-
-export
-FromJS CanvasUserInterface where
-  fromJS = believe_me
-export
-data DocumentAndElementEventHandlers  : Type where [external]
-
-export
-ToJS DocumentAndElementEventHandlers where
-  toJS = believe_me
-
-export
-FromJS DocumentAndElementEventHandlers where
-  fromJS = believe_me
-export
-data ElementContentEditable  : Type where [external]
-
-export
-ToJS ElementContentEditable where
-  toJS = believe_me
-
-export
-FromJS ElementContentEditable where
-  fromJS = believe_me
-export
-data GlobalEventHandlers  : Type where [external]
-
-export
-ToJS GlobalEventHandlers where
-  toJS = believe_me
-
-export
-FromJS GlobalEventHandlers where
-  fromJS = believe_me
-export
-data HTMLHyperlinkElementUtils  : Type where [external]
-
-export
-ToJS HTMLHyperlinkElementUtils where
-  toJS = believe_me
-
-export
-FromJS HTMLHyperlinkElementUtils where
-  fromJS = believe_me
-export
-data HTMLOrSVGElement  : Type where [external]
-
-export
-ToJS HTMLOrSVGElement where
-  toJS = believe_me
-
-export
-FromJS HTMLOrSVGElement where
-  fromJS = believe_me
-export
-data NavigatorConcurrentHardware  : Type where [external]
-
-export
-ToJS NavigatorConcurrentHardware where
-  toJS = believe_me
-
-export
-FromJS NavigatorConcurrentHardware where
-  fromJS = believe_me
-export
-data NavigatorContentUtils  : Type where [external]
-
-export
-ToJS NavigatorContentUtils where
-  toJS = believe_me
-
-export
-FromJS NavigatorContentUtils where
-  fromJS = believe_me
-export
-data NavigatorCookies  : Type where [external]
-
-export
-ToJS NavigatorCookies where
-  toJS = believe_me
-
-export
-FromJS NavigatorCookies where
-  fromJS = believe_me
-export
-data NavigatorID  : Type where [external]
-
-export
-ToJS NavigatorID where
-  toJS = believe_me
-
-export
-FromJS NavigatorID where
-  fromJS = believe_me
-export
-data NavigatorLanguage  : Type where [external]
-
-export
-ToJS NavigatorLanguage where
-  toJS = believe_me
-
-export
-FromJS NavigatorLanguage where
-  fromJS = believe_me
-export
-data NavigatorOnLine  : Type where [external]
-
-export
-ToJS NavigatorOnLine where
-  toJS = believe_me
-
-export
-FromJS NavigatorOnLine where
-  fromJS = believe_me
-export
-data NavigatorPlugins  : Type where [external]
-
-export
-ToJS NavigatorPlugins where
-  toJS = believe_me
-
-export
-FromJS NavigatorPlugins where
-  fromJS = believe_me
-export
-data WindowEventHandlers  : Type where [external]
-
-export
-ToJS WindowEventHandlers where
-  toJS = believe_me
-
-export
-FromJS WindowEventHandlers where
-  fromJS = believe_me
+export ToJS WindowEventHandlers where toJS = believe_me
+export FromJS WindowEventHandlers where fromJS = safeCast
 
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
-export
-data AssignedNodesOptions  : Type where [external]
+export data AssignedNodesOptions : Type where [external]
 
 export
-ToJS AssignedNodesOptions where
-  toJS = believe_me
+SafeCast AssignedNodesOptions where
+  safeCast = unsafeCastOnPrototypeName "AssignedNodesOptions"
+
+export ToJS AssignedNodesOptions where toJS = believe_me
+export FromJS AssignedNodesOptions where fromJS = safeCast
+export data CanvasRenderingContext2DSettings : Type where [external]
 
 export
-FromJS AssignedNodesOptions where
-  fromJS = believe_me
-export
-data CanvasRenderingContext2DSettings  : Type where [external]
+SafeCast CanvasRenderingContext2DSettings where
+  safeCast = unsafeCastOnPrototypeName "CanvasRenderingContext2DSettings"
+
+export ToJS CanvasRenderingContext2DSettings where toJS = believe_me
+export FromJS CanvasRenderingContext2DSettings where fromJS = safeCast
+export data CloseEventInit : Type where [external]
 
 export
-ToJS CanvasRenderingContext2DSettings where
-  toJS = believe_me
+SafeCast CloseEventInit where
+  safeCast = unsafeCastOnPrototypeName "CloseEventInit"
+
+export ToJS CloseEventInit where toJS = believe_me
+export FromJS CloseEventInit where fromJS = safeCast
+export data DragEventInit : Type where [external]
 
 export
-FromJS CanvasRenderingContext2DSettings where
-  fromJS = believe_me
-export
-data CloseEventInit  : Type where [external]
+SafeCast DragEventInit where
+  safeCast = unsafeCastOnPrototypeName "DragEventInit"
+
+export ToJS DragEventInit where toJS = believe_me
+export FromJS DragEventInit where fromJS = safeCast
+export data ElementDefinitionOptions : Type where [external]
 
 export
-ToJS CloseEventInit where
-  toJS = believe_me
+SafeCast ElementDefinitionOptions where
+  safeCast = unsafeCastOnPrototypeName "ElementDefinitionOptions"
+
+export ToJS ElementDefinitionOptions where toJS = believe_me
+export FromJS ElementDefinitionOptions where fromJS = safeCast
+export data ErrorEventInit : Type where [external]
 
 export
-FromJS CloseEventInit where
-  fromJS = believe_me
-export
-data DragEventInit  : Type where [external]
+SafeCast ErrorEventInit where
+  safeCast = unsafeCastOnPrototypeName "ErrorEventInit"
+
+export ToJS ErrorEventInit where toJS = believe_me
+export FromJS ErrorEventInit where fromJS = safeCast
+export data EventSourceInit : Type where [external]
 
 export
-ToJS DragEventInit where
-  toJS = believe_me
+SafeCast EventSourceInit where
+  safeCast = unsafeCastOnPrototypeName "EventSourceInit"
+
+export ToJS EventSourceInit where toJS = believe_me
+export FromJS EventSourceInit where fromJS = safeCast
+export data FocusOptions : Type where [external]
 
 export
-FromJS DragEventInit where
-  fromJS = believe_me
-export
-data ElementDefinitionOptions  : Type where [external]
+SafeCast FocusOptions where
+  safeCast = unsafeCastOnPrototypeName "FocusOptions"
+
+export ToJS FocusOptions where toJS = believe_me
+export FromJS FocusOptions where fromJS = safeCast
+export data FormDataEventInit : Type where [external]
 
 export
-ToJS ElementDefinitionOptions where
-  toJS = believe_me
+SafeCast FormDataEventInit where
+  safeCast = unsafeCastOnPrototypeName "FormDataEventInit"
+
+export ToJS FormDataEventInit where toJS = believe_me
+export FromJS FormDataEventInit where fromJS = safeCast
+export data HashChangeEventInit : Type where [external]
 
 export
-FromJS ElementDefinitionOptions where
-  fromJS = believe_me
-export
-data ErrorEventInit  : Type where [external]
+SafeCast HashChangeEventInit where
+  safeCast = unsafeCastOnPrototypeName "HashChangeEventInit"
+
+export ToJS HashChangeEventInit where toJS = believe_me
+export FromJS HashChangeEventInit where fromJS = safeCast
+export data ImageBitmapOptions : Type where [external]
 
 export
-ToJS ErrorEventInit where
-  toJS = believe_me
+SafeCast ImageBitmapOptions where
+  safeCast = unsafeCastOnPrototypeName "ImageBitmapOptions"
+
+export ToJS ImageBitmapOptions where toJS = believe_me
+export FromJS ImageBitmapOptions where fromJS = safeCast
+export data ImageBitmapRenderingContextSettings : Type where [external]
 
 export
-FromJS ErrorEventInit where
-  fromJS = believe_me
-export
-data EventSourceInit  : Type where [external]
+SafeCast ImageBitmapRenderingContextSettings where
+  safeCast = unsafeCastOnPrototypeName "ImageBitmapRenderingContextSettings"
+
+export ToJS ImageBitmapRenderingContextSettings where toJS = believe_me
+export FromJS ImageBitmapRenderingContextSettings where fromJS = safeCast
+export data ImageEncodeOptions : Type where [external]
 
 export
-ToJS EventSourceInit where
-  toJS = believe_me
+SafeCast ImageEncodeOptions where
+  safeCast = unsafeCastOnPrototypeName "ImageEncodeOptions"
+
+export ToJS ImageEncodeOptions where toJS = believe_me
+export FromJS ImageEncodeOptions where fromJS = safeCast
+export data MessageEventInit : Type where [external]
 
 export
-FromJS EventSourceInit where
-  fromJS = believe_me
-export
-data FocusOptions  : Type where [external]
+SafeCast MessageEventInit where
+  safeCast = unsafeCastOnPrototypeName "MessageEventInit"
+
+export ToJS MessageEventInit where toJS = believe_me
+export FromJS MessageEventInit where fromJS = safeCast
+export data PageTransitionEventInit : Type where [external]
 
 export
-ToJS FocusOptions where
-  toJS = believe_me
+SafeCast PageTransitionEventInit where
+  safeCast = unsafeCastOnPrototypeName "PageTransitionEventInit"
+
+export ToJS PageTransitionEventInit where toJS = believe_me
+export FromJS PageTransitionEventInit where fromJS = safeCast
+export data PopStateEventInit : Type where [external]
 
 export
-FromJS FocusOptions where
-  fromJS = believe_me
-export
-data FormDataEventInit  : Type where [external]
+SafeCast PopStateEventInit where
+  safeCast = unsafeCastOnPrototypeName "PopStateEventInit"
+
+export ToJS PopStateEventInit where toJS = believe_me
+export FromJS PopStateEventInit where fromJS = safeCast
+export data PostMessageOptions : Type where [external]
 
 export
-ToJS FormDataEventInit where
-  toJS = believe_me
+SafeCast PostMessageOptions where
+  safeCast = unsafeCastOnPrototypeName "PostMessageOptions"
+
+export ToJS PostMessageOptions where toJS = believe_me
+export FromJS PostMessageOptions where fromJS = safeCast
+export data PromiseRejectionEventInit : Type where [external]
 
 export
-FromJS FormDataEventInit where
-  fromJS = believe_me
-export
-data HashChangeEventInit  : Type where [external]
+SafeCast PromiseRejectionEventInit where
+  safeCast = unsafeCastOnPrototypeName "PromiseRejectionEventInit"
+
+export ToJS PromiseRejectionEventInit where toJS = believe_me
+export FromJS PromiseRejectionEventInit where fromJS = safeCast
+export data StorageEventInit : Type where [external]
 
 export
-ToJS HashChangeEventInit where
-  toJS = believe_me
+SafeCast StorageEventInit where
+  safeCast = unsafeCastOnPrototypeName "StorageEventInit"
+
+export ToJS StorageEventInit where toJS = believe_me
+export FromJS StorageEventInit where fromJS = safeCast
+export data SubmitEventInit : Type where [external]
 
 export
-FromJS HashChangeEventInit where
-  fromJS = believe_me
-export
-data ImageBitmapOptions  : Type where [external]
+SafeCast SubmitEventInit where
+  safeCast = unsafeCastOnPrototypeName "SubmitEventInit"
+
+export ToJS SubmitEventInit where toJS = believe_me
+export FromJS SubmitEventInit where fromJS = safeCast
+export data TrackEventInit : Type where [external]
 
 export
-ToJS ImageBitmapOptions where
-  toJS = believe_me
+SafeCast TrackEventInit where
+  safeCast = unsafeCastOnPrototypeName "TrackEventInit"
+
+export ToJS TrackEventInit where toJS = believe_me
+export FromJS TrackEventInit where fromJS = safeCast
+export data ValidityStateFlags : Type where [external]
 
 export
-FromJS ImageBitmapOptions where
-  fromJS = believe_me
-export
-data ImageBitmapRenderingContextSettings  : Type where [external]
+SafeCast ValidityStateFlags where
+  safeCast = unsafeCastOnPrototypeName "ValidityStateFlags"
+
+export ToJS ValidityStateFlags where toJS = believe_me
+export FromJS ValidityStateFlags where fromJS = safeCast
+export data WindowPostMessageOptions : Type where [external]
 
 export
-ToJS ImageBitmapRenderingContextSettings where
-  toJS = believe_me
+SafeCast WindowPostMessageOptions where
+  safeCast = unsafeCastOnPrototypeName "WindowPostMessageOptions"
+
+export ToJS WindowPostMessageOptions where toJS = believe_me
+export FromJS WindowPostMessageOptions where fromJS = safeCast
+export data WorkerOptions : Type where [external]
 
 export
-FromJS ImageBitmapRenderingContextSettings where
-  fromJS = believe_me
-export
-data ImageEncodeOptions  : Type where [external]
+SafeCast WorkerOptions where
+  safeCast = unsafeCastOnPrototypeName "WorkerOptions"
+
+export ToJS WorkerOptions where toJS = believe_me
+export FromJS WorkerOptions where fromJS = safeCast
+export data WorkletOptions : Type where [external]
 
 export
-ToJS ImageEncodeOptions where
-  toJS = believe_me
+SafeCast WorkletOptions where
+  safeCast = unsafeCastOnPrototypeName "WorkletOptions"
 
-export
-FromJS ImageEncodeOptions where
-  fromJS = believe_me
-export
-data MessageEventInit  : Type where [external]
-
-export
-ToJS MessageEventInit where
-  toJS = believe_me
-
-export
-FromJS MessageEventInit where
-  fromJS = believe_me
-export
-data PageTransitionEventInit  : Type where [external]
-
-export
-ToJS PageTransitionEventInit where
-  toJS = believe_me
-
-export
-FromJS PageTransitionEventInit where
-  fromJS = believe_me
-export
-data PopStateEventInit  : Type where [external]
-
-export
-ToJS PopStateEventInit where
-  toJS = believe_me
-
-export
-FromJS PopStateEventInit where
-  fromJS = believe_me
-export
-data PostMessageOptions  : Type where [external]
-
-export
-ToJS PostMessageOptions where
-  toJS = believe_me
-
-export
-FromJS PostMessageOptions where
-  fromJS = believe_me
-export
-data PromiseRejectionEventInit  : Type where [external]
-
-export
-ToJS PromiseRejectionEventInit where
-  toJS = believe_me
-
-export
-FromJS PromiseRejectionEventInit where
-  fromJS = believe_me
-export
-data StorageEventInit  : Type where [external]
-
-export
-ToJS StorageEventInit where
-  toJS = believe_me
-
-export
-FromJS StorageEventInit where
-  fromJS = believe_me
-export
-data SubmitEventInit  : Type where [external]
-
-export
-ToJS SubmitEventInit where
-  toJS = believe_me
-
-export
-FromJS SubmitEventInit where
-  fromJS = believe_me
-export
-data TrackEventInit  : Type where [external]
-
-export
-ToJS TrackEventInit where
-  toJS = believe_me
-
-export
-FromJS TrackEventInit where
-  fromJS = believe_me
-export
-data ValidityStateFlags  : Type where [external]
-
-export
-ToJS ValidityStateFlags where
-  toJS = believe_me
-
-export
-FromJS ValidityStateFlags where
-  fromJS = believe_me
-export
-data WindowPostMessageOptions  : Type where [external]
-
-export
-ToJS WindowPostMessageOptions where
-  toJS = believe_me
-
-export
-FromJS WindowPostMessageOptions where
-  fromJS = believe_me
-export
-data WorkerOptions  : Type where [external]
-
-export
-ToJS WorkerOptions where
-  toJS = believe_me
-
-export
-FromJS WorkerOptions where
-  fromJS = believe_me
-export
-data WorkletOptions  : Type where [external]
-
-export
-ToJS WorkletOptions where
-  toJS = believe_me
-
-export
-FromJS WorkletOptions where
-  fromJS = believe_me
+export ToJS WorkletOptions where toJS = believe_me
+export FromJS WorkletOptions where fromJS = safeCast

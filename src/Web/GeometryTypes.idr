@@ -5,138 +5,112 @@ import JS
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-export
-data DOMMatrix  : Type where [external]
+export data DOMMatrix : Type where [external]
 
 export
-ToJS DOMMatrix where
-  toJS = believe_me
+SafeCast DOMMatrix where
+  safeCast = unsafeCastOnPrototypeName "DOMMatrix"
+
+export ToJS DOMMatrix where toJS = believe_me
+export FromJS DOMMatrix where fromJS = safeCast
+export data DOMMatrixReadOnly : Type where [external]
 
 export
-FromJS DOMMatrix where
-  fromJS = believe_me
-export
-data DOMMatrixReadOnly  : Type where [external]
+SafeCast DOMMatrixReadOnly where
+  safeCast = unsafeCastOnPrototypeName "DOMMatrixReadOnly"
+
+export ToJS DOMMatrixReadOnly where toJS = believe_me
+export FromJS DOMMatrixReadOnly where fromJS = safeCast
+export data DOMPoint : Type where [external]
 
 export
-ToJS DOMMatrixReadOnly where
-  toJS = believe_me
+SafeCast DOMPoint where
+  safeCast = unsafeCastOnPrototypeName "DOMPoint"
+
+export ToJS DOMPoint where toJS = believe_me
+export FromJS DOMPoint where fromJS = safeCast
+export data DOMPointReadOnly : Type where [external]
 
 export
-FromJS DOMMatrixReadOnly where
-  fromJS = believe_me
-export
-data DOMPoint  : Type where [external]
+SafeCast DOMPointReadOnly where
+  safeCast = unsafeCastOnPrototypeName "DOMPointReadOnly"
+
+export ToJS DOMPointReadOnly where toJS = believe_me
+export FromJS DOMPointReadOnly where fromJS = safeCast
+export data DOMQuad : Type where [external]
 
 export
-ToJS DOMPoint where
-  toJS = believe_me
+SafeCast DOMQuad where
+  safeCast = unsafeCastOnPrototypeName "DOMQuad"
+
+export ToJS DOMQuad where toJS = believe_me
+export FromJS DOMQuad where fromJS = safeCast
+export data DOMRect : Type where [external]
 
 export
-FromJS DOMPoint where
-  fromJS = believe_me
-export
-data DOMPointReadOnly  : Type where [external]
+SafeCast DOMRect where
+  safeCast = unsafeCastOnPrototypeName "DOMRect"
+
+export ToJS DOMRect where toJS = believe_me
+export FromJS DOMRect where fromJS = safeCast
+export data DOMRectList : Type where [external]
 
 export
-ToJS DOMPointReadOnly where
-  toJS = believe_me
+SafeCast DOMRectList where
+  safeCast = unsafeCastOnPrototypeName "DOMRectList"
+
+export ToJS DOMRectList where toJS = believe_me
+export FromJS DOMRectList where fromJS = safeCast
+export data DOMRectReadOnly : Type where [external]
 
 export
-FromJS DOMPointReadOnly where
-  fromJS = believe_me
-export
-data DOMQuad  : Type where [external]
+SafeCast DOMRectReadOnly where
+  safeCast = unsafeCastOnPrototypeName "DOMRectReadOnly"
 
-export
-ToJS DOMQuad where
-  toJS = believe_me
-
-export
-FromJS DOMQuad where
-  fromJS = believe_me
-export
-data DOMRect  : Type where [external]
-
-export
-ToJS DOMRect where
-  toJS = believe_me
-
-export
-FromJS DOMRect where
-  fromJS = believe_me
-export
-data DOMRectList  : Type where [external]
-
-export
-ToJS DOMRectList where
-  toJS = believe_me
-
-export
-FromJS DOMRectList where
-  fromJS = believe_me
-export
-data DOMRectReadOnly  : Type where [external]
-
-export
-ToJS DOMRectReadOnly where
-  toJS = believe_me
-
-export
-FromJS DOMRectReadOnly where
-  fromJS = believe_me
+export ToJS DOMRectReadOnly where toJS = believe_me
+export FromJS DOMRectReadOnly where fromJS = safeCast
 
 
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
-export
-data DOMMatrix2DInit  : Type where [external]
+export data DOMMatrix2DInit : Type where [external]
 
 export
-ToJS DOMMatrix2DInit where
-  toJS = believe_me
+SafeCast DOMMatrix2DInit where
+  safeCast = unsafeCastOnPrototypeName "DOMMatrix2DInit"
+
+export ToJS DOMMatrix2DInit where toJS = believe_me
+export FromJS DOMMatrix2DInit where fromJS = safeCast
+export data DOMMatrixInit : Type where [external]
 
 export
-FromJS DOMMatrix2DInit where
-  fromJS = believe_me
-export
-data DOMMatrixInit  : Type where [external]
+SafeCast DOMMatrixInit where
+  safeCast = unsafeCastOnPrototypeName "DOMMatrixInit"
+
+export ToJS DOMMatrixInit where toJS = believe_me
+export FromJS DOMMatrixInit where fromJS = safeCast
+export data DOMPointInit : Type where [external]
 
 export
-ToJS DOMMatrixInit where
-  toJS = believe_me
+SafeCast DOMPointInit where
+  safeCast = unsafeCastOnPrototypeName "DOMPointInit"
+
+export ToJS DOMPointInit where toJS = believe_me
+export FromJS DOMPointInit where fromJS = safeCast
+export data DOMQuadInit : Type where [external]
 
 export
-FromJS DOMMatrixInit where
-  fromJS = believe_me
-export
-data DOMPointInit  : Type where [external]
+SafeCast DOMQuadInit where
+  safeCast = unsafeCastOnPrototypeName "DOMQuadInit"
+
+export ToJS DOMQuadInit where toJS = believe_me
+export FromJS DOMQuadInit where fromJS = safeCast
+export data DOMRectInit : Type where [external]
 
 export
-ToJS DOMPointInit where
-  toJS = believe_me
+SafeCast DOMRectInit where
+  safeCast = unsafeCastOnPrototypeName "DOMRectInit"
 
-export
-FromJS DOMPointInit where
-  fromJS = believe_me
-export
-data DOMQuadInit  : Type where [external]
-
-export
-ToJS DOMQuadInit where
-  toJS = believe_me
-
-export
-FromJS DOMQuadInit where
-  fromJS = believe_me
-export
-data DOMRectInit  : Type where [external]
-
-export
-ToJS DOMRectInit where
-  toJS = believe_me
-
-export
-FromJS DOMRectInit where
-  fromJS = believe_me
+export ToJS DOMRectInit where toJS = believe_me
+export FromJS DOMRectInit where fromJS = safeCast

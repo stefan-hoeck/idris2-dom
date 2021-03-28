@@ -43,236 +43,192 @@ namespace WebGLPowerPreference
 
   export
   FromJS WebGLPowerPreference where
-    fromJS = fromMaybe Default . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
-export
-data WebGL2RenderingContext  : Type where [external]
+export data WebGL2RenderingContext : Type where [external]
 
 export
-ToJS WebGL2RenderingContext where
-  toJS = believe_me
+SafeCast WebGL2RenderingContext where
+  safeCast = unsafeCastOnPrototypeName "WebGL2RenderingContext"
+
+export ToJS WebGL2RenderingContext where toJS = believe_me
+export FromJS WebGL2RenderingContext where fromJS = safeCast
+export data WebGLActiveInfo : Type where [external]
 
 export
-FromJS WebGL2RenderingContext where
-  fromJS = believe_me
-export
-data WebGLActiveInfo  : Type where [external]
+SafeCast WebGLActiveInfo where
+  safeCast = unsafeCastOnPrototypeName "WebGLActiveInfo"
+
+export ToJS WebGLActiveInfo where toJS = believe_me
+export FromJS WebGLActiveInfo where fromJS = safeCast
+export data WebGLBuffer : Type where [external]
 
 export
-ToJS WebGLActiveInfo where
-  toJS = believe_me
+SafeCast WebGLBuffer where
+  safeCast = unsafeCastOnPrototypeName "WebGLBuffer"
+
+export ToJS WebGLBuffer where toJS = believe_me
+export FromJS WebGLBuffer where fromJS = safeCast
+export data WebGLFramebuffer : Type where [external]
 
 export
-FromJS WebGLActiveInfo where
-  fromJS = believe_me
-export
-data WebGLBuffer  : Type where [external]
+SafeCast WebGLFramebuffer where
+  safeCast = unsafeCastOnPrototypeName "WebGLFramebuffer"
+
+export ToJS WebGLFramebuffer where toJS = believe_me
+export FromJS WebGLFramebuffer where fromJS = safeCast
+export data WebGLObject : Type where [external]
 
 export
-ToJS WebGLBuffer where
-  toJS = believe_me
+SafeCast WebGLObject where
+  safeCast = unsafeCastOnPrototypeName "WebGLObject"
+
+export ToJS WebGLObject where toJS = believe_me
+export FromJS WebGLObject where fromJS = safeCast
+export data WebGLProgram : Type where [external]
 
 export
-FromJS WebGLBuffer where
-  fromJS = believe_me
-export
-data WebGLFramebuffer  : Type where [external]
+SafeCast WebGLProgram where
+  safeCast = unsafeCastOnPrototypeName "WebGLProgram"
+
+export ToJS WebGLProgram where toJS = believe_me
+export FromJS WebGLProgram where fromJS = safeCast
+export data WebGLQuery : Type where [external]
 
 export
-ToJS WebGLFramebuffer where
-  toJS = believe_me
+SafeCast WebGLQuery where
+  safeCast = unsafeCastOnPrototypeName "WebGLQuery"
+
+export ToJS WebGLQuery where toJS = believe_me
+export FromJS WebGLQuery where fromJS = safeCast
+export data WebGLRenderbuffer : Type where [external]
 
 export
-FromJS WebGLFramebuffer where
-  fromJS = believe_me
-export
-data WebGLObject  : Type where [external]
+SafeCast WebGLRenderbuffer where
+  safeCast = unsafeCastOnPrototypeName "WebGLRenderbuffer"
+
+export ToJS WebGLRenderbuffer where toJS = believe_me
+export FromJS WebGLRenderbuffer where fromJS = safeCast
+export data WebGLRenderingContext : Type where [external]
 
 export
-ToJS WebGLObject where
-  toJS = believe_me
+SafeCast WebGLRenderingContext where
+  safeCast = unsafeCastOnPrototypeName "WebGLRenderingContext"
+
+export ToJS WebGLRenderingContext where toJS = believe_me
+export FromJS WebGLRenderingContext where fromJS = safeCast
+export data WebGLSampler : Type where [external]
 
 export
-FromJS WebGLObject where
-  fromJS = believe_me
-export
-data WebGLProgram  : Type where [external]
+SafeCast WebGLSampler where
+  safeCast = unsafeCastOnPrototypeName "WebGLSampler"
+
+export ToJS WebGLSampler where toJS = believe_me
+export FromJS WebGLSampler where fromJS = safeCast
+export data WebGLShader : Type where [external]
 
 export
-ToJS WebGLProgram where
-  toJS = believe_me
+SafeCast WebGLShader where
+  safeCast = unsafeCastOnPrototypeName "WebGLShader"
+
+export ToJS WebGLShader where toJS = believe_me
+export FromJS WebGLShader where fromJS = safeCast
+export data WebGLShaderPrecisionFormat : Type where [external]
 
 export
-FromJS WebGLProgram where
-  fromJS = believe_me
-export
-data WebGLQuery  : Type where [external]
+SafeCast WebGLShaderPrecisionFormat where
+  safeCast = unsafeCastOnPrototypeName "WebGLShaderPrecisionFormat"
+
+export ToJS WebGLShaderPrecisionFormat where toJS = believe_me
+export FromJS WebGLShaderPrecisionFormat where fromJS = safeCast
+export data WebGLSync : Type where [external]
 
 export
-ToJS WebGLQuery where
-  toJS = believe_me
+SafeCast WebGLSync where
+  safeCast = unsafeCastOnPrototypeName "WebGLSync"
+
+export ToJS WebGLSync where toJS = believe_me
+export FromJS WebGLSync where fromJS = safeCast
+export data WebGLTexture : Type where [external]
 
 export
-FromJS WebGLQuery where
-  fromJS = believe_me
-export
-data WebGLRenderbuffer  : Type where [external]
+SafeCast WebGLTexture where
+  safeCast = unsafeCastOnPrototypeName "WebGLTexture"
+
+export ToJS WebGLTexture where toJS = believe_me
+export FromJS WebGLTexture where fromJS = safeCast
+export data WebGLTransformFeedback : Type where [external]
 
 export
-ToJS WebGLRenderbuffer where
-  toJS = believe_me
+SafeCast WebGLTransformFeedback where
+  safeCast = unsafeCastOnPrototypeName "WebGLTransformFeedback"
+
+export ToJS WebGLTransformFeedback where toJS = believe_me
+export FromJS WebGLTransformFeedback where fromJS = safeCast
+export data WebGLUniformLocation : Type where [external]
 
 export
-FromJS WebGLRenderbuffer where
-  fromJS = believe_me
-export
-data WebGLRenderingContext  : Type where [external]
+SafeCast WebGLUniformLocation where
+  safeCast = unsafeCastOnPrototypeName "WebGLUniformLocation"
+
+export ToJS WebGLUniformLocation where toJS = believe_me
+export FromJS WebGLUniformLocation where fromJS = safeCast
+export data WebGLVertexArrayObject : Type where [external]
 
 export
-ToJS WebGLRenderingContext where
-  toJS = believe_me
+SafeCast WebGLVertexArrayObject where
+  safeCast = unsafeCastOnPrototypeName "WebGLVertexArrayObject"
 
-export
-FromJS WebGLRenderingContext where
-  fromJS = believe_me
-export
-data WebGLSampler  : Type where [external]
-
-export
-ToJS WebGLSampler where
-  toJS = believe_me
-
-export
-FromJS WebGLSampler where
-  fromJS = believe_me
-export
-data WebGLShader  : Type where [external]
-
-export
-ToJS WebGLShader where
-  toJS = believe_me
-
-export
-FromJS WebGLShader where
-  fromJS = believe_me
-export
-data WebGLShaderPrecisionFormat  : Type where [external]
-
-export
-ToJS WebGLShaderPrecisionFormat where
-  toJS = believe_me
-
-export
-FromJS WebGLShaderPrecisionFormat where
-  fromJS = believe_me
-export
-data WebGLSync  : Type where [external]
-
-export
-ToJS WebGLSync where
-  toJS = believe_me
-
-export
-FromJS WebGLSync where
-  fromJS = believe_me
-export
-data WebGLTexture  : Type where [external]
-
-export
-ToJS WebGLTexture where
-  toJS = believe_me
-
-export
-FromJS WebGLTexture where
-  fromJS = believe_me
-export
-data WebGLTransformFeedback  : Type where [external]
-
-export
-ToJS WebGLTransformFeedback where
-  toJS = believe_me
-
-export
-FromJS WebGLTransformFeedback where
-  fromJS = believe_me
-export
-data WebGLUniformLocation  : Type where [external]
-
-export
-ToJS WebGLUniformLocation where
-  toJS = believe_me
-
-export
-FromJS WebGLUniformLocation where
-  fromJS = believe_me
-export
-data WebGLVertexArrayObject  : Type where [external]
-
-export
-ToJS WebGLVertexArrayObject where
-  toJS = believe_me
-
-export
-FromJS WebGLVertexArrayObject where
-  fromJS = believe_me
+export ToJS WebGLVertexArrayObject where toJS = believe_me
+export FromJS WebGLVertexArrayObject where fromJS = safeCast
 
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------
-export
-data WebGL2RenderingContextBase  : Type where [external]
+export data WebGL2RenderingContextBase : Type where [external]
 
 export
-ToJS WebGL2RenderingContextBase where
-  toJS = believe_me
+SafeCast WebGL2RenderingContextBase where
+  safeCast = unsafeCastOnPrototypeName "WebGL2RenderingContextBase"
+
+export ToJS WebGL2RenderingContextBase where toJS = believe_me
+export FromJS WebGL2RenderingContextBase where fromJS = safeCast
+export data WebGL2RenderingContextOverloads : Type where [external]
 
 export
-FromJS WebGL2RenderingContextBase where
-  fromJS = believe_me
-export
-data WebGL2RenderingContextOverloads  : Type where [external]
+SafeCast WebGL2RenderingContextOverloads where
+  safeCast = unsafeCastOnPrototypeName "WebGL2RenderingContextOverloads"
+
+export ToJS WebGL2RenderingContextOverloads where toJS = believe_me
+export FromJS WebGL2RenderingContextOverloads where fromJS = safeCast
+export data WebGLRenderingContextBase : Type where [external]
 
 export
-ToJS WebGL2RenderingContextOverloads where
-  toJS = believe_me
+SafeCast WebGLRenderingContextBase where
+  safeCast = unsafeCastOnPrototypeName "WebGLRenderingContextBase"
+
+export ToJS WebGLRenderingContextBase where toJS = believe_me
+export FromJS WebGLRenderingContextBase where fromJS = safeCast
+export data WebGLRenderingContextOverloads : Type where [external]
 
 export
-FromJS WebGL2RenderingContextOverloads where
-  fromJS = believe_me
-export
-data WebGLRenderingContextBase  : Type where [external]
+SafeCast WebGLRenderingContextOverloads where
+  safeCast = unsafeCastOnPrototypeName "WebGLRenderingContextOverloads"
 
-export
-ToJS WebGLRenderingContextBase where
-  toJS = believe_me
-
-export
-FromJS WebGLRenderingContextBase where
-  fromJS = believe_me
-export
-data WebGLRenderingContextOverloads  : Type where [external]
-
-export
-ToJS WebGLRenderingContextOverloads where
-  toJS = believe_me
-
-export
-FromJS WebGLRenderingContextOverloads where
-  fromJS = believe_me
+export ToJS WebGLRenderingContextOverloads where toJS = believe_me
+export FromJS WebGLRenderingContextOverloads where fromJS = safeCast
 
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
-export
-data WebGLContextAttributes  : Type where [external]
+export data WebGLContextAttributes : Type where [external]
 
 export
-ToJS WebGLContextAttributes where
-  toJS = believe_me
+SafeCast WebGLContextAttributes where
+  safeCast = unsafeCastOnPrototypeName "WebGLContextAttributes"
 
-export
-FromJS WebGLContextAttributes where
-  fromJS = believe_me
+export ToJS WebGLContextAttributes where toJS = believe_me
+export FromJS WebGLContextAttributes where fromJS = safeCast

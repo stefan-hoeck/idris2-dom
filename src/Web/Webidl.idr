@@ -9,7 +9,7 @@ import Web.Types
 namespace DOMException
   
   public export
-  JSVal DOMException where
+  JSType DOMException where
     parents =  [ JSObject ]
 
     mixins =  []

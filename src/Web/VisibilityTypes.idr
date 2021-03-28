@@ -41,6 +41,6 @@ namespace VisibilityState
 
   export
   FromJS VisibilityState where
-    fromJS = fromMaybe Hidden . read . fromJS
+    fromJS ptr = fromJS ptr >>= read
 
 
