@@ -30,18 +30,21 @@ namespace WebGLActiveInfo
 
   export
   name : (obj : WebGLActiveInfo) -> JSIO String
+  name a =   primToJSIO "name" $ prim__name (toJS a)
   
   %foreign "browser:lambda:x=>x.size"
   prim__size : AnyPtr -> PrimIO AnyPtr
 
   export
   size : (obj : WebGLActiveInfo) -> JSIO GLint
+  size a =   primToJSIO "size" $ prim__size (toJS a)
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
 
   export
   type : (obj : WebGLActiveInfo) -> JSIO GLenum
+  type a =   primToJSIO "type" $ prim__type (toJS a)
 
 namespace WebGLBuffer
   
@@ -128,18 +131,21 @@ namespace WebGLShaderPrecisionFormat
 
   export
   precision : (obj : WebGLShaderPrecisionFormat) -> JSIO GLint
+  precision a =   primToJSIO "precision" $ prim__precision (toJS a)
   
   %foreign "browser:lambda:x=>x.rangeMax"
   prim__rangeMax : AnyPtr -> PrimIO AnyPtr
 
   export
   rangeMax : (obj : WebGLShaderPrecisionFormat) -> JSIO GLint
+  rangeMax a =   primToJSIO "rangeMax" $ prim__rangeMax (toJS a)
   
   %foreign "browser:lambda:x=>x.rangeMin"
   prim__rangeMin : AnyPtr -> PrimIO AnyPtr
 
   export
   rangeMin : (obj : WebGLShaderPrecisionFormat) -> JSIO GLint
+  rangeMin a =   primToJSIO "rangeMin" $ prim__rangeMin (toJS a)
 
 namespace WebGLSync
   
@@ -2432,18 +2438,23 @@ namespace WebGLRenderingContextBase
   export
   canvas :  (obj : WebGLRenderingContextBase)
          -> JSIO (NS I [ HTMLCanvasElement , OffscreenCanvas ])
+  canvas a =   primToJSIO "canvas" $ prim__canvas (toJS a)
   
   %foreign "browser:lambda:x=>x.drawingBufferHeight"
   prim__drawingBufferHeight : AnyPtr -> PrimIO AnyPtr
 
   export
   drawingBufferHeight : (obj : WebGLRenderingContextBase) -> JSIO GLsizei
+  drawingBufferHeight a =
+    primToJSIO "drawingBufferHeight" $ prim__drawingBufferHeight (toJS a)
   
   %foreign "browser:lambda:x=>x.drawingBufferWidth"
   prim__drawingBufferWidth : AnyPtr -> PrimIO AnyPtr
 
   export
   drawingBufferWidth : (obj : WebGLRenderingContextBase) -> JSIO GLsizei
+  drawingBufferWidth a =
+    primToJSIO "drawingBufferWidth" $ prim__drawingBufferWidth (toJS a)
 
 
 --------------------------------------------------------------------------------
@@ -2463,54 +2474,67 @@ namespace WebGLContextAttributes
 
   export
   alpha : (obj : WebGLContextAttributes) -> JSIO Bool
+  alpha a =   primToJSIO "alpha" $ prim__alpha (toJS a)
 
   %foreign "browser:lambda:(x,v)=>{x.alpha  = v}"
   prim__setAlpha : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
   setAlpha : (obj : WebGLContextAttributes) -> (v : Bool) -> JSIO ()
+  setAlpha a b =   primToJSIO "setAlpha" $ prim__setAlpha (toJS a) (toJS b)
   
   %foreign "browser:lambda:x=>x.antialias"
   prim__antialias : AnyPtr -> PrimIO AnyPtr
 
   export
   antialias : (obj : WebGLContextAttributes) -> JSIO Bool
+  antialias a =   primToJSIO "antialias" $ prim__antialias (toJS a)
 
   %foreign "browser:lambda:(x,v)=>{x.antialias  = v}"
   prim__setAntialias : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
   setAntialias : (obj : WebGLContextAttributes) -> (v : Bool) -> JSIO ()
+  setAntialias a b =
+    primToJSIO "setAntialias" $ prim__setAntialias (toJS a) (toJS b)
   
   %foreign "browser:lambda:x=>x.depth"
   prim__depth : AnyPtr -> PrimIO AnyPtr
 
   export
   depth : (obj : WebGLContextAttributes) -> JSIO Bool
+  depth a =   primToJSIO "depth" $ prim__depth (toJS a)
 
   %foreign "browser:lambda:(x,v)=>{x.depth  = v}"
   prim__setDepth : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
   setDepth : (obj : WebGLContextAttributes) -> (v : Bool) -> JSIO ()
+  setDepth a b =   primToJSIO "setDepth" $ prim__setDepth (toJS a) (toJS b)
   
   %foreign "browser:lambda:x=>x.desynchronized"
   prim__desynchronized : AnyPtr -> PrimIO AnyPtr
 
   export
   desynchronized : (obj : WebGLContextAttributes) -> JSIO Bool
+  desynchronized a =
+    primToJSIO "desynchronized" $ prim__desynchronized (toJS a)
 
   %foreign "browser:lambda:(x,v)=>{x.desynchronized  = v}"
   prim__setDesynchronized : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
   setDesynchronized : (obj : WebGLContextAttributes) -> (v : Bool) -> JSIO ()
+  setDesynchronized a b =
+    primToJSIO "setDesynchronized" $ prim__setDesynchronized (toJS a) (toJS b)
   
   %foreign "browser:lambda:x=>x.failIfMajorPerformanceCaveat"
   prim__failIfMajorPerformanceCaveat : AnyPtr -> PrimIO AnyPtr
 
   export
   failIfMajorPerformanceCaveat : (obj : WebGLContextAttributes) -> JSIO Bool
+  failIfMajorPerformanceCaveat a =
+    primToJSIO "failIfMajorPerformanceCaveat" $ prim__failIfMajorPerformanceCaveat (toJS a)
 
   %foreign "browser:lambda:(x,v)=>{x.failIfMajorPerformanceCaveat  = v}"
   prim__setFailIfMajorPerformanceCaveat : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -2519,12 +2543,17 @@ namespace WebGLContextAttributes
   setFailIfMajorPerformanceCaveat :  (obj : WebGLContextAttributes)
                                   -> (v : Bool)
                                   -> JSIO ()
+  setFailIfMajorPerformanceCaveat a b =
+    primToJSIO "setFailIfMajorPerformanceCaveat" $ prim__setFailIfMajorPerformanceCaveat (toJS a)
+                                                                                         (toJS b)
   
   %foreign "browser:lambda:x=>x.powerPreference"
   prim__powerPreference : AnyPtr -> PrimIO AnyPtr
 
   export
   powerPreference : (obj : WebGLContextAttributes) -> JSIO WebGLPowerPreference
+  powerPreference a =
+    primToJSIO "powerPreference" $ prim__powerPreference (toJS a)
 
   %foreign "browser:lambda:(x,v)=>{x.powerPreference  = v}"
   prim__setPowerPreference : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -2533,12 +2562,16 @@ namespace WebGLContextAttributes
   setPowerPreference :  (obj : WebGLContextAttributes)
                      -> (v : WebGLPowerPreference)
                      -> JSIO ()
+  setPowerPreference a b =
+    primToJSIO "setPowerPreference" $ prim__setPowerPreference (toJS a) (toJS b)
   
   %foreign "browser:lambda:x=>x.premultipliedAlpha"
   prim__premultipliedAlpha : AnyPtr -> PrimIO AnyPtr
 
   export
   premultipliedAlpha : (obj : WebGLContextAttributes) -> JSIO Bool
+  premultipliedAlpha a =
+    primToJSIO "premultipliedAlpha" $ prim__premultipliedAlpha (toJS a)
 
   %foreign "browser:lambda:(x,v)=>{x.premultipliedAlpha  = v}"
   prim__setPremultipliedAlpha : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -2547,12 +2580,17 @@ namespace WebGLContextAttributes
   setPremultipliedAlpha :  (obj : WebGLContextAttributes)
                         -> (v : Bool)
                         -> JSIO ()
+  setPremultipliedAlpha a b =
+    primToJSIO "setPremultipliedAlpha" $ prim__setPremultipliedAlpha (toJS a)
+                                                                     (toJS b)
   
   %foreign "browser:lambda:x=>x.preserveDrawingBuffer"
   prim__preserveDrawingBuffer : AnyPtr -> PrimIO AnyPtr
 
   export
   preserveDrawingBuffer : (obj : WebGLContextAttributes) -> JSIO Bool
+  preserveDrawingBuffer a =
+    primToJSIO "preserveDrawingBuffer" $ prim__preserveDrawingBuffer (toJS a)
 
   %foreign "browser:lambda:(x,v)=>{x.preserveDrawingBuffer  = v}"
   prim__setPreserveDrawingBuffer : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -2561,16 +2599,22 @@ namespace WebGLContextAttributes
   setPreserveDrawingBuffer :  (obj : WebGLContextAttributes)
                            -> (v : Bool)
                            -> JSIO ()
+  setPreserveDrawingBuffer a b =
+    primToJSIO "setPreserveDrawingBuffer" $ prim__setPreserveDrawingBuffer (toJS a)
+                                                                           (toJS b)
   
   %foreign "browser:lambda:x=>x.stencil"
   prim__stencil : AnyPtr -> PrimIO AnyPtr
 
   export
   stencil : (obj : WebGLContextAttributes) -> JSIO Bool
+  stencil a =   primToJSIO "stencil" $ prim__stencil (toJS a)
 
   %foreign "browser:lambda:(x,v)=>{x.stencil  = v}"
   prim__setStencil : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
   setStencil : (obj : WebGLContextAttributes) -> (v : Bool) -> JSIO ()
+  setStencil a b =
+    primToJSIO "setStencil" $ prim__setStencil (toJS a) (toJS b)
 

@@ -119,18 +119,21 @@ namespace DOMException
 
   export
   code : (obj : DOMException) -> JSIO UInt16
+  code a =   primToJSIO "code" $ prim__code (toJS a)
   
   %foreign "browser:lambda:x=>x.message"
   prim__message : AnyPtr -> PrimIO AnyPtr
 
   export
   message : (obj : DOMException) -> JSIO String
+  message a =   primToJSIO "message" $ prim__message (toJS a)
   
   %foreign "browser:lambda:x=>x.name"
   prim__name : AnyPtr -> PrimIO AnyPtr
 
   export
   name : (obj : DOMException) -> JSIO String
+  name a =   primToJSIO "name" $ prim__name (toJS a)
 
 
 
