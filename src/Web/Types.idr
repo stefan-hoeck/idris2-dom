@@ -30,53 +30,53 @@ mutual
   
   public export
   0 BlobCallback : Type
-  BlobCallback = (blob : Maybe Blob) -> IO ()
+  BlobCallback = (blob : Maybe Blob) -> JSIO ()
   
   public export
   0 ClipboardItemDelayedCallback : Type
-  ClipboardItemDelayedCallback = () -> IO ClipboardItemData
+  ClipboardItemDelayedCallback = () -> JSIO ClipboardItemData
   
   public export
   0 CustomElementConstructor : Type
-  CustomElementConstructor = () -> IO HTMLElement
+  CustomElementConstructor = () -> JSIO HTMLElement
   
   public export
   0 EventHandlerNonNull : Type
-  EventHandlerNonNull = (event : Event) -> IO Any
+  EventHandlerNonNull = (event : Event) -> JSIO Any
   
   public export
   0 EventListener : Type
-  EventListener = (event : Event) -> IO ()
+  EventListener = (event : Event) -> JSIO ()
   
   public export
   0 Function : Type
-  Function = (arguments : VarArg Any) -> IO Any
+  Function = (arguments : VarArg Any) -> JSIO Any
   
   public export
   0 FunctionStringCallback : Type
-  FunctionStringCallback = (data_ : String) -> IO ()
+  FunctionStringCallback = (data_ : String) -> JSIO ()
   
   public export
   0 MutationCallback : Type
   MutationCallback =  (mutations : JSArray MutationRecord)
                    -> (observer : MutationObserver)
-                   -> IO ()
+                   -> JSIO ()
   
   public export
   0 NavigatorUserMediaErrorCallback : Type
-  NavigatorUserMediaErrorCallback = (error : DOMException) -> IO ()
+  NavigatorUserMediaErrorCallback = (error : DOMException) -> JSIO ()
   
   public export
   0 NavigatorUserMediaSuccessCallback : Type
-  NavigatorUserMediaSuccessCallback = (stream : MediaStream) -> IO ()
+  NavigatorUserMediaSuccessCallback = (stream : MediaStream) -> JSIO ()
   
   public export
   0 NodeFilter : Type
-  NodeFilter = (node : Node) -> IO UInt16
+  NodeFilter = (node : Node) -> JSIO UInt16
   
   public export
   0 OnBeforeUnloadEventHandlerNonNull : Type
-  OnBeforeUnloadEventHandlerNonNull = (event : Event) -> IO (Maybe String)
+  OnBeforeUnloadEventHandlerNonNull = (event : Event) -> JSIO (Maybe String)
   
   public export
   0 OnErrorEventHandlerNonNull : Type
@@ -85,68 +85,68 @@ mutual
                              -> (lineno : UInt32)
                              -> (colno : UInt32)
                              -> (error : Any)
-                             -> IO Any
+                             -> JSIO Any
   
   public export
   0 QueuingStrategySize : Type
-  QueuingStrategySize = (chunk : Any) -> IO Double
+  QueuingStrategySize = (chunk : Any) -> JSIO Double
   
   public export
   0 TransformerFlushCallback : Type
   TransformerFlushCallback =  (controller : TransformStreamDefaultController)
-                           -> IO (JSPromise Undefined)
+                           -> JSIO (JSPromise Undefined)
   
   public export
   0 TransformerStartCallback : Type
   TransformerStartCallback =  (controller : TransformStreamDefaultController)
-                           -> IO Any
+                           -> JSIO Any
   
   public export
   0 TransformerTransformCallback : Type
   TransformerTransformCallback =  (chunk : Any)
                                -> (controller : TransformStreamDefaultController)
-                               -> IO (JSPromise Undefined)
+                               -> JSIO (JSPromise Undefined)
   
   public export
   0 UnderlyingSinkAbortCallback : Type
-  UnderlyingSinkAbortCallback = (reason : Any) -> IO (JSPromise Undefined)
+  UnderlyingSinkAbortCallback = (reason : Any) -> JSIO (JSPromise Undefined)
   
   public export
   0 UnderlyingSinkCloseCallback : Type
-  UnderlyingSinkCloseCallback = () -> IO (JSPromise Undefined)
+  UnderlyingSinkCloseCallback = () -> JSIO (JSPromise Undefined)
   
   public export
   0 UnderlyingSinkStartCallback : Type
   UnderlyingSinkStartCallback =  (controller : WritableStreamDefaultController)
-                              -> IO Any
+                              -> JSIO Any
   
   public export
   0 UnderlyingSinkWriteCallback : Type
   UnderlyingSinkWriteCallback =  (chunk : Any)
                               -> (controller : WritableStreamDefaultController)
-                              -> IO (JSPromise Undefined)
+                              -> JSIO (JSPromise Undefined)
   
   public export
   0 UnderlyingSourceCancelCallback : Type
-  UnderlyingSourceCancelCallback = (reason : Any) -> IO (JSPromise Undefined)
+  UnderlyingSourceCancelCallback = (reason : Any) -> JSIO (JSPromise Undefined)
   
   public export
   0 UnderlyingSourcePullCallback : Type
   UnderlyingSourcePullCallback =  (controller : ReadableStreamController)
-                               -> IO (JSPromise Undefined)
+                               -> JSIO (JSPromise Undefined)
   
   public export
   0 UnderlyingSourceStartCallback : Type
   UnderlyingSourceStartCallback =  (controller : ReadableStreamController)
-                                -> IO Any
+                                -> JSIO Any
   
   public export
   0 VoidFunction : Type
-  VoidFunction = () -> IO ()
+  VoidFunction = () -> JSIO ()
   
   public export
   0 XPathNSResolver : Type
-  XPathNSResolver = (prefix_ : Maybe String) -> IO (Maybe String)
+  XPathNSResolver = (prefix_ : Maybe String) -> JSIO (Maybe String)
   
   public export
   0 ArrayBufferView : Type

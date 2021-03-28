@@ -18,19 +18,19 @@ namespace PermissionStatus
   prim__state : AnyPtr -> PrimIO AnyPtr
 
   export
-  state : (obj : PermissionStatus) -> IO PermissionState
+  state : (obj : PermissionStatus) -> JSIO PermissionState
   
   %foreign "browser:lambda:x=>x.onchange"
   prim__onchange : AnyPtr -> PrimIO AnyPtr
 
   export
-  onchange : (obj : PermissionStatus) -> IO EventHandler
+  onchange : (obj : PermissionStatus) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onchange  = v}"
   prim__setOnchange : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnchange : (obj : PermissionStatus) -> (v : EventHandler) -> IO ()
+  setOnchange : (obj : PermissionStatus) -> (v : EventHandler) -> JSIO ()
 
 namespace Permissions
   
@@ -57,7 +57,7 @@ namespace CameraDevicePermissionDescriptor
   prim__panTiltZoom : AnyPtr -> PrimIO AnyPtr
 
   export
-  panTiltZoom : (obj : CameraDevicePermissionDescriptor) -> IO Bool
+  panTiltZoom : (obj : CameraDevicePermissionDescriptor) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.panTiltZoom  = v}"
   prim__setPanTiltZoom : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -65,7 +65,7 @@ namespace CameraDevicePermissionDescriptor
   export
   setPanTiltZoom :  (obj : CameraDevicePermissionDescriptor)
                  -> (v : Bool)
-                 -> IO ()
+                 -> JSIO ()
 
 namespace DevicePermissionDescriptor
   
@@ -79,13 +79,13 @@ namespace DevicePermissionDescriptor
   prim__deviceId : AnyPtr -> PrimIO AnyPtr
 
   export
-  deviceId : (obj : DevicePermissionDescriptor) -> IO String
+  deviceId : (obj : DevicePermissionDescriptor) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.deviceId  = v}"
   prim__setDeviceId : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDeviceId : (obj : DevicePermissionDescriptor) -> (v : String) -> IO ()
+  setDeviceId : (obj : DevicePermissionDescriptor) -> (v : String) -> JSIO ()
 
 namespace MidiPermissionDescriptor
   
@@ -99,13 +99,13 @@ namespace MidiPermissionDescriptor
   prim__sysex : AnyPtr -> PrimIO AnyPtr
 
   export
-  sysex : (obj : MidiPermissionDescriptor) -> IO Bool
+  sysex : (obj : MidiPermissionDescriptor) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.sysex  = v}"
   prim__setSysex : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSysex : (obj : MidiPermissionDescriptor) -> (v : Bool) -> IO ()
+  setSysex : (obj : MidiPermissionDescriptor) -> (v : Bool) -> JSIO ()
 
 namespace PermissionDescriptor
   
@@ -119,13 +119,13 @@ namespace PermissionDescriptor
   prim__name : AnyPtr -> PrimIO AnyPtr
 
   export
-  name : (obj : PermissionDescriptor) -> IO PermissionName
+  name : (obj : PermissionDescriptor) -> JSIO PermissionName
 
   %foreign "browser:lambda:(x,v)=>{x.name  = v}"
   prim__setName : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setName : (obj : PermissionDescriptor) -> (v : PermissionName) -> IO ()
+  setName : (obj : PermissionDescriptor) -> (v : PermissionName) -> JSIO ()
 
 namespace PermissionSetParameters
   
@@ -139,7 +139,7 @@ namespace PermissionSetParameters
   prim__descriptor : AnyPtr -> PrimIO AnyPtr
 
   export
-  descriptor : (obj : PermissionSetParameters) -> IO PermissionDescriptor
+  descriptor : (obj : PermissionSetParameters) -> JSIO PermissionDescriptor
 
   %foreign "browser:lambda:(x,v)=>{x.descriptor  = v}"
   prim__setDescriptor : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -147,31 +147,31 @@ namespace PermissionSetParameters
   export
   setDescriptor :  (obj : PermissionSetParameters)
                 -> (v : PermissionDescriptor)
-                -> IO ()
+                -> JSIO ()
   
   %foreign "browser:lambda:x=>x.state"
   prim__state : AnyPtr -> PrimIO AnyPtr
 
   export
-  state : (obj : PermissionSetParameters) -> IO PermissionState
+  state : (obj : PermissionSetParameters) -> JSIO PermissionState
 
   %foreign "browser:lambda:(x,v)=>{x.state  = v}"
   prim__setState : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setState : (obj : PermissionSetParameters) -> (v : PermissionState) -> IO ()
+  setState : (obj : PermissionSetParameters) -> (v : PermissionState) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.oneRealm"
   prim__oneRealm : AnyPtr -> PrimIO AnyPtr
 
   export
-  oneRealm : (obj : PermissionSetParameters) -> IO Bool
+  oneRealm : (obj : PermissionSetParameters) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.oneRealm  = v}"
   prim__setOneRealm : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOneRealm : (obj : PermissionSetParameters) -> (v : Bool) -> IO ()
+  setOneRealm : (obj : PermissionSetParameters) -> (v : Bool) -> JSIO ()
 
 namespace PushPermissionDescriptor
   
@@ -185,11 +185,11 @@ namespace PushPermissionDescriptor
   prim__userVisibleOnly : AnyPtr -> PrimIO AnyPtr
 
   export
-  userVisibleOnly : (obj : PushPermissionDescriptor) -> IO Bool
+  userVisibleOnly : (obj : PushPermissionDescriptor) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.userVisibleOnly  = v}"
   prim__setUserVisibleOnly : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setUserVisibleOnly : (obj : PushPermissionDescriptor) -> (v : Bool) -> IO ()
+  setUserVisibleOnly : (obj : PushPermissionDescriptor) -> (v : Bool) -> JSIO ()
 

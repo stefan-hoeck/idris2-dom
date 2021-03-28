@@ -380,6 +380,7 @@ namespace ReferrerPolicy
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
+
 export data Headers : Type where [external]
 
 export
@@ -388,6 +389,7 @@ SafeCast Headers where
 
 export ToJS Headers where toJS = believe_me
 export FromJS Headers where fromJS = safeCast
+
 export data Request : Type where [external]
 
 export
@@ -396,6 +398,7 @@ SafeCast Request where
 
 export ToJS Request where toJS = believe_me
 export FromJS Request where fromJS = safeCast
+
 export data Response : Type where [external]
 
 export
@@ -408,18 +411,16 @@ export FromJS Response where fromJS = safeCast
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------
+
 export data Body : Type where [external]
 
-export
-SafeCast Body where
-  safeCast = unsafeCastOnPrototypeName "Body"
-
 export ToJS Body where toJS = believe_me
-export FromJS Body where fromJS = safeCast
+export FromJS Body where fromJS ptr = Just (believe_me ptr)
 
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
+
 export data RequestInit : Type where [external]
 
 export
@@ -428,6 +429,7 @@ SafeCast RequestInit where
 
 export ToJS RequestInit where toJS = believe_me
 export FromJS RequestInit where fromJS = safeCast
+
 export data ResponseInit : Type where [external]
 
 export

@@ -18,43 +18,43 @@ namespace AudioTrack
   prim__id : AnyPtr -> PrimIO AnyPtr
 
   export
-  id : (obj : AudioTrack) -> IO String
+  id : (obj : AudioTrack) -> JSIO String
   
   %foreign "browser:lambda:x=>x.kind"
   prim__kind : AnyPtr -> PrimIO AnyPtr
 
   export
-  kind : (obj : AudioTrack) -> IO String
+  kind : (obj : AudioTrack) -> JSIO String
   
   %foreign "browser:lambda:x=>x.label"
   prim__label : AnyPtr -> PrimIO AnyPtr
 
   export
-  label : (obj : AudioTrack) -> IO String
+  label : (obj : AudioTrack) -> JSIO String
   
   %foreign "browser:lambda:x=>x.language"
   prim__language : AnyPtr -> PrimIO AnyPtr
 
   export
-  language : (obj : AudioTrack) -> IO String
+  language : (obj : AudioTrack) -> JSIO String
   
   %foreign "browser:lambda:x=>x.sourceBuffer"
   prim__sourceBuffer : AnyPtr -> PrimIO AnyPtr
 
   export
-  sourceBuffer : (obj : AudioTrack) -> IO (Maybe SourceBuffer)
+  sourceBuffer : (obj : AudioTrack) -> JSIO (Maybe SourceBuffer)
   
   %foreign "browser:lambda:x=>x.enabled"
   prim__enabled : AnyPtr -> PrimIO AnyPtr
 
   export
-  enabled : (obj : AudioTrack) -> IO Bool
+  enabled : (obj : AudioTrack) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.enabled  = v}"
   prim__setEnabled : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setEnabled : (obj : AudioTrack) -> (v : Bool) -> IO ()
+  setEnabled : (obj : AudioTrack) -> (v : Bool) -> JSIO ()
 
 namespace AudioTrackList
   
@@ -68,43 +68,43 @@ namespace AudioTrackList
   prim__length : AnyPtr -> PrimIO AnyPtr
 
   export
-  length : (obj : AudioTrackList) -> IO UInt32
+  length : (obj : AudioTrackList) -> JSIO UInt32
   
   %foreign "browser:lambda:x=>x.onaddtrack"
   prim__onaddtrack : AnyPtr -> PrimIO AnyPtr
 
   export
-  onaddtrack : (obj : AudioTrackList) -> IO EventHandler
+  onaddtrack : (obj : AudioTrackList) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onaddtrack  = v}"
   prim__setOnaddtrack : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnaddtrack : (obj : AudioTrackList) -> (v : EventHandler) -> IO ()
+  setOnaddtrack : (obj : AudioTrackList) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onchange"
   prim__onchange : AnyPtr -> PrimIO AnyPtr
 
   export
-  onchange : (obj : AudioTrackList) -> IO EventHandler
+  onchange : (obj : AudioTrackList) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onchange  = v}"
   prim__setOnchange : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnchange : (obj : AudioTrackList) -> (v : EventHandler) -> IO ()
+  setOnchange : (obj : AudioTrackList) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onremovetrack"
   prim__onremovetrack : AnyPtr -> PrimIO AnyPtr
 
   export
-  onremovetrack : (obj : AudioTrackList) -> IO EventHandler
+  onremovetrack : (obj : AudioTrackList) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onremovetrack  = v}"
   prim__setOnremovetrack : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnremovetrack : (obj : AudioTrackList) -> (v : EventHandler) -> IO ()
+  setOnremovetrack : (obj : AudioTrackList) -> (v : EventHandler) -> JSIO ()
 
 namespace BarProp
   
@@ -118,7 +118,7 @@ namespace BarProp
   prim__visible : AnyPtr -> PrimIO AnyPtr
 
   export
-  visible : (obj : BarProp) -> IO Bool
+  visible : (obj : BarProp) -> JSIO Bool
 
 namespace BeforeUnloadEvent
   
@@ -132,13 +132,13 @@ namespace BeforeUnloadEvent
   prim__returnValue : AnyPtr -> PrimIO AnyPtr
 
   export
-  returnValue : (obj : BeforeUnloadEvent) -> IO String
+  returnValue : (obj : BeforeUnloadEvent) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.returnValue  = v}"
   prim__setReturnValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setReturnValue : (obj : BeforeUnloadEvent) -> (v : String) -> IO ()
+  setReturnValue : (obj : BeforeUnloadEvent) -> (v : String) -> JSIO ()
 
 namespace BroadcastChannel
   
@@ -152,31 +152,31 @@ namespace BroadcastChannel
   prim__name : AnyPtr -> PrimIO AnyPtr
 
   export
-  name : (obj : BroadcastChannel) -> IO String
+  name : (obj : BroadcastChannel) -> JSIO String
   
   %foreign "browser:lambda:x=>x.onmessage"
   prim__onmessage : AnyPtr -> PrimIO AnyPtr
 
   export
-  onmessage : (obj : BroadcastChannel) -> IO EventHandler
+  onmessage : (obj : BroadcastChannel) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onmessage  = v}"
   prim__setOnmessage : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnmessage : (obj : BroadcastChannel) -> (v : EventHandler) -> IO ()
+  setOnmessage : (obj : BroadcastChannel) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onmessageerror"
   prim__onmessageerror : AnyPtr -> PrimIO AnyPtr
 
   export
-  onmessageerror : (obj : BroadcastChannel) -> IO EventHandler
+  onmessageerror : (obj : BroadcastChannel) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onmessageerror  = v}"
   prim__setOnmessageerror : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnmessageerror : (obj : BroadcastChannel) -> (v : EventHandler) -> IO ()
+  setOnmessageerror : (obj : BroadcastChannel) -> (v : EventHandler) -> JSIO ()
 
 namespace CanvasGradient
   
@@ -222,7 +222,7 @@ namespace CanvasRenderingContext2D
   prim__canvas : AnyPtr -> PrimIO AnyPtr
 
   export
-  canvas : (obj : CanvasRenderingContext2D) -> IO HTMLCanvasElement
+  canvas : (obj : CanvasRenderingContext2D) -> JSIO HTMLCanvasElement
 
 namespace CloseEvent
   
@@ -236,19 +236,19 @@ namespace CloseEvent
   prim__code : AnyPtr -> PrimIO AnyPtr
 
   export
-  code : (obj : CloseEvent) -> IO UInt16
+  code : (obj : CloseEvent) -> JSIO UInt16
   
   %foreign "browser:lambda:x=>x.reason"
   prim__reason : AnyPtr -> PrimIO AnyPtr
 
   export
-  reason : (obj : CloseEvent) -> IO String
+  reason : (obj : CloseEvent) -> JSIO String
   
   %foreign "browser:lambda:x=>x.wasClean"
   prim__wasClean : AnyPtr -> PrimIO AnyPtr
 
   export
-  wasClean : (obj : CloseEvent) -> IO Bool
+  wasClean : (obj : CloseEvent) -> JSIO Bool
 
 namespace CustomElementRegistry
   
@@ -278,7 +278,7 @@ namespace DOMStringList
   prim__length : AnyPtr -> PrimIO AnyPtr
 
   export
-  length : (obj : DOMStringList) -> IO UInt32
+  length : (obj : DOMStringList) -> JSIO UInt32
 
 namespace DOMStringMap
   
@@ -300,43 +300,43 @@ namespace DataTransfer
   prim__files : AnyPtr -> PrimIO AnyPtr
 
   export
-  files : (obj : DataTransfer) -> IO FileList
+  files : (obj : DataTransfer) -> JSIO FileList
   
   %foreign "browser:lambda:x=>x.items"
   prim__items : AnyPtr -> PrimIO AnyPtr
 
   export
-  items : (obj : DataTransfer) -> IO DataTransferItemList
+  items : (obj : DataTransfer) -> JSIO DataTransferItemList
   
   %foreign "browser:lambda:x=>x.types"
   prim__types : AnyPtr -> PrimIO AnyPtr
 
   export
-  types : (obj : DataTransfer) -> IO (JSArray String)
+  types : (obj : DataTransfer) -> JSIO (JSArray String)
   
   %foreign "browser:lambda:x=>x.dropEffect"
   prim__dropEffect : AnyPtr -> PrimIO AnyPtr
 
   export
-  dropEffect : (obj : DataTransfer) -> IO String
+  dropEffect : (obj : DataTransfer) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.dropEffect  = v}"
   prim__setDropEffect : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDropEffect : (obj : DataTransfer) -> (v : String) -> IO ()
+  setDropEffect : (obj : DataTransfer) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.effectAllowed"
   prim__effectAllowed : AnyPtr -> PrimIO AnyPtr
 
   export
-  effectAllowed : (obj : DataTransfer) -> IO String
+  effectAllowed : (obj : DataTransfer) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.effectAllowed  = v}"
   prim__setEffectAllowed : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setEffectAllowed : (obj : DataTransfer) -> (v : String) -> IO ()
+  setEffectAllowed : (obj : DataTransfer) -> (v : String) -> JSIO ()
 
 namespace DataTransferItem
   
@@ -350,13 +350,13 @@ namespace DataTransferItem
   prim__kind : AnyPtr -> PrimIO AnyPtr
 
   export
-  kind : (obj : DataTransferItem) -> IO String
+  kind : (obj : DataTransferItem) -> JSIO String
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
 
   export
-  type : (obj : DataTransferItem) -> IO String
+  type : (obj : DataTransferItem) -> JSIO String
 
 namespace DataTransferItemList
   
@@ -370,7 +370,7 @@ namespace DataTransferItemList
   prim__length : AnyPtr -> PrimIO AnyPtr
 
   export
-  length : (obj : DataTransferItemList) -> IO UInt32
+  length : (obj : DataTransferItemList) -> JSIO UInt32
 
 namespace DedicatedWorkerGlobalScope
   
@@ -384,13 +384,13 @@ namespace DedicatedWorkerGlobalScope
   prim__name : AnyPtr -> PrimIO AnyPtr
 
   export
-  name : (obj : DedicatedWorkerGlobalScope) -> IO String
+  name : (obj : DedicatedWorkerGlobalScope) -> JSIO String
   
   %foreign "browser:lambda:x=>x.onmessage"
   prim__onmessage : AnyPtr -> PrimIO AnyPtr
 
   export
-  onmessage : (obj : DedicatedWorkerGlobalScope) -> IO EventHandler
+  onmessage : (obj : DedicatedWorkerGlobalScope) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onmessage  = v}"
   prim__setOnmessage : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -398,13 +398,13 @@ namespace DedicatedWorkerGlobalScope
   export
   setOnmessage :  (obj : DedicatedWorkerGlobalScope)
                -> (v : EventHandler)
-               -> IO ()
+               -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onmessageerror"
   prim__onmessageerror : AnyPtr -> PrimIO AnyPtr
 
   export
-  onmessageerror : (obj : DedicatedWorkerGlobalScope) -> IO EventHandler
+  onmessageerror : (obj : DedicatedWorkerGlobalScope) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onmessageerror  = v}"
   prim__setOnmessageerror : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -412,7 +412,7 @@ namespace DedicatedWorkerGlobalScope
   export
   setOnmessageerror :  (obj : DedicatedWorkerGlobalScope)
                     -> (v : EventHandler)
-                    -> IO ()
+                    -> JSIO ()
 
 namespace DragEvent
   
@@ -426,7 +426,7 @@ namespace DragEvent
   prim__dataTransfer : AnyPtr -> PrimIO AnyPtr
 
   export
-  dataTransfer : (obj : DragEvent) -> IO (Maybe DataTransfer)
+  dataTransfer : (obj : DragEvent) -> JSIO (Maybe DataTransfer)
 
 namespace ElementInternals
   
@@ -440,37 +440,37 @@ namespace ElementInternals
   prim__form : AnyPtr -> PrimIO AnyPtr
 
   export
-  form : (obj : ElementInternals) -> IO (Maybe HTMLFormElement)
+  form : (obj : ElementInternals) -> JSIO (Maybe HTMLFormElement)
   
   %foreign "browser:lambda:x=>x.labels"
   prim__labels : AnyPtr -> PrimIO AnyPtr
 
   export
-  labels : (obj : ElementInternals) -> IO NodeList
+  labels : (obj : ElementInternals) -> JSIO NodeList
   
   %foreign "browser:lambda:x=>x.shadowRoot"
   prim__shadowRoot : AnyPtr -> PrimIO AnyPtr
 
   export
-  shadowRoot : (obj : ElementInternals) -> IO (Maybe ShadowRoot)
+  shadowRoot : (obj : ElementInternals) -> JSIO (Maybe ShadowRoot)
   
   %foreign "browser:lambda:x=>x.validationMessage"
   prim__validationMessage : AnyPtr -> PrimIO AnyPtr
 
   export
-  validationMessage : (obj : ElementInternals) -> IO String
+  validationMessage : (obj : ElementInternals) -> JSIO String
   
   %foreign "browser:lambda:x=>x.validity"
   prim__validity : AnyPtr -> PrimIO AnyPtr
 
   export
-  validity : (obj : ElementInternals) -> IO ValidityState
+  validity : (obj : ElementInternals) -> JSIO ValidityState
   
   %foreign "browser:lambda:x=>x.willValidate"
   prim__willValidate : AnyPtr -> PrimIO AnyPtr
 
   export
-  willValidate : (obj : ElementInternals) -> IO Bool
+  willValidate : (obj : ElementInternals) -> JSIO Bool
 
 namespace ErrorEvent
   
@@ -484,31 +484,31 @@ namespace ErrorEvent
   prim__colno : AnyPtr -> PrimIO AnyPtr
 
   export
-  colno : (obj : ErrorEvent) -> IO UInt32
+  colno : (obj : ErrorEvent) -> JSIO UInt32
   
   %foreign "browser:lambda:x=>x.error"
   prim__error : AnyPtr -> PrimIO AnyPtr
 
   export
-  error : (obj : ErrorEvent) -> IO Any
+  error : (obj : ErrorEvent) -> JSIO Any
   
   %foreign "browser:lambda:x=>x.filename"
   prim__filename : AnyPtr -> PrimIO AnyPtr
 
   export
-  filename : (obj : ErrorEvent) -> IO String
+  filename : (obj : ErrorEvent) -> JSIO String
   
   %foreign "browser:lambda:x=>x.lineno"
   prim__lineno : AnyPtr -> PrimIO AnyPtr
 
   export
-  lineno : (obj : ErrorEvent) -> IO UInt32
+  lineno : (obj : ErrorEvent) -> JSIO UInt32
   
   %foreign "browser:lambda:x=>x.message"
   prim__message : AnyPtr -> PrimIO AnyPtr
 
   export
-  message : (obj : ErrorEvent) -> IO String
+  message : (obj : ErrorEvent) -> JSIO String
 
 namespace EventSource
   
@@ -534,55 +534,55 @@ namespace EventSource
   prim__readyState : AnyPtr -> PrimIO AnyPtr
 
   export
-  readyState : (obj : EventSource) -> IO UInt16
+  readyState : (obj : EventSource) -> JSIO UInt16
   
   %foreign "browser:lambda:x=>x.url"
   prim__url : AnyPtr -> PrimIO AnyPtr
 
   export
-  url : (obj : EventSource) -> IO String
+  url : (obj : EventSource) -> JSIO String
   
   %foreign "browser:lambda:x=>x.withCredentials"
   prim__withCredentials : AnyPtr -> PrimIO AnyPtr
 
   export
-  withCredentials : (obj : EventSource) -> IO Bool
+  withCredentials : (obj : EventSource) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.onerror"
   prim__onerror : AnyPtr -> PrimIO AnyPtr
 
   export
-  onerror : (obj : EventSource) -> IO EventHandler
+  onerror : (obj : EventSource) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onerror  = v}"
   prim__setOnerror : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnerror : (obj : EventSource) -> (v : EventHandler) -> IO ()
+  setOnerror : (obj : EventSource) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onmessage"
   prim__onmessage : AnyPtr -> PrimIO AnyPtr
 
   export
-  onmessage : (obj : EventSource) -> IO EventHandler
+  onmessage : (obj : EventSource) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onmessage  = v}"
   prim__setOnmessage : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnmessage : (obj : EventSource) -> (v : EventHandler) -> IO ()
+  setOnmessage : (obj : EventSource) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onopen"
   prim__onopen : AnyPtr -> PrimIO AnyPtr
 
   export
-  onopen : (obj : EventSource) -> IO EventHandler
+  onopen : (obj : EventSource) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onopen  = v}"
   prim__setOnopen : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnopen : (obj : EventSource) -> (v : EventHandler) -> IO ()
+  setOnopen : (obj : EventSource) -> (v : EventHandler) -> JSIO ()
 
 namespace External
   
@@ -604,7 +604,7 @@ namespace FormDataEvent
   prim__formData : AnyPtr -> PrimIO AnyPtr
 
   export
-  formData : (obj : FormDataEvent) -> IO FormData
+  formData : (obj : FormDataEvent) -> JSIO FormData
 
 namespace HTMLAllCollection
   
@@ -618,7 +618,7 @@ namespace HTMLAllCollection
   prim__length : AnyPtr -> PrimIO AnyPtr
 
   export
-  length : (obj : HTMLAllCollection) -> IO UInt32
+  length : (obj : HTMLAllCollection) -> JSIO UInt32
 
 namespace HTMLAnchorElement
   
@@ -643,163 +643,163 @@ namespace HTMLAnchorElement
   prim__relList : AnyPtr -> PrimIO AnyPtr
 
   export
-  relList : (obj : HTMLAnchorElement) -> IO DOMTokenList
+  relList : (obj : HTMLAnchorElement) -> JSIO DOMTokenList
   
   %foreign "browser:lambda:x=>x.charset"
   prim__charset : AnyPtr -> PrimIO AnyPtr
 
   export
-  charset : (obj : HTMLAnchorElement) -> IO String
+  charset : (obj : HTMLAnchorElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.charset  = v}"
   prim__setCharset : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCharset : (obj : HTMLAnchorElement) -> (v : String) -> IO ()
+  setCharset : (obj : HTMLAnchorElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.coords"
   prim__coords : AnyPtr -> PrimIO AnyPtr
 
   export
-  coords : (obj : HTMLAnchorElement) -> IO String
+  coords : (obj : HTMLAnchorElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.coords  = v}"
   prim__setCoords : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCoords : (obj : HTMLAnchorElement) -> (v : String) -> IO ()
+  setCoords : (obj : HTMLAnchorElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.download"
   prim__download : AnyPtr -> PrimIO AnyPtr
 
   export
-  download : (obj : HTMLAnchorElement) -> IO String
+  download : (obj : HTMLAnchorElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.download  = v}"
   prim__setDownload : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDownload : (obj : HTMLAnchorElement) -> (v : String) -> IO ()
+  setDownload : (obj : HTMLAnchorElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.hreflang"
   prim__hreflang : AnyPtr -> PrimIO AnyPtr
 
   export
-  hreflang : (obj : HTMLAnchorElement) -> IO String
+  hreflang : (obj : HTMLAnchorElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.hreflang  = v}"
   prim__setHreflang : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHreflang : (obj : HTMLAnchorElement) -> (v : String) -> IO ()
+  setHreflang : (obj : HTMLAnchorElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.name"
   prim__name : AnyPtr -> PrimIO AnyPtr
 
   export
-  name : (obj : HTMLAnchorElement) -> IO String
+  name : (obj : HTMLAnchorElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.name  = v}"
   prim__setName : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setName : (obj : HTMLAnchorElement) -> (v : String) -> IO ()
+  setName : (obj : HTMLAnchorElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ping"
   prim__ping : AnyPtr -> PrimIO AnyPtr
 
   export
-  ping : (obj : HTMLAnchorElement) -> IO String
+  ping : (obj : HTMLAnchorElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ping  = v}"
   prim__setPing : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setPing : (obj : HTMLAnchorElement) -> (v : String) -> IO ()
+  setPing : (obj : HTMLAnchorElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.referrerPolicy"
   prim__referrerPolicy : AnyPtr -> PrimIO AnyPtr
 
   export
-  referrerPolicy : (obj : HTMLAnchorElement) -> IO String
+  referrerPolicy : (obj : HTMLAnchorElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.referrerPolicy  = v}"
   prim__setReferrerPolicy : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setReferrerPolicy : (obj : HTMLAnchorElement) -> (v : String) -> IO ()
+  setReferrerPolicy : (obj : HTMLAnchorElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.rel"
   prim__rel : AnyPtr -> PrimIO AnyPtr
 
   export
-  rel : (obj : HTMLAnchorElement) -> IO String
+  rel : (obj : HTMLAnchorElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.rel  = v}"
   prim__setRel : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setRel : (obj : HTMLAnchorElement) -> (v : String) -> IO ()
+  setRel : (obj : HTMLAnchorElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.rev"
   prim__rev : AnyPtr -> PrimIO AnyPtr
 
   export
-  rev : (obj : HTMLAnchorElement) -> IO String
+  rev : (obj : HTMLAnchorElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.rev  = v}"
   prim__setRev : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setRev : (obj : HTMLAnchorElement) -> (v : String) -> IO ()
+  setRev : (obj : HTMLAnchorElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.shape"
   prim__shape : AnyPtr -> PrimIO AnyPtr
 
   export
-  shape : (obj : HTMLAnchorElement) -> IO String
+  shape : (obj : HTMLAnchorElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.shape  = v}"
   prim__setShape : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setShape : (obj : HTMLAnchorElement) -> (v : String) -> IO ()
+  setShape : (obj : HTMLAnchorElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.target"
   prim__target : AnyPtr -> PrimIO AnyPtr
 
   export
-  target : (obj : HTMLAnchorElement) -> IO String
+  target : (obj : HTMLAnchorElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.target  = v}"
   prim__setTarget : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setTarget : (obj : HTMLAnchorElement) -> (v : String) -> IO ()
+  setTarget : (obj : HTMLAnchorElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.text"
   prim__text : AnyPtr -> PrimIO AnyPtr
 
   export
-  text : (obj : HTMLAnchorElement) -> IO String
+  text : (obj : HTMLAnchorElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.text  = v}"
   prim__setText : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setText : (obj : HTMLAnchorElement) -> (v : String) -> IO ()
+  setText : (obj : HTMLAnchorElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
 
   export
-  type : (obj : HTMLAnchorElement) -> IO String
+  type : (obj : HTMLAnchorElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.type  = v}"
   prim__setType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setType : (obj : HTMLAnchorElement) -> (v : String) -> IO ()
+  setType : (obj : HTMLAnchorElement) -> (v : String) -> JSIO ()
 
 namespace HTMLAreaElement
   
@@ -824,115 +824,115 @@ namespace HTMLAreaElement
   prim__relList : AnyPtr -> PrimIO AnyPtr
 
   export
-  relList : (obj : HTMLAreaElement) -> IO DOMTokenList
+  relList : (obj : HTMLAreaElement) -> JSIO DOMTokenList
   
   %foreign "browser:lambda:x=>x.alt"
   prim__alt : AnyPtr -> PrimIO AnyPtr
 
   export
-  alt : (obj : HTMLAreaElement) -> IO String
+  alt : (obj : HTMLAreaElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.alt  = v}"
   prim__setAlt : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAlt : (obj : HTMLAreaElement) -> (v : String) -> IO ()
+  setAlt : (obj : HTMLAreaElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.coords"
   prim__coords : AnyPtr -> PrimIO AnyPtr
 
   export
-  coords : (obj : HTMLAreaElement) -> IO String
+  coords : (obj : HTMLAreaElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.coords  = v}"
   prim__setCoords : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCoords : (obj : HTMLAreaElement) -> (v : String) -> IO ()
+  setCoords : (obj : HTMLAreaElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.download"
   prim__download : AnyPtr -> PrimIO AnyPtr
 
   export
-  download : (obj : HTMLAreaElement) -> IO String
+  download : (obj : HTMLAreaElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.download  = v}"
   prim__setDownload : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDownload : (obj : HTMLAreaElement) -> (v : String) -> IO ()
+  setDownload : (obj : HTMLAreaElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.noHref"
   prim__noHref : AnyPtr -> PrimIO AnyPtr
 
   export
-  noHref : (obj : HTMLAreaElement) -> IO Bool
+  noHref : (obj : HTMLAreaElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.noHref  = v}"
   prim__setNoHref : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setNoHref : (obj : HTMLAreaElement) -> (v : Bool) -> IO ()
+  setNoHref : (obj : HTMLAreaElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ping"
   prim__ping : AnyPtr -> PrimIO AnyPtr
 
   export
-  ping : (obj : HTMLAreaElement) -> IO String
+  ping : (obj : HTMLAreaElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ping  = v}"
   prim__setPing : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setPing : (obj : HTMLAreaElement) -> (v : String) -> IO ()
+  setPing : (obj : HTMLAreaElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.referrerPolicy"
   prim__referrerPolicy : AnyPtr -> PrimIO AnyPtr
 
   export
-  referrerPolicy : (obj : HTMLAreaElement) -> IO String
+  referrerPolicy : (obj : HTMLAreaElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.referrerPolicy  = v}"
   prim__setReferrerPolicy : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setReferrerPolicy : (obj : HTMLAreaElement) -> (v : String) -> IO ()
+  setReferrerPolicy : (obj : HTMLAreaElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.rel"
   prim__rel : AnyPtr -> PrimIO AnyPtr
 
   export
-  rel : (obj : HTMLAreaElement) -> IO String
+  rel : (obj : HTMLAreaElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.rel  = v}"
   prim__setRel : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setRel : (obj : HTMLAreaElement) -> (v : String) -> IO ()
+  setRel : (obj : HTMLAreaElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.shape"
   prim__shape : AnyPtr -> PrimIO AnyPtr
 
   export
-  shape : (obj : HTMLAreaElement) -> IO String
+  shape : (obj : HTMLAreaElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.shape  = v}"
   prim__setShape : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setShape : (obj : HTMLAreaElement) -> (v : String) -> IO ()
+  setShape : (obj : HTMLAreaElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.target"
   prim__target : AnyPtr -> PrimIO AnyPtr
 
   export
-  target : (obj : HTMLAreaElement) -> IO String
+  target : (obj : HTMLAreaElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.target  = v}"
   prim__setTarget : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setTarget : (obj : HTMLAreaElement) -> (v : String) -> IO ()
+  setTarget : (obj : HTMLAreaElement) -> (v : String) -> JSIO ()
 
 namespace HTMLAudioElement
   
@@ -980,13 +980,13 @@ namespace HTMLBRElement
   prim__clear : AnyPtr -> PrimIO AnyPtr
 
   export
-  clear : (obj : HTMLBRElement) -> IO String
+  clear : (obj : HTMLBRElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.clear  = v}"
   prim__setClear : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setClear : (obj : HTMLBRElement) -> (v : String) -> IO ()
+  setClear : (obj : HTMLBRElement) -> (v : String) -> JSIO ()
 
 namespace HTMLBaseElement
   
@@ -1010,25 +1010,25 @@ namespace HTMLBaseElement
   prim__href : AnyPtr -> PrimIO AnyPtr
 
   export
-  href : (obj : HTMLBaseElement) -> IO String
+  href : (obj : HTMLBaseElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.href  = v}"
   prim__setHref : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHref : (obj : HTMLBaseElement) -> (v : String) -> IO ()
+  setHref : (obj : HTMLBaseElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.target"
   prim__target : AnyPtr -> PrimIO AnyPtr
 
   export
-  target : (obj : HTMLBaseElement) -> IO String
+  target : (obj : HTMLBaseElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.target  = v}"
   prim__setTarget : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setTarget : (obj : HTMLBaseElement) -> (v : String) -> IO ()
+  setTarget : (obj : HTMLBaseElement) -> (v : String) -> JSIO ()
 
 namespace HTMLBodyElement
   
@@ -1053,73 +1053,73 @@ namespace HTMLBodyElement
   prim__aLink : AnyPtr -> PrimIO AnyPtr
 
   export
-  aLink : (obj : HTMLBodyElement) -> IO String
+  aLink : (obj : HTMLBodyElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.aLink  = v}"
   prim__setALink : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setALink : (obj : HTMLBodyElement) -> (v : String) -> IO ()
+  setALink : (obj : HTMLBodyElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.background"
   prim__background : AnyPtr -> PrimIO AnyPtr
 
   export
-  background : (obj : HTMLBodyElement) -> IO String
+  background : (obj : HTMLBodyElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.background  = v}"
   prim__setBackground : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setBackground : (obj : HTMLBodyElement) -> (v : String) -> IO ()
+  setBackground : (obj : HTMLBodyElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.bgColor"
   prim__bgColor : AnyPtr -> PrimIO AnyPtr
 
   export
-  bgColor : (obj : HTMLBodyElement) -> IO String
+  bgColor : (obj : HTMLBodyElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.bgColor  = v}"
   prim__setBgColor : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setBgColor : (obj : HTMLBodyElement) -> (v : String) -> IO ()
+  setBgColor : (obj : HTMLBodyElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.link"
   prim__link : AnyPtr -> PrimIO AnyPtr
 
   export
-  link : (obj : HTMLBodyElement) -> IO String
+  link : (obj : HTMLBodyElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.link  = v}"
   prim__setLink : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setLink : (obj : HTMLBodyElement) -> (v : String) -> IO ()
+  setLink : (obj : HTMLBodyElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.text"
   prim__text : AnyPtr -> PrimIO AnyPtr
 
   export
-  text : (obj : HTMLBodyElement) -> IO String
+  text : (obj : HTMLBodyElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.text  = v}"
   prim__setText : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setText : (obj : HTMLBodyElement) -> (v : String) -> IO ()
+  setText : (obj : HTMLBodyElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.vLink"
   prim__vLink : AnyPtr -> PrimIO AnyPtr
 
   export
-  vLink : (obj : HTMLBodyElement) -> IO String
+  vLink : (obj : HTMLBodyElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.vLink  = v}"
   prim__setVLink : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setVLink : (obj : HTMLBodyElement) -> (v : String) -> IO ()
+  setVLink : (obj : HTMLBodyElement) -> (v : String) -> JSIO ()
 
 namespace HTMLButtonElement
   
@@ -1143,139 +1143,139 @@ namespace HTMLButtonElement
   prim__form : AnyPtr -> PrimIO AnyPtr
 
   export
-  form : (obj : HTMLButtonElement) -> IO (Maybe HTMLFormElement)
+  form : (obj : HTMLButtonElement) -> JSIO (Maybe HTMLFormElement)
   
   %foreign "browser:lambda:x=>x.labels"
   prim__labels : AnyPtr -> PrimIO AnyPtr
 
   export
-  labels : (obj : HTMLButtonElement) -> IO NodeList
+  labels : (obj : HTMLButtonElement) -> JSIO NodeList
   
   %foreign "browser:lambda:x=>x.validationMessage"
   prim__validationMessage : AnyPtr -> PrimIO AnyPtr
 
   export
-  validationMessage : (obj : HTMLButtonElement) -> IO String
+  validationMessage : (obj : HTMLButtonElement) -> JSIO String
   
   %foreign "browser:lambda:x=>x.validity"
   prim__validity : AnyPtr -> PrimIO AnyPtr
 
   export
-  validity : (obj : HTMLButtonElement) -> IO ValidityState
+  validity : (obj : HTMLButtonElement) -> JSIO ValidityState
   
   %foreign "browser:lambda:x=>x.willValidate"
   prim__willValidate : AnyPtr -> PrimIO AnyPtr
 
   export
-  willValidate : (obj : HTMLButtonElement) -> IO Bool
+  willValidate : (obj : HTMLButtonElement) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.disabled"
   prim__disabled : AnyPtr -> PrimIO AnyPtr
 
   export
-  disabled : (obj : HTMLButtonElement) -> IO Bool
+  disabled : (obj : HTMLButtonElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.disabled  = v}"
   prim__setDisabled : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDisabled : (obj : HTMLButtonElement) -> (v : Bool) -> IO ()
+  setDisabled : (obj : HTMLButtonElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.formAction"
   prim__formAction : AnyPtr -> PrimIO AnyPtr
 
   export
-  formAction : (obj : HTMLButtonElement) -> IO String
+  formAction : (obj : HTMLButtonElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.formAction  = v}"
   prim__setFormAction : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setFormAction : (obj : HTMLButtonElement) -> (v : String) -> IO ()
+  setFormAction : (obj : HTMLButtonElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.formEnctype"
   prim__formEnctype : AnyPtr -> PrimIO AnyPtr
 
   export
-  formEnctype : (obj : HTMLButtonElement) -> IO String
+  formEnctype : (obj : HTMLButtonElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.formEnctype  = v}"
   prim__setFormEnctype : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setFormEnctype : (obj : HTMLButtonElement) -> (v : String) -> IO ()
+  setFormEnctype : (obj : HTMLButtonElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.formMethod"
   prim__formMethod : AnyPtr -> PrimIO AnyPtr
 
   export
-  formMethod : (obj : HTMLButtonElement) -> IO String
+  formMethod : (obj : HTMLButtonElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.formMethod  = v}"
   prim__setFormMethod : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setFormMethod : (obj : HTMLButtonElement) -> (v : String) -> IO ()
+  setFormMethod : (obj : HTMLButtonElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.formNoValidate"
   prim__formNoValidate : AnyPtr -> PrimIO AnyPtr
 
   export
-  formNoValidate : (obj : HTMLButtonElement) -> IO Bool
+  formNoValidate : (obj : HTMLButtonElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.formNoValidate  = v}"
   prim__setFormNoValidate : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setFormNoValidate : (obj : HTMLButtonElement) -> (v : Bool) -> IO ()
+  setFormNoValidate : (obj : HTMLButtonElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.formTarget"
   prim__formTarget : AnyPtr -> PrimIO AnyPtr
 
   export
-  formTarget : (obj : HTMLButtonElement) -> IO String
+  formTarget : (obj : HTMLButtonElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.formTarget  = v}"
   prim__setFormTarget : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setFormTarget : (obj : HTMLButtonElement) -> (v : String) -> IO ()
+  setFormTarget : (obj : HTMLButtonElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.name"
   prim__name : AnyPtr -> PrimIO AnyPtr
 
   export
-  name : (obj : HTMLButtonElement) -> IO String
+  name : (obj : HTMLButtonElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.name  = v}"
   prim__setName : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setName : (obj : HTMLButtonElement) -> (v : String) -> IO ()
+  setName : (obj : HTMLButtonElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
 
   export
-  type : (obj : HTMLButtonElement) -> IO String
+  type : (obj : HTMLButtonElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.type  = v}"
   prim__setType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setType : (obj : HTMLButtonElement) -> (v : String) -> IO ()
+  setType : (obj : HTMLButtonElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.value"
   prim__value : AnyPtr -> PrimIO AnyPtr
 
   export
-  value : (obj : HTMLButtonElement) -> IO String
+  value : (obj : HTMLButtonElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.value  = v}"
   prim__setValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setValue : (obj : HTMLButtonElement) -> (v : String) -> IO ()
+  setValue : (obj : HTMLButtonElement) -> (v : String) -> JSIO ()
 
 namespace HTMLCanvasElement
   
@@ -1299,25 +1299,25 @@ namespace HTMLCanvasElement
   prim__height : AnyPtr -> PrimIO AnyPtr
 
   export
-  height : (obj : HTMLCanvasElement) -> IO UInt32
+  height : (obj : HTMLCanvasElement) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.height  = v}"
   prim__setHeight : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHeight : (obj : HTMLCanvasElement) -> (v : UInt32) -> IO ()
+  setHeight : (obj : HTMLCanvasElement) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
 
   export
-  width : (obj : HTMLCanvasElement) -> IO UInt32
+  width : (obj : HTMLCanvasElement) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.width  = v}"
   prim__setWidth : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setWidth : (obj : HTMLCanvasElement) -> (v : UInt32) -> IO ()
+  setWidth : (obj : HTMLCanvasElement) -> (v : UInt32) -> JSIO ()
 
 namespace HTMLDListElement
   
@@ -1341,13 +1341,13 @@ namespace HTMLDListElement
   prim__compact : AnyPtr -> PrimIO AnyPtr
 
   export
-  compact : (obj : HTMLDListElement) -> IO Bool
+  compact : (obj : HTMLDListElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.compact  = v}"
   prim__setCompact : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCompact : (obj : HTMLDListElement) -> (v : Bool) -> IO ()
+  setCompact : (obj : HTMLDListElement) -> (v : Bool) -> JSIO ()
 
 namespace HTMLDataElement
   
@@ -1371,13 +1371,13 @@ namespace HTMLDataElement
   prim__value : AnyPtr -> PrimIO AnyPtr
 
   export
-  value : (obj : HTMLDataElement) -> IO String
+  value : (obj : HTMLDataElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.value  = v}"
   prim__setValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setValue : (obj : HTMLDataElement) -> (v : String) -> IO ()
+  setValue : (obj : HTMLDataElement) -> (v : String) -> JSIO ()
 
 namespace HTMLDataListElement
   
@@ -1401,7 +1401,7 @@ namespace HTMLDataListElement
   prim__options : AnyPtr -> PrimIO AnyPtr
 
   export
-  options : (obj : HTMLDataListElement) -> IO HTMLCollection
+  options : (obj : HTMLDataListElement) -> JSIO HTMLCollection
 
 namespace HTMLDetailsElement
   
@@ -1425,13 +1425,13 @@ namespace HTMLDetailsElement
   prim__open_ : AnyPtr -> PrimIO AnyPtr
 
   export
-  open_ : (obj : HTMLDetailsElement) -> IO Bool
+  open_ : (obj : HTMLDetailsElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.open  = v}"
   prim__setOpen : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOpen : (obj : HTMLDetailsElement) -> (v : Bool) -> IO ()
+  setOpen : (obj : HTMLDetailsElement) -> (v : Bool) -> JSIO ()
 
 namespace HTMLDialogElement
   
@@ -1455,25 +1455,25 @@ namespace HTMLDialogElement
   prim__open_ : AnyPtr -> PrimIO AnyPtr
 
   export
-  open_ : (obj : HTMLDialogElement) -> IO Bool
+  open_ : (obj : HTMLDialogElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.open  = v}"
   prim__setOpen : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOpen : (obj : HTMLDialogElement) -> (v : Bool) -> IO ()
+  setOpen : (obj : HTMLDialogElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.returnValue"
   prim__returnValue : AnyPtr -> PrimIO AnyPtr
 
   export
-  returnValue : (obj : HTMLDialogElement) -> IO String
+  returnValue : (obj : HTMLDialogElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.returnValue  = v}"
   prim__setReturnValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setReturnValue : (obj : HTMLDialogElement) -> (v : String) -> IO ()
+  setReturnValue : (obj : HTMLDialogElement) -> (v : String) -> JSIO ()
 
 namespace HTMLDirectoryElement
   
@@ -1497,13 +1497,13 @@ namespace HTMLDirectoryElement
   prim__compact : AnyPtr -> PrimIO AnyPtr
 
   export
-  compact : (obj : HTMLDirectoryElement) -> IO Bool
+  compact : (obj : HTMLDirectoryElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.compact  = v}"
   prim__setCompact : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCompact : (obj : HTMLDirectoryElement) -> (v : Bool) -> IO ()
+  setCompact : (obj : HTMLDirectoryElement) -> (v : Bool) -> JSIO ()
 
 namespace HTMLDivElement
   
@@ -1527,13 +1527,13 @@ namespace HTMLDivElement
   prim__align : AnyPtr -> PrimIO AnyPtr
 
   export
-  align : (obj : HTMLDivElement) -> IO String
+  align : (obj : HTMLDivElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.align  = v}"
   prim__setAlign : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAlign : (obj : HTMLDivElement) -> (v : String) -> IO ()
+  setAlign : (obj : HTMLDivElement) -> (v : String) -> JSIO ()
 
 namespace HTMLElement
   
@@ -1557,127 +1557,127 @@ namespace HTMLElement
   prim__accessKeyLabel : AnyPtr -> PrimIO AnyPtr
 
   export
-  accessKeyLabel : (obj : HTMLElement) -> IO String
+  accessKeyLabel : (obj : HTMLElement) -> JSIO String
   
   %foreign "browser:lambda:x=>x.accessKey"
   prim__accessKey : AnyPtr -> PrimIO AnyPtr
 
   export
-  accessKey : (obj : HTMLElement) -> IO String
+  accessKey : (obj : HTMLElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.accessKey  = v}"
   prim__setAccessKey : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAccessKey : (obj : HTMLElement) -> (v : String) -> IO ()
+  setAccessKey : (obj : HTMLElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.autocapitalize"
   prim__autocapitalize : AnyPtr -> PrimIO AnyPtr
 
   export
-  autocapitalize : (obj : HTMLElement) -> IO String
+  autocapitalize : (obj : HTMLElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.autocapitalize  = v}"
   prim__setAutocapitalize : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAutocapitalize : (obj : HTMLElement) -> (v : String) -> IO ()
+  setAutocapitalize : (obj : HTMLElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.dir"
   prim__dir : AnyPtr -> PrimIO AnyPtr
 
   export
-  dir : (obj : HTMLElement) -> IO String
+  dir : (obj : HTMLElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.dir  = v}"
   prim__setDir : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDir : (obj : HTMLElement) -> (v : String) -> IO ()
+  setDir : (obj : HTMLElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.draggable"
   prim__draggable : AnyPtr -> PrimIO AnyPtr
 
   export
-  draggable : (obj : HTMLElement) -> IO Bool
+  draggable : (obj : HTMLElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.draggable  = v}"
   prim__setDraggable : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDraggable : (obj : HTMLElement) -> (v : Bool) -> IO ()
+  setDraggable : (obj : HTMLElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.hidden"
   prim__hidden : AnyPtr -> PrimIO AnyPtr
 
   export
-  hidden : (obj : HTMLElement) -> IO Bool
+  hidden : (obj : HTMLElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.hidden  = v}"
   prim__setHidden : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHidden : (obj : HTMLElement) -> (v : Bool) -> IO ()
+  setHidden : (obj : HTMLElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.innerText"
   prim__innerText : AnyPtr -> PrimIO AnyPtr
 
   export
-  innerText : (obj : HTMLElement) -> IO String
+  innerText : (obj : HTMLElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.innerText  = v}"
   prim__setInnerText : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setInnerText : (obj : HTMLElement) -> (v : String) -> IO ()
+  setInnerText : (obj : HTMLElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.lang"
   prim__lang : AnyPtr -> PrimIO AnyPtr
 
   export
-  lang : (obj : HTMLElement) -> IO String
+  lang : (obj : HTMLElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.lang  = v}"
   prim__setLang : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setLang : (obj : HTMLElement) -> (v : String) -> IO ()
+  setLang : (obj : HTMLElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.spellcheck"
   prim__spellcheck : AnyPtr -> PrimIO AnyPtr
 
   export
-  spellcheck : (obj : HTMLElement) -> IO Bool
+  spellcheck : (obj : HTMLElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.spellcheck  = v}"
   prim__setSpellcheck : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSpellcheck : (obj : HTMLElement) -> (v : Bool) -> IO ()
+  setSpellcheck : (obj : HTMLElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.title"
   prim__title : AnyPtr -> PrimIO AnyPtr
 
   export
-  title : (obj : HTMLElement) -> IO String
+  title : (obj : HTMLElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.title  = v}"
   prim__setTitle : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setTitle : (obj : HTMLElement) -> (v : String) -> IO ()
+  setTitle : (obj : HTMLElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.translate"
   prim__translate : AnyPtr -> PrimIO AnyPtr
 
   export
-  translate : (obj : HTMLElement) -> IO Bool
+  translate : (obj : HTMLElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.translate  = v}"
   prim__setTranslate : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setTranslate : (obj : HTMLElement) -> (v : Bool) -> IO ()
+  setTranslate : (obj : HTMLElement) -> (v : Bool) -> JSIO ()
 
 namespace HTMLEmbedElement
   
@@ -1701,73 +1701,73 @@ namespace HTMLEmbedElement
   prim__align : AnyPtr -> PrimIO AnyPtr
 
   export
-  align : (obj : HTMLEmbedElement) -> IO String
+  align : (obj : HTMLEmbedElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.align  = v}"
   prim__setAlign : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAlign : (obj : HTMLEmbedElement) -> (v : String) -> IO ()
+  setAlign : (obj : HTMLEmbedElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.height"
   prim__height : AnyPtr -> PrimIO AnyPtr
 
   export
-  height : (obj : HTMLEmbedElement) -> IO String
+  height : (obj : HTMLEmbedElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.height  = v}"
   prim__setHeight : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHeight : (obj : HTMLEmbedElement) -> (v : String) -> IO ()
+  setHeight : (obj : HTMLEmbedElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.name"
   prim__name : AnyPtr -> PrimIO AnyPtr
 
   export
-  name : (obj : HTMLEmbedElement) -> IO String
+  name : (obj : HTMLEmbedElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.name  = v}"
   prim__setName : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setName : (obj : HTMLEmbedElement) -> (v : String) -> IO ()
+  setName : (obj : HTMLEmbedElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.src"
   prim__src : AnyPtr -> PrimIO AnyPtr
 
   export
-  src : (obj : HTMLEmbedElement) -> IO String
+  src : (obj : HTMLEmbedElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.src  = v}"
   prim__setSrc : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSrc : (obj : HTMLEmbedElement) -> (v : String) -> IO ()
+  setSrc : (obj : HTMLEmbedElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
 
   export
-  type : (obj : HTMLEmbedElement) -> IO String
+  type : (obj : HTMLEmbedElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.type  = v}"
   prim__setType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setType : (obj : HTMLEmbedElement) -> (v : String) -> IO ()
+  setType : (obj : HTMLEmbedElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
 
   export
-  width : (obj : HTMLEmbedElement) -> IO String
+  width : (obj : HTMLEmbedElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.width  = v}"
   prim__setWidth : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setWidth : (obj : HTMLEmbedElement) -> (v : String) -> IO ()
+  setWidth : (obj : HTMLEmbedElement) -> (v : String) -> JSIO ()
 
 namespace HTMLFieldSetElement
   
@@ -1791,61 +1791,61 @@ namespace HTMLFieldSetElement
   prim__elements : AnyPtr -> PrimIO AnyPtr
 
   export
-  elements : (obj : HTMLFieldSetElement) -> IO HTMLCollection
+  elements : (obj : HTMLFieldSetElement) -> JSIO HTMLCollection
   
   %foreign "browser:lambda:x=>x.form"
   prim__form : AnyPtr -> PrimIO AnyPtr
 
   export
-  form : (obj : HTMLFieldSetElement) -> IO (Maybe HTMLFormElement)
+  form : (obj : HTMLFieldSetElement) -> JSIO (Maybe HTMLFormElement)
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
 
   export
-  type : (obj : HTMLFieldSetElement) -> IO String
+  type : (obj : HTMLFieldSetElement) -> JSIO String
   
   %foreign "browser:lambda:x=>x.validationMessage"
   prim__validationMessage : AnyPtr -> PrimIO AnyPtr
 
   export
-  validationMessage : (obj : HTMLFieldSetElement) -> IO String
+  validationMessage : (obj : HTMLFieldSetElement) -> JSIO String
   
   %foreign "browser:lambda:x=>x.validity"
   prim__validity : AnyPtr -> PrimIO AnyPtr
 
   export
-  validity : (obj : HTMLFieldSetElement) -> IO ValidityState
+  validity : (obj : HTMLFieldSetElement) -> JSIO ValidityState
   
   %foreign "browser:lambda:x=>x.willValidate"
   prim__willValidate : AnyPtr -> PrimIO AnyPtr
 
   export
-  willValidate : (obj : HTMLFieldSetElement) -> IO Bool
+  willValidate : (obj : HTMLFieldSetElement) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.disabled"
   prim__disabled : AnyPtr -> PrimIO AnyPtr
 
   export
-  disabled : (obj : HTMLFieldSetElement) -> IO Bool
+  disabled : (obj : HTMLFieldSetElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.disabled  = v}"
   prim__setDisabled : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDisabled : (obj : HTMLFieldSetElement) -> (v : Bool) -> IO ()
+  setDisabled : (obj : HTMLFieldSetElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.name"
   prim__name : AnyPtr -> PrimIO AnyPtr
 
   export
-  name : (obj : HTMLFieldSetElement) -> IO String
+  name : (obj : HTMLFieldSetElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.name  = v}"
   prim__setName : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setName : (obj : HTMLFieldSetElement) -> (v : String) -> IO ()
+  setName : (obj : HTMLFieldSetElement) -> (v : String) -> JSIO ()
 
 namespace HTMLFontElement
   
@@ -1869,37 +1869,37 @@ namespace HTMLFontElement
   prim__color : AnyPtr -> PrimIO AnyPtr
 
   export
-  color : (obj : HTMLFontElement) -> IO String
+  color : (obj : HTMLFontElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.color  = v}"
   prim__setColor : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setColor : (obj : HTMLFontElement) -> (v : String) -> IO ()
+  setColor : (obj : HTMLFontElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.face"
   prim__face : AnyPtr -> PrimIO AnyPtr
 
   export
-  face : (obj : HTMLFontElement) -> IO String
+  face : (obj : HTMLFontElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.face  = v}"
   prim__setFace : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setFace : (obj : HTMLFontElement) -> (v : String) -> IO ()
+  setFace : (obj : HTMLFontElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.size"
   prim__size : AnyPtr -> PrimIO AnyPtr
 
   export
-  size : (obj : HTMLFontElement) -> IO String
+  size : (obj : HTMLFontElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.size  = v}"
   prim__setSize : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSize : (obj : HTMLFontElement) -> (v : String) -> IO ()
+  setSize : (obj : HTMLFontElement) -> (v : String) -> JSIO ()
 
 namespace HTMLFormControlsCollection
   
@@ -1931,139 +1931,139 @@ namespace HTMLFormElement
   prim__elements : AnyPtr -> PrimIO AnyPtr
 
   export
-  elements : (obj : HTMLFormElement) -> IO HTMLFormControlsCollection
+  elements : (obj : HTMLFormElement) -> JSIO HTMLFormControlsCollection
   
   %foreign "browser:lambda:x=>x.length"
   prim__length : AnyPtr -> PrimIO AnyPtr
 
   export
-  length : (obj : HTMLFormElement) -> IO UInt32
+  length : (obj : HTMLFormElement) -> JSIO UInt32
   
   %foreign "browser:lambda:x=>x.relList"
   prim__relList : AnyPtr -> PrimIO AnyPtr
 
   export
-  relList : (obj : HTMLFormElement) -> IO DOMTokenList
+  relList : (obj : HTMLFormElement) -> JSIO DOMTokenList
   
   %foreign "browser:lambda:x=>x.acceptCharset"
   prim__acceptCharset : AnyPtr -> PrimIO AnyPtr
 
   export
-  acceptCharset : (obj : HTMLFormElement) -> IO String
+  acceptCharset : (obj : HTMLFormElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.acceptCharset  = v}"
   prim__setAcceptCharset : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAcceptCharset : (obj : HTMLFormElement) -> (v : String) -> IO ()
+  setAcceptCharset : (obj : HTMLFormElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.action"
   prim__action : AnyPtr -> PrimIO AnyPtr
 
   export
-  action : (obj : HTMLFormElement) -> IO String
+  action : (obj : HTMLFormElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.action  = v}"
   prim__setAction : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAction : (obj : HTMLFormElement) -> (v : String) -> IO ()
+  setAction : (obj : HTMLFormElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.autocomplete"
   prim__autocomplete : AnyPtr -> PrimIO AnyPtr
 
   export
-  autocomplete : (obj : HTMLFormElement) -> IO String
+  autocomplete : (obj : HTMLFormElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.autocomplete  = v}"
   prim__setAutocomplete : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAutocomplete : (obj : HTMLFormElement) -> (v : String) -> IO ()
+  setAutocomplete : (obj : HTMLFormElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.encoding"
   prim__encoding : AnyPtr -> PrimIO AnyPtr
 
   export
-  encoding : (obj : HTMLFormElement) -> IO String
+  encoding : (obj : HTMLFormElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.encoding  = v}"
   prim__setEncoding : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setEncoding : (obj : HTMLFormElement) -> (v : String) -> IO ()
+  setEncoding : (obj : HTMLFormElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.enctype"
   prim__enctype : AnyPtr -> PrimIO AnyPtr
 
   export
-  enctype : (obj : HTMLFormElement) -> IO String
+  enctype : (obj : HTMLFormElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.enctype  = v}"
   prim__setEnctype : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setEnctype : (obj : HTMLFormElement) -> (v : String) -> IO ()
+  setEnctype : (obj : HTMLFormElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.method"
   prim__method : AnyPtr -> PrimIO AnyPtr
 
   export
-  method : (obj : HTMLFormElement) -> IO String
+  method : (obj : HTMLFormElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.method  = v}"
   prim__setMethod : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setMethod : (obj : HTMLFormElement) -> (v : String) -> IO ()
+  setMethod : (obj : HTMLFormElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.name"
   prim__name : AnyPtr -> PrimIO AnyPtr
 
   export
-  name : (obj : HTMLFormElement) -> IO String
+  name : (obj : HTMLFormElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.name  = v}"
   prim__setName : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setName : (obj : HTMLFormElement) -> (v : String) -> IO ()
+  setName : (obj : HTMLFormElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.noValidate"
   prim__noValidate : AnyPtr -> PrimIO AnyPtr
 
   export
-  noValidate : (obj : HTMLFormElement) -> IO Bool
+  noValidate : (obj : HTMLFormElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.noValidate  = v}"
   prim__setNoValidate : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setNoValidate : (obj : HTMLFormElement) -> (v : Bool) -> IO ()
+  setNoValidate : (obj : HTMLFormElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.rel"
   prim__rel : AnyPtr -> PrimIO AnyPtr
 
   export
-  rel : (obj : HTMLFormElement) -> IO String
+  rel : (obj : HTMLFormElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.rel  = v}"
   prim__setRel : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setRel : (obj : HTMLFormElement) -> (v : String) -> IO ()
+  setRel : (obj : HTMLFormElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.target"
   prim__target : AnyPtr -> PrimIO AnyPtr
 
   export
-  target : (obj : HTMLFormElement) -> IO String
+  target : (obj : HTMLFormElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.target  = v}"
   prim__setTarget : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setTarget : (obj : HTMLFormElement) -> (v : String) -> IO ()
+  setTarget : (obj : HTMLFormElement) -> (v : String) -> JSIO ()
 
 namespace HTMLFrameElement
   
@@ -2087,109 +2087,109 @@ namespace HTMLFrameElement
   prim__contentDocument : AnyPtr -> PrimIO AnyPtr
 
   export
-  contentDocument : (obj : HTMLFrameElement) -> IO (Maybe Document)
+  contentDocument : (obj : HTMLFrameElement) -> JSIO (Maybe Document)
   
   %foreign "browser:lambda:x=>x.contentWindow"
   prim__contentWindow : AnyPtr -> PrimIO AnyPtr
 
   export
-  contentWindow : (obj : HTMLFrameElement) -> IO (Maybe WindowProxy)
+  contentWindow : (obj : HTMLFrameElement) -> JSIO (Maybe WindowProxy)
   
   %foreign "browser:lambda:x=>x.frameBorder"
   prim__frameBorder : AnyPtr -> PrimIO AnyPtr
 
   export
-  frameBorder : (obj : HTMLFrameElement) -> IO String
+  frameBorder : (obj : HTMLFrameElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.frameBorder  = v}"
   prim__setFrameBorder : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setFrameBorder : (obj : HTMLFrameElement) -> (v : String) -> IO ()
+  setFrameBorder : (obj : HTMLFrameElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.longDesc"
   prim__longDesc : AnyPtr -> PrimIO AnyPtr
 
   export
-  longDesc : (obj : HTMLFrameElement) -> IO String
+  longDesc : (obj : HTMLFrameElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.longDesc  = v}"
   prim__setLongDesc : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setLongDesc : (obj : HTMLFrameElement) -> (v : String) -> IO ()
+  setLongDesc : (obj : HTMLFrameElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.marginHeight"
   prim__marginHeight : AnyPtr -> PrimIO AnyPtr
 
   export
-  marginHeight : (obj : HTMLFrameElement) -> IO String
+  marginHeight : (obj : HTMLFrameElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.marginHeight  = v}"
   prim__setMarginHeight : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setMarginHeight : (obj : HTMLFrameElement) -> (v : String) -> IO ()
+  setMarginHeight : (obj : HTMLFrameElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.marginWidth"
   prim__marginWidth : AnyPtr -> PrimIO AnyPtr
 
   export
-  marginWidth : (obj : HTMLFrameElement) -> IO String
+  marginWidth : (obj : HTMLFrameElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.marginWidth  = v}"
   prim__setMarginWidth : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setMarginWidth : (obj : HTMLFrameElement) -> (v : String) -> IO ()
+  setMarginWidth : (obj : HTMLFrameElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.name"
   prim__name : AnyPtr -> PrimIO AnyPtr
 
   export
-  name : (obj : HTMLFrameElement) -> IO String
+  name : (obj : HTMLFrameElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.name  = v}"
   prim__setName : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setName : (obj : HTMLFrameElement) -> (v : String) -> IO ()
+  setName : (obj : HTMLFrameElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.noResize"
   prim__noResize : AnyPtr -> PrimIO AnyPtr
 
   export
-  noResize : (obj : HTMLFrameElement) -> IO Bool
+  noResize : (obj : HTMLFrameElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.noResize  = v}"
   prim__setNoResize : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setNoResize : (obj : HTMLFrameElement) -> (v : Bool) -> IO ()
+  setNoResize : (obj : HTMLFrameElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.scrolling"
   prim__scrolling : AnyPtr -> PrimIO AnyPtr
 
   export
-  scrolling : (obj : HTMLFrameElement) -> IO String
+  scrolling : (obj : HTMLFrameElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.scrolling  = v}"
   prim__setScrolling : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setScrolling : (obj : HTMLFrameElement) -> (v : String) -> IO ()
+  setScrolling : (obj : HTMLFrameElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.src"
   prim__src : AnyPtr -> PrimIO AnyPtr
 
   export
-  src : (obj : HTMLFrameElement) -> IO String
+  src : (obj : HTMLFrameElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.src  = v}"
   prim__setSrc : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSrc : (obj : HTMLFrameElement) -> (v : String) -> IO ()
+  setSrc : (obj : HTMLFrameElement) -> (v : String) -> JSIO ()
 
 namespace HTMLFrameSetElement
   
@@ -2214,25 +2214,25 @@ namespace HTMLFrameSetElement
   prim__cols : AnyPtr -> PrimIO AnyPtr
 
   export
-  cols : (obj : HTMLFrameSetElement) -> IO String
+  cols : (obj : HTMLFrameSetElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.cols  = v}"
   prim__setCols : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCols : (obj : HTMLFrameSetElement) -> (v : String) -> IO ()
+  setCols : (obj : HTMLFrameSetElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.rows"
   prim__rows : AnyPtr -> PrimIO AnyPtr
 
   export
-  rows : (obj : HTMLFrameSetElement) -> IO String
+  rows : (obj : HTMLFrameSetElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.rows  = v}"
   prim__setRows : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setRows : (obj : HTMLFrameSetElement) -> (v : String) -> IO ()
+  setRows : (obj : HTMLFrameSetElement) -> (v : String) -> JSIO ()
 
 namespace HTMLHRElement
   
@@ -2256,61 +2256,61 @@ namespace HTMLHRElement
   prim__align : AnyPtr -> PrimIO AnyPtr
 
   export
-  align : (obj : HTMLHRElement) -> IO String
+  align : (obj : HTMLHRElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.align  = v}"
   prim__setAlign : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAlign : (obj : HTMLHRElement) -> (v : String) -> IO ()
+  setAlign : (obj : HTMLHRElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.color"
   prim__color : AnyPtr -> PrimIO AnyPtr
 
   export
-  color : (obj : HTMLHRElement) -> IO String
+  color : (obj : HTMLHRElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.color  = v}"
   prim__setColor : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setColor : (obj : HTMLHRElement) -> (v : String) -> IO ()
+  setColor : (obj : HTMLHRElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.noShade"
   prim__noShade : AnyPtr -> PrimIO AnyPtr
 
   export
-  noShade : (obj : HTMLHRElement) -> IO Bool
+  noShade : (obj : HTMLHRElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.noShade  = v}"
   prim__setNoShade : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setNoShade : (obj : HTMLHRElement) -> (v : Bool) -> IO ()
+  setNoShade : (obj : HTMLHRElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.size"
   prim__size : AnyPtr -> PrimIO AnyPtr
 
   export
-  size : (obj : HTMLHRElement) -> IO String
+  size : (obj : HTMLHRElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.size  = v}"
   prim__setSize : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSize : (obj : HTMLHRElement) -> (v : String) -> IO ()
+  setSize : (obj : HTMLHRElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
 
   export
-  width : (obj : HTMLHRElement) -> IO String
+  width : (obj : HTMLHRElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.width  = v}"
   prim__setWidth : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setWidth : (obj : HTMLHRElement) -> (v : String) -> IO ()
+  setWidth : (obj : HTMLHRElement) -> (v : String) -> JSIO ()
 
 namespace HTMLHeadElement
   
@@ -2352,13 +2352,13 @@ namespace HTMLHeadingElement
   prim__align : AnyPtr -> PrimIO AnyPtr
 
   export
-  align : (obj : HTMLHeadingElement) -> IO String
+  align : (obj : HTMLHeadingElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.align  = v}"
   prim__setAlign : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAlign : (obj : HTMLHeadingElement) -> (v : String) -> IO ()
+  setAlign : (obj : HTMLHeadingElement) -> (v : String) -> JSIO ()
 
 namespace HTMLHtmlElement
   
@@ -2382,13 +2382,13 @@ namespace HTMLHtmlElement
   prim__version : AnyPtr -> PrimIO AnyPtr
 
   export
-  version : (obj : HTMLHtmlElement) -> IO String
+  version : (obj : HTMLHtmlElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.version  = v}"
   prim__setVersion : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setVersion : (obj : HTMLHtmlElement) -> (v : String) -> IO ()
+  setVersion : (obj : HTMLHtmlElement) -> (v : String) -> JSIO ()
 
 namespace HTMLIFrameElement
   
@@ -2412,199 +2412,199 @@ namespace HTMLIFrameElement
   prim__contentDocument : AnyPtr -> PrimIO AnyPtr
 
   export
-  contentDocument : (obj : HTMLIFrameElement) -> IO (Maybe Document)
+  contentDocument : (obj : HTMLIFrameElement) -> JSIO (Maybe Document)
   
   %foreign "browser:lambda:x=>x.contentWindow"
   prim__contentWindow : AnyPtr -> PrimIO AnyPtr
 
   export
-  contentWindow : (obj : HTMLIFrameElement) -> IO (Maybe WindowProxy)
+  contentWindow : (obj : HTMLIFrameElement) -> JSIO (Maybe WindowProxy)
   
   %foreign "browser:lambda:x=>x.sandbox"
   prim__sandbox : AnyPtr -> PrimIO AnyPtr
 
   export
-  sandbox : (obj : HTMLIFrameElement) -> IO DOMTokenList
+  sandbox : (obj : HTMLIFrameElement) -> JSIO DOMTokenList
   
   %foreign "browser:lambda:x=>x.align"
   prim__align : AnyPtr -> PrimIO AnyPtr
 
   export
-  align : (obj : HTMLIFrameElement) -> IO String
+  align : (obj : HTMLIFrameElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.align  = v}"
   prim__setAlign : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAlign : (obj : HTMLIFrameElement) -> (v : String) -> IO ()
+  setAlign : (obj : HTMLIFrameElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.allow"
   prim__allow : AnyPtr -> PrimIO AnyPtr
 
   export
-  allow : (obj : HTMLIFrameElement) -> IO String
+  allow : (obj : HTMLIFrameElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.allow  = v}"
   prim__setAllow : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAllow : (obj : HTMLIFrameElement) -> (v : String) -> IO ()
+  setAllow : (obj : HTMLIFrameElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.allowFullscreen"
   prim__allowFullscreen : AnyPtr -> PrimIO AnyPtr
 
   export
-  allowFullscreen : (obj : HTMLIFrameElement) -> IO Bool
+  allowFullscreen : (obj : HTMLIFrameElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.allowFullscreen  = v}"
   prim__setAllowFullscreen : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAllowFullscreen : (obj : HTMLIFrameElement) -> (v : Bool) -> IO ()
+  setAllowFullscreen : (obj : HTMLIFrameElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.frameBorder"
   prim__frameBorder : AnyPtr -> PrimIO AnyPtr
 
   export
-  frameBorder : (obj : HTMLIFrameElement) -> IO String
+  frameBorder : (obj : HTMLIFrameElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.frameBorder  = v}"
   prim__setFrameBorder : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setFrameBorder : (obj : HTMLIFrameElement) -> (v : String) -> IO ()
+  setFrameBorder : (obj : HTMLIFrameElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.height"
   prim__height : AnyPtr -> PrimIO AnyPtr
 
   export
-  height : (obj : HTMLIFrameElement) -> IO String
+  height : (obj : HTMLIFrameElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.height  = v}"
   prim__setHeight : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHeight : (obj : HTMLIFrameElement) -> (v : String) -> IO ()
+  setHeight : (obj : HTMLIFrameElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.loading"
   prim__loading : AnyPtr -> PrimIO AnyPtr
 
   export
-  loading : (obj : HTMLIFrameElement) -> IO String
+  loading : (obj : HTMLIFrameElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.loading  = v}"
   prim__setLoading : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setLoading : (obj : HTMLIFrameElement) -> (v : String) -> IO ()
+  setLoading : (obj : HTMLIFrameElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.longDesc"
   prim__longDesc : AnyPtr -> PrimIO AnyPtr
 
   export
-  longDesc : (obj : HTMLIFrameElement) -> IO String
+  longDesc : (obj : HTMLIFrameElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.longDesc  = v}"
   prim__setLongDesc : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setLongDesc : (obj : HTMLIFrameElement) -> (v : String) -> IO ()
+  setLongDesc : (obj : HTMLIFrameElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.marginHeight"
   prim__marginHeight : AnyPtr -> PrimIO AnyPtr
 
   export
-  marginHeight : (obj : HTMLIFrameElement) -> IO String
+  marginHeight : (obj : HTMLIFrameElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.marginHeight  = v}"
   prim__setMarginHeight : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setMarginHeight : (obj : HTMLIFrameElement) -> (v : String) -> IO ()
+  setMarginHeight : (obj : HTMLIFrameElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.marginWidth"
   prim__marginWidth : AnyPtr -> PrimIO AnyPtr
 
   export
-  marginWidth : (obj : HTMLIFrameElement) -> IO String
+  marginWidth : (obj : HTMLIFrameElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.marginWidth  = v}"
   prim__setMarginWidth : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setMarginWidth : (obj : HTMLIFrameElement) -> (v : String) -> IO ()
+  setMarginWidth : (obj : HTMLIFrameElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.name"
   prim__name : AnyPtr -> PrimIO AnyPtr
 
   export
-  name : (obj : HTMLIFrameElement) -> IO String
+  name : (obj : HTMLIFrameElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.name  = v}"
   prim__setName : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setName : (obj : HTMLIFrameElement) -> (v : String) -> IO ()
+  setName : (obj : HTMLIFrameElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.referrerPolicy"
   prim__referrerPolicy : AnyPtr -> PrimIO AnyPtr
 
   export
-  referrerPolicy : (obj : HTMLIFrameElement) -> IO String
+  referrerPolicy : (obj : HTMLIFrameElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.referrerPolicy  = v}"
   prim__setReferrerPolicy : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setReferrerPolicy : (obj : HTMLIFrameElement) -> (v : String) -> IO ()
+  setReferrerPolicy : (obj : HTMLIFrameElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.scrolling"
   prim__scrolling : AnyPtr -> PrimIO AnyPtr
 
   export
-  scrolling : (obj : HTMLIFrameElement) -> IO String
+  scrolling : (obj : HTMLIFrameElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.scrolling  = v}"
   prim__setScrolling : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setScrolling : (obj : HTMLIFrameElement) -> (v : String) -> IO ()
+  setScrolling : (obj : HTMLIFrameElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.src"
   prim__src : AnyPtr -> PrimIO AnyPtr
 
   export
-  src : (obj : HTMLIFrameElement) -> IO String
+  src : (obj : HTMLIFrameElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.src  = v}"
   prim__setSrc : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSrc : (obj : HTMLIFrameElement) -> (v : String) -> IO ()
+  setSrc : (obj : HTMLIFrameElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.srcdoc"
   prim__srcdoc : AnyPtr -> PrimIO AnyPtr
 
   export
-  srcdoc : (obj : HTMLIFrameElement) -> IO String
+  srcdoc : (obj : HTMLIFrameElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.srcdoc  = v}"
   prim__setSrcdoc : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSrcdoc : (obj : HTMLIFrameElement) -> (v : String) -> IO ()
+  setSrcdoc : (obj : HTMLIFrameElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
 
   export
-  width : (obj : HTMLIFrameElement) -> IO String
+  width : (obj : HTMLIFrameElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.width  = v}"
   prim__setWidth : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setWidth : (obj : HTMLIFrameElement) -> (v : String) -> IO ()
+  setWidth : (obj : HTMLIFrameElement) -> (v : String) -> JSIO ()
 
 namespace HTMLImageElement
   
@@ -2628,253 +2628,253 @@ namespace HTMLImageElement
   prim__complete : AnyPtr -> PrimIO AnyPtr
 
   export
-  complete : (obj : HTMLImageElement) -> IO Bool
+  complete : (obj : HTMLImageElement) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.currentSrc"
   prim__currentSrc : AnyPtr -> PrimIO AnyPtr
 
   export
-  currentSrc : (obj : HTMLImageElement) -> IO String
+  currentSrc : (obj : HTMLImageElement) -> JSIO String
   
   %foreign "browser:lambda:x=>x.naturalHeight"
   prim__naturalHeight : AnyPtr -> PrimIO AnyPtr
 
   export
-  naturalHeight : (obj : HTMLImageElement) -> IO UInt32
+  naturalHeight : (obj : HTMLImageElement) -> JSIO UInt32
   
   %foreign "browser:lambda:x=>x.naturalWidth"
   prim__naturalWidth : AnyPtr -> PrimIO AnyPtr
 
   export
-  naturalWidth : (obj : HTMLImageElement) -> IO UInt32
+  naturalWidth : (obj : HTMLImageElement) -> JSIO UInt32
   
   %foreign "browser:lambda:x=>x.align"
   prim__align : AnyPtr -> PrimIO AnyPtr
 
   export
-  align : (obj : HTMLImageElement) -> IO String
+  align : (obj : HTMLImageElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.align  = v}"
   prim__setAlign : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAlign : (obj : HTMLImageElement) -> (v : String) -> IO ()
+  setAlign : (obj : HTMLImageElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.alt"
   prim__alt : AnyPtr -> PrimIO AnyPtr
 
   export
-  alt : (obj : HTMLImageElement) -> IO String
+  alt : (obj : HTMLImageElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.alt  = v}"
   prim__setAlt : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAlt : (obj : HTMLImageElement) -> (v : String) -> IO ()
+  setAlt : (obj : HTMLImageElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.border"
   prim__border : AnyPtr -> PrimIO AnyPtr
 
   export
-  border : (obj : HTMLImageElement) -> IO String
+  border : (obj : HTMLImageElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.border  = v}"
   prim__setBorder : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setBorder : (obj : HTMLImageElement) -> (v : String) -> IO ()
+  setBorder : (obj : HTMLImageElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.crossOrigin"
   prim__crossOrigin : AnyPtr -> PrimIO AnyPtr
 
   export
-  crossOrigin : (obj : HTMLImageElement) -> IO (Maybe String)
+  crossOrigin : (obj : HTMLImageElement) -> JSIO (Maybe String)
 
   %foreign "browser:lambda:(x,v)=>{x.crossOrigin  = v}"
   prim__setCrossOrigin : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCrossOrigin : (obj : HTMLImageElement) -> (v : Maybe String) -> IO ()
+  setCrossOrigin : (obj : HTMLImageElement) -> (v : Maybe String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.decoding"
   prim__decoding : AnyPtr -> PrimIO AnyPtr
 
   export
-  decoding : (obj : HTMLImageElement) -> IO String
+  decoding : (obj : HTMLImageElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.decoding  = v}"
   prim__setDecoding : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDecoding : (obj : HTMLImageElement) -> (v : String) -> IO ()
+  setDecoding : (obj : HTMLImageElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.height"
   prim__height : AnyPtr -> PrimIO AnyPtr
 
   export
-  height : (obj : HTMLImageElement) -> IO UInt32
+  height : (obj : HTMLImageElement) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.height  = v}"
   prim__setHeight : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHeight : (obj : HTMLImageElement) -> (v : UInt32) -> IO ()
+  setHeight : (obj : HTMLImageElement) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.hspace"
   prim__hspace : AnyPtr -> PrimIO AnyPtr
 
   export
-  hspace : (obj : HTMLImageElement) -> IO UInt32
+  hspace : (obj : HTMLImageElement) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.hspace  = v}"
   prim__setHspace : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHspace : (obj : HTMLImageElement) -> (v : UInt32) -> IO ()
+  setHspace : (obj : HTMLImageElement) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.isMap"
   prim__isMap : AnyPtr -> PrimIO AnyPtr
 
   export
-  isMap : (obj : HTMLImageElement) -> IO Bool
+  isMap : (obj : HTMLImageElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.isMap  = v}"
   prim__setIsMap : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setIsMap : (obj : HTMLImageElement) -> (v : Bool) -> IO ()
+  setIsMap : (obj : HTMLImageElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.loading"
   prim__loading : AnyPtr -> PrimIO AnyPtr
 
   export
-  loading : (obj : HTMLImageElement) -> IO String
+  loading : (obj : HTMLImageElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.loading  = v}"
   prim__setLoading : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setLoading : (obj : HTMLImageElement) -> (v : String) -> IO ()
+  setLoading : (obj : HTMLImageElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.longDesc"
   prim__longDesc : AnyPtr -> PrimIO AnyPtr
 
   export
-  longDesc : (obj : HTMLImageElement) -> IO String
+  longDesc : (obj : HTMLImageElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.longDesc  = v}"
   prim__setLongDesc : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setLongDesc : (obj : HTMLImageElement) -> (v : String) -> IO ()
+  setLongDesc : (obj : HTMLImageElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.lowsrc"
   prim__lowsrc : AnyPtr -> PrimIO AnyPtr
 
   export
-  lowsrc : (obj : HTMLImageElement) -> IO String
+  lowsrc : (obj : HTMLImageElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.lowsrc  = v}"
   prim__setLowsrc : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setLowsrc : (obj : HTMLImageElement) -> (v : String) -> IO ()
+  setLowsrc : (obj : HTMLImageElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.name"
   prim__name : AnyPtr -> PrimIO AnyPtr
 
   export
-  name : (obj : HTMLImageElement) -> IO String
+  name : (obj : HTMLImageElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.name  = v}"
   prim__setName : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setName : (obj : HTMLImageElement) -> (v : String) -> IO ()
+  setName : (obj : HTMLImageElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.referrerPolicy"
   prim__referrerPolicy : AnyPtr -> PrimIO AnyPtr
 
   export
-  referrerPolicy : (obj : HTMLImageElement) -> IO String
+  referrerPolicy : (obj : HTMLImageElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.referrerPolicy  = v}"
   prim__setReferrerPolicy : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setReferrerPolicy : (obj : HTMLImageElement) -> (v : String) -> IO ()
+  setReferrerPolicy : (obj : HTMLImageElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.sizes"
   prim__sizes : AnyPtr -> PrimIO AnyPtr
 
   export
-  sizes : (obj : HTMLImageElement) -> IO String
+  sizes : (obj : HTMLImageElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.sizes  = v}"
   prim__setSizes : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSizes : (obj : HTMLImageElement) -> (v : String) -> IO ()
+  setSizes : (obj : HTMLImageElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.src"
   prim__src : AnyPtr -> PrimIO AnyPtr
 
   export
-  src : (obj : HTMLImageElement) -> IO String
+  src : (obj : HTMLImageElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.src  = v}"
   prim__setSrc : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSrc : (obj : HTMLImageElement) -> (v : String) -> IO ()
+  setSrc : (obj : HTMLImageElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.srcset"
   prim__srcset : AnyPtr -> PrimIO AnyPtr
 
   export
-  srcset : (obj : HTMLImageElement) -> IO String
+  srcset : (obj : HTMLImageElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.srcset  = v}"
   prim__setSrcset : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSrcset : (obj : HTMLImageElement) -> (v : String) -> IO ()
+  setSrcset : (obj : HTMLImageElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.useMap"
   prim__useMap : AnyPtr -> PrimIO AnyPtr
 
   export
-  useMap : (obj : HTMLImageElement) -> IO String
+  useMap : (obj : HTMLImageElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.useMap  = v}"
   prim__setUseMap : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setUseMap : (obj : HTMLImageElement) -> (v : String) -> IO ()
+  setUseMap : (obj : HTMLImageElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.vspace"
   prim__vspace : AnyPtr -> PrimIO AnyPtr
 
   export
-  vspace : (obj : HTMLImageElement) -> IO UInt32
+  vspace : (obj : HTMLImageElement) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.vspace  = v}"
   prim__setVspace : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setVspace : (obj : HTMLImageElement) -> (v : UInt32) -> IO ()
+  setVspace : (obj : HTMLImageElement) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
 
   export
-  width : (obj : HTMLImageElement) -> IO UInt32
+  width : (obj : HTMLImageElement) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.width  = v}"
   prim__setWidth : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setWidth : (obj : HTMLImageElement) -> (v : UInt32) -> IO ()
+  setWidth : (obj : HTMLImageElement) -> (v : UInt32) -> JSIO ()
 
 namespace HTMLInputElement
   
@@ -2898,367 +2898,367 @@ namespace HTMLInputElement
   prim__form : AnyPtr -> PrimIO AnyPtr
 
   export
-  form : (obj : HTMLInputElement) -> IO (Maybe HTMLFormElement)
+  form : (obj : HTMLInputElement) -> JSIO (Maybe HTMLFormElement)
   
   %foreign "browser:lambda:x=>x.labels"
   prim__labels : AnyPtr -> PrimIO AnyPtr
 
   export
-  labels : (obj : HTMLInputElement) -> IO (Maybe NodeList)
+  labels : (obj : HTMLInputElement) -> JSIO (Maybe NodeList)
   
   %foreign "browser:lambda:x=>x.list"
   prim__list : AnyPtr -> PrimIO AnyPtr
 
   export
-  list : (obj : HTMLInputElement) -> IO (Maybe HTMLElement)
+  list : (obj : HTMLInputElement) -> JSIO (Maybe HTMLElement)
   
   %foreign "browser:lambda:x=>x.validationMessage"
   prim__validationMessage : AnyPtr -> PrimIO AnyPtr
 
   export
-  validationMessage : (obj : HTMLInputElement) -> IO String
+  validationMessage : (obj : HTMLInputElement) -> JSIO String
   
   %foreign "browser:lambda:x=>x.validity"
   prim__validity : AnyPtr -> PrimIO AnyPtr
 
   export
-  validity : (obj : HTMLInputElement) -> IO ValidityState
+  validity : (obj : HTMLInputElement) -> JSIO ValidityState
   
   %foreign "browser:lambda:x=>x.willValidate"
   prim__willValidate : AnyPtr -> PrimIO AnyPtr
 
   export
-  willValidate : (obj : HTMLInputElement) -> IO Bool
+  willValidate : (obj : HTMLInputElement) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.accept"
   prim__accept : AnyPtr -> PrimIO AnyPtr
 
   export
-  accept : (obj : HTMLInputElement) -> IO String
+  accept : (obj : HTMLInputElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.accept  = v}"
   prim__setAccept : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAccept : (obj : HTMLInputElement) -> (v : String) -> IO ()
+  setAccept : (obj : HTMLInputElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.align"
   prim__align : AnyPtr -> PrimIO AnyPtr
 
   export
-  align : (obj : HTMLInputElement) -> IO String
+  align : (obj : HTMLInputElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.align  = v}"
   prim__setAlign : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAlign : (obj : HTMLInputElement) -> (v : String) -> IO ()
+  setAlign : (obj : HTMLInputElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.alt"
   prim__alt : AnyPtr -> PrimIO AnyPtr
 
   export
-  alt : (obj : HTMLInputElement) -> IO String
+  alt : (obj : HTMLInputElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.alt  = v}"
   prim__setAlt : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAlt : (obj : HTMLInputElement) -> (v : String) -> IO ()
+  setAlt : (obj : HTMLInputElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.autocomplete"
   prim__autocomplete : AnyPtr -> PrimIO AnyPtr
 
   export
-  autocomplete : (obj : HTMLInputElement) -> IO String
+  autocomplete : (obj : HTMLInputElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.autocomplete  = v}"
   prim__setAutocomplete : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAutocomplete : (obj : HTMLInputElement) -> (v : String) -> IO ()
+  setAutocomplete : (obj : HTMLInputElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.checked"
   prim__checked : AnyPtr -> PrimIO AnyPtr
 
   export
-  checked : (obj : HTMLInputElement) -> IO Bool
+  checked : (obj : HTMLInputElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.checked  = v}"
   prim__setChecked : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setChecked : (obj : HTMLInputElement) -> (v : Bool) -> IO ()
+  setChecked : (obj : HTMLInputElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.defaultChecked"
   prim__defaultChecked : AnyPtr -> PrimIO AnyPtr
 
   export
-  defaultChecked : (obj : HTMLInputElement) -> IO Bool
+  defaultChecked : (obj : HTMLInputElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.defaultChecked  = v}"
   prim__setDefaultChecked : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDefaultChecked : (obj : HTMLInputElement) -> (v : Bool) -> IO ()
+  setDefaultChecked : (obj : HTMLInputElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.defaultValue"
   prim__defaultValue : AnyPtr -> PrimIO AnyPtr
 
   export
-  defaultValue : (obj : HTMLInputElement) -> IO String
+  defaultValue : (obj : HTMLInputElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.defaultValue  = v}"
   prim__setDefaultValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDefaultValue : (obj : HTMLInputElement) -> (v : String) -> IO ()
+  setDefaultValue : (obj : HTMLInputElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.dirName"
   prim__dirName : AnyPtr -> PrimIO AnyPtr
 
   export
-  dirName : (obj : HTMLInputElement) -> IO String
+  dirName : (obj : HTMLInputElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.dirName  = v}"
   prim__setDirName : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDirName : (obj : HTMLInputElement) -> (v : String) -> IO ()
+  setDirName : (obj : HTMLInputElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.disabled"
   prim__disabled : AnyPtr -> PrimIO AnyPtr
 
   export
-  disabled : (obj : HTMLInputElement) -> IO Bool
+  disabled : (obj : HTMLInputElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.disabled  = v}"
   prim__setDisabled : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDisabled : (obj : HTMLInputElement) -> (v : Bool) -> IO ()
+  setDisabled : (obj : HTMLInputElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.files"
   prim__files : AnyPtr -> PrimIO AnyPtr
 
   export
-  files : (obj : HTMLInputElement) -> IO (Maybe FileList)
+  files : (obj : HTMLInputElement) -> JSIO (Maybe FileList)
 
   %foreign "browser:lambda:(x,v)=>{x.files  = v}"
   prim__setFiles : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setFiles : (obj : HTMLInputElement) -> (v : Maybe FileList) -> IO ()
+  setFiles : (obj : HTMLInputElement) -> (v : Maybe FileList) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.formAction"
   prim__formAction : AnyPtr -> PrimIO AnyPtr
 
   export
-  formAction : (obj : HTMLInputElement) -> IO String
+  formAction : (obj : HTMLInputElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.formAction  = v}"
   prim__setFormAction : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setFormAction : (obj : HTMLInputElement) -> (v : String) -> IO ()
+  setFormAction : (obj : HTMLInputElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.formEnctype"
   prim__formEnctype : AnyPtr -> PrimIO AnyPtr
 
   export
-  formEnctype : (obj : HTMLInputElement) -> IO String
+  formEnctype : (obj : HTMLInputElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.formEnctype  = v}"
   prim__setFormEnctype : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setFormEnctype : (obj : HTMLInputElement) -> (v : String) -> IO ()
+  setFormEnctype : (obj : HTMLInputElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.formMethod"
   prim__formMethod : AnyPtr -> PrimIO AnyPtr
 
   export
-  formMethod : (obj : HTMLInputElement) -> IO String
+  formMethod : (obj : HTMLInputElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.formMethod  = v}"
   prim__setFormMethod : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setFormMethod : (obj : HTMLInputElement) -> (v : String) -> IO ()
+  setFormMethod : (obj : HTMLInputElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.formNoValidate"
   prim__formNoValidate : AnyPtr -> PrimIO AnyPtr
 
   export
-  formNoValidate : (obj : HTMLInputElement) -> IO Bool
+  formNoValidate : (obj : HTMLInputElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.formNoValidate  = v}"
   prim__setFormNoValidate : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setFormNoValidate : (obj : HTMLInputElement) -> (v : Bool) -> IO ()
+  setFormNoValidate : (obj : HTMLInputElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.formTarget"
   prim__formTarget : AnyPtr -> PrimIO AnyPtr
 
   export
-  formTarget : (obj : HTMLInputElement) -> IO String
+  formTarget : (obj : HTMLInputElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.formTarget  = v}"
   prim__setFormTarget : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setFormTarget : (obj : HTMLInputElement) -> (v : String) -> IO ()
+  setFormTarget : (obj : HTMLInputElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.height"
   prim__height : AnyPtr -> PrimIO AnyPtr
 
   export
-  height : (obj : HTMLInputElement) -> IO UInt32
+  height : (obj : HTMLInputElement) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.height  = v}"
   prim__setHeight : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHeight : (obj : HTMLInputElement) -> (v : UInt32) -> IO ()
+  setHeight : (obj : HTMLInputElement) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.indeterminate"
   prim__indeterminate : AnyPtr -> PrimIO AnyPtr
 
   export
-  indeterminate : (obj : HTMLInputElement) -> IO Bool
+  indeterminate : (obj : HTMLInputElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.indeterminate  = v}"
   prim__setIndeterminate : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setIndeterminate : (obj : HTMLInputElement) -> (v : Bool) -> IO ()
+  setIndeterminate : (obj : HTMLInputElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.max"
   prim__max : AnyPtr -> PrimIO AnyPtr
 
   export
-  max : (obj : HTMLInputElement) -> IO String
+  max : (obj : HTMLInputElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.max  = v}"
   prim__setMax : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setMax : (obj : HTMLInputElement) -> (v : String) -> IO ()
+  setMax : (obj : HTMLInputElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.maxLength"
   prim__maxLength : AnyPtr -> PrimIO AnyPtr
 
   export
-  maxLength : (obj : HTMLInputElement) -> IO Int32
+  maxLength : (obj : HTMLInputElement) -> JSIO Int32
 
   %foreign "browser:lambda:(x,v)=>{x.maxLength  = v}"
   prim__setMaxLength : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setMaxLength : (obj : HTMLInputElement) -> (v : Int32) -> IO ()
+  setMaxLength : (obj : HTMLInputElement) -> (v : Int32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.min"
   prim__min : AnyPtr -> PrimIO AnyPtr
 
   export
-  min : (obj : HTMLInputElement) -> IO String
+  min : (obj : HTMLInputElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.min  = v}"
   prim__setMin : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setMin : (obj : HTMLInputElement) -> (v : String) -> IO ()
+  setMin : (obj : HTMLInputElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.minLength"
   prim__minLength : AnyPtr -> PrimIO AnyPtr
 
   export
-  minLength : (obj : HTMLInputElement) -> IO Int32
+  minLength : (obj : HTMLInputElement) -> JSIO Int32
 
   %foreign "browser:lambda:(x,v)=>{x.minLength  = v}"
   prim__setMinLength : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setMinLength : (obj : HTMLInputElement) -> (v : Int32) -> IO ()
+  setMinLength : (obj : HTMLInputElement) -> (v : Int32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.multiple"
   prim__multiple : AnyPtr -> PrimIO AnyPtr
 
   export
-  multiple : (obj : HTMLInputElement) -> IO Bool
+  multiple : (obj : HTMLInputElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.multiple  = v}"
   prim__setMultiple : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setMultiple : (obj : HTMLInputElement) -> (v : Bool) -> IO ()
+  setMultiple : (obj : HTMLInputElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.name"
   prim__name : AnyPtr -> PrimIO AnyPtr
 
   export
-  name : (obj : HTMLInputElement) -> IO String
+  name : (obj : HTMLInputElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.name  = v}"
   prim__setName : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setName : (obj : HTMLInputElement) -> (v : String) -> IO ()
+  setName : (obj : HTMLInputElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.pattern"
   prim__pattern : AnyPtr -> PrimIO AnyPtr
 
   export
-  pattern : (obj : HTMLInputElement) -> IO String
+  pattern : (obj : HTMLInputElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.pattern  = v}"
   prim__setPattern : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setPattern : (obj : HTMLInputElement) -> (v : String) -> IO ()
+  setPattern : (obj : HTMLInputElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.placeholder"
   prim__placeholder : AnyPtr -> PrimIO AnyPtr
 
   export
-  placeholder : (obj : HTMLInputElement) -> IO String
+  placeholder : (obj : HTMLInputElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.placeholder  = v}"
   prim__setPlaceholder : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setPlaceholder : (obj : HTMLInputElement) -> (v : String) -> IO ()
+  setPlaceholder : (obj : HTMLInputElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.readOnly"
   prim__readOnly : AnyPtr -> PrimIO AnyPtr
 
   export
-  readOnly : (obj : HTMLInputElement) -> IO Bool
+  readOnly : (obj : HTMLInputElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.readOnly  = v}"
   prim__setReadOnly : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setReadOnly : (obj : HTMLInputElement) -> (v : Bool) -> IO ()
+  setReadOnly : (obj : HTMLInputElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.required"
   prim__required : AnyPtr -> PrimIO AnyPtr
 
   export
-  required : (obj : HTMLInputElement) -> IO Bool
+  required : (obj : HTMLInputElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.required  = v}"
   prim__setRequired : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setRequired : (obj : HTMLInputElement) -> (v : Bool) -> IO ()
+  setRequired : (obj : HTMLInputElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.selectionDirection"
   prim__selectionDirection : AnyPtr -> PrimIO AnyPtr
 
   export
-  selectionDirection : (obj : HTMLInputElement) -> IO (Maybe String)
+  selectionDirection : (obj : HTMLInputElement) -> JSIO (Maybe String)
 
   %foreign "browser:lambda:(x,v)=>{x.selectionDirection  = v}"
   prim__setSelectionDirection : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -3266,139 +3266,139 @@ namespace HTMLInputElement
   export
   setSelectionDirection :  (obj : HTMLInputElement)
                         -> (v : Maybe String)
-                        -> IO ()
+                        -> JSIO ()
   
   %foreign "browser:lambda:x=>x.selectionEnd"
   prim__selectionEnd : AnyPtr -> PrimIO AnyPtr
 
   export
-  selectionEnd : (obj : HTMLInputElement) -> IO (Maybe UInt32)
+  selectionEnd : (obj : HTMLInputElement) -> JSIO (Maybe UInt32)
 
   %foreign "browser:lambda:(x,v)=>{x.selectionEnd  = v}"
   prim__setSelectionEnd : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSelectionEnd : (obj : HTMLInputElement) -> (v : Maybe UInt32) -> IO ()
+  setSelectionEnd : (obj : HTMLInputElement) -> (v : Maybe UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.selectionStart"
   prim__selectionStart : AnyPtr -> PrimIO AnyPtr
 
   export
-  selectionStart : (obj : HTMLInputElement) -> IO (Maybe UInt32)
+  selectionStart : (obj : HTMLInputElement) -> JSIO (Maybe UInt32)
 
   %foreign "browser:lambda:(x,v)=>{x.selectionStart  = v}"
   prim__setSelectionStart : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSelectionStart : (obj : HTMLInputElement) -> (v : Maybe UInt32) -> IO ()
+  setSelectionStart : (obj : HTMLInputElement) -> (v : Maybe UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.size"
   prim__size : AnyPtr -> PrimIO AnyPtr
 
   export
-  size : (obj : HTMLInputElement) -> IO UInt32
+  size : (obj : HTMLInputElement) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.size  = v}"
   prim__setSize : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSize : (obj : HTMLInputElement) -> (v : UInt32) -> IO ()
+  setSize : (obj : HTMLInputElement) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.src"
   prim__src : AnyPtr -> PrimIO AnyPtr
 
   export
-  src : (obj : HTMLInputElement) -> IO String
+  src : (obj : HTMLInputElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.src  = v}"
   prim__setSrc : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSrc : (obj : HTMLInputElement) -> (v : String) -> IO ()
+  setSrc : (obj : HTMLInputElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.step"
   prim__step : AnyPtr -> PrimIO AnyPtr
 
   export
-  step : (obj : HTMLInputElement) -> IO String
+  step : (obj : HTMLInputElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.step  = v}"
   prim__setStep : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setStep : (obj : HTMLInputElement) -> (v : String) -> IO ()
+  setStep : (obj : HTMLInputElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
 
   export
-  type : (obj : HTMLInputElement) -> IO String
+  type : (obj : HTMLInputElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.type  = v}"
   prim__setType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setType : (obj : HTMLInputElement) -> (v : String) -> IO ()
+  setType : (obj : HTMLInputElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.useMap"
   prim__useMap : AnyPtr -> PrimIO AnyPtr
 
   export
-  useMap : (obj : HTMLInputElement) -> IO String
+  useMap : (obj : HTMLInputElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.useMap  = v}"
   prim__setUseMap : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setUseMap : (obj : HTMLInputElement) -> (v : String) -> IO ()
+  setUseMap : (obj : HTMLInputElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.value"
   prim__value : AnyPtr -> PrimIO AnyPtr
 
   export
-  value : (obj : HTMLInputElement) -> IO String
+  value : (obj : HTMLInputElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.value  = v}"
   prim__setValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setValue : (obj : HTMLInputElement) -> (v : String) -> IO ()
+  setValue : (obj : HTMLInputElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.valueAsDate"
   prim__valueAsDate : AnyPtr -> PrimIO AnyPtr
 
   export
-  valueAsDate : (obj : HTMLInputElement) -> IO (Maybe JSObject)
+  valueAsDate : (obj : HTMLInputElement) -> JSIO (Maybe JSObject)
 
   %foreign "browser:lambda:(x,v)=>{x.valueAsDate  = v}"
   prim__setValueAsDate : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setValueAsDate : (obj : HTMLInputElement) -> (v : Maybe JSObject) -> IO ()
+  setValueAsDate : (obj : HTMLInputElement) -> (v : Maybe JSObject) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.valueAsNumber"
   prim__valueAsNumber : AnyPtr -> PrimIO AnyPtr
 
   export
-  valueAsNumber : (obj : HTMLInputElement) -> IO Double
+  valueAsNumber : (obj : HTMLInputElement) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.valueAsNumber  = v}"
   prim__setValueAsNumber : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setValueAsNumber : (obj : HTMLInputElement) -> (v : Double) -> IO ()
+  setValueAsNumber : (obj : HTMLInputElement) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
 
   export
-  width : (obj : HTMLInputElement) -> IO UInt32
+  width : (obj : HTMLInputElement) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.width  = v}"
   prim__setWidth : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setWidth : (obj : HTMLInputElement) -> (v : UInt32) -> IO ()
+  setWidth : (obj : HTMLInputElement) -> (v : UInt32) -> JSIO ()
 
 namespace HTMLLIElement
   
@@ -3422,25 +3422,25 @@ namespace HTMLLIElement
   prim__type : AnyPtr -> PrimIO AnyPtr
 
   export
-  type : (obj : HTMLLIElement) -> IO String
+  type : (obj : HTMLLIElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.type  = v}"
   prim__setType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setType : (obj : HTMLLIElement) -> (v : String) -> IO ()
+  setType : (obj : HTMLLIElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.value"
   prim__value : AnyPtr -> PrimIO AnyPtr
 
   export
-  value : (obj : HTMLLIElement) -> IO Int32
+  value : (obj : HTMLLIElement) -> JSIO Int32
 
   %foreign "browser:lambda:(x,v)=>{x.value  = v}"
   prim__setValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setValue : (obj : HTMLLIElement) -> (v : Int32) -> IO ()
+  setValue : (obj : HTMLLIElement) -> (v : Int32) -> JSIO ()
 
 namespace HTMLLabelElement
   
@@ -3464,25 +3464,25 @@ namespace HTMLLabelElement
   prim__control : AnyPtr -> PrimIO AnyPtr
 
   export
-  control : (obj : HTMLLabelElement) -> IO (Maybe HTMLElement)
+  control : (obj : HTMLLabelElement) -> JSIO (Maybe HTMLElement)
   
   %foreign "browser:lambda:x=>x.form"
   prim__form : AnyPtr -> PrimIO AnyPtr
 
   export
-  form : (obj : HTMLLabelElement) -> IO (Maybe HTMLFormElement)
+  form : (obj : HTMLLabelElement) -> JSIO (Maybe HTMLFormElement)
   
   %foreign "browser:lambda:x=>x.htmlFor"
   prim__htmlFor : AnyPtr -> PrimIO AnyPtr
 
   export
-  htmlFor : (obj : HTMLLabelElement) -> IO String
+  htmlFor : (obj : HTMLLabelElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.htmlFor  = v}"
   prim__setHtmlFor : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHtmlFor : (obj : HTMLLabelElement) -> (v : String) -> IO ()
+  setHtmlFor : (obj : HTMLLabelElement) -> (v : String) -> JSIO ()
 
 namespace HTMLLegendElement
   
@@ -3506,19 +3506,19 @@ namespace HTMLLegendElement
   prim__form : AnyPtr -> PrimIO AnyPtr
 
   export
-  form : (obj : HTMLLegendElement) -> IO (Maybe HTMLFormElement)
+  form : (obj : HTMLLegendElement) -> JSIO (Maybe HTMLFormElement)
   
   %foreign "browser:lambda:x=>x.align"
   prim__align : AnyPtr -> PrimIO AnyPtr
 
   export
-  align : (obj : HTMLLegendElement) -> IO String
+  align : (obj : HTMLLegendElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.align  = v}"
   prim__setAlign : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAlign : (obj : HTMLLegendElement) -> (v : String) -> IO ()
+  setAlign : (obj : HTMLLegendElement) -> (v : String) -> JSIO ()
 
 namespace HTMLLinkElement
   
@@ -3543,193 +3543,193 @@ namespace HTMLLinkElement
   prim__relList : AnyPtr -> PrimIO AnyPtr
 
   export
-  relList : (obj : HTMLLinkElement) -> IO DOMTokenList
+  relList : (obj : HTMLLinkElement) -> JSIO DOMTokenList
   
   %foreign "browser:lambda:x=>x.sizes"
   prim__sizes : AnyPtr -> PrimIO AnyPtr
 
   export
-  sizes : (obj : HTMLLinkElement) -> IO DOMTokenList
+  sizes : (obj : HTMLLinkElement) -> JSIO DOMTokenList
   
   %foreign "browser:lambda:x=>x.as"
   prim__as : AnyPtr -> PrimIO AnyPtr
 
   export
-  as : (obj : HTMLLinkElement) -> IO String
+  as : (obj : HTMLLinkElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.as  = v}"
   prim__setAs : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAs : (obj : HTMLLinkElement) -> (v : String) -> IO ()
+  setAs : (obj : HTMLLinkElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.charset"
   prim__charset : AnyPtr -> PrimIO AnyPtr
 
   export
-  charset : (obj : HTMLLinkElement) -> IO String
+  charset : (obj : HTMLLinkElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.charset  = v}"
   prim__setCharset : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCharset : (obj : HTMLLinkElement) -> (v : String) -> IO ()
+  setCharset : (obj : HTMLLinkElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.crossOrigin"
   prim__crossOrigin : AnyPtr -> PrimIO AnyPtr
 
   export
-  crossOrigin : (obj : HTMLLinkElement) -> IO (Maybe String)
+  crossOrigin : (obj : HTMLLinkElement) -> JSIO (Maybe String)
 
   %foreign "browser:lambda:(x,v)=>{x.crossOrigin  = v}"
   prim__setCrossOrigin : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCrossOrigin : (obj : HTMLLinkElement) -> (v : Maybe String) -> IO ()
+  setCrossOrigin : (obj : HTMLLinkElement) -> (v : Maybe String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.disabled"
   prim__disabled : AnyPtr -> PrimIO AnyPtr
 
   export
-  disabled : (obj : HTMLLinkElement) -> IO Bool
+  disabled : (obj : HTMLLinkElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.disabled  = v}"
   prim__setDisabled : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDisabled : (obj : HTMLLinkElement) -> (v : Bool) -> IO ()
+  setDisabled : (obj : HTMLLinkElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.href"
   prim__href : AnyPtr -> PrimIO AnyPtr
 
   export
-  href : (obj : HTMLLinkElement) -> IO String
+  href : (obj : HTMLLinkElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.href  = v}"
   prim__setHref : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHref : (obj : HTMLLinkElement) -> (v : String) -> IO ()
+  setHref : (obj : HTMLLinkElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.hreflang"
   prim__hreflang : AnyPtr -> PrimIO AnyPtr
 
   export
-  hreflang : (obj : HTMLLinkElement) -> IO String
+  hreflang : (obj : HTMLLinkElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.hreflang  = v}"
   prim__setHreflang : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHreflang : (obj : HTMLLinkElement) -> (v : String) -> IO ()
+  setHreflang : (obj : HTMLLinkElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.imageSizes"
   prim__imageSizes : AnyPtr -> PrimIO AnyPtr
 
   export
-  imageSizes : (obj : HTMLLinkElement) -> IO String
+  imageSizes : (obj : HTMLLinkElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.imageSizes  = v}"
   prim__setImageSizes : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setImageSizes : (obj : HTMLLinkElement) -> (v : String) -> IO ()
+  setImageSizes : (obj : HTMLLinkElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.imageSrcset"
   prim__imageSrcset : AnyPtr -> PrimIO AnyPtr
 
   export
-  imageSrcset : (obj : HTMLLinkElement) -> IO String
+  imageSrcset : (obj : HTMLLinkElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.imageSrcset  = v}"
   prim__setImageSrcset : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setImageSrcset : (obj : HTMLLinkElement) -> (v : String) -> IO ()
+  setImageSrcset : (obj : HTMLLinkElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.integrity"
   prim__integrity : AnyPtr -> PrimIO AnyPtr
 
   export
-  integrity : (obj : HTMLLinkElement) -> IO String
+  integrity : (obj : HTMLLinkElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.integrity  = v}"
   prim__setIntegrity : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setIntegrity : (obj : HTMLLinkElement) -> (v : String) -> IO ()
+  setIntegrity : (obj : HTMLLinkElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.media"
   prim__media : AnyPtr -> PrimIO AnyPtr
 
   export
-  media : (obj : HTMLLinkElement) -> IO String
+  media : (obj : HTMLLinkElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.media  = v}"
   prim__setMedia : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setMedia : (obj : HTMLLinkElement) -> (v : String) -> IO ()
+  setMedia : (obj : HTMLLinkElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.referrerPolicy"
   prim__referrerPolicy : AnyPtr -> PrimIO AnyPtr
 
   export
-  referrerPolicy : (obj : HTMLLinkElement) -> IO String
+  referrerPolicy : (obj : HTMLLinkElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.referrerPolicy  = v}"
   prim__setReferrerPolicy : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setReferrerPolicy : (obj : HTMLLinkElement) -> (v : String) -> IO ()
+  setReferrerPolicy : (obj : HTMLLinkElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.rel"
   prim__rel : AnyPtr -> PrimIO AnyPtr
 
   export
-  rel : (obj : HTMLLinkElement) -> IO String
+  rel : (obj : HTMLLinkElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.rel  = v}"
   prim__setRel : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setRel : (obj : HTMLLinkElement) -> (v : String) -> IO ()
+  setRel : (obj : HTMLLinkElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.rev"
   prim__rev : AnyPtr -> PrimIO AnyPtr
 
   export
-  rev : (obj : HTMLLinkElement) -> IO String
+  rev : (obj : HTMLLinkElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.rev  = v}"
   prim__setRev : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setRev : (obj : HTMLLinkElement) -> (v : String) -> IO ()
+  setRev : (obj : HTMLLinkElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.target"
   prim__target : AnyPtr -> PrimIO AnyPtr
 
   export
-  target : (obj : HTMLLinkElement) -> IO String
+  target : (obj : HTMLLinkElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.target  = v}"
   prim__setTarget : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setTarget : (obj : HTMLLinkElement) -> (v : String) -> IO ()
+  setTarget : (obj : HTMLLinkElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
 
   export
-  type : (obj : HTMLLinkElement) -> IO String
+  type : (obj : HTMLLinkElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.type  = v}"
   prim__setType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setType : (obj : HTMLLinkElement) -> (v : String) -> IO ()
+  setType : (obj : HTMLLinkElement) -> (v : String) -> JSIO ()
 
 namespace HTMLMapElement
   
@@ -3753,19 +3753,19 @@ namespace HTMLMapElement
   prim__areas : AnyPtr -> PrimIO AnyPtr
 
   export
-  areas : (obj : HTMLMapElement) -> IO HTMLCollection
+  areas : (obj : HTMLMapElement) -> JSIO HTMLCollection
   
   %foreign "browser:lambda:x=>x.name"
   prim__name : AnyPtr -> PrimIO AnyPtr
 
   export
-  name : (obj : HTMLMapElement) -> IO String
+  name : (obj : HTMLMapElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.name  = v}"
   prim__setName : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setName : (obj : HTMLMapElement) -> (v : String) -> IO ()
+  setName : (obj : HTMLMapElement) -> (v : String) -> JSIO ()
 
 namespace HTMLMarqueeElement
   
@@ -3789,133 +3789,133 @@ namespace HTMLMarqueeElement
   prim__behavior : AnyPtr -> PrimIO AnyPtr
 
   export
-  behavior : (obj : HTMLMarqueeElement) -> IO String
+  behavior : (obj : HTMLMarqueeElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.behavior  = v}"
   prim__setBehavior : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setBehavior : (obj : HTMLMarqueeElement) -> (v : String) -> IO ()
+  setBehavior : (obj : HTMLMarqueeElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.bgColor"
   prim__bgColor : AnyPtr -> PrimIO AnyPtr
 
   export
-  bgColor : (obj : HTMLMarqueeElement) -> IO String
+  bgColor : (obj : HTMLMarqueeElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.bgColor  = v}"
   prim__setBgColor : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setBgColor : (obj : HTMLMarqueeElement) -> (v : String) -> IO ()
+  setBgColor : (obj : HTMLMarqueeElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.direction"
   prim__direction : AnyPtr -> PrimIO AnyPtr
 
   export
-  direction : (obj : HTMLMarqueeElement) -> IO String
+  direction : (obj : HTMLMarqueeElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.direction  = v}"
   prim__setDirection : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDirection : (obj : HTMLMarqueeElement) -> (v : String) -> IO ()
+  setDirection : (obj : HTMLMarqueeElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.height"
   prim__height : AnyPtr -> PrimIO AnyPtr
 
   export
-  height : (obj : HTMLMarqueeElement) -> IO String
+  height : (obj : HTMLMarqueeElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.height  = v}"
   prim__setHeight : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHeight : (obj : HTMLMarqueeElement) -> (v : String) -> IO ()
+  setHeight : (obj : HTMLMarqueeElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.hspace"
   prim__hspace : AnyPtr -> PrimIO AnyPtr
 
   export
-  hspace : (obj : HTMLMarqueeElement) -> IO UInt32
+  hspace : (obj : HTMLMarqueeElement) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.hspace  = v}"
   prim__setHspace : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHspace : (obj : HTMLMarqueeElement) -> (v : UInt32) -> IO ()
+  setHspace : (obj : HTMLMarqueeElement) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.loop"
   prim__loop : AnyPtr -> PrimIO AnyPtr
 
   export
-  loop : (obj : HTMLMarqueeElement) -> IO Int32
+  loop : (obj : HTMLMarqueeElement) -> JSIO Int32
 
   %foreign "browser:lambda:(x,v)=>{x.loop  = v}"
   prim__setLoop : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setLoop : (obj : HTMLMarqueeElement) -> (v : Int32) -> IO ()
+  setLoop : (obj : HTMLMarqueeElement) -> (v : Int32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.scrollAmount"
   prim__scrollAmount : AnyPtr -> PrimIO AnyPtr
 
   export
-  scrollAmount : (obj : HTMLMarqueeElement) -> IO UInt32
+  scrollAmount : (obj : HTMLMarqueeElement) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.scrollAmount  = v}"
   prim__setScrollAmount : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setScrollAmount : (obj : HTMLMarqueeElement) -> (v : UInt32) -> IO ()
+  setScrollAmount : (obj : HTMLMarqueeElement) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.scrollDelay"
   prim__scrollDelay : AnyPtr -> PrimIO AnyPtr
 
   export
-  scrollDelay : (obj : HTMLMarqueeElement) -> IO UInt32
+  scrollDelay : (obj : HTMLMarqueeElement) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.scrollDelay  = v}"
   prim__setScrollDelay : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setScrollDelay : (obj : HTMLMarqueeElement) -> (v : UInt32) -> IO ()
+  setScrollDelay : (obj : HTMLMarqueeElement) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.trueSpeed"
   prim__trueSpeed : AnyPtr -> PrimIO AnyPtr
 
   export
-  trueSpeed : (obj : HTMLMarqueeElement) -> IO Bool
+  trueSpeed : (obj : HTMLMarqueeElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.trueSpeed  = v}"
   prim__setTrueSpeed : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setTrueSpeed : (obj : HTMLMarqueeElement) -> (v : Bool) -> IO ()
+  setTrueSpeed : (obj : HTMLMarqueeElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.vspace"
   prim__vspace : AnyPtr -> PrimIO AnyPtr
 
   export
-  vspace : (obj : HTMLMarqueeElement) -> IO UInt32
+  vspace : (obj : HTMLMarqueeElement) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.vspace  = v}"
   prim__setVspace : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setVspace : (obj : HTMLMarqueeElement) -> (v : UInt32) -> IO ()
+  setVspace : (obj : HTMLMarqueeElement) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
 
   export
-  width : (obj : HTMLMarqueeElement) -> IO String
+  width : (obj : HTMLMarqueeElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.width  = v}"
   prim__setWidth : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setWidth : (obj : HTMLMarqueeElement) -> (v : String) -> IO ()
+  setWidth : (obj : HTMLMarqueeElement) -> (v : String) -> JSIO ()
 
 namespace HTMLMediaElement
   
@@ -3975,253 +3975,255 @@ namespace HTMLMediaElement
   prim__audioTracks : AnyPtr -> PrimIO AnyPtr
 
   export
-  audioTracks : (obj : HTMLMediaElement) -> IO AudioTrackList
+  audioTracks : (obj : HTMLMediaElement) -> JSIO AudioTrackList
   
   %foreign "browser:lambda:x=>x.buffered"
   prim__buffered : AnyPtr -> PrimIO AnyPtr
 
   export
-  buffered : (obj : HTMLMediaElement) -> IO TimeRanges
+  buffered : (obj : HTMLMediaElement) -> JSIO TimeRanges
   
   %foreign "browser:lambda:x=>x.currentSrc"
   prim__currentSrc : AnyPtr -> PrimIO AnyPtr
 
   export
-  currentSrc : (obj : HTMLMediaElement) -> IO String
+  currentSrc : (obj : HTMLMediaElement) -> JSIO String
   
   %foreign "browser:lambda:x=>x.duration"
   prim__duration : AnyPtr -> PrimIO AnyPtr
 
   export
-  duration : (obj : HTMLMediaElement) -> IO Double
+  duration : (obj : HTMLMediaElement) -> JSIO Double
   
   %foreign "browser:lambda:x=>x.ended"
   prim__ended : AnyPtr -> PrimIO AnyPtr
 
   export
-  ended : (obj : HTMLMediaElement) -> IO Bool
+  ended : (obj : HTMLMediaElement) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.error"
   prim__error : AnyPtr -> PrimIO AnyPtr
 
   export
-  error : (obj : HTMLMediaElement) -> IO (Maybe MediaError)
+  error : (obj : HTMLMediaElement) -> JSIO (Maybe MediaError)
   
   %foreign "browser:lambda:x=>x.networkState"
   prim__networkState : AnyPtr -> PrimIO AnyPtr
 
   export
-  networkState : (obj : HTMLMediaElement) -> IO UInt16
+  networkState : (obj : HTMLMediaElement) -> JSIO UInt16
   
   %foreign "browser:lambda:x=>x.paused"
   prim__paused : AnyPtr -> PrimIO AnyPtr
 
   export
-  paused : (obj : HTMLMediaElement) -> IO Bool
+  paused : (obj : HTMLMediaElement) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.played"
   prim__played : AnyPtr -> PrimIO AnyPtr
 
   export
-  played : (obj : HTMLMediaElement) -> IO TimeRanges
+  played : (obj : HTMLMediaElement) -> JSIO TimeRanges
   
   %foreign "browser:lambda:x=>x.readyState"
   prim__readyState : AnyPtr -> PrimIO AnyPtr
 
   export
-  readyState : (obj : HTMLMediaElement) -> IO UInt16
+  readyState : (obj : HTMLMediaElement) -> JSIO UInt16
   
   %foreign "browser:lambda:x=>x.seekable"
   prim__seekable : AnyPtr -> PrimIO AnyPtr
 
   export
-  seekable : (obj : HTMLMediaElement) -> IO TimeRanges
+  seekable : (obj : HTMLMediaElement) -> JSIO TimeRanges
   
   %foreign "browser:lambda:x=>x.seeking"
   prim__seeking : AnyPtr -> PrimIO AnyPtr
 
   export
-  seeking : (obj : HTMLMediaElement) -> IO Bool
+  seeking : (obj : HTMLMediaElement) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.textTracks"
   prim__textTracks : AnyPtr -> PrimIO AnyPtr
 
   export
-  textTracks : (obj : HTMLMediaElement) -> IO TextTrackList
+  textTracks : (obj : HTMLMediaElement) -> JSIO TextTrackList
   
   %foreign "browser:lambda:x=>x.videoTracks"
   prim__videoTracks : AnyPtr -> PrimIO AnyPtr
 
   export
-  videoTracks : (obj : HTMLMediaElement) -> IO VideoTrackList
+  videoTracks : (obj : HTMLMediaElement) -> JSIO VideoTrackList
   
   %foreign "browser:lambda:x=>x.autoplay"
   prim__autoplay : AnyPtr -> PrimIO AnyPtr
 
   export
-  autoplay : (obj : HTMLMediaElement) -> IO Bool
+  autoplay : (obj : HTMLMediaElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.autoplay  = v}"
   prim__setAutoplay : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAutoplay : (obj : HTMLMediaElement) -> (v : Bool) -> IO ()
+  setAutoplay : (obj : HTMLMediaElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.controls"
   prim__controls : AnyPtr -> PrimIO AnyPtr
 
   export
-  controls : (obj : HTMLMediaElement) -> IO Bool
+  controls : (obj : HTMLMediaElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.controls  = v}"
   prim__setControls : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setControls : (obj : HTMLMediaElement) -> (v : Bool) -> IO ()
+  setControls : (obj : HTMLMediaElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.crossOrigin"
   prim__crossOrigin : AnyPtr -> PrimIO AnyPtr
 
   export
-  crossOrigin : (obj : HTMLMediaElement) -> IO (Maybe String)
+  crossOrigin : (obj : HTMLMediaElement) -> JSIO (Maybe String)
 
   %foreign "browser:lambda:(x,v)=>{x.crossOrigin  = v}"
   prim__setCrossOrigin : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCrossOrigin : (obj : HTMLMediaElement) -> (v : Maybe String) -> IO ()
+  setCrossOrigin : (obj : HTMLMediaElement) -> (v : Maybe String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.currentTime"
   prim__currentTime : AnyPtr -> PrimIO AnyPtr
 
   export
-  currentTime : (obj : HTMLMediaElement) -> IO Double
+  currentTime : (obj : HTMLMediaElement) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.currentTime  = v}"
   prim__setCurrentTime : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCurrentTime : (obj : HTMLMediaElement) -> (v : Double) -> IO ()
+  setCurrentTime : (obj : HTMLMediaElement) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.defaultMuted"
   prim__defaultMuted : AnyPtr -> PrimIO AnyPtr
 
   export
-  defaultMuted : (obj : HTMLMediaElement) -> IO Bool
+  defaultMuted : (obj : HTMLMediaElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.defaultMuted  = v}"
   prim__setDefaultMuted : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDefaultMuted : (obj : HTMLMediaElement) -> (v : Bool) -> IO ()
+  setDefaultMuted : (obj : HTMLMediaElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.defaultPlaybackRate"
   prim__defaultPlaybackRate : AnyPtr -> PrimIO AnyPtr
 
   export
-  defaultPlaybackRate : (obj : HTMLMediaElement) -> IO Double
+  defaultPlaybackRate : (obj : HTMLMediaElement) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.defaultPlaybackRate  = v}"
   prim__setDefaultPlaybackRate : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDefaultPlaybackRate : (obj : HTMLMediaElement) -> (v : Double) -> IO ()
+  setDefaultPlaybackRate : (obj : HTMLMediaElement) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.loop"
   prim__loop : AnyPtr -> PrimIO AnyPtr
 
   export
-  loop : (obj : HTMLMediaElement) -> IO Bool
+  loop : (obj : HTMLMediaElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.loop  = v}"
   prim__setLoop : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setLoop : (obj : HTMLMediaElement) -> (v : Bool) -> IO ()
+  setLoop : (obj : HTMLMediaElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.muted"
   prim__muted : AnyPtr -> PrimIO AnyPtr
 
   export
-  muted : (obj : HTMLMediaElement) -> IO Bool
+  muted : (obj : HTMLMediaElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.muted  = v}"
   prim__setMuted : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setMuted : (obj : HTMLMediaElement) -> (v : Bool) -> IO ()
+  setMuted : (obj : HTMLMediaElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.playbackRate"
   prim__playbackRate : AnyPtr -> PrimIO AnyPtr
 
   export
-  playbackRate : (obj : HTMLMediaElement) -> IO Double
+  playbackRate : (obj : HTMLMediaElement) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.playbackRate  = v}"
   prim__setPlaybackRate : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setPlaybackRate : (obj : HTMLMediaElement) -> (v : Double) -> IO ()
+  setPlaybackRate : (obj : HTMLMediaElement) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.preload"
   prim__preload : AnyPtr -> PrimIO AnyPtr
 
   export
-  preload : (obj : HTMLMediaElement) -> IO String
+  preload : (obj : HTMLMediaElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.preload  = v}"
   prim__setPreload : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setPreload : (obj : HTMLMediaElement) -> (v : String) -> IO ()
+  setPreload : (obj : HTMLMediaElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.preservesPitch"
   prim__preservesPitch : AnyPtr -> PrimIO AnyPtr
 
   export
-  preservesPitch : (obj : HTMLMediaElement) -> IO Bool
+  preservesPitch : (obj : HTMLMediaElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.preservesPitch  = v}"
   prim__setPreservesPitch : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setPreservesPitch : (obj : HTMLMediaElement) -> (v : Bool) -> IO ()
+  setPreservesPitch : (obj : HTMLMediaElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.src"
   prim__src : AnyPtr -> PrimIO AnyPtr
 
   export
-  src : (obj : HTMLMediaElement) -> IO String
+  src : (obj : HTMLMediaElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.src  = v}"
   prim__setSrc : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSrc : (obj : HTMLMediaElement) -> (v : String) -> IO ()
+  setSrc : (obj : HTMLMediaElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.srcObject"
   prim__srcObject : AnyPtr -> PrimIO AnyPtr
 
   export
-  srcObject : (obj : HTMLMediaElement) -> IO (Maybe MediaProvider)
+  srcObject : (obj : HTMLMediaElement) -> JSIO (Maybe MediaProvider)
 
   %foreign "browser:lambda:(x,v)=>{x.srcObject  = v}"
   prim__setSrcObject : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSrcObject : (obj : HTMLMediaElement) -> (v : Maybe MediaProvider) -> IO ()
+  setSrcObject :  (obj : HTMLMediaElement)
+               -> (v : Maybe MediaProvider)
+               -> JSIO ()
   
   %foreign "browser:lambda:x=>x.volume"
   prim__volume : AnyPtr -> PrimIO AnyPtr
 
   export
-  volume : (obj : HTMLMediaElement) -> IO Double
+  volume : (obj : HTMLMediaElement) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.volume  = v}"
   prim__setVolume : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setVolume : (obj : HTMLMediaElement) -> (v : Double) -> IO ()
+  setVolume : (obj : HTMLMediaElement) -> (v : Double) -> JSIO ()
 
 namespace HTMLMenuElement
   
@@ -4245,13 +4247,13 @@ namespace HTMLMenuElement
   prim__compact : AnyPtr -> PrimIO AnyPtr
 
   export
-  compact : (obj : HTMLMenuElement) -> IO Bool
+  compact : (obj : HTMLMenuElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.compact  = v}"
   prim__setCompact : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCompact : (obj : HTMLMenuElement) -> (v : Bool) -> IO ()
+  setCompact : (obj : HTMLMenuElement) -> (v : Bool) -> JSIO ()
 
 namespace HTMLMetaElement
   
@@ -4275,49 +4277,49 @@ namespace HTMLMetaElement
   prim__content : AnyPtr -> PrimIO AnyPtr
 
   export
-  content : (obj : HTMLMetaElement) -> IO String
+  content : (obj : HTMLMetaElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.content  = v}"
   prim__setContent : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setContent : (obj : HTMLMetaElement) -> (v : String) -> IO ()
+  setContent : (obj : HTMLMetaElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.httpEquiv"
   prim__httpEquiv : AnyPtr -> PrimIO AnyPtr
 
   export
-  httpEquiv : (obj : HTMLMetaElement) -> IO String
+  httpEquiv : (obj : HTMLMetaElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.httpEquiv  = v}"
   prim__setHttpEquiv : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHttpEquiv : (obj : HTMLMetaElement) -> (v : String) -> IO ()
+  setHttpEquiv : (obj : HTMLMetaElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.name"
   prim__name : AnyPtr -> PrimIO AnyPtr
 
   export
-  name : (obj : HTMLMetaElement) -> IO String
+  name : (obj : HTMLMetaElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.name  = v}"
   prim__setName : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setName : (obj : HTMLMetaElement) -> (v : String) -> IO ()
+  setName : (obj : HTMLMetaElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.scheme"
   prim__scheme : AnyPtr -> PrimIO AnyPtr
 
   export
-  scheme : (obj : HTMLMetaElement) -> IO String
+  scheme : (obj : HTMLMetaElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.scheme  = v}"
   prim__setScheme : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setScheme : (obj : HTMLMetaElement) -> (v : String) -> IO ()
+  setScheme : (obj : HTMLMetaElement) -> (v : String) -> JSIO ()
 
 namespace HTMLMeterElement
   
@@ -4341,79 +4343,79 @@ namespace HTMLMeterElement
   prim__labels : AnyPtr -> PrimIO AnyPtr
 
   export
-  labels : (obj : HTMLMeterElement) -> IO NodeList
+  labels : (obj : HTMLMeterElement) -> JSIO NodeList
   
   %foreign "browser:lambda:x=>x.high"
   prim__high : AnyPtr -> PrimIO AnyPtr
 
   export
-  high : (obj : HTMLMeterElement) -> IO Double
+  high : (obj : HTMLMeterElement) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.high  = v}"
   prim__setHigh : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHigh : (obj : HTMLMeterElement) -> (v : Double) -> IO ()
+  setHigh : (obj : HTMLMeterElement) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.low"
   prim__low : AnyPtr -> PrimIO AnyPtr
 
   export
-  low : (obj : HTMLMeterElement) -> IO Double
+  low : (obj : HTMLMeterElement) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.low  = v}"
   prim__setLow : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setLow : (obj : HTMLMeterElement) -> (v : Double) -> IO ()
+  setLow : (obj : HTMLMeterElement) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.max"
   prim__max : AnyPtr -> PrimIO AnyPtr
 
   export
-  max : (obj : HTMLMeterElement) -> IO Double
+  max : (obj : HTMLMeterElement) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.max  = v}"
   prim__setMax : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setMax : (obj : HTMLMeterElement) -> (v : Double) -> IO ()
+  setMax : (obj : HTMLMeterElement) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.min"
   prim__min : AnyPtr -> PrimIO AnyPtr
 
   export
-  min : (obj : HTMLMeterElement) -> IO Double
+  min : (obj : HTMLMeterElement) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.min  = v}"
   prim__setMin : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setMin : (obj : HTMLMeterElement) -> (v : Double) -> IO ()
+  setMin : (obj : HTMLMeterElement) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.optimum"
   prim__optimum : AnyPtr -> PrimIO AnyPtr
 
   export
-  optimum : (obj : HTMLMeterElement) -> IO Double
+  optimum : (obj : HTMLMeterElement) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.optimum  = v}"
   prim__setOptimum : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOptimum : (obj : HTMLMeterElement) -> (v : Double) -> IO ()
+  setOptimum : (obj : HTMLMeterElement) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.value"
   prim__value : AnyPtr -> PrimIO AnyPtr
 
   export
-  value : (obj : HTMLMeterElement) -> IO Double
+  value : (obj : HTMLMeterElement) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.value  = v}"
   prim__setValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setValue : (obj : HTMLMeterElement) -> (v : Double) -> IO ()
+  setValue : (obj : HTMLMeterElement) -> (v : Double) -> JSIO ()
 
 namespace HTMLModElement
   
@@ -4437,25 +4439,25 @@ namespace HTMLModElement
   prim__cite : AnyPtr -> PrimIO AnyPtr
 
   export
-  cite : (obj : HTMLModElement) -> IO String
+  cite : (obj : HTMLModElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.cite  = v}"
   prim__setCite : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCite : (obj : HTMLModElement) -> (v : String) -> IO ()
+  setCite : (obj : HTMLModElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.dateTime"
   prim__dateTime : AnyPtr -> PrimIO AnyPtr
 
   export
-  dateTime : (obj : HTMLModElement) -> IO String
+  dateTime : (obj : HTMLModElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.dateTime  = v}"
   prim__setDateTime : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDateTime : (obj : HTMLModElement) -> (v : String) -> IO ()
+  setDateTime : (obj : HTMLModElement) -> (v : String) -> JSIO ()
 
 namespace HTMLOListElement
   
@@ -4479,49 +4481,49 @@ namespace HTMLOListElement
   prim__compact : AnyPtr -> PrimIO AnyPtr
 
   export
-  compact : (obj : HTMLOListElement) -> IO Bool
+  compact : (obj : HTMLOListElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.compact  = v}"
   prim__setCompact : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCompact : (obj : HTMLOListElement) -> (v : Bool) -> IO ()
+  setCompact : (obj : HTMLOListElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.reversed"
   prim__reversed : AnyPtr -> PrimIO AnyPtr
 
   export
-  reversed : (obj : HTMLOListElement) -> IO Bool
+  reversed : (obj : HTMLOListElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.reversed  = v}"
   prim__setReversed : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setReversed : (obj : HTMLOListElement) -> (v : Bool) -> IO ()
+  setReversed : (obj : HTMLOListElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.start"
   prim__start : AnyPtr -> PrimIO AnyPtr
 
   export
-  start : (obj : HTMLOListElement) -> IO Int32
+  start : (obj : HTMLOListElement) -> JSIO Int32
 
   %foreign "browser:lambda:(x,v)=>{x.start  = v}"
   prim__setStart : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setStart : (obj : HTMLOListElement) -> (v : Int32) -> IO ()
+  setStart : (obj : HTMLOListElement) -> (v : Int32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
 
   export
-  type : (obj : HTMLOListElement) -> IO String
+  type : (obj : HTMLOListElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.type  = v}"
   prim__setType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setType : (obj : HTMLOListElement) -> (v : String) -> IO ()
+  setType : (obj : HTMLOListElement) -> (v : String) -> JSIO ()
 
 namespace HTMLObjectElement
   
@@ -4545,229 +4547,229 @@ namespace HTMLObjectElement
   prim__contentDocument : AnyPtr -> PrimIO AnyPtr
 
   export
-  contentDocument : (obj : HTMLObjectElement) -> IO (Maybe Document)
+  contentDocument : (obj : HTMLObjectElement) -> JSIO (Maybe Document)
   
   %foreign "browser:lambda:x=>x.contentWindow"
   prim__contentWindow : AnyPtr -> PrimIO AnyPtr
 
   export
-  contentWindow : (obj : HTMLObjectElement) -> IO (Maybe WindowProxy)
+  contentWindow : (obj : HTMLObjectElement) -> JSIO (Maybe WindowProxy)
   
   %foreign "browser:lambda:x=>x.form"
   prim__form : AnyPtr -> PrimIO AnyPtr
 
   export
-  form : (obj : HTMLObjectElement) -> IO (Maybe HTMLFormElement)
+  form : (obj : HTMLObjectElement) -> JSIO (Maybe HTMLFormElement)
   
   %foreign "browser:lambda:x=>x.validationMessage"
   prim__validationMessage : AnyPtr -> PrimIO AnyPtr
 
   export
-  validationMessage : (obj : HTMLObjectElement) -> IO String
+  validationMessage : (obj : HTMLObjectElement) -> JSIO String
   
   %foreign "browser:lambda:x=>x.validity"
   prim__validity : AnyPtr -> PrimIO AnyPtr
 
   export
-  validity : (obj : HTMLObjectElement) -> IO ValidityState
+  validity : (obj : HTMLObjectElement) -> JSIO ValidityState
   
   %foreign "browser:lambda:x=>x.willValidate"
   prim__willValidate : AnyPtr -> PrimIO AnyPtr
 
   export
-  willValidate : (obj : HTMLObjectElement) -> IO Bool
+  willValidate : (obj : HTMLObjectElement) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.align"
   prim__align : AnyPtr -> PrimIO AnyPtr
 
   export
-  align : (obj : HTMLObjectElement) -> IO String
+  align : (obj : HTMLObjectElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.align  = v}"
   prim__setAlign : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAlign : (obj : HTMLObjectElement) -> (v : String) -> IO ()
+  setAlign : (obj : HTMLObjectElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.archive"
   prim__archive : AnyPtr -> PrimIO AnyPtr
 
   export
-  archive : (obj : HTMLObjectElement) -> IO String
+  archive : (obj : HTMLObjectElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.archive  = v}"
   prim__setArchive : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setArchive : (obj : HTMLObjectElement) -> (v : String) -> IO ()
+  setArchive : (obj : HTMLObjectElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.border"
   prim__border : AnyPtr -> PrimIO AnyPtr
 
   export
-  border : (obj : HTMLObjectElement) -> IO String
+  border : (obj : HTMLObjectElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.border  = v}"
   prim__setBorder : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setBorder : (obj : HTMLObjectElement) -> (v : String) -> IO ()
+  setBorder : (obj : HTMLObjectElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.code"
   prim__code : AnyPtr -> PrimIO AnyPtr
 
   export
-  code : (obj : HTMLObjectElement) -> IO String
+  code : (obj : HTMLObjectElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.code  = v}"
   prim__setCode : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCode : (obj : HTMLObjectElement) -> (v : String) -> IO ()
+  setCode : (obj : HTMLObjectElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.codeBase"
   prim__codeBase : AnyPtr -> PrimIO AnyPtr
 
   export
-  codeBase : (obj : HTMLObjectElement) -> IO String
+  codeBase : (obj : HTMLObjectElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.codeBase  = v}"
   prim__setCodeBase : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCodeBase : (obj : HTMLObjectElement) -> (v : String) -> IO ()
+  setCodeBase : (obj : HTMLObjectElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.codeType"
   prim__codeType : AnyPtr -> PrimIO AnyPtr
 
   export
-  codeType : (obj : HTMLObjectElement) -> IO String
+  codeType : (obj : HTMLObjectElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.codeType  = v}"
   prim__setCodeType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCodeType : (obj : HTMLObjectElement) -> (v : String) -> IO ()
+  setCodeType : (obj : HTMLObjectElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.data"
   prim__data_ : AnyPtr -> PrimIO AnyPtr
 
   export
-  data_ : (obj : HTMLObjectElement) -> IO String
+  data_ : (obj : HTMLObjectElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.data  = v}"
   prim__setData : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setData : (obj : HTMLObjectElement) -> (v : String) -> IO ()
+  setData : (obj : HTMLObjectElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.declare"
   prim__declare : AnyPtr -> PrimIO AnyPtr
 
   export
-  declare : (obj : HTMLObjectElement) -> IO Bool
+  declare : (obj : HTMLObjectElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.declare  = v}"
   prim__setDeclare : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDeclare : (obj : HTMLObjectElement) -> (v : Bool) -> IO ()
+  setDeclare : (obj : HTMLObjectElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.height"
   prim__height : AnyPtr -> PrimIO AnyPtr
 
   export
-  height : (obj : HTMLObjectElement) -> IO String
+  height : (obj : HTMLObjectElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.height  = v}"
   prim__setHeight : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHeight : (obj : HTMLObjectElement) -> (v : String) -> IO ()
+  setHeight : (obj : HTMLObjectElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.hspace"
   prim__hspace : AnyPtr -> PrimIO AnyPtr
 
   export
-  hspace : (obj : HTMLObjectElement) -> IO UInt32
+  hspace : (obj : HTMLObjectElement) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.hspace  = v}"
   prim__setHspace : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHspace : (obj : HTMLObjectElement) -> (v : UInt32) -> IO ()
+  setHspace : (obj : HTMLObjectElement) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.name"
   prim__name : AnyPtr -> PrimIO AnyPtr
 
   export
-  name : (obj : HTMLObjectElement) -> IO String
+  name : (obj : HTMLObjectElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.name  = v}"
   prim__setName : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setName : (obj : HTMLObjectElement) -> (v : String) -> IO ()
+  setName : (obj : HTMLObjectElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.standby"
   prim__standby : AnyPtr -> PrimIO AnyPtr
 
   export
-  standby : (obj : HTMLObjectElement) -> IO String
+  standby : (obj : HTMLObjectElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.standby  = v}"
   prim__setStandby : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setStandby : (obj : HTMLObjectElement) -> (v : String) -> IO ()
+  setStandby : (obj : HTMLObjectElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
 
   export
-  type : (obj : HTMLObjectElement) -> IO String
+  type : (obj : HTMLObjectElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.type  = v}"
   prim__setType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setType : (obj : HTMLObjectElement) -> (v : String) -> IO ()
+  setType : (obj : HTMLObjectElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.useMap"
   prim__useMap : AnyPtr -> PrimIO AnyPtr
 
   export
-  useMap : (obj : HTMLObjectElement) -> IO String
+  useMap : (obj : HTMLObjectElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.useMap  = v}"
   prim__setUseMap : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setUseMap : (obj : HTMLObjectElement) -> (v : String) -> IO ()
+  setUseMap : (obj : HTMLObjectElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.vspace"
   prim__vspace : AnyPtr -> PrimIO AnyPtr
 
   export
-  vspace : (obj : HTMLObjectElement) -> IO UInt32
+  vspace : (obj : HTMLObjectElement) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.vspace  = v}"
   prim__setVspace : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setVspace : (obj : HTMLObjectElement) -> (v : UInt32) -> IO ()
+  setVspace : (obj : HTMLObjectElement) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
 
   export
-  width : (obj : HTMLObjectElement) -> IO String
+  width : (obj : HTMLObjectElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.width  = v}"
   prim__setWidth : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setWidth : (obj : HTMLObjectElement) -> (v : String) -> IO ()
+  setWidth : (obj : HTMLObjectElement) -> (v : String) -> JSIO ()
 
 namespace HTMLOptGroupElement
   
@@ -4791,25 +4793,25 @@ namespace HTMLOptGroupElement
   prim__disabled : AnyPtr -> PrimIO AnyPtr
 
   export
-  disabled : (obj : HTMLOptGroupElement) -> IO Bool
+  disabled : (obj : HTMLOptGroupElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.disabled  = v}"
   prim__setDisabled : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDisabled : (obj : HTMLOptGroupElement) -> (v : Bool) -> IO ()
+  setDisabled : (obj : HTMLOptGroupElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.label"
   prim__label : AnyPtr -> PrimIO AnyPtr
 
   export
-  label : (obj : HTMLOptGroupElement) -> IO String
+  label : (obj : HTMLOptGroupElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.label  = v}"
   prim__setLabel : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setLabel : (obj : HTMLOptGroupElement) -> (v : String) -> IO ()
+  setLabel : (obj : HTMLOptGroupElement) -> (v : String) -> JSIO ()
 
 namespace HTMLOptionElement
   
@@ -4833,85 +4835,85 @@ namespace HTMLOptionElement
   prim__form : AnyPtr -> PrimIO AnyPtr
 
   export
-  form : (obj : HTMLOptionElement) -> IO (Maybe HTMLFormElement)
+  form : (obj : HTMLOptionElement) -> JSIO (Maybe HTMLFormElement)
   
   %foreign "browser:lambda:x=>x.index"
   prim__index : AnyPtr -> PrimIO AnyPtr
 
   export
-  index : (obj : HTMLOptionElement) -> IO Int32
+  index : (obj : HTMLOptionElement) -> JSIO Int32
   
   %foreign "browser:lambda:x=>x.defaultSelected"
   prim__defaultSelected : AnyPtr -> PrimIO AnyPtr
 
   export
-  defaultSelected : (obj : HTMLOptionElement) -> IO Bool
+  defaultSelected : (obj : HTMLOptionElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.defaultSelected  = v}"
   prim__setDefaultSelected : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDefaultSelected : (obj : HTMLOptionElement) -> (v : Bool) -> IO ()
+  setDefaultSelected : (obj : HTMLOptionElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.disabled"
   prim__disabled : AnyPtr -> PrimIO AnyPtr
 
   export
-  disabled : (obj : HTMLOptionElement) -> IO Bool
+  disabled : (obj : HTMLOptionElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.disabled  = v}"
   prim__setDisabled : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDisabled : (obj : HTMLOptionElement) -> (v : Bool) -> IO ()
+  setDisabled : (obj : HTMLOptionElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.label"
   prim__label : AnyPtr -> PrimIO AnyPtr
 
   export
-  label : (obj : HTMLOptionElement) -> IO String
+  label : (obj : HTMLOptionElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.label  = v}"
   prim__setLabel : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setLabel : (obj : HTMLOptionElement) -> (v : String) -> IO ()
+  setLabel : (obj : HTMLOptionElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.selected"
   prim__selected : AnyPtr -> PrimIO AnyPtr
 
   export
-  selected : (obj : HTMLOptionElement) -> IO Bool
+  selected : (obj : HTMLOptionElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.selected  = v}"
   prim__setSelected : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSelected : (obj : HTMLOptionElement) -> (v : Bool) -> IO ()
+  setSelected : (obj : HTMLOptionElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.text"
   prim__text : AnyPtr -> PrimIO AnyPtr
 
   export
-  text : (obj : HTMLOptionElement) -> IO String
+  text : (obj : HTMLOptionElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.text  = v}"
   prim__setText : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setText : (obj : HTMLOptionElement) -> (v : String) -> IO ()
+  setText : (obj : HTMLOptionElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.value"
   prim__value : AnyPtr -> PrimIO AnyPtr
 
   export
-  value : (obj : HTMLOptionElement) -> IO String
+  value : (obj : HTMLOptionElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.value  = v}"
   prim__setValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setValue : (obj : HTMLOptionElement) -> (v : String) -> IO ()
+  setValue : (obj : HTMLOptionElement) -> (v : String) -> JSIO ()
 
 namespace HTMLOptionsCollection
   
@@ -4925,25 +4927,25 @@ namespace HTMLOptionsCollection
   prim__length : AnyPtr -> PrimIO AnyPtr
 
   export
-  length : (obj : HTMLOptionsCollection) -> IO UInt32
+  length : (obj : HTMLOptionsCollection) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.length  = v}"
   prim__setLength : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setLength : (obj : HTMLOptionsCollection) -> (v : UInt32) -> IO ()
+  setLength : (obj : HTMLOptionsCollection) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.selectedIndex"
   prim__selectedIndex : AnyPtr -> PrimIO AnyPtr
 
   export
-  selectedIndex : (obj : HTMLOptionsCollection) -> IO Int32
+  selectedIndex : (obj : HTMLOptionsCollection) -> JSIO Int32
 
   %foreign "browser:lambda:(x,v)=>{x.selectedIndex  = v}"
   prim__setSelectedIndex : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSelectedIndex : (obj : HTMLOptionsCollection) -> (v : Int32) -> IO ()
+  setSelectedIndex : (obj : HTMLOptionsCollection) -> (v : Int32) -> JSIO ()
 
 namespace HTMLOutputElement
   
@@ -4967,79 +4969,79 @@ namespace HTMLOutputElement
   prim__form : AnyPtr -> PrimIO AnyPtr
 
   export
-  form : (obj : HTMLOutputElement) -> IO (Maybe HTMLFormElement)
+  form : (obj : HTMLOutputElement) -> JSIO (Maybe HTMLFormElement)
   
   %foreign "browser:lambda:x=>x.htmlFor"
   prim__htmlFor : AnyPtr -> PrimIO AnyPtr
 
   export
-  htmlFor : (obj : HTMLOutputElement) -> IO DOMTokenList
+  htmlFor : (obj : HTMLOutputElement) -> JSIO DOMTokenList
   
   %foreign "browser:lambda:x=>x.labels"
   prim__labels : AnyPtr -> PrimIO AnyPtr
 
   export
-  labels : (obj : HTMLOutputElement) -> IO NodeList
+  labels : (obj : HTMLOutputElement) -> JSIO NodeList
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
 
   export
-  type : (obj : HTMLOutputElement) -> IO String
+  type : (obj : HTMLOutputElement) -> JSIO String
   
   %foreign "browser:lambda:x=>x.validationMessage"
   prim__validationMessage : AnyPtr -> PrimIO AnyPtr
 
   export
-  validationMessage : (obj : HTMLOutputElement) -> IO String
+  validationMessage : (obj : HTMLOutputElement) -> JSIO String
   
   %foreign "browser:lambda:x=>x.validity"
   prim__validity : AnyPtr -> PrimIO AnyPtr
 
   export
-  validity : (obj : HTMLOutputElement) -> IO ValidityState
+  validity : (obj : HTMLOutputElement) -> JSIO ValidityState
   
   %foreign "browser:lambda:x=>x.willValidate"
   prim__willValidate : AnyPtr -> PrimIO AnyPtr
 
   export
-  willValidate : (obj : HTMLOutputElement) -> IO Bool
+  willValidate : (obj : HTMLOutputElement) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.defaultValue"
   prim__defaultValue : AnyPtr -> PrimIO AnyPtr
 
   export
-  defaultValue : (obj : HTMLOutputElement) -> IO String
+  defaultValue : (obj : HTMLOutputElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.defaultValue  = v}"
   prim__setDefaultValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDefaultValue : (obj : HTMLOutputElement) -> (v : String) -> IO ()
+  setDefaultValue : (obj : HTMLOutputElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.name"
   prim__name : AnyPtr -> PrimIO AnyPtr
 
   export
-  name : (obj : HTMLOutputElement) -> IO String
+  name : (obj : HTMLOutputElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.name  = v}"
   prim__setName : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setName : (obj : HTMLOutputElement) -> (v : String) -> IO ()
+  setName : (obj : HTMLOutputElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.value"
   prim__value : AnyPtr -> PrimIO AnyPtr
 
   export
-  value : (obj : HTMLOutputElement) -> IO String
+  value : (obj : HTMLOutputElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.value  = v}"
   prim__setValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setValue : (obj : HTMLOutputElement) -> (v : String) -> IO ()
+  setValue : (obj : HTMLOutputElement) -> (v : String) -> JSIO ()
 
 namespace HTMLParagraphElement
   
@@ -5063,13 +5065,13 @@ namespace HTMLParagraphElement
   prim__align : AnyPtr -> PrimIO AnyPtr
 
   export
-  align : (obj : HTMLParagraphElement) -> IO String
+  align : (obj : HTMLParagraphElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.align  = v}"
   prim__setAlign : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAlign : (obj : HTMLParagraphElement) -> (v : String) -> IO ()
+  setAlign : (obj : HTMLParagraphElement) -> (v : String) -> JSIO ()
 
 namespace HTMLParamElement
   
@@ -5093,49 +5095,49 @@ namespace HTMLParamElement
   prim__name : AnyPtr -> PrimIO AnyPtr
 
   export
-  name : (obj : HTMLParamElement) -> IO String
+  name : (obj : HTMLParamElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.name  = v}"
   prim__setName : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setName : (obj : HTMLParamElement) -> (v : String) -> IO ()
+  setName : (obj : HTMLParamElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
 
   export
-  type : (obj : HTMLParamElement) -> IO String
+  type : (obj : HTMLParamElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.type  = v}"
   prim__setType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setType : (obj : HTMLParamElement) -> (v : String) -> IO ()
+  setType : (obj : HTMLParamElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.value"
   prim__value : AnyPtr -> PrimIO AnyPtr
 
   export
-  value : (obj : HTMLParamElement) -> IO String
+  value : (obj : HTMLParamElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.value  = v}"
   prim__setValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setValue : (obj : HTMLParamElement) -> (v : String) -> IO ()
+  setValue : (obj : HTMLParamElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.valueType"
   prim__valueType : AnyPtr -> PrimIO AnyPtr
 
   export
-  valueType : (obj : HTMLParamElement) -> IO String
+  valueType : (obj : HTMLParamElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.valueType  = v}"
   prim__setValueType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setValueType : (obj : HTMLParamElement) -> (v : String) -> IO ()
+  setValueType : (obj : HTMLParamElement) -> (v : String) -> JSIO ()
 
 namespace HTMLPictureElement
   
@@ -5177,13 +5179,13 @@ namespace HTMLPreElement
   prim__width : AnyPtr -> PrimIO AnyPtr
 
   export
-  width : (obj : HTMLPreElement) -> IO Int32
+  width : (obj : HTMLPreElement) -> JSIO Int32
 
   %foreign "browser:lambda:(x,v)=>{x.width  = v}"
   prim__setWidth : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setWidth : (obj : HTMLPreElement) -> (v : Int32) -> IO ()
+  setWidth : (obj : HTMLPreElement) -> (v : Int32) -> JSIO ()
 
 namespace HTMLProgressElement
   
@@ -5207,37 +5209,37 @@ namespace HTMLProgressElement
   prim__labels : AnyPtr -> PrimIO AnyPtr
 
   export
-  labels : (obj : HTMLProgressElement) -> IO NodeList
+  labels : (obj : HTMLProgressElement) -> JSIO NodeList
   
   %foreign "browser:lambda:x=>x.position"
   prim__position : AnyPtr -> PrimIO AnyPtr
 
   export
-  position : (obj : HTMLProgressElement) -> IO Double
+  position : (obj : HTMLProgressElement) -> JSIO Double
   
   %foreign "browser:lambda:x=>x.max"
   prim__max : AnyPtr -> PrimIO AnyPtr
 
   export
-  max : (obj : HTMLProgressElement) -> IO Double
+  max : (obj : HTMLProgressElement) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.max  = v}"
   prim__setMax : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setMax : (obj : HTMLProgressElement) -> (v : Double) -> IO ()
+  setMax : (obj : HTMLProgressElement) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.value"
   prim__value : AnyPtr -> PrimIO AnyPtr
 
   export
-  value : (obj : HTMLProgressElement) -> IO Double
+  value : (obj : HTMLProgressElement) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.value  = v}"
   prim__setValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setValue : (obj : HTMLProgressElement) -> (v : Double) -> IO ()
+  setValue : (obj : HTMLProgressElement) -> (v : Double) -> JSIO ()
 
 namespace HTMLQuoteElement
   
@@ -5261,13 +5263,13 @@ namespace HTMLQuoteElement
   prim__cite : AnyPtr -> PrimIO AnyPtr
 
   export
-  cite : (obj : HTMLQuoteElement) -> IO String
+  cite : (obj : HTMLQuoteElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.cite  = v}"
   prim__setCite : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCite : (obj : HTMLQuoteElement) -> (v : String) -> IO ()
+  setCite : (obj : HTMLQuoteElement) -> (v : String) -> JSIO ()
 
 namespace HTMLScriptElement
   
@@ -5291,145 +5293,145 @@ namespace HTMLScriptElement
   prim__async : AnyPtr -> PrimIO AnyPtr
 
   export
-  async : (obj : HTMLScriptElement) -> IO Bool
+  async : (obj : HTMLScriptElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.async  = v}"
   prim__setAsync : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAsync : (obj : HTMLScriptElement) -> (v : Bool) -> IO ()
+  setAsync : (obj : HTMLScriptElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.charset"
   prim__charset : AnyPtr -> PrimIO AnyPtr
 
   export
-  charset : (obj : HTMLScriptElement) -> IO String
+  charset : (obj : HTMLScriptElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.charset  = v}"
   prim__setCharset : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCharset : (obj : HTMLScriptElement) -> (v : String) -> IO ()
+  setCharset : (obj : HTMLScriptElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.crossOrigin"
   prim__crossOrigin : AnyPtr -> PrimIO AnyPtr
 
   export
-  crossOrigin : (obj : HTMLScriptElement) -> IO (Maybe String)
+  crossOrigin : (obj : HTMLScriptElement) -> JSIO (Maybe String)
 
   %foreign "browser:lambda:(x,v)=>{x.crossOrigin  = v}"
   prim__setCrossOrigin : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCrossOrigin : (obj : HTMLScriptElement) -> (v : Maybe String) -> IO ()
+  setCrossOrigin : (obj : HTMLScriptElement) -> (v : Maybe String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.defer"
   prim__defer : AnyPtr -> PrimIO AnyPtr
 
   export
-  defer : (obj : HTMLScriptElement) -> IO Bool
+  defer : (obj : HTMLScriptElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.defer  = v}"
   prim__setDefer : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDefer : (obj : HTMLScriptElement) -> (v : Bool) -> IO ()
+  setDefer : (obj : HTMLScriptElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.event"
   prim__event : AnyPtr -> PrimIO AnyPtr
 
   export
-  event : (obj : HTMLScriptElement) -> IO String
+  event : (obj : HTMLScriptElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.event  = v}"
   prim__setEvent : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setEvent : (obj : HTMLScriptElement) -> (v : String) -> IO ()
+  setEvent : (obj : HTMLScriptElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.htmlFor"
   prim__htmlFor : AnyPtr -> PrimIO AnyPtr
 
   export
-  htmlFor : (obj : HTMLScriptElement) -> IO String
+  htmlFor : (obj : HTMLScriptElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.htmlFor  = v}"
   prim__setHtmlFor : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHtmlFor : (obj : HTMLScriptElement) -> (v : String) -> IO ()
+  setHtmlFor : (obj : HTMLScriptElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.integrity"
   prim__integrity : AnyPtr -> PrimIO AnyPtr
 
   export
-  integrity : (obj : HTMLScriptElement) -> IO String
+  integrity : (obj : HTMLScriptElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.integrity  = v}"
   prim__setIntegrity : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setIntegrity : (obj : HTMLScriptElement) -> (v : String) -> IO ()
+  setIntegrity : (obj : HTMLScriptElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.noModule"
   prim__noModule : AnyPtr -> PrimIO AnyPtr
 
   export
-  noModule : (obj : HTMLScriptElement) -> IO Bool
+  noModule : (obj : HTMLScriptElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.noModule  = v}"
   prim__setNoModule : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setNoModule : (obj : HTMLScriptElement) -> (v : Bool) -> IO ()
+  setNoModule : (obj : HTMLScriptElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.referrerPolicy"
   prim__referrerPolicy : AnyPtr -> PrimIO AnyPtr
 
   export
-  referrerPolicy : (obj : HTMLScriptElement) -> IO String
+  referrerPolicy : (obj : HTMLScriptElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.referrerPolicy  = v}"
   prim__setReferrerPolicy : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setReferrerPolicy : (obj : HTMLScriptElement) -> (v : String) -> IO ()
+  setReferrerPolicy : (obj : HTMLScriptElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.src"
   prim__src : AnyPtr -> PrimIO AnyPtr
 
   export
-  src : (obj : HTMLScriptElement) -> IO String
+  src : (obj : HTMLScriptElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.src  = v}"
   prim__setSrc : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSrc : (obj : HTMLScriptElement) -> (v : String) -> IO ()
+  setSrc : (obj : HTMLScriptElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.text"
   prim__text : AnyPtr -> PrimIO AnyPtr
 
   export
-  text : (obj : HTMLScriptElement) -> IO String
+  text : (obj : HTMLScriptElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.text  = v}"
   prim__setText : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setText : (obj : HTMLScriptElement) -> (v : String) -> IO ()
+  setText : (obj : HTMLScriptElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
 
   export
-  type : (obj : HTMLScriptElement) -> IO String
+  type : (obj : HTMLScriptElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.type  = v}"
   prim__setType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setType : (obj : HTMLScriptElement) -> (v : String) -> IO ()
+  setType : (obj : HTMLScriptElement) -> (v : String) -> JSIO ()
 
 namespace HTMLSelectElement
   
@@ -5453,157 +5455,157 @@ namespace HTMLSelectElement
   prim__form : AnyPtr -> PrimIO AnyPtr
 
   export
-  form : (obj : HTMLSelectElement) -> IO (Maybe HTMLFormElement)
+  form : (obj : HTMLSelectElement) -> JSIO (Maybe HTMLFormElement)
   
   %foreign "browser:lambda:x=>x.labels"
   prim__labels : AnyPtr -> PrimIO AnyPtr
 
   export
-  labels : (obj : HTMLSelectElement) -> IO NodeList
+  labels : (obj : HTMLSelectElement) -> JSIO NodeList
   
   %foreign "browser:lambda:x=>x.options"
   prim__options : AnyPtr -> PrimIO AnyPtr
 
   export
-  options : (obj : HTMLSelectElement) -> IO HTMLOptionsCollection
+  options : (obj : HTMLSelectElement) -> JSIO HTMLOptionsCollection
   
   %foreign "browser:lambda:x=>x.selectedOptions"
   prim__selectedOptions : AnyPtr -> PrimIO AnyPtr
 
   export
-  selectedOptions : (obj : HTMLSelectElement) -> IO HTMLCollection
+  selectedOptions : (obj : HTMLSelectElement) -> JSIO HTMLCollection
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
 
   export
-  type : (obj : HTMLSelectElement) -> IO String
+  type : (obj : HTMLSelectElement) -> JSIO String
   
   %foreign "browser:lambda:x=>x.validationMessage"
   prim__validationMessage : AnyPtr -> PrimIO AnyPtr
 
   export
-  validationMessage : (obj : HTMLSelectElement) -> IO String
+  validationMessage : (obj : HTMLSelectElement) -> JSIO String
   
   %foreign "browser:lambda:x=>x.validity"
   prim__validity : AnyPtr -> PrimIO AnyPtr
 
   export
-  validity : (obj : HTMLSelectElement) -> IO ValidityState
+  validity : (obj : HTMLSelectElement) -> JSIO ValidityState
   
   %foreign "browser:lambda:x=>x.willValidate"
   prim__willValidate : AnyPtr -> PrimIO AnyPtr
 
   export
-  willValidate : (obj : HTMLSelectElement) -> IO Bool
+  willValidate : (obj : HTMLSelectElement) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.autocomplete"
   prim__autocomplete : AnyPtr -> PrimIO AnyPtr
 
   export
-  autocomplete : (obj : HTMLSelectElement) -> IO String
+  autocomplete : (obj : HTMLSelectElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.autocomplete  = v}"
   prim__setAutocomplete : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAutocomplete : (obj : HTMLSelectElement) -> (v : String) -> IO ()
+  setAutocomplete : (obj : HTMLSelectElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.disabled"
   prim__disabled : AnyPtr -> PrimIO AnyPtr
 
   export
-  disabled : (obj : HTMLSelectElement) -> IO Bool
+  disabled : (obj : HTMLSelectElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.disabled  = v}"
   prim__setDisabled : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDisabled : (obj : HTMLSelectElement) -> (v : Bool) -> IO ()
+  setDisabled : (obj : HTMLSelectElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.length"
   prim__length : AnyPtr -> PrimIO AnyPtr
 
   export
-  length : (obj : HTMLSelectElement) -> IO UInt32
+  length : (obj : HTMLSelectElement) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.length  = v}"
   prim__setLength : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setLength : (obj : HTMLSelectElement) -> (v : UInt32) -> IO ()
+  setLength : (obj : HTMLSelectElement) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.multiple"
   prim__multiple : AnyPtr -> PrimIO AnyPtr
 
   export
-  multiple : (obj : HTMLSelectElement) -> IO Bool
+  multiple : (obj : HTMLSelectElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.multiple  = v}"
   prim__setMultiple : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setMultiple : (obj : HTMLSelectElement) -> (v : Bool) -> IO ()
+  setMultiple : (obj : HTMLSelectElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.name"
   prim__name : AnyPtr -> PrimIO AnyPtr
 
   export
-  name : (obj : HTMLSelectElement) -> IO String
+  name : (obj : HTMLSelectElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.name  = v}"
   prim__setName : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setName : (obj : HTMLSelectElement) -> (v : String) -> IO ()
+  setName : (obj : HTMLSelectElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.required"
   prim__required : AnyPtr -> PrimIO AnyPtr
 
   export
-  required : (obj : HTMLSelectElement) -> IO Bool
+  required : (obj : HTMLSelectElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.required  = v}"
   prim__setRequired : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setRequired : (obj : HTMLSelectElement) -> (v : Bool) -> IO ()
+  setRequired : (obj : HTMLSelectElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.selectedIndex"
   prim__selectedIndex : AnyPtr -> PrimIO AnyPtr
 
   export
-  selectedIndex : (obj : HTMLSelectElement) -> IO Int32
+  selectedIndex : (obj : HTMLSelectElement) -> JSIO Int32
 
   %foreign "browser:lambda:(x,v)=>{x.selectedIndex  = v}"
   prim__setSelectedIndex : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSelectedIndex : (obj : HTMLSelectElement) -> (v : Int32) -> IO ()
+  setSelectedIndex : (obj : HTMLSelectElement) -> (v : Int32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.size"
   prim__size : AnyPtr -> PrimIO AnyPtr
 
   export
-  size : (obj : HTMLSelectElement) -> IO UInt32
+  size : (obj : HTMLSelectElement) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.size  = v}"
   prim__setSize : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSize : (obj : HTMLSelectElement) -> (v : UInt32) -> IO ()
+  setSize : (obj : HTMLSelectElement) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.value"
   prim__value : AnyPtr -> PrimIO AnyPtr
 
   export
-  value : (obj : HTMLSelectElement) -> IO String
+  value : (obj : HTMLSelectElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.value  = v}"
   prim__setValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setValue : (obj : HTMLSelectElement) -> (v : String) -> IO ()
+  setValue : (obj : HTMLSelectElement) -> (v : String) -> JSIO ()
 
 namespace HTMLSlotElement
   
@@ -5627,13 +5629,13 @@ namespace HTMLSlotElement
   prim__name : AnyPtr -> PrimIO AnyPtr
 
   export
-  name : (obj : HTMLSlotElement) -> IO String
+  name : (obj : HTMLSlotElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.name  = v}"
   prim__setName : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setName : (obj : HTMLSlotElement) -> (v : String) -> IO ()
+  setName : (obj : HTMLSlotElement) -> (v : String) -> JSIO ()
 
 namespace HTMLSourceElement
   
@@ -5657,85 +5659,85 @@ namespace HTMLSourceElement
   prim__height : AnyPtr -> PrimIO AnyPtr
 
   export
-  height : (obj : HTMLSourceElement) -> IO UInt32
+  height : (obj : HTMLSourceElement) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.height  = v}"
   prim__setHeight : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHeight : (obj : HTMLSourceElement) -> (v : UInt32) -> IO ()
+  setHeight : (obj : HTMLSourceElement) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.media"
   prim__media : AnyPtr -> PrimIO AnyPtr
 
   export
-  media : (obj : HTMLSourceElement) -> IO String
+  media : (obj : HTMLSourceElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.media  = v}"
   prim__setMedia : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setMedia : (obj : HTMLSourceElement) -> (v : String) -> IO ()
+  setMedia : (obj : HTMLSourceElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.sizes"
   prim__sizes : AnyPtr -> PrimIO AnyPtr
 
   export
-  sizes : (obj : HTMLSourceElement) -> IO String
+  sizes : (obj : HTMLSourceElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.sizes  = v}"
   prim__setSizes : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSizes : (obj : HTMLSourceElement) -> (v : String) -> IO ()
+  setSizes : (obj : HTMLSourceElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.src"
   prim__src : AnyPtr -> PrimIO AnyPtr
 
   export
-  src : (obj : HTMLSourceElement) -> IO String
+  src : (obj : HTMLSourceElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.src  = v}"
   prim__setSrc : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSrc : (obj : HTMLSourceElement) -> (v : String) -> IO ()
+  setSrc : (obj : HTMLSourceElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.srcset"
   prim__srcset : AnyPtr -> PrimIO AnyPtr
 
   export
-  srcset : (obj : HTMLSourceElement) -> IO String
+  srcset : (obj : HTMLSourceElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.srcset  = v}"
   prim__setSrcset : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSrcset : (obj : HTMLSourceElement) -> (v : String) -> IO ()
+  setSrcset : (obj : HTMLSourceElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
 
   export
-  type : (obj : HTMLSourceElement) -> IO String
+  type : (obj : HTMLSourceElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.type  = v}"
   prim__setType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setType : (obj : HTMLSourceElement) -> (v : String) -> IO ()
+  setType : (obj : HTMLSourceElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
 
   export
-  width : (obj : HTMLSourceElement) -> IO UInt32
+  width : (obj : HTMLSourceElement) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.width  = v}"
   prim__setWidth : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setWidth : (obj : HTMLSourceElement) -> (v : UInt32) -> IO ()
+  setWidth : (obj : HTMLSourceElement) -> (v : UInt32) -> JSIO ()
 
 namespace HTMLSpanElement
   
@@ -5778,25 +5780,25 @@ namespace HTMLStyleElement
   prim__media : AnyPtr -> PrimIO AnyPtr
 
   export
-  media : (obj : HTMLStyleElement) -> IO String
+  media : (obj : HTMLStyleElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.media  = v}"
   prim__setMedia : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setMedia : (obj : HTMLStyleElement) -> (v : String) -> IO ()
+  setMedia : (obj : HTMLStyleElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
 
   export
-  type : (obj : HTMLStyleElement) -> IO String
+  type : (obj : HTMLStyleElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.type  = v}"
   prim__setType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setType : (obj : HTMLStyleElement) -> (v : String) -> IO ()
+  setType : (obj : HTMLStyleElement) -> (v : String) -> JSIO ()
 
 namespace HTMLTableCaptionElement
   
@@ -5820,13 +5822,13 @@ namespace HTMLTableCaptionElement
   prim__align : AnyPtr -> PrimIO AnyPtr
 
   export
-  align : (obj : HTMLTableCaptionElement) -> IO String
+  align : (obj : HTMLTableCaptionElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.align  = v}"
   prim__setAlign : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAlign : (obj : HTMLTableCaptionElement) -> (v : String) -> IO ()
+  setAlign : (obj : HTMLTableCaptionElement) -> (v : String) -> JSIO ()
 
 namespace HTMLTableCellElement
   
@@ -5850,175 +5852,175 @@ namespace HTMLTableCellElement
   prim__cellIndex : AnyPtr -> PrimIO AnyPtr
 
   export
-  cellIndex : (obj : HTMLTableCellElement) -> IO Int32
+  cellIndex : (obj : HTMLTableCellElement) -> JSIO Int32
   
   %foreign "browser:lambda:x=>x.abbr"
   prim__abbr : AnyPtr -> PrimIO AnyPtr
 
   export
-  abbr : (obj : HTMLTableCellElement) -> IO String
+  abbr : (obj : HTMLTableCellElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.abbr  = v}"
   prim__setAbbr : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAbbr : (obj : HTMLTableCellElement) -> (v : String) -> IO ()
+  setAbbr : (obj : HTMLTableCellElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.align"
   prim__align : AnyPtr -> PrimIO AnyPtr
 
   export
-  align : (obj : HTMLTableCellElement) -> IO String
+  align : (obj : HTMLTableCellElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.align  = v}"
   prim__setAlign : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAlign : (obj : HTMLTableCellElement) -> (v : String) -> IO ()
+  setAlign : (obj : HTMLTableCellElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.axis"
   prim__axis : AnyPtr -> PrimIO AnyPtr
 
   export
-  axis : (obj : HTMLTableCellElement) -> IO String
+  axis : (obj : HTMLTableCellElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.axis  = v}"
   prim__setAxis : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAxis : (obj : HTMLTableCellElement) -> (v : String) -> IO ()
+  setAxis : (obj : HTMLTableCellElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.bgColor"
   prim__bgColor : AnyPtr -> PrimIO AnyPtr
 
   export
-  bgColor : (obj : HTMLTableCellElement) -> IO String
+  bgColor : (obj : HTMLTableCellElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.bgColor  = v}"
   prim__setBgColor : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setBgColor : (obj : HTMLTableCellElement) -> (v : String) -> IO ()
+  setBgColor : (obj : HTMLTableCellElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ch"
   prim__ch : AnyPtr -> PrimIO AnyPtr
 
   export
-  ch : (obj : HTMLTableCellElement) -> IO String
+  ch : (obj : HTMLTableCellElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ch  = v}"
   prim__setCh : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCh : (obj : HTMLTableCellElement) -> (v : String) -> IO ()
+  setCh : (obj : HTMLTableCellElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.chOff"
   prim__chOff : AnyPtr -> PrimIO AnyPtr
 
   export
-  chOff : (obj : HTMLTableCellElement) -> IO String
+  chOff : (obj : HTMLTableCellElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.chOff  = v}"
   prim__setChOff : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setChOff : (obj : HTMLTableCellElement) -> (v : String) -> IO ()
+  setChOff : (obj : HTMLTableCellElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.colSpan"
   prim__colSpan : AnyPtr -> PrimIO AnyPtr
 
   export
-  colSpan : (obj : HTMLTableCellElement) -> IO UInt32
+  colSpan : (obj : HTMLTableCellElement) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.colSpan  = v}"
   prim__setColSpan : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setColSpan : (obj : HTMLTableCellElement) -> (v : UInt32) -> IO ()
+  setColSpan : (obj : HTMLTableCellElement) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.headers"
   prim__headers : AnyPtr -> PrimIO AnyPtr
 
   export
-  headers : (obj : HTMLTableCellElement) -> IO String
+  headers : (obj : HTMLTableCellElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.headers  = v}"
   prim__setHeaders : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHeaders : (obj : HTMLTableCellElement) -> (v : String) -> IO ()
+  setHeaders : (obj : HTMLTableCellElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.height"
   prim__height : AnyPtr -> PrimIO AnyPtr
 
   export
-  height : (obj : HTMLTableCellElement) -> IO String
+  height : (obj : HTMLTableCellElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.height  = v}"
   prim__setHeight : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHeight : (obj : HTMLTableCellElement) -> (v : String) -> IO ()
+  setHeight : (obj : HTMLTableCellElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.noWrap"
   prim__noWrap : AnyPtr -> PrimIO AnyPtr
 
   export
-  noWrap : (obj : HTMLTableCellElement) -> IO Bool
+  noWrap : (obj : HTMLTableCellElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.noWrap  = v}"
   prim__setNoWrap : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setNoWrap : (obj : HTMLTableCellElement) -> (v : Bool) -> IO ()
+  setNoWrap : (obj : HTMLTableCellElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.rowSpan"
   prim__rowSpan : AnyPtr -> PrimIO AnyPtr
 
   export
-  rowSpan : (obj : HTMLTableCellElement) -> IO UInt32
+  rowSpan : (obj : HTMLTableCellElement) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.rowSpan  = v}"
   prim__setRowSpan : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setRowSpan : (obj : HTMLTableCellElement) -> (v : UInt32) -> IO ()
+  setRowSpan : (obj : HTMLTableCellElement) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.scope"
   prim__scope : AnyPtr -> PrimIO AnyPtr
 
   export
-  scope : (obj : HTMLTableCellElement) -> IO String
+  scope : (obj : HTMLTableCellElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.scope  = v}"
   prim__setScope : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setScope : (obj : HTMLTableCellElement) -> (v : String) -> IO ()
+  setScope : (obj : HTMLTableCellElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.vAlign"
   prim__vAlign : AnyPtr -> PrimIO AnyPtr
 
   export
-  vAlign : (obj : HTMLTableCellElement) -> IO String
+  vAlign : (obj : HTMLTableCellElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.vAlign  = v}"
   prim__setVAlign : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setVAlign : (obj : HTMLTableCellElement) -> (v : String) -> IO ()
+  setVAlign : (obj : HTMLTableCellElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
 
   export
-  width : (obj : HTMLTableCellElement) -> IO String
+  width : (obj : HTMLTableCellElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.width  = v}"
   prim__setWidth : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setWidth : (obj : HTMLTableCellElement) -> (v : String) -> IO ()
+  setWidth : (obj : HTMLTableCellElement) -> (v : String) -> JSIO ()
 
 namespace HTMLTableColElement
   
@@ -6042,73 +6044,73 @@ namespace HTMLTableColElement
   prim__align : AnyPtr -> PrimIO AnyPtr
 
   export
-  align : (obj : HTMLTableColElement) -> IO String
+  align : (obj : HTMLTableColElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.align  = v}"
   prim__setAlign : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAlign : (obj : HTMLTableColElement) -> (v : String) -> IO ()
+  setAlign : (obj : HTMLTableColElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ch"
   prim__ch : AnyPtr -> PrimIO AnyPtr
 
   export
-  ch : (obj : HTMLTableColElement) -> IO String
+  ch : (obj : HTMLTableColElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ch  = v}"
   prim__setCh : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCh : (obj : HTMLTableColElement) -> (v : String) -> IO ()
+  setCh : (obj : HTMLTableColElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.chOff"
   prim__chOff : AnyPtr -> PrimIO AnyPtr
 
   export
-  chOff : (obj : HTMLTableColElement) -> IO String
+  chOff : (obj : HTMLTableColElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.chOff  = v}"
   prim__setChOff : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setChOff : (obj : HTMLTableColElement) -> (v : String) -> IO ()
+  setChOff : (obj : HTMLTableColElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.span"
   prim__span : AnyPtr -> PrimIO AnyPtr
 
   export
-  span : (obj : HTMLTableColElement) -> IO UInt32
+  span : (obj : HTMLTableColElement) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.span  = v}"
   prim__setSpan : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSpan : (obj : HTMLTableColElement) -> (v : UInt32) -> IO ()
+  setSpan : (obj : HTMLTableColElement) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.vAlign"
   prim__vAlign : AnyPtr -> PrimIO AnyPtr
 
   export
-  vAlign : (obj : HTMLTableColElement) -> IO String
+  vAlign : (obj : HTMLTableColElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.vAlign  = v}"
   prim__setVAlign : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setVAlign : (obj : HTMLTableColElement) -> (v : String) -> IO ()
+  setVAlign : (obj : HTMLTableColElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
 
   export
-  width : (obj : HTMLTableColElement) -> IO String
+  width : (obj : HTMLTableColElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.width  = v}"
   prim__setWidth : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setWidth : (obj : HTMLTableColElement) -> (v : String) -> IO ()
+  setWidth : (obj : HTMLTableColElement) -> (v : String) -> JSIO ()
 
 namespace HTMLTableElement
   
@@ -6132,55 +6134,55 @@ namespace HTMLTableElement
   prim__rows : AnyPtr -> PrimIO AnyPtr
 
   export
-  rows : (obj : HTMLTableElement) -> IO HTMLCollection
+  rows : (obj : HTMLTableElement) -> JSIO HTMLCollection
   
   %foreign "browser:lambda:x=>x.tBodies"
   prim__tBodies : AnyPtr -> PrimIO AnyPtr
 
   export
-  tBodies : (obj : HTMLTableElement) -> IO HTMLCollection
+  tBodies : (obj : HTMLTableElement) -> JSIO HTMLCollection
   
   %foreign "browser:lambda:x=>x.align"
   prim__align : AnyPtr -> PrimIO AnyPtr
 
   export
-  align : (obj : HTMLTableElement) -> IO String
+  align : (obj : HTMLTableElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.align  = v}"
   prim__setAlign : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAlign : (obj : HTMLTableElement) -> (v : String) -> IO ()
+  setAlign : (obj : HTMLTableElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.bgColor"
   prim__bgColor : AnyPtr -> PrimIO AnyPtr
 
   export
-  bgColor : (obj : HTMLTableElement) -> IO String
+  bgColor : (obj : HTMLTableElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.bgColor  = v}"
   prim__setBgColor : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setBgColor : (obj : HTMLTableElement) -> (v : String) -> IO ()
+  setBgColor : (obj : HTMLTableElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.border"
   prim__border : AnyPtr -> PrimIO AnyPtr
 
   export
-  border : (obj : HTMLTableElement) -> IO String
+  border : (obj : HTMLTableElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.border  = v}"
   prim__setBorder : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setBorder : (obj : HTMLTableElement) -> (v : String) -> IO ()
+  setBorder : (obj : HTMLTableElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.caption"
   prim__caption : AnyPtr -> PrimIO AnyPtr
 
   export
-  caption : (obj : HTMLTableElement) -> IO (Maybe HTMLTableCaptionElement)
+  caption : (obj : HTMLTableElement) -> JSIO (Maybe HTMLTableCaptionElement)
 
   %foreign "browser:lambda:(x,v)=>{x.caption  = v}"
   prim__setCaption : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -6188,73 +6190,73 @@ namespace HTMLTableElement
   export
   setCaption :  (obj : HTMLTableElement)
              -> (v : Maybe HTMLTableCaptionElement)
-             -> IO ()
+             -> JSIO ()
   
   %foreign "browser:lambda:x=>x.cellPadding"
   prim__cellPadding : AnyPtr -> PrimIO AnyPtr
 
   export
-  cellPadding : (obj : HTMLTableElement) -> IO String
+  cellPadding : (obj : HTMLTableElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.cellPadding  = v}"
   prim__setCellPadding : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCellPadding : (obj : HTMLTableElement) -> (v : String) -> IO ()
+  setCellPadding : (obj : HTMLTableElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.cellSpacing"
   prim__cellSpacing : AnyPtr -> PrimIO AnyPtr
 
   export
-  cellSpacing : (obj : HTMLTableElement) -> IO String
+  cellSpacing : (obj : HTMLTableElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.cellSpacing  = v}"
   prim__setCellSpacing : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCellSpacing : (obj : HTMLTableElement) -> (v : String) -> IO ()
+  setCellSpacing : (obj : HTMLTableElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.frame"
   prim__frame : AnyPtr -> PrimIO AnyPtr
 
   export
-  frame : (obj : HTMLTableElement) -> IO String
+  frame : (obj : HTMLTableElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.frame  = v}"
   prim__setFrame : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setFrame : (obj : HTMLTableElement) -> (v : String) -> IO ()
+  setFrame : (obj : HTMLTableElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.rules"
   prim__rules : AnyPtr -> PrimIO AnyPtr
 
   export
-  rules : (obj : HTMLTableElement) -> IO String
+  rules : (obj : HTMLTableElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.rules  = v}"
   prim__setRules : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setRules : (obj : HTMLTableElement) -> (v : String) -> IO ()
+  setRules : (obj : HTMLTableElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.summary"
   prim__summary : AnyPtr -> PrimIO AnyPtr
 
   export
-  summary : (obj : HTMLTableElement) -> IO String
+  summary : (obj : HTMLTableElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.summary  = v}"
   prim__setSummary : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSummary : (obj : HTMLTableElement) -> (v : String) -> IO ()
+  setSummary : (obj : HTMLTableElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.tFoot"
   prim__tFoot : AnyPtr -> PrimIO AnyPtr
 
   export
-  tFoot : (obj : HTMLTableElement) -> IO (Maybe HTMLTableSectionElement)
+  tFoot : (obj : HTMLTableElement) -> JSIO (Maybe HTMLTableSectionElement)
 
   %foreign "browser:lambda:(x,v)=>{x.tFoot  = v}"
   prim__setTFoot : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -6262,13 +6264,13 @@ namespace HTMLTableElement
   export
   setTFoot :  (obj : HTMLTableElement)
            -> (v : Maybe HTMLTableSectionElement)
-           -> IO ()
+           -> JSIO ()
   
   %foreign "browser:lambda:x=>x.tHead"
   prim__tHead : AnyPtr -> PrimIO AnyPtr
 
   export
-  tHead : (obj : HTMLTableElement) -> IO (Maybe HTMLTableSectionElement)
+  tHead : (obj : HTMLTableElement) -> JSIO (Maybe HTMLTableSectionElement)
 
   %foreign "browser:lambda:(x,v)=>{x.tHead  = v}"
   prim__setTHead : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -6276,19 +6278,19 @@ namespace HTMLTableElement
   export
   setTHead :  (obj : HTMLTableElement)
            -> (v : Maybe HTMLTableSectionElement)
-           -> IO ()
+           -> JSIO ()
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
 
   export
-  width : (obj : HTMLTableElement) -> IO String
+  width : (obj : HTMLTableElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.width  = v}"
   prim__setWidth : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setWidth : (obj : HTMLTableElement) -> (v : String) -> IO ()
+  setWidth : (obj : HTMLTableElement) -> (v : String) -> JSIO ()
 
 namespace HTMLTableRowElement
   
@@ -6312,79 +6314,79 @@ namespace HTMLTableRowElement
   prim__cells : AnyPtr -> PrimIO AnyPtr
 
   export
-  cells : (obj : HTMLTableRowElement) -> IO HTMLCollection
+  cells : (obj : HTMLTableRowElement) -> JSIO HTMLCollection
   
   %foreign "browser:lambda:x=>x.rowIndex"
   prim__rowIndex : AnyPtr -> PrimIO AnyPtr
 
   export
-  rowIndex : (obj : HTMLTableRowElement) -> IO Int32
+  rowIndex : (obj : HTMLTableRowElement) -> JSIO Int32
   
   %foreign "browser:lambda:x=>x.sectionRowIndex"
   prim__sectionRowIndex : AnyPtr -> PrimIO AnyPtr
 
   export
-  sectionRowIndex : (obj : HTMLTableRowElement) -> IO Int32
+  sectionRowIndex : (obj : HTMLTableRowElement) -> JSIO Int32
   
   %foreign "browser:lambda:x=>x.align"
   prim__align : AnyPtr -> PrimIO AnyPtr
 
   export
-  align : (obj : HTMLTableRowElement) -> IO String
+  align : (obj : HTMLTableRowElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.align  = v}"
   prim__setAlign : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAlign : (obj : HTMLTableRowElement) -> (v : String) -> IO ()
+  setAlign : (obj : HTMLTableRowElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.bgColor"
   prim__bgColor : AnyPtr -> PrimIO AnyPtr
 
   export
-  bgColor : (obj : HTMLTableRowElement) -> IO String
+  bgColor : (obj : HTMLTableRowElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.bgColor  = v}"
   prim__setBgColor : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setBgColor : (obj : HTMLTableRowElement) -> (v : String) -> IO ()
+  setBgColor : (obj : HTMLTableRowElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ch"
   prim__ch : AnyPtr -> PrimIO AnyPtr
 
   export
-  ch : (obj : HTMLTableRowElement) -> IO String
+  ch : (obj : HTMLTableRowElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ch  = v}"
   prim__setCh : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCh : (obj : HTMLTableRowElement) -> (v : String) -> IO ()
+  setCh : (obj : HTMLTableRowElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.chOff"
   prim__chOff : AnyPtr -> PrimIO AnyPtr
 
   export
-  chOff : (obj : HTMLTableRowElement) -> IO String
+  chOff : (obj : HTMLTableRowElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.chOff  = v}"
   prim__setChOff : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setChOff : (obj : HTMLTableRowElement) -> (v : String) -> IO ()
+  setChOff : (obj : HTMLTableRowElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.vAlign"
   prim__vAlign : AnyPtr -> PrimIO AnyPtr
 
   export
-  vAlign : (obj : HTMLTableRowElement) -> IO String
+  vAlign : (obj : HTMLTableRowElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.vAlign  = v}"
   prim__setVAlign : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setVAlign : (obj : HTMLTableRowElement) -> (v : String) -> IO ()
+  setVAlign : (obj : HTMLTableRowElement) -> (v : String) -> JSIO ()
 
 namespace HTMLTableSectionElement
   
@@ -6408,55 +6410,55 @@ namespace HTMLTableSectionElement
   prim__rows : AnyPtr -> PrimIO AnyPtr
 
   export
-  rows : (obj : HTMLTableSectionElement) -> IO HTMLCollection
+  rows : (obj : HTMLTableSectionElement) -> JSIO HTMLCollection
   
   %foreign "browser:lambda:x=>x.align"
   prim__align : AnyPtr -> PrimIO AnyPtr
 
   export
-  align : (obj : HTMLTableSectionElement) -> IO String
+  align : (obj : HTMLTableSectionElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.align  = v}"
   prim__setAlign : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAlign : (obj : HTMLTableSectionElement) -> (v : String) -> IO ()
+  setAlign : (obj : HTMLTableSectionElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ch"
   prim__ch : AnyPtr -> PrimIO AnyPtr
 
   export
-  ch : (obj : HTMLTableSectionElement) -> IO String
+  ch : (obj : HTMLTableSectionElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ch  = v}"
   prim__setCh : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCh : (obj : HTMLTableSectionElement) -> (v : String) -> IO ()
+  setCh : (obj : HTMLTableSectionElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.chOff"
   prim__chOff : AnyPtr -> PrimIO AnyPtr
 
   export
-  chOff : (obj : HTMLTableSectionElement) -> IO String
+  chOff : (obj : HTMLTableSectionElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.chOff  = v}"
   prim__setChOff : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setChOff : (obj : HTMLTableSectionElement) -> (v : String) -> IO ()
+  setChOff : (obj : HTMLTableSectionElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.vAlign"
   prim__vAlign : AnyPtr -> PrimIO AnyPtr
 
   export
-  vAlign : (obj : HTMLTableSectionElement) -> IO String
+  vAlign : (obj : HTMLTableSectionElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.vAlign  = v}"
   prim__setVAlign : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setVAlign : (obj : HTMLTableSectionElement) -> (v : String) -> IO ()
+  setVAlign : (obj : HTMLTableSectionElement) -> (v : String) -> JSIO ()
 
 namespace HTMLTemplateElement
   
@@ -6480,7 +6482,7 @@ namespace HTMLTemplateElement
   prim__content : AnyPtr -> PrimIO AnyPtr
 
   export
-  content : (obj : HTMLTemplateElement) -> IO DocumentFragment
+  content : (obj : HTMLTemplateElement) -> JSIO DocumentFragment
 
 namespace HTMLTextAreaElement
   
@@ -6504,247 +6506,247 @@ namespace HTMLTextAreaElement
   prim__form : AnyPtr -> PrimIO AnyPtr
 
   export
-  form : (obj : HTMLTextAreaElement) -> IO (Maybe HTMLFormElement)
+  form : (obj : HTMLTextAreaElement) -> JSIO (Maybe HTMLFormElement)
   
   %foreign "browser:lambda:x=>x.labels"
   prim__labels : AnyPtr -> PrimIO AnyPtr
 
   export
-  labels : (obj : HTMLTextAreaElement) -> IO NodeList
+  labels : (obj : HTMLTextAreaElement) -> JSIO NodeList
   
   %foreign "browser:lambda:x=>x.textLength"
   prim__textLength : AnyPtr -> PrimIO AnyPtr
 
   export
-  textLength : (obj : HTMLTextAreaElement) -> IO UInt32
+  textLength : (obj : HTMLTextAreaElement) -> JSIO UInt32
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
 
   export
-  type : (obj : HTMLTextAreaElement) -> IO String
+  type : (obj : HTMLTextAreaElement) -> JSIO String
   
   %foreign "browser:lambda:x=>x.validationMessage"
   prim__validationMessage : AnyPtr -> PrimIO AnyPtr
 
   export
-  validationMessage : (obj : HTMLTextAreaElement) -> IO String
+  validationMessage : (obj : HTMLTextAreaElement) -> JSIO String
   
   %foreign "browser:lambda:x=>x.validity"
   prim__validity : AnyPtr -> PrimIO AnyPtr
 
   export
-  validity : (obj : HTMLTextAreaElement) -> IO ValidityState
+  validity : (obj : HTMLTextAreaElement) -> JSIO ValidityState
   
   %foreign "browser:lambda:x=>x.willValidate"
   prim__willValidate : AnyPtr -> PrimIO AnyPtr
 
   export
-  willValidate : (obj : HTMLTextAreaElement) -> IO Bool
+  willValidate : (obj : HTMLTextAreaElement) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.autocomplete"
   prim__autocomplete : AnyPtr -> PrimIO AnyPtr
 
   export
-  autocomplete : (obj : HTMLTextAreaElement) -> IO String
+  autocomplete : (obj : HTMLTextAreaElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.autocomplete  = v}"
   prim__setAutocomplete : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAutocomplete : (obj : HTMLTextAreaElement) -> (v : String) -> IO ()
+  setAutocomplete : (obj : HTMLTextAreaElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.cols"
   prim__cols : AnyPtr -> PrimIO AnyPtr
 
   export
-  cols : (obj : HTMLTextAreaElement) -> IO UInt32
+  cols : (obj : HTMLTextAreaElement) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.cols  = v}"
   prim__setCols : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCols : (obj : HTMLTextAreaElement) -> (v : UInt32) -> IO ()
+  setCols : (obj : HTMLTextAreaElement) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.defaultValue"
   prim__defaultValue : AnyPtr -> PrimIO AnyPtr
 
   export
-  defaultValue : (obj : HTMLTextAreaElement) -> IO String
+  defaultValue : (obj : HTMLTextAreaElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.defaultValue  = v}"
   prim__setDefaultValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDefaultValue : (obj : HTMLTextAreaElement) -> (v : String) -> IO ()
+  setDefaultValue : (obj : HTMLTextAreaElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.dirName"
   prim__dirName : AnyPtr -> PrimIO AnyPtr
 
   export
-  dirName : (obj : HTMLTextAreaElement) -> IO String
+  dirName : (obj : HTMLTextAreaElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.dirName  = v}"
   prim__setDirName : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDirName : (obj : HTMLTextAreaElement) -> (v : String) -> IO ()
+  setDirName : (obj : HTMLTextAreaElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.disabled"
   prim__disabled : AnyPtr -> PrimIO AnyPtr
 
   export
-  disabled : (obj : HTMLTextAreaElement) -> IO Bool
+  disabled : (obj : HTMLTextAreaElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.disabled  = v}"
   prim__setDisabled : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDisabled : (obj : HTMLTextAreaElement) -> (v : Bool) -> IO ()
+  setDisabled : (obj : HTMLTextAreaElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.maxLength"
   prim__maxLength : AnyPtr -> PrimIO AnyPtr
 
   export
-  maxLength : (obj : HTMLTextAreaElement) -> IO Int32
+  maxLength : (obj : HTMLTextAreaElement) -> JSIO Int32
 
   %foreign "browser:lambda:(x,v)=>{x.maxLength  = v}"
   prim__setMaxLength : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setMaxLength : (obj : HTMLTextAreaElement) -> (v : Int32) -> IO ()
+  setMaxLength : (obj : HTMLTextAreaElement) -> (v : Int32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.minLength"
   prim__minLength : AnyPtr -> PrimIO AnyPtr
 
   export
-  minLength : (obj : HTMLTextAreaElement) -> IO Int32
+  minLength : (obj : HTMLTextAreaElement) -> JSIO Int32
 
   %foreign "browser:lambda:(x,v)=>{x.minLength  = v}"
   prim__setMinLength : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setMinLength : (obj : HTMLTextAreaElement) -> (v : Int32) -> IO ()
+  setMinLength : (obj : HTMLTextAreaElement) -> (v : Int32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.name"
   prim__name : AnyPtr -> PrimIO AnyPtr
 
   export
-  name : (obj : HTMLTextAreaElement) -> IO String
+  name : (obj : HTMLTextAreaElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.name  = v}"
   prim__setName : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setName : (obj : HTMLTextAreaElement) -> (v : String) -> IO ()
+  setName : (obj : HTMLTextAreaElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.placeholder"
   prim__placeholder : AnyPtr -> PrimIO AnyPtr
 
   export
-  placeholder : (obj : HTMLTextAreaElement) -> IO String
+  placeholder : (obj : HTMLTextAreaElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.placeholder  = v}"
   prim__setPlaceholder : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setPlaceholder : (obj : HTMLTextAreaElement) -> (v : String) -> IO ()
+  setPlaceholder : (obj : HTMLTextAreaElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.readOnly"
   prim__readOnly : AnyPtr -> PrimIO AnyPtr
 
   export
-  readOnly : (obj : HTMLTextAreaElement) -> IO Bool
+  readOnly : (obj : HTMLTextAreaElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.readOnly  = v}"
   prim__setReadOnly : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setReadOnly : (obj : HTMLTextAreaElement) -> (v : Bool) -> IO ()
+  setReadOnly : (obj : HTMLTextAreaElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.required"
   prim__required : AnyPtr -> PrimIO AnyPtr
 
   export
-  required : (obj : HTMLTextAreaElement) -> IO Bool
+  required : (obj : HTMLTextAreaElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.required  = v}"
   prim__setRequired : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setRequired : (obj : HTMLTextAreaElement) -> (v : Bool) -> IO ()
+  setRequired : (obj : HTMLTextAreaElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.rows"
   prim__rows : AnyPtr -> PrimIO AnyPtr
 
   export
-  rows : (obj : HTMLTextAreaElement) -> IO UInt32
+  rows : (obj : HTMLTextAreaElement) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.rows  = v}"
   prim__setRows : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setRows : (obj : HTMLTextAreaElement) -> (v : UInt32) -> IO ()
+  setRows : (obj : HTMLTextAreaElement) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.selectionDirection"
   prim__selectionDirection : AnyPtr -> PrimIO AnyPtr
 
   export
-  selectionDirection : (obj : HTMLTextAreaElement) -> IO String
+  selectionDirection : (obj : HTMLTextAreaElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.selectionDirection  = v}"
   prim__setSelectionDirection : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSelectionDirection : (obj : HTMLTextAreaElement) -> (v : String) -> IO ()
+  setSelectionDirection : (obj : HTMLTextAreaElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.selectionEnd"
   prim__selectionEnd : AnyPtr -> PrimIO AnyPtr
 
   export
-  selectionEnd : (obj : HTMLTextAreaElement) -> IO UInt32
+  selectionEnd : (obj : HTMLTextAreaElement) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.selectionEnd  = v}"
   prim__setSelectionEnd : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSelectionEnd : (obj : HTMLTextAreaElement) -> (v : UInt32) -> IO ()
+  setSelectionEnd : (obj : HTMLTextAreaElement) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.selectionStart"
   prim__selectionStart : AnyPtr -> PrimIO AnyPtr
 
   export
-  selectionStart : (obj : HTMLTextAreaElement) -> IO UInt32
+  selectionStart : (obj : HTMLTextAreaElement) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.selectionStart  = v}"
   prim__setSelectionStart : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSelectionStart : (obj : HTMLTextAreaElement) -> (v : UInt32) -> IO ()
+  setSelectionStart : (obj : HTMLTextAreaElement) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.value"
   prim__value : AnyPtr -> PrimIO AnyPtr
 
   export
-  value : (obj : HTMLTextAreaElement) -> IO String
+  value : (obj : HTMLTextAreaElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.value  = v}"
   prim__setValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setValue : (obj : HTMLTextAreaElement) -> (v : String) -> IO ()
+  setValue : (obj : HTMLTextAreaElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.wrap"
   prim__wrap : AnyPtr -> PrimIO AnyPtr
 
   export
-  wrap : (obj : HTMLTextAreaElement) -> IO String
+  wrap : (obj : HTMLTextAreaElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.wrap  = v}"
   prim__setWrap : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setWrap : (obj : HTMLTextAreaElement) -> (v : String) -> IO ()
+  setWrap : (obj : HTMLTextAreaElement) -> (v : String) -> JSIO ()
 
 namespace HTMLTimeElement
   
@@ -6768,13 +6770,13 @@ namespace HTMLTimeElement
   prim__dateTime : AnyPtr -> PrimIO AnyPtr
 
   export
-  dateTime : (obj : HTMLTimeElement) -> IO String
+  dateTime : (obj : HTMLTimeElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.dateTime  = v}"
   prim__setDateTime : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDateTime : (obj : HTMLTimeElement) -> (v : String) -> IO ()
+  setDateTime : (obj : HTMLTimeElement) -> (v : String) -> JSIO ()
 
 namespace HTMLTitleElement
   
@@ -6798,13 +6800,13 @@ namespace HTMLTitleElement
   prim__text : AnyPtr -> PrimIO AnyPtr
 
   export
-  text : (obj : HTMLTitleElement) -> IO String
+  text : (obj : HTMLTitleElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.text  = v}"
   prim__setText : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setText : (obj : HTMLTitleElement) -> (v : String) -> IO ()
+  setText : (obj : HTMLTitleElement) -> (v : String) -> JSIO ()
 
 namespace HTMLTrackElement
   
@@ -6844,73 +6846,73 @@ namespace HTMLTrackElement
   prim__readyState : AnyPtr -> PrimIO AnyPtr
 
   export
-  readyState : (obj : HTMLTrackElement) -> IO UInt16
+  readyState : (obj : HTMLTrackElement) -> JSIO UInt16
   
   %foreign "browser:lambda:x=>x.track"
   prim__track : AnyPtr -> PrimIO AnyPtr
 
   export
-  track : (obj : HTMLTrackElement) -> IO TextTrack
+  track : (obj : HTMLTrackElement) -> JSIO TextTrack
   
   %foreign "browser:lambda:x=>x.default"
   prim__default_ : AnyPtr -> PrimIO AnyPtr
 
   export
-  default_ : (obj : HTMLTrackElement) -> IO Bool
+  default_ : (obj : HTMLTrackElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.default  = v}"
   prim__setDefault : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDefault : (obj : HTMLTrackElement) -> (v : Bool) -> IO ()
+  setDefault : (obj : HTMLTrackElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.kind"
   prim__kind : AnyPtr -> PrimIO AnyPtr
 
   export
-  kind : (obj : HTMLTrackElement) -> IO String
+  kind : (obj : HTMLTrackElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.kind  = v}"
   prim__setKind : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setKind : (obj : HTMLTrackElement) -> (v : String) -> IO ()
+  setKind : (obj : HTMLTrackElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.label"
   prim__label : AnyPtr -> PrimIO AnyPtr
 
   export
-  label : (obj : HTMLTrackElement) -> IO String
+  label : (obj : HTMLTrackElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.label  = v}"
   prim__setLabel : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setLabel : (obj : HTMLTrackElement) -> (v : String) -> IO ()
+  setLabel : (obj : HTMLTrackElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.src"
   prim__src : AnyPtr -> PrimIO AnyPtr
 
   export
-  src : (obj : HTMLTrackElement) -> IO String
+  src : (obj : HTMLTrackElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.src  = v}"
   prim__setSrc : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSrc : (obj : HTMLTrackElement) -> (v : String) -> IO ()
+  setSrc : (obj : HTMLTrackElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.srclang"
   prim__srclang : AnyPtr -> PrimIO AnyPtr
 
   export
-  srclang : (obj : HTMLTrackElement) -> IO String
+  srclang : (obj : HTMLTrackElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.srclang  = v}"
   prim__setSrclang : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSrclang : (obj : HTMLTrackElement) -> (v : String) -> IO ()
+  setSrclang : (obj : HTMLTrackElement) -> (v : String) -> JSIO ()
 
 namespace HTMLUListElement
   
@@ -6934,25 +6936,25 @@ namespace HTMLUListElement
   prim__compact : AnyPtr -> PrimIO AnyPtr
 
   export
-  compact : (obj : HTMLUListElement) -> IO Bool
+  compact : (obj : HTMLUListElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.compact  = v}"
   prim__setCompact : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCompact : (obj : HTMLUListElement) -> (v : Bool) -> IO ()
+  setCompact : (obj : HTMLUListElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
 
   export
-  type : (obj : HTMLUListElement) -> IO String
+  type : (obj : HTMLUListElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.type  = v}"
   prim__setType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setType : (obj : HTMLUListElement) -> (v : String) -> IO ()
+  setType : (obj : HTMLUListElement) -> (v : String) -> JSIO ()
 
 namespace HTMLUnknownElement
   
@@ -7000,61 +7002,61 @@ namespace HTMLVideoElement
   prim__videoHeight : AnyPtr -> PrimIO AnyPtr
 
   export
-  videoHeight : (obj : HTMLVideoElement) -> IO UInt32
+  videoHeight : (obj : HTMLVideoElement) -> JSIO UInt32
   
   %foreign "browser:lambda:x=>x.videoWidth"
   prim__videoWidth : AnyPtr -> PrimIO AnyPtr
 
   export
-  videoWidth : (obj : HTMLVideoElement) -> IO UInt32
+  videoWidth : (obj : HTMLVideoElement) -> JSIO UInt32
   
   %foreign "browser:lambda:x=>x.height"
   prim__height : AnyPtr -> PrimIO AnyPtr
 
   export
-  height : (obj : HTMLVideoElement) -> IO UInt32
+  height : (obj : HTMLVideoElement) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.height  = v}"
   prim__setHeight : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHeight : (obj : HTMLVideoElement) -> (v : UInt32) -> IO ()
+  setHeight : (obj : HTMLVideoElement) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.playsInline"
   prim__playsInline : AnyPtr -> PrimIO AnyPtr
 
   export
-  playsInline : (obj : HTMLVideoElement) -> IO Bool
+  playsInline : (obj : HTMLVideoElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.playsInline  = v}"
   prim__setPlaysInline : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setPlaysInline : (obj : HTMLVideoElement) -> (v : Bool) -> IO ()
+  setPlaysInline : (obj : HTMLVideoElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.poster"
   prim__poster : AnyPtr -> PrimIO AnyPtr
 
   export
-  poster : (obj : HTMLVideoElement) -> IO String
+  poster : (obj : HTMLVideoElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.poster  = v}"
   prim__setPoster : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setPoster : (obj : HTMLVideoElement) -> (v : String) -> IO ()
+  setPoster : (obj : HTMLVideoElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
 
   export
-  width : (obj : HTMLVideoElement) -> IO UInt32
+  width : (obj : HTMLVideoElement) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.width  = v}"
   prim__setWidth : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setWidth : (obj : HTMLVideoElement) -> (v : UInt32) -> IO ()
+  setWidth : (obj : HTMLVideoElement) -> (v : UInt32) -> JSIO ()
 
 namespace HashChangeEvent
   
@@ -7068,13 +7070,13 @@ namespace HashChangeEvent
   prim__newURL : AnyPtr -> PrimIO AnyPtr
 
   export
-  newURL : (obj : HashChangeEvent) -> IO String
+  newURL : (obj : HashChangeEvent) -> JSIO String
   
   %foreign "browser:lambda:x=>x.oldURL"
   prim__oldURL : AnyPtr -> PrimIO AnyPtr
 
   export
-  oldURL : (obj : HashChangeEvent) -> IO String
+  oldURL : (obj : HashChangeEvent) -> JSIO String
 
 namespace History
   
@@ -7088,25 +7090,25 @@ namespace History
   prim__length : AnyPtr -> PrimIO AnyPtr
 
   export
-  length : (obj : History) -> IO UInt32
+  length : (obj : History) -> JSIO UInt32
   
   %foreign "browser:lambda:x=>x.state"
   prim__state : AnyPtr -> PrimIO AnyPtr
 
   export
-  state : (obj : History) -> IO Any
+  state : (obj : History) -> JSIO Any
   
   %foreign "browser:lambda:x=>x.scrollRestoration"
   prim__scrollRestoration : AnyPtr -> PrimIO AnyPtr
 
   export
-  scrollRestoration : (obj : History) -> IO ScrollRestoration
+  scrollRestoration : (obj : History) -> JSIO ScrollRestoration
 
   %foreign "browser:lambda:(x,v)=>{x.scrollRestoration  = v}"
   prim__setScrollRestoration : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setScrollRestoration : (obj : History) -> (v : ScrollRestoration) -> IO ()
+  setScrollRestoration : (obj : History) -> (v : ScrollRestoration) -> JSIO ()
 
 namespace ImageBitmap
   
@@ -7120,13 +7122,13 @@ namespace ImageBitmap
   prim__height : AnyPtr -> PrimIO AnyPtr
 
   export
-  height : (obj : ImageBitmap) -> IO UInt32
+  height : (obj : ImageBitmap) -> JSIO UInt32
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
 
   export
-  width : (obj : ImageBitmap) -> IO UInt32
+  width : (obj : ImageBitmap) -> JSIO UInt32
 
 namespace ImageBitmapRenderingContext
   
@@ -7141,7 +7143,7 @@ namespace ImageBitmapRenderingContext
 
   export
   canvas :  (obj : ImageBitmapRenderingContext)
-         -> IO (NS I [ HTMLCanvasElement , OffscreenCanvas ])
+         -> JSIO (NS I [ HTMLCanvasElement , OffscreenCanvas ])
 
 namespace ImageData
   
@@ -7155,19 +7157,19 @@ namespace ImageData
   prim__data_ : AnyPtr -> PrimIO AnyPtr
 
   export
-  data_ : (obj : ImageData) -> IO (JSArray UInt8)
+  data_ : (obj : ImageData) -> JSIO (JSArray UInt8)
   
   %foreign "browser:lambda:x=>x.height"
   prim__height : AnyPtr -> PrimIO AnyPtr
 
   export
-  height : (obj : ImageData) -> IO UInt32
+  height : (obj : ImageData) -> JSIO UInt32
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
 
   export
-  width : (obj : ImageData) -> IO UInt32
+  width : (obj : ImageData) -> JSIO UInt32
 
 namespace Location
   
@@ -7181,97 +7183,97 @@ namespace Location
   prim__ancestorOrigins : AnyPtr -> PrimIO AnyPtr
 
   export
-  ancestorOrigins : (obj : Location) -> IO DOMStringList
+  ancestorOrigins : (obj : Location) -> JSIO DOMStringList
   
   %foreign "browser:lambda:x=>x.origin"
   prim__origin : AnyPtr -> PrimIO AnyPtr
 
   export
-  origin : (obj : Location) -> IO String
+  origin : (obj : Location) -> JSIO String
   
   %foreign "browser:lambda:x=>x.hash"
   prim__hash : AnyPtr -> PrimIO AnyPtr
 
   export
-  hash : (obj : Location) -> IO String
+  hash : (obj : Location) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.hash  = v}"
   prim__setHash : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHash : (obj : Location) -> (v : String) -> IO ()
+  setHash : (obj : Location) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.host"
   prim__host : AnyPtr -> PrimIO AnyPtr
 
   export
-  host : (obj : Location) -> IO String
+  host : (obj : Location) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.host  = v}"
   prim__setHost : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHost : (obj : Location) -> (v : String) -> IO ()
+  setHost : (obj : Location) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.hostname"
   prim__hostname : AnyPtr -> PrimIO AnyPtr
 
   export
-  hostname : (obj : Location) -> IO String
+  hostname : (obj : Location) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.hostname  = v}"
   prim__setHostname : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHostname : (obj : Location) -> (v : String) -> IO ()
+  setHostname : (obj : Location) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.pathname"
   prim__pathname : AnyPtr -> PrimIO AnyPtr
 
   export
-  pathname : (obj : Location) -> IO String
+  pathname : (obj : Location) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.pathname  = v}"
   prim__setPathname : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setPathname : (obj : Location) -> (v : String) -> IO ()
+  setPathname : (obj : Location) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.port"
   prim__port : AnyPtr -> PrimIO AnyPtr
 
   export
-  port : (obj : Location) -> IO String
+  port : (obj : Location) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.port  = v}"
   prim__setPort : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setPort : (obj : Location) -> (v : String) -> IO ()
+  setPort : (obj : Location) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.protocol"
   prim__protocol : AnyPtr -> PrimIO AnyPtr
 
   export
-  protocol : (obj : Location) -> IO String
+  protocol : (obj : Location) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.protocol  = v}"
   prim__setProtocol : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setProtocol : (obj : Location) -> (v : String) -> IO ()
+  setProtocol : (obj : Location) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.search"
   prim__search : AnyPtr -> PrimIO AnyPtr
 
   export
-  search : (obj : Location) -> IO String
+  search : (obj : Location) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.search  = v}"
   prim__setSearch : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSearch : (obj : Location) -> (v : String) -> IO ()
+  setSearch : (obj : Location) -> (v : String) -> JSIO ()
 
 namespace MediaError
   
@@ -7301,13 +7303,13 @@ namespace MediaError
   prim__code : AnyPtr -> PrimIO AnyPtr
 
   export
-  code : (obj : MediaError) -> IO UInt16
+  code : (obj : MediaError) -> JSIO UInt16
   
   %foreign "browser:lambda:x=>x.message"
   prim__message : AnyPtr -> PrimIO AnyPtr
 
   export
-  message : (obj : MediaError) -> IO String
+  message : (obj : MediaError) -> JSIO String
 
 namespace MessageChannel
   
@@ -7321,13 +7323,13 @@ namespace MessageChannel
   prim__port1 : AnyPtr -> PrimIO AnyPtr
 
   export
-  port1 : (obj : MessageChannel) -> IO MessagePort
+  port1 : (obj : MessageChannel) -> JSIO MessagePort
   
   %foreign "browser:lambda:x=>x.port2"
   prim__port2 : AnyPtr -> PrimIO AnyPtr
 
   export
-  port2 : (obj : MessageChannel) -> IO MessagePort
+  port2 : (obj : MessageChannel) -> JSIO MessagePort
 
 namespace MessageEvent
   
@@ -7341,31 +7343,31 @@ namespace MessageEvent
   prim__data_ : AnyPtr -> PrimIO AnyPtr
 
   export
-  data_ : (obj : MessageEvent) -> IO Any
+  data_ : (obj : MessageEvent) -> JSIO Any
   
   %foreign "browser:lambda:x=>x.lastEventId"
   prim__lastEventId : AnyPtr -> PrimIO AnyPtr
 
   export
-  lastEventId : (obj : MessageEvent) -> IO String
+  lastEventId : (obj : MessageEvent) -> JSIO String
   
   %foreign "browser:lambda:x=>x.origin"
   prim__origin : AnyPtr -> PrimIO AnyPtr
 
   export
-  origin : (obj : MessageEvent) -> IO String
+  origin : (obj : MessageEvent) -> JSIO String
   
   %foreign "browser:lambda:x=>x.ports"
   prim__ports : AnyPtr -> PrimIO AnyPtr
 
   export
-  ports : (obj : MessageEvent) -> IO (JSArray MessagePort)
+  ports : (obj : MessageEvent) -> JSIO (JSArray MessagePort)
   
   %foreign "browser:lambda:x=>x.source"
   prim__source : AnyPtr -> PrimIO AnyPtr
 
   export
-  source : (obj : MessageEvent) -> IO (Maybe MessageEventSource)
+  source : (obj : MessageEvent) -> JSIO (Maybe MessageEventSource)
 
 namespace MessagePort
   
@@ -7379,25 +7381,25 @@ namespace MessagePort
   prim__onmessage : AnyPtr -> PrimIO AnyPtr
 
   export
-  onmessage : (obj : MessagePort) -> IO EventHandler
+  onmessage : (obj : MessagePort) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onmessage  = v}"
   prim__setOnmessage : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnmessage : (obj : MessagePort) -> (v : EventHandler) -> IO ()
+  setOnmessage : (obj : MessagePort) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onmessageerror"
   prim__onmessageerror : AnyPtr -> PrimIO AnyPtr
 
   export
-  onmessageerror : (obj : MessagePort) -> IO EventHandler
+  onmessageerror : (obj : MessagePort) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onmessageerror  = v}"
   prim__setOnmessageerror : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnmessageerror : (obj : MessagePort) -> (v : EventHandler) -> IO ()
+  setOnmessageerror : (obj : MessagePort) -> (v : EventHandler) -> JSIO ()
 
 namespace MimeType
   
@@ -7411,25 +7413,25 @@ namespace MimeType
   prim__description : AnyPtr -> PrimIO ()
 
   export
-  description : (obj : MimeType) -> IO ()
+  description : (obj : MimeType) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.enabledPlugin"
   prim__enabledPlugin : AnyPtr -> PrimIO ()
 
   export
-  enabledPlugin : (obj : MimeType) -> IO ()
+  enabledPlugin : (obj : MimeType) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.suffixes"
   prim__suffixes : AnyPtr -> PrimIO ()
 
   export
-  suffixes : (obj : MimeType) -> IO ()
+  suffixes : (obj : MimeType) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO ()
 
   export
-  type : (obj : MimeType) -> IO ()
+  type : (obj : MimeType) -> JSIO ()
 
 namespace MimeTypeArray
   
@@ -7443,7 +7445,7 @@ namespace MimeTypeArray
   prim__length : AnyPtr -> PrimIO AnyPtr
 
   export
-  length : (obj : MimeTypeArray) -> IO UInt32
+  length : (obj : MimeTypeArray) -> JSIO UInt32
 
 namespace Navigator
   
@@ -7464,25 +7466,25 @@ namespace Navigator
   prim__clipboard : AnyPtr -> PrimIO AnyPtr
 
   export
-  clipboard : (obj : Navigator) -> IO Clipboard
+  clipboard : (obj : Navigator) -> JSIO Clipboard
   
   %foreign "browser:lambda:x=>x.mediaDevices"
   prim__mediaDevices : AnyPtr -> PrimIO AnyPtr
 
   export
-  mediaDevices : (obj : Navigator) -> IO MediaDevices
+  mediaDevices : (obj : Navigator) -> JSIO MediaDevices
   
   %foreign "browser:lambda:x=>x.permissions"
   prim__permissions : AnyPtr -> PrimIO AnyPtr
 
   export
-  permissions : (obj : Navigator) -> IO Permissions
+  permissions : (obj : Navigator) -> JSIO Permissions
   
   %foreign "browser:lambda:x=>x.serviceWorker"
   prim__serviceWorker : AnyPtr -> PrimIO AnyPtr
 
   export
-  serviceWorker : (obj : Navigator) -> IO ServiceWorkerContainer
+  serviceWorker : (obj : Navigator) -> JSIO ServiceWorkerContainer
 
 namespace OffscreenCanvas
   
@@ -7496,25 +7498,25 @@ namespace OffscreenCanvas
   prim__height : AnyPtr -> PrimIO AnyPtr
 
   export
-  height : (obj : OffscreenCanvas) -> IO UInt64
+  height : (obj : OffscreenCanvas) -> JSIO UInt64
 
   %foreign "browser:lambda:(x,v)=>{x.height  = v}"
   prim__setHeight : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHeight : (obj : OffscreenCanvas) -> (v : UInt64) -> IO ()
+  setHeight : (obj : OffscreenCanvas) -> (v : UInt64) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
 
   export
-  width : (obj : OffscreenCanvas) -> IO UInt64
+  width : (obj : OffscreenCanvas) -> JSIO UInt64
 
   %foreign "browser:lambda:(x,v)=>{x.width  = v}"
   prim__setWidth : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setWidth : (obj : OffscreenCanvas) -> (v : UInt64) -> IO ()
+  setWidth : (obj : OffscreenCanvas) -> (v : UInt64) -> JSIO ()
 
 namespace OffscreenCanvasRenderingContext2D
   
@@ -7543,7 +7545,7 @@ namespace OffscreenCanvasRenderingContext2D
   prim__canvas : AnyPtr -> PrimIO AnyPtr
 
   export
-  canvas : (obj : OffscreenCanvasRenderingContext2D) -> IO OffscreenCanvas
+  canvas : (obj : OffscreenCanvasRenderingContext2D) -> JSIO OffscreenCanvas
 
 namespace PageTransitionEvent
   
@@ -7557,7 +7559,7 @@ namespace PageTransitionEvent
   prim__persisted : AnyPtr -> PrimIO AnyPtr
 
   export
-  persisted : (obj : PageTransitionEvent) -> IO Bool
+  persisted : (obj : PageTransitionEvent) -> JSIO Bool
 
 namespace Path2D
   
@@ -7579,25 +7581,25 @@ namespace Plugin
   prim__description : AnyPtr -> PrimIO ()
 
   export
-  description : (obj : Plugin) -> IO ()
+  description : (obj : Plugin) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.filename"
   prim__filename : AnyPtr -> PrimIO ()
 
   export
-  filename : (obj : Plugin) -> IO ()
+  filename : (obj : Plugin) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.length"
   prim__length : AnyPtr -> PrimIO ()
 
   export
-  length : (obj : Plugin) -> IO ()
+  length : (obj : Plugin) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.name"
   prim__name : AnyPtr -> PrimIO ()
 
   export
-  name : (obj : Plugin) -> IO ()
+  name : (obj : Plugin) -> JSIO ()
 
 namespace PluginArray
   
@@ -7611,7 +7613,7 @@ namespace PluginArray
   prim__length : AnyPtr -> PrimIO AnyPtr
 
   export
-  length : (obj : PluginArray) -> IO UInt32
+  length : (obj : PluginArray) -> JSIO UInt32
 
 namespace PopStateEvent
   
@@ -7625,7 +7627,7 @@ namespace PopStateEvent
   prim__state : AnyPtr -> PrimIO AnyPtr
 
   export
-  state : (obj : PopStateEvent) -> IO Any
+  state : (obj : PopStateEvent) -> JSIO Any
 
 namespace PromiseRejectionEvent
   
@@ -7639,13 +7641,13 @@ namespace PromiseRejectionEvent
   prim__promise : AnyPtr -> PrimIO AnyPtr
 
   export
-  promise : (obj : PromiseRejectionEvent) -> IO (JSPromise Any)
+  promise : (obj : PromiseRejectionEvent) -> JSIO (JSPromise Any)
   
   %foreign "browser:lambda:x=>x.reason"
   prim__reason : AnyPtr -> PrimIO AnyPtr
 
   export
-  reason : (obj : PromiseRejectionEvent) -> IO Any
+  reason : (obj : PromiseRejectionEvent) -> JSIO Any
 
 namespace RadioNodeList
   
@@ -7659,13 +7661,13 @@ namespace RadioNodeList
   prim__value : AnyPtr -> PrimIO AnyPtr
 
   export
-  value : (obj : RadioNodeList) -> IO String
+  value : (obj : RadioNodeList) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.value  = v}"
   prim__setValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setValue : (obj : RadioNodeList) -> (v : String) -> IO ()
+  setValue : (obj : RadioNodeList) -> (v : String) -> JSIO ()
 
 namespace SharedWorker
   
@@ -7679,7 +7681,7 @@ namespace SharedWorker
   prim__port : AnyPtr -> PrimIO AnyPtr
 
   export
-  port : (obj : SharedWorker) -> IO MessagePort
+  port : (obj : SharedWorker) -> JSIO MessagePort
 
 namespace SharedWorkerGlobalScope
   
@@ -7693,19 +7695,21 @@ namespace SharedWorkerGlobalScope
   prim__name : AnyPtr -> PrimIO AnyPtr
 
   export
-  name : (obj : SharedWorkerGlobalScope) -> IO String
+  name : (obj : SharedWorkerGlobalScope) -> JSIO String
   
   %foreign "browser:lambda:x=>x.onconnect"
   prim__onconnect : AnyPtr -> PrimIO AnyPtr
 
   export
-  onconnect : (obj : SharedWorkerGlobalScope) -> IO EventHandler
+  onconnect : (obj : SharedWorkerGlobalScope) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onconnect  = v}"
   prim__setOnconnect : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnconnect : (obj : SharedWorkerGlobalScope) -> (v : EventHandler) -> IO ()
+  setOnconnect :  (obj : SharedWorkerGlobalScope)
+               -> (v : EventHandler)
+               -> JSIO ()
 
 namespace Storage
   
@@ -7719,7 +7723,7 @@ namespace Storage
   prim__length : AnyPtr -> PrimIO AnyPtr
 
   export
-  length : (obj : Storage) -> IO UInt32
+  length : (obj : Storage) -> JSIO UInt32
 
 namespace StorageEvent
   
@@ -7733,31 +7737,31 @@ namespace StorageEvent
   prim__key : AnyPtr -> PrimIO AnyPtr
 
   export
-  key : (obj : StorageEvent) -> IO (Maybe String)
+  key : (obj : StorageEvent) -> JSIO (Maybe String)
   
   %foreign "browser:lambda:x=>x.newValue"
   prim__newValue : AnyPtr -> PrimIO AnyPtr
 
   export
-  newValue : (obj : StorageEvent) -> IO (Maybe String)
+  newValue : (obj : StorageEvent) -> JSIO (Maybe String)
   
   %foreign "browser:lambda:x=>x.oldValue"
   prim__oldValue : AnyPtr -> PrimIO AnyPtr
 
   export
-  oldValue : (obj : StorageEvent) -> IO (Maybe String)
+  oldValue : (obj : StorageEvent) -> JSIO (Maybe String)
   
   %foreign "browser:lambda:x=>x.storageArea"
   prim__storageArea : AnyPtr -> PrimIO AnyPtr
 
   export
-  storageArea : (obj : StorageEvent) -> IO (Maybe Storage)
+  storageArea : (obj : StorageEvent) -> JSIO (Maybe Storage)
   
   %foreign "browser:lambda:x=>x.url"
   prim__url : AnyPtr -> PrimIO AnyPtr
 
   export
-  url : (obj : StorageEvent) -> IO String
+  url : (obj : StorageEvent) -> JSIO String
 
 namespace SubmitEvent
   
@@ -7771,7 +7775,7 @@ namespace SubmitEvent
   prim__submitter : AnyPtr -> PrimIO AnyPtr
 
   export
-  submitter : (obj : SubmitEvent) -> IO (Maybe HTMLElement)
+  submitter : (obj : SubmitEvent) -> JSIO (Maybe HTMLElement)
 
 namespace TextMetrics
   
@@ -7785,73 +7789,73 @@ namespace TextMetrics
   prim__actualBoundingBoxAscent : AnyPtr -> PrimIO AnyPtr
 
   export
-  actualBoundingBoxAscent : (obj : TextMetrics) -> IO Double
+  actualBoundingBoxAscent : (obj : TextMetrics) -> JSIO Double
   
   %foreign "browser:lambda:x=>x.actualBoundingBoxDescent"
   prim__actualBoundingBoxDescent : AnyPtr -> PrimIO AnyPtr
 
   export
-  actualBoundingBoxDescent : (obj : TextMetrics) -> IO Double
+  actualBoundingBoxDescent : (obj : TextMetrics) -> JSIO Double
   
   %foreign "browser:lambda:x=>x.actualBoundingBoxLeft"
   prim__actualBoundingBoxLeft : AnyPtr -> PrimIO AnyPtr
 
   export
-  actualBoundingBoxLeft : (obj : TextMetrics) -> IO Double
+  actualBoundingBoxLeft : (obj : TextMetrics) -> JSIO Double
   
   %foreign "browser:lambda:x=>x.actualBoundingBoxRight"
   prim__actualBoundingBoxRight : AnyPtr -> PrimIO AnyPtr
 
   export
-  actualBoundingBoxRight : (obj : TextMetrics) -> IO Double
+  actualBoundingBoxRight : (obj : TextMetrics) -> JSIO Double
   
   %foreign "browser:lambda:x=>x.alphabeticBaseline"
   prim__alphabeticBaseline : AnyPtr -> PrimIO AnyPtr
 
   export
-  alphabeticBaseline : (obj : TextMetrics) -> IO Double
+  alphabeticBaseline : (obj : TextMetrics) -> JSIO Double
   
   %foreign "browser:lambda:x=>x.emHeightAscent"
   prim__emHeightAscent : AnyPtr -> PrimIO AnyPtr
 
   export
-  emHeightAscent : (obj : TextMetrics) -> IO Double
+  emHeightAscent : (obj : TextMetrics) -> JSIO Double
   
   %foreign "browser:lambda:x=>x.emHeightDescent"
   prim__emHeightDescent : AnyPtr -> PrimIO AnyPtr
 
   export
-  emHeightDescent : (obj : TextMetrics) -> IO Double
+  emHeightDescent : (obj : TextMetrics) -> JSIO Double
   
   %foreign "browser:lambda:x=>x.fontBoundingBoxAscent"
   prim__fontBoundingBoxAscent : AnyPtr -> PrimIO AnyPtr
 
   export
-  fontBoundingBoxAscent : (obj : TextMetrics) -> IO Double
+  fontBoundingBoxAscent : (obj : TextMetrics) -> JSIO Double
   
   %foreign "browser:lambda:x=>x.fontBoundingBoxDescent"
   prim__fontBoundingBoxDescent : AnyPtr -> PrimIO AnyPtr
 
   export
-  fontBoundingBoxDescent : (obj : TextMetrics) -> IO Double
+  fontBoundingBoxDescent : (obj : TextMetrics) -> JSIO Double
   
   %foreign "browser:lambda:x=>x.hangingBaseline"
   prim__hangingBaseline : AnyPtr -> PrimIO AnyPtr
 
   export
-  hangingBaseline : (obj : TextMetrics) -> IO Double
+  hangingBaseline : (obj : TextMetrics) -> JSIO Double
   
   %foreign "browser:lambda:x=>x.ideographicBaseline"
   prim__ideographicBaseline : AnyPtr -> PrimIO AnyPtr
 
   export
-  ideographicBaseline : (obj : TextMetrics) -> IO Double
+  ideographicBaseline : (obj : TextMetrics) -> JSIO Double
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
 
   export
-  width : (obj : TextMetrics) -> IO Double
+  width : (obj : TextMetrics) -> JSIO Double
 
 namespace TextTrack
   
@@ -7865,73 +7869,73 @@ namespace TextTrack
   prim__activeCues : AnyPtr -> PrimIO AnyPtr
 
   export
-  activeCues : (obj : TextTrack) -> IO (Maybe TextTrackCueList)
+  activeCues : (obj : TextTrack) -> JSIO (Maybe TextTrackCueList)
   
   %foreign "browser:lambda:x=>x.cues"
   prim__cues : AnyPtr -> PrimIO AnyPtr
 
   export
-  cues : (obj : TextTrack) -> IO (Maybe TextTrackCueList)
+  cues : (obj : TextTrack) -> JSIO (Maybe TextTrackCueList)
   
   %foreign "browser:lambda:x=>x.id"
   prim__id : AnyPtr -> PrimIO AnyPtr
 
   export
-  id : (obj : TextTrack) -> IO String
+  id : (obj : TextTrack) -> JSIO String
   
   %foreign "browser:lambda:x=>x.inBandMetadataTrackDispatchType"
   prim__inBandMetadataTrackDispatchType : AnyPtr -> PrimIO AnyPtr
 
   export
-  inBandMetadataTrackDispatchType : (obj : TextTrack) -> IO String
+  inBandMetadataTrackDispatchType : (obj : TextTrack) -> JSIO String
   
   %foreign "browser:lambda:x=>x.kind"
   prim__kind : AnyPtr -> PrimIO AnyPtr
 
   export
-  kind : (obj : TextTrack) -> IO TextTrackKind
+  kind : (obj : TextTrack) -> JSIO TextTrackKind
   
   %foreign "browser:lambda:x=>x.label"
   prim__label : AnyPtr -> PrimIO AnyPtr
 
   export
-  label : (obj : TextTrack) -> IO String
+  label : (obj : TextTrack) -> JSIO String
   
   %foreign "browser:lambda:x=>x.language"
   prim__language : AnyPtr -> PrimIO AnyPtr
 
   export
-  language : (obj : TextTrack) -> IO String
+  language : (obj : TextTrack) -> JSIO String
   
   %foreign "browser:lambda:x=>x.sourceBuffer"
   prim__sourceBuffer : AnyPtr -> PrimIO AnyPtr
 
   export
-  sourceBuffer : (obj : TextTrack) -> IO (Maybe SourceBuffer)
+  sourceBuffer : (obj : TextTrack) -> JSIO (Maybe SourceBuffer)
   
   %foreign "browser:lambda:x=>x.mode"
   prim__mode : AnyPtr -> PrimIO AnyPtr
 
   export
-  mode : (obj : TextTrack) -> IO TextTrackMode
+  mode : (obj : TextTrack) -> JSIO TextTrackMode
 
   %foreign "browser:lambda:(x,v)=>{x.mode  = v}"
   prim__setMode : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setMode : (obj : TextTrack) -> (v : TextTrackMode) -> IO ()
+  setMode : (obj : TextTrack) -> (v : TextTrackMode) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.oncuechange"
   prim__oncuechange : AnyPtr -> PrimIO AnyPtr
 
   export
-  oncuechange : (obj : TextTrack) -> IO EventHandler
+  oncuechange : (obj : TextTrack) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.oncuechange  = v}"
   prim__setOncuechange : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOncuechange : (obj : TextTrack) -> (v : EventHandler) -> IO ()
+  setOncuechange : (obj : TextTrack) -> (v : EventHandler) -> JSIO ()
 
 namespace TextTrackCue
   
@@ -7945,79 +7949,79 @@ namespace TextTrackCue
   prim__track : AnyPtr -> PrimIO AnyPtr
 
   export
-  track : (obj : TextTrackCue) -> IO (Maybe TextTrack)
+  track : (obj : TextTrackCue) -> JSIO (Maybe TextTrack)
   
   %foreign "browser:lambda:x=>x.endTime"
   prim__endTime : AnyPtr -> PrimIO AnyPtr
 
   export
-  endTime : (obj : TextTrackCue) -> IO Double
+  endTime : (obj : TextTrackCue) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.endTime  = v}"
   prim__setEndTime : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setEndTime : (obj : TextTrackCue) -> (v : Double) -> IO ()
+  setEndTime : (obj : TextTrackCue) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.id"
   prim__id : AnyPtr -> PrimIO AnyPtr
 
   export
-  id : (obj : TextTrackCue) -> IO String
+  id : (obj : TextTrackCue) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.id  = v}"
   prim__setId : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setId : (obj : TextTrackCue) -> (v : String) -> IO ()
+  setId : (obj : TextTrackCue) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onenter"
   prim__onenter : AnyPtr -> PrimIO AnyPtr
 
   export
-  onenter : (obj : TextTrackCue) -> IO EventHandler
+  onenter : (obj : TextTrackCue) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onenter  = v}"
   prim__setOnenter : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnenter : (obj : TextTrackCue) -> (v : EventHandler) -> IO ()
+  setOnenter : (obj : TextTrackCue) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onexit"
   prim__onexit : AnyPtr -> PrimIO AnyPtr
 
   export
-  onexit : (obj : TextTrackCue) -> IO EventHandler
+  onexit : (obj : TextTrackCue) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onexit  = v}"
   prim__setOnexit : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnexit : (obj : TextTrackCue) -> (v : EventHandler) -> IO ()
+  setOnexit : (obj : TextTrackCue) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.pauseOnExit"
   prim__pauseOnExit : AnyPtr -> PrimIO AnyPtr
 
   export
-  pauseOnExit : (obj : TextTrackCue) -> IO Bool
+  pauseOnExit : (obj : TextTrackCue) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.pauseOnExit  = v}"
   prim__setPauseOnExit : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setPauseOnExit : (obj : TextTrackCue) -> (v : Bool) -> IO ()
+  setPauseOnExit : (obj : TextTrackCue) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.startTime"
   prim__startTime : AnyPtr -> PrimIO AnyPtr
 
   export
-  startTime : (obj : TextTrackCue) -> IO Double
+  startTime : (obj : TextTrackCue) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.startTime  = v}"
   prim__setStartTime : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setStartTime : (obj : TextTrackCue) -> (v : Double) -> IO ()
+  setStartTime : (obj : TextTrackCue) -> (v : Double) -> JSIO ()
 
 namespace TextTrackCueList
   
@@ -8031,7 +8035,7 @@ namespace TextTrackCueList
   prim__length : AnyPtr -> PrimIO AnyPtr
 
   export
-  length : (obj : TextTrackCueList) -> IO UInt32
+  length : (obj : TextTrackCueList) -> JSIO UInt32
 
 namespace TextTrackList
   
@@ -8045,43 +8049,43 @@ namespace TextTrackList
   prim__length : AnyPtr -> PrimIO AnyPtr
 
   export
-  length : (obj : TextTrackList) -> IO UInt32
+  length : (obj : TextTrackList) -> JSIO UInt32
   
   %foreign "browser:lambda:x=>x.onaddtrack"
   prim__onaddtrack : AnyPtr -> PrimIO AnyPtr
 
   export
-  onaddtrack : (obj : TextTrackList) -> IO EventHandler
+  onaddtrack : (obj : TextTrackList) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onaddtrack  = v}"
   prim__setOnaddtrack : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnaddtrack : (obj : TextTrackList) -> (v : EventHandler) -> IO ()
+  setOnaddtrack : (obj : TextTrackList) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onchange"
   prim__onchange : AnyPtr -> PrimIO AnyPtr
 
   export
-  onchange : (obj : TextTrackList) -> IO EventHandler
+  onchange : (obj : TextTrackList) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onchange  = v}"
   prim__setOnchange : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnchange : (obj : TextTrackList) -> (v : EventHandler) -> IO ()
+  setOnchange : (obj : TextTrackList) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onremovetrack"
   prim__onremovetrack : AnyPtr -> PrimIO AnyPtr
 
   export
-  onremovetrack : (obj : TextTrackList) -> IO EventHandler
+  onremovetrack : (obj : TextTrackList) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onremovetrack  = v}"
   prim__setOnremovetrack : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnremovetrack : (obj : TextTrackList) -> (v : EventHandler) -> IO ()
+  setOnremovetrack : (obj : TextTrackList) -> (v : EventHandler) -> JSIO ()
 
 namespace TimeRanges
   
@@ -8095,7 +8099,7 @@ namespace TimeRanges
   prim__length : AnyPtr -> PrimIO AnyPtr
 
   export
-  length : (obj : TimeRanges) -> IO UInt32
+  length : (obj : TimeRanges) -> JSIO UInt32
 
 namespace TrackEvent
   
@@ -8110,7 +8114,7 @@ namespace TrackEvent
 
   export
   track :  (obj : TrackEvent)
-        -> IO (Maybe (NS I [ VideoTrack , AudioTrack , TextTrack ]))
+        -> JSIO (Maybe (NS I [ VideoTrack , AudioTrack , TextTrack ]))
 
 namespace ValidityState
   
@@ -8124,67 +8128,67 @@ namespace ValidityState
   prim__badInput : AnyPtr -> PrimIO AnyPtr
 
   export
-  badInput : (obj : ValidityState) -> IO Bool
+  badInput : (obj : ValidityState) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.customError"
   prim__customError : AnyPtr -> PrimIO AnyPtr
 
   export
-  customError : (obj : ValidityState) -> IO Bool
+  customError : (obj : ValidityState) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.patternMismatch"
   prim__patternMismatch : AnyPtr -> PrimIO AnyPtr
 
   export
-  patternMismatch : (obj : ValidityState) -> IO Bool
+  patternMismatch : (obj : ValidityState) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.rangeOverflow"
   prim__rangeOverflow : AnyPtr -> PrimIO AnyPtr
 
   export
-  rangeOverflow : (obj : ValidityState) -> IO Bool
+  rangeOverflow : (obj : ValidityState) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.rangeUnderflow"
   prim__rangeUnderflow : AnyPtr -> PrimIO AnyPtr
 
   export
-  rangeUnderflow : (obj : ValidityState) -> IO Bool
+  rangeUnderflow : (obj : ValidityState) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.stepMismatch"
   prim__stepMismatch : AnyPtr -> PrimIO AnyPtr
 
   export
-  stepMismatch : (obj : ValidityState) -> IO Bool
+  stepMismatch : (obj : ValidityState) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.tooLong"
   prim__tooLong : AnyPtr -> PrimIO AnyPtr
 
   export
-  tooLong : (obj : ValidityState) -> IO Bool
+  tooLong : (obj : ValidityState) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.tooShort"
   prim__tooShort : AnyPtr -> PrimIO AnyPtr
 
   export
-  tooShort : (obj : ValidityState) -> IO Bool
+  tooShort : (obj : ValidityState) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.typeMismatch"
   prim__typeMismatch : AnyPtr -> PrimIO AnyPtr
 
   export
-  typeMismatch : (obj : ValidityState) -> IO Bool
+  typeMismatch : (obj : ValidityState) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.valid"
   prim__valid : AnyPtr -> PrimIO AnyPtr
 
   export
-  valid : (obj : ValidityState) -> IO Bool
+  valid : (obj : ValidityState) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.valueMissing"
   prim__valueMissing : AnyPtr -> PrimIO AnyPtr
 
   export
-  valueMissing : (obj : ValidityState) -> IO Bool
+  valueMissing : (obj : ValidityState) -> JSIO Bool
 
 namespace VideoTrack
   
@@ -8198,43 +8202,43 @@ namespace VideoTrack
   prim__id : AnyPtr -> PrimIO AnyPtr
 
   export
-  id : (obj : VideoTrack) -> IO String
+  id : (obj : VideoTrack) -> JSIO String
   
   %foreign "browser:lambda:x=>x.kind"
   prim__kind : AnyPtr -> PrimIO AnyPtr
 
   export
-  kind : (obj : VideoTrack) -> IO String
+  kind : (obj : VideoTrack) -> JSIO String
   
   %foreign "browser:lambda:x=>x.label"
   prim__label : AnyPtr -> PrimIO AnyPtr
 
   export
-  label : (obj : VideoTrack) -> IO String
+  label : (obj : VideoTrack) -> JSIO String
   
   %foreign "browser:lambda:x=>x.language"
   prim__language : AnyPtr -> PrimIO AnyPtr
 
   export
-  language : (obj : VideoTrack) -> IO String
+  language : (obj : VideoTrack) -> JSIO String
   
   %foreign "browser:lambda:x=>x.sourceBuffer"
   prim__sourceBuffer : AnyPtr -> PrimIO AnyPtr
 
   export
-  sourceBuffer : (obj : VideoTrack) -> IO (Maybe SourceBuffer)
+  sourceBuffer : (obj : VideoTrack) -> JSIO (Maybe SourceBuffer)
   
   %foreign "browser:lambda:x=>x.selected"
   prim__selected : AnyPtr -> PrimIO AnyPtr
 
   export
-  selected : (obj : VideoTrack) -> IO Bool
+  selected : (obj : VideoTrack) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.selected  = v}"
   prim__setSelected : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSelected : (obj : VideoTrack) -> (v : Bool) -> IO ()
+  setSelected : (obj : VideoTrack) -> (v : Bool) -> JSIO ()
 
 namespace VideoTrackList
   
@@ -8248,49 +8252,49 @@ namespace VideoTrackList
   prim__length : AnyPtr -> PrimIO AnyPtr
 
   export
-  length : (obj : VideoTrackList) -> IO UInt32
+  length : (obj : VideoTrackList) -> JSIO UInt32
   
   %foreign "browser:lambda:x=>x.selectedIndex"
   prim__selectedIndex : AnyPtr -> PrimIO AnyPtr
 
   export
-  selectedIndex : (obj : VideoTrackList) -> IO Int32
+  selectedIndex : (obj : VideoTrackList) -> JSIO Int32
   
   %foreign "browser:lambda:x=>x.onaddtrack"
   prim__onaddtrack : AnyPtr -> PrimIO AnyPtr
 
   export
-  onaddtrack : (obj : VideoTrackList) -> IO EventHandler
+  onaddtrack : (obj : VideoTrackList) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onaddtrack  = v}"
   prim__setOnaddtrack : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnaddtrack : (obj : VideoTrackList) -> (v : EventHandler) -> IO ()
+  setOnaddtrack : (obj : VideoTrackList) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onchange"
   prim__onchange : AnyPtr -> PrimIO AnyPtr
 
   export
-  onchange : (obj : VideoTrackList) -> IO EventHandler
+  onchange : (obj : VideoTrackList) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onchange  = v}"
   prim__setOnchange : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnchange : (obj : VideoTrackList) -> (v : EventHandler) -> IO ()
+  setOnchange : (obj : VideoTrackList) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onremovetrack"
   prim__onremovetrack : AnyPtr -> PrimIO AnyPtr
 
   export
-  onremovetrack : (obj : VideoTrackList) -> IO EventHandler
+  onremovetrack : (obj : VideoTrackList) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onremovetrack  = v}"
   prim__setOnremovetrack : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnremovetrack : (obj : VideoTrackList) -> (v : EventHandler) -> IO ()
+  setOnremovetrack : (obj : VideoTrackList) -> (v : EventHandler) -> JSIO ()
 
 namespace WebSocket
   
@@ -8320,91 +8324,91 @@ namespace WebSocket
   prim__bufferedAmount : AnyPtr -> PrimIO AnyPtr
 
   export
-  bufferedAmount : (obj : WebSocket) -> IO UInt64
+  bufferedAmount : (obj : WebSocket) -> JSIO UInt64
   
   %foreign "browser:lambda:x=>x.extensions"
   prim__extensions : AnyPtr -> PrimIO AnyPtr
 
   export
-  extensions : (obj : WebSocket) -> IO String
+  extensions : (obj : WebSocket) -> JSIO String
   
   %foreign "browser:lambda:x=>x.protocol"
   prim__protocol : AnyPtr -> PrimIO AnyPtr
 
   export
-  protocol : (obj : WebSocket) -> IO String
+  protocol : (obj : WebSocket) -> JSIO String
   
   %foreign "browser:lambda:x=>x.readyState"
   prim__readyState : AnyPtr -> PrimIO AnyPtr
 
   export
-  readyState : (obj : WebSocket) -> IO UInt16
+  readyState : (obj : WebSocket) -> JSIO UInt16
   
   %foreign "browser:lambda:x=>x.url"
   prim__url : AnyPtr -> PrimIO AnyPtr
 
   export
-  url : (obj : WebSocket) -> IO String
+  url : (obj : WebSocket) -> JSIO String
   
   %foreign "browser:lambda:x=>x.binaryType"
   prim__binaryType : AnyPtr -> PrimIO AnyPtr
 
   export
-  binaryType : (obj : WebSocket) -> IO BinaryType
+  binaryType : (obj : WebSocket) -> JSIO BinaryType
 
   %foreign "browser:lambda:(x,v)=>{x.binaryType  = v}"
   prim__setBinaryType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setBinaryType : (obj : WebSocket) -> (v : BinaryType) -> IO ()
+  setBinaryType : (obj : WebSocket) -> (v : BinaryType) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onclose"
   prim__onclose : AnyPtr -> PrimIO AnyPtr
 
   export
-  onclose : (obj : WebSocket) -> IO EventHandler
+  onclose : (obj : WebSocket) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onclose  = v}"
   prim__setOnclose : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnclose : (obj : WebSocket) -> (v : EventHandler) -> IO ()
+  setOnclose : (obj : WebSocket) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onerror"
   prim__onerror : AnyPtr -> PrimIO AnyPtr
 
   export
-  onerror : (obj : WebSocket) -> IO EventHandler
+  onerror : (obj : WebSocket) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onerror  = v}"
   prim__setOnerror : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnerror : (obj : WebSocket) -> (v : EventHandler) -> IO ()
+  setOnerror : (obj : WebSocket) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onmessage"
   prim__onmessage : AnyPtr -> PrimIO AnyPtr
 
   export
-  onmessage : (obj : WebSocket) -> IO EventHandler
+  onmessage : (obj : WebSocket) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onmessage  = v}"
   prim__setOnmessage : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnmessage : (obj : WebSocket) -> (v : EventHandler) -> IO ()
+  setOnmessage : (obj : WebSocket) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onopen"
   prim__onopen : AnyPtr -> PrimIO AnyPtr
 
   export
-  onopen : (obj : WebSocket) -> IO EventHandler
+  onopen : (obj : WebSocket) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onopen  = v}"
   prim__setOnopen : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnopen : (obj : WebSocket) -> (v : EventHandler) -> IO ()
+  setOnopen : (obj : WebSocket) -> (v : EventHandler) -> JSIO ()
 
 namespace Window
   
@@ -8418,169 +8422,169 @@ namespace Window
   prim__closed : AnyPtr -> PrimIO AnyPtr
 
   export
-  closed : (obj : Window) -> IO Bool
+  closed : (obj : Window) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.customElements"
   prim__customElements : AnyPtr -> PrimIO AnyPtr
 
   export
-  customElements : (obj : Window) -> IO CustomElementRegistry
+  customElements : (obj : Window) -> JSIO CustomElementRegistry
   
   %foreign "browser:lambda:x=>x.document"
   prim__document : AnyPtr -> PrimIO AnyPtr
 
   export
-  document : (obj : Window) -> IO Document
+  document : (obj : Window) -> JSIO Document
   
   %foreign "browser:lambda:x=>x.event"
   prim__event : AnyPtr -> PrimIO AnyPtr
 
   export
-  event : (obj : Window) -> IO (NS I [ Event , Undefined ])
+  event : (obj : Window) -> JSIO (NS I [ Event , Undefined ])
   
   %foreign "browser:lambda:x=>x.external"
   prim__external : AnyPtr -> PrimIO AnyPtr
 
   export
-  external : (obj : Window) -> IO External
+  external : (obj : Window) -> JSIO External
   
   %foreign "browser:lambda:x=>x.frameElement"
   prim__frameElement : AnyPtr -> PrimIO AnyPtr
 
   export
-  frameElement : (obj : Window) -> IO (Maybe Element)
+  frameElement : (obj : Window) -> JSIO (Maybe Element)
   
   %foreign "browser:lambda:x=>x.frames"
   prim__frames : AnyPtr -> PrimIO AnyPtr
 
   export
-  frames : (obj : Window) -> IO WindowProxy
+  frames : (obj : Window) -> JSIO WindowProxy
   
   %foreign "browser:lambda:x=>x.history"
   prim__history : AnyPtr -> PrimIO AnyPtr
 
   export
-  history : (obj : Window) -> IO History
+  history : (obj : Window) -> JSIO History
   
   %foreign "browser:lambda:x=>x.length"
   prim__length : AnyPtr -> PrimIO AnyPtr
 
   export
-  length : (obj : Window) -> IO UInt32
+  length : (obj : Window) -> JSIO UInt32
   
   %foreign "browser:lambda:x=>x.location"
   prim__location : AnyPtr -> PrimIO AnyPtr
 
   export
-  location : (obj : Window) -> IO Location
+  location : (obj : Window) -> JSIO Location
   
   %foreign "browser:lambda:x=>x.locationbar"
   prim__locationbar : AnyPtr -> PrimIO AnyPtr
 
   export
-  locationbar : (obj : Window) -> IO BarProp
+  locationbar : (obj : Window) -> JSIO BarProp
   
   %foreign "browser:lambda:x=>x.menubar"
   prim__menubar : AnyPtr -> PrimIO AnyPtr
 
   export
-  menubar : (obj : Window) -> IO BarProp
+  menubar : (obj : Window) -> JSIO BarProp
   
   %foreign "browser:lambda:x=>x.navigator"
   prim__navigator : AnyPtr -> PrimIO AnyPtr
 
   export
-  navigator : (obj : Window) -> IO Navigator
+  navigator : (obj : Window) -> JSIO Navigator
   
   %foreign "browser:lambda:x=>x.originAgentCluster"
   prim__originAgentCluster : AnyPtr -> PrimIO AnyPtr
 
   export
-  originAgentCluster : (obj : Window) -> IO Bool
+  originAgentCluster : (obj : Window) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.parent"
   prim__parent : AnyPtr -> PrimIO AnyPtr
 
   export
-  parent : (obj : Window) -> IO (Maybe WindowProxy)
+  parent : (obj : Window) -> JSIO (Maybe WindowProxy)
   
   %foreign "browser:lambda:x=>x.personalbar"
   prim__personalbar : AnyPtr -> PrimIO AnyPtr
 
   export
-  personalbar : (obj : Window) -> IO BarProp
+  personalbar : (obj : Window) -> JSIO BarProp
   
   %foreign "browser:lambda:x=>x.scrollbars"
   prim__scrollbars : AnyPtr -> PrimIO AnyPtr
 
   export
-  scrollbars : (obj : Window) -> IO BarProp
+  scrollbars : (obj : Window) -> JSIO BarProp
   
   %foreign "browser:lambda:x=>x.self"
   prim__self : AnyPtr -> PrimIO AnyPtr
 
   export
-  self : (obj : Window) -> IO WindowProxy
+  self : (obj : Window) -> JSIO WindowProxy
   
   %foreign "browser:lambda:x=>x.statusbar"
   prim__statusbar : AnyPtr -> PrimIO AnyPtr
 
   export
-  statusbar : (obj : Window) -> IO BarProp
+  statusbar : (obj : Window) -> JSIO BarProp
   
   %foreign "browser:lambda:x=>x.toolbar"
   prim__toolbar : AnyPtr -> PrimIO AnyPtr
 
   export
-  toolbar : (obj : Window) -> IO BarProp
+  toolbar : (obj : Window) -> JSIO BarProp
   
   %foreign "browser:lambda:x=>x.top"
   prim__top : AnyPtr -> PrimIO AnyPtr
 
   export
-  top : (obj : Window) -> IO (Maybe WindowProxy)
+  top : (obj : Window) -> JSIO (Maybe WindowProxy)
   
   %foreign "browser:lambda:x=>x.window"
   prim__window : AnyPtr -> PrimIO AnyPtr
 
   export
-  window : (obj : Window) -> IO WindowProxy
+  window : (obj : Window) -> JSIO WindowProxy
   
   %foreign "browser:lambda:x=>x.name"
   prim__name : AnyPtr -> PrimIO AnyPtr
 
   export
-  name : (obj : Window) -> IO String
+  name : (obj : Window) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.name  = v}"
   prim__setName : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setName : (obj : Window) -> (v : String) -> IO ()
+  setName : (obj : Window) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.opener"
   prim__opener : AnyPtr -> PrimIO AnyPtr
 
   export
-  opener : (obj : Window) -> IO Any
+  opener : (obj : Window) -> JSIO Any
 
   %foreign "browser:lambda:(x,v)=>{x.opener  = v}"
   prim__setOpener : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOpener : (obj : Window) -> (v : Any) -> IO ()
+  setOpener : (obj : Window) -> (v : Any) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.status"
   prim__status : AnyPtr -> PrimIO AnyPtr
 
   export
-  status : (obj : Window) -> IO String
+  status : (obj : Window) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.status  = v}"
   prim__setStatus : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setStatus : (obj : Window) -> (v : String) -> IO ()
+  setStatus : (obj : Window) -> (v : String) -> JSIO ()
 
 namespace Worker
   
@@ -8594,25 +8598,25 @@ namespace Worker
   prim__onmessage : AnyPtr -> PrimIO AnyPtr
 
   export
-  onmessage : (obj : Worker) -> IO EventHandler
+  onmessage : (obj : Worker) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onmessage  = v}"
   prim__setOnmessage : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnmessage : (obj : Worker) -> (v : EventHandler) -> IO ()
+  setOnmessage : (obj : Worker) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onmessageerror"
   prim__onmessageerror : AnyPtr -> PrimIO AnyPtr
 
   export
-  onmessageerror : (obj : Worker) -> IO EventHandler
+  onmessageerror : (obj : Worker) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onmessageerror  = v}"
   prim__setOnmessageerror : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnmessageerror : (obj : Worker) -> (v : EventHandler) -> IO ()
+  setOnmessageerror : (obj : Worker) -> (v : EventHandler) -> JSIO ()
 
 namespace WorkerGlobalScope
   
@@ -8626,73 +8630,75 @@ namespace WorkerGlobalScope
   prim__location : AnyPtr -> PrimIO AnyPtr
 
   export
-  location : (obj : WorkerGlobalScope) -> IO WorkerLocation
+  location : (obj : WorkerGlobalScope) -> JSIO WorkerLocation
   
   %foreign "browser:lambda:x=>x.navigator"
   prim__navigator : AnyPtr -> PrimIO AnyPtr
 
   export
-  navigator : (obj : WorkerGlobalScope) -> IO WorkerNavigator
+  navigator : (obj : WorkerGlobalScope) -> JSIO WorkerNavigator
   
   %foreign "browser:lambda:x=>x.self"
   prim__self : AnyPtr -> PrimIO AnyPtr
 
   export
-  self : (obj : WorkerGlobalScope) -> IO WorkerGlobalScope
+  self : (obj : WorkerGlobalScope) -> JSIO WorkerGlobalScope
   
   %foreign "browser:lambda:x=>x.onerror"
   prim__onerror : AnyPtr -> PrimIO AnyPtr
 
   export
-  onerror : (obj : WorkerGlobalScope) -> IO OnErrorEventHandler
+  onerror : (obj : WorkerGlobalScope) -> JSIO OnErrorEventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onerror  = v}"
   prim__setOnerror : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnerror : (obj : WorkerGlobalScope) -> (v : OnErrorEventHandler) -> IO ()
+  setOnerror : (obj : WorkerGlobalScope) -> (v : OnErrorEventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onlanguagechange"
   prim__onlanguagechange : AnyPtr -> PrimIO AnyPtr
 
   export
-  onlanguagechange : (obj : WorkerGlobalScope) -> IO EventHandler
+  onlanguagechange : (obj : WorkerGlobalScope) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onlanguagechange  = v}"
   prim__setOnlanguagechange : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnlanguagechange : (obj : WorkerGlobalScope) -> (v : EventHandler) -> IO ()
+  setOnlanguagechange :  (obj : WorkerGlobalScope)
+                      -> (v : EventHandler)
+                      -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onoffline"
   prim__onoffline : AnyPtr -> PrimIO AnyPtr
 
   export
-  onoffline : (obj : WorkerGlobalScope) -> IO EventHandler
+  onoffline : (obj : WorkerGlobalScope) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onoffline  = v}"
   prim__setOnoffline : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnoffline : (obj : WorkerGlobalScope) -> (v : EventHandler) -> IO ()
+  setOnoffline : (obj : WorkerGlobalScope) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ononline"
   prim__ononline : AnyPtr -> PrimIO AnyPtr
 
   export
-  ononline : (obj : WorkerGlobalScope) -> IO EventHandler
+  ononline : (obj : WorkerGlobalScope) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.ononline  = v}"
   prim__setOnonline : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnonline : (obj : WorkerGlobalScope) -> (v : EventHandler) -> IO ()
+  setOnonline : (obj : WorkerGlobalScope) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onrejectionhandled"
   prim__onrejectionhandled : AnyPtr -> PrimIO AnyPtr
 
   export
-  onrejectionhandled : (obj : WorkerGlobalScope) -> IO EventHandler
+  onrejectionhandled : (obj : WorkerGlobalScope) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onrejectionhandled  = v}"
   prim__setOnrejectionhandled : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -8700,13 +8706,13 @@ namespace WorkerGlobalScope
   export
   setOnrejectionhandled :  (obj : WorkerGlobalScope)
                         -> (v : EventHandler)
-                        -> IO ()
+                        -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onunhandledrejection"
   prim__onunhandledrejection : AnyPtr -> PrimIO AnyPtr
 
   export
-  onunhandledrejection : (obj : WorkerGlobalScope) -> IO EventHandler
+  onunhandledrejection : (obj : WorkerGlobalScope) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onunhandledrejection  = v}"
   prim__setOnunhandledrejection : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -8714,7 +8720,7 @@ namespace WorkerGlobalScope
   export
   setOnunhandledrejection :  (obj : WorkerGlobalScope)
                           -> (v : EventHandler)
-                          -> IO ()
+                          -> JSIO ()
 
 namespace WorkerLocation
   
@@ -8728,49 +8734,49 @@ namespace WorkerLocation
   prim__hash : AnyPtr -> PrimIO AnyPtr
 
   export
-  hash : (obj : WorkerLocation) -> IO String
+  hash : (obj : WorkerLocation) -> JSIO String
   
   %foreign "browser:lambda:x=>x.host"
   prim__host : AnyPtr -> PrimIO AnyPtr
 
   export
-  host : (obj : WorkerLocation) -> IO String
+  host : (obj : WorkerLocation) -> JSIO String
   
   %foreign "browser:lambda:x=>x.hostname"
   prim__hostname : AnyPtr -> PrimIO AnyPtr
 
   export
-  hostname : (obj : WorkerLocation) -> IO String
+  hostname : (obj : WorkerLocation) -> JSIO String
   
   %foreign "browser:lambda:x=>x.origin"
   prim__origin : AnyPtr -> PrimIO AnyPtr
 
   export
-  origin : (obj : WorkerLocation) -> IO String
+  origin : (obj : WorkerLocation) -> JSIO String
   
   %foreign "browser:lambda:x=>x.pathname"
   prim__pathname : AnyPtr -> PrimIO AnyPtr
 
   export
-  pathname : (obj : WorkerLocation) -> IO String
+  pathname : (obj : WorkerLocation) -> JSIO String
   
   %foreign "browser:lambda:x=>x.port"
   prim__port : AnyPtr -> PrimIO AnyPtr
 
   export
-  port : (obj : WorkerLocation) -> IO String
+  port : (obj : WorkerLocation) -> JSIO String
   
   %foreign "browser:lambda:x=>x.protocol"
   prim__protocol : AnyPtr -> PrimIO AnyPtr
 
   export
-  protocol : (obj : WorkerLocation) -> IO String
+  protocol : (obj : WorkerLocation) -> JSIO String
   
   %foreign "browser:lambda:x=>x.search"
   prim__search : AnyPtr -> PrimIO AnyPtr
 
   export
-  search : (obj : WorkerLocation) -> IO String
+  search : (obj : WorkerLocation) -> JSIO String
 
 namespace WorkerNavigator
   
@@ -8788,13 +8794,13 @@ namespace WorkerNavigator
   prim__permissions : AnyPtr -> PrimIO AnyPtr
 
   export
-  permissions : (obj : WorkerNavigator) -> IO Permissions
+  permissions : (obj : WorkerNavigator) -> JSIO Permissions
   
   %foreign "browser:lambda:x=>x.serviceWorker"
   prim__serviceWorker : AnyPtr -> PrimIO AnyPtr
 
   export
-  serviceWorker : (obj : WorkerNavigator) -> IO ServiceWorkerContainer
+  serviceWorker : (obj : WorkerNavigator) -> JSIO ServiceWorkerContainer
 
 namespace Worklet
   
@@ -8822,493 +8828,493 @@ namespace ARIAMixin
   prim__ariaAtomic : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaAtomic : (obj : ARIAMixin) -> IO String
+  ariaAtomic : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaAtomic  = v}"
   prim__setAriaAtomic : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaAtomic : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaAtomic : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaAutoComplete"
   prim__ariaAutoComplete : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaAutoComplete : (obj : ARIAMixin) -> IO String
+  ariaAutoComplete : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaAutoComplete  = v}"
   prim__setAriaAutoComplete : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaAutoComplete : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaAutoComplete : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaBusy"
   prim__ariaBusy : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaBusy : (obj : ARIAMixin) -> IO String
+  ariaBusy : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaBusy  = v}"
   prim__setAriaBusy : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaBusy : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaBusy : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaChecked"
   prim__ariaChecked : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaChecked : (obj : ARIAMixin) -> IO String
+  ariaChecked : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaChecked  = v}"
   prim__setAriaChecked : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaChecked : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaChecked : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaColCount"
   prim__ariaColCount : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaColCount : (obj : ARIAMixin) -> IO String
+  ariaColCount : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaColCount  = v}"
   prim__setAriaColCount : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaColCount : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaColCount : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaColIndex"
   prim__ariaColIndex : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaColIndex : (obj : ARIAMixin) -> IO String
+  ariaColIndex : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaColIndex  = v}"
   prim__setAriaColIndex : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaColIndex : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaColIndex : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaColIndexText"
   prim__ariaColIndexText : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaColIndexText : (obj : ARIAMixin) -> IO String
+  ariaColIndexText : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaColIndexText  = v}"
   prim__setAriaColIndexText : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaColIndexText : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaColIndexText : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaColSpan"
   prim__ariaColSpan : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaColSpan : (obj : ARIAMixin) -> IO String
+  ariaColSpan : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaColSpan  = v}"
   prim__setAriaColSpan : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaColSpan : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaColSpan : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaCurrent"
   prim__ariaCurrent : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaCurrent : (obj : ARIAMixin) -> IO String
+  ariaCurrent : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaCurrent  = v}"
   prim__setAriaCurrent : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaCurrent : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaCurrent : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaDescription"
   prim__ariaDescription : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaDescription : (obj : ARIAMixin) -> IO String
+  ariaDescription : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaDescription  = v}"
   prim__setAriaDescription : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaDescription : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaDescription : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaDisabled"
   prim__ariaDisabled : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaDisabled : (obj : ARIAMixin) -> IO String
+  ariaDisabled : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaDisabled  = v}"
   prim__setAriaDisabled : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaDisabled : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaDisabled : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaExpanded"
   prim__ariaExpanded : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaExpanded : (obj : ARIAMixin) -> IO String
+  ariaExpanded : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaExpanded  = v}"
   prim__setAriaExpanded : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaExpanded : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaExpanded : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaHasPopup"
   prim__ariaHasPopup : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaHasPopup : (obj : ARIAMixin) -> IO String
+  ariaHasPopup : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaHasPopup  = v}"
   prim__setAriaHasPopup : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaHasPopup : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaHasPopup : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaHidden"
   prim__ariaHidden : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaHidden : (obj : ARIAMixin) -> IO String
+  ariaHidden : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaHidden  = v}"
   prim__setAriaHidden : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaHidden : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaHidden : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaInvalid"
   prim__ariaInvalid : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaInvalid : (obj : ARIAMixin) -> IO String
+  ariaInvalid : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaInvalid  = v}"
   prim__setAriaInvalid : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaInvalid : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaInvalid : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaKeyShortcuts"
   prim__ariaKeyShortcuts : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaKeyShortcuts : (obj : ARIAMixin) -> IO String
+  ariaKeyShortcuts : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaKeyShortcuts  = v}"
   prim__setAriaKeyShortcuts : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaKeyShortcuts : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaKeyShortcuts : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaLabel"
   prim__ariaLabel : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaLabel : (obj : ARIAMixin) -> IO String
+  ariaLabel : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaLabel  = v}"
   prim__setAriaLabel : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaLabel : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaLabel : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaLevel"
   prim__ariaLevel : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaLevel : (obj : ARIAMixin) -> IO String
+  ariaLevel : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaLevel  = v}"
   prim__setAriaLevel : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaLevel : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaLevel : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaLive"
   prim__ariaLive : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaLive : (obj : ARIAMixin) -> IO String
+  ariaLive : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaLive  = v}"
   prim__setAriaLive : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaLive : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaLive : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaModal"
   prim__ariaModal : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaModal : (obj : ARIAMixin) -> IO String
+  ariaModal : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaModal  = v}"
   prim__setAriaModal : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaModal : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaModal : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaMultiLine"
   prim__ariaMultiLine : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaMultiLine : (obj : ARIAMixin) -> IO String
+  ariaMultiLine : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaMultiLine  = v}"
   prim__setAriaMultiLine : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaMultiLine : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaMultiLine : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaMultiSelectable"
   prim__ariaMultiSelectable : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaMultiSelectable : (obj : ARIAMixin) -> IO String
+  ariaMultiSelectable : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaMultiSelectable  = v}"
   prim__setAriaMultiSelectable : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaMultiSelectable : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaMultiSelectable : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaOrientation"
   prim__ariaOrientation : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaOrientation : (obj : ARIAMixin) -> IO String
+  ariaOrientation : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaOrientation  = v}"
   prim__setAriaOrientation : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaOrientation : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaOrientation : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaPlaceholder"
   prim__ariaPlaceholder : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaPlaceholder : (obj : ARIAMixin) -> IO String
+  ariaPlaceholder : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaPlaceholder  = v}"
   prim__setAriaPlaceholder : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaPlaceholder : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaPlaceholder : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaPosInSet"
   prim__ariaPosInSet : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaPosInSet : (obj : ARIAMixin) -> IO String
+  ariaPosInSet : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaPosInSet  = v}"
   prim__setAriaPosInSet : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaPosInSet : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaPosInSet : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaPressed"
   prim__ariaPressed : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaPressed : (obj : ARIAMixin) -> IO String
+  ariaPressed : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaPressed  = v}"
   prim__setAriaPressed : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaPressed : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaPressed : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaReadOnly"
   prim__ariaReadOnly : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaReadOnly : (obj : ARIAMixin) -> IO String
+  ariaReadOnly : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaReadOnly  = v}"
   prim__setAriaReadOnly : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaReadOnly : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaReadOnly : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaRequired"
   prim__ariaRequired : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaRequired : (obj : ARIAMixin) -> IO String
+  ariaRequired : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaRequired  = v}"
   prim__setAriaRequired : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaRequired : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaRequired : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaRoleDescription"
   prim__ariaRoleDescription : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaRoleDescription : (obj : ARIAMixin) -> IO String
+  ariaRoleDescription : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaRoleDescription  = v}"
   prim__setAriaRoleDescription : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaRoleDescription : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaRoleDescription : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaRowCount"
   prim__ariaRowCount : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaRowCount : (obj : ARIAMixin) -> IO String
+  ariaRowCount : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaRowCount  = v}"
   prim__setAriaRowCount : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaRowCount : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaRowCount : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaRowIndex"
   prim__ariaRowIndex : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaRowIndex : (obj : ARIAMixin) -> IO String
+  ariaRowIndex : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaRowIndex  = v}"
   prim__setAriaRowIndex : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaRowIndex : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaRowIndex : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaRowIndexText"
   prim__ariaRowIndexText : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaRowIndexText : (obj : ARIAMixin) -> IO String
+  ariaRowIndexText : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaRowIndexText  = v}"
   prim__setAriaRowIndexText : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaRowIndexText : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaRowIndexText : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaRowSpan"
   prim__ariaRowSpan : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaRowSpan : (obj : ARIAMixin) -> IO String
+  ariaRowSpan : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaRowSpan  = v}"
   prim__setAriaRowSpan : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaRowSpan : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaRowSpan : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaSelected"
   prim__ariaSelected : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaSelected : (obj : ARIAMixin) -> IO String
+  ariaSelected : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaSelected  = v}"
   prim__setAriaSelected : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaSelected : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaSelected : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaSetSize"
   prim__ariaSetSize : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaSetSize : (obj : ARIAMixin) -> IO String
+  ariaSetSize : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaSetSize  = v}"
   prim__setAriaSetSize : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaSetSize : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaSetSize : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaSort"
   prim__ariaSort : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaSort : (obj : ARIAMixin) -> IO String
+  ariaSort : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaSort  = v}"
   prim__setAriaSort : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaSort : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaSort : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaValueMax"
   prim__ariaValueMax : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaValueMax : (obj : ARIAMixin) -> IO String
+  ariaValueMax : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaValueMax  = v}"
   prim__setAriaValueMax : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaValueMax : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaValueMax : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaValueMin"
   prim__ariaValueMin : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaValueMin : (obj : ARIAMixin) -> IO String
+  ariaValueMin : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaValueMin  = v}"
   prim__setAriaValueMin : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaValueMin : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaValueMin : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaValueNow"
   prim__ariaValueNow : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaValueNow : (obj : ARIAMixin) -> IO String
+  ariaValueNow : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaValueNow  = v}"
   prim__setAriaValueNow : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaValueNow : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaValueNow : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ariaValueText"
   prim__ariaValueText : AnyPtr -> PrimIO AnyPtr
 
   export
-  ariaValueText : (obj : ARIAMixin) -> IO String
+  ariaValueText : (obj : ARIAMixin) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ariaValueText  = v}"
   prim__setAriaValueText : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAriaValueText : (obj : ARIAMixin) -> (v : String) -> IO ()
+  setAriaValueText : (obj : ARIAMixin) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.role"
   prim__role : AnyPtr -> PrimIO AnyPtr
 
   export
-  role : (obj : ARIAMixin) -> IO (Maybe String)
+  role : (obj : ARIAMixin) -> JSIO (Maybe String)
 
   %foreign "browser:lambda:(x,v)=>{x.role  = v}"
   prim__setRole : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setRole : (obj : ARIAMixin) -> (v : Maybe String) -> IO ()
+  setRole : (obj : ARIAMixin) -> (v : Maybe String) -> JSIO ()
 
 namespace AbstractWorker
   
@@ -9316,13 +9322,13 @@ namespace AbstractWorker
   prim__onerror : AnyPtr -> PrimIO AnyPtr
 
   export
-  onerror : (obj : AbstractWorker) -> IO EventHandler
+  onerror : (obj : AbstractWorker) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onerror  = v}"
   prim__setOnerror : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnerror : (obj : AbstractWorker) -> (v : EventHandler) -> IO ()
+  setOnerror : (obj : AbstractWorker) -> (v : EventHandler) -> JSIO ()
 
 namespace CanvasCompositing
   
@@ -9330,19 +9336,19 @@ namespace CanvasCompositing
   prim__globalAlpha : AnyPtr -> PrimIO AnyPtr
 
   export
-  globalAlpha : (obj : CanvasCompositing) -> IO Double
+  globalAlpha : (obj : CanvasCompositing) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.globalAlpha  = v}"
   prim__setGlobalAlpha : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setGlobalAlpha : (obj : CanvasCompositing) -> (v : Double) -> IO ()
+  setGlobalAlpha : (obj : CanvasCompositing) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.globalCompositeOperation"
   prim__globalCompositeOperation : AnyPtr -> PrimIO AnyPtr
 
   export
-  globalCompositeOperation : (obj : CanvasCompositing) -> IO String
+  globalCompositeOperation : (obj : CanvasCompositing) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.globalCompositeOperation  = v}"
   prim__setGlobalCompositeOperation : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -9350,7 +9356,7 @@ namespace CanvasCompositing
   export
   setGlobalCompositeOperation :  (obj : CanvasCompositing)
                               -> (v : String)
-                              -> IO ()
+                              -> JSIO ()
 
 
 
@@ -9361,7 +9367,7 @@ namespace CanvasFillStrokeStyles
 
   export
   fillStyle :  (obj : CanvasFillStrokeStyles)
-            -> IO (NS I [ String , CanvasGradient , CanvasPattern ])
+            -> JSIO (NS I [ String , CanvasGradient , CanvasPattern ])
 
   %foreign "browser:lambda:(x,v)=>{x.fillStyle  = v}"
   prim__setFillStyle : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -9369,14 +9375,14 @@ namespace CanvasFillStrokeStyles
   export
   setFillStyle :  (obj : CanvasFillStrokeStyles)
                -> (v : NS I [ String , CanvasGradient , CanvasPattern ])
-               -> IO ()
+               -> JSIO ()
   
   %foreign "browser:lambda:x=>x.strokeStyle"
   prim__strokeStyle : AnyPtr -> PrimIO AnyPtr
 
   export
   strokeStyle :  (obj : CanvasFillStrokeStyles)
-              -> IO (NS I [ String , CanvasGradient , CanvasPattern ])
+              -> JSIO (NS I [ String , CanvasGradient , CanvasPattern ])
 
   %foreign "browser:lambda:(x,v)=>{x.strokeStyle  = v}"
   prim__setStrokeStyle : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -9384,7 +9390,7 @@ namespace CanvasFillStrokeStyles
   export
   setStrokeStyle :  (obj : CanvasFillStrokeStyles)
                  -> (v : NS I [ String , CanvasGradient , CanvasPattern ])
-                 -> IO ()
+                 -> JSIO ()
 
 namespace CanvasFilters
   
@@ -9392,13 +9398,13 @@ namespace CanvasFilters
   prim__filter : AnyPtr -> PrimIO AnyPtr
 
   export
-  filter : (obj : CanvasFilters) -> IO String
+  filter : (obj : CanvasFilters) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.filter  = v}"
   prim__setFilter : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setFilter : (obj : CanvasFilters) -> (v : String) -> IO ()
+  setFilter : (obj : CanvasFilters) -> (v : String) -> JSIO ()
 
 
 namespace CanvasImageSmoothing
@@ -9407,20 +9413,22 @@ namespace CanvasImageSmoothing
   prim__imageSmoothingEnabled : AnyPtr -> PrimIO AnyPtr
 
   export
-  imageSmoothingEnabled : (obj : CanvasImageSmoothing) -> IO Bool
+  imageSmoothingEnabled : (obj : CanvasImageSmoothing) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.imageSmoothingEnabled  = v}"
   prim__setImageSmoothingEnabled : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setImageSmoothingEnabled : (obj : CanvasImageSmoothing) -> (v : Bool) -> IO ()
+  setImageSmoothingEnabled :  (obj : CanvasImageSmoothing)
+                           -> (v : Bool)
+                           -> JSIO ()
   
   %foreign "browser:lambda:x=>x.imageSmoothingQuality"
   prim__imageSmoothingQuality : AnyPtr -> PrimIO AnyPtr
 
   export
   imageSmoothingQuality :  (obj : CanvasImageSmoothing)
-                        -> IO ImageSmoothingQuality
+                        -> JSIO ImageSmoothingQuality
 
   %foreign "browser:lambda:(x,v)=>{x.imageSmoothingQuality  = v}"
   prim__setImageSmoothingQuality : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -9428,7 +9436,7 @@ namespace CanvasImageSmoothing
   export
   setImageSmoothingQuality :  (obj : CanvasImageSmoothing)
                            -> (v : ImageSmoothingQuality)
-                           -> IO ()
+                           -> JSIO ()
 
 
 namespace CanvasPathDrawingStyles
@@ -9437,61 +9445,63 @@ namespace CanvasPathDrawingStyles
   prim__lineCap : AnyPtr -> PrimIO AnyPtr
 
   export
-  lineCap : (obj : CanvasPathDrawingStyles) -> IO CanvasLineCap
+  lineCap : (obj : CanvasPathDrawingStyles) -> JSIO CanvasLineCap
 
   %foreign "browser:lambda:(x,v)=>{x.lineCap  = v}"
   prim__setLineCap : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setLineCap : (obj : CanvasPathDrawingStyles) -> (v : CanvasLineCap) -> IO ()
+  setLineCap : (obj : CanvasPathDrawingStyles) -> (v : CanvasLineCap) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.lineDashOffset"
   prim__lineDashOffset : AnyPtr -> PrimIO AnyPtr
 
   export
-  lineDashOffset : (obj : CanvasPathDrawingStyles) -> IO Double
+  lineDashOffset : (obj : CanvasPathDrawingStyles) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.lineDashOffset  = v}"
   prim__setLineDashOffset : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setLineDashOffset : (obj : CanvasPathDrawingStyles) -> (v : Double) -> IO ()
+  setLineDashOffset : (obj : CanvasPathDrawingStyles) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.lineJoin"
   prim__lineJoin : AnyPtr -> PrimIO AnyPtr
 
   export
-  lineJoin : (obj : CanvasPathDrawingStyles) -> IO CanvasLineJoin
+  lineJoin : (obj : CanvasPathDrawingStyles) -> JSIO CanvasLineJoin
 
   %foreign "browser:lambda:(x,v)=>{x.lineJoin  = v}"
   prim__setLineJoin : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setLineJoin : (obj : CanvasPathDrawingStyles) -> (v : CanvasLineJoin) -> IO ()
+  setLineJoin :  (obj : CanvasPathDrawingStyles)
+              -> (v : CanvasLineJoin)
+              -> JSIO ()
   
   %foreign "browser:lambda:x=>x.lineWidth"
   prim__lineWidth : AnyPtr -> PrimIO AnyPtr
 
   export
-  lineWidth : (obj : CanvasPathDrawingStyles) -> IO Double
+  lineWidth : (obj : CanvasPathDrawingStyles) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.lineWidth  = v}"
   prim__setLineWidth : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setLineWidth : (obj : CanvasPathDrawingStyles) -> (v : Double) -> IO ()
+  setLineWidth : (obj : CanvasPathDrawingStyles) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.miterLimit"
   prim__miterLimit : AnyPtr -> PrimIO AnyPtr
 
   export
-  miterLimit : (obj : CanvasPathDrawingStyles) -> IO Double
+  miterLimit : (obj : CanvasPathDrawingStyles) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.miterLimit  = v}"
   prim__setMiterLimit : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setMiterLimit : (obj : CanvasPathDrawingStyles) -> (v : Double) -> IO ()
+  setMiterLimit : (obj : CanvasPathDrawingStyles) -> (v : Double) -> JSIO ()
 
 
 namespace CanvasShadowStyles
@@ -9500,49 +9510,49 @@ namespace CanvasShadowStyles
   prim__shadowBlur : AnyPtr -> PrimIO AnyPtr
 
   export
-  shadowBlur : (obj : CanvasShadowStyles) -> IO Double
+  shadowBlur : (obj : CanvasShadowStyles) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.shadowBlur  = v}"
   prim__setShadowBlur : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setShadowBlur : (obj : CanvasShadowStyles) -> (v : Double) -> IO ()
+  setShadowBlur : (obj : CanvasShadowStyles) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.shadowColor"
   prim__shadowColor : AnyPtr -> PrimIO AnyPtr
 
   export
-  shadowColor : (obj : CanvasShadowStyles) -> IO String
+  shadowColor : (obj : CanvasShadowStyles) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.shadowColor  = v}"
   prim__setShadowColor : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setShadowColor : (obj : CanvasShadowStyles) -> (v : String) -> IO ()
+  setShadowColor : (obj : CanvasShadowStyles) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.shadowOffsetX"
   prim__shadowOffsetX : AnyPtr -> PrimIO AnyPtr
 
   export
-  shadowOffsetX : (obj : CanvasShadowStyles) -> IO Double
+  shadowOffsetX : (obj : CanvasShadowStyles) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.shadowOffsetX  = v}"
   prim__setShadowOffsetX : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setShadowOffsetX : (obj : CanvasShadowStyles) -> (v : Double) -> IO ()
+  setShadowOffsetX : (obj : CanvasShadowStyles) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.shadowOffsetY"
   prim__shadowOffsetY : AnyPtr -> PrimIO AnyPtr
 
   export
-  shadowOffsetY : (obj : CanvasShadowStyles) -> IO Double
+  shadowOffsetY : (obj : CanvasShadowStyles) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.shadowOffsetY  = v}"
   prim__setShadowOffsetY : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setShadowOffsetY : (obj : CanvasShadowStyles) -> (v : Double) -> IO ()
+  setShadowOffsetY : (obj : CanvasShadowStyles) -> (v : Double) -> JSIO ()
 
 
 
@@ -9552,7 +9562,7 @@ namespace CanvasTextDrawingStyles
   prim__direction : AnyPtr -> PrimIO AnyPtr
 
   export
-  direction : (obj : CanvasTextDrawingStyles) -> IO CanvasDirection
+  direction : (obj : CanvasTextDrawingStyles) -> JSIO CanvasDirection
 
   %foreign "browser:lambda:(x,v)=>{x.direction  = v}"
   prim__setDirection : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -9560,25 +9570,25 @@ namespace CanvasTextDrawingStyles
   export
   setDirection :  (obj : CanvasTextDrawingStyles)
                -> (v : CanvasDirection)
-               -> IO ()
+               -> JSIO ()
   
   %foreign "browser:lambda:x=>x.font"
   prim__font : AnyPtr -> PrimIO AnyPtr
 
   export
-  font : (obj : CanvasTextDrawingStyles) -> IO String
+  font : (obj : CanvasTextDrawingStyles) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.font  = v}"
   prim__setFont : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setFont : (obj : CanvasTextDrawingStyles) -> (v : String) -> IO ()
+  setFont : (obj : CanvasTextDrawingStyles) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.textAlign"
   prim__textAlign : AnyPtr -> PrimIO AnyPtr
 
   export
-  textAlign : (obj : CanvasTextDrawingStyles) -> IO CanvasTextAlign
+  textAlign : (obj : CanvasTextDrawingStyles) -> JSIO CanvasTextAlign
 
   %foreign "browser:lambda:(x,v)=>{x.textAlign  = v}"
   prim__setTextAlign : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -9586,13 +9596,13 @@ namespace CanvasTextDrawingStyles
   export
   setTextAlign :  (obj : CanvasTextDrawingStyles)
                -> (v : CanvasTextAlign)
-               -> IO ()
+               -> JSIO ()
   
   %foreign "browser:lambda:x=>x.textBaseline"
   prim__textBaseline : AnyPtr -> PrimIO AnyPtr
 
   export
-  textBaseline : (obj : CanvasTextDrawingStyles) -> IO CanvasTextBaseline
+  textBaseline : (obj : CanvasTextDrawingStyles) -> JSIO CanvasTextBaseline
 
   %foreign "browser:lambda:(x,v)=>{x.textBaseline  = v}"
   prim__setTextBaseline : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -9600,7 +9610,7 @@ namespace CanvasTextDrawingStyles
   export
   setTextBaseline :  (obj : CanvasTextDrawingStyles)
                   -> (v : CanvasTextBaseline)
-                  -> IO ()
+                  -> JSIO ()
 
 
 
@@ -9610,7 +9620,7 @@ namespace DocumentAndElementEventHandlers
   prim__oncopy : AnyPtr -> PrimIO AnyPtr
 
   export
-  oncopy : (obj : DocumentAndElementEventHandlers) -> IO EventHandler
+  oncopy : (obj : DocumentAndElementEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.oncopy  = v}"
   prim__setOncopy : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -9618,13 +9628,13 @@ namespace DocumentAndElementEventHandlers
   export
   setOncopy :  (obj : DocumentAndElementEventHandlers)
             -> (v : EventHandler)
-            -> IO ()
+            -> JSIO ()
   
   %foreign "browser:lambda:x=>x.oncut"
   prim__oncut : AnyPtr -> PrimIO AnyPtr
 
   export
-  oncut : (obj : DocumentAndElementEventHandlers) -> IO EventHandler
+  oncut : (obj : DocumentAndElementEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.oncut  = v}"
   prim__setOncut : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -9632,13 +9642,13 @@ namespace DocumentAndElementEventHandlers
   export
   setOncut :  (obj : DocumentAndElementEventHandlers)
            -> (v : EventHandler)
-           -> IO ()
+           -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onpaste"
   prim__onpaste : AnyPtr -> PrimIO AnyPtr
 
   export
-  onpaste : (obj : DocumentAndElementEventHandlers) -> IO EventHandler
+  onpaste : (obj : DocumentAndElementEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onpaste  = v}"
   prim__setOnpaste : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -9646,7 +9656,7 @@ namespace DocumentAndElementEventHandlers
   export
   setOnpaste :  (obj : DocumentAndElementEventHandlers)
              -> (v : EventHandler)
-             -> IO ()
+             -> JSIO ()
 
 namespace ElementContentEditable
   
@@ -9654,43 +9664,43 @@ namespace ElementContentEditable
   prim__isContentEditable : AnyPtr -> PrimIO AnyPtr
 
   export
-  isContentEditable : (obj : ElementContentEditable) -> IO Bool
+  isContentEditable : (obj : ElementContentEditable) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.contentEditable"
   prim__contentEditable : AnyPtr -> PrimIO AnyPtr
 
   export
-  contentEditable : (obj : ElementContentEditable) -> IO String
+  contentEditable : (obj : ElementContentEditable) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.contentEditable  = v}"
   prim__setContentEditable : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setContentEditable : (obj : ElementContentEditable) -> (v : String) -> IO ()
+  setContentEditable : (obj : ElementContentEditable) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.enterKeyHint"
   prim__enterKeyHint : AnyPtr -> PrimIO AnyPtr
 
   export
-  enterKeyHint : (obj : ElementContentEditable) -> IO String
+  enterKeyHint : (obj : ElementContentEditable) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.enterKeyHint  = v}"
   prim__setEnterKeyHint : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setEnterKeyHint : (obj : ElementContentEditable) -> (v : String) -> IO ()
+  setEnterKeyHint : (obj : ElementContentEditable) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.inputMode"
   prim__inputMode : AnyPtr -> PrimIO AnyPtr
 
   export
-  inputMode : (obj : ElementContentEditable) -> IO String
+  inputMode : (obj : ElementContentEditable) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.inputMode  = v}"
   prim__setInputMode : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setInputMode : (obj : ElementContentEditable) -> (v : String) -> IO ()
+  setInputMode : (obj : ElementContentEditable) -> (v : String) -> JSIO ()
 
 namespace GlobalEventHandlers
   
@@ -9698,67 +9708,67 @@ namespace GlobalEventHandlers
   prim__onabort : AnyPtr -> PrimIO AnyPtr
 
   export
-  onabort : (obj : GlobalEventHandlers) -> IO EventHandler
+  onabort : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onabort  = v}"
   prim__setOnabort : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnabort : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnabort : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onauxclick"
   prim__onauxclick : AnyPtr -> PrimIO AnyPtr
 
   export
-  onauxclick : (obj : GlobalEventHandlers) -> IO EventHandler
+  onauxclick : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onauxclick  = v}"
   prim__setOnauxclick : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnauxclick : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnauxclick : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onblur"
   prim__onblur : AnyPtr -> PrimIO AnyPtr
 
   export
-  onblur : (obj : GlobalEventHandlers) -> IO EventHandler
+  onblur : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onblur  = v}"
   prim__setOnblur : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnblur : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnblur : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.oncancel"
   prim__oncancel : AnyPtr -> PrimIO AnyPtr
 
   export
-  oncancel : (obj : GlobalEventHandlers) -> IO EventHandler
+  oncancel : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.oncancel  = v}"
   prim__setOncancel : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOncancel : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOncancel : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.oncanplay"
   prim__oncanplay : AnyPtr -> PrimIO AnyPtr
 
   export
-  oncanplay : (obj : GlobalEventHandlers) -> IO EventHandler
+  oncanplay : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.oncanplay  = v}"
   prim__setOncanplay : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOncanplay : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOncanplay : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.oncanplaythrough"
   prim__oncanplaythrough : AnyPtr -> PrimIO AnyPtr
 
   export
-  oncanplaythrough : (obj : GlobalEventHandlers) -> IO EventHandler
+  oncanplaythrough : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.oncanplaythrough  = v}"
   prim__setOncanplaythrough : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -9766,169 +9776,171 @@ namespace GlobalEventHandlers
   export
   setOncanplaythrough :  (obj : GlobalEventHandlers)
                       -> (v : EventHandler)
-                      -> IO ()
+                      -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onchange"
   prim__onchange : AnyPtr -> PrimIO AnyPtr
 
   export
-  onchange : (obj : GlobalEventHandlers) -> IO EventHandler
+  onchange : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onchange  = v}"
   prim__setOnchange : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnchange : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnchange : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onclick"
   prim__onclick : AnyPtr -> PrimIO AnyPtr
 
   export
-  onclick : (obj : GlobalEventHandlers) -> IO EventHandler
+  onclick : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onclick  = v}"
   prim__setOnclick : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnclick : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnclick : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onclose"
   prim__onclose : AnyPtr -> PrimIO AnyPtr
 
   export
-  onclose : (obj : GlobalEventHandlers) -> IO EventHandler
+  onclose : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onclose  = v}"
   prim__setOnclose : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnclose : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnclose : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.oncontextmenu"
   prim__oncontextmenu : AnyPtr -> PrimIO AnyPtr
 
   export
-  oncontextmenu : (obj : GlobalEventHandlers) -> IO EventHandler
+  oncontextmenu : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.oncontextmenu  = v}"
   prim__setOncontextmenu : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOncontextmenu : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOncontextmenu :  (obj : GlobalEventHandlers)
+                   -> (v : EventHandler)
+                   -> JSIO ()
   
   %foreign "browser:lambda:x=>x.oncuechange"
   prim__oncuechange : AnyPtr -> PrimIO AnyPtr
 
   export
-  oncuechange : (obj : GlobalEventHandlers) -> IO EventHandler
+  oncuechange : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.oncuechange  = v}"
   prim__setOncuechange : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOncuechange : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOncuechange : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ondblclick"
   prim__ondblclick : AnyPtr -> PrimIO AnyPtr
 
   export
-  ondblclick : (obj : GlobalEventHandlers) -> IO EventHandler
+  ondblclick : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.ondblclick  = v}"
   prim__setOndblclick : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOndblclick : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOndblclick : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ondrag"
   prim__ondrag : AnyPtr -> PrimIO AnyPtr
 
   export
-  ondrag : (obj : GlobalEventHandlers) -> IO EventHandler
+  ondrag : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.ondrag  = v}"
   prim__setOndrag : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOndrag : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOndrag : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ondragend"
   prim__ondragend : AnyPtr -> PrimIO AnyPtr
 
   export
-  ondragend : (obj : GlobalEventHandlers) -> IO EventHandler
+  ondragend : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.ondragend  = v}"
   prim__setOndragend : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOndragend : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOndragend : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ondragenter"
   prim__ondragenter : AnyPtr -> PrimIO AnyPtr
 
   export
-  ondragenter : (obj : GlobalEventHandlers) -> IO EventHandler
+  ondragenter : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.ondragenter  = v}"
   prim__setOndragenter : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOndragenter : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOndragenter : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ondragleave"
   prim__ondragleave : AnyPtr -> PrimIO AnyPtr
 
   export
-  ondragleave : (obj : GlobalEventHandlers) -> IO EventHandler
+  ondragleave : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.ondragleave  = v}"
   prim__setOndragleave : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOndragleave : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOndragleave : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ondragover"
   prim__ondragover : AnyPtr -> PrimIO AnyPtr
 
   export
-  ondragover : (obj : GlobalEventHandlers) -> IO EventHandler
+  ondragover : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.ondragover  = v}"
   prim__setOndragover : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOndragover : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOndragover : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ondragstart"
   prim__ondragstart : AnyPtr -> PrimIO AnyPtr
 
   export
-  ondragstart : (obj : GlobalEventHandlers) -> IO EventHandler
+  ondragstart : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.ondragstart  = v}"
   prim__setOndragstart : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOndragstart : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOndragstart : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ondrop"
   prim__ondrop : AnyPtr -> PrimIO AnyPtr
 
   export
-  ondrop : (obj : GlobalEventHandlers) -> IO EventHandler
+  ondrop : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.ondrop  = v}"
   prim__setOndrop : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOndrop : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOndrop : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ondurationchange"
   prim__ondurationchange : AnyPtr -> PrimIO AnyPtr
 
   export
-  ondurationchange : (obj : GlobalEventHandlers) -> IO EventHandler
+  ondurationchange : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.ondurationchange  = v}"
   prim__setOndurationchange : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -9936,157 +9948,159 @@ namespace GlobalEventHandlers
   export
   setOndurationchange :  (obj : GlobalEventHandlers)
                       -> (v : EventHandler)
-                      -> IO ()
+                      -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onemptied"
   prim__onemptied : AnyPtr -> PrimIO AnyPtr
 
   export
-  onemptied : (obj : GlobalEventHandlers) -> IO EventHandler
+  onemptied : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onemptied  = v}"
   prim__setOnemptied : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnemptied : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnemptied : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onended"
   prim__onended : AnyPtr -> PrimIO AnyPtr
 
   export
-  onended : (obj : GlobalEventHandlers) -> IO EventHandler
+  onended : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onended  = v}"
   prim__setOnended : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnended : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnended : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onerror"
   prim__onerror : AnyPtr -> PrimIO AnyPtr
 
   export
-  onerror : (obj : GlobalEventHandlers) -> IO OnErrorEventHandler
+  onerror : (obj : GlobalEventHandlers) -> JSIO OnErrorEventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onerror  = v}"
   prim__setOnerror : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnerror : (obj : GlobalEventHandlers) -> (v : OnErrorEventHandler) -> IO ()
+  setOnerror :  (obj : GlobalEventHandlers)
+             -> (v : OnErrorEventHandler)
+             -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onfocus"
   prim__onfocus : AnyPtr -> PrimIO AnyPtr
 
   export
-  onfocus : (obj : GlobalEventHandlers) -> IO EventHandler
+  onfocus : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onfocus  = v}"
   prim__setOnfocus : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnfocus : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnfocus : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onformdata"
   prim__onformdata : AnyPtr -> PrimIO AnyPtr
 
   export
-  onformdata : (obj : GlobalEventHandlers) -> IO EventHandler
+  onformdata : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onformdata  = v}"
   prim__setOnformdata : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnformdata : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnformdata : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.oninput"
   prim__oninput : AnyPtr -> PrimIO AnyPtr
 
   export
-  oninput : (obj : GlobalEventHandlers) -> IO EventHandler
+  oninput : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.oninput  = v}"
   prim__setOninput : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOninput : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOninput : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.oninvalid"
   prim__oninvalid : AnyPtr -> PrimIO AnyPtr
 
   export
-  oninvalid : (obj : GlobalEventHandlers) -> IO EventHandler
+  oninvalid : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.oninvalid  = v}"
   prim__setOninvalid : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOninvalid : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOninvalid : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onkeydown"
   prim__onkeydown : AnyPtr -> PrimIO AnyPtr
 
   export
-  onkeydown : (obj : GlobalEventHandlers) -> IO EventHandler
+  onkeydown : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onkeydown  = v}"
   prim__setOnkeydown : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnkeydown : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnkeydown : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onkeypress"
   prim__onkeypress : AnyPtr -> PrimIO AnyPtr
 
   export
-  onkeypress : (obj : GlobalEventHandlers) -> IO EventHandler
+  onkeypress : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onkeypress  = v}"
   prim__setOnkeypress : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnkeypress : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnkeypress : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onkeyup"
   prim__onkeyup : AnyPtr -> PrimIO AnyPtr
 
   export
-  onkeyup : (obj : GlobalEventHandlers) -> IO EventHandler
+  onkeyup : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onkeyup  = v}"
   prim__setOnkeyup : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnkeyup : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnkeyup : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onload"
   prim__onload : AnyPtr -> PrimIO AnyPtr
 
   export
-  onload : (obj : GlobalEventHandlers) -> IO EventHandler
+  onload : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onload  = v}"
   prim__setOnload : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnload : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnload : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onloadeddata"
   prim__onloadeddata : AnyPtr -> PrimIO AnyPtr
 
   export
-  onloadeddata : (obj : GlobalEventHandlers) -> IO EventHandler
+  onloadeddata : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onloadeddata  = v}"
   prim__setOnloadeddata : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnloadeddata : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnloadeddata : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onloadedmetadata"
   prim__onloadedmetadata : AnyPtr -> PrimIO AnyPtr
 
   export
-  onloadedmetadata : (obj : GlobalEventHandlers) -> IO EventHandler
+  onloadedmetadata : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onloadedmetadata  = v}"
   prim__setOnloadedmetadata : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -10094,205 +10108,205 @@ namespace GlobalEventHandlers
   export
   setOnloadedmetadata :  (obj : GlobalEventHandlers)
                       -> (v : EventHandler)
-                      -> IO ()
+                      -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onloadstart"
   prim__onloadstart : AnyPtr -> PrimIO AnyPtr
 
   export
-  onloadstart : (obj : GlobalEventHandlers) -> IO EventHandler
+  onloadstart : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onloadstart  = v}"
   prim__setOnloadstart : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnloadstart : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnloadstart : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onmousedown"
   prim__onmousedown : AnyPtr -> PrimIO AnyPtr
 
   export
-  onmousedown : (obj : GlobalEventHandlers) -> IO EventHandler
+  onmousedown : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onmousedown  = v}"
   prim__setOnmousedown : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnmousedown : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnmousedown : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onmouseenter"
   prim__onmouseenter : AnyPtr -> PrimIO AnyPtr
 
   export
-  onmouseenter : (obj : GlobalEventHandlers) -> IO EventHandler
+  onmouseenter : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onmouseenter  = v}"
   prim__setOnmouseenter : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnmouseenter : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnmouseenter : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onmouseleave"
   prim__onmouseleave : AnyPtr -> PrimIO AnyPtr
 
   export
-  onmouseleave : (obj : GlobalEventHandlers) -> IO EventHandler
+  onmouseleave : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onmouseleave  = v}"
   prim__setOnmouseleave : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnmouseleave : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnmouseleave : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onmousemove"
   prim__onmousemove : AnyPtr -> PrimIO AnyPtr
 
   export
-  onmousemove : (obj : GlobalEventHandlers) -> IO EventHandler
+  onmousemove : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onmousemove  = v}"
   prim__setOnmousemove : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnmousemove : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnmousemove : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onmouseout"
   prim__onmouseout : AnyPtr -> PrimIO AnyPtr
 
   export
-  onmouseout : (obj : GlobalEventHandlers) -> IO EventHandler
+  onmouseout : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onmouseout  = v}"
   prim__setOnmouseout : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnmouseout : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnmouseout : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onmouseover"
   prim__onmouseover : AnyPtr -> PrimIO AnyPtr
 
   export
-  onmouseover : (obj : GlobalEventHandlers) -> IO EventHandler
+  onmouseover : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onmouseover  = v}"
   prim__setOnmouseover : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnmouseover : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnmouseover : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onmouseup"
   prim__onmouseup : AnyPtr -> PrimIO AnyPtr
 
   export
-  onmouseup : (obj : GlobalEventHandlers) -> IO EventHandler
+  onmouseup : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onmouseup  = v}"
   prim__setOnmouseup : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnmouseup : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnmouseup : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onpause"
   prim__onpause : AnyPtr -> PrimIO AnyPtr
 
   export
-  onpause : (obj : GlobalEventHandlers) -> IO EventHandler
+  onpause : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onpause  = v}"
   prim__setOnpause : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnpause : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnpause : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onplay"
   prim__onplay : AnyPtr -> PrimIO AnyPtr
 
   export
-  onplay : (obj : GlobalEventHandlers) -> IO EventHandler
+  onplay : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onplay  = v}"
   prim__setOnplay : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnplay : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnplay : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onplaying"
   prim__onplaying : AnyPtr -> PrimIO AnyPtr
 
   export
-  onplaying : (obj : GlobalEventHandlers) -> IO EventHandler
+  onplaying : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onplaying  = v}"
   prim__setOnplaying : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnplaying : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnplaying : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onprogress"
   prim__onprogress : AnyPtr -> PrimIO AnyPtr
 
   export
-  onprogress : (obj : GlobalEventHandlers) -> IO EventHandler
+  onprogress : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onprogress  = v}"
   prim__setOnprogress : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnprogress : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnprogress : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onratechange"
   prim__onratechange : AnyPtr -> PrimIO AnyPtr
 
   export
-  onratechange : (obj : GlobalEventHandlers) -> IO EventHandler
+  onratechange : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onratechange  = v}"
   prim__setOnratechange : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnratechange : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnratechange : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onreset"
   prim__onreset : AnyPtr -> PrimIO AnyPtr
 
   export
-  onreset : (obj : GlobalEventHandlers) -> IO EventHandler
+  onreset : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onreset  = v}"
   prim__setOnreset : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnreset : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnreset : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onresize"
   prim__onresize : AnyPtr -> PrimIO AnyPtr
 
   export
-  onresize : (obj : GlobalEventHandlers) -> IO EventHandler
+  onresize : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onresize  = v}"
   prim__setOnresize : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnresize : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnresize : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onscroll"
   prim__onscroll : AnyPtr -> PrimIO AnyPtr
 
   export
-  onscroll : (obj : GlobalEventHandlers) -> IO EventHandler
+  onscroll : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onscroll  = v}"
   prim__setOnscroll : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnscroll : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnscroll : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onsecuritypolicyviolation"
   prim__onsecuritypolicyviolation : AnyPtr -> PrimIO AnyPtr
 
   export
-  onsecuritypolicyviolation : (obj : GlobalEventHandlers) -> IO EventHandler
+  onsecuritypolicyviolation : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onsecuritypolicyviolation  = v}"
   prim__setOnsecuritypolicyviolation : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -10300,145 +10314,147 @@ namespace GlobalEventHandlers
   export
   setOnsecuritypolicyviolation :  (obj : GlobalEventHandlers)
                                -> (v : EventHandler)
-                               -> IO ()
+                               -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onseeked"
   prim__onseeked : AnyPtr -> PrimIO AnyPtr
 
   export
-  onseeked : (obj : GlobalEventHandlers) -> IO EventHandler
+  onseeked : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onseeked  = v}"
   prim__setOnseeked : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnseeked : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnseeked : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onseeking"
   prim__onseeking : AnyPtr -> PrimIO AnyPtr
 
   export
-  onseeking : (obj : GlobalEventHandlers) -> IO EventHandler
+  onseeking : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onseeking  = v}"
   prim__setOnseeking : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnseeking : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnseeking : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onselect"
   prim__onselect : AnyPtr -> PrimIO AnyPtr
 
   export
-  onselect : (obj : GlobalEventHandlers) -> IO EventHandler
+  onselect : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onselect  = v}"
   prim__setOnselect : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnselect : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnselect : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onslotchange"
   prim__onslotchange : AnyPtr -> PrimIO AnyPtr
 
   export
-  onslotchange : (obj : GlobalEventHandlers) -> IO EventHandler
+  onslotchange : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onslotchange  = v}"
   prim__setOnslotchange : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnslotchange : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnslotchange : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onstalled"
   prim__onstalled : AnyPtr -> PrimIO AnyPtr
 
   export
-  onstalled : (obj : GlobalEventHandlers) -> IO EventHandler
+  onstalled : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onstalled  = v}"
   prim__setOnstalled : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnstalled : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnstalled : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onsubmit"
   prim__onsubmit : AnyPtr -> PrimIO AnyPtr
 
   export
-  onsubmit : (obj : GlobalEventHandlers) -> IO EventHandler
+  onsubmit : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onsubmit  = v}"
   prim__setOnsubmit : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnsubmit : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnsubmit : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onsuspend"
   prim__onsuspend : AnyPtr -> PrimIO AnyPtr
 
   export
-  onsuspend : (obj : GlobalEventHandlers) -> IO EventHandler
+  onsuspend : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onsuspend  = v}"
   prim__setOnsuspend : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnsuspend : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnsuspend : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ontimeupdate"
   prim__ontimeupdate : AnyPtr -> PrimIO AnyPtr
 
   export
-  ontimeupdate : (obj : GlobalEventHandlers) -> IO EventHandler
+  ontimeupdate : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.ontimeupdate  = v}"
   prim__setOntimeupdate : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOntimeupdate : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOntimeupdate : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ontoggle"
   prim__ontoggle : AnyPtr -> PrimIO AnyPtr
 
   export
-  ontoggle : (obj : GlobalEventHandlers) -> IO EventHandler
+  ontoggle : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.ontoggle  = v}"
   prim__setOntoggle : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOntoggle : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOntoggle : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onvolumechange"
   prim__onvolumechange : AnyPtr -> PrimIO AnyPtr
 
   export
-  onvolumechange : (obj : GlobalEventHandlers) -> IO EventHandler
+  onvolumechange : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onvolumechange  = v}"
   prim__setOnvolumechange : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnvolumechange : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnvolumechange :  (obj : GlobalEventHandlers)
+                    -> (v : EventHandler)
+                    -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onwaiting"
   prim__onwaiting : AnyPtr -> PrimIO AnyPtr
 
   export
-  onwaiting : (obj : GlobalEventHandlers) -> IO EventHandler
+  onwaiting : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onwaiting  = v}"
   prim__setOnwaiting : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnwaiting : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnwaiting : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onwebkitanimationend"
   prim__onwebkitanimationend : AnyPtr -> PrimIO AnyPtr
 
   export
-  onwebkitanimationend : (obj : GlobalEventHandlers) -> IO EventHandler
+  onwebkitanimationend : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onwebkitanimationend  = v}"
   prim__setOnwebkitanimationend : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -10446,13 +10462,13 @@ namespace GlobalEventHandlers
   export
   setOnwebkitanimationend :  (obj : GlobalEventHandlers)
                           -> (v : EventHandler)
-                          -> IO ()
+                          -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onwebkitanimationiteration"
   prim__onwebkitanimationiteration : AnyPtr -> PrimIO AnyPtr
 
   export
-  onwebkitanimationiteration : (obj : GlobalEventHandlers) -> IO EventHandler
+  onwebkitanimationiteration : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onwebkitanimationiteration  = v}"
   prim__setOnwebkitanimationiteration : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -10460,13 +10476,13 @@ namespace GlobalEventHandlers
   export
   setOnwebkitanimationiteration :  (obj : GlobalEventHandlers)
                                 -> (v : EventHandler)
-                                -> IO ()
+                                -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onwebkitanimationstart"
   prim__onwebkitanimationstart : AnyPtr -> PrimIO AnyPtr
 
   export
-  onwebkitanimationstart : (obj : GlobalEventHandlers) -> IO EventHandler
+  onwebkitanimationstart : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onwebkitanimationstart  = v}"
   prim__setOnwebkitanimationstart : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -10474,13 +10490,13 @@ namespace GlobalEventHandlers
   export
   setOnwebkitanimationstart :  (obj : GlobalEventHandlers)
                             -> (v : EventHandler)
-                            -> IO ()
+                            -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onwebkittransitionend"
   prim__onwebkittransitionend : AnyPtr -> PrimIO AnyPtr
 
   export
-  onwebkittransitionend : (obj : GlobalEventHandlers) -> IO EventHandler
+  onwebkittransitionend : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onwebkittransitionend  = v}"
   prim__setOnwebkittransitionend : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -10488,19 +10504,19 @@ namespace GlobalEventHandlers
   export
   setOnwebkittransitionend :  (obj : GlobalEventHandlers)
                            -> (v : EventHandler)
-                           -> IO ()
+                           -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onwheel"
   prim__onwheel : AnyPtr -> PrimIO AnyPtr
 
   export
-  onwheel : (obj : GlobalEventHandlers) -> IO EventHandler
+  onwheel : (obj : GlobalEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onwheel  = v}"
   prim__setOnwheel : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnwheel : (obj : GlobalEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnwheel : (obj : GlobalEventHandlers) -> (v : EventHandler) -> JSIO ()
 
 namespace HTMLHyperlinkElementUtils
   
@@ -10508,115 +10524,115 @@ namespace HTMLHyperlinkElementUtils
   prim__origin : AnyPtr -> PrimIO AnyPtr
 
   export
-  origin : (obj : HTMLHyperlinkElementUtils) -> IO String
+  origin : (obj : HTMLHyperlinkElementUtils) -> JSIO String
   
   %foreign "browser:lambda:x=>x.hash"
   prim__hash : AnyPtr -> PrimIO AnyPtr
 
   export
-  hash : (obj : HTMLHyperlinkElementUtils) -> IO String
+  hash : (obj : HTMLHyperlinkElementUtils) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.hash  = v}"
   prim__setHash : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHash : (obj : HTMLHyperlinkElementUtils) -> (v : String) -> IO ()
+  setHash : (obj : HTMLHyperlinkElementUtils) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.host"
   prim__host : AnyPtr -> PrimIO AnyPtr
 
   export
-  host : (obj : HTMLHyperlinkElementUtils) -> IO String
+  host : (obj : HTMLHyperlinkElementUtils) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.host  = v}"
   prim__setHost : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHost : (obj : HTMLHyperlinkElementUtils) -> (v : String) -> IO ()
+  setHost : (obj : HTMLHyperlinkElementUtils) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.hostname"
   prim__hostname : AnyPtr -> PrimIO AnyPtr
 
   export
-  hostname : (obj : HTMLHyperlinkElementUtils) -> IO String
+  hostname : (obj : HTMLHyperlinkElementUtils) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.hostname  = v}"
   prim__setHostname : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHostname : (obj : HTMLHyperlinkElementUtils) -> (v : String) -> IO ()
+  setHostname : (obj : HTMLHyperlinkElementUtils) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.password"
   prim__password : AnyPtr -> PrimIO AnyPtr
 
   export
-  password : (obj : HTMLHyperlinkElementUtils) -> IO String
+  password : (obj : HTMLHyperlinkElementUtils) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.password  = v}"
   prim__setPassword : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setPassword : (obj : HTMLHyperlinkElementUtils) -> (v : String) -> IO ()
+  setPassword : (obj : HTMLHyperlinkElementUtils) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.pathname"
   prim__pathname : AnyPtr -> PrimIO AnyPtr
 
   export
-  pathname : (obj : HTMLHyperlinkElementUtils) -> IO String
+  pathname : (obj : HTMLHyperlinkElementUtils) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.pathname  = v}"
   prim__setPathname : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setPathname : (obj : HTMLHyperlinkElementUtils) -> (v : String) -> IO ()
+  setPathname : (obj : HTMLHyperlinkElementUtils) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.port"
   prim__port : AnyPtr -> PrimIO AnyPtr
 
   export
-  port : (obj : HTMLHyperlinkElementUtils) -> IO String
+  port : (obj : HTMLHyperlinkElementUtils) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.port  = v}"
   prim__setPort : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setPort : (obj : HTMLHyperlinkElementUtils) -> (v : String) -> IO ()
+  setPort : (obj : HTMLHyperlinkElementUtils) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.protocol"
   prim__protocol : AnyPtr -> PrimIO AnyPtr
 
   export
-  protocol : (obj : HTMLHyperlinkElementUtils) -> IO String
+  protocol : (obj : HTMLHyperlinkElementUtils) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.protocol  = v}"
   prim__setProtocol : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setProtocol : (obj : HTMLHyperlinkElementUtils) -> (v : String) -> IO ()
+  setProtocol : (obj : HTMLHyperlinkElementUtils) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.search"
   prim__search : AnyPtr -> PrimIO AnyPtr
 
   export
-  search : (obj : HTMLHyperlinkElementUtils) -> IO String
+  search : (obj : HTMLHyperlinkElementUtils) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.search  = v}"
   prim__setSearch : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSearch : (obj : HTMLHyperlinkElementUtils) -> (v : String) -> IO ()
+  setSearch : (obj : HTMLHyperlinkElementUtils) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.username"
   prim__username : AnyPtr -> PrimIO AnyPtr
 
   export
-  username : (obj : HTMLHyperlinkElementUtils) -> IO String
+  username : (obj : HTMLHyperlinkElementUtils) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.username  = v}"
   prim__setUsername : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setUsername : (obj : HTMLHyperlinkElementUtils) -> (v : String) -> IO ()
+  setUsername : (obj : HTMLHyperlinkElementUtils) -> (v : String) -> JSIO ()
 
 namespace HTMLOrSVGElement
   
@@ -10624,43 +10640,43 @@ namespace HTMLOrSVGElement
   prim__dataset : AnyPtr -> PrimIO AnyPtr
 
   export
-  dataset : (obj : HTMLOrSVGElement) -> IO DOMStringMap
+  dataset : (obj : HTMLOrSVGElement) -> JSIO DOMStringMap
   
   %foreign "browser:lambda:x=>x.autofocus"
   prim__autofocus : AnyPtr -> PrimIO AnyPtr
 
   export
-  autofocus : (obj : HTMLOrSVGElement) -> IO Bool
+  autofocus : (obj : HTMLOrSVGElement) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.autofocus  = v}"
   prim__setAutofocus : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAutofocus : (obj : HTMLOrSVGElement) -> (v : Bool) -> IO ()
+  setAutofocus : (obj : HTMLOrSVGElement) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.nonce"
   prim__nonce : AnyPtr -> PrimIO AnyPtr
 
   export
-  nonce : (obj : HTMLOrSVGElement) -> IO String
+  nonce : (obj : HTMLOrSVGElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.nonce  = v}"
   prim__setNonce : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setNonce : (obj : HTMLOrSVGElement) -> (v : String) -> IO ()
+  setNonce : (obj : HTMLOrSVGElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.tabIndex"
   prim__tabIndex : AnyPtr -> PrimIO AnyPtr
 
   export
-  tabIndex : (obj : HTMLOrSVGElement) -> IO Int32
+  tabIndex : (obj : HTMLOrSVGElement) -> JSIO Int32
 
   %foreign "browser:lambda:(x,v)=>{x.tabIndex  = v}"
   prim__setTabIndex : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setTabIndex : (obj : HTMLOrSVGElement) -> (v : Int32) -> IO ()
+  setTabIndex : (obj : HTMLOrSVGElement) -> (v : Int32) -> JSIO ()
 
 namespace NavigatorConcurrentHardware
   
@@ -10668,7 +10684,7 @@ namespace NavigatorConcurrentHardware
   prim__hardwareConcurrency : AnyPtr -> PrimIO AnyPtr
 
   export
-  hardwareConcurrency : (obj : NavigatorConcurrentHardware) -> IO UInt64
+  hardwareConcurrency : (obj : NavigatorConcurrentHardware) -> JSIO UInt64
 
 
 namespace NavigatorCookies
@@ -10677,7 +10693,7 @@ namespace NavigatorCookies
   prim__cookieEnabled : AnyPtr -> PrimIO AnyPtr
 
   export
-  cookieEnabled : (obj : NavigatorCookies) -> IO Bool
+  cookieEnabled : (obj : NavigatorCookies) -> JSIO Bool
 
 namespace NavigatorID
   
@@ -10685,55 +10701,55 @@ namespace NavigatorID
   prim__appCodeName : AnyPtr -> PrimIO AnyPtr
 
   export
-  appCodeName : (obj : NavigatorID) -> IO String
+  appCodeName : (obj : NavigatorID) -> JSIO String
   
   %foreign "browser:lambda:x=>x.appName"
   prim__appName : AnyPtr -> PrimIO AnyPtr
 
   export
-  appName : (obj : NavigatorID) -> IO String
+  appName : (obj : NavigatorID) -> JSIO String
   
   %foreign "browser:lambda:x=>x.appVersion"
   prim__appVersion : AnyPtr -> PrimIO AnyPtr
 
   export
-  appVersion : (obj : NavigatorID) -> IO String
+  appVersion : (obj : NavigatorID) -> JSIO String
   
   %foreign "browser:lambda:x=>x.platform"
   prim__platform : AnyPtr -> PrimIO AnyPtr
 
   export
-  platform : (obj : NavigatorID) -> IO String
+  platform : (obj : NavigatorID) -> JSIO String
   
   %foreign "browser:lambda:x=>x.product"
   prim__product : AnyPtr -> PrimIO AnyPtr
 
   export
-  product : (obj : NavigatorID) -> IO String
+  product : (obj : NavigatorID) -> JSIO String
   
   %foreign "browser:lambda:x=>x.productSub"
   prim__productSub : AnyPtr -> PrimIO AnyPtr
 
   export
-  productSub : (obj : NavigatorID) -> IO String
+  productSub : (obj : NavigatorID) -> JSIO String
   
   %foreign "browser:lambda:x=>x.userAgent"
   prim__userAgent : AnyPtr -> PrimIO AnyPtr
 
   export
-  userAgent : (obj : NavigatorID) -> IO String
+  userAgent : (obj : NavigatorID) -> JSIO String
   
   %foreign "browser:lambda:x=>x.vendor"
   prim__vendor : AnyPtr -> PrimIO AnyPtr
 
   export
-  vendor : (obj : NavigatorID) -> IO String
+  vendor : (obj : NavigatorID) -> JSIO String
   
   %foreign "browser:lambda:x=>x.vendorSub"
   prim__vendorSub : AnyPtr -> PrimIO AnyPtr
 
   export
-  vendorSub : (obj : NavigatorID) -> IO String
+  vendorSub : (obj : NavigatorID) -> JSIO String
 
 namespace NavigatorLanguage
   
@@ -10741,13 +10757,13 @@ namespace NavigatorLanguage
   prim__language : AnyPtr -> PrimIO AnyPtr
 
   export
-  language : (obj : NavigatorLanguage) -> IO String
+  language : (obj : NavigatorLanguage) -> JSIO String
   
   %foreign "browser:lambda:x=>x.languages"
   prim__languages : AnyPtr -> PrimIO AnyPtr
 
   export
-  languages : (obj : NavigatorLanguage) -> IO (JSArray String)
+  languages : (obj : NavigatorLanguage) -> JSIO (JSArray String)
 
 namespace NavigatorOnLine
   
@@ -10755,7 +10771,7 @@ namespace NavigatorOnLine
   prim__onLine : AnyPtr -> PrimIO AnyPtr
 
   export
-  onLine : (obj : NavigatorOnLine) -> IO Bool
+  onLine : (obj : NavigatorOnLine) -> JSIO Bool
 
 namespace NavigatorPlugins
   
@@ -10763,13 +10779,13 @@ namespace NavigatorPlugins
   prim__mimeTypes : AnyPtr -> PrimIO AnyPtr
 
   export
-  mimeTypes : (obj : NavigatorPlugins) -> IO MimeTypeArray
+  mimeTypes : (obj : NavigatorPlugins) -> JSIO MimeTypeArray
   
   %foreign "browser:lambda:x=>x.plugins"
   prim__plugins : AnyPtr -> PrimIO AnyPtr
 
   export
-  plugins : (obj : NavigatorPlugins) -> IO PluginArray
+  plugins : (obj : NavigatorPlugins) -> JSIO PluginArray
 
 namespace WindowEventHandlers
   
@@ -10777,31 +10793,34 @@ namespace WindowEventHandlers
   prim__onafterprint : AnyPtr -> PrimIO AnyPtr
 
   export
-  onafterprint : (obj : WindowEventHandlers) -> IO EventHandler
+  onafterprint : (obj : WindowEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onafterprint  = v}"
   prim__setOnafterprint : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnafterprint : (obj : WindowEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnafterprint : (obj : WindowEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onbeforeprint"
   prim__onbeforeprint : AnyPtr -> PrimIO AnyPtr
 
   export
-  onbeforeprint : (obj : WindowEventHandlers) -> IO EventHandler
+  onbeforeprint : (obj : WindowEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onbeforeprint  = v}"
   prim__setOnbeforeprint : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnbeforeprint : (obj : WindowEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnbeforeprint :  (obj : WindowEventHandlers)
+                   -> (v : EventHandler)
+                   -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onbeforeunload"
   prim__onbeforeunload : AnyPtr -> PrimIO AnyPtr
 
   export
-  onbeforeunload : (obj : WindowEventHandlers) -> IO OnBeforeUnloadEventHandler
+  onbeforeunload :  (obj : WindowEventHandlers)
+                 -> JSIO OnBeforeUnloadEventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onbeforeunload  = v}"
   prim__setOnbeforeunload : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -10809,25 +10828,25 @@ namespace WindowEventHandlers
   export
   setOnbeforeunload :  (obj : WindowEventHandlers)
                     -> (v : OnBeforeUnloadEventHandler)
-                    -> IO ()
+                    -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onhashchange"
   prim__onhashchange : AnyPtr -> PrimIO AnyPtr
 
   export
-  onhashchange : (obj : WindowEventHandlers) -> IO EventHandler
+  onhashchange : (obj : WindowEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onhashchange  = v}"
   prim__setOnhashchange : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnhashchange : (obj : WindowEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnhashchange : (obj : WindowEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onlanguagechange"
   prim__onlanguagechange : AnyPtr -> PrimIO AnyPtr
 
   export
-  onlanguagechange : (obj : WindowEventHandlers) -> IO EventHandler
+  onlanguagechange : (obj : WindowEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onlanguagechange  = v}"
   prim__setOnlanguagechange : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -10835,97 +10854,99 @@ namespace WindowEventHandlers
   export
   setOnlanguagechange :  (obj : WindowEventHandlers)
                       -> (v : EventHandler)
-                      -> IO ()
+                      -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onmessage"
   prim__onmessage : AnyPtr -> PrimIO AnyPtr
 
   export
-  onmessage : (obj : WindowEventHandlers) -> IO EventHandler
+  onmessage : (obj : WindowEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onmessage  = v}"
   prim__setOnmessage : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnmessage : (obj : WindowEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnmessage : (obj : WindowEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onmessageerror"
   prim__onmessageerror : AnyPtr -> PrimIO AnyPtr
 
   export
-  onmessageerror : (obj : WindowEventHandlers) -> IO EventHandler
+  onmessageerror : (obj : WindowEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onmessageerror  = v}"
   prim__setOnmessageerror : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnmessageerror : (obj : WindowEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnmessageerror :  (obj : WindowEventHandlers)
+                    -> (v : EventHandler)
+                    -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onoffline"
   prim__onoffline : AnyPtr -> PrimIO AnyPtr
 
   export
-  onoffline : (obj : WindowEventHandlers) -> IO EventHandler
+  onoffline : (obj : WindowEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onoffline  = v}"
   prim__setOnoffline : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnoffline : (obj : WindowEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnoffline : (obj : WindowEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ononline"
   prim__ononline : AnyPtr -> PrimIO AnyPtr
 
   export
-  ononline : (obj : WindowEventHandlers) -> IO EventHandler
+  ononline : (obj : WindowEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.ononline  = v}"
   prim__setOnonline : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnonline : (obj : WindowEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnonline : (obj : WindowEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onpagehide"
   prim__onpagehide : AnyPtr -> PrimIO AnyPtr
 
   export
-  onpagehide : (obj : WindowEventHandlers) -> IO EventHandler
+  onpagehide : (obj : WindowEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onpagehide  = v}"
   prim__setOnpagehide : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnpagehide : (obj : WindowEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnpagehide : (obj : WindowEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onpageshow"
   prim__onpageshow : AnyPtr -> PrimIO AnyPtr
 
   export
-  onpageshow : (obj : WindowEventHandlers) -> IO EventHandler
+  onpageshow : (obj : WindowEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onpageshow  = v}"
   prim__setOnpageshow : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnpageshow : (obj : WindowEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnpageshow : (obj : WindowEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onpopstate"
   prim__onpopstate : AnyPtr -> PrimIO AnyPtr
 
   export
-  onpopstate : (obj : WindowEventHandlers) -> IO EventHandler
+  onpopstate : (obj : WindowEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onpopstate  = v}"
   prim__setOnpopstate : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnpopstate : (obj : WindowEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnpopstate : (obj : WindowEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onrejectionhandled"
   prim__onrejectionhandled : AnyPtr -> PrimIO AnyPtr
 
   export
-  onrejectionhandled : (obj : WindowEventHandlers) -> IO EventHandler
+  onrejectionhandled : (obj : WindowEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onrejectionhandled  = v}"
   prim__setOnrejectionhandled : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -10933,25 +10954,25 @@ namespace WindowEventHandlers
   export
   setOnrejectionhandled :  (obj : WindowEventHandlers)
                         -> (v : EventHandler)
-                        -> IO ()
+                        -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onstorage"
   prim__onstorage : AnyPtr -> PrimIO AnyPtr
 
   export
-  onstorage : (obj : WindowEventHandlers) -> IO EventHandler
+  onstorage : (obj : WindowEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onstorage  = v}"
   prim__setOnstorage : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnstorage : (obj : WindowEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnstorage : (obj : WindowEventHandlers) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onunhandledrejection"
   prim__onunhandledrejection : AnyPtr -> PrimIO AnyPtr
 
   export
-  onunhandledrejection : (obj : WindowEventHandlers) -> IO EventHandler
+  onunhandledrejection : (obj : WindowEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onunhandledrejection  = v}"
   prim__setOnunhandledrejection : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -10959,19 +10980,19 @@ namespace WindowEventHandlers
   export
   setOnunhandledrejection :  (obj : WindowEventHandlers)
                           -> (v : EventHandler)
-                          -> IO ()
+                          -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onunload"
   prim__onunload : AnyPtr -> PrimIO AnyPtr
 
   export
-  onunload : (obj : WindowEventHandlers) -> IO EventHandler
+  onunload : (obj : WindowEventHandlers) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onunload  = v}"
   prim__setOnunload : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnunload : (obj : WindowEventHandlers) -> (v : EventHandler) -> IO ()
+  setOnunload : (obj : WindowEventHandlers) -> (v : EventHandler) -> JSIO ()
 
 --------------------------------------------------------------------------------
 --          Dictionaries
@@ -10989,13 +11010,13 @@ namespace AssignedNodesOptions
   prim__flatten : AnyPtr -> PrimIO AnyPtr
 
   export
-  flatten : (obj : AssignedNodesOptions) -> IO Bool
+  flatten : (obj : AssignedNodesOptions) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.flatten  = v}"
   prim__setFlatten : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setFlatten : (obj : AssignedNodesOptions) -> (v : Bool) -> IO ()
+  setFlatten : (obj : AssignedNodesOptions) -> (v : Bool) -> JSIO ()
 
 namespace CanvasRenderingContext2DSettings
   
@@ -11009,19 +11030,19 @@ namespace CanvasRenderingContext2DSettings
   prim__alpha : AnyPtr -> PrimIO AnyPtr
 
   export
-  alpha : (obj : CanvasRenderingContext2DSettings) -> IO Bool
+  alpha : (obj : CanvasRenderingContext2DSettings) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.alpha  = v}"
   prim__setAlpha : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAlpha : (obj : CanvasRenderingContext2DSettings) -> (v : Bool) -> IO ()
+  setAlpha : (obj : CanvasRenderingContext2DSettings) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.desynchronized"
   prim__desynchronized : AnyPtr -> PrimIO AnyPtr
 
   export
-  desynchronized : (obj : CanvasRenderingContext2DSettings) -> IO Bool
+  desynchronized : (obj : CanvasRenderingContext2DSettings) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.desynchronized  = v}"
   prim__setDesynchronized : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -11029,7 +11050,7 @@ namespace CanvasRenderingContext2DSettings
   export
   setDesynchronized :  (obj : CanvasRenderingContext2DSettings)
                     -> (v : Bool)
-                    -> IO ()
+                    -> JSIO ()
 
 namespace CloseEventInit
   
@@ -11043,37 +11064,37 @@ namespace CloseEventInit
   prim__code : AnyPtr -> PrimIO AnyPtr
 
   export
-  code : (obj : CloseEventInit) -> IO UInt16
+  code : (obj : CloseEventInit) -> JSIO UInt16
 
   %foreign "browser:lambda:(x,v)=>{x.code  = v}"
   prim__setCode : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCode : (obj : CloseEventInit) -> (v : UInt16) -> IO ()
+  setCode : (obj : CloseEventInit) -> (v : UInt16) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.reason"
   prim__reason : AnyPtr -> PrimIO AnyPtr
 
   export
-  reason : (obj : CloseEventInit) -> IO String
+  reason : (obj : CloseEventInit) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.reason  = v}"
   prim__setReason : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setReason : (obj : CloseEventInit) -> (v : String) -> IO ()
+  setReason : (obj : CloseEventInit) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.wasClean"
   prim__wasClean : AnyPtr -> PrimIO AnyPtr
 
   export
-  wasClean : (obj : CloseEventInit) -> IO Bool
+  wasClean : (obj : CloseEventInit) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.wasClean  = v}"
   prim__setWasClean : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setWasClean : (obj : CloseEventInit) -> (v : Bool) -> IO ()
+  setWasClean : (obj : CloseEventInit) -> (v : Bool) -> JSIO ()
 
 namespace DragEventInit
   
@@ -11092,13 +11113,13 @@ namespace DragEventInit
   prim__dataTransfer : AnyPtr -> PrimIO AnyPtr
 
   export
-  dataTransfer : (obj : DragEventInit) -> IO (Maybe DataTransfer)
+  dataTransfer : (obj : DragEventInit) -> JSIO (Maybe DataTransfer)
 
   %foreign "browser:lambda:(x,v)=>{x.dataTransfer  = v}"
   prim__setDataTransfer : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDataTransfer : (obj : DragEventInit) -> (v : Maybe DataTransfer) -> IO ()
+  setDataTransfer : (obj : DragEventInit) -> (v : Maybe DataTransfer) -> JSIO ()
 
 namespace ElementDefinitionOptions
   
@@ -11112,13 +11133,13 @@ namespace ElementDefinitionOptions
   prim__extends : AnyPtr -> PrimIO AnyPtr
 
   export
-  extends : (obj : ElementDefinitionOptions) -> IO String
+  extends : (obj : ElementDefinitionOptions) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.extends  = v}"
   prim__setExtends : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setExtends : (obj : ElementDefinitionOptions) -> (v : String) -> IO ()
+  setExtends : (obj : ElementDefinitionOptions) -> (v : String) -> JSIO ()
 
 namespace ErrorEventInit
   
@@ -11132,61 +11153,61 @@ namespace ErrorEventInit
   prim__colno : AnyPtr -> PrimIO AnyPtr
 
   export
-  colno : (obj : ErrorEventInit) -> IO UInt32
+  colno : (obj : ErrorEventInit) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.colno  = v}"
   prim__setColno : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setColno : (obj : ErrorEventInit) -> (v : UInt32) -> IO ()
+  setColno : (obj : ErrorEventInit) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.error"
   prim__error : AnyPtr -> PrimIO AnyPtr
 
   export
-  error : (obj : ErrorEventInit) -> IO Any
+  error : (obj : ErrorEventInit) -> JSIO Any
 
   %foreign "browser:lambda:(x,v)=>{x.error  = v}"
   prim__setError : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setError : (obj : ErrorEventInit) -> (v : Any) -> IO ()
+  setError : (obj : ErrorEventInit) -> (v : Any) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.filename"
   prim__filename : AnyPtr -> PrimIO AnyPtr
 
   export
-  filename : (obj : ErrorEventInit) -> IO String
+  filename : (obj : ErrorEventInit) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.filename  = v}"
   prim__setFilename : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setFilename : (obj : ErrorEventInit) -> (v : String) -> IO ()
+  setFilename : (obj : ErrorEventInit) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.lineno"
   prim__lineno : AnyPtr -> PrimIO AnyPtr
 
   export
-  lineno : (obj : ErrorEventInit) -> IO UInt32
+  lineno : (obj : ErrorEventInit) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.lineno  = v}"
   prim__setLineno : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setLineno : (obj : ErrorEventInit) -> (v : UInt32) -> IO ()
+  setLineno : (obj : ErrorEventInit) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.message"
   prim__message : AnyPtr -> PrimIO AnyPtr
 
   export
-  message : (obj : ErrorEventInit) -> IO String
+  message : (obj : ErrorEventInit) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.message  = v}"
   prim__setMessage : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setMessage : (obj : ErrorEventInit) -> (v : String) -> IO ()
+  setMessage : (obj : ErrorEventInit) -> (v : String) -> JSIO ()
 
 namespace EventSourceInit
   
@@ -11200,13 +11221,13 @@ namespace EventSourceInit
   prim__withCredentials : AnyPtr -> PrimIO AnyPtr
 
   export
-  withCredentials : (obj : EventSourceInit) -> IO Bool
+  withCredentials : (obj : EventSourceInit) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.withCredentials  = v}"
   prim__setWithCredentials : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setWithCredentials : (obj : EventSourceInit) -> (v : Bool) -> IO ()
+  setWithCredentials : (obj : EventSourceInit) -> (v : Bool) -> JSIO ()
 
 namespace FocusOptions
   
@@ -11220,13 +11241,13 @@ namespace FocusOptions
   prim__preventScroll : AnyPtr -> PrimIO AnyPtr
 
   export
-  preventScroll : (obj : FocusOptions) -> IO Bool
+  preventScroll : (obj : FocusOptions) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.preventScroll  = v}"
   prim__setPreventScroll : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setPreventScroll : (obj : FocusOptions) -> (v : Bool) -> IO ()
+  setPreventScroll : (obj : FocusOptions) -> (v : Bool) -> JSIO ()
 
 namespace FormDataEventInit
   
@@ -11240,13 +11261,13 @@ namespace FormDataEventInit
   prim__formData : AnyPtr -> PrimIO AnyPtr
 
   export
-  formData : (obj : FormDataEventInit) -> IO FormData
+  formData : (obj : FormDataEventInit) -> JSIO FormData
 
   %foreign "browser:lambda:(x,v)=>{x.formData  = v}"
   prim__setFormData : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setFormData : (obj : FormDataEventInit) -> (v : FormData) -> IO ()
+  setFormData : (obj : FormDataEventInit) -> (v : FormData) -> JSIO ()
 
 namespace HashChangeEventInit
   
@@ -11260,25 +11281,25 @@ namespace HashChangeEventInit
   prim__newURL : AnyPtr -> PrimIO AnyPtr
 
   export
-  newURL : (obj : HashChangeEventInit) -> IO String
+  newURL : (obj : HashChangeEventInit) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.newURL  = v}"
   prim__setNewURL : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setNewURL : (obj : HashChangeEventInit) -> (v : String) -> IO ()
+  setNewURL : (obj : HashChangeEventInit) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.oldURL"
   prim__oldURL : AnyPtr -> PrimIO AnyPtr
 
   export
-  oldURL : (obj : HashChangeEventInit) -> IO String
+  oldURL : (obj : HashChangeEventInit) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.oldURL  = v}"
   prim__setOldURL : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOldURL : (obj : HashChangeEventInit) -> (v : String) -> IO ()
+  setOldURL : (obj : HashChangeEventInit) -> (v : String) -> JSIO ()
 
 namespace ImageBitmapOptions
   
@@ -11292,7 +11313,7 @@ namespace ImageBitmapOptions
   prim__colorSpaceConversion : AnyPtr -> PrimIO AnyPtr
 
   export
-  colorSpaceConversion : (obj : ImageBitmapOptions) -> IO ColorSpaceConversion
+  colorSpaceConversion : (obj : ImageBitmapOptions) -> JSIO ColorSpaceConversion
 
   %foreign "browser:lambda:(x,v)=>{x.colorSpaceConversion  = v}"
   prim__setColorSpaceConversion : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -11300,13 +11321,13 @@ namespace ImageBitmapOptions
   export
   setColorSpaceConversion :  (obj : ImageBitmapOptions)
                           -> (v : ColorSpaceConversion)
-                          -> IO ()
+                          -> JSIO ()
   
   %foreign "browser:lambda:x=>x.imageOrientation"
   prim__imageOrientation : AnyPtr -> PrimIO AnyPtr
 
   export
-  imageOrientation : (obj : ImageBitmapOptions) -> IO ImageOrientation
+  imageOrientation : (obj : ImageBitmapOptions) -> JSIO ImageOrientation
 
   %foreign "browser:lambda:(x,v)=>{x.imageOrientation  = v}"
   prim__setImageOrientation : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -11314,13 +11335,13 @@ namespace ImageBitmapOptions
   export
   setImageOrientation :  (obj : ImageBitmapOptions)
                       -> (v : ImageOrientation)
-                      -> IO ()
+                      -> JSIO ()
   
   %foreign "browser:lambda:x=>x.premultiplyAlpha"
   prim__premultiplyAlpha : AnyPtr -> PrimIO AnyPtr
 
   export
-  premultiplyAlpha : (obj : ImageBitmapOptions) -> IO PremultiplyAlpha
+  premultiplyAlpha : (obj : ImageBitmapOptions) -> JSIO PremultiplyAlpha
 
   %foreign "browser:lambda:(x,v)=>{x.premultiplyAlpha  = v}"
   prim__setPremultiplyAlpha : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -11328,43 +11349,45 @@ namespace ImageBitmapOptions
   export
   setPremultiplyAlpha :  (obj : ImageBitmapOptions)
                       -> (v : PremultiplyAlpha)
-                      -> IO ()
+                      -> JSIO ()
   
   %foreign "browser:lambda:x=>x.resizeHeight"
   prim__resizeHeight : AnyPtr -> PrimIO AnyPtr
 
   export
-  resizeHeight : (obj : ImageBitmapOptions) -> IO UInt32
+  resizeHeight : (obj : ImageBitmapOptions) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.resizeHeight  = v}"
   prim__setResizeHeight : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setResizeHeight : (obj : ImageBitmapOptions) -> (v : UInt32) -> IO ()
+  setResizeHeight : (obj : ImageBitmapOptions) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.resizeQuality"
   prim__resizeQuality : AnyPtr -> PrimIO AnyPtr
 
   export
-  resizeQuality : (obj : ImageBitmapOptions) -> IO ResizeQuality
+  resizeQuality : (obj : ImageBitmapOptions) -> JSIO ResizeQuality
 
   %foreign "browser:lambda:(x,v)=>{x.resizeQuality  = v}"
   prim__setResizeQuality : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setResizeQuality : (obj : ImageBitmapOptions) -> (v : ResizeQuality) -> IO ()
+  setResizeQuality :  (obj : ImageBitmapOptions)
+                   -> (v : ResizeQuality)
+                   -> JSIO ()
   
   %foreign "browser:lambda:x=>x.resizeWidth"
   prim__resizeWidth : AnyPtr -> PrimIO AnyPtr
 
   export
-  resizeWidth : (obj : ImageBitmapOptions) -> IO UInt32
+  resizeWidth : (obj : ImageBitmapOptions) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.resizeWidth  = v}"
   prim__setResizeWidth : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setResizeWidth : (obj : ImageBitmapOptions) -> (v : UInt32) -> IO ()
+  setResizeWidth : (obj : ImageBitmapOptions) -> (v : UInt32) -> JSIO ()
 
 namespace ImageBitmapRenderingContextSettings
   
@@ -11378,13 +11401,15 @@ namespace ImageBitmapRenderingContextSettings
   prim__alpha : AnyPtr -> PrimIO AnyPtr
 
   export
-  alpha : (obj : ImageBitmapRenderingContextSettings) -> IO Bool
+  alpha : (obj : ImageBitmapRenderingContextSettings) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.alpha  = v}"
   prim__setAlpha : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAlpha : (obj : ImageBitmapRenderingContextSettings) -> (v : Bool) -> IO ()
+  setAlpha :  (obj : ImageBitmapRenderingContextSettings)
+           -> (v : Bool)
+           -> JSIO ()
 
 namespace ImageEncodeOptions
   
@@ -11398,25 +11423,25 @@ namespace ImageEncodeOptions
   prim__quality : AnyPtr -> PrimIO AnyPtr
 
   export
-  quality : (obj : ImageEncodeOptions) -> IO Double
+  quality : (obj : ImageEncodeOptions) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.quality  = v}"
   prim__setQuality : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setQuality : (obj : ImageEncodeOptions) -> (v : Double) -> IO ()
+  setQuality : (obj : ImageEncodeOptions) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
 
   export
-  type : (obj : ImageEncodeOptions) -> IO String
+  type : (obj : ImageEncodeOptions) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.type  = v}"
   prim__setType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setType : (obj : ImageEncodeOptions) -> (v : String) -> IO ()
+  setType : (obj : ImageEncodeOptions) -> (v : String) -> JSIO ()
 
 namespace MessageEventInit
   
@@ -11430,55 +11455,55 @@ namespace MessageEventInit
   prim__data_ : AnyPtr -> PrimIO AnyPtr
 
   export
-  data_ : (obj : MessageEventInit) -> IO Any
+  data_ : (obj : MessageEventInit) -> JSIO Any
 
   %foreign "browser:lambda:(x,v)=>{x.data  = v}"
   prim__setData : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setData : (obj : MessageEventInit) -> (v : Any) -> IO ()
+  setData : (obj : MessageEventInit) -> (v : Any) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.lastEventId"
   prim__lastEventId : AnyPtr -> PrimIO AnyPtr
 
   export
-  lastEventId : (obj : MessageEventInit) -> IO String
+  lastEventId : (obj : MessageEventInit) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.lastEventId  = v}"
   prim__setLastEventId : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setLastEventId : (obj : MessageEventInit) -> (v : String) -> IO ()
+  setLastEventId : (obj : MessageEventInit) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.origin"
   prim__origin : AnyPtr -> PrimIO AnyPtr
 
   export
-  origin : (obj : MessageEventInit) -> IO String
+  origin : (obj : MessageEventInit) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.origin  = v}"
   prim__setOrigin : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOrigin : (obj : MessageEventInit) -> (v : String) -> IO ()
+  setOrigin : (obj : MessageEventInit) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ports"
   prim__ports : AnyPtr -> PrimIO AnyPtr
 
   export
-  ports : (obj : MessageEventInit) -> IO (JSArray MessagePort)
+  ports : (obj : MessageEventInit) -> JSIO (JSArray MessagePort)
 
   %foreign "browser:lambda:(x,v)=>{x.ports  = v}"
   prim__setPorts : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setPorts : (obj : MessageEventInit) -> (v : JSArray MessagePort) -> IO ()
+  setPorts : (obj : MessageEventInit) -> (v : JSArray MessagePort) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.source"
   prim__source : AnyPtr -> PrimIO AnyPtr
 
   export
-  source : (obj : MessageEventInit) -> IO (Maybe MessageEventSource)
+  source : (obj : MessageEventInit) -> JSIO (Maybe MessageEventSource)
 
   %foreign "browser:lambda:(x,v)=>{x.source  = v}"
   prim__setSource : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -11486,7 +11511,7 @@ namespace MessageEventInit
   export
   setSource :  (obj : MessageEventInit)
             -> (v : Maybe MessageEventSource)
-            -> IO ()
+            -> JSIO ()
 
 namespace PageTransitionEventInit
   
@@ -11500,13 +11525,13 @@ namespace PageTransitionEventInit
   prim__persisted : AnyPtr -> PrimIO AnyPtr
 
   export
-  persisted : (obj : PageTransitionEventInit) -> IO Bool
+  persisted : (obj : PageTransitionEventInit) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.persisted  = v}"
   prim__setPersisted : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setPersisted : (obj : PageTransitionEventInit) -> (v : Bool) -> IO ()
+  setPersisted : (obj : PageTransitionEventInit) -> (v : Bool) -> JSIO ()
 
 namespace PopStateEventInit
   
@@ -11520,13 +11545,13 @@ namespace PopStateEventInit
   prim__state : AnyPtr -> PrimIO AnyPtr
 
   export
-  state : (obj : PopStateEventInit) -> IO Any
+  state : (obj : PopStateEventInit) -> JSIO Any
 
   %foreign "browser:lambda:(x,v)=>{x.state  = v}"
   prim__setState : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setState : (obj : PopStateEventInit) -> (v : Any) -> IO ()
+  setState : (obj : PopStateEventInit) -> (v : Any) -> JSIO ()
 
 namespace PostMessageOptions
   
@@ -11540,13 +11565,13 @@ namespace PostMessageOptions
   prim__transfer : AnyPtr -> PrimIO AnyPtr
 
   export
-  transfer : (obj : PostMessageOptions) -> IO (JSArray JSObject)
+  transfer : (obj : PostMessageOptions) -> JSIO (JSArray JSObject)
 
   %foreign "browser:lambda:(x,v)=>{x.transfer  = v}"
   prim__setTransfer : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setTransfer : (obj : PostMessageOptions) -> (v : JSArray JSObject) -> IO ()
+  setTransfer : (obj : PostMessageOptions) -> (v : JSArray JSObject) -> JSIO ()
 
 namespace PromiseRejectionEventInit
   
@@ -11560,25 +11585,27 @@ namespace PromiseRejectionEventInit
   prim__promise : AnyPtr -> PrimIO AnyPtr
 
   export
-  promise : (obj : PromiseRejectionEventInit) -> IO (JSPromise Any)
+  promise : (obj : PromiseRejectionEventInit) -> JSIO (JSPromise Any)
 
   %foreign "browser:lambda:(x,v)=>{x.promise  = v}"
   prim__setPromise : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setPromise : (obj : PromiseRejectionEventInit) -> (v : JSPromise Any) -> IO ()
+  setPromise :  (obj : PromiseRejectionEventInit)
+             -> (v : JSPromise Any)
+             -> JSIO ()
   
   %foreign "browser:lambda:x=>x.reason"
   prim__reason : AnyPtr -> PrimIO AnyPtr
 
   export
-  reason : (obj : PromiseRejectionEventInit) -> IO Any
+  reason : (obj : PromiseRejectionEventInit) -> JSIO Any
 
   %foreign "browser:lambda:(x,v)=>{x.reason  = v}"
   prim__setReason : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setReason : (obj : PromiseRejectionEventInit) -> (v : Any) -> IO ()
+  setReason : (obj : PromiseRejectionEventInit) -> (v : Any) -> JSIO ()
 
 namespace StorageEventInit
   
@@ -11592,61 +11619,61 @@ namespace StorageEventInit
   prim__key : AnyPtr -> PrimIO AnyPtr
 
   export
-  key : (obj : StorageEventInit) -> IO (Maybe String)
+  key : (obj : StorageEventInit) -> JSIO (Maybe String)
 
   %foreign "browser:lambda:(x,v)=>{x.key  = v}"
   prim__setKey : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setKey : (obj : StorageEventInit) -> (v : Maybe String) -> IO ()
+  setKey : (obj : StorageEventInit) -> (v : Maybe String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.newValue"
   prim__newValue : AnyPtr -> PrimIO AnyPtr
 
   export
-  newValue : (obj : StorageEventInit) -> IO (Maybe String)
+  newValue : (obj : StorageEventInit) -> JSIO (Maybe String)
 
   %foreign "browser:lambda:(x,v)=>{x.newValue  = v}"
   prim__setNewValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setNewValue : (obj : StorageEventInit) -> (v : Maybe String) -> IO ()
+  setNewValue : (obj : StorageEventInit) -> (v : Maybe String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.oldValue"
   prim__oldValue : AnyPtr -> PrimIO AnyPtr
 
   export
-  oldValue : (obj : StorageEventInit) -> IO (Maybe String)
+  oldValue : (obj : StorageEventInit) -> JSIO (Maybe String)
 
   %foreign "browser:lambda:(x,v)=>{x.oldValue  = v}"
   prim__setOldValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOldValue : (obj : StorageEventInit) -> (v : Maybe String) -> IO ()
+  setOldValue : (obj : StorageEventInit) -> (v : Maybe String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.storageArea"
   prim__storageArea : AnyPtr -> PrimIO AnyPtr
 
   export
-  storageArea : (obj : StorageEventInit) -> IO (Maybe Storage)
+  storageArea : (obj : StorageEventInit) -> JSIO (Maybe Storage)
 
   %foreign "browser:lambda:(x,v)=>{x.storageArea  = v}"
   prim__setStorageArea : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setStorageArea : (obj : StorageEventInit) -> (v : Maybe Storage) -> IO ()
+  setStorageArea : (obj : StorageEventInit) -> (v : Maybe Storage) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.url"
   prim__url : AnyPtr -> PrimIO AnyPtr
 
   export
-  url : (obj : StorageEventInit) -> IO String
+  url : (obj : StorageEventInit) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.url  = v}"
   prim__setUrl : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setUrl : (obj : StorageEventInit) -> (v : String) -> IO ()
+  setUrl : (obj : StorageEventInit) -> (v : String) -> JSIO ()
 
 namespace SubmitEventInit
   
@@ -11660,13 +11687,13 @@ namespace SubmitEventInit
   prim__submitter : AnyPtr -> PrimIO AnyPtr
 
   export
-  submitter : (obj : SubmitEventInit) -> IO (Maybe HTMLElement)
+  submitter : (obj : SubmitEventInit) -> JSIO (Maybe HTMLElement)
 
   %foreign "browser:lambda:(x,v)=>{x.submitter  = v}"
   prim__setSubmitter : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSubmitter : (obj : SubmitEventInit) -> (v : Maybe HTMLElement) -> IO ()
+  setSubmitter : (obj : SubmitEventInit) -> (v : Maybe HTMLElement) -> JSIO ()
 
 namespace TrackEventInit
   
@@ -11681,7 +11708,7 @@ namespace TrackEventInit
 
   export
   track :  (obj : TrackEventInit)
-        -> IO (Maybe (NS I [ VideoTrack , AudioTrack , TextTrack ]))
+        -> JSIO (Maybe (NS I [ VideoTrack , AudioTrack , TextTrack ]))
 
   %foreign "browser:lambda:(x,v)=>{x.track  = v}"
   prim__setTrack : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -11689,7 +11716,7 @@ namespace TrackEventInit
   export
   setTrack :  (obj : TrackEventInit)
            -> (v : Maybe (NS I [ VideoTrack , AudioTrack , TextTrack ]))
-           -> IO ()
+           -> JSIO ()
 
 namespace ValidityStateFlags
   
@@ -11703,121 +11730,121 @@ namespace ValidityStateFlags
   prim__badInput : AnyPtr -> PrimIO AnyPtr
 
   export
-  badInput : (obj : ValidityStateFlags) -> IO Bool
+  badInput : (obj : ValidityStateFlags) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.badInput  = v}"
   prim__setBadInput : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setBadInput : (obj : ValidityStateFlags) -> (v : Bool) -> IO ()
+  setBadInput : (obj : ValidityStateFlags) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.customError"
   prim__customError : AnyPtr -> PrimIO AnyPtr
 
   export
-  customError : (obj : ValidityStateFlags) -> IO Bool
+  customError : (obj : ValidityStateFlags) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.customError  = v}"
   prim__setCustomError : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCustomError : (obj : ValidityStateFlags) -> (v : Bool) -> IO ()
+  setCustomError : (obj : ValidityStateFlags) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.patternMismatch"
   prim__patternMismatch : AnyPtr -> PrimIO AnyPtr
 
   export
-  patternMismatch : (obj : ValidityStateFlags) -> IO Bool
+  patternMismatch : (obj : ValidityStateFlags) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.patternMismatch  = v}"
   prim__setPatternMismatch : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setPatternMismatch : (obj : ValidityStateFlags) -> (v : Bool) -> IO ()
+  setPatternMismatch : (obj : ValidityStateFlags) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.rangeOverflow"
   prim__rangeOverflow : AnyPtr -> PrimIO AnyPtr
 
   export
-  rangeOverflow : (obj : ValidityStateFlags) -> IO Bool
+  rangeOverflow : (obj : ValidityStateFlags) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.rangeOverflow  = v}"
   prim__setRangeOverflow : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setRangeOverflow : (obj : ValidityStateFlags) -> (v : Bool) -> IO ()
+  setRangeOverflow : (obj : ValidityStateFlags) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.rangeUnderflow"
   prim__rangeUnderflow : AnyPtr -> PrimIO AnyPtr
 
   export
-  rangeUnderflow : (obj : ValidityStateFlags) -> IO Bool
+  rangeUnderflow : (obj : ValidityStateFlags) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.rangeUnderflow  = v}"
   prim__setRangeUnderflow : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setRangeUnderflow : (obj : ValidityStateFlags) -> (v : Bool) -> IO ()
+  setRangeUnderflow : (obj : ValidityStateFlags) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.stepMismatch"
   prim__stepMismatch : AnyPtr -> PrimIO AnyPtr
 
   export
-  stepMismatch : (obj : ValidityStateFlags) -> IO Bool
+  stepMismatch : (obj : ValidityStateFlags) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.stepMismatch  = v}"
   prim__setStepMismatch : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setStepMismatch : (obj : ValidityStateFlags) -> (v : Bool) -> IO ()
+  setStepMismatch : (obj : ValidityStateFlags) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.tooLong"
   prim__tooLong : AnyPtr -> PrimIO AnyPtr
 
   export
-  tooLong : (obj : ValidityStateFlags) -> IO Bool
+  tooLong : (obj : ValidityStateFlags) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.tooLong  = v}"
   prim__setTooLong : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setTooLong : (obj : ValidityStateFlags) -> (v : Bool) -> IO ()
+  setTooLong : (obj : ValidityStateFlags) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.tooShort"
   prim__tooShort : AnyPtr -> PrimIO AnyPtr
 
   export
-  tooShort : (obj : ValidityStateFlags) -> IO Bool
+  tooShort : (obj : ValidityStateFlags) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.tooShort  = v}"
   prim__setTooShort : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setTooShort : (obj : ValidityStateFlags) -> (v : Bool) -> IO ()
+  setTooShort : (obj : ValidityStateFlags) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.typeMismatch"
   prim__typeMismatch : AnyPtr -> PrimIO AnyPtr
 
   export
-  typeMismatch : (obj : ValidityStateFlags) -> IO Bool
+  typeMismatch : (obj : ValidityStateFlags) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.typeMismatch  = v}"
   prim__setTypeMismatch : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setTypeMismatch : (obj : ValidityStateFlags) -> (v : Bool) -> IO ()
+  setTypeMismatch : (obj : ValidityStateFlags) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.valueMissing"
   prim__valueMissing : AnyPtr -> PrimIO AnyPtr
 
   export
-  valueMissing : (obj : ValidityStateFlags) -> IO Bool
+  valueMissing : (obj : ValidityStateFlags) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.valueMissing  = v}"
   prim__setValueMissing : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setValueMissing : (obj : ValidityStateFlags) -> (v : Bool) -> IO ()
+  setValueMissing : (obj : ValidityStateFlags) -> (v : Bool) -> JSIO ()
 
 namespace WindowPostMessageOptions
   
@@ -11831,13 +11858,13 @@ namespace WindowPostMessageOptions
   prim__targetOrigin : AnyPtr -> PrimIO AnyPtr
 
   export
-  targetOrigin : (obj : WindowPostMessageOptions) -> IO String
+  targetOrigin : (obj : WindowPostMessageOptions) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.targetOrigin  = v}"
   prim__setTargetOrigin : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setTargetOrigin : (obj : WindowPostMessageOptions) -> (v : String) -> IO ()
+  setTargetOrigin : (obj : WindowPostMessageOptions) -> (v : String) -> JSIO ()
 
 namespace WorkerOptions
   
@@ -11851,37 +11878,37 @@ namespace WorkerOptions
   prim__credentials : AnyPtr -> PrimIO AnyPtr
 
   export
-  credentials : (obj : WorkerOptions) -> IO RequestCredentials
+  credentials : (obj : WorkerOptions) -> JSIO RequestCredentials
 
   %foreign "browser:lambda:(x,v)=>{x.credentials  = v}"
   prim__setCredentials : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCredentials : (obj : WorkerOptions) -> (v : RequestCredentials) -> IO ()
+  setCredentials : (obj : WorkerOptions) -> (v : RequestCredentials) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.name"
   prim__name : AnyPtr -> PrimIO AnyPtr
 
   export
-  name : (obj : WorkerOptions) -> IO String
+  name : (obj : WorkerOptions) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.name  = v}"
   prim__setName : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setName : (obj : WorkerOptions) -> (v : String) -> IO ()
+  setName : (obj : WorkerOptions) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
 
   export
-  type : (obj : WorkerOptions) -> IO WorkerType
+  type : (obj : WorkerOptions) -> JSIO WorkerType
 
   %foreign "browser:lambda:(x,v)=>{x.type  = v}"
   prim__setType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setType : (obj : WorkerOptions) -> (v : WorkerType) -> IO ()
+  setType : (obj : WorkerOptions) -> (v : WorkerType) -> JSIO ()
 
 namespace WorkletOptions
   
@@ -11895,11 +11922,11 @@ namespace WorkletOptions
   prim__credentials : AnyPtr -> PrimIO AnyPtr
 
   export
-  credentials : (obj : WorkletOptions) -> IO RequestCredentials
+  credentials : (obj : WorkletOptions) -> JSIO RequestCredentials
 
   %foreign "browser:lambda:(x,v)=>{x.credentials  = v}"
   prim__setCredentials : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCredentials : (obj : WorkletOptions) -> (v : RequestCredentials) -> IO ()
+  setCredentials : (obj : WorkletOptions) -> (v : RequestCredentials) -> JSIO ()
 

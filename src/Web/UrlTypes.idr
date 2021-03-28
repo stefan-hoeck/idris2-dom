@@ -5,6 +5,7 @@ import JS
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
+
 export data URL : Type where [external]
 
 export
@@ -13,6 +14,7 @@ SafeCast URL where
 
 export ToJS URL where toJS = believe_me
 export FromJS URL where fromJS = safeCast
+
 export data URLSearchParams : Type where [external]
 
 export

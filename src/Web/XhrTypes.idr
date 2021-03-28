@@ -59,6 +59,7 @@ namespace XMLHttpRequestResponseType
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
+
 export data FormData : Type where [external]
 
 export
@@ -67,6 +68,7 @@ SafeCast FormData where
 
 export ToJS FormData where toJS = believe_me
 export FromJS FormData where fromJS = safeCast
+
 export data ProgressEvent : Type where [external]
 
 export
@@ -75,6 +77,7 @@ SafeCast ProgressEvent where
 
 export ToJS ProgressEvent where toJS = believe_me
 export FromJS ProgressEvent where fromJS = safeCast
+
 export data XMLHttpRequest : Type where [external]
 
 export
@@ -83,6 +86,7 @@ SafeCast XMLHttpRequest where
 
 export ToJS XMLHttpRequest where toJS = believe_me
 export FromJS XMLHttpRequest where fromJS = safeCast
+
 export data XMLHttpRequestEventTarget : Type where [external]
 
 export
@@ -91,6 +95,7 @@ SafeCast XMLHttpRequestEventTarget where
 
 export ToJS XMLHttpRequestEventTarget where toJS = believe_me
 export FromJS XMLHttpRequestEventTarget where fromJS = safeCast
+
 export data XMLHttpRequestUpload : Type where [external]
 
 export
@@ -104,6 +109,7 @@ export FromJS XMLHttpRequestUpload where fromJS = safeCast
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
+
 export data ProgressEventInit : Type where [external]
 
 export

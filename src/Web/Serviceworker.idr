@@ -34,25 +34,25 @@ namespace Client
   prim__frameType : AnyPtr -> PrimIO AnyPtr
 
   export
-  frameType : (obj : Client) -> IO FrameType
+  frameType : (obj : Client) -> JSIO FrameType
   
   %foreign "browser:lambda:x=>x.id"
   prim__id : AnyPtr -> PrimIO AnyPtr
 
   export
-  id : (obj : Client) -> IO String
+  id : (obj : Client) -> JSIO String
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
 
   export
-  type : (obj : Client) -> IO ClientType
+  type : (obj : Client) -> JSIO ClientType
   
   %foreign "browser:lambda:x=>x.url"
   prim__url : AnyPtr -> PrimIO AnyPtr
 
   export
-  url : (obj : Client) -> IO String
+  url : (obj : Client) -> JSIO String
 
 namespace Clients
   
@@ -82,32 +82,32 @@ namespace ExtendableMessageEvent
   prim__data_ : AnyPtr -> PrimIO AnyPtr
 
   export
-  data_ : (obj : ExtendableMessageEvent) -> IO Any
+  data_ : (obj : ExtendableMessageEvent) -> JSIO Any
   
   %foreign "browser:lambda:x=>x.lastEventId"
   prim__lastEventId : AnyPtr -> PrimIO AnyPtr
 
   export
-  lastEventId : (obj : ExtendableMessageEvent) -> IO String
+  lastEventId : (obj : ExtendableMessageEvent) -> JSIO String
   
   %foreign "browser:lambda:x=>x.origin"
   prim__origin : AnyPtr -> PrimIO AnyPtr
 
   export
-  origin : (obj : ExtendableMessageEvent) -> IO String
+  origin : (obj : ExtendableMessageEvent) -> JSIO String
   
   %foreign "browser:lambda:x=>x.ports"
   prim__ports : AnyPtr -> PrimIO AnyPtr
 
   export
-  ports : (obj : ExtendableMessageEvent) -> IO (JSArray MessagePort)
+  ports : (obj : ExtendableMessageEvent) -> JSIO (JSArray MessagePort)
   
   %foreign "browser:lambda:x=>x.source"
   prim__source : AnyPtr -> PrimIO AnyPtr
 
   export
   source :  (obj : ExtendableMessageEvent)
-         -> IO (Maybe (NS I [ Client , ServiceWorker , MessagePort ]))
+         -> JSIO (Maybe (NS I [ Client , ServiceWorker , MessagePort ]))
 
 namespace FetchEvent
   
@@ -121,37 +121,37 @@ namespace FetchEvent
   prim__clientId : AnyPtr -> PrimIO AnyPtr
 
   export
-  clientId : (obj : FetchEvent) -> IO String
+  clientId : (obj : FetchEvent) -> JSIO String
   
   %foreign "browser:lambda:x=>x.handled"
   prim__handled : AnyPtr -> PrimIO AnyPtr
 
   export
-  handled : (obj : FetchEvent) -> IO (JSPromise Undefined)
+  handled : (obj : FetchEvent) -> JSIO (JSPromise Undefined)
   
   %foreign "browser:lambda:x=>x.preloadResponse"
   prim__preloadResponse : AnyPtr -> PrimIO AnyPtr
 
   export
-  preloadResponse : (obj : FetchEvent) -> IO (JSPromise Any)
+  preloadResponse : (obj : FetchEvent) -> JSIO (JSPromise Any)
   
   %foreign "browser:lambda:x=>x.replacesClientId"
   prim__replacesClientId : AnyPtr -> PrimIO AnyPtr
 
   export
-  replacesClientId : (obj : FetchEvent) -> IO String
+  replacesClientId : (obj : FetchEvent) -> JSIO String
   
   %foreign "browser:lambda:x=>x.request"
   prim__request : AnyPtr -> PrimIO AnyPtr
 
   export
-  request : (obj : FetchEvent) -> IO Request
+  request : (obj : FetchEvent) -> JSIO Request
   
   %foreign "browser:lambda:x=>x.resultingClientId"
   prim__resultingClientId : AnyPtr -> PrimIO AnyPtr
 
   export
-  resultingClientId : (obj : FetchEvent) -> IO String
+  resultingClientId : (obj : FetchEvent) -> JSIO String
 
 namespace NavigationPreloadManager
   
@@ -173,25 +173,25 @@ namespace ServiceWorker
   prim__scriptURL : AnyPtr -> PrimIO AnyPtr
 
   export
-  scriptURL : (obj : ServiceWorker) -> IO String
+  scriptURL : (obj : ServiceWorker) -> JSIO String
   
   %foreign "browser:lambda:x=>x.state"
   prim__state : AnyPtr -> PrimIO AnyPtr
 
   export
-  state : (obj : ServiceWorker) -> IO ServiceWorkerState
+  state : (obj : ServiceWorker) -> JSIO ServiceWorkerState
   
   %foreign "browser:lambda:x=>x.onstatechange"
   prim__onstatechange : AnyPtr -> PrimIO AnyPtr
 
   export
-  onstatechange : (obj : ServiceWorker) -> IO EventHandler
+  onstatechange : (obj : ServiceWorker) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onstatechange  = v}"
   prim__setOnstatechange : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnstatechange : (obj : ServiceWorker) -> (v : EventHandler) -> IO ()
+  setOnstatechange : (obj : ServiceWorker) -> (v : EventHandler) -> JSIO ()
 
 namespace ServiceWorkerContainer
   
@@ -205,20 +205,20 @@ namespace ServiceWorkerContainer
   prim__controller : AnyPtr -> PrimIO AnyPtr
 
   export
-  controller : (obj : ServiceWorkerContainer) -> IO (Maybe ServiceWorker)
+  controller : (obj : ServiceWorkerContainer) -> JSIO (Maybe ServiceWorker)
   
   %foreign "browser:lambda:x=>x.ready"
   prim__ready : AnyPtr -> PrimIO AnyPtr
 
   export
   ready :  (obj : ServiceWorkerContainer)
-        -> IO (JSPromise ServiceWorkerRegistration)
+        -> JSIO (JSPromise ServiceWorkerRegistration)
   
   %foreign "browser:lambda:x=>x.oncontrollerchange"
   prim__oncontrollerchange : AnyPtr -> PrimIO AnyPtr
 
   export
-  oncontrollerchange : (obj : ServiceWorkerContainer) -> IO EventHandler
+  oncontrollerchange : (obj : ServiceWorkerContainer) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.oncontrollerchange  = v}"
   prim__setOncontrollerchange : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -226,25 +226,25 @@ namespace ServiceWorkerContainer
   export
   setOncontrollerchange :  (obj : ServiceWorkerContainer)
                         -> (v : EventHandler)
-                        -> IO ()
+                        -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onmessage"
   prim__onmessage : AnyPtr -> PrimIO AnyPtr
 
   export
-  onmessage : (obj : ServiceWorkerContainer) -> IO EventHandler
+  onmessage : (obj : ServiceWorkerContainer) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onmessage  = v}"
   prim__setOnmessage : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnmessage : (obj : ServiceWorkerContainer) -> (v : EventHandler) -> IO ()
+  setOnmessage : (obj : ServiceWorkerContainer) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onmessageerror"
   prim__onmessageerror : AnyPtr -> PrimIO AnyPtr
 
   export
-  onmessageerror : (obj : ServiceWorkerContainer) -> IO EventHandler
+  onmessageerror : (obj : ServiceWorkerContainer) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onmessageerror  = v}"
   prim__setOnmessageerror : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -252,7 +252,7 @@ namespace ServiceWorkerContainer
   export
   setOnmessageerror :  (obj : ServiceWorkerContainer)
                     -> (v : EventHandler)
-                    -> IO ()
+                    -> JSIO ()
 
 namespace ServiceWorkerGlobalScope
   
@@ -266,26 +266,26 @@ namespace ServiceWorkerGlobalScope
   prim__clients : AnyPtr -> PrimIO AnyPtr
 
   export
-  clients : (obj : ServiceWorkerGlobalScope) -> IO Clients
+  clients : (obj : ServiceWorkerGlobalScope) -> JSIO Clients
   
   %foreign "browser:lambda:x=>x.registration"
   prim__registration : AnyPtr -> PrimIO AnyPtr
 
   export
   registration :  (obj : ServiceWorkerGlobalScope)
-               -> IO ServiceWorkerRegistration
+               -> JSIO ServiceWorkerRegistration
   
   %foreign "browser:lambda:x=>x.serviceWorker"
   prim__serviceWorker : AnyPtr -> PrimIO AnyPtr
 
   export
-  serviceWorker : (obj : ServiceWorkerGlobalScope) -> IO ServiceWorker
+  serviceWorker : (obj : ServiceWorkerGlobalScope) -> JSIO ServiceWorker
   
   %foreign "browser:lambda:x=>x.onactivate"
   prim__onactivate : AnyPtr -> PrimIO AnyPtr
 
   export
-  onactivate : (obj : ServiceWorkerGlobalScope) -> IO EventHandler
+  onactivate : (obj : ServiceWorkerGlobalScope) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onactivate  = v}"
   prim__setOnactivate : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -293,49 +293,53 @@ namespace ServiceWorkerGlobalScope
   export
   setOnactivate :  (obj : ServiceWorkerGlobalScope)
                 -> (v : EventHandler)
-                -> IO ()
+                -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onfetch"
   prim__onfetch : AnyPtr -> PrimIO AnyPtr
 
   export
-  onfetch : (obj : ServiceWorkerGlobalScope) -> IO EventHandler
+  onfetch : (obj : ServiceWorkerGlobalScope) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onfetch  = v}"
   prim__setOnfetch : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnfetch : (obj : ServiceWorkerGlobalScope) -> (v : EventHandler) -> IO ()
+  setOnfetch : (obj : ServiceWorkerGlobalScope) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.oninstall"
   prim__oninstall : AnyPtr -> PrimIO AnyPtr
 
   export
-  oninstall : (obj : ServiceWorkerGlobalScope) -> IO EventHandler
+  oninstall : (obj : ServiceWorkerGlobalScope) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.oninstall  = v}"
   prim__setOninstall : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOninstall : (obj : ServiceWorkerGlobalScope) -> (v : EventHandler) -> IO ()
+  setOninstall :  (obj : ServiceWorkerGlobalScope)
+               -> (v : EventHandler)
+               -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onmessage"
   prim__onmessage : AnyPtr -> PrimIO AnyPtr
 
   export
-  onmessage : (obj : ServiceWorkerGlobalScope) -> IO EventHandler
+  onmessage : (obj : ServiceWorkerGlobalScope) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onmessage  = v}"
   prim__setOnmessage : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnmessage : (obj : ServiceWorkerGlobalScope) -> (v : EventHandler) -> IO ()
+  setOnmessage :  (obj : ServiceWorkerGlobalScope)
+               -> (v : EventHandler)
+               -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onmessageerror"
   prim__onmessageerror : AnyPtr -> PrimIO AnyPtr
 
   export
-  onmessageerror : (obj : ServiceWorkerGlobalScope) -> IO EventHandler
+  onmessageerror : (obj : ServiceWorkerGlobalScope) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onmessageerror  = v}"
   prim__setOnmessageerror : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -343,7 +347,7 @@ namespace ServiceWorkerGlobalScope
   export
   setOnmessageerror :  (obj : ServiceWorkerGlobalScope)
                     -> (v : EventHandler)
-                    -> IO ()
+                    -> JSIO ()
 
 namespace ServiceWorkerRegistration
   
@@ -357,45 +361,45 @@ namespace ServiceWorkerRegistration
   prim__active : AnyPtr -> PrimIO AnyPtr
 
   export
-  active : (obj : ServiceWorkerRegistration) -> IO (Maybe ServiceWorker)
+  active : (obj : ServiceWorkerRegistration) -> JSIO (Maybe ServiceWorker)
   
   %foreign "browser:lambda:x=>x.installing"
   prim__installing : AnyPtr -> PrimIO AnyPtr
 
   export
-  installing : (obj : ServiceWorkerRegistration) -> IO (Maybe ServiceWorker)
+  installing : (obj : ServiceWorkerRegistration) -> JSIO (Maybe ServiceWorker)
   
   %foreign "browser:lambda:x=>x.navigationPreload"
   prim__navigationPreload : AnyPtr -> PrimIO AnyPtr
 
   export
   navigationPreload :  (obj : ServiceWorkerRegistration)
-                    -> IO NavigationPreloadManager
+                    -> JSIO NavigationPreloadManager
   
   %foreign "browser:lambda:x=>x.scope"
   prim__scope : AnyPtr -> PrimIO AnyPtr
 
   export
-  scope : (obj : ServiceWorkerRegistration) -> IO String
+  scope : (obj : ServiceWorkerRegistration) -> JSIO String
   
   %foreign "browser:lambda:x=>x.updateViaCache"
   prim__updateViaCache : AnyPtr -> PrimIO AnyPtr
 
   export
   updateViaCache :  (obj : ServiceWorkerRegistration)
-                 -> IO ServiceWorkerUpdateViaCache
+                 -> JSIO ServiceWorkerUpdateViaCache
   
   %foreign "browser:lambda:x=>x.waiting"
   prim__waiting : AnyPtr -> PrimIO AnyPtr
 
   export
-  waiting : (obj : ServiceWorkerRegistration) -> IO (Maybe ServiceWorker)
+  waiting : (obj : ServiceWorkerRegistration) -> JSIO (Maybe ServiceWorker)
   
   %foreign "browser:lambda:x=>x.onupdatefound"
   prim__onupdatefound : AnyPtr -> PrimIO AnyPtr
 
   export
-  onupdatefound : (obj : ServiceWorkerRegistration) -> IO EventHandler
+  onupdatefound : (obj : ServiceWorkerRegistration) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onupdatefound  = v}"
   prim__setOnupdatefound : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -403,7 +407,7 @@ namespace ServiceWorkerRegistration
   export
   setOnupdatefound :  (obj : ServiceWorkerRegistration)
                    -> (v : EventHandler)
-                   -> IO ()
+                   -> JSIO ()
 
 namespace WindowClient
   
@@ -417,19 +421,19 @@ namespace WindowClient
   prim__ancestorOrigins : AnyPtr -> PrimIO AnyPtr
 
   export
-  ancestorOrigins : (obj : WindowClient) -> IO (JSArray String)
+  ancestorOrigins : (obj : WindowClient) -> JSIO (JSArray String)
   
   %foreign "browser:lambda:x=>x.focused"
   prim__focused : AnyPtr -> PrimIO AnyPtr
 
   export
-  focused : (obj : WindowClient) -> IO Bool
+  focused : (obj : WindowClient) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.visibilityState"
   prim__visibilityState : AnyPtr -> PrimIO AnyPtr
 
   export
-  visibilityState : (obj : WindowClient) -> IO VisibilityState
+  visibilityState : (obj : WindowClient) -> JSIO VisibilityState
 
 
 --------------------------------------------------------------------------------
@@ -448,37 +452,37 @@ namespace CacheQueryOptions
   prim__ignoreMethod : AnyPtr -> PrimIO AnyPtr
 
   export
-  ignoreMethod : (obj : CacheQueryOptions) -> IO Bool
+  ignoreMethod : (obj : CacheQueryOptions) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.ignoreMethod  = v}"
   prim__setIgnoreMethod : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setIgnoreMethod : (obj : CacheQueryOptions) -> (v : Bool) -> IO ()
+  setIgnoreMethod : (obj : CacheQueryOptions) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ignoreSearch"
   prim__ignoreSearch : AnyPtr -> PrimIO AnyPtr
 
   export
-  ignoreSearch : (obj : CacheQueryOptions) -> IO Bool
+  ignoreSearch : (obj : CacheQueryOptions) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.ignoreSearch  = v}"
   prim__setIgnoreSearch : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setIgnoreSearch : (obj : CacheQueryOptions) -> (v : Bool) -> IO ()
+  setIgnoreSearch : (obj : CacheQueryOptions) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ignoreVary"
   prim__ignoreVary : AnyPtr -> PrimIO AnyPtr
 
   export
-  ignoreVary : (obj : CacheQueryOptions) -> IO Bool
+  ignoreVary : (obj : CacheQueryOptions) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.ignoreVary  = v}"
   prim__setIgnoreVary : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setIgnoreVary : (obj : CacheQueryOptions) -> (v : Bool) -> IO ()
+  setIgnoreVary : (obj : CacheQueryOptions) -> (v : Bool) -> JSIO ()
 
 namespace ClientQueryOptions
   
@@ -492,25 +496,25 @@ namespace ClientQueryOptions
   prim__includeUncontrolled : AnyPtr -> PrimIO AnyPtr
 
   export
-  includeUncontrolled : (obj : ClientQueryOptions) -> IO Bool
+  includeUncontrolled : (obj : ClientQueryOptions) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.includeUncontrolled  = v}"
   prim__setIncludeUncontrolled : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setIncludeUncontrolled : (obj : ClientQueryOptions) -> (v : Bool) -> IO ()
+  setIncludeUncontrolled : (obj : ClientQueryOptions) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
 
   export
-  type : (obj : ClientQueryOptions) -> IO ClientType
+  type : (obj : ClientQueryOptions) -> JSIO ClientType
 
   %foreign "browser:lambda:(x,v)=>{x.type  = v}"
   prim__setType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setType : (obj : ClientQueryOptions) -> (v : ClientType) -> IO ()
+  setType : (obj : ClientQueryOptions) -> (v : ClientType) -> JSIO ()
 
 namespace ExtendableEventInit
   
@@ -532,43 +536,43 @@ namespace ExtendableMessageEventInit
   prim__data_ : AnyPtr -> PrimIO AnyPtr
 
   export
-  data_ : (obj : ExtendableMessageEventInit) -> IO Any
+  data_ : (obj : ExtendableMessageEventInit) -> JSIO Any
 
   %foreign "browser:lambda:(x,v)=>{x.data  = v}"
   prim__setData : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setData : (obj : ExtendableMessageEventInit) -> (v : Any) -> IO ()
+  setData : (obj : ExtendableMessageEventInit) -> (v : Any) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.lastEventId"
   prim__lastEventId : AnyPtr -> PrimIO AnyPtr
 
   export
-  lastEventId : (obj : ExtendableMessageEventInit) -> IO String
+  lastEventId : (obj : ExtendableMessageEventInit) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.lastEventId  = v}"
   prim__setLastEventId : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setLastEventId : (obj : ExtendableMessageEventInit) -> (v : String) -> IO ()
+  setLastEventId : (obj : ExtendableMessageEventInit) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.origin"
   prim__origin : AnyPtr -> PrimIO AnyPtr
 
   export
-  origin : (obj : ExtendableMessageEventInit) -> IO String
+  origin : (obj : ExtendableMessageEventInit) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.origin  = v}"
   prim__setOrigin : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOrigin : (obj : ExtendableMessageEventInit) -> (v : String) -> IO ()
+  setOrigin : (obj : ExtendableMessageEventInit) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ports"
   prim__ports : AnyPtr -> PrimIO AnyPtr
 
   export
-  ports : (obj : ExtendableMessageEventInit) -> IO (JSArray MessagePort)
+  ports : (obj : ExtendableMessageEventInit) -> JSIO (JSArray MessagePort)
 
   %foreign "browser:lambda:(x,v)=>{x.ports  = v}"
   prim__setPorts : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -576,14 +580,14 @@ namespace ExtendableMessageEventInit
   export
   setPorts :  (obj : ExtendableMessageEventInit)
            -> (v : JSArray MessagePort)
-           -> IO ()
+           -> JSIO ()
   
   %foreign "browser:lambda:x=>x.source"
   prim__source : AnyPtr -> PrimIO AnyPtr
 
   export
   source :  (obj : ExtendableMessageEventInit)
-         -> IO (Maybe (NS I [ Client , ServiceWorker , MessagePort ]))
+         -> JSIO (Maybe (NS I [ Client , ServiceWorker , MessagePort ]))
 
   %foreign "browser:lambda:(x,v)=>{x.source  = v}"
   prim__setSource : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -591,7 +595,7 @@ namespace ExtendableMessageEventInit
   export
   setSource :  (obj : ExtendableMessageEventInit)
             -> (v : Maybe (NS I [ Client , ServiceWorker , MessagePort ]))
-            -> IO ()
+            -> JSIO ()
 
 namespace FetchEventInit
   
@@ -605,73 +609,73 @@ namespace FetchEventInit
   prim__request : AnyPtr -> PrimIO AnyPtr
 
   export
-  request : (obj : FetchEventInit) -> IO Request
+  request : (obj : FetchEventInit) -> JSIO Request
 
   %foreign "browser:lambda:(x,v)=>{x.request  = v}"
   prim__setRequest : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setRequest : (obj : FetchEventInit) -> (v : Request) -> IO ()
+  setRequest : (obj : FetchEventInit) -> (v : Request) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.clientId"
   prim__clientId : AnyPtr -> PrimIO AnyPtr
 
   export
-  clientId : (obj : FetchEventInit) -> IO String
+  clientId : (obj : FetchEventInit) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.clientId  = v}"
   prim__setClientId : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setClientId : (obj : FetchEventInit) -> (v : String) -> IO ()
+  setClientId : (obj : FetchEventInit) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.handled"
   prim__handled : AnyPtr -> PrimIO AnyPtr
 
   export
-  handled : (obj : FetchEventInit) -> IO (JSPromise Undefined)
+  handled : (obj : FetchEventInit) -> JSIO (JSPromise Undefined)
 
   %foreign "browser:lambda:(x,v)=>{x.handled  = v}"
   prim__setHandled : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHandled : (obj : FetchEventInit) -> (v : JSPromise Undefined) -> IO ()
+  setHandled : (obj : FetchEventInit) -> (v : JSPromise Undefined) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.preloadResponse"
   prim__preloadResponse : AnyPtr -> PrimIO AnyPtr
 
   export
-  preloadResponse : (obj : FetchEventInit) -> IO (JSPromise Any)
+  preloadResponse : (obj : FetchEventInit) -> JSIO (JSPromise Any)
 
   %foreign "browser:lambda:(x,v)=>{x.preloadResponse  = v}"
   prim__setPreloadResponse : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setPreloadResponse : (obj : FetchEventInit) -> (v : JSPromise Any) -> IO ()
+  setPreloadResponse : (obj : FetchEventInit) -> (v : JSPromise Any) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.replacesClientId"
   prim__replacesClientId : AnyPtr -> PrimIO AnyPtr
 
   export
-  replacesClientId : (obj : FetchEventInit) -> IO String
+  replacesClientId : (obj : FetchEventInit) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.replacesClientId  = v}"
   prim__setReplacesClientId : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setReplacesClientId : (obj : FetchEventInit) -> (v : String) -> IO ()
+  setReplacesClientId : (obj : FetchEventInit) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.resultingClientId"
   prim__resultingClientId : AnyPtr -> PrimIO AnyPtr
 
   export
-  resultingClientId : (obj : FetchEventInit) -> IO String
+  resultingClientId : (obj : FetchEventInit) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.resultingClientId  = v}"
   prim__setResultingClientId : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setResultingClientId : (obj : FetchEventInit) -> (v : String) -> IO ()
+  setResultingClientId : (obj : FetchEventInit) -> (v : String) -> JSIO ()
 
 namespace MultiCacheQueryOptions
   
@@ -685,13 +689,13 @@ namespace MultiCacheQueryOptions
   prim__cacheName : AnyPtr -> PrimIO AnyPtr
 
   export
-  cacheName : (obj : MultiCacheQueryOptions) -> IO String
+  cacheName : (obj : MultiCacheQueryOptions) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.cacheName  = v}"
   prim__setCacheName : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCacheName : (obj : MultiCacheQueryOptions) -> (v : String) -> IO ()
+  setCacheName : (obj : MultiCacheQueryOptions) -> (v : String) -> JSIO ()
 
 namespace NavigationPreloadState
   
@@ -705,25 +709,25 @@ namespace NavigationPreloadState
   prim__enabled : AnyPtr -> PrimIO AnyPtr
 
   export
-  enabled : (obj : NavigationPreloadState) -> IO Bool
+  enabled : (obj : NavigationPreloadState) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.enabled  = v}"
   prim__setEnabled : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setEnabled : (obj : NavigationPreloadState) -> (v : Bool) -> IO ()
+  setEnabled : (obj : NavigationPreloadState) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.headerValue"
   prim__headerValue : AnyPtr -> PrimIO AnyPtr
 
   export
-  headerValue : (obj : NavigationPreloadState) -> IO String
+  headerValue : (obj : NavigationPreloadState) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.headerValue  = v}"
   prim__setHeaderValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHeaderValue : (obj : NavigationPreloadState) -> (v : String) -> IO ()
+  setHeaderValue : (obj : NavigationPreloadState) -> (v : String) -> JSIO ()
 
 namespace RegistrationOptions
   
@@ -737,31 +741,32 @@ namespace RegistrationOptions
   prim__scope : AnyPtr -> PrimIO AnyPtr
 
   export
-  scope : (obj : RegistrationOptions) -> IO String
+  scope : (obj : RegistrationOptions) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.scope  = v}"
   prim__setScope : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setScope : (obj : RegistrationOptions) -> (v : String) -> IO ()
+  setScope : (obj : RegistrationOptions) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
 
   export
-  type : (obj : RegistrationOptions) -> IO WorkerType
+  type : (obj : RegistrationOptions) -> JSIO WorkerType
 
   %foreign "browser:lambda:(x,v)=>{x.type  = v}"
   prim__setType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setType : (obj : RegistrationOptions) -> (v : WorkerType) -> IO ()
+  setType : (obj : RegistrationOptions) -> (v : WorkerType) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.updateViaCache"
   prim__updateViaCache : AnyPtr -> PrimIO AnyPtr
 
   export
-  updateViaCache : (obj : RegistrationOptions) -> IO ServiceWorkerUpdateViaCache
+  updateViaCache :  (obj : RegistrationOptions)
+                 -> JSIO ServiceWorkerUpdateViaCache
 
   %foreign "browser:lambda:(x,v)=>{x.updateViaCache  = v}"
   prim__setUpdateViaCache : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -769,5 +774,5 @@ namespace RegistrationOptions
   export
   setUpdateViaCache :  (obj : RegistrationOptions)
                     -> (v : ServiceWorkerUpdateViaCache)
-                    -> IO ()
+                    -> JSIO ()
 

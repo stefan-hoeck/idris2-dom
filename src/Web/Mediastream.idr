@@ -34,25 +34,25 @@ namespace MediaDeviceInfo
   prim__deviceId : AnyPtr -> PrimIO AnyPtr
 
   export
-  deviceId : (obj : MediaDeviceInfo) -> IO String
+  deviceId : (obj : MediaDeviceInfo) -> JSIO String
   
   %foreign "browser:lambda:x=>x.groupId"
   prim__groupId : AnyPtr -> PrimIO AnyPtr
 
   export
-  groupId : (obj : MediaDeviceInfo) -> IO String
+  groupId : (obj : MediaDeviceInfo) -> JSIO String
   
   %foreign "browser:lambda:x=>x.kind"
   prim__kind : AnyPtr -> PrimIO AnyPtr
 
   export
-  kind : (obj : MediaDeviceInfo) -> IO MediaDeviceKind
+  kind : (obj : MediaDeviceInfo) -> JSIO MediaDeviceKind
   
   %foreign "browser:lambda:x=>x.label"
   prim__label : AnyPtr -> PrimIO AnyPtr
 
   export
-  label : (obj : MediaDeviceInfo) -> IO String
+  label : (obj : MediaDeviceInfo) -> JSIO String
 
 namespace MediaDevices
   
@@ -66,13 +66,13 @@ namespace MediaDevices
   prim__ondevicechange : AnyPtr -> PrimIO AnyPtr
 
   export
-  ondevicechange : (obj : MediaDevices) -> IO EventHandler
+  ondevicechange : (obj : MediaDevices) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.ondevicechange  = v}"
   prim__setOndevicechange : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOndevicechange : (obj : MediaDevices) -> (v : EventHandler) -> IO ()
+  setOndevicechange : (obj : MediaDevices) -> (v : EventHandler) -> JSIO ()
 
 namespace MediaStream
   
@@ -86,37 +86,37 @@ namespace MediaStream
   prim__active : AnyPtr -> PrimIO AnyPtr
 
   export
-  active : (obj : MediaStream) -> IO Bool
+  active : (obj : MediaStream) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.id"
   prim__id : AnyPtr -> PrimIO AnyPtr
 
   export
-  id : (obj : MediaStream) -> IO String
+  id : (obj : MediaStream) -> JSIO String
   
   %foreign "browser:lambda:x=>x.onaddtrack"
   prim__onaddtrack : AnyPtr -> PrimIO AnyPtr
 
   export
-  onaddtrack : (obj : MediaStream) -> IO EventHandler
+  onaddtrack : (obj : MediaStream) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onaddtrack  = v}"
   prim__setOnaddtrack : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnaddtrack : (obj : MediaStream) -> (v : EventHandler) -> IO ()
+  setOnaddtrack : (obj : MediaStream) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onremovetrack"
   prim__onremovetrack : AnyPtr -> PrimIO AnyPtr
 
   export
-  onremovetrack : (obj : MediaStream) -> IO EventHandler
+  onremovetrack : (obj : MediaStream) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onremovetrack  = v}"
   prim__setOnremovetrack : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnremovetrack : (obj : MediaStream) -> (v : EventHandler) -> IO ()
+  setOnremovetrack : (obj : MediaStream) -> (v : EventHandler) -> JSIO ()
 
 namespace MediaStreamTrack
   
@@ -130,79 +130,79 @@ namespace MediaStreamTrack
   prim__id : AnyPtr -> PrimIO AnyPtr
 
   export
-  id : (obj : MediaStreamTrack) -> IO String
+  id : (obj : MediaStreamTrack) -> JSIO String
   
   %foreign "browser:lambda:x=>x.kind"
   prim__kind : AnyPtr -> PrimIO AnyPtr
 
   export
-  kind : (obj : MediaStreamTrack) -> IO String
+  kind : (obj : MediaStreamTrack) -> JSIO String
   
   %foreign "browser:lambda:x=>x.label"
   prim__label : AnyPtr -> PrimIO AnyPtr
 
   export
-  label : (obj : MediaStreamTrack) -> IO String
+  label : (obj : MediaStreamTrack) -> JSIO String
   
   %foreign "browser:lambda:x=>x.muted"
   prim__muted : AnyPtr -> PrimIO AnyPtr
 
   export
-  muted : (obj : MediaStreamTrack) -> IO Bool
+  muted : (obj : MediaStreamTrack) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.readyState"
   prim__readyState : AnyPtr -> PrimIO AnyPtr
 
   export
-  readyState : (obj : MediaStreamTrack) -> IO MediaStreamTrackState
+  readyState : (obj : MediaStreamTrack) -> JSIO MediaStreamTrackState
   
   %foreign "browser:lambda:x=>x.enabled"
   prim__enabled : AnyPtr -> PrimIO AnyPtr
 
   export
-  enabled : (obj : MediaStreamTrack) -> IO Bool
+  enabled : (obj : MediaStreamTrack) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.enabled  = v}"
   prim__setEnabled : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setEnabled : (obj : MediaStreamTrack) -> (v : Bool) -> IO ()
+  setEnabled : (obj : MediaStreamTrack) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onended"
   prim__onended : AnyPtr -> PrimIO AnyPtr
 
   export
-  onended : (obj : MediaStreamTrack) -> IO EventHandler
+  onended : (obj : MediaStreamTrack) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onended  = v}"
   prim__setOnended : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnended : (obj : MediaStreamTrack) -> (v : EventHandler) -> IO ()
+  setOnended : (obj : MediaStreamTrack) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onmute"
   prim__onmute : AnyPtr -> PrimIO AnyPtr
 
   export
-  onmute : (obj : MediaStreamTrack) -> IO EventHandler
+  onmute : (obj : MediaStreamTrack) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onmute  = v}"
   prim__setOnmute : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnmute : (obj : MediaStreamTrack) -> (v : EventHandler) -> IO ()
+  setOnmute : (obj : MediaStreamTrack) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onunmute"
   prim__onunmute : AnyPtr -> PrimIO AnyPtr
 
   export
-  onunmute : (obj : MediaStreamTrack) -> IO EventHandler
+  onunmute : (obj : MediaStreamTrack) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onunmute  = v}"
   prim__setOnunmute : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnunmute : (obj : MediaStreamTrack) -> (v : EventHandler) -> IO ()
+  setOnunmute : (obj : MediaStreamTrack) -> (v : EventHandler) -> JSIO ()
 
 namespace MediaStreamTrackEvent
   
@@ -216,7 +216,7 @@ namespace MediaStreamTrackEvent
   prim__track : AnyPtr -> PrimIO AnyPtr
 
   export
-  track : (obj : MediaStreamTrackEvent) -> IO MediaStreamTrack
+  track : (obj : MediaStreamTrackEvent) -> JSIO MediaStreamTrack
 
 namespace OverconstrainedError
   
@@ -230,7 +230,7 @@ namespace OverconstrainedError
   prim__constraint : AnyPtr -> PrimIO AnyPtr
 
   export
-  constraint : (obj : OverconstrainedError) -> IO String
+  constraint : (obj : OverconstrainedError) -> JSIO String
 
 
 --------------------------------------------------------------------------------
@@ -257,25 +257,25 @@ namespace ConstrainBooleanParameters
   prim__exact : AnyPtr -> PrimIO AnyPtr
 
   export
-  exact : (obj : ConstrainBooleanParameters) -> IO Bool
+  exact : (obj : ConstrainBooleanParameters) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.exact  = v}"
   prim__setExact : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setExact : (obj : ConstrainBooleanParameters) -> (v : Bool) -> IO ()
+  setExact : (obj : ConstrainBooleanParameters) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ideal"
   prim__ideal : AnyPtr -> PrimIO AnyPtr
 
   export
-  ideal : (obj : ConstrainBooleanParameters) -> IO Bool
+  ideal : (obj : ConstrainBooleanParameters) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.ideal  = v}"
   prim__setIdeal : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setIdeal : (obj : ConstrainBooleanParameters) -> (v : Bool) -> IO ()
+  setIdeal : (obj : ConstrainBooleanParameters) -> (v : Bool) -> JSIO ()
 
 namespace ConstrainDOMStringParameters
   
@@ -290,7 +290,7 @@ namespace ConstrainDOMStringParameters
 
   export
   exact :  (obj : ConstrainDOMStringParameters)
-        -> IO (NS I [ String , JSArray String ])
+        -> JSIO (NS I [ String , JSArray String ])
 
   %foreign "browser:lambda:(x,v)=>{x.exact  = v}"
   prim__setExact : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -298,14 +298,14 @@ namespace ConstrainDOMStringParameters
   export
   setExact :  (obj : ConstrainDOMStringParameters)
            -> (v : NS I [ String , JSArray String ])
-           -> IO ()
+           -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ideal"
   prim__ideal : AnyPtr -> PrimIO AnyPtr
 
   export
   ideal :  (obj : ConstrainDOMStringParameters)
-        -> IO (NS I [ String , JSArray String ])
+        -> JSIO (NS I [ String , JSArray String ])
 
   %foreign "browser:lambda:(x,v)=>{x.ideal  = v}"
   prim__setIdeal : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -313,7 +313,7 @@ namespace ConstrainDOMStringParameters
   export
   setIdeal :  (obj : ConstrainDOMStringParameters)
            -> (v : NS I [ String , JSArray String ])
-           -> IO ()
+           -> JSIO ()
 
 namespace ConstrainDoubleRange
   
@@ -327,25 +327,25 @@ namespace ConstrainDoubleRange
   prim__exact : AnyPtr -> PrimIO AnyPtr
 
   export
-  exact : (obj : ConstrainDoubleRange) -> IO Double
+  exact : (obj : ConstrainDoubleRange) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.exact  = v}"
   prim__setExact : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setExact : (obj : ConstrainDoubleRange) -> (v : Double) -> IO ()
+  setExact : (obj : ConstrainDoubleRange) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ideal"
   prim__ideal : AnyPtr -> PrimIO AnyPtr
 
   export
-  ideal : (obj : ConstrainDoubleRange) -> IO Double
+  ideal : (obj : ConstrainDoubleRange) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.ideal  = v}"
   prim__setIdeal : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setIdeal : (obj : ConstrainDoubleRange) -> (v : Double) -> IO ()
+  setIdeal : (obj : ConstrainDoubleRange) -> (v : Double) -> JSIO ()
 
 namespace ConstrainULongRange
   
@@ -359,25 +359,25 @@ namespace ConstrainULongRange
   prim__exact : AnyPtr -> PrimIO AnyPtr
 
   export
-  exact : (obj : ConstrainULongRange) -> IO UInt32
+  exact : (obj : ConstrainULongRange) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.exact  = v}"
   prim__setExact : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setExact : (obj : ConstrainULongRange) -> (v : UInt32) -> IO ()
+  setExact : (obj : ConstrainULongRange) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ideal"
   prim__ideal : AnyPtr -> PrimIO AnyPtr
 
   export
-  ideal : (obj : ConstrainULongRange) -> IO UInt32
+  ideal : (obj : ConstrainULongRange) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.ideal  = v}"
   prim__setIdeal : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setIdeal : (obj : ConstrainULongRange) -> (v : UInt32) -> IO ()
+  setIdeal : (obj : ConstrainULongRange) -> (v : UInt32) -> JSIO ()
 
 namespace ConstraintSet
   
@@ -399,13 +399,13 @@ namespace Constraints
   prim__advanced : AnyPtr -> PrimIO AnyPtr
 
   export
-  advanced : (obj : Constraints) -> IO (JSArray ConstraintSet)
+  advanced : (obj : Constraints) -> JSIO (JSArray ConstraintSet)
 
   %foreign "browser:lambda:(x,v)=>{x.advanced  = v}"
   prim__setAdvanced : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAdvanced : (obj : Constraints) -> (v : JSArray ConstraintSet) -> IO ()
+  setAdvanced : (obj : Constraints) -> (v : JSArray ConstraintSet) -> JSIO ()
 
 namespace DoubleRange
   
@@ -419,25 +419,25 @@ namespace DoubleRange
   prim__max : AnyPtr -> PrimIO AnyPtr
 
   export
-  max : (obj : DoubleRange) -> IO Double
+  max : (obj : DoubleRange) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.max  = v}"
   prim__setMax : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setMax : (obj : DoubleRange) -> (v : Double) -> IO ()
+  setMax : (obj : DoubleRange) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.min"
   prim__min : AnyPtr -> PrimIO AnyPtr
 
   export
-  min : (obj : DoubleRange) -> IO Double
+  min : (obj : DoubleRange) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.min  = v}"
   prim__setMin : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setMin : (obj : DoubleRange) -> (v : Double) -> IO ()
+  setMin : (obj : DoubleRange) -> (v : Double) -> JSIO ()
 
 namespace MediaStreamConstraints
   
@@ -452,7 +452,7 @@ namespace MediaStreamConstraints
 
   export
   audio :  (obj : MediaStreamConstraints)
-        -> IO (NS I [ Bool , MediaTrackConstraints ])
+        -> JSIO (NS I [ Bool , MediaTrackConstraints ])
 
   %foreign "browser:lambda:(x,v)=>{x.audio  = v}"
   prim__setAudio : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -460,14 +460,14 @@ namespace MediaStreamConstraints
   export
   setAudio :  (obj : MediaStreamConstraints)
            -> (v : NS I [ Bool , MediaTrackConstraints ])
-           -> IO ()
+           -> JSIO ()
   
   %foreign "browser:lambda:x=>x.video"
   prim__video : AnyPtr -> PrimIO AnyPtr
 
   export
   video :  (obj : MediaStreamConstraints)
-        -> IO (NS I [ Bool , MediaTrackConstraints ])
+        -> JSIO (NS I [ Bool , MediaTrackConstraints ])
 
   %foreign "browser:lambda:(x,v)=>{x.video  = v}"
   prim__setVideo : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -475,7 +475,7 @@ namespace MediaStreamConstraints
   export
   setVideo :  (obj : MediaStreamConstraints)
            -> (v : NS I [ Bool , MediaTrackConstraints ])
-           -> IO ()
+           -> JSIO ()
 
 namespace MediaStreamTrackEventInit
   
@@ -489,7 +489,7 @@ namespace MediaStreamTrackEventInit
   prim__track : AnyPtr -> PrimIO AnyPtr
 
   export
-  track : (obj : MediaStreamTrackEventInit) -> IO MediaStreamTrack
+  track : (obj : MediaStreamTrackEventInit) -> JSIO MediaStreamTrack
 
   %foreign "browser:lambda:(x,v)=>{x.track  = v}"
   prim__setTrack : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -497,7 +497,7 @@ namespace MediaStreamTrackEventInit
   export
   setTrack :  (obj : MediaStreamTrackEventInit)
            -> (v : MediaStreamTrack)
-           -> IO ()
+           -> JSIO ()
 
 namespace MediaTrackCapabilities
   
@@ -511,19 +511,21 @@ namespace MediaTrackCapabilities
   prim__aspectRatio : AnyPtr -> PrimIO AnyPtr
 
   export
-  aspectRatio : (obj : MediaTrackCapabilities) -> IO DoubleRange
+  aspectRatio : (obj : MediaTrackCapabilities) -> JSIO DoubleRange
 
   %foreign "browser:lambda:(x,v)=>{x.aspectRatio  = v}"
   prim__setAspectRatio : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAspectRatio : (obj : MediaTrackCapabilities) -> (v : DoubleRange) -> IO ()
+  setAspectRatio :  (obj : MediaTrackCapabilities)
+                 -> (v : DoubleRange)
+                 -> JSIO ()
   
   %foreign "browser:lambda:x=>x.autoGainControl"
   prim__autoGainControl : AnyPtr -> PrimIO AnyPtr
 
   export
-  autoGainControl : (obj : MediaTrackCapabilities) -> IO (JSArray Bool)
+  autoGainControl : (obj : MediaTrackCapabilities) -> JSIO (JSArray Bool)
 
   %foreign "browser:lambda:(x,v)=>{x.autoGainControl  = v}"
   prim__setAutoGainControl : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -531,37 +533,39 @@ namespace MediaTrackCapabilities
   export
   setAutoGainControl :  (obj : MediaTrackCapabilities)
                      -> (v : JSArray Bool)
-                     -> IO ()
+                     -> JSIO ()
   
   %foreign "browser:lambda:x=>x.channelCount"
   prim__channelCount : AnyPtr -> PrimIO AnyPtr
 
   export
-  channelCount : (obj : MediaTrackCapabilities) -> IO ULongRange
+  channelCount : (obj : MediaTrackCapabilities) -> JSIO ULongRange
 
   %foreign "browser:lambda:(x,v)=>{x.channelCount  = v}"
   prim__setChannelCount : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setChannelCount : (obj : MediaTrackCapabilities) -> (v : ULongRange) -> IO ()
+  setChannelCount :  (obj : MediaTrackCapabilities)
+                  -> (v : ULongRange)
+                  -> JSIO ()
   
   %foreign "browser:lambda:x=>x.deviceId"
   prim__deviceId : AnyPtr -> PrimIO AnyPtr
 
   export
-  deviceId : (obj : MediaTrackCapabilities) -> IO String
+  deviceId : (obj : MediaTrackCapabilities) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.deviceId  = v}"
   prim__setDeviceId : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDeviceId : (obj : MediaTrackCapabilities) -> (v : String) -> IO ()
+  setDeviceId : (obj : MediaTrackCapabilities) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.echoCancellation"
   prim__echoCancellation : AnyPtr -> PrimIO AnyPtr
 
   export
-  echoCancellation : (obj : MediaTrackCapabilities) -> IO (JSArray Bool)
+  echoCancellation : (obj : MediaTrackCapabilities) -> JSIO (JSArray Bool)
 
   %foreign "browser:lambda:(x,v)=>{x.echoCancellation  = v}"
   prim__setEchoCancellation : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -569,13 +573,13 @@ namespace MediaTrackCapabilities
   export
   setEchoCancellation :  (obj : MediaTrackCapabilities)
                       -> (v : JSArray Bool)
-                      -> IO ()
+                      -> JSIO ()
   
   %foreign "browser:lambda:x=>x.facingMode"
   prim__facingMode : AnyPtr -> PrimIO AnyPtr
 
   export
-  facingMode : (obj : MediaTrackCapabilities) -> IO (JSArray String)
+  facingMode : (obj : MediaTrackCapabilities) -> JSIO (JSArray String)
 
   %foreign "browser:lambda:(x,v)=>{x.facingMode  = v}"
   prim__setFacingMode : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -583,61 +587,61 @@ namespace MediaTrackCapabilities
   export
   setFacingMode :  (obj : MediaTrackCapabilities)
                 -> (v : JSArray String)
-                -> IO ()
+                -> JSIO ()
   
   %foreign "browser:lambda:x=>x.frameRate"
   prim__frameRate : AnyPtr -> PrimIO AnyPtr
 
   export
-  frameRate : (obj : MediaTrackCapabilities) -> IO DoubleRange
+  frameRate : (obj : MediaTrackCapabilities) -> JSIO DoubleRange
 
   %foreign "browser:lambda:(x,v)=>{x.frameRate  = v}"
   prim__setFrameRate : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setFrameRate : (obj : MediaTrackCapabilities) -> (v : DoubleRange) -> IO ()
+  setFrameRate : (obj : MediaTrackCapabilities) -> (v : DoubleRange) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.groupId"
   prim__groupId : AnyPtr -> PrimIO AnyPtr
 
   export
-  groupId : (obj : MediaTrackCapabilities) -> IO String
+  groupId : (obj : MediaTrackCapabilities) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.groupId  = v}"
   prim__setGroupId : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setGroupId : (obj : MediaTrackCapabilities) -> (v : String) -> IO ()
+  setGroupId : (obj : MediaTrackCapabilities) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.height"
   prim__height : AnyPtr -> PrimIO AnyPtr
 
   export
-  height : (obj : MediaTrackCapabilities) -> IO ULongRange
+  height : (obj : MediaTrackCapabilities) -> JSIO ULongRange
 
   %foreign "browser:lambda:(x,v)=>{x.height  = v}"
   prim__setHeight : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHeight : (obj : MediaTrackCapabilities) -> (v : ULongRange) -> IO ()
+  setHeight : (obj : MediaTrackCapabilities) -> (v : ULongRange) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.latency"
   prim__latency : AnyPtr -> PrimIO AnyPtr
 
   export
-  latency : (obj : MediaTrackCapabilities) -> IO DoubleRange
+  latency : (obj : MediaTrackCapabilities) -> JSIO DoubleRange
 
   %foreign "browser:lambda:(x,v)=>{x.latency  = v}"
   prim__setLatency : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setLatency : (obj : MediaTrackCapabilities) -> (v : DoubleRange) -> IO ()
+  setLatency : (obj : MediaTrackCapabilities) -> (v : DoubleRange) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.noiseSuppression"
   prim__noiseSuppression : AnyPtr -> PrimIO AnyPtr
 
   export
-  noiseSuppression : (obj : MediaTrackCapabilities) -> IO (JSArray Bool)
+  noiseSuppression : (obj : MediaTrackCapabilities) -> JSIO (JSArray Bool)
 
   %foreign "browser:lambda:(x,v)=>{x.noiseSuppression  = v}"
   prim__setNoiseSuppression : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -645,13 +649,13 @@ namespace MediaTrackCapabilities
   export
   setNoiseSuppression :  (obj : MediaTrackCapabilities)
                       -> (v : JSArray Bool)
-                      -> IO ()
+                      -> JSIO ()
   
   %foreign "browser:lambda:x=>x.resizeMode"
   prim__resizeMode : AnyPtr -> PrimIO AnyPtr
 
   export
-  resizeMode : (obj : MediaTrackCapabilities) -> IO (JSArray String)
+  resizeMode : (obj : MediaTrackCapabilities) -> JSIO (JSArray String)
 
   %foreign "browser:lambda:(x,v)=>{x.resizeMode  = v}"
   prim__setResizeMode : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -659,43 +663,43 @@ namespace MediaTrackCapabilities
   export
   setResizeMode :  (obj : MediaTrackCapabilities)
                 -> (v : JSArray String)
-                -> IO ()
+                -> JSIO ()
   
   %foreign "browser:lambda:x=>x.sampleRate"
   prim__sampleRate : AnyPtr -> PrimIO AnyPtr
 
   export
-  sampleRate : (obj : MediaTrackCapabilities) -> IO ULongRange
+  sampleRate : (obj : MediaTrackCapabilities) -> JSIO ULongRange
 
   %foreign "browser:lambda:(x,v)=>{x.sampleRate  = v}"
   prim__setSampleRate : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSampleRate : (obj : MediaTrackCapabilities) -> (v : ULongRange) -> IO ()
+  setSampleRate : (obj : MediaTrackCapabilities) -> (v : ULongRange) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.sampleSize"
   prim__sampleSize : AnyPtr -> PrimIO AnyPtr
 
   export
-  sampleSize : (obj : MediaTrackCapabilities) -> IO ULongRange
+  sampleSize : (obj : MediaTrackCapabilities) -> JSIO ULongRange
 
   %foreign "browser:lambda:(x,v)=>{x.sampleSize  = v}"
   prim__setSampleSize : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSampleSize : (obj : MediaTrackCapabilities) -> (v : ULongRange) -> IO ()
+  setSampleSize : (obj : MediaTrackCapabilities) -> (v : ULongRange) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
 
   export
-  width : (obj : MediaTrackCapabilities) -> IO ULongRange
+  width : (obj : MediaTrackCapabilities) -> JSIO ULongRange
 
   %foreign "browser:lambda:(x,v)=>{x.width  = v}"
   prim__setWidth : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setWidth : (obj : MediaTrackCapabilities) -> (v : ULongRange) -> IO ()
+  setWidth : (obj : MediaTrackCapabilities) -> (v : ULongRange) -> JSIO ()
 
 namespace MediaTrackConstraintSet
   
@@ -709,7 +713,7 @@ namespace MediaTrackConstraintSet
   prim__aspectRatio : AnyPtr -> PrimIO AnyPtr
 
   export
-  aspectRatio : (obj : MediaTrackConstraintSet) -> IO ConstrainDouble
+  aspectRatio : (obj : MediaTrackConstraintSet) -> JSIO ConstrainDouble
 
   %foreign "browser:lambda:(x,v)=>{x.aspectRatio  = v}"
   prim__setAspectRatio : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -717,13 +721,13 @@ namespace MediaTrackConstraintSet
   export
   setAspectRatio :  (obj : MediaTrackConstraintSet)
                  -> (v : ConstrainDouble)
-                 -> IO ()
+                 -> JSIO ()
   
   %foreign "browser:lambda:x=>x.autoGainControl"
   prim__autoGainControl : AnyPtr -> PrimIO AnyPtr
 
   export
-  autoGainControl : (obj : MediaTrackConstraintSet) -> IO ConstrainBoolean
+  autoGainControl : (obj : MediaTrackConstraintSet) -> JSIO ConstrainBoolean
 
   %foreign "browser:lambda:(x,v)=>{x.autoGainControl  = v}"
   prim__setAutoGainControl : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -731,13 +735,13 @@ namespace MediaTrackConstraintSet
   export
   setAutoGainControl :  (obj : MediaTrackConstraintSet)
                      -> (v : ConstrainBoolean)
-                     -> IO ()
+                     -> JSIO ()
   
   %foreign "browser:lambda:x=>x.channelCount"
   prim__channelCount : AnyPtr -> PrimIO AnyPtr
 
   export
-  channelCount : (obj : MediaTrackConstraintSet) -> IO ConstrainULong
+  channelCount : (obj : MediaTrackConstraintSet) -> JSIO ConstrainULong
 
   %foreign "browser:lambda:(x,v)=>{x.channelCount  = v}"
   prim__setChannelCount : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -745,13 +749,13 @@ namespace MediaTrackConstraintSet
   export
   setChannelCount :  (obj : MediaTrackConstraintSet)
                   -> (v : ConstrainULong)
-                  -> IO ()
+                  -> JSIO ()
   
   %foreign "browser:lambda:x=>x.deviceId"
   prim__deviceId : AnyPtr -> PrimIO AnyPtr
 
   export
-  deviceId : (obj : MediaTrackConstraintSet) -> IO ConstrainDOMString
+  deviceId : (obj : MediaTrackConstraintSet) -> JSIO ConstrainDOMString
 
   %foreign "browser:lambda:(x,v)=>{x.deviceId  = v}"
   prim__setDeviceId : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -759,13 +763,13 @@ namespace MediaTrackConstraintSet
   export
   setDeviceId :  (obj : MediaTrackConstraintSet)
               -> (v : ConstrainDOMString)
-              -> IO ()
+              -> JSIO ()
   
   %foreign "browser:lambda:x=>x.echoCancellation"
   prim__echoCancellation : AnyPtr -> PrimIO AnyPtr
 
   export
-  echoCancellation : (obj : MediaTrackConstraintSet) -> IO ConstrainBoolean
+  echoCancellation : (obj : MediaTrackConstraintSet) -> JSIO ConstrainBoolean
 
   %foreign "browser:lambda:(x,v)=>{x.echoCancellation  = v}"
   prim__setEchoCancellation : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -773,13 +777,13 @@ namespace MediaTrackConstraintSet
   export
   setEchoCancellation :  (obj : MediaTrackConstraintSet)
                       -> (v : ConstrainBoolean)
-                      -> IO ()
+                      -> JSIO ()
   
   %foreign "browser:lambda:x=>x.facingMode"
   prim__facingMode : AnyPtr -> PrimIO AnyPtr
 
   export
-  facingMode : (obj : MediaTrackConstraintSet) -> IO ConstrainDOMString
+  facingMode : (obj : MediaTrackConstraintSet) -> JSIO ConstrainDOMString
 
   %foreign "browser:lambda:(x,v)=>{x.facingMode  = v}"
   prim__setFacingMode : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -787,13 +791,13 @@ namespace MediaTrackConstraintSet
   export
   setFacingMode :  (obj : MediaTrackConstraintSet)
                 -> (v : ConstrainDOMString)
-                -> IO ()
+                -> JSIO ()
   
   %foreign "browser:lambda:x=>x.frameRate"
   prim__frameRate : AnyPtr -> PrimIO AnyPtr
 
   export
-  frameRate : (obj : MediaTrackConstraintSet) -> IO ConstrainDouble
+  frameRate : (obj : MediaTrackConstraintSet) -> JSIO ConstrainDouble
 
   %foreign "browser:lambda:(x,v)=>{x.frameRate  = v}"
   prim__setFrameRate : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -801,13 +805,13 @@ namespace MediaTrackConstraintSet
   export
   setFrameRate :  (obj : MediaTrackConstraintSet)
                -> (v : ConstrainDouble)
-               -> IO ()
+               -> JSIO ()
   
   %foreign "browser:lambda:x=>x.groupId"
   prim__groupId : AnyPtr -> PrimIO AnyPtr
 
   export
-  groupId : (obj : MediaTrackConstraintSet) -> IO ConstrainDOMString
+  groupId : (obj : MediaTrackConstraintSet) -> JSIO ConstrainDOMString
 
   %foreign "browser:lambda:(x,v)=>{x.groupId  = v}"
   prim__setGroupId : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -815,37 +819,39 @@ namespace MediaTrackConstraintSet
   export
   setGroupId :  (obj : MediaTrackConstraintSet)
              -> (v : ConstrainDOMString)
-             -> IO ()
+             -> JSIO ()
   
   %foreign "browser:lambda:x=>x.height"
   prim__height : AnyPtr -> PrimIO AnyPtr
 
   export
-  height : (obj : MediaTrackConstraintSet) -> IO ConstrainULong
+  height : (obj : MediaTrackConstraintSet) -> JSIO ConstrainULong
 
   %foreign "browser:lambda:(x,v)=>{x.height  = v}"
   prim__setHeight : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHeight : (obj : MediaTrackConstraintSet) -> (v : ConstrainULong) -> IO ()
+  setHeight : (obj : MediaTrackConstraintSet) -> (v : ConstrainULong) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.latency"
   prim__latency : AnyPtr -> PrimIO AnyPtr
 
   export
-  latency : (obj : MediaTrackConstraintSet) -> IO ConstrainDouble
+  latency : (obj : MediaTrackConstraintSet) -> JSIO ConstrainDouble
 
   %foreign "browser:lambda:(x,v)=>{x.latency  = v}"
   prim__setLatency : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setLatency : (obj : MediaTrackConstraintSet) -> (v : ConstrainDouble) -> IO ()
+  setLatency :  (obj : MediaTrackConstraintSet)
+             -> (v : ConstrainDouble)
+             -> JSIO ()
   
   %foreign "browser:lambda:x=>x.noiseSuppression"
   prim__noiseSuppression : AnyPtr -> PrimIO AnyPtr
 
   export
-  noiseSuppression : (obj : MediaTrackConstraintSet) -> IO ConstrainBoolean
+  noiseSuppression : (obj : MediaTrackConstraintSet) -> JSIO ConstrainBoolean
 
   %foreign "browser:lambda:(x,v)=>{x.noiseSuppression  = v}"
   prim__setNoiseSuppression : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -853,13 +859,13 @@ namespace MediaTrackConstraintSet
   export
   setNoiseSuppression :  (obj : MediaTrackConstraintSet)
                       -> (v : ConstrainBoolean)
-                      -> IO ()
+                      -> JSIO ()
   
   %foreign "browser:lambda:x=>x.resizeMode"
   prim__resizeMode : AnyPtr -> PrimIO AnyPtr
 
   export
-  resizeMode : (obj : MediaTrackConstraintSet) -> IO ConstrainDOMString
+  resizeMode : (obj : MediaTrackConstraintSet) -> JSIO ConstrainDOMString
 
   %foreign "browser:lambda:(x,v)=>{x.resizeMode  = v}"
   prim__setResizeMode : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -867,13 +873,13 @@ namespace MediaTrackConstraintSet
   export
   setResizeMode :  (obj : MediaTrackConstraintSet)
                 -> (v : ConstrainDOMString)
-                -> IO ()
+                -> JSIO ()
   
   %foreign "browser:lambda:x=>x.sampleRate"
   prim__sampleRate : AnyPtr -> PrimIO AnyPtr
 
   export
-  sampleRate : (obj : MediaTrackConstraintSet) -> IO ConstrainULong
+  sampleRate : (obj : MediaTrackConstraintSet) -> JSIO ConstrainULong
 
   %foreign "browser:lambda:(x,v)=>{x.sampleRate  = v}"
   prim__setSampleRate : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -881,13 +887,13 @@ namespace MediaTrackConstraintSet
   export
   setSampleRate :  (obj : MediaTrackConstraintSet)
                 -> (v : ConstrainULong)
-                -> IO ()
+                -> JSIO ()
   
   %foreign "browser:lambda:x=>x.sampleSize"
   prim__sampleSize : AnyPtr -> PrimIO AnyPtr
 
   export
-  sampleSize : (obj : MediaTrackConstraintSet) -> IO ConstrainULong
+  sampleSize : (obj : MediaTrackConstraintSet) -> JSIO ConstrainULong
 
   %foreign "browser:lambda:(x,v)=>{x.sampleSize  = v}"
   prim__setSampleSize : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -895,19 +901,19 @@ namespace MediaTrackConstraintSet
   export
   setSampleSize :  (obj : MediaTrackConstraintSet)
                 -> (v : ConstrainULong)
-                -> IO ()
+                -> JSIO ()
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
 
   export
-  width : (obj : MediaTrackConstraintSet) -> IO ConstrainULong
+  width : (obj : MediaTrackConstraintSet) -> JSIO ConstrainULong
 
   %foreign "browser:lambda:(x,v)=>{x.width  = v}"
   prim__setWidth : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setWidth : (obj : MediaTrackConstraintSet) -> (v : ConstrainULong) -> IO ()
+  setWidth : (obj : MediaTrackConstraintSet) -> (v : ConstrainULong) -> JSIO ()
 
 namespace MediaTrackConstraints
   
@@ -922,7 +928,7 @@ namespace MediaTrackConstraints
 
   export
   advanced :  (obj : MediaTrackConstraints)
-           -> IO (JSArray MediaTrackConstraintSet)
+           -> JSIO (JSArray MediaTrackConstraintSet)
 
   %foreign "browser:lambda:(x,v)=>{x.advanced  = v}"
   prim__setAdvanced : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -930,7 +936,7 @@ namespace MediaTrackConstraints
   export
   setAdvanced :  (obj : MediaTrackConstraints)
               -> (v : JSArray MediaTrackConstraintSet)
-              -> IO ()
+              -> JSIO ()
 
 namespace MediaTrackSettings
   
@@ -944,181 +950,181 @@ namespace MediaTrackSettings
   prim__aspectRatio : AnyPtr -> PrimIO AnyPtr
 
   export
-  aspectRatio : (obj : MediaTrackSettings) -> IO Double
+  aspectRatio : (obj : MediaTrackSettings) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.aspectRatio  = v}"
   prim__setAspectRatio : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAspectRatio : (obj : MediaTrackSettings) -> (v : Double) -> IO ()
+  setAspectRatio : (obj : MediaTrackSettings) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.autoGainControl"
   prim__autoGainControl : AnyPtr -> PrimIO AnyPtr
 
   export
-  autoGainControl : (obj : MediaTrackSettings) -> IO Bool
+  autoGainControl : (obj : MediaTrackSettings) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.autoGainControl  = v}"
   prim__setAutoGainControl : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAutoGainControl : (obj : MediaTrackSettings) -> (v : Bool) -> IO ()
+  setAutoGainControl : (obj : MediaTrackSettings) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.channelCount"
   prim__channelCount : AnyPtr -> PrimIO AnyPtr
 
   export
-  channelCount : (obj : MediaTrackSettings) -> IO Int32
+  channelCount : (obj : MediaTrackSettings) -> JSIO Int32
 
   %foreign "browser:lambda:(x,v)=>{x.channelCount  = v}"
   prim__setChannelCount : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setChannelCount : (obj : MediaTrackSettings) -> (v : Int32) -> IO ()
+  setChannelCount : (obj : MediaTrackSettings) -> (v : Int32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.deviceId"
   prim__deviceId : AnyPtr -> PrimIO AnyPtr
 
   export
-  deviceId : (obj : MediaTrackSettings) -> IO String
+  deviceId : (obj : MediaTrackSettings) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.deviceId  = v}"
   prim__setDeviceId : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDeviceId : (obj : MediaTrackSettings) -> (v : String) -> IO ()
+  setDeviceId : (obj : MediaTrackSettings) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.echoCancellation"
   prim__echoCancellation : AnyPtr -> PrimIO AnyPtr
 
   export
-  echoCancellation : (obj : MediaTrackSettings) -> IO Bool
+  echoCancellation : (obj : MediaTrackSettings) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.echoCancellation  = v}"
   prim__setEchoCancellation : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setEchoCancellation : (obj : MediaTrackSettings) -> (v : Bool) -> IO ()
+  setEchoCancellation : (obj : MediaTrackSettings) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.facingMode"
   prim__facingMode : AnyPtr -> PrimIO AnyPtr
 
   export
-  facingMode : (obj : MediaTrackSettings) -> IO String
+  facingMode : (obj : MediaTrackSettings) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.facingMode  = v}"
   prim__setFacingMode : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setFacingMode : (obj : MediaTrackSettings) -> (v : String) -> IO ()
+  setFacingMode : (obj : MediaTrackSettings) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.frameRate"
   prim__frameRate : AnyPtr -> PrimIO AnyPtr
 
   export
-  frameRate : (obj : MediaTrackSettings) -> IO Double
+  frameRate : (obj : MediaTrackSettings) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.frameRate  = v}"
   prim__setFrameRate : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setFrameRate : (obj : MediaTrackSettings) -> (v : Double) -> IO ()
+  setFrameRate : (obj : MediaTrackSettings) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.groupId"
   prim__groupId : AnyPtr -> PrimIO AnyPtr
 
   export
-  groupId : (obj : MediaTrackSettings) -> IO String
+  groupId : (obj : MediaTrackSettings) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.groupId  = v}"
   prim__setGroupId : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setGroupId : (obj : MediaTrackSettings) -> (v : String) -> IO ()
+  setGroupId : (obj : MediaTrackSettings) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.height"
   prim__height : AnyPtr -> PrimIO AnyPtr
 
   export
-  height : (obj : MediaTrackSettings) -> IO Int32
+  height : (obj : MediaTrackSettings) -> JSIO Int32
 
   %foreign "browser:lambda:(x,v)=>{x.height  = v}"
   prim__setHeight : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHeight : (obj : MediaTrackSettings) -> (v : Int32) -> IO ()
+  setHeight : (obj : MediaTrackSettings) -> (v : Int32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.latency"
   prim__latency : AnyPtr -> PrimIO AnyPtr
 
   export
-  latency : (obj : MediaTrackSettings) -> IO Double
+  latency : (obj : MediaTrackSettings) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.latency  = v}"
   prim__setLatency : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setLatency : (obj : MediaTrackSettings) -> (v : Double) -> IO ()
+  setLatency : (obj : MediaTrackSettings) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.noiseSuppression"
   prim__noiseSuppression : AnyPtr -> PrimIO AnyPtr
 
   export
-  noiseSuppression : (obj : MediaTrackSettings) -> IO Bool
+  noiseSuppression : (obj : MediaTrackSettings) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.noiseSuppression  = v}"
   prim__setNoiseSuppression : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setNoiseSuppression : (obj : MediaTrackSettings) -> (v : Bool) -> IO ()
+  setNoiseSuppression : (obj : MediaTrackSettings) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.resizeMode"
   prim__resizeMode : AnyPtr -> PrimIO AnyPtr
 
   export
-  resizeMode : (obj : MediaTrackSettings) -> IO String
+  resizeMode : (obj : MediaTrackSettings) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.resizeMode  = v}"
   prim__setResizeMode : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setResizeMode : (obj : MediaTrackSettings) -> (v : String) -> IO ()
+  setResizeMode : (obj : MediaTrackSettings) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.sampleRate"
   prim__sampleRate : AnyPtr -> PrimIO AnyPtr
 
   export
-  sampleRate : (obj : MediaTrackSettings) -> IO Int32
+  sampleRate : (obj : MediaTrackSettings) -> JSIO Int32
 
   %foreign "browser:lambda:(x,v)=>{x.sampleRate  = v}"
   prim__setSampleRate : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSampleRate : (obj : MediaTrackSettings) -> (v : Int32) -> IO ()
+  setSampleRate : (obj : MediaTrackSettings) -> (v : Int32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.sampleSize"
   prim__sampleSize : AnyPtr -> PrimIO AnyPtr
 
   export
-  sampleSize : (obj : MediaTrackSettings) -> IO Int32
+  sampleSize : (obj : MediaTrackSettings) -> JSIO Int32
 
   %foreign "browser:lambda:(x,v)=>{x.sampleSize  = v}"
   prim__setSampleSize : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSampleSize : (obj : MediaTrackSettings) -> (v : Int32) -> IO ()
+  setSampleSize : (obj : MediaTrackSettings) -> (v : Int32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
 
   export
-  width : (obj : MediaTrackSettings) -> IO Int32
+  width : (obj : MediaTrackSettings) -> JSIO Int32
 
   %foreign "browser:lambda:(x,v)=>{x.width  = v}"
   prim__setWidth : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setWidth : (obj : MediaTrackSettings) -> (v : Int32) -> IO ()
+  setWidth : (obj : MediaTrackSettings) -> (v : Int32) -> JSIO ()
 
 namespace MediaTrackSupportedConstraints
   
@@ -1132,19 +1138,21 @@ namespace MediaTrackSupportedConstraints
   prim__aspectRatio : AnyPtr -> PrimIO AnyPtr
 
   export
-  aspectRatio : (obj : MediaTrackSupportedConstraints) -> IO Bool
+  aspectRatio : (obj : MediaTrackSupportedConstraints) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.aspectRatio  = v}"
   prim__setAspectRatio : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAspectRatio : (obj : MediaTrackSupportedConstraints) -> (v : Bool) -> IO ()
+  setAspectRatio :  (obj : MediaTrackSupportedConstraints)
+                 -> (v : Bool)
+                 -> JSIO ()
   
   %foreign "browser:lambda:x=>x.autoGainControl"
   prim__autoGainControl : AnyPtr -> PrimIO AnyPtr
 
   export
-  autoGainControl : (obj : MediaTrackSupportedConstraints) -> IO Bool
+  autoGainControl : (obj : MediaTrackSupportedConstraints) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.autoGainControl  = v}"
   prim__setAutoGainControl : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -1152,13 +1160,13 @@ namespace MediaTrackSupportedConstraints
   export
   setAutoGainControl :  (obj : MediaTrackSupportedConstraints)
                      -> (v : Bool)
-                     -> IO ()
+                     -> JSIO ()
   
   %foreign "browser:lambda:x=>x.channelCount"
   prim__channelCount : AnyPtr -> PrimIO AnyPtr
 
   export
-  channelCount : (obj : MediaTrackSupportedConstraints) -> IO Bool
+  channelCount : (obj : MediaTrackSupportedConstraints) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.channelCount  = v}"
   prim__setChannelCount : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -1166,25 +1174,25 @@ namespace MediaTrackSupportedConstraints
   export
   setChannelCount :  (obj : MediaTrackSupportedConstraints)
                   -> (v : Bool)
-                  -> IO ()
+                  -> JSIO ()
   
   %foreign "browser:lambda:x=>x.deviceId"
   prim__deviceId : AnyPtr -> PrimIO AnyPtr
 
   export
-  deviceId : (obj : MediaTrackSupportedConstraints) -> IO Bool
+  deviceId : (obj : MediaTrackSupportedConstraints) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.deviceId  = v}"
   prim__setDeviceId : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDeviceId : (obj : MediaTrackSupportedConstraints) -> (v : Bool) -> IO ()
+  setDeviceId : (obj : MediaTrackSupportedConstraints) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.echoCancellation"
   prim__echoCancellation : AnyPtr -> PrimIO AnyPtr
 
   export
-  echoCancellation : (obj : MediaTrackSupportedConstraints) -> IO Bool
+  echoCancellation : (obj : MediaTrackSupportedConstraints) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.echoCancellation  = v}"
   prim__setEchoCancellation : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -1192,73 +1200,75 @@ namespace MediaTrackSupportedConstraints
   export
   setEchoCancellation :  (obj : MediaTrackSupportedConstraints)
                       -> (v : Bool)
-                      -> IO ()
+                      -> JSIO ()
   
   %foreign "browser:lambda:x=>x.facingMode"
   prim__facingMode : AnyPtr -> PrimIO AnyPtr
 
   export
-  facingMode : (obj : MediaTrackSupportedConstraints) -> IO Bool
+  facingMode : (obj : MediaTrackSupportedConstraints) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.facingMode  = v}"
   prim__setFacingMode : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setFacingMode : (obj : MediaTrackSupportedConstraints) -> (v : Bool) -> IO ()
+  setFacingMode :  (obj : MediaTrackSupportedConstraints)
+                -> (v : Bool)
+                -> JSIO ()
   
   %foreign "browser:lambda:x=>x.frameRate"
   prim__frameRate : AnyPtr -> PrimIO AnyPtr
 
   export
-  frameRate : (obj : MediaTrackSupportedConstraints) -> IO Bool
+  frameRate : (obj : MediaTrackSupportedConstraints) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.frameRate  = v}"
   prim__setFrameRate : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setFrameRate : (obj : MediaTrackSupportedConstraints) -> (v : Bool) -> IO ()
+  setFrameRate : (obj : MediaTrackSupportedConstraints) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.groupId"
   prim__groupId : AnyPtr -> PrimIO AnyPtr
 
   export
-  groupId : (obj : MediaTrackSupportedConstraints) -> IO Bool
+  groupId : (obj : MediaTrackSupportedConstraints) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.groupId  = v}"
   prim__setGroupId : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setGroupId : (obj : MediaTrackSupportedConstraints) -> (v : Bool) -> IO ()
+  setGroupId : (obj : MediaTrackSupportedConstraints) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.height"
   prim__height : AnyPtr -> PrimIO AnyPtr
 
   export
-  height : (obj : MediaTrackSupportedConstraints) -> IO Bool
+  height : (obj : MediaTrackSupportedConstraints) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.height  = v}"
   prim__setHeight : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHeight : (obj : MediaTrackSupportedConstraints) -> (v : Bool) -> IO ()
+  setHeight : (obj : MediaTrackSupportedConstraints) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.latency"
   prim__latency : AnyPtr -> PrimIO AnyPtr
 
   export
-  latency : (obj : MediaTrackSupportedConstraints) -> IO Bool
+  latency : (obj : MediaTrackSupportedConstraints) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.latency  = v}"
   prim__setLatency : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setLatency : (obj : MediaTrackSupportedConstraints) -> (v : Bool) -> IO ()
+  setLatency : (obj : MediaTrackSupportedConstraints) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.noiseSuppression"
   prim__noiseSuppression : AnyPtr -> PrimIO AnyPtr
 
   export
-  noiseSuppression : (obj : MediaTrackSupportedConstraints) -> IO Bool
+  noiseSuppression : (obj : MediaTrackSupportedConstraints) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.noiseSuppression  = v}"
   prim__setNoiseSuppression : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -1266,55 +1276,61 @@ namespace MediaTrackSupportedConstraints
   export
   setNoiseSuppression :  (obj : MediaTrackSupportedConstraints)
                       -> (v : Bool)
-                      -> IO ()
+                      -> JSIO ()
   
   %foreign "browser:lambda:x=>x.resizeMode"
   prim__resizeMode : AnyPtr -> PrimIO AnyPtr
 
   export
-  resizeMode : (obj : MediaTrackSupportedConstraints) -> IO Bool
+  resizeMode : (obj : MediaTrackSupportedConstraints) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.resizeMode  = v}"
   prim__setResizeMode : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setResizeMode : (obj : MediaTrackSupportedConstraints) -> (v : Bool) -> IO ()
+  setResizeMode :  (obj : MediaTrackSupportedConstraints)
+                -> (v : Bool)
+                -> JSIO ()
   
   %foreign "browser:lambda:x=>x.sampleRate"
   prim__sampleRate : AnyPtr -> PrimIO AnyPtr
 
   export
-  sampleRate : (obj : MediaTrackSupportedConstraints) -> IO Bool
+  sampleRate : (obj : MediaTrackSupportedConstraints) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.sampleRate  = v}"
   prim__setSampleRate : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSampleRate : (obj : MediaTrackSupportedConstraints) -> (v : Bool) -> IO ()
+  setSampleRate :  (obj : MediaTrackSupportedConstraints)
+                -> (v : Bool)
+                -> JSIO ()
   
   %foreign "browser:lambda:x=>x.sampleSize"
   prim__sampleSize : AnyPtr -> PrimIO AnyPtr
 
   export
-  sampleSize : (obj : MediaTrackSupportedConstraints) -> IO Bool
+  sampleSize : (obj : MediaTrackSupportedConstraints) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.sampleSize  = v}"
   prim__setSampleSize : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setSampleSize : (obj : MediaTrackSupportedConstraints) -> (v : Bool) -> IO ()
+  setSampleSize :  (obj : MediaTrackSupportedConstraints)
+                -> (v : Bool)
+                -> JSIO ()
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
 
   export
-  width : (obj : MediaTrackSupportedConstraints) -> IO Bool
+  width : (obj : MediaTrackSupportedConstraints) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.width  = v}"
   prim__setWidth : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setWidth : (obj : MediaTrackSupportedConstraints) -> (v : Bool) -> IO ()
+  setWidth : (obj : MediaTrackSupportedConstraints) -> (v : Bool) -> JSIO ()
 
 namespace Settings
   
@@ -1336,23 +1352,23 @@ namespace ULongRange
   prim__max : AnyPtr -> PrimIO AnyPtr
 
   export
-  max : (obj : ULongRange) -> IO UInt32
+  max : (obj : ULongRange) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.max  = v}"
   prim__setMax : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setMax : (obj : ULongRange) -> (v : UInt32) -> IO ()
+  setMax : (obj : ULongRange) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.min"
   prim__min : AnyPtr -> PrimIO AnyPtr
 
   export
-  min : (obj : ULongRange) -> IO UInt32
+  min : (obj : ULongRange) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.min  = v}"
   prim__setMin : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setMin : (obj : ULongRange) -> (v : UInt32) -> IO ()
+  setMin : (obj : ULongRange) -> (v : UInt32) -> JSIO ()
 

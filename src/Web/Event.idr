@@ -18,7 +18,7 @@ namespace CompositionEvent
   prim__data_ : AnyPtr -> PrimIO AnyPtr
 
   export
-  data_ : (obj : CompositionEvent) -> IO String
+  data_ : (obj : CompositionEvent) -> JSIO String
 
 namespace FocusEvent
   
@@ -32,7 +32,7 @@ namespace FocusEvent
   prim__relatedTarget : AnyPtr -> PrimIO AnyPtr
 
   export
-  relatedTarget : (obj : FocusEvent) -> IO (Maybe EventTarget)
+  relatedTarget : (obj : FocusEvent) -> JSIO (Maybe EventTarget)
 
 namespace InputEvent
   
@@ -46,19 +46,19 @@ namespace InputEvent
   prim__data_ : AnyPtr -> PrimIO AnyPtr
 
   export
-  data_ : (obj : InputEvent) -> IO (Maybe String)
+  data_ : (obj : InputEvent) -> JSIO (Maybe String)
   
   %foreign "browser:lambda:x=>x.inputType"
   prim__inputType : AnyPtr -> PrimIO AnyPtr
 
   export
-  inputType : (obj : InputEvent) -> IO String
+  inputType : (obj : InputEvent) -> JSIO String
   
   %foreign "browser:lambda:x=>x.isComposing"
   prim__isComposing : AnyPtr -> PrimIO AnyPtr
 
   export
-  isComposing : (obj : InputEvent) -> IO Bool
+  isComposing : (obj : InputEvent) -> JSIO Bool
 
 namespace KeyboardEvent
   
@@ -88,67 +88,67 @@ namespace KeyboardEvent
   prim__altKey : AnyPtr -> PrimIO AnyPtr
 
   export
-  altKey : (obj : KeyboardEvent) -> IO Bool
+  altKey : (obj : KeyboardEvent) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.charCode"
   prim__charCode : AnyPtr -> PrimIO AnyPtr
 
   export
-  charCode : (obj : KeyboardEvent) -> IO UInt32
+  charCode : (obj : KeyboardEvent) -> JSIO UInt32
   
   %foreign "browser:lambda:x=>x.code"
   prim__code : AnyPtr -> PrimIO AnyPtr
 
   export
-  code : (obj : KeyboardEvent) -> IO String
+  code : (obj : KeyboardEvent) -> JSIO String
   
   %foreign "browser:lambda:x=>x.ctrlKey"
   prim__ctrlKey : AnyPtr -> PrimIO AnyPtr
 
   export
-  ctrlKey : (obj : KeyboardEvent) -> IO Bool
+  ctrlKey : (obj : KeyboardEvent) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.isComposing"
   prim__isComposing : AnyPtr -> PrimIO AnyPtr
 
   export
-  isComposing : (obj : KeyboardEvent) -> IO Bool
+  isComposing : (obj : KeyboardEvent) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.key"
   prim__key : AnyPtr -> PrimIO AnyPtr
 
   export
-  key : (obj : KeyboardEvent) -> IO String
+  key : (obj : KeyboardEvent) -> JSIO String
   
   %foreign "browser:lambda:x=>x.keyCode"
   prim__keyCode : AnyPtr -> PrimIO AnyPtr
 
   export
-  keyCode : (obj : KeyboardEvent) -> IO UInt32
+  keyCode : (obj : KeyboardEvent) -> JSIO UInt32
   
   %foreign "browser:lambda:x=>x.location"
   prim__location : AnyPtr -> PrimIO AnyPtr
 
   export
-  location : (obj : KeyboardEvent) -> IO UInt32
+  location : (obj : KeyboardEvent) -> JSIO UInt32
   
   %foreign "browser:lambda:x=>x.metaKey"
   prim__metaKey : AnyPtr -> PrimIO AnyPtr
 
   export
-  metaKey : (obj : KeyboardEvent) -> IO Bool
+  metaKey : (obj : KeyboardEvent) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.repeat"
   prim__repeat : AnyPtr -> PrimIO AnyPtr
 
   export
-  repeat : (obj : KeyboardEvent) -> IO Bool
+  repeat : (obj : KeyboardEvent) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.shiftKey"
   prim__shiftKey : AnyPtr -> PrimIO AnyPtr
 
   export
-  shiftKey : (obj : KeyboardEvent) -> IO Bool
+  shiftKey : (obj : KeyboardEvent) -> JSIO Bool
 
 namespace MouseEvent
   
@@ -162,67 +162,67 @@ namespace MouseEvent
   prim__altKey : AnyPtr -> PrimIO AnyPtr
 
   export
-  altKey : (obj : MouseEvent) -> IO Bool
+  altKey : (obj : MouseEvent) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.button"
   prim__button : AnyPtr -> PrimIO AnyPtr
 
   export
-  button : (obj : MouseEvent) -> IO Int16
+  button : (obj : MouseEvent) -> JSIO Int16
   
   %foreign "browser:lambda:x=>x.buttons"
   prim__buttons : AnyPtr -> PrimIO AnyPtr
 
   export
-  buttons : (obj : MouseEvent) -> IO UInt16
+  buttons : (obj : MouseEvent) -> JSIO UInt16
   
   %foreign "browser:lambda:x=>x.clientX"
   prim__clientX : AnyPtr -> PrimIO AnyPtr
 
   export
-  clientX : (obj : MouseEvent) -> IO Int32
+  clientX : (obj : MouseEvent) -> JSIO Int32
   
   %foreign "browser:lambda:x=>x.clientY"
   prim__clientY : AnyPtr -> PrimIO AnyPtr
 
   export
-  clientY : (obj : MouseEvent) -> IO Int32
+  clientY : (obj : MouseEvent) -> JSIO Int32
   
   %foreign "browser:lambda:x=>x.ctrlKey"
   prim__ctrlKey : AnyPtr -> PrimIO AnyPtr
 
   export
-  ctrlKey : (obj : MouseEvent) -> IO Bool
+  ctrlKey : (obj : MouseEvent) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.metaKey"
   prim__metaKey : AnyPtr -> PrimIO AnyPtr
 
   export
-  metaKey : (obj : MouseEvent) -> IO Bool
+  metaKey : (obj : MouseEvent) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.relatedTarget"
   prim__relatedTarget : AnyPtr -> PrimIO AnyPtr
 
   export
-  relatedTarget : (obj : MouseEvent) -> IO (Maybe EventTarget)
+  relatedTarget : (obj : MouseEvent) -> JSIO (Maybe EventTarget)
   
   %foreign "browser:lambda:x=>x.screenX"
   prim__screenX : AnyPtr -> PrimIO AnyPtr
 
   export
-  screenX : (obj : MouseEvent) -> IO Int32
+  screenX : (obj : MouseEvent) -> JSIO Int32
   
   %foreign "browser:lambda:x=>x.screenY"
   prim__screenY : AnyPtr -> PrimIO AnyPtr
 
   export
-  screenY : (obj : MouseEvent) -> IO Int32
+  screenY : (obj : MouseEvent) -> JSIO Int32
   
   %foreign "browser:lambda:x=>x.shiftKey"
   prim__shiftKey : AnyPtr -> PrimIO AnyPtr
 
   export
-  shiftKey : (obj : MouseEvent) -> IO Bool
+  shiftKey : (obj : MouseEvent) -> JSIO Bool
 
 namespace UIEvent
   
@@ -236,19 +236,19 @@ namespace UIEvent
   prim__detail : AnyPtr -> PrimIO AnyPtr
 
   export
-  detail : (obj : UIEvent) -> IO Int32
+  detail : (obj : UIEvent) -> JSIO Int32
   
   %foreign "browser:lambda:x=>x.view"
   prim__view : AnyPtr -> PrimIO AnyPtr
 
   export
-  view : (obj : UIEvent) -> IO (Maybe Window)
+  view : (obj : UIEvent) -> JSIO (Maybe Window)
   
   %foreign "browser:lambda:x=>x.which"
   prim__which : AnyPtr -> PrimIO AnyPtr
 
   export
-  which : (obj : UIEvent) -> IO UInt32
+  which : (obj : UIEvent) -> JSIO UInt32
 
 namespace WheelEvent
   
@@ -274,25 +274,25 @@ namespace WheelEvent
   prim__deltaMode : AnyPtr -> PrimIO AnyPtr
 
   export
-  deltaMode : (obj : WheelEvent) -> IO UInt32
+  deltaMode : (obj : WheelEvent) -> JSIO UInt32
   
   %foreign "browser:lambda:x=>x.deltaX"
   prim__deltaX : AnyPtr -> PrimIO AnyPtr
 
   export
-  deltaX : (obj : WheelEvent) -> IO Double
+  deltaX : (obj : WheelEvent) -> JSIO Double
   
   %foreign "browser:lambda:x=>x.deltaY"
   prim__deltaY : AnyPtr -> PrimIO AnyPtr
 
   export
-  deltaY : (obj : WheelEvent) -> IO Double
+  deltaY : (obj : WheelEvent) -> JSIO Double
   
   %foreign "browser:lambda:x=>x.deltaZ"
   prim__deltaZ : AnyPtr -> PrimIO AnyPtr
 
   export
-  deltaZ : (obj : WheelEvent) -> IO Double
+  deltaZ : (obj : WheelEvent) -> JSIO Double
 
 
 --------------------------------------------------------------------------------
@@ -311,13 +311,13 @@ namespace CompositionEventInit
   prim__data_ : AnyPtr -> PrimIO AnyPtr
 
   export
-  data_ : (obj : CompositionEventInit) -> IO String
+  data_ : (obj : CompositionEventInit) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.data  = v}"
   prim__setData : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setData : (obj : CompositionEventInit) -> (v : String) -> IO ()
+  setData : (obj : CompositionEventInit) -> (v : String) -> JSIO ()
 
 namespace EventModifierInit
   
@@ -331,169 +331,169 @@ namespace EventModifierInit
   prim__altKey : AnyPtr -> PrimIO AnyPtr
 
   export
-  altKey : (obj : EventModifierInit) -> IO Bool
+  altKey : (obj : EventModifierInit) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.altKey  = v}"
   prim__setAltKey : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAltKey : (obj : EventModifierInit) -> (v : Bool) -> IO ()
+  setAltKey : (obj : EventModifierInit) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ctrlKey"
   prim__ctrlKey : AnyPtr -> PrimIO AnyPtr
 
   export
-  ctrlKey : (obj : EventModifierInit) -> IO Bool
+  ctrlKey : (obj : EventModifierInit) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.ctrlKey  = v}"
   prim__setCtrlKey : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCtrlKey : (obj : EventModifierInit) -> (v : Bool) -> IO ()
+  setCtrlKey : (obj : EventModifierInit) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.metaKey"
   prim__metaKey : AnyPtr -> PrimIO AnyPtr
 
   export
-  metaKey : (obj : EventModifierInit) -> IO Bool
+  metaKey : (obj : EventModifierInit) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.metaKey  = v}"
   prim__setMetaKey : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setMetaKey : (obj : EventModifierInit) -> (v : Bool) -> IO ()
+  setMetaKey : (obj : EventModifierInit) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.modifierAltGraph"
   prim__modifierAltGraph : AnyPtr -> PrimIO AnyPtr
 
   export
-  modifierAltGraph : (obj : EventModifierInit) -> IO Bool
+  modifierAltGraph : (obj : EventModifierInit) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.modifierAltGraph  = v}"
   prim__setModifierAltGraph : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setModifierAltGraph : (obj : EventModifierInit) -> (v : Bool) -> IO ()
+  setModifierAltGraph : (obj : EventModifierInit) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.modifierCapsLock"
   prim__modifierCapsLock : AnyPtr -> PrimIO AnyPtr
 
   export
-  modifierCapsLock : (obj : EventModifierInit) -> IO Bool
+  modifierCapsLock : (obj : EventModifierInit) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.modifierCapsLock  = v}"
   prim__setModifierCapsLock : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setModifierCapsLock : (obj : EventModifierInit) -> (v : Bool) -> IO ()
+  setModifierCapsLock : (obj : EventModifierInit) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.modifierFn"
   prim__modifierFn : AnyPtr -> PrimIO AnyPtr
 
   export
-  modifierFn : (obj : EventModifierInit) -> IO Bool
+  modifierFn : (obj : EventModifierInit) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.modifierFn  = v}"
   prim__setModifierFn : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setModifierFn : (obj : EventModifierInit) -> (v : Bool) -> IO ()
+  setModifierFn : (obj : EventModifierInit) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.modifierFnLock"
   prim__modifierFnLock : AnyPtr -> PrimIO AnyPtr
 
   export
-  modifierFnLock : (obj : EventModifierInit) -> IO Bool
+  modifierFnLock : (obj : EventModifierInit) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.modifierFnLock  = v}"
   prim__setModifierFnLock : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setModifierFnLock : (obj : EventModifierInit) -> (v : Bool) -> IO ()
+  setModifierFnLock : (obj : EventModifierInit) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.modifierHyper"
   prim__modifierHyper : AnyPtr -> PrimIO AnyPtr
 
   export
-  modifierHyper : (obj : EventModifierInit) -> IO Bool
+  modifierHyper : (obj : EventModifierInit) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.modifierHyper  = v}"
   prim__setModifierHyper : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setModifierHyper : (obj : EventModifierInit) -> (v : Bool) -> IO ()
+  setModifierHyper : (obj : EventModifierInit) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.modifierNumLock"
   prim__modifierNumLock : AnyPtr -> PrimIO AnyPtr
 
   export
-  modifierNumLock : (obj : EventModifierInit) -> IO Bool
+  modifierNumLock : (obj : EventModifierInit) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.modifierNumLock  = v}"
   prim__setModifierNumLock : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setModifierNumLock : (obj : EventModifierInit) -> (v : Bool) -> IO ()
+  setModifierNumLock : (obj : EventModifierInit) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.modifierScrollLock"
   prim__modifierScrollLock : AnyPtr -> PrimIO AnyPtr
 
   export
-  modifierScrollLock : (obj : EventModifierInit) -> IO Bool
+  modifierScrollLock : (obj : EventModifierInit) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.modifierScrollLock  = v}"
   prim__setModifierScrollLock : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setModifierScrollLock : (obj : EventModifierInit) -> (v : Bool) -> IO ()
+  setModifierScrollLock : (obj : EventModifierInit) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.modifierSuper"
   prim__modifierSuper : AnyPtr -> PrimIO AnyPtr
 
   export
-  modifierSuper : (obj : EventModifierInit) -> IO Bool
+  modifierSuper : (obj : EventModifierInit) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.modifierSuper  = v}"
   prim__setModifierSuper : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setModifierSuper : (obj : EventModifierInit) -> (v : Bool) -> IO ()
+  setModifierSuper : (obj : EventModifierInit) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.modifierSymbol"
   prim__modifierSymbol : AnyPtr -> PrimIO AnyPtr
 
   export
-  modifierSymbol : (obj : EventModifierInit) -> IO Bool
+  modifierSymbol : (obj : EventModifierInit) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.modifierSymbol  = v}"
   prim__setModifierSymbol : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setModifierSymbol : (obj : EventModifierInit) -> (v : Bool) -> IO ()
+  setModifierSymbol : (obj : EventModifierInit) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.modifierSymbolLock"
   prim__modifierSymbolLock : AnyPtr -> PrimIO AnyPtr
 
   export
-  modifierSymbolLock : (obj : EventModifierInit) -> IO Bool
+  modifierSymbolLock : (obj : EventModifierInit) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.modifierSymbolLock  = v}"
   prim__setModifierSymbolLock : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setModifierSymbolLock : (obj : EventModifierInit) -> (v : Bool) -> IO ()
+  setModifierSymbolLock : (obj : EventModifierInit) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.shiftKey"
   prim__shiftKey : AnyPtr -> PrimIO AnyPtr
 
   export
-  shiftKey : (obj : EventModifierInit) -> IO Bool
+  shiftKey : (obj : EventModifierInit) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.shiftKey  = v}"
   prim__setShiftKey : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setShiftKey : (obj : EventModifierInit) -> (v : Bool) -> IO ()
+  setShiftKey : (obj : EventModifierInit) -> (v : Bool) -> JSIO ()
 
 namespace FocusEventInit
   
@@ -507,13 +507,15 @@ namespace FocusEventInit
   prim__relatedTarget : AnyPtr -> PrimIO AnyPtr
 
   export
-  relatedTarget : (obj : FocusEventInit) -> IO (Maybe EventTarget)
+  relatedTarget : (obj : FocusEventInit) -> JSIO (Maybe EventTarget)
 
   %foreign "browser:lambda:(x,v)=>{x.relatedTarget  = v}"
   prim__setRelatedTarget : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setRelatedTarget : (obj : FocusEventInit) -> (v : Maybe EventTarget) -> IO ()
+  setRelatedTarget :  (obj : FocusEventInit)
+                   -> (v : Maybe EventTarget)
+                   -> JSIO ()
 
 namespace InputEventInit
   
@@ -527,37 +529,37 @@ namespace InputEventInit
   prim__data_ : AnyPtr -> PrimIO AnyPtr
 
   export
-  data_ : (obj : InputEventInit) -> IO (Maybe String)
+  data_ : (obj : InputEventInit) -> JSIO (Maybe String)
 
   %foreign "browser:lambda:(x,v)=>{x.data  = v}"
   prim__setData : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setData : (obj : InputEventInit) -> (v : Maybe String) -> IO ()
+  setData : (obj : InputEventInit) -> (v : Maybe String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.inputType"
   prim__inputType : AnyPtr -> PrimIO AnyPtr
 
   export
-  inputType : (obj : InputEventInit) -> IO String
+  inputType : (obj : InputEventInit) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.inputType  = v}"
   prim__setInputType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setInputType : (obj : InputEventInit) -> (v : String) -> IO ()
+  setInputType : (obj : InputEventInit) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.isComposing"
   prim__isComposing : AnyPtr -> PrimIO AnyPtr
 
   export
-  isComposing : (obj : InputEventInit) -> IO Bool
+  isComposing : (obj : InputEventInit) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.isComposing  = v}"
   prim__setIsComposing : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setIsComposing : (obj : InputEventInit) -> (v : Bool) -> IO ()
+  setIsComposing : (obj : InputEventInit) -> (v : Bool) -> JSIO ()
 
 namespace KeyboardEventInit
   
@@ -571,85 +573,85 @@ namespace KeyboardEventInit
   prim__charCode : AnyPtr -> PrimIO AnyPtr
 
   export
-  charCode : (obj : KeyboardEventInit) -> IO UInt32
+  charCode : (obj : KeyboardEventInit) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.charCode  = v}"
   prim__setCharCode : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCharCode : (obj : KeyboardEventInit) -> (v : UInt32) -> IO ()
+  setCharCode : (obj : KeyboardEventInit) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.code"
   prim__code : AnyPtr -> PrimIO AnyPtr
 
   export
-  code : (obj : KeyboardEventInit) -> IO String
+  code : (obj : KeyboardEventInit) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.code  = v}"
   prim__setCode : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCode : (obj : KeyboardEventInit) -> (v : String) -> IO ()
+  setCode : (obj : KeyboardEventInit) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.isComposing"
   prim__isComposing : AnyPtr -> PrimIO AnyPtr
 
   export
-  isComposing : (obj : KeyboardEventInit) -> IO Bool
+  isComposing : (obj : KeyboardEventInit) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.isComposing  = v}"
   prim__setIsComposing : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setIsComposing : (obj : KeyboardEventInit) -> (v : Bool) -> IO ()
+  setIsComposing : (obj : KeyboardEventInit) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.key"
   prim__key : AnyPtr -> PrimIO AnyPtr
 
   export
-  key : (obj : KeyboardEventInit) -> IO String
+  key : (obj : KeyboardEventInit) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.key  = v}"
   prim__setKey : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setKey : (obj : KeyboardEventInit) -> (v : String) -> IO ()
+  setKey : (obj : KeyboardEventInit) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.keyCode"
   prim__keyCode : AnyPtr -> PrimIO AnyPtr
 
   export
-  keyCode : (obj : KeyboardEventInit) -> IO UInt32
+  keyCode : (obj : KeyboardEventInit) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.keyCode  = v}"
   prim__setKeyCode : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setKeyCode : (obj : KeyboardEventInit) -> (v : UInt32) -> IO ()
+  setKeyCode : (obj : KeyboardEventInit) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.location"
   prim__location : AnyPtr -> PrimIO AnyPtr
 
   export
-  location : (obj : KeyboardEventInit) -> IO UInt32
+  location : (obj : KeyboardEventInit) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.location  = v}"
   prim__setLocation : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setLocation : (obj : KeyboardEventInit) -> (v : UInt32) -> IO ()
+  setLocation : (obj : KeyboardEventInit) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.repeat"
   prim__repeat : AnyPtr -> PrimIO AnyPtr
 
   export
-  repeat : (obj : KeyboardEventInit) -> IO Bool
+  repeat : (obj : KeyboardEventInit) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.repeat  = v}"
   prim__setRepeat : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setRepeat : (obj : KeyboardEventInit) -> (v : Bool) -> IO ()
+  setRepeat : (obj : KeyboardEventInit) -> (v : Bool) -> JSIO ()
 
 namespace MouseEventInit
   
@@ -663,85 +665,87 @@ namespace MouseEventInit
   prim__button : AnyPtr -> PrimIO AnyPtr
 
   export
-  button : (obj : MouseEventInit) -> IO Int16
+  button : (obj : MouseEventInit) -> JSIO Int16
 
   %foreign "browser:lambda:(x,v)=>{x.button  = v}"
   prim__setButton : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setButton : (obj : MouseEventInit) -> (v : Int16) -> IO ()
+  setButton : (obj : MouseEventInit) -> (v : Int16) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.buttons"
   prim__buttons : AnyPtr -> PrimIO AnyPtr
 
   export
-  buttons : (obj : MouseEventInit) -> IO UInt16
+  buttons : (obj : MouseEventInit) -> JSIO UInt16
 
   %foreign "browser:lambda:(x,v)=>{x.buttons  = v}"
   prim__setButtons : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setButtons : (obj : MouseEventInit) -> (v : UInt16) -> IO ()
+  setButtons : (obj : MouseEventInit) -> (v : UInt16) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.clientX"
   prim__clientX : AnyPtr -> PrimIO AnyPtr
 
   export
-  clientX : (obj : MouseEventInit) -> IO Int32
+  clientX : (obj : MouseEventInit) -> JSIO Int32
 
   %foreign "browser:lambda:(x,v)=>{x.clientX  = v}"
   prim__setClientX : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setClientX : (obj : MouseEventInit) -> (v : Int32) -> IO ()
+  setClientX : (obj : MouseEventInit) -> (v : Int32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.clientY"
   prim__clientY : AnyPtr -> PrimIO AnyPtr
 
   export
-  clientY : (obj : MouseEventInit) -> IO Int32
+  clientY : (obj : MouseEventInit) -> JSIO Int32
 
   %foreign "browser:lambda:(x,v)=>{x.clientY  = v}"
   prim__setClientY : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setClientY : (obj : MouseEventInit) -> (v : Int32) -> IO ()
+  setClientY : (obj : MouseEventInit) -> (v : Int32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.relatedTarget"
   prim__relatedTarget : AnyPtr -> PrimIO AnyPtr
 
   export
-  relatedTarget : (obj : MouseEventInit) -> IO (Maybe EventTarget)
+  relatedTarget : (obj : MouseEventInit) -> JSIO (Maybe EventTarget)
 
   %foreign "browser:lambda:(x,v)=>{x.relatedTarget  = v}"
   prim__setRelatedTarget : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setRelatedTarget : (obj : MouseEventInit) -> (v : Maybe EventTarget) -> IO ()
+  setRelatedTarget :  (obj : MouseEventInit)
+                   -> (v : Maybe EventTarget)
+                   -> JSIO ()
   
   %foreign "browser:lambda:x=>x.screenX"
   prim__screenX : AnyPtr -> PrimIO AnyPtr
 
   export
-  screenX : (obj : MouseEventInit) -> IO Int32
+  screenX : (obj : MouseEventInit) -> JSIO Int32
 
   %foreign "browser:lambda:(x,v)=>{x.screenX  = v}"
   prim__setScreenX : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setScreenX : (obj : MouseEventInit) -> (v : Int32) -> IO ()
+  setScreenX : (obj : MouseEventInit) -> (v : Int32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.screenY"
   prim__screenY : AnyPtr -> PrimIO AnyPtr
 
   export
-  screenY : (obj : MouseEventInit) -> IO Int32
+  screenY : (obj : MouseEventInit) -> JSIO Int32
 
   %foreign "browser:lambda:(x,v)=>{x.screenY  = v}"
   prim__setScreenY : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setScreenY : (obj : MouseEventInit) -> (v : Int32) -> IO ()
+  setScreenY : (obj : MouseEventInit) -> (v : Int32) -> JSIO ()
 
 namespace UIEventInit
   
@@ -755,25 +759,25 @@ namespace UIEventInit
   prim__detail : AnyPtr -> PrimIO AnyPtr
 
   export
-  detail : (obj : UIEventInit) -> IO Int32
+  detail : (obj : UIEventInit) -> JSIO Int32
 
   %foreign "browser:lambda:(x,v)=>{x.detail  = v}"
   prim__setDetail : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDetail : (obj : UIEventInit) -> (v : Int32) -> IO ()
+  setDetail : (obj : UIEventInit) -> (v : Int32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.view"
   prim__view : AnyPtr -> PrimIO AnyPtr
 
   export
-  view : (obj : UIEventInit) -> IO (Maybe Window)
+  view : (obj : UIEventInit) -> JSIO (Maybe Window)
 
   %foreign "browser:lambda:(x,v)=>{x.view  = v}"
   prim__setView : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setView : (obj : UIEventInit) -> (v : Maybe Window) -> IO ()
+  setView : (obj : UIEventInit) -> (v : Maybe Window) -> JSIO ()
 
 namespace WheelEventInit
   
@@ -792,47 +796,47 @@ namespace WheelEventInit
   prim__deltaMode : AnyPtr -> PrimIO AnyPtr
 
   export
-  deltaMode : (obj : WheelEventInit) -> IO UInt32
+  deltaMode : (obj : WheelEventInit) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.deltaMode  = v}"
   prim__setDeltaMode : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDeltaMode : (obj : WheelEventInit) -> (v : UInt32) -> IO ()
+  setDeltaMode : (obj : WheelEventInit) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.deltaX"
   prim__deltaX : AnyPtr -> PrimIO AnyPtr
 
   export
-  deltaX : (obj : WheelEventInit) -> IO Double
+  deltaX : (obj : WheelEventInit) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.deltaX  = v}"
   prim__setDeltaX : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDeltaX : (obj : WheelEventInit) -> (v : Double) -> IO ()
+  setDeltaX : (obj : WheelEventInit) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.deltaY"
   prim__deltaY : AnyPtr -> PrimIO AnyPtr
 
   export
-  deltaY : (obj : WheelEventInit) -> IO Double
+  deltaY : (obj : WheelEventInit) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.deltaY  = v}"
   prim__setDeltaY : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDeltaY : (obj : WheelEventInit) -> (v : Double) -> IO ()
+  setDeltaY : (obj : WheelEventInit) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.deltaZ"
   prim__deltaZ : AnyPtr -> PrimIO AnyPtr
 
   export
-  deltaZ : (obj : WheelEventInit) -> IO Double
+  deltaZ : (obj : WheelEventInit) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.deltaZ  = v}"
   prim__setDeltaZ : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDeltaZ : (obj : WheelEventInit) -> (v : Double) -> IO ()
+  setDeltaZ : (obj : WheelEventInit) -> (v : Double) -> JSIO ()
 

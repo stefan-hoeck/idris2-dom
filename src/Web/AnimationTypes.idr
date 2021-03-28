@@ -254,6 +254,7 @@ namespace CompositeOperationOrAuto
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
+
 export data Animation : Type where [external]
 
 export
@@ -262,6 +263,7 @@ SafeCast Animation where
 
 export ToJS Animation where toJS = believe_me
 export FromJS Animation where fromJS = safeCast
+
 export data AnimationEffect : Type where [external]
 
 export
@@ -270,6 +272,7 @@ SafeCast AnimationEffect where
 
 export ToJS AnimationEffect where toJS = believe_me
 export FromJS AnimationEffect where fromJS = safeCast
+
 export data AnimationPlaybackEvent : Type where [external]
 
 export
@@ -278,6 +281,7 @@ SafeCast AnimationPlaybackEvent where
 
 export ToJS AnimationPlaybackEvent where toJS = believe_me
 export FromJS AnimationPlaybackEvent where fromJS = safeCast
+
 export data AnimationTimeline : Type where [external]
 
 export
@@ -286,6 +290,7 @@ SafeCast AnimationTimeline where
 
 export ToJS AnimationTimeline where toJS = believe_me
 export FromJS AnimationTimeline where fromJS = safeCast
+
 export data DocumentTimeline : Type where [external]
 
 export
@@ -294,6 +299,7 @@ SafeCast DocumentTimeline where
 
 export ToJS DocumentTimeline where toJS = believe_me
 export FromJS DocumentTimeline where fromJS = safeCast
+
 export data KeyframeEffect : Type where [external]
 
 export
@@ -306,18 +312,16 @@ export FromJS KeyframeEffect where fromJS = safeCast
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------
+
 export data Animatable : Type where [external]
 
-export
-SafeCast Animatable where
-  safeCast = unsafeCastOnPrototypeName "Animatable"
-
 export ToJS Animatable where toJS = believe_me
-export FromJS Animatable where fromJS = safeCast
+export FromJS Animatable where fromJS ptr = Just (believe_me ptr)
 
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
+
 export data AnimationPlaybackEventInit : Type where [external]
 
 export
@@ -326,6 +330,7 @@ SafeCast AnimationPlaybackEventInit where
 
 export ToJS AnimationPlaybackEventInit where toJS = believe_me
 export FromJS AnimationPlaybackEventInit where fromJS = safeCast
+
 export data BaseComputedKeyframe : Type where [external]
 
 export
@@ -334,6 +339,7 @@ SafeCast BaseComputedKeyframe where
 
 export ToJS BaseComputedKeyframe where toJS = believe_me
 export FromJS BaseComputedKeyframe where fromJS = safeCast
+
 export data BaseKeyframe : Type where [external]
 
 export
@@ -342,6 +348,7 @@ SafeCast BaseKeyframe where
 
 export ToJS BaseKeyframe where toJS = believe_me
 export FromJS BaseKeyframe where fromJS = safeCast
+
 export data BasePropertyIndexedKeyframe : Type where [external]
 
 export
@@ -350,6 +357,7 @@ SafeCast BasePropertyIndexedKeyframe where
 
 export ToJS BasePropertyIndexedKeyframe where toJS = believe_me
 export FromJS BasePropertyIndexedKeyframe where fromJS = safeCast
+
 export data ComputedEffectTiming : Type where [external]
 
 export
@@ -358,6 +366,7 @@ SafeCast ComputedEffectTiming where
 
 export ToJS ComputedEffectTiming where toJS = believe_me
 export FromJS ComputedEffectTiming where fromJS = safeCast
+
 export data DocumentTimelineOptions : Type where [external]
 
 export
@@ -366,6 +375,7 @@ SafeCast DocumentTimelineOptions where
 
 export ToJS DocumentTimelineOptions where toJS = believe_me
 export FromJS DocumentTimelineOptions where fromJS = safeCast
+
 export data EffectTiming : Type where [external]
 
 export
@@ -374,6 +384,7 @@ SafeCast EffectTiming where
 
 export ToJS EffectTiming where toJS = believe_me
 export FromJS EffectTiming where fromJS = safeCast
+
 export data KeyframeAnimationOptions : Type where [external]
 
 export
@@ -382,6 +393,7 @@ SafeCast KeyframeAnimationOptions where
 
 export ToJS KeyframeAnimationOptions where toJS = believe_me
 export FromJS KeyframeAnimationOptions where fromJS = safeCast
+
 export data KeyframeEffectOptions : Type where [external]
 
 export
@@ -390,6 +402,7 @@ SafeCast KeyframeEffectOptions where
 
 export ToJS KeyframeEffectOptions where toJS = believe_me
 export FromJS KeyframeEffectOptions where fromJS = safeCast
+
 export data OptionalEffectTiming : Type where [external]
 
 export

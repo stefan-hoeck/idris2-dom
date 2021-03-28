@@ -869,6 +869,7 @@ namespace SelectionMode
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
+
 export data AudioTrack : Type where [external]
 
 export
@@ -877,6 +878,7 @@ SafeCast AudioTrack where
 
 export ToJS AudioTrack where toJS = believe_me
 export FromJS AudioTrack where fromJS = safeCast
+
 export data AudioTrackList : Type where [external]
 
 export
@@ -885,6 +887,7 @@ SafeCast AudioTrackList where
 
 export ToJS AudioTrackList where toJS = believe_me
 export FromJS AudioTrackList where fromJS = safeCast
+
 export data BarProp : Type where [external]
 
 export
@@ -893,6 +896,7 @@ SafeCast BarProp where
 
 export ToJS BarProp where toJS = believe_me
 export FromJS BarProp where fromJS = safeCast
+
 export data BeforeUnloadEvent : Type where [external]
 
 export
@@ -901,6 +905,7 @@ SafeCast BeforeUnloadEvent where
 
 export ToJS BeforeUnloadEvent where toJS = believe_me
 export FromJS BeforeUnloadEvent where fromJS = safeCast
+
 export data BroadcastChannel : Type where [external]
 
 export
@@ -909,6 +914,7 @@ SafeCast BroadcastChannel where
 
 export ToJS BroadcastChannel where toJS = believe_me
 export FromJS BroadcastChannel where fromJS = safeCast
+
 export data CanvasGradient : Type where [external]
 
 export
@@ -917,6 +923,7 @@ SafeCast CanvasGradient where
 
 export ToJS CanvasGradient where toJS = believe_me
 export FromJS CanvasGradient where fromJS = safeCast
+
 export data CanvasPattern : Type where [external]
 
 export
@@ -925,6 +932,7 @@ SafeCast CanvasPattern where
 
 export ToJS CanvasPattern where toJS = believe_me
 export FromJS CanvasPattern where fromJS = safeCast
+
 export data CanvasRenderingContext2D : Type where [external]
 
 export
@@ -933,6 +941,7 @@ SafeCast CanvasRenderingContext2D where
 
 export ToJS CanvasRenderingContext2D where toJS = believe_me
 export FromJS CanvasRenderingContext2D where fromJS = safeCast
+
 export data CloseEvent : Type where [external]
 
 export
@@ -941,6 +950,7 @@ SafeCast CloseEvent where
 
 export ToJS CloseEvent where toJS = believe_me
 export FromJS CloseEvent where fromJS = safeCast
+
 export data CustomElementRegistry : Type where [external]
 
 export
@@ -949,6 +959,7 @@ SafeCast CustomElementRegistry where
 
 export ToJS CustomElementRegistry where toJS = believe_me
 export FromJS CustomElementRegistry where fromJS = safeCast
+
 export data DOMParser : Type where [external]
 
 export
@@ -957,6 +968,7 @@ SafeCast DOMParser where
 
 export ToJS DOMParser where toJS = believe_me
 export FromJS DOMParser where fromJS = safeCast
+
 export data DOMStringList : Type where [external]
 
 export
@@ -965,6 +977,7 @@ SafeCast DOMStringList where
 
 export ToJS DOMStringList where toJS = believe_me
 export FromJS DOMStringList where fromJS = safeCast
+
 export data DOMStringMap : Type where [external]
 
 export
@@ -973,6 +986,7 @@ SafeCast DOMStringMap where
 
 export ToJS DOMStringMap where toJS = believe_me
 export FromJS DOMStringMap where fromJS = safeCast
+
 export data DataTransfer : Type where [external]
 
 export
@@ -981,6 +995,7 @@ SafeCast DataTransfer where
 
 export ToJS DataTransfer where toJS = believe_me
 export FromJS DataTransfer where fromJS = safeCast
+
 export data DataTransferItem : Type where [external]
 
 export
@@ -989,6 +1004,7 @@ SafeCast DataTransferItem where
 
 export ToJS DataTransferItem where toJS = believe_me
 export FromJS DataTransferItem where fromJS = safeCast
+
 export data DataTransferItemList : Type where [external]
 
 export
@@ -997,6 +1013,7 @@ SafeCast DataTransferItemList where
 
 export ToJS DataTransferItemList where toJS = believe_me
 export FromJS DataTransferItemList where fromJS = safeCast
+
 export data DedicatedWorkerGlobalScope : Type where [external]
 
 export
@@ -1005,6 +1022,7 @@ SafeCast DedicatedWorkerGlobalScope where
 
 export ToJS DedicatedWorkerGlobalScope where toJS = believe_me
 export FromJS DedicatedWorkerGlobalScope where fromJS = safeCast
+
 export data DragEvent : Type where [external]
 
 export
@@ -1013,6 +1031,7 @@ SafeCast DragEvent where
 
 export ToJS DragEvent where toJS = believe_me
 export FromJS DragEvent where fromJS = safeCast
+
 export data ElementInternals : Type where [external]
 
 export
@@ -1021,6 +1040,7 @@ SafeCast ElementInternals where
 
 export ToJS ElementInternals where toJS = believe_me
 export FromJS ElementInternals where fromJS = safeCast
+
 export data ErrorEvent : Type where [external]
 
 export
@@ -1029,6 +1049,7 @@ SafeCast ErrorEvent where
 
 export ToJS ErrorEvent where toJS = believe_me
 export FromJS ErrorEvent where fromJS = safeCast
+
 export data EventSource : Type where [external]
 
 export
@@ -1037,6 +1058,7 @@ SafeCast EventSource where
 
 export ToJS EventSource where toJS = believe_me
 export FromJS EventSource where fromJS = safeCast
+
 export data External : Type where [external]
 
 export
@@ -1045,6 +1067,7 @@ SafeCast External where
 
 export ToJS External where toJS = believe_me
 export FromJS External where fromJS = safeCast
+
 export data FormDataEvent : Type where [external]
 
 export
@@ -1053,6 +1076,7 @@ SafeCast FormDataEvent where
 
 export ToJS FormDataEvent where toJS = believe_me
 export FromJS FormDataEvent where fromJS = safeCast
+
 export data HTMLAllCollection : Type where [external]
 
 export
@@ -1061,6 +1085,7 @@ SafeCast HTMLAllCollection where
 
 export ToJS HTMLAllCollection where toJS = believe_me
 export FromJS HTMLAllCollection where fromJS = safeCast
+
 export data HTMLAnchorElement : Type where [external]
 
 export
@@ -1069,6 +1094,7 @@ SafeCast HTMLAnchorElement where
 
 export ToJS HTMLAnchorElement where toJS = believe_me
 export FromJS HTMLAnchorElement where fromJS = safeCast
+
 export data HTMLAreaElement : Type where [external]
 
 export
@@ -1077,6 +1103,7 @@ SafeCast HTMLAreaElement where
 
 export ToJS HTMLAreaElement where toJS = believe_me
 export FromJS HTMLAreaElement where fromJS = safeCast
+
 export data HTMLAudioElement : Type where [external]
 
 export
@@ -1085,6 +1112,7 @@ SafeCast HTMLAudioElement where
 
 export ToJS HTMLAudioElement where toJS = believe_me
 export FromJS HTMLAudioElement where fromJS = safeCast
+
 export data HTMLBRElement : Type where [external]
 
 export
@@ -1093,6 +1121,7 @@ SafeCast HTMLBRElement where
 
 export ToJS HTMLBRElement where toJS = believe_me
 export FromJS HTMLBRElement where fromJS = safeCast
+
 export data HTMLBaseElement : Type where [external]
 
 export
@@ -1101,6 +1130,7 @@ SafeCast HTMLBaseElement where
 
 export ToJS HTMLBaseElement where toJS = believe_me
 export FromJS HTMLBaseElement where fromJS = safeCast
+
 export data HTMLBodyElement : Type where [external]
 
 export
@@ -1109,6 +1139,7 @@ SafeCast HTMLBodyElement where
 
 export ToJS HTMLBodyElement where toJS = believe_me
 export FromJS HTMLBodyElement where fromJS = safeCast
+
 export data HTMLButtonElement : Type where [external]
 
 export
@@ -1117,6 +1148,7 @@ SafeCast HTMLButtonElement where
 
 export ToJS HTMLButtonElement where toJS = believe_me
 export FromJS HTMLButtonElement where fromJS = safeCast
+
 export data HTMLCanvasElement : Type where [external]
 
 export
@@ -1125,6 +1157,7 @@ SafeCast HTMLCanvasElement where
 
 export ToJS HTMLCanvasElement where toJS = believe_me
 export FromJS HTMLCanvasElement where fromJS = safeCast
+
 export data HTMLDListElement : Type where [external]
 
 export
@@ -1133,6 +1166,7 @@ SafeCast HTMLDListElement where
 
 export ToJS HTMLDListElement where toJS = believe_me
 export FromJS HTMLDListElement where fromJS = safeCast
+
 export data HTMLDataElement : Type where [external]
 
 export
@@ -1141,6 +1175,7 @@ SafeCast HTMLDataElement where
 
 export ToJS HTMLDataElement where toJS = believe_me
 export FromJS HTMLDataElement where fromJS = safeCast
+
 export data HTMLDataListElement : Type where [external]
 
 export
@@ -1149,6 +1184,7 @@ SafeCast HTMLDataListElement where
 
 export ToJS HTMLDataListElement where toJS = believe_me
 export FromJS HTMLDataListElement where fromJS = safeCast
+
 export data HTMLDetailsElement : Type where [external]
 
 export
@@ -1157,6 +1193,7 @@ SafeCast HTMLDetailsElement where
 
 export ToJS HTMLDetailsElement where toJS = believe_me
 export FromJS HTMLDetailsElement where fromJS = safeCast
+
 export data HTMLDialogElement : Type where [external]
 
 export
@@ -1165,6 +1202,7 @@ SafeCast HTMLDialogElement where
 
 export ToJS HTMLDialogElement where toJS = believe_me
 export FromJS HTMLDialogElement where fromJS = safeCast
+
 export data HTMLDirectoryElement : Type where [external]
 
 export
@@ -1173,6 +1211,7 @@ SafeCast HTMLDirectoryElement where
 
 export ToJS HTMLDirectoryElement where toJS = believe_me
 export FromJS HTMLDirectoryElement where fromJS = safeCast
+
 export data HTMLDivElement : Type where [external]
 
 export
@@ -1181,6 +1220,7 @@ SafeCast HTMLDivElement where
 
 export ToJS HTMLDivElement where toJS = believe_me
 export FromJS HTMLDivElement where fromJS = safeCast
+
 export data HTMLElement : Type where [external]
 
 export
@@ -1189,6 +1229,7 @@ SafeCast HTMLElement where
 
 export ToJS HTMLElement where toJS = believe_me
 export FromJS HTMLElement where fromJS = safeCast
+
 export data HTMLEmbedElement : Type where [external]
 
 export
@@ -1197,6 +1238,7 @@ SafeCast HTMLEmbedElement where
 
 export ToJS HTMLEmbedElement where toJS = believe_me
 export FromJS HTMLEmbedElement where fromJS = safeCast
+
 export data HTMLFieldSetElement : Type where [external]
 
 export
@@ -1205,6 +1247,7 @@ SafeCast HTMLFieldSetElement where
 
 export ToJS HTMLFieldSetElement where toJS = believe_me
 export FromJS HTMLFieldSetElement where fromJS = safeCast
+
 export data HTMLFontElement : Type where [external]
 
 export
@@ -1213,6 +1256,7 @@ SafeCast HTMLFontElement where
 
 export ToJS HTMLFontElement where toJS = believe_me
 export FromJS HTMLFontElement where fromJS = safeCast
+
 export data HTMLFormControlsCollection : Type where [external]
 
 export
@@ -1221,6 +1265,7 @@ SafeCast HTMLFormControlsCollection where
 
 export ToJS HTMLFormControlsCollection where toJS = believe_me
 export FromJS HTMLFormControlsCollection where fromJS = safeCast
+
 export data HTMLFormElement : Type where [external]
 
 export
@@ -1229,6 +1274,7 @@ SafeCast HTMLFormElement where
 
 export ToJS HTMLFormElement where toJS = believe_me
 export FromJS HTMLFormElement where fromJS = safeCast
+
 export data HTMLFrameElement : Type where [external]
 
 export
@@ -1237,6 +1283,7 @@ SafeCast HTMLFrameElement where
 
 export ToJS HTMLFrameElement where toJS = believe_me
 export FromJS HTMLFrameElement where fromJS = safeCast
+
 export data HTMLFrameSetElement : Type where [external]
 
 export
@@ -1245,6 +1292,7 @@ SafeCast HTMLFrameSetElement where
 
 export ToJS HTMLFrameSetElement where toJS = believe_me
 export FromJS HTMLFrameSetElement where fromJS = safeCast
+
 export data HTMLHRElement : Type where [external]
 
 export
@@ -1253,6 +1301,7 @@ SafeCast HTMLHRElement where
 
 export ToJS HTMLHRElement where toJS = believe_me
 export FromJS HTMLHRElement where fromJS = safeCast
+
 export data HTMLHeadElement : Type where [external]
 
 export
@@ -1261,6 +1310,7 @@ SafeCast HTMLHeadElement where
 
 export ToJS HTMLHeadElement where toJS = believe_me
 export FromJS HTMLHeadElement where fromJS = safeCast
+
 export data HTMLHeadingElement : Type where [external]
 
 export
@@ -1269,6 +1319,7 @@ SafeCast HTMLHeadingElement where
 
 export ToJS HTMLHeadingElement where toJS = believe_me
 export FromJS HTMLHeadingElement where fromJS = safeCast
+
 export data HTMLHtmlElement : Type where [external]
 
 export
@@ -1277,6 +1328,7 @@ SafeCast HTMLHtmlElement where
 
 export ToJS HTMLHtmlElement where toJS = believe_me
 export FromJS HTMLHtmlElement where fromJS = safeCast
+
 export data HTMLIFrameElement : Type where [external]
 
 export
@@ -1285,6 +1337,7 @@ SafeCast HTMLIFrameElement where
 
 export ToJS HTMLIFrameElement where toJS = believe_me
 export FromJS HTMLIFrameElement where fromJS = safeCast
+
 export data HTMLImageElement : Type where [external]
 
 export
@@ -1293,6 +1346,7 @@ SafeCast HTMLImageElement where
 
 export ToJS HTMLImageElement where toJS = believe_me
 export FromJS HTMLImageElement where fromJS = safeCast
+
 export data HTMLInputElement : Type where [external]
 
 export
@@ -1301,6 +1355,7 @@ SafeCast HTMLInputElement where
 
 export ToJS HTMLInputElement where toJS = believe_me
 export FromJS HTMLInputElement where fromJS = safeCast
+
 export data HTMLLIElement : Type where [external]
 
 export
@@ -1309,6 +1364,7 @@ SafeCast HTMLLIElement where
 
 export ToJS HTMLLIElement where toJS = believe_me
 export FromJS HTMLLIElement where fromJS = safeCast
+
 export data HTMLLabelElement : Type where [external]
 
 export
@@ -1317,6 +1373,7 @@ SafeCast HTMLLabelElement where
 
 export ToJS HTMLLabelElement where toJS = believe_me
 export FromJS HTMLLabelElement where fromJS = safeCast
+
 export data HTMLLegendElement : Type where [external]
 
 export
@@ -1325,6 +1382,7 @@ SafeCast HTMLLegendElement where
 
 export ToJS HTMLLegendElement where toJS = believe_me
 export FromJS HTMLLegendElement where fromJS = safeCast
+
 export data HTMLLinkElement : Type where [external]
 
 export
@@ -1333,6 +1391,7 @@ SafeCast HTMLLinkElement where
 
 export ToJS HTMLLinkElement where toJS = believe_me
 export FromJS HTMLLinkElement where fromJS = safeCast
+
 export data HTMLMapElement : Type where [external]
 
 export
@@ -1341,6 +1400,7 @@ SafeCast HTMLMapElement where
 
 export ToJS HTMLMapElement where toJS = believe_me
 export FromJS HTMLMapElement where fromJS = safeCast
+
 export data HTMLMarqueeElement : Type where [external]
 
 export
@@ -1349,6 +1409,7 @@ SafeCast HTMLMarqueeElement where
 
 export ToJS HTMLMarqueeElement where toJS = believe_me
 export FromJS HTMLMarqueeElement where fromJS = safeCast
+
 export data HTMLMediaElement : Type where [external]
 
 export
@@ -1357,6 +1418,7 @@ SafeCast HTMLMediaElement where
 
 export ToJS HTMLMediaElement where toJS = believe_me
 export FromJS HTMLMediaElement where fromJS = safeCast
+
 export data HTMLMenuElement : Type where [external]
 
 export
@@ -1365,6 +1427,7 @@ SafeCast HTMLMenuElement where
 
 export ToJS HTMLMenuElement where toJS = believe_me
 export FromJS HTMLMenuElement where fromJS = safeCast
+
 export data HTMLMetaElement : Type where [external]
 
 export
@@ -1373,6 +1436,7 @@ SafeCast HTMLMetaElement where
 
 export ToJS HTMLMetaElement where toJS = believe_me
 export FromJS HTMLMetaElement where fromJS = safeCast
+
 export data HTMLMeterElement : Type where [external]
 
 export
@@ -1381,6 +1445,7 @@ SafeCast HTMLMeterElement where
 
 export ToJS HTMLMeterElement where toJS = believe_me
 export FromJS HTMLMeterElement where fromJS = safeCast
+
 export data HTMLModElement : Type where [external]
 
 export
@@ -1389,6 +1454,7 @@ SafeCast HTMLModElement where
 
 export ToJS HTMLModElement where toJS = believe_me
 export FromJS HTMLModElement where fromJS = safeCast
+
 export data HTMLOListElement : Type where [external]
 
 export
@@ -1397,6 +1463,7 @@ SafeCast HTMLOListElement where
 
 export ToJS HTMLOListElement where toJS = believe_me
 export FromJS HTMLOListElement where fromJS = safeCast
+
 export data HTMLObjectElement : Type where [external]
 
 export
@@ -1405,6 +1472,7 @@ SafeCast HTMLObjectElement where
 
 export ToJS HTMLObjectElement where toJS = believe_me
 export FromJS HTMLObjectElement where fromJS = safeCast
+
 export data HTMLOptGroupElement : Type where [external]
 
 export
@@ -1413,6 +1481,7 @@ SafeCast HTMLOptGroupElement where
 
 export ToJS HTMLOptGroupElement where toJS = believe_me
 export FromJS HTMLOptGroupElement where fromJS = safeCast
+
 export data HTMLOptionElement : Type where [external]
 
 export
@@ -1421,6 +1490,7 @@ SafeCast HTMLOptionElement where
 
 export ToJS HTMLOptionElement where toJS = believe_me
 export FromJS HTMLOptionElement where fromJS = safeCast
+
 export data HTMLOptionsCollection : Type where [external]
 
 export
@@ -1429,6 +1499,7 @@ SafeCast HTMLOptionsCollection where
 
 export ToJS HTMLOptionsCollection where toJS = believe_me
 export FromJS HTMLOptionsCollection where fromJS = safeCast
+
 export data HTMLOutputElement : Type where [external]
 
 export
@@ -1437,6 +1508,7 @@ SafeCast HTMLOutputElement where
 
 export ToJS HTMLOutputElement where toJS = believe_me
 export FromJS HTMLOutputElement where fromJS = safeCast
+
 export data HTMLParagraphElement : Type where [external]
 
 export
@@ -1445,6 +1517,7 @@ SafeCast HTMLParagraphElement where
 
 export ToJS HTMLParagraphElement where toJS = believe_me
 export FromJS HTMLParagraphElement where fromJS = safeCast
+
 export data HTMLParamElement : Type where [external]
 
 export
@@ -1453,6 +1526,7 @@ SafeCast HTMLParamElement where
 
 export ToJS HTMLParamElement where toJS = believe_me
 export FromJS HTMLParamElement where fromJS = safeCast
+
 export data HTMLPictureElement : Type where [external]
 
 export
@@ -1461,6 +1535,7 @@ SafeCast HTMLPictureElement where
 
 export ToJS HTMLPictureElement where toJS = believe_me
 export FromJS HTMLPictureElement where fromJS = safeCast
+
 export data HTMLPreElement : Type where [external]
 
 export
@@ -1469,6 +1544,7 @@ SafeCast HTMLPreElement where
 
 export ToJS HTMLPreElement where toJS = believe_me
 export FromJS HTMLPreElement where fromJS = safeCast
+
 export data HTMLProgressElement : Type where [external]
 
 export
@@ -1477,6 +1553,7 @@ SafeCast HTMLProgressElement where
 
 export ToJS HTMLProgressElement where toJS = believe_me
 export FromJS HTMLProgressElement where fromJS = safeCast
+
 export data HTMLQuoteElement : Type where [external]
 
 export
@@ -1485,6 +1562,7 @@ SafeCast HTMLQuoteElement where
 
 export ToJS HTMLQuoteElement where toJS = believe_me
 export FromJS HTMLQuoteElement where fromJS = safeCast
+
 export data HTMLScriptElement : Type where [external]
 
 export
@@ -1493,6 +1571,7 @@ SafeCast HTMLScriptElement where
 
 export ToJS HTMLScriptElement where toJS = believe_me
 export FromJS HTMLScriptElement where fromJS = safeCast
+
 export data HTMLSelectElement : Type where [external]
 
 export
@@ -1501,6 +1580,7 @@ SafeCast HTMLSelectElement where
 
 export ToJS HTMLSelectElement where toJS = believe_me
 export FromJS HTMLSelectElement where fromJS = safeCast
+
 export data HTMLSlotElement : Type where [external]
 
 export
@@ -1509,6 +1589,7 @@ SafeCast HTMLSlotElement where
 
 export ToJS HTMLSlotElement where toJS = believe_me
 export FromJS HTMLSlotElement where fromJS = safeCast
+
 export data HTMLSourceElement : Type where [external]
 
 export
@@ -1517,6 +1598,7 @@ SafeCast HTMLSourceElement where
 
 export ToJS HTMLSourceElement where toJS = believe_me
 export FromJS HTMLSourceElement where fromJS = safeCast
+
 export data HTMLSpanElement : Type where [external]
 
 export
@@ -1525,6 +1607,7 @@ SafeCast HTMLSpanElement where
 
 export ToJS HTMLSpanElement where toJS = believe_me
 export FromJS HTMLSpanElement where fromJS = safeCast
+
 export data HTMLStyleElement : Type where [external]
 
 export
@@ -1533,6 +1616,7 @@ SafeCast HTMLStyleElement where
 
 export ToJS HTMLStyleElement where toJS = believe_me
 export FromJS HTMLStyleElement where fromJS = safeCast
+
 export data HTMLTableCaptionElement : Type where [external]
 
 export
@@ -1541,6 +1625,7 @@ SafeCast HTMLTableCaptionElement where
 
 export ToJS HTMLTableCaptionElement where toJS = believe_me
 export FromJS HTMLTableCaptionElement where fromJS = safeCast
+
 export data HTMLTableCellElement : Type where [external]
 
 export
@@ -1549,6 +1634,7 @@ SafeCast HTMLTableCellElement where
 
 export ToJS HTMLTableCellElement where toJS = believe_me
 export FromJS HTMLTableCellElement where fromJS = safeCast
+
 export data HTMLTableColElement : Type where [external]
 
 export
@@ -1557,6 +1643,7 @@ SafeCast HTMLTableColElement where
 
 export ToJS HTMLTableColElement where toJS = believe_me
 export FromJS HTMLTableColElement where fromJS = safeCast
+
 export data HTMLTableElement : Type where [external]
 
 export
@@ -1565,6 +1652,7 @@ SafeCast HTMLTableElement where
 
 export ToJS HTMLTableElement where toJS = believe_me
 export FromJS HTMLTableElement where fromJS = safeCast
+
 export data HTMLTableRowElement : Type where [external]
 
 export
@@ -1573,6 +1661,7 @@ SafeCast HTMLTableRowElement where
 
 export ToJS HTMLTableRowElement where toJS = believe_me
 export FromJS HTMLTableRowElement where fromJS = safeCast
+
 export data HTMLTableSectionElement : Type where [external]
 
 export
@@ -1581,6 +1670,7 @@ SafeCast HTMLTableSectionElement where
 
 export ToJS HTMLTableSectionElement where toJS = believe_me
 export FromJS HTMLTableSectionElement where fromJS = safeCast
+
 export data HTMLTemplateElement : Type where [external]
 
 export
@@ -1589,6 +1679,7 @@ SafeCast HTMLTemplateElement where
 
 export ToJS HTMLTemplateElement where toJS = believe_me
 export FromJS HTMLTemplateElement where fromJS = safeCast
+
 export data HTMLTextAreaElement : Type where [external]
 
 export
@@ -1597,6 +1688,7 @@ SafeCast HTMLTextAreaElement where
 
 export ToJS HTMLTextAreaElement where toJS = believe_me
 export FromJS HTMLTextAreaElement where fromJS = safeCast
+
 export data HTMLTimeElement : Type where [external]
 
 export
@@ -1605,6 +1697,7 @@ SafeCast HTMLTimeElement where
 
 export ToJS HTMLTimeElement where toJS = believe_me
 export FromJS HTMLTimeElement where fromJS = safeCast
+
 export data HTMLTitleElement : Type where [external]
 
 export
@@ -1613,6 +1706,7 @@ SafeCast HTMLTitleElement where
 
 export ToJS HTMLTitleElement where toJS = believe_me
 export FromJS HTMLTitleElement where fromJS = safeCast
+
 export data HTMLTrackElement : Type where [external]
 
 export
@@ -1621,6 +1715,7 @@ SafeCast HTMLTrackElement where
 
 export ToJS HTMLTrackElement where toJS = believe_me
 export FromJS HTMLTrackElement where fromJS = safeCast
+
 export data HTMLUListElement : Type where [external]
 
 export
@@ -1629,6 +1724,7 @@ SafeCast HTMLUListElement where
 
 export ToJS HTMLUListElement where toJS = believe_me
 export FromJS HTMLUListElement where fromJS = safeCast
+
 export data HTMLUnknownElement : Type where [external]
 
 export
@@ -1637,6 +1733,7 @@ SafeCast HTMLUnknownElement where
 
 export ToJS HTMLUnknownElement where toJS = believe_me
 export FromJS HTMLUnknownElement where fromJS = safeCast
+
 export data HTMLVideoElement : Type where [external]
 
 export
@@ -1645,6 +1742,7 @@ SafeCast HTMLVideoElement where
 
 export ToJS HTMLVideoElement where toJS = believe_me
 export FromJS HTMLVideoElement where fromJS = safeCast
+
 export data HashChangeEvent : Type where [external]
 
 export
@@ -1653,6 +1751,7 @@ SafeCast HashChangeEvent where
 
 export ToJS HashChangeEvent where toJS = believe_me
 export FromJS HashChangeEvent where fromJS = safeCast
+
 export data History : Type where [external]
 
 export
@@ -1661,6 +1760,7 @@ SafeCast History where
 
 export ToJS History where toJS = believe_me
 export FromJS History where fromJS = safeCast
+
 export data ImageBitmap : Type where [external]
 
 export
@@ -1669,6 +1769,7 @@ SafeCast ImageBitmap where
 
 export ToJS ImageBitmap where toJS = believe_me
 export FromJS ImageBitmap where fromJS = safeCast
+
 export data ImageBitmapRenderingContext : Type where [external]
 
 export
@@ -1677,6 +1778,7 @@ SafeCast ImageBitmapRenderingContext where
 
 export ToJS ImageBitmapRenderingContext where toJS = believe_me
 export FromJS ImageBitmapRenderingContext where fromJS = safeCast
+
 export data ImageData : Type where [external]
 
 export
@@ -1685,6 +1787,7 @@ SafeCast ImageData where
 
 export ToJS ImageData where toJS = believe_me
 export FromJS ImageData where fromJS = safeCast
+
 export data Location : Type where [external]
 
 export
@@ -1693,6 +1796,7 @@ SafeCast Location where
 
 export ToJS Location where toJS = believe_me
 export FromJS Location where fromJS = safeCast
+
 export data MediaError : Type where [external]
 
 export
@@ -1701,6 +1805,7 @@ SafeCast MediaError where
 
 export ToJS MediaError where toJS = believe_me
 export FromJS MediaError where fromJS = safeCast
+
 export data MessageChannel : Type where [external]
 
 export
@@ -1709,6 +1814,7 @@ SafeCast MessageChannel where
 
 export ToJS MessageChannel where toJS = believe_me
 export FromJS MessageChannel where fromJS = safeCast
+
 export data MessageEvent : Type where [external]
 
 export
@@ -1717,6 +1823,7 @@ SafeCast MessageEvent where
 
 export ToJS MessageEvent where toJS = believe_me
 export FromJS MessageEvent where fromJS = safeCast
+
 export data MessagePort : Type where [external]
 
 export
@@ -1725,6 +1832,7 @@ SafeCast MessagePort where
 
 export ToJS MessagePort where toJS = believe_me
 export FromJS MessagePort where fromJS = safeCast
+
 export data MimeType : Type where [external]
 
 export
@@ -1733,6 +1841,7 @@ SafeCast MimeType where
 
 export ToJS MimeType where toJS = believe_me
 export FromJS MimeType where fromJS = safeCast
+
 export data MimeTypeArray : Type where [external]
 
 export
@@ -1741,6 +1850,7 @@ SafeCast MimeTypeArray where
 
 export ToJS MimeTypeArray where toJS = believe_me
 export FromJS MimeTypeArray where fromJS = safeCast
+
 export data Navigator : Type where [external]
 
 export
@@ -1749,6 +1859,7 @@ SafeCast Navigator where
 
 export ToJS Navigator where toJS = believe_me
 export FromJS Navigator where fromJS = safeCast
+
 export data OffscreenCanvas : Type where [external]
 
 export
@@ -1757,6 +1868,7 @@ SafeCast OffscreenCanvas where
 
 export ToJS OffscreenCanvas where toJS = believe_me
 export FromJS OffscreenCanvas where fromJS = safeCast
+
 export data OffscreenCanvasRenderingContext2D : Type where [external]
 
 export
@@ -1765,6 +1877,7 @@ SafeCast OffscreenCanvasRenderingContext2D where
 
 export ToJS OffscreenCanvasRenderingContext2D where toJS = believe_me
 export FromJS OffscreenCanvasRenderingContext2D where fromJS = safeCast
+
 export data PageTransitionEvent : Type where [external]
 
 export
@@ -1773,6 +1886,7 @@ SafeCast PageTransitionEvent where
 
 export ToJS PageTransitionEvent where toJS = believe_me
 export FromJS PageTransitionEvent where fromJS = safeCast
+
 export data Path2D : Type where [external]
 
 export
@@ -1781,6 +1895,7 @@ SafeCast Path2D where
 
 export ToJS Path2D where toJS = believe_me
 export FromJS Path2D where fromJS = safeCast
+
 export data Plugin : Type where [external]
 
 export
@@ -1789,6 +1904,7 @@ SafeCast Plugin where
 
 export ToJS Plugin where toJS = believe_me
 export FromJS Plugin where fromJS = safeCast
+
 export data PluginArray : Type where [external]
 
 export
@@ -1797,6 +1913,7 @@ SafeCast PluginArray where
 
 export ToJS PluginArray where toJS = believe_me
 export FromJS PluginArray where fromJS = safeCast
+
 export data PopStateEvent : Type where [external]
 
 export
@@ -1805,6 +1922,7 @@ SafeCast PopStateEvent where
 
 export ToJS PopStateEvent where toJS = believe_me
 export FromJS PopStateEvent where fromJS = safeCast
+
 export data PromiseRejectionEvent : Type where [external]
 
 export
@@ -1813,6 +1931,7 @@ SafeCast PromiseRejectionEvent where
 
 export ToJS PromiseRejectionEvent where toJS = believe_me
 export FromJS PromiseRejectionEvent where fromJS = safeCast
+
 export data RadioNodeList : Type where [external]
 
 export
@@ -1821,6 +1940,7 @@ SafeCast RadioNodeList where
 
 export ToJS RadioNodeList where toJS = believe_me
 export FromJS RadioNodeList where fromJS = safeCast
+
 export data SharedWorker : Type where [external]
 
 export
@@ -1829,6 +1949,7 @@ SafeCast SharedWorker where
 
 export ToJS SharedWorker where toJS = believe_me
 export FromJS SharedWorker where fromJS = safeCast
+
 export data SharedWorkerGlobalScope : Type where [external]
 
 export
@@ -1837,6 +1958,7 @@ SafeCast SharedWorkerGlobalScope where
 
 export ToJS SharedWorkerGlobalScope where toJS = believe_me
 export FromJS SharedWorkerGlobalScope where fromJS = safeCast
+
 export data Storage : Type where [external]
 
 export
@@ -1845,6 +1967,7 @@ SafeCast Storage where
 
 export ToJS Storage where toJS = believe_me
 export FromJS Storage where fromJS = safeCast
+
 export data StorageEvent : Type where [external]
 
 export
@@ -1853,6 +1976,7 @@ SafeCast StorageEvent where
 
 export ToJS StorageEvent where toJS = believe_me
 export FromJS StorageEvent where fromJS = safeCast
+
 export data SubmitEvent : Type where [external]
 
 export
@@ -1861,6 +1985,7 @@ SafeCast SubmitEvent where
 
 export ToJS SubmitEvent where toJS = believe_me
 export FromJS SubmitEvent where fromJS = safeCast
+
 export data TextMetrics : Type where [external]
 
 export
@@ -1869,6 +1994,7 @@ SafeCast TextMetrics where
 
 export ToJS TextMetrics where toJS = believe_me
 export FromJS TextMetrics where fromJS = safeCast
+
 export data TextTrack : Type where [external]
 
 export
@@ -1877,6 +2003,7 @@ SafeCast TextTrack where
 
 export ToJS TextTrack where toJS = believe_me
 export FromJS TextTrack where fromJS = safeCast
+
 export data TextTrackCue : Type where [external]
 
 export
@@ -1885,6 +2012,7 @@ SafeCast TextTrackCue where
 
 export ToJS TextTrackCue where toJS = believe_me
 export FromJS TextTrackCue where fromJS = safeCast
+
 export data TextTrackCueList : Type where [external]
 
 export
@@ -1893,6 +2021,7 @@ SafeCast TextTrackCueList where
 
 export ToJS TextTrackCueList where toJS = believe_me
 export FromJS TextTrackCueList where fromJS = safeCast
+
 export data TextTrackList : Type where [external]
 
 export
@@ -1901,6 +2030,7 @@ SafeCast TextTrackList where
 
 export ToJS TextTrackList where toJS = believe_me
 export FromJS TextTrackList where fromJS = safeCast
+
 export data TimeRanges : Type where [external]
 
 export
@@ -1909,6 +2039,7 @@ SafeCast TimeRanges where
 
 export ToJS TimeRanges where toJS = believe_me
 export FromJS TimeRanges where fromJS = safeCast
+
 export data TrackEvent : Type where [external]
 
 export
@@ -1917,6 +2048,7 @@ SafeCast TrackEvent where
 
 export ToJS TrackEvent where toJS = believe_me
 export FromJS TrackEvent where fromJS = safeCast
+
 export data ValidityState : Type where [external]
 
 export
@@ -1925,6 +2057,7 @@ SafeCast ValidityState where
 
 export ToJS ValidityState where toJS = believe_me
 export FromJS ValidityState where fromJS = safeCast
+
 export data VideoTrack : Type where [external]
 
 export
@@ -1933,6 +2066,7 @@ SafeCast VideoTrack where
 
 export ToJS VideoTrack where toJS = believe_me
 export FromJS VideoTrack where fromJS = safeCast
+
 export data VideoTrackList : Type where [external]
 
 export
@@ -1941,6 +2075,7 @@ SafeCast VideoTrackList where
 
 export ToJS VideoTrackList where toJS = believe_me
 export FromJS VideoTrackList where fromJS = safeCast
+
 export data WebSocket : Type where [external]
 
 export
@@ -1949,6 +2084,7 @@ SafeCast WebSocket where
 
 export ToJS WebSocket where toJS = believe_me
 export FromJS WebSocket where fromJS = safeCast
+
 export data Window : Type where [external]
 
 export
@@ -1957,6 +2093,7 @@ SafeCast Window where
 
 export ToJS Window where toJS = believe_me
 export FromJS Window where fromJS = safeCast
+
 export data Worker : Type where [external]
 
 export
@@ -1965,6 +2102,7 @@ SafeCast Worker where
 
 export ToJS Worker where toJS = believe_me
 export FromJS Worker where fromJS = safeCast
+
 export data WorkerGlobalScope : Type where [external]
 
 export
@@ -1973,6 +2111,7 @@ SafeCast WorkerGlobalScope where
 
 export ToJS WorkerGlobalScope where toJS = believe_me
 export FromJS WorkerGlobalScope where fromJS = safeCast
+
 export data WorkerLocation : Type where [external]
 
 export
@@ -1981,6 +2120,7 @@ SafeCast WorkerLocation where
 
 export ToJS WorkerLocation where toJS = believe_me
 export FromJS WorkerLocation where fromJS = safeCast
+
 export data WorkerNavigator : Type where [external]
 
 export
@@ -1989,6 +2129,7 @@ SafeCast WorkerNavigator where
 
 export ToJS WorkerNavigator where toJS = believe_me
 export FromJS WorkerNavigator where fromJS = safeCast
+
 export data Worklet : Type where [external]
 
 export
@@ -1997,6 +2138,7 @@ SafeCast Worklet where
 
 export ToJS Worklet where toJS = believe_me
 export FromJS Worklet where fromJS = safeCast
+
 export data WorkletGlobalScope : Type where [external]
 
 export
@@ -2009,258 +2151,166 @@ export FromJS WorkletGlobalScope where fromJS = safeCast
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------
+
 export data ARIAMixin : Type where [external]
 
-export
-SafeCast ARIAMixin where
-  safeCast = unsafeCastOnPrototypeName "ARIAMixin"
-
 export ToJS ARIAMixin where toJS = believe_me
-export FromJS ARIAMixin where fromJS = safeCast
+export FromJS ARIAMixin where fromJS ptr = Just (believe_me ptr)
+
 export data AbstractWorker : Type where [external]
 
-export
-SafeCast AbstractWorker where
-  safeCast = unsafeCastOnPrototypeName "AbstractWorker"
-
 export ToJS AbstractWorker where toJS = believe_me
-export FromJS AbstractWorker where fromJS = safeCast
+export FromJS AbstractWorker where fromJS ptr = Just (believe_me ptr)
+
 export data CanvasCompositing : Type where [external]
 
-export
-SafeCast CanvasCompositing where
-  safeCast = unsafeCastOnPrototypeName "CanvasCompositing"
-
 export ToJS CanvasCompositing where toJS = believe_me
-export FromJS CanvasCompositing where fromJS = safeCast
+export FromJS CanvasCompositing where fromJS ptr = Just (believe_me ptr)
+
 export data CanvasDrawImage : Type where [external]
 
-export
-SafeCast CanvasDrawImage where
-  safeCast = unsafeCastOnPrototypeName "CanvasDrawImage"
-
 export ToJS CanvasDrawImage where toJS = believe_me
-export FromJS CanvasDrawImage where fromJS = safeCast
+export FromJS CanvasDrawImage where fromJS ptr = Just (believe_me ptr)
+
 export data CanvasDrawPath : Type where [external]
 
-export
-SafeCast CanvasDrawPath where
-  safeCast = unsafeCastOnPrototypeName "CanvasDrawPath"
-
 export ToJS CanvasDrawPath where toJS = believe_me
-export FromJS CanvasDrawPath where fromJS = safeCast
+export FromJS CanvasDrawPath where fromJS ptr = Just (believe_me ptr)
+
 export data CanvasFillStrokeStyles : Type where [external]
 
-export
-SafeCast CanvasFillStrokeStyles where
-  safeCast = unsafeCastOnPrototypeName "CanvasFillStrokeStyles"
-
 export ToJS CanvasFillStrokeStyles where toJS = believe_me
-export FromJS CanvasFillStrokeStyles where fromJS = safeCast
+export FromJS CanvasFillStrokeStyles where fromJS ptr = Just (believe_me ptr)
+
 export data CanvasFilters : Type where [external]
 
-export
-SafeCast CanvasFilters where
-  safeCast = unsafeCastOnPrototypeName "CanvasFilters"
-
 export ToJS CanvasFilters where toJS = believe_me
-export FromJS CanvasFilters where fromJS = safeCast
+export FromJS CanvasFilters where fromJS ptr = Just (believe_me ptr)
+
 export data CanvasImageData : Type where [external]
 
-export
-SafeCast CanvasImageData where
-  safeCast = unsafeCastOnPrototypeName "CanvasImageData"
-
 export ToJS CanvasImageData where toJS = believe_me
-export FromJS CanvasImageData where fromJS = safeCast
+export FromJS CanvasImageData where fromJS ptr = Just (believe_me ptr)
+
 export data CanvasImageSmoothing : Type where [external]
 
-export
-SafeCast CanvasImageSmoothing where
-  safeCast = unsafeCastOnPrototypeName "CanvasImageSmoothing"
-
 export ToJS CanvasImageSmoothing where toJS = believe_me
-export FromJS CanvasImageSmoothing where fromJS = safeCast
+export FromJS CanvasImageSmoothing where fromJS ptr = Just (believe_me ptr)
+
 export data CanvasPath : Type where [external]
 
-export
-SafeCast CanvasPath where
-  safeCast = unsafeCastOnPrototypeName "CanvasPath"
-
 export ToJS CanvasPath where toJS = believe_me
-export FromJS CanvasPath where fromJS = safeCast
+export FromJS CanvasPath where fromJS ptr = Just (believe_me ptr)
+
 export data CanvasPathDrawingStyles : Type where [external]
 
-export
-SafeCast CanvasPathDrawingStyles where
-  safeCast = unsafeCastOnPrototypeName "CanvasPathDrawingStyles"
-
 export ToJS CanvasPathDrawingStyles where toJS = believe_me
-export FromJS CanvasPathDrawingStyles where fromJS = safeCast
+export FromJS CanvasPathDrawingStyles where fromJS ptr = Just (believe_me ptr)
+
 export data CanvasRect : Type where [external]
 
-export
-SafeCast CanvasRect where
-  safeCast = unsafeCastOnPrototypeName "CanvasRect"
-
 export ToJS CanvasRect where toJS = believe_me
-export FromJS CanvasRect where fromJS = safeCast
+export FromJS CanvasRect where fromJS ptr = Just (believe_me ptr)
+
 export data CanvasShadowStyles : Type where [external]
 
-export
-SafeCast CanvasShadowStyles where
-  safeCast = unsafeCastOnPrototypeName "CanvasShadowStyles"
-
 export ToJS CanvasShadowStyles where toJS = believe_me
-export FromJS CanvasShadowStyles where fromJS = safeCast
+export FromJS CanvasShadowStyles where fromJS ptr = Just (believe_me ptr)
+
 export data CanvasState : Type where [external]
 
-export
-SafeCast CanvasState where
-  safeCast = unsafeCastOnPrototypeName "CanvasState"
-
 export ToJS CanvasState where toJS = believe_me
-export FromJS CanvasState where fromJS = safeCast
+export FromJS CanvasState where fromJS ptr = Just (believe_me ptr)
+
 export data CanvasText : Type where [external]
 
-export
-SafeCast CanvasText where
-  safeCast = unsafeCastOnPrototypeName "CanvasText"
-
 export ToJS CanvasText where toJS = believe_me
-export FromJS CanvasText where fromJS = safeCast
+export FromJS CanvasText where fromJS ptr = Just (believe_me ptr)
+
 export data CanvasTextDrawingStyles : Type where [external]
 
-export
-SafeCast CanvasTextDrawingStyles where
-  safeCast = unsafeCastOnPrototypeName "CanvasTextDrawingStyles"
-
 export ToJS CanvasTextDrawingStyles where toJS = believe_me
-export FromJS CanvasTextDrawingStyles where fromJS = safeCast
+export FromJS CanvasTextDrawingStyles where fromJS ptr = Just (believe_me ptr)
+
 export data CanvasTransform : Type where [external]
 
-export
-SafeCast CanvasTransform where
-  safeCast = unsafeCastOnPrototypeName "CanvasTransform"
-
 export ToJS CanvasTransform where toJS = believe_me
-export FromJS CanvasTransform where fromJS = safeCast
+export FromJS CanvasTransform where fromJS ptr = Just (believe_me ptr)
+
 export data CanvasUserInterface : Type where [external]
 
-export
-SafeCast CanvasUserInterface where
-  safeCast = unsafeCastOnPrototypeName "CanvasUserInterface"
-
 export ToJS CanvasUserInterface where toJS = believe_me
-export FromJS CanvasUserInterface where fromJS = safeCast
+export FromJS CanvasUserInterface where fromJS ptr = Just (believe_me ptr)
+
 export data DocumentAndElementEventHandlers : Type where [external]
 
-export
-SafeCast DocumentAndElementEventHandlers where
-  safeCast = unsafeCastOnPrototypeName "DocumentAndElementEventHandlers"
-
 export ToJS DocumentAndElementEventHandlers where toJS = believe_me
-export FromJS DocumentAndElementEventHandlers where fromJS = safeCast
+export FromJS DocumentAndElementEventHandlers where fromJS ptr = Just (believe_me ptr)
+
 export data ElementContentEditable : Type where [external]
 
-export
-SafeCast ElementContentEditable where
-  safeCast = unsafeCastOnPrototypeName "ElementContentEditable"
-
 export ToJS ElementContentEditable where toJS = believe_me
-export FromJS ElementContentEditable where fromJS = safeCast
+export FromJS ElementContentEditable where fromJS ptr = Just (believe_me ptr)
+
 export data GlobalEventHandlers : Type where [external]
 
-export
-SafeCast GlobalEventHandlers where
-  safeCast = unsafeCastOnPrototypeName "GlobalEventHandlers"
-
 export ToJS GlobalEventHandlers where toJS = believe_me
-export FromJS GlobalEventHandlers where fromJS = safeCast
+export FromJS GlobalEventHandlers where fromJS ptr = Just (believe_me ptr)
+
 export data HTMLHyperlinkElementUtils : Type where [external]
 
-export
-SafeCast HTMLHyperlinkElementUtils where
-  safeCast = unsafeCastOnPrototypeName "HTMLHyperlinkElementUtils"
-
 export ToJS HTMLHyperlinkElementUtils where toJS = believe_me
-export FromJS HTMLHyperlinkElementUtils where fromJS = safeCast
+export FromJS HTMLHyperlinkElementUtils where fromJS ptr = Just (believe_me ptr)
+
 export data HTMLOrSVGElement : Type where [external]
 
-export
-SafeCast HTMLOrSVGElement where
-  safeCast = unsafeCastOnPrototypeName "HTMLOrSVGElement"
-
 export ToJS HTMLOrSVGElement where toJS = believe_me
-export FromJS HTMLOrSVGElement where fromJS = safeCast
+export FromJS HTMLOrSVGElement where fromJS ptr = Just (believe_me ptr)
+
 export data NavigatorConcurrentHardware : Type where [external]
 
-export
-SafeCast NavigatorConcurrentHardware where
-  safeCast = unsafeCastOnPrototypeName "NavigatorConcurrentHardware"
-
 export ToJS NavigatorConcurrentHardware where toJS = believe_me
-export FromJS NavigatorConcurrentHardware where fromJS = safeCast
+export FromJS NavigatorConcurrentHardware where fromJS ptr = Just (believe_me ptr)
+
 export data NavigatorContentUtils : Type where [external]
 
-export
-SafeCast NavigatorContentUtils where
-  safeCast = unsafeCastOnPrototypeName "NavigatorContentUtils"
-
 export ToJS NavigatorContentUtils where toJS = believe_me
-export FromJS NavigatorContentUtils where fromJS = safeCast
+export FromJS NavigatorContentUtils where fromJS ptr = Just (believe_me ptr)
+
 export data NavigatorCookies : Type where [external]
 
-export
-SafeCast NavigatorCookies where
-  safeCast = unsafeCastOnPrototypeName "NavigatorCookies"
-
 export ToJS NavigatorCookies where toJS = believe_me
-export FromJS NavigatorCookies where fromJS = safeCast
+export FromJS NavigatorCookies where fromJS ptr = Just (believe_me ptr)
+
 export data NavigatorID : Type where [external]
 
-export
-SafeCast NavigatorID where
-  safeCast = unsafeCastOnPrototypeName "NavigatorID"
-
 export ToJS NavigatorID where toJS = believe_me
-export FromJS NavigatorID where fromJS = safeCast
+export FromJS NavigatorID where fromJS ptr = Just (believe_me ptr)
+
 export data NavigatorLanguage : Type where [external]
 
-export
-SafeCast NavigatorLanguage where
-  safeCast = unsafeCastOnPrototypeName "NavigatorLanguage"
-
 export ToJS NavigatorLanguage where toJS = believe_me
-export FromJS NavigatorLanguage where fromJS = safeCast
+export FromJS NavigatorLanguage where fromJS ptr = Just (believe_me ptr)
+
 export data NavigatorOnLine : Type where [external]
 
-export
-SafeCast NavigatorOnLine where
-  safeCast = unsafeCastOnPrototypeName "NavigatorOnLine"
-
 export ToJS NavigatorOnLine where toJS = believe_me
-export FromJS NavigatorOnLine where fromJS = safeCast
+export FromJS NavigatorOnLine where fromJS ptr = Just (believe_me ptr)
+
 export data NavigatorPlugins : Type where [external]
 
-export
-SafeCast NavigatorPlugins where
-  safeCast = unsafeCastOnPrototypeName "NavigatorPlugins"
-
 export ToJS NavigatorPlugins where toJS = believe_me
-export FromJS NavigatorPlugins where fromJS = safeCast
+export FromJS NavigatorPlugins where fromJS ptr = Just (believe_me ptr)
+
 export data WindowEventHandlers : Type where [external]
 
-export
-SafeCast WindowEventHandlers where
-  safeCast = unsafeCastOnPrototypeName "WindowEventHandlers"
-
 export ToJS WindowEventHandlers where toJS = believe_me
-export FromJS WindowEventHandlers where fromJS = safeCast
+export FromJS WindowEventHandlers where fromJS ptr = Just (believe_me ptr)
 
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
+
 export data AssignedNodesOptions : Type where [external]
 
 export
@@ -2269,6 +2319,7 @@ SafeCast AssignedNodesOptions where
 
 export ToJS AssignedNodesOptions where toJS = believe_me
 export FromJS AssignedNodesOptions where fromJS = safeCast
+
 export data CanvasRenderingContext2DSettings : Type where [external]
 
 export
@@ -2277,6 +2328,7 @@ SafeCast CanvasRenderingContext2DSettings where
 
 export ToJS CanvasRenderingContext2DSettings where toJS = believe_me
 export FromJS CanvasRenderingContext2DSettings where fromJS = safeCast
+
 export data CloseEventInit : Type where [external]
 
 export
@@ -2285,6 +2337,7 @@ SafeCast CloseEventInit where
 
 export ToJS CloseEventInit where toJS = believe_me
 export FromJS CloseEventInit where fromJS = safeCast
+
 export data DragEventInit : Type where [external]
 
 export
@@ -2293,6 +2346,7 @@ SafeCast DragEventInit where
 
 export ToJS DragEventInit where toJS = believe_me
 export FromJS DragEventInit where fromJS = safeCast
+
 export data ElementDefinitionOptions : Type where [external]
 
 export
@@ -2301,6 +2355,7 @@ SafeCast ElementDefinitionOptions where
 
 export ToJS ElementDefinitionOptions where toJS = believe_me
 export FromJS ElementDefinitionOptions where fromJS = safeCast
+
 export data ErrorEventInit : Type where [external]
 
 export
@@ -2309,6 +2364,7 @@ SafeCast ErrorEventInit where
 
 export ToJS ErrorEventInit where toJS = believe_me
 export FromJS ErrorEventInit where fromJS = safeCast
+
 export data EventSourceInit : Type where [external]
 
 export
@@ -2317,6 +2373,7 @@ SafeCast EventSourceInit where
 
 export ToJS EventSourceInit where toJS = believe_me
 export FromJS EventSourceInit where fromJS = safeCast
+
 export data FocusOptions : Type where [external]
 
 export
@@ -2325,6 +2382,7 @@ SafeCast FocusOptions where
 
 export ToJS FocusOptions where toJS = believe_me
 export FromJS FocusOptions where fromJS = safeCast
+
 export data FormDataEventInit : Type where [external]
 
 export
@@ -2333,6 +2391,7 @@ SafeCast FormDataEventInit where
 
 export ToJS FormDataEventInit where toJS = believe_me
 export FromJS FormDataEventInit where fromJS = safeCast
+
 export data HashChangeEventInit : Type where [external]
 
 export
@@ -2341,6 +2400,7 @@ SafeCast HashChangeEventInit where
 
 export ToJS HashChangeEventInit where toJS = believe_me
 export FromJS HashChangeEventInit where fromJS = safeCast
+
 export data ImageBitmapOptions : Type where [external]
 
 export
@@ -2349,6 +2409,7 @@ SafeCast ImageBitmapOptions where
 
 export ToJS ImageBitmapOptions where toJS = believe_me
 export FromJS ImageBitmapOptions where fromJS = safeCast
+
 export data ImageBitmapRenderingContextSettings : Type where [external]
 
 export
@@ -2357,6 +2418,7 @@ SafeCast ImageBitmapRenderingContextSettings where
 
 export ToJS ImageBitmapRenderingContextSettings where toJS = believe_me
 export FromJS ImageBitmapRenderingContextSettings where fromJS = safeCast
+
 export data ImageEncodeOptions : Type where [external]
 
 export
@@ -2365,6 +2427,7 @@ SafeCast ImageEncodeOptions where
 
 export ToJS ImageEncodeOptions where toJS = believe_me
 export FromJS ImageEncodeOptions where fromJS = safeCast
+
 export data MessageEventInit : Type where [external]
 
 export
@@ -2373,6 +2436,7 @@ SafeCast MessageEventInit where
 
 export ToJS MessageEventInit where toJS = believe_me
 export FromJS MessageEventInit where fromJS = safeCast
+
 export data PageTransitionEventInit : Type where [external]
 
 export
@@ -2381,6 +2445,7 @@ SafeCast PageTransitionEventInit where
 
 export ToJS PageTransitionEventInit where toJS = believe_me
 export FromJS PageTransitionEventInit where fromJS = safeCast
+
 export data PopStateEventInit : Type where [external]
 
 export
@@ -2389,6 +2454,7 @@ SafeCast PopStateEventInit where
 
 export ToJS PopStateEventInit where toJS = believe_me
 export FromJS PopStateEventInit where fromJS = safeCast
+
 export data PostMessageOptions : Type where [external]
 
 export
@@ -2397,6 +2463,7 @@ SafeCast PostMessageOptions where
 
 export ToJS PostMessageOptions where toJS = believe_me
 export FromJS PostMessageOptions where fromJS = safeCast
+
 export data PromiseRejectionEventInit : Type where [external]
 
 export
@@ -2405,6 +2472,7 @@ SafeCast PromiseRejectionEventInit where
 
 export ToJS PromiseRejectionEventInit where toJS = believe_me
 export FromJS PromiseRejectionEventInit where fromJS = safeCast
+
 export data StorageEventInit : Type where [external]
 
 export
@@ -2413,6 +2481,7 @@ SafeCast StorageEventInit where
 
 export ToJS StorageEventInit where toJS = believe_me
 export FromJS StorageEventInit where fromJS = safeCast
+
 export data SubmitEventInit : Type where [external]
 
 export
@@ -2421,6 +2490,7 @@ SafeCast SubmitEventInit where
 
 export ToJS SubmitEventInit where toJS = believe_me
 export FromJS SubmitEventInit where fromJS = safeCast
+
 export data TrackEventInit : Type where [external]
 
 export
@@ -2429,6 +2499,7 @@ SafeCast TrackEventInit where
 
 export ToJS TrackEventInit where toJS = believe_me
 export FromJS TrackEventInit where fromJS = safeCast
+
 export data ValidityStateFlags : Type where [external]
 
 export
@@ -2437,6 +2508,7 @@ SafeCast ValidityStateFlags where
 
 export ToJS ValidityStateFlags where toJS = believe_me
 export FromJS ValidityStateFlags where fromJS = safeCast
+
 export data WindowPostMessageOptions : Type where [external]
 
 export
@@ -2445,6 +2517,7 @@ SafeCast WindowPostMessageOptions where
 
 export ToJS WindowPostMessageOptions where toJS = believe_me
 export FromJS WindowPostMessageOptions where fromJS = safeCast
+
 export data WorkerOptions : Type where [external]
 
 export
@@ -2453,6 +2526,7 @@ SafeCast WorkerOptions where
 
 export ToJS WorkerOptions where toJS = believe_me
 export FromJS WorkerOptions where fromJS = safeCast
+
 export data WorkletOptions : Type where [external]
 
 export

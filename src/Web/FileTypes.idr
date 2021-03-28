@@ -46,6 +46,7 @@ namespace EndingType
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
+
 export data Blob : Type where [external]
 
 export
@@ -54,6 +55,7 @@ SafeCast Blob where
 
 export ToJS Blob where toJS = believe_me
 export FromJS Blob where fromJS = safeCast
+
 export data File : Type where [external]
 
 export
@@ -62,6 +64,7 @@ SafeCast File where
 
 export ToJS File where toJS = believe_me
 export FromJS File where fromJS = safeCast
+
 export data FileList : Type where [external]
 
 export
@@ -70,6 +73,7 @@ SafeCast FileList where
 
 export ToJS FileList where toJS = believe_me
 export FromJS FileList where fromJS = safeCast
+
 export data FileReader : Type where [external]
 
 export
@@ -78,6 +82,7 @@ SafeCast FileReader where
 
 export ToJS FileReader where toJS = believe_me
 export FromJS FileReader where fromJS = safeCast
+
 export data FileReaderSync : Type where [external]
 
 export
@@ -91,6 +96,7 @@ export FromJS FileReaderSync where fromJS = safeCast
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
+
 export data BlobPropertyBag : Type where [external]
 
 export
@@ -99,6 +105,7 @@ SafeCast BlobPropertyBag where
 
 export ToJS BlobPropertyBag where toJS = believe_me
 export FromJS BlobPropertyBag where fromJS = safeCast
+
 export data FilePropertyBag : Type where [external]
 
 export

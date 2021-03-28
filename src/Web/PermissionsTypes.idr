@@ -141,6 +141,7 @@ namespace PermissionName
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
+
 export data PermissionStatus : Type where [external]
 
 export
@@ -149,6 +150,7 @@ SafeCast PermissionStatus where
 
 export ToJS PermissionStatus where toJS = believe_me
 export FromJS PermissionStatus where fromJS = safeCast
+
 export data Permissions : Type where [external]
 
 export
@@ -162,6 +164,7 @@ export FromJS Permissions where fromJS = safeCast
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
+
 export data CameraDevicePermissionDescriptor : Type where [external]
 
 export
@@ -170,6 +173,7 @@ SafeCast CameraDevicePermissionDescriptor where
 
 export ToJS CameraDevicePermissionDescriptor where toJS = believe_me
 export FromJS CameraDevicePermissionDescriptor where fromJS = safeCast
+
 export data DevicePermissionDescriptor : Type where [external]
 
 export
@@ -178,6 +182,7 @@ SafeCast DevicePermissionDescriptor where
 
 export ToJS DevicePermissionDescriptor where toJS = believe_me
 export FromJS DevicePermissionDescriptor where fromJS = safeCast
+
 export data MidiPermissionDescriptor : Type where [external]
 
 export
@@ -186,6 +191,7 @@ SafeCast MidiPermissionDescriptor where
 
 export ToJS MidiPermissionDescriptor where toJS = believe_me
 export FromJS MidiPermissionDescriptor where fromJS = safeCast
+
 export data PermissionDescriptor : Type where [external]
 
 export
@@ -194,6 +200,7 @@ SafeCast PermissionDescriptor where
 
 export ToJS PermissionDescriptor where toJS = believe_me
 export FromJS PermissionDescriptor where fromJS = safeCast
+
 export data PermissionSetParameters : Type where [external]
 
 export
@@ -202,6 +209,7 @@ SafeCast PermissionSetParameters where
 
 export ToJS PermissionSetParameters where toJS = believe_me
 export FromJS PermissionSetParameters where fromJS = safeCast
+
 export data PushPermissionDescriptor : Type where [external]
 
 export

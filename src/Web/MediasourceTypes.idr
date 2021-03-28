@@ -124,6 +124,7 @@ namespace AppendMode
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
+
 export data MediaSource : Type where [external]
 
 export
@@ -132,6 +133,7 @@ SafeCast MediaSource where
 
 export ToJS MediaSource where toJS = believe_me
 export FromJS MediaSource where fromJS = safeCast
+
 export data SourceBuffer : Type where [external]
 
 export
@@ -140,6 +142,7 @@ SafeCast SourceBuffer where
 
 export ToJS SourceBuffer where toJS = believe_me
 export FromJS SourceBuffer where fromJS = safeCast
+
 export data SourceBufferList : Type where [external]
 
 export

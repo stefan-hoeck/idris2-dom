@@ -5,6 +5,7 @@ import JS
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
+
 export data CSSGroupingRule : Type where [external]
 
 export
@@ -13,6 +14,7 @@ SafeCast CSSGroupingRule where
 
 export ToJS CSSGroupingRule where toJS = believe_me
 export FromJS CSSGroupingRule where fromJS = safeCast
+
 export data CSSImportRule : Type where [external]
 
 export
@@ -21,6 +23,7 @@ SafeCast CSSImportRule where
 
 export ToJS CSSImportRule where toJS = believe_me
 export FromJS CSSImportRule where fromJS = safeCast
+
 export data CSSMarginRule : Type where [external]
 
 export
@@ -29,6 +32,7 @@ SafeCast CSSMarginRule where
 
 export ToJS CSSMarginRule where toJS = believe_me
 export FromJS CSSMarginRule where fromJS = safeCast
+
 export data CSSNamespaceRule : Type where [external]
 
 export
@@ -37,6 +41,7 @@ SafeCast CSSNamespaceRule where
 
 export ToJS CSSNamespaceRule where toJS = believe_me
 export FromJS CSSNamespaceRule where fromJS = safeCast
+
 export data CSSPageRule : Type where [external]
 
 export
@@ -45,6 +50,7 @@ SafeCast CSSPageRule where
 
 export ToJS CSSPageRule where toJS = believe_me
 export FromJS CSSPageRule where fromJS = safeCast
+
 export data CSSPseudoElement : Type where [external]
 
 export
@@ -53,6 +59,7 @@ SafeCast CSSPseudoElement where
 
 export ToJS CSSPseudoElement where toJS = believe_me
 export FromJS CSSPseudoElement where fromJS = safeCast
+
 export data CSSRule : Type where [external]
 
 export
@@ -61,6 +68,7 @@ SafeCast CSSRule where
 
 export ToJS CSSRule where toJS = believe_me
 export FromJS CSSRule where fromJS = safeCast
+
 export data CSSRuleList : Type where [external]
 
 export
@@ -69,6 +77,7 @@ SafeCast CSSRuleList where
 
 export ToJS CSSRuleList where toJS = believe_me
 export FromJS CSSRuleList where fromJS = safeCast
+
 export data CSSStyleDeclaration : Type where [external]
 
 export
@@ -77,6 +86,7 @@ SafeCast CSSStyleDeclaration where
 
 export ToJS CSSStyleDeclaration where toJS = believe_me
 export FromJS CSSStyleDeclaration where fromJS = safeCast
+
 export data CSSStyleRule : Type where [external]
 
 export
@@ -85,6 +95,7 @@ SafeCast CSSStyleRule where
 
 export ToJS CSSStyleRule where toJS = believe_me
 export FromJS CSSStyleRule where fromJS = safeCast
+
 export data CSSStyleSheet : Type where [external]
 
 export
@@ -93,6 +104,7 @@ SafeCast CSSStyleSheet where
 
 export ToJS CSSStyleSheet where toJS = believe_me
 export FromJS CSSStyleSheet where fromJS = safeCast
+
 export data MediaList : Type where [external]
 
 export
@@ -101,6 +113,7 @@ SafeCast MediaList where
 
 export ToJS MediaList where toJS = believe_me
 export FromJS MediaList where fromJS = safeCast
+
 export data StyleSheet : Type where [external]
 
 export
@@ -109,6 +122,7 @@ SafeCast StyleSheet where
 
 export ToJS StyleSheet where toJS = believe_me
 export FromJS StyleSheet where fromJS = safeCast
+
 export data StyleSheetList : Type where [external]
 
 export
@@ -121,19 +135,13 @@ export FromJS StyleSheetList where fromJS = safeCast
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------
+
 export data ElementCSSInlineStyle : Type where [external]
 
-export
-SafeCast ElementCSSInlineStyle where
-  safeCast = unsafeCastOnPrototypeName "ElementCSSInlineStyle"
-
 export ToJS ElementCSSInlineStyle where toJS = believe_me
-export FromJS ElementCSSInlineStyle where fromJS = safeCast
+export FromJS ElementCSSInlineStyle where fromJS ptr = Just (believe_me ptr)
+
 export data LinkStyle : Type where [external]
 
-export
-SafeCast LinkStyle where
-  safeCast = unsafeCastOnPrototypeName "LinkStyle"
-
 export ToJS LinkStyle where toJS = believe_me
-export FromJS LinkStyle where fromJS = safeCast
+export FromJS LinkStyle where fromJS ptr = Just (believe_me ptr)

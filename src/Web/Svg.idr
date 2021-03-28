@@ -54,97 +54,97 @@ namespace SVGAElement
   prim__relList : AnyPtr -> PrimIO AnyPtr
 
   export
-  relList : (obj : SVGAElement) -> IO DOMTokenList
+  relList : (obj : SVGAElement) -> JSIO DOMTokenList
   
   %foreign "browser:lambda:x=>x.target"
   prim__target : AnyPtr -> PrimIO AnyPtr
 
   export
-  target : (obj : SVGAElement) -> IO SVGAnimatedString
+  target : (obj : SVGAElement) -> JSIO SVGAnimatedString
   
   %foreign "browser:lambda:x=>x.download"
   prim__download : AnyPtr -> PrimIO AnyPtr
 
   export
-  download : (obj : SVGAElement) -> IO String
+  download : (obj : SVGAElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.download  = v}"
   prim__setDownload : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDownload : (obj : SVGAElement) -> (v : String) -> IO ()
+  setDownload : (obj : SVGAElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.hreflang"
   prim__hreflang : AnyPtr -> PrimIO AnyPtr
 
   export
-  hreflang : (obj : SVGAElement) -> IO String
+  hreflang : (obj : SVGAElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.hreflang  = v}"
   prim__setHreflang : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setHreflang : (obj : SVGAElement) -> (v : String) -> IO ()
+  setHreflang : (obj : SVGAElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ping"
   prim__ping : AnyPtr -> PrimIO AnyPtr
 
   export
-  ping : (obj : SVGAElement) -> IO String
+  ping : (obj : SVGAElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.ping  = v}"
   prim__setPing : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setPing : (obj : SVGAElement) -> (v : String) -> IO ()
+  setPing : (obj : SVGAElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.referrerPolicy"
   prim__referrerPolicy : AnyPtr -> PrimIO AnyPtr
 
   export
-  referrerPolicy : (obj : SVGAElement) -> IO String
+  referrerPolicy : (obj : SVGAElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.referrerPolicy  = v}"
   prim__setReferrerPolicy : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setReferrerPolicy : (obj : SVGAElement) -> (v : String) -> IO ()
+  setReferrerPolicy : (obj : SVGAElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.rel"
   prim__rel : AnyPtr -> PrimIO AnyPtr
 
   export
-  rel : (obj : SVGAElement) -> IO String
+  rel : (obj : SVGAElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.rel  = v}"
   prim__setRel : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setRel : (obj : SVGAElement) -> (v : String) -> IO ()
+  setRel : (obj : SVGAElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.text"
   prim__text : AnyPtr -> PrimIO AnyPtr
 
   export
-  text : (obj : SVGAElement) -> IO String
+  text : (obj : SVGAElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.text  = v}"
   prim__setText : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setText : (obj : SVGAElement) -> (v : String) -> IO ()
+  setText : (obj : SVGAElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
 
   export
-  type : (obj : SVGAElement) -> IO String
+  type : (obj : SVGAElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.type  = v}"
   prim__setType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setType : (obj : SVGAElement) -> (v : String) -> IO ()
+  setType : (obj : SVGAElement) -> (v : String) -> JSIO ()
 
 namespace SVGAngle
   
@@ -178,43 +178,43 @@ namespace SVGAngle
   prim__unitType : AnyPtr -> PrimIO AnyPtr
 
   export
-  unitType : (obj : SVGAngle) -> IO UInt16
+  unitType : (obj : SVGAngle) -> JSIO UInt16
   
   %foreign "browser:lambda:x=>x.value"
   prim__value : AnyPtr -> PrimIO AnyPtr
 
   export
-  value : (obj : SVGAngle) -> IO Double
+  value : (obj : SVGAngle) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.value  = v}"
   prim__setValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setValue : (obj : SVGAngle) -> (v : Double) -> IO ()
+  setValue : (obj : SVGAngle) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.valueAsString"
   prim__valueAsString : AnyPtr -> PrimIO AnyPtr
 
   export
-  valueAsString : (obj : SVGAngle) -> IO String
+  valueAsString : (obj : SVGAngle) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.valueAsString  = v}"
   prim__setValueAsString : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setValueAsString : (obj : SVGAngle) -> (v : String) -> IO ()
+  setValueAsString : (obj : SVGAngle) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.valueInSpecifiedUnits"
   prim__valueInSpecifiedUnits : AnyPtr -> PrimIO AnyPtr
 
   export
-  valueInSpecifiedUnits : (obj : SVGAngle) -> IO Double
+  valueInSpecifiedUnits : (obj : SVGAngle) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.valueInSpecifiedUnits  = v}"
   prim__setValueInSpecifiedUnits : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setValueInSpecifiedUnits : (obj : SVGAngle) -> (v : Double) -> IO ()
+  setValueInSpecifiedUnits : (obj : SVGAngle) -> (v : Double) -> JSIO ()
 
 namespace SVGAnimatedAngle
   
@@ -228,13 +228,13 @@ namespace SVGAnimatedAngle
   prim__animVal : AnyPtr -> PrimIO AnyPtr
 
   export
-  animVal : (obj : SVGAnimatedAngle) -> IO SVGAngle
+  animVal : (obj : SVGAnimatedAngle) -> JSIO SVGAngle
   
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : AnyPtr -> PrimIO AnyPtr
 
   export
-  baseVal : (obj : SVGAnimatedAngle) -> IO SVGAngle
+  baseVal : (obj : SVGAnimatedAngle) -> JSIO SVGAngle
 
 namespace SVGAnimatedBoolean
   
@@ -248,19 +248,19 @@ namespace SVGAnimatedBoolean
   prim__animVal : AnyPtr -> PrimIO AnyPtr
 
   export
-  animVal : (obj : SVGAnimatedBoolean) -> IO Bool
+  animVal : (obj : SVGAnimatedBoolean) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : AnyPtr -> PrimIO AnyPtr
 
   export
-  baseVal : (obj : SVGAnimatedBoolean) -> IO Bool
+  baseVal : (obj : SVGAnimatedBoolean) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.baseVal  = v}"
   prim__setBaseVal : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setBaseVal : (obj : SVGAnimatedBoolean) -> (v : Bool) -> IO ()
+  setBaseVal : (obj : SVGAnimatedBoolean) -> (v : Bool) -> JSIO ()
 
 namespace SVGAnimatedEnumeration
   
@@ -274,19 +274,19 @@ namespace SVGAnimatedEnumeration
   prim__animVal : AnyPtr -> PrimIO AnyPtr
 
   export
-  animVal : (obj : SVGAnimatedEnumeration) -> IO UInt16
+  animVal : (obj : SVGAnimatedEnumeration) -> JSIO UInt16
   
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : AnyPtr -> PrimIO AnyPtr
 
   export
-  baseVal : (obj : SVGAnimatedEnumeration) -> IO UInt16
+  baseVal : (obj : SVGAnimatedEnumeration) -> JSIO UInt16
 
   %foreign "browser:lambda:(x,v)=>{x.baseVal  = v}"
   prim__setBaseVal : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setBaseVal : (obj : SVGAnimatedEnumeration) -> (v : UInt16) -> IO ()
+  setBaseVal : (obj : SVGAnimatedEnumeration) -> (v : UInt16) -> JSIO ()
 
 namespace SVGAnimatedInteger
   
@@ -300,19 +300,19 @@ namespace SVGAnimatedInteger
   prim__animVal : AnyPtr -> PrimIO AnyPtr
 
   export
-  animVal : (obj : SVGAnimatedInteger) -> IO Int32
+  animVal : (obj : SVGAnimatedInteger) -> JSIO Int32
   
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : AnyPtr -> PrimIO AnyPtr
 
   export
-  baseVal : (obj : SVGAnimatedInteger) -> IO Int32
+  baseVal : (obj : SVGAnimatedInteger) -> JSIO Int32
 
   %foreign "browser:lambda:(x,v)=>{x.baseVal  = v}"
   prim__setBaseVal : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setBaseVal : (obj : SVGAnimatedInteger) -> (v : Int32) -> IO ()
+  setBaseVal : (obj : SVGAnimatedInteger) -> (v : Int32) -> JSIO ()
 
 namespace SVGAnimatedLength
   
@@ -326,13 +326,13 @@ namespace SVGAnimatedLength
   prim__animVal : AnyPtr -> PrimIO AnyPtr
 
   export
-  animVal : (obj : SVGAnimatedLength) -> IO SVGLength
+  animVal : (obj : SVGAnimatedLength) -> JSIO SVGLength
   
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : AnyPtr -> PrimIO AnyPtr
 
   export
-  baseVal : (obj : SVGAnimatedLength) -> IO SVGLength
+  baseVal : (obj : SVGAnimatedLength) -> JSIO SVGLength
 
 namespace SVGAnimatedLengthList
   
@@ -346,13 +346,13 @@ namespace SVGAnimatedLengthList
   prim__animVal : AnyPtr -> PrimIO AnyPtr
 
   export
-  animVal : (obj : SVGAnimatedLengthList) -> IO SVGLengthList
+  animVal : (obj : SVGAnimatedLengthList) -> JSIO SVGLengthList
   
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : AnyPtr -> PrimIO AnyPtr
 
   export
-  baseVal : (obj : SVGAnimatedLengthList) -> IO SVGLengthList
+  baseVal : (obj : SVGAnimatedLengthList) -> JSIO SVGLengthList
 
 namespace SVGAnimatedNumber
   
@@ -366,19 +366,19 @@ namespace SVGAnimatedNumber
   prim__animVal : AnyPtr -> PrimIO AnyPtr
 
   export
-  animVal : (obj : SVGAnimatedNumber) -> IO Double
+  animVal : (obj : SVGAnimatedNumber) -> JSIO Double
   
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : AnyPtr -> PrimIO AnyPtr
 
   export
-  baseVal : (obj : SVGAnimatedNumber) -> IO Double
+  baseVal : (obj : SVGAnimatedNumber) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.baseVal  = v}"
   prim__setBaseVal : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setBaseVal : (obj : SVGAnimatedNumber) -> (v : Double) -> IO ()
+  setBaseVal : (obj : SVGAnimatedNumber) -> (v : Double) -> JSIO ()
 
 namespace SVGAnimatedNumberList
   
@@ -392,13 +392,13 @@ namespace SVGAnimatedNumberList
   prim__animVal : AnyPtr -> PrimIO AnyPtr
 
   export
-  animVal : (obj : SVGAnimatedNumberList) -> IO SVGNumberList
+  animVal : (obj : SVGAnimatedNumberList) -> JSIO SVGNumberList
   
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : AnyPtr -> PrimIO AnyPtr
 
   export
-  baseVal : (obj : SVGAnimatedNumberList) -> IO SVGNumberList
+  baseVal : (obj : SVGAnimatedNumberList) -> JSIO SVGNumberList
 
 namespace SVGAnimatedPreserveAspectRatio
   
@@ -412,13 +412,15 @@ namespace SVGAnimatedPreserveAspectRatio
   prim__animVal : AnyPtr -> PrimIO AnyPtr
 
   export
-  animVal : (obj : SVGAnimatedPreserveAspectRatio) -> IO SVGPreserveAspectRatio
+  animVal :  (obj : SVGAnimatedPreserveAspectRatio)
+          -> JSIO SVGPreserveAspectRatio
   
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : AnyPtr -> PrimIO AnyPtr
 
   export
-  baseVal : (obj : SVGAnimatedPreserveAspectRatio) -> IO SVGPreserveAspectRatio
+  baseVal :  (obj : SVGAnimatedPreserveAspectRatio)
+          -> JSIO SVGPreserveAspectRatio
 
 namespace SVGAnimatedRect
   
@@ -432,13 +434,13 @@ namespace SVGAnimatedRect
   prim__animVal : AnyPtr -> PrimIO AnyPtr
 
   export
-  animVal : (obj : SVGAnimatedRect) -> IO DOMRectReadOnly
+  animVal : (obj : SVGAnimatedRect) -> JSIO DOMRectReadOnly
   
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : AnyPtr -> PrimIO AnyPtr
 
   export
-  baseVal : (obj : SVGAnimatedRect) -> IO DOMRect
+  baseVal : (obj : SVGAnimatedRect) -> JSIO DOMRect
 
 namespace SVGAnimatedString
   
@@ -452,19 +454,19 @@ namespace SVGAnimatedString
   prim__animVal : AnyPtr -> PrimIO AnyPtr
 
   export
-  animVal : (obj : SVGAnimatedString) -> IO String
+  animVal : (obj : SVGAnimatedString) -> JSIO String
   
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : AnyPtr -> PrimIO AnyPtr
 
   export
-  baseVal : (obj : SVGAnimatedString) -> IO String
+  baseVal : (obj : SVGAnimatedString) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.baseVal  = v}"
   prim__setBaseVal : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setBaseVal : (obj : SVGAnimatedString) -> (v : String) -> IO ()
+  setBaseVal : (obj : SVGAnimatedString) -> (v : String) -> JSIO ()
 
 namespace SVGAnimatedTransformList
   
@@ -478,13 +480,13 @@ namespace SVGAnimatedTransformList
   prim__animVal : AnyPtr -> PrimIO AnyPtr
 
   export
-  animVal : (obj : SVGAnimatedTransformList) -> IO SVGTransformList
+  animVal : (obj : SVGAnimatedTransformList) -> JSIO SVGTransformList
   
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : AnyPtr -> PrimIO AnyPtr
 
   export
-  baseVal : (obj : SVGAnimatedTransformList) -> IO SVGTransformList
+  baseVal : (obj : SVGAnimatedTransformList) -> JSIO SVGTransformList
 
 namespace SVGCircleElement
   
@@ -516,19 +518,19 @@ namespace SVGCircleElement
   prim__cx : AnyPtr -> PrimIO AnyPtr
 
   export
-  cx : (obj : SVGCircleElement) -> IO SVGAnimatedLength
+  cx : (obj : SVGCircleElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.cy"
   prim__cy : AnyPtr -> PrimIO AnyPtr
 
   export
-  cy : (obj : SVGCircleElement) -> IO SVGAnimatedLength
+  cy : (obj : SVGCircleElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.r"
   prim__r : AnyPtr -> PrimIO AnyPtr
 
   export
-  r : (obj : SVGCircleElement) -> IO SVGAnimatedLength
+  r : (obj : SVGCircleElement) -> JSIO SVGAnimatedLength
 
 namespace SVGDefsElement
   
@@ -595,19 +597,19 @@ namespace SVGElement
   prim__className : AnyPtr -> PrimIO AnyPtr
 
   export
-  className : (obj : SVGElement) -> IO SVGAnimatedString
+  className : (obj : SVGElement) -> JSIO SVGAnimatedString
   
   %foreign "browser:lambda:x=>x.ownerSVGElement"
   prim__ownerSVGElement : AnyPtr -> PrimIO AnyPtr
 
   export
-  ownerSVGElement : (obj : SVGElement) -> IO (Maybe SVGSVGElement)
+  ownerSVGElement : (obj : SVGElement) -> JSIO (Maybe SVGSVGElement)
   
   %foreign "browser:lambda:x=>x.viewportElement"
   prim__viewportElement : AnyPtr -> PrimIO AnyPtr
 
   export
-  viewportElement : (obj : SVGElement) -> IO (Maybe SVGElement)
+  viewportElement : (obj : SVGElement) -> JSIO (Maybe SVGElement)
 
 namespace SVGEllipseElement
   
@@ -639,25 +641,25 @@ namespace SVGEllipseElement
   prim__cx : AnyPtr -> PrimIO AnyPtr
 
   export
-  cx : (obj : SVGEllipseElement) -> IO SVGAnimatedLength
+  cx : (obj : SVGEllipseElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.cy"
   prim__cy : AnyPtr -> PrimIO AnyPtr
 
   export
-  cy : (obj : SVGEllipseElement) -> IO SVGAnimatedLength
+  cy : (obj : SVGEllipseElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.rx"
   prim__rx : AnyPtr -> PrimIO AnyPtr
 
   export
-  rx : (obj : SVGEllipseElement) -> IO SVGAnimatedLength
+  rx : (obj : SVGEllipseElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.ry"
   prim__ry : AnyPtr -> PrimIO AnyPtr
 
   export
-  ry : (obj : SVGEllipseElement) -> IO SVGAnimatedLength
+  ry : (obj : SVGEllipseElement) -> JSIO SVGAnimatedLength
 
 namespace SVGForeignObjectElement
   
@@ -688,25 +690,25 @@ namespace SVGForeignObjectElement
   prim__height : AnyPtr -> PrimIO AnyPtr
 
   export
-  height : (obj : SVGForeignObjectElement) -> IO SVGAnimatedLength
+  height : (obj : SVGForeignObjectElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
 
   export
-  width : (obj : SVGForeignObjectElement) -> IO SVGAnimatedLength
+  width : (obj : SVGForeignObjectElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.x"
   prim__x : AnyPtr -> PrimIO AnyPtr
 
   export
-  x : (obj : SVGForeignObjectElement) -> IO SVGAnimatedLength
+  x : (obj : SVGForeignObjectElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.y"
   prim__y : AnyPtr -> PrimIO AnyPtr
 
   export
-  y : (obj : SVGForeignObjectElement) -> IO SVGAnimatedLength
+  y : (obj : SVGForeignObjectElement) -> JSIO SVGAnimatedLength
 
 namespace SVGGElement
   
@@ -762,7 +764,7 @@ namespace SVGGeometryElement
   prim__pathLength : AnyPtr -> PrimIO AnyPtr
 
   export
-  pathLength : (obj : SVGGeometryElement) -> IO SVGAnimatedNumber
+  pathLength : (obj : SVGGeometryElement) -> JSIO SVGAnimatedNumber
 
 namespace SVGGradientElement
   
@@ -803,19 +805,20 @@ namespace SVGGradientElement
   prim__gradientTransform : AnyPtr -> PrimIO AnyPtr
 
   export
-  gradientTransform : (obj : SVGGradientElement) -> IO SVGAnimatedTransformList
+  gradientTransform :  (obj : SVGGradientElement)
+                    -> JSIO SVGAnimatedTransformList
   
   %foreign "browser:lambda:x=>x.gradientUnits"
   prim__gradientUnits : AnyPtr -> PrimIO AnyPtr
 
   export
-  gradientUnits : (obj : SVGGradientElement) -> IO SVGAnimatedEnumeration
+  gradientUnits : (obj : SVGGradientElement) -> JSIO SVGAnimatedEnumeration
   
   %foreign "browser:lambda:x=>x.spreadMethod"
   prim__spreadMethod : AnyPtr -> PrimIO AnyPtr
 
   export
-  spreadMethod : (obj : SVGGradientElement) -> IO SVGAnimatedEnumeration
+  spreadMethod : (obj : SVGGradientElement) -> JSIO SVGAnimatedEnumeration
 
 namespace SVGGraphicsElement
   
@@ -840,7 +843,7 @@ namespace SVGGraphicsElement
   prim__transform : AnyPtr -> PrimIO AnyPtr
 
   export
-  transform : (obj : SVGGraphicsElement) -> IO SVGAnimatedTransformList
+  transform : (obj : SVGGraphicsElement) -> JSIO SVGAnimatedTransformList
 
 namespace SVGImageElement
   
@@ -872,44 +875,44 @@ namespace SVGImageElement
   prim__height : AnyPtr -> PrimIO AnyPtr
 
   export
-  height : (obj : SVGImageElement) -> IO SVGAnimatedLength
+  height : (obj : SVGImageElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.preserveAspectRatio"
   prim__preserveAspectRatio : AnyPtr -> PrimIO AnyPtr
 
   export
   preserveAspectRatio :  (obj : SVGImageElement)
-                      -> IO SVGAnimatedPreserveAspectRatio
+                      -> JSIO SVGAnimatedPreserveAspectRatio
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
 
   export
-  width : (obj : SVGImageElement) -> IO SVGAnimatedLength
+  width : (obj : SVGImageElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.x"
   prim__x : AnyPtr -> PrimIO AnyPtr
 
   export
-  x : (obj : SVGImageElement) -> IO SVGAnimatedLength
+  x : (obj : SVGImageElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.y"
   prim__y : AnyPtr -> PrimIO AnyPtr
 
   export
-  y : (obj : SVGImageElement) -> IO SVGAnimatedLength
+  y : (obj : SVGImageElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.crossOrigin"
   prim__crossOrigin : AnyPtr -> PrimIO AnyPtr
 
   export
-  crossOrigin : (obj : SVGImageElement) -> IO (Maybe String)
+  crossOrigin : (obj : SVGImageElement) -> JSIO (Maybe String)
 
   %foreign "browser:lambda:(x,v)=>{x.crossOrigin  = v}"
   prim__setCrossOrigin : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCrossOrigin : (obj : SVGImageElement) -> (v : Maybe String) -> IO ()
+  setCrossOrigin : (obj : SVGImageElement) -> (v : Maybe String) -> JSIO ()
 
 namespace SVGLength
   
@@ -967,43 +970,43 @@ namespace SVGLength
   prim__unitType : AnyPtr -> PrimIO AnyPtr
 
   export
-  unitType : (obj : SVGLength) -> IO UInt16
+  unitType : (obj : SVGLength) -> JSIO UInt16
   
   %foreign "browser:lambda:x=>x.value"
   prim__value : AnyPtr -> PrimIO AnyPtr
 
   export
-  value : (obj : SVGLength) -> IO Double
+  value : (obj : SVGLength) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.value  = v}"
   prim__setValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setValue : (obj : SVGLength) -> (v : Double) -> IO ()
+  setValue : (obj : SVGLength) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.valueAsString"
   prim__valueAsString : AnyPtr -> PrimIO AnyPtr
 
   export
-  valueAsString : (obj : SVGLength) -> IO String
+  valueAsString : (obj : SVGLength) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.valueAsString  = v}"
   prim__setValueAsString : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setValueAsString : (obj : SVGLength) -> (v : String) -> IO ()
+  setValueAsString : (obj : SVGLength) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.valueInSpecifiedUnits"
   prim__valueInSpecifiedUnits : AnyPtr -> PrimIO AnyPtr
 
   export
-  valueInSpecifiedUnits : (obj : SVGLength) -> IO Double
+  valueInSpecifiedUnits : (obj : SVGLength) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.valueInSpecifiedUnits  = v}"
   prim__setValueInSpecifiedUnits : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setValueInSpecifiedUnits : (obj : SVGLength) -> (v : Double) -> IO ()
+  setValueInSpecifiedUnits : (obj : SVGLength) -> (v : Double) -> JSIO ()
 
 namespace SVGLengthList
   
@@ -1017,13 +1020,13 @@ namespace SVGLengthList
   prim__length : AnyPtr -> PrimIO AnyPtr
 
   export
-  length : (obj : SVGLengthList) -> IO UInt32
+  length : (obj : SVGLengthList) -> JSIO UInt32
   
   %foreign "browser:lambda:x=>x.numberOfItems"
   prim__numberOfItems : AnyPtr -> PrimIO AnyPtr
 
   export
-  numberOfItems : (obj : SVGLengthList) -> IO UInt32
+  numberOfItems : (obj : SVGLengthList) -> JSIO UInt32
 
 namespace SVGLineElement
   
@@ -1055,25 +1058,25 @@ namespace SVGLineElement
   prim__x1 : AnyPtr -> PrimIO AnyPtr
 
   export
-  x1 : (obj : SVGLineElement) -> IO SVGAnimatedLength
+  x1 : (obj : SVGLineElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.x2"
   prim__x2 : AnyPtr -> PrimIO AnyPtr
 
   export
-  x2 : (obj : SVGLineElement) -> IO SVGAnimatedLength
+  x2 : (obj : SVGLineElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.y1"
   prim__y1 : AnyPtr -> PrimIO AnyPtr
 
   export
-  y1 : (obj : SVGLineElement) -> IO SVGAnimatedLength
+  y1 : (obj : SVGLineElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.y2"
   prim__y2 : AnyPtr -> PrimIO AnyPtr
 
   export
-  y2 : (obj : SVGLineElement) -> IO SVGAnimatedLength
+  y2 : (obj : SVGLineElement) -> JSIO SVGAnimatedLength
 
 namespace SVGLinearGradientElement
   
@@ -1104,25 +1107,25 @@ namespace SVGLinearGradientElement
   prim__x1 : AnyPtr -> PrimIO AnyPtr
 
   export
-  x1 : (obj : SVGLinearGradientElement) -> IO SVGAnimatedLength
+  x1 : (obj : SVGLinearGradientElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.x2"
   prim__x2 : AnyPtr -> PrimIO AnyPtr
 
   export
-  x2 : (obj : SVGLinearGradientElement) -> IO SVGAnimatedLength
+  x2 : (obj : SVGLinearGradientElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.y1"
   prim__y1 : AnyPtr -> PrimIO AnyPtr
 
   export
-  y1 : (obj : SVGLinearGradientElement) -> IO SVGAnimatedLength
+  y1 : (obj : SVGLinearGradientElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.y2"
   prim__y2 : AnyPtr -> PrimIO AnyPtr
 
   export
-  y2 : (obj : SVGLinearGradientElement) -> IO SVGAnimatedLength
+  y2 : (obj : SVGLinearGradientElement) -> JSIO SVGAnimatedLength
 
 namespace SVGMarkerElement
   
@@ -1171,55 +1174,55 @@ namespace SVGMarkerElement
   prim__markerHeight : AnyPtr -> PrimIO AnyPtr
 
   export
-  markerHeight : (obj : SVGMarkerElement) -> IO SVGAnimatedLength
+  markerHeight : (obj : SVGMarkerElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.markerUnits"
   prim__markerUnits : AnyPtr -> PrimIO AnyPtr
 
   export
-  markerUnits : (obj : SVGMarkerElement) -> IO SVGAnimatedEnumeration
+  markerUnits : (obj : SVGMarkerElement) -> JSIO SVGAnimatedEnumeration
   
   %foreign "browser:lambda:x=>x.markerWidth"
   prim__markerWidth : AnyPtr -> PrimIO AnyPtr
 
   export
-  markerWidth : (obj : SVGMarkerElement) -> IO SVGAnimatedLength
+  markerWidth : (obj : SVGMarkerElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.orientAngle"
   prim__orientAngle : AnyPtr -> PrimIO AnyPtr
 
   export
-  orientAngle : (obj : SVGMarkerElement) -> IO SVGAnimatedAngle
+  orientAngle : (obj : SVGMarkerElement) -> JSIO SVGAnimatedAngle
   
   %foreign "browser:lambda:x=>x.orientType"
   prim__orientType : AnyPtr -> PrimIO AnyPtr
 
   export
-  orientType : (obj : SVGMarkerElement) -> IO SVGAnimatedEnumeration
+  orientType : (obj : SVGMarkerElement) -> JSIO SVGAnimatedEnumeration
   
   %foreign "browser:lambda:x=>x.refX"
   prim__refX : AnyPtr -> PrimIO AnyPtr
 
   export
-  refX : (obj : SVGMarkerElement) -> IO SVGAnimatedLength
+  refX : (obj : SVGMarkerElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.refY"
   prim__refY : AnyPtr -> PrimIO AnyPtr
 
   export
-  refY : (obj : SVGMarkerElement) -> IO SVGAnimatedLength
+  refY : (obj : SVGMarkerElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.orient"
   prim__orient : AnyPtr -> PrimIO AnyPtr
 
   export
-  orient : (obj : SVGMarkerElement) -> IO String
+  orient : (obj : SVGMarkerElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.orient  = v}"
   prim__setOrient : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOrient : (obj : SVGMarkerElement) -> (v : String) -> IO ()
+  setOrient : (obj : SVGMarkerElement) -> (v : String) -> JSIO ()
 
 namespace SVGMetadataElement
   
@@ -1251,13 +1254,13 @@ namespace SVGNumber
   prim__value : AnyPtr -> PrimIO AnyPtr
 
   export
-  value : (obj : SVGNumber) -> IO Double
+  value : (obj : SVGNumber) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.value  = v}"
   prim__setValue : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setValue : (obj : SVGNumber) -> (v : Double) -> IO ()
+  setValue : (obj : SVGNumber) -> (v : Double) -> JSIO ()
 
 namespace SVGNumberList
   
@@ -1271,13 +1274,13 @@ namespace SVGNumberList
   prim__length : AnyPtr -> PrimIO AnyPtr
 
   export
-  length : (obj : SVGNumberList) -> IO UInt32
+  length : (obj : SVGNumberList) -> JSIO UInt32
   
   %foreign "browser:lambda:x=>x.numberOfItems"
   prim__numberOfItems : AnyPtr -> PrimIO AnyPtr
 
   export
-  numberOfItems : (obj : SVGNumberList) -> IO UInt32
+  numberOfItems : (obj : SVGNumberList) -> JSIO UInt32
 
 namespace SVGPathElement
   
@@ -1329,43 +1332,43 @@ namespace SVGPatternElement
   prim__height : AnyPtr -> PrimIO AnyPtr
 
   export
-  height : (obj : SVGPatternElement) -> IO SVGAnimatedLength
+  height : (obj : SVGPatternElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.patternContentUnits"
   prim__patternContentUnits : AnyPtr -> PrimIO AnyPtr
 
   export
-  patternContentUnits : (obj : SVGPatternElement) -> IO SVGAnimatedEnumeration
+  patternContentUnits : (obj : SVGPatternElement) -> JSIO SVGAnimatedEnumeration
   
   %foreign "browser:lambda:x=>x.patternTransform"
   prim__patternTransform : AnyPtr -> PrimIO AnyPtr
 
   export
-  patternTransform : (obj : SVGPatternElement) -> IO SVGAnimatedTransformList
+  patternTransform : (obj : SVGPatternElement) -> JSIO SVGAnimatedTransformList
   
   %foreign "browser:lambda:x=>x.patternUnits"
   prim__patternUnits : AnyPtr -> PrimIO AnyPtr
 
   export
-  patternUnits : (obj : SVGPatternElement) -> IO SVGAnimatedEnumeration
+  patternUnits : (obj : SVGPatternElement) -> JSIO SVGAnimatedEnumeration
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
 
   export
-  width : (obj : SVGPatternElement) -> IO SVGAnimatedLength
+  width : (obj : SVGPatternElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.x"
   prim__x : AnyPtr -> PrimIO AnyPtr
 
   export
-  x : (obj : SVGPatternElement) -> IO SVGAnimatedLength
+  x : (obj : SVGPatternElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.y"
   prim__y : AnyPtr -> PrimIO AnyPtr
 
   export
-  y : (obj : SVGPatternElement) -> IO SVGAnimatedLength
+  y : (obj : SVGPatternElement) -> JSIO SVGAnimatedLength
 
 namespace SVGPointList
   
@@ -1379,13 +1382,13 @@ namespace SVGPointList
   prim__length : AnyPtr -> PrimIO AnyPtr
 
   export
-  length : (obj : SVGPointList) -> IO UInt32
+  length : (obj : SVGPointList) -> JSIO UInt32
   
   %foreign "browser:lambda:x=>x.numberOfItems"
   prim__numberOfItems : AnyPtr -> PrimIO AnyPtr
 
   export
-  numberOfItems : (obj : SVGPointList) -> IO UInt32
+  numberOfItems : (obj : SVGPointList) -> JSIO UInt32
 
 namespace SVGPolygonElement
   
@@ -1509,25 +1512,25 @@ namespace SVGPreserveAspectRatio
   prim__align : AnyPtr -> PrimIO AnyPtr
 
   export
-  align : (obj : SVGPreserveAspectRatio) -> IO UInt16
+  align : (obj : SVGPreserveAspectRatio) -> JSIO UInt16
 
   %foreign "browser:lambda:(x,v)=>{x.align  = v}"
   prim__setAlign : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAlign : (obj : SVGPreserveAspectRatio) -> (v : UInt16) -> IO ()
+  setAlign : (obj : SVGPreserveAspectRatio) -> (v : UInt16) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.meetOrSlice"
   prim__meetOrSlice : AnyPtr -> PrimIO AnyPtr
 
   export
-  meetOrSlice : (obj : SVGPreserveAspectRatio) -> IO UInt16
+  meetOrSlice : (obj : SVGPreserveAspectRatio) -> JSIO UInt16
 
   %foreign "browser:lambda:(x,v)=>{x.meetOrSlice  = v}"
   prim__setMeetOrSlice : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setMeetOrSlice : (obj : SVGPreserveAspectRatio) -> (v : UInt16) -> IO ()
+  setMeetOrSlice : (obj : SVGPreserveAspectRatio) -> (v : UInt16) -> JSIO ()
 
 namespace SVGRadialGradientElement
   
@@ -1558,37 +1561,37 @@ namespace SVGRadialGradientElement
   prim__cx : AnyPtr -> PrimIO AnyPtr
 
   export
-  cx : (obj : SVGRadialGradientElement) -> IO SVGAnimatedLength
+  cx : (obj : SVGRadialGradientElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.cy"
   prim__cy : AnyPtr -> PrimIO AnyPtr
 
   export
-  cy : (obj : SVGRadialGradientElement) -> IO SVGAnimatedLength
+  cy : (obj : SVGRadialGradientElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.fr"
   prim__fr : AnyPtr -> PrimIO AnyPtr
 
   export
-  fr : (obj : SVGRadialGradientElement) -> IO SVGAnimatedLength
+  fr : (obj : SVGRadialGradientElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.fx"
   prim__fx : AnyPtr -> PrimIO AnyPtr
 
   export
-  fx : (obj : SVGRadialGradientElement) -> IO SVGAnimatedLength
+  fx : (obj : SVGRadialGradientElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.fy"
   prim__fy : AnyPtr -> PrimIO AnyPtr
 
   export
-  fy : (obj : SVGRadialGradientElement) -> IO SVGAnimatedLength
+  fy : (obj : SVGRadialGradientElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.r"
   prim__r : AnyPtr -> PrimIO AnyPtr
 
   export
-  r : (obj : SVGRadialGradientElement) -> IO SVGAnimatedLength
+  r : (obj : SVGRadialGradientElement) -> JSIO SVGAnimatedLength
 
 namespace SVGRectElement
   
@@ -1620,37 +1623,37 @@ namespace SVGRectElement
   prim__height : AnyPtr -> PrimIO AnyPtr
 
   export
-  height : (obj : SVGRectElement) -> IO SVGAnimatedLength
+  height : (obj : SVGRectElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.rx"
   prim__rx : AnyPtr -> PrimIO AnyPtr
 
   export
-  rx : (obj : SVGRectElement) -> IO SVGAnimatedLength
+  rx : (obj : SVGRectElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.ry"
   prim__ry : AnyPtr -> PrimIO AnyPtr
 
   export
-  ry : (obj : SVGRectElement) -> IO SVGAnimatedLength
+  ry : (obj : SVGRectElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
 
   export
-  width : (obj : SVGRectElement) -> IO SVGAnimatedLength
+  width : (obj : SVGRectElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.x"
   prim__x : AnyPtr -> PrimIO AnyPtr
 
   export
-  x : (obj : SVGRectElement) -> IO SVGAnimatedLength
+  x : (obj : SVGRectElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.y"
   prim__y : AnyPtr -> PrimIO AnyPtr
 
   export
-  y : (obj : SVGRectElement) -> IO SVGAnimatedLength
+  y : (obj : SVGRectElement) -> JSIO SVGAnimatedLength
 
 namespace SVGSVGElement
   
@@ -1683,43 +1686,43 @@ namespace SVGSVGElement
   prim__currentTranslate : AnyPtr -> PrimIO AnyPtr
 
   export
-  currentTranslate : (obj : SVGSVGElement) -> IO DOMPointReadOnly
+  currentTranslate : (obj : SVGSVGElement) -> JSIO DOMPointReadOnly
   
   %foreign "browser:lambda:x=>x.height"
   prim__height : AnyPtr -> PrimIO AnyPtr
 
   export
-  height : (obj : SVGSVGElement) -> IO SVGAnimatedLength
+  height : (obj : SVGSVGElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
 
   export
-  width : (obj : SVGSVGElement) -> IO SVGAnimatedLength
+  width : (obj : SVGSVGElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.x"
   prim__x : AnyPtr -> PrimIO AnyPtr
 
   export
-  x : (obj : SVGSVGElement) -> IO SVGAnimatedLength
+  x : (obj : SVGSVGElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.y"
   prim__y : AnyPtr -> PrimIO AnyPtr
 
   export
-  y : (obj : SVGSVGElement) -> IO SVGAnimatedLength
+  y : (obj : SVGSVGElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.currentScale"
   prim__currentScale : AnyPtr -> PrimIO AnyPtr
 
   export
-  currentScale : (obj : SVGSVGElement) -> IO Double
+  currentScale : (obj : SVGSVGElement) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.currentScale  = v}"
   prim__setCurrentScale : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCurrentScale : (obj : SVGSVGElement) -> (v : Double) -> IO ()
+  setCurrentScale : (obj : SVGSVGElement) -> (v : Double) -> JSIO ()
 
 namespace SVGScriptElement
   
@@ -1744,25 +1747,25 @@ namespace SVGScriptElement
   prim__crossOrigin : AnyPtr -> PrimIO AnyPtr
 
   export
-  crossOrigin : (obj : SVGScriptElement) -> IO (Maybe String)
+  crossOrigin : (obj : SVGScriptElement) -> JSIO (Maybe String)
 
   %foreign "browser:lambda:(x,v)=>{x.crossOrigin  = v}"
   prim__setCrossOrigin : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCrossOrigin : (obj : SVGScriptElement) -> (v : Maybe String) -> IO ()
+  setCrossOrigin : (obj : SVGScriptElement) -> (v : Maybe String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
 
   export
-  type : (obj : SVGScriptElement) -> IO String
+  type : (obj : SVGScriptElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.type  = v}"
   prim__setType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setType : (obj : SVGScriptElement) -> (v : String) -> IO ()
+  setType : (obj : SVGScriptElement) -> (v : String) -> JSIO ()
 
 namespace SVGStopElement
   
@@ -1786,7 +1789,7 @@ namespace SVGStopElement
   prim__offset : AnyPtr -> PrimIO AnyPtr
 
   export
-  offset : (obj : SVGStopElement) -> IO SVGAnimatedNumber
+  offset : (obj : SVGStopElement) -> JSIO SVGAnimatedNumber
 
 namespace SVGStringList
   
@@ -1800,13 +1803,13 @@ namespace SVGStringList
   prim__length : AnyPtr -> PrimIO AnyPtr
 
   export
-  length : (obj : SVGStringList) -> IO UInt32
+  length : (obj : SVGStringList) -> JSIO UInt32
   
   %foreign "browser:lambda:x=>x.numberOfItems"
   prim__numberOfItems : AnyPtr -> PrimIO AnyPtr
 
   export
-  numberOfItems : (obj : SVGStringList) -> IO UInt32
+  numberOfItems : (obj : SVGStringList) -> JSIO UInt32
 
 namespace SVGStyleElement
   
@@ -1831,37 +1834,37 @@ namespace SVGStyleElement
   prim__media : AnyPtr -> PrimIO AnyPtr
 
   export
-  media : (obj : SVGStyleElement) -> IO String
+  media : (obj : SVGStyleElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.media  = v}"
   prim__setMedia : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setMedia : (obj : SVGStyleElement) -> (v : String) -> IO ()
+  setMedia : (obj : SVGStyleElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.title"
   prim__title : AnyPtr -> PrimIO AnyPtr
 
   export
-  title : (obj : SVGStyleElement) -> IO String
+  title : (obj : SVGStyleElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.title  = v}"
   prim__setTitle : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setTitle : (obj : SVGStyleElement) -> (v : String) -> IO ()
+  setTitle : (obj : SVGStyleElement) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
 
   export
-  type : (obj : SVGStyleElement) -> IO String
+  type : (obj : SVGStyleElement) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.type  = v}"
   prim__setType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setType : (obj : SVGStyleElement) -> (v : String) -> IO ()
+  setType : (obj : SVGStyleElement) -> (v : String) -> JSIO ()
 
 namespace SVGSwitchElement
   
@@ -1982,13 +1985,13 @@ namespace SVGTextContentElement
   prim__lengthAdjust : AnyPtr -> PrimIO AnyPtr
 
   export
-  lengthAdjust : (obj : SVGTextContentElement) -> IO SVGAnimatedEnumeration
+  lengthAdjust : (obj : SVGTextContentElement) -> JSIO SVGAnimatedEnumeration
   
   %foreign "browser:lambda:x=>x.textLength"
   prim__textLength : AnyPtr -> PrimIO AnyPtr
 
   export
-  textLength : (obj : SVGTextContentElement) -> IO SVGAnimatedLength
+  textLength : (obj : SVGTextContentElement) -> JSIO SVGAnimatedLength
 
 namespace SVGTextElement
   
@@ -2072,19 +2075,19 @@ namespace SVGTextPathElement
   prim__method : AnyPtr -> PrimIO AnyPtr
 
   export
-  method : (obj : SVGTextPathElement) -> IO SVGAnimatedEnumeration
+  method : (obj : SVGTextPathElement) -> JSIO SVGAnimatedEnumeration
   
   %foreign "browser:lambda:x=>x.spacing"
   prim__spacing : AnyPtr -> PrimIO AnyPtr
 
   export
-  spacing : (obj : SVGTextPathElement) -> IO SVGAnimatedEnumeration
+  spacing : (obj : SVGTextPathElement) -> JSIO SVGAnimatedEnumeration
   
   %foreign "browser:lambda:x=>x.startOffset"
   prim__startOffset : AnyPtr -> PrimIO AnyPtr
 
   export
-  startOffset : (obj : SVGTextPathElement) -> IO SVGAnimatedLength
+  startOffset : (obj : SVGTextPathElement) -> JSIO SVGAnimatedLength
 
 namespace SVGTextPositioningElement
   
@@ -2116,31 +2119,31 @@ namespace SVGTextPositioningElement
   prim__dx : AnyPtr -> PrimIO AnyPtr
 
   export
-  dx : (obj : SVGTextPositioningElement) -> IO SVGAnimatedLengthList
+  dx : (obj : SVGTextPositioningElement) -> JSIO SVGAnimatedLengthList
   
   %foreign "browser:lambda:x=>x.dy"
   prim__dy : AnyPtr -> PrimIO AnyPtr
 
   export
-  dy : (obj : SVGTextPositioningElement) -> IO SVGAnimatedLengthList
+  dy : (obj : SVGTextPositioningElement) -> JSIO SVGAnimatedLengthList
   
   %foreign "browser:lambda:x=>x.rotate"
   prim__rotate : AnyPtr -> PrimIO AnyPtr
 
   export
-  rotate : (obj : SVGTextPositioningElement) -> IO SVGAnimatedNumberList
+  rotate : (obj : SVGTextPositioningElement) -> JSIO SVGAnimatedNumberList
   
   %foreign "browser:lambda:x=>x.x"
   prim__x : AnyPtr -> PrimIO AnyPtr
 
   export
-  x : (obj : SVGTextPositioningElement) -> IO SVGAnimatedLengthList
+  x : (obj : SVGTextPositioningElement) -> JSIO SVGAnimatedLengthList
   
   %foreign "browser:lambda:x=>x.y"
   prim__y : AnyPtr -> PrimIO AnyPtr
 
   export
-  y : (obj : SVGTextPositioningElement) -> IO SVGAnimatedLengthList
+  y : (obj : SVGTextPositioningElement) -> JSIO SVGAnimatedLengthList
 
 namespace SVGTitleElement
   
@@ -2200,19 +2203,19 @@ namespace SVGTransform
   prim__angle : AnyPtr -> PrimIO AnyPtr
 
   export
-  angle : (obj : SVGTransform) -> IO Double
+  angle : (obj : SVGTransform) -> JSIO Double
   
   %foreign "browser:lambda:x=>x.matrix"
   prim__matrix : AnyPtr -> PrimIO AnyPtr
 
   export
-  matrix : (obj : SVGTransform) -> IO DOMMatrix
+  matrix : (obj : SVGTransform) -> JSIO DOMMatrix
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
 
   export
-  type : (obj : SVGTransform) -> IO UInt16
+  type : (obj : SVGTransform) -> JSIO UInt16
 
 namespace SVGTransformList
   
@@ -2226,13 +2229,13 @@ namespace SVGTransformList
   prim__length : AnyPtr -> PrimIO AnyPtr
 
   export
-  length : (obj : SVGTransformList) -> IO UInt32
+  length : (obj : SVGTransformList) -> JSIO UInt32
   
   %foreign "browser:lambda:x=>x.numberOfItems"
   prim__numberOfItems : AnyPtr -> PrimIO AnyPtr
 
   export
-  numberOfItems : (obj : SVGTransformList) -> IO UInt32
+  numberOfItems : (obj : SVGTransformList) -> JSIO UInt32
 
 namespace SVGUnitTypes
   
@@ -2284,37 +2287,37 @@ namespace SVGUseElement
   prim__animatedInstanceRoot : AnyPtr -> PrimIO AnyPtr
 
   export
-  animatedInstanceRoot : (obj : SVGUseElement) -> IO (Maybe SVGElement)
+  animatedInstanceRoot : (obj : SVGUseElement) -> JSIO (Maybe SVGElement)
   
   %foreign "browser:lambda:x=>x.height"
   prim__height : AnyPtr -> PrimIO AnyPtr
 
   export
-  height : (obj : SVGUseElement) -> IO SVGAnimatedLength
+  height : (obj : SVGUseElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.instanceRoot"
   prim__instanceRoot : AnyPtr -> PrimIO AnyPtr
 
   export
-  instanceRoot : (obj : SVGUseElement) -> IO (Maybe SVGElement)
+  instanceRoot : (obj : SVGUseElement) -> JSIO (Maybe SVGElement)
   
   %foreign "browser:lambda:x=>x.width"
   prim__width : AnyPtr -> PrimIO AnyPtr
 
   export
-  width : (obj : SVGUseElement) -> IO SVGAnimatedLength
+  width : (obj : SVGUseElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.x"
   prim__x : AnyPtr -> PrimIO AnyPtr
 
   export
-  x : (obj : SVGUseElement) -> IO SVGAnimatedLength
+  x : (obj : SVGUseElement) -> JSIO SVGAnimatedLength
   
   %foreign "browser:lambda:x=>x.y"
   prim__y : AnyPtr -> PrimIO AnyPtr
 
   export
-  y : (obj : SVGUseElement) -> IO SVGAnimatedLength
+  y : (obj : SVGUseElement) -> JSIO SVGAnimatedLength
 
 namespace SVGUseElementShadowRoot
   
@@ -2355,7 +2358,7 @@ namespace ShadowAnimation
   prim__sourceAnimation : AnyPtr -> PrimIO AnyPtr
 
   export
-  sourceAnimation : (obj : ShadowAnimation) -> IO Animation
+  sourceAnimation : (obj : ShadowAnimation) -> JSIO Animation
 
 --------------------------------------------------------------------------------
 --          Mixins
@@ -2368,13 +2371,13 @@ namespace SVGAnimatedPoints
   prim__animatedPoints : AnyPtr -> PrimIO AnyPtr
 
   export
-  animatedPoints : (obj : SVGAnimatedPoints) -> IO SVGPointList
+  animatedPoints : (obj : SVGAnimatedPoints) -> JSIO SVGPointList
   
   %foreign "browser:lambda:x=>x.points"
   prim__points : AnyPtr -> PrimIO AnyPtr
 
   export
-  points : (obj : SVGAnimatedPoints) -> IO SVGPointList
+  points : (obj : SVGAnimatedPoints) -> JSIO SVGPointList
 
 namespace SVGElementInstance
   
@@ -2382,14 +2385,14 @@ namespace SVGElementInstance
   prim__correspondingElement : AnyPtr -> PrimIO AnyPtr
 
   export
-  correspondingElement : (obj : SVGElementInstance) -> IO (Maybe SVGElement)
+  correspondingElement : (obj : SVGElementInstance) -> JSIO (Maybe SVGElement)
   
   %foreign "browser:lambda:x=>x.correspondingUseElement"
   prim__correspondingUseElement : AnyPtr -> PrimIO AnyPtr
 
   export
   correspondingUseElement :  (obj : SVGElementInstance)
-                          -> IO (Maybe SVGUseElement)
+                          -> JSIO (Maybe SVGUseElement)
 
 namespace SVGFitToViewBox
   
@@ -2398,13 +2401,13 @@ namespace SVGFitToViewBox
 
   export
   preserveAspectRatio :  (obj : SVGFitToViewBox)
-                      -> IO SVGAnimatedPreserveAspectRatio
+                      -> JSIO SVGAnimatedPreserveAspectRatio
   
   %foreign "browser:lambda:x=>x.viewBox"
   prim__viewBox : AnyPtr -> PrimIO AnyPtr
 
   export
-  viewBox : (obj : SVGFitToViewBox) -> IO SVGAnimatedRect
+  viewBox : (obj : SVGFitToViewBox) -> JSIO SVGAnimatedRect
 
 namespace SVGTests
   
@@ -2412,13 +2415,13 @@ namespace SVGTests
   prim__requiredExtensions : AnyPtr -> PrimIO AnyPtr
 
   export
-  requiredExtensions : (obj : SVGTests) -> IO SVGStringList
+  requiredExtensions : (obj : SVGTests) -> JSIO SVGStringList
   
   %foreign "browser:lambda:x=>x.systemLanguage"
   prim__systemLanguage : AnyPtr -> PrimIO AnyPtr
 
   export
-  systemLanguage : (obj : SVGTests) -> IO SVGStringList
+  systemLanguage : (obj : SVGTests) -> JSIO SVGStringList
 
 namespace SVGURIReference
   
@@ -2426,7 +2429,7 @@ namespace SVGURIReference
   prim__href : AnyPtr -> PrimIO AnyPtr
 
   export
-  href : (obj : SVGURIReference) -> IO SVGAnimatedString
+  href : (obj : SVGURIReference) -> JSIO SVGAnimatedString
 
 --------------------------------------------------------------------------------
 --          Dictionaries
@@ -2444,47 +2447,47 @@ namespace SVGBoundingBoxOptions
   prim__clipped : AnyPtr -> PrimIO AnyPtr
 
   export
-  clipped : (obj : SVGBoundingBoxOptions) -> IO Bool
+  clipped : (obj : SVGBoundingBoxOptions) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.clipped  = v}"
   prim__setClipped : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setClipped : (obj : SVGBoundingBoxOptions) -> (v : Bool) -> IO ()
+  setClipped : (obj : SVGBoundingBoxOptions) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.fill"
   prim__fill : AnyPtr -> PrimIO AnyPtr
 
   export
-  fill : (obj : SVGBoundingBoxOptions) -> IO Bool
+  fill : (obj : SVGBoundingBoxOptions) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.fill  = v}"
   prim__setFill : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setFill : (obj : SVGBoundingBoxOptions) -> (v : Bool) -> IO ()
+  setFill : (obj : SVGBoundingBoxOptions) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.markers"
   prim__markers : AnyPtr -> PrimIO AnyPtr
 
   export
-  markers : (obj : SVGBoundingBoxOptions) -> IO Bool
+  markers : (obj : SVGBoundingBoxOptions) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.markers  = v}"
   prim__setMarkers : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setMarkers : (obj : SVGBoundingBoxOptions) -> (v : Bool) -> IO ()
+  setMarkers : (obj : SVGBoundingBoxOptions) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.stroke"
   prim__stroke : AnyPtr -> PrimIO AnyPtr
 
   export
-  stroke : (obj : SVGBoundingBoxOptions) -> IO Bool
+  stroke : (obj : SVGBoundingBoxOptions) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.stroke  = v}"
   prim__setStroke : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setStroke : (obj : SVGBoundingBoxOptions) -> (v : Bool) -> IO ()
+  setStroke : (obj : SVGBoundingBoxOptions) -> (v : Bool) -> JSIO ()
 

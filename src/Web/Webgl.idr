@@ -29,19 +29,19 @@ namespace WebGLActiveInfo
   prim__name : AnyPtr -> PrimIO AnyPtr
 
   export
-  name : (obj : WebGLActiveInfo) -> IO String
+  name : (obj : WebGLActiveInfo) -> JSIO String
   
   %foreign "browser:lambda:x=>x.size"
   prim__size : AnyPtr -> PrimIO AnyPtr
 
   export
-  size : (obj : WebGLActiveInfo) -> IO GLint
+  size : (obj : WebGLActiveInfo) -> JSIO GLint
   
   %foreign "browser:lambda:x=>x.type"
   prim__type : AnyPtr -> PrimIO AnyPtr
 
   export
-  type : (obj : WebGLActiveInfo) -> IO GLenum
+  type : (obj : WebGLActiveInfo) -> JSIO GLenum
 
 namespace WebGLBuffer
   
@@ -127,19 +127,19 @@ namespace WebGLShaderPrecisionFormat
   prim__precision : AnyPtr -> PrimIO AnyPtr
 
   export
-  precision : (obj : WebGLShaderPrecisionFormat) -> IO GLint
+  precision : (obj : WebGLShaderPrecisionFormat) -> JSIO GLint
   
   %foreign "browser:lambda:x=>x.rangeMax"
   prim__rangeMax : AnyPtr -> PrimIO AnyPtr
 
   export
-  rangeMax : (obj : WebGLShaderPrecisionFormat) -> IO GLint
+  rangeMax : (obj : WebGLShaderPrecisionFormat) -> JSIO GLint
   
   %foreign "browser:lambda:x=>x.rangeMin"
   prim__rangeMin : AnyPtr -> PrimIO AnyPtr
 
   export
-  rangeMin : (obj : WebGLShaderPrecisionFormat) -> IO GLint
+  rangeMin : (obj : WebGLShaderPrecisionFormat) -> JSIO GLint
 
 namespace WebGLSync
   
@@ -2431,19 +2431,19 @@ namespace WebGLRenderingContextBase
 
   export
   canvas :  (obj : WebGLRenderingContextBase)
-         -> IO (NS I [ HTMLCanvasElement , OffscreenCanvas ])
+         -> JSIO (NS I [ HTMLCanvasElement , OffscreenCanvas ])
   
   %foreign "browser:lambda:x=>x.drawingBufferHeight"
   prim__drawingBufferHeight : AnyPtr -> PrimIO AnyPtr
 
   export
-  drawingBufferHeight : (obj : WebGLRenderingContextBase) -> IO GLsizei
+  drawingBufferHeight : (obj : WebGLRenderingContextBase) -> JSIO GLsizei
   
   %foreign "browser:lambda:x=>x.drawingBufferWidth"
   prim__drawingBufferWidth : AnyPtr -> PrimIO AnyPtr
 
   export
-  drawingBufferWidth : (obj : WebGLRenderingContextBase) -> IO GLsizei
+  drawingBufferWidth : (obj : WebGLRenderingContextBase) -> JSIO GLsizei
 
 
 --------------------------------------------------------------------------------
@@ -2462,55 +2462,55 @@ namespace WebGLContextAttributes
   prim__alpha : AnyPtr -> PrimIO AnyPtr
 
   export
-  alpha : (obj : WebGLContextAttributes) -> IO Bool
+  alpha : (obj : WebGLContextAttributes) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.alpha  = v}"
   prim__setAlpha : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAlpha : (obj : WebGLContextAttributes) -> (v : Bool) -> IO ()
+  setAlpha : (obj : WebGLContextAttributes) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.antialias"
   prim__antialias : AnyPtr -> PrimIO AnyPtr
 
   export
-  antialias : (obj : WebGLContextAttributes) -> IO Bool
+  antialias : (obj : WebGLContextAttributes) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.antialias  = v}"
   prim__setAntialias : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setAntialias : (obj : WebGLContextAttributes) -> (v : Bool) -> IO ()
+  setAntialias : (obj : WebGLContextAttributes) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.depth"
   prim__depth : AnyPtr -> PrimIO AnyPtr
 
   export
-  depth : (obj : WebGLContextAttributes) -> IO Bool
+  depth : (obj : WebGLContextAttributes) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.depth  = v}"
   prim__setDepth : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDepth : (obj : WebGLContextAttributes) -> (v : Bool) -> IO ()
+  setDepth : (obj : WebGLContextAttributes) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.desynchronized"
   prim__desynchronized : AnyPtr -> PrimIO AnyPtr
 
   export
-  desynchronized : (obj : WebGLContextAttributes) -> IO Bool
+  desynchronized : (obj : WebGLContextAttributes) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.desynchronized  = v}"
   prim__setDesynchronized : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDesynchronized : (obj : WebGLContextAttributes) -> (v : Bool) -> IO ()
+  setDesynchronized : (obj : WebGLContextAttributes) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.failIfMajorPerformanceCaveat"
   prim__failIfMajorPerformanceCaveat : AnyPtr -> PrimIO AnyPtr
 
   export
-  failIfMajorPerformanceCaveat : (obj : WebGLContextAttributes) -> IO Bool
+  failIfMajorPerformanceCaveat : (obj : WebGLContextAttributes) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.failIfMajorPerformanceCaveat  = v}"
   prim__setFailIfMajorPerformanceCaveat : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -2518,13 +2518,13 @@ namespace WebGLContextAttributes
   export
   setFailIfMajorPerformanceCaveat :  (obj : WebGLContextAttributes)
                                   -> (v : Bool)
-                                  -> IO ()
+                                  -> JSIO ()
   
   %foreign "browser:lambda:x=>x.powerPreference"
   prim__powerPreference : AnyPtr -> PrimIO AnyPtr
 
   export
-  powerPreference : (obj : WebGLContextAttributes) -> IO WebGLPowerPreference
+  powerPreference : (obj : WebGLContextAttributes) -> JSIO WebGLPowerPreference
 
   %foreign "browser:lambda:(x,v)=>{x.powerPreference  = v}"
   prim__setPowerPreference : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -2532,25 +2532,27 @@ namespace WebGLContextAttributes
   export
   setPowerPreference :  (obj : WebGLContextAttributes)
                      -> (v : WebGLPowerPreference)
-                     -> IO ()
+                     -> JSIO ()
   
   %foreign "browser:lambda:x=>x.premultipliedAlpha"
   prim__premultipliedAlpha : AnyPtr -> PrimIO AnyPtr
 
   export
-  premultipliedAlpha : (obj : WebGLContextAttributes) -> IO Bool
+  premultipliedAlpha : (obj : WebGLContextAttributes) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.premultipliedAlpha  = v}"
   prim__setPremultipliedAlpha : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setPremultipliedAlpha : (obj : WebGLContextAttributes) -> (v : Bool) -> IO ()
+  setPremultipliedAlpha :  (obj : WebGLContextAttributes)
+                        -> (v : Bool)
+                        -> JSIO ()
   
   %foreign "browser:lambda:x=>x.preserveDrawingBuffer"
   prim__preserveDrawingBuffer : AnyPtr -> PrimIO AnyPtr
 
   export
-  preserveDrawingBuffer : (obj : WebGLContextAttributes) -> IO Bool
+  preserveDrawingBuffer : (obj : WebGLContextAttributes) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.preserveDrawingBuffer  = v}"
   prim__setPreserveDrawingBuffer : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -2558,17 +2560,17 @@ namespace WebGLContextAttributes
   export
   setPreserveDrawingBuffer :  (obj : WebGLContextAttributes)
                            -> (v : Bool)
-                           -> IO ()
+                           -> JSIO ()
   
   %foreign "browser:lambda:x=>x.stencil"
   prim__stencil : AnyPtr -> PrimIO AnyPtr
 
   export
-  stencil : (obj : WebGLContextAttributes) -> IO Bool
+  stencil : (obj : WebGLContextAttributes) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.stencil  = v}"
   prim__setStencil : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setStencil : (obj : WebGLContextAttributes) -> (v : Bool) -> IO ()
+  setStencil : (obj : WebGLContextAttributes) -> (v : Bool) -> JSIO ()
 

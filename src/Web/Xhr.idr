@@ -26,19 +26,19 @@ namespace ProgressEvent
   prim__lengthComputable : AnyPtr -> PrimIO AnyPtr
 
   export
-  lengthComputable : (obj : ProgressEvent) -> IO Bool
+  lengthComputable : (obj : ProgressEvent) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.loaded"
   prim__loaded : AnyPtr -> PrimIO AnyPtr
 
   export
-  loaded : (obj : ProgressEvent) -> IO UInt64
+  loaded : (obj : ProgressEvent) -> JSIO UInt64
   
   %foreign "browser:lambda:x=>x.total"
   prim__total_ : AnyPtr -> PrimIO AnyPtr
 
   export
-  total_ : (obj : ProgressEvent) -> IO UInt64
+  total_ : (obj : ProgressEvent) -> JSIO UInt64
 
 namespace XMLHttpRequest
   
@@ -72,67 +72,69 @@ namespace XMLHttpRequest
   prim__readyState : AnyPtr -> PrimIO AnyPtr
 
   export
-  readyState : (obj : XMLHttpRequest) -> IO UInt16
+  readyState : (obj : XMLHttpRequest) -> JSIO UInt16
   
   %foreign "browser:lambda:x=>x.response"
   prim__response : AnyPtr -> PrimIO AnyPtr
 
   export
-  response : (obj : XMLHttpRequest) -> IO Any
+  response : (obj : XMLHttpRequest) -> JSIO Any
   
   %foreign "browser:lambda:x=>x.responseText"
   prim__responseText : AnyPtr -> PrimIO AnyPtr
 
   export
-  responseText : (obj : XMLHttpRequest) -> IO String
+  responseText : (obj : XMLHttpRequest) -> JSIO String
   
   %foreign "browser:lambda:x=>x.responseURL"
   prim__responseURL : AnyPtr -> PrimIO AnyPtr
 
   export
-  responseURL : (obj : XMLHttpRequest) -> IO String
+  responseURL : (obj : XMLHttpRequest) -> JSIO String
   
   %foreign "browser:lambda:x=>x.responseXML"
   prim__responseXML : AnyPtr -> PrimIO AnyPtr
 
   export
-  responseXML : (obj : XMLHttpRequest) -> IO (Maybe Document)
+  responseXML : (obj : XMLHttpRequest) -> JSIO (Maybe Document)
   
   %foreign "browser:lambda:x=>x.status"
   prim__status : AnyPtr -> PrimIO AnyPtr
 
   export
-  status : (obj : XMLHttpRequest) -> IO UInt16
+  status : (obj : XMLHttpRequest) -> JSIO UInt16
   
   %foreign "browser:lambda:x=>x.statusText"
   prim__statusText : AnyPtr -> PrimIO AnyPtr
 
   export
-  statusText : (obj : XMLHttpRequest) -> IO String
+  statusText : (obj : XMLHttpRequest) -> JSIO String
   
   %foreign "browser:lambda:x=>x.upload"
   prim__upload : AnyPtr -> PrimIO AnyPtr
 
   export
-  upload : (obj : XMLHttpRequest) -> IO XMLHttpRequestUpload
+  upload : (obj : XMLHttpRequest) -> JSIO XMLHttpRequestUpload
   
   %foreign "browser:lambda:x=>x.onreadystatechange"
   prim__onreadystatechange : AnyPtr -> PrimIO AnyPtr
 
   export
-  onreadystatechange : (obj : XMLHttpRequest) -> IO EventHandler
+  onreadystatechange : (obj : XMLHttpRequest) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onreadystatechange  = v}"
   prim__setOnreadystatechange : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnreadystatechange : (obj : XMLHttpRequest) -> (v : EventHandler) -> IO ()
+  setOnreadystatechange :  (obj : XMLHttpRequest)
+                        -> (v : EventHandler)
+                        -> JSIO ()
   
   %foreign "browser:lambda:x=>x.responseType"
   prim__responseType : AnyPtr -> PrimIO AnyPtr
 
   export
-  responseType : (obj : XMLHttpRequest) -> IO XMLHttpRequestResponseType
+  responseType : (obj : XMLHttpRequest) -> JSIO XMLHttpRequestResponseType
 
   %foreign "browser:lambda:(x,v)=>{x.responseType  = v}"
   prim__setResponseType : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -140,31 +142,31 @@ namespace XMLHttpRequest
   export
   setResponseType :  (obj : XMLHttpRequest)
                   -> (v : XMLHttpRequestResponseType)
-                  -> IO ()
+                  -> JSIO ()
   
   %foreign "browser:lambda:x=>x.timeout"
   prim__timeout : AnyPtr -> PrimIO AnyPtr
 
   export
-  timeout : (obj : XMLHttpRequest) -> IO UInt32
+  timeout : (obj : XMLHttpRequest) -> JSIO UInt32
 
   %foreign "browser:lambda:(x,v)=>{x.timeout  = v}"
   prim__setTimeout : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setTimeout : (obj : XMLHttpRequest) -> (v : UInt32) -> IO ()
+  setTimeout : (obj : XMLHttpRequest) -> (v : UInt32) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.withCredentials"
   prim__withCredentials : AnyPtr -> PrimIO AnyPtr
 
   export
-  withCredentials : (obj : XMLHttpRequest) -> IO Bool
+  withCredentials : (obj : XMLHttpRequest) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.withCredentials  = v}"
   prim__setWithCredentials : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setWithCredentials : (obj : XMLHttpRequest) -> (v : Bool) -> IO ()
+  setWithCredentials : (obj : XMLHttpRequest) -> (v : Bool) -> JSIO ()
 
 namespace XMLHttpRequestEventTarget
   
@@ -178,43 +180,47 @@ namespace XMLHttpRequestEventTarget
   prim__onabort : AnyPtr -> PrimIO AnyPtr
 
   export
-  onabort : (obj : XMLHttpRequestEventTarget) -> IO EventHandler
+  onabort : (obj : XMLHttpRequestEventTarget) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onabort  = v}"
   prim__setOnabort : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnabort : (obj : XMLHttpRequestEventTarget) -> (v : EventHandler) -> IO ()
+  setOnabort :  (obj : XMLHttpRequestEventTarget)
+             -> (v : EventHandler)
+             -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onerror"
   prim__onerror : AnyPtr -> PrimIO AnyPtr
 
   export
-  onerror : (obj : XMLHttpRequestEventTarget) -> IO EventHandler
+  onerror : (obj : XMLHttpRequestEventTarget) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onerror  = v}"
   prim__setOnerror : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnerror : (obj : XMLHttpRequestEventTarget) -> (v : EventHandler) -> IO ()
+  setOnerror :  (obj : XMLHttpRequestEventTarget)
+             -> (v : EventHandler)
+             -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onload"
   prim__onload : AnyPtr -> PrimIO AnyPtr
 
   export
-  onload : (obj : XMLHttpRequestEventTarget) -> IO EventHandler
+  onload : (obj : XMLHttpRequestEventTarget) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onload  = v}"
   prim__setOnload : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnload : (obj : XMLHttpRequestEventTarget) -> (v : EventHandler) -> IO ()
+  setOnload : (obj : XMLHttpRequestEventTarget) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onloadend"
   prim__onloadend : AnyPtr -> PrimIO AnyPtr
 
   export
-  onloadend : (obj : XMLHttpRequestEventTarget) -> IO EventHandler
+  onloadend : (obj : XMLHttpRequestEventTarget) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onloadend  = v}"
   prim__setOnloadend : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -222,13 +228,13 @@ namespace XMLHttpRequestEventTarget
   export
   setOnloadend :  (obj : XMLHttpRequestEventTarget)
                -> (v : EventHandler)
-               -> IO ()
+               -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onloadstart"
   prim__onloadstart : AnyPtr -> PrimIO AnyPtr
 
   export
-  onloadstart : (obj : XMLHttpRequestEventTarget) -> IO EventHandler
+  onloadstart : (obj : XMLHttpRequestEventTarget) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onloadstart  = v}"
   prim__setOnloadstart : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -236,13 +242,13 @@ namespace XMLHttpRequestEventTarget
   export
   setOnloadstart :  (obj : XMLHttpRequestEventTarget)
                  -> (v : EventHandler)
-                 -> IO ()
+                 -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onprogress"
   prim__onprogress : AnyPtr -> PrimIO AnyPtr
 
   export
-  onprogress : (obj : XMLHttpRequestEventTarget) -> IO EventHandler
+  onprogress : (obj : XMLHttpRequestEventTarget) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onprogress  = v}"
   prim__setOnprogress : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -250,13 +256,13 @@ namespace XMLHttpRequestEventTarget
   export
   setOnprogress :  (obj : XMLHttpRequestEventTarget)
                 -> (v : EventHandler)
-                -> IO ()
+                -> JSIO ()
   
   %foreign "browser:lambda:x=>x.ontimeout"
   prim__ontimeout : AnyPtr -> PrimIO AnyPtr
 
   export
-  ontimeout : (obj : XMLHttpRequestEventTarget) -> IO EventHandler
+  ontimeout : (obj : XMLHttpRequestEventTarget) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.ontimeout  = v}"
   prim__setOntimeout : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -264,7 +270,7 @@ namespace XMLHttpRequestEventTarget
   export
   setOntimeout :  (obj : XMLHttpRequestEventTarget)
                -> (v : EventHandler)
-               -> IO ()
+               -> JSIO ()
 
 namespace XMLHttpRequestUpload
   
@@ -291,35 +297,35 @@ namespace ProgressEventInit
   prim__lengthComputable : AnyPtr -> PrimIO AnyPtr
 
   export
-  lengthComputable : (obj : ProgressEventInit) -> IO Bool
+  lengthComputable : (obj : ProgressEventInit) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.lengthComputable  = v}"
   prim__setLengthComputable : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setLengthComputable : (obj : ProgressEventInit) -> (v : Bool) -> IO ()
+  setLengthComputable : (obj : ProgressEventInit) -> (v : Bool) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.loaded"
   prim__loaded : AnyPtr -> PrimIO AnyPtr
 
   export
-  loaded : (obj : ProgressEventInit) -> IO UInt64
+  loaded : (obj : ProgressEventInit) -> JSIO UInt64
 
   %foreign "browser:lambda:(x,v)=>{x.loaded  = v}"
   prim__setLoaded : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setLoaded : (obj : ProgressEventInit) -> (v : UInt64) -> IO ()
+  setLoaded : (obj : ProgressEventInit) -> (v : UInt64) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.total"
   prim__total_ : AnyPtr -> PrimIO AnyPtr
 
   export
-  total_ : (obj : ProgressEventInit) -> IO UInt64
+  total_ : (obj : ProgressEventInit) -> JSIO UInt64
 
   %foreign "browser:lambda:(x,v)=>{x.total  = v}"
   prim__setTotal : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setTotal : (obj : ProgressEventInit) -> (v : UInt64) -> IO ()
+  setTotal : (obj : ProgressEventInit) -> (v : UInt64) -> JSIO ()
 

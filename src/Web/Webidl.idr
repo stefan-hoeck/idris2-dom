@@ -118,19 +118,19 @@ namespace DOMException
   prim__code : AnyPtr -> PrimIO AnyPtr
 
   export
-  code : (obj : DOMException) -> IO UInt16
+  code : (obj : DOMException) -> JSIO UInt16
   
   %foreign "browser:lambda:x=>x.message"
   prim__message : AnyPtr -> PrimIO AnyPtr
 
   export
-  message : (obj : DOMException) -> IO String
+  message : (obj : DOMException) -> JSIO String
   
   %foreign "browser:lambda:x=>x.name"
   prim__name : AnyPtr -> PrimIO AnyPtr
 
   export
-  name : (obj : DOMException) -> IO String
+  name : (obj : DOMException) -> JSIO String
 
 
 

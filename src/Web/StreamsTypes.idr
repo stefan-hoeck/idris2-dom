@@ -80,6 +80,7 @@ namespace ReadableStreamType
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
+
 export data ByteLengthQueuingStrategy : Type where [external]
 
 export
@@ -88,6 +89,7 @@ SafeCast ByteLengthQueuingStrategy where
 
 export ToJS ByteLengthQueuingStrategy where toJS = believe_me
 export FromJS ByteLengthQueuingStrategy where fromJS = safeCast
+
 export data CountQueuingStrategy : Type where [external]
 
 export
@@ -96,6 +98,7 @@ SafeCast CountQueuingStrategy where
 
 export ToJS CountQueuingStrategy where toJS = believe_me
 export FromJS CountQueuingStrategy where fromJS = safeCast
+
 export data ReadableByteStreamController : Type where [external]
 
 export
@@ -104,6 +107,7 @@ SafeCast ReadableByteStreamController where
 
 export ToJS ReadableByteStreamController where toJS = believe_me
 export FromJS ReadableByteStreamController where fromJS = safeCast
+
 export data ReadableStream : Type where [external]
 
 export
@@ -112,6 +116,7 @@ SafeCast ReadableStream where
 
 export ToJS ReadableStream where toJS = believe_me
 export FromJS ReadableStream where fromJS = safeCast
+
 export data ReadableStreamBYOBReader : Type where [external]
 
 export
@@ -120,6 +125,7 @@ SafeCast ReadableStreamBYOBReader where
 
 export ToJS ReadableStreamBYOBReader where toJS = believe_me
 export FromJS ReadableStreamBYOBReader where fromJS = safeCast
+
 export data ReadableStreamBYOBRequest : Type where [external]
 
 export
@@ -128,6 +134,7 @@ SafeCast ReadableStreamBYOBRequest where
 
 export ToJS ReadableStreamBYOBRequest where toJS = believe_me
 export FromJS ReadableStreamBYOBRequest where fromJS = safeCast
+
 export data ReadableStreamDefaultController : Type where [external]
 
 export
@@ -136,6 +143,7 @@ SafeCast ReadableStreamDefaultController where
 
 export ToJS ReadableStreamDefaultController where toJS = believe_me
 export FromJS ReadableStreamDefaultController where fromJS = safeCast
+
 export data ReadableStreamDefaultReader : Type where [external]
 
 export
@@ -144,6 +152,7 @@ SafeCast ReadableStreamDefaultReader where
 
 export ToJS ReadableStreamDefaultReader where toJS = believe_me
 export FromJS ReadableStreamDefaultReader where fromJS = safeCast
+
 export data TransformStream : Type where [external]
 
 export
@@ -152,6 +161,7 @@ SafeCast TransformStream where
 
 export ToJS TransformStream where toJS = believe_me
 export FromJS TransformStream where fromJS = safeCast
+
 export data TransformStreamDefaultController : Type where [external]
 
 export
@@ -160,6 +170,7 @@ SafeCast TransformStreamDefaultController where
 
 export ToJS TransformStreamDefaultController where toJS = believe_me
 export FromJS TransformStreamDefaultController where fromJS = safeCast
+
 export data WritableStream : Type where [external]
 
 export
@@ -168,6 +179,7 @@ SafeCast WritableStream where
 
 export ToJS WritableStream where toJS = believe_me
 export FromJS WritableStream where fromJS = safeCast
+
 export data WritableStreamDefaultController : Type where [external]
 
 export
@@ -176,6 +188,7 @@ SafeCast WritableStreamDefaultController where
 
 export ToJS WritableStreamDefaultController where toJS = believe_me
 export FromJS WritableStreamDefaultController where fromJS = safeCast
+
 export data WritableStreamDefaultWriter : Type where [external]
 
 export
@@ -188,26 +201,21 @@ export FromJS WritableStreamDefaultWriter where fromJS = safeCast
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------
+
 export data GenericTransformStream : Type where [external]
 
-export
-SafeCast GenericTransformStream where
-  safeCast = unsafeCastOnPrototypeName "GenericTransformStream"
-
 export ToJS GenericTransformStream where toJS = believe_me
-export FromJS GenericTransformStream where fromJS = safeCast
+export FromJS GenericTransformStream where fromJS ptr = Just (believe_me ptr)
+
 export data ReadableStreamGenericReader : Type where [external]
 
-export
-SafeCast ReadableStreamGenericReader where
-  safeCast = unsafeCastOnPrototypeName "ReadableStreamGenericReader"
-
 export ToJS ReadableStreamGenericReader where toJS = believe_me
-export FromJS ReadableStreamGenericReader where fromJS = safeCast
+export FromJS ReadableStreamGenericReader where fromJS ptr = Just (believe_me ptr)
 
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
+
 export data QueuingStrategy : Type where [external]
 
 export
@@ -216,6 +224,7 @@ SafeCast QueuingStrategy where
 
 export ToJS QueuingStrategy where toJS = believe_me
 export FromJS QueuingStrategy where fromJS = safeCast
+
 export data QueuingStrategyInit : Type where [external]
 
 export
@@ -224,6 +233,7 @@ SafeCast QueuingStrategyInit where
 
 export ToJS QueuingStrategyInit where toJS = believe_me
 export FromJS QueuingStrategyInit where fromJS = safeCast
+
 export data ReadableStreamBYOBReadResult : Type where [external]
 
 export
@@ -232,6 +242,7 @@ SafeCast ReadableStreamBYOBReadResult where
 
 export ToJS ReadableStreamBYOBReadResult where toJS = believe_me
 export FromJS ReadableStreamBYOBReadResult where fromJS = safeCast
+
 export data ReadableStreamDefaultReadResult : Type where [external]
 
 export
@@ -240,6 +251,7 @@ SafeCast ReadableStreamDefaultReadResult where
 
 export ToJS ReadableStreamDefaultReadResult where toJS = believe_me
 export FromJS ReadableStreamDefaultReadResult where fromJS = safeCast
+
 export data ReadableStreamGetReaderOptions : Type where [external]
 
 export
@@ -248,6 +260,7 @@ SafeCast ReadableStreamGetReaderOptions where
 
 export ToJS ReadableStreamGetReaderOptions where toJS = believe_me
 export FromJS ReadableStreamGetReaderOptions where fromJS = safeCast
+
 export data ReadableStreamIteratorOptions : Type where [external]
 
 export
@@ -256,6 +269,7 @@ SafeCast ReadableStreamIteratorOptions where
 
 export ToJS ReadableStreamIteratorOptions where toJS = believe_me
 export FromJS ReadableStreamIteratorOptions where fromJS = safeCast
+
 export data ReadableWritablePair : Type where [external]
 
 export
@@ -264,6 +278,7 @@ SafeCast ReadableWritablePair where
 
 export ToJS ReadableWritablePair where toJS = believe_me
 export FromJS ReadableWritablePair where fromJS = safeCast
+
 export data StreamPipeOptions : Type where [external]
 
 export
@@ -272,6 +287,7 @@ SafeCast StreamPipeOptions where
 
 export ToJS StreamPipeOptions where toJS = believe_me
 export FromJS StreamPipeOptions where fromJS = safeCast
+
 export data Transformer : Type where [external]
 
 export
@@ -280,6 +296,7 @@ SafeCast Transformer where
 
 export ToJS Transformer where toJS = believe_me
 export FromJS Transformer where fromJS = safeCast
+
 export data UnderlyingSink : Type where [external]
 
 export
@@ -288,6 +305,7 @@ SafeCast UnderlyingSink where
 
 export ToJS UnderlyingSink where toJS = believe_me
 export FromJS UnderlyingSink where fromJS = safeCast
+
 export data UnderlyingSource : Type where [external]
 
 export

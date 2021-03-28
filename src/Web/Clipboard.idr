@@ -26,7 +26,7 @@ namespace ClipboardEvent
   prim__clipboardData : AnyPtr -> PrimIO AnyPtr
 
   export
-  clipboardData : (obj : ClipboardEvent) -> IO (Maybe DataTransfer)
+  clipboardData : (obj : ClipboardEvent) -> JSIO (Maybe DataTransfer)
 
 namespace ClipboardItem
   
@@ -40,25 +40,25 @@ namespace ClipboardItem
   prim__delayed : AnyPtr -> PrimIO AnyPtr
 
   export
-  delayed : (obj : ClipboardItem) -> IO Bool
+  delayed : (obj : ClipboardItem) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.lastModified"
   prim__lastModified : AnyPtr -> PrimIO AnyPtr
 
   export
-  lastModified : (obj : ClipboardItem) -> IO Int64
+  lastModified : (obj : ClipboardItem) -> JSIO Int64
   
   %foreign "browser:lambda:x=>x.presentationStyle"
   prim__presentationStyle : AnyPtr -> PrimIO AnyPtr
 
   export
-  presentationStyle : (obj : ClipboardItem) -> IO PresentationStyle
+  presentationStyle : (obj : ClipboardItem) -> JSIO PresentationStyle
   
   %foreign "browser:lambda:x=>x.types"
   prim__types : AnyPtr -> PrimIO AnyPtr
 
   export
-  types : (obj : ClipboardItem) -> IO (JSArray String)
+  types : (obj : ClipboardItem) -> JSIO (JSArray String)
 
 
 --------------------------------------------------------------------------------
@@ -77,7 +77,7 @@ namespace ClipboardEventInit
   prim__clipboardData : AnyPtr -> PrimIO AnyPtr
 
   export
-  clipboardData : (obj : ClipboardEventInit) -> IO (Maybe DataTransfer)
+  clipboardData : (obj : ClipboardEventInit) -> JSIO (Maybe DataTransfer)
 
   %foreign "browser:lambda:(x,v)=>{x.clipboardData  = v}"
   prim__setClipboardData : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -85,7 +85,7 @@ namespace ClipboardEventInit
   export
   setClipboardData :  (obj : ClipboardEventInit)
                    -> (v : Maybe DataTransfer)
-                   -> IO ()
+                   -> JSIO ()
 
 namespace ClipboardItemOptions
   
@@ -99,7 +99,7 @@ namespace ClipboardItemOptions
   prim__presentationStyle : AnyPtr -> PrimIO AnyPtr
 
   export
-  presentationStyle : (obj : ClipboardItemOptions) -> IO PresentationStyle
+  presentationStyle : (obj : ClipboardItemOptions) -> JSIO PresentationStyle
 
   %foreign "browser:lambda:(x,v)=>{x.presentationStyle  = v}"
   prim__setPresentationStyle : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -107,7 +107,7 @@ namespace ClipboardItemOptions
   export
   setPresentationStyle :  (obj : ClipboardItemOptions)
                        -> (v : PresentationStyle)
-                       -> IO ()
+                       -> JSIO ()
 
 namespace ClipboardPermissionDescriptor
   
@@ -121,7 +121,7 @@ namespace ClipboardPermissionDescriptor
   prim__allowWithoutGesture : AnyPtr -> PrimIO AnyPtr
 
   export
-  allowWithoutGesture : (obj : ClipboardPermissionDescriptor) -> IO Bool
+  allowWithoutGesture : (obj : ClipboardPermissionDescriptor) -> JSIO Bool
 
   %foreign "browser:lambda:(x,v)=>{x.allowWithoutGesture  = v}"
   prim__setAllowWithoutGesture : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -129,5 +129,5 @@ namespace ClipboardPermissionDescriptor
   export
   setAllowWithoutGesture :  (obj : ClipboardPermissionDescriptor)
                          -> (v : Bool)
-                         -> IO ()
+                         -> JSIO ()
 

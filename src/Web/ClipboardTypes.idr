@@ -48,6 +48,7 @@ namespace PresentationStyle
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
+
 export data Clipboard : Type where [external]
 
 export
@@ -56,6 +57,7 @@ SafeCast Clipboard where
 
 export ToJS Clipboard where toJS = believe_me
 export FromJS Clipboard where fromJS = safeCast
+
 export data ClipboardEvent : Type where [external]
 
 export
@@ -64,6 +66,7 @@ SafeCast ClipboardEvent where
 
 export ToJS ClipboardEvent where toJS = believe_me
 export FromJS ClipboardEvent where fromJS = safeCast
+
 export data ClipboardItem : Type where [external]
 
 export
@@ -77,6 +80,7 @@ export FromJS ClipboardItem where fromJS = safeCast
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
+
 export data ClipboardEventInit : Type where [external]
 
 export
@@ -85,6 +89,7 @@ SafeCast ClipboardEventInit where
 
 export ToJS ClipboardEventInit where toJS = believe_me
 export FromJS ClipboardEventInit where fromJS = safeCast
+
 export data ClipboardItemOptions : Type where [external]
 
 export
@@ -93,6 +98,7 @@ SafeCast ClipboardItemOptions where
 
 export ToJS ClipboardItemOptions where toJS = believe_me
 export FromJS ClipboardItemOptions where fromJS = safeCast
+
 export data ClipboardPermissionDescriptor : Type where [external]
 
 export

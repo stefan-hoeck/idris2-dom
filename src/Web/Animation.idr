@@ -18,121 +18,121 @@ namespace Animation
   prim__finished : AnyPtr -> PrimIO AnyPtr
 
   export
-  finished : (obj : Animation) -> IO (JSPromise Animation)
+  finished : (obj : Animation) -> JSIO (JSPromise Animation)
   
   %foreign "browser:lambda:x=>x.pending"
   prim__pending : AnyPtr -> PrimIO AnyPtr
 
   export
-  pending : (obj : Animation) -> IO Bool
+  pending : (obj : Animation) -> JSIO Bool
   
   %foreign "browser:lambda:x=>x.playState"
   prim__playState : AnyPtr -> PrimIO AnyPtr
 
   export
-  playState : (obj : Animation) -> IO AnimationPlayState
+  playState : (obj : Animation) -> JSIO AnimationPlayState
   
   %foreign "browser:lambda:x=>x.ready"
   prim__ready : AnyPtr -> PrimIO AnyPtr
 
   export
-  ready : (obj : Animation) -> IO (JSPromise Animation)
+  ready : (obj : Animation) -> JSIO (JSPromise Animation)
   
   %foreign "browser:lambda:x=>x.currentTime"
   prim__currentTime : AnyPtr -> PrimIO AnyPtr
 
   export
-  currentTime : (obj : Animation) -> IO (Maybe Double)
+  currentTime : (obj : Animation) -> JSIO (Maybe Double)
 
   %foreign "browser:lambda:(x,v)=>{x.currentTime  = v}"
   prim__setCurrentTime : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setCurrentTime : (obj : Animation) -> (v : Maybe Double) -> IO ()
+  setCurrentTime : (obj : Animation) -> (v : Maybe Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.effect"
   prim__effect : AnyPtr -> PrimIO AnyPtr
 
   export
-  effect : (obj : Animation) -> IO (Maybe AnimationEffect)
+  effect : (obj : Animation) -> JSIO (Maybe AnimationEffect)
 
   %foreign "browser:lambda:(x,v)=>{x.effect  = v}"
   prim__setEffect : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setEffect : (obj : Animation) -> (v : Maybe AnimationEffect) -> IO ()
+  setEffect : (obj : Animation) -> (v : Maybe AnimationEffect) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.id"
   prim__id : AnyPtr -> PrimIO AnyPtr
 
   export
-  id : (obj : Animation) -> IO String
+  id : (obj : Animation) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.id  = v}"
   prim__setId : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setId : (obj : Animation) -> (v : String) -> IO ()
+  setId : (obj : Animation) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.oncancel"
   prim__oncancel : AnyPtr -> PrimIO AnyPtr
 
   export
-  oncancel : (obj : Animation) -> IO EventHandler
+  oncancel : (obj : Animation) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.oncancel  = v}"
   prim__setOncancel : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOncancel : (obj : Animation) -> (v : EventHandler) -> IO ()
+  setOncancel : (obj : Animation) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.onfinish"
   prim__onfinish : AnyPtr -> PrimIO AnyPtr
 
   export
-  onfinish : (obj : Animation) -> IO EventHandler
+  onfinish : (obj : Animation) -> JSIO EventHandler
 
   %foreign "browser:lambda:(x,v)=>{x.onfinish  = v}"
   prim__setOnfinish : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOnfinish : (obj : Animation) -> (v : EventHandler) -> IO ()
+  setOnfinish : (obj : Animation) -> (v : EventHandler) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.playbackRate"
   prim__playbackRate : AnyPtr -> PrimIO AnyPtr
 
   export
-  playbackRate : (obj : Animation) -> IO Double
+  playbackRate : (obj : Animation) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.playbackRate  = v}"
   prim__setPlaybackRate : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setPlaybackRate : (obj : Animation) -> (v : Double) -> IO ()
+  setPlaybackRate : (obj : Animation) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.startTime"
   prim__startTime : AnyPtr -> PrimIO AnyPtr
 
   export
-  startTime : (obj : Animation) -> IO (Maybe Double)
+  startTime : (obj : Animation) -> JSIO (Maybe Double)
 
   %foreign "browser:lambda:(x,v)=>{x.startTime  = v}"
   prim__setStartTime : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setStartTime : (obj : Animation) -> (v : Maybe Double) -> IO ()
+  setStartTime : (obj : Animation) -> (v : Maybe Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.timeline"
   prim__timeline : AnyPtr -> PrimIO AnyPtr
 
   export
-  timeline : (obj : Animation) -> IO (Maybe AnimationTimeline)
+  timeline : (obj : Animation) -> JSIO (Maybe AnimationTimeline)
 
   %foreign "browser:lambda:(x,v)=>{x.timeline  = v}"
   prim__setTimeline : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setTimeline : (obj : Animation) -> (v : Maybe AnimationTimeline) -> IO ()
+  setTimeline : (obj : Animation) -> (v : Maybe AnimationTimeline) -> JSIO ()
 
 namespace AnimationEffect
   
@@ -154,13 +154,13 @@ namespace AnimationPlaybackEvent
   prim__currentTime : AnyPtr -> PrimIO AnyPtr
 
   export
-  currentTime : (obj : AnimationPlaybackEvent) -> IO (Maybe Double)
+  currentTime : (obj : AnimationPlaybackEvent) -> JSIO (Maybe Double)
   
   %foreign "browser:lambda:x=>x.timelineTime"
   prim__timelineTime : AnyPtr -> PrimIO AnyPtr
 
   export
-  timelineTime : (obj : AnimationPlaybackEvent) -> IO (Maybe Double)
+  timelineTime : (obj : AnimationPlaybackEvent) -> JSIO (Maybe Double)
 
 namespace AnimationTimeline
   
@@ -174,7 +174,7 @@ namespace AnimationTimeline
   prim__currentTime : AnyPtr -> PrimIO AnyPtr
 
   export
-  currentTime : (obj : AnimationTimeline) -> IO (Maybe Double)
+  currentTime : (obj : AnimationTimeline) -> JSIO (Maybe Double)
 
 namespace DocumentTimeline
   
@@ -196,19 +196,20 @@ namespace KeyframeEffect
   prim__composite : AnyPtr -> PrimIO AnyPtr
 
   export
-  composite : (obj : KeyframeEffect) -> IO CompositeOperation
+  composite : (obj : KeyframeEffect) -> JSIO CompositeOperation
 
   %foreign "browser:lambda:(x,v)=>{x.composite  = v}"
   prim__setComposite : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setComposite : (obj : KeyframeEffect) -> (v : CompositeOperation) -> IO ()
+  setComposite : (obj : KeyframeEffect) -> (v : CompositeOperation) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.iterationComposite"
   prim__iterationComposite : AnyPtr -> PrimIO AnyPtr
 
   export
-  iterationComposite : (obj : KeyframeEffect) -> IO IterationCompositeOperation
+  iterationComposite :  (obj : KeyframeEffect)
+                     -> JSIO IterationCompositeOperation
 
   %foreign "browser:lambda:(x,v)=>{x.iterationComposite  = v}"
   prim__setIterationComposite : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -216,14 +217,14 @@ namespace KeyframeEffect
   export
   setIterationComposite :  (obj : KeyframeEffect)
                         -> (v : IterationCompositeOperation)
-                        -> IO ()
+                        -> JSIO ()
   
   %foreign "browser:lambda:x=>x.target"
   prim__target : AnyPtr -> PrimIO AnyPtr
 
   export
   target :  (obj : KeyframeEffect)
-         -> IO (Maybe (NS I [ Element , CSSPseudoElement ]))
+         -> JSIO (Maybe (NS I [ Element , CSSPseudoElement ]))
 
   %foreign "browser:lambda:(x,v)=>{x.target  = v}"
   prim__setTarget : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -231,7 +232,7 @@ namespace KeyframeEffect
   export
   setTarget :  (obj : KeyframeEffect)
             -> (v : Maybe (NS I [ Element , CSSPseudoElement ]))
-            -> IO ()
+            -> JSIO ()
 
 --------------------------------------------------------------------------------
 --          Mixins
@@ -254,7 +255,7 @@ namespace AnimationPlaybackEventInit
   prim__currentTime : AnyPtr -> PrimIO AnyPtr
 
   export
-  currentTime : (obj : AnimationPlaybackEventInit) -> IO (Maybe Double)
+  currentTime : (obj : AnimationPlaybackEventInit) -> JSIO (Maybe Double)
 
   %foreign "browser:lambda:(x,v)=>{x.currentTime  = v}"
   prim__setCurrentTime : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -262,13 +263,13 @@ namespace AnimationPlaybackEventInit
   export
   setCurrentTime :  (obj : AnimationPlaybackEventInit)
                  -> (v : Maybe Double)
-                 -> IO ()
+                 -> JSIO ()
   
   %foreign "browser:lambda:x=>x.timelineTime"
   prim__timelineTime : AnyPtr -> PrimIO AnyPtr
 
   export
-  timelineTime : (obj : AnimationPlaybackEventInit) -> IO (Maybe Double)
+  timelineTime : (obj : AnimationPlaybackEventInit) -> JSIO (Maybe Double)
 
   %foreign "browser:lambda:(x,v)=>{x.timelineTime  = v}"
   prim__setTimelineTime : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -276,7 +277,7 @@ namespace AnimationPlaybackEventInit
   export
   setTimelineTime :  (obj : AnimationPlaybackEventInit)
                   -> (v : Maybe Double)
-                  -> IO ()
+                  -> JSIO ()
 
 namespace BaseComputedKeyframe
   
@@ -290,7 +291,7 @@ namespace BaseComputedKeyframe
   prim__composite : AnyPtr -> PrimIO AnyPtr
 
   export
-  composite : (obj : BaseComputedKeyframe) -> IO CompositeOperationOrAuto
+  composite : (obj : BaseComputedKeyframe) -> JSIO CompositeOperationOrAuto
 
   %foreign "browser:lambda:(x,v)=>{x.composite  = v}"
   prim__setComposite : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -298,43 +299,43 @@ namespace BaseComputedKeyframe
   export
   setComposite :  (obj : BaseComputedKeyframe)
                -> (v : CompositeOperationOrAuto)
-               -> IO ()
+               -> JSIO ()
   
   %foreign "browser:lambda:x=>x.computedOffset"
   prim__computedOffset : AnyPtr -> PrimIO AnyPtr
 
   export
-  computedOffset : (obj : BaseComputedKeyframe) -> IO Double
+  computedOffset : (obj : BaseComputedKeyframe) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.computedOffset  = v}"
   prim__setComputedOffset : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setComputedOffset : (obj : BaseComputedKeyframe) -> (v : Double) -> IO ()
+  setComputedOffset : (obj : BaseComputedKeyframe) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.easing"
   prim__easing : AnyPtr -> PrimIO AnyPtr
 
   export
-  easing : (obj : BaseComputedKeyframe) -> IO String
+  easing : (obj : BaseComputedKeyframe) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.easing  = v}"
   prim__setEasing : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setEasing : (obj : BaseComputedKeyframe) -> (v : String) -> IO ()
+  setEasing : (obj : BaseComputedKeyframe) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.offset"
   prim__offset : AnyPtr -> PrimIO AnyPtr
 
   export
-  offset : (obj : BaseComputedKeyframe) -> IO (Maybe Double)
+  offset : (obj : BaseComputedKeyframe) -> JSIO (Maybe Double)
 
   %foreign "browser:lambda:(x,v)=>{x.offset  = v}"
   prim__setOffset : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOffset : (obj : BaseComputedKeyframe) -> (v : Maybe Double) -> IO ()
+  setOffset : (obj : BaseComputedKeyframe) -> (v : Maybe Double) -> JSIO ()
 
 namespace BaseKeyframe
   
@@ -348,37 +349,39 @@ namespace BaseKeyframe
   prim__composite : AnyPtr -> PrimIO AnyPtr
 
   export
-  composite : (obj : BaseKeyframe) -> IO CompositeOperationOrAuto
+  composite : (obj : BaseKeyframe) -> JSIO CompositeOperationOrAuto
 
   %foreign "browser:lambda:(x,v)=>{x.composite  = v}"
   prim__setComposite : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setComposite : (obj : BaseKeyframe) -> (v : CompositeOperationOrAuto) -> IO ()
+  setComposite :  (obj : BaseKeyframe)
+               -> (v : CompositeOperationOrAuto)
+               -> JSIO ()
   
   %foreign "browser:lambda:x=>x.easing"
   prim__easing : AnyPtr -> PrimIO AnyPtr
 
   export
-  easing : (obj : BaseKeyframe) -> IO String
+  easing : (obj : BaseKeyframe) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.easing  = v}"
   prim__setEasing : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setEasing : (obj : BaseKeyframe) -> (v : String) -> IO ()
+  setEasing : (obj : BaseKeyframe) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.offset"
   prim__offset : AnyPtr -> PrimIO AnyPtr
 
   export
-  offset : (obj : BaseKeyframe) -> IO (Maybe Double)
+  offset : (obj : BaseKeyframe) -> JSIO (Maybe Double)
 
   %foreign "browser:lambda:(x,v)=>{x.offset  = v}"
   prim__setOffset : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setOffset : (obj : BaseKeyframe) -> (v : Maybe Double) -> IO ()
+  setOffset : (obj : BaseKeyframe) -> (v : Maybe Double) -> JSIO ()
 
 namespace BasePropertyIndexedKeyframe
   
@@ -393,9 +396,9 @@ namespace BasePropertyIndexedKeyframe
 
   export
   composite :  (obj : BasePropertyIndexedKeyframe)
-            -> IO (NS I [ CompositeOperationOrAuto
-                        , JSArray CompositeOperationOrAuto
-                        ])
+            -> JSIO (NS I [ CompositeOperationOrAuto
+                          , JSArray CompositeOperationOrAuto
+                          ])
 
   %foreign "browser:lambda:(x,v)=>{x.composite  = v}"
   prim__setComposite : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -405,14 +408,14 @@ namespace BasePropertyIndexedKeyframe
                -> (v : NS I [ CompositeOperationOrAuto
                             , JSArray CompositeOperationOrAuto
                             ])
-               -> IO ()
+               -> JSIO ()
   
   %foreign "browser:lambda:x=>x.easing"
   prim__easing : AnyPtr -> PrimIO AnyPtr
 
   export
   easing :  (obj : BasePropertyIndexedKeyframe)
-         -> IO (NS I [ String , JSArray String ])
+         -> JSIO (NS I [ String , JSArray String ])
 
   %foreign "browser:lambda:(x,v)=>{x.easing  = v}"
   prim__setEasing : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -420,14 +423,14 @@ namespace BasePropertyIndexedKeyframe
   export
   setEasing :  (obj : BasePropertyIndexedKeyframe)
             -> (v : NS I [ String , JSArray String ])
-            -> IO ()
+            -> JSIO ()
   
   %foreign "browser:lambda:x=>x.offset"
   prim__offset : AnyPtr -> PrimIO AnyPtr
 
   export
   offset :  (obj : BasePropertyIndexedKeyframe)
-         -> IO (NS I [ Maybe Double , JSArray (Maybe Double) ])
+         -> JSIO (NS I [ Maybe Double , JSArray (Maybe Double) ])
 
   %foreign "browser:lambda:(x,v)=>{x.offset  = v}"
   prim__setOffset : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -435,7 +438,7 @@ namespace BasePropertyIndexedKeyframe
   export
   setOffset :  (obj : BasePropertyIndexedKeyframe)
             -> (v : NS I [ Maybe Double , JSArray (Maybe Double) ])
-            -> IO ()
+            -> JSIO ()
 
 namespace ComputedEffectTiming
   
@@ -449,19 +452,19 @@ namespace ComputedEffectTiming
   prim__activeDuration : AnyPtr -> PrimIO AnyPtr
 
   export
-  activeDuration : (obj : ComputedEffectTiming) -> IO Double
+  activeDuration : (obj : ComputedEffectTiming) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.activeDuration  = v}"
   prim__setActiveDuration : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setActiveDuration : (obj : ComputedEffectTiming) -> (v : Double) -> IO ()
+  setActiveDuration : (obj : ComputedEffectTiming) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.currentIteration"
   prim__currentIteration : AnyPtr -> PrimIO AnyPtr
 
   export
-  currentIteration : (obj : ComputedEffectTiming) -> IO (Maybe Double)
+  currentIteration : (obj : ComputedEffectTiming) -> JSIO (Maybe Double)
 
   %foreign "browser:lambda:(x,v)=>{x.currentIteration  = v}"
   prim__setCurrentIteration : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -469,43 +472,43 @@ namespace ComputedEffectTiming
   export
   setCurrentIteration :  (obj : ComputedEffectTiming)
                       -> (v : Maybe Double)
-                      -> IO ()
+                      -> JSIO ()
   
   %foreign "browser:lambda:x=>x.endTime"
   prim__endTime : AnyPtr -> PrimIO AnyPtr
 
   export
-  endTime : (obj : ComputedEffectTiming) -> IO Double
+  endTime : (obj : ComputedEffectTiming) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.endTime  = v}"
   prim__setEndTime : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setEndTime : (obj : ComputedEffectTiming) -> (v : Double) -> IO ()
+  setEndTime : (obj : ComputedEffectTiming) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.localTime"
   prim__localTime : AnyPtr -> PrimIO AnyPtr
 
   export
-  localTime : (obj : ComputedEffectTiming) -> IO (Maybe Double)
+  localTime : (obj : ComputedEffectTiming) -> JSIO (Maybe Double)
 
   %foreign "browser:lambda:(x,v)=>{x.localTime  = v}"
   prim__setLocalTime : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setLocalTime : (obj : ComputedEffectTiming) -> (v : Maybe Double) -> IO ()
+  setLocalTime : (obj : ComputedEffectTiming) -> (v : Maybe Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.progress"
   prim__progress : AnyPtr -> PrimIO AnyPtr
 
   export
-  progress : (obj : ComputedEffectTiming) -> IO (Maybe Double)
+  progress : (obj : ComputedEffectTiming) -> JSIO (Maybe Double)
 
   %foreign "browser:lambda:(x,v)=>{x.progress  = v}"
   prim__setProgress : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setProgress : (obj : ComputedEffectTiming) -> (v : Maybe Double) -> IO ()
+  setProgress : (obj : ComputedEffectTiming) -> (v : Maybe Double) -> JSIO ()
 
 namespace DocumentTimelineOptions
   
@@ -519,7 +522,7 @@ namespace DocumentTimelineOptions
   prim__originTime : AnyPtr -> PrimIO AnyPtr
 
   export
-  originTime : (obj : DocumentTimelineOptions) -> IO DOMHighResTimeStamp
+  originTime : (obj : DocumentTimelineOptions) -> JSIO DOMHighResTimeStamp
 
   %foreign "browser:lambda:(x,v)=>{x.originTime  = v}"
   prim__setOriginTime : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -527,7 +530,7 @@ namespace DocumentTimelineOptions
   export
   setOriginTime :  (obj : DocumentTimelineOptions)
                 -> (v : DOMHighResTimeStamp)
-                -> IO ()
+                -> JSIO ()
 
 namespace EffectTiming
   
@@ -541,97 +544,99 @@ namespace EffectTiming
   prim__delay : AnyPtr -> PrimIO AnyPtr
 
   export
-  delay : (obj : EffectTiming) -> IO Double
+  delay : (obj : EffectTiming) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.delay  = v}"
   prim__setDelay : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDelay : (obj : EffectTiming) -> (v : Double) -> IO ()
+  setDelay : (obj : EffectTiming) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.direction"
   prim__direction : AnyPtr -> PrimIO AnyPtr
 
   export
-  direction : (obj : EffectTiming) -> IO PlaybackDirection
+  direction : (obj : EffectTiming) -> JSIO PlaybackDirection
 
   %foreign "browser:lambda:(x,v)=>{x.direction  = v}"
   prim__setDirection : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDirection : (obj : EffectTiming) -> (v : PlaybackDirection) -> IO ()
+  setDirection : (obj : EffectTiming) -> (v : PlaybackDirection) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.duration"
   prim__duration : AnyPtr -> PrimIO AnyPtr
 
   export
-  duration : (obj : EffectTiming) -> IO (NS I [ Double , String ])
+  duration : (obj : EffectTiming) -> JSIO (NS I [ Double , String ])
 
   %foreign "browser:lambda:(x,v)=>{x.duration  = v}"
   prim__setDuration : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDuration : (obj : EffectTiming) -> (v : NS I [ Double , String ]) -> IO ()
+  setDuration :  (obj : EffectTiming)
+              -> (v : NS I [ Double , String ])
+              -> JSIO ()
   
   %foreign "browser:lambda:x=>x.easing"
   prim__easing : AnyPtr -> PrimIO AnyPtr
 
   export
-  easing : (obj : EffectTiming) -> IO String
+  easing : (obj : EffectTiming) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.easing  = v}"
   prim__setEasing : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setEasing : (obj : EffectTiming) -> (v : String) -> IO ()
+  setEasing : (obj : EffectTiming) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.endDelay"
   prim__endDelay : AnyPtr -> PrimIO AnyPtr
 
   export
-  endDelay : (obj : EffectTiming) -> IO Double
+  endDelay : (obj : EffectTiming) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.endDelay  = v}"
   prim__setEndDelay : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setEndDelay : (obj : EffectTiming) -> (v : Double) -> IO ()
+  setEndDelay : (obj : EffectTiming) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.fill"
   prim__fill : AnyPtr -> PrimIO AnyPtr
 
   export
-  fill : (obj : EffectTiming) -> IO FillMode
+  fill : (obj : EffectTiming) -> JSIO FillMode
 
   %foreign "browser:lambda:(x,v)=>{x.fill  = v}"
   prim__setFill : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setFill : (obj : EffectTiming) -> (v : FillMode) -> IO ()
+  setFill : (obj : EffectTiming) -> (v : FillMode) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.iterationStart"
   prim__iterationStart : AnyPtr -> PrimIO AnyPtr
 
   export
-  iterationStart : (obj : EffectTiming) -> IO Double
+  iterationStart : (obj : EffectTiming) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.iterationStart  = v}"
   prim__setIterationStart : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setIterationStart : (obj : EffectTiming) -> (v : Double) -> IO ()
+  setIterationStart : (obj : EffectTiming) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.iterations"
   prim__iterations : AnyPtr -> PrimIO AnyPtr
 
   export
-  iterations : (obj : EffectTiming) -> IO Double
+  iterations : (obj : EffectTiming) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.iterations  = v}"
   prim__setIterations : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setIterations : (obj : EffectTiming) -> (v : Double) -> IO ()
+  setIterations : (obj : EffectTiming) -> (v : Double) -> JSIO ()
 
 namespace KeyframeAnimationOptions
   
@@ -645,13 +650,13 @@ namespace KeyframeAnimationOptions
   prim__id : AnyPtr -> PrimIO AnyPtr
 
   export
-  id : (obj : KeyframeAnimationOptions) -> IO String
+  id : (obj : KeyframeAnimationOptions) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.id  = v}"
   prim__setId : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setId : (obj : KeyframeAnimationOptions) -> (v : String) -> IO ()
+  setId : (obj : KeyframeAnimationOptions) -> (v : String) -> JSIO ()
 
 namespace KeyframeEffectOptions
   
@@ -665,7 +670,7 @@ namespace KeyframeEffectOptions
   prim__composite : AnyPtr -> PrimIO AnyPtr
 
   export
-  composite : (obj : KeyframeEffectOptions) -> IO CompositeOperation
+  composite : (obj : KeyframeEffectOptions) -> JSIO CompositeOperation
 
   %foreign "browser:lambda:(x,v)=>{x.composite  = v}"
   prim__setComposite : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -673,14 +678,14 @@ namespace KeyframeEffectOptions
   export
   setComposite :  (obj : KeyframeEffectOptions)
                -> (v : CompositeOperation)
-               -> IO ()
+               -> JSIO ()
   
   %foreign "browser:lambda:x=>x.iterationComposite"
   prim__iterationComposite : AnyPtr -> PrimIO AnyPtr
 
   export
   iterationComposite :  (obj : KeyframeEffectOptions)
-                     -> IO IterationCompositeOperation
+                     -> JSIO IterationCompositeOperation
 
   %foreign "browser:lambda:(x,v)=>{x.iterationComposite  = v}"
   prim__setIterationComposite : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -688,7 +693,7 @@ namespace KeyframeEffectOptions
   export
   setIterationComposite :  (obj : KeyframeEffectOptions)
                         -> (v : IterationCompositeOperation)
-                        -> IO ()
+                        -> JSIO ()
 
 namespace OptionalEffectTiming
   
@@ -702,19 +707,19 @@ namespace OptionalEffectTiming
   prim__delay : AnyPtr -> PrimIO AnyPtr
 
   export
-  delay : (obj : OptionalEffectTiming) -> IO Double
+  delay : (obj : OptionalEffectTiming) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.delay  = v}"
   prim__setDelay : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setDelay : (obj : OptionalEffectTiming) -> (v : Double) -> IO ()
+  setDelay : (obj : OptionalEffectTiming) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.direction"
   prim__direction : AnyPtr -> PrimIO AnyPtr
 
   export
-  direction : (obj : OptionalEffectTiming) -> IO PlaybackDirection
+  direction : (obj : OptionalEffectTiming) -> JSIO PlaybackDirection
 
   %foreign "browser:lambda:(x,v)=>{x.direction  = v}"
   prim__setDirection : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -722,13 +727,13 @@ namespace OptionalEffectTiming
   export
   setDirection :  (obj : OptionalEffectTiming)
                -> (v : PlaybackDirection)
-               -> IO ()
+               -> JSIO ()
   
   %foreign "browser:lambda:x=>x.duration"
   prim__duration : AnyPtr -> PrimIO AnyPtr
 
   export
-  duration : (obj : OptionalEffectTiming) -> IO (NS I [ Double , String ])
+  duration : (obj : OptionalEffectTiming) -> JSIO (NS I [ Double , String ])
 
   %foreign "browser:lambda:(x,v)=>{x.duration  = v}"
   prim__setDuration : AnyPtr -> AnyPtr -> PrimIO AnyPtr
@@ -736,65 +741,65 @@ namespace OptionalEffectTiming
   export
   setDuration :  (obj : OptionalEffectTiming)
               -> (v : NS I [ Double , String ])
-              -> IO ()
+              -> JSIO ()
   
   %foreign "browser:lambda:x=>x.easing"
   prim__easing : AnyPtr -> PrimIO AnyPtr
 
   export
-  easing : (obj : OptionalEffectTiming) -> IO String
+  easing : (obj : OptionalEffectTiming) -> JSIO String
 
   %foreign "browser:lambda:(x,v)=>{x.easing  = v}"
   prim__setEasing : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setEasing : (obj : OptionalEffectTiming) -> (v : String) -> IO ()
+  setEasing : (obj : OptionalEffectTiming) -> (v : String) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.endDelay"
   prim__endDelay : AnyPtr -> PrimIO AnyPtr
 
   export
-  endDelay : (obj : OptionalEffectTiming) -> IO Double
+  endDelay : (obj : OptionalEffectTiming) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.endDelay  = v}"
   prim__setEndDelay : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setEndDelay : (obj : OptionalEffectTiming) -> (v : Double) -> IO ()
+  setEndDelay : (obj : OptionalEffectTiming) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.fill"
   prim__fill : AnyPtr -> PrimIO AnyPtr
 
   export
-  fill : (obj : OptionalEffectTiming) -> IO FillMode
+  fill : (obj : OptionalEffectTiming) -> JSIO FillMode
 
   %foreign "browser:lambda:(x,v)=>{x.fill  = v}"
   prim__setFill : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setFill : (obj : OptionalEffectTiming) -> (v : FillMode) -> IO ()
+  setFill : (obj : OptionalEffectTiming) -> (v : FillMode) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.iterationStart"
   prim__iterationStart : AnyPtr -> PrimIO AnyPtr
 
   export
-  iterationStart : (obj : OptionalEffectTiming) -> IO Double
+  iterationStart : (obj : OptionalEffectTiming) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.iterationStart  = v}"
   prim__setIterationStart : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setIterationStart : (obj : OptionalEffectTiming) -> (v : Double) -> IO ()
+  setIterationStart : (obj : OptionalEffectTiming) -> (v : Double) -> JSIO ()
   
   %foreign "browser:lambda:x=>x.iterations"
   prim__iterations : AnyPtr -> PrimIO AnyPtr
 
   export
-  iterations : (obj : OptionalEffectTiming) -> IO Double
+  iterations : (obj : OptionalEffectTiming) -> JSIO Double
 
   %foreign "browser:lambda:(x,v)=>{x.iterations  = v}"
   prim__setIterations : AnyPtr -> AnyPtr -> PrimIO AnyPtr
 
   export
-  setIterations : (obj : OptionalEffectTiming) -> (v : Double) -> IO ()
+  setIterations : (obj : OptionalEffectTiming) -> (v : Double) -> JSIO ()
 

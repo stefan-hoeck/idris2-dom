@@ -183,6 +183,7 @@ namespace ClientType
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
+
 export data Cache : Type where [external]
 
 export
@@ -191,6 +192,7 @@ SafeCast Cache where
 
 export ToJS Cache where toJS = believe_me
 export FromJS Cache where fromJS = safeCast
+
 export data CacheStorage : Type where [external]
 
 export
@@ -199,6 +201,7 @@ SafeCast CacheStorage where
 
 export ToJS CacheStorage where toJS = believe_me
 export FromJS CacheStorage where fromJS = safeCast
+
 export data Client : Type where [external]
 
 export
@@ -207,6 +210,7 @@ SafeCast Client where
 
 export ToJS Client where toJS = believe_me
 export FromJS Client where fromJS = safeCast
+
 export data Clients : Type where [external]
 
 export
@@ -215,6 +219,7 @@ SafeCast Clients where
 
 export ToJS Clients where toJS = believe_me
 export FromJS Clients where fromJS = safeCast
+
 export data ExtendableEvent : Type where [external]
 
 export
@@ -223,6 +228,7 @@ SafeCast ExtendableEvent where
 
 export ToJS ExtendableEvent where toJS = believe_me
 export FromJS ExtendableEvent where fromJS = safeCast
+
 export data ExtendableMessageEvent : Type where [external]
 
 export
@@ -231,6 +237,7 @@ SafeCast ExtendableMessageEvent where
 
 export ToJS ExtendableMessageEvent where toJS = believe_me
 export FromJS ExtendableMessageEvent where fromJS = safeCast
+
 export data FetchEvent : Type where [external]
 
 export
@@ -239,6 +246,7 @@ SafeCast FetchEvent where
 
 export ToJS FetchEvent where toJS = believe_me
 export FromJS FetchEvent where fromJS = safeCast
+
 export data NavigationPreloadManager : Type where [external]
 
 export
@@ -247,6 +255,7 @@ SafeCast NavigationPreloadManager where
 
 export ToJS NavigationPreloadManager where toJS = believe_me
 export FromJS NavigationPreloadManager where fromJS = safeCast
+
 export data ServiceWorker : Type where [external]
 
 export
@@ -255,6 +264,7 @@ SafeCast ServiceWorker where
 
 export ToJS ServiceWorker where toJS = believe_me
 export FromJS ServiceWorker where fromJS = safeCast
+
 export data ServiceWorkerContainer : Type where [external]
 
 export
@@ -263,6 +273,7 @@ SafeCast ServiceWorkerContainer where
 
 export ToJS ServiceWorkerContainer where toJS = believe_me
 export FromJS ServiceWorkerContainer where fromJS = safeCast
+
 export data ServiceWorkerGlobalScope : Type where [external]
 
 export
@@ -271,6 +282,7 @@ SafeCast ServiceWorkerGlobalScope where
 
 export ToJS ServiceWorkerGlobalScope where toJS = believe_me
 export FromJS ServiceWorkerGlobalScope where fromJS = safeCast
+
 export data ServiceWorkerRegistration : Type where [external]
 
 export
@@ -279,6 +291,7 @@ SafeCast ServiceWorkerRegistration where
 
 export ToJS ServiceWorkerRegistration where toJS = believe_me
 export FromJS ServiceWorkerRegistration where fromJS = safeCast
+
 export data WindowClient : Type where [external]
 
 export
@@ -292,6 +305,7 @@ export FromJS WindowClient where fromJS = safeCast
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
+
 export data CacheQueryOptions : Type where [external]
 
 export
@@ -300,6 +314,7 @@ SafeCast CacheQueryOptions where
 
 export ToJS CacheQueryOptions where toJS = believe_me
 export FromJS CacheQueryOptions where fromJS = safeCast
+
 export data ClientQueryOptions : Type where [external]
 
 export
@@ -308,6 +323,7 @@ SafeCast ClientQueryOptions where
 
 export ToJS ClientQueryOptions where toJS = believe_me
 export FromJS ClientQueryOptions where fromJS = safeCast
+
 export data ExtendableEventInit : Type where [external]
 
 export
@@ -316,6 +332,7 @@ SafeCast ExtendableEventInit where
 
 export ToJS ExtendableEventInit where toJS = believe_me
 export FromJS ExtendableEventInit where fromJS = safeCast
+
 export data ExtendableMessageEventInit : Type where [external]
 
 export
@@ -324,6 +341,7 @@ SafeCast ExtendableMessageEventInit where
 
 export ToJS ExtendableMessageEventInit where toJS = believe_me
 export FromJS ExtendableMessageEventInit where fromJS = safeCast
+
 export data FetchEventInit : Type where [external]
 
 export
@@ -332,6 +350,7 @@ SafeCast FetchEventInit where
 
 export ToJS FetchEventInit where toJS = believe_me
 export FromJS FetchEventInit where fromJS = safeCast
+
 export data MultiCacheQueryOptions : Type where [external]
 
 export
@@ -340,6 +359,7 @@ SafeCast MultiCacheQueryOptions where
 
 export ToJS MultiCacheQueryOptions where toJS = believe_me
 export FromJS MultiCacheQueryOptions where fromJS = safeCast
+
 export data NavigationPreloadState : Type where [external]
 
 export
@@ -348,6 +368,7 @@ SafeCast NavigationPreloadState where
 
 export ToJS NavigationPreloadState where toJS = believe_me
 export FromJS NavigationPreloadState where fromJS = safeCast
+
 export data RegistrationOptions : Type where [external]
 
 export

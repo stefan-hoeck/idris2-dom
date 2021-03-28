@@ -166,6 +166,7 @@ namespace MediaDeviceKind
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
+
 export data ConstrainablePattern : Type where [external]
 
 export
@@ -174,6 +175,7 @@ SafeCast ConstrainablePattern where
 
 export ToJS ConstrainablePattern where toJS = believe_me
 export FromJS ConstrainablePattern where fromJS = safeCast
+
 export data InputDeviceInfo : Type where [external]
 
 export
@@ -182,6 +184,7 @@ SafeCast InputDeviceInfo where
 
 export ToJS InputDeviceInfo where toJS = believe_me
 export FromJS InputDeviceInfo where fromJS = safeCast
+
 export data MediaDeviceInfo : Type where [external]
 
 export
@@ -190,6 +193,7 @@ SafeCast MediaDeviceInfo where
 
 export ToJS MediaDeviceInfo where toJS = believe_me
 export FromJS MediaDeviceInfo where fromJS = safeCast
+
 export data MediaDevices : Type where [external]
 
 export
@@ -198,6 +202,7 @@ SafeCast MediaDevices where
 
 export ToJS MediaDevices where toJS = believe_me
 export FromJS MediaDevices where fromJS = safeCast
+
 export data MediaStream : Type where [external]
 
 export
@@ -206,6 +211,7 @@ SafeCast MediaStream where
 
 export ToJS MediaStream where toJS = believe_me
 export FromJS MediaStream where fromJS = safeCast
+
 export data MediaStreamTrack : Type where [external]
 
 export
@@ -214,6 +220,7 @@ SafeCast MediaStreamTrack where
 
 export ToJS MediaStreamTrack where toJS = believe_me
 export FromJS MediaStreamTrack where fromJS = safeCast
+
 export data MediaStreamTrackEvent : Type where [external]
 
 export
@@ -222,6 +229,7 @@ SafeCast MediaStreamTrackEvent where
 
 export ToJS MediaStreamTrackEvent where toJS = believe_me
 export FromJS MediaStreamTrackEvent where fromJS = safeCast
+
 export data OverconstrainedError : Type where [external]
 
 export
@@ -235,6 +243,7 @@ export FromJS OverconstrainedError where fromJS = safeCast
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
+
 export data Capabilities : Type where [external]
 
 export
@@ -243,6 +252,7 @@ SafeCast Capabilities where
 
 export ToJS Capabilities where toJS = believe_me
 export FromJS Capabilities where fromJS = safeCast
+
 export data ConstrainBooleanParameters : Type where [external]
 
 export
@@ -251,6 +261,7 @@ SafeCast ConstrainBooleanParameters where
 
 export ToJS ConstrainBooleanParameters where toJS = believe_me
 export FromJS ConstrainBooleanParameters where fromJS = safeCast
+
 export data ConstrainDOMStringParameters : Type where [external]
 
 export
@@ -259,6 +270,7 @@ SafeCast ConstrainDOMStringParameters where
 
 export ToJS ConstrainDOMStringParameters where toJS = believe_me
 export FromJS ConstrainDOMStringParameters where fromJS = safeCast
+
 export data ConstrainDoubleRange : Type where [external]
 
 export
@@ -267,6 +279,7 @@ SafeCast ConstrainDoubleRange where
 
 export ToJS ConstrainDoubleRange where toJS = believe_me
 export FromJS ConstrainDoubleRange where fromJS = safeCast
+
 export data ConstrainULongRange : Type where [external]
 
 export
@@ -275,6 +288,7 @@ SafeCast ConstrainULongRange where
 
 export ToJS ConstrainULongRange where toJS = believe_me
 export FromJS ConstrainULongRange where fromJS = safeCast
+
 export data ConstraintSet : Type where [external]
 
 export
@@ -283,6 +297,7 @@ SafeCast ConstraintSet where
 
 export ToJS ConstraintSet where toJS = believe_me
 export FromJS ConstraintSet where fromJS = safeCast
+
 export data Constraints : Type where [external]
 
 export
@@ -291,6 +306,7 @@ SafeCast Constraints where
 
 export ToJS Constraints where toJS = believe_me
 export FromJS Constraints where fromJS = safeCast
+
 export data DoubleRange : Type where [external]
 
 export
@@ -299,6 +315,7 @@ SafeCast DoubleRange where
 
 export ToJS DoubleRange where toJS = believe_me
 export FromJS DoubleRange where fromJS = safeCast
+
 export data MediaStreamConstraints : Type where [external]
 
 export
@@ -307,6 +324,7 @@ SafeCast MediaStreamConstraints where
 
 export ToJS MediaStreamConstraints where toJS = believe_me
 export FromJS MediaStreamConstraints where fromJS = safeCast
+
 export data MediaStreamTrackEventInit : Type where [external]
 
 export
@@ -315,6 +333,7 @@ SafeCast MediaStreamTrackEventInit where
 
 export ToJS MediaStreamTrackEventInit where toJS = believe_me
 export FromJS MediaStreamTrackEventInit where fromJS = safeCast
+
 export data MediaTrackCapabilities : Type where [external]
 
 export
@@ -323,6 +342,7 @@ SafeCast MediaTrackCapabilities where
 
 export ToJS MediaTrackCapabilities where toJS = believe_me
 export FromJS MediaTrackCapabilities where fromJS = safeCast
+
 export data MediaTrackConstraintSet : Type where [external]
 
 export
@@ -331,6 +351,7 @@ SafeCast MediaTrackConstraintSet where
 
 export ToJS MediaTrackConstraintSet where toJS = believe_me
 export FromJS MediaTrackConstraintSet where fromJS = safeCast
+
 export data MediaTrackConstraints : Type where [external]
 
 export
@@ -339,6 +360,7 @@ SafeCast MediaTrackConstraints where
 
 export ToJS MediaTrackConstraints where toJS = believe_me
 export FromJS MediaTrackConstraints where fromJS = safeCast
+
 export data MediaTrackSettings : Type where [external]
 
 export
@@ -347,6 +369,7 @@ SafeCast MediaTrackSettings where
 
 export ToJS MediaTrackSettings where toJS = believe_me
 export FromJS MediaTrackSettings where fromJS = safeCast
+
 export data MediaTrackSupportedConstraints : Type where [external]
 
 export
@@ -355,6 +378,7 @@ SafeCast MediaTrackSupportedConstraints where
 
 export ToJS MediaTrackSupportedConstraints where toJS = believe_me
 export FromJS MediaTrackSupportedConstraints where fromJS = safeCast
+
 export data Settings : Type where [external]
 
 export
@@ -363,6 +387,7 @@ SafeCast Settings where
 
 export ToJS Settings where toJS = believe_me
 export FromJS Settings where fromJS = safeCast
+
 export data ULongRange : Type where [external]
 
 export

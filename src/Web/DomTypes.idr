@@ -46,6 +46,7 @@ namespace ShadowRootMode
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
+
 export data AbortController : Type where [external]
 
 export
@@ -54,6 +55,7 @@ SafeCast AbortController where
 
 export ToJS AbortController where toJS = believe_me
 export FromJS AbortController where fromJS = safeCast
+
 export data AbortSignal : Type where [external]
 
 export
@@ -62,6 +64,7 @@ SafeCast AbortSignal where
 
 export ToJS AbortSignal where toJS = believe_me
 export FromJS AbortSignal where fromJS = safeCast
+
 export data AbstractRange : Type where [external]
 
 export
@@ -70,6 +73,7 @@ SafeCast AbstractRange where
 
 export ToJS AbstractRange where toJS = believe_me
 export FromJS AbstractRange where fromJS = safeCast
+
 export data Attr : Type where [external]
 
 export
@@ -78,6 +82,7 @@ SafeCast Attr where
 
 export ToJS Attr where toJS = believe_me
 export FromJS Attr where fromJS = safeCast
+
 export data CDATASection : Type where [external]
 
 export
@@ -86,6 +91,7 @@ SafeCast CDATASection where
 
 export ToJS CDATASection where toJS = believe_me
 export FromJS CDATASection where fromJS = safeCast
+
 export data CharacterData : Type where [external]
 
 export
@@ -94,6 +100,7 @@ SafeCast CharacterData where
 
 export ToJS CharacterData where toJS = believe_me
 export FromJS CharacterData where fromJS = safeCast
+
 export data Comment : Type where [external]
 
 export
@@ -102,6 +109,7 @@ SafeCast Comment where
 
 export ToJS Comment where toJS = believe_me
 export FromJS Comment where fromJS = safeCast
+
 export data CustomEvent : Type where [external]
 
 export
@@ -110,6 +118,7 @@ SafeCast CustomEvent where
 
 export ToJS CustomEvent where toJS = believe_me
 export FromJS CustomEvent where fromJS = safeCast
+
 export data DOMImplementation : Type where [external]
 
 export
@@ -118,6 +127,7 @@ SafeCast DOMImplementation where
 
 export ToJS DOMImplementation where toJS = believe_me
 export FromJS DOMImplementation where fromJS = safeCast
+
 export data DOMTokenList : Type where [external]
 
 export
@@ -126,6 +136,7 @@ SafeCast DOMTokenList where
 
 export ToJS DOMTokenList where toJS = believe_me
 export FromJS DOMTokenList where fromJS = safeCast
+
 export data Document : Type where [external]
 
 export
@@ -134,6 +145,7 @@ SafeCast Document where
 
 export ToJS Document where toJS = believe_me
 export FromJS Document where fromJS = safeCast
+
 export data DocumentFragment : Type where [external]
 
 export
@@ -142,6 +154,7 @@ SafeCast DocumentFragment where
 
 export ToJS DocumentFragment where toJS = believe_me
 export FromJS DocumentFragment where fromJS = safeCast
+
 export data DocumentType : Type where [external]
 
 export
@@ -150,6 +163,7 @@ SafeCast DocumentType where
 
 export ToJS DocumentType where toJS = believe_me
 export FromJS DocumentType where fromJS = safeCast
+
 export data Element : Type where [external]
 
 export
@@ -158,6 +172,7 @@ SafeCast Element where
 
 export ToJS Element where toJS = believe_me
 export FromJS Element where fromJS = safeCast
+
 export data Event : Type where [external]
 
 export
@@ -166,6 +181,7 @@ SafeCast Event where
 
 export ToJS Event where toJS = believe_me
 export FromJS Event where fromJS = safeCast
+
 export data EventTarget : Type where [external]
 
 export
@@ -174,6 +190,7 @@ SafeCast EventTarget where
 
 export ToJS EventTarget where toJS = believe_me
 export FromJS EventTarget where fromJS = safeCast
+
 export data HTMLCollection : Type where [external]
 
 export
@@ -182,6 +199,7 @@ SafeCast HTMLCollection where
 
 export ToJS HTMLCollection where toJS = believe_me
 export FromJS HTMLCollection where fromJS = safeCast
+
 export data MutationObserver : Type where [external]
 
 export
@@ -190,6 +208,7 @@ SafeCast MutationObserver where
 
 export ToJS MutationObserver where toJS = believe_me
 export FromJS MutationObserver where fromJS = safeCast
+
 export data MutationRecord : Type where [external]
 
 export
@@ -198,6 +217,7 @@ SafeCast MutationRecord where
 
 export ToJS MutationRecord where toJS = believe_me
 export FromJS MutationRecord where fromJS = safeCast
+
 export data NamedNodeMap : Type where [external]
 
 export
@@ -206,6 +226,7 @@ SafeCast NamedNodeMap where
 
 export ToJS NamedNodeMap where toJS = believe_me
 export FromJS NamedNodeMap where fromJS = safeCast
+
 export data Node : Type where [external]
 
 export
@@ -214,6 +235,7 @@ SafeCast Node where
 
 export ToJS Node where toJS = believe_me
 export FromJS Node where fromJS = safeCast
+
 export data NodeIterator : Type where [external]
 
 export
@@ -222,6 +244,7 @@ SafeCast NodeIterator where
 
 export ToJS NodeIterator where toJS = believe_me
 export FromJS NodeIterator where fromJS = safeCast
+
 export data NodeList : Type where [external]
 
 export
@@ -230,6 +253,7 @@ SafeCast NodeList where
 
 export ToJS NodeList where toJS = believe_me
 export FromJS NodeList where fromJS = safeCast
+
 export data Performance : Type where [external]
 
 export
@@ -238,6 +262,7 @@ SafeCast Performance where
 
 export ToJS Performance where toJS = believe_me
 export FromJS Performance where fromJS = safeCast
+
 export data ProcessingInstruction : Type where [external]
 
 export
@@ -246,6 +271,7 @@ SafeCast ProcessingInstruction where
 
 export ToJS ProcessingInstruction where toJS = believe_me
 export FromJS ProcessingInstruction where fromJS = safeCast
+
 export data Range : Type where [external]
 
 export
@@ -254,6 +280,7 @@ SafeCast Range where
 
 export ToJS Range where toJS = believe_me
 export FromJS Range where fromJS = safeCast
+
 export data ShadowRoot : Type where [external]
 
 export
@@ -262,6 +289,7 @@ SafeCast ShadowRoot where
 
 export ToJS ShadowRoot where toJS = believe_me
 export FromJS ShadowRoot where fromJS = safeCast
+
 export data StaticRange : Type where [external]
 
 export
@@ -270,6 +298,7 @@ SafeCast StaticRange where
 
 export ToJS StaticRange where toJS = believe_me
 export FromJS StaticRange where fromJS = safeCast
+
 export data Text : Type where [external]
 
 export
@@ -278,6 +307,7 @@ SafeCast Text where
 
 export ToJS Text where toJS = believe_me
 export FromJS Text where fromJS = safeCast
+
 export data TreeWalker : Type where [external]
 
 export
@@ -286,6 +316,7 @@ SafeCast TreeWalker where
 
 export ToJS TreeWalker where toJS = believe_me
 export FromJS TreeWalker where fromJS = safeCast
+
 export data XMLDocument : Type where [external]
 
 export
@@ -294,6 +325,7 @@ SafeCast XMLDocument where
 
 export ToJS XMLDocument where toJS = believe_me
 export FromJS XMLDocument where fromJS = safeCast
+
 export data XPathEvaluator : Type where [external]
 
 export
@@ -302,6 +334,7 @@ SafeCast XPathEvaluator where
 
 export ToJS XPathEvaluator where toJS = believe_me
 export FromJS XPathEvaluator where fromJS = safeCast
+
 export data XPathExpression : Type where [external]
 
 export
@@ -310,6 +343,7 @@ SafeCast XPathExpression where
 
 export ToJS XPathExpression where toJS = believe_me
 export FromJS XPathExpression where fromJS = safeCast
+
 export data XPathResult : Type where [external]
 
 export
@@ -322,66 +356,46 @@ export FromJS XPathResult where fromJS = safeCast
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------
+
 export data ChildNode : Type where [external]
 
-export
-SafeCast ChildNode where
-  safeCast = unsafeCastOnPrototypeName "ChildNode"
-
 export ToJS ChildNode where toJS = believe_me
-export FromJS ChildNode where fromJS = safeCast
+export FromJS ChildNode where fromJS ptr = Just (believe_me ptr)
+
 export data DocumentOrShadowRoot : Type where [external]
 
-export
-SafeCast DocumentOrShadowRoot where
-  safeCast = unsafeCastOnPrototypeName "DocumentOrShadowRoot"
-
 export ToJS DocumentOrShadowRoot where toJS = believe_me
-export FromJS DocumentOrShadowRoot where fromJS = safeCast
+export FromJS DocumentOrShadowRoot where fromJS ptr = Just (believe_me ptr)
+
 export data NonDocumentTypeChildNode : Type where [external]
 
-export
-SafeCast NonDocumentTypeChildNode where
-  safeCast = unsafeCastOnPrototypeName "NonDocumentTypeChildNode"
-
 export ToJS NonDocumentTypeChildNode where toJS = believe_me
-export FromJS NonDocumentTypeChildNode where fromJS = safeCast
+export FromJS NonDocumentTypeChildNode where fromJS ptr = Just (believe_me ptr)
+
 export data NonElementParentNode : Type where [external]
 
-export
-SafeCast NonElementParentNode where
-  safeCast = unsafeCastOnPrototypeName "NonElementParentNode"
-
 export ToJS NonElementParentNode where toJS = believe_me
-export FromJS NonElementParentNode where fromJS = safeCast
+export FromJS NonElementParentNode where fromJS ptr = Just (believe_me ptr)
+
 export data ParentNode : Type where [external]
 
-export
-SafeCast ParentNode where
-  safeCast = unsafeCastOnPrototypeName "ParentNode"
-
 export ToJS ParentNode where toJS = believe_me
-export FromJS ParentNode where fromJS = safeCast
+export FromJS ParentNode where fromJS ptr = Just (believe_me ptr)
+
 export data Slottable : Type where [external]
 
-export
-SafeCast Slottable where
-  safeCast = unsafeCastOnPrototypeName "Slottable"
-
 export ToJS Slottable where toJS = believe_me
-export FromJS Slottable where fromJS = safeCast
+export FromJS Slottable where fromJS ptr = Just (believe_me ptr)
+
 export data XPathEvaluatorBase : Type where [external]
 
-export
-SafeCast XPathEvaluatorBase where
-  safeCast = unsafeCastOnPrototypeName "XPathEvaluatorBase"
-
 export ToJS XPathEvaluatorBase where toJS = believe_me
-export FromJS XPathEvaluatorBase where fromJS = safeCast
+export FromJS XPathEvaluatorBase where fromJS ptr = Just (believe_me ptr)
 
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
+
 export data AddEventListenerOptions : Type where [external]
 
 export
@@ -390,6 +404,7 @@ SafeCast AddEventListenerOptions where
 
 export ToJS AddEventListenerOptions where toJS = believe_me
 export FromJS AddEventListenerOptions where fromJS = safeCast
+
 export data CustomEventInit : Type where [external]
 
 export
@@ -398,6 +413,7 @@ SafeCast CustomEventInit where
 
 export ToJS CustomEventInit where toJS = believe_me
 export FromJS CustomEventInit where fromJS = safeCast
+
 export data ElementCreationOptions : Type where [external]
 
 export
@@ -406,6 +422,7 @@ SafeCast ElementCreationOptions where
 
 export ToJS ElementCreationOptions where toJS = believe_me
 export FromJS ElementCreationOptions where fromJS = safeCast
+
 export data EventInit : Type where [external]
 
 export
@@ -414,6 +431,7 @@ SafeCast EventInit where
 
 export ToJS EventInit where toJS = believe_me
 export FromJS EventInit where fromJS = safeCast
+
 export data EventListenerOptions : Type where [external]
 
 export
@@ -422,6 +440,7 @@ SafeCast EventListenerOptions where
 
 export ToJS EventListenerOptions where toJS = believe_me
 export FromJS EventListenerOptions where fromJS = safeCast
+
 export data GetRootNodeOptions : Type where [external]
 
 export
@@ -430,6 +449,7 @@ SafeCast GetRootNodeOptions where
 
 export ToJS GetRootNodeOptions where toJS = believe_me
 export FromJS GetRootNodeOptions where fromJS = safeCast
+
 export data MutationObserverInit : Type where [external]
 
 export
@@ -438,6 +458,7 @@ SafeCast MutationObserverInit where
 
 export ToJS MutationObserverInit where toJS = believe_me
 export FromJS MutationObserverInit where fromJS = safeCast
+
 export data ShadowRootInit : Type where [external]
 
 export
@@ -446,6 +467,7 @@ SafeCast ShadowRootInit where
 
 export ToJS ShadowRootInit where toJS = believe_me
 export FromJS ShadowRootInit where fromJS = safeCast
+
 export data StaticRangeInit : Type where [external]
 
 export
