@@ -1,6 +1,8 @@
 module Web.Webidl
+ 
 import JS
-import Web.Types
+import Web.Internal.WebidlPrim
+import Web.Internal.Types
 
 --------------------------------------------------------------------------------
 --          Interfaces
@@ -10,7 +12,7 @@ namespace DOMException
   
   public export
   JSType DOMException where
-    parents =  [ JSObject ]
+    parents =  [ Object ]
 
     mixins =  []
   
@@ -113,27 +115,10 @@ namespace DOMException
   public export
   WRONG_DOCUMENT_ERR : UInt16
   WRONG_DOCUMENT_ERR = 4
-  
-  %foreign "browser:lambda:x=>x.code"
-  prim__code : AnyPtr -> PrimIO AnyPtr
-
-  export
-  code : (obj : DOMException) -> JSIO UInt16
-  code a =   primToJSIO "code" $ prim__code (toJS a)
-  
-  %foreign "browser:lambda:x=>x.message"
-  prim__message : AnyPtr -> PrimIO AnyPtr
-
-  export
-  message : (obj : DOMException) -> JSIO String
-  message a =   primToJSIO "message" $ prim__message (toJS a)
-  
-  %foreign "browser:lambda:x=>x.name"
-  prim__name : AnyPtr -> PrimIO AnyPtr
-
-  export
-  name : (obj : DOMException) -> JSIO String
-  name a =   primToJSIO "name" $ prim__name (toJS a)
 
 
+
+--------------------------------------------------------------------------------
+--          Callbacks
+--------------------------------------------------------------------------------
 

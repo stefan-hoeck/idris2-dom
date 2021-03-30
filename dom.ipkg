@@ -7,49 +7,38 @@ depends    = base        >= 0.3.0
            , sop         >= 0.1.1
 
 modules = JS
+        , JS.Boolean
+        , JS.ByteString
+        , JS.Buffer
         , JS.Inheritance
         , JS.Marshall
+        , JS.Nullable
         , JS.Number
+        , JS.Object
+        , JS.Promise
+        , JS.Record
+        , JS.Undefined
+        , JS.Union
         , JS.Util
+        , JS.VarArg
 
         , Web.Animation
-        , Web.AnimationTypes
         , Web.Clipboard
-        , Web.ClipboardTypes
         , Web.Css
-        , Web.CssTypes
         , Web.Dom
-        , Web.DomTypes
         , Web.Event
-        , Web.EventTypes
         , Web.Fetch
-        , Web.FetchTypes
         , Web.File
-        , Web.FileTypes
         , Web.Geometry
-        , Web.GeometryTypes
         , Web.Html
-        , Web.HtmlTypes
         , Web.Mediasource
-        , Web.MediasourceTypes
         , Web.Mediastream
-        , Web.MediastreamTypes
         , Web.Permissions
-        , Web.PermissionsTypes
         , Web.Serviceworker
-        , Web.ServiceworkerTypes
         , Web.Streams
-        , Web.StreamsTypes
         , Web.Svg
-        , Web.SvgTypes
-        , Web.Types
         , Web.Url
-        , Web.UrlTypes
         , Web.Visibility
-        , Web.VisibilityTypes
         , Web.Webgl
-        , Web.WebglTypes
         , Web.Webidl
-        , Web.WebidlTypes
         , Web.Xhr
-        , Web.XhrTypes

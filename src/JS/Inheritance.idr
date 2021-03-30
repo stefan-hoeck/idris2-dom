@@ -133,10 +133,6 @@ export
 SafeCast String where
   safeCast = unsafeCastOnTypeof "string"
 
-export
-SafeCast JSObject where
-  safeCast = unsafeCastOnTypeof "object"
-
 bounded : Num a => (min : Integer) -> (max : Integer) -> Integer -> Maybe a
 bounded min max n = if n >= min && n <= max
                        then Just (fromInteger n)

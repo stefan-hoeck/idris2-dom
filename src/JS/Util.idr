@@ -112,36 +112,10 @@ runJS = runJSWith (putStrLn . dispErr)
 --          Common external types
 --------------------------------------------------------------------------------
 
-public export
-record Any where
-  constructor MkAny
-  anyVal : a
-
-export
-data JSObject : Type where [external]
-
-export
-data JSArray : Type -> Type where [external]
-
-export
-data JSPromise : Type -> Type where [external]
-
-export
-data JSRecord : Type -> Type -> Type where [external]
-
-export
-data DataView : Type where [external]
-
-export
-data ArrayBuffer : Type where [external]
-
 ||| See [spec](https://html.spec.whatwg.org/#windowproxy)
 export
 data WindowProxy : Type where [external]
 
--- TODO: How to handle vararg functions
-export
-data VarArg : Type -> Type where [external]
 --------------------------------------------------------------------------------
 --          Aliases
 --------------------------------------------------------------------------------

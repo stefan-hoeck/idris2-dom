@@ -19,27 +19,6 @@ depends    = base        >= 0.3.0
            , sop         >= 0.1.1
            , hedgehog    >= 0.0.3
 
-modules = JS.Util
-
-        , Test.AnimationTypes
-        , Test.ClipboardTypes
-        , Test.CssTypes
-        , Test.DomTypes
-        , Test.EventTypes
-        , Test.FetchTypes
-        , Test.FileTypes
-        , Test.GeometryTypes
-        , Test.HtmlTypes
-        , Test.MediasourceTypes
-        , Test.MediastreamTypes
+modules = JS
         , Test.Number
-        , Test.PermissionsTypes
-        , Test.ServiceworkerTypes
-        , Test.StreamsTypes
-        , Test.SvgTypes
-        , Test.UrlTypes
         , Test.Util
-        , Test.VisibilityTypes
-        , Test.WebglTypes
-        , Test.WebidlTypes
-        , Test.XhrTypes
