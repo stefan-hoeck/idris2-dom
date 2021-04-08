@@ -115,6 +115,24 @@ namespace DOMException
   public export
   WRONG_DOCUMENT_ERR : UInt16
   WRONG_DOCUMENT_ERR = 4
+  
+  export
+  new :  (message : UndefOr String)
+      -> (name : UndefOr String)
+      -> JSIO DOMException
+  new a b = primJS $ DOMException.prim__new a b
+  
+  export
+  code : (obj : DOMException) -> JSIO UInt16
+  code a = primJS $ DOMException.prim__code a
+  
+  export
+  message : (obj : DOMException) -> JSIO String
+  message a = primJS $ DOMException.prim__message a
+  
+  export
+  name : (obj : DOMException) -> JSIO String
+  name a = primJS $ DOMException.prim__name a
 
 
 

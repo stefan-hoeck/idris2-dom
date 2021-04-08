@@ -1,0 +1,315 @@
+module Web.Internal.FetchPrim
+ 
+import JS
+import Web.Internal.Types
+ 
+
+--------------------------------------------------------------------------------
+--          Interfaces
+--------------------------------------------------------------------------------
+
+namespace Headers
+  
+  export
+  %foreign "browser:lambda:(a)=> new Headers(a)"
+  prim__new : UndefOr HeadersInit -> PrimIO Headers
+  
+  export
+  %foreign "browser:lambda:(x,a,b,c)=>x.append(a b c)"
+  prim__append : Headers -> ByteString -> ByteString -> PrimIO ()
+  
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.delete(a b)"
+  prim__delete : Headers -> ByteString -> PrimIO ()
+  
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.get(a b)"
+  prim__get : Headers -> ByteString -> PrimIO (Nullable ByteString)
+  
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.has(a b)"
+  prim__has : Headers -> ByteString -> PrimIO Boolean
+  
+  export
+  %foreign "browser:lambda:(x,a,b,c)=>x.set(a b c)"
+  prim__set : Headers -> ByteString -> ByteString -> PrimIO ()
+
+namespace Request
+  
+  export
+  %foreign "browser:lambda:(a,b)=> new Request(a b)"
+  prim__new : RequestInfo -> UndefOr RequestInit -> PrimIO Request
+  
+  export
+  %foreign "browser:lambda:x=>x.cache"
+  prim__cache : Request -> PrimIO RequestCache
+  
+  export
+  %foreign "browser:lambda:x=>x.credentials"
+  prim__credentials : Request -> PrimIO RequestCredentials
+  
+  export
+  %foreign "browser:lambda:x=>x.destination"
+  prim__destination : Request -> PrimIO RequestDestination
+  
+  export
+  %foreign "browser:lambda:x=>x.headers"
+  prim__headers : Request -> PrimIO Headers
+  
+  export
+  %foreign "browser:lambda:x=>x.integrity"
+  prim__integrity : Request -> PrimIO String
+  
+  export
+  %foreign "browser:lambda:x=>x.isHistoryNavigation"
+  prim__isHistoryNavigation : Request -> PrimIO Boolean
+  
+  export
+  %foreign "browser:lambda:x=>x.isReloadNavigation"
+  prim__isReloadNavigation : Request -> PrimIO Boolean
+  
+  export
+  %foreign "browser:lambda:x=>x.keepalive"
+  prim__keepalive : Request -> PrimIO Boolean
+  
+  export
+  %foreign "browser:lambda:x=>x.method"
+  prim__method : Request -> PrimIO ByteString
+  
+  export
+  %foreign "browser:lambda:x=>x.mode"
+  prim__mode : Request -> PrimIO RequestMode
+  
+  export
+  %foreign "browser:lambda:x=>x.redirect"
+  prim__redirect : Request -> PrimIO RequestRedirect
+  
+  export
+  %foreign "browser:lambda:x=>x.referrer"
+  prim__referrer : Request -> PrimIO String
+  
+  export
+  %foreign "browser:lambda:x=>x.referrerPolicy"
+  prim__referrerPolicy : Request -> PrimIO ReferrerPolicy
+  
+  export
+  %foreign "browser:lambda:x=>x.signal"
+  prim__signal : Request -> PrimIO AbortSignal
+  
+  export
+  %foreign "browser:lambda:x=>x.url"
+  prim__url : Request -> PrimIO String
+  
+  export
+  %foreign "browser:lambda:(x,a)=>x.clone(a)"
+  prim__clone : Request -> PrimIO Request
+
+namespace Response
+  
+  export
+  %foreign "browser:lambda:(a,b)=> new Response(a b)"
+  prim__new :  UndefOr (Nullable BodyInit)
+            -> UndefOr ResponseInit
+            -> PrimIO Response
+  
+  export
+  %foreign "browser:lambda:x=>x.headers"
+  prim__headers : Response -> PrimIO Headers
+  
+  export
+  %foreign "browser:lambda:x=>x.ok"
+  prim__ok : Response -> PrimIO Boolean
+  
+  export
+  %foreign "browser:lambda:x=>x.redirected"
+  prim__redirected : Response -> PrimIO Boolean
+  
+  export
+  %foreign "browser:lambda:x=>x.status"
+  prim__status : Response -> PrimIO UInt16
+  
+  export
+  %foreign "browser:lambda:x=>x.statusText"
+  prim__statusText : Response -> PrimIO ByteString
+  
+  export
+  %foreign "browser:lambda:x=>x.type"
+  prim__type : Response -> PrimIO ResponseType
+  
+  export
+  %foreign "browser:lambda:x=>x.url"
+  prim__url : Response -> PrimIO String
+  
+  export
+  %foreign "browser:lambda:(x,a)=>x.clone(a)"
+  prim__clone : Response -> PrimIO Response
+
+--------------------------------------------------------------------------------
+--          Mixins
+--------------------------------------------------------------------------------
+
+namespace Body
+  
+  export
+  %foreign "browser:lambda:x=>x.body"
+  prim__body : Body -> PrimIO (Nullable ReadableStream)
+  
+  export
+  %foreign "browser:lambda:x=>x.bodyUsed"
+  prim__bodyUsed : Body -> PrimIO Boolean
+  
+  export
+  %foreign "browser:lambda:(x,a)=>x.arrayBuffer(a)"
+  prim__arrayBuffer : Body -> PrimIO (Promise ArrayBuffer)
+  
+  export
+  %foreign "browser:lambda:(x,a)=>x.blob(a)"
+  prim__blob : Body -> PrimIO (Promise Blob)
+  
+  export
+  %foreign "browser:lambda:(x,a)=>x.formData(a)"
+  prim__formData : Body -> PrimIO (Promise FormData)
+  
+  export
+  %foreign "browser:lambda:(x,a)=>x.json(a)"
+  prim__json : Body -> PrimIO (Promise AnyPtr)
+  
+  export
+  %foreign "browser:lambda:(x,a)=>x.text(a)"
+  prim__text : Body -> PrimIO (Promise String)
+
+--------------------------------------------------------------------------------
+--          Dictionaries
+--------------------------------------------------------------------------------
+
+namespace RequestInit
+  
+  export
+  %foreign "browser:lambda:x=>x.body"
+  prim__body : RequestInit -> PrimIO (UndefOr (Nullable BodyInit))
+  
+  export
+  %foreign "browser:lambda:(x,v)=>{x.body = v}"
+  prim__setBody : RequestInit -> UndefOr (Nullable BodyInit) -> PrimIO ()
+  
+  export
+  %foreign "browser:lambda:x=>x.cache"
+  prim__cache : RequestInit -> PrimIO (UndefOr RequestCache)
+  
+  export
+  %foreign "browser:lambda:(x,v)=>{x.cache = v}"
+  prim__setCache : RequestInit -> UndefOr RequestCache -> PrimIO ()
+  
+  export
+  %foreign "browser:lambda:x=>x.credentials"
+  prim__credentials : RequestInit -> PrimIO (UndefOr RequestCredentials)
+  
+  export
+  %foreign "browser:lambda:(x,v)=>{x.credentials = v}"
+  prim__setCredentials : RequestInit -> UndefOr RequestCredentials -> PrimIO ()
+  
+  export
+  %foreign "browser:lambda:x=>x.headers"
+  prim__headers : RequestInit -> PrimIO (UndefOr HeadersInit)
+  
+  export
+  %foreign "browser:lambda:(x,v)=>{x.headers = v}"
+  prim__setHeaders : RequestInit -> UndefOr HeadersInit -> PrimIO ()
+  
+  export
+  %foreign "browser:lambda:x=>x.integrity"
+  prim__integrity : RequestInit -> PrimIO (UndefOr String)
+  
+  export
+  %foreign "browser:lambda:(x,v)=>{x.integrity = v}"
+  prim__setIntegrity : RequestInit -> UndefOr String -> PrimIO ()
+  
+  export
+  %foreign "browser:lambda:x=>x.keepalive"
+  prim__keepalive : RequestInit -> PrimIO (UndefOr Boolean)
+  
+  export
+  %foreign "browser:lambda:(x,v)=>{x.keepalive = v}"
+  prim__setKeepalive : RequestInit -> UndefOr Boolean -> PrimIO ()
+  
+  export
+  %foreign "browser:lambda:x=>x.method"
+  prim__method : RequestInit -> PrimIO (UndefOr ByteString)
+  
+  export
+  %foreign "browser:lambda:(x,v)=>{x.method = v}"
+  prim__setMethod : RequestInit -> UndefOr ByteString -> PrimIO ()
+  
+  export
+  %foreign "browser:lambda:x=>x.mode"
+  prim__mode : RequestInit -> PrimIO (UndefOr RequestMode)
+  
+  export
+  %foreign "browser:lambda:(x,v)=>{x.mode = v}"
+  prim__setMode : RequestInit -> UndefOr RequestMode -> PrimIO ()
+  
+  export
+  %foreign "browser:lambda:x=>x.redirect"
+  prim__redirect : RequestInit -> PrimIO (UndefOr RequestRedirect)
+  
+  export
+  %foreign "browser:lambda:(x,v)=>{x.redirect = v}"
+  prim__setRedirect : RequestInit -> UndefOr RequestRedirect -> PrimIO ()
+  
+  export
+  %foreign "browser:lambda:x=>x.referrer"
+  prim__referrer : RequestInit -> PrimIO (UndefOr String)
+  
+  export
+  %foreign "browser:lambda:(x,v)=>{x.referrer = v}"
+  prim__setReferrer : RequestInit -> UndefOr String -> PrimIO ()
+  
+  export
+  %foreign "browser:lambda:x=>x.referrerPolicy"
+  prim__referrerPolicy : RequestInit -> PrimIO (UndefOr ReferrerPolicy)
+  
+  export
+  %foreign "browser:lambda:(x,v)=>{x.referrerPolicy = v}"
+  prim__setReferrerPolicy : RequestInit -> UndefOr ReferrerPolicy -> PrimIO ()
+  
+  export
+  %foreign "browser:lambda:x=>x.signal"
+  prim__signal : RequestInit -> PrimIO (UndefOr (Nullable AbortSignal))
+  
+  export
+  %foreign "browser:lambda:(x,v)=>{x.signal = v}"
+  prim__setSignal : RequestInit -> UndefOr (Nullable AbortSignal) -> PrimIO ()
+  
+  export
+  %foreign "browser:lambda:x=>x.window"
+  prim__window : RequestInit -> PrimIO (UndefOr AnyPtr)
+  
+  export
+  %foreign "browser:lambda:(x,v)=>{x.window = v}"
+  prim__setWindow : RequestInit -> UndefOr AnyPtr -> PrimIO ()
+
+namespace ResponseInit
+  
+  export
+  %foreign "browser:lambda:x=>x.headers"
+  prim__headers : ResponseInit -> PrimIO (UndefOr HeadersInit)
+  
+  export
+  %foreign "browser:lambda:(x,v)=>{x.headers = v}"
+  prim__setHeaders : ResponseInit -> UndefOr HeadersInit -> PrimIO ()
+  
+  export
+  %foreign "browser:lambda:x=>x.status"
+  prim__status : ResponseInit -> PrimIO (UndefOr UInt16)
+  
+  export
+  %foreign "browser:lambda:(x,v)=>{x.status = v}"
+  prim__setStatus : ResponseInit -> UndefOr UInt16 -> PrimIO ()
+  
+  export
+  %foreign "browser:lambda:x=>x.statusText"
+  prim__statusText : ResponseInit -> PrimIO (UndefOr ByteString)
+  
+  export
+  %foreign "browser:lambda:(x,v)=>{x.statusText = v}"
+  prim__setStatusText : ResponseInit -> UndefOr ByteString -> PrimIO ()

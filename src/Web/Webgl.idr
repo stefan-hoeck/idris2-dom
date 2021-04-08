@@ -26,6 +26,18 @@ namespace WebGLActiveInfo
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  name : (obj : WebGLActiveInfo) -> JSIO String
+  name a = primJS $ WebGLActiveInfo.prim__name a
+  
+  export
+  size : (obj : WebGLActiveInfo) -> JSIO GLint
+  size a = primJS $ WebGLActiveInfo.prim__size a
+  
+  export
+  type : (obj : WebGLActiveInfo) -> JSIO GLenum
+  type a = primJS $ WebGLActiveInfo.prim__type a
 
 namespace WebGLBuffer
   
@@ -106,6 +118,18 @@ namespace WebGLShaderPrecisionFormat
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  precision : (obj : WebGLShaderPrecisionFormat) -> JSIO GLint
+  precision a = primJS $ WebGLShaderPrecisionFormat.prim__precision a
+  
+  export
+  rangeMax : (obj : WebGLShaderPrecisionFormat) -> JSIO GLint
+  rangeMax a = primJS $ WebGLShaderPrecisionFormat.prim__rangeMax a
+  
+  export
+  rangeMin : (obj : WebGLShaderPrecisionFormat) -> JSIO GLint
+  rangeMin a = primJS $ WebGLShaderPrecisionFormat.prim__rangeMin a
 
 namespace WebGLSync
   
@@ -1204,7 +1228,1773 @@ namespace WebGL2RenderingContextBase
   public export
   WAIT_FAILED : GLenum
   WAIT_FAILED = 0x911D
+  
+  export
+  beginQuery :  (obj : WebGL2RenderingContextBase)
+             -> (target : GLenum)
+             -> (query : WebGLQuery)
+             -> JSIO ()
+  beginQuery a b c = primJS $ WebGL2RenderingContextBase.prim__beginQuery a b c
+  
+  export
+  beginTransformFeedback :  (obj : WebGL2RenderingContextBase)
+                         -> (primitiveMode : GLenum)
+                         -> JSIO ()
+  beginTransformFeedback a b = primJS $ WebGL2RenderingContextBase.prim__beginTransformFeedback a
+                                                                                                b
+  
+  export
+  bindBufferBase :  (obj : WebGL2RenderingContextBase)
+                 -> (target : GLenum)
+                 -> (index : GLuint)
+                 -> (buffer : Nullable WebGLBuffer)
+                 -> JSIO ()
+  bindBufferBase a b c d = primJS $ WebGL2RenderingContextBase.prim__bindBufferBase a
+                                                                                    b
+                                                                                    c
+                                                                                    d
+  
+  export
+  bindBufferRange :  (obj : WebGL2RenderingContextBase)
+                  -> (target : GLenum)
+                  -> (index : GLuint)
+                  -> (buffer : Nullable WebGLBuffer)
+                  -> (offset : GLintptr)
+                  -> (size : GLsizeiptr)
+                  -> JSIO ()
+  bindBufferRange a b c d e f = primJS $ WebGL2RenderingContextBase.prim__bindBufferRange a
+                                                                                          b
+                                                                                          c
+                                                                                          d
+                                                                                          e
+                                                                                          f
+  
+  export
+  bindSampler :  (obj : WebGL2RenderingContextBase)
+              -> (unit : GLuint)
+              -> (sampler : Nullable WebGLSampler)
+              -> JSIO ()
+  bindSampler a b c = primJS $ WebGL2RenderingContextBase.prim__bindSampler a
+                                                                            b
+                                                                            c
+  
+  export
+  bindTransformFeedback :  (obj : WebGL2RenderingContextBase)
+                        -> (target : GLenum)
+                        -> (tf : Nullable WebGLTransformFeedback)
+                        -> JSIO ()
+  bindTransformFeedback a b c = primJS $ WebGL2RenderingContextBase.prim__bindTransformFeedback a
+                                                                                                b
+                                                                                                c
+  
+  export
+  bindVertexArray :  (obj : WebGL2RenderingContextBase)
+                  -> (array : Nullable WebGLVertexArrayObject)
+                  -> JSIO ()
+  bindVertexArray a b = primJS $ WebGL2RenderingContextBase.prim__bindVertexArray a
+                                                                                  b
+  
+  export
+  blitFramebuffer :  (obj : WebGL2RenderingContextBase)
+                  -> (srcX0 : GLint)
+                  -> (srcY0 : GLint)
+                  -> (srcX1 : GLint)
+                  -> (srcY1 : GLint)
+                  -> (dstX0 : GLint)
+                  -> (dstY0 : GLint)
+                  -> (dstX1 : GLint)
+                  -> (dstY1 : GLint)
+                  -> (mask : GLbitfield)
+                  -> (filter : GLenum)
+                  -> JSIO ()
+  blitFramebuffer a b c d e f g h i j k = primJS $ WebGL2RenderingContextBase.prim__blitFramebuffer a
+                                                                                                    b
+                                                                                                    c
+                                                                                                    d
+                                                                                                    e
+                                                                                                    f
+                                                                                                    g
+                                                                                                    h
+                                                                                                    i
+                                                                                                    j
+                                                                                                    k
+  
+  export
+  clearBufferfi :  (obj : WebGL2RenderingContextBase)
+                -> (buffer : GLenum)
+                -> (drawbuffer : GLint)
+                -> (depth : GLfloat)
+                -> (stencil : GLint)
+                -> JSIO ()
+  clearBufferfi a b c d e = primJS $ WebGL2RenderingContextBase.prim__clearBufferfi a
+                                                                                    b
+                                                                                    c
+                                                                                    d
+                                                                                    e
+  
+  export
+  clearBufferfv :  (obj : WebGL2RenderingContextBase)
+                -> (buffer : GLenum)
+                -> (drawbuffer : GLint)
+                -> (values : Float32List)
+                -> (srcOffset : UndefOr GLuint)
+                -> JSIO ()
+  clearBufferfv a b c d e = primJS $ WebGL2RenderingContextBase.prim__clearBufferfv a
+                                                                                    b
+                                                                                    c
+                                                                                    d
+                                                                                    e
+  
+  export
+  clearBufferiv :  (obj : WebGL2RenderingContextBase)
+                -> (buffer : GLenum)
+                -> (drawbuffer : GLint)
+                -> (values : Int32List)
+                -> (srcOffset : UndefOr GLuint)
+                -> JSIO ()
+  clearBufferiv a b c d e = primJS $ WebGL2RenderingContextBase.prim__clearBufferiv a
+                                                                                    b
+                                                                                    c
+                                                                                    d
+                                                                                    e
+  
+  export
+  clearBufferuiv :  (obj : WebGL2RenderingContextBase)
+                 -> (buffer : GLenum)
+                 -> (drawbuffer : GLint)
+                 -> (values : Uint32List)
+                 -> (srcOffset : UndefOr GLuint)
+                 -> JSIO ()
+  clearBufferuiv a b c d e = primJS $ WebGL2RenderingContextBase.prim__clearBufferuiv a
+                                                                                      b
+                                                                                      c
+                                                                                      d
+                                                                                      e
+  
+  export
+  clientWaitSync :  (obj : WebGL2RenderingContextBase)
+                 -> (sync : WebGLSync)
+                 -> (flags : GLbitfield)
+                 -> (timeout : GLuint64)
+                 -> JSIO GLenum
+  clientWaitSync a b c d = primJS $ WebGL2RenderingContextBase.prim__clientWaitSync a
+                                                                                    b
+                                                                                    c
+                                                                                    d
+  
+  export
+  compressedTexImage3D :  (obj : WebGL2RenderingContextBase)
+                       -> (target : GLenum)
+                       -> (level : GLint)
+                       -> (internalformat : GLenum)
+                       -> (width : GLsizei)
+                       -> (height : GLsizei)
+                       -> (depth : GLsizei)
+                       -> (border : GLint)
+                       -> (imageSize : GLsizei)
+                       -> (offset : GLintptr)
+                       -> JSIO ()
+  compressedTexImage3D a b c d e f g h i j = primJS $ WebGL2RenderingContextBase.prim__compressedTexImage3D a
+                                                                                                            b
+                                                                                                            c
+                                                                                                            d
+                                                                                                            e
+                                                                                                            f
+                                                                                                            g
+                                                                                                            h
+                                                                                                            i
+                                                                                                            j
+  
+  export
+  compressedTexImage3D1 :  (obj : WebGL2RenderingContextBase)
+                        -> (target : GLenum)
+                        -> (level : GLint)
+                        -> (internalformat : GLenum)
+                        -> (width : GLsizei)
+                        -> (height : GLsizei)
+                        -> (depth : GLsizei)
+                        -> (border : GLint)
+                        -> (srcData : ArrayBufferView)
+                        -> (srcOffset : UndefOr GLuint)
+                        -> (srcLengthOverride : UndefOr GLuint)
+                        -> JSIO ()
+  compressedTexImage3D1 a b c d e f g h i j k = primJS $ WebGL2RenderingContextBase.prim__compressedTexImage3D1 a
+                                                                                                                b
+                                                                                                                c
+                                                                                                                d
+                                                                                                                e
+                                                                                                                f
+                                                                                                                g
+                                                                                                                h
+                                                                                                                i
+                                                                                                                j
+                                                                                                                k
+  
+  export
+  compressedTexSubImage3D :  (obj : WebGL2RenderingContextBase)
+                          -> (target : GLenum)
+                          -> (level : GLint)
+                          -> (xoffset : GLint)
+                          -> (yoffset : GLint)
+                          -> (zoffset : GLint)
+                          -> (width : GLsizei)
+                          -> (height : GLsizei)
+                          -> (depth : GLsizei)
+                          -> (format : GLenum)
+                          -> (imageSize : GLsizei)
+                          -> (offset : GLintptr)
+                          -> JSIO ()
+  compressedTexSubImage3D a b c d e f g h i j k l = primJS $ WebGL2RenderingContextBase.prim__compressedTexSubImage3D a
+                                                                                                                      b
+                                                                                                                      c
+                                                                                                                      d
+                                                                                                                      e
+                                                                                                                      f
+                                                                                                                      g
+                                                                                                                      h
+                                                                                                                      i
+                                                                                                                      j
+                                                                                                                      k
+                                                                                                                      l
+  
+  export
+  compressedTexSubImage3D1 :  (obj : WebGL2RenderingContextBase)
+                           -> (target : GLenum)
+                           -> (level : GLint)
+                           -> (xoffset : GLint)
+                           -> (yoffset : GLint)
+                           -> (zoffset : GLint)
+                           -> (width : GLsizei)
+                           -> (height : GLsizei)
+                           -> (depth : GLsizei)
+                           -> (format : GLenum)
+                           -> (srcData : ArrayBufferView)
+                           -> (srcOffset : UndefOr GLuint)
+                           -> (srcLengthOverride : UndefOr GLuint)
+                           -> JSIO ()
+  compressedTexSubImage3D1 a b c d e f g h i j k l m = primJS $ WebGL2RenderingContextBase.prim__compressedTexSubImage3D1 a
+                                                                                                                          b
+                                                                                                                          c
+                                                                                                                          d
+                                                                                                                          e
+                                                                                                                          f
+                                                                                                                          g
+                                                                                                                          h
+                                                                                                                          i
+                                                                                                                          j
+                                                                                                                          k
+                                                                                                                          l
+                                                                                                                          m
+  
+  export
+  copyBufferSubData :  (obj : WebGL2RenderingContextBase)
+                    -> (readTarget : GLenum)
+                    -> (writeTarget : GLenum)
+                    -> (readOffset : GLintptr)
+                    -> (writeOffset : GLintptr)
+                    -> (size : GLsizeiptr)
+                    -> JSIO ()
+  copyBufferSubData a b c d e f = primJS $ WebGL2RenderingContextBase.prim__copyBufferSubData a
+                                                                                              b
+                                                                                              c
+                                                                                              d
+                                                                                              e
+                                                                                              f
+  
+  export
+  copyTexSubImage3D :  (obj : WebGL2RenderingContextBase)
+                    -> (target : GLenum)
+                    -> (level : GLint)
+                    -> (xoffset : GLint)
+                    -> (yoffset : GLint)
+                    -> (zoffset : GLint)
+                    -> (x : GLint)
+                    -> (y : GLint)
+                    -> (width : GLsizei)
+                    -> (height : GLsizei)
+                    -> JSIO ()
+  copyTexSubImage3D a b c d e f g h i j = primJS $ WebGL2RenderingContextBase.prim__copyTexSubImage3D a
+                                                                                                      b
+                                                                                                      c
+                                                                                                      d
+                                                                                                      e
+                                                                                                      f
+                                                                                                      g
+                                                                                                      h
+                                                                                                      i
+                                                                                                      j
+  
+  export
+  createQuery : (obj : WebGL2RenderingContextBase) -> JSIO (Nullable WebGLQuery)
+  createQuery a = primJS $ WebGL2RenderingContextBase.prim__createQuery a
+  
+  export
+  createSampler :  (obj : WebGL2RenderingContextBase)
+                -> JSIO (Nullable WebGLSampler)
+  createSampler a = primJS $ WebGL2RenderingContextBase.prim__createSampler a
+  
+  export
+  createTransformFeedback :  (obj : WebGL2RenderingContextBase)
+                          -> JSIO (Nullable WebGLTransformFeedback)
+  createTransformFeedback a = primJS $ WebGL2RenderingContextBase.prim__createTransformFeedback a
+  
+  export
+  createVertexArray :  (obj : WebGL2RenderingContextBase)
+                    -> JSIO (Nullable WebGLVertexArrayObject)
+  createVertexArray a = primJS $ WebGL2RenderingContextBase.prim__createVertexArray a
+  
+  export
+  deleteQuery :  (obj : WebGL2RenderingContextBase)
+              -> (query : Nullable WebGLQuery)
+              -> JSIO ()
+  deleteQuery a b = primJS $ WebGL2RenderingContextBase.prim__deleteQuery a b
+  
+  export
+  deleteSampler :  (obj : WebGL2RenderingContextBase)
+                -> (sampler : Nullable WebGLSampler)
+                -> JSIO ()
+  deleteSampler a b = primJS $ WebGL2RenderingContextBase.prim__deleteSampler a
+                                                                              b
+  
+  export
+  deleteSync :  (obj : WebGL2RenderingContextBase)
+             -> (sync : Nullable WebGLSync)
+             -> JSIO ()
+  deleteSync a b = primJS $ WebGL2RenderingContextBase.prim__deleteSync a b
+  
+  export
+  deleteTransformFeedback :  (obj : WebGL2RenderingContextBase)
+                          -> (tf : Nullable WebGLTransformFeedback)
+                          -> JSIO ()
+  deleteTransformFeedback a b = primJS $ WebGL2RenderingContextBase.prim__deleteTransformFeedback a
+                                                                                                  b
+  
+  export
+  deleteVertexArray :  (obj : WebGL2RenderingContextBase)
+                    -> (vertexArray : Nullable WebGLVertexArrayObject)
+                    -> JSIO ()
+  deleteVertexArray a b = primJS $ WebGL2RenderingContextBase.prim__deleteVertexArray a
+                                                                                      b
+  
+  export
+  drawArraysInstanced :  (obj : WebGL2RenderingContextBase)
+                      -> (mode : GLenum)
+                      -> (first : GLint)
+                      -> (count : GLsizei)
+                      -> (instanceCount : GLsizei)
+                      -> JSIO ()
+  drawArraysInstanced a b c d e = primJS $ WebGL2RenderingContextBase.prim__drawArraysInstanced a
+                                                                                                b
+                                                                                                c
+                                                                                                d
+                                                                                                e
+  
+  export
+  drawBuffers :  (obj : WebGL2RenderingContextBase)
+              -> (buffers : Array GLenum)
+              -> JSIO ()
+  drawBuffers a b = primJS $ WebGL2RenderingContextBase.prim__drawBuffers a b
+  
+  export
+  drawElementsInstanced :  (obj : WebGL2RenderingContextBase)
+                        -> (mode : GLenum)
+                        -> (count : GLsizei)
+                        -> (type : GLenum)
+                        -> (offset : GLintptr)
+                        -> (instanceCount : GLsizei)
+                        -> JSIO ()
+  drawElementsInstanced a b c d e f = primJS $ WebGL2RenderingContextBase.prim__drawElementsInstanced a
+                                                                                                      b
+                                                                                                      c
+                                                                                                      d
+                                                                                                      e
+                                                                                                      f
+  
+  export
+  drawRangeElements :  (obj : WebGL2RenderingContextBase)
+                    -> (mode : GLenum)
+                    -> (start : GLuint)
+                    -> (end : GLuint)
+                    -> (count : GLsizei)
+                    -> (type : GLenum)
+                    -> (offset : GLintptr)
+                    -> JSIO ()
+  drawRangeElements a b c d e f g = primJS $ WebGL2RenderingContextBase.prim__drawRangeElements a
+                                                                                                b
+                                                                                                c
+                                                                                                d
+                                                                                                e
+                                                                                                f
+                                                                                                g
+  
+  export
+  endQuery : (obj : WebGL2RenderingContextBase) -> (target : GLenum) -> JSIO ()
+  endQuery a b = primJS $ WebGL2RenderingContextBase.prim__endQuery a b
+  
+  export
+  endTransformFeedback : (obj : WebGL2RenderingContextBase) -> JSIO ()
+  endTransformFeedback a = primJS $ WebGL2RenderingContextBase.prim__endTransformFeedback a
+  
+  export
+  fenceSync :  (obj : WebGL2RenderingContextBase)
+            -> (condition : GLenum)
+            -> (flags : GLbitfield)
+            -> JSIO (Nullable WebGLSync)
+  fenceSync a b c = primJS $ WebGL2RenderingContextBase.prim__fenceSync a b c
+  
+  export
+  framebufferTextureLayer :  (obj : WebGL2RenderingContextBase)
+                          -> (target : GLenum)
+                          -> (attachment : GLenum)
+                          -> (texture : Nullable WebGLTexture)
+                          -> (level : GLint)
+                          -> (layer : GLint)
+                          -> JSIO ()
+  framebufferTextureLayer a b c d e f = primJS $ WebGL2RenderingContextBase.prim__framebufferTextureLayer a
+                                                                                                          b
+                                                                                                          c
+                                                                                                          d
+                                                                                                          e
+                                                                                                          f
+  
+  export
+  getActiveUniformBlockName :  (obj : WebGL2RenderingContextBase)
+                            -> (program : WebGLProgram)
+                            -> (uniformBlockIndex : GLuint)
+                            -> JSIO (Nullable String)
+  getActiveUniformBlockName a b c = primJS $ WebGL2RenderingContextBase.prim__getActiveUniformBlockName a
+                                                                                                        b
+                                                                                                        c
+  
+  export
+  getActiveUniformBlockParameter :  (obj : WebGL2RenderingContextBase)
+                                 -> (program : WebGLProgram)
+                                 -> (uniformBlockIndex : GLuint)
+                                 -> (pname : GLenum)
+                                 -> JSIO AnyPtr
+  getActiveUniformBlockParameter a b c d = primJS $ WebGL2RenderingContextBase.prim__getActiveUniformBlockParameter a
+                                                                                                                    b
+                                                                                                                    c
+                                                                                                                    d
+  
+  export
+  getActiveUniforms :  (obj : WebGL2RenderingContextBase)
+                    -> (program : WebGLProgram)
+                    -> (uniformIndices : Array GLuint)
+                    -> (pname : GLenum)
+                    -> JSIO AnyPtr
+  getActiveUniforms a b c d = primJS $ WebGL2RenderingContextBase.prim__getActiveUniforms a
+                                                                                          b
+                                                                                          c
+                                                                                          d
+  
+  export
+  getBufferSubData :  (obj : WebGL2RenderingContextBase)
+                   -> (target : GLenum)
+                   -> (srcByteOffset : GLintptr)
+                   -> (dstBuffer : ArrayBufferView)
+                   -> (dstOffset : UndefOr GLuint)
+                   -> (length : UndefOr GLuint)
+                   -> JSIO ()
+  getBufferSubData a b c d e f = primJS $ WebGL2RenderingContextBase.prim__getBufferSubData a
+                                                                                            b
+                                                                                            c
+                                                                                            d
+                                                                                            e
+                                                                                            f
+  
+  export
+  getFragDataLocation :  (obj : WebGL2RenderingContextBase)
+                      -> (program : WebGLProgram)
+                      -> (name : String)
+                      -> JSIO GLint
+  getFragDataLocation a b c = primJS $ WebGL2RenderingContextBase.prim__getFragDataLocation a
+                                                                                            b
+                                                                                            c
+  
+  export
+  getIndexedParameter :  (obj : WebGL2RenderingContextBase)
+                      -> (target : GLenum)
+                      -> (index : GLuint)
+                      -> JSIO AnyPtr
+  getIndexedParameter a b c = primJS $ WebGL2RenderingContextBase.prim__getIndexedParameter a
+                                                                                            b
+                                                                                            c
+  
+  export
+  getInternalformatParameter :  (obj : WebGL2RenderingContextBase)
+                             -> (target : GLenum)
+                             -> (internalformat : GLenum)
+                             -> (pname : GLenum)
+                             -> JSIO AnyPtr
+  getInternalformatParameter a b c d = primJS $ WebGL2RenderingContextBase.prim__getInternalformatParameter a
+                                                                                                            b
+                                                                                                            c
+                                                                                                            d
+  
+  export
+  getQueryParameter :  (obj : WebGL2RenderingContextBase)
+                    -> (query : WebGLQuery)
+                    -> (pname : GLenum)
+                    -> JSIO AnyPtr
+  getQueryParameter a b c = primJS $ WebGL2RenderingContextBase.prim__getQueryParameter a
+                                                                                        b
+                                                                                        c
+  
+  export
+  getQuery :  (obj : WebGL2RenderingContextBase)
+           -> (target : GLenum)
+           -> (pname : GLenum)
+           -> JSIO (Nullable WebGLQuery)
+  getQuery a b c = primJS $ WebGL2RenderingContextBase.prim__getQuery a b c
+  
+  export
+  getSamplerParameter :  (obj : WebGL2RenderingContextBase)
+                      -> (sampler : WebGLSampler)
+                      -> (pname : GLenum)
+                      -> JSIO AnyPtr
+  getSamplerParameter a b c = primJS $ WebGL2RenderingContextBase.prim__getSamplerParameter a
+                                                                                            b
+                                                                                            c
+  
+  export
+  getSyncParameter :  (obj : WebGL2RenderingContextBase)
+                   -> (sync : WebGLSync)
+                   -> (pname : GLenum)
+                   -> JSIO AnyPtr
+  getSyncParameter a b c = primJS $ WebGL2RenderingContextBase.prim__getSyncParameter a
+                                                                                      b
+                                                                                      c
+  
+  export
+  getTransformFeedbackVarying :  (obj : WebGL2RenderingContextBase)
+                              -> (program : WebGLProgram)
+                              -> (index : GLuint)
+                              -> JSIO (Nullable WebGLActiveInfo)
+  getTransformFeedbackVarying a b c = primJS $ WebGL2RenderingContextBase.prim__getTransformFeedbackVarying a
+                                                                                                            b
+                                                                                                            c
+  
+  export
+  getUniformBlockIndex :  (obj : WebGL2RenderingContextBase)
+                       -> (program : WebGLProgram)
+                       -> (uniformBlockName : String)
+                       -> JSIO GLuint
+  getUniformBlockIndex a b c = primJS $ WebGL2RenderingContextBase.prim__getUniformBlockIndex a
+                                                                                              b
+                                                                                              c
+  
+  export
+  getUniformIndices :  (obj : WebGL2RenderingContextBase)
+                    -> (program : WebGLProgram)
+                    -> (uniformNames : Array String)
+                    -> JSIO (Nullable (Array GLuint))
+  getUniformIndices a b c = primJS $ WebGL2RenderingContextBase.prim__getUniformIndices a
+                                                                                        b
+                                                                                        c
+  
+  export
+  invalidateFramebuffer :  (obj : WebGL2RenderingContextBase)
+                        -> (target : GLenum)
+                        -> (attachments : Array GLenum)
+                        -> JSIO ()
+  invalidateFramebuffer a b c = primJS $ WebGL2RenderingContextBase.prim__invalidateFramebuffer a
+                                                                                                b
+                                                                                                c
+  
+  export
+  invalidateSubFramebuffer :  (obj : WebGL2RenderingContextBase)
+                           -> (target : GLenum)
+                           -> (attachments : Array GLenum)
+                           -> (x : GLint)
+                           -> (y : GLint)
+                           -> (width : GLsizei)
+                           -> (height : GLsizei)
+                           -> JSIO ()
+  invalidateSubFramebuffer a b c d e f g = primJS $ WebGL2RenderingContextBase.prim__invalidateSubFramebuffer a
+                                                                                                              b
+                                                                                                              c
+                                                                                                              d
+                                                                                                              e
+                                                                                                              f
+                                                                                                              g
+  
+  export
+  isQuery :  (obj : WebGL2RenderingContextBase)
+          -> (query : Nullable WebGLQuery)
+          -> JSIO GLboolean
+  isQuery a b = primJS $ WebGL2RenderingContextBase.prim__isQuery a b
+  
+  export
+  isSampler :  (obj : WebGL2RenderingContextBase)
+            -> (sampler : Nullable WebGLSampler)
+            -> JSIO GLboolean
+  isSampler a b = primJS $ WebGL2RenderingContextBase.prim__isSampler a b
+  
+  export
+  isSync :  (obj : WebGL2RenderingContextBase)
+         -> (sync : Nullable WebGLSync)
+         -> JSIO GLboolean
+  isSync a b = primJS $ WebGL2RenderingContextBase.prim__isSync a b
+  
+  export
+  isTransformFeedback :  (obj : WebGL2RenderingContextBase)
+                      -> (tf : Nullable WebGLTransformFeedback)
+                      -> JSIO GLboolean
+  isTransformFeedback a b = primJS $ WebGL2RenderingContextBase.prim__isTransformFeedback a
+                                                                                          b
+  
+  export
+  isVertexArray :  (obj : WebGL2RenderingContextBase)
+                -> (vertexArray : Nullable WebGLVertexArrayObject)
+                -> JSIO GLboolean
+  isVertexArray a b = primJS $ WebGL2RenderingContextBase.prim__isVertexArray a
+                                                                              b
+  
+  export
+  pauseTransformFeedback : (obj : WebGL2RenderingContextBase) -> JSIO ()
+  pauseTransformFeedback a = primJS $ WebGL2RenderingContextBase.prim__pauseTransformFeedback a
+  
+  export
+  readBuffer : (obj : WebGL2RenderingContextBase) -> (src : GLenum) -> JSIO ()
+  readBuffer a b = primJS $ WebGL2RenderingContextBase.prim__readBuffer a b
+  
+  export
+  renderbufferStorageMultisample :  (obj : WebGL2RenderingContextBase)
+                                 -> (target : GLenum)
+                                 -> (samples : GLsizei)
+                                 -> (internalformat : GLenum)
+                                 -> (width : GLsizei)
+                                 -> (height : GLsizei)
+                                 -> JSIO ()
+  renderbufferStorageMultisample a b c d e f = primJS $ WebGL2RenderingContextBase.prim__renderbufferStorageMultisample a
+                                                                                                                        b
+                                                                                                                        c
+                                                                                                                        d
+                                                                                                                        e
+                                                                                                                        f
+  
+  export
+  resumeTransformFeedback : (obj : WebGL2RenderingContextBase) -> JSIO ()
+  resumeTransformFeedback a = primJS $ WebGL2RenderingContextBase.prim__resumeTransformFeedback a
+  
+  export
+  samplerParameterf :  (obj : WebGL2RenderingContextBase)
+                    -> (sampler : WebGLSampler)
+                    -> (pname : GLenum)
+                    -> (param : GLfloat)
+                    -> JSIO ()
+  samplerParameterf a b c d = primJS $ WebGL2RenderingContextBase.prim__samplerParameterf a
+                                                                                          b
+                                                                                          c
+                                                                                          d
+  
+  export
+  samplerParameteri :  (obj : WebGL2RenderingContextBase)
+                    -> (sampler : WebGLSampler)
+                    -> (pname : GLenum)
+                    -> (param : GLint)
+                    -> JSIO ()
+  samplerParameteri a b c d = primJS $ WebGL2RenderingContextBase.prim__samplerParameteri a
+                                                                                          b
+                                                                                          c
+                                                                                          d
+  
+  export
+  texImage3D :  (obj : WebGL2RenderingContextBase)
+             -> (target : GLenum)
+             -> (level : GLint)
+             -> (internalformat : GLint)
+             -> (width : GLsizei)
+             -> (height : GLsizei)
+             -> (depth : GLsizei)
+             -> (border : GLint)
+             -> (format : GLenum)
+             -> (type : GLenum)
+             -> (pboOffset : GLintptr)
+             -> JSIO ()
+  texImage3D a b c d e f g h i j k = primJS $ WebGL2RenderingContextBase.prim__texImage3D a
+                                                                                          b
+                                                                                          c
+                                                                                          d
+                                                                                          e
+                                                                                          f
+                                                                                          g
+                                                                                          h
+                                                                                          i
+                                                                                          j
+                                                                                          k
+  
+  export
+  texImage3D1 :  (obj : WebGL2RenderingContextBase)
+              -> (target : GLenum)
+              -> (level : GLint)
+              -> (internalformat : GLint)
+              -> (width : GLsizei)
+              -> (height : GLsizei)
+              -> (depth : GLsizei)
+              -> (border : GLint)
+              -> (format : GLenum)
+              -> (type : GLenum)
+              -> (source : TexImageSource)
+              -> JSIO ()
+  texImage3D1 a b c d e f g h i j k = primJS $ WebGL2RenderingContextBase.prim__texImage3D1 a
+                                                                                            b
+                                                                                            c
+                                                                                            d
+                                                                                            e
+                                                                                            f
+                                                                                            g
+                                                                                            h
+                                                                                            i
+                                                                                            j
+                                                                                            k
+  
+  export
+  texImage3D2 :  (obj : WebGL2RenderingContextBase)
+              -> (target : GLenum)
+              -> (level : GLint)
+              -> (internalformat : GLint)
+              -> (width : GLsizei)
+              -> (height : GLsizei)
+              -> (depth : GLsizei)
+              -> (border : GLint)
+              -> (format : GLenum)
+              -> (type : GLenum)
+              -> (srcData : Nullable ArrayBufferView)
+              -> JSIO ()
+  texImage3D2 a b c d e f g h i j k = primJS $ WebGL2RenderingContextBase.prim__texImage3D2 a
+                                                                                            b
+                                                                                            c
+                                                                                            d
+                                                                                            e
+                                                                                            f
+                                                                                            g
+                                                                                            h
+                                                                                            i
+                                                                                            j
+                                                                                            k
+  
+  export
+  texImage3D3 :  (obj : WebGL2RenderingContextBase)
+              -> (target : GLenum)
+              -> (level : GLint)
+              -> (internalformat : GLint)
+              -> (width : GLsizei)
+              -> (height : GLsizei)
+              -> (depth : GLsizei)
+              -> (border : GLint)
+              -> (format : GLenum)
+              -> (type : GLenum)
+              -> (srcData : ArrayBufferView)
+              -> (srcOffset : GLuint)
+              -> JSIO ()
+  texImage3D3 a b c d e f g h i j k l = primJS $ WebGL2RenderingContextBase.prim__texImage3D3 a
+                                                                                              b
+                                                                                              c
+                                                                                              d
+                                                                                              e
+                                                                                              f
+                                                                                              g
+                                                                                              h
+                                                                                              i
+                                                                                              j
+                                                                                              k
+                                                                                              l
+  
+  export
+  texStorage2D :  (obj : WebGL2RenderingContextBase)
+               -> (target : GLenum)
+               -> (levels : GLsizei)
+               -> (internalformat : GLenum)
+               -> (width : GLsizei)
+               -> (height : GLsizei)
+               -> JSIO ()
+  texStorage2D a b c d e f = primJS $ WebGL2RenderingContextBase.prim__texStorage2D a
+                                                                                    b
+                                                                                    c
+                                                                                    d
+                                                                                    e
+                                                                                    f
+  
+  export
+  texStorage3D :  (obj : WebGL2RenderingContextBase)
+               -> (target : GLenum)
+               -> (levels : GLsizei)
+               -> (internalformat : GLenum)
+               -> (width : GLsizei)
+               -> (height : GLsizei)
+               -> (depth : GLsizei)
+               -> JSIO ()
+  texStorage3D a b c d e f g = primJS $ WebGL2RenderingContextBase.prim__texStorage3D a
+                                                                                      b
+                                                                                      c
+                                                                                      d
+                                                                                      e
+                                                                                      f
+                                                                                      g
+  
+  export
+  texSubImage3D :  (obj : WebGL2RenderingContextBase)
+                -> (target : GLenum)
+                -> (level : GLint)
+                -> (xoffset : GLint)
+                -> (yoffset : GLint)
+                -> (zoffset : GLint)
+                -> (width : GLsizei)
+                -> (height : GLsizei)
+                -> (depth : GLsizei)
+                -> (format : GLenum)
+                -> (type : GLenum)
+                -> (pboOffset : GLintptr)
+                -> JSIO ()
+  texSubImage3D a b c d e f g h i j k l = primJS $ WebGL2RenderingContextBase.prim__texSubImage3D a
+                                                                                                  b
+                                                                                                  c
+                                                                                                  d
+                                                                                                  e
+                                                                                                  f
+                                                                                                  g
+                                                                                                  h
+                                                                                                  i
+                                                                                                  j
+                                                                                                  k
+                                                                                                  l
+  
+  export
+  texSubImage3D1 :  (obj : WebGL2RenderingContextBase)
+                 -> (target : GLenum)
+                 -> (level : GLint)
+                 -> (xoffset : GLint)
+                 -> (yoffset : GLint)
+                 -> (zoffset : GLint)
+                 -> (width : GLsizei)
+                 -> (height : GLsizei)
+                 -> (depth : GLsizei)
+                 -> (format : GLenum)
+                 -> (type : GLenum)
+                 -> (source : TexImageSource)
+                 -> JSIO ()
+  texSubImage3D1 a b c d e f g h i j k l = primJS $ WebGL2RenderingContextBase.prim__texSubImage3D1 a
+                                                                                                    b
+                                                                                                    c
+                                                                                                    d
+                                                                                                    e
+                                                                                                    f
+                                                                                                    g
+                                                                                                    h
+                                                                                                    i
+                                                                                                    j
+                                                                                                    k
+                                                                                                    l
+  
+  export
+  texSubImage3D2 :  (obj : WebGL2RenderingContextBase)
+                 -> (target : GLenum)
+                 -> (level : GLint)
+                 -> (xoffset : GLint)
+                 -> (yoffset : GLint)
+                 -> (zoffset : GLint)
+                 -> (width : GLsizei)
+                 -> (height : GLsizei)
+                 -> (depth : GLsizei)
+                 -> (format : GLenum)
+                 -> (type : GLenum)
+                 -> (srcData : Nullable ArrayBufferView)
+                 -> (srcOffset : UndefOr GLuint)
+                 -> JSIO ()
+  texSubImage3D2 a b c d e f g h i j k l m = primJS $ WebGL2RenderingContextBase.prim__texSubImage3D2 a
+                                                                                                      b
+                                                                                                      c
+                                                                                                      d
+                                                                                                      e
+                                                                                                      f
+                                                                                                      g
+                                                                                                      h
+                                                                                                      i
+                                                                                                      j
+                                                                                                      k
+                                                                                                      l
+                                                                                                      m
+  
+  export
+  transformFeedbackVaryings :  (obj : WebGL2RenderingContextBase)
+                            -> (program : WebGLProgram)
+                            -> (varyings : Array String)
+                            -> (bufferMode : GLenum)
+                            -> JSIO ()
+  transformFeedbackVaryings a b c d = primJS $ WebGL2RenderingContextBase.prim__transformFeedbackVaryings a
+                                                                                                          b
+                                                                                                          c
+                                                                                                          d
+  
+  export
+  uniform1ui :  (obj : WebGL2RenderingContextBase)
+             -> (location : Nullable WebGLUniformLocation)
+             -> (v0 : GLuint)
+             -> JSIO ()
+  uniform1ui a b c = primJS $ WebGL2RenderingContextBase.prim__uniform1ui a b c
+  
+  export
+  uniform1uiv :  (obj : WebGL2RenderingContextBase)
+              -> (location : Nullable WebGLUniformLocation)
+              -> (data_ : Uint32List)
+              -> (srcOffset : UndefOr GLuint)
+              -> (srcLength : UndefOr GLuint)
+              -> JSIO ()
+  uniform1uiv a b c d e = primJS $ WebGL2RenderingContextBase.prim__uniform1uiv a
+                                                                                b
+                                                                                c
+                                                                                d
+                                                                                e
+  
+  export
+  uniform2ui :  (obj : WebGL2RenderingContextBase)
+             -> (location : Nullable WebGLUniformLocation)
+             -> (v0 : GLuint)
+             -> (v1 : GLuint)
+             -> JSIO ()
+  uniform2ui a b c d = primJS $ WebGL2RenderingContextBase.prim__uniform2ui a
+                                                                            b
+                                                                            c
+                                                                            d
+  
+  export
+  uniform2uiv :  (obj : WebGL2RenderingContextBase)
+              -> (location : Nullable WebGLUniformLocation)
+              -> (data_ : Uint32List)
+              -> (srcOffset : UndefOr GLuint)
+              -> (srcLength : UndefOr GLuint)
+              -> JSIO ()
+  uniform2uiv a b c d e = primJS $ WebGL2RenderingContextBase.prim__uniform2uiv a
+                                                                                b
+                                                                                c
+                                                                                d
+                                                                                e
+  
+  export
+  uniform3ui :  (obj : WebGL2RenderingContextBase)
+             -> (location : Nullable WebGLUniformLocation)
+             -> (v0 : GLuint)
+             -> (v1 : GLuint)
+             -> (v2 : GLuint)
+             -> JSIO ()
+  uniform3ui a b c d e = primJS $ WebGL2RenderingContextBase.prim__uniform3ui a
+                                                                              b
+                                                                              c
+                                                                              d
+                                                                              e
+  
+  export
+  uniform3uiv :  (obj : WebGL2RenderingContextBase)
+              -> (location : Nullable WebGLUniformLocation)
+              -> (data_ : Uint32List)
+              -> (srcOffset : UndefOr GLuint)
+              -> (srcLength : UndefOr GLuint)
+              -> JSIO ()
+  uniform3uiv a b c d e = primJS $ WebGL2RenderingContextBase.prim__uniform3uiv a
+                                                                                b
+                                                                                c
+                                                                                d
+                                                                                e
+  
+  export
+  uniform4ui :  (obj : WebGL2RenderingContextBase)
+             -> (location : Nullable WebGLUniformLocation)
+             -> (v0 : GLuint)
+             -> (v1 : GLuint)
+             -> (v2 : GLuint)
+             -> (v3 : GLuint)
+             -> JSIO ()
+  uniform4ui a b c d e f = primJS $ WebGL2RenderingContextBase.prim__uniform4ui a
+                                                                                b
+                                                                                c
+                                                                                d
+                                                                                e
+                                                                                f
+  
+  export
+  uniform4uiv :  (obj : WebGL2RenderingContextBase)
+              -> (location : Nullable WebGLUniformLocation)
+              -> (data_ : Uint32List)
+              -> (srcOffset : UndefOr GLuint)
+              -> (srcLength : UndefOr GLuint)
+              -> JSIO ()
+  uniform4uiv a b c d e = primJS $ WebGL2RenderingContextBase.prim__uniform4uiv a
+                                                                                b
+                                                                                c
+                                                                                d
+                                                                                e
+  
+  export
+  uniformBlockBinding :  (obj : WebGL2RenderingContextBase)
+                      -> (program : WebGLProgram)
+                      -> (uniformBlockIndex : GLuint)
+                      -> (uniformBlockBinding : GLuint)
+                      -> JSIO ()
+  uniformBlockBinding a b c d = primJS $ WebGL2RenderingContextBase.prim__uniformBlockBinding a
+                                                                                              b
+                                                                                              c
+                                                                                              d
+  
+  export
+  uniformMatrix2x3fv :  (obj : WebGL2RenderingContextBase)
+                     -> (location : Nullable WebGLUniformLocation)
+                     -> (transpose : GLboolean)
+                     -> (data_ : Float32List)
+                     -> (srcOffset : UndefOr GLuint)
+                     -> (srcLength : UndefOr GLuint)
+                     -> JSIO ()
+  uniformMatrix2x3fv a b c d e f = primJS $ WebGL2RenderingContextBase.prim__uniformMatrix2x3fv a
+                                                                                                b
+                                                                                                c
+                                                                                                d
+                                                                                                e
+                                                                                                f
+  
+  export
+  uniformMatrix2x4fv :  (obj : WebGL2RenderingContextBase)
+                     -> (location : Nullable WebGLUniformLocation)
+                     -> (transpose : GLboolean)
+                     -> (data_ : Float32List)
+                     -> (srcOffset : UndefOr GLuint)
+                     -> (srcLength : UndefOr GLuint)
+                     -> JSIO ()
+  uniformMatrix2x4fv a b c d e f = primJS $ WebGL2RenderingContextBase.prim__uniformMatrix2x4fv a
+                                                                                                b
+                                                                                                c
+                                                                                                d
+                                                                                                e
+                                                                                                f
+  
+  export
+  uniformMatrix3x2fv :  (obj : WebGL2RenderingContextBase)
+                     -> (location : Nullable WebGLUniformLocation)
+                     -> (transpose : GLboolean)
+                     -> (data_ : Float32List)
+                     -> (srcOffset : UndefOr GLuint)
+                     -> (srcLength : UndefOr GLuint)
+                     -> JSIO ()
+  uniformMatrix3x2fv a b c d e f = primJS $ WebGL2RenderingContextBase.prim__uniformMatrix3x2fv a
+                                                                                                b
+                                                                                                c
+                                                                                                d
+                                                                                                e
+                                                                                                f
+  
+  export
+  uniformMatrix3x4fv :  (obj : WebGL2RenderingContextBase)
+                     -> (location : Nullable WebGLUniformLocation)
+                     -> (transpose : GLboolean)
+                     -> (data_ : Float32List)
+                     -> (srcOffset : UndefOr GLuint)
+                     -> (srcLength : UndefOr GLuint)
+                     -> JSIO ()
+  uniformMatrix3x4fv a b c d e f = primJS $ WebGL2RenderingContextBase.prim__uniformMatrix3x4fv a
+                                                                                                b
+                                                                                                c
+                                                                                                d
+                                                                                                e
+                                                                                                f
+  
+  export
+  uniformMatrix4x2fv :  (obj : WebGL2RenderingContextBase)
+                     -> (location : Nullable WebGLUniformLocation)
+                     -> (transpose : GLboolean)
+                     -> (data_ : Float32List)
+                     -> (srcOffset : UndefOr GLuint)
+                     -> (srcLength : UndefOr GLuint)
+                     -> JSIO ()
+  uniformMatrix4x2fv a b c d e f = primJS $ WebGL2RenderingContextBase.prim__uniformMatrix4x2fv a
+                                                                                                b
+                                                                                                c
+                                                                                                d
+                                                                                                e
+                                                                                                f
+  
+  export
+  uniformMatrix4x3fv :  (obj : WebGL2RenderingContextBase)
+                     -> (location : Nullable WebGLUniformLocation)
+                     -> (transpose : GLboolean)
+                     -> (data_ : Float32List)
+                     -> (srcOffset : UndefOr GLuint)
+                     -> (srcLength : UndefOr GLuint)
+                     -> JSIO ()
+  uniformMatrix4x3fv a b c d e f = primJS $ WebGL2RenderingContextBase.prim__uniformMatrix4x3fv a
+                                                                                                b
+                                                                                                c
+                                                                                                d
+                                                                                                e
+                                                                                                f
+  
+  export
+  vertexAttribDivisor :  (obj : WebGL2RenderingContextBase)
+                      -> (index : GLuint)
+                      -> (divisor : GLuint)
+                      -> JSIO ()
+  vertexAttribDivisor a b c = primJS $ WebGL2RenderingContextBase.prim__vertexAttribDivisor a
+                                                                                            b
+                                                                                            c
+  
+  export
+  vertexAttribI4i :  (obj : WebGL2RenderingContextBase)
+                  -> (index : GLuint)
+                  -> (x : GLint)
+                  -> (y : GLint)
+                  -> (z : GLint)
+                  -> (w : GLint)
+                  -> JSIO ()
+  vertexAttribI4i a b c d e f = primJS $ WebGL2RenderingContextBase.prim__vertexAttribI4i a
+                                                                                          b
+                                                                                          c
+                                                                                          d
+                                                                                          e
+                                                                                          f
+  
+  export
+  vertexAttribI4iv :  (obj : WebGL2RenderingContextBase)
+                   -> (index : GLuint)
+                   -> (values : Int32List)
+                   -> JSIO ()
+  vertexAttribI4iv a b c = primJS $ WebGL2RenderingContextBase.prim__vertexAttribI4iv a
+                                                                                      b
+                                                                                      c
+  
+  export
+  vertexAttribI4ui :  (obj : WebGL2RenderingContextBase)
+                   -> (index : GLuint)
+                   -> (x : GLuint)
+                   -> (y : GLuint)
+                   -> (z : GLuint)
+                   -> (w : GLuint)
+                   -> JSIO ()
+  vertexAttribI4ui a b c d e f = primJS $ WebGL2RenderingContextBase.prim__vertexAttribI4ui a
+                                                                                            b
+                                                                                            c
+                                                                                            d
+                                                                                            e
+                                                                                            f
+  
+  export
+  vertexAttribI4uiv :  (obj : WebGL2RenderingContextBase)
+                    -> (index : GLuint)
+                    -> (values : Uint32List)
+                    -> JSIO ()
+  vertexAttribI4uiv a b c = primJS $ WebGL2RenderingContextBase.prim__vertexAttribI4uiv a
+                                                                                        b
+                                                                                        c
+  
+  export
+  vertexAttribIPointer :  (obj : WebGL2RenderingContextBase)
+                       -> (index : GLuint)
+                       -> (size : GLint)
+                       -> (type : GLenum)
+                       -> (stride : GLsizei)
+                       -> (offset : GLintptr)
+                       -> JSIO ()
+  vertexAttribIPointer a b c d e f = primJS $ WebGL2RenderingContextBase.prim__vertexAttribIPointer a
+                                                                                                    b
+                                                                                                    c
+                                                                                                    d
+                                                                                                    e
+                                                                                                    f
+  
+  export
+  waitSync :  (obj : WebGL2RenderingContextBase)
+           -> (sync : WebGLSync)
+           -> (flags : GLbitfield)
+           -> (timeout : GLint64)
+           -> JSIO ()
+  waitSync a b c d = primJS $ WebGL2RenderingContextBase.prim__waitSync a b c d
 
+namespace WebGL2RenderingContextOverloads
+  
+  export
+  bufferData :  (obj : WebGL2RenderingContextOverloads)
+             -> (target : GLenum)
+             -> (size : GLsizeiptr)
+             -> (usage : GLenum)
+             -> JSIO ()
+  bufferData a b c d = primJS $ WebGL2RenderingContextOverloads.prim__bufferData a
+                                                                                 b
+                                                                                 c
+                                                                                 d
+  
+  export
+  bufferData1 :  (obj : WebGL2RenderingContextOverloads)
+              -> (target : GLenum)
+              -> (srcData : Nullable BufferSource)
+              -> (usage : GLenum)
+              -> JSIO ()
+  bufferData1 a b c d = primJS $ WebGL2RenderingContextOverloads.prim__bufferData1 a
+                                                                                   b
+                                                                                   c
+                                                                                   d
+  
+  export
+  bufferData2 :  (obj : WebGL2RenderingContextOverloads)
+              -> (target : GLenum)
+              -> (srcData : ArrayBufferView)
+              -> (usage : GLenum)
+              -> (srcOffset : GLuint)
+              -> (length : UndefOr GLuint)
+              -> JSIO ()
+  bufferData2 a b c d e f = primJS $ WebGL2RenderingContextOverloads.prim__bufferData2 a
+                                                                                       b
+                                                                                       c
+                                                                                       d
+                                                                                       e
+                                                                                       f
+  
+  export
+  bufferSubData :  (obj : WebGL2RenderingContextOverloads)
+                -> (target : GLenum)
+                -> (dstByteOffset : GLintptr)
+                -> (srcData : BufferSource)
+                -> JSIO ()
+  bufferSubData a b c d = primJS $ WebGL2RenderingContextOverloads.prim__bufferSubData a
+                                                                                       b
+                                                                                       c
+                                                                                       d
+  
+  export
+  bufferSubData1 :  (obj : WebGL2RenderingContextOverloads)
+                 -> (target : GLenum)
+                 -> (dstByteOffset : GLintptr)
+                 -> (srcData : ArrayBufferView)
+                 -> (srcOffset : GLuint)
+                 -> (length : UndefOr GLuint)
+                 -> JSIO ()
+  bufferSubData1 a b c d e f = primJS $ WebGL2RenderingContextOverloads.prim__bufferSubData1 a
+                                                                                             b
+                                                                                             c
+                                                                                             d
+                                                                                             e
+                                                                                             f
+  
+  export
+  compressedTexImage2D :  (obj : WebGL2RenderingContextOverloads)
+                       -> (target : GLenum)
+                       -> (level : GLint)
+                       -> (internalformat : GLenum)
+                       -> (width : GLsizei)
+                       -> (height : GLsizei)
+                       -> (border : GLint)
+                       -> (imageSize : GLsizei)
+                       -> (offset : GLintptr)
+                       -> JSIO ()
+  compressedTexImage2D a b c d e f g h i = primJS $ WebGL2RenderingContextOverloads.prim__compressedTexImage2D a
+                                                                                                               b
+                                                                                                               c
+                                                                                                               d
+                                                                                                               e
+                                                                                                               f
+                                                                                                               g
+                                                                                                               h
+                                                                                                               i
+  
+  export
+  compressedTexImage2D1 :  (obj : WebGL2RenderingContextOverloads)
+                        -> (target : GLenum)
+                        -> (level : GLint)
+                        -> (internalformat : GLenum)
+                        -> (width : GLsizei)
+                        -> (height : GLsizei)
+                        -> (border : GLint)
+                        -> (srcData : ArrayBufferView)
+                        -> (srcOffset : UndefOr GLuint)
+                        -> (srcLengthOverride : UndefOr GLuint)
+                        -> JSIO ()
+  compressedTexImage2D1 a b c d e f g h i j = primJS $ WebGL2RenderingContextOverloads.prim__compressedTexImage2D1 a
+                                                                                                                   b
+                                                                                                                   c
+                                                                                                                   d
+                                                                                                                   e
+                                                                                                                   f
+                                                                                                                   g
+                                                                                                                   h
+                                                                                                                   i
+                                                                                                                   j
+  
+  export
+  compressedTexSubImage2D :  (obj : WebGL2RenderingContextOverloads)
+                          -> (target : GLenum)
+                          -> (level : GLint)
+                          -> (xoffset : GLint)
+                          -> (yoffset : GLint)
+                          -> (width : GLsizei)
+                          -> (height : GLsizei)
+                          -> (format : GLenum)
+                          -> (imageSize : GLsizei)
+                          -> (offset : GLintptr)
+                          -> JSIO ()
+  compressedTexSubImage2D a b c d e f g h i j = primJS $ WebGL2RenderingContextOverloads.prim__compressedTexSubImage2D a
+                                                                                                                       b
+                                                                                                                       c
+                                                                                                                       d
+                                                                                                                       e
+                                                                                                                       f
+                                                                                                                       g
+                                                                                                                       h
+                                                                                                                       i
+                                                                                                                       j
+  
+  export
+  compressedTexSubImage2D1 :  (obj : WebGL2RenderingContextOverloads)
+                           -> (target : GLenum)
+                           -> (level : GLint)
+                           -> (xoffset : GLint)
+                           -> (yoffset : GLint)
+                           -> (width : GLsizei)
+                           -> (height : GLsizei)
+                           -> (format : GLenum)
+                           -> (srcData : ArrayBufferView)
+                           -> (srcOffset : UndefOr GLuint)
+                           -> (srcLengthOverride : UndefOr GLuint)
+                           -> JSIO ()
+  compressedTexSubImage2D1 a b c d e f g h i j k = primJS $ WebGL2RenderingContextOverloads.prim__compressedTexSubImage2D1 a
+                                                                                                                           b
+                                                                                                                           c
+                                                                                                                           d
+                                                                                                                           e
+                                                                                                                           f
+                                                                                                                           g
+                                                                                                                           h
+                                                                                                                           i
+                                                                                                                           j
+                                                                                                                           k
+  
+  export
+  readPixels :  (obj : WebGL2RenderingContextOverloads)
+             -> (x : GLint)
+             -> (y : GLint)
+             -> (width : GLsizei)
+             -> (height : GLsizei)
+             -> (format : GLenum)
+             -> (type : GLenum)
+             -> (dstData : Nullable ArrayBufferView)
+             -> JSIO ()
+  readPixels a b c d e f g h = primJS $ WebGL2RenderingContextOverloads.prim__readPixels a
+                                                                                         b
+                                                                                         c
+                                                                                         d
+                                                                                         e
+                                                                                         f
+                                                                                         g
+                                                                                         h
+  
+  export
+  readPixels1 :  (obj : WebGL2RenderingContextOverloads)
+              -> (x : GLint)
+              -> (y : GLint)
+              -> (width : GLsizei)
+              -> (height : GLsizei)
+              -> (format : GLenum)
+              -> (type : GLenum)
+              -> (offset : GLintptr)
+              -> JSIO ()
+  readPixels1 a b c d e f g h = primJS $ WebGL2RenderingContextOverloads.prim__readPixels1 a
+                                                                                           b
+                                                                                           c
+                                                                                           d
+                                                                                           e
+                                                                                           f
+                                                                                           g
+                                                                                           h
+  
+  export
+  readPixels2 :  (obj : WebGL2RenderingContextOverloads)
+              -> (x : GLint)
+              -> (y : GLint)
+              -> (width : GLsizei)
+              -> (height : GLsizei)
+              -> (format : GLenum)
+              -> (type : GLenum)
+              -> (dstData : ArrayBufferView)
+              -> (dstOffset : GLuint)
+              -> JSIO ()
+  readPixels2 a b c d e f g h i = primJS $ WebGL2RenderingContextOverloads.prim__readPixels2 a
+                                                                                             b
+                                                                                             c
+                                                                                             d
+                                                                                             e
+                                                                                             f
+                                                                                             g
+                                                                                             h
+                                                                                             i
+  
+  export
+  texImage2D :  (obj : WebGL2RenderingContextOverloads)
+             -> (target : GLenum)
+             -> (level : GLint)
+             -> (internalformat : GLint)
+             -> (width : GLsizei)
+             -> (height : GLsizei)
+             -> (border : GLint)
+             -> (format : GLenum)
+             -> (type : GLenum)
+             -> (pixels : Nullable ArrayBufferView)
+             -> JSIO ()
+  texImage2D a b c d e f g h i j = primJS $ WebGL2RenderingContextOverloads.prim__texImage2D a
+                                                                                             b
+                                                                                             c
+                                                                                             d
+                                                                                             e
+                                                                                             f
+                                                                                             g
+                                                                                             h
+                                                                                             i
+                                                                                             j
+  
+  export
+  texImage2D1 :  (obj : WebGL2RenderingContextOverloads)
+              -> (target : GLenum)
+              -> (level : GLint)
+              -> (internalformat : GLint)
+              -> (format : GLenum)
+              -> (type : GLenum)
+              -> (source : TexImageSource)
+              -> JSIO ()
+  texImage2D1 a b c d e f g = primJS $ WebGL2RenderingContextOverloads.prim__texImage2D1 a
+                                                                                         b
+                                                                                         c
+                                                                                         d
+                                                                                         e
+                                                                                         f
+                                                                                         g
+  
+  export
+  texImage2D2 :  (obj : WebGL2RenderingContextOverloads)
+              -> (target : GLenum)
+              -> (level : GLint)
+              -> (internalformat : GLint)
+              -> (width : GLsizei)
+              -> (height : GLsizei)
+              -> (border : GLint)
+              -> (format : GLenum)
+              -> (type : GLenum)
+              -> (pboOffset : GLintptr)
+              -> JSIO ()
+  texImage2D2 a b c d e f g h i j = primJS $ WebGL2RenderingContextOverloads.prim__texImage2D2 a
+                                                                                               b
+                                                                                               c
+                                                                                               d
+                                                                                               e
+                                                                                               f
+                                                                                               g
+                                                                                               h
+                                                                                               i
+                                                                                               j
+  
+  export
+  texImage2D3 :  (obj : WebGL2RenderingContextOverloads)
+              -> (target : GLenum)
+              -> (level : GLint)
+              -> (internalformat : GLint)
+              -> (width : GLsizei)
+              -> (height : GLsizei)
+              -> (border : GLint)
+              -> (format : GLenum)
+              -> (type : GLenum)
+              -> (source : TexImageSource)
+              -> JSIO ()
+  texImage2D3 a b c d e f g h i j = primJS $ WebGL2RenderingContextOverloads.prim__texImage2D3 a
+                                                                                               b
+                                                                                               c
+                                                                                               d
+                                                                                               e
+                                                                                               f
+                                                                                               g
+                                                                                               h
+                                                                                               i
+                                                                                               j
+  
+  export
+  texImage2D4 :  (obj : WebGL2RenderingContextOverloads)
+              -> (target : GLenum)
+              -> (level : GLint)
+              -> (internalformat : GLint)
+              -> (width : GLsizei)
+              -> (height : GLsizei)
+              -> (border : GLint)
+              -> (format : GLenum)
+              -> (type : GLenum)
+              -> (srcData : ArrayBufferView)
+              -> (srcOffset : GLuint)
+              -> JSIO ()
+  texImage2D4 a b c d e f g h i j k = primJS $ WebGL2RenderingContextOverloads.prim__texImage2D4 a
+                                                                                                 b
+                                                                                                 c
+                                                                                                 d
+                                                                                                 e
+                                                                                                 f
+                                                                                                 g
+                                                                                                 h
+                                                                                                 i
+                                                                                                 j
+                                                                                                 k
+  
+  export
+  texSubImage2D :  (obj : WebGL2RenderingContextOverloads)
+                -> (target : GLenum)
+                -> (level : GLint)
+                -> (xoffset : GLint)
+                -> (yoffset : GLint)
+                -> (width : GLsizei)
+                -> (height : GLsizei)
+                -> (format : GLenum)
+                -> (type : GLenum)
+                -> (pixels : Nullable ArrayBufferView)
+                -> JSIO ()
+  texSubImage2D a b c d e f g h i j = primJS $ WebGL2RenderingContextOverloads.prim__texSubImage2D a
+                                                                                                   b
+                                                                                                   c
+                                                                                                   d
+                                                                                                   e
+                                                                                                   f
+                                                                                                   g
+                                                                                                   h
+                                                                                                   i
+                                                                                                   j
+  
+  export
+  texSubImage2D1 :  (obj : WebGL2RenderingContextOverloads)
+                 -> (target : GLenum)
+                 -> (level : GLint)
+                 -> (xoffset : GLint)
+                 -> (yoffset : GLint)
+                 -> (format : GLenum)
+                 -> (type : GLenum)
+                 -> (source : TexImageSource)
+                 -> JSIO ()
+  texSubImage2D1 a b c d e f g h = primJS $ WebGL2RenderingContextOverloads.prim__texSubImage2D1 a
+                                                                                                 b
+                                                                                                 c
+                                                                                                 d
+                                                                                                 e
+                                                                                                 f
+                                                                                                 g
+                                                                                                 h
+  
+  export
+  texSubImage2D2 :  (obj : WebGL2RenderingContextOverloads)
+                 -> (target : GLenum)
+                 -> (level : GLint)
+                 -> (xoffset : GLint)
+                 -> (yoffset : GLint)
+                 -> (width : GLsizei)
+                 -> (height : GLsizei)
+                 -> (format : GLenum)
+                 -> (type : GLenum)
+                 -> (pboOffset : GLintptr)
+                 -> JSIO ()
+  texSubImage2D2 a b c d e f g h i j = primJS $ WebGL2RenderingContextOverloads.prim__texSubImage2D2 a
+                                                                                                     b
+                                                                                                     c
+                                                                                                     d
+                                                                                                     e
+                                                                                                     f
+                                                                                                     g
+                                                                                                     h
+                                                                                                     i
+                                                                                                     j
+  
+  export
+  texSubImage2D3 :  (obj : WebGL2RenderingContextOverloads)
+                 -> (target : GLenum)
+                 -> (level : GLint)
+                 -> (xoffset : GLint)
+                 -> (yoffset : GLint)
+                 -> (width : GLsizei)
+                 -> (height : GLsizei)
+                 -> (format : GLenum)
+                 -> (type : GLenum)
+                 -> (source : TexImageSource)
+                 -> JSIO ()
+  texSubImage2D3 a b c d e f g h i j = primJS $ WebGL2RenderingContextOverloads.prim__texSubImage2D3 a
+                                                                                                     b
+                                                                                                     c
+                                                                                                     d
+                                                                                                     e
+                                                                                                     f
+                                                                                                     g
+                                                                                                     h
+                                                                                                     i
+                                                                                                     j
+  
+  export
+  texSubImage2D4 :  (obj : WebGL2RenderingContextOverloads)
+                 -> (target : GLenum)
+                 -> (level : GLint)
+                 -> (xoffset : GLint)
+                 -> (yoffset : GLint)
+                 -> (width : GLsizei)
+                 -> (height : GLsizei)
+                 -> (format : GLenum)
+                 -> (type : GLenum)
+                 -> (srcData : ArrayBufferView)
+                 -> (srcOffset : GLuint)
+                 -> JSIO ()
+  texSubImage2D4 a b c d e f g h i j k = primJS $ WebGL2RenderingContextOverloads.prim__texSubImage2D4 a
+                                                                                                       b
+                                                                                                       c
+                                                                                                       d
+                                                                                                       e
+                                                                                                       f
+                                                                                                       g
+                                                                                                       h
+                                                                                                       i
+                                                                                                       j
+                                                                                                       k
+  
+  export
+  uniform1fv :  (obj : WebGL2RenderingContextOverloads)
+             -> (location : Nullable WebGLUniformLocation)
+             -> (data_ : Float32List)
+             -> (srcOffset : UndefOr GLuint)
+             -> (srcLength : UndefOr GLuint)
+             -> JSIO ()
+  uniform1fv a b c d e = primJS $ WebGL2RenderingContextOverloads.prim__uniform1fv a
+                                                                                   b
+                                                                                   c
+                                                                                   d
+                                                                                   e
+  
+  export
+  uniform1iv :  (obj : WebGL2RenderingContextOverloads)
+             -> (location : Nullable WebGLUniformLocation)
+             -> (data_ : Int32List)
+             -> (srcOffset : UndefOr GLuint)
+             -> (srcLength : UndefOr GLuint)
+             -> JSIO ()
+  uniform1iv a b c d e = primJS $ WebGL2RenderingContextOverloads.prim__uniform1iv a
+                                                                                   b
+                                                                                   c
+                                                                                   d
+                                                                                   e
+  
+  export
+  uniform2fv :  (obj : WebGL2RenderingContextOverloads)
+             -> (location : Nullable WebGLUniformLocation)
+             -> (data_ : Float32List)
+             -> (srcOffset : UndefOr GLuint)
+             -> (srcLength : UndefOr GLuint)
+             -> JSIO ()
+  uniform2fv a b c d e = primJS $ WebGL2RenderingContextOverloads.prim__uniform2fv a
+                                                                                   b
+                                                                                   c
+                                                                                   d
+                                                                                   e
+  
+  export
+  uniform2iv :  (obj : WebGL2RenderingContextOverloads)
+             -> (location : Nullable WebGLUniformLocation)
+             -> (data_ : Int32List)
+             -> (srcOffset : UndefOr GLuint)
+             -> (srcLength : UndefOr GLuint)
+             -> JSIO ()
+  uniform2iv a b c d e = primJS $ WebGL2RenderingContextOverloads.prim__uniform2iv a
+                                                                                   b
+                                                                                   c
+                                                                                   d
+                                                                                   e
+  
+  export
+  uniform3fv :  (obj : WebGL2RenderingContextOverloads)
+             -> (location : Nullable WebGLUniformLocation)
+             -> (data_ : Float32List)
+             -> (srcOffset : UndefOr GLuint)
+             -> (srcLength : UndefOr GLuint)
+             -> JSIO ()
+  uniform3fv a b c d e = primJS $ WebGL2RenderingContextOverloads.prim__uniform3fv a
+                                                                                   b
+                                                                                   c
+                                                                                   d
+                                                                                   e
+  
+  export
+  uniform3iv :  (obj : WebGL2RenderingContextOverloads)
+             -> (location : Nullable WebGLUniformLocation)
+             -> (data_ : Int32List)
+             -> (srcOffset : UndefOr GLuint)
+             -> (srcLength : UndefOr GLuint)
+             -> JSIO ()
+  uniform3iv a b c d e = primJS $ WebGL2RenderingContextOverloads.prim__uniform3iv a
+                                                                                   b
+                                                                                   c
+                                                                                   d
+                                                                                   e
+  
+  export
+  uniform4fv :  (obj : WebGL2RenderingContextOverloads)
+             -> (location : Nullable WebGLUniformLocation)
+             -> (data_ : Float32List)
+             -> (srcOffset : UndefOr GLuint)
+             -> (srcLength : UndefOr GLuint)
+             -> JSIO ()
+  uniform4fv a b c d e = primJS $ WebGL2RenderingContextOverloads.prim__uniform4fv a
+                                                                                   b
+                                                                                   c
+                                                                                   d
+                                                                                   e
+  
+  export
+  uniform4iv :  (obj : WebGL2RenderingContextOverloads)
+             -> (location : Nullable WebGLUniformLocation)
+             -> (data_ : Int32List)
+             -> (srcOffset : UndefOr GLuint)
+             -> (srcLength : UndefOr GLuint)
+             -> JSIO ()
+  uniform4iv a b c d e = primJS $ WebGL2RenderingContextOverloads.prim__uniform4iv a
+                                                                                   b
+                                                                                   c
+                                                                                   d
+                                                                                   e
+  
+  export
+  uniformMatrix2fv :  (obj : WebGL2RenderingContextOverloads)
+                   -> (location : Nullable WebGLUniformLocation)
+                   -> (transpose : GLboolean)
+                   -> (data_ : Float32List)
+                   -> (srcOffset : UndefOr GLuint)
+                   -> (srcLength : UndefOr GLuint)
+                   -> JSIO ()
+  uniformMatrix2fv a b c d e f = primJS $ WebGL2RenderingContextOverloads.prim__uniformMatrix2fv a
+                                                                                                 b
+                                                                                                 c
+                                                                                                 d
+                                                                                                 e
+                                                                                                 f
+  
+  export
+  uniformMatrix3fv :  (obj : WebGL2RenderingContextOverloads)
+                   -> (location : Nullable WebGLUniformLocation)
+                   -> (transpose : GLboolean)
+                   -> (data_ : Float32List)
+                   -> (srcOffset : UndefOr GLuint)
+                   -> (srcLength : UndefOr GLuint)
+                   -> JSIO ()
+  uniformMatrix3fv a b c d e f = primJS $ WebGL2RenderingContextOverloads.prim__uniformMatrix3fv a
+                                                                                                 b
+                                                                                                 c
+                                                                                                 d
+                                                                                                 e
+                                                                                                 f
+  
+  export
+  uniformMatrix4fv :  (obj : WebGL2RenderingContextOverloads)
+                   -> (location : Nullable WebGLUniformLocation)
+                   -> (transpose : GLboolean)
+                   -> (data_ : Float32List)
+                   -> (srcOffset : UndefOr GLuint)
+                   -> (srcLength : UndefOr GLuint)
+                   -> JSIO ()
+  uniformMatrix4fv a b c d e f = primJS $ WebGL2RenderingContextOverloads.prim__uniformMatrix4fv a
+                                                                                                 b
+                                                                                                 c
+                                                                                                 d
+                                                                                                 e
+                                                                                                 f
 
 namespace WebGLRenderingContextBase
   
@@ -2391,7 +4181,1284 @@ namespace WebGLRenderingContextBase
   public export
   ZERO : GLenum
   ZERO = 0
+  
+  export
+  canvas :  (obj : WebGLRenderingContextBase)
+         -> JSIO (Union2 HTMLCanvasElement OffscreenCanvas)
+  canvas a = primJS $ WebGLRenderingContextBase.prim__canvas a
+  
+  export
+  drawingBufferHeight : (obj : WebGLRenderingContextBase) -> JSIO GLsizei
+  drawingBufferHeight a = primJS $ WebGLRenderingContextBase.prim__drawingBufferHeight a
+  
+  export
+  drawingBufferWidth : (obj : WebGLRenderingContextBase) -> JSIO GLsizei
+  drawingBufferWidth a = primJS $ WebGLRenderingContextBase.prim__drawingBufferWidth a
+  
+  export
+  activeTexture :  (obj : WebGLRenderingContextBase)
+                -> (texture : GLenum)
+                -> JSIO ()
+  activeTexture a b = primJS $ WebGLRenderingContextBase.prim__activeTexture a b
+  
+  export
+  attachShader :  (obj : WebGLRenderingContextBase)
+               -> (program : WebGLProgram)
+               -> (shader : WebGLShader)
+               -> JSIO ()
+  attachShader a b c = primJS $ WebGLRenderingContextBase.prim__attachShader a
+                                                                             b
+                                                                             c
+  
+  export
+  bindAttribLocation :  (obj : WebGLRenderingContextBase)
+                     -> (program : WebGLProgram)
+                     -> (index : GLuint)
+                     -> (name : String)
+                     -> JSIO ()
+  bindAttribLocation a b c d = primJS $ WebGLRenderingContextBase.prim__bindAttribLocation a
+                                                                                           b
+                                                                                           c
+                                                                                           d
+  
+  export
+  bindBuffer :  (obj : WebGLRenderingContextBase)
+             -> (target : GLenum)
+             -> (buffer : Nullable WebGLBuffer)
+             -> JSIO ()
+  bindBuffer a b c = primJS $ WebGLRenderingContextBase.prim__bindBuffer a b c
+  
+  export
+  bindFramebuffer :  (obj : WebGLRenderingContextBase)
+                  -> (target : GLenum)
+                  -> (framebuffer : Nullable WebGLFramebuffer)
+                  -> JSIO ()
+  bindFramebuffer a b c = primJS $ WebGLRenderingContextBase.prim__bindFramebuffer a
+                                                                                   b
+                                                                                   c
+  
+  export
+  bindRenderbuffer :  (obj : WebGLRenderingContextBase)
+                   -> (target : GLenum)
+                   -> (renderbuffer : Nullable WebGLRenderbuffer)
+                   -> JSIO ()
+  bindRenderbuffer a b c = primJS $ WebGLRenderingContextBase.prim__bindRenderbuffer a
+                                                                                     b
+                                                                                     c
+  
+  export
+  bindTexture :  (obj : WebGLRenderingContextBase)
+              -> (target : GLenum)
+              -> (texture : Nullable WebGLTexture)
+              -> JSIO ()
+  bindTexture a b c = primJS $ WebGLRenderingContextBase.prim__bindTexture a b c
+  
+  export
+  blendColor :  (obj : WebGLRenderingContextBase)
+             -> (red : GLclampf)
+             -> (green : GLclampf)
+             -> (blue : GLclampf)
+             -> (alpha : GLclampf)
+             -> JSIO ()
+  blendColor a b c d e = primJS $ WebGLRenderingContextBase.prim__blendColor a
+                                                                             b
+                                                                             c
+                                                                             d
+                                                                             e
+  
+  export
+  blendEquationSeparate :  (obj : WebGLRenderingContextBase)
+                        -> (modeRGB : GLenum)
+                        -> (modeAlpha : GLenum)
+                        -> JSIO ()
+  blendEquationSeparate a b c = primJS $ WebGLRenderingContextBase.prim__blendEquationSeparate a
+                                                                                               b
+                                                                                               c
+  
+  export
+  blendEquation :  (obj : WebGLRenderingContextBase)
+                -> (mode : GLenum)
+                -> JSIO ()
+  blendEquation a b = primJS $ WebGLRenderingContextBase.prim__blendEquation a b
+  
+  export
+  blendFuncSeparate :  (obj : WebGLRenderingContextBase)
+                    -> (srcRGB : GLenum)
+                    -> (dstRGB : GLenum)
+                    -> (srcAlpha : GLenum)
+                    -> (dstAlpha : GLenum)
+                    -> JSIO ()
+  blendFuncSeparate a b c d e = primJS $ WebGLRenderingContextBase.prim__blendFuncSeparate a
+                                                                                           b
+                                                                                           c
+                                                                                           d
+                                                                                           e
+  
+  export
+  blendFunc :  (obj : WebGLRenderingContextBase)
+            -> (sfactor : GLenum)
+            -> (dfactor : GLenum)
+            -> JSIO ()
+  blendFunc a b c = primJS $ WebGLRenderingContextBase.prim__blendFunc a b c
+  
+  export
+  checkFramebufferStatus :  (obj : WebGLRenderingContextBase)
+                         -> (target : GLenum)
+                         -> JSIO GLenum
+  checkFramebufferStatus a b = primJS $ WebGLRenderingContextBase.prim__checkFramebufferStatus a
+                                                                                               b
+  
+  export
+  clearColor :  (obj : WebGLRenderingContextBase)
+             -> (red : GLclampf)
+             -> (green : GLclampf)
+             -> (blue : GLclampf)
+             -> (alpha : GLclampf)
+             -> JSIO ()
+  clearColor a b c d e = primJS $ WebGLRenderingContextBase.prim__clearColor a
+                                                                             b
+                                                                             c
+                                                                             d
+                                                                             e
+  
+  export
+  clearDepth :  (obj : WebGLRenderingContextBase)
+             -> (depth : GLclampf)
+             -> JSIO ()
+  clearDepth a b = primJS $ WebGLRenderingContextBase.prim__clearDepth a b
+  
+  export
+  clearStencil : (obj : WebGLRenderingContextBase) -> (s : GLint) -> JSIO ()
+  clearStencil a b = primJS $ WebGLRenderingContextBase.prim__clearStencil a b
+  
+  export
+  clear : (obj : WebGLRenderingContextBase) -> (mask : GLbitfield) -> JSIO ()
+  clear a b = primJS $ WebGLRenderingContextBase.prim__clear a b
+  
+  export
+  colorMask :  (obj : WebGLRenderingContextBase)
+            -> (red : GLboolean)
+            -> (green : GLboolean)
+            -> (blue : GLboolean)
+            -> (alpha : GLboolean)
+            -> JSIO ()
+  colorMask a b c d e = primJS $ WebGLRenderingContextBase.prim__colorMask a
+                                                                           b
+                                                                           c
+                                                                           d
+                                                                           e
+  
+  export
+  compileShader :  (obj : WebGLRenderingContextBase)
+                -> (shader : WebGLShader)
+                -> JSIO ()
+  compileShader a b = primJS $ WebGLRenderingContextBase.prim__compileShader a b
+  
+  export
+  copyTexImage2D :  (obj : WebGLRenderingContextBase)
+                 -> (target : GLenum)
+                 -> (level : GLint)
+                 -> (internalformat : GLenum)
+                 -> (x : GLint)
+                 -> (y : GLint)
+                 -> (width : GLsizei)
+                 -> (height : GLsizei)
+                 -> (border : GLint)
+                 -> JSIO ()
+  copyTexImage2D a b c d e f g h i = primJS $ WebGLRenderingContextBase.prim__copyTexImage2D a
+                                                                                             b
+                                                                                             c
+                                                                                             d
+                                                                                             e
+                                                                                             f
+                                                                                             g
+                                                                                             h
+                                                                                             i
+  
+  export
+  copyTexSubImage2D :  (obj : WebGLRenderingContextBase)
+                    -> (target : GLenum)
+                    -> (level : GLint)
+                    -> (xoffset : GLint)
+                    -> (yoffset : GLint)
+                    -> (x : GLint)
+                    -> (y : GLint)
+                    -> (width : GLsizei)
+                    -> (height : GLsizei)
+                    -> JSIO ()
+  copyTexSubImage2D a b c d e f g h i = primJS $ WebGLRenderingContextBase.prim__copyTexSubImage2D a
+                                                                                                   b
+                                                                                                   c
+                                                                                                   d
+                                                                                                   e
+                                                                                                   f
+                                                                                                   g
+                                                                                                   h
+                                                                                                   i
+  
+  export
+  createBuffer :  (obj : WebGLRenderingContextBase)
+               -> JSIO (Nullable WebGLBuffer)
+  createBuffer a = primJS $ WebGLRenderingContextBase.prim__createBuffer a
+  
+  export
+  createFramebuffer :  (obj : WebGLRenderingContextBase)
+                    -> JSIO (Nullable WebGLFramebuffer)
+  createFramebuffer a = primJS $ WebGLRenderingContextBase.prim__createFramebuffer a
+  
+  export
+  createProgram :  (obj : WebGLRenderingContextBase)
+                -> JSIO (Nullable WebGLProgram)
+  createProgram a = primJS $ WebGLRenderingContextBase.prim__createProgram a
+  
+  export
+  createRenderbuffer :  (obj : WebGLRenderingContextBase)
+                     -> JSIO (Nullable WebGLRenderbuffer)
+  createRenderbuffer a = primJS $ WebGLRenderingContextBase.prim__createRenderbuffer a
+  
+  export
+  createShader :  (obj : WebGLRenderingContextBase)
+               -> (type : GLenum)
+               -> JSIO (Nullable WebGLShader)
+  createShader a b = primJS $ WebGLRenderingContextBase.prim__createShader a b
+  
+  export
+  createTexture :  (obj : WebGLRenderingContextBase)
+                -> JSIO (Nullable WebGLTexture)
+  createTexture a = primJS $ WebGLRenderingContextBase.prim__createTexture a
+  
+  export
+  cullFace : (obj : WebGLRenderingContextBase) -> (mode : GLenum) -> JSIO ()
+  cullFace a b = primJS $ WebGLRenderingContextBase.prim__cullFace a b
+  
+  export
+  deleteBuffer :  (obj : WebGLRenderingContextBase)
+               -> (buffer : Nullable WebGLBuffer)
+               -> JSIO ()
+  deleteBuffer a b = primJS $ WebGLRenderingContextBase.prim__deleteBuffer a b
+  
+  export
+  deleteFramebuffer :  (obj : WebGLRenderingContextBase)
+                    -> (framebuffer : Nullable WebGLFramebuffer)
+                    -> JSIO ()
+  deleteFramebuffer a b = primJS $ WebGLRenderingContextBase.prim__deleteFramebuffer a
+                                                                                     b
+  
+  export
+  deleteProgram :  (obj : WebGLRenderingContextBase)
+                -> (program : Nullable WebGLProgram)
+                -> JSIO ()
+  deleteProgram a b = primJS $ WebGLRenderingContextBase.prim__deleteProgram a b
+  
+  export
+  deleteRenderbuffer :  (obj : WebGLRenderingContextBase)
+                     -> (renderbuffer : Nullable WebGLRenderbuffer)
+                     -> JSIO ()
+  deleteRenderbuffer a b = primJS $ WebGLRenderingContextBase.prim__deleteRenderbuffer a
+                                                                                       b
+  
+  export
+  deleteShader :  (obj : WebGLRenderingContextBase)
+               -> (shader : Nullable WebGLShader)
+               -> JSIO ()
+  deleteShader a b = primJS $ WebGLRenderingContextBase.prim__deleteShader a b
+  
+  export
+  deleteTexture :  (obj : WebGLRenderingContextBase)
+                -> (texture : Nullable WebGLTexture)
+                -> JSIO ()
+  deleteTexture a b = primJS $ WebGLRenderingContextBase.prim__deleteTexture a b
+  
+  export
+  depthFunc : (obj : WebGLRenderingContextBase) -> (func : GLenum) -> JSIO ()
+  depthFunc a b = primJS $ WebGLRenderingContextBase.prim__depthFunc a b
+  
+  export
+  depthMask : (obj : WebGLRenderingContextBase) -> (flag : GLboolean) -> JSIO ()
+  depthMask a b = primJS $ WebGLRenderingContextBase.prim__depthMask a b
+  
+  export
+  depthRange :  (obj : WebGLRenderingContextBase)
+             -> (zNear : GLclampf)
+             -> (zFar : GLclampf)
+             -> JSIO ()
+  depthRange a b c = primJS $ WebGLRenderingContextBase.prim__depthRange a b c
+  
+  export
+  detachShader :  (obj : WebGLRenderingContextBase)
+               -> (program : WebGLProgram)
+               -> (shader : WebGLShader)
+               -> JSIO ()
+  detachShader a b c = primJS $ WebGLRenderingContextBase.prim__detachShader a
+                                                                             b
+                                                                             c
+  
+  export
+  disableVertexAttribArray :  (obj : WebGLRenderingContextBase)
+                           -> (index : GLuint)
+                           -> JSIO ()
+  disableVertexAttribArray a b = primJS $ WebGLRenderingContextBase.prim__disableVertexAttribArray a
+                                                                                                   b
+  
+  export
+  disable : (obj : WebGLRenderingContextBase) -> (cap : GLenum) -> JSIO ()
+  disable a b = primJS $ WebGLRenderingContextBase.prim__disable a b
+  
+  export
+  drawArrays :  (obj : WebGLRenderingContextBase)
+             -> (mode : GLenum)
+             -> (first : GLint)
+             -> (count : GLsizei)
+             -> JSIO ()
+  drawArrays a b c d = primJS $ WebGLRenderingContextBase.prim__drawArrays a
+                                                                           b
+                                                                           c
+                                                                           d
+  
+  export
+  drawElements :  (obj : WebGLRenderingContextBase)
+               -> (mode : GLenum)
+               -> (count : GLsizei)
+               -> (type : GLenum)
+               -> (offset : GLintptr)
+               -> JSIO ()
+  drawElements a b c d e = primJS $ WebGLRenderingContextBase.prim__drawElements a
+                                                                                 b
+                                                                                 c
+                                                                                 d
+                                                                                 e
+  
+  export
+  enableVertexAttribArray :  (obj : WebGLRenderingContextBase)
+                          -> (index : GLuint)
+                          -> JSIO ()
+  enableVertexAttribArray a b = primJS $ WebGLRenderingContextBase.prim__enableVertexAttribArray a
+                                                                                                 b
+  
+  export
+  enable : (obj : WebGLRenderingContextBase) -> (cap : GLenum) -> JSIO ()
+  enable a b = primJS $ WebGLRenderingContextBase.prim__enable a b
+  
+  export
+  finish : (obj : WebGLRenderingContextBase) -> JSIO ()
+  finish a = primJS $ WebGLRenderingContextBase.prim__finish a
+  
+  export
+  flush : (obj : WebGLRenderingContextBase) -> JSIO ()
+  flush a = primJS $ WebGLRenderingContextBase.prim__flush a
+  
+  export
+  framebufferRenderbuffer :  (obj : WebGLRenderingContextBase)
+                          -> (target : GLenum)
+                          -> (attachment : GLenum)
+                          -> (renderbuffertarget : GLenum)
+                          -> (renderbuffer : Nullable WebGLRenderbuffer)
+                          -> JSIO ()
+  framebufferRenderbuffer a b c d e = primJS $ WebGLRenderingContextBase.prim__framebufferRenderbuffer a
+                                                                                                       b
+                                                                                                       c
+                                                                                                       d
+                                                                                                       e
+  
+  export
+  framebufferTexture2D :  (obj : WebGLRenderingContextBase)
+                       -> (target : GLenum)
+                       -> (attachment : GLenum)
+                       -> (textarget : GLenum)
+                       -> (texture : Nullable WebGLTexture)
+                       -> (level : GLint)
+                       -> JSIO ()
+  framebufferTexture2D a b c d e f = primJS $ WebGLRenderingContextBase.prim__framebufferTexture2D a
+                                                                                                   b
+                                                                                                   c
+                                                                                                   d
+                                                                                                   e
+                                                                                                   f
+  
+  export
+  frontFace : (obj : WebGLRenderingContextBase) -> (mode : GLenum) -> JSIO ()
+  frontFace a b = primJS $ WebGLRenderingContextBase.prim__frontFace a b
+  
+  export
+  generateMipmap :  (obj : WebGLRenderingContextBase)
+                 -> (target : GLenum)
+                 -> JSIO ()
+  generateMipmap a b = primJS $ WebGLRenderingContextBase.prim__generateMipmap a
+                                                                               b
+  
+  export
+  getActiveAttrib :  (obj : WebGLRenderingContextBase)
+                  -> (program : WebGLProgram)
+                  -> (index : GLuint)
+                  -> JSIO (Nullable WebGLActiveInfo)
+  getActiveAttrib a b c = primJS $ WebGLRenderingContextBase.prim__getActiveAttrib a
+                                                                                   b
+                                                                                   c
+  
+  export
+  getActiveUniform :  (obj : WebGLRenderingContextBase)
+                   -> (program : WebGLProgram)
+                   -> (index : GLuint)
+                   -> JSIO (Nullable WebGLActiveInfo)
+  getActiveUniform a b c = primJS $ WebGLRenderingContextBase.prim__getActiveUniform a
+                                                                                     b
+                                                                                     c
+  
+  export
+  getAttachedShaders :  (obj : WebGLRenderingContextBase)
+                     -> (program : WebGLProgram)
+                     -> JSIO (Nullable (Array WebGLShader))
+  getAttachedShaders a b = primJS $ WebGLRenderingContextBase.prim__getAttachedShaders a
+                                                                                       b
+  
+  export
+  getAttribLocation :  (obj : WebGLRenderingContextBase)
+                    -> (program : WebGLProgram)
+                    -> (name : String)
+                    -> JSIO GLint
+  getAttribLocation a b c = primJS $ WebGLRenderingContextBase.prim__getAttribLocation a
+                                                                                       b
+                                                                                       c
+  
+  export
+  getBufferParameter :  (obj : WebGLRenderingContextBase)
+                     -> (target : GLenum)
+                     -> (pname : GLenum)
+                     -> JSIO AnyPtr
+  getBufferParameter a b c = primJS $ WebGLRenderingContextBase.prim__getBufferParameter a
+                                                                                         b
+                                                                                         c
+  
+  export
+  getContextAttributes :  (obj : WebGLRenderingContextBase)
+                       -> JSIO (Nullable WebGLContextAttributes)
+  getContextAttributes a = primJS $ WebGLRenderingContextBase.prim__getContextAttributes a
+  
+  export
+  getError : (obj : WebGLRenderingContextBase) -> JSIO GLenum
+  getError a = primJS $ WebGLRenderingContextBase.prim__getError a
+  
+  export
+  getExtension :  (obj : WebGLRenderingContextBase)
+               -> (name : String)
+               -> JSIO (Nullable Object)
+  getExtension a b = primJS $ WebGLRenderingContextBase.prim__getExtension a b
+  
+  export
+  getFramebufferAttachmentParameter :  (obj : WebGLRenderingContextBase)
+                                    -> (target : GLenum)
+                                    -> (attachment : GLenum)
+                                    -> (pname : GLenum)
+                                    -> JSIO AnyPtr
+  getFramebufferAttachmentParameter a b c d = primJS $ WebGLRenderingContextBase.prim__getFramebufferAttachmentParameter a
+                                                                                                                         b
+                                                                                                                         c
+                                                                                                                         d
+  
+  export
+  getParameter :  (obj : WebGLRenderingContextBase)
+               -> (pname : GLenum)
+               -> JSIO AnyPtr
+  getParameter a b = primJS $ WebGLRenderingContextBase.prim__getParameter a b
+  
+  export
+  getProgramInfoLog :  (obj : WebGLRenderingContextBase)
+                    -> (program : WebGLProgram)
+                    -> JSIO (Nullable String)
+  getProgramInfoLog a b = primJS $ WebGLRenderingContextBase.prim__getProgramInfoLog a
+                                                                                     b
+  
+  export
+  getProgramParameter :  (obj : WebGLRenderingContextBase)
+                      -> (program : WebGLProgram)
+                      -> (pname : GLenum)
+                      -> JSIO AnyPtr
+  getProgramParameter a b c = primJS $ WebGLRenderingContextBase.prim__getProgramParameter a
+                                                                                           b
+                                                                                           c
+  
+  export
+  getRenderbufferParameter :  (obj : WebGLRenderingContextBase)
+                           -> (target : GLenum)
+                           -> (pname : GLenum)
+                           -> JSIO AnyPtr
+  getRenderbufferParameter a b c = primJS $ WebGLRenderingContextBase.prim__getRenderbufferParameter a
+                                                                                                     b
+                                                                                                     c
+  
+  export
+  getShaderInfoLog :  (obj : WebGLRenderingContextBase)
+                   -> (shader : WebGLShader)
+                   -> JSIO (Nullable String)
+  getShaderInfoLog a b = primJS $ WebGLRenderingContextBase.prim__getShaderInfoLog a
+                                                                                   b
+  
+  export
+  getShaderParameter :  (obj : WebGLRenderingContextBase)
+                     -> (shader : WebGLShader)
+                     -> (pname : GLenum)
+                     -> JSIO AnyPtr
+  getShaderParameter a b c = primJS $ WebGLRenderingContextBase.prim__getShaderParameter a
+                                                                                         b
+                                                                                         c
+  
+  export
+  getShaderPrecisionFormat :  (obj : WebGLRenderingContextBase)
+                           -> (shadertype : GLenum)
+                           -> (precisiontype : GLenum)
+                           -> JSIO (Nullable WebGLShaderPrecisionFormat)
+  getShaderPrecisionFormat a b c = primJS $ WebGLRenderingContextBase.prim__getShaderPrecisionFormat a
+                                                                                                     b
+                                                                                                     c
+  
+  export
+  getShaderSource :  (obj : WebGLRenderingContextBase)
+                  -> (shader : WebGLShader)
+                  -> JSIO (Nullable String)
+  getShaderSource a b = primJS $ WebGLRenderingContextBase.prim__getShaderSource a
+                                                                                 b
+  
+  export
+  getSupportedExtensions :  (obj : WebGLRenderingContextBase)
+                         -> JSIO (Nullable (Array String))
+  getSupportedExtensions a = primJS $ WebGLRenderingContextBase.prim__getSupportedExtensions a
+  
+  export
+  getTexParameter :  (obj : WebGLRenderingContextBase)
+                  -> (target : GLenum)
+                  -> (pname : GLenum)
+                  -> JSIO AnyPtr
+  getTexParameter a b c = primJS $ WebGLRenderingContextBase.prim__getTexParameter a
+                                                                                   b
+                                                                                   c
+  
+  export
+  getUniformLocation :  (obj : WebGLRenderingContextBase)
+                     -> (program : WebGLProgram)
+                     -> (name : String)
+                     -> JSIO (Nullable WebGLUniformLocation)
+  getUniformLocation a b c = primJS $ WebGLRenderingContextBase.prim__getUniformLocation a
+                                                                                         b
+                                                                                         c
+  
+  export
+  getUniform :  (obj : WebGLRenderingContextBase)
+             -> (program : WebGLProgram)
+             -> (location : WebGLUniformLocation)
+             -> JSIO AnyPtr
+  getUniform a b c = primJS $ WebGLRenderingContextBase.prim__getUniform a b c
+  
+  export
+  getVertexAttribOffset :  (obj : WebGLRenderingContextBase)
+                        -> (index : GLuint)
+                        -> (pname : GLenum)
+                        -> JSIO GLintptr
+  getVertexAttribOffset a b c = primJS $ WebGLRenderingContextBase.prim__getVertexAttribOffset a
+                                                                                               b
+                                                                                               c
+  
+  export
+  getVertexAttrib :  (obj : WebGLRenderingContextBase)
+                  -> (index : GLuint)
+                  -> (pname : GLenum)
+                  -> JSIO AnyPtr
+  getVertexAttrib a b c = primJS $ WebGLRenderingContextBase.prim__getVertexAttrib a
+                                                                                   b
+                                                                                   c
+  
+  export
+  hint :  (obj : WebGLRenderingContextBase)
+       -> (target : GLenum)
+       -> (mode : GLenum)
+       -> JSIO ()
+  hint a b c = primJS $ WebGLRenderingContextBase.prim__hint a b c
+  
+  export
+  isBuffer :  (obj : WebGLRenderingContextBase)
+           -> (buffer : Nullable WebGLBuffer)
+           -> JSIO GLboolean
+  isBuffer a b = primJS $ WebGLRenderingContextBase.prim__isBuffer a b
+  
+  export
+  isContextLost : (obj : WebGLRenderingContextBase) -> JSIO Boolean
+  isContextLost a = primJS $ WebGLRenderingContextBase.prim__isContextLost a
+  
+  export
+  isEnabled :  (obj : WebGLRenderingContextBase)
+            -> (cap : GLenum)
+            -> JSIO GLboolean
+  isEnabled a b = primJS $ WebGLRenderingContextBase.prim__isEnabled a b
+  
+  export
+  isFramebuffer :  (obj : WebGLRenderingContextBase)
+                -> (framebuffer : Nullable WebGLFramebuffer)
+                -> JSIO GLboolean
+  isFramebuffer a b = primJS $ WebGLRenderingContextBase.prim__isFramebuffer a b
+  
+  export
+  isProgram :  (obj : WebGLRenderingContextBase)
+            -> (program : Nullable WebGLProgram)
+            -> JSIO GLboolean
+  isProgram a b = primJS $ WebGLRenderingContextBase.prim__isProgram a b
+  
+  export
+  isRenderbuffer :  (obj : WebGLRenderingContextBase)
+                 -> (renderbuffer : Nullable WebGLRenderbuffer)
+                 -> JSIO GLboolean
+  isRenderbuffer a b = primJS $ WebGLRenderingContextBase.prim__isRenderbuffer a
+                                                                               b
+  
+  export
+  isShader :  (obj : WebGLRenderingContextBase)
+           -> (shader : Nullable WebGLShader)
+           -> JSIO GLboolean
+  isShader a b = primJS $ WebGLRenderingContextBase.prim__isShader a b
+  
+  export
+  isTexture :  (obj : WebGLRenderingContextBase)
+            -> (texture : Nullable WebGLTexture)
+            -> JSIO GLboolean
+  isTexture a b = primJS $ WebGLRenderingContextBase.prim__isTexture a b
+  
+  export
+  lineWidth : (obj : WebGLRenderingContextBase) -> (width : GLfloat) -> JSIO ()
+  lineWidth a b = primJS $ WebGLRenderingContextBase.prim__lineWidth a b
+  
+  export
+  linkProgram :  (obj : WebGLRenderingContextBase)
+              -> (program : WebGLProgram)
+              -> JSIO ()
+  linkProgram a b = primJS $ WebGLRenderingContextBase.prim__linkProgram a b
+  
+  export
+  pixelStorei :  (obj : WebGLRenderingContextBase)
+              -> (pname : GLenum)
+              -> (param : GLint)
+              -> JSIO ()
+  pixelStorei a b c = primJS $ WebGLRenderingContextBase.prim__pixelStorei a b c
+  
+  export
+  polygonOffset :  (obj : WebGLRenderingContextBase)
+                -> (factor : GLfloat)
+                -> (units : GLfloat)
+                -> JSIO ()
+  polygonOffset a b c = primJS $ WebGLRenderingContextBase.prim__polygonOffset a
+                                                                               b
+                                                                               c
+  
+  export
+  renderbufferStorage :  (obj : WebGLRenderingContextBase)
+                      -> (target : GLenum)
+                      -> (internalformat : GLenum)
+                      -> (width : GLsizei)
+                      -> (height : GLsizei)
+                      -> JSIO ()
+  renderbufferStorage a b c d e = primJS $ WebGLRenderingContextBase.prim__renderbufferStorage a
+                                                                                               b
+                                                                                               c
+                                                                                               d
+                                                                                               e
+  
+  export
+  sampleCoverage :  (obj : WebGLRenderingContextBase)
+                 -> (value : GLclampf)
+                 -> (invert : GLboolean)
+                 -> JSIO ()
+  sampleCoverage a b c = primJS $ WebGLRenderingContextBase.prim__sampleCoverage a
+                                                                                 b
+                                                                                 c
+  
+  export
+  scissor :  (obj : WebGLRenderingContextBase)
+          -> (x : GLint)
+          -> (y : GLint)
+          -> (width : GLsizei)
+          -> (height : GLsizei)
+          -> JSIO ()
+  scissor a b c d e = primJS $ WebGLRenderingContextBase.prim__scissor a b c d e
+  
+  export
+  shaderSource :  (obj : WebGLRenderingContextBase)
+               -> (shader : WebGLShader)
+               -> (source : String)
+               -> JSIO ()
+  shaderSource a b c = primJS $ WebGLRenderingContextBase.prim__shaderSource a
+                                                                             b
+                                                                             c
+  
+  export
+  stencilFuncSeparate :  (obj : WebGLRenderingContextBase)
+                      -> (face : GLenum)
+                      -> (func : GLenum)
+                      -> (ref : GLint)
+                      -> (mask : GLuint)
+                      -> JSIO ()
+  stencilFuncSeparate a b c d e = primJS $ WebGLRenderingContextBase.prim__stencilFuncSeparate a
+                                                                                               b
+                                                                                               c
+                                                                                               d
+                                                                                               e
+  
+  export
+  stencilFunc :  (obj : WebGLRenderingContextBase)
+              -> (func : GLenum)
+              -> (ref : GLint)
+              -> (mask : GLuint)
+              -> JSIO ()
+  stencilFunc a b c d = primJS $ WebGLRenderingContextBase.prim__stencilFunc a
+                                                                             b
+                                                                             c
+                                                                             d
+  
+  export
+  stencilMaskSeparate :  (obj : WebGLRenderingContextBase)
+                      -> (face : GLenum)
+                      -> (mask : GLuint)
+                      -> JSIO ()
+  stencilMaskSeparate a b c = primJS $ WebGLRenderingContextBase.prim__stencilMaskSeparate a
+                                                                                           b
+                                                                                           c
+  
+  export
+  stencilMask : (obj : WebGLRenderingContextBase) -> (mask : GLuint) -> JSIO ()
+  stencilMask a b = primJS $ WebGLRenderingContextBase.prim__stencilMask a b
+  
+  export
+  stencilOpSeparate :  (obj : WebGLRenderingContextBase)
+                    -> (face : GLenum)
+                    -> (fail : GLenum)
+                    -> (zfail : GLenum)
+                    -> (zpass : GLenum)
+                    -> JSIO ()
+  stencilOpSeparate a b c d e = primJS $ WebGLRenderingContextBase.prim__stencilOpSeparate a
+                                                                                           b
+                                                                                           c
+                                                                                           d
+                                                                                           e
+  
+  export
+  stencilOp :  (obj : WebGLRenderingContextBase)
+            -> (fail : GLenum)
+            -> (zfail : GLenum)
+            -> (zpass : GLenum)
+            -> JSIO ()
+  stencilOp a b c d = primJS $ WebGLRenderingContextBase.prim__stencilOp a b c d
+  
+  export
+  texParameterf :  (obj : WebGLRenderingContextBase)
+                -> (target : GLenum)
+                -> (pname : GLenum)
+                -> (param : GLfloat)
+                -> JSIO ()
+  texParameterf a b c d = primJS $ WebGLRenderingContextBase.prim__texParameterf a
+                                                                                 b
+                                                                                 c
+                                                                                 d
+  
+  export
+  texParameteri :  (obj : WebGLRenderingContextBase)
+                -> (target : GLenum)
+                -> (pname : GLenum)
+                -> (param : GLint)
+                -> JSIO ()
+  texParameteri a b c d = primJS $ WebGLRenderingContextBase.prim__texParameteri a
+                                                                                 b
+                                                                                 c
+                                                                                 d
+  
+  export
+  uniform1f :  (obj : WebGLRenderingContextBase)
+            -> (location : Nullable WebGLUniformLocation)
+            -> (x : GLfloat)
+            -> JSIO ()
+  uniform1f a b c = primJS $ WebGLRenderingContextBase.prim__uniform1f a b c
+  
+  export
+  uniform1i :  (obj : WebGLRenderingContextBase)
+            -> (location : Nullable WebGLUniformLocation)
+            -> (x : GLint)
+            -> JSIO ()
+  uniform1i a b c = primJS $ WebGLRenderingContextBase.prim__uniform1i a b c
+  
+  export
+  uniform2f :  (obj : WebGLRenderingContextBase)
+            -> (location : Nullable WebGLUniformLocation)
+            -> (x : GLfloat)
+            -> (y : GLfloat)
+            -> JSIO ()
+  uniform2f a b c d = primJS $ WebGLRenderingContextBase.prim__uniform2f a b c d
+  
+  export
+  uniform2i :  (obj : WebGLRenderingContextBase)
+            -> (location : Nullable WebGLUniformLocation)
+            -> (x : GLint)
+            -> (y : GLint)
+            -> JSIO ()
+  uniform2i a b c d = primJS $ WebGLRenderingContextBase.prim__uniform2i a b c d
+  
+  export
+  uniform3f :  (obj : WebGLRenderingContextBase)
+            -> (location : Nullable WebGLUniformLocation)
+            -> (x : GLfloat)
+            -> (y : GLfloat)
+            -> (z : GLfloat)
+            -> JSIO ()
+  uniform3f a b c d e = primJS $ WebGLRenderingContextBase.prim__uniform3f a
+                                                                           b
+                                                                           c
+                                                                           d
+                                                                           e
+  
+  export
+  uniform3i :  (obj : WebGLRenderingContextBase)
+            -> (location : Nullable WebGLUniformLocation)
+            -> (x : GLint)
+            -> (y : GLint)
+            -> (z : GLint)
+            -> JSIO ()
+  uniform3i a b c d e = primJS $ WebGLRenderingContextBase.prim__uniform3i a
+                                                                           b
+                                                                           c
+                                                                           d
+                                                                           e
+  
+  export
+  uniform4f :  (obj : WebGLRenderingContextBase)
+            -> (location : Nullable WebGLUniformLocation)
+            -> (x : GLfloat)
+            -> (y : GLfloat)
+            -> (z : GLfloat)
+            -> (w : GLfloat)
+            -> JSIO ()
+  uniform4f a b c d e f = primJS $ WebGLRenderingContextBase.prim__uniform4f a
+                                                                             b
+                                                                             c
+                                                                             d
+                                                                             e
+                                                                             f
+  
+  export
+  uniform4i :  (obj : WebGLRenderingContextBase)
+            -> (location : Nullable WebGLUniformLocation)
+            -> (x : GLint)
+            -> (y : GLint)
+            -> (z : GLint)
+            -> (w : GLint)
+            -> JSIO ()
+  uniform4i a b c d e f = primJS $ WebGLRenderingContextBase.prim__uniform4i a
+                                                                             b
+                                                                             c
+                                                                             d
+                                                                             e
+                                                                             f
+  
+  export
+  useProgram :  (obj : WebGLRenderingContextBase)
+             -> (program : Nullable WebGLProgram)
+             -> JSIO ()
+  useProgram a b = primJS $ WebGLRenderingContextBase.prim__useProgram a b
+  
+  export
+  validateProgram :  (obj : WebGLRenderingContextBase)
+                  -> (program : WebGLProgram)
+                  -> JSIO ()
+  validateProgram a b = primJS $ WebGLRenderingContextBase.prim__validateProgram a
+                                                                                 b
+  
+  export
+  vertexAttrib1f :  (obj : WebGLRenderingContextBase)
+                 -> (index : GLuint)
+                 -> (x : GLfloat)
+                 -> JSIO ()
+  vertexAttrib1f a b c = primJS $ WebGLRenderingContextBase.prim__vertexAttrib1f a
+                                                                                 b
+                                                                                 c
+  
+  export
+  vertexAttrib1fv :  (obj : WebGLRenderingContextBase)
+                  -> (index : GLuint)
+                  -> (values : Float32List)
+                  -> JSIO ()
+  vertexAttrib1fv a b c = primJS $ WebGLRenderingContextBase.prim__vertexAttrib1fv a
+                                                                                   b
+                                                                                   c
+  
+  export
+  vertexAttrib2f :  (obj : WebGLRenderingContextBase)
+                 -> (index : GLuint)
+                 -> (x : GLfloat)
+                 -> (y : GLfloat)
+                 -> JSIO ()
+  vertexAttrib2f a b c d = primJS $ WebGLRenderingContextBase.prim__vertexAttrib2f a
+                                                                                   b
+                                                                                   c
+                                                                                   d
+  
+  export
+  vertexAttrib2fv :  (obj : WebGLRenderingContextBase)
+                  -> (index : GLuint)
+                  -> (values : Float32List)
+                  -> JSIO ()
+  vertexAttrib2fv a b c = primJS $ WebGLRenderingContextBase.prim__vertexAttrib2fv a
+                                                                                   b
+                                                                                   c
+  
+  export
+  vertexAttrib3f :  (obj : WebGLRenderingContextBase)
+                 -> (index : GLuint)
+                 -> (x : GLfloat)
+                 -> (y : GLfloat)
+                 -> (z : GLfloat)
+                 -> JSIO ()
+  vertexAttrib3f a b c d e = primJS $ WebGLRenderingContextBase.prim__vertexAttrib3f a
+                                                                                     b
+                                                                                     c
+                                                                                     d
+                                                                                     e
+  
+  export
+  vertexAttrib3fv :  (obj : WebGLRenderingContextBase)
+                  -> (index : GLuint)
+                  -> (values : Float32List)
+                  -> JSIO ()
+  vertexAttrib3fv a b c = primJS $ WebGLRenderingContextBase.prim__vertexAttrib3fv a
+                                                                                   b
+                                                                                   c
+  
+  export
+  vertexAttrib4f :  (obj : WebGLRenderingContextBase)
+                 -> (index : GLuint)
+                 -> (x : GLfloat)
+                 -> (y : GLfloat)
+                 -> (z : GLfloat)
+                 -> (w : GLfloat)
+                 -> JSIO ()
+  vertexAttrib4f a b c d e f = primJS $ WebGLRenderingContextBase.prim__vertexAttrib4f a
+                                                                                       b
+                                                                                       c
+                                                                                       d
+                                                                                       e
+                                                                                       f
+  
+  export
+  vertexAttrib4fv :  (obj : WebGLRenderingContextBase)
+                  -> (index : GLuint)
+                  -> (values : Float32List)
+                  -> JSIO ()
+  vertexAttrib4fv a b c = primJS $ WebGLRenderingContextBase.prim__vertexAttrib4fv a
+                                                                                   b
+                                                                                   c
+  
+  export
+  vertexAttribPointer :  (obj : WebGLRenderingContextBase)
+                      -> (index : GLuint)
+                      -> (size : GLint)
+                      -> (type : GLenum)
+                      -> (normalized : GLboolean)
+                      -> (stride : GLsizei)
+                      -> (offset : GLintptr)
+                      -> JSIO ()
+  vertexAttribPointer a b c d e f g = primJS $ WebGLRenderingContextBase.prim__vertexAttribPointer a
+                                                                                                   b
+                                                                                                   c
+                                                                                                   d
+                                                                                                   e
+                                                                                                   f
+                                                                                                   g
+  
+  export
+  viewport :  (obj : WebGLRenderingContextBase)
+           -> (x : GLint)
+           -> (y : GLint)
+           -> (width : GLsizei)
+           -> (height : GLsizei)
+           -> JSIO ()
+  viewport a b c d e = primJS $ WebGLRenderingContextBase.prim__viewport a
+                                                                         b
+                                                                         c
+                                                                         d
+                                                                         e
 
+namespace WebGLRenderingContextOverloads
+  
+  export
+  bufferData :  (obj : WebGLRenderingContextOverloads)
+             -> (target : GLenum)
+             -> (size : GLsizeiptr)
+             -> (usage : GLenum)
+             -> JSIO ()
+  bufferData a b c d = primJS $ WebGLRenderingContextOverloads.prim__bufferData a
+                                                                                b
+                                                                                c
+                                                                                d
+  
+  export
+  bufferData1 :  (obj : WebGLRenderingContextOverloads)
+              -> (target : GLenum)
+              -> (data_ : Nullable BufferSource)
+              -> (usage : GLenum)
+              -> JSIO ()
+  bufferData1 a b c d = primJS $ WebGLRenderingContextOverloads.prim__bufferData1 a
+                                                                                  b
+                                                                                  c
+                                                                                  d
+  
+  export
+  bufferSubData :  (obj : WebGLRenderingContextOverloads)
+                -> (target : GLenum)
+                -> (offset : GLintptr)
+                -> (data_ : BufferSource)
+                -> JSIO ()
+  bufferSubData a b c d = primJS $ WebGLRenderingContextOverloads.prim__bufferSubData a
+                                                                                      b
+                                                                                      c
+                                                                                      d
+  
+  export
+  compressedTexImage2D :  (obj : WebGLRenderingContextOverloads)
+                       -> (target : GLenum)
+                       -> (level : GLint)
+                       -> (internalformat : GLenum)
+                       -> (width : GLsizei)
+                       -> (height : GLsizei)
+                       -> (border : GLint)
+                       -> (data_ : ArrayBufferView)
+                       -> JSIO ()
+  compressedTexImage2D a b c d e f g h = primJS $ WebGLRenderingContextOverloads.prim__compressedTexImage2D a
+                                                                                                            b
+                                                                                                            c
+                                                                                                            d
+                                                                                                            e
+                                                                                                            f
+                                                                                                            g
+                                                                                                            h
+  
+  export
+  compressedTexSubImage2D :  (obj : WebGLRenderingContextOverloads)
+                          -> (target : GLenum)
+                          -> (level : GLint)
+                          -> (xoffset : GLint)
+                          -> (yoffset : GLint)
+                          -> (width : GLsizei)
+                          -> (height : GLsizei)
+                          -> (format : GLenum)
+                          -> (data_ : ArrayBufferView)
+                          -> JSIO ()
+  compressedTexSubImage2D a b c d e f g h i = primJS $ WebGLRenderingContextOverloads.prim__compressedTexSubImage2D a
+                                                                                                                    b
+                                                                                                                    c
+                                                                                                                    d
+                                                                                                                    e
+                                                                                                                    f
+                                                                                                                    g
+                                                                                                                    h
+                                                                                                                    i
+  
+  export
+  readPixels :  (obj : WebGLRenderingContextOverloads)
+             -> (x : GLint)
+             -> (y : GLint)
+             -> (width : GLsizei)
+             -> (height : GLsizei)
+             -> (format : GLenum)
+             -> (type : GLenum)
+             -> (pixels : Nullable ArrayBufferView)
+             -> JSIO ()
+  readPixels a b c d e f g h = primJS $ WebGLRenderingContextOverloads.prim__readPixels a
+                                                                                        b
+                                                                                        c
+                                                                                        d
+                                                                                        e
+                                                                                        f
+                                                                                        g
+                                                                                        h
+  
+  export
+  texImage2D :  (obj : WebGLRenderingContextOverloads)
+             -> (target : GLenum)
+             -> (level : GLint)
+             -> (internalformat : GLint)
+             -> (width : GLsizei)
+             -> (height : GLsizei)
+             -> (border : GLint)
+             -> (format : GLenum)
+             -> (type : GLenum)
+             -> (pixels : Nullable ArrayBufferView)
+             -> JSIO ()
+  texImage2D a b c d e f g h i j = primJS $ WebGLRenderingContextOverloads.prim__texImage2D a
+                                                                                            b
+                                                                                            c
+                                                                                            d
+                                                                                            e
+                                                                                            f
+                                                                                            g
+                                                                                            h
+                                                                                            i
+                                                                                            j
+  
+  export
+  texImage2D1 :  (obj : WebGLRenderingContextOverloads)
+              -> (target : GLenum)
+              -> (level : GLint)
+              -> (internalformat : GLint)
+              -> (format : GLenum)
+              -> (type : GLenum)
+              -> (source : TexImageSource)
+              -> JSIO ()
+  texImage2D1 a b c d e f g = primJS $ WebGLRenderingContextOverloads.prim__texImage2D1 a
+                                                                                        b
+                                                                                        c
+                                                                                        d
+                                                                                        e
+                                                                                        f
+                                                                                        g
+  
+  export
+  texSubImage2D :  (obj : WebGLRenderingContextOverloads)
+                -> (target : GLenum)
+                -> (level : GLint)
+                -> (xoffset : GLint)
+                -> (yoffset : GLint)
+                -> (width : GLsizei)
+                -> (height : GLsizei)
+                -> (format : GLenum)
+                -> (type : GLenum)
+                -> (pixels : Nullable ArrayBufferView)
+                -> JSIO ()
+  texSubImage2D a b c d e f g h i j = primJS $ WebGLRenderingContextOverloads.prim__texSubImage2D a
+                                                                                                  b
+                                                                                                  c
+                                                                                                  d
+                                                                                                  e
+                                                                                                  f
+                                                                                                  g
+                                                                                                  h
+                                                                                                  i
+                                                                                                  j
+  
+  export
+  texSubImage2D1 :  (obj : WebGLRenderingContextOverloads)
+                 -> (target : GLenum)
+                 -> (level : GLint)
+                 -> (xoffset : GLint)
+                 -> (yoffset : GLint)
+                 -> (format : GLenum)
+                 -> (type : GLenum)
+                 -> (source : TexImageSource)
+                 -> JSIO ()
+  texSubImage2D1 a b c d e f g h = primJS $ WebGLRenderingContextOverloads.prim__texSubImage2D1 a
+                                                                                                b
+                                                                                                c
+                                                                                                d
+                                                                                                e
+                                                                                                f
+                                                                                                g
+                                                                                                h
+  
+  export
+  uniform1fv :  (obj : WebGLRenderingContextOverloads)
+             -> (location : Nullable WebGLUniformLocation)
+             -> (v : Float32List)
+             -> JSIO ()
+  uniform1fv a b c = primJS $ WebGLRenderingContextOverloads.prim__uniform1fv a
+                                                                              b
+                                                                              c
+  
+  export
+  uniform1iv :  (obj : WebGLRenderingContextOverloads)
+             -> (location : Nullable WebGLUniformLocation)
+             -> (v : Int32List)
+             -> JSIO ()
+  uniform1iv a b c = primJS $ WebGLRenderingContextOverloads.prim__uniform1iv a
+                                                                              b
+                                                                              c
+  
+  export
+  uniform2fv :  (obj : WebGLRenderingContextOverloads)
+             -> (location : Nullable WebGLUniformLocation)
+             -> (v : Float32List)
+             -> JSIO ()
+  uniform2fv a b c = primJS $ WebGLRenderingContextOverloads.prim__uniform2fv a
+                                                                              b
+                                                                              c
+  
+  export
+  uniform2iv :  (obj : WebGLRenderingContextOverloads)
+             -> (location : Nullable WebGLUniformLocation)
+             -> (v : Int32List)
+             -> JSIO ()
+  uniform2iv a b c = primJS $ WebGLRenderingContextOverloads.prim__uniform2iv a
+                                                                              b
+                                                                              c
+  
+  export
+  uniform3fv :  (obj : WebGLRenderingContextOverloads)
+             -> (location : Nullable WebGLUniformLocation)
+             -> (v : Float32List)
+             -> JSIO ()
+  uniform3fv a b c = primJS $ WebGLRenderingContextOverloads.prim__uniform3fv a
+                                                                              b
+                                                                              c
+  
+  export
+  uniform3iv :  (obj : WebGLRenderingContextOverloads)
+             -> (location : Nullable WebGLUniformLocation)
+             -> (v : Int32List)
+             -> JSIO ()
+  uniform3iv a b c = primJS $ WebGLRenderingContextOverloads.prim__uniform3iv a
+                                                                              b
+                                                                              c
+  
+  export
+  uniform4fv :  (obj : WebGLRenderingContextOverloads)
+             -> (location : Nullable WebGLUniformLocation)
+             -> (v : Float32List)
+             -> JSIO ()
+  uniform4fv a b c = primJS $ WebGLRenderingContextOverloads.prim__uniform4fv a
+                                                                              b
+                                                                              c
+  
+  export
+  uniform4iv :  (obj : WebGLRenderingContextOverloads)
+             -> (location : Nullable WebGLUniformLocation)
+             -> (v : Int32List)
+             -> JSIO ()
+  uniform4iv a b c = primJS $ WebGLRenderingContextOverloads.prim__uniform4iv a
+                                                                              b
+                                                                              c
+  
+  export
+  uniformMatrix2fv :  (obj : WebGLRenderingContextOverloads)
+                   -> (location : Nullable WebGLUniformLocation)
+                   -> (transpose : GLboolean)
+                   -> (value : Float32List)
+                   -> JSIO ()
+  uniformMatrix2fv a b c d = primJS $ WebGLRenderingContextOverloads.prim__uniformMatrix2fv a
+                                                                                            b
+                                                                                            c
+                                                                                            d
+  
+  export
+  uniformMatrix3fv :  (obj : WebGLRenderingContextOverloads)
+                   -> (location : Nullable WebGLUniformLocation)
+                   -> (transpose : GLboolean)
+                   -> (value : Float32List)
+                   -> JSIO ()
+  uniformMatrix3fv a b c d = primJS $ WebGLRenderingContextOverloads.prim__uniformMatrix3fv a
+                                                                                            b
+                                                                                            c
+                                                                                            d
+  
+  export
+  uniformMatrix4fv :  (obj : WebGLRenderingContextOverloads)
+                   -> (location : Nullable WebGLUniformLocation)
+                   -> (transpose : GLboolean)
+                   -> (value : Float32List)
+                   -> JSIO ()
+  uniformMatrix4fv a b c d = primJS $ WebGLRenderingContextOverloads.prim__uniformMatrix4fv a
+                                                                                            b
+                                                                                            c
+                                                                                            d
 
 --------------------------------------------------------------------------------
 --          Dictionaries
@@ -2404,3 +5471,101 @@ namespace WebGLContextAttributes
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  alpha : (obj : WebGLContextAttributes) -> JSIO (UndefOr Boolean)
+  alpha a = primJS $ WebGLContextAttributes.prim__alpha a
+  
+  export
+  setAlpha :  (obj : WebGLContextAttributes)
+           -> (value : UndefOr Boolean)
+           -> JSIO ()
+  setAlpha a b = primJS $ WebGLContextAttributes.prim__setAlpha a b
+  
+  export
+  antialias : (obj : WebGLContextAttributes) -> JSIO (UndefOr Boolean)
+  antialias a = primJS $ WebGLContextAttributes.prim__antialias a
+  
+  export
+  setAntialias :  (obj : WebGLContextAttributes)
+               -> (value : UndefOr Boolean)
+               -> JSIO ()
+  setAntialias a b = primJS $ WebGLContextAttributes.prim__setAntialias a b
+  
+  export
+  depth : (obj : WebGLContextAttributes) -> JSIO (UndefOr Boolean)
+  depth a = primJS $ WebGLContextAttributes.prim__depth a
+  
+  export
+  setDepth :  (obj : WebGLContextAttributes)
+           -> (value : UndefOr Boolean)
+           -> JSIO ()
+  setDepth a b = primJS $ WebGLContextAttributes.prim__setDepth a b
+  
+  export
+  desynchronized : (obj : WebGLContextAttributes) -> JSIO (UndefOr Boolean)
+  desynchronized a = primJS $ WebGLContextAttributes.prim__desynchronized a
+  
+  export
+  setDesynchronized :  (obj : WebGLContextAttributes)
+                    -> (value : UndefOr Boolean)
+                    -> JSIO ()
+  setDesynchronized a b = primJS $ WebGLContextAttributes.prim__setDesynchronized a
+                                                                                  b
+  
+  export
+  failIfMajorPerformanceCaveat :  (obj : WebGLContextAttributes)
+                               -> JSIO (UndefOr Boolean)
+  failIfMajorPerformanceCaveat a = primJS $ WebGLContextAttributes.prim__failIfMajorPerformanceCaveat a
+  
+  export
+  setFailIfMajorPerformanceCaveat :  (obj : WebGLContextAttributes)
+                                  -> (value : UndefOr Boolean)
+                                  -> JSIO ()
+  setFailIfMajorPerformanceCaveat a b = primJS $ WebGLContextAttributes.prim__setFailIfMajorPerformanceCaveat a
+                                                                                                              b
+  
+  export
+  powerPreference :  (obj : WebGLContextAttributes)
+                  -> JSIO (UndefOr WebGLPowerPreference)
+  powerPreference a = primJS $ WebGLContextAttributes.prim__powerPreference a
+  
+  export
+  setPowerPreference :  (obj : WebGLContextAttributes)
+                     -> (value : UndefOr WebGLPowerPreference)
+                     -> JSIO ()
+  setPowerPreference a b = primJS $ WebGLContextAttributes.prim__setPowerPreference a
+                                                                                    b
+  
+  export
+  premultipliedAlpha : (obj : WebGLContextAttributes) -> JSIO (UndefOr Boolean)
+  premultipliedAlpha a = primJS $ WebGLContextAttributes.prim__premultipliedAlpha a
+  
+  export
+  setPremultipliedAlpha :  (obj : WebGLContextAttributes)
+                        -> (value : UndefOr Boolean)
+                        -> JSIO ()
+  setPremultipliedAlpha a b = primJS $ WebGLContextAttributes.prim__setPremultipliedAlpha a
+                                                                                          b
+  
+  export
+  preserveDrawingBuffer :  (obj : WebGLContextAttributes)
+                        -> JSIO (UndefOr Boolean)
+  preserveDrawingBuffer a = primJS $ WebGLContextAttributes.prim__preserveDrawingBuffer a
+  
+  export
+  setPreserveDrawingBuffer :  (obj : WebGLContextAttributes)
+                           -> (value : UndefOr Boolean)
+                           -> JSIO ()
+  setPreserveDrawingBuffer a b = primJS $ WebGLContextAttributes.prim__setPreserveDrawingBuffer a
+                                                                                                b
+  
+  export
+  stencil : (obj : WebGLContextAttributes) -> JSIO (UndefOr Boolean)
+  stencil a = primJS $ WebGLContextAttributes.prim__stencil a
+  
+  export
+  setStencil :  (obj : WebGLContextAttributes)
+             -> (value : UndefOr Boolean)
+             -> JSIO ()
+  setStencil a b = primJS $ WebGLContextAttributes.prim__setStencil a b

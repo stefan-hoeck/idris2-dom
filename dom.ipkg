@@ -26,7 +26,6 @@ modules = JS
         , Web.Clipboard
         , Web.Css
         , Web.Dom
-        , Web.Event
         , Web.Fetch
         , Web.File
         , Web.Geometry
@@ -37,6 +36,7 @@ modules = JS
         , Web.Serviceworker
         , Web.Streams
         , Web.Svg
+        , Web.UIEvents
         , Web.Url
         , Web.Visibility
         , Web.Webgl

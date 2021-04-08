@@ -108,6 +108,10 @@ export
 runJS : JSIO () -> IO ()
 runJS = runJSWith (putStrLn . dispErr)
 
+export %inline
+primJS : PrimIO a -> JSIO a
+primJS p = liftIO (fromPrim p)
+
 --------------------------------------------------------------------------------
 --          Common external types
 --------------------------------------------------------------------------------
