@@ -11,19 +11,19 @@ import Web.Internal.Types
 namespace Clipboard
   
   export
-  %foreign "browser:lambda:(x,a)=>x.read(a)"
+  %foreign "browser:lambda:x=>x.read()"
   prim__read : Clipboard -> PrimIO (Promise ClipboardItems)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.readText(a)"
+  %foreign "browser:lambda:x=>x.readText()"
   prim__readText : Clipboard -> PrimIO (Promise String)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.write(a b)"
+  %foreign "browser:lambda:(x,a)=>x.write(a)"
   prim__write : Clipboard -> ClipboardItems -> PrimIO (Promise Undefined)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.writeText(a b)"
+  %foreign "browser:lambda:(x,a)=>x.writeText(a)"
   prim__writeText : Clipboard -> String -> PrimIO (Promise Undefined)
 
 namespace ClipboardEvent
@@ -67,7 +67,7 @@ namespace ClipboardItem
   prim__types : ClipboardItem -> PrimIO (Array String)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.getType(a b)"
+  %foreign "browser:lambda:(x,a)=>x.getType(a)"
   prim__getType : ClipboardItem -> String -> PrimIO (Promise Blob)
 
 

@@ -11,68 +11,68 @@ import Web.Internal.Types
 namespace Cache
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.addAll(a b)"
+  %foreign "browser:lambda:(x,a)=>x.addAll(a)"
   prim__addAll : Cache -> Array RequestInfo -> PrimIO (Promise Undefined)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.add(a b)"
+  %foreign "browser:lambda:(x,a)=>x.add(a)"
   prim__add : Cache -> RequestInfo -> PrimIO (Promise Undefined)
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.delete(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.delete(a b)"
   prim__delete :  Cache
                -> RequestInfo
                -> UndefOr CacheQueryOptions
                -> PrimIO (Promise Boolean)
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.keys(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.keys(a b)"
   prim__keys :  Cache
              -> UndefOr RequestInfo
              -> UndefOr CacheQueryOptions
              -> PrimIO (Promise (Array Request))
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.matchAll(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.matchAll(a b)"
   prim__matchAll :  Cache
                  -> UndefOr RequestInfo
                  -> UndefOr CacheQueryOptions
                  -> PrimIO (Promise (Array Response))
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.match(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.match(a b)"
   prim__match :  Cache
               -> RequestInfo
               -> UndefOr CacheQueryOptions
               -> PrimIO (Promise (Union2 Response Undefined))
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.put(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.put(a b)"
   prim__put : Cache -> RequestInfo -> Response -> PrimIO (Promise Undefined)
 
 namespace CacheStorage
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.delete(a b)"
+  %foreign "browser:lambda:(x,a)=>x.delete(a)"
   prim__delete : CacheStorage -> String -> PrimIO (Promise Boolean)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.has(a b)"
+  %foreign "browser:lambda:(x,a)=>x.has(a)"
   prim__has : CacheStorage -> String -> PrimIO (Promise Boolean)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.keys(a)"
+  %foreign "browser:lambda:x=>x.keys()"
   prim__keys : CacheStorage -> PrimIO (Promise (Array String))
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.match(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.match(a b)"
   prim__match :  CacheStorage
               -> RequestInfo
               -> UndefOr MultiCacheQueryOptions
               -> PrimIO (Promise (Union2 Response Undefined))
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.open(a b)"
+  %foreign "browser:lambda:(x,a)=>x.open(a)"
   prim__open : CacheStorage -> String -> PrimIO (Promise Cache)
 
 namespace Client
@@ -94,11 +94,11 @@ namespace Client
   prim__url : Client -> PrimIO String
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.postMessage(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.postMessage(a b)"
   prim__postMessage : Client -> AnyPtr -> Array Object -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.postMessage(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.postMessage(a b)"
   prim__postMessage1 :  Client
                      -> AnyPtr
                      -> UndefOr PostMessageOptions
@@ -107,21 +107,21 @@ namespace Client
 namespace Clients
   
   export
-  %foreign "browser:lambda:(x,a)=>x.claim(a)"
+  %foreign "browser:lambda:x=>x.claim()"
   prim__claim : Clients -> PrimIO (Promise Undefined)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.get(a b)"
+  %foreign "browser:lambda:(x,a)=>x.get(a)"
   prim__get : Clients -> String -> PrimIO (Promise (Union2 Client Undefined))
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.matchAll(a b)"
+  %foreign "browser:lambda:(x,a)=>x.matchAll(a)"
   prim__matchAll :  Clients
                  -> UndefOr ClientQueryOptions
                  -> PrimIO (Promise (Array Client))
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.openWindow(a b)"
+  %foreign "browser:lambda:(x,a)=>x.openWindow(a)"
   prim__openWindow :  Clients
                    -> String
                    -> PrimIO (Promise (Nullable WindowClient))
@@ -133,7 +133,7 @@ namespace ExtendableEvent
   prim__new : String -> UndefOr ExtendableEventInit -> PrimIO ExtendableEvent
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.waitUntil(a b)"
+  %foreign "browser:lambda:(x,a)=>x.waitUntil(a)"
   prim__waitUntil : ExtendableEvent -> Promise AnyPtr -> PrimIO ()
 
 namespace ExtendableMessageEvent
@@ -196,26 +196,26 @@ namespace FetchEvent
   prim__resultingClientId : FetchEvent -> PrimIO String
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.respondWith(a b)"
+  %foreign "browser:lambda:(x,a)=>x.respondWith(a)"
   prim__respondWith : FetchEvent -> Promise Response -> PrimIO ()
 
 namespace NavigationPreloadManager
   
   export
-  %foreign "browser:lambda:(x,a)=>x.disable(a)"
+  %foreign "browser:lambda:x=>x.disable()"
   prim__disable : NavigationPreloadManager -> PrimIO (Promise Undefined)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.enable(a)"
+  %foreign "browser:lambda:x=>x.enable()"
   prim__enable : NavigationPreloadManager -> PrimIO (Promise Undefined)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.getState(a)"
+  %foreign "browser:lambda:x=>x.getState()"
   prim__getState :  NavigationPreloadManager
                  -> PrimIO (Promise NavigationPreloadState)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.setHeaderValue(a b)"
+  %foreign "browser:lambda:(x,a)=>x.setHeaderValue(a)"
   prim__setHeaderValue :  NavigationPreloadManager
                        -> ByteString
                        -> PrimIO (Promise Undefined)
@@ -239,11 +239,11 @@ namespace ServiceWorker
   prim__state : ServiceWorker -> PrimIO ServiceWorkerState
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.postMessage(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.postMessage(a b)"
   prim__postMessage : ServiceWorker -> AnyPtr -> Array Object -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.postMessage(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.postMessage(a b)"
   prim__postMessage1 :  ServiceWorker
                      -> AnyPtr
                      -> UndefOr PostMessageOptions
@@ -287,26 +287,26 @@ namespace ServiceWorkerContainer
               -> PrimIO (Promise ServiceWorkerRegistration)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.getRegistration(a b)"
+  %foreign "browser:lambda:(x,a)=>x.getRegistration(a)"
   prim__getRegistration :  ServiceWorkerContainer
                         -> UndefOr String
                         -> PrimIO (Promise (Union2 ServiceWorkerRegistration
                                                    Undefined))
   
   export
-  %foreign "browser:lambda:(x,a)=>x.getRegistrations(a)"
+  %foreign "browser:lambda:x=>x.getRegistrations()"
   prim__getRegistrations :  ServiceWorkerContainer
                          -> PrimIO (Promise (Array ServiceWorkerRegistration))
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.register(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.register(a b)"
   prim__register :  ServiceWorkerContainer
                  -> String
                  -> UndefOr RegistrationOptions
                  -> PrimIO (Promise ServiceWorkerRegistration)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.startMessages(a)"
+  %foreign "browser:lambda:x=>x.startMessages()"
   prim__startMessages : ServiceWorkerContainer -> PrimIO ()
 
 namespace ServiceWorkerGlobalScope
@@ -367,7 +367,7 @@ namespace ServiceWorkerGlobalScope
   prim__serviceWorker : ServiceWorkerGlobalScope -> PrimIO ServiceWorker
   
   export
-  %foreign "browser:lambda:(x,a)=>x.skipWaiting(a)"
+  %foreign "browser:lambda:x=>x.skipWaiting()"
   prim__skipWaiting : ServiceWorkerGlobalScope -> PrimIO (Promise Undefined)
 
 namespace ServiceWorkerRegistration
@@ -410,11 +410,11 @@ namespace ServiceWorkerRegistration
   prim__waiting : ServiceWorkerRegistration -> PrimIO (Nullable ServiceWorker)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.unregister(a)"
+  %foreign "browser:lambda:x=>x.unregister()"
   prim__unregister : ServiceWorkerRegistration -> PrimIO (Promise Boolean)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.update(a)"
+  %foreign "browser:lambda:x=>x.update()"
   prim__update : ServiceWorkerRegistration -> PrimIO (Promise Undefined)
 
 namespace WindowClient
@@ -432,11 +432,11 @@ namespace WindowClient
   prim__visibilityState : WindowClient -> PrimIO VisibilityState
   
   export
-  %foreign "browser:lambda:(x,a)=>x.focus(a)"
+  %foreign "browser:lambda:x=>x.focus()"
   prim__focus : WindowClient -> PrimIO (Promise WindowClient)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.navigate(a b)"
+  %foreign "browser:lambda:(x,a)=>x.navigate(a)"
   prim__navigate :  WindowClient
                  -> String
                  -> PrimIO (Promise (Nullable WindowClient))

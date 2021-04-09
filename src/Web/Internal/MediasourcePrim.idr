@@ -63,23 +63,23 @@ namespace MediaSource
   prim__sourceBuffers : MediaSource -> PrimIO SourceBufferList
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.addSourceBuffer(a b)"
+  %foreign "browser:lambda:(x,a)=>x.addSourceBuffer(a)"
   prim__addSourceBuffer : MediaSource -> String -> PrimIO SourceBuffer
   
   export
-  %foreign "browser:lambda:(x,a)=>x.clearLiveSeekableRange(a)"
+  %foreign "browser:lambda:x=>x.clearLiveSeekableRange()"
   prim__clearLiveSeekableRange : MediaSource -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.endOfStream(a b)"
+  %foreign "browser:lambda:(x,a)=>x.endOfStream(a)"
   prim__endOfStream : MediaSource -> UndefOr EndOfStreamError -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.removeSourceBuffer(a b)"
+  %foreign "browser:lambda:(x,a)=>x.removeSourceBuffer(a)"
   prim__removeSourceBuffer : MediaSource -> SourceBuffer -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.setLiveSeekableRange(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.setLiveSeekableRange(a b)"
   prim__setLiveSeekableRange : MediaSource -> Double -> Double -> PrimIO ()
 
 namespace SourceBuffer
@@ -177,15 +177,15 @@ namespace SourceBuffer
   prim__videoTracks : SourceBuffer -> PrimIO VideoTrackList
   
   export
-  %foreign "browser:lambda:(x,a)=>x.abort(a)"
+  %foreign "browser:lambda:x=>x.abort()"
   prim__abort : SourceBuffer -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.appendBuffer(a b)"
+  %foreign "browser:lambda:(x,a)=>x.appendBuffer(a)"
   prim__appendBuffer : SourceBuffer -> BufferSource -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.remove(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.remove(a b)"
   prim__remove : SourceBuffer -> Double -> Double -> PrimIO ()
 
 namespace SourceBufferList

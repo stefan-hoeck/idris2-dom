@@ -23,11 +23,11 @@ namespace Blob
   prim__type : Blob -> PrimIO String
   
   export
-  %foreign "browser:lambda:(x,a)=>x.arrayBuffer(a)"
+  %foreign "browser:lambda:x=>x.arrayBuffer()"
   prim__arrayBuffer : Blob -> PrimIO (Promise ArrayBuffer)
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.slice(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.slice(a b c)"
   prim__slice :  Blob
               -> UndefOr Int64
               -> UndefOr Int64
@@ -35,11 +35,11 @@ namespace Blob
               -> PrimIO Blob
   
   export
-  %foreign "browser:lambda:(x,a)=>x.stream(a)"
+  %foreign "browser:lambda:x=>x.stream()"
   prim__stream : Blob -> PrimIO ReadableStream
   
   export
-  %foreign "browser:lambda:(x,a)=>x.text(a)"
+  %foreign "browser:lambda:x=>x.text()"
   prim__text : Blob -> PrimIO (Promise String)
 
 namespace File
@@ -63,7 +63,7 @@ namespace FileList
   prim__length : FileList -> PrimIO UInt32
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.item(a b)"
+  %foreign "browser:lambda:(x,a)=>x.item(a)"
   prim__item : FileList -> UInt32 -> PrimIO (Nullable File)
 
 namespace FileReader
@@ -133,23 +133,23 @@ namespace FileReader
   prim__result : FileReader -> PrimIO (Nullable (Union2 String ArrayBuffer))
   
   export
-  %foreign "browser:lambda:(x,a)=>x.abort(a)"
+  %foreign "browser:lambda:x=>x.abort()"
   prim__abort : FileReader -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.readAsArrayBuffer(a b)"
+  %foreign "browser:lambda:(x,a)=>x.readAsArrayBuffer(a)"
   prim__readAsArrayBuffer : FileReader -> Blob -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.readAsBinaryString(a b)"
+  %foreign "browser:lambda:(x,a)=>x.readAsBinaryString(a)"
   prim__readAsBinaryString : FileReader -> Blob -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.readAsDataURL(a b)"
+  %foreign "browser:lambda:(x,a)=>x.readAsDataURL(a)"
   prim__readAsDataURL : FileReader -> Blob -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.readAsText(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.readAsText(a b)"
   prim__readAsText : FileReader -> Blob -> UndefOr String -> PrimIO ()
 
 namespace FileReaderSync
@@ -159,19 +159,19 @@ namespace FileReaderSync
   prim__new : PrimIO FileReaderSync
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.readAsArrayBuffer(a b)"
+  %foreign "browser:lambda:(x,a)=>x.readAsArrayBuffer(a)"
   prim__readAsArrayBuffer : FileReaderSync -> Blob -> PrimIO ArrayBuffer
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.readAsBinaryString(a b)"
+  %foreign "browser:lambda:(x,a)=>x.readAsBinaryString(a)"
   prim__readAsBinaryString : FileReaderSync -> Blob -> PrimIO String
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.readAsDataURL(a b)"
+  %foreign "browser:lambda:(x,a)=>x.readAsDataURL(a)"
   prim__readAsDataURL : FileReaderSync -> Blob -> PrimIO String
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.readAsText(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.readAsText(a b)"
   prim__readAsText : FileReaderSync -> Blob -> UndefOr String -> PrimIO String
 
 

@@ -91,41 +91,41 @@ namespace Animation
   prim__setTimeline : Animation -> Nullable AnimationTimeline -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.cancel(a)"
+  %foreign "browser:lambda:x=>x.cancel()"
   prim__cancel : Animation -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.finish(a)"
+  %foreign "browser:lambda:x=>x.finish()"
   prim__finish : Animation -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.pause(a)"
+  %foreign "browser:lambda:x=>x.pause()"
   prim__pause : Animation -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.play(a)"
+  %foreign "browser:lambda:x=>x.play()"
   prim__play : Animation -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.reverse(a)"
+  %foreign "browser:lambda:x=>x.reverse()"
   prim__reverse : Animation -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.updatePlaybackRate(a b)"
+  %foreign "browser:lambda:(x,a)=>x.updatePlaybackRate(a)"
   prim__updatePlaybackRate : Animation -> Double -> PrimIO ()
 
 namespace AnimationEffect
   
   export
-  %foreign "browser:lambda:(x,a)=>x.getComputedTiming(a)"
+  %foreign "browser:lambda:x=>x.getComputedTiming()"
   prim__getComputedTiming : AnimationEffect -> PrimIO ComputedEffectTiming
   
   export
-  %foreign "browser:lambda:(x,a)=>x.getTiming(a)"
+  %foreign "browser:lambda:x=>x.getTiming()"
   prim__getTiming : AnimationEffect -> PrimIO EffectTiming
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.updateTiming(a b)"
+  %foreign "browser:lambda:(x,a)=>x.updateTiming(a)"
   prim__updateTiming :  AnimationEffect
                      -> UndefOr OptionalEffectTiming
                      -> PrimIO ()
@@ -180,11 +180,11 @@ namespace KeyframeEffect
                   -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.getKeyframes(a)"
+  %foreign "browser:lambda:x=>x.getKeyframes()"
   prim__getKeyframes : KeyframeEffect -> PrimIO (Array Object)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.setKeyframes(a b)"
+  %foreign "browser:lambda:(x,a)=>x.setKeyframes(a)"
   prim__setKeyframes : KeyframeEffect -> Nullable Object -> PrimIO ()
 
 --------------------------------------------------------------------------------
@@ -194,14 +194,14 @@ namespace KeyframeEffect
 namespace Animatable
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.animate(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.animate(a b)"
   prim__animate :  Animatable
                 -> Nullable Object
                 -> UndefOr (Union2 Double KeyframeAnimationOptions)
                 -> PrimIO Animation
   
   export
-  %foreign "browser:lambda:(x,a)=>x.getAnimations(a)"
+  %foreign "browser:lambda:x=>x.getAnimations()"
   prim__getAnimations : Animatable -> PrimIO (Array Animation)
 
 --------------------------------------------------------------------------------

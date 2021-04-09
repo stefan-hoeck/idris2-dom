@@ -334,6 +334,14 @@ namespace MediaList
   length a = primJS $ MediaList.prim__length a
   
   export
+  mediaText : (obj : MediaList) -> JSIO CSSOMString
+  mediaText a = primJS $ MediaList.prim__mediaText a
+  
+  export
+  setMediaText : (obj : MediaList) -> (value : CSSOMString) -> JSIO ()
+  setMediaText a b = primJS $ MediaList.prim__setMediaText a b
+  
+  export
   appendMedium : (obj : MediaList) -> (medium : CSSOMString) -> JSIO ()
   appendMedium a b = primJS $ MediaList.prim__appendMedium a b
   

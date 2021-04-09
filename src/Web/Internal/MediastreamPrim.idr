@@ -11,27 +11,27 @@ import Web.Internal.Types
 namespace ConstrainablePattern
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.applyConstraints(a b)"
+  %foreign "browser:lambda:(x,a)=>x.applyConstraints(a)"
   prim__applyConstraints :  ConstrainablePattern
                          -> UndefOr Constraints
                          -> PrimIO (Promise Undefined)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.getCapabilities(a)"
+  %foreign "browser:lambda:x=>x.getCapabilities()"
   prim__getCapabilities : ConstrainablePattern -> PrimIO Capabilities
   
   export
-  %foreign "browser:lambda:(x,a)=>x.getConstraints(a)"
+  %foreign "browser:lambda:x=>x.getConstraints()"
   prim__getConstraints : ConstrainablePattern -> PrimIO Constraints
   
   export
-  %foreign "browser:lambda:(x,a)=>x.getSettings(a)"
+  %foreign "browser:lambda:x=>x.getSettings()"
   prim__getSettings : ConstrainablePattern -> PrimIO Settings
 
 namespace InputDeviceInfo
   
   export
-  %foreign "browser:lambda:(x,a)=>x.getCapabilities(a)"
+  %foreign "browser:lambda:x=>x.getCapabilities()"
   prim__getCapabilities : InputDeviceInfo -> PrimIO MediaTrackCapabilities
 
 namespace MediaDeviceInfo
@@ -53,7 +53,7 @@ namespace MediaDeviceInfo
   prim__label : MediaDeviceInfo -> PrimIO String
   
   export
-  %foreign "browser:lambda:(x,a)=>x.toJSON(a)"
+  %foreign "browser:lambda:x=>x.toJSON()"
   prim__toJSON : MediaDeviceInfo -> PrimIO Object
 
 namespace MediaDevices
@@ -67,17 +67,17 @@ namespace MediaDevices
   prim__setOndevicechange : MediaDevices -> EventHandler -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.enumerateDevices(a)"
+  %foreign "browser:lambda:x=>x.enumerateDevices()"
   prim__enumerateDevices :  MediaDevices
                          -> PrimIO (Promise (Array MediaDeviceInfo))
   
   export
-  %foreign "browser:lambda:(x,a)=>x.getSupportedConstraints(a)"
+  %foreign "browser:lambda:x=>x.getSupportedConstraints()"
   prim__getSupportedConstraints :  MediaDevices
                                 -> PrimIO MediaTrackSupportedConstraints
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.getUserMedia(a b)"
+  %foreign "browser:lambda:(x,a)=>x.getUserMedia(a)"
   prim__getUserMedia :  MediaDevices
                      -> UndefOr MediaStreamConstraints
                      -> PrimIO (Promise MediaStream)
@@ -121,33 +121,33 @@ namespace MediaStream
   prim__setOnremovetrack : MediaStream -> EventHandler -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.addTrack(a b)"
+  %foreign "browser:lambda:(x,a)=>x.addTrack(a)"
   prim__addTrack : MediaStream -> MediaStreamTrack -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.clone(a)"
+  %foreign "browser:lambda:x=>x.clone()"
   prim__clone : MediaStream -> PrimIO MediaStream
   
   export
-  %foreign "browser:lambda:(x,a)=>x.getAudioTracks(a)"
+  %foreign "browser:lambda:x=>x.getAudioTracks()"
   prim__getAudioTracks : MediaStream -> PrimIO (Array MediaStreamTrack)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.getTrackById(a b)"
+  %foreign "browser:lambda:(x,a)=>x.getTrackById(a)"
   prim__getTrackById :  MediaStream
                      -> String
                      -> PrimIO (Nullable MediaStreamTrack)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.getTracks(a)"
+  %foreign "browser:lambda:x=>x.getTracks()"
   prim__getTracks : MediaStream -> PrimIO (Array MediaStreamTrack)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.getVideoTracks(a)"
+  %foreign "browser:lambda:x=>x.getVideoTracks()"
   prim__getVideoTracks : MediaStream -> PrimIO (Array MediaStreamTrack)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.removeTrack(a b)"
+  %foreign "browser:lambda:(x,a)=>x.removeTrack(a)"
   prim__removeTrack : MediaStream -> MediaStreamTrack -> PrimIO ()
 
 namespace MediaStreamTrack
@@ -205,29 +205,29 @@ namespace MediaStreamTrack
   prim__readyState : MediaStreamTrack -> PrimIO MediaStreamTrackState
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.applyConstraints(a b)"
+  %foreign "browser:lambda:(x,a)=>x.applyConstraints(a)"
   prim__applyConstraints :  MediaStreamTrack
                          -> UndefOr MediaTrackConstraints
                          -> PrimIO (Promise Undefined)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.clone(a)"
+  %foreign "browser:lambda:x=>x.clone()"
   prim__clone : MediaStreamTrack -> PrimIO MediaStreamTrack
   
   export
-  %foreign "browser:lambda:(x,a)=>x.getCapabilities(a)"
+  %foreign "browser:lambda:x=>x.getCapabilities()"
   prim__getCapabilities : MediaStreamTrack -> PrimIO MediaTrackCapabilities
   
   export
-  %foreign "browser:lambda:(x,a)=>x.getConstraints(a)"
+  %foreign "browser:lambda:x=>x.getConstraints()"
   prim__getConstraints : MediaStreamTrack -> PrimIO MediaTrackConstraints
   
   export
-  %foreign "browser:lambda:(x,a)=>x.getSettings(a)"
+  %foreign "browser:lambda:x=>x.getSettings()"
   prim__getSettings : MediaStreamTrack -> PrimIO MediaTrackSettings
   
   export
-  %foreign "browser:lambda:(x,a)=>x.stop(a)"
+  %foreign "browser:lambda:x=>x.stop()"
   prim__stop : MediaStreamTrack -> PrimIO ()
 
 namespace MediaStreamTrackEvent

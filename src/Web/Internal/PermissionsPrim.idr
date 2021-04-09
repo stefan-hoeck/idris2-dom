@@ -25,7 +25,7 @@ namespace PermissionStatus
 namespace Permissions
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.query(a b)"
+  %foreign "browser:lambda:(x,a)=>x.query(a)"
   prim__query : Permissions -> Object -> PrimIO (Promise PermissionStatus)
 
 

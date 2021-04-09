@@ -6412,6 +6412,14 @@ namespace Location
   setHostname a b = primJS $ Location.prim__setHostname a b
   
   export
+  href : (obj : Location) -> JSIO String
+  href a = primJS $ Location.prim__href a
+  
+  export
+  setHref : (obj : Location) -> (value : String) -> JSIO ()
+  setHref a b = primJS $ Location.prim__setHref a b
+  
+  export
   origin : (obj : Location) -> JSIO String
   origin a = primJS $ Location.prim__origin a
   
@@ -7952,6 +7960,10 @@ namespace WorkerLocation
   export
   hostname : (obj : WorkerLocation) -> JSIO String
   hostname a = primJS $ WorkerLocation.prim__hostname a
+  
+  export
+  href : (obj : WorkerLocation) -> JSIO String
+  href a = primJS $ WorkerLocation.prim__href a
   
   export
   origin : (obj : WorkerLocation) -> JSIO String
@@ -9755,6 +9767,14 @@ namespace HTMLHyperlinkElementUtils
   export
   setHostname : (obj : HTMLHyperlinkElementUtils) -> (value : String) -> JSIO ()
   setHostname a b = primJS $ HTMLHyperlinkElementUtils.prim__setHostname a b
+  
+  export
+  href : (obj : HTMLHyperlinkElementUtils) -> JSIO String
+  href a = primJS $ HTMLHyperlinkElementUtils.prim__href a
+  
+  export
+  setHref : (obj : HTMLHyperlinkElementUtils) -> (value : String) -> JSIO ()
+  setHref a b = primJS $ HTMLHyperlinkElementUtils.prim__setHref a b
   
   export
   origin : (obj : HTMLHyperlinkElementUtils) -> JSIO String

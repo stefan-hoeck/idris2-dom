@@ -58,20 +58,20 @@ namespace WebGLShaderPrecisionFormat
 namespace WebGL2RenderingContextBase
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.beginQuery(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.beginQuery(a b)"
   prim__beginQuery :  WebGL2RenderingContextBase
                    -> GLenum
                    -> WebGLQuery
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.beginTransformFeedback(a b)"
+  %foreign "browser:lambda:(x,a)=>x.beginTransformFeedback(a)"
   prim__beginTransformFeedback :  WebGL2RenderingContextBase
                                -> GLenum
                                -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.bindBufferBase(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.bindBufferBase(a b c)"
   prim__bindBufferBase :  WebGL2RenderingContextBase
                        -> GLenum
                        -> GLuint
@@ -79,7 +79,7 @@ namespace WebGL2RenderingContextBase
                        -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.bindBufferRange(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.bindBufferRange(a b c d e)"
   prim__bindBufferRange :  WebGL2RenderingContextBase
                         -> GLenum
                         -> GLuint
@@ -89,27 +89,27 @@ namespace WebGL2RenderingContextBase
                         -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.bindSampler(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.bindSampler(a b)"
   prim__bindSampler :  WebGL2RenderingContextBase
                     -> GLuint
                     -> Nullable WebGLSampler
                     -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.bindTransformFeedback(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.bindTransformFeedback(a b)"
   prim__bindTransformFeedback :  WebGL2RenderingContextBase
                               -> GLenum
                               -> Nullable WebGLTransformFeedback
                               -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.bindVertexArray(a b)"
+  %foreign "browser:lambda:(x,a)=>x.bindVertexArray(a)"
   prim__bindVertexArray :  WebGL2RenderingContextBase
                         -> Nullable WebGLVertexArrayObject
                         -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j,k)=>x.blitFramebuffer(a b c d e f g h i j k)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j)=>x.blitFramebuffer(a b c d e f g h i j)"
   prim__blitFramebuffer :  WebGL2RenderingContextBase
                         -> GLint
                         -> GLint
@@ -124,7 +124,7 @@ namespace WebGL2RenderingContextBase
                         -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.clearBufferfi(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.clearBufferfi(a b c d)"
   prim__clearBufferfi :  WebGL2RenderingContextBase
                       -> GLenum
                       -> GLint
@@ -133,7 +133,7 @@ namespace WebGL2RenderingContextBase
                       -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.clearBufferfv(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.clearBufferfv(a b c d)"
   prim__clearBufferfv :  WebGL2RenderingContextBase
                       -> GLenum
                       -> GLint
@@ -142,7 +142,7 @@ namespace WebGL2RenderingContextBase
                       -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.clearBufferiv(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.clearBufferiv(a b c d)"
   prim__clearBufferiv :  WebGL2RenderingContextBase
                       -> GLenum
                       -> GLint
@@ -151,7 +151,7 @@ namespace WebGL2RenderingContextBase
                       -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.clearBufferuiv(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.clearBufferuiv(a b c d)"
   prim__clearBufferuiv :  WebGL2RenderingContextBase
                        -> GLenum
                        -> GLint
@@ -160,7 +160,7 @@ namespace WebGL2RenderingContextBase
                        -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.clientWaitSync(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.clientWaitSync(a b c)"
   prim__clientWaitSync :  WebGL2RenderingContextBase
                        -> WebGLSync
                        -> GLbitfield
@@ -168,7 +168,7 @@ namespace WebGL2RenderingContextBase
                        -> PrimIO GLenum
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j)=>x.compressedTexImage3D(a b c d e f g h i j)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i)=>x.compressedTexImage3D(a b c d e f g h i)"
   prim__compressedTexImage3D :  WebGL2RenderingContextBase
                              -> GLenum
                              -> GLint
@@ -182,7 +182,7 @@ namespace WebGL2RenderingContextBase
                              -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j,k)=>x.compressedTexImage3D(a b c d e f g h i j k)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j)=>x.compressedTexImage3D(a b c d e f g h i j)"
   prim__compressedTexImage3D1 :  WebGL2RenderingContextBase
                               -> GLenum
                               -> GLint
@@ -197,7 +197,7 @@ namespace WebGL2RenderingContextBase
                               -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j,k,l)=>x.compressedTexSubImage3D(a b c d e f g h i j k l)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j,k)=>x.compressedTexSubImage3D(a b c d e f g h i j k)"
   prim__compressedTexSubImage3D :  WebGL2RenderingContextBase
                                 -> GLenum
                                 -> GLint
@@ -213,7 +213,7 @@ namespace WebGL2RenderingContextBase
                                 -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j,k,l,m)=>x.compressedTexSubImage3D(a b c d e f g h i j k l m)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j,k,l)=>x.compressedTexSubImage3D(a b c d e f g h i j k l)"
   prim__compressedTexSubImage3D1 :  WebGL2RenderingContextBase
                                  -> GLenum
                                  -> GLint
@@ -230,7 +230,7 @@ namespace WebGL2RenderingContextBase
                                  -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.copyBufferSubData(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.copyBufferSubData(a b c d e)"
   prim__copyBufferSubData :  WebGL2RenderingContextBase
                           -> GLenum
                           -> GLenum
@@ -240,7 +240,7 @@ namespace WebGL2RenderingContextBase
                           -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j)=>x.copyTexSubImage3D(a b c d e f g h i j)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i)=>x.copyTexSubImage3D(a b c d e f g h i)"
   prim__copyTexSubImage3D :  WebGL2RenderingContextBase
                           -> GLenum
                           -> GLint
@@ -254,56 +254,56 @@ namespace WebGL2RenderingContextBase
                           -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.createQuery(a)"
+  %foreign "browser:lambda:x=>x.createQuery()"
   prim__createQuery : WebGL2RenderingContextBase -> PrimIO (Nullable WebGLQuery)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.createSampler(a)"
+  %foreign "browser:lambda:x=>x.createSampler()"
   prim__createSampler :  WebGL2RenderingContextBase
                       -> PrimIO (Nullable WebGLSampler)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.createTransformFeedback(a)"
+  %foreign "browser:lambda:x=>x.createTransformFeedback()"
   prim__createTransformFeedback :  WebGL2RenderingContextBase
                                 -> PrimIO (Nullable WebGLTransformFeedback)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.createVertexArray(a)"
+  %foreign "browser:lambda:x=>x.createVertexArray()"
   prim__createVertexArray :  WebGL2RenderingContextBase
                           -> PrimIO (Nullable WebGLVertexArrayObject)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.deleteQuery(a b)"
+  %foreign "browser:lambda:(x,a)=>x.deleteQuery(a)"
   prim__deleteQuery :  WebGL2RenderingContextBase
                     -> Nullable WebGLQuery
                     -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.deleteSampler(a b)"
+  %foreign "browser:lambda:(x,a)=>x.deleteSampler(a)"
   prim__deleteSampler :  WebGL2RenderingContextBase
                       -> Nullable WebGLSampler
                       -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.deleteSync(a b)"
+  %foreign "browser:lambda:(x,a)=>x.deleteSync(a)"
   prim__deleteSync :  WebGL2RenderingContextBase
                    -> Nullable WebGLSync
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.deleteTransformFeedback(a b)"
+  %foreign "browser:lambda:(x,a)=>x.deleteTransformFeedback(a)"
   prim__deleteTransformFeedback :  WebGL2RenderingContextBase
                                 -> Nullable WebGLTransformFeedback
                                 -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.deleteVertexArray(a b)"
+  %foreign "browser:lambda:(x,a)=>x.deleteVertexArray(a)"
   prim__deleteVertexArray :  WebGL2RenderingContextBase
                           -> Nullable WebGLVertexArrayObject
                           -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.drawArraysInstanced(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.drawArraysInstanced(a b c d)"
   prim__drawArraysInstanced :  WebGL2RenderingContextBase
                             -> GLenum
                             -> GLint
@@ -312,11 +312,11 @@ namespace WebGL2RenderingContextBase
                             -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.drawBuffers(a b)"
+  %foreign "browser:lambda:(x,a)=>x.drawBuffers(a)"
   prim__drawBuffers : WebGL2RenderingContextBase -> Array GLenum -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.drawElementsInstanced(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.drawElementsInstanced(a b c d e)"
   prim__drawElementsInstanced :  WebGL2RenderingContextBase
                               -> GLenum
                               -> GLsizei
@@ -326,7 +326,7 @@ namespace WebGL2RenderingContextBase
                               -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g)=>x.drawRangeElements(a b c d e f g)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.drawRangeElements(a b c d e f)"
   prim__drawRangeElements :  WebGL2RenderingContextBase
                           -> GLenum
                           -> GLuint
@@ -337,22 +337,22 @@ namespace WebGL2RenderingContextBase
                           -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.endQuery(a b)"
+  %foreign "browser:lambda:(x,a)=>x.endQuery(a)"
   prim__endQuery : WebGL2RenderingContextBase -> GLenum -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.endTransformFeedback(a)"
+  %foreign "browser:lambda:x=>x.endTransformFeedback()"
   prim__endTransformFeedback : WebGL2RenderingContextBase -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.fenceSync(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.fenceSync(a b)"
   prim__fenceSync :  WebGL2RenderingContextBase
                   -> GLenum
                   -> GLbitfield
                   -> PrimIO (Nullable WebGLSync)
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.framebufferTextureLayer(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.framebufferTextureLayer(a b c d e)"
   prim__framebufferTextureLayer :  WebGL2RenderingContextBase
                                 -> GLenum
                                 -> GLenum
@@ -362,14 +362,14 @@ namespace WebGL2RenderingContextBase
                                 -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.getActiveUniformBlockName(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.getActiveUniformBlockName(a b)"
   prim__getActiveUniformBlockName :  WebGL2RenderingContextBase
                                   -> WebGLProgram
                                   -> GLuint
                                   -> PrimIO (Nullable String)
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.getActiveUniformBlockParameter(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.getActiveUniformBlockParameter(a b c)"
   prim__getActiveUniformBlockParameter :  WebGL2RenderingContextBase
                                        -> WebGLProgram
                                        -> GLuint
@@ -377,7 +377,7 @@ namespace WebGL2RenderingContextBase
                                        -> PrimIO AnyPtr
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.getActiveUniforms(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.getActiveUniforms(a b c)"
   prim__getActiveUniforms :  WebGL2RenderingContextBase
                           -> WebGLProgram
                           -> Array GLuint
@@ -385,7 +385,7 @@ namespace WebGL2RenderingContextBase
                           -> PrimIO AnyPtr
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.getBufferSubData(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.getBufferSubData(a b c d e)"
   prim__getBufferSubData :  WebGL2RenderingContextBase
                          -> GLenum
                          -> GLintptr
@@ -395,21 +395,21 @@ namespace WebGL2RenderingContextBase
                          -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.getFragDataLocation(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.getFragDataLocation(a b)"
   prim__getFragDataLocation :  WebGL2RenderingContextBase
                             -> WebGLProgram
                             -> String
                             -> PrimIO GLint
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.getIndexedParameter(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.getIndexedParameter(a b)"
   prim__getIndexedParameter :  WebGL2RenderingContextBase
                             -> GLenum
                             -> GLuint
                             -> PrimIO AnyPtr
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.getInternalformatParameter(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.getInternalformatParameter(a b c)"
   prim__getInternalformatParameter :  WebGL2RenderingContextBase
                                    -> GLenum
                                    -> GLenum
@@ -417,63 +417,63 @@ namespace WebGL2RenderingContextBase
                                    -> PrimIO AnyPtr
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.getQueryParameter(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.getQueryParameter(a b)"
   prim__getQueryParameter :  WebGL2RenderingContextBase
                           -> WebGLQuery
                           -> GLenum
                           -> PrimIO AnyPtr
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.getQuery(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.getQuery(a b)"
   prim__getQuery :  WebGL2RenderingContextBase
                  -> GLenum
                  -> GLenum
                  -> PrimIO (Nullable WebGLQuery)
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.getSamplerParameter(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.getSamplerParameter(a b)"
   prim__getSamplerParameter :  WebGL2RenderingContextBase
                             -> WebGLSampler
                             -> GLenum
                             -> PrimIO AnyPtr
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.getSyncParameter(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.getSyncParameter(a b)"
   prim__getSyncParameter :  WebGL2RenderingContextBase
                          -> WebGLSync
                          -> GLenum
                          -> PrimIO AnyPtr
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.getTransformFeedbackVarying(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.getTransformFeedbackVarying(a b)"
   prim__getTransformFeedbackVarying :  WebGL2RenderingContextBase
                                     -> WebGLProgram
                                     -> GLuint
                                     -> PrimIO (Nullable WebGLActiveInfo)
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.getUniformBlockIndex(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.getUniformBlockIndex(a b)"
   prim__getUniformBlockIndex :  WebGL2RenderingContextBase
                              -> WebGLProgram
                              -> String
                              -> PrimIO GLuint
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.getUniformIndices(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.getUniformIndices(a b)"
   prim__getUniformIndices :  WebGL2RenderingContextBase
                           -> WebGLProgram
                           -> Array String
                           -> PrimIO (Nullable (Array GLuint))
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.invalidateFramebuffer(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.invalidateFramebuffer(a b)"
   prim__invalidateFramebuffer :  WebGL2RenderingContextBase
                               -> GLenum
                               -> Array GLenum
                               -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g)=>x.invalidateSubFramebuffer(a b c d e f g)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.invalidateSubFramebuffer(a b c d e f)"
   prim__invalidateSubFramebuffer :  WebGL2RenderingContextBase
                                  -> GLenum
                                  -> Array GLenum
@@ -484,45 +484,45 @@ namespace WebGL2RenderingContextBase
                                  -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.isQuery(a b)"
+  %foreign "browser:lambda:(x,a)=>x.isQuery(a)"
   prim__isQuery :  WebGL2RenderingContextBase
                 -> Nullable WebGLQuery
                 -> PrimIO GLboolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.isSampler(a b)"
+  %foreign "browser:lambda:(x,a)=>x.isSampler(a)"
   prim__isSampler :  WebGL2RenderingContextBase
                   -> Nullable WebGLSampler
                   -> PrimIO GLboolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.isSync(a b)"
+  %foreign "browser:lambda:(x,a)=>x.isSync(a)"
   prim__isSync :  WebGL2RenderingContextBase
                -> Nullable WebGLSync
                -> PrimIO GLboolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.isTransformFeedback(a b)"
+  %foreign "browser:lambda:(x,a)=>x.isTransformFeedback(a)"
   prim__isTransformFeedback :  WebGL2RenderingContextBase
                             -> Nullable WebGLTransformFeedback
                             -> PrimIO GLboolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.isVertexArray(a b)"
+  %foreign "browser:lambda:(x,a)=>x.isVertexArray(a)"
   prim__isVertexArray :  WebGL2RenderingContextBase
                       -> Nullable WebGLVertexArrayObject
                       -> PrimIO GLboolean
   
   export
-  %foreign "browser:lambda:(x,a)=>x.pauseTransformFeedback(a)"
+  %foreign "browser:lambda:x=>x.pauseTransformFeedback()"
   prim__pauseTransformFeedback : WebGL2RenderingContextBase -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.readBuffer(a b)"
+  %foreign "browser:lambda:(x,a)=>x.readBuffer(a)"
   prim__readBuffer : WebGL2RenderingContextBase -> GLenum -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.renderbufferStorageMultisample(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.renderbufferStorageMultisample(a b c d e)"
   prim__renderbufferStorageMultisample :  WebGL2RenderingContextBase
                                        -> GLenum
                                        -> GLsizei
@@ -532,11 +532,11 @@ namespace WebGL2RenderingContextBase
                                        -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.resumeTransformFeedback(a)"
+  %foreign "browser:lambda:x=>x.resumeTransformFeedback()"
   prim__resumeTransformFeedback : WebGL2RenderingContextBase -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.samplerParameterf(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.samplerParameterf(a b c)"
   prim__samplerParameterf :  WebGL2RenderingContextBase
                           -> WebGLSampler
                           -> GLenum
@@ -544,7 +544,7 @@ namespace WebGL2RenderingContextBase
                           -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.samplerParameteri(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.samplerParameteri(a b c)"
   prim__samplerParameteri :  WebGL2RenderingContextBase
                           -> WebGLSampler
                           -> GLenum
@@ -552,7 +552,7 @@ namespace WebGL2RenderingContextBase
                           -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j,k)=>x.texImage3D(a b c d e f g h i j k)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j)=>x.texImage3D(a b c d e f g h i j)"
   prim__texImage3D :  WebGL2RenderingContextBase
                    -> GLenum
                    -> GLint
@@ -567,7 +567,7 @@ namespace WebGL2RenderingContextBase
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j,k)=>x.texImage3D(a b c d e f g h i j k)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j)=>x.texImage3D(a b c d e f g h i j)"
   prim__texImage3D1 :  WebGL2RenderingContextBase
                     -> GLenum
                     -> GLint
@@ -582,7 +582,7 @@ namespace WebGL2RenderingContextBase
                     -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j,k)=>x.texImage3D(a b c d e f g h i j k)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j)=>x.texImage3D(a b c d e f g h i j)"
   prim__texImage3D2 :  WebGL2RenderingContextBase
                     -> GLenum
                     -> GLint
@@ -597,7 +597,7 @@ namespace WebGL2RenderingContextBase
                     -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j,k,l)=>x.texImage3D(a b c d e f g h i j k l)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j,k)=>x.texImage3D(a b c d e f g h i j k)"
   prim__texImage3D3 :  WebGL2RenderingContextBase
                     -> GLenum
                     -> GLint
@@ -613,7 +613,7 @@ namespace WebGL2RenderingContextBase
                     -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.texStorage2D(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.texStorage2D(a b c d e)"
   prim__texStorage2D :  WebGL2RenderingContextBase
                      -> GLenum
                      -> GLsizei
@@ -623,7 +623,7 @@ namespace WebGL2RenderingContextBase
                      -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g)=>x.texStorage3D(a b c d e f g)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.texStorage3D(a b c d e f)"
   prim__texStorage3D :  WebGL2RenderingContextBase
                      -> GLenum
                      -> GLsizei
@@ -634,7 +634,7 @@ namespace WebGL2RenderingContextBase
                      -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j,k,l)=>x.texSubImage3D(a b c d e f g h i j k l)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j,k)=>x.texSubImage3D(a b c d e f g h i j k)"
   prim__texSubImage3D :  WebGL2RenderingContextBase
                       -> GLenum
                       -> GLint
@@ -650,7 +650,7 @@ namespace WebGL2RenderingContextBase
                       -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j,k,l)=>x.texSubImage3D(a b c d e f g h i j k l)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j,k)=>x.texSubImage3D(a b c d e f g h i j k)"
   prim__texSubImage3D1 :  WebGL2RenderingContextBase
                        -> GLenum
                        -> GLint
@@ -666,7 +666,7 @@ namespace WebGL2RenderingContextBase
                        -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j,k,l,m)=>x.texSubImage3D(a b c d e f g h i j k l m)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j,k,l)=>x.texSubImage3D(a b c d e f g h i j k l)"
   prim__texSubImage3D2 :  WebGL2RenderingContextBase
                        -> GLenum
                        -> GLint
@@ -683,7 +683,7 @@ namespace WebGL2RenderingContextBase
                        -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.transformFeedbackVaryings(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.transformFeedbackVaryings(a b c)"
   prim__transformFeedbackVaryings :  WebGL2RenderingContextBase
                                   -> WebGLProgram
                                   -> Array String
@@ -691,14 +691,14 @@ namespace WebGL2RenderingContextBase
                                   -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.uniform1ui(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.uniform1ui(a b)"
   prim__uniform1ui :  WebGL2RenderingContextBase
                    -> Nullable WebGLUniformLocation
                    -> GLuint
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.uniform1uiv(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.uniform1uiv(a b c d)"
   prim__uniform1uiv :  WebGL2RenderingContextBase
                     -> Nullable WebGLUniformLocation
                     -> Uint32List
@@ -707,7 +707,7 @@ namespace WebGL2RenderingContextBase
                     -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.uniform2ui(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.uniform2ui(a b c)"
   prim__uniform2ui :  WebGL2RenderingContextBase
                    -> Nullable WebGLUniformLocation
                    -> GLuint
@@ -715,7 +715,7 @@ namespace WebGL2RenderingContextBase
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.uniform2uiv(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.uniform2uiv(a b c d)"
   prim__uniform2uiv :  WebGL2RenderingContextBase
                     -> Nullable WebGLUniformLocation
                     -> Uint32List
@@ -724,7 +724,7 @@ namespace WebGL2RenderingContextBase
                     -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.uniform3ui(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.uniform3ui(a b c d)"
   prim__uniform3ui :  WebGL2RenderingContextBase
                    -> Nullable WebGLUniformLocation
                    -> GLuint
@@ -733,7 +733,7 @@ namespace WebGL2RenderingContextBase
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.uniform3uiv(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.uniform3uiv(a b c d)"
   prim__uniform3uiv :  WebGL2RenderingContextBase
                     -> Nullable WebGLUniformLocation
                     -> Uint32List
@@ -742,7 +742,7 @@ namespace WebGL2RenderingContextBase
                     -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.uniform4ui(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.uniform4ui(a b c d e)"
   prim__uniform4ui :  WebGL2RenderingContextBase
                    -> Nullable WebGLUniformLocation
                    -> GLuint
@@ -752,7 +752,7 @@ namespace WebGL2RenderingContextBase
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.uniform4uiv(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.uniform4uiv(a b c d)"
   prim__uniform4uiv :  WebGL2RenderingContextBase
                     -> Nullable WebGLUniformLocation
                     -> Uint32List
@@ -761,7 +761,7 @@ namespace WebGL2RenderingContextBase
                     -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.uniformBlockBinding(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.uniformBlockBinding(a b c)"
   prim__uniformBlockBinding :  WebGL2RenderingContextBase
                             -> WebGLProgram
                             -> GLuint
@@ -769,7 +769,7 @@ namespace WebGL2RenderingContextBase
                             -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.uniformMatrix2x3fv(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.uniformMatrix2x3fv(a b c d e)"
   prim__uniformMatrix2x3fv :  WebGL2RenderingContextBase
                            -> Nullable WebGLUniformLocation
                            -> GLboolean
@@ -779,7 +779,7 @@ namespace WebGL2RenderingContextBase
                            -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.uniformMatrix2x4fv(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.uniformMatrix2x4fv(a b c d e)"
   prim__uniformMatrix2x4fv :  WebGL2RenderingContextBase
                            -> Nullable WebGLUniformLocation
                            -> GLboolean
@@ -789,7 +789,7 @@ namespace WebGL2RenderingContextBase
                            -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.uniformMatrix3x2fv(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.uniformMatrix3x2fv(a b c d e)"
   prim__uniformMatrix3x2fv :  WebGL2RenderingContextBase
                            -> Nullable WebGLUniformLocation
                            -> GLboolean
@@ -799,7 +799,7 @@ namespace WebGL2RenderingContextBase
                            -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.uniformMatrix3x4fv(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.uniformMatrix3x4fv(a b c d e)"
   prim__uniformMatrix3x4fv :  WebGL2RenderingContextBase
                            -> Nullable WebGLUniformLocation
                            -> GLboolean
@@ -809,7 +809,7 @@ namespace WebGL2RenderingContextBase
                            -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.uniformMatrix4x2fv(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.uniformMatrix4x2fv(a b c d e)"
   prim__uniformMatrix4x2fv :  WebGL2RenderingContextBase
                            -> Nullable WebGLUniformLocation
                            -> GLboolean
@@ -819,7 +819,7 @@ namespace WebGL2RenderingContextBase
                            -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.uniformMatrix4x3fv(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.uniformMatrix4x3fv(a b c d e)"
   prim__uniformMatrix4x3fv :  WebGL2RenderingContextBase
                            -> Nullable WebGLUniformLocation
                            -> GLboolean
@@ -829,14 +829,14 @@ namespace WebGL2RenderingContextBase
                            -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.vertexAttribDivisor(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.vertexAttribDivisor(a b)"
   prim__vertexAttribDivisor :  WebGL2RenderingContextBase
                             -> GLuint
                             -> GLuint
                             -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.vertexAttribI4i(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.vertexAttribI4i(a b c d e)"
   prim__vertexAttribI4i :  WebGL2RenderingContextBase
                         -> GLuint
                         -> GLint
@@ -846,14 +846,14 @@ namespace WebGL2RenderingContextBase
                         -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.vertexAttribI4iv(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.vertexAttribI4iv(a b)"
   prim__vertexAttribI4iv :  WebGL2RenderingContextBase
                          -> GLuint
                          -> Int32List
                          -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.vertexAttribI4ui(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.vertexAttribI4ui(a b c d e)"
   prim__vertexAttribI4ui :  WebGL2RenderingContextBase
                          -> GLuint
                          -> GLuint
@@ -863,14 +863,14 @@ namespace WebGL2RenderingContextBase
                          -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.vertexAttribI4uiv(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.vertexAttribI4uiv(a b)"
   prim__vertexAttribI4uiv :  WebGL2RenderingContextBase
                           -> GLuint
                           -> Uint32List
                           -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.vertexAttribIPointer(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.vertexAttribIPointer(a b c d e)"
   prim__vertexAttribIPointer :  WebGL2RenderingContextBase
                              -> GLuint
                              -> GLint
@@ -880,7 +880,7 @@ namespace WebGL2RenderingContextBase
                              -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.waitSync(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.waitSync(a b c)"
   prim__waitSync :  WebGL2RenderingContextBase
                  -> WebGLSync
                  -> GLbitfield
@@ -890,7 +890,7 @@ namespace WebGL2RenderingContextBase
 namespace WebGL2RenderingContextOverloads
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.bufferData(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.bufferData(a b c)"
   prim__bufferData :  WebGL2RenderingContextOverloads
                    -> GLenum
                    -> GLsizeiptr
@@ -898,7 +898,7 @@ namespace WebGL2RenderingContextOverloads
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.bufferData(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.bufferData(a b c)"
   prim__bufferData1 :  WebGL2RenderingContextOverloads
                     -> GLenum
                     -> Nullable BufferSource
@@ -906,7 +906,7 @@ namespace WebGL2RenderingContextOverloads
                     -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.bufferData(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.bufferData(a b c d e)"
   prim__bufferData2 :  WebGL2RenderingContextOverloads
                     -> GLenum
                     -> ArrayBufferView
@@ -916,7 +916,7 @@ namespace WebGL2RenderingContextOverloads
                     -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.bufferSubData(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.bufferSubData(a b c)"
   prim__bufferSubData :  WebGL2RenderingContextOverloads
                       -> GLenum
                       -> GLintptr
@@ -924,7 +924,7 @@ namespace WebGL2RenderingContextOverloads
                       -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.bufferSubData(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.bufferSubData(a b c d e)"
   prim__bufferSubData1 :  WebGL2RenderingContextOverloads
                        -> GLenum
                        -> GLintptr
@@ -934,7 +934,7 @@ namespace WebGL2RenderingContextOverloads
                        -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i)=>x.compressedTexImage2D(a b c d e f g h i)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h)=>x.compressedTexImage2D(a b c d e f g h)"
   prim__compressedTexImage2D :  WebGL2RenderingContextOverloads
                              -> GLenum
                              -> GLint
@@ -947,7 +947,7 @@ namespace WebGL2RenderingContextOverloads
                              -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j)=>x.compressedTexImage2D(a b c d e f g h i j)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i)=>x.compressedTexImage2D(a b c d e f g h i)"
   prim__compressedTexImage2D1 :  WebGL2RenderingContextOverloads
                               -> GLenum
                               -> GLint
@@ -961,7 +961,7 @@ namespace WebGL2RenderingContextOverloads
                               -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j)=>x.compressedTexSubImage2D(a b c d e f g h i j)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i)=>x.compressedTexSubImage2D(a b c d e f g h i)"
   prim__compressedTexSubImage2D :  WebGL2RenderingContextOverloads
                                 -> GLenum
                                 -> GLint
@@ -975,7 +975,7 @@ namespace WebGL2RenderingContextOverloads
                                 -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j,k)=>x.compressedTexSubImage2D(a b c d e f g h i j k)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j)=>x.compressedTexSubImage2D(a b c d e f g h i j)"
   prim__compressedTexSubImage2D1 :  WebGL2RenderingContextOverloads
                                  -> GLenum
                                  -> GLint
@@ -990,7 +990,7 @@ namespace WebGL2RenderingContextOverloads
                                  -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h)=>x.readPixels(a b c d e f g h)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g)=>x.readPixels(a b c d e f g)"
   prim__readPixels :  WebGL2RenderingContextOverloads
                    -> GLint
                    -> GLint
@@ -1002,7 +1002,7 @@ namespace WebGL2RenderingContextOverloads
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h)=>x.readPixels(a b c d e f g h)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g)=>x.readPixels(a b c d e f g)"
   prim__readPixels1 :  WebGL2RenderingContextOverloads
                     -> GLint
                     -> GLint
@@ -1014,7 +1014,7 @@ namespace WebGL2RenderingContextOverloads
                     -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i)=>x.readPixels(a b c d e f g h i)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h)=>x.readPixels(a b c d e f g h)"
   prim__readPixels2 :  WebGL2RenderingContextOverloads
                     -> GLint
                     -> GLint
@@ -1027,7 +1027,7 @@ namespace WebGL2RenderingContextOverloads
                     -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j)=>x.texImage2D(a b c d e f g h i j)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i)=>x.texImage2D(a b c d e f g h i)"
   prim__texImage2D :  WebGL2RenderingContextOverloads
                    -> GLenum
                    -> GLint
@@ -1041,7 +1041,7 @@ namespace WebGL2RenderingContextOverloads
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g)=>x.texImage2D(a b c d e f g)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.texImage2D(a b c d e f)"
   prim__texImage2D1 :  WebGL2RenderingContextOverloads
                     -> GLenum
                     -> GLint
@@ -1052,7 +1052,7 @@ namespace WebGL2RenderingContextOverloads
                     -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j)=>x.texImage2D(a b c d e f g h i j)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i)=>x.texImage2D(a b c d e f g h i)"
   prim__texImage2D2 :  WebGL2RenderingContextOverloads
                     -> GLenum
                     -> GLint
@@ -1066,7 +1066,7 @@ namespace WebGL2RenderingContextOverloads
                     -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j)=>x.texImage2D(a b c d e f g h i j)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i)=>x.texImage2D(a b c d e f g h i)"
   prim__texImage2D3 :  WebGL2RenderingContextOverloads
                     -> GLenum
                     -> GLint
@@ -1080,7 +1080,7 @@ namespace WebGL2RenderingContextOverloads
                     -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j,k)=>x.texImage2D(a b c d e f g h i j k)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j)=>x.texImage2D(a b c d e f g h i j)"
   prim__texImage2D4 :  WebGL2RenderingContextOverloads
                     -> GLenum
                     -> GLint
@@ -1095,7 +1095,7 @@ namespace WebGL2RenderingContextOverloads
                     -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j)=>x.texSubImage2D(a b c d e f g h i j)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i)=>x.texSubImage2D(a b c d e f g h i)"
   prim__texSubImage2D :  WebGL2RenderingContextOverloads
                       -> GLenum
                       -> GLint
@@ -1109,7 +1109,7 @@ namespace WebGL2RenderingContextOverloads
                       -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h)=>x.texSubImage2D(a b c d e f g h)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g)=>x.texSubImage2D(a b c d e f g)"
   prim__texSubImage2D1 :  WebGL2RenderingContextOverloads
                        -> GLenum
                        -> GLint
@@ -1121,7 +1121,7 @@ namespace WebGL2RenderingContextOverloads
                        -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j)=>x.texSubImage2D(a b c d e f g h i j)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i)=>x.texSubImage2D(a b c d e f g h i)"
   prim__texSubImage2D2 :  WebGL2RenderingContextOverloads
                        -> GLenum
                        -> GLint
@@ -1135,7 +1135,7 @@ namespace WebGL2RenderingContextOverloads
                        -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j)=>x.texSubImage2D(a b c d e f g h i j)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i)=>x.texSubImage2D(a b c d e f g h i)"
   prim__texSubImage2D3 :  WebGL2RenderingContextOverloads
                        -> GLenum
                        -> GLint
@@ -1149,7 +1149,7 @@ namespace WebGL2RenderingContextOverloads
                        -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j,k)=>x.texSubImage2D(a b c d e f g h i j k)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j)=>x.texSubImage2D(a b c d e f g h i j)"
   prim__texSubImage2D4 :  WebGL2RenderingContextOverloads
                        -> GLenum
                        -> GLint
@@ -1164,7 +1164,7 @@ namespace WebGL2RenderingContextOverloads
                        -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.uniform1fv(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.uniform1fv(a b c d)"
   prim__uniform1fv :  WebGL2RenderingContextOverloads
                    -> Nullable WebGLUniformLocation
                    -> Float32List
@@ -1173,7 +1173,7 @@ namespace WebGL2RenderingContextOverloads
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.uniform1iv(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.uniform1iv(a b c d)"
   prim__uniform1iv :  WebGL2RenderingContextOverloads
                    -> Nullable WebGLUniformLocation
                    -> Int32List
@@ -1182,7 +1182,7 @@ namespace WebGL2RenderingContextOverloads
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.uniform2fv(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.uniform2fv(a b c d)"
   prim__uniform2fv :  WebGL2RenderingContextOverloads
                    -> Nullable WebGLUniformLocation
                    -> Float32List
@@ -1191,7 +1191,7 @@ namespace WebGL2RenderingContextOverloads
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.uniform2iv(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.uniform2iv(a b c d)"
   prim__uniform2iv :  WebGL2RenderingContextOverloads
                    -> Nullable WebGLUniformLocation
                    -> Int32List
@@ -1200,7 +1200,7 @@ namespace WebGL2RenderingContextOverloads
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.uniform3fv(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.uniform3fv(a b c d)"
   prim__uniform3fv :  WebGL2RenderingContextOverloads
                    -> Nullable WebGLUniformLocation
                    -> Float32List
@@ -1209,7 +1209,7 @@ namespace WebGL2RenderingContextOverloads
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.uniform3iv(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.uniform3iv(a b c d)"
   prim__uniform3iv :  WebGL2RenderingContextOverloads
                    -> Nullable WebGLUniformLocation
                    -> Int32List
@@ -1218,7 +1218,7 @@ namespace WebGL2RenderingContextOverloads
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.uniform4fv(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.uniform4fv(a b c d)"
   prim__uniform4fv :  WebGL2RenderingContextOverloads
                    -> Nullable WebGLUniformLocation
                    -> Float32List
@@ -1227,7 +1227,7 @@ namespace WebGL2RenderingContextOverloads
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.uniform4iv(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.uniform4iv(a b c d)"
   prim__uniform4iv :  WebGL2RenderingContextOverloads
                    -> Nullable WebGLUniformLocation
                    -> Int32List
@@ -1236,7 +1236,7 @@ namespace WebGL2RenderingContextOverloads
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.uniformMatrix2fv(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.uniformMatrix2fv(a b c d e)"
   prim__uniformMatrix2fv :  WebGL2RenderingContextOverloads
                          -> Nullable WebGLUniformLocation
                          -> GLboolean
@@ -1246,7 +1246,7 @@ namespace WebGL2RenderingContextOverloads
                          -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.uniformMatrix3fv(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.uniformMatrix3fv(a b c d e)"
   prim__uniformMatrix3fv :  WebGL2RenderingContextOverloads
                          -> Nullable WebGLUniformLocation
                          -> GLboolean
@@ -1256,7 +1256,7 @@ namespace WebGL2RenderingContextOverloads
                          -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.uniformMatrix4fv(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.uniformMatrix4fv(a b c d e)"
   prim__uniformMatrix4fv :  WebGL2RenderingContextOverloads
                          -> Nullable WebGLUniformLocation
                          -> GLboolean
@@ -1281,18 +1281,18 @@ namespace WebGLRenderingContextBase
   prim__drawingBufferWidth : WebGLRenderingContextBase -> PrimIO GLsizei
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.activeTexture(a b)"
+  %foreign "browser:lambda:(x,a)=>x.activeTexture(a)"
   prim__activeTexture : WebGLRenderingContextBase -> GLenum -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.attachShader(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.attachShader(a b)"
   prim__attachShader :  WebGLRenderingContextBase
                      -> WebGLProgram
                      -> WebGLShader
                      -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.bindAttribLocation(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.bindAttribLocation(a b c)"
   prim__bindAttribLocation :  WebGLRenderingContextBase
                            -> WebGLProgram
                            -> GLuint
@@ -1300,35 +1300,35 @@ namespace WebGLRenderingContextBase
                            -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.bindBuffer(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.bindBuffer(a b)"
   prim__bindBuffer :  WebGLRenderingContextBase
                    -> GLenum
                    -> Nullable WebGLBuffer
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.bindFramebuffer(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.bindFramebuffer(a b)"
   prim__bindFramebuffer :  WebGLRenderingContextBase
                         -> GLenum
                         -> Nullable WebGLFramebuffer
                         -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.bindRenderbuffer(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.bindRenderbuffer(a b)"
   prim__bindRenderbuffer :  WebGLRenderingContextBase
                          -> GLenum
                          -> Nullable WebGLRenderbuffer
                          -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.bindTexture(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.bindTexture(a b)"
   prim__bindTexture :  WebGLRenderingContextBase
                     -> GLenum
                     -> Nullable WebGLTexture
                     -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.blendColor(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.blendColor(a b c d)"
   prim__blendColor :  WebGLRenderingContextBase
                    -> GLclampf
                    -> GLclampf
@@ -1337,18 +1337,18 @@ namespace WebGLRenderingContextBase
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.blendEquationSeparate(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.blendEquationSeparate(a b)"
   prim__blendEquationSeparate :  WebGLRenderingContextBase
                               -> GLenum
                               -> GLenum
                               -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.blendEquation(a b)"
+  %foreign "browser:lambda:(x,a)=>x.blendEquation(a)"
   prim__blendEquation : WebGLRenderingContextBase -> GLenum -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.blendFuncSeparate(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.blendFuncSeparate(a b c d)"
   prim__blendFuncSeparate :  WebGLRenderingContextBase
                           -> GLenum
                           -> GLenum
@@ -1357,17 +1357,17 @@ namespace WebGLRenderingContextBase
                           -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.blendFunc(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.blendFunc(a b)"
   prim__blendFunc : WebGLRenderingContextBase -> GLenum -> GLenum -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.checkFramebufferStatus(a b)"
+  %foreign "browser:lambda:(x,a)=>x.checkFramebufferStatus(a)"
   prim__checkFramebufferStatus :  WebGLRenderingContextBase
                                -> GLenum
                                -> PrimIO GLenum
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.clearColor(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.clearColor(a b c d)"
   prim__clearColor :  WebGLRenderingContextBase
                    -> GLclampf
                    -> GLclampf
@@ -1376,19 +1376,19 @@ namespace WebGLRenderingContextBase
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.clearDepth(a b)"
+  %foreign "browser:lambda:(x,a)=>x.clearDepth(a)"
   prim__clearDepth : WebGLRenderingContextBase -> GLclampf -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.clearStencil(a b)"
+  %foreign "browser:lambda:(x,a)=>x.clearStencil(a)"
   prim__clearStencil : WebGLRenderingContextBase -> GLint -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.clear(a b)"
+  %foreign "browser:lambda:(x,a)=>x.clear(a)"
   prim__clear : WebGLRenderingContextBase -> GLbitfield -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.colorMask(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.colorMask(a b c d)"
   prim__colorMask :  WebGLRenderingContextBase
                   -> GLboolean
                   -> GLboolean
@@ -1397,11 +1397,11 @@ namespace WebGLRenderingContextBase
                   -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.compileShader(a b)"
+  %foreign "browser:lambda:(x,a)=>x.compileShader(a)"
   prim__compileShader : WebGLRenderingContextBase -> WebGLShader -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i)=>x.copyTexImage2D(a b c d e f g h i)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h)=>x.copyTexImage2D(a b c d e f g h)"
   prim__copyTexImage2D :  WebGLRenderingContextBase
                        -> GLenum
                        -> GLint
@@ -1414,7 +1414,7 @@ namespace WebGLRenderingContextBase
                        -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i)=>x.copyTexSubImage2D(a b c d e f g h i)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h)=>x.copyTexSubImage2D(a b c d e f g h)"
   prim__copyTexSubImage2D :  WebGLRenderingContextBase
                           -> GLenum
                           -> GLint
@@ -1427,110 +1427,110 @@ namespace WebGLRenderingContextBase
                           -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.createBuffer(a)"
+  %foreign "browser:lambda:x=>x.createBuffer()"
   prim__createBuffer :  WebGLRenderingContextBase
                      -> PrimIO (Nullable WebGLBuffer)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.createFramebuffer(a)"
+  %foreign "browser:lambda:x=>x.createFramebuffer()"
   prim__createFramebuffer :  WebGLRenderingContextBase
                           -> PrimIO (Nullable WebGLFramebuffer)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.createProgram(a)"
+  %foreign "browser:lambda:x=>x.createProgram()"
   prim__createProgram :  WebGLRenderingContextBase
                       -> PrimIO (Nullable WebGLProgram)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.createRenderbuffer(a)"
+  %foreign "browser:lambda:x=>x.createRenderbuffer()"
   prim__createRenderbuffer :  WebGLRenderingContextBase
                            -> PrimIO (Nullable WebGLRenderbuffer)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.createShader(a b)"
+  %foreign "browser:lambda:(x,a)=>x.createShader(a)"
   prim__createShader :  WebGLRenderingContextBase
                      -> GLenum
                      -> PrimIO (Nullable WebGLShader)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.createTexture(a)"
+  %foreign "browser:lambda:x=>x.createTexture()"
   prim__createTexture :  WebGLRenderingContextBase
                       -> PrimIO (Nullable WebGLTexture)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.cullFace(a b)"
+  %foreign "browser:lambda:(x,a)=>x.cullFace(a)"
   prim__cullFace : WebGLRenderingContextBase -> GLenum -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.deleteBuffer(a b)"
+  %foreign "browser:lambda:(x,a)=>x.deleteBuffer(a)"
   prim__deleteBuffer :  WebGLRenderingContextBase
                      -> Nullable WebGLBuffer
                      -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.deleteFramebuffer(a b)"
+  %foreign "browser:lambda:(x,a)=>x.deleteFramebuffer(a)"
   prim__deleteFramebuffer :  WebGLRenderingContextBase
                           -> Nullable WebGLFramebuffer
                           -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.deleteProgram(a b)"
+  %foreign "browser:lambda:(x,a)=>x.deleteProgram(a)"
   prim__deleteProgram :  WebGLRenderingContextBase
                       -> Nullable WebGLProgram
                       -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.deleteRenderbuffer(a b)"
+  %foreign "browser:lambda:(x,a)=>x.deleteRenderbuffer(a)"
   prim__deleteRenderbuffer :  WebGLRenderingContextBase
                            -> Nullable WebGLRenderbuffer
                            -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.deleteShader(a b)"
+  %foreign "browser:lambda:(x,a)=>x.deleteShader(a)"
   prim__deleteShader :  WebGLRenderingContextBase
                      -> Nullable WebGLShader
                      -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.deleteTexture(a b)"
+  %foreign "browser:lambda:(x,a)=>x.deleteTexture(a)"
   prim__deleteTexture :  WebGLRenderingContextBase
                       -> Nullable WebGLTexture
                       -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.depthFunc(a b)"
+  %foreign "browser:lambda:(x,a)=>x.depthFunc(a)"
   prim__depthFunc : WebGLRenderingContextBase -> GLenum -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.depthMask(a b)"
+  %foreign "browser:lambda:(x,a)=>x.depthMask(a)"
   prim__depthMask : WebGLRenderingContextBase -> GLboolean -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.depthRange(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.depthRange(a b)"
   prim__depthRange :  WebGLRenderingContextBase
                    -> GLclampf
                    -> GLclampf
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.detachShader(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.detachShader(a b)"
   prim__detachShader :  WebGLRenderingContextBase
                      -> WebGLProgram
                      -> WebGLShader
                      -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.disableVertexAttribArray(a b)"
+  %foreign "browser:lambda:(x,a)=>x.disableVertexAttribArray(a)"
   prim__disableVertexAttribArray :  WebGLRenderingContextBase
                                  -> GLuint
                                  -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.disable(a b)"
+  %foreign "browser:lambda:(x,a)=>x.disable(a)"
   prim__disable : WebGLRenderingContextBase -> GLenum -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.drawArrays(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.drawArrays(a b c)"
   prim__drawArrays :  WebGLRenderingContextBase
                    -> GLenum
                    -> GLint
@@ -1538,7 +1538,7 @@ namespace WebGLRenderingContextBase
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.drawElements(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.drawElements(a b c d)"
   prim__drawElements :  WebGLRenderingContextBase
                      -> GLenum
                      -> GLsizei
@@ -1547,25 +1547,25 @@ namespace WebGLRenderingContextBase
                      -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.enableVertexAttribArray(a b)"
+  %foreign "browser:lambda:(x,a)=>x.enableVertexAttribArray(a)"
   prim__enableVertexAttribArray :  WebGLRenderingContextBase
                                 -> GLuint
                                 -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.enable(a b)"
+  %foreign "browser:lambda:(x,a)=>x.enable(a)"
   prim__enable : WebGLRenderingContextBase -> GLenum -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.finish(a)"
+  %foreign "browser:lambda:x=>x.finish()"
   prim__finish : WebGLRenderingContextBase -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.flush(a)"
+  %foreign "browser:lambda:x=>x.flush()"
   prim__flush : WebGLRenderingContextBase -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.framebufferRenderbuffer(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.framebufferRenderbuffer(a b c d)"
   prim__framebufferRenderbuffer :  WebGLRenderingContextBase
                                 -> GLenum
                                 -> GLenum
@@ -1574,7 +1574,7 @@ namespace WebGLRenderingContextBase
                                 -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.framebufferTexture2D(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.framebufferTexture2D(a b c d e)"
   prim__framebufferTexture2D :  WebGLRenderingContextBase
                              -> GLenum
                              -> GLenum
@@ -1584,64 +1584,64 @@ namespace WebGLRenderingContextBase
                              -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.frontFace(a b)"
+  %foreign "browser:lambda:(x,a)=>x.frontFace(a)"
   prim__frontFace : WebGLRenderingContextBase -> GLenum -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.generateMipmap(a b)"
+  %foreign "browser:lambda:(x,a)=>x.generateMipmap(a)"
   prim__generateMipmap : WebGLRenderingContextBase -> GLenum -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.getActiveAttrib(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.getActiveAttrib(a b)"
   prim__getActiveAttrib :  WebGLRenderingContextBase
                         -> WebGLProgram
                         -> GLuint
                         -> PrimIO (Nullable WebGLActiveInfo)
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.getActiveUniform(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.getActiveUniform(a b)"
   prim__getActiveUniform :  WebGLRenderingContextBase
                          -> WebGLProgram
                          -> GLuint
                          -> PrimIO (Nullable WebGLActiveInfo)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.getAttachedShaders(a b)"
+  %foreign "browser:lambda:(x,a)=>x.getAttachedShaders(a)"
   prim__getAttachedShaders :  WebGLRenderingContextBase
                            -> WebGLProgram
                            -> PrimIO (Nullable (Array WebGLShader))
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.getAttribLocation(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.getAttribLocation(a b)"
   prim__getAttribLocation :  WebGLRenderingContextBase
                           -> WebGLProgram
                           -> String
                           -> PrimIO GLint
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.getBufferParameter(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.getBufferParameter(a b)"
   prim__getBufferParameter :  WebGLRenderingContextBase
                            -> GLenum
                            -> GLenum
                            -> PrimIO AnyPtr
   
   export
-  %foreign "browser:lambda:(x,a)=>x.getContextAttributes(a)"
+  %foreign "browser:lambda:x=>x.getContextAttributes()"
   prim__getContextAttributes :  WebGLRenderingContextBase
                              -> PrimIO (Nullable WebGLContextAttributes)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.getError(a)"
+  %foreign "browser:lambda:x=>x.getError()"
   prim__getError : WebGLRenderingContextBase -> PrimIO GLenum
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.getExtension(a b)"
+  %foreign "browser:lambda:(x,a)=>x.getExtension(a)"
   prim__getExtension :  WebGLRenderingContextBase
                      -> String
                      -> PrimIO (Nullable Object)
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.getFramebufferAttachmentParameter(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.getFramebufferAttachmentParameter(a b c)"
   prim__getFramebufferAttachmentParameter :  WebGLRenderingContextBase
                                           -> GLenum
                                           -> GLenum
@@ -1649,164 +1649,164 @@ namespace WebGLRenderingContextBase
                                           -> PrimIO AnyPtr
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.getParameter(a b)"
+  %foreign "browser:lambda:(x,a)=>x.getParameter(a)"
   prim__getParameter : WebGLRenderingContextBase -> GLenum -> PrimIO AnyPtr
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.getProgramInfoLog(a b)"
+  %foreign "browser:lambda:(x,a)=>x.getProgramInfoLog(a)"
   prim__getProgramInfoLog :  WebGLRenderingContextBase
                           -> WebGLProgram
                           -> PrimIO (Nullable String)
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.getProgramParameter(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.getProgramParameter(a b)"
   prim__getProgramParameter :  WebGLRenderingContextBase
                             -> WebGLProgram
                             -> GLenum
                             -> PrimIO AnyPtr
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.getRenderbufferParameter(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.getRenderbufferParameter(a b)"
   prim__getRenderbufferParameter :  WebGLRenderingContextBase
                                  -> GLenum
                                  -> GLenum
                                  -> PrimIO AnyPtr
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.getShaderInfoLog(a b)"
+  %foreign "browser:lambda:(x,a)=>x.getShaderInfoLog(a)"
   prim__getShaderInfoLog :  WebGLRenderingContextBase
                          -> WebGLShader
                          -> PrimIO (Nullable String)
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.getShaderParameter(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.getShaderParameter(a b)"
   prim__getShaderParameter :  WebGLRenderingContextBase
                            -> WebGLShader
                            -> GLenum
                            -> PrimIO AnyPtr
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.getShaderPrecisionFormat(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.getShaderPrecisionFormat(a b)"
   prim__getShaderPrecisionFormat :  WebGLRenderingContextBase
                                  -> GLenum
                                  -> GLenum
                                  -> PrimIO (Nullable WebGLShaderPrecisionFormat)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.getShaderSource(a b)"
+  %foreign "browser:lambda:(x,a)=>x.getShaderSource(a)"
   prim__getShaderSource :  WebGLRenderingContextBase
                         -> WebGLShader
                         -> PrimIO (Nullable String)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.getSupportedExtensions(a)"
+  %foreign "browser:lambda:x=>x.getSupportedExtensions()"
   prim__getSupportedExtensions :  WebGLRenderingContextBase
                                -> PrimIO (Nullable (Array String))
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.getTexParameter(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.getTexParameter(a b)"
   prim__getTexParameter :  WebGLRenderingContextBase
                         -> GLenum
                         -> GLenum
                         -> PrimIO AnyPtr
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.getUniformLocation(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.getUniformLocation(a b)"
   prim__getUniformLocation :  WebGLRenderingContextBase
                            -> WebGLProgram
                            -> String
                            -> PrimIO (Nullable WebGLUniformLocation)
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.getUniform(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.getUniform(a b)"
   prim__getUniform :  WebGLRenderingContextBase
                    -> WebGLProgram
                    -> WebGLUniformLocation
                    -> PrimIO AnyPtr
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.getVertexAttribOffset(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.getVertexAttribOffset(a b)"
   prim__getVertexAttribOffset :  WebGLRenderingContextBase
                               -> GLuint
                               -> GLenum
                               -> PrimIO GLintptr
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.getVertexAttrib(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.getVertexAttrib(a b)"
   prim__getVertexAttrib :  WebGLRenderingContextBase
                         -> GLuint
                         -> GLenum
                         -> PrimIO AnyPtr
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.hint(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.hint(a b)"
   prim__hint : WebGLRenderingContextBase -> GLenum -> GLenum -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.isBuffer(a b)"
+  %foreign "browser:lambda:(x,a)=>x.isBuffer(a)"
   prim__isBuffer :  WebGLRenderingContextBase
                  -> Nullable WebGLBuffer
                  -> PrimIO GLboolean
   
   export
-  %foreign "browser:lambda:(x,a)=>x.isContextLost(a)"
+  %foreign "browser:lambda:x=>x.isContextLost()"
   prim__isContextLost : WebGLRenderingContextBase -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.isEnabled(a b)"
+  %foreign "browser:lambda:(x,a)=>x.isEnabled(a)"
   prim__isEnabled : WebGLRenderingContextBase -> GLenum -> PrimIO GLboolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.isFramebuffer(a b)"
+  %foreign "browser:lambda:(x,a)=>x.isFramebuffer(a)"
   prim__isFramebuffer :  WebGLRenderingContextBase
                       -> Nullable WebGLFramebuffer
                       -> PrimIO GLboolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.isProgram(a b)"
+  %foreign "browser:lambda:(x,a)=>x.isProgram(a)"
   prim__isProgram :  WebGLRenderingContextBase
                   -> Nullable WebGLProgram
                   -> PrimIO GLboolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.isRenderbuffer(a b)"
+  %foreign "browser:lambda:(x,a)=>x.isRenderbuffer(a)"
   prim__isRenderbuffer :  WebGLRenderingContextBase
                        -> Nullable WebGLRenderbuffer
                        -> PrimIO GLboolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.isShader(a b)"
+  %foreign "browser:lambda:(x,a)=>x.isShader(a)"
   prim__isShader :  WebGLRenderingContextBase
                  -> Nullable WebGLShader
                  -> PrimIO GLboolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.isTexture(a b)"
+  %foreign "browser:lambda:(x,a)=>x.isTexture(a)"
   prim__isTexture :  WebGLRenderingContextBase
                   -> Nullable WebGLTexture
                   -> PrimIO GLboolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.lineWidth(a b)"
+  %foreign "browser:lambda:(x,a)=>x.lineWidth(a)"
   prim__lineWidth : WebGLRenderingContextBase -> GLfloat -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.linkProgram(a b)"
+  %foreign "browser:lambda:(x,a)=>x.linkProgram(a)"
   prim__linkProgram : WebGLRenderingContextBase -> WebGLProgram -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.pixelStorei(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.pixelStorei(a b)"
   prim__pixelStorei : WebGLRenderingContextBase -> GLenum -> GLint -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.polygonOffset(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.polygonOffset(a b)"
   prim__polygonOffset :  WebGLRenderingContextBase
                       -> GLfloat
                       -> GLfloat
                       -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.renderbufferStorage(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.renderbufferStorage(a b c d)"
   prim__renderbufferStorage :  WebGLRenderingContextBase
                             -> GLenum
                             -> GLenum
@@ -1815,14 +1815,14 @@ namespace WebGLRenderingContextBase
                             -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.sampleCoverage(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.sampleCoverage(a b)"
   prim__sampleCoverage :  WebGLRenderingContextBase
                        -> GLclampf
                        -> GLboolean
                        -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.scissor(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.scissor(a b c d)"
   prim__scissor :  WebGLRenderingContextBase
                 -> GLint
                 -> GLint
@@ -1831,14 +1831,14 @@ namespace WebGLRenderingContextBase
                 -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.shaderSource(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.shaderSource(a b)"
   prim__shaderSource :  WebGLRenderingContextBase
                      -> WebGLShader
                      -> String
                      -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.stencilFuncSeparate(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.stencilFuncSeparate(a b c d)"
   prim__stencilFuncSeparate :  WebGLRenderingContextBase
                             -> GLenum
                             -> GLenum
@@ -1847,7 +1847,7 @@ namespace WebGLRenderingContextBase
                             -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.stencilFunc(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.stencilFunc(a b c)"
   prim__stencilFunc :  WebGLRenderingContextBase
                     -> GLenum
                     -> GLint
@@ -1855,18 +1855,18 @@ namespace WebGLRenderingContextBase
                     -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.stencilMaskSeparate(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.stencilMaskSeparate(a b)"
   prim__stencilMaskSeparate :  WebGLRenderingContextBase
                             -> GLenum
                             -> GLuint
                             -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.stencilMask(a b)"
+  %foreign "browser:lambda:(x,a)=>x.stencilMask(a)"
   prim__stencilMask : WebGLRenderingContextBase -> GLuint -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.stencilOpSeparate(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.stencilOpSeparate(a b c d)"
   prim__stencilOpSeparate :  WebGLRenderingContextBase
                           -> GLenum
                           -> GLenum
@@ -1875,7 +1875,7 @@ namespace WebGLRenderingContextBase
                           -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.stencilOp(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.stencilOp(a b c)"
   prim__stencilOp :  WebGLRenderingContextBase
                   -> GLenum
                   -> GLenum
@@ -1883,7 +1883,7 @@ namespace WebGLRenderingContextBase
                   -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.texParameterf(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.texParameterf(a b c)"
   prim__texParameterf :  WebGLRenderingContextBase
                       -> GLenum
                       -> GLenum
@@ -1891,7 +1891,7 @@ namespace WebGLRenderingContextBase
                       -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.texParameteri(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.texParameteri(a b c)"
   prim__texParameteri :  WebGLRenderingContextBase
                       -> GLenum
                       -> GLenum
@@ -1899,21 +1899,21 @@ namespace WebGLRenderingContextBase
                       -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.uniform1f(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.uniform1f(a b)"
   prim__uniform1f :  WebGLRenderingContextBase
                   -> Nullable WebGLUniformLocation
                   -> GLfloat
                   -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.uniform1i(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.uniform1i(a b)"
   prim__uniform1i :  WebGLRenderingContextBase
                   -> Nullable WebGLUniformLocation
                   -> GLint
                   -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.uniform2f(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.uniform2f(a b c)"
   prim__uniform2f :  WebGLRenderingContextBase
                   -> Nullable WebGLUniformLocation
                   -> GLfloat
@@ -1921,7 +1921,7 @@ namespace WebGLRenderingContextBase
                   -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.uniform2i(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.uniform2i(a b c)"
   prim__uniform2i :  WebGLRenderingContextBase
                   -> Nullable WebGLUniformLocation
                   -> GLint
@@ -1929,7 +1929,7 @@ namespace WebGLRenderingContextBase
                   -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.uniform3f(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.uniform3f(a b c d)"
   prim__uniform3f :  WebGLRenderingContextBase
                   -> Nullable WebGLUniformLocation
                   -> GLfloat
@@ -1938,7 +1938,7 @@ namespace WebGLRenderingContextBase
                   -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.uniform3i(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.uniform3i(a b c d)"
   prim__uniform3i :  WebGLRenderingContextBase
                   -> Nullable WebGLUniformLocation
                   -> GLint
@@ -1947,7 +1947,7 @@ namespace WebGLRenderingContextBase
                   -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.uniform4f(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.uniform4f(a b c d e)"
   prim__uniform4f :  WebGLRenderingContextBase
                   -> Nullable WebGLUniformLocation
                   -> GLfloat
@@ -1957,7 +1957,7 @@ namespace WebGLRenderingContextBase
                   -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.uniform4i(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.uniform4i(a b c d e)"
   prim__uniform4i :  WebGLRenderingContextBase
                   -> Nullable WebGLUniformLocation
                   -> GLint
@@ -1967,31 +1967,31 @@ namespace WebGLRenderingContextBase
                   -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.useProgram(a b)"
+  %foreign "browser:lambda:(x,a)=>x.useProgram(a)"
   prim__useProgram :  WebGLRenderingContextBase
                    -> Nullable WebGLProgram
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.validateProgram(a b)"
+  %foreign "browser:lambda:(x,a)=>x.validateProgram(a)"
   prim__validateProgram : WebGLRenderingContextBase -> WebGLProgram -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.vertexAttrib1f(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.vertexAttrib1f(a b)"
   prim__vertexAttrib1f :  WebGLRenderingContextBase
                        -> GLuint
                        -> GLfloat
                        -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.vertexAttrib1fv(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.vertexAttrib1fv(a b)"
   prim__vertexAttrib1fv :  WebGLRenderingContextBase
                         -> GLuint
                         -> Float32List
                         -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.vertexAttrib2f(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.vertexAttrib2f(a b c)"
   prim__vertexAttrib2f :  WebGLRenderingContextBase
                        -> GLuint
                        -> GLfloat
@@ -1999,14 +1999,14 @@ namespace WebGLRenderingContextBase
                        -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.vertexAttrib2fv(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.vertexAttrib2fv(a b)"
   prim__vertexAttrib2fv :  WebGLRenderingContextBase
                         -> GLuint
                         -> Float32List
                         -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.vertexAttrib3f(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.vertexAttrib3f(a b c d)"
   prim__vertexAttrib3f :  WebGLRenderingContextBase
                        -> GLuint
                        -> GLfloat
@@ -2015,14 +2015,14 @@ namespace WebGLRenderingContextBase
                        -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.vertexAttrib3fv(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.vertexAttrib3fv(a b)"
   prim__vertexAttrib3fv :  WebGLRenderingContextBase
                         -> GLuint
                         -> Float32List
                         -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.vertexAttrib4f(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.vertexAttrib4f(a b c d e)"
   prim__vertexAttrib4f :  WebGLRenderingContextBase
                        -> GLuint
                        -> GLfloat
@@ -2032,14 +2032,14 @@ namespace WebGLRenderingContextBase
                        -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.vertexAttrib4fv(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.vertexAttrib4fv(a b)"
   prim__vertexAttrib4fv :  WebGLRenderingContextBase
                         -> GLuint
                         -> Float32List
                         -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g)=>x.vertexAttribPointer(a b c d e f g)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.vertexAttribPointer(a b c d e f)"
   prim__vertexAttribPointer :  WebGLRenderingContextBase
                             -> GLuint
                             -> GLint
@@ -2050,7 +2050,7 @@ namespace WebGLRenderingContextBase
                             -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.viewport(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.viewport(a b c d)"
   prim__viewport :  WebGLRenderingContextBase
                  -> GLint
                  -> GLint
@@ -2061,7 +2061,7 @@ namespace WebGLRenderingContextBase
 namespace WebGLRenderingContextOverloads
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.bufferData(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.bufferData(a b c)"
   prim__bufferData :  WebGLRenderingContextOverloads
                    -> GLenum
                    -> GLsizeiptr
@@ -2069,7 +2069,7 @@ namespace WebGLRenderingContextOverloads
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.bufferData(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.bufferData(a b c)"
   prim__bufferData1 :  WebGLRenderingContextOverloads
                     -> GLenum
                     -> Nullable BufferSource
@@ -2077,7 +2077,7 @@ namespace WebGLRenderingContextOverloads
                     -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.bufferSubData(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.bufferSubData(a b c)"
   prim__bufferSubData :  WebGLRenderingContextOverloads
                       -> GLenum
                       -> GLintptr
@@ -2085,7 +2085,7 @@ namespace WebGLRenderingContextOverloads
                       -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h)=>x.compressedTexImage2D(a b c d e f g h)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g)=>x.compressedTexImage2D(a b c d e f g)"
   prim__compressedTexImage2D :  WebGLRenderingContextOverloads
                              -> GLenum
                              -> GLint
@@ -2097,7 +2097,7 @@ namespace WebGLRenderingContextOverloads
                              -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i)=>x.compressedTexSubImage2D(a b c d e f g h i)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h)=>x.compressedTexSubImage2D(a b c d e f g h)"
   prim__compressedTexSubImage2D :  WebGLRenderingContextOverloads
                                 -> GLenum
                                 -> GLint
@@ -2110,7 +2110,7 @@ namespace WebGLRenderingContextOverloads
                                 -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h)=>x.readPixels(a b c d e f g h)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g)=>x.readPixels(a b c d e f g)"
   prim__readPixels :  WebGLRenderingContextOverloads
                    -> GLint
                    -> GLint
@@ -2122,7 +2122,7 @@ namespace WebGLRenderingContextOverloads
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j)=>x.texImage2D(a b c d e f g h i j)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i)=>x.texImage2D(a b c d e f g h i)"
   prim__texImage2D :  WebGLRenderingContextOverloads
                    -> GLenum
                    -> GLint
@@ -2136,7 +2136,7 @@ namespace WebGLRenderingContextOverloads
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g)=>x.texImage2D(a b c d e f g)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.texImage2D(a b c d e f)"
   prim__texImage2D1 :  WebGLRenderingContextOverloads
                     -> GLenum
                     -> GLint
@@ -2147,7 +2147,7 @@ namespace WebGLRenderingContextOverloads
                     -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j)=>x.texSubImage2D(a b c d e f g h i j)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i)=>x.texSubImage2D(a b c d e f g h i)"
   prim__texSubImage2D :  WebGLRenderingContextOverloads
                       -> GLenum
                       -> GLint
@@ -2161,7 +2161,7 @@ namespace WebGLRenderingContextOverloads
                       -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h)=>x.texSubImage2D(a b c d e f g h)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g)=>x.texSubImage2D(a b c d e f g)"
   prim__texSubImage2D1 :  WebGLRenderingContextOverloads
                        -> GLenum
                        -> GLint
@@ -2173,63 +2173,63 @@ namespace WebGLRenderingContextOverloads
                        -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.uniform1fv(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.uniform1fv(a b)"
   prim__uniform1fv :  WebGLRenderingContextOverloads
                    -> Nullable WebGLUniformLocation
                    -> Float32List
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.uniform1iv(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.uniform1iv(a b)"
   prim__uniform1iv :  WebGLRenderingContextOverloads
                    -> Nullable WebGLUniformLocation
                    -> Int32List
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.uniform2fv(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.uniform2fv(a b)"
   prim__uniform2fv :  WebGLRenderingContextOverloads
                    -> Nullable WebGLUniformLocation
                    -> Float32List
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.uniform2iv(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.uniform2iv(a b)"
   prim__uniform2iv :  WebGLRenderingContextOverloads
                    -> Nullable WebGLUniformLocation
                    -> Int32List
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.uniform3fv(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.uniform3fv(a b)"
   prim__uniform3fv :  WebGLRenderingContextOverloads
                    -> Nullable WebGLUniformLocation
                    -> Float32List
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.uniform3iv(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.uniform3iv(a b)"
   prim__uniform3iv :  WebGLRenderingContextOverloads
                    -> Nullable WebGLUniformLocation
                    -> Int32List
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.uniform4fv(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.uniform4fv(a b)"
   prim__uniform4fv :  WebGLRenderingContextOverloads
                    -> Nullable WebGLUniformLocation
                    -> Float32List
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.uniform4iv(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.uniform4iv(a b)"
   prim__uniform4iv :  WebGLRenderingContextOverloads
                    -> Nullable WebGLUniformLocation
                    -> Int32List
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.uniformMatrix2fv(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.uniformMatrix2fv(a b c)"
   prim__uniformMatrix2fv :  WebGLRenderingContextOverloads
                          -> Nullable WebGLUniformLocation
                          -> GLboolean
@@ -2237,7 +2237,7 @@ namespace WebGLRenderingContextOverloads
                          -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.uniformMatrix3fv(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.uniformMatrix3fv(a b c)"
   prim__uniformMatrix3fv :  WebGLRenderingContextOverloads
                          -> Nullable WebGLUniformLocation
                          -> GLboolean
@@ -2245,7 +2245,7 @@ namespace WebGLRenderingContextOverloads
                          -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.uniformMatrix4fv(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.uniformMatrix4fv(a b c)"
   prim__uniformMatrix4fv :  WebGLRenderingContextOverloads
                          -> Nullable WebGLUniformLocation
                          -> GLboolean

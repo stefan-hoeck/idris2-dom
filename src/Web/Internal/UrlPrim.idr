@@ -51,6 +51,14 @@ namespace URL
   prim__setHostname : URL -> String -> PrimIO ()
   
   export
+  %foreign "browser:lambda:x=>x.href"
+  prim__href : URL -> PrimIO String
+  
+  export
+  %foreign "browser:lambda:(x,v)=>{x.href = v}"
+  prim__setHref : URL -> String -> PrimIO ()
+  
+  export
   %foreign "browser:lambda:x=>x.origin"
   prim__origin : URL -> PrimIO String
   
@@ -107,7 +115,7 @@ namespace URL
   prim__setUsername : URL -> String -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.toJSON(a)"
+  %foreign "browser:lambda:x=>x.toJSON()"
   prim__toJSON : URL -> PrimIO String
 
 namespace URLSearchParams
@@ -120,30 +128,34 @@ namespace URLSearchParams
             -> PrimIO URLSearchParams
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.append(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.append(a b)"
   prim__append : URLSearchParams -> String -> String -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.delete(a b)"
+  %foreign "browser:lambda:(x,a)=>x.delete(a)"
   prim__delete : URLSearchParams -> String -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.getAll(a b)"
+  %foreign "browser:lambda:(x,a)=>x.getAll(a)"
   prim__getAll : URLSearchParams -> String -> PrimIO (Array String)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.get(a b)"
+  %foreign "browser:lambda:(x,a)=>x.get(a)"
   prim__get : URLSearchParams -> String -> PrimIO (Nullable String)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.has(a b)"
+  %foreign "browser:lambda:(x,a)=>x.has(a)"
   prim__has : URLSearchParams -> String -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.set(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.set(a b)"
   prim__set : URLSearchParams -> String -> String -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.sort(a)"
+  %foreign "browser:lambda:x=>x.sort()"
   prim__sort : URLSearchParams -> PrimIO ()
+  
+  export
+  %foreign "browser:lambda:x=>x.toString()"
+  prim__toString : URLSearchParams -> PrimIO String
 

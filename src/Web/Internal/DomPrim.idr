@@ -19,7 +19,7 @@ namespace AbortController
   prim__signal : AbortController -> PrimIO AbortSignal
   
   export
-  %foreign "browser:lambda:(x,a)=>x.abort(a)"
+  %foreign "browser:lambda:x=>x.abort()"
   prim__abort : AbortController -> PrimIO ()
 
 namespace AbortSignal
@@ -112,23 +112,23 @@ namespace CharacterData
   prim__length : CharacterData -> PrimIO UInt32
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.appendData(a b)"
+  %foreign "browser:lambda:(x,a)=>x.appendData(a)"
   prim__appendData : CharacterData -> String -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.deleteData(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.deleteData(a b)"
   prim__deleteData : CharacterData -> UInt32 -> UInt32 -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.insertData(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.insertData(a b)"
   prim__insertData : CharacterData -> UInt32 -> String -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.replaceData(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.replaceData(a b c)"
   prim__replaceData : CharacterData -> UInt32 -> UInt32 -> String -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.substringData(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.substringData(a b)"
   prim__substringData : CharacterData -> UInt32 -> UInt32 -> PrimIO String
 
 namespace Comment
@@ -148,7 +148,7 @@ namespace CustomEvent
   prim__detail : CustomEvent -> PrimIO AnyPtr
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.initCustomEvent(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.initCustomEvent(a b c d)"
   prim__initCustomEvent :  CustomEvent
                         -> String
                         -> UndefOr Boolean
@@ -159,7 +159,7 @@ namespace CustomEvent
 namespace DOMImplementation
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.createDocument(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.createDocument(a b c)"
   prim__createDocument :  DOMImplementation
                        -> Nullable String
                        -> String
@@ -167,7 +167,7 @@ namespace DOMImplementation
                        -> PrimIO XMLDocument
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.createDocumentType(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.createDocumentType(a b c)"
   prim__createDocumentType :  DOMImplementation
                            -> String
                            -> String
@@ -175,13 +175,13 @@ namespace DOMImplementation
                            -> PrimIO DocumentType
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.createHTMLDocument(a b)"
+  %foreign "browser:lambda:(x,a)=>x.createHTMLDocument(a)"
   prim__createHTMLDocument :  DOMImplementation
                            -> UndefOr String
                            -> PrimIO Document
   
   export
-  %foreign "browser:lambda:(x,a)=>x.hasFeature(a)"
+  %foreign "browser:lambda:x=>x.hasFeature()"
   prim__hasFeature : DOMImplementation -> PrimIO Boolean
 
 namespace DOMTokenList
@@ -191,31 +191,39 @@ namespace DOMTokenList
   prim__length : DOMTokenList -> PrimIO UInt32
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.add(a b)"
+  %foreign "browser:lambda:x=>x.value"
+  prim__value : DOMTokenList -> PrimIO String
+  
+  export
+  %foreign "browser:lambda:(x,v)=>{x.value = v}"
+  prim__setValue : DOMTokenList -> String -> PrimIO ()
+  
+  export
+  %foreign "browser:lambda:(x,a)=>x.add(a)"
   prim__add : DOMTokenList -> VarArg String -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.contains(a b)"
+  %foreign "browser:lambda:(x,a)=>x.contains(a)"
   prim__contains : DOMTokenList -> String -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.item(a b)"
+  %foreign "browser:lambda:(x,a)=>x.item(a)"
   prim__item : DOMTokenList -> UInt32 -> PrimIO (Nullable String)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.remove(a b)"
+  %foreign "browser:lambda:(x,a)=>x.remove(a)"
   prim__remove : DOMTokenList -> VarArg String -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.replace(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.replace(a b)"
   prim__replace : DOMTokenList -> String -> String -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.supports(a b)"
+  %foreign "browser:lambda:(x,a)=>x.supports(a)"
   prim__supports : DOMTokenList -> String -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.toggle(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.toggle(a b)"
   prim__toggle : DOMTokenList -> String -> UndefOr Boolean -> PrimIO Boolean
 
 namespace Document
@@ -453,50 +461,50 @@ namespace Document
   prim__setVlinkColor : Document -> String -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.adoptNode(a b)"
+  %foreign "browser:lambda:(x,a)=>x.adoptNode(a)"
   prim__adoptNode : Document -> Node -> PrimIO Node
   
   export
-  %foreign "browser:lambda:(x,a)=>x.captureEvents(a)"
+  %foreign "browser:lambda:x=>x.captureEvents()"
   prim__captureEvents : Document -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.clear(a)"
+  %foreign "browser:lambda:x=>x.clear()"
   prim__clear : Document -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.close(a)"
+  %foreign "browser:lambda:x=>x.close()"
   prim__close : Document -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.createAttribute(a b)"
+  %foreign "browser:lambda:(x,a)=>x.createAttribute(a)"
   prim__createAttribute : Document -> String -> PrimIO Attr
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.createAttributeNS(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.createAttributeNS(a b)"
   prim__createAttributeNS : Document -> Nullable String -> String -> PrimIO Attr
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.createCDATASection(a b)"
+  %foreign "browser:lambda:(x,a)=>x.createCDATASection(a)"
   prim__createCDATASection : Document -> String -> PrimIO CDATASection
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.createComment(a b)"
+  %foreign "browser:lambda:(x,a)=>x.createComment(a)"
   prim__createComment : Document -> String -> PrimIO Comment
   
   export
-  %foreign "browser:lambda:(x,a)=>x.createDocumentFragment(a)"
+  %foreign "browser:lambda:x=>x.createDocumentFragment()"
   prim__createDocumentFragment : Document -> PrimIO DocumentFragment
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.createElement(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.createElement(a b)"
   prim__createElement :  Document
                       -> String
                       -> UndefOr (Union2 String ElementCreationOptions)
                       -> PrimIO Element
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.createElementNS(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.createElementNS(a b c)"
   prim__createElementNS :  Document
                         -> Nullable String
                         -> String
@@ -504,11 +512,11 @@ namespace Document
                         -> PrimIO Element
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.createEvent(a b)"
+  %foreign "browser:lambda:(x,a)=>x.createEvent(a)"
   prim__createEvent : Document -> String -> PrimIO Event
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.createNodeIterator(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.createNodeIterator(a b c)"
   prim__createNodeIterator :  Document
                            -> Node
                            -> UndefOr UInt32
@@ -516,22 +524,22 @@ namespace Document
                            -> PrimIO NodeIterator
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.createProcessingInstruction(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.createProcessingInstruction(a b)"
   prim__createProcessingInstruction :  Document
                                     -> String
                                     -> String
                                     -> PrimIO ProcessingInstruction
   
   export
-  %foreign "browser:lambda:(x,a)=>x.createRange(a)"
+  %foreign "browser:lambda:x=>x.createRange()"
   prim__createRange : Document -> PrimIO Range
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.createTextNode(a b)"
+  %foreign "browser:lambda:(x,a)=>x.createTextNode(a)"
   prim__createTextNode : Document -> String -> PrimIO Text
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.createTreeWalker(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.createTreeWalker(a b c)"
   prim__createTreeWalker :  Document
                          -> Node
                          -> UndefOr UInt32
@@ -539,7 +547,7 @@ namespace Document
                          -> PrimIO TreeWalker
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.execCommand(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.execCommand(a b c)"
   prim__execCommand :  Document
                     -> String
                     -> UndefOr Boolean
@@ -547,42 +555,42 @@ namespace Document
                     -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a)=>x.getAnimations(a)"
+  %foreign "browser:lambda:x=>x.getAnimations()"
   prim__getAnimations : Document -> PrimIO (Array Animation)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.getElementsByClassName(a b)"
+  %foreign "browser:lambda:(x,a)=>x.getElementsByClassName(a)"
   prim__getElementsByClassName : Document -> String -> PrimIO HTMLCollection
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.getElementsByName(a b)"
+  %foreign "browser:lambda:(x,a)=>x.getElementsByName(a)"
   prim__getElementsByName : Document -> String -> PrimIO NodeList
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.getElementsByTagName(a b)"
+  %foreign "browser:lambda:(x,a)=>x.getElementsByTagName(a)"
   prim__getElementsByTagName : Document -> String -> PrimIO HTMLCollection
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.getElementsByTagNameNS(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.getElementsByTagNameNS(a b)"
   prim__getElementsByTagNameNS :  Document
                                -> Nullable String
                                -> String
                                -> PrimIO HTMLCollection
   
   export
-  %foreign "browser:lambda:(x,a)=>x.hasFocus(a)"
+  %foreign "browser:lambda:x=>x.hasFocus()"
   prim__hasFocus : Document -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.importNode(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.importNode(a b)"
   prim__importNode : Document -> Node -> UndefOr Boolean -> PrimIO Node
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.open(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.open(a b)"
   prim__open : Document -> UndefOr String -> UndefOr String -> PrimIO Document
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.open(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.open(a b c)"
   prim__open1 :  Document
               -> String
               -> String
@@ -590,35 +598,35 @@ namespace Document
               -> PrimIO (Nullable WindowProxy)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.queryCommandEnabled(a b)"
+  %foreign "browser:lambda:(x,a)=>x.queryCommandEnabled(a)"
   prim__queryCommandEnabled : Document -> String -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.queryCommandIndeterm(a b)"
+  %foreign "browser:lambda:(x,a)=>x.queryCommandIndeterm(a)"
   prim__queryCommandIndeterm : Document -> String -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.queryCommandState(a b)"
+  %foreign "browser:lambda:(x,a)=>x.queryCommandState(a)"
   prim__queryCommandState : Document -> String -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.queryCommandSupported(a b)"
+  %foreign "browser:lambda:(x,a)=>x.queryCommandSupported(a)"
   prim__queryCommandSupported : Document -> String -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.queryCommandValue(a b)"
+  %foreign "browser:lambda:(x,a)=>x.queryCommandValue(a)"
   prim__queryCommandValue : Document -> String -> PrimIO String
   
   export
-  %foreign "browser:lambda:(x,a)=>x.releaseEvents(a)"
+  %foreign "browser:lambda:x=>x.releaseEvents()"
   prim__releaseEvents : Document -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.write(a b)"
+  %foreign "browser:lambda:(x,a)=>x.write(a)"
   prim__write : Document -> VarArg String -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.writeln(a b)"
+  %foreign "browser:lambda:(x,a)=>x.writeln(a)"
   prim__writeln : Document -> VarArg String -> PrimIO ()
 
 namespace DocumentFragment
@@ -696,103 +704,103 @@ namespace Element
   prim__tagName : Element -> PrimIO String
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.attachShadow(a b)"
+  %foreign "browser:lambda:(x,a)=>x.attachShadow(a)"
   prim__attachShadow : Element -> ShadowRootInit -> PrimIO ShadowRoot
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.closest(a b)"
+  %foreign "browser:lambda:(x,a)=>x.closest(a)"
   prim__closest : Element -> String -> PrimIO (Nullable Element)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.getAttribute(a b)"
+  %foreign "browser:lambda:(x,a)=>x.getAttribute(a)"
   prim__getAttribute : Element -> String -> PrimIO (Nullable String)
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.getAttributeNS(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.getAttributeNS(a b)"
   prim__getAttributeNS :  Element
                        -> Nullable String
                        -> String
                        -> PrimIO (Nullable String)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.getAttributeNames(a)"
+  %foreign "browser:lambda:x=>x.getAttributeNames()"
   prim__getAttributeNames : Element -> PrimIO (Array String)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.getAttributeNode(a b)"
+  %foreign "browser:lambda:(x,a)=>x.getAttributeNode(a)"
   prim__getAttributeNode : Element -> String -> PrimIO (Nullable Attr)
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.getAttributeNodeNS(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.getAttributeNodeNS(a b)"
   prim__getAttributeNodeNS :  Element
                            -> Nullable String
                            -> String
                            -> PrimIO (Nullable Attr)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.getElementsByClassName(a b)"
+  %foreign "browser:lambda:(x,a)=>x.getElementsByClassName(a)"
   prim__getElementsByClassName : Element -> String -> PrimIO HTMLCollection
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.getElementsByTagName(a b)"
+  %foreign "browser:lambda:(x,a)=>x.getElementsByTagName(a)"
   prim__getElementsByTagName : Element -> String -> PrimIO HTMLCollection
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.getElementsByTagNameNS(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.getElementsByTagNameNS(a b)"
   prim__getElementsByTagNameNS :  Element
                                -> Nullable String
                                -> String
                                -> PrimIO HTMLCollection
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.hasAttribute(a b)"
+  %foreign "browser:lambda:(x,a)=>x.hasAttribute(a)"
   prim__hasAttribute : Element -> String -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.hasAttributeNS(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.hasAttributeNS(a b)"
   prim__hasAttributeNS : Element -> Nullable String -> String -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a)=>x.hasAttributes(a)"
+  %foreign "browser:lambda:x=>x.hasAttributes()"
   prim__hasAttributes : Element -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.insertAdjacentElement(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.insertAdjacentElement(a b)"
   prim__insertAdjacentElement :  Element
                               -> String
                               -> Element
                               -> PrimIO (Nullable Element)
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.insertAdjacentText(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.insertAdjacentText(a b)"
   prim__insertAdjacentText : Element -> String -> String -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.matches(a b)"
+  %foreign "browser:lambda:(x,a)=>x.matches(a)"
   prim__matches : Element -> String -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.pseudo(a b)"
+  %foreign "browser:lambda:(x,a)=>x.pseudo(a)"
   prim__pseudo : Element -> CSSOMString -> PrimIO (Nullable CSSPseudoElement)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.removeAttribute(a b)"
+  %foreign "browser:lambda:(x,a)=>x.removeAttribute(a)"
   prim__removeAttribute : Element -> String -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.removeAttributeNS(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.removeAttributeNS(a b)"
   prim__removeAttributeNS : Element -> Nullable String -> String -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.removeAttributeNode(a b)"
+  %foreign "browser:lambda:(x,a)=>x.removeAttributeNode(a)"
   prim__removeAttributeNode : Element -> Attr -> PrimIO Attr
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.setAttribute(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.setAttribute(a b)"
   prim__setAttribute : Element -> String -> String -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.setAttributeNS(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.setAttributeNS(a b c)"
   prim__setAttributeNS :  Element
                        -> Nullable String
                        -> String
@@ -800,19 +808,19 @@ namespace Element
                        -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.setAttributeNode(a b)"
+  %foreign "browser:lambda:(x,a)=>x.setAttributeNode(a)"
   prim__setAttributeNode : Element -> Attr -> PrimIO (Nullable Attr)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.setAttributeNodeNS(a b)"
+  %foreign "browser:lambda:(x,a)=>x.setAttributeNodeNS(a)"
   prim__setAttributeNodeNS : Element -> Attr -> PrimIO (Nullable Attr)
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.toggleAttribute(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.toggleAttribute(a b)"
   prim__toggleAttribute : Element -> String -> UndefOr Boolean -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.webkitMatchesSelector(a b)"
+  %foreign "browser:lambda:(x,a)=>x.webkitMatchesSelector(a)"
   prim__webkitMatchesSelector : Element -> String -> PrimIO Boolean
 
 namespace Event
@@ -882,11 +890,11 @@ namespace Event
   prim__type : Event -> PrimIO String
   
   export
-  %foreign "browser:lambda:(x,a)=>x.composedPath(a)"
+  %foreign "browser:lambda:x=>x.composedPath()"
   prim__composedPath : Event -> PrimIO (Array EventTarget)
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.initEvent(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.initEvent(a b c)"
   prim__initEvent :  Event
                   -> String
                   -> UndefOr Boolean
@@ -894,15 +902,15 @@ namespace Event
                   -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.preventDefault(a)"
+  %foreign "browser:lambda:x=>x.preventDefault()"
   prim__preventDefault : Event -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.stopImmediatePropagation(a)"
+  %foreign "browser:lambda:x=>x.stopImmediatePropagation()"
   prim__stopImmediatePropagation : Event -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.stopPropagation(a)"
+  %foreign "browser:lambda:x=>x.stopPropagation()"
   prim__stopPropagation : Event -> PrimIO ()
 
 namespace EventTarget
@@ -912,7 +920,7 @@ namespace EventTarget
   prim__new : PrimIO EventTarget
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.addEventListener(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.addEventListener(a b c)"
   prim__addEventListener :  EventTarget
                          -> String
                          -> Nullable EventListener
@@ -920,11 +928,11 @@ namespace EventTarget
                          -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.dispatchEvent(a b)"
+  %foreign "browser:lambda:(x,a)=>x.dispatchEvent(a)"
   prim__dispatchEvent : EventTarget -> Event -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.removeEventListener(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.removeEventListener(a b c)"
   prim__removeEventListener :  EventTarget
                             -> String
                             -> Nullable EventListener
@@ -938,11 +946,11 @@ namespace HTMLCollection
   prim__length : HTMLCollection -> PrimIO UInt32
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.item(a b)"
+  %foreign "browser:lambda:(x,a)=>x.item(a)"
   prim__item : HTMLCollection -> UInt32 -> PrimIO (Nullable Element)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.namedItem(a b)"
+  %foreign "browser:lambda:(x,a)=>x.namedItem(a)"
   prim__namedItem : HTMLCollection -> String -> PrimIO (Nullable Element)
 
 namespace MutationObserver
@@ -952,18 +960,18 @@ namespace MutationObserver
   prim__new : MutationCallback -> PrimIO MutationObserver
   
   export
-  %foreign "browser:lambda:(x,a)=>x.disconnect(a)"
+  %foreign "browser:lambda:x=>x.disconnect()"
   prim__disconnect : MutationObserver -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.observe(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.observe(a b)"
   prim__observe :  MutationObserver
                 -> Node
                 -> UndefOr MutationObserverInit
                 -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.takeRecords(a)"
+  %foreign "browser:lambda:x=>x.takeRecords()"
   prim__takeRecords : MutationObserver -> PrimIO (Array MutationRecord)
 
 namespace MutationRecord
@@ -1011,37 +1019,37 @@ namespace NamedNodeMap
   prim__length : NamedNodeMap -> PrimIO UInt32
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.getNamedItemNS(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.getNamedItemNS(a b)"
   prim__getNamedItemNS :  NamedNodeMap
                        -> Nullable String
                        -> String
                        -> PrimIO (Nullable Attr)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.getNamedItem(a b)"
+  %foreign "browser:lambda:(x,a)=>x.getNamedItem(a)"
   prim__getNamedItem : NamedNodeMap -> String -> PrimIO (Nullable Attr)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.item(a b)"
+  %foreign "browser:lambda:(x,a)=>x.item(a)"
   prim__item : NamedNodeMap -> UInt32 -> PrimIO (Nullable Attr)
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.removeNamedItemNS(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.removeNamedItemNS(a b)"
   prim__removeNamedItemNS :  NamedNodeMap
                           -> Nullable String
                           -> String
                           -> PrimIO Attr
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.removeNamedItem(a b)"
+  %foreign "browser:lambda:(x,a)=>x.removeNamedItem(a)"
   prim__removeNamedItem : NamedNodeMap -> String -> PrimIO Attr
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.setNamedItemNS(a b)"
+  %foreign "browser:lambda:(x,a)=>x.setNamedItemNS(a)"
   prim__setNamedItemNS : NamedNodeMap -> Attr -> PrimIO (Nullable Attr)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.setNamedItem(a b)"
+  %foreign "browser:lambda:(x,a)=>x.setNamedItem(a)"
   prim__setNamedItem : NamedNodeMap -> Attr -> PrimIO (Nullable Attr)
 
 namespace Node
@@ -1111,63 +1119,63 @@ namespace Node
   prim__setTextContent : Node -> Nullable String -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.appendChild(a b)"
+  %foreign "browser:lambda:(x,a)=>x.appendChild(a)"
   prim__appendChild : Node -> Node -> PrimIO Node
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.cloneNode(a b)"
+  %foreign "browser:lambda:(x,a)=>x.cloneNode(a)"
   prim__cloneNode : Node -> UndefOr Boolean -> PrimIO Node
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.compareDocumentPosition(a b)"
+  %foreign "browser:lambda:(x,a)=>x.compareDocumentPosition(a)"
   prim__compareDocumentPosition : Node -> Node -> PrimIO UInt16
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.contains(a b)"
+  %foreign "browser:lambda:(x,a)=>x.contains(a)"
   prim__contains : Node -> Nullable Node -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.getRootNode(a b)"
+  %foreign "browser:lambda:(x,a)=>x.getRootNode(a)"
   prim__getRootNode : Node -> UndefOr GetRootNodeOptions -> PrimIO Node
   
   export
-  %foreign "browser:lambda:(x,a)=>x.hasChildNodes(a)"
+  %foreign "browser:lambda:x=>x.hasChildNodes()"
   prim__hasChildNodes : Node -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.insertBefore(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.insertBefore(a b)"
   prim__insertBefore : Node -> Node -> Nullable Node -> PrimIO Node
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.isDefaultNamespace(a b)"
+  %foreign "browser:lambda:(x,a)=>x.isDefaultNamespace(a)"
   prim__isDefaultNamespace : Node -> Nullable String -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.isEqualNode(a b)"
+  %foreign "browser:lambda:(x,a)=>x.isEqualNode(a)"
   prim__isEqualNode : Node -> Nullable Node -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.isSameNode(a b)"
+  %foreign "browser:lambda:(x,a)=>x.isSameNode(a)"
   prim__isSameNode : Node -> Nullable Node -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.lookupNamespaceURI(a b)"
+  %foreign "browser:lambda:(x,a)=>x.lookupNamespaceURI(a)"
   prim__lookupNamespaceURI : Node -> Nullable String -> PrimIO (Nullable String)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.lookupPrefix(a b)"
+  %foreign "browser:lambda:(x,a)=>x.lookupPrefix(a)"
   prim__lookupPrefix : Node -> Nullable String -> PrimIO (Nullable String)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.normalize(a)"
+  %foreign "browser:lambda:x=>x.normalize()"
   prim__normalize : Node -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.removeChild(a b)"
+  %foreign "browser:lambda:(x,a)=>x.removeChild(a)"
   prim__removeChild : Node -> Node -> PrimIO Node
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.replaceChild(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.replaceChild(a b)"
   prim__replaceChild : Node -> Node -> Node -> PrimIO Node
 
 namespace NodeIterator
@@ -1193,15 +1201,15 @@ namespace NodeIterator
   prim__whatToShow : NodeIterator -> PrimIO UInt32
   
   export
-  %foreign "browser:lambda:(x,a)=>x.detach(a)"
+  %foreign "browser:lambda:x=>x.detach()"
   prim__detach : NodeIterator -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.nextNode(a)"
+  %foreign "browser:lambda:x=>x.nextNode()"
   prim__nextNode : NodeIterator -> PrimIO (Nullable Node)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.previousNode(a)"
+  %foreign "browser:lambda:x=>x.previousNode()"
   prim__previousNode : NodeIterator -> PrimIO (Nullable Node)
 
 namespace NodeList
@@ -1211,7 +1219,7 @@ namespace NodeList
   prim__length : NodeList -> PrimIO UInt32
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.item(a b)"
+  %foreign "browser:lambda:(x,a)=>x.item(a)"
   prim__item : NodeList -> UInt32 -> PrimIO (Nullable Node)
 
 namespace Performance
@@ -1221,11 +1229,11 @@ namespace Performance
   prim__timeOrigin : Performance -> PrimIO DOMHighResTimeStamp
   
   export
-  %foreign "browser:lambda:(x,a)=>x.now(a)"
+  %foreign "browser:lambda:x=>x.now()"
   prim__now : Performance -> PrimIO DOMHighResTimeStamp
   
   export
-  %foreign "browser:lambda:(x,a)=>x.toJSON(a)"
+  %foreign "browser:lambda:x=>x.toJSON()"
   prim__toJSON : Performance -> PrimIO Object
 
 namespace ProcessingInstruction
@@ -1245,84 +1253,88 @@ namespace Range
   prim__commonAncestorContainer : Range -> PrimIO Node
   
   export
-  %foreign "browser:lambda:(x,a)=>x.cloneContents(a)"
+  %foreign "browser:lambda:x=>x.cloneContents()"
   prim__cloneContents : Range -> PrimIO DocumentFragment
   
   export
-  %foreign "browser:lambda:(x,a)=>x.cloneRange(a)"
+  %foreign "browser:lambda:x=>x.cloneRange()"
   prim__cloneRange : Range -> PrimIO Range
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.collapse(a b)"
+  %foreign "browser:lambda:(x,a)=>x.collapse(a)"
   prim__collapse : Range -> UndefOr Boolean -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.compareBoundaryPoints(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.compareBoundaryPoints(a b)"
   prim__compareBoundaryPoints : Range -> UInt16 -> Range -> PrimIO Int16
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.comparePoint(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.comparePoint(a b)"
   prim__comparePoint : Range -> Node -> UInt32 -> PrimIO Int16
   
   export
-  %foreign "browser:lambda:(x,a)=>x.deleteContents(a)"
+  %foreign "browser:lambda:x=>x.deleteContents()"
   prim__deleteContents : Range -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.detach(a)"
+  %foreign "browser:lambda:x=>x.detach()"
   prim__detach : Range -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.extractContents(a)"
+  %foreign "browser:lambda:x=>x.extractContents()"
   prim__extractContents : Range -> PrimIO DocumentFragment
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.insertNode(a b)"
+  %foreign "browser:lambda:(x,a)=>x.insertNode(a)"
   prim__insertNode : Range -> Node -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.intersectsNode(a b)"
+  %foreign "browser:lambda:(x,a)=>x.intersectsNode(a)"
   prim__intersectsNode : Range -> Node -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.isPointInRange(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.isPointInRange(a b)"
   prim__isPointInRange : Range -> Node -> UInt32 -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.selectNodeContents(a b)"
+  %foreign "browser:lambda:(x,a)=>x.selectNodeContents(a)"
   prim__selectNodeContents : Range -> Node -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.selectNode(a b)"
+  %foreign "browser:lambda:(x,a)=>x.selectNode(a)"
   prim__selectNode : Range -> Node -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.setEndAfter(a b)"
+  %foreign "browser:lambda:(x,a)=>x.setEndAfter(a)"
   prim__setEndAfter : Range -> Node -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.setEndBefore(a b)"
+  %foreign "browser:lambda:(x,a)=>x.setEndBefore(a)"
   prim__setEndBefore : Range -> Node -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.setEnd(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.setEnd(a b)"
   prim__setEnd : Range -> Node -> UInt32 -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.setStartAfter(a b)"
+  %foreign "browser:lambda:(x,a)=>x.setStartAfter(a)"
   prim__setStartAfter : Range -> Node -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.setStartBefore(a b)"
+  %foreign "browser:lambda:(x,a)=>x.setStartBefore(a)"
   prim__setStartBefore : Range -> Node -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.setStart(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.setStart(a b)"
   prim__setStart : Range -> Node -> UInt32 -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.surroundContents(a b)"
+  %foreign "browser:lambda:(x,a)=>x.surroundContents(a)"
   prim__surroundContents : Range -> Node -> PrimIO ()
+  
+  export
+  %foreign "browser:lambda:x=>x.toString()"
+  prim__toString : Range -> PrimIO String
 
 namespace ShadowRoot
   
@@ -1359,7 +1371,7 @@ namespace Text
   prim__wholeText : Text -> PrimIO String
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.splitText(a b)"
+  %foreign "browser:lambda:(x,a)=>x.splitText(a)"
   prim__splitText : Text -> UInt32 -> PrimIO Text
 
 namespace TreeWalker
@@ -1385,31 +1397,31 @@ namespace TreeWalker
   prim__whatToShow : TreeWalker -> PrimIO UInt32
   
   export
-  %foreign "browser:lambda:(x,a)=>x.firstChild(a)"
+  %foreign "browser:lambda:x=>x.firstChild()"
   prim__firstChild : TreeWalker -> PrimIO (Nullable Node)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.lastChild(a)"
+  %foreign "browser:lambda:x=>x.lastChild()"
   prim__lastChild : TreeWalker -> PrimIO (Nullable Node)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.nextNode(a)"
+  %foreign "browser:lambda:x=>x.nextNode()"
   prim__nextNode : TreeWalker -> PrimIO (Nullable Node)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.nextSibling(a)"
+  %foreign "browser:lambda:x=>x.nextSibling()"
   prim__nextSibling : TreeWalker -> PrimIO (Nullable Node)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.parentNode(a)"
+  %foreign "browser:lambda:x=>x.parentNode()"
   prim__parentNode : TreeWalker -> PrimIO (Nullable Node)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.previousNode(a)"
+  %foreign "browser:lambda:x=>x.previousNode()"
   prim__previousNode : TreeWalker -> PrimIO (Nullable Node)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.previousSibling(a)"
+  %foreign "browser:lambda:x=>x.previousSibling()"
   prim__previousSibling : TreeWalker -> PrimIO (Nullable Node)
 
 
@@ -1422,7 +1434,7 @@ namespace XPathEvaluator
 namespace XPathExpression
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.evaluate(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.evaluate(a b c)"
   prim__evaluate :  XPathExpression
                  -> Node
                  -> UndefOr UInt16
@@ -1460,11 +1472,11 @@ namespace XPathResult
   prim__stringValue : XPathResult -> PrimIO String
   
   export
-  %foreign "browser:lambda:(x,a)=>x.iterateNext(a)"
+  %foreign "browser:lambda:x=>x.iterateNext()"
   prim__iterateNext : XPathResult -> PrimIO (Nullable Node)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.snapshotItem(a b)"
+  %foreign "browser:lambda:(x,a)=>x.snapshotItem(a)"
   prim__snapshotItem : XPathResult -> UInt32 -> PrimIO (Nullable Node)
 
 --------------------------------------------------------------------------------
@@ -1474,19 +1486,19 @@ namespace XPathResult
 namespace ChildNode
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.after(a b)"
+  %foreign "browser:lambda:(x,a)=>x.after(a)"
   prim__after : ChildNode -> VarArg (Union2 Node String) -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.before(a b)"
+  %foreign "browser:lambda:(x,a)=>x.before(a)"
   prim__before : ChildNode -> VarArg (Union2 Node String) -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.remove(a)"
+  %foreign "browser:lambda:x=>x.remove()"
   prim__remove : ChildNode -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.replaceWith(a b)"
+  %foreign "browser:lambda:(x,a)=>x.replaceWith(a)"
   prim__replaceWith : ChildNode -> VarArg (Union2 Node String) -> PrimIO ()
 
 namespace DocumentOrShadowRoot
@@ -1510,7 +1522,7 @@ namespace NonDocumentTypeChildNode
 namespace NonElementParentNode
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.getElementById(a b)"
+  %foreign "browser:lambda:(x,a)=>x.getElementById(a)"
   prim__getElementById :  NonElementParentNode
                        -> String
                        -> PrimIO (Nullable Element)
@@ -1534,23 +1546,23 @@ namespace ParentNode
   prim__lastElementChild : ParentNode -> PrimIO (Nullable Element)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.append(a b)"
+  %foreign "browser:lambda:(x,a)=>x.append(a)"
   prim__append : ParentNode -> VarArg (Union2 Node String) -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.prepend(a b)"
+  %foreign "browser:lambda:(x,a)=>x.prepend(a)"
   prim__prepend : ParentNode -> VarArg (Union2 Node String) -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.querySelectorAll(a b)"
+  %foreign "browser:lambda:(x,a)=>x.querySelectorAll(a)"
   prim__querySelectorAll : ParentNode -> String -> PrimIO NodeList
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.querySelector(a b)"
+  %foreign "browser:lambda:(x,a)=>x.querySelector(a)"
   prim__querySelector : ParentNode -> String -> PrimIO (Nullable Element)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.replaceChildren(a b)"
+  %foreign "browser:lambda:(x,a)=>x.replaceChildren(a)"
   prim__replaceChildren : ParentNode -> VarArg (Union2 Node String) -> PrimIO ()
 
 namespace Slottable
@@ -1562,18 +1574,18 @@ namespace Slottable
 namespace XPathEvaluatorBase
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.createExpression(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.createExpression(a b)"
   prim__createExpression :  XPathEvaluatorBase
                          -> String
                          -> UndefOr (Nullable XPathNSResolver)
                          -> PrimIO XPathExpression
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.createNSResolver(a b)"
+  %foreign "browser:lambda:(x,a)=>x.createNSResolver(a)"
   prim__createNSResolver : XPathEvaluatorBase -> Node -> PrimIO XPathNSResolver
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.evaluate(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.evaluate(a b c d e)"
   prim__evaluate :  XPathEvaluatorBase
                  -> String
                  -> Node

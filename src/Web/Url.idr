@@ -57,6 +57,14 @@ namespace URL
   setHostname a b = primJS $ URL.prim__setHostname a b
   
   export
+  href : (obj : URL) -> JSIO String
+  href a = primJS $ URL.prim__href a
+  
+  export
+  setHref : (obj : URL) -> (value : String) -> JSIO ()
+  setHref a b = primJS $ URL.prim__setHref a b
+  
+  export
   origin : (obj : URL) -> JSIO String
   origin a = primJS $ URL.prim__origin a
   
@@ -164,5 +172,9 @@ namespace URLSearchParams
   export
   sort : (obj : URLSearchParams) -> JSIO ()
   sort a = primJS $ URLSearchParams.prim__sort a
+  
+  export
+  toString : (obj : URLSearchParams) -> JSIO String
+  toString a = primJS $ URLSearchParams.prim__toString a
 
 

@@ -23,19 +23,19 @@ namespace DOMMatrix
   prim__fromMatrix : UndefOr DOMMatrixInit -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a)=>x.invertSelf(a)"
+  %foreign "browser:lambda:x=>x.invertSelf()"
   prim__invertSelf : DOMMatrix -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.multiplySelf(a b)"
+  %foreign "browser:lambda:(x,a)=>x.multiplySelf(a)"
   prim__multiplySelf : DOMMatrix -> UndefOr DOMMatrixInit -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.preMultiplySelf(a b)"
+  %foreign "browser:lambda:(x,a)=>x.preMultiplySelf(a)"
   prim__preMultiplySelf : DOMMatrix -> UndefOr DOMMatrixInit -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.rotateAxisAngleSelf(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.rotateAxisAngleSelf(a b c d)"
   prim__rotateAxisAngleSelf :  DOMMatrix
                             -> UndefOr Double
                             -> UndefOr Double
@@ -44,14 +44,14 @@ namespace DOMMatrix
                             -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.rotateFromVectorSelf(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.rotateFromVectorSelf(a b)"
   prim__rotateFromVectorSelf :  DOMMatrix
                              -> UndefOr Double
                              -> UndefOr Double
                              -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.rotateSelf(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.rotateSelf(a b c)"
   prim__rotateSelf :  DOMMatrix
                    -> UndefOr Double
                    -> UndefOr Double
@@ -59,7 +59,7 @@ namespace DOMMatrix
                    -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.scale3dSelf(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.scale3dSelf(a b c d)"
   prim__scale3dSelf :  DOMMatrix
                     -> UndefOr Double
                     -> UndefOr Double
@@ -68,7 +68,7 @@ namespace DOMMatrix
                     -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g)=>x.scaleSelf(a b c d e f g)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.scaleSelf(a b c d e f)"
   prim__scaleSelf :  DOMMatrix
                   -> UndefOr Double
                   -> UndefOr Double
@@ -79,19 +79,19 @@ namespace DOMMatrix
                   -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.setMatrixValue(a b)"
+  %foreign "browser:lambda:(x,a)=>x.setMatrixValue(a)"
   prim__setMatrixValue : DOMMatrix -> String -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.skewXSelf(a b)"
+  %foreign "browser:lambda:(x,a)=>x.skewXSelf(a)"
   prim__skewXSelf : DOMMatrix -> UndefOr Double -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.skewYSelf(a b)"
+  %foreign "browser:lambda:(x,a)=>x.skewYSelf(a)"
   prim__skewYSelf : DOMMatrix -> UndefOr Double -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.translateSelf(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.translateSelf(a b c)"
   prim__translateSelf :  DOMMatrix
                       -> UndefOr Double
                       -> UndefOr Double
@@ -209,25 +209,25 @@ namespace DOMMatrixReadOnly
   prim__m44 : DOMMatrixReadOnly -> PrimIO Double
   
   export
-  %foreign "browser:lambda:(x,a)=>x.flipX(a)"
+  %foreign "browser:lambda:x=>x.flipX()"
   prim__flipX : DOMMatrixReadOnly -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a)=>x.flipY(a)"
+  %foreign "browser:lambda:x=>x.flipY()"
   prim__flipY : DOMMatrixReadOnly -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a)=>x.inverse(a)"
+  %foreign "browser:lambda:x=>x.inverse()"
   prim__inverse : DOMMatrixReadOnly -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.multiply(a b)"
+  %foreign "browser:lambda:(x,a)=>x.multiply(a)"
   prim__multiply :  DOMMatrixReadOnly
                  -> UndefOr DOMMatrixInit
                  -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.rotateAxisAngle(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.rotateAxisAngle(a b c d)"
   prim__rotateAxisAngle :  DOMMatrixReadOnly
                         -> UndefOr Double
                         -> UndefOr Double
@@ -236,7 +236,7 @@ namespace DOMMatrixReadOnly
                         -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.rotate(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.rotate(a b c)"
   prim__rotate :  DOMMatrixReadOnly
                -> UndefOr Double
                -> UndefOr Double
@@ -244,14 +244,14 @@ namespace DOMMatrixReadOnly
                -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.rotateFromVector(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.rotateFromVector(a b)"
   prim__rotateFromVector :  DOMMatrixReadOnly
                          -> UndefOr Double
                          -> UndefOr Double
                          -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.scale3d(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.scale3d(a b c d)"
   prim__scale3d :  DOMMatrixReadOnly
                 -> UndefOr Double
                 -> UndefOr Double
@@ -260,7 +260,7 @@ namespace DOMMatrixReadOnly
                 -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g)=>x.scale(a b c d e f g)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.scale(a b c d e f)"
   prim__scale :  DOMMatrixReadOnly
               -> UndefOr Double
               -> UndefOr Double
@@ -271,40 +271,44 @@ namespace DOMMatrixReadOnly
               -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.scaleNonUniform(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.scaleNonUniform(a b)"
   prim__scaleNonUniform :  DOMMatrixReadOnly
                         -> UndefOr Double
                         -> UndefOr Double
                         -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.skewX(a b)"
+  %foreign "browser:lambda:(x,a)=>x.skewX(a)"
   prim__skewX : DOMMatrixReadOnly -> UndefOr Double -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.skewY(a b)"
+  %foreign "browser:lambda:(x,a)=>x.skewY(a)"
   prim__skewY : DOMMatrixReadOnly -> UndefOr Double -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a)=>x.toFloat32Array(a)"
+  %foreign "browser:lambda:x=>x.toFloat32Array()"
   prim__toFloat32Array : DOMMatrixReadOnly -> PrimIO Float32Array
   
   export
-  %foreign "browser:lambda:(x,a)=>x.toFloat64Array(a)"
+  %foreign "browser:lambda:x=>x.toFloat64Array()"
   prim__toFloat64Array : DOMMatrixReadOnly -> PrimIO Float64Array
   
   export
-  %foreign "browser:lambda:(x,a)=>x.toJSON(a)"
+  %foreign "browser:lambda:x=>x.toJSON()"
   prim__toJSON : DOMMatrixReadOnly -> PrimIO Object
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.transformPoint(a b)"
+  %foreign "browser:lambda:x=>x.toString()"
+  prim__toString : DOMMatrixReadOnly -> PrimIO String
+  
+  export
+  %foreign "browser:lambda:(x,a)=>x.transformPoint(a)"
   prim__transformPoint :  DOMMatrixReadOnly
                        -> UndefOr DOMPointInit
                        -> PrimIO DOMPoint
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.translate(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.translate(a b c)"
   prim__translate :  DOMMatrixReadOnly
                   -> UndefOr Double
                   -> UndefOr Double
@@ -340,13 +344,13 @@ namespace DOMPointReadOnly
   prim__z : DOMPointReadOnly -> PrimIO Double
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.matrixTransform(a b)"
+  %foreign "browser:lambda:(x,a)=>x.matrixTransform(a)"
   prim__matrixTransform :  DOMPointReadOnly
                         -> UndefOr DOMMatrixInit
                         -> PrimIO DOMPoint
   
   export
-  %foreign "browser:lambda:(x,a)=>x.toJSON(a)"
+  %foreign "browser:lambda:x=>x.toJSON()"
   prim__toJSON : DOMPointReadOnly -> PrimIO Object
 
 namespace DOMQuad
@@ -376,11 +380,11 @@ namespace DOMQuad
   prim__p4 : DOMQuad -> PrimIO DOMPoint
   
   export
-  %foreign "browser:lambda:(x,a)=>x.getBounds(a)"
+  %foreign "browser:lambda:x=>x.getBounds()"
   prim__getBounds : DOMQuad -> PrimIO DOMRect
   
   export
-  %foreign "browser:lambda:(x,a)=>x.toJSON(a)"
+  %foreign "browser:lambda:x=>x.toJSON()"
   prim__toJSON : DOMQuad -> PrimIO Object
 
 namespace DOMRect
@@ -396,7 +400,7 @@ namespace DOMRectList
   prim__length : DOMRectList -> PrimIO UInt32
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.item(a b)"
+  %foreign "browser:lambda:(x,a)=>x.item(a)"
   prim__item : DOMRectList -> UInt32 -> PrimIO (Nullable DOMRect)
 
 namespace DOMRectReadOnly
@@ -438,7 +442,7 @@ namespace DOMRectReadOnly
   prim__y : DOMRectReadOnly -> PrimIO Double
   
   export
-  %foreign "browser:lambda:(x,a)=>x.toJSON(a)"
+  %foreign "browser:lambda:x=>x.toJSON()"
   prim__toJSON : DOMRectReadOnly -> PrimIO Object
 
 

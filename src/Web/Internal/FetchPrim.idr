@@ -15,23 +15,23 @@ namespace Headers
   prim__new : UndefOr HeadersInit -> PrimIO Headers
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.append(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.append(a b)"
   prim__append : Headers -> ByteString -> ByteString -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.delete(a b)"
+  %foreign "browser:lambda:(x,a)=>x.delete(a)"
   prim__delete : Headers -> ByteString -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.get(a b)"
+  %foreign "browser:lambda:(x,a)=>x.get(a)"
   prim__get : Headers -> ByteString -> PrimIO (Nullable ByteString)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.has(a b)"
+  %foreign "browser:lambda:(x,a)=>x.has(a)"
   prim__has : Headers -> ByteString -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.set(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.set(a b)"
   prim__set : Headers -> ByteString -> ByteString -> PrimIO ()
 
 namespace Request
@@ -101,7 +101,7 @@ namespace Request
   prim__url : Request -> PrimIO String
   
   export
-  %foreign "browser:lambda:(x,a)=>x.clone(a)"
+  %foreign "browser:lambda:x=>x.clone()"
   prim__clone : Request -> PrimIO Request
 
 namespace Response
@@ -149,7 +149,7 @@ namespace Response
   prim__url : Response -> PrimIO String
   
   export
-  %foreign "browser:lambda:(x,a)=>x.clone(a)"
+  %foreign "browser:lambda:x=>x.clone()"
   prim__clone : Response -> PrimIO Response
 
 --------------------------------------------------------------------------------
@@ -167,23 +167,23 @@ namespace Body
   prim__bodyUsed : Body -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a)=>x.arrayBuffer(a)"
+  %foreign "browser:lambda:x=>x.arrayBuffer()"
   prim__arrayBuffer : Body -> PrimIO (Promise ArrayBuffer)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.blob(a)"
+  %foreign "browser:lambda:x=>x.blob()"
   prim__blob : Body -> PrimIO (Promise Blob)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.formData(a)"
+  %foreign "browser:lambda:x=>x.formData()"
   prim__formData : Body -> PrimIO (Promise FormData)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.json(a)"
+  %foreign "browser:lambda:x=>x.json()"
   prim__json : Body -> PrimIO (Promise AnyPtr)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.text(a)"
+  %foreign "browser:lambda:x=>x.text()"
   prim__text : Body -> PrimIO (Promise String)
 
 --------------------------------------------------------------------------------

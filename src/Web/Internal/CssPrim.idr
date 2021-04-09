@@ -15,11 +15,11 @@ namespace CSSGroupingRule
   prim__cssRules : CSSGroupingRule -> PrimIO CSSRuleList
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.deleteRule(a b)"
+  %foreign "browser:lambda:(x,a)=>x.deleteRule(a)"
   prim__deleteRule : CSSGroupingRule -> UInt32 -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.insertRule(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.insertRule(a b)"
   prim__insertRule :  CSSGroupingRule
                    -> CSSOMString
                    -> UndefOr UInt32
@@ -112,7 +112,7 @@ namespace CSSRuleList
   prim__length : CSSRuleList -> PrimIO UInt32
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.item(a b)"
+  %foreign "browser:lambda:(x,a)=>x.item(a)"
   prim__item : CSSRuleList -> UInt32 -> PrimIO (Nullable CSSRule)
 
 namespace CSSStyleDeclaration
@@ -142,29 +142,29 @@ namespace CSSStyleDeclaration
   prim__parentRule : CSSStyleDeclaration -> PrimIO (Nullable CSSRule)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.getPropertyPriority(a b)"
+  %foreign "browser:lambda:(x,a)=>x.getPropertyPriority(a)"
   prim__getPropertyPriority :  CSSStyleDeclaration
                             -> CSSOMString
                             -> PrimIO CSSOMString
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.getPropertyValue(a b)"
+  %foreign "browser:lambda:(x,a)=>x.getPropertyValue(a)"
   prim__getPropertyValue :  CSSStyleDeclaration
                          -> CSSOMString
                          -> PrimIO CSSOMString
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.item(a b)"
+  %foreign "browser:lambda:(x,a)=>x.item(a)"
   prim__item : CSSStyleDeclaration -> UInt32 -> PrimIO CSSOMString
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.removeProperty(a b)"
+  %foreign "browser:lambda:(x,a)=>x.removeProperty(a)"
   prim__removeProperty :  CSSStyleDeclaration
                        -> CSSOMString
                        -> PrimIO CSSOMString
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.setProperty(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.setProperty(a b c)"
   prim__setProperty :  CSSStyleDeclaration
                     -> CSSOMString
                     -> CSSOMString
@@ -200,7 +200,7 @@ namespace CSSStyleSheet
   prim__rules : CSSStyleSheet -> PrimIO CSSRuleList
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.addRule(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.addRule(a b c)"
   prim__addRule :  CSSStyleSheet
                 -> UndefOr String
                 -> UndefOr String
@@ -208,18 +208,18 @@ namespace CSSStyleSheet
                 -> PrimIO Int32
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.deleteRule(a b)"
+  %foreign "browser:lambda:(x,a)=>x.deleteRule(a)"
   prim__deleteRule : CSSStyleSheet -> UInt32 -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.insertRule(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.insertRule(a b)"
   prim__insertRule :  CSSStyleSheet
                    -> CSSOMString
                    -> UndefOr UInt32
                    -> PrimIO UInt32
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.removeRule(a b)"
+  %foreign "browser:lambda:(x,a)=>x.removeRule(a)"
   prim__removeRule : CSSStyleSheet -> UndefOr UInt32 -> PrimIO ()
 
 namespace MediaList
@@ -229,15 +229,23 @@ namespace MediaList
   prim__length : MediaList -> PrimIO UInt32
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.appendMedium(a b)"
+  %foreign "browser:lambda:x=>x.mediaText"
+  prim__mediaText : MediaList -> PrimIO CSSOMString
+  
+  export
+  %foreign "browser:lambda:(x,v)=>{x.mediaText = v}"
+  prim__setMediaText : MediaList -> CSSOMString -> PrimIO ()
+  
+  export
+  %foreign "browser:lambda:(x,a)=>x.appendMedium(a)"
   prim__appendMedium : MediaList -> CSSOMString -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.deleteMedium(a b)"
+  %foreign "browser:lambda:(x,a)=>x.deleteMedium(a)"
   prim__deleteMedium : MediaList -> CSSOMString -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.item(a b)"
+  %foreign "browser:lambda:(x,a)=>x.item(a)"
   prim__item : MediaList -> UInt32 -> PrimIO (Nullable CSSOMString)
 
 namespace StyleSheet
@@ -282,7 +290,7 @@ namespace StyleSheetList
   prim__length : StyleSheetList -> PrimIO UInt32
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.item(a b)"
+  %foreign "browser:lambda:(x,a)=>x.item(a)"
   prim__item : StyleSheetList -> UInt32 -> PrimIO (Nullable CSSStyleSheet)
 
 --------------------------------------------------------------------------------

@@ -81,7 +81,7 @@ namespace KeyboardEvent
   prim__shiftKey : KeyboardEvent -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.getModifierState(a b)"
+  %foreign "browser:lambda:(x,a)=>x.getModifierState(a)"
   prim__getModifierState : KeyboardEvent -> String -> PrimIO Boolean
 
 namespace MouseEvent
@@ -131,7 +131,7 @@ namespace MouseEvent
   prim__shiftKey : MouseEvent -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.getModifierState(a b)"
+  %foreign "browser:lambda:(x,a)=>x.getModifierState(a)"
   prim__getModifierState : MouseEvent -> String -> PrimIO Boolean
 
 namespace UIEvent

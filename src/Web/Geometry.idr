@@ -328,6 +328,10 @@ namespace DOMMatrixReadOnly
   toJSON a = primJS $ DOMMatrixReadOnly.prim__toJSON a
   
   export
+  toString : (obj : DOMMatrixReadOnly) -> JSIO String
+  toString a = primJS $ DOMMatrixReadOnly.prim__toString a
+  
+  export
   transformPoint :  (obj : DOMMatrixReadOnly)
                  -> (point : UndefOr DOMPointInit)
                  -> JSIO DOMPoint

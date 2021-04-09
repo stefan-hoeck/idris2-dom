@@ -48,15 +48,15 @@ namespace ReadableByteStreamController
   prim__desiredSize : ReadableByteStreamController -> PrimIO (Nullable Double)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.close(a)"
+  %foreign "browser:lambda:x=>x.close()"
   prim__close : ReadableByteStreamController -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.enqueue(a b)"
+  %foreign "browser:lambda:(x,a)=>x.enqueue(a)"
   prim__enqueue : ReadableByteStreamController -> ArrayBufferView -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.error(a b)"
+  %foreign "browser:lambda:(x,a)=>x.error(a)"
   prim__error : ReadableByteStreamController -> UndefOr AnyPtr -> PrimIO ()
 
 namespace ReadableStream
@@ -70,31 +70,31 @@ namespace ReadableStream
   prim__locked : ReadableStream -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.cancel(a b)"
+  %foreign "browser:lambda:(x,a)=>x.cancel(a)"
   prim__cancel : ReadableStream -> UndefOr AnyPtr -> PrimIO (Promise Undefined)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.getReader(a b)"
+  %foreign "browser:lambda:(x,a)=>x.getReader(a)"
   prim__getReader :  ReadableStream
                   -> UndefOr ReadableStreamGetReaderOptions
                   -> PrimIO ReadableStreamReader
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.pipeThrough(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.pipeThrough(a b)"
   prim__pipeThrough :  ReadableStream
                     -> ReadableWritablePair
                     -> UndefOr StreamPipeOptions
                     -> PrimIO ReadableStream
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.pipeTo(a b c)"
+  %foreign "browser:lambda:(x,a,b)=>x.pipeTo(a b)"
   prim__pipeTo :  ReadableStream
                -> WritableStream
                -> UndefOr StreamPipeOptions
                -> PrimIO (Promise Undefined)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.tee(a)"
+  %foreign "browser:lambda:x=>x.tee()"
   prim__tee : ReadableStream -> PrimIO (Array ReadableStream)
 
 namespace ReadableStreamBYOBReader
@@ -104,13 +104,13 @@ namespace ReadableStreamBYOBReader
   prim__new : ReadableStream -> PrimIO ReadableStreamBYOBReader
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.read(a b)"
+  %foreign "browser:lambda:(x,a)=>x.read(a)"
   prim__read :  ReadableStreamBYOBReader
              -> ArrayBufferView
              -> PrimIO (Promise ReadableStreamBYOBReadResult)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.releaseLock(a)"
+  %foreign "browser:lambda:x=>x.releaseLock()"
   prim__releaseLock : ReadableStreamBYOBReader -> PrimIO ()
 
 namespace ReadableStreamBYOBRequest
@@ -120,11 +120,11 @@ namespace ReadableStreamBYOBRequest
   prim__view : ReadableStreamBYOBRequest -> PrimIO (Nullable ArrayBufferView)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.respond(a b)"
+  %foreign "browser:lambda:(x,a)=>x.respond(a)"
   prim__respond : ReadableStreamBYOBRequest -> UInt64 -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.respondWithNewView(a b)"
+  %foreign "browser:lambda:(x,a)=>x.respondWithNewView(a)"
   prim__respondWithNewView :  ReadableStreamBYOBRequest
                            -> ArrayBufferView
                            -> PrimIO ()
@@ -137,15 +137,15 @@ namespace ReadableStreamDefaultController
                     -> PrimIO (Nullable Double)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.close(a)"
+  %foreign "browser:lambda:x=>x.close()"
   prim__close : ReadableStreamDefaultController -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.enqueue(a b)"
+  %foreign "browser:lambda:(x,a)=>x.enqueue(a)"
   prim__enqueue : ReadableStreamDefaultController -> UndefOr AnyPtr -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.error(a b)"
+  %foreign "browser:lambda:(x,a)=>x.error(a)"
   prim__error : ReadableStreamDefaultController -> UndefOr AnyPtr -> PrimIO ()
 
 namespace ReadableStreamDefaultReader
@@ -155,12 +155,12 @@ namespace ReadableStreamDefaultReader
   prim__new : ReadableStream -> PrimIO ReadableStreamDefaultReader
   
   export
-  %foreign "browser:lambda:(x,a)=>x.read(a)"
+  %foreign "browser:lambda:x=>x.read()"
   prim__read :  ReadableStreamDefaultReader
              -> PrimIO (Promise ReadableStreamDefaultReadResult)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.releaseLock(a)"
+  %foreign "browser:lambda:x=>x.releaseLock()"
   prim__releaseLock : ReadableStreamDefaultReader -> PrimIO ()
 
 namespace TransformStream
@@ -188,17 +188,17 @@ namespace TransformStreamDefaultController
                     -> PrimIO (Nullable Double)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.enqueue(a b)"
+  %foreign "browser:lambda:(x,a)=>x.enqueue(a)"
   prim__enqueue :  TransformStreamDefaultController
                 -> UndefOr AnyPtr
                 -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.error(a b)"
+  %foreign "browser:lambda:(x,a)=>x.error(a)"
   prim__error : TransformStreamDefaultController -> UndefOr AnyPtr -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.terminate(a)"
+  %foreign "browser:lambda:x=>x.terminate()"
   prim__terminate : TransformStreamDefaultController -> PrimIO ()
 
 namespace WritableStream
@@ -212,21 +212,21 @@ namespace WritableStream
   prim__locked : WritableStream -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.abort(a b)"
+  %foreign "browser:lambda:(x,a)=>x.abort(a)"
   prim__abort : WritableStream -> UndefOr AnyPtr -> PrimIO (Promise Undefined)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.close(a)"
+  %foreign "browser:lambda:x=>x.close()"
   prim__close : WritableStream -> PrimIO (Promise Undefined)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.getWriter(a)"
+  %foreign "browser:lambda:x=>x.getWriter()"
   prim__getWriter : WritableStream -> PrimIO WritableStreamDefaultWriter
 
 namespace WritableStreamDefaultController
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.error(a b)"
+  %foreign "browser:lambda:(x,a)=>x.error(a)"
   prim__error : WritableStreamDefaultController -> UndefOr AnyPtr -> PrimIO ()
 
 namespace WritableStreamDefaultWriter
@@ -248,21 +248,21 @@ namespace WritableStreamDefaultWriter
   prim__ready : WritableStreamDefaultWriter -> PrimIO (Promise Undefined)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.abort(a b)"
+  %foreign "browser:lambda:(x,a)=>x.abort(a)"
   prim__abort :  WritableStreamDefaultWriter
               -> UndefOr AnyPtr
               -> PrimIO (Promise Undefined)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.close(a)"
+  %foreign "browser:lambda:x=>x.close()"
   prim__close : WritableStreamDefaultWriter -> PrimIO (Promise Undefined)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.releaseLock(a)"
+  %foreign "browser:lambda:x=>x.releaseLock()"
   prim__releaseLock : WritableStreamDefaultWriter -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.write(a b)"
+  %foreign "browser:lambda:(x,a)=>x.write(a)"
   prim__write :  WritableStreamDefaultWriter
               -> UndefOr AnyPtr
               -> PrimIO (Promise Undefined)
@@ -288,7 +288,7 @@ namespace ReadableStreamGenericReader
   prim__closed : ReadableStreamGenericReader -> PrimIO (Promise Undefined)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.cancel(a b)"
+  %foreign "browser:lambda:(x,a)=>x.cancel(a)"
   prim__cancel :  ReadableStreamGenericReader
                -> UndefOr AnyPtr
                -> PrimIO (Promise Undefined)

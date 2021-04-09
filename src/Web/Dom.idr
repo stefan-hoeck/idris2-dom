@@ -278,6 +278,14 @@ namespace DOMTokenList
   length a = primJS $ DOMTokenList.prim__length a
   
   export
+  value : (obj : DOMTokenList) -> JSIO String
+  value a = primJS $ DOMTokenList.prim__value a
+  
+  export
+  setValue : (obj : DOMTokenList) -> (value : String) -> JSIO ()
+  setValue a b = primJS $ DOMTokenList.prim__setValue a b
+  
+  export
   add : (obj : DOMTokenList) -> (tokens : VarArg String) -> JSIO ()
   add a b = primJS $ DOMTokenList.prim__add a b
   
@@ -1716,6 +1724,10 @@ namespace Range
   export
   surroundContents : (obj : Range) -> (newParent : Node) -> JSIO ()
   surroundContents a b = primJS $ Range.prim__surroundContents a b
+  
+  export
+  toString : (obj : Range) -> JSIO String
+  toString a = primJS $ Range.prim__toString a
 
 namespace ShadowRoot
   
