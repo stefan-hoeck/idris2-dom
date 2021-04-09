@@ -67,6 +67,12 @@ namespace ClipboardItem
   new a b = primJS $ ClipboardItem.prim__new a b
   
   export
+  createDelayed :  (items : Record String ClipboardItemDelayedCallback)
+                -> (options : UndefOr ClipboardItemOptions)
+                -> JSIO ClipboardItem
+  createDelayed a b = primJS $ ClipboardItem.prim__createDelayed a b
+  
+  export
   delayed : (obj : ClipboardItem) -> JSIO Boolean
   delayed a = primJS $ ClipboardItem.prim__delayed a
   

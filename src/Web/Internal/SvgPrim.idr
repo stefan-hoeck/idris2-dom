@@ -455,6 +455,10 @@ namespace SVGLength
 namespace SVGLengthList
   
   export
+  %foreign "browser:lambda:(o,x,v)=>o[x] = v"
+  prim__set : SVGLengthList -> UInt32 -> SVGLength -> PrimIO ()
+  
+  export
   %foreign "browser:lambda:x=>x.length"
   prim__length : SVGLengthList -> PrimIO UInt32
   
@@ -469,6 +473,10 @@ namespace SVGLengthList
   export
   %foreign "browser:lambda:(x,a)=>x.clear(a)"
   prim__clear : SVGLengthList -> PrimIO ()
+  
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.getItem(a b)"
+  prim__getItem : SVGLengthList -> UInt32 -> PrimIO SVGLength
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.initialize(a b)"
@@ -585,6 +593,10 @@ namespace SVGNumber
 namespace SVGNumberList
   
   export
+  %foreign "browser:lambda:(o,x,v)=>o[x] = v"
+  prim__set : SVGNumberList -> UInt32 -> SVGNumber -> PrimIO ()
+  
+  export
   %foreign "browser:lambda:x=>x.length"
   prim__length : SVGNumberList -> PrimIO UInt32
   
@@ -599,6 +611,10 @@ namespace SVGNumberList
   export
   %foreign "browser:lambda:(x,a)=>x.clear(a)"
   prim__clear : SVGNumberList -> PrimIO ()
+  
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.getItem(a b)"
+  prim__getItem : SVGNumberList -> UInt32 -> PrimIO SVGNumber
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.initialize(a b)"
@@ -653,6 +669,10 @@ namespace SVGPatternElement
 namespace SVGPointList
   
   export
+  %foreign "browser:lambda:(o,x,v)=>o[x] = v"
+  prim__set : SVGPointList -> UInt32 -> DOMPoint -> PrimIO ()
+  
+  export
   %foreign "browser:lambda:x=>x.length"
   prim__length : SVGPointList -> PrimIO UInt32
   
@@ -667,6 +687,10 @@ namespace SVGPointList
   export
   %foreign "browser:lambda:(x,a)=>x.clear(a)"
   prim__clear : SVGPointList -> PrimIO ()
+  
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.getItem(a b)"
+  prim__getItem : SVGPointList -> UInt32 -> PrimIO DOMPoint
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.initialize(a b)"
@@ -899,6 +923,10 @@ namespace SVGStopElement
 namespace SVGStringList
   
   export
+  %foreign "browser:lambda:(o,x,v)=>o[x] = v"
+  prim__set : SVGStringList -> UInt32 -> String -> PrimIO ()
+  
+  export
   %foreign "browser:lambda:x=>x.length"
   prim__length : SVGStringList -> PrimIO UInt32
   
@@ -913,6 +941,10 @@ namespace SVGStringList
   export
   %foreign "browser:lambda:(x,a)=>x.clear(a)"
   prim__clear : SVGStringList -> PrimIO ()
+  
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.getItem(a b)"
+  prim__getItem : SVGStringList -> UInt32 -> PrimIO String
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.initialize(a b)"
@@ -1093,6 +1125,10 @@ namespace SVGTransform
 namespace SVGTransformList
   
   export
+  %foreign "browser:lambda:(o,x,v)=>o[x] = v"
+  prim__set : SVGTransformList -> UInt32 -> SVGTransform -> PrimIO ()
+  
+  export
   %foreign "browser:lambda:x=>x.length"
   prim__length : SVGTransformList -> PrimIO UInt32
   
@@ -1117,6 +1153,10 @@ namespace SVGTransformList
   prim__createSVGTransformFromMatrix :  SVGTransformList
                                      -> UndefOr DOMMatrix2DInit
                                      -> PrimIO SVGTransform
+  
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.getItem(a b)"
+  prim__getItem : SVGTransformList -> UInt32 -> PrimIO SVGTransform
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.initialize(a b)"

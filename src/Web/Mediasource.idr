@@ -21,6 +21,10 @@ namespace MediaSource
   new = primJS $ MediaSource.prim__new 
   
   export
+  isTypeSupported : (type : String) -> JSIO Boolean
+  isTypeSupported a = primJS $ MediaSource.prim__isTypeSupported a
+  
+  export
   activeSourceBuffers : (obj : MediaSource) -> JSIO SourceBufferList
   activeSourceBuffers a = primJS $ MediaSource.prim__activeSourceBuffers a
   
@@ -213,6 +217,10 @@ namespace SourceBufferList
     parents =  [ EventTarget , Object ]
 
     mixins =  []
+  
+  export
+  get : (obj : SourceBufferList) -> (index : UInt32) -> JSIO SourceBuffer
+  get a b = primJS $ SourceBufferList.prim__get a b
   
   export
   length : (obj : SourceBufferList) -> JSIO UInt32

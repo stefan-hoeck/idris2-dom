@@ -37,6 +37,10 @@ namespace AbortSignal
     mixins =  []
   
   export
+  abort : JSIO AbortSignal
+  abort = primJS $ AbortSignal.prim__abort 
+  
+  export
   aborted : (obj : AbortSignal) -> JSIO Boolean
   aborted a = primJS $ AbortSignal.prim__aborted a
   
@@ -282,6 +286,10 @@ namespace DOMTokenList
   contains a b = primJS $ DOMTokenList.prim__contains a b
   
   export
+  item : (obj : DOMTokenList) -> (index : UInt32) -> JSIO (Nullable String)
+  item a b = primJS $ DOMTokenList.prim__item a b
+  
+  export
   remove : (obj : DOMTokenList) -> (tokens : VarArg String) -> JSIO ()
   remove a b = primJS $ DOMTokenList.prim__remove a b
   
@@ -320,6 +328,10 @@ namespace Document
   export
   new : JSIO Document
   new = primJS $ Document.prim__new 
+  
+  export
+  get : (obj : Document) -> (name : String) -> JSIO Object
+  get a b = primJS $ Document.prim__get a b
   
   export
   URL : (obj : Document) -> JSIO String
@@ -1149,6 +1161,16 @@ namespace HTMLCollection
   export
   length : (obj : HTMLCollection) -> JSIO UInt32
   length a = primJS $ HTMLCollection.prim__length a
+  
+  export
+  item : (obj : HTMLCollection) -> (index : UInt32) -> JSIO (Nullable Element)
+  item a b = primJS $ HTMLCollection.prim__item a b
+  
+  export
+  namedItem :  (obj : HTMLCollection)
+            -> (name : String)
+            -> JSIO (Nullable Element)
+  namedItem a b = primJS $ HTMLCollection.prim__namedItem a b
 
 namespace MutationObserver
   
@@ -1239,6 +1261,16 @@ namespace NamedNodeMap
                  -> (localName : String)
                  -> JSIO (Nullable Attr)
   getNamedItemNS a b c = primJS $ NamedNodeMap.prim__getNamedItemNS a b c
+  
+  export
+  getNamedItem :  (obj : NamedNodeMap)
+               -> (qualifiedName : String)
+               -> JSIO (Nullable Attr)
+  getNamedItem a b = primJS $ NamedNodeMap.prim__getNamedItem a b
+  
+  export
+  item : (obj : NamedNodeMap) -> (index : UInt32) -> JSIO (Nullable Attr)
+  item a b = primJS $ NamedNodeMap.prim__item a b
   
   export
   removeNamedItemNS :  (obj : NamedNodeMap)
@@ -1527,6 +1559,10 @@ namespace NodeList
   export
   length : (obj : NodeList) -> JSIO UInt32
   length a = primJS $ NodeList.prim__length a
+  
+  export
+  item : (obj : NodeList) -> (index : UInt32) -> JSIO (Nullable Node)
+  item a b = primJS $ NodeList.prim__item a b
 
 namespace Performance
   

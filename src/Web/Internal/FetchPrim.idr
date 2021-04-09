@@ -113,6 +113,14 @@ namespace Response
             -> PrimIO Response
   
   export
+  %foreign "browser:lambda:x=>x.error()"
+  prim__error : PrimIO Response
+  
+  export
+  %foreign "browser:lambda:(a,b)=>Response.redirect(a b)"
+  prim__redirect : String -> UndefOr UInt16 -> PrimIO Response
+  
+  export
   %foreign "browser:lambda:x=>x.headers"
   prim__headers : Response -> PrimIO Headers
   

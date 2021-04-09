@@ -84,6 +84,10 @@ namespace FileList
   export
   length : (obj : FileList) -> JSIO UInt32
   length a = primJS $ FileList.prim__length a
+  
+  export
+  item : (obj : FileList) -> (index : UInt32) -> JSIO (Nullable File)
+  item a b = primJS $ FileList.prim__item a b
 
 namespace FileReader
   

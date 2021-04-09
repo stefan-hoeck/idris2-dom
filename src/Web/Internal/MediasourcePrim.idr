@@ -15,6 +15,10 @@ namespace MediaSource
   prim__new : PrimIO MediaSource
   
   export
+  %foreign "browser:lambda:(a)=>MediaSource.isTypeSupported(a)"
+  prim__isTypeSupported : String -> PrimIO Boolean
+  
+  export
   %foreign "browser:lambda:x=>x.activeSourceBuffers"
   prim__activeSourceBuffers : MediaSource -> PrimIO SourceBufferList
   
@@ -185,6 +189,10 @@ namespace SourceBuffer
   prim__remove : SourceBuffer -> Double -> Double -> PrimIO ()
 
 namespace SourceBufferList
+  
+  export
+  %foreign "browser:lambda:(o,x)=>o[x]"
+  prim__get : SourceBufferList -> UInt32 -> PrimIO SourceBuffer
   
   export
   %foreign "browser:lambda:x=>x.length"

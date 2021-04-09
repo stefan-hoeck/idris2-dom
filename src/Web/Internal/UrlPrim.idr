@@ -15,6 +15,18 @@ namespace URL
   prim__new : String -> UndefOr String -> PrimIO URL
   
   export
+  %foreign "browser:lambda:(a)=>URL.createObjectURL(a)"
+  prim__createObjectURL : Union2 Blob MediaSource -> PrimIO String
+  
+  export
+  %foreign "browser:lambda:(a)=>URL.createObjectURL(a)"
+  prim__createObjectURL1 : MediaSource -> PrimIO String
+  
+  export
+  %foreign "browser:lambda:(a)=>URL.revokeObjectURL(a)"
+  prim__revokeObjectURL : String -> PrimIO ()
+  
+  export
   %foreign "browser:lambda:x=>x.hash"
   prim__hash : URL -> PrimIO String
   

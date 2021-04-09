@@ -53,6 +53,10 @@ namespace AudioTrackList
     mixins =  []
   
   export
+  get : (obj : AudioTrackList) -> (index : UInt32) -> JSIO AudioTrack
+  get a b = primJS $ AudioTrackList.prim__get a b
+  
+  export
   length : (obj : AudioTrackList) -> JSIO UInt32
   length a = primJS $ AudioTrackList.prim__length a
   
@@ -310,6 +314,10 @@ namespace DOMStringList
   export
   contains : (obj : DOMStringList) -> (string : String) -> JSIO Boolean
   contains a b = primJS $ DOMStringList.prim__contains a b
+  
+  export
+  item : (obj : DOMStringList) -> (index : UInt32) -> JSIO (Nullable String)
+  item a b = primJS $ DOMStringList.prim__item a b
 
 namespace DOMStringMap
   
@@ -318,6 +326,14 @@ namespace DOMStringMap
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  get : (obj : DOMStringMap) -> (name : String) -> JSIO String
+  get a b = primJS $ DOMStringMap.prim__get a b
+  
+  export
+  set : (obj : DOMStringMap) -> (name : String) -> (value : String) -> JSIO ()
+  set a b c = primJS $ DOMStringMap.prim__set a b c
 
 namespace DataTransfer
   
@@ -415,6 +431,12 @@ namespace DataTransferItemList
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  get :  (obj : DataTransferItemList)
+      -> (index : UInt32)
+      -> JSIO DataTransferItem
+  get a b = primJS $ DataTransferItemList.prim__get a b
   
   export
   length : (obj : DataTransferItemList) -> JSIO UInt32
@@ -712,6 +734,10 @@ namespace HTMLAllCollection
     mixins =  []
   
   export
+  get : (obj : HTMLAllCollection) -> (index : UInt32) -> JSIO Element
+  get a b = primJS $ HTMLAllCollection.prim__get a b
+  
+  export
   length : (obj : HTMLAllCollection) -> JSIO UInt32
   length a = primJS $ HTMLAllCollection.prim__length a
   
@@ -720,6 +746,12 @@ namespace HTMLAllCollection
        -> (nameOrIndex : UndefOr String)
        -> JSIO (Nullable (Union2 HTMLCollection Element))
   item a b = primJS $ HTMLAllCollection.prim__item a b
+  
+  export
+  namedItem :  (obj : HTMLAllCollection)
+            -> (name : String)
+            -> JSIO (Nullable (Union2 HTMLCollection Element))
+  namedItem a b = primJS $ HTMLAllCollection.prim__namedItem a b
 
 namespace HTMLAnchorElement
   
@@ -1850,6 +1882,12 @@ namespace HTMLFormControlsCollection
     parents =  [ HTMLCollection , Object ]
 
     mixins =  []
+  
+  export
+  namedItem :  (obj : HTMLFormControlsCollection)
+            -> (name : String)
+            -> JSIO (Nullable (Union2 RadioNodeList Element))
+  namedItem a b = primJS $ HTMLFormControlsCollection.prim__namedItem a b
 
 namespace HTMLFormElement
   
@@ -1872,6 +1910,16 @@ namespace HTMLFormElement
   export
   new : JSIO HTMLFormElement
   new = primJS $ HTMLFormElement.prim__new 
+  
+  export
+  get : (obj : HTMLFormElement) -> (index : UInt32) -> JSIO Element
+  get a b = primJS $ HTMLFormElement.prim__get a b
+  
+  export
+  get1 :  (obj : HTMLFormElement)
+       -> (name : String)
+       -> JSIO (Union2 RadioNodeList Element)
+  get1 a b = primJS $ HTMLFormElement.prim__get1 a b
   
   export
   acceptCharset : (obj : HTMLFormElement) -> JSIO String
@@ -4282,6 +4330,13 @@ namespace HTMLOptionsCollection
     mixins =  []
   
   export
+  set :  (obj : HTMLOptionsCollection)
+      -> (index : UInt32)
+      -> (option : Nullable HTMLOptionElement)
+      -> JSIO ()
+  set a b c = primJS $ HTMLOptionsCollection.prim__set a b c
+  
+  export
   length : (obj : HTMLOptionsCollection) -> JSIO UInt32
   length a = primJS $ HTMLOptionsCollection.prim__length a
   
@@ -4750,6 +4805,13 @@ namespace HTMLSelectElement
   new = primJS $ HTMLSelectElement.prim__new 
   
   export
+  set :  (obj : HTMLSelectElement)
+      -> (index : UInt32)
+      -> (option : Nullable HTMLOptionElement)
+      -> JSIO ()
+  set a b c = primJS $ HTMLSelectElement.prim__set a b c
+  
+  export
   autocomplete : (obj : HTMLSelectElement) -> JSIO String
   autocomplete a = primJS $ HTMLSelectElement.prim__autocomplete a
   
@@ -4863,6 +4925,12 @@ namespace HTMLSelectElement
   export
   checkValidity : (obj : HTMLSelectElement) -> JSIO Boolean
   checkValidity a = primJS $ HTMLSelectElement.prim__checkValidity a
+  
+  export
+  item :  (obj : HTMLSelectElement)
+       -> (index : UInt32)
+       -> JSIO (Nullable Element)
+  item a b = primJS $ HTMLSelectElement.prim__item a b
   
   export
   namedItem :  (obj : HTMLSelectElement)
@@ -6553,19 +6621,19 @@ namespace MimeType
     mixins =  []
   
   export
-  description : (obj : MimeType) -> JSIO Undefined
+  description : (obj : MimeType) -> JSIO ()
   description a = primJS $ MimeType.prim__description a
   
   export
-  enabledPlugin : (obj : MimeType) -> JSIO Undefined
+  enabledPlugin : (obj : MimeType) -> JSIO ()
   enabledPlugin a = primJS $ MimeType.prim__enabledPlugin a
   
   export
-  suffixes : (obj : MimeType) -> JSIO Undefined
+  suffixes : (obj : MimeType) -> JSIO ()
   suffixes a = primJS $ MimeType.prim__suffixes a
   
   export
-  type : (obj : MimeType) -> JSIO Undefined
+  type : (obj : MimeType) -> JSIO ()
   type a = primJS $ MimeType.prim__type a
 
 namespace MimeTypeArray
@@ -6579,6 +6647,10 @@ namespace MimeTypeArray
   export
   length : (obj : MimeTypeArray) -> JSIO UInt32
   length a = primJS $ MimeTypeArray.prim__length a
+  
+  export
+  item : (obj : MimeTypeArray) -> (index : UInt32) -> JSIO (Nullable Object)
+  item a b = primJS $ MimeTypeArray.prim__item a b
   
   export
   namedItem : (obj : MimeTypeArray) -> (name : String) -> JSIO (Nullable Object)
@@ -6745,20 +6817,24 @@ namespace Plugin
     mixins =  []
   
   export
-  description : (obj : Plugin) -> JSIO Undefined
+  description : (obj : Plugin) -> JSIO ()
   description a = primJS $ Plugin.prim__description a
   
   export
-  filename : (obj : Plugin) -> JSIO Undefined
+  filename : (obj : Plugin) -> JSIO ()
   filename a = primJS $ Plugin.prim__filename a
   
   export
-  length : (obj : Plugin) -> JSIO Undefined
+  length : (obj : Plugin) -> JSIO ()
   length a = primJS $ Plugin.prim__length a
   
   export
-  name : (obj : Plugin) -> JSIO Undefined
+  name : (obj : Plugin) -> JSIO ()
   name a = primJS $ Plugin.prim__name a
+  
+  export
+  item : (obj : Plugin) -> (index : UInt32) -> JSIO ()
+  item a b = primJS $ Plugin.prim__item a b
   
   export
   namedItem : (obj : Plugin) -> (name : String) -> JSIO ()
@@ -6775,6 +6851,10 @@ namespace PluginArray
   export
   length : (obj : PluginArray) -> JSIO UInt32
   length a = primJS $ PluginArray.prim__length a
+  
+  export
+  item : (obj : PluginArray) -> (index : UInt32) -> JSIO (Nullable Object)
+  item a b = primJS $ PluginArray.prim__item a b
   
   export
   namedItem : (obj : PluginArray) -> (name : String) -> JSIO (Nullable Object)
@@ -6901,8 +6981,16 @@ namespace Storage
   clear a = primJS $ Storage.prim__clear a
   
   export
+  getItem : (obj : Storage) -> (key : String) -> JSIO (Nullable String)
+  getItem a b = primJS $ Storage.prim__getItem a b
+  
+  export
   key : (obj : Storage) -> (index : UInt32) -> JSIO (Nullable String)
   key a b = primJS $ Storage.prim__key a b
+  
+  export
+  setItem : (obj : Storage) -> (key : String) -> (value : String) -> JSIO ()
+  setItem a b c = primJS $ Storage.prim__setItem a b c
 
 namespace StorageEvent
   
@@ -7166,6 +7254,10 @@ namespace TextTrackCueList
     mixins =  []
   
   export
+  get : (obj : TextTrackCueList) -> (index : UInt32) -> JSIO TextTrackCue
+  get a b = primJS $ TextTrackCueList.prim__get a b
+  
+  export
   length : (obj : TextTrackCueList) -> JSIO UInt32
   length a = primJS $ TextTrackCueList.prim__length a
   
@@ -7182,6 +7274,10 @@ namespace TextTrackList
     parents =  [ EventTarget , Object ]
 
     mixins =  []
+  
+  export
+  get : (obj : TextTrackList) -> (index : UInt32) -> JSIO TextTrack
+  get a b = primJS $ TextTrackList.prim__get a b
   
   export
   length : (obj : TextTrackList) -> JSIO UInt32
@@ -7353,6 +7449,10 @@ namespace VideoTrackList
     mixins =  []
   
   export
+  get : (obj : VideoTrackList) -> (index : UInt32) -> JSIO VideoTrack
+  get a b = primJS $ VideoTrackList.prim__get a b
+  
+  export
   length : (obj : VideoTrackList) -> JSIO UInt32
   length a = primJS $ VideoTrackList.prim__length a
   
@@ -7510,6 +7610,10 @@ namespace Window
     parents =  [ EventTarget , Object ]
 
     mixins =  [ GlobalEventHandlers , WindowEventHandlers ]
+  
+  export
+  get : (obj : Window) -> (name : String) -> JSIO Object
+  get a b = primJS $ Window.prim__get a b
   
   export
   closed : (obj : Window) -> JSIO Boolean

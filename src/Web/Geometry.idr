@@ -17,6 +17,18 @@ namespace DOMMatrix
     mixins =  []
   
   export
+  fromFloat32Array : (array32 : Float32Array) -> JSIO DOMMatrix
+  fromFloat32Array a = primJS $ DOMMatrix.prim__fromFloat32Array a
+  
+  export
+  fromFloat64Array : (array64 : Float64Array) -> JSIO DOMMatrix
+  fromFloat64Array a = primJS $ DOMMatrix.prim__fromFloat64Array a
+  
+  export
+  fromMatrix : (other : UndefOr DOMMatrixInit) -> JSIO DOMMatrix
+  fromMatrix a = primJS $ DOMMatrix.prim__fromMatrix a
+  
+  export
   invertSelf : (obj : DOMMatrix) -> JSIO DOMMatrix
   invertSelf a = primJS $ DOMMatrix.prim__invertSelf a
   
@@ -111,6 +123,18 @@ namespace DOMMatrixReadOnly
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  fromFloat32Array : (array32 : Float32Array) -> JSIO DOMMatrixReadOnly
+  fromFloat32Array a = primJS $ DOMMatrixReadOnly.prim__fromFloat32Array a
+  
+  export
+  fromFloat64Array : (array64 : Float64Array) -> JSIO DOMMatrixReadOnly
+  fromFloat64Array a = primJS $ DOMMatrixReadOnly.prim__fromFloat64Array a
+  
+  export
+  fromMatrix : (other : UndefOr DOMMatrixInit) -> JSIO DOMMatrixReadOnly
+  fromMatrix a = primJS $ DOMMatrixReadOnly.prim__fromMatrix a
   
   export
   a : (obj : DOMMatrixReadOnly) -> JSIO Double
@@ -324,6 +348,10 @@ namespace DOMPoint
     parents =  [ DOMPointReadOnly , Object ]
 
     mixins =  []
+  
+  export
+  fromPoint : (other : UndefOr DOMPointInit) -> JSIO DOMPoint
+  fromPoint a = primJS $ DOMPoint.prim__fromPoint a
 
 namespace DOMPointReadOnly
   
@@ -332,6 +360,10 @@ namespace DOMPointReadOnly
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  fromPoint : (other : UndefOr DOMPointInit) -> JSIO DOMPointReadOnly
+  fromPoint a = primJS $ DOMPointReadOnly.prim__fromPoint a
   
   export
   w : (obj : DOMPointReadOnly) -> JSIO Double
@@ -368,6 +400,14 @@ namespace DOMQuad
     mixins =  []
   
   export
+  fromQuad : (other : UndefOr DOMQuadInit) -> JSIO DOMQuad
+  fromQuad a = primJS $ DOMQuad.prim__fromQuad a
+  
+  export
+  fromRect : (other : UndefOr DOMRectInit) -> JSIO DOMQuad
+  fromRect a = primJS $ DOMQuad.prim__fromRect a
+  
+  export
   p1 : (obj : DOMQuad) -> JSIO DOMPoint
   p1 a = primJS $ DOMQuad.prim__p1 a
   
@@ -398,6 +438,10 @@ namespace DOMRect
     parents =  [ DOMRectReadOnly , Object ]
 
     mixins =  []
+  
+  export
+  fromRect : (other : UndefOr DOMRectInit) -> JSIO DOMRect
+  fromRect a = primJS $ DOMRect.prim__fromRect a
 
 namespace DOMRectList
   
@@ -410,6 +454,10 @@ namespace DOMRectList
   export
   length : (obj : DOMRectList) -> JSIO UInt32
   length a = primJS $ DOMRectList.prim__length a
+  
+  export
+  item : (obj : DOMRectList) -> (index : UInt32) -> JSIO (Nullable DOMRect)
+  item a b = primJS $ DOMRectList.prim__item a b
 
 namespace DOMRectReadOnly
   
@@ -418,6 +466,10 @@ namespace DOMRectReadOnly
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  fromRect : (other : UndefOr DOMRectInit) -> JSIO DOMRectReadOnly
+  fromRect a = primJS $ DOMRectReadOnly.prim__fromRect a
   
   export
   bottom : (obj : DOMRectReadOnly) -> JSIO Double

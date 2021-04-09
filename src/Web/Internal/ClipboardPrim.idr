@@ -45,6 +45,12 @@ namespace ClipboardItem
             -> PrimIO ClipboardItem
   
   export
+  %foreign "browser:lambda:(a,b)=>ClipboardItem.createDelayed(a b)"
+  prim__createDelayed :  Record String ClipboardItemDelayedCallback
+                      -> UndefOr ClipboardItemOptions
+                      -> PrimIO ClipboardItem
+  
+  export
   %foreign "browser:lambda:x=>x.delayed"
   prim__delayed : ClipboardItem -> PrimIO Boolean
   

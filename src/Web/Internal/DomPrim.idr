@@ -25,6 +25,10 @@ namespace AbortController
 namespace AbortSignal
   
   export
+  %foreign "browser:lambda:x=>x.abort()"
+  prim__abort : PrimIO AbortSignal
+  
+  export
   %foreign "browser:lambda:x=>x.aborted"
   prim__aborted : AbortSignal -> PrimIO Boolean
   
@@ -195,6 +199,10 @@ namespace DOMTokenList
   prim__contains : DOMTokenList -> String -> PrimIO Boolean
   
   export
+  %foreign "browser:lambda:(x,a,b)=>x.item(a b)"
+  prim__item : DOMTokenList -> UInt32 -> PrimIO (Nullable String)
+  
+  export
   %foreign "browser:lambda:(x,a,b)=>x.remove(a b)"
   prim__remove : DOMTokenList -> VarArg String -> PrimIO ()
   
@@ -215,6 +223,10 @@ namespace Document
   export
   %foreign "browser:lambda:()=> new Document()"
   prim__new : PrimIO Document
+  
+  export
+  %foreign "browser:lambda:(o,x)=>o[x]"
+  prim__get : Document -> String -> PrimIO Object
   
   export
   %foreign "browser:lambda:x=>x.URL"
@@ -924,6 +936,14 @@ namespace HTMLCollection
   export
   %foreign "browser:lambda:x=>x.length"
   prim__length : HTMLCollection -> PrimIO UInt32
+  
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.item(a b)"
+  prim__item : HTMLCollection -> UInt32 -> PrimIO (Nullable Element)
+  
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.namedItem(a b)"
+  prim__namedItem : HTMLCollection -> String -> PrimIO (Nullable Element)
 
 namespace MutationObserver
   
@@ -996,6 +1016,14 @@ namespace NamedNodeMap
                        -> Nullable String
                        -> String
                        -> PrimIO (Nullable Attr)
+  
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.getNamedItem(a b)"
+  prim__getNamedItem : NamedNodeMap -> String -> PrimIO (Nullable Attr)
+  
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.item(a b)"
+  prim__item : NamedNodeMap -> UInt32 -> PrimIO (Nullable Attr)
   
   export
   %foreign "browser:lambda:(x,a,b,c)=>x.removeNamedItemNS(a b c)"
@@ -1181,6 +1209,10 @@ namespace NodeList
   export
   %foreign "browser:lambda:x=>x.length"
   prim__length : NodeList -> PrimIO UInt32
+  
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.item(a b)"
+  prim__item : NodeList -> UInt32 -> PrimIO (Nullable Node)
 
 namespace Performance
   

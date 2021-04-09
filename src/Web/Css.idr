@@ -190,6 +190,10 @@ namespace CSSRuleList
   export
   length : (obj : CSSRuleList) -> JSIO UInt32
   length a = primJS $ CSSRuleList.prim__length a
+  
+  export
+  item : (obj : CSSRuleList) -> (index : UInt32) -> JSIO (Nullable CSSRule)
+  item a b = primJS $ CSSRuleList.prim__item a b
 
 namespace CSSStyleDeclaration
   
@@ -235,6 +239,10 @@ namespace CSSStyleDeclaration
                    -> (property : CSSOMString)
                    -> JSIO CSSOMString
   getPropertyValue a b = primJS $ CSSStyleDeclaration.prim__getPropertyValue a b
+  
+  export
+  item : (obj : CSSStyleDeclaration) -> (index : UInt32) -> JSIO CSSOMString
+  item a b = primJS $ CSSStyleDeclaration.prim__item a b
   
   export
   removeProperty :  (obj : CSSStyleDeclaration)
@@ -332,6 +340,10 @@ namespace MediaList
   export
   deleteMedium : (obj : MediaList) -> (medium : CSSOMString) -> JSIO ()
   deleteMedium a b = primJS $ MediaList.prim__deleteMedium a b
+  
+  export
+  item : (obj : MediaList) -> (index : UInt32) -> JSIO (Nullable CSSOMString)
+  item a b = primJS $ MediaList.prim__item a b
 
 namespace StyleSheet
   
@@ -385,6 +397,12 @@ namespace StyleSheetList
   export
   length : (obj : StyleSheetList) -> JSIO UInt32
   length a = primJS $ StyleSheetList.prim__length a
+  
+  export
+  item :  (obj : StyleSheetList)
+       -> (index : UInt32)
+       -> JSIO (Nullable CSSStyleSheet)
+  item a b = primJS $ StyleSheetList.prim__item a b
 
 --------------------------------------------------------------------------------
 --          Mixins

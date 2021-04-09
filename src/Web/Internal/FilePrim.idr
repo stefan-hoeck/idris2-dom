@@ -61,6 +61,10 @@ namespace FileList
   export
   %foreign "browser:lambda:x=>x.length"
   prim__length : FileList -> PrimIO UInt32
+  
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.item(a b)"
+  prim__item : FileList -> UInt32 -> PrimIO (Nullable File)
 
 namespace FileReader
   

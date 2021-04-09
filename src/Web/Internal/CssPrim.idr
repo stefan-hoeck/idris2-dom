@@ -110,6 +110,10 @@ namespace CSSRuleList
   export
   %foreign "browser:lambda:x=>x.length"
   prim__length : CSSRuleList -> PrimIO UInt32
+  
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.item(a b)"
+  prim__item : CSSRuleList -> UInt32 -> PrimIO (Nullable CSSRule)
 
 namespace CSSStyleDeclaration
   
@@ -148,6 +152,10 @@ namespace CSSStyleDeclaration
   prim__getPropertyValue :  CSSStyleDeclaration
                          -> CSSOMString
                          -> PrimIO CSSOMString
+  
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.item(a b)"
+  prim__item : CSSStyleDeclaration -> UInt32 -> PrimIO CSSOMString
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.removeProperty(a b)"
@@ -227,6 +235,10 @@ namespace MediaList
   export
   %foreign "browser:lambda:(x,a,b)=>x.deleteMedium(a b)"
   prim__deleteMedium : MediaList -> CSSOMString -> PrimIO ()
+  
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.item(a b)"
+  prim__item : MediaList -> UInt32 -> PrimIO (Nullable CSSOMString)
 
 namespace StyleSheet
   
@@ -268,6 +280,10 @@ namespace StyleSheetList
   export
   %foreign "browser:lambda:x=>x.length"
   prim__length : StyleSheetList -> PrimIO UInt32
+  
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.item(a b)"
+  prim__item : StyleSheetList -> UInt32 -> PrimIO (Nullable CSSStyleSheet)
 
 --------------------------------------------------------------------------------
 --          Mixins

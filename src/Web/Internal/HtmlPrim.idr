@@ -41,6 +41,10 @@ namespace AudioTrack
 namespace AudioTrackList
   
   export
+  %foreign "browser:lambda:(o,x)=>o[x]"
+  prim__get : AudioTrackList -> UInt32 -> PrimIO AudioTrack
+  
+  export
   %foreign "browser:lambda:x=>x.length"
   prim__length : AudioTrackList -> PrimIO UInt32
   
@@ -211,7 +215,20 @@ namespace DOMStringList
   export
   %foreign "browser:lambda:(x,a,b)=>x.contains(a b)"
   prim__contains : DOMStringList -> String -> PrimIO Boolean
+  
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.item(a b)"
+  prim__item : DOMStringList -> UInt32 -> PrimIO (Nullable String)
 
+namespace DOMStringMap
+  
+  export
+  %foreign "browser:lambda:(o,x)=>o[x]"
+  prim__get : DOMStringMap -> String -> PrimIO String
+  
+  export
+  %foreign "browser:lambda:(o,x,v)=>o[x] = v"
+  prim__set : DOMStringMap -> String -> String -> PrimIO ()
 
 namespace DataTransfer
   
@@ -284,6 +301,10 @@ namespace DataTransferItem
                     -> PrimIO ()
 
 namespace DataTransferItemList
+  
+  export
+  %foreign "browser:lambda:(o,x)=>o[x]"
+  prim__get : DataTransferItemList -> UInt32 -> PrimIO DataTransferItem
   
   export
   %foreign "browser:lambda:x=>x.length"
@@ -506,6 +527,10 @@ namespace FormDataEvent
 namespace HTMLAllCollection
   
   export
+  %foreign "browser:lambda:(o,x)=>o[x]"
+  prim__get : HTMLAllCollection -> UInt32 -> PrimIO Element
+  
+  export
   %foreign "browser:lambda:x=>x.length"
   prim__length : HTMLAllCollection -> PrimIO UInt32
   
@@ -514,6 +539,12 @@ namespace HTMLAllCollection
   prim__item :  HTMLAllCollection
              -> UndefOr String
              -> PrimIO (Nullable (Union2 HTMLCollection Element))
+  
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.namedItem(a b)"
+  prim__namedItem :  HTMLAllCollection
+                  -> String
+                  -> PrimIO (Nullable (Union2 HTMLCollection Element))
 
 namespace HTMLAnchorElement
   
@@ -1323,12 +1354,29 @@ namespace HTMLFontElement
   %foreign "browser:lambda:(x,v)=>{x.size = v}"
   prim__setSize : HTMLFontElement -> String -> PrimIO ()
 
+namespace HTMLFormControlsCollection
+  
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.namedItem(a b)"
+  prim__namedItem :  HTMLFormControlsCollection
+                  -> String
+                  -> PrimIO (Nullable (Union2 RadioNodeList Element))
 
 namespace HTMLFormElement
   
   export
   %foreign "browser:lambda:()=> new HTMLFormElement()"
   prim__new : PrimIO HTMLFormElement
+  
+  export
+  %foreign "browser:lambda:(o,x)=>o[x]"
+  prim__get : HTMLFormElement -> UInt32 -> PrimIO Element
+  
+  export
+  %foreign "browser:lambda:(o,x)=>o[x]"
+  prim__get1 :  HTMLFormElement
+             -> String
+             -> PrimIO (Union2 RadioNodeList Element)
   
   export
   %foreign "browser:lambda:x=>x.acceptCharset"
@@ -3280,6 +3328,13 @@ namespace HTMLOptionElement
 namespace HTMLOptionsCollection
   
   export
+  %foreign "browser:lambda:(o,x,v)=>o[x] = v"
+  prim__set :  HTMLOptionsCollection
+            -> UInt32
+            -> Nullable HTMLOptionElement
+            -> PrimIO ()
+  
+  export
   %foreign "browser:lambda:x=>x.length"
   prim__length : HTMLOptionsCollection -> PrimIO UInt32
   
@@ -3601,6 +3656,13 @@ namespace HTMLSelectElement
   prim__new : PrimIO HTMLSelectElement
   
   export
+  %foreign "browser:lambda:(o,x,v)=>o[x] = v"
+  prim__set :  HTMLSelectElement
+            -> UInt32
+            -> Nullable HTMLOptionElement
+            -> PrimIO ()
+  
+  export
   %foreign "browser:lambda:x=>x.autocomplete"
   prim__autocomplete : HTMLSelectElement -> PrimIO String
   
@@ -3714,6 +3776,10 @@ namespace HTMLSelectElement
   export
   %foreign "browser:lambda:(x,a)=>x.checkValidity(a)"
   prim__checkValidity : HTMLSelectElement -> PrimIO Boolean
+  
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.item(a b)"
+  prim__item : HTMLSelectElement -> UInt32 -> PrimIO (Nullable Element)
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.namedItem(a b)"
@@ -4976,25 +5042,29 @@ namespace MimeType
   
   export
   %foreign "browser:lambda:x=>x.description"
-  prim__description : MimeType -> PrimIO Undefined
+  prim__description : MimeType -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.enabledPlugin"
-  prim__enabledPlugin : MimeType -> PrimIO Undefined
+  prim__enabledPlugin : MimeType -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.suffixes"
-  prim__suffixes : MimeType -> PrimIO Undefined
+  prim__suffixes : MimeType -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.type"
-  prim__type : MimeType -> PrimIO Undefined
+  prim__type : MimeType -> PrimIO ()
 
 namespace MimeTypeArray
   
   export
   %foreign "browser:lambda:x=>x.length"
   prim__length : MimeTypeArray -> PrimIO UInt32
+  
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.item(a b)"
+  prim__item : MimeTypeArray -> UInt32 -> PrimIO (Nullable Object)
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.namedItem(a b)"
@@ -5101,19 +5171,23 @@ namespace Plugin
   
   export
   %foreign "browser:lambda:x=>x.description"
-  prim__description : Plugin -> PrimIO Undefined
+  prim__description : Plugin -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.filename"
-  prim__filename : Plugin -> PrimIO Undefined
+  prim__filename : Plugin -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.length"
-  prim__length : Plugin -> PrimIO Undefined
+  prim__length : Plugin -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.name"
-  prim__name : Plugin -> PrimIO Undefined
+  prim__name : Plugin -> PrimIO ()
+  
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.item(a b)"
+  prim__item : Plugin -> UInt32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.namedItem(a b)"
@@ -5124,6 +5198,10 @@ namespace PluginArray
   export
   %foreign "browser:lambda:x=>x.length"
   prim__length : PluginArray -> PrimIO UInt32
+  
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.item(a b)"
+  prim__item : PluginArray -> UInt32 -> PrimIO (Nullable Object)
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.namedItem(a b)"
@@ -5210,8 +5288,16 @@ namespace Storage
   prim__clear : Storage -> PrimIO ()
   
   export
+  %foreign "browser:lambda:(x,a,b)=>x.getItem(a b)"
+  prim__getItem : Storage -> String -> PrimIO (Nullable String)
+  
+  export
   %foreign "browser:lambda:(x,a,b)=>x.key(a b)"
   prim__key : Storage -> UInt32 -> PrimIO (Nullable String)
+  
+  export
+  %foreign "browser:lambda:(x,a,b,c)=>x.setItem(a b c)"
+  prim__setItem : Storage -> String -> String -> PrimIO ()
 
 namespace StorageEvent
   
@@ -5427,6 +5513,10 @@ namespace TextTrackCue
 namespace TextTrackCueList
   
   export
+  %foreign "browser:lambda:(o,x)=>o[x]"
+  prim__get : TextTrackCueList -> UInt32 -> PrimIO TextTrackCue
+  
+  export
   %foreign "browser:lambda:x=>x.length"
   prim__length : TextTrackCueList -> PrimIO UInt32
   
@@ -5437,6 +5527,10 @@ namespace TextTrackCueList
                    -> PrimIO (Nullable TextTrackCue)
 
 namespace TextTrackList
+  
+  export
+  %foreign "browser:lambda:(o,x)=>o[x]"
+  prim__get : TextTrackList -> UInt32 -> PrimIO TextTrack
   
   export
   %foreign "browser:lambda:x=>x.length"
@@ -5574,6 +5668,10 @@ namespace VideoTrack
 namespace VideoTrackList
   
   export
+  %foreign "browser:lambda:(o,x)=>o[x]"
+  prim__get : VideoTrackList -> UInt32 -> PrimIO VideoTrack
+  
+  export
   %foreign "browser:lambda:x=>x.length"
   prim__length : VideoTrackList -> PrimIO UInt32
   
@@ -5698,6 +5796,10 @@ namespace WebSocket
   prim__send3 : WebSocket -> ArrayBufferView -> PrimIO ()
 
 namespace Window
+  
+  export
+  %foreign "browser:lambda:(o,x)=>o[x]"
+  prim__get : Window -> String -> PrimIO Object
   
   export
   %foreign "browser:lambda:x=>x.closed"

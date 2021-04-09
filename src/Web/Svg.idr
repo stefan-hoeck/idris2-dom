@@ -917,6 +917,13 @@ namespace SVGLengthList
     mixins =  []
   
   export
+  set :  (obj : SVGLengthList)
+      -> (index : UInt32)
+      -> (newItem : SVGLength)
+      -> JSIO ()
+  set a b c = primJS $ SVGLengthList.prim__set a b c
+  
+  export
   length : (obj : SVGLengthList) -> JSIO UInt32
   length a = primJS $ SVGLengthList.prim__length a
   
@@ -931,6 +938,10 @@ namespace SVGLengthList
   export
   clear : (obj : SVGLengthList) -> JSIO ()
   clear a = primJS $ SVGLengthList.prim__clear a
+  
+  export
+  getItem : (obj : SVGLengthList) -> (index : UInt32) -> JSIO SVGLength
+  getItem a b = primJS $ SVGLengthList.prim__getItem a b
   
   export
   initialize : (obj : SVGLengthList) -> (newItem : SVGLength) -> JSIO SVGLength
@@ -1167,6 +1178,13 @@ namespace SVGNumberList
     mixins =  []
   
   export
+  set :  (obj : SVGNumberList)
+      -> (index : UInt32)
+      -> (newItem : SVGNumber)
+      -> JSIO ()
+  set a b c = primJS $ SVGNumberList.prim__set a b c
+  
+  export
   length : (obj : SVGNumberList) -> JSIO UInt32
   length a = primJS $ SVGNumberList.prim__length a
   
@@ -1181,6 +1199,10 @@ namespace SVGNumberList
   export
   clear : (obj : SVGNumberList) -> JSIO ()
   clear a = primJS $ SVGNumberList.prim__clear a
+  
+  export
+  getItem : (obj : SVGNumberList) -> (index : UInt32) -> JSIO SVGNumber
+  getItem a b = primJS $ SVGNumberList.prim__getItem a b
   
   export
   initialize : (obj : SVGNumberList) -> (newItem : SVGNumber) -> JSIO SVGNumber
@@ -1287,6 +1309,13 @@ namespace SVGPointList
     mixins =  []
   
   export
+  set :  (obj : SVGPointList)
+      -> (index : UInt32)
+      -> (newItem : DOMPoint)
+      -> JSIO ()
+  set a b c = primJS $ SVGPointList.prim__set a b c
+  
+  export
   length : (obj : SVGPointList) -> JSIO UInt32
   length a = primJS $ SVGPointList.prim__length a
   
@@ -1301,6 +1330,10 @@ namespace SVGPointList
   export
   clear : (obj : SVGPointList) -> JSIO ()
   clear a = primJS $ SVGPointList.prim__clear a
+  
+  export
+  getItem : (obj : SVGPointList) -> (index : UInt32) -> JSIO DOMPoint
+  getItem a b = primJS $ SVGPointList.prim__getItem a b
   
   export
   initialize : (obj : SVGPointList) -> (newItem : DOMPoint) -> JSIO DOMPoint
@@ -1773,6 +1806,13 @@ namespace SVGStringList
     mixins =  []
   
   export
+  set :  (obj : SVGStringList)
+      -> (index : UInt32)
+      -> (newItem : String)
+      -> JSIO ()
+  set a b c = primJS $ SVGStringList.prim__set a b c
+  
+  export
   length : (obj : SVGStringList) -> JSIO UInt32
   length a = primJS $ SVGStringList.prim__length a
   
@@ -1787,6 +1827,10 @@ namespace SVGStringList
   export
   clear : (obj : SVGStringList) -> JSIO ()
   clear a = primJS $ SVGStringList.prim__clear a
+  
+  export
+  getItem : (obj : SVGStringList) -> (index : UInt32) -> JSIO String
+  getItem a b = primJS $ SVGStringList.prim__getItem a b
   
   export
   initialize : (obj : SVGStringList) -> (newItem : String) -> JSIO String
@@ -2280,6 +2324,13 @@ namespace SVGTransformList
     mixins =  []
   
   export
+  set :  (obj : SVGTransformList)
+      -> (index : UInt32)
+      -> (newItem : SVGTransform)
+      -> JSIO ()
+  set a b c = primJS $ SVGTransformList.prim__set a b c
+  
+  export
   length : (obj : SVGTransformList) -> JSIO UInt32
   length a = primJS $ SVGTransformList.prim__length a
   
@@ -2307,6 +2358,10 @@ namespace SVGTransformList
                                -> JSIO SVGTransform
   createSVGTransformFromMatrix a b = primJS $ SVGTransformList.prim__createSVGTransformFromMatrix a
                                                                                                   b
+  
+  export
+  getItem : (obj : SVGTransformList) -> (index : UInt32) -> JSIO SVGTransform
+  getItem a b = primJS $ SVGTransformList.prim__getItem a b
   
   export
   initialize :  (obj : SVGTransformList)

@@ -11,6 +11,18 @@ import Web.Internal.Types
 namespace DOMMatrix
   
   export
+  %foreign "browser:lambda:(a)=>DOMMatrix.fromFloat32Array(a)"
+  prim__fromFloat32Array : Float32Array -> PrimIO DOMMatrix
+  
+  export
+  %foreign "browser:lambda:(a)=>DOMMatrix.fromFloat64Array(a)"
+  prim__fromFloat64Array : Float64Array -> PrimIO DOMMatrix
+  
+  export
+  %foreign "browser:lambda:(a)=>DOMMatrix.fromMatrix(a)"
+  prim__fromMatrix : UndefOr DOMMatrixInit -> PrimIO DOMMatrix
+  
+  export
   %foreign "browser:lambda:(x,a)=>x.invertSelf(a)"
   prim__invertSelf : DOMMatrix -> PrimIO DOMMatrix
   
@@ -87,6 +99,18 @@ namespace DOMMatrix
                       -> PrimIO DOMMatrix
 
 namespace DOMMatrixReadOnly
+  
+  export
+  %foreign "browser:lambda:(a)=>DOMMatrixReadOnly.fromFloat32Array(a)"
+  prim__fromFloat32Array : Float32Array -> PrimIO DOMMatrixReadOnly
+  
+  export
+  %foreign "browser:lambda:(a)=>DOMMatrixReadOnly.fromFloat64Array(a)"
+  prim__fromFloat64Array : Float64Array -> PrimIO DOMMatrixReadOnly
+  
+  export
+  %foreign "browser:lambda:(a)=>DOMMatrixReadOnly.fromMatrix(a)"
+  prim__fromMatrix : UndefOr DOMMatrixInit -> PrimIO DOMMatrixReadOnly
   
   export
   %foreign "browser:lambda:x=>x.a"
@@ -287,8 +311,17 @@ namespace DOMMatrixReadOnly
                   -> UndefOr Double
                   -> PrimIO DOMMatrix
 
+namespace DOMPoint
+  
+  export
+  %foreign "browser:lambda:(a)=>DOMPoint.fromPoint(a)"
+  prim__fromPoint : UndefOr DOMPointInit -> PrimIO DOMPoint
 
 namespace DOMPointReadOnly
+  
+  export
+  %foreign "browser:lambda:(a)=>DOMPointReadOnly.fromPoint(a)"
+  prim__fromPoint : UndefOr DOMPointInit -> PrimIO DOMPointReadOnly
   
   export
   %foreign "browser:lambda:x=>x.w"
@@ -319,6 +352,14 @@ namespace DOMPointReadOnly
 namespace DOMQuad
   
   export
+  %foreign "browser:lambda:(a)=>DOMQuad.fromQuad(a)"
+  prim__fromQuad : UndefOr DOMQuadInit -> PrimIO DOMQuad
+  
+  export
+  %foreign "browser:lambda:(a)=>DOMQuad.fromRect(a)"
+  prim__fromRect : UndefOr DOMRectInit -> PrimIO DOMQuad
+  
+  export
   %foreign "browser:lambda:x=>x.p1"
   prim__p1 : DOMQuad -> PrimIO DOMPoint
   
@@ -342,14 +383,27 @@ namespace DOMQuad
   %foreign "browser:lambda:(x,a)=>x.toJSON(a)"
   prim__toJSON : DOMQuad -> PrimIO Object
 
+namespace DOMRect
+  
+  export
+  %foreign "browser:lambda:(a)=>DOMRect.fromRect(a)"
+  prim__fromRect : UndefOr DOMRectInit -> PrimIO DOMRect
 
 namespace DOMRectList
   
   export
   %foreign "browser:lambda:x=>x.length"
   prim__length : DOMRectList -> PrimIO UInt32
+  
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.item(a b)"
+  prim__item : DOMRectList -> UInt32 -> PrimIO (Nullable DOMRect)
 
 namespace DOMRectReadOnly
+  
+  export
+  %foreign "browser:lambda:(a)=>DOMRectReadOnly.fromRect(a)"
+  prim__fromRect : UndefOr DOMRectInit -> PrimIO DOMRectReadOnly
   
   export
   %foreign "browser:lambda:x=>x.bottom"

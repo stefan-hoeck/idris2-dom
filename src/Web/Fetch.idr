@@ -137,6 +137,14 @@ namespace Response
   new a b = primJS $ Response.prim__new a b
   
   export
+  error : JSIO Response
+  error = primJS $ Response.prim__error 
+  
+  export
+  redirect : (url : String) -> (status : UndefOr UInt16) -> JSIO Response
+  redirect a b = primJS $ Response.prim__redirect a b
+  
+  export
   headers : (obj : Response) -> JSIO Headers
   headers a = primJS $ Response.prim__headers a
   

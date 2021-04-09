@@ -21,6 +21,18 @@ namespace URL
   new a b = primJS $ URL.prim__new a b
   
   export
+  createObjectURL : (obj : Union2 Blob MediaSource) -> JSIO String
+  createObjectURL a = primJS $ URL.prim__createObjectURL a
+  
+  export
+  createObjectURL1 : (mediaSource : MediaSource) -> JSIO String
+  createObjectURL1 a = primJS $ URL.prim__createObjectURL1 a
+  
+  export
+  revokeObjectURL : (url : String) -> JSIO ()
+  revokeObjectURL a = primJS $ URL.prim__revokeObjectURL a
+  
+  export
   hash : (obj : URL) -> JSIO String
   hash a = primJS $ URL.prim__hash a
   
