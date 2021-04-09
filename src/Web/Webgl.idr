@@ -5473,6 +5473,27 @@ namespace WebGLContextAttributes
     mixins =  []
   
   export
+  new :  (alpha : UndefOr Boolean)
+      -> (depth : UndefOr Boolean)
+      -> (stencil : UndefOr Boolean)
+      -> (antialias : UndefOr Boolean)
+      -> (premultipliedAlpha : UndefOr Boolean)
+      -> (preserveDrawingBuffer : UndefOr Boolean)
+      -> (powerPreference : UndefOr WebGLPowerPreference)
+      -> (failIfMajorPerformanceCaveat : UndefOr Boolean)
+      -> (desynchronized : UndefOr Boolean)
+      -> JSIO WebGLContextAttributes
+  new a b c d e f g h i = primJS $ WebGLContextAttributes.prim__new a
+                                                                    b
+                                                                    c
+                                                                    d
+                                                                    e
+                                                                    f
+                                                                    g
+                                                                    h
+                                                                    i
+  
+  export
   alpha : (obj : WebGLContextAttributes) -> JSIO (UndefOr Boolean)
   alpha a = primJS $ WebGLContextAttributes.prim__alpha a
   

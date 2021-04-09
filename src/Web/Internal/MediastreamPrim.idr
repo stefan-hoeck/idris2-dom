@@ -257,8 +257,19 @@ namespace OverconstrainedError
 --          Dictionaries
 --------------------------------------------------------------------------------
 
+namespace Capabilities
+  
+  export
+  %foreign "browser:lambda:()=> {}"
+  prim__new : PrimIO Capabilities
 
 namespace ConstrainBooleanParameters
+  
+  export
+  %foreign "browser:lambda:(a,b)=> {exact: a,ideal: b}"
+  prim__new :  UndefOr Boolean
+            -> UndefOr Boolean
+            -> PrimIO ConstrainBooleanParameters
   
   export
   %foreign "browser:lambda:x=>x.exact"
@@ -277,6 +288,12 @@ namespace ConstrainBooleanParameters
   prim__setIdeal : ConstrainBooleanParameters -> UndefOr Boolean -> PrimIO ()
 
 namespace ConstrainDOMStringParameters
+  
+  export
+  %foreign "browser:lambda:(a,b)=> {exact: a,ideal: b}"
+  prim__new :  UndefOr (Union2 String (Array String))
+            -> UndefOr (Union2 String (Array String))
+            -> PrimIO ConstrainDOMStringParameters
   
   export
   %foreign "browser:lambda:x=>x.exact"
@@ -303,6 +320,10 @@ namespace ConstrainDOMStringParameters
 namespace ConstrainDoubleRange
   
   export
+  %foreign "browser:lambda:(a,b)=> {exact: a,ideal: b}"
+  prim__new : UndefOr Double -> UndefOr Double -> PrimIO ConstrainDoubleRange
+  
+  export
   %foreign "browser:lambda:x=>x.exact"
   prim__exact : ConstrainDoubleRange -> PrimIO (UndefOr Double)
   
@@ -321,6 +342,10 @@ namespace ConstrainDoubleRange
 namespace ConstrainULongRange
   
   export
+  %foreign "browser:lambda:(a,b)=> {exact: a,ideal: b}"
+  prim__new : UndefOr UInt32 -> UndefOr UInt32 -> PrimIO ConstrainULongRange
+  
+  export
   %foreign "browser:lambda:x=>x.exact"
   prim__exact : ConstrainULongRange -> PrimIO (UndefOr UInt32)
   
@@ -336,8 +361,17 @@ namespace ConstrainULongRange
   %foreign "browser:lambda:(x,v)=>{x.ideal = v}"
   prim__setIdeal : ConstrainULongRange -> UndefOr UInt32 -> PrimIO ()
 
+namespace ConstraintSet
+  
+  export
+  %foreign "browser:lambda:()=> {}"
+  prim__new : PrimIO ConstraintSet
 
 namespace Constraints
+  
+  export
+  %foreign "browser:lambda:(a)=> {advanced: a}"
+  prim__new : UndefOr (Array ConstraintSet) -> PrimIO Constraints
   
   export
   %foreign "browser:lambda:x=>x.advanced"
@@ -348,6 +382,10 @@ namespace Constraints
   prim__setAdvanced : Constraints -> UndefOr (Array ConstraintSet) -> PrimIO ()
 
 namespace DoubleRange
+  
+  export
+  %foreign "browser:lambda:(a,b)=> {max: a,min: b}"
+  prim__new : UndefOr Double -> UndefOr Double -> PrimIO DoubleRange
   
   export
   %foreign "browser:lambda:x=>x.max"
@@ -366,6 +404,12 @@ namespace DoubleRange
   prim__setMin : DoubleRange -> UndefOr Double -> PrimIO ()
 
 namespace MediaStreamConstraints
+  
+  export
+  %foreign "browser:lambda:(a,b)=> {video: a,audio: b}"
+  prim__new :  UndefOr (Union2 Boolean MediaTrackConstraints)
+            -> UndefOr (Union2 Boolean MediaTrackConstraints)
+            -> PrimIO MediaStreamConstraints
   
   export
   %foreign "browser:lambda:x=>x.audio"
@@ -392,6 +436,10 @@ namespace MediaStreamConstraints
 namespace MediaStreamTrackEventInit
   
   export
+  %foreign "browser:lambda:(a)=> {track: a}"
+  prim__new : MediaStreamTrack -> PrimIO MediaStreamTrackEventInit
+  
+  export
   %foreign "browser:lambda:x=>x.track"
   prim__track : MediaStreamTrackEventInit -> PrimIO MediaStreamTrack
   
@@ -400,6 +448,25 @@ namespace MediaStreamTrackEventInit
   prim__setTrack : MediaStreamTrackEventInit -> MediaStreamTrack -> PrimIO ()
 
 namespace MediaTrackCapabilities
+  
+  export
+  %foreign "browser:lambda:(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o)=> {width: a,height: b,aspectRatio: c,frameRate: d,facingMode: e,resizeMode: f,sampleRate: g,sampleSize: h,echoCancellation: i,autoGainControl: j,noiseSuppression: k,latency: l,channelCount: m,deviceId: n,groupId: o}"
+  prim__new :  UndefOr ULongRange
+            -> UndefOr ULongRange
+            -> UndefOr DoubleRange
+            -> UndefOr DoubleRange
+            -> UndefOr (Array String)
+            -> UndefOr (Array String)
+            -> UndefOr ULongRange
+            -> UndefOr ULongRange
+            -> UndefOr (Array Boolean)
+            -> UndefOr (Array Boolean)
+            -> UndefOr (Array Boolean)
+            -> UndefOr DoubleRange
+            -> UndefOr ULongRange
+            -> UndefOr String
+            -> UndefOr String
+            -> PrimIO MediaTrackCapabilities
   
   export
   %foreign "browser:lambda:x=>x.aspectRatio"
@@ -545,6 +612,25 @@ namespace MediaTrackCapabilities
   prim__setWidth : MediaTrackCapabilities -> UndefOr ULongRange -> PrimIO ()
 
 namespace MediaTrackConstraintSet
+  
+  export
+  %foreign "browser:lambda:(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o)=> {width: a,height: b,aspectRatio: c,frameRate: d,facingMode: e,resizeMode: f,sampleRate: g,sampleSize: h,echoCancellation: i,autoGainControl: j,noiseSuppression: k,latency: l,channelCount: m,deviceId: n,groupId: o}"
+  prim__new :  UndefOr ConstrainULong
+            -> UndefOr ConstrainULong
+            -> UndefOr ConstrainDouble
+            -> UndefOr ConstrainDouble
+            -> UndefOr ConstrainDOMString
+            -> UndefOr ConstrainDOMString
+            -> UndefOr ConstrainULong
+            -> UndefOr ConstrainULong
+            -> UndefOr ConstrainBoolean
+            -> UndefOr ConstrainBoolean
+            -> UndefOr ConstrainBoolean
+            -> UndefOr ConstrainDouble
+            -> UndefOr ConstrainULong
+            -> UndefOr ConstrainDOMString
+            -> UndefOr ConstrainDOMString
+            -> PrimIO MediaTrackConstraintSet
   
   export
   %foreign "browser:lambda:x=>x.aspectRatio"
@@ -707,6 +793,11 @@ namespace MediaTrackConstraintSet
 namespace MediaTrackConstraints
   
   export
+  %foreign "browser:lambda:(a)=> {advanced: a}"
+  prim__new :  UndefOr (Array MediaTrackConstraintSet)
+            -> PrimIO MediaTrackConstraints
+  
+  export
   %foreign "browser:lambda:x=>x.advanced"
   prim__advanced :  MediaTrackConstraints
                  -> PrimIO (UndefOr (Array MediaTrackConstraintSet))
@@ -718,6 +809,25 @@ namespace MediaTrackConstraints
                     -> PrimIO ()
 
 namespace MediaTrackSettings
+  
+  export
+  %foreign "browser:lambda:(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o)=> {width: a,height: b,aspectRatio: c,frameRate: d,facingMode: e,resizeMode: f,sampleRate: g,sampleSize: h,echoCancellation: i,autoGainControl: j,noiseSuppression: k,latency: l,channelCount: m,deviceId: n,groupId: o}"
+  prim__new :  UndefOr Int32
+            -> UndefOr Int32
+            -> UndefOr Double
+            -> UndefOr Double
+            -> UndefOr String
+            -> UndefOr String
+            -> UndefOr Int32
+            -> UndefOr Int32
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Double
+            -> UndefOr Int32
+            -> UndefOr String
+            -> UndefOr String
+            -> PrimIO MediaTrackSettings
   
   export
   %foreign "browser:lambda:x=>x.aspectRatio"
@@ -840,6 +950,25 @@ namespace MediaTrackSettings
   prim__setWidth : MediaTrackSettings -> UndefOr Int32 -> PrimIO ()
 
 namespace MediaTrackSupportedConstraints
+  
+  export
+  %foreign "browser:lambda:(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o)=> {width: a,height: b,aspectRatio: c,frameRate: d,facingMode: e,resizeMode: f,sampleRate: g,sampleSize: h,echoCancellation: i,autoGainControl: j,noiseSuppression: k,latency: l,channelCount: m,deviceId: n,groupId: o}"
+  prim__new :  UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> PrimIO MediaTrackSupportedConstraints
   
   export
   %foreign "browser:lambda:x=>x.aspectRatio"
@@ -995,8 +1124,17 @@ namespace MediaTrackSupportedConstraints
                  -> UndefOr Boolean
                  -> PrimIO ()
 
+namespace Settings
+  
+  export
+  %foreign "browser:lambda:()=> {}"
+  prim__new : PrimIO Settings
 
 namespace ULongRange
+  
+  export
+  %foreign "browser:lambda:(a,b)=> {max: a,min: b}"
+  prim__new : UndefOr UInt32 -> UndefOr UInt32 -> PrimIO ULongRange
   
   export
   %foreign "browser:lambda:x=>x.max"

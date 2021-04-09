@@ -185,6 +185,23 @@ namespace Body
 namespace RequestInit
   
   export
+  %foreign "browser:lambda:(a,b,c,d,e,f,g,h,i,j,k,l,m)=> {method: a,headers: b,body: c,referrer: d,referrerPolicy: e,mode: f,credentials: g,cache: h,redirect: i,integrity: j,keepalive: k,signal: l,window: m}"
+  prim__new :  UndefOr ByteString
+            -> UndefOr HeadersInit
+            -> UndefOr (Nullable BodyInit)
+            -> UndefOr String
+            -> UndefOr ReferrerPolicy
+            -> UndefOr RequestMode
+            -> UndefOr RequestCredentials
+            -> UndefOr RequestCache
+            -> UndefOr RequestRedirect
+            -> UndefOr String
+            -> UndefOr Boolean
+            -> UndefOr (Nullable AbortSignal)
+            -> UndefOr AnyPtr
+            -> PrimIO RequestInit
+  
+  export
   %foreign "browser:lambda:x=>x.body"
   prim__body : RequestInit -> PrimIO (UndefOr (Nullable BodyInit))
   
@@ -289,6 +306,13 @@ namespace RequestInit
   prim__setWindow : RequestInit -> UndefOr AnyPtr -> PrimIO ()
 
 namespace ResponseInit
+  
+  export
+  %foreign "browser:lambda:(a,b,c)=> {status: a,statusText: b,headers: c}"
+  prim__new :  UndefOr UInt16
+            -> UndefOr ByteString
+            -> UndefOr HeadersInit
+            -> PrimIO ResponseInit
   
   export
   %foreign "browser:lambda:x=>x.headers"

@@ -315,6 +315,10 @@ namespace Capabilities
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new : JSIO Capabilities
+  new = primJS $ Capabilities.prim__new 
 
 namespace ConstrainBooleanParameters
   
@@ -323,6 +327,12 @@ namespace ConstrainBooleanParameters
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new :  (exact : UndefOr Boolean)
+      -> (ideal : UndefOr Boolean)
+      -> JSIO ConstrainBooleanParameters
+  new a b = primJS $ ConstrainBooleanParameters.prim__new a b
   
   export
   exact : (obj : ConstrainBooleanParameters) -> JSIO (UndefOr Boolean)
@@ -351,6 +361,12 @@ namespace ConstrainDOMStringParameters
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new :  (exact : UndefOr (Union2 String (Array String)))
+      -> (ideal : UndefOr (Union2 String (Array String)))
+      -> JSIO ConstrainDOMStringParameters
+  new a b = primJS $ ConstrainDOMStringParameters.prim__new a b
   
   export
   exact :  (obj : ConstrainDOMStringParameters)
@@ -383,6 +399,12 @@ namespace ConstrainDoubleRange
     mixins =  []
   
   export
+  new :  (exact : UndefOr Double)
+      -> (ideal : UndefOr Double)
+      -> JSIO ConstrainDoubleRange
+  new a b = primJS $ ConstrainDoubleRange.prim__new a b
+  
+  export
   exact : (obj : ConstrainDoubleRange) -> JSIO (UndefOr Double)
   exact a = primJS $ ConstrainDoubleRange.prim__exact a
   
@@ -407,6 +429,12 @@ namespace ConstrainULongRange
     mixins =  []
   
   export
+  new :  (exact : UndefOr UInt32)
+      -> (ideal : UndefOr UInt32)
+      -> JSIO ConstrainULongRange
+  new a b = primJS $ ConstrainULongRange.prim__new a b
+  
+  export
   exact : (obj : ConstrainULongRange) -> JSIO (UndefOr UInt32)
   exact a = primJS $ ConstrainULongRange.prim__exact a
   
@@ -429,6 +457,10 @@ namespace ConstraintSet
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new : JSIO ConstraintSet
+  new = primJS $ ConstraintSet.prim__new 
 
 namespace Constraints
   
@@ -437,6 +469,10 @@ namespace Constraints
     parents =  [ ConstraintSet , Object ]
 
     mixins =  []
+  
+  export
+  new : (advanced : UndefOr (Array ConstraintSet)) -> JSIO Constraints
+  new a = primJS $ Constraints.prim__new a
   
   export
   advanced : (obj : Constraints) -> JSIO (UndefOr (Array ConstraintSet))
@@ -455,6 +491,10 @@ namespace DoubleRange
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new : (max : UndefOr Double) -> (min : UndefOr Double) -> JSIO DoubleRange
+  new a b = primJS $ DoubleRange.prim__new a b
   
   export
   max : (obj : DoubleRange) -> JSIO (UndefOr Double)
@@ -479,6 +519,12 @@ namespace MediaStreamConstraints
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new :  (video : UndefOr (Union2 Boolean MediaTrackConstraints))
+      -> (audio : UndefOr (Union2 Boolean MediaTrackConstraints))
+      -> JSIO MediaStreamConstraints
+  new a b = primJS $ MediaStreamConstraints.prim__new a b
   
   export
   audio :  (obj : MediaStreamConstraints)
@@ -511,6 +557,10 @@ namespace MediaStreamTrackEventInit
     mixins =  []
   
   export
+  new : (track : MediaStreamTrack) -> JSIO MediaStreamTrackEventInit
+  new a = primJS $ MediaStreamTrackEventInit.prim__new a
+  
+  export
   track : (obj : MediaStreamTrackEventInit) -> JSIO MediaStreamTrack
   track a = primJS $ MediaStreamTrackEventInit.prim__track a
   
@@ -527,6 +577,39 @@ namespace MediaTrackCapabilities
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new :  (width : UndefOr ULongRange)
+      -> (height : UndefOr ULongRange)
+      -> (aspectRatio : UndefOr DoubleRange)
+      -> (frameRate : UndefOr DoubleRange)
+      -> (facingMode : UndefOr (Array String))
+      -> (resizeMode : UndefOr (Array String))
+      -> (sampleRate : UndefOr ULongRange)
+      -> (sampleSize : UndefOr ULongRange)
+      -> (echoCancellation : UndefOr (Array Boolean))
+      -> (autoGainControl : UndefOr (Array Boolean))
+      -> (noiseSuppression : UndefOr (Array Boolean))
+      -> (latency : UndefOr DoubleRange)
+      -> (channelCount : UndefOr ULongRange)
+      -> (deviceId : UndefOr String)
+      -> (groupId : UndefOr String)
+      -> JSIO MediaTrackCapabilities
+  new a b c d e f g h i j k l m n o = primJS $ MediaTrackCapabilities.prim__new a
+                                                                                b
+                                                                                c
+                                                                                d
+                                                                                e
+                                                                                f
+                                                                                g
+                                                                                h
+                                                                                i
+                                                                                j
+                                                                                k
+                                                                                l
+                                                                                m
+                                                                                n
+                                                                                o
   
   export
   aspectRatio : (obj : MediaTrackCapabilities) -> JSIO (UndefOr DoubleRange)
@@ -692,6 +775,39 @@ namespace MediaTrackConstraintSet
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new :  (width : UndefOr ConstrainULong)
+      -> (height : UndefOr ConstrainULong)
+      -> (aspectRatio : UndefOr ConstrainDouble)
+      -> (frameRate : UndefOr ConstrainDouble)
+      -> (facingMode : UndefOr ConstrainDOMString)
+      -> (resizeMode : UndefOr ConstrainDOMString)
+      -> (sampleRate : UndefOr ConstrainULong)
+      -> (sampleSize : UndefOr ConstrainULong)
+      -> (echoCancellation : UndefOr ConstrainBoolean)
+      -> (autoGainControl : UndefOr ConstrainBoolean)
+      -> (noiseSuppression : UndefOr ConstrainBoolean)
+      -> (latency : UndefOr ConstrainDouble)
+      -> (channelCount : UndefOr ConstrainULong)
+      -> (deviceId : UndefOr ConstrainDOMString)
+      -> (groupId : UndefOr ConstrainDOMString)
+      -> JSIO MediaTrackConstraintSet
+  new a b c d e f g h i j k l m n o = primJS $ MediaTrackConstraintSet.prim__new a
+                                                                                 b
+                                                                                 c
+                                                                                 d
+                                                                                 e
+                                                                                 f
+                                                                                 g
+                                                                                 h
+                                                                                 i
+                                                                                 j
+                                                                                 k
+                                                                                 l
+                                                                                 m
+                                                                                 n
+                                                                                 o
   
   export
   aspectRatio :  (obj : MediaTrackConstraintSet)
@@ -864,6 +980,11 @@ namespace MediaTrackConstraints
     mixins =  []
   
   export
+  new :  (advanced : UndefOr (Array MediaTrackConstraintSet))
+      -> JSIO MediaTrackConstraints
+  new a = primJS $ MediaTrackConstraints.prim__new a
+  
+  export
   advanced :  (obj : MediaTrackConstraints)
            -> JSIO (UndefOr (Array MediaTrackConstraintSet))
   advanced a = primJS $ MediaTrackConstraints.prim__advanced a
@@ -881,6 +1002,39 @@ namespace MediaTrackSettings
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new :  (width : UndefOr Int32)
+      -> (height : UndefOr Int32)
+      -> (aspectRatio : UndefOr Double)
+      -> (frameRate : UndefOr Double)
+      -> (facingMode : UndefOr String)
+      -> (resizeMode : UndefOr String)
+      -> (sampleRate : UndefOr Int32)
+      -> (sampleSize : UndefOr Int32)
+      -> (echoCancellation : UndefOr Boolean)
+      -> (autoGainControl : UndefOr Boolean)
+      -> (noiseSuppression : UndefOr Boolean)
+      -> (latency : UndefOr Double)
+      -> (channelCount : UndefOr Int32)
+      -> (deviceId : UndefOr String)
+      -> (groupId : UndefOr String)
+      -> JSIO MediaTrackSettings
+  new a b c d e f g h i j k l m n o = primJS $ MediaTrackSettings.prim__new a
+                                                                            b
+                                                                            c
+                                                                            d
+                                                                            e
+                                                                            f
+                                                                            g
+                                                                            h
+                                                                            i
+                                                                            j
+                                                                            k
+                                                                            l
+                                                                            m
+                                                                            n
+                                                                            o
   
   export
   aspectRatio : (obj : MediaTrackSettings) -> JSIO (UndefOr Double)
@@ -1034,6 +1188,39 @@ namespace MediaTrackSupportedConstraints
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new :  (width : UndefOr Boolean)
+      -> (height : UndefOr Boolean)
+      -> (aspectRatio : UndefOr Boolean)
+      -> (frameRate : UndefOr Boolean)
+      -> (facingMode : UndefOr Boolean)
+      -> (resizeMode : UndefOr Boolean)
+      -> (sampleRate : UndefOr Boolean)
+      -> (sampleSize : UndefOr Boolean)
+      -> (echoCancellation : UndefOr Boolean)
+      -> (autoGainControl : UndefOr Boolean)
+      -> (noiseSuppression : UndefOr Boolean)
+      -> (latency : UndefOr Boolean)
+      -> (channelCount : UndefOr Boolean)
+      -> (deviceId : UndefOr Boolean)
+      -> (groupId : UndefOr Boolean)
+      -> JSIO MediaTrackSupportedConstraints
+  new a b c d e f g h i j k l m n o = primJS $ MediaTrackSupportedConstraints.prim__new a
+                                                                                        b
+                                                                                        c
+                                                                                        d
+                                                                                        e
+                                                                                        f
+                                                                                        g
+                                                                                        h
+                                                                                        i
+                                                                                        j
+                                                                                        k
+                                                                                        l
+                                                                                        m
+                                                                                        n
+                                                                                        o
   
   export
   aspectRatio : (obj : MediaTrackSupportedConstraints) -> JSIO (UndefOr Boolean)
@@ -1207,6 +1394,10 @@ namespace Settings
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new : JSIO Settings
+  new = primJS $ Settings.prim__new 
 
 namespace ULongRange
   
@@ -1215,6 +1406,10 @@ namespace ULongRange
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new : (max : UndefOr UInt32) -> (min : UndefOr UInt32) -> JSIO ULongRange
+  new a b = primJS $ ULongRange.prim__new a b
   
   export
   max : (obj : ULongRange) -> JSIO (UndefOr UInt32)

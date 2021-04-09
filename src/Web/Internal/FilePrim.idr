@@ -178,6 +178,10 @@ namespace FileReaderSync
 namespace BlobPropertyBag
   
   export
+  %foreign "browser:lambda:(a,b)=> {type: a,endings: b}"
+  prim__new : UndefOr String -> UndefOr EndingType -> PrimIO BlobPropertyBag
+  
+  export
   %foreign "browser:lambda:x=>x.endings"
   prim__endings : BlobPropertyBag -> PrimIO (UndefOr EndingType)
   
@@ -194,6 +198,10 @@ namespace BlobPropertyBag
   prim__setType : BlobPropertyBag -> UndefOr String -> PrimIO ()
 
 namespace FilePropertyBag
+  
+  export
+  %foreign "browser:lambda:(a)=> {lastModified: a}"
+  prim__new : UndefOr Int64 -> PrimIO FilePropertyBag
   
   export
   %foreign "browser:lambda:x=>x.lastModified"

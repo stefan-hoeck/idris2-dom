@@ -469,6 +469,33 @@ namespace DOMMatrix2DInit
     mixins =  []
   
   export
+  new :  (a : UndefOr Double)
+      -> (b : UndefOr Double)
+      -> (c : UndefOr Double)
+      -> (d : UndefOr Double)
+      -> (e : UndefOr Double)
+      -> (f : UndefOr Double)
+      -> (m11 : UndefOr Double)
+      -> (m12 : UndefOr Double)
+      -> (m21 : UndefOr Double)
+      -> (m22 : UndefOr Double)
+      -> (m41 : UndefOr Double)
+      -> (m42 : UndefOr Double)
+      -> JSIO DOMMatrix2DInit
+  new a b c d e f g h i j k l = primJS $ DOMMatrix2DInit.prim__new a
+                                                                   b
+                                                                   c
+                                                                   d
+                                                                   e
+                                                                   f
+                                                                   g
+                                                                   h
+                                                                   i
+                                                                   j
+                                                                   k
+                                                                   l
+  
+  export
   a : (obj : DOMMatrix2DInit) -> JSIO (UndefOr Double)
   a b = primJS $ DOMMatrix2DInit.prim__a b
   
@@ -573,6 +600,31 @@ namespace DOMMatrixInit
     mixins =  []
   
   export
+  new :  (m13 : UndefOr Double)
+      -> (m14 : UndefOr Double)
+      -> (m23 : UndefOr Double)
+      -> (m24 : UndefOr Double)
+      -> (m31 : UndefOr Double)
+      -> (m32 : UndefOr Double)
+      -> (m33 : UndefOr Double)
+      -> (m34 : UndefOr Double)
+      -> (m43 : UndefOr Double)
+      -> (m44 : UndefOr Double)
+      -> (is2D : UndefOr Boolean)
+      -> JSIO DOMMatrixInit
+  new a b c d e f g h i j k = primJS $ DOMMatrixInit.prim__new a
+                                                               b
+                                                               c
+                                                               d
+                                                               e
+                                                               f
+                                                               g
+                                                               h
+                                                               i
+                                                               j
+                                                               k
+  
+  export
   is2D : (obj : DOMMatrixInit) -> JSIO (UndefOr Boolean)
   is2D a = primJS $ DOMMatrixInit.prim__is2D a
   
@@ -669,6 +721,14 @@ namespace DOMPointInit
     mixins =  []
   
   export
+  new :  (x : UndefOr Double)
+      -> (y : UndefOr Double)
+      -> (z : UndefOr Double)
+      -> (w : UndefOr Double)
+      -> JSIO DOMPointInit
+  new a b c d = primJS $ DOMPointInit.prim__new a b c d
+  
+  export
   w : (obj : DOMPointInit) -> JSIO (UndefOr Double)
   w a = primJS $ DOMPointInit.prim__w a
   
@@ -709,6 +769,14 @@ namespace DOMQuadInit
     mixins =  []
   
   export
+  new :  (p1 : UndefOr DOMPointInit)
+      -> (p2 : UndefOr DOMPointInit)
+      -> (p3 : UndefOr DOMPointInit)
+      -> (p4 : UndefOr DOMPointInit)
+      -> JSIO DOMQuadInit
+  new a b c d = primJS $ DOMQuadInit.prim__new a b c d
+  
+  export
   p1 : (obj : DOMQuadInit) -> JSIO (UndefOr DOMPointInit)
   p1 a = primJS $ DOMQuadInit.prim__p1 a
   
@@ -747,6 +815,14 @@ namespace DOMRectInit
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new :  (x : UndefOr Double)
+      -> (y : UndefOr Double)
+      -> (width : UndefOr Double)
+      -> (height : UndefOr Double)
+      -> JSIO DOMRectInit
+  new a b c d = primJS $ DOMRectInit.prim__new a b c d
   
   export
   height : (obj : DOMRectInit) -> JSIO (UndefOr Double)

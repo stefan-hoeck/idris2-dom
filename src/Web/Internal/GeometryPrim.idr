@@ -395,6 +395,22 @@ namespace DOMRectReadOnly
 namespace DOMMatrix2DInit
   
   export
+  %foreign "browser:lambda:(a,b,c,d,e,f,g,h,i,j,k,l)=> {a: a,b: b,c: c,d: d,e: e,f: f,m11: g,m12: h,m21: i,m22: j,m41: k,m42: l}"
+  prim__new :  UndefOr Double
+            -> UndefOr Double
+            -> UndefOr Double
+            -> UndefOr Double
+            -> UndefOr Double
+            -> UndefOr Double
+            -> UndefOr Double
+            -> UndefOr Double
+            -> UndefOr Double
+            -> UndefOr Double
+            -> UndefOr Double
+            -> UndefOr Double
+            -> PrimIO DOMMatrix2DInit
+  
+  export
   %foreign "browser:lambda:x=>x.a"
   prim__a : DOMMatrix2DInit -> PrimIO (UndefOr Double)
   
@@ -493,6 +509,21 @@ namespace DOMMatrix2DInit
 namespace DOMMatrixInit
   
   export
+  %foreign "browser:lambda:(a,b,c,d,e,f,g,h,i,j,k)=> {m13: a,m14: b,m23: c,m24: d,m31: e,m32: f,m33: g,m34: h,m43: i,m44: j,is2D: k}"
+  prim__new :  UndefOr Double
+            -> UndefOr Double
+            -> UndefOr Double
+            -> UndefOr Double
+            -> UndefOr Double
+            -> UndefOr Double
+            -> UndefOr Double
+            -> UndefOr Double
+            -> UndefOr Double
+            -> UndefOr Double
+            -> UndefOr Boolean
+            -> PrimIO DOMMatrixInit
+  
+  export
   %foreign "browser:lambda:x=>x.is2D"
   prim__is2D : DOMMatrixInit -> PrimIO (UndefOr Boolean)
   
@@ -583,6 +614,14 @@ namespace DOMMatrixInit
 namespace DOMPointInit
   
   export
+  %foreign "browser:lambda:(a,b,c,d)=> {x: a,y: b,z: c,w: d}"
+  prim__new :  UndefOr Double
+            -> UndefOr Double
+            -> UndefOr Double
+            -> UndefOr Double
+            -> PrimIO DOMPointInit
+  
+  export
   %foreign "browser:lambda:x=>x.w"
   prim__w : DOMPointInit -> PrimIO (UndefOr Double)
   
@@ -617,6 +656,14 @@ namespace DOMPointInit
 namespace DOMQuadInit
   
   export
+  %foreign "browser:lambda:(a,b,c,d)=> {p1: a,p2: b,p3: c,p4: d}"
+  prim__new :  UndefOr DOMPointInit
+            -> UndefOr DOMPointInit
+            -> UndefOr DOMPointInit
+            -> UndefOr DOMPointInit
+            -> PrimIO DOMQuadInit
+  
+  export
   %foreign "browser:lambda:x=>x.p1"
   prim__p1 : DOMQuadInit -> PrimIO (UndefOr DOMPointInit)
   
@@ -649,6 +696,14 @@ namespace DOMQuadInit
   prim__setP4 : DOMQuadInit -> UndefOr DOMPointInit -> PrimIO ()
 
 namespace DOMRectInit
+  
+  export
+  %foreign "browser:lambda:(a,b,c,d)=> {x: a,y: b,width: c,height: d}"
+  prim__new :  UndefOr Double
+            -> UndefOr Double
+            -> UndefOr Double
+            -> UndefOr Double
+            -> PrimIO DOMRectInit
   
   export
   %foreign "browser:lambda:x=>x.height"

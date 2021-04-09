@@ -174,6 +174,10 @@ namespace WheelEvent
 namespace CompositionEventInit
   
   export
+  %foreign "browser:lambda:(a)=> {data: a}"
+  prim__new : UndefOr String -> PrimIO CompositionEventInit
+  
+  export
   %foreign "browser:lambda:x=>x.data"
   prim__data : CompositionEventInit -> PrimIO (UndefOr String)
   
@@ -182,6 +186,24 @@ namespace CompositionEventInit
   prim__setData : CompositionEventInit -> UndefOr String -> PrimIO ()
 
 namespace EventModifierInit
+  
+  export
+  %foreign "browser:lambda:(a,b,c,d,e,f,g,h,i,j,k,l,m,n)=> {ctrlKey: a,shiftKey: b,altKey: c,metaKey: d,modifierAltGraph: e,modifierCapsLock: f,modifierFn: g,modifierFnLock: h,modifierHyper: i,modifierNumLock: j,modifierScrollLock: k,modifierSuper: l,modifierSymbol: m,modifierSymbolLock: n}"
+  prim__new :  UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> PrimIO EventModifierInit
   
   export
   %foreign "browser:lambda:x=>x.altKey"
@@ -302,6 +324,10 @@ namespace EventModifierInit
 namespace FocusEventInit
   
   export
+  %foreign "browser:lambda:(a)=> {relatedTarget: a}"
+  prim__new : UndefOr (Nullable EventTarget) -> PrimIO FocusEventInit
+  
+  export
   %foreign "browser:lambda:x=>x.relatedTarget"
   prim__relatedTarget :  FocusEventInit
                       -> PrimIO (UndefOr (Nullable EventTarget))
@@ -313,6 +339,13 @@ namespace FocusEventInit
                          -> PrimIO ()
 
 namespace InputEventInit
+  
+  export
+  %foreign "browser:lambda:(a,b,c)=> {data: a,isComposing: b,inputType: c}"
+  prim__new :  UndefOr (Nullable String)
+            -> UndefOr Boolean
+            -> UndefOr String
+            -> PrimIO InputEventInit
   
   export
   %foreign "browser:lambda:x=>x.data"
@@ -339,6 +372,15 @@ namespace InputEventInit
   prim__setIsComposing : InputEventInit -> UndefOr Boolean -> PrimIO ()
 
 namespace KeyboardEventInit
+  
+  export
+  %foreign "browser:lambda:(a,b,c,d,e)=> {key: a,code: b,location: c,repeat: d,isComposing: e}"
+  prim__new :  UndefOr String
+            -> UndefOr String
+            -> UndefOr UInt32
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> PrimIO KeyboardEventInit
   
   export
   %foreign "browser:lambda:x=>x.code"
@@ -381,6 +423,17 @@ namespace KeyboardEventInit
   prim__setRepeat : KeyboardEventInit -> UndefOr Boolean -> PrimIO ()
 
 namespace MouseEventInit
+  
+  export
+  %foreign "browser:lambda:(a,b,c,d,e,f,g)=> {screenX: a,screenY: b,clientX: c,clientY: d,button: e,buttons: f,relatedTarget: g}"
+  prim__new :  UndefOr Int32
+            -> UndefOr Int32
+            -> UndefOr Int32
+            -> UndefOr Int32
+            -> UndefOr Int16
+            -> UndefOr UInt16
+            -> UndefOr (Nullable EventTarget)
+            -> PrimIO MouseEventInit
   
   export
   %foreign "browser:lambda:x=>x.button"
@@ -444,6 +497,10 @@ namespace MouseEventInit
 namespace UIEventInit
   
   export
+  %foreign "browser:lambda:(a,b)=> {view: a,detail: b}"
+  prim__new : UndefOr (Nullable Window) -> UndefOr Int32 -> PrimIO UIEventInit
+  
+  export
   %foreign "browser:lambda:x=>x.detail"
   prim__detail : UIEventInit -> PrimIO (UndefOr Int32)
   
@@ -460,6 +517,14 @@ namespace UIEventInit
   prim__setView : UIEventInit -> UndefOr (Nullable Window) -> PrimIO ()
 
 namespace WheelEventInit
+  
+  export
+  %foreign "browser:lambda:(a,b,c,d)=> {deltaX: a,deltaY: b,deltaZ: c,deltaMode: d}"
+  prim__new :  UndefOr Double
+            -> UndefOr Double
+            -> UndefOr Double
+            -> UndefOr UInt32
+            -> PrimIO WheelEventInit
   
   export
   %foreign "browser:lambda:x=>x.deltaMode"

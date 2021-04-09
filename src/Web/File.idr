@@ -239,6 +239,12 @@ namespace BlobPropertyBag
     mixins =  []
   
   export
+  new :  (type : UndefOr String)
+      -> (endings : UndefOr EndingType)
+      -> JSIO BlobPropertyBag
+  new a b = primJS $ BlobPropertyBag.prim__new a b
+  
+  export
   endings : (obj : BlobPropertyBag) -> JSIO (UndefOr EndingType)
   endings a = primJS $ BlobPropertyBag.prim__endings a
   
@@ -263,6 +269,10 @@ namespace FilePropertyBag
     parents =  [ BlobPropertyBag , Object ]
 
     mixins =  []
+  
+  export
+  new : (lastModified : UndefOr Int64) -> JSIO FilePropertyBag
+  new a = primJS $ FilePropertyBag.prim__new a
   
   export
   lastModified : (obj : FilePropertyBag) -> JSIO (UndefOr Int64)

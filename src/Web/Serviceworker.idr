@@ -567,6 +567,13 @@ namespace CacheQueryOptions
     mixins =  []
   
   export
+  new :  (ignoreSearch : UndefOr Boolean)
+      -> (ignoreMethod : UndefOr Boolean)
+      -> (ignoreVary : UndefOr Boolean)
+      -> JSIO CacheQueryOptions
+  new a b c = primJS $ CacheQueryOptions.prim__new a b c
+  
+  export
   ignoreMethod : (obj : CacheQueryOptions) -> JSIO (UndefOr Boolean)
   ignoreMethod a = primJS $ CacheQueryOptions.prim__ignoreMethod a
   
@@ -605,6 +612,12 @@ namespace ClientQueryOptions
     mixins =  []
   
   export
+  new :  (includeUncontrolled : UndefOr Boolean)
+      -> (type : UndefOr ClientType)
+      -> JSIO ClientQueryOptions
+  new a b = primJS $ ClientQueryOptions.prim__new a b
+  
+  export
   includeUncontrolled : (obj : ClientQueryOptions) -> JSIO (UndefOr Boolean)
   includeUncontrolled a = primJS $ ClientQueryOptions.prim__includeUncontrolled a
   
@@ -632,6 +645,10 @@ namespace ExtendableEventInit
     parents =  [ EventInit , Object ]
 
     mixins =  []
+  
+  export
+  new : JSIO ExtendableEventInit
+  new = primJS $ ExtendableEventInit.prim__new 
 
 namespace ExtendableMessageEventInit
   
@@ -640,6 +657,15 @@ namespace ExtendableMessageEventInit
     parents =  [ ExtendableEventInit , EventInit , Object ]
 
     mixins =  []
+  
+  export
+  new :  (data_ : UndefOr AnyPtr)
+      -> (origin : UndefOr String)
+      -> (lastEventId : UndefOr String)
+      -> (source : UndefOr (Nullable (Union3 Client ServiceWorker MessagePort)))
+      -> (ports : UndefOr (Array MessagePort))
+      -> JSIO ExtendableMessageEventInit
+  new a b c d e = primJS $ ExtendableMessageEventInit.prim__new a b c d e
   
   export
   data_ : (obj : ExtendableMessageEventInit) -> JSIO (UndefOr AnyPtr)
@@ -703,6 +729,16 @@ namespace FetchEventInit
     parents =  [ ExtendableEventInit , EventInit , Object ]
 
     mixins =  []
+  
+  export
+  new :  (request : Request)
+      -> (preloadResponse : UndefOr (Promise AnyPtr))
+      -> (clientId : UndefOr String)
+      -> (resultingClientId : UndefOr String)
+      -> (replacesClientId : UndefOr String)
+      -> (handled : UndefOr (Promise Undefined))
+      -> JSIO FetchEventInit
+  new a b c d e f = primJS $ FetchEventInit.prim__new a b c d e f
   
   export
   clientId : (obj : FetchEventInit) -> JSIO (UndefOr String)
@@ -771,6 +807,10 @@ namespace MultiCacheQueryOptions
     mixins =  []
   
   export
+  new : (cacheName : UndefOr String) -> JSIO MultiCacheQueryOptions
+  new a = primJS $ MultiCacheQueryOptions.prim__new a
+  
+  export
   cacheName : (obj : MultiCacheQueryOptions) -> JSIO (UndefOr String)
   cacheName a = primJS $ MultiCacheQueryOptions.prim__cacheName a
   
@@ -787,6 +827,12 @@ namespace NavigationPreloadState
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new :  (enabled : UndefOr Boolean)
+      -> (headerValue : UndefOr ByteString)
+      -> JSIO NavigationPreloadState
+  new a b = primJS $ NavigationPreloadState.prim__new a b
   
   export
   enabled : (obj : NavigationPreloadState) -> JSIO (UndefOr Boolean)
@@ -815,6 +861,13 @@ namespace RegistrationOptions
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new :  (scope : UndefOr String)
+      -> (type : UndefOr WorkerType)
+      -> (updateViaCache : UndefOr ServiceWorkerUpdateViaCache)
+      -> JSIO RegistrationOptions
+  new a b c = primJS $ RegistrationOptions.prim__new a b c
   
   export
   scope : (obj : RegistrationOptions) -> JSIO (UndefOr String)

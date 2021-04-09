@@ -100,6 +100,11 @@ namespace ClipboardEventInit
     mixins =  []
   
   export
+  new :  (clipboardData : UndefOr (Nullable DataTransfer))
+      -> JSIO ClipboardEventInit
+  new a = primJS $ ClipboardEventInit.prim__new a
+  
+  export
   clipboardData :  (obj : ClipboardEventInit)
                 -> JSIO (UndefOr (Nullable DataTransfer))
   clipboardData a = primJS $ ClipboardEventInit.prim__clipboardData a
@@ -117,6 +122,11 @@ namespace ClipboardItemOptions
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new :  (presentationStyle : UndefOr PresentationStyle)
+      -> JSIO ClipboardItemOptions
+  new a = primJS $ ClipboardItemOptions.prim__new a
   
   export
   presentationStyle :  (obj : ClipboardItemOptions)
@@ -137,6 +147,11 @@ namespace ClipboardPermissionDescriptor
     parents =  [ PermissionDescriptor , Object ]
 
     mixins =  []
+  
+  export
+  new :  (allowWithoutGesture : UndefOr Boolean)
+      -> JSIO ClipboardPermissionDescriptor
+  new a = primJS $ ClipboardPermissionDescriptor.prim__new a
   
   export
   allowWithoutGesture :  (obj : ClipboardPermissionDescriptor)

@@ -261,6 +261,12 @@ namespace AnimationPlaybackEventInit
     mixins =  []
   
   export
+  new :  (currentTime : UndefOr (Nullable Double))
+      -> (timelineTime : UndefOr (Nullable Double))
+      -> JSIO AnimationPlaybackEventInit
+  new a b = primJS $ AnimationPlaybackEventInit.prim__new a b
+  
+  export
   currentTime :  (obj : AnimationPlaybackEventInit)
               -> JSIO (UndefOr (Nullable Double))
   currentTime a = primJS $ AnimationPlaybackEventInit.prim__currentTime a
@@ -291,6 +297,14 @@ namespace BaseComputedKeyframe
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new :  (offset : UndefOr (Nullable Double))
+      -> (computedOffset : UndefOr Double)
+      -> (easing : UndefOr String)
+      -> (composite : UndefOr CompositeOperationOrAuto)
+      -> JSIO BaseComputedKeyframe
+  new a b c d = primJS $ BaseComputedKeyframe.prim__new a b c d
   
   export
   composite :  (obj : BaseComputedKeyframe)
@@ -343,6 +357,13 @@ namespace BaseKeyframe
     mixins =  []
   
   export
+  new :  (offset : UndefOr (Nullable Double))
+      -> (easing : UndefOr String)
+      -> (composite : UndefOr CompositeOperationOrAuto)
+      -> JSIO BaseKeyframe
+  new a b c = primJS $ BaseKeyframe.prim__new a b c
+  
+  export
   composite : (obj : BaseKeyframe) -> JSIO (UndefOr CompositeOperationOrAuto)
   composite a = primJS $ BaseKeyframe.prim__composite a
   
@@ -377,6 +398,14 @@ namespace BasePropertyIndexedKeyframe
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new :  (offset : UndefOr (Union2 (Nullable Double) (Array (Nullable Double))))
+      -> (easing : UndefOr (Union2 String (Array String)))
+      -> (composite : UndefOr (Union2 CompositeOperationOrAuto
+                                      (Array CompositeOperationOrAuto)))
+      -> JSIO BasePropertyIndexedKeyframe
+  new a b c = primJS $ BasePropertyIndexedKeyframe.prim__new a b c
   
   export
   composite :  (obj : BasePropertyIndexedKeyframe)
@@ -421,6 +450,15 @@ namespace ComputedEffectTiming
     parents =  [ EffectTiming , Object ]
 
     mixins =  []
+  
+  export
+  new :  (endTime : UndefOr Double)
+      -> (activeDuration : UndefOr Double)
+      -> (localTime : UndefOr (Nullable Double))
+      -> (progress : UndefOr (Nullable Double))
+      -> (currentIteration : UndefOr (Nullable Double))
+      -> JSIO ComputedEffectTiming
+  new a b c d e = primJS $ ComputedEffectTiming.prim__new a b c d e
   
   export
   activeDuration : (obj : ComputedEffectTiming) -> JSIO (UndefOr Double)
@@ -484,6 +522,11 @@ namespace DocumentTimelineOptions
     mixins =  []
   
   export
+  new :  (originTime : UndefOr DOMHighResTimeStamp)
+      -> JSIO DocumentTimelineOptions
+  new a = primJS $ DocumentTimelineOptions.prim__new a
+  
+  export
   originTime :  (obj : DocumentTimelineOptions)
              -> JSIO (UndefOr DOMHighResTimeStamp)
   originTime a = primJS $ DocumentTimelineOptions.prim__originTime a
@@ -501,6 +544,18 @@ namespace EffectTiming
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new :  (delay : UndefOr Double)
+      -> (endDelay : UndefOr Double)
+      -> (fill : UndefOr FillMode)
+      -> (iterationStart : UndefOr Double)
+      -> (iterations : UndefOr Double)
+      -> (duration : UndefOr (Union2 Double String))
+      -> (direction : UndefOr PlaybackDirection)
+      -> (easing : UndefOr String)
+      -> JSIO EffectTiming
+  new a b c d e f g h = primJS $ EffectTiming.prim__new a b c d e f g h
   
   export
   delay : (obj : EffectTiming) -> JSIO (UndefOr Double)
@@ -581,6 +636,10 @@ namespace KeyframeAnimationOptions
     mixins =  []
   
   export
+  new : (id : UndefOr String) -> JSIO KeyframeAnimationOptions
+  new a = primJS $ KeyframeAnimationOptions.prim__new a
+  
+  export
   id : (obj : KeyframeAnimationOptions) -> JSIO (UndefOr String)
   id a = primJS $ KeyframeAnimationOptions.prim__id a
   
@@ -597,6 +656,12 @@ namespace KeyframeEffectOptions
     parents =  [ EffectTiming , Object ]
 
     mixins =  []
+  
+  export
+  new :  (iterationComposite : UndefOr IterationCompositeOperation)
+      -> (composite : UndefOr CompositeOperation)
+      -> JSIO KeyframeEffectOptions
+  new a b = primJS $ KeyframeEffectOptions.prim__new a b
   
   export
   composite : (obj : KeyframeEffectOptions) -> JSIO (UndefOr CompositeOperation)
@@ -627,6 +692,18 @@ namespace OptionalEffectTiming
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new :  (delay : UndefOr Double)
+      -> (endDelay : UndefOr Double)
+      -> (fill : UndefOr FillMode)
+      -> (iterationStart : UndefOr Double)
+      -> (iterations : UndefOr Double)
+      -> (duration : UndefOr (Union2 Double String))
+      -> (direction : UndefOr PlaybackDirection)
+      -> (easing : UndefOr String)
+      -> JSIO OptionalEffectTiming
+  new a b c d e f g h = primJS $ OptionalEffectTiming.prim__new a b c d e f g h
   
   export
   delay : (obj : OptionalEffectTiming) -> JSIO (UndefOr Double)

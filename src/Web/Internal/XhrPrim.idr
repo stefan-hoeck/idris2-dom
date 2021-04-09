@@ -248,6 +248,13 @@ namespace XMLHttpRequestEventTarget
 namespace ProgressEventInit
   
   export
+  %foreign "browser:lambda:(a,b,c)=> {lengthComputable: a,loaded: b,total: c}"
+  prim__new :  UndefOr Boolean
+            -> UndefOr UInt64
+            -> UndefOr UInt64
+            -> PrimIO ProgressEventInit
+  
+  export
   %foreign "browser:lambda:x=>x.lengthComputable"
   prim__lengthComputable : ProgressEventInit -> PrimIO (UndefOr Boolean)
   

@@ -2061,6 +2061,13 @@ namespace AddEventListenerOptions
     mixins =  []
   
   export
+  new :  (passive : UndefOr Boolean)
+      -> (once : UndefOr Boolean)
+      -> (signal : UndefOr AbortSignal)
+      -> JSIO AddEventListenerOptions
+  new a b c = primJS $ AddEventListenerOptions.prim__new a b c
+  
+  export
   once : (obj : AddEventListenerOptions) -> JSIO (UndefOr Boolean)
   once a = primJS $ AddEventListenerOptions.prim__once a
   
@@ -2099,6 +2106,10 @@ namespace CustomEventInit
     mixins =  []
   
   export
+  new : (detail : UndefOr AnyPtr) -> JSIO CustomEventInit
+  new a = primJS $ CustomEventInit.prim__new a
+  
+  export
   detail : (obj : CustomEventInit) -> JSIO (UndefOr AnyPtr)
   detail a = primJS $ CustomEventInit.prim__detail a
   
@@ -2115,6 +2126,10 @@ namespace ElementCreationOptions
     mixins =  []
   
   export
+  new : (is : UndefOr String) -> JSIO ElementCreationOptions
+  new a = primJS $ ElementCreationOptions.prim__new a
+  
+  export
   is : (obj : ElementCreationOptions) -> JSIO (UndefOr String)
   is a = primJS $ ElementCreationOptions.prim__is a
   
@@ -2129,6 +2144,13 @@ namespace EventInit
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new :  (bubbles : UndefOr Boolean)
+      -> (cancelable : UndefOr Boolean)
+      -> (composed : UndefOr Boolean)
+      -> JSIO EventInit
+  new a b c = primJS $ EventInit.prim__new a b c
   
   export
   bubbles : (obj : EventInit) -> JSIO (UndefOr Boolean)
@@ -2163,6 +2185,10 @@ namespace EventListenerOptions
     mixins =  []
   
   export
+  new : (capture : UndefOr Boolean) -> JSIO EventListenerOptions
+  new a = primJS $ EventListenerOptions.prim__new a
+  
+  export
   capture : (obj : EventListenerOptions) -> JSIO (UndefOr Boolean)
   capture a = primJS $ EventListenerOptions.prim__capture a
   
@@ -2181,6 +2207,10 @@ namespace GetRootNodeOptions
     mixins =  []
   
   export
+  new : (composed : UndefOr Boolean) -> JSIO GetRootNodeOptions
+  new a = primJS $ GetRootNodeOptions.prim__new a
+  
+  export
   composed : (obj : GetRootNodeOptions) -> JSIO (UndefOr Boolean)
   composed a = primJS $ GetRootNodeOptions.prim__composed a
   
@@ -2197,6 +2227,17 @@ namespace MutationObserverInit
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new :  (childList : UndefOr Boolean)
+      -> (attributes : UndefOr Boolean)
+      -> (characterData : UndefOr Boolean)
+      -> (subtree : UndefOr Boolean)
+      -> (attributeOldValue : UndefOr Boolean)
+      -> (characterDataOldValue : UndefOr Boolean)
+      -> (attributeFilter : UndefOr (Array String))
+      -> JSIO MutationObserverInit
+  new a b c d e f g = primJS $ MutationObserverInit.prim__new a b c d e f g
   
   export
   attributeFilter :  (obj : MutationObserverInit)
@@ -2282,6 +2323,12 @@ namespace ShadowRootInit
     mixins =  []
   
   export
+  new :  (mode : ShadowRootMode)
+      -> (delegatesFocus : UndefOr Boolean)
+      -> JSIO ShadowRootInit
+  new a b = primJS $ ShadowRootInit.prim__new a b
+  
+  export
   delegatesFocus : (obj : ShadowRootInit) -> JSIO (UndefOr Boolean)
   delegatesFocus a = primJS $ ShadowRootInit.prim__delegatesFocus a
   
@@ -2306,6 +2353,14 @@ namespace StaticRangeInit
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new :  (startContainer : Node)
+      -> (startOffset : UInt32)
+      -> (endContainer : Node)
+      -> (endOffset : UInt32)
+      -> JSIO StaticRangeInit
+  new a b c d = primJS $ StaticRangeInit.prim__new a b c d
   
   export
   endContainer : (obj : StaticRangeInit) -> JSIO Node

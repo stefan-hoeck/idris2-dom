@@ -340,6 +340,13 @@ namespace ProgressEventInit
     mixins =  []
   
   export
+  new :  (lengthComputable : UndefOr Boolean)
+      -> (loaded : UndefOr UInt64)
+      -> (total_ : UndefOr UInt64)
+      -> JSIO ProgressEventInit
+  new a b c = primJS $ ProgressEventInit.prim__new a b c
+  
+  export
   lengthComputable : (obj : ProgressEventInit) -> JSIO (UndefOr Boolean)
   lengthComputable a = primJS $ ProgressEventInit.prim__lengthComputable a
   

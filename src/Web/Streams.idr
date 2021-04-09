@@ -407,6 +407,12 @@ namespace QueuingStrategy
     mixins =  []
   
   export
+  new :  (highWaterMark : UndefOr Double)
+      -> (size : UndefOr QueuingStrategySize)
+      -> JSIO QueuingStrategy
+  new a b = primJS $ QueuingStrategy.prim__new a b
+  
+  export
   highWaterMark : (obj : QueuingStrategy) -> JSIO (UndefOr Double)
   highWaterMark a = primJS $ QueuingStrategy.prim__highWaterMark a
   
@@ -435,6 +441,10 @@ namespace QueuingStrategyInit
     mixins =  []
   
   export
+  new : (highWaterMark : Double) -> JSIO QueuingStrategyInit
+  new a = primJS $ QueuingStrategyInit.prim__new a
+  
+  export
   highWaterMark : (obj : QueuingStrategyInit) -> JSIO Double
   highWaterMark a = primJS $ QueuingStrategyInit.prim__highWaterMark a
   
@@ -449,6 +459,12 @@ namespace ReadableStreamBYOBReadResult
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new :  (value : UndefOr ArrayBufferView)
+      -> (done : UndefOr Boolean)
+      -> JSIO ReadableStreamBYOBReadResult
+  new a b = primJS $ ReadableStreamBYOBReadResult.prim__new a b
   
   export
   done : (obj : ReadableStreamBYOBReadResult) -> JSIO (UndefOr Boolean)
@@ -479,6 +495,12 @@ namespace ReadableStreamDefaultReadResult
     mixins =  []
   
   export
+  new :  (value : UndefOr AnyPtr)
+      -> (done : UndefOr Boolean)
+      -> JSIO ReadableStreamDefaultReadResult
+  new a b = primJS $ ReadableStreamDefaultReadResult.prim__new a b
+  
+  export
   done : (obj : ReadableStreamDefaultReadResult) -> JSIO (UndefOr Boolean)
   done a = primJS $ ReadableStreamDefaultReadResult.prim__done a
   
@@ -507,6 +529,11 @@ namespace ReadableStreamGetReaderOptions
     mixins =  []
   
   export
+  new :  (mode : UndefOr ReadableStreamReaderMode)
+      -> JSIO ReadableStreamGetReaderOptions
+  new a = primJS $ ReadableStreamGetReaderOptions.prim__new a
+  
+  export
   mode :  (obj : ReadableStreamGetReaderOptions)
        -> JSIO (UndefOr ReadableStreamReaderMode)
   mode a = primJS $ ReadableStreamGetReaderOptions.prim__mode a
@@ -524,6 +551,10 @@ namespace ReadableStreamIteratorOptions
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new : (preventCancel : UndefOr Boolean) -> JSIO ReadableStreamIteratorOptions
+  new a = primJS $ ReadableStreamIteratorOptions.prim__new a
   
   export
   preventCancel :  (obj : ReadableStreamIteratorOptions)
@@ -544,6 +575,12 @@ namespace ReadableWritablePair
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new :  (readable : ReadableStream)
+      -> (writable : WritableStream)
+      -> JSIO ReadableWritablePair
+  new a b = primJS $ ReadableWritablePair.prim__new a b
   
   export
   readable : (obj : ReadableWritablePair) -> JSIO ReadableStream
@@ -572,6 +609,14 @@ namespace StreamPipeOptions
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new :  (preventClose : UndefOr Boolean)
+      -> (preventAbort : UndefOr Boolean)
+      -> (preventCancel : UndefOr Boolean)
+      -> (signal : UndefOr AbortSignal)
+      -> JSIO StreamPipeOptions
+  new a b c d = primJS $ StreamPipeOptions.prim__new a b c d
   
   export
   preventAbort : (obj : StreamPipeOptions) -> JSIO (UndefOr Boolean)
@@ -620,6 +665,15 @@ namespace Transformer
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new :  (start : UndefOr TransformerStartCallback)
+      -> (transform : UndefOr TransformerTransformCallback)
+      -> (flush : UndefOr TransformerFlushCallback)
+      -> (readableType : UndefOr AnyPtr)
+      -> (writableType : UndefOr AnyPtr)
+      -> JSIO Transformer
+  new a b c d e = primJS $ Transformer.prim__new a b c d e
   
   export
   flush : (obj : Transformer) -> JSIO (UndefOr TransformerFlushCallback)
@@ -676,6 +730,15 @@ namespace UnderlyingSink
     mixins =  []
   
   export
+  new :  (start : UndefOr UnderlyingSinkStartCallback)
+      -> (write : UndefOr UnderlyingSinkWriteCallback)
+      -> (close : UndefOr UnderlyingSinkCloseCallback)
+      -> (abort : UndefOr UnderlyingSinkAbortCallback)
+      -> (type : UndefOr AnyPtr)
+      -> JSIO UnderlyingSink
+  new a b c d e = primJS $ UnderlyingSink.prim__new a b c d e
+  
+  export
   abort : (obj : UnderlyingSink) -> JSIO (UndefOr UnderlyingSinkAbortCallback)
   abort a = primJS $ UnderlyingSink.prim__abort a
   
@@ -730,6 +793,15 @@ namespace UnderlyingSource
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new :  (start : UndefOr UnderlyingSourceStartCallback)
+      -> (pull : UndefOr UnderlyingSourcePullCallback)
+      -> (cancel : UndefOr UnderlyingSourceCancelCallback)
+      -> (type : UndefOr ReadableStreamType)
+      -> (autoAllocateChunkSize : UndefOr UInt64)
+      -> JSIO UnderlyingSource
+  new a b c d e = primJS $ UnderlyingSource.prim__new a b c d e
   
   export
   autoAllocateChunkSize : (obj : UnderlyingSource) -> JSIO (UndefOr UInt64)

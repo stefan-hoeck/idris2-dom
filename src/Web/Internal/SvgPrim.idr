@@ -1245,6 +1245,14 @@ namespace SVGURIReference
 namespace SVGBoundingBoxOptions
   
   export
+  %foreign "browser:lambda:(a,b,c,d)=> {fill: a,stroke: b,markers: c,clipped: d}"
+  prim__new :  UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> PrimIO SVGBoundingBoxOptions
+  
+  export
   %foreign "browser:lambda:x=>x.clipped"
   prim__clipped : SVGBoundingBoxOptions -> PrimIO (UndefOr Boolean)
   

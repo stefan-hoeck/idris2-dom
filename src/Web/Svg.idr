@@ -2519,6 +2519,14 @@ namespace SVGBoundingBoxOptions
     mixins =  []
   
   export
+  new :  (fill : UndefOr Boolean)
+      -> (stroke : UndefOr Boolean)
+      -> (markers : UndefOr Boolean)
+      -> (clipped : UndefOr Boolean)
+      -> JSIO SVGBoundingBoxOptions
+  new a b c d = primJS $ SVGBoundingBoxOptions.prim__new a b c d
+  
+  export
   clipped : (obj : SVGBoundingBoxOptions) -> JSIO (UndefOr Boolean)
   clipped a = primJS $ SVGBoundingBoxOptions.prim__clipped a
   

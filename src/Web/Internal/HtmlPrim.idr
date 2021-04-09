@@ -7897,6 +7897,10 @@ namespace WindowEventHandlers
 namespace AssignedNodesOptions
   
   export
+  %foreign "browser:lambda:(a)=> {flatten: a}"
+  prim__new : UndefOr Boolean -> PrimIO AssignedNodesOptions
+  
+  export
   %foreign "browser:lambda:x=>x.flatten"
   prim__flatten : AssignedNodesOptions -> PrimIO (UndefOr Boolean)
   
@@ -7905,6 +7909,12 @@ namespace AssignedNodesOptions
   prim__setFlatten : AssignedNodesOptions -> UndefOr Boolean -> PrimIO ()
 
 namespace CanvasRenderingContext2DSettings
+  
+  export
+  %foreign "browser:lambda:(a,b)=> {alpha: a,desynchronized: b}"
+  prim__new :  UndefOr Boolean
+            -> UndefOr Boolean
+            -> PrimIO CanvasRenderingContext2DSettings
   
   export
   %foreign "browser:lambda:x=>x.alpha"
@@ -7928,6 +7938,13 @@ namespace CanvasRenderingContext2DSettings
                           -> PrimIO ()
 
 namespace CloseEventInit
+  
+  export
+  %foreign "browser:lambda:(a,b,c)=> {wasClean: a,code: b,reason: c}"
+  prim__new :  UndefOr Boolean
+            -> UndefOr UInt16
+            -> UndefOr String
+            -> PrimIO CloseEventInit
   
   export
   %foreign "browser:lambda:x=>x.code"
@@ -7956,6 +7973,10 @@ namespace CloseEventInit
 namespace DragEventInit
   
   export
+  %foreign "browser:lambda:(a)=> {dataTransfer: a}"
+  prim__new : UndefOr (Nullable DataTransfer) -> PrimIO DragEventInit
+  
+  export
   %foreign "browser:lambda:x=>x.dataTransfer"
   prim__dataTransfer : DragEventInit -> PrimIO (UndefOr (Nullable DataTransfer))
   
@@ -7968,6 +7989,10 @@ namespace DragEventInit
 namespace ElementDefinitionOptions
   
   export
+  %foreign "browser:lambda:(a)=> {extends: a}"
+  prim__new : UndefOr String -> PrimIO ElementDefinitionOptions
+  
+  export
   %foreign "browser:lambda:x=>x.extends"
   prim__extends : ElementDefinitionOptions -> PrimIO (UndefOr String)
   
@@ -7976,6 +8001,15 @@ namespace ElementDefinitionOptions
   prim__setExtends : ElementDefinitionOptions -> UndefOr String -> PrimIO ()
 
 namespace ErrorEventInit
+  
+  export
+  %foreign "browser:lambda:(a,b,c,d,e)=> {message: a,filename: b,lineno: c,colno: d,error: e}"
+  prim__new :  UndefOr String
+            -> UndefOr String
+            -> UndefOr UInt32
+            -> UndefOr UInt32
+            -> UndefOr AnyPtr
+            -> PrimIO ErrorEventInit
   
   export
   %foreign "browser:lambda:x=>x.colno"
@@ -8020,6 +8054,10 @@ namespace ErrorEventInit
 namespace EventSourceInit
   
   export
+  %foreign "browser:lambda:(a)=> {withCredentials: a}"
+  prim__new : UndefOr Boolean -> PrimIO EventSourceInit
+  
+  export
   %foreign "browser:lambda:x=>x.withCredentials"
   prim__withCredentials : EventSourceInit -> PrimIO (UndefOr Boolean)
   
@@ -8028,6 +8066,10 @@ namespace EventSourceInit
   prim__setWithCredentials : EventSourceInit -> UndefOr Boolean -> PrimIO ()
 
 namespace FocusOptions
+  
+  export
+  %foreign "browser:lambda:(a)=> {preventScroll: a}"
+  prim__new : UndefOr Boolean -> PrimIO FocusOptions
   
   export
   %foreign "browser:lambda:x=>x.preventScroll"
@@ -8040,6 +8082,10 @@ namespace FocusOptions
 namespace FormDataEventInit
   
   export
+  %foreign "browser:lambda:(a)=> {formData: a}"
+  prim__new : FormData -> PrimIO FormDataEventInit
+  
+  export
   %foreign "browser:lambda:x=>x.formData"
   prim__formData : FormDataEventInit -> PrimIO FormData
   
@@ -8048,6 +8094,10 @@ namespace FormDataEventInit
   prim__setFormData : FormDataEventInit -> FormData -> PrimIO ()
 
 namespace HashChangeEventInit
+  
+  export
+  %foreign "browser:lambda:(a,b)=> {oldURL: a,newURL: b}"
+  prim__new : UndefOr String -> UndefOr String -> PrimIO HashChangeEventInit
   
   export
   %foreign "browser:lambda:x=>x.newURL"
@@ -8066,6 +8116,16 @@ namespace HashChangeEventInit
   prim__setOldURL : HashChangeEventInit -> UndefOr String -> PrimIO ()
 
 namespace ImageBitmapOptions
+  
+  export
+  %foreign "browser:lambda:(a,b,c,d,e,f)=> {imageOrientation: a,premultiplyAlpha: b,colorSpaceConversion: c,resizeWidth: d,resizeHeight: e,resizeQuality: f}"
+  prim__new :  UndefOr ImageOrientation
+            -> UndefOr PremultiplyAlpha
+            -> UndefOr ColorSpaceConversion
+            -> UndefOr UInt32
+            -> UndefOr UInt32
+            -> UndefOr ResizeQuality
+            -> PrimIO ImageBitmapOptions
   
   export
   %foreign "browser:lambda:x=>x.colorSpaceConversion"
@@ -8129,6 +8189,10 @@ namespace ImageBitmapOptions
 namespace ImageBitmapRenderingContextSettings
   
   export
+  %foreign "browser:lambda:(a)=> {alpha: a}"
+  prim__new : UndefOr Boolean -> PrimIO ImageBitmapRenderingContextSettings
+  
+  export
   %foreign "browser:lambda:x=>x.alpha"
   prim__alpha : ImageBitmapRenderingContextSettings -> PrimIO (UndefOr Boolean)
   
@@ -8139,6 +8203,10 @@ namespace ImageBitmapRenderingContextSettings
                  -> PrimIO ()
 
 namespace ImageEncodeOptions
+  
+  export
+  %foreign "browser:lambda:(a,b)=> {type: a,quality: b}"
+  prim__new : UndefOr String -> UndefOr Double -> PrimIO ImageEncodeOptions
   
   export
   %foreign "browser:lambda:x=>x.quality"
@@ -8157,6 +8225,15 @@ namespace ImageEncodeOptions
   prim__setType : ImageEncodeOptions -> UndefOr String -> PrimIO ()
 
 namespace MessageEventInit
+  
+  export
+  %foreign "browser:lambda:(a,b,c,d,e)=> {data: a,origin: b,lastEventId: c,source: d,ports: e}"
+  prim__new :  UndefOr AnyPtr
+            -> UndefOr String
+            -> UndefOr String
+            -> UndefOr (Nullable MessageEventSource)
+            -> UndefOr (Array MessagePort)
+            -> PrimIO MessageEventInit
   
   export
   %foreign "browser:lambda:x=>x.data"
@@ -8204,6 +8281,10 @@ namespace MessageEventInit
 namespace PageTransitionEventInit
   
   export
+  %foreign "browser:lambda:(a)=> {persisted: a}"
+  prim__new : UndefOr Boolean -> PrimIO PageTransitionEventInit
+  
+  export
   %foreign "browser:lambda:x=>x.persisted"
   prim__persisted : PageTransitionEventInit -> PrimIO (UndefOr Boolean)
   
@@ -8212,6 +8293,10 @@ namespace PageTransitionEventInit
   prim__setPersisted : PageTransitionEventInit -> UndefOr Boolean -> PrimIO ()
 
 namespace PopStateEventInit
+  
+  export
+  %foreign "browser:lambda:(a)=> {state: a}"
+  prim__new : UndefOr AnyPtr -> PrimIO PopStateEventInit
   
   export
   %foreign "browser:lambda:x=>x.state"
@@ -8224,6 +8309,10 @@ namespace PopStateEventInit
 namespace PostMessageOptions
   
   export
+  %foreign "browser:lambda:(a)=> {transfer: a}"
+  prim__new : UndefOr (Array Object) -> PrimIO PostMessageOptions
+  
+  export
   %foreign "browser:lambda:x=>x.transfer"
   prim__transfer : PostMessageOptions -> PrimIO (UndefOr (Array Object))
   
@@ -8232,6 +8321,12 @@ namespace PostMessageOptions
   prim__setTransfer : PostMessageOptions -> UndefOr (Array Object) -> PrimIO ()
 
 namespace PromiseRejectionEventInit
+  
+  export
+  %foreign "browser:lambda:(a,b)=> {promise: a,reason: b}"
+  prim__new :  Promise AnyPtr
+            -> UndefOr AnyPtr
+            -> PrimIO PromiseRejectionEventInit
   
   export
   %foreign "browser:lambda:x=>x.promise"
@@ -8250,6 +8345,15 @@ namespace PromiseRejectionEventInit
   prim__setReason : PromiseRejectionEventInit -> UndefOr AnyPtr -> PrimIO ()
 
 namespace StorageEventInit
+  
+  export
+  %foreign "browser:lambda:(a,b,c,d,e)=> {key: a,oldValue: b,newValue: c,url: d,storageArea: e}"
+  prim__new :  UndefOr (Nullable String)
+            -> UndefOr (Nullable String)
+            -> UndefOr (Nullable String)
+            -> UndefOr String
+            -> UndefOr (Nullable Storage)
+            -> PrimIO StorageEventInit
   
   export
   %foreign "browser:lambda:x=>x.key"
@@ -8296,6 +8400,10 @@ namespace StorageEventInit
 namespace SubmitEventInit
   
   export
+  %foreign "browser:lambda:(a)=> {submitter: a}"
+  prim__new : UndefOr (Nullable HTMLElement) -> PrimIO SubmitEventInit
+  
+  export
   %foreign "browser:lambda:x=>x.submitter"
   prim__submitter : SubmitEventInit -> PrimIO (UndefOr (Nullable HTMLElement))
   
@@ -8306,6 +8414,11 @@ namespace SubmitEventInit
                      -> PrimIO ()
 
 namespace TrackEventInit
+  
+  export
+  %foreign "browser:lambda:(a)=> {track: a}"
+  prim__new :  UndefOr (Nullable (Union3 VideoTrack AudioTrack TextTrack))
+            -> PrimIO TrackEventInit
   
   export
   %foreign "browser:lambda:x=>x.track"
@@ -8321,6 +8434,20 @@ namespace TrackEventInit
                  -> PrimIO ()
 
 namespace ValidityStateFlags
+  
+  export
+  %foreign "browser:lambda:(a,b,c,d,e,f,g,h,i,j)=> {valueMissing: a,typeMismatch: b,patternMismatch: c,tooLong: d,tooShort: e,rangeUnderflow: f,rangeOverflow: g,stepMismatch: h,badInput: i,customError: j}"
+  prim__new :  UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> PrimIO ValidityStateFlags
   
   export
   %foreign "browser:lambda:x=>x.badInput"
@@ -8405,6 +8532,10 @@ namespace ValidityStateFlags
 namespace WindowPostMessageOptions
   
   export
+  %foreign "browser:lambda:(a)=> {targetOrigin: a}"
+  prim__new : UndefOr String -> PrimIO WindowPostMessageOptions
+  
+  export
   %foreign "browser:lambda:x=>x.targetOrigin"
   prim__targetOrigin : WindowPostMessageOptions -> PrimIO (UndefOr String)
   
@@ -8415,6 +8546,13 @@ namespace WindowPostMessageOptions
                         -> PrimIO ()
 
 namespace WorkerOptions
+  
+  export
+  %foreign "browser:lambda:(a,b,c)=> {type: a,credentials: b,name: c}"
+  prim__new :  UndefOr WorkerType
+            -> UndefOr RequestCredentials
+            -> UndefOr String
+            -> PrimIO WorkerOptions
   
   export
   %foreign "browser:lambda:x=>x.credentials"
@@ -8443,6 +8581,10 @@ namespace WorkerOptions
   prim__setType : WorkerOptions -> UndefOr WorkerType -> PrimIO ()
 
 namespace WorkletOptions
+  
+  export
+  %foreign "browser:lambda:(a)=> {credentials: a}"
+  prim__new : UndefOr RequestCredentials -> PrimIO WorkletOptions
   
   export
   %foreign "browser:lambda:x=>x.credentials"

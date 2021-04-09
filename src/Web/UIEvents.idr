@@ -250,6 +250,10 @@ namespace CompositionEventInit
     mixins =  []
   
   export
+  new : (data_ : UndefOr String) -> JSIO CompositionEventInit
+  new a = primJS $ CompositionEventInit.prim__new a
+  
+  export
   data_ : (obj : CompositionEventInit) -> JSIO (UndefOr String)
   data_ a = primJS $ CompositionEventInit.prim__data a
   
@@ -264,6 +268,37 @@ namespace EventModifierInit
     parents =  [ UIEventInit , EventInit , Object ]
 
     mixins =  []
+  
+  export
+  new :  (ctrlKey : UndefOr Boolean)
+      -> (shiftKey : UndefOr Boolean)
+      -> (altKey : UndefOr Boolean)
+      -> (metaKey : UndefOr Boolean)
+      -> (modifierAltGraph : UndefOr Boolean)
+      -> (modifierCapsLock : UndefOr Boolean)
+      -> (modifierFn : UndefOr Boolean)
+      -> (modifierFnLock : UndefOr Boolean)
+      -> (modifierHyper : UndefOr Boolean)
+      -> (modifierNumLock : UndefOr Boolean)
+      -> (modifierScrollLock : UndefOr Boolean)
+      -> (modifierSuper : UndefOr Boolean)
+      -> (modifierSymbol : UndefOr Boolean)
+      -> (modifierSymbolLock : UndefOr Boolean)
+      -> JSIO EventModifierInit
+  new a b c d e f g h i j k l m n = primJS $ EventModifierInit.prim__new a
+                                                                         b
+                                                                         c
+                                                                         d
+                                                                         e
+                                                                         f
+                                                                         g
+                                                                         h
+                                                                         i
+                                                                         j
+                                                                         k
+                                                                         l
+                                                                         m
+                                                                         n
   
   export
   altKey : (obj : EventModifierInit) -> JSIO (UndefOr Boolean)
@@ -413,6 +448,10 @@ namespace FocusEventInit
     mixins =  []
   
   export
+  new : (relatedTarget : UndefOr (Nullable EventTarget)) -> JSIO FocusEventInit
+  new a = primJS $ FocusEventInit.prim__new a
+  
+  export
   relatedTarget :  (obj : FocusEventInit)
                 -> JSIO (UndefOr (Nullable EventTarget))
   relatedTarget a = primJS $ FocusEventInit.prim__relatedTarget a
@@ -430,6 +469,13 @@ namespace InputEventInit
     parents =  [ UIEventInit , EventInit , Object ]
 
     mixins =  []
+  
+  export
+  new :  (data_ : UndefOr (Nullable String))
+      -> (isComposing : UndefOr Boolean)
+      -> (inputType : UndefOr String)
+      -> JSIO InputEventInit
+  new a b c = primJS $ InputEventInit.prim__new a b c
   
   export
   data_ : (obj : InputEventInit) -> JSIO (UndefOr (Nullable String))
@@ -466,6 +512,15 @@ namespace KeyboardEventInit
     parents =  [ EventModifierInit , UIEventInit , EventInit , Object ]
 
     mixins =  []
+  
+  export
+  new :  (key : UndefOr String)
+      -> (code : UndefOr String)
+      -> (location : UndefOr UInt32)
+      -> (repeat : UndefOr Boolean)
+      -> (isComposing : UndefOr Boolean)
+      -> JSIO KeyboardEventInit
+  new a b c d e = primJS $ KeyboardEventInit.prim__new a b c d e
   
   export
   code : (obj : KeyboardEventInit) -> JSIO (UndefOr String)
@@ -516,6 +571,17 @@ namespace MouseEventInit
     parents =  [ EventModifierInit , UIEventInit , EventInit , Object ]
 
     mixins =  []
+  
+  export
+  new :  (screenX : UndefOr Int32)
+      -> (screenY : UndefOr Int32)
+      -> (clientX : UndefOr Int32)
+      -> (clientY : UndefOr Int32)
+      -> (button : UndefOr Int16)
+      -> (buttons : UndefOr UInt16)
+      -> (relatedTarget : UndefOr (Nullable EventTarget))
+      -> JSIO MouseEventInit
+  new a b c d e f g = primJS $ MouseEventInit.prim__new a b c d e f g
   
   export
   button : (obj : MouseEventInit) -> JSIO (UndefOr Int16)
@@ -585,6 +651,12 @@ namespace UIEventInit
     mixins =  []
   
   export
+  new :  (view : UndefOr (Nullable Window))
+      -> (detail : UndefOr Int32)
+      -> JSIO UIEventInit
+  new a b = primJS $ UIEventInit.prim__new a b
+  
+  export
   detail : (obj : UIEventInit) -> JSIO (UndefOr Int32)
   detail a = primJS $ UIEventInit.prim__detail a
   
@@ -614,6 +686,14 @@ namespace WheelEventInit
                ]
 
     mixins =  []
+  
+  export
+  new :  (deltaX : UndefOr Double)
+      -> (deltaY : UndefOr Double)
+      -> (deltaZ : UndefOr Double)
+      -> (deltaMode : UndefOr UInt32)
+      -> JSIO WheelEventInit
+  new a b c d = primJS $ WheelEventInit.prim__new a b c d
   
   export
   deltaMode : (obj : WheelEventInit) -> JSIO (UndefOr UInt32)

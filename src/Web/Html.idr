@@ -10021,6 +10021,10 @@ namespace AssignedNodesOptions
     mixins =  []
   
   export
+  new : (flatten : UndefOr Boolean) -> JSIO AssignedNodesOptions
+  new a = primJS $ AssignedNodesOptions.prim__new a
+  
+  export
   flatten : (obj : AssignedNodesOptions) -> JSIO (UndefOr Boolean)
   flatten a = primJS $ AssignedNodesOptions.prim__flatten a
   
@@ -10037,6 +10041,12 @@ namespace CanvasRenderingContext2DSettings
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new :  (alpha : UndefOr Boolean)
+      -> (desynchronized : UndefOr Boolean)
+      -> JSIO CanvasRenderingContext2DSettings
+  new a b = primJS $ CanvasRenderingContext2DSettings.prim__new a b
   
   export
   alpha : (obj : CanvasRenderingContext2DSettings) -> JSIO (UndefOr Boolean)
@@ -10067,6 +10077,13 @@ namespace CloseEventInit
     parents =  [ EventInit , Object ]
 
     mixins =  []
+  
+  export
+  new :  (wasClean : UndefOr Boolean)
+      -> (code : UndefOr UInt16)
+      -> (reason : UndefOr String)
+      -> JSIO CloseEventInit
+  new a b c = primJS $ CloseEventInit.prim__new a b c
   
   export
   code : (obj : CloseEventInit) -> JSIO (UndefOr UInt16)
@@ -10106,6 +10123,10 @@ namespace DragEventInit
     mixins =  []
   
   export
+  new : (dataTransfer : UndefOr (Nullable DataTransfer)) -> JSIO DragEventInit
+  new a = primJS $ DragEventInit.prim__new a
+  
+  export
   dataTransfer : (obj : DragEventInit) -> JSIO (UndefOr (Nullable DataTransfer))
   dataTransfer a = primJS $ DragEventInit.prim__dataTransfer a
   
@@ -10124,6 +10145,10 @@ namespace ElementDefinitionOptions
     mixins =  []
   
   export
+  new : (extends : UndefOr String) -> JSIO ElementDefinitionOptions
+  new a = primJS $ ElementDefinitionOptions.prim__new a
+  
+  export
   extends : (obj : ElementDefinitionOptions) -> JSIO (UndefOr String)
   extends a = primJS $ ElementDefinitionOptions.prim__extends a
   
@@ -10140,6 +10165,15 @@ namespace ErrorEventInit
     parents =  [ EventInit , Object ]
 
     mixins =  []
+  
+  export
+  new :  (message : UndefOr String)
+      -> (filename : UndefOr String)
+      -> (lineno : UndefOr UInt32)
+      -> (colno : UndefOr UInt32)
+      -> (error : UndefOr AnyPtr)
+      -> JSIO ErrorEventInit
+  new a b c d e = primJS $ ErrorEventInit.prim__new a b c d e
   
   export
   colno : (obj : ErrorEventInit) -> JSIO (UndefOr UInt32)
@@ -10190,6 +10224,10 @@ namespace EventSourceInit
     mixins =  []
   
   export
+  new : (withCredentials : UndefOr Boolean) -> JSIO EventSourceInit
+  new a = primJS $ EventSourceInit.prim__new a
+  
+  export
   withCredentials : (obj : EventSourceInit) -> JSIO (UndefOr Boolean)
   withCredentials a = primJS $ EventSourceInit.prim__withCredentials a
   
@@ -10206,6 +10244,10 @@ namespace FocusOptions
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new : (preventScroll : UndefOr Boolean) -> JSIO FocusOptions
+  new a = primJS $ FocusOptions.prim__new a
   
   export
   preventScroll : (obj : FocusOptions) -> JSIO (UndefOr Boolean)
@@ -10226,6 +10268,10 @@ namespace FormDataEventInit
     mixins =  []
   
   export
+  new : (formData : FormData) -> JSIO FormDataEventInit
+  new a = primJS $ FormDataEventInit.prim__new a
+  
+  export
   formData : (obj : FormDataEventInit) -> JSIO FormData
   formData a = primJS $ FormDataEventInit.prim__formData a
   
@@ -10240,6 +10286,12 @@ namespace HashChangeEventInit
     parents =  [ EventInit , Object ]
 
     mixins =  []
+  
+  export
+  new :  (oldURL : UndefOr String)
+      -> (newURL : UndefOr String)
+      -> JSIO HashChangeEventInit
+  new a b = primJS $ HashChangeEventInit.prim__new a b
   
   export
   newURL : (obj : HashChangeEventInit) -> JSIO (UndefOr String)
@@ -10264,6 +10316,16 @@ namespace ImageBitmapOptions
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new :  (imageOrientation : UndefOr ImageOrientation)
+      -> (premultiplyAlpha : UndefOr PremultiplyAlpha)
+      -> (colorSpaceConversion : UndefOr ColorSpaceConversion)
+      -> (resizeWidth : UndefOr UInt32)
+      -> (resizeHeight : UndefOr UInt32)
+      -> (resizeQuality : UndefOr ResizeQuality)
+      -> JSIO ImageBitmapOptions
+  new a b c d e f = primJS $ ImageBitmapOptions.prim__new a b c d e f
   
   export
   colorSpaceConversion :  (obj : ImageBitmapOptions)
@@ -10340,6 +10402,10 @@ namespace ImageBitmapRenderingContextSettings
     mixins =  []
   
   export
+  new : (alpha : UndefOr Boolean) -> JSIO ImageBitmapRenderingContextSettings
+  new a = primJS $ ImageBitmapRenderingContextSettings.prim__new a
+  
+  export
   alpha : (obj : ImageBitmapRenderingContextSettings) -> JSIO (UndefOr Boolean)
   alpha a = primJS $ ImageBitmapRenderingContextSettings.prim__alpha a
   
@@ -10356,6 +10422,12 @@ namespace ImageEncodeOptions
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new :  (type : UndefOr String)
+      -> (quality : UndefOr Double)
+      -> JSIO ImageEncodeOptions
+  new a b = primJS $ ImageEncodeOptions.prim__new a b
   
   export
   quality : (obj : ImageEncodeOptions) -> JSIO (UndefOr Double)
@@ -10380,6 +10452,15 @@ namespace MessageEventInit
     parents =  [ EventInit , Object ]
 
     mixins =  []
+  
+  export
+  new :  (data_ : UndefOr AnyPtr)
+      -> (origin : UndefOr String)
+      -> (lastEventId : UndefOr String)
+      -> (source : UndefOr (Nullable MessageEventSource))
+      -> (ports : UndefOr (Array MessagePort))
+      -> JSIO MessageEventInit
+  new a b c d e = primJS $ MessageEventInit.prim__new a b c d e
   
   export
   data_ : (obj : MessageEventInit) -> JSIO (UndefOr AnyPtr)
@@ -10437,6 +10518,10 @@ namespace PageTransitionEventInit
     mixins =  []
   
   export
+  new : (persisted : UndefOr Boolean) -> JSIO PageTransitionEventInit
+  new a = primJS $ PageTransitionEventInit.prim__new a
+  
+  export
   persisted : (obj : PageTransitionEventInit) -> JSIO (UndefOr Boolean)
   persisted a = primJS $ PageTransitionEventInit.prim__persisted a
   
@@ -10455,6 +10540,10 @@ namespace PopStateEventInit
     mixins =  []
   
   export
+  new : (state : UndefOr AnyPtr) -> JSIO PopStateEventInit
+  new a = primJS $ PopStateEventInit.prim__new a
+  
+  export
   state : (obj : PopStateEventInit) -> JSIO (UndefOr AnyPtr)
   state a = primJS $ PopStateEventInit.prim__state a
   
@@ -10469,6 +10558,10 @@ namespace PostMessageOptions
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new : (transfer : UndefOr (Array Object)) -> JSIO PostMessageOptions
+  new a = primJS $ PostMessageOptions.prim__new a
   
   export
   transfer : (obj : PostMessageOptions) -> JSIO (UndefOr (Array Object))
@@ -10487,6 +10580,12 @@ namespace PromiseRejectionEventInit
     parents =  [ EventInit , Object ]
 
     mixins =  []
+  
+  export
+  new :  (promise : Promise AnyPtr)
+      -> (reason : UndefOr AnyPtr)
+      -> JSIO PromiseRejectionEventInit
+  new a b = primJS $ PromiseRejectionEventInit.prim__new a b
   
   export
   promise : (obj : PromiseRejectionEventInit) -> JSIO (Promise AnyPtr)
@@ -10515,6 +10614,15 @@ namespace StorageEventInit
     parents =  [ EventInit , Object ]
 
     mixins =  []
+  
+  export
+  new :  (key : UndefOr (Nullable String))
+      -> (oldValue : UndefOr (Nullable String))
+      -> (newValue : UndefOr (Nullable String))
+      -> (url : UndefOr String)
+      -> (storageArea : UndefOr (Nullable Storage))
+      -> JSIO StorageEventInit
+  new a b c d e = primJS $ StorageEventInit.prim__new a b c d e
   
   export
   key : (obj : StorageEventInit) -> JSIO (UndefOr (Nullable String))
@@ -10573,6 +10681,10 @@ namespace SubmitEventInit
     mixins =  []
   
   export
+  new : (submitter : UndefOr (Nullable HTMLElement)) -> JSIO SubmitEventInit
+  new a = primJS $ SubmitEventInit.prim__new a
+  
+  export
   submitter : (obj : SubmitEventInit) -> JSIO (UndefOr (Nullable HTMLElement))
   submitter a = primJS $ SubmitEventInit.prim__submitter a
   
@@ -10589,6 +10701,11 @@ namespace TrackEventInit
     parents =  [ EventInit , Object ]
 
     mixins =  []
+  
+  export
+  new :  (track : UndefOr (Nullable (Union3 VideoTrack AudioTrack TextTrack)))
+      -> JSIO TrackEventInit
+  new a = primJS $ TrackEventInit.prim__new a
   
   export
   track :  (obj : TrackEventInit)
@@ -10610,6 +10727,29 @@ namespace ValidityStateFlags
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new :  (valueMissing : UndefOr Boolean)
+      -> (typeMismatch : UndefOr Boolean)
+      -> (patternMismatch : UndefOr Boolean)
+      -> (tooLong : UndefOr Boolean)
+      -> (tooShort : UndefOr Boolean)
+      -> (rangeUnderflow : UndefOr Boolean)
+      -> (rangeOverflow : UndefOr Boolean)
+      -> (stepMismatch : UndefOr Boolean)
+      -> (badInput : UndefOr Boolean)
+      -> (customError : UndefOr Boolean)
+      -> JSIO ValidityStateFlags
+  new a b c d e f g h i j = primJS $ ValidityStateFlags.prim__new a
+                                                                  b
+                                                                  c
+                                                                  d
+                                                                  e
+                                                                  f
+                                                                  g
+                                                                  h
+                                                                  i
+                                                                  j
   
   export
   badInput : (obj : ValidityStateFlags) -> JSIO (UndefOr Boolean)
@@ -10722,6 +10862,10 @@ namespace WindowPostMessageOptions
     mixins =  []
   
   export
+  new : (targetOrigin : UndefOr String) -> JSIO WindowPostMessageOptions
+  new a = primJS $ WindowPostMessageOptions.prim__new a
+  
+  export
   targetOrigin : (obj : WindowPostMessageOptions) -> JSIO (UndefOr String)
   targetOrigin a = primJS $ WindowPostMessageOptions.prim__targetOrigin a
   
@@ -10739,6 +10883,13 @@ namespace WorkerOptions
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new :  (type : UndefOr WorkerType)
+      -> (credentials : UndefOr RequestCredentials)
+      -> (name : UndefOr String)
+      -> JSIO WorkerOptions
+  new a b c = primJS $ WorkerOptions.prim__new a b c
   
   export
   credentials : (obj : WorkerOptions) -> JSIO (UndefOr RequestCredentials)
@@ -10773,6 +10924,10 @@ namespace WorkletOptions
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new : (credentials : UndefOr RequestCredentials) -> JSIO WorkletOptions
+  new a = primJS $ WorkletOptions.prim__new a
   
   export
   credentials : (obj : WorkletOptions) -> JSIO (UndefOr RequestCredentials)

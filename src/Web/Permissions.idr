@@ -56,6 +56,10 @@ namespace CameraDevicePermissionDescriptor
     mixins =  []
   
   export
+  new : (panTiltZoom : UndefOr Boolean) -> JSIO CameraDevicePermissionDescriptor
+  new a = primJS $ CameraDevicePermissionDescriptor.prim__new a
+  
+  export
   panTiltZoom :  (obj : CameraDevicePermissionDescriptor)
               -> JSIO (UndefOr Boolean)
   panTiltZoom a = primJS $ CameraDevicePermissionDescriptor.prim__panTiltZoom a
@@ -76,6 +80,10 @@ namespace DevicePermissionDescriptor
     mixins =  []
   
   export
+  new : (deviceId : UndefOr String) -> JSIO DevicePermissionDescriptor
+  new a = primJS $ DevicePermissionDescriptor.prim__new a
+  
+  export
   deviceId : (obj : DevicePermissionDescriptor) -> JSIO (UndefOr String)
   deviceId a = primJS $ DevicePermissionDescriptor.prim__deviceId a
   
@@ -92,6 +100,10 @@ namespace MidiPermissionDescriptor
     parents =  [ PermissionDescriptor , Object ]
 
     mixins =  []
+  
+  export
+  new : (sysex : UndefOr Boolean) -> JSIO MidiPermissionDescriptor
+  new a = primJS $ MidiPermissionDescriptor.prim__new a
   
   export
   sysex : (obj : MidiPermissionDescriptor) -> JSIO (UndefOr Boolean)
@@ -112,6 +124,10 @@ namespace PermissionDescriptor
     mixins =  []
   
   export
+  new : (name : PermissionName) -> JSIO PermissionDescriptor
+  new a = primJS $ PermissionDescriptor.prim__new a
+  
+  export
   name : (obj : PermissionDescriptor) -> JSIO PermissionName
   name a = primJS $ PermissionDescriptor.prim__name a
   
@@ -126,6 +142,13 @@ namespace PermissionSetParameters
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new :  (descriptor : PermissionDescriptor)
+      -> (state : PermissionState)
+      -> (oneRealm : UndefOr Boolean)
+      -> JSIO PermissionSetParameters
+  new a b c = primJS $ PermissionSetParameters.prim__new a b c
   
   export
   descriptor : (obj : PermissionSetParameters) -> JSIO PermissionDescriptor
@@ -164,6 +187,10 @@ namespace PushPermissionDescriptor
     parents =  [ PermissionDescriptor , Object ]
 
     mixins =  []
+  
+  export
+  new : (userVisibleOnly : UndefOr Boolean) -> JSIO PushPermissionDescriptor
+  new a = primJS $ PushPermissionDescriptor.prim__new a
   
   export
   userVisibleOnly : (obj : PushPermissionDescriptor) -> JSIO (UndefOr Boolean)

@@ -449,6 +449,13 @@ namespace WindowClient
 namespace CacheQueryOptions
   
   export
+  %foreign "browser:lambda:(a,b,c)=> {ignoreSearch: a,ignoreMethod: b,ignoreVary: c}"
+  prim__new :  UndefOr Boolean
+            -> UndefOr Boolean
+            -> UndefOr Boolean
+            -> PrimIO CacheQueryOptions
+  
+  export
   %foreign "browser:lambda:x=>x.ignoreMethod"
   prim__ignoreMethod : CacheQueryOptions -> PrimIO (UndefOr Boolean)
   
@@ -475,6 +482,10 @@ namespace CacheQueryOptions
 namespace ClientQueryOptions
   
   export
+  %foreign "browser:lambda:(a,b)=> {includeUncontrolled: a,type: b}"
+  prim__new : UndefOr Boolean -> UndefOr ClientType -> PrimIO ClientQueryOptions
+  
+  export
   %foreign "browser:lambda:x=>x.includeUncontrolled"
   prim__includeUncontrolled : ClientQueryOptions -> PrimIO (UndefOr Boolean)
   
@@ -492,8 +503,22 @@ namespace ClientQueryOptions
   %foreign "browser:lambda:(x,v)=>{x.type = v}"
   prim__setType : ClientQueryOptions -> UndefOr ClientType -> PrimIO ()
 
+namespace ExtendableEventInit
+  
+  export
+  %foreign "browser:lambda:()=> {}"
+  prim__new : PrimIO ExtendableEventInit
 
 namespace ExtendableMessageEventInit
+  
+  export
+  %foreign "browser:lambda:(a,b,c,d,e)=> {data: a,origin: b,lastEventId: c,source: d,ports: e}"
+  prim__new :  UndefOr AnyPtr
+            -> UndefOr String
+            -> UndefOr String
+            -> UndefOr (Nullable (Union3 Client ServiceWorker MessagePort))
+            -> UndefOr (Array MessagePort)
+            -> PrimIO ExtendableMessageEventInit
   
   export
   %foreign "browser:lambda:x=>x.data"
@@ -550,6 +575,16 @@ namespace ExtendableMessageEventInit
 namespace FetchEventInit
   
   export
+  %foreign "browser:lambda:(a,b,c,d,e,f)=> {request: a,preloadResponse: b,clientId: c,resultingClientId: d,replacesClientId: e,handled: f}"
+  prim__new :  Request
+            -> UndefOr (Promise AnyPtr)
+            -> UndefOr String
+            -> UndefOr String
+            -> UndefOr String
+            -> UndefOr (Promise Undefined)
+            -> PrimIO FetchEventInit
+  
+  export
   %foreign "browser:lambda:x=>x.clientId"
   prim__clientId : FetchEventInit -> PrimIO (UndefOr String)
   
@@ -602,6 +637,10 @@ namespace FetchEventInit
 namespace MultiCacheQueryOptions
   
   export
+  %foreign "browser:lambda:(a)=> {cacheName: a}"
+  prim__new : UndefOr String -> PrimIO MultiCacheQueryOptions
+  
+  export
   %foreign "browser:lambda:x=>x.cacheName"
   prim__cacheName : MultiCacheQueryOptions -> PrimIO (UndefOr String)
   
@@ -610,6 +649,12 @@ namespace MultiCacheQueryOptions
   prim__setCacheName : MultiCacheQueryOptions -> UndefOr String -> PrimIO ()
 
 namespace NavigationPreloadState
+  
+  export
+  %foreign "browser:lambda:(a,b)=> {enabled: a,headerValue: b}"
+  prim__new :  UndefOr Boolean
+            -> UndefOr ByteString
+            -> PrimIO NavigationPreloadState
   
   export
   %foreign "browser:lambda:x=>x.enabled"
@@ -630,6 +675,13 @@ namespace NavigationPreloadState
                        -> PrimIO ()
 
 namespace RegistrationOptions
+  
+  export
+  %foreign "browser:lambda:(a,b,c)=> {scope: a,type: b,updateViaCache: c}"
+  prim__new :  UndefOr String
+            -> UndefOr WorkerType
+            -> UndefOr ServiceWorkerUpdateViaCache
+            -> PrimIO RegistrationOptions
   
   export
   %foreign "browser:lambda:x=>x.scope"

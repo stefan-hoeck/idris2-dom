@@ -215,6 +215,35 @@ namespace RequestInit
     mixins =  []
   
   export
+  new :  (method : UndefOr ByteString)
+      -> (headers : UndefOr HeadersInit)
+      -> (body : UndefOr (Nullable BodyInit))
+      -> (referrer : UndefOr String)
+      -> (referrerPolicy : UndefOr ReferrerPolicy)
+      -> (mode : UndefOr RequestMode)
+      -> (credentials : UndefOr RequestCredentials)
+      -> (cache : UndefOr RequestCache)
+      -> (redirect : UndefOr RequestRedirect)
+      -> (integrity : UndefOr String)
+      -> (keepalive : UndefOr Boolean)
+      -> (signal : UndefOr (Nullable AbortSignal))
+      -> (window : UndefOr AnyPtr)
+      -> JSIO RequestInit
+  new a b c d e f g h i j k l m = primJS $ RequestInit.prim__new a
+                                                                 b
+                                                                 c
+                                                                 d
+                                                                 e
+                                                                 f
+                                                                 g
+                                                                 h
+                                                                 i
+                                                                 j
+                                                                 k
+                                                                 l
+                                                                 m
+  
+  export
   body : (obj : RequestInit) -> JSIO (UndefOr (Nullable BodyInit))
   body a = primJS $ RequestInit.prim__body a
   
@@ -335,6 +364,13 @@ namespace ResponseInit
     parents =  [ Object ]
 
     mixins =  []
+  
+  export
+  new :  (status : UndefOr UInt16)
+      -> (statusText : UndefOr ByteString)
+      -> (headers : UndefOr HeadersInit)
+      -> JSIO ResponseInit
+  new a b c = primJS $ ResponseInit.prim__new a b c
   
   export
   headers : (obj : ResponseInit) -> JSIO (UndefOr HeadersInit)
