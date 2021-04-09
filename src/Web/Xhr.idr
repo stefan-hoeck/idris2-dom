@@ -19,6 +19,10 @@ namespace FormData
   export
   new : (form : UndefOr HTMLFormElement) -> JSIO FormData
   new a = primJS $ FormData.prim__new a
+
+  export
+  new' : JSIO FormData
+  new' = new undef
   
   export
   append : (obj : FormData) -> (name : String) -> (value : String) -> JSIO ()
@@ -31,6 +35,13 @@ namespace FormData
           -> (filename : UndefOr String)
           -> JSIO ()
   append1 a b c d = primJS $ FormData.prim__append1 a b c d
+
+  export
+  append1' :  (obj : FormData)
+           -> (name : String)
+           -> (blobValue : Blob)
+           -> JSIO ()
+  append1' a b c = append1 a b c undef
   
   export
   delete : (obj : FormData) -> (name : String) -> JSIO ()
@@ -64,6 +75,10 @@ namespace FormData
        -> JSIO ()
   set1 a b c d = primJS $ FormData.prim__set1 a b c d
 
+  export
+  set1' : (obj : FormData) -> (name : String) -> (blobValue : Blob) -> JSIO ()
+  set1' a b c = set1 a b c undef
+
 namespace ProgressEvent
   
   public export
@@ -77,6 +92,10 @@ namespace ProgressEvent
       -> (eventInitDict : UndefOr ProgressEventInit)
       -> JSIO ProgressEvent
   new a b = primJS $ ProgressEvent.prim__new a b
+
+  export
+  new' : (type : String) -> JSIO ProgressEvent
+  new' a = new a undef
   
   export
   lengthComputable : (obj : ProgressEvent) -> JSIO Boolean
@@ -221,6 +240,14 @@ namespace XMLHttpRequest
         -> (password : UndefOr (Nullable String))
         -> JSIO ()
   open1 a b c d e f = primJS $ XMLHttpRequest.prim__open1 a b c d e f
+
+  export
+  open1' :  (obj : XMLHttpRequest)
+         -> (method : ByteString)
+         -> (url : String)
+         -> (async : Boolean)
+         -> JSIO ()
+  open1' a b c d = open1 a b c d undef undef
   
   export
   overrideMimeType : (obj : XMLHttpRequest) -> (mime : String) -> JSIO ()
@@ -231,6 +258,10 @@ namespace XMLHttpRequest
        -> (body : UndefOr (Nullable (Union2 Document XMLHttpRequestBodyInit)))
        -> JSIO ()
   send a b = primJS $ XMLHttpRequest.prim__send a b
+
+  export
+  send' : (obj : XMLHttpRequest) -> JSIO ()
+  send' a = send a undef
   
   export
   setRequestHeader :  (obj : XMLHttpRequest)
@@ -345,6 +376,10 @@ namespace ProgressEventInit
       -> (total_ : UndefOr UInt64)
       -> JSIO ProgressEventInit
   new a b c = primJS $ ProgressEventInit.prim__new a b c
+
+  export
+  new' : JSIO ProgressEventInit
+  new' = new undef undef undef
   
   export
   lengthComputable : (obj : ProgressEventInit) -> JSIO (UndefOr Boolean)
@@ -356,6 +391,10 @@ namespace ProgressEventInit
                       -> JSIO ()
   setLengthComputable a b = primJS $ ProgressEventInit.prim__setLengthComputable a
                                                                                  b
+
+  export
+  setLengthComputable' : (obj : ProgressEventInit) -> JSIO ()
+  setLengthComputable' a = setLengthComputable a undef
   
   export
   loaded : (obj : ProgressEventInit) -> JSIO (UndefOr UInt64)
@@ -364,6 +403,10 @@ namespace ProgressEventInit
   export
   setLoaded : (obj : ProgressEventInit) -> (value : UndefOr UInt64) -> JSIO ()
   setLoaded a b = primJS $ ProgressEventInit.prim__setLoaded a b
+
+  export
+  setLoaded' : (obj : ProgressEventInit) -> JSIO ()
+  setLoaded' a = setLoaded a undef
   
   export
   total_ : (obj : ProgressEventInit) -> JSIO (UndefOr UInt64)
@@ -372,3 +415,7 @@ namespace ProgressEventInit
   export
   setTotal : (obj : ProgressEventInit) -> (value : UndefOr UInt64) -> JSIO ()
   setTotal a b = primJS $ ProgressEventInit.prim__setTotal a b
+
+  export
+  setTotal' : (obj : ProgressEventInit) -> JSIO ()
+  setTotal' a = setTotal a undef

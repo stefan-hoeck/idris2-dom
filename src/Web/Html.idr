@@ -189,6 +189,10 @@ namespace CanvasPattern
                -> JSIO ()
   setTransform a b = primJS $ CanvasPattern.prim__setTransform a b
 
+  export
+  setTransform' : (obj : CanvasPattern) -> JSIO ()
+  setTransform' a = setTransform a undef
+
 namespace CanvasRenderingContext2D
   
   public export
@@ -235,6 +239,10 @@ namespace CloseEvent
       -> (eventInitDict : UndefOr CloseEventInit)
       -> JSIO CloseEvent
   new a b = primJS $ CloseEvent.prim__new a b
+
+  export
+  new' : (type : String) -> JSIO CloseEvent
+  new' a = new a undef
   
   export
   code : (obj : CloseEvent) -> JSIO UInt16
@@ -263,6 +271,13 @@ namespace CustomElementRegistry
          -> (options : UndefOr ElementDefinitionOptions)
          -> JSIO ()
   define a b c d = primJS $ CustomElementRegistry.prim__define a b c d
+
+  export
+  define' :  (obj : CustomElementRegistry)
+          -> (name : String)
+          -> (constructor : CustomElementConstructor)
+          -> JSIO ()
+  define' a b c = define a b c undef
   
   export
   get :  (obj : CustomElementRegistry)
@@ -378,6 +393,10 @@ namespace DataTransfer
   export
   clearData : (obj : DataTransfer) -> (format : UndefOr String) -> JSIO ()
   clearData a b = primJS $ DataTransfer.prim__clearData a b
+
+  export
+  clearData' : (obj : DataTransfer) -> JSIO ()
+  clearData' a = clearData a undef
   
   export
   getData : (obj : DataTransfer) -> (format : String) -> JSIO String
@@ -518,6 +537,12 @@ namespace DedicatedWorkerGlobalScope
                                                                               b
                                                                               c
 
+  export
+  postMessage1' :  (obj : DedicatedWorkerGlobalScope)
+                -> (message : AnyPtr)
+                -> JSIO ()
+  postMessage1' a b = postMessage1 a b undef
+
 namespace DragEvent
   
   public export
@@ -531,6 +556,10 @@ namespace DragEvent
       -> (eventInitDict : UndefOr DragEventInit)
       -> JSIO DragEvent
   new a b = primJS $ DragEvent.prim__new a b
+
+  export
+  new' : (type : String) -> JSIO DragEvent
+  new' a = new a undef
   
   export
   dataTransfer : (obj : DragEvent) -> JSIO (Nullable DataTransfer)
@@ -582,6 +611,12 @@ namespace ElementInternals
                -> (state : UndefOr (Nullable (Union3 File String FormData)))
                -> JSIO ()
   setFormValue a b c = primJS $ ElementInternals.prim__setFormValue a b c
+
+  export
+  setFormValue' :  (obj : ElementInternals)
+                -> (value : Nullable (Union3 File String FormData))
+                -> JSIO ()
+  setFormValue' a b = setFormValue a b undef
   
   export
   setValidity :  (obj : ElementInternals)
@@ -590,6 +625,10 @@ namespace ElementInternals
               -> (anchor : UndefOr HTMLElement)
               -> JSIO ()
   setValidity a b c d = primJS $ ElementInternals.prim__setValidity a b c d
+
+  export
+  setValidity' : (obj : ElementInternals) -> JSIO ()
+  setValidity' a = setValidity a undef undef undef
 
 namespace ErrorEvent
   
@@ -604,6 +643,10 @@ namespace ErrorEvent
       -> (eventInitDict : UndefOr ErrorEventInit)
       -> JSIO ErrorEvent
   new a b = primJS $ ErrorEvent.prim__new a b
+
+  export
+  new' : (type : String) -> JSIO ErrorEvent
+  new' a = new a undef
   
   export
   colno : (obj : ErrorEvent) -> JSIO UInt32
@@ -650,6 +693,10 @@ namespace EventSource
       -> (eventSourceInitDict : UndefOr EventSourceInit)
       -> JSIO EventSource
   new a b = primJS $ EventSource.prim__new a b
+
+  export
+  new' : (url : String) -> JSIO EventSource
+  new' a = new a undef
   
   export
   onerror : (obj : EventSource) -> JSIO EventHandler
@@ -746,6 +793,11 @@ namespace HTMLAllCollection
        -> (nameOrIndex : UndefOr String)
        -> JSIO (Nullable (Union2 HTMLCollection Element))
   item a b = primJS $ HTMLAllCollection.prim__item a b
+
+  export
+  item' :  (obj : HTMLAllCollection)
+        -> JSIO (Nullable (Union2 HTMLCollection Element))
+  item' a = item a undef
   
   export
   namedItem :  (obj : HTMLAllCollection)
@@ -1320,6 +1372,12 @@ namespace HTMLCanvasElement
              -> (options : UndefOr AnyPtr)
              -> JSIO (Nullable RenderingContext)
   getContext a b c = primJS $ HTMLCanvasElement.prim__getContext a b c
+
+  export
+  getContext' :  (obj : HTMLCanvasElement)
+              -> (contextId : String)
+              -> JSIO (Nullable RenderingContext)
+  getContext' a b = getContext a b undef
   
   export
   toBlob :  (obj : HTMLCanvasElement)
@@ -1328,6 +1386,10 @@ namespace HTMLCanvasElement
          -> (quality : UndefOr AnyPtr)
          -> JSIO ()
   toBlob a b c d = primJS $ HTMLCanvasElement.prim__toBlob a b c d
+
+  export
+  toBlob' : (obj : HTMLCanvasElement) -> (callback : BlobCallback) -> JSIO ()
+  toBlob' a b = toBlob a b undef undef
   
   export
   toDataURL :  (obj : HTMLCanvasElement)
@@ -1335,6 +1397,10 @@ namespace HTMLCanvasElement
             -> (quality : UndefOr AnyPtr)
             -> JSIO String
   toDataURL a b c = primJS $ HTMLCanvasElement.prim__toDataURL a b c
+
+  export
+  toDataURL' : (obj : HTMLCanvasElement) -> JSIO String
+  toDataURL' a = toDataURL a undef undef
   
   export
   transferControlToOffscreen : (obj : HTMLCanvasElement) -> JSIO OffscreenCanvas
@@ -1497,6 +1563,10 @@ namespace HTMLDialogElement
   export
   close : (obj : HTMLDialogElement) -> (returnValue : UndefOr String) -> JSIO ()
   close a b = primJS $ HTMLDialogElement.prim__close a b
+
+  export
+  close' : (obj : HTMLDialogElement) -> JSIO ()
+  close' a = close a undef
   
   export
   show : (obj : HTMLDialogElement) -> JSIO ()
@@ -2026,6 +2096,10 @@ namespace HTMLFormElement
                 -> (submitter : UndefOr (Nullable HTMLElement))
                 -> JSIO ()
   requestSubmit a b = primJS $ HTMLFormElement.prim__requestSubmit a b
+
+  export
+  requestSubmit' : (obj : HTMLFormElement) -> JSIO ()
+  requestSubmit' a = requestSubmit a undef
   
   export
   reset : (obj : HTMLFormElement) -> JSIO ()
@@ -3066,6 +3140,14 @@ namespace HTMLInputElement
                                                                           c
                                                                           d
                                                                           e
+
+  export
+  setRangeText1' :  (obj : HTMLInputElement)
+                 -> (replacement : String)
+                 -> (start : UInt32)
+                 -> (end : UInt32)
+                 -> JSIO ()
+  setRangeText1' a b c d = setRangeText1 a b c d undef
   
   export
   setSelectionRange :  (obj : HTMLInputElement)
@@ -3077,14 +3159,29 @@ namespace HTMLInputElement
                                                                                 b
                                                                                 c
                                                                                 d
+
+  export
+  setSelectionRange' :  (obj : HTMLInputElement)
+                     -> (start : UInt32)
+                     -> (end : UInt32)
+                     -> JSIO ()
+  setSelectionRange' a b c = setSelectionRange a b c undef
   
   export
   stepDown : (obj : HTMLInputElement) -> (n : UndefOr Int32) -> JSIO ()
   stepDown a b = primJS $ HTMLInputElement.prim__stepDown a b
+
+  export
+  stepDown' : (obj : HTMLInputElement) -> JSIO ()
+  stepDown' a = stepDown a undef
   
   export
   stepUp : (obj : HTMLInputElement) -> (n : UndefOr Int32) -> JSIO ()
   stepUp a b = primJS $ HTMLInputElement.prim__stepUp a b
+
+  export
+  stepUp' : (obj : HTMLInputElement) -> JSIO ()
+  stepUp' a = stepUp a undef
 
 namespace HTMLLIElement
   
@@ -3737,6 +3834,12 @@ namespace HTMLMediaElement
                -> (language : UndefOr String)
                -> JSIO TextTrack
   addTextTrack a b c d = primJS $ HTMLMediaElement.prim__addTextTrack a b c d
+
+  export
+  addTextTrack' :  (obj : HTMLMediaElement)
+                -> (kind : TextTrackKind)
+                -> JSIO TextTrack
+  addTextTrack' a b = addTextTrack a b undef undef
   
   export
   canPlayType :  (obj : HTMLMediaElement)
@@ -4359,6 +4462,12 @@ namespace HTMLOptionsCollection
       -> (before : UndefOr (Nullable (Union2 HTMLElement Int32)))
       -> JSIO ()
   add a b c = primJS $ HTMLOptionsCollection.prim__add a b c
+
+  export
+  add' :  (obj : HTMLOptionsCollection)
+       -> (element : Union2 HTMLOptionElement HTMLOptGroupElement)
+       -> JSIO ()
+  add' a b = add a b undef
   
   export
   remove : (obj : HTMLOptionsCollection) -> (index : Int32) -> JSIO ()
@@ -4921,6 +5030,12 @@ namespace HTMLSelectElement
       -> (before : UndefOr (Nullable (Union2 HTMLElement Int32)))
       -> JSIO ()
   add a b c = primJS $ HTMLSelectElement.prim__add a b c
+
+  export
+  add' :  (obj : HTMLSelectElement)
+       -> (element : Union2 HTMLOptionElement HTMLOptGroupElement)
+       -> JSIO ()
+  add' a b = add a b undef
   
   export
   checkValidity : (obj : HTMLSelectElement) -> JSIO Boolean
@@ -4989,12 +5104,20 @@ namespace HTMLSlotElement
                    -> (options : UndefOr AssignedNodesOptions)
                    -> JSIO (Array Element)
   assignedElements a b = primJS $ HTMLSlotElement.prim__assignedElements a b
+
+  export
+  assignedElements' : (obj : HTMLSlotElement) -> JSIO (Array Element)
+  assignedElements' a = assignedElements a undef
   
   export
   assignedNodes :  (obj : HTMLSlotElement)
                 -> (options : UndefOr AssignedNodesOptions)
                 -> JSIO (Array Node)
   assignedNodes a b = primJS $ HTMLSlotElement.prim__assignedNodes a b
+
+  export
+  assignedNodes' : (obj : HTMLSlotElement) -> JSIO (Array Node)
+  assignedNodes' a = assignedNodes a undef
 
 namespace HTMLSourceElement
   
@@ -5543,6 +5666,10 @@ namespace HTMLTableElement
             -> JSIO HTMLTableRowElement
   insertRow a b = primJS $ HTMLTableElement.prim__insertRow a b
 
+  export
+  insertRow' : (obj : HTMLTableElement) -> JSIO HTMLTableRowElement
+  insertRow' a = insertRow a undef
+
 namespace HTMLTableRowElement
   
   public export
@@ -5627,6 +5754,10 @@ namespace HTMLTableRowElement
              -> JSIO HTMLTableCellElement
   insertCell a b = primJS $ HTMLTableRowElement.prim__insertCell a b
 
+  export
+  insertCell' : (obj : HTMLTableRowElement) -> JSIO HTMLTableCellElement
+  insertCell' a = insertCell a undef
+
 namespace HTMLTableSectionElement
   
   public export
@@ -5694,6 +5825,10 @@ namespace HTMLTableSectionElement
             -> (index : UndefOr Int32)
             -> JSIO HTMLTableRowElement
   insertRow a b = primJS $ HTMLTableSectionElement.prim__insertRow a b
+
+  export
+  insertRow' : (obj : HTMLTableSectionElement) -> JSIO HTMLTableRowElement
+  insertRow' a = insertRow a undef
 
 namespace HTMLTemplateElement
   
@@ -5946,6 +6081,14 @@ namespace HTMLTextAreaElement
                                                                              c
                                                                              d
                                                                              e
+
+  export
+  setRangeText1' :  (obj : HTMLTextAreaElement)
+                 -> (replacement : String)
+                 -> (start : UInt32)
+                 -> (end : UInt32)
+                 -> JSIO ()
+  setRangeText1' a b c d = setRangeText1 a b c d undef
   
   export
   setSelectionRange :  (obj : HTMLTextAreaElement)
@@ -5957,6 +6100,13 @@ namespace HTMLTextAreaElement
                                                                                    b
                                                                                    c
                                                                                    d
+
+  export
+  setSelectionRange' :  (obj : HTMLTextAreaElement)
+                     -> (start : UInt32)
+                     -> (end : UInt32)
+                     -> JSIO ()
+  setSelectionRange' a b c = setSelectionRange a b c undef
 
 namespace HTMLTimeElement
   
@@ -6241,6 +6391,10 @@ namespace HashChangeEvent
       -> (eventInitDict : UndefOr HashChangeEventInit)
       -> JSIO HashChangeEvent
   new a b = primJS $ HashChangeEvent.prim__new a b
+
+  export
+  new' : (type : String) -> JSIO HashChangeEvent
+  new' a = new a undef
   
   export
   newURL : (obj : HashChangeEvent) -> JSIO String
@@ -6287,6 +6441,10 @@ namespace History
   export
   go : (obj : History) -> (delta : UndefOr Int32) -> JSIO ()
   go a b = primJS $ History.prim__go a b
+
+  export
+  go' : (obj : History) -> JSIO ()
+  go' a = go a undef
   
   export
   pushState :  (obj : History)
@@ -6295,6 +6453,13 @@ namespace History
             -> (url : UndefOr (Nullable String))
             -> JSIO ()
   pushState a b c d = primJS $ History.prim__pushState a b c d
+
+  export
+  pushState' :  (obj : History)
+             -> (data_ : AnyPtr)
+             -> (unused : String)
+             -> JSIO ()
+  pushState' a b c = pushState a b c undef
   
   export
   replaceState :  (obj : History)
@@ -6303,6 +6468,13 @@ namespace History
                -> (url : UndefOr (Nullable String))
                -> JSIO ()
   replaceState a b c d = primJS $ History.prim__replaceState a b c d
+
+  export
+  replaceState' :  (obj : History)
+                -> (data_ : AnyPtr)
+                -> (unused : String)
+                -> JSIO ()
+  replaceState' a b c = replaceState a b c undef
 
 namespace ImageBitmap
   
@@ -6362,6 +6534,10 @@ namespace ImageData
        -> (sh : UndefOr UInt32)
        -> JSIO ImageData
   new1 a b c = primJS $ ImageData.prim__new1 a b c
+
+  export
+  new1' : (data_ : UInt8ClampedArray) -> (sw : UInt32) -> JSIO ImageData
+  new1' a b = new1 a b undef
   
   export
   data_ : (obj : ImageData) -> JSIO UInt8ClampedArray
@@ -6532,6 +6708,10 @@ namespace MessageEvent
       -> (eventInitDict : UndefOr MessageEventInit)
       -> JSIO MessageEvent
   new a b = primJS $ MessageEvent.prim__new a b
+
+  export
+  new' : (type : String) -> JSIO MessageEvent
+  new' a = new a undef
   
   export
   data_ : (obj : MessageEvent) -> JSIO AnyPtr
@@ -6574,6 +6754,18 @@ namespace MessageEvent
                                                                                     h
                                                                                     i
 
+  export
+  initMessageEvent' : (obj : MessageEvent) -> (type : String) -> JSIO ()
+  initMessageEvent' a b = initMessageEvent a
+                                           b
+                                           undef
+                                           undef
+                                           undef
+                                           undef
+                                           undef
+                                           undef
+                                           undef
+
 namespace MessagePort
   
   public export
@@ -6615,6 +6807,10 @@ namespace MessagePort
                -> (options : UndefOr PostMessageOptions)
                -> JSIO ()
   postMessage1 a b c = primJS $ MessagePort.prim__postMessage1 a b c
+
+  export
+  postMessage1' : (obj : MessagePort) -> (message : AnyPtr) -> JSIO ()
+  postMessage1' a b = postMessage1 a b undef
   
   export
   start : (obj : MessagePort) -> JSIO ()
@@ -6736,6 +6932,10 @@ namespace OffscreenCanvas
                 -> (options : UndefOr ImageEncodeOptions)
                 -> JSIO (Promise Blob)
   convertToBlob a b = primJS $ OffscreenCanvas.prim__convertToBlob a b
+
+  export
+  convertToBlob' : (obj : OffscreenCanvas) -> JSIO (Promise Blob)
+  convertToBlob' a = convertToBlob a undef
   
   export
   getContext :  (obj : OffscreenCanvas)
@@ -6743,6 +6943,12 @@ namespace OffscreenCanvas
              -> (options : UndefOr AnyPtr)
              -> JSIO (Nullable OffscreenRenderingContext)
   getContext a b c = primJS $ OffscreenCanvas.prim__getContext a b c
+
+  export
+  getContext' :  (obj : OffscreenCanvas)
+              -> (contextId : OffscreenRenderingContextId)
+              -> JSIO (Nullable OffscreenRenderingContext)
+  getContext' a b = getContext a b undef
   
   export
   transferToImageBitmap : (obj : OffscreenCanvas) -> JSIO ImageBitmap
@@ -6792,6 +6998,10 @@ namespace PageTransitionEvent
       -> (eventInitDict : UndefOr PageTransitionEventInit)
       -> JSIO PageTransitionEvent
   new a b = primJS $ PageTransitionEvent.prim__new a b
+
+  export
+  new' : (type : String) -> JSIO PageTransitionEvent
+  new' a = new a undef
   
   export
   persisted : (obj : PageTransitionEvent) -> JSIO Boolean
@@ -6808,6 +7018,10 @@ namespace Path2D
   export
   new : (path : UndefOr (Union2 Path2D String)) -> JSIO Path2D
   new a = primJS $ Path2D.prim__new a
+
+  export
+  new' : JSIO Path2D
+  new' = new undef
   
   export
   addPath :  (obj : Path2D)
@@ -6815,6 +7029,10 @@ namespace Path2D
           -> (transform : UndefOr DOMMatrix2DInit)
           -> JSIO ()
   addPath a b c = primJS $ Path2D.prim__addPath a b c
+
+  export
+  addPath' : (obj : Path2D) -> (path : Path2D) -> JSIO ()
+  addPath' a b = addPath a b undef
 
 namespace Plugin
   
@@ -6885,6 +7103,10 @@ namespace PopStateEvent
       -> (eventInitDict : UndefOr PopStateEventInit)
       -> JSIO PopStateEvent
   new a b = primJS $ PopStateEvent.prim__new a b
+
+  export
+  new' : (type : String) -> JSIO PopStateEvent
+  new' a = new a undef
   
   export
   state : (obj : PopStateEvent) -> JSIO AnyPtr
@@ -6941,6 +7163,10 @@ namespace SharedWorker
       -> (options : UndefOr (Union2 String WorkerOptions))
       -> JSIO SharedWorker
   new a b = primJS $ SharedWorker.prim__new a b
+
+  export
+  new' : (scriptURL : String) -> JSIO SharedWorker
+  new' a = new a undef
   
   export
   port : (obj : SharedWorker) -> JSIO MessagePort
@@ -7013,6 +7239,10 @@ namespace StorageEvent
       -> (eventInitDict : UndefOr StorageEventInit)
       -> JSIO StorageEvent
   new a b = primJS $ StorageEvent.prim__new a b
+
+  export
+  new' : (type : String) -> JSIO StorageEvent
+  new' a = new a undef
   
   export
   key : (obj : StorageEvent) -> JSIO (Nullable String)
@@ -7055,6 +7285,18 @@ namespace StorageEvent
                                                                                     h
                                                                                     i
 
+  export
+  initStorageEvent' : (obj : StorageEvent) -> (type : String) -> JSIO ()
+  initStorageEvent' a b = initStorageEvent a
+                                           b
+                                           undef
+                                           undef
+                                           undef
+                                           undef
+                                           undef
+                                           undef
+                                           undef
+
 namespace SubmitEvent
   
   public export
@@ -7068,6 +7310,10 @@ namespace SubmitEvent
       -> (eventInitDict : UndefOr SubmitEventInit)
       -> JSIO SubmitEvent
   new a b = primJS $ SubmitEvent.prim__new a b
+
+  export
+  new' : (type : String) -> JSIO SubmitEvent
+  new' a = new a undef
   
   export
   submitter : (obj : SubmitEvent) -> JSIO (Nullable HTMLElement)
@@ -7354,6 +7600,10 @@ namespace TrackEvent
       -> (eventInitDict : UndefOr TrackEventInit)
       -> JSIO TrackEvent
   new a b = primJS $ TrackEvent.prim__new a b
+
+  export
+  new' : (type : String) -> JSIO TrackEvent
+  new' a = new a undef
   
   export
   track :  (obj : TrackEvent)
@@ -7527,6 +7777,10 @@ namespace WebSocket
       -> (protocols : UndefOr (Union2 String (Array String)))
       -> JSIO WebSocket
   new a b = primJS $ WebSocket.prim__new a b
+
+  export
+  new' : (url : String) -> JSIO WebSocket
+  new' a = new a undef
   
   export
   binaryType : (obj : WebSocket) -> JSIO BinaryType
@@ -7594,6 +7848,10 @@ namespace WebSocket
         -> (reason : UndefOr String)
         -> JSIO ()
   close a b c = primJS $ WebSocket.prim__close a b c
+
+  export
+  close' : (obj : WebSocket) -> JSIO ()
+  close' a = close a undef undef
   
   export
   send : (obj : WebSocket) -> (data_ : String) -> JSIO ()
@@ -7758,6 +8016,10 @@ namespace Window
   export
   confirm : (obj : Window) -> (message : UndefOr String) -> JSIO Boolean
   confirm a b = primJS $ Window.prim__confirm a b
+
+  export
+  confirm' : (obj : Window) -> JSIO Boolean
+  confirm' a = confirm a undef
   
   export
   focus : (obj : Window) -> JSIO ()
@@ -7769,6 +8031,12 @@ namespace Window
                    -> (pseudoElt : UndefOr (Nullable CSSOMString))
                    -> JSIO CSSStyleDeclaration
   getComputedStyle a b c = primJS $ Window.prim__getComputedStyle a b c
+
+  export
+  getComputedStyle' :  (obj : Window)
+                    -> (elt : Element)
+                    -> JSIO CSSStyleDeclaration
+  getComputedStyle' a b = getComputedStyle a b undef
   
   export
   open_ :  (obj : Window)
@@ -7777,6 +8045,10 @@ namespace Window
         -> (features : UndefOr String)
         -> JSIO (Nullable WindowProxy)
   open_ a b c d = primJS $ Window.prim__open a b c d
+
+  export
+  open' : (obj : Window) -> JSIO (Nullable WindowProxy)
+  open' a = open_ a undef undef undef
   
   export
   postMessage :  (obj : Window)
@@ -7785,6 +8057,13 @@ namespace Window
               -> (transfer : UndefOr (Array Object))
               -> JSIO ()
   postMessage a b c d = primJS $ Window.prim__postMessage a b c d
+
+  export
+  postMessage' :  (obj : Window)
+               -> (message : AnyPtr)
+               -> (targetOrigin : String)
+               -> JSIO ()
+  postMessage' a b c = postMessage a b c undef
   
   export
   postMessage1 :  (obj : Window)
@@ -7792,6 +8071,10 @@ namespace Window
                -> (options : UndefOr WindowPostMessageOptions)
                -> JSIO ()
   postMessage1 a b c = primJS $ Window.prim__postMessage1 a b c
+
+  export
+  postMessage1' : (obj : Window) -> (message : AnyPtr) -> JSIO ()
+  postMessage1' a b = postMessage1 a b undef
   
   export
   print : (obj : Window) -> JSIO ()
@@ -7803,6 +8086,10 @@ namespace Window
          -> (default_ : UndefOr String)
          -> JSIO (Nullable String)
   prompt a b c = primJS $ Window.prim__prompt a b c
+
+  export
+  prompt' : (obj : Window) -> JSIO (Nullable String)
+  prompt' a = prompt a undef undef
   
   export
   releaseEvents : (obj : Window) -> JSIO ()
@@ -7823,6 +8110,10 @@ namespace Worker
   export
   new : (scriptURL : String) -> (options : UndefOr WorkerOptions) -> JSIO Worker
   new a b = primJS $ Worker.prim__new a b
+
+  export
+  new' : (scriptURL : String) -> JSIO Worker
+  new' a = new a undef
   
   export
   onmessage : (obj : Worker) -> JSIO EventHandler
@@ -7853,6 +8144,10 @@ namespace Worker
                -> (options : UndefOr PostMessageOptions)
                -> JSIO ()
   postMessage1 a b c = primJS $ Worker.prim__postMessage1 a b c
+
+  export
+  postMessage1' : (obj : Worker) -> (message : AnyPtr) -> JSIO ()
+  postMessage1' a b = postMessage1 a b undef
   
   export
   terminate : (obj : Worker) -> JSIO ()
@@ -8019,6 +8314,12 @@ namespace Worklet
             -> (options : UndefOr WorkletOptions)
             -> JSIO (Promise Undefined)
   addModule a b c = primJS $ Worklet.prim__addModule a b c
+
+  export
+  addModule' :  (obj : Worklet)
+             -> (moduleURL : String)
+             -> JSIO (Promise Undefined)
+  addModule' a b = addModule a b undef
 
 namespace WorkletGlobalScope
   
@@ -8449,6 +8750,10 @@ namespace CanvasDrawPath
        -> (fillRule : UndefOr CanvasFillRule)
        -> JSIO ()
   clip a b = primJS $ CanvasDrawPath.prim__clip a b
+
+  export
+  clip' : (obj : CanvasDrawPath) -> JSIO ()
+  clip' a = clip a undef
   
   export
   clip1 :  (obj : CanvasDrawPath)
@@ -8456,12 +8761,20 @@ namespace CanvasDrawPath
         -> (fillRule : UndefOr CanvasFillRule)
         -> JSIO ()
   clip1 a b c = primJS $ CanvasDrawPath.prim__clip1 a b c
+
+  export
+  clip1' : (obj : CanvasDrawPath) -> (path : Path2D) -> JSIO ()
+  clip1' a b = clip1 a b undef
   
   export
   fill :  (obj : CanvasDrawPath)
        -> (fillRule : UndefOr CanvasFillRule)
        -> JSIO ()
   fill a b = primJS $ CanvasDrawPath.prim__fill a b
+
+  export
+  fill' : (obj : CanvasDrawPath) -> JSIO ()
+  fill' a = fill a undef
   
   export
   fill1 :  (obj : CanvasDrawPath)
@@ -8469,6 +8782,10 @@ namespace CanvasDrawPath
         -> (fillRule : UndefOr CanvasFillRule)
         -> JSIO ()
   fill1 a b c = primJS $ CanvasDrawPath.prim__fill1 a b c
+
+  export
+  fill1' : (obj : CanvasDrawPath) -> (path : Path2D) -> JSIO ()
+  fill1' a b = fill1 a b undef
   
   export
   isPointInPath :  (obj : CanvasDrawPath)
@@ -8477,6 +8794,13 @@ namespace CanvasDrawPath
                 -> (fillRule : UndefOr CanvasFillRule)
                 -> JSIO Boolean
   isPointInPath a b c d = primJS $ CanvasDrawPath.prim__isPointInPath a b c d
+
+  export
+  isPointInPath' :  (obj : CanvasDrawPath)
+                 -> (x : Double)
+                 -> (y : Double)
+                 -> JSIO Boolean
+  isPointInPath' a b c = isPointInPath a b c undef
   
   export
   isPointInPath1 :  (obj : CanvasDrawPath)
@@ -8490,6 +8814,14 @@ namespace CanvasDrawPath
                                                                           c
                                                                           d
                                                                           e
+
+  export
+  isPointInPath1' :  (obj : CanvasDrawPath)
+                  -> (path : Path2D)
+                  -> (x : Double)
+                  -> (y : Double)
+                  -> JSIO Boolean
+  isPointInPath1' a b c d = isPointInPath1 a b c d undef
   
   export
   isPointInStroke :  (obj : CanvasDrawPath)
@@ -8678,6 +9010,16 @@ namespace CanvasPath
       -> (counterclockwise : UndefOr Boolean)
       -> JSIO ()
   arc a b c d e f g = primJS $ CanvasPath.prim__arc a b c d e f g
+
+  export
+  arc' :  (obj : CanvasPath)
+       -> (x : Double)
+       -> (y : Double)
+       -> (radius : Double)
+       -> (startAngle : Double)
+       -> (endAngle : Double)
+       -> JSIO ()
+  arc' a b c d e f = arc a b c d e f undef
   
   export
   arcTo :  (obj : CanvasPath)
@@ -8730,6 +9072,18 @@ namespace CanvasPath
                                                                 g
                                                                 h
                                                                 i
+
+  export
+  ellipse' :  (obj : CanvasPath)
+           -> (x : Double)
+           -> (y : Double)
+           -> (radiusX : Double)
+           -> (radiusY : Double)
+           -> (rotation : Double)
+           -> (startAngle : Double)
+           -> (endAngle : Double)
+           -> JSIO ()
+  ellipse' a b c d e f g h = ellipse a b c d e f g h undef
   
   export
   lineTo : (obj : CanvasPath) -> (x : Double) -> (y : Double) -> JSIO ()
@@ -8903,6 +9257,14 @@ namespace CanvasText
            -> (maxWidth : UndefOr Double)
            -> JSIO ()
   fillText a b c d e = primJS $ CanvasText.prim__fillText a b c d e
+
+  export
+  fillText' :  (obj : CanvasText)
+            -> (text : String)
+            -> (x : Double)
+            -> (y : Double)
+            -> JSIO ()
+  fillText' a b c d = fillText a b c d undef
   
   export
   measureText : (obj : CanvasText) -> (text : String) -> JSIO TextMetrics
@@ -8916,6 +9278,14 @@ namespace CanvasText
              -> (maxWidth : UndefOr Double)
              -> JSIO ()
   strokeText a b c d e = primJS $ CanvasText.prim__strokeText a b c d e
+
+  export
+  strokeText' :  (obj : CanvasText)
+              -> (text : String)
+              -> (x : Double)
+              -> (y : Double)
+              -> JSIO ()
+  strokeText' a b c d = strokeText a b c d undef
 
 namespace CanvasTextDrawingStyles
   
@@ -8998,6 +9368,10 @@ namespace CanvasTransform
                 -> (transform : UndefOr DOMMatrix2DInit)
                 -> JSIO ()
   setTransform1 a b = primJS $ CanvasTransform.prim__setTransform1 a b
+
+  export
+  setTransform1' : (obj : CanvasTransform) -> JSIO ()
+  setTransform1' a = setTransform1 a undef
   
   export
   transform :  (obj : CanvasTransform)
@@ -9868,6 +10242,10 @@ namespace HTMLOrSVGElement
         -> JSIO ()
   focus a b = primJS $ HTMLOrSVGElement.prim__focus a b
 
+  export
+  focus' : (obj : HTMLOrSVGElement) -> JSIO ()
+  focus' a = focus a undef
+
 namespace NavigatorConcurrentHardware
   
   export
@@ -10147,6 +10525,10 @@ namespace AssignedNodesOptions
   export
   new : (flatten : UndefOr Boolean) -> JSIO AssignedNodesOptions
   new a = primJS $ AssignedNodesOptions.prim__new a
+
+  export
+  new' : JSIO AssignedNodesOptions
+  new' = new undef
   
   export
   flatten : (obj : AssignedNodesOptions) -> JSIO (UndefOr Boolean)
@@ -10157,6 +10539,10 @@ namespace AssignedNodesOptions
              -> (value : UndefOr Boolean)
              -> JSIO ()
   setFlatten a b = primJS $ AssignedNodesOptions.prim__setFlatten a b
+
+  export
+  setFlatten' : (obj : AssignedNodesOptions) -> JSIO ()
+  setFlatten' a = setFlatten a undef
 
 namespace CanvasRenderingContext2DSettings
   
@@ -10171,6 +10557,10 @@ namespace CanvasRenderingContext2DSettings
       -> (desynchronized : UndefOr Boolean)
       -> JSIO CanvasRenderingContext2DSettings
   new a b = primJS $ CanvasRenderingContext2DSettings.prim__new a b
+
+  export
+  new' : JSIO CanvasRenderingContext2DSettings
+  new' = new undef undef
   
   export
   alpha : (obj : CanvasRenderingContext2DSettings) -> JSIO (UndefOr Boolean)
@@ -10181,6 +10571,10 @@ namespace CanvasRenderingContext2DSettings
            -> (value : UndefOr Boolean)
            -> JSIO ()
   setAlpha a b = primJS $ CanvasRenderingContext2DSettings.prim__setAlpha a b
+
+  export
+  setAlpha' : (obj : CanvasRenderingContext2DSettings) -> JSIO ()
+  setAlpha' a = setAlpha a undef
   
   export
   desynchronized :  (obj : CanvasRenderingContext2DSettings)
@@ -10193,6 +10587,10 @@ namespace CanvasRenderingContext2DSettings
                     -> JSIO ()
   setDesynchronized a b = primJS $ CanvasRenderingContext2DSettings.prim__setDesynchronized a
                                                                                             b
+
+  export
+  setDesynchronized' : (obj : CanvasRenderingContext2DSettings) -> JSIO ()
+  setDesynchronized' a = setDesynchronized a undef
 
 namespace CloseEventInit
   
@@ -10208,6 +10606,10 @@ namespace CloseEventInit
       -> (reason : UndefOr String)
       -> JSIO CloseEventInit
   new a b c = primJS $ CloseEventInit.prim__new a b c
+
+  export
+  new' : JSIO CloseEventInit
+  new' = new undef undef undef
   
   export
   code : (obj : CloseEventInit) -> JSIO (UndefOr UInt16)
@@ -10216,6 +10618,10 @@ namespace CloseEventInit
   export
   setCode : (obj : CloseEventInit) -> (value : UndefOr UInt16) -> JSIO ()
   setCode a b = primJS $ CloseEventInit.prim__setCode a b
+
+  export
+  setCode' : (obj : CloseEventInit) -> JSIO ()
+  setCode' a = setCode a undef
   
   export
   reason : (obj : CloseEventInit) -> JSIO (UndefOr String)
@@ -10224,6 +10630,10 @@ namespace CloseEventInit
   export
   setReason : (obj : CloseEventInit) -> (value : UndefOr String) -> JSIO ()
   setReason a b = primJS $ CloseEventInit.prim__setReason a b
+
+  export
+  setReason' : (obj : CloseEventInit) -> JSIO ()
+  setReason' a = setReason a undef
   
   export
   wasClean : (obj : CloseEventInit) -> JSIO (UndefOr Boolean)
@@ -10232,6 +10642,10 @@ namespace CloseEventInit
   export
   setWasClean : (obj : CloseEventInit) -> (value : UndefOr Boolean) -> JSIO ()
   setWasClean a b = primJS $ CloseEventInit.prim__setWasClean a b
+
+  export
+  setWasClean' : (obj : CloseEventInit) -> JSIO ()
+  setWasClean' a = setWasClean a undef
 
 namespace DragEventInit
   
@@ -10249,6 +10663,10 @@ namespace DragEventInit
   export
   new : (dataTransfer : UndefOr (Nullable DataTransfer)) -> JSIO DragEventInit
   new a = primJS $ DragEventInit.prim__new a
+
+  export
+  new' : JSIO DragEventInit
+  new' = new undef
   
   export
   dataTransfer : (obj : DragEventInit) -> JSIO (UndefOr (Nullable DataTransfer))
@@ -10259,6 +10677,10 @@ namespace DragEventInit
                   -> (value : UndefOr (Nullable DataTransfer))
                   -> JSIO ()
   setDataTransfer a b = primJS $ DragEventInit.prim__setDataTransfer a b
+
+  export
+  setDataTransfer' : (obj : DragEventInit) -> JSIO ()
+  setDataTransfer' a = setDataTransfer a undef
 
 namespace ElementDefinitionOptions
   
@@ -10271,6 +10693,10 @@ namespace ElementDefinitionOptions
   export
   new : (extends : UndefOr String) -> JSIO ElementDefinitionOptions
   new a = primJS $ ElementDefinitionOptions.prim__new a
+
+  export
+  new' : JSIO ElementDefinitionOptions
+  new' = new undef
   
   export
   extends : (obj : ElementDefinitionOptions) -> JSIO (UndefOr String)
@@ -10281,6 +10707,10 @@ namespace ElementDefinitionOptions
              -> (value : UndefOr String)
              -> JSIO ()
   setExtends a b = primJS $ ElementDefinitionOptions.prim__setExtends a b
+
+  export
+  setExtends' : (obj : ElementDefinitionOptions) -> JSIO ()
+  setExtends' a = setExtends a undef
 
 namespace ErrorEventInit
   
@@ -10298,6 +10728,10 @@ namespace ErrorEventInit
       -> (error : UndefOr AnyPtr)
       -> JSIO ErrorEventInit
   new a b c d e = primJS $ ErrorEventInit.prim__new a b c d e
+
+  export
+  new' : JSIO ErrorEventInit
+  new' = new undef undef undef undef undef
   
   export
   colno : (obj : ErrorEventInit) -> JSIO (UndefOr UInt32)
@@ -10306,6 +10740,10 @@ namespace ErrorEventInit
   export
   setColno : (obj : ErrorEventInit) -> (value : UndefOr UInt32) -> JSIO ()
   setColno a b = primJS $ ErrorEventInit.prim__setColno a b
+
+  export
+  setColno' : (obj : ErrorEventInit) -> JSIO ()
+  setColno' a = setColno a undef
   
   export
   error : (obj : ErrorEventInit) -> JSIO (UndefOr AnyPtr)
@@ -10314,6 +10752,10 @@ namespace ErrorEventInit
   export
   setError : (obj : ErrorEventInit) -> (value : UndefOr AnyPtr) -> JSIO ()
   setError a b = primJS $ ErrorEventInit.prim__setError a b
+
+  export
+  setError' : (obj : ErrorEventInit) -> JSIO ()
+  setError' a = setError a undef
   
   export
   filename : (obj : ErrorEventInit) -> JSIO (UndefOr String)
@@ -10322,6 +10764,10 @@ namespace ErrorEventInit
   export
   setFilename : (obj : ErrorEventInit) -> (value : UndefOr String) -> JSIO ()
   setFilename a b = primJS $ ErrorEventInit.prim__setFilename a b
+
+  export
+  setFilename' : (obj : ErrorEventInit) -> JSIO ()
+  setFilename' a = setFilename a undef
   
   export
   lineno : (obj : ErrorEventInit) -> JSIO (UndefOr UInt32)
@@ -10330,6 +10776,10 @@ namespace ErrorEventInit
   export
   setLineno : (obj : ErrorEventInit) -> (value : UndefOr UInt32) -> JSIO ()
   setLineno a b = primJS $ ErrorEventInit.prim__setLineno a b
+
+  export
+  setLineno' : (obj : ErrorEventInit) -> JSIO ()
+  setLineno' a = setLineno a undef
   
   export
   message : (obj : ErrorEventInit) -> JSIO (UndefOr String)
@@ -10338,6 +10788,10 @@ namespace ErrorEventInit
   export
   setMessage : (obj : ErrorEventInit) -> (value : UndefOr String) -> JSIO ()
   setMessage a b = primJS $ ErrorEventInit.prim__setMessage a b
+
+  export
+  setMessage' : (obj : ErrorEventInit) -> JSIO ()
+  setMessage' a = setMessage a undef
 
 namespace EventSourceInit
   
@@ -10350,6 +10804,10 @@ namespace EventSourceInit
   export
   new : (withCredentials : UndefOr Boolean) -> JSIO EventSourceInit
   new a = primJS $ EventSourceInit.prim__new a
+
+  export
+  new' : JSIO EventSourceInit
+  new' = new undef
   
   export
   withCredentials : (obj : EventSourceInit) -> JSIO (UndefOr Boolean)
@@ -10360,6 +10818,10 @@ namespace EventSourceInit
                      -> (value : UndefOr Boolean)
                      -> JSIO ()
   setWithCredentials a b = primJS $ EventSourceInit.prim__setWithCredentials a b
+
+  export
+  setWithCredentials' : (obj : EventSourceInit) -> JSIO ()
+  setWithCredentials' a = setWithCredentials a undef
 
 namespace FocusOptions
   
@@ -10372,6 +10834,10 @@ namespace FocusOptions
   export
   new : (preventScroll : UndefOr Boolean) -> JSIO FocusOptions
   new a = primJS $ FocusOptions.prim__new a
+
+  export
+  new' : JSIO FocusOptions
+  new' = new undef
   
   export
   preventScroll : (obj : FocusOptions) -> JSIO (UndefOr Boolean)
@@ -10382,6 +10848,10 @@ namespace FocusOptions
                    -> (value : UndefOr Boolean)
                    -> JSIO ()
   setPreventScroll a b = primJS $ FocusOptions.prim__setPreventScroll a b
+
+  export
+  setPreventScroll' : (obj : FocusOptions) -> JSIO ()
+  setPreventScroll' a = setPreventScroll a undef
 
 namespace FormDataEventInit
   
@@ -10416,6 +10886,10 @@ namespace HashChangeEventInit
       -> (newURL : UndefOr String)
       -> JSIO HashChangeEventInit
   new a b = primJS $ HashChangeEventInit.prim__new a b
+
+  export
+  new' : JSIO HashChangeEventInit
+  new' = new undef undef
   
   export
   newURL : (obj : HashChangeEventInit) -> JSIO (UndefOr String)
@@ -10424,6 +10898,10 @@ namespace HashChangeEventInit
   export
   setNewURL : (obj : HashChangeEventInit) -> (value : UndefOr String) -> JSIO ()
   setNewURL a b = primJS $ HashChangeEventInit.prim__setNewURL a b
+
+  export
+  setNewURL' : (obj : HashChangeEventInit) -> JSIO ()
+  setNewURL' a = setNewURL a undef
   
   export
   oldURL : (obj : HashChangeEventInit) -> JSIO (UndefOr String)
@@ -10432,6 +10910,10 @@ namespace HashChangeEventInit
   export
   setOldURL : (obj : HashChangeEventInit) -> (value : UndefOr String) -> JSIO ()
   setOldURL a b = primJS $ HashChangeEventInit.prim__setOldURL a b
+
+  export
+  setOldURL' : (obj : HashChangeEventInit) -> JSIO ()
+  setOldURL' a = setOldURL a undef
 
 namespace ImageBitmapOptions
   
@@ -10450,6 +10932,10 @@ namespace ImageBitmapOptions
       -> (resizeQuality : UndefOr ResizeQuality)
       -> JSIO ImageBitmapOptions
   new a b c d e f = primJS $ ImageBitmapOptions.prim__new a b c d e f
+
+  export
+  new' : JSIO ImageBitmapOptions
+  new' = new undef undef undef undef undef undef
   
   export
   colorSpaceConversion :  (obj : ImageBitmapOptions)
@@ -10462,6 +10948,10 @@ namespace ImageBitmapOptions
                           -> JSIO ()
   setColorSpaceConversion a b = primJS $ ImageBitmapOptions.prim__setColorSpaceConversion a
                                                                                           b
+
+  export
+  setColorSpaceConversion' : (obj : ImageBitmapOptions) -> JSIO ()
+  setColorSpaceConversion' a = setColorSpaceConversion a undef
   
   export
   imageOrientation :  (obj : ImageBitmapOptions)
@@ -10474,6 +10964,10 @@ namespace ImageBitmapOptions
                       -> JSIO ()
   setImageOrientation a b = primJS $ ImageBitmapOptions.prim__setImageOrientation a
                                                                                   b
+
+  export
+  setImageOrientation' : (obj : ImageBitmapOptions) -> JSIO ()
+  setImageOrientation' a = setImageOrientation a undef
   
   export
   premultiplyAlpha :  (obj : ImageBitmapOptions)
@@ -10486,6 +10980,10 @@ namespace ImageBitmapOptions
                       -> JSIO ()
   setPremultiplyAlpha a b = primJS $ ImageBitmapOptions.prim__setPremultiplyAlpha a
                                                                                   b
+
+  export
+  setPremultiplyAlpha' : (obj : ImageBitmapOptions) -> JSIO ()
+  setPremultiplyAlpha' a = setPremultiplyAlpha a undef
   
   export
   resizeHeight : (obj : ImageBitmapOptions) -> JSIO (UndefOr UInt32)
@@ -10496,6 +10994,10 @@ namespace ImageBitmapOptions
                   -> (value : UndefOr UInt32)
                   -> JSIO ()
   setResizeHeight a b = primJS $ ImageBitmapOptions.prim__setResizeHeight a b
+
+  export
+  setResizeHeight' : (obj : ImageBitmapOptions) -> JSIO ()
+  setResizeHeight' a = setResizeHeight a undef
   
   export
   resizeQuality : (obj : ImageBitmapOptions) -> JSIO (UndefOr ResizeQuality)
@@ -10506,6 +11008,10 @@ namespace ImageBitmapOptions
                    -> (value : UndefOr ResizeQuality)
                    -> JSIO ()
   setResizeQuality a b = primJS $ ImageBitmapOptions.prim__setResizeQuality a b
+
+  export
+  setResizeQuality' : (obj : ImageBitmapOptions) -> JSIO ()
+  setResizeQuality' a = setResizeQuality a undef
   
   export
   resizeWidth : (obj : ImageBitmapOptions) -> JSIO (UndefOr UInt32)
@@ -10516,6 +11022,10 @@ namespace ImageBitmapOptions
                  -> (value : UndefOr UInt32)
                  -> JSIO ()
   setResizeWidth a b = primJS $ ImageBitmapOptions.prim__setResizeWidth a b
+
+  export
+  setResizeWidth' : (obj : ImageBitmapOptions) -> JSIO ()
+  setResizeWidth' a = setResizeWidth a undef
 
 namespace ImageBitmapRenderingContextSettings
   
@@ -10528,6 +11038,10 @@ namespace ImageBitmapRenderingContextSettings
   export
   new : (alpha : UndefOr Boolean) -> JSIO ImageBitmapRenderingContextSettings
   new a = primJS $ ImageBitmapRenderingContextSettings.prim__new a
+
+  export
+  new' : JSIO ImageBitmapRenderingContextSettings
+  new' = new undef
   
   export
   alpha : (obj : ImageBitmapRenderingContextSettings) -> JSIO (UndefOr Boolean)
@@ -10538,6 +11052,10 @@ namespace ImageBitmapRenderingContextSettings
            -> (value : UndefOr Boolean)
            -> JSIO ()
   setAlpha a b = primJS $ ImageBitmapRenderingContextSettings.prim__setAlpha a b
+
+  export
+  setAlpha' : (obj : ImageBitmapRenderingContextSettings) -> JSIO ()
+  setAlpha' a = setAlpha a undef
 
 namespace ImageEncodeOptions
   
@@ -10552,6 +11070,10 @@ namespace ImageEncodeOptions
       -> (quality : UndefOr Double)
       -> JSIO ImageEncodeOptions
   new a b = primJS $ ImageEncodeOptions.prim__new a b
+
+  export
+  new' : JSIO ImageEncodeOptions
+  new' = new undef undef
   
   export
   quality : (obj : ImageEncodeOptions) -> JSIO (UndefOr Double)
@@ -10560,6 +11082,10 @@ namespace ImageEncodeOptions
   export
   setQuality : (obj : ImageEncodeOptions) -> (value : UndefOr Double) -> JSIO ()
   setQuality a b = primJS $ ImageEncodeOptions.prim__setQuality a b
+
+  export
+  setQuality' : (obj : ImageEncodeOptions) -> JSIO ()
+  setQuality' a = setQuality a undef
   
   export
   type : (obj : ImageEncodeOptions) -> JSIO (UndefOr String)
@@ -10568,6 +11094,10 @@ namespace ImageEncodeOptions
   export
   setType : (obj : ImageEncodeOptions) -> (value : UndefOr String) -> JSIO ()
   setType a b = primJS $ ImageEncodeOptions.prim__setType a b
+
+  export
+  setType' : (obj : ImageEncodeOptions) -> JSIO ()
+  setType' a = setType a undef
 
 namespace MessageEventInit
   
@@ -10585,6 +11115,10 @@ namespace MessageEventInit
       -> (ports : UndefOr (Array MessagePort))
       -> JSIO MessageEventInit
   new a b c d e = primJS $ MessageEventInit.prim__new a b c d e
+
+  export
+  new' : JSIO MessageEventInit
+  new' = new undef undef undef undef undef
   
   export
   data_ : (obj : MessageEventInit) -> JSIO (UndefOr AnyPtr)
@@ -10593,6 +11127,10 @@ namespace MessageEventInit
   export
   setData : (obj : MessageEventInit) -> (value : UndefOr AnyPtr) -> JSIO ()
   setData a b = primJS $ MessageEventInit.prim__setData a b
+
+  export
+  setData' : (obj : MessageEventInit) -> JSIO ()
+  setData' a = setData a undef
   
   export
   lastEventId : (obj : MessageEventInit) -> JSIO (UndefOr String)
@@ -10603,6 +11141,10 @@ namespace MessageEventInit
                  -> (value : UndefOr String)
                  -> JSIO ()
   setLastEventId a b = primJS $ MessageEventInit.prim__setLastEventId a b
+
+  export
+  setLastEventId' : (obj : MessageEventInit) -> JSIO ()
+  setLastEventId' a = setLastEventId a undef
   
   export
   origin : (obj : MessageEventInit) -> JSIO (UndefOr String)
@@ -10611,6 +11153,10 @@ namespace MessageEventInit
   export
   setOrigin : (obj : MessageEventInit) -> (value : UndefOr String) -> JSIO ()
   setOrigin a b = primJS $ MessageEventInit.prim__setOrigin a b
+
+  export
+  setOrigin' : (obj : MessageEventInit) -> JSIO ()
+  setOrigin' a = setOrigin a undef
   
   export
   ports : (obj : MessageEventInit) -> JSIO (UndefOr (Array MessagePort))
@@ -10621,6 +11167,10 @@ namespace MessageEventInit
            -> (value : UndefOr (Array MessagePort))
            -> JSIO ()
   setPorts a b = primJS $ MessageEventInit.prim__setPorts a b
+
+  export
+  setPorts' : (obj : MessageEventInit) -> JSIO ()
+  setPorts' a = setPorts a undef
   
   export
   source :  (obj : MessageEventInit)
@@ -10633,6 +11183,10 @@ namespace MessageEventInit
             -> JSIO ()
   setSource a b = primJS $ MessageEventInit.prim__setSource a b
 
+  export
+  setSource' : (obj : MessageEventInit) -> JSIO ()
+  setSource' a = setSource a undef
+
 namespace PageTransitionEventInit
   
   public export
@@ -10644,6 +11198,10 @@ namespace PageTransitionEventInit
   export
   new : (persisted : UndefOr Boolean) -> JSIO PageTransitionEventInit
   new a = primJS $ PageTransitionEventInit.prim__new a
+
+  export
+  new' : JSIO PageTransitionEventInit
+  new' = new undef
   
   export
   persisted : (obj : PageTransitionEventInit) -> JSIO (UndefOr Boolean)
@@ -10654,6 +11212,10 @@ namespace PageTransitionEventInit
                -> (value : UndefOr Boolean)
                -> JSIO ()
   setPersisted a b = primJS $ PageTransitionEventInit.prim__setPersisted a b
+
+  export
+  setPersisted' : (obj : PageTransitionEventInit) -> JSIO ()
+  setPersisted' a = setPersisted a undef
 
 namespace PopStateEventInit
   
@@ -10666,6 +11228,10 @@ namespace PopStateEventInit
   export
   new : (state : UndefOr AnyPtr) -> JSIO PopStateEventInit
   new a = primJS $ PopStateEventInit.prim__new a
+
+  export
+  new' : JSIO PopStateEventInit
+  new' = new undef
   
   export
   state : (obj : PopStateEventInit) -> JSIO (UndefOr AnyPtr)
@@ -10674,6 +11240,10 @@ namespace PopStateEventInit
   export
   setState : (obj : PopStateEventInit) -> (value : UndefOr AnyPtr) -> JSIO ()
   setState a b = primJS $ PopStateEventInit.prim__setState a b
+
+  export
+  setState' : (obj : PopStateEventInit) -> JSIO ()
+  setState' a = setState a undef
 
 namespace PostMessageOptions
   
@@ -10686,6 +11256,10 @@ namespace PostMessageOptions
   export
   new : (transfer : UndefOr (Array Object)) -> JSIO PostMessageOptions
   new a = primJS $ PostMessageOptions.prim__new a
+
+  export
+  new' : JSIO PostMessageOptions
+  new' = new undef
   
   export
   transfer : (obj : PostMessageOptions) -> JSIO (UndefOr (Array Object))
@@ -10696,6 +11270,10 @@ namespace PostMessageOptions
               -> (value : UndefOr (Array Object))
               -> JSIO ()
   setTransfer a b = primJS $ PostMessageOptions.prim__setTransfer a b
+
+  export
+  setTransfer' : (obj : PostMessageOptions) -> JSIO ()
+  setTransfer' a = setTransfer a undef
 
 namespace PromiseRejectionEventInit
   
@@ -10710,6 +11288,10 @@ namespace PromiseRejectionEventInit
       -> (reason : UndefOr AnyPtr)
       -> JSIO PromiseRejectionEventInit
   new a b = primJS $ PromiseRejectionEventInit.prim__new a b
+
+  export
+  new' : (promise : Promise AnyPtr) -> JSIO PromiseRejectionEventInit
+  new' a = new a undef
   
   export
   promise : (obj : PromiseRejectionEventInit) -> JSIO (Promise AnyPtr)
@@ -10731,6 +11313,10 @@ namespace PromiseRejectionEventInit
             -> JSIO ()
   setReason a b = primJS $ PromiseRejectionEventInit.prim__setReason a b
 
+  export
+  setReason' : (obj : PromiseRejectionEventInit) -> JSIO ()
+  setReason' a = setReason a undef
+
 namespace StorageEventInit
   
   public export
@@ -10747,6 +11333,10 @@ namespace StorageEventInit
       -> (storageArea : UndefOr (Nullable Storage))
       -> JSIO StorageEventInit
   new a b c d e = primJS $ StorageEventInit.prim__new a b c d e
+
+  export
+  new' : JSIO StorageEventInit
+  new' = new undef undef undef undef undef
   
   export
   key : (obj : StorageEventInit) -> JSIO (UndefOr (Nullable String))
@@ -10757,6 +11347,10 @@ namespace StorageEventInit
          -> (value : UndefOr (Nullable String))
          -> JSIO ()
   setKey a b = primJS $ StorageEventInit.prim__setKey a b
+
+  export
+  setKey' : (obj : StorageEventInit) -> JSIO ()
+  setKey' a = setKey a undef
   
   export
   newValue : (obj : StorageEventInit) -> JSIO (UndefOr (Nullable String))
@@ -10767,6 +11361,10 @@ namespace StorageEventInit
               -> (value : UndefOr (Nullable String))
               -> JSIO ()
   setNewValue a b = primJS $ StorageEventInit.prim__setNewValue a b
+
+  export
+  setNewValue' : (obj : StorageEventInit) -> JSIO ()
+  setNewValue' a = setNewValue a undef
   
   export
   oldValue : (obj : StorageEventInit) -> JSIO (UndefOr (Nullable String))
@@ -10777,6 +11375,10 @@ namespace StorageEventInit
               -> (value : UndefOr (Nullable String))
               -> JSIO ()
   setOldValue a b = primJS $ StorageEventInit.prim__setOldValue a b
+
+  export
+  setOldValue' : (obj : StorageEventInit) -> JSIO ()
+  setOldValue' a = setOldValue a undef
   
   export
   storageArea : (obj : StorageEventInit) -> JSIO (UndefOr (Nullable Storage))
@@ -10787,6 +11389,10 @@ namespace StorageEventInit
                  -> (value : UndefOr (Nullable Storage))
                  -> JSIO ()
   setStorageArea a b = primJS $ StorageEventInit.prim__setStorageArea a b
+
+  export
+  setStorageArea' : (obj : StorageEventInit) -> JSIO ()
+  setStorageArea' a = setStorageArea a undef
   
   export
   url : (obj : StorageEventInit) -> JSIO (UndefOr String)
@@ -10795,6 +11401,10 @@ namespace StorageEventInit
   export
   setUrl : (obj : StorageEventInit) -> (value : UndefOr String) -> JSIO ()
   setUrl a b = primJS $ StorageEventInit.prim__setUrl a b
+
+  export
+  setUrl' : (obj : StorageEventInit) -> JSIO ()
+  setUrl' a = setUrl a undef
 
 namespace SubmitEventInit
   
@@ -10807,6 +11417,10 @@ namespace SubmitEventInit
   export
   new : (submitter : UndefOr (Nullable HTMLElement)) -> JSIO SubmitEventInit
   new a = primJS $ SubmitEventInit.prim__new a
+
+  export
+  new' : JSIO SubmitEventInit
+  new' = new undef
   
   export
   submitter : (obj : SubmitEventInit) -> JSIO (UndefOr (Nullable HTMLElement))
@@ -10817,6 +11431,10 @@ namespace SubmitEventInit
                -> (value : UndefOr (Nullable HTMLElement))
                -> JSIO ()
   setSubmitter a b = primJS $ SubmitEventInit.prim__setSubmitter a b
+
+  export
+  setSubmitter' : (obj : SubmitEventInit) -> JSIO ()
+  setSubmitter' a = setSubmitter a undef
 
 namespace TrackEventInit
   
@@ -10830,6 +11448,10 @@ namespace TrackEventInit
   new :  (track : UndefOr (Nullable (Union3 VideoTrack AudioTrack TextTrack)))
       -> JSIO TrackEventInit
   new a = primJS $ TrackEventInit.prim__new a
+
+  export
+  new' : JSIO TrackEventInit
+  new' = new undef
   
   export
   track :  (obj : TrackEventInit)
@@ -10843,6 +11465,10 @@ namespace TrackEventInit
                                                  TextTrack)))
            -> JSIO ()
   setTrack a b = primJS $ TrackEventInit.prim__setTrack a b
+
+  export
+  setTrack' : (obj : TrackEventInit) -> JSIO ()
+  setTrack' a = setTrack a undef
 
 namespace ValidityStateFlags
   
@@ -10874,6 +11500,10 @@ namespace ValidityStateFlags
                                                                   h
                                                                   i
                                                                   j
+
+  export
+  new' : JSIO ValidityStateFlags
+  new' = new undef undef undef undef undef undef undef undef undef undef
   
   export
   badInput : (obj : ValidityStateFlags) -> JSIO (UndefOr Boolean)
@@ -10884,6 +11514,10 @@ namespace ValidityStateFlags
               -> (value : UndefOr Boolean)
               -> JSIO ()
   setBadInput a b = primJS $ ValidityStateFlags.prim__setBadInput a b
+
+  export
+  setBadInput' : (obj : ValidityStateFlags) -> JSIO ()
+  setBadInput' a = setBadInput a undef
   
   export
   customError : (obj : ValidityStateFlags) -> JSIO (UndefOr Boolean)
@@ -10894,6 +11528,10 @@ namespace ValidityStateFlags
                  -> (value : UndefOr Boolean)
                  -> JSIO ()
   setCustomError a b = primJS $ ValidityStateFlags.prim__setCustomError a b
+
+  export
+  setCustomError' : (obj : ValidityStateFlags) -> JSIO ()
+  setCustomError' a = setCustomError a undef
   
   export
   patternMismatch : (obj : ValidityStateFlags) -> JSIO (UndefOr Boolean)
@@ -10905,6 +11543,10 @@ namespace ValidityStateFlags
                      -> JSIO ()
   setPatternMismatch a b = primJS $ ValidityStateFlags.prim__setPatternMismatch a
                                                                                 b
+
+  export
+  setPatternMismatch' : (obj : ValidityStateFlags) -> JSIO ()
+  setPatternMismatch' a = setPatternMismatch a undef
   
   export
   rangeOverflow : (obj : ValidityStateFlags) -> JSIO (UndefOr Boolean)
@@ -10915,6 +11557,10 @@ namespace ValidityStateFlags
                    -> (value : UndefOr Boolean)
                    -> JSIO ()
   setRangeOverflow a b = primJS $ ValidityStateFlags.prim__setRangeOverflow a b
+
+  export
+  setRangeOverflow' : (obj : ValidityStateFlags) -> JSIO ()
+  setRangeOverflow' a = setRangeOverflow a undef
   
   export
   rangeUnderflow : (obj : ValidityStateFlags) -> JSIO (UndefOr Boolean)
@@ -10926,6 +11572,10 @@ namespace ValidityStateFlags
                     -> JSIO ()
   setRangeUnderflow a b = primJS $ ValidityStateFlags.prim__setRangeUnderflow a
                                                                               b
+
+  export
+  setRangeUnderflow' : (obj : ValidityStateFlags) -> JSIO ()
+  setRangeUnderflow' a = setRangeUnderflow a undef
   
   export
   stepMismatch : (obj : ValidityStateFlags) -> JSIO (UndefOr Boolean)
@@ -10936,6 +11586,10 @@ namespace ValidityStateFlags
                   -> (value : UndefOr Boolean)
                   -> JSIO ()
   setStepMismatch a b = primJS $ ValidityStateFlags.prim__setStepMismatch a b
+
+  export
+  setStepMismatch' : (obj : ValidityStateFlags) -> JSIO ()
+  setStepMismatch' a = setStepMismatch a undef
   
   export
   tooLong : (obj : ValidityStateFlags) -> JSIO (UndefOr Boolean)
@@ -10946,6 +11600,10 @@ namespace ValidityStateFlags
              -> (value : UndefOr Boolean)
              -> JSIO ()
   setTooLong a b = primJS $ ValidityStateFlags.prim__setTooLong a b
+
+  export
+  setTooLong' : (obj : ValidityStateFlags) -> JSIO ()
+  setTooLong' a = setTooLong a undef
   
   export
   tooShort : (obj : ValidityStateFlags) -> JSIO (UndefOr Boolean)
@@ -10956,6 +11614,10 @@ namespace ValidityStateFlags
               -> (value : UndefOr Boolean)
               -> JSIO ()
   setTooShort a b = primJS $ ValidityStateFlags.prim__setTooShort a b
+
+  export
+  setTooShort' : (obj : ValidityStateFlags) -> JSIO ()
+  setTooShort' a = setTooShort a undef
   
   export
   typeMismatch : (obj : ValidityStateFlags) -> JSIO (UndefOr Boolean)
@@ -10966,6 +11628,10 @@ namespace ValidityStateFlags
                   -> (value : UndefOr Boolean)
                   -> JSIO ()
   setTypeMismatch a b = primJS $ ValidityStateFlags.prim__setTypeMismatch a b
+
+  export
+  setTypeMismatch' : (obj : ValidityStateFlags) -> JSIO ()
+  setTypeMismatch' a = setTypeMismatch a undef
   
   export
   valueMissing : (obj : ValidityStateFlags) -> JSIO (UndefOr Boolean)
@@ -10976,6 +11642,10 @@ namespace ValidityStateFlags
                   -> (value : UndefOr Boolean)
                   -> JSIO ()
   setValueMissing a b = primJS $ ValidityStateFlags.prim__setValueMissing a b
+
+  export
+  setValueMissing' : (obj : ValidityStateFlags) -> JSIO ()
+  setValueMissing' a = setValueMissing a undef
 
 namespace WindowPostMessageOptions
   
@@ -10988,6 +11658,10 @@ namespace WindowPostMessageOptions
   export
   new : (targetOrigin : UndefOr String) -> JSIO WindowPostMessageOptions
   new a = primJS $ WindowPostMessageOptions.prim__new a
+
+  export
+  new' : JSIO WindowPostMessageOptions
+  new' = new undef
   
   export
   targetOrigin : (obj : WindowPostMessageOptions) -> JSIO (UndefOr String)
@@ -10999,6 +11673,10 @@ namespace WindowPostMessageOptions
                   -> JSIO ()
   setTargetOrigin a b = primJS $ WindowPostMessageOptions.prim__setTargetOrigin a
                                                                                 b
+
+  export
+  setTargetOrigin' : (obj : WindowPostMessageOptions) -> JSIO ()
+  setTargetOrigin' a = setTargetOrigin a undef
 
 namespace WorkerOptions
   
@@ -11014,6 +11692,10 @@ namespace WorkerOptions
       -> (name : UndefOr String)
       -> JSIO WorkerOptions
   new a b c = primJS $ WorkerOptions.prim__new a b c
+
+  export
+  new' : JSIO WorkerOptions
+  new' = new undef undef undef
   
   export
   credentials : (obj : WorkerOptions) -> JSIO (UndefOr RequestCredentials)
@@ -11024,6 +11706,10 @@ namespace WorkerOptions
                  -> (value : UndefOr RequestCredentials)
                  -> JSIO ()
   setCredentials a b = primJS $ WorkerOptions.prim__setCredentials a b
+
+  export
+  setCredentials' : (obj : WorkerOptions) -> JSIO ()
+  setCredentials' a = setCredentials a undef
   
   export
   name : (obj : WorkerOptions) -> JSIO (UndefOr String)
@@ -11032,6 +11718,10 @@ namespace WorkerOptions
   export
   setName : (obj : WorkerOptions) -> (value : UndefOr String) -> JSIO ()
   setName a b = primJS $ WorkerOptions.prim__setName a b
+
+  export
+  setName' : (obj : WorkerOptions) -> JSIO ()
+  setName' a = setName a undef
   
   export
   type : (obj : WorkerOptions) -> JSIO (UndefOr WorkerType)
@@ -11040,6 +11730,10 @@ namespace WorkerOptions
   export
   setType : (obj : WorkerOptions) -> (value : UndefOr WorkerType) -> JSIO ()
   setType a b = primJS $ WorkerOptions.prim__setType a b
+
+  export
+  setType' : (obj : WorkerOptions) -> JSIO ()
+  setType' a = setType a undef
 
 namespace WorkletOptions
   
@@ -11052,6 +11746,10 @@ namespace WorkletOptions
   export
   new : (credentials : UndefOr RequestCredentials) -> JSIO WorkletOptions
   new a = primJS $ WorkletOptions.prim__new a
+
+  export
+  new' : JSIO WorkletOptions
+  new' = new undef
   
   export
   credentials : (obj : WorkletOptions) -> JSIO (UndefOr RequestCredentials)
@@ -11062,6 +11760,10 @@ namespace WorkletOptions
                  -> (value : UndefOr RequestCredentials)
                  -> JSIO ()
   setCredentials a b = primJS $ WorkletOptions.prim__setCredentials a b
+
+  export
+  setCredentials' : (obj : WorkletOptions) -> JSIO ()
+  setCredentials' a = setCredentials a undef
 
 --------------------------------------------------------------------------------
 --          Callbacks

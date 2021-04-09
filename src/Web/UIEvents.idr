@@ -252,6 +252,10 @@ namespace CompositionEventInit
   export
   new : (data_ : UndefOr String) -> JSIO CompositionEventInit
   new a = primJS $ CompositionEventInit.prim__new a
+
+  export
+  new' : JSIO CompositionEventInit
+  new' = new undef
   
   export
   data_ : (obj : CompositionEventInit) -> JSIO (UndefOr String)
@@ -260,6 +264,10 @@ namespace CompositionEventInit
   export
   setData : (obj : CompositionEventInit) -> (value : UndefOr String) -> JSIO ()
   setData a b = primJS $ CompositionEventInit.prim__setData a b
+
+  export
+  setData' : (obj : CompositionEventInit) -> JSIO ()
+  setData' a = setData a undef
 
 namespace EventModifierInit
   
@@ -299,6 +307,23 @@ namespace EventModifierInit
                                                                          l
                                                                          m
                                                                          n
+
+  export
+  new' : JSIO EventModifierInit
+  new' = new undef
+             undef
+             undef
+             undef
+             undef
+             undef
+             undef
+             undef
+             undef
+             undef
+             undef
+             undef
+             undef
+             undef
   
   export
   altKey : (obj : EventModifierInit) -> JSIO (UndefOr Boolean)
@@ -307,6 +332,10 @@ namespace EventModifierInit
   export
   setAltKey : (obj : EventModifierInit) -> (value : UndefOr Boolean) -> JSIO ()
   setAltKey a b = primJS $ EventModifierInit.prim__setAltKey a b
+
+  export
+  setAltKey' : (obj : EventModifierInit) -> JSIO ()
+  setAltKey' a = setAltKey a undef
   
   export
   ctrlKey : (obj : EventModifierInit) -> JSIO (UndefOr Boolean)
@@ -315,6 +344,10 @@ namespace EventModifierInit
   export
   setCtrlKey : (obj : EventModifierInit) -> (value : UndefOr Boolean) -> JSIO ()
   setCtrlKey a b = primJS $ EventModifierInit.prim__setCtrlKey a b
+
+  export
+  setCtrlKey' : (obj : EventModifierInit) -> JSIO ()
+  setCtrlKey' a = setCtrlKey a undef
   
   export
   metaKey : (obj : EventModifierInit) -> JSIO (UndefOr Boolean)
@@ -323,6 +356,10 @@ namespace EventModifierInit
   export
   setMetaKey : (obj : EventModifierInit) -> (value : UndefOr Boolean) -> JSIO ()
   setMetaKey a b = primJS $ EventModifierInit.prim__setMetaKey a b
+
+  export
+  setMetaKey' : (obj : EventModifierInit) -> JSIO ()
+  setMetaKey' a = setMetaKey a undef
   
   export
   modifierAltGraph : (obj : EventModifierInit) -> JSIO (UndefOr Boolean)
@@ -334,6 +371,10 @@ namespace EventModifierInit
                       -> JSIO ()
   setModifierAltGraph a b = primJS $ EventModifierInit.prim__setModifierAltGraph a
                                                                                  b
+
+  export
+  setModifierAltGraph' : (obj : EventModifierInit) -> JSIO ()
+  setModifierAltGraph' a = setModifierAltGraph a undef
   
   export
   modifierCapsLock : (obj : EventModifierInit) -> JSIO (UndefOr Boolean)
@@ -345,6 +386,10 @@ namespace EventModifierInit
                       -> JSIO ()
   setModifierCapsLock a b = primJS $ EventModifierInit.prim__setModifierCapsLock a
                                                                                  b
+
+  export
+  setModifierCapsLock' : (obj : EventModifierInit) -> JSIO ()
+  setModifierCapsLock' a = setModifierCapsLock a undef
   
   export
   modifierFn : (obj : EventModifierInit) -> JSIO (UndefOr Boolean)
@@ -355,6 +400,10 @@ namespace EventModifierInit
                 -> (value : UndefOr Boolean)
                 -> JSIO ()
   setModifierFn a b = primJS $ EventModifierInit.prim__setModifierFn a b
+
+  export
+  setModifierFn' : (obj : EventModifierInit) -> JSIO ()
+  setModifierFn' a = setModifierFn a undef
   
   export
   modifierFnLock : (obj : EventModifierInit) -> JSIO (UndefOr Boolean)
@@ -365,6 +414,10 @@ namespace EventModifierInit
                     -> (value : UndefOr Boolean)
                     -> JSIO ()
   setModifierFnLock a b = primJS $ EventModifierInit.prim__setModifierFnLock a b
+
+  export
+  setModifierFnLock' : (obj : EventModifierInit) -> JSIO ()
+  setModifierFnLock' a = setModifierFnLock a undef
   
   export
   modifierHyper : (obj : EventModifierInit) -> JSIO (UndefOr Boolean)
@@ -375,6 +428,10 @@ namespace EventModifierInit
                    -> (value : UndefOr Boolean)
                    -> JSIO ()
   setModifierHyper a b = primJS $ EventModifierInit.prim__setModifierHyper a b
+
+  export
+  setModifierHyper' : (obj : EventModifierInit) -> JSIO ()
+  setModifierHyper' a = setModifierHyper a undef
   
   export
   modifierNumLock : (obj : EventModifierInit) -> JSIO (UndefOr Boolean)
@@ -386,6 +443,10 @@ namespace EventModifierInit
                      -> JSIO ()
   setModifierNumLock a b = primJS $ EventModifierInit.prim__setModifierNumLock a
                                                                                b
+
+  export
+  setModifierNumLock' : (obj : EventModifierInit) -> JSIO ()
+  setModifierNumLock' a = setModifierNumLock a undef
   
   export
   modifierScrollLock : (obj : EventModifierInit) -> JSIO (UndefOr Boolean)
@@ -397,6 +458,10 @@ namespace EventModifierInit
                         -> JSIO ()
   setModifierScrollLock a b = primJS $ EventModifierInit.prim__setModifierScrollLock a
                                                                                      b
+
+  export
+  setModifierScrollLock' : (obj : EventModifierInit) -> JSIO ()
+  setModifierScrollLock' a = setModifierScrollLock a undef
   
   export
   modifierSuper : (obj : EventModifierInit) -> JSIO (UndefOr Boolean)
@@ -407,6 +472,10 @@ namespace EventModifierInit
                    -> (value : UndefOr Boolean)
                    -> JSIO ()
   setModifierSuper a b = primJS $ EventModifierInit.prim__setModifierSuper a b
+
+  export
+  setModifierSuper' : (obj : EventModifierInit) -> JSIO ()
+  setModifierSuper' a = setModifierSuper a undef
   
   export
   modifierSymbol : (obj : EventModifierInit) -> JSIO (UndefOr Boolean)
@@ -417,6 +486,10 @@ namespace EventModifierInit
                     -> (value : UndefOr Boolean)
                     -> JSIO ()
   setModifierSymbol a b = primJS $ EventModifierInit.prim__setModifierSymbol a b
+
+  export
+  setModifierSymbol' : (obj : EventModifierInit) -> JSIO ()
+  setModifierSymbol' a = setModifierSymbol a undef
   
   export
   modifierSymbolLock : (obj : EventModifierInit) -> JSIO (UndefOr Boolean)
@@ -428,6 +501,10 @@ namespace EventModifierInit
                         -> JSIO ()
   setModifierSymbolLock a b = primJS $ EventModifierInit.prim__setModifierSymbolLock a
                                                                                      b
+
+  export
+  setModifierSymbolLock' : (obj : EventModifierInit) -> JSIO ()
+  setModifierSymbolLock' a = setModifierSymbolLock a undef
   
   export
   shiftKey : (obj : EventModifierInit) -> JSIO (UndefOr Boolean)
@@ -438,6 +515,10 @@ namespace EventModifierInit
               -> (value : UndefOr Boolean)
               -> JSIO ()
   setShiftKey a b = primJS $ EventModifierInit.prim__setShiftKey a b
+
+  export
+  setShiftKey' : (obj : EventModifierInit) -> JSIO ()
+  setShiftKey' a = setShiftKey a undef
 
 namespace FocusEventInit
   
@@ -450,6 +531,10 @@ namespace FocusEventInit
   export
   new : (relatedTarget : UndefOr (Nullable EventTarget)) -> JSIO FocusEventInit
   new a = primJS $ FocusEventInit.prim__new a
+
+  export
+  new' : JSIO FocusEventInit
+  new' = new undef
   
   export
   relatedTarget :  (obj : FocusEventInit)
@@ -461,6 +546,10 @@ namespace FocusEventInit
                    -> (value : UndefOr (Nullable EventTarget))
                    -> JSIO ()
   setRelatedTarget a b = primJS $ FocusEventInit.prim__setRelatedTarget a b
+
+  export
+  setRelatedTarget' : (obj : FocusEventInit) -> JSIO ()
+  setRelatedTarget' a = setRelatedTarget a undef
 
 namespace InputEventInit
   
@@ -476,6 +565,10 @@ namespace InputEventInit
       -> (inputType : UndefOr String)
       -> JSIO InputEventInit
   new a b c = primJS $ InputEventInit.prim__new a b c
+
+  export
+  new' : JSIO InputEventInit
+  new' = new undef undef undef
   
   export
   data_ : (obj : InputEventInit) -> JSIO (UndefOr (Nullable String))
@@ -486,6 +579,10 @@ namespace InputEventInit
           -> (value : UndefOr (Nullable String))
           -> JSIO ()
   setData a b = primJS $ InputEventInit.prim__setData a b
+
+  export
+  setData' : (obj : InputEventInit) -> JSIO ()
+  setData' a = setData a undef
   
   export
   inputType : (obj : InputEventInit) -> JSIO (UndefOr String)
@@ -494,6 +591,10 @@ namespace InputEventInit
   export
   setInputType : (obj : InputEventInit) -> (value : UndefOr String) -> JSIO ()
   setInputType a b = primJS $ InputEventInit.prim__setInputType a b
+
+  export
+  setInputType' : (obj : InputEventInit) -> JSIO ()
+  setInputType' a = setInputType a undef
   
   export
   isComposing : (obj : InputEventInit) -> JSIO (UndefOr Boolean)
@@ -504,6 +605,10 @@ namespace InputEventInit
                  -> (value : UndefOr Boolean)
                  -> JSIO ()
   setIsComposing a b = primJS $ InputEventInit.prim__setIsComposing a b
+
+  export
+  setIsComposing' : (obj : InputEventInit) -> JSIO ()
+  setIsComposing' a = setIsComposing a undef
 
 namespace KeyboardEventInit
   
@@ -521,6 +626,10 @@ namespace KeyboardEventInit
       -> (isComposing : UndefOr Boolean)
       -> JSIO KeyboardEventInit
   new a b c d e = primJS $ KeyboardEventInit.prim__new a b c d e
+
+  export
+  new' : JSIO KeyboardEventInit
+  new' = new undef undef undef undef undef
   
   export
   code : (obj : KeyboardEventInit) -> JSIO (UndefOr String)
@@ -529,6 +638,10 @@ namespace KeyboardEventInit
   export
   setCode : (obj : KeyboardEventInit) -> (value : UndefOr String) -> JSIO ()
   setCode a b = primJS $ KeyboardEventInit.prim__setCode a b
+
+  export
+  setCode' : (obj : KeyboardEventInit) -> JSIO ()
+  setCode' a = setCode a undef
   
   export
   isComposing : (obj : KeyboardEventInit) -> JSIO (UndefOr Boolean)
@@ -539,6 +652,10 @@ namespace KeyboardEventInit
                  -> (value : UndefOr Boolean)
                  -> JSIO ()
   setIsComposing a b = primJS $ KeyboardEventInit.prim__setIsComposing a b
+
+  export
+  setIsComposing' : (obj : KeyboardEventInit) -> JSIO ()
+  setIsComposing' a = setIsComposing a undef
   
   export
   key : (obj : KeyboardEventInit) -> JSIO (UndefOr String)
@@ -547,6 +664,10 @@ namespace KeyboardEventInit
   export
   setKey : (obj : KeyboardEventInit) -> (value : UndefOr String) -> JSIO ()
   setKey a b = primJS $ KeyboardEventInit.prim__setKey a b
+
+  export
+  setKey' : (obj : KeyboardEventInit) -> JSIO ()
+  setKey' a = setKey a undef
   
   export
   location : (obj : KeyboardEventInit) -> JSIO (UndefOr UInt32)
@@ -555,6 +676,10 @@ namespace KeyboardEventInit
   export
   setLocation : (obj : KeyboardEventInit) -> (value : UndefOr UInt32) -> JSIO ()
   setLocation a b = primJS $ KeyboardEventInit.prim__setLocation a b
+
+  export
+  setLocation' : (obj : KeyboardEventInit) -> JSIO ()
+  setLocation' a = setLocation a undef
   
   export
   repeat : (obj : KeyboardEventInit) -> JSIO (UndefOr Boolean)
@@ -563,6 +688,10 @@ namespace KeyboardEventInit
   export
   setRepeat : (obj : KeyboardEventInit) -> (value : UndefOr Boolean) -> JSIO ()
   setRepeat a b = primJS $ KeyboardEventInit.prim__setRepeat a b
+
+  export
+  setRepeat' : (obj : KeyboardEventInit) -> JSIO ()
+  setRepeat' a = setRepeat a undef
 
 namespace MouseEventInit
   
@@ -582,6 +711,10 @@ namespace MouseEventInit
       -> (relatedTarget : UndefOr (Nullable EventTarget))
       -> JSIO MouseEventInit
   new a b c d e f g = primJS $ MouseEventInit.prim__new a b c d e f g
+
+  export
+  new' : JSIO MouseEventInit
+  new' = new undef undef undef undef undef undef undef
   
   export
   button : (obj : MouseEventInit) -> JSIO (UndefOr Int16)
@@ -590,6 +723,10 @@ namespace MouseEventInit
   export
   setButton : (obj : MouseEventInit) -> (value : UndefOr Int16) -> JSIO ()
   setButton a b = primJS $ MouseEventInit.prim__setButton a b
+
+  export
+  setButton' : (obj : MouseEventInit) -> JSIO ()
+  setButton' a = setButton a undef
   
   export
   buttons : (obj : MouseEventInit) -> JSIO (UndefOr UInt16)
@@ -598,6 +735,10 @@ namespace MouseEventInit
   export
   setButtons : (obj : MouseEventInit) -> (value : UndefOr UInt16) -> JSIO ()
   setButtons a b = primJS $ MouseEventInit.prim__setButtons a b
+
+  export
+  setButtons' : (obj : MouseEventInit) -> JSIO ()
+  setButtons' a = setButtons a undef
   
   export
   clientX : (obj : MouseEventInit) -> JSIO (UndefOr Int32)
@@ -606,6 +747,10 @@ namespace MouseEventInit
   export
   setClientX : (obj : MouseEventInit) -> (value : UndefOr Int32) -> JSIO ()
   setClientX a b = primJS $ MouseEventInit.prim__setClientX a b
+
+  export
+  setClientX' : (obj : MouseEventInit) -> JSIO ()
+  setClientX' a = setClientX a undef
   
   export
   clientY : (obj : MouseEventInit) -> JSIO (UndefOr Int32)
@@ -614,6 +759,10 @@ namespace MouseEventInit
   export
   setClientY : (obj : MouseEventInit) -> (value : UndefOr Int32) -> JSIO ()
   setClientY a b = primJS $ MouseEventInit.prim__setClientY a b
+
+  export
+  setClientY' : (obj : MouseEventInit) -> JSIO ()
+  setClientY' a = setClientY a undef
   
   export
   relatedTarget :  (obj : MouseEventInit)
@@ -625,6 +774,10 @@ namespace MouseEventInit
                    -> (value : UndefOr (Nullable EventTarget))
                    -> JSIO ()
   setRelatedTarget a b = primJS $ MouseEventInit.prim__setRelatedTarget a b
+
+  export
+  setRelatedTarget' : (obj : MouseEventInit) -> JSIO ()
+  setRelatedTarget' a = setRelatedTarget a undef
   
   export
   screenX : (obj : MouseEventInit) -> JSIO (UndefOr Int32)
@@ -633,6 +786,10 @@ namespace MouseEventInit
   export
   setScreenX : (obj : MouseEventInit) -> (value : UndefOr Int32) -> JSIO ()
   setScreenX a b = primJS $ MouseEventInit.prim__setScreenX a b
+
+  export
+  setScreenX' : (obj : MouseEventInit) -> JSIO ()
+  setScreenX' a = setScreenX a undef
   
   export
   screenY : (obj : MouseEventInit) -> JSIO (UndefOr Int32)
@@ -641,6 +798,10 @@ namespace MouseEventInit
   export
   setScreenY : (obj : MouseEventInit) -> (value : UndefOr Int32) -> JSIO ()
   setScreenY a b = primJS $ MouseEventInit.prim__setScreenY a b
+
+  export
+  setScreenY' : (obj : MouseEventInit) -> JSIO ()
+  setScreenY' a = setScreenY a undef
 
 namespace UIEventInit
   
@@ -655,6 +816,10 @@ namespace UIEventInit
       -> (detail : UndefOr Int32)
       -> JSIO UIEventInit
   new a b = primJS $ UIEventInit.prim__new a b
+
+  export
+  new' : JSIO UIEventInit
+  new' = new undef undef
   
   export
   detail : (obj : UIEventInit) -> JSIO (UndefOr Int32)
@@ -663,6 +828,10 @@ namespace UIEventInit
   export
   setDetail : (obj : UIEventInit) -> (value : UndefOr Int32) -> JSIO ()
   setDetail a b = primJS $ UIEventInit.prim__setDetail a b
+
+  export
+  setDetail' : (obj : UIEventInit) -> JSIO ()
+  setDetail' a = setDetail a undef
   
   export
   view : (obj : UIEventInit) -> JSIO (UndefOr (Nullable Window))
@@ -673,6 +842,10 @@ namespace UIEventInit
           -> (value : UndefOr (Nullable Window))
           -> JSIO ()
   setView a b = primJS $ UIEventInit.prim__setView a b
+
+  export
+  setView' : (obj : UIEventInit) -> JSIO ()
+  setView' a = setView a undef
 
 namespace WheelEventInit
   
@@ -694,6 +867,10 @@ namespace WheelEventInit
       -> (deltaMode : UndefOr UInt32)
       -> JSIO WheelEventInit
   new a b c d = primJS $ WheelEventInit.prim__new a b c d
+
+  export
+  new' : JSIO WheelEventInit
+  new' = new undef undef undef undef
   
   export
   deltaMode : (obj : WheelEventInit) -> JSIO (UndefOr UInt32)
@@ -702,6 +879,10 @@ namespace WheelEventInit
   export
   setDeltaMode : (obj : WheelEventInit) -> (value : UndefOr UInt32) -> JSIO ()
   setDeltaMode a b = primJS $ WheelEventInit.prim__setDeltaMode a b
+
+  export
+  setDeltaMode' : (obj : WheelEventInit) -> JSIO ()
+  setDeltaMode' a = setDeltaMode a undef
   
   export
   deltaX : (obj : WheelEventInit) -> JSIO (UndefOr Double)
@@ -710,6 +891,10 @@ namespace WheelEventInit
   export
   setDeltaX : (obj : WheelEventInit) -> (value : UndefOr Double) -> JSIO ()
   setDeltaX a b = primJS $ WheelEventInit.prim__setDeltaX a b
+
+  export
+  setDeltaX' : (obj : WheelEventInit) -> JSIO ()
+  setDeltaX' a = setDeltaX a undef
   
   export
   deltaY : (obj : WheelEventInit) -> JSIO (UndefOr Double)
@@ -718,6 +903,10 @@ namespace WheelEventInit
   export
   setDeltaY : (obj : WheelEventInit) -> (value : UndefOr Double) -> JSIO ()
   setDeltaY a b = primJS $ WheelEventInit.prim__setDeltaY a b
+
+  export
+  setDeltaY' : (obj : WheelEventInit) -> JSIO ()
+  setDeltaY' a = setDeltaY a undef
   
   export
   deltaZ : (obj : WheelEventInit) -> JSIO (UndefOr Double)
@@ -726,3 +915,7 @@ namespace WheelEventInit
   export
   setDeltaZ : (obj : WheelEventInit) -> (value : UndefOr Double) -> JSIO ()
   setDeltaZ a b = primJS $ WheelEventInit.prim__setDeltaZ a b
+
+  export
+  setDeltaZ' : (obj : WheelEventInit) -> JSIO ()
+  setDeltaZ' a = setDeltaZ a undef

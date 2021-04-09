@@ -31,6 +31,10 @@ namespace CSSGroupingRule
              -> JSIO UInt32
   insertRule a b c = primJS $ CSSGroupingRule.prim__insertRule a b c
 
+  export
+  insertRule' : (obj : CSSGroupingRule) -> (rule : CSSOMString) -> JSIO UInt32
+  insertRule' a b = insertRule a b undef
+
 namespace CSSImportRule
   
   public export
@@ -258,6 +262,13 @@ namespace CSSStyleDeclaration
               -> JSIO ()
   setProperty a b c d = primJS $ CSSStyleDeclaration.prim__setProperty a b c d
 
+  export
+  setProperty' :  (obj : CSSStyleDeclaration)
+               -> (property : CSSOMString)
+               -> (value : CSSOMString)
+               -> JSIO ()
+  setProperty' a b c = setProperty a b c undef
+
 namespace CSSStyleRule
   
   public export
@@ -305,6 +316,10 @@ namespace CSSStyleSheet
           -> (index : UndefOr UInt32)
           -> JSIO Int32
   addRule a b c d = primJS $ CSSStyleSheet.prim__addRule a b c d
+
+  export
+  addRule' : (obj : CSSStyleSheet) -> JSIO Int32
+  addRule' a = addRule a undef undef undef
   
   export
   deleteRule : (obj : CSSStyleSheet) -> (index : UInt32) -> JSIO ()
@@ -316,10 +331,18 @@ namespace CSSStyleSheet
              -> (index : UndefOr UInt32)
              -> JSIO UInt32
   insertRule a b c = primJS $ CSSStyleSheet.prim__insertRule a b c
+
+  export
+  insertRule' : (obj : CSSStyleSheet) -> (rule : CSSOMString) -> JSIO UInt32
+  insertRule' a b = insertRule a b undef
   
   export
   removeRule : (obj : CSSStyleSheet) -> (index : UndefOr UInt32) -> JSIO ()
   removeRule a b = primJS $ CSSStyleSheet.prim__removeRule a b
+
+  export
+  removeRule' : (obj : CSSStyleSheet) -> JSIO ()
+  removeRule' a = removeRule a undef
 
 namespace MediaList
   

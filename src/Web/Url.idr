@@ -19,6 +19,10 @@ namespace URL
   export
   new : (url : String) -> (base : UndefOr String) -> JSIO URL
   new a b = primJS $ URL.prim__new a b
+
+  export
+  new' : (url : String) -> JSIO URL
+  new' a = new a undef
   
   export
   createObjectURL : (obj : Union2 Blob MediaSource) -> JSIO String
@@ -138,6 +142,10 @@ namespace URLSearchParams
                                  String))
       -> JSIO URLSearchParams
   new a = primJS $ URLSearchParams.prim__new a
+
+  export
+  new' : JSIO URLSearchParams
+  new' = new undef
   
   export
   append :  (obj : URLSearchParams)

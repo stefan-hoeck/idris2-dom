@@ -21,6 +21,10 @@ namespace Blob
       -> (options : UndefOr BlobPropertyBag)
       -> JSIO Blob
   new a b = primJS $ Blob.prim__new a b
+
+  export
+  new' : JSIO Blob
+  new' = new undef undef
   
   export
   size : (obj : Blob) -> JSIO UInt64
@@ -41,6 +45,10 @@ namespace Blob
         -> (contentType : UndefOr String)
         -> JSIO Blob
   slice a b c d = primJS $ Blob.prim__slice a b c d
+
+  export
+  slice' : (obj : Blob) -> JSIO Blob
+  slice' a = slice a undef undef undef
   
   export
   stream : (obj : Blob) -> JSIO ReadableStream
@@ -64,6 +72,10 @@ namespace File
       -> (options : UndefOr FilePropertyBag)
       -> JSIO File
   new a b c = primJS $ File.prim__new a b c
+
+  export
+  new' : (fileBits : Array BlobPart) -> (fileName : String) -> JSIO File
+  new' a b = new a b undef
   
   export
   lastModified : (obj : File) -> JSIO Int64
@@ -196,6 +208,10 @@ namespace FileReader
              -> JSIO ()
   readAsText a b c = primJS $ FileReader.prim__readAsText a b c
 
+  export
+  readAsText' : (obj : FileReader) -> (blob : Blob) -> JSIO ()
+  readAsText' a b = readAsText a b undef
+
 namespace FileReaderSync
   
   public export
@@ -229,6 +245,10 @@ namespace FileReaderSync
              -> JSIO String
   readAsText a b c = primJS $ FileReaderSync.prim__readAsText a b c
 
+  export
+  readAsText' : (obj : FileReaderSync) -> (blob : Blob) -> JSIO String
+  readAsText' a b = readAsText a b undef
+
 
 --------------------------------------------------------------------------------
 --          Dictionaries
@@ -247,6 +267,10 @@ namespace BlobPropertyBag
       -> (endings : UndefOr EndingType)
       -> JSIO BlobPropertyBag
   new a b = primJS $ BlobPropertyBag.prim__new a b
+
+  export
+  new' : JSIO BlobPropertyBag
+  new' = new undef undef
   
   export
   endings : (obj : BlobPropertyBag) -> JSIO (UndefOr EndingType)
@@ -257,6 +281,10 @@ namespace BlobPropertyBag
              -> (value : UndefOr EndingType)
              -> JSIO ()
   setEndings a b = primJS $ BlobPropertyBag.prim__setEndings a b
+
+  export
+  setEndings' : (obj : BlobPropertyBag) -> JSIO ()
+  setEndings' a = setEndings a undef
   
   export
   type : (obj : BlobPropertyBag) -> JSIO (UndefOr String)
@@ -265,6 +293,10 @@ namespace BlobPropertyBag
   export
   setType : (obj : BlobPropertyBag) -> (value : UndefOr String) -> JSIO ()
   setType a b = primJS $ BlobPropertyBag.prim__setType a b
+
+  export
+  setType' : (obj : BlobPropertyBag) -> JSIO ()
+  setType' a = setType a undef
 
 namespace FilePropertyBag
   
@@ -277,6 +309,10 @@ namespace FilePropertyBag
   export
   new : (lastModified : UndefOr Int64) -> JSIO FilePropertyBag
   new a = primJS $ FilePropertyBag.prim__new a
+
+  export
+  new' : JSIO FilePropertyBag
+  new' = new undef
   
   export
   lastModified : (obj : FilePropertyBag) -> JSIO (UndefOr Int64)
@@ -287,3 +323,7 @@ namespace FilePropertyBag
                   -> (value : UndefOr Int64)
                   -> JSIO ()
   setLastModified a b = primJS $ FilePropertyBag.prim__setLastModified a b
+
+  export
+  setLastModified' : (obj : FilePropertyBag) -> JSIO ()
+  setLastModified' a = setLastModified a undef

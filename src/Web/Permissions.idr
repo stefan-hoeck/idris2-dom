@@ -58,6 +58,10 @@ namespace CameraDevicePermissionDescriptor
   export
   new : (panTiltZoom : UndefOr Boolean) -> JSIO CameraDevicePermissionDescriptor
   new a = primJS $ CameraDevicePermissionDescriptor.prim__new a
+
+  export
+  new' : JSIO CameraDevicePermissionDescriptor
+  new' = new undef
   
   export
   panTiltZoom :  (obj : CameraDevicePermissionDescriptor)
@@ -71,6 +75,10 @@ namespace CameraDevicePermissionDescriptor
   setPanTiltZoom a b = primJS $ CameraDevicePermissionDescriptor.prim__setPanTiltZoom a
                                                                                       b
 
+  export
+  setPanTiltZoom' : (obj : CameraDevicePermissionDescriptor) -> JSIO ()
+  setPanTiltZoom' a = setPanTiltZoom a undef
+
 namespace DevicePermissionDescriptor
   
   public export
@@ -82,6 +90,10 @@ namespace DevicePermissionDescriptor
   export
   new : (deviceId : UndefOr String) -> JSIO DevicePermissionDescriptor
   new a = primJS $ DevicePermissionDescriptor.prim__new a
+
+  export
+  new' : JSIO DevicePermissionDescriptor
+  new' = new undef
   
   export
   deviceId : (obj : DevicePermissionDescriptor) -> JSIO (UndefOr String)
@@ -92,6 +104,10 @@ namespace DevicePermissionDescriptor
               -> (value : UndefOr String)
               -> JSIO ()
   setDeviceId a b = primJS $ DevicePermissionDescriptor.prim__setDeviceId a b
+
+  export
+  setDeviceId' : (obj : DevicePermissionDescriptor) -> JSIO ()
+  setDeviceId' a = setDeviceId a undef
 
 namespace MidiPermissionDescriptor
   
@@ -104,6 +120,10 @@ namespace MidiPermissionDescriptor
   export
   new : (sysex : UndefOr Boolean) -> JSIO MidiPermissionDescriptor
   new a = primJS $ MidiPermissionDescriptor.prim__new a
+
+  export
+  new' : JSIO MidiPermissionDescriptor
+  new' = new undef
   
   export
   sysex : (obj : MidiPermissionDescriptor) -> JSIO (UndefOr Boolean)
@@ -114,6 +134,10 @@ namespace MidiPermissionDescriptor
            -> (value : UndefOr Boolean)
            -> JSIO ()
   setSysex a b = primJS $ MidiPermissionDescriptor.prim__setSysex a b
+
+  export
+  setSysex' : (obj : MidiPermissionDescriptor) -> JSIO ()
+  setSysex' a = setSysex a undef
 
 namespace PermissionDescriptor
   
@@ -149,6 +173,12 @@ namespace PermissionSetParameters
       -> (oneRealm : UndefOr Boolean)
       -> JSIO PermissionSetParameters
   new a b c = primJS $ PermissionSetParameters.prim__new a b c
+
+  export
+  new' :  (descriptor : PermissionDescriptor)
+       -> (state : PermissionState)
+       -> JSIO PermissionSetParameters
+  new' a b = new a b undef
   
   export
   descriptor : (obj : PermissionSetParameters) -> JSIO PermissionDescriptor
@@ -169,6 +199,10 @@ namespace PermissionSetParameters
               -> (value : UndefOr Boolean)
               -> JSIO ()
   setOneRealm a b = primJS $ PermissionSetParameters.prim__setOneRealm a b
+
+  export
+  setOneRealm' : (obj : PermissionSetParameters) -> JSIO ()
+  setOneRealm' a = setOneRealm a undef
   
   export
   state : (obj : PermissionSetParameters) -> JSIO PermissionState
@@ -191,6 +225,10 @@ namespace PushPermissionDescriptor
   export
   new : (userVisibleOnly : UndefOr Boolean) -> JSIO PushPermissionDescriptor
   new a = primJS $ PushPermissionDescriptor.prim__new a
+
+  export
+  new' : JSIO PushPermissionDescriptor
+  new' = new undef
   
   export
   userVisibleOnly : (obj : PushPermissionDescriptor) -> JSIO (UndefOr Boolean)
@@ -202,3 +240,7 @@ namespace PushPermissionDescriptor
                      -> JSIO ()
   setUserVisibleOnly a b = primJS $ PushPermissionDescriptor.prim__setUserVisibleOnly a
                                                                                       b
+
+  export
+  setUserVisibleOnly' : (obj : PushPermissionDescriptor) -> JSIO ()
+  setUserVisibleOnly' a = setUserVisibleOnly a undef

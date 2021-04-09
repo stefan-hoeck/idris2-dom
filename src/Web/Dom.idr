@@ -193,6 +193,10 @@ namespace Comment
   new : (data_ : UndefOr String) -> JSIO Comment
   new a = primJS $ Comment.prim__new a
 
+  export
+  new' : JSIO Comment
+  new' = new undef
+
 namespace CustomEvent
   
   public export
@@ -206,6 +210,10 @@ namespace CustomEvent
       -> (eventInitDict : UndefOr CustomEventInit)
       -> JSIO CustomEvent
   new a b = primJS $ CustomEvent.prim__new a b
+
+  export
+  new' : (type : String) -> JSIO CustomEvent
+  new' a = new a undef
   
   export
   detail : (obj : CustomEvent) -> JSIO AnyPtr
@@ -223,6 +231,10 @@ namespace CustomEvent
                                                                          c
                                                                          d
                                                                          e
+
+  export
+  initCustomEvent' : (obj : CustomEvent) -> (type : String) -> JSIO ()
+  initCustomEvent' a b = initCustomEvent a b undef undef undef
 
 namespace DOMImplementation
   
@@ -242,6 +254,13 @@ namespace DOMImplementation
                                                                            b
                                                                            c
                                                                            d
+
+  export
+  createDocument' :  (obj : DOMImplementation)
+                  -> (namespace_ : Nullable String)
+                  -> (qualifiedName : String)
+                  -> JSIO XMLDocument
+  createDocument' a b c = createDocument a b c undef
   
   export
   createDocumentType :  (obj : DOMImplementation)
@@ -260,6 +279,10 @@ namespace DOMImplementation
                      -> JSIO Document
   createHTMLDocument a b = primJS $ DOMImplementation.prim__createHTMLDocument a
                                                                                b
+
+  export
+  createHTMLDocument' : (obj : DOMImplementation) -> JSIO Document
+  createHTMLDocument' a = createHTMLDocument a undef
   
   export
   hasFeature : (obj : DOMImplementation) -> JSIO Boolean
@@ -318,6 +341,10 @@ namespace DOMTokenList
          -> (force : UndefOr Boolean)
          -> JSIO Boolean
   toggle a b c = primJS $ DOMTokenList.prim__toggle a b c
+
+  export
+  toggle' : (obj : DOMTokenList) -> (token : String) -> JSIO Boolean
+  toggle' a b = toggle a b undef
 
 namespace Document
   
@@ -610,6 +637,10 @@ namespace Document
                 -> (options : UndefOr (Union2 String ElementCreationOptions))
                 -> JSIO Element
   createElement a b c = primJS $ Document.prim__createElement a b c
+
+  export
+  createElement' : (obj : Document) -> (localName : String) -> JSIO Element
+  createElement' a b = createElement a b undef
   
   export
   createElementNS :  (obj : Document)
@@ -618,6 +649,13 @@ namespace Document
                   -> (options : UndefOr (Union2 String ElementCreationOptions))
                   -> JSIO Element
   createElementNS a b c d = primJS $ Document.prim__createElementNS a b c d
+
+  export
+  createElementNS' :  (obj : Document)
+                   -> (namespace_ : Nullable String)
+                   -> (qualifiedName : String)
+                   -> JSIO Element
+  createElementNS' a b c = createElementNS a b c undef
   
   export
   createEvent : (obj : Document) -> (interface_ : String) -> JSIO Event
@@ -633,6 +671,10 @@ namespace Document
                                                                           b
                                                                           c
                                                                           d
+
+  export
+  createNodeIterator' : (obj : Document) -> (root : Node) -> JSIO NodeIterator
+  createNodeIterator' a b = createNodeIterator a b undef undef
   
   export
   createProcessingInstruction :  (obj : Document)
@@ -658,6 +700,10 @@ namespace Document
                    -> (filter : UndefOr (Nullable NodeFilter))
                    -> JSIO TreeWalker
   createTreeWalker a b c d = primJS $ Document.prim__createTreeWalker a b c d
+
+  export
+  createTreeWalker' : (obj : Document) -> (root : Node) -> JSIO TreeWalker
+  createTreeWalker' a b = createTreeWalker a b undef undef
   
   export
   execCommand :  (obj : Document)
@@ -666,6 +712,10 @@ namespace Document
               -> (value : UndefOr String)
               -> JSIO Boolean
   execCommand a b c d = primJS $ Document.prim__execCommand a b c d
+
+  export
+  execCommand' : (obj : Document) -> (commandId : String) -> JSIO Boolean
+  execCommand' a b = execCommand a b undef undef
   
   export
   getAnimations : (obj : Document) -> JSIO (Array Animation)
@@ -709,6 +759,10 @@ namespace Document
              -> (deep : UndefOr Boolean)
              -> JSIO Node
   importNode a b c = primJS $ Document.prim__importNode a b c
+
+  export
+  importNode' : (obj : Document) -> (node : Node) -> JSIO Node
+  importNode' a b = importNode a b undef
   
   export
   open_ :  (obj : Document)
@@ -716,6 +770,10 @@ namespace Document
         -> (unused2 : UndefOr String)
         -> JSIO Document
   open_ a b c = primJS $ Document.prim__open a b c
+
+  export
+  open' : (obj : Document) -> JSIO Document
+  open' a = open_ a undef undef
   
   export
   open1 :  (obj : Document)
@@ -1002,6 +1060,10 @@ namespace Element
                   -> (force : UndefOr Boolean)
                   -> JSIO Boolean
   toggleAttribute a b c = primJS $ Element.prim__toggleAttribute a b c
+
+  export
+  toggleAttribute' : (obj : Element) -> (qualifiedName : String) -> JSIO Boolean
+  toggleAttribute' a b = toggleAttribute a b undef
   
   export
   webkitMatchesSelector :  (obj : Element)
@@ -1036,6 +1098,10 @@ namespace Event
   export
   new : (type : String) -> (eventInitDict : UndefOr EventInit) -> JSIO Event
   new a b = primJS $ Event.prim__new a b
+
+  export
+  new' : (type : String) -> JSIO Event
+  new' a = new a undef
   
   export
   bubbles : (obj : Event) -> JSIO Boolean
@@ -1108,6 +1174,10 @@ namespace Event
             -> (cancelable : UndefOr Boolean)
             -> JSIO ()
   initEvent a b c d = primJS $ Event.prim__initEvent a b c d
+
+  export
+  initEvent' : (obj : Event) -> (type : String) -> JSIO ()
+  initEvent' a b = initEvent a b undef undef
   
   export
   preventDefault : (obj : Event) -> JSIO ()
@@ -1141,6 +1211,13 @@ namespace EventTarget
                                                  Boolean))
                    -> JSIO ()
   addEventListener a b c d = primJS $ EventTarget.prim__addEventListener a b c d
+
+  export
+  addEventListener' :  (obj : EventTarget)
+                    -> (type : String)
+                    -> (callback : Nullable EventListener)
+                    -> JSIO ()
+  addEventListener' a b c = addEventListener a b c undef
   
   export
   dispatchEvent : (obj : EventTarget) -> (event : Event) -> JSIO Boolean
@@ -1157,6 +1234,13 @@ namespace EventTarget
                                                                                b
                                                                                c
                                                                                d
+
+  export
+  removeEventListener' :  (obj : EventTarget)
+                       -> (type : String)
+                       -> (callback : Nullable EventListener)
+                       -> JSIO ()
+  removeEventListener' a b c = removeEventListener a b c undef
 
 namespace HTMLCollection
   
@@ -1202,6 +1286,10 @@ namespace MutationObserver
           -> (options : UndefOr MutationObserverInit)
           -> JSIO ()
   observe a b c = primJS $ MutationObserver.prim__observe a b c
+
+  export
+  observe' : (obj : MutationObserver) -> (target : Node) -> JSIO ()
+  observe' a b = observe a b undef
   
   export
   takeRecords : (obj : MutationObserver) -> JSIO (Array MutationRecord)
@@ -1452,6 +1540,10 @@ namespace Node
   export
   cloneNode : (obj : Node) -> (deep : UndefOr Boolean) -> JSIO Node
   cloneNode a b = primJS $ Node.prim__cloneNode a b
+
+  export
+  cloneNode' : (obj : Node) -> JSIO Node
+  cloneNode' a = cloneNode a undef
   
   export
   compareDocumentPosition : (obj : Node) -> (other : Node) -> JSIO UInt16
@@ -1466,6 +1558,10 @@ namespace Node
               -> (options : UndefOr GetRootNodeOptions)
               -> JSIO Node
   getRootNode a b = primJS $ Node.prim__getRootNode a b
+
+  export
+  getRootNode' : (obj : Node) -> JSIO Node
+  getRootNode' a = getRootNode a undef
   
   export
   hasChildNodes : (obj : Node) -> JSIO Boolean
@@ -1647,6 +1743,10 @@ namespace Range
   export
   collapse : (obj : Range) -> (toStart : UndefOr Boolean) -> JSIO ()
   collapse a b = primJS $ Range.prim__collapse a b
+
+  export
+  collapse' : (obj : Range) -> JSIO ()
+  collapse' a = collapse a undef
   
   export
   compareBoundaryPoints :  (obj : Range)
@@ -1776,6 +1876,10 @@ namespace Text
   export
   new : (data_ : UndefOr String) -> JSIO Text
   new a = primJS $ Text.prim__new a
+
+  export
+  new' : JSIO Text
+  new' = new undef
   
   export
   wholeText : (obj : Text) -> JSIO String
@@ -1882,6 +1986,12 @@ namespace XPathExpression
            -> (result : UndefOr (Nullable XPathResult))
            -> JSIO XPathResult
   evaluate a b c d = primJS $ XPathExpression.prim__evaluate a b c d
+
+  export
+  evaluate' :  (obj : XPathExpression)
+            -> (contextNode : Node)
+            -> JSIO XPathResult
+  evaluate' a b = evaluate a b undef undef
 
 namespace XPathResult
   
@@ -2079,6 +2189,12 @@ namespace XPathEvaluatorBase
   createExpression a b c = primJS $ XPathEvaluatorBase.prim__createExpression a
                                                                               b
                                                                               c
+
+  export
+  createExpression' :  (obj : XPathEvaluatorBase)
+                    -> (expression : String)
+                    -> JSIO XPathExpression
+  createExpression' a b = createExpression a b undef
   
   export
   createNSResolver :  (obj : XPathEvaluatorBase)
@@ -2095,6 +2211,13 @@ namespace XPathEvaluatorBase
            -> (result : UndefOr (Nullable XPathResult))
            -> JSIO XPathResult
   evaluate a b c d e f = primJS $ XPathEvaluatorBase.prim__evaluate a b c d e f
+
+  export
+  evaluate' :  (obj : XPathEvaluatorBase)
+            -> (expression : String)
+            -> (contextNode : Node)
+            -> JSIO XPathResult
+  evaluate' a b c = evaluate a b c undef undef undef
 
 --------------------------------------------------------------------------------
 --          Dictionaries
@@ -2114,6 +2237,10 @@ namespace AddEventListenerOptions
       -> (signal : UndefOr AbortSignal)
       -> JSIO AddEventListenerOptions
   new a b c = primJS $ AddEventListenerOptions.prim__new a b c
+
+  export
+  new' : JSIO AddEventListenerOptions
+  new' = new undef undef undef
   
   export
   once : (obj : AddEventListenerOptions) -> JSIO (UndefOr Boolean)
@@ -2124,6 +2251,10 @@ namespace AddEventListenerOptions
           -> (value : UndefOr Boolean)
           -> JSIO ()
   setOnce a b = primJS $ AddEventListenerOptions.prim__setOnce a b
+
+  export
+  setOnce' : (obj : AddEventListenerOptions) -> JSIO ()
+  setOnce' a = setOnce a undef
   
   export
   passive : (obj : AddEventListenerOptions) -> JSIO (UndefOr Boolean)
@@ -2134,6 +2265,10 @@ namespace AddEventListenerOptions
              -> (value : UndefOr Boolean)
              -> JSIO ()
   setPassive a b = primJS $ AddEventListenerOptions.prim__setPassive a b
+
+  export
+  setPassive' : (obj : AddEventListenerOptions) -> JSIO ()
+  setPassive' a = setPassive a undef
   
   export
   signal : (obj : AddEventListenerOptions) -> JSIO (UndefOr AbortSignal)
@@ -2144,6 +2279,10 @@ namespace AddEventListenerOptions
             -> (value : UndefOr AbortSignal)
             -> JSIO ()
   setSignal a b = primJS $ AddEventListenerOptions.prim__setSignal a b
+
+  export
+  setSignal' : (obj : AddEventListenerOptions) -> JSIO ()
+  setSignal' a = setSignal a undef
 
 namespace CustomEventInit
   
@@ -2156,6 +2295,10 @@ namespace CustomEventInit
   export
   new : (detail : UndefOr AnyPtr) -> JSIO CustomEventInit
   new a = primJS $ CustomEventInit.prim__new a
+
+  export
+  new' : JSIO CustomEventInit
+  new' = new undef
   
   export
   detail : (obj : CustomEventInit) -> JSIO (UndefOr AnyPtr)
@@ -2164,6 +2307,10 @@ namespace CustomEventInit
   export
   setDetail : (obj : CustomEventInit) -> (value : UndefOr AnyPtr) -> JSIO ()
   setDetail a b = primJS $ CustomEventInit.prim__setDetail a b
+
+  export
+  setDetail' : (obj : CustomEventInit) -> JSIO ()
+  setDetail' a = setDetail a undef
 
 namespace ElementCreationOptions
   
@@ -2176,6 +2323,10 @@ namespace ElementCreationOptions
   export
   new : (is : UndefOr String) -> JSIO ElementCreationOptions
   new a = primJS $ ElementCreationOptions.prim__new a
+
+  export
+  new' : JSIO ElementCreationOptions
+  new' = new undef
   
   export
   is : (obj : ElementCreationOptions) -> JSIO (UndefOr String)
@@ -2184,6 +2335,10 @@ namespace ElementCreationOptions
   export
   setIs : (obj : ElementCreationOptions) -> (value : UndefOr String) -> JSIO ()
   setIs a b = primJS $ ElementCreationOptions.prim__setIs a b
+
+  export
+  setIs' : (obj : ElementCreationOptions) -> JSIO ()
+  setIs' a = setIs a undef
 
 namespace EventInit
   
@@ -2199,6 +2354,10 @@ namespace EventInit
       -> (composed : UndefOr Boolean)
       -> JSIO EventInit
   new a b c = primJS $ EventInit.prim__new a b c
+
+  export
+  new' : JSIO EventInit
+  new' = new undef undef undef
   
   export
   bubbles : (obj : EventInit) -> JSIO (UndefOr Boolean)
@@ -2207,6 +2366,10 @@ namespace EventInit
   export
   setBubbles : (obj : EventInit) -> (value : UndefOr Boolean) -> JSIO ()
   setBubbles a b = primJS $ EventInit.prim__setBubbles a b
+
+  export
+  setBubbles' : (obj : EventInit) -> JSIO ()
+  setBubbles' a = setBubbles a undef
   
   export
   cancelable : (obj : EventInit) -> JSIO (UndefOr Boolean)
@@ -2215,6 +2378,10 @@ namespace EventInit
   export
   setCancelable : (obj : EventInit) -> (value : UndefOr Boolean) -> JSIO ()
   setCancelable a b = primJS $ EventInit.prim__setCancelable a b
+
+  export
+  setCancelable' : (obj : EventInit) -> JSIO ()
+  setCancelable' a = setCancelable a undef
   
   export
   composed : (obj : EventInit) -> JSIO (UndefOr Boolean)
@@ -2223,6 +2390,10 @@ namespace EventInit
   export
   setComposed : (obj : EventInit) -> (value : UndefOr Boolean) -> JSIO ()
   setComposed a b = primJS $ EventInit.prim__setComposed a b
+
+  export
+  setComposed' : (obj : EventInit) -> JSIO ()
+  setComposed' a = setComposed a undef
 
 namespace EventListenerOptions
   
@@ -2235,6 +2406,10 @@ namespace EventListenerOptions
   export
   new : (capture : UndefOr Boolean) -> JSIO EventListenerOptions
   new a = primJS $ EventListenerOptions.prim__new a
+
+  export
+  new' : JSIO EventListenerOptions
+  new' = new undef
   
   export
   capture : (obj : EventListenerOptions) -> JSIO (UndefOr Boolean)
@@ -2245,6 +2420,10 @@ namespace EventListenerOptions
              -> (value : UndefOr Boolean)
              -> JSIO ()
   setCapture a b = primJS $ EventListenerOptions.prim__setCapture a b
+
+  export
+  setCapture' : (obj : EventListenerOptions) -> JSIO ()
+  setCapture' a = setCapture a undef
 
 namespace GetRootNodeOptions
   
@@ -2257,6 +2436,10 @@ namespace GetRootNodeOptions
   export
   new : (composed : UndefOr Boolean) -> JSIO GetRootNodeOptions
   new a = primJS $ GetRootNodeOptions.prim__new a
+
+  export
+  new' : JSIO GetRootNodeOptions
+  new' = new undef
   
   export
   composed : (obj : GetRootNodeOptions) -> JSIO (UndefOr Boolean)
@@ -2267,6 +2450,10 @@ namespace GetRootNodeOptions
               -> (value : UndefOr Boolean)
               -> JSIO ()
   setComposed a b = primJS $ GetRootNodeOptions.prim__setComposed a b
+
+  export
+  setComposed' : (obj : GetRootNodeOptions) -> JSIO ()
+  setComposed' a = setComposed a undef
 
 namespace MutationObserverInit
   
@@ -2286,6 +2473,10 @@ namespace MutationObserverInit
       -> (attributeFilter : UndefOr (Array String))
       -> JSIO MutationObserverInit
   new a b c d e f g = primJS $ MutationObserverInit.prim__new a b c d e f g
+
+  export
+  new' : JSIO MutationObserverInit
+  new' = new undef undef undef undef undef undef undef
   
   export
   attributeFilter :  (obj : MutationObserverInit)
@@ -2298,6 +2489,10 @@ namespace MutationObserverInit
                      -> JSIO ()
   setAttributeFilter a b = primJS $ MutationObserverInit.prim__setAttributeFilter a
                                                                                   b
+
+  export
+  setAttributeFilter' : (obj : MutationObserverInit) -> JSIO ()
+  setAttributeFilter' a = setAttributeFilter a undef
   
   export
   attributeOldValue : (obj : MutationObserverInit) -> JSIO (UndefOr Boolean)
@@ -2309,6 +2504,10 @@ namespace MutationObserverInit
                        -> JSIO ()
   setAttributeOldValue a b = primJS $ MutationObserverInit.prim__setAttributeOldValue a
                                                                                       b
+
+  export
+  setAttributeOldValue' : (obj : MutationObserverInit) -> JSIO ()
+  setAttributeOldValue' a = setAttributeOldValue a undef
   
   export
   attributes : (obj : MutationObserverInit) -> JSIO (UndefOr Boolean)
@@ -2319,6 +2518,10 @@ namespace MutationObserverInit
                 -> (value : UndefOr Boolean)
                 -> JSIO ()
   setAttributes a b = primJS $ MutationObserverInit.prim__setAttributes a b
+
+  export
+  setAttributes' : (obj : MutationObserverInit) -> JSIO ()
+  setAttributes' a = setAttributes a undef
   
   export
   characterData : (obj : MutationObserverInit) -> JSIO (UndefOr Boolean)
@@ -2330,6 +2533,10 @@ namespace MutationObserverInit
                    -> JSIO ()
   setCharacterData a b = primJS $ MutationObserverInit.prim__setCharacterData a
                                                                               b
+
+  export
+  setCharacterData' : (obj : MutationObserverInit) -> JSIO ()
+  setCharacterData' a = setCharacterData a undef
   
   export
   characterDataOldValue : (obj : MutationObserverInit) -> JSIO (UndefOr Boolean)
@@ -2341,6 +2548,10 @@ namespace MutationObserverInit
                            -> JSIO ()
   setCharacterDataOldValue a b = primJS $ MutationObserverInit.prim__setCharacterDataOldValue a
                                                                                               b
+
+  export
+  setCharacterDataOldValue' : (obj : MutationObserverInit) -> JSIO ()
+  setCharacterDataOldValue' a = setCharacterDataOldValue a undef
   
   export
   childList : (obj : MutationObserverInit) -> JSIO (UndefOr Boolean)
@@ -2351,6 +2562,10 @@ namespace MutationObserverInit
                -> (value : UndefOr Boolean)
                -> JSIO ()
   setChildList a b = primJS $ MutationObserverInit.prim__setChildList a b
+
+  export
+  setChildList' : (obj : MutationObserverInit) -> JSIO ()
+  setChildList' a = setChildList a undef
   
   export
   subtree : (obj : MutationObserverInit) -> JSIO (UndefOr Boolean)
@@ -2361,6 +2576,10 @@ namespace MutationObserverInit
              -> (value : UndefOr Boolean)
              -> JSIO ()
   setSubtree a b = primJS $ MutationObserverInit.prim__setSubtree a b
+
+  export
+  setSubtree' : (obj : MutationObserverInit) -> JSIO ()
+  setSubtree' a = setSubtree a undef
 
 namespace ShadowRootInit
   
@@ -2375,6 +2594,10 @@ namespace ShadowRootInit
       -> (delegatesFocus : UndefOr Boolean)
       -> JSIO ShadowRootInit
   new a b = primJS $ ShadowRootInit.prim__new a b
+
+  export
+  new' : (mode : ShadowRootMode) -> JSIO ShadowRootInit
+  new' a = new a undef
   
   export
   delegatesFocus : (obj : ShadowRootInit) -> JSIO (UndefOr Boolean)
@@ -2385,6 +2608,10 @@ namespace ShadowRootInit
                     -> (value : UndefOr Boolean)
                     -> JSIO ()
   setDelegatesFocus a b = primJS $ ShadowRootInit.prim__setDelegatesFocus a b
+
+  export
+  setDelegatesFocus' : (obj : ShadowRootInit) -> JSIO ()
+  setDelegatesFocus' a = setDelegatesFocus a undef
   
   export
   mode : (obj : ShadowRootInit) -> JSIO ShadowRootMode

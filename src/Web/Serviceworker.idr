@@ -32,6 +32,10 @@ namespace Cache
          -> (options : UndefOr CacheQueryOptions)
          -> JSIO (Promise Boolean)
   delete a b c = primJS $ Cache.prim__delete a b c
+
+  export
+  delete' : (obj : Cache) -> (request : RequestInfo) -> JSIO (Promise Boolean)
+  delete' a b = delete a b undef
   
   export
   keys :  (obj : Cache)
@@ -39,6 +43,10 @@ namespace Cache
        -> (options : UndefOr CacheQueryOptions)
        -> JSIO (Promise (Array Request))
   keys a b c = primJS $ Cache.prim__keys a b c
+
+  export
+  keys' : (obj : Cache) -> JSIO (Promise (Array Request))
+  keys' a = keys a undef undef
   
   export
   matchAll :  (obj : Cache)
@@ -46,6 +54,10 @@ namespace Cache
            -> (options : UndefOr CacheQueryOptions)
            -> JSIO (Promise (Array Response))
   matchAll a b c = primJS $ Cache.prim__matchAll a b c
+
+  export
+  matchAll' : (obj : Cache) -> JSIO (Promise (Array Response))
+  matchAll' a = matchAll a undef undef
   
   export
   match :  (obj : Cache)
@@ -53,6 +65,12 @@ namespace Cache
         -> (options : UndefOr CacheQueryOptions)
         -> JSIO (Promise (Union2 Response Undefined))
   match a b c = primJS $ Cache.prim__match a b c
+
+  export
+  match' :  (obj : Cache)
+         -> (request : RequestInfo)
+         -> JSIO (Promise (Union2 Response Undefined))
+  match' a b = match a b undef
   
   export
   put :  (obj : Cache)
@@ -89,6 +107,12 @@ namespace CacheStorage
         -> (options : UndefOr MultiCacheQueryOptions)
         -> JSIO (Promise (Union2 Response Undefined))
   match a b c = primJS $ CacheStorage.prim__match a b c
+
+  export
+  match' :  (obj : CacheStorage)
+         -> (request : RequestInfo)
+         -> JSIO (Promise (Union2 Response Undefined))
+  match' a b = match a b undef
   
   export
   open_ : (obj : CacheStorage) -> (cacheName : String) -> JSIO (Promise Cache)
@@ -132,6 +156,10 @@ namespace Client
                -> JSIO ()
   postMessage1 a b c = primJS $ Client.prim__postMessage1 a b c
 
+  export
+  postMessage1' : (obj : Client) -> (message : AnyPtr) -> JSIO ()
+  postMessage1' a b = postMessage1 a b undef
+
 namespace Clients
   
   public export
@@ -155,6 +183,10 @@ namespace Clients
            -> (options : UndefOr ClientQueryOptions)
            -> JSIO (Promise (Array Client))
   matchAll a b = primJS $ Clients.prim__matchAll a b
+
+  export
+  matchAll' : (obj : Clients) -> JSIO (Promise (Array Client))
+  matchAll' a = matchAll a undef
   
   export
   openWindow :  (obj : Clients)
@@ -175,6 +207,10 @@ namespace ExtendableEvent
       -> (eventInitDict : UndefOr ExtendableEventInit)
       -> JSIO ExtendableEvent
   new a b = primJS $ ExtendableEvent.prim__new a b
+
+  export
+  new' : (type : String) -> JSIO ExtendableEvent
+  new' a = new a undef
   
   export
   waitUntil : (obj : ExtendableEvent) -> (f : Promise AnyPtr) -> JSIO ()
@@ -193,6 +229,10 @@ namespace ExtendableMessageEvent
       -> (eventInitDict : UndefOr ExtendableMessageEventInit)
       -> JSIO ExtendableMessageEvent
   new a b = primJS $ ExtendableMessageEvent.prim__new a b
+
+  export
+  new' : (type : String) -> JSIO ExtendableMessageEvent
+  new' a = new a undef
   
   export
   data_ : (obj : ExtendableMessageEvent) -> JSIO AnyPtr
@@ -321,6 +361,10 @@ namespace ServiceWorker
                -> JSIO ()
   postMessage1 a b c = primJS $ ServiceWorker.prim__postMessage1 a b c
 
+  export
+  postMessage1' : (obj : ServiceWorker) -> (message : AnyPtr) -> JSIO ()
+  postMessage1' a b = postMessage1 a b undef
+
 namespace ServiceWorkerContainer
   
   public export
@@ -376,6 +420,12 @@ namespace ServiceWorkerContainer
                   -> JSIO (Promise (Union2 ServiceWorkerRegistration Undefined))
   getRegistration a b = primJS $ ServiceWorkerContainer.prim__getRegistration a
                                                                               b
+
+  export
+  getRegistration' :  (obj : ServiceWorkerContainer)
+                   -> JSIO (Promise (Union2 ServiceWorkerRegistration
+                                            Undefined))
+  getRegistration' a = getRegistration a undef
   
   export
   getRegistrations :  (obj : ServiceWorkerContainer)
@@ -388,6 +438,12 @@ namespace ServiceWorkerContainer
            -> (options : UndefOr RegistrationOptions)
            -> JSIO (Promise ServiceWorkerRegistration)
   register a b c = primJS $ ServiceWorkerContainer.prim__register a b c
+
+  export
+  register' :  (obj : ServiceWorkerContainer)
+            -> (scriptURL : String)
+            -> JSIO (Promise ServiceWorkerRegistration)
+  register' a b = register a b undef
   
   export
   startMessages : (obj : ServiceWorkerContainer) -> JSIO ()
@@ -572,6 +628,10 @@ namespace CacheQueryOptions
       -> (ignoreVary : UndefOr Boolean)
       -> JSIO CacheQueryOptions
   new a b c = primJS $ CacheQueryOptions.prim__new a b c
+
+  export
+  new' : JSIO CacheQueryOptions
+  new' = new undef undef undef
   
   export
   ignoreMethod : (obj : CacheQueryOptions) -> JSIO (UndefOr Boolean)
@@ -582,6 +642,10 @@ namespace CacheQueryOptions
                   -> (value : UndefOr Boolean)
                   -> JSIO ()
   setIgnoreMethod a b = primJS $ CacheQueryOptions.prim__setIgnoreMethod a b
+
+  export
+  setIgnoreMethod' : (obj : CacheQueryOptions) -> JSIO ()
+  setIgnoreMethod' a = setIgnoreMethod a undef
   
   export
   ignoreSearch : (obj : CacheQueryOptions) -> JSIO (UndefOr Boolean)
@@ -592,6 +656,10 @@ namespace CacheQueryOptions
                   -> (value : UndefOr Boolean)
                   -> JSIO ()
   setIgnoreSearch a b = primJS $ CacheQueryOptions.prim__setIgnoreSearch a b
+
+  export
+  setIgnoreSearch' : (obj : CacheQueryOptions) -> JSIO ()
+  setIgnoreSearch' a = setIgnoreSearch a undef
   
   export
   ignoreVary : (obj : CacheQueryOptions) -> JSIO (UndefOr Boolean)
@@ -602,6 +670,10 @@ namespace CacheQueryOptions
                 -> (value : UndefOr Boolean)
                 -> JSIO ()
   setIgnoreVary a b = primJS $ CacheQueryOptions.prim__setIgnoreVary a b
+
+  export
+  setIgnoreVary' : (obj : CacheQueryOptions) -> JSIO ()
+  setIgnoreVary' a = setIgnoreVary a undef
 
 namespace ClientQueryOptions
   
@@ -616,6 +688,10 @@ namespace ClientQueryOptions
       -> (type : UndefOr ClientType)
       -> JSIO ClientQueryOptions
   new a b = primJS $ ClientQueryOptions.prim__new a b
+
+  export
+  new' : JSIO ClientQueryOptions
+  new' = new undef undef
   
   export
   includeUncontrolled : (obj : ClientQueryOptions) -> JSIO (UndefOr Boolean)
@@ -627,6 +703,10 @@ namespace ClientQueryOptions
                          -> JSIO ()
   setIncludeUncontrolled a b = primJS $ ClientQueryOptions.prim__setIncludeUncontrolled a
                                                                                         b
+
+  export
+  setIncludeUncontrolled' : (obj : ClientQueryOptions) -> JSIO ()
+  setIncludeUncontrolled' a = setIncludeUncontrolled a undef
   
   export
   type : (obj : ClientQueryOptions) -> JSIO (UndefOr ClientType)
@@ -637,6 +717,10 @@ namespace ClientQueryOptions
           -> (value : UndefOr ClientType)
           -> JSIO ()
   setType a b = primJS $ ClientQueryOptions.prim__setType a b
+
+  export
+  setType' : (obj : ClientQueryOptions) -> JSIO ()
+  setType' a = setType a undef
 
 namespace ExtendableEventInit
   
@@ -666,6 +750,10 @@ namespace ExtendableMessageEventInit
       -> (ports : UndefOr (Array MessagePort))
       -> JSIO ExtendableMessageEventInit
   new a b c d e = primJS $ ExtendableMessageEventInit.prim__new a b c d e
+
+  export
+  new' : JSIO ExtendableMessageEventInit
+  new' = new undef undef undef undef undef
   
   export
   data_ : (obj : ExtendableMessageEventInit) -> JSIO (UndefOr AnyPtr)
@@ -676,6 +764,10 @@ namespace ExtendableMessageEventInit
           -> (value : UndefOr AnyPtr)
           -> JSIO ()
   setData a b = primJS $ ExtendableMessageEventInit.prim__setData a b
+
+  export
+  setData' : (obj : ExtendableMessageEventInit) -> JSIO ()
+  setData' a = setData a undef
   
   export
   lastEventId : (obj : ExtendableMessageEventInit) -> JSIO (UndefOr String)
@@ -687,6 +779,10 @@ namespace ExtendableMessageEventInit
                  -> JSIO ()
   setLastEventId a b = primJS $ ExtendableMessageEventInit.prim__setLastEventId a
                                                                                 b
+
+  export
+  setLastEventId' : (obj : ExtendableMessageEventInit) -> JSIO ()
+  setLastEventId' a = setLastEventId a undef
   
   export
   origin : (obj : ExtendableMessageEventInit) -> JSIO (UndefOr String)
@@ -697,6 +793,10 @@ namespace ExtendableMessageEventInit
             -> (value : UndefOr String)
             -> JSIO ()
   setOrigin a b = primJS $ ExtendableMessageEventInit.prim__setOrigin a b
+
+  export
+  setOrigin' : (obj : ExtendableMessageEventInit) -> JSIO ()
+  setOrigin' a = setOrigin a undef
   
   export
   ports :  (obj : ExtendableMessageEventInit)
@@ -708,6 +808,10 @@ namespace ExtendableMessageEventInit
            -> (value : UndefOr (Array MessagePort))
            -> JSIO ()
   setPorts a b = primJS $ ExtendableMessageEventInit.prim__setPorts a b
+
+  export
+  setPorts' : (obj : ExtendableMessageEventInit) -> JSIO ()
+  setPorts' a = setPorts a undef
   
   export
   source :  (obj : ExtendableMessageEventInit)
@@ -721,6 +825,10 @@ namespace ExtendableMessageEventInit
                                                   MessagePort)))
             -> JSIO ()
   setSource a b = primJS $ ExtendableMessageEventInit.prim__setSource a b
+
+  export
+  setSource' : (obj : ExtendableMessageEventInit) -> JSIO ()
+  setSource' a = setSource a undef
 
 namespace FetchEventInit
   
@@ -739,6 +847,10 @@ namespace FetchEventInit
       -> (handled : UndefOr (Promise Undefined))
       -> JSIO FetchEventInit
   new a b c d e f = primJS $ FetchEventInit.prim__new a b c d e f
+
+  export
+  new' : (request : Request) -> JSIO FetchEventInit
+  new' a = new a undef undef undef undef undef
   
   export
   clientId : (obj : FetchEventInit) -> JSIO (UndefOr String)
@@ -747,6 +859,10 @@ namespace FetchEventInit
   export
   setClientId : (obj : FetchEventInit) -> (value : UndefOr String) -> JSIO ()
   setClientId a b = primJS $ FetchEventInit.prim__setClientId a b
+
+  export
+  setClientId' : (obj : FetchEventInit) -> JSIO ()
+  setClientId' a = setClientId a undef
   
   export
   handled : (obj : FetchEventInit) -> JSIO (UndefOr (Promise Undefined))
@@ -757,6 +873,10 @@ namespace FetchEventInit
              -> (value : UndefOr (Promise Undefined))
              -> JSIO ()
   setHandled a b = primJS $ FetchEventInit.prim__setHandled a b
+
+  export
+  setHandled' : (obj : FetchEventInit) -> JSIO ()
+  setHandled' a = setHandled a undef
   
   export
   preloadResponse : (obj : FetchEventInit) -> JSIO (UndefOr (Promise AnyPtr))
@@ -767,6 +887,10 @@ namespace FetchEventInit
                      -> (value : UndefOr (Promise AnyPtr))
                      -> JSIO ()
   setPreloadResponse a b = primJS $ FetchEventInit.prim__setPreloadResponse a b
+
+  export
+  setPreloadResponse' : (obj : FetchEventInit) -> JSIO ()
+  setPreloadResponse' a = setPreloadResponse a undef
   
   export
   replacesClientId : (obj : FetchEventInit) -> JSIO (UndefOr String)
@@ -778,6 +902,10 @@ namespace FetchEventInit
                       -> JSIO ()
   setReplacesClientId a b = primJS $ FetchEventInit.prim__setReplacesClientId a
                                                                               b
+
+  export
+  setReplacesClientId' : (obj : FetchEventInit) -> JSIO ()
+  setReplacesClientId' a = setReplacesClientId a undef
   
   export
   request : (obj : FetchEventInit) -> JSIO Request
@@ -798,6 +926,10 @@ namespace FetchEventInit
   setResultingClientId a b = primJS $ FetchEventInit.prim__setResultingClientId a
                                                                                 b
 
+  export
+  setResultingClientId' : (obj : FetchEventInit) -> JSIO ()
+  setResultingClientId' a = setResultingClientId a undef
+
 namespace MultiCacheQueryOptions
   
   public export
@@ -809,6 +941,10 @@ namespace MultiCacheQueryOptions
   export
   new : (cacheName : UndefOr String) -> JSIO MultiCacheQueryOptions
   new a = primJS $ MultiCacheQueryOptions.prim__new a
+
+  export
+  new' : JSIO MultiCacheQueryOptions
+  new' = new undef
   
   export
   cacheName : (obj : MultiCacheQueryOptions) -> JSIO (UndefOr String)
@@ -819,6 +955,10 @@ namespace MultiCacheQueryOptions
                -> (value : UndefOr String)
                -> JSIO ()
   setCacheName a b = primJS $ MultiCacheQueryOptions.prim__setCacheName a b
+
+  export
+  setCacheName' : (obj : MultiCacheQueryOptions) -> JSIO ()
+  setCacheName' a = setCacheName a undef
 
 namespace NavigationPreloadState
   
@@ -833,6 +973,10 @@ namespace NavigationPreloadState
       -> (headerValue : UndefOr ByteString)
       -> JSIO NavigationPreloadState
   new a b = primJS $ NavigationPreloadState.prim__new a b
+
+  export
+  new' : JSIO NavigationPreloadState
+  new' = new undef undef
   
   export
   enabled : (obj : NavigationPreloadState) -> JSIO (UndefOr Boolean)
@@ -843,6 +987,10 @@ namespace NavigationPreloadState
              -> (value : UndefOr Boolean)
              -> JSIO ()
   setEnabled a b = primJS $ NavigationPreloadState.prim__setEnabled a b
+
+  export
+  setEnabled' : (obj : NavigationPreloadState) -> JSIO ()
+  setEnabled' a = setEnabled a undef
   
   export
   headerValue : (obj : NavigationPreloadState) -> JSIO (UndefOr ByteString)
@@ -853,6 +1001,10 @@ namespace NavigationPreloadState
                  -> (value : UndefOr ByteString)
                  -> JSIO ()
   setHeaderValue a b = primJS $ NavigationPreloadState.prim__setHeaderValue a b
+
+  export
+  setHeaderValue' : (obj : NavigationPreloadState) -> JSIO ()
+  setHeaderValue' a = setHeaderValue a undef
 
 namespace RegistrationOptions
   
@@ -868,6 +1020,10 @@ namespace RegistrationOptions
       -> (updateViaCache : UndefOr ServiceWorkerUpdateViaCache)
       -> JSIO RegistrationOptions
   new a b c = primJS $ RegistrationOptions.prim__new a b c
+
+  export
+  new' : JSIO RegistrationOptions
+  new' = new undef undef undef
   
   export
   scope : (obj : RegistrationOptions) -> JSIO (UndefOr String)
@@ -876,6 +1032,10 @@ namespace RegistrationOptions
   export
   setScope : (obj : RegistrationOptions) -> (value : UndefOr String) -> JSIO ()
   setScope a b = primJS $ RegistrationOptions.prim__setScope a b
+
+  export
+  setScope' : (obj : RegistrationOptions) -> JSIO ()
+  setScope' a = setScope a undef
   
   export
   type : (obj : RegistrationOptions) -> JSIO (UndefOr WorkerType)
@@ -886,6 +1046,10 @@ namespace RegistrationOptions
           -> (value : UndefOr WorkerType)
           -> JSIO ()
   setType a b = primJS $ RegistrationOptions.prim__setType a b
+
+  export
+  setType' : (obj : RegistrationOptions) -> JSIO ()
+  setType' a = setType a undef
   
   export
   updateViaCache :  (obj : RegistrationOptions)
@@ -898,3 +1062,7 @@ namespace RegistrationOptions
                     -> JSIO ()
   setUpdateViaCache a b = primJS $ RegistrationOptions.prim__setUpdateViaCache a
                                                                                b
+
+  export
+  setUpdateViaCache' : (obj : RegistrationOptions) -> JSIO ()
+  setUpdateViaCache' a = setUpdateViaCache a undef

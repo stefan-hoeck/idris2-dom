@@ -664,12 +664,20 @@ namespace SVGGeometryElement
                 -> (point : UndefOr DOMPointInit)
                 -> JSIO Boolean
   isPointInFill a b = primJS $ SVGGeometryElement.prim__isPointInFill a b
+
+  export
+  isPointInFill' : (obj : SVGGeometryElement) -> JSIO Boolean
+  isPointInFill' a = isPointInFill a undef
   
   export
   isPointInStroke :  (obj : SVGGeometryElement)
                   -> (point : UndefOr DOMPointInit)
                   -> JSIO Boolean
   isPointInStroke a b = primJS $ SVGGeometryElement.prim__isPointInStroke a b
+
+  export
+  isPointInStroke' : (obj : SVGGeometryElement) -> JSIO Boolean
+  isPointInStroke' a = isPointInStroke a undef
 
 namespace SVGGradientElement
   
@@ -747,6 +755,10 @@ namespace SVGGraphicsElement
           -> (options : UndefOr SVGBoundingBoxOptions)
           -> JSIO DOMRect
   getBBox a b = primJS $ SVGGraphicsElement.prim__getBBox a b
+
+  export
+  getBBox' : (obj : SVGGraphicsElement) -> JSIO DOMRect
+  getBBox' a = getBBox a undef
   
   export
   getCTM : (obj : SVGGraphicsElement) -> JSIO (Nullable DOMMatrix)
@@ -1689,6 +1701,10 @@ namespace SVGSVGElement
                                -> JSIO SVGTransform
   createSVGTransformFromMatrix a b = primJS $ SVGSVGElement.prim__createSVGTransformFromMatrix a
                                                                                                b
+
+  export
+  createSVGTransformFromMatrix' : (obj : SVGSVGElement) -> JSIO SVGTransform
+  createSVGTransformFromMatrix' a = createSVGTransformFromMatrix a undef
   
   export
   createSVGTransform : (obj : SVGSVGElement) -> JSIO SVGTransform
@@ -2026,6 +2042,10 @@ namespace SVGTextContentElement
                        -> JSIO Int32
   getCharNumAtPosition a b = primJS $ SVGTextContentElement.prim__getCharNumAtPosition a
                                                                                        b
+
+  export
+  getCharNumAtPosition' : (obj : SVGTextContentElement) -> JSIO Int32
+  getCharNumAtPosition' a = getCharNumAtPosition a undef
   
   export
   getComputedTextLength : (obj : SVGTextContentElement) -> JSIO Double
@@ -2287,6 +2307,10 @@ namespace SVGTransform
             -> (matrix : UndefOr DOMMatrix2DInit)
             -> JSIO ()
   setMatrix a b = primJS $ SVGTransform.prim__setMatrix a b
+
+  export
+  setMatrix' : (obj : SVGTransform) -> JSIO ()
+  setMatrix' a = setMatrix a undef
   
   export
   setRotate :  (obj : SVGTransform)
@@ -2358,6 +2382,10 @@ namespace SVGTransformList
                                -> JSIO SVGTransform
   createSVGTransformFromMatrix a b = primJS $ SVGTransformList.prim__createSVGTransformFromMatrix a
                                                                                                   b
+
+  export
+  createSVGTransformFromMatrix' : (obj : SVGTransformList) -> JSIO SVGTransform
+  createSVGTransformFromMatrix' a = createSVGTransformFromMatrix a undef
   
   export
   getItem : (obj : SVGTransformList) -> (index : UInt32) -> JSIO SVGTransform
@@ -2580,6 +2608,10 @@ namespace SVGBoundingBoxOptions
       -> (clipped : UndefOr Boolean)
       -> JSIO SVGBoundingBoxOptions
   new a b c d = primJS $ SVGBoundingBoxOptions.prim__new a b c d
+
+  export
+  new' : JSIO SVGBoundingBoxOptions
+  new' = new undef undef undef undef
   
   export
   clipped : (obj : SVGBoundingBoxOptions) -> JSIO (UndefOr Boolean)
@@ -2590,6 +2622,10 @@ namespace SVGBoundingBoxOptions
              -> (value : UndefOr Boolean)
              -> JSIO ()
   setClipped a b = primJS $ SVGBoundingBoxOptions.prim__setClipped a b
+
+  export
+  setClipped' : (obj : SVGBoundingBoxOptions) -> JSIO ()
+  setClipped' a = setClipped a undef
   
   export
   fill : (obj : SVGBoundingBoxOptions) -> JSIO (UndefOr Boolean)
@@ -2600,6 +2636,10 @@ namespace SVGBoundingBoxOptions
           -> (value : UndefOr Boolean)
           -> JSIO ()
   setFill a b = primJS $ SVGBoundingBoxOptions.prim__setFill a b
+
+  export
+  setFill' : (obj : SVGBoundingBoxOptions) -> JSIO ()
+  setFill' a = setFill a undef
   
   export
   markers : (obj : SVGBoundingBoxOptions) -> JSIO (UndefOr Boolean)
@@ -2610,6 +2650,10 @@ namespace SVGBoundingBoxOptions
              -> (value : UndefOr Boolean)
              -> JSIO ()
   setMarkers a b = primJS $ SVGBoundingBoxOptions.prim__setMarkers a b
+
+  export
+  setMarkers' : (obj : SVGBoundingBoxOptions) -> JSIO ()
+  setMarkers' a = setMarkers a undef
   
   export
   stroke : (obj : SVGBoundingBoxOptions) -> JSIO (UndefOr Boolean)
@@ -2620,3 +2664,7 @@ namespace SVGBoundingBoxOptions
             -> (value : UndefOr Boolean)
             -> JSIO ()
   setStroke a b = primJS $ SVGBoundingBoxOptions.prim__setStroke a b
+
+  export
+  setStroke' : (obj : SVGBoundingBoxOptions) -> JSIO ()
+  setStroke' a = setStroke a undef

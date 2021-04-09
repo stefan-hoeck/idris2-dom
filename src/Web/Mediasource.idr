@@ -81,6 +81,10 @@ namespace MediaSource
               -> (error : UndefOr EndOfStreamError)
               -> JSIO ()
   endOfStream a b = primJS $ MediaSource.prim__endOfStream a b
+
+  export
+  endOfStream' : (obj : MediaSource) -> JSIO ()
+  endOfStream' a = endOfStream a undef
   
   export
   removeSourceBuffer :  (obj : MediaSource)

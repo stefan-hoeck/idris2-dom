@@ -27,6 +27,10 @@ namespace DOMMatrix
   export
   fromMatrix : (other : UndefOr DOMMatrixInit) -> JSIO DOMMatrix
   fromMatrix a = primJS $ DOMMatrix.prim__fromMatrix a
+
+  export
+  fromMatrix' : JSIO DOMMatrix
+  fromMatrix' = fromMatrix undef
   
   export
   invertSelf : (obj : DOMMatrix) -> JSIO DOMMatrix
@@ -37,12 +41,20 @@ namespace DOMMatrix
                -> (other : UndefOr DOMMatrixInit)
                -> JSIO DOMMatrix
   multiplySelf a b = primJS $ DOMMatrix.prim__multiplySelf a b
+
+  export
+  multiplySelf' : (obj : DOMMatrix) -> JSIO DOMMatrix
+  multiplySelf' a = multiplySelf a undef
   
   export
   preMultiplySelf :  (obj : DOMMatrix)
                   -> (other : UndefOr DOMMatrixInit)
                   -> JSIO DOMMatrix
   preMultiplySelf a b = primJS $ DOMMatrix.prim__preMultiplySelf a b
+
+  export
+  preMultiplySelf' : (obj : DOMMatrix) -> JSIO DOMMatrix
+  preMultiplySelf' a = preMultiplySelf a undef
   
   export
   rotateAxisAngleSelf :  (obj : DOMMatrix)
@@ -56,6 +68,10 @@ namespace DOMMatrix
                                                                                c
                                                                                d
                                                                                e
+
+  export
+  rotateAxisAngleSelf' : (obj : DOMMatrix) -> JSIO DOMMatrix
+  rotateAxisAngleSelf' a = rotateAxisAngleSelf a undef undef undef undef
   
   export
   rotateFromVectorSelf :  (obj : DOMMatrix)
@@ -65,6 +81,10 @@ namespace DOMMatrix
   rotateFromVectorSelf a b c = primJS $ DOMMatrix.prim__rotateFromVectorSelf a
                                                                              b
                                                                              c
+
+  export
+  rotateFromVectorSelf' : (obj : DOMMatrix) -> JSIO DOMMatrix
+  rotateFromVectorSelf' a = rotateFromVectorSelf a undef undef
   
   export
   rotateSelf :  (obj : DOMMatrix)
@@ -73,6 +93,10 @@ namespace DOMMatrix
              -> (rotZ : UndefOr Double)
              -> JSIO DOMMatrix
   rotateSelf a b c d = primJS $ DOMMatrix.prim__rotateSelf a b c d
+
+  export
+  rotateSelf' : (obj : DOMMatrix) -> JSIO DOMMatrix
+  rotateSelf' a = rotateSelf a undef undef undef
   
   export
   scale3dSelf :  (obj : DOMMatrix)
@@ -82,6 +106,10 @@ namespace DOMMatrix
               -> (originZ : UndefOr Double)
               -> JSIO DOMMatrix
   scale3dSelf a b c d e = primJS $ DOMMatrix.prim__scale3dSelf a b c d e
+
+  export
+  scale3dSelf' : (obj : DOMMatrix) -> JSIO DOMMatrix
+  scale3dSelf' a = scale3dSelf a undef undef undef undef
   
   export
   scaleSelf :  (obj : DOMMatrix)
@@ -93,6 +121,10 @@ namespace DOMMatrix
             -> (originZ : UndefOr Double)
             -> JSIO DOMMatrix
   scaleSelf a b c d e f g = primJS $ DOMMatrix.prim__scaleSelf a b c d e f g
+
+  export
+  scaleSelf' : (obj : DOMMatrix) -> JSIO DOMMatrix
+  scaleSelf' a = scaleSelf a undef undef undef undef undef undef
   
   export
   setMatrixValue :  (obj : DOMMatrix)
@@ -103,10 +135,18 @@ namespace DOMMatrix
   export
   skewXSelf : (obj : DOMMatrix) -> (sx : UndefOr Double) -> JSIO DOMMatrix
   skewXSelf a b = primJS $ DOMMatrix.prim__skewXSelf a b
+
+  export
+  skewXSelf' : (obj : DOMMatrix) -> JSIO DOMMatrix
+  skewXSelf' a = skewXSelf a undef
   
   export
   skewYSelf : (obj : DOMMatrix) -> (sy : UndefOr Double) -> JSIO DOMMatrix
   skewYSelf a b = primJS $ DOMMatrix.prim__skewYSelf a b
+
+  export
+  skewYSelf' : (obj : DOMMatrix) -> JSIO DOMMatrix
+  skewYSelf' a = skewYSelf a undef
   
   export
   translateSelf :  (obj : DOMMatrix)
@@ -115,6 +155,10 @@ namespace DOMMatrix
                 -> (tz : UndefOr Double)
                 -> JSIO DOMMatrix
   translateSelf a b c d = primJS $ DOMMatrix.prim__translateSelf a b c d
+
+  export
+  translateSelf' : (obj : DOMMatrix) -> JSIO DOMMatrix
+  translateSelf' a = translateSelf a undef undef undef
 
 namespace DOMMatrixReadOnly
   
@@ -135,6 +179,10 @@ namespace DOMMatrixReadOnly
   export
   fromMatrix : (other : UndefOr DOMMatrixInit) -> JSIO DOMMatrixReadOnly
   fromMatrix a = primJS $ DOMMatrixReadOnly.prim__fromMatrix a
+
+  export
+  fromMatrix' : JSIO DOMMatrixReadOnly
+  fromMatrix' = fromMatrix undef
   
   export
   a : (obj : DOMMatrixReadOnly) -> JSIO Double
@@ -249,6 +297,10 @@ namespace DOMMatrixReadOnly
            -> (other : UndefOr DOMMatrixInit)
            -> JSIO DOMMatrix
   multiply a b = primJS $ DOMMatrixReadOnly.prim__multiply a b
+
+  export
+  multiply' : (obj : DOMMatrixReadOnly) -> JSIO DOMMatrix
+  multiply' a = multiply a undef
   
   export
   rotateAxisAngle :  (obj : DOMMatrixReadOnly)
@@ -262,6 +314,10 @@ namespace DOMMatrixReadOnly
                                                                                c
                                                                                d
                                                                                e
+
+  export
+  rotateAxisAngle' : (obj : DOMMatrixReadOnly) -> JSIO DOMMatrix
+  rotateAxisAngle' a = rotateAxisAngle a undef undef undef undef
   
   export
   rotate :  (obj : DOMMatrixReadOnly)
@@ -270,6 +326,10 @@ namespace DOMMatrixReadOnly
          -> (rotZ : UndefOr Double)
          -> JSIO DOMMatrix
   rotate a b c d = primJS $ DOMMatrixReadOnly.prim__rotate a b c d
+
+  export
+  rotate' : (obj : DOMMatrixReadOnly) -> JSIO DOMMatrix
+  rotate' a = rotate a undef undef undef
   
   export
   rotateFromVector :  (obj : DOMMatrixReadOnly)
@@ -279,6 +339,10 @@ namespace DOMMatrixReadOnly
   rotateFromVector a b c = primJS $ DOMMatrixReadOnly.prim__rotateFromVector a
                                                                              b
                                                                              c
+
+  export
+  rotateFromVector' : (obj : DOMMatrixReadOnly) -> JSIO DOMMatrix
+  rotateFromVector' a = rotateFromVector a undef undef
   
   export
   scale3d :  (obj : DOMMatrixReadOnly)
@@ -288,6 +352,10 @@ namespace DOMMatrixReadOnly
           -> (originZ : UndefOr Double)
           -> JSIO DOMMatrix
   scale3d a b c d e = primJS $ DOMMatrixReadOnly.prim__scale3d a b c d e
+
+  export
+  scale3d' : (obj : DOMMatrixReadOnly) -> JSIO DOMMatrix
+  scale3d' a = scale3d a undef undef undef undef
   
   export
   scale :  (obj : DOMMatrixReadOnly)
@@ -299,6 +367,10 @@ namespace DOMMatrixReadOnly
         -> (originZ : UndefOr Double)
         -> JSIO DOMMatrix
   scale a b c d e f g = primJS $ DOMMatrixReadOnly.prim__scale a b c d e f g
+
+  export
+  scale' : (obj : DOMMatrixReadOnly) -> JSIO DOMMatrix
+  scale' a = scale a undef undef undef undef undef undef
   
   export
   scaleNonUniform :  (obj : DOMMatrixReadOnly)
@@ -306,14 +378,26 @@ namespace DOMMatrixReadOnly
                   -> (scaleY : UndefOr Double)
                   -> JSIO DOMMatrix
   scaleNonUniform a b c = primJS $ DOMMatrixReadOnly.prim__scaleNonUniform a b c
+
+  export
+  scaleNonUniform' : (obj : DOMMatrixReadOnly) -> JSIO DOMMatrix
+  scaleNonUniform' a = scaleNonUniform a undef undef
   
   export
   skewX : (obj : DOMMatrixReadOnly) -> (sx : UndefOr Double) -> JSIO DOMMatrix
   skewX a b = primJS $ DOMMatrixReadOnly.prim__skewX a b
+
+  export
+  skewX' : (obj : DOMMatrixReadOnly) -> JSIO DOMMatrix
+  skewX' a = skewX a undef
   
   export
   skewY : (obj : DOMMatrixReadOnly) -> (sy : UndefOr Double) -> JSIO DOMMatrix
   skewY a b = primJS $ DOMMatrixReadOnly.prim__skewY a b
+
+  export
+  skewY' : (obj : DOMMatrixReadOnly) -> JSIO DOMMatrix
+  skewY' a = skewY a undef
   
   export
   toFloat32Array : (obj : DOMMatrixReadOnly) -> JSIO Float32Array
@@ -336,6 +420,10 @@ namespace DOMMatrixReadOnly
                  -> (point : UndefOr DOMPointInit)
                  -> JSIO DOMPoint
   transformPoint a b = primJS $ DOMMatrixReadOnly.prim__transformPoint a b
+
+  export
+  transformPoint' : (obj : DOMMatrixReadOnly) -> JSIO DOMPoint
+  transformPoint' a = transformPoint a undef
   
   export
   translate :  (obj : DOMMatrixReadOnly)
@@ -344,6 +432,10 @@ namespace DOMMatrixReadOnly
             -> (tz : UndefOr Double)
             -> JSIO DOMMatrix
   translate a b c d = primJS $ DOMMatrixReadOnly.prim__translate a b c d
+
+  export
+  translate' : (obj : DOMMatrixReadOnly) -> JSIO DOMMatrix
+  translate' a = translate a undef undef undef
 
 namespace DOMPoint
   
@@ -357,6 +449,10 @@ namespace DOMPoint
   fromPoint : (other : UndefOr DOMPointInit) -> JSIO DOMPoint
   fromPoint a = primJS $ DOMPoint.prim__fromPoint a
 
+  export
+  fromPoint' : JSIO DOMPoint
+  fromPoint' = fromPoint undef
+
 namespace DOMPointReadOnly
   
   public export
@@ -368,6 +464,10 @@ namespace DOMPointReadOnly
   export
   fromPoint : (other : UndefOr DOMPointInit) -> JSIO DOMPointReadOnly
   fromPoint a = primJS $ DOMPointReadOnly.prim__fromPoint a
+
+  export
+  fromPoint' : JSIO DOMPointReadOnly
+  fromPoint' = fromPoint undef
   
   export
   w : (obj : DOMPointReadOnly) -> JSIO Double
@@ -390,6 +490,10 @@ namespace DOMPointReadOnly
                   -> (matrix : UndefOr DOMMatrixInit)
                   -> JSIO DOMPoint
   matrixTransform a b = primJS $ DOMPointReadOnly.prim__matrixTransform a b
+
+  export
+  matrixTransform' : (obj : DOMPointReadOnly) -> JSIO DOMPoint
+  matrixTransform' a = matrixTransform a undef
   
   export
   toJSON : (obj : DOMPointReadOnly) -> JSIO Object
@@ -406,10 +510,18 @@ namespace DOMQuad
   export
   fromQuad : (other : UndefOr DOMQuadInit) -> JSIO DOMQuad
   fromQuad a = primJS $ DOMQuad.prim__fromQuad a
+
+  export
+  fromQuad' : JSIO DOMQuad
+  fromQuad' = fromQuad undef
   
   export
   fromRect : (other : UndefOr DOMRectInit) -> JSIO DOMQuad
   fromRect a = primJS $ DOMQuad.prim__fromRect a
+
+  export
+  fromRect' : JSIO DOMQuad
+  fromRect' = fromRect undef
   
   export
   p1 : (obj : DOMQuad) -> JSIO DOMPoint
@@ -447,6 +559,10 @@ namespace DOMRect
   fromRect : (other : UndefOr DOMRectInit) -> JSIO DOMRect
   fromRect a = primJS $ DOMRect.prim__fromRect a
 
+  export
+  fromRect' : JSIO DOMRect
+  fromRect' = fromRect undef
+
 namespace DOMRectList
   
   public export
@@ -474,6 +590,10 @@ namespace DOMRectReadOnly
   export
   fromRect : (other : UndefOr DOMRectInit) -> JSIO DOMRectReadOnly
   fromRect a = primJS $ DOMRectReadOnly.prim__fromRect a
+
+  export
+  fromRect' : JSIO DOMRectReadOnly
+  fromRect' = fromRect undef
   
   export
   bottom : (obj : DOMRectReadOnly) -> JSIO Double
@@ -550,6 +670,21 @@ namespace DOMMatrix2DInit
                                                                    j
                                                                    k
                                                                    l
+
+  export
+  new' : JSIO DOMMatrix2DInit
+  new' = new undef
+             undef
+             undef
+             undef
+             undef
+             undef
+             undef
+             undef
+             undef
+             undef
+             undef
+             undef
   
   export
   a : (obj : DOMMatrix2DInit) -> JSIO (UndefOr Double)
@@ -558,6 +693,10 @@ namespace DOMMatrix2DInit
   export
   setA : (obj : DOMMatrix2DInit) -> (value : UndefOr Double) -> JSIO ()
   setA a b = primJS $ DOMMatrix2DInit.prim__setA a b
+
+  export
+  setA' : (obj : DOMMatrix2DInit) -> JSIO ()
+  setA' a = setA a undef
   
   export
   b : (obj : DOMMatrix2DInit) -> JSIO (UndefOr Double)
@@ -566,6 +705,10 @@ namespace DOMMatrix2DInit
   export
   setB : (obj : DOMMatrix2DInit) -> (value : UndefOr Double) -> JSIO ()
   setB a b = primJS $ DOMMatrix2DInit.prim__setB a b
+
+  export
+  setB' : (obj : DOMMatrix2DInit) -> JSIO ()
+  setB' a = setB a undef
   
   export
   c : (obj : DOMMatrix2DInit) -> JSIO (UndefOr Double)
@@ -574,6 +717,10 @@ namespace DOMMatrix2DInit
   export
   setC : (obj : DOMMatrix2DInit) -> (value : UndefOr Double) -> JSIO ()
   setC a b = primJS $ DOMMatrix2DInit.prim__setC a b
+
+  export
+  setC' : (obj : DOMMatrix2DInit) -> JSIO ()
+  setC' a = setC a undef
   
   export
   d : (obj : DOMMatrix2DInit) -> JSIO (UndefOr Double)
@@ -582,6 +729,10 @@ namespace DOMMatrix2DInit
   export
   setD : (obj : DOMMatrix2DInit) -> (value : UndefOr Double) -> JSIO ()
   setD a b = primJS $ DOMMatrix2DInit.prim__setD a b
+
+  export
+  setD' : (obj : DOMMatrix2DInit) -> JSIO ()
+  setD' a = setD a undef
   
   export
   e : (obj : DOMMatrix2DInit) -> JSIO (UndefOr Double)
@@ -590,6 +741,10 @@ namespace DOMMatrix2DInit
   export
   setE : (obj : DOMMatrix2DInit) -> (value : UndefOr Double) -> JSIO ()
   setE a b = primJS $ DOMMatrix2DInit.prim__setE a b
+
+  export
+  setE' : (obj : DOMMatrix2DInit) -> JSIO ()
+  setE' a = setE a undef
   
   export
   f : (obj : DOMMatrix2DInit) -> JSIO (UndefOr Double)
@@ -598,6 +753,10 @@ namespace DOMMatrix2DInit
   export
   setF : (obj : DOMMatrix2DInit) -> (value : UndefOr Double) -> JSIO ()
   setF a b = primJS $ DOMMatrix2DInit.prim__setF a b
+
+  export
+  setF' : (obj : DOMMatrix2DInit) -> JSIO ()
+  setF' a = setF a undef
   
   export
   m11 : (obj : DOMMatrix2DInit) -> JSIO (UndefOr Double)
@@ -606,6 +765,10 @@ namespace DOMMatrix2DInit
   export
   setM11 : (obj : DOMMatrix2DInit) -> (value : UndefOr Double) -> JSIO ()
   setM11 a b = primJS $ DOMMatrix2DInit.prim__setM11 a b
+
+  export
+  setM11' : (obj : DOMMatrix2DInit) -> JSIO ()
+  setM11' a = setM11 a undef
   
   export
   m12 : (obj : DOMMatrix2DInit) -> JSIO (UndefOr Double)
@@ -614,6 +777,10 @@ namespace DOMMatrix2DInit
   export
   setM12 : (obj : DOMMatrix2DInit) -> (value : UndefOr Double) -> JSIO ()
   setM12 a b = primJS $ DOMMatrix2DInit.prim__setM12 a b
+
+  export
+  setM12' : (obj : DOMMatrix2DInit) -> JSIO ()
+  setM12' a = setM12 a undef
   
   export
   m21 : (obj : DOMMatrix2DInit) -> JSIO (UndefOr Double)
@@ -622,6 +789,10 @@ namespace DOMMatrix2DInit
   export
   setM21 : (obj : DOMMatrix2DInit) -> (value : UndefOr Double) -> JSIO ()
   setM21 a b = primJS $ DOMMatrix2DInit.prim__setM21 a b
+
+  export
+  setM21' : (obj : DOMMatrix2DInit) -> JSIO ()
+  setM21' a = setM21 a undef
   
   export
   m22 : (obj : DOMMatrix2DInit) -> JSIO (UndefOr Double)
@@ -630,6 +801,10 @@ namespace DOMMatrix2DInit
   export
   setM22 : (obj : DOMMatrix2DInit) -> (value : UndefOr Double) -> JSIO ()
   setM22 a b = primJS $ DOMMatrix2DInit.prim__setM22 a b
+
+  export
+  setM22' : (obj : DOMMatrix2DInit) -> JSIO ()
+  setM22' a = setM22 a undef
   
   export
   m41 : (obj : DOMMatrix2DInit) -> JSIO (UndefOr Double)
@@ -638,6 +813,10 @@ namespace DOMMatrix2DInit
   export
   setM41 : (obj : DOMMatrix2DInit) -> (value : UndefOr Double) -> JSIO ()
   setM41 a b = primJS $ DOMMatrix2DInit.prim__setM41 a b
+
+  export
+  setM41' : (obj : DOMMatrix2DInit) -> JSIO ()
+  setM41' a = setM41 a undef
   
   export
   m42 : (obj : DOMMatrix2DInit) -> JSIO (UndefOr Double)
@@ -646,6 +825,10 @@ namespace DOMMatrix2DInit
   export
   setM42 : (obj : DOMMatrix2DInit) -> (value : UndefOr Double) -> JSIO ()
   setM42 a b = primJS $ DOMMatrix2DInit.prim__setM42 a b
+
+  export
+  setM42' : (obj : DOMMatrix2DInit) -> JSIO ()
+  setM42' a = setM42 a undef
 
 namespace DOMMatrixInit
   
@@ -679,6 +862,10 @@ namespace DOMMatrixInit
                                                                i
                                                                j
                                                                k
+
+  export
+  new' : JSIO DOMMatrixInit
+  new' = new undef undef undef undef undef undef undef undef undef undef undef
   
   export
   is2D : (obj : DOMMatrixInit) -> JSIO (UndefOr Boolean)
@@ -687,6 +874,10 @@ namespace DOMMatrixInit
   export
   setIs2D : (obj : DOMMatrixInit) -> (value : UndefOr Boolean) -> JSIO ()
   setIs2D a b = primJS $ DOMMatrixInit.prim__setIs2D a b
+
+  export
+  setIs2D' : (obj : DOMMatrixInit) -> JSIO ()
+  setIs2D' a = setIs2D a undef
   
   export
   m13 : (obj : DOMMatrixInit) -> JSIO (UndefOr Double)
@@ -695,6 +886,10 @@ namespace DOMMatrixInit
   export
   setM13 : (obj : DOMMatrixInit) -> (value : UndefOr Double) -> JSIO ()
   setM13 a b = primJS $ DOMMatrixInit.prim__setM13 a b
+
+  export
+  setM13' : (obj : DOMMatrixInit) -> JSIO ()
+  setM13' a = setM13 a undef
   
   export
   m14 : (obj : DOMMatrixInit) -> JSIO (UndefOr Double)
@@ -703,6 +898,10 @@ namespace DOMMatrixInit
   export
   setM14 : (obj : DOMMatrixInit) -> (value : UndefOr Double) -> JSIO ()
   setM14 a b = primJS $ DOMMatrixInit.prim__setM14 a b
+
+  export
+  setM14' : (obj : DOMMatrixInit) -> JSIO ()
+  setM14' a = setM14 a undef
   
   export
   m23 : (obj : DOMMatrixInit) -> JSIO (UndefOr Double)
@@ -711,6 +910,10 @@ namespace DOMMatrixInit
   export
   setM23 : (obj : DOMMatrixInit) -> (value : UndefOr Double) -> JSIO ()
   setM23 a b = primJS $ DOMMatrixInit.prim__setM23 a b
+
+  export
+  setM23' : (obj : DOMMatrixInit) -> JSIO ()
+  setM23' a = setM23 a undef
   
   export
   m24 : (obj : DOMMatrixInit) -> JSIO (UndefOr Double)
@@ -719,6 +922,10 @@ namespace DOMMatrixInit
   export
   setM24 : (obj : DOMMatrixInit) -> (value : UndefOr Double) -> JSIO ()
   setM24 a b = primJS $ DOMMatrixInit.prim__setM24 a b
+
+  export
+  setM24' : (obj : DOMMatrixInit) -> JSIO ()
+  setM24' a = setM24 a undef
   
   export
   m31 : (obj : DOMMatrixInit) -> JSIO (UndefOr Double)
@@ -727,6 +934,10 @@ namespace DOMMatrixInit
   export
   setM31 : (obj : DOMMatrixInit) -> (value : UndefOr Double) -> JSIO ()
   setM31 a b = primJS $ DOMMatrixInit.prim__setM31 a b
+
+  export
+  setM31' : (obj : DOMMatrixInit) -> JSIO ()
+  setM31' a = setM31 a undef
   
   export
   m32 : (obj : DOMMatrixInit) -> JSIO (UndefOr Double)
@@ -735,6 +946,10 @@ namespace DOMMatrixInit
   export
   setM32 : (obj : DOMMatrixInit) -> (value : UndefOr Double) -> JSIO ()
   setM32 a b = primJS $ DOMMatrixInit.prim__setM32 a b
+
+  export
+  setM32' : (obj : DOMMatrixInit) -> JSIO ()
+  setM32' a = setM32 a undef
   
   export
   m33 : (obj : DOMMatrixInit) -> JSIO (UndefOr Double)
@@ -743,6 +958,10 @@ namespace DOMMatrixInit
   export
   setM33 : (obj : DOMMatrixInit) -> (value : UndefOr Double) -> JSIO ()
   setM33 a b = primJS $ DOMMatrixInit.prim__setM33 a b
+
+  export
+  setM33' : (obj : DOMMatrixInit) -> JSIO ()
+  setM33' a = setM33 a undef
   
   export
   m34 : (obj : DOMMatrixInit) -> JSIO (UndefOr Double)
@@ -751,6 +970,10 @@ namespace DOMMatrixInit
   export
   setM34 : (obj : DOMMatrixInit) -> (value : UndefOr Double) -> JSIO ()
   setM34 a b = primJS $ DOMMatrixInit.prim__setM34 a b
+
+  export
+  setM34' : (obj : DOMMatrixInit) -> JSIO ()
+  setM34' a = setM34 a undef
   
   export
   m43 : (obj : DOMMatrixInit) -> JSIO (UndefOr Double)
@@ -759,6 +982,10 @@ namespace DOMMatrixInit
   export
   setM43 : (obj : DOMMatrixInit) -> (value : UndefOr Double) -> JSIO ()
   setM43 a b = primJS $ DOMMatrixInit.prim__setM43 a b
+
+  export
+  setM43' : (obj : DOMMatrixInit) -> JSIO ()
+  setM43' a = setM43 a undef
   
   export
   m44 : (obj : DOMMatrixInit) -> JSIO (UndefOr Double)
@@ -767,6 +994,10 @@ namespace DOMMatrixInit
   export
   setM44 : (obj : DOMMatrixInit) -> (value : UndefOr Double) -> JSIO ()
   setM44 a b = primJS $ DOMMatrixInit.prim__setM44 a b
+
+  export
+  setM44' : (obj : DOMMatrixInit) -> JSIO ()
+  setM44' a = setM44 a undef
 
 namespace DOMPointInit
   
@@ -783,6 +1014,10 @@ namespace DOMPointInit
       -> (w : UndefOr Double)
       -> JSIO DOMPointInit
   new a b c d = primJS $ DOMPointInit.prim__new a b c d
+
+  export
+  new' : JSIO DOMPointInit
+  new' = new undef undef undef undef
   
   export
   w : (obj : DOMPointInit) -> JSIO (UndefOr Double)
@@ -791,6 +1026,10 @@ namespace DOMPointInit
   export
   setW : (obj : DOMPointInit) -> (value : UndefOr Double) -> JSIO ()
   setW a b = primJS $ DOMPointInit.prim__setW a b
+
+  export
+  setW' : (obj : DOMPointInit) -> JSIO ()
+  setW' a = setW a undef
   
   export
   x : (obj : DOMPointInit) -> JSIO (UndefOr Double)
@@ -799,6 +1038,10 @@ namespace DOMPointInit
   export
   setX : (obj : DOMPointInit) -> (value : UndefOr Double) -> JSIO ()
   setX a b = primJS $ DOMPointInit.prim__setX a b
+
+  export
+  setX' : (obj : DOMPointInit) -> JSIO ()
+  setX' a = setX a undef
   
   export
   y : (obj : DOMPointInit) -> JSIO (UndefOr Double)
@@ -807,6 +1050,10 @@ namespace DOMPointInit
   export
   setY : (obj : DOMPointInit) -> (value : UndefOr Double) -> JSIO ()
   setY a b = primJS $ DOMPointInit.prim__setY a b
+
+  export
+  setY' : (obj : DOMPointInit) -> JSIO ()
+  setY' a = setY a undef
   
   export
   z : (obj : DOMPointInit) -> JSIO (UndefOr Double)
@@ -815,6 +1062,10 @@ namespace DOMPointInit
   export
   setZ : (obj : DOMPointInit) -> (value : UndefOr Double) -> JSIO ()
   setZ a b = primJS $ DOMPointInit.prim__setZ a b
+
+  export
+  setZ' : (obj : DOMPointInit) -> JSIO ()
+  setZ' a = setZ a undef
 
 namespace DOMQuadInit
   
@@ -831,6 +1082,10 @@ namespace DOMQuadInit
       -> (p4 : UndefOr DOMPointInit)
       -> JSIO DOMQuadInit
   new a b c d = primJS $ DOMQuadInit.prim__new a b c d
+
+  export
+  new' : JSIO DOMQuadInit
+  new' = new undef undef undef undef
   
   export
   p1 : (obj : DOMQuadInit) -> JSIO (UndefOr DOMPointInit)
@@ -839,6 +1094,10 @@ namespace DOMQuadInit
   export
   setP1 : (obj : DOMQuadInit) -> (value : UndefOr DOMPointInit) -> JSIO ()
   setP1 a b = primJS $ DOMQuadInit.prim__setP1 a b
+
+  export
+  setP1' : (obj : DOMQuadInit) -> JSIO ()
+  setP1' a = setP1 a undef
   
   export
   p2 : (obj : DOMQuadInit) -> JSIO (UndefOr DOMPointInit)
@@ -847,6 +1106,10 @@ namespace DOMQuadInit
   export
   setP2 : (obj : DOMQuadInit) -> (value : UndefOr DOMPointInit) -> JSIO ()
   setP2 a b = primJS $ DOMQuadInit.prim__setP2 a b
+
+  export
+  setP2' : (obj : DOMQuadInit) -> JSIO ()
+  setP2' a = setP2 a undef
   
   export
   p3 : (obj : DOMQuadInit) -> JSIO (UndefOr DOMPointInit)
@@ -855,6 +1118,10 @@ namespace DOMQuadInit
   export
   setP3 : (obj : DOMQuadInit) -> (value : UndefOr DOMPointInit) -> JSIO ()
   setP3 a b = primJS $ DOMQuadInit.prim__setP3 a b
+
+  export
+  setP3' : (obj : DOMQuadInit) -> JSIO ()
+  setP3' a = setP3 a undef
   
   export
   p4 : (obj : DOMQuadInit) -> JSIO (UndefOr DOMPointInit)
@@ -863,6 +1130,10 @@ namespace DOMQuadInit
   export
   setP4 : (obj : DOMQuadInit) -> (value : UndefOr DOMPointInit) -> JSIO ()
   setP4 a b = primJS $ DOMQuadInit.prim__setP4 a b
+
+  export
+  setP4' : (obj : DOMQuadInit) -> JSIO ()
+  setP4' a = setP4 a undef
 
 namespace DOMRectInit
   
@@ -879,6 +1150,10 @@ namespace DOMRectInit
       -> (height : UndefOr Double)
       -> JSIO DOMRectInit
   new a b c d = primJS $ DOMRectInit.prim__new a b c d
+
+  export
+  new' : JSIO DOMRectInit
+  new' = new undef undef undef undef
   
   export
   height : (obj : DOMRectInit) -> JSIO (UndefOr Double)
@@ -887,6 +1162,10 @@ namespace DOMRectInit
   export
   setHeight : (obj : DOMRectInit) -> (value : UndefOr Double) -> JSIO ()
   setHeight a b = primJS $ DOMRectInit.prim__setHeight a b
+
+  export
+  setHeight' : (obj : DOMRectInit) -> JSIO ()
+  setHeight' a = setHeight a undef
   
   export
   width : (obj : DOMRectInit) -> JSIO (UndefOr Double)
@@ -895,6 +1174,10 @@ namespace DOMRectInit
   export
   setWidth : (obj : DOMRectInit) -> (value : UndefOr Double) -> JSIO ()
   setWidth a b = primJS $ DOMRectInit.prim__setWidth a b
+
+  export
+  setWidth' : (obj : DOMRectInit) -> JSIO ()
+  setWidth' a = setWidth a undef
   
   export
   x : (obj : DOMRectInit) -> JSIO (UndefOr Double)
@@ -903,6 +1186,10 @@ namespace DOMRectInit
   export
   setX : (obj : DOMRectInit) -> (value : UndefOr Double) -> JSIO ()
   setX a b = primJS $ DOMRectInit.prim__setX a b
+
+  export
+  setX' : (obj : DOMRectInit) -> JSIO ()
+  setX' a = setX a undef
   
   export
   y : (obj : DOMRectInit) -> JSIO (UndefOr Double)
@@ -911,3 +1198,7 @@ namespace DOMRectInit
   export
   setY : (obj : DOMRectInit) -> (value : UndefOr Double) -> JSIO ()
   setY a b = primJS $ DOMRectInit.prim__setY a b
+
+  export
+  setY' : (obj : DOMRectInit) -> JSIO ()
+  setY' a = setY a undef

@@ -1344,6 +1344,14 @@ namespace WebGL2RenderingContextBase
                                                                                     c
                                                                                     d
                                                                                     e
+
+  export
+  clearBufferfv' :  (obj : WebGL2RenderingContextBase)
+                 -> (buffer : GLenum)
+                 -> (drawbuffer : GLint)
+                 -> (values : Float32List)
+                 -> JSIO ()
+  clearBufferfv' a b c d = clearBufferfv a b c d undef
   
   export
   clearBufferiv :  (obj : WebGL2RenderingContextBase)
@@ -1357,6 +1365,14 @@ namespace WebGL2RenderingContextBase
                                                                                     c
                                                                                     d
                                                                                     e
+
+  export
+  clearBufferiv' :  (obj : WebGL2RenderingContextBase)
+                 -> (buffer : GLenum)
+                 -> (drawbuffer : GLint)
+                 -> (values : Int32List)
+                 -> JSIO ()
+  clearBufferiv' a b c d = clearBufferiv a b c d undef
   
   export
   clearBufferuiv :  (obj : WebGL2RenderingContextBase)
@@ -1370,6 +1386,14 @@ namespace WebGL2RenderingContextBase
                                                                                       c
                                                                                       d
                                                                                       e
+
+  export
+  clearBufferuiv' :  (obj : WebGL2RenderingContextBase)
+                  -> (buffer : GLenum)
+                  -> (drawbuffer : GLint)
+                  -> (values : Uint32List)
+                  -> JSIO ()
+  clearBufferuiv' a b c d = clearBufferuiv a b c d undef
   
   export
   clientWaitSync :  (obj : WebGL2RenderingContextBase)
@@ -1429,6 +1453,29 @@ namespace WebGL2RenderingContextBase
                                                                                                                 i
                                                                                                                 j
                                                                                                                 k
+
+  export
+  compressedTexImage3D1' :  (obj : WebGL2RenderingContextBase)
+                         -> (target : GLenum)
+                         -> (level : GLint)
+                         -> (internalformat : GLenum)
+                         -> (width : GLsizei)
+                         -> (height : GLsizei)
+                         -> (depth : GLsizei)
+                         -> (border : GLint)
+                         -> (srcData : ArrayBufferView)
+                         -> JSIO ()
+  compressedTexImage3D1' a b c d e f g h i = compressedTexImage3D1 a
+                                                                   b
+                                                                   c
+                                                                   d
+                                                                   e
+                                                                   f
+                                                                   g
+                                                                   h
+                                                                   i
+                                                                   undef
+                                                                   undef
   
   export
   compressedTexSubImage3D :  (obj : WebGL2RenderingContextBase)
@@ -1485,6 +1532,33 @@ namespace WebGL2RenderingContextBase
                                                                                                                           k
                                                                                                                           l
                                                                                                                           m
+
+  export
+  compressedTexSubImage3D1' :  (obj : WebGL2RenderingContextBase)
+                            -> (target : GLenum)
+                            -> (level : GLint)
+                            -> (xoffset : GLint)
+                            -> (yoffset : GLint)
+                            -> (zoffset : GLint)
+                            -> (width : GLsizei)
+                            -> (height : GLsizei)
+                            -> (depth : GLsizei)
+                            -> (format : GLenum)
+                            -> (srcData : ArrayBufferView)
+                            -> JSIO ()
+  compressedTexSubImage3D1' a b c d e f g h i j k = compressedTexSubImage3D1 a
+                                                                             b
+                                                                             c
+                                                                             d
+                                                                             e
+                                                                             f
+                                                                             g
+                                                                             h
+                                                                             i
+                                                                             j
+                                                                             k
+                                                                             undef
+                                                                             undef
   
   export
   copyBufferSubData :  (obj : WebGL2RenderingContextBase)
@@ -1702,6 +1776,14 @@ namespace WebGL2RenderingContextBase
                                                                                             d
                                                                                             e
                                                                                             f
+
+  export
+  getBufferSubData' :  (obj : WebGL2RenderingContextBase)
+                    -> (target : GLenum)
+                    -> (srcByteOffset : GLintptr)
+                    -> (dstBuffer : ArrayBufferView)
+                    -> JSIO ()
+  getBufferSubData' a b c d = getBufferSubData a b c d undef undef
   
   export
   getFragDataLocation :  (obj : WebGL2RenderingContextBase)
@@ -2116,6 +2198,34 @@ namespace WebGL2RenderingContextBase
                                                                                                       k
                                                                                                       l
                                                                                                       m
+
+  export
+  texSubImage3D2' :  (obj : WebGL2RenderingContextBase)
+                  -> (target : GLenum)
+                  -> (level : GLint)
+                  -> (xoffset : GLint)
+                  -> (yoffset : GLint)
+                  -> (zoffset : GLint)
+                  -> (width : GLsizei)
+                  -> (height : GLsizei)
+                  -> (depth : GLsizei)
+                  -> (format : GLenum)
+                  -> (type : GLenum)
+                  -> (srcData : Nullable ArrayBufferView)
+                  -> JSIO ()
+  texSubImage3D2' a b c d e f g h i j k l = texSubImage3D2 a
+                                                           b
+                                                           c
+                                                           d
+                                                           e
+                                                           f
+                                                           g
+                                                           h
+                                                           i
+                                                           j
+                                                           k
+                                                           l
+                                                           undef
   
   export
   transformFeedbackVaryings :  (obj : WebGL2RenderingContextBase)
@@ -2147,6 +2257,13 @@ namespace WebGL2RenderingContextBase
                                                                                 c
                                                                                 d
                                                                                 e
+
+  export
+  uniform1uiv' :  (obj : WebGL2RenderingContextBase)
+               -> (location : Nullable WebGLUniformLocation)
+               -> (data_ : Uint32List)
+               -> JSIO ()
+  uniform1uiv' a b c = uniform1uiv a b c undef undef
   
   export
   uniform2ui :  (obj : WebGL2RenderingContextBase)
@@ -2171,6 +2288,13 @@ namespace WebGL2RenderingContextBase
                                                                                 c
                                                                                 d
                                                                                 e
+
+  export
+  uniform2uiv' :  (obj : WebGL2RenderingContextBase)
+               -> (location : Nullable WebGLUniformLocation)
+               -> (data_ : Uint32List)
+               -> JSIO ()
+  uniform2uiv' a b c = uniform2uiv a b c undef undef
   
   export
   uniform3ui :  (obj : WebGL2RenderingContextBase)
@@ -2197,6 +2321,13 @@ namespace WebGL2RenderingContextBase
                                                                                 c
                                                                                 d
                                                                                 e
+
+  export
+  uniform3uiv' :  (obj : WebGL2RenderingContextBase)
+               -> (location : Nullable WebGLUniformLocation)
+               -> (data_ : Uint32List)
+               -> JSIO ()
+  uniform3uiv' a b c = uniform3uiv a b c undef undef
   
   export
   uniform4ui :  (obj : WebGL2RenderingContextBase)
@@ -2225,6 +2356,13 @@ namespace WebGL2RenderingContextBase
                                                                                 c
                                                                                 d
                                                                                 e
+
+  export
+  uniform4uiv' :  (obj : WebGL2RenderingContextBase)
+               -> (location : Nullable WebGLUniformLocation)
+               -> (data_ : Uint32List)
+               -> JSIO ()
+  uniform4uiv' a b c = uniform4uiv a b c undef undef
   
   export
   uniformBlockBinding :  (obj : WebGL2RenderingContextBase)
@@ -2251,6 +2389,14 @@ namespace WebGL2RenderingContextBase
                                                                                                 d
                                                                                                 e
                                                                                                 f
+
+  export
+  uniformMatrix2x3fv' :  (obj : WebGL2RenderingContextBase)
+                      -> (location : Nullable WebGLUniformLocation)
+                      -> (transpose : GLboolean)
+                      -> (data_ : Float32List)
+                      -> JSIO ()
+  uniformMatrix2x3fv' a b c d = uniformMatrix2x3fv a b c d undef undef
   
   export
   uniformMatrix2x4fv :  (obj : WebGL2RenderingContextBase)
@@ -2266,6 +2412,14 @@ namespace WebGL2RenderingContextBase
                                                                                                 d
                                                                                                 e
                                                                                                 f
+
+  export
+  uniformMatrix2x4fv' :  (obj : WebGL2RenderingContextBase)
+                      -> (location : Nullable WebGLUniformLocation)
+                      -> (transpose : GLboolean)
+                      -> (data_ : Float32List)
+                      -> JSIO ()
+  uniformMatrix2x4fv' a b c d = uniformMatrix2x4fv a b c d undef undef
   
   export
   uniformMatrix3x2fv :  (obj : WebGL2RenderingContextBase)
@@ -2281,6 +2435,14 @@ namespace WebGL2RenderingContextBase
                                                                                                 d
                                                                                                 e
                                                                                                 f
+
+  export
+  uniformMatrix3x2fv' :  (obj : WebGL2RenderingContextBase)
+                      -> (location : Nullable WebGLUniformLocation)
+                      -> (transpose : GLboolean)
+                      -> (data_ : Float32List)
+                      -> JSIO ()
+  uniformMatrix3x2fv' a b c d = uniformMatrix3x2fv a b c d undef undef
   
   export
   uniformMatrix3x4fv :  (obj : WebGL2RenderingContextBase)
@@ -2296,6 +2458,14 @@ namespace WebGL2RenderingContextBase
                                                                                                 d
                                                                                                 e
                                                                                                 f
+
+  export
+  uniformMatrix3x4fv' :  (obj : WebGL2RenderingContextBase)
+                      -> (location : Nullable WebGLUniformLocation)
+                      -> (transpose : GLboolean)
+                      -> (data_ : Float32List)
+                      -> JSIO ()
+  uniformMatrix3x4fv' a b c d = uniformMatrix3x4fv a b c d undef undef
   
   export
   uniformMatrix4x2fv :  (obj : WebGL2RenderingContextBase)
@@ -2311,6 +2481,14 @@ namespace WebGL2RenderingContextBase
                                                                                                 d
                                                                                                 e
                                                                                                 f
+
+  export
+  uniformMatrix4x2fv' :  (obj : WebGL2RenderingContextBase)
+                      -> (location : Nullable WebGLUniformLocation)
+                      -> (transpose : GLboolean)
+                      -> (data_ : Float32List)
+                      -> JSIO ()
+  uniformMatrix4x2fv' a b c d = uniformMatrix4x2fv a b c d undef undef
   
   export
   uniformMatrix4x3fv :  (obj : WebGL2RenderingContextBase)
@@ -2326,6 +2504,14 @@ namespace WebGL2RenderingContextBase
                                                                                                 d
                                                                                                 e
                                                                                                 f
+
+  export
+  uniformMatrix4x3fv' :  (obj : WebGL2RenderingContextBase)
+                      -> (location : Nullable WebGLUniformLocation)
+                      -> (transpose : GLboolean)
+                      -> (data_ : Float32List)
+                      -> JSIO ()
+  uniformMatrix4x3fv' a b c d = uniformMatrix4x3fv a b c d undef undef
   
   export
   vertexAttribDivisor :  (obj : WebGL2RenderingContextBase)
@@ -2445,6 +2631,15 @@ namespace WebGL2RenderingContextOverloads
                                                                                        d
                                                                                        e
                                                                                        f
+
+  export
+  bufferData2' :  (obj : WebGL2RenderingContextOverloads)
+               -> (target : GLenum)
+               -> (srcData : ArrayBufferView)
+               -> (usage : GLenum)
+               -> (srcOffset : GLuint)
+               -> JSIO ()
+  bufferData2' a b c d e = bufferData2 a b c d e undef
   
   export
   bufferSubData :  (obj : WebGL2RenderingContextOverloads)
@@ -2471,6 +2666,15 @@ namespace WebGL2RenderingContextOverloads
                                                                                              d
                                                                                              e
                                                                                              f
+
+  export
+  bufferSubData1' :  (obj : WebGL2RenderingContextOverloads)
+                  -> (target : GLenum)
+                  -> (dstByteOffset : GLintptr)
+                  -> (srcData : ArrayBufferView)
+                  -> (srcOffset : GLuint)
+                  -> JSIO ()
+  bufferSubData1' a b c d e = bufferSubData1 a b c d e undef
   
   export
   compressedTexImage2D :  (obj : WebGL2RenderingContextOverloads)
@@ -2515,6 +2719,27 @@ namespace WebGL2RenderingContextOverloads
                                                                                                                    h
                                                                                                                    i
                                                                                                                    j
+
+  export
+  compressedTexImage2D1' :  (obj : WebGL2RenderingContextOverloads)
+                         -> (target : GLenum)
+                         -> (level : GLint)
+                         -> (internalformat : GLenum)
+                         -> (width : GLsizei)
+                         -> (height : GLsizei)
+                         -> (border : GLint)
+                         -> (srcData : ArrayBufferView)
+                         -> JSIO ()
+  compressedTexImage2D1' a b c d e f g h = compressedTexImage2D1 a
+                                                                 b
+                                                                 c
+                                                                 d
+                                                                 e
+                                                                 f
+                                                                 g
+                                                                 h
+                                                                 undef
+                                                                 undef
   
   export
   compressedTexSubImage2D :  (obj : WebGL2RenderingContextOverloads)
@@ -2563,6 +2788,29 @@ namespace WebGL2RenderingContextOverloads
                                                                                                                            i
                                                                                                                            j
                                                                                                                            k
+
+  export
+  compressedTexSubImage2D1' :  (obj : WebGL2RenderingContextOverloads)
+                            -> (target : GLenum)
+                            -> (level : GLint)
+                            -> (xoffset : GLint)
+                            -> (yoffset : GLint)
+                            -> (width : GLsizei)
+                            -> (height : GLsizei)
+                            -> (format : GLenum)
+                            -> (srcData : ArrayBufferView)
+                            -> JSIO ()
+  compressedTexSubImage2D1' a b c d e f g h i = compressedTexSubImage2D1 a
+                                                                         b
+                                                                         c
+                                                                         d
+                                                                         e
+                                                                         f
+                                                                         g
+                                                                         h
+                                                                         i
+                                                                         undef
+                                                                         undef
   
   export
   readPixels :  (obj : WebGL2RenderingContextOverloads)
@@ -2859,6 +3107,13 @@ namespace WebGL2RenderingContextOverloads
                                                                                    c
                                                                                    d
                                                                                    e
+
+  export
+  uniform1fv' :  (obj : WebGL2RenderingContextOverloads)
+              -> (location : Nullable WebGLUniformLocation)
+              -> (data_ : Float32List)
+              -> JSIO ()
+  uniform1fv' a b c = uniform1fv a b c undef undef
   
   export
   uniform1iv :  (obj : WebGL2RenderingContextOverloads)
@@ -2872,6 +3127,13 @@ namespace WebGL2RenderingContextOverloads
                                                                                    c
                                                                                    d
                                                                                    e
+
+  export
+  uniform1iv' :  (obj : WebGL2RenderingContextOverloads)
+              -> (location : Nullable WebGLUniformLocation)
+              -> (data_ : Int32List)
+              -> JSIO ()
+  uniform1iv' a b c = uniform1iv a b c undef undef
   
   export
   uniform2fv :  (obj : WebGL2RenderingContextOverloads)
@@ -2885,6 +3147,13 @@ namespace WebGL2RenderingContextOverloads
                                                                                    c
                                                                                    d
                                                                                    e
+
+  export
+  uniform2fv' :  (obj : WebGL2RenderingContextOverloads)
+              -> (location : Nullable WebGLUniformLocation)
+              -> (data_ : Float32List)
+              -> JSIO ()
+  uniform2fv' a b c = uniform2fv a b c undef undef
   
   export
   uniform2iv :  (obj : WebGL2RenderingContextOverloads)
@@ -2898,6 +3167,13 @@ namespace WebGL2RenderingContextOverloads
                                                                                    c
                                                                                    d
                                                                                    e
+
+  export
+  uniform2iv' :  (obj : WebGL2RenderingContextOverloads)
+              -> (location : Nullable WebGLUniformLocation)
+              -> (data_ : Int32List)
+              -> JSIO ()
+  uniform2iv' a b c = uniform2iv a b c undef undef
   
   export
   uniform3fv :  (obj : WebGL2RenderingContextOverloads)
@@ -2911,6 +3187,13 @@ namespace WebGL2RenderingContextOverloads
                                                                                    c
                                                                                    d
                                                                                    e
+
+  export
+  uniform3fv' :  (obj : WebGL2RenderingContextOverloads)
+              -> (location : Nullable WebGLUniformLocation)
+              -> (data_ : Float32List)
+              -> JSIO ()
+  uniform3fv' a b c = uniform3fv a b c undef undef
   
   export
   uniform3iv :  (obj : WebGL2RenderingContextOverloads)
@@ -2924,6 +3207,13 @@ namespace WebGL2RenderingContextOverloads
                                                                                    c
                                                                                    d
                                                                                    e
+
+  export
+  uniform3iv' :  (obj : WebGL2RenderingContextOverloads)
+              -> (location : Nullable WebGLUniformLocation)
+              -> (data_ : Int32List)
+              -> JSIO ()
+  uniform3iv' a b c = uniform3iv a b c undef undef
   
   export
   uniform4fv :  (obj : WebGL2RenderingContextOverloads)
@@ -2937,6 +3227,13 @@ namespace WebGL2RenderingContextOverloads
                                                                                    c
                                                                                    d
                                                                                    e
+
+  export
+  uniform4fv' :  (obj : WebGL2RenderingContextOverloads)
+              -> (location : Nullable WebGLUniformLocation)
+              -> (data_ : Float32List)
+              -> JSIO ()
+  uniform4fv' a b c = uniform4fv a b c undef undef
   
   export
   uniform4iv :  (obj : WebGL2RenderingContextOverloads)
@@ -2950,6 +3247,13 @@ namespace WebGL2RenderingContextOverloads
                                                                                    c
                                                                                    d
                                                                                    e
+
+  export
+  uniform4iv' :  (obj : WebGL2RenderingContextOverloads)
+              -> (location : Nullable WebGLUniformLocation)
+              -> (data_ : Int32List)
+              -> JSIO ()
+  uniform4iv' a b c = uniform4iv a b c undef undef
   
   export
   uniformMatrix2fv :  (obj : WebGL2RenderingContextOverloads)
@@ -2965,6 +3269,14 @@ namespace WebGL2RenderingContextOverloads
                                                                                                  d
                                                                                                  e
                                                                                                  f
+
+  export
+  uniformMatrix2fv' :  (obj : WebGL2RenderingContextOverloads)
+                    -> (location : Nullable WebGLUniformLocation)
+                    -> (transpose : GLboolean)
+                    -> (data_ : Float32List)
+                    -> JSIO ()
+  uniformMatrix2fv' a b c d = uniformMatrix2fv a b c d undef undef
   
   export
   uniformMatrix3fv :  (obj : WebGL2RenderingContextOverloads)
@@ -2980,6 +3292,14 @@ namespace WebGL2RenderingContextOverloads
                                                                                                  d
                                                                                                  e
                                                                                                  f
+
+  export
+  uniformMatrix3fv' :  (obj : WebGL2RenderingContextOverloads)
+                    -> (location : Nullable WebGLUniformLocation)
+                    -> (transpose : GLboolean)
+                    -> (data_ : Float32List)
+                    -> JSIO ()
+  uniformMatrix3fv' a b c d = uniformMatrix3fv a b c d undef undef
   
   export
   uniformMatrix4fv :  (obj : WebGL2RenderingContextOverloads)
@@ -2995,6 +3315,14 @@ namespace WebGL2RenderingContextOverloads
                                                                                                  d
                                                                                                  e
                                                                                                  f
+
+  export
+  uniformMatrix4fv' :  (obj : WebGL2RenderingContextOverloads)
+                    -> (location : Nullable WebGLUniformLocation)
+                    -> (transpose : GLboolean)
+                    -> (data_ : Float32List)
+                    -> JSIO ()
+  uniformMatrix4fv' a b c d = uniformMatrix4fv a b c d undef undef
 
 namespace WebGLRenderingContextBase
   
@@ -5492,6 +5820,10 @@ namespace WebGLContextAttributes
                                                                     g
                                                                     h
                                                                     i
+
+  export
+  new' : JSIO WebGLContextAttributes
+  new' = new undef undef undef undef undef undef undef undef undef
   
   export
   alpha : (obj : WebGLContextAttributes) -> JSIO (UndefOr Boolean)
@@ -5502,6 +5834,10 @@ namespace WebGLContextAttributes
            -> (value : UndefOr Boolean)
            -> JSIO ()
   setAlpha a b = primJS $ WebGLContextAttributes.prim__setAlpha a b
+
+  export
+  setAlpha' : (obj : WebGLContextAttributes) -> JSIO ()
+  setAlpha' a = setAlpha a undef
   
   export
   antialias : (obj : WebGLContextAttributes) -> JSIO (UndefOr Boolean)
@@ -5512,6 +5848,10 @@ namespace WebGLContextAttributes
                -> (value : UndefOr Boolean)
                -> JSIO ()
   setAntialias a b = primJS $ WebGLContextAttributes.prim__setAntialias a b
+
+  export
+  setAntialias' : (obj : WebGLContextAttributes) -> JSIO ()
+  setAntialias' a = setAntialias a undef
   
   export
   depth : (obj : WebGLContextAttributes) -> JSIO (UndefOr Boolean)
@@ -5522,6 +5862,10 @@ namespace WebGLContextAttributes
            -> (value : UndefOr Boolean)
            -> JSIO ()
   setDepth a b = primJS $ WebGLContextAttributes.prim__setDepth a b
+
+  export
+  setDepth' : (obj : WebGLContextAttributes) -> JSIO ()
+  setDepth' a = setDepth a undef
   
   export
   desynchronized : (obj : WebGLContextAttributes) -> JSIO (UndefOr Boolean)
@@ -5533,6 +5877,10 @@ namespace WebGLContextAttributes
                     -> JSIO ()
   setDesynchronized a b = primJS $ WebGLContextAttributes.prim__setDesynchronized a
                                                                                   b
+
+  export
+  setDesynchronized' : (obj : WebGLContextAttributes) -> JSIO ()
+  setDesynchronized' a = setDesynchronized a undef
   
   export
   failIfMajorPerformanceCaveat :  (obj : WebGLContextAttributes)
@@ -5545,6 +5893,10 @@ namespace WebGLContextAttributes
                                   -> JSIO ()
   setFailIfMajorPerformanceCaveat a b = primJS $ WebGLContextAttributes.prim__setFailIfMajorPerformanceCaveat a
                                                                                                               b
+
+  export
+  setFailIfMajorPerformanceCaveat' : (obj : WebGLContextAttributes) -> JSIO ()
+  setFailIfMajorPerformanceCaveat' a = setFailIfMajorPerformanceCaveat a undef
   
   export
   powerPreference :  (obj : WebGLContextAttributes)
@@ -5557,6 +5909,10 @@ namespace WebGLContextAttributes
                      -> JSIO ()
   setPowerPreference a b = primJS $ WebGLContextAttributes.prim__setPowerPreference a
                                                                                     b
+
+  export
+  setPowerPreference' : (obj : WebGLContextAttributes) -> JSIO ()
+  setPowerPreference' a = setPowerPreference a undef
   
   export
   premultipliedAlpha : (obj : WebGLContextAttributes) -> JSIO (UndefOr Boolean)
@@ -5568,6 +5924,10 @@ namespace WebGLContextAttributes
                         -> JSIO ()
   setPremultipliedAlpha a b = primJS $ WebGLContextAttributes.prim__setPremultipliedAlpha a
                                                                                           b
+
+  export
+  setPremultipliedAlpha' : (obj : WebGLContextAttributes) -> JSIO ()
+  setPremultipliedAlpha' a = setPremultipliedAlpha a undef
   
   export
   preserveDrawingBuffer :  (obj : WebGLContextAttributes)
@@ -5580,6 +5940,10 @@ namespace WebGLContextAttributes
                            -> JSIO ()
   setPreserveDrawingBuffer a b = primJS $ WebGLContextAttributes.prim__setPreserveDrawingBuffer a
                                                                                                 b
+
+  export
+  setPreserveDrawingBuffer' : (obj : WebGLContextAttributes) -> JSIO ()
+  setPreserveDrawingBuffer' a = setPreserveDrawingBuffer a undef
   
   export
   stencil : (obj : WebGLContextAttributes) -> JSIO (UndefOr Boolean)
@@ -5590,3 +5954,7 @@ namespace WebGLContextAttributes
              -> (value : UndefOr Boolean)
              -> JSIO ()
   setStencil a b = primJS $ WebGLContextAttributes.prim__setStencil a b
+
+  export
+  setStencil' : (obj : WebGLContextAttributes) -> JSIO ()
+  setStencil' a = setStencil a undef

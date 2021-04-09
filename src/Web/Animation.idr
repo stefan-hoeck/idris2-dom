@@ -144,6 +144,10 @@ namespace AnimationEffect
                -> JSIO ()
   updateTiming a b = primJS $ AnimationEffect.prim__updateTiming a b
 
+  export
+  updateTiming' : (obj : AnimationEffect) -> JSIO ()
+  updateTiming' a = updateTiming a undef
+
 namespace AnimationPlaybackEvent
   
   public export
@@ -243,6 +247,12 @@ namespace Animatable
           -> (options : UndefOr (Union2 Double KeyframeAnimationOptions))
           -> JSIO Animation
   animate a b c = primJS $ Animatable.prim__animate a b c
+
+  export
+  animate' :  (obj : Animatable)
+           -> (keyframes : Nullable Object)
+           -> JSIO Animation
+  animate' a b = animate a b undef
   
   export
   getAnimations : (obj : Animatable) -> JSIO (Array Animation)
@@ -265,6 +275,10 @@ namespace AnimationPlaybackEventInit
       -> (timelineTime : UndefOr (Nullable Double))
       -> JSIO AnimationPlaybackEventInit
   new a b = primJS $ AnimationPlaybackEventInit.prim__new a b
+
+  export
+  new' : JSIO AnimationPlaybackEventInit
+  new' = new undef undef
   
   export
   currentTime :  (obj : AnimationPlaybackEventInit)
@@ -277,6 +291,10 @@ namespace AnimationPlaybackEventInit
                  -> JSIO ()
   setCurrentTime a b = primJS $ AnimationPlaybackEventInit.prim__setCurrentTime a
                                                                                 b
+
+  export
+  setCurrentTime' : (obj : AnimationPlaybackEventInit) -> JSIO ()
+  setCurrentTime' a = setCurrentTime a undef
   
   export
   timelineTime :  (obj : AnimationPlaybackEventInit)
@@ -289,6 +307,10 @@ namespace AnimationPlaybackEventInit
                   -> JSIO ()
   setTimelineTime a b = primJS $ AnimationPlaybackEventInit.prim__setTimelineTime a
                                                                                   b
+
+  export
+  setTimelineTime' : (obj : AnimationPlaybackEventInit) -> JSIO ()
+  setTimelineTime' a = setTimelineTime a undef
 
 namespace BaseComputedKeyframe
   
@@ -305,6 +327,10 @@ namespace BaseComputedKeyframe
       -> (composite : UndefOr CompositeOperationOrAuto)
       -> JSIO BaseComputedKeyframe
   new a b c d = primJS $ BaseComputedKeyframe.prim__new a b c d
+
+  export
+  new' : JSIO BaseComputedKeyframe
+  new' = new undef undef undef undef
   
   export
   composite :  (obj : BaseComputedKeyframe)
@@ -316,6 +342,10 @@ namespace BaseComputedKeyframe
                -> (value : UndefOr CompositeOperationOrAuto)
                -> JSIO ()
   setComposite a b = primJS $ BaseComputedKeyframe.prim__setComposite a b
+
+  export
+  setComposite' : (obj : BaseComputedKeyframe) -> JSIO ()
+  setComposite' a = setComposite a undef
   
   export
   computedOffset : (obj : BaseComputedKeyframe) -> JSIO (UndefOr Double)
@@ -327,6 +357,10 @@ namespace BaseComputedKeyframe
                     -> JSIO ()
   setComputedOffset a b = primJS $ BaseComputedKeyframe.prim__setComputedOffset a
                                                                                 b
+
+  export
+  setComputedOffset' : (obj : BaseComputedKeyframe) -> JSIO ()
+  setComputedOffset' a = setComputedOffset a undef
   
   export
   easing : (obj : BaseComputedKeyframe) -> JSIO (UndefOr String)
@@ -337,6 +371,10 @@ namespace BaseComputedKeyframe
             -> (value : UndefOr String)
             -> JSIO ()
   setEasing a b = primJS $ BaseComputedKeyframe.prim__setEasing a b
+
+  export
+  setEasing' : (obj : BaseComputedKeyframe) -> JSIO ()
+  setEasing' a = setEasing a undef
   
   export
   offset : (obj : BaseComputedKeyframe) -> JSIO (UndefOr (Nullable Double))
@@ -347,6 +385,10 @@ namespace BaseComputedKeyframe
             -> (value : UndefOr (Nullable Double))
             -> JSIO ()
   setOffset a b = primJS $ BaseComputedKeyframe.prim__setOffset a b
+
+  export
+  setOffset' : (obj : BaseComputedKeyframe) -> JSIO ()
+  setOffset' a = setOffset a undef
 
 namespace BaseKeyframe
   
@@ -362,6 +404,10 @@ namespace BaseKeyframe
       -> (composite : UndefOr CompositeOperationOrAuto)
       -> JSIO BaseKeyframe
   new a b c = primJS $ BaseKeyframe.prim__new a b c
+
+  export
+  new' : JSIO BaseKeyframe
+  new' = new undef undef undef
   
   export
   composite : (obj : BaseKeyframe) -> JSIO (UndefOr CompositeOperationOrAuto)
@@ -372,6 +418,10 @@ namespace BaseKeyframe
                -> (value : UndefOr CompositeOperationOrAuto)
                -> JSIO ()
   setComposite a b = primJS $ BaseKeyframe.prim__setComposite a b
+
+  export
+  setComposite' : (obj : BaseKeyframe) -> JSIO ()
+  setComposite' a = setComposite a undef
   
   export
   easing : (obj : BaseKeyframe) -> JSIO (UndefOr String)
@@ -380,6 +430,10 @@ namespace BaseKeyframe
   export
   setEasing : (obj : BaseKeyframe) -> (value : UndefOr String) -> JSIO ()
   setEasing a b = primJS $ BaseKeyframe.prim__setEasing a b
+
+  export
+  setEasing' : (obj : BaseKeyframe) -> JSIO ()
+  setEasing' a = setEasing a undef
   
   export
   offset : (obj : BaseKeyframe) -> JSIO (UndefOr (Nullable Double))
@@ -390,6 +444,10 @@ namespace BaseKeyframe
             -> (value : UndefOr (Nullable Double))
             -> JSIO ()
   setOffset a b = primJS $ BaseKeyframe.prim__setOffset a b
+
+  export
+  setOffset' : (obj : BaseKeyframe) -> JSIO ()
+  setOffset' a = setOffset a undef
 
 namespace BasePropertyIndexedKeyframe
   
@@ -406,6 +464,10 @@ namespace BasePropertyIndexedKeyframe
                                       (Array CompositeOperationOrAuto)))
       -> JSIO BasePropertyIndexedKeyframe
   new a b c = primJS $ BasePropertyIndexedKeyframe.prim__new a b c
+
+  export
+  new' : JSIO BasePropertyIndexedKeyframe
+  new' = new undef undef undef
   
   export
   composite :  (obj : BasePropertyIndexedKeyframe)
@@ -419,6 +481,10 @@ namespace BasePropertyIndexedKeyframe
                                            (Array CompositeOperationOrAuto)))
                -> JSIO ()
   setComposite a b = primJS $ BasePropertyIndexedKeyframe.prim__setComposite a b
+
+  export
+  setComposite' : (obj : BasePropertyIndexedKeyframe) -> JSIO ()
+  setComposite' a = setComposite a undef
   
   export
   easing :  (obj : BasePropertyIndexedKeyframe)
@@ -430,6 +496,10 @@ namespace BasePropertyIndexedKeyframe
             -> (value : UndefOr (Union2 String (Array String)))
             -> JSIO ()
   setEasing a b = primJS $ BasePropertyIndexedKeyframe.prim__setEasing a b
+
+  export
+  setEasing' : (obj : BasePropertyIndexedKeyframe) -> JSIO ()
+  setEasing' a = setEasing a undef
   
   export
   offset :  (obj : BasePropertyIndexedKeyframe)
@@ -442,6 +512,10 @@ namespace BasePropertyIndexedKeyframe
                                         (Array (Nullable Double))))
             -> JSIO ()
   setOffset a b = primJS $ BasePropertyIndexedKeyframe.prim__setOffset a b
+
+  export
+  setOffset' : (obj : BasePropertyIndexedKeyframe) -> JSIO ()
+  setOffset' a = setOffset a undef
 
 namespace ComputedEffectTiming
   
@@ -459,6 +533,10 @@ namespace ComputedEffectTiming
       -> (currentIteration : UndefOr (Nullable Double))
       -> JSIO ComputedEffectTiming
   new a b c d e = primJS $ ComputedEffectTiming.prim__new a b c d e
+
+  export
+  new' : JSIO ComputedEffectTiming
+  new' = new undef undef undef undef undef
   
   export
   activeDuration : (obj : ComputedEffectTiming) -> JSIO (UndefOr Double)
@@ -470,6 +548,10 @@ namespace ComputedEffectTiming
                     -> JSIO ()
   setActiveDuration a b = primJS $ ComputedEffectTiming.prim__setActiveDuration a
                                                                                 b
+
+  export
+  setActiveDuration' : (obj : ComputedEffectTiming) -> JSIO ()
+  setActiveDuration' a = setActiveDuration a undef
   
   export
   currentIteration :  (obj : ComputedEffectTiming)
@@ -482,6 +564,10 @@ namespace ComputedEffectTiming
                       -> JSIO ()
   setCurrentIteration a b = primJS $ ComputedEffectTiming.prim__setCurrentIteration a
                                                                                     b
+
+  export
+  setCurrentIteration' : (obj : ComputedEffectTiming) -> JSIO ()
+  setCurrentIteration' a = setCurrentIteration a undef
   
   export
   endTime : (obj : ComputedEffectTiming) -> JSIO (UndefOr Double)
@@ -492,6 +578,10 @@ namespace ComputedEffectTiming
              -> (value : UndefOr Double)
              -> JSIO ()
   setEndTime a b = primJS $ ComputedEffectTiming.prim__setEndTime a b
+
+  export
+  setEndTime' : (obj : ComputedEffectTiming) -> JSIO ()
+  setEndTime' a = setEndTime a undef
   
   export
   localTime : (obj : ComputedEffectTiming) -> JSIO (UndefOr (Nullable Double))
@@ -502,6 +592,10 @@ namespace ComputedEffectTiming
                -> (value : UndefOr (Nullable Double))
                -> JSIO ()
   setLocalTime a b = primJS $ ComputedEffectTiming.prim__setLocalTime a b
+
+  export
+  setLocalTime' : (obj : ComputedEffectTiming) -> JSIO ()
+  setLocalTime' a = setLocalTime a undef
   
   export
   progress : (obj : ComputedEffectTiming) -> JSIO (UndefOr (Nullable Double))
@@ -512,6 +606,10 @@ namespace ComputedEffectTiming
               -> (value : UndefOr (Nullable Double))
               -> JSIO ()
   setProgress a b = primJS $ ComputedEffectTiming.prim__setProgress a b
+
+  export
+  setProgress' : (obj : ComputedEffectTiming) -> JSIO ()
+  setProgress' a = setProgress a undef
 
 namespace DocumentTimelineOptions
   
@@ -525,6 +623,10 @@ namespace DocumentTimelineOptions
   new :  (originTime : UndefOr DOMHighResTimeStamp)
       -> JSIO DocumentTimelineOptions
   new a = primJS $ DocumentTimelineOptions.prim__new a
+
+  export
+  new' : JSIO DocumentTimelineOptions
+  new' = new undef
   
   export
   originTime :  (obj : DocumentTimelineOptions)
@@ -536,6 +638,10 @@ namespace DocumentTimelineOptions
                 -> (value : UndefOr DOMHighResTimeStamp)
                 -> JSIO ()
   setOriginTime a b = primJS $ DocumentTimelineOptions.prim__setOriginTime a b
+
+  export
+  setOriginTime' : (obj : DocumentTimelineOptions) -> JSIO ()
+  setOriginTime' a = setOriginTime a undef
 
 namespace EffectTiming
   
@@ -556,6 +662,10 @@ namespace EffectTiming
       -> (easing : UndefOr String)
       -> JSIO EffectTiming
   new a b c d e f g h = primJS $ EffectTiming.prim__new a b c d e f g h
+
+  export
+  new' : JSIO EffectTiming
+  new' = new undef undef undef undef undef undef undef undef
   
   export
   delay : (obj : EffectTiming) -> JSIO (UndefOr Double)
@@ -564,6 +674,10 @@ namespace EffectTiming
   export
   setDelay : (obj : EffectTiming) -> (value : UndefOr Double) -> JSIO ()
   setDelay a b = primJS $ EffectTiming.prim__setDelay a b
+
+  export
+  setDelay' : (obj : EffectTiming) -> JSIO ()
+  setDelay' a = setDelay a undef
   
   export
   direction : (obj : EffectTiming) -> JSIO (UndefOr PlaybackDirection)
@@ -574,6 +688,10 @@ namespace EffectTiming
                -> (value : UndefOr PlaybackDirection)
                -> JSIO ()
   setDirection a b = primJS $ EffectTiming.prim__setDirection a b
+
+  export
+  setDirection' : (obj : EffectTiming) -> JSIO ()
+  setDirection' a = setDirection a undef
   
   export
   duration : (obj : EffectTiming) -> JSIO (UndefOr (Union2 Double String))
@@ -584,6 +702,10 @@ namespace EffectTiming
               -> (value : UndefOr (Union2 Double String))
               -> JSIO ()
   setDuration a b = primJS $ EffectTiming.prim__setDuration a b
+
+  export
+  setDuration' : (obj : EffectTiming) -> JSIO ()
+  setDuration' a = setDuration a undef
   
   export
   easing : (obj : EffectTiming) -> JSIO (UndefOr String)
@@ -592,6 +714,10 @@ namespace EffectTiming
   export
   setEasing : (obj : EffectTiming) -> (value : UndefOr String) -> JSIO ()
   setEasing a b = primJS $ EffectTiming.prim__setEasing a b
+
+  export
+  setEasing' : (obj : EffectTiming) -> JSIO ()
+  setEasing' a = setEasing a undef
   
   export
   endDelay : (obj : EffectTiming) -> JSIO (UndefOr Double)
@@ -600,6 +726,10 @@ namespace EffectTiming
   export
   setEndDelay : (obj : EffectTiming) -> (value : UndefOr Double) -> JSIO ()
   setEndDelay a b = primJS $ EffectTiming.prim__setEndDelay a b
+
+  export
+  setEndDelay' : (obj : EffectTiming) -> JSIO ()
+  setEndDelay' a = setEndDelay a undef
   
   export
   fill : (obj : EffectTiming) -> JSIO (UndefOr FillMode)
@@ -608,6 +738,10 @@ namespace EffectTiming
   export
   setFill : (obj : EffectTiming) -> (value : UndefOr FillMode) -> JSIO ()
   setFill a b = primJS $ EffectTiming.prim__setFill a b
+
+  export
+  setFill' : (obj : EffectTiming) -> JSIO ()
+  setFill' a = setFill a undef
   
   export
   iterationStart : (obj : EffectTiming) -> JSIO (UndefOr Double)
@@ -618,6 +752,10 @@ namespace EffectTiming
                     -> (value : UndefOr Double)
                     -> JSIO ()
   setIterationStart a b = primJS $ EffectTiming.prim__setIterationStart a b
+
+  export
+  setIterationStart' : (obj : EffectTiming) -> JSIO ()
+  setIterationStart' a = setIterationStart a undef
   
   export
   iterations : (obj : EffectTiming) -> JSIO (UndefOr Double)
@@ -626,6 +764,10 @@ namespace EffectTiming
   export
   setIterations : (obj : EffectTiming) -> (value : UndefOr Double) -> JSIO ()
   setIterations a b = primJS $ EffectTiming.prim__setIterations a b
+
+  export
+  setIterations' : (obj : EffectTiming) -> JSIO ()
+  setIterations' a = setIterations a undef
 
 namespace KeyframeAnimationOptions
   
@@ -638,6 +780,10 @@ namespace KeyframeAnimationOptions
   export
   new : (id : UndefOr String) -> JSIO KeyframeAnimationOptions
   new a = primJS $ KeyframeAnimationOptions.prim__new a
+
+  export
+  new' : JSIO KeyframeAnimationOptions
+  new' = new undef
   
   export
   id : (obj : KeyframeAnimationOptions) -> JSIO (UndefOr String)
@@ -648,6 +794,10 @@ namespace KeyframeAnimationOptions
         -> (value : UndefOr String)
         -> JSIO ()
   setId a b = primJS $ KeyframeAnimationOptions.prim__setId a b
+
+  export
+  setId' : (obj : KeyframeAnimationOptions) -> JSIO ()
+  setId' a = setId a undef
 
 namespace KeyframeEffectOptions
   
@@ -662,6 +812,10 @@ namespace KeyframeEffectOptions
       -> (composite : UndefOr CompositeOperation)
       -> JSIO KeyframeEffectOptions
   new a b = primJS $ KeyframeEffectOptions.prim__new a b
+
+  export
+  new' : JSIO KeyframeEffectOptions
+  new' = new undef undef
   
   export
   composite : (obj : KeyframeEffectOptions) -> JSIO (UndefOr CompositeOperation)
@@ -672,6 +826,10 @@ namespace KeyframeEffectOptions
                -> (value : UndefOr CompositeOperation)
                -> JSIO ()
   setComposite a b = primJS $ KeyframeEffectOptions.prim__setComposite a b
+
+  export
+  setComposite' : (obj : KeyframeEffectOptions) -> JSIO ()
+  setComposite' a = setComposite a undef
   
   export
   iterationComposite :  (obj : KeyframeEffectOptions)
@@ -684,6 +842,10 @@ namespace KeyframeEffectOptions
                         -> JSIO ()
   setIterationComposite a b = primJS $ KeyframeEffectOptions.prim__setIterationComposite a
                                                                                          b
+
+  export
+  setIterationComposite' : (obj : KeyframeEffectOptions) -> JSIO ()
+  setIterationComposite' a = setIterationComposite a undef
 
 namespace OptionalEffectTiming
   
@@ -704,6 +866,10 @@ namespace OptionalEffectTiming
       -> (easing : UndefOr String)
       -> JSIO OptionalEffectTiming
   new a b c d e f g h = primJS $ OptionalEffectTiming.prim__new a b c d e f g h
+
+  export
+  new' : JSIO OptionalEffectTiming
+  new' = new undef undef undef undef undef undef undef undef
   
   export
   delay : (obj : OptionalEffectTiming) -> JSIO (UndefOr Double)
@@ -712,6 +878,10 @@ namespace OptionalEffectTiming
   export
   setDelay : (obj : OptionalEffectTiming) -> (value : UndefOr Double) -> JSIO ()
   setDelay a b = primJS $ OptionalEffectTiming.prim__setDelay a b
+
+  export
+  setDelay' : (obj : OptionalEffectTiming) -> JSIO ()
+  setDelay' a = setDelay a undef
   
   export
   direction : (obj : OptionalEffectTiming) -> JSIO (UndefOr PlaybackDirection)
@@ -722,6 +892,10 @@ namespace OptionalEffectTiming
                -> (value : UndefOr PlaybackDirection)
                -> JSIO ()
   setDirection a b = primJS $ OptionalEffectTiming.prim__setDirection a b
+
+  export
+  setDirection' : (obj : OptionalEffectTiming) -> JSIO ()
+  setDirection' a = setDirection a undef
   
   export
   duration :  (obj : OptionalEffectTiming)
@@ -733,6 +907,10 @@ namespace OptionalEffectTiming
               -> (value : UndefOr (Union2 Double String))
               -> JSIO ()
   setDuration a b = primJS $ OptionalEffectTiming.prim__setDuration a b
+
+  export
+  setDuration' : (obj : OptionalEffectTiming) -> JSIO ()
+  setDuration' a = setDuration a undef
   
   export
   easing : (obj : OptionalEffectTiming) -> JSIO (UndefOr String)
@@ -743,6 +921,10 @@ namespace OptionalEffectTiming
             -> (value : UndefOr String)
             -> JSIO ()
   setEasing a b = primJS $ OptionalEffectTiming.prim__setEasing a b
+
+  export
+  setEasing' : (obj : OptionalEffectTiming) -> JSIO ()
+  setEasing' a = setEasing a undef
   
   export
   endDelay : (obj : OptionalEffectTiming) -> JSIO (UndefOr Double)
@@ -753,6 +935,10 @@ namespace OptionalEffectTiming
               -> (value : UndefOr Double)
               -> JSIO ()
   setEndDelay a b = primJS $ OptionalEffectTiming.prim__setEndDelay a b
+
+  export
+  setEndDelay' : (obj : OptionalEffectTiming) -> JSIO ()
+  setEndDelay' a = setEndDelay a undef
   
   export
   fill : (obj : OptionalEffectTiming) -> JSIO (UndefOr FillMode)
@@ -763,6 +949,10 @@ namespace OptionalEffectTiming
           -> (value : UndefOr FillMode)
           -> JSIO ()
   setFill a b = primJS $ OptionalEffectTiming.prim__setFill a b
+
+  export
+  setFill' : (obj : OptionalEffectTiming) -> JSIO ()
+  setFill' a = setFill a undef
   
   export
   iterationStart : (obj : OptionalEffectTiming) -> JSIO (UndefOr Double)
@@ -774,6 +964,10 @@ namespace OptionalEffectTiming
                     -> JSIO ()
   setIterationStart a b = primJS $ OptionalEffectTiming.prim__setIterationStart a
                                                                                 b
+
+  export
+  setIterationStart' : (obj : OptionalEffectTiming) -> JSIO ()
+  setIterationStart' a = setIterationStart a undef
   
   export
   iterations : (obj : OptionalEffectTiming) -> JSIO (UndefOr Double)
@@ -784,3 +978,7 @@ namespace OptionalEffectTiming
                 -> (value : UndefOr Double)
                 -> JSIO ()
   setIterations a b = primJS $ OptionalEffectTiming.prim__setIterations a b
+
+  export
+  setIterations' : (obj : OptionalEffectTiming) -> JSIO ()
+  setIterations' a = setIterations a undef

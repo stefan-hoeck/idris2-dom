@@ -121,6 +121,10 @@ namespace DOMException
       -> (name : UndefOr String)
       -> JSIO DOMException
   new a b = primJS $ DOMException.prim__new a b
+
+  export
+  new' : JSIO DOMException
+  new' = new undef undef
   
   export
   code : (obj : DOMException) -> JSIO UInt16
