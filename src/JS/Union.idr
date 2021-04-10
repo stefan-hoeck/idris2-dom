@@ -1,6 +1,9 @@
 -- Unfortunately, using a list parameter does not work here
 module JS.Union
 
+import Data.SOP
+import JS.Marshall
+
 export
 data Union2 : Type -> Type -> Type where [external]
 

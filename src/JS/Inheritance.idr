@@ -133,31 +133,29 @@ export
 SafeCast String where
   safeCast = unsafeCastOnTypeof "string"
 
-bounded : Num a => (min : Integer) -> (max : Integer) -> Integer -> Maybe a
-bounded min max n = if n >= min && n <= max
-                       then Just (fromInteger n)
-                       else Nothing
+export
+bounded : Num a => (min : Integer) -> (max : Integer) -> any -> Maybe a
+bounded min max ptr = 
+  safeCast ptr >>= \n => if n >= min && n <= max
+                            then Just (fromInteger n)
+                            else Nothing
 
 export
 SafeCast Bits8 where
-  safeCast ptr = safeCast ptr >>= bounded 0 0xff
+  safeCast = bounded 0 0xff
 
 export
 SafeCast Bits16 where
-  safeCast ptr = safeCast ptr >>= bounded 0 0xffff
+  safeCast = bounded 0 0xffff
 
 export
 SafeCast Bits32 where
-  safeCast ptr = safeCast ptr >>= bounded 0 0xffffffff
+  safeCast = bounded 0 0xffffffff
 
 export
 SafeCast Bits64 where
-  safeCast ptr = safeCast ptr >>= bounded 0 0xffffffffffffffff
+  safeCast = bounded 0 0xffffffffffffffff
 
 export
 SafeCast Int where
-  safeCast ptr = safeCast ptr >>= bounded (- 0x80000000) (0x7fffffff)
-
-export
-SafeCast Undefined where
-  safeCast ptr = if isUndefined ptr then Just undefined else Nothing
+  safeCast = bounded (- 0x80000000) (0x7fffffff)

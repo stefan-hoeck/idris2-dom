@@ -37,56 +37,12 @@ jsShow : a -> String
 jsShow v = prim__show (believe_me v)
 
 --------------------------------------------------------------------------------
---          Undefined
---------------------------------------------------------------------------------
-
-export
-data Undefined : Type where [external]
-
-||| The `undefined` constant
-export
-%foreign "javascript:lambda:()=>undefined"
-undefined : Undefined
-
-export
-Eq Undefined where
-  _ == _ = True
-
-export
-Show Undefined where
-  show _ = "undefined"
-
-%foreign "javascript:lambda:x=>x === undefined?1:0"
-prim__isUndefined : AnyPtr -> Double
-
-||| Tests, whether a value of questionable origin is undefined
-export
-isUndefined : a -> Bool
-isUndefined v = doubleToBool $ prim__isUndefined (believe_me v)
-
---------------------------------------------------------------------------------
---          Null
---------------------------------------------------------------------------------
-
-%foreign "javascript:lambda:x=>x === null?1:0"
-prim__isNull : AnyPtr -> Double
-
-export
-%foreign "javascript:lambda:()=>null"
-null : AnyPtr
-
-||| Tests, whether a value of questionable origin is null
-export
-isNull : a -> Bool
-isNull = eqv null
-
---------------------------------------------------------------------------------
 --          IO
 --------------------------------------------------------------------------------
 
 public export
 data JSErr : Type where
-  CastErr : (inFunction : String) -> (value : AnyPtr) -> JSErr
+  CastErr : (inFunction : String) -> (value : a) -> JSErr
 
 dispErr : JSErr -> String
 dispErr (CastErr inFunction value) = #"""

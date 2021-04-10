@@ -2,6 +2,7 @@ module JS.Number
 
 import Data.DPair
 import Data.Bits
+import JS.Inheritance
 import JS.Marshall
 import JS.Util
 
@@ -120,6 +121,16 @@ Bits Int8 where
   complement  = xor (-1)
   oneBits     = (-1)
 
+export
+ToFFI Int8 Int8 where toFFI = id
+
+export
+FromFFI Int8 Int8 where fromFFI = Just
+
+export
+SafeCast Int8 where
+  safeCast = bounded (-128) 127
+
 --------------------------------------------------------------------------------
 --          Int16
 --------------------------------------------------------------------------------
@@ -194,6 +205,16 @@ Bits Int16 where
 
   complement  = xor (-1)
   oneBits     = (-1)
+
+export
+ToFFI Int16 Int16 where toFFI = id
+
+export
+FromFFI Int16 Int16 where fromFFI = Just
+
+export
+SafeCast Int16 where
+  safeCast = bounded (-32768) 32767
 
 --------------------------------------------------------------------------------
 --          Int32
@@ -270,6 +291,16 @@ Bits Int32 where
   complement  = xor (-1)
   oneBits     = (-1)
 
+export
+ToFFI Int32 Int32 where toFFI = id
+
+export
+FromFFI Int32 Int32 where fromFFI = Just
+
+export
+SafeCast Int32 where
+  safeCast = bounded (-2147483648) 2147483647
+
 --------------------------------------------------------------------------------
 --          Int64
 --------------------------------------------------------------------------------
@@ -326,6 +357,15 @@ Integral Int64 where
   a `div` b = toInt64 $ prim__div (fromInt64 a) (fromInt64 b)
   a `mod` b = toInt64 $ prim__mod (fromInt64 a) (fromInt64 b)
 
+export
+ToFFI Int64 Int64 where toFFI = id
+
+export
+FromFFI Int64 Int64 where fromFFI = Just
+
+export
+SafeCast Int64 where
+  safeCast = bounded (-9223372036854775808) 9223372036854775808
 
 --------------------------------------------------------------------------------
 --          UInt8
@@ -397,6 +437,16 @@ Bits UInt8 where
   complement  = xor 255
   oneBits     = 255
 
+export
+ToFFI UInt8 UInt8 where toFFI = id
+
+export
+FromFFI UInt8 UInt8 where fromFFI = Just
+
+export
+SafeCast UInt8 where
+  safeCast = bounded 0 255
+
 --------------------------------------------------------------------------------
 --          UInt16
 --------------------------------------------------------------------------------
@@ -467,6 +517,16 @@ Bits UInt16 where
   complement  = xor 65535
   oneBits     = 65535
 
+export
+ToFFI UInt16 UInt16 where toFFI = id
+
+export
+FromFFI UInt16 UInt16 where fromFFI = Just
+
+export
+SafeCast UInt16 where
+  safeCast = bounded 0 65535
+
 --------------------------------------------------------------------------------
 --          UInt32
 --------------------------------------------------------------------------------
@@ -533,6 +593,16 @@ Bits UInt32 where
   complement  = xor 4294967295
   oneBits     = 4294967295
 
+export
+ToFFI UInt32 UInt32 where toFFI = id
+
+export
+FromFFI UInt32 UInt32 where fromFFI = Just
+
+export
+SafeCast UInt32 where
+  safeCast = bounded 0 4294967295
+
 --------------------------------------------------------------------------------
 --          UInt64
 --------------------------------------------------------------------------------
@@ -548,23 +618,47 @@ Bits UInt32 where
 export
 data UInt64 : Type where [external]
 
--- export
--- Show UInt64 where
---   show = show . value
--- 
--- export
--- Eq UInt64 where
---   (==) = (==) `on` value
--- 
--- export
--- Ord UInt64 where
---   compare = compare `on` value
--- 
--- export
--- Num UInt64 where
---   a + b = MkUInt64 (a.value + b.value)
---   a * b = MkUInt64 (a.value * b.value)
---   fromInteger = MkUInt64 . fromInteger
--- 
--- bits64ToDbl : Bits64 -> Double
--- bits64ToDbl = fromInteger . cast
+export
+fromUInt64 : UInt64 -> Double
+fromUInt64 = believe_me
+
+-- internal precondition: v is a non-negative integer
+toUInt64 : Double -> UInt64
+toUInt64 = believe_me
+
+-- internal precondition: v is an integer
+truncToUInt64 : Double -> UInt64
+truncToUInt64 v = toUInt64 (prim__truncUnsigned v 18446744073709551616.0)
+
+export
+Show UInt64 where
+  show = jsShow
+
+export
+Eq UInt64 where
+  (==) = (==) `on` fromUInt64
+
+export
+Ord UInt64 where
+  compare = compare `on` fromUInt64
+
+export
+Num UInt64 where
+  a + b = truncToUInt64 $ fromUInt64 a + fromUInt64 b
+  a * b = truncToUInt64 $ fromUInt64 a * fromUInt64 b
+  fromInteger = truncToUInt64 . fromInteger
+
+export
+Integral UInt64 where
+  a `div` b = toUInt64 $ prim__div (fromUInt64 a) (fromUInt64 b)
+  a `mod` b = toUInt64 $ prim__mod (fromUInt64 a) (fromUInt64 b)
+
+export
+ToFFI UInt64 UInt64 where toFFI = id
+
+export
+FromFFI UInt64 UInt64 where fromFFI = Just
+
+export
+SafeCast UInt64 where
+  safeCast = bounded 0 18446744073709551615
