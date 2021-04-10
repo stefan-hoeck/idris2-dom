@@ -2,6 +2,7 @@ module JS.Inheritance
 
 import JS.Util
 import Data.List.Elem
+import Data.SOP
 
 --------------------------------------------------------------------------------
 --          Upcasting
@@ -104,6 +105,15 @@ prim__hasProtoName : String -> AnyPtr -> Double
 public export
 interface SafeCast a where
   safeCast : any -> Maybe a
+
+||| Tries to create an n-ary sum by trying all possible
+||| casts. The first successful cast will determine the
+||| result.
+export
+safeCastNS : (np : NP SafeCast ts) => any -> Maybe (NS I ts)
+safeCastNS any = choiceMap runNS $ apInjsNP np
+  where runNS : NS SafeCast ts -> Maybe (NS I ts)
+        runNS = htraverse (\sc => safeCast any)
 
 ||| This is a utility function to implement instances of
 ||| `SafeCast`. Only use, if you know what you are doing.
