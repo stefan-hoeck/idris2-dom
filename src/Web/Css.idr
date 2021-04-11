@@ -27,13 +27,13 @@ namespace CSSGroupingRule
   export
   insertRule :  (obj : CSSGroupingRule)
              -> (rule : CSSOMString)
-             -> (index : UndefOr UInt32)
+             -> (index : Optional UInt32)
              -> JSIO UInt32
-  insertRule a b c = primJS $ CSSGroupingRule.prim__insertRule a b c
+  insertRule a b c = primJS $ CSSGroupingRule.prim__insertRule a b (toFFI c)
 
   export
   insertRule' : (obj : CSSGroupingRule) -> (rule : CSSOMString) -> JSIO UInt32
-  insertRule' a b = insertRule a b undef
+  insertRule' a b = insertRule a b Undef
 
 namespace CSSImportRule
   
@@ -172,12 +172,12 @@ namespace CSSRule
   setCssText a b = primJS $ CSSRule.prim__setCssText a b
   
   export
-  parentRule : (obj : CSSRule) -> JSIO (Nullable CSSRule)
-  parentRule a = primJS $ CSSRule.prim__parentRule a
+  parentRule : (obj : CSSRule) -> JSIO (Maybe CSSRule)
+  parentRule a = tryJS "CSSRule.parentRule" $ CSSRule.prim__parentRule a
   
   export
-  parentStyleSheet : (obj : CSSRule) -> JSIO (Nullable CSSStyleSheet)
-  parentStyleSheet a = primJS $ CSSRule.prim__parentStyleSheet a
+  parentStyleSheet : (obj : CSSRule) -> JSIO (Maybe CSSStyleSheet)
+  parentStyleSheet a = tryJS "CSSRule.parentStyleSheet" $ CSSRule.prim__parentStyleSheet a
   
   export
   type : (obj : CSSRule) -> JSIO UInt16
@@ -196,8 +196,8 @@ namespace CSSRuleList
   length a = primJS $ CSSRuleList.prim__length a
   
   export
-  item : (obj : CSSRuleList) -> (index : UInt32) -> JSIO (Nullable CSSRule)
-  item a b = primJS $ CSSRuleList.prim__item a b
+  item : (obj : CSSRuleList) -> (index : UInt32) -> JSIO (Maybe CSSRule)
+  item a b = tryJS "CSSRuleList.item" $ CSSRuleList.prim__item a b
 
 namespace CSSStyleDeclaration
   
@@ -228,8 +228,8 @@ namespace CSSStyleDeclaration
   length a = primJS $ CSSStyleDeclaration.prim__length a
   
   export
-  parentRule : (obj : CSSStyleDeclaration) -> JSIO (Nullable CSSRule)
-  parentRule a = primJS $ CSSStyleDeclaration.prim__parentRule a
+  parentRule : (obj : CSSStyleDeclaration) -> JSIO (Maybe CSSRule)
+  parentRule a = tryJS "CSSStyleDeclaration.parentRule" $ CSSStyleDeclaration.prim__parentRule a
   
   export
   getPropertyPriority :  (obj : CSSStyleDeclaration)
@@ -258,16 +258,19 @@ namespace CSSStyleDeclaration
   setProperty :  (obj : CSSStyleDeclaration)
               -> (property : CSSOMString)
               -> (value : CSSOMString)
-              -> (priority : UndefOr CSSOMString)
+              -> (priority : Optional CSSOMString)
               -> JSIO ()
-  setProperty a b c d = primJS $ CSSStyleDeclaration.prim__setProperty a b c d
+  setProperty a b c d = primJS $ CSSStyleDeclaration.prim__setProperty a
+                                                                       b
+                                                                       c
+                                                                       (toFFI d)
 
   export
   setProperty' :  (obj : CSSStyleDeclaration)
                -> (property : CSSOMString)
                -> (value : CSSOMString)
                -> JSIO ()
-  setProperty' a b c = setProperty a b c undef
+  setProperty' a b c = setProperty a b c Undef
 
 namespace CSSStyleRule
   
@@ -302,8 +305,8 @@ namespace CSSStyleSheet
   cssRules a = primJS $ CSSStyleSheet.prim__cssRules a
   
   export
-  ownerRule : (obj : CSSStyleSheet) -> JSIO (Nullable CSSRule)
-  ownerRule a = primJS $ CSSStyleSheet.prim__ownerRule a
+  ownerRule : (obj : CSSStyleSheet) -> JSIO (Maybe CSSRule)
+  ownerRule a = tryJS "CSSStyleSheet.ownerRule" $ CSSStyleSheet.prim__ownerRule a
   
   export
   rules : (obj : CSSStyleSheet) -> JSIO CSSRuleList
@@ -311,15 +314,18 @@ namespace CSSStyleSheet
   
   export
   addRule :  (obj : CSSStyleSheet)
-          -> (selector : UndefOr String)
-          -> (style : UndefOr String)
-          -> (index : UndefOr UInt32)
+          -> (selector : Optional String)
+          -> (style : Optional String)
+          -> (index : Optional UInt32)
           -> JSIO Int32
-  addRule a b c d = primJS $ CSSStyleSheet.prim__addRule a b c d
+  addRule a b c d = primJS $ CSSStyleSheet.prim__addRule a
+                                                         (toFFI b)
+                                                         (toFFI c)
+                                                         (toFFI d)
 
   export
   addRule' : (obj : CSSStyleSheet) -> JSIO Int32
-  addRule' a = addRule a undef undef undef
+  addRule' a = addRule a Undef Undef Undef
   
   export
   deleteRule : (obj : CSSStyleSheet) -> (index : UInt32) -> JSIO ()
@@ -328,21 +334,21 @@ namespace CSSStyleSheet
   export
   insertRule :  (obj : CSSStyleSheet)
              -> (rule : CSSOMString)
-             -> (index : UndefOr UInt32)
+             -> (index : Optional UInt32)
              -> JSIO UInt32
-  insertRule a b c = primJS $ CSSStyleSheet.prim__insertRule a b c
+  insertRule a b c = primJS $ CSSStyleSheet.prim__insertRule a b (toFFI c)
 
   export
   insertRule' : (obj : CSSStyleSheet) -> (rule : CSSOMString) -> JSIO UInt32
-  insertRule' a b = insertRule a b undef
+  insertRule' a b = insertRule a b Undef
   
   export
-  removeRule : (obj : CSSStyleSheet) -> (index : UndefOr UInt32) -> JSIO ()
-  removeRule a b = primJS $ CSSStyleSheet.prim__removeRule a b
+  removeRule : (obj : CSSStyleSheet) -> (index : Optional UInt32) -> JSIO ()
+  removeRule a b = primJS $ CSSStyleSheet.prim__removeRule a (toFFI b)
 
   export
   removeRule' : (obj : CSSStyleSheet) -> JSIO ()
-  removeRule' a = removeRule a undef
+  removeRule' a = removeRule a Undef
 
 namespace MediaList
   
@@ -373,8 +379,8 @@ namespace MediaList
   deleteMedium a b = primJS $ MediaList.prim__deleteMedium a b
   
   export
-  item : (obj : MediaList) -> (index : UInt32) -> JSIO (Nullable CSSOMString)
-  item a b = primJS $ MediaList.prim__item a b
+  item : (obj : MediaList) -> (index : UInt32) -> JSIO (Maybe CSSOMString)
+  item a b = tryJS "MediaList.item" $ MediaList.prim__item a b
 
 namespace StyleSheet
   
@@ -385,16 +391,16 @@ namespace StyleSheet
     mixins =  []
   
   export
-  disabled : (obj : StyleSheet) -> JSIO Boolean
-  disabled a = primJS $ StyleSheet.prim__disabled a
+  disabled : (obj : StyleSheet) -> JSIO Bool
+  disabled a = tryJS "StyleSheet.disabled" $ StyleSheet.prim__disabled a
   
   export
-  setDisabled : (obj : StyleSheet) -> (value : Boolean) -> JSIO ()
-  setDisabled a b = primJS $ StyleSheet.prim__setDisabled a b
+  setDisabled : (obj : StyleSheet) -> (value : Bool) -> JSIO ()
+  setDisabled a b = primJS $ StyleSheet.prim__setDisabled a (toFFI b)
   
   export
-  href : (obj : StyleSheet) -> JSIO (Nullable String)
-  href a = primJS $ StyleSheet.prim__href a
+  href : (obj : StyleSheet) -> JSIO (Maybe String)
+  href a = tryJS "StyleSheet.href" $ StyleSheet.prim__href a
   
   export
   media : (obj : StyleSheet) -> JSIO MediaList
@@ -402,16 +408,16 @@ namespace StyleSheet
   
   export
   ownerNode :  (obj : StyleSheet)
-            -> JSIO (Nullable (Union2 Element ProcessingInstruction))
-  ownerNode a = primJS $ StyleSheet.prim__ownerNode a
+            -> JSIO (Maybe (NS I [ Element , ProcessingInstruction ]))
+  ownerNode a = tryJS "StyleSheet.ownerNode" $ StyleSheet.prim__ownerNode a
   
   export
-  parentStyleSheet : (obj : StyleSheet) -> JSIO (Nullable CSSStyleSheet)
-  parentStyleSheet a = primJS $ StyleSheet.prim__parentStyleSheet a
+  parentStyleSheet : (obj : StyleSheet) -> JSIO (Maybe CSSStyleSheet)
+  parentStyleSheet a = tryJS "StyleSheet.parentStyleSheet" $ StyleSheet.prim__parentStyleSheet a
   
   export
-  title : (obj : StyleSheet) -> JSIO (Nullable String)
-  title a = primJS $ StyleSheet.prim__title a
+  title : (obj : StyleSheet) -> JSIO (Maybe String)
+  title a = tryJS "StyleSheet.title" $ StyleSheet.prim__title a
   
   export
   type : (obj : StyleSheet) -> JSIO CSSOMString
@@ -432,8 +438,8 @@ namespace StyleSheetList
   export
   item :  (obj : StyleSheetList)
        -> (index : UInt32)
-       -> JSIO (Nullable CSSStyleSheet)
-  item a b = primJS $ StyleSheetList.prim__item a b
+       -> JSIO (Maybe CSSStyleSheet)
+  item a b = tryJS "StyleSheetList.item" $ StyleSheetList.prim__item a b
 
 --------------------------------------------------------------------------------
 --          Mixins
@@ -448,6 +454,6 @@ namespace ElementCSSInlineStyle
 namespace LinkStyle
   
   export
-  sheet : (obj : LinkStyle) -> JSIO (Nullable CSSStyleSheet)
-  sheet a = primJS $ LinkStyle.prim__sheet a
+  sheet : (obj : LinkStyle) -> JSIO (Maybe CSSStyleSheet)
+  sheet a = tryJS "LinkStyle.sheet" $ LinkStyle.prim__sheet a
 

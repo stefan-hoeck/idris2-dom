@@ -212,16 +212,16 @@ namespace SVGAnimatedBoolean
     mixins =  []
   
   export
-  animVal : (obj : SVGAnimatedBoolean) -> JSIO Boolean
-  animVal a = primJS $ SVGAnimatedBoolean.prim__animVal a
+  animVal : (obj : SVGAnimatedBoolean) -> JSIO Bool
+  animVal a = tryJS "SVGAnimatedBoolean.animVal" $ SVGAnimatedBoolean.prim__animVal a
   
   export
-  baseVal : (obj : SVGAnimatedBoolean) -> JSIO Boolean
-  baseVal a = primJS $ SVGAnimatedBoolean.prim__baseVal a
+  baseVal : (obj : SVGAnimatedBoolean) -> JSIO Bool
+  baseVal a = tryJS "SVGAnimatedBoolean.baseVal" $ SVGAnimatedBoolean.prim__baseVal a
   
   export
-  setBaseVal : (obj : SVGAnimatedBoolean) -> (value : Boolean) -> JSIO ()
-  setBaseVal a b = primJS $ SVGAnimatedBoolean.prim__setBaseVal a b
+  setBaseVal : (obj : SVGAnimatedBoolean) -> (value : Bool) -> JSIO ()
+  setBaseVal a b = primJS $ SVGAnimatedBoolean.prim__setBaseVal a (toFFI b)
 
 namespace SVGAnimatedEnumeration
   
@@ -505,12 +505,12 @@ namespace SVGElement
   className a = primJS $ SVGElement.prim__className a
   
   export
-  ownerSVGElement : (obj : SVGElement) -> JSIO (Nullable SVGSVGElement)
-  ownerSVGElement a = primJS $ SVGElement.prim__ownerSVGElement a
+  ownerSVGElement : (obj : SVGElement) -> JSIO (Maybe SVGSVGElement)
+  ownerSVGElement a = tryJS "SVGElement.ownerSVGElement" $ SVGElement.prim__ownerSVGElement a
   
   export
-  viewportElement : (obj : SVGElement) -> JSIO (Nullable SVGElement)
-  viewportElement a = primJS $ SVGElement.prim__viewportElement a
+  viewportElement : (obj : SVGElement) -> JSIO (Maybe SVGElement)
+  viewportElement a = tryJS "SVGElement.viewportElement" $ SVGElement.prim__viewportElement a
 
 namespace SVGEllipseElement
   
@@ -661,23 +661,25 @@ namespace SVGGeometryElement
   
   export
   isPointInFill :  (obj : SVGGeometryElement)
-                -> (point : UndefOr DOMPointInit)
-                -> JSIO Boolean
-  isPointInFill a b = primJS $ SVGGeometryElement.prim__isPointInFill a b
+                -> (point : Optional DOMPointInit)
+                -> JSIO Bool
+  isPointInFill a b = tryJS "SVGGeometryElement.isPointInFill" $ SVGGeometryElement.prim__isPointInFill a
+                                                                                                        (toFFI b)
 
   export
-  isPointInFill' : (obj : SVGGeometryElement) -> JSIO Boolean
-  isPointInFill' a = isPointInFill a undef
+  isPointInFill' : (obj : SVGGeometryElement) -> JSIO Bool
+  isPointInFill' a = isPointInFill a Undef
   
   export
   isPointInStroke :  (obj : SVGGeometryElement)
-                  -> (point : UndefOr DOMPointInit)
-                  -> JSIO Boolean
-  isPointInStroke a b = primJS $ SVGGeometryElement.prim__isPointInStroke a b
+                  -> (point : Optional DOMPointInit)
+                  -> JSIO Bool
+  isPointInStroke a b = tryJS "SVGGeometryElement.isPointInStroke" $ SVGGeometryElement.prim__isPointInStroke a
+                                                                                                              (toFFI b)
 
   export
-  isPointInStroke' : (obj : SVGGeometryElement) -> JSIO Boolean
-  isPointInStroke' a = isPointInStroke a undef
+  isPointInStroke' : (obj : SVGGeometryElement) -> JSIO Bool
+  isPointInStroke' a = isPointInStroke a Undef
 
 namespace SVGGradientElement
   
@@ -752,21 +754,21 @@ namespace SVGGraphicsElement
   
   export
   getBBox :  (obj : SVGGraphicsElement)
-          -> (options : UndefOr SVGBoundingBoxOptions)
+          -> (options : Optional SVGBoundingBoxOptions)
           -> JSIO DOMRect
-  getBBox a b = primJS $ SVGGraphicsElement.prim__getBBox a b
+  getBBox a b = primJS $ SVGGraphicsElement.prim__getBBox a (toFFI b)
 
   export
   getBBox' : (obj : SVGGraphicsElement) -> JSIO DOMRect
-  getBBox' a = getBBox a undef
+  getBBox' a = getBBox a Undef
   
   export
-  getCTM : (obj : SVGGraphicsElement) -> JSIO (Nullable DOMMatrix)
-  getCTM a = primJS $ SVGGraphicsElement.prim__getCTM a
+  getCTM : (obj : SVGGraphicsElement) -> JSIO (Maybe DOMMatrix)
+  getCTM a = tryJS "SVGGraphicsElement.getCTM" $ SVGGraphicsElement.prim__getCTM a
   
   export
-  getScreenCTM : (obj : SVGGraphicsElement) -> JSIO (Nullable DOMMatrix)
-  getScreenCTM a = primJS $ SVGGraphicsElement.prim__getScreenCTM a
+  getScreenCTM : (obj : SVGGraphicsElement) -> JSIO (Maybe DOMMatrix)
+  getScreenCTM a = tryJS "SVGGraphicsElement.getScreenCTM" $ SVGGraphicsElement.prim__getScreenCTM a
 
 namespace SVGImageElement
   
@@ -795,14 +797,12 @@ namespace SVGImageElement
               ]
   
   export
-  crossOrigin : (obj : SVGImageElement) -> JSIO (Nullable String)
-  crossOrigin a = primJS $ SVGImageElement.prim__crossOrigin a
+  crossOrigin : (obj : SVGImageElement) -> JSIO (Maybe String)
+  crossOrigin a = tryJS "SVGImageElement.crossOrigin" $ SVGImageElement.prim__crossOrigin a
   
   export
-  setCrossOrigin :  (obj : SVGImageElement)
-                 -> (value : Nullable String)
-                 -> JSIO ()
-  setCrossOrigin a b = primJS $ SVGImageElement.prim__setCrossOrigin a b
+  setCrossOrigin : (obj : SVGImageElement) -> (value : Maybe String) -> JSIO ()
+  setCrossOrigin a b = primJS $ SVGImageElement.prim__setCrossOrigin a (toFFI b)
   
   export
   height : (obj : SVGImageElement) -> JSIO SVGAnimatedLength
@@ -1661,15 +1661,19 @@ namespace SVGSVGElement
   checkEnclosure :  (obj : SVGSVGElement)
                  -> (element : SVGElement)
                  -> (rect : DOMRectReadOnly)
-                 -> JSIO Boolean
-  checkEnclosure a b c = primJS $ SVGSVGElement.prim__checkEnclosure a b c
+                 -> JSIO Bool
+  checkEnclosure a b c = tryJS "SVGSVGElement.checkEnclosure" $ SVGSVGElement.prim__checkEnclosure a
+                                                                                                   b
+                                                                                                   c
   
   export
   checkIntersection :  (obj : SVGSVGElement)
                     -> (element : SVGElement)
                     -> (rect : DOMRectReadOnly)
-                    -> JSIO Boolean
-  checkIntersection a b c = primJS $ SVGSVGElement.prim__checkIntersection a b c
+                    -> JSIO Bool
+  checkIntersection a b c = tryJS "SVGSVGElement.checkIntersection" $ SVGSVGElement.prim__checkIntersection a
+                                                                                                            b
+                                                                                                            c
   
   export
   createSVGAngle : (obj : SVGSVGElement) -> JSIO SVGAngle
@@ -1697,14 +1701,14 @@ namespace SVGSVGElement
   
   export
   createSVGTransformFromMatrix :  (obj : SVGSVGElement)
-                               -> (matrix : UndefOr DOMMatrix2DInit)
+                               -> (matrix : Optional DOMMatrix2DInit)
                                -> JSIO SVGTransform
   createSVGTransformFromMatrix a b = primJS $ SVGSVGElement.prim__createSVGTransformFromMatrix a
-                                                                                               b
+                                                                                               (toFFI b)
 
   export
   createSVGTransformFromMatrix' : (obj : SVGSVGElement) -> JSIO SVGTransform
-  createSVGTransformFromMatrix' a = createSVGTransformFromMatrix a undef
+  createSVGTransformFromMatrix' a = createSVGTransformFromMatrix a Undef
   
   export
   createSVGTransform : (obj : SVGSVGElement) -> JSIO SVGTransform
@@ -1725,18 +1729,20 @@ namespace SVGSVGElement
   export
   getEnclosureList :  (obj : SVGSVGElement)
                    -> (rect : DOMRectReadOnly)
-                   -> (referenceElement : Nullable SVGElement)
+                   -> (referenceElement : Maybe SVGElement)
                    -> JSIO NodeList
-  getEnclosureList a b c = primJS $ SVGSVGElement.prim__getEnclosureList a b c
+  getEnclosureList a b c = primJS $ SVGSVGElement.prim__getEnclosureList a
+                                                                         b
+                                                                         (toFFI c)
   
   export
   getIntersectionList :  (obj : SVGSVGElement)
                       -> (rect : DOMRectReadOnly)
-                      -> (referenceElement : Nullable SVGElement)
+                      -> (referenceElement : Maybe SVGElement)
                       -> JSIO NodeList
   getIntersectionList a b c = primJS $ SVGSVGElement.prim__getIntersectionList a
                                                                                b
-                                                                               c
+                                                                               (toFFI c)
   
   export
   suspendRedraw :  (obj : SVGSVGElement)
@@ -1774,14 +1780,13 @@ namespace SVGScriptElement
               ]
   
   export
-  crossOrigin : (obj : SVGScriptElement) -> JSIO (Nullable String)
-  crossOrigin a = primJS $ SVGScriptElement.prim__crossOrigin a
+  crossOrigin : (obj : SVGScriptElement) -> JSIO (Maybe String)
+  crossOrigin a = tryJS "SVGScriptElement.crossOrigin" $ SVGScriptElement.prim__crossOrigin a
   
   export
-  setCrossOrigin :  (obj : SVGScriptElement)
-                 -> (value : Nullable String)
-                 -> JSIO ()
-  setCrossOrigin a b = primJS $ SVGScriptElement.prim__setCrossOrigin a b
+  setCrossOrigin : (obj : SVGScriptElement) -> (value : Maybe String) -> JSIO ()
+  setCrossOrigin a b = primJS $ SVGScriptElement.prim__setCrossOrigin a
+                                                                      (toFFI b)
   
   export
   type : (obj : SVGScriptElement) -> JSIO String
@@ -2038,14 +2043,14 @@ namespace SVGTextContentElement
   
   export
   getCharNumAtPosition :  (obj : SVGTextContentElement)
-                       -> (point : UndefOr DOMPointInit)
+                       -> (point : Optional DOMPointInit)
                        -> JSIO Int32
   getCharNumAtPosition a b = primJS $ SVGTextContentElement.prim__getCharNumAtPosition a
-                                                                                       b
+                                                                                       (toFFI b)
 
   export
   getCharNumAtPosition' : (obj : SVGTextContentElement) -> JSIO Int32
-  getCharNumAtPosition' a = getCharNumAtPosition a undef
+  getCharNumAtPosition' a = getCharNumAtPosition a Undef
   
   export
   getComputedTextLength : (obj : SVGTextContentElement) -> JSIO Double
@@ -2304,13 +2309,13 @@ namespace SVGTransform
   
   export
   setMatrix :  (obj : SVGTransform)
-            -> (matrix : UndefOr DOMMatrix2DInit)
+            -> (matrix : Optional DOMMatrix2DInit)
             -> JSIO ()
-  setMatrix a b = primJS $ SVGTransform.prim__setMatrix a b
+  setMatrix a b = primJS $ SVGTransform.prim__setMatrix a (toFFI b)
 
   export
   setMatrix' : (obj : SVGTransform) -> JSIO ()
-  setMatrix' a = setMatrix a undef
+  setMatrix' a = setMatrix a Undef
   
   export
   setRotate :  (obj : SVGTransform)
@@ -2373,19 +2378,19 @@ namespace SVGTransformList
   clear a = primJS $ SVGTransformList.prim__clear a
   
   export
-  consolidate : (obj : SVGTransformList) -> JSIO (Nullable SVGTransform)
-  consolidate a = primJS $ SVGTransformList.prim__consolidate a
+  consolidate : (obj : SVGTransformList) -> JSIO (Maybe SVGTransform)
+  consolidate a = tryJS "SVGTransformList.consolidate" $ SVGTransformList.prim__consolidate a
   
   export
   createSVGTransformFromMatrix :  (obj : SVGTransformList)
-                               -> (matrix : UndefOr DOMMatrix2DInit)
+                               -> (matrix : Optional DOMMatrix2DInit)
                                -> JSIO SVGTransform
   createSVGTransformFromMatrix a b = primJS $ SVGTransformList.prim__createSVGTransformFromMatrix a
-                                                                                                  b
+                                                                                                  (toFFI b)
 
   export
   createSVGTransformFromMatrix' : (obj : SVGTransformList) -> JSIO SVGTransform
-  createSVGTransformFromMatrix' a = createSVGTransformFromMatrix a undef
+  createSVGTransformFromMatrix' a = createSVGTransformFromMatrix a Undef
   
   export
   getItem : (obj : SVGTransformList) -> (index : UInt32) -> JSIO SVGTransform
@@ -2464,16 +2469,16 @@ namespace SVGUseElement
               ]
   
   export
-  animatedInstanceRoot : (obj : SVGUseElement) -> JSIO (Nullable SVGElement)
-  animatedInstanceRoot a = primJS $ SVGUseElement.prim__animatedInstanceRoot a
+  animatedInstanceRoot : (obj : SVGUseElement) -> JSIO (Maybe SVGElement)
+  animatedInstanceRoot a = tryJS "SVGUseElement.animatedInstanceRoot" $ SVGUseElement.prim__animatedInstanceRoot a
   
   export
   height : (obj : SVGUseElement) -> JSIO SVGAnimatedLength
   height a = primJS $ SVGUseElement.prim__height a
   
   export
-  instanceRoot : (obj : SVGUseElement) -> JSIO (Nullable SVGElement)
-  instanceRoot a = primJS $ SVGUseElement.prim__instanceRoot a
+  instanceRoot : (obj : SVGUseElement) -> JSIO (Maybe SVGElement)
+  instanceRoot a = tryJS "SVGUseElement.instanceRoot" $ SVGUseElement.prim__instanceRoot a
   
   export
   width : (obj : SVGUseElement) -> JSIO SVGAnimatedLength
@@ -2553,14 +2558,13 @@ namespace SVGAnimatedPoints
 namespace SVGElementInstance
   
   export
-  correspondingElement :  (obj : SVGElementInstance)
-                       -> JSIO (Nullable SVGElement)
-  correspondingElement a = primJS $ SVGElementInstance.prim__correspondingElement a
+  correspondingElement : (obj : SVGElementInstance) -> JSIO (Maybe SVGElement)
+  correspondingElement a = tryJS "SVGElementInstance.correspondingElement" $ SVGElementInstance.prim__correspondingElement a
   
   export
   correspondingUseElement :  (obj : SVGElementInstance)
-                          -> JSIO (Nullable SVGUseElement)
-  correspondingUseElement a = primJS $ SVGElementInstance.prim__correspondingUseElement a
+                          -> JSIO (Maybe SVGUseElement)
+  correspondingUseElement a = tryJS "SVGElementInstance.correspondingUseElement" $ SVGElementInstance.prim__correspondingUseElement a
 
 namespace SVGFitToViewBox
   
@@ -2602,69 +2606,70 @@ namespace SVGBoundingBoxOptions
     mixins =  []
   
   export
-  new :  (fill : UndefOr Boolean)
-      -> (stroke : UndefOr Boolean)
-      -> (markers : UndefOr Boolean)
-      -> (clipped : UndefOr Boolean)
+  new :  (fill : Optional Bool)
+      -> (stroke : Optional Bool)
+      -> (markers : Optional Bool)
+      -> (clipped : Optional Bool)
       -> JSIO SVGBoundingBoxOptions
-  new a b c d = primJS $ SVGBoundingBoxOptions.prim__new a b c d
+  new a b c d = primJS $ SVGBoundingBoxOptions.prim__new (toFFI a)
+                                                         (toFFI b)
+                                                         (toFFI c)
+                                                         (toFFI d)
 
   export
   new' : JSIO SVGBoundingBoxOptions
-  new' = new undef undef undef undef
+  new' = new Undef Undef Undef Undef
   
   export
-  clipped : (obj : SVGBoundingBoxOptions) -> JSIO (UndefOr Boolean)
-  clipped a = primJS $ SVGBoundingBoxOptions.prim__clipped a
+  clipped : (obj : SVGBoundingBoxOptions) -> JSIO $ Optional Bool
+  clipped a = tryJS "SVGBoundingBoxOptions.clipped" $ SVGBoundingBoxOptions.prim__clipped a
   
   export
   setClipped :  (obj : SVGBoundingBoxOptions)
-             -> (value : UndefOr Boolean)
+             -> (value : Optional Bool)
              -> JSIO ()
-  setClipped a b = primJS $ SVGBoundingBoxOptions.prim__setClipped a b
+  setClipped a b = primJS $ SVGBoundingBoxOptions.prim__setClipped a (toFFI b)
 
   export
   setClipped' : (obj : SVGBoundingBoxOptions) -> JSIO ()
-  setClipped' a = setClipped a undef
+  setClipped' a = setClipped a Undef
   
   export
-  fill : (obj : SVGBoundingBoxOptions) -> JSIO (UndefOr Boolean)
-  fill a = primJS $ SVGBoundingBoxOptions.prim__fill a
+  fill : (obj : SVGBoundingBoxOptions) -> JSIO $ Optional Bool
+  fill a = tryJS "SVGBoundingBoxOptions.fill" $ SVGBoundingBoxOptions.prim__fill a
   
   export
-  setFill :  (obj : SVGBoundingBoxOptions)
-          -> (value : UndefOr Boolean)
-          -> JSIO ()
-  setFill a b = primJS $ SVGBoundingBoxOptions.prim__setFill a b
+  setFill : (obj : SVGBoundingBoxOptions) -> (value : Optional Bool) -> JSIO ()
+  setFill a b = primJS $ SVGBoundingBoxOptions.prim__setFill a (toFFI b)
 
   export
   setFill' : (obj : SVGBoundingBoxOptions) -> JSIO ()
-  setFill' a = setFill a undef
+  setFill' a = setFill a Undef
   
   export
-  markers : (obj : SVGBoundingBoxOptions) -> JSIO (UndefOr Boolean)
-  markers a = primJS $ SVGBoundingBoxOptions.prim__markers a
+  markers : (obj : SVGBoundingBoxOptions) -> JSIO $ Optional Bool
+  markers a = tryJS "SVGBoundingBoxOptions.markers" $ SVGBoundingBoxOptions.prim__markers a
   
   export
   setMarkers :  (obj : SVGBoundingBoxOptions)
-             -> (value : UndefOr Boolean)
+             -> (value : Optional Bool)
              -> JSIO ()
-  setMarkers a b = primJS $ SVGBoundingBoxOptions.prim__setMarkers a b
+  setMarkers a b = primJS $ SVGBoundingBoxOptions.prim__setMarkers a (toFFI b)
 
   export
   setMarkers' : (obj : SVGBoundingBoxOptions) -> JSIO ()
-  setMarkers' a = setMarkers a undef
+  setMarkers' a = setMarkers a Undef
   
   export
-  stroke : (obj : SVGBoundingBoxOptions) -> JSIO (UndefOr Boolean)
-  stroke a = primJS $ SVGBoundingBoxOptions.prim__stroke a
+  stroke : (obj : SVGBoundingBoxOptions) -> JSIO $ Optional Bool
+  stroke a = tryJS "SVGBoundingBoxOptions.stroke" $ SVGBoundingBoxOptions.prim__stroke a
   
   export
   setStroke :  (obj : SVGBoundingBoxOptions)
-            -> (value : UndefOr Boolean)
+            -> (value : Optional Bool)
             -> JSIO ()
-  setStroke a b = primJS $ SVGBoundingBoxOptions.prim__setStroke a b
+  setStroke a b = primJS $ SVGBoundingBoxOptions.prim__setStroke a (toFFI b)
 
   export
   setStroke' : (obj : SVGBoundingBoxOptions) -> JSIO ()
-  setStroke' a = setStroke a undef
+  setStroke' a = setStroke a Undef

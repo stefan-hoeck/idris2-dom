@@ -50,27 +50,33 @@ namespace AudioTrackList
   
   export
   %foreign "browser:lambda:x=>x.onaddtrack"
-  prim__onaddtrack : AudioTrackList -> PrimIO EventHandler
+  prim__onaddtrack : AudioTrackList -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onaddtrack = v}"
-  prim__setOnaddtrack : AudioTrackList -> EventHandler -> PrimIO ()
+  prim__setOnaddtrack :  AudioTrackList
+                      -> Nullable EventHandlerNonNull
+                      -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onchange"
-  prim__onchange : AudioTrackList -> PrimIO EventHandler
+  prim__onchange : AudioTrackList -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onchange = v}"
-  prim__setOnchange : AudioTrackList -> EventHandler -> PrimIO ()
+  prim__setOnchange :  AudioTrackList
+                    -> Nullable EventHandlerNonNull
+                    -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onremovetrack"
-  prim__onremovetrack : AudioTrackList -> PrimIO EventHandler
+  prim__onremovetrack : AudioTrackList -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onremovetrack = v}"
-  prim__setOnremovetrack : AudioTrackList -> EventHandler -> PrimIO ()
+  prim__setOnremovetrack :  AudioTrackList
+                         -> Nullable EventHandlerNonNull
+                         -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a)=>x.getTrackById(a)"
@@ -104,19 +110,24 @@ namespace BroadcastChannel
   
   export
   %foreign "browser:lambda:x=>x.onmessage"
-  prim__onmessage : BroadcastChannel -> PrimIO EventHandler
+  prim__onmessage : BroadcastChannel -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmessage = v}"
-  prim__setOnmessage : BroadcastChannel -> EventHandler -> PrimIO ()
+  prim__setOnmessage :  BroadcastChannel
+                     -> Nullable EventHandlerNonNull
+                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onmessageerror"
-  prim__onmessageerror : BroadcastChannel -> PrimIO EventHandler
+  prim__onmessageerror :  BroadcastChannel
+                       -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmessageerror = v}"
-  prim__setOnmessageerror : BroadcastChannel -> EventHandler -> PrimIO ()
+  prim__setOnmessageerror :  BroadcastChannel
+                          -> Nullable EventHandlerNonNull
+                          -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.close()"
@@ -201,10 +212,7 @@ namespace DOMParser
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.parseFromString(a b)"
-  prim__parseFromString :  DOMParser
-                        -> String
-                        -> DOMParserSupportedType
-                        -> PrimIO Document
+  prim__parseFromString : DOMParser -> String -> String -> PrimIO Document
 
 namespace DOMStringList
   
@@ -339,20 +347,24 @@ namespace DedicatedWorkerGlobalScope
   
   export
   %foreign "browser:lambda:x=>x.onmessage"
-  prim__onmessage : DedicatedWorkerGlobalScope -> PrimIO EventHandler
+  prim__onmessage :  DedicatedWorkerGlobalScope
+                  -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmessage = v}"
-  prim__setOnmessage : DedicatedWorkerGlobalScope -> EventHandler -> PrimIO ()
+  prim__setOnmessage :  DedicatedWorkerGlobalScope
+                     -> Nullable EventHandlerNonNull
+                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onmessageerror"
-  prim__onmessageerror : DedicatedWorkerGlobalScope -> PrimIO EventHandler
+  prim__onmessageerror :  DedicatedWorkerGlobalScope
+                       -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmessageerror = v}"
   prim__setOnmessageerror :  DedicatedWorkerGlobalScope
-                          -> EventHandler
+                          -> Nullable EventHandlerNonNull
                           -> PrimIO ()
   
   export
@@ -466,27 +478,27 @@ namespace EventSource
   
   export
   %foreign "browser:lambda:x=>x.onerror"
-  prim__onerror : EventSource -> PrimIO EventHandler
+  prim__onerror : EventSource -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onerror = v}"
-  prim__setOnerror : EventSource -> EventHandler -> PrimIO ()
+  prim__setOnerror : EventSource -> Nullable EventHandlerNonNull -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onmessage"
-  prim__onmessage : EventSource -> PrimIO EventHandler
+  prim__onmessage : EventSource -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmessage = v}"
-  prim__setOnmessage : EventSource -> EventHandler -> PrimIO ()
+  prim__setOnmessage : EventSource -> Nullable EventHandlerNonNull -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onopen"
-  prim__onopen : EventSource -> PrimIO EventHandler
+  prim__onopen : EventSource -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onopen = v}"
-  prim__setOnopen : EventSource -> EventHandler -> PrimIO ()
+  prim__setOnopen : EventSource -> Nullable EventHandlerNonNull -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.readyState"
@@ -975,7 +987,10 @@ namespace HTMLCanvasElement
   prim__getContext :  HTMLCanvasElement
                    -> String
                    -> UndefOr AnyPtr
-                   -> PrimIO (Nullable RenderingContext)
+                   -> PrimIO (Nullable (Union4 CanvasRenderingContext2D
+                                               ImageBitmapRenderingContext
+                                               WebGLRenderingContext
+                                               WebGL2RenderingContext))
   
   export
   %foreign "browser:lambda:(x,a,b,c)=>x.toBlob(a b c)"
@@ -2360,7 +2375,7 @@ namespace HTMLInputElement
                       -> String
                       -> UInt32
                       -> UInt32
-                      -> UndefOr SelectionMode
+                      -> UndefOr String
                       -> PrimIO ()
   
   export
@@ -2843,11 +2858,14 @@ namespace HTMLMediaElement
   
   export
   %foreign "browser:lambda:x=>x.srcObject"
-  prim__srcObject : HTMLMediaElement -> PrimIO (Nullable MediaProvider)
+  prim__srcObject :  HTMLMediaElement
+                  -> PrimIO (Nullable (Union3 MediaStream MediaSource Blob))
   
   export
   %foreign "browser:lambda:(x,v)=>{x.srcObject = v}"
-  prim__setSrcObject : HTMLMediaElement -> Nullable MediaProvider -> PrimIO ()
+  prim__setSrcObject :  HTMLMediaElement
+                     -> Nullable (Union3 MediaStream MediaSource Blob)
+                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.textTracks"
@@ -2868,14 +2886,14 @@ namespace HTMLMediaElement
   export
   %foreign "browser:lambda:(x,a,b,c)=>x.addTextTrack(a b c)"
   prim__addTextTrack :  HTMLMediaElement
-                     -> TextTrackKind
+                     -> String
                      -> UndefOr String
                      -> UndefOr String
                      -> PrimIO TextTrack
   
   export
   %foreign "browser:lambda:(x,a)=>x.canPlayType(a)"
-  prim__canPlayType : HTMLMediaElement -> String -> PrimIO CanPlayTypeResult
+  prim__canPlayType : HTMLMediaElement -> String -> PrimIO String
   
   export
   %foreign "browser:lambda:(x,a)=>x.fastSeek(a)"
@@ -4589,7 +4607,7 @@ namespace HTMLTextAreaElement
                       -> String
                       -> UInt32
                       -> UInt32
-                      -> UndefOr SelectionMode
+                      -> UndefOr String
                       -> PrimIO ()
   
   export
@@ -4773,11 +4791,11 @@ namespace History
   
   export
   %foreign "browser:lambda:x=>x.scrollRestoration"
-  prim__scrollRestoration : History -> PrimIO ScrollRestoration
+  prim__scrollRestoration : History -> PrimIO String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.scrollRestoration = v}"
-  prim__setScrollRestoration : History -> ScrollRestoration -> PrimIO ()
+  prim__setScrollRestoration : History -> String -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.state"
@@ -4994,7 +5012,10 @@ namespace MessageEvent
   
   export
   %foreign "browser:lambda:x=>x.source"
-  prim__source : MessageEvent -> PrimIO (Nullable MessageEventSource)
+  prim__source :  MessageEvent
+               -> PrimIO (Nullable (Union3 WindowProxy
+                                           MessagePort
+                                           ServiceWorker))
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h)=>x.initMessageEvent(a b c d e f g h)"
@@ -5005,7 +5026,9 @@ namespace MessageEvent
                          -> UndefOr AnyPtr
                          -> UndefOr String
                          -> UndefOr String
-                         -> UndefOr (Nullable MessageEventSource)
+                         -> UndefOr (Nullable (Union3 WindowProxy
+                                                      MessagePort
+                                                      ServiceWorker))
                          -> UndefOr (Array MessagePort)
                          -> PrimIO ()
 
@@ -5013,19 +5036,21 @@ namespace MessagePort
   
   export
   %foreign "browser:lambda:x=>x.onmessage"
-  prim__onmessage : MessagePort -> PrimIO EventHandler
+  prim__onmessage : MessagePort -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmessage = v}"
-  prim__setOnmessage : MessagePort -> EventHandler -> PrimIO ()
+  prim__setOnmessage : MessagePort -> Nullable EventHandlerNonNull -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onmessageerror"
-  prim__onmessageerror : MessagePort -> PrimIO EventHandler
+  prim__onmessageerror : MessagePort -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmessageerror = v}"
-  prim__setOnmessageerror : MessagePort -> EventHandler -> PrimIO ()
+  prim__setOnmessageerror :  MessagePort
+                          -> Nullable EventHandlerNonNull
+                          -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.close()"
@@ -5135,9 +5160,12 @@ namespace OffscreenCanvas
   export
   %foreign "browser:lambda:(x,a,b)=>x.getContext(a b)"
   prim__getContext :  OffscreenCanvas
-                   -> OffscreenRenderingContextId
+                   -> String
                    -> UndefOr AnyPtr
-                   -> PrimIO (Nullable OffscreenRenderingContext)
+                   -> PrimIO (Nullable (Union4 OffscreenCanvasRenderingContext2D
+                                               ImageBitmapRenderingContext
+                                               WebGLRenderingContext
+                                               WebGL2RenderingContext))
   
   export
   %foreign "browser:lambda:x=>x.transferToImageBitmap()"
@@ -5275,11 +5303,14 @@ namespace SharedWorkerGlobalScope
   
   export
   %foreign "browser:lambda:x=>x.onconnect"
-  prim__onconnect : SharedWorkerGlobalScope -> PrimIO EventHandler
+  prim__onconnect :  SharedWorkerGlobalScope
+                  -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onconnect = v}"
-  prim__setOnconnect : SharedWorkerGlobalScope -> EventHandler -> PrimIO ()
+  prim__setOnconnect :  SharedWorkerGlobalScope
+                     -> Nullable EventHandlerNonNull
+                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.close()"
@@ -5426,7 +5457,7 @@ namespace TextTrack
   
   export
   %foreign "browser:lambda:x=>x.kind"
-  prim__kind : TextTrack -> PrimIO TextTrackKind
+  prim__kind : TextTrack -> PrimIO String
   
   export
   %foreign "browser:lambda:x=>x.label"
@@ -5438,19 +5469,19 @@ namespace TextTrack
   
   export
   %foreign "browser:lambda:x=>x.mode"
-  prim__mode : TextTrack -> PrimIO TextTrackMode
+  prim__mode : TextTrack -> PrimIO String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.mode = v}"
-  prim__setMode : TextTrack -> TextTrackMode -> PrimIO ()
+  prim__setMode : TextTrack -> String -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.oncuechange"
-  prim__oncuechange : TextTrack -> PrimIO EventHandler
+  prim__oncuechange : TextTrack -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.oncuechange = v}"
-  prim__setOncuechange : TextTrack -> EventHandler -> PrimIO ()
+  prim__setOncuechange : TextTrack -> Nullable EventHandlerNonNull -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.sourceBuffer"
@@ -5484,19 +5515,19 @@ namespace TextTrackCue
   
   export
   %foreign "browser:lambda:x=>x.onenter"
-  prim__onenter : TextTrackCue -> PrimIO EventHandler
+  prim__onenter : TextTrackCue -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onenter = v}"
-  prim__setOnenter : TextTrackCue -> EventHandler -> PrimIO ()
+  prim__setOnenter : TextTrackCue -> Nullable EventHandlerNonNull -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onexit"
-  prim__onexit : TextTrackCue -> PrimIO EventHandler
+  prim__onexit : TextTrackCue -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onexit = v}"
-  prim__setOnexit : TextTrackCue -> EventHandler -> PrimIO ()
+  prim__setOnexit : TextTrackCue -> Nullable EventHandlerNonNull -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.pauseOnExit"
@@ -5546,27 +5577,31 @@ namespace TextTrackList
   
   export
   %foreign "browser:lambda:x=>x.onaddtrack"
-  prim__onaddtrack : TextTrackList -> PrimIO EventHandler
+  prim__onaddtrack : TextTrackList -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onaddtrack = v}"
-  prim__setOnaddtrack : TextTrackList -> EventHandler -> PrimIO ()
+  prim__setOnaddtrack :  TextTrackList
+                      -> Nullable EventHandlerNonNull
+                      -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onchange"
-  prim__onchange : TextTrackList -> PrimIO EventHandler
+  prim__onchange : TextTrackList -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onchange = v}"
-  prim__setOnchange : TextTrackList -> EventHandler -> PrimIO ()
+  prim__setOnchange : TextTrackList -> Nullable EventHandlerNonNull -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onremovetrack"
-  prim__onremovetrack : TextTrackList -> PrimIO EventHandler
+  prim__onremovetrack : TextTrackList -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onremovetrack = v}"
-  prim__setOnremovetrack : TextTrackList -> EventHandler -> PrimIO ()
+  prim__setOnremovetrack :  TextTrackList
+                         -> Nullable EventHandlerNonNull
+                         -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a)=>x.getTrackById(a)"
@@ -5685,27 +5720,33 @@ namespace VideoTrackList
   
   export
   %foreign "browser:lambda:x=>x.onaddtrack"
-  prim__onaddtrack : VideoTrackList -> PrimIO EventHandler
+  prim__onaddtrack : VideoTrackList -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onaddtrack = v}"
-  prim__setOnaddtrack : VideoTrackList -> EventHandler -> PrimIO ()
+  prim__setOnaddtrack :  VideoTrackList
+                      -> Nullable EventHandlerNonNull
+                      -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onchange"
-  prim__onchange : VideoTrackList -> PrimIO EventHandler
+  prim__onchange : VideoTrackList -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onchange = v}"
-  prim__setOnchange : VideoTrackList -> EventHandler -> PrimIO ()
+  prim__setOnchange :  VideoTrackList
+                    -> Nullable EventHandlerNonNull
+                    -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onremovetrack"
-  prim__onremovetrack : VideoTrackList -> PrimIO EventHandler
+  prim__onremovetrack : VideoTrackList -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onremovetrack = v}"
-  prim__setOnremovetrack : VideoTrackList -> EventHandler -> PrimIO ()
+  prim__setOnremovetrack :  VideoTrackList
+                         -> Nullable EventHandlerNonNull
+                         -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.selectedIndex"
@@ -5725,11 +5766,11 @@ namespace WebSocket
   
   export
   %foreign "browser:lambda:x=>x.binaryType"
-  prim__binaryType : WebSocket -> PrimIO BinaryType
+  prim__binaryType : WebSocket -> PrimIO String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.binaryType = v}"
-  prim__setBinaryType : WebSocket -> BinaryType -> PrimIO ()
+  prim__setBinaryType : WebSocket -> String -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.bufferedAmount"
@@ -5741,35 +5782,35 @@ namespace WebSocket
   
   export
   %foreign "browser:lambda:x=>x.onclose"
-  prim__onclose : WebSocket -> PrimIO EventHandler
+  prim__onclose : WebSocket -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onclose = v}"
-  prim__setOnclose : WebSocket -> EventHandler -> PrimIO ()
+  prim__setOnclose : WebSocket -> Nullable EventHandlerNonNull -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onerror"
-  prim__onerror : WebSocket -> PrimIO EventHandler
+  prim__onerror : WebSocket -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onerror = v}"
-  prim__setOnerror : WebSocket -> EventHandler -> PrimIO ()
+  prim__setOnerror : WebSocket -> Nullable EventHandlerNonNull -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onmessage"
-  prim__onmessage : WebSocket -> PrimIO EventHandler
+  prim__onmessage : WebSocket -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmessage = v}"
-  prim__setOnmessage : WebSocket -> EventHandler -> PrimIO ()
+  prim__setOnmessage : WebSocket -> Nullable EventHandlerNonNull -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onopen"
-  prim__onopen : WebSocket -> PrimIO EventHandler
+  prim__onopen : WebSocket -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onopen = v}"
-  prim__setOnopen : WebSocket -> EventHandler -> PrimIO ()
+  prim__setOnopen : WebSocket -> Nullable EventHandlerNonNull -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.protocol"
@@ -5801,7 +5842,18 @@ namespace WebSocket
   
   export
   %foreign "browser:lambda:(x,a)=>x.send(a)"
-  prim__send3 : WebSocket -> ArrayBufferView -> PrimIO ()
+  prim__send3 :  WebSocket
+              -> Union10 Int8Array
+                         Int16Array
+                         Int32Array
+                         UInt8Array
+                         UInt8Array
+                         UInt8Array
+                         UInt8ClampedArray
+                         Float32Array
+                         Float64Array
+                         DataView
+              -> PrimIO ()
 
 namespace Window
   
@@ -6006,19 +6058,19 @@ namespace Worker
   
   export
   %foreign "browser:lambda:x=>x.onmessage"
-  prim__onmessage : Worker -> PrimIO EventHandler
+  prim__onmessage : Worker -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmessage = v}"
-  prim__setOnmessage : Worker -> EventHandler -> PrimIO ()
+  prim__setOnmessage : Worker -> Nullable EventHandlerNonNull -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onmessageerror"
-  prim__onmessageerror : Worker -> PrimIO EventHandler
+  prim__onmessageerror : Worker -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmessageerror = v}"
-  prim__setOnmessageerror : Worker -> EventHandler -> PrimIO ()
+  prim__setOnmessageerror : Worker -> Nullable EventHandlerNonNull -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.postMessage(a b)"
@@ -6047,51 +6099,67 @@ namespace WorkerGlobalScope
   
   export
   %foreign "browser:lambda:x=>x.onerror"
-  prim__onerror : WorkerGlobalScope -> PrimIO OnErrorEventHandler
+  prim__onerror :  WorkerGlobalScope
+                -> PrimIO (Nullable OnErrorEventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onerror = v}"
-  prim__setOnerror : WorkerGlobalScope -> OnErrorEventHandler -> PrimIO ()
+  prim__setOnerror :  WorkerGlobalScope
+                   -> Nullable OnErrorEventHandlerNonNull
+                   -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onlanguagechange"
-  prim__onlanguagechange : WorkerGlobalScope -> PrimIO EventHandler
+  prim__onlanguagechange :  WorkerGlobalScope
+                         -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onlanguagechange = v}"
-  prim__setOnlanguagechange : WorkerGlobalScope -> EventHandler -> PrimIO ()
+  prim__setOnlanguagechange :  WorkerGlobalScope
+                            -> Nullable EventHandlerNonNull
+                            -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onoffline"
-  prim__onoffline : WorkerGlobalScope -> PrimIO EventHandler
+  prim__onoffline : WorkerGlobalScope -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onoffline = v}"
-  prim__setOnoffline : WorkerGlobalScope -> EventHandler -> PrimIO ()
+  prim__setOnoffline :  WorkerGlobalScope
+                     -> Nullable EventHandlerNonNull
+                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.ononline"
-  prim__ononline : WorkerGlobalScope -> PrimIO EventHandler
+  prim__ononline : WorkerGlobalScope -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ononline = v}"
-  prim__setOnonline : WorkerGlobalScope -> EventHandler -> PrimIO ()
+  prim__setOnonline :  WorkerGlobalScope
+                    -> Nullable EventHandlerNonNull
+                    -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onrejectionhandled"
-  prim__onrejectionhandled : WorkerGlobalScope -> PrimIO EventHandler
+  prim__onrejectionhandled :  WorkerGlobalScope
+                           -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onrejectionhandled = v}"
-  prim__setOnrejectionhandled : WorkerGlobalScope -> EventHandler -> PrimIO ()
+  prim__setOnrejectionhandled :  WorkerGlobalScope
+                              -> Nullable EventHandlerNonNull
+                              -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onunhandledrejection"
-  prim__onunhandledrejection : WorkerGlobalScope -> PrimIO EventHandler
+  prim__onunhandledrejection :  WorkerGlobalScope
+                             -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onunhandledrejection = v}"
-  prim__setOnunhandledrejection : WorkerGlobalScope -> EventHandler -> PrimIO ()
+  prim__setOnunhandledrejection :  WorkerGlobalScope
+                                -> Nullable EventHandlerNonNull
+                                -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.self"
@@ -6497,11 +6565,11 @@ namespace AbstractWorker
   
   export
   %foreign "browser:lambda:x=>x.onerror"
-  prim__onerror : AbstractWorker -> PrimIO EventHandler
+  prim__onerror : AbstractWorker -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onerror = v}"
-  prim__setOnerror : AbstractWorker -> EventHandler -> PrimIO ()
+  prim__setOnerror : AbstractWorker -> Nullable EventHandlerNonNull -> PrimIO ()
 
 namespace CanvasCompositing
   
@@ -6526,7 +6594,12 @@ namespace CanvasDrawImage
   export
   %foreign "browser:lambda:(x,a,b,c)=>x.drawImage(a b c)"
   prim__drawImage :  CanvasDrawImage
-                  -> CanvasImageSource
+                  -> Union6 HTMLImageElement
+                            SVGImageElement
+                            HTMLVideoElement
+                            HTMLCanvasElement
+                            ImageBitmap
+                            OffscreenCanvas
                   -> Double
                   -> Double
                   -> PrimIO ()
@@ -6534,7 +6607,12 @@ namespace CanvasDrawImage
   export
   %foreign "browser:lambda:(x,a,b,c,d,e)=>x.drawImage(a b c d e)"
   prim__drawImage1 :  CanvasDrawImage
-                   -> CanvasImageSource
+                   -> Union6 HTMLImageElement
+                             SVGImageElement
+                             HTMLVideoElement
+                             HTMLCanvasElement
+                             ImageBitmap
+                             OffscreenCanvas
                    -> Double
                    -> Double
                    -> Double
@@ -6544,7 +6622,12 @@ namespace CanvasDrawImage
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i)=>x.drawImage(a b c d e f g h i)"
   prim__drawImage2 :  CanvasDrawImage
-                   -> CanvasImageSource
+                   -> Union6 HTMLImageElement
+                             SVGImageElement
+                             HTMLVideoElement
+                             HTMLCanvasElement
+                             ImageBitmap
+                             OffscreenCanvas
                    -> Double
                    -> Double
                    -> Double
@@ -6563,26 +6646,26 @@ namespace CanvasDrawPath
   
   export
   %foreign "browser:lambda:(x,a)=>x.clip(a)"
-  prim__clip : CanvasDrawPath -> UndefOr CanvasFillRule -> PrimIO ()
+  prim__clip : CanvasDrawPath -> UndefOr String -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.clip(a b)"
-  prim__clip1 : CanvasDrawPath -> Path2D -> UndefOr CanvasFillRule -> PrimIO ()
+  prim__clip1 : CanvasDrawPath -> Path2D -> UndefOr String -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a)=>x.fill(a)"
-  prim__fill : CanvasDrawPath -> UndefOr CanvasFillRule -> PrimIO ()
+  prim__fill : CanvasDrawPath -> UndefOr String -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.fill(a b)"
-  prim__fill1 : CanvasDrawPath -> Path2D -> UndefOr CanvasFillRule -> PrimIO ()
+  prim__fill1 : CanvasDrawPath -> Path2D -> UndefOr String -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c)=>x.isPointInPath(a b c)"
   prim__isPointInPath :  CanvasDrawPath
                       -> Double
                       -> Double
-                      -> UndefOr CanvasFillRule
+                      -> UndefOr String
                       -> PrimIO Boolean
   
   export
@@ -6591,7 +6674,7 @@ namespace CanvasDrawPath
                        -> Path2D
                        -> Double
                        -> Double
-                       -> UndefOr CanvasFillRule
+                       -> UndefOr String
                        -> PrimIO Boolean
   
   export
@@ -6650,7 +6733,12 @@ namespace CanvasFillStrokeStyles
   export
   %foreign "browser:lambda:(x,a,b)=>x.createPattern(a b)"
   prim__createPattern :  CanvasFillStrokeStyles
-                      -> CanvasImageSource
+                      -> Union6 HTMLImageElement
+                                SVGImageElement
+                                HTMLVideoElement
+                                HTMLCanvasElement
+                                ImageBitmap
+                                OffscreenCanvas
                       -> String
                       -> PrimIO (Nullable CanvasPattern)
   
@@ -6726,14 +6814,11 @@ namespace CanvasImageSmoothing
   
   export
   %foreign "browser:lambda:x=>x.imageSmoothingQuality"
-  prim__imageSmoothingQuality :  CanvasImageSmoothing
-                              -> PrimIO ImageSmoothingQuality
+  prim__imageSmoothingQuality : CanvasImageSmoothing -> PrimIO String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.imageSmoothingQuality = v}"
-  prim__setImageSmoothingQuality :  CanvasImageSmoothing
-                                 -> ImageSmoothingQuality
-                                 -> PrimIO ()
+  prim__setImageSmoothingQuality : CanvasImageSmoothing -> String -> PrimIO ()
 
 namespace CanvasPath
   
@@ -6811,11 +6896,11 @@ namespace CanvasPathDrawingStyles
   
   export
   %foreign "browser:lambda:x=>x.lineCap"
-  prim__lineCap : CanvasPathDrawingStyles -> PrimIO CanvasLineCap
+  prim__lineCap : CanvasPathDrawingStyles -> PrimIO String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.lineCap = v}"
-  prim__setLineCap : CanvasPathDrawingStyles -> CanvasLineCap -> PrimIO ()
+  prim__setLineCap : CanvasPathDrawingStyles -> String -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.lineDashOffset"
@@ -6827,11 +6912,11 @@ namespace CanvasPathDrawingStyles
   
   export
   %foreign "browser:lambda:x=>x.lineJoin"
-  prim__lineJoin : CanvasPathDrawingStyles -> PrimIO CanvasLineJoin
+  prim__lineJoin : CanvasPathDrawingStyles -> PrimIO String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.lineJoin = v}"
-  prim__setLineJoin : CanvasPathDrawingStyles -> CanvasLineJoin -> PrimIO ()
+  prim__setLineJoin : CanvasPathDrawingStyles -> String -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.lineWidth"
@@ -6958,11 +7043,11 @@ namespace CanvasTextDrawingStyles
   
   export
   %foreign "browser:lambda:x=>x.direction"
-  prim__direction : CanvasTextDrawingStyles -> PrimIO CanvasDirection
+  prim__direction : CanvasTextDrawingStyles -> PrimIO String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.direction = v}"
-  prim__setDirection : CanvasTextDrawingStyles -> CanvasDirection -> PrimIO ()
+  prim__setDirection : CanvasTextDrawingStyles -> String -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.font"
@@ -6974,21 +7059,19 @@ namespace CanvasTextDrawingStyles
   
   export
   %foreign "browser:lambda:x=>x.textAlign"
-  prim__textAlign : CanvasTextDrawingStyles -> PrimIO CanvasTextAlign
+  prim__textAlign : CanvasTextDrawingStyles -> PrimIO String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.textAlign = v}"
-  prim__setTextAlign : CanvasTextDrawingStyles -> CanvasTextAlign -> PrimIO ()
+  prim__setTextAlign : CanvasTextDrawingStyles -> String -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.textBaseline"
-  prim__textBaseline : CanvasTextDrawingStyles -> PrimIO CanvasTextBaseline
+  prim__textBaseline : CanvasTextDrawingStyles -> PrimIO String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.textBaseline = v}"
-  prim__setTextBaseline :  CanvasTextDrawingStyles
-                        -> CanvasTextBaseline
-                        -> PrimIO ()
+  prim__setTextBaseline : CanvasTextDrawingStyles -> String -> PrimIO ()
 
 namespace CanvasTransform
   
@@ -7063,28 +7146,35 @@ namespace DocumentAndElementEventHandlers
   
   export
   %foreign "browser:lambda:x=>x.oncopy"
-  prim__oncopy : DocumentAndElementEventHandlers -> PrimIO EventHandler
+  prim__oncopy :  DocumentAndElementEventHandlers
+               -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.oncopy = v}"
-  prim__setOncopy : DocumentAndElementEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOncopy :  DocumentAndElementEventHandlers
+                  -> Nullable EventHandlerNonNull
+                  -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.oncut"
-  prim__oncut : DocumentAndElementEventHandlers -> PrimIO EventHandler
+  prim__oncut :  DocumentAndElementEventHandlers
+              -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.oncut = v}"
-  prim__setOncut : DocumentAndElementEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOncut :  DocumentAndElementEventHandlers
+                 -> Nullable EventHandlerNonNull
+                 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onpaste"
-  prim__onpaste : DocumentAndElementEventHandlers -> PrimIO EventHandler
+  prim__onpaste :  DocumentAndElementEventHandlers
+                -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onpaste = v}"
   prim__setOnpaste :  DocumentAndElementEventHandlers
-                   -> EventHandler
+                   -> Nullable EventHandlerNonNull
                    -> PrimIO ()
 
 namespace ElementContentEditable
@@ -7121,541 +7211,695 @@ namespace GlobalEventHandlers
   
   export
   %foreign "browser:lambda:x=>x.onabort"
-  prim__onabort : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onabort : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onabort = v}"
-  prim__setOnabort : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnabort :  GlobalEventHandlers
+                   -> Nullable EventHandlerNonNull
+                   -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onauxclick"
-  prim__onauxclick : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onauxclick :  GlobalEventHandlers
+                   -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onauxclick = v}"
-  prim__setOnauxclick : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnauxclick :  GlobalEventHandlers
+                      -> Nullable EventHandlerNonNull
+                      -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onblur"
-  prim__onblur : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onblur : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onblur = v}"
-  prim__setOnblur : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnblur :  GlobalEventHandlers
+                  -> Nullable EventHandlerNonNull
+                  -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.oncancel"
-  prim__oncancel : GlobalEventHandlers -> PrimIO EventHandler
+  prim__oncancel : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.oncancel = v}"
-  prim__setOncancel : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOncancel :  GlobalEventHandlers
+                    -> Nullable EventHandlerNonNull
+                    -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.oncanplay"
-  prim__oncanplay : GlobalEventHandlers -> PrimIO EventHandler
+  prim__oncanplay : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.oncanplay = v}"
-  prim__setOncanplay : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOncanplay :  GlobalEventHandlers
+                     -> Nullable EventHandlerNonNull
+                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.oncanplaythrough"
-  prim__oncanplaythrough : GlobalEventHandlers -> PrimIO EventHandler
+  prim__oncanplaythrough :  GlobalEventHandlers
+                         -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.oncanplaythrough = v}"
-  prim__setOncanplaythrough : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOncanplaythrough :  GlobalEventHandlers
+                            -> Nullable EventHandlerNonNull
+                            -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onchange"
-  prim__onchange : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onchange : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onchange = v}"
-  prim__setOnchange : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnchange :  GlobalEventHandlers
+                    -> Nullable EventHandlerNonNull
+                    -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onclick"
-  prim__onclick : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onclick : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onclick = v}"
-  prim__setOnclick : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnclick :  GlobalEventHandlers
+                   -> Nullable EventHandlerNonNull
+                   -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onclose"
-  prim__onclose : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onclose : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onclose = v}"
-  prim__setOnclose : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnclose :  GlobalEventHandlers
+                   -> Nullable EventHandlerNonNull
+                   -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.oncontextmenu"
-  prim__oncontextmenu : GlobalEventHandlers -> PrimIO EventHandler
+  prim__oncontextmenu :  GlobalEventHandlers
+                      -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.oncontextmenu = v}"
-  prim__setOncontextmenu : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOncontextmenu :  GlobalEventHandlers
+                         -> Nullable EventHandlerNonNull
+                         -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.oncuechange"
-  prim__oncuechange : GlobalEventHandlers -> PrimIO EventHandler
+  prim__oncuechange :  GlobalEventHandlers
+                    -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.oncuechange = v}"
-  prim__setOncuechange : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOncuechange :  GlobalEventHandlers
+                       -> Nullable EventHandlerNonNull
+                       -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.ondblclick"
-  prim__ondblclick : GlobalEventHandlers -> PrimIO EventHandler
+  prim__ondblclick :  GlobalEventHandlers
+                   -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ondblclick = v}"
-  prim__setOndblclick : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOndblclick :  GlobalEventHandlers
+                      -> Nullable EventHandlerNonNull
+                      -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.ondrag"
-  prim__ondrag : GlobalEventHandlers -> PrimIO EventHandler
+  prim__ondrag : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ondrag = v}"
-  prim__setOndrag : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOndrag :  GlobalEventHandlers
+                  -> Nullable EventHandlerNonNull
+                  -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.ondragend"
-  prim__ondragend : GlobalEventHandlers -> PrimIO EventHandler
+  prim__ondragend : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ondragend = v}"
-  prim__setOndragend : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOndragend :  GlobalEventHandlers
+                     -> Nullable EventHandlerNonNull
+                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.ondragenter"
-  prim__ondragenter : GlobalEventHandlers -> PrimIO EventHandler
+  prim__ondragenter :  GlobalEventHandlers
+                    -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ondragenter = v}"
-  prim__setOndragenter : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOndragenter :  GlobalEventHandlers
+                       -> Nullable EventHandlerNonNull
+                       -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.ondragleave"
-  prim__ondragleave : GlobalEventHandlers -> PrimIO EventHandler
+  prim__ondragleave :  GlobalEventHandlers
+                    -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ondragleave = v}"
-  prim__setOndragleave : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOndragleave :  GlobalEventHandlers
+                       -> Nullable EventHandlerNonNull
+                       -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.ondragover"
-  prim__ondragover : GlobalEventHandlers -> PrimIO EventHandler
+  prim__ondragover :  GlobalEventHandlers
+                   -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ondragover = v}"
-  prim__setOndragover : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOndragover :  GlobalEventHandlers
+                      -> Nullable EventHandlerNonNull
+                      -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.ondragstart"
-  prim__ondragstart : GlobalEventHandlers -> PrimIO EventHandler
+  prim__ondragstart :  GlobalEventHandlers
+                    -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ondragstart = v}"
-  prim__setOndragstart : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOndragstart :  GlobalEventHandlers
+                       -> Nullable EventHandlerNonNull
+                       -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.ondrop"
-  prim__ondrop : GlobalEventHandlers -> PrimIO EventHandler
+  prim__ondrop : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ondrop = v}"
-  prim__setOndrop : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOndrop :  GlobalEventHandlers
+                  -> Nullable EventHandlerNonNull
+                  -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.ondurationchange"
-  prim__ondurationchange : GlobalEventHandlers -> PrimIO EventHandler
+  prim__ondurationchange :  GlobalEventHandlers
+                         -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ondurationchange = v}"
-  prim__setOndurationchange : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOndurationchange :  GlobalEventHandlers
+                            -> Nullable EventHandlerNonNull
+                            -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onemptied"
-  prim__onemptied : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onemptied : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onemptied = v}"
-  prim__setOnemptied : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnemptied :  GlobalEventHandlers
+                     -> Nullable EventHandlerNonNull
+                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onended"
-  prim__onended : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onended : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onended = v}"
-  prim__setOnended : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnended :  GlobalEventHandlers
+                   -> Nullable EventHandlerNonNull
+                   -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onerror"
-  prim__onerror : GlobalEventHandlers -> PrimIO OnErrorEventHandler
+  prim__onerror :  GlobalEventHandlers
+                -> PrimIO (Nullable OnErrorEventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onerror = v}"
-  prim__setOnerror : GlobalEventHandlers -> OnErrorEventHandler -> PrimIO ()
+  prim__setOnerror :  GlobalEventHandlers
+                   -> Nullable OnErrorEventHandlerNonNull
+                   -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onfocus"
-  prim__onfocus : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onfocus : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onfocus = v}"
-  prim__setOnfocus : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnfocus :  GlobalEventHandlers
+                   -> Nullable EventHandlerNonNull
+                   -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onformdata"
-  prim__onformdata : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onformdata :  GlobalEventHandlers
+                   -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onformdata = v}"
-  prim__setOnformdata : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnformdata :  GlobalEventHandlers
+                      -> Nullable EventHandlerNonNull
+                      -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.oninput"
-  prim__oninput : GlobalEventHandlers -> PrimIO EventHandler
+  prim__oninput : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.oninput = v}"
-  prim__setOninput : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOninput :  GlobalEventHandlers
+                   -> Nullable EventHandlerNonNull
+                   -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.oninvalid"
-  prim__oninvalid : GlobalEventHandlers -> PrimIO EventHandler
+  prim__oninvalid : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.oninvalid = v}"
-  prim__setOninvalid : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOninvalid :  GlobalEventHandlers
+                     -> Nullable EventHandlerNonNull
+                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onkeydown"
-  prim__onkeydown : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onkeydown : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onkeydown = v}"
-  prim__setOnkeydown : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnkeydown :  GlobalEventHandlers
+                     -> Nullable EventHandlerNonNull
+                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onkeypress"
-  prim__onkeypress : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onkeypress :  GlobalEventHandlers
+                   -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onkeypress = v}"
-  prim__setOnkeypress : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnkeypress :  GlobalEventHandlers
+                      -> Nullable EventHandlerNonNull
+                      -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onkeyup"
-  prim__onkeyup : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onkeyup : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onkeyup = v}"
-  prim__setOnkeyup : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnkeyup :  GlobalEventHandlers
+                   -> Nullable EventHandlerNonNull
+                   -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onload"
-  prim__onload : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onload : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onload = v}"
-  prim__setOnload : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnload :  GlobalEventHandlers
+                  -> Nullable EventHandlerNonNull
+                  -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onloadeddata"
-  prim__onloadeddata : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onloadeddata :  GlobalEventHandlers
+                     -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onloadeddata = v}"
-  prim__setOnloadeddata : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnloadeddata :  GlobalEventHandlers
+                        -> Nullable EventHandlerNonNull
+                        -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onloadedmetadata"
-  prim__onloadedmetadata : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onloadedmetadata :  GlobalEventHandlers
+                         -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onloadedmetadata = v}"
-  prim__setOnloadedmetadata : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnloadedmetadata :  GlobalEventHandlers
+                            -> Nullable EventHandlerNonNull
+                            -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onloadstart"
-  prim__onloadstart : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onloadstart :  GlobalEventHandlers
+                    -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onloadstart = v}"
-  prim__setOnloadstart : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnloadstart :  GlobalEventHandlers
+                       -> Nullable EventHandlerNonNull
+                       -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onmousedown"
-  prim__onmousedown : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onmousedown :  GlobalEventHandlers
+                    -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmousedown = v}"
-  prim__setOnmousedown : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnmousedown :  GlobalEventHandlers
+                       -> Nullable EventHandlerNonNull
+                       -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onmouseenter"
-  prim__onmouseenter : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onmouseenter :  GlobalEventHandlers
+                     -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmouseenter = v}"
-  prim__setOnmouseenter : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnmouseenter :  GlobalEventHandlers
+                        -> Nullable EventHandlerNonNull
+                        -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onmouseleave"
-  prim__onmouseleave : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onmouseleave :  GlobalEventHandlers
+                     -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmouseleave = v}"
-  prim__setOnmouseleave : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnmouseleave :  GlobalEventHandlers
+                        -> Nullable EventHandlerNonNull
+                        -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onmousemove"
-  prim__onmousemove : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onmousemove :  GlobalEventHandlers
+                    -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmousemove = v}"
-  prim__setOnmousemove : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnmousemove :  GlobalEventHandlers
+                       -> Nullable EventHandlerNonNull
+                       -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onmouseout"
-  prim__onmouseout : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onmouseout :  GlobalEventHandlers
+                   -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmouseout = v}"
-  prim__setOnmouseout : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnmouseout :  GlobalEventHandlers
+                      -> Nullable EventHandlerNonNull
+                      -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onmouseover"
-  prim__onmouseover : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onmouseover :  GlobalEventHandlers
+                    -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmouseover = v}"
-  prim__setOnmouseover : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnmouseover :  GlobalEventHandlers
+                       -> Nullable EventHandlerNonNull
+                       -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onmouseup"
-  prim__onmouseup : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onmouseup : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmouseup = v}"
-  prim__setOnmouseup : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnmouseup :  GlobalEventHandlers
+                     -> Nullable EventHandlerNonNull
+                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onpause"
-  prim__onpause : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onpause : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onpause = v}"
-  prim__setOnpause : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnpause :  GlobalEventHandlers
+                   -> Nullable EventHandlerNonNull
+                   -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onplay"
-  prim__onplay : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onplay : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onplay = v}"
-  prim__setOnplay : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnplay :  GlobalEventHandlers
+                  -> Nullable EventHandlerNonNull
+                  -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onplaying"
-  prim__onplaying : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onplaying : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onplaying = v}"
-  prim__setOnplaying : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnplaying :  GlobalEventHandlers
+                     -> Nullable EventHandlerNonNull
+                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onprogress"
-  prim__onprogress : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onprogress :  GlobalEventHandlers
+                   -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onprogress = v}"
-  prim__setOnprogress : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnprogress :  GlobalEventHandlers
+                      -> Nullable EventHandlerNonNull
+                      -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onratechange"
-  prim__onratechange : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onratechange :  GlobalEventHandlers
+                     -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onratechange = v}"
-  prim__setOnratechange : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnratechange :  GlobalEventHandlers
+                        -> Nullable EventHandlerNonNull
+                        -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onreset"
-  prim__onreset : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onreset : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onreset = v}"
-  prim__setOnreset : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnreset :  GlobalEventHandlers
+                   -> Nullable EventHandlerNonNull
+                   -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onresize"
-  prim__onresize : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onresize : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onresize = v}"
-  prim__setOnresize : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnresize :  GlobalEventHandlers
+                    -> Nullable EventHandlerNonNull
+                    -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onscroll"
-  prim__onscroll : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onscroll : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onscroll = v}"
-  prim__setOnscroll : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnscroll :  GlobalEventHandlers
+                    -> Nullable EventHandlerNonNull
+                    -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onsecuritypolicyviolation"
-  prim__onsecuritypolicyviolation : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onsecuritypolicyviolation :  GlobalEventHandlers
+                                  -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onsecuritypolicyviolation = v}"
   prim__setOnsecuritypolicyviolation :  GlobalEventHandlers
-                                     -> EventHandler
+                                     -> Nullable EventHandlerNonNull
                                      -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onseeked"
-  prim__onseeked : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onseeked : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onseeked = v}"
-  prim__setOnseeked : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnseeked :  GlobalEventHandlers
+                    -> Nullable EventHandlerNonNull
+                    -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onseeking"
-  prim__onseeking : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onseeking : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onseeking = v}"
-  prim__setOnseeking : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnseeking :  GlobalEventHandlers
+                     -> Nullable EventHandlerNonNull
+                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onselect"
-  prim__onselect : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onselect : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onselect = v}"
-  prim__setOnselect : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnselect :  GlobalEventHandlers
+                    -> Nullable EventHandlerNonNull
+                    -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onslotchange"
-  prim__onslotchange : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onslotchange :  GlobalEventHandlers
+                     -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onslotchange = v}"
-  prim__setOnslotchange : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnslotchange :  GlobalEventHandlers
+                        -> Nullable EventHandlerNonNull
+                        -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onstalled"
-  prim__onstalled : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onstalled : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onstalled = v}"
-  prim__setOnstalled : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnstalled :  GlobalEventHandlers
+                     -> Nullable EventHandlerNonNull
+                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onsubmit"
-  prim__onsubmit : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onsubmit : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onsubmit = v}"
-  prim__setOnsubmit : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnsubmit :  GlobalEventHandlers
+                    -> Nullable EventHandlerNonNull
+                    -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onsuspend"
-  prim__onsuspend : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onsuspend : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onsuspend = v}"
-  prim__setOnsuspend : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnsuspend :  GlobalEventHandlers
+                     -> Nullable EventHandlerNonNull
+                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.ontimeupdate"
-  prim__ontimeupdate : GlobalEventHandlers -> PrimIO EventHandler
+  prim__ontimeupdate :  GlobalEventHandlers
+                     -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ontimeupdate = v}"
-  prim__setOntimeupdate : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOntimeupdate :  GlobalEventHandlers
+                        -> Nullable EventHandlerNonNull
+                        -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.ontoggle"
-  prim__ontoggle : GlobalEventHandlers -> PrimIO EventHandler
+  prim__ontoggle : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ontoggle = v}"
-  prim__setOntoggle : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOntoggle :  GlobalEventHandlers
+                    -> Nullable EventHandlerNonNull
+                    -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onvolumechange"
-  prim__onvolumechange : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onvolumechange :  GlobalEventHandlers
+                       -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onvolumechange = v}"
-  prim__setOnvolumechange : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnvolumechange :  GlobalEventHandlers
+                          -> Nullable EventHandlerNonNull
+                          -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onwaiting"
-  prim__onwaiting : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onwaiting : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onwaiting = v}"
-  prim__setOnwaiting : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnwaiting :  GlobalEventHandlers
+                     -> Nullable EventHandlerNonNull
+                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onwebkitanimationend"
-  prim__onwebkitanimationend : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onwebkitanimationend :  GlobalEventHandlers
+                             -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onwebkitanimationend = v}"
   prim__setOnwebkitanimationend :  GlobalEventHandlers
-                                -> EventHandler
+                                -> Nullable EventHandlerNonNull
                                 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onwebkitanimationiteration"
-  prim__onwebkitanimationiteration : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onwebkitanimationiteration :  GlobalEventHandlers
+                                   -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onwebkitanimationiteration = v}"
   prim__setOnwebkitanimationiteration :  GlobalEventHandlers
-                                      -> EventHandler
+                                      -> Nullable EventHandlerNonNull
                                       -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onwebkitanimationstart"
-  prim__onwebkitanimationstart : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onwebkitanimationstart :  GlobalEventHandlers
+                               -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onwebkitanimationstart = v}"
   prim__setOnwebkitanimationstart :  GlobalEventHandlers
-                                  -> EventHandler
+                                  -> Nullable EventHandlerNonNull
                                   -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onwebkittransitionend"
-  prim__onwebkittransitionend : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onwebkittransitionend :  GlobalEventHandlers
+                              -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onwebkittransitionend = v}"
   prim__setOnwebkittransitionend :  GlobalEventHandlers
-                                 -> EventHandler
+                                 -> Nullable EventHandlerNonNull
                                  -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onwheel"
-  prim__onwheel : GlobalEventHandlers -> PrimIO EventHandler
+  prim__onwheel : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onwheel = v}"
-  prim__setOnwheel : GlobalEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnwheel :  GlobalEventHandlers
+                   -> Nullable EventHandlerNonNull
+                   -> PrimIO ()
 
 namespace HTMLHyperlinkElementUtils
   
@@ -7881,136 +8125,174 @@ namespace WindowEventHandlers
   
   export
   %foreign "browser:lambda:x=>x.onafterprint"
-  prim__onafterprint : WindowEventHandlers -> PrimIO EventHandler
+  prim__onafterprint :  WindowEventHandlers
+                     -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onafterprint = v}"
-  prim__setOnafterprint : WindowEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnafterprint :  WindowEventHandlers
+                        -> Nullable EventHandlerNonNull
+                        -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onbeforeprint"
-  prim__onbeforeprint : WindowEventHandlers -> PrimIO EventHandler
+  prim__onbeforeprint :  WindowEventHandlers
+                      -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onbeforeprint = v}"
-  prim__setOnbeforeprint : WindowEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnbeforeprint :  WindowEventHandlers
+                         -> Nullable EventHandlerNonNull
+                         -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onbeforeunload"
   prim__onbeforeunload :  WindowEventHandlers
-                       -> PrimIO OnBeforeUnloadEventHandler
+                       -> PrimIO (Nullable OnBeforeUnloadEventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onbeforeunload = v}"
   prim__setOnbeforeunload :  WindowEventHandlers
-                          -> OnBeforeUnloadEventHandler
+                          -> Nullable OnBeforeUnloadEventHandlerNonNull
                           -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onhashchange"
-  prim__onhashchange : WindowEventHandlers -> PrimIO EventHandler
+  prim__onhashchange :  WindowEventHandlers
+                     -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onhashchange = v}"
-  prim__setOnhashchange : WindowEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnhashchange :  WindowEventHandlers
+                        -> Nullable EventHandlerNonNull
+                        -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onlanguagechange"
-  prim__onlanguagechange : WindowEventHandlers -> PrimIO EventHandler
+  prim__onlanguagechange :  WindowEventHandlers
+                         -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onlanguagechange = v}"
-  prim__setOnlanguagechange : WindowEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnlanguagechange :  WindowEventHandlers
+                            -> Nullable EventHandlerNonNull
+                            -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onmessage"
-  prim__onmessage : WindowEventHandlers -> PrimIO EventHandler
+  prim__onmessage : WindowEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmessage = v}"
-  prim__setOnmessage : WindowEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnmessage :  WindowEventHandlers
+                     -> Nullable EventHandlerNonNull
+                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onmessageerror"
-  prim__onmessageerror : WindowEventHandlers -> PrimIO EventHandler
+  prim__onmessageerror :  WindowEventHandlers
+                       -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmessageerror = v}"
-  prim__setOnmessageerror : WindowEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnmessageerror :  WindowEventHandlers
+                          -> Nullable EventHandlerNonNull
+                          -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onoffline"
-  prim__onoffline : WindowEventHandlers -> PrimIO EventHandler
+  prim__onoffline : WindowEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onoffline = v}"
-  prim__setOnoffline : WindowEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnoffline :  WindowEventHandlers
+                     -> Nullable EventHandlerNonNull
+                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.ononline"
-  prim__ononline : WindowEventHandlers -> PrimIO EventHandler
+  prim__ononline : WindowEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ononline = v}"
-  prim__setOnonline : WindowEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnonline :  WindowEventHandlers
+                    -> Nullable EventHandlerNonNull
+                    -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onpagehide"
-  prim__onpagehide : WindowEventHandlers -> PrimIO EventHandler
+  prim__onpagehide :  WindowEventHandlers
+                   -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onpagehide = v}"
-  prim__setOnpagehide : WindowEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnpagehide :  WindowEventHandlers
+                      -> Nullable EventHandlerNonNull
+                      -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onpageshow"
-  prim__onpageshow : WindowEventHandlers -> PrimIO EventHandler
+  prim__onpageshow :  WindowEventHandlers
+                   -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onpageshow = v}"
-  prim__setOnpageshow : WindowEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnpageshow :  WindowEventHandlers
+                      -> Nullable EventHandlerNonNull
+                      -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onpopstate"
-  prim__onpopstate : WindowEventHandlers -> PrimIO EventHandler
+  prim__onpopstate :  WindowEventHandlers
+                   -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onpopstate = v}"
-  prim__setOnpopstate : WindowEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnpopstate :  WindowEventHandlers
+                      -> Nullable EventHandlerNonNull
+                      -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onrejectionhandled"
-  prim__onrejectionhandled : WindowEventHandlers -> PrimIO EventHandler
+  prim__onrejectionhandled :  WindowEventHandlers
+                           -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onrejectionhandled = v}"
-  prim__setOnrejectionhandled : WindowEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnrejectionhandled :  WindowEventHandlers
+                              -> Nullable EventHandlerNonNull
+                              -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onstorage"
-  prim__onstorage : WindowEventHandlers -> PrimIO EventHandler
+  prim__onstorage : WindowEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onstorage = v}"
-  prim__setOnstorage : WindowEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnstorage :  WindowEventHandlers
+                     -> Nullable EventHandlerNonNull
+                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onunhandledrejection"
-  prim__onunhandledrejection : WindowEventHandlers -> PrimIO EventHandler
+  prim__onunhandledrejection :  WindowEventHandlers
+                             -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onunhandledrejection = v}"
   prim__setOnunhandledrejection :  WindowEventHandlers
-                                -> EventHandler
+                                -> Nullable EventHandlerNonNull
                                 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onunload"
-  prim__onunload : WindowEventHandlers -> PrimIO EventHandler
+  prim__onunload : WindowEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onunload = v}"
-  prim__setOnunload : WindowEventHandlers -> EventHandler -> PrimIO ()
+  prim__setOnunload :  WindowEventHandlers
+                    -> Nullable EventHandlerNonNull
+                    -> PrimIO ()
 
 --------------------------------------------------------------------------------
 --          Dictionaries
@@ -8024,7 +8306,7 @@ namespace AssignedNodesOptions
   
   export
   %foreign "browser:lambda:x=>x.flatten"
-  prim__flatten : AssignedNodesOptions -> PrimIO (UndefOr Boolean)
+  prim__flatten : AssignedNodesOptions -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.flatten = v}"
@@ -8040,7 +8322,7 @@ namespace CanvasRenderingContext2DSettings
   
   export
   %foreign "browser:lambda:x=>x.alpha"
-  prim__alpha : CanvasRenderingContext2DSettings -> PrimIO (UndefOr Boolean)
+  prim__alpha : CanvasRenderingContext2DSettings -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.alpha = v}"
@@ -8051,7 +8333,7 @@ namespace CanvasRenderingContext2DSettings
   export
   %foreign "browser:lambda:x=>x.desynchronized"
   prim__desynchronized :  CanvasRenderingContext2DSettings
-                       -> PrimIO (UndefOr Boolean)
+                       -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.desynchronized = v}"
@@ -8070,7 +8352,7 @@ namespace CloseEventInit
   
   export
   %foreign "browser:lambda:x=>x.code"
-  prim__code : CloseEventInit -> PrimIO (UndefOr UInt16)
+  prim__code : CloseEventInit -> PrimIO $ UndefOr UInt16
   
   export
   %foreign "browser:lambda:(x,v)=>{x.code = v}"
@@ -8078,7 +8360,7 @@ namespace CloseEventInit
   
   export
   %foreign "browser:lambda:x=>x.reason"
-  prim__reason : CloseEventInit -> PrimIO (UndefOr String)
+  prim__reason : CloseEventInit -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.reason = v}"
@@ -8086,7 +8368,7 @@ namespace CloseEventInit
   
   export
   %foreign "browser:lambda:x=>x.wasClean"
-  prim__wasClean : CloseEventInit -> PrimIO (UndefOr Boolean)
+  prim__wasClean : CloseEventInit -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.wasClean = v}"
@@ -8100,7 +8382,7 @@ namespace DragEventInit
   
   export
   %foreign "browser:lambda:x=>x.dataTransfer"
-  prim__dataTransfer : DragEventInit -> PrimIO (UndefOr (Nullable DataTransfer))
+  prim__dataTransfer : DragEventInit -> PrimIO $ UndefOr (Nullable DataTransfer)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.dataTransfer = v}"
@@ -8116,7 +8398,7 @@ namespace ElementDefinitionOptions
   
   export
   %foreign "browser:lambda:x=>x.extends"
-  prim__extends : ElementDefinitionOptions -> PrimIO (UndefOr String)
+  prim__extends : ElementDefinitionOptions -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.extends = v}"
@@ -8135,7 +8417,7 @@ namespace ErrorEventInit
   
   export
   %foreign "browser:lambda:x=>x.colno"
-  prim__colno : ErrorEventInit -> PrimIO (UndefOr UInt32)
+  prim__colno : ErrorEventInit -> PrimIO $ UndefOr UInt32
   
   export
   %foreign "browser:lambda:(x,v)=>{x.colno = v}"
@@ -8143,7 +8425,7 @@ namespace ErrorEventInit
   
   export
   %foreign "browser:lambda:x=>x.error"
-  prim__error : ErrorEventInit -> PrimIO (UndefOr AnyPtr)
+  prim__error : ErrorEventInit -> PrimIO $ UndefOr AnyPtr
   
   export
   %foreign "browser:lambda:(x,v)=>{x.error = v}"
@@ -8151,7 +8433,7 @@ namespace ErrorEventInit
   
   export
   %foreign "browser:lambda:x=>x.filename"
-  prim__filename : ErrorEventInit -> PrimIO (UndefOr String)
+  prim__filename : ErrorEventInit -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.filename = v}"
@@ -8159,7 +8441,7 @@ namespace ErrorEventInit
   
   export
   %foreign "browser:lambda:x=>x.lineno"
-  prim__lineno : ErrorEventInit -> PrimIO (UndefOr UInt32)
+  prim__lineno : ErrorEventInit -> PrimIO $ UndefOr UInt32
   
   export
   %foreign "browser:lambda:(x,v)=>{x.lineno = v}"
@@ -8167,7 +8449,7 @@ namespace ErrorEventInit
   
   export
   %foreign "browser:lambda:x=>x.message"
-  prim__message : ErrorEventInit -> PrimIO (UndefOr String)
+  prim__message : ErrorEventInit -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.message = v}"
@@ -8181,7 +8463,7 @@ namespace EventSourceInit
   
   export
   %foreign "browser:lambda:x=>x.withCredentials"
-  prim__withCredentials : EventSourceInit -> PrimIO (UndefOr Boolean)
+  prim__withCredentials : EventSourceInit -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.withCredentials = v}"
@@ -8195,7 +8477,7 @@ namespace FocusOptions
   
   export
   %foreign "browser:lambda:x=>x.preventScroll"
-  prim__preventScroll : FocusOptions -> PrimIO (UndefOr Boolean)
+  prim__preventScroll : FocusOptions -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.preventScroll = v}"
@@ -8223,7 +8505,7 @@ namespace HashChangeEventInit
   
   export
   %foreign "browser:lambda:x=>x.newURL"
-  prim__newURL : HashChangeEventInit -> PrimIO (UndefOr String)
+  prim__newURL : HashChangeEventInit -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.newURL = v}"
@@ -8231,7 +8513,7 @@ namespace HashChangeEventInit
   
   export
   %foreign "browser:lambda:x=>x.oldURL"
-  prim__oldURL : HashChangeEventInit -> PrimIO (UndefOr String)
+  prim__oldURL : HashChangeEventInit -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.oldURL = v}"
@@ -8241,50 +8523,43 @@ namespace ImageBitmapOptions
   
   export
   %foreign "browser:lambda:(a,b,c,d,e,f)=> {imageOrientation: a,premultiplyAlpha: b,colorSpaceConversion: c,resizeWidth: d,resizeHeight: e,resizeQuality: f}"
-  prim__new :  UndefOr ImageOrientation
-            -> UndefOr PremultiplyAlpha
-            -> UndefOr ColorSpaceConversion
+  prim__new :  UndefOr String
+            -> UndefOr String
+            -> UndefOr String
             -> UndefOr UInt32
             -> UndefOr UInt32
-            -> UndefOr ResizeQuality
+            -> UndefOr String
             -> PrimIO ImageBitmapOptions
   
   export
   %foreign "browser:lambda:x=>x.colorSpaceConversion"
-  prim__colorSpaceConversion :  ImageBitmapOptions
-                             -> PrimIO (UndefOr ColorSpaceConversion)
+  prim__colorSpaceConversion : ImageBitmapOptions -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.colorSpaceConversion = v}"
   prim__setColorSpaceConversion :  ImageBitmapOptions
-                                -> UndefOr ColorSpaceConversion
+                                -> UndefOr String
                                 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.imageOrientation"
-  prim__imageOrientation :  ImageBitmapOptions
-                         -> PrimIO (UndefOr ImageOrientation)
+  prim__imageOrientation : ImageBitmapOptions -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.imageOrientation = v}"
-  prim__setImageOrientation :  ImageBitmapOptions
-                            -> UndefOr ImageOrientation
-                            -> PrimIO ()
+  prim__setImageOrientation : ImageBitmapOptions -> UndefOr String -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.premultiplyAlpha"
-  prim__premultiplyAlpha :  ImageBitmapOptions
-                         -> PrimIO (UndefOr PremultiplyAlpha)
+  prim__premultiplyAlpha : ImageBitmapOptions -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.premultiplyAlpha = v}"
-  prim__setPremultiplyAlpha :  ImageBitmapOptions
-                            -> UndefOr PremultiplyAlpha
-                            -> PrimIO ()
+  prim__setPremultiplyAlpha : ImageBitmapOptions -> UndefOr String -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.resizeHeight"
-  prim__resizeHeight : ImageBitmapOptions -> PrimIO (UndefOr UInt32)
+  prim__resizeHeight : ImageBitmapOptions -> PrimIO $ UndefOr UInt32
   
   export
   %foreign "browser:lambda:(x,v)=>{x.resizeHeight = v}"
@@ -8292,17 +8567,15 @@ namespace ImageBitmapOptions
   
   export
   %foreign "browser:lambda:x=>x.resizeQuality"
-  prim__resizeQuality : ImageBitmapOptions -> PrimIO (UndefOr ResizeQuality)
+  prim__resizeQuality : ImageBitmapOptions -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.resizeQuality = v}"
-  prim__setResizeQuality :  ImageBitmapOptions
-                         -> UndefOr ResizeQuality
-                         -> PrimIO ()
+  prim__setResizeQuality : ImageBitmapOptions -> UndefOr String -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.resizeWidth"
-  prim__resizeWidth : ImageBitmapOptions -> PrimIO (UndefOr UInt32)
+  prim__resizeWidth : ImageBitmapOptions -> PrimIO $ UndefOr UInt32
   
   export
   %foreign "browser:lambda:(x,v)=>{x.resizeWidth = v}"
@@ -8316,7 +8589,7 @@ namespace ImageBitmapRenderingContextSettings
   
   export
   %foreign "browser:lambda:x=>x.alpha"
-  prim__alpha : ImageBitmapRenderingContextSettings -> PrimIO (UndefOr Boolean)
+  prim__alpha : ImageBitmapRenderingContextSettings -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.alpha = v}"
@@ -8332,7 +8605,7 @@ namespace ImageEncodeOptions
   
   export
   %foreign "browser:lambda:x=>x.quality"
-  prim__quality : ImageEncodeOptions -> PrimIO (UndefOr Double)
+  prim__quality : ImageEncodeOptions -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.quality = v}"
@@ -8340,7 +8613,7 @@ namespace ImageEncodeOptions
   
   export
   %foreign "browser:lambda:x=>x.type"
-  prim__type : ImageEncodeOptions -> PrimIO (UndefOr String)
+  prim__type : ImageEncodeOptions -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.type = v}"
@@ -8353,13 +8626,13 @@ namespace MessageEventInit
   prim__new :  UndefOr AnyPtr
             -> UndefOr String
             -> UndefOr String
-            -> UndefOr (Nullable MessageEventSource)
+            -> UndefOr (Nullable (Union3 WindowProxy MessagePort ServiceWorker))
             -> UndefOr (Array MessagePort)
             -> PrimIO MessageEventInit
   
   export
   %foreign "browser:lambda:x=>x.data"
-  prim__data : MessageEventInit -> PrimIO (UndefOr AnyPtr)
+  prim__data : MessageEventInit -> PrimIO $ UndefOr AnyPtr
   
   export
   %foreign "browser:lambda:(x,v)=>{x.data = v}"
@@ -8367,7 +8640,7 @@ namespace MessageEventInit
   
   export
   %foreign "browser:lambda:x=>x.lastEventId"
-  prim__lastEventId : MessageEventInit -> PrimIO (UndefOr String)
+  prim__lastEventId : MessageEventInit -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.lastEventId = v}"
@@ -8375,7 +8648,7 @@ namespace MessageEventInit
   
   export
   %foreign "browser:lambda:x=>x.origin"
-  prim__origin : MessageEventInit -> PrimIO (UndefOr String)
+  prim__origin : MessageEventInit -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.origin = v}"
@@ -8383,7 +8656,7 @@ namespace MessageEventInit
   
   export
   %foreign "browser:lambda:x=>x.ports"
-  prim__ports : MessageEventInit -> PrimIO (UndefOr (Array MessagePort))
+  prim__ports : MessageEventInit -> PrimIO $ UndefOr (Array MessagePort)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ports = v}"
@@ -8392,12 +8665,16 @@ namespace MessageEventInit
   export
   %foreign "browser:lambda:x=>x.source"
   prim__source :  MessageEventInit
-               -> PrimIO (UndefOr (Nullable MessageEventSource))
+               -> PrimIO $ UndefOr (Nullable (Union3 WindowProxy
+                                                     MessagePort
+                                                     ServiceWorker))
   
   export
   %foreign "browser:lambda:(x,v)=>{x.source = v}"
   prim__setSource :  MessageEventInit
-                  -> UndefOr (Nullable MessageEventSource)
+                  -> UndefOr (Nullable (Union3 WindowProxy
+                                               MessagePort
+                                               ServiceWorker))
                   -> PrimIO ()
 
 namespace PageTransitionEventInit
@@ -8408,7 +8685,7 @@ namespace PageTransitionEventInit
   
   export
   %foreign "browser:lambda:x=>x.persisted"
-  prim__persisted : PageTransitionEventInit -> PrimIO (UndefOr Boolean)
+  prim__persisted : PageTransitionEventInit -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.persisted = v}"
@@ -8422,7 +8699,7 @@ namespace PopStateEventInit
   
   export
   %foreign "browser:lambda:x=>x.state"
-  prim__state : PopStateEventInit -> PrimIO (UndefOr AnyPtr)
+  prim__state : PopStateEventInit -> PrimIO $ UndefOr AnyPtr
   
   export
   %foreign "browser:lambda:(x,v)=>{x.state = v}"
@@ -8436,7 +8713,7 @@ namespace PostMessageOptions
   
   export
   %foreign "browser:lambda:x=>x.transfer"
-  prim__transfer : PostMessageOptions -> PrimIO (UndefOr (Array Object))
+  prim__transfer : PostMessageOptions -> PrimIO $ UndefOr (Array Object)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.transfer = v}"
@@ -8460,7 +8737,7 @@ namespace PromiseRejectionEventInit
   
   export
   %foreign "browser:lambda:x=>x.reason"
-  prim__reason : PromiseRejectionEventInit -> PrimIO (UndefOr AnyPtr)
+  prim__reason : PromiseRejectionEventInit -> PrimIO $ UndefOr AnyPtr
   
   export
   %foreign "browser:lambda:(x,v)=>{x.reason = v}"
@@ -8479,7 +8756,7 @@ namespace StorageEventInit
   
   export
   %foreign "browser:lambda:x=>x.key"
-  prim__key : StorageEventInit -> PrimIO (UndefOr (Nullable String))
+  prim__key : StorageEventInit -> PrimIO $ UndefOr (Nullable String)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.key = v}"
@@ -8487,7 +8764,7 @@ namespace StorageEventInit
   
   export
   %foreign "browser:lambda:x=>x.newValue"
-  prim__newValue : StorageEventInit -> PrimIO (UndefOr (Nullable String))
+  prim__newValue : StorageEventInit -> PrimIO $ UndefOr (Nullable String)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.newValue = v}"
@@ -8495,7 +8772,7 @@ namespace StorageEventInit
   
   export
   %foreign "browser:lambda:x=>x.oldValue"
-  prim__oldValue : StorageEventInit -> PrimIO (UndefOr (Nullable String))
+  prim__oldValue : StorageEventInit -> PrimIO $ UndefOr (Nullable String)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.oldValue = v}"
@@ -8503,7 +8780,7 @@ namespace StorageEventInit
   
   export
   %foreign "browser:lambda:x=>x.storageArea"
-  prim__storageArea : StorageEventInit -> PrimIO (UndefOr (Nullable Storage))
+  prim__storageArea : StorageEventInit -> PrimIO $ UndefOr (Nullable Storage)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.storageArea = v}"
@@ -8513,7 +8790,7 @@ namespace StorageEventInit
   
   export
   %foreign "browser:lambda:x=>x.url"
-  prim__url : StorageEventInit -> PrimIO (UndefOr String)
+  prim__url : StorageEventInit -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.url = v}"
@@ -8527,7 +8804,7 @@ namespace SubmitEventInit
   
   export
   %foreign "browser:lambda:x=>x.submitter"
-  prim__submitter : SubmitEventInit -> PrimIO (UndefOr (Nullable HTMLElement))
+  prim__submitter : SubmitEventInit -> PrimIO $ UndefOr (Nullable HTMLElement)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.submitter = v}"
@@ -8545,9 +8822,9 @@ namespace TrackEventInit
   export
   %foreign "browser:lambda:x=>x.track"
   prim__track :  TrackEventInit
-              -> PrimIO (UndefOr (Nullable (Union3 VideoTrack
-                                                   AudioTrack
-                                                   TextTrack)))
+              -> PrimIO $ UndefOr (Nullable (Union3 VideoTrack
+                                                    AudioTrack
+                                                    TextTrack))
   
   export
   %foreign "browser:lambda:(x,v)=>{x.track = v}"
@@ -8573,7 +8850,7 @@ namespace ValidityStateFlags
   
   export
   %foreign "browser:lambda:x=>x.badInput"
-  prim__badInput : ValidityStateFlags -> PrimIO (UndefOr Boolean)
+  prim__badInput : ValidityStateFlags -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.badInput = v}"
@@ -8581,7 +8858,7 @@ namespace ValidityStateFlags
   
   export
   %foreign "browser:lambda:x=>x.customError"
-  prim__customError : ValidityStateFlags -> PrimIO (UndefOr Boolean)
+  prim__customError : ValidityStateFlags -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.customError = v}"
@@ -8589,7 +8866,7 @@ namespace ValidityStateFlags
   
   export
   %foreign "browser:lambda:x=>x.patternMismatch"
-  prim__patternMismatch : ValidityStateFlags -> PrimIO (UndefOr Boolean)
+  prim__patternMismatch : ValidityStateFlags -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.patternMismatch = v}"
@@ -8597,7 +8874,7 @@ namespace ValidityStateFlags
   
   export
   %foreign "browser:lambda:x=>x.rangeOverflow"
-  prim__rangeOverflow : ValidityStateFlags -> PrimIO (UndefOr Boolean)
+  prim__rangeOverflow : ValidityStateFlags -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.rangeOverflow = v}"
@@ -8605,7 +8882,7 @@ namespace ValidityStateFlags
   
   export
   %foreign "browser:lambda:x=>x.rangeUnderflow"
-  prim__rangeUnderflow : ValidityStateFlags -> PrimIO (UndefOr Boolean)
+  prim__rangeUnderflow : ValidityStateFlags -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.rangeUnderflow = v}"
@@ -8613,7 +8890,7 @@ namespace ValidityStateFlags
   
   export
   %foreign "browser:lambda:x=>x.stepMismatch"
-  prim__stepMismatch : ValidityStateFlags -> PrimIO (UndefOr Boolean)
+  prim__stepMismatch : ValidityStateFlags -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.stepMismatch = v}"
@@ -8621,7 +8898,7 @@ namespace ValidityStateFlags
   
   export
   %foreign "browser:lambda:x=>x.tooLong"
-  prim__tooLong : ValidityStateFlags -> PrimIO (UndefOr Boolean)
+  prim__tooLong : ValidityStateFlags -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.tooLong = v}"
@@ -8629,7 +8906,7 @@ namespace ValidityStateFlags
   
   export
   %foreign "browser:lambda:x=>x.tooShort"
-  prim__tooShort : ValidityStateFlags -> PrimIO (UndefOr Boolean)
+  prim__tooShort : ValidityStateFlags -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.tooShort = v}"
@@ -8637,7 +8914,7 @@ namespace ValidityStateFlags
   
   export
   %foreign "browser:lambda:x=>x.typeMismatch"
-  prim__typeMismatch : ValidityStateFlags -> PrimIO (UndefOr Boolean)
+  prim__typeMismatch : ValidityStateFlags -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.typeMismatch = v}"
@@ -8645,7 +8922,7 @@ namespace ValidityStateFlags
   
   export
   %foreign "browser:lambda:x=>x.valueMissing"
-  prim__valueMissing : ValidityStateFlags -> PrimIO (UndefOr Boolean)
+  prim__valueMissing : ValidityStateFlags -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.valueMissing = v}"
@@ -8659,7 +8936,7 @@ namespace WindowPostMessageOptions
   
   export
   %foreign "browser:lambda:x=>x.targetOrigin"
-  prim__targetOrigin : WindowPostMessageOptions -> PrimIO (UndefOr String)
+  prim__targetOrigin : WindowPostMessageOptions -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.targetOrigin = v}"
@@ -8671,24 +8948,22 @@ namespace WorkerOptions
   
   export
   %foreign "browser:lambda:(a,b,c)=> {type: a,credentials: b,name: c}"
-  prim__new :  UndefOr WorkerType
-            -> UndefOr RequestCredentials
+  prim__new :  UndefOr String
+            -> UndefOr String
             -> UndefOr String
             -> PrimIO WorkerOptions
   
   export
   %foreign "browser:lambda:x=>x.credentials"
-  prim__credentials : WorkerOptions -> PrimIO (UndefOr RequestCredentials)
+  prim__credentials : WorkerOptions -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.credentials = v}"
-  prim__setCredentials :  WorkerOptions
-                       -> UndefOr RequestCredentials
-                       -> PrimIO ()
+  prim__setCredentials : WorkerOptions -> UndefOr String -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.name"
-  prim__name : WorkerOptions -> PrimIO (UndefOr String)
+  prim__name : WorkerOptions -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.name = v}"
@@ -8696,24 +8971,22 @@ namespace WorkerOptions
   
   export
   %foreign "browser:lambda:x=>x.type"
-  prim__type : WorkerOptions -> PrimIO (UndefOr WorkerType)
+  prim__type : WorkerOptions -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.type = v}"
-  prim__setType : WorkerOptions -> UndefOr WorkerType -> PrimIO ()
+  prim__setType : WorkerOptions -> UndefOr String -> PrimIO ()
 
 namespace WorkletOptions
   
   export
   %foreign "browser:lambda:(a)=> {credentials: a}"
-  prim__new : UndefOr RequestCredentials -> PrimIO WorkletOptions
+  prim__new : UndefOr String -> PrimIO WorkletOptions
   
   export
   %foreign "browser:lambda:x=>x.credentials"
-  prim__credentials : WorkletOptions -> PrimIO (UndefOr RequestCredentials)
+  prim__credentials : WorkletOptions -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.credentials = v}"
-  prim__setCredentials :  WorkletOptions
-                       -> UndefOr RequestCredentials
-                       -> PrimIO ()
+  prim__setCredentials : WorkletOptions -> UndefOr String -> PrimIO ()

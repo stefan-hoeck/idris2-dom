@@ -40,19 +40,19 @@ namespace Animation
   
   export
   %foreign "browser:lambda:x=>x.oncancel"
-  prim__oncancel : Animation -> PrimIO EventHandler
+  prim__oncancel : Animation -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.oncancel = v}"
-  prim__setOncancel : Animation -> EventHandler -> PrimIO ()
+  prim__setOncancel : Animation -> Nullable EventHandlerNonNull -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onfinish"
-  prim__onfinish : Animation -> PrimIO EventHandler
+  prim__onfinish : Animation -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onfinish = v}"
-  prim__setOnfinish : Animation -> EventHandler -> PrimIO ()
+  prim__setOnfinish : Animation -> Nullable EventHandlerNonNull -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.pending"
@@ -60,7 +60,7 @@ namespace Animation
   
   export
   %foreign "browser:lambda:x=>x.playState"
-  prim__playState : Animation -> PrimIO AnimationPlayState
+  prim__playState : Animation -> PrimIO String
   
   export
   %foreign "browser:lambda:x=>x.playbackRate"
@@ -151,22 +151,19 @@ namespace KeyframeEffect
   
   export
   %foreign "browser:lambda:x=>x.composite"
-  prim__composite : KeyframeEffect -> PrimIO CompositeOperation
+  prim__composite : KeyframeEffect -> PrimIO String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.composite = v}"
-  prim__setComposite : KeyframeEffect -> CompositeOperation -> PrimIO ()
+  prim__setComposite : KeyframeEffect -> String -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.iterationComposite"
-  prim__iterationComposite :  KeyframeEffect
-                           -> PrimIO IterationCompositeOperation
+  prim__iterationComposite : KeyframeEffect -> PrimIO String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.iterationComposite = v}"
-  prim__setIterationComposite :  KeyframeEffect
-                              -> IterationCompositeOperation
-                              -> PrimIO ()
+  prim__setIterationComposite : KeyframeEffect -> String -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.target"
@@ -219,7 +216,7 @@ namespace AnimationPlaybackEventInit
   export
   %foreign "browser:lambda:x=>x.currentTime"
   prim__currentTime :  AnimationPlaybackEventInit
-                    -> PrimIO (UndefOr (Nullable Double))
+                    -> PrimIO $ UndefOr (Nullable Double)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.currentTime = v}"
@@ -230,7 +227,7 @@ namespace AnimationPlaybackEventInit
   export
   %foreign "browser:lambda:x=>x.timelineTime"
   prim__timelineTime :  AnimationPlaybackEventInit
-                     -> PrimIO (UndefOr (Nullable Double))
+                     -> PrimIO $ UndefOr (Nullable Double)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.timelineTime = v}"
@@ -245,23 +242,20 @@ namespace BaseComputedKeyframe
   prim__new :  UndefOr (Nullable Double)
             -> UndefOr Double
             -> UndefOr String
-            -> UndefOr CompositeOperationOrAuto
+            -> UndefOr String
             -> PrimIO BaseComputedKeyframe
   
   export
   %foreign "browser:lambda:x=>x.composite"
-  prim__composite :  BaseComputedKeyframe
-                  -> PrimIO (UndefOr CompositeOperationOrAuto)
+  prim__composite : BaseComputedKeyframe -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.composite = v}"
-  prim__setComposite :  BaseComputedKeyframe
-                     -> UndefOr CompositeOperationOrAuto
-                     -> PrimIO ()
+  prim__setComposite : BaseComputedKeyframe -> UndefOr String -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.computedOffset"
-  prim__computedOffset : BaseComputedKeyframe -> PrimIO (UndefOr Double)
+  prim__computedOffset : BaseComputedKeyframe -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.computedOffset = v}"
@@ -269,7 +263,7 @@ namespace BaseComputedKeyframe
   
   export
   %foreign "browser:lambda:x=>x.easing"
-  prim__easing : BaseComputedKeyframe -> PrimIO (UndefOr String)
+  prim__easing : BaseComputedKeyframe -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.easing = v}"
@@ -277,7 +271,7 @@ namespace BaseComputedKeyframe
   
   export
   %foreign "browser:lambda:x=>x.offset"
-  prim__offset : BaseComputedKeyframe -> PrimIO (UndefOr (Nullable Double))
+  prim__offset : BaseComputedKeyframe -> PrimIO $ UndefOr (Nullable Double)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.offset = v}"
@@ -291,22 +285,20 @@ namespace BaseKeyframe
   %foreign "browser:lambda:(a,b,c)=> {offset: a,easing: b,composite: c}"
   prim__new :  UndefOr (Nullable Double)
             -> UndefOr String
-            -> UndefOr CompositeOperationOrAuto
+            -> UndefOr String
             -> PrimIO BaseKeyframe
   
   export
   %foreign "browser:lambda:x=>x.composite"
-  prim__composite : BaseKeyframe -> PrimIO (UndefOr CompositeOperationOrAuto)
+  prim__composite : BaseKeyframe -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.composite = v}"
-  prim__setComposite :  BaseKeyframe
-                     -> UndefOr CompositeOperationOrAuto
-                     -> PrimIO ()
+  prim__setComposite : BaseKeyframe -> UndefOr String -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.easing"
-  prim__easing : BaseKeyframe -> PrimIO (UndefOr String)
+  prim__easing : BaseKeyframe -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.easing = v}"
@@ -314,7 +306,7 @@ namespace BaseKeyframe
   
   export
   %foreign "browser:lambda:x=>x.offset"
-  prim__offset : BaseKeyframe -> PrimIO (UndefOr (Nullable Double))
+  prim__offset : BaseKeyframe -> PrimIO $ UndefOr (Nullable Double)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.offset = v}"
@@ -324,29 +316,26 @@ namespace BasePropertyIndexedKeyframe
   
   export
   %foreign "browser:lambda:(a,b,c)=> {offset: a,easing: b,composite: c}"
-  prim__new :  UndefOr (Union2 (Nullable Double) (Array (Nullable Double)))
+  prim__new :  UndefOr (Nullable (Union2 Double (Array (Nullable Double))))
             -> UndefOr (Union2 String (Array String))
-            -> UndefOr (Union2 CompositeOperationOrAuto
-                               (Array CompositeOperationOrAuto))
+            -> UndefOr (Union2 String (Array String))
             -> PrimIO BasePropertyIndexedKeyframe
   
   export
   %foreign "browser:lambda:x=>x.composite"
   prim__composite :  BasePropertyIndexedKeyframe
-                  -> PrimIO (UndefOr (Union2 CompositeOperationOrAuto
-                                             (Array CompositeOperationOrAuto)))
+                  -> PrimIO $ UndefOr (Union2 String (Array String))
   
   export
   %foreign "browser:lambda:(x,v)=>{x.composite = v}"
   prim__setComposite :  BasePropertyIndexedKeyframe
-                     -> UndefOr (Union2 CompositeOperationOrAuto
-                                        (Array CompositeOperationOrAuto))
+                     -> UndefOr (Union2 String (Array String))
                      -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.easing"
   prim__easing :  BasePropertyIndexedKeyframe
-               -> PrimIO (UndefOr (Union2 String (Array String)))
+               -> PrimIO $ UndefOr (Union2 String (Array String))
   
   export
   %foreign "browser:lambda:(x,v)=>{x.easing = v}"
@@ -357,14 +346,14 @@ namespace BasePropertyIndexedKeyframe
   export
   %foreign "browser:lambda:x=>x.offset"
   prim__offset :  BasePropertyIndexedKeyframe
-               -> PrimIO (UndefOr (Union2 (Nullable Double)
-                                          (Array (Nullable Double))))
+               -> PrimIO $ UndefOr (Nullable (Union2 Double
+                                                     (Array (Nullable Double))))
   
   export
   %foreign "browser:lambda:(x,v)=>{x.offset = v}"
   prim__setOffset :  BasePropertyIndexedKeyframe
-                  -> UndefOr (Union2 (Nullable Double)
-                                     (Array (Nullable Double)))
+                  -> UndefOr (Nullable (Union2 Double
+                                               (Array (Nullable Double))))
                   -> PrimIO ()
 
 namespace ComputedEffectTiming
@@ -380,7 +369,7 @@ namespace ComputedEffectTiming
   
   export
   %foreign "browser:lambda:x=>x.activeDuration"
-  prim__activeDuration : ComputedEffectTiming -> PrimIO (UndefOr Double)
+  prim__activeDuration : ComputedEffectTiming -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.activeDuration = v}"
@@ -389,7 +378,7 @@ namespace ComputedEffectTiming
   export
   %foreign "browser:lambda:x=>x.currentIteration"
   prim__currentIteration :  ComputedEffectTiming
-                         -> PrimIO (UndefOr (Nullable Double))
+                         -> PrimIO $ UndefOr (Nullable Double)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.currentIteration = v}"
@@ -399,7 +388,7 @@ namespace ComputedEffectTiming
   
   export
   %foreign "browser:lambda:x=>x.endTime"
-  prim__endTime : ComputedEffectTiming -> PrimIO (UndefOr Double)
+  prim__endTime : ComputedEffectTiming -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.endTime = v}"
@@ -407,7 +396,7 @@ namespace ComputedEffectTiming
   
   export
   %foreign "browser:lambda:x=>x.localTime"
-  prim__localTime : ComputedEffectTiming -> PrimIO (UndefOr (Nullable Double))
+  prim__localTime : ComputedEffectTiming -> PrimIO $ UndefOr (Nullable Double)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.localTime = v}"
@@ -417,7 +406,7 @@ namespace ComputedEffectTiming
   
   export
   %foreign "browser:lambda:x=>x.progress"
-  prim__progress : ComputedEffectTiming -> PrimIO (UndefOr (Nullable Double))
+  prim__progress : ComputedEffectTiming -> PrimIO $ UndefOr (Nullable Double)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.progress = v}"
@@ -429,18 +418,15 @@ namespace DocumentTimelineOptions
   
   export
   %foreign "browser:lambda:(a)=> {originTime: a}"
-  prim__new : UndefOr DOMHighResTimeStamp -> PrimIO DocumentTimelineOptions
+  prim__new : UndefOr Double -> PrimIO DocumentTimelineOptions
   
   export
   %foreign "browser:lambda:x=>x.originTime"
-  prim__originTime :  DocumentTimelineOptions
-                   -> PrimIO (UndefOr DOMHighResTimeStamp)
+  prim__originTime : DocumentTimelineOptions -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.originTime = v}"
-  prim__setOriginTime :  DocumentTimelineOptions
-                      -> UndefOr DOMHighResTimeStamp
-                      -> PrimIO ()
+  prim__setOriginTime : DocumentTimelineOptions -> UndefOr Double -> PrimIO ()
 
 namespace EffectTiming
   
@@ -448,17 +434,17 @@ namespace EffectTiming
   %foreign "browser:lambda:(a,b,c,d,e,f,g,h)=> {delay: a,endDelay: b,fill: c,iterationStart: d,iterations: e,duration: f,direction: g,easing: h}"
   prim__new :  UndefOr Double
             -> UndefOr Double
-            -> UndefOr FillMode
+            -> UndefOr String
             -> UndefOr Double
             -> UndefOr Double
             -> UndefOr (Union2 Double String)
-            -> UndefOr PlaybackDirection
+            -> UndefOr String
             -> UndefOr String
             -> PrimIO EffectTiming
   
   export
   %foreign "browser:lambda:x=>x.delay"
-  prim__delay : EffectTiming -> PrimIO (UndefOr Double)
+  prim__delay : EffectTiming -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.delay = v}"
@@ -466,15 +452,15 @@ namespace EffectTiming
   
   export
   %foreign "browser:lambda:x=>x.direction"
-  prim__direction : EffectTiming -> PrimIO (UndefOr PlaybackDirection)
+  prim__direction : EffectTiming -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.direction = v}"
-  prim__setDirection : EffectTiming -> UndefOr PlaybackDirection -> PrimIO ()
+  prim__setDirection : EffectTiming -> UndefOr String -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.duration"
-  prim__duration : EffectTiming -> PrimIO (UndefOr (Union2 Double String))
+  prim__duration : EffectTiming -> PrimIO $ UndefOr (Union2 Double String)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.duration = v}"
@@ -484,7 +470,7 @@ namespace EffectTiming
   
   export
   %foreign "browser:lambda:x=>x.easing"
-  prim__easing : EffectTiming -> PrimIO (UndefOr String)
+  prim__easing : EffectTiming -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.easing = v}"
@@ -492,7 +478,7 @@ namespace EffectTiming
   
   export
   %foreign "browser:lambda:x=>x.endDelay"
-  prim__endDelay : EffectTiming -> PrimIO (UndefOr Double)
+  prim__endDelay : EffectTiming -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.endDelay = v}"
@@ -500,15 +486,15 @@ namespace EffectTiming
   
   export
   %foreign "browser:lambda:x=>x.fill"
-  prim__fill : EffectTiming -> PrimIO (UndefOr FillMode)
+  prim__fill : EffectTiming -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.fill = v}"
-  prim__setFill : EffectTiming -> UndefOr FillMode -> PrimIO ()
+  prim__setFill : EffectTiming -> UndefOr String -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.iterationStart"
-  prim__iterationStart : EffectTiming -> PrimIO (UndefOr Double)
+  prim__iterationStart : EffectTiming -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.iterationStart = v}"
@@ -516,7 +502,7 @@ namespace EffectTiming
   
   export
   %foreign "browser:lambda:x=>x.iterations"
-  prim__iterations : EffectTiming -> PrimIO (UndefOr Double)
+  prim__iterations : EffectTiming -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.iterations = v}"
@@ -530,7 +516,7 @@ namespace KeyframeAnimationOptions
   
   export
   %foreign "browser:lambda:x=>x.id"
-  prim__id : KeyframeAnimationOptions -> PrimIO (UndefOr String)
+  prim__id : KeyframeAnimationOptions -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.id = v}"
@@ -540,29 +526,24 @@ namespace KeyframeEffectOptions
   
   export
   %foreign "browser:lambda:(a,b)=> {iterationComposite: a,composite: b}"
-  prim__new :  UndefOr IterationCompositeOperation
-            -> UndefOr CompositeOperation
-            -> PrimIO KeyframeEffectOptions
+  prim__new : UndefOr String -> UndefOr String -> PrimIO KeyframeEffectOptions
   
   export
   %foreign "browser:lambda:x=>x.composite"
-  prim__composite : KeyframeEffectOptions -> PrimIO (UndefOr CompositeOperation)
+  prim__composite : KeyframeEffectOptions -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.composite = v}"
-  prim__setComposite :  KeyframeEffectOptions
-                     -> UndefOr CompositeOperation
-                     -> PrimIO ()
+  prim__setComposite : KeyframeEffectOptions -> UndefOr String -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.iterationComposite"
-  prim__iterationComposite :  KeyframeEffectOptions
-                           -> PrimIO (UndefOr IterationCompositeOperation)
+  prim__iterationComposite : KeyframeEffectOptions -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.iterationComposite = v}"
   prim__setIterationComposite :  KeyframeEffectOptions
-                              -> UndefOr IterationCompositeOperation
+                              -> UndefOr String
                               -> PrimIO ()
 
 namespace OptionalEffectTiming
@@ -571,17 +552,17 @@ namespace OptionalEffectTiming
   %foreign "browser:lambda:(a,b,c,d,e,f,g,h)=> {delay: a,endDelay: b,fill: c,iterationStart: d,iterations: e,duration: f,direction: g,easing: h}"
   prim__new :  UndefOr Double
             -> UndefOr Double
-            -> UndefOr FillMode
+            -> UndefOr String
             -> UndefOr Double
             -> UndefOr Double
             -> UndefOr (Union2 Double String)
-            -> UndefOr PlaybackDirection
+            -> UndefOr String
             -> UndefOr String
             -> PrimIO OptionalEffectTiming
   
   export
   %foreign "browser:lambda:x=>x.delay"
-  prim__delay : OptionalEffectTiming -> PrimIO (UndefOr Double)
+  prim__delay : OptionalEffectTiming -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.delay = v}"
@@ -589,18 +570,16 @@ namespace OptionalEffectTiming
   
   export
   %foreign "browser:lambda:x=>x.direction"
-  prim__direction : OptionalEffectTiming -> PrimIO (UndefOr PlaybackDirection)
+  prim__direction : OptionalEffectTiming -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.direction = v}"
-  prim__setDirection :  OptionalEffectTiming
-                     -> UndefOr PlaybackDirection
-                     -> PrimIO ()
+  prim__setDirection : OptionalEffectTiming -> UndefOr String -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.duration"
   prim__duration :  OptionalEffectTiming
-                 -> PrimIO (UndefOr (Union2 Double String))
+                 -> PrimIO $ UndefOr (Union2 Double String)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.duration = v}"
@@ -610,7 +589,7 @@ namespace OptionalEffectTiming
   
   export
   %foreign "browser:lambda:x=>x.easing"
-  prim__easing : OptionalEffectTiming -> PrimIO (UndefOr String)
+  prim__easing : OptionalEffectTiming -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.easing = v}"
@@ -618,7 +597,7 @@ namespace OptionalEffectTiming
   
   export
   %foreign "browser:lambda:x=>x.endDelay"
-  prim__endDelay : OptionalEffectTiming -> PrimIO (UndefOr Double)
+  prim__endDelay : OptionalEffectTiming -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.endDelay = v}"
@@ -626,15 +605,15 @@ namespace OptionalEffectTiming
   
   export
   %foreign "browser:lambda:x=>x.fill"
-  prim__fill : OptionalEffectTiming -> PrimIO (UndefOr FillMode)
+  prim__fill : OptionalEffectTiming -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.fill = v}"
-  prim__setFill : OptionalEffectTiming -> UndefOr FillMode -> PrimIO ()
+  prim__setFill : OptionalEffectTiming -> UndefOr String -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.iterationStart"
-  prim__iterationStart : OptionalEffectTiming -> PrimIO (UndefOr Double)
+  prim__iterationStart : OptionalEffectTiming -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.iterationStart = v}"
@@ -642,7 +621,7 @@ namespace OptionalEffectTiming
   
   export
   %foreign "browser:lambda:x=>x.iterations"
-  prim__iterations : OptionalEffectTiming -> PrimIO (UndefOr Double)
+  prim__iterations : OptionalEffectTiming -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.iterations = v}"

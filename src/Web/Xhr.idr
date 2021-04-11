@@ -17,12 +17,12 @@ namespace FormData
     mixins =  []
   
   export
-  new : (form : UndefOr HTMLFormElement) -> JSIO FormData
-  new a = primJS $ FormData.prim__new a
+  new : (form : Optional HTMLFormElement) -> JSIO FormData
+  new a = primJS $ FormData.prim__new (toFFI a)
 
   export
   new' : JSIO FormData
-  new' = new undef
+  new' = new Undef
   
   export
   append : (obj : FormData) -> (name : String) -> (value : String) -> JSIO ()
@@ -32,16 +32,16 @@ namespace FormData
   append1 :  (obj : FormData)
           -> (name : String)
           -> (blobValue : Blob)
-          -> (filename : UndefOr String)
+          -> (filename : Optional String)
           -> JSIO ()
-  append1 a b c d = primJS $ FormData.prim__append1 a b c d
+  append1 a b c d = primJS $ FormData.prim__append1 a b c (toFFI d)
 
   export
   append1' :  (obj : FormData)
            -> (name : String)
            -> (blobValue : Blob)
            -> JSIO ()
-  append1' a b c = append1 a b c undef
+  append1' a b c = append1 a b c Undef
   
   export
   delete : (obj : FormData) -> (name : String) -> JSIO ()
@@ -50,18 +50,18 @@ namespace FormData
   export
   getAll :  (obj : FormData)
          -> (name : String)
-         -> JSIO (Array FormDataEntryValue)
+         -> JSIO (Array (Union2 File String))
   getAll a b = primJS $ FormData.prim__getAll a b
   
   export
   get :  (obj : FormData)
       -> (name : String)
-      -> JSIO (Nullable FormDataEntryValue)
-  get a b = primJS $ FormData.prim__get a b
+      -> JSIO (Maybe (NS I [ File , String ]))
+  get a b = tryJS "FormData.get" $ FormData.prim__get a b
   
   export
-  has : (obj : FormData) -> (name : String) -> JSIO Boolean
-  has a b = primJS $ FormData.prim__has a b
+  has : (obj : FormData) -> (name : String) -> JSIO Bool
+  has a b = tryJS "FormData.has" $ FormData.prim__has a b
   
   export
   set : (obj : FormData) -> (name : String) -> (value : String) -> JSIO ()
@@ -71,13 +71,13 @@ namespace FormData
   set1 :  (obj : FormData)
        -> (name : String)
        -> (blobValue : Blob)
-       -> (filename : UndefOr String)
+       -> (filename : Optional String)
        -> JSIO ()
-  set1 a b c d = primJS $ FormData.prim__set1 a b c d
+  set1 a b c d = primJS $ FormData.prim__set1 a b c (toFFI d)
 
   export
   set1' : (obj : FormData) -> (name : String) -> (blobValue : Blob) -> JSIO ()
-  set1' a b c = set1 a b c undef
+  set1' a b c = set1 a b c Undef
 
 namespace ProgressEvent
   
@@ -89,17 +89,17 @@ namespace ProgressEvent
   
   export
   new :  (type : String)
-      -> (eventInitDict : UndefOr ProgressEventInit)
+      -> (eventInitDict : Optional ProgressEventInit)
       -> JSIO ProgressEvent
-  new a b = primJS $ ProgressEvent.prim__new a b
+  new a b = primJS $ ProgressEvent.prim__new a (toFFI b)
 
   export
   new' : (type : String) -> JSIO ProgressEvent
-  new' a = new a undef
+  new' a = new a Undef
   
   export
-  lengthComputable : (obj : ProgressEvent) -> JSIO Boolean
-  lengthComputable a = primJS $ ProgressEvent.prim__lengthComputable a
+  lengthComputable : (obj : ProgressEvent) -> JSIO Bool
+  lengthComputable a = tryJS "ProgressEvent.lengthComputable" $ ProgressEvent.prim__lengthComputable a
   
   export
   loaded : (obj : ProgressEvent) -> JSIO UInt64
@@ -142,15 +142,16 @@ namespace XMLHttpRequest
   new = primJS $ XMLHttpRequest.prim__new 
   
   export
-  onreadystatechange : (obj : XMLHttpRequest) -> JSIO EventHandler
-  onreadystatechange a = primJS $ XMLHttpRequest.prim__onreadystatechange a
+  onreadystatechange :  (obj : XMLHttpRequest)
+                     -> JSIO (Maybe EventHandlerNonNull)
+  onreadystatechange a = tryJS "XMLHttpRequest.onreadystatechange" $ XMLHttpRequest.prim__onreadystatechange a
   
   export
   setOnreadystatechange :  (obj : XMLHttpRequest)
-                        -> (value : EventHandler)
+                        -> (value : Maybe EventHandlerNonNull)
                         -> JSIO ()
   setOnreadystatechange a b = primJS $ XMLHttpRequest.prim__setOnreadystatechange a
-                                                                                  b
+                                                                                  (toFFI b)
   
   export
   readyState : (obj : XMLHttpRequest) -> JSIO UInt16
@@ -166,21 +167,22 @@ namespace XMLHttpRequest
   
   export
   responseType : (obj : XMLHttpRequest) -> JSIO XMLHttpRequestResponseType
-  responseType a = primJS $ XMLHttpRequest.prim__responseType a
+  responseType a = tryJS "XMLHttpRequest.responseType" $ XMLHttpRequest.prim__responseType a
   
   export
   setResponseType :  (obj : XMLHttpRequest)
                   -> (value : XMLHttpRequestResponseType)
                   -> JSIO ()
-  setResponseType a b = primJS $ XMLHttpRequest.prim__setResponseType a b
+  setResponseType a b = primJS $ XMLHttpRequest.prim__setResponseType a
+                                                                      (toFFI b)
   
   export
   responseURL : (obj : XMLHttpRequest) -> JSIO String
   responseURL a = primJS $ XMLHttpRequest.prim__responseURL a
   
   export
-  responseXML : (obj : XMLHttpRequest) -> JSIO (Nullable Document)
-  responseXML a = primJS $ XMLHttpRequest.prim__responseXML a
+  responseXML : (obj : XMLHttpRequest) -> JSIO (Maybe Document)
+  responseXML a = tryJS "XMLHttpRequest.responseXML" $ XMLHttpRequest.prim__responseXML a
   
   export
   status : (obj : XMLHttpRequest) -> JSIO UInt16
@@ -203,12 +205,13 @@ namespace XMLHttpRequest
   upload a = primJS $ XMLHttpRequest.prim__upload a
   
   export
-  withCredentials : (obj : XMLHttpRequest) -> JSIO Boolean
-  withCredentials a = primJS $ XMLHttpRequest.prim__withCredentials a
+  withCredentials : (obj : XMLHttpRequest) -> JSIO Bool
+  withCredentials a = tryJS "XMLHttpRequest.withCredentials" $ XMLHttpRequest.prim__withCredentials a
   
   export
-  setWithCredentials : (obj : XMLHttpRequest) -> (value : Boolean) -> JSIO ()
-  setWithCredentials a b = primJS $ XMLHttpRequest.prim__setWithCredentials a b
+  setWithCredentials : (obj : XMLHttpRequest) -> (value : Bool) -> JSIO ()
+  setWithCredentials a b = primJS $ XMLHttpRequest.prim__setWithCredentials a
+                                                                            (toFFI b)
   
   export
   abort : (obj : XMLHttpRequest) -> JSIO ()
@@ -221,8 +224,9 @@ namespace XMLHttpRequest
   export
   getResponseHeader :  (obj : XMLHttpRequest)
                     -> (name : ByteString)
-                    -> JSIO (Nullable ByteString)
-  getResponseHeader a b = primJS $ XMLHttpRequest.prim__getResponseHeader a b
+                    -> JSIO (Maybe ByteString)
+  getResponseHeader a b = tryJS "XMLHttpRequest.getResponseHeader" $ XMLHttpRequest.prim__getResponseHeader a
+                                                                                                            b
   
   export
   open_ :  (obj : XMLHttpRequest)
@@ -235,19 +239,24 @@ namespace XMLHttpRequest
   open1 :  (obj : XMLHttpRequest)
         -> (method : ByteString)
         -> (url : String)
-        -> (async : Boolean)
-        -> (username : UndefOr (Nullable String))
-        -> (password : UndefOr (Nullable String))
+        -> (async : Bool)
+        -> (username : Optional (Maybe String))
+        -> (password : Optional (Maybe String))
         -> JSIO ()
-  open1 a b c d e f = primJS $ XMLHttpRequest.prim__open1 a b c d e f
+  open1 a b c d e f = primJS $ XMLHttpRequest.prim__open1 a
+                                                          b
+                                                          c
+                                                          (toFFI d)
+                                                          (toFFI e)
+                                                          (toFFI f)
 
   export
   open1' :  (obj : XMLHttpRequest)
          -> (method : ByteString)
          -> (url : String)
-         -> (async : Boolean)
+         -> (async : Bool)
          -> JSIO ()
-  open1' a b c d = open1 a b c d undef undef
+  open1' a b c d = open1 a b c d Undef Undef
   
   export
   overrideMimeType : (obj : XMLHttpRequest) -> (mime : String) -> JSIO ()
@@ -255,13 +264,29 @@ namespace XMLHttpRequest
   
   export
   send :  (obj : XMLHttpRequest)
-       -> (body : UndefOr (Nullable (Union2 Document XMLHttpRequestBodyInit)))
+       -> (body : Optional (Maybe (NS I [ Document
+                                        , Blob
+                                        , Int8Array
+                                        , Int16Array
+                                        , Int32Array
+                                        , UInt8Array
+                                        , UInt8Array
+                                        , UInt8Array
+                                        , UInt8ClampedArray
+                                        , Float32Array
+                                        , Float64Array
+                                        , DataView
+                                        , ArrayBuffer
+                                        , FormData
+                                        , URLSearchParams
+                                        , String
+                                        ])))
        -> JSIO ()
-  send a b = primJS $ XMLHttpRequest.prim__send a b
+  send a b = primJS $ XMLHttpRequest.prim__send a (toFFI b)
 
   export
   send' : (obj : XMLHttpRequest) -> JSIO ()
-  send' a = send a undef
+  send' a = send a Undef
   
   export
   setRequestHeader :  (obj : XMLHttpRequest)
@@ -279,75 +304,86 @@ namespace XMLHttpRequestEventTarget
     mixins =  []
   
   export
-  onabort : (obj : XMLHttpRequestEventTarget) -> JSIO EventHandler
-  onabort a = primJS $ XMLHttpRequestEventTarget.prim__onabort a
+  onabort :  (obj : XMLHttpRequestEventTarget)
+          -> JSIO (Maybe EventHandlerNonNull)
+  onabort a = tryJS "XMLHttpRequestEventTarget.onabort" $ XMLHttpRequestEventTarget.prim__onabort a
   
   export
   setOnabort :  (obj : XMLHttpRequestEventTarget)
-             -> (value : EventHandler)
+             -> (value : Maybe EventHandlerNonNull)
              -> JSIO ()
-  setOnabort a b = primJS $ XMLHttpRequestEventTarget.prim__setOnabort a b
+  setOnabort a b = primJS $ XMLHttpRequestEventTarget.prim__setOnabort a
+                                                                       (toFFI b)
   
   export
-  onerror : (obj : XMLHttpRequestEventTarget) -> JSIO EventHandler
-  onerror a = primJS $ XMLHttpRequestEventTarget.prim__onerror a
+  onerror :  (obj : XMLHttpRequestEventTarget)
+          -> JSIO (Maybe EventHandlerNonNull)
+  onerror a = tryJS "XMLHttpRequestEventTarget.onerror" $ XMLHttpRequestEventTarget.prim__onerror a
   
   export
   setOnerror :  (obj : XMLHttpRequestEventTarget)
-             -> (value : EventHandler)
+             -> (value : Maybe EventHandlerNonNull)
              -> JSIO ()
-  setOnerror a b = primJS $ XMLHttpRequestEventTarget.prim__setOnerror a b
+  setOnerror a b = primJS $ XMLHttpRequestEventTarget.prim__setOnerror a
+                                                                       (toFFI b)
   
   export
-  onload : (obj : XMLHttpRequestEventTarget) -> JSIO EventHandler
-  onload a = primJS $ XMLHttpRequestEventTarget.prim__onload a
+  onload : (obj : XMLHttpRequestEventTarget) -> JSIO (Maybe EventHandlerNonNull)
+  onload a = tryJS "XMLHttpRequestEventTarget.onload" $ XMLHttpRequestEventTarget.prim__onload a
   
   export
   setOnload :  (obj : XMLHttpRequestEventTarget)
-            -> (value : EventHandler)
+            -> (value : Maybe EventHandlerNonNull)
             -> JSIO ()
-  setOnload a b = primJS $ XMLHttpRequestEventTarget.prim__setOnload a b
+  setOnload a b = primJS $ XMLHttpRequestEventTarget.prim__setOnload a (toFFI b)
   
   export
-  onloadend : (obj : XMLHttpRequestEventTarget) -> JSIO EventHandler
-  onloadend a = primJS $ XMLHttpRequestEventTarget.prim__onloadend a
+  onloadend :  (obj : XMLHttpRequestEventTarget)
+            -> JSIO (Maybe EventHandlerNonNull)
+  onloadend a = tryJS "XMLHttpRequestEventTarget.onloadend" $ XMLHttpRequestEventTarget.prim__onloadend a
   
   export
   setOnloadend :  (obj : XMLHttpRequestEventTarget)
-               -> (value : EventHandler)
+               -> (value : Maybe EventHandlerNonNull)
                -> JSIO ()
-  setOnloadend a b = primJS $ XMLHttpRequestEventTarget.prim__setOnloadend a b
+  setOnloadend a b = primJS $ XMLHttpRequestEventTarget.prim__setOnloadend a
+                                                                           (toFFI b)
   
   export
-  onloadstart : (obj : XMLHttpRequestEventTarget) -> JSIO EventHandler
-  onloadstart a = primJS $ XMLHttpRequestEventTarget.prim__onloadstart a
+  onloadstart :  (obj : XMLHttpRequestEventTarget)
+              -> JSIO (Maybe EventHandlerNonNull)
+  onloadstart a = tryJS "XMLHttpRequestEventTarget.onloadstart" $ XMLHttpRequestEventTarget.prim__onloadstart a
   
   export
   setOnloadstart :  (obj : XMLHttpRequestEventTarget)
-                 -> (value : EventHandler)
+                 -> (value : Maybe EventHandlerNonNull)
                  -> JSIO ()
   setOnloadstart a b = primJS $ XMLHttpRequestEventTarget.prim__setOnloadstart a
-                                                                               b
+                                                                               (toFFI b)
   
   export
-  onprogress : (obj : XMLHttpRequestEventTarget) -> JSIO EventHandler
-  onprogress a = primJS $ XMLHttpRequestEventTarget.prim__onprogress a
+  onprogress :  (obj : XMLHttpRequestEventTarget)
+             -> JSIO (Maybe EventHandlerNonNull)
+  onprogress a = tryJS "XMLHttpRequestEventTarget.onprogress" $ XMLHttpRequestEventTarget.prim__onprogress a
   
   export
   setOnprogress :  (obj : XMLHttpRequestEventTarget)
-                -> (value : EventHandler)
+                -> (value : Maybe EventHandlerNonNull)
                 -> JSIO ()
-  setOnprogress a b = primJS $ XMLHttpRequestEventTarget.prim__setOnprogress a b
+  setOnprogress a b = primJS $ XMLHttpRequestEventTarget.prim__setOnprogress a
+                                                                             (toFFI b)
   
   export
-  ontimeout : (obj : XMLHttpRequestEventTarget) -> JSIO EventHandler
-  ontimeout a = primJS $ XMLHttpRequestEventTarget.prim__ontimeout a
+  ontimeout :  (obj : XMLHttpRequestEventTarget)
+            -> JSIO (Maybe EventHandlerNonNull)
+  ontimeout a = tryJS "XMLHttpRequestEventTarget.ontimeout" $ XMLHttpRequestEventTarget.prim__ontimeout a
   
   export
   setOntimeout :  (obj : XMLHttpRequestEventTarget)
-               -> (value : EventHandler)
+               -> (value : Maybe EventHandlerNonNull)
                -> JSIO ()
-  setOntimeout a b = primJS $ XMLHttpRequestEventTarget.prim__setOntimeout a b
+  setOntimeout a b = primJS $ XMLHttpRequestEventTarget.prim__setOntimeout a
+                                                                           (toFFI b)
 
 namespace XMLHttpRequestUpload
   
@@ -371,51 +407,51 @@ namespace ProgressEventInit
     mixins =  []
   
   export
-  new :  (lengthComputable : UndefOr Boolean)
-      -> (loaded : UndefOr UInt64)
-      -> (total_ : UndefOr UInt64)
+  new :  (lengthComputable : Optional Bool)
+      -> (loaded : Optional UInt64)
+      -> (total_ : Optional UInt64)
       -> JSIO ProgressEventInit
-  new a b c = primJS $ ProgressEventInit.prim__new a b c
+  new a b c = primJS $ ProgressEventInit.prim__new (toFFI a) (toFFI b) (toFFI c)
 
   export
   new' : JSIO ProgressEventInit
-  new' = new undef undef undef
+  new' = new Undef Undef Undef
   
   export
-  lengthComputable : (obj : ProgressEventInit) -> JSIO (UndefOr Boolean)
-  lengthComputable a = primJS $ ProgressEventInit.prim__lengthComputable a
+  lengthComputable : (obj : ProgressEventInit) -> JSIO $ Optional Bool
+  lengthComputable a = tryJS "ProgressEventInit.lengthComputable" $ ProgressEventInit.prim__lengthComputable a
   
   export
   setLengthComputable :  (obj : ProgressEventInit)
-                      -> (value : UndefOr Boolean)
+                      -> (value : Optional Bool)
                       -> JSIO ()
   setLengthComputable a b = primJS $ ProgressEventInit.prim__setLengthComputable a
-                                                                                 b
+                                                                                 (toFFI b)
 
   export
   setLengthComputable' : (obj : ProgressEventInit) -> JSIO ()
-  setLengthComputable' a = setLengthComputable a undef
+  setLengthComputable' a = setLengthComputable a Undef
   
   export
-  loaded : (obj : ProgressEventInit) -> JSIO (UndefOr UInt64)
-  loaded a = primJS $ ProgressEventInit.prim__loaded a
+  loaded : (obj : ProgressEventInit) -> JSIO $ Optional UInt64
+  loaded a = tryJS "ProgressEventInit.loaded" $ ProgressEventInit.prim__loaded a
   
   export
-  setLoaded : (obj : ProgressEventInit) -> (value : UndefOr UInt64) -> JSIO ()
-  setLoaded a b = primJS $ ProgressEventInit.prim__setLoaded a b
+  setLoaded : (obj : ProgressEventInit) -> (value : Optional UInt64) -> JSIO ()
+  setLoaded a b = primJS $ ProgressEventInit.prim__setLoaded a (toFFI b)
 
   export
   setLoaded' : (obj : ProgressEventInit) -> JSIO ()
-  setLoaded' a = setLoaded a undef
+  setLoaded' a = setLoaded a Undef
   
   export
-  total_ : (obj : ProgressEventInit) -> JSIO (UndefOr UInt64)
-  total_ a = primJS $ ProgressEventInit.prim__total a
+  total_ : (obj : ProgressEventInit) -> JSIO $ Optional UInt64
+  total_ a = tryJS "ProgressEventInit.total_" $ ProgressEventInit.prim__total a
   
   export
-  setTotal : (obj : ProgressEventInit) -> (value : UndefOr UInt64) -> JSIO ()
-  setTotal a b = primJS $ ProgressEventInit.prim__setTotal a b
+  setTotal : (obj : ProgressEventInit) -> (value : Optional UInt64) -> JSIO ()
+  setTotal a b = primJS $ ProgressEventInit.prim__setTotal a (toFFI b)
 
   export
   setTotal' : (obj : ProgressEventInit) -> JSIO ()
-  setTotal' a = setTotal a undef
+  setTotal' a = setTotal a Undef

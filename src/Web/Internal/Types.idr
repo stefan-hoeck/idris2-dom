@@ -29,231 +29,399 @@ import public Web.Internal.XhrTypes as Types
 mutual
   
   public export
-  0 ArrayBufferView : Type
-  ArrayBufferView = Union10 Int8Array
-                            Int16Array
-                            Int32Array
-                            UInt8Array
-                            UInt8Array
-                            UInt8Array
-                            UInt8ClampedArray
-                            Float32Array
-                            Float64Array
-                            DataView
+  ArrayBufferViewFFI : Type
+  ArrayBufferViewFFI = Union10 Int8Array
+                               Int16Array
+                               Int32Array
+                               UInt8Array
+                               UInt8Array
+                               UInt8Array
+                               UInt8ClampedArray
+                               Float32Array
+                               Float64Array
+                               DataView
+
+  public export
+  ArrayBufferView : Type
+  ArrayBufferView = NS I [ Int8Array
+                         , Int16Array
+                         , Int32Array
+                         , UInt8Array
+                         , UInt8Array
+                         , UInt8Array
+                         , UInt8ClampedArray
+                         , Float32Array
+                         , Float64Array
+                         , DataView
+                         ]
   
   public export
-  0 BlobPart : Type
-  BlobPart = Union3 BufferSource Blob String
+  BlobPartFFI : Type
+  BlobPartFFI = Union3 BufferSource Blob String
+
+  public export
+  BlobPart : Type
+  BlobPart = NS I [ BufferSource , Blob , String ]
   
   public export
-  0 BodyInit : Type
-  BodyInit = Union2 ReadableStream XMLHttpRequestBodyInit
+  BodyInitFFI : Type
+  BodyInitFFI = Union2 ReadableStream XMLHttpRequestBodyInit
+
+  public export
+  BodyInit : Type
+  BodyInit = NS I [ ReadableStream , XMLHttpRequestBodyInit ]
   
   public export
-  0 BufferSource : Type
-  BufferSource = Union2 ArrayBufferView ArrayBuffer
+  BufferSourceFFI : Type
+  BufferSourceFFI = Union2 ArrayBufferView ArrayBuffer
+
+  public export
+  BufferSource : Type
+  BufferSource = NS I [ ArrayBufferView , ArrayBuffer ]
   
   public export
-  0 CanvasImageSource : Type
-  CanvasImageSource = Union5 HTMLOrSVGImageElement
-                             HTMLVideoElement
-                             HTMLCanvasElement
-                             ImageBitmap
-                             OffscreenCanvas
+  CanvasImageSourceFFI : Type
+  CanvasImageSourceFFI = Union5 HTMLOrSVGImageElement
+                                HTMLVideoElement
+                                HTMLCanvasElement
+                                ImageBitmap
+                                OffscreenCanvas
+
+  public export
+  CanvasImageSource : Type
+  CanvasImageSource = NS I [ HTMLOrSVGImageElement
+                           , HTMLVideoElement
+                           , HTMLCanvasElement
+                           , ImageBitmap
+                           , OffscreenCanvas
+                           ]
   
   public export
-  0 ClipboardItemData : Type
+  ClipboardItemData : Type
   ClipboardItemData = Promise ClipboardItemDataType
   
   public export
-  0 ClipboardItemDataType : Type
-  ClipboardItemDataType = Union2 String Blob
+  ClipboardItemDataTypeFFI : Type
+  ClipboardItemDataTypeFFI = Union2 String Blob
+
+  public export
+  ClipboardItemDataType : Type
+  ClipboardItemDataType = NS I [ String , Blob ]
   
   public export
-  0 ClipboardItems : Type
+  ClipboardItems : Type
   ClipboardItems = Array ClipboardItem
   
   public export
-  0 ConstrainBoolean : Type
-  ConstrainBoolean = Union2 Boolean ConstrainBooleanParameters
+  ConstrainBooleanFFI : Type
+  ConstrainBooleanFFI = Union2 Boolean ConstrainBooleanParameters
+
+  public export
+  ConstrainBoolean : Type
+  ConstrainBoolean = NS I [ Bool , ConstrainBooleanParameters ]
   
   public export
-  0 ConstrainDOMString : Type
-  ConstrainDOMString = Union3 String (Array String) ConstrainDOMStringParameters
+  ConstrainDOMStringFFI : Type
+  ConstrainDOMStringFFI = Union3 String
+                                 (Array String)
+                                 ConstrainDOMStringParameters
+
+  public export
+  ConstrainDOMString : Type
+  ConstrainDOMString = NS I [ String
+                            , Array String
+                            , ConstrainDOMStringParameters
+                            ]
   
   public export
-  0 ConstrainDouble : Type
-  ConstrainDouble = Union2 Double ConstrainDoubleRange
+  ConstrainDoubleFFI : Type
+  ConstrainDoubleFFI = Union2 Double ConstrainDoubleRange
+
+  public export
+  ConstrainDouble : Type
+  ConstrainDouble = NS I [ Double , ConstrainDoubleRange ]
   
   public export
-  0 ConstrainULong : Type
-  ConstrainULong = Union2 UInt32 ConstrainULongRange
+  ConstrainULongFFI : Type
+  ConstrainULongFFI = Union2 UInt32 ConstrainULongRange
+
+  public export
+  ConstrainULong : Type
+  ConstrainULong = NS I [ UInt32 , ConstrainULongRange ]
   
   public export
-  0 DOMHighResTimeStamp : Type
+  DOMHighResTimeStamp : Type
   DOMHighResTimeStamp = Double
   
   public export
-  0 DOMTimeStamp : Type
+  DOMTimeStamp : Type
   DOMTimeStamp = UInt64
   
   public export
-  0 EventHandler : Type
-  EventHandler = Nullable EventHandlerNonNull
+  EventHandlerFFI : Type
+  EventHandlerFFI = Nullable EventHandlerNonNull
+
+  public export
+  EventHandler : Type
+  EventHandler = Maybe EventHandlerNonNull
   
   public export
-  0 Float32List : Type
-  Float32List = Union2 Float32Array (Array GLfloat)
+  Float32ListFFI : Type
+  Float32ListFFI = Union2 Float32Array (Array GLfloat)
+
+  public export
+  Float32List : Type
+  Float32List = NS I [ Float32Array , Array GLfloat ]
   
   public export
-  0 FormDataEntryValue : Type
-  FormDataEntryValue = Union2 File String
+  FormDataEntryValueFFI : Type
+  FormDataEntryValueFFI = Union2 File String
+
+  public export
+  FormDataEntryValue : Type
+  FormDataEntryValue = NS I [ File , String ]
   
   public export
-  0 GLbitfield : Type
+  GLbitfield : Type
   GLbitfield = UInt32
   
   public export
-  0 GLboolean : Type
-  GLboolean = Boolean
+  GLbooleanFFI : Type
+  GLbooleanFFI = Boolean
+
+  public export
+  GLboolean : Type
+  GLboolean = Bool
   
   public export
-  0 GLbyte : Type
+  GLbyte : Type
   GLbyte = Int8
   
   public export
-  0 GLclampf : Type
+  GLclampf : Type
   GLclampf = Double
   
   public export
-  0 GLenum : Type
+  GLenum : Type
   GLenum = UInt32
   
   public export
-  0 GLfloat : Type
+  GLfloat : Type
   GLfloat = Double
   
   public export
-  0 GLint : Type
+  GLint : Type
   GLint = Int32
   
   public export
-  0 GLint64 : Type
+  GLint64 : Type
   GLint64 = Int64
   
   public export
-  0 GLintptr : Type
+  GLintptr : Type
   GLintptr = Int64
   
   public export
-  0 GLshort : Type
+  GLshort : Type
   GLshort = Int16
   
   public export
-  0 GLsizei : Type
+  GLsizei : Type
   GLsizei = Int32
   
   public export
-  0 GLsizeiptr : Type
+  GLsizeiptr : Type
   GLsizeiptr = Int64
   
   public export
-  0 GLubyte : Type
+  GLubyte : Type
   GLubyte = UInt8
   
   public export
-  0 GLuint : Type
+  GLuint : Type
   GLuint = UInt32
   
   public export
-  0 GLuint64 : Type
+  GLuint64 : Type
   GLuint64 = UInt64
   
   public export
-  0 GLushort : Type
+  GLushort : Type
   GLushort = UInt16
   
   public export
-  0 HTMLOrSVGImageElement : Type
-  HTMLOrSVGImageElement = Union2 HTMLImageElement SVGImageElement
+  HTMLOrSVGImageElementFFI : Type
+  HTMLOrSVGImageElementFFI = Union2 HTMLImageElement SVGImageElement
+
+  public export
+  HTMLOrSVGImageElement : Type
+  HTMLOrSVGImageElement = NS I [ HTMLImageElement , SVGImageElement ]
   
   public export
-  0 HTMLOrSVGScriptElement : Type
-  HTMLOrSVGScriptElement = Union2 HTMLScriptElement SVGScriptElement
+  HTMLOrSVGScriptElementFFI : Type
+  HTMLOrSVGScriptElementFFI = Union2 HTMLScriptElement SVGScriptElement
+
+  public export
+  HTMLOrSVGScriptElement : Type
+  HTMLOrSVGScriptElement = NS I [ HTMLScriptElement , SVGScriptElement ]
   
   public export
-  0 HeadersInit : Type
-  HeadersInit = Union2 (Array (Array ByteString)) (Record ByteString ByteString)
+  HeadersInitFFI : Type
+  HeadersInitFFI = Union2 (Array (Array ByteString))
+                          (Record ByteString ByteString)
+
+  public export
+  HeadersInit : Type
+  HeadersInit = NS I [ Array (Array ByteString) , Record ByteString ByteString ]
   
   public export
-  0 ImageBitmapSource : Type
-  ImageBitmapSource = Union3 CanvasImageSource Blob ImageData
+  ImageBitmapSourceFFI : Type
+  ImageBitmapSourceFFI = Union3 CanvasImageSource Blob ImageData
+
+  public export
+  ImageBitmapSource : Type
+  ImageBitmapSource = NS I [ CanvasImageSource , Blob , ImageData ]
   
   public export
-  0 Int32List : Type
-  Int32List = Union2 Int32Array (Array GLint)
+  Int32ListFFI : Type
+  Int32ListFFI = Union2 Int32Array (Array GLint)
+
+  public export
+  Int32List : Type
+  Int32List = NS I [ Int32Array , Array GLint ]
   
   public export
-  0 MediaProvider : Type
-  MediaProvider = Union3 MediaStream MediaSource Blob
+  MediaProviderFFI : Type
+  MediaProviderFFI = Union3 MediaStream MediaSource Blob
+
+  public export
+  MediaProvider : Type
+  MediaProvider = NS I [ MediaStream , MediaSource , Blob ]
   
   public export
-  0 MessageEventSource : Type
-  MessageEventSource = Union3 WindowProxy MessagePort ServiceWorker
+  MessageEventSourceFFI : Type
+  MessageEventSourceFFI = Union3 WindowProxy MessagePort ServiceWorker
+
+  public export
+  MessageEventSource : Type
+  MessageEventSource = NS I [ WindowProxy , MessagePort , ServiceWorker ]
   
   public export
-  0 OffscreenRenderingContext : Type
-  OffscreenRenderingContext = Union4 OffscreenCanvasRenderingContext2D
-                                     ImageBitmapRenderingContext
-                                     WebGLRenderingContext
-                                     WebGL2RenderingContext
+  OffscreenRenderingContextFFI : Type
+  OffscreenRenderingContextFFI = Union4 OffscreenCanvasRenderingContext2D
+                                        ImageBitmapRenderingContext
+                                        WebGLRenderingContext
+                                        WebGL2RenderingContext
+
+  public export
+  OffscreenRenderingContext : Type
+  OffscreenRenderingContext = NS I [ OffscreenCanvasRenderingContext2D
+                                   , ImageBitmapRenderingContext
+                                   , WebGLRenderingContext
+                                   , WebGL2RenderingContext
+                                   ]
   
   public export
-  0 OnBeforeUnloadEventHandler : Type
-  OnBeforeUnloadEventHandler = Nullable OnBeforeUnloadEventHandlerNonNull
+  OnBeforeUnloadEventHandlerFFI : Type
+  OnBeforeUnloadEventHandlerFFI = Nullable OnBeforeUnloadEventHandlerNonNull
+
+  public export
+  OnBeforeUnloadEventHandler : Type
+  OnBeforeUnloadEventHandler = Maybe OnBeforeUnloadEventHandlerNonNull
   
   public export
-  0 OnErrorEventHandler : Type
-  OnErrorEventHandler = Nullable OnErrorEventHandlerNonNull
+  OnErrorEventHandlerFFI : Type
+  OnErrorEventHandlerFFI = Nullable OnErrorEventHandlerNonNull
+
+  public export
+  OnErrorEventHandler : Type
+  OnErrorEventHandler = Maybe OnErrorEventHandlerNonNull
   
   public export
-  0 ReadableStreamController : Type
-  ReadableStreamController = Union2 ReadableStreamDefaultController
-                                    ReadableByteStreamController
+  ReadableStreamControllerFFI : Type
+  ReadableStreamControllerFFI = Union2 ReadableStreamDefaultController
+                                       ReadableByteStreamController
+
+  public export
+  ReadableStreamController : Type
+  ReadableStreamController = NS I [ ReadableStreamDefaultController
+                                  , ReadableByteStreamController
+                                  ]
   
   public export
-  0 ReadableStreamReader : Type
-  ReadableStreamReader = Union2 ReadableStreamDefaultReader
-                                ReadableStreamBYOBReader
+  ReadableStreamReaderFFI : Type
+  ReadableStreamReaderFFI = Union2 ReadableStreamDefaultReader
+                                   ReadableStreamBYOBReader
+
+  public export
+  ReadableStreamReader : Type
+  ReadableStreamReader = NS I [ ReadableStreamDefaultReader
+                              , ReadableStreamBYOBReader
+                              ]
   
   public export
-  0 RenderingContext : Type
-  RenderingContext = Union4 CanvasRenderingContext2D
-                            ImageBitmapRenderingContext
-                            WebGLRenderingContext
-                            WebGL2RenderingContext
+  RenderingContextFFI : Type
+  RenderingContextFFI = Union4 CanvasRenderingContext2D
+                               ImageBitmapRenderingContext
+                               WebGLRenderingContext
+                               WebGL2RenderingContext
+
+  public export
+  RenderingContext : Type
+  RenderingContext = NS I [ CanvasRenderingContext2D
+                          , ImageBitmapRenderingContext
+                          , WebGLRenderingContext
+                          , WebGL2RenderingContext
+                          ]
   
   public export
-  0 RequestInfo : Type
-  RequestInfo = Union2 Request String
+  RequestInfoFFI : Type
+  RequestInfoFFI = Union2 Request String
+
+  public export
+  RequestInfo : Type
+  RequestInfo = NS I [ Request , String ]
   
   public export
-  0 TexImageSource : Type
-  TexImageSource = Union6 ImageBitmap
-                          ImageData
-                          HTMLImageElement
-                          HTMLCanvasElement
-                          HTMLVideoElement
-                          OffscreenCanvas
+  TexImageSourceFFI : Type
+  TexImageSourceFFI = Union6 ImageBitmap
+                             ImageData
+                             HTMLImageElement
+                             HTMLCanvasElement
+                             HTMLVideoElement
+                             OffscreenCanvas
+
+  public export
+  TexImageSource : Type
+  TexImageSource = NS I [ ImageBitmap
+                        , ImageData
+                        , HTMLImageElement
+                        , HTMLCanvasElement
+                        , HTMLVideoElement
+                        , OffscreenCanvas
+                        ]
   
   public export
-  0 Uint32List : Type
-  Uint32List = Union2 UInt8Array (Array GLuint)
+  Uint32ListFFI : Type
+  Uint32ListFFI = Union2 UInt8Array (Array GLuint)
+
+  public export
+  Uint32List : Type
+  Uint32List = NS I [ UInt8Array , Array GLuint ]
   
   public export
-  0 XMLHttpRequestBodyInit : Type
-  XMLHttpRequestBodyInit = Union5 Blob
-                                  BufferSource
-                                  FormData
-                                  URLSearchParams
-                                  String
+  XMLHttpRequestBodyInitFFI : Type
+  XMLHttpRequestBodyInitFFI = Union5 Blob
+                                     BufferSource
+                                     FormData
+                                     URLSearchParams
+                                     String
+
+  public export
+  XMLHttpRequestBodyInit : Type
+  XMLHttpRequestBodyInit = NS I [ Blob
+                                , BufferSource
+                                , FormData
+                                , URLSearchParams
+                                , String
+                                ]

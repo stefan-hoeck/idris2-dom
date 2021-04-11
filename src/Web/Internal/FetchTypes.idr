@@ -91,6 +91,14 @@ namespace RequestDestination
              -> RequestDestination
   fromString s = fromJust $ read s
 
+  export
+  ToFFI RequestDestination String where
+    toFFI = show
+
+  export
+  FromFFI RequestDestination String where
+    fromFFI = read
+
 namespace RequestMode
   
   public export
@@ -125,6 +133,14 @@ namespace RequestMode
              -> RequestMode
   fromString s = fromJust $ read s
 
+  export
+  ToFFI RequestMode String where
+    toFFI = show
+
+  export
+  FromFFI RequestMode String where
+    fromFFI = read
+
 namespace RequestCredentials
   
   public export
@@ -156,6 +172,14 @@ namespace RequestCredentials
              -> {auto 0 _ : IsJust (RequestCredentials.read s)}
              -> RequestCredentials
   fromString s = fromJust $ read s
+
+  export
+  ToFFI RequestCredentials String where
+    toFFI = show
+
+  export
+  FromFFI RequestCredentials String where
+    fromFFI = read
 
 namespace RequestCache
   
@@ -200,6 +224,14 @@ namespace RequestCache
              -> RequestCache
   fromString s = fromJust $ read s
 
+  export
+  ToFFI RequestCache String where
+    toFFI = show
+
+  export
+  FromFFI RequestCache String where
+    fromFFI = read
+
 namespace RequestRedirect
   
   public export
@@ -231,6 +263,14 @@ namespace RequestRedirect
              -> {auto 0 _ : IsJust (RequestRedirect.read s)}
              -> RequestRedirect
   fromString s = fromJust $ read s
+
+  export
+  ToFFI RequestRedirect String where
+    toFFI = show
+
+  export
+  FromFFI RequestRedirect String where
+    fromFFI = read
 
 namespace ResponseType
   
@@ -269,6 +309,14 @@ namespace ResponseType
              -> {auto 0 _ : IsJust (ResponseType.read s)}
              -> ResponseType
   fromString s = fromJust $ read s
+
+  export
+  ToFFI ResponseType String where
+    toFFI = show
+
+  export
+  FromFFI ResponseType String where
+    fromFFI = read
 
 namespace ReferrerPolicy
   
@@ -322,23 +370,43 @@ namespace ReferrerPolicy
              -> ReferrerPolicy
   fromString s = fromJust $ read s
 
+  export
+  ToFFI ReferrerPolicy String where
+    toFFI = show
+
+  export
+  FromFFI ReferrerPolicy String where
+    fromFFI = read
+
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
 
 export data Headers : Type where [external]
+export
+ToFFI Headers Headers where toFFI = id
+export
+FromFFI Headers Headers where fromFFI = Just
 
 export
 SafeCast Headers where
   safeCast = unsafeCastOnPrototypeName "Headers"
 
 export data Request : Type where [external]
+export
+ToFFI Request Request where toFFI = id
+export
+FromFFI Request Request where fromFFI = Just
 
 export
 SafeCast Request where
   safeCast = unsafeCastOnPrototypeName "Request"
 
 export data Response : Type where [external]
+export
+ToFFI Response Response where toFFI = id
+export
+FromFFI Response Response where fromFFI = Just
 
 export
 SafeCast Response where
@@ -349,12 +417,20 @@ SafeCast Response where
 --------------------------------------------------------------------------------
 
 export data RequestInit : Type where [external]
+export
+ToFFI RequestInit RequestInit where toFFI = id
+export
+FromFFI RequestInit RequestInit where fromFFI = Just
 
 export
 SafeCast RequestInit where
   safeCast = unsafeCastOnPrototypeName "RequestInit"
 
 export data ResponseInit : Type where [external]
+export
+ToFFI ResponseInit ResponseInit where toFFI = id
+export
+FromFFI ResponseInit ResponseInit where fromFFI = Just
 
 export
 SafeCast ResponseInit where
@@ -365,3 +441,7 @@ SafeCast ResponseInit where
 --------------------------------------------------------------------------------
 
 export data Body : Type where [external]
+export
+ToFFI Body Body where toFFI = id
+export
+FromFFI Body Body where fromFFI = Just

@@ -38,6 +38,14 @@ namespace ReadyState
              -> ReadyState
   fromString s = fromJust $ read s
 
+  export
+  ToFFI ReadyState String where
+    toFFI = show
+
+  export
+  FromFFI ReadyState String where
+    fromFFI = read
+
 namespace EndOfStreamError
   
   public export
@@ -67,6 +75,14 @@ namespace EndOfStreamError
              -> {auto 0 _ : IsJust (EndOfStreamError.read s)}
              -> EndOfStreamError
   fromString s = fromJust $ read s
+
+  export
+  ToFFI EndOfStreamError String where
+    toFFI = show
+
+  export
+  FromFFI EndOfStreamError String where
+    fromFFI = read
 
 namespace AppendMode
   
@@ -98,23 +114,43 @@ namespace AppendMode
              -> AppendMode
   fromString s = fromJust $ read s
 
+  export
+  ToFFI AppendMode String where
+    toFFI = show
+
+  export
+  FromFFI AppendMode String where
+    fromFFI = read
+
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
 
 export data MediaSource : Type where [external]
+export
+ToFFI MediaSource MediaSource where toFFI = id
+export
+FromFFI MediaSource MediaSource where fromFFI = Just
 
 export
 SafeCast MediaSource where
   safeCast = unsafeCastOnPrototypeName "MediaSource"
 
 export data SourceBuffer : Type where [external]
+export
+ToFFI SourceBuffer SourceBuffer where toFFI = id
+export
+FromFFI SourceBuffer SourceBuffer where fromFFI = Just
 
 export
 SafeCast SourceBuffer where
   safeCast = unsafeCastOnPrototypeName "SourceBuffer"
 
 export data SourceBufferList : Type where [external]
+export
+ToFFI SourceBufferList SourceBufferList where toFFI = id
+export
+FromFFI SourceBufferList SourceBufferList where fromFFI = Just
 
 export
 SafeCast SourceBufferList where

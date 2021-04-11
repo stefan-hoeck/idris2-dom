@@ -17,12 +17,12 @@ namespace AudioTrack
     mixins =  []
   
   export
-  enabled : (obj : AudioTrack) -> JSIO Boolean
-  enabled a = primJS $ AudioTrack.prim__enabled a
+  enabled : (obj : AudioTrack) -> JSIO Bool
+  enabled a = tryJS "AudioTrack.enabled" $ AudioTrack.prim__enabled a
   
   export
-  setEnabled : (obj : AudioTrack) -> (value : Boolean) -> JSIO ()
-  setEnabled a b = primJS $ AudioTrack.prim__setEnabled a b
+  setEnabled : (obj : AudioTrack) -> (value : Bool) -> JSIO ()
+  setEnabled a b = primJS $ AudioTrack.prim__setEnabled a (toFFI b)
   
   export
   id : (obj : AudioTrack) -> JSIO String
@@ -41,8 +41,8 @@ namespace AudioTrack
   language a = primJS $ AudioTrack.prim__language a
   
   export
-  sourceBuffer : (obj : AudioTrack) -> JSIO (Nullable SourceBuffer)
-  sourceBuffer a = primJS $ AudioTrack.prim__sourceBuffer a
+  sourceBuffer : (obj : AudioTrack) -> JSIO (Maybe SourceBuffer)
+  sourceBuffer a = tryJS "AudioTrack.sourceBuffer" $ AudioTrack.prim__sourceBuffer a
 
 namespace AudioTrackList
   
@@ -61,34 +61,42 @@ namespace AudioTrackList
   length a = primJS $ AudioTrackList.prim__length a
   
   export
-  onaddtrack : (obj : AudioTrackList) -> JSIO EventHandler
-  onaddtrack a = primJS $ AudioTrackList.prim__onaddtrack a
+  onaddtrack : (obj : AudioTrackList) -> JSIO (Maybe EventHandlerNonNull)
+  onaddtrack a = tryJS "AudioTrackList.onaddtrack" $ AudioTrackList.prim__onaddtrack a
   
   export
-  setOnaddtrack : (obj : AudioTrackList) -> (value : EventHandler) -> JSIO ()
-  setOnaddtrack a b = primJS $ AudioTrackList.prim__setOnaddtrack a b
+  setOnaddtrack :  (obj : AudioTrackList)
+                -> (value : Maybe EventHandlerNonNull)
+                -> JSIO ()
+  setOnaddtrack a b = primJS $ AudioTrackList.prim__setOnaddtrack a (toFFI b)
   
   export
-  onchange : (obj : AudioTrackList) -> JSIO EventHandler
-  onchange a = primJS $ AudioTrackList.prim__onchange a
+  onchange : (obj : AudioTrackList) -> JSIO (Maybe EventHandlerNonNull)
+  onchange a = tryJS "AudioTrackList.onchange" $ AudioTrackList.prim__onchange a
   
   export
-  setOnchange : (obj : AudioTrackList) -> (value : EventHandler) -> JSIO ()
-  setOnchange a b = primJS $ AudioTrackList.prim__setOnchange a b
+  setOnchange :  (obj : AudioTrackList)
+              -> (value : Maybe EventHandlerNonNull)
+              -> JSIO ()
+  setOnchange a b = primJS $ AudioTrackList.prim__setOnchange a (toFFI b)
   
   export
-  onremovetrack : (obj : AudioTrackList) -> JSIO EventHandler
-  onremovetrack a = primJS $ AudioTrackList.prim__onremovetrack a
+  onremovetrack : (obj : AudioTrackList) -> JSIO (Maybe EventHandlerNonNull)
+  onremovetrack a = tryJS "AudioTrackList.onremovetrack" $ AudioTrackList.prim__onremovetrack a
   
   export
-  setOnremovetrack : (obj : AudioTrackList) -> (value : EventHandler) -> JSIO ()
-  setOnremovetrack a b = primJS $ AudioTrackList.prim__setOnremovetrack a b
+  setOnremovetrack :  (obj : AudioTrackList)
+                   -> (value : Maybe EventHandlerNonNull)
+                   -> JSIO ()
+  setOnremovetrack a b = primJS $ AudioTrackList.prim__setOnremovetrack a
+                                                                        (toFFI b)
   
   export
   getTrackById :  (obj : AudioTrackList)
                -> (id : String)
-               -> JSIO (Nullable AudioTrack)
-  getTrackById a b = primJS $ AudioTrackList.prim__getTrackById a b
+               -> JSIO (Maybe AudioTrack)
+  getTrackById a b = tryJS "AudioTrackList.getTrackById" $ AudioTrackList.prim__getTrackById a
+                                                                                             b
 
 namespace BarProp
   
@@ -99,8 +107,8 @@ namespace BarProp
     mixins =  []
   
   export
-  visible : (obj : BarProp) -> JSIO Boolean
-  visible a = primJS $ BarProp.prim__visible a
+  visible : (obj : BarProp) -> JSIO Bool
+  visible a = tryJS "BarProp.visible" $ BarProp.prim__visible a
 
 namespace BeforeUnloadEvent
   
@@ -135,22 +143,25 @@ namespace BroadcastChannel
   name a = primJS $ BroadcastChannel.prim__name a
   
   export
-  onmessage : (obj : BroadcastChannel) -> JSIO EventHandler
-  onmessage a = primJS $ BroadcastChannel.prim__onmessage a
+  onmessage : (obj : BroadcastChannel) -> JSIO (Maybe EventHandlerNonNull)
+  onmessage a = tryJS "BroadcastChannel.onmessage" $ BroadcastChannel.prim__onmessage a
   
   export
-  setOnmessage : (obj : BroadcastChannel) -> (value : EventHandler) -> JSIO ()
-  setOnmessage a b = primJS $ BroadcastChannel.prim__setOnmessage a b
+  setOnmessage :  (obj : BroadcastChannel)
+               -> (value : Maybe EventHandlerNonNull)
+               -> JSIO ()
+  setOnmessage a b = primJS $ BroadcastChannel.prim__setOnmessage a (toFFI b)
   
   export
-  onmessageerror : (obj : BroadcastChannel) -> JSIO EventHandler
-  onmessageerror a = primJS $ BroadcastChannel.prim__onmessageerror a
+  onmessageerror : (obj : BroadcastChannel) -> JSIO (Maybe EventHandlerNonNull)
+  onmessageerror a = tryJS "BroadcastChannel.onmessageerror" $ BroadcastChannel.prim__onmessageerror a
   
   export
   setOnmessageerror :  (obj : BroadcastChannel)
-                    -> (value : EventHandler)
+                    -> (value : Maybe EventHandlerNonNull)
                     -> JSIO ()
-  setOnmessageerror a b = primJS $ BroadcastChannel.prim__setOnmessageerror a b
+  setOnmessageerror a b = primJS $ BroadcastChannel.prim__setOnmessageerror a
+                                                                            (toFFI b)
   
   export
   close : (obj : BroadcastChannel) -> JSIO ()
@@ -185,13 +196,13 @@ namespace CanvasPattern
   
   export
   setTransform :  (obj : CanvasPattern)
-               -> (transform : UndefOr DOMMatrix2DInit)
+               -> (transform : Optional DOMMatrix2DInit)
                -> JSIO ()
-  setTransform a b = primJS $ CanvasPattern.prim__setTransform a b
+  setTransform a b = primJS $ CanvasPattern.prim__setTransform a (toFFI b)
 
   export
   setTransform' : (obj : CanvasPattern) -> JSIO ()
-  setTransform' a = setTransform a undef
+  setTransform' a = setTransform a Undef
 
 namespace CanvasRenderingContext2D
   
@@ -236,13 +247,13 @@ namespace CloseEvent
   
   export
   new :  (type : String)
-      -> (eventInitDict : UndefOr CloseEventInit)
+      -> (eventInitDict : Optional CloseEventInit)
       -> JSIO CloseEvent
-  new a b = primJS $ CloseEvent.prim__new a b
+  new a b = primJS $ CloseEvent.prim__new a (toFFI b)
 
   export
   new' : (type : String) -> JSIO CloseEvent
-  new' a = new a undef
+  new' a = new a Undef
   
   export
   code : (obj : CloseEvent) -> JSIO UInt16
@@ -253,8 +264,8 @@ namespace CloseEvent
   reason a = primJS $ CloseEvent.prim__reason a
   
   export
-  wasClean : (obj : CloseEvent) -> JSIO Boolean
-  wasClean a = primJS $ CloseEvent.prim__wasClean a
+  wasClean : (obj : CloseEvent) -> JSIO Bool
+  wasClean a = tryJS "CloseEvent.wasClean" $ CloseEvent.prim__wasClean a
 
 namespace CustomElementRegistry
   
@@ -268,22 +279,23 @@ namespace CustomElementRegistry
   define :  (obj : CustomElementRegistry)
          -> (name : String)
          -> (constructor : CustomElementConstructor)
-         -> (options : UndefOr ElementDefinitionOptions)
+         -> (options : Optional ElementDefinitionOptions)
          -> JSIO ()
-  define a b c d = primJS $ CustomElementRegistry.prim__define a b c d
+  define a b c d = primJS $ CustomElementRegistry.prim__define a b c (toFFI d)
 
   export
   define' :  (obj : CustomElementRegistry)
           -> (name : String)
           -> (constructor : CustomElementConstructor)
           -> JSIO ()
-  define' a b c = define a b c undef
+  define' a b c = define a b c Undef
   
   export
   get :  (obj : CustomElementRegistry)
       -> (name : String)
       -> JSIO (Union2 CustomElementConstructor Undefined)
-  get a b = primJS $ CustomElementRegistry.prim__get a b
+  get a b = tryJS "CustomElementRegistry.get" $ CustomElementRegistry.prim__get a
+                                                                                b
   
   export
   upgrade : (obj : CustomElementRegistry) -> (root : Node) -> JSIO ()
@@ -312,7 +324,7 @@ namespace DOMParser
                   -> (string : String)
                   -> (type : DOMParserSupportedType)
                   -> JSIO Document
-  parseFromString a b c = primJS $ DOMParser.prim__parseFromString a b c
+  parseFromString a b c = primJS $ DOMParser.prim__parseFromString a b (toFFI c)
 
 namespace DOMStringList
   
@@ -327,12 +339,13 @@ namespace DOMStringList
   length a = primJS $ DOMStringList.prim__length a
   
   export
-  contains : (obj : DOMStringList) -> (string : String) -> JSIO Boolean
-  contains a b = primJS $ DOMStringList.prim__contains a b
+  contains : (obj : DOMStringList) -> (string : String) -> JSIO Bool
+  contains a b = tryJS "DOMStringList.contains" $ DOMStringList.prim__contains a
+                                                                               b
   
   export
-  item : (obj : DOMStringList) -> (index : UInt32) -> JSIO (Nullable String)
-  item a b = primJS $ DOMStringList.prim__item a b
+  item : (obj : DOMStringList) -> (index : UInt32) -> JSIO (Maybe String)
+  item a b = tryJS "DOMStringList.item" $ DOMStringList.prim__item a b
 
 namespace DOMStringMap
   
@@ -391,12 +404,12 @@ namespace DataTransfer
   types a = primJS $ DataTransfer.prim__types a
   
   export
-  clearData : (obj : DataTransfer) -> (format : UndefOr String) -> JSIO ()
-  clearData a b = primJS $ DataTransfer.prim__clearData a b
+  clearData : (obj : DataTransfer) -> (format : Optional String) -> JSIO ()
+  clearData a b = primJS $ DataTransfer.prim__clearData a (toFFI b)
 
   export
   clearData' : (obj : DataTransfer) -> JSIO ()
-  clearData' a = clearData a undef
+  clearData' a = clearData a Undef
   
   export
   getData : (obj : DataTransfer) -> (format : String) -> JSIO String
@@ -434,14 +447,14 @@ namespace DataTransferItem
   type a = primJS $ DataTransferItem.prim__type a
   
   export
-  getAsFile : (obj : DataTransferItem) -> JSIO (Nullable File)
-  getAsFile a = primJS $ DataTransferItem.prim__getAsFile a
+  getAsFile : (obj : DataTransferItem) -> JSIO (Maybe File)
+  getAsFile a = tryJS "DataTransferItem.getAsFile" $ DataTransferItem.prim__getAsFile a
   
   export
   getAsString :  (obj : DataTransferItem)
-              -> (callback : Nullable FunctionStringCallback)
+              -> (callback : Maybe FunctionStringCallback)
               -> JSIO ()
-  getAsString a b = primJS $ DataTransferItem.prim__getAsString a b
+  getAsString a b = primJS $ DataTransferItem.prim__getAsString a (toFFI b)
 
 namespace DataTransferItemList
   
@@ -465,14 +478,17 @@ namespace DataTransferItemList
   add :  (obj : DataTransferItemList)
       -> (data_ : String)
       -> (type : String)
-      -> JSIO (Nullable DataTransferItem)
-  add a b c = primJS $ DataTransferItemList.prim__add a b c
+      -> JSIO (Maybe DataTransferItem)
+  add a b c = tryJS "DataTransferItemList.add" $ DataTransferItemList.prim__add a
+                                                                                b
+                                                                                c
   
   export
   add1 :  (obj : DataTransferItemList)
        -> (data_ : File)
-       -> JSIO (Nullable DataTransferItem)
-  add1 a b = primJS $ DataTransferItemList.prim__add1 a b
+       -> JSIO (Maybe DataTransferItem)
+  add1 a b = tryJS "DataTransferItemList.add1" $ DataTransferItemList.prim__add1 a
+                                                                                 b
   
   export
   clear : (obj : DataTransferItemList) -> JSIO ()
@@ -495,25 +511,28 @@ namespace DedicatedWorkerGlobalScope
   name a = primJS $ DedicatedWorkerGlobalScope.prim__name a
   
   export
-  onmessage : (obj : DedicatedWorkerGlobalScope) -> JSIO EventHandler
-  onmessage a = primJS $ DedicatedWorkerGlobalScope.prim__onmessage a
+  onmessage :  (obj : DedicatedWorkerGlobalScope)
+            -> JSIO (Maybe EventHandlerNonNull)
+  onmessage a = tryJS "DedicatedWorkerGlobalScope.onmessage" $ DedicatedWorkerGlobalScope.prim__onmessage a
   
   export
   setOnmessage :  (obj : DedicatedWorkerGlobalScope)
-               -> (value : EventHandler)
+               -> (value : Maybe EventHandlerNonNull)
                -> JSIO ()
-  setOnmessage a b = primJS $ DedicatedWorkerGlobalScope.prim__setOnmessage a b
+  setOnmessage a b = primJS $ DedicatedWorkerGlobalScope.prim__setOnmessage a
+                                                                            (toFFI b)
   
   export
-  onmessageerror : (obj : DedicatedWorkerGlobalScope) -> JSIO EventHandler
-  onmessageerror a = primJS $ DedicatedWorkerGlobalScope.prim__onmessageerror a
+  onmessageerror :  (obj : DedicatedWorkerGlobalScope)
+                 -> JSIO (Maybe EventHandlerNonNull)
+  onmessageerror a = tryJS "DedicatedWorkerGlobalScope.onmessageerror" $ DedicatedWorkerGlobalScope.prim__onmessageerror a
   
   export
   setOnmessageerror :  (obj : DedicatedWorkerGlobalScope)
-                    -> (value : EventHandler)
+                    -> (value : Maybe EventHandlerNonNull)
                     -> JSIO ()
   setOnmessageerror a b = primJS $ DedicatedWorkerGlobalScope.prim__setOnmessageerror a
-                                                                                      b
+                                                                                      (toFFI b)
   
   export
   close : (obj : DedicatedWorkerGlobalScope) -> JSIO ()
@@ -531,17 +550,17 @@ namespace DedicatedWorkerGlobalScope
   export
   postMessage1 :  (obj : DedicatedWorkerGlobalScope)
                -> (message : AnyPtr)
-               -> (options : UndefOr PostMessageOptions)
+               -> (options : Optional PostMessageOptions)
                -> JSIO ()
   postMessage1 a b c = primJS $ DedicatedWorkerGlobalScope.prim__postMessage1 a
                                                                               b
-                                                                              c
+                                                                              (toFFI c)
 
   export
   postMessage1' :  (obj : DedicatedWorkerGlobalScope)
                 -> (message : AnyPtr)
                 -> JSIO ()
-  postMessage1' a b = postMessage1 a b undef
+  postMessage1' a b = postMessage1 a b Undef
 
 namespace DragEvent
   
@@ -553,17 +572,17 @@ namespace DragEvent
   
   export
   new :  (type : String)
-      -> (eventInitDict : UndefOr DragEventInit)
+      -> (eventInitDict : Optional DragEventInit)
       -> JSIO DragEvent
-  new a b = primJS $ DragEvent.prim__new a b
+  new a b = primJS $ DragEvent.prim__new a (toFFI b)
 
   export
   new' : (type : String) -> JSIO DragEvent
-  new' a = new a undef
+  new' a = new a Undef
   
   export
-  dataTransfer : (obj : DragEvent) -> JSIO (Nullable DataTransfer)
-  dataTransfer a = primJS $ DragEvent.prim__dataTransfer a
+  dataTransfer : (obj : DragEvent) -> JSIO (Maybe DataTransfer)
+  dataTransfer a = tryJS "DragEvent.dataTransfer" $ DragEvent.prim__dataTransfer a
 
 namespace ElementInternals
   
@@ -574,16 +593,16 @@ namespace ElementInternals
     mixins =  [ ARIAMixin ]
   
   export
-  form : (obj : ElementInternals) -> JSIO (Nullable HTMLFormElement)
-  form a = primJS $ ElementInternals.prim__form a
+  form : (obj : ElementInternals) -> JSIO (Maybe HTMLFormElement)
+  form a = tryJS "ElementInternals.form" $ ElementInternals.prim__form a
   
   export
   labels : (obj : ElementInternals) -> JSIO NodeList
   labels a = primJS $ ElementInternals.prim__labels a
   
   export
-  shadowRoot : (obj : ElementInternals) -> JSIO (Nullable ShadowRoot)
-  shadowRoot a = primJS $ ElementInternals.prim__shadowRoot a
+  shadowRoot : (obj : ElementInternals) -> JSIO (Maybe ShadowRoot)
+  shadowRoot a = tryJS "ElementInternals.shadowRoot" $ ElementInternals.prim__shadowRoot a
   
   export
   validationMessage : (obj : ElementInternals) -> JSIO String
@@ -594,41 +613,46 @@ namespace ElementInternals
   validity a = primJS $ ElementInternals.prim__validity a
   
   export
-  willValidate : (obj : ElementInternals) -> JSIO Boolean
-  willValidate a = primJS $ ElementInternals.prim__willValidate a
+  willValidate : (obj : ElementInternals) -> JSIO Bool
+  willValidate a = tryJS "ElementInternals.willValidate" $ ElementInternals.prim__willValidate a
   
   export
-  checkValidity : (obj : ElementInternals) -> JSIO Boolean
-  checkValidity a = primJS $ ElementInternals.prim__checkValidity a
+  checkValidity : (obj : ElementInternals) -> JSIO Bool
+  checkValidity a = tryJS "ElementInternals.checkValidity" $ ElementInternals.prim__checkValidity a
   
   export
-  reportValidity : (obj : ElementInternals) -> JSIO Boolean
-  reportValidity a = primJS $ ElementInternals.prim__reportValidity a
+  reportValidity : (obj : ElementInternals) -> JSIO Bool
+  reportValidity a = tryJS "ElementInternals.reportValidity" $ ElementInternals.prim__reportValidity a
   
   export
   setFormValue :  (obj : ElementInternals)
-               -> (value : Nullable (Union3 File String FormData))
-               -> (state : UndefOr (Nullable (Union3 File String FormData)))
+               -> (value : Maybe (NS I [ File , String , FormData ]))
+               -> (state : Optional (Maybe (NS I [ File , String , FormData ])))
                -> JSIO ()
-  setFormValue a b c = primJS $ ElementInternals.prim__setFormValue a b c
+  setFormValue a b c = primJS $ ElementInternals.prim__setFormValue a
+                                                                    (toFFI b)
+                                                                    (toFFI c)
 
   export
   setFormValue' :  (obj : ElementInternals)
-                -> (value : Nullable (Union3 File String FormData))
+                -> (value : Maybe (NS I [ File , String , FormData ]))
                 -> JSIO ()
-  setFormValue' a b = setFormValue a b undef
+  setFormValue' a b = setFormValue a b Undef
   
   export
   setValidity :  (obj : ElementInternals)
-              -> (flags : UndefOr ValidityStateFlags)
-              -> (message : UndefOr String)
-              -> (anchor : UndefOr HTMLElement)
+              -> (flags : Optional ValidityStateFlags)
+              -> (message : Optional String)
+              -> (anchor : Optional HTMLElement)
               -> JSIO ()
-  setValidity a b c d = primJS $ ElementInternals.prim__setValidity a b c d
+  setValidity a b c d = primJS $ ElementInternals.prim__setValidity a
+                                                                    (toFFI b)
+                                                                    (toFFI c)
+                                                                    (toFFI d)
 
   export
   setValidity' : (obj : ElementInternals) -> JSIO ()
-  setValidity' a = setValidity a undef undef undef
+  setValidity' a = setValidity a Undef Undef Undef
 
 namespace ErrorEvent
   
@@ -640,13 +664,13 @@ namespace ErrorEvent
   
   export
   new :  (type : String)
-      -> (eventInitDict : UndefOr ErrorEventInit)
+      -> (eventInitDict : Optional ErrorEventInit)
       -> JSIO ErrorEvent
-  new a b = primJS $ ErrorEvent.prim__new a b
+  new a b = primJS $ ErrorEvent.prim__new a (toFFI b)
 
   export
   new' : (type : String) -> JSIO ErrorEvent
-  new' a = new a undef
+  new' a = new a Undef
   
   export
   colno : (obj : ErrorEvent) -> JSIO UInt32
@@ -690,37 +714,43 @@ namespace EventSource
   
   export
   new :  (url : String)
-      -> (eventSourceInitDict : UndefOr EventSourceInit)
+      -> (eventSourceInitDict : Optional EventSourceInit)
       -> JSIO EventSource
-  new a b = primJS $ EventSource.prim__new a b
+  new a b = primJS $ EventSource.prim__new a (toFFI b)
 
   export
   new' : (url : String) -> JSIO EventSource
-  new' a = new a undef
+  new' a = new a Undef
   
   export
-  onerror : (obj : EventSource) -> JSIO EventHandler
-  onerror a = primJS $ EventSource.prim__onerror a
+  onerror : (obj : EventSource) -> JSIO (Maybe EventHandlerNonNull)
+  onerror a = tryJS "EventSource.onerror" $ EventSource.prim__onerror a
   
   export
-  setOnerror : (obj : EventSource) -> (value : EventHandler) -> JSIO ()
-  setOnerror a b = primJS $ EventSource.prim__setOnerror a b
+  setOnerror :  (obj : EventSource)
+             -> (value : Maybe EventHandlerNonNull)
+             -> JSIO ()
+  setOnerror a b = primJS $ EventSource.prim__setOnerror a (toFFI b)
   
   export
-  onmessage : (obj : EventSource) -> JSIO EventHandler
-  onmessage a = primJS $ EventSource.prim__onmessage a
+  onmessage : (obj : EventSource) -> JSIO (Maybe EventHandlerNonNull)
+  onmessage a = tryJS "EventSource.onmessage" $ EventSource.prim__onmessage a
   
   export
-  setOnmessage : (obj : EventSource) -> (value : EventHandler) -> JSIO ()
-  setOnmessage a b = primJS $ EventSource.prim__setOnmessage a b
+  setOnmessage :  (obj : EventSource)
+               -> (value : Maybe EventHandlerNonNull)
+               -> JSIO ()
+  setOnmessage a b = primJS $ EventSource.prim__setOnmessage a (toFFI b)
   
   export
-  onopen : (obj : EventSource) -> JSIO EventHandler
-  onopen a = primJS $ EventSource.prim__onopen a
+  onopen : (obj : EventSource) -> JSIO (Maybe EventHandlerNonNull)
+  onopen a = tryJS "EventSource.onopen" $ EventSource.prim__onopen a
   
   export
-  setOnopen : (obj : EventSource) -> (value : EventHandler) -> JSIO ()
-  setOnopen a b = primJS $ EventSource.prim__setOnopen a b
+  setOnopen :  (obj : EventSource)
+            -> (value : Maybe EventHandlerNonNull)
+            -> JSIO ()
+  setOnopen a b = primJS $ EventSource.prim__setOnopen a (toFFI b)
   
   export
   readyState : (obj : EventSource) -> JSIO UInt16
@@ -731,8 +761,8 @@ namespace EventSource
   url a = primJS $ EventSource.prim__url a
   
   export
-  withCredentials : (obj : EventSource) -> JSIO Boolean
-  withCredentials a = primJS $ EventSource.prim__withCredentials a
+  withCredentials : (obj : EventSource) -> JSIO Bool
+  withCredentials a = tryJS "EventSource.withCredentials" $ EventSource.prim__withCredentials a
   
   export
   close : (obj : EventSource) -> JSIO ()
@@ -790,20 +820,22 @@ namespace HTMLAllCollection
   
   export
   item :  (obj : HTMLAllCollection)
-       -> (nameOrIndex : UndefOr String)
-       -> JSIO (Nullable (Union2 HTMLCollection Element))
-  item a b = primJS $ HTMLAllCollection.prim__item a b
+       -> (nameOrIndex : Optional String)
+       -> JSIO (Maybe (NS I [ HTMLCollection , Element ]))
+  item a b = tryJS "HTMLAllCollection.item" $ HTMLAllCollection.prim__item a
+                                                                           (toFFI b)
 
   export
   item' :  (obj : HTMLAllCollection)
-        -> JSIO (Nullable (Union2 HTMLCollection Element))
-  item' a = item a undef
+        -> JSIO (Maybe (NS I [ HTMLCollection , Element ]))
+  item' a = item a Undef
   
   export
   namedItem :  (obj : HTMLAllCollection)
             -> (name : String)
-            -> JSIO (Nullable (Union2 HTMLCollection Element))
-  namedItem a b = primJS $ HTMLAllCollection.prim__namedItem a b
+            -> JSIO (Maybe (NS I [ HTMLCollection , Element ]))
+  namedItem a b = tryJS "HTMLAllCollection.namedItem" $ HTMLAllCollection.prim__namedItem a
+                                                                                          b
 
 namespace HTMLAnchorElement
   
@@ -984,12 +1016,12 @@ namespace HTMLAreaElement
   setDownload a b = primJS $ HTMLAreaElement.prim__setDownload a b
   
   export
-  noHref : (obj : HTMLAreaElement) -> JSIO Boolean
-  noHref a = primJS $ HTMLAreaElement.prim__noHref a
+  noHref : (obj : HTMLAreaElement) -> JSIO Bool
+  noHref a = tryJS "HTMLAreaElement.noHref" $ HTMLAreaElement.prim__noHref a
   
   export
-  setNoHref : (obj : HTMLAreaElement) -> (value : Boolean) -> JSIO ()
-  setNoHref a b = primJS $ HTMLAreaElement.prim__setNoHref a b
+  setNoHref : (obj : HTMLAreaElement) -> (value : Bool) -> JSIO ()
+  setNoHref a b = primJS $ HTMLAreaElement.prim__setNoHref a (toFFI b)
   
   export
   ping : (obj : HTMLAreaElement) -> JSIO String
@@ -1225,16 +1257,16 @@ namespace HTMLButtonElement
   new = primJS $ HTMLButtonElement.prim__new 
   
   export
-  disabled : (obj : HTMLButtonElement) -> JSIO Boolean
-  disabled a = primJS $ HTMLButtonElement.prim__disabled a
+  disabled : (obj : HTMLButtonElement) -> JSIO Bool
+  disabled a = tryJS "HTMLButtonElement.disabled" $ HTMLButtonElement.prim__disabled a
   
   export
-  setDisabled : (obj : HTMLButtonElement) -> (value : Boolean) -> JSIO ()
-  setDisabled a b = primJS $ HTMLButtonElement.prim__setDisabled a b
+  setDisabled : (obj : HTMLButtonElement) -> (value : Bool) -> JSIO ()
+  setDisabled a b = primJS $ HTMLButtonElement.prim__setDisabled a (toFFI b)
   
   export
-  form : (obj : HTMLButtonElement) -> JSIO (Nullable HTMLFormElement)
-  form a = primJS $ HTMLButtonElement.prim__form a
+  form : (obj : HTMLButtonElement) -> JSIO (Maybe HTMLFormElement)
+  form a = tryJS "HTMLButtonElement.form" $ HTMLButtonElement.prim__form a
   
   export
   formAction : (obj : HTMLButtonElement) -> JSIO String
@@ -1261,12 +1293,13 @@ namespace HTMLButtonElement
   setFormMethod a b = primJS $ HTMLButtonElement.prim__setFormMethod a b
   
   export
-  formNoValidate : (obj : HTMLButtonElement) -> JSIO Boolean
-  formNoValidate a = primJS $ HTMLButtonElement.prim__formNoValidate a
+  formNoValidate : (obj : HTMLButtonElement) -> JSIO Bool
+  formNoValidate a = tryJS "HTMLButtonElement.formNoValidate" $ HTMLButtonElement.prim__formNoValidate a
   
   export
-  setFormNoValidate : (obj : HTMLButtonElement) -> (value : Boolean) -> JSIO ()
-  setFormNoValidate a b = primJS $ HTMLButtonElement.prim__setFormNoValidate a b
+  setFormNoValidate : (obj : HTMLButtonElement) -> (value : Bool) -> JSIO ()
+  setFormNoValidate a b = primJS $ HTMLButtonElement.prim__setFormNoValidate a
+                                                                             (toFFI b)
   
   export
   formTarget : (obj : HTMLButtonElement) -> JSIO String
@@ -1313,16 +1346,16 @@ namespace HTMLButtonElement
   setValue a b = primJS $ HTMLButtonElement.prim__setValue a b
   
   export
-  willValidate : (obj : HTMLButtonElement) -> JSIO Boolean
-  willValidate a = primJS $ HTMLButtonElement.prim__willValidate a
+  willValidate : (obj : HTMLButtonElement) -> JSIO Bool
+  willValidate a = tryJS "HTMLButtonElement.willValidate" $ HTMLButtonElement.prim__willValidate a
   
   export
-  checkValidity : (obj : HTMLButtonElement) -> JSIO Boolean
-  checkValidity a = primJS $ HTMLButtonElement.prim__checkValidity a
+  checkValidity : (obj : HTMLButtonElement) -> JSIO Bool
+  checkValidity a = tryJS "HTMLButtonElement.checkValidity" $ HTMLButtonElement.prim__checkValidity a
   
   export
-  reportValidity : (obj : HTMLButtonElement) -> JSIO Boolean
-  reportValidity a = primJS $ HTMLButtonElement.prim__reportValidity a
+  reportValidity : (obj : HTMLButtonElement) -> JSIO Bool
+  reportValidity a = tryJS "HTMLButtonElement.reportValidity" $ HTMLButtonElement.prim__reportValidity a
   
   export
   setCustomValidity : (obj : HTMLButtonElement) -> (error : String) -> JSIO ()
@@ -1369,38 +1402,53 @@ namespace HTMLCanvasElement
   export
   getContext :  (obj : HTMLCanvasElement)
              -> (contextId : String)
-             -> (options : UndefOr AnyPtr)
-             -> JSIO (Nullable RenderingContext)
-  getContext a b c = primJS $ HTMLCanvasElement.prim__getContext a b c
+             -> (options : Optional AnyPtr)
+             -> JSIO (Maybe (NS I [ CanvasRenderingContext2D
+                                  , ImageBitmapRenderingContext
+                                  , WebGLRenderingContext
+                                  , WebGL2RenderingContext
+                                  ]))
+  getContext a b c = tryJS "HTMLCanvasElement.getContext" $ HTMLCanvasElement.prim__getContext a
+                                                                                               b
+                                                                                               (toFFI c)
 
   export
   getContext' :  (obj : HTMLCanvasElement)
               -> (contextId : String)
-              -> JSIO (Nullable RenderingContext)
-  getContext' a b = getContext a b undef
+              -> JSIO (Maybe (NS I [ CanvasRenderingContext2D
+                                   , ImageBitmapRenderingContext
+                                   , WebGLRenderingContext
+                                   , WebGL2RenderingContext
+                                   ]))
+  getContext' a b = getContext a b Undef
   
   export
   toBlob :  (obj : HTMLCanvasElement)
          -> (callback : BlobCallback)
-         -> (type : UndefOr String)
-         -> (quality : UndefOr AnyPtr)
+         -> (type : Optional String)
+         -> (quality : Optional AnyPtr)
          -> JSIO ()
-  toBlob a b c d = primJS $ HTMLCanvasElement.prim__toBlob a b c d
+  toBlob a b c d = primJS $ HTMLCanvasElement.prim__toBlob a
+                                                           b
+                                                           (toFFI c)
+                                                           (toFFI d)
 
   export
   toBlob' : (obj : HTMLCanvasElement) -> (callback : BlobCallback) -> JSIO ()
-  toBlob' a b = toBlob a b undef undef
+  toBlob' a b = toBlob a b Undef Undef
   
   export
   toDataURL :  (obj : HTMLCanvasElement)
-            -> (type : UndefOr String)
-            -> (quality : UndefOr AnyPtr)
+            -> (type : Optional String)
+            -> (quality : Optional AnyPtr)
             -> JSIO String
-  toDataURL a b c = primJS $ HTMLCanvasElement.prim__toDataURL a b c
+  toDataURL a b c = primJS $ HTMLCanvasElement.prim__toDataURL a
+                                                               (toFFI b)
+                                                               (toFFI c)
 
   export
   toDataURL' : (obj : HTMLCanvasElement) -> JSIO String
-  toDataURL' a = toDataURL a undef undef
+  toDataURL' a = toDataURL a Undef Undef
   
   export
   transferControlToOffscreen : (obj : HTMLCanvasElement) -> JSIO OffscreenCanvas
@@ -1429,12 +1477,12 @@ namespace HTMLDListElement
   new = primJS $ HTMLDListElement.prim__new 
   
   export
-  compact : (obj : HTMLDListElement) -> JSIO Boolean
-  compact a = primJS $ HTMLDListElement.prim__compact a
+  compact : (obj : HTMLDListElement) -> JSIO Bool
+  compact a = tryJS "HTMLDListElement.compact" $ HTMLDListElement.prim__compact a
   
   export
-  setCompact : (obj : HTMLDListElement) -> (value : Boolean) -> JSIO ()
-  setCompact a b = primJS $ HTMLDListElement.prim__setCompact a b
+  setCompact : (obj : HTMLDListElement) -> (value : Bool) -> JSIO ()
+  setCompact a b = primJS $ HTMLDListElement.prim__setCompact a (toFFI b)
 
 namespace HTMLDataElement
   
@@ -1515,12 +1563,12 @@ namespace HTMLDetailsElement
   new = primJS $ HTMLDetailsElement.prim__new 
   
   export
-  open_ : (obj : HTMLDetailsElement) -> JSIO Boolean
-  open_ a = primJS $ HTMLDetailsElement.prim__open a
+  open_ : (obj : HTMLDetailsElement) -> JSIO Bool
+  open_ a = tryJS "HTMLDetailsElement.open_" $ HTMLDetailsElement.prim__open a
   
   export
-  setOpen : (obj : HTMLDetailsElement) -> (value : Boolean) -> JSIO ()
-  setOpen a b = primJS $ HTMLDetailsElement.prim__setOpen a b
+  setOpen : (obj : HTMLDetailsElement) -> (value : Bool) -> JSIO ()
+  setOpen a b = primJS $ HTMLDetailsElement.prim__setOpen a (toFFI b)
 
 namespace HTMLDialogElement
   
@@ -1545,12 +1593,12 @@ namespace HTMLDialogElement
   new = primJS $ HTMLDialogElement.prim__new 
   
   export
-  open_ : (obj : HTMLDialogElement) -> JSIO Boolean
-  open_ a = primJS $ HTMLDialogElement.prim__open a
+  open_ : (obj : HTMLDialogElement) -> JSIO Bool
+  open_ a = tryJS "HTMLDialogElement.open_" $ HTMLDialogElement.prim__open a
   
   export
-  setOpen : (obj : HTMLDialogElement) -> (value : Boolean) -> JSIO ()
-  setOpen a b = primJS $ HTMLDialogElement.prim__setOpen a b
+  setOpen : (obj : HTMLDialogElement) -> (value : Bool) -> JSIO ()
+  setOpen a b = primJS $ HTMLDialogElement.prim__setOpen a (toFFI b)
   
   export
   returnValue : (obj : HTMLDialogElement) -> JSIO String
@@ -1561,12 +1609,14 @@ namespace HTMLDialogElement
   setReturnValue a b = primJS $ HTMLDialogElement.prim__setReturnValue a b
   
   export
-  close : (obj : HTMLDialogElement) -> (returnValue : UndefOr String) -> JSIO ()
-  close a b = primJS $ HTMLDialogElement.prim__close a b
+  close :  (obj : HTMLDialogElement)
+        -> (returnValue : Optional String)
+        -> JSIO ()
+  close a b = primJS $ HTMLDialogElement.prim__close a (toFFI b)
 
   export
   close' : (obj : HTMLDialogElement) -> JSIO ()
-  close' a = close a undef
+  close' a = close a Undef
   
   export
   show : (obj : HTMLDialogElement) -> JSIO ()
@@ -1599,12 +1649,12 @@ namespace HTMLDirectoryElement
   new = primJS $ HTMLDirectoryElement.prim__new 
   
   export
-  compact : (obj : HTMLDirectoryElement) -> JSIO Boolean
-  compact a = primJS $ HTMLDirectoryElement.prim__compact a
+  compact : (obj : HTMLDirectoryElement) -> JSIO Bool
+  compact a = tryJS "HTMLDirectoryElement.compact" $ HTMLDirectoryElement.prim__compact a
   
   export
-  setCompact : (obj : HTMLDirectoryElement) -> (value : Boolean) -> JSIO ()
-  setCompact a b = primJS $ HTMLDirectoryElement.prim__setCompact a b
+  setCompact : (obj : HTMLDirectoryElement) -> (value : Bool) -> JSIO ()
+  setCompact a b = primJS $ HTMLDirectoryElement.prim__setCompact a (toFFI b)
 
 namespace HTMLDivElement
   
@@ -1687,20 +1737,20 @@ namespace HTMLElement
   setDir a b = primJS $ HTMLElement.prim__setDir a b
   
   export
-  draggable : (obj : HTMLElement) -> JSIO Boolean
-  draggable a = primJS $ HTMLElement.prim__draggable a
+  draggable : (obj : HTMLElement) -> JSIO Bool
+  draggable a = tryJS "HTMLElement.draggable" $ HTMLElement.prim__draggable a
   
   export
-  setDraggable : (obj : HTMLElement) -> (value : Boolean) -> JSIO ()
-  setDraggable a b = primJS $ HTMLElement.prim__setDraggable a b
+  setDraggable : (obj : HTMLElement) -> (value : Bool) -> JSIO ()
+  setDraggable a b = primJS $ HTMLElement.prim__setDraggable a (toFFI b)
   
   export
-  hidden : (obj : HTMLElement) -> JSIO Boolean
-  hidden a = primJS $ HTMLElement.prim__hidden a
+  hidden : (obj : HTMLElement) -> JSIO Bool
+  hidden a = tryJS "HTMLElement.hidden" $ HTMLElement.prim__hidden a
   
   export
-  setHidden : (obj : HTMLElement) -> (value : Boolean) -> JSIO ()
-  setHidden a b = primJS $ HTMLElement.prim__setHidden a b
+  setHidden : (obj : HTMLElement) -> (value : Bool) -> JSIO ()
+  setHidden a b = primJS $ HTMLElement.prim__setHidden a (toFFI b)
   
   export
   innerText : (obj : HTMLElement) -> JSIO String
@@ -1719,12 +1769,12 @@ namespace HTMLElement
   setLang a b = primJS $ HTMLElement.prim__setLang a b
   
   export
-  spellcheck : (obj : HTMLElement) -> JSIO Boolean
-  spellcheck a = primJS $ HTMLElement.prim__spellcheck a
+  spellcheck : (obj : HTMLElement) -> JSIO Bool
+  spellcheck a = tryJS "HTMLElement.spellcheck" $ HTMLElement.prim__spellcheck a
   
   export
-  setSpellcheck : (obj : HTMLElement) -> (value : Boolean) -> JSIO ()
-  setSpellcheck a b = primJS $ HTMLElement.prim__setSpellcheck a b
+  setSpellcheck : (obj : HTMLElement) -> (value : Bool) -> JSIO ()
+  setSpellcheck a b = primJS $ HTMLElement.prim__setSpellcheck a (toFFI b)
   
   export
   title : (obj : HTMLElement) -> JSIO String
@@ -1735,12 +1785,12 @@ namespace HTMLElement
   setTitle a b = primJS $ HTMLElement.prim__setTitle a b
   
   export
-  translate : (obj : HTMLElement) -> JSIO Boolean
-  translate a = primJS $ HTMLElement.prim__translate a
+  translate : (obj : HTMLElement) -> JSIO Bool
+  translate a = tryJS "HTMLElement.translate" $ HTMLElement.prim__translate a
   
   export
-  setTranslate : (obj : HTMLElement) -> (value : Boolean) -> JSIO ()
-  setTranslate a b = primJS $ HTMLElement.prim__setTranslate a b
+  setTranslate : (obj : HTMLElement) -> (value : Bool) -> JSIO ()
+  setTranslate a b = primJS $ HTMLElement.prim__setTranslate a (toFFI b)
   
   export
   attachInternals : (obj : HTMLElement) -> JSIO ElementInternals
@@ -1821,8 +1871,8 @@ namespace HTMLEmbedElement
   setWidth a b = primJS $ HTMLEmbedElement.prim__setWidth a b
   
   export
-  getSVGDocument : (obj : HTMLEmbedElement) -> JSIO (Nullable Document)
-  getSVGDocument a = primJS $ HTMLEmbedElement.prim__getSVGDocument a
+  getSVGDocument : (obj : HTMLEmbedElement) -> JSIO (Maybe Document)
+  getSVGDocument a = tryJS "HTMLEmbedElement.getSVGDocument" $ HTMLEmbedElement.prim__getSVGDocument a
 
 namespace HTMLFieldSetElement
   
@@ -1847,20 +1897,20 @@ namespace HTMLFieldSetElement
   new = primJS $ HTMLFieldSetElement.prim__new 
   
   export
-  disabled : (obj : HTMLFieldSetElement) -> JSIO Boolean
-  disabled a = primJS $ HTMLFieldSetElement.prim__disabled a
+  disabled : (obj : HTMLFieldSetElement) -> JSIO Bool
+  disabled a = tryJS "HTMLFieldSetElement.disabled" $ HTMLFieldSetElement.prim__disabled a
   
   export
-  setDisabled : (obj : HTMLFieldSetElement) -> (value : Boolean) -> JSIO ()
-  setDisabled a b = primJS $ HTMLFieldSetElement.prim__setDisabled a b
+  setDisabled : (obj : HTMLFieldSetElement) -> (value : Bool) -> JSIO ()
+  setDisabled a b = primJS $ HTMLFieldSetElement.prim__setDisabled a (toFFI b)
   
   export
   elements : (obj : HTMLFieldSetElement) -> JSIO HTMLCollection
   elements a = primJS $ HTMLFieldSetElement.prim__elements a
   
   export
-  form : (obj : HTMLFieldSetElement) -> JSIO (Nullable HTMLFormElement)
-  form a = primJS $ HTMLFieldSetElement.prim__form a
+  form : (obj : HTMLFieldSetElement) -> JSIO (Maybe HTMLFormElement)
+  form a = tryJS "HTMLFieldSetElement.form" $ HTMLFieldSetElement.prim__form a
   
   export
   name : (obj : HTMLFieldSetElement) -> JSIO String
@@ -1883,16 +1933,16 @@ namespace HTMLFieldSetElement
   validity a = primJS $ HTMLFieldSetElement.prim__validity a
   
   export
-  willValidate : (obj : HTMLFieldSetElement) -> JSIO Boolean
-  willValidate a = primJS $ HTMLFieldSetElement.prim__willValidate a
+  willValidate : (obj : HTMLFieldSetElement) -> JSIO Bool
+  willValidate a = tryJS "HTMLFieldSetElement.willValidate" $ HTMLFieldSetElement.prim__willValidate a
   
   export
-  checkValidity : (obj : HTMLFieldSetElement) -> JSIO Boolean
-  checkValidity a = primJS $ HTMLFieldSetElement.prim__checkValidity a
+  checkValidity : (obj : HTMLFieldSetElement) -> JSIO Bool
+  checkValidity a = tryJS "HTMLFieldSetElement.checkValidity" $ HTMLFieldSetElement.prim__checkValidity a
   
   export
-  reportValidity : (obj : HTMLFieldSetElement) -> JSIO Boolean
-  reportValidity a = primJS $ HTMLFieldSetElement.prim__reportValidity a
+  reportValidity : (obj : HTMLFieldSetElement) -> JSIO Bool
+  reportValidity a = tryJS "HTMLFieldSetElement.reportValidity" $ HTMLFieldSetElement.prim__reportValidity a
   
   export
   setCustomValidity : (obj : HTMLFieldSetElement) -> (error : String) -> JSIO ()
@@ -1956,8 +2006,9 @@ namespace HTMLFormControlsCollection
   export
   namedItem :  (obj : HTMLFormControlsCollection)
             -> (name : String)
-            -> JSIO (Nullable (Union2 RadioNodeList Element))
-  namedItem a b = primJS $ HTMLFormControlsCollection.prim__namedItem a b
+            -> JSIO (Maybe (NS I [ RadioNodeList , Element ]))
+  namedItem a b = tryJS "HTMLFormControlsCollection.namedItem" $ HTMLFormControlsCollection.prim__namedItem a
+                                                                                                            b
 
 namespace HTMLFormElement
   
@@ -1988,8 +2039,8 @@ namespace HTMLFormElement
   export
   get1 :  (obj : HTMLFormElement)
        -> (name : String)
-       -> JSIO (Union2 RadioNodeList Element)
-  get1 a b = primJS $ HTMLFormElement.prim__get1 a b
+       -> JSIO (NS I [ RadioNodeList , Element ])
+  get1 a b = tryJS "HTMLFormElement.get1" $ HTMLFormElement.prim__get1 a b
   
   export
   acceptCharset : (obj : HTMLFormElement) -> JSIO String
@@ -2056,12 +2107,12 @@ namespace HTMLFormElement
   setName a b = primJS $ HTMLFormElement.prim__setName a b
   
   export
-  noValidate : (obj : HTMLFormElement) -> JSIO Boolean
-  noValidate a = primJS $ HTMLFormElement.prim__noValidate a
+  noValidate : (obj : HTMLFormElement) -> JSIO Bool
+  noValidate a = tryJS "HTMLFormElement.noValidate" $ HTMLFormElement.prim__noValidate a
   
   export
-  setNoValidate : (obj : HTMLFormElement) -> (value : Boolean) -> JSIO ()
-  setNoValidate a b = primJS $ HTMLFormElement.prim__setNoValidate a b
+  setNoValidate : (obj : HTMLFormElement) -> (value : Bool) -> JSIO ()
+  setNoValidate a b = primJS $ HTMLFormElement.prim__setNoValidate a (toFFI b)
   
   export
   rel : (obj : HTMLFormElement) -> JSIO String
@@ -2084,22 +2135,22 @@ namespace HTMLFormElement
   setTarget a b = primJS $ HTMLFormElement.prim__setTarget a b
   
   export
-  checkValidity : (obj : HTMLFormElement) -> JSIO Boolean
-  checkValidity a = primJS $ HTMLFormElement.prim__checkValidity a
+  checkValidity : (obj : HTMLFormElement) -> JSIO Bool
+  checkValidity a = tryJS "HTMLFormElement.checkValidity" $ HTMLFormElement.prim__checkValidity a
   
   export
-  reportValidity : (obj : HTMLFormElement) -> JSIO Boolean
-  reportValidity a = primJS $ HTMLFormElement.prim__reportValidity a
+  reportValidity : (obj : HTMLFormElement) -> JSIO Bool
+  reportValidity a = tryJS "HTMLFormElement.reportValidity" $ HTMLFormElement.prim__reportValidity a
   
   export
   requestSubmit :  (obj : HTMLFormElement)
-                -> (submitter : UndefOr (Nullable HTMLElement))
+                -> (submitter : Optional (Maybe HTMLElement))
                 -> JSIO ()
-  requestSubmit a b = primJS $ HTMLFormElement.prim__requestSubmit a b
+  requestSubmit a b = primJS $ HTMLFormElement.prim__requestSubmit a (toFFI b)
 
   export
   requestSubmit' : (obj : HTMLFormElement) -> JSIO ()
-  requestSubmit' a = requestSubmit a undef
+  requestSubmit' a = requestSubmit a Undef
   
   export
   reset : (obj : HTMLFormElement) -> JSIO ()
@@ -2132,12 +2183,12 @@ namespace HTMLFrameElement
   new = primJS $ HTMLFrameElement.prim__new 
   
   export
-  contentDocument : (obj : HTMLFrameElement) -> JSIO (Nullable Document)
-  contentDocument a = primJS $ HTMLFrameElement.prim__contentDocument a
+  contentDocument : (obj : HTMLFrameElement) -> JSIO (Maybe Document)
+  contentDocument a = tryJS "HTMLFrameElement.contentDocument" $ HTMLFrameElement.prim__contentDocument a
   
   export
-  contentWindow : (obj : HTMLFrameElement) -> JSIO (Nullable WindowProxy)
-  contentWindow a = primJS $ HTMLFrameElement.prim__contentWindow a
+  contentWindow : (obj : HTMLFrameElement) -> JSIO (Maybe WindowProxy)
+  contentWindow a = tryJS "HTMLFrameElement.contentWindow" $ HTMLFrameElement.prim__contentWindow a
   
   export
   frameBorder : (obj : HTMLFrameElement) -> JSIO String
@@ -2180,12 +2231,12 @@ namespace HTMLFrameElement
   setName a b = primJS $ HTMLFrameElement.prim__setName a b
   
   export
-  noResize : (obj : HTMLFrameElement) -> JSIO Boolean
-  noResize a = primJS $ HTMLFrameElement.prim__noResize a
+  noResize : (obj : HTMLFrameElement) -> JSIO Bool
+  noResize a = tryJS "HTMLFrameElement.noResize" $ HTMLFrameElement.prim__noResize a
   
   export
-  setNoResize : (obj : HTMLFrameElement) -> (value : Boolean) -> JSIO ()
-  setNoResize a b = primJS $ HTMLFrameElement.prim__setNoResize a b
+  setNoResize : (obj : HTMLFrameElement) -> (value : Bool) -> JSIO ()
+  setNoResize a b = primJS $ HTMLFrameElement.prim__setNoResize a (toFFI b)
   
   export
   scrolling : (obj : HTMLFrameElement) -> JSIO String
@@ -2281,12 +2332,12 @@ namespace HTMLHRElement
   setColor a b = primJS $ HTMLHRElement.prim__setColor a b
   
   export
-  noShade : (obj : HTMLHRElement) -> JSIO Boolean
-  noShade a = primJS $ HTMLHRElement.prim__noShade a
+  noShade : (obj : HTMLHRElement) -> JSIO Bool
+  noShade a = tryJS "HTMLHRElement.noShade" $ HTMLHRElement.prim__noShade a
   
   export
-  setNoShade : (obj : HTMLHRElement) -> (value : Boolean) -> JSIO ()
-  setNoShade a b = primJS $ HTMLHRElement.prim__setNoShade a b
+  setNoShade : (obj : HTMLHRElement) -> (value : Bool) -> JSIO ()
+  setNoShade a b = primJS $ HTMLHRElement.prim__setNoShade a (toFFI b)
   
   export
   size : (obj : HTMLHRElement) -> JSIO String
@@ -2425,21 +2476,21 @@ namespace HTMLIFrameElement
   setAllow a b = primJS $ HTMLIFrameElement.prim__setAllow a b
   
   export
-  allowFullscreen : (obj : HTMLIFrameElement) -> JSIO Boolean
-  allowFullscreen a = primJS $ HTMLIFrameElement.prim__allowFullscreen a
+  allowFullscreen : (obj : HTMLIFrameElement) -> JSIO Bool
+  allowFullscreen a = tryJS "HTMLIFrameElement.allowFullscreen" $ HTMLIFrameElement.prim__allowFullscreen a
   
   export
-  setAllowFullscreen : (obj : HTMLIFrameElement) -> (value : Boolean) -> JSIO ()
+  setAllowFullscreen : (obj : HTMLIFrameElement) -> (value : Bool) -> JSIO ()
   setAllowFullscreen a b = primJS $ HTMLIFrameElement.prim__setAllowFullscreen a
-                                                                               b
+                                                                               (toFFI b)
   
   export
-  contentDocument : (obj : HTMLIFrameElement) -> JSIO (Nullable Document)
-  contentDocument a = primJS $ HTMLIFrameElement.prim__contentDocument a
+  contentDocument : (obj : HTMLIFrameElement) -> JSIO (Maybe Document)
+  contentDocument a = tryJS "HTMLIFrameElement.contentDocument" $ HTMLIFrameElement.prim__contentDocument a
   
   export
-  contentWindow : (obj : HTMLIFrameElement) -> JSIO (Nullable WindowProxy)
-  contentWindow a = primJS $ HTMLIFrameElement.prim__contentWindow a
+  contentWindow : (obj : HTMLIFrameElement) -> JSIO (Maybe WindowProxy)
+  contentWindow a = tryJS "HTMLIFrameElement.contentWindow" $ HTMLIFrameElement.prim__contentWindow a
   
   export
   frameBorder : (obj : HTMLIFrameElement) -> JSIO String
@@ -2542,8 +2593,8 @@ namespace HTMLIFrameElement
   setWidth a b = primJS $ HTMLIFrameElement.prim__setWidth a b
   
   export
-  getSVGDocument : (obj : HTMLIFrameElement) -> JSIO (Nullable Document)
-  getSVGDocument a = primJS $ HTMLIFrameElement.prim__getSVGDocument a
+  getSVGDocument : (obj : HTMLIFrameElement) -> JSIO (Maybe Document)
+  getSVGDocument a = tryJS "HTMLIFrameElement.getSVGDocument" $ HTMLIFrameElement.prim__getSVGDocument a
 
 namespace HTMLImageElement
   
@@ -2592,18 +2643,17 @@ namespace HTMLImageElement
   setBorder a b = primJS $ HTMLImageElement.prim__setBorder a b
   
   export
-  complete : (obj : HTMLImageElement) -> JSIO Boolean
-  complete a = primJS $ HTMLImageElement.prim__complete a
+  complete : (obj : HTMLImageElement) -> JSIO Bool
+  complete a = tryJS "HTMLImageElement.complete" $ HTMLImageElement.prim__complete a
   
   export
-  crossOrigin : (obj : HTMLImageElement) -> JSIO (Nullable String)
-  crossOrigin a = primJS $ HTMLImageElement.prim__crossOrigin a
+  crossOrigin : (obj : HTMLImageElement) -> JSIO (Maybe String)
+  crossOrigin a = tryJS "HTMLImageElement.crossOrigin" $ HTMLImageElement.prim__crossOrigin a
   
   export
-  setCrossOrigin :  (obj : HTMLImageElement)
-                 -> (value : Nullable String)
-                 -> JSIO ()
-  setCrossOrigin a b = primJS $ HTMLImageElement.prim__setCrossOrigin a b
+  setCrossOrigin : (obj : HTMLImageElement) -> (value : Maybe String) -> JSIO ()
+  setCrossOrigin a b = primJS $ HTMLImageElement.prim__setCrossOrigin a
+                                                                      (toFFI b)
   
   export
   currentSrc : (obj : HTMLImageElement) -> JSIO String
@@ -2634,12 +2684,12 @@ namespace HTMLImageElement
   setHspace a b = primJS $ HTMLImageElement.prim__setHspace a b
   
   export
-  isMap : (obj : HTMLImageElement) -> JSIO Boolean
-  isMap a = primJS $ HTMLImageElement.prim__isMap a
+  isMap : (obj : HTMLImageElement) -> JSIO Bool
+  isMap a = tryJS "HTMLImageElement.isMap" $ HTMLImageElement.prim__isMap a
   
   export
-  setIsMap : (obj : HTMLImageElement) -> (value : Boolean) -> JSIO ()
-  setIsMap a b = primJS $ HTMLImageElement.prim__setIsMap a b
+  setIsMap : (obj : HTMLImageElement) -> (value : Bool) -> JSIO ()
+  setIsMap a b = primJS $ HTMLImageElement.prim__setIsMap a (toFFI b)
   
   export
   loading : (obj : HTMLImageElement) -> JSIO String
@@ -2796,20 +2846,21 @@ namespace HTMLInputElement
   setAutocomplete a b = primJS $ HTMLInputElement.prim__setAutocomplete a b
   
   export
-  checked : (obj : HTMLInputElement) -> JSIO Boolean
-  checked a = primJS $ HTMLInputElement.prim__checked a
+  checked : (obj : HTMLInputElement) -> JSIO Bool
+  checked a = tryJS "HTMLInputElement.checked" $ HTMLInputElement.prim__checked a
   
   export
-  setChecked : (obj : HTMLInputElement) -> (value : Boolean) -> JSIO ()
-  setChecked a b = primJS $ HTMLInputElement.prim__setChecked a b
+  setChecked : (obj : HTMLInputElement) -> (value : Bool) -> JSIO ()
+  setChecked a b = primJS $ HTMLInputElement.prim__setChecked a (toFFI b)
   
   export
-  defaultChecked : (obj : HTMLInputElement) -> JSIO Boolean
-  defaultChecked a = primJS $ HTMLInputElement.prim__defaultChecked a
+  defaultChecked : (obj : HTMLInputElement) -> JSIO Bool
+  defaultChecked a = tryJS "HTMLInputElement.defaultChecked" $ HTMLInputElement.prim__defaultChecked a
   
   export
-  setDefaultChecked : (obj : HTMLInputElement) -> (value : Boolean) -> JSIO ()
-  setDefaultChecked a b = primJS $ HTMLInputElement.prim__setDefaultChecked a b
+  setDefaultChecked : (obj : HTMLInputElement) -> (value : Bool) -> JSIO ()
+  setDefaultChecked a b = primJS $ HTMLInputElement.prim__setDefaultChecked a
+                                                                            (toFFI b)
   
   export
   defaultValue : (obj : HTMLInputElement) -> JSIO String
@@ -2828,24 +2879,24 @@ namespace HTMLInputElement
   setDirName a b = primJS $ HTMLInputElement.prim__setDirName a b
   
   export
-  disabled : (obj : HTMLInputElement) -> JSIO Boolean
-  disabled a = primJS $ HTMLInputElement.prim__disabled a
+  disabled : (obj : HTMLInputElement) -> JSIO Bool
+  disabled a = tryJS "HTMLInputElement.disabled" $ HTMLInputElement.prim__disabled a
   
   export
-  setDisabled : (obj : HTMLInputElement) -> (value : Boolean) -> JSIO ()
-  setDisabled a b = primJS $ HTMLInputElement.prim__setDisabled a b
+  setDisabled : (obj : HTMLInputElement) -> (value : Bool) -> JSIO ()
+  setDisabled a b = primJS $ HTMLInputElement.prim__setDisabled a (toFFI b)
   
   export
-  files : (obj : HTMLInputElement) -> JSIO (Nullable FileList)
-  files a = primJS $ HTMLInputElement.prim__files a
+  files : (obj : HTMLInputElement) -> JSIO (Maybe FileList)
+  files a = tryJS "HTMLInputElement.files" $ HTMLInputElement.prim__files a
   
   export
-  setFiles : (obj : HTMLInputElement) -> (value : Nullable FileList) -> JSIO ()
-  setFiles a b = primJS $ HTMLInputElement.prim__setFiles a b
+  setFiles : (obj : HTMLInputElement) -> (value : Maybe FileList) -> JSIO ()
+  setFiles a b = primJS $ HTMLInputElement.prim__setFiles a (toFFI b)
   
   export
-  form : (obj : HTMLInputElement) -> JSIO (Nullable HTMLFormElement)
-  form a = primJS $ HTMLInputElement.prim__form a
+  form : (obj : HTMLInputElement) -> JSIO (Maybe HTMLFormElement)
+  form a = tryJS "HTMLInputElement.form" $ HTMLInputElement.prim__form a
   
   export
   formAction : (obj : HTMLInputElement) -> JSIO String
@@ -2872,12 +2923,13 @@ namespace HTMLInputElement
   setFormMethod a b = primJS $ HTMLInputElement.prim__setFormMethod a b
   
   export
-  formNoValidate : (obj : HTMLInputElement) -> JSIO Boolean
-  formNoValidate a = primJS $ HTMLInputElement.prim__formNoValidate a
+  formNoValidate : (obj : HTMLInputElement) -> JSIO Bool
+  formNoValidate a = tryJS "HTMLInputElement.formNoValidate" $ HTMLInputElement.prim__formNoValidate a
   
   export
-  setFormNoValidate : (obj : HTMLInputElement) -> (value : Boolean) -> JSIO ()
-  setFormNoValidate a b = primJS $ HTMLInputElement.prim__setFormNoValidate a b
+  setFormNoValidate : (obj : HTMLInputElement) -> (value : Bool) -> JSIO ()
+  setFormNoValidate a b = primJS $ HTMLInputElement.prim__setFormNoValidate a
+                                                                            (toFFI b)
   
   export
   formTarget : (obj : HTMLInputElement) -> JSIO String
@@ -2896,20 +2948,21 @@ namespace HTMLInputElement
   setHeight a b = primJS $ HTMLInputElement.prim__setHeight a b
   
   export
-  indeterminate : (obj : HTMLInputElement) -> JSIO Boolean
-  indeterminate a = primJS $ HTMLInputElement.prim__indeterminate a
+  indeterminate : (obj : HTMLInputElement) -> JSIO Bool
+  indeterminate a = tryJS "HTMLInputElement.indeterminate" $ HTMLInputElement.prim__indeterminate a
   
   export
-  setIndeterminate : (obj : HTMLInputElement) -> (value : Boolean) -> JSIO ()
-  setIndeterminate a b = primJS $ HTMLInputElement.prim__setIndeterminate a b
+  setIndeterminate : (obj : HTMLInputElement) -> (value : Bool) -> JSIO ()
+  setIndeterminate a b = primJS $ HTMLInputElement.prim__setIndeterminate a
+                                                                          (toFFI b)
   
   export
-  labels : (obj : HTMLInputElement) -> JSIO (Nullable NodeList)
-  labels a = primJS $ HTMLInputElement.prim__labels a
+  labels : (obj : HTMLInputElement) -> JSIO (Maybe NodeList)
+  labels a = tryJS "HTMLInputElement.labels" $ HTMLInputElement.prim__labels a
   
   export
-  list : (obj : HTMLInputElement) -> JSIO (Nullable HTMLElement)
-  list a = primJS $ HTMLInputElement.prim__list a
+  list : (obj : HTMLInputElement) -> JSIO (Maybe HTMLElement)
+  list a = tryJS "HTMLInputElement.list" $ HTMLInputElement.prim__list a
   
   export
   max : (obj : HTMLInputElement) -> JSIO String
@@ -2944,12 +2997,12 @@ namespace HTMLInputElement
   setMinLength a b = primJS $ HTMLInputElement.prim__setMinLength a b
   
   export
-  multiple : (obj : HTMLInputElement) -> JSIO Boolean
-  multiple a = primJS $ HTMLInputElement.prim__multiple a
+  multiple : (obj : HTMLInputElement) -> JSIO Bool
+  multiple a = tryJS "HTMLInputElement.multiple" $ HTMLInputElement.prim__multiple a
   
   export
-  setMultiple : (obj : HTMLInputElement) -> (value : Boolean) -> JSIO ()
-  setMultiple a b = primJS $ HTMLInputElement.prim__setMultiple a b
+  setMultiple : (obj : HTMLInputElement) -> (value : Bool) -> JSIO ()
+  setMultiple a b = primJS $ HTMLInputElement.prim__setMultiple a (toFFI b)
   
   export
   name : (obj : HTMLInputElement) -> JSIO String
@@ -2976,51 +3029,53 @@ namespace HTMLInputElement
   setPlaceholder a b = primJS $ HTMLInputElement.prim__setPlaceholder a b
   
   export
-  readOnly : (obj : HTMLInputElement) -> JSIO Boolean
-  readOnly a = primJS $ HTMLInputElement.prim__readOnly a
+  readOnly : (obj : HTMLInputElement) -> JSIO Bool
+  readOnly a = tryJS "HTMLInputElement.readOnly" $ HTMLInputElement.prim__readOnly a
   
   export
-  setReadOnly : (obj : HTMLInputElement) -> (value : Boolean) -> JSIO ()
-  setReadOnly a b = primJS $ HTMLInputElement.prim__setReadOnly a b
+  setReadOnly : (obj : HTMLInputElement) -> (value : Bool) -> JSIO ()
+  setReadOnly a b = primJS $ HTMLInputElement.prim__setReadOnly a (toFFI b)
   
   export
-  required : (obj : HTMLInputElement) -> JSIO Boolean
-  required a = primJS $ HTMLInputElement.prim__required a
+  required : (obj : HTMLInputElement) -> JSIO Bool
+  required a = tryJS "HTMLInputElement.required" $ HTMLInputElement.prim__required a
   
   export
-  setRequired : (obj : HTMLInputElement) -> (value : Boolean) -> JSIO ()
-  setRequired a b = primJS $ HTMLInputElement.prim__setRequired a b
+  setRequired : (obj : HTMLInputElement) -> (value : Bool) -> JSIO ()
+  setRequired a b = primJS $ HTMLInputElement.prim__setRequired a (toFFI b)
   
   export
-  selectionDirection : (obj : HTMLInputElement) -> JSIO (Nullable String)
-  selectionDirection a = primJS $ HTMLInputElement.prim__selectionDirection a
+  selectionDirection : (obj : HTMLInputElement) -> JSIO (Maybe String)
+  selectionDirection a = tryJS "HTMLInputElement.selectionDirection" $ HTMLInputElement.prim__selectionDirection a
   
   export
   setSelectionDirection :  (obj : HTMLInputElement)
-                        -> (value : Nullable String)
+                        -> (value : Maybe String)
                         -> JSIO ()
   setSelectionDirection a b = primJS $ HTMLInputElement.prim__setSelectionDirection a
-                                                                                    b
+                                                                                    (toFFI b)
   
   export
-  selectionEnd : (obj : HTMLInputElement) -> JSIO (Nullable UInt32)
-  selectionEnd a = primJS $ HTMLInputElement.prim__selectionEnd a
+  selectionEnd : (obj : HTMLInputElement) -> JSIO (Maybe UInt32)
+  selectionEnd a = tryJS "HTMLInputElement.selectionEnd" $ HTMLInputElement.prim__selectionEnd a
   
   export
   setSelectionEnd :  (obj : HTMLInputElement)
-                  -> (value : Nullable UInt32)
+                  -> (value : Maybe UInt32)
                   -> JSIO ()
-  setSelectionEnd a b = primJS $ HTMLInputElement.prim__setSelectionEnd a b
+  setSelectionEnd a b = primJS $ HTMLInputElement.prim__setSelectionEnd a
+                                                                        (toFFI b)
   
   export
-  selectionStart : (obj : HTMLInputElement) -> JSIO (Nullable UInt32)
-  selectionStart a = primJS $ HTMLInputElement.prim__selectionStart a
+  selectionStart : (obj : HTMLInputElement) -> JSIO (Maybe UInt32)
+  selectionStart a = tryJS "HTMLInputElement.selectionStart" $ HTMLInputElement.prim__selectionStart a
   
   export
   setSelectionStart :  (obj : HTMLInputElement)
-                    -> (value : Nullable UInt32)
+                    -> (value : Maybe UInt32)
                     -> JSIO ()
-  setSelectionStart a b = primJS $ HTMLInputElement.prim__setSelectionStart a b
+  setSelectionStart a b = primJS $ HTMLInputElement.prim__setSelectionStart a
+                                                                            (toFFI b)
   
   export
   size : (obj : HTMLInputElement) -> JSIO UInt32
@@ -3079,14 +3134,13 @@ namespace HTMLInputElement
   setValue a b = primJS $ HTMLInputElement.prim__setValue a b
   
   export
-  valueAsDate : (obj : HTMLInputElement) -> JSIO (Nullable Object)
-  valueAsDate a = primJS $ HTMLInputElement.prim__valueAsDate a
+  valueAsDate : (obj : HTMLInputElement) -> JSIO (Maybe Object)
+  valueAsDate a = tryJS "HTMLInputElement.valueAsDate" $ HTMLInputElement.prim__valueAsDate a
   
   export
-  setValueAsDate :  (obj : HTMLInputElement)
-                 -> (value : Nullable Object)
-                 -> JSIO ()
-  setValueAsDate a b = primJS $ HTMLInputElement.prim__setValueAsDate a b
+  setValueAsDate : (obj : HTMLInputElement) -> (value : Maybe Object) -> JSIO ()
+  setValueAsDate a b = primJS $ HTMLInputElement.prim__setValueAsDate a
+                                                                      (toFFI b)
   
   export
   valueAsNumber : (obj : HTMLInputElement) -> JSIO Double
@@ -3105,16 +3159,16 @@ namespace HTMLInputElement
   setWidth a b = primJS $ HTMLInputElement.prim__setWidth a b
   
   export
-  willValidate : (obj : HTMLInputElement) -> JSIO Boolean
-  willValidate a = primJS $ HTMLInputElement.prim__willValidate a
+  willValidate : (obj : HTMLInputElement) -> JSIO Bool
+  willValidate a = tryJS "HTMLInputElement.willValidate" $ HTMLInputElement.prim__willValidate a
   
   export
-  checkValidity : (obj : HTMLInputElement) -> JSIO Boolean
-  checkValidity a = primJS $ HTMLInputElement.prim__checkValidity a
+  checkValidity : (obj : HTMLInputElement) -> JSIO Bool
+  checkValidity a = tryJS "HTMLInputElement.checkValidity" $ HTMLInputElement.prim__checkValidity a
   
   export
-  reportValidity : (obj : HTMLInputElement) -> JSIO Boolean
-  reportValidity a = primJS $ HTMLInputElement.prim__reportValidity a
+  reportValidity : (obj : HTMLInputElement) -> JSIO Bool
+  reportValidity a = tryJS "HTMLInputElement.reportValidity" $ HTMLInputElement.prim__reportValidity a
   
   export
   select : (obj : HTMLInputElement) -> JSIO ()
@@ -3133,13 +3187,13 @@ namespace HTMLInputElement
                 -> (replacement : String)
                 -> (start : UInt32)
                 -> (end : UInt32)
-                -> (selectionMode : UndefOr SelectionMode)
+                -> (selectionMode : Optional SelectionMode)
                 -> JSIO ()
   setRangeText1 a b c d e = primJS $ HTMLInputElement.prim__setRangeText1 a
                                                                           b
                                                                           c
                                                                           d
-                                                                          e
+                                                                          (toFFI e)
 
   export
   setRangeText1' :  (obj : HTMLInputElement)
@@ -3147,41 +3201,41 @@ namespace HTMLInputElement
                  -> (start : UInt32)
                  -> (end : UInt32)
                  -> JSIO ()
-  setRangeText1' a b c d = setRangeText1 a b c d undef
+  setRangeText1' a b c d = setRangeText1 a b c d Undef
   
   export
   setSelectionRange :  (obj : HTMLInputElement)
                     -> (start : UInt32)
                     -> (end : UInt32)
-                    -> (direction : UndefOr String)
+                    -> (direction : Optional String)
                     -> JSIO ()
   setSelectionRange a b c d = primJS $ HTMLInputElement.prim__setSelectionRange a
                                                                                 b
                                                                                 c
-                                                                                d
+                                                                                (toFFI d)
 
   export
   setSelectionRange' :  (obj : HTMLInputElement)
                      -> (start : UInt32)
                      -> (end : UInt32)
                      -> JSIO ()
-  setSelectionRange' a b c = setSelectionRange a b c undef
+  setSelectionRange' a b c = setSelectionRange a b c Undef
   
   export
-  stepDown : (obj : HTMLInputElement) -> (n : UndefOr Int32) -> JSIO ()
-  stepDown a b = primJS $ HTMLInputElement.prim__stepDown a b
+  stepDown : (obj : HTMLInputElement) -> (n : Optional Int32) -> JSIO ()
+  stepDown a b = primJS $ HTMLInputElement.prim__stepDown a (toFFI b)
 
   export
   stepDown' : (obj : HTMLInputElement) -> JSIO ()
-  stepDown' a = stepDown a undef
+  stepDown' a = stepDown a Undef
   
   export
-  stepUp : (obj : HTMLInputElement) -> (n : UndefOr Int32) -> JSIO ()
-  stepUp a b = primJS $ HTMLInputElement.prim__stepUp a b
+  stepUp : (obj : HTMLInputElement) -> (n : Optional Int32) -> JSIO ()
+  stepUp a b = primJS $ HTMLInputElement.prim__stepUp a (toFFI b)
 
   export
   stepUp' : (obj : HTMLInputElement) -> JSIO ()
-  stepUp' a = stepUp a undef
+  stepUp' a = stepUp a Undef
 
 namespace HTMLLIElement
   
@@ -3244,12 +3298,12 @@ namespace HTMLLabelElement
   new = primJS $ HTMLLabelElement.prim__new 
   
   export
-  control : (obj : HTMLLabelElement) -> JSIO (Nullable HTMLElement)
-  control a = primJS $ HTMLLabelElement.prim__control a
+  control : (obj : HTMLLabelElement) -> JSIO (Maybe HTMLElement)
+  control a = tryJS "HTMLLabelElement.control" $ HTMLLabelElement.prim__control a
   
   export
-  form : (obj : HTMLLabelElement) -> JSIO (Nullable HTMLFormElement)
-  form a = primJS $ HTMLLabelElement.prim__form a
+  form : (obj : HTMLLabelElement) -> JSIO (Maybe HTMLFormElement)
+  form a = tryJS "HTMLLabelElement.form" $ HTMLLabelElement.prim__form a
   
   export
   htmlFor : (obj : HTMLLabelElement) -> JSIO String
@@ -3290,8 +3344,8 @@ namespace HTMLLegendElement
   setAlign a b = primJS $ HTMLLegendElement.prim__setAlign a b
   
   export
-  form : (obj : HTMLLegendElement) -> JSIO (Nullable HTMLFormElement)
-  form a = primJS $ HTMLLegendElement.prim__form a
+  form : (obj : HTMLLegendElement) -> JSIO (Maybe HTMLFormElement)
+  form a = tryJS "HTMLLegendElement.form" $ HTMLLegendElement.prim__form a
 
 namespace HTMLLinkElement
   
@@ -3333,22 +3387,20 @@ namespace HTMLLinkElement
   setCharset a b = primJS $ HTMLLinkElement.prim__setCharset a b
   
   export
-  crossOrigin : (obj : HTMLLinkElement) -> JSIO (Nullable String)
-  crossOrigin a = primJS $ HTMLLinkElement.prim__crossOrigin a
+  crossOrigin : (obj : HTMLLinkElement) -> JSIO (Maybe String)
+  crossOrigin a = tryJS "HTMLLinkElement.crossOrigin" $ HTMLLinkElement.prim__crossOrigin a
   
   export
-  setCrossOrigin :  (obj : HTMLLinkElement)
-                 -> (value : Nullable String)
-                 -> JSIO ()
-  setCrossOrigin a b = primJS $ HTMLLinkElement.prim__setCrossOrigin a b
+  setCrossOrigin : (obj : HTMLLinkElement) -> (value : Maybe String) -> JSIO ()
+  setCrossOrigin a b = primJS $ HTMLLinkElement.prim__setCrossOrigin a (toFFI b)
   
   export
-  disabled : (obj : HTMLLinkElement) -> JSIO Boolean
-  disabled a = primJS $ HTMLLinkElement.prim__disabled a
+  disabled : (obj : HTMLLinkElement) -> JSIO Bool
+  disabled a = tryJS "HTMLLinkElement.disabled" $ HTMLLinkElement.prim__disabled a
   
   export
-  setDisabled : (obj : HTMLLinkElement) -> (value : Boolean) -> JSIO ()
-  setDisabled a b = primJS $ HTMLLinkElement.prim__setDisabled a b
+  setDisabled : (obj : HTMLLinkElement) -> (value : Bool) -> JSIO ()
+  setDisabled a b = primJS $ HTMLLinkElement.prim__setDisabled a (toFFI b)
   
   export
   href : (obj : HTMLLinkElement) -> JSIO String
@@ -3567,12 +3619,12 @@ namespace HTMLMarqueeElement
   setScrollDelay a b = primJS $ HTMLMarqueeElement.prim__setScrollDelay a b
   
   export
-  trueSpeed : (obj : HTMLMarqueeElement) -> JSIO Boolean
-  trueSpeed a = primJS $ HTMLMarqueeElement.prim__trueSpeed a
+  trueSpeed : (obj : HTMLMarqueeElement) -> JSIO Bool
+  trueSpeed a = tryJS "HTMLMarqueeElement.trueSpeed" $ HTMLMarqueeElement.prim__trueSpeed a
   
   export
-  setTrueSpeed : (obj : HTMLMarqueeElement) -> (value : Boolean) -> JSIO ()
-  setTrueSpeed a b = primJS $ HTMLMarqueeElement.prim__setTrueSpeed a b
+  setTrueSpeed : (obj : HTMLMarqueeElement) -> (value : Bool) -> JSIO ()
+  setTrueSpeed a b = primJS $ HTMLMarqueeElement.prim__setTrueSpeed a (toFFI b)
   
   export
   vspace : (obj : HTMLMarqueeElement) -> JSIO UInt32
@@ -3657,34 +3709,33 @@ namespace HTMLMediaElement
   audioTracks a = primJS $ HTMLMediaElement.prim__audioTracks a
   
   export
-  autoplay : (obj : HTMLMediaElement) -> JSIO Boolean
-  autoplay a = primJS $ HTMLMediaElement.prim__autoplay a
+  autoplay : (obj : HTMLMediaElement) -> JSIO Bool
+  autoplay a = tryJS "HTMLMediaElement.autoplay" $ HTMLMediaElement.prim__autoplay a
   
   export
-  setAutoplay : (obj : HTMLMediaElement) -> (value : Boolean) -> JSIO ()
-  setAutoplay a b = primJS $ HTMLMediaElement.prim__setAutoplay a b
+  setAutoplay : (obj : HTMLMediaElement) -> (value : Bool) -> JSIO ()
+  setAutoplay a b = primJS $ HTMLMediaElement.prim__setAutoplay a (toFFI b)
   
   export
   buffered : (obj : HTMLMediaElement) -> JSIO TimeRanges
   buffered a = primJS $ HTMLMediaElement.prim__buffered a
   
   export
-  controls : (obj : HTMLMediaElement) -> JSIO Boolean
-  controls a = primJS $ HTMLMediaElement.prim__controls a
+  controls : (obj : HTMLMediaElement) -> JSIO Bool
+  controls a = tryJS "HTMLMediaElement.controls" $ HTMLMediaElement.prim__controls a
   
   export
-  setControls : (obj : HTMLMediaElement) -> (value : Boolean) -> JSIO ()
-  setControls a b = primJS $ HTMLMediaElement.prim__setControls a b
+  setControls : (obj : HTMLMediaElement) -> (value : Bool) -> JSIO ()
+  setControls a b = primJS $ HTMLMediaElement.prim__setControls a (toFFI b)
   
   export
-  crossOrigin : (obj : HTMLMediaElement) -> JSIO (Nullable String)
-  crossOrigin a = primJS $ HTMLMediaElement.prim__crossOrigin a
+  crossOrigin : (obj : HTMLMediaElement) -> JSIO (Maybe String)
+  crossOrigin a = tryJS "HTMLMediaElement.crossOrigin" $ HTMLMediaElement.prim__crossOrigin a
   
   export
-  setCrossOrigin :  (obj : HTMLMediaElement)
-                 -> (value : Nullable String)
-                 -> JSIO ()
-  setCrossOrigin a b = primJS $ HTMLMediaElement.prim__setCrossOrigin a b
+  setCrossOrigin : (obj : HTMLMediaElement) -> (value : Maybe String) -> JSIO ()
+  setCrossOrigin a b = primJS $ HTMLMediaElement.prim__setCrossOrigin a
+                                                                      (toFFI b)
   
   export
   currentSrc : (obj : HTMLMediaElement) -> JSIO String
@@ -3699,12 +3750,13 @@ namespace HTMLMediaElement
   setCurrentTime a b = primJS $ HTMLMediaElement.prim__setCurrentTime a b
   
   export
-  defaultMuted : (obj : HTMLMediaElement) -> JSIO Boolean
-  defaultMuted a = primJS $ HTMLMediaElement.prim__defaultMuted a
+  defaultMuted : (obj : HTMLMediaElement) -> JSIO Bool
+  defaultMuted a = tryJS "HTMLMediaElement.defaultMuted" $ HTMLMediaElement.prim__defaultMuted a
   
   export
-  setDefaultMuted : (obj : HTMLMediaElement) -> (value : Boolean) -> JSIO ()
-  setDefaultMuted a b = primJS $ HTMLMediaElement.prim__setDefaultMuted a b
+  setDefaultMuted : (obj : HTMLMediaElement) -> (value : Bool) -> JSIO ()
+  setDefaultMuted a b = primJS $ HTMLMediaElement.prim__setDefaultMuted a
+                                                                        (toFFI b)
   
   export
   defaultPlaybackRate : (obj : HTMLMediaElement) -> JSIO Double
@@ -3722,36 +3774,36 @@ namespace HTMLMediaElement
   duration a = primJS $ HTMLMediaElement.prim__duration a
   
   export
-  ended : (obj : HTMLMediaElement) -> JSIO Boolean
-  ended a = primJS $ HTMLMediaElement.prim__ended a
+  ended : (obj : HTMLMediaElement) -> JSIO Bool
+  ended a = tryJS "HTMLMediaElement.ended" $ HTMLMediaElement.prim__ended a
   
   export
-  error : (obj : HTMLMediaElement) -> JSIO (Nullable MediaError)
-  error a = primJS $ HTMLMediaElement.prim__error a
+  error : (obj : HTMLMediaElement) -> JSIO (Maybe MediaError)
+  error a = tryJS "HTMLMediaElement.error" $ HTMLMediaElement.prim__error a
   
   export
-  loop : (obj : HTMLMediaElement) -> JSIO Boolean
-  loop a = primJS $ HTMLMediaElement.prim__loop a
+  loop : (obj : HTMLMediaElement) -> JSIO Bool
+  loop a = tryJS "HTMLMediaElement.loop" $ HTMLMediaElement.prim__loop a
   
   export
-  setLoop : (obj : HTMLMediaElement) -> (value : Boolean) -> JSIO ()
-  setLoop a b = primJS $ HTMLMediaElement.prim__setLoop a b
+  setLoop : (obj : HTMLMediaElement) -> (value : Bool) -> JSIO ()
+  setLoop a b = primJS $ HTMLMediaElement.prim__setLoop a (toFFI b)
   
   export
-  muted : (obj : HTMLMediaElement) -> JSIO Boolean
-  muted a = primJS $ HTMLMediaElement.prim__muted a
+  muted : (obj : HTMLMediaElement) -> JSIO Bool
+  muted a = tryJS "HTMLMediaElement.muted" $ HTMLMediaElement.prim__muted a
   
   export
-  setMuted : (obj : HTMLMediaElement) -> (value : Boolean) -> JSIO ()
-  setMuted a b = primJS $ HTMLMediaElement.prim__setMuted a b
+  setMuted : (obj : HTMLMediaElement) -> (value : Bool) -> JSIO ()
+  setMuted a b = primJS $ HTMLMediaElement.prim__setMuted a (toFFI b)
   
   export
   networkState : (obj : HTMLMediaElement) -> JSIO UInt16
   networkState a = primJS $ HTMLMediaElement.prim__networkState a
   
   export
-  paused : (obj : HTMLMediaElement) -> JSIO Boolean
-  paused a = primJS $ HTMLMediaElement.prim__paused a
+  paused : (obj : HTMLMediaElement) -> JSIO Bool
+  paused a = tryJS "HTMLMediaElement.paused" $ HTMLMediaElement.prim__paused a
   
   export
   playbackRate : (obj : HTMLMediaElement) -> JSIO Double
@@ -3774,12 +3826,13 @@ namespace HTMLMediaElement
   setPreload a b = primJS $ HTMLMediaElement.prim__setPreload a b
   
   export
-  preservesPitch : (obj : HTMLMediaElement) -> JSIO Boolean
-  preservesPitch a = primJS $ HTMLMediaElement.prim__preservesPitch a
+  preservesPitch : (obj : HTMLMediaElement) -> JSIO Bool
+  preservesPitch a = tryJS "HTMLMediaElement.preservesPitch" $ HTMLMediaElement.prim__preservesPitch a
   
   export
-  setPreservesPitch : (obj : HTMLMediaElement) -> (value : Boolean) -> JSIO ()
-  setPreservesPitch a b = primJS $ HTMLMediaElement.prim__setPreservesPitch a b
+  setPreservesPitch : (obj : HTMLMediaElement) -> (value : Bool) -> JSIO ()
+  setPreservesPitch a b = primJS $ HTMLMediaElement.prim__setPreservesPitch a
+                                                                            (toFFI b)
   
   export
   readyState : (obj : HTMLMediaElement) -> JSIO UInt16
@@ -3790,8 +3843,8 @@ namespace HTMLMediaElement
   seekable a = primJS $ HTMLMediaElement.prim__seekable a
   
   export
-  seeking : (obj : HTMLMediaElement) -> JSIO Boolean
-  seeking a = primJS $ HTMLMediaElement.prim__seeking a
+  seeking : (obj : HTMLMediaElement) -> JSIO Bool
+  seeking a = tryJS "HTMLMediaElement.seeking" $ HTMLMediaElement.prim__seeking a
   
   export
   src : (obj : HTMLMediaElement) -> JSIO String
@@ -3802,14 +3855,15 @@ namespace HTMLMediaElement
   setSrc a b = primJS $ HTMLMediaElement.prim__setSrc a b
   
   export
-  srcObject : (obj : HTMLMediaElement) -> JSIO (Nullable MediaProvider)
-  srcObject a = primJS $ HTMLMediaElement.prim__srcObject a
+  srcObject :  (obj : HTMLMediaElement)
+            -> JSIO (Maybe (NS I [ MediaStream , MediaSource , Blob ]))
+  srcObject a = tryJS "HTMLMediaElement.srcObject" $ HTMLMediaElement.prim__srcObject a
   
   export
   setSrcObject :  (obj : HTMLMediaElement)
-               -> (value : Nullable MediaProvider)
+               -> (value : Maybe (NS I [ MediaStream , MediaSource , Blob ]))
                -> JSIO ()
-  setSrcObject a b = primJS $ HTMLMediaElement.prim__setSrcObject a b
+  setSrcObject a b = primJS $ HTMLMediaElement.prim__setSrcObject a (toFFI b)
   
   export
   textTracks : (obj : HTMLMediaElement) -> JSIO TextTrackList
@@ -3830,22 +3884,26 @@ namespace HTMLMediaElement
   export
   addTextTrack :  (obj : HTMLMediaElement)
                -> (kind : TextTrackKind)
-               -> (label : UndefOr String)
-               -> (language : UndefOr String)
+               -> (label : Optional String)
+               -> (language : Optional String)
                -> JSIO TextTrack
-  addTextTrack a b c d = primJS $ HTMLMediaElement.prim__addTextTrack a b c d
+  addTextTrack a b c d = primJS $ HTMLMediaElement.prim__addTextTrack a
+                                                                      (toFFI b)
+                                                                      (toFFI c)
+                                                                      (toFFI d)
 
   export
   addTextTrack' :  (obj : HTMLMediaElement)
                 -> (kind : TextTrackKind)
                 -> JSIO TextTrack
-  addTextTrack' a b = addTextTrack a b undef undef
+  addTextTrack' a b = addTextTrack a b Undef Undef
   
   export
   canPlayType :  (obj : HTMLMediaElement)
               -> (type : String)
               -> JSIO CanPlayTypeResult
-  canPlayType a b = primJS $ HTMLMediaElement.prim__canPlayType a b
+  canPlayType a b = tryJS "HTMLMediaElement.canPlayType" $ HTMLMediaElement.prim__canPlayType a
+                                                                                              b
   
   export
   fastSeek : (obj : HTMLMediaElement) -> (time : Double) -> JSIO ()
@@ -3890,12 +3948,12 @@ namespace HTMLMenuElement
   new = primJS $ HTMLMenuElement.prim__new 
   
   export
-  compact : (obj : HTMLMenuElement) -> JSIO Boolean
-  compact a = primJS $ HTMLMenuElement.prim__compact a
+  compact : (obj : HTMLMenuElement) -> JSIO Bool
+  compact a = tryJS "HTMLMenuElement.compact" $ HTMLMenuElement.prim__compact a
   
   export
-  setCompact : (obj : HTMLMenuElement) -> (value : Boolean) -> JSIO ()
-  setCompact a b = primJS $ HTMLMenuElement.prim__setCompact a b
+  setCompact : (obj : HTMLMenuElement) -> (value : Bool) -> JSIO ()
+  setCompact a b = primJS $ HTMLMenuElement.prim__setCompact a (toFFI b)
 
 namespace HTMLMetaElement
   
@@ -4086,20 +4144,20 @@ namespace HTMLOListElement
   new = primJS $ HTMLOListElement.prim__new 
   
   export
-  compact : (obj : HTMLOListElement) -> JSIO Boolean
-  compact a = primJS $ HTMLOListElement.prim__compact a
+  compact : (obj : HTMLOListElement) -> JSIO Bool
+  compact a = tryJS "HTMLOListElement.compact" $ HTMLOListElement.prim__compact a
   
   export
-  setCompact : (obj : HTMLOListElement) -> (value : Boolean) -> JSIO ()
-  setCompact a b = primJS $ HTMLOListElement.prim__setCompact a b
+  setCompact : (obj : HTMLOListElement) -> (value : Bool) -> JSIO ()
+  setCompact a b = primJS $ HTMLOListElement.prim__setCompact a (toFFI b)
   
   export
-  reversed : (obj : HTMLOListElement) -> JSIO Boolean
-  reversed a = primJS $ HTMLOListElement.prim__reversed a
+  reversed : (obj : HTMLOListElement) -> JSIO Bool
+  reversed a = tryJS "HTMLOListElement.reversed" $ HTMLOListElement.prim__reversed a
   
   export
-  setReversed : (obj : HTMLOListElement) -> (value : Boolean) -> JSIO ()
-  setReversed a b = primJS $ HTMLOListElement.prim__setReversed a b
+  setReversed : (obj : HTMLOListElement) -> (value : Bool) -> JSIO ()
+  setReversed a b = primJS $ HTMLOListElement.prim__setReversed a (toFFI b)
   
   export
   start : (obj : HTMLOListElement) -> JSIO Int32
@@ -4188,12 +4246,12 @@ namespace HTMLObjectElement
   setCodeType a b = primJS $ HTMLObjectElement.prim__setCodeType a b
   
   export
-  contentDocument : (obj : HTMLObjectElement) -> JSIO (Nullable Document)
-  contentDocument a = primJS $ HTMLObjectElement.prim__contentDocument a
+  contentDocument : (obj : HTMLObjectElement) -> JSIO (Maybe Document)
+  contentDocument a = tryJS "HTMLObjectElement.contentDocument" $ HTMLObjectElement.prim__contentDocument a
   
   export
-  contentWindow : (obj : HTMLObjectElement) -> JSIO (Nullable WindowProxy)
-  contentWindow a = primJS $ HTMLObjectElement.prim__contentWindow a
+  contentWindow : (obj : HTMLObjectElement) -> JSIO (Maybe WindowProxy)
+  contentWindow a = tryJS "HTMLObjectElement.contentWindow" $ HTMLObjectElement.prim__contentWindow a
   
   export
   data_ : (obj : HTMLObjectElement) -> JSIO String
@@ -4204,16 +4262,16 @@ namespace HTMLObjectElement
   setData a b = primJS $ HTMLObjectElement.prim__setData a b
   
   export
-  declare : (obj : HTMLObjectElement) -> JSIO Boolean
-  declare a = primJS $ HTMLObjectElement.prim__declare a
+  declare : (obj : HTMLObjectElement) -> JSIO Bool
+  declare a = tryJS "HTMLObjectElement.declare" $ HTMLObjectElement.prim__declare a
   
   export
-  setDeclare : (obj : HTMLObjectElement) -> (value : Boolean) -> JSIO ()
-  setDeclare a b = primJS $ HTMLObjectElement.prim__setDeclare a b
+  setDeclare : (obj : HTMLObjectElement) -> (value : Bool) -> JSIO ()
+  setDeclare a b = primJS $ HTMLObjectElement.prim__setDeclare a (toFFI b)
   
   export
-  form : (obj : HTMLObjectElement) -> JSIO (Nullable HTMLFormElement)
-  form a = primJS $ HTMLObjectElement.prim__form a
+  form : (obj : HTMLObjectElement) -> JSIO (Maybe HTMLFormElement)
+  form a = tryJS "HTMLObjectElement.form" $ HTMLObjectElement.prim__form a
   
   export
   height : (obj : HTMLObjectElement) -> JSIO String
@@ -4288,20 +4346,20 @@ namespace HTMLObjectElement
   setWidth a b = primJS $ HTMLObjectElement.prim__setWidth a b
   
   export
-  willValidate : (obj : HTMLObjectElement) -> JSIO Boolean
-  willValidate a = primJS $ HTMLObjectElement.prim__willValidate a
+  willValidate : (obj : HTMLObjectElement) -> JSIO Bool
+  willValidate a = tryJS "HTMLObjectElement.willValidate" $ HTMLObjectElement.prim__willValidate a
   
   export
-  checkValidity : (obj : HTMLObjectElement) -> JSIO Boolean
-  checkValidity a = primJS $ HTMLObjectElement.prim__checkValidity a
+  checkValidity : (obj : HTMLObjectElement) -> JSIO Bool
+  checkValidity a = tryJS "HTMLObjectElement.checkValidity" $ HTMLObjectElement.prim__checkValidity a
   
   export
-  getSVGDocument : (obj : HTMLObjectElement) -> JSIO (Nullable Document)
-  getSVGDocument a = primJS $ HTMLObjectElement.prim__getSVGDocument a
+  getSVGDocument : (obj : HTMLObjectElement) -> JSIO (Maybe Document)
+  getSVGDocument a = tryJS "HTMLObjectElement.getSVGDocument" $ HTMLObjectElement.prim__getSVGDocument a
   
   export
-  reportValidity : (obj : HTMLObjectElement) -> JSIO Boolean
-  reportValidity a = primJS $ HTMLObjectElement.prim__reportValidity a
+  reportValidity : (obj : HTMLObjectElement) -> JSIO Bool
+  reportValidity a = tryJS "HTMLObjectElement.reportValidity" $ HTMLObjectElement.prim__reportValidity a
   
   export
   setCustomValidity : (obj : HTMLObjectElement) -> (error : String) -> JSIO ()
@@ -4330,12 +4388,12 @@ namespace HTMLOptGroupElement
   new = primJS $ HTMLOptGroupElement.prim__new 
   
   export
-  disabled : (obj : HTMLOptGroupElement) -> JSIO Boolean
-  disabled a = primJS $ HTMLOptGroupElement.prim__disabled a
+  disabled : (obj : HTMLOptGroupElement) -> JSIO Bool
+  disabled a = tryJS "HTMLOptGroupElement.disabled" $ HTMLOptGroupElement.prim__disabled a
   
   export
-  setDisabled : (obj : HTMLOptGroupElement) -> (value : Boolean) -> JSIO ()
-  setDisabled a b = primJS $ HTMLOptGroupElement.prim__setDisabled a b
+  setDisabled : (obj : HTMLOptGroupElement) -> (value : Bool) -> JSIO ()
+  setDisabled a b = primJS $ HTMLOptGroupElement.prim__setDisabled a (toFFI b)
   
   export
   label : (obj : HTMLOptGroupElement) -> JSIO String
@@ -4368,25 +4426,25 @@ namespace HTMLOptionElement
   new = primJS $ HTMLOptionElement.prim__new 
   
   export
-  defaultSelected : (obj : HTMLOptionElement) -> JSIO Boolean
-  defaultSelected a = primJS $ HTMLOptionElement.prim__defaultSelected a
+  defaultSelected : (obj : HTMLOptionElement) -> JSIO Bool
+  defaultSelected a = tryJS "HTMLOptionElement.defaultSelected" $ HTMLOptionElement.prim__defaultSelected a
   
   export
-  setDefaultSelected : (obj : HTMLOptionElement) -> (value : Boolean) -> JSIO ()
+  setDefaultSelected : (obj : HTMLOptionElement) -> (value : Bool) -> JSIO ()
   setDefaultSelected a b = primJS $ HTMLOptionElement.prim__setDefaultSelected a
-                                                                               b
+                                                                               (toFFI b)
   
   export
-  disabled : (obj : HTMLOptionElement) -> JSIO Boolean
-  disabled a = primJS $ HTMLOptionElement.prim__disabled a
+  disabled : (obj : HTMLOptionElement) -> JSIO Bool
+  disabled a = tryJS "HTMLOptionElement.disabled" $ HTMLOptionElement.prim__disabled a
   
   export
-  setDisabled : (obj : HTMLOptionElement) -> (value : Boolean) -> JSIO ()
-  setDisabled a b = primJS $ HTMLOptionElement.prim__setDisabled a b
+  setDisabled : (obj : HTMLOptionElement) -> (value : Bool) -> JSIO ()
+  setDisabled a b = primJS $ HTMLOptionElement.prim__setDisabled a (toFFI b)
   
   export
-  form : (obj : HTMLOptionElement) -> JSIO (Nullable HTMLFormElement)
-  form a = primJS $ HTMLOptionElement.prim__form a
+  form : (obj : HTMLOptionElement) -> JSIO (Maybe HTMLFormElement)
+  form a = tryJS "HTMLOptionElement.form" $ HTMLOptionElement.prim__form a
   
   export
   index : (obj : HTMLOptionElement) -> JSIO Int32
@@ -4401,12 +4459,12 @@ namespace HTMLOptionElement
   setLabel a b = primJS $ HTMLOptionElement.prim__setLabel a b
   
   export
-  selected : (obj : HTMLOptionElement) -> JSIO Boolean
-  selected a = primJS $ HTMLOptionElement.prim__selected a
+  selected : (obj : HTMLOptionElement) -> JSIO Bool
+  selected a = tryJS "HTMLOptionElement.selected" $ HTMLOptionElement.prim__selected a
   
   export
-  setSelected : (obj : HTMLOptionElement) -> (value : Boolean) -> JSIO ()
-  setSelected a b = primJS $ HTMLOptionElement.prim__setSelected a b
+  setSelected : (obj : HTMLOptionElement) -> (value : Bool) -> JSIO ()
+  setSelected a b = primJS $ HTMLOptionElement.prim__setSelected a (toFFI b)
   
   export
   text : (obj : HTMLOptionElement) -> JSIO String
@@ -4435,9 +4493,9 @@ namespace HTMLOptionsCollection
   export
   set :  (obj : HTMLOptionsCollection)
       -> (index : UInt32)
-      -> (option : Nullable HTMLOptionElement)
+      -> (option : Maybe HTMLOptionElement)
       -> JSIO ()
-  set a b c = primJS $ HTMLOptionsCollection.prim__set a b c
+  set a b c = primJS $ HTMLOptionsCollection.prim__set a b (toFFI c)
   
   export
   length : (obj : HTMLOptionsCollection) -> JSIO UInt32
@@ -4458,16 +4516,16 @@ namespace HTMLOptionsCollection
   
   export
   add :  (obj : HTMLOptionsCollection)
-      -> (element : Union2 HTMLOptionElement HTMLOptGroupElement)
-      -> (before : UndefOr (Nullable (Union2 HTMLElement Int32)))
+      -> (element : NS I [ HTMLOptionElement , HTMLOptGroupElement ])
+      -> (before : Optional (Maybe (NS I [ HTMLElement , Int32 ])))
       -> JSIO ()
-  add a b c = primJS $ HTMLOptionsCollection.prim__add a b c
+  add a b c = primJS $ HTMLOptionsCollection.prim__add a (toFFI b) (toFFI c)
 
   export
   add' :  (obj : HTMLOptionsCollection)
-       -> (element : Union2 HTMLOptionElement HTMLOptGroupElement)
+       -> (element : NS I [ HTMLOptionElement , HTMLOptGroupElement ])
        -> JSIO ()
-  add' a b = add a b undef
+  add' a b = add a b Undef
   
   export
   remove : (obj : HTMLOptionsCollection) -> (index : Int32) -> JSIO ()
@@ -4504,8 +4562,8 @@ namespace HTMLOutputElement
   setDefaultValue a b = primJS $ HTMLOutputElement.prim__setDefaultValue a b
   
   export
-  form : (obj : HTMLOutputElement) -> JSIO (Nullable HTMLFormElement)
-  form a = primJS $ HTMLOutputElement.prim__form a
+  form : (obj : HTMLOutputElement) -> JSIO (Maybe HTMLFormElement)
+  form a = tryJS "HTMLOutputElement.form" $ HTMLOutputElement.prim__form a
   
   export
   htmlFor : (obj : HTMLOutputElement) -> JSIO DOMTokenList
@@ -4544,16 +4602,16 @@ namespace HTMLOutputElement
   setValue a b = primJS $ HTMLOutputElement.prim__setValue a b
   
   export
-  willValidate : (obj : HTMLOutputElement) -> JSIO Boolean
-  willValidate a = primJS $ HTMLOutputElement.prim__willValidate a
+  willValidate : (obj : HTMLOutputElement) -> JSIO Bool
+  willValidate a = tryJS "HTMLOutputElement.willValidate" $ HTMLOutputElement.prim__willValidate a
   
   export
-  checkValidity : (obj : HTMLOutputElement) -> JSIO Boolean
-  checkValidity a = primJS $ HTMLOutputElement.prim__checkValidity a
+  checkValidity : (obj : HTMLOutputElement) -> JSIO Bool
+  checkValidity a = tryJS "HTMLOutputElement.checkValidity" $ HTMLOutputElement.prim__checkValidity a
   
   export
-  reportValidity : (obj : HTMLOutputElement) -> JSIO Boolean
-  reportValidity a = primJS $ HTMLOutputElement.prim__reportValidity a
+  reportValidity : (obj : HTMLOutputElement) -> JSIO Bool
+  reportValidity a = tryJS "HTMLOutputElement.reportValidity" $ HTMLOutputElement.prim__reportValidity a
   
   export
   setCustomValidity : (obj : HTMLOutputElement) -> (error : String) -> JSIO ()
@@ -4794,12 +4852,12 @@ namespace HTMLScriptElement
   new = primJS $ HTMLScriptElement.prim__new 
   
   export
-  async : (obj : HTMLScriptElement) -> JSIO Boolean
-  async a = primJS $ HTMLScriptElement.prim__async a
+  async : (obj : HTMLScriptElement) -> JSIO Bool
+  async a = tryJS "HTMLScriptElement.async" $ HTMLScriptElement.prim__async a
   
   export
-  setAsync : (obj : HTMLScriptElement) -> (value : Boolean) -> JSIO ()
-  setAsync a b = primJS $ HTMLScriptElement.prim__setAsync a b
+  setAsync : (obj : HTMLScriptElement) -> (value : Bool) -> JSIO ()
+  setAsync a b = primJS $ HTMLScriptElement.prim__setAsync a (toFFI b)
   
   export
   charset : (obj : HTMLScriptElement) -> JSIO String
@@ -4810,22 +4868,23 @@ namespace HTMLScriptElement
   setCharset a b = primJS $ HTMLScriptElement.prim__setCharset a b
   
   export
-  crossOrigin : (obj : HTMLScriptElement) -> JSIO (Nullable String)
-  crossOrigin a = primJS $ HTMLScriptElement.prim__crossOrigin a
+  crossOrigin : (obj : HTMLScriptElement) -> JSIO (Maybe String)
+  crossOrigin a = tryJS "HTMLScriptElement.crossOrigin" $ HTMLScriptElement.prim__crossOrigin a
   
   export
   setCrossOrigin :  (obj : HTMLScriptElement)
-                 -> (value : Nullable String)
+                 -> (value : Maybe String)
                  -> JSIO ()
-  setCrossOrigin a b = primJS $ HTMLScriptElement.prim__setCrossOrigin a b
+  setCrossOrigin a b = primJS $ HTMLScriptElement.prim__setCrossOrigin a
+                                                                       (toFFI b)
   
   export
-  defer : (obj : HTMLScriptElement) -> JSIO Boolean
-  defer a = primJS $ HTMLScriptElement.prim__defer a
+  defer : (obj : HTMLScriptElement) -> JSIO Bool
+  defer a = tryJS "HTMLScriptElement.defer" $ HTMLScriptElement.prim__defer a
   
   export
-  setDefer : (obj : HTMLScriptElement) -> (value : Boolean) -> JSIO ()
-  setDefer a b = primJS $ HTMLScriptElement.prim__setDefer a b
+  setDefer : (obj : HTMLScriptElement) -> (value : Bool) -> JSIO ()
+  setDefer a b = primJS $ HTMLScriptElement.prim__setDefer a (toFFI b)
   
   export
   event : (obj : HTMLScriptElement) -> JSIO String
@@ -4852,12 +4911,12 @@ namespace HTMLScriptElement
   setIntegrity a b = primJS $ HTMLScriptElement.prim__setIntegrity a b
   
   export
-  noModule : (obj : HTMLScriptElement) -> JSIO Boolean
-  noModule a = primJS $ HTMLScriptElement.prim__noModule a
+  noModule : (obj : HTMLScriptElement) -> JSIO Bool
+  noModule a = tryJS "HTMLScriptElement.noModule" $ HTMLScriptElement.prim__noModule a
   
   export
-  setNoModule : (obj : HTMLScriptElement) -> (value : Boolean) -> JSIO ()
-  setNoModule a b = primJS $ HTMLScriptElement.prim__setNoModule a b
+  setNoModule : (obj : HTMLScriptElement) -> (value : Bool) -> JSIO ()
+  setNoModule a b = primJS $ HTMLScriptElement.prim__setNoModule a (toFFI b)
   
   export
   referrerPolicy : (obj : HTMLScriptElement) -> JSIO String
@@ -4916,9 +4975,9 @@ namespace HTMLSelectElement
   export
   set :  (obj : HTMLSelectElement)
       -> (index : UInt32)
-      -> (option : Nullable HTMLOptionElement)
+      -> (option : Maybe HTMLOptionElement)
       -> JSIO ()
-  set a b c = primJS $ HTMLSelectElement.prim__set a b c
+  set a b c = primJS $ HTMLSelectElement.prim__set a b (toFFI c)
   
   export
   autocomplete : (obj : HTMLSelectElement) -> JSIO String
@@ -4929,16 +4988,16 @@ namespace HTMLSelectElement
   setAutocomplete a b = primJS $ HTMLSelectElement.prim__setAutocomplete a b
   
   export
-  disabled : (obj : HTMLSelectElement) -> JSIO Boolean
-  disabled a = primJS $ HTMLSelectElement.prim__disabled a
+  disabled : (obj : HTMLSelectElement) -> JSIO Bool
+  disabled a = tryJS "HTMLSelectElement.disabled" $ HTMLSelectElement.prim__disabled a
   
   export
-  setDisabled : (obj : HTMLSelectElement) -> (value : Boolean) -> JSIO ()
-  setDisabled a b = primJS $ HTMLSelectElement.prim__setDisabled a b
+  setDisabled : (obj : HTMLSelectElement) -> (value : Bool) -> JSIO ()
+  setDisabled a b = primJS $ HTMLSelectElement.prim__setDisabled a (toFFI b)
   
   export
-  form : (obj : HTMLSelectElement) -> JSIO (Nullable HTMLFormElement)
-  form a = primJS $ HTMLSelectElement.prim__form a
+  form : (obj : HTMLSelectElement) -> JSIO (Maybe HTMLFormElement)
+  form a = tryJS "HTMLSelectElement.form" $ HTMLSelectElement.prim__form a
   
   export
   labels : (obj : HTMLSelectElement) -> JSIO NodeList
@@ -4953,12 +5012,12 @@ namespace HTMLSelectElement
   setLength a b = primJS $ HTMLSelectElement.prim__setLength a b
   
   export
-  multiple : (obj : HTMLSelectElement) -> JSIO Boolean
-  multiple a = primJS $ HTMLSelectElement.prim__multiple a
+  multiple : (obj : HTMLSelectElement) -> JSIO Bool
+  multiple a = tryJS "HTMLSelectElement.multiple" $ HTMLSelectElement.prim__multiple a
   
   export
-  setMultiple : (obj : HTMLSelectElement) -> (value : Boolean) -> JSIO ()
-  setMultiple a b = primJS $ HTMLSelectElement.prim__setMultiple a b
+  setMultiple : (obj : HTMLSelectElement) -> (value : Bool) -> JSIO ()
+  setMultiple a b = primJS $ HTMLSelectElement.prim__setMultiple a (toFFI b)
   
   export
   name : (obj : HTMLSelectElement) -> JSIO String
@@ -4973,12 +5032,12 @@ namespace HTMLSelectElement
   options a = primJS $ HTMLSelectElement.prim__options a
   
   export
-  required : (obj : HTMLSelectElement) -> JSIO Boolean
-  required a = primJS $ HTMLSelectElement.prim__required a
+  required : (obj : HTMLSelectElement) -> JSIO Bool
+  required a = tryJS "HTMLSelectElement.required" $ HTMLSelectElement.prim__required a
   
   export
-  setRequired : (obj : HTMLSelectElement) -> (value : Boolean) -> JSIO ()
-  setRequired a b = primJS $ HTMLSelectElement.prim__setRequired a b
+  setRequired : (obj : HTMLSelectElement) -> (value : Bool) -> JSIO ()
+  setRequired a b = primJS $ HTMLSelectElement.prim__setRequired a (toFFI b)
   
   export
   selectedIndex : (obj : HTMLSelectElement) -> JSIO Int32
@@ -5021,37 +5080,36 @@ namespace HTMLSelectElement
   setValue a b = primJS $ HTMLSelectElement.prim__setValue a b
   
   export
-  willValidate : (obj : HTMLSelectElement) -> JSIO Boolean
-  willValidate a = primJS $ HTMLSelectElement.prim__willValidate a
+  willValidate : (obj : HTMLSelectElement) -> JSIO Bool
+  willValidate a = tryJS "HTMLSelectElement.willValidate" $ HTMLSelectElement.prim__willValidate a
   
   export
   add :  (obj : HTMLSelectElement)
-      -> (element : Union2 HTMLOptionElement HTMLOptGroupElement)
-      -> (before : UndefOr (Nullable (Union2 HTMLElement Int32)))
+      -> (element : NS I [ HTMLOptionElement , HTMLOptGroupElement ])
+      -> (before : Optional (Maybe (NS I [ HTMLElement , Int32 ])))
       -> JSIO ()
-  add a b c = primJS $ HTMLSelectElement.prim__add a b c
+  add a b c = primJS $ HTMLSelectElement.prim__add a (toFFI b) (toFFI c)
 
   export
   add' :  (obj : HTMLSelectElement)
-       -> (element : Union2 HTMLOptionElement HTMLOptGroupElement)
+       -> (element : NS I [ HTMLOptionElement , HTMLOptGroupElement ])
        -> JSIO ()
-  add' a b = add a b undef
+  add' a b = add a b Undef
   
   export
-  checkValidity : (obj : HTMLSelectElement) -> JSIO Boolean
-  checkValidity a = primJS $ HTMLSelectElement.prim__checkValidity a
+  checkValidity : (obj : HTMLSelectElement) -> JSIO Bool
+  checkValidity a = tryJS "HTMLSelectElement.checkValidity" $ HTMLSelectElement.prim__checkValidity a
   
   export
-  item :  (obj : HTMLSelectElement)
-       -> (index : UInt32)
-       -> JSIO (Nullable Element)
-  item a b = primJS $ HTMLSelectElement.prim__item a b
+  item : (obj : HTMLSelectElement) -> (index : UInt32) -> JSIO (Maybe Element)
+  item a b = tryJS "HTMLSelectElement.item" $ HTMLSelectElement.prim__item a b
   
   export
   namedItem :  (obj : HTMLSelectElement)
             -> (name : String)
-            -> JSIO (Nullable HTMLOptionElement)
-  namedItem a b = primJS $ HTMLSelectElement.prim__namedItem a b
+            -> JSIO (Maybe HTMLOptionElement)
+  namedItem a b = tryJS "HTMLSelectElement.namedItem" $ HTMLSelectElement.prim__namedItem a
+                                                                                          b
   
   export
   remove : (obj : HTMLSelectElement) -> JSIO ()
@@ -5062,8 +5120,8 @@ namespace HTMLSelectElement
   remove1 a b = primJS $ HTMLSelectElement.prim__remove1 a b
   
   export
-  reportValidity : (obj : HTMLSelectElement) -> JSIO Boolean
-  reportValidity a = primJS $ HTMLSelectElement.prim__reportValidity a
+  reportValidity : (obj : HTMLSelectElement) -> JSIO Bool
+  reportValidity a = tryJS "HTMLSelectElement.reportValidity" $ HTMLSelectElement.prim__reportValidity a
   
   export
   setCustomValidity : (obj : HTMLSelectElement) -> (error : String) -> JSIO ()
@@ -5101,23 +5159,24 @@ namespace HTMLSlotElement
   
   export
   assignedElements :  (obj : HTMLSlotElement)
-                   -> (options : UndefOr AssignedNodesOptions)
+                   -> (options : Optional AssignedNodesOptions)
                    -> JSIO (Array Element)
-  assignedElements a b = primJS $ HTMLSlotElement.prim__assignedElements a b
+  assignedElements a b = primJS $ HTMLSlotElement.prim__assignedElements a
+                                                                         (toFFI b)
 
   export
   assignedElements' : (obj : HTMLSlotElement) -> JSIO (Array Element)
-  assignedElements' a = assignedElements a undef
+  assignedElements' a = assignedElements a Undef
   
   export
   assignedNodes :  (obj : HTMLSlotElement)
-                -> (options : UndefOr AssignedNodesOptions)
+                -> (options : Optional AssignedNodesOptions)
                 -> JSIO (Array Node)
-  assignedNodes a b = primJS $ HTMLSlotElement.prim__assignedNodes a b
+  assignedNodes a b = primJS $ HTMLSlotElement.prim__assignedNodes a (toFFI b)
 
   export
   assignedNodes' : (obj : HTMLSlotElement) -> JSIO (Array Node)
-  assignedNodes' a = assignedNodes a undef
+  assignedNodes' a = assignedNodes a Undef
 
 namespace HTMLSourceElement
   
@@ -5387,12 +5446,12 @@ namespace HTMLTableCellElement
   setHeight a b = primJS $ HTMLTableCellElement.prim__setHeight a b
   
   export
-  noWrap : (obj : HTMLTableCellElement) -> JSIO Boolean
-  noWrap a = primJS $ HTMLTableCellElement.prim__noWrap a
+  noWrap : (obj : HTMLTableCellElement) -> JSIO Bool
+  noWrap a = tryJS "HTMLTableCellElement.noWrap" $ HTMLTableCellElement.prim__noWrap a
   
   export
-  setNoWrap : (obj : HTMLTableCellElement) -> (value : Boolean) -> JSIO ()
-  setNoWrap a b = primJS $ HTMLTableCellElement.prim__setNoWrap a b
+  setNoWrap : (obj : HTMLTableCellElement) -> (value : Bool) -> JSIO ()
+  setNoWrap a b = primJS $ HTMLTableCellElement.prim__setNoWrap a (toFFI b)
   
   export
   rowSpan : (obj : HTMLTableCellElement) -> JSIO UInt32
@@ -5543,14 +5602,14 @@ namespace HTMLTableElement
   setBorder a b = primJS $ HTMLTableElement.prim__setBorder a b
   
   export
-  caption : (obj : HTMLTableElement) -> JSIO (Nullable HTMLTableCaptionElement)
-  caption a = primJS $ HTMLTableElement.prim__caption a
+  caption : (obj : HTMLTableElement) -> JSIO (Maybe HTMLTableCaptionElement)
+  caption a = tryJS "HTMLTableElement.caption" $ HTMLTableElement.prim__caption a
   
   export
   setCaption :  (obj : HTMLTableElement)
-             -> (value : Nullable HTMLTableCaptionElement)
+             -> (value : Maybe HTMLTableCaptionElement)
              -> JSIO ()
-  setCaption a b = primJS $ HTMLTableElement.prim__setCaption a b
+  setCaption a b = primJS $ HTMLTableElement.prim__setCaption a (toFFI b)
   
   export
   cellPadding : (obj : HTMLTableElement) -> JSIO String
@@ -5601,24 +5660,24 @@ namespace HTMLTableElement
   tBodies a = primJS $ HTMLTableElement.prim__tBodies a
   
   export
-  tFoot : (obj : HTMLTableElement) -> JSIO (Nullable HTMLTableSectionElement)
-  tFoot a = primJS $ HTMLTableElement.prim__tFoot a
+  tFoot : (obj : HTMLTableElement) -> JSIO (Maybe HTMLTableSectionElement)
+  tFoot a = tryJS "HTMLTableElement.tFoot" $ HTMLTableElement.prim__tFoot a
   
   export
   setTFoot :  (obj : HTMLTableElement)
-           -> (value : Nullable HTMLTableSectionElement)
+           -> (value : Maybe HTMLTableSectionElement)
            -> JSIO ()
-  setTFoot a b = primJS $ HTMLTableElement.prim__setTFoot a b
+  setTFoot a b = primJS $ HTMLTableElement.prim__setTFoot a (toFFI b)
   
   export
-  tHead : (obj : HTMLTableElement) -> JSIO (Nullable HTMLTableSectionElement)
-  tHead a = primJS $ HTMLTableElement.prim__tHead a
+  tHead : (obj : HTMLTableElement) -> JSIO (Maybe HTMLTableSectionElement)
+  tHead a = tryJS "HTMLTableElement.tHead" $ HTMLTableElement.prim__tHead a
   
   export
   setTHead :  (obj : HTMLTableElement)
-           -> (value : Nullable HTMLTableSectionElement)
+           -> (value : Maybe HTMLTableSectionElement)
            -> JSIO ()
-  setTHead a b = primJS $ HTMLTableElement.prim__setTHead a b
+  setTHead a b = primJS $ HTMLTableElement.prim__setTHead a (toFFI b)
   
   export
   width : (obj : HTMLTableElement) -> JSIO String
@@ -5662,13 +5721,13 @@ namespace HTMLTableElement
   
   export
   insertRow :  (obj : HTMLTableElement)
-            -> (index : UndefOr Int32)
+            -> (index : Optional Int32)
             -> JSIO HTMLTableRowElement
-  insertRow a b = primJS $ HTMLTableElement.prim__insertRow a b
+  insertRow a b = primJS $ HTMLTableElement.prim__insertRow a (toFFI b)
 
   export
   insertRow' : (obj : HTMLTableElement) -> JSIO HTMLTableRowElement
-  insertRow' a = insertRow a undef
+  insertRow' a = insertRow a Undef
 
 namespace HTMLTableRowElement
   
@@ -5750,13 +5809,13 @@ namespace HTMLTableRowElement
   
   export
   insertCell :  (obj : HTMLTableRowElement)
-             -> (index : UndefOr Int32)
+             -> (index : Optional Int32)
              -> JSIO HTMLTableCellElement
-  insertCell a b = primJS $ HTMLTableRowElement.prim__insertCell a b
+  insertCell a b = primJS $ HTMLTableRowElement.prim__insertCell a (toFFI b)
 
   export
   insertCell' : (obj : HTMLTableRowElement) -> JSIO HTMLTableCellElement
-  insertCell' a = insertCell a undef
+  insertCell' a = insertCell a Undef
 
 namespace HTMLTableSectionElement
   
@@ -5822,13 +5881,13 @@ namespace HTMLTableSectionElement
   
   export
   insertRow :  (obj : HTMLTableSectionElement)
-            -> (index : UndefOr Int32)
+            -> (index : Optional Int32)
             -> JSIO HTMLTableRowElement
-  insertRow a b = primJS $ HTMLTableSectionElement.prim__insertRow a b
+  insertRow a b = primJS $ HTMLTableSectionElement.prim__insertRow a (toFFI b)
 
   export
   insertRow' : (obj : HTMLTableSectionElement) -> JSIO HTMLTableRowElement
-  insertRow' a = insertRow a undef
+  insertRow' a = insertRow a Undef
 
 namespace HTMLTemplateElement
   
@@ -5911,16 +5970,16 @@ namespace HTMLTextAreaElement
   setDirName a b = primJS $ HTMLTextAreaElement.prim__setDirName a b
   
   export
-  disabled : (obj : HTMLTextAreaElement) -> JSIO Boolean
-  disabled a = primJS $ HTMLTextAreaElement.prim__disabled a
+  disabled : (obj : HTMLTextAreaElement) -> JSIO Bool
+  disabled a = tryJS "HTMLTextAreaElement.disabled" $ HTMLTextAreaElement.prim__disabled a
   
   export
-  setDisabled : (obj : HTMLTextAreaElement) -> (value : Boolean) -> JSIO ()
-  setDisabled a b = primJS $ HTMLTextAreaElement.prim__setDisabled a b
+  setDisabled : (obj : HTMLTextAreaElement) -> (value : Bool) -> JSIO ()
+  setDisabled a b = primJS $ HTMLTextAreaElement.prim__setDisabled a (toFFI b)
   
   export
-  form : (obj : HTMLTextAreaElement) -> JSIO (Nullable HTMLFormElement)
-  form a = primJS $ HTMLTextAreaElement.prim__form a
+  form : (obj : HTMLTextAreaElement) -> JSIO (Maybe HTMLFormElement)
+  form a = tryJS "HTMLTextAreaElement.form" $ HTMLTextAreaElement.prim__form a
   
   export
   labels : (obj : HTMLTextAreaElement) -> JSIO NodeList
@@ -5959,20 +6018,20 @@ namespace HTMLTextAreaElement
   setPlaceholder a b = primJS $ HTMLTextAreaElement.prim__setPlaceholder a b
   
   export
-  readOnly : (obj : HTMLTextAreaElement) -> JSIO Boolean
-  readOnly a = primJS $ HTMLTextAreaElement.prim__readOnly a
+  readOnly : (obj : HTMLTextAreaElement) -> JSIO Bool
+  readOnly a = tryJS "HTMLTextAreaElement.readOnly" $ HTMLTextAreaElement.prim__readOnly a
   
   export
-  setReadOnly : (obj : HTMLTextAreaElement) -> (value : Boolean) -> JSIO ()
-  setReadOnly a b = primJS $ HTMLTextAreaElement.prim__setReadOnly a b
+  setReadOnly : (obj : HTMLTextAreaElement) -> (value : Bool) -> JSIO ()
+  setReadOnly a b = primJS $ HTMLTextAreaElement.prim__setReadOnly a (toFFI b)
   
   export
-  required : (obj : HTMLTextAreaElement) -> JSIO Boolean
-  required a = primJS $ HTMLTextAreaElement.prim__required a
+  required : (obj : HTMLTextAreaElement) -> JSIO Bool
+  required a = tryJS "HTMLTextAreaElement.required" $ HTMLTextAreaElement.prim__required a
   
   export
-  setRequired : (obj : HTMLTextAreaElement) -> (value : Boolean) -> JSIO ()
-  setRequired a b = primJS $ HTMLTextAreaElement.prim__setRequired a b
+  setRequired : (obj : HTMLTextAreaElement) -> (value : Bool) -> JSIO ()
+  setRequired a b = primJS $ HTMLTextAreaElement.prim__setRequired a (toFFI b)
   
   export
   rows : (obj : HTMLTextAreaElement) -> JSIO UInt32
@@ -6035,8 +6094,8 @@ namespace HTMLTextAreaElement
   setValue a b = primJS $ HTMLTextAreaElement.prim__setValue a b
   
   export
-  willValidate : (obj : HTMLTextAreaElement) -> JSIO Boolean
-  willValidate a = primJS $ HTMLTextAreaElement.prim__willValidate a
+  willValidate : (obj : HTMLTextAreaElement) -> JSIO Bool
+  willValidate a = tryJS "HTMLTextAreaElement.willValidate" $ HTMLTextAreaElement.prim__willValidate a
   
   export
   wrap : (obj : HTMLTextAreaElement) -> JSIO String
@@ -6047,12 +6106,12 @@ namespace HTMLTextAreaElement
   setWrap a b = primJS $ HTMLTextAreaElement.prim__setWrap a b
   
   export
-  checkValidity : (obj : HTMLTextAreaElement) -> JSIO Boolean
-  checkValidity a = primJS $ HTMLTextAreaElement.prim__checkValidity a
+  checkValidity : (obj : HTMLTextAreaElement) -> JSIO Bool
+  checkValidity a = tryJS "HTMLTextAreaElement.checkValidity" $ HTMLTextAreaElement.prim__checkValidity a
   
   export
-  reportValidity : (obj : HTMLTextAreaElement) -> JSIO Boolean
-  reportValidity a = primJS $ HTMLTextAreaElement.prim__reportValidity a
+  reportValidity : (obj : HTMLTextAreaElement) -> JSIO Bool
+  reportValidity a = tryJS "HTMLTextAreaElement.reportValidity" $ HTMLTextAreaElement.prim__reportValidity a
   
   export
   select : (obj : HTMLTextAreaElement) -> JSIO ()
@@ -6074,13 +6133,13 @@ namespace HTMLTextAreaElement
                 -> (replacement : String)
                 -> (start : UInt32)
                 -> (end : UInt32)
-                -> (selectionMode : UndefOr SelectionMode)
+                -> (selectionMode : Optional SelectionMode)
                 -> JSIO ()
   setRangeText1 a b c d e = primJS $ HTMLTextAreaElement.prim__setRangeText1 a
                                                                              b
                                                                              c
                                                                              d
-                                                                             e
+                                                                             (toFFI e)
 
   export
   setRangeText1' :  (obj : HTMLTextAreaElement)
@@ -6088,25 +6147,25 @@ namespace HTMLTextAreaElement
                  -> (start : UInt32)
                  -> (end : UInt32)
                  -> JSIO ()
-  setRangeText1' a b c d = setRangeText1 a b c d undef
+  setRangeText1' a b c d = setRangeText1 a b c d Undef
   
   export
   setSelectionRange :  (obj : HTMLTextAreaElement)
                     -> (start : UInt32)
                     -> (end : UInt32)
-                    -> (direction : UndefOr String)
+                    -> (direction : Optional String)
                     -> JSIO ()
   setSelectionRange a b c d = primJS $ HTMLTextAreaElement.prim__setSelectionRange a
                                                                                    b
                                                                                    c
-                                                                                   d
+                                                                                   (toFFI d)
 
   export
   setSelectionRange' :  (obj : HTMLTextAreaElement)
                      -> (start : UInt32)
                      -> (end : UInt32)
                      -> JSIO ()
-  setSelectionRange' a b c = setSelectionRange a b c undef
+  setSelectionRange' a b c = setSelectionRange a b c Undef
 
 namespace HTMLTimeElement
   
@@ -6207,12 +6266,12 @@ namespace HTMLTrackElement
   new = primJS $ HTMLTrackElement.prim__new 
   
   export
-  default_ : (obj : HTMLTrackElement) -> JSIO Boolean
-  default_ a = primJS $ HTMLTrackElement.prim__default a
+  default_ : (obj : HTMLTrackElement) -> JSIO Bool
+  default_ a = tryJS "HTMLTrackElement.default_" $ HTMLTrackElement.prim__default a
   
   export
-  setDefault : (obj : HTMLTrackElement) -> (value : Boolean) -> JSIO ()
-  setDefault a b = primJS $ HTMLTrackElement.prim__setDefault a b
+  setDefault : (obj : HTMLTrackElement) -> (value : Bool) -> JSIO ()
+  setDefault a b = primJS $ HTMLTrackElement.prim__setDefault a (toFFI b)
   
   export
   kind : (obj : HTMLTrackElement) -> JSIO String
@@ -6277,12 +6336,12 @@ namespace HTMLUListElement
   new = primJS $ HTMLUListElement.prim__new 
   
   export
-  compact : (obj : HTMLUListElement) -> JSIO Boolean
-  compact a = primJS $ HTMLUListElement.prim__compact a
+  compact : (obj : HTMLUListElement) -> JSIO Bool
+  compact a = tryJS "HTMLUListElement.compact" $ HTMLUListElement.prim__compact a
   
   export
-  setCompact : (obj : HTMLUListElement) -> (value : Boolean) -> JSIO ()
-  setCompact a b = primJS $ HTMLUListElement.prim__setCompact a b
+  setCompact : (obj : HTMLUListElement) -> (value : Bool) -> JSIO ()
+  setCompact a b = primJS $ HTMLUListElement.prim__setCompact a (toFFI b)
   
   export
   type : (obj : HTMLUListElement) -> JSIO String
@@ -6347,12 +6406,13 @@ namespace HTMLVideoElement
   setHeight a b = primJS $ HTMLVideoElement.prim__setHeight a b
   
   export
-  playsInline : (obj : HTMLVideoElement) -> JSIO Boolean
-  playsInline a = primJS $ HTMLVideoElement.prim__playsInline a
+  playsInline : (obj : HTMLVideoElement) -> JSIO Bool
+  playsInline a = tryJS "HTMLVideoElement.playsInline" $ HTMLVideoElement.prim__playsInline a
   
   export
-  setPlaysInline : (obj : HTMLVideoElement) -> (value : Boolean) -> JSIO ()
-  setPlaysInline a b = primJS $ HTMLVideoElement.prim__setPlaysInline a b
+  setPlaysInline : (obj : HTMLVideoElement) -> (value : Bool) -> JSIO ()
+  setPlaysInline a b = primJS $ HTMLVideoElement.prim__setPlaysInline a
+                                                                      (toFFI b)
   
   export
   poster : (obj : HTMLVideoElement) -> JSIO String
@@ -6388,13 +6448,13 @@ namespace HashChangeEvent
   
   export
   new :  (type : String)
-      -> (eventInitDict : UndefOr HashChangeEventInit)
+      -> (eventInitDict : Optional HashChangeEventInit)
       -> JSIO HashChangeEvent
-  new a b = primJS $ HashChangeEvent.prim__new a b
+  new a b = primJS $ HashChangeEvent.prim__new a (toFFI b)
 
   export
   new' : (type : String) -> JSIO HashChangeEvent
-  new' a = new a undef
+  new' a = new a Undef
   
   export
   newURL : (obj : HashChangeEvent) -> JSIO String
@@ -6418,13 +6478,14 @@ namespace History
   
   export
   scrollRestoration : (obj : History) -> JSIO ScrollRestoration
-  scrollRestoration a = primJS $ History.prim__scrollRestoration a
+  scrollRestoration a = tryJS "History.scrollRestoration" $ History.prim__scrollRestoration a
   
   export
   setScrollRestoration :  (obj : History)
                        -> (value : ScrollRestoration)
                        -> JSIO ()
-  setScrollRestoration a b = primJS $ History.prim__setScrollRestoration a b
+  setScrollRestoration a b = primJS $ History.prim__setScrollRestoration a
+                                                                         (toFFI b)
   
   export
   state : (obj : History) -> JSIO AnyPtr
@@ -6439,42 +6500,42 @@ namespace History
   forward a = primJS $ History.prim__forward a
   
   export
-  go : (obj : History) -> (delta : UndefOr Int32) -> JSIO ()
-  go a b = primJS $ History.prim__go a b
+  go : (obj : History) -> (delta : Optional Int32) -> JSIO ()
+  go a b = primJS $ History.prim__go a (toFFI b)
 
   export
   go' : (obj : History) -> JSIO ()
-  go' a = go a undef
+  go' a = go a Undef
   
   export
   pushState :  (obj : History)
             -> (data_ : AnyPtr)
             -> (unused : String)
-            -> (url : UndefOr (Nullable String))
+            -> (url : Optional (Maybe String))
             -> JSIO ()
-  pushState a b c d = primJS $ History.prim__pushState a b c d
+  pushState a b c d = primJS $ History.prim__pushState a b c (toFFI d)
 
   export
   pushState' :  (obj : History)
              -> (data_ : AnyPtr)
              -> (unused : String)
              -> JSIO ()
-  pushState' a b c = pushState a b c undef
+  pushState' a b c = pushState a b c Undef
   
   export
   replaceState :  (obj : History)
                -> (data_ : AnyPtr)
                -> (unused : String)
-               -> (url : UndefOr (Nullable String))
+               -> (url : Optional (Maybe String))
                -> JSIO ()
-  replaceState a b c d = primJS $ History.prim__replaceState a b c d
+  replaceState a b c d = primJS $ History.prim__replaceState a b c (toFFI d)
 
   export
   replaceState' :  (obj : History)
                 -> (data_ : AnyPtr)
                 -> (unused : String)
                 -> JSIO ()
-  replaceState' a b c = replaceState a b c undef
+  replaceState' a b c = replaceState a b c Undef
 
 namespace ImageBitmap
   
@@ -6506,15 +6567,15 @@ namespace ImageBitmapRenderingContext
   
   export
   canvas :  (obj : ImageBitmapRenderingContext)
-         -> JSIO (Union2 HTMLCanvasElement OffscreenCanvas)
-  canvas a = primJS $ ImageBitmapRenderingContext.prim__canvas a
+         -> JSIO (NS I [ HTMLCanvasElement , OffscreenCanvas ])
+  canvas a = tryJS "ImageBitmapRenderingContext.canvas" $ ImageBitmapRenderingContext.prim__canvas a
   
   export
   transferFromImageBitmap :  (obj : ImageBitmapRenderingContext)
-                          -> (bitmap : Nullable ImageBitmap)
+                          -> (bitmap : Maybe ImageBitmap)
                           -> JSIO ()
   transferFromImageBitmap a b = primJS $ ImageBitmapRenderingContext.prim__transferFromImageBitmap a
-                                                                                                   b
+                                                                                                   (toFFI b)
 
 namespace ImageData
   
@@ -6531,13 +6592,13 @@ namespace ImageData
   export
   new1 :  (data_ : UInt8ClampedArray)
        -> (sw : UInt32)
-       -> (sh : UndefOr UInt32)
+       -> (sh : Optional UInt32)
        -> JSIO ImageData
-  new1 a b c = primJS $ ImageData.prim__new1 a b c
+  new1 a b c = primJS $ ImageData.prim__new1 a b (toFFI c)
 
   export
   new1' : (data_ : UInt8ClampedArray) -> (sw : UInt32) -> JSIO ImageData
-  new1' a b = new1 a b undef
+  new1' a b = new1 a b Undef
   
   export
   data_ : (obj : ImageData) -> JSIO UInt8ClampedArray
@@ -6705,13 +6766,13 @@ namespace MessageEvent
   
   export
   new :  (type : String)
-      -> (eventInitDict : UndefOr MessageEventInit)
+      -> (eventInitDict : Optional MessageEventInit)
       -> JSIO MessageEvent
-  new a b = primJS $ MessageEvent.prim__new a b
+  new a b = primJS $ MessageEvent.prim__new a (toFFI b)
 
   export
   new' : (type : String) -> JSIO MessageEvent
-  new' a = new a undef
+  new' a = new a Undef
   
   export
   data_ : (obj : MessageEvent) -> JSIO AnyPtr
@@ -6730,41 +6791,45 @@ namespace MessageEvent
   ports a = primJS $ MessageEvent.prim__ports a
   
   export
-  source : (obj : MessageEvent) -> JSIO (Nullable MessageEventSource)
-  source a = primJS $ MessageEvent.prim__source a
+  source :  (obj : MessageEvent)
+         -> JSIO (Maybe (Union3 WindowProxy MessagePort ServiceWorker))
+  source a = tryJS "MessageEvent.source" $ MessageEvent.prim__source a
   
   export
   initMessageEvent :  (obj : MessageEvent)
                    -> (type : String)
-                   -> (bubbles : UndefOr Boolean)
-                   -> (cancelable : UndefOr Boolean)
-                   -> (data_ : UndefOr AnyPtr)
-                   -> (origin : UndefOr String)
-                   -> (lastEventId : UndefOr String)
-                   -> (source : UndefOr (Nullable MessageEventSource))
-                   -> (ports : UndefOr (Array MessagePort))
+                   -> (bubbles : Optional Bool)
+                   -> (cancelable : Optional Bool)
+                   -> (data_ : Optional AnyPtr)
+                   -> (origin : Optional String)
+                   -> (lastEventId : Optional String)
+                   -> (source : Optional (Maybe (NS I [ WindowProxy
+                                                      , MessagePort
+                                                      , ServiceWorker
+                                                      ])))
+                   -> (ports : Optional (Array MessagePort))
                    -> JSIO ()
   initMessageEvent a b c d e f g h i = primJS $ MessageEvent.prim__initMessageEvent a
                                                                                     b
-                                                                                    c
-                                                                                    d
-                                                                                    e
-                                                                                    f
-                                                                                    g
-                                                                                    h
-                                                                                    i
+                                                                                    (toFFI c)
+                                                                                    (toFFI d)
+                                                                                    (toFFI e)
+                                                                                    (toFFI f)
+                                                                                    (toFFI g)
+                                                                                    (toFFI h)
+                                                                                    (toFFI i)
 
   export
   initMessageEvent' : (obj : MessageEvent) -> (type : String) -> JSIO ()
   initMessageEvent' a b = initMessageEvent a
                                            b
-                                           undef
-                                           undef
-                                           undef
-                                           undef
-                                           undef
-                                           undef
-                                           undef
+                                           Undef
+                                           Undef
+                                           Undef
+                                           Undef
+                                           Undef
+                                           Undef
+                                           Undef
 
 namespace MessagePort
   
@@ -6775,20 +6840,25 @@ namespace MessagePort
     mixins =  []
   
   export
-  onmessage : (obj : MessagePort) -> JSIO EventHandler
-  onmessage a = primJS $ MessagePort.prim__onmessage a
+  onmessage : (obj : MessagePort) -> JSIO (Maybe EventHandlerNonNull)
+  onmessage a = tryJS "MessagePort.onmessage" $ MessagePort.prim__onmessage a
   
   export
-  setOnmessage : (obj : MessagePort) -> (value : EventHandler) -> JSIO ()
-  setOnmessage a b = primJS $ MessagePort.prim__setOnmessage a b
+  setOnmessage :  (obj : MessagePort)
+               -> (value : Maybe EventHandlerNonNull)
+               -> JSIO ()
+  setOnmessage a b = primJS $ MessagePort.prim__setOnmessage a (toFFI b)
   
   export
-  onmessageerror : (obj : MessagePort) -> JSIO EventHandler
-  onmessageerror a = primJS $ MessagePort.prim__onmessageerror a
+  onmessageerror : (obj : MessagePort) -> JSIO (Maybe EventHandlerNonNull)
+  onmessageerror a = tryJS "MessagePort.onmessageerror" $ MessagePort.prim__onmessageerror a
   
   export
-  setOnmessageerror : (obj : MessagePort) -> (value : EventHandler) -> JSIO ()
-  setOnmessageerror a b = primJS $ MessagePort.prim__setOnmessageerror a b
+  setOnmessageerror :  (obj : MessagePort)
+                    -> (value : Maybe EventHandlerNonNull)
+                    -> JSIO ()
+  setOnmessageerror a b = primJS $ MessagePort.prim__setOnmessageerror a
+                                                                       (toFFI b)
   
   export
   close : (obj : MessagePort) -> JSIO ()
@@ -6804,13 +6874,13 @@ namespace MessagePort
   export
   postMessage1 :  (obj : MessagePort)
                -> (message : AnyPtr)
-               -> (options : UndefOr PostMessageOptions)
+               -> (options : Optional PostMessageOptions)
                -> JSIO ()
-  postMessage1 a b c = primJS $ MessagePort.prim__postMessage1 a b c
+  postMessage1 a b c = primJS $ MessagePort.prim__postMessage1 a b (toFFI c)
 
   export
   postMessage1' : (obj : MessagePort) -> (message : AnyPtr) -> JSIO ()
-  postMessage1' a b = postMessage1 a b undef
+  postMessage1' a b = postMessage1 a b Undef
   
   export
   start : (obj : MessagePort) -> JSIO ()
@@ -6853,12 +6923,13 @@ namespace MimeTypeArray
   length a = primJS $ MimeTypeArray.prim__length a
   
   export
-  item : (obj : MimeTypeArray) -> (index : UInt32) -> JSIO (Nullable Object)
-  item a b = primJS $ MimeTypeArray.prim__item a b
+  item : (obj : MimeTypeArray) -> (index : UInt32) -> JSIO (Maybe Object)
+  item a b = tryJS "MimeTypeArray.item" $ MimeTypeArray.prim__item a b
   
   export
-  namedItem : (obj : MimeTypeArray) -> (name : String) -> JSIO (Nullable Object)
-  namedItem a b = primJS $ MimeTypeArray.prim__namedItem a b
+  namedItem : (obj : MimeTypeArray) -> (name : String) -> JSIO (Maybe Object)
+  namedItem a b = tryJS "MimeTypeArray.namedItem" $ MimeTypeArray.prim__namedItem a
+                                                                                  b
 
 namespace Navigator
   
@@ -6929,26 +7000,36 @@ namespace OffscreenCanvas
   
   export
   convertToBlob :  (obj : OffscreenCanvas)
-                -> (options : UndefOr ImageEncodeOptions)
+                -> (options : Optional ImageEncodeOptions)
                 -> JSIO (Promise Blob)
-  convertToBlob a b = primJS $ OffscreenCanvas.prim__convertToBlob a b
+  convertToBlob a b = primJS $ OffscreenCanvas.prim__convertToBlob a (toFFI b)
 
   export
   convertToBlob' : (obj : OffscreenCanvas) -> JSIO (Promise Blob)
-  convertToBlob' a = convertToBlob a undef
+  convertToBlob' a = convertToBlob a Undef
   
   export
   getContext :  (obj : OffscreenCanvas)
              -> (contextId : OffscreenRenderingContextId)
-             -> (options : UndefOr AnyPtr)
-             -> JSIO (Nullable OffscreenRenderingContext)
-  getContext a b c = primJS $ OffscreenCanvas.prim__getContext a b c
+             -> (options : Optional AnyPtr)
+             -> JSIO (Maybe (NS I [ OffscreenCanvasRenderingContext2D
+                                  , ImageBitmapRenderingContext
+                                  , WebGLRenderingContext
+                                  , WebGL2RenderingContext
+                                  ]))
+  getContext a b c = tryJS "OffscreenCanvas.getContext" $ OffscreenCanvas.prim__getContext a
+                                                                                           (toFFI b)
+                                                                                           (toFFI c)
 
   export
   getContext' :  (obj : OffscreenCanvas)
               -> (contextId : OffscreenRenderingContextId)
-              -> JSIO (Nullable OffscreenRenderingContext)
-  getContext' a b = getContext a b undef
+              -> JSIO (Maybe (NS I [ OffscreenCanvasRenderingContext2D
+                                   , ImageBitmapRenderingContext
+                                   , WebGLRenderingContext
+                                   , WebGL2RenderingContext
+                                   ]))
+  getContext' a b = getContext a b Undef
   
   export
   transferToImageBitmap : (obj : OffscreenCanvas) -> JSIO ImageBitmap
@@ -6995,17 +7076,17 @@ namespace PageTransitionEvent
   
   export
   new :  (type : String)
-      -> (eventInitDict : UndefOr PageTransitionEventInit)
+      -> (eventInitDict : Optional PageTransitionEventInit)
       -> JSIO PageTransitionEvent
-  new a b = primJS $ PageTransitionEvent.prim__new a b
+  new a b = primJS $ PageTransitionEvent.prim__new a (toFFI b)
 
   export
   new' : (type : String) -> JSIO PageTransitionEvent
-  new' a = new a undef
+  new' a = new a Undef
   
   export
-  persisted : (obj : PageTransitionEvent) -> JSIO Boolean
-  persisted a = primJS $ PageTransitionEvent.prim__persisted a
+  persisted : (obj : PageTransitionEvent) -> JSIO Bool
+  persisted a = tryJS "PageTransitionEvent.persisted" $ PageTransitionEvent.prim__persisted a
 
 namespace Path2D
   
@@ -7016,23 +7097,23 @@ namespace Path2D
     mixins =  [ CanvasPath ]
   
   export
-  new : (path : UndefOr (Union2 Path2D String)) -> JSIO Path2D
-  new a = primJS $ Path2D.prim__new a
+  new : (path : Optional (NS I [ Path2D , String ])) -> JSIO Path2D
+  new a = primJS $ Path2D.prim__new (toFFI a)
 
   export
   new' : JSIO Path2D
-  new' = new undef
+  new' = new Undef
   
   export
   addPath :  (obj : Path2D)
           -> (path : Path2D)
-          -> (transform : UndefOr DOMMatrix2DInit)
+          -> (transform : Optional DOMMatrix2DInit)
           -> JSIO ()
-  addPath a b c = primJS $ Path2D.prim__addPath a b c
+  addPath a b c = primJS $ Path2D.prim__addPath a b (toFFI c)
 
   export
   addPath' : (obj : Path2D) -> (path : Path2D) -> JSIO ()
-  addPath' a b = addPath a b undef
+  addPath' a b = addPath a b Undef
 
 namespace Plugin
   
@@ -7079,12 +7160,13 @@ namespace PluginArray
   length a = primJS $ PluginArray.prim__length a
   
   export
-  item : (obj : PluginArray) -> (index : UInt32) -> JSIO (Nullable Object)
-  item a b = primJS $ PluginArray.prim__item a b
+  item : (obj : PluginArray) -> (index : UInt32) -> JSIO (Maybe Object)
+  item a b = tryJS "PluginArray.item" $ PluginArray.prim__item a b
   
   export
-  namedItem : (obj : PluginArray) -> (name : String) -> JSIO (Nullable Object)
-  namedItem a b = primJS $ PluginArray.prim__namedItem a b
+  namedItem : (obj : PluginArray) -> (name : String) -> JSIO (Maybe Object)
+  namedItem a b = tryJS "PluginArray.namedItem" $ PluginArray.prim__namedItem a
+                                                                              b
   
   export
   refresh : (obj : PluginArray) -> JSIO ()
@@ -7100,13 +7182,13 @@ namespace PopStateEvent
   
   export
   new :  (type : String)
-      -> (eventInitDict : UndefOr PopStateEventInit)
+      -> (eventInitDict : Optional PopStateEventInit)
       -> JSIO PopStateEvent
-  new a b = primJS $ PopStateEvent.prim__new a b
+  new a b = primJS $ PopStateEvent.prim__new a (toFFI b)
 
   export
   new' : (type : String) -> JSIO PopStateEvent
-  new' a = new a undef
+  new' a = new a Undef
   
   export
   state : (obj : PopStateEvent) -> JSIO AnyPtr
@@ -7160,13 +7242,13 @@ namespace SharedWorker
   
   export
   new :  (scriptURL : String)
-      -> (options : UndefOr (Union2 String WorkerOptions))
+      -> (options : Optional (NS I [ String , WorkerOptions ]))
       -> JSIO SharedWorker
-  new a b = primJS $ SharedWorker.prim__new a b
+  new a b = primJS $ SharedWorker.prim__new a (toFFI b)
 
   export
   new' : (scriptURL : String) -> JSIO SharedWorker
-  new' a = new a undef
+  new' a = new a Undef
   
   export
   port : (obj : SharedWorker) -> JSIO MessagePort
@@ -7185,14 +7267,16 @@ namespace SharedWorkerGlobalScope
   name a = primJS $ SharedWorkerGlobalScope.prim__name a
   
   export
-  onconnect : (obj : SharedWorkerGlobalScope) -> JSIO EventHandler
-  onconnect a = primJS $ SharedWorkerGlobalScope.prim__onconnect a
+  onconnect :  (obj : SharedWorkerGlobalScope)
+            -> JSIO (Maybe EventHandlerNonNull)
+  onconnect a = tryJS "SharedWorkerGlobalScope.onconnect" $ SharedWorkerGlobalScope.prim__onconnect a
   
   export
   setOnconnect :  (obj : SharedWorkerGlobalScope)
-               -> (value : EventHandler)
+               -> (value : Maybe EventHandlerNonNull)
                -> JSIO ()
-  setOnconnect a b = primJS $ SharedWorkerGlobalScope.prim__setOnconnect a b
+  setOnconnect a b = primJS $ SharedWorkerGlobalScope.prim__setOnconnect a
+                                                                         (toFFI b)
   
   export
   close : (obj : SharedWorkerGlobalScope) -> JSIO ()
@@ -7215,12 +7299,12 @@ namespace Storage
   clear a = primJS $ Storage.prim__clear a
   
   export
-  getItem : (obj : Storage) -> (key : String) -> JSIO (Nullable String)
-  getItem a b = primJS $ Storage.prim__getItem a b
+  getItem : (obj : Storage) -> (key : String) -> JSIO (Maybe String)
+  getItem a b = tryJS "Storage.getItem" $ Storage.prim__getItem a b
   
   export
-  key : (obj : Storage) -> (index : UInt32) -> JSIO (Nullable String)
-  key a b = primJS $ Storage.prim__key a b
+  key : (obj : Storage) -> (index : UInt32) -> JSIO (Maybe String)
+  key a b = tryJS "Storage.key" $ Storage.prim__key a b
   
   export
   setItem : (obj : Storage) -> (key : String) -> (value : String) -> JSIO ()
@@ -7236,29 +7320,29 @@ namespace StorageEvent
   
   export
   new :  (type : String)
-      -> (eventInitDict : UndefOr StorageEventInit)
+      -> (eventInitDict : Optional StorageEventInit)
       -> JSIO StorageEvent
-  new a b = primJS $ StorageEvent.prim__new a b
+  new a b = primJS $ StorageEvent.prim__new a (toFFI b)
 
   export
   new' : (type : String) -> JSIO StorageEvent
-  new' a = new a undef
+  new' a = new a Undef
   
   export
-  key : (obj : StorageEvent) -> JSIO (Nullable String)
-  key a = primJS $ StorageEvent.prim__key a
+  key : (obj : StorageEvent) -> JSIO (Maybe String)
+  key a = tryJS "StorageEvent.key" $ StorageEvent.prim__key a
   
   export
-  newValue : (obj : StorageEvent) -> JSIO (Nullable String)
-  newValue a = primJS $ StorageEvent.prim__newValue a
+  newValue : (obj : StorageEvent) -> JSIO (Maybe String)
+  newValue a = tryJS "StorageEvent.newValue" $ StorageEvent.prim__newValue a
   
   export
-  oldValue : (obj : StorageEvent) -> JSIO (Nullable String)
-  oldValue a = primJS $ StorageEvent.prim__oldValue a
+  oldValue : (obj : StorageEvent) -> JSIO (Maybe String)
+  oldValue a = tryJS "StorageEvent.oldValue" $ StorageEvent.prim__oldValue a
   
   export
-  storageArea : (obj : StorageEvent) -> JSIO (Nullable Storage)
-  storageArea a = primJS $ StorageEvent.prim__storageArea a
+  storageArea : (obj : StorageEvent) -> JSIO (Maybe Storage)
+  storageArea a = tryJS "StorageEvent.storageArea" $ StorageEvent.prim__storageArea a
   
   export
   url : (obj : StorageEvent) -> JSIO String
@@ -7267,35 +7351,35 @@ namespace StorageEvent
   export
   initStorageEvent :  (obj : StorageEvent)
                    -> (type : String)
-                   -> (bubbles : UndefOr Boolean)
-                   -> (cancelable : UndefOr Boolean)
-                   -> (key : UndefOr (Nullable String))
-                   -> (oldValue : UndefOr (Nullable String))
-                   -> (newValue : UndefOr (Nullable String))
-                   -> (url : UndefOr String)
-                   -> (storageArea : UndefOr (Nullable Storage))
+                   -> (bubbles : Optional Bool)
+                   -> (cancelable : Optional Bool)
+                   -> (key : Optional (Maybe String))
+                   -> (oldValue : Optional (Maybe String))
+                   -> (newValue : Optional (Maybe String))
+                   -> (url : Optional String)
+                   -> (storageArea : Optional (Maybe Storage))
                    -> JSIO ()
   initStorageEvent a b c d e f g h i = primJS $ StorageEvent.prim__initStorageEvent a
                                                                                     b
-                                                                                    c
-                                                                                    d
-                                                                                    e
-                                                                                    f
-                                                                                    g
-                                                                                    h
-                                                                                    i
+                                                                                    (toFFI c)
+                                                                                    (toFFI d)
+                                                                                    (toFFI e)
+                                                                                    (toFFI f)
+                                                                                    (toFFI g)
+                                                                                    (toFFI h)
+                                                                                    (toFFI i)
 
   export
   initStorageEvent' : (obj : StorageEvent) -> (type : String) -> JSIO ()
   initStorageEvent' a b = initStorageEvent a
                                            b
-                                           undef
-                                           undef
-                                           undef
-                                           undef
-                                           undef
-                                           undef
-                                           undef
+                                           Undef
+                                           Undef
+                                           Undef
+                                           Undef
+                                           Undef
+                                           Undef
+                                           Undef
 
 namespace SubmitEvent
   
@@ -7307,17 +7391,17 @@ namespace SubmitEvent
   
   export
   new :  (type : String)
-      -> (eventInitDict : UndefOr SubmitEventInit)
+      -> (eventInitDict : Optional SubmitEventInit)
       -> JSIO SubmitEvent
-  new a b = primJS $ SubmitEvent.prim__new a b
+  new a b = primJS $ SubmitEvent.prim__new a (toFFI b)
 
   export
   new' : (type : String) -> JSIO SubmitEvent
-  new' a = new a undef
+  new' a = new a Undef
   
   export
-  submitter : (obj : SubmitEvent) -> JSIO (Nullable HTMLElement)
-  submitter a = primJS $ SubmitEvent.prim__submitter a
+  submitter : (obj : SubmitEvent) -> JSIO (Maybe HTMLElement)
+  submitter a = tryJS "SubmitEvent.submitter" $ SubmitEvent.prim__submitter a
 
 namespace TextMetrics
   
@@ -7384,12 +7468,12 @@ namespace TextTrack
     mixins =  []
   
   export
-  activeCues : (obj : TextTrack) -> JSIO (Nullable TextTrackCueList)
-  activeCues a = primJS $ TextTrack.prim__activeCues a
+  activeCues : (obj : TextTrack) -> JSIO (Maybe TextTrackCueList)
+  activeCues a = tryJS "TextTrack.activeCues" $ TextTrack.prim__activeCues a
   
   export
-  cues : (obj : TextTrack) -> JSIO (Nullable TextTrackCueList)
-  cues a = primJS $ TextTrack.prim__cues a
+  cues : (obj : TextTrack) -> JSIO (Maybe TextTrackCueList)
+  cues a = tryJS "TextTrack.cues" $ TextTrack.prim__cues a
   
   export
   id : (obj : TextTrack) -> JSIO String
@@ -7401,7 +7485,7 @@ namespace TextTrack
   
   export
   kind : (obj : TextTrack) -> JSIO TextTrackKind
-  kind a = primJS $ TextTrack.prim__kind a
+  kind a = tryJS "TextTrack.kind" $ TextTrack.prim__kind a
   
   export
   label : (obj : TextTrack) -> JSIO String
@@ -7413,23 +7497,25 @@ namespace TextTrack
   
   export
   mode : (obj : TextTrack) -> JSIO TextTrackMode
-  mode a = primJS $ TextTrack.prim__mode a
+  mode a = tryJS "TextTrack.mode" $ TextTrack.prim__mode a
   
   export
   setMode : (obj : TextTrack) -> (value : TextTrackMode) -> JSIO ()
-  setMode a b = primJS $ TextTrack.prim__setMode a b
+  setMode a b = primJS $ TextTrack.prim__setMode a (toFFI b)
   
   export
-  oncuechange : (obj : TextTrack) -> JSIO EventHandler
-  oncuechange a = primJS $ TextTrack.prim__oncuechange a
+  oncuechange : (obj : TextTrack) -> JSIO (Maybe EventHandlerNonNull)
+  oncuechange a = tryJS "TextTrack.oncuechange" $ TextTrack.prim__oncuechange a
   
   export
-  setOncuechange : (obj : TextTrack) -> (value : EventHandler) -> JSIO ()
-  setOncuechange a b = primJS $ TextTrack.prim__setOncuechange a b
+  setOncuechange :  (obj : TextTrack)
+                 -> (value : Maybe EventHandlerNonNull)
+                 -> JSIO ()
+  setOncuechange a b = primJS $ TextTrack.prim__setOncuechange a (toFFI b)
   
   export
-  sourceBuffer : (obj : TextTrack) -> JSIO (Nullable SourceBuffer)
-  sourceBuffer a = primJS $ TextTrack.prim__sourceBuffer a
+  sourceBuffer : (obj : TextTrack) -> JSIO (Maybe SourceBuffer)
+  sourceBuffer a = tryJS "TextTrack.sourceBuffer" $ TextTrack.prim__sourceBuffer a
   
   export
   addCue : (obj : TextTrack) -> (cue : TextTrackCue) -> JSIO ()
@@ -7464,28 +7550,32 @@ namespace TextTrackCue
   setId a b = primJS $ TextTrackCue.prim__setId a b
   
   export
-  onenter : (obj : TextTrackCue) -> JSIO EventHandler
-  onenter a = primJS $ TextTrackCue.prim__onenter a
+  onenter : (obj : TextTrackCue) -> JSIO (Maybe EventHandlerNonNull)
+  onenter a = tryJS "TextTrackCue.onenter" $ TextTrackCue.prim__onenter a
   
   export
-  setOnenter : (obj : TextTrackCue) -> (value : EventHandler) -> JSIO ()
-  setOnenter a b = primJS $ TextTrackCue.prim__setOnenter a b
+  setOnenter :  (obj : TextTrackCue)
+             -> (value : Maybe EventHandlerNonNull)
+             -> JSIO ()
+  setOnenter a b = primJS $ TextTrackCue.prim__setOnenter a (toFFI b)
   
   export
-  onexit : (obj : TextTrackCue) -> JSIO EventHandler
-  onexit a = primJS $ TextTrackCue.prim__onexit a
+  onexit : (obj : TextTrackCue) -> JSIO (Maybe EventHandlerNonNull)
+  onexit a = tryJS "TextTrackCue.onexit" $ TextTrackCue.prim__onexit a
   
   export
-  setOnexit : (obj : TextTrackCue) -> (value : EventHandler) -> JSIO ()
-  setOnexit a b = primJS $ TextTrackCue.prim__setOnexit a b
+  setOnexit :  (obj : TextTrackCue)
+            -> (value : Maybe EventHandlerNonNull)
+            -> JSIO ()
+  setOnexit a b = primJS $ TextTrackCue.prim__setOnexit a (toFFI b)
   
   export
-  pauseOnExit : (obj : TextTrackCue) -> JSIO Boolean
-  pauseOnExit a = primJS $ TextTrackCue.prim__pauseOnExit a
+  pauseOnExit : (obj : TextTrackCue) -> JSIO Bool
+  pauseOnExit a = tryJS "TextTrackCue.pauseOnExit" $ TextTrackCue.prim__pauseOnExit a
   
   export
-  setPauseOnExit : (obj : TextTrackCue) -> (value : Boolean) -> JSIO ()
-  setPauseOnExit a b = primJS $ TextTrackCue.prim__setPauseOnExit a b
+  setPauseOnExit : (obj : TextTrackCue) -> (value : Bool) -> JSIO ()
+  setPauseOnExit a b = primJS $ TextTrackCue.prim__setPauseOnExit a (toFFI b)
   
   export
   startTime : (obj : TextTrackCue) -> JSIO Double
@@ -7496,8 +7586,8 @@ namespace TextTrackCue
   setStartTime a b = primJS $ TextTrackCue.prim__setStartTime a b
   
   export
-  track : (obj : TextTrackCue) -> JSIO (Nullable TextTrack)
-  track a = primJS $ TextTrackCue.prim__track a
+  track : (obj : TextTrackCue) -> JSIO (Maybe TextTrack)
+  track a = tryJS "TextTrackCue.track" $ TextTrackCue.prim__track a
 
 namespace TextTrackCueList
   
@@ -7518,8 +7608,9 @@ namespace TextTrackCueList
   export
   getCueById :  (obj : TextTrackCueList)
              -> (id : String)
-             -> JSIO (Nullable TextTrackCue)
-  getCueById a b = primJS $ TextTrackCueList.prim__getCueById a b
+             -> JSIO (Maybe TextTrackCue)
+  getCueById a b = tryJS "TextTrackCueList.getCueById" $ TextTrackCueList.prim__getCueById a
+                                                                                           b
 
 namespace TextTrackList
   
@@ -7538,34 +7629,42 @@ namespace TextTrackList
   length a = primJS $ TextTrackList.prim__length a
   
   export
-  onaddtrack : (obj : TextTrackList) -> JSIO EventHandler
-  onaddtrack a = primJS $ TextTrackList.prim__onaddtrack a
+  onaddtrack : (obj : TextTrackList) -> JSIO (Maybe EventHandlerNonNull)
+  onaddtrack a = tryJS "TextTrackList.onaddtrack" $ TextTrackList.prim__onaddtrack a
   
   export
-  setOnaddtrack : (obj : TextTrackList) -> (value : EventHandler) -> JSIO ()
-  setOnaddtrack a b = primJS $ TextTrackList.prim__setOnaddtrack a b
+  setOnaddtrack :  (obj : TextTrackList)
+                -> (value : Maybe EventHandlerNonNull)
+                -> JSIO ()
+  setOnaddtrack a b = primJS $ TextTrackList.prim__setOnaddtrack a (toFFI b)
   
   export
-  onchange : (obj : TextTrackList) -> JSIO EventHandler
-  onchange a = primJS $ TextTrackList.prim__onchange a
+  onchange : (obj : TextTrackList) -> JSIO (Maybe EventHandlerNonNull)
+  onchange a = tryJS "TextTrackList.onchange" $ TextTrackList.prim__onchange a
   
   export
-  setOnchange : (obj : TextTrackList) -> (value : EventHandler) -> JSIO ()
-  setOnchange a b = primJS $ TextTrackList.prim__setOnchange a b
+  setOnchange :  (obj : TextTrackList)
+              -> (value : Maybe EventHandlerNonNull)
+              -> JSIO ()
+  setOnchange a b = primJS $ TextTrackList.prim__setOnchange a (toFFI b)
   
   export
-  onremovetrack : (obj : TextTrackList) -> JSIO EventHandler
-  onremovetrack a = primJS $ TextTrackList.prim__onremovetrack a
+  onremovetrack : (obj : TextTrackList) -> JSIO (Maybe EventHandlerNonNull)
+  onremovetrack a = tryJS "TextTrackList.onremovetrack" $ TextTrackList.prim__onremovetrack a
   
   export
-  setOnremovetrack : (obj : TextTrackList) -> (value : EventHandler) -> JSIO ()
-  setOnremovetrack a b = primJS $ TextTrackList.prim__setOnremovetrack a b
+  setOnremovetrack :  (obj : TextTrackList)
+                   -> (value : Maybe EventHandlerNonNull)
+                   -> JSIO ()
+  setOnremovetrack a b = primJS $ TextTrackList.prim__setOnremovetrack a
+                                                                       (toFFI b)
   
   export
   getTrackById :  (obj : TextTrackList)
                -> (id : String)
-               -> JSIO (Nullable TextTrack)
-  getTrackById a b = primJS $ TextTrackList.prim__getTrackById a b
+               -> JSIO (Maybe TextTrack)
+  getTrackById a b = tryJS "TextTrackList.getTrackById" $ TextTrackList.prim__getTrackById a
+                                                                                           b
 
 namespace TimeRanges
   
@@ -7597,18 +7696,18 @@ namespace TrackEvent
   
   export
   new :  (type : String)
-      -> (eventInitDict : UndefOr TrackEventInit)
+      -> (eventInitDict : Optional TrackEventInit)
       -> JSIO TrackEvent
-  new a b = primJS $ TrackEvent.prim__new a b
+  new a b = primJS $ TrackEvent.prim__new a (toFFI b)
 
   export
   new' : (type : String) -> JSIO TrackEvent
-  new' a = new a undef
+  new' a = new a Undef
   
   export
   track :  (obj : TrackEvent)
-        -> JSIO (Nullable (Union3 VideoTrack AudioTrack TextTrack))
-  track a = primJS $ TrackEvent.prim__track a
+        -> JSIO (Maybe (NS I [ VideoTrack , AudioTrack , TextTrack ]))
+  track a = tryJS "TrackEvent.track" $ TrackEvent.prim__track a
 
 namespace ValidityState
   
@@ -7619,48 +7718,48 @@ namespace ValidityState
     mixins =  []
   
   export
-  badInput : (obj : ValidityState) -> JSIO Boolean
-  badInput a = primJS $ ValidityState.prim__badInput a
+  badInput : (obj : ValidityState) -> JSIO Bool
+  badInput a = tryJS "ValidityState.badInput" $ ValidityState.prim__badInput a
   
   export
-  customError : (obj : ValidityState) -> JSIO Boolean
-  customError a = primJS $ ValidityState.prim__customError a
+  customError : (obj : ValidityState) -> JSIO Bool
+  customError a = tryJS "ValidityState.customError" $ ValidityState.prim__customError a
   
   export
-  patternMismatch : (obj : ValidityState) -> JSIO Boolean
-  patternMismatch a = primJS $ ValidityState.prim__patternMismatch a
+  patternMismatch : (obj : ValidityState) -> JSIO Bool
+  patternMismatch a = tryJS "ValidityState.patternMismatch" $ ValidityState.prim__patternMismatch a
   
   export
-  rangeOverflow : (obj : ValidityState) -> JSIO Boolean
-  rangeOverflow a = primJS $ ValidityState.prim__rangeOverflow a
+  rangeOverflow : (obj : ValidityState) -> JSIO Bool
+  rangeOverflow a = tryJS "ValidityState.rangeOverflow" $ ValidityState.prim__rangeOverflow a
   
   export
-  rangeUnderflow : (obj : ValidityState) -> JSIO Boolean
-  rangeUnderflow a = primJS $ ValidityState.prim__rangeUnderflow a
+  rangeUnderflow : (obj : ValidityState) -> JSIO Bool
+  rangeUnderflow a = tryJS "ValidityState.rangeUnderflow" $ ValidityState.prim__rangeUnderflow a
   
   export
-  stepMismatch : (obj : ValidityState) -> JSIO Boolean
-  stepMismatch a = primJS $ ValidityState.prim__stepMismatch a
+  stepMismatch : (obj : ValidityState) -> JSIO Bool
+  stepMismatch a = tryJS "ValidityState.stepMismatch" $ ValidityState.prim__stepMismatch a
   
   export
-  tooLong : (obj : ValidityState) -> JSIO Boolean
-  tooLong a = primJS $ ValidityState.prim__tooLong a
+  tooLong : (obj : ValidityState) -> JSIO Bool
+  tooLong a = tryJS "ValidityState.tooLong" $ ValidityState.prim__tooLong a
   
   export
-  tooShort : (obj : ValidityState) -> JSIO Boolean
-  tooShort a = primJS $ ValidityState.prim__tooShort a
+  tooShort : (obj : ValidityState) -> JSIO Bool
+  tooShort a = tryJS "ValidityState.tooShort" $ ValidityState.prim__tooShort a
   
   export
-  typeMismatch : (obj : ValidityState) -> JSIO Boolean
-  typeMismatch a = primJS $ ValidityState.prim__typeMismatch a
+  typeMismatch : (obj : ValidityState) -> JSIO Bool
+  typeMismatch a = tryJS "ValidityState.typeMismatch" $ ValidityState.prim__typeMismatch a
   
   export
-  valid : (obj : ValidityState) -> JSIO Boolean
-  valid a = primJS $ ValidityState.prim__valid a
+  valid : (obj : ValidityState) -> JSIO Bool
+  valid a = tryJS "ValidityState.valid" $ ValidityState.prim__valid a
   
   export
-  valueMissing : (obj : ValidityState) -> JSIO Boolean
-  valueMissing a = primJS $ ValidityState.prim__valueMissing a
+  valueMissing : (obj : ValidityState) -> JSIO Bool
+  valueMissing a = tryJS "ValidityState.valueMissing" $ ValidityState.prim__valueMissing a
 
 namespace VideoTrack
   
@@ -7687,16 +7786,16 @@ namespace VideoTrack
   language a = primJS $ VideoTrack.prim__language a
   
   export
-  selected : (obj : VideoTrack) -> JSIO Boolean
-  selected a = primJS $ VideoTrack.prim__selected a
+  selected : (obj : VideoTrack) -> JSIO Bool
+  selected a = tryJS "VideoTrack.selected" $ VideoTrack.prim__selected a
   
   export
-  setSelected : (obj : VideoTrack) -> (value : Boolean) -> JSIO ()
-  setSelected a b = primJS $ VideoTrack.prim__setSelected a b
+  setSelected : (obj : VideoTrack) -> (value : Bool) -> JSIO ()
+  setSelected a b = primJS $ VideoTrack.prim__setSelected a (toFFI b)
   
   export
-  sourceBuffer : (obj : VideoTrack) -> JSIO (Nullable SourceBuffer)
-  sourceBuffer a = primJS $ VideoTrack.prim__sourceBuffer a
+  sourceBuffer : (obj : VideoTrack) -> JSIO (Maybe SourceBuffer)
+  sourceBuffer a = tryJS "VideoTrack.sourceBuffer" $ VideoTrack.prim__sourceBuffer a
 
 namespace VideoTrackList
   
@@ -7715,28 +7814,35 @@ namespace VideoTrackList
   length a = primJS $ VideoTrackList.prim__length a
   
   export
-  onaddtrack : (obj : VideoTrackList) -> JSIO EventHandler
-  onaddtrack a = primJS $ VideoTrackList.prim__onaddtrack a
+  onaddtrack : (obj : VideoTrackList) -> JSIO (Maybe EventHandlerNonNull)
+  onaddtrack a = tryJS "VideoTrackList.onaddtrack" $ VideoTrackList.prim__onaddtrack a
   
   export
-  setOnaddtrack : (obj : VideoTrackList) -> (value : EventHandler) -> JSIO ()
-  setOnaddtrack a b = primJS $ VideoTrackList.prim__setOnaddtrack a b
+  setOnaddtrack :  (obj : VideoTrackList)
+                -> (value : Maybe EventHandlerNonNull)
+                -> JSIO ()
+  setOnaddtrack a b = primJS $ VideoTrackList.prim__setOnaddtrack a (toFFI b)
   
   export
-  onchange : (obj : VideoTrackList) -> JSIO EventHandler
-  onchange a = primJS $ VideoTrackList.prim__onchange a
+  onchange : (obj : VideoTrackList) -> JSIO (Maybe EventHandlerNonNull)
+  onchange a = tryJS "VideoTrackList.onchange" $ VideoTrackList.prim__onchange a
   
   export
-  setOnchange : (obj : VideoTrackList) -> (value : EventHandler) -> JSIO ()
-  setOnchange a b = primJS $ VideoTrackList.prim__setOnchange a b
+  setOnchange :  (obj : VideoTrackList)
+              -> (value : Maybe EventHandlerNonNull)
+              -> JSIO ()
+  setOnchange a b = primJS $ VideoTrackList.prim__setOnchange a (toFFI b)
   
   export
-  onremovetrack : (obj : VideoTrackList) -> JSIO EventHandler
-  onremovetrack a = primJS $ VideoTrackList.prim__onremovetrack a
+  onremovetrack : (obj : VideoTrackList) -> JSIO (Maybe EventHandlerNonNull)
+  onremovetrack a = tryJS "VideoTrackList.onremovetrack" $ VideoTrackList.prim__onremovetrack a
   
   export
-  setOnremovetrack : (obj : VideoTrackList) -> (value : EventHandler) -> JSIO ()
-  setOnremovetrack a b = primJS $ VideoTrackList.prim__setOnremovetrack a b
+  setOnremovetrack :  (obj : VideoTrackList)
+                   -> (value : Maybe EventHandlerNonNull)
+                   -> JSIO ()
+  setOnremovetrack a b = primJS $ VideoTrackList.prim__setOnremovetrack a
+                                                                        (toFFI b)
   
   export
   selectedIndex : (obj : VideoTrackList) -> JSIO Int32
@@ -7745,8 +7851,9 @@ namespace VideoTrackList
   export
   getTrackById :  (obj : VideoTrackList)
                -> (id : String)
-               -> JSIO (Nullable VideoTrack)
-  getTrackById a b = primJS $ VideoTrackList.prim__getTrackById a b
+               -> JSIO (Maybe VideoTrack)
+  getTrackById a b = tryJS "VideoTrackList.getTrackById" $ VideoTrackList.prim__getTrackById a
+                                                                                             b
 
 namespace WebSocket
   
@@ -7774,21 +7881,21 @@ namespace WebSocket
   
   export
   new :  (url : String)
-      -> (protocols : UndefOr (Union2 String (Array String)))
+      -> (protocols : Optional (NS I [ String , Array String ]))
       -> JSIO WebSocket
-  new a b = primJS $ WebSocket.prim__new a b
+  new a b = primJS $ WebSocket.prim__new a (toFFI b)
 
   export
   new' : (url : String) -> JSIO WebSocket
-  new' a = new a undef
+  new' a = new a Undef
   
   export
   binaryType : (obj : WebSocket) -> JSIO BinaryType
-  binaryType a = primJS $ WebSocket.prim__binaryType a
+  binaryType a = tryJS "WebSocket.binaryType" $ WebSocket.prim__binaryType a
   
   export
   setBinaryType : (obj : WebSocket) -> (value : BinaryType) -> JSIO ()
-  setBinaryType a b = primJS $ WebSocket.prim__setBinaryType a b
+  setBinaryType a b = primJS $ WebSocket.prim__setBinaryType a (toFFI b)
   
   export
   bufferedAmount : (obj : WebSocket) -> JSIO UInt64
@@ -7799,36 +7906,44 @@ namespace WebSocket
   extensions a = primJS $ WebSocket.prim__extensions a
   
   export
-  onclose : (obj : WebSocket) -> JSIO EventHandler
-  onclose a = primJS $ WebSocket.prim__onclose a
+  onclose : (obj : WebSocket) -> JSIO (Maybe EventHandlerNonNull)
+  onclose a = tryJS "WebSocket.onclose" $ WebSocket.prim__onclose a
   
   export
-  setOnclose : (obj : WebSocket) -> (value : EventHandler) -> JSIO ()
-  setOnclose a b = primJS $ WebSocket.prim__setOnclose a b
+  setOnclose :  (obj : WebSocket)
+             -> (value : Maybe EventHandlerNonNull)
+             -> JSIO ()
+  setOnclose a b = primJS $ WebSocket.prim__setOnclose a (toFFI b)
   
   export
-  onerror : (obj : WebSocket) -> JSIO EventHandler
-  onerror a = primJS $ WebSocket.prim__onerror a
+  onerror : (obj : WebSocket) -> JSIO (Maybe EventHandlerNonNull)
+  onerror a = tryJS "WebSocket.onerror" $ WebSocket.prim__onerror a
   
   export
-  setOnerror : (obj : WebSocket) -> (value : EventHandler) -> JSIO ()
-  setOnerror a b = primJS $ WebSocket.prim__setOnerror a b
+  setOnerror :  (obj : WebSocket)
+             -> (value : Maybe EventHandlerNonNull)
+             -> JSIO ()
+  setOnerror a b = primJS $ WebSocket.prim__setOnerror a (toFFI b)
   
   export
-  onmessage : (obj : WebSocket) -> JSIO EventHandler
-  onmessage a = primJS $ WebSocket.prim__onmessage a
+  onmessage : (obj : WebSocket) -> JSIO (Maybe EventHandlerNonNull)
+  onmessage a = tryJS "WebSocket.onmessage" $ WebSocket.prim__onmessage a
   
   export
-  setOnmessage : (obj : WebSocket) -> (value : EventHandler) -> JSIO ()
-  setOnmessage a b = primJS $ WebSocket.prim__setOnmessage a b
+  setOnmessage :  (obj : WebSocket)
+               -> (value : Maybe EventHandlerNonNull)
+               -> JSIO ()
+  setOnmessage a b = primJS $ WebSocket.prim__setOnmessage a (toFFI b)
   
   export
-  onopen : (obj : WebSocket) -> JSIO EventHandler
-  onopen a = primJS $ WebSocket.prim__onopen a
+  onopen : (obj : WebSocket) -> JSIO (Maybe EventHandlerNonNull)
+  onopen a = tryJS "WebSocket.onopen" $ WebSocket.prim__onopen a
   
   export
-  setOnopen : (obj : WebSocket) -> (value : EventHandler) -> JSIO ()
-  setOnopen a b = primJS $ WebSocket.prim__setOnopen a b
+  setOnopen :  (obj : WebSocket)
+            -> (value : Maybe EventHandlerNonNull)
+            -> JSIO ()
+  setOnopen a b = primJS $ WebSocket.prim__setOnopen a (toFFI b)
   
   export
   protocol : (obj : WebSocket) -> JSIO String
@@ -7844,14 +7959,14 @@ namespace WebSocket
   
   export
   close :  (obj : WebSocket)
-        -> (code : UndefOr UInt16)
-        -> (reason : UndefOr String)
+        -> (code : Optional UInt16)
+        -> (reason : Optional String)
         -> JSIO ()
-  close a b c = primJS $ WebSocket.prim__close a b c
+  close a b c = primJS $ WebSocket.prim__close a (toFFI b) (toFFI c)
 
   export
   close' : (obj : WebSocket) -> JSIO ()
-  close' a = close a undef undef
+  close' a = close a Undef Undef
   
   export
   send : (obj : WebSocket) -> (data_ : String) -> JSIO ()
@@ -7866,8 +7981,20 @@ namespace WebSocket
   send2 a b = primJS $ WebSocket.prim__send2 a b
   
   export
-  send3 : (obj : WebSocket) -> (data_ : ArrayBufferView) -> JSIO ()
-  send3 a b = primJS $ WebSocket.prim__send3 a b
+  send3 :  (obj : WebSocket)
+        -> (data_ : NS I [ Int8Array
+                         , Int16Array
+                         , Int32Array
+                         , UInt8Array
+                         , UInt8Array
+                         , UInt8Array
+                         , UInt8ClampedArray
+                         , Float32Array
+                         , Float64Array
+                         , DataView
+                         ])
+        -> JSIO ()
+  send3 a b = primJS $ WebSocket.prim__send3 a (toFFI b)
 
 namespace Window
   
@@ -7882,8 +8009,8 @@ namespace Window
   get a b = primJS $ Window.prim__get a b
   
   export
-  closed : (obj : Window) -> JSIO Boolean
-  closed a = primJS $ Window.prim__closed a
+  closed : (obj : Window) -> JSIO Bool
+  closed a = tryJS "Window.closed" $ Window.prim__closed a
   
   export
   customElements : (obj : Window) -> JSIO CustomElementRegistry
@@ -7894,16 +8021,16 @@ namespace Window
   document a = primJS $ Window.prim__document a
   
   export
-  event : (obj : Window) -> JSIO (Union2 Event Undefined)
-  event a = primJS $ Window.prim__event a
+  event : (obj : Window) -> JSIO (NS I [ Event , Undefined ])
+  event a = tryJS "Window.event" $ Window.prim__event a
   
   export
   external : (obj : Window) -> JSIO External
   external a = primJS $ Window.prim__external a
   
   export
-  frameElement : (obj : Window) -> JSIO (Nullable Element)
-  frameElement a = primJS $ Window.prim__frameElement a
+  frameElement : (obj : Window) -> JSIO (Maybe Element)
+  frameElement a = tryJS "Window.frameElement" $ Window.prim__frameElement a
   
   export
   frames : (obj : Window) -> JSIO WindowProxy
@@ -7950,12 +8077,12 @@ namespace Window
   setOpener a b = primJS $ Window.prim__setOpener a b
   
   export
-  originAgentCluster : (obj : Window) -> JSIO Boolean
-  originAgentCluster a = primJS $ Window.prim__originAgentCluster a
+  originAgentCluster : (obj : Window) -> JSIO Bool
+  originAgentCluster a = tryJS "Window.originAgentCluster" $ Window.prim__originAgentCluster a
   
   export
-  parent : (obj : Window) -> JSIO (Nullable WindowProxy)
-  parent a = primJS $ Window.prim__parent a
+  parent : (obj : Window) -> JSIO (Maybe WindowProxy)
+  parent a = tryJS "Window.parent" $ Window.prim__parent a
   
   export
   personalbar : (obj : Window) -> JSIO BarProp
@@ -7986,8 +8113,8 @@ namespace Window
   toolbar a = primJS $ Window.prim__toolbar a
   
   export
-  top : (obj : Window) -> JSIO (Nullable WindowProxy)
-  top a = primJS $ Window.prim__top a
+  top : (obj : Window) -> JSIO (Maybe WindowProxy)
+  top a = tryJS "Window.top" $ Window.prim__top a
   
   export
   window : (obj : Window) -> JSIO WindowProxy
@@ -8014,12 +8141,12 @@ namespace Window
   close a = primJS $ Window.prim__close a
   
   export
-  confirm : (obj : Window) -> (message : UndefOr String) -> JSIO Boolean
-  confirm a b = primJS $ Window.prim__confirm a b
+  confirm : (obj : Window) -> (message : Optional String) -> JSIO Bool
+  confirm a b = tryJS "Window.confirm" $ Window.prim__confirm a (toFFI b)
 
   export
-  confirm' : (obj : Window) -> JSIO Boolean
-  confirm' a = confirm a undef
+  confirm' : (obj : Window) -> JSIO Bool
+  confirm' a = confirm a Undef
   
   export
   focus : (obj : Window) -> JSIO ()
@@ -8028,53 +8155,56 @@ namespace Window
   export
   getComputedStyle :  (obj : Window)
                    -> (elt : Element)
-                   -> (pseudoElt : UndefOr (Nullable CSSOMString))
+                   -> (pseudoElt : Optional (Maybe CSSOMString))
                    -> JSIO CSSStyleDeclaration
-  getComputedStyle a b c = primJS $ Window.prim__getComputedStyle a b c
+  getComputedStyle a b c = primJS $ Window.prim__getComputedStyle a b (toFFI c)
 
   export
   getComputedStyle' :  (obj : Window)
                     -> (elt : Element)
                     -> JSIO CSSStyleDeclaration
-  getComputedStyle' a b = getComputedStyle a b undef
+  getComputedStyle' a b = getComputedStyle a b Undef
   
   export
   open_ :  (obj : Window)
-        -> (url : UndefOr String)
-        -> (target : UndefOr String)
-        -> (features : UndefOr String)
-        -> JSIO (Nullable WindowProxy)
-  open_ a b c d = primJS $ Window.prim__open a b c d
+        -> (url : Optional String)
+        -> (target : Optional String)
+        -> (features : Optional String)
+        -> JSIO (Maybe WindowProxy)
+  open_ a b c d = tryJS "Window.open_" $ Window.prim__open a
+                                                           (toFFI b)
+                                                           (toFFI c)
+                                                           (toFFI d)
 
   export
-  open' : (obj : Window) -> JSIO (Nullable WindowProxy)
-  open' a = open_ a undef undef undef
+  open' : (obj : Window) -> JSIO (Maybe WindowProxy)
+  open' a = open_ a Undef Undef Undef
   
   export
   postMessage :  (obj : Window)
               -> (message : AnyPtr)
               -> (targetOrigin : String)
-              -> (transfer : UndefOr (Array Object))
+              -> (transfer : Optional (Array Object))
               -> JSIO ()
-  postMessage a b c d = primJS $ Window.prim__postMessage a b c d
+  postMessage a b c d = primJS $ Window.prim__postMessage a b c (toFFI d)
 
   export
   postMessage' :  (obj : Window)
                -> (message : AnyPtr)
                -> (targetOrigin : String)
                -> JSIO ()
-  postMessage' a b c = postMessage a b c undef
+  postMessage' a b c = postMessage a b c Undef
   
   export
   postMessage1 :  (obj : Window)
                -> (message : AnyPtr)
-               -> (options : UndefOr WindowPostMessageOptions)
+               -> (options : Optional WindowPostMessageOptions)
                -> JSIO ()
-  postMessage1 a b c = primJS $ Window.prim__postMessage1 a b c
+  postMessage1 a b c = primJS $ Window.prim__postMessage1 a b (toFFI c)
 
   export
   postMessage1' : (obj : Window) -> (message : AnyPtr) -> JSIO ()
-  postMessage1' a b = postMessage1 a b undef
+  postMessage1' a b = postMessage1 a b Undef
   
   export
   print : (obj : Window) -> JSIO ()
@@ -8082,14 +8212,16 @@ namespace Window
   
   export
   prompt :  (obj : Window)
-         -> (message : UndefOr String)
-         -> (default_ : UndefOr String)
-         -> JSIO (Nullable String)
-  prompt a b c = primJS $ Window.prim__prompt a b c
+         -> (message : Optional String)
+         -> (default_ : Optional String)
+         -> JSIO (Maybe String)
+  prompt a b c = tryJS "Window.prompt" $ Window.prim__prompt a
+                                                             (toFFI b)
+                                                             (toFFI c)
 
   export
-  prompt' : (obj : Window) -> JSIO (Nullable String)
-  prompt' a = prompt a undef undef
+  prompt' : (obj : Window) -> JSIO (Maybe String)
+  prompt' a = prompt a Undef Undef
   
   export
   releaseEvents : (obj : Window) -> JSIO ()
@@ -8108,28 +8240,34 @@ namespace Worker
     mixins =  [ AbstractWorker ]
   
   export
-  new : (scriptURL : String) -> (options : UndefOr WorkerOptions) -> JSIO Worker
-  new a b = primJS $ Worker.prim__new a b
+  new :  (scriptURL : String)
+      -> (options : Optional WorkerOptions)
+      -> JSIO Worker
+  new a b = primJS $ Worker.prim__new a (toFFI b)
 
   export
   new' : (scriptURL : String) -> JSIO Worker
-  new' a = new a undef
+  new' a = new a Undef
   
   export
-  onmessage : (obj : Worker) -> JSIO EventHandler
-  onmessage a = primJS $ Worker.prim__onmessage a
+  onmessage : (obj : Worker) -> JSIO (Maybe EventHandlerNonNull)
+  onmessage a = tryJS "Worker.onmessage" $ Worker.prim__onmessage a
   
   export
-  setOnmessage : (obj : Worker) -> (value : EventHandler) -> JSIO ()
-  setOnmessage a b = primJS $ Worker.prim__setOnmessage a b
+  setOnmessage :  (obj : Worker)
+               -> (value : Maybe EventHandlerNonNull)
+               -> JSIO ()
+  setOnmessage a b = primJS $ Worker.prim__setOnmessage a (toFFI b)
   
   export
-  onmessageerror : (obj : Worker) -> JSIO EventHandler
-  onmessageerror a = primJS $ Worker.prim__onmessageerror a
+  onmessageerror : (obj : Worker) -> JSIO (Maybe EventHandlerNonNull)
+  onmessageerror a = tryJS "Worker.onmessageerror" $ Worker.prim__onmessageerror a
   
   export
-  setOnmessageerror : (obj : Worker) -> (value : EventHandler) -> JSIO ()
-  setOnmessageerror a b = primJS $ Worker.prim__setOnmessageerror a b
+  setOnmessageerror :  (obj : Worker)
+                    -> (value : Maybe EventHandlerNonNull)
+                    -> JSIO ()
+  setOnmessageerror a b = primJS $ Worker.prim__setOnmessageerror a (toFFI b)
   
   export
   postMessage :  (obj : Worker)
@@ -8141,13 +8279,13 @@ namespace Worker
   export
   postMessage1 :  (obj : Worker)
                -> (message : AnyPtr)
-               -> (options : UndefOr PostMessageOptions)
+               -> (options : Optional PostMessageOptions)
                -> JSIO ()
-  postMessage1 a b c = primJS $ Worker.prim__postMessage1 a b c
+  postMessage1 a b c = primJS $ Worker.prim__postMessage1 a b (toFFI c)
 
   export
   postMessage1' : (obj : Worker) -> (message : AnyPtr) -> JSIO ()
-  postMessage1' a b = postMessage1 a b undef
+  postMessage1' a b = postMessage1 a b Undef
   
   export
   terminate : (obj : Worker) -> JSIO ()
@@ -8170,63 +8308,70 @@ namespace WorkerGlobalScope
   navigator a = primJS $ WorkerGlobalScope.prim__navigator a
   
   export
-  onerror : (obj : WorkerGlobalScope) -> JSIO OnErrorEventHandler
-  onerror a = primJS $ WorkerGlobalScope.prim__onerror a
+  onerror : (obj : WorkerGlobalScope) -> JSIO (Maybe OnErrorEventHandlerNonNull)
+  onerror a = tryJS "WorkerGlobalScope.onerror" $ WorkerGlobalScope.prim__onerror a
   
   export
   setOnerror :  (obj : WorkerGlobalScope)
-             -> (value : OnErrorEventHandler)
+             -> (value : Maybe OnErrorEventHandlerNonNull)
              -> JSIO ()
-  setOnerror a b = primJS $ WorkerGlobalScope.prim__setOnerror a b
+  setOnerror a b = primJS $ WorkerGlobalScope.prim__setOnerror a (toFFI b)
   
   export
-  onlanguagechange : (obj : WorkerGlobalScope) -> JSIO EventHandler
-  onlanguagechange a = primJS $ WorkerGlobalScope.prim__onlanguagechange a
+  onlanguagechange :  (obj : WorkerGlobalScope)
+                   -> JSIO (Maybe EventHandlerNonNull)
+  onlanguagechange a = tryJS "WorkerGlobalScope.onlanguagechange" $ WorkerGlobalScope.prim__onlanguagechange a
   
   export
   setOnlanguagechange :  (obj : WorkerGlobalScope)
-                      -> (value : EventHandler)
+                      -> (value : Maybe EventHandlerNonNull)
                       -> JSIO ()
   setOnlanguagechange a b = primJS $ WorkerGlobalScope.prim__setOnlanguagechange a
-                                                                                 b
+                                                                                 (toFFI b)
   
   export
-  onoffline : (obj : WorkerGlobalScope) -> JSIO EventHandler
-  onoffline a = primJS $ WorkerGlobalScope.prim__onoffline a
+  onoffline : (obj : WorkerGlobalScope) -> JSIO (Maybe EventHandlerNonNull)
+  onoffline a = tryJS "WorkerGlobalScope.onoffline" $ WorkerGlobalScope.prim__onoffline a
   
   export
-  setOnoffline : (obj : WorkerGlobalScope) -> (value : EventHandler) -> JSIO ()
-  setOnoffline a b = primJS $ WorkerGlobalScope.prim__setOnoffline a b
+  setOnoffline :  (obj : WorkerGlobalScope)
+               -> (value : Maybe EventHandlerNonNull)
+               -> JSIO ()
+  setOnoffline a b = primJS $ WorkerGlobalScope.prim__setOnoffline a (toFFI b)
   
   export
-  ononline : (obj : WorkerGlobalScope) -> JSIO EventHandler
-  ononline a = primJS $ WorkerGlobalScope.prim__ononline a
+  ononline : (obj : WorkerGlobalScope) -> JSIO (Maybe EventHandlerNonNull)
+  ononline a = tryJS "WorkerGlobalScope.ononline" $ WorkerGlobalScope.prim__ononline a
   
   export
-  setOnonline : (obj : WorkerGlobalScope) -> (value : EventHandler) -> JSIO ()
-  setOnonline a b = primJS $ WorkerGlobalScope.prim__setOnonline a b
+  setOnonline :  (obj : WorkerGlobalScope)
+              -> (value : Maybe EventHandlerNonNull)
+              -> JSIO ()
+  setOnonline a b = primJS $ WorkerGlobalScope.prim__setOnonline a (toFFI b)
   
   export
-  onrejectionhandled : (obj : WorkerGlobalScope) -> JSIO EventHandler
-  onrejectionhandled a = primJS $ WorkerGlobalScope.prim__onrejectionhandled a
+  onrejectionhandled :  (obj : WorkerGlobalScope)
+                     -> JSIO (Maybe EventHandlerNonNull)
+  onrejectionhandled a = tryJS "WorkerGlobalScope.onrejectionhandled" $ WorkerGlobalScope.prim__onrejectionhandled a
   
   export
   setOnrejectionhandled :  (obj : WorkerGlobalScope)
-                        -> (value : EventHandler)
+                        -> (value : Maybe EventHandlerNonNull)
                         -> JSIO ()
   setOnrejectionhandled a b = primJS $ WorkerGlobalScope.prim__setOnrejectionhandled a
-                                                                                     b
+                                                                                     (toFFI b)
   
   export
-  onunhandledrejection : (obj : WorkerGlobalScope) -> JSIO EventHandler
-  onunhandledrejection a = primJS $ WorkerGlobalScope.prim__onunhandledrejection a
+  onunhandledrejection :  (obj : WorkerGlobalScope)
+                       -> JSIO (Maybe EventHandlerNonNull)
+  onunhandledrejection a = tryJS "WorkerGlobalScope.onunhandledrejection" $ WorkerGlobalScope.prim__onunhandledrejection a
   
   export
   setOnunhandledrejection :  (obj : WorkerGlobalScope)
-                          -> (value : EventHandler)
+                          -> (value : Maybe EventHandlerNonNull)
                           -> JSIO ()
   setOnunhandledrejection a b = primJS $ WorkerGlobalScope.prim__setOnunhandledrejection a
-                                                                                         b
+                                                                                         (toFFI b)
   
   export
   self : (obj : WorkerGlobalScope) -> JSIO WorkerGlobalScope
@@ -8311,15 +8456,15 @@ namespace Worklet
   export
   addModule :  (obj : Worklet)
             -> (moduleURL : String)
-            -> (options : UndefOr WorkletOptions)
+            -> (options : Optional WorkletOptions)
             -> JSIO (Promise Undefined)
-  addModule a b c = primJS $ Worklet.prim__addModule a b c
+  addModule a b c = primJS $ Worklet.prim__addModule a b (toFFI c)
 
   export
   addModule' :  (obj : Worklet)
              -> (moduleURL : String)
              -> JSIO (Promise Undefined)
-  addModule' a b = addModule a b undef
+  addModule' a b = addModule a b Undef
 
 namespace WorkletGlobalScope
   
@@ -8658,22 +8803,24 @@ namespace ARIAMixin
   setAriaValueText a b = primJS $ ARIAMixin.prim__setAriaValueText a b
   
   export
-  role : (obj : ARIAMixin) -> JSIO (Nullable String)
-  role a = primJS $ ARIAMixin.prim__role a
+  role : (obj : ARIAMixin) -> JSIO (Maybe String)
+  role a = tryJS "ARIAMixin.role" $ ARIAMixin.prim__role a
   
   export
-  setRole : (obj : ARIAMixin) -> (value : Nullable String) -> JSIO ()
-  setRole a b = primJS $ ARIAMixin.prim__setRole a b
+  setRole : (obj : ARIAMixin) -> (value : Maybe String) -> JSIO ()
+  setRole a b = primJS $ ARIAMixin.prim__setRole a (toFFI b)
 
 namespace AbstractWorker
   
   export
-  onerror : (obj : AbstractWorker) -> JSIO EventHandler
-  onerror a = primJS $ AbstractWorker.prim__onerror a
+  onerror : (obj : AbstractWorker) -> JSIO (Maybe EventHandlerNonNull)
+  onerror a = tryJS "AbstractWorker.onerror" $ AbstractWorker.prim__onerror a
   
   export
-  setOnerror : (obj : AbstractWorker) -> (value : EventHandler) -> JSIO ()
-  setOnerror a b = primJS $ AbstractWorker.prim__setOnerror a b
+  setOnerror :  (obj : AbstractWorker)
+             -> (value : Maybe EventHandlerNonNull)
+             -> JSIO ()
+  setOnerror a b = primJS $ AbstractWorker.prim__setOnerror a (toFFI b)
 
 namespace CanvasCompositing
   
@@ -8700,25 +8847,48 @@ namespace CanvasDrawImage
   
   export
   drawImage :  (obj : CanvasDrawImage)
-            -> (image : CanvasImageSource)
+            -> (image : NS I [ HTMLImageElement
+                             , SVGImageElement
+                             , HTMLVideoElement
+                             , HTMLCanvasElement
+                             , ImageBitmap
+                             , OffscreenCanvas
+                             ])
             -> (dx : Double)
             -> (dy : Double)
             -> JSIO ()
-  drawImage a b c d = primJS $ CanvasDrawImage.prim__drawImage a b c d
+  drawImage a b c d = primJS $ CanvasDrawImage.prim__drawImage a (toFFI b) c d
   
   export
   drawImage1 :  (obj : CanvasDrawImage)
-             -> (image : CanvasImageSource)
+             -> (image : NS I [ HTMLImageElement
+                              , SVGImageElement
+                              , HTMLVideoElement
+                              , HTMLCanvasElement
+                              , ImageBitmap
+                              , OffscreenCanvas
+                              ])
              -> (dx : Double)
              -> (dy : Double)
              -> (dw : Double)
              -> (dh : Double)
              -> JSIO ()
-  drawImage1 a b c d e f = primJS $ CanvasDrawImage.prim__drawImage1 a b c d e f
+  drawImage1 a b c d e f = primJS $ CanvasDrawImage.prim__drawImage1 a
+                                                                     (toFFI b)
+                                                                     c
+                                                                     d
+                                                                     e
+                                                                     f
   
   export
   drawImage2 :  (obj : CanvasDrawImage)
-             -> (image : CanvasImageSource)
+             -> (image : NS I [ HTMLImageElement
+                              , SVGImageElement
+                              , HTMLVideoElement
+                              , HTMLCanvasElement
+                              , ImageBitmap
+                              , OffscreenCanvas
+                              ])
              -> (sx : Double)
              -> (sy : Double)
              -> (sw : Double)
@@ -8729,7 +8899,7 @@ namespace CanvasDrawImage
              -> (dh : Double)
              -> JSIO ()
   drawImage2 a b c d e f g h i j = primJS $ CanvasDrawImage.prim__drawImage2 a
-                                                                             b
+                                                                             (toFFI b)
                                                                              c
                                                                              d
                                                                              e
@@ -8747,99 +8917,104 @@ namespace CanvasDrawPath
   
   export
   clip :  (obj : CanvasDrawPath)
-       -> (fillRule : UndefOr CanvasFillRule)
+       -> (fillRule : Optional CanvasFillRule)
        -> JSIO ()
-  clip a b = primJS $ CanvasDrawPath.prim__clip a b
+  clip a b = primJS $ CanvasDrawPath.prim__clip a (toFFI b)
 
   export
   clip' : (obj : CanvasDrawPath) -> JSIO ()
-  clip' a = clip a undef
+  clip' a = clip a Undef
   
   export
   clip1 :  (obj : CanvasDrawPath)
         -> (path : Path2D)
-        -> (fillRule : UndefOr CanvasFillRule)
+        -> (fillRule : Optional CanvasFillRule)
         -> JSIO ()
-  clip1 a b c = primJS $ CanvasDrawPath.prim__clip1 a b c
+  clip1 a b c = primJS $ CanvasDrawPath.prim__clip1 a b (toFFI c)
 
   export
   clip1' : (obj : CanvasDrawPath) -> (path : Path2D) -> JSIO ()
-  clip1' a b = clip1 a b undef
+  clip1' a b = clip1 a b Undef
   
   export
   fill :  (obj : CanvasDrawPath)
-       -> (fillRule : UndefOr CanvasFillRule)
+       -> (fillRule : Optional CanvasFillRule)
        -> JSIO ()
-  fill a b = primJS $ CanvasDrawPath.prim__fill a b
+  fill a b = primJS $ CanvasDrawPath.prim__fill a (toFFI b)
 
   export
   fill' : (obj : CanvasDrawPath) -> JSIO ()
-  fill' a = fill a undef
+  fill' a = fill a Undef
   
   export
   fill1 :  (obj : CanvasDrawPath)
         -> (path : Path2D)
-        -> (fillRule : UndefOr CanvasFillRule)
+        -> (fillRule : Optional CanvasFillRule)
         -> JSIO ()
-  fill1 a b c = primJS $ CanvasDrawPath.prim__fill1 a b c
+  fill1 a b c = primJS $ CanvasDrawPath.prim__fill1 a b (toFFI c)
 
   export
   fill1' : (obj : CanvasDrawPath) -> (path : Path2D) -> JSIO ()
-  fill1' a b = fill1 a b undef
+  fill1' a b = fill1 a b Undef
   
   export
   isPointInPath :  (obj : CanvasDrawPath)
                 -> (x : Double)
                 -> (y : Double)
-                -> (fillRule : UndefOr CanvasFillRule)
-                -> JSIO Boolean
-  isPointInPath a b c d = primJS $ CanvasDrawPath.prim__isPointInPath a b c d
+                -> (fillRule : Optional CanvasFillRule)
+                -> JSIO Bool
+  isPointInPath a b c d = tryJS "CanvasDrawPath.isPointInPath" $ CanvasDrawPath.prim__isPointInPath a
+                                                                                                    b
+                                                                                                    c
+                                                                                                    (toFFI d)
 
   export
   isPointInPath' :  (obj : CanvasDrawPath)
                  -> (x : Double)
                  -> (y : Double)
-                 -> JSIO Boolean
-  isPointInPath' a b c = isPointInPath a b c undef
+                 -> JSIO Bool
+  isPointInPath' a b c = isPointInPath a b c Undef
   
   export
   isPointInPath1 :  (obj : CanvasDrawPath)
                  -> (path : Path2D)
                  -> (x : Double)
                  -> (y : Double)
-                 -> (fillRule : UndefOr CanvasFillRule)
-                 -> JSIO Boolean
-  isPointInPath1 a b c d e = primJS $ CanvasDrawPath.prim__isPointInPath1 a
-                                                                          b
-                                                                          c
-                                                                          d
-                                                                          e
+                 -> (fillRule : Optional CanvasFillRule)
+                 -> JSIO Bool
+  isPointInPath1 a b c d e = tryJS "CanvasDrawPath.isPointInPath1" $ CanvasDrawPath.prim__isPointInPath1 a
+                                                                                                         b
+                                                                                                         c
+                                                                                                         d
+                                                                                                         (toFFI e)
 
   export
   isPointInPath1' :  (obj : CanvasDrawPath)
                   -> (path : Path2D)
                   -> (x : Double)
                   -> (y : Double)
-                  -> JSIO Boolean
-  isPointInPath1' a b c d = isPointInPath1 a b c d undef
+                  -> JSIO Bool
+  isPointInPath1' a b c d = isPointInPath1 a b c d Undef
   
   export
   isPointInStroke :  (obj : CanvasDrawPath)
                   -> (x : Double)
                   -> (y : Double)
-                  -> JSIO Boolean
-  isPointInStroke a b c = primJS $ CanvasDrawPath.prim__isPointInStroke a b c
+                  -> JSIO Bool
+  isPointInStroke a b c = tryJS "CanvasDrawPath.isPointInStroke" $ CanvasDrawPath.prim__isPointInStroke a
+                                                                                                        b
+                                                                                                        c
   
   export
   isPointInStroke1 :  (obj : CanvasDrawPath)
                    -> (path : Path2D)
                    -> (x : Double)
                    -> (y : Double)
-                   -> JSIO Boolean
-  isPointInStroke1 a b c d = primJS $ CanvasDrawPath.prim__isPointInStroke1 a
-                                                                            b
-                                                                            c
-                                                                            d
+                   -> JSIO Bool
+  isPointInStroke1 a b c d = tryJS "CanvasDrawPath.isPointInStroke1" $ CanvasDrawPath.prim__isPointInStroke1 a
+                                                                                                             b
+                                                                                                             c
+                                                                                                             d
   
   export
   stroke : (obj : CanvasDrawPath) -> JSIO ()
@@ -8853,25 +9028,27 @@ namespace CanvasFillStrokeStyles
   
   export
   fillStyle :  (obj : CanvasFillStrokeStyles)
-            -> JSIO (Union3 String CanvasGradient CanvasPattern)
-  fillStyle a = primJS $ CanvasFillStrokeStyles.prim__fillStyle a
+            -> JSIO (NS I [ String , CanvasGradient , CanvasPattern ])
+  fillStyle a = tryJS "CanvasFillStrokeStyles.fillStyle" $ CanvasFillStrokeStyles.prim__fillStyle a
   
   export
   setFillStyle :  (obj : CanvasFillStrokeStyles)
-               -> (value : Union3 String CanvasGradient CanvasPattern)
+               -> (value : NS I [ String , CanvasGradient , CanvasPattern ])
                -> JSIO ()
-  setFillStyle a b = primJS $ CanvasFillStrokeStyles.prim__setFillStyle a b
+  setFillStyle a b = primJS $ CanvasFillStrokeStyles.prim__setFillStyle a
+                                                                        (toFFI b)
   
   export
   strokeStyle :  (obj : CanvasFillStrokeStyles)
-              -> JSIO (Union3 String CanvasGradient CanvasPattern)
-  strokeStyle a = primJS $ CanvasFillStrokeStyles.prim__strokeStyle a
+              -> JSIO (NS I [ String , CanvasGradient , CanvasPattern ])
+  strokeStyle a = tryJS "CanvasFillStrokeStyles.strokeStyle" $ CanvasFillStrokeStyles.prim__strokeStyle a
   
   export
   setStrokeStyle :  (obj : CanvasFillStrokeStyles)
-                 -> (value : Union3 String CanvasGradient CanvasPattern)
+                 -> (value : NS I [ String , CanvasGradient , CanvasPattern ])
                  -> JSIO ()
-  setStrokeStyle a b = primJS $ CanvasFillStrokeStyles.prim__setStrokeStyle a b
+  setStrokeStyle a b = primJS $ CanvasFillStrokeStyles.prim__setStrokeStyle a
+                                                                            (toFFI b)
   
   export
   createLinearGradient :  (obj : CanvasFillStrokeStyles)
@@ -8888,12 +9065,18 @@ namespace CanvasFillStrokeStyles
   
   export
   createPattern :  (obj : CanvasFillStrokeStyles)
-                -> (image : CanvasImageSource)
+                -> (image : NS I [ HTMLImageElement
+                                 , SVGImageElement
+                                 , HTMLVideoElement
+                                 , HTMLCanvasElement
+                                 , ImageBitmap
+                                 , OffscreenCanvas
+                                 ])
                 -> (repetition : String)
-                -> JSIO (Nullable CanvasPattern)
-  createPattern a b c = primJS $ CanvasFillStrokeStyles.prim__createPattern a
-                                                                            b
-                                                                            c
+                -> JSIO (Maybe CanvasPattern)
+  createPattern a b c = tryJS "CanvasFillStrokeStyles.createPattern" $ CanvasFillStrokeStyles.prim__createPattern a
+                                                                                                                  (toFFI b)
+                                                                                                                  c
   
   export
   createRadialGradient :  (obj : CanvasFillStrokeStyles)
@@ -8976,27 +9159,27 @@ namespace CanvasImageData
 namespace CanvasImageSmoothing
   
   export
-  imageSmoothingEnabled : (obj : CanvasImageSmoothing) -> JSIO Boolean
-  imageSmoothingEnabled a = primJS $ CanvasImageSmoothing.prim__imageSmoothingEnabled a
+  imageSmoothingEnabled : (obj : CanvasImageSmoothing) -> JSIO Bool
+  imageSmoothingEnabled a = tryJS "CanvasImageSmoothing.imageSmoothingEnabled" $ CanvasImageSmoothing.prim__imageSmoothingEnabled a
   
   export
   setImageSmoothingEnabled :  (obj : CanvasImageSmoothing)
-                           -> (value : Boolean)
+                           -> (value : Bool)
                            -> JSIO ()
   setImageSmoothingEnabled a b = primJS $ CanvasImageSmoothing.prim__setImageSmoothingEnabled a
-                                                                                              b
+                                                                                              (toFFI b)
   
   export
   imageSmoothingQuality :  (obj : CanvasImageSmoothing)
                         -> JSIO ImageSmoothingQuality
-  imageSmoothingQuality a = primJS $ CanvasImageSmoothing.prim__imageSmoothingQuality a
+  imageSmoothingQuality a = tryJS "CanvasImageSmoothing.imageSmoothingQuality" $ CanvasImageSmoothing.prim__imageSmoothingQuality a
   
   export
   setImageSmoothingQuality :  (obj : CanvasImageSmoothing)
                            -> (value : ImageSmoothingQuality)
                            -> JSIO ()
   setImageSmoothingQuality a b = primJS $ CanvasImageSmoothing.prim__setImageSmoothingQuality a
-                                                                                              b
+                                                                                              (toFFI b)
 
 namespace CanvasPath
   
@@ -9007,9 +9190,9 @@ namespace CanvasPath
       -> (radius : Double)
       -> (startAngle : Double)
       -> (endAngle : Double)
-      -> (counterclockwise : UndefOr Boolean)
+      -> (counterclockwise : Optional Bool)
       -> JSIO ()
-  arc a b c d e f g = primJS $ CanvasPath.prim__arc a b c d e f g
+  arc a b c d e f g = primJS $ CanvasPath.prim__arc a b c d e f (toFFI g)
 
   export
   arc' :  (obj : CanvasPath)
@@ -9019,7 +9202,7 @@ namespace CanvasPath
        -> (startAngle : Double)
        -> (endAngle : Double)
        -> JSIO ()
-  arc' a b c d e f = arc a b c d e f undef
+  arc' a b c d e f = arc a b c d e f Undef
   
   export
   arcTo :  (obj : CanvasPath)
@@ -9061,7 +9244,7 @@ namespace CanvasPath
           -> (rotation : Double)
           -> (startAngle : Double)
           -> (endAngle : Double)
-          -> (counterclockwise : UndefOr Boolean)
+          -> (counterclockwise : Optional Bool)
           -> JSIO ()
   ellipse a b c d e f g h i = primJS $ CanvasPath.prim__ellipse a
                                                                 b
@@ -9071,7 +9254,7 @@ namespace CanvasPath
                                                                 f
                                                                 g
                                                                 h
-                                                                i
+                                                                (toFFI i)
 
   export
   ellipse' :  (obj : CanvasPath)
@@ -9083,7 +9266,7 @@ namespace CanvasPath
            -> (startAngle : Double)
            -> (endAngle : Double)
            -> JSIO ()
-  ellipse' a b c d e f g h = ellipse a b c d e f g h undef
+  ellipse' a b c d e f g h = ellipse a b c d e f g h Undef
   
   export
   lineTo : (obj : CanvasPath) -> (x : Double) -> (y : Double) -> JSIO ()
@@ -9119,13 +9302,13 @@ namespace CanvasPathDrawingStyles
   
   export
   lineCap : (obj : CanvasPathDrawingStyles) -> JSIO CanvasLineCap
-  lineCap a = primJS $ CanvasPathDrawingStyles.prim__lineCap a
+  lineCap a = tryJS "CanvasPathDrawingStyles.lineCap" $ CanvasPathDrawingStyles.prim__lineCap a
   
   export
   setLineCap :  (obj : CanvasPathDrawingStyles)
              -> (value : CanvasLineCap)
              -> JSIO ()
-  setLineCap a b = primJS $ CanvasPathDrawingStyles.prim__setLineCap a b
+  setLineCap a b = primJS $ CanvasPathDrawingStyles.prim__setLineCap a (toFFI b)
   
   export
   lineDashOffset : (obj : CanvasPathDrawingStyles) -> JSIO Double
@@ -9140,13 +9323,14 @@ namespace CanvasPathDrawingStyles
   
   export
   lineJoin : (obj : CanvasPathDrawingStyles) -> JSIO CanvasLineJoin
-  lineJoin a = primJS $ CanvasPathDrawingStyles.prim__lineJoin a
+  lineJoin a = tryJS "CanvasPathDrawingStyles.lineJoin" $ CanvasPathDrawingStyles.prim__lineJoin a
   
   export
   setLineJoin :  (obj : CanvasPathDrawingStyles)
               -> (value : CanvasLineJoin)
               -> JSIO ()
-  setLineJoin a b = primJS $ CanvasPathDrawingStyles.prim__setLineJoin a b
+  setLineJoin a b = primJS $ CanvasPathDrawingStyles.prim__setLineJoin a
+                                                                       (toFFI b)
   
   export
   lineWidth : (obj : CanvasPathDrawingStyles) -> JSIO Double
@@ -9254,9 +9438,9 @@ namespace CanvasText
            -> (text : String)
            -> (x : Double)
            -> (y : Double)
-           -> (maxWidth : UndefOr Double)
+           -> (maxWidth : Optional Double)
            -> JSIO ()
-  fillText a b c d e = primJS $ CanvasText.prim__fillText a b c d e
+  fillText a b c d e = primJS $ CanvasText.prim__fillText a b c d (toFFI e)
 
   export
   fillText' :  (obj : CanvasText)
@@ -9264,7 +9448,7 @@ namespace CanvasText
             -> (x : Double)
             -> (y : Double)
             -> JSIO ()
-  fillText' a b c d = fillText a b c d undef
+  fillText' a b c d = fillText a b c d Undef
   
   export
   measureText : (obj : CanvasText) -> (text : String) -> JSIO TextMetrics
@@ -9275,9 +9459,9 @@ namespace CanvasText
              -> (text : String)
              -> (x : Double)
              -> (y : Double)
-             -> (maxWidth : UndefOr Double)
+             -> (maxWidth : Optional Double)
              -> JSIO ()
-  strokeText a b c d e = primJS $ CanvasText.prim__strokeText a b c d e
+  strokeText a b c d e = primJS $ CanvasText.prim__strokeText a b c d (toFFI e)
 
   export
   strokeText' :  (obj : CanvasText)
@@ -9285,19 +9469,20 @@ namespace CanvasText
               -> (x : Double)
               -> (y : Double)
               -> JSIO ()
-  strokeText' a b c d = strokeText a b c d undef
+  strokeText' a b c d = strokeText a b c d Undef
 
 namespace CanvasTextDrawingStyles
   
   export
   direction : (obj : CanvasTextDrawingStyles) -> JSIO CanvasDirection
-  direction a = primJS $ CanvasTextDrawingStyles.prim__direction a
+  direction a = tryJS "CanvasTextDrawingStyles.direction" $ CanvasTextDrawingStyles.prim__direction a
   
   export
   setDirection :  (obj : CanvasTextDrawingStyles)
                -> (value : CanvasDirection)
                -> JSIO ()
-  setDirection a b = primJS $ CanvasTextDrawingStyles.prim__setDirection a b
+  setDirection a b = primJS $ CanvasTextDrawingStyles.prim__setDirection a
+                                                                         (toFFI b)
   
   export
   font : (obj : CanvasTextDrawingStyles) -> JSIO String
@@ -9309,24 +9494,25 @@ namespace CanvasTextDrawingStyles
   
   export
   textAlign : (obj : CanvasTextDrawingStyles) -> JSIO CanvasTextAlign
-  textAlign a = primJS $ CanvasTextDrawingStyles.prim__textAlign a
+  textAlign a = tryJS "CanvasTextDrawingStyles.textAlign" $ CanvasTextDrawingStyles.prim__textAlign a
   
   export
   setTextAlign :  (obj : CanvasTextDrawingStyles)
                -> (value : CanvasTextAlign)
                -> JSIO ()
-  setTextAlign a b = primJS $ CanvasTextDrawingStyles.prim__setTextAlign a b
+  setTextAlign a b = primJS $ CanvasTextDrawingStyles.prim__setTextAlign a
+                                                                         (toFFI b)
   
   export
   textBaseline : (obj : CanvasTextDrawingStyles) -> JSIO CanvasTextBaseline
-  textBaseline a = primJS $ CanvasTextDrawingStyles.prim__textBaseline a
+  textBaseline a = tryJS "CanvasTextDrawingStyles.textBaseline" $ CanvasTextDrawingStyles.prim__textBaseline a
   
   export
   setTextBaseline :  (obj : CanvasTextDrawingStyles)
                   -> (value : CanvasTextBaseline)
                   -> JSIO ()
   setTextBaseline a b = primJS $ CanvasTextDrawingStyles.prim__setTextBaseline a
-                                                                               b
+                                                                               (toFFI b)
 
 namespace CanvasTransform
   
@@ -9365,13 +9551,13 @@ namespace CanvasTransform
   
   export
   setTransform1 :  (obj : CanvasTransform)
-                -> (transform : UndefOr DOMMatrix2DInit)
+                -> (transform : Optional DOMMatrix2DInit)
                 -> JSIO ()
-  setTransform1 a b = primJS $ CanvasTransform.prim__setTransform1 a b
+  setTransform1 a b = primJS $ CanvasTransform.prim__setTransform1 a (toFFI b)
 
   export
   setTransform1' : (obj : CanvasTransform) -> JSIO ()
-  setTransform1' a = setTransform1 a undef
+  setTransform1' a = setTransform1 a Undef
   
   export
   transform :  (obj : CanvasTransform)
@@ -9426,34 +9612,40 @@ namespace CanvasUserInterface
 namespace DocumentAndElementEventHandlers
   
   export
-  oncopy : (obj : DocumentAndElementEventHandlers) -> JSIO EventHandler
-  oncopy a = primJS $ DocumentAndElementEventHandlers.prim__oncopy a
+  oncopy :  (obj : DocumentAndElementEventHandlers)
+         -> JSIO (Maybe EventHandlerNonNull)
+  oncopy a = tryJS "DocumentAndElementEventHandlers.oncopy" $ DocumentAndElementEventHandlers.prim__oncopy a
   
   export
   setOncopy :  (obj : DocumentAndElementEventHandlers)
-            -> (value : EventHandler)
+            -> (value : Maybe EventHandlerNonNull)
             -> JSIO ()
-  setOncopy a b = primJS $ DocumentAndElementEventHandlers.prim__setOncopy a b
+  setOncopy a b = primJS $ DocumentAndElementEventHandlers.prim__setOncopy a
+                                                                           (toFFI b)
   
   export
-  oncut : (obj : DocumentAndElementEventHandlers) -> JSIO EventHandler
-  oncut a = primJS $ DocumentAndElementEventHandlers.prim__oncut a
+  oncut :  (obj : DocumentAndElementEventHandlers)
+        -> JSIO (Maybe EventHandlerNonNull)
+  oncut a = tryJS "DocumentAndElementEventHandlers.oncut" $ DocumentAndElementEventHandlers.prim__oncut a
   
   export
   setOncut :  (obj : DocumentAndElementEventHandlers)
-           -> (value : EventHandler)
+           -> (value : Maybe EventHandlerNonNull)
            -> JSIO ()
-  setOncut a b = primJS $ DocumentAndElementEventHandlers.prim__setOncut a b
+  setOncut a b = primJS $ DocumentAndElementEventHandlers.prim__setOncut a
+                                                                         (toFFI b)
   
   export
-  onpaste : (obj : DocumentAndElementEventHandlers) -> JSIO EventHandler
-  onpaste a = primJS $ DocumentAndElementEventHandlers.prim__onpaste a
+  onpaste :  (obj : DocumentAndElementEventHandlers)
+          -> JSIO (Maybe EventHandlerNonNull)
+  onpaste a = tryJS "DocumentAndElementEventHandlers.onpaste" $ DocumentAndElementEventHandlers.prim__onpaste a
   
   export
   setOnpaste :  (obj : DocumentAndElementEventHandlers)
-             -> (value : EventHandler)
+             -> (value : Maybe EventHandlerNonNull)
              -> JSIO ()
-  setOnpaste a b = primJS $ DocumentAndElementEventHandlers.prim__setOnpaste a b
+  setOnpaste a b = primJS $ DocumentAndElementEventHandlers.prim__setOnpaste a
+                                                                             (toFFI b)
 
 namespace ElementContentEditable
   
@@ -9488,633 +9680,712 @@ namespace ElementContentEditable
   setInputMode a b = primJS $ ElementContentEditable.prim__setInputMode a b
   
   export
-  isContentEditable : (obj : ElementContentEditable) -> JSIO Boolean
-  isContentEditable a = primJS $ ElementContentEditable.prim__isContentEditable a
+  isContentEditable : (obj : ElementContentEditable) -> JSIO Bool
+  isContentEditable a = tryJS "ElementContentEditable.isContentEditable" $ ElementContentEditable.prim__isContentEditable a
 
 namespace GlobalEventHandlers
   
   export
-  onabort : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onabort a = primJS $ GlobalEventHandlers.prim__onabort a
+  onabort : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onabort a = tryJS "GlobalEventHandlers.onabort" $ GlobalEventHandlers.prim__onabort a
   
   export
-  setOnabort : (obj : GlobalEventHandlers) -> (value : EventHandler) -> JSIO ()
-  setOnabort a b = primJS $ GlobalEventHandlers.prim__setOnabort a b
+  setOnabort :  (obj : GlobalEventHandlers)
+             -> (value : Maybe EventHandlerNonNull)
+             -> JSIO ()
+  setOnabort a b = primJS $ GlobalEventHandlers.prim__setOnabort a (toFFI b)
   
   export
-  onauxclick : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onauxclick a = primJS $ GlobalEventHandlers.prim__onauxclick a
+  onauxclick : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onauxclick a = tryJS "GlobalEventHandlers.onauxclick" $ GlobalEventHandlers.prim__onauxclick a
   
   export
   setOnauxclick :  (obj : GlobalEventHandlers)
-                -> (value : EventHandler)
+                -> (value : Maybe EventHandlerNonNull)
                 -> JSIO ()
-  setOnauxclick a b = primJS $ GlobalEventHandlers.prim__setOnauxclick a b
+  setOnauxclick a b = primJS $ GlobalEventHandlers.prim__setOnauxclick a
+                                                                       (toFFI b)
   
   export
-  onblur : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onblur a = primJS $ GlobalEventHandlers.prim__onblur a
+  onblur : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onblur a = tryJS "GlobalEventHandlers.onblur" $ GlobalEventHandlers.prim__onblur a
   
   export
-  setOnblur : (obj : GlobalEventHandlers) -> (value : EventHandler) -> JSIO ()
-  setOnblur a b = primJS $ GlobalEventHandlers.prim__setOnblur a b
+  setOnblur :  (obj : GlobalEventHandlers)
+            -> (value : Maybe EventHandlerNonNull)
+            -> JSIO ()
+  setOnblur a b = primJS $ GlobalEventHandlers.prim__setOnblur a (toFFI b)
   
   export
-  oncancel : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  oncancel a = primJS $ GlobalEventHandlers.prim__oncancel a
+  oncancel : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  oncancel a = tryJS "GlobalEventHandlers.oncancel" $ GlobalEventHandlers.prim__oncancel a
   
   export
-  setOncancel : (obj : GlobalEventHandlers) -> (value : EventHandler) -> JSIO ()
-  setOncancel a b = primJS $ GlobalEventHandlers.prim__setOncancel a b
+  setOncancel :  (obj : GlobalEventHandlers)
+              -> (value : Maybe EventHandlerNonNull)
+              -> JSIO ()
+  setOncancel a b = primJS $ GlobalEventHandlers.prim__setOncancel a (toFFI b)
   
   export
-  oncanplay : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  oncanplay a = primJS $ GlobalEventHandlers.prim__oncanplay a
+  oncanplay : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  oncanplay a = tryJS "GlobalEventHandlers.oncanplay" $ GlobalEventHandlers.prim__oncanplay a
   
   export
   setOncanplay :  (obj : GlobalEventHandlers)
-               -> (value : EventHandler)
+               -> (value : Maybe EventHandlerNonNull)
                -> JSIO ()
-  setOncanplay a b = primJS $ GlobalEventHandlers.prim__setOncanplay a b
+  setOncanplay a b = primJS $ GlobalEventHandlers.prim__setOncanplay a (toFFI b)
   
   export
-  oncanplaythrough : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  oncanplaythrough a = primJS $ GlobalEventHandlers.prim__oncanplaythrough a
+  oncanplaythrough :  (obj : GlobalEventHandlers)
+                   -> JSIO (Maybe EventHandlerNonNull)
+  oncanplaythrough a = tryJS "GlobalEventHandlers.oncanplaythrough" $ GlobalEventHandlers.prim__oncanplaythrough a
   
   export
   setOncanplaythrough :  (obj : GlobalEventHandlers)
-                      -> (value : EventHandler)
+                      -> (value : Maybe EventHandlerNonNull)
                       -> JSIO ()
   setOncanplaythrough a b = primJS $ GlobalEventHandlers.prim__setOncanplaythrough a
-                                                                                   b
+                                                                                   (toFFI b)
   
   export
-  onchange : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onchange a = primJS $ GlobalEventHandlers.prim__onchange a
+  onchange : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onchange a = tryJS "GlobalEventHandlers.onchange" $ GlobalEventHandlers.prim__onchange a
   
   export
-  setOnchange : (obj : GlobalEventHandlers) -> (value : EventHandler) -> JSIO ()
-  setOnchange a b = primJS $ GlobalEventHandlers.prim__setOnchange a b
+  setOnchange :  (obj : GlobalEventHandlers)
+              -> (value : Maybe EventHandlerNonNull)
+              -> JSIO ()
+  setOnchange a b = primJS $ GlobalEventHandlers.prim__setOnchange a (toFFI b)
   
   export
-  onclick : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onclick a = primJS $ GlobalEventHandlers.prim__onclick a
+  onclick : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onclick a = tryJS "GlobalEventHandlers.onclick" $ GlobalEventHandlers.prim__onclick a
   
   export
-  setOnclick : (obj : GlobalEventHandlers) -> (value : EventHandler) -> JSIO ()
-  setOnclick a b = primJS $ GlobalEventHandlers.prim__setOnclick a b
+  setOnclick :  (obj : GlobalEventHandlers)
+             -> (value : Maybe EventHandlerNonNull)
+             -> JSIO ()
+  setOnclick a b = primJS $ GlobalEventHandlers.prim__setOnclick a (toFFI b)
   
   export
-  onclose : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onclose a = primJS $ GlobalEventHandlers.prim__onclose a
+  onclose : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onclose a = tryJS "GlobalEventHandlers.onclose" $ GlobalEventHandlers.prim__onclose a
   
   export
-  setOnclose : (obj : GlobalEventHandlers) -> (value : EventHandler) -> JSIO ()
-  setOnclose a b = primJS $ GlobalEventHandlers.prim__setOnclose a b
+  setOnclose :  (obj : GlobalEventHandlers)
+             -> (value : Maybe EventHandlerNonNull)
+             -> JSIO ()
+  setOnclose a b = primJS $ GlobalEventHandlers.prim__setOnclose a (toFFI b)
   
   export
-  oncontextmenu : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  oncontextmenu a = primJS $ GlobalEventHandlers.prim__oncontextmenu a
+  oncontextmenu :  (obj : GlobalEventHandlers)
+                -> JSIO (Maybe EventHandlerNonNull)
+  oncontextmenu a = tryJS "GlobalEventHandlers.oncontextmenu" $ GlobalEventHandlers.prim__oncontextmenu a
   
   export
   setOncontextmenu :  (obj : GlobalEventHandlers)
-                   -> (value : EventHandler)
+                   -> (value : Maybe EventHandlerNonNull)
                    -> JSIO ()
-  setOncontextmenu a b = primJS $ GlobalEventHandlers.prim__setOncontextmenu a b
+  setOncontextmenu a b = primJS $ GlobalEventHandlers.prim__setOncontextmenu a
+                                                                             (toFFI b)
   
   export
-  oncuechange : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  oncuechange a = primJS $ GlobalEventHandlers.prim__oncuechange a
+  oncuechange : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  oncuechange a = tryJS "GlobalEventHandlers.oncuechange" $ GlobalEventHandlers.prim__oncuechange a
   
   export
   setOncuechange :  (obj : GlobalEventHandlers)
-                 -> (value : EventHandler)
+                 -> (value : Maybe EventHandlerNonNull)
                  -> JSIO ()
-  setOncuechange a b = primJS $ GlobalEventHandlers.prim__setOncuechange a b
+  setOncuechange a b = primJS $ GlobalEventHandlers.prim__setOncuechange a
+                                                                         (toFFI b)
   
   export
-  ondblclick : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  ondblclick a = primJS $ GlobalEventHandlers.prim__ondblclick a
+  ondblclick : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  ondblclick a = tryJS "GlobalEventHandlers.ondblclick" $ GlobalEventHandlers.prim__ondblclick a
   
   export
   setOndblclick :  (obj : GlobalEventHandlers)
-                -> (value : EventHandler)
+                -> (value : Maybe EventHandlerNonNull)
                 -> JSIO ()
-  setOndblclick a b = primJS $ GlobalEventHandlers.prim__setOndblclick a b
+  setOndblclick a b = primJS $ GlobalEventHandlers.prim__setOndblclick a
+                                                                       (toFFI b)
   
   export
-  ondrag : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  ondrag a = primJS $ GlobalEventHandlers.prim__ondrag a
+  ondrag : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  ondrag a = tryJS "GlobalEventHandlers.ondrag" $ GlobalEventHandlers.prim__ondrag a
   
   export
-  setOndrag : (obj : GlobalEventHandlers) -> (value : EventHandler) -> JSIO ()
-  setOndrag a b = primJS $ GlobalEventHandlers.prim__setOndrag a b
+  setOndrag :  (obj : GlobalEventHandlers)
+            -> (value : Maybe EventHandlerNonNull)
+            -> JSIO ()
+  setOndrag a b = primJS $ GlobalEventHandlers.prim__setOndrag a (toFFI b)
   
   export
-  ondragend : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  ondragend a = primJS $ GlobalEventHandlers.prim__ondragend a
+  ondragend : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  ondragend a = tryJS "GlobalEventHandlers.ondragend" $ GlobalEventHandlers.prim__ondragend a
   
   export
   setOndragend :  (obj : GlobalEventHandlers)
-               -> (value : EventHandler)
+               -> (value : Maybe EventHandlerNonNull)
                -> JSIO ()
-  setOndragend a b = primJS $ GlobalEventHandlers.prim__setOndragend a b
+  setOndragend a b = primJS $ GlobalEventHandlers.prim__setOndragend a (toFFI b)
   
   export
-  ondragenter : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  ondragenter a = primJS $ GlobalEventHandlers.prim__ondragenter a
+  ondragenter : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  ondragenter a = tryJS "GlobalEventHandlers.ondragenter" $ GlobalEventHandlers.prim__ondragenter a
   
   export
   setOndragenter :  (obj : GlobalEventHandlers)
-                 -> (value : EventHandler)
+                 -> (value : Maybe EventHandlerNonNull)
                  -> JSIO ()
-  setOndragenter a b = primJS $ GlobalEventHandlers.prim__setOndragenter a b
+  setOndragenter a b = primJS $ GlobalEventHandlers.prim__setOndragenter a
+                                                                         (toFFI b)
   
   export
-  ondragleave : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  ondragleave a = primJS $ GlobalEventHandlers.prim__ondragleave a
+  ondragleave : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  ondragleave a = tryJS "GlobalEventHandlers.ondragleave" $ GlobalEventHandlers.prim__ondragleave a
   
   export
   setOndragleave :  (obj : GlobalEventHandlers)
-                 -> (value : EventHandler)
+                 -> (value : Maybe EventHandlerNonNull)
                  -> JSIO ()
-  setOndragleave a b = primJS $ GlobalEventHandlers.prim__setOndragleave a b
+  setOndragleave a b = primJS $ GlobalEventHandlers.prim__setOndragleave a
+                                                                         (toFFI b)
   
   export
-  ondragover : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  ondragover a = primJS $ GlobalEventHandlers.prim__ondragover a
+  ondragover : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  ondragover a = tryJS "GlobalEventHandlers.ondragover" $ GlobalEventHandlers.prim__ondragover a
   
   export
   setOndragover :  (obj : GlobalEventHandlers)
-                -> (value : EventHandler)
+                -> (value : Maybe EventHandlerNonNull)
                 -> JSIO ()
-  setOndragover a b = primJS $ GlobalEventHandlers.prim__setOndragover a b
+  setOndragover a b = primJS $ GlobalEventHandlers.prim__setOndragover a
+                                                                       (toFFI b)
   
   export
-  ondragstart : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  ondragstart a = primJS $ GlobalEventHandlers.prim__ondragstart a
+  ondragstart : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  ondragstart a = tryJS "GlobalEventHandlers.ondragstart" $ GlobalEventHandlers.prim__ondragstart a
   
   export
   setOndragstart :  (obj : GlobalEventHandlers)
-                 -> (value : EventHandler)
+                 -> (value : Maybe EventHandlerNonNull)
                  -> JSIO ()
-  setOndragstart a b = primJS $ GlobalEventHandlers.prim__setOndragstart a b
+  setOndragstart a b = primJS $ GlobalEventHandlers.prim__setOndragstart a
+                                                                         (toFFI b)
   
   export
-  ondrop : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  ondrop a = primJS $ GlobalEventHandlers.prim__ondrop a
+  ondrop : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  ondrop a = tryJS "GlobalEventHandlers.ondrop" $ GlobalEventHandlers.prim__ondrop a
   
   export
-  setOndrop : (obj : GlobalEventHandlers) -> (value : EventHandler) -> JSIO ()
-  setOndrop a b = primJS $ GlobalEventHandlers.prim__setOndrop a b
+  setOndrop :  (obj : GlobalEventHandlers)
+            -> (value : Maybe EventHandlerNonNull)
+            -> JSIO ()
+  setOndrop a b = primJS $ GlobalEventHandlers.prim__setOndrop a (toFFI b)
   
   export
-  ondurationchange : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  ondurationchange a = primJS $ GlobalEventHandlers.prim__ondurationchange a
+  ondurationchange :  (obj : GlobalEventHandlers)
+                   -> JSIO (Maybe EventHandlerNonNull)
+  ondurationchange a = tryJS "GlobalEventHandlers.ondurationchange" $ GlobalEventHandlers.prim__ondurationchange a
   
   export
   setOndurationchange :  (obj : GlobalEventHandlers)
-                      -> (value : EventHandler)
+                      -> (value : Maybe EventHandlerNonNull)
                       -> JSIO ()
   setOndurationchange a b = primJS $ GlobalEventHandlers.prim__setOndurationchange a
-                                                                                   b
+                                                                                   (toFFI b)
   
   export
-  onemptied : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onemptied a = primJS $ GlobalEventHandlers.prim__onemptied a
+  onemptied : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onemptied a = tryJS "GlobalEventHandlers.onemptied" $ GlobalEventHandlers.prim__onemptied a
   
   export
   setOnemptied :  (obj : GlobalEventHandlers)
-               -> (value : EventHandler)
+               -> (value : Maybe EventHandlerNonNull)
                -> JSIO ()
-  setOnemptied a b = primJS $ GlobalEventHandlers.prim__setOnemptied a b
+  setOnemptied a b = primJS $ GlobalEventHandlers.prim__setOnemptied a (toFFI b)
   
   export
-  onended : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onended a = primJS $ GlobalEventHandlers.prim__onended a
+  onended : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onended a = tryJS "GlobalEventHandlers.onended" $ GlobalEventHandlers.prim__onended a
   
   export
-  setOnended : (obj : GlobalEventHandlers) -> (value : EventHandler) -> JSIO ()
-  setOnended a b = primJS $ GlobalEventHandlers.prim__setOnended a b
+  setOnended :  (obj : GlobalEventHandlers)
+             -> (value : Maybe EventHandlerNonNull)
+             -> JSIO ()
+  setOnended a b = primJS $ GlobalEventHandlers.prim__setOnended a (toFFI b)
   
   export
-  onerror : (obj : GlobalEventHandlers) -> JSIO OnErrorEventHandler
-  onerror a = primJS $ GlobalEventHandlers.prim__onerror a
+  onerror :  (obj : GlobalEventHandlers)
+          -> JSIO (Maybe OnErrorEventHandlerNonNull)
+  onerror a = tryJS "GlobalEventHandlers.onerror" $ GlobalEventHandlers.prim__onerror a
   
   export
   setOnerror :  (obj : GlobalEventHandlers)
-             -> (value : OnErrorEventHandler)
+             -> (value : Maybe OnErrorEventHandlerNonNull)
              -> JSIO ()
-  setOnerror a b = primJS $ GlobalEventHandlers.prim__setOnerror a b
+  setOnerror a b = primJS $ GlobalEventHandlers.prim__setOnerror a (toFFI b)
   
   export
-  onfocus : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onfocus a = primJS $ GlobalEventHandlers.prim__onfocus a
+  onfocus : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onfocus a = tryJS "GlobalEventHandlers.onfocus" $ GlobalEventHandlers.prim__onfocus a
   
   export
-  setOnfocus : (obj : GlobalEventHandlers) -> (value : EventHandler) -> JSIO ()
-  setOnfocus a b = primJS $ GlobalEventHandlers.prim__setOnfocus a b
+  setOnfocus :  (obj : GlobalEventHandlers)
+             -> (value : Maybe EventHandlerNonNull)
+             -> JSIO ()
+  setOnfocus a b = primJS $ GlobalEventHandlers.prim__setOnfocus a (toFFI b)
   
   export
-  onformdata : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onformdata a = primJS $ GlobalEventHandlers.prim__onformdata a
+  onformdata : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onformdata a = tryJS "GlobalEventHandlers.onformdata" $ GlobalEventHandlers.prim__onformdata a
   
   export
   setOnformdata :  (obj : GlobalEventHandlers)
-                -> (value : EventHandler)
+                -> (value : Maybe EventHandlerNonNull)
                 -> JSIO ()
-  setOnformdata a b = primJS $ GlobalEventHandlers.prim__setOnformdata a b
+  setOnformdata a b = primJS $ GlobalEventHandlers.prim__setOnformdata a
+                                                                       (toFFI b)
   
   export
-  oninput : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  oninput a = primJS $ GlobalEventHandlers.prim__oninput a
+  oninput : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  oninput a = tryJS "GlobalEventHandlers.oninput" $ GlobalEventHandlers.prim__oninput a
   
   export
-  setOninput : (obj : GlobalEventHandlers) -> (value : EventHandler) -> JSIO ()
-  setOninput a b = primJS $ GlobalEventHandlers.prim__setOninput a b
+  setOninput :  (obj : GlobalEventHandlers)
+             -> (value : Maybe EventHandlerNonNull)
+             -> JSIO ()
+  setOninput a b = primJS $ GlobalEventHandlers.prim__setOninput a (toFFI b)
   
   export
-  oninvalid : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  oninvalid a = primJS $ GlobalEventHandlers.prim__oninvalid a
+  oninvalid : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  oninvalid a = tryJS "GlobalEventHandlers.oninvalid" $ GlobalEventHandlers.prim__oninvalid a
   
   export
   setOninvalid :  (obj : GlobalEventHandlers)
-               -> (value : EventHandler)
+               -> (value : Maybe EventHandlerNonNull)
                -> JSIO ()
-  setOninvalid a b = primJS $ GlobalEventHandlers.prim__setOninvalid a b
+  setOninvalid a b = primJS $ GlobalEventHandlers.prim__setOninvalid a (toFFI b)
   
   export
-  onkeydown : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onkeydown a = primJS $ GlobalEventHandlers.prim__onkeydown a
+  onkeydown : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onkeydown a = tryJS "GlobalEventHandlers.onkeydown" $ GlobalEventHandlers.prim__onkeydown a
   
   export
   setOnkeydown :  (obj : GlobalEventHandlers)
-               -> (value : EventHandler)
+               -> (value : Maybe EventHandlerNonNull)
                -> JSIO ()
-  setOnkeydown a b = primJS $ GlobalEventHandlers.prim__setOnkeydown a b
+  setOnkeydown a b = primJS $ GlobalEventHandlers.prim__setOnkeydown a (toFFI b)
   
   export
-  onkeypress : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onkeypress a = primJS $ GlobalEventHandlers.prim__onkeypress a
+  onkeypress : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onkeypress a = tryJS "GlobalEventHandlers.onkeypress" $ GlobalEventHandlers.prim__onkeypress a
   
   export
   setOnkeypress :  (obj : GlobalEventHandlers)
-                -> (value : EventHandler)
+                -> (value : Maybe EventHandlerNonNull)
                 -> JSIO ()
-  setOnkeypress a b = primJS $ GlobalEventHandlers.prim__setOnkeypress a b
+  setOnkeypress a b = primJS $ GlobalEventHandlers.prim__setOnkeypress a
+                                                                       (toFFI b)
   
   export
-  onkeyup : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onkeyup a = primJS $ GlobalEventHandlers.prim__onkeyup a
+  onkeyup : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onkeyup a = tryJS "GlobalEventHandlers.onkeyup" $ GlobalEventHandlers.prim__onkeyup a
   
   export
-  setOnkeyup : (obj : GlobalEventHandlers) -> (value : EventHandler) -> JSIO ()
-  setOnkeyup a b = primJS $ GlobalEventHandlers.prim__setOnkeyup a b
+  setOnkeyup :  (obj : GlobalEventHandlers)
+             -> (value : Maybe EventHandlerNonNull)
+             -> JSIO ()
+  setOnkeyup a b = primJS $ GlobalEventHandlers.prim__setOnkeyup a (toFFI b)
   
   export
-  onload : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onload a = primJS $ GlobalEventHandlers.prim__onload a
+  onload : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onload a = tryJS "GlobalEventHandlers.onload" $ GlobalEventHandlers.prim__onload a
   
   export
-  setOnload : (obj : GlobalEventHandlers) -> (value : EventHandler) -> JSIO ()
-  setOnload a b = primJS $ GlobalEventHandlers.prim__setOnload a b
+  setOnload :  (obj : GlobalEventHandlers)
+            -> (value : Maybe EventHandlerNonNull)
+            -> JSIO ()
+  setOnload a b = primJS $ GlobalEventHandlers.prim__setOnload a (toFFI b)
   
   export
-  onloadeddata : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onloadeddata a = primJS $ GlobalEventHandlers.prim__onloadeddata a
+  onloadeddata : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onloadeddata a = tryJS "GlobalEventHandlers.onloadeddata" $ GlobalEventHandlers.prim__onloadeddata a
   
   export
   setOnloadeddata :  (obj : GlobalEventHandlers)
-                  -> (value : EventHandler)
+                  -> (value : Maybe EventHandlerNonNull)
                   -> JSIO ()
-  setOnloadeddata a b = primJS $ GlobalEventHandlers.prim__setOnloadeddata a b
+  setOnloadeddata a b = primJS $ GlobalEventHandlers.prim__setOnloadeddata a
+                                                                           (toFFI b)
   
   export
-  onloadedmetadata : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onloadedmetadata a = primJS $ GlobalEventHandlers.prim__onloadedmetadata a
+  onloadedmetadata :  (obj : GlobalEventHandlers)
+                   -> JSIO (Maybe EventHandlerNonNull)
+  onloadedmetadata a = tryJS "GlobalEventHandlers.onloadedmetadata" $ GlobalEventHandlers.prim__onloadedmetadata a
   
   export
   setOnloadedmetadata :  (obj : GlobalEventHandlers)
-                      -> (value : EventHandler)
+                      -> (value : Maybe EventHandlerNonNull)
                       -> JSIO ()
   setOnloadedmetadata a b = primJS $ GlobalEventHandlers.prim__setOnloadedmetadata a
-                                                                                   b
+                                                                                   (toFFI b)
   
   export
-  onloadstart : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onloadstart a = primJS $ GlobalEventHandlers.prim__onloadstart a
+  onloadstart : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onloadstart a = tryJS "GlobalEventHandlers.onloadstart" $ GlobalEventHandlers.prim__onloadstart a
   
   export
   setOnloadstart :  (obj : GlobalEventHandlers)
-                 -> (value : EventHandler)
+                 -> (value : Maybe EventHandlerNonNull)
                  -> JSIO ()
-  setOnloadstart a b = primJS $ GlobalEventHandlers.prim__setOnloadstart a b
+  setOnloadstart a b = primJS $ GlobalEventHandlers.prim__setOnloadstart a
+                                                                         (toFFI b)
   
   export
-  onmousedown : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onmousedown a = primJS $ GlobalEventHandlers.prim__onmousedown a
+  onmousedown : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onmousedown a = tryJS "GlobalEventHandlers.onmousedown" $ GlobalEventHandlers.prim__onmousedown a
   
   export
   setOnmousedown :  (obj : GlobalEventHandlers)
-                 -> (value : EventHandler)
+                 -> (value : Maybe EventHandlerNonNull)
                  -> JSIO ()
-  setOnmousedown a b = primJS $ GlobalEventHandlers.prim__setOnmousedown a b
+  setOnmousedown a b = primJS $ GlobalEventHandlers.prim__setOnmousedown a
+                                                                         (toFFI b)
   
   export
-  onmouseenter : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onmouseenter a = primJS $ GlobalEventHandlers.prim__onmouseenter a
+  onmouseenter : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onmouseenter a = tryJS "GlobalEventHandlers.onmouseenter" $ GlobalEventHandlers.prim__onmouseenter a
   
   export
   setOnmouseenter :  (obj : GlobalEventHandlers)
-                  -> (value : EventHandler)
+                  -> (value : Maybe EventHandlerNonNull)
                   -> JSIO ()
-  setOnmouseenter a b = primJS $ GlobalEventHandlers.prim__setOnmouseenter a b
+  setOnmouseenter a b = primJS $ GlobalEventHandlers.prim__setOnmouseenter a
+                                                                           (toFFI b)
   
   export
-  onmouseleave : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onmouseleave a = primJS $ GlobalEventHandlers.prim__onmouseleave a
+  onmouseleave : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onmouseleave a = tryJS "GlobalEventHandlers.onmouseleave" $ GlobalEventHandlers.prim__onmouseleave a
   
   export
   setOnmouseleave :  (obj : GlobalEventHandlers)
-                  -> (value : EventHandler)
+                  -> (value : Maybe EventHandlerNonNull)
                   -> JSIO ()
-  setOnmouseleave a b = primJS $ GlobalEventHandlers.prim__setOnmouseleave a b
+  setOnmouseleave a b = primJS $ GlobalEventHandlers.prim__setOnmouseleave a
+                                                                           (toFFI b)
   
   export
-  onmousemove : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onmousemove a = primJS $ GlobalEventHandlers.prim__onmousemove a
+  onmousemove : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onmousemove a = tryJS "GlobalEventHandlers.onmousemove" $ GlobalEventHandlers.prim__onmousemove a
   
   export
   setOnmousemove :  (obj : GlobalEventHandlers)
-                 -> (value : EventHandler)
+                 -> (value : Maybe EventHandlerNonNull)
                  -> JSIO ()
-  setOnmousemove a b = primJS $ GlobalEventHandlers.prim__setOnmousemove a b
+  setOnmousemove a b = primJS $ GlobalEventHandlers.prim__setOnmousemove a
+                                                                         (toFFI b)
   
   export
-  onmouseout : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onmouseout a = primJS $ GlobalEventHandlers.prim__onmouseout a
+  onmouseout : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onmouseout a = tryJS "GlobalEventHandlers.onmouseout" $ GlobalEventHandlers.prim__onmouseout a
   
   export
   setOnmouseout :  (obj : GlobalEventHandlers)
-                -> (value : EventHandler)
+                -> (value : Maybe EventHandlerNonNull)
                 -> JSIO ()
-  setOnmouseout a b = primJS $ GlobalEventHandlers.prim__setOnmouseout a b
+  setOnmouseout a b = primJS $ GlobalEventHandlers.prim__setOnmouseout a
+                                                                       (toFFI b)
   
   export
-  onmouseover : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onmouseover a = primJS $ GlobalEventHandlers.prim__onmouseover a
+  onmouseover : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onmouseover a = tryJS "GlobalEventHandlers.onmouseover" $ GlobalEventHandlers.prim__onmouseover a
   
   export
   setOnmouseover :  (obj : GlobalEventHandlers)
-                 -> (value : EventHandler)
+                 -> (value : Maybe EventHandlerNonNull)
                  -> JSIO ()
-  setOnmouseover a b = primJS $ GlobalEventHandlers.prim__setOnmouseover a b
+  setOnmouseover a b = primJS $ GlobalEventHandlers.prim__setOnmouseover a
+                                                                         (toFFI b)
   
   export
-  onmouseup : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onmouseup a = primJS $ GlobalEventHandlers.prim__onmouseup a
+  onmouseup : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onmouseup a = tryJS "GlobalEventHandlers.onmouseup" $ GlobalEventHandlers.prim__onmouseup a
   
   export
   setOnmouseup :  (obj : GlobalEventHandlers)
-               -> (value : EventHandler)
+               -> (value : Maybe EventHandlerNonNull)
                -> JSIO ()
-  setOnmouseup a b = primJS $ GlobalEventHandlers.prim__setOnmouseup a b
+  setOnmouseup a b = primJS $ GlobalEventHandlers.prim__setOnmouseup a (toFFI b)
   
   export
-  onpause : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onpause a = primJS $ GlobalEventHandlers.prim__onpause a
+  onpause : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onpause a = tryJS "GlobalEventHandlers.onpause" $ GlobalEventHandlers.prim__onpause a
   
   export
-  setOnpause : (obj : GlobalEventHandlers) -> (value : EventHandler) -> JSIO ()
-  setOnpause a b = primJS $ GlobalEventHandlers.prim__setOnpause a b
+  setOnpause :  (obj : GlobalEventHandlers)
+             -> (value : Maybe EventHandlerNonNull)
+             -> JSIO ()
+  setOnpause a b = primJS $ GlobalEventHandlers.prim__setOnpause a (toFFI b)
   
   export
-  onplay : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onplay a = primJS $ GlobalEventHandlers.prim__onplay a
+  onplay : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onplay a = tryJS "GlobalEventHandlers.onplay" $ GlobalEventHandlers.prim__onplay a
   
   export
-  setOnplay : (obj : GlobalEventHandlers) -> (value : EventHandler) -> JSIO ()
-  setOnplay a b = primJS $ GlobalEventHandlers.prim__setOnplay a b
+  setOnplay :  (obj : GlobalEventHandlers)
+            -> (value : Maybe EventHandlerNonNull)
+            -> JSIO ()
+  setOnplay a b = primJS $ GlobalEventHandlers.prim__setOnplay a (toFFI b)
   
   export
-  onplaying : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onplaying a = primJS $ GlobalEventHandlers.prim__onplaying a
+  onplaying : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onplaying a = tryJS "GlobalEventHandlers.onplaying" $ GlobalEventHandlers.prim__onplaying a
   
   export
   setOnplaying :  (obj : GlobalEventHandlers)
-               -> (value : EventHandler)
+               -> (value : Maybe EventHandlerNonNull)
                -> JSIO ()
-  setOnplaying a b = primJS $ GlobalEventHandlers.prim__setOnplaying a b
+  setOnplaying a b = primJS $ GlobalEventHandlers.prim__setOnplaying a (toFFI b)
   
   export
-  onprogress : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onprogress a = primJS $ GlobalEventHandlers.prim__onprogress a
+  onprogress : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onprogress a = tryJS "GlobalEventHandlers.onprogress" $ GlobalEventHandlers.prim__onprogress a
   
   export
   setOnprogress :  (obj : GlobalEventHandlers)
-                -> (value : EventHandler)
+                -> (value : Maybe EventHandlerNonNull)
                 -> JSIO ()
-  setOnprogress a b = primJS $ GlobalEventHandlers.prim__setOnprogress a b
+  setOnprogress a b = primJS $ GlobalEventHandlers.prim__setOnprogress a
+                                                                       (toFFI b)
   
   export
-  onratechange : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onratechange a = primJS $ GlobalEventHandlers.prim__onratechange a
+  onratechange : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onratechange a = tryJS "GlobalEventHandlers.onratechange" $ GlobalEventHandlers.prim__onratechange a
   
   export
   setOnratechange :  (obj : GlobalEventHandlers)
-                  -> (value : EventHandler)
+                  -> (value : Maybe EventHandlerNonNull)
                   -> JSIO ()
-  setOnratechange a b = primJS $ GlobalEventHandlers.prim__setOnratechange a b
+  setOnratechange a b = primJS $ GlobalEventHandlers.prim__setOnratechange a
+                                                                           (toFFI b)
   
   export
-  onreset : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onreset a = primJS $ GlobalEventHandlers.prim__onreset a
+  onreset : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onreset a = tryJS "GlobalEventHandlers.onreset" $ GlobalEventHandlers.prim__onreset a
   
   export
-  setOnreset : (obj : GlobalEventHandlers) -> (value : EventHandler) -> JSIO ()
-  setOnreset a b = primJS $ GlobalEventHandlers.prim__setOnreset a b
+  setOnreset :  (obj : GlobalEventHandlers)
+             -> (value : Maybe EventHandlerNonNull)
+             -> JSIO ()
+  setOnreset a b = primJS $ GlobalEventHandlers.prim__setOnreset a (toFFI b)
   
   export
-  onresize : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onresize a = primJS $ GlobalEventHandlers.prim__onresize a
+  onresize : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onresize a = tryJS "GlobalEventHandlers.onresize" $ GlobalEventHandlers.prim__onresize a
   
   export
-  setOnresize : (obj : GlobalEventHandlers) -> (value : EventHandler) -> JSIO ()
-  setOnresize a b = primJS $ GlobalEventHandlers.prim__setOnresize a b
+  setOnresize :  (obj : GlobalEventHandlers)
+              -> (value : Maybe EventHandlerNonNull)
+              -> JSIO ()
+  setOnresize a b = primJS $ GlobalEventHandlers.prim__setOnresize a (toFFI b)
   
   export
-  onscroll : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onscroll a = primJS $ GlobalEventHandlers.prim__onscroll a
+  onscroll : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onscroll a = tryJS "GlobalEventHandlers.onscroll" $ GlobalEventHandlers.prim__onscroll a
   
   export
-  setOnscroll : (obj : GlobalEventHandlers) -> (value : EventHandler) -> JSIO ()
-  setOnscroll a b = primJS $ GlobalEventHandlers.prim__setOnscroll a b
+  setOnscroll :  (obj : GlobalEventHandlers)
+              -> (value : Maybe EventHandlerNonNull)
+              -> JSIO ()
+  setOnscroll a b = primJS $ GlobalEventHandlers.prim__setOnscroll a (toFFI b)
   
   export
-  onsecuritypolicyviolation : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onsecuritypolicyviolation a = primJS $ GlobalEventHandlers.prim__onsecuritypolicyviolation a
+  onsecuritypolicyviolation :  (obj : GlobalEventHandlers)
+                            -> JSIO (Maybe EventHandlerNonNull)
+  onsecuritypolicyviolation a = tryJS "GlobalEventHandlers.onsecuritypolicyviolation" $ GlobalEventHandlers.prim__onsecuritypolicyviolation a
   
   export
   setOnsecuritypolicyviolation :  (obj : GlobalEventHandlers)
-                               -> (value : EventHandler)
+                               -> (value : Maybe EventHandlerNonNull)
                                -> JSIO ()
   setOnsecuritypolicyviolation a b = primJS $ GlobalEventHandlers.prim__setOnsecuritypolicyviolation a
-                                                                                                     b
+                                                                                                     (toFFI b)
   
   export
-  onseeked : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onseeked a = primJS $ GlobalEventHandlers.prim__onseeked a
+  onseeked : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onseeked a = tryJS "GlobalEventHandlers.onseeked" $ GlobalEventHandlers.prim__onseeked a
   
   export
-  setOnseeked : (obj : GlobalEventHandlers) -> (value : EventHandler) -> JSIO ()
-  setOnseeked a b = primJS $ GlobalEventHandlers.prim__setOnseeked a b
+  setOnseeked :  (obj : GlobalEventHandlers)
+              -> (value : Maybe EventHandlerNonNull)
+              -> JSIO ()
+  setOnseeked a b = primJS $ GlobalEventHandlers.prim__setOnseeked a (toFFI b)
   
   export
-  onseeking : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onseeking a = primJS $ GlobalEventHandlers.prim__onseeking a
+  onseeking : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onseeking a = tryJS "GlobalEventHandlers.onseeking" $ GlobalEventHandlers.prim__onseeking a
   
   export
   setOnseeking :  (obj : GlobalEventHandlers)
-               -> (value : EventHandler)
+               -> (value : Maybe EventHandlerNonNull)
                -> JSIO ()
-  setOnseeking a b = primJS $ GlobalEventHandlers.prim__setOnseeking a b
+  setOnseeking a b = primJS $ GlobalEventHandlers.prim__setOnseeking a (toFFI b)
   
   export
-  onselect : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onselect a = primJS $ GlobalEventHandlers.prim__onselect a
+  onselect : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onselect a = tryJS "GlobalEventHandlers.onselect" $ GlobalEventHandlers.prim__onselect a
   
   export
-  setOnselect : (obj : GlobalEventHandlers) -> (value : EventHandler) -> JSIO ()
-  setOnselect a b = primJS $ GlobalEventHandlers.prim__setOnselect a b
+  setOnselect :  (obj : GlobalEventHandlers)
+              -> (value : Maybe EventHandlerNonNull)
+              -> JSIO ()
+  setOnselect a b = primJS $ GlobalEventHandlers.prim__setOnselect a (toFFI b)
   
   export
-  onslotchange : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onslotchange a = primJS $ GlobalEventHandlers.prim__onslotchange a
+  onslotchange : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onslotchange a = tryJS "GlobalEventHandlers.onslotchange" $ GlobalEventHandlers.prim__onslotchange a
   
   export
   setOnslotchange :  (obj : GlobalEventHandlers)
-                  -> (value : EventHandler)
+                  -> (value : Maybe EventHandlerNonNull)
                   -> JSIO ()
-  setOnslotchange a b = primJS $ GlobalEventHandlers.prim__setOnslotchange a b
+  setOnslotchange a b = primJS $ GlobalEventHandlers.prim__setOnslotchange a
+                                                                           (toFFI b)
   
   export
-  onstalled : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onstalled a = primJS $ GlobalEventHandlers.prim__onstalled a
+  onstalled : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onstalled a = tryJS "GlobalEventHandlers.onstalled" $ GlobalEventHandlers.prim__onstalled a
   
   export
   setOnstalled :  (obj : GlobalEventHandlers)
-               -> (value : EventHandler)
+               -> (value : Maybe EventHandlerNonNull)
                -> JSIO ()
-  setOnstalled a b = primJS $ GlobalEventHandlers.prim__setOnstalled a b
+  setOnstalled a b = primJS $ GlobalEventHandlers.prim__setOnstalled a (toFFI b)
   
   export
-  onsubmit : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onsubmit a = primJS $ GlobalEventHandlers.prim__onsubmit a
+  onsubmit : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onsubmit a = tryJS "GlobalEventHandlers.onsubmit" $ GlobalEventHandlers.prim__onsubmit a
   
   export
-  setOnsubmit : (obj : GlobalEventHandlers) -> (value : EventHandler) -> JSIO ()
-  setOnsubmit a b = primJS $ GlobalEventHandlers.prim__setOnsubmit a b
+  setOnsubmit :  (obj : GlobalEventHandlers)
+              -> (value : Maybe EventHandlerNonNull)
+              -> JSIO ()
+  setOnsubmit a b = primJS $ GlobalEventHandlers.prim__setOnsubmit a (toFFI b)
   
   export
-  onsuspend : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onsuspend a = primJS $ GlobalEventHandlers.prim__onsuspend a
+  onsuspend : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onsuspend a = tryJS "GlobalEventHandlers.onsuspend" $ GlobalEventHandlers.prim__onsuspend a
   
   export
   setOnsuspend :  (obj : GlobalEventHandlers)
-               -> (value : EventHandler)
+               -> (value : Maybe EventHandlerNonNull)
                -> JSIO ()
-  setOnsuspend a b = primJS $ GlobalEventHandlers.prim__setOnsuspend a b
+  setOnsuspend a b = primJS $ GlobalEventHandlers.prim__setOnsuspend a (toFFI b)
   
   export
-  ontimeupdate : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  ontimeupdate a = primJS $ GlobalEventHandlers.prim__ontimeupdate a
+  ontimeupdate : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  ontimeupdate a = tryJS "GlobalEventHandlers.ontimeupdate" $ GlobalEventHandlers.prim__ontimeupdate a
   
   export
   setOntimeupdate :  (obj : GlobalEventHandlers)
-                  -> (value : EventHandler)
+                  -> (value : Maybe EventHandlerNonNull)
                   -> JSIO ()
-  setOntimeupdate a b = primJS $ GlobalEventHandlers.prim__setOntimeupdate a b
+  setOntimeupdate a b = primJS $ GlobalEventHandlers.prim__setOntimeupdate a
+                                                                           (toFFI b)
   
   export
-  ontoggle : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  ontoggle a = primJS $ GlobalEventHandlers.prim__ontoggle a
+  ontoggle : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  ontoggle a = tryJS "GlobalEventHandlers.ontoggle" $ GlobalEventHandlers.prim__ontoggle a
   
   export
-  setOntoggle : (obj : GlobalEventHandlers) -> (value : EventHandler) -> JSIO ()
-  setOntoggle a b = primJS $ GlobalEventHandlers.prim__setOntoggle a b
+  setOntoggle :  (obj : GlobalEventHandlers)
+              -> (value : Maybe EventHandlerNonNull)
+              -> JSIO ()
+  setOntoggle a b = primJS $ GlobalEventHandlers.prim__setOntoggle a (toFFI b)
   
   export
-  onvolumechange : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onvolumechange a = primJS $ GlobalEventHandlers.prim__onvolumechange a
+  onvolumechange :  (obj : GlobalEventHandlers)
+                 -> JSIO (Maybe EventHandlerNonNull)
+  onvolumechange a = tryJS "GlobalEventHandlers.onvolumechange" $ GlobalEventHandlers.prim__onvolumechange a
   
   export
   setOnvolumechange :  (obj : GlobalEventHandlers)
-                    -> (value : EventHandler)
+                    -> (value : Maybe EventHandlerNonNull)
                     -> JSIO ()
   setOnvolumechange a b = primJS $ GlobalEventHandlers.prim__setOnvolumechange a
-                                                                               b
+                                                                               (toFFI b)
   
   export
-  onwaiting : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onwaiting a = primJS $ GlobalEventHandlers.prim__onwaiting a
+  onwaiting : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onwaiting a = tryJS "GlobalEventHandlers.onwaiting" $ GlobalEventHandlers.prim__onwaiting a
   
   export
   setOnwaiting :  (obj : GlobalEventHandlers)
-               -> (value : EventHandler)
+               -> (value : Maybe EventHandlerNonNull)
                -> JSIO ()
-  setOnwaiting a b = primJS $ GlobalEventHandlers.prim__setOnwaiting a b
+  setOnwaiting a b = primJS $ GlobalEventHandlers.prim__setOnwaiting a (toFFI b)
   
   export
-  onwebkitanimationend : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onwebkitanimationend a = primJS $ GlobalEventHandlers.prim__onwebkitanimationend a
+  onwebkitanimationend :  (obj : GlobalEventHandlers)
+                       -> JSIO (Maybe EventHandlerNonNull)
+  onwebkitanimationend a = tryJS "GlobalEventHandlers.onwebkitanimationend" $ GlobalEventHandlers.prim__onwebkitanimationend a
   
   export
   setOnwebkitanimationend :  (obj : GlobalEventHandlers)
-                          -> (value : EventHandler)
+                          -> (value : Maybe EventHandlerNonNull)
                           -> JSIO ()
   setOnwebkitanimationend a b = primJS $ GlobalEventHandlers.prim__setOnwebkitanimationend a
-                                                                                           b
+                                                                                           (toFFI b)
   
   export
-  onwebkitanimationiteration : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onwebkitanimationiteration a = primJS $ GlobalEventHandlers.prim__onwebkitanimationiteration a
+  onwebkitanimationiteration :  (obj : GlobalEventHandlers)
+                             -> JSIO (Maybe EventHandlerNonNull)
+  onwebkitanimationiteration a = tryJS "GlobalEventHandlers.onwebkitanimationiteration" $ GlobalEventHandlers.prim__onwebkitanimationiteration a
   
   export
   setOnwebkitanimationiteration :  (obj : GlobalEventHandlers)
-                                -> (value : EventHandler)
+                                -> (value : Maybe EventHandlerNonNull)
                                 -> JSIO ()
   setOnwebkitanimationiteration a b = primJS $ GlobalEventHandlers.prim__setOnwebkitanimationiteration a
-                                                                                                       b
+                                                                                                       (toFFI b)
   
   export
-  onwebkitanimationstart : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onwebkitanimationstart a = primJS $ GlobalEventHandlers.prim__onwebkitanimationstart a
+  onwebkitanimationstart :  (obj : GlobalEventHandlers)
+                         -> JSIO (Maybe EventHandlerNonNull)
+  onwebkitanimationstart a = tryJS "GlobalEventHandlers.onwebkitanimationstart" $ GlobalEventHandlers.prim__onwebkitanimationstart a
   
   export
   setOnwebkitanimationstart :  (obj : GlobalEventHandlers)
-                            -> (value : EventHandler)
+                            -> (value : Maybe EventHandlerNonNull)
                             -> JSIO ()
   setOnwebkitanimationstart a b = primJS $ GlobalEventHandlers.prim__setOnwebkitanimationstart a
-                                                                                               b
+                                                                                               (toFFI b)
   
   export
-  onwebkittransitionend : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onwebkittransitionend a = primJS $ GlobalEventHandlers.prim__onwebkittransitionend a
+  onwebkittransitionend :  (obj : GlobalEventHandlers)
+                        -> JSIO (Maybe EventHandlerNonNull)
+  onwebkittransitionend a = tryJS "GlobalEventHandlers.onwebkittransitionend" $ GlobalEventHandlers.prim__onwebkittransitionend a
   
   export
   setOnwebkittransitionend :  (obj : GlobalEventHandlers)
-                           -> (value : EventHandler)
+                           -> (value : Maybe EventHandlerNonNull)
                            -> JSIO ()
   setOnwebkittransitionend a b = primJS $ GlobalEventHandlers.prim__setOnwebkittransitionend a
-                                                                                             b
+                                                                                             (toFFI b)
   
   export
-  onwheel : (obj : GlobalEventHandlers) -> JSIO EventHandler
-  onwheel a = primJS $ GlobalEventHandlers.prim__onwheel a
+  onwheel : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onwheel a = tryJS "GlobalEventHandlers.onwheel" $ GlobalEventHandlers.prim__onwheel a
   
   export
-  setOnwheel : (obj : GlobalEventHandlers) -> (value : EventHandler) -> JSIO ()
-  setOnwheel a b = primJS $ GlobalEventHandlers.prim__setOnwheel a b
+  setOnwheel :  (obj : GlobalEventHandlers)
+             -> (value : Maybe EventHandlerNonNull)
+             -> JSIO ()
+  setOnwheel a b = primJS $ GlobalEventHandlers.prim__setOnwheel a (toFFI b)
 
 namespace HTMLHyperlinkElementUtils
   
@@ -10205,12 +10476,12 @@ namespace HTMLHyperlinkElementUtils
 namespace HTMLOrSVGElement
   
   export
-  autofocus : (obj : HTMLOrSVGElement) -> JSIO Boolean
-  autofocus a = primJS $ HTMLOrSVGElement.prim__autofocus a
+  autofocus : (obj : HTMLOrSVGElement) -> JSIO Bool
+  autofocus a = tryJS "HTMLOrSVGElement.autofocus" $ HTMLOrSVGElement.prim__autofocus a
   
   export
-  setAutofocus : (obj : HTMLOrSVGElement) -> (value : Boolean) -> JSIO ()
-  setAutofocus a b = primJS $ HTMLOrSVGElement.prim__setAutofocus a b
+  setAutofocus : (obj : HTMLOrSVGElement) -> (value : Bool) -> JSIO ()
+  setAutofocus a b = primJS $ HTMLOrSVGElement.prim__setAutofocus a (toFFI b)
   
   export
   dataset : (obj : HTMLOrSVGElement) -> JSIO DOMStringMap
@@ -10238,13 +10509,13 @@ namespace HTMLOrSVGElement
   
   export
   focus :  (obj : HTMLOrSVGElement)
-        -> (options : UndefOr FocusOptions)
+        -> (options : Optional FocusOptions)
         -> JSIO ()
-  focus a b = primJS $ HTMLOrSVGElement.prim__focus a b
+  focus a b = primJS $ HTMLOrSVGElement.prim__focus a (toFFI b)
 
   export
   focus' : (obj : HTMLOrSVGElement) -> JSIO ()
-  focus' a = focus a undef
+  focus' a = focus a Undef
 
 namespace NavigatorConcurrentHardware
   
@@ -10275,8 +10546,8 @@ namespace NavigatorContentUtils
 namespace NavigatorCookies
   
   export
-  cookieEnabled : (obj : NavigatorCookies) -> JSIO Boolean
-  cookieEnabled a = primJS $ NavigatorCookies.prim__cookieEnabled a
+  cookieEnabled : (obj : NavigatorCookies) -> JSIO Bool
+  cookieEnabled a = tryJS "NavigatorCookies.cookieEnabled" $ NavigatorCookies.prim__cookieEnabled a
 
 namespace NavigatorID
   
@@ -10329,8 +10600,8 @@ namespace NavigatorLanguage
 namespace NavigatorOnLine
   
   export
-  onLine : (obj : NavigatorOnLine) -> JSIO Boolean
-  onLine a = primJS $ NavigatorOnLine.prim__onLine a
+  onLine : (obj : NavigatorOnLine) -> JSIO Bool
+  onLine a = tryJS "NavigatorOnLine.onLine" $ NavigatorOnLine.prim__onLine a
 
 namespace NavigatorPlugins
   
@@ -10343,172 +10614,187 @@ namespace NavigatorPlugins
   plugins a = primJS $ NavigatorPlugins.prim__plugins a
   
   export
-  javaEnabled : (obj : NavigatorPlugins) -> JSIO Boolean
-  javaEnabled a = primJS $ NavigatorPlugins.prim__javaEnabled a
+  javaEnabled : (obj : NavigatorPlugins) -> JSIO Bool
+  javaEnabled a = tryJS "NavigatorPlugins.javaEnabled" $ NavigatorPlugins.prim__javaEnabled a
 
 namespace WindowEventHandlers
   
   export
-  onafterprint : (obj : WindowEventHandlers) -> JSIO EventHandler
-  onafterprint a = primJS $ WindowEventHandlers.prim__onafterprint a
+  onafterprint : (obj : WindowEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onafterprint a = tryJS "WindowEventHandlers.onafterprint" $ WindowEventHandlers.prim__onafterprint a
   
   export
   setOnafterprint :  (obj : WindowEventHandlers)
-                  -> (value : EventHandler)
+                  -> (value : Maybe EventHandlerNonNull)
                   -> JSIO ()
-  setOnafterprint a b = primJS $ WindowEventHandlers.prim__setOnafterprint a b
+  setOnafterprint a b = primJS $ WindowEventHandlers.prim__setOnafterprint a
+                                                                           (toFFI b)
   
   export
-  onbeforeprint : (obj : WindowEventHandlers) -> JSIO EventHandler
-  onbeforeprint a = primJS $ WindowEventHandlers.prim__onbeforeprint a
+  onbeforeprint :  (obj : WindowEventHandlers)
+                -> JSIO (Maybe EventHandlerNonNull)
+  onbeforeprint a = tryJS "WindowEventHandlers.onbeforeprint" $ WindowEventHandlers.prim__onbeforeprint a
   
   export
   setOnbeforeprint :  (obj : WindowEventHandlers)
-                   -> (value : EventHandler)
+                   -> (value : Maybe EventHandlerNonNull)
                    -> JSIO ()
-  setOnbeforeprint a b = primJS $ WindowEventHandlers.prim__setOnbeforeprint a b
+  setOnbeforeprint a b = primJS $ WindowEventHandlers.prim__setOnbeforeprint a
+                                                                             (toFFI b)
   
   export
   onbeforeunload :  (obj : WindowEventHandlers)
-                 -> JSIO OnBeforeUnloadEventHandler
-  onbeforeunload a = primJS $ WindowEventHandlers.prim__onbeforeunload a
+                 -> JSIO (Maybe OnBeforeUnloadEventHandlerNonNull)
+  onbeforeunload a = tryJS "WindowEventHandlers.onbeforeunload" $ WindowEventHandlers.prim__onbeforeunload a
   
   export
   setOnbeforeunload :  (obj : WindowEventHandlers)
-                    -> (value : OnBeforeUnloadEventHandler)
+                    -> (value : Maybe OnBeforeUnloadEventHandlerNonNull)
                     -> JSIO ()
   setOnbeforeunload a b = primJS $ WindowEventHandlers.prim__setOnbeforeunload a
-                                                                               b
+                                                                               (toFFI b)
   
   export
-  onhashchange : (obj : WindowEventHandlers) -> JSIO EventHandler
-  onhashchange a = primJS $ WindowEventHandlers.prim__onhashchange a
+  onhashchange : (obj : WindowEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onhashchange a = tryJS "WindowEventHandlers.onhashchange" $ WindowEventHandlers.prim__onhashchange a
   
   export
   setOnhashchange :  (obj : WindowEventHandlers)
-                  -> (value : EventHandler)
+                  -> (value : Maybe EventHandlerNonNull)
                   -> JSIO ()
-  setOnhashchange a b = primJS $ WindowEventHandlers.prim__setOnhashchange a b
+  setOnhashchange a b = primJS $ WindowEventHandlers.prim__setOnhashchange a
+                                                                           (toFFI b)
   
   export
-  onlanguagechange : (obj : WindowEventHandlers) -> JSIO EventHandler
-  onlanguagechange a = primJS $ WindowEventHandlers.prim__onlanguagechange a
+  onlanguagechange :  (obj : WindowEventHandlers)
+                   -> JSIO (Maybe EventHandlerNonNull)
+  onlanguagechange a = tryJS "WindowEventHandlers.onlanguagechange" $ WindowEventHandlers.prim__onlanguagechange a
   
   export
   setOnlanguagechange :  (obj : WindowEventHandlers)
-                      -> (value : EventHandler)
+                      -> (value : Maybe EventHandlerNonNull)
                       -> JSIO ()
   setOnlanguagechange a b = primJS $ WindowEventHandlers.prim__setOnlanguagechange a
-                                                                                   b
+                                                                                   (toFFI b)
   
   export
-  onmessage : (obj : WindowEventHandlers) -> JSIO EventHandler
-  onmessage a = primJS $ WindowEventHandlers.prim__onmessage a
+  onmessage : (obj : WindowEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onmessage a = tryJS "WindowEventHandlers.onmessage" $ WindowEventHandlers.prim__onmessage a
   
   export
   setOnmessage :  (obj : WindowEventHandlers)
-               -> (value : EventHandler)
+               -> (value : Maybe EventHandlerNonNull)
                -> JSIO ()
-  setOnmessage a b = primJS $ WindowEventHandlers.prim__setOnmessage a b
+  setOnmessage a b = primJS $ WindowEventHandlers.prim__setOnmessage a (toFFI b)
   
   export
-  onmessageerror : (obj : WindowEventHandlers) -> JSIO EventHandler
-  onmessageerror a = primJS $ WindowEventHandlers.prim__onmessageerror a
+  onmessageerror :  (obj : WindowEventHandlers)
+                 -> JSIO (Maybe EventHandlerNonNull)
+  onmessageerror a = tryJS "WindowEventHandlers.onmessageerror" $ WindowEventHandlers.prim__onmessageerror a
   
   export
   setOnmessageerror :  (obj : WindowEventHandlers)
-                    -> (value : EventHandler)
+                    -> (value : Maybe EventHandlerNonNull)
                     -> JSIO ()
   setOnmessageerror a b = primJS $ WindowEventHandlers.prim__setOnmessageerror a
-                                                                               b
+                                                                               (toFFI b)
   
   export
-  onoffline : (obj : WindowEventHandlers) -> JSIO EventHandler
-  onoffline a = primJS $ WindowEventHandlers.prim__onoffline a
+  onoffline : (obj : WindowEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onoffline a = tryJS "WindowEventHandlers.onoffline" $ WindowEventHandlers.prim__onoffline a
   
   export
   setOnoffline :  (obj : WindowEventHandlers)
-               -> (value : EventHandler)
+               -> (value : Maybe EventHandlerNonNull)
                -> JSIO ()
-  setOnoffline a b = primJS $ WindowEventHandlers.prim__setOnoffline a b
+  setOnoffline a b = primJS $ WindowEventHandlers.prim__setOnoffline a (toFFI b)
   
   export
-  ononline : (obj : WindowEventHandlers) -> JSIO EventHandler
-  ononline a = primJS $ WindowEventHandlers.prim__ononline a
+  ononline : (obj : WindowEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  ononline a = tryJS "WindowEventHandlers.ononline" $ WindowEventHandlers.prim__ononline a
   
   export
-  setOnonline : (obj : WindowEventHandlers) -> (value : EventHandler) -> JSIO ()
-  setOnonline a b = primJS $ WindowEventHandlers.prim__setOnonline a b
+  setOnonline :  (obj : WindowEventHandlers)
+              -> (value : Maybe EventHandlerNonNull)
+              -> JSIO ()
+  setOnonline a b = primJS $ WindowEventHandlers.prim__setOnonline a (toFFI b)
   
   export
-  onpagehide : (obj : WindowEventHandlers) -> JSIO EventHandler
-  onpagehide a = primJS $ WindowEventHandlers.prim__onpagehide a
+  onpagehide : (obj : WindowEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onpagehide a = tryJS "WindowEventHandlers.onpagehide" $ WindowEventHandlers.prim__onpagehide a
   
   export
   setOnpagehide :  (obj : WindowEventHandlers)
-                -> (value : EventHandler)
+                -> (value : Maybe EventHandlerNonNull)
                 -> JSIO ()
-  setOnpagehide a b = primJS $ WindowEventHandlers.prim__setOnpagehide a b
+  setOnpagehide a b = primJS $ WindowEventHandlers.prim__setOnpagehide a
+                                                                       (toFFI b)
   
   export
-  onpageshow : (obj : WindowEventHandlers) -> JSIO EventHandler
-  onpageshow a = primJS $ WindowEventHandlers.prim__onpageshow a
+  onpageshow : (obj : WindowEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onpageshow a = tryJS "WindowEventHandlers.onpageshow" $ WindowEventHandlers.prim__onpageshow a
   
   export
   setOnpageshow :  (obj : WindowEventHandlers)
-                -> (value : EventHandler)
+                -> (value : Maybe EventHandlerNonNull)
                 -> JSIO ()
-  setOnpageshow a b = primJS $ WindowEventHandlers.prim__setOnpageshow a b
+  setOnpageshow a b = primJS $ WindowEventHandlers.prim__setOnpageshow a
+                                                                       (toFFI b)
   
   export
-  onpopstate : (obj : WindowEventHandlers) -> JSIO EventHandler
-  onpopstate a = primJS $ WindowEventHandlers.prim__onpopstate a
+  onpopstate : (obj : WindowEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onpopstate a = tryJS "WindowEventHandlers.onpopstate" $ WindowEventHandlers.prim__onpopstate a
   
   export
   setOnpopstate :  (obj : WindowEventHandlers)
-                -> (value : EventHandler)
+                -> (value : Maybe EventHandlerNonNull)
                 -> JSIO ()
-  setOnpopstate a b = primJS $ WindowEventHandlers.prim__setOnpopstate a b
+  setOnpopstate a b = primJS $ WindowEventHandlers.prim__setOnpopstate a
+                                                                       (toFFI b)
   
   export
-  onrejectionhandled : (obj : WindowEventHandlers) -> JSIO EventHandler
-  onrejectionhandled a = primJS $ WindowEventHandlers.prim__onrejectionhandled a
+  onrejectionhandled :  (obj : WindowEventHandlers)
+                     -> JSIO (Maybe EventHandlerNonNull)
+  onrejectionhandled a = tryJS "WindowEventHandlers.onrejectionhandled" $ WindowEventHandlers.prim__onrejectionhandled a
   
   export
   setOnrejectionhandled :  (obj : WindowEventHandlers)
-                        -> (value : EventHandler)
+                        -> (value : Maybe EventHandlerNonNull)
                         -> JSIO ()
   setOnrejectionhandled a b = primJS $ WindowEventHandlers.prim__setOnrejectionhandled a
-                                                                                       b
+                                                                                       (toFFI b)
   
   export
-  onstorage : (obj : WindowEventHandlers) -> JSIO EventHandler
-  onstorage a = primJS $ WindowEventHandlers.prim__onstorage a
+  onstorage : (obj : WindowEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onstorage a = tryJS "WindowEventHandlers.onstorage" $ WindowEventHandlers.prim__onstorage a
   
   export
   setOnstorage :  (obj : WindowEventHandlers)
-               -> (value : EventHandler)
+               -> (value : Maybe EventHandlerNonNull)
                -> JSIO ()
-  setOnstorage a b = primJS $ WindowEventHandlers.prim__setOnstorage a b
+  setOnstorage a b = primJS $ WindowEventHandlers.prim__setOnstorage a (toFFI b)
   
   export
-  onunhandledrejection : (obj : WindowEventHandlers) -> JSIO EventHandler
-  onunhandledrejection a = primJS $ WindowEventHandlers.prim__onunhandledrejection a
+  onunhandledrejection :  (obj : WindowEventHandlers)
+                       -> JSIO (Maybe EventHandlerNonNull)
+  onunhandledrejection a = tryJS "WindowEventHandlers.onunhandledrejection" $ WindowEventHandlers.prim__onunhandledrejection a
   
   export
   setOnunhandledrejection :  (obj : WindowEventHandlers)
-                          -> (value : EventHandler)
+                          -> (value : Maybe EventHandlerNonNull)
                           -> JSIO ()
   setOnunhandledrejection a b = primJS $ WindowEventHandlers.prim__setOnunhandledrejection a
-                                                                                           b
+                                                                                           (toFFI b)
   
   export
-  onunload : (obj : WindowEventHandlers) -> JSIO EventHandler
-  onunload a = primJS $ WindowEventHandlers.prim__onunload a
+  onunload : (obj : WindowEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
+  onunload a = tryJS "WindowEventHandlers.onunload" $ WindowEventHandlers.prim__onunload a
   
   export
-  setOnunload : (obj : WindowEventHandlers) -> (value : EventHandler) -> JSIO ()
-  setOnunload a b = primJS $ WindowEventHandlers.prim__setOnunload a b
+  setOnunload :  (obj : WindowEventHandlers)
+              -> (value : Maybe EventHandlerNonNull)
+              -> JSIO ()
+  setOnunload a b = primJS $ WindowEventHandlers.prim__setOnunload a (toFFI b)
 
 --------------------------------------------------------------------------------
 --          Dictionaries
@@ -10523,26 +10809,26 @@ namespace AssignedNodesOptions
     mixins =  []
   
   export
-  new : (flatten : UndefOr Boolean) -> JSIO AssignedNodesOptions
-  new a = primJS $ AssignedNodesOptions.prim__new a
+  new : (flatten : Optional Bool) -> JSIO AssignedNodesOptions
+  new a = primJS $ AssignedNodesOptions.prim__new (toFFI a)
 
   export
   new' : JSIO AssignedNodesOptions
-  new' = new undef
+  new' = new Undef
   
   export
-  flatten : (obj : AssignedNodesOptions) -> JSIO (UndefOr Boolean)
-  flatten a = primJS $ AssignedNodesOptions.prim__flatten a
+  flatten : (obj : AssignedNodesOptions) -> JSIO $ Optional Bool
+  flatten a = tryJS "AssignedNodesOptions.flatten" $ AssignedNodesOptions.prim__flatten a
   
   export
   setFlatten :  (obj : AssignedNodesOptions)
-             -> (value : UndefOr Boolean)
+             -> (value : Optional Bool)
              -> JSIO ()
-  setFlatten a b = primJS $ AssignedNodesOptions.prim__setFlatten a b
+  setFlatten a b = primJS $ AssignedNodesOptions.prim__setFlatten a (toFFI b)
 
   export
   setFlatten' : (obj : AssignedNodesOptions) -> JSIO ()
-  setFlatten' a = setFlatten a undef
+  setFlatten' a = setFlatten a Undef
 
 namespace CanvasRenderingContext2DSettings
   
@@ -10553,44 +10839,46 @@ namespace CanvasRenderingContext2DSettings
     mixins =  []
   
   export
-  new :  (alpha : UndefOr Boolean)
-      -> (desynchronized : UndefOr Boolean)
+  new :  (alpha : Optional Bool)
+      -> (desynchronized : Optional Bool)
       -> JSIO CanvasRenderingContext2DSettings
-  new a b = primJS $ CanvasRenderingContext2DSettings.prim__new a b
+  new a b = primJS $ CanvasRenderingContext2DSettings.prim__new (toFFI a)
+                                                                (toFFI b)
 
   export
   new' : JSIO CanvasRenderingContext2DSettings
-  new' = new undef undef
+  new' = new Undef Undef
   
   export
-  alpha : (obj : CanvasRenderingContext2DSettings) -> JSIO (UndefOr Boolean)
-  alpha a = primJS $ CanvasRenderingContext2DSettings.prim__alpha a
+  alpha : (obj : CanvasRenderingContext2DSettings) -> JSIO $ Optional Bool
+  alpha a = tryJS "CanvasRenderingContext2DSettings.alpha" $ CanvasRenderingContext2DSettings.prim__alpha a
   
   export
   setAlpha :  (obj : CanvasRenderingContext2DSettings)
-           -> (value : UndefOr Boolean)
+           -> (value : Optional Bool)
            -> JSIO ()
-  setAlpha a b = primJS $ CanvasRenderingContext2DSettings.prim__setAlpha a b
+  setAlpha a b = primJS $ CanvasRenderingContext2DSettings.prim__setAlpha a
+                                                                          (toFFI b)
 
   export
   setAlpha' : (obj : CanvasRenderingContext2DSettings) -> JSIO ()
-  setAlpha' a = setAlpha a undef
+  setAlpha' a = setAlpha a Undef
   
   export
   desynchronized :  (obj : CanvasRenderingContext2DSettings)
-                 -> JSIO (UndefOr Boolean)
-  desynchronized a = primJS $ CanvasRenderingContext2DSettings.prim__desynchronized a
+                 -> JSIO $ Optional Bool
+  desynchronized a = tryJS "CanvasRenderingContext2DSettings.desynchronized" $ CanvasRenderingContext2DSettings.prim__desynchronized a
   
   export
   setDesynchronized :  (obj : CanvasRenderingContext2DSettings)
-                    -> (value : UndefOr Boolean)
+                    -> (value : Optional Bool)
                     -> JSIO ()
   setDesynchronized a b = primJS $ CanvasRenderingContext2DSettings.prim__setDesynchronized a
-                                                                                            b
+                                                                                            (toFFI b)
 
   export
   setDesynchronized' : (obj : CanvasRenderingContext2DSettings) -> JSIO ()
-  setDesynchronized' a = setDesynchronized a undef
+  setDesynchronized' a = setDesynchronized a Undef
 
 namespace CloseEventInit
   
@@ -10601,51 +10889,51 @@ namespace CloseEventInit
     mixins =  []
   
   export
-  new :  (wasClean : UndefOr Boolean)
-      -> (code : UndefOr UInt16)
-      -> (reason : UndefOr String)
+  new :  (wasClean : Optional Bool)
+      -> (code : Optional UInt16)
+      -> (reason : Optional String)
       -> JSIO CloseEventInit
-  new a b c = primJS $ CloseEventInit.prim__new a b c
+  new a b c = primJS $ CloseEventInit.prim__new (toFFI a) (toFFI b) (toFFI c)
 
   export
   new' : JSIO CloseEventInit
-  new' = new undef undef undef
+  new' = new Undef Undef Undef
   
   export
-  code : (obj : CloseEventInit) -> JSIO (UndefOr UInt16)
-  code a = primJS $ CloseEventInit.prim__code a
+  code : (obj : CloseEventInit) -> JSIO $ Optional UInt16
+  code a = tryJS "CloseEventInit.code" $ CloseEventInit.prim__code a
   
   export
-  setCode : (obj : CloseEventInit) -> (value : UndefOr UInt16) -> JSIO ()
-  setCode a b = primJS $ CloseEventInit.prim__setCode a b
+  setCode : (obj : CloseEventInit) -> (value : Optional UInt16) -> JSIO ()
+  setCode a b = primJS $ CloseEventInit.prim__setCode a (toFFI b)
 
   export
   setCode' : (obj : CloseEventInit) -> JSIO ()
-  setCode' a = setCode a undef
+  setCode' a = setCode a Undef
   
   export
-  reason : (obj : CloseEventInit) -> JSIO (UndefOr String)
-  reason a = primJS $ CloseEventInit.prim__reason a
+  reason : (obj : CloseEventInit) -> JSIO $ Optional String
+  reason a = tryJS "CloseEventInit.reason" $ CloseEventInit.prim__reason a
   
   export
-  setReason : (obj : CloseEventInit) -> (value : UndefOr String) -> JSIO ()
-  setReason a b = primJS $ CloseEventInit.prim__setReason a b
+  setReason : (obj : CloseEventInit) -> (value : Optional String) -> JSIO ()
+  setReason a b = primJS $ CloseEventInit.prim__setReason a (toFFI b)
 
   export
   setReason' : (obj : CloseEventInit) -> JSIO ()
-  setReason' a = setReason a undef
+  setReason' a = setReason a Undef
   
   export
-  wasClean : (obj : CloseEventInit) -> JSIO (UndefOr Boolean)
-  wasClean a = primJS $ CloseEventInit.prim__wasClean a
+  wasClean : (obj : CloseEventInit) -> JSIO $ Optional Bool
+  wasClean a = tryJS "CloseEventInit.wasClean" $ CloseEventInit.prim__wasClean a
   
   export
-  setWasClean : (obj : CloseEventInit) -> (value : UndefOr Boolean) -> JSIO ()
-  setWasClean a b = primJS $ CloseEventInit.prim__setWasClean a b
+  setWasClean : (obj : CloseEventInit) -> (value : Optional Bool) -> JSIO ()
+  setWasClean a b = primJS $ CloseEventInit.prim__setWasClean a (toFFI b)
 
   export
   setWasClean' : (obj : CloseEventInit) -> JSIO ()
-  setWasClean' a = setWasClean a undef
+  setWasClean' a = setWasClean a Undef
 
 namespace DragEventInit
   
@@ -10661,26 +10949,26 @@ namespace DragEventInit
     mixins =  []
   
   export
-  new : (dataTransfer : UndefOr (Nullable DataTransfer)) -> JSIO DragEventInit
-  new a = primJS $ DragEventInit.prim__new a
+  new : (dataTransfer : Optional (Maybe DataTransfer)) -> JSIO DragEventInit
+  new a = primJS $ DragEventInit.prim__new (toFFI a)
 
   export
   new' : JSIO DragEventInit
-  new' = new undef
+  new' = new Undef
   
   export
-  dataTransfer : (obj : DragEventInit) -> JSIO (UndefOr (Nullable DataTransfer))
-  dataTransfer a = primJS $ DragEventInit.prim__dataTransfer a
+  dataTransfer : (obj : DragEventInit) -> JSIO $ Optional (Maybe DataTransfer)
+  dataTransfer a = tryJS "DragEventInit.dataTransfer" $ DragEventInit.prim__dataTransfer a
   
   export
   setDataTransfer :  (obj : DragEventInit)
-                  -> (value : UndefOr (Nullable DataTransfer))
+                  -> (value : Optional (Maybe DataTransfer))
                   -> JSIO ()
-  setDataTransfer a b = primJS $ DragEventInit.prim__setDataTransfer a b
+  setDataTransfer a b = primJS $ DragEventInit.prim__setDataTransfer a (toFFI b)
 
   export
   setDataTransfer' : (obj : DragEventInit) -> JSIO ()
-  setDataTransfer' a = setDataTransfer a undef
+  setDataTransfer' a = setDataTransfer a Undef
 
 namespace ElementDefinitionOptions
   
@@ -10691,26 +10979,27 @@ namespace ElementDefinitionOptions
     mixins =  []
   
   export
-  new : (extends : UndefOr String) -> JSIO ElementDefinitionOptions
-  new a = primJS $ ElementDefinitionOptions.prim__new a
+  new : (extends : Optional String) -> JSIO ElementDefinitionOptions
+  new a = primJS $ ElementDefinitionOptions.prim__new (toFFI a)
 
   export
   new' : JSIO ElementDefinitionOptions
-  new' = new undef
+  new' = new Undef
   
   export
-  extends : (obj : ElementDefinitionOptions) -> JSIO (UndefOr String)
-  extends a = primJS $ ElementDefinitionOptions.prim__extends a
+  extends : (obj : ElementDefinitionOptions) -> JSIO $ Optional String
+  extends a = tryJS "ElementDefinitionOptions.extends" $ ElementDefinitionOptions.prim__extends a
   
   export
   setExtends :  (obj : ElementDefinitionOptions)
-             -> (value : UndefOr String)
+             -> (value : Optional String)
              -> JSIO ()
-  setExtends a b = primJS $ ElementDefinitionOptions.prim__setExtends a b
+  setExtends a b = primJS $ ElementDefinitionOptions.prim__setExtends a
+                                                                      (toFFI b)
 
   export
   setExtends' : (obj : ElementDefinitionOptions) -> JSIO ()
-  setExtends' a = setExtends a undef
+  setExtends' a = setExtends a Undef
 
 namespace ErrorEventInit
   
@@ -10721,77 +11010,81 @@ namespace ErrorEventInit
     mixins =  []
   
   export
-  new :  (message : UndefOr String)
-      -> (filename : UndefOr String)
-      -> (lineno : UndefOr UInt32)
-      -> (colno : UndefOr UInt32)
-      -> (error : UndefOr AnyPtr)
+  new :  (message : Optional String)
+      -> (filename : Optional String)
+      -> (lineno : Optional UInt32)
+      -> (colno : Optional UInt32)
+      -> (error : Optional AnyPtr)
       -> JSIO ErrorEventInit
-  new a b c d e = primJS $ ErrorEventInit.prim__new a b c d e
+  new a b c d e = primJS $ ErrorEventInit.prim__new (toFFI a)
+                                                    (toFFI b)
+                                                    (toFFI c)
+                                                    (toFFI d)
+                                                    (toFFI e)
 
   export
   new' : JSIO ErrorEventInit
-  new' = new undef undef undef undef undef
+  new' = new Undef Undef Undef Undef Undef
   
   export
-  colno : (obj : ErrorEventInit) -> JSIO (UndefOr UInt32)
-  colno a = primJS $ ErrorEventInit.prim__colno a
+  colno : (obj : ErrorEventInit) -> JSIO $ Optional UInt32
+  colno a = tryJS "ErrorEventInit.colno" $ ErrorEventInit.prim__colno a
   
   export
-  setColno : (obj : ErrorEventInit) -> (value : UndefOr UInt32) -> JSIO ()
-  setColno a b = primJS $ ErrorEventInit.prim__setColno a b
+  setColno : (obj : ErrorEventInit) -> (value : Optional UInt32) -> JSIO ()
+  setColno a b = primJS $ ErrorEventInit.prim__setColno a (toFFI b)
 
   export
   setColno' : (obj : ErrorEventInit) -> JSIO ()
-  setColno' a = setColno a undef
+  setColno' a = setColno a Undef
   
   export
-  error : (obj : ErrorEventInit) -> JSIO (UndefOr AnyPtr)
-  error a = primJS $ ErrorEventInit.prim__error a
+  error : (obj : ErrorEventInit) -> JSIO $ Optional AnyPtr
+  error a = tryJS "ErrorEventInit.error" $ ErrorEventInit.prim__error a
   
   export
-  setError : (obj : ErrorEventInit) -> (value : UndefOr AnyPtr) -> JSIO ()
-  setError a b = primJS $ ErrorEventInit.prim__setError a b
+  setError : (obj : ErrorEventInit) -> (value : Optional AnyPtr) -> JSIO ()
+  setError a b = primJS $ ErrorEventInit.prim__setError a (toFFI b)
 
   export
   setError' : (obj : ErrorEventInit) -> JSIO ()
-  setError' a = setError a undef
+  setError' a = setError a Undef
   
   export
-  filename : (obj : ErrorEventInit) -> JSIO (UndefOr String)
-  filename a = primJS $ ErrorEventInit.prim__filename a
+  filename : (obj : ErrorEventInit) -> JSIO $ Optional String
+  filename a = tryJS "ErrorEventInit.filename" $ ErrorEventInit.prim__filename a
   
   export
-  setFilename : (obj : ErrorEventInit) -> (value : UndefOr String) -> JSIO ()
-  setFilename a b = primJS $ ErrorEventInit.prim__setFilename a b
+  setFilename : (obj : ErrorEventInit) -> (value : Optional String) -> JSIO ()
+  setFilename a b = primJS $ ErrorEventInit.prim__setFilename a (toFFI b)
 
   export
   setFilename' : (obj : ErrorEventInit) -> JSIO ()
-  setFilename' a = setFilename a undef
+  setFilename' a = setFilename a Undef
   
   export
-  lineno : (obj : ErrorEventInit) -> JSIO (UndefOr UInt32)
-  lineno a = primJS $ ErrorEventInit.prim__lineno a
+  lineno : (obj : ErrorEventInit) -> JSIO $ Optional UInt32
+  lineno a = tryJS "ErrorEventInit.lineno" $ ErrorEventInit.prim__lineno a
   
   export
-  setLineno : (obj : ErrorEventInit) -> (value : UndefOr UInt32) -> JSIO ()
-  setLineno a b = primJS $ ErrorEventInit.prim__setLineno a b
+  setLineno : (obj : ErrorEventInit) -> (value : Optional UInt32) -> JSIO ()
+  setLineno a b = primJS $ ErrorEventInit.prim__setLineno a (toFFI b)
 
   export
   setLineno' : (obj : ErrorEventInit) -> JSIO ()
-  setLineno' a = setLineno a undef
+  setLineno' a = setLineno a Undef
   
   export
-  message : (obj : ErrorEventInit) -> JSIO (UndefOr String)
-  message a = primJS $ ErrorEventInit.prim__message a
+  message : (obj : ErrorEventInit) -> JSIO $ Optional String
+  message a = tryJS "ErrorEventInit.message" $ ErrorEventInit.prim__message a
   
   export
-  setMessage : (obj : ErrorEventInit) -> (value : UndefOr String) -> JSIO ()
-  setMessage a b = primJS $ ErrorEventInit.prim__setMessage a b
+  setMessage : (obj : ErrorEventInit) -> (value : Optional String) -> JSIO ()
+  setMessage a b = primJS $ ErrorEventInit.prim__setMessage a (toFFI b)
 
   export
   setMessage' : (obj : ErrorEventInit) -> JSIO ()
-  setMessage' a = setMessage a undef
+  setMessage' a = setMessage a Undef
 
 namespace EventSourceInit
   
@@ -10802,26 +11095,27 @@ namespace EventSourceInit
     mixins =  []
   
   export
-  new : (withCredentials : UndefOr Boolean) -> JSIO EventSourceInit
-  new a = primJS $ EventSourceInit.prim__new a
+  new : (withCredentials : Optional Bool) -> JSIO EventSourceInit
+  new a = primJS $ EventSourceInit.prim__new (toFFI a)
 
   export
   new' : JSIO EventSourceInit
-  new' = new undef
+  new' = new Undef
   
   export
-  withCredentials : (obj : EventSourceInit) -> JSIO (UndefOr Boolean)
-  withCredentials a = primJS $ EventSourceInit.prim__withCredentials a
+  withCredentials : (obj : EventSourceInit) -> JSIO $ Optional Bool
+  withCredentials a = tryJS "EventSourceInit.withCredentials" $ EventSourceInit.prim__withCredentials a
   
   export
   setWithCredentials :  (obj : EventSourceInit)
-                     -> (value : UndefOr Boolean)
+                     -> (value : Optional Bool)
                      -> JSIO ()
-  setWithCredentials a b = primJS $ EventSourceInit.prim__setWithCredentials a b
+  setWithCredentials a b = primJS $ EventSourceInit.prim__setWithCredentials a
+                                                                             (toFFI b)
 
   export
   setWithCredentials' : (obj : EventSourceInit) -> JSIO ()
-  setWithCredentials' a = setWithCredentials a undef
+  setWithCredentials' a = setWithCredentials a Undef
 
 namespace FocusOptions
   
@@ -10832,26 +11126,25 @@ namespace FocusOptions
     mixins =  []
   
   export
-  new : (preventScroll : UndefOr Boolean) -> JSIO FocusOptions
-  new a = primJS $ FocusOptions.prim__new a
+  new : (preventScroll : Optional Bool) -> JSIO FocusOptions
+  new a = primJS $ FocusOptions.prim__new (toFFI a)
 
   export
   new' : JSIO FocusOptions
-  new' = new undef
+  new' = new Undef
   
   export
-  preventScroll : (obj : FocusOptions) -> JSIO (UndefOr Boolean)
-  preventScroll a = primJS $ FocusOptions.prim__preventScroll a
+  preventScroll : (obj : FocusOptions) -> JSIO $ Optional Bool
+  preventScroll a = tryJS "FocusOptions.preventScroll" $ FocusOptions.prim__preventScroll a
   
   export
-  setPreventScroll :  (obj : FocusOptions)
-                   -> (value : UndefOr Boolean)
-                   -> JSIO ()
-  setPreventScroll a b = primJS $ FocusOptions.prim__setPreventScroll a b
+  setPreventScroll : (obj : FocusOptions) -> (value : Optional Bool) -> JSIO ()
+  setPreventScroll a b = primJS $ FocusOptions.prim__setPreventScroll a
+                                                                      (toFFI b)
 
   export
   setPreventScroll' : (obj : FocusOptions) -> JSIO ()
-  setPreventScroll' a = setPreventScroll a undef
+  setPreventScroll' a = setPreventScroll a Undef
 
 namespace FormDataEventInit
   
@@ -10882,38 +11175,42 @@ namespace HashChangeEventInit
     mixins =  []
   
   export
-  new :  (oldURL : UndefOr String)
-      -> (newURL : UndefOr String)
+  new :  (oldURL : Optional String)
+      -> (newURL : Optional String)
       -> JSIO HashChangeEventInit
-  new a b = primJS $ HashChangeEventInit.prim__new a b
+  new a b = primJS $ HashChangeEventInit.prim__new (toFFI a) (toFFI b)
 
   export
   new' : JSIO HashChangeEventInit
-  new' = new undef undef
+  new' = new Undef Undef
   
   export
-  newURL : (obj : HashChangeEventInit) -> JSIO (UndefOr String)
-  newURL a = primJS $ HashChangeEventInit.prim__newURL a
+  newURL : (obj : HashChangeEventInit) -> JSIO $ Optional String
+  newURL a = tryJS "HashChangeEventInit.newURL" $ HashChangeEventInit.prim__newURL a
   
   export
-  setNewURL : (obj : HashChangeEventInit) -> (value : UndefOr String) -> JSIO ()
-  setNewURL a b = primJS $ HashChangeEventInit.prim__setNewURL a b
+  setNewURL :  (obj : HashChangeEventInit)
+            -> (value : Optional String)
+            -> JSIO ()
+  setNewURL a b = primJS $ HashChangeEventInit.prim__setNewURL a (toFFI b)
 
   export
   setNewURL' : (obj : HashChangeEventInit) -> JSIO ()
-  setNewURL' a = setNewURL a undef
+  setNewURL' a = setNewURL a Undef
   
   export
-  oldURL : (obj : HashChangeEventInit) -> JSIO (UndefOr String)
-  oldURL a = primJS $ HashChangeEventInit.prim__oldURL a
+  oldURL : (obj : HashChangeEventInit) -> JSIO $ Optional String
+  oldURL a = tryJS "HashChangeEventInit.oldURL" $ HashChangeEventInit.prim__oldURL a
   
   export
-  setOldURL : (obj : HashChangeEventInit) -> (value : UndefOr String) -> JSIO ()
-  setOldURL a b = primJS $ HashChangeEventInit.prim__setOldURL a b
+  setOldURL :  (obj : HashChangeEventInit)
+            -> (value : Optional String)
+            -> JSIO ()
+  setOldURL a b = primJS $ HashChangeEventInit.prim__setOldURL a (toFFI b)
 
   export
   setOldURL' : (obj : HashChangeEventInit) -> JSIO ()
-  setOldURL' a = setOldURL a undef
+  setOldURL' a = setOldURL a Undef
 
 namespace ImageBitmapOptions
   
@@ -10924,108 +11221,116 @@ namespace ImageBitmapOptions
     mixins =  []
   
   export
-  new :  (imageOrientation : UndefOr ImageOrientation)
-      -> (premultiplyAlpha : UndefOr PremultiplyAlpha)
-      -> (colorSpaceConversion : UndefOr ColorSpaceConversion)
-      -> (resizeWidth : UndefOr UInt32)
-      -> (resizeHeight : UndefOr UInt32)
-      -> (resizeQuality : UndefOr ResizeQuality)
+  new :  (imageOrientation : Optional ImageOrientation)
+      -> (premultiplyAlpha : Optional PremultiplyAlpha)
+      -> (colorSpaceConversion : Optional ColorSpaceConversion)
+      -> (resizeWidth : Optional UInt32)
+      -> (resizeHeight : Optional UInt32)
+      -> (resizeQuality : Optional ResizeQuality)
       -> JSIO ImageBitmapOptions
-  new a b c d e f = primJS $ ImageBitmapOptions.prim__new a b c d e f
+  new a b c d e f = primJS $ ImageBitmapOptions.prim__new (toFFI a)
+                                                          (toFFI b)
+                                                          (toFFI c)
+                                                          (toFFI d)
+                                                          (toFFI e)
+                                                          (toFFI f)
 
   export
   new' : JSIO ImageBitmapOptions
-  new' = new undef undef undef undef undef undef
+  new' = new Undef Undef Undef Undef Undef Undef
   
   export
   colorSpaceConversion :  (obj : ImageBitmapOptions)
-                       -> JSIO (UndefOr ColorSpaceConversion)
-  colorSpaceConversion a = primJS $ ImageBitmapOptions.prim__colorSpaceConversion a
+                       -> JSIO $ Optional ColorSpaceConversion
+  colorSpaceConversion a = tryJS "ImageBitmapOptions.colorSpaceConversion" $ ImageBitmapOptions.prim__colorSpaceConversion a
   
   export
   setColorSpaceConversion :  (obj : ImageBitmapOptions)
-                          -> (value : UndefOr ColorSpaceConversion)
+                          -> (value : Optional ColorSpaceConversion)
                           -> JSIO ()
   setColorSpaceConversion a b = primJS $ ImageBitmapOptions.prim__setColorSpaceConversion a
-                                                                                          b
+                                                                                          (toFFI b)
 
   export
   setColorSpaceConversion' : (obj : ImageBitmapOptions) -> JSIO ()
-  setColorSpaceConversion' a = setColorSpaceConversion a undef
+  setColorSpaceConversion' a = setColorSpaceConversion a Undef
   
   export
   imageOrientation :  (obj : ImageBitmapOptions)
-                   -> JSIO (UndefOr ImageOrientation)
-  imageOrientation a = primJS $ ImageBitmapOptions.prim__imageOrientation a
+                   -> JSIO $ Optional ImageOrientation
+  imageOrientation a = tryJS "ImageBitmapOptions.imageOrientation" $ ImageBitmapOptions.prim__imageOrientation a
   
   export
   setImageOrientation :  (obj : ImageBitmapOptions)
-                      -> (value : UndefOr ImageOrientation)
+                      -> (value : Optional ImageOrientation)
                       -> JSIO ()
   setImageOrientation a b = primJS $ ImageBitmapOptions.prim__setImageOrientation a
-                                                                                  b
+                                                                                  (toFFI b)
 
   export
   setImageOrientation' : (obj : ImageBitmapOptions) -> JSIO ()
-  setImageOrientation' a = setImageOrientation a undef
+  setImageOrientation' a = setImageOrientation a Undef
   
   export
   premultiplyAlpha :  (obj : ImageBitmapOptions)
-                   -> JSIO (UndefOr PremultiplyAlpha)
-  premultiplyAlpha a = primJS $ ImageBitmapOptions.prim__premultiplyAlpha a
+                   -> JSIO $ Optional PremultiplyAlpha
+  premultiplyAlpha a = tryJS "ImageBitmapOptions.premultiplyAlpha" $ ImageBitmapOptions.prim__premultiplyAlpha a
   
   export
   setPremultiplyAlpha :  (obj : ImageBitmapOptions)
-                      -> (value : UndefOr PremultiplyAlpha)
+                      -> (value : Optional PremultiplyAlpha)
                       -> JSIO ()
   setPremultiplyAlpha a b = primJS $ ImageBitmapOptions.prim__setPremultiplyAlpha a
-                                                                                  b
+                                                                                  (toFFI b)
 
   export
   setPremultiplyAlpha' : (obj : ImageBitmapOptions) -> JSIO ()
-  setPremultiplyAlpha' a = setPremultiplyAlpha a undef
+  setPremultiplyAlpha' a = setPremultiplyAlpha a Undef
   
   export
-  resizeHeight : (obj : ImageBitmapOptions) -> JSIO (UndefOr UInt32)
-  resizeHeight a = primJS $ ImageBitmapOptions.prim__resizeHeight a
+  resizeHeight : (obj : ImageBitmapOptions) -> JSIO $ Optional UInt32
+  resizeHeight a = tryJS "ImageBitmapOptions.resizeHeight" $ ImageBitmapOptions.prim__resizeHeight a
   
   export
   setResizeHeight :  (obj : ImageBitmapOptions)
-                  -> (value : UndefOr UInt32)
+                  -> (value : Optional UInt32)
                   -> JSIO ()
-  setResizeHeight a b = primJS $ ImageBitmapOptions.prim__setResizeHeight a b
+  setResizeHeight a b = primJS $ ImageBitmapOptions.prim__setResizeHeight a
+                                                                          (toFFI b)
 
   export
   setResizeHeight' : (obj : ImageBitmapOptions) -> JSIO ()
-  setResizeHeight' a = setResizeHeight a undef
+  setResizeHeight' a = setResizeHeight a Undef
   
   export
-  resizeQuality : (obj : ImageBitmapOptions) -> JSIO (UndefOr ResizeQuality)
-  resizeQuality a = primJS $ ImageBitmapOptions.prim__resizeQuality a
+  resizeQuality : (obj : ImageBitmapOptions) -> JSIO $ Optional ResizeQuality
+  resizeQuality a = tryJS "ImageBitmapOptions.resizeQuality" $ ImageBitmapOptions.prim__resizeQuality a
   
   export
   setResizeQuality :  (obj : ImageBitmapOptions)
-                   -> (value : UndefOr ResizeQuality)
+                   -> (value : Optional ResizeQuality)
                    -> JSIO ()
-  setResizeQuality a b = primJS $ ImageBitmapOptions.prim__setResizeQuality a b
+  setResizeQuality a b = primJS $ ImageBitmapOptions.prim__setResizeQuality a
+                                                                            (toFFI b)
 
   export
   setResizeQuality' : (obj : ImageBitmapOptions) -> JSIO ()
-  setResizeQuality' a = setResizeQuality a undef
+  setResizeQuality' a = setResizeQuality a Undef
   
   export
-  resizeWidth : (obj : ImageBitmapOptions) -> JSIO (UndefOr UInt32)
-  resizeWidth a = primJS $ ImageBitmapOptions.prim__resizeWidth a
+  resizeWidth : (obj : ImageBitmapOptions) -> JSIO $ Optional UInt32
+  resizeWidth a = tryJS "ImageBitmapOptions.resizeWidth" $ ImageBitmapOptions.prim__resizeWidth a
   
   export
   setResizeWidth :  (obj : ImageBitmapOptions)
-                 -> (value : UndefOr UInt32)
+                 -> (value : Optional UInt32)
                  -> JSIO ()
-  setResizeWidth a b = primJS $ ImageBitmapOptions.prim__setResizeWidth a b
+  setResizeWidth a b = primJS $ ImageBitmapOptions.prim__setResizeWidth a
+                                                                        (toFFI b)
 
   export
   setResizeWidth' : (obj : ImageBitmapOptions) -> JSIO ()
-  setResizeWidth' a = setResizeWidth a undef
+  setResizeWidth' a = setResizeWidth a Undef
 
 namespace ImageBitmapRenderingContextSettings
   
@@ -11036,26 +11341,27 @@ namespace ImageBitmapRenderingContextSettings
     mixins =  []
   
   export
-  new : (alpha : UndefOr Boolean) -> JSIO ImageBitmapRenderingContextSettings
-  new a = primJS $ ImageBitmapRenderingContextSettings.prim__new a
+  new : (alpha : Optional Bool) -> JSIO ImageBitmapRenderingContextSettings
+  new a = primJS $ ImageBitmapRenderingContextSettings.prim__new (toFFI a)
 
   export
   new' : JSIO ImageBitmapRenderingContextSettings
-  new' = new undef
+  new' = new Undef
   
   export
-  alpha : (obj : ImageBitmapRenderingContextSettings) -> JSIO (UndefOr Boolean)
-  alpha a = primJS $ ImageBitmapRenderingContextSettings.prim__alpha a
+  alpha : (obj : ImageBitmapRenderingContextSettings) -> JSIO $ Optional Bool
+  alpha a = tryJS "ImageBitmapRenderingContextSettings.alpha" $ ImageBitmapRenderingContextSettings.prim__alpha a
   
   export
   setAlpha :  (obj : ImageBitmapRenderingContextSettings)
-           -> (value : UndefOr Boolean)
+           -> (value : Optional Bool)
            -> JSIO ()
-  setAlpha a b = primJS $ ImageBitmapRenderingContextSettings.prim__setAlpha a b
+  setAlpha a b = primJS $ ImageBitmapRenderingContextSettings.prim__setAlpha a
+                                                                             (toFFI b)
 
   export
   setAlpha' : (obj : ImageBitmapRenderingContextSettings) -> JSIO ()
-  setAlpha' a = setAlpha a undef
+  setAlpha' a = setAlpha a Undef
 
 namespace ImageEncodeOptions
   
@@ -11066,38 +11372,40 @@ namespace ImageEncodeOptions
     mixins =  []
   
   export
-  new :  (type : UndefOr String)
-      -> (quality : UndefOr Double)
+  new :  (type : Optional String)
+      -> (quality : Optional Double)
       -> JSIO ImageEncodeOptions
-  new a b = primJS $ ImageEncodeOptions.prim__new a b
+  new a b = primJS $ ImageEncodeOptions.prim__new (toFFI a) (toFFI b)
 
   export
   new' : JSIO ImageEncodeOptions
-  new' = new undef undef
+  new' = new Undef Undef
   
   export
-  quality : (obj : ImageEncodeOptions) -> JSIO (UndefOr Double)
-  quality a = primJS $ ImageEncodeOptions.prim__quality a
+  quality : (obj : ImageEncodeOptions) -> JSIO $ Optional Double
+  quality a = tryJS "ImageEncodeOptions.quality" $ ImageEncodeOptions.prim__quality a
   
   export
-  setQuality : (obj : ImageEncodeOptions) -> (value : UndefOr Double) -> JSIO ()
-  setQuality a b = primJS $ ImageEncodeOptions.prim__setQuality a b
+  setQuality :  (obj : ImageEncodeOptions)
+             -> (value : Optional Double)
+             -> JSIO ()
+  setQuality a b = primJS $ ImageEncodeOptions.prim__setQuality a (toFFI b)
 
   export
   setQuality' : (obj : ImageEncodeOptions) -> JSIO ()
-  setQuality' a = setQuality a undef
+  setQuality' a = setQuality a Undef
   
   export
-  type : (obj : ImageEncodeOptions) -> JSIO (UndefOr String)
-  type a = primJS $ ImageEncodeOptions.prim__type a
+  type : (obj : ImageEncodeOptions) -> JSIO $ Optional String
+  type a = tryJS "ImageEncodeOptions.type" $ ImageEncodeOptions.prim__type a
   
   export
-  setType : (obj : ImageEncodeOptions) -> (value : UndefOr String) -> JSIO ()
-  setType a b = primJS $ ImageEncodeOptions.prim__setType a b
+  setType : (obj : ImageEncodeOptions) -> (value : Optional String) -> JSIO ()
+  setType a b = primJS $ ImageEncodeOptions.prim__setType a (toFFI b)
 
   export
   setType' : (obj : ImageEncodeOptions) -> JSIO ()
-  setType' a = setType a undef
+  setType' a = setType a Undef
 
 namespace MessageEventInit
   
@@ -11108,84 +11416,97 @@ namespace MessageEventInit
     mixins =  []
   
   export
-  new :  (data_ : UndefOr AnyPtr)
-      -> (origin : UndefOr String)
-      -> (lastEventId : UndefOr String)
-      -> (source : UndefOr (Nullable MessageEventSource))
-      -> (ports : UndefOr (Array MessagePort))
+  new :  (data_ : Optional AnyPtr)
+      -> (origin : Optional String)
+      -> (lastEventId : Optional String)
+      -> (source : Optional (Maybe (NS I [ WindowProxy
+                                         , MessagePort
+                                         , ServiceWorker
+                                         ])))
+      -> (ports : Optional (Array MessagePort))
       -> JSIO MessageEventInit
-  new a b c d e = primJS $ MessageEventInit.prim__new a b c d e
+  new a b c d e = primJS $ MessageEventInit.prim__new (toFFI a)
+                                                      (toFFI b)
+                                                      (toFFI c)
+                                                      (toFFI d)
+                                                      (toFFI e)
 
   export
   new' : JSIO MessageEventInit
-  new' = new undef undef undef undef undef
+  new' = new Undef Undef Undef Undef Undef
   
   export
-  data_ : (obj : MessageEventInit) -> JSIO (UndefOr AnyPtr)
-  data_ a = primJS $ MessageEventInit.prim__data a
+  data_ : (obj : MessageEventInit) -> JSIO $ Optional AnyPtr
+  data_ a = tryJS "MessageEventInit.data_" $ MessageEventInit.prim__data a
   
   export
-  setData : (obj : MessageEventInit) -> (value : UndefOr AnyPtr) -> JSIO ()
-  setData a b = primJS $ MessageEventInit.prim__setData a b
+  setData : (obj : MessageEventInit) -> (value : Optional AnyPtr) -> JSIO ()
+  setData a b = primJS $ MessageEventInit.prim__setData a (toFFI b)
 
   export
   setData' : (obj : MessageEventInit) -> JSIO ()
-  setData' a = setData a undef
+  setData' a = setData a Undef
   
   export
-  lastEventId : (obj : MessageEventInit) -> JSIO (UndefOr String)
-  lastEventId a = primJS $ MessageEventInit.prim__lastEventId a
+  lastEventId : (obj : MessageEventInit) -> JSIO $ Optional String
+  lastEventId a = tryJS "MessageEventInit.lastEventId" $ MessageEventInit.prim__lastEventId a
   
   export
   setLastEventId :  (obj : MessageEventInit)
-                 -> (value : UndefOr String)
+                 -> (value : Optional String)
                  -> JSIO ()
-  setLastEventId a b = primJS $ MessageEventInit.prim__setLastEventId a b
+  setLastEventId a b = primJS $ MessageEventInit.prim__setLastEventId a
+                                                                      (toFFI b)
 
   export
   setLastEventId' : (obj : MessageEventInit) -> JSIO ()
-  setLastEventId' a = setLastEventId a undef
+  setLastEventId' a = setLastEventId a Undef
   
   export
-  origin : (obj : MessageEventInit) -> JSIO (UndefOr String)
-  origin a = primJS $ MessageEventInit.prim__origin a
+  origin : (obj : MessageEventInit) -> JSIO $ Optional String
+  origin a = tryJS "MessageEventInit.origin" $ MessageEventInit.prim__origin a
   
   export
-  setOrigin : (obj : MessageEventInit) -> (value : UndefOr String) -> JSIO ()
-  setOrigin a b = primJS $ MessageEventInit.prim__setOrigin a b
+  setOrigin : (obj : MessageEventInit) -> (value : Optional String) -> JSIO ()
+  setOrigin a b = primJS $ MessageEventInit.prim__setOrigin a (toFFI b)
 
   export
   setOrigin' : (obj : MessageEventInit) -> JSIO ()
-  setOrigin' a = setOrigin a undef
+  setOrigin' a = setOrigin a Undef
   
   export
-  ports : (obj : MessageEventInit) -> JSIO (UndefOr (Array MessagePort))
-  ports a = primJS $ MessageEventInit.prim__ports a
+  ports : (obj : MessageEventInit) -> JSIO $ Optional (Array MessagePort)
+  ports a = tryJS "MessageEventInit.ports" $ MessageEventInit.prim__ports a
   
   export
   setPorts :  (obj : MessageEventInit)
-           -> (value : UndefOr (Array MessagePort))
+           -> (value : Optional (Array MessagePort))
            -> JSIO ()
-  setPorts a b = primJS $ MessageEventInit.prim__setPorts a b
+  setPorts a b = primJS $ MessageEventInit.prim__setPorts a (toFFI b)
 
   export
   setPorts' : (obj : MessageEventInit) -> JSIO ()
-  setPorts' a = setPorts a undef
+  setPorts' a = setPorts a Undef
   
   export
   source :  (obj : MessageEventInit)
-         -> JSIO (UndefOr (Nullable MessageEventSource))
-  source a = primJS $ MessageEventInit.prim__source a
+         -> JSIO $ Optional (Maybe (Union3 WindowProxy
+                                           MessagePort
+                                           ServiceWorker))
+  source a = tryJS "MessageEventInit.source" $ MessageEventInit.prim__source a
   
   export
   setSource :  (obj : MessageEventInit)
-            -> (value : UndefOr (Nullable MessageEventSource))
+            -> (value : Optional (Maybe (NS I [ WindowProxy
+                                              , MessagePort
+                                              , ServiceWorker
+                                              ])))
             -> JSIO ()
-  setSource a b = primJS $ MessageEventInit.prim__setSource a b
+  setSource a b = primJS $ MessageEventInit.prim__setSource a (toFFI b)
 
   export
   setSource' : (obj : MessageEventInit) -> JSIO ()
-  setSource' a = setSource a undef
+  setSource' a = setSource a Undef
 
 namespace PageTransitionEventInit
   
@@ -11196,26 +11517,27 @@ namespace PageTransitionEventInit
     mixins =  []
   
   export
-  new : (persisted : UndefOr Boolean) -> JSIO PageTransitionEventInit
-  new a = primJS $ PageTransitionEventInit.prim__new a
+  new : (persisted : Optional Bool) -> JSIO PageTransitionEventInit
+  new a = primJS $ PageTransitionEventInit.prim__new (toFFI a)
 
   export
   new' : JSIO PageTransitionEventInit
-  new' = new undef
+  new' = new Undef
   
   export
-  persisted : (obj : PageTransitionEventInit) -> JSIO (UndefOr Boolean)
-  persisted a = primJS $ PageTransitionEventInit.prim__persisted a
+  persisted : (obj : PageTransitionEventInit) -> JSIO $ Optional Bool
+  persisted a = tryJS "PageTransitionEventInit.persisted" $ PageTransitionEventInit.prim__persisted a
   
   export
   setPersisted :  (obj : PageTransitionEventInit)
-               -> (value : UndefOr Boolean)
+               -> (value : Optional Bool)
                -> JSIO ()
-  setPersisted a b = primJS $ PageTransitionEventInit.prim__setPersisted a b
+  setPersisted a b = primJS $ PageTransitionEventInit.prim__setPersisted a
+                                                                         (toFFI b)
 
   export
   setPersisted' : (obj : PageTransitionEventInit) -> JSIO ()
-  setPersisted' a = setPersisted a undef
+  setPersisted' a = setPersisted a Undef
 
 namespace PopStateEventInit
   
@@ -11226,24 +11548,24 @@ namespace PopStateEventInit
     mixins =  []
   
   export
-  new : (state : UndefOr AnyPtr) -> JSIO PopStateEventInit
-  new a = primJS $ PopStateEventInit.prim__new a
+  new : (state : Optional AnyPtr) -> JSIO PopStateEventInit
+  new a = primJS $ PopStateEventInit.prim__new (toFFI a)
 
   export
   new' : JSIO PopStateEventInit
-  new' = new undef
+  new' = new Undef
   
   export
-  state : (obj : PopStateEventInit) -> JSIO (UndefOr AnyPtr)
-  state a = primJS $ PopStateEventInit.prim__state a
+  state : (obj : PopStateEventInit) -> JSIO $ Optional AnyPtr
+  state a = tryJS "PopStateEventInit.state" $ PopStateEventInit.prim__state a
   
   export
-  setState : (obj : PopStateEventInit) -> (value : UndefOr AnyPtr) -> JSIO ()
-  setState a b = primJS $ PopStateEventInit.prim__setState a b
+  setState : (obj : PopStateEventInit) -> (value : Optional AnyPtr) -> JSIO ()
+  setState a b = primJS $ PopStateEventInit.prim__setState a (toFFI b)
 
   export
   setState' : (obj : PopStateEventInit) -> JSIO ()
-  setState' a = setState a undef
+  setState' a = setState a Undef
 
 namespace PostMessageOptions
   
@@ -11254,26 +11576,26 @@ namespace PostMessageOptions
     mixins =  []
   
   export
-  new : (transfer : UndefOr (Array Object)) -> JSIO PostMessageOptions
-  new a = primJS $ PostMessageOptions.prim__new a
+  new : (transfer : Optional (Array Object)) -> JSIO PostMessageOptions
+  new a = primJS $ PostMessageOptions.prim__new (toFFI a)
 
   export
   new' : JSIO PostMessageOptions
-  new' = new undef
+  new' = new Undef
   
   export
-  transfer : (obj : PostMessageOptions) -> JSIO (UndefOr (Array Object))
-  transfer a = primJS $ PostMessageOptions.prim__transfer a
+  transfer : (obj : PostMessageOptions) -> JSIO $ Optional (Array Object)
+  transfer a = tryJS "PostMessageOptions.transfer" $ PostMessageOptions.prim__transfer a
   
   export
   setTransfer :  (obj : PostMessageOptions)
-              -> (value : UndefOr (Array Object))
+              -> (value : Optional (Array Object))
               -> JSIO ()
-  setTransfer a b = primJS $ PostMessageOptions.prim__setTransfer a b
+  setTransfer a b = primJS $ PostMessageOptions.prim__setTransfer a (toFFI b)
 
   export
   setTransfer' : (obj : PostMessageOptions) -> JSIO ()
-  setTransfer' a = setTransfer a undef
+  setTransfer' a = setTransfer a Undef
 
 namespace PromiseRejectionEventInit
   
@@ -11285,13 +11607,13 @@ namespace PromiseRejectionEventInit
   
   export
   new :  (promise : Promise AnyPtr)
-      -> (reason : UndefOr AnyPtr)
+      -> (reason : Optional AnyPtr)
       -> JSIO PromiseRejectionEventInit
-  new a b = primJS $ PromiseRejectionEventInit.prim__new a b
+  new a b = primJS $ PromiseRejectionEventInit.prim__new a (toFFI b)
 
   export
   new' : (promise : Promise AnyPtr) -> JSIO PromiseRejectionEventInit
-  new' a = new a undef
+  new' a = new a Undef
   
   export
   promise : (obj : PromiseRejectionEventInit) -> JSIO (Promise AnyPtr)
@@ -11304,18 +11626,18 @@ namespace PromiseRejectionEventInit
   setPromise a b = primJS $ PromiseRejectionEventInit.prim__setPromise a b
   
   export
-  reason : (obj : PromiseRejectionEventInit) -> JSIO (UndefOr AnyPtr)
-  reason a = primJS $ PromiseRejectionEventInit.prim__reason a
+  reason : (obj : PromiseRejectionEventInit) -> JSIO $ Optional AnyPtr
+  reason a = tryJS "PromiseRejectionEventInit.reason" $ PromiseRejectionEventInit.prim__reason a
   
   export
   setReason :  (obj : PromiseRejectionEventInit)
-            -> (value : UndefOr AnyPtr)
+            -> (value : Optional AnyPtr)
             -> JSIO ()
-  setReason a b = primJS $ PromiseRejectionEventInit.prim__setReason a b
+  setReason a b = primJS $ PromiseRejectionEventInit.prim__setReason a (toFFI b)
 
   export
   setReason' : (obj : PromiseRejectionEventInit) -> JSIO ()
-  setReason' a = setReason a undef
+  setReason' a = setReason a Undef
 
 namespace StorageEventInit
   
@@ -11326,85 +11648,90 @@ namespace StorageEventInit
     mixins =  []
   
   export
-  new :  (key : UndefOr (Nullable String))
-      -> (oldValue : UndefOr (Nullable String))
-      -> (newValue : UndefOr (Nullable String))
-      -> (url : UndefOr String)
-      -> (storageArea : UndefOr (Nullable Storage))
+  new :  (key : Optional (Maybe String))
+      -> (oldValue : Optional (Maybe String))
+      -> (newValue : Optional (Maybe String))
+      -> (url : Optional String)
+      -> (storageArea : Optional (Maybe Storage))
       -> JSIO StorageEventInit
-  new a b c d e = primJS $ StorageEventInit.prim__new a b c d e
+  new a b c d e = primJS $ StorageEventInit.prim__new (toFFI a)
+                                                      (toFFI b)
+                                                      (toFFI c)
+                                                      (toFFI d)
+                                                      (toFFI e)
 
   export
   new' : JSIO StorageEventInit
-  new' = new undef undef undef undef undef
+  new' = new Undef Undef Undef Undef Undef
   
   export
-  key : (obj : StorageEventInit) -> JSIO (UndefOr (Nullable String))
-  key a = primJS $ StorageEventInit.prim__key a
+  key : (obj : StorageEventInit) -> JSIO $ Optional (Maybe String)
+  key a = tryJS "StorageEventInit.key" $ StorageEventInit.prim__key a
   
   export
   setKey :  (obj : StorageEventInit)
-         -> (value : UndefOr (Nullable String))
+         -> (value : Optional (Maybe String))
          -> JSIO ()
-  setKey a b = primJS $ StorageEventInit.prim__setKey a b
+  setKey a b = primJS $ StorageEventInit.prim__setKey a (toFFI b)
 
   export
   setKey' : (obj : StorageEventInit) -> JSIO ()
-  setKey' a = setKey a undef
+  setKey' a = setKey a Undef
   
   export
-  newValue : (obj : StorageEventInit) -> JSIO (UndefOr (Nullable String))
-  newValue a = primJS $ StorageEventInit.prim__newValue a
+  newValue : (obj : StorageEventInit) -> JSIO $ Optional (Maybe String)
+  newValue a = tryJS "StorageEventInit.newValue" $ StorageEventInit.prim__newValue a
   
   export
   setNewValue :  (obj : StorageEventInit)
-              -> (value : UndefOr (Nullable String))
+              -> (value : Optional (Maybe String))
               -> JSIO ()
-  setNewValue a b = primJS $ StorageEventInit.prim__setNewValue a b
+  setNewValue a b = primJS $ StorageEventInit.prim__setNewValue a (toFFI b)
 
   export
   setNewValue' : (obj : StorageEventInit) -> JSIO ()
-  setNewValue' a = setNewValue a undef
+  setNewValue' a = setNewValue a Undef
   
   export
-  oldValue : (obj : StorageEventInit) -> JSIO (UndefOr (Nullable String))
-  oldValue a = primJS $ StorageEventInit.prim__oldValue a
+  oldValue : (obj : StorageEventInit) -> JSIO $ Optional (Maybe String)
+  oldValue a = tryJS "StorageEventInit.oldValue" $ StorageEventInit.prim__oldValue a
   
   export
   setOldValue :  (obj : StorageEventInit)
-              -> (value : UndefOr (Nullable String))
+              -> (value : Optional (Maybe String))
               -> JSIO ()
-  setOldValue a b = primJS $ StorageEventInit.prim__setOldValue a b
+  setOldValue a b = primJS $ StorageEventInit.prim__setOldValue a (toFFI b)
 
   export
   setOldValue' : (obj : StorageEventInit) -> JSIO ()
-  setOldValue' a = setOldValue a undef
+  setOldValue' a = setOldValue a Undef
   
   export
-  storageArea : (obj : StorageEventInit) -> JSIO (UndefOr (Nullable Storage))
-  storageArea a = primJS $ StorageEventInit.prim__storageArea a
+  storageArea : (obj : StorageEventInit) -> JSIO $ Optional (Maybe Storage)
+  storageArea a = tryJS "StorageEventInit.storageArea" $ StorageEventInit.prim__storageArea a
   
   export
   setStorageArea :  (obj : StorageEventInit)
-                 -> (value : UndefOr (Nullable Storage))
+                 -> (value : Optional (Maybe Storage))
                  -> JSIO ()
-  setStorageArea a b = primJS $ StorageEventInit.prim__setStorageArea a b
+  setStorageArea a b = primJS $ StorageEventInit.prim__setStorageArea a
+                                                                      (toFFI b)
 
   export
   setStorageArea' : (obj : StorageEventInit) -> JSIO ()
-  setStorageArea' a = setStorageArea a undef
+  setStorageArea' a = setStorageArea a Undef
   
   export
-  url : (obj : StorageEventInit) -> JSIO (UndefOr String)
-  url a = primJS $ StorageEventInit.prim__url a
+  url : (obj : StorageEventInit) -> JSIO $ Optional String
+  url a = tryJS "StorageEventInit.url" $ StorageEventInit.prim__url a
   
   export
-  setUrl : (obj : StorageEventInit) -> (value : UndefOr String) -> JSIO ()
-  setUrl a b = primJS $ StorageEventInit.prim__setUrl a b
+  setUrl : (obj : StorageEventInit) -> (value : Optional String) -> JSIO ()
+  setUrl a b = primJS $ StorageEventInit.prim__setUrl a (toFFI b)
 
   export
   setUrl' : (obj : StorageEventInit) -> JSIO ()
-  setUrl' a = setUrl a undef
+  setUrl' a = setUrl a Undef
 
 namespace SubmitEventInit
   
@@ -11415,26 +11742,26 @@ namespace SubmitEventInit
     mixins =  []
   
   export
-  new : (submitter : UndefOr (Nullable HTMLElement)) -> JSIO SubmitEventInit
-  new a = primJS $ SubmitEventInit.prim__new a
+  new : (submitter : Optional (Maybe HTMLElement)) -> JSIO SubmitEventInit
+  new a = primJS $ SubmitEventInit.prim__new (toFFI a)
 
   export
   new' : JSIO SubmitEventInit
-  new' = new undef
+  new' = new Undef
   
   export
-  submitter : (obj : SubmitEventInit) -> JSIO (UndefOr (Nullable HTMLElement))
-  submitter a = primJS $ SubmitEventInit.prim__submitter a
+  submitter : (obj : SubmitEventInit) -> JSIO $ Optional (Maybe HTMLElement)
+  submitter a = tryJS "SubmitEventInit.submitter" $ SubmitEventInit.prim__submitter a
   
   export
   setSubmitter :  (obj : SubmitEventInit)
-               -> (value : UndefOr (Nullable HTMLElement))
+               -> (value : Optional (Maybe HTMLElement))
                -> JSIO ()
-  setSubmitter a b = primJS $ SubmitEventInit.prim__setSubmitter a b
+  setSubmitter a b = primJS $ SubmitEventInit.prim__setSubmitter a (toFFI b)
 
   export
   setSubmitter' : (obj : SubmitEventInit) -> JSIO ()
-  setSubmitter' a = setSubmitter a undef
+  setSubmitter' a = setSubmitter a Undef
 
 namespace TrackEventInit
   
@@ -11445,30 +11772,37 @@ namespace TrackEventInit
     mixins =  []
   
   export
-  new :  (track : UndefOr (Nullable (Union3 VideoTrack AudioTrack TextTrack)))
+  new :  (track : Optional (Maybe (NS I [ VideoTrack
+                                        , AudioTrack
+                                        , TextTrack
+                                        ])))
       -> JSIO TrackEventInit
-  new a = primJS $ TrackEventInit.prim__new a
+  new a = primJS $ TrackEventInit.prim__new (toFFI a)
 
   export
   new' : JSIO TrackEventInit
-  new' = new undef
+  new' = new Undef
   
   export
   track :  (obj : TrackEventInit)
-        -> JSIO (UndefOr (Nullable (Union3 VideoTrack AudioTrack TextTrack)))
-  track a = primJS $ TrackEventInit.prim__track a
+        -> JSIO $ Optional (Maybe (NS I [ VideoTrack
+                                        , AudioTrack
+                                        , TextTrack
+                                        ]))
+  track a = tryJS "TrackEventInit.track" $ TrackEventInit.prim__track a
   
   export
   setTrack :  (obj : TrackEventInit)
-           -> (value : UndefOr (Nullable (Union3 VideoTrack
-                                                 AudioTrack
-                                                 TextTrack)))
+           -> (value : Optional (Maybe (NS I [ VideoTrack
+                                             , AudioTrack
+                                             , TextTrack
+                                             ])))
            -> JSIO ()
-  setTrack a b = primJS $ TrackEventInit.prim__setTrack a b
+  setTrack a b = primJS $ TrackEventInit.prim__setTrack a (toFFI b)
 
   export
   setTrack' : (obj : TrackEventInit) -> JSIO ()
-  setTrack' a = setTrack a undef
+  setTrack' a = setTrack a Undef
 
 namespace ValidityStateFlags
   
@@ -11479,173 +11813,172 @@ namespace ValidityStateFlags
     mixins =  []
   
   export
-  new :  (valueMissing : UndefOr Boolean)
-      -> (typeMismatch : UndefOr Boolean)
-      -> (patternMismatch : UndefOr Boolean)
-      -> (tooLong : UndefOr Boolean)
-      -> (tooShort : UndefOr Boolean)
-      -> (rangeUnderflow : UndefOr Boolean)
-      -> (rangeOverflow : UndefOr Boolean)
-      -> (stepMismatch : UndefOr Boolean)
-      -> (badInput : UndefOr Boolean)
-      -> (customError : UndefOr Boolean)
+  new :  (valueMissing : Optional Bool)
+      -> (typeMismatch : Optional Bool)
+      -> (patternMismatch : Optional Bool)
+      -> (tooLong : Optional Bool)
+      -> (tooShort : Optional Bool)
+      -> (rangeUnderflow : Optional Bool)
+      -> (rangeOverflow : Optional Bool)
+      -> (stepMismatch : Optional Bool)
+      -> (badInput : Optional Bool)
+      -> (customError : Optional Bool)
       -> JSIO ValidityStateFlags
-  new a b c d e f g h i j = primJS $ ValidityStateFlags.prim__new a
-                                                                  b
-                                                                  c
-                                                                  d
-                                                                  e
-                                                                  f
-                                                                  g
-                                                                  h
-                                                                  i
-                                                                  j
+  new a b c d e f g h i j = primJS $ ValidityStateFlags.prim__new (toFFI a)
+                                                                  (toFFI b)
+                                                                  (toFFI c)
+                                                                  (toFFI d)
+                                                                  (toFFI e)
+                                                                  (toFFI f)
+                                                                  (toFFI g)
+                                                                  (toFFI h)
+                                                                  (toFFI i)
+                                                                  (toFFI j)
 
   export
   new' : JSIO ValidityStateFlags
-  new' = new undef undef undef undef undef undef undef undef undef undef
+  new' = new Undef Undef Undef Undef Undef Undef Undef Undef Undef Undef
   
   export
-  badInput : (obj : ValidityStateFlags) -> JSIO (UndefOr Boolean)
-  badInput a = primJS $ ValidityStateFlags.prim__badInput a
+  badInput : (obj : ValidityStateFlags) -> JSIO $ Optional Bool
+  badInput a = tryJS "ValidityStateFlags.badInput" $ ValidityStateFlags.prim__badInput a
   
   export
-  setBadInput :  (obj : ValidityStateFlags)
-              -> (value : UndefOr Boolean)
-              -> JSIO ()
-  setBadInput a b = primJS $ ValidityStateFlags.prim__setBadInput a b
+  setBadInput : (obj : ValidityStateFlags) -> (value : Optional Bool) -> JSIO ()
+  setBadInput a b = primJS $ ValidityStateFlags.prim__setBadInput a (toFFI b)
 
   export
   setBadInput' : (obj : ValidityStateFlags) -> JSIO ()
-  setBadInput' a = setBadInput a undef
+  setBadInput' a = setBadInput a Undef
   
   export
-  customError : (obj : ValidityStateFlags) -> JSIO (UndefOr Boolean)
-  customError a = primJS $ ValidityStateFlags.prim__customError a
+  customError : (obj : ValidityStateFlags) -> JSIO $ Optional Bool
+  customError a = tryJS "ValidityStateFlags.customError" $ ValidityStateFlags.prim__customError a
   
   export
   setCustomError :  (obj : ValidityStateFlags)
-                 -> (value : UndefOr Boolean)
+                 -> (value : Optional Bool)
                  -> JSIO ()
-  setCustomError a b = primJS $ ValidityStateFlags.prim__setCustomError a b
+  setCustomError a b = primJS $ ValidityStateFlags.prim__setCustomError a
+                                                                        (toFFI b)
 
   export
   setCustomError' : (obj : ValidityStateFlags) -> JSIO ()
-  setCustomError' a = setCustomError a undef
+  setCustomError' a = setCustomError a Undef
   
   export
-  patternMismatch : (obj : ValidityStateFlags) -> JSIO (UndefOr Boolean)
-  patternMismatch a = primJS $ ValidityStateFlags.prim__patternMismatch a
+  patternMismatch : (obj : ValidityStateFlags) -> JSIO $ Optional Bool
+  patternMismatch a = tryJS "ValidityStateFlags.patternMismatch" $ ValidityStateFlags.prim__patternMismatch a
   
   export
   setPatternMismatch :  (obj : ValidityStateFlags)
-                     -> (value : UndefOr Boolean)
+                     -> (value : Optional Bool)
                      -> JSIO ()
   setPatternMismatch a b = primJS $ ValidityStateFlags.prim__setPatternMismatch a
-                                                                                b
+                                                                                (toFFI b)
 
   export
   setPatternMismatch' : (obj : ValidityStateFlags) -> JSIO ()
-  setPatternMismatch' a = setPatternMismatch a undef
+  setPatternMismatch' a = setPatternMismatch a Undef
   
   export
-  rangeOverflow : (obj : ValidityStateFlags) -> JSIO (UndefOr Boolean)
-  rangeOverflow a = primJS $ ValidityStateFlags.prim__rangeOverflow a
+  rangeOverflow : (obj : ValidityStateFlags) -> JSIO $ Optional Bool
+  rangeOverflow a = tryJS "ValidityStateFlags.rangeOverflow" $ ValidityStateFlags.prim__rangeOverflow a
   
   export
   setRangeOverflow :  (obj : ValidityStateFlags)
-                   -> (value : UndefOr Boolean)
+                   -> (value : Optional Bool)
                    -> JSIO ()
-  setRangeOverflow a b = primJS $ ValidityStateFlags.prim__setRangeOverflow a b
+  setRangeOverflow a b = primJS $ ValidityStateFlags.prim__setRangeOverflow a
+                                                                            (toFFI b)
 
   export
   setRangeOverflow' : (obj : ValidityStateFlags) -> JSIO ()
-  setRangeOverflow' a = setRangeOverflow a undef
+  setRangeOverflow' a = setRangeOverflow a Undef
   
   export
-  rangeUnderflow : (obj : ValidityStateFlags) -> JSIO (UndefOr Boolean)
-  rangeUnderflow a = primJS $ ValidityStateFlags.prim__rangeUnderflow a
+  rangeUnderflow : (obj : ValidityStateFlags) -> JSIO $ Optional Bool
+  rangeUnderflow a = tryJS "ValidityStateFlags.rangeUnderflow" $ ValidityStateFlags.prim__rangeUnderflow a
   
   export
   setRangeUnderflow :  (obj : ValidityStateFlags)
-                    -> (value : UndefOr Boolean)
+                    -> (value : Optional Bool)
                     -> JSIO ()
   setRangeUnderflow a b = primJS $ ValidityStateFlags.prim__setRangeUnderflow a
-                                                                              b
+                                                                              (toFFI b)
 
   export
   setRangeUnderflow' : (obj : ValidityStateFlags) -> JSIO ()
-  setRangeUnderflow' a = setRangeUnderflow a undef
+  setRangeUnderflow' a = setRangeUnderflow a Undef
   
   export
-  stepMismatch : (obj : ValidityStateFlags) -> JSIO (UndefOr Boolean)
-  stepMismatch a = primJS $ ValidityStateFlags.prim__stepMismatch a
+  stepMismatch : (obj : ValidityStateFlags) -> JSIO $ Optional Bool
+  stepMismatch a = tryJS "ValidityStateFlags.stepMismatch" $ ValidityStateFlags.prim__stepMismatch a
   
   export
   setStepMismatch :  (obj : ValidityStateFlags)
-                  -> (value : UndefOr Boolean)
+                  -> (value : Optional Bool)
                   -> JSIO ()
-  setStepMismatch a b = primJS $ ValidityStateFlags.prim__setStepMismatch a b
+  setStepMismatch a b = primJS $ ValidityStateFlags.prim__setStepMismatch a
+                                                                          (toFFI b)
 
   export
   setStepMismatch' : (obj : ValidityStateFlags) -> JSIO ()
-  setStepMismatch' a = setStepMismatch a undef
+  setStepMismatch' a = setStepMismatch a Undef
   
   export
-  tooLong : (obj : ValidityStateFlags) -> JSIO (UndefOr Boolean)
-  tooLong a = primJS $ ValidityStateFlags.prim__tooLong a
+  tooLong : (obj : ValidityStateFlags) -> JSIO $ Optional Bool
+  tooLong a = tryJS "ValidityStateFlags.tooLong" $ ValidityStateFlags.prim__tooLong a
   
   export
-  setTooLong :  (obj : ValidityStateFlags)
-             -> (value : UndefOr Boolean)
-             -> JSIO ()
-  setTooLong a b = primJS $ ValidityStateFlags.prim__setTooLong a b
+  setTooLong : (obj : ValidityStateFlags) -> (value : Optional Bool) -> JSIO ()
+  setTooLong a b = primJS $ ValidityStateFlags.prim__setTooLong a (toFFI b)
 
   export
   setTooLong' : (obj : ValidityStateFlags) -> JSIO ()
-  setTooLong' a = setTooLong a undef
+  setTooLong' a = setTooLong a Undef
   
   export
-  tooShort : (obj : ValidityStateFlags) -> JSIO (UndefOr Boolean)
-  tooShort a = primJS $ ValidityStateFlags.prim__tooShort a
+  tooShort : (obj : ValidityStateFlags) -> JSIO $ Optional Bool
+  tooShort a = tryJS "ValidityStateFlags.tooShort" $ ValidityStateFlags.prim__tooShort a
   
   export
-  setTooShort :  (obj : ValidityStateFlags)
-              -> (value : UndefOr Boolean)
-              -> JSIO ()
-  setTooShort a b = primJS $ ValidityStateFlags.prim__setTooShort a b
+  setTooShort : (obj : ValidityStateFlags) -> (value : Optional Bool) -> JSIO ()
+  setTooShort a b = primJS $ ValidityStateFlags.prim__setTooShort a (toFFI b)
 
   export
   setTooShort' : (obj : ValidityStateFlags) -> JSIO ()
-  setTooShort' a = setTooShort a undef
+  setTooShort' a = setTooShort a Undef
   
   export
-  typeMismatch : (obj : ValidityStateFlags) -> JSIO (UndefOr Boolean)
-  typeMismatch a = primJS $ ValidityStateFlags.prim__typeMismatch a
+  typeMismatch : (obj : ValidityStateFlags) -> JSIO $ Optional Bool
+  typeMismatch a = tryJS "ValidityStateFlags.typeMismatch" $ ValidityStateFlags.prim__typeMismatch a
   
   export
   setTypeMismatch :  (obj : ValidityStateFlags)
-                  -> (value : UndefOr Boolean)
+                  -> (value : Optional Bool)
                   -> JSIO ()
-  setTypeMismatch a b = primJS $ ValidityStateFlags.prim__setTypeMismatch a b
+  setTypeMismatch a b = primJS $ ValidityStateFlags.prim__setTypeMismatch a
+                                                                          (toFFI b)
 
   export
   setTypeMismatch' : (obj : ValidityStateFlags) -> JSIO ()
-  setTypeMismatch' a = setTypeMismatch a undef
+  setTypeMismatch' a = setTypeMismatch a Undef
   
   export
-  valueMissing : (obj : ValidityStateFlags) -> JSIO (UndefOr Boolean)
-  valueMissing a = primJS $ ValidityStateFlags.prim__valueMissing a
+  valueMissing : (obj : ValidityStateFlags) -> JSIO $ Optional Bool
+  valueMissing a = tryJS "ValidityStateFlags.valueMissing" $ ValidityStateFlags.prim__valueMissing a
   
   export
   setValueMissing :  (obj : ValidityStateFlags)
-                  -> (value : UndefOr Boolean)
+                  -> (value : Optional Bool)
                   -> JSIO ()
-  setValueMissing a b = primJS $ ValidityStateFlags.prim__setValueMissing a b
+  setValueMissing a b = primJS $ ValidityStateFlags.prim__setValueMissing a
+                                                                          (toFFI b)
 
   export
   setValueMissing' : (obj : ValidityStateFlags) -> JSIO ()
-  setValueMissing' a = setValueMissing a undef
+  setValueMissing' a = setValueMissing a Undef
 
 namespace WindowPostMessageOptions
   
@@ -11656,27 +11989,27 @@ namespace WindowPostMessageOptions
     mixins =  []
   
   export
-  new : (targetOrigin : UndefOr String) -> JSIO WindowPostMessageOptions
-  new a = primJS $ WindowPostMessageOptions.prim__new a
+  new : (targetOrigin : Optional String) -> JSIO WindowPostMessageOptions
+  new a = primJS $ WindowPostMessageOptions.prim__new (toFFI a)
 
   export
   new' : JSIO WindowPostMessageOptions
-  new' = new undef
+  new' = new Undef
   
   export
-  targetOrigin : (obj : WindowPostMessageOptions) -> JSIO (UndefOr String)
-  targetOrigin a = primJS $ WindowPostMessageOptions.prim__targetOrigin a
+  targetOrigin : (obj : WindowPostMessageOptions) -> JSIO $ Optional String
+  targetOrigin a = tryJS "WindowPostMessageOptions.targetOrigin" $ WindowPostMessageOptions.prim__targetOrigin a
   
   export
   setTargetOrigin :  (obj : WindowPostMessageOptions)
-                  -> (value : UndefOr String)
+                  -> (value : Optional String)
                   -> JSIO ()
   setTargetOrigin a b = primJS $ WindowPostMessageOptions.prim__setTargetOrigin a
-                                                                                b
+                                                                                (toFFI b)
 
   export
   setTargetOrigin' : (obj : WindowPostMessageOptions) -> JSIO ()
-  setTargetOrigin' a = setTargetOrigin a undef
+  setTargetOrigin' a = setTargetOrigin a Undef
 
 namespace WorkerOptions
   
@@ -11687,53 +12020,53 @@ namespace WorkerOptions
     mixins =  []
   
   export
-  new :  (type : UndefOr WorkerType)
-      -> (credentials : UndefOr RequestCredentials)
-      -> (name : UndefOr String)
+  new :  (type : Optional WorkerType)
+      -> (credentials : Optional RequestCredentials)
+      -> (name : Optional String)
       -> JSIO WorkerOptions
-  new a b c = primJS $ WorkerOptions.prim__new a b c
+  new a b c = primJS $ WorkerOptions.prim__new (toFFI a) (toFFI b) (toFFI c)
 
   export
   new' : JSIO WorkerOptions
-  new' = new undef undef undef
+  new' = new Undef Undef Undef
   
   export
-  credentials : (obj : WorkerOptions) -> JSIO (UndefOr RequestCredentials)
-  credentials a = primJS $ WorkerOptions.prim__credentials a
+  credentials : (obj : WorkerOptions) -> JSIO $ Optional RequestCredentials
+  credentials a = tryJS "WorkerOptions.credentials" $ WorkerOptions.prim__credentials a
   
   export
   setCredentials :  (obj : WorkerOptions)
-                 -> (value : UndefOr RequestCredentials)
+                 -> (value : Optional RequestCredentials)
                  -> JSIO ()
-  setCredentials a b = primJS $ WorkerOptions.prim__setCredentials a b
+  setCredentials a b = primJS $ WorkerOptions.prim__setCredentials a (toFFI b)
 
   export
   setCredentials' : (obj : WorkerOptions) -> JSIO ()
-  setCredentials' a = setCredentials a undef
+  setCredentials' a = setCredentials a Undef
   
   export
-  name : (obj : WorkerOptions) -> JSIO (UndefOr String)
-  name a = primJS $ WorkerOptions.prim__name a
+  name : (obj : WorkerOptions) -> JSIO $ Optional String
+  name a = tryJS "WorkerOptions.name" $ WorkerOptions.prim__name a
   
   export
-  setName : (obj : WorkerOptions) -> (value : UndefOr String) -> JSIO ()
-  setName a b = primJS $ WorkerOptions.prim__setName a b
+  setName : (obj : WorkerOptions) -> (value : Optional String) -> JSIO ()
+  setName a b = primJS $ WorkerOptions.prim__setName a (toFFI b)
 
   export
   setName' : (obj : WorkerOptions) -> JSIO ()
-  setName' a = setName a undef
+  setName' a = setName a Undef
   
   export
-  type : (obj : WorkerOptions) -> JSIO (UndefOr WorkerType)
-  type a = primJS $ WorkerOptions.prim__type a
+  type : (obj : WorkerOptions) -> JSIO $ Optional WorkerType
+  type a = tryJS "WorkerOptions.type" $ WorkerOptions.prim__type a
   
   export
-  setType : (obj : WorkerOptions) -> (value : UndefOr WorkerType) -> JSIO ()
-  setType a b = primJS $ WorkerOptions.prim__setType a b
+  setType : (obj : WorkerOptions) -> (value : Optional WorkerType) -> JSIO ()
+  setType a b = primJS $ WorkerOptions.prim__setType a (toFFI b)
 
   export
   setType' : (obj : WorkerOptions) -> JSIO ()
-  setType' a = setType a undef
+  setType' a = setType a Undef
 
 namespace WorkletOptions
   
@@ -11744,26 +12077,26 @@ namespace WorkletOptions
     mixins =  []
   
   export
-  new : (credentials : UndefOr RequestCredentials) -> JSIO WorkletOptions
-  new a = primJS $ WorkletOptions.prim__new a
+  new : (credentials : Optional RequestCredentials) -> JSIO WorkletOptions
+  new a = primJS $ WorkletOptions.prim__new (toFFI a)
 
   export
   new' : JSIO WorkletOptions
-  new' = new undef
+  new' = new Undef
   
   export
-  credentials : (obj : WorkletOptions) -> JSIO (UndefOr RequestCredentials)
-  credentials a = primJS $ WorkletOptions.prim__credentials a
+  credentials : (obj : WorkletOptions) -> JSIO $ Optional RequestCredentials
+  credentials a = tryJS "WorkletOptions.credentials" $ WorkletOptions.prim__credentials a
   
   export
   setCredentials :  (obj : WorkletOptions)
-                 -> (value : UndefOr RequestCredentials)
+                 -> (value : Optional RequestCredentials)
                  -> JSIO ()
-  setCredentials a b = primJS $ WorkletOptions.prim__setCredentials a b
+  setCredentials a b = primJS $ WorkletOptions.prim__setCredentials a (toFFI b)
 
   export
   setCredentials' : (obj : WorkletOptions) -> JSIO ()
-  setCredentials' a = setCredentials a undef
+  setCredentials' a = setCredentials a Undef
 
 --------------------------------------------------------------------------------
 --          Callbacks

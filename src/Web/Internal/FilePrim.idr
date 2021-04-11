@@ -12,7 +12,21 @@ namespace Blob
   
   export
   %foreign "browser:lambda:(a,b)=> new Blob(a b)"
-  prim__new : UndefOr (Array BlobPart) -> UndefOr BlobPropertyBag -> PrimIO Blob
+  prim__new :  UndefOr (Array (Union13 Int8Array
+                                       Int16Array
+                                       Int32Array
+                                       UInt8Array
+                                       UInt8Array
+                                       UInt8Array
+                                       UInt8ClampedArray
+                                       Float32Array
+                                       Float64Array
+                                       DataView
+                                       ArrayBuffer
+                                       Blob
+                                       String))
+            -> UndefOr BlobPropertyBag
+            -> PrimIO Blob
   
   export
   %foreign "browser:lambda:x=>x.size"
@@ -46,7 +60,22 @@ namespace File
   
   export
   %foreign "browser:lambda:(a,b,c)=> new File(a b c)"
-  prim__new : Array BlobPart -> String -> UndefOr FilePropertyBag -> PrimIO File
+  prim__new :  Array (Union13 Int8Array
+                              Int16Array
+                              Int32Array
+                              UInt8Array
+                              UInt8Array
+                              UInt8Array
+                              UInt8ClampedArray
+                              Float32Array
+                              Float64Array
+                              DataView
+                              ArrayBuffer
+                              Blob
+                              String)
+            -> String
+            -> UndefOr FilePropertyBag
+            -> PrimIO File
   
   export
   %foreign "browser:lambda:x=>x.lastModified"
@@ -78,51 +107,51 @@ namespace FileReader
   
   export
   %foreign "browser:lambda:x=>x.onabort"
-  prim__onabort : FileReader -> PrimIO EventHandler
+  prim__onabort : FileReader -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onabort = v}"
-  prim__setOnabort : FileReader -> EventHandler -> PrimIO ()
+  prim__setOnabort : FileReader -> Nullable EventHandlerNonNull -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onerror"
-  prim__onerror : FileReader -> PrimIO EventHandler
+  prim__onerror : FileReader -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onerror = v}"
-  prim__setOnerror : FileReader -> EventHandler -> PrimIO ()
+  prim__setOnerror : FileReader -> Nullable EventHandlerNonNull -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onload"
-  prim__onload : FileReader -> PrimIO EventHandler
+  prim__onload : FileReader -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onload = v}"
-  prim__setOnload : FileReader -> EventHandler -> PrimIO ()
+  prim__setOnload : FileReader -> Nullable EventHandlerNonNull -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onloadend"
-  prim__onloadend : FileReader -> PrimIO EventHandler
+  prim__onloadend : FileReader -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onloadend = v}"
-  prim__setOnloadend : FileReader -> EventHandler -> PrimIO ()
+  prim__setOnloadend : FileReader -> Nullable EventHandlerNonNull -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onloadstart"
-  prim__onloadstart : FileReader -> PrimIO EventHandler
+  prim__onloadstart : FileReader -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onloadstart = v}"
-  prim__setOnloadstart : FileReader -> EventHandler -> PrimIO ()
+  prim__setOnloadstart : FileReader -> Nullable EventHandlerNonNull -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onprogress"
-  prim__onprogress : FileReader -> PrimIO EventHandler
+  prim__onprogress : FileReader -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onprogress = v}"
-  prim__setOnprogress : FileReader -> EventHandler -> PrimIO ()
+  prim__setOnprogress : FileReader -> Nullable EventHandlerNonNull -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.readyState"
@@ -183,19 +212,19 @@ namespace BlobPropertyBag
   
   export
   %foreign "browser:lambda:(a,b)=> {type: a,endings: b}"
-  prim__new : UndefOr String -> UndefOr EndingType -> PrimIO BlobPropertyBag
+  prim__new : UndefOr String -> UndefOr String -> PrimIO BlobPropertyBag
   
   export
   %foreign "browser:lambda:x=>x.endings"
-  prim__endings : BlobPropertyBag -> PrimIO (UndefOr EndingType)
+  prim__endings : BlobPropertyBag -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.endings = v}"
-  prim__setEndings : BlobPropertyBag -> UndefOr EndingType -> PrimIO ()
+  prim__setEndings : BlobPropertyBag -> UndefOr String -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.type"
-  prim__type : BlobPropertyBag -> PrimIO (UndefOr String)
+  prim__type : BlobPropertyBag -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.type = v}"
@@ -209,7 +238,7 @@ namespace FilePropertyBag
   
   export
   %foreign "browser:lambda:x=>x.lastModified"
-  prim__lastModified : FilePropertyBag -> PrimIO (UndefOr Int64)
+  prim__lastModified : FilePropertyBag -> PrimIO $ UndefOr Int64
   
   export
   %foreign "browser:lambda:(x,v)=>{x.lastModified = v}"

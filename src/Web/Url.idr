@@ -17,16 +17,16 @@ namespace URL
     mixins =  []
   
   export
-  new : (url : String) -> (base : UndefOr String) -> JSIO URL
-  new a b = primJS $ URL.prim__new a b
+  new : (url : String) -> (base : Optional String) -> JSIO URL
+  new a b = primJS $ URL.prim__new a (toFFI b)
 
   export
   new' : (url : String) -> JSIO URL
-  new' a = new a undef
+  new' a = new a Undef
   
   export
-  createObjectURL : (obj : Union2 Blob MediaSource) -> JSIO String
-  createObjectURL a = primJS $ URL.prim__createObjectURL a
+  createObjectURL : (obj : NS I [ Blob , MediaSource ]) -> JSIO String
+  createObjectURL a = primJS $ URL.prim__createObjectURL (toFFI a)
   
   export
   createObjectURL1 : (mediaSource : MediaSource) -> JSIO String
@@ -137,15 +137,16 @@ namespace URLSearchParams
     mixins =  []
   
   export
-  new :  (init : UndefOr (Union3 (Array (Array String))
-                                 (Record String String)
-                                 String))
+  new :  (init : Optional (NS I [ Array (Array String)
+                                , Record String String
+                                , String
+                                ]))
       -> JSIO URLSearchParams
-  new a = primJS $ URLSearchParams.prim__new a
+  new a = primJS $ URLSearchParams.prim__new (toFFI a)
 
   export
   new' : JSIO URLSearchParams
-  new' = new undef
+  new' = new Undef
   
   export
   append :  (obj : URLSearchParams)
@@ -163,12 +164,12 @@ namespace URLSearchParams
   getAll a b = primJS $ URLSearchParams.prim__getAll a b
   
   export
-  get : (obj : URLSearchParams) -> (name : String) -> JSIO (Nullable String)
-  get a b = primJS $ URLSearchParams.prim__get a b
+  get : (obj : URLSearchParams) -> (name : String) -> JSIO (Maybe String)
+  get a b = tryJS "URLSearchParams.get" $ URLSearchParams.prim__get a b
   
   export
-  has : (obj : URLSearchParams) -> (name : String) -> JSIO Boolean
-  has a b = primJS $ URLSearchParams.prim__has a b
+  has : (obj : URLSearchParams) -> (name : String) -> JSIO Bool
+  has a b = tryJS "URLSearchParams.has" $ URLSearchParams.prim__has a b
   
   export
   set :  (obj : URLSearchParams)

@@ -12,7 +12,7 @@ namespace Clipboard
   
   export
   %foreign "browser:lambda:x=>x.read()"
-  prim__read : Clipboard -> PrimIO (Promise ClipboardItems)
+  prim__read : Clipboard -> PrimIO (Promise (Array ClipboardItem))
   
   export
   %foreign "browser:lambda:x=>x.readText()"
@@ -20,7 +20,7 @@ namespace Clipboard
   
   export
   %foreign "browser:lambda:(x,a)=>x.write(a)"
-  prim__write : Clipboard -> ClipboardItems -> PrimIO (Promise Undefined)
+  prim__write : Clipboard -> Array ClipboardItem -> PrimIO (Promise Undefined)
   
   export
   %foreign "browser:lambda:(x,a)=>x.writeText(a)"
@@ -40,7 +40,7 @@ namespace ClipboardItem
   
   export
   %foreign "browser:lambda:(a,b)=> new ClipboardItem(a b)"
-  prim__new :  Record String ClipboardItemData
+  prim__new :  Record String (Promise (Union2 String Blob))
             -> UndefOr ClipboardItemOptions
             -> PrimIO ClipboardItem
   
@@ -60,7 +60,7 @@ namespace ClipboardItem
   
   export
   %foreign "browser:lambda:x=>x.presentationStyle"
-  prim__presentationStyle : ClipboardItem -> PrimIO PresentationStyle
+  prim__presentationStyle : ClipboardItem -> PrimIO String
   
   export
   %foreign "browser:lambda:x=>x.types"
@@ -84,7 +84,7 @@ namespace ClipboardEventInit
   export
   %foreign "browser:lambda:x=>x.clipboardData"
   prim__clipboardData :  ClipboardEventInit
-                      -> PrimIO (UndefOr (Nullable DataTransfer))
+                      -> PrimIO $ UndefOr (Nullable DataTransfer)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.clipboardData = v}"
@@ -96,17 +96,16 @@ namespace ClipboardItemOptions
   
   export
   %foreign "browser:lambda:(a)=> {presentationStyle: a}"
-  prim__new : UndefOr PresentationStyle -> PrimIO ClipboardItemOptions
+  prim__new : UndefOr String -> PrimIO ClipboardItemOptions
   
   export
   %foreign "browser:lambda:x=>x.presentationStyle"
-  prim__presentationStyle :  ClipboardItemOptions
-                          -> PrimIO (UndefOr PresentationStyle)
+  prim__presentationStyle : ClipboardItemOptions -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.presentationStyle = v}"
   prim__setPresentationStyle :  ClipboardItemOptions
-                             -> UndefOr PresentationStyle
+                             -> UndefOr String
                              -> PrimIO ()
 
 namespace ClipboardPermissionDescriptor
@@ -118,7 +117,7 @@ namespace ClipboardPermissionDescriptor
   export
   %foreign "browser:lambda:x=>x.allowWithoutGesture"
   prim__allowWithoutGesture :  ClipboardPermissionDescriptor
-                            -> PrimIO (UndefOr Boolean)
+                            -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.allowWithoutGesture = v}"

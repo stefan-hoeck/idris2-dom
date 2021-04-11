@@ -17,16 +17,18 @@ namespace PermissionStatus
     mixins =  []
   
   export
-  onchange : (obj : PermissionStatus) -> JSIO EventHandler
-  onchange a = primJS $ PermissionStatus.prim__onchange a
+  onchange : (obj : PermissionStatus) -> JSIO (Maybe EventHandlerNonNull)
+  onchange a = tryJS "PermissionStatus.onchange" $ PermissionStatus.prim__onchange a
   
   export
-  setOnchange : (obj : PermissionStatus) -> (value : EventHandler) -> JSIO ()
-  setOnchange a b = primJS $ PermissionStatus.prim__setOnchange a b
+  setOnchange :  (obj : PermissionStatus)
+              -> (value : Maybe EventHandlerNonNull)
+              -> JSIO ()
+  setOnchange a b = primJS $ PermissionStatus.prim__setOnchange a (toFFI b)
   
   export
   state : (obj : PermissionStatus) -> JSIO PermissionState
-  state a = primJS $ PermissionStatus.prim__state a
+  state a = tryJS "PermissionStatus.state" $ PermissionStatus.prim__state a
 
 namespace Permissions
   
@@ -56,28 +58,27 @@ namespace CameraDevicePermissionDescriptor
     mixins =  []
   
   export
-  new : (panTiltZoom : UndefOr Boolean) -> JSIO CameraDevicePermissionDescriptor
-  new a = primJS $ CameraDevicePermissionDescriptor.prim__new a
+  new : (panTiltZoom : Optional Bool) -> JSIO CameraDevicePermissionDescriptor
+  new a = primJS $ CameraDevicePermissionDescriptor.prim__new (toFFI a)
 
   export
   new' : JSIO CameraDevicePermissionDescriptor
-  new' = new undef
+  new' = new Undef
   
   export
-  panTiltZoom :  (obj : CameraDevicePermissionDescriptor)
-              -> JSIO (UndefOr Boolean)
-  panTiltZoom a = primJS $ CameraDevicePermissionDescriptor.prim__panTiltZoom a
+  panTiltZoom : (obj : CameraDevicePermissionDescriptor) -> JSIO $ Optional Bool
+  panTiltZoom a = tryJS "CameraDevicePermissionDescriptor.panTiltZoom" $ CameraDevicePermissionDescriptor.prim__panTiltZoom a
   
   export
   setPanTiltZoom :  (obj : CameraDevicePermissionDescriptor)
-                 -> (value : UndefOr Boolean)
+                 -> (value : Optional Bool)
                  -> JSIO ()
   setPanTiltZoom a b = primJS $ CameraDevicePermissionDescriptor.prim__setPanTiltZoom a
-                                                                                      b
+                                                                                      (toFFI b)
 
   export
   setPanTiltZoom' : (obj : CameraDevicePermissionDescriptor) -> JSIO ()
-  setPanTiltZoom' a = setPanTiltZoom a undef
+  setPanTiltZoom' a = setPanTiltZoom a Undef
 
 namespace DevicePermissionDescriptor
   
@@ -88,26 +89,27 @@ namespace DevicePermissionDescriptor
     mixins =  []
   
   export
-  new : (deviceId : UndefOr String) -> JSIO DevicePermissionDescriptor
-  new a = primJS $ DevicePermissionDescriptor.prim__new a
+  new : (deviceId : Optional String) -> JSIO DevicePermissionDescriptor
+  new a = primJS $ DevicePermissionDescriptor.prim__new (toFFI a)
 
   export
   new' : JSIO DevicePermissionDescriptor
-  new' = new undef
+  new' = new Undef
   
   export
-  deviceId : (obj : DevicePermissionDescriptor) -> JSIO (UndefOr String)
-  deviceId a = primJS $ DevicePermissionDescriptor.prim__deviceId a
+  deviceId : (obj : DevicePermissionDescriptor) -> JSIO $ Optional String
+  deviceId a = tryJS "DevicePermissionDescriptor.deviceId" $ DevicePermissionDescriptor.prim__deviceId a
   
   export
   setDeviceId :  (obj : DevicePermissionDescriptor)
-              -> (value : UndefOr String)
+              -> (value : Optional String)
               -> JSIO ()
-  setDeviceId a b = primJS $ DevicePermissionDescriptor.prim__setDeviceId a b
+  setDeviceId a b = primJS $ DevicePermissionDescriptor.prim__setDeviceId a
+                                                                          (toFFI b)
 
   export
   setDeviceId' : (obj : DevicePermissionDescriptor) -> JSIO ()
-  setDeviceId' a = setDeviceId a undef
+  setDeviceId' a = setDeviceId a Undef
 
 namespace MidiPermissionDescriptor
   
@@ -118,26 +120,26 @@ namespace MidiPermissionDescriptor
     mixins =  []
   
   export
-  new : (sysex : UndefOr Boolean) -> JSIO MidiPermissionDescriptor
-  new a = primJS $ MidiPermissionDescriptor.prim__new a
+  new : (sysex : Optional Bool) -> JSIO MidiPermissionDescriptor
+  new a = primJS $ MidiPermissionDescriptor.prim__new (toFFI a)
 
   export
   new' : JSIO MidiPermissionDescriptor
-  new' = new undef
+  new' = new Undef
   
   export
-  sysex : (obj : MidiPermissionDescriptor) -> JSIO (UndefOr Boolean)
-  sysex a = primJS $ MidiPermissionDescriptor.prim__sysex a
+  sysex : (obj : MidiPermissionDescriptor) -> JSIO $ Optional Bool
+  sysex a = tryJS "MidiPermissionDescriptor.sysex" $ MidiPermissionDescriptor.prim__sysex a
   
   export
   setSysex :  (obj : MidiPermissionDescriptor)
-           -> (value : UndefOr Boolean)
+           -> (value : Optional Bool)
            -> JSIO ()
-  setSysex a b = primJS $ MidiPermissionDescriptor.prim__setSysex a b
+  setSysex a b = primJS $ MidiPermissionDescriptor.prim__setSysex a (toFFI b)
 
   export
   setSysex' : (obj : MidiPermissionDescriptor) -> JSIO ()
-  setSysex' a = setSysex a undef
+  setSysex' a = setSysex a Undef
 
 namespace PermissionDescriptor
   
@@ -149,15 +151,15 @@ namespace PermissionDescriptor
   
   export
   new : (name : PermissionName) -> JSIO PermissionDescriptor
-  new a = primJS $ PermissionDescriptor.prim__new a
+  new a = primJS $ PermissionDescriptor.prim__new (toFFI a)
   
   export
   name : (obj : PermissionDescriptor) -> JSIO PermissionName
-  name a = primJS $ PermissionDescriptor.prim__name a
+  name a = tryJS "PermissionDescriptor.name" $ PermissionDescriptor.prim__name a
   
   export
   setName : (obj : PermissionDescriptor) -> (value : PermissionName) -> JSIO ()
-  setName a b = primJS $ PermissionDescriptor.prim__setName a b
+  setName a b = primJS $ PermissionDescriptor.prim__setName a (toFFI b)
 
 namespace PermissionSetParameters
   
@@ -170,15 +172,15 @@ namespace PermissionSetParameters
   export
   new :  (descriptor : PermissionDescriptor)
       -> (state : PermissionState)
-      -> (oneRealm : UndefOr Boolean)
+      -> (oneRealm : Optional Bool)
       -> JSIO PermissionSetParameters
-  new a b c = primJS $ PermissionSetParameters.prim__new a b c
+  new a b c = primJS $ PermissionSetParameters.prim__new a (toFFI b) (toFFI c)
 
   export
   new' :  (descriptor : PermissionDescriptor)
        -> (state : PermissionState)
        -> JSIO PermissionSetParameters
-  new' a b = new a b undef
+  new' a b = new a b Undef
   
   export
   descriptor : (obj : PermissionSetParameters) -> JSIO PermissionDescriptor
@@ -191,28 +193,29 @@ namespace PermissionSetParameters
   setDescriptor a b = primJS $ PermissionSetParameters.prim__setDescriptor a b
   
   export
-  oneRealm : (obj : PermissionSetParameters) -> JSIO (UndefOr Boolean)
-  oneRealm a = primJS $ PermissionSetParameters.prim__oneRealm a
+  oneRealm : (obj : PermissionSetParameters) -> JSIO $ Optional Bool
+  oneRealm a = tryJS "PermissionSetParameters.oneRealm" $ PermissionSetParameters.prim__oneRealm a
   
   export
   setOneRealm :  (obj : PermissionSetParameters)
-              -> (value : UndefOr Boolean)
+              -> (value : Optional Bool)
               -> JSIO ()
-  setOneRealm a b = primJS $ PermissionSetParameters.prim__setOneRealm a b
+  setOneRealm a b = primJS $ PermissionSetParameters.prim__setOneRealm a
+                                                                       (toFFI b)
 
   export
   setOneRealm' : (obj : PermissionSetParameters) -> JSIO ()
-  setOneRealm' a = setOneRealm a undef
+  setOneRealm' a = setOneRealm a Undef
   
   export
   state : (obj : PermissionSetParameters) -> JSIO PermissionState
-  state a = primJS $ PermissionSetParameters.prim__state a
+  state a = tryJS "PermissionSetParameters.state" $ PermissionSetParameters.prim__state a
   
   export
   setState :  (obj : PermissionSetParameters)
            -> (value : PermissionState)
            -> JSIO ()
-  setState a b = primJS $ PermissionSetParameters.prim__setState a b
+  setState a b = primJS $ PermissionSetParameters.prim__setState a (toFFI b)
 
 namespace PushPermissionDescriptor
   
@@ -223,24 +226,24 @@ namespace PushPermissionDescriptor
     mixins =  []
   
   export
-  new : (userVisibleOnly : UndefOr Boolean) -> JSIO PushPermissionDescriptor
-  new a = primJS $ PushPermissionDescriptor.prim__new a
+  new : (userVisibleOnly : Optional Bool) -> JSIO PushPermissionDescriptor
+  new a = primJS $ PushPermissionDescriptor.prim__new (toFFI a)
 
   export
   new' : JSIO PushPermissionDescriptor
-  new' = new undef
+  new' = new Undef
   
   export
-  userVisibleOnly : (obj : PushPermissionDescriptor) -> JSIO (UndefOr Boolean)
-  userVisibleOnly a = primJS $ PushPermissionDescriptor.prim__userVisibleOnly a
+  userVisibleOnly : (obj : PushPermissionDescriptor) -> JSIO $ Optional Bool
+  userVisibleOnly a = tryJS "PushPermissionDescriptor.userVisibleOnly" $ PushPermissionDescriptor.prim__userVisibleOnly a
   
   export
   setUserVisibleOnly :  (obj : PushPermissionDescriptor)
-                     -> (value : UndefOr Boolean)
+                     -> (value : Optional Bool)
                      -> JSIO ()
   setUserVisibleOnly a b = primJS $ PushPermissionDescriptor.prim__setUserVisibleOnly a
-                                                                                      b
+                                                                                      (toFFI b)
 
   export
   setUserVisibleOnly' : (obj : PushPermissionDescriptor) -> JSIO ()
-  setUserVisibleOnly' a = setUserVisibleOnly a undef
+  setUserVisibleOnly' a = setUserVisibleOnly a Undef

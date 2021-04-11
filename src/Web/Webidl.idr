@@ -117,14 +117,14 @@ namespace DOMException
   WRONG_DOCUMENT_ERR = 4
   
   export
-  new :  (message : UndefOr String)
-      -> (name : UndefOr String)
+  new :  (message : Optional String)
+      -> (name : Optional String)
       -> JSIO DOMException
-  new a b = primJS $ DOMException.prim__new a b
+  new a b = primJS $ DOMException.prim__new (toFFI a) (toFFI b)
 
   export
   new' : JSIO DOMException
-  new' = new undef undef
+  new' = new Undef Undef
   
   export
   code : (obj : DOMException) -> JSIO UInt16

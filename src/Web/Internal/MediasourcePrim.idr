@@ -32,31 +32,37 @@ namespace MediaSource
   
   export
   %foreign "browser:lambda:x=>x.onsourceclose"
-  prim__onsourceclose : MediaSource -> PrimIO EventHandler
+  prim__onsourceclose : MediaSource -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onsourceclose = v}"
-  prim__setOnsourceclose : MediaSource -> EventHandler -> PrimIO ()
+  prim__setOnsourceclose :  MediaSource
+                         -> Nullable EventHandlerNonNull
+                         -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onsourceended"
-  prim__onsourceended : MediaSource -> PrimIO EventHandler
+  prim__onsourceended : MediaSource -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onsourceended = v}"
-  prim__setOnsourceended : MediaSource -> EventHandler -> PrimIO ()
+  prim__setOnsourceended :  MediaSource
+                         -> Nullable EventHandlerNonNull
+                         -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onsourceopen"
-  prim__onsourceopen : MediaSource -> PrimIO EventHandler
+  prim__onsourceopen : MediaSource -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onsourceopen = v}"
-  prim__setOnsourceopen : MediaSource -> EventHandler -> PrimIO ()
+  prim__setOnsourceopen :  MediaSource
+                        -> Nullable EventHandlerNonNull
+                        -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.readyState"
-  prim__readyState : MediaSource -> PrimIO ReadyState
+  prim__readyState : MediaSource -> PrimIO String
   
   export
   %foreign "browser:lambda:x=>x.sourceBuffers"
@@ -72,7 +78,7 @@ namespace MediaSource
   
   export
   %foreign "browser:lambda:(x,a)=>x.endOfStream(a)"
-  prim__endOfStream : MediaSource -> UndefOr EndOfStreamError -> PrimIO ()
+  prim__endOfStream : MediaSource -> UndefOr String -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a)=>x.removeSourceBuffer(a)"
@@ -110,51 +116,55 @@ namespace SourceBuffer
   
   export
   %foreign "browser:lambda:x=>x.mode"
-  prim__mode : SourceBuffer -> PrimIO AppendMode
+  prim__mode : SourceBuffer -> PrimIO String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.mode = v}"
-  prim__setMode : SourceBuffer -> AppendMode -> PrimIO ()
+  prim__setMode : SourceBuffer -> String -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onabort"
-  prim__onabort : SourceBuffer -> PrimIO EventHandler
+  prim__onabort : SourceBuffer -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onabort = v}"
-  prim__setOnabort : SourceBuffer -> EventHandler -> PrimIO ()
+  prim__setOnabort : SourceBuffer -> Nullable EventHandlerNonNull -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onerror"
-  prim__onerror : SourceBuffer -> PrimIO EventHandler
+  prim__onerror : SourceBuffer -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onerror = v}"
-  prim__setOnerror : SourceBuffer -> EventHandler -> PrimIO ()
+  prim__setOnerror : SourceBuffer -> Nullable EventHandlerNonNull -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onupdate"
-  prim__onupdate : SourceBuffer -> PrimIO EventHandler
+  prim__onupdate : SourceBuffer -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onupdate = v}"
-  prim__setOnupdate : SourceBuffer -> EventHandler -> PrimIO ()
+  prim__setOnupdate : SourceBuffer -> Nullable EventHandlerNonNull -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onupdateend"
-  prim__onupdateend : SourceBuffer -> PrimIO EventHandler
+  prim__onupdateend : SourceBuffer -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onupdateend = v}"
-  prim__setOnupdateend : SourceBuffer -> EventHandler -> PrimIO ()
+  prim__setOnupdateend :  SourceBuffer
+                       -> Nullable EventHandlerNonNull
+                       -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onupdatestart"
-  prim__onupdatestart : SourceBuffer -> PrimIO EventHandler
+  prim__onupdatestart : SourceBuffer -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onupdatestart = v}"
-  prim__setOnupdatestart : SourceBuffer -> EventHandler -> PrimIO ()
+  prim__setOnupdatestart :  SourceBuffer
+                         -> Nullable EventHandlerNonNull
+                         -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.textTracks"
@@ -182,7 +192,19 @@ namespace SourceBuffer
   
   export
   %foreign "browser:lambda:(x,a)=>x.appendBuffer(a)"
-  prim__appendBuffer : SourceBuffer -> BufferSource -> PrimIO ()
+  prim__appendBuffer :  SourceBuffer
+                     -> Union11 Int8Array
+                                Int16Array
+                                Int32Array
+                                UInt8Array
+                                UInt8Array
+                                UInt8Array
+                                UInt8ClampedArray
+                                Float32Array
+                                Float64Array
+                                DataView
+                                ArrayBuffer
+                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.remove(a b)"
@@ -200,17 +222,23 @@ namespace SourceBufferList
   
   export
   %foreign "browser:lambda:x=>x.onaddsourcebuffer"
-  prim__onaddsourcebuffer : SourceBufferList -> PrimIO EventHandler
+  prim__onaddsourcebuffer :  SourceBufferList
+                          -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onaddsourcebuffer = v}"
-  prim__setOnaddsourcebuffer : SourceBufferList -> EventHandler -> PrimIO ()
+  prim__setOnaddsourcebuffer :  SourceBufferList
+                             -> Nullable EventHandlerNonNull
+                             -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onremovesourcebuffer"
-  prim__onremovesourcebuffer : SourceBufferList -> PrimIO EventHandler
+  prim__onremovesourcebuffer :  SourceBufferList
+                             -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onremovesourcebuffer = v}"
-  prim__setOnremovesourcebuffer : SourceBufferList -> EventHandler -> PrimIO ()
+  prim__setOnremovesourcebuffer :  SourceBufferList
+                                -> Nullable EventHandlerNonNull
+                                -> PrimIO ()
 

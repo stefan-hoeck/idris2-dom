@@ -41,16 +41,18 @@ namespace AbortSignal
   abort = primJS $ AbortSignal.prim__abort 
   
   export
-  aborted : (obj : AbortSignal) -> JSIO Boolean
-  aborted a = primJS $ AbortSignal.prim__aborted a
+  aborted : (obj : AbortSignal) -> JSIO Bool
+  aborted a = tryJS "AbortSignal.aborted" $ AbortSignal.prim__aborted a
   
   export
-  onabort : (obj : AbortSignal) -> JSIO EventHandler
-  onabort a = primJS $ AbortSignal.prim__onabort a
+  onabort : (obj : AbortSignal) -> JSIO (Maybe EventHandlerNonNull)
+  onabort a = tryJS "AbortSignal.onabort" $ AbortSignal.prim__onabort a
   
   export
-  setOnabort : (obj : AbortSignal) -> (value : EventHandler) -> JSIO ()
-  setOnabort a b = primJS $ AbortSignal.prim__setOnabort a b
+  setOnabort :  (obj : AbortSignal)
+             -> (value : Maybe EventHandlerNonNull)
+             -> JSIO ()
+  setOnabort a b = primJS $ AbortSignal.prim__setOnabort a (toFFI b)
 
 namespace AbstractRange
   
@@ -61,8 +63,8 @@ namespace AbstractRange
     mixins =  []
   
   export
-  collapsed : (obj : AbstractRange) -> JSIO Boolean
-  collapsed a = primJS $ AbstractRange.prim__collapsed a
+  collapsed : (obj : AbstractRange) -> JSIO Bool
+  collapsed a = tryJS "AbstractRange.collapsed" $ AbstractRange.prim__collapsed a
   
   export
   endContainer : (obj : AbstractRange) -> JSIO Node
@@ -97,20 +99,20 @@ namespace Attr
   name a = primJS $ Attr.prim__name a
   
   export
-  namespaceURI : (obj : Attr) -> JSIO (Nullable String)
-  namespaceURI a = primJS $ Attr.prim__namespaceURI a
+  namespaceURI : (obj : Attr) -> JSIO (Maybe String)
+  namespaceURI a = tryJS "Attr.namespaceURI" $ Attr.prim__namespaceURI a
   
   export
-  ownerElement : (obj : Attr) -> JSIO (Nullable Element)
-  ownerElement a = primJS $ Attr.prim__ownerElement a
+  ownerElement : (obj : Attr) -> JSIO (Maybe Element)
+  ownerElement a = tryJS "Attr.ownerElement" $ Attr.prim__ownerElement a
   
   export
-  prefix_ : (obj : Attr) -> JSIO (Nullable String)
-  prefix_ a = primJS $ Attr.prim__prefix a
+  prefix_ : (obj : Attr) -> JSIO (Maybe String)
+  prefix_ a = tryJS "Attr.prefix_" $ Attr.prim__prefix a
   
   export
-  specified : (obj : Attr) -> JSIO Boolean
-  specified a = primJS $ Attr.prim__specified a
+  specified : (obj : Attr) -> JSIO Bool
+  specified a = tryJS "Attr.specified" $ Attr.prim__specified a
   
   export
   value : (obj : Attr) -> JSIO String
@@ -190,12 +192,12 @@ namespace Comment
     mixins =  [ ChildNode , NonDocumentTypeChildNode ]
   
   export
-  new : (data_ : UndefOr String) -> JSIO Comment
-  new a = primJS $ Comment.prim__new a
+  new : (data_ : Optional String) -> JSIO Comment
+  new a = primJS $ Comment.prim__new (toFFI a)
 
   export
   new' : JSIO Comment
-  new' = new undef
+  new' = new Undef
 
 namespace CustomEvent
   
@@ -207,13 +209,13 @@ namespace CustomEvent
   
   export
   new :  (type : String)
-      -> (eventInitDict : UndefOr CustomEventInit)
+      -> (eventInitDict : Optional CustomEventInit)
       -> JSIO CustomEvent
-  new a b = primJS $ CustomEvent.prim__new a b
+  new a b = primJS $ CustomEvent.prim__new a (toFFI b)
 
   export
   new' : (type : String) -> JSIO CustomEvent
-  new' a = new a undef
+  new' a = new a Undef
   
   export
   detail : (obj : CustomEvent) -> JSIO AnyPtr
@@ -222,19 +224,19 @@ namespace CustomEvent
   export
   initCustomEvent :  (obj : CustomEvent)
                   -> (type : String)
-                  -> (bubbles : UndefOr Boolean)
-                  -> (cancelable : UndefOr Boolean)
-                  -> (detail : UndefOr AnyPtr)
+                  -> (bubbles : Optional Bool)
+                  -> (cancelable : Optional Bool)
+                  -> (detail : Optional AnyPtr)
                   -> JSIO ()
   initCustomEvent a b c d e = primJS $ CustomEvent.prim__initCustomEvent a
                                                                          b
-                                                                         c
-                                                                         d
-                                                                         e
+                                                                         (toFFI c)
+                                                                         (toFFI d)
+                                                                         (toFFI e)
 
   export
   initCustomEvent' : (obj : CustomEvent) -> (type : String) -> JSIO ()
-  initCustomEvent' a b = initCustomEvent a b undef undef undef
+  initCustomEvent' a b = initCustomEvent a b Undef Undef Undef
 
 namespace DOMImplementation
   
@@ -246,21 +248,21 @@ namespace DOMImplementation
   
   export
   createDocument :  (obj : DOMImplementation)
-                 -> (namespace_ : Nullable String)
+                 -> (namespace_ : Maybe String)
                  -> (qualifiedName : String)
-                 -> (doctype : UndefOr (Nullable DocumentType))
+                 -> (doctype : Optional (Maybe DocumentType))
                  -> JSIO XMLDocument
   createDocument a b c d = primJS $ DOMImplementation.prim__createDocument a
-                                                                           b
+                                                                           (toFFI b)
                                                                            c
-                                                                           d
+                                                                           (toFFI d)
 
   export
   createDocument' :  (obj : DOMImplementation)
-                  -> (namespace_ : Nullable String)
+                  -> (namespace_ : Maybe String)
                   -> (qualifiedName : String)
                   -> JSIO XMLDocument
-  createDocument' a b c = createDocument a b c undef
+  createDocument' a b c = createDocument a b c Undef
   
   export
   createDocumentType :  (obj : DOMImplementation)
@@ -275,18 +277,18 @@ namespace DOMImplementation
   
   export
   createHTMLDocument :  (obj : DOMImplementation)
-                     -> (title : UndefOr String)
+                     -> (title : Optional String)
                      -> JSIO Document
   createHTMLDocument a b = primJS $ DOMImplementation.prim__createHTMLDocument a
-                                                                               b
+                                                                               (toFFI b)
 
   export
   createHTMLDocument' : (obj : DOMImplementation) -> JSIO Document
-  createHTMLDocument' a = createHTMLDocument a undef
+  createHTMLDocument' a = createHTMLDocument a Undef
   
   export
-  hasFeature : (obj : DOMImplementation) -> JSIO Boolean
-  hasFeature a = primJS $ DOMImplementation.prim__hasFeature a
+  hasFeature : (obj : DOMImplementation) -> JSIO Bool
+  hasFeature a = tryJS "DOMImplementation.hasFeature" $ DOMImplementation.prim__hasFeature a
 
 namespace DOMTokenList
   
@@ -313,12 +315,12 @@ namespace DOMTokenList
   add a b = primJS $ DOMTokenList.prim__add a b
   
   export
-  contains : (obj : DOMTokenList) -> (token : String) -> JSIO Boolean
-  contains a b = primJS $ DOMTokenList.prim__contains a b
+  contains : (obj : DOMTokenList) -> (token : String) -> JSIO Bool
+  contains a b = tryJS "DOMTokenList.contains" $ DOMTokenList.prim__contains a b
   
   export
-  item : (obj : DOMTokenList) -> (index : UInt32) -> JSIO (Nullable String)
-  item a b = primJS $ DOMTokenList.prim__item a b
+  item : (obj : DOMTokenList) -> (index : UInt32) -> JSIO (Maybe String)
+  item a b = tryJS "DOMTokenList.item" $ DOMTokenList.prim__item a b
   
   export
   remove : (obj : DOMTokenList) -> (tokens : VarArg String) -> JSIO ()
@@ -328,23 +330,27 @@ namespace DOMTokenList
   replace :  (obj : DOMTokenList)
           -> (token : String)
           -> (newToken : String)
-          -> JSIO Boolean
-  replace a b c = primJS $ DOMTokenList.prim__replace a b c
+          -> JSIO Bool
+  replace a b c = tryJS "DOMTokenList.replace" $ DOMTokenList.prim__replace a
+                                                                            b
+                                                                            c
   
   export
-  supports : (obj : DOMTokenList) -> (token : String) -> JSIO Boolean
-  supports a b = primJS $ DOMTokenList.prim__supports a b
+  supports : (obj : DOMTokenList) -> (token : String) -> JSIO Bool
+  supports a b = tryJS "DOMTokenList.supports" $ DOMTokenList.prim__supports a b
   
   export
   toggle :  (obj : DOMTokenList)
          -> (token : String)
-         -> (force : UndefOr Boolean)
-         -> JSIO Boolean
-  toggle a b c = primJS $ DOMTokenList.prim__toggle a b c
+         -> (force : Optional Bool)
+         -> JSIO Bool
+  toggle a b c = tryJS "DOMTokenList.toggle" $ DOMTokenList.prim__toggle a
+                                                                         b
+                                                                         (toFFI c)
 
   export
-  toggle' : (obj : DOMTokenList) -> (token : String) -> JSIO Boolean
-  toggle' a b = toggle a b undef
+  toggle' : (obj : DOMTokenList) -> (token : String) -> JSIO Bool
+  toggle' a b = toggle a b Undef
 
 namespace Document
   
@@ -401,12 +407,12 @@ namespace Document
   setBgColor a b = primJS $ Document.prim__setBgColor a b
   
   export
-  body : (obj : Document) -> JSIO (Nullable HTMLElement)
-  body a = primJS $ Document.prim__body a
+  body : (obj : Document) -> JSIO (Maybe HTMLElement)
+  body a = tryJS "Document.body" $ Document.prim__body a
   
   export
-  setBody : (obj : Document) -> (value : Nullable HTMLElement) -> JSIO ()
-  setBody a b = primJS $ Document.prim__setBody a b
+  setBody : (obj : Document) -> (value : Maybe HTMLElement) -> JSIO ()
+  setBody a b = primJS $ Document.prim__setBody a (toFFI b)
   
   export
   characterSet : (obj : Document) -> JSIO String
@@ -433,12 +439,13 @@ namespace Document
   setCookie a b = primJS $ Document.prim__setCookie a b
   
   export
-  currentScript : (obj : Document) -> JSIO (Nullable HTMLOrSVGScriptElement)
-  currentScript a = primJS $ Document.prim__currentScript a
+  currentScript :  (obj : Document)
+                -> JSIO (Maybe (NS I [ HTMLScriptElement , SVGScriptElement ]))
+  currentScript a = tryJS "Document.currentScript" $ Document.prim__currentScript a
   
   export
-  defaultView : (obj : Document) -> JSIO (Nullable WindowProxy)
-  defaultView a = primJS $ Document.prim__defaultView a
+  defaultView : (obj : Document) -> JSIO (Maybe WindowProxy)
+  defaultView a = tryJS "Document.defaultView" $ Document.prim__defaultView a
   
   export
   designMode : (obj : Document) -> JSIO String
@@ -457,12 +464,12 @@ namespace Document
   setDir a b = primJS $ Document.prim__setDir a b
   
   export
-  doctype : (obj : Document) -> JSIO (Nullable DocumentType)
-  doctype a = primJS $ Document.prim__doctype a
+  doctype : (obj : Document) -> JSIO (Maybe DocumentType)
+  doctype a = tryJS "Document.doctype" $ Document.prim__doctype a
   
   export
-  documentElement : (obj : Document) -> JSIO (Nullable Element)
-  documentElement a = primJS $ Document.prim__documentElement a
+  documentElement : (obj : Document) -> JSIO (Maybe Element)
+  documentElement a = tryJS "Document.documentElement" $ Document.prim__documentElement a
   
   export
   documentURI : (obj : Document) -> JSIO String
@@ -493,12 +500,12 @@ namespace Document
   forms a = primJS $ Document.prim__forms a
   
   export
-  head : (obj : Document) -> JSIO (Nullable HTMLHeadElement)
-  head a = primJS $ Document.prim__head a
+  head : (obj : Document) -> JSIO (Maybe HTMLHeadElement)
+  head a = tryJS "Document.head" $ Document.prim__head a
   
   export
-  hidden : (obj : Document) -> JSIO Boolean
-  hidden a = primJS $ Document.prim__hidden a
+  hidden : (obj : Document) -> JSIO Bool
+  hidden a = tryJS "Document.hidden" $ Document.prim__hidden a
   
   export
   images : (obj : Document) -> JSIO HTMLCollection
@@ -529,24 +536,30 @@ namespace Document
   links a = primJS $ Document.prim__links a
   
   export
-  location : (obj : Document) -> JSIO (Nullable Location)
-  location a = primJS $ Document.prim__location a
+  location : (obj : Document) -> JSIO (Maybe Location)
+  location a = tryJS "Document.location" $ Document.prim__location a
   
   export
-  onreadystatechange : (obj : Document) -> JSIO EventHandler
-  onreadystatechange a = primJS $ Document.prim__onreadystatechange a
+  onreadystatechange : (obj : Document) -> JSIO (Maybe EventHandlerNonNull)
+  onreadystatechange a = tryJS "Document.onreadystatechange" $ Document.prim__onreadystatechange a
   
   export
-  setOnreadystatechange : (obj : Document) -> (value : EventHandler) -> JSIO ()
-  setOnreadystatechange a b = primJS $ Document.prim__setOnreadystatechange a b
+  setOnreadystatechange :  (obj : Document)
+                        -> (value : Maybe EventHandlerNonNull)
+                        -> JSIO ()
+  setOnreadystatechange a b = primJS $ Document.prim__setOnreadystatechange a
+                                                                            (toFFI b)
   
   export
-  onvisibilitychange : (obj : Document) -> JSIO EventHandler
-  onvisibilitychange a = primJS $ Document.prim__onvisibilitychange a
+  onvisibilitychange : (obj : Document) -> JSIO (Maybe EventHandlerNonNull)
+  onvisibilitychange a = tryJS "Document.onvisibilitychange" $ Document.prim__onvisibilitychange a
   
   export
-  setOnvisibilitychange : (obj : Document) -> (value : EventHandler) -> JSIO ()
-  setOnvisibilitychange a b = primJS $ Document.prim__setOnvisibilitychange a b
+  setOnvisibilitychange :  (obj : Document)
+                        -> (value : Maybe EventHandlerNonNull)
+                        -> JSIO ()
+  setOnvisibilitychange a b = primJS $ Document.prim__setOnvisibilitychange a
+                                                                            (toFFI b)
   
   export
   plugins : (obj : Document) -> JSIO HTMLCollection
@@ -554,15 +567,15 @@ namespace Document
   
   export
   readyState : (obj : Document) -> JSIO DocumentReadyState
-  readyState a = primJS $ Document.prim__readyState a
+  readyState a = tryJS "Document.readyState" $ Document.prim__readyState a
   
   export
   referrer : (obj : Document) -> JSIO String
   referrer a = primJS $ Document.prim__referrer a
   
   export
-  rootElement : (obj : Document) -> JSIO (Nullable SVGSVGElement)
-  rootElement a = primJS $ Document.prim__rootElement a
+  rootElement : (obj : Document) -> JSIO (Maybe SVGSVGElement)
+  rootElement a = tryJS "Document.rootElement" $ Document.prim__rootElement a
   
   export
   scripts : (obj : Document) -> JSIO HTMLCollection
@@ -582,7 +595,7 @@ namespace Document
   
   export
   visibilityState : (obj : Document) -> JSIO VisibilityState
-  visibilityState a = primJS $ Document.prim__visibilityState a
+  visibilityState a = tryJS "Document.visibilityState" $ Document.prim__visibilityState a
   
   export
   vlinkColor : (obj : Document) -> JSIO String
@@ -614,10 +627,12 @@ namespace Document
   
   export
   createAttributeNS :  (obj : Document)
-                    -> (namespace_ : Nullable String)
+                    -> (namespace_ : Maybe String)
                     -> (qualifiedName : String)
                     -> JSIO Attr
-  createAttributeNS a b c = primJS $ Document.prim__createAttributeNS a b c
+  createAttributeNS a b c = primJS $ Document.prim__createAttributeNS a
+                                                                      (toFFI b)
+                                                                      c
   
   export
   createCDATASection : (obj : Document) -> (data_ : String) -> JSIO CDATASection
@@ -634,28 +649,35 @@ namespace Document
   export
   createElement :  (obj : Document)
                 -> (localName : String)
-                -> (options : UndefOr (Union2 String ElementCreationOptions))
+                -> (options : Optional (NS I [ String
+                                             , ElementCreationOptions
+                                             ]))
                 -> JSIO Element
-  createElement a b c = primJS $ Document.prim__createElement a b c
+  createElement a b c = primJS $ Document.prim__createElement a b (toFFI c)
 
   export
   createElement' : (obj : Document) -> (localName : String) -> JSIO Element
-  createElement' a b = createElement a b undef
+  createElement' a b = createElement a b Undef
   
   export
   createElementNS :  (obj : Document)
-                  -> (namespace_ : Nullable String)
+                  -> (namespace_ : Maybe String)
                   -> (qualifiedName : String)
-                  -> (options : UndefOr (Union2 String ElementCreationOptions))
+                  -> (options : Optional (NS I [ String
+                                               , ElementCreationOptions
+                                               ]))
                   -> JSIO Element
-  createElementNS a b c d = primJS $ Document.prim__createElementNS a b c d
+  createElementNS a b c d = primJS $ Document.prim__createElementNS a
+                                                                    (toFFI b)
+                                                                    c
+                                                                    (toFFI d)
 
   export
   createElementNS' :  (obj : Document)
-                   -> (namespace_ : Nullable String)
+                   -> (namespace_ : Maybe String)
                    -> (qualifiedName : String)
                    -> JSIO Element
-  createElementNS' a b c = createElementNS a b c undef
+  createElementNS' a b c = createElementNS a b c Undef
   
   export
   createEvent : (obj : Document) -> (interface_ : String) -> JSIO Event
@@ -664,17 +686,17 @@ namespace Document
   export
   createNodeIterator :  (obj : Document)
                      -> (root : Node)
-                     -> (whatToShow : UndefOr UInt32)
-                     -> (filter : UndefOr (Nullable NodeFilter))
+                     -> (whatToShow : Optional UInt32)
+                     -> (filter : Optional (Maybe NodeFilter))
                      -> JSIO NodeIterator
   createNodeIterator a b c d = primJS $ Document.prim__createNodeIterator a
                                                                           b
-                                                                          c
-                                                                          d
+                                                                          (toFFI c)
+                                                                          (toFFI d)
 
   export
   createNodeIterator' : (obj : Document) -> (root : Node) -> JSIO NodeIterator
-  createNodeIterator' a b = createNodeIterator a b undef undef
+  createNodeIterator' a b = createNodeIterator a b Undef Undef
   
   export
   createProcessingInstruction :  (obj : Document)
@@ -696,26 +718,32 @@ namespace Document
   export
   createTreeWalker :  (obj : Document)
                    -> (root : Node)
-                   -> (whatToShow : UndefOr UInt32)
-                   -> (filter : UndefOr (Nullable NodeFilter))
+                   -> (whatToShow : Optional UInt32)
+                   -> (filter : Optional (Maybe NodeFilter))
                    -> JSIO TreeWalker
-  createTreeWalker a b c d = primJS $ Document.prim__createTreeWalker a b c d
+  createTreeWalker a b c d = primJS $ Document.prim__createTreeWalker a
+                                                                      b
+                                                                      (toFFI c)
+                                                                      (toFFI d)
 
   export
   createTreeWalker' : (obj : Document) -> (root : Node) -> JSIO TreeWalker
-  createTreeWalker' a b = createTreeWalker a b undef undef
+  createTreeWalker' a b = createTreeWalker a b Undef Undef
   
   export
   execCommand :  (obj : Document)
               -> (commandId : String)
-              -> (showUI : UndefOr Boolean)
-              -> (value : UndefOr String)
-              -> JSIO Boolean
-  execCommand a b c d = primJS $ Document.prim__execCommand a b c d
+              -> (showUI : Optional Bool)
+              -> (value : Optional String)
+              -> JSIO Bool
+  execCommand a b c d = tryJS "Document.execCommand" $ Document.prim__execCommand a
+                                                                                  b
+                                                                                  (toFFI c)
+                                                                                  (toFFI d)
 
   export
-  execCommand' : (obj : Document) -> (commandId : String) -> JSIO Boolean
-  execCommand' a b = execCommand a b undef undef
+  execCommand' : (obj : Document) -> (commandId : String) -> JSIO Bool
+  execCommand' a b = execCommand a b Undef Undef
   
   export
   getAnimations : (obj : Document) -> JSIO (Array Animation)
@@ -742,66 +770,66 @@ namespace Document
   
   export
   getElementsByTagNameNS :  (obj : Document)
-                         -> (namespace_ : Nullable String)
+                         -> (namespace_ : Maybe String)
                          -> (localName : String)
                          -> JSIO HTMLCollection
   getElementsByTagNameNS a b c = primJS $ Document.prim__getElementsByTagNameNS a
-                                                                                b
+                                                                                (toFFI b)
                                                                                 c
   
   export
-  hasFocus : (obj : Document) -> JSIO Boolean
-  hasFocus a = primJS $ Document.prim__hasFocus a
+  hasFocus : (obj : Document) -> JSIO Bool
+  hasFocus a = tryJS "Document.hasFocus" $ Document.prim__hasFocus a
   
   export
   importNode :  (obj : Document)
              -> (node : Node)
-             -> (deep : UndefOr Boolean)
+             -> (deep : Optional Bool)
              -> JSIO Node
-  importNode a b c = primJS $ Document.prim__importNode a b c
+  importNode a b c = primJS $ Document.prim__importNode a b (toFFI c)
 
   export
   importNode' : (obj : Document) -> (node : Node) -> JSIO Node
-  importNode' a b = importNode a b undef
+  importNode' a b = importNode a b Undef
   
   export
   open_ :  (obj : Document)
-        -> (unused1 : UndefOr String)
-        -> (unused2 : UndefOr String)
+        -> (unused1 : Optional String)
+        -> (unused2 : Optional String)
         -> JSIO Document
-  open_ a b c = primJS $ Document.prim__open a b c
+  open_ a b c = primJS $ Document.prim__open a (toFFI b) (toFFI c)
 
   export
   open' : (obj : Document) -> JSIO Document
-  open' a = open_ a undef undef
+  open' a = open_ a Undef Undef
   
   export
   open1 :  (obj : Document)
         -> (url : String)
         -> (name : String)
         -> (features : String)
-        -> JSIO (Nullable WindowProxy)
-  open1 a b c d = primJS $ Document.prim__open1 a b c d
+        -> JSIO (Maybe WindowProxy)
+  open1 a b c d = tryJS "Document.open1" $ Document.prim__open1 a b c d
   
   export
-  queryCommandEnabled : (obj : Document) -> (commandId : String) -> JSIO Boolean
-  queryCommandEnabled a b = primJS $ Document.prim__queryCommandEnabled a b
+  queryCommandEnabled : (obj : Document) -> (commandId : String) -> JSIO Bool
+  queryCommandEnabled a b = tryJS "Document.queryCommandEnabled" $ Document.prim__queryCommandEnabled a
+                                                                                                      b
   
   export
-  queryCommandIndeterm :  (obj : Document)
-                       -> (commandId : String)
-                       -> JSIO Boolean
-  queryCommandIndeterm a b = primJS $ Document.prim__queryCommandIndeterm a b
+  queryCommandIndeterm : (obj : Document) -> (commandId : String) -> JSIO Bool
+  queryCommandIndeterm a b = tryJS "Document.queryCommandIndeterm" $ Document.prim__queryCommandIndeterm a
+                                                                                                         b
   
   export
-  queryCommandState : (obj : Document) -> (commandId : String) -> JSIO Boolean
-  queryCommandState a b = primJS $ Document.prim__queryCommandState a b
+  queryCommandState : (obj : Document) -> (commandId : String) -> JSIO Bool
+  queryCommandState a b = tryJS "Document.queryCommandState" $ Document.prim__queryCommandState a
+                                                                                                b
   
   export
-  queryCommandSupported :  (obj : Document)
-                        -> (commandId : String)
-                        -> JSIO Boolean
-  queryCommandSupported a b = primJS $ Document.prim__queryCommandSupported a b
+  queryCommandSupported : (obj : Document) -> (commandId : String) -> JSIO Bool
+  queryCommandSupported a b = tryJS "Document.queryCommandSupported" $ Document.prim__queryCommandSupported a
+                                                                                                            b
   
   export
   queryCommandValue : (obj : Document) -> (commandId : String) -> JSIO String
@@ -893,16 +921,16 @@ namespace Element
   localName a = primJS $ Element.prim__localName a
   
   export
-  namespaceURI : (obj : Element) -> JSIO (Nullable String)
-  namespaceURI a = primJS $ Element.prim__namespaceURI a
+  namespaceURI : (obj : Element) -> JSIO (Maybe String)
+  namespaceURI a = tryJS "Element.namespaceURI" $ Element.prim__namespaceURI a
   
   export
-  prefix_ : (obj : Element) -> JSIO (Nullable String)
-  prefix_ a = primJS $ Element.prim__prefix a
+  prefix_ : (obj : Element) -> JSIO (Maybe String)
+  prefix_ a = tryJS "Element.prefix_" $ Element.prim__prefix a
   
   export
-  shadowRoot : (obj : Element) -> JSIO (Nullable ShadowRoot)
-  shadowRoot a = primJS $ Element.prim__shadowRoot a
+  shadowRoot : (obj : Element) -> JSIO (Maybe ShadowRoot)
+  shadowRoot a = tryJS "Element.shadowRoot" $ Element.prim__shadowRoot a
   
   export
   slot : (obj : Element) -> JSIO String
@@ -921,21 +949,24 @@ namespace Element
   attachShadow a b = primJS $ Element.prim__attachShadow a b
   
   export
-  closest : (obj : Element) -> (selectors : String) -> JSIO (Nullable Element)
-  closest a b = primJS $ Element.prim__closest a b
+  closest : (obj : Element) -> (selectors : String) -> JSIO (Maybe Element)
+  closest a b = tryJS "Element.closest" $ Element.prim__closest a b
   
   export
   getAttribute :  (obj : Element)
                -> (qualifiedName : String)
-               -> JSIO (Nullable String)
-  getAttribute a b = primJS $ Element.prim__getAttribute a b
+               -> JSIO (Maybe String)
+  getAttribute a b = tryJS "Element.getAttribute" $ Element.prim__getAttribute a
+                                                                               b
   
   export
   getAttributeNS :  (obj : Element)
-                 -> (namespace_ : Nullable String)
+                 -> (namespace_ : Maybe String)
                  -> (localName : String)
-                 -> JSIO (Nullable String)
-  getAttributeNS a b c = primJS $ Element.prim__getAttributeNS a b c
+                 -> JSIO (Maybe String)
+  getAttributeNS a b c = tryJS "Element.getAttributeNS" $ Element.prim__getAttributeNS a
+                                                                                       (toFFI b)
+                                                                                       c
   
   export
   getAttributeNames : (obj : Element) -> JSIO (Array String)
@@ -944,15 +975,18 @@ namespace Element
   export
   getAttributeNode :  (obj : Element)
                    -> (qualifiedName : String)
-                   -> JSIO (Nullable Attr)
-  getAttributeNode a b = primJS $ Element.prim__getAttributeNode a b
+                   -> JSIO (Maybe Attr)
+  getAttributeNode a b = tryJS "Element.getAttributeNode" $ Element.prim__getAttributeNode a
+                                                                                           b
   
   export
   getAttributeNodeNS :  (obj : Element)
-                     -> (namespace_ : Nullable String)
+                     -> (namespace_ : Maybe String)
                      -> (localName : String)
-                     -> JSIO (Nullable Attr)
-  getAttributeNodeNS a b c = primJS $ Element.prim__getAttributeNodeNS a b c
+                     -> JSIO (Maybe Attr)
+  getAttributeNodeNS a b c = tryJS "Element.getAttributeNodeNS" $ Element.prim__getAttributeNodeNS a
+                                                                                                   (toFFI b)
+                                                                                                   c
   
   export
   getElementsByClassName :  (obj : Element)
@@ -968,36 +1002,39 @@ namespace Element
   
   export
   getElementsByTagNameNS :  (obj : Element)
-                         -> (namespace_ : Nullable String)
+                         -> (namespace_ : Maybe String)
                          -> (localName : String)
                          -> JSIO HTMLCollection
   getElementsByTagNameNS a b c = primJS $ Element.prim__getElementsByTagNameNS a
-                                                                               b
+                                                                               (toFFI b)
                                                                                c
   
   export
-  hasAttribute : (obj : Element) -> (qualifiedName : String) -> JSIO Boolean
-  hasAttribute a b = primJS $ Element.prim__hasAttribute a b
+  hasAttribute : (obj : Element) -> (qualifiedName : String) -> JSIO Bool
+  hasAttribute a b = tryJS "Element.hasAttribute" $ Element.prim__hasAttribute a
+                                                                               b
   
   export
   hasAttributeNS :  (obj : Element)
-                 -> (namespace_ : Nullable String)
+                 -> (namespace_ : Maybe String)
                  -> (localName : String)
-                 -> JSIO Boolean
-  hasAttributeNS a b c = primJS $ Element.prim__hasAttributeNS a b c
+                 -> JSIO Bool
+  hasAttributeNS a b c = tryJS "Element.hasAttributeNS" $ Element.prim__hasAttributeNS a
+                                                                                       (toFFI b)
+                                                                                       c
   
   export
-  hasAttributes : (obj : Element) -> JSIO Boolean
-  hasAttributes a = primJS $ Element.prim__hasAttributes a
+  hasAttributes : (obj : Element) -> JSIO Bool
+  hasAttributes a = tryJS "Element.hasAttributes" $ Element.prim__hasAttributes a
   
   export
   insertAdjacentElement :  (obj : Element)
                         -> (where_ : String)
                         -> (element : Element)
-                        -> JSIO (Nullable Element)
-  insertAdjacentElement a b c = primJS $ Element.prim__insertAdjacentElement a
-                                                                             b
-                                                                             c
+                        -> JSIO (Maybe Element)
+  insertAdjacentElement a b c = tryJS "Element.insertAdjacentElement" $ Element.prim__insertAdjacentElement a
+                                                                                                            b
+                                                                                                            c
   
   export
   insertAdjacentText :  (obj : Element)
@@ -1007,14 +1044,14 @@ namespace Element
   insertAdjacentText a b c = primJS $ Element.prim__insertAdjacentText a b c
   
   export
-  matches : (obj : Element) -> (selectors : String) -> JSIO Boolean
-  matches a b = primJS $ Element.prim__matches a b
+  matches : (obj : Element) -> (selectors : String) -> JSIO Bool
+  matches a b = tryJS "Element.matches" $ Element.prim__matches a b
   
   export
   pseudo :  (obj : Element)
          -> (type : CSSOMString)
-         -> JSIO (Nullable CSSPseudoElement)
-  pseudo a b = primJS $ Element.prim__pseudo a b
+         -> JSIO (Maybe CSSPseudoElement)
+  pseudo a b = tryJS "Element.pseudo" $ Element.prim__pseudo a b
   
   export
   removeAttribute : (obj : Element) -> (qualifiedName : String) -> JSIO ()
@@ -1022,10 +1059,12 @@ namespace Element
   
   export
   removeAttributeNS :  (obj : Element)
-                    -> (namespace_ : Nullable String)
+                    -> (namespace_ : Maybe String)
                     -> (localName : String)
                     -> JSIO ()
-  removeAttributeNS a b c = primJS $ Element.prim__removeAttributeNS a b c
+  removeAttributeNS a b c = primJS $ Element.prim__removeAttributeNS a
+                                                                     (toFFI b)
+                                                                     c
   
   export
   removeAttributeNode : (obj : Element) -> (attr : Attr) -> JSIO Attr
@@ -1040,36 +1079,39 @@ namespace Element
   
   export
   setAttributeNS :  (obj : Element)
-                 -> (namespace_ : Nullable String)
+                 -> (namespace_ : Maybe String)
                  -> (qualifiedName : String)
                  -> (value : String)
                  -> JSIO ()
-  setAttributeNS a b c d = primJS $ Element.prim__setAttributeNS a b c d
+  setAttributeNS a b c d = primJS $ Element.prim__setAttributeNS a (toFFI b) c d
   
   export
-  setAttributeNode : (obj : Element) -> (attr : Attr) -> JSIO (Nullable Attr)
-  setAttributeNode a b = primJS $ Element.prim__setAttributeNode a b
+  setAttributeNode : (obj : Element) -> (attr : Attr) -> JSIO (Maybe Attr)
+  setAttributeNode a b = tryJS "Element.setAttributeNode" $ Element.prim__setAttributeNode a
+                                                                                           b
   
   export
-  setAttributeNodeNS : (obj : Element) -> (attr : Attr) -> JSIO (Nullable Attr)
-  setAttributeNodeNS a b = primJS $ Element.prim__setAttributeNodeNS a b
+  setAttributeNodeNS : (obj : Element) -> (attr : Attr) -> JSIO (Maybe Attr)
+  setAttributeNodeNS a b = tryJS "Element.setAttributeNodeNS" $ Element.prim__setAttributeNodeNS a
+                                                                                                 b
   
   export
   toggleAttribute :  (obj : Element)
                   -> (qualifiedName : String)
-                  -> (force : UndefOr Boolean)
-                  -> JSIO Boolean
-  toggleAttribute a b c = primJS $ Element.prim__toggleAttribute a b c
+                  -> (force : Optional Bool)
+                  -> JSIO Bool
+  toggleAttribute a b c = tryJS "Element.toggleAttribute" $ Element.prim__toggleAttribute a
+                                                                                          b
+                                                                                          (toFFI c)
 
   export
-  toggleAttribute' : (obj : Element) -> (qualifiedName : String) -> JSIO Boolean
-  toggleAttribute' a b = toggleAttribute a b undef
+  toggleAttribute' : (obj : Element) -> (qualifiedName : String) -> JSIO Bool
+  toggleAttribute' a b = toggleAttribute a b Undef
   
   export
-  webkitMatchesSelector :  (obj : Element)
-                        -> (selectors : String)
-                        -> JSIO Boolean
-  webkitMatchesSelector a b = primJS $ Element.prim__webkitMatchesSelector a b
+  webkitMatchesSelector : (obj : Element) -> (selectors : String) -> JSIO Bool
+  webkitMatchesSelector a b = tryJS "Element.webkitMatchesSelector" $ Element.prim__webkitMatchesSelector a
+                                                                                                          b
 
 namespace Event
   
@@ -1096,67 +1138,67 @@ namespace Event
   NONE = 0
   
   export
-  new : (type : String) -> (eventInitDict : UndefOr EventInit) -> JSIO Event
-  new a b = primJS $ Event.prim__new a b
+  new : (type : String) -> (eventInitDict : Optional EventInit) -> JSIO Event
+  new a b = primJS $ Event.prim__new a (toFFI b)
 
   export
   new' : (type : String) -> JSIO Event
-  new' a = new a undef
+  new' a = new a Undef
   
   export
-  bubbles : (obj : Event) -> JSIO Boolean
-  bubbles a = primJS $ Event.prim__bubbles a
+  bubbles : (obj : Event) -> JSIO Bool
+  bubbles a = tryJS "Event.bubbles" $ Event.prim__bubbles a
   
   export
-  cancelBubble : (obj : Event) -> JSIO Boolean
-  cancelBubble a = primJS $ Event.prim__cancelBubble a
+  cancelBubble : (obj : Event) -> JSIO Bool
+  cancelBubble a = tryJS "Event.cancelBubble" $ Event.prim__cancelBubble a
   
   export
-  setCancelBubble : (obj : Event) -> (value : Boolean) -> JSIO ()
-  setCancelBubble a b = primJS $ Event.prim__setCancelBubble a b
+  setCancelBubble : (obj : Event) -> (value : Bool) -> JSIO ()
+  setCancelBubble a b = primJS $ Event.prim__setCancelBubble a (toFFI b)
   
   export
-  cancelable : (obj : Event) -> JSIO Boolean
-  cancelable a = primJS $ Event.prim__cancelable a
+  cancelable : (obj : Event) -> JSIO Bool
+  cancelable a = tryJS "Event.cancelable" $ Event.prim__cancelable a
   
   export
-  composed : (obj : Event) -> JSIO Boolean
-  composed a = primJS $ Event.prim__composed a
+  composed : (obj : Event) -> JSIO Bool
+  composed a = tryJS "Event.composed" $ Event.prim__composed a
   
   export
-  currentTarget : (obj : Event) -> JSIO (Nullable EventTarget)
-  currentTarget a = primJS $ Event.prim__currentTarget a
+  currentTarget : (obj : Event) -> JSIO (Maybe EventTarget)
+  currentTarget a = tryJS "Event.currentTarget" $ Event.prim__currentTarget a
   
   export
-  defaultPrevented : (obj : Event) -> JSIO Boolean
-  defaultPrevented a = primJS $ Event.prim__defaultPrevented a
+  defaultPrevented : (obj : Event) -> JSIO Bool
+  defaultPrevented a = tryJS "Event.defaultPrevented" $ Event.prim__defaultPrevented a
   
   export
   eventPhase : (obj : Event) -> JSIO UInt16
   eventPhase a = primJS $ Event.prim__eventPhase a
   
   export
-  isTrusted : (obj : Event) -> JSIO Boolean
-  isTrusted a = primJS $ Event.prim__isTrusted a
+  isTrusted : (obj : Event) -> JSIO Bool
+  isTrusted a = tryJS "Event.isTrusted" $ Event.prim__isTrusted a
   
   export
-  returnValue : (obj : Event) -> JSIO Boolean
-  returnValue a = primJS $ Event.prim__returnValue a
+  returnValue : (obj : Event) -> JSIO Bool
+  returnValue a = tryJS "Event.returnValue" $ Event.prim__returnValue a
   
   export
-  setReturnValue : (obj : Event) -> (value : Boolean) -> JSIO ()
-  setReturnValue a b = primJS $ Event.prim__setReturnValue a b
+  setReturnValue : (obj : Event) -> (value : Bool) -> JSIO ()
+  setReturnValue a b = primJS $ Event.prim__setReturnValue a (toFFI b)
   
   export
-  srcElement : (obj : Event) -> JSIO (Nullable EventTarget)
-  srcElement a = primJS $ Event.prim__srcElement a
+  srcElement : (obj : Event) -> JSIO (Maybe EventTarget)
+  srcElement a = tryJS "Event.srcElement" $ Event.prim__srcElement a
   
   export
-  target : (obj : Event) -> JSIO (Nullable EventTarget)
-  target a = primJS $ Event.prim__target a
+  target : (obj : Event) -> JSIO (Maybe EventTarget)
+  target a = tryJS "Event.target" $ Event.prim__target a
   
   export
-  timeStamp : (obj : Event) -> JSIO DOMHighResTimeStamp
+  timeStamp : (obj : Event) -> JSIO Double
   timeStamp a = primJS $ Event.prim__timeStamp a
   
   export
@@ -1170,14 +1212,14 @@ namespace Event
   export
   initEvent :  (obj : Event)
             -> (type : String)
-            -> (bubbles : UndefOr Boolean)
-            -> (cancelable : UndefOr Boolean)
+            -> (bubbles : Optional Bool)
+            -> (cancelable : Optional Bool)
             -> JSIO ()
-  initEvent a b c d = primJS $ Event.prim__initEvent a b c d
+  initEvent a b c d = primJS $ Event.prim__initEvent a b (toFFI c) (toFFI d)
 
   export
   initEvent' : (obj : Event) -> (type : String) -> JSIO ()
-  initEvent' a b = initEvent a b undef undef
+  initEvent' a b = initEvent a b Undef Undef
   
   export
   preventDefault : (obj : Event) -> JSIO ()
@@ -1206,41 +1248,47 @@ namespace EventTarget
   export
   addEventListener :  (obj : EventTarget)
                    -> (type : String)
-                   -> (callback : Nullable EventListener)
-                   -> (options : UndefOr (Union2 AddEventListenerOptions
-                                                 Boolean))
+                   -> (callback : Maybe EventListener)
+                   -> (options : Optional (NS I [ AddEventListenerOptions
+                                                , Bool
+                                                ]))
                    -> JSIO ()
-  addEventListener a b c d = primJS $ EventTarget.prim__addEventListener a b c d
+  addEventListener a b c d = primJS $ EventTarget.prim__addEventListener a
+                                                                         b
+                                                                         (toFFI c)
+                                                                         (toFFI d)
 
   export
   addEventListener' :  (obj : EventTarget)
                     -> (type : String)
-                    -> (callback : Nullable EventListener)
+                    -> (callback : Maybe EventListener)
                     -> JSIO ()
-  addEventListener' a b c = addEventListener a b c undef
+  addEventListener' a b c = addEventListener a b c Undef
   
   export
-  dispatchEvent : (obj : EventTarget) -> (event : Event) -> JSIO Boolean
-  dispatchEvent a b = primJS $ EventTarget.prim__dispatchEvent a b
+  dispatchEvent : (obj : EventTarget) -> (event : Event) -> JSIO Bool
+  dispatchEvent a b = tryJS "EventTarget.dispatchEvent" $ EventTarget.prim__dispatchEvent a
+                                                                                          b
   
   export
   removeEventListener :  (obj : EventTarget)
                       -> (type : String)
-                      -> (callback : Nullable EventListener)
-                      -> (options : UndefOr (Union2 EventListenerOptions
-                                                    Boolean))
+                      -> (callback : Maybe EventListener)
+                      -> (options : Optional (NS I [ EventListenerOptions
+                                                   , Bool
+                                                   ]))
                       -> JSIO ()
   removeEventListener a b c d = primJS $ EventTarget.prim__removeEventListener a
                                                                                b
-                                                                               c
-                                                                               d
+                                                                               (toFFI c)
+                                                                               (toFFI d)
 
   export
   removeEventListener' :  (obj : EventTarget)
                        -> (type : String)
-                       -> (callback : Nullable EventListener)
+                       -> (callback : Maybe EventListener)
                        -> JSIO ()
-  removeEventListener' a b c = removeEventListener a b c undef
+  removeEventListener' a b c = removeEventListener a b c Undef
 
 namespace HTMLCollection
   
@@ -1255,14 +1303,13 @@ namespace HTMLCollection
   length a = primJS $ HTMLCollection.prim__length a
   
   export
-  item : (obj : HTMLCollection) -> (index : UInt32) -> JSIO (Nullable Element)
-  item a b = primJS $ HTMLCollection.prim__item a b
+  item : (obj : HTMLCollection) -> (index : UInt32) -> JSIO (Maybe Element)
+  item a b = tryJS "HTMLCollection.item" $ HTMLCollection.prim__item a b
   
   export
-  namedItem :  (obj : HTMLCollection)
-            -> (name : String)
-            -> JSIO (Nullable Element)
-  namedItem a b = primJS $ HTMLCollection.prim__namedItem a b
+  namedItem : (obj : HTMLCollection) -> (name : String) -> JSIO (Maybe Element)
+  namedItem a b = tryJS "HTMLCollection.namedItem" $ HTMLCollection.prim__namedItem a
+                                                                                    b
 
 namespace MutationObserver
   
@@ -1283,13 +1330,13 @@ namespace MutationObserver
   export
   observe :  (obj : MutationObserver)
           -> (target : Node)
-          -> (options : UndefOr MutationObserverInit)
+          -> (options : Optional MutationObserverInit)
           -> JSIO ()
-  observe a b c = primJS $ MutationObserver.prim__observe a b c
+  observe a b c = primJS $ MutationObserver.prim__observe a b (toFFI c)
 
   export
   observe' : (obj : MutationObserver) -> (target : Node) -> JSIO ()
-  observe' a b = observe a b undef
+  observe' a b = observe a b Undef
   
   export
   takeRecords : (obj : MutationObserver) -> JSIO (Array MutationRecord)
@@ -1308,24 +1355,24 @@ namespace MutationRecord
   addedNodes a = primJS $ MutationRecord.prim__addedNodes a
   
   export
-  attributeName : (obj : MutationRecord) -> JSIO (Nullable String)
-  attributeName a = primJS $ MutationRecord.prim__attributeName a
+  attributeName : (obj : MutationRecord) -> JSIO (Maybe String)
+  attributeName a = tryJS "MutationRecord.attributeName" $ MutationRecord.prim__attributeName a
   
   export
-  attributeNamespace : (obj : MutationRecord) -> JSIO (Nullable String)
-  attributeNamespace a = primJS $ MutationRecord.prim__attributeNamespace a
+  attributeNamespace : (obj : MutationRecord) -> JSIO (Maybe String)
+  attributeNamespace a = tryJS "MutationRecord.attributeNamespace" $ MutationRecord.prim__attributeNamespace a
   
   export
-  nextSibling : (obj : MutationRecord) -> JSIO (Nullable Node)
-  nextSibling a = primJS $ MutationRecord.prim__nextSibling a
+  nextSibling : (obj : MutationRecord) -> JSIO (Maybe Node)
+  nextSibling a = tryJS "MutationRecord.nextSibling" $ MutationRecord.prim__nextSibling a
   
   export
-  oldValue : (obj : MutationRecord) -> JSIO (Nullable String)
-  oldValue a = primJS $ MutationRecord.prim__oldValue a
+  oldValue : (obj : MutationRecord) -> JSIO (Maybe String)
+  oldValue a = tryJS "MutationRecord.oldValue" $ MutationRecord.prim__oldValue a
   
   export
-  previousSibling : (obj : MutationRecord) -> JSIO (Nullable Node)
-  previousSibling a = primJS $ MutationRecord.prim__previousSibling a
+  previousSibling : (obj : MutationRecord) -> JSIO (Maybe Node)
+  previousSibling a = tryJS "MutationRecord.previousSibling" $ MutationRecord.prim__previousSibling a
   
   export
   removedNodes : (obj : MutationRecord) -> JSIO NodeList
@@ -1353,27 +1400,32 @@ namespace NamedNodeMap
   
   export
   getNamedItemNS :  (obj : NamedNodeMap)
-                 -> (namespace_ : Nullable String)
+                 -> (namespace_ : Maybe String)
                  -> (localName : String)
-                 -> JSIO (Nullable Attr)
-  getNamedItemNS a b c = primJS $ NamedNodeMap.prim__getNamedItemNS a b c
+                 -> JSIO (Maybe Attr)
+  getNamedItemNS a b c = tryJS "NamedNodeMap.getNamedItemNS" $ NamedNodeMap.prim__getNamedItemNS a
+                                                                                                 (toFFI b)
+                                                                                                 c
   
   export
   getNamedItem :  (obj : NamedNodeMap)
                -> (qualifiedName : String)
-               -> JSIO (Nullable Attr)
-  getNamedItem a b = primJS $ NamedNodeMap.prim__getNamedItem a b
+               -> JSIO (Maybe Attr)
+  getNamedItem a b = tryJS "NamedNodeMap.getNamedItem" $ NamedNodeMap.prim__getNamedItem a
+                                                                                         b
   
   export
-  item : (obj : NamedNodeMap) -> (index : UInt32) -> JSIO (Nullable Attr)
-  item a b = primJS $ NamedNodeMap.prim__item a b
+  item : (obj : NamedNodeMap) -> (index : UInt32) -> JSIO (Maybe Attr)
+  item a b = tryJS "NamedNodeMap.item" $ NamedNodeMap.prim__item a b
   
   export
   removeNamedItemNS :  (obj : NamedNodeMap)
-                    -> (namespace_ : Nullable String)
+                    -> (namespace_ : Maybe String)
                     -> (localName : String)
                     -> JSIO Attr
-  removeNamedItemNS a b c = primJS $ NamedNodeMap.prim__removeNamedItemNS a b c
+  removeNamedItemNS a b c = primJS $ NamedNodeMap.prim__removeNamedItemNS a
+                                                                          (toFFI b)
+                                                                          c
   
   export
   removeNamedItem :  (obj : NamedNodeMap)
@@ -1382,12 +1434,14 @@ namespace NamedNodeMap
   removeNamedItem a b = primJS $ NamedNodeMap.prim__removeNamedItem a b
   
   export
-  setNamedItemNS : (obj : NamedNodeMap) -> (attr : Attr) -> JSIO (Nullable Attr)
-  setNamedItemNS a b = primJS $ NamedNodeMap.prim__setNamedItemNS a b
+  setNamedItemNS : (obj : NamedNodeMap) -> (attr : Attr) -> JSIO (Maybe Attr)
+  setNamedItemNS a b = tryJS "NamedNodeMap.setNamedItemNS" $ NamedNodeMap.prim__setNamedItemNS a
+                                                                                               b
   
   export
-  setNamedItem : (obj : NamedNodeMap) -> (attr : Attr) -> JSIO (Nullable Attr)
-  setNamedItem a b = primJS $ NamedNodeMap.prim__setNamedItem a b
+  setNamedItem : (obj : NamedNodeMap) -> (attr : Attr) -> JSIO (Maybe Attr)
+  setNamedItem a b = tryJS "NamedNodeMap.setNamedItem" $ NamedNodeMap.prim__setNamedItem a
+                                                                                         b
 
 namespace Node
   
@@ -1478,20 +1532,20 @@ namespace Node
   childNodes a = primJS $ Node.prim__childNodes a
   
   export
-  firstChild : (obj : Node) -> JSIO (Nullable Node)
-  firstChild a = primJS $ Node.prim__firstChild a
+  firstChild : (obj : Node) -> JSIO (Maybe Node)
+  firstChild a = tryJS "Node.firstChild" $ Node.prim__firstChild a
   
   export
-  isConnected : (obj : Node) -> JSIO Boolean
-  isConnected a = primJS $ Node.prim__isConnected a
+  isConnected : (obj : Node) -> JSIO Bool
+  isConnected a = tryJS "Node.isConnected" $ Node.prim__isConnected a
   
   export
-  lastChild : (obj : Node) -> JSIO (Nullable Node)
-  lastChild a = primJS $ Node.prim__lastChild a
+  lastChild : (obj : Node) -> JSIO (Maybe Node)
+  lastChild a = tryJS "Node.lastChild" $ Node.prim__lastChild a
   
   export
-  nextSibling : (obj : Node) -> JSIO (Nullable Node)
-  nextSibling a = primJS $ Node.prim__nextSibling a
+  nextSibling : (obj : Node) -> JSIO (Maybe Node)
+  nextSibling a = tryJS "Node.nextSibling" $ Node.prim__nextSibling a
   
   export
   nodeName : (obj : Node) -> JSIO String
@@ -1502,103 +1556,105 @@ namespace Node
   nodeType a = primJS $ Node.prim__nodeType a
   
   export
-  nodeValue : (obj : Node) -> JSIO (Nullable String)
-  nodeValue a = primJS $ Node.prim__nodeValue a
+  nodeValue : (obj : Node) -> JSIO (Maybe String)
+  nodeValue a = tryJS "Node.nodeValue" $ Node.prim__nodeValue a
   
   export
-  setNodeValue : (obj : Node) -> (value : Nullable String) -> JSIO ()
-  setNodeValue a b = primJS $ Node.prim__setNodeValue a b
+  setNodeValue : (obj : Node) -> (value : Maybe String) -> JSIO ()
+  setNodeValue a b = primJS $ Node.prim__setNodeValue a (toFFI b)
   
   export
-  ownerDocument : (obj : Node) -> JSIO (Nullable Document)
-  ownerDocument a = primJS $ Node.prim__ownerDocument a
+  ownerDocument : (obj : Node) -> JSIO (Maybe Document)
+  ownerDocument a = tryJS "Node.ownerDocument" $ Node.prim__ownerDocument a
   
   export
-  parentElement : (obj : Node) -> JSIO (Nullable Element)
-  parentElement a = primJS $ Node.prim__parentElement a
+  parentElement : (obj : Node) -> JSIO (Maybe Element)
+  parentElement a = tryJS "Node.parentElement" $ Node.prim__parentElement a
   
   export
-  parentNode : (obj : Node) -> JSIO (Nullable Node)
-  parentNode a = primJS $ Node.prim__parentNode a
+  parentNode : (obj : Node) -> JSIO (Maybe Node)
+  parentNode a = tryJS "Node.parentNode" $ Node.prim__parentNode a
   
   export
-  previousSibling : (obj : Node) -> JSIO (Nullable Node)
-  previousSibling a = primJS $ Node.prim__previousSibling a
+  previousSibling : (obj : Node) -> JSIO (Maybe Node)
+  previousSibling a = tryJS "Node.previousSibling" $ Node.prim__previousSibling a
   
   export
-  textContent : (obj : Node) -> JSIO (Nullable String)
-  textContent a = primJS $ Node.prim__textContent a
+  textContent : (obj : Node) -> JSIO (Maybe String)
+  textContent a = tryJS "Node.textContent" $ Node.prim__textContent a
   
   export
-  setTextContent : (obj : Node) -> (value : Nullable String) -> JSIO ()
-  setTextContent a b = primJS $ Node.prim__setTextContent a b
+  setTextContent : (obj : Node) -> (value : Maybe String) -> JSIO ()
+  setTextContent a b = primJS $ Node.prim__setTextContent a (toFFI b)
   
   export
   appendChild : (obj : Node) -> (node : Node) -> JSIO Node
   appendChild a b = primJS $ Node.prim__appendChild a b
   
   export
-  cloneNode : (obj : Node) -> (deep : UndefOr Boolean) -> JSIO Node
-  cloneNode a b = primJS $ Node.prim__cloneNode a b
+  cloneNode : (obj : Node) -> (deep : Optional Bool) -> JSIO Node
+  cloneNode a b = primJS $ Node.prim__cloneNode a (toFFI b)
 
   export
   cloneNode' : (obj : Node) -> JSIO Node
-  cloneNode' a = cloneNode a undef
+  cloneNode' a = cloneNode a Undef
   
   export
   compareDocumentPosition : (obj : Node) -> (other : Node) -> JSIO UInt16
   compareDocumentPosition a b = primJS $ Node.prim__compareDocumentPosition a b
   
   export
-  contains : (obj : Node) -> (other : Nullable Node) -> JSIO Boolean
-  contains a b = primJS $ Node.prim__contains a b
+  contains : (obj : Node) -> (other : Maybe Node) -> JSIO Bool
+  contains a b = tryJS "Node.contains" $ Node.prim__contains a (toFFI b)
   
   export
   getRootNode :  (obj : Node)
-              -> (options : UndefOr GetRootNodeOptions)
+              -> (options : Optional GetRootNodeOptions)
               -> JSIO Node
-  getRootNode a b = primJS $ Node.prim__getRootNode a b
+  getRootNode a b = primJS $ Node.prim__getRootNode a (toFFI b)
 
   export
   getRootNode' : (obj : Node) -> JSIO Node
-  getRootNode' a = getRootNode a undef
+  getRootNode' a = getRootNode a Undef
   
   export
-  hasChildNodes : (obj : Node) -> JSIO Boolean
-  hasChildNodes a = primJS $ Node.prim__hasChildNodes a
+  hasChildNodes : (obj : Node) -> JSIO Bool
+  hasChildNodes a = tryJS "Node.hasChildNodes" $ Node.prim__hasChildNodes a
   
   export
   insertBefore :  (obj : Node)
                -> (node : Node)
-               -> (child : Nullable Node)
+               -> (child : Maybe Node)
                -> JSIO Node
-  insertBefore a b c = primJS $ Node.prim__insertBefore a b c
+  insertBefore a b c = primJS $ Node.prim__insertBefore a b (toFFI c)
   
   export
-  isDefaultNamespace :  (obj : Node)
-                     -> (namespace_ : Nullable String)
-                     -> JSIO Boolean
-  isDefaultNamespace a b = primJS $ Node.prim__isDefaultNamespace a b
+  isDefaultNamespace : (obj : Node) -> (namespace_ : Maybe String) -> JSIO Bool
+  isDefaultNamespace a b = tryJS "Node.isDefaultNamespace" $ Node.prim__isDefaultNamespace a
+                                                                                           (toFFI b)
   
   export
-  isEqualNode : (obj : Node) -> (otherNode : Nullable Node) -> JSIO Boolean
-  isEqualNode a b = primJS $ Node.prim__isEqualNode a b
+  isEqualNode : (obj : Node) -> (otherNode : Maybe Node) -> JSIO Bool
+  isEqualNode a b = tryJS "Node.isEqualNode" $ Node.prim__isEqualNode a
+                                                                      (toFFI b)
   
   export
-  isSameNode : (obj : Node) -> (otherNode : Nullable Node) -> JSIO Boolean
-  isSameNode a b = primJS $ Node.prim__isSameNode a b
+  isSameNode : (obj : Node) -> (otherNode : Maybe Node) -> JSIO Bool
+  isSameNode a b = tryJS "Node.isSameNode" $ Node.prim__isSameNode a (toFFI b)
   
   export
   lookupNamespaceURI :  (obj : Node)
-                     -> (prefix_ : Nullable String)
-                     -> JSIO (Nullable String)
-  lookupNamespaceURI a b = primJS $ Node.prim__lookupNamespaceURI a b
+                     -> (prefix_ : Maybe String)
+                     -> JSIO (Maybe String)
+  lookupNamespaceURI a b = tryJS "Node.lookupNamespaceURI" $ Node.prim__lookupNamespaceURI a
+                                                                                           (toFFI b)
   
   export
   lookupPrefix :  (obj : Node)
-               -> (namespace_ : Nullable String)
-               -> JSIO (Nullable String)
-  lookupPrefix a b = primJS $ Node.prim__lookupPrefix a b
+               -> (namespace_ : Maybe String)
+               -> JSIO (Maybe String)
+  lookupPrefix a b = tryJS "Node.lookupPrefix" $ Node.prim__lookupPrefix a
+                                                                         (toFFI b)
   
   export
   normalize : (obj : Node) -> JSIO ()
@@ -1621,12 +1677,12 @@ namespace NodeIterator
     mixins =  []
   
   export
-  filter : (obj : NodeIterator) -> JSIO (Nullable NodeFilter)
-  filter a = primJS $ NodeIterator.prim__filter a
+  filter : (obj : NodeIterator) -> JSIO (Maybe NodeFilter)
+  filter a = tryJS "NodeIterator.filter" $ NodeIterator.prim__filter a
   
   export
-  pointerBeforeReferenceNode : (obj : NodeIterator) -> JSIO Boolean
-  pointerBeforeReferenceNode a = primJS $ NodeIterator.prim__pointerBeforeReferenceNode a
+  pointerBeforeReferenceNode : (obj : NodeIterator) -> JSIO Bool
+  pointerBeforeReferenceNode a = tryJS "NodeIterator.pointerBeforeReferenceNode" $ NodeIterator.prim__pointerBeforeReferenceNode a
   
   export
   referenceNode : (obj : NodeIterator) -> JSIO Node
@@ -1645,12 +1701,12 @@ namespace NodeIterator
   detach a = primJS $ NodeIterator.prim__detach a
   
   export
-  nextNode : (obj : NodeIterator) -> JSIO (Nullable Node)
-  nextNode a = primJS $ NodeIterator.prim__nextNode a
+  nextNode : (obj : NodeIterator) -> JSIO (Maybe Node)
+  nextNode a = tryJS "NodeIterator.nextNode" $ NodeIterator.prim__nextNode a
   
   export
-  previousNode : (obj : NodeIterator) -> JSIO (Nullable Node)
-  previousNode a = primJS $ NodeIterator.prim__previousNode a
+  previousNode : (obj : NodeIterator) -> JSIO (Maybe Node)
+  previousNode a = tryJS "NodeIterator.previousNode" $ NodeIterator.prim__previousNode a
 
 namespace NodeList
   
@@ -1665,8 +1721,8 @@ namespace NodeList
   length a = primJS $ NodeList.prim__length a
   
   export
-  item : (obj : NodeList) -> (index : UInt32) -> JSIO (Nullable Node)
-  item a b = primJS $ NodeList.prim__item a b
+  item : (obj : NodeList) -> (index : UInt32) -> JSIO (Maybe Node)
+  item a b = tryJS "NodeList.item" $ NodeList.prim__item a b
 
 namespace Performance
   
@@ -1677,11 +1733,11 @@ namespace Performance
     mixins =  []
   
   export
-  timeOrigin : (obj : Performance) -> JSIO DOMHighResTimeStamp
+  timeOrigin : (obj : Performance) -> JSIO Double
   timeOrigin a = primJS $ Performance.prim__timeOrigin a
   
   export
-  now : (obj : Performance) -> JSIO DOMHighResTimeStamp
+  now : (obj : Performance) -> JSIO Double
   now a = primJS $ Performance.prim__now a
   
   export
@@ -1741,12 +1797,12 @@ namespace Range
   cloneRange a = primJS $ Range.prim__cloneRange a
   
   export
-  collapse : (obj : Range) -> (toStart : UndefOr Boolean) -> JSIO ()
-  collapse a b = primJS $ Range.prim__collapse a b
+  collapse : (obj : Range) -> (toStart : Optional Bool) -> JSIO ()
+  collapse a b = primJS $ Range.prim__collapse a (toFFI b)
 
   export
   collapse' : (obj : Range) -> JSIO ()
-  collapse' a = collapse a undef
+  collapse' a = collapse a Undef
   
   export
   compareBoundaryPoints :  (obj : Range)
@@ -1779,15 +1835,18 @@ namespace Range
   insertNode a b = primJS $ Range.prim__insertNode a b
   
   export
-  intersectsNode : (obj : Range) -> (node : Node) -> JSIO Boolean
-  intersectsNode a b = primJS $ Range.prim__intersectsNode a b
+  intersectsNode : (obj : Range) -> (node : Node) -> JSIO Bool
+  intersectsNode a b = tryJS "Range.intersectsNode" $ Range.prim__intersectsNode a
+                                                                                 b
   
   export
   isPointInRange :  (obj : Range)
                  -> (node : Node)
                  -> (offset : UInt32)
-                 -> JSIO Boolean
-  isPointInRange a b c = primJS $ Range.prim__isPointInRange a b c
+                 -> JSIO Bool
+  isPointInRange a b c = tryJS "Range.isPointInRange" $ Range.prim__isPointInRange a
+                                                                                   b
+                                                                                   c
   
   export
   selectNodeContents : (obj : Range) -> (node : Node) -> JSIO ()
@@ -1843,15 +1902,17 @@ namespace ShadowRoot
   
   export
   mode : (obj : ShadowRoot) -> JSIO ShadowRootMode
-  mode a = primJS $ ShadowRoot.prim__mode a
+  mode a = tryJS "ShadowRoot.mode" $ ShadowRoot.prim__mode a
   
   export
-  onslotchange : (obj : ShadowRoot) -> JSIO EventHandler
-  onslotchange a = primJS $ ShadowRoot.prim__onslotchange a
+  onslotchange : (obj : ShadowRoot) -> JSIO (Maybe EventHandlerNonNull)
+  onslotchange a = tryJS "ShadowRoot.onslotchange" $ ShadowRoot.prim__onslotchange a
   
   export
-  setOnslotchange : (obj : ShadowRoot) -> (value : EventHandler) -> JSIO ()
-  setOnslotchange a b = primJS $ ShadowRoot.prim__setOnslotchange a b
+  setOnslotchange :  (obj : ShadowRoot)
+                  -> (value : Maybe EventHandlerNonNull)
+                  -> JSIO ()
+  setOnslotchange a b = primJS $ ShadowRoot.prim__setOnslotchange a (toFFI b)
 
 namespace StaticRange
   
@@ -1874,12 +1935,12 @@ namespace Text
     mixins =  [ ChildNode , NonDocumentTypeChildNode , Slottable ]
   
   export
-  new : (data_ : UndefOr String) -> JSIO Text
-  new a = primJS $ Text.prim__new a
+  new : (data_ : Optional String) -> JSIO Text
+  new a = primJS $ Text.prim__new (toFFI a)
 
   export
   new' : JSIO Text
-  new' = new undef
+  new' = new Undef
   
   export
   wholeText : (obj : Text) -> JSIO String
@@ -1906,8 +1967,8 @@ namespace TreeWalker
   setCurrentNode a b = primJS $ TreeWalker.prim__setCurrentNode a b
   
   export
-  filter : (obj : TreeWalker) -> JSIO (Nullable NodeFilter)
-  filter a = primJS $ TreeWalker.prim__filter a
+  filter : (obj : TreeWalker) -> JSIO (Maybe NodeFilter)
+  filter a = tryJS "TreeWalker.filter" $ TreeWalker.prim__filter a
   
   export
   root : (obj : TreeWalker) -> JSIO Node
@@ -1918,32 +1979,32 @@ namespace TreeWalker
   whatToShow a = primJS $ TreeWalker.prim__whatToShow a
   
   export
-  firstChild : (obj : TreeWalker) -> JSIO (Nullable Node)
-  firstChild a = primJS $ TreeWalker.prim__firstChild a
+  firstChild : (obj : TreeWalker) -> JSIO (Maybe Node)
+  firstChild a = tryJS "TreeWalker.firstChild" $ TreeWalker.prim__firstChild a
   
   export
-  lastChild : (obj : TreeWalker) -> JSIO (Nullable Node)
-  lastChild a = primJS $ TreeWalker.prim__lastChild a
+  lastChild : (obj : TreeWalker) -> JSIO (Maybe Node)
+  lastChild a = tryJS "TreeWalker.lastChild" $ TreeWalker.prim__lastChild a
   
   export
-  nextNode : (obj : TreeWalker) -> JSIO (Nullable Node)
-  nextNode a = primJS $ TreeWalker.prim__nextNode a
+  nextNode : (obj : TreeWalker) -> JSIO (Maybe Node)
+  nextNode a = tryJS "TreeWalker.nextNode" $ TreeWalker.prim__nextNode a
   
   export
-  nextSibling : (obj : TreeWalker) -> JSIO (Nullable Node)
-  nextSibling a = primJS $ TreeWalker.prim__nextSibling a
+  nextSibling : (obj : TreeWalker) -> JSIO (Maybe Node)
+  nextSibling a = tryJS "TreeWalker.nextSibling" $ TreeWalker.prim__nextSibling a
   
   export
-  parentNode : (obj : TreeWalker) -> JSIO (Nullable Node)
-  parentNode a = primJS $ TreeWalker.prim__parentNode a
+  parentNode : (obj : TreeWalker) -> JSIO (Maybe Node)
+  parentNode a = tryJS "TreeWalker.parentNode" $ TreeWalker.prim__parentNode a
   
   export
-  previousNode : (obj : TreeWalker) -> JSIO (Nullable Node)
-  previousNode a = primJS $ TreeWalker.prim__previousNode a
+  previousNode : (obj : TreeWalker) -> JSIO (Maybe Node)
+  previousNode a = tryJS "TreeWalker.previousNode" $ TreeWalker.prim__previousNode a
   
   export
-  previousSibling : (obj : TreeWalker) -> JSIO (Nullable Node)
-  previousSibling a = primJS $ TreeWalker.prim__previousSibling a
+  previousSibling : (obj : TreeWalker) -> JSIO (Maybe Node)
+  previousSibling a = tryJS "TreeWalker.previousSibling" $ TreeWalker.prim__previousSibling a
 
 namespace XMLDocument
   
@@ -1982,16 +2043,19 @@ namespace XPathExpression
   export
   evaluate :  (obj : XPathExpression)
            -> (contextNode : Node)
-           -> (type : UndefOr UInt16)
-           -> (result : UndefOr (Nullable XPathResult))
+           -> (type : Optional UInt16)
+           -> (result : Optional (Maybe XPathResult))
            -> JSIO XPathResult
-  evaluate a b c d = primJS $ XPathExpression.prim__evaluate a b c d
+  evaluate a b c d = primJS $ XPathExpression.prim__evaluate a
+                                                             b
+                                                             (toFFI c)
+                                                             (toFFI d)
 
   export
   evaluate' :  (obj : XPathExpression)
             -> (contextNode : Node)
             -> JSIO XPathResult
-  evaluate' a b = evaluate a b undef undef
+  evaluate' a b = evaluate a b Undef Undef
 
 namespace XPathResult
   
@@ -2042,12 +2106,12 @@ namespace XPathResult
   UNORDERED_NODE_SNAPSHOT_TYPE = 6
   
   export
-  booleanValue : (obj : XPathResult) -> JSIO Boolean
-  booleanValue a = primJS $ XPathResult.prim__booleanValue a
+  booleanValue : (obj : XPathResult) -> JSIO Bool
+  booleanValue a = tryJS "XPathResult.booleanValue" $ XPathResult.prim__booleanValue a
   
   export
-  invalidIteratorState : (obj : XPathResult) -> JSIO Boolean
-  invalidIteratorState a = primJS $ XPathResult.prim__invalidIteratorState a
+  invalidIteratorState : (obj : XPathResult) -> JSIO Bool
+  invalidIteratorState a = tryJS "XPathResult.invalidIteratorState" $ XPathResult.prim__invalidIteratorState a
   
   export
   numberValue : (obj : XPathResult) -> JSIO Double
@@ -2058,8 +2122,8 @@ namespace XPathResult
   resultType a = primJS $ XPathResult.prim__resultType a
   
   export
-  singleNodeValue : (obj : XPathResult) -> JSIO (Nullable Node)
-  singleNodeValue a = primJS $ XPathResult.prim__singleNodeValue a
+  singleNodeValue : (obj : XPathResult) -> JSIO (Maybe Node)
+  singleNodeValue a = tryJS "XPathResult.singleNodeValue" $ XPathResult.prim__singleNodeValue a
   
   export
   snapshotLength : (obj : XPathResult) -> JSIO UInt32
@@ -2070,12 +2134,13 @@ namespace XPathResult
   stringValue a = primJS $ XPathResult.prim__stringValue a
   
   export
-  iterateNext : (obj : XPathResult) -> JSIO (Nullable Node)
-  iterateNext a = primJS $ XPathResult.prim__iterateNext a
+  iterateNext : (obj : XPathResult) -> JSIO (Maybe Node)
+  iterateNext a = tryJS "XPathResult.iterateNext" $ XPathResult.prim__iterateNext a
   
   export
-  snapshotItem : (obj : XPathResult) -> (index : UInt32) -> JSIO (Nullable Node)
-  snapshotItem a b = primJS $ XPathResult.prim__snapshotItem a b
+  snapshotItem : (obj : XPathResult) -> (index : UInt32) -> JSIO (Maybe Node)
+  snapshotItem a b = tryJS "XPathResult.snapshotItem" $ XPathResult.prim__snapshotItem a
+                                                                                       b
 
 --------------------------------------------------------------------------------
 --          Mixins
@@ -2110,22 +2175,22 @@ namespace DocumentOrShadowRoot
 namespace NonDocumentTypeChildNode
   
   export
-  nextElementSibling :  (obj : NonDocumentTypeChildNode)
-                     -> JSIO (Nullable Element)
-  nextElementSibling a = primJS $ NonDocumentTypeChildNode.prim__nextElementSibling a
+  nextElementSibling : (obj : NonDocumentTypeChildNode) -> JSIO (Maybe Element)
+  nextElementSibling a = tryJS "NonDocumentTypeChildNode.nextElementSibling" $ NonDocumentTypeChildNode.prim__nextElementSibling a
   
   export
   previousElementSibling :  (obj : NonDocumentTypeChildNode)
-                         -> JSIO (Nullable Element)
-  previousElementSibling a = primJS $ NonDocumentTypeChildNode.prim__previousElementSibling a
+                         -> JSIO (Maybe Element)
+  previousElementSibling a = tryJS "NonDocumentTypeChildNode.previousElementSibling" $ NonDocumentTypeChildNode.prim__previousElementSibling a
 
 namespace NonElementParentNode
   
   export
   getElementById :  (obj : NonElementParentNode)
                  -> (elementId : String)
-                 -> JSIO (Nullable Element)
-  getElementById a b = primJS $ NonElementParentNode.prim__getElementById a b
+                 -> JSIO (Maybe Element)
+  getElementById a b = tryJS "NonElementParentNode.getElementById" $ NonElementParentNode.prim__getElementById a
+                                                                                                               b
 
 namespace ParentNode
   
@@ -2138,12 +2203,12 @@ namespace ParentNode
   children a = primJS $ ParentNode.prim__children a
   
   export
-  firstElementChild : (obj : ParentNode) -> JSIO (Nullable Element)
-  firstElementChild a = primJS $ ParentNode.prim__firstElementChild a
+  firstElementChild : (obj : ParentNode) -> JSIO (Maybe Element)
+  firstElementChild a = tryJS "ParentNode.firstElementChild" $ ParentNode.prim__firstElementChild a
   
   export
-  lastElementChild : (obj : ParentNode) -> JSIO (Nullable Element)
-  lastElementChild a = primJS $ ParentNode.prim__lastElementChild a
+  lastElementChild : (obj : ParentNode) -> JSIO (Maybe Element)
+  lastElementChild a = tryJS "ParentNode.lastElementChild" $ ParentNode.prim__lastElementChild a
   
   export
   append :  (obj : ParentNode)
@@ -2164,8 +2229,9 @@ namespace ParentNode
   export
   querySelector :  (obj : ParentNode)
                 -> (selectors : String)
-                -> JSIO (Nullable Element)
-  querySelector a b = primJS $ ParentNode.prim__querySelector a b
+                -> JSIO (Maybe Element)
+  querySelector a b = tryJS "ParentNode.querySelector" $ ParentNode.prim__querySelector a
+                                                                                        b
   
   export
   replaceChildren :  (obj : ParentNode)
@@ -2176,25 +2242,25 @@ namespace ParentNode
 namespace Slottable
   
   export
-  assignedSlot : (obj : Slottable) -> JSIO (Nullable HTMLSlotElement)
-  assignedSlot a = primJS $ Slottable.prim__assignedSlot a
+  assignedSlot : (obj : Slottable) -> JSIO (Maybe HTMLSlotElement)
+  assignedSlot a = tryJS "Slottable.assignedSlot" $ Slottable.prim__assignedSlot a
 
 namespace XPathEvaluatorBase
   
   export
   createExpression :  (obj : XPathEvaluatorBase)
                    -> (expression : String)
-                   -> (resolver : UndefOr (Nullable XPathNSResolver))
+                   -> (resolver : Optional (Maybe XPathNSResolver))
                    -> JSIO XPathExpression
   createExpression a b c = primJS $ XPathEvaluatorBase.prim__createExpression a
                                                                               b
-                                                                              c
+                                                                              (toFFI c)
 
   export
   createExpression' :  (obj : XPathEvaluatorBase)
                     -> (expression : String)
                     -> JSIO XPathExpression
-  createExpression' a b = createExpression a b undef
+  createExpression' a b = createExpression a b Undef
   
   export
   createNSResolver :  (obj : XPathEvaluatorBase)
@@ -2206,18 +2272,23 @@ namespace XPathEvaluatorBase
   evaluate :  (obj : XPathEvaluatorBase)
            -> (expression : String)
            -> (contextNode : Node)
-           -> (resolver : UndefOr (Nullable XPathNSResolver))
-           -> (type : UndefOr UInt16)
-           -> (result : UndefOr (Nullable XPathResult))
+           -> (resolver : Optional (Maybe XPathNSResolver))
+           -> (type : Optional UInt16)
+           -> (result : Optional (Maybe XPathResult))
            -> JSIO XPathResult
-  evaluate a b c d e f = primJS $ XPathEvaluatorBase.prim__evaluate a b c d e f
+  evaluate a b c d e f = primJS $ XPathEvaluatorBase.prim__evaluate a
+                                                                    b
+                                                                    c
+                                                                    (toFFI d)
+                                                                    (toFFI e)
+                                                                    (toFFI f)
 
   export
   evaluate' :  (obj : XPathEvaluatorBase)
             -> (expression : String)
             -> (contextNode : Node)
             -> JSIO XPathResult
-  evaluate' a b c = evaluate a b c undef undef undef
+  evaluate' a b c = evaluate a b c Undef Undef Undef
 
 --------------------------------------------------------------------------------
 --          Dictionaries
@@ -2232,57 +2303,59 @@ namespace AddEventListenerOptions
     mixins =  []
   
   export
-  new :  (passive : UndefOr Boolean)
-      -> (once : UndefOr Boolean)
-      -> (signal : UndefOr AbortSignal)
+  new :  (passive : Optional Bool)
+      -> (once : Optional Bool)
+      -> (signal : Optional AbortSignal)
       -> JSIO AddEventListenerOptions
-  new a b c = primJS $ AddEventListenerOptions.prim__new a b c
+  new a b c = primJS $ AddEventListenerOptions.prim__new (toFFI a)
+                                                         (toFFI b)
+                                                         (toFFI c)
 
   export
   new' : JSIO AddEventListenerOptions
-  new' = new undef undef undef
+  new' = new Undef Undef Undef
   
   export
-  once : (obj : AddEventListenerOptions) -> JSIO (UndefOr Boolean)
-  once a = primJS $ AddEventListenerOptions.prim__once a
+  once : (obj : AddEventListenerOptions) -> JSIO $ Optional Bool
+  once a = tryJS "AddEventListenerOptions.once" $ AddEventListenerOptions.prim__once a
   
   export
   setOnce :  (obj : AddEventListenerOptions)
-          -> (value : UndefOr Boolean)
+          -> (value : Optional Bool)
           -> JSIO ()
-  setOnce a b = primJS $ AddEventListenerOptions.prim__setOnce a b
+  setOnce a b = primJS $ AddEventListenerOptions.prim__setOnce a (toFFI b)
 
   export
   setOnce' : (obj : AddEventListenerOptions) -> JSIO ()
-  setOnce' a = setOnce a undef
+  setOnce' a = setOnce a Undef
   
   export
-  passive : (obj : AddEventListenerOptions) -> JSIO (UndefOr Boolean)
-  passive a = primJS $ AddEventListenerOptions.prim__passive a
+  passive : (obj : AddEventListenerOptions) -> JSIO $ Optional Bool
+  passive a = tryJS "AddEventListenerOptions.passive" $ AddEventListenerOptions.prim__passive a
   
   export
   setPassive :  (obj : AddEventListenerOptions)
-             -> (value : UndefOr Boolean)
+             -> (value : Optional Bool)
              -> JSIO ()
-  setPassive a b = primJS $ AddEventListenerOptions.prim__setPassive a b
+  setPassive a b = primJS $ AddEventListenerOptions.prim__setPassive a (toFFI b)
 
   export
   setPassive' : (obj : AddEventListenerOptions) -> JSIO ()
-  setPassive' a = setPassive a undef
+  setPassive' a = setPassive a Undef
   
   export
-  signal : (obj : AddEventListenerOptions) -> JSIO (UndefOr AbortSignal)
-  signal a = primJS $ AddEventListenerOptions.prim__signal a
+  signal : (obj : AddEventListenerOptions) -> JSIO $ Optional AbortSignal
+  signal a = tryJS "AddEventListenerOptions.signal" $ AddEventListenerOptions.prim__signal a
   
   export
   setSignal :  (obj : AddEventListenerOptions)
-            -> (value : UndefOr AbortSignal)
+            -> (value : Optional AbortSignal)
             -> JSIO ()
-  setSignal a b = primJS $ AddEventListenerOptions.prim__setSignal a b
+  setSignal a b = primJS $ AddEventListenerOptions.prim__setSignal a (toFFI b)
 
   export
   setSignal' : (obj : AddEventListenerOptions) -> JSIO ()
-  setSignal' a = setSignal a undef
+  setSignal' a = setSignal a Undef
 
 namespace CustomEventInit
   
@@ -2293,24 +2366,24 @@ namespace CustomEventInit
     mixins =  []
   
   export
-  new : (detail : UndefOr AnyPtr) -> JSIO CustomEventInit
-  new a = primJS $ CustomEventInit.prim__new a
+  new : (detail : Optional AnyPtr) -> JSIO CustomEventInit
+  new a = primJS $ CustomEventInit.prim__new (toFFI a)
 
   export
   new' : JSIO CustomEventInit
-  new' = new undef
+  new' = new Undef
   
   export
-  detail : (obj : CustomEventInit) -> JSIO (UndefOr AnyPtr)
-  detail a = primJS $ CustomEventInit.prim__detail a
+  detail : (obj : CustomEventInit) -> JSIO $ Optional AnyPtr
+  detail a = tryJS "CustomEventInit.detail" $ CustomEventInit.prim__detail a
   
   export
-  setDetail : (obj : CustomEventInit) -> (value : UndefOr AnyPtr) -> JSIO ()
-  setDetail a b = primJS $ CustomEventInit.prim__setDetail a b
+  setDetail : (obj : CustomEventInit) -> (value : Optional AnyPtr) -> JSIO ()
+  setDetail a b = primJS $ CustomEventInit.prim__setDetail a (toFFI b)
 
   export
   setDetail' : (obj : CustomEventInit) -> JSIO ()
-  setDetail' a = setDetail a undef
+  setDetail' a = setDetail a Undef
 
 namespace ElementCreationOptions
   
@@ -2321,24 +2394,24 @@ namespace ElementCreationOptions
     mixins =  []
   
   export
-  new : (is : UndefOr String) -> JSIO ElementCreationOptions
-  new a = primJS $ ElementCreationOptions.prim__new a
+  new : (is : Optional String) -> JSIO ElementCreationOptions
+  new a = primJS $ ElementCreationOptions.prim__new (toFFI a)
 
   export
   new' : JSIO ElementCreationOptions
-  new' = new undef
+  new' = new Undef
   
   export
-  is : (obj : ElementCreationOptions) -> JSIO (UndefOr String)
-  is a = primJS $ ElementCreationOptions.prim__is a
+  is : (obj : ElementCreationOptions) -> JSIO $ Optional String
+  is a = tryJS "ElementCreationOptions.is" $ ElementCreationOptions.prim__is a
   
   export
-  setIs : (obj : ElementCreationOptions) -> (value : UndefOr String) -> JSIO ()
-  setIs a b = primJS $ ElementCreationOptions.prim__setIs a b
+  setIs : (obj : ElementCreationOptions) -> (value : Optional String) -> JSIO ()
+  setIs a b = primJS $ ElementCreationOptions.prim__setIs a (toFFI b)
 
   export
   setIs' : (obj : ElementCreationOptions) -> JSIO ()
-  setIs' a = setIs a undef
+  setIs' a = setIs a Undef
 
 namespace EventInit
   
@@ -2349,51 +2422,51 @@ namespace EventInit
     mixins =  []
   
   export
-  new :  (bubbles : UndefOr Boolean)
-      -> (cancelable : UndefOr Boolean)
-      -> (composed : UndefOr Boolean)
+  new :  (bubbles : Optional Bool)
+      -> (cancelable : Optional Bool)
+      -> (composed : Optional Bool)
       -> JSIO EventInit
-  new a b c = primJS $ EventInit.prim__new a b c
+  new a b c = primJS $ EventInit.prim__new (toFFI a) (toFFI b) (toFFI c)
 
   export
   new' : JSIO EventInit
-  new' = new undef undef undef
+  new' = new Undef Undef Undef
   
   export
-  bubbles : (obj : EventInit) -> JSIO (UndefOr Boolean)
-  bubbles a = primJS $ EventInit.prim__bubbles a
+  bubbles : (obj : EventInit) -> JSIO $ Optional Bool
+  bubbles a = tryJS "EventInit.bubbles" $ EventInit.prim__bubbles a
   
   export
-  setBubbles : (obj : EventInit) -> (value : UndefOr Boolean) -> JSIO ()
-  setBubbles a b = primJS $ EventInit.prim__setBubbles a b
+  setBubbles : (obj : EventInit) -> (value : Optional Bool) -> JSIO ()
+  setBubbles a b = primJS $ EventInit.prim__setBubbles a (toFFI b)
 
   export
   setBubbles' : (obj : EventInit) -> JSIO ()
-  setBubbles' a = setBubbles a undef
+  setBubbles' a = setBubbles a Undef
   
   export
-  cancelable : (obj : EventInit) -> JSIO (UndefOr Boolean)
-  cancelable a = primJS $ EventInit.prim__cancelable a
+  cancelable : (obj : EventInit) -> JSIO $ Optional Bool
+  cancelable a = tryJS "EventInit.cancelable" $ EventInit.prim__cancelable a
   
   export
-  setCancelable : (obj : EventInit) -> (value : UndefOr Boolean) -> JSIO ()
-  setCancelable a b = primJS $ EventInit.prim__setCancelable a b
+  setCancelable : (obj : EventInit) -> (value : Optional Bool) -> JSIO ()
+  setCancelable a b = primJS $ EventInit.prim__setCancelable a (toFFI b)
 
   export
   setCancelable' : (obj : EventInit) -> JSIO ()
-  setCancelable' a = setCancelable a undef
+  setCancelable' a = setCancelable a Undef
   
   export
-  composed : (obj : EventInit) -> JSIO (UndefOr Boolean)
-  composed a = primJS $ EventInit.prim__composed a
+  composed : (obj : EventInit) -> JSIO $ Optional Bool
+  composed a = tryJS "EventInit.composed" $ EventInit.prim__composed a
   
   export
-  setComposed : (obj : EventInit) -> (value : UndefOr Boolean) -> JSIO ()
-  setComposed a b = primJS $ EventInit.prim__setComposed a b
+  setComposed : (obj : EventInit) -> (value : Optional Bool) -> JSIO ()
+  setComposed a b = primJS $ EventInit.prim__setComposed a (toFFI b)
 
   export
   setComposed' : (obj : EventInit) -> JSIO ()
-  setComposed' a = setComposed a undef
+  setComposed' a = setComposed a Undef
 
 namespace EventListenerOptions
   
@@ -2404,26 +2477,26 @@ namespace EventListenerOptions
     mixins =  []
   
   export
-  new : (capture : UndefOr Boolean) -> JSIO EventListenerOptions
-  new a = primJS $ EventListenerOptions.prim__new a
+  new : (capture : Optional Bool) -> JSIO EventListenerOptions
+  new a = primJS $ EventListenerOptions.prim__new (toFFI a)
 
   export
   new' : JSIO EventListenerOptions
-  new' = new undef
+  new' = new Undef
   
   export
-  capture : (obj : EventListenerOptions) -> JSIO (UndefOr Boolean)
-  capture a = primJS $ EventListenerOptions.prim__capture a
+  capture : (obj : EventListenerOptions) -> JSIO $ Optional Bool
+  capture a = tryJS "EventListenerOptions.capture" $ EventListenerOptions.prim__capture a
   
   export
   setCapture :  (obj : EventListenerOptions)
-             -> (value : UndefOr Boolean)
+             -> (value : Optional Bool)
              -> JSIO ()
-  setCapture a b = primJS $ EventListenerOptions.prim__setCapture a b
+  setCapture a b = primJS $ EventListenerOptions.prim__setCapture a (toFFI b)
 
   export
   setCapture' : (obj : EventListenerOptions) -> JSIO ()
-  setCapture' a = setCapture a undef
+  setCapture' a = setCapture a Undef
 
 namespace GetRootNodeOptions
   
@@ -2434,26 +2507,24 @@ namespace GetRootNodeOptions
     mixins =  []
   
   export
-  new : (composed : UndefOr Boolean) -> JSIO GetRootNodeOptions
-  new a = primJS $ GetRootNodeOptions.prim__new a
+  new : (composed : Optional Bool) -> JSIO GetRootNodeOptions
+  new a = primJS $ GetRootNodeOptions.prim__new (toFFI a)
 
   export
   new' : JSIO GetRootNodeOptions
-  new' = new undef
+  new' = new Undef
   
   export
-  composed : (obj : GetRootNodeOptions) -> JSIO (UndefOr Boolean)
-  composed a = primJS $ GetRootNodeOptions.prim__composed a
+  composed : (obj : GetRootNodeOptions) -> JSIO $ Optional Bool
+  composed a = tryJS "GetRootNodeOptions.composed" $ GetRootNodeOptions.prim__composed a
   
   export
-  setComposed :  (obj : GetRootNodeOptions)
-              -> (value : UndefOr Boolean)
-              -> JSIO ()
-  setComposed a b = primJS $ GetRootNodeOptions.prim__setComposed a b
+  setComposed : (obj : GetRootNodeOptions) -> (value : Optional Bool) -> JSIO ()
+  setComposed a b = primJS $ GetRootNodeOptions.prim__setComposed a (toFFI b)
 
   export
   setComposed' : (obj : GetRootNodeOptions) -> JSIO ()
-  setComposed' a = setComposed a undef
+  setComposed' a = setComposed a Undef
 
 namespace MutationObserverInit
   
@@ -2464,122 +2535,130 @@ namespace MutationObserverInit
     mixins =  []
   
   export
-  new :  (childList : UndefOr Boolean)
-      -> (attributes : UndefOr Boolean)
-      -> (characterData : UndefOr Boolean)
-      -> (subtree : UndefOr Boolean)
-      -> (attributeOldValue : UndefOr Boolean)
-      -> (characterDataOldValue : UndefOr Boolean)
-      -> (attributeFilter : UndefOr (Array String))
+  new :  (childList : Optional Bool)
+      -> (attributes : Optional Bool)
+      -> (characterData : Optional Bool)
+      -> (subtree : Optional Bool)
+      -> (attributeOldValue : Optional Bool)
+      -> (characterDataOldValue : Optional Bool)
+      -> (attributeFilter : Optional (Array String))
       -> JSIO MutationObserverInit
-  new a b c d e f g = primJS $ MutationObserverInit.prim__new a b c d e f g
+  new a b c d e f g = primJS $ MutationObserverInit.prim__new (toFFI a)
+                                                              (toFFI b)
+                                                              (toFFI c)
+                                                              (toFFI d)
+                                                              (toFFI e)
+                                                              (toFFI f)
+                                                              (toFFI g)
 
   export
   new' : JSIO MutationObserverInit
-  new' = new undef undef undef undef undef undef undef
+  new' = new Undef Undef Undef Undef Undef Undef Undef
   
   export
   attributeFilter :  (obj : MutationObserverInit)
-                  -> JSIO (UndefOr (Array String))
-  attributeFilter a = primJS $ MutationObserverInit.prim__attributeFilter a
+                  -> JSIO $ Optional (Array String)
+  attributeFilter a = tryJS "MutationObserverInit.attributeFilter" $ MutationObserverInit.prim__attributeFilter a
   
   export
   setAttributeFilter :  (obj : MutationObserverInit)
-                     -> (value : UndefOr (Array String))
+                     -> (value : Optional (Array String))
                      -> JSIO ()
   setAttributeFilter a b = primJS $ MutationObserverInit.prim__setAttributeFilter a
-                                                                                  b
+                                                                                  (toFFI b)
 
   export
   setAttributeFilter' : (obj : MutationObserverInit) -> JSIO ()
-  setAttributeFilter' a = setAttributeFilter a undef
+  setAttributeFilter' a = setAttributeFilter a Undef
   
   export
-  attributeOldValue : (obj : MutationObserverInit) -> JSIO (UndefOr Boolean)
-  attributeOldValue a = primJS $ MutationObserverInit.prim__attributeOldValue a
+  attributeOldValue : (obj : MutationObserverInit) -> JSIO $ Optional Bool
+  attributeOldValue a = tryJS "MutationObserverInit.attributeOldValue" $ MutationObserverInit.prim__attributeOldValue a
   
   export
   setAttributeOldValue :  (obj : MutationObserverInit)
-                       -> (value : UndefOr Boolean)
+                       -> (value : Optional Bool)
                        -> JSIO ()
   setAttributeOldValue a b = primJS $ MutationObserverInit.prim__setAttributeOldValue a
-                                                                                      b
+                                                                                      (toFFI b)
 
   export
   setAttributeOldValue' : (obj : MutationObserverInit) -> JSIO ()
-  setAttributeOldValue' a = setAttributeOldValue a undef
+  setAttributeOldValue' a = setAttributeOldValue a Undef
   
   export
-  attributes : (obj : MutationObserverInit) -> JSIO (UndefOr Boolean)
-  attributes a = primJS $ MutationObserverInit.prim__attributes a
+  attributes : (obj : MutationObserverInit) -> JSIO $ Optional Bool
+  attributes a = tryJS "MutationObserverInit.attributes" $ MutationObserverInit.prim__attributes a
   
   export
   setAttributes :  (obj : MutationObserverInit)
-                -> (value : UndefOr Boolean)
+                -> (value : Optional Bool)
                 -> JSIO ()
-  setAttributes a b = primJS $ MutationObserverInit.prim__setAttributes a b
+  setAttributes a b = primJS $ MutationObserverInit.prim__setAttributes a
+                                                                        (toFFI b)
 
   export
   setAttributes' : (obj : MutationObserverInit) -> JSIO ()
-  setAttributes' a = setAttributes a undef
+  setAttributes' a = setAttributes a Undef
   
   export
-  characterData : (obj : MutationObserverInit) -> JSIO (UndefOr Boolean)
-  characterData a = primJS $ MutationObserverInit.prim__characterData a
+  characterData : (obj : MutationObserverInit) -> JSIO $ Optional Bool
+  characterData a = tryJS "MutationObserverInit.characterData" $ MutationObserverInit.prim__characterData a
   
   export
   setCharacterData :  (obj : MutationObserverInit)
-                   -> (value : UndefOr Boolean)
+                   -> (value : Optional Bool)
                    -> JSIO ()
   setCharacterData a b = primJS $ MutationObserverInit.prim__setCharacterData a
-                                                                              b
+                                                                              (toFFI b)
 
   export
   setCharacterData' : (obj : MutationObserverInit) -> JSIO ()
-  setCharacterData' a = setCharacterData a undef
+  setCharacterData' a = setCharacterData a Undef
   
   export
-  characterDataOldValue : (obj : MutationObserverInit) -> JSIO (UndefOr Boolean)
-  characterDataOldValue a = primJS $ MutationObserverInit.prim__characterDataOldValue a
+  characterDataOldValue : (obj : MutationObserverInit) -> JSIO $ Optional Bool
+  characterDataOldValue a = tryJS "MutationObserverInit.characterDataOldValue" $ MutationObserverInit.prim__characterDataOldValue a
   
   export
   setCharacterDataOldValue :  (obj : MutationObserverInit)
-                           -> (value : UndefOr Boolean)
+                           -> (value : Optional Bool)
                            -> JSIO ()
   setCharacterDataOldValue a b = primJS $ MutationObserverInit.prim__setCharacterDataOldValue a
-                                                                                              b
+                                                                                              (toFFI b)
 
   export
   setCharacterDataOldValue' : (obj : MutationObserverInit) -> JSIO ()
-  setCharacterDataOldValue' a = setCharacterDataOldValue a undef
+  setCharacterDataOldValue' a = setCharacterDataOldValue a Undef
   
   export
-  childList : (obj : MutationObserverInit) -> JSIO (UndefOr Boolean)
-  childList a = primJS $ MutationObserverInit.prim__childList a
+  childList : (obj : MutationObserverInit) -> JSIO $ Optional Bool
+  childList a = tryJS "MutationObserverInit.childList" $ MutationObserverInit.prim__childList a
   
   export
   setChildList :  (obj : MutationObserverInit)
-               -> (value : UndefOr Boolean)
+               -> (value : Optional Bool)
                -> JSIO ()
-  setChildList a b = primJS $ MutationObserverInit.prim__setChildList a b
+  setChildList a b = primJS $ MutationObserverInit.prim__setChildList a
+                                                                      (toFFI b)
 
   export
   setChildList' : (obj : MutationObserverInit) -> JSIO ()
-  setChildList' a = setChildList a undef
+  setChildList' a = setChildList a Undef
   
   export
-  subtree : (obj : MutationObserverInit) -> JSIO (UndefOr Boolean)
-  subtree a = primJS $ MutationObserverInit.prim__subtree a
+  subtree : (obj : MutationObserverInit) -> JSIO $ Optional Bool
+  subtree a = tryJS "MutationObserverInit.subtree" $ MutationObserverInit.prim__subtree a
   
   export
   setSubtree :  (obj : MutationObserverInit)
-             -> (value : UndefOr Boolean)
+             -> (value : Optional Bool)
              -> JSIO ()
-  setSubtree a b = primJS $ MutationObserverInit.prim__setSubtree a b
+  setSubtree a b = primJS $ MutationObserverInit.prim__setSubtree a (toFFI b)
 
   export
   setSubtree' : (obj : MutationObserverInit) -> JSIO ()
-  setSubtree' a = setSubtree a undef
+  setSubtree' a = setSubtree a Undef
 
 namespace ShadowRootInit
   
@@ -2591,35 +2670,36 @@ namespace ShadowRootInit
   
   export
   new :  (mode : ShadowRootMode)
-      -> (delegatesFocus : UndefOr Boolean)
+      -> (delegatesFocus : Optional Bool)
       -> JSIO ShadowRootInit
-  new a b = primJS $ ShadowRootInit.prim__new a b
+  new a b = primJS $ ShadowRootInit.prim__new (toFFI a) (toFFI b)
 
   export
   new' : (mode : ShadowRootMode) -> JSIO ShadowRootInit
-  new' a = new a undef
+  new' a = new a Undef
   
   export
-  delegatesFocus : (obj : ShadowRootInit) -> JSIO (UndefOr Boolean)
-  delegatesFocus a = primJS $ ShadowRootInit.prim__delegatesFocus a
+  delegatesFocus : (obj : ShadowRootInit) -> JSIO $ Optional Bool
+  delegatesFocus a = tryJS "ShadowRootInit.delegatesFocus" $ ShadowRootInit.prim__delegatesFocus a
   
   export
   setDelegatesFocus :  (obj : ShadowRootInit)
-                    -> (value : UndefOr Boolean)
+                    -> (value : Optional Bool)
                     -> JSIO ()
-  setDelegatesFocus a b = primJS $ ShadowRootInit.prim__setDelegatesFocus a b
+  setDelegatesFocus a b = primJS $ ShadowRootInit.prim__setDelegatesFocus a
+                                                                          (toFFI b)
 
   export
   setDelegatesFocus' : (obj : ShadowRootInit) -> JSIO ()
-  setDelegatesFocus' a = setDelegatesFocus a undef
+  setDelegatesFocus' a = setDelegatesFocus a Undef
   
   export
   mode : (obj : ShadowRootInit) -> JSIO ShadowRootMode
-  mode a = primJS $ ShadowRootInit.prim__mode a
+  mode a = tryJS "ShadowRootInit.mode" $ ShadowRootInit.prim__mode a
   
   export
   setMode : (obj : ShadowRootInit) -> (value : ShadowRootMode) -> JSIO ()
-  setMode a b = primJS $ ShadowRootInit.prim__setMode a b
+  setMode a b = primJS $ ShadowRootInit.prim__setMode a (toFFI b)
 
 namespace StaticRangeInit
   

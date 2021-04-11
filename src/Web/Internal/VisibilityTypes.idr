@@ -36,5 +36,13 @@ namespace VisibilityState
              -> VisibilityState
   fromString s = fromJust $ read s
 
+  export
+  ToFFI VisibilityState String where
+    toFFI = show
+
+  export
+  FromFFI VisibilityState String where
+    fromFFI = read
+
 
 

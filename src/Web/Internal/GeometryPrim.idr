@@ -470,7 +470,7 @@ namespace DOMMatrix2DInit
   
   export
   %foreign "browser:lambda:x=>x.a"
-  prim__a : DOMMatrix2DInit -> PrimIO (UndefOr Double)
+  prim__a : DOMMatrix2DInit -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.a = v}"
@@ -478,7 +478,7 @@ namespace DOMMatrix2DInit
   
   export
   %foreign "browser:lambda:x=>x.b"
-  prim__b : DOMMatrix2DInit -> PrimIO (UndefOr Double)
+  prim__b : DOMMatrix2DInit -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.b = v}"
@@ -486,7 +486,7 @@ namespace DOMMatrix2DInit
   
   export
   %foreign "browser:lambda:x=>x.c"
-  prim__c : DOMMatrix2DInit -> PrimIO (UndefOr Double)
+  prim__c : DOMMatrix2DInit -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.c = v}"
@@ -494,7 +494,7 @@ namespace DOMMatrix2DInit
   
   export
   %foreign "browser:lambda:x=>x.d"
-  prim__d : DOMMatrix2DInit -> PrimIO (UndefOr Double)
+  prim__d : DOMMatrix2DInit -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.d = v}"
@@ -502,7 +502,7 @@ namespace DOMMatrix2DInit
   
   export
   %foreign "browser:lambda:x=>x.e"
-  prim__e : DOMMatrix2DInit -> PrimIO (UndefOr Double)
+  prim__e : DOMMatrix2DInit -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.e = v}"
@@ -510,7 +510,7 @@ namespace DOMMatrix2DInit
   
   export
   %foreign "browser:lambda:x=>x.f"
-  prim__f : DOMMatrix2DInit -> PrimIO (UndefOr Double)
+  prim__f : DOMMatrix2DInit -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.f = v}"
@@ -518,7 +518,7 @@ namespace DOMMatrix2DInit
   
   export
   %foreign "browser:lambda:x=>x.m11"
-  prim__m11 : DOMMatrix2DInit -> PrimIO (UndefOr Double)
+  prim__m11 : DOMMatrix2DInit -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.m11 = v}"
@@ -526,7 +526,7 @@ namespace DOMMatrix2DInit
   
   export
   %foreign "browser:lambda:x=>x.m12"
-  prim__m12 : DOMMatrix2DInit -> PrimIO (UndefOr Double)
+  prim__m12 : DOMMatrix2DInit -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.m12 = v}"
@@ -534,7 +534,7 @@ namespace DOMMatrix2DInit
   
   export
   %foreign "browser:lambda:x=>x.m21"
-  prim__m21 : DOMMatrix2DInit -> PrimIO (UndefOr Double)
+  prim__m21 : DOMMatrix2DInit -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.m21 = v}"
@@ -542,7 +542,7 @@ namespace DOMMatrix2DInit
   
   export
   %foreign "browser:lambda:x=>x.m22"
-  prim__m22 : DOMMatrix2DInit -> PrimIO (UndefOr Double)
+  prim__m22 : DOMMatrix2DInit -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.m22 = v}"
@@ -550,7 +550,7 @@ namespace DOMMatrix2DInit
   
   export
   %foreign "browser:lambda:x=>x.m41"
-  prim__m41 : DOMMatrix2DInit -> PrimIO (UndefOr Double)
+  prim__m41 : DOMMatrix2DInit -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.m41 = v}"
@@ -558,7 +558,7 @@ namespace DOMMatrix2DInit
   
   export
   %foreign "browser:lambda:x=>x.m42"
-  prim__m42 : DOMMatrix2DInit -> PrimIO (UndefOr Double)
+  prim__m42 : DOMMatrix2DInit -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.m42 = v}"
@@ -583,7 +583,7 @@ namespace DOMMatrixInit
   
   export
   %foreign "browser:lambda:x=>x.is2D"
-  prim__is2D : DOMMatrixInit -> PrimIO (UndefOr Boolean)
+  prim__is2D : DOMMatrixInit -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.is2D = v}"
@@ -591,7 +591,7 @@ namespace DOMMatrixInit
   
   export
   %foreign "browser:lambda:x=>x.m13"
-  prim__m13 : DOMMatrixInit -> PrimIO (UndefOr Double)
+  prim__m13 : DOMMatrixInit -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.m13 = v}"
@@ -599,7 +599,7 @@ namespace DOMMatrixInit
   
   export
   %foreign "browser:lambda:x=>x.m14"
-  prim__m14 : DOMMatrixInit -> PrimIO (UndefOr Double)
+  prim__m14 : DOMMatrixInit -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.m14 = v}"
@@ -607,7 +607,7 @@ namespace DOMMatrixInit
   
   export
   %foreign "browser:lambda:x=>x.m23"
-  prim__m23 : DOMMatrixInit -> PrimIO (UndefOr Double)
+  prim__m23 : DOMMatrixInit -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.m23 = v}"
@@ -615,7 +615,7 @@ namespace DOMMatrixInit
   
   export
   %foreign "browser:lambda:x=>x.m24"
-  prim__m24 : DOMMatrixInit -> PrimIO (UndefOr Double)
+  prim__m24 : DOMMatrixInit -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.m24 = v}"
@@ -623,7 +623,7 @@ namespace DOMMatrixInit
   
   export
   %foreign "browser:lambda:x=>x.m31"
-  prim__m31 : DOMMatrixInit -> PrimIO (UndefOr Double)
+  prim__m31 : DOMMatrixInit -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.m31 = v}"
@@ -631,7 +631,7 @@ namespace DOMMatrixInit
   
   export
   %foreign "browser:lambda:x=>x.m32"
-  prim__m32 : DOMMatrixInit -> PrimIO (UndefOr Double)
+  prim__m32 : DOMMatrixInit -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.m32 = v}"
@@ -639,7 +639,7 @@ namespace DOMMatrixInit
   
   export
   %foreign "browser:lambda:x=>x.m33"
-  prim__m33 : DOMMatrixInit -> PrimIO (UndefOr Double)
+  prim__m33 : DOMMatrixInit -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.m33 = v}"
@@ -647,7 +647,7 @@ namespace DOMMatrixInit
   
   export
   %foreign "browser:lambda:x=>x.m34"
-  prim__m34 : DOMMatrixInit -> PrimIO (UndefOr Double)
+  prim__m34 : DOMMatrixInit -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.m34 = v}"
@@ -655,7 +655,7 @@ namespace DOMMatrixInit
   
   export
   %foreign "browser:lambda:x=>x.m43"
-  prim__m43 : DOMMatrixInit -> PrimIO (UndefOr Double)
+  prim__m43 : DOMMatrixInit -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.m43 = v}"
@@ -663,7 +663,7 @@ namespace DOMMatrixInit
   
   export
   %foreign "browser:lambda:x=>x.m44"
-  prim__m44 : DOMMatrixInit -> PrimIO (UndefOr Double)
+  prim__m44 : DOMMatrixInit -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.m44 = v}"
@@ -681,7 +681,7 @@ namespace DOMPointInit
   
   export
   %foreign "browser:lambda:x=>x.w"
-  prim__w : DOMPointInit -> PrimIO (UndefOr Double)
+  prim__w : DOMPointInit -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.w = v}"
@@ -689,7 +689,7 @@ namespace DOMPointInit
   
   export
   %foreign "browser:lambda:x=>x.x"
-  prim__x : DOMPointInit -> PrimIO (UndefOr Double)
+  prim__x : DOMPointInit -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.x = v}"
@@ -697,7 +697,7 @@ namespace DOMPointInit
   
   export
   %foreign "browser:lambda:x=>x.y"
-  prim__y : DOMPointInit -> PrimIO (UndefOr Double)
+  prim__y : DOMPointInit -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.y = v}"
@@ -705,7 +705,7 @@ namespace DOMPointInit
   
   export
   %foreign "browser:lambda:x=>x.z"
-  prim__z : DOMPointInit -> PrimIO (UndefOr Double)
+  prim__z : DOMPointInit -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.z = v}"
@@ -723,7 +723,7 @@ namespace DOMQuadInit
   
   export
   %foreign "browser:lambda:x=>x.p1"
-  prim__p1 : DOMQuadInit -> PrimIO (UndefOr DOMPointInit)
+  prim__p1 : DOMQuadInit -> PrimIO $ UndefOr DOMPointInit
   
   export
   %foreign "browser:lambda:(x,v)=>{x.p1 = v}"
@@ -731,7 +731,7 @@ namespace DOMQuadInit
   
   export
   %foreign "browser:lambda:x=>x.p2"
-  prim__p2 : DOMQuadInit -> PrimIO (UndefOr DOMPointInit)
+  prim__p2 : DOMQuadInit -> PrimIO $ UndefOr DOMPointInit
   
   export
   %foreign "browser:lambda:(x,v)=>{x.p2 = v}"
@@ -739,7 +739,7 @@ namespace DOMQuadInit
   
   export
   %foreign "browser:lambda:x=>x.p3"
-  prim__p3 : DOMQuadInit -> PrimIO (UndefOr DOMPointInit)
+  prim__p3 : DOMQuadInit -> PrimIO $ UndefOr DOMPointInit
   
   export
   %foreign "browser:lambda:(x,v)=>{x.p3 = v}"
@@ -747,7 +747,7 @@ namespace DOMQuadInit
   
   export
   %foreign "browser:lambda:x=>x.p4"
-  prim__p4 : DOMQuadInit -> PrimIO (UndefOr DOMPointInit)
+  prim__p4 : DOMQuadInit -> PrimIO $ UndefOr DOMPointInit
   
   export
   %foreign "browser:lambda:(x,v)=>{x.p4 = v}"
@@ -765,7 +765,7 @@ namespace DOMRectInit
   
   export
   %foreign "browser:lambda:x=>x.height"
-  prim__height : DOMRectInit -> PrimIO (UndefOr Double)
+  prim__height : DOMRectInit -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.height = v}"
@@ -773,7 +773,7 @@ namespace DOMRectInit
   
   export
   %foreign "browser:lambda:x=>x.width"
-  prim__width : DOMRectInit -> PrimIO (UndefOr Double)
+  prim__width : DOMRectInit -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.width = v}"
@@ -781,7 +781,7 @@ namespace DOMRectInit
   
   export
   %foreign "browser:lambda:x=>x.x"
-  prim__x : DOMRectInit -> PrimIO (UndefOr Double)
+  prim__x : DOMRectInit -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.x = v}"
@@ -789,7 +789,7 @@ namespace DOMRectInit
   
   export
   %foreign "browser:lambda:x=>x.y"
-  prim__y : DOMRectInit -> PrimIO (UndefOr Double)
+  prim__y : DOMRectInit -> PrimIO $ UndefOr Double
   
   export
   %foreign "browser:lambda:(x,v)=>{x.y = v}"

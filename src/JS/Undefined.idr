@@ -33,6 +33,14 @@ isUndefined : a -> Bool
 isUndefined v = doubleToBool $ prim__isUndefined (believe_me v)
 
 export
+ToFFI Undefined Undefined where
+  toFFI = id
+
+export
+FromFFI Undefined Undefined where
+  fromFFI = Just
+
+export
 SafeCast Undefined where
   safeCast ptr = if isUndefined ptr then Just undefined else Nothing
 

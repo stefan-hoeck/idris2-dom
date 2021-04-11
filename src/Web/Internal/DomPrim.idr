@@ -34,11 +34,11 @@ namespace AbortSignal
   
   export
   %foreign "browser:lambda:x=>x.onabort"
-  prim__onabort : AbortSignal -> PrimIO EventHandler
+  prim__onabort : AbortSignal -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onabort = v}"
-  prim__setOnabort : AbortSignal -> EventHandler -> PrimIO ()
+  prim__setOnabort : AbortSignal -> Nullable EventHandlerNonNull -> PrimIO ()
 
 namespace AbstractRange
   
@@ -302,7 +302,9 @@ namespace Document
   
   export
   %foreign "browser:lambda:x=>x.currentScript"
-  prim__currentScript : Document -> PrimIO (Nullable HTMLOrSVGScriptElement)
+  prim__currentScript :  Document
+                      -> PrimIO (Nullable (Union2 HTMLScriptElement
+                                                  SVGScriptElement))
   
   export
   %foreign "browser:lambda:x=>x.defaultView"
@@ -402,19 +404,23 @@ namespace Document
   
   export
   %foreign "browser:lambda:x=>x.onreadystatechange"
-  prim__onreadystatechange : Document -> PrimIO EventHandler
+  prim__onreadystatechange : Document -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onreadystatechange = v}"
-  prim__setOnreadystatechange : Document -> EventHandler -> PrimIO ()
+  prim__setOnreadystatechange :  Document
+                              -> Nullable EventHandlerNonNull
+                              -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onvisibilitychange"
-  prim__onvisibilitychange : Document -> PrimIO EventHandler
+  prim__onvisibilitychange : Document -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onvisibilitychange = v}"
-  prim__setOnvisibilitychange : Document -> EventHandler -> PrimIO ()
+  prim__setOnvisibilitychange :  Document
+                              -> Nullable EventHandlerNonNull
+                              -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.plugins"
@@ -422,7 +428,7 @@ namespace Document
   
   export
   %foreign "browser:lambda:x=>x.readyState"
-  prim__readyState : Document -> PrimIO DocumentReadyState
+  prim__readyState : Document -> PrimIO String
   
   export
   %foreign "browser:lambda:x=>x.referrer"
@@ -450,7 +456,7 @@ namespace Document
   
   export
   %foreign "browser:lambda:x=>x.visibilityState"
-  prim__visibilityState : Document -> PrimIO VisibilityState
+  prim__visibilityState : Document -> PrimIO String
   
   export
   %foreign "browser:lambda:x=>x.vlinkColor"
@@ -883,7 +889,7 @@ namespace Event
   
   export
   %foreign "browser:lambda:x=>x.timeStamp"
-  prim__timeStamp : Event -> PrimIO DOMHighResTimeStamp
+  prim__timeStamp : Event -> PrimIO Double
   
   export
   %foreign "browser:lambda:x=>x.type"
@@ -1226,11 +1232,11 @@ namespace Performance
   
   export
   %foreign "browser:lambda:x=>x.timeOrigin"
-  prim__timeOrigin : Performance -> PrimIO DOMHighResTimeStamp
+  prim__timeOrigin : Performance -> PrimIO Double
   
   export
   %foreign "browser:lambda:x=>x.now()"
-  prim__now : Performance -> PrimIO DOMHighResTimeStamp
+  prim__now : Performance -> PrimIO Double
   
   export
   %foreign "browser:lambda:x=>x.toJSON()"
@@ -1344,15 +1350,17 @@ namespace ShadowRoot
   
   export
   %foreign "browser:lambda:x=>x.mode"
-  prim__mode : ShadowRoot -> PrimIO ShadowRootMode
+  prim__mode : ShadowRoot -> PrimIO String
   
   export
   %foreign "browser:lambda:x=>x.onslotchange"
-  prim__onslotchange : ShadowRoot -> PrimIO EventHandler
+  prim__onslotchange : ShadowRoot -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onslotchange = v}"
-  prim__setOnslotchange : ShadowRoot -> EventHandler -> PrimIO ()
+  prim__setOnslotchange :  ShadowRoot
+                        -> Nullable EventHandlerNonNull
+                        -> PrimIO ()
 
 namespace StaticRange
   
@@ -1609,7 +1617,7 @@ namespace AddEventListenerOptions
   
   export
   %foreign "browser:lambda:x=>x.once"
-  prim__once : AddEventListenerOptions -> PrimIO (UndefOr Boolean)
+  prim__once : AddEventListenerOptions -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.once = v}"
@@ -1617,7 +1625,7 @@ namespace AddEventListenerOptions
   
   export
   %foreign "browser:lambda:x=>x.passive"
-  prim__passive : AddEventListenerOptions -> PrimIO (UndefOr Boolean)
+  prim__passive : AddEventListenerOptions -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.passive = v}"
@@ -1625,7 +1633,7 @@ namespace AddEventListenerOptions
   
   export
   %foreign "browser:lambda:x=>x.signal"
-  prim__signal : AddEventListenerOptions -> PrimIO (UndefOr AbortSignal)
+  prim__signal : AddEventListenerOptions -> PrimIO $ UndefOr AbortSignal
   
   export
   %foreign "browser:lambda:(x,v)=>{x.signal = v}"
@@ -1639,7 +1647,7 @@ namespace CustomEventInit
   
   export
   %foreign "browser:lambda:x=>x.detail"
-  prim__detail : CustomEventInit -> PrimIO (UndefOr AnyPtr)
+  prim__detail : CustomEventInit -> PrimIO $ UndefOr AnyPtr
   
   export
   %foreign "browser:lambda:(x,v)=>{x.detail = v}"
@@ -1653,7 +1661,7 @@ namespace ElementCreationOptions
   
   export
   %foreign "browser:lambda:x=>x.is"
-  prim__is : ElementCreationOptions -> PrimIO (UndefOr String)
+  prim__is : ElementCreationOptions -> PrimIO $ UndefOr String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.is = v}"
@@ -1670,7 +1678,7 @@ namespace EventInit
   
   export
   %foreign "browser:lambda:x=>x.bubbles"
-  prim__bubbles : EventInit -> PrimIO (UndefOr Boolean)
+  prim__bubbles : EventInit -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.bubbles = v}"
@@ -1678,7 +1686,7 @@ namespace EventInit
   
   export
   %foreign "browser:lambda:x=>x.cancelable"
-  prim__cancelable : EventInit -> PrimIO (UndefOr Boolean)
+  prim__cancelable : EventInit -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.cancelable = v}"
@@ -1686,7 +1694,7 @@ namespace EventInit
   
   export
   %foreign "browser:lambda:x=>x.composed"
-  prim__composed : EventInit -> PrimIO (UndefOr Boolean)
+  prim__composed : EventInit -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.composed = v}"
@@ -1700,7 +1708,7 @@ namespace EventListenerOptions
   
   export
   %foreign "browser:lambda:x=>x.capture"
-  prim__capture : EventListenerOptions -> PrimIO (UndefOr Boolean)
+  prim__capture : EventListenerOptions -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.capture = v}"
@@ -1714,7 +1722,7 @@ namespace GetRootNodeOptions
   
   export
   %foreign "browser:lambda:x=>x.composed"
-  prim__composed : GetRootNodeOptions -> PrimIO (UndefOr Boolean)
+  prim__composed : GetRootNodeOptions -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.composed = v}"
@@ -1736,7 +1744,7 @@ namespace MutationObserverInit
   export
   %foreign "browser:lambda:x=>x.attributeFilter"
   prim__attributeFilter :  MutationObserverInit
-                        -> PrimIO (UndefOr (Array String))
+                        -> PrimIO $ UndefOr (Array String)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.attributeFilter = v}"
@@ -1746,7 +1754,7 @@ namespace MutationObserverInit
   
   export
   %foreign "browser:lambda:x=>x.attributeOldValue"
-  prim__attributeOldValue : MutationObserverInit -> PrimIO (UndefOr Boolean)
+  prim__attributeOldValue : MutationObserverInit -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.attributeOldValue = v}"
@@ -1756,7 +1764,7 @@ namespace MutationObserverInit
   
   export
   %foreign "browser:lambda:x=>x.attributes"
-  prim__attributes : MutationObserverInit -> PrimIO (UndefOr Boolean)
+  prim__attributes : MutationObserverInit -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.attributes = v}"
@@ -1764,7 +1772,7 @@ namespace MutationObserverInit
   
   export
   %foreign "browser:lambda:x=>x.characterData"
-  prim__characterData : MutationObserverInit -> PrimIO (UndefOr Boolean)
+  prim__characterData : MutationObserverInit -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.characterData = v}"
@@ -1772,7 +1780,7 @@ namespace MutationObserverInit
   
   export
   %foreign "browser:lambda:x=>x.characterDataOldValue"
-  prim__characterDataOldValue : MutationObserverInit -> PrimIO (UndefOr Boolean)
+  prim__characterDataOldValue : MutationObserverInit -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.characterDataOldValue = v}"
@@ -1782,7 +1790,7 @@ namespace MutationObserverInit
   
   export
   %foreign "browser:lambda:x=>x.childList"
-  prim__childList : MutationObserverInit -> PrimIO (UndefOr Boolean)
+  prim__childList : MutationObserverInit -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.childList = v}"
@@ -1790,7 +1798,7 @@ namespace MutationObserverInit
   
   export
   %foreign "browser:lambda:x=>x.subtree"
-  prim__subtree : MutationObserverInit -> PrimIO (UndefOr Boolean)
+  prim__subtree : MutationObserverInit -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.subtree = v}"
@@ -1800,11 +1808,11 @@ namespace ShadowRootInit
   
   export
   %foreign "browser:lambda:(a,b)=> {mode: a,delegatesFocus: b}"
-  prim__new : ShadowRootMode -> UndefOr Boolean -> PrimIO ShadowRootInit
+  prim__new : String -> UndefOr Boolean -> PrimIO ShadowRootInit
   
   export
   %foreign "browser:lambda:x=>x.delegatesFocus"
-  prim__delegatesFocus : ShadowRootInit -> PrimIO (UndefOr Boolean)
+  prim__delegatesFocus : ShadowRootInit -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.delegatesFocus = v}"
@@ -1812,11 +1820,11 @@ namespace ShadowRootInit
   
   export
   %foreign "browser:lambda:x=>x.mode"
-  prim__mode : ShadowRootInit -> PrimIO ShadowRootMode
+  prim__mode : ShadowRootInit -> PrimIO String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.mode = v}"
-  prim__setMode : ShadowRootInit -> ShadowRootMode -> PrimIO ()
+  prim__setMode : ShadowRootInit -> String -> PrimIO ()
 
 namespace StaticRangeInit
   

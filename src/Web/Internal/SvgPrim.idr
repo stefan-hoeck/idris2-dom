@@ -1294,7 +1294,7 @@ namespace SVGBoundingBoxOptions
   
   export
   %foreign "browser:lambda:x=>x.clipped"
-  prim__clipped : SVGBoundingBoxOptions -> PrimIO (UndefOr Boolean)
+  prim__clipped : SVGBoundingBoxOptions -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.clipped = v}"
@@ -1302,7 +1302,7 @@ namespace SVGBoundingBoxOptions
   
   export
   %foreign "browser:lambda:x=>x.fill"
-  prim__fill : SVGBoundingBoxOptions -> PrimIO (UndefOr Boolean)
+  prim__fill : SVGBoundingBoxOptions -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.fill = v}"
@@ -1310,7 +1310,7 @@ namespace SVGBoundingBoxOptions
   
   export
   %foreign "browser:lambda:x=>x.markers"
-  prim__markers : SVGBoundingBoxOptions -> PrimIO (UndefOr Boolean)
+  prim__markers : SVGBoundingBoxOptions -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.markers = v}"
@@ -1318,7 +1318,7 @@ namespace SVGBoundingBoxOptions
   
   export
   %foreign "browser:lambda:x=>x.stroke"
-  prim__stroke : SVGBoundingBoxOptions -> PrimIO (UndefOr Boolean)
+  prim__stroke : SVGBoundingBoxOptions -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.stroke = v}"

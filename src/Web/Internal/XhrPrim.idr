@@ -28,11 +28,11 @@ namespace FormData
   
   export
   %foreign "browser:lambda:(x,a)=>x.getAll(a)"
-  prim__getAll : FormData -> String -> PrimIO (Array FormDataEntryValue)
+  prim__getAll : FormData -> String -> PrimIO (Array (Union2 File String))
   
   export
   %foreign "browser:lambda:(x,a)=>x.get(a)"
-  prim__get : FormData -> String -> PrimIO (Nullable FormDataEntryValue)
+  prim__get : FormData -> String -> PrimIO (Nullable (Union2 File String))
   
   export
   %foreign "browser:lambda:(x,a)=>x.has(a)"
@@ -72,11 +72,14 @@ namespace XMLHttpRequest
   
   export
   %foreign "browser:lambda:x=>x.onreadystatechange"
-  prim__onreadystatechange : XMLHttpRequest -> PrimIO EventHandler
+  prim__onreadystatechange :  XMLHttpRequest
+                           -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onreadystatechange = v}"
-  prim__setOnreadystatechange : XMLHttpRequest -> EventHandler -> PrimIO ()
+  prim__setOnreadystatechange :  XMLHttpRequest
+                              -> Nullable EventHandlerNonNull
+                              -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.readyState"
@@ -92,13 +95,11 @@ namespace XMLHttpRequest
   
   export
   %foreign "browser:lambda:x=>x.responseType"
-  prim__responseType : XMLHttpRequest -> PrimIO XMLHttpRequestResponseType
+  prim__responseType : XMLHttpRequest -> PrimIO String
   
   export
   %foreign "browser:lambda:(x,v)=>{x.responseType = v}"
-  prim__setResponseType :  XMLHttpRequest
-                        -> XMLHttpRequestResponseType
-                        -> PrimIO ()
+  prim__setResponseType : XMLHttpRequest -> String -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.responseURL"
@@ -171,7 +172,22 @@ namespace XMLHttpRequest
   export
   %foreign "browser:lambda:(x,a)=>x.send(a)"
   prim__send :  XMLHttpRequest
-             -> UndefOr (Nullable (Union2 Document XMLHttpRequestBodyInit))
+             -> UndefOr (Nullable (Union16 Document
+                                           Blob
+                                           Int8Array
+                                           Int16Array
+                                           Int32Array
+                                           UInt8Array
+                                           UInt8Array
+                                           UInt8Array
+                                           UInt8ClampedArray
+                                           Float32Array
+                                           Float64Array
+                                           DataView
+                                           ArrayBuffer
+                                           FormData
+                                           URLSearchParams
+                                           String))
              -> PrimIO ()
   
   export
@@ -185,59 +201,80 @@ namespace XMLHttpRequestEventTarget
   
   export
   %foreign "browser:lambda:x=>x.onabort"
-  prim__onabort : XMLHttpRequestEventTarget -> PrimIO EventHandler
+  prim__onabort :  XMLHttpRequestEventTarget
+                -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onabort = v}"
-  prim__setOnabort : XMLHttpRequestEventTarget -> EventHandler -> PrimIO ()
+  prim__setOnabort :  XMLHttpRequestEventTarget
+                   -> Nullable EventHandlerNonNull
+                   -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onerror"
-  prim__onerror : XMLHttpRequestEventTarget -> PrimIO EventHandler
+  prim__onerror :  XMLHttpRequestEventTarget
+                -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onerror = v}"
-  prim__setOnerror : XMLHttpRequestEventTarget -> EventHandler -> PrimIO ()
+  prim__setOnerror :  XMLHttpRequestEventTarget
+                   -> Nullable EventHandlerNonNull
+                   -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onload"
-  prim__onload : XMLHttpRequestEventTarget -> PrimIO EventHandler
+  prim__onload :  XMLHttpRequestEventTarget
+               -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onload = v}"
-  prim__setOnload : XMLHttpRequestEventTarget -> EventHandler -> PrimIO ()
+  prim__setOnload :  XMLHttpRequestEventTarget
+                  -> Nullable EventHandlerNonNull
+                  -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onloadend"
-  prim__onloadend : XMLHttpRequestEventTarget -> PrimIO EventHandler
+  prim__onloadend :  XMLHttpRequestEventTarget
+                  -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onloadend = v}"
-  prim__setOnloadend : XMLHttpRequestEventTarget -> EventHandler -> PrimIO ()
+  prim__setOnloadend :  XMLHttpRequestEventTarget
+                     -> Nullable EventHandlerNonNull
+                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onloadstart"
-  prim__onloadstart : XMLHttpRequestEventTarget -> PrimIO EventHandler
+  prim__onloadstart :  XMLHttpRequestEventTarget
+                    -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onloadstart = v}"
-  prim__setOnloadstart : XMLHttpRequestEventTarget -> EventHandler -> PrimIO ()
+  prim__setOnloadstart :  XMLHttpRequestEventTarget
+                       -> Nullable EventHandlerNonNull
+                       -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onprogress"
-  prim__onprogress : XMLHttpRequestEventTarget -> PrimIO EventHandler
+  prim__onprogress :  XMLHttpRequestEventTarget
+                   -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onprogress = v}"
-  prim__setOnprogress : XMLHttpRequestEventTarget -> EventHandler -> PrimIO ()
+  prim__setOnprogress :  XMLHttpRequestEventTarget
+                      -> Nullable EventHandlerNonNull
+                      -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.ontimeout"
-  prim__ontimeout : XMLHttpRequestEventTarget -> PrimIO EventHandler
+  prim__ontimeout :  XMLHttpRequestEventTarget
+                  -> PrimIO (Nullable EventHandlerNonNull)
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ontimeout = v}"
-  prim__setOntimeout : XMLHttpRequestEventTarget -> EventHandler -> PrimIO ()
+  prim__setOntimeout :  XMLHttpRequestEventTarget
+                     -> Nullable EventHandlerNonNull
+                     -> PrimIO ()
 
 
 
@@ -256,7 +293,7 @@ namespace ProgressEventInit
   
   export
   %foreign "browser:lambda:x=>x.lengthComputable"
-  prim__lengthComputable : ProgressEventInit -> PrimIO (UndefOr Boolean)
+  prim__lengthComputable : ProgressEventInit -> PrimIO $ UndefOr Boolean
   
   export
   %foreign "browser:lambda:(x,v)=>{x.lengthComputable = v}"
@@ -264,7 +301,7 @@ namespace ProgressEventInit
   
   export
   %foreign "browser:lambda:x=>x.loaded"
-  prim__loaded : ProgressEventInit -> PrimIO (UndefOr UInt64)
+  prim__loaded : ProgressEventInit -> PrimIO $ UndefOr UInt64
   
   export
   %foreign "browser:lambda:(x,v)=>{x.loaded = v}"
@@ -272,7 +309,7 @@ namespace ProgressEventInit
   
   export
   %foreign "browser:lambda:x=>x.total"
-  prim__total : ProgressEventInit -> PrimIO (UndefOr UInt64)
+  prim__total : ProgressEventInit -> PrimIO $ UndefOr UInt64
   
   export
   %foreign "browser:lambda:(x,v)=>{x.total = v}"
