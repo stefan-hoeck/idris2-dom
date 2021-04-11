@@ -62,8 +62,10 @@ namespace XMLHttpRequestResponseType
 --------------------------------------------------------------------------------
 
 export data FormData : Type where [external]
+  
 export
 ToFFI FormData FormData where toFFI = id
+  
 export
 FromFFI FormData FormData where fromFFI = Just
 
@@ -72,8 +74,10 @@ SafeCast FormData where
   safeCast = unsafeCastOnPrototypeName "FormData"
 
 export data ProgressEvent : Type where [external]
+  
 export
 ToFFI ProgressEvent ProgressEvent where toFFI = id
+  
 export
 FromFFI ProgressEvent ProgressEvent where fromFFI = Just
 
@@ -82,8 +86,10 @@ SafeCast ProgressEvent where
   safeCast = unsafeCastOnPrototypeName "ProgressEvent"
 
 export data XMLHttpRequest : Type where [external]
+  
 export
 ToFFI XMLHttpRequest XMLHttpRequest where toFFI = id
+  
 export
 FromFFI XMLHttpRequest XMLHttpRequest where fromFFI = Just
 
@@ -92,8 +98,10 @@ SafeCast XMLHttpRequest where
   safeCast = unsafeCastOnPrototypeName "XMLHttpRequest"
 
 export data XMLHttpRequestEventTarget : Type where [external]
+  
 export
 ToFFI XMLHttpRequestEventTarget XMLHttpRequestEventTarget where toFFI = id
+  
 export
 FromFFI XMLHttpRequestEventTarget XMLHttpRequestEventTarget where fromFFI = Just
 
@@ -102,8 +110,10 @@ SafeCast XMLHttpRequestEventTarget where
   safeCast = unsafeCastOnPrototypeName "XMLHttpRequestEventTarget"
 
 export data XMLHttpRequestUpload : Type where [external]
+  
 export
 ToFFI XMLHttpRequestUpload XMLHttpRequestUpload where toFFI = id
+  
 export
 FromFFI XMLHttpRequestUpload XMLHttpRequestUpload where fromFFI = Just
 
@@ -116,8 +126,10 @@ SafeCast XMLHttpRequestUpload where
 --------------------------------------------------------------------------------
 
 export data ProgressEventInit : Type where [external]
+  
 export
 ToFFI ProgressEventInit ProgressEventInit where toFFI = id
+  
 export
 FromFFI ProgressEventInit ProgressEventInit where fromFFI = Just
 

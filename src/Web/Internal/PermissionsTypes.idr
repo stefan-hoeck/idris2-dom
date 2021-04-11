@@ -144,8 +144,10 @@ namespace PermissionName
 --------------------------------------------------------------------------------
 
 export data PermissionStatus : Type where [external]
+  
 export
 ToFFI PermissionStatus PermissionStatus where toFFI = id
+  
 export
 FromFFI PermissionStatus PermissionStatus where fromFFI = Just
 
@@ -154,8 +156,10 @@ SafeCast PermissionStatus where
   safeCast = unsafeCastOnPrototypeName "PermissionStatus"
 
 export data Permissions : Type where [external]
+  
 export
 ToFFI Permissions Permissions where toFFI = id
+  
 export
 FromFFI Permissions Permissions where fromFFI = Just
 
@@ -168,8 +172,10 @@ SafeCast Permissions where
 --------------------------------------------------------------------------------
 
 export data CameraDevicePermissionDescriptor : Type where [external]
+  
 export
 ToFFI CameraDevicePermissionDescriptor CameraDevicePermissionDescriptor where toFFI = id
+  
 export
 FromFFI CameraDevicePermissionDescriptor CameraDevicePermissionDescriptor where fromFFI = Just
 
@@ -178,8 +184,10 @@ SafeCast CameraDevicePermissionDescriptor where
   safeCast = unsafeCastOnPrototypeName "CameraDevicePermissionDescriptor"
 
 export data DevicePermissionDescriptor : Type where [external]
+  
 export
 ToFFI DevicePermissionDescriptor DevicePermissionDescriptor where toFFI = id
+  
 export
 FromFFI DevicePermissionDescriptor DevicePermissionDescriptor where fromFFI = Just
 
@@ -188,8 +196,10 @@ SafeCast DevicePermissionDescriptor where
   safeCast = unsafeCastOnPrototypeName "DevicePermissionDescriptor"
 
 export data MidiPermissionDescriptor : Type where [external]
+  
 export
 ToFFI MidiPermissionDescriptor MidiPermissionDescriptor where toFFI = id
+  
 export
 FromFFI MidiPermissionDescriptor MidiPermissionDescriptor where fromFFI = Just
 
@@ -198,8 +208,10 @@ SafeCast MidiPermissionDescriptor where
   safeCast = unsafeCastOnPrototypeName "MidiPermissionDescriptor"
 
 export data PermissionDescriptor : Type where [external]
+  
 export
 ToFFI PermissionDescriptor PermissionDescriptor where toFFI = id
+  
 export
 FromFFI PermissionDescriptor PermissionDescriptor where fromFFI = Just
 
@@ -208,8 +220,10 @@ SafeCast PermissionDescriptor where
   safeCast = unsafeCastOnPrototypeName "PermissionDescriptor"
 
 export data PermissionSetParameters : Type where [external]
+  
 export
 ToFFI PermissionSetParameters PermissionSetParameters where toFFI = id
+  
 export
 FromFFI PermissionSetParameters PermissionSetParameters where fromFFI = Just
 
@@ -218,8 +232,10 @@ SafeCast PermissionSetParameters where
   safeCast = unsafeCastOnPrototypeName "PermissionSetParameters"
 
 export data PushPermissionDescriptor : Type where [external]
+  
 export
 ToFFI PushPermissionDescriptor PushPermissionDescriptor where toFFI = id
+  
 export
 FromFFI PushPermissionDescriptor PushPermissionDescriptor where fromFFI = Just
 

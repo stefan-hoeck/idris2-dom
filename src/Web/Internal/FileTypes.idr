@@ -49,8 +49,10 @@ namespace EndingType
 --------------------------------------------------------------------------------
 
 export data Blob : Type where [external]
+  
 export
 ToFFI Blob Blob where toFFI = id
+  
 export
 FromFFI Blob Blob where fromFFI = Just
 
@@ -59,8 +61,10 @@ SafeCast Blob where
   safeCast = unsafeCastOnPrototypeName "Blob"
 
 export data File : Type where [external]
+  
 export
 ToFFI File File where toFFI = id
+  
 export
 FromFFI File File where fromFFI = Just
 
@@ -69,8 +73,10 @@ SafeCast File where
   safeCast = unsafeCastOnPrototypeName "File"
 
 export data FileList : Type where [external]
+  
 export
 ToFFI FileList FileList where toFFI = id
+  
 export
 FromFFI FileList FileList where fromFFI = Just
 
@@ -79,8 +85,10 @@ SafeCast FileList where
   safeCast = unsafeCastOnPrototypeName "FileList"
 
 export data FileReader : Type where [external]
+  
 export
 ToFFI FileReader FileReader where toFFI = id
+  
 export
 FromFFI FileReader FileReader where fromFFI = Just
 
@@ -89,8 +97,10 @@ SafeCast FileReader where
   safeCast = unsafeCastOnPrototypeName "FileReader"
 
 export data FileReaderSync : Type where [external]
+  
 export
 ToFFI FileReaderSync FileReaderSync where toFFI = id
+  
 export
 FromFFI FileReaderSync FileReaderSync where fromFFI = Just
 
@@ -103,8 +113,10 @@ SafeCast FileReaderSync where
 --------------------------------------------------------------------------------
 
 export data BlobPropertyBag : Type where [external]
+  
 export
 ToFFI BlobPropertyBag BlobPropertyBag where toFFI = id
+  
 export
 FromFFI BlobPropertyBag BlobPropertyBag where fromFFI = Just
 
@@ -113,8 +125,10 @@ SafeCast BlobPropertyBag where
   safeCast = unsafeCastOnPrototypeName "BlobPropertyBag"
 
 export data FilePropertyBag : Type where [external]
+  
 export
 ToFFI FilePropertyBag FilePropertyBag where toFFI = id
+  
 export
 FromFFI FilePropertyBag FilePropertyBag where fromFFI = Just
 
