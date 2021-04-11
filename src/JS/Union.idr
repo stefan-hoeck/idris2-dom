@@ -1,4 +1,4 @@
--- Unfortunately, using a list parameter does not work here
+||| Union types (= sum types) in the FFI.
 module JS.Union
 
 import Data.SOP

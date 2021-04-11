@@ -87,17 +87,3 @@ tryJS fun prim = MkEitherT $ map foo (fromPrim prim)
         foo ptr = case fromFFI ptr of
                        Nothing => Left $ CastErr fun ptr
                        Just v  => Right v
-
--- --------------------------------------------------------------------------------
--- --          n-ary sums
--- --------------------------------------------------------------------------------
--- 
--- export
--- NP (ToFFI . f) ks => ToFFI (NS f ks) where
---   toFFI = collapseNS . hcmap (ToFFI . f) toFFI
--- 
--- export
--- (np : NP (FromJS . f) ks) => FromJS (NS f ks) where
---   fromJS ptr = hchoice $ mapNP (htraverse fromP) (apInjsNP_ np)
---     where fromP : forall a . FromJS (f a) -> Maybe (f a)
---           fromP _ = fromJS {a = f a} ptr
