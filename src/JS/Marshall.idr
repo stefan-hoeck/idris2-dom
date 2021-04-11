@@ -47,6 +47,9 @@ ToFFI Double Double where toFFI = id
 export
 ToFFI String String where toFFI = id
 
+export
+ToFFI WindowProxy WindowProxy where toFFI = id
+
 ||| Interface supporting the use of a value as a
 ||| return type in a foreign function call.
 public export
@@ -79,6 +82,9 @@ FromFFI Double Double where fromFFI = Just
 
 export
 FromFFI String String where fromFFI = Just
+
+export
+FromFFI WindowProxy WindowProxy where fromFFI = Just
 
 export
 tryJS : FromFFI a ffiRepr => (fun : String) -> PrimIO ffiRepr -> JSIO a

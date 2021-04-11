@@ -50,6 +50,10 @@ export
   FromFFI (NS I [a,b]) (Union2 m n) where
     fromFFI ns = fromUnion2 ns >>= appFromFFI npp
 
+export
+FromFFI (Union2 a b) (Union2 a b) where
+  fromFFI = Just
+
 --------------------------------------------------------------------------------
 --          Union3
 --------------------------------------------------------------------------------
@@ -74,6 +78,10 @@ export
 (npp : NPP FromFFI [a,b,c] [m,n,o]) => NP SafeCast [m,n,o] =>
   FromFFI (NS I [a,b,c]) (Union3 m n o) where
     fromFFI ns = fromUnion3 ns >>= appFromFFI npp
+
+export
+FromFFI (Union3 a b c) (Union3 a b c) where
+  fromFFI = Just
 
 --------------------------------------------------------------------------------
 --          Union4
@@ -100,6 +108,10 @@ export
   FromFFI (NS I [a,b,c,d]) (Union4 m n o p) where
     fromFFI ns = fromUnion4 ns >>= appFromFFI npp
 
+export
+FromFFI (Union4 a b c d) (Union4 a b c d) where
+  fromFFI = Just
+
 --------------------------------------------------------------------------------
 --          Union5
 --------------------------------------------------------------------------------
@@ -125,6 +137,10 @@ export
 (npp : NPP FromFFI [a,b,c,d,e] [m,n,o,p,r]) => NP SafeCast [m,n,o,p,r] =>
   FromFFI (NS I [a,b,c,d,e]) (Union5 m n o p r) where
     fromFFI ns = fromUnion5 ns >>= appFromFFI npp
+
+export
+FromFFI (Union5 a b c d e) (Union5 a b c d e) where
+  fromFFI = Just
 
 --------------------------------------------------------------------------------
 --          Union6
@@ -153,6 +169,10 @@ NP SafeCast [m,n,o,p,r,s] =>
   FromFFI (NS I [a,b,c,d,e,f]) (Union6 m n o p r s) where
     fromFFI ns = fromUnion6 ns >>= appFromFFI npp
 
+export
+FromFFI (Union6 a b c d e f) (Union6 a b c d e f) where
+  fromFFI = Just
+
 --------------------------------------------------------------------------------
 --          Union7
 --------------------------------------------------------------------------------
@@ -179,6 +199,10 @@ export
 NP SafeCast [m,n,o,p,r,s,t] =>
   FromFFI (NS I [a,b,c,d,e,f,g]) (Union7 m n o p r s t) where
     fromFFI ns = fromUnion7 ns >>= appFromFFI npp
+
+export
+FromFFI (Union7 a b c d e f g) (Union7 a b c d e f g) where
+  fromFFI = Just
 
 --------------------------------------------------------------------------------
 --          Union8
@@ -207,6 +231,10 @@ NP SafeCast [m,n,o,p,r,s,t,u] =>
   FromFFI (NS I [a,b,c,d,e,f,g,h]) (Union8 m n o p r s t u) where
     fromFFI ns = fromUnion8 ns >>= appFromFFI npp
 
+export
+FromFFI (Union8 a b c d e f g h) (Union8 a b c d e f g h) where
+  fromFFI = Just
+
 --------------------------------------------------------------------------------
 --          Union9
 --------------------------------------------------------------------------------
@@ -233,6 +261,10 @@ export
 NP SafeCast [m,n,o,p,r,s,t,u,v] =>
   FromFFI (NS I [a,b,c,d,e,f,g,h,i]) (Union9 m n o p r s t u v) where
     fromFFI ns = fromUnion9 ns >>= appFromFFI npp
+
+export
+FromFFI (Union9 a b c d e f g h i) (Union9 a b c d e f g h i) where
+  fromFFI = Just
 
 --------------------------------------------------------------------------------
 --          Union10
@@ -261,6 +293,10 @@ NP SafeCast [m,n,o,p,r,s,t,u,v,w] =>
   FromFFI (NS I [a,b,c,d,e,f,g,h,i,j]) (Union10 m n o p r s t u v w) where
     fromFFI ns = fromUnion10 ns >>= appFromFFI npp
 
+export
+FromFFI (Union10 a b c d e f g h i j) (Union10 a b c d e f g h i j) where
+  fromFFI = Just
+
 --------------------------------------------------------------------------------
 --          Union11
 --------------------------------------------------------------------------------
@@ -287,6 +323,10 @@ export
 NP SafeCast [m,n,o,p,q,r,s,t,u,v,w] =>
   FromFFI (NS I [a,b,c,d,e,f,g,h,i,j,k]) (Union11 m n o p q r s t u v w) where
     fromFFI ns = fromUnion11 ns >>= appFromFFI npp
+
+export
+FromFFI (Union11 a b c d e f g h i j k) (Union11 a b c d e f g h i j k) where
+  fromFFI = Just
 
 --------------------------------------------------------------------------------
 --          Union12
@@ -315,6 +355,10 @@ NP SafeCast [m,n,o,p,q,r,s,t,u,v,w,x] =>
   FromFFI (NS I [a,b,c,d,e,f,g,h,i,j,k,l]) (Union12 m n o p q r s t u v w x) where
     fromFFI ns = fromUnion12 ns >>= appFromFFI npp
 
+export
+FromFFI (Union12 a b c d e f g h i j k l) (Union12 a b c d e f g h i j k l) where
+  fromFFI = Just
+
 --------------------------------------------------------------------------------
 --          Union13
 --------------------------------------------------------------------------------
@@ -341,6 +385,10 @@ export
 NP SafeCast [m,n,o,p,q,r,s,t,u,v,w,x,y] =>
   FromFFI (NS I [a,b,c,d,e,f,g,h,i,j,k,l,a1]) (Union13 m n o p q r s t u v w x y) where
     fromFFI ns = fromUnion13 ns >>= appFromFFI npp
+
+export
+FromFFI (Union13 a b c d e f g h i j k l m) (Union13 a b c d e f g h i j k l m) where
+  fromFFI = Just
 
 --------------------------------------------------------------------------------
 --          Union14
@@ -369,6 +417,10 @@ NP SafeCast [m,n,o,p,q,r,s,t,u,v,w,x,y,z] =>
   FromFFI (NS I [a,b,c,d,e,f,g,h,i,j,k,l,a1,a2]) (Union14 m n o p q r s t u v w x y z) where
     fromFFI ns = fromUnion14 ns >>= appFromFFI npp
 
+export
+FromFFI (Union14 a b c d e f g h i j k l m n) (Union14 a b c d e f g h i j k l m n) where
+  fromFFI = Just
+
 --------------------------------------------------------------------------------
 --          Union15
 --------------------------------------------------------------------------------
@@ -396,6 +448,10 @@ NP SafeCast [m,n,o,p,q,r,s,t,u,v,w,x,y,z,z1] =>
   FromFFI (NS I [a,b,c,d,e,f,g,h,i,j,k,l,a1,a2,a3]) (Union15 m n o p q r s t u v w x y z z1) where
     fromFFI ns = fromUnion15 ns >>= appFromFFI npp
 
+export
+FromFFI (Union15 a b c d e f g h i j k l m n o) (Union15 a b c d e f g h i j k l m n o) where
+  fromFFI = Just
+
 --------------------------------------------------------------------------------
 --          Union16
 --------------------------------------------------------------------------------
@@ -422,3 +478,7 @@ export
 NP SafeCast [m,n,o,p,q,r,s,t,u,v,w,x,y,z,z1,z2] =>
   FromFFI (NS I [a,b,c,d,e,f,g,h,i,j,k,l,a1,a2,a3,a4]) (Union16 m n o p q r s t u v w x y z z1 z2) where
     fromFFI ns = fromUnion16 ns >>= appFromFFI npp
+
+export
+FromFFI (Union16 a b c d e f g h i j k l m n o p) (Union16 a b c d e f g h i j k l m n o p) where
+  fromFFI = Just
