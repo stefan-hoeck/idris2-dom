@@ -260,3 +260,165 @@ export
 NP SafeCast [m,n,o,p,r,s,t,u,v,w] =>
   FromFFI (NS I [a,b,c,d,e,f,g,h,i,j]) (Union10 m n o p r s t u v w) where
     fromFFI ns = fromUnion10 ns >>= appFromFFI npp
+
+--------------------------------------------------------------------------------
+--          Union11
+--------------------------------------------------------------------------------
+
+export
+data Union11 : Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type where [external]
+
+export
+toUnion11 : NS I [a,b,c,d,e,f,g,h,i,j,k] -> Union11 a b c d e f g h i j k
+toUnion11 = collapseNS . mapNS believe_me
+
+export
+fromUnion11 : NP SafeCast [a,b,c,d,e,f,g,h,i,j,k] =>
+             Union11 a b c d e f g h i j k -> Maybe $ NS I [a,b,c,d,e,f,g,h,i,j,k]
+fromUnion11 = safeCastNS
+
+export
+(npp : NPP ToFFI [a,b,c,d,e,f,g,h,i,j,k] [m,n,o,p,q,r,s,t,u,v,w]) =>
+  ToFFI (NS I [a,b,c,d,e,f,g,h,i,j,k]) (Union11 m n o p q r s t u v w) where
+    toFFI ns = toUnion11 $ appToFFI npp ns
+
+export
+(npp : NPP FromFFI [a,b,c,d,e,f,g,h,i,j,k] [m,n,o,p,q,r,s,t,u,v,w]) =>
+NP SafeCast [m,n,o,p,q,r,s,t,u,v,w] =>
+  FromFFI (NS I [a,b,c,d,e,f,g,h,i,j,k]) (Union11 m n o p q r s t u v w) where
+    fromFFI ns = fromUnion11 ns >>= appFromFFI npp
+
+--------------------------------------------------------------------------------
+--          Union12
+--------------------------------------------------------------------------------
+
+export
+data Union12 : Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type where [external]
+
+export
+toUnion12 : NS I [a,b,c,d,e,f,g,h,i,j,k,l] -> Union12 a b c d e f g h i j k l
+toUnion12 = collapseNS . mapNS believe_me
+
+export
+fromUnion12 : NP SafeCast [a,b,c,d,e,f,g,h,i,j,k,l] =>
+             Union12 a b c d e f g h i j k l -> Maybe $ NS I [a,b,c,d,e,f,g,h,i,j,k,l]
+fromUnion12 = safeCastNS
+
+export
+(npp : NPP ToFFI [a,b,c,d,e,f,g,h,i,j,k,l] [m,n,o,p,q,r,s,t,u,v,w,x]) =>
+  ToFFI (NS I [a,b,c,d,e,f,g,h,i,j,k,l]) (Union12 m n o p q r s t u v w x) where
+    toFFI ns = toUnion12 $ appToFFI npp ns
+
+export
+(npp : NPP FromFFI [a,b,c,d,e,f,g,h,i,j,k,l] [m,n,o,p,q,r,s,t,u,v,w,x]) =>
+NP SafeCast [m,n,o,p,q,r,s,t,u,v,w,x] =>
+  FromFFI (NS I [a,b,c,d,e,f,g,h,i,j,k,l]) (Union12 m n o p q r s t u v w x) where
+    fromFFI ns = fromUnion12 ns >>= appFromFFI npp
+
+--------------------------------------------------------------------------------
+--          Union13
+--------------------------------------------------------------------------------
+
+export
+data Union13 : Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type where [external]
+
+export
+toUnion13 : NS I [a,b,c,d,e,f,g,h,i,j,k,l,a1] -> Union13 a b c d e f g h i j k l a1
+toUnion13 = collapseNS . mapNS believe_me
+
+export
+fromUnion13 : NP SafeCast [a,b,c,d,e,f,g,h,i,j,k,l,a1] =>
+             Union13 a b c d e f g h i j k l a1 -> Maybe $ NS I [a,b,c,d,e,f,g,h,i,j,k,l,a1]
+fromUnion13 = safeCastNS
+
+export
+(npp : NPP ToFFI [a,b,c,d,e,f,g,h,i,j,k,l,a1] [m,n,o,p,q,r,s,t,u,v,w,x,y]) =>
+  ToFFI (NS I [a,b,c,d,e,f,g,h,i,j,k,l,a1]) (Union13 m n o p q r s t u v w x y) where
+    toFFI ns = toUnion13 $ appToFFI npp ns
+
+export
+(npp : NPP FromFFI [a,b,c,d,e,f,g,h,i,j,k,l,a1] [m,n,o,p,q,r,s,t,u,v,w,x,y]) =>
+NP SafeCast [m,n,o,p,q,r,s,t,u,v,w,x,y] =>
+  FromFFI (NS I [a,b,c,d,e,f,g,h,i,j,k,l,a1]) (Union13 m n o p q r s t u v w x y) where
+    fromFFI ns = fromUnion13 ns >>= appFromFFI npp
+
+--------------------------------------------------------------------------------
+--          Union14
+--------------------------------------------------------------------------------
+
+export
+data Union14 : Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type where [external]
+
+export
+toUnion14 : NS I [a,b,c,d,e,f,g,h,i,j,k,l,a1,a2] -> Union14 a b c d e f g h i j k l a1 a2
+toUnion14 = collapseNS . mapNS believe_me
+
+export
+fromUnion14 : NP SafeCast [a,b,c,d,e,f,g,h,i,j,k,l,a1,a2] =>
+             Union14 a b c d e f g h i j k l a1 a2 -> Maybe $ NS I [a,b,c,d,e,f,g,h,i,j,k,l,a1,a2]
+fromUnion14 = safeCastNS
+
+export
+(npp : NPP ToFFI [a,b,c,d,e,f,g,h,i,j,k,l,a1,a2] [m,n,o,p,q,r,s,t,u,v,w,x,y,z]) =>
+  ToFFI (NS I [a,b,c,d,e,f,g,h,i,j,k,l,a1,a2]) (Union14 m n o p q r s t u v w x y z) where
+    toFFI ns = toUnion14 $ appToFFI npp ns
+
+export
+(npp : NPP FromFFI [a,b,c,d,e,f,g,h,i,j,k,l,a1,a2] [m,n,o,p,q,r,s,t,u,v,w,x,y,z]) =>
+NP SafeCast [m,n,o,p,q,r,s,t,u,v,w,x,y,z] =>
+  FromFFI (NS I [a,b,c,d,e,f,g,h,i,j,k,l,a1,a2]) (Union14 m n o p q r s t u v w x y z) where
+    fromFFI ns = fromUnion14 ns >>= appFromFFI npp
+
+--------------------------------------------------------------------------------
+--          Union15
+--------------------------------------------------------------------------------
+
+export
+data Union15 : Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type where [external]
+
+export
+toUnion15 : NS I [a,b,c,d,e,f,g,h,i,j,k,l,a1,a2,a3] -> Union15 a b c d e f g h i j k l a1 a2 a3
+toUnion15 = collapseNS . mapNS believe_me
+
+export
+fromUnion15 : NP SafeCast [a,b,c,d,e,f,g,h,i,j,k,l,a1,a2,a3] =>
+             Union15 a b c d e f g h i j k l a1 a2 a3 -> Maybe $ NS I [a,b,c,d,e,f,g,h,i,j,k,l,a1,a2,a3]
+fromUnion15 = safeCastNS
+
+export
+(npp : NPP ToFFI [a,b,c,d,e,f,g,h,i,j,k,l,a1,a2,a3] [m,n,o,p,q,r,s,t,u,v,w,x,y,z,z1]) =>
+  ToFFI (NS I [a,b,c,d,e,f,g,h,i,j,k,l,a1,a2,a3]) (Union15 m n o p q r s t u v w x y z z1) where
+    toFFI ns = toUnion15 $ appToFFI npp ns
+
+export
+(npp : NPP FromFFI [a,b,c,d,e,f,g,h,i,j,k,l,a1,a2,a3] [m,n,o,p,q,r,s,t,u,v,w,x,y,z,z1]) =>
+NP SafeCast [m,n,o,p,q,r,s,t,u,v,w,x,y,z,z1] =>
+  FromFFI (NS I [a,b,c,d,e,f,g,h,i,j,k,l,a1,a2,a3]) (Union15 m n o p q r s t u v w x y z z1) where
+    fromFFI ns = fromUnion15 ns >>= appFromFFI npp
+
+--------------------------------------------------------------------------------
+--          Union16
+--------------------------------------------------------------------------------
+
+export
+data Union16 : Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type where [external]
+
+export
+toUnion16 : NS I [a,b,c,d,e,f,g,h,i,j,k,l,a1,a2,a3,a4] -> Union16 a b c d e f g h i j k l a1 a2 a3 a4
+toUnion16 = collapseNS . mapNS believe_me
+
+export
+fromUnion16 : NP SafeCast [a,b,c,d,e,f,g,h,i,j,k,l,a1,a2,a3,a4] =>
+             Union16 a b c d e f g h i j k l a1 a2 a3 a4 -> Maybe $ NS I [a,b,c,d,e,f,g,h,i,j,k,l,a1,a2,a3,a4]
+fromUnion16 = safeCastNS
+
+export
+(npp : NPP ToFFI [a,b,c,d,e,f,g,h,i,j,k,l,a1,a2,a3,a4] [m,n,o,p,q,r,s,t,u,v,w,x,y,z,z1,z2]) =>
+  ToFFI (NS I [a,b,c,d,e,f,g,h,i,j,k,l,a1,a2,a3,a4]) (Union16 m n o p q r s t u v w x y z z1 z2) where
+    toFFI ns = toUnion16 $ appToFFI npp ns
+
+export
+(npp : NPP FromFFI [a,b,c,d,e,f,g,h,i,j,k,l,a1,a2,a3,a4] [m,n,o,p,q,r,s,t,u,v,w,x,y,z,z1,z2]) =>
+NP SafeCast [m,n,o,p,q,r,s,t,u,v,w,x,y,z,z1,z2] =>
+  FromFFI (NS I [a,b,c,d,e,f,g,h,i,j,k,l,a1,a2,a3,a4]) (Union16 m n o p q r s t u v w x y z z1 z2) where
+    fromFFI ns = fromUnion16 ns >>= appFromFFI npp
