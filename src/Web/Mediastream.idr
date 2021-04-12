@@ -89,16 +89,10 @@ namespace MediaDevices
     mixins =  []
   
   export
-  ondevicechange : (obj : MediaDevices) -> JSIO (Maybe EventHandlerNonNull)
-  ondevicechange a = tryJS "MediaDevices.ondevicechange"
-                   $ MediaDevices.prim__ondevicechange a
-  
-  export
-  setOndevicechange :  (obj : MediaDevices)
-                    -> (value : Maybe EventHandlerNonNull)
-                    -> JSIO ()
-  setOndevicechange a b = primJS
-                        $ MediaDevices.prim__setOndevicechange a (toFFI b)
+  ondevicechange : MediaDevices -> Attribute False Maybe EventHandlerNonNull
+  ondevicechange = fromNullablePrim "MediaDevices.getondevicechange"
+                                    prim__ondevicechange
+                                    prim__setOndevicechange
   
   export
   enumerateDevices :  (obj : MediaDevices)
@@ -150,25 +144,16 @@ namespace MediaStream
   id a = primJS $ MediaStream.prim__id a
   
   export
-  onaddtrack : (obj : MediaStream) -> JSIO (Maybe EventHandlerNonNull)
-  onaddtrack a = tryJS "MediaStream.onaddtrack" $ MediaStream.prim__onaddtrack a
+  onaddtrack : MediaStream -> Attribute False Maybe EventHandlerNonNull
+  onaddtrack = fromNullablePrim "MediaStream.getonaddtrack"
+                                prim__onaddtrack
+                                prim__setOnaddtrack
   
   export
-  setOnaddtrack :  (obj : MediaStream)
-                -> (value : Maybe EventHandlerNonNull)
-                -> JSIO ()
-  setOnaddtrack a b = primJS $ MediaStream.prim__setOnaddtrack a (toFFI b)
-  
-  export
-  onremovetrack : (obj : MediaStream) -> JSIO (Maybe EventHandlerNonNull)
-  onremovetrack a = tryJS "MediaStream.onremovetrack"
-                  $ MediaStream.prim__onremovetrack a
-  
-  export
-  setOnremovetrack :  (obj : MediaStream)
-                   -> (value : Maybe EventHandlerNonNull)
-                   -> JSIO ()
-  setOnremovetrack a b = primJS $ MediaStream.prim__setOnremovetrack a (toFFI b)
+  onremovetrack : MediaStream -> Attribute False Maybe EventHandlerNonNull
+  onremovetrack = fromNullablePrim "MediaStream.getonremovetrack"
+                                   prim__onremovetrack
+                                   prim__setOnremovetrack
   
   export
   addTrack : (obj : MediaStream) -> (track : MediaStreamTrack) -> JSIO ()
@@ -210,13 +195,10 @@ namespace MediaStreamTrack
     mixins =  []
   
   export
-  enabled : (obj : MediaStreamTrack) -> JSIO Bool
-  enabled a = tryJS "MediaStreamTrack.enabled"
-            $ MediaStreamTrack.prim__enabled a
-  
-  export
-  setEnabled : (obj : MediaStreamTrack) -> (value : Bool) -> JSIO ()
-  setEnabled a b = primJS $ MediaStreamTrack.prim__setEnabled a (toFFI b)
+  enabled : MediaStreamTrack -> Attribute True I Bool
+  enabled = fromPrim "MediaStreamTrack.getenabled"
+                     prim__enabled
+                     prim__setEnabled
   
   export
   id : (obj : MediaStreamTrack) -> JSIO String
@@ -235,36 +217,22 @@ namespace MediaStreamTrack
   muted a = tryJS "MediaStreamTrack.muted" $ MediaStreamTrack.prim__muted a
   
   export
-  onended : (obj : MediaStreamTrack) -> JSIO (Maybe EventHandlerNonNull)
-  onended a = tryJS "MediaStreamTrack.onended"
-            $ MediaStreamTrack.prim__onended a
+  onended : MediaStreamTrack -> Attribute False Maybe EventHandlerNonNull
+  onended = fromNullablePrim "MediaStreamTrack.getonended"
+                             prim__onended
+                             prim__setOnended
   
   export
-  setOnended :  (obj : MediaStreamTrack)
-             -> (value : Maybe EventHandlerNonNull)
-             -> JSIO ()
-  setOnended a b = primJS $ MediaStreamTrack.prim__setOnended a (toFFI b)
+  onmute : MediaStreamTrack -> Attribute False Maybe EventHandlerNonNull
+  onmute = fromNullablePrim "MediaStreamTrack.getonmute"
+                            prim__onmute
+                            prim__setOnmute
   
   export
-  onmute : (obj : MediaStreamTrack) -> JSIO (Maybe EventHandlerNonNull)
-  onmute a = tryJS "MediaStreamTrack.onmute" $ MediaStreamTrack.prim__onmute a
-  
-  export
-  setOnmute :  (obj : MediaStreamTrack)
-            -> (value : Maybe EventHandlerNonNull)
-            -> JSIO ()
-  setOnmute a b = primJS $ MediaStreamTrack.prim__setOnmute a (toFFI b)
-  
-  export
-  onunmute : (obj : MediaStreamTrack) -> JSIO (Maybe EventHandlerNonNull)
-  onunmute a = tryJS "MediaStreamTrack.onunmute"
-             $ MediaStreamTrack.prim__onunmute a
-  
-  export
-  setOnunmute :  (obj : MediaStreamTrack)
-              -> (value : Maybe EventHandlerNonNull)
-              -> JSIO ()
-  setOnunmute a b = primJS $ MediaStreamTrack.prim__setOnunmute a (toFFI b)
+  onunmute : MediaStreamTrack -> Attribute False Maybe EventHandlerNonNull
+  onunmute = fromNullablePrim "MediaStreamTrack.getonunmute"
+                              prim__onunmute
+                              prim__setOnunmute
   
   export
   readyState : (obj : MediaStreamTrack) -> JSIO MediaStreamTrackState
@@ -378,34 +346,16 @@ namespace ConstrainBooleanParameters
   new' = primJS $ ConstrainBooleanParameters.prim__new undef undef
   
   export
-  exact : (obj : ConstrainBooleanParameters) -> JSIO $ Optional Bool
-  exact a = tryJS "ConstrainBooleanParameters.exact"
-          $ ConstrainBooleanParameters.prim__exact a
+  exact : ConstrainBooleanParameters -> Attribute False Optional Bool
+  exact = fromUndefOrPrimNoDefault "ConstrainBooleanParameters.getexact"
+                                   prim__exact
+                                   prim__setExact
   
   export
-  setExact :  (obj : ConstrainBooleanParameters)
-           -> (value : Optional Bool)
-           -> JSIO ()
-  setExact a b = primJS $ ConstrainBooleanParameters.prim__setExact a (toFFI b)
-
-  export
-  setExact' : (obj : ConstrainBooleanParameters) -> JSIO ()
-  setExact' a = primJS $ ConstrainBooleanParameters.prim__setExact a undef
-  
-  export
-  ideal : (obj : ConstrainBooleanParameters) -> JSIO $ Optional Bool
-  ideal a = tryJS "ConstrainBooleanParameters.ideal"
-          $ ConstrainBooleanParameters.prim__ideal a
-  
-  export
-  setIdeal :  (obj : ConstrainBooleanParameters)
-           -> (value : Optional Bool)
-           -> JSIO ()
-  setIdeal a b = primJS $ ConstrainBooleanParameters.prim__setIdeal a (toFFI b)
-
-  export
-  setIdeal' : (obj : ConstrainBooleanParameters) -> JSIO ()
-  setIdeal' a = primJS $ ConstrainBooleanParameters.prim__setIdeal a undef
+  ideal : ConstrainBooleanParameters -> Attribute False Optional Bool
+  ideal = fromUndefOrPrimNoDefault "ConstrainBooleanParameters.getideal"
+                                   prim__ideal
+                                   prim__setIdeal
 
 namespace ConstrainDOMStringParameters
   
@@ -426,38 +376,18 @@ namespace ConstrainDOMStringParameters
   new' = primJS $ ConstrainDOMStringParameters.prim__new undef undef
   
   export
-  exact :  (obj : ConstrainDOMStringParameters)
-        -> JSIO $ Optional (Union2 String (Array String))
-  exact a = tryJS "ConstrainDOMStringParameters.exact"
-          $ ConstrainDOMStringParameters.prim__exact a
+  exact : ConstrainDOMStringParameters -> Attribute False Optional (Union2 String
+                                                                           (Array String))
+  exact = fromUndefOrPrimNoDefault "ConstrainDOMStringParameters.getexact"
+                                   prim__exact
+                                   prim__setExact
   
   export
-  setExact :  (obj : ConstrainDOMStringParameters)
-           -> (value : Optional (NS I [ String , Array String ]))
-           -> JSIO ()
-  setExact a b = primJS
-               $ ConstrainDOMStringParameters.prim__setExact a (toFFI b)
-
-  export
-  setExact' : (obj : ConstrainDOMStringParameters) -> JSIO ()
-  setExact' a = primJS $ ConstrainDOMStringParameters.prim__setExact a undef
-  
-  export
-  ideal :  (obj : ConstrainDOMStringParameters)
-        -> JSIO $ Optional (Union2 String (Array String))
-  ideal a = tryJS "ConstrainDOMStringParameters.ideal"
-          $ ConstrainDOMStringParameters.prim__ideal a
-  
-  export
-  setIdeal :  (obj : ConstrainDOMStringParameters)
-           -> (value : Optional (NS I [ String , Array String ]))
-           -> JSIO ()
-  setIdeal a b = primJS
-               $ ConstrainDOMStringParameters.prim__setIdeal a (toFFI b)
-
-  export
-  setIdeal' : (obj : ConstrainDOMStringParameters) -> JSIO ()
-  setIdeal' a = primJS $ ConstrainDOMStringParameters.prim__setIdeal a undef
+  ideal : ConstrainDOMStringParameters -> Attribute False Optional (Union2 String
+                                                                           (Array String))
+  ideal = fromUndefOrPrimNoDefault "ConstrainDOMStringParameters.getideal"
+                                   prim__ideal
+                                   prim__setIdeal
 
 namespace ConstrainDoubleRange
   
@@ -478,34 +408,16 @@ namespace ConstrainDoubleRange
   new' = primJS $ ConstrainDoubleRange.prim__new undef undef
   
   export
-  exact : (obj : ConstrainDoubleRange) -> JSIO $ Optional Double
-  exact a = tryJS "ConstrainDoubleRange.exact"
-          $ ConstrainDoubleRange.prim__exact a
+  exact : ConstrainDoubleRange -> Attribute False Optional Double
+  exact = fromUndefOrPrimNoDefault "ConstrainDoubleRange.getexact"
+                                   prim__exact
+                                   prim__setExact
   
   export
-  setExact :  (obj : ConstrainDoubleRange)
-           -> (value : Optional Double)
-           -> JSIO ()
-  setExact a b = primJS $ ConstrainDoubleRange.prim__setExact a (toFFI b)
-
-  export
-  setExact' : (obj : ConstrainDoubleRange) -> JSIO ()
-  setExact' a = primJS $ ConstrainDoubleRange.prim__setExact a undef
-  
-  export
-  ideal : (obj : ConstrainDoubleRange) -> JSIO $ Optional Double
-  ideal a = tryJS "ConstrainDoubleRange.ideal"
-          $ ConstrainDoubleRange.prim__ideal a
-  
-  export
-  setIdeal :  (obj : ConstrainDoubleRange)
-           -> (value : Optional Double)
-           -> JSIO ()
-  setIdeal a b = primJS $ ConstrainDoubleRange.prim__setIdeal a (toFFI b)
-
-  export
-  setIdeal' : (obj : ConstrainDoubleRange) -> JSIO ()
-  setIdeal' a = primJS $ ConstrainDoubleRange.prim__setIdeal a undef
+  ideal : ConstrainDoubleRange -> Attribute False Optional Double
+  ideal = fromUndefOrPrimNoDefault "ConstrainDoubleRange.getideal"
+                                   prim__ideal
+                                   prim__setIdeal
 
 namespace ConstrainULongRange
   
@@ -526,30 +438,16 @@ namespace ConstrainULongRange
   new' = primJS $ ConstrainULongRange.prim__new undef undef
   
   export
-  exact : (obj : ConstrainULongRange) -> JSIO $ Optional UInt32
-  exact a = tryJS "ConstrainULongRange.exact"
-          $ ConstrainULongRange.prim__exact a
+  exact : ConstrainULongRange -> Attribute False Optional UInt32
+  exact = fromUndefOrPrimNoDefault "ConstrainULongRange.getexact"
+                                   prim__exact
+                                   prim__setExact
   
   export
-  setExact : (obj : ConstrainULongRange) -> (value : Optional UInt32) -> JSIO ()
-  setExact a b = primJS $ ConstrainULongRange.prim__setExact a (toFFI b)
-
-  export
-  setExact' : (obj : ConstrainULongRange) -> JSIO ()
-  setExact' a = primJS $ ConstrainULongRange.prim__setExact a undef
-  
-  export
-  ideal : (obj : ConstrainULongRange) -> JSIO $ Optional UInt32
-  ideal a = tryJS "ConstrainULongRange.ideal"
-          $ ConstrainULongRange.prim__ideal a
-  
-  export
-  setIdeal : (obj : ConstrainULongRange) -> (value : Optional UInt32) -> JSIO ()
-  setIdeal a b = primJS $ ConstrainULongRange.prim__setIdeal a (toFFI b)
-
-  export
-  setIdeal' : (obj : ConstrainULongRange) -> JSIO ()
-  setIdeal' a = primJS $ ConstrainULongRange.prim__setIdeal a undef
+  ideal : ConstrainULongRange -> Attribute False Optional UInt32
+  ideal = fromUndefOrPrimNoDefault "ConstrainULongRange.getideal"
+                                   prim__ideal
+                                   prim__setIdeal
 
 namespace ConstraintSet
   
@@ -580,18 +478,10 @@ namespace Constraints
   new' = primJS $ Constraints.prim__new undef
   
   export
-  advanced : (obj : Constraints) -> JSIO $ Optional (Array ConstraintSet)
-  advanced a = tryJS "Constraints.advanced" $ Constraints.prim__advanced a
-  
-  export
-  setAdvanced :  (obj : Constraints)
-              -> (value : Optional (Array ConstraintSet))
-              -> JSIO ()
-  setAdvanced a b = primJS $ Constraints.prim__setAdvanced a (toFFI b)
-
-  export
-  setAdvanced' : (obj : Constraints) -> JSIO ()
-  setAdvanced' a = primJS $ Constraints.prim__setAdvanced a undef
+  advanced : Constraints -> Attribute False Optional (Array ConstraintSet)
+  advanced = fromUndefOrPrimNoDefault "Constraints.getadvanced"
+                                      prim__advanced
+                                      prim__setAdvanced
 
 namespace DoubleRange
   
@@ -610,28 +500,12 @@ namespace DoubleRange
   new' = primJS $ DoubleRange.prim__new undef undef
   
   export
-  max : (obj : DoubleRange) -> JSIO $ Optional Double
-  max a = tryJS "DoubleRange.max" $ DoubleRange.prim__max a
+  max : DoubleRange -> Attribute False Optional Double
+  max = fromUndefOrPrimNoDefault "DoubleRange.getmax" prim__max prim__setMax
   
   export
-  setMax : (obj : DoubleRange) -> (value : Optional Double) -> JSIO ()
-  setMax a b = primJS $ DoubleRange.prim__setMax a (toFFI b)
-
-  export
-  setMax' : (obj : DoubleRange) -> JSIO ()
-  setMax' a = primJS $ DoubleRange.prim__setMax a undef
-  
-  export
-  min : (obj : DoubleRange) -> JSIO $ Optional Double
-  min a = tryJS "DoubleRange.min" $ DoubleRange.prim__min a
-  
-  export
-  setMin : (obj : DoubleRange) -> (value : Optional Double) -> JSIO ()
-  setMin a b = primJS $ DoubleRange.prim__setMin a (toFFI b)
-
-  export
-  setMin' : (obj : DoubleRange) -> JSIO ()
-  setMin' a = primJS $ DoubleRange.prim__setMin a undef
+  min : DoubleRange -> Attribute False Optional Double
+  min = fromUndefOrPrimNoDefault "DoubleRange.getmin" prim__min prim__setMin
 
 namespace MediaStreamConstraints
   
@@ -652,36 +526,22 @@ namespace MediaStreamConstraints
   new' = primJS $ MediaStreamConstraints.prim__new undef undef
   
   export
-  audio :  (obj : MediaStreamConstraints)
-        -> JSIO $ Optional (NS I [ Bool , MediaTrackConstraints ])
-  audio a = tryJS "MediaStreamConstraints.audio"
-          $ MediaStreamConstraints.prim__audio a
+  audio : MediaStreamConstraints -> Attribute True Optional (NS I [ Bool
+                                                                  , MediaTrackConstraints
+                                                                  ])
+  audio = fromUndefOrPrim "MediaStreamConstraints.getaudio"
+                          prim__audio
+                          prim__setAudio
+                          (inject False)
   
   export
-  setAudio :  (obj : MediaStreamConstraints)
-           -> (value : Optional (NS I [ Bool , MediaTrackConstraints ]))
-           -> JSIO ()
-  setAudio a b = primJS $ MediaStreamConstraints.prim__setAudio a (toFFI b)
-
-  export
-  setAudio' : (obj : MediaStreamConstraints) -> JSIO ()
-  setAudio' a = primJS $ MediaStreamConstraints.prim__setAudio a undef
-  
-  export
-  video :  (obj : MediaStreamConstraints)
-        -> JSIO $ Optional (NS I [ Bool , MediaTrackConstraints ])
-  video a = tryJS "MediaStreamConstraints.video"
-          $ MediaStreamConstraints.prim__video a
-  
-  export
-  setVideo :  (obj : MediaStreamConstraints)
-           -> (value : Optional (NS I [ Bool , MediaTrackConstraints ]))
-           -> JSIO ()
-  setVideo a b = primJS $ MediaStreamConstraints.prim__setVideo a (toFFI b)
-
-  export
-  setVideo' : (obj : MediaStreamConstraints) -> JSIO ()
-  setVideo' a = primJS $ MediaStreamConstraints.prim__setVideo a undef
+  video : MediaStreamConstraints -> Attribute True Optional (NS I [ Bool
+                                                                  , MediaTrackConstraints
+                                                                  ])
+  video = fromUndefOrPrim "MediaStreamConstraints.getvideo"
+                          prim__video
+                          prim__setVideo
+                          (inject False)
 
 namespace MediaStreamTrackEventInit
   
@@ -696,14 +556,10 @@ namespace MediaStreamTrackEventInit
   new a = primJS $ MediaStreamTrackEventInit.prim__new a
   
   export
-  track : (obj : MediaStreamTrackEventInit) -> JSIO MediaStreamTrack
-  track a = primJS $ MediaStreamTrackEventInit.prim__track a
-  
-  export
-  setTrack :  (obj : MediaStreamTrackEventInit)
-           -> (value : MediaStreamTrack)
-           -> JSIO ()
-  setTrack a b = primJS $ MediaStreamTrackEventInit.prim__setTrack a b
+  track : MediaStreamTrackEventInit -> Attribute True I MediaStreamTrack
+  track = fromPrim "MediaStreamTrackEventInit.gettrack"
+                   prim__track
+                   prim__setTrack
 
 namespace MediaTrackCapabilities
   
@@ -767,254 +623,94 @@ namespace MediaTrackCapabilities
                                           undef
   
   export
-  aspectRatio : (obj : MediaTrackCapabilities) -> JSIO $ Optional DoubleRange
-  aspectRatio a = tryJS "MediaTrackCapabilities.aspectRatio"
-                $ MediaTrackCapabilities.prim__aspectRatio a
+  aspectRatio : MediaTrackCapabilities -> Attribute False Optional DoubleRange
+  aspectRatio = fromUndefOrPrimNoDefault "MediaTrackCapabilities.getaspectRatio"
+                                         prim__aspectRatio
+                                         prim__setAspectRatio
   
   export
-  setAspectRatio :  (obj : MediaTrackCapabilities)
-                 -> (value : Optional DoubleRange)
-                 -> JSIO ()
-  setAspectRatio a b = primJS
-                     $ MediaTrackCapabilities.prim__setAspectRatio a (toFFI b)
-
-  export
-  setAspectRatio' : (obj : MediaTrackCapabilities) -> JSIO ()
-  setAspectRatio' a = primJS
-                    $ MediaTrackCapabilities.prim__setAspectRatio a undef
+  autoGainControl : MediaTrackCapabilities -> Attribute False Optional (Array Boolean)
+  autoGainControl = fromUndefOrPrimNoDefault "MediaTrackCapabilities.getautoGainControl"
+                                             prim__autoGainControl
+                                             prim__setAutoGainControl
   
   export
-  autoGainControl :  (obj : MediaTrackCapabilities)
-                  -> JSIO $ Optional (Array Boolean)
-  autoGainControl a = tryJS "MediaTrackCapabilities.autoGainControl"
-                    $ MediaTrackCapabilities.prim__autoGainControl a
+  channelCount : MediaTrackCapabilities -> Attribute False Optional ULongRange
+  channelCount = fromUndefOrPrimNoDefault "MediaTrackCapabilities.getchannelCount"
+                                          prim__channelCount
+                                          prim__setChannelCount
   
   export
-  setAutoGainControl :  (obj : MediaTrackCapabilities)
-                     -> (value : Optional (Array Boolean))
-                     -> JSIO ()
-  setAutoGainControl a b = primJS
-                         $ MediaTrackCapabilities.prim__setAutoGainControl a
-                                                                           (toFFI b)
-
-  export
-  setAutoGainControl' : (obj : MediaTrackCapabilities) -> JSIO ()
-  setAutoGainControl' a = primJS
-                        $ MediaTrackCapabilities.prim__setAutoGainControl a
-                                                                          undef
+  deviceId : MediaTrackCapabilities -> Attribute False Optional String
+  deviceId = fromUndefOrPrimNoDefault "MediaTrackCapabilities.getdeviceId"
+                                      prim__deviceId
+                                      prim__setDeviceId
   
   export
-  channelCount : (obj : MediaTrackCapabilities) -> JSIO $ Optional ULongRange
-  channelCount a = tryJS "MediaTrackCapabilities.channelCount"
-                 $ MediaTrackCapabilities.prim__channelCount a
+  echoCancellation : MediaTrackCapabilities -> Attribute False Optional (Array Boolean)
+  echoCancellation = fromUndefOrPrimNoDefault "MediaTrackCapabilities.getechoCancellation"
+                                              prim__echoCancellation
+                                              prim__setEchoCancellation
   
   export
-  setChannelCount :  (obj : MediaTrackCapabilities)
-                  -> (value : Optional ULongRange)
-                  -> JSIO ()
-  setChannelCount a b = primJS
-                      $ MediaTrackCapabilities.prim__setChannelCount a (toFFI b)
-
-  export
-  setChannelCount' : (obj : MediaTrackCapabilities) -> JSIO ()
-  setChannelCount' a = primJS
-                     $ MediaTrackCapabilities.prim__setChannelCount a undef
+  facingMode : MediaTrackCapabilities -> Attribute False Optional (Array String)
+  facingMode = fromUndefOrPrimNoDefault "MediaTrackCapabilities.getfacingMode"
+                                        prim__facingMode
+                                        prim__setFacingMode
   
   export
-  deviceId : (obj : MediaTrackCapabilities) -> JSIO $ Optional String
-  deviceId a = tryJS "MediaTrackCapabilities.deviceId"
-             $ MediaTrackCapabilities.prim__deviceId a
+  frameRate : MediaTrackCapabilities -> Attribute False Optional DoubleRange
+  frameRate = fromUndefOrPrimNoDefault "MediaTrackCapabilities.getframeRate"
+                                       prim__frameRate
+                                       prim__setFrameRate
   
   export
-  setDeviceId :  (obj : MediaTrackCapabilities)
-              -> (value : Optional String)
-              -> JSIO ()
-  setDeviceId a b = primJS
-                  $ MediaTrackCapabilities.prim__setDeviceId a (toFFI b)
-
-  export
-  setDeviceId' : (obj : MediaTrackCapabilities) -> JSIO ()
-  setDeviceId' a = primJS $ MediaTrackCapabilities.prim__setDeviceId a undef
+  groupId : MediaTrackCapabilities -> Attribute False Optional String
+  groupId = fromUndefOrPrimNoDefault "MediaTrackCapabilities.getgroupId"
+                                     prim__groupId
+                                     prim__setGroupId
   
   export
-  echoCancellation :  (obj : MediaTrackCapabilities)
-                   -> JSIO $ Optional (Array Boolean)
-  echoCancellation a = tryJS "MediaTrackCapabilities.echoCancellation"
-                     $ MediaTrackCapabilities.prim__echoCancellation a
+  height : MediaTrackCapabilities -> Attribute False Optional ULongRange
+  height = fromUndefOrPrimNoDefault "MediaTrackCapabilities.getheight"
+                                    prim__height
+                                    prim__setHeight
   
   export
-  setEchoCancellation :  (obj : MediaTrackCapabilities)
-                      -> (value : Optional (Array Boolean))
-                      -> JSIO ()
-  setEchoCancellation a b = primJS
-                          $ MediaTrackCapabilities.prim__setEchoCancellation a
-                                                                             (toFFI b)
-
-  export
-  setEchoCancellation' : (obj : MediaTrackCapabilities) -> JSIO ()
-  setEchoCancellation' a = primJS
-                         $ MediaTrackCapabilities.prim__setEchoCancellation a
-                                                                            undef
+  latency : MediaTrackCapabilities -> Attribute False Optional DoubleRange
+  latency = fromUndefOrPrimNoDefault "MediaTrackCapabilities.getlatency"
+                                     prim__latency
+                                     prim__setLatency
   
   export
-  facingMode : (obj : MediaTrackCapabilities) -> JSIO $ Optional (Array String)
-  facingMode a = tryJS "MediaTrackCapabilities.facingMode"
-               $ MediaTrackCapabilities.prim__facingMode a
+  noiseSuppression : MediaTrackCapabilities -> Attribute False Optional (Array Boolean)
+  noiseSuppression = fromUndefOrPrimNoDefault "MediaTrackCapabilities.getnoiseSuppression"
+                                              prim__noiseSuppression
+                                              prim__setNoiseSuppression
   
   export
-  setFacingMode :  (obj : MediaTrackCapabilities)
-                -> (value : Optional (Array String))
-                -> JSIO ()
-  setFacingMode a b = primJS
-                    $ MediaTrackCapabilities.prim__setFacingMode a (toFFI b)
-
-  export
-  setFacingMode' : (obj : MediaTrackCapabilities) -> JSIO ()
-  setFacingMode' a = primJS $ MediaTrackCapabilities.prim__setFacingMode a undef
+  resizeMode : MediaTrackCapabilities -> Attribute False Optional (Array String)
+  resizeMode = fromUndefOrPrimNoDefault "MediaTrackCapabilities.getresizeMode"
+                                        prim__resizeMode
+                                        prim__setResizeMode
   
   export
-  frameRate : (obj : MediaTrackCapabilities) -> JSIO $ Optional DoubleRange
-  frameRate a = tryJS "MediaTrackCapabilities.frameRate"
-              $ MediaTrackCapabilities.prim__frameRate a
+  sampleRate : MediaTrackCapabilities -> Attribute False Optional ULongRange
+  sampleRate = fromUndefOrPrimNoDefault "MediaTrackCapabilities.getsampleRate"
+                                        prim__sampleRate
+                                        prim__setSampleRate
   
   export
-  setFrameRate :  (obj : MediaTrackCapabilities)
-               -> (value : Optional DoubleRange)
-               -> JSIO ()
-  setFrameRate a b = primJS
-                   $ MediaTrackCapabilities.prim__setFrameRate a (toFFI b)
-
-  export
-  setFrameRate' : (obj : MediaTrackCapabilities) -> JSIO ()
-  setFrameRate' a = primJS $ MediaTrackCapabilities.prim__setFrameRate a undef
+  sampleSize : MediaTrackCapabilities -> Attribute False Optional ULongRange
+  sampleSize = fromUndefOrPrimNoDefault "MediaTrackCapabilities.getsampleSize"
+                                        prim__sampleSize
+                                        prim__setSampleSize
   
   export
-  groupId : (obj : MediaTrackCapabilities) -> JSIO $ Optional String
-  groupId a = tryJS "MediaTrackCapabilities.groupId"
-            $ MediaTrackCapabilities.prim__groupId a
-  
-  export
-  setGroupId :  (obj : MediaTrackCapabilities)
-             -> (value : Optional String)
-             -> JSIO ()
-  setGroupId a b = primJS $ MediaTrackCapabilities.prim__setGroupId a (toFFI b)
-
-  export
-  setGroupId' : (obj : MediaTrackCapabilities) -> JSIO ()
-  setGroupId' a = primJS $ MediaTrackCapabilities.prim__setGroupId a undef
-  
-  export
-  height : (obj : MediaTrackCapabilities) -> JSIO $ Optional ULongRange
-  height a = tryJS "MediaTrackCapabilities.height"
-           $ MediaTrackCapabilities.prim__height a
-  
-  export
-  setHeight :  (obj : MediaTrackCapabilities)
-            -> (value : Optional ULongRange)
-            -> JSIO ()
-  setHeight a b = primJS $ MediaTrackCapabilities.prim__setHeight a (toFFI b)
-
-  export
-  setHeight' : (obj : MediaTrackCapabilities) -> JSIO ()
-  setHeight' a = primJS $ MediaTrackCapabilities.prim__setHeight a undef
-  
-  export
-  latency : (obj : MediaTrackCapabilities) -> JSIO $ Optional DoubleRange
-  latency a = tryJS "MediaTrackCapabilities.latency"
-            $ MediaTrackCapabilities.prim__latency a
-  
-  export
-  setLatency :  (obj : MediaTrackCapabilities)
-             -> (value : Optional DoubleRange)
-             -> JSIO ()
-  setLatency a b = primJS $ MediaTrackCapabilities.prim__setLatency a (toFFI b)
-
-  export
-  setLatency' : (obj : MediaTrackCapabilities) -> JSIO ()
-  setLatency' a = primJS $ MediaTrackCapabilities.prim__setLatency a undef
-  
-  export
-  noiseSuppression :  (obj : MediaTrackCapabilities)
-                   -> JSIO $ Optional (Array Boolean)
-  noiseSuppression a = tryJS "MediaTrackCapabilities.noiseSuppression"
-                     $ MediaTrackCapabilities.prim__noiseSuppression a
-  
-  export
-  setNoiseSuppression :  (obj : MediaTrackCapabilities)
-                      -> (value : Optional (Array Boolean))
-                      -> JSIO ()
-  setNoiseSuppression a b = primJS
-                          $ MediaTrackCapabilities.prim__setNoiseSuppression a
-                                                                             (toFFI b)
-
-  export
-  setNoiseSuppression' : (obj : MediaTrackCapabilities) -> JSIO ()
-  setNoiseSuppression' a = primJS
-                         $ MediaTrackCapabilities.prim__setNoiseSuppression a
-                                                                            undef
-  
-  export
-  resizeMode : (obj : MediaTrackCapabilities) -> JSIO $ Optional (Array String)
-  resizeMode a = tryJS "MediaTrackCapabilities.resizeMode"
-               $ MediaTrackCapabilities.prim__resizeMode a
-  
-  export
-  setResizeMode :  (obj : MediaTrackCapabilities)
-                -> (value : Optional (Array String))
-                -> JSIO ()
-  setResizeMode a b = primJS
-                    $ MediaTrackCapabilities.prim__setResizeMode a (toFFI b)
-
-  export
-  setResizeMode' : (obj : MediaTrackCapabilities) -> JSIO ()
-  setResizeMode' a = primJS $ MediaTrackCapabilities.prim__setResizeMode a undef
-  
-  export
-  sampleRate : (obj : MediaTrackCapabilities) -> JSIO $ Optional ULongRange
-  sampleRate a = tryJS "MediaTrackCapabilities.sampleRate"
-               $ MediaTrackCapabilities.prim__sampleRate a
-  
-  export
-  setSampleRate :  (obj : MediaTrackCapabilities)
-                -> (value : Optional ULongRange)
-                -> JSIO ()
-  setSampleRate a b = primJS
-                    $ MediaTrackCapabilities.prim__setSampleRate a (toFFI b)
-
-  export
-  setSampleRate' : (obj : MediaTrackCapabilities) -> JSIO ()
-  setSampleRate' a = primJS $ MediaTrackCapabilities.prim__setSampleRate a undef
-  
-  export
-  sampleSize : (obj : MediaTrackCapabilities) -> JSIO $ Optional ULongRange
-  sampleSize a = tryJS "MediaTrackCapabilities.sampleSize"
-               $ MediaTrackCapabilities.prim__sampleSize a
-  
-  export
-  setSampleSize :  (obj : MediaTrackCapabilities)
-                -> (value : Optional ULongRange)
-                -> JSIO ()
-  setSampleSize a b = primJS
-                    $ MediaTrackCapabilities.prim__setSampleSize a (toFFI b)
-
-  export
-  setSampleSize' : (obj : MediaTrackCapabilities) -> JSIO ()
-  setSampleSize' a = primJS $ MediaTrackCapabilities.prim__setSampleSize a undef
-  
-  export
-  width : (obj : MediaTrackCapabilities) -> JSIO $ Optional ULongRange
-  width a = tryJS "MediaTrackCapabilities.width"
-          $ MediaTrackCapabilities.prim__width a
-  
-  export
-  setWidth :  (obj : MediaTrackCapabilities)
-           -> (value : Optional ULongRange)
-           -> JSIO ()
-  setWidth a b = primJS $ MediaTrackCapabilities.prim__setWidth a (toFFI b)
-
-  export
-  setWidth' : (obj : MediaTrackCapabilities) -> JSIO ()
-  setWidth' a = primJS $ MediaTrackCapabilities.prim__setWidth a undef
+  width : MediaTrackCapabilities -> Attribute False Optional ULongRange
+  width = fromUndefOrPrimNoDefault "MediaTrackCapabilities.getwidth"
+                                   prim__width
+                                   prim__setWidth
 
 namespace MediaTrackConstraintSet
   
@@ -1096,303 +792,124 @@ namespace MediaTrackConstraintSet
                                            undef
   
   export
-  aspectRatio :  (obj : MediaTrackConstraintSet)
-              -> JSIO $ Optional (NS I [ Double , ConstrainDoubleRange ])
-  aspectRatio a = tryJS "MediaTrackConstraintSet.aspectRatio"
-                $ MediaTrackConstraintSet.prim__aspectRatio a
+  aspectRatio : MediaTrackConstraintSet -> Attribute False Optional (NS I [ Double
+                                                                          , ConstrainDoubleRange
+                                                                          ])
+  aspectRatio = fromUndefOrPrimNoDefault "MediaTrackConstraintSet.getaspectRatio"
+                                         prim__aspectRatio
+                                         prim__setAspectRatio
   
   export
-  setAspectRatio :  (obj : MediaTrackConstraintSet)
-                 -> (value : Optional (NS I [ Double , ConstrainDoubleRange ]))
-                 -> JSIO ()
-  setAspectRatio a b = primJS
-                     $ MediaTrackConstraintSet.prim__setAspectRatio a (toFFI b)
-
-  export
-  setAspectRatio' : (obj : MediaTrackConstraintSet) -> JSIO ()
-  setAspectRatio' a = primJS
-                    $ MediaTrackConstraintSet.prim__setAspectRatio a undef
+  autoGainControl : MediaTrackConstraintSet -> Attribute False Optional (NS I [ Bool
+                                                                              , ConstrainBooleanParameters
+                                                                              ])
+  autoGainControl = fromUndefOrPrimNoDefault "MediaTrackConstraintSet.getautoGainControl"
+                                             prim__autoGainControl
+                                             prim__setAutoGainControl
   
   export
-  autoGainControl :  (obj : MediaTrackConstraintSet)
-                  -> JSIO $ Optional (NS I [ Bool
-                                           , ConstrainBooleanParameters
-                                           ])
-  autoGainControl a = tryJS "MediaTrackConstraintSet.autoGainControl"
-                    $ MediaTrackConstraintSet.prim__autoGainControl a
+  channelCount : MediaTrackConstraintSet -> Attribute False Optional (NS I [ UInt32
+                                                                           , ConstrainULongRange
+                                                                           ])
+  channelCount = fromUndefOrPrimNoDefault "MediaTrackConstraintSet.getchannelCount"
+                                          prim__channelCount
+                                          prim__setChannelCount
   
   export
-  setAutoGainControl :  (obj : MediaTrackConstraintSet)
-                     -> (value : Optional (NS I [ Bool
-                                                , ConstrainBooleanParameters
-                                                ]))
-                     -> JSIO ()
-  setAutoGainControl a b = primJS
-                         $ MediaTrackConstraintSet.prim__setAutoGainControl a
-                                                                            (toFFI b)
-
-  export
-  setAutoGainControl' : (obj : MediaTrackConstraintSet) -> JSIO ()
-  setAutoGainControl' a = primJS
-                        $ MediaTrackConstraintSet.prim__setAutoGainControl a
-                                                                           undef
+  deviceId : MediaTrackConstraintSet -> Attribute False Optional (Union3 String
+                                                                         (Array String)
+                                                                         ConstrainDOMStringParameters)
+  deviceId = fromUndefOrPrimNoDefault "MediaTrackConstraintSet.getdeviceId"
+                                      prim__deviceId
+                                      prim__setDeviceId
   
   export
-  channelCount :  (obj : MediaTrackConstraintSet)
-               -> JSIO $ Optional (NS I [ UInt32 , ConstrainULongRange ])
-  channelCount a = tryJS "MediaTrackConstraintSet.channelCount"
-                 $ MediaTrackConstraintSet.prim__channelCount a
+  echoCancellation : MediaTrackConstraintSet -> Attribute False Optional (NS I [ Bool
+                                                                               , ConstrainBooleanParameters
+                                                                               ])
+  echoCancellation = fromUndefOrPrimNoDefault "MediaTrackConstraintSet.getechoCancellation"
+                                              prim__echoCancellation
+                                              prim__setEchoCancellation
   
   export
-  setChannelCount :  (obj : MediaTrackConstraintSet)
-                  -> (value : Optional (NS I [ UInt32 , ConstrainULongRange ]))
-                  -> JSIO ()
-  setChannelCount a b = primJS
-                      $ MediaTrackConstraintSet.prim__setChannelCount a
-                                                                      (toFFI b)
-
-  export
-  setChannelCount' : (obj : MediaTrackConstraintSet) -> JSIO ()
-  setChannelCount' a = primJS
-                     $ MediaTrackConstraintSet.prim__setChannelCount a undef
+  facingMode : MediaTrackConstraintSet -> Attribute False Optional (Union3 String
+                                                                           (Array String)
+                                                                           ConstrainDOMStringParameters)
+  facingMode = fromUndefOrPrimNoDefault "MediaTrackConstraintSet.getfacingMode"
+                                        prim__facingMode
+                                        prim__setFacingMode
   
   export
-  deviceId :  (obj : MediaTrackConstraintSet)
-           -> JSIO $ Optional (Union3 String
-                                      (Array String)
-                                      ConstrainDOMStringParameters)
-  deviceId a = tryJS "MediaTrackConstraintSet.deviceId"
-             $ MediaTrackConstraintSet.prim__deviceId a
+  frameRate : MediaTrackConstraintSet -> Attribute False Optional (NS I [ Double
+                                                                        , ConstrainDoubleRange
+                                                                        ])
+  frameRate = fromUndefOrPrimNoDefault "MediaTrackConstraintSet.getframeRate"
+                                       prim__frameRate
+                                       prim__setFrameRate
   
   export
-  setDeviceId :  (obj : MediaTrackConstraintSet)
-              -> (value : Optional (NS I [ String
-                                         , Array String
-                                         , ConstrainDOMStringParameters
-                                         ]))
-              -> JSIO ()
-  setDeviceId a b = primJS
-                  $ MediaTrackConstraintSet.prim__setDeviceId a (toFFI b)
-
-  export
-  setDeviceId' : (obj : MediaTrackConstraintSet) -> JSIO ()
-  setDeviceId' a = primJS $ MediaTrackConstraintSet.prim__setDeviceId a undef
+  groupId : MediaTrackConstraintSet -> Attribute False Optional (Union3 String
+                                                                        (Array String)
+                                                                        ConstrainDOMStringParameters)
+  groupId = fromUndefOrPrimNoDefault "MediaTrackConstraintSet.getgroupId"
+                                     prim__groupId
+                                     prim__setGroupId
   
   export
-  echoCancellation :  (obj : MediaTrackConstraintSet)
-                   -> JSIO $ Optional (NS I [ Bool
-                                            , ConstrainBooleanParameters
-                                            ])
-  echoCancellation a = tryJS "MediaTrackConstraintSet.echoCancellation"
-                     $ MediaTrackConstraintSet.prim__echoCancellation a
+  height : MediaTrackConstraintSet -> Attribute False Optional (NS I [ UInt32
+                                                                     , ConstrainULongRange
+                                                                     ])
+  height = fromUndefOrPrimNoDefault "MediaTrackConstraintSet.getheight"
+                                    prim__height
+                                    prim__setHeight
   
   export
-  setEchoCancellation :  (obj : MediaTrackConstraintSet)
-                      -> (value : Optional (NS I [ Bool
-                                                 , ConstrainBooleanParameters
-                                                 ]))
-                      -> JSIO ()
-  setEchoCancellation a b = primJS
-                          $ MediaTrackConstraintSet.prim__setEchoCancellation a
-                                                                              (toFFI b)
-
-  export
-  setEchoCancellation' : (obj : MediaTrackConstraintSet) -> JSIO ()
-  setEchoCancellation' a = primJS
-                         $ MediaTrackConstraintSet.prim__setEchoCancellation a
-                                                                             undef
+  latency : MediaTrackConstraintSet -> Attribute False Optional (NS I [ Double
+                                                                      , ConstrainDoubleRange
+                                                                      ])
+  latency = fromUndefOrPrimNoDefault "MediaTrackConstraintSet.getlatency"
+                                     prim__latency
+                                     prim__setLatency
   
   export
-  facingMode :  (obj : MediaTrackConstraintSet)
-             -> JSIO $ Optional (Union3 String
-                                        (Array String)
-                                        ConstrainDOMStringParameters)
-  facingMode a = tryJS "MediaTrackConstraintSet.facingMode"
-               $ MediaTrackConstraintSet.prim__facingMode a
+  noiseSuppression : MediaTrackConstraintSet -> Attribute False Optional (NS I [ Bool
+                                                                               , ConstrainBooleanParameters
+                                                                               ])
+  noiseSuppression = fromUndefOrPrimNoDefault "MediaTrackConstraintSet.getnoiseSuppression"
+                                              prim__noiseSuppression
+                                              prim__setNoiseSuppression
   
   export
-  setFacingMode :  (obj : MediaTrackConstraintSet)
-                -> (value : Optional (NS I [ String
-                                           , Array String
-                                           , ConstrainDOMStringParameters
-                                           ]))
-                -> JSIO ()
-  setFacingMode a b = primJS
-                    $ MediaTrackConstraintSet.prim__setFacingMode a (toFFI b)
-
-  export
-  setFacingMode' : (obj : MediaTrackConstraintSet) -> JSIO ()
-  setFacingMode' a = primJS
-                   $ MediaTrackConstraintSet.prim__setFacingMode a undef
+  resizeMode : MediaTrackConstraintSet -> Attribute False Optional (Union3 String
+                                                                           (Array String)
+                                                                           ConstrainDOMStringParameters)
+  resizeMode = fromUndefOrPrimNoDefault "MediaTrackConstraintSet.getresizeMode"
+                                        prim__resizeMode
+                                        prim__setResizeMode
   
   export
-  frameRate :  (obj : MediaTrackConstraintSet)
-            -> JSIO $ Optional (NS I [ Double , ConstrainDoubleRange ])
-  frameRate a = tryJS "MediaTrackConstraintSet.frameRate"
-              $ MediaTrackConstraintSet.prim__frameRate a
+  sampleRate : MediaTrackConstraintSet -> Attribute False Optional (NS I [ UInt32
+                                                                         , ConstrainULongRange
+                                                                         ])
+  sampleRate = fromUndefOrPrimNoDefault "MediaTrackConstraintSet.getsampleRate"
+                                        prim__sampleRate
+                                        prim__setSampleRate
   
   export
-  setFrameRate :  (obj : MediaTrackConstraintSet)
-               -> (value : Optional (NS I [ Double , ConstrainDoubleRange ]))
-               -> JSIO ()
-  setFrameRate a b = primJS
-                   $ MediaTrackConstraintSet.prim__setFrameRate a (toFFI b)
-
-  export
-  setFrameRate' : (obj : MediaTrackConstraintSet) -> JSIO ()
-  setFrameRate' a = primJS $ MediaTrackConstraintSet.prim__setFrameRate a undef
+  sampleSize : MediaTrackConstraintSet -> Attribute False Optional (NS I [ UInt32
+                                                                         , ConstrainULongRange
+                                                                         ])
+  sampleSize = fromUndefOrPrimNoDefault "MediaTrackConstraintSet.getsampleSize"
+                                        prim__sampleSize
+                                        prim__setSampleSize
   
   export
-  groupId :  (obj : MediaTrackConstraintSet)
-          -> JSIO $ Optional (Union3 String
-                                     (Array String)
-                                     ConstrainDOMStringParameters)
-  groupId a = tryJS "MediaTrackConstraintSet.groupId"
-            $ MediaTrackConstraintSet.prim__groupId a
-  
-  export
-  setGroupId :  (obj : MediaTrackConstraintSet)
-             -> (value : Optional (NS I [ String
-                                        , Array String
-                                        , ConstrainDOMStringParameters
-                                        ]))
-             -> JSIO ()
-  setGroupId a b = primJS $ MediaTrackConstraintSet.prim__setGroupId a (toFFI b)
-
-  export
-  setGroupId' : (obj : MediaTrackConstraintSet) -> JSIO ()
-  setGroupId' a = primJS $ MediaTrackConstraintSet.prim__setGroupId a undef
-  
-  export
-  height :  (obj : MediaTrackConstraintSet)
-         -> JSIO $ Optional (NS I [ UInt32 , ConstrainULongRange ])
-  height a = tryJS "MediaTrackConstraintSet.height"
-           $ MediaTrackConstraintSet.prim__height a
-  
-  export
-  setHeight :  (obj : MediaTrackConstraintSet)
-            -> (value : Optional (NS I [ UInt32 , ConstrainULongRange ]))
-            -> JSIO ()
-  setHeight a b = primJS $ MediaTrackConstraintSet.prim__setHeight a (toFFI b)
-
-  export
-  setHeight' : (obj : MediaTrackConstraintSet) -> JSIO ()
-  setHeight' a = primJS $ MediaTrackConstraintSet.prim__setHeight a undef
-  
-  export
-  latency :  (obj : MediaTrackConstraintSet)
-          -> JSIO $ Optional (NS I [ Double , ConstrainDoubleRange ])
-  latency a = tryJS "MediaTrackConstraintSet.latency"
-            $ MediaTrackConstraintSet.prim__latency a
-  
-  export
-  setLatency :  (obj : MediaTrackConstraintSet)
-             -> (value : Optional (NS I [ Double , ConstrainDoubleRange ]))
-             -> JSIO ()
-  setLatency a b = primJS $ MediaTrackConstraintSet.prim__setLatency a (toFFI b)
-
-  export
-  setLatency' : (obj : MediaTrackConstraintSet) -> JSIO ()
-  setLatency' a = primJS $ MediaTrackConstraintSet.prim__setLatency a undef
-  
-  export
-  noiseSuppression :  (obj : MediaTrackConstraintSet)
-                   -> JSIO $ Optional (NS I [ Bool
-                                            , ConstrainBooleanParameters
-                                            ])
-  noiseSuppression a = tryJS "MediaTrackConstraintSet.noiseSuppression"
-                     $ MediaTrackConstraintSet.prim__noiseSuppression a
-  
-  export
-  setNoiseSuppression :  (obj : MediaTrackConstraintSet)
-                      -> (value : Optional (NS I [ Bool
-                                                 , ConstrainBooleanParameters
-                                                 ]))
-                      -> JSIO ()
-  setNoiseSuppression a b = primJS
-                          $ MediaTrackConstraintSet.prim__setNoiseSuppression a
-                                                                              (toFFI b)
-
-  export
-  setNoiseSuppression' : (obj : MediaTrackConstraintSet) -> JSIO ()
-  setNoiseSuppression' a = primJS
-                         $ MediaTrackConstraintSet.prim__setNoiseSuppression a
-                                                                             undef
-  
-  export
-  resizeMode :  (obj : MediaTrackConstraintSet)
-             -> JSIO $ Optional (Union3 String
-                                        (Array String)
-                                        ConstrainDOMStringParameters)
-  resizeMode a = tryJS "MediaTrackConstraintSet.resizeMode"
-               $ MediaTrackConstraintSet.prim__resizeMode a
-  
-  export
-  setResizeMode :  (obj : MediaTrackConstraintSet)
-                -> (value : Optional (NS I [ String
-                                           , Array String
-                                           , ConstrainDOMStringParameters
-                                           ]))
-                -> JSIO ()
-  setResizeMode a b = primJS
-                    $ MediaTrackConstraintSet.prim__setResizeMode a (toFFI b)
-
-  export
-  setResizeMode' : (obj : MediaTrackConstraintSet) -> JSIO ()
-  setResizeMode' a = primJS
-                   $ MediaTrackConstraintSet.prim__setResizeMode a undef
-  
-  export
-  sampleRate :  (obj : MediaTrackConstraintSet)
-             -> JSIO $ Optional (NS I [ UInt32 , ConstrainULongRange ])
-  sampleRate a = tryJS "MediaTrackConstraintSet.sampleRate"
-               $ MediaTrackConstraintSet.prim__sampleRate a
-  
-  export
-  setSampleRate :  (obj : MediaTrackConstraintSet)
-                -> (value : Optional (NS I [ UInt32 , ConstrainULongRange ]))
-                -> JSIO ()
-  setSampleRate a b = primJS
-                    $ MediaTrackConstraintSet.prim__setSampleRate a (toFFI b)
-
-  export
-  setSampleRate' : (obj : MediaTrackConstraintSet) -> JSIO ()
-  setSampleRate' a = primJS
-                   $ MediaTrackConstraintSet.prim__setSampleRate a undef
-  
-  export
-  sampleSize :  (obj : MediaTrackConstraintSet)
-             -> JSIO $ Optional (NS I [ UInt32 , ConstrainULongRange ])
-  sampleSize a = tryJS "MediaTrackConstraintSet.sampleSize"
-               $ MediaTrackConstraintSet.prim__sampleSize a
-  
-  export
-  setSampleSize :  (obj : MediaTrackConstraintSet)
-                -> (value : Optional (NS I [ UInt32 , ConstrainULongRange ]))
-                -> JSIO ()
-  setSampleSize a b = primJS
-                    $ MediaTrackConstraintSet.prim__setSampleSize a (toFFI b)
-
-  export
-  setSampleSize' : (obj : MediaTrackConstraintSet) -> JSIO ()
-  setSampleSize' a = primJS
-                   $ MediaTrackConstraintSet.prim__setSampleSize a undef
-  
-  export
-  width :  (obj : MediaTrackConstraintSet)
-        -> JSIO $ Optional (NS I [ UInt32 , ConstrainULongRange ])
-  width a = tryJS "MediaTrackConstraintSet.width"
-          $ MediaTrackConstraintSet.prim__width a
-  
-  export
-  setWidth :  (obj : MediaTrackConstraintSet)
-           -> (value : Optional (NS I [ UInt32 , ConstrainULongRange ]))
-           -> JSIO ()
-  setWidth a b = primJS $ MediaTrackConstraintSet.prim__setWidth a (toFFI b)
-
-  export
-  setWidth' : (obj : MediaTrackConstraintSet) -> JSIO ()
-  setWidth' a = primJS $ MediaTrackConstraintSet.prim__setWidth a undef
+  width : MediaTrackConstraintSet -> Attribute False Optional (NS I [ UInt32
+                                                                    , ConstrainULongRange
+                                                                    ])
+  width = fromUndefOrPrimNoDefault "MediaTrackConstraintSet.getwidth"
+                                   prim__width
+                                   prim__setWidth
 
 namespace MediaTrackConstraints
   
@@ -1412,20 +929,10 @@ namespace MediaTrackConstraints
   new' = primJS $ MediaTrackConstraints.prim__new undef
   
   export
-  advanced :  (obj : MediaTrackConstraints)
-           -> JSIO $ Optional (Array MediaTrackConstraintSet)
-  advanced a = tryJS "MediaTrackConstraints.advanced"
-             $ MediaTrackConstraints.prim__advanced a
-  
-  export
-  setAdvanced :  (obj : MediaTrackConstraints)
-              -> (value : Optional (Array MediaTrackConstraintSet))
-              -> JSIO ()
-  setAdvanced a b = primJS $ MediaTrackConstraints.prim__setAdvanced a (toFFI b)
-
-  export
-  setAdvanced' : (obj : MediaTrackConstraints) -> JSIO ()
-  setAdvanced' a = primJS $ MediaTrackConstraints.prim__setAdvanced a undef
+  advanced : MediaTrackConstraints -> Attribute False Optional (Array MediaTrackConstraintSet)
+  advanced = fromUndefOrPrimNoDefault "MediaTrackConstraints.getadvanced"
+                                      prim__advanced
+                                      prim__setAdvanced
 
 namespace MediaTrackSettings
   
@@ -1489,239 +996,94 @@ namespace MediaTrackSettings
                                       undef
   
   export
-  aspectRatio : (obj : MediaTrackSettings) -> JSIO $ Optional Double
-  aspectRatio a = tryJS "MediaTrackSettings.aspectRatio"
-                $ MediaTrackSettings.prim__aspectRatio a
+  aspectRatio : MediaTrackSettings -> Attribute False Optional Double
+  aspectRatio = fromUndefOrPrimNoDefault "MediaTrackSettings.getaspectRatio"
+                                         prim__aspectRatio
+                                         prim__setAspectRatio
   
   export
-  setAspectRatio :  (obj : MediaTrackSettings)
-                 -> (value : Optional Double)
-                 -> JSIO ()
-  setAspectRatio a b = primJS
-                     $ MediaTrackSettings.prim__setAspectRatio a (toFFI b)
-
-  export
-  setAspectRatio' : (obj : MediaTrackSettings) -> JSIO ()
-  setAspectRatio' a = primJS $ MediaTrackSettings.prim__setAspectRatio a undef
+  autoGainControl : MediaTrackSettings -> Attribute False Optional Bool
+  autoGainControl = fromUndefOrPrimNoDefault "MediaTrackSettings.getautoGainControl"
+                                             prim__autoGainControl
+                                             prim__setAutoGainControl
   
   export
-  autoGainControl : (obj : MediaTrackSettings) -> JSIO $ Optional Bool
-  autoGainControl a = tryJS "MediaTrackSettings.autoGainControl"
-                    $ MediaTrackSettings.prim__autoGainControl a
+  channelCount : MediaTrackSettings -> Attribute False Optional Int32
+  channelCount = fromUndefOrPrimNoDefault "MediaTrackSettings.getchannelCount"
+                                          prim__channelCount
+                                          prim__setChannelCount
   
   export
-  setAutoGainControl :  (obj : MediaTrackSettings)
-                     -> (value : Optional Bool)
-                     -> JSIO ()
-  setAutoGainControl a b = primJS
-                         $ MediaTrackSettings.prim__setAutoGainControl a
-                                                                       (toFFI b)
-
-  export
-  setAutoGainControl' : (obj : MediaTrackSettings) -> JSIO ()
-  setAutoGainControl' a = primJS
-                        $ MediaTrackSettings.prim__setAutoGainControl a undef
+  deviceId : MediaTrackSettings -> Attribute False Optional String
+  deviceId = fromUndefOrPrimNoDefault "MediaTrackSettings.getdeviceId"
+                                      prim__deviceId
+                                      prim__setDeviceId
   
   export
-  channelCount : (obj : MediaTrackSettings) -> JSIO $ Optional Int32
-  channelCount a = tryJS "MediaTrackSettings.channelCount"
-                 $ MediaTrackSettings.prim__channelCount a
+  echoCancellation : MediaTrackSettings -> Attribute False Optional Bool
+  echoCancellation = fromUndefOrPrimNoDefault "MediaTrackSettings.getechoCancellation"
+                                              prim__echoCancellation
+                                              prim__setEchoCancellation
   
   export
-  setChannelCount :  (obj : MediaTrackSettings)
-                  -> (value : Optional Int32)
-                  -> JSIO ()
-  setChannelCount a b = primJS
-                      $ MediaTrackSettings.prim__setChannelCount a (toFFI b)
-
-  export
-  setChannelCount' : (obj : MediaTrackSettings) -> JSIO ()
-  setChannelCount' a = primJS $ MediaTrackSettings.prim__setChannelCount a undef
+  facingMode : MediaTrackSettings -> Attribute False Optional String
+  facingMode = fromUndefOrPrimNoDefault "MediaTrackSettings.getfacingMode"
+                                        prim__facingMode
+                                        prim__setFacingMode
   
   export
-  deviceId : (obj : MediaTrackSettings) -> JSIO $ Optional String
-  deviceId a = tryJS "MediaTrackSettings.deviceId"
-             $ MediaTrackSettings.prim__deviceId a
+  frameRate : MediaTrackSettings -> Attribute False Optional Double
+  frameRate = fromUndefOrPrimNoDefault "MediaTrackSettings.getframeRate"
+                                       prim__frameRate
+                                       prim__setFrameRate
   
   export
-  setDeviceId :  (obj : MediaTrackSettings)
-              -> (value : Optional String)
-              -> JSIO ()
-  setDeviceId a b = primJS $ MediaTrackSettings.prim__setDeviceId a (toFFI b)
-
-  export
-  setDeviceId' : (obj : MediaTrackSettings) -> JSIO ()
-  setDeviceId' a = primJS $ MediaTrackSettings.prim__setDeviceId a undef
+  groupId : MediaTrackSettings -> Attribute False Optional String
+  groupId = fromUndefOrPrimNoDefault "MediaTrackSettings.getgroupId"
+                                     prim__groupId
+                                     prim__setGroupId
   
   export
-  echoCancellation : (obj : MediaTrackSettings) -> JSIO $ Optional Bool
-  echoCancellation a = tryJS "MediaTrackSettings.echoCancellation"
-                     $ MediaTrackSettings.prim__echoCancellation a
+  height : MediaTrackSettings -> Attribute False Optional Int32
+  height = fromUndefOrPrimNoDefault "MediaTrackSettings.getheight"
+                                    prim__height
+                                    prim__setHeight
   
   export
-  setEchoCancellation :  (obj : MediaTrackSettings)
-                      -> (value : Optional Bool)
-                      -> JSIO ()
-  setEchoCancellation a b = primJS
-                          $ MediaTrackSettings.prim__setEchoCancellation a
-                                                                         (toFFI b)
-
-  export
-  setEchoCancellation' : (obj : MediaTrackSettings) -> JSIO ()
-  setEchoCancellation' a = primJS
-                         $ MediaTrackSettings.prim__setEchoCancellation a undef
+  latency : MediaTrackSettings -> Attribute False Optional Double
+  latency = fromUndefOrPrimNoDefault "MediaTrackSettings.getlatency"
+                                     prim__latency
+                                     prim__setLatency
   
   export
-  facingMode : (obj : MediaTrackSettings) -> JSIO $ Optional String
-  facingMode a = tryJS "MediaTrackSettings.facingMode"
-               $ MediaTrackSettings.prim__facingMode a
+  noiseSuppression : MediaTrackSettings -> Attribute False Optional Bool
+  noiseSuppression = fromUndefOrPrimNoDefault "MediaTrackSettings.getnoiseSuppression"
+                                              prim__noiseSuppression
+                                              prim__setNoiseSuppression
   
   export
-  setFacingMode :  (obj : MediaTrackSettings)
-                -> (value : Optional String)
-                -> JSIO ()
-  setFacingMode a b = primJS
-                    $ MediaTrackSettings.prim__setFacingMode a (toFFI b)
-
-  export
-  setFacingMode' : (obj : MediaTrackSettings) -> JSIO ()
-  setFacingMode' a = primJS $ MediaTrackSettings.prim__setFacingMode a undef
+  resizeMode : MediaTrackSettings -> Attribute False Optional String
+  resizeMode = fromUndefOrPrimNoDefault "MediaTrackSettings.getresizeMode"
+                                        prim__resizeMode
+                                        prim__setResizeMode
   
   export
-  frameRate : (obj : MediaTrackSettings) -> JSIO $ Optional Double
-  frameRate a = tryJS "MediaTrackSettings.frameRate"
-              $ MediaTrackSettings.prim__frameRate a
+  sampleRate : MediaTrackSettings -> Attribute False Optional Int32
+  sampleRate = fromUndefOrPrimNoDefault "MediaTrackSettings.getsampleRate"
+                                        prim__sampleRate
+                                        prim__setSampleRate
   
   export
-  setFrameRate :  (obj : MediaTrackSettings)
-               -> (value : Optional Double)
-               -> JSIO ()
-  setFrameRate a b = primJS $ MediaTrackSettings.prim__setFrameRate a (toFFI b)
-
-  export
-  setFrameRate' : (obj : MediaTrackSettings) -> JSIO ()
-  setFrameRate' a = primJS $ MediaTrackSettings.prim__setFrameRate a undef
+  sampleSize : MediaTrackSettings -> Attribute False Optional Int32
+  sampleSize = fromUndefOrPrimNoDefault "MediaTrackSettings.getsampleSize"
+                                        prim__sampleSize
+                                        prim__setSampleSize
   
   export
-  groupId : (obj : MediaTrackSettings) -> JSIO $ Optional String
-  groupId a = tryJS "MediaTrackSettings.groupId"
-            $ MediaTrackSettings.prim__groupId a
-  
-  export
-  setGroupId :  (obj : MediaTrackSettings)
-             -> (value : Optional String)
-             -> JSIO ()
-  setGroupId a b = primJS $ MediaTrackSettings.prim__setGroupId a (toFFI b)
-
-  export
-  setGroupId' : (obj : MediaTrackSettings) -> JSIO ()
-  setGroupId' a = primJS $ MediaTrackSettings.prim__setGroupId a undef
-  
-  export
-  height : (obj : MediaTrackSettings) -> JSIO $ Optional Int32
-  height a = tryJS "MediaTrackSettings.height"
-           $ MediaTrackSettings.prim__height a
-  
-  export
-  setHeight : (obj : MediaTrackSettings) -> (value : Optional Int32) -> JSIO ()
-  setHeight a b = primJS $ MediaTrackSettings.prim__setHeight a (toFFI b)
-
-  export
-  setHeight' : (obj : MediaTrackSettings) -> JSIO ()
-  setHeight' a = primJS $ MediaTrackSettings.prim__setHeight a undef
-  
-  export
-  latency : (obj : MediaTrackSettings) -> JSIO $ Optional Double
-  latency a = tryJS "MediaTrackSettings.latency"
-            $ MediaTrackSettings.prim__latency a
-  
-  export
-  setLatency :  (obj : MediaTrackSettings)
-             -> (value : Optional Double)
-             -> JSIO ()
-  setLatency a b = primJS $ MediaTrackSettings.prim__setLatency a (toFFI b)
-
-  export
-  setLatency' : (obj : MediaTrackSettings) -> JSIO ()
-  setLatency' a = primJS $ MediaTrackSettings.prim__setLatency a undef
-  
-  export
-  noiseSuppression : (obj : MediaTrackSettings) -> JSIO $ Optional Bool
-  noiseSuppression a = tryJS "MediaTrackSettings.noiseSuppression"
-                     $ MediaTrackSettings.prim__noiseSuppression a
-  
-  export
-  setNoiseSuppression :  (obj : MediaTrackSettings)
-                      -> (value : Optional Bool)
-                      -> JSIO ()
-  setNoiseSuppression a b = primJS
-                          $ MediaTrackSettings.prim__setNoiseSuppression a
-                                                                         (toFFI b)
-
-  export
-  setNoiseSuppression' : (obj : MediaTrackSettings) -> JSIO ()
-  setNoiseSuppression' a = primJS
-                         $ MediaTrackSettings.prim__setNoiseSuppression a undef
-  
-  export
-  resizeMode : (obj : MediaTrackSettings) -> JSIO $ Optional String
-  resizeMode a = tryJS "MediaTrackSettings.resizeMode"
-               $ MediaTrackSettings.prim__resizeMode a
-  
-  export
-  setResizeMode :  (obj : MediaTrackSettings)
-                -> (value : Optional String)
-                -> JSIO ()
-  setResizeMode a b = primJS
-                    $ MediaTrackSettings.prim__setResizeMode a (toFFI b)
-
-  export
-  setResizeMode' : (obj : MediaTrackSettings) -> JSIO ()
-  setResizeMode' a = primJS $ MediaTrackSettings.prim__setResizeMode a undef
-  
-  export
-  sampleRate : (obj : MediaTrackSettings) -> JSIO $ Optional Int32
-  sampleRate a = tryJS "MediaTrackSettings.sampleRate"
-               $ MediaTrackSettings.prim__sampleRate a
-  
-  export
-  setSampleRate :  (obj : MediaTrackSettings)
-                -> (value : Optional Int32)
-                -> JSIO ()
-  setSampleRate a b = primJS
-                    $ MediaTrackSettings.prim__setSampleRate a (toFFI b)
-
-  export
-  setSampleRate' : (obj : MediaTrackSettings) -> JSIO ()
-  setSampleRate' a = primJS $ MediaTrackSettings.prim__setSampleRate a undef
-  
-  export
-  sampleSize : (obj : MediaTrackSettings) -> JSIO $ Optional Int32
-  sampleSize a = tryJS "MediaTrackSettings.sampleSize"
-               $ MediaTrackSettings.prim__sampleSize a
-  
-  export
-  setSampleSize :  (obj : MediaTrackSettings)
-                -> (value : Optional Int32)
-                -> JSIO ()
-  setSampleSize a b = primJS
-                    $ MediaTrackSettings.prim__setSampleSize a (toFFI b)
-
-  export
-  setSampleSize' : (obj : MediaTrackSettings) -> JSIO ()
-  setSampleSize' a = primJS $ MediaTrackSettings.prim__setSampleSize a undef
-  
-  export
-  width : (obj : MediaTrackSettings) -> JSIO $ Optional Int32
-  width a = tryJS "MediaTrackSettings.width" $ MediaTrackSettings.prim__width a
-  
-  export
-  setWidth : (obj : MediaTrackSettings) -> (value : Optional Int32) -> JSIO ()
-  setWidth a b = primJS $ MediaTrackSettings.prim__setWidth a (toFFI b)
-
-  export
-  setWidth' : (obj : MediaTrackSettings) -> JSIO ()
-  setWidth' a = primJS $ MediaTrackSettings.prim__setWidth a undef
+  width : MediaTrackSettings -> Attribute False Optional Int32
+  width = fromUndefOrPrimNoDefault "MediaTrackSettings.getwidth"
+                                   prim__width
+                                   prim__setWidth
 
 namespace MediaTrackSupportedConstraints
   
@@ -1785,275 +1147,109 @@ namespace MediaTrackSupportedConstraints
                                                   undef
   
   export
-  aspectRatio : (obj : MediaTrackSupportedConstraints) -> JSIO $ Optional Bool
-  aspectRatio a = tryJS "MediaTrackSupportedConstraints.aspectRatio"
-                $ MediaTrackSupportedConstraints.prim__aspectRatio a
+  aspectRatio : MediaTrackSupportedConstraints -> Attribute True Optional Bool
+  aspectRatio = fromUndefOrPrim "MediaTrackSupportedConstraints.getaspectRatio"
+                                prim__aspectRatio
+                                prim__setAspectRatio
+                                True
   
   export
-  setAspectRatio :  (obj : MediaTrackSupportedConstraints)
-                 -> (value : Optional Bool)
-                 -> JSIO ()
-  setAspectRatio a b = primJS
-                     $ MediaTrackSupportedConstraints.prim__setAspectRatio a
-                                                                           (toFFI b)
-
-  export
-  setAspectRatio' : (obj : MediaTrackSupportedConstraints) -> JSIO ()
-  setAspectRatio' a = primJS
-                    $ MediaTrackSupportedConstraints.prim__setAspectRatio a
-                                                                          undef
+  autoGainControl : MediaTrackSupportedConstraints -> Attribute True Optional Bool
+  autoGainControl = fromUndefOrPrim "MediaTrackSupportedConstraints.getautoGainControl"
+                                    prim__autoGainControl
+                                    prim__setAutoGainControl
+                                    True
   
   export
-  autoGainControl :  (obj : MediaTrackSupportedConstraints)
-                  -> JSIO $ Optional Bool
-  autoGainControl a = tryJS "MediaTrackSupportedConstraints.autoGainControl"
-                    $ MediaTrackSupportedConstraints.prim__autoGainControl a
+  channelCount : MediaTrackSupportedConstraints -> Attribute True Optional Bool
+  channelCount = fromUndefOrPrim "MediaTrackSupportedConstraints.getchannelCount"
+                                 prim__channelCount
+                                 prim__setChannelCount
+                                 True
   
   export
-  setAutoGainControl :  (obj : MediaTrackSupportedConstraints)
-                     -> (value : Optional Bool)
-                     -> JSIO ()
-  setAutoGainControl a b = primJS
-                         $ MediaTrackSupportedConstraints.prim__setAutoGainControl a
-                                                                                   (toFFI b)
-
-  export
-  setAutoGainControl' : (obj : MediaTrackSupportedConstraints) -> JSIO ()
-  setAutoGainControl' a = primJS
-                        $ MediaTrackSupportedConstraints.prim__setAutoGainControl a
-                                                                                  undef
+  deviceId : MediaTrackSupportedConstraints -> Attribute True Optional Bool
+  deviceId = fromUndefOrPrim "MediaTrackSupportedConstraints.getdeviceId"
+                             prim__deviceId
+                             prim__setDeviceId
+                             True
   
   export
-  channelCount : (obj : MediaTrackSupportedConstraints) -> JSIO $ Optional Bool
-  channelCount a = tryJS "MediaTrackSupportedConstraints.channelCount"
-                 $ MediaTrackSupportedConstraints.prim__channelCount a
+  echoCancellation : MediaTrackSupportedConstraints -> Attribute True Optional Bool
+  echoCancellation = fromUndefOrPrim "MediaTrackSupportedConstraints.getechoCancellation"
+                                     prim__echoCancellation
+                                     prim__setEchoCancellation
+                                     True
   
   export
-  setChannelCount :  (obj : MediaTrackSupportedConstraints)
-                  -> (value : Optional Bool)
-                  -> JSIO ()
-  setChannelCount a b = primJS
-                      $ MediaTrackSupportedConstraints.prim__setChannelCount a
-                                                                             (toFFI b)
-
-  export
-  setChannelCount' : (obj : MediaTrackSupportedConstraints) -> JSIO ()
-  setChannelCount' a = primJS
-                     $ MediaTrackSupportedConstraints.prim__setChannelCount a
-                                                                            undef
+  facingMode : MediaTrackSupportedConstraints -> Attribute True Optional Bool
+  facingMode = fromUndefOrPrim "MediaTrackSupportedConstraints.getfacingMode"
+                               prim__facingMode
+                               prim__setFacingMode
+                               True
   
   export
-  deviceId : (obj : MediaTrackSupportedConstraints) -> JSIO $ Optional Bool
-  deviceId a = tryJS "MediaTrackSupportedConstraints.deviceId"
-             $ MediaTrackSupportedConstraints.prim__deviceId a
+  frameRate : MediaTrackSupportedConstraints -> Attribute True Optional Bool
+  frameRate = fromUndefOrPrim "MediaTrackSupportedConstraints.getframeRate"
+                              prim__frameRate
+                              prim__setFrameRate
+                              True
   
   export
-  setDeviceId :  (obj : MediaTrackSupportedConstraints)
-              -> (value : Optional Bool)
-              -> JSIO ()
-  setDeviceId a b = primJS
-                  $ MediaTrackSupportedConstraints.prim__setDeviceId a (toFFI b)
-
-  export
-  setDeviceId' : (obj : MediaTrackSupportedConstraints) -> JSIO ()
-  setDeviceId' a = primJS
-                 $ MediaTrackSupportedConstraints.prim__setDeviceId a undef
+  groupId : MediaTrackSupportedConstraints -> Attribute True Optional Bool
+  groupId = fromUndefOrPrim "MediaTrackSupportedConstraints.getgroupId"
+                            prim__groupId
+                            prim__setGroupId
+                            True
   
   export
-  echoCancellation :  (obj : MediaTrackSupportedConstraints)
-                   -> JSIO $ Optional Bool
-  echoCancellation a = tryJS "MediaTrackSupportedConstraints.echoCancellation"
-                     $ MediaTrackSupportedConstraints.prim__echoCancellation a
+  height : MediaTrackSupportedConstraints -> Attribute True Optional Bool
+  height = fromUndefOrPrim "MediaTrackSupportedConstraints.getheight"
+                           prim__height
+                           prim__setHeight
+                           True
   
   export
-  setEchoCancellation :  (obj : MediaTrackSupportedConstraints)
-                      -> (value : Optional Bool)
-                      -> JSIO ()
-  setEchoCancellation a b = primJS
-                          $ MediaTrackSupportedConstraints.prim__setEchoCancellation a
-                                                                                     (toFFI b)
-
-  export
-  setEchoCancellation' : (obj : MediaTrackSupportedConstraints) -> JSIO ()
-  setEchoCancellation' a = primJS
-                         $ MediaTrackSupportedConstraints.prim__setEchoCancellation a
-                                                                                    undef
+  latency : MediaTrackSupportedConstraints -> Attribute True Optional Bool
+  latency = fromUndefOrPrim "MediaTrackSupportedConstraints.getlatency"
+                            prim__latency
+                            prim__setLatency
+                            True
   
   export
-  facingMode : (obj : MediaTrackSupportedConstraints) -> JSIO $ Optional Bool
-  facingMode a = tryJS "MediaTrackSupportedConstraints.facingMode"
-               $ MediaTrackSupportedConstraints.prim__facingMode a
+  noiseSuppression : MediaTrackSupportedConstraints -> Attribute True Optional Bool
+  noiseSuppression = fromUndefOrPrim "MediaTrackSupportedConstraints.getnoiseSuppression"
+                                     prim__noiseSuppression
+                                     prim__setNoiseSuppression
+                                     True
   
   export
-  setFacingMode :  (obj : MediaTrackSupportedConstraints)
-                -> (value : Optional Bool)
-                -> JSIO ()
-  setFacingMode a b = primJS
-                    $ MediaTrackSupportedConstraints.prim__setFacingMode a
-                                                                         (toFFI b)
-
-  export
-  setFacingMode' : (obj : MediaTrackSupportedConstraints) -> JSIO ()
-  setFacingMode' a = primJS
-                   $ MediaTrackSupportedConstraints.prim__setFacingMode a undef
+  resizeMode : MediaTrackSupportedConstraints -> Attribute True Optional Bool
+  resizeMode = fromUndefOrPrim "MediaTrackSupportedConstraints.getresizeMode"
+                               prim__resizeMode
+                               prim__setResizeMode
+                               True
   
   export
-  frameRate : (obj : MediaTrackSupportedConstraints) -> JSIO $ Optional Bool
-  frameRate a = tryJS "MediaTrackSupportedConstraints.frameRate"
-              $ MediaTrackSupportedConstraints.prim__frameRate a
+  sampleRate : MediaTrackSupportedConstraints -> Attribute True Optional Bool
+  sampleRate = fromUndefOrPrim "MediaTrackSupportedConstraints.getsampleRate"
+                               prim__sampleRate
+                               prim__setSampleRate
+                               True
   
   export
-  setFrameRate :  (obj : MediaTrackSupportedConstraints)
-               -> (value : Optional Bool)
-               -> JSIO ()
-  setFrameRate a b = primJS
-                   $ MediaTrackSupportedConstraints.prim__setFrameRate a
-                                                                       (toFFI b)
-
-  export
-  setFrameRate' : (obj : MediaTrackSupportedConstraints) -> JSIO ()
-  setFrameRate' a = primJS
-                  $ MediaTrackSupportedConstraints.prim__setFrameRate a undef
+  sampleSize : MediaTrackSupportedConstraints -> Attribute True Optional Bool
+  sampleSize = fromUndefOrPrim "MediaTrackSupportedConstraints.getsampleSize"
+                               prim__sampleSize
+                               prim__setSampleSize
+                               True
   
   export
-  groupId : (obj : MediaTrackSupportedConstraints) -> JSIO $ Optional Bool
-  groupId a = tryJS "MediaTrackSupportedConstraints.groupId"
-            $ MediaTrackSupportedConstraints.prim__groupId a
-  
-  export
-  setGroupId :  (obj : MediaTrackSupportedConstraints)
-             -> (value : Optional Bool)
-             -> JSIO ()
-  setGroupId a b = primJS
-                 $ MediaTrackSupportedConstraints.prim__setGroupId a (toFFI b)
-
-  export
-  setGroupId' : (obj : MediaTrackSupportedConstraints) -> JSIO ()
-  setGroupId' a = primJS
-                $ MediaTrackSupportedConstraints.prim__setGroupId a undef
-  
-  export
-  height : (obj : MediaTrackSupportedConstraints) -> JSIO $ Optional Bool
-  height a = tryJS "MediaTrackSupportedConstraints.height"
-           $ MediaTrackSupportedConstraints.prim__height a
-  
-  export
-  setHeight :  (obj : MediaTrackSupportedConstraints)
-            -> (value : Optional Bool)
-            -> JSIO ()
-  setHeight a b = primJS
-                $ MediaTrackSupportedConstraints.prim__setHeight a (toFFI b)
-
-  export
-  setHeight' : (obj : MediaTrackSupportedConstraints) -> JSIO ()
-  setHeight' a = primJS $ MediaTrackSupportedConstraints.prim__setHeight a undef
-  
-  export
-  latency : (obj : MediaTrackSupportedConstraints) -> JSIO $ Optional Bool
-  latency a = tryJS "MediaTrackSupportedConstraints.latency"
-            $ MediaTrackSupportedConstraints.prim__latency a
-  
-  export
-  setLatency :  (obj : MediaTrackSupportedConstraints)
-             -> (value : Optional Bool)
-             -> JSIO ()
-  setLatency a b = primJS
-                 $ MediaTrackSupportedConstraints.prim__setLatency a (toFFI b)
-
-  export
-  setLatency' : (obj : MediaTrackSupportedConstraints) -> JSIO ()
-  setLatency' a = primJS
-                $ MediaTrackSupportedConstraints.prim__setLatency a undef
-  
-  export
-  noiseSuppression :  (obj : MediaTrackSupportedConstraints)
-                   -> JSIO $ Optional Bool
-  noiseSuppression a = tryJS "MediaTrackSupportedConstraints.noiseSuppression"
-                     $ MediaTrackSupportedConstraints.prim__noiseSuppression a
-  
-  export
-  setNoiseSuppression :  (obj : MediaTrackSupportedConstraints)
-                      -> (value : Optional Bool)
-                      -> JSIO ()
-  setNoiseSuppression a b = primJS
-                          $ MediaTrackSupportedConstraints.prim__setNoiseSuppression a
-                                                                                     (toFFI b)
-
-  export
-  setNoiseSuppression' : (obj : MediaTrackSupportedConstraints) -> JSIO ()
-  setNoiseSuppression' a = primJS
-                         $ MediaTrackSupportedConstraints.prim__setNoiseSuppression a
-                                                                                    undef
-  
-  export
-  resizeMode : (obj : MediaTrackSupportedConstraints) -> JSIO $ Optional Bool
-  resizeMode a = tryJS "MediaTrackSupportedConstraints.resizeMode"
-               $ MediaTrackSupportedConstraints.prim__resizeMode a
-  
-  export
-  setResizeMode :  (obj : MediaTrackSupportedConstraints)
-                -> (value : Optional Bool)
-                -> JSIO ()
-  setResizeMode a b = primJS
-                    $ MediaTrackSupportedConstraints.prim__setResizeMode a
-                                                                         (toFFI b)
-
-  export
-  setResizeMode' : (obj : MediaTrackSupportedConstraints) -> JSIO ()
-  setResizeMode' a = primJS
-                   $ MediaTrackSupportedConstraints.prim__setResizeMode a undef
-  
-  export
-  sampleRate : (obj : MediaTrackSupportedConstraints) -> JSIO $ Optional Bool
-  sampleRate a = tryJS "MediaTrackSupportedConstraints.sampleRate"
-               $ MediaTrackSupportedConstraints.prim__sampleRate a
-  
-  export
-  setSampleRate :  (obj : MediaTrackSupportedConstraints)
-                -> (value : Optional Bool)
-                -> JSIO ()
-  setSampleRate a b = primJS
-                    $ MediaTrackSupportedConstraints.prim__setSampleRate a
-                                                                         (toFFI b)
-
-  export
-  setSampleRate' : (obj : MediaTrackSupportedConstraints) -> JSIO ()
-  setSampleRate' a = primJS
-                   $ MediaTrackSupportedConstraints.prim__setSampleRate a undef
-  
-  export
-  sampleSize : (obj : MediaTrackSupportedConstraints) -> JSIO $ Optional Bool
-  sampleSize a = tryJS "MediaTrackSupportedConstraints.sampleSize"
-               $ MediaTrackSupportedConstraints.prim__sampleSize a
-  
-  export
-  setSampleSize :  (obj : MediaTrackSupportedConstraints)
-                -> (value : Optional Bool)
-                -> JSIO ()
-  setSampleSize a b = primJS
-                    $ MediaTrackSupportedConstraints.prim__setSampleSize a
-                                                                         (toFFI b)
-
-  export
-  setSampleSize' : (obj : MediaTrackSupportedConstraints) -> JSIO ()
-  setSampleSize' a = primJS
-                   $ MediaTrackSupportedConstraints.prim__setSampleSize a undef
-  
-  export
-  width : (obj : MediaTrackSupportedConstraints) -> JSIO $ Optional Bool
-  width a = tryJS "MediaTrackSupportedConstraints.width"
-          $ MediaTrackSupportedConstraints.prim__width a
-  
-  export
-  setWidth :  (obj : MediaTrackSupportedConstraints)
-           -> (value : Optional Bool)
-           -> JSIO ()
-  setWidth a b = primJS
-               $ MediaTrackSupportedConstraints.prim__setWidth a (toFFI b)
-
-  export
-  setWidth' : (obj : MediaTrackSupportedConstraints) -> JSIO ()
-  setWidth' a = primJS $ MediaTrackSupportedConstraints.prim__setWidth a undef
+  width : MediaTrackSupportedConstraints -> Attribute True Optional Bool
+  width = fromUndefOrPrim "MediaTrackSupportedConstraints.getwidth"
+                          prim__width
+                          prim__setWidth
+                          True
 
 namespace Settings
   
@@ -2084,28 +1280,12 @@ namespace ULongRange
   new' = primJS $ ULongRange.prim__new undef undef
   
   export
-  max : (obj : ULongRange) -> JSIO $ Optional UInt32
-  max a = tryJS "ULongRange.max" $ ULongRange.prim__max a
+  max : ULongRange -> Attribute False Optional UInt32
+  max = fromUndefOrPrimNoDefault "ULongRange.getmax" prim__max prim__setMax
   
   export
-  setMax : (obj : ULongRange) -> (value : Optional UInt32) -> JSIO ()
-  setMax a b = primJS $ ULongRange.prim__setMax a (toFFI b)
-
-  export
-  setMax' : (obj : ULongRange) -> JSIO ()
-  setMax' a = primJS $ ULongRange.prim__setMax a undef
-  
-  export
-  min : (obj : ULongRange) -> JSIO $ Optional UInt32
-  min a = tryJS "ULongRange.min" $ ULongRange.prim__min a
-  
-  export
-  setMin : (obj : ULongRange) -> (value : Optional UInt32) -> JSIO ()
-  setMin a b = primJS $ ULongRange.prim__setMin a (toFFI b)
-
-  export
-  setMin' : (obj : ULongRange) -> JSIO ()
-  setMin' a = primJS $ ULongRange.prim__setMin a undef
+  min : ULongRange -> Attribute False Optional UInt32
+  min = fromUndefOrPrimNoDefault "ULongRange.getmin" prim__min prim__setMin
 
 --------------------------------------------------------------------------------
 --          Callbacks

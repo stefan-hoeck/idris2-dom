@@ -17,12 +17,8 @@ namespace AudioTrack
     mixins =  []
   
   export
-  enabled : (obj : AudioTrack) -> JSIO Bool
-  enabled a = tryJS "AudioTrack.enabled" $ AudioTrack.prim__enabled a
-  
-  export
-  setEnabled : (obj : AudioTrack) -> (value : Bool) -> JSIO ()
-  setEnabled a b = primJS $ AudioTrack.prim__setEnabled a (toFFI b)
+  enabled : AudioTrack -> Attribute True I Bool
+  enabled = fromPrim "AudioTrack.getenabled" prim__enabled prim__setEnabled
   
   export
   id : (obj : AudioTrack) -> JSIO String
@@ -62,37 +58,22 @@ namespace AudioTrackList
   length a = primJS $ AudioTrackList.prim__length a
   
   export
-  onaddtrack : (obj : AudioTrackList) -> JSIO (Maybe EventHandlerNonNull)
-  onaddtrack a = tryJS "AudioTrackList.onaddtrack"
-               $ AudioTrackList.prim__onaddtrack a
+  onaddtrack : AudioTrackList -> Attribute False Maybe EventHandlerNonNull
+  onaddtrack = fromNullablePrim "AudioTrackList.getonaddtrack"
+                                prim__onaddtrack
+                                prim__setOnaddtrack
   
   export
-  setOnaddtrack :  (obj : AudioTrackList)
-                -> (value : Maybe EventHandlerNonNull)
-                -> JSIO ()
-  setOnaddtrack a b = primJS $ AudioTrackList.prim__setOnaddtrack a (toFFI b)
+  onchange : AudioTrackList -> Attribute False Maybe EventHandlerNonNull
+  onchange = fromNullablePrim "AudioTrackList.getonchange"
+                              prim__onchange
+                              prim__setOnchange
   
   export
-  onchange : (obj : AudioTrackList) -> JSIO (Maybe EventHandlerNonNull)
-  onchange a = tryJS "AudioTrackList.onchange" $ AudioTrackList.prim__onchange a
-  
-  export
-  setOnchange :  (obj : AudioTrackList)
-              -> (value : Maybe EventHandlerNonNull)
-              -> JSIO ()
-  setOnchange a b = primJS $ AudioTrackList.prim__setOnchange a (toFFI b)
-  
-  export
-  onremovetrack : (obj : AudioTrackList) -> JSIO (Maybe EventHandlerNonNull)
-  onremovetrack a = tryJS "AudioTrackList.onremovetrack"
-                  $ AudioTrackList.prim__onremovetrack a
-  
-  export
-  setOnremovetrack :  (obj : AudioTrackList)
-                   -> (value : Maybe EventHandlerNonNull)
-                   -> JSIO ()
-  setOnremovetrack a b = primJS
-                       $ AudioTrackList.prim__setOnremovetrack a (toFFI b)
+  onremovetrack : AudioTrackList -> Attribute False Maybe EventHandlerNonNull
+  onremovetrack = fromNullablePrim "AudioTrackList.getonremovetrack"
+                                   prim__onremovetrack
+                                   prim__setOnremovetrack
   
   export
   getTrackById :  (obj : AudioTrackList)
@@ -122,12 +103,10 @@ namespace BeforeUnloadEvent
     mixins =  []
   
   export
-  returnValue : (obj : BeforeUnloadEvent) -> JSIO String
-  returnValue a = primJS $ BeforeUnloadEvent.prim__returnValue a
-  
-  export
-  setReturnValue : (obj : BeforeUnloadEvent) -> (value : String) -> JSIO ()
-  setReturnValue a b = primJS $ BeforeUnloadEvent.prim__setReturnValue a b
+  returnValue : BeforeUnloadEvent -> Attribute True I String
+  returnValue = fromPrim "BeforeUnloadEvent.getreturnValue"
+                         prim__returnValue
+                         prim__setReturnValue
 
 namespace BroadcastChannel
   
@@ -146,35 +125,24 @@ namespace BroadcastChannel
   name a = primJS $ BroadcastChannel.prim__name a
   
   export
-  onmessage : (obj : BroadcastChannel) -> JSIO (Maybe EventHandlerNonNull)
-  onmessage a = tryJS "BroadcastChannel.onmessage"
-              $ BroadcastChannel.prim__onmessage a
+  onmessage : BroadcastChannel -> Attribute False Maybe EventHandlerNonNull
+  onmessage = fromNullablePrim "BroadcastChannel.getonmessage"
+                               prim__onmessage
+                               prim__setOnmessage
   
   export
-  setOnmessage :  (obj : BroadcastChannel)
-               -> (value : Maybe EventHandlerNonNull)
-               -> JSIO ()
-  setOnmessage a b = primJS $ BroadcastChannel.prim__setOnmessage a (toFFI b)
-  
-  export
-  onmessageerror : (obj : BroadcastChannel) -> JSIO (Maybe EventHandlerNonNull)
-  onmessageerror a = tryJS "BroadcastChannel.onmessageerror"
-                   $ BroadcastChannel.prim__onmessageerror a
-  
-  export
-  setOnmessageerror :  (obj : BroadcastChannel)
-                    -> (value : Maybe EventHandlerNonNull)
-                    -> JSIO ()
-  setOnmessageerror a b = primJS
-                        $ BroadcastChannel.prim__setOnmessageerror a (toFFI b)
+  onmessageerror : BroadcastChannel -> Attribute False Maybe EventHandlerNonNull
+  onmessageerror = fromNullablePrim "BroadcastChannel.getonmessageerror"
+                                    prim__onmessageerror
+                                    prim__setOnmessageerror
   
   export
   close : (obj : BroadcastChannel) -> JSIO ()
   close a = primJS $ BroadcastChannel.prim__close a
   
   export
-  postMessage : (obj : BroadcastChannel) -> (message : AnyPtr) -> JSIO ()
-  postMessage a b = primJS $ BroadcastChannel.prim__postMessage a b
+  postMessage : (obj : BroadcastChannel) -> (message : Any) -> JSIO ()
+  postMessage a b = primJS $ BroadcastChannel.prim__postMessage a (toFFI b)
 
 namespace CanvasGradient
   
@@ -382,20 +350,16 @@ namespace DataTransfer
   new = primJS $ DataTransfer.prim__new 
   
   export
-  dropEffect : (obj : DataTransfer) -> JSIO String
-  dropEffect a = primJS $ DataTransfer.prim__dropEffect a
+  dropEffect : DataTransfer -> Attribute True I String
+  dropEffect = fromPrim "DataTransfer.getdropEffect"
+                        prim__dropEffect
+                        prim__setDropEffect
   
   export
-  setDropEffect : (obj : DataTransfer) -> (value : String) -> JSIO ()
-  setDropEffect a b = primJS $ DataTransfer.prim__setDropEffect a b
-  
-  export
-  effectAllowed : (obj : DataTransfer) -> JSIO String
-  effectAllowed a = primJS $ DataTransfer.prim__effectAllowed a
-  
-  export
-  setEffectAllowed : (obj : DataTransfer) -> (value : String) -> JSIO ()
-  setEffectAllowed a b = primJS $ DataTransfer.prim__setEffectAllowed a b
+  effectAllowed : DataTransfer -> Attribute True I String
+  effectAllowed = fromPrim "DataTransfer.geteffectAllowed"
+                           prim__effectAllowed
+                           prim__setEffectAllowed
   
   export
   files : (obj : DataTransfer) -> JSIO FileList
@@ -517,31 +481,16 @@ namespace DedicatedWorkerGlobalScope
   name a = primJS $ DedicatedWorkerGlobalScope.prim__name a
   
   export
-  onmessage :  (obj : DedicatedWorkerGlobalScope)
-            -> JSIO (Maybe EventHandlerNonNull)
-  onmessage a = tryJS "DedicatedWorkerGlobalScope.onmessage"
-              $ DedicatedWorkerGlobalScope.prim__onmessage a
+  onmessage : DedicatedWorkerGlobalScope -> Attribute False Maybe EventHandlerNonNull
+  onmessage = fromNullablePrim "DedicatedWorkerGlobalScope.getonmessage"
+                               prim__onmessage
+                               prim__setOnmessage
   
   export
-  setOnmessage :  (obj : DedicatedWorkerGlobalScope)
-               -> (value : Maybe EventHandlerNonNull)
-               -> JSIO ()
-  setOnmessage a b = primJS
-                   $ DedicatedWorkerGlobalScope.prim__setOnmessage a (toFFI b)
-  
-  export
-  onmessageerror :  (obj : DedicatedWorkerGlobalScope)
-                 -> JSIO (Maybe EventHandlerNonNull)
-  onmessageerror a = tryJS "DedicatedWorkerGlobalScope.onmessageerror"
-                   $ DedicatedWorkerGlobalScope.prim__onmessageerror a
-  
-  export
-  setOnmessageerror :  (obj : DedicatedWorkerGlobalScope)
-                    -> (value : Maybe EventHandlerNonNull)
-                    -> JSIO ()
-  setOnmessageerror a b = primJS
-                        $ DedicatedWorkerGlobalScope.prim__setOnmessageerror a
-                                                                             (toFFI b)
+  onmessageerror : DedicatedWorkerGlobalScope -> Attribute False Maybe EventHandlerNonNull
+  onmessageerror = fromNullablePrim "DedicatedWorkerGlobalScope.getonmessageerror"
+                                    prim__onmessageerror
+                                    prim__setOnmessageerror
   
   export
   close : (obj : DedicatedWorkerGlobalScope) -> JSIO ()
@@ -549,28 +498,30 @@ namespace DedicatedWorkerGlobalScope
   
   export
   postMessage :  (obj : DedicatedWorkerGlobalScope)
-              -> (message : AnyPtr)
+              -> (message : Any)
               -> (transfer : Array Object)
               -> JSIO ()
   postMessage a b c = primJS
-                    $ DedicatedWorkerGlobalScope.prim__postMessage a b c
+                    $ DedicatedWorkerGlobalScope.prim__postMessage a (toFFI b) c
   
   export
   postMessage1 :  (obj : DedicatedWorkerGlobalScope)
-               -> (message : AnyPtr)
+               -> (message : Any)
                -> (options : Optional PostMessageOptions)
                -> JSIO ()
   postMessage1 a b c = primJS
                      $ DedicatedWorkerGlobalScope.prim__postMessage1 a
-                                                                     b
+                                                                     (toFFI b)
                                                                      (toFFI c)
 
   export
   postMessage1' :  (obj : DedicatedWorkerGlobalScope)
-                -> (message : AnyPtr)
+                -> (message : Any)
                 -> JSIO ()
   postMessage1' a b = primJS
-                    $ DedicatedWorkerGlobalScope.prim__postMessage1 a b undef
+                    $ DedicatedWorkerGlobalScope.prim__postMessage1 a
+                                                                    (toFFI b)
+                                                                    undef
 
 namespace DragEvent
   
@@ -694,8 +645,8 @@ namespace ErrorEvent
   colno a = primJS $ ErrorEvent.prim__colno a
   
   export
-  error : (obj : ErrorEvent) -> JSIO AnyPtr
-  error a = primJS $ ErrorEvent.prim__error a
+  error : (obj : ErrorEvent) -> JSIO Any
+  error a = tryJS "ErrorEvent.error" $ ErrorEvent.prim__error a
   
   export
   filename : (obj : ErrorEvent) -> JSIO String
@@ -740,34 +691,20 @@ namespace EventSource
   new' a = primJS $ EventSource.prim__new a undef
   
   export
-  onerror : (obj : EventSource) -> JSIO (Maybe EventHandlerNonNull)
-  onerror a = tryJS "EventSource.onerror" $ EventSource.prim__onerror a
+  onerror : EventSource -> Attribute False Maybe EventHandlerNonNull
+  onerror = fromNullablePrim "EventSource.getonerror"
+                             prim__onerror
+                             prim__setOnerror
   
   export
-  setOnerror :  (obj : EventSource)
-             -> (value : Maybe EventHandlerNonNull)
-             -> JSIO ()
-  setOnerror a b = primJS $ EventSource.prim__setOnerror a (toFFI b)
+  onmessage : EventSource -> Attribute False Maybe EventHandlerNonNull
+  onmessage = fromNullablePrim "EventSource.getonmessage"
+                               prim__onmessage
+                               prim__setOnmessage
   
   export
-  onmessage : (obj : EventSource) -> JSIO (Maybe EventHandlerNonNull)
-  onmessage a = tryJS "EventSource.onmessage" $ EventSource.prim__onmessage a
-  
-  export
-  setOnmessage :  (obj : EventSource)
-               -> (value : Maybe EventHandlerNonNull)
-               -> JSIO ()
-  setOnmessage a b = primJS $ EventSource.prim__setOnmessage a (toFFI b)
-  
-  export
-  onopen : (obj : EventSource) -> JSIO (Maybe EventHandlerNonNull)
-  onopen a = tryJS "EventSource.onopen" $ EventSource.prim__onopen a
-  
-  export
-  setOnopen :  (obj : EventSource)
-            -> (value : Maybe EventHandlerNonNull)
-            -> JSIO ()
-  setOnopen a b = primJS $ EventSource.prim__setOnopen a (toFFI b)
+  onopen : EventSource -> Attribute False Maybe EventHandlerNonNull
+  onopen = fromNullablePrim "EventSource.getonopen" prim__onopen prim__setOnopen
   
   export
   readyState : (obj : EventSource) -> JSIO UInt16
@@ -881,112 +818,68 @@ namespace HTMLAnchorElement
   new = primJS $ HTMLAnchorElement.prim__new 
   
   export
-  charset : (obj : HTMLAnchorElement) -> JSIO String
-  charset a = primJS $ HTMLAnchorElement.prim__charset a
+  charset : HTMLAnchorElement -> Attribute True I String
+  charset = fromPrim "HTMLAnchorElement.getcharset"
+                     prim__charset
+                     prim__setCharset
   
   export
-  setCharset : (obj : HTMLAnchorElement) -> (value : String) -> JSIO ()
-  setCharset a b = primJS $ HTMLAnchorElement.prim__setCharset a b
+  coords : HTMLAnchorElement -> Attribute True I String
+  coords = fromPrim "HTMLAnchorElement.getcoords" prim__coords prim__setCoords
   
   export
-  coords : (obj : HTMLAnchorElement) -> JSIO String
-  coords a = primJS $ HTMLAnchorElement.prim__coords a
+  download : HTMLAnchorElement -> Attribute True I String
+  download = fromPrim "HTMLAnchorElement.getdownload"
+                      prim__download
+                      prim__setDownload
   
   export
-  setCoords : (obj : HTMLAnchorElement) -> (value : String) -> JSIO ()
-  setCoords a b = primJS $ HTMLAnchorElement.prim__setCoords a b
+  hreflang : HTMLAnchorElement -> Attribute True I String
+  hreflang = fromPrim "HTMLAnchorElement.gethreflang"
+                      prim__hreflang
+                      prim__setHreflang
   
   export
-  download : (obj : HTMLAnchorElement) -> JSIO String
-  download a = primJS $ HTMLAnchorElement.prim__download a
+  name : HTMLAnchorElement -> Attribute True I String
+  name = fromPrim "HTMLAnchorElement.getname" prim__name prim__setName
   
   export
-  setDownload : (obj : HTMLAnchorElement) -> (value : String) -> JSIO ()
-  setDownload a b = primJS $ HTMLAnchorElement.prim__setDownload a b
+  ping : HTMLAnchorElement -> Attribute True I String
+  ping = fromPrim "HTMLAnchorElement.getping" prim__ping prim__setPing
   
   export
-  hreflang : (obj : HTMLAnchorElement) -> JSIO String
-  hreflang a = primJS $ HTMLAnchorElement.prim__hreflang a
+  referrerPolicy : HTMLAnchorElement -> Attribute True I String
+  referrerPolicy = fromPrim "HTMLAnchorElement.getreferrerPolicy"
+                            prim__referrerPolicy
+                            prim__setReferrerPolicy
   
   export
-  setHreflang : (obj : HTMLAnchorElement) -> (value : String) -> JSIO ()
-  setHreflang a b = primJS $ HTMLAnchorElement.prim__setHreflang a b
-  
-  export
-  name : (obj : HTMLAnchorElement) -> JSIO String
-  name a = primJS $ HTMLAnchorElement.prim__name a
-  
-  export
-  setName : (obj : HTMLAnchorElement) -> (value : String) -> JSIO ()
-  setName a b = primJS $ HTMLAnchorElement.prim__setName a b
-  
-  export
-  ping : (obj : HTMLAnchorElement) -> JSIO String
-  ping a = primJS $ HTMLAnchorElement.prim__ping a
-  
-  export
-  setPing : (obj : HTMLAnchorElement) -> (value : String) -> JSIO ()
-  setPing a b = primJS $ HTMLAnchorElement.prim__setPing a b
-  
-  export
-  referrerPolicy : (obj : HTMLAnchorElement) -> JSIO String
-  referrerPolicy a = primJS $ HTMLAnchorElement.prim__referrerPolicy a
-  
-  export
-  setReferrerPolicy : (obj : HTMLAnchorElement) -> (value : String) -> JSIO ()
-  setReferrerPolicy a b = primJS $ HTMLAnchorElement.prim__setReferrerPolicy a b
-  
-  export
-  rel : (obj : HTMLAnchorElement) -> JSIO String
-  rel a = primJS $ HTMLAnchorElement.prim__rel a
-  
-  export
-  setRel : (obj : HTMLAnchorElement) -> (value : String) -> JSIO ()
-  setRel a b = primJS $ HTMLAnchorElement.prim__setRel a b
+  rel : HTMLAnchorElement -> Attribute True I String
+  rel = fromPrim "HTMLAnchorElement.getrel" prim__rel prim__setRel
   
   export
   relList : (obj : HTMLAnchorElement) -> JSIO DOMTokenList
   relList a = primJS $ HTMLAnchorElement.prim__relList a
   
   export
-  rev : (obj : HTMLAnchorElement) -> JSIO String
-  rev a = primJS $ HTMLAnchorElement.prim__rev a
+  rev : HTMLAnchorElement -> Attribute True I String
+  rev = fromPrim "HTMLAnchorElement.getrev" prim__rev prim__setRev
   
   export
-  setRev : (obj : HTMLAnchorElement) -> (value : String) -> JSIO ()
-  setRev a b = primJS $ HTMLAnchorElement.prim__setRev a b
+  shape : HTMLAnchorElement -> Attribute True I String
+  shape = fromPrim "HTMLAnchorElement.getshape" prim__shape prim__setShape
   
   export
-  shape : (obj : HTMLAnchorElement) -> JSIO String
-  shape a = primJS $ HTMLAnchorElement.prim__shape a
+  target : HTMLAnchorElement -> Attribute True I String
+  target = fromPrim "HTMLAnchorElement.gettarget" prim__target prim__setTarget
   
   export
-  setShape : (obj : HTMLAnchorElement) -> (value : String) -> JSIO ()
-  setShape a b = primJS $ HTMLAnchorElement.prim__setShape a b
+  text : HTMLAnchorElement -> Attribute True I String
+  text = fromPrim "HTMLAnchorElement.gettext" prim__text prim__setText
   
   export
-  target : (obj : HTMLAnchorElement) -> JSIO String
-  target a = primJS $ HTMLAnchorElement.prim__target a
-  
-  export
-  setTarget : (obj : HTMLAnchorElement) -> (value : String) -> JSIO ()
-  setTarget a b = primJS $ HTMLAnchorElement.prim__setTarget a b
-  
-  export
-  text : (obj : HTMLAnchorElement) -> JSIO String
-  text a = primJS $ HTMLAnchorElement.prim__text a
-  
-  export
-  setText : (obj : HTMLAnchorElement) -> (value : String) -> JSIO ()
-  setText a b = primJS $ HTMLAnchorElement.prim__setText a b
-  
-  export
-  type : (obj : HTMLAnchorElement) -> JSIO String
-  type a = primJS $ HTMLAnchorElement.prim__type a
-  
-  export
-  setType : (obj : HTMLAnchorElement) -> (value : String) -> JSIO ()
-  setType a b = primJS $ HTMLAnchorElement.prim__setType a b
+  type : HTMLAnchorElement -> Attribute True I String
+  type = fromPrim "HTMLAnchorElement.gettype" prim__type prim__setType
 
 namespace HTMLAreaElement
   
@@ -1012,80 +905,48 @@ namespace HTMLAreaElement
   new = primJS $ HTMLAreaElement.prim__new 
   
   export
-  alt : (obj : HTMLAreaElement) -> JSIO String
-  alt a = primJS $ HTMLAreaElement.prim__alt a
+  alt : HTMLAreaElement -> Attribute True I String
+  alt = fromPrim "HTMLAreaElement.getalt" prim__alt prim__setAlt
   
   export
-  setAlt : (obj : HTMLAreaElement) -> (value : String) -> JSIO ()
-  setAlt a b = primJS $ HTMLAreaElement.prim__setAlt a b
+  coords : HTMLAreaElement -> Attribute True I String
+  coords = fromPrim "HTMLAreaElement.getcoords" prim__coords prim__setCoords
   
   export
-  coords : (obj : HTMLAreaElement) -> JSIO String
-  coords a = primJS $ HTMLAreaElement.prim__coords a
+  download : HTMLAreaElement -> Attribute True I String
+  download = fromPrim "HTMLAreaElement.getdownload"
+                      prim__download
+                      prim__setDownload
   
   export
-  setCoords : (obj : HTMLAreaElement) -> (value : String) -> JSIO ()
-  setCoords a b = primJS $ HTMLAreaElement.prim__setCoords a b
+  noHref : HTMLAreaElement -> Attribute True I Bool
+  noHref = fromPrim "HTMLAreaElement.getnoHref" prim__noHref prim__setNoHref
   
   export
-  download : (obj : HTMLAreaElement) -> JSIO String
-  download a = primJS $ HTMLAreaElement.prim__download a
+  ping : HTMLAreaElement -> Attribute True I String
+  ping = fromPrim "HTMLAreaElement.getping" prim__ping prim__setPing
   
   export
-  setDownload : (obj : HTMLAreaElement) -> (value : String) -> JSIO ()
-  setDownload a b = primJS $ HTMLAreaElement.prim__setDownload a b
+  referrerPolicy : HTMLAreaElement -> Attribute True I String
+  referrerPolicy = fromPrim "HTMLAreaElement.getreferrerPolicy"
+                            prim__referrerPolicy
+                            prim__setReferrerPolicy
   
   export
-  noHref : (obj : HTMLAreaElement) -> JSIO Bool
-  noHref a = tryJS "HTMLAreaElement.noHref" $ HTMLAreaElement.prim__noHref a
-  
-  export
-  setNoHref : (obj : HTMLAreaElement) -> (value : Bool) -> JSIO ()
-  setNoHref a b = primJS $ HTMLAreaElement.prim__setNoHref a (toFFI b)
-  
-  export
-  ping : (obj : HTMLAreaElement) -> JSIO String
-  ping a = primJS $ HTMLAreaElement.prim__ping a
-  
-  export
-  setPing : (obj : HTMLAreaElement) -> (value : String) -> JSIO ()
-  setPing a b = primJS $ HTMLAreaElement.prim__setPing a b
-  
-  export
-  referrerPolicy : (obj : HTMLAreaElement) -> JSIO String
-  referrerPolicy a = primJS $ HTMLAreaElement.prim__referrerPolicy a
-  
-  export
-  setReferrerPolicy : (obj : HTMLAreaElement) -> (value : String) -> JSIO ()
-  setReferrerPolicy a b = primJS $ HTMLAreaElement.prim__setReferrerPolicy a b
-  
-  export
-  rel : (obj : HTMLAreaElement) -> JSIO String
-  rel a = primJS $ HTMLAreaElement.prim__rel a
-  
-  export
-  setRel : (obj : HTMLAreaElement) -> (value : String) -> JSIO ()
-  setRel a b = primJS $ HTMLAreaElement.prim__setRel a b
+  rel : HTMLAreaElement -> Attribute True I String
+  rel = fromPrim "HTMLAreaElement.getrel" prim__rel prim__setRel
   
   export
   relList : (obj : HTMLAreaElement) -> JSIO DOMTokenList
   relList a = primJS $ HTMLAreaElement.prim__relList a
   
   export
-  shape : (obj : HTMLAreaElement) -> JSIO String
-  shape a = primJS $ HTMLAreaElement.prim__shape a
+  shape : HTMLAreaElement -> Attribute True I String
+  shape = fromPrim "HTMLAreaElement.getshape" prim__shape prim__setShape
   
   export
-  setShape : (obj : HTMLAreaElement) -> (value : String) -> JSIO ()
-  setShape a b = primJS $ HTMLAreaElement.prim__setShape a b
-  
-  export
-  target : (obj : HTMLAreaElement) -> JSIO String
-  target a = primJS $ HTMLAreaElement.prim__target a
-  
-  export
-  setTarget : (obj : HTMLAreaElement) -> (value : String) -> JSIO ()
-  setTarget a b = primJS $ HTMLAreaElement.prim__setTarget a b
+  target : HTMLAreaElement -> Attribute True I String
+  target = fromPrim "HTMLAreaElement.gettarget" prim__target prim__setTarget
 
 namespace HTMLAudioElement
   
@@ -1138,12 +999,8 @@ namespace HTMLBRElement
   new = primJS $ HTMLBRElement.prim__new 
   
   export
-  clear : (obj : HTMLBRElement) -> JSIO String
-  clear a = primJS $ HTMLBRElement.prim__clear a
-  
-  export
-  setClear : (obj : HTMLBRElement) -> (value : String) -> JSIO ()
-  setClear a b = primJS $ HTMLBRElement.prim__setClear a b
+  clear : HTMLBRElement -> Attribute True I String
+  clear = fromPrim "HTMLBRElement.getclear" prim__clear prim__setClear
 
 namespace HTMLBaseElement
   
@@ -1168,20 +1025,12 @@ namespace HTMLBaseElement
   new = primJS $ HTMLBaseElement.prim__new 
   
   export
-  href : (obj : HTMLBaseElement) -> JSIO String
-  href a = primJS $ HTMLBaseElement.prim__href a
+  href : HTMLBaseElement -> Attribute True I String
+  href = fromPrim "HTMLBaseElement.gethref" prim__href prim__setHref
   
   export
-  setHref : (obj : HTMLBaseElement) -> (value : String) -> JSIO ()
-  setHref a b = primJS $ HTMLBaseElement.prim__setHref a b
-  
-  export
-  target : (obj : HTMLBaseElement) -> JSIO String
-  target a = primJS $ HTMLBaseElement.prim__target a
-  
-  export
-  setTarget : (obj : HTMLBaseElement) -> (value : String) -> JSIO ()
-  setTarget a b = primJS $ HTMLBaseElement.prim__setTarget a b
+  target : HTMLBaseElement -> Attribute True I String
+  target = fromPrim "HTMLBaseElement.gettarget" prim__target prim__setTarget
 
 namespace HTMLBodyElement
   
@@ -1207,52 +1056,30 @@ namespace HTMLBodyElement
   new = primJS $ HTMLBodyElement.prim__new 
   
   export
-  aLink : (obj : HTMLBodyElement) -> JSIO String
-  aLink a = primJS $ HTMLBodyElement.prim__aLink a
+  aLink : HTMLBodyElement -> Attribute True I String
+  aLink = fromPrim "HTMLBodyElement.getaLink" prim__aLink prim__setALink
   
   export
-  setALink : (obj : HTMLBodyElement) -> (value : String) -> JSIO ()
-  setALink a b = primJS $ HTMLBodyElement.prim__setALink a b
+  background : HTMLBodyElement -> Attribute True I String
+  background = fromPrim "HTMLBodyElement.getbackground"
+                        prim__background
+                        prim__setBackground
   
   export
-  background : (obj : HTMLBodyElement) -> JSIO String
-  background a = primJS $ HTMLBodyElement.prim__background a
+  bgColor : HTMLBodyElement -> Attribute True I String
+  bgColor = fromPrim "HTMLBodyElement.getbgColor" prim__bgColor prim__setBgColor
   
   export
-  setBackground : (obj : HTMLBodyElement) -> (value : String) -> JSIO ()
-  setBackground a b = primJS $ HTMLBodyElement.prim__setBackground a b
+  link : HTMLBodyElement -> Attribute True I String
+  link = fromPrim "HTMLBodyElement.getlink" prim__link prim__setLink
   
   export
-  bgColor : (obj : HTMLBodyElement) -> JSIO String
-  bgColor a = primJS $ HTMLBodyElement.prim__bgColor a
+  text : HTMLBodyElement -> Attribute True I String
+  text = fromPrim "HTMLBodyElement.gettext" prim__text prim__setText
   
   export
-  setBgColor : (obj : HTMLBodyElement) -> (value : String) -> JSIO ()
-  setBgColor a b = primJS $ HTMLBodyElement.prim__setBgColor a b
-  
-  export
-  link : (obj : HTMLBodyElement) -> JSIO String
-  link a = primJS $ HTMLBodyElement.prim__link a
-  
-  export
-  setLink : (obj : HTMLBodyElement) -> (value : String) -> JSIO ()
-  setLink a b = primJS $ HTMLBodyElement.prim__setLink a b
-  
-  export
-  text : (obj : HTMLBodyElement) -> JSIO String
-  text a = primJS $ HTMLBodyElement.prim__text a
-  
-  export
-  setText : (obj : HTMLBodyElement) -> (value : String) -> JSIO ()
-  setText a b = primJS $ HTMLBodyElement.prim__setText a b
-  
-  export
-  vLink : (obj : HTMLBodyElement) -> JSIO String
-  vLink a = primJS $ HTMLBodyElement.prim__vLink a
-  
-  export
-  setVLink : (obj : HTMLBodyElement) -> (value : String) -> JSIO ()
-  setVLink a b = primJS $ HTMLBodyElement.prim__setVLink a b
+  vLink : HTMLBodyElement -> Attribute True I String
+  vLink = fromPrim "HTMLBodyElement.getvLink" prim__vLink prim__setVLink
 
 namespace HTMLButtonElement
   
@@ -1277,79 +1104,56 @@ namespace HTMLButtonElement
   new = primJS $ HTMLButtonElement.prim__new 
   
   export
-  disabled : (obj : HTMLButtonElement) -> JSIO Bool
-  disabled a = tryJS "HTMLButtonElement.disabled"
-             $ HTMLButtonElement.prim__disabled a
-  
-  export
-  setDisabled : (obj : HTMLButtonElement) -> (value : Bool) -> JSIO ()
-  setDisabled a b = primJS $ HTMLButtonElement.prim__setDisabled a (toFFI b)
+  disabled : HTMLButtonElement -> Attribute True I Bool
+  disabled = fromPrim "HTMLButtonElement.getdisabled"
+                      prim__disabled
+                      prim__setDisabled
   
   export
   form : (obj : HTMLButtonElement) -> JSIO (Maybe HTMLFormElement)
   form a = tryJS "HTMLButtonElement.form" $ HTMLButtonElement.prim__form a
   
   export
-  formAction : (obj : HTMLButtonElement) -> JSIO String
-  formAction a = primJS $ HTMLButtonElement.prim__formAction a
+  formAction : HTMLButtonElement -> Attribute True I String
+  formAction = fromPrim "HTMLButtonElement.getformAction"
+                        prim__formAction
+                        prim__setFormAction
   
   export
-  setFormAction : (obj : HTMLButtonElement) -> (value : String) -> JSIO ()
-  setFormAction a b = primJS $ HTMLButtonElement.prim__setFormAction a b
+  formEnctype : HTMLButtonElement -> Attribute True I String
+  formEnctype = fromPrim "HTMLButtonElement.getformEnctype"
+                         prim__formEnctype
+                         prim__setFormEnctype
   
   export
-  formEnctype : (obj : HTMLButtonElement) -> JSIO String
-  formEnctype a = primJS $ HTMLButtonElement.prim__formEnctype a
+  formMethod : HTMLButtonElement -> Attribute True I String
+  formMethod = fromPrim "HTMLButtonElement.getformMethod"
+                        prim__formMethod
+                        prim__setFormMethod
   
   export
-  setFormEnctype : (obj : HTMLButtonElement) -> (value : String) -> JSIO ()
-  setFormEnctype a b = primJS $ HTMLButtonElement.prim__setFormEnctype a b
+  formNoValidate : HTMLButtonElement -> Attribute True I Bool
+  formNoValidate = fromPrim "HTMLButtonElement.getformNoValidate"
+                            prim__formNoValidate
+                            prim__setFormNoValidate
   
   export
-  formMethod : (obj : HTMLButtonElement) -> JSIO String
-  formMethod a = primJS $ HTMLButtonElement.prim__formMethod a
-  
-  export
-  setFormMethod : (obj : HTMLButtonElement) -> (value : String) -> JSIO ()
-  setFormMethod a b = primJS $ HTMLButtonElement.prim__setFormMethod a b
-  
-  export
-  formNoValidate : (obj : HTMLButtonElement) -> JSIO Bool
-  formNoValidate a = tryJS "HTMLButtonElement.formNoValidate"
-                   $ HTMLButtonElement.prim__formNoValidate a
-  
-  export
-  setFormNoValidate : (obj : HTMLButtonElement) -> (value : Bool) -> JSIO ()
-  setFormNoValidate a b = primJS
-                        $ HTMLButtonElement.prim__setFormNoValidate a (toFFI b)
-  
-  export
-  formTarget : (obj : HTMLButtonElement) -> JSIO String
-  formTarget a = primJS $ HTMLButtonElement.prim__formTarget a
-  
-  export
-  setFormTarget : (obj : HTMLButtonElement) -> (value : String) -> JSIO ()
-  setFormTarget a b = primJS $ HTMLButtonElement.prim__setFormTarget a b
+  formTarget : HTMLButtonElement -> Attribute True I String
+  formTarget = fromPrim "HTMLButtonElement.getformTarget"
+                        prim__formTarget
+                        prim__setFormTarget
   
   export
   labels : (obj : HTMLButtonElement) -> JSIO NodeList
   labels a = primJS $ HTMLButtonElement.prim__labels a
   
   export
-  name : (obj : HTMLButtonElement) -> JSIO String
-  name a = primJS $ HTMLButtonElement.prim__name a
+  name : HTMLButtonElement -> Attribute True I String
+  name = fromPrim "HTMLButtonElement.getname" prim__name prim__setName
   
   export
-  setName : (obj : HTMLButtonElement) -> (value : String) -> JSIO ()
-  setName a b = primJS $ HTMLButtonElement.prim__setName a b
-  
-  export
-  type : (obj : HTMLButtonElement) -> JSIO String
-  type a = primJS $ HTMLButtonElement.prim__type a
-  
-  export
-  setType : (obj : HTMLButtonElement) -> (value : String) -> JSIO ()
-  setType a b = primJS $ HTMLButtonElement.prim__setType a b
+  type : HTMLButtonElement -> Attribute True I String
+  type = fromPrim "HTMLButtonElement.gettype" prim__type prim__setType
   
   export
   validationMessage : (obj : HTMLButtonElement) -> JSIO String
@@ -1360,12 +1164,8 @@ namespace HTMLButtonElement
   validity a = primJS $ HTMLButtonElement.prim__validity a
   
   export
-  value : (obj : HTMLButtonElement) -> JSIO String
-  value a = primJS $ HTMLButtonElement.prim__value a
-  
-  export
-  setValue : (obj : HTMLButtonElement) -> (value : String) -> JSIO ()
-  setValue a b = primJS $ HTMLButtonElement.prim__setValue a b
+  value : HTMLButtonElement -> Attribute True I String
+  value = fromPrim "HTMLButtonElement.getvalue" prim__value prim__setValue
   
   export
   willValidate : (obj : HTMLButtonElement) -> JSIO Bool
@@ -1409,25 +1209,17 @@ namespace HTMLCanvasElement
   new = primJS $ HTMLCanvasElement.prim__new 
   
   export
-  height : (obj : HTMLCanvasElement) -> JSIO UInt32
-  height a = primJS $ HTMLCanvasElement.prim__height a
+  height : HTMLCanvasElement -> Attribute True I UInt32
+  height = fromPrim "HTMLCanvasElement.getheight" prim__height prim__setHeight
   
   export
-  setHeight : (obj : HTMLCanvasElement) -> (value : UInt32) -> JSIO ()
-  setHeight a b = primJS $ HTMLCanvasElement.prim__setHeight a b
-  
-  export
-  width : (obj : HTMLCanvasElement) -> JSIO UInt32
-  width a = primJS $ HTMLCanvasElement.prim__width a
-  
-  export
-  setWidth : (obj : HTMLCanvasElement) -> (value : UInt32) -> JSIO ()
-  setWidth a b = primJS $ HTMLCanvasElement.prim__setWidth a b
+  width : HTMLCanvasElement -> Attribute True I UInt32
+  width = fromPrim "HTMLCanvasElement.getwidth" prim__width prim__setWidth
   
   export
   getContext :  (obj : HTMLCanvasElement)
              -> (contextId : String)
-             -> (options : Optional AnyPtr)
+             -> (options : Optional Any)
              -> JSIO (Maybe (NS I [ CanvasRenderingContext2D
                                   , ImageBitmapRenderingContext
                                   , WebGLRenderingContext
@@ -1451,7 +1243,7 @@ namespace HTMLCanvasElement
   toBlob :  (obj : HTMLCanvasElement)
          -> (callback : BlobCallback)
          -> (type : Optional String)
-         -> (quality : Optional AnyPtr)
+         -> (quality : Optional Any)
          -> JSIO ()
   toBlob a b c d = primJS
                  $ HTMLCanvasElement.prim__toBlob a b (toFFI c) (toFFI d)
@@ -1463,7 +1255,7 @@ namespace HTMLCanvasElement
   export
   toDataURL :  (obj : HTMLCanvasElement)
             -> (type : Optional String)
-            -> (quality : Optional AnyPtr)
+            -> (quality : Optional Any)
             -> JSIO String
   toDataURL a b c = primJS
                   $ HTMLCanvasElement.prim__toDataURL a (toFFI b) (toFFI c)
@@ -1500,13 +1292,10 @@ namespace HTMLDListElement
   new = primJS $ HTMLDListElement.prim__new 
   
   export
-  compact : (obj : HTMLDListElement) -> JSIO Bool
-  compact a = tryJS "HTMLDListElement.compact"
-            $ HTMLDListElement.prim__compact a
-  
-  export
-  setCompact : (obj : HTMLDListElement) -> (value : Bool) -> JSIO ()
-  setCompact a b = primJS $ HTMLDListElement.prim__setCompact a (toFFI b)
+  compact : HTMLDListElement -> Attribute True I Bool
+  compact = fromPrim "HTMLDListElement.getcompact"
+                     prim__compact
+                     prim__setCompact
 
 namespace HTMLDataElement
   
@@ -1531,12 +1320,8 @@ namespace HTMLDataElement
   new = primJS $ HTMLDataElement.prim__new 
   
   export
-  value : (obj : HTMLDataElement) -> JSIO String
-  value a = primJS $ HTMLDataElement.prim__value a
-  
-  export
-  setValue : (obj : HTMLDataElement) -> (value : String) -> JSIO ()
-  setValue a b = primJS $ HTMLDataElement.prim__setValue a b
+  value : HTMLDataElement -> Attribute True I String
+  value = fromPrim "HTMLDataElement.getvalue" prim__value prim__setValue
 
 namespace HTMLDataListElement
   
@@ -1587,12 +1372,8 @@ namespace HTMLDetailsElement
   new = primJS $ HTMLDetailsElement.prim__new 
   
   export
-  open_ : (obj : HTMLDetailsElement) -> JSIO Bool
-  open_ a = tryJS "HTMLDetailsElement.open_" $ HTMLDetailsElement.prim__open a
-  
-  export
-  setOpen : (obj : HTMLDetailsElement) -> (value : Bool) -> JSIO ()
-  setOpen a b = primJS $ HTMLDetailsElement.prim__setOpen a (toFFI b)
+  open_ : HTMLDetailsElement -> Attribute True I Bool
+  open_ = fromPrim "HTMLDetailsElement.getopen" prim__open prim__setOpen
 
 namespace HTMLDialogElement
   
@@ -1617,20 +1398,14 @@ namespace HTMLDialogElement
   new = primJS $ HTMLDialogElement.prim__new 
   
   export
-  open_ : (obj : HTMLDialogElement) -> JSIO Bool
-  open_ a = tryJS "HTMLDialogElement.open_" $ HTMLDialogElement.prim__open a
+  open_ : HTMLDialogElement -> Attribute True I Bool
+  open_ = fromPrim "HTMLDialogElement.getopen" prim__open prim__setOpen
   
   export
-  setOpen : (obj : HTMLDialogElement) -> (value : Bool) -> JSIO ()
-  setOpen a b = primJS $ HTMLDialogElement.prim__setOpen a (toFFI b)
-  
-  export
-  returnValue : (obj : HTMLDialogElement) -> JSIO String
-  returnValue a = primJS $ HTMLDialogElement.prim__returnValue a
-  
-  export
-  setReturnValue : (obj : HTMLDialogElement) -> (value : String) -> JSIO ()
-  setReturnValue a b = primJS $ HTMLDialogElement.prim__setReturnValue a b
+  returnValue : HTMLDialogElement -> Attribute True I String
+  returnValue = fromPrim "HTMLDialogElement.getreturnValue"
+                         prim__returnValue
+                         prim__setReturnValue
   
   export
   close :  (obj : HTMLDialogElement)
@@ -1673,13 +1448,10 @@ namespace HTMLDirectoryElement
   new = primJS $ HTMLDirectoryElement.prim__new 
   
   export
-  compact : (obj : HTMLDirectoryElement) -> JSIO Bool
-  compact a = tryJS "HTMLDirectoryElement.compact"
-            $ HTMLDirectoryElement.prim__compact a
-  
-  export
-  setCompact : (obj : HTMLDirectoryElement) -> (value : Bool) -> JSIO ()
-  setCompact a b = primJS $ HTMLDirectoryElement.prim__setCompact a (toFFI b)
+  compact : HTMLDirectoryElement -> Attribute True I Bool
+  compact = fromPrim "HTMLDirectoryElement.getcompact"
+                     prim__compact
+                     prim__setCompact
 
 namespace HTMLDivElement
   
@@ -1704,12 +1476,8 @@ namespace HTMLDivElement
   new = primJS $ HTMLDivElement.prim__new 
   
   export
-  align : (obj : HTMLDivElement) -> JSIO String
-  align a = primJS $ HTMLDivElement.prim__align a
-  
-  export
-  setAlign : (obj : HTMLDivElement) -> (value : String) -> JSIO ()
-  setAlign a b = primJS $ HTMLDivElement.prim__setAlign a b
+  align : HTMLDivElement -> Attribute True I String
+  align = fromPrim "HTMLDivElement.getalign" prim__align prim__setAlign
 
 namespace HTMLElement
   
@@ -1734,88 +1502,60 @@ namespace HTMLElement
   new = primJS $ HTMLElement.prim__new 
   
   export
-  accessKey : (obj : HTMLElement) -> JSIO String
-  accessKey a = primJS $ HTMLElement.prim__accessKey a
-  
-  export
-  setAccessKey : (obj : HTMLElement) -> (value : String) -> JSIO ()
-  setAccessKey a b = primJS $ HTMLElement.prim__setAccessKey a b
+  accessKey : HTMLElement -> Attribute True I String
+  accessKey = fromPrim "HTMLElement.getaccessKey"
+                       prim__accessKey
+                       prim__setAccessKey
   
   export
   accessKeyLabel : (obj : HTMLElement) -> JSIO String
   accessKeyLabel a = primJS $ HTMLElement.prim__accessKeyLabel a
   
   export
-  autocapitalize : (obj : HTMLElement) -> JSIO String
-  autocapitalize a = primJS $ HTMLElement.prim__autocapitalize a
+  autocapitalize : HTMLElement -> Attribute True I String
+  autocapitalize = fromPrim "HTMLElement.getautocapitalize"
+                            prim__autocapitalize
+                            prim__setAutocapitalize
   
   export
-  setAutocapitalize : (obj : HTMLElement) -> (value : String) -> JSIO ()
-  setAutocapitalize a b = primJS $ HTMLElement.prim__setAutocapitalize a b
+  dir : HTMLElement -> Attribute True I String
+  dir = fromPrim "HTMLElement.getdir" prim__dir prim__setDir
   
   export
-  dir : (obj : HTMLElement) -> JSIO String
-  dir a = primJS $ HTMLElement.prim__dir a
+  draggable : HTMLElement -> Attribute True I Bool
+  draggable = fromPrim "HTMLElement.getdraggable"
+                       prim__draggable
+                       prim__setDraggable
   
   export
-  setDir : (obj : HTMLElement) -> (value : String) -> JSIO ()
-  setDir a b = primJS $ HTMLElement.prim__setDir a b
+  hidden : HTMLElement -> Attribute True I Bool
+  hidden = fromPrim "HTMLElement.gethidden" prim__hidden prim__setHidden
   
   export
-  draggable : (obj : HTMLElement) -> JSIO Bool
-  draggable a = tryJS "HTMLElement.draggable" $ HTMLElement.prim__draggable a
+  innerText : HTMLElement -> Attribute True I String
+  innerText = fromPrim "HTMLElement.getinnerText"
+                       prim__innerText
+                       prim__setInnerText
   
   export
-  setDraggable : (obj : HTMLElement) -> (value : Bool) -> JSIO ()
-  setDraggable a b = primJS $ HTMLElement.prim__setDraggable a (toFFI b)
+  lang : HTMLElement -> Attribute True I String
+  lang = fromPrim "HTMLElement.getlang" prim__lang prim__setLang
   
   export
-  hidden : (obj : HTMLElement) -> JSIO Bool
-  hidden a = tryJS "HTMLElement.hidden" $ HTMLElement.prim__hidden a
+  spellcheck : HTMLElement -> Attribute True I Bool
+  spellcheck = fromPrim "HTMLElement.getspellcheck"
+                        prim__spellcheck
+                        prim__setSpellcheck
   
   export
-  setHidden : (obj : HTMLElement) -> (value : Bool) -> JSIO ()
-  setHidden a b = primJS $ HTMLElement.prim__setHidden a (toFFI b)
+  title : HTMLElement -> Attribute True I String
+  title = fromPrim "HTMLElement.gettitle" prim__title prim__setTitle
   
   export
-  innerText : (obj : HTMLElement) -> JSIO String
-  innerText a = primJS $ HTMLElement.prim__innerText a
-  
-  export
-  setInnerText : (obj : HTMLElement) -> (value : String) -> JSIO ()
-  setInnerText a b = primJS $ HTMLElement.prim__setInnerText a b
-  
-  export
-  lang : (obj : HTMLElement) -> JSIO String
-  lang a = primJS $ HTMLElement.prim__lang a
-  
-  export
-  setLang : (obj : HTMLElement) -> (value : String) -> JSIO ()
-  setLang a b = primJS $ HTMLElement.prim__setLang a b
-  
-  export
-  spellcheck : (obj : HTMLElement) -> JSIO Bool
-  spellcheck a = tryJS "HTMLElement.spellcheck" $ HTMLElement.prim__spellcheck a
-  
-  export
-  setSpellcheck : (obj : HTMLElement) -> (value : Bool) -> JSIO ()
-  setSpellcheck a b = primJS $ HTMLElement.prim__setSpellcheck a (toFFI b)
-  
-  export
-  title : (obj : HTMLElement) -> JSIO String
-  title a = primJS $ HTMLElement.prim__title a
-  
-  export
-  setTitle : (obj : HTMLElement) -> (value : String) -> JSIO ()
-  setTitle a b = primJS $ HTMLElement.prim__setTitle a b
-  
-  export
-  translate : (obj : HTMLElement) -> JSIO Bool
-  translate a = tryJS "HTMLElement.translate" $ HTMLElement.prim__translate a
-  
-  export
-  setTranslate : (obj : HTMLElement) -> (value : Bool) -> JSIO ()
-  setTranslate a b = primJS $ HTMLElement.prim__setTranslate a (toFFI b)
+  translate : HTMLElement -> Attribute True I Bool
+  translate = fromPrim "HTMLElement.gettranslate"
+                       prim__translate
+                       prim__setTranslate
   
   export
   attachInternals : (obj : HTMLElement) -> JSIO ElementInternals
@@ -1848,52 +1588,28 @@ namespace HTMLEmbedElement
   new = primJS $ HTMLEmbedElement.prim__new 
   
   export
-  align : (obj : HTMLEmbedElement) -> JSIO String
-  align a = primJS $ HTMLEmbedElement.prim__align a
+  align : HTMLEmbedElement -> Attribute True I String
+  align = fromPrim "HTMLEmbedElement.getalign" prim__align prim__setAlign
   
   export
-  setAlign : (obj : HTMLEmbedElement) -> (value : String) -> JSIO ()
-  setAlign a b = primJS $ HTMLEmbedElement.prim__setAlign a b
+  height : HTMLEmbedElement -> Attribute True I String
+  height = fromPrim "HTMLEmbedElement.getheight" prim__height prim__setHeight
   
   export
-  height : (obj : HTMLEmbedElement) -> JSIO String
-  height a = primJS $ HTMLEmbedElement.prim__height a
+  name : HTMLEmbedElement -> Attribute True I String
+  name = fromPrim "HTMLEmbedElement.getname" prim__name prim__setName
   
   export
-  setHeight : (obj : HTMLEmbedElement) -> (value : String) -> JSIO ()
-  setHeight a b = primJS $ HTMLEmbedElement.prim__setHeight a b
+  src : HTMLEmbedElement -> Attribute True I String
+  src = fromPrim "HTMLEmbedElement.getsrc" prim__src prim__setSrc
   
   export
-  name : (obj : HTMLEmbedElement) -> JSIO String
-  name a = primJS $ HTMLEmbedElement.prim__name a
+  type : HTMLEmbedElement -> Attribute True I String
+  type = fromPrim "HTMLEmbedElement.gettype" prim__type prim__setType
   
   export
-  setName : (obj : HTMLEmbedElement) -> (value : String) -> JSIO ()
-  setName a b = primJS $ HTMLEmbedElement.prim__setName a b
-  
-  export
-  src : (obj : HTMLEmbedElement) -> JSIO String
-  src a = primJS $ HTMLEmbedElement.prim__src a
-  
-  export
-  setSrc : (obj : HTMLEmbedElement) -> (value : String) -> JSIO ()
-  setSrc a b = primJS $ HTMLEmbedElement.prim__setSrc a b
-  
-  export
-  type : (obj : HTMLEmbedElement) -> JSIO String
-  type a = primJS $ HTMLEmbedElement.prim__type a
-  
-  export
-  setType : (obj : HTMLEmbedElement) -> (value : String) -> JSIO ()
-  setType a b = primJS $ HTMLEmbedElement.prim__setType a b
-  
-  export
-  width : (obj : HTMLEmbedElement) -> JSIO String
-  width a = primJS $ HTMLEmbedElement.prim__width a
-  
-  export
-  setWidth : (obj : HTMLEmbedElement) -> (value : String) -> JSIO ()
-  setWidth a b = primJS $ HTMLEmbedElement.prim__setWidth a b
+  width : HTMLEmbedElement -> Attribute True I String
+  width = fromPrim "HTMLEmbedElement.getwidth" prim__width prim__setWidth
   
   export
   getSVGDocument : (obj : HTMLEmbedElement) -> JSIO (Maybe Document)
@@ -1923,13 +1639,10 @@ namespace HTMLFieldSetElement
   new = primJS $ HTMLFieldSetElement.prim__new 
   
   export
-  disabled : (obj : HTMLFieldSetElement) -> JSIO Bool
-  disabled a = tryJS "HTMLFieldSetElement.disabled"
-             $ HTMLFieldSetElement.prim__disabled a
-  
-  export
-  setDisabled : (obj : HTMLFieldSetElement) -> (value : Bool) -> JSIO ()
-  setDisabled a b = primJS $ HTMLFieldSetElement.prim__setDisabled a (toFFI b)
+  disabled : HTMLFieldSetElement -> Attribute True I Bool
+  disabled = fromPrim "HTMLFieldSetElement.getdisabled"
+                      prim__disabled
+                      prim__setDisabled
   
   export
   elements : (obj : HTMLFieldSetElement) -> JSIO HTMLCollection
@@ -1940,12 +1653,8 @@ namespace HTMLFieldSetElement
   form a = tryJS "HTMLFieldSetElement.form" $ HTMLFieldSetElement.prim__form a
   
   export
-  name : (obj : HTMLFieldSetElement) -> JSIO String
-  name a = primJS $ HTMLFieldSetElement.prim__name a
-  
-  export
-  setName : (obj : HTMLFieldSetElement) -> (value : String) -> JSIO ()
-  setName a b = primJS $ HTMLFieldSetElement.prim__setName a b
+  name : HTMLFieldSetElement -> Attribute True I String
+  name = fromPrim "HTMLFieldSetElement.getname" prim__name prim__setName
   
   export
   type : (obj : HTMLFieldSetElement) -> JSIO String
@@ -2002,28 +1711,16 @@ namespace HTMLFontElement
   new = primJS $ HTMLFontElement.prim__new 
   
   export
-  color : (obj : HTMLFontElement) -> JSIO String
-  color a = primJS $ HTMLFontElement.prim__color a
+  color : HTMLFontElement -> Attribute True I String
+  color = fromPrim "HTMLFontElement.getcolor" prim__color prim__setColor
   
   export
-  setColor : (obj : HTMLFontElement) -> (value : String) -> JSIO ()
-  setColor a b = primJS $ HTMLFontElement.prim__setColor a b
+  face : HTMLFontElement -> Attribute True I String
+  face = fromPrim "HTMLFontElement.getface" prim__face prim__setFace
   
   export
-  face : (obj : HTMLFontElement) -> JSIO String
-  face a = primJS $ HTMLFontElement.prim__face a
-  
-  export
-  setFace : (obj : HTMLFontElement) -> (value : String) -> JSIO ()
-  setFace a b = primJS $ HTMLFontElement.prim__setFace a b
-  
-  export
-  size : (obj : HTMLFontElement) -> JSIO String
-  size a = primJS $ HTMLFontElement.prim__size a
-  
-  export
-  setSize : (obj : HTMLFontElement) -> (value : String) -> JSIO ()
-  setSize a b = primJS $ HTMLFontElement.prim__setSize a b
+  size : HTMLFontElement -> Attribute True I String
+  size = fromPrim "HTMLFontElement.getsize" prim__size prim__setSize
 
 namespace HTMLFormControlsCollection
   
@@ -2073,97 +1770,64 @@ namespace HTMLFormElement
   get1 a b = tryJS "HTMLFormElement.get1" $ HTMLFormElement.prim__get1 a b
   
   export
-  acceptCharset : (obj : HTMLFormElement) -> JSIO String
-  acceptCharset a = primJS $ HTMLFormElement.prim__acceptCharset a
+  acceptCharset : HTMLFormElement -> Attribute True I String
+  acceptCharset = fromPrim "HTMLFormElement.getacceptCharset"
+                           prim__acceptCharset
+                           prim__setAcceptCharset
   
   export
-  setAcceptCharset : (obj : HTMLFormElement) -> (value : String) -> JSIO ()
-  setAcceptCharset a b = primJS $ HTMLFormElement.prim__setAcceptCharset a b
+  action : HTMLFormElement -> Attribute True I String
+  action = fromPrim "HTMLFormElement.getaction" prim__action prim__setAction
   
   export
-  action : (obj : HTMLFormElement) -> JSIO String
-  action a = primJS $ HTMLFormElement.prim__action a
-  
-  export
-  setAction : (obj : HTMLFormElement) -> (value : String) -> JSIO ()
-  setAction a b = primJS $ HTMLFormElement.prim__setAction a b
-  
-  export
-  autocomplete : (obj : HTMLFormElement) -> JSIO String
-  autocomplete a = primJS $ HTMLFormElement.prim__autocomplete a
-  
-  export
-  setAutocomplete : (obj : HTMLFormElement) -> (value : String) -> JSIO ()
-  setAutocomplete a b = primJS $ HTMLFormElement.prim__setAutocomplete a b
+  autocomplete : HTMLFormElement -> Attribute True I String
+  autocomplete = fromPrim "HTMLFormElement.getautocomplete"
+                          prim__autocomplete
+                          prim__setAutocomplete
   
   export
   elements : (obj : HTMLFormElement) -> JSIO HTMLFormControlsCollection
   elements a = primJS $ HTMLFormElement.prim__elements a
   
   export
-  encoding : (obj : HTMLFormElement) -> JSIO String
-  encoding a = primJS $ HTMLFormElement.prim__encoding a
+  encoding : HTMLFormElement -> Attribute True I String
+  encoding = fromPrim "HTMLFormElement.getencoding"
+                      prim__encoding
+                      prim__setEncoding
   
   export
-  setEncoding : (obj : HTMLFormElement) -> (value : String) -> JSIO ()
-  setEncoding a b = primJS $ HTMLFormElement.prim__setEncoding a b
-  
-  export
-  enctype : (obj : HTMLFormElement) -> JSIO String
-  enctype a = primJS $ HTMLFormElement.prim__enctype a
-  
-  export
-  setEnctype : (obj : HTMLFormElement) -> (value : String) -> JSIO ()
-  setEnctype a b = primJS $ HTMLFormElement.prim__setEnctype a b
+  enctype : HTMLFormElement -> Attribute True I String
+  enctype = fromPrim "HTMLFormElement.getenctype" prim__enctype prim__setEnctype
   
   export
   length : (obj : HTMLFormElement) -> JSIO UInt32
   length a = primJS $ HTMLFormElement.prim__length a
   
   export
-  method : (obj : HTMLFormElement) -> JSIO String
-  method a = primJS $ HTMLFormElement.prim__method a
+  method : HTMLFormElement -> Attribute True I String
+  method = fromPrim "HTMLFormElement.getmethod" prim__method prim__setMethod
   
   export
-  setMethod : (obj : HTMLFormElement) -> (value : String) -> JSIO ()
-  setMethod a b = primJS $ HTMLFormElement.prim__setMethod a b
+  name : HTMLFormElement -> Attribute True I String
+  name = fromPrim "HTMLFormElement.getname" prim__name prim__setName
   
   export
-  name : (obj : HTMLFormElement) -> JSIO String
-  name a = primJS $ HTMLFormElement.prim__name a
+  noValidate : HTMLFormElement -> Attribute True I Bool
+  noValidate = fromPrim "HTMLFormElement.getnoValidate"
+                        prim__noValidate
+                        prim__setNoValidate
   
   export
-  setName : (obj : HTMLFormElement) -> (value : String) -> JSIO ()
-  setName a b = primJS $ HTMLFormElement.prim__setName a b
-  
-  export
-  noValidate : (obj : HTMLFormElement) -> JSIO Bool
-  noValidate a = tryJS "HTMLFormElement.noValidate"
-               $ HTMLFormElement.prim__noValidate a
-  
-  export
-  setNoValidate : (obj : HTMLFormElement) -> (value : Bool) -> JSIO ()
-  setNoValidate a b = primJS $ HTMLFormElement.prim__setNoValidate a (toFFI b)
-  
-  export
-  rel : (obj : HTMLFormElement) -> JSIO String
-  rel a = primJS $ HTMLFormElement.prim__rel a
-  
-  export
-  setRel : (obj : HTMLFormElement) -> (value : String) -> JSIO ()
-  setRel a b = primJS $ HTMLFormElement.prim__setRel a b
+  rel : HTMLFormElement -> Attribute True I String
+  rel = fromPrim "HTMLFormElement.getrel" prim__rel prim__setRel
   
   export
   relList : (obj : HTMLFormElement) -> JSIO DOMTokenList
   relList a = primJS $ HTMLFormElement.prim__relList a
   
   export
-  target : (obj : HTMLFormElement) -> JSIO String
-  target a = primJS $ HTMLFormElement.prim__target a
-  
-  export
-  setTarget : (obj : HTMLFormElement) -> (value : String) -> JSIO ()
-  setTarget a b = primJS $ HTMLFormElement.prim__setTarget a b
+  target : HTMLFormElement -> Attribute True I String
+  target = fromPrim "HTMLFormElement.gettarget" prim__target prim__setTarget
   
   export
   checkValidity : (obj : HTMLFormElement) -> JSIO Bool
@@ -2226,69 +1890,48 @@ namespace HTMLFrameElement
                   $ HTMLFrameElement.prim__contentWindow a
   
   export
-  frameBorder : (obj : HTMLFrameElement) -> JSIO String
-  frameBorder a = primJS $ HTMLFrameElement.prim__frameBorder a
+  frameBorder : HTMLFrameElement -> Attribute True I String
+  frameBorder = fromPrim "HTMLFrameElement.getframeBorder"
+                         prim__frameBorder
+                         prim__setFrameBorder
   
   export
-  setFrameBorder : (obj : HTMLFrameElement) -> (value : String) -> JSIO ()
-  setFrameBorder a b = primJS $ HTMLFrameElement.prim__setFrameBorder a b
+  longDesc : HTMLFrameElement -> Attribute True I String
+  longDesc = fromPrim "HTMLFrameElement.getlongDesc"
+                      prim__longDesc
+                      prim__setLongDesc
   
   export
-  longDesc : (obj : HTMLFrameElement) -> JSIO String
-  longDesc a = primJS $ HTMLFrameElement.prim__longDesc a
+  marginHeight : HTMLFrameElement -> Attribute True I String
+  marginHeight = fromPrim "HTMLFrameElement.getmarginHeight"
+                          prim__marginHeight
+                          prim__setMarginHeight
   
   export
-  setLongDesc : (obj : HTMLFrameElement) -> (value : String) -> JSIO ()
-  setLongDesc a b = primJS $ HTMLFrameElement.prim__setLongDesc a b
+  marginWidth : HTMLFrameElement -> Attribute True I String
+  marginWidth = fromPrim "HTMLFrameElement.getmarginWidth"
+                         prim__marginWidth
+                         prim__setMarginWidth
   
   export
-  marginHeight : (obj : HTMLFrameElement) -> JSIO String
-  marginHeight a = primJS $ HTMLFrameElement.prim__marginHeight a
+  name : HTMLFrameElement -> Attribute True I String
+  name = fromPrim "HTMLFrameElement.getname" prim__name prim__setName
   
   export
-  setMarginHeight : (obj : HTMLFrameElement) -> (value : String) -> JSIO ()
-  setMarginHeight a b = primJS $ HTMLFrameElement.prim__setMarginHeight a b
+  noResize : HTMLFrameElement -> Attribute True I Bool
+  noResize = fromPrim "HTMLFrameElement.getnoResize"
+                      prim__noResize
+                      prim__setNoResize
   
   export
-  marginWidth : (obj : HTMLFrameElement) -> JSIO String
-  marginWidth a = primJS $ HTMLFrameElement.prim__marginWidth a
+  scrolling : HTMLFrameElement -> Attribute True I String
+  scrolling = fromPrim "HTMLFrameElement.getscrolling"
+                       prim__scrolling
+                       prim__setScrolling
   
   export
-  setMarginWidth : (obj : HTMLFrameElement) -> (value : String) -> JSIO ()
-  setMarginWidth a b = primJS $ HTMLFrameElement.prim__setMarginWidth a b
-  
-  export
-  name : (obj : HTMLFrameElement) -> JSIO String
-  name a = primJS $ HTMLFrameElement.prim__name a
-  
-  export
-  setName : (obj : HTMLFrameElement) -> (value : String) -> JSIO ()
-  setName a b = primJS $ HTMLFrameElement.prim__setName a b
-  
-  export
-  noResize : (obj : HTMLFrameElement) -> JSIO Bool
-  noResize a = tryJS "HTMLFrameElement.noResize"
-             $ HTMLFrameElement.prim__noResize a
-  
-  export
-  setNoResize : (obj : HTMLFrameElement) -> (value : Bool) -> JSIO ()
-  setNoResize a b = primJS $ HTMLFrameElement.prim__setNoResize a (toFFI b)
-  
-  export
-  scrolling : (obj : HTMLFrameElement) -> JSIO String
-  scrolling a = primJS $ HTMLFrameElement.prim__scrolling a
-  
-  export
-  setScrolling : (obj : HTMLFrameElement) -> (value : String) -> JSIO ()
-  setScrolling a b = primJS $ HTMLFrameElement.prim__setScrolling a b
-  
-  export
-  src : (obj : HTMLFrameElement) -> JSIO String
-  src a = primJS $ HTMLFrameElement.prim__src a
-  
-  export
-  setSrc : (obj : HTMLFrameElement) -> (value : String) -> JSIO ()
-  setSrc a b = primJS $ HTMLFrameElement.prim__setSrc a b
+  src : HTMLFrameElement -> Attribute True I String
+  src = fromPrim "HTMLFrameElement.getsrc" prim__src prim__setSrc
 
 namespace HTMLFrameSetElement
   
@@ -2314,20 +1957,12 @@ namespace HTMLFrameSetElement
   new = primJS $ HTMLFrameSetElement.prim__new 
   
   export
-  cols : (obj : HTMLFrameSetElement) -> JSIO String
-  cols a = primJS $ HTMLFrameSetElement.prim__cols a
+  cols : HTMLFrameSetElement -> Attribute True I String
+  cols = fromPrim "HTMLFrameSetElement.getcols" prim__cols prim__setCols
   
   export
-  setCols : (obj : HTMLFrameSetElement) -> (value : String) -> JSIO ()
-  setCols a b = primJS $ HTMLFrameSetElement.prim__setCols a b
-  
-  export
-  rows : (obj : HTMLFrameSetElement) -> JSIO String
-  rows a = primJS $ HTMLFrameSetElement.prim__rows a
-  
-  export
-  setRows : (obj : HTMLFrameSetElement) -> (value : String) -> JSIO ()
-  setRows a b = primJS $ HTMLFrameSetElement.prim__setRows a b
+  rows : HTMLFrameSetElement -> Attribute True I String
+  rows = fromPrim "HTMLFrameSetElement.getrows" prim__rows prim__setRows
 
 namespace HTMLHRElement
   
@@ -2352,44 +1987,24 @@ namespace HTMLHRElement
   new = primJS $ HTMLHRElement.prim__new 
   
   export
-  align : (obj : HTMLHRElement) -> JSIO String
-  align a = primJS $ HTMLHRElement.prim__align a
+  align : HTMLHRElement -> Attribute True I String
+  align = fromPrim "HTMLHRElement.getalign" prim__align prim__setAlign
   
   export
-  setAlign : (obj : HTMLHRElement) -> (value : String) -> JSIO ()
-  setAlign a b = primJS $ HTMLHRElement.prim__setAlign a b
+  color : HTMLHRElement -> Attribute True I String
+  color = fromPrim "HTMLHRElement.getcolor" prim__color prim__setColor
   
   export
-  color : (obj : HTMLHRElement) -> JSIO String
-  color a = primJS $ HTMLHRElement.prim__color a
+  noShade : HTMLHRElement -> Attribute True I Bool
+  noShade = fromPrim "HTMLHRElement.getnoShade" prim__noShade prim__setNoShade
   
   export
-  setColor : (obj : HTMLHRElement) -> (value : String) -> JSIO ()
-  setColor a b = primJS $ HTMLHRElement.prim__setColor a b
+  size : HTMLHRElement -> Attribute True I String
+  size = fromPrim "HTMLHRElement.getsize" prim__size prim__setSize
   
   export
-  noShade : (obj : HTMLHRElement) -> JSIO Bool
-  noShade a = tryJS "HTMLHRElement.noShade" $ HTMLHRElement.prim__noShade a
-  
-  export
-  setNoShade : (obj : HTMLHRElement) -> (value : Bool) -> JSIO ()
-  setNoShade a b = primJS $ HTMLHRElement.prim__setNoShade a (toFFI b)
-  
-  export
-  size : (obj : HTMLHRElement) -> JSIO String
-  size a = primJS $ HTMLHRElement.prim__size a
-  
-  export
-  setSize : (obj : HTMLHRElement) -> (value : String) -> JSIO ()
-  setSize a b = primJS $ HTMLHRElement.prim__setSize a b
-  
-  export
-  width : (obj : HTMLHRElement) -> JSIO String
-  width a = primJS $ HTMLHRElement.prim__width a
-  
-  export
-  setWidth : (obj : HTMLHRElement) -> (value : String) -> JSIO ()
-  setWidth a b = primJS $ HTMLHRElement.prim__setWidth a b
+  width : HTMLHRElement -> Attribute True I String
+  width = fromPrim "HTMLHRElement.getwidth" prim__width prim__setWidth
 
 namespace HTMLHeadElement
   
@@ -2436,12 +2051,8 @@ namespace HTMLHeadingElement
   new = primJS $ HTMLHeadingElement.prim__new 
   
   export
-  align : (obj : HTMLHeadingElement) -> JSIO String
-  align a = primJS $ HTMLHeadingElement.prim__align a
-  
-  export
-  setAlign : (obj : HTMLHeadingElement) -> (value : String) -> JSIO ()
-  setAlign a b = primJS $ HTMLHeadingElement.prim__setAlign a b
+  align : HTMLHeadingElement -> Attribute True I String
+  align = fromPrim "HTMLHeadingElement.getalign" prim__align prim__setAlign
 
 namespace HTMLHtmlElement
   
@@ -2466,12 +2077,8 @@ namespace HTMLHtmlElement
   new = primJS $ HTMLHtmlElement.prim__new 
   
   export
-  version : (obj : HTMLHtmlElement) -> JSIO String
-  version a = primJS $ HTMLHtmlElement.prim__version a
-  
-  export
-  setVersion : (obj : HTMLHtmlElement) -> (value : String) -> JSIO ()
-  setVersion a b = primJS $ HTMLHtmlElement.prim__setVersion a b
+  version : HTMLHtmlElement -> Attribute True I String
+  version = fromPrim "HTMLHtmlElement.getversion" prim__version prim__setVersion
 
 namespace HTMLIFrameElement
   
@@ -2496,31 +2103,18 @@ namespace HTMLIFrameElement
   new = primJS $ HTMLIFrameElement.prim__new 
   
   export
-  align : (obj : HTMLIFrameElement) -> JSIO String
-  align a = primJS $ HTMLIFrameElement.prim__align a
+  align : HTMLIFrameElement -> Attribute True I String
+  align = fromPrim "HTMLIFrameElement.getalign" prim__align prim__setAlign
   
   export
-  setAlign : (obj : HTMLIFrameElement) -> (value : String) -> JSIO ()
-  setAlign a b = primJS $ HTMLIFrameElement.prim__setAlign a b
+  allow : HTMLIFrameElement -> Attribute True I String
+  allow = fromPrim "HTMLIFrameElement.getallow" prim__allow prim__setAllow
   
   export
-  allow : (obj : HTMLIFrameElement) -> JSIO String
-  allow a = primJS $ HTMLIFrameElement.prim__allow a
-  
-  export
-  setAllow : (obj : HTMLIFrameElement) -> (value : String) -> JSIO ()
-  setAllow a b = primJS $ HTMLIFrameElement.prim__setAllow a b
-  
-  export
-  allowFullscreen : (obj : HTMLIFrameElement) -> JSIO Bool
-  allowFullscreen a = tryJS "HTMLIFrameElement.allowFullscreen"
-                    $ HTMLIFrameElement.prim__allowFullscreen a
-  
-  export
-  setAllowFullscreen : (obj : HTMLIFrameElement) -> (value : Bool) -> JSIO ()
-  setAllowFullscreen a b = primJS
-                         $ HTMLIFrameElement.prim__setAllowFullscreen a
-                                                                      (toFFI b)
+  allowFullscreen : HTMLIFrameElement -> Attribute True I Bool
+  allowFullscreen = fromPrim "HTMLIFrameElement.getallowFullscreen"
+                             prim__allowFullscreen
+                             prim__setAllowFullscreen
   
   export
   contentDocument : (obj : HTMLIFrameElement) -> JSIO (Maybe Document)
@@ -2533,104 +2127,70 @@ namespace HTMLIFrameElement
                   $ HTMLIFrameElement.prim__contentWindow a
   
   export
-  frameBorder : (obj : HTMLIFrameElement) -> JSIO String
-  frameBorder a = primJS $ HTMLIFrameElement.prim__frameBorder a
+  frameBorder : HTMLIFrameElement -> Attribute True I String
+  frameBorder = fromPrim "HTMLIFrameElement.getframeBorder"
+                         prim__frameBorder
+                         prim__setFrameBorder
   
   export
-  setFrameBorder : (obj : HTMLIFrameElement) -> (value : String) -> JSIO ()
-  setFrameBorder a b = primJS $ HTMLIFrameElement.prim__setFrameBorder a b
+  height : HTMLIFrameElement -> Attribute True I String
+  height = fromPrim "HTMLIFrameElement.getheight" prim__height prim__setHeight
   
   export
-  height : (obj : HTMLIFrameElement) -> JSIO String
-  height a = primJS $ HTMLIFrameElement.prim__height a
+  loading : HTMLIFrameElement -> Attribute True I String
+  loading = fromPrim "HTMLIFrameElement.getloading"
+                     prim__loading
+                     prim__setLoading
   
   export
-  setHeight : (obj : HTMLIFrameElement) -> (value : String) -> JSIO ()
-  setHeight a b = primJS $ HTMLIFrameElement.prim__setHeight a b
+  longDesc : HTMLIFrameElement -> Attribute True I String
+  longDesc = fromPrim "HTMLIFrameElement.getlongDesc"
+                      prim__longDesc
+                      prim__setLongDesc
   
   export
-  loading : (obj : HTMLIFrameElement) -> JSIO String
-  loading a = primJS $ HTMLIFrameElement.prim__loading a
+  marginHeight : HTMLIFrameElement -> Attribute True I String
+  marginHeight = fromPrim "HTMLIFrameElement.getmarginHeight"
+                          prim__marginHeight
+                          prim__setMarginHeight
   
   export
-  setLoading : (obj : HTMLIFrameElement) -> (value : String) -> JSIO ()
-  setLoading a b = primJS $ HTMLIFrameElement.prim__setLoading a b
+  marginWidth : HTMLIFrameElement -> Attribute True I String
+  marginWidth = fromPrim "HTMLIFrameElement.getmarginWidth"
+                         prim__marginWidth
+                         prim__setMarginWidth
   
   export
-  longDesc : (obj : HTMLIFrameElement) -> JSIO String
-  longDesc a = primJS $ HTMLIFrameElement.prim__longDesc a
+  name : HTMLIFrameElement -> Attribute True I String
+  name = fromPrim "HTMLIFrameElement.getname" prim__name prim__setName
   
   export
-  setLongDesc : (obj : HTMLIFrameElement) -> (value : String) -> JSIO ()
-  setLongDesc a b = primJS $ HTMLIFrameElement.prim__setLongDesc a b
-  
-  export
-  marginHeight : (obj : HTMLIFrameElement) -> JSIO String
-  marginHeight a = primJS $ HTMLIFrameElement.prim__marginHeight a
-  
-  export
-  setMarginHeight : (obj : HTMLIFrameElement) -> (value : String) -> JSIO ()
-  setMarginHeight a b = primJS $ HTMLIFrameElement.prim__setMarginHeight a b
-  
-  export
-  marginWidth : (obj : HTMLIFrameElement) -> JSIO String
-  marginWidth a = primJS $ HTMLIFrameElement.prim__marginWidth a
-  
-  export
-  setMarginWidth : (obj : HTMLIFrameElement) -> (value : String) -> JSIO ()
-  setMarginWidth a b = primJS $ HTMLIFrameElement.prim__setMarginWidth a b
-  
-  export
-  name : (obj : HTMLIFrameElement) -> JSIO String
-  name a = primJS $ HTMLIFrameElement.prim__name a
-  
-  export
-  setName : (obj : HTMLIFrameElement) -> (value : String) -> JSIO ()
-  setName a b = primJS $ HTMLIFrameElement.prim__setName a b
-  
-  export
-  referrerPolicy : (obj : HTMLIFrameElement) -> JSIO String
-  referrerPolicy a = primJS $ HTMLIFrameElement.prim__referrerPolicy a
-  
-  export
-  setReferrerPolicy : (obj : HTMLIFrameElement) -> (value : String) -> JSIO ()
-  setReferrerPolicy a b = primJS $ HTMLIFrameElement.prim__setReferrerPolicy a b
+  referrerPolicy : HTMLIFrameElement -> Attribute True I String
+  referrerPolicy = fromPrim "HTMLIFrameElement.getreferrerPolicy"
+                            prim__referrerPolicy
+                            prim__setReferrerPolicy
   
   export
   sandbox : (obj : HTMLIFrameElement) -> JSIO DOMTokenList
   sandbox a = primJS $ HTMLIFrameElement.prim__sandbox a
   
   export
-  scrolling : (obj : HTMLIFrameElement) -> JSIO String
-  scrolling a = primJS $ HTMLIFrameElement.prim__scrolling a
+  scrolling : HTMLIFrameElement -> Attribute True I String
+  scrolling = fromPrim "HTMLIFrameElement.getscrolling"
+                       prim__scrolling
+                       prim__setScrolling
   
   export
-  setScrolling : (obj : HTMLIFrameElement) -> (value : String) -> JSIO ()
-  setScrolling a b = primJS $ HTMLIFrameElement.prim__setScrolling a b
+  src : HTMLIFrameElement -> Attribute True I String
+  src = fromPrim "HTMLIFrameElement.getsrc" prim__src prim__setSrc
   
   export
-  src : (obj : HTMLIFrameElement) -> JSIO String
-  src a = primJS $ HTMLIFrameElement.prim__src a
+  srcdoc : HTMLIFrameElement -> Attribute True I String
+  srcdoc = fromPrim "HTMLIFrameElement.getsrcdoc" prim__srcdoc prim__setSrcdoc
   
   export
-  setSrc : (obj : HTMLIFrameElement) -> (value : String) -> JSIO ()
-  setSrc a b = primJS $ HTMLIFrameElement.prim__setSrc a b
-  
-  export
-  srcdoc : (obj : HTMLIFrameElement) -> JSIO String
-  srcdoc a = primJS $ HTMLIFrameElement.prim__srcdoc a
-  
-  export
-  setSrcdoc : (obj : HTMLIFrameElement) -> (value : String) -> JSIO ()
-  setSrcdoc a b = primJS $ HTMLIFrameElement.prim__setSrcdoc a b
-  
-  export
-  width : (obj : HTMLIFrameElement) -> JSIO String
-  width a = primJS $ HTMLIFrameElement.prim__width a
-  
-  export
-  setWidth : (obj : HTMLIFrameElement) -> (value : String) -> JSIO ()
-  setWidth a b = primJS $ HTMLIFrameElement.prim__setWidth a b
+  width : HTMLIFrameElement -> Attribute True I String
+  width = fromPrim "HTMLIFrameElement.getwidth" prim__width prim__setWidth
   
   export
   getSVGDocument : (obj : HTMLIFrameElement) -> JSIO (Maybe Document)
@@ -2660,28 +2220,16 @@ namespace HTMLImageElement
   new = primJS $ HTMLImageElement.prim__new 
   
   export
-  align : (obj : HTMLImageElement) -> JSIO String
-  align a = primJS $ HTMLImageElement.prim__align a
+  align : HTMLImageElement -> Attribute True I String
+  align = fromPrim "HTMLImageElement.getalign" prim__align prim__setAlign
   
   export
-  setAlign : (obj : HTMLImageElement) -> (value : String) -> JSIO ()
-  setAlign a b = primJS $ HTMLImageElement.prim__setAlign a b
+  alt : HTMLImageElement -> Attribute True I String
+  alt = fromPrim "HTMLImageElement.getalt" prim__alt prim__setAlt
   
   export
-  alt : (obj : HTMLImageElement) -> JSIO String
-  alt a = primJS $ HTMLImageElement.prim__alt a
-  
-  export
-  setAlt : (obj : HTMLImageElement) -> (value : String) -> JSIO ()
-  setAlt a b = primJS $ HTMLImageElement.prim__setAlt a b
-  
-  export
-  border : (obj : HTMLImageElement) -> JSIO String
-  border a = primJS $ HTMLImageElement.prim__border a
-  
-  export
-  setBorder : (obj : HTMLImageElement) -> (value : String) -> JSIO ()
-  setBorder a b = primJS $ HTMLImageElement.prim__setBorder a b
+  border : HTMLImageElement -> Attribute True I String
+  border = fromPrim "HTMLImageElement.getborder" prim__border prim__setBorder
   
   export
   complete : (obj : HTMLImageElement) -> JSIO Bool
@@ -2689,82 +2237,52 @@ namespace HTMLImageElement
              $ HTMLImageElement.prim__complete a
   
   export
-  crossOrigin : (obj : HTMLImageElement) -> JSIO (Maybe String)
-  crossOrigin a = tryJS "HTMLImageElement.crossOrigin"
-                $ HTMLImageElement.prim__crossOrigin a
-  
-  export
-  setCrossOrigin : (obj : HTMLImageElement) -> (value : Maybe String) -> JSIO ()
-  setCrossOrigin a b = primJS
-                     $ HTMLImageElement.prim__setCrossOrigin a (toFFI b)
+  crossOrigin : HTMLImageElement -> Attribute False Maybe String
+  crossOrigin = fromNullablePrim "HTMLImageElement.getcrossOrigin"
+                                 prim__crossOrigin
+                                 prim__setCrossOrigin
   
   export
   currentSrc : (obj : HTMLImageElement) -> JSIO String
   currentSrc a = primJS $ HTMLImageElement.prim__currentSrc a
   
   export
-  decoding : (obj : HTMLImageElement) -> JSIO String
-  decoding a = primJS $ HTMLImageElement.prim__decoding a
+  decoding : HTMLImageElement -> Attribute True I String
+  decoding = fromPrim "HTMLImageElement.getdecoding"
+                      prim__decoding
+                      prim__setDecoding
   
   export
-  setDecoding : (obj : HTMLImageElement) -> (value : String) -> JSIO ()
-  setDecoding a b = primJS $ HTMLImageElement.prim__setDecoding a b
+  height : HTMLImageElement -> Attribute True I UInt32
+  height = fromPrim "HTMLImageElement.getheight" prim__height prim__setHeight
   
   export
-  height : (obj : HTMLImageElement) -> JSIO UInt32
-  height a = primJS $ HTMLImageElement.prim__height a
+  hspace : HTMLImageElement -> Attribute True I UInt32
+  hspace = fromPrim "HTMLImageElement.gethspace" prim__hspace prim__setHspace
   
   export
-  setHeight : (obj : HTMLImageElement) -> (value : UInt32) -> JSIO ()
-  setHeight a b = primJS $ HTMLImageElement.prim__setHeight a b
+  isMap : HTMLImageElement -> Attribute True I Bool
+  isMap = fromPrim "HTMLImageElement.getisMap" prim__isMap prim__setIsMap
   
   export
-  hspace : (obj : HTMLImageElement) -> JSIO UInt32
-  hspace a = primJS $ HTMLImageElement.prim__hspace a
+  loading : HTMLImageElement -> Attribute True I String
+  loading = fromPrim "HTMLImageElement.getloading"
+                     prim__loading
+                     prim__setLoading
   
   export
-  setHspace : (obj : HTMLImageElement) -> (value : UInt32) -> JSIO ()
-  setHspace a b = primJS $ HTMLImageElement.prim__setHspace a b
+  longDesc : HTMLImageElement -> Attribute True I String
+  longDesc = fromPrim "HTMLImageElement.getlongDesc"
+                      prim__longDesc
+                      prim__setLongDesc
   
   export
-  isMap : (obj : HTMLImageElement) -> JSIO Bool
-  isMap a = tryJS "HTMLImageElement.isMap" $ HTMLImageElement.prim__isMap a
+  lowsrc : HTMLImageElement -> Attribute True I String
+  lowsrc = fromPrim "HTMLImageElement.getlowsrc" prim__lowsrc prim__setLowsrc
   
   export
-  setIsMap : (obj : HTMLImageElement) -> (value : Bool) -> JSIO ()
-  setIsMap a b = primJS $ HTMLImageElement.prim__setIsMap a (toFFI b)
-  
-  export
-  loading : (obj : HTMLImageElement) -> JSIO String
-  loading a = primJS $ HTMLImageElement.prim__loading a
-  
-  export
-  setLoading : (obj : HTMLImageElement) -> (value : String) -> JSIO ()
-  setLoading a b = primJS $ HTMLImageElement.prim__setLoading a b
-  
-  export
-  longDesc : (obj : HTMLImageElement) -> JSIO String
-  longDesc a = primJS $ HTMLImageElement.prim__longDesc a
-  
-  export
-  setLongDesc : (obj : HTMLImageElement) -> (value : String) -> JSIO ()
-  setLongDesc a b = primJS $ HTMLImageElement.prim__setLongDesc a b
-  
-  export
-  lowsrc : (obj : HTMLImageElement) -> JSIO String
-  lowsrc a = primJS $ HTMLImageElement.prim__lowsrc a
-  
-  export
-  setLowsrc : (obj : HTMLImageElement) -> (value : String) -> JSIO ()
-  setLowsrc a b = primJS $ HTMLImageElement.prim__setLowsrc a b
-  
-  export
-  name : (obj : HTMLImageElement) -> JSIO String
-  name a = primJS $ HTMLImageElement.prim__name a
-  
-  export
-  setName : (obj : HTMLImageElement) -> (value : String) -> JSIO ()
-  setName a b = primJS $ HTMLImageElement.prim__setName a b
+  name : HTMLImageElement -> Attribute True I String
+  name = fromPrim "HTMLImageElement.getname" prim__name prim__setName
   
   export
   naturalHeight : (obj : HTMLImageElement) -> JSIO UInt32
@@ -2775,60 +2293,34 @@ namespace HTMLImageElement
   naturalWidth a = primJS $ HTMLImageElement.prim__naturalWidth a
   
   export
-  referrerPolicy : (obj : HTMLImageElement) -> JSIO String
-  referrerPolicy a = primJS $ HTMLImageElement.prim__referrerPolicy a
+  referrerPolicy : HTMLImageElement -> Attribute True I String
+  referrerPolicy = fromPrim "HTMLImageElement.getreferrerPolicy"
+                            prim__referrerPolicy
+                            prim__setReferrerPolicy
   
   export
-  setReferrerPolicy : (obj : HTMLImageElement) -> (value : String) -> JSIO ()
-  setReferrerPolicy a b = primJS $ HTMLImageElement.prim__setReferrerPolicy a b
+  sizes : HTMLImageElement -> Attribute True I String
+  sizes = fromPrim "HTMLImageElement.getsizes" prim__sizes prim__setSizes
   
   export
-  sizes : (obj : HTMLImageElement) -> JSIO String
-  sizes a = primJS $ HTMLImageElement.prim__sizes a
+  src : HTMLImageElement -> Attribute True I String
+  src = fromPrim "HTMLImageElement.getsrc" prim__src prim__setSrc
   
   export
-  setSizes : (obj : HTMLImageElement) -> (value : String) -> JSIO ()
-  setSizes a b = primJS $ HTMLImageElement.prim__setSizes a b
+  srcset : HTMLImageElement -> Attribute True I String
+  srcset = fromPrim "HTMLImageElement.getsrcset" prim__srcset prim__setSrcset
   
   export
-  src : (obj : HTMLImageElement) -> JSIO String
-  src a = primJS $ HTMLImageElement.prim__src a
+  useMap : HTMLImageElement -> Attribute True I String
+  useMap = fromPrim "HTMLImageElement.getuseMap" prim__useMap prim__setUseMap
   
   export
-  setSrc : (obj : HTMLImageElement) -> (value : String) -> JSIO ()
-  setSrc a b = primJS $ HTMLImageElement.prim__setSrc a b
+  vspace : HTMLImageElement -> Attribute True I UInt32
+  vspace = fromPrim "HTMLImageElement.getvspace" prim__vspace prim__setVspace
   
   export
-  srcset : (obj : HTMLImageElement) -> JSIO String
-  srcset a = primJS $ HTMLImageElement.prim__srcset a
-  
-  export
-  setSrcset : (obj : HTMLImageElement) -> (value : String) -> JSIO ()
-  setSrcset a b = primJS $ HTMLImageElement.prim__setSrcset a b
-  
-  export
-  useMap : (obj : HTMLImageElement) -> JSIO String
-  useMap a = primJS $ HTMLImageElement.prim__useMap a
-  
-  export
-  setUseMap : (obj : HTMLImageElement) -> (value : String) -> JSIO ()
-  setUseMap a b = primJS $ HTMLImageElement.prim__setUseMap a b
-  
-  export
-  vspace : (obj : HTMLImageElement) -> JSIO UInt32
-  vspace a = primJS $ HTMLImageElement.prim__vspace a
-  
-  export
-  setVspace : (obj : HTMLImageElement) -> (value : UInt32) -> JSIO ()
-  setVspace a b = primJS $ HTMLImageElement.prim__setVspace a b
-  
-  export
-  width : (obj : HTMLImageElement) -> JSIO UInt32
-  width a = primJS $ HTMLImageElement.prim__width a
-  
-  export
-  setWidth : (obj : HTMLImageElement) -> (value : UInt32) -> JSIO ()
-  setWidth a b = primJS $ HTMLImageElement.prim__setWidth a b
+  width : HTMLImageElement -> Attribute True I UInt32
+  width = fromPrim "HTMLImageElement.getwidth" prim__width prim__setWidth
   
   export
   decode : (obj : HTMLImageElement) -> JSIO (Promise Undefined)
@@ -2857,152 +2349,102 @@ namespace HTMLInputElement
   new = primJS $ HTMLInputElement.prim__new 
   
   export
-  accept : (obj : HTMLInputElement) -> JSIO String
-  accept a = primJS $ HTMLInputElement.prim__accept a
+  accept : HTMLInputElement -> Attribute True I String
+  accept = fromPrim "HTMLInputElement.getaccept" prim__accept prim__setAccept
   
   export
-  setAccept : (obj : HTMLInputElement) -> (value : String) -> JSIO ()
-  setAccept a b = primJS $ HTMLInputElement.prim__setAccept a b
+  align : HTMLInputElement -> Attribute True I String
+  align = fromPrim "HTMLInputElement.getalign" prim__align prim__setAlign
   
   export
-  align : (obj : HTMLInputElement) -> JSIO String
-  align a = primJS $ HTMLInputElement.prim__align a
+  alt : HTMLInputElement -> Attribute True I String
+  alt = fromPrim "HTMLInputElement.getalt" prim__alt prim__setAlt
   
   export
-  setAlign : (obj : HTMLInputElement) -> (value : String) -> JSIO ()
-  setAlign a b = primJS $ HTMLInputElement.prim__setAlign a b
+  autocomplete : HTMLInputElement -> Attribute True I String
+  autocomplete = fromPrim "HTMLInputElement.getautocomplete"
+                          prim__autocomplete
+                          prim__setAutocomplete
   
   export
-  alt : (obj : HTMLInputElement) -> JSIO String
-  alt a = primJS $ HTMLInputElement.prim__alt a
+  checked : HTMLInputElement -> Attribute True I Bool
+  checked = fromPrim "HTMLInputElement.getchecked"
+                     prim__checked
+                     prim__setChecked
   
   export
-  setAlt : (obj : HTMLInputElement) -> (value : String) -> JSIO ()
-  setAlt a b = primJS $ HTMLInputElement.prim__setAlt a b
+  defaultChecked : HTMLInputElement -> Attribute True I Bool
+  defaultChecked = fromPrim "HTMLInputElement.getdefaultChecked"
+                            prim__defaultChecked
+                            prim__setDefaultChecked
   
   export
-  autocomplete : (obj : HTMLInputElement) -> JSIO String
-  autocomplete a = primJS $ HTMLInputElement.prim__autocomplete a
+  defaultValue : HTMLInputElement -> Attribute True I String
+  defaultValue = fromPrim "HTMLInputElement.getdefaultValue"
+                          prim__defaultValue
+                          prim__setDefaultValue
   
   export
-  setAutocomplete : (obj : HTMLInputElement) -> (value : String) -> JSIO ()
-  setAutocomplete a b = primJS $ HTMLInputElement.prim__setAutocomplete a b
+  dirName : HTMLInputElement -> Attribute True I String
+  dirName = fromPrim "HTMLInputElement.getdirName"
+                     prim__dirName
+                     prim__setDirName
   
   export
-  checked : (obj : HTMLInputElement) -> JSIO Bool
-  checked a = tryJS "HTMLInputElement.checked"
-            $ HTMLInputElement.prim__checked a
+  disabled : HTMLInputElement -> Attribute True I Bool
+  disabled = fromPrim "HTMLInputElement.getdisabled"
+                      prim__disabled
+                      prim__setDisabled
   
   export
-  setChecked : (obj : HTMLInputElement) -> (value : Bool) -> JSIO ()
-  setChecked a b = primJS $ HTMLInputElement.prim__setChecked a (toFFI b)
-  
-  export
-  defaultChecked : (obj : HTMLInputElement) -> JSIO Bool
-  defaultChecked a = tryJS "HTMLInputElement.defaultChecked"
-                   $ HTMLInputElement.prim__defaultChecked a
-  
-  export
-  setDefaultChecked : (obj : HTMLInputElement) -> (value : Bool) -> JSIO ()
-  setDefaultChecked a b = primJS
-                        $ HTMLInputElement.prim__setDefaultChecked a (toFFI b)
-  
-  export
-  defaultValue : (obj : HTMLInputElement) -> JSIO String
-  defaultValue a = primJS $ HTMLInputElement.prim__defaultValue a
-  
-  export
-  setDefaultValue : (obj : HTMLInputElement) -> (value : String) -> JSIO ()
-  setDefaultValue a b = primJS $ HTMLInputElement.prim__setDefaultValue a b
-  
-  export
-  dirName : (obj : HTMLInputElement) -> JSIO String
-  dirName a = primJS $ HTMLInputElement.prim__dirName a
-  
-  export
-  setDirName : (obj : HTMLInputElement) -> (value : String) -> JSIO ()
-  setDirName a b = primJS $ HTMLInputElement.prim__setDirName a b
-  
-  export
-  disabled : (obj : HTMLInputElement) -> JSIO Bool
-  disabled a = tryJS "HTMLInputElement.disabled"
-             $ HTMLInputElement.prim__disabled a
-  
-  export
-  setDisabled : (obj : HTMLInputElement) -> (value : Bool) -> JSIO ()
-  setDisabled a b = primJS $ HTMLInputElement.prim__setDisabled a (toFFI b)
-  
-  export
-  files : (obj : HTMLInputElement) -> JSIO (Maybe FileList)
-  files a = tryJS "HTMLInputElement.files" $ HTMLInputElement.prim__files a
-  
-  export
-  setFiles : (obj : HTMLInputElement) -> (value : Maybe FileList) -> JSIO ()
-  setFiles a b = primJS $ HTMLInputElement.prim__setFiles a (toFFI b)
+  files : HTMLInputElement -> Attribute False Maybe FileList
+  files = fromNullablePrim "HTMLInputElement.getfiles"
+                           prim__files
+                           prim__setFiles
   
   export
   form : (obj : HTMLInputElement) -> JSIO (Maybe HTMLFormElement)
   form a = tryJS "HTMLInputElement.form" $ HTMLInputElement.prim__form a
   
   export
-  formAction : (obj : HTMLInputElement) -> JSIO String
-  formAction a = primJS $ HTMLInputElement.prim__formAction a
+  formAction : HTMLInputElement -> Attribute True I String
+  formAction = fromPrim "HTMLInputElement.getformAction"
+                        prim__formAction
+                        prim__setFormAction
   
   export
-  setFormAction : (obj : HTMLInputElement) -> (value : String) -> JSIO ()
-  setFormAction a b = primJS $ HTMLInputElement.prim__setFormAction a b
+  formEnctype : HTMLInputElement -> Attribute True I String
+  formEnctype = fromPrim "HTMLInputElement.getformEnctype"
+                         prim__formEnctype
+                         prim__setFormEnctype
   
   export
-  formEnctype : (obj : HTMLInputElement) -> JSIO String
-  formEnctype a = primJS $ HTMLInputElement.prim__formEnctype a
+  formMethod : HTMLInputElement -> Attribute True I String
+  formMethod = fromPrim "HTMLInputElement.getformMethod"
+                        prim__formMethod
+                        prim__setFormMethod
   
   export
-  setFormEnctype : (obj : HTMLInputElement) -> (value : String) -> JSIO ()
-  setFormEnctype a b = primJS $ HTMLInputElement.prim__setFormEnctype a b
+  formNoValidate : HTMLInputElement -> Attribute True I Bool
+  formNoValidate = fromPrim "HTMLInputElement.getformNoValidate"
+                            prim__formNoValidate
+                            prim__setFormNoValidate
   
   export
-  formMethod : (obj : HTMLInputElement) -> JSIO String
-  formMethod a = primJS $ HTMLInputElement.prim__formMethod a
+  formTarget : HTMLInputElement -> Attribute True I String
+  formTarget = fromPrim "HTMLInputElement.getformTarget"
+                        prim__formTarget
+                        prim__setFormTarget
   
   export
-  setFormMethod : (obj : HTMLInputElement) -> (value : String) -> JSIO ()
-  setFormMethod a b = primJS $ HTMLInputElement.prim__setFormMethod a b
+  height : HTMLInputElement -> Attribute True I UInt32
+  height = fromPrim "HTMLInputElement.getheight" prim__height prim__setHeight
   
   export
-  formNoValidate : (obj : HTMLInputElement) -> JSIO Bool
-  formNoValidate a = tryJS "HTMLInputElement.formNoValidate"
-                   $ HTMLInputElement.prim__formNoValidate a
-  
-  export
-  setFormNoValidate : (obj : HTMLInputElement) -> (value : Bool) -> JSIO ()
-  setFormNoValidate a b = primJS
-                        $ HTMLInputElement.prim__setFormNoValidate a (toFFI b)
-  
-  export
-  formTarget : (obj : HTMLInputElement) -> JSIO String
-  formTarget a = primJS $ HTMLInputElement.prim__formTarget a
-  
-  export
-  setFormTarget : (obj : HTMLInputElement) -> (value : String) -> JSIO ()
-  setFormTarget a b = primJS $ HTMLInputElement.prim__setFormTarget a b
-  
-  export
-  height : (obj : HTMLInputElement) -> JSIO UInt32
-  height a = primJS $ HTMLInputElement.prim__height a
-  
-  export
-  setHeight : (obj : HTMLInputElement) -> (value : UInt32) -> JSIO ()
-  setHeight a b = primJS $ HTMLInputElement.prim__setHeight a b
-  
-  export
-  indeterminate : (obj : HTMLInputElement) -> JSIO Bool
-  indeterminate a = tryJS "HTMLInputElement.indeterminate"
-                  $ HTMLInputElement.prim__indeterminate a
-  
-  export
-  setIndeterminate : (obj : HTMLInputElement) -> (value : Bool) -> JSIO ()
-  setIndeterminate a b = primJS
-                       $ HTMLInputElement.prim__setIndeterminate a (toFFI b)
+  indeterminate : HTMLInputElement -> Attribute True I Bool
+  indeterminate = fromPrim "HTMLInputElement.getindeterminate"
+                           prim__indeterminate
+                           prim__setIndeterminate
   
   export
   labels : (obj : HTMLInputElement) -> JSIO (Maybe NodeList)
@@ -3013,164 +2455,96 @@ namespace HTMLInputElement
   list a = tryJS "HTMLInputElement.list" $ HTMLInputElement.prim__list a
   
   export
-  max : (obj : HTMLInputElement) -> JSIO String
-  max a = primJS $ HTMLInputElement.prim__max a
+  max : HTMLInputElement -> Attribute True I String
+  max = fromPrim "HTMLInputElement.getmax" prim__max prim__setMax
   
   export
-  setMax : (obj : HTMLInputElement) -> (value : String) -> JSIO ()
-  setMax a b = primJS $ HTMLInputElement.prim__setMax a b
+  maxLength : HTMLInputElement -> Attribute True I Int32
+  maxLength = fromPrim "HTMLInputElement.getmaxLength"
+                       prim__maxLength
+                       prim__setMaxLength
   
   export
-  maxLength : (obj : HTMLInputElement) -> JSIO Int32
-  maxLength a = primJS $ HTMLInputElement.prim__maxLength a
+  min : HTMLInputElement -> Attribute True I String
+  min = fromPrim "HTMLInputElement.getmin" prim__min prim__setMin
   
   export
-  setMaxLength : (obj : HTMLInputElement) -> (value : Int32) -> JSIO ()
-  setMaxLength a b = primJS $ HTMLInputElement.prim__setMaxLength a b
+  minLength : HTMLInputElement -> Attribute True I Int32
+  minLength = fromPrim "HTMLInputElement.getminLength"
+                       prim__minLength
+                       prim__setMinLength
   
   export
-  min : (obj : HTMLInputElement) -> JSIO String
-  min a = primJS $ HTMLInputElement.prim__min a
+  multiple : HTMLInputElement -> Attribute True I Bool
+  multiple = fromPrim "HTMLInputElement.getmultiple"
+                      prim__multiple
+                      prim__setMultiple
   
   export
-  setMin : (obj : HTMLInputElement) -> (value : String) -> JSIO ()
-  setMin a b = primJS $ HTMLInputElement.prim__setMin a b
+  name : HTMLInputElement -> Attribute True I String
+  name = fromPrim "HTMLInputElement.getname" prim__name prim__setName
   
   export
-  minLength : (obj : HTMLInputElement) -> JSIO Int32
-  minLength a = primJS $ HTMLInputElement.prim__minLength a
+  pattern : HTMLInputElement -> Attribute True I String
+  pattern = fromPrim "HTMLInputElement.getpattern"
+                     prim__pattern
+                     prim__setPattern
   
   export
-  setMinLength : (obj : HTMLInputElement) -> (value : Int32) -> JSIO ()
-  setMinLength a b = primJS $ HTMLInputElement.prim__setMinLength a b
+  placeholder : HTMLInputElement -> Attribute True I String
+  placeholder = fromPrim "HTMLInputElement.getplaceholder"
+                         prim__placeholder
+                         prim__setPlaceholder
   
   export
-  multiple : (obj : HTMLInputElement) -> JSIO Bool
-  multiple a = tryJS "HTMLInputElement.multiple"
-             $ HTMLInputElement.prim__multiple a
+  readOnly : HTMLInputElement -> Attribute True I Bool
+  readOnly = fromPrim "HTMLInputElement.getreadOnly"
+                      prim__readOnly
+                      prim__setReadOnly
   
   export
-  setMultiple : (obj : HTMLInputElement) -> (value : Bool) -> JSIO ()
-  setMultiple a b = primJS $ HTMLInputElement.prim__setMultiple a (toFFI b)
+  required : HTMLInputElement -> Attribute True I Bool
+  required = fromPrim "HTMLInputElement.getrequired"
+                      prim__required
+                      prim__setRequired
   
   export
-  name : (obj : HTMLInputElement) -> JSIO String
-  name a = primJS $ HTMLInputElement.prim__name a
+  selectionDirection : HTMLInputElement -> Attribute False Maybe String
+  selectionDirection = fromNullablePrim "HTMLInputElement.getselectionDirection"
+                                        prim__selectionDirection
+                                        prim__setSelectionDirection
   
   export
-  setName : (obj : HTMLInputElement) -> (value : String) -> JSIO ()
-  setName a b = primJS $ HTMLInputElement.prim__setName a b
+  selectionEnd : HTMLInputElement -> Attribute False Maybe UInt32
+  selectionEnd = fromNullablePrim "HTMLInputElement.getselectionEnd"
+                                  prim__selectionEnd
+                                  prim__setSelectionEnd
   
   export
-  pattern : (obj : HTMLInputElement) -> JSIO String
-  pattern a = primJS $ HTMLInputElement.prim__pattern a
+  selectionStart : HTMLInputElement -> Attribute False Maybe UInt32
+  selectionStart = fromNullablePrim "HTMLInputElement.getselectionStart"
+                                    prim__selectionStart
+                                    prim__setSelectionStart
   
   export
-  setPattern : (obj : HTMLInputElement) -> (value : String) -> JSIO ()
-  setPattern a b = primJS $ HTMLInputElement.prim__setPattern a b
+  size : HTMLInputElement -> Attribute True I UInt32
+  size = fromPrim "HTMLInputElement.getsize" prim__size prim__setSize
   
   export
-  placeholder : (obj : HTMLInputElement) -> JSIO String
-  placeholder a = primJS $ HTMLInputElement.prim__placeholder a
+  src : HTMLInputElement -> Attribute True I String
+  src = fromPrim "HTMLInputElement.getsrc" prim__src prim__setSrc
   
   export
-  setPlaceholder : (obj : HTMLInputElement) -> (value : String) -> JSIO ()
-  setPlaceholder a b = primJS $ HTMLInputElement.prim__setPlaceholder a b
+  step : HTMLInputElement -> Attribute True I String
+  step = fromPrim "HTMLInputElement.getstep" prim__step prim__setStep
   
   export
-  readOnly : (obj : HTMLInputElement) -> JSIO Bool
-  readOnly a = tryJS "HTMLInputElement.readOnly"
-             $ HTMLInputElement.prim__readOnly a
+  type : HTMLInputElement -> Attribute True I String
+  type = fromPrim "HTMLInputElement.gettype" prim__type prim__setType
   
   export
-  setReadOnly : (obj : HTMLInputElement) -> (value : Bool) -> JSIO ()
-  setReadOnly a b = primJS $ HTMLInputElement.prim__setReadOnly a (toFFI b)
-  
-  export
-  required : (obj : HTMLInputElement) -> JSIO Bool
-  required a = tryJS "HTMLInputElement.required"
-             $ HTMLInputElement.prim__required a
-  
-  export
-  setRequired : (obj : HTMLInputElement) -> (value : Bool) -> JSIO ()
-  setRequired a b = primJS $ HTMLInputElement.prim__setRequired a (toFFI b)
-  
-  export
-  selectionDirection : (obj : HTMLInputElement) -> JSIO (Maybe String)
-  selectionDirection a = tryJS "HTMLInputElement.selectionDirection"
-                       $ HTMLInputElement.prim__selectionDirection a
-  
-  export
-  setSelectionDirection :  (obj : HTMLInputElement)
-                        -> (value : Maybe String)
-                        -> JSIO ()
-  setSelectionDirection a b = primJS
-                            $ HTMLInputElement.prim__setSelectionDirection a
-                                                                           (toFFI b)
-  
-  export
-  selectionEnd : (obj : HTMLInputElement) -> JSIO (Maybe UInt32)
-  selectionEnd a = tryJS "HTMLInputElement.selectionEnd"
-                 $ HTMLInputElement.prim__selectionEnd a
-  
-  export
-  setSelectionEnd :  (obj : HTMLInputElement)
-                  -> (value : Maybe UInt32)
-                  -> JSIO ()
-  setSelectionEnd a b = primJS
-                      $ HTMLInputElement.prim__setSelectionEnd a (toFFI b)
-  
-  export
-  selectionStart : (obj : HTMLInputElement) -> JSIO (Maybe UInt32)
-  selectionStart a = tryJS "HTMLInputElement.selectionStart"
-                   $ HTMLInputElement.prim__selectionStart a
-  
-  export
-  setSelectionStart :  (obj : HTMLInputElement)
-                    -> (value : Maybe UInt32)
-                    -> JSIO ()
-  setSelectionStart a b = primJS
-                        $ HTMLInputElement.prim__setSelectionStart a (toFFI b)
-  
-  export
-  size : (obj : HTMLInputElement) -> JSIO UInt32
-  size a = primJS $ HTMLInputElement.prim__size a
-  
-  export
-  setSize : (obj : HTMLInputElement) -> (value : UInt32) -> JSIO ()
-  setSize a b = primJS $ HTMLInputElement.prim__setSize a b
-  
-  export
-  src : (obj : HTMLInputElement) -> JSIO String
-  src a = primJS $ HTMLInputElement.prim__src a
-  
-  export
-  setSrc : (obj : HTMLInputElement) -> (value : String) -> JSIO ()
-  setSrc a b = primJS $ HTMLInputElement.prim__setSrc a b
-  
-  export
-  step : (obj : HTMLInputElement) -> JSIO String
-  step a = primJS $ HTMLInputElement.prim__step a
-  
-  export
-  setStep : (obj : HTMLInputElement) -> (value : String) -> JSIO ()
-  setStep a b = primJS $ HTMLInputElement.prim__setStep a b
-  
-  export
-  type : (obj : HTMLInputElement) -> JSIO String
-  type a = primJS $ HTMLInputElement.prim__type a
-  
-  export
-  setType : (obj : HTMLInputElement) -> (value : String) -> JSIO ()
-  setType a b = primJS $ HTMLInputElement.prim__setType a b
-  
-  export
-  useMap : (obj : HTMLInputElement) -> JSIO String
-  useMap a = primJS $ HTMLInputElement.prim__useMap a
-  
-  export
-  setUseMap : (obj : HTMLInputElement) -> (value : String) -> JSIO ()
-  setUseMap a b = primJS $ HTMLInputElement.prim__setUseMap a b
+  useMap : HTMLInputElement -> Attribute True I String
+  useMap = fromPrim "HTMLInputElement.getuseMap" prim__useMap prim__setUseMap
   
   export
   validationMessage : (obj : HTMLInputElement) -> JSIO String
@@ -3181,38 +2555,24 @@ namespace HTMLInputElement
   validity a = primJS $ HTMLInputElement.prim__validity a
   
   export
-  value : (obj : HTMLInputElement) -> JSIO String
-  value a = primJS $ HTMLInputElement.prim__value a
+  value : HTMLInputElement -> Attribute True I String
+  value = fromPrim "HTMLInputElement.getvalue" prim__value prim__setValue
   
   export
-  setValue : (obj : HTMLInputElement) -> (value : String) -> JSIO ()
-  setValue a b = primJS $ HTMLInputElement.prim__setValue a b
+  valueAsDate : HTMLInputElement -> Attribute False Maybe Object
+  valueAsDate = fromNullablePrim "HTMLInputElement.getvalueAsDate"
+                                 prim__valueAsDate
+                                 prim__setValueAsDate
   
   export
-  valueAsDate : (obj : HTMLInputElement) -> JSIO (Maybe Object)
-  valueAsDate a = tryJS "HTMLInputElement.valueAsDate"
-                $ HTMLInputElement.prim__valueAsDate a
+  valueAsNumber : HTMLInputElement -> Attribute True I Double
+  valueAsNumber = fromPrim "HTMLInputElement.getvalueAsNumber"
+                           prim__valueAsNumber
+                           prim__setValueAsNumber
   
   export
-  setValueAsDate : (obj : HTMLInputElement) -> (value : Maybe Object) -> JSIO ()
-  setValueAsDate a b = primJS
-                     $ HTMLInputElement.prim__setValueAsDate a (toFFI b)
-  
-  export
-  valueAsNumber : (obj : HTMLInputElement) -> JSIO Double
-  valueAsNumber a = primJS $ HTMLInputElement.prim__valueAsNumber a
-  
-  export
-  setValueAsNumber : (obj : HTMLInputElement) -> (value : Double) -> JSIO ()
-  setValueAsNumber a b = primJS $ HTMLInputElement.prim__setValueAsNumber a b
-  
-  export
-  width : (obj : HTMLInputElement) -> JSIO UInt32
-  width a = primJS $ HTMLInputElement.prim__width a
-  
-  export
-  setWidth : (obj : HTMLInputElement) -> (value : UInt32) -> JSIO ()
-  setWidth a b = primJS $ HTMLInputElement.prim__setWidth a b
+  width : HTMLInputElement -> Attribute True I UInt32
+  width = fromPrim "HTMLInputElement.getwidth" prim__width prim__setWidth
   
   export
   willValidate : (obj : HTMLInputElement) -> JSIO Bool
@@ -3326,20 +2686,12 @@ namespace HTMLLIElement
   new = primJS $ HTMLLIElement.prim__new 
   
   export
-  type : (obj : HTMLLIElement) -> JSIO String
-  type a = primJS $ HTMLLIElement.prim__type a
+  type : HTMLLIElement -> Attribute True I String
+  type = fromPrim "HTMLLIElement.gettype" prim__type prim__setType
   
   export
-  setType : (obj : HTMLLIElement) -> (value : String) -> JSIO ()
-  setType a b = primJS $ HTMLLIElement.prim__setType a b
-  
-  export
-  value : (obj : HTMLLIElement) -> JSIO Int32
-  value a = primJS $ HTMLLIElement.prim__value a
-  
-  export
-  setValue : (obj : HTMLLIElement) -> (value : Int32) -> JSIO ()
-  setValue a b = primJS $ HTMLLIElement.prim__setValue a b
+  value : HTMLLIElement -> Attribute True I Int32
+  value = fromPrim "HTMLLIElement.getvalue" prim__value prim__setValue
 
 namespace HTMLLabelElement
   
@@ -3373,12 +2725,10 @@ namespace HTMLLabelElement
   form a = tryJS "HTMLLabelElement.form" $ HTMLLabelElement.prim__form a
   
   export
-  htmlFor : (obj : HTMLLabelElement) -> JSIO String
-  htmlFor a = primJS $ HTMLLabelElement.prim__htmlFor a
-  
-  export
-  setHtmlFor : (obj : HTMLLabelElement) -> (value : String) -> JSIO ()
-  setHtmlFor a b = primJS $ HTMLLabelElement.prim__setHtmlFor a b
+  htmlFor : HTMLLabelElement -> Attribute True I String
+  htmlFor = fromPrim "HTMLLabelElement.gethtmlFor"
+                     prim__htmlFor
+                     prim__setHtmlFor
 
 namespace HTMLLegendElement
   
@@ -3403,12 +2753,8 @@ namespace HTMLLegendElement
   new = primJS $ HTMLLegendElement.prim__new 
   
   export
-  align : (obj : HTMLLegendElement) -> JSIO String
-  align a = primJS $ HTMLLegendElement.prim__align a
-  
-  export
-  setAlign : (obj : HTMLLegendElement) -> (value : String) -> JSIO ()
-  setAlign a b = primJS $ HTMLLegendElement.prim__setAlign a b
+  align : HTMLLegendElement -> Attribute True I String
+  align = fromPrim "HTMLLegendElement.getalign" prim__align prim__setAlign
   
   export
   form : (obj : HTMLLegendElement) -> JSIO (Maybe HTMLFormElement)
@@ -3438,134 +2784,86 @@ namespace HTMLLinkElement
   new = primJS $ HTMLLinkElement.prim__new 
   
   export
-  as : (obj : HTMLLinkElement) -> JSIO String
-  as a = primJS $ HTMLLinkElement.prim__as a
+  as : HTMLLinkElement -> Attribute True I String
+  as = fromPrim "HTMLLinkElement.getas" prim__as prim__setAs
   
   export
-  setAs : (obj : HTMLLinkElement) -> (value : String) -> JSIO ()
-  setAs a b = primJS $ HTMLLinkElement.prim__setAs a b
+  charset : HTMLLinkElement -> Attribute True I String
+  charset = fromPrim "HTMLLinkElement.getcharset" prim__charset prim__setCharset
   
   export
-  charset : (obj : HTMLLinkElement) -> JSIO String
-  charset a = primJS $ HTMLLinkElement.prim__charset a
+  crossOrigin : HTMLLinkElement -> Attribute False Maybe String
+  crossOrigin = fromNullablePrim "HTMLLinkElement.getcrossOrigin"
+                                 prim__crossOrigin
+                                 prim__setCrossOrigin
   
   export
-  setCharset : (obj : HTMLLinkElement) -> (value : String) -> JSIO ()
-  setCharset a b = primJS $ HTMLLinkElement.prim__setCharset a b
+  disabled : HTMLLinkElement -> Attribute True I Bool
+  disabled = fromPrim "HTMLLinkElement.getdisabled"
+                      prim__disabled
+                      prim__setDisabled
   
   export
-  crossOrigin : (obj : HTMLLinkElement) -> JSIO (Maybe String)
-  crossOrigin a = tryJS "HTMLLinkElement.crossOrigin"
-                $ HTMLLinkElement.prim__crossOrigin a
+  href : HTMLLinkElement -> Attribute True I String
+  href = fromPrim "HTMLLinkElement.gethref" prim__href prim__setHref
   
   export
-  setCrossOrigin : (obj : HTMLLinkElement) -> (value : Maybe String) -> JSIO ()
-  setCrossOrigin a b = primJS $ HTMLLinkElement.prim__setCrossOrigin a (toFFI b)
+  hreflang : HTMLLinkElement -> Attribute True I String
+  hreflang = fromPrim "HTMLLinkElement.gethreflang"
+                      prim__hreflang
+                      prim__setHreflang
   
   export
-  disabled : (obj : HTMLLinkElement) -> JSIO Bool
-  disabled a = tryJS "HTMLLinkElement.disabled"
-             $ HTMLLinkElement.prim__disabled a
+  imageSizes : HTMLLinkElement -> Attribute True I String
+  imageSizes = fromPrim "HTMLLinkElement.getimageSizes"
+                        prim__imageSizes
+                        prim__setImageSizes
   
   export
-  setDisabled : (obj : HTMLLinkElement) -> (value : Bool) -> JSIO ()
-  setDisabled a b = primJS $ HTMLLinkElement.prim__setDisabled a (toFFI b)
+  imageSrcset : HTMLLinkElement -> Attribute True I String
+  imageSrcset = fromPrim "HTMLLinkElement.getimageSrcset"
+                         prim__imageSrcset
+                         prim__setImageSrcset
   
   export
-  href : (obj : HTMLLinkElement) -> JSIO String
-  href a = primJS $ HTMLLinkElement.prim__href a
+  integrity : HTMLLinkElement -> Attribute True I String
+  integrity = fromPrim "HTMLLinkElement.getintegrity"
+                       prim__integrity
+                       prim__setIntegrity
   
   export
-  setHref : (obj : HTMLLinkElement) -> (value : String) -> JSIO ()
-  setHref a b = primJS $ HTMLLinkElement.prim__setHref a b
+  media : HTMLLinkElement -> Attribute True I String
+  media = fromPrim "HTMLLinkElement.getmedia" prim__media prim__setMedia
   
   export
-  hreflang : (obj : HTMLLinkElement) -> JSIO String
-  hreflang a = primJS $ HTMLLinkElement.prim__hreflang a
+  referrerPolicy : HTMLLinkElement -> Attribute True I String
+  referrerPolicy = fromPrim "HTMLLinkElement.getreferrerPolicy"
+                            prim__referrerPolicy
+                            prim__setReferrerPolicy
   
   export
-  setHreflang : (obj : HTMLLinkElement) -> (value : String) -> JSIO ()
-  setHreflang a b = primJS $ HTMLLinkElement.prim__setHreflang a b
-  
-  export
-  imageSizes : (obj : HTMLLinkElement) -> JSIO String
-  imageSizes a = primJS $ HTMLLinkElement.prim__imageSizes a
-  
-  export
-  setImageSizes : (obj : HTMLLinkElement) -> (value : String) -> JSIO ()
-  setImageSizes a b = primJS $ HTMLLinkElement.prim__setImageSizes a b
-  
-  export
-  imageSrcset : (obj : HTMLLinkElement) -> JSIO String
-  imageSrcset a = primJS $ HTMLLinkElement.prim__imageSrcset a
-  
-  export
-  setImageSrcset : (obj : HTMLLinkElement) -> (value : String) -> JSIO ()
-  setImageSrcset a b = primJS $ HTMLLinkElement.prim__setImageSrcset a b
-  
-  export
-  integrity : (obj : HTMLLinkElement) -> JSIO String
-  integrity a = primJS $ HTMLLinkElement.prim__integrity a
-  
-  export
-  setIntegrity : (obj : HTMLLinkElement) -> (value : String) -> JSIO ()
-  setIntegrity a b = primJS $ HTMLLinkElement.prim__setIntegrity a b
-  
-  export
-  media : (obj : HTMLLinkElement) -> JSIO String
-  media a = primJS $ HTMLLinkElement.prim__media a
-  
-  export
-  setMedia : (obj : HTMLLinkElement) -> (value : String) -> JSIO ()
-  setMedia a b = primJS $ HTMLLinkElement.prim__setMedia a b
-  
-  export
-  referrerPolicy : (obj : HTMLLinkElement) -> JSIO String
-  referrerPolicy a = primJS $ HTMLLinkElement.prim__referrerPolicy a
-  
-  export
-  setReferrerPolicy : (obj : HTMLLinkElement) -> (value : String) -> JSIO ()
-  setReferrerPolicy a b = primJS $ HTMLLinkElement.prim__setReferrerPolicy a b
-  
-  export
-  rel : (obj : HTMLLinkElement) -> JSIO String
-  rel a = primJS $ HTMLLinkElement.prim__rel a
-  
-  export
-  setRel : (obj : HTMLLinkElement) -> (value : String) -> JSIO ()
-  setRel a b = primJS $ HTMLLinkElement.prim__setRel a b
+  rel : HTMLLinkElement -> Attribute True I String
+  rel = fromPrim "HTMLLinkElement.getrel" prim__rel prim__setRel
   
   export
   relList : (obj : HTMLLinkElement) -> JSIO DOMTokenList
   relList a = primJS $ HTMLLinkElement.prim__relList a
   
   export
-  rev : (obj : HTMLLinkElement) -> JSIO String
-  rev a = primJS $ HTMLLinkElement.prim__rev a
-  
-  export
-  setRev : (obj : HTMLLinkElement) -> (value : String) -> JSIO ()
-  setRev a b = primJS $ HTMLLinkElement.prim__setRev a b
+  rev : HTMLLinkElement -> Attribute True I String
+  rev = fromPrim "HTMLLinkElement.getrev" prim__rev prim__setRev
   
   export
   sizes : (obj : HTMLLinkElement) -> JSIO DOMTokenList
   sizes a = primJS $ HTMLLinkElement.prim__sizes a
   
   export
-  target : (obj : HTMLLinkElement) -> JSIO String
-  target a = primJS $ HTMLLinkElement.prim__target a
+  target : HTMLLinkElement -> Attribute True I String
+  target = fromPrim "HTMLLinkElement.gettarget" prim__target prim__setTarget
   
   export
-  setTarget : (obj : HTMLLinkElement) -> (value : String) -> JSIO ()
-  setTarget a b = primJS $ HTMLLinkElement.prim__setTarget a b
-  
-  export
-  type : (obj : HTMLLinkElement) -> JSIO String
-  type a = primJS $ HTMLLinkElement.prim__type a
-  
-  export
-  setType : (obj : HTMLLinkElement) -> (value : String) -> JSIO ()
-  setType a b = primJS $ HTMLLinkElement.prim__setType a b
+  type : HTMLLinkElement -> Attribute True I String
+  type = fromPrim "HTMLLinkElement.gettype" prim__type prim__setType
 
 namespace HTMLMapElement
   
@@ -3594,12 +2892,8 @@ namespace HTMLMapElement
   areas a = primJS $ HTMLMapElement.prim__areas a
   
   export
-  name : (obj : HTMLMapElement) -> JSIO String
-  name a = primJS $ HTMLMapElement.prim__name a
-  
-  export
-  setName : (obj : HTMLMapElement) -> (value : String) -> JSIO ()
-  setName a b = primJS $ HTMLMapElement.prim__setName a b
+  name : HTMLMapElement -> Attribute True I String
+  name = fromPrim "HTMLMapElement.getname" prim__name prim__setName
 
 namespace HTMLMarqueeElement
   
@@ -3624,93 +2918,60 @@ namespace HTMLMarqueeElement
   new = primJS $ HTMLMarqueeElement.prim__new 
   
   export
-  behavior : (obj : HTMLMarqueeElement) -> JSIO String
-  behavior a = primJS $ HTMLMarqueeElement.prim__behavior a
+  behavior : HTMLMarqueeElement -> Attribute True I String
+  behavior = fromPrim "HTMLMarqueeElement.getbehavior"
+                      prim__behavior
+                      prim__setBehavior
   
   export
-  setBehavior : (obj : HTMLMarqueeElement) -> (value : String) -> JSIO ()
-  setBehavior a b = primJS $ HTMLMarqueeElement.prim__setBehavior a b
+  bgColor : HTMLMarqueeElement -> Attribute True I String
+  bgColor = fromPrim "HTMLMarqueeElement.getbgColor"
+                     prim__bgColor
+                     prim__setBgColor
   
   export
-  bgColor : (obj : HTMLMarqueeElement) -> JSIO String
-  bgColor a = primJS $ HTMLMarqueeElement.prim__bgColor a
+  direction : HTMLMarqueeElement -> Attribute True I String
+  direction = fromPrim "HTMLMarqueeElement.getdirection"
+                       prim__direction
+                       prim__setDirection
   
   export
-  setBgColor : (obj : HTMLMarqueeElement) -> (value : String) -> JSIO ()
-  setBgColor a b = primJS $ HTMLMarqueeElement.prim__setBgColor a b
+  height : HTMLMarqueeElement -> Attribute True I String
+  height = fromPrim "HTMLMarqueeElement.getheight" prim__height prim__setHeight
   
   export
-  direction : (obj : HTMLMarqueeElement) -> JSIO String
-  direction a = primJS $ HTMLMarqueeElement.prim__direction a
+  hspace : HTMLMarqueeElement -> Attribute True I UInt32
+  hspace = fromPrim "HTMLMarqueeElement.gethspace" prim__hspace prim__setHspace
   
   export
-  setDirection : (obj : HTMLMarqueeElement) -> (value : String) -> JSIO ()
-  setDirection a b = primJS $ HTMLMarqueeElement.prim__setDirection a b
+  loop : HTMLMarqueeElement -> Attribute True I Int32
+  loop = fromPrim "HTMLMarqueeElement.getloop" prim__loop prim__setLoop
   
   export
-  height : (obj : HTMLMarqueeElement) -> JSIO String
-  height a = primJS $ HTMLMarqueeElement.prim__height a
+  scrollAmount : HTMLMarqueeElement -> Attribute True I UInt32
+  scrollAmount = fromPrim "HTMLMarqueeElement.getscrollAmount"
+                          prim__scrollAmount
+                          prim__setScrollAmount
   
   export
-  setHeight : (obj : HTMLMarqueeElement) -> (value : String) -> JSIO ()
-  setHeight a b = primJS $ HTMLMarqueeElement.prim__setHeight a b
+  scrollDelay : HTMLMarqueeElement -> Attribute True I UInt32
+  scrollDelay = fromPrim "HTMLMarqueeElement.getscrollDelay"
+                         prim__scrollDelay
+                         prim__setScrollDelay
   
   export
-  hspace : (obj : HTMLMarqueeElement) -> JSIO UInt32
-  hspace a = primJS $ HTMLMarqueeElement.prim__hspace a
+  trueSpeed : HTMLMarqueeElement -> Attribute True I Bool
+  trueSpeed = fromPrim "HTMLMarqueeElement.gettrueSpeed"
+                       prim__trueSpeed
+                       prim__setTrueSpeed
   
   export
-  setHspace : (obj : HTMLMarqueeElement) -> (value : UInt32) -> JSIO ()
-  setHspace a b = primJS $ HTMLMarqueeElement.prim__setHspace a b
+  vspace : HTMLMarqueeElement -> Attribute True I UInt32
+  vspace = fromPrim "HTMLMarqueeElement.getvspace" prim__vspace prim__setVspace
   
   export
-  loop : (obj : HTMLMarqueeElement) -> JSIO Int32
-  loop a = primJS $ HTMLMarqueeElement.prim__loop a
-  
-  export
-  setLoop : (obj : HTMLMarqueeElement) -> (value : Int32) -> JSIO ()
-  setLoop a b = primJS $ HTMLMarqueeElement.prim__setLoop a b
-  
-  export
-  scrollAmount : (obj : HTMLMarqueeElement) -> JSIO UInt32
-  scrollAmount a = primJS $ HTMLMarqueeElement.prim__scrollAmount a
-  
-  export
-  setScrollAmount : (obj : HTMLMarqueeElement) -> (value : UInt32) -> JSIO ()
-  setScrollAmount a b = primJS $ HTMLMarqueeElement.prim__setScrollAmount a b
-  
-  export
-  scrollDelay : (obj : HTMLMarqueeElement) -> JSIO UInt32
-  scrollDelay a = primJS $ HTMLMarqueeElement.prim__scrollDelay a
-  
-  export
-  setScrollDelay : (obj : HTMLMarqueeElement) -> (value : UInt32) -> JSIO ()
-  setScrollDelay a b = primJS $ HTMLMarqueeElement.prim__setScrollDelay a b
-  
-  export
-  trueSpeed : (obj : HTMLMarqueeElement) -> JSIO Bool
-  trueSpeed a = tryJS "HTMLMarqueeElement.trueSpeed"
-              $ HTMLMarqueeElement.prim__trueSpeed a
-  
-  export
-  setTrueSpeed : (obj : HTMLMarqueeElement) -> (value : Bool) -> JSIO ()
-  setTrueSpeed a b = primJS $ HTMLMarqueeElement.prim__setTrueSpeed a (toFFI b)
-  
-  export
-  vspace : (obj : HTMLMarqueeElement) -> JSIO UInt32
-  vspace a = primJS $ HTMLMarqueeElement.prim__vspace a
-  
-  export
-  setVspace : (obj : HTMLMarqueeElement) -> (value : UInt32) -> JSIO ()
-  setVspace a b = primJS $ HTMLMarqueeElement.prim__setVspace a b
-  
-  export
-  width : (obj : HTMLMarqueeElement) -> JSIO String
-  width a = primJS $ HTMLMarqueeElement.prim__width a
-  
-  export
-  setWidth : (obj : HTMLMarqueeElement) -> (value : String) -> JSIO ()
-  setWidth a b = primJS $ HTMLMarqueeElement.prim__setWidth a b
+  width : HTMLMarqueeElement -> Attribute True I String
+  width = fromPrim "HTMLMarqueeElement.getwidth" prim__width prim__setWidth
   
   export
   start : (obj : HTMLMarqueeElement) -> JSIO ()
@@ -3779,69 +3040,48 @@ namespace HTMLMediaElement
   audioTracks a = primJS $ HTMLMediaElement.prim__audioTracks a
   
   export
-  autoplay : (obj : HTMLMediaElement) -> JSIO Bool
-  autoplay a = tryJS "HTMLMediaElement.autoplay"
-             $ HTMLMediaElement.prim__autoplay a
-  
-  export
-  setAutoplay : (obj : HTMLMediaElement) -> (value : Bool) -> JSIO ()
-  setAutoplay a b = primJS $ HTMLMediaElement.prim__setAutoplay a (toFFI b)
+  autoplay : HTMLMediaElement -> Attribute True I Bool
+  autoplay = fromPrim "HTMLMediaElement.getautoplay"
+                      prim__autoplay
+                      prim__setAutoplay
   
   export
   buffered : (obj : HTMLMediaElement) -> JSIO TimeRanges
   buffered a = primJS $ HTMLMediaElement.prim__buffered a
   
   export
-  controls : (obj : HTMLMediaElement) -> JSIO Bool
-  controls a = tryJS "HTMLMediaElement.controls"
-             $ HTMLMediaElement.prim__controls a
+  controls : HTMLMediaElement -> Attribute True I Bool
+  controls = fromPrim "HTMLMediaElement.getcontrols"
+                      prim__controls
+                      prim__setControls
   
   export
-  setControls : (obj : HTMLMediaElement) -> (value : Bool) -> JSIO ()
-  setControls a b = primJS $ HTMLMediaElement.prim__setControls a (toFFI b)
-  
-  export
-  crossOrigin : (obj : HTMLMediaElement) -> JSIO (Maybe String)
-  crossOrigin a = tryJS "HTMLMediaElement.crossOrigin"
-                $ HTMLMediaElement.prim__crossOrigin a
-  
-  export
-  setCrossOrigin : (obj : HTMLMediaElement) -> (value : Maybe String) -> JSIO ()
-  setCrossOrigin a b = primJS
-                     $ HTMLMediaElement.prim__setCrossOrigin a (toFFI b)
+  crossOrigin : HTMLMediaElement -> Attribute False Maybe String
+  crossOrigin = fromNullablePrim "HTMLMediaElement.getcrossOrigin"
+                                 prim__crossOrigin
+                                 prim__setCrossOrigin
   
   export
   currentSrc : (obj : HTMLMediaElement) -> JSIO String
   currentSrc a = primJS $ HTMLMediaElement.prim__currentSrc a
   
   export
-  currentTime : (obj : HTMLMediaElement) -> JSIO Double
-  currentTime a = primJS $ HTMLMediaElement.prim__currentTime a
+  currentTime : HTMLMediaElement -> Attribute True I Double
+  currentTime = fromPrim "HTMLMediaElement.getcurrentTime"
+                         prim__currentTime
+                         prim__setCurrentTime
   
   export
-  setCurrentTime : (obj : HTMLMediaElement) -> (value : Double) -> JSIO ()
-  setCurrentTime a b = primJS $ HTMLMediaElement.prim__setCurrentTime a b
+  defaultMuted : HTMLMediaElement -> Attribute True I Bool
+  defaultMuted = fromPrim "HTMLMediaElement.getdefaultMuted"
+                          prim__defaultMuted
+                          prim__setDefaultMuted
   
   export
-  defaultMuted : (obj : HTMLMediaElement) -> JSIO Bool
-  defaultMuted a = tryJS "HTMLMediaElement.defaultMuted"
-                 $ HTMLMediaElement.prim__defaultMuted a
-  
-  export
-  setDefaultMuted : (obj : HTMLMediaElement) -> (value : Bool) -> JSIO ()
-  setDefaultMuted a b = primJS
-                      $ HTMLMediaElement.prim__setDefaultMuted a (toFFI b)
-  
-  export
-  defaultPlaybackRate : (obj : HTMLMediaElement) -> JSIO Double
-  defaultPlaybackRate a = primJS $ HTMLMediaElement.prim__defaultPlaybackRate a
-  
-  export
-  setDefaultPlaybackRate :  (obj : HTMLMediaElement)
-                         -> (value : Double)
-                         -> JSIO ()
-  setDefaultPlaybackRate a b = primJS
-                             $ HTMLMediaElement.prim__setDefaultPlaybackRate a b
+  defaultPlaybackRate : HTMLMediaElement -> Attribute True I Double
+  defaultPlaybackRate = fromPrim "HTMLMediaElement.getdefaultPlaybackRate"
+                                 prim__defaultPlaybackRate
+                                 prim__setDefaultPlaybackRate
   
   export
   duration : (obj : HTMLMediaElement) -> JSIO Double
@@ -3856,20 +3096,12 @@ namespace HTMLMediaElement
   error a = tryJS "HTMLMediaElement.error" $ HTMLMediaElement.prim__error a
   
   export
-  loop : (obj : HTMLMediaElement) -> JSIO Bool
-  loop a = tryJS "HTMLMediaElement.loop" $ HTMLMediaElement.prim__loop a
+  loop : HTMLMediaElement -> Attribute True I Bool
+  loop = fromPrim "HTMLMediaElement.getloop" prim__loop prim__setLoop
   
   export
-  setLoop : (obj : HTMLMediaElement) -> (value : Bool) -> JSIO ()
-  setLoop a b = primJS $ HTMLMediaElement.prim__setLoop a (toFFI b)
-  
-  export
-  muted : (obj : HTMLMediaElement) -> JSIO Bool
-  muted a = tryJS "HTMLMediaElement.muted" $ HTMLMediaElement.prim__muted a
-  
-  export
-  setMuted : (obj : HTMLMediaElement) -> (value : Bool) -> JSIO ()
-  setMuted a b = primJS $ HTMLMediaElement.prim__setMuted a (toFFI b)
+  muted : HTMLMediaElement -> Attribute True I Bool
+  muted = fromPrim "HTMLMediaElement.getmuted" prim__muted prim__setMuted
   
   export
   networkState : (obj : HTMLMediaElement) -> JSIO UInt16
@@ -3880,34 +3112,26 @@ namespace HTMLMediaElement
   paused a = tryJS "HTMLMediaElement.paused" $ HTMLMediaElement.prim__paused a
   
   export
-  playbackRate : (obj : HTMLMediaElement) -> JSIO Double
-  playbackRate a = primJS $ HTMLMediaElement.prim__playbackRate a
-  
-  export
-  setPlaybackRate : (obj : HTMLMediaElement) -> (value : Double) -> JSIO ()
-  setPlaybackRate a b = primJS $ HTMLMediaElement.prim__setPlaybackRate a b
+  playbackRate : HTMLMediaElement -> Attribute True I Double
+  playbackRate = fromPrim "HTMLMediaElement.getplaybackRate"
+                          prim__playbackRate
+                          prim__setPlaybackRate
   
   export
   played : (obj : HTMLMediaElement) -> JSIO TimeRanges
   played a = primJS $ HTMLMediaElement.prim__played a
   
   export
-  preload : (obj : HTMLMediaElement) -> JSIO String
-  preload a = primJS $ HTMLMediaElement.prim__preload a
+  preload : HTMLMediaElement -> Attribute True I String
+  preload = fromPrim "HTMLMediaElement.getpreload"
+                     prim__preload
+                     prim__setPreload
   
   export
-  setPreload : (obj : HTMLMediaElement) -> (value : String) -> JSIO ()
-  setPreload a b = primJS $ HTMLMediaElement.prim__setPreload a b
-  
-  export
-  preservesPitch : (obj : HTMLMediaElement) -> JSIO Bool
-  preservesPitch a = tryJS "HTMLMediaElement.preservesPitch"
-                   $ HTMLMediaElement.prim__preservesPitch a
-  
-  export
-  setPreservesPitch : (obj : HTMLMediaElement) -> (value : Bool) -> JSIO ()
-  setPreservesPitch a b = primJS
-                        $ HTMLMediaElement.prim__setPreservesPitch a (toFFI b)
+  preservesPitch : HTMLMediaElement -> Attribute True I Bool
+  preservesPitch = fromPrim "HTMLMediaElement.getpreservesPitch"
+                            prim__preservesPitch
+                            prim__setPreservesPitch
   
   export
   readyState : (obj : HTMLMediaElement) -> JSIO UInt16
@@ -3923,24 +3147,17 @@ namespace HTMLMediaElement
             $ HTMLMediaElement.prim__seeking a
   
   export
-  src : (obj : HTMLMediaElement) -> JSIO String
-  src a = primJS $ HTMLMediaElement.prim__src a
+  src : HTMLMediaElement -> Attribute True I String
+  src = fromPrim "HTMLMediaElement.getsrc" prim__src prim__setSrc
   
   export
-  setSrc : (obj : HTMLMediaElement) -> (value : String) -> JSIO ()
-  setSrc a b = primJS $ HTMLMediaElement.prim__setSrc a b
-  
-  export
-  srcObject :  (obj : HTMLMediaElement)
-            -> JSIO (Maybe (NS I [ MediaStream , MediaSource , Blob ]))
-  srcObject a = tryJS "HTMLMediaElement.srcObject"
-              $ HTMLMediaElement.prim__srcObject a
-  
-  export
-  setSrcObject :  (obj : HTMLMediaElement)
-               -> (value : Maybe (NS I [ MediaStream , MediaSource , Blob ]))
-               -> JSIO ()
-  setSrcObject a b = primJS $ HTMLMediaElement.prim__setSrcObject a (toFFI b)
+  srcObject : HTMLMediaElement -> Attribute False Maybe (NS I [ MediaStream
+                                                              , MediaSource
+                                                              , Blob
+                                                              ])
+  srcObject = fromNullablePrim "HTMLMediaElement.getsrcObject"
+                               prim__srcObject
+                               prim__setSrcObject
   
   export
   textTracks : (obj : HTMLMediaElement) -> JSIO TextTrackList
@@ -3951,12 +3168,8 @@ namespace HTMLMediaElement
   videoTracks a = primJS $ HTMLMediaElement.prim__videoTracks a
   
   export
-  volume : (obj : HTMLMediaElement) -> JSIO Double
-  volume a = primJS $ HTMLMediaElement.prim__volume a
-  
-  export
-  setVolume : (obj : HTMLMediaElement) -> (value : Double) -> JSIO ()
-  setVolume a b = primJS $ HTMLMediaElement.prim__setVolume a b
+  volume : HTMLMediaElement -> Attribute True I Double
+  volume = fromPrim "HTMLMediaElement.getvolume" prim__volume prim__setVolume
   
   export
   addTextTrack :  (obj : HTMLMediaElement)
@@ -4030,12 +3243,8 @@ namespace HTMLMenuElement
   new = primJS $ HTMLMenuElement.prim__new 
   
   export
-  compact : (obj : HTMLMenuElement) -> JSIO Bool
-  compact a = tryJS "HTMLMenuElement.compact" $ HTMLMenuElement.prim__compact a
-  
-  export
-  setCompact : (obj : HTMLMenuElement) -> (value : Bool) -> JSIO ()
-  setCompact a b = primJS $ HTMLMenuElement.prim__setCompact a (toFFI b)
+  compact : HTMLMenuElement -> Attribute True I Bool
+  compact = fromPrim "HTMLMenuElement.getcompact" prim__compact prim__setCompact
 
 namespace HTMLMetaElement
   
@@ -4060,36 +3269,22 @@ namespace HTMLMetaElement
   new = primJS $ HTMLMetaElement.prim__new 
   
   export
-  content : (obj : HTMLMetaElement) -> JSIO String
-  content a = primJS $ HTMLMetaElement.prim__content a
+  content : HTMLMetaElement -> Attribute True I String
+  content = fromPrim "HTMLMetaElement.getcontent" prim__content prim__setContent
   
   export
-  setContent : (obj : HTMLMetaElement) -> (value : String) -> JSIO ()
-  setContent a b = primJS $ HTMLMetaElement.prim__setContent a b
+  httpEquiv : HTMLMetaElement -> Attribute True I String
+  httpEquiv = fromPrim "HTMLMetaElement.gethttpEquiv"
+                       prim__httpEquiv
+                       prim__setHttpEquiv
   
   export
-  httpEquiv : (obj : HTMLMetaElement) -> JSIO String
-  httpEquiv a = primJS $ HTMLMetaElement.prim__httpEquiv a
+  name : HTMLMetaElement -> Attribute True I String
+  name = fromPrim "HTMLMetaElement.getname" prim__name prim__setName
   
   export
-  setHttpEquiv : (obj : HTMLMetaElement) -> (value : String) -> JSIO ()
-  setHttpEquiv a b = primJS $ HTMLMetaElement.prim__setHttpEquiv a b
-  
-  export
-  name : (obj : HTMLMetaElement) -> JSIO String
-  name a = primJS $ HTMLMetaElement.prim__name a
-  
-  export
-  setName : (obj : HTMLMetaElement) -> (value : String) -> JSIO ()
-  setName a b = primJS $ HTMLMetaElement.prim__setName a b
-  
-  export
-  scheme : (obj : HTMLMetaElement) -> JSIO String
-  scheme a = primJS $ HTMLMetaElement.prim__scheme a
-  
-  export
-  setScheme : (obj : HTMLMetaElement) -> (value : String) -> JSIO ()
-  setScheme a b = primJS $ HTMLMetaElement.prim__setScheme a b
+  scheme : HTMLMetaElement -> Attribute True I String
+  scheme = fromPrim "HTMLMetaElement.getscheme" prim__scheme prim__setScheme
 
 namespace HTMLMeterElement
   
@@ -4114,56 +3309,34 @@ namespace HTMLMeterElement
   new = primJS $ HTMLMeterElement.prim__new 
   
   export
-  high : (obj : HTMLMeterElement) -> JSIO Double
-  high a = primJS $ HTMLMeterElement.prim__high a
-  
-  export
-  setHigh : (obj : HTMLMeterElement) -> (value : Double) -> JSIO ()
-  setHigh a b = primJS $ HTMLMeterElement.prim__setHigh a b
+  high : HTMLMeterElement -> Attribute True I Double
+  high = fromPrim "HTMLMeterElement.gethigh" prim__high prim__setHigh
   
   export
   labels : (obj : HTMLMeterElement) -> JSIO NodeList
   labels a = primJS $ HTMLMeterElement.prim__labels a
   
   export
-  low : (obj : HTMLMeterElement) -> JSIO Double
-  low a = primJS $ HTMLMeterElement.prim__low a
+  low : HTMLMeterElement -> Attribute True I Double
+  low = fromPrim "HTMLMeterElement.getlow" prim__low prim__setLow
   
   export
-  setLow : (obj : HTMLMeterElement) -> (value : Double) -> JSIO ()
-  setLow a b = primJS $ HTMLMeterElement.prim__setLow a b
+  max : HTMLMeterElement -> Attribute True I Double
+  max = fromPrim "HTMLMeterElement.getmax" prim__max prim__setMax
   
   export
-  max : (obj : HTMLMeterElement) -> JSIO Double
-  max a = primJS $ HTMLMeterElement.prim__max a
+  min : HTMLMeterElement -> Attribute True I Double
+  min = fromPrim "HTMLMeterElement.getmin" prim__min prim__setMin
   
   export
-  setMax : (obj : HTMLMeterElement) -> (value : Double) -> JSIO ()
-  setMax a b = primJS $ HTMLMeterElement.prim__setMax a b
+  optimum : HTMLMeterElement -> Attribute True I Double
+  optimum = fromPrim "HTMLMeterElement.getoptimum"
+                     prim__optimum
+                     prim__setOptimum
   
   export
-  min : (obj : HTMLMeterElement) -> JSIO Double
-  min a = primJS $ HTMLMeterElement.prim__min a
-  
-  export
-  setMin : (obj : HTMLMeterElement) -> (value : Double) -> JSIO ()
-  setMin a b = primJS $ HTMLMeterElement.prim__setMin a b
-  
-  export
-  optimum : (obj : HTMLMeterElement) -> JSIO Double
-  optimum a = primJS $ HTMLMeterElement.prim__optimum a
-  
-  export
-  setOptimum : (obj : HTMLMeterElement) -> (value : Double) -> JSIO ()
-  setOptimum a b = primJS $ HTMLMeterElement.prim__setOptimum a b
-  
-  export
-  value : (obj : HTMLMeterElement) -> JSIO Double
-  value a = primJS $ HTMLMeterElement.prim__value a
-  
-  export
-  setValue : (obj : HTMLMeterElement) -> (value : Double) -> JSIO ()
-  setValue a b = primJS $ HTMLMeterElement.prim__setValue a b
+  value : HTMLMeterElement -> Attribute True I Double
+  value = fromPrim "HTMLMeterElement.getvalue" prim__value prim__setValue
 
 namespace HTMLModElement
   
@@ -4188,20 +3361,14 @@ namespace HTMLModElement
   new = primJS $ HTMLModElement.prim__new 
   
   export
-  cite : (obj : HTMLModElement) -> JSIO String
-  cite a = primJS $ HTMLModElement.prim__cite a
+  cite : HTMLModElement -> Attribute True I String
+  cite = fromPrim "HTMLModElement.getcite" prim__cite prim__setCite
   
   export
-  setCite : (obj : HTMLModElement) -> (value : String) -> JSIO ()
-  setCite a b = primJS $ HTMLModElement.prim__setCite a b
-  
-  export
-  dateTime : (obj : HTMLModElement) -> JSIO String
-  dateTime a = primJS $ HTMLModElement.prim__dateTime a
-  
-  export
-  setDateTime : (obj : HTMLModElement) -> (value : String) -> JSIO ()
-  setDateTime a b = primJS $ HTMLModElement.prim__setDateTime a b
+  dateTime : HTMLModElement -> Attribute True I String
+  dateTime = fromPrim "HTMLModElement.getdateTime"
+                      prim__dateTime
+                      prim__setDateTime
 
 namespace HTMLOListElement
   
@@ -4226,38 +3393,24 @@ namespace HTMLOListElement
   new = primJS $ HTMLOListElement.prim__new 
   
   export
-  compact : (obj : HTMLOListElement) -> JSIO Bool
-  compact a = tryJS "HTMLOListElement.compact"
-            $ HTMLOListElement.prim__compact a
+  compact : HTMLOListElement -> Attribute True I Bool
+  compact = fromPrim "HTMLOListElement.getcompact"
+                     prim__compact
+                     prim__setCompact
   
   export
-  setCompact : (obj : HTMLOListElement) -> (value : Bool) -> JSIO ()
-  setCompact a b = primJS $ HTMLOListElement.prim__setCompact a (toFFI b)
+  reversed : HTMLOListElement -> Attribute True I Bool
+  reversed = fromPrim "HTMLOListElement.getreversed"
+                      prim__reversed
+                      prim__setReversed
   
   export
-  reversed : (obj : HTMLOListElement) -> JSIO Bool
-  reversed a = tryJS "HTMLOListElement.reversed"
-             $ HTMLOListElement.prim__reversed a
+  start : HTMLOListElement -> Attribute True I Int32
+  start = fromPrim "HTMLOListElement.getstart" prim__start prim__setStart
   
   export
-  setReversed : (obj : HTMLOListElement) -> (value : Bool) -> JSIO ()
-  setReversed a b = primJS $ HTMLOListElement.prim__setReversed a (toFFI b)
-  
-  export
-  start : (obj : HTMLOListElement) -> JSIO Int32
-  start a = primJS $ HTMLOListElement.prim__start a
-  
-  export
-  setStart : (obj : HTMLOListElement) -> (value : Int32) -> JSIO ()
-  setStart a b = primJS $ HTMLOListElement.prim__setStart a b
-  
-  export
-  type : (obj : HTMLOListElement) -> JSIO String
-  type a = primJS $ HTMLOListElement.prim__type a
-  
-  export
-  setType : (obj : HTMLOListElement) -> (value : String) -> JSIO ()
-  setType a b = primJS $ HTMLOListElement.prim__setType a b
+  type : HTMLOListElement -> Attribute True I String
+  type = fromPrim "HTMLOListElement.gettype" prim__type prim__setType
 
 namespace HTMLObjectElement
   
@@ -4282,52 +3435,34 @@ namespace HTMLObjectElement
   new = primJS $ HTMLObjectElement.prim__new 
   
   export
-  align : (obj : HTMLObjectElement) -> JSIO String
-  align a = primJS $ HTMLObjectElement.prim__align a
+  align : HTMLObjectElement -> Attribute True I String
+  align = fromPrim "HTMLObjectElement.getalign" prim__align prim__setAlign
   
   export
-  setAlign : (obj : HTMLObjectElement) -> (value : String) -> JSIO ()
-  setAlign a b = primJS $ HTMLObjectElement.prim__setAlign a b
+  archive : HTMLObjectElement -> Attribute True I String
+  archive = fromPrim "HTMLObjectElement.getarchive"
+                     prim__archive
+                     prim__setArchive
   
   export
-  archive : (obj : HTMLObjectElement) -> JSIO String
-  archive a = primJS $ HTMLObjectElement.prim__archive a
+  border : HTMLObjectElement -> Attribute True I String
+  border = fromPrim "HTMLObjectElement.getborder" prim__border prim__setBorder
   
   export
-  setArchive : (obj : HTMLObjectElement) -> (value : String) -> JSIO ()
-  setArchive a b = primJS $ HTMLObjectElement.prim__setArchive a b
+  code : HTMLObjectElement -> Attribute True I String
+  code = fromPrim "HTMLObjectElement.getcode" prim__code prim__setCode
   
   export
-  border : (obj : HTMLObjectElement) -> JSIO String
-  border a = primJS $ HTMLObjectElement.prim__border a
+  codeBase : HTMLObjectElement -> Attribute True I String
+  codeBase = fromPrim "HTMLObjectElement.getcodeBase"
+                      prim__codeBase
+                      prim__setCodeBase
   
   export
-  setBorder : (obj : HTMLObjectElement) -> (value : String) -> JSIO ()
-  setBorder a b = primJS $ HTMLObjectElement.prim__setBorder a b
-  
-  export
-  code : (obj : HTMLObjectElement) -> JSIO String
-  code a = primJS $ HTMLObjectElement.prim__code a
-  
-  export
-  setCode : (obj : HTMLObjectElement) -> (value : String) -> JSIO ()
-  setCode a b = primJS $ HTMLObjectElement.prim__setCode a b
-  
-  export
-  codeBase : (obj : HTMLObjectElement) -> JSIO String
-  codeBase a = primJS $ HTMLObjectElement.prim__codeBase a
-  
-  export
-  setCodeBase : (obj : HTMLObjectElement) -> (value : String) -> JSIO ()
-  setCodeBase a b = primJS $ HTMLObjectElement.prim__setCodeBase a b
-  
-  export
-  codeType : (obj : HTMLObjectElement) -> JSIO String
-  codeType a = primJS $ HTMLObjectElement.prim__codeType a
-  
-  export
-  setCodeType : (obj : HTMLObjectElement) -> (value : String) -> JSIO ()
-  setCodeType a b = primJS $ HTMLObjectElement.prim__setCodeType a b
+  codeType : HTMLObjectElement -> Attribute True I String
+  codeType = fromPrim "HTMLObjectElement.getcodeType"
+                      prim__codeType
+                      prim__setCodeType
   
   export
   contentDocument : (obj : HTMLObjectElement) -> JSIO (Maybe Document)
@@ -4340,73 +3475,44 @@ namespace HTMLObjectElement
                   $ HTMLObjectElement.prim__contentWindow a
   
   export
-  data_ : (obj : HTMLObjectElement) -> JSIO String
-  data_ a = primJS $ HTMLObjectElement.prim__data a
+  data_ : HTMLObjectElement -> Attribute True I String
+  data_ = fromPrim "HTMLObjectElement.getdata" prim__data prim__setData
   
   export
-  setData : (obj : HTMLObjectElement) -> (value : String) -> JSIO ()
-  setData a b = primJS $ HTMLObjectElement.prim__setData a b
-  
-  export
-  declare : (obj : HTMLObjectElement) -> JSIO Bool
-  declare a = tryJS "HTMLObjectElement.declare"
-            $ HTMLObjectElement.prim__declare a
-  
-  export
-  setDeclare : (obj : HTMLObjectElement) -> (value : Bool) -> JSIO ()
-  setDeclare a b = primJS $ HTMLObjectElement.prim__setDeclare a (toFFI b)
+  declare : HTMLObjectElement -> Attribute True I Bool
+  declare = fromPrim "HTMLObjectElement.getdeclare"
+                     prim__declare
+                     prim__setDeclare
   
   export
   form : (obj : HTMLObjectElement) -> JSIO (Maybe HTMLFormElement)
   form a = tryJS "HTMLObjectElement.form" $ HTMLObjectElement.prim__form a
   
   export
-  height : (obj : HTMLObjectElement) -> JSIO String
-  height a = primJS $ HTMLObjectElement.prim__height a
+  height : HTMLObjectElement -> Attribute True I String
+  height = fromPrim "HTMLObjectElement.getheight" prim__height prim__setHeight
   
   export
-  setHeight : (obj : HTMLObjectElement) -> (value : String) -> JSIO ()
-  setHeight a b = primJS $ HTMLObjectElement.prim__setHeight a b
+  hspace : HTMLObjectElement -> Attribute True I UInt32
+  hspace = fromPrim "HTMLObjectElement.gethspace" prim__hspace prim__setHspace
   
   export
-  hspace : (obj : HTMLObjectElement) -> JSIO UInt32
-  hspace a = primJS $ HTMLObjectElement.prim__hspace a
+  name : HTMLObjectElement -> Attribute True I String
+  name = fromPrim "HTMLObjectElement.getname" prim__name prim__setName
   
   export
-  setHspace : (obj : HTMLObjectElement) -> (value : UInt32) -> JSIO ()
-  setHspace a b = primJS $ HTMLObjectElement.prim__setHspace a b
+  standby : HTMLObjectElement -> Attribute True I String
+  standby = fromPrim "HTMLObjectElement.getstandby"
+                     prim__standby
+                     prim__setStandby
   
   export
-  name : (obj : HTMLObjectElement) -> JSIO String
-  name a = primJS $ HTMLObjectElement.prim__name a
+  type : HTMLObjectElement -> Attribute True I String
+  type = fromPrim "HTMLObjectElement.gettype" prim__type prim__setType
   
   export
-  setName : (obj : HTMLObjectElement) -> (value : String) -> JSIO ()
-  setName a b = primJS $ HTMLObjectElement.prim__setName a b
-  
-  export
-  standby : (obj : HTMLObjectElement) -> JSIO String
-  standby a = primJS $ HTMLObjectElement.prim__standby a
-  
-  export
-  setStandby : (obj : HTMLObjectElement) -> (value : String) -> JSIO ()
-  setStandby a b = primJS $ HTMLObjectElement.prim__setStandby a b
-  
-  export
-  type : (obj : HTMLObjectElement) -> JSIO String
-  type a = primJS $ HTMLObjectElement.prim__type a
-  
-  export
-  setType : (obj : HTMLObjectElement) -> (value : String) -> JSIO ()
-  setType a b = primJS $ HTMLObjectElement.prim__setType a b
-  
-  export
-  useMap : (obj : HTMLObjectElement) -> JSIO String
-  useMap a = primJS $ HTMLObjectElement.prim__useMap a
-  
-  export
-  setUseMap : (obj : HTMLObjectElement) -> (value : String) -> JSIO ()
-  setUseMap a b = primJS $ HTMLObjectElement.prim__setUseMap a b
+  useMap : HTMLObjectElement -> Attribute True I String
+  useMap = fromPrim "HTMLObjectElement.getuseMap" prim__useMap prim__setUseMap
   
   export
   validationMessage : (obj : HTMLObjectElement) -> JSIO String
@@ -4417,20 +3523,12 @@ namespace HTMLObjectElement
   validity a = primJS $ HTMLObjectElement.prim__validity a
   
   export
-  vspace : (obj : HTMLObjectElement) -> JSIO UInt32
-  vspace a = primJS $ HTMLObjectElement.prim__vspace a
+  vspace : HTMLObjectElement -> Attribute True I UInt32
+  vspace = fromPrim "HTMLObjectElement.getvspace" prim__vspace prim__setVspace
   
   export
-  setVspace : (obj : HTMLObjectElement) -> (value : UInt32) -> JSIO ()
-  setVspace a b = primJS $ HTMLObjectElement.prim__setVspace a b
-  
-  export
-  width : (obj : HTMLObjectElement) -> JSIO String
-  width a = primJS $ HTMLObjectElement.prim__width a
-  
-  export
-  setWidth : (obj : HTMLObjectElement) -> (value : String) -> JSIO ()
-  setWidth a b = primJS $ HTMLObjectElement.prim__setWidth a b
+  width : HTMLObjectElement -> Attribute True I String
+  width = fromPrim "HTMLObjectElement.getwidth" prim__width prim__setWidth
   
   export
   willValidate : (obj : HTMLObjectElement) -> JSIO Bool
@@ -4479,21 +3577,14 @@ namespace HTMLOptGroupElement
   new = primJS $ HTMLOptGroupElement.prim__new 
   
   export
-  disabled : (obj : HTMLOptGroupElement) -> JSIO Bool
-  disabled a = tryJS "HTMLOptGroupElement.disabled"
-             $ HTMLOptGroupElement.prim__disabled a
+  disabled : HTMLOptGroupElement -> Attribute True I Bool
+  disabled = fromPrim "HTMLOptGroupElement.getdisabled"
+                      prim__disabled
+                      prim__setDisabled
   
   export
-  setDisabled : (obj : HTMLOptGroupElement) -> (value : Bool) -> JSIO ()
-  setDisabled a b = primJS $ HTMLOptGroupElement.prim__setDisabled a (toFFI b)
-  
-  export
-  label : (obj : HTMLOptGroupElement) -> JSIO String
-  label a = primJS $ HTMLOptGroupElement.prim__label a
-  
-  export
-  setLabel : (obj : HTMLOptGroupElement) -> (value : String) -> JSIO ()
-  setLabel a b = primJS $ HTMLOptGroupElement.prim__setLabel a b
+  label : HTMLOptGroupElement -> Attribute True I String
+  label = fromPrim "HTMLOptGroupElement.getlabel" prim__label prim__setLabel
 
 namespace HTMLOptionElement
   
@@ -4518,24 +3609,16 @@ namespace HTMLOptionElement
   new = primJS $ HTMLOptionElement.prim__new 
   
   export
-  defaultSelected : (obj : HTMLOptionElement) -> JSIO Bool
-  defaultSelected a = tryJS "HTMLOptionElement.defaultSelected"
-                    $ HTMLOptionElement.prim__defaultSelected a
+  defaultSelected : HTMLOptionElement -> Attribute True I Bool
+  defaultSelected = fromPrim "HTMLOptionElement.getdefaultSelected"
+                             prim__defaultSelected
+                             prim__setDefaultSelected
   
   export
-  setDefaultSelected : (obj : HTMLOptionElement) -> (value : Bool) -> JSIO ()
-  setDefaultSelected a b = primJS
-                         $ HTMLOptionElement.prim__setDefaultSelected a
-                                                                      (toFFI b)
-  
-  export
-  disabled : (obj : HTMLOptionElement) -> JSIO Bool
-  disabled a = tryJS "HTMLOptionElement.disabled"
-             $ HTMLOptionElement.prim__disabled a
-  
-  export
-  setDisabled : (obj : HTMLOptionElement) -> (value : Bool) -> JSIO ()
-  setDisabled a b = primJS $ HTMLOptionElement.prim__setDisabled a (toFFI b)
+  disabled : HTMLOptionElement -> Attribute True I Bool
+  disabled = fromPrim "HTMLOptionElement.getdisabled"
+                      prim__disabled
+                      prim__setDisabled
   
   export
   form : (obj : HTMLOptionElement) -> JSIO (Maybe HTMLFormElement)
@@ -4546,37 +3629,22 @@ namespace HTMLOptionElement
   index a = primJS $ HTMLOptionElement.prim__index a
   
   export
-  label : (obj : HTMLOptionElement) -> JSIO String
-  label a = primJS $ HTMLOptionElement.prim__label a
+  label : HTMLOptionElement -> Attribute True I String
+  label = fromPrim "HTMLOptionElement.getlabel" prim__label prim__setLabel
   
   export
-  setLabel : (obj : HTMLOptionElement) -> (value : String) -> JSIO ()
-  setLabel a b = primJS $ HTMLOptionElement.prim__setLabel a b
+  selected : HTMLOptionElement -> Attribute True I Bool
+  selected = fromPrim "HTMLOptionElement.getselected"
+                      prim__selected
+                      prim__setSelected
   
   export
-  selected : (obj : HTMLOptionElement) -> JSIO Bool
-  selected a = tryJS "HTMLOptionElement.selected"
-             $ HTMLOptionElement.prim__selected a
+  text : HTMLOptionElement -> Attribute True I String
+  text = fromPrim "HTMLOptionElement.gettext" prim__text prim__setText
   
   export
-  setSelected : (obj : HTMLOptionElement) -> (value : Bool) -> JSIO ()
-  setSelected a b = primJS $ HTMLOptionElement.prim__setSelected a (toFFI b)
-  
-  export
-  text : (obj : HTMLOptionElement) -> JSIO String
-  text a = primJS $ HTMLOptionElement.prim__text a
-  
-  export
-  setText : (obj : HTMLOptionElement) -> (value : String) -> JSIO ()
-  setText a b = primJS $ HTMLOptionElement.prim__setText a b
-  
-  export
-  value : (obj : HTMLOptionElement) -> JSIO String
-  value a = primJS $ HTMLOptionElement.prim__value a
-  
-  export
-  setValue : (obj : HTMLOptionElement) -> (value : String) -> JSIO ()
-  setValue a b = primJS $ HTMLOptionElement.prim__setValue a b
+  value : HTMLOptionElement -> Attribute True I String
+  value = fromPrim "HTMLOptionElement.getvalue" prim__value prim__setValue
 
 namespace HTMLOptionsCollection
   
@@ -4594,21 +3662,16 @@ namespace HTMLOptionsCollection
   set a b c = primJS $ HTMLOptionsCollection.prim__set a b (toFFI c)
   
   export
-  length : (obj : HTMLOptionsCollection) -> JSIO UInt32
-  length a = primJS $ HTMLOptionsCollection.prim__length a
+  length : HTMLOptionsCollection -> Attribute True I UInt32
+  length = fromPrim "HTMLOptionsCollection.getlength"
+                    prim__length
+                    prim__setLength
   
   export
-  setLength : (obj : HTMLOptionsCollection) -> (value : UInt32) -> JSIO ()
-  setLength a b = primJS $ HTMLOptionsCollection.prim__setLength a b
-  
-  export
-  selectedIndex : (obj : HTMLOptionsCollection) -> JSIO Int32
-  selectedIndex a = primJS $ HTMLOptionsCollection.prim__selectedIndex a
-  
-  export
-  setSelectedIndex : (obj : HTMLOptionsCollection) -> (value : Int32) -> JSIO ()
-  setSelectedIndex a b = primJS
-                       $ HTMLOptionsCollection.prim__setSelectedIndex a b
+  selectedIndex : HTMLOptionsCollection -> Attribute True I Int32
+  selectedIndex = fromPrim "HTMLOptionsCollection.getselectedIndex"
+                           prim__selectedIndex
+                           prim__setSelectedIndex
   
   export
   add :  (obj : HTMLOptionsCollection)
@@ -4650,12 +3713,10 @@ namespace HTMLOutputElement
   new = primJS $ HTMLOutputElement.prim__new 
   
   export
-  defaultValue : (obj : HTMLOutputElement) -> JSIO String
-  defaultValue a = primJS $ HTMLOutputElement.prim__defaultValue a
-  
-  export
-  setDefaultValue : (obj : HTMLOutputElement) -> (value : String) -> JSIO ()
-  setDefaultValue a b = primJS $ HTMLOutputElement.prim__setDefaultValue a b
+  defaultValue : HTMLOutputElement -> Attribute True I String
+  defaultValue = fromPrim "HTMLOutputElement.getdefaultValue"
+                          prim__defaultValue
+                          prim__setDefaultValue
   
   export
   form : (obj : HTMLOutputElement) -> JSIO (Maybe HTMLFormElement)
@@ -4670,12 +3731,8 @@ namespace HTMLOutputElement
   labels a = primJS $ HTMLOutputElement.prim__labels a
   
   export
-  name : (obj : HTMLOutputElement) -> JSIO String
-  name a = primJS $ HTMLOutputElement.prim__name a
-  
-  export
-  setName : (obj : HTMLOutputElement) -> (value : String) -> JSIO ()
-  setName a b = primJS $ HTMLOutputElement.prim__setName a b
+  name : HTMLOutputElement -> Attribute True I String
+  name = fromPrim "HTMLOutputElement.getname" prim__name prim__setName
   
   export
   type : (obj : HTMLOutputElement) -> JSIO String
@@ -4690,12 +3747,8 @@ namespace HTMLOutputElement
   validity a = primJS $ HTMLOutputElement.prim__validity a
   
   export
-  value : (obj : HTMLOutputElement) -> JSIO String
-  value a = primJS $ HTMLOutputElement.prim__value a
-  
-  export
-  setValue : (obj : HTMLOutputElement) -> (value : String) -> JSIO ()
-  setValue a b = primJS $ HTMLOutputElement.prim__setValue a b
+  value : HTMLOutputElement -> Attribute True I String
+  value = fromPrim "HTMLOutputElement.getvalue" prim__value prim__setValue
   
   export
   willValidate : (obj : HTMLOutputElement) -> JSIO Bool
@@ -4739,12 +3792,8 @@ namespace HTMLParagraphElement
   new = primJS $ HTMLParagraphElement.prim__new 
   
   export
-  align : (obj : HTMLParagraphElement) -> JSIO String
-  align a = primJS $ HTMLParagraphElement.prim__align a
-  
-  export
-  setAlign : (obj : HTMLParagraphElement) -> (value : String) -> JSIO ()
-  setAlign a b = primJS $ HTMLParagraphElement.prim__setAlign a b
+  align : HTMLParagraphElement -> Attribute True I String
+  align = fromPrim "HTMLParagraphElement.getalign" prim__align prim__setAlign
 
 namespace HTMLParamElement
   
@@ -4769,36 +3818,22 @@ namespace HTMLParamElement
   new = primJS $ HTMLParamElement.prim__new 
   
   export
-  name : (obj : HTMLParamElement) -> JSIO String
-  name a = primJS $ HTMLParamElement.prim__name a
+  name : HTMLParamElement -> Attribute True I String
+  name = fromPrim "HTMLParamElement.getname" prim__name prim__setName
   
   export
-  setName : (obj : HTMLParamElement) -> (value : String) -> JSIO ()
-  setName a b = primJS $ HTMLParamElement.prim__setName a b
+  type : HTMLParamElement -> Attribute True I String
+  type = fromPrim "HTMLParamElement.gettype" prim__type prim__setType
   
   export
-  type : (obj : HTMLParamElement) -> JSIO String
-  type a = primJS $ HTMLParamElement.prim__type a
+  value : HTMLParamElement -> Attribute True I String
+  value = fromPrim "HTMLParamElement.getvalue" prim__value prim__setValue
   
   export
-  setType : (obj : HTMLParamElement) -> (value : String) -> JSIO ()
-  setType a b = primJS $ HTMLParamElement.prim__setType a b
-  
-  export
-  value : (obj : HTMLParamElement) -> JSIO String
-  value a = primJS $ HTMLParamElement.prim__value a
-  
-  export
-  setValue : (obj : HTMLParamElement) -> (value : String) -> JSIO ()
-  setValue a b = primJS $ HTMLParamElement.prim__setValue a b
-  
-  export
-  valueType : (obj : HTMLParamElement) -> JSIO String
-  valueType a = primJS $ HTMLParamElement.prim__valueType a
-  
-  export
-  setValueType : (obj : HTMLParamElement) -> (value : String) -> JSIO ()
-  setValueType a b = primJS $ HTMLParamElement.prim__setValueType a b
+  valueType : HTMLParamElement -> Attribute True I String
+  valueType = fromPrim "HTMLParamElement.getvalueType"
+                       prim__valueType
+                       prim__setValueType
 
 namespace HTMLPictureElement
   
@@ -4845,12 +3880,8 @@ namespace HTMLPreElement
   new = primJS $ HTMLPreElement.prim__new 
   
   export
-  width : (obj : HTMLPreElement) -> JSIO Int32
-  width a = primJS $ HTMLPreElement.prim__width a
-  
-  export
-  setWidth : (obj : HTMLPreElement) -> (value : Int32) -> JSIO ()
-  setWidth a b = primJS $ HTMLPreElement.prim__setWidth a b
+  width : HTMLPreElement -> Attribute True I Int32
+  width = fromPrim "HTMLPreElement.getwidth" prim__width prim__setWidth
 
 namespace HTMLProgressElement
   
@@ -4879,24 +3910,16 @@ namespace HTMLProgressElement
   labels a = primJS $ HTMLProgressElement.prim__labels a
   
   export
-  max : (obj : HTMLProgressElement) -> JSIO Double
-  max a = primJS $ HTMLProgressElement.prim__max a
-  
-  export
-  setMax : (obj : HTMLProgressElement) -> (value : Double) -> JSIO ()
-  setMax a b = primJS $ HTMLProgressElement.prim__setMax a b
+  max : HTMLProgressElement -> Attribute True I Double
+  max = fromPrim "HTMLProgressElement.getmax" prim__max prim__setMax
   
   export
   position : (obj : HTMLProgressElement) -> JSIO Double
   position a = primJS $ HTMLProgressElement.prim__position a
   
   export
-  value : (obj : HTMLProgressElement) -> JSIO Double
-  value a = primJS $ HTMLProgressElement.prim__value a
-  
-  export
-  setValue : (obj : HTMLProgressElement) -> (value : Double) -> JSIO ()
-  setValue a b = primJS $ HTMLProgressElement.prim__setValue a b
+  value : HTMLProgressElement -> Attribute True I Double
+  value = fromPrim "HTMLProgressElement.getvalue" prim__value prim__setValue
 
 namespace HTMLQuoteElement
   
@@ -4921,12 +3944,8 @@ namespace HTMLQuoteElement
   new = primJS $ HTMLQuoteElement.prim__new 
   
   export
-  cite : (obj : HTMLQuoteElement) -> JSIO String
-  cite a = primJS $ HTMLQuoteElement.prim__cite a
-  
-  export
-  setCite : (obj : HTMLQuoteElement) -> (value : String) -> JSIO ()
-  setCite a b = primJS $ HTMLQuoteElement.prim__setCite a b
+  cite : HTMLQuoteElement -> Attribute True I String
+  cite = fromPrim "HTMLQuoteElement.getcite" prim__cite prim__setCite
 
 namespace HTMLScriptElement
   
@@ -4951,105 +3970,64 @@ namespace HTMLScriptElement
   new = primJS $ HTMLScriptElement.prim__new 
   
   export
-  async : (obj : HTMLScriptElement) -> JSIO Bool
-  async a = tryJS "HTMLScriptElement.async" $ HTMLScriptElement.prim__async a
+  async : HTMLScriptElement -> Attribute True I Bool
+  async = fromPrim "HTMLScriptElement.getasync" prim__async prim__setAsync
   
   export
-  setAsync : (obj : HTMLScriptElement) -> (value : Bool) -> JSIO ()
-  setAsync a b = primJS $ HTMLScriptElement.prim__setAsync a (toFFI b)
+  charset : HTMLScriptElement -> Attribute True I String
+  charset = fromPrim "HTMLScriptElement.getcharset"
+                     prim__charset
+                     prim__setCharset
   
   export
-  charset : (obj : HTMLScriptElement) -> JSIO String
-  charset a = primJS $ HTMLScriptElement.prim__charset a
+  crossOrigin : HTMLScriptElement -> Attribute False Maybe String
+  crossOrigin = fromNullablePrim "HTMLScriptElement.getcrossOrigin"
+                                 prim__crossOrigin
+                                 prim__setCrossOrigin
   
   export
-  setCharset : (obj : HTMLScriptElement) -> (value : String) -> JSIO ()
-  setCharset a b = primJS $ HTMLScriptElement.prim__setCharset a b
+  defer : HTMLScriptElement -> Attribute True I Bool
+  defer = fromPrim "HTMLScriptElement.getdefer" prim__defer prim__setDefer
   
   export
-  crossOrigin : (obj : HTMLScriptElement) -> JSIO (Maybe String)
-  crossOrigin a = tryJS "HTMLScriptElement.crossOrigin"
-                $ HTMLScriptElement.prim__crossOrigin a
+  event : HTMLScriptElement -> Attribute True I String
+  event = fromPrim "HTMLScriptElement.getevent" prim__event prim__setEvent
   
   export
-  setCrossOrigin :  (obj : HTMLScriptElement)
-                 -> (value : Maybe String)
-                 -> JSIO ()
-  setCrossOrigin a b = primJS
-                     $ HTMLScriptElement.prim__setCrossOrigin a (toFFI b)
+  htmlFor : HTMLScriptElement -> Attribute True I String
+  htmlFor = fromPrim "HTMLScriptElement.gethtmlFor"
+                     prim__htmlFor
+                     prim__setHtmlFor
   
   export
-  defer : (obj : HTMLScriptElement) -> JSIO Bool
-  defer a = tryJS "HTMLScriptElement.defer" $ HTMLScriptElement.prim__defer a
+  integrity : HTMLScriptElement -> Attribute True I String
+  integrity = fromPrim "HTMLScriptElement.getintegrity"
+                       prim__integrity
+                       prim__setIntegrity
   
   export
-  setDefer : (obj : HTMLScriptElement) -> (value : Bool) -> JSIO ()
-  setDefer a b = primJS $ HTMLScriptElement.prim__setDefer a (toFFI b)
+  noModule : HTMLScriptElement -> Attribute True I Bool
+  noModule = fromPrim "HTMLScriptElement.getnoModule"
+                      prim__noModule
+                      prim__setNoModule
   
   export
-  event : (obj : HTMLScriptElement) -> JSIO String
-  event a = primJS $ HTMLScriptElement.prim__event a
+  referrerPolicy : HTMLScriptElement -> Attribute True I String
+  referrerPolicy = fromPrim "HTMLScriptElement.getreferrerPolicy"
+                            prim__referrerPolicy
+                            prim__setReferrerPolicy
   
   export
-  setEvent : (obj : HTMLScriptElement) -> (value : String) -> JSIO ()
-  setEvent a b = primJS $ HTMLScriptElement.prim__setEvent a b
+  src : HTMLScriptElement -> Attribute True I String
+  src = fromPrim "HTMLScriptElement.getsrc" prim__src prim__setSrc
   
   export
-  htmlFor : (obj : HTMLScriptElement) -> JSIO String
-  htmlFor a = primJS $ HTMLScriptElement.prim__htmlFor a
+  text : HTMLScriptElement -> Attribute True I String
+  text = fromPrim "HTMLScriptElement.gettext" prim__text prim__setText
   
   export
-  setHtmlFor : (obj : HTMLScriptElement) -> (value : String) -> JSIO ()
-  setHtmlFor a b = primJS $ HTMLScriptElement.prim__setHtmlFor a b
-  
-  export
-  integrity : (obj : HTMLScriptElement) -> JSIO String
-  integrity a = primJS $ HTMLScriptElement.prim__integrity a
-  
-  export
-  setIntegrity : (obj : HTMLScriptElement) -> (value : String) -> JSIO ()
-  setIntegrity a b = primJS $ HTMLScriptElement.prim__setIntegrity a b
-  
-  export
-  noModule : (obj : HTMLScriptElement) -> JSIO Bool
-  noModule a = tryJS "HTMLScriptElement.noModule"
-             $ HTMLScriptElement.prim__noModule a
-  
-  export
-  setNoModule : (obj : HTMLScriptElement) -> (value : Bool) -> JSIO ()
-  setNoModule a b = primJS $ HTMLScriptElement.prim__setNoModule a (toFFI b)
-  
-  export
-  referrerPolicy : (obj : HTMLScriptElement) -> JSIO String
-  referrerPolicy a = primJS $ HTMLScriptElement.prim__referrerPolicy a
-  
-  export
-  setReferrerPolicy : (obj : HTMLScriptElement) -> (value : String) -> JSIO ()
-  setReferrerPolicy a b = primJS $ HTMLScriptElement.prim__setReferrerPolicy a b
-  
-  export
-  src : (obj : HTMLScriptElement) -> JSIO String
-  src a = primJS $ HTMLScriptElement.prim__src a
-  
-  export
-  setSrc : (obj : HTMLScriptElement) -> (value : String) -> JSIO ()
-  setSrc a b = primJS $ HTMLScriptElement.prim__setSrc a b
-  
-  export
-  text : (obj : HTMLScriptElement) -> JSIO String
-  text a = primJS $ HTMLScriptElement.prim__text a
-  
-  export
-  setText : (obj : HTMLScriptElement) -> (value : String) -> JSIO ()
-  setText a b = primJS $ HTMLScriptElement.prim__setText a b
-  
-  export
-  type : (obj : HTMLScriptElement) -> JSIO String
-  type a = primJS $ HTMLScriptElement.prim__type a
-  
-  export
-  setType : (obj : HTMLScriptElement) -> (value : String) -> JSIO ()
-  setType a b = primJS $ HTMLScriptElement.prim__setType a b
+  type : HTMLScriptElement -> Attribute True I String
+  type = fromPrim "HTMLScriptElement.gettype" prim__type prim__setType
 
 namespace HTMLSelectElement
   
@@ -5081,21 +4059,16 @@ namespace HTMLSelectElement
   set a b c = primJS $ HTMLSelectElement.prim__set a b (toFFI c)
   
   export
-  autocomplete : (obj : HTMLSelectElement) -> JSIO String
-  autocomplete a = primJS $ HTMLSelectElement.prim__autocomplete a
+  autocomplete : HTMLSelectElement -> Attribute True I String
+  autocomplete = fromPrim "HTMLSelectElement.getautocomplete"
+                          prim__autocomplete
+                          prim__setAutocomplete
   
   export
-  setAutocomplete : (obj : HTMLSelectElement) -> (value : String) -> JSIO ()
-  setAutocomplete a b = primJS $ HTMLSelectElement.prim__setAutocomplete a b
-  
-  export
-  disabled : (obj : HTMLSelectElement) -> JSIO Bool
-  disabled a = tryJS "HTMLSelectElement.disabled"
-             $ HTMLSelectElement.prim__disabled a
-  
-  export
-  setDisabled : (obj : HTMLSelectElement) -> (value : Bool) -> JSIO ()
-  setDisabled a b = primJS $ HTMLSelectElement.prim__setDisabled a (toFFI b)
+  disabled : HTMLSelectElement -> Attribute True I Bool
+  disabled = fromPrim "HTMLSelectElement.getdisabled"
+                      prim__disabled
+                      prim__setDisabled
   
   export
   form : (obj : HTMLSelectElement) -> JSIO (Maybe HTMLFormElement)
@@ -5106,62 +4079,42 @@ namespace HTMLSelectElement
   labels a = primJS $ HTMLSelectElement.prim__labels a
   
   export
-  length : (obj : HTMLSelectElement) -> JSIO UInt32
-  length a = primJS $ HTMLSelectElement.prim__length a
+  length : HTMLSelectElement -> Attribute True I UInt32
+  length = fromPrim "HTMLSelectElement.getlength" prim__length prim__setLength
   
   export
-  setLength : (obj : HTMLSelectElement) -> (value : UInt32) -> JSIO ()
-  setLength a b = primJS $ HTMLSelectElement.prim__setLength a b
+  multiple : HTMLSelectElement -> Attribute True I Bool
+  multiple = fromPrim "HTMLSelectElement.getmultiple"
+                      prim__multiple
+                      prim__setMultiple
   
   export
-  multiple : (obj : HTMLSelectElement) -> JSIO Bool
-  multiple a = tryJS "HTMLSelectElement.multiple"
-             $ HTMLSelectElement.prim__multiple a
-  
-  export
-  setMultiple : (obj : HTMLSelectElement) -> (value : Bool) -> JSIO ()
-  setMultiple a b = primJS $ HTMLSelectElement.prim__setMultiple a (toFFI b)
-  
-  export
-  name : (obj : HTMLSelectElement) -> JSIO String
-  name a = primJS $ HTMLSelectElement.prim__name a
-  
-  export
-  setName : (obj : HTMLSelectElement) -> (value : String) -> JSIO ()
-  setName a b = primJS $ HTMLSelectElement.prim__setName a b
+  name : HTMLSelectElement -> Attribute True I String
+  name = fromPrim "HTMLSelectElement.getname" prim__name prim__setName
   
   export
   options : (obj : HTMLSelectElement) -> JSIO HTMLOptionsCollection
   options a = primJS $ HTMLSelectElement.prim__options a
   
   export
-  required : (obj : HTMLSelectElement) -> JSIO Bool
-  required a = tryJS "HTMLSelectElement.required"
-             $ HTMLSelectElement.prim__required a
+  required : HTMLSelectElement -> Attribute True I Bool
+  required = fromPrim "HTMLSelectElement.getrequired"
+                      prim__required
+                      prim__setRequired
   
   export
-  setRequired : (obj : HTMLSelectElement) -> (value : Bool) -> JSIO ()
-  setRequired a b = primJS $ HTMLSelectElement.prim__setRequired a (toFFI b)
-  
-  export
-  selectedIndex : (obj : HTMLSelectElement) -> JSIO Int32
-  selectedIndex a = primJS $ HTMLSelectElement.prim__selectedIndex a
-  
-  export
-  setSelectedIndex : (obj : HTMLSelectElement) -> (value : Int32) -> JSIO ()
-  setSelectedIndex a b = primJS $ HTMLSelectElement.prim__setSelectedIndex a b
+  selectedIndex : HTMLSelectElement -> Attribute True I Int32
+  selectedIndex = fromPrim "HTMLSelectElement.getselectedIndex"
+                           prim__selectedIndex
+                           prim__setSelectedIndex
   
   export
   selectedOptions : (obj : HTMLSelectElement) -> JSIO HTMLCollection
   selectedOptions a = primJS $ HTMLSelectElement.prim__selectedOptions a
   
   export
-  size : (obj : HTMLSelectElement) -> JSIO UInt32
-  size a = primJS $ HTMLSelectElement.prim__size a
-  
-  export
-  setSize : (obj : HTMLSelectElement) -> (value : UInt32) -> JSIO ()
-  setSize a b = primJS $ HTMLSelectElement.prim__setSize a b
+  size : HTMLSelectElement -> Attribute True I UInt32
+  size = fromPrim "HTMLSelectElement.getsize" prim__size prim__setSize
   
   export
   type : (obj : HTMLSelectElement) -> JSIO String
@@ -5176,12 +4129,8 @@ namespace HTMLSelectElement
   validity a = primJS $ HTMLSelectElement.prim__validity a
   
   export
-  value : (obj : HTMLSelectElement) -> JSIO String
-  value a = primJS $ HTMLSelectElement.prim__value a
-  
-  export
-  setValue : (obj : HTMLSelectElement) -> (value : String) -> JSIO ()
-  setValue a b = primJS $ HTMLSelectElement.prim__setValue a b
+  value : HTMLSelectElement -> Attribute True I String
+  value = fromPrim "HTMLSelectElement.getvalue" prim__value prim__setValue
   
   export
   willValidate : (obj : HTMLSelectElement) -> JSIO Bool
@@ -5257,12 +4206,8 @@ namespace HTMLSlotElement
   new = primJS $ HTMLSlotElement.prim__new 
   
   export
-  name : (obj : HTMLSlotElement) -> JSIO String
-  name a = primJS $ HTMLSlotElement.prim__name a
-  
-  export
-  setName : (obj : HTMLSlotElement) -> (value : String) -> JSIO ()
-  setName a b = primJS $ HTMLSlotElement.prim__setName a b
+  name : HTMLSlotElement -> Attribute True I String
+  name = fromPrim "HTMLSlotElement.getname" prim__name prim__setName
   
   export
   assignedElements :  (obj : HTMLSlotElement)
@@ -5308,60 +4253,32 @@ namespace HTMLSourceElement
   new = primJS $ HTMLSourceElement.prim__new 
   
   export
-  height : (obj : HTMLSourceElement) -> JSIO UInt32
-  height a = primJS $ HTMLSourceElement.prim__height a
+  height : HTMLSourceElement -> Attribute True I UInt32
+  height = fromPrim "HTMLSourceElement.getheight" prim__height prim__setHeight
   
   export
-  setHeight : (obj : HTMLSourceElement) -> (value : UInt32) -> JSIO ()
-  setHeight a b = primJS $ HTMLSourceElement.prim__setHeight a b
+  media : HTMLSourceElement -> Attribute True I String
+  media = fromPrim "HTMLSourceElement.getmedia" prim__media prim__setMedia
   
   export
-  media : (obj : HTMLSourceElement) -> JSIO String
-  media a = primJS $ HTMLSourceElement.prim__media a
+  sizes : HTMLSourceElement -> Attribute True I String
+  sizes = fromPrim "HTMLSourceElement.getsizes" prim__sizes prim__setSizes
   
   export
-  setMedia : (obj : HTMLSourceElement) -> (value : String) -> JSIO ()
-  setMedia a b = primJS $ HTMLSourceElement.prim__setMedia a b
+  src : HTMLSourceElement -> Attribute True I String
+  src = fromPrim "HTMLSourceElement.getsrc" prim__src prim__setSrc
   
   export
-  sizes : (obj : HTMLSourceElement) -> JSIO String
-  sizes a = primJS $ HTMLSourceElement.prim__sizes a
+  srcset : HTMLSourceElement -> Attribute True I String
+  srcset = fromPrim "HTMLSourceElement.getsrcset" prim__srcset prim__setSrcset
   
   export
-  setSizes : (obj : HTMLSourceElement) -> (value : String) -> JSIO ()
-  setSizes a b = primJS $ HTMLSourceElement.prim__setSizes a b
+  type : HTMLSourceElement -> Attribute True I String
+  type = fromPrim "HTMLSourceElement.gettype" prim__type prim__setType
   
   export
-  src : (obj : HTMLSourceElement) -> JSIO String
-  src a = primJS $ HTMLSourceElement.prim__src a
-  
-  export
-  setSrc : (obj : HTMLSourceElement) -> (value : String) -> JSIO ()
-  setSrc a b = primJS $ HTMLSourceElement.prim__setSrc a b
-  
-  export
-  srcset : (obj : HTMLSourceElement) -> JSIO String
-  srcset a = primJS $ HTMLSourceElement.prim__srcset a
-  
-  export
-  setSrcset : (obj : HTMLSourceElement) -> (value : String) -> JSIO ()
-  setSrcset a b = primJS $ HTMLSourceElement.prim__setSrcset a b
-  
-  export
-  type : (obj : HTMLSourceElement) -> JSIO String
-  type a = primJS $ HTMLSourceElement.prim__type a
-  
-  export
-  setType : (obj : HTMLSourceElement) -> (value : String) -> JSIO ()
-  setType a b = primJS $ HTMLSourceElement.prim__setType a b
-  
-  export
-  width : (obj : HTMLSourceElement) -> JSIO UInt32
-  width a = primJS $ HTMLSourceElement.prim__width a
-  
-  export
-  setWidth : (obj : HTMLSourceElement) -> (value : UInt32) -> JSIO ()
-  setWidth a b = primJS $ HTMLSourceElement.prim__setWidth a b
+  width : HTMLSourceElement -> Attribute True I UInt32
+  width = fromPrim "HTMLSourceElement.getwidth" prim__width prim__setWidth
 
 namespace HTMLSpanElement
   
@@ -5409,20 +4326,12 @@ namespace HTMLStyleElement
   new = primJS $ HTMLStyleElement.prim__new 
   
   export
-  media : (obj : HTMLStyleElement) -> JSIO String
-  media a = primJS $ HTMLStyleElement.prim__media a
+  media : HTMLStyleElement -> Attribute True I String
+  media = fromPrim "HTMLStyleElement.getmedia" prim__media prim__setMedia
   
   export
-  setMedia : (obj : HTMLStyleElement) -> (value : String) -> JSIO ()
-  setMedia a b = primJS $ HTMLStyleElement.prim__setMedia a b
-  
-  export
-  type : (obj : HTMLStyleElement) -> JSIO String
-  type a = primJS $ HTMLStyleElement.prim__type a
-  
-  export
-  setType : (obj : HTMLStyleElement) -> (value : String) -> JSIO ()
-  setType a b = primJS $ HTMLStyleElement.prim__setType a b
+  type : HTMLStyleElement -> Attribute True I String
+  type = fromPrim "HTMLStyleElement.gettype" prim__type prim__setType
 
 namespace HTMLTableCaptionElement
   
@@ -5447,12 +4356,8 @@ namespace HTMLTableCaptionElement
   new = primJS $ HTMLTableCaptionElement.prim__new 
   
   export
-  align : (obj : HTMLTableCaptionElement) -> JSIO String
-  align a = primJS $ HTMLTableCaptionElement.prim__align a
-  
-  export
-  setAlign : (obj : HTMLTableCaptionElement) -> (value : String) -> JSIO ()
-  setAlign a b = primJS $ HTMLTableCaptionElement.prim__setAlign a b
+  align : HTMLTableCaptionElement -> Attribute True I String
+  align = fromPrim "HTMLTableCaptionElement.getalign" prim__align prim__setAlign
 
 namespace HTMLTableCellElement
   
@@ -5477,121 +4382,78 @@ namespace HTMLTableCellElement
   new = primJS $ HTMLTableCellElement.prim__new 
   
   export
-  abbr : (obj : HTMLTableCellElement) -> JSIO String
-  abbr a = primJS $ HTMLTableCellElement.prim__abbr a
+  abbr : HTMLTableCellElement -> Attribute True I String
+  abbr = fromPrim "HTMLTableCellElement.getabbr" prim__abbr prim__setAbbr
   
   export
-  setAbbr : (obj : HTMLTableCellElement) -> (value : String) -> JSIO ()
-  setAbbr a b = primJS $ HTMLTableCellElement.prim__setAbbr a b
+  align : HTMLTableCellElement -> Attribute True I String
+  align = fromPrim "HTMLTableCellElement.getalign" prim__align prim__setAlign
   
   export
-  align : (obj : HTMLTableCellElement) -> JSIO String
-  align a = primJS $ HTMLTableCellElement.prim__align a
+  axis : HTMLTableCellElement -> Attribute True I String
+  axis = fromPrim "HTMLTableCellElement.getaxis" prim__axis prim__setAxis
   
   export
-  setAlign : (obj : HTMLTableCellElement) -> (value : String) -> JSIO ()
-  setAlign a b = primJS $ HTMLTableCellElement.prim__setAlign a b
-  
-  export
-  axis : (obj : HTMLTableCellElement) -> JSIO String
-  axis a = primJS $ HTMLTableCellElement.prim__axis a
-  
-  export
-  setAxis : (obj : HTMLTableCellElement) -> (value : String) -> JSIO ()
-  setAxis a b = primJS $ HTMLTableCellElement.prim__setAxis a b
-  
-  export
-  bgColor : (obj : HTMLTableCellElement) -> JSIO String
-  bgColor a = primJS $ HTMLTableCellElement.prim__bgColor a
-  
-  export
-  setBgColor : (obj : HTMLTableCellElement) -> (value : String) -> JSIO ()
-  setBgColor a b = primJS $ HTMLTableCellElement.prim__setBgColor a b
+  bgColor : HTMLTableCellElement -> Attribute True I String
+  bgColor = fromPrim "HTMLTableCellElement.getbgColor"
+                     prim__bgColor
+                     prim__setBgColor
   
   export
   cellIndex : (obj : HTMLTableCellElement) -> JSIO Int32
   cellIndex a = primJS $ HTMLTableCellElement.prim__cellIndex a
   
   export
-  ch : (obj : HTMLTableCellElement) -> JSIO String
-  ch a = primJS $ HTMLTableCellElement.prim__ch a
+  ch : HTMLTableCellElement -> Attribute True I String
+  ch = fromPrim "HTMLTableCellElement.getch" prim__ch prim__setCh
   
   export
-  setCh : (obj : HTMLTableCellElement) -> (value : String) -> JSIO ()
-  setCh a b = primJS $ HTMLTableCellElement.prim__setCh a b
+  chOff : HTMLTableCellElement -> Attribute True I String
+  chOff = fromPrim "HTMLTableCellElement.getchOff" prim__chOff prim__setChOff
   
   export
-  chOff : (obj : HTMLTableCellElement) -> JSIO String
-  chOff a = primJS $ HTMLTableCellElement.prim__chOff a
+  colSpan : HTMLTableCellElement -> Attribute True I UInt32
+  colSpan = fromPrim "HTMLTableCellElement.getcolSpan"
+                     prim__colSpan
+                     prim__setColSpan
   
   export
-  setChOff : (obj : HTMLTableCellElement) -> (value : String) -> JSIO ()
-  setChOff a b = primJS $ HTMLTableCellElement.prim__setChOff a b
+  headers : HTMLTableCellElement -> Attribute True I String
+  headers = fromPrim "HTMLTableCellElement.getheaders"
+                     prim__headers
+                     prim__setHeaders
   
   export
-  colSpan : (obj : HTMLTableCellElement) -> JSIO UInt32
-  colSpan a = primJS $ HTMLTableCellElement.prim__colSpan a
+  height : HTMLTableCellElement -> Attribute True I String
+  height = fromPrim "HTMLTableCellElement.getheight"
+                    prim__height
+                    prim__setHeight
   
   export
-  setColSpan : (obj : HTMLTableCellElement) -> (value : UInt32) -> JSIO ()
-  setColSpan a b = primJS $ HTMLTableCellElement.prim__setColSpan a b
+  noWrap : HTMLTableCellElement -> Attribute True I Bool
+  noWrap = fromPrim "HTMLTableCellElement.getnoWrap"
+                    prim__noWrap
+                    prim__setNoWrap
   
   export
-  headers : (obj : HTMLTableCellElement) -> JSIO String
-  headers a = primJS $ HTMLTableCellElement.prim__headers a
+  rowSpan : HTMLTableCellElement -> Attribute True I UInt32
+  rowSpan = fromPrim "HTMLTableCellElement.getrowSpan"
+                     prim__rowSpan
+                     prim__setRowSpan
   
   export
-  setHeaders : (obj : HTMLTableCellElement) -> (value : String) -> JSIO ()
-  setHeaders a b = primJS $ HTMLTableCellElement.prim__setHeaders a b
+  scope : HTMLTableCellElement -> Attribute True I String
+  scope = fromPrim "HTMLTableCellElement.getscope" prim__scope prim__setScope
   
   export
-  height : (obj : HTMLTableCellElement) -> JSIO String
-  height a = primJS $ HTMLTableCellElement.prim__height a
+  vAlign : HTMLTableCellElement -> Attribute True I String
+  vAlign = fromPrim "HTMLTableCellElement.getvAlign"
+                    prim__vAlign
+                    prim__setVAlign
   
   export
-  setHeight : (obj : HTMLTableCellElement) -> (value : String) -> JSIO ()
-  setHeight a b = primJS $ HTMLTableCellElement.prim__setHeight a b
-  
-  export
-  noWrap : (obj : HTMLTableCellElement) -> JSIO Bool
-  noWrap a = tryJS "HTMLTableCellElement.noWrap"
-           $ HTMLTableCellElement.prim__noWrap a
-  
-  export
-  setNoWrap : (obj : HTMLTableCellElement) -> (value : Bool) -> JSIO ()
-  setNoWrap a b = primJS $ HTMLTableCellElement.prim__setNoWrap a (toFFI b)
-  
-  export
-  rowSpan : (obj : HTMLTableCellElement) -> JSIO UInt32
-  rowSpan a = primJS $ HTMLTableCellElement.prim__rowSpan a
-  
-  export
-  setRowSpan : (obj : HTMLTableCellElement) -> (value : UInt32) -> JSIO ()
-  setRowSpan a b = primJS $ HTMLTableCellElement.prim__setRowSpan a b
-  
-  export
-  scope : (obj : HTMLTableCellElement) -> JSIO String
-  scope a = primJS $ HTMLTableCellElement.prim__scope a
-  
-  export
-  setScope : (obj : HTMLTableCellElement) -> (value : String) -> JSIO ()
-  setScope a b = primJS $ HTMLTableCellElement.prim__setScope a b
-  
-  export
-  vAlign : (obj : HTMLTableCellElement) -> JSIO String
-  vAlign a = primJS $ HTMLTableCellElement.prim__vAlign a
-  
-  export
-  setVAlign : (obj : HTMLTableCellElement) -> (value : String) -> JSIO ()
-  setVAlign a b = primJS $ HTMLTableCellElement.prim__setVAlign a b
-  
-  export
-  width : (obj : HTMLTableCellElement) -> JSIO String
-  width a = primJS $ HTMLTableCellElement.prim__width a
-  
-  export
-  setWidth : (obj : HTMLTableCellElement) -> (value : String) -> JSIO ()
-  setWidth a b = primJS $ HTMLTableCellElement.prim__setWidth a b
+  width : HTMLTableCellElement -> Attribute True I String
+  width = fromPrim "HTMLTableCellElement.getwidth" prim__width prim__setWidth
 
 namespace HTMLTableColElement
   
@@ -5616,52 +4478,28 @@ namespace HTMLTableColElement
   new = primJS $ HTMLTableColElement.prim__new 
   
   export
-  align : (obj : HTMLTableColElement) -> JSIO String
-  align a = primJS $ HTMLTableColElement.prim__align a
+  align : HTMLTableColElement -> Attribute True I String
+  align = fromPrim "HTMLTableColElement.getalign" prim__align prim__setAlign
   
   export
-  setAlign : (obj : HTMLTableColElement) -> (value : String) -> JSIO ()
-  setAlign a b = primJS $ HTMLTableColElement.prim__setAlign a b
+  ch : HTMLTableColElement -> Attribute True I String
+  ch = fromPrim "HTMLTableColElement.getch" prim__ch prim__setCh
   
   export
-  ch : (obj : HTMLTableColElement) -> JSIO String
-  ch a = primJS $ HTMLTableColElement.prim__ch a
+  chOff : HTMLTableColElement -> Attribute True I String
+  chOff = fromPrim "HTMLTableColElement.getchOff" prim__chOff prim__setChOff
   
   export
-  setCh : (obj : HTMLTableColElement) -> (value : String) -> JSIO ()
-  setCh a b = primJS $ HTMLTableColElement.prim__setCh a b
+  span : HTMLTableColElement -> Attribute True I UInt32
+  span = fromPrim "HTMLTableColElement.getspan" prim__span prim__setSpan
   
   export
-  chOff : (obj : HTMLTableColElement) -> JSIO String
-  chOff a = primJS $ HTMLTableColElement.prim__chOff a
+  vAlign : HTMLTableColElement -> Attribute True I String
+  vAlign = fromPrim "HTMLTableColElement.getvAlign" prim__vAlign prim__setVAlign
   
   export
-  setChOff : (obj : HTMLTableColElement) -> (value : String) -> JSIO ()
-  setChOff a b = primJS $ HTMLTableColElement.prim__setChOff a b
-  
-  export
-  span : (obj : HTMLTableColElement) -> JSIO UInt32
-  span a = primJS $ HTMLTableColElement.prim__span a
-  
-  export
-  setSpan : (obj : HTMLTableColElement) -> (value : UInt32) -> JSIO ()
-  setSpan a b = primJS $ HTMLTableColElement.prim__setSpan a b
-  
-  export
-  vAlign : (obj : HTMLTableColElement) -> JSIO String
-  vAlign a = primJS $ HTMLTableColElement.prim__vAlign a
-  
-  export
-  setVAlign : (obj : HTMLTableColElement) -> (value : String) -> JSIO ()
-  setVAlign a b = primJS $ HTMLTableColElement.prim__setVAlign a b
-  
-  export
-  width : (obj : HTMLTableColElement) -> JSIO String
-  width a = primJS $ HTMLTableColElement.prim__width a
-  
-  export
-  setWidth : (obj : HTMLTableColElement) -> (value : String) -> JSIO ()
-  setWidth a b = primJS $ HTMLTableColElement.prim__setWidth a b
+  width : HTMLTableColElement -> Attribute True I String
+  width = fromPrim "HTMLTableColElement.getwidth" prim__width prim__setWidth
 
 namespace HTMLTableElement
   
@@ -5686,115 +4524,74 @@ namespace HTMLTableElement
   new = primJS $ HTMLTableElement.prim__new 
   
   export
-  align : (obj : HTMLTableElement) -> JSIO String
-  align a = primJS $ HTMLTableElement.prim__align a
+  align : HTMLTableElement -> Attribute True I String
+  align = fromPrim "HTMLTableElement.getalign" prim__align prim__setAlign
   
   export
-  setAlign : (obj : HTMLTableElement) -> (value : String) -> JSIO ()
-  setAlign a b = primJS $ HTMLTableElement.prim__setAlign a b
+  bgColor : HTMLTableElement -> Attribute True I String
+  bgColor = fromPrim "HTMLTableElement.getbgColor"
+                     prim__bgColor
+                     prim__setBgColor
   
   export
-  bgColor : (obj : HTMLTableElement) -> JSIO String
-  bgColor a = primJS $ HTMLTableElement.prim__bgColor a
+  border : HTMLTableElement -> Attribute True I String
+  border = fromPrim "HTMLTableElement.getborder" prim__border prim__setBorder
   
   export
-  setBgColor : (obj : HTMLTableElement) -> (value : String) -> JSIO ()
-  setBgColor a b = primJS $ HTMLTableElement.prim__setBgColor a b
+  caption : HTMLTableElement -> Attribute False Maybe HTMLTableCaptionElement
+  caption = fromNullablePrim "HTMLTableElement.getcaption"
+                             prim__caption
+                             prim__setCaption
   
   export
-  border : (obj : HTMLTableElement) -> JSIO String
-  border a = primJS $ HTMLTableElement.prim__border a
+  cellPadding : HTMLTableElement -> Attribute True I String
+  cellPadding = fromPrim "HTMLTableElement.getcellPadding"
+                         prim__cellPadding
+                         prim__setCellPadding
   
   export
-  setBorder : (obj : HTMLTableElement) -> (value : String) -> JSIO ()
-  setBorder a b = primJS $ HTMLTableElement.prim__setBorder a b
+  cellSpacing : HTMLTableElement -> Attribute True I String
+  cellSpacing = fromPrim "HTMLTableElement.getcellSpacing"
+                         prim__cellSpacing
+                         prim__setCellSpacing
   
   export
-  caption : (obj : HTMLTableElement) -> JSIO (Maybe HTMLTableCaptionElement)
-  caption a = tryJS "HTMLTableElement.caption"
-            $ HTMLTableElement.prim__caption a
-  
-  export
-  setCaption :  (obj : HTMLTableElement)
-             -> (value : Maybe HTMLTableCaptionElement)
-             -> JSIO ()
-  setCaption a b = primJS $ HTMLTableElement.prim__setCaption a (toFFI b)
-  
-  export
-  cellPadding : (obj : HTMLTableElement) -> JSIO String
-  cellPadding a = primJS $ HTMLTableElement.prim__cellPadding a
-  
-  export
-  setCellPadding : (obj : HTMLTableElement) -> (value : String) -> JSIO ()
-  setCellPadding a b = primJS $ HTMLTableElement.prim__setCellPadding a b
-  
-  export
-  cellSpacing : (obj : HTMLTableElement) -> JSIO String
-  cellSpacing a = primJS $ HTMLTableElement.prim__cellSpacing a
-  
-  export
-  setCellSpacing : (obj : HTMLTableElement) -> (value : String) -> JSIO ()
-  setCellSpacing a b = primJS $ HTMLTableElement.prim__setCellSpacing a b
-  
-  export
-  frame : (obj : HTMLTableElement) -> JSIO String
-  frame a = primJS $ HTMLTableElement.prim__frame a
-  
-  export
-  setFrame : (obj : HTMLTableElement) -> (value : String) -> JSIO ()
-  setFrame a b = primJS $ HTMLTableElement.prim__setFrame a b
+  frame : HTMLTableElement -> Attribute True I String
+  frame = fromPrim "HTMLTableElement.getframe" prim__frame prim__setFrame
   
   export
   rows : (obj : HTMLTableElement) -> JSIO HTMLCollection
   rows a = primJS $ HTMLTableElement.prim__rows a
   
   export
-  rules : (obj : HTMLTableElement) -> JSIO String
-  rules a = primJS $ HTMLTableElement.prim__rules a
+  rules : HTMLTableElement -> Attribute True I String
+  rules = fromPrim "HTMLTableElement.getrules" prim__rules prim__setRules
   
   export
-  setRules : (obj : HTMLTableElement) -> (value : String) -> JSIO ()
-  setRules a b = primJS $ HTMLTableElement.prim__setRules a b
-  
-  export
-  summary : (obj : HTMLTableElement) -> JSIO String
-  summary a = primJS $ HTMLTableElement.prim__summary a
-  
-  export
-  setSummary : (obj : HTMLTableElement) -> (value : String) -> JSIO ()
-  setSummary a b = primJS $ HTMLTableElement.prim__setSummary a b
+  summary : HTMLTableElement -> Attribute True I String
+  summary = fromPrim "HTMLTableElement.getsummary"
+                     prim__summary
+                     prim__setSummary
   
   export
   tBodies : (obj : HTMLTableElement) -> JSIO HTMLCollection
   tBodies a = primJS $ HTMLTableElement.prim__tBodies a
   
   export
-  tFoot : (obj : HTMLTableElement) -> JSIO (Maybe HTMLTableSectionElement)
-  tFoot a = tryJS "HTMLTableElement.tFoot" $ HTMLTableElement.prim__tFoot a
+  tFoot : HTMLTableElement -> Attribute False Maybe HTMLTableSectionElement
+  tFoot = fromNullablePrim "HTMLTableElement.gettFoot"
+                           prim__tFoot
+                           prim__setTFoot
   
   export
-  setTFoot :  (obj : HTMLTableElement)
-           -> (value : Maybe HTMLTableSectionElement)
-           -> JSIO ()
-  setTFoot a b = primJS $ HTMLTableElement.prim__setTFoot a (toFFI b)
+  tHead : HTMLTableElement -> Attribute False Maybe HTMLTableSectionElement
+  tHead = fromNullablePrim "HTMLTableElement.gettHead"
+                           prim__tHead
+                           prim__setTHead
   
   export
-  tHead : (obj : HTMLTableElement) -> JSIO (Maybe HTMLTableSectionElement)
-  tHead a = tryJS "HTMLTableElement.tHead" $ HTMLTableElement.prim__tHead a
-  
-  export
-  setTHead :  (obj : HTMLTableElement)
-           -> (value : Maybe HTMLTableSectionElement)
-           -> JSIO ()
-  setTHead a b = primJS $ HTMLTableElement.prim__setTHead a (toFFI b)
-  
-  export
-  width : (obj : HTMLTableElement) -> JSIO String
-  width a = primJS $ HTMLTableElement.prim__width a
-  
-  export
-  setWidth : (obj : HTMLTableElement) -> (value : String) -> JSIO ()
-  setWidth a b = primJS $ HTMLTableElement.prim__setWidth a b
+  width : HTMLTableElement -> Attribute True I String
+  width = fromPrim "HTMLTableElement.getwidth" prim__width prim__setWidth
   
   export
   createCaption : (obj : HTMLTableElement) -> JSIO HTMLTableCaptionElement
@@ -5861,40 +4658,26 @@ namespace HTMLTableRowElement
   new = primJS $ HTMLTableRowElement.prim__new 
   
   export
-  align : (obj : HTMLTableRowElement) -> JSIO String
-  align a = primJS $ HTMLTableRowElement.prim__align a
+  align : HTMLTableRowElement -> Attribute True I String
+  align = fromPrim "HTMLTableRowElement.getalign" prim__align prim__setAlign
   
   export
-  setAlign : (obj : HTMLTableRowElement) -> (value : String) -> JSIO ()
-  setAlign a b = primJS $ HTMLTableRowElement.prim__setAlign a b
-  
-  export
-  bgColor : (obj : HTMLTableRowElement) -> JSIO String
-  bgColor a = primJS $ HTMLTableRowElement.prim__bgColor a
-  
-  export
-  setBgColor : (obj : HTMLTableRowElement) -> (value : String) -> JSIO ()
-  setBgColor a b = primJS $ HTMLTableRowElement.prim__setBgColor a b
+  bgColor : HTMLTableRowElement -> Attribute True I String
+  bgColor = fromPrim "HTMLTableRowElement.getbgColor"
+                     prim__bgColor
+                     prim__setBgColor
   
   export
   cells : (obj : HTMLTableRowElement) -> JSIO HTMLCollection
   cells a = primJS $ HTMLTableRowElement.prim__cells a
   
   export
-  ch : (obj : HTMLTableRowElement) -> JSIO String
-  ch a = primJS $ HTMLTableRowElement.prim__ch a
+  ch : HTMLTableRowElement -> Attribute True I String
+  ch = fromPrim "HTMLTableRowElement.getch" prim__ch prim__setCh
   
   export
-  setCh : (obj : HTMLTableRowElement) -> (value : String) -> JSIO ()
-  setCh a b = primJS $ HTMLTableRowElement.prim__setCh a b
-  
-  export
-  chOff : (obj : HTMLTableRowElement) -> JSIO String
-  chOff a = primJS $ HTMLTableRowElement.prim__chOff a
-  
-  export
-  setChOff : (obj : HTMLTableRowElement) -> (value : String) -> JSIO ()
-  setChOff a b = primJS $ HTMLTableRowElement.prim__setChOff a b
+  chOff : HTMLTableRowElement -> Attribute True I String
+  chOff = fromPrim "HTMLTableRowElement.getchOff" prim__chOff prim__setChOff
   
   export
   rowIndex : (obj : HTMLTableRowElement) -> JSIO Int32
@@ -5905,12 +4688,8 @@ namespace HTMLTableRowElement
   sectionRowIndex a = primJS $ HTMLTableRowElement.prim__sectionRowIndex a
   
   export
-  vAlign : (obj : HTMLTableRowElement) -> JSIO String
-  vAlign a = primJS $ HTMLTableRowElement.prim__vAlign a
-  
-  export
-  setVAlign : (obj : HTMLTableRowElement) -> (value : String) -> JSIO ()
-  setVAlign a b = primJS $ HTMLTableRowElement.prim__setVAlign a b
+  vAlign : HTMLTableRowElement -> Attribute True I String
+  vAlign = fromPrim "HTMLTableRowElement.getvAlign" prim__vAlign prim__setVAlign
   
   export
   deleteCell : (obj : HTMLTableRowElement) -> (index : Int32) -> JSIO ()
@@ -5949,40 +4728,26 @@ namespace HTMLTableSectionElement
   new = primJS $ HTMLTableSectionElement.prim__new 
   
   export
-  align : (obj : HTMLTableSectionElement) -> JSIO String
-  align a = primJS $ HTMLTableSectionElement.prim__align a
+  align : HTMLTableSectionElement -> Attribute True I String
+  align = fromPrim "HTMLTableSectionElement.getalign" prim__align prim__setAlign
   
   export
-  setAlign : (obj : HTMLTableSectionElement) -> (value : String) -> JSIO ()
-  setAlign a b = primJS $ HTMLTableSectionElement.prim__setAlign a b
+  ch : HTMLTableSectionElement -> Attribute True I String
+  ch = fromPrim "HTMLTableSectionElement.getch" prim__ch prim__setCh
   
   export
-  ch : (obj : HTMLTableSectionElement) -> JSIO String
-  ch a = primJS $ HTMLTableSectionElement.prim__ch a
-  
-  export
-  setCh : (obj : HTMLTableSectionElement) -> (value : String) -> JSIO ()
-  setCh a b = primJS $ HTMLTableSectionElement.prim__setCh a b
-  
-  export
-  chOff : (obj : HTMLTableSectionElement) -> JSIO String
-  chOff a = primJS $ HTMLTableSectionElement.prim__chOff a
-  
-  export
-  setChOff : (obj : HTMLTableSectionElement) -> (value : String) -> JSIO ()
-  setChOff a b = primJS $ HTMLTableSectionElement.prim__setChOff a b
+  chOff : HTMLTableSectionElement -> Attribute True I String
+  chOff = fromPrim "HTMLTableSectionElement.getchOff" prim__chOff prim__setChOff
   
   export
   rows : (obj : HTMLTableSectionElement) -> JSIO HTMLCollection
   rows a = primJS $ HTMLTableSectionElement.prim__rows a
   
   export
-  vAlign : (obj : HTMLTableSectionElement) -> JSIO String
-  vAlign a = primJS $ HTMLTableSectionElement.prim__vAlign a
-  
-  export
-  setVAlign : (obj : HTMLTableSectionElement) -> (value : String) -> JSIO ()
-  setVAlign a b = primJS $ HTMLTableSectionElement.prim__setVAlign a b
+  vAlign : HTMLTableSectionElement -> Attribute True I String
+  vAlign = fromPrim "HTMLTableSectionElement.getvAlign"
+                    prim__vAlign
+                    prim__setVAlign
   
   export
   deleteRow : (obj : HTMLTableSectionElement) -> (index : Int32) -> JSIO ()
@@ -6047,45 +4812,32 @@ namespace HTMLTextAreaElement
   new = primJS $ HTMLTextAreaElement.prim__new 
   
   export
-  autocomplete : (obj : HTMLTextAreaElement) -> JSIO String
-  autocomplete a = primJS $ HTMLTextAreaElement.prim__autocomplete a
+  autocomplete : HTMLTextAreaElement -> Attribute True I String
+  autocomplete = fromPrim "HTMLTextAreaElement.getautocomplete"
+                          prim__autocomplete
+                          prim__setAutocomplete
   
   export
-  setAutocomplete : (obj : HTMLTextAreaElement) -> (value : String) -> JSIO ()
-  setAutocomplete a b = primJS $ HTMLTextAreaElement.prim__setAutocomplete a b
+  cols : HTMLTextAreaElement -> Attribute True I UInt32
+  cols = fromPrim "HTMLTextAreaElement.getcols" prim__cols prim__setCols
   
   export
-  cols : (obj : HTMLTextAreaElement) -> JSIO UInt32
-  cols a = primJS $ HTMLTextAreaElement.prim__cols a
+  defaultValue : HTMLTextAreaElement -> Attribute True I String
+  defaultValue = fromPrim "HTMLTextAreaElement.getdefaultValue"
+                          prim__defaultValue
+                          prim__setDefaultValue
   
   export
-  setCols : (obj : HTMLTextAreaElement) -> (value : UInt32) -> JSIO ()
-  setCols a b = primJS $ HTMLTextAreaElement.prim__setCols a b
+  dirName : HTMLTextAreaElement -> Attribute True I String
+  dirName = fromPrim "HTMLTextAreaElement.getdirName"
+                     prim__dirName
+                     prim__setDirName
   
   export
-  defaultValue : (obj : HTMLTextAreaElement) -> JSIO String
-  defaultValue a = primJS $ HTMLTextAreaElement.prim__defaultValue a
-  
-  export
-  setDefaultValue : (obj : HTMLTextAreaElement) -> (value : String) -> JSIO ()
-  setDefaultValue a b = primJS $ HTMLTextAreaElement.prim__setDefaultValue a b
-  
-  export
-  dirName : (obj : HTMLTextAreaElement) -> JSIO String
-  dirName a = primJS $ HTMLTextAreaElement.prim__dirName a
-  
-  export
-  setDirName : (obj : HTMLTextAreaElement) -> (value : String) -> JSIO ()
-  setDirName a b = primJS $ HTMLTextAreaElement.prim__setDirName a b
-  
-  export
-  disabled : (obj : HTMLTextAreaElement) -> JSIO Bool
-  disabled a = tryJS "HTMLTextAreaElement.disabled"
-             $ HTMLTextAreaElement.prim__disabled a
-  
-  export
-  setDisabled : (obj : HTMLTextAreaElement) -> (value : Bool) -> JSIO ()
-  setDisabled a b = primJS $ HTMLTextAreaElement.prim__setDisabled a (toFFI b)
+  disabled : HTMLTextAreaElement -> Attribute True I Bool
+  disabled = fromPrim "HTMLTextAreaElement.getdisabled"
+                      prim__disabled
+                      prim__setDisabled
   
   export
   form : (obj : HTMLTextAreaElement) -> JSIO (Maybe HTMLFormElement)
@@ -6096,91 +4848,60 @@ namespace HTMLTextAreaElement
   labels a = primJS $ HTMLTextAreaElement.prim__labels a
   
   export
-  maxLength : (obj : HTMLTextAreaElement) -> JSIO Int32
-  maxLength a = primJS $ HTMLTextAreaElement.prim__maxLength a
+  maxLength : HTMLTextAreaElement -> Attribute True I Int32
+  maxLength = fromPrim "HTMLTextAreaElement.getmaxLength"
+                       prim__maxLength
+                       prim__setMaxLength
   
   export
-  setMaxLength : (obj : HTMLTextAreaElement) -> (value : Int32) -> JSIO ()
-  setMaxLength a b = primJS $ HTMLTextAreaElement.prim__setMaxLength a b
+  minLength : HTMLTextAreaElement -> Attribute True I Int32
+  minLength = fromPrim "HTMLTextAreaElement.getminLength"
+                       prim__minLength
+                       prim__setMinLength
   
   export
-  minLength : (obj : HTMLTextAreaElement) -> JSIO Int32
-  minLength a = primJS $ HTMLTextAreaElement.prim__minLength a
+  name : HTMLTextAreaElement -> Attribute True I String
+  name = fromPrim "HTMLTextAreaElement.getname" prim__name prim__setName
   
   export
-  setMinLength : (obj : HTMLTextAreaElement) -> (value : Int32) -> JSIO ()
-  setMinLength a b = primJS $ HTMLTextAreaElement.prim__setMinLength a b
+  placeholder : HTMLTextAreaElement -> Attribute True I String
+  placeholder = fromPrim "HTMLTextAreaElement.getplaceholder"
+                         prim__placeholder
+                         prim__setPlaceholder
   
   export
-  name : (obj : HTMLTextAreaElement) -> JSIO String
-  name a = primJS $ HTMLTextAreaElement.prim__name a
+  readOnly : HTMLTextAreaElement -> Attribute True I Bool
+  readOnly = fromPrim "HTMLTextAreaElement.getreadOnly"
+                      prim__readOnly
+                      prim__setReadOnly
   
   export
-  setName : (obj : HTMLTextAreaElement) -> (value : String) -> JSIO ()
-  setName a b = primJS $ HTMLTextAreaElement.prim__setName a b
+  required : HTMLTextAreaElement -> Attribute True I Bool
+  required = fromPrim "HTMLTextAreaElement.getrequired"
+                      prim__required
+                      prim__setRequired
   
   export
-  placeholder : (obj : HTMLTextAreaElement) -> JSIO String
-  placeholder a = primJS $ HTMLTextAreaElement.prim__placeholder a
+  rows : HTMLTextAreaElement -> Attribute True I UInt32
+  rows = fromPrim "HTMLTextAreaElement.getrows" prim__rows prim__setRows
   
   export
-  setPlaceholder : (obj : HTMLTextAreaElement) -> (value : String) -> JSIO ()
-  setPlaceholder a b = primJS $ HTMLTextAreaElement.prim__setPlaceholder a b
+  selectionDirection : HTMLTextAreaElement -> Attribute True I String
+  selectionDirection = fromPrim "HTMLTextAreaElement.getselectionDirection"
+                                prim__selectionDirection
+                                prim__setSelectionDirection
   
   export
-  readOnly : (obj : HTMLTextAreaElement) -> JSIO Bool
-  readOnly a = tryJS "HTMLTextAreaElement.readOnly"
-             $ HTMLTextAreaElement.prim__readOnly a
+  selectionEnd : HTMLTextAreaElement -> Attribute True I UInt32
+  selectionEnd = fromPrim "HTMLTextAreaElement.getselectionEnd"
+                          prim__selectionEnd
+                          prim__setSelectionEnd
   
   export
-  setReadOnly : (obj : HTMLTextAreaElement) -> (value : Bool) -> JSIO ()
-  setReadOnly a b = primJS $ HTMLTextAreaElement.prim__setReadOnly a (toFFI b)
-  
-  export
-  required : (obj : HTMLTextAreaElement) -> JSIO Bool
-  required a = tryJS "HTMLTextAreaElement.required"
-             $ HTMLTextAreaElement.prim__required a
-  
-  export
-  setRequired : (obj : HTMLTextAreaElement) -> (value : Bool) -> JSIO ()
-  setRequired a b = primJS $ HTMLTextAreaElement.prim__setRequired a (toFFI b)
-  
-  export
-  rows : (obj : HTMLTextAreaElement) -> JSIO UInt32
-  rows a = primJS $ HTMLTextAreaElement.prim__rows a
-  
-  export
-  setRows : (obj : HTMLTextAreaElement) -> (value : UInt32) -> JSIO ()
-  setRows a b = primJS $ HTMLTextAreaElement.prim__setRows a b
-  
-  export
-  selectionDirection : (obj : HTMLTextAreaElement) -> JSIO String
-  selectionDirection a = primJS $ HTMLTextAreaElement.prim__selectionDirection a
-  
-  export
-  setSelectionDirection :  (obj : HTMLTextAreaElement)
-                        -> (value : String)
-                        -> JSIO ()
-  setSelectionDirection a b = primJS
-                            $ HTMLTextAreaElement.prim__setSelectionDirection a
-                                                                              b
-  
-  export
-  selectionEnd : (obj : HTMLTextAreaElement) -> JSIO UInt32
-  selectionEnd a = primJS $ HTMLTextAreaElement.prim__selectionEnd a
-  
-  export
-  setSelectionEnd : (obj : HTMLTextAreaElement) -> (value : UInt32) -> JSIO ()
-  setSelectionEnd a b = primJS $ HTMLTextAreaElement.prim__setSelectionEnd a b
-  
-  export
-  selectionStart : (obj : HTMLTextAreaElement) -> JSIO UInt32
-  selectionStart a = primJS $ HTMLTextAreaElement.prim__selectionStart a
-  
-  export
-  setSelectionStart : (obj : HTMLTextAreaElement) -> (value : UInt32) -> JSIO ()
-  setSelectionStart a b = primJS
-                        $ HTMLTextAreaElement.prim__setSelectionStart a b
+  selectionStart : HTMLTextAreaElement -> Attribute True I UInt32
+  selectionStart = fromPrim "HTMLTextAreaElement.getselectionStart"
+                            prim__selectionStart
+                            prim__setSelectionStart
   
   export
   textLength : (obj : HTMLTextAreaElement) -> JSIO UInt32
@@ -6199,12 +4920,8 @@ namespace HTMLTextAreaElement
   validity a = primJS $ HTMLTextAreaElement.prim__validity a
   
   export
-  value : (obj : HTMLTextAreaElement) -> JSIO String
-  value a = primJS $ HTMLTextAreaElement.prim__value a
-  
-  export
-  setValue : (obj : HTMLTextAreaElement) -> (value : String) -> JSIO ()
-  setValue a b = primJS $ HTMLTextAreaElement.prim__setValue a b
+  value : HTMLTextAreaElement -> Attribute True I String
+  value = fromPrim "HTMLTextAreaElement.getvalue" prim__value prim__setValue
   
   export
   willValidate : (obj : HTMLTextAreaElement) -> JSIO Bool
@@ -6212,12 +4929,8 @@ namespace HTMLTextAreaElement
                  $ HTMLTextAreaElement.prim__willValidate a
   
   export
-  wrap : (obj : HTMLTextAreaElement) -> JSIO String
-  wrap a = primJS $ HTMLTextAreaElement.prim__wrap a
-  
-  export
-  setWrap : (obj : HTMLTextAreaElement) -> (value : String) -> JSIO ()
-  setWrap a b = primJS $ HTMLTextAreaElement.prim__setWrap a b
+  wrap : HTMLTextAreaElement -> Attribute True I String
+  wrap = fromPrim "HTMLTextAreaElement.getwrap" prim__wrap prim__setWrap
   
   export
   checkValidity : (obj : HTMLTextAreaElement) -> JSIO Bool
@@ -6313,12 +5026,10 @@ namespace HTMLTimeElement
   new = primJS $ HTMLTimeElement.prim__new 
   
   export
-  dateTime : (obj : HTMLTimeElement) -> JSIO String
-  dateTime a = primJS $ HTMLTimeElement.prim__dateTime a
-  
-  export
-  setDateTime : (obj : HTMLTimeElement) -> (value : String) -> JSIO ()
-  setDateTime a b = primJS $ HTMLTimeElement.prim__setDateTime a b
+  dateTime : HTMLTimeElement -> Attribute True I String
+  dateTime = fromPrim "HTMLTimeElement.getdateTime"
+                      prim__dateTime
+                      prim__setDateTime
 
 namespace HTMLTitleElement
   
@@ -6343,12 +5054,8 @@ namespace HTMLTitleElement
   new = primJS $ HTMLTitleElement.prim__new 
   
   export
-  text : (obj : HTMLTitleElement) -> JSIO String
-  text a = primJS $ HTMLTitleElement.prim__text a
-  
-  export
-  setText : (obj : HTMLTitleElement) -> (value : String) -> JSIO ()
-  setText a b = primJS $ HTMLTitleElement.prim__setText a b
+  text : HTMLTitleElement -> Attribute True I String
+  text = fromPrim "HTMLTitleElement.gettext" prim__text prim__setText
 
 namespace HTMLTrackElement
   
@@ -6389,49 +5096,32 @@ namespace HTMLTrackElement
   new = primJS $ HTMLTrackElement.prim__new 
   
   export
-  default_ : (obj : HTMLTrackElement) -> JSIO Bool
-  default_ a = tryJS "HTMLTrackElement.default_"
-             $ HTMLTrackElement.prim__default a
+  default_ : HTMLTrackElement -> Attribute True I Bool
+  default_ = fromPrim "HTMLTrackElement.getdefault"
+                      prim__default
+                      prim__setDefault
   
   export
-  setDefault : (obj : HTMLTrackElement) -> (value : Bool) -> JSIO ()
-  setDefault a b = primJS $ HTMLTrackElement.prim__setDefault a (toFFI b)
+  kind : HTMLTrackElement -> Attribute True I String
+  kind = fromPrim "HTMLTrackElement.getkind" prim__kind prim__setKind
   
   export
-  kind : (obj : HTMLTrackElement) -> JSIO String
-  kind a = primJS $ HTMLTrackElement.prim__kind a
-  
-  export
-  setKind : (obj : HTMLTrackElement) -> (value : String) -> JSIO ()
-  setKind a b = primJS $ HTMLTrackElement.prim__setKind a b
-  
-  export
-  label : (obj : HTMLTrackElement) -> JSIO String
-  label a = primJS $ HTMLTrackElement.prim__label a
-  
-  export
-  setLabel : (obj : HTMLTrackElement) -> (value : String) -> JSIO ()
-  setLabel a b = primJS $ HTMLTrackElement.prim__setLabel a b
+  label : HTMLTrackElement -> Attribute True I String
+  label = fromPrim "HTMLTrackElement.getlabel" prim__label prim__setLabel
   
   export
   readyState : (obj : HTMLTrackElement) -> JSIO UInt16
   readyState a = primJS $ HTMLTrackElement.prim__readyState a
   
   export
-  src : (obj : HTMLTrackElement) -> JSIO String
-  src a = primJS $ HTMLTrackElement.prim__src a
+  src : HTMLTrackElement -> Attribute True I String
+  src = fromPrim "HTMLTrackElement.getsrc" prim__src prim__setSrc
   
   export
-  setSrc : (obj : HTMLTrackElement) -> (value : String) -> JSIO ()
-  setSrc a b = primJS $ HTMLTrackElement.prim__setSrc a b
-  
-  export
-  srclang : (obj : HTMLTrackElement) -> JSIO String
-  srclang a = primJS $ HTMLTrackElement.prim__srclang a
-  
-  export
-  setSrclang : (obj : HTMLTrackElement) -> (value : String) -> JSIO ()
-  setSrclang a b = primJS $ HTMLTrackElement.prim__setSrclang a b
+  srclang : HTMLTrackElement -> Attribute True I String
+  srclang = fromPrim "HTMLTrackElement.getsrclang"
+                     prim__srclang
+                     prim__setSrclang
   
   export
   track : (obj : HTMLTrackElement) -> JSIO TextTrack
@@ -6460,21 +5150,14 @@ namespace HTMLUListElement
   new = primJS $ HTMLUListElement.prim__new 
   
   export
-  compact : (obj : HTMLUListElement) -> JSIO Bool
-  compact a = tryJS "HTMLUListElement.compact"
-            $ HTMLUListElement.prim__compact a
+  compact : HTMLUListElement -> Attribute True I Bool
+  compact = fromPrim "HTMLUListElement.getcompact"
+                     prim__compact
+                     prim__setCompact
   
   export
-  setCompact : (obj : HTMLUListElement) -> (value : Bool) -> JSIO ()
-  setCompact a b = primJS $ HTMLUListElement.prim__setCompact a (toFFI b)
-  
-  export
-  type : (obj : HTMLUListElement) -> JSIO String
-  type a = primJS $ HTMLUListElement.prim__type a
-  
-  export
-  setType : (obj : HTMLUListElement) -> (value : String) -> JSIO ()
-  setType a b = primJS $ HTMLUListElement.prim__setType a b
+  type : HTMLUListElement -> Attribute True I String
+  type = fromPrim "HTMLUListElement.gettype" prim__type prim__setType
 
 namespace HTMLUnknownElement
   
@@ -6523,30 +5206,18 @@ namespace HTMLVideoElement
   new = primJS $ HTMLVideoElement.prim__new 
   
   export
-  height : (obj : HTMLVideoElement) -> JSIO UInt32
-  height a = primJS $ HTMLVideoElement.prim__height a
+  height : HTMLVideoElement -> Attribute True I UInt32
+  height = fromPrim "HTMLVideoElement.getheight" prim__height prim__setHeight
   
   export
-  setHeight : (obj : HTMLVideoElement) -> (value : UInt32) -> JSIO ()
-  setHeight a b = primJS $ HTMLVideoElement.prim__setHeight a b
+  playsInline : HTMLVideoElement -> Attribute True I Bool
+  playsInline = fromPrim "HTMLVideoElement.getplaysInline"
+                         prim__playsInline
+                         prim__setPlaysInline
   
   export
-  playsInline : (obj : HTMLVideoElement) -> JSIO Bool
-  playsInline a = tryJS "HTMLVideoElement.playsInline"
-                $ HTMLVideoElement.prim__playsInline a
-  
-  export
-  setPlaysInline : (obj : HTMLVideoElement) -> (value : Bool) -> JSIO ()
-  setPlaysInline a b = primJS
-                     $ HTMLVideoElement.prim__setPlaysInline a (toFFI b)
-  
-  export
-  poster : (obj : HTMLVideoElement) -> JSIO String
-  poster a = primJS $ HTMLVideoElement.prim__poster a
-  
-  export
-  setPoster : (obj : HTMLVideoElement) -> (value : String) -> JSIO ()
-  setPoster a b = primJS $ HTMLVideoElement.prim__setPoster a b
+  poster : HTMLVideoElement -> Attribute True I String
+  poster = fromPrim "HTMLVideoElement.getposter" prim__poster prim__setPoster
   
   export
   videoHeight : (obj : HTMLVideoElement) -> JSIO UInt32
@@ -6557,12 +5228,8 @@ namespace HTMLVideoElement
   videoWidth a = primJS $ HTMLVideoElement.prim__videoWidth a
   
   export
-  width : (obj : HTMLVideoElement) -> JSIO UInt32
-  width a = primJS $ HTMLVideoElement.prim__width a
-  
-  export
-  setWidth : (obj : HTMLVideoElement) -> (value : UInt32) -> JSIO ()
-  setWidth a b = primJS $ HTMLVideoElement.prim__setWidth a b
+  width : HTMLVideoElement -> Attribute True I UInt32
+  width = fromPrim "HTMLVideoElement.getwidth" prim__width prim__setWidth
 
 namespace HashChangeEvent
   
@@ -6603,20 +5270,14 @@ namespace History
   length a = primJS $ History.prim__length a
   
   export
-  scrollRestoration : (obj : History) -> JSIO ScrollRestoration
-  scrollRestoration a = tryJS "History.scrollRestoration"
-                      $ History.prim__scrollRestoration a
+  scrollRestoration : History -> Attribute True I ScrollRestoration
+  scrollRestoration = fromPrim "History.getscrollRestoration"
+                               prim__scrollRestoration
+                               prim__setScrollRestoration
   
   export
-  setScrollRestoration :  (obj : History)
-                       -> (value : ScrollRestoration)
-                       -> JSIO ()
-  setScrollRestoration a b = primJS
-                           $ History.prim__setScrollRestoration a (toFFI b)
-  
-  export
-  state : (obj : History) -> JSIO AnyPtr
-  state a = primJS $ History.prim__state a
+  state : (obj : History) -> JSIO Any
+  state a = tryJS "History.state" $ History.prim__state a
   
   export
   back : (obj : History) -> JSIO ()
@@ -6636,33 +5297,31 @@ namespace History
   
   export
   pushState :  (obj : History)
-            -> (data_ : AnyPtr)
+            -> (data_ : Any)
             -> (unused : String)
             -> (url : Optional (Maybe String))
             -> JSIO ()
-  pushState a b c d = primJS $ History.prim__pushState a b c (toFFI d)
+  pushState a b c d = primJS $ History.prim__pushState a (toFFI b) c (toFFI d)
 
   export
-  pushState' :  (obj : History)
-             -> (data_ : AnyPtr)
-             -> (unused : String)
-             -> JSIO ()
-  pushState' a b c = primJS $ History.prim__pushState a b c undef
+  pushState' : (obj : History) -> (data_ : Any) -> (unused : String) -> JSIO ()
+  pushState' a b c = primJS $ History.prim__pushState a (toFFI b) c undef
   
   export
   replaceState :  (obj : History)
-               -> (data_ : AnyPtr)
+               -> (data_ : Any)
                -> (unused : String)
                -> (url : Optional (Maybe String))
                -> JSIO ()
-  replaceState a b c d = primJS $ History.prim__replaceState a b c (toFFI d)
+  replaceState a b c d = primJS
+                       $ History.prim__replaceState a (toFFI b) c (toFFI d)
 
   export
   replaceState' :  (obj : History)
-                -> (data_ : AnyPtr)
+                -> (data_ : Any)
                 -> (unused : String)
                 -> JSIO ()
-  replaceState' a b c = primJS $ History.prim__replaceState a b c undef
+  replaceState' a b c = primJS $ History.prim__replaceState a (toFFI b) c undef
 
 namespace ImageBitmap
   
@@ -6754,72 +5413,40 @@ namespace Location
   ancestorOrigins a = primJS $ Location.prim__ancestorOrigins a
   
   export
-  hash : (obj : Location) -> JSIO String
-  hash a = primJS $ Location.prim__hash a
+  hash : Location -> Attribute True I String
+  hash = fromPrim "Location.gethash" prim__hash prim__setHash
   
   export
-  setHash : (obj : Location) -> (value : String) -> JSIO ()
-  setHash a b = primJS $ Location.prim__setHash a b
+  host : Location -> Attribute True I String
+  host = fromPrim "Location.gethost" prim__host prim__setHost
   
   export
-  host : (obj : Location) -> JSIO String
-  host a = primJS $ Location.prim__host a
+  hostname : Location -> Attribute True I String
+  hostname = fromPrim "Location.gethostname" prim__hostname prim__setHostname
   
   export
-  setHost : (obj : Location) -> (value : String) -> JSIO ()
-  setHost a b = primJS $ Location.prim__setHost a b
-  
-  export
-  hostname : (obj : Location) -> JSIO String
-  hostname a = primJS $ Location.prim__hostname a
-  
-  export
-  setHostname : (obj : Location) -> (value : String) -> JSIO ()
-  setHostname a b = primJS $ Location.prim__setHostname a b
-  
-  export
-  href : (obj : Location) -> JSIO String
-  href a = primJS $ Location.prim__href a
-  
-  export
-  setHref : (obj : Location) -> (value : String) -> JSIO ()
-  setHref a b = primJS $ Location.prim__setHref a b
+  href : Location -> Attribute True I String
+  href = fromPrim "Location.gethref" prim__href prim__setHref
   
   export
   origin : (obj : Location) -> JSIO String
   origin a = primJS $ Location.prim__origin a
   
   export
-  pathname : (obj : Location) -> JSIO String
-  pathname a = primJS $ Location.prim__pathname a
+  pathname : Location -> Attribute True I String
+  pathname = fromPrim "Location.getpathname" prim__pathname prim__setPathname
   
   export
-  setPathname : (obj : Location) -> (value : String) -> JSIO ()
-  setPathname a b = primJS $ Location.prim__setPathname a b
+  port : Location -> Attribute True I String
+  port = fromPrim "Location.getport" prim__port prim__setPort
   
   export
-  port : (obj : Location) -> JSIO String
-  port a = primJS $ Location.prim__port a
+  protocol : Location -> Attribute True I String
+  protocol = fromPrim "Location.getprotocol" prim__protocol prim__setProtocol
   
   export
-  setPort : (obj : Location) -> (value : String) -> JSIO ()
-  setPort a b = primJS $ Location.prim__setPort a b
-  
-  export
-  protocol : (obj : Location) -> JSIO String
-  protocol a = primJS $ Location.prim__protocol a
-  
-  export
-  setProtocol : (obj : Location) -> (value : String) -> JSIO ()
-  setProtocol a b = primJS $ Location.prim__setProtocol a b
-  
-  export
-  search : (obj : Location) -> JSIO String
-  search a = primJS $ Location.prim__search a
-  
-  export
-  setSearch : (obj : Location) -> (value : String) -> JSIO ()
-  setSearch a b = primJS $ Location.prim__setSearch a b
+  search : Location -> Attribute True I String
+  search = fromPrim "Location.getsearch" prim__search prim__setSearch
   
   export
   assign : (obj : Location) -> (url : String) -> JSIO ()
@@ -6904,8 +5531,8 @@ namespace MessageEvent
   new' a = primJS $ MessageEvent.prim__new a undef
   
   export
-  data_ : (obj : MessageEvent) -> JSIO AnyPtr
-  data_ a = primJS $ MessageEvent.prim__data a
+  data_ : (obj : MessageEvent) -> JSIO Any
+  data_ a = tryJS "MessageEvent.data_" $ MessageEvent.prim__data a
   
   export
   lastEventId : (obj : MessageEvent) -> JSIO String
@@ -6929,7 +5556,7 @@ namespace MessageEvent
                    -> (type : String)
                    -> (bubbles : Optional Bool)
                    -> (cancelable : Optional Bool)
-                   -> (data_ : Optional AnyPtr)
+                   -> (data_ : Optional Any)
                    -> (origin : Optional String)
                    -> (lastEventId : Optional String)
                    -> (source : Optional (Maybe (NS I [ WindowProxy
@@ -6971,26 +5598,16 @@ namespace MessagePort
     mixins =  []
   
   export
-  onmessage : (obj : MessagePort) -> JSIO (Maybe EventHandlerNonNull)
-  onmessage a = tryJS "MessagePort.onmessage" $ MessagePort.prim__onmessage a
+  onmessage : MessagePort -> Attribute False Maybe EventHandlerNonNull
+  onmessage = fromNullablePrim "MessagePort.getonmessage"
+                               prim__onmessage
+                               prim__setOnmessage
   
   export
-  setOnmessage :  (obj : MessagePort)
-               -> (value : Maybe EventHandlerNonNull)
-               -> JSIO ()
-  setOnmessage a b = primJS $ MessagePort.prim__setOnmessage a (toFFI b)
-  
-  export
-  onmessageerror : (obj : MessagePort) -> JSIO (Maybe EventHandlerNonNull)
-  onmessageerror a = tryJS "MessagePort.onmessageerror"
-                   $ MessagePort.prim__onmessageerror a
-  
-  export
-  setOnmessageerror :  (obj : MessagePort)
-                    -> (value : Maybe EventHandlerNonNull)
-                    -> JSIO ()
-  setOnmessageerror a b = primJS
-                        $ MessagePort.prim__setOnmessageerror a (toFFI b)
+  onmessageerror : MessagePort -> Attribute False Maybe EventHandlerNonNull
+  onmessageerror = fromNullablePrim "MessagePort.getonmessageerror"
+                                    prim__onmessageerror
+                                    prim__setOnmessageerror
   
   export
   close : (obj : MessagePort) -> JSIO ()
@@ -6998,21 +5615,22 @@ namespace MessagePort
   
   export
   postMessage :  (obj : MessagePort)
-              -> (message : AnyPtr)
+              -> (message : Any)
               -> (transfer : Array Object)
               -> JSIO ()
-  postMessage a b c = primJS $ MessagePort.prim__postMessage a b c
+  postMessage a b c = primJS $ MessagePort.prim__postMessage a (toFFI b) c
   
   export
   postMessage1 :  (obj : MessagePort)
-               -> (message : AnyPtr)
+               -> (message : Any)
                -> (options : Optional PostMessageOptions)
                -> JSIO ()
-  postMessage1 a b c = primJS $ MessagePort.prim__postMessage1 a b (toFFI c)
+  postMessage1 a b c = primJS
+                     $ MessagePort.prim__postMessage1 a (toFFI b) (toFFI c)
 
   export
-  postMessage1' : (obj : MessagePort) -> (message : AnyPtr) -> JSIO ()
-  postMessage1' a b = primJS $ MessagePort.prim__postMessage1 a b undef
+  postMessage1' : (obj : MessagePort) -> (message : Any) -> JSIO ()
+  postMessage1' a b = primJS $ MessagePort.prim__postMessage1 a (toFFI b) undef
   
   export
   start : (obj : MessagePort) -> JSIO ()
@@ -7115,20 +5733,12 @@ namespace OffscreenCanvas
   new a b = primJS $ OffscreenCanvas.prim__new a b
   
   export
-  height : (obj : OffscreenCanvas) -> JSIO UInt64
-  height a = primJS $ OffscreenCanvas.prim__height a
+  height : OffscreenCanvas -> Attribute True I UInt64
+  height = fromPrim "OffscreenCanvas.getheight" prim__height prim__setHeight
   
   export
-  setHeight : (obj : OffscreenCanvas) -> (value : UInt64) -> JSIO ()
-  setHeight a b = primJS $ OffscreenCanvas.prim__setHeight a b
-  
-  export
-  width : (obj : OffscreenCanvas) -> JSIO UInt64
-  width a = primJS $ OffscreenCanvas.prim__width a
-  
-  export
-  setWidth : (obj : OffscreenCanvas) -> (value : UInt64) -> JSIO ()
-  setWidth a b = primJS $ OffscreenCanvas.prim__setWidth a b
+  width : OffscreenCanvas -> Attribute True I UInt64
+  width = fromPrim "OffscreenCanvas.getwidth" prim__width prim__setWidth
   
   export
   convertToBlob :  (obj : OffscreenCanvas)
@@ -7143,7 +5753,7 @@ namespace OffscreenCanvas
   export
   getContext :  (obj : OffscreenCanvas)
              -> (contextId : OffscreenRenderingContextId)
-             -> (options : Optional AnyPtr)
+             -> (options : Optional Any)
              -> JSIO (Maybe (NS I [ OffscreenCanvasRenderingContext2D
                                   , ImageBitmapRenderingContext
                                   , WebGLRenderingContext
@@ -7325,8 +5935,8 @@ namespace PopStateEvent
   new' a = primJS $ PopStateEvent.prim__new a undef
   
   export
-  state : (obj : PopStateEvent) -> JSIO AnyPtr
-  state a = primJS $ PopStateEvent.prim__state a
+  state : (obj : PopStateEvent) -> JSIO Any
+  state a = tryJS "PopStateEvent.state" $ PopStateEvent.prim__state a
 
 namespace PromiseRejectionEvent
   
@@ -7347,8 +5957,9 @@ namespace PromiseRejectionEvent
   promise a = primJS $ PromiseRejectionEvent.prim__promise a
   
   export
-  reason : (obj : PromiseRejectionEvent) -> JSIO AnyPtr
-  reason a = primJS $ PromiseRejectionEvent.prim__reason a
+  reason : (obj : PromiseRejectionEvent) -> JSIO Any
+  reason a = tryJS "PromiseRejectionEvent.reason"
+           $ PromiseRejectionEvent.prim__reason a
 
 namespace RadioNodeList
   
@@ -7359,12 +5970,8 @@ namespace RadioNodeList
     mixins =  []
   
   export
-  value : (obj : RadioNodeList) -> JSIO String
-  value a = primJS $ RadioNodeList.prim__value a
-  
-  export
-  setValue : (obj : RadioNodeList) -> (value : String) -> JSIO ()
-  setValue a b = primJS $ RadioNodeList.prim__setValue a b
+  value : RadioNodeList -> Attribute True I String
+  value = fromPrim "RadioNodeList.getvalue" prim__value prim__setValue
 
 namespace SharedWorker
   
@@ -7401,17 +6008,10 @@ namespace SharedWorkerGlobalScope
   name a = primJS $ SharedWorkerGlobalScope.prim__name a
   
   export
-  onconnect :  (obj : SharedWorkerGlobalScope)
-            -> JSIO (Maybe EventHandlerNonNull)
-  onconnect a = tryJS "SharedWorkerGlobalScope.onconnect"
-              $ SharedWorkerGlobalScope.prim__onconnect a
-  
-  export
-  setOnconnect :  (obj : SharedWorkerGlobalScope)
-               -> (value : Maybe EventHandlerNonNull)
-               -> JSIO ()
-  setOnconnect a b = primJS
-                   $ SharedWorkerGlobalScope.prim__setOnconnect a (toFFI b)
+  onconnect : SharedWorkerGlobalScope -> Attribute False Maybe EventHandlerNonNull
+  onconnect = fromNullablePrim "SharedWorkerGlobalScope.getonconnect"
+                               prim__onconnect
+                               prim__setOnconnect
   
   export
   close : (obj : SharedWorkerGlobalScope) -> JSIO ()
@@ -7637,22 +6237,14 @@ namespace TextTrack
   language a = primJS $ TextTrack.prim__language a
   
   export
-  mode : (obj : TextTrack) -> JSIO TextTrackMode
-  mode a = tryJS "TextTrack.mode" $ TextTrack.prim__mode a
+  mode : TextTrack -> Attribute True I TextTrackMode
+  mode = fromPrim "TextTrack.getmode" prim__mode prim__setMode
   
   export
-  setMode : (obj : TextTrack) -> (value : TextTrackMode) -> JSIO ()
-  setMode a b = primJS $ TextTrack.prim__setMode a (toFFI b)
-  
-  export
-  oncuechange : (obj : TextTrack) -> JSIO (Maybe EventHandlerNonNull)
-  oncuechange a = tryJS "TextTrack.oncuechange" $ TextTrack.prim__oncuechange a
-  
-  export
-  setOncuechange :  (obj : TextTrack)
-                 -> (value : Maybe EventHandlerNonNull)
-                 -> JSIO ()
-  setOncuechange a b = primJS $ TextTrack.prim__setOncuechange a (toFFI b)
+  oncuechange : TextTrack -> Attribute False Maybe EventHandlerNonNull
+  oncuechange = fromNullablePrim "TextTrack.getoncuechange"
+                                 prim__oncuechange
+                                 prim__setOncuechange
   
   export
   sourceBuffer : (obj : TextTrack) -> JSIO (Maybe SourceBuffer)
@@ -7676,57 +6268,36 @@ namespace TextTrackCue
     mixins =  []
   
   export
-  endTime : (obj : TextTrackCue) -> JSIO Double
-  endTime a = primJS $ TextTrackCue.prim__endTime a
+  endTime : TextTrackCue -> Attribute True I Double
+  endTime = fromPrim "TextTrackCue.getendTime" prim__endTime prim__setEndTime
   
   export
-  setEndTime : (obj : TextTrackCue) -> (value : Double) -> JSIO ()
-  setEndTime a b = primJS $ TextTrackCue.prim__setEndTime a b
+  id : TextTrackCue -> Attribute True I String
+  id = fromPrim "TextTrackCue.getid" prim__id prim__setId
   
   export
-  id : (obj : TextTrackCue) -> JSIO String
-  id a = primJS $ TextTrackCue.prim__id a
+  onenter : TextTrackCue -> Attribute False Maybe EventHandlerNonNull
+  onenter = fromNullablePrim "TextTrackCue.getonenter"
+                             prim__onenter
+                             prim__setOnenter
   
   export
-  setId : (obj : TextTrackCue) -> (value : String) -> JSIO ()
-  setId a b = primJS $ TextTrackCue.prim__setId a b
+  onexit : TextTrackCue -> Attribute False Maybe EventHandlerNonNull
+  onexit = fromNullablePrim "TextTrackCue.getonexit"
+                            prim__onexit
+                            prim__setOnexit
   
   export
-  onenter : (obj : TextTrackCue) -> JSIO (Maybe EventHandlerNonNull)
-  onenter a = tryJS "TextTrackCue.onenter" $ TextTrackCue.prim__onenter a
+  pauseOnExit : TextTrackCue -> Attribute True I Bool
+  pauseOnExit = fromPrim "TextTrackCue.getpauseOnExit"
+                         prim__pauseOnExit
+                         prim__setPauseOnExit
   
   export
-  setOnenter :  (obj : TextTrackCue)
-             -> (value : Maybe EventHandlerNonNull)
-             -> JSIO ()
-  setOnenter a b = primJS $ TextTrackCue.prim__setOnenter a (toFFI b)
-  
-  export
-  onexit : (obj : TextTrackCue) -> JSIO (Maybe EventHandlerNonNull)
-  onexit a = tryJS "TextTrackCue.onexit" $ TextTrackCue.prim__onexit a
-  
-  export
-  setOnexit :  (obj : TextTrackCue)
-            -> (value : Maybe EventHandlerNonNull)
-            -> JSIO ()
-  setOnexit a b = primJS $ TextTrackCue.prim__setOnexit a (toFFI b)
-  
-  export
-  pauseOnExit : (obj : TextTrackCue) -> JSIO Bool
-  pauseOnExit a = tryJS "TextTrackCue.pauseOnExit"
-                $ TextTrackCue.prim__pauseOnExit a
-  
-  export
-  setPauseOnExit : (obj : TextTrackCue) -> (value : Bool) -> JSIO ()
-  setPauseOnExit a b = primJS $ TextTrackCue.prim__setPauseOnExit a (toFFI b)
-  
-  export
-  startTime : (obj : TextTrackCue) -> JSIO Double
-  startTime a = primJS $ TextTrackCue.prim__startTime a
-  
-  export
-  setStartTime : (obj : TextTrackCue) -> (value : Double) -> JSIO ()
-  setStartTime a b = primJS $ TextTrackCue.prim__setStartTime a b
+  startTime : TextTrackCue -> Attribute True I Double
+  startTime = fromPrim "TextTrackCue.getstartTime"
+                       prim__startTime
+                       prim__setStartTime
   
   export
   track : (obj : TextTrackCue) -> JSIO (Maybe TextTrack)
@@ -7772,37 +6343,22 @@ namespace TextTrackList
   length a = primJS $ TextTrackList.prim__length a
   
   export
-  onaddtrack : (obj : TextTrackList) -> JSIO (Maybe EventHandlerNonNull)
-  onaddtrack a = tryJS "TextTrackList.onaddtrack"
-               $ TextTrackList.prim__onaddtrack a
+  onaddtrack : TextTrackList -> Attribute False Maybe EventHandlerNonNull
+  onaddtrack = fromNullablePrim "TextTrackList.getonaddtrack"
+                                prim__onaddtrack
+                                prim__setOnaddtrack
   
   export
-  setOnaddtrack :  (obj : TextTrackList)
-                -> (value : Maybe EventHandlerNonNull)
-                -> JSIO ()
-  setOnaddtrack a b = primJS $ TextTrackList.prim__setOnaddtrack a (toFFI b)
+  onchange : TextTrackList -> Attribute False Maybe EventHandlerNonNull
+  onchange = fromNullablePrim "TextTrackList.getonchange"
+                              prim__onchange
+                              prim__setOnchange
   
   export
-  onchange : (obj : TextTrackList) -> JSIO (Maybe EventHandlerNonNull)
-  onchange a = tryJS "TextTrackList.onchange" $ TextTrackList.prim__onchange a
-  
-  export
-  setOnchange :  (obj : TextTrackList)
-              -> (value : Maybe EventHandlerNonNull)
-              -> JSIO ()
-  setOnchange a b = primJS $ TextTrackList.prim__setOnchange a (toFFI b)
-  
-  export
-  onremovetrack : (obj : TextTrackList) -> JSIO (Maybe EventHandlerNonNull)
-  onremovetrack a = tryJS "TextTrackList.onremovetrack"
-                  $ TextTrackList.prim__onremovetrack a
-  
-  export
-  setOnremovetrack :  (obj : TextTrackList)
-                   -> (value : Maybe EventHandlerNonNull)
-                   -> JSIO ()
-  setOnremovetrack a b = primJS
-                       $ TextTrackList.prim__setOnremovetrack a (toFFI b)
+  onremovetrack : TextTrackList -> Attribute False Maybe EventHandlerNonNull
+  onremovetrack = fromNullablePrim "TextTrackList.getonremovetrack"
+                                   prim__onremovetrack
+                                   prim__setOnremovetrack
   
   export
   getTrackById :  (obj : TextTrackList)
@@ -7938,12 +6494,8 @@ namespace VideoTrack
   language a = primJS $ VideoTrack.prim__language a
   
   export
-  selected : (obj : VideoTrack) -> JSIO Bool
-  selected a = tryJS "VideoTrack.selected" $ VideoTrack.prim__selected a
-  
-  export
-  setSelected : (obj : VideoTrack) -> (value : Bool) -> JSIO ()
-  setSelected a b = primJS $ VideoTrack.prim__setSelected a (toFFI b)
+  selected : VideoTrack -> Attribute True I Bool
+  selected = fromPrim "VideoTrack.getselected" prim__selected prim__setSelected
   
   export
   sourceBuffer : (obj : VideoTrack) -> JSIO (Maybe SourceBuffer)
@@ -7967,37 +6519,22 @@ namespace VideoTrackList
   length a = primJS $ VideoTrackList.prim__length a
   
   export
-  onaddtrack : (obj : VideoTrackList) -> JSIO (Maybe EventHandlerNonNull)
-  onaddtrack a = tryJS "VideoTrackList.onaddtrack"
-               $ VideoTrackList.prim__onaddtrack a
+  onaddtrack : VideoTrackList -> Attribute False Maybe EventHandlerNonNull
+  onaddtrack = fromNullablePrim "VideoTrackList.getonaddtrack"
+                                prim__onaddtrack
+                                prim__setOnaddtrack
   
   export
-  setOnaddtrack :  (obj : VideoTrackList)
-                -> (value : Maybe EventHandlerNonNull)
-                -> JSIO ()
-  setOnaddtrack a b = primJS $ VideoTrackList.prim__setOnaddtrack a (toFFI b)
+  onchange : VideoTrackList -> Attribute False Maybe EventHandlerNonNull
+  onchange = fromNullablePrim "VideoTrackList.getonchange"
+                              prim__onchange
+                              prim__setOnchange
   
   export
-  onchange : (obj : VideoTrackList) -> JSIO (Maybe EventHandlerNonNull)
-  onchange a = tryJS "VideoTrackList.onchange" $ VideoTrackList.prim__onchange a
-  
-  export
-  setOnchange :  (obj : VideoTrackList)
-              -> (value : Maybe EventHandlerNonNull)
-              -> JSIO ()
-  setOnchange a b = primJS $ VideoTrackList.prim__setOnchange a (toFFI b)
-  
-  export
-  onremovetrack : (obj : VideoTrackList) -> JSIO (Maybe EventHandlerNonNull)
-  onremovetrack a = tryJS "VideoTrackList.onremovetrack"
-                  $ VideoTrackList.prim__onremovetrack a
-  
-  export
-  setOnremovetrack :  (obj : VideoTrackList)
-                   -> (value : Maybe EventHandlerNonNull)
-                   -> JSIO ()
-  setOnremovetrack a b = primJS
-                       $ VideoTrackList.prim__setOnremovetrack a (toFFI b)
+  onremovetrack : VideoTrackList -> Attribute False Maybe EventHandlerNonNull
+  onremovetrack = fromNullablePrim "VideoTrackList.getonremovetrack"
+                                   prim__onremovetrack
+                                   prim__setOnremovetrack
   
   export
   selectedIndex : (obj : VideoTrackList) -> JSIO Int32
@@ -8045,12 +6582,10 @@ namespace WebSocket
   new' a = primJS $ WebSocket.prim__new a undef
   
   export
-  binaryType : (obj : WebSocket) -> JSIO BinaryType
-  binaryType a = tryJS "WebSocket.binaryType" $ WebSocket.prim__binaryType a
-  
-  export
-  setBinaryType : (obj : WebSocket) -> (value : BinaryType) -> JSIO ()
-  setBinaryType a b = primJS $ WebSocket.prim__setBinaryType a (toFFI b)
+  binaryType : WebSocket -> Attribute True I BinaryType
+  binaryType = fromPrim "WebSocket.getbinaryType"
+                        prim__binaryType
+                        prim__setBinaryType
   
   export
   bufferedAmount : (obj : WebSocket) -> JSIO UInt64
@@ -8061,44 +6596,26 @@ namespace WebSocket
   extensions a = primJS $ WebSocket.prim__extensions a
   
   export
-  onclose : (obj : WebSocket) -> JSIO (Maybe EventHandlerNonNull)
-  onclose a = tryJS "WebSocket.onclose" $ WebSocket.prim__onclose a
+  onclose : WebSocket -> Attribute False Maybe EventHandlerNonNull
+  onclose = fromNullablePrim "WebSocket.getonclose"
+                             prim__onclose
+                             prim__setOnclose
   
   export
-  setOnclose :  (obj : WebSocket)
-             -> (value : Maybe EventHandlerNonNull)
-             -> JSIO ()
-  setOnclose a b = primJS $ WebSocket.prim__setOnclose a (toFFI b)
+  onerror : WebSocket -> Attribute False Maybe EventHandlerNonNull
+  onerror = fromNullablePrim "WebSocket.getonerror"
+                             prim__onerror
+                             prim__setOnerror
   
   export
-  onerror : (obj : WebSocket) -> JSIO (Maybe EventHandlerNonNull)
-  onerror a = tryJS "WebSocket.onerror" $ WebSocket.prim__onerror a
+  onmessage : WebSocket -> Attribute False Maybe EventHandlerNonNull
+  onmessage = fromNullablePrim "WebSocket.getonmessage"
+                               prim__onmessage
+                               prim__setOnmessage
   
   export
-  setOnerror :  (obj : WebSocket)
-             -> (value : Maybe EventHandlerNonNull)
-             -> JSIO ()
-  setOnerror a b = primJS $ WebSocket.prim__setOnerror a (toFFI b)
-  
-  export
-  onmessage : (obj : WebSocket) -> JSIO (Maybe EventHandlerNonNull)
-  onmessage a = tryJS "WebSocket.onmessage" $ WebSocket.prim__onmessage a
-  
-  export
-  setOnmessage :  (obj : WebSocket)
-               -> (value : Maybe EventHandlerNonNull)
-               -> JSIO ()
-  setOnmessage a b = primJS $ WebSocket.prim__setOnmessage a (toFFI b)
-  
-  export
-  onopen : (obj : WebSocket) -> JSIO (Maybe EventHandlerNonNull)
-  onopen a = tryJS "WebSocket.onopen" $ WebSocket.prim__onopen a
-  
-  export
-  setOnopen :  (obj : WebSocket)
-            -> (value : Maybe EventHandlerNonNull)
-            -> JSIO ()
-  setOnopen a b = primJS $ WebSocket.prim__setOnopen a (toFFI b)
+  onopen : WebSocket -> Attribute False Maybe EventHandlerNonNull
+  onopen = fromNullablePrim "WebSocket.getonopen" prim__onopen prim__setOnopen
   
   export
   protocol : (obj : WebSocket) -> JSIO String
@@ -8212,24 +6729,16 @@ namespace Window
   menubar a = primJS $ Window.prim__menubar a
   
   export
-  name : (obj : Window) -> JSIO String
-  name a = primJS $ Window.prim__name a
-  
-  export
-  setName : (obj : Window) -> (value : String) -> JSIO ()
-  setName a b = primJS $ Window.prim__setName a b
+  name : Window -> Attribute True I String
+  name = fromPrim "Window.getname" prim__name prim__setName
   
   export
   navigator : (obj : Window) -> JSIO Navigator
   navigator a = primJS $ Window.prim__navigator a
   
   export
-  opener : (obj : Window) -> JSIO AnyPtr
-  opener a = primJS $ Window.prim__opener a
-  
-  export
-  setOpener : (obj : Window) -> (value : AnyPtr) -> JSIO ()
-  setOpener a b = primJS $ Window.prim__setOpener a b
+  opener : Window -> Attribute True I Any
+  opener = fromPrim "Window.getopener" prim__opener prim__setOpener
   
   export
   originAgentCluster : (obj : Window) -> JSIO Bool
@@ -8253,12 +6762,8 @@ namespace Window
   self a = primJS $ Window.prim__self a
   
   export
-  status : (obj : Window) -> JSIO String
-  status a = primJS $ Window.prim__status a
-  
-  export
-  setStatus : (obj : Window) -> (value : String) -> JSIO ()
-  setStatus a b = primJS $ Window.prim__setStatus a b
+  status : Window -> Attribute True I String
+  status = fromPrim "Window.getstatus" prim__status prim__setStatus
   
   export
   statusbar : (obj : Window) -> JSIO BarProp
@@ -8336,29 +6841,30 @@ namespace Window
   
   export
   postMessage :  (obj : Window)
-              -> (message : AnyPtr)
+              -> (message : Any)
               -> (targetOrigin : String)
               -> (transfer : Optional (Array Object))
               -> JSIO ()
-  postMessage a b c d = primJS $ Window.prim__postMessage a b c (toFFI d)
+  postMessage a b c d = primJS
+                      $ Window.prim__postMessage a (toFFI b) c (toFFI d)
 
   export
   postMessage' :  (obj : Window)
-               -> (message : AnyPtr)
+               -> (message : Any)
                -> (targetOrigin : String)
                -> JSIO ()
-  postMessage' a b c = primJS $ Window.prim__postMessage a b c undef
+  postMessage' a b c = primJS $ Window.prim__postMessage a (toFFI b) c undef
   
   export
   postMessage1 :  (obj : Window)
-               -> (message : AnyPtr)
+               -> (message : Any)
                -> (options : Optional WindowPostMessageOptions)
                -> JSIO ()
-  postMessage1 a b c = primJS $ Window.prim__postMessage1 a b (toFFI c)
+  postMessage1 a b c = primJS $ Window.prim__postMessage1 a (toFFI b) (toFFI c)
 
   export
-  postMessage1' : (obj : Window) -> (message : AnyPtr) -> JSIO ()
-  postMessage1' a b = primJS $ Window.prim__postMessage1 a b undef
+  postMessage1' : (obj : Window) -> (message : Any) -> JSIO ()
+  postMessage1' a b = primJS $ Window.prim__postMessage1 a (toFFI b) undef
   
   export
   print : (obj : Window) -> JSIO ()
@@ -8403,43 +6909,34 @@ namespace Worker
   new' a = primJS $ Worker.prim__new a undef
   
   export
-  onmessage : (obj : Worker) -> JSIO (Maybe EventHandlerNonNull)
-  onmessage a = tryJS "Worker.onmessage" $ Worker.prim__onmessage a
+  onmessage : Worker -> Attribute False Maybe EventHandlerNonNull
+  onmessage = fromNullablePrim "Worker.getonmessage"
+                               prim__onmessage
+                               prim__setOnmessage
   
   export
-  setOnmessage :  (obj : Worker)
-               -> (value : Maybe EventHandlerNonNull)
-               -> JSIO ()
-  setOnmessage a b = primJS $ Worker.prim__setOnmessage a (toFFI b)
-  
-  export
-  onmessageerror : (obj : Worker) -> JSIO (Maybe EventHandlerNonNull)
-  onmessageerror a = tryJS "Worker.onmessageerror"
-                   $ Worker.prim__onmessageerror a
-  
-  export
-  setOnmessageerror :  (obj : Worker)
-                    -> (value : Maybe EventHandlerNonNull)
-                    -> JSIO ()
-  setOnmessageerror a b = primJS $ Worker.prim__setOnmessageerror a (toFFI b)
+  onmessageerror : Worker -> Attribute False Maybe EventHandlerNonNull
+  onmessageerror = fromNullablePrim "Worker.getonmessageerror"
+                                    prim__onmessageerror
+                                    prim__setOnmessageerror
   
   export
   postMessage :  (obj : Worker)
-              -> (message : AnyPtr)
+              -> (message : Any)
               -> (transfer : Array Object)
               -> JSIO ()
-  postMessage a b c = primJS $ Worker.prim__postMessage a b c
+  postMessage a b c = primJS $ Worker.prim__postMessage a (toFFI b) c
   
   export
   postMessage1 :  (obj : Worker)
-               -> (message : AnyPtr)
+               -> (message : Any)
                -> (options : Optional PostMessageOptions)
                -> JSIO ()
-  postMessage1 a b c = primJS $ Worker.prim__postMessage1 a b (toFFI c)
+  postMessage1 a b c = primJS $ Worker.prim__postMessage1 a (toFFI b) (toFFI c)
 
   export
-  postMessage1' : (obj : Worker) -> (message : AnyPtr) -> JSIO ()
-  postMessage1' a b = primJS $ Worker.prim__postMessage1 a b undef
+  postMessage1' : (obj : Worker) -> (message : Any) -> JSIO ()
+  postMessage1' a b = primJS $ Worker.prim__postMessage1 a (toFFI b) undef
   
   export
   terminate : (obj : Worker) -> JSIO ()
@@ -8462,79 +6959,40 @@ namespace WorkerGlobalScope
   navigator a = primJS $ WorkerGlobalScope.prim__navigator a
   
   export
-  onerror : (obj : WorkerGlobalScope) -> JSIO (Maybe OnErrorEventHandlerNonNull)
-  onerror a = tryJS "WorkerGlobalScope.onerror"
-            $ WorkerGlobalScope.prim__onerror a
+  onerror : WorkerGlobalScope -> Attribute False Maybe OnErrorEventHandlerNonNull
+  onerror = fromNullablePrim "WorkerGlobalScope.getonerror"
+                             prim__onerror
+                             prim__setOnerror
   
   export
-  setOnerror :  (obj : WorkerGlobalScope)
-             -> (value : Maybe OnErrorEventHandlerNonNull)
-             -> JSIO ()
-  setOnerror a b = primJS $ WorkerGlobalScope.prim__setOnerror a (toFFI b)
+  onlanguagechange : WorkerGlobalScope -> Attribute False Maybe EventHandlerNonNull
+  onlanguagechange = fromNullablePrim "WorkerGlobalScope.getonlanguagechange"
+                                      prim__onlanguagechange
+                                      prim__setOnlanguagechange
   
   export
-  onlanguagechange :  (obj : WorkerGlobalScope)
-                   -> JSIO (Maybe EventHandlerNonNull)
-  onlanguagechange a = tryJS "WorkerGlobalScope.onlanguagechange"
-                     $ WorkerGlobalScope.prim__onlanguagechange a
+  onoffline : WorkerGlobalScope -> Attribute False Maybe EventHandlerNonNull
+  onoffline = fromNullablePrim "WorkerGlobalScope.getonoffline"
+                               prim__onoffline
+                               prim__setOnoffline
   
   export
-  setOnlanguagechange :  (obj : WorkerGlobalScope)
-                      -> (value : Maybe EventHandlerNonNull)
-                      -> JSIO ()
-  setOnlanguagechange a b = primJS
-                          $ WorkerGlobalScope.prim__setOnlanguagechange a
-                                                                        (toFFI b)
+  ononline : WorkerGlobalScope -> Attribute False Maybe EventHandlerNonNull
+  ononline = fromNullablePrim "WorkerGlobalScope.getononline"
+                              prim__ononline
+                              prim__setOnonline
   
   export
-  onoffline : (obj : WorkerGlobalScope) -> JSIO (Maybe EventHandlerNonNull)
-  onoffline a = tryJS "WorkerGlobalScope.onoffline"
-              $ WorkerGlobalScope.prim__onoffline a
+  onrejectionhandled : WorkerGlobalScope -> Attribute False Maybe EventHandlerNonNull
+  onrejectionhandled = fromNullablePrim "WorkerGlobalScope.getonrejectionhandled"
+                                        prim__onrejectionhandled
+                                        prim__setOnrejectionhandled
   
   export
-  setOnoffline :  (obj : WorkerGlobalScope)
-               -> (value : Maybe EventHandlerNonNull)
-               -> JSIO ()
-  setOnoffline a b = primJS $ WorkerGlobalScope.prim__setOnoffline a (toFFI b)
-  
-  export
-  ononline : (obj : WorkerGlobalScope) -> JSIO (Maybe EventHandlerNonNull)
-  ononline a = tryJS "WorkerGlobalScope.ononline"
-             $ WorkerGlobalScope.prim__ononline a
-  
-  export
-  setOnonline :  (obj : WorkerGlobalScope)
-              -> (value : Maybe EventHandlerNonNull)
-              -> JSIO ()
-  setOnonline a b = primJS $ WorkerGlobalScope.prim__setOnonline a (toFFI b)
-  
-  export
-  onrejectionhandled :  (obj : WorkerGlobalScope)
-                     -> JSIO (Maybe EventHandlerNonNull)
-  onrejectionhandled a = tryJS "WorkerGlobalScope.onrejectionhandled"
-                       $ WorkerGlobalScope.prim__onrejectionhandled a
-  
-  export
-  setOnrejectionhandled :  (obj : WorkerGlobalScope)
-                        -> (value : Maybe EventHandlerNonNull)
-                        -> JSIO ()
-  setOnrejectionhandled a b = primJS
-                            $ WorkerGlobalScope.prim__setOnrejectionhandled a
-                                                                            (toFFI b)
-  
-  export
-  onunhandledrejection :  (obj : WorkerGlobalScope)
-                       -> JSIO (Maybe EventHandlerNonNull)
-  onunhandledrejection a = tryJS "WorkerGlobalScope.onunhandledrejection"
-                         $ WorkerGlobalScope.prim__onunhandledrejection a
-  
-  export
-  setOnunhandledrejection :  (obj : WorkerGlobalScope)
-                          -> (value : Maybe EventHandlerNonNull)
-                          -> JSIO ()
-  setOnunhandledrejection a b = primJS
-                              $ WorkerGlobalScope.prim__setOnunhandledrejection a
-                                                                                (toFFI b)
+  onunhandledrejection : WorkerGlobalScope -> Attribute False Maybe EventHandlerNonNull
+  onunhandledrejection = fromNullablePrim "WorkerGlobalScope.getonunhandledrejection"
+                                          prim__onunhandledrejection
+                                          prim__setOnunhandledrejection
   
   export
   self : (obj : WorkerGlobalScope) -> JSIO WorkerGlobalScope
@@ -8644,369 +7102,264 @@ namespace WorkletGlobalScope
 namespace ARIAMixin
   
   export
-  ariaAtomic : (obj : ARIAMixin) -> JSIO String
-  ariaAtomic a = primJS $ ARIAMixin.prim__ariaAtomic a
+  ariaAtomic : ARIAMixin -> Attribute True I String
+  ariaAtomic = fromPrim "ARIAMixin.getariaAtomic"
+                        prim__ariaAtomic
+                        prim__setAriaAtomic
   
   export
-  setAriaAtomic : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaAtomic a b = primJS $ ARIAMixin.prim__setAriaAtomic a b
+  ariaAutoComplete : ARIAMixin -> Attribute True I String
+  ariaAutoComplete = fromPrim "ARIAMixin.getariaAutoComplete"
+                              prim__ariaAutoComplete
+                              prim__setAriaAutoComplete
   
   export
-  ariaAutoComplete : (obj : ARIAMixin) -> JSIO String
-  ariaAutoComplete a = primJS $ ARIAMixin.prim__ariaAutoComplete a
+  ariaBusy : ARIAMixin -> Attribute True I String
+  ariaBusy = fromPrim "ARIAMixin.getariaBusy" prim__ariaBusy prim__setAriaBusy
   
   export
-  setAriaAutoComplete : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaAutoComplete a b = primJS $ ARIAMixin.prim__setAriaAutoComplete a b
+  ariaChecked : ARIAMixin -> Attribute True I String
+  ariaChecked = fromPrim "ARIAMixin.getariaChecked"
+                         prim__ariaChecked
+                         prim__setAriaChecked
   
   export
-  ariaBusy : (obj : ARIAMixin) -> JSIO String
-  ariaBusy a = primJS $ ARIAMixin.prim__ariaBusy a
+  ariaColCount : ARIAMixin -> Attribute True I String
+  ariaColCount = fromPrim "ARIAMixin.getariaColCount"
+                          prim__ariaColCount
+                          prim__setAriaColCount
   
   export
-  setAriaBusy : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaBusy a b = primJS $ ARIAMixin.prim__setAriaBusy a b
+  ariaColIndex : ARIAMixin -> Attribute True I String
+  ariaColIndex = fromPrim "ARIAMixin.getariaColIndex"
+                          prim__ariaColIndex
+                          prim__setAriaColIndex
   
   export
-  ariaChecked : (obj : ARIAMixin) -> JSIO String
-  ariaChecked a = primJS $ ARIAMixin.prim__ariaChecked a
+  ariaColIndexText : ARIAMixin -> Attribute True I String
+  ariaColIndexText = fromPrim "ARIAMixin.getariaColIndexText"
+                              prim__ariaColIndexText
+                              prim__setAriaColIndexText
   
   export
-  setAriaChecked : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaChecked a b = primJS $ ARIAMixin.prim__setAriaChecked a b
+  ariaColSpan : ARIAMixin -> Attribute True I String
+  ariaColSpan = fromPrim "ARIAMixin.getariaColSpan"
+                         prim__ariaColSpan
+                         prim__setAriaColSpan
   
   export
-  ariaColCount : (obj : ARIAMixin) -> JSIO String
-  ariaColCount a = primJS $ ARIAMixin.prim__ariaColCount a
+  ariaCurrent : ARIAMixin -> Attribute True I String
+  ariaCurrent = fromPrim "ARIAMixin.getariaCurrent"
+                         prim__ariaCurrent
+                         prim__setAriaCurrent
   
   export
-  setAriaColCount : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaColCount a b = primJS $ ARIAMixin.prim__setAriaColCount a b
+  ariaDescription : ARIAMixin -> Attribute True I String
+  ariaDescription = fromPrim "ARIAMixin.getariaDescription"
+                             prim__ariaDescription
+                             prim__setAriaDescription
   
   export
-  ariaColIndex : (obj : ARIAMixin) -> JSIO String
-  ariaColIndex a = primJS $ ARIAMixin.prim__ariaColIndex a
+  ariaDisabled : ARIAMixin -> Attribute True I String
+  ariaDisabled = fromPrim "ARIAMixin.getariaDisabled"
+                          prim__ariaDisabled
+                          prim__setAriaDisabled
   
   export
-  setAriaColIndex : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaColIndex a b = primJS $ ARIAMixin.prim__setAriaColIndex a b
+  ariaExpanded : ARIAMixin -> Attribute True I String
+  ariaExpanded = fromPrim "ARIAMixin.getariaExpanded"
+                          prim__ariaExpanded
+                          prim__setAriaExpanded
   
   export
-  ariaColIndexText : (obj : ARIAMixin) -> JSIO String
-  ariaColIndexText a = primJS $ ARIAMixin.prim__ariaColIndexText a
+  ariaHasPopup : ARIAMixin -> Attribute True I String
+  ariaHasPopup = fromPrim "ARIAMixin.getariaHasPopup"
+                          prim__ariaHasPopup
+                          prim__setAriaHasPopup
   
   export
-  setAriaColIndexText : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaColIndexText a b = primJS $ ARIAMixin.prim__setAriaColIndexText a b
+  ariaHidden : ARIAMixin -> Attribute True I String
+  ariaHidden = fromPrim "ARIAMixin.getariaHidden"
+                        prim__ariaHidden
+                        prim__setAriaHidden
   
   export
-  ariaColSpan : (obj : ARIAMixin) -> JSIO String
-  ariaColSpan a = primJS $ ARIAMixin.prim__ariaColSpan a
+  ariaInvalid : ARIAMixin -> Attribute True I String
+  ariaInvalid = fromPrim "ARIAMixin.getariaInvalid"
+                         prim__ariaInvalid
+                         prim__setAriaInvalid
   
   export
-  setAriaColSpan : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaColSpan a b = primJS $ ARIAMixin.prim__setAriaColSpan a b
+  ariaKeyShortcuts : ARIAMixin -> Attribute True I String
+  ariaKeyShortcuts = fromPrim "ARIAMixin.getariaKeyShortcuts"
+                              prim__ariaKeyShortcuts
+                              prim__setAriaKeyShortcuts
   
   export
-  ariaCurrent : (obj : ARIAMixin) -> JSIO String
-  ariaCurrent a = primJS $ ARIAMixin.prim__ariaCurrent a
+  ariaLabel : ARIAMixin -> Attribute True I String
+  ariaLabel = fromPrim "ARIAMixin.getariaLabel"
+                       prim__ariaLabel
+                       prim__setAriaLabel
   
   export
-  setAriaCurrent : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaCurrent a b = primJS $ ARIAMixin.prim__setAriaCurrent a b
+  ariaLevel : ARIAMixin -> Attribute True I String
+  ariaLevel = fromPrim "ARIAMixin.getariaLevel"
+                       prim__ariaLevel
+                       prim__setAriaLevel
   
   export
-  ariaDescription : (obj : ARIAMixin) -> JSIO String
-  ariaDescription a = primJS $ ARIAMixin.prim__ariaDescription a
+  ariaLive : ARIAMixin -> Attribute True I String
+  ariaLive = fromPrim "ARIAMixin.getariaLive" prim__ariaLive prim__setAriaLive
   
   export
-  setAriaDescription : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaDescription a b = primJS $ ARIAMixin.prim__setAriaDescription a b
+  ariaModal : ARIAMixin -> Attribute True I String
+  ariaModal = fromPrim "ARIAMixin.getariaModal"
+                       prim__ariaModal
+                       prim__setAriaModal
   
   export
-  ariaDisabled : (obj : ARIAMixin) -> JSIO String
-  ariaDisabled a = primJS $ ARIAMixin.prim__ariaDisabled a
+  ariaMultiLine : ARIAMixin -> Attribute True I String
+  ariaMultiLine = fromPrim "ARIAMixin.getariaMultiLine"
+                           prim__ariaMultiLine
+                           prim__setAriaMultiLine
   
   export
-  setAriaDisabled : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaDisabled a b = primJS $ ARIAMixin.prim__setAriaDisabled a b
+  ariaMultiSelectable : ARIAMixin -> Attribute True I String
+  ariaMultiSelectable = fromPrim "ARIAMixin.getariaMultiSelectable"
+                                 prim__ariaMultiSelectable
+                                 prim__setAriaMultiSelectable
   
   export
-  ariaExpanded : (obj : ARIAMixin) -> JSIO String
-  ariaExpanded a = primJS $ ARIAMixin.prim__ariaExpanded a
+  ariaOrientation : ARIAMixin -> Attribute True I String
+  ariaOrientation = fromPrim "ARIAMixin.getariaOrientation"
+                             prim__ariaOrientation
+                             prim__setAriaOrientation
   
   export
-  setAriaExpanded : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaExpanded a b = primJS $ ARIAMixin.prim__setAriaExpanded a b
+  ariaPlaceholder : ARIAMixin -> Attribute True I String
+  ariaPlaceholder = fromPrim "ARIAMixin.getariaPlaceholder"
+                             prim__ariaPlaceholder
+                             prim__setAriaPlaceholder
   
   export
-  ariaHasPopup : (obj : ARIAMixin) -> JSIO String
-  ariaHasPopup a = primJS $ ARIAMixin.prim__ariaHasPopup a
+  ariaPosInSet : ARIAMixin -> Attribute True I String
+  ariaPosInSet = fromPrim "ARIAMixin.getariaPosInSet"
+                          prim__ariaPosInSet
+                          prim__setAriaPosInSet
   
   export
-  setAriaHasPopup : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaHasPopup a b = primJS $ ARIAMixin.prim__setAriaHasPopup a b
+  ariaPressed : ARIAMixin -> Attribute True I String
+  ariaPressed = fromPrim "ARIAMixin.getariaPressed"
+                         prim__ariaPressed
+                         prim__setAriaPressed
   
   export
-  ariaHidden : (obj : ARIAMixin) -> JSIO String
-  ariaHidden a = primJS $ ARIAMixin.prim__ariaHidden a
+  ariaReadOnly : ARIAMixin -> Attribute True I String
+  ariaReadOnly = fromPrim "ARIAMixin.getariaReadOnly"
+                          prim__ariaReadOnly
+                          prim__setAriaReadOnly
   
   export
-  setAriaHidden : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaHidden a b = primJS $ ARIAMixin.prim__setAriaHidden a b
+  ariaRequired : ARIAMixin -> Attribute True I String
+  ariaRequired = fromPrim "ARIAMixin.getariaRequired"
+                          prim__ariaRequired
+                          prim__setAriaRequired
   
   export
-  ariaInvalid : (obj : ARIAMixin) -> JSIO String
-  ariaInvalid a = primJS $ ARIAMixin.prim__ariaInvalid a
+  ariaRoleDescription : ARIAMixin -> Attribute True I String
+  ariaRoleDescription = fromPrim "ARIAMixin.getariaRoleDescription"
+                                 prim__ariaRoleDescription
+                                 prim__setAriaRoleDescription
   
   export
-  setAriaInvalid : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaInvalid a b = primJS $ ARIAMixin.prim__setAriaInvalid a b
+  ariaRowCount : ARIAMixin -> Attribute True I String
+  ariaRowCount = fromPrim "ARIAMixin.getariaRowCount"
+                          prim__ariaRowCount
+                          prim__setAriaRowCount
   
   export
-  ariaKeyShortcuts : (obj : ARIAMixin) -> JSIO String
-  ariaKeyShortcuts a = primJS $ ARIAMixin.prim__ariaKeyShortcuts a
+  ariaRowIndex : ARIAMixin -> Attribute True I String
+  ariaRowIndex = fromPrim "ARIAMixin.getariaRowIndex"
+                          prim__ariaRowIndex
+                          prim__setAriaRowIndex
   
   export
-  setAriaKeyShortcuts : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaKeyShortcuts a b = primJS $ ARIAMixin.prim__setAriaKeyShortcuts a b
+  ariaRowIndexText : ARIAMixin -> Attribute True I String
+  ariaRowIndexText = fromPrim "ARIAMixin.getariaRowIndexText"
+                              prim__ariaRowIndexText
+                              prim__setAriaRowIndexText
   
   export
-  ariaLabel : (obj : ARIAMixin) -> JSIO String
-  ariaLabel a = primJS $ ARIAMixin.prim__ariaLabel a
+  ariaRowSpan : ARIAMixin -> Attribute True I String
+  ariaRowSpan = fromPrim "ARIAMixin.getariaRowSpan"
+                         prim__ariaRowSpan
+                         prim__setAriaRowSpan
   
   export
-  setAriaLabel : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaLabel a b = primJS $ ARIAMixin.prim__setAriaLabel a b
+  ariaSelected : ARIAMixin -> Attribute True I String
+  ariaSelected = fromPrim "ARIAMixin.getariaSelected"
+                          prim__ariaSelected
+                          prim__setAriaSelected
   
   export
-  ariaLevel : (obj : ARIAMixin) -> JSIO String
-  ariaLevel a = primJS $ ARIAMixin.prim__ariaLevel a
+  ariaSetSize : ARIAMixin -> Attribute True I String
+  ariaSetSize = fromPrim "ARIAMixin.getariaSetSize"
+                         prim__ariaSetSize
+                         prim__setAriaSetSize
   
   export
-  setAriaLevel : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaLevel a b = primJS $ ARIAMixin.prim__setAriaLevel a b
+  ariaSort : ARIAMixin -> Attribute True I String
+  ariaSort = fromPrim "ARIAMixin.getariaSort" prim__ariaSort prim__setAriaSort
   
   export
-  ariaLive : (obj : ARIAMixin) -> JSIO String
-  ariaLive a = primJS $ ARIAMixin.prim__ariaLive a
+  ariaValueMax : ARIAMixin -> Attribute True I String
+  ariaValueMax = fromPrim "ARIAMixin.getariaValueMax"
+                          prim__ariaValueMax
+                          prim__setAriaValueMax
   
   export
-  setAriaLive : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaLive a b = primJS $ ARIAMixin.prim__setAriaLive a b
+  ariaValueMin : ARIAMixin -> Attribute True I String
+  ariaValueMin = fromPrim "ARIAMixin.getariaValueMin"
+                          prim__ariaValueMin
+                          prim__setAriaValueMin
   
   export
-  ariaModal : (obj : ARIAMixin) -> JSIO String
-  ariaModal a = primJS $ ARIAMixin.prim__ariaModal a
+  ariaValueNow : ARIAMixin -> Attribute True I String
+  ariaValueNow = fromPrim "ARIAMixin.getariaValueNow"
+                          prim__ariaValueNow
+                          prim__setAriaValueNow
   
   export
-  setAriaModal : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaModal a b = primJS $ ARIAMixin.prim__setAriaModal a b
+  ariaValueText : ARIAMixin -> Attribute True I String
+  ariaValueText = fromPrim "ARIAMixin.getariaValueText"
+                           prim__ariaValueText
+                           prim__setAriaValueText
   
   export
-  ariaMultiLine : (obj : ARIAMixin) -> JSIO String
-  ariaMultiLine a = primJS $ ARIAMixin.prim__ariaMultiLine a
-  
-  export
-  setAriaMultiLine : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaMultiLine a b = primJS $ ARIAMixin.prim__setAriaMultiLine a b
-  
-  export
-  ariaMultiSelectable : (obj : ARIAMixin) -> JSIO String
-  ariaMultiSelectable a = primJS $ ARIAMixin.prim__ariaMultiSelectable a
-  
-  export
-  setAriaMultiSelectable : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaMultiSelectable a b = primJS
-                             $ ARIAMixin.prim__setAriaMultiSelectable a b
-  
-  export
-  ariaOrientation : (obj : ARIAMixin) -> JSIO String
-  ariaOrientation a = primJS $ ARIAMixin.prim__ariaOrientation a
-  
-  export
-  setAriaOrientation : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaOrientation a b = primJS $ ARIAMixin.prim__setAriaOrientation a b
-  
-  export
-  ariaPlaceholder : (obj : ARIAMixin) -> JSIO String
-  ariaPlaceholder a = primJS $ ARIAMixin.prim__ariaPlaceholder a
-  
-  export
-  setAriaPlaceholder : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaPlaceholder a b = primJS $ ARIAMixin.prim__setAriaPlaceholder a b
-  
-  export
-  ariaPosInSet : (obj : ARIAMixin) -> JSIO String
-  ariaPosInSet a = primJS $ ARIAMixin.prim__ariaPosInSet a
-  
-  export
-  setAriaPosInSet : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaPosInSet a b = primJS $ ARIAMixin.prim__setAriaPosInSet a b
-  
-  export
-  ariaPressed : (obj : ARIAMixin) -> JSIO String
-  ariaPressed a = primJS $ ARIAMixin.prim__ariaPressed a
-  
-  export
-  setAriaPressed : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaPressed a b = primJS $ ARIAMixin.prim__setAriaPressed a b
-  
-  export
-  ariaReadOnly : (obj : ARIAMixin) -> JSIO String
-  ariaReadOnly a = primJS $ ARIAMixin.prim__ariaReadOnly a
-  
-  export
-  setAriaReadOnly : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaReadOnly a b = primJS $ ARIAMixin.prim__setAriaReadOnly a b
-  
-  export
-  ariaRequired : (obj : ARIAMixin) -> JSIO String
-  ariaRequired a = primJS $ ARIAMixin.prim__ariaRequired a
-  
-  export
-  setAriaRequired : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaRequired a b = primJS $ ARIAMixin.prim__setAriaRequired a b
-  
-  export
-  ariaRoleDescription : (obj : ARIAMixin) -> JSIO String
-  ariaRoleDescription a = primJS $ ARIAMixin.prim__ariaRoleDescription a
-  
-  export
-  setAriaRoleDescription : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaRoleDescription a b = primJS
-                             $ ARIAMixin.prim__setAriaRoleDescription a b
-  
-  export
-  ariaRowCount : (obj : ARIAMixin) -> JSIO String
-  ariaRowCount a = primJS $ ARIAMixin.prim__ariaRowCount a
-  
-  export
-  setAriaRowCount : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaRowCount a b = primJS $ ARIAMixin.prim__setAriaRowCount a b
-  
-  export
-  ariaRowIndex : (obj : ARIAMixin) -> JSIO String
-  ariaRowIndex a = primJS $ ARIAMixin.prim__ariaRowIndex a
-  
-  export
-  setAriaRowIndex : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaRowIndex a b = primJS $ ARIAMixin.prim__setAriaRowIndex a b
-  
-  export
-  ariaRowIndexText : (obj : ARIAMixin) -> JSIO String
-  ariaRowIndexText a = primJS $ ARIAMixin.prim__ariaRowIndexText a
-  
-  export
-  setAriaRowIndexText : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaRowIndexText a b = primJS $ ARIAMixin.prim__setAriaRowIndexText a b
-  
-  export
-  ariaRowSpan : (obj : ARIAMixin) -> JSIO String
-  ariaRowSpan a = primJS $ ARIAMixin.prim__ariaRowSpan a
-  
-  export
-  setAriaRowSpan : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaRowSpan a b = primJS $ ARIAMixin.prim__setAriaRowSpan a b
-  
-  export
-  ariaSelected : (obj : ARIAMixin) -> JSIO String
-  ariaSelected a = primJS $ ARIAMixin.prim__ariaSelected a
-  
-  export
-  setAriaSelected : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaSelected a b = primJS $ ARIAMixin.prim__setAriaSelected a b
-  
-  export
-  ariaSetSize : (obj : ARIAMixin) -> JSIO String
-  ariaSetSize a = primJS $ ARIAMixin.prim__ariaSetSize a
-  
-  export
-  setAriaSetSize : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaSetSize a b = primJS $ ARIAMixin.prim__setAriaSetSize a b
-  
-  export
-  ariaSort : (obj : ARIAMixin) -> JSIO String
-  ariaSort a = primJS $ ARIAMixin.prim__ariaSort a
-  
-  export
-  setAriaSort : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaSort a b = primJS $ ARIAMixin.prim__setAriaSort a b
-  
-  export
-  ariaValueMax : (obj : ARIAMixin) -> JSIO String
-  ariaValueMax a = primJS $ ARIAMixin.prim__ariaValueMax a
-  
-  export
-  setAriaValueMax : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaValueMax a b = primJS $ ARIAMixin.prim__setAriaValueMax a b
-  
-  export
-  ariaValueMin : (obj : ARIAMixin) -> JSIO String
-  ariaValueMin a = primJS $ ARIAMixin.prim__ariaValueMin a
-  
-  export
-  setAriaValueMin : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaValueMin a b = primJS $ ARIAMixin.prim__setAriaValueMin a b
-  
-  export
-  ariaValueNow : (obj : ARIAMixin) -> JSIO String
-  ariaValueNow a = primJS $ ARIAMixin.prim__ariaValueNow a
-  
-  export
-  setAriaValueNow : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaValueNow a b = primJS $ ARIAMixin.prim__setAriaValueNow a b
-  
-  export
-  ariaValueText : (obj : ARIAMixin) -> JSIO String
-  ariaValueText a = primJS $ ARIAMixin.prim__ariaValueText a
-  
-  export
-  setAriaValueText : (obj : ARIAMixin) -> (value : String) -> JSIO ()
-  setAriaValueText a b = primJS $ ARIAMixin.prim__setAriaValueText a b
-  
-  export
-  role : (obj : ARIAMixin) -> JSIO (Maybe String)
-  role a = tryJS "ARIAMixin.role" $ ARIAMixin.prim__role a
-  
-  export
-  setRole : (obj : ARIAMixin) -> (value : Maybe String) -> JSIO ()
-  setRole a b = primJS $ ARIAMixin.prim__setRole a (toFFI b)
+  role : ARIAMixin -> Attribute False Maybe String
+  role = fromNullablePrim "ARIAMixin.getrole" prim__role prim__setRole
 
 namespace AbstractWorker
   
   export
-  onerror : (obj : AbstractWorker) -> JSIO (Maybe EventHandlerNonNull)
-  onerror a = tryJS "AbstractWorker.onerror" $ AbstractWorker.prim__onerror a
-  
-  export
-  setOnerror :  (obj : AbstractWorker)
-             -> (value : Maybe EventHandlerNonNull)
-             -> JSIO ()
-  setOnerror a b = primJS $ AbstractWorker.prim__setOnerror a (toFFI b)
+  onerror : AbstractWorker -> Attribute False Maybe EventHandlerNonNull
+  onerror = fromNullablePrim "AbstractWorker.getonerror"
+                             prim__onerror
+                             prim__setOnerror
 
 namespace CanvasCompositing
   
   export
-  globalAlpha : (obj : CanvasCompositing) -> JSIO Double
-  globalAlpha a = primJS $ CanvasCompositing.prim__globalAlpha a
+  globalAlpha : CanvasCompositing -> Attribute True I Double
+  globalAlpha = fromPrim "CanvasCompositing.getglobalAlpha"
+                         prim__globalAlpha
+                         prim__setGlobalAlpha
   
   export
-  setGlobalAlpha : (obj : CanvasCompositing) -> (value : Double) -> JSIO ()
-  setGlobalAlpha a b = primJS $ CanvasCompositing.prim__setGlobalAlpha a b
-  
-  export
-  globalCompositeOperation : (obj : CanvasCompositing) -> JSIO String
-  globalCompositeOperation a = primJS
-                             $ CanvasCompositing.prim__globalCompositeOperation a
-  
-  export
-  setGlobalCompositeOperation :  (obj : CanvasCompositing)
-                              -> (value : String)
-                              -> JSIO ()
-  setGlobalCompositeOperation a b = primJS
-                                  $ CanvasCompositing.prim__setGlobalCompositeOperation a
-                                                                                        b
+  globalCompositeOperation : CanvasCompositing -> Attribute True I String
+  globalCompositeOperation = fromPrim "CanvasCompositing.getglobalCompositeOperation"
+                                      prim__globalCompositeOperation
+                                      prim__setGlobalCompositeOperation
 
 namespace CanvasDrawImage
   
@@ -9187,30 +7540,22 @@ namespace CanvasDrawPath
 namespace CanvasFillStrokeStyles
   
   export
-  fillStyle :  (obj : CanvasFillStrokeStyles)
-            -> JSIO (NS I [ String , CanvasGradient , CanvasPattern ])
-  fillStyle a = tryJS "CanvasFillStrokeStyles.fillStyle"
-              $ CanvasFillStrokeStyles.prim__fillStyle a
+  fillStyle : CanvasFillStrokeStyles -> Attribute True I (NS I [ String
+                                                               , CanvasGradient
+                                                               , CanvasPattern
+                                                               ])
+  fillStyle = fromPrim "CanvasFillStrokeStyles.getfillStyle"
+                       prim__fillStyle
+                       prim__setFillStyle
   
   export
-  setFillStyle :  (obj : CanvasFillStrokeStyles)
-               -> (value : NS I [ String , CanvasGradient , CanvasPattern ])
-               -> JSIO ()
-  setFillStyle a b = primJS
-                   $ CanvasFillStrokeStyles.prim__setFillStyle a (toFFI b)
-  
-  export
-  strokeStyle :  (obj : CanvasFillStrokeStyles)
-              -> JSIO (NS I [ String , CanvasGradient , CanvasPattern ])
-  strokeStyle a = tryJS "CanvasFillStrokeStyles.strokeStyle"
-                $ CanvasFillStrokeStyles.prim__strokeStyle a
-  
-  export
-  setStrokeStyle :  (obj : CanvasFillStrokeStyles)
-                 -> (value : NS I [ String , CanvasGradient , CanvasPattern ])
-                 -> JSIO ()
-  setStrokeStyle a b = primJS
-                     $ CanvasFillStrokeStyles.prim__setStrokeStyle a (toFFI b)
+  strokeStyle : CanvasFillStrokeStyles -> Attribute True I (NS I [ String
+                                                                 , CanvasGradient
+                                                                 , CanvasPattern
+                                                                 ])
+  strokeStyle = fromPrim "CanvasFillStrokeStyles.getstrokeStyle"
+                         prim__strokeStyle
+                         prim__setStrokeStyle
   
   export
   createLinearGradient :  (obj : CanvasFillStrokeStyles)
@@ -9261,12 +7606,8 @@ namespace CanvasFillStrokeStyles
 namespace CanvasFilters
   
   export
-  filter : (obj : CanvasFilters) -> JSIO String
-  filter a = primJS $ CanvasFilters.prim__filter a
-  
-  export
-  setFilter : (obj : CanvasFilters) -> (value : String) -> JSIO ()
-  setFilter a b = primJS $ CanvasFilters.prim__setFilter a b
+  filter : CanvasFilters -> Attribute True I String
+  filter = fromPrim "CanvasFilters.getfilter" prim__filter prim__setFilter
 
 namespace CanvasImageData
   
@@ -9323,31 +7664,16 @@ namespace CanvasImageData
 namespace CanvasImageSmoothing
   
   export
-  imageSmoothingEnabled : (obj : CanvasImageSmoothing) -> JSIO Bool
-  imageSmoothingEnabled a = tryJS "CanvasImageSmoothing.imageSmoothingEnabled"
-                          $ CanvasImageSmoothing.prim__imageSmoothingEnabled a
+  imageSmoothingEnabled : CanvasImageSmoothing -> Attribute True I Bool
+  imageSmoothingEnabled = fromPrim "CanvasImageSmoothing.getimageSmoothingEnabled"
+                                   prim__imageSmoothingEnabled
+                                   prim__setImageSmoothingEnabled
   
   export
-  setImageSmoothingEnabled :  (obj : CanvasImageSmoothing)
-                           -> (value : Bool)
-                           -> JSIO ()
-  setImageSmoothingEnabled a b = primJS
-                               $ CanvasImageSmoothing.prim__setImageSmoothingEnabled a
-                                                                                     (toFFI b)
-  
-  export
-  imageSmoothingQuality :  (obj : CanvasImageSmoothing)
-                        -> JSIO ImageSmoothingQuality
-  imageSmoothingQuality a = tryJS "CanvasImageSmoothing.imageSmoothingQuality"
-                          $ CanvasImageSmoothing.prim__imageSmoothingQuality a
-  
-  export
-  setImageSmoothingQuality :  (obj : CanvasImageSmoothing)
-                           -> (value : ImageSmoothingQuality)
-                           -> JSIO ()
-  setImageSmoothingQuality a b = primJS
-                               $ CanvasImageSmoothing.prim__setImageSmoothingQuality a
-                                                                                     (toFFI b)
+  imageSmoothingQuality : CanvasImageSmoothing -> Attribute True I ImageSmoothingQuality
+  imageSmoothingQuality = fromPrim "CanvasImageSmoothing.getimageSmoothingQuality"
+                                   prim__imageSmoothingQuality
+                                   prim__setImageSmoothingQuality
 
 namespace CanvasPath
   
@@ -9455,54 +7781,34 @@ namespace CanvasPath
 namespace CanvasPathDrawingStyles
   
   export
-  lineCap : (obj : CanvasPathDrawingStyles) -> JSIO CanvasLineCap
-  lineCap a = tryJS "CanvasPathDrawingStyles.lineCap"
-            $ CanvasPathDrawingStyles.prim__lineCap a
+  lineCap : CanvasPathDrawingStyles -> Attribute True I CanvasLineCap
+  lineCap = fromPrim "CanvasPathDrawingStyles.getlineCap"
+                     prim__lineCap
+                     prim__setLineCap
   
   export
-  setLineCap :  (obj : CanvasPathDrawingStyles)
-             -> (value : CanvasLineCap)
-             -> JSIO ()
-  setLineCap a b = primJS $ CanvasPathDrawingStyles.prim__setLineCap a (toFFI b)
+  lineDashOffset : CanvasPathDrawingStyles -> Attribute True I Double
+  lineDashOffset = fromPrim "CanvasPathDrawingStyles.getlineDashOffset"
+                            prim__lineDashOffset
+                            prim__setLineDashOffset
   
   export
-  lineDashOffset : (obj : CanvasPathDrawingStyles) -> JSIO Double
-  lineDashOffset a = primJS $ CanvasPathDrawingStyles.prim__lineDashOffset a
+  lineJoin : CanvasPathDrawingStyles -> Attribute True I CanvasLineJoin
+  lineJoin = fromPrim "CanvasPathDrawingStyles.getlineJoin"
+                      prim__lineJoin
+                      prim__setLineJoin
   
   export
-  setLineDashOffset :  (obj : CanvasPathDrawingStyles)
-                    -> (value : Double)
-                    -> JSIO ()
-  setLineDashOffset a b = primJS
-                        $ CanvasPathDrawingStyles.prim__setLineDashOffset a b
+  lineWidth : CanvasPathDrawingStyles -> Attribute True I Double
+  lineWidth = fromPrim "CanvasPathDrawingStyles.getlineWidth"
+                       prim__lineWidth
+                       prim__setLineWidth
   
   export
-  lineJoin : (obj : CanvasPathDrawingStyles) -> JSIO CanvasLineJoin
-  lineJoin a = tryJS "CanvasPathDrawingStyles.lineJoin"
-             $ CanvasPathDrawingStyles.prim__lineJoin a
-  
-  export
-  setLineJoin :  (obj : CanvasPathDrawingStyles)
-              -> (value : CanvasLineJoin)
-              -> JSIO ()
-  setLineJoin a b = primJS
-                  $ CanvasPathDrawingStyles.prim__setLineJoin a (toFFI b)
-  
-  export
-  lineWidth : (obj : CanvasPathDrawingStyles) -> JSIO Double
-  lineWidth a = primJS $ CanvasPathDrawingStyles.prim__lineWidth a
-  
-  export
-  setLineWidth : (obj : CanvasPathDrawingStyles) -> (value : Double) -> JSIO ()
-  setLineWidth a b = primJS $ CanvasPathDrawingStyles.prim__setLineWidth a b
-  
-  export
-  miterLimit : (obj : CanvasPathDrawingStyles) -> JSIO Double
-  miterLimit a = primJS $ CanvasPathDrawingStyles.prim__miterLimit a
-  
-  export
-  setMiterLimit : (obj : CanvasPathDrawingStyles) -> (value : Double) -> JSIO ()
-  setMiterLimit a b = primJS $ CanvasPathDrawingStyles.prim__setMiterLimit a b
+  miterLimit : CanvasPathDrawingStyles -> Attribute True I Double
+  miterLimit = fromPrim "CanvasPathDrawingStyles.getmiterLimit"
+                        prim__miterLimit
+                        prim__setMiterLimit
   
   export
   getLineDash : (obj : CanvasPathDrawingStyles) -> JSIO (Array Double)
@@ -9546,36 +7852,28 @@ namespace CanvasRect
 namespace CanvasShadowStyles
   
   export
-  shadowBlur : (obj : CanvasShadowStyles) -> JSIO Double
-  shadowBlur a = primJS $ CanvasShadowStyles.prim__shadowBlur a
+  shadowBlur : CanvasShadowStyles -> Attribute True I Double
+  shadowBlur = fromPrim "CanvasShadowStyles.getshadowBlur"
+                        prim__shadowBlur
+                        prim__setShadowBlur
   
   export
-  setShadowBlur : (obj : CanvasShadowStyles) -> (value : Double) -> JSIO ()
-  setShadowBlur a b = primJS $ CanvasShadowStyles.prim__setShadowBlur a b
+  shadowColor : CanvasShadowStyles -> Attribute True I String
+  shadowColor = fromPrim "CanvasShadowStyles.getshadowColor"
+                         prim__shadowColor
+                         prim__setShadowColor
   
   export
-  shadowColor : (obj : CanvasShadowStyles) -> JSIO String
-  shadowColor a = primJS $ CanvasShadowStyles.prim__shadowColor a
+  shadowOffsetX : CanvasShadowStyles -> Attribute True I Double
+  shadowOffsetX = fromPrim "CanvasShadowStyles.getshadowOffsetX"
+                           prim__shadowOffsetX
+                           prim__setShadowOffsetX
   
   export
-  setShadowColor : (obj : CanvasShadowStyles) -> (value : String) -> JSIO ()
-  setShadowColor a b = primJS $ CanvasShadowStyles.prim__setShadowColor a b
-  
-  export
-  shadowOffsetX : (obj : CanvasShadowStyles) -> JSIO Double
-  shadowOffsetX a = primJS $ CanvasShadowStyles.prim__shadowOffsetX a
-  
-  export
-  setShadowOffsetX : (obj : CanvasShadowStyles) -> (value : Double) -> JSIO ()
-  setShadowOffsetX a b = primJS $ CanvasShadowStyles.prim__setShadowOffsetX a b
-  
-  export
-  shadowOffsetY : (obj : CanvasShadowStyles) -> JSIO Double
-  shadowOffsetY a = primJS $ CanvasShadowStyles.prim__shadowOffsetY a
-  
-  export
-  setShadowOffsetY : (obj : CanvasShadowStyles) -> (value : Double) -> JSIO ()
-  setShadowOffsetY a b = primJS $ CanvasShadowStyles.prim__setShadowOffsetY a b
+  shadowOffsetY : CanvasShadowStyles -> Attribute True I Double
+  shadowOffsetY = fromPrim "CanvasShadowStyles.getshadowOffsetY"
+                           prim__shadowOffsetY
+                           prim__setShadowOffsetY
 
 namespace CanvasState
   
@@ -9630,49 +7928,26 @@ namespace CanvasText
 namespace CanvasTextDrawingStyles
   
   export
-  direction : (obj : CanvasTextDrawingStyles) -> JSIO CanvasDirection
-  direction a = tryJS "CanvasTextDrawingStyles.direction"
-              $ CanvasTextDrawingStyles.prim__direction a
+  direction : CanvasTextDrawingStyles -> Attribute True I CanvasDirection
+  direction = fromPrim "CanvasTextDrawingStyles.getdirection"
+                       prim__direction
+                       prim__setDirection
   
   export
-  setDirection :  (obj : CanvasTextDrawingStyles)
-               -> (value : CanvasDirection)
-               -> JSIO ()
-  setDirection a b = primJS
-                   $ CanvasTextDrawingStyles.prim__setDirection a (toFFI b)
+  font : CanvasTextDrawingStyles -> Attribute True I String
+  font = fromPrim "CanvasTextDrawingStyles.getfont" prim__font prim__setFont
   
   export
-  font : (obj : CanvasTextDrawingStyles) -> JSIO String
-  font a = primJS $ CanvasTextDrawingStyles.prim__font a
+  textAlign : CanvasTextDrawingStyles -> Attribute True I CanvasTextAlign
+  textAlign = fromPrim "CanvasTextDrawingStyles.gettextAlign"
+                       prim__textAlign
+                       prim__setTextAlign
   
   export
-  setFont : (obj : CanvasTextDrawingStyles) -> (value : String) -> JSIO ()
-  setFont a b = primJS $ CanvasTextDrawingStyles.prim__setFont a b
-  
-  export
-  textAlign : (obj : CanvasTextDrawingStyles) -> JSIO CanvasTextAlign
-  textAlign a = tryJS "CanvasTextDrawingStyles.textAlign"
-              $ CanvasTextDrawingStyles.prim__textAlign a
-  
-  export
-  setTextAlign :  (obj : CanvasTextDrawingStyles)
-               -> (value : CanvasTextAlign)
-               -> JSIO ()
-  setTextAlign a b = primJS
-                   $ CanvasTextDrawingStyles.prim__setTextAlign a (toFFI b)
-  
-  export
-  textBaseline : (obj : CanvasTextDrawingStyles) -> JSIO CanvasTextBaseline
-  textBaseline a = tryJS "CanvasTextDrawingStyles.textBaseline"
-                 $ CanvasTextDrawingStyles.prim__textBaseline a
-  
-  export
-  setTextBaseline :  (obj : CanvasTextDrawingStyles)
-                  -> (value : CanvasTextBaseline)
-                  -> JSIO ()
-  setTextBaseline a b = primJS
-                      $ CanvasTextDrawingStyles.prim__setTextBaseline a
-                                                                      (toFFI b)
+  textBaseline : CanvasTextDrawingStyles -> Attribute True I CanvasTextBaseline
+  textBaseline = fromPrim "CanvasTextDrawingStyles.gettextBaseline"
+                          prim__textBaseline
+                          prim__setTextBaseline
 
 namespace CanvasTransform
   
@@ -9761,75 +8036,42 @@ namespace CanvasUserInterface
 namespace DocumentAndElementEventHandlers
   
   export
-  oncopy :  (obj : DocumentAndElementEventHandlers)
-         -> JSIO (Maybe EventHandlerNonNull)
-  oncopy a = tryJS "DocumentAndElementEventHandlers.oncopy"
-           $ DocumentAndElementEventHandlers.prim__oncopy a
+  oncopy : DocumentAndElementEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  oncopy = fromNullablePrim "DocumentAndElementEventHandlers.getoncopy"
+                            prim__oncopy
+                            prim__setOncopy
   
   export
-  setOncopy :  (obj : DocumentAndElementEventHandlers)
-            -> (value : Maybe EventHandlerNonNull)
-            -> JSIO ()
-  setOncopy a b = primJS
-                $ DocumentAndElementEventHandlers.prim__setOncopy a (toFFI b)
+  oncut : DocumentAndElementEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  oncut = fromNullablePrim "DocumentAndElementEventHandlers.getoncut"
+                           prim__oncut
+                           prim__setOncut
   
   export
-  oncut :  (obj : DocumentAndElementEventHandlers)
-        -> JSIO (Maybe EventHandlerNonNull)
-  oncut a = tryJS "DocumentAndElementEventHandlers.oncut"
-          $ DocumentAndElementEventHandlers.prim__oncut a
-  
-  export
-  setOncut :  (obj : DocumentAndElementEventHandlers)
-           -> (value : Maybe EventHandlerNonNull)
-           -> JSIO ()
-  setOncut a b = primJS
-               $ DocumentAndElementEventHandlers.prim__setOncut a (toFFI b)
-  
-  export
-  onpaste :  (obj : DocumentAndElementEventHandlers)
-          -> JSIO (Maybe EventHandlerNonNull)
-  onpaste a = tryJS "DocumentAndElementEventHandlers.onpaste"
-            $ DocumentAndElementEventHandlers.prim__onpaste a
-  
-  export
-  setOnpaste :  (obj : DocumentAndElementEventHandlers)
-             -> (value : Maybe EventHandlerNonNull)
-             -> JSIO ()
-  setOnpaste a b = primJS
-                 $ DocumentAndElementEventHandlers.prim__setOnpaste a (toFFI b)
+  onpaste : DocumentAndElementEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onpaste = fromNullablePrim "DocumentAndElementEventHandlers.getonpaste"
+                             prim__onpaste
+                             prim__setOnpaste
 
 namespace ElementContentEditable
   
   export
-  contentEditable : (obj : ElementContentEditable) -> JSIO String
-  contentEditable a = primJS $ ElementContentEditable.prim__contentEditable a
+  contentEditable : ElementContentEditable -> Attribute True I String
+  contentEditable = fromPrim "ElementContentEditable.getcontentEditable"
+                             prim__contentEditable
+                             prim__setContentEditable
   
   export
-  setContentEditable :  (obj : ElementContentEditable)
-                     -> (value : String)
-                     -> JSIO ()
-  setContentEditable a b = primJS
-                         $ ElementContentEditable.prim__setContentEditable a b
+  enterKeyHint : ElementContentEditable -> Attribute True I String
+  enterKeyHint = fromPrim "ElementContentEditable.getenterKeyHint"
+                          prim__enterKeyHint
+                          prim__setEnterKeyHint
   
   export
-  enterKeyHint : (obj : ElementContentEditable) -> JSIO String
-  enterKeyHint a = primJS $ ElementContentEditable.prim__enterKeyHint a
-  
-  export
-  setEnterKeyHint :  (obj : ElementContentEditable)
-                  -> (value : String)
-                  -> JSIO ()
-  setEnterKeyHint a b = primJS
-                      $ ElementContentEditable.prim__setEnterKeyHint a b
-  
-  export
-  inputMode : (obj : ElementContentEditable) -> JSIO String
-  inputMode a = primJS $ ElementContentEditable.prim__inputMode a
-  
-  export
-  setInputMode : (obj : ElementContentEditable) -> (value : String) -> JSIO ()
-  setInputMode a b = primJS $ ElementContentEditable.prim__setInputMode a b
+  inputMode : ElementContentEditable -> Attribute True I String
+  inputMode = fromPrim "ElementContentEditable.getinputMode"
+                       prim__inputMode
+                       prim__setInputMode
   
   export
   isContentEditable : (obj : ElementContentEditable) -> JSIO Bool
@@ -9839,898 +8081,480 @@ namespace ElementContentEditable
 namespace GlobalEventHandlers
   
   export
-  onabort : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onabort a = tryJS "GlobalEventHandlers.onabort"
-            $ GlobalEventHandlers.prim__onabort a
+  onabort : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onabort = fromNullablePrim "GlobalEventHandlers.getonabort"
+                             prim__onabort
+                             prim__setOnabort
   
   export
-  setOnabort :  (obj : GlobalEventHandlers)
-             -> (value : Maybe EventHandlerNonNull)
-             -> JSIO ()
-  setOnabort a b = primJS $ GlobalEventHandlers.prim__setOnabort a (toFFI b)
+  onauxclick : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onauxclick = fromNullablePrim "GlobalEventHandlers.getonauxclick"
+                                prim__onauxclick
+                                prim__setOnauxclick
   
   export
-  onauxclick : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onauxclick a = tryJS "GlobalEventHandlers.onauxclick"
-               $ GlobalEventHandlers.prim__onauxclick a
+  onblur : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onblur = fromNullablePrim "GlobalEventHandlers.getonblur"
+                            prim__onblur
+                            prim__setOnblur
   
   export
-  setOnauxclick :  (obj : GlobalEventHandlers)
-                -> (value : Maybe EventHandlerNonNull)
-                -> JSIO ()
-  setOnauxclick a b = primJS
-                    $ GlobalEventHandlers.prim__setOnauxclick a (toFFI b)
+  oncancel : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  oncancel = fromNullablePrim "GlobalEventHandlers.getoncancel"
+                              prim__oncancel
+                              prim__setOncancel
   
   export
-  onblur : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onblur a = tryJS "GlobalEventHandlers.onblur"
-           $ GlobalEventHandlers.prim__onblur a
+  oncanplay : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  oncanplay = fromNullablePrim "GlobalEventHandlers.getoncanplay"
+                               prim__oncanplay
+                               prim__setOncanplay
   
   export
-  setOnblur :  (obj : GlobalEventHandlers)
-            -> (value : Maybe EventHandlerNonNull)
-            -> JSIO ()
-  setOnblur a b = primJS $ GlobalEventHandlers.prim__setOnblur a (toFFI b)
+  oncanplaythrough : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  oncanplaythrough = fromNullablePrim "GlobalEventHandlers.getoncanplaythrough"
+                                      prim__oncanplaythrough
+                                      prim__setOncanplaythrough
   
   export
-  oncancel : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  oncancel a = tryJS "GlobalEventHandlers.oncancel"
-             $ GlobalEventHandlers.prim__oncancel a
+  onchange : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onchange = fromNullablePrim "GlobalEventHandlers.getonchange"
+                              prim__onchange
+                              prim__setOnchange
   
   export
-  setOncancel :  (obj : GlobalEventHandlers)
-              -> (value : Maybe EventHandlerNonNull)
-              -> JSIO ()
-  setOncancel a b = primJS $ GlobalEventHandlers.prim__setOncancel a (toFFI b)
+  onclick : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onclick = fromNullablePrim "GlobalEventHandlers.getonclick"
+                             prim__onclick
+                             prim__setOnclick
   
   export
-  oncanplay : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  oncanplay a = tryJS "GlobalEventHandlers.oncanplay"
-              $ GlobalEventHandlers.prim__oncanplay a
+  onclose : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onclose = fromNullablePrim "GlobalEventHandlers.getonclose"
+                             prim__onclose
+                             prim__setOnclose
   
   export
-  setOncanplay :  (obj : GlobalEventHandlers)
-               -> (value : Maybe EventHandlerNonNull)
-               -> JSIO ()
-  setOncanplay a b = primJS $ GlobalEventHandlers.prim__setOncanplay a (toFFI b)
+  oncontextmenu : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  oncontextmenu = fromNullablePrim "GlobalEventHandlers.getoncontextmenu"
+                                   prim__oncontextmenu
+                                   prim__setOncontextmenu
   
   export
-  oncanplaythrough :  (obj : GlobalEventHandlers)
-                   -> JSIO (Maybe EventHandlerNonNull)
-  oncanplaythrough a = tryJS "GlobalEventHandlers.oncanplaythrough"
-                     $ GlobalEventHandlers.prim__oncanplaythrough a
+  oncuechange : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  oncuechange = fromNullablePrim "GlobalEventHandlers.getoncuechange"
+                                 prim__oncuechange
+                                 prim__setOncuechange
   
   export
-  setOncanplaythrough :  (obj : GlobalEventHandlers)
-                      -> (value : Maybe EventHandlerNonNull)
-                      -> JSIO ()
-  setOncanplaythrough a b = primJS
-                          $ GlobalEventHandlers.prim__setOncanplaythrough a
-                                                                          (toFFI b)
+  ondblclick : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  ondblclick = fromNullablePrim "GlobalEventHandlers.getondblclick"
+                                prim__ondblclick
+                                prim__setOndblclick
   
   export
-  onchange : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onchange a = tryJS "GlobalEventHandlers.onchange"
-             $ GlobalEventHandlers.prim__onchange a
+  ondrag : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  ondrag = fromNullablePrim "GlobalEventHandlers.getondrag"
+                            prim__ondrag
+                            prim__setOndrag
   
   export
-  setOnchange :  (obj : GlobalEventHandlers)
-              -> (value : Maybe EventHandlerNonNull)
-              -> JSIO ()
-  setOnchange a b = primJS $ GlobalEventHandlers.prim__setOnchange a (toFFI b)
+  ondragend : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  ondragend = fromNullablePrim "GlobalEventHandlers.getondragend"
+                               prim__ondragend
+                               prim__setOndragend
   
   export
-  onclick : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onclick a = tryJS "GlobalEventHandlers.onclick"
-            $ GlobalEventHandlers.prim__onclick a
+  ondragenter : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  ondragenter = fromNullablePrim "GlobalEventHandlers.getondragenter"
+                                 prim__ondragenter
+                                 prim__setOndragenter
   
   export
-  setOnclick :  (obj : GlobalEventHandlers)
-             -> (value : Maybe EventHandlerNonNull)
-             -> JSIO ()
-  setOnclick a b = primJS $ GlobalEventHandlers.prim__setOnclick a (toFFI b)
+  ondragleave : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  ondragleave = fromNullablePrim "GlobalEventHandlers.getondragleave"
+                                 prim__ondragleave
+                                 prim__setOndragleave
   
   export
-  onclose : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onclose a = tryJS "GlobalEventHandlers.onclose"
-            $ GlobalEventHandlers.prim__onclose a
+  ondragover : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  ondragover = fromNullablePrim "GlobalEventHandlers.getondragover"
+                                prim__ondragover
+                                prim__setOndragover
   
   export
-  setOnclose :  (obj : GlobalEventHandlers)
-             -> (value : Maybe EventHandlerNonNull)
-             -> JSIO ()
-  setOnclose a b = primJS $ GlobalEventHandlers.prim__setOnclose a (toFFI b)
+  ondragstart : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  ondragstart = fromNullablePrim "GlobalEventHandlers.getondragstart"
+                                 prim__ondragstart
+                                 prim__setOndragstart
   
   export
-  oncontextmenu :  (obj : GlobalEventHandlers)
-                -> JSIO (Maybe EventHandlerNonNull)
-  oncontextmenu a = tryJS "GlobalEventHandlers.oncontextmenu"
-                  $ GlobalEventHandlers.prim__oncontextmenu a
+  ondrop : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  ondrop = fromNullablePrim "GlobalEventHandlers.getondrop"
+                            prim__ondrop
+                            prim__setOndrop
   
   export
-  setOncontextmenu :  (obj : GlobalEventHandlers)
-                   -> (value : Maybe EventHandlerNonNull)
-                   -> JSIO ()
-  setOncontextmenu a b = primJS
-                       $ GlobalEventHandlers.prim__setOncontextmenu a (toFFI b)
+  ondurationchange : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  ondurationchange = fromNullablePrim "GlobalEventHandlers.getondurationchange"
+                                      prim__ondurationchange
+                                      prim__setOndurationchange
   
   export
-  oncuechange : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  oncuechange a = tryJS "GlobalEventHandlers.oncuechange"
-                $ GlobalEventHandlers.prim__oncuechange a
+  onemptied : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onemptied = fromNullablePrim "GlobalEventHandlers.getonemptied"
+                               prim__onemptied
+                               prim__setOnemptied
   
   export
-  setOncuechange :  (obj : GlobalEventHandlers)
-                 -> (value : Maybe EventHandlerNonNull)
-                 -> JSIO ()
-  setOncuechange a b = primJS
-                     $ GlobalEventHandlers.prim__setOncuechange a (toFFI b)
+  onended : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onended = fromNullablePrim "GlobalEventHandlers.getonended"
+                             prim__onended
+                             prim__setOnended
   
   export
-  ondblclick : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  ondblclick a = tryJS "GlobalEventHandlers.ondblclick"
-               $ GlobalEventHandlers.prim__ondblclick a
+  onerror : GlobalEventHandlers -> Attribute False Maybe OnErrorEventHandlerNonNull
+  onerror = fromNullablePrim "GlobalEventHandlers.getonerror"
+                             prim__onerror
+                             prim__setOnerror
   
   export
-  setOndblclick :  (obj : GlobalEventHandlers)
-                -> (value : Maybe EventHandlerNonNull)
-                -> JSIO ()
-  setOndblclick a b = primJS
-                    $ GlobalEventHandlers.prim__setOndblclick a (toFFI b)
+  onfocus : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onfocus = fromNullablePrim "GlobalEventHandlers.getonfocus"
+                             prim__onfocus
+                             prim__setOnfocus
   
   export
-  ondrag : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  ondrag a = tryJS "GlobalEventHandlers.ondrag"
-           $ GlobalEventHandlers.prim__ondrag a
+  onformdata : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onformdata = fromNullablePrim "GlobalEventHandlers.getonformdata"
+                                prim__onformdata
+                                prim__setOnformdata
   
   export
-  setOndrag :  (obj : GlobalEventHandlers)
-            -> (value : Maybe EventHandlerNonNull)
-            -> JSIO ()
-  setOndrag a b = primJS $ GlobalEventHandlers.prim__setOndrag a (toFFI b)
+  oninput : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  oninput = fromNullablePrim "GlobalEventHandlers.getoninput"
+                             prim__oninput
+                             prim__setOninput
   
   export
-  ondragend : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  ondragend a = tryJS "GlobalEventHandlers.ondragend"
-              $ GlobalEventHandlers.prim__ondragend a
+  oninvalid : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  oninvalid = fromNullablePrim "GlobalEventHandlers.getoninvalid"
+                               prim__oninvalid
+                               prim__setOninvalid
   
   export
-  setOndragend :  (obj : GlobalEventHandlers)
-               -> (value : Maybe EventHandlerNonNull)
-               -> JSIO ()
-  setOndragend a b = primJS $ GlobalEventHandlers.prim__setOndragend a (toFFI b)
+  onkeydown : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onkeydown = fromNullablePrim "GlobalEventHandlers.getonkeydown"
+                               prim__onkeydown
+                               prim__setOnkeydown
   
   export
-  ondragenter : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  ondragenter a = tryJS "GlobalEventHandlers.ondragenter"
-                $ GlobalEventHandlers.prim__ondragenter a
+  onkeypress : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onkeypress = fromNullablePrim "GlobalEventHandlers.getonkeypress"
+                                prim__onkeypress
+                                prim__setOnkeypress
   
   export
-  setOndragenter :  (obj : GlobalEventHandlers)
-                 -> (value : Maybe EventHandlerNonNull)
-                 -> JSIO ()
-  setOndragenter a b = primJS
-                     $ GlobalEventHandlers.prim__setOndragenter a (toFFI b)
+  onkeyup : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onkeyup = fromNullablePrim "GlobalEventHandlers.getonkeyup"
+                             prim__onkeyup
+                             prim__setOnkeyup
   
   export
-  ondragleave : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  ondragleave a = tryJS "GlobalEventHandlers.ondragleave"
-                $ GlobalEventHandlers.prim__ondragleave a
+  onload : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onload = fromNullablePrim "GlobalEventHandlers.getonload"
+                            prim__onload
+                            prim__setOnload
   
   export
-  setOndragleave :  (obj : GlobalEventHandlers)
-                 -> (value : Maybe EventHandlerNonNull)
-                 -> JSIO ()
-  setOndragleave a b = primJS
-                     $ GlobalEventHandlers.prim__setOndragleave a (toFFI b)
+  onloadeddata : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onloadeddata = fromNullablePrim "GlobalEventHandlers.getonloadeddata"
+                                  prim__onloadeddata
+                                  prim__setOnloadeddata
   
   export
-  ondragover : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  ondragover a = tryJS "GlobalEventHandlers.ondragover"
-               $ GlobalEventHandlers.prim__ondragover a
+  onloadedmetadata : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onloadedmetadata = fromNullablePrim "GlobalEventHandlers.getonloadedmetadata"
+                                      prim__onloadedmetadata
+                                      prim__setOnloadedmetadata
   
   export
-  setOndragover :  (obj : GlobalEventHandlers)
-                -> (value : Maybe EventHandlerNonNull)
-                -> JSIO ()
-  setOndragover a b = primJS
-                    $ GlobalEventHandlers.prim__setOndragover a (toFFI b)
+  onloadstart : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onloadstart = fromNullablePrim "GlobalEventHandlers.getonloadstart"
+                                 prim__onloadstart
+                                 prim__setOnloadstart
   
   export
-  ondragstart : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  ondragstart a = tryJS "GlobalEventHandlers.ondragstart"
-                $ GlobalEventHandlers.prim__ondragstart a
+  onmousedown : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onmousedown = fromNullablePrim "GlobalEventHandlers.getonmousedown"
+                                 prim__onmousedown
+                                 prim__setOnmousedown
   
   export
-  setOndragstart :  (obj : GlobalEventHandlers)
-                 -> (value : Maybe EventHandlerNonNull)
-                 -> JSIO ()
-  setOndragstart a b = primJS
-                     $ GlobalEventHandlers.prim__setOndragstart a (toFFI b)
+  onmouseenter : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onmouseenter = fromNullablePrim "GlobalEventHandlers.getonmouseenter"
+                                  prim__onmouseenter
+                                  prim__setOnmouseenter
   
   export
-  ondrop : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  ondrop a = tryJS "GlobalEventHandlers.ondrop"
-           $ GlobalEventHandlers.prim__ondrop a
+  onmouseleave : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onmouseleave = fromNullablePrim "GlobalEventHandlers.getonmouseleave"
+                                  prim__onmouseleave
+                                  prim__setOnmouseleave
   
   export
-  setOndrop :  (obj : GlobalEventHandlers)
-            -> (value : Maybe EventHandlerNonNull)
-            -> JSIO ()
-  setOndrop a b = primJS $ GlobalEventHandlers.prim__setOndrop a (toFFI b)
+  onmousemove : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onmousemove = fromNullablePrim "GlobalEventHandlers.getonmousemove"
+                                 prim__onmousemove
+                                 prim__setOnmousemove
   
   export
-  ondurationchange :  (obj : GlobalEventHandlers)
-                   -> JSIO (Maybe EventHandlerNonNull)
-  ondurationchange a = tryJS "GlobalEventHandlers.ondurationchange"
-                     $ GlobalEventHandlers.prim__ondurationchange a
+  onmouseout : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onmouseout = fromNullablePrim "GlobalEventHandlers.getonmouseout"
+                                prim__onmouseout
+                                prim__setOnmouseout
   
   export
-  setOndurationchange :  (obj : GlobalEventHandlers)
-                      -> (value : Maybe EventHandlerNonNull)
-                      -> JSIO ()
-  setOndurationchange a b = primJS
-                          $ GlobalEventHandlers.prim__setOndurationchange a
-                                                                          (toFFI b)
+  onmouseover : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onmouseover = fromNullablePrim "GlobalEventHandlers.getonmouseover"
+                                 prim__onmouseover
+                                 prim__setOnmouseover
   
   export
-  onemptied : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onemptied a = tryJS "GlobalEventHandlers.onemptied"
-              $ GlobalEventHandlers.prim__onemptied a
+  onmouseup : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onmouseup = fromNullablePrim "GlobalEventHandlers.getonmouseup"
+                               prim__onmouseup
+                               prim__setOnmouseup
   
   export
-  setOnemptied :  (obj : GlobalEventHandlers)
-               -> (value : Maybe EventHandlerNonNull)
-               -> JSIO ()
-  setOnemptied a b = primJS $ GlobalEventHandlers.prim__setOnemptied a (toFFI b)
+  onpause : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onpause = fromNullablePrim "GlobalEventHandlers.getonpause"
+                             prim__onpause
+                             prim__setOnpause
   
   export
-  onended : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onended a = tryJS "GlobalEventHandlers.onended"
-            $ GlobalEventHandlers.prim__onended a
+  onplay : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onplay = fromNullablePrim "GlobalEventHandlers.getonplay"
+                            prim__onplay
+                            prim__setOnplay
   
   export
-  setOnended :  (obj : GlobalEventHandlers)
-             -> (value : Maybe EventHandlerNonNull)
-             -> JSIO ()
-  setOnended a b = primJS $ GlobalEventHandlers.prim__setOnended a (toFFI b)
+  onplaying : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onplaying = fromNullablePrim "GlobalEventHandlers.getonplaying"
+                               prim__onplaying
+                               prim__setOnplaying
   
   export
-  onerror :  (obj : GlobalEventHandlers)
-          -> JSIO (Maybe OnErrorEventHandlerNonNull)
-  onerror a = tryJS "GlobalEventHandlers.onerror"
-            $ GlobalEventHandlers.prim__onerror a
+  onprogress : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onprogress = fromNullablePrim "GlobalEventHandlers.getonprogress"
+                                prim__onprogress
+                                prim__setOnprogress
   
   export
-  setOnerror :  (obj : GlobalEventHandlers)
-             -> (value : Maybe OnErrorEventHandlerNonNull)
-             -> JSIO ()
-  setOnerror a b = primJS $ GlobalEventHandlers.prim__setOnerror a (toFFI b)
+  onratechange : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onratechange = fromNullablePrim "GlobalEventHandlers.getonratechange"
+                                  prim__onratechange
+                                  prim__setOnratechange
   
   export
-  onfocus : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onfocus a = tryJS "GlobalEventHandlers.onfocus"
-            $ GlobalEventHandlers.prim__onfocus a
+  onreset : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onreset = fromNullablePrim "GlobalEventHandlers.getonreset"
+                             prim__onreset
+                             prim__setOnreset
   
   export
-  setOnfocus :  (obj : GlobalEventHandlers)
-             -> (value : Maybe EventHandlerNonNull)
-             -> JSIO ()
-  setOnfocus a b = primJS $ GlobalEventHandlers.prim__setOnfocus a (toFFI b)
+  onresize : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onresize = fromNullablePrim "GlobalEventHandlers.getonresize"
+                              prim__onresize
+                              prim__setOnresize
   
   export
-  onformdata : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onformdata a = tryJS "GlobalEventHandlers.onformdata"
-               $ GlobalEventHandlers.prim__onformdata a
+  onscroll : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onscroll = fromNullablePrim "GlobalEventHandlers.getonscroll"
+                              prim__onscroll
+                              prim__setOnscroll
   
   export
-  setOnformdata :  (obj : GlobalEventHandlers)
-                -> (value : Maybe EventHandlerNonNull)
-                -> JSIO ()
-  setOnformdata a b = primJS
-                    $ GlobalEventHandlers.prim__setOnformdata a (toFFI b)
+  onsecuritypolicyviolation : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onsecuritypolicyviolation = fromNullablePrim "GlobalEventHandlers.getonsecuritypolicyviolation"
+                                               prim__onsecuritypolicyviolation
+                                               prim__setOnsecuritypolicyviolation
   
   export
-  oninput : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  oninput a = tryJS "GlobalEventHandlers.oninput"
-            $ GlobalEventHandlers.prim__oninput a
+  onseeked : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onseeked = fromNullablePrim "GlobalEventHandlers.getonseeked"
+                              prim__onseeked
+                              prim__setOnseeked
   
   export
-  setOninput :  (obj : GlobalEventHandlers)
-             -> (value : Maybe EventHandlerNonNull)
-             -> JSIO ()
-  setOninput a b = primJS $ GlobalEventHandlers.prim__setOninput a (toFFI b)
+  onseeking : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onseeking = fromNullablePrim "GlobalEventHandlers.getonseeking"
+                               prim__onseeking
+                               prim__setOnseeking
   
   export
-  oninvalid : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  oninvalid a = tryJS "GlobalEventHandlers.oninvalid"
-              $ GlobalEventHandlers.prim__oninvalid a
+  onselect : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onselect = fromNullablePrim "GlobalEventHandlers.getonselect"
+                              prim__onselect
+                              prim__setOnselect
   
   export
-  setOninvalid :  (obj : GlobalEventHandlers)
-               -> (value : Maybe EventHandlerNonNull)
-               -> JSIO ()
-  setOninvalid a b = primJS $ GlobalEventHandlers.prim__setOninvalid a (toFFI b)
+  onslotchange : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onslotchange = fromNullablePrim "GlobalEventHandlers.getonslotchange"
+                                  prim__onslotchange
+                                  prim__setOnslotchange
   
   export
-  onkeydown : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onkeydown a = tryJS "GlobalEventHandlers.onkeydown"
-              $ GlobalEventHandlers.prim__onkeydown a
+  onstalled : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onstalled = fromNullablePrim "GlobalEventHandlers.getonstalled"
+                               prim__onstalled
+                               prim__setOnstalled
   
   export
-  setOnkeydown :  (obj : GlobalEventHandlers)
-               -> (value : Maybe EventHandlerNonNull)
-               -> JSIO ()
-  setOnkeydown a b = primJS $ GlobalEventHandlers.prim__setOnkeydown a (toFFI b)
+  onsubmit : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onsubmit = fromNullablePrim "GlobalEventHandlers.getonsubmit"
+                              prim__onsubmit
+                              prim__setOnsubmit
   
   export
-  onkeypress : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onkeypress a = tryJS "GlobalEventHandlers.onkeypress"
-               $ GlobalEventHandlers.prim__onkeypress a
+  onsuspend : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onsuspend = fromNullablePrim "GlobalEventHandlers.getonsuspend"
+                               prim__onsuspend
+                               prim__setOnsuspend
   
   export
-  setOnkeypress :  (obj : GlobalEventHandlers)
-                -> (value : Maybe EventHandlerNonNull)
-                -> JSIO ()
-  setOnkeypress a b = primJS
-                    $ GlobalEventHandlers.prim__setOnkeypress a (toFFI b)
+  ontimeupdate : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  ontimeupdate = fromNullablePrim "GlobalEventHandlers.getontimeupdate"
+                                  prim__ontimeupdate
+                                  prim__setOntimeupdate
   
   export
-  onkeyup : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onkeyup a = tryJS "GlobalEventHandlers.onkeyup"
-            $ GlobalEventHandlers.prim__onkeyup a
+  ontoggle : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  ontoggle = fromNullablePrim "GlobalEventHandlers.getontoggle"
+                              prim__ontoggle
+                              prim__setOntoggle
   
   export
-  setOnkeyup :  (obj : GlobalEventHandlers)
-             -> (value : Maybe EventHandlerNonNull)
-             -> JSIO ()
-  setOnkeyup a b = primJS $ GlobalEventHandlers.prim__setOnkeyup a (toFFI b)
+  onvolumechange : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onvolumechange = fromNullablePrim "GlobalEventHandlers.getonvolumechange"
+                                    prim__onvolumechange
+                                    prim__setOnvolumechange
   
   export
-  onload : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onload a = tryJS "GlobalEventHandlers.onload"
-           $ GlobalEventHandlers.prim__onload a
+  onwaiting : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onwaiting = fromNullablePrim "GlobalEventHandlers.getonwaiting"
+                               prim__onwaiting
+                               prim__setOnwaiting
   
   export
-  setOnload :  (obj : GlobalEventHandlers)
-            -> (value : Maybe EventHandlerNonNull)
-            -> JSIO ()
-  setOnload a b = primJS $ GlobalEventHandlers.prim__setOnload a (toFFI b)
+  onwebkitanimationend : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onwebkitanimationend = fromNullablePrim "GlobalEventHandlers.getonwebkitanimationend"
+                                          prim__onwebkitanimationend
+                                          prim__setOnwebkitanimationend
   
   export
-  onloadeddata : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onloadeddata a = tryJS "GlobalEventHandlers.onloadeddata"
-                 $ GlobalEventHandlers.prim__onloadeddata a
+  onwebkitanimationiteration : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onwebkitanimationiteration = fromNullablePrim "GlobalEventHandlers.getonwebkitanimationiteration"
+                                                prim__onwebkitanimationiteration
+                                                prim__setOnwebkitanimationiteration
   
   export
-  setOnloadeddata :  (obj : GlobalEventHandlers)
-                  -> (value : Maybe EventHandlerNonNull)
-                  -> JSIO ()
-  setOnloadeddata a b = primJS
-                      $ GlobalEventHandlers.prim__setOnloadeddata a (toFFI b)
+  onwebkitanimationstart : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onwebkitanimationstart = fromNullablePrim "GlobalEventHandlers.getonwebkitanimationstart"
+                                            prim__onwebkitanimationstart
+                                            prim__setOnwebkitanimationstart
   
   export
-  onloadedmetadata :  (obj : GlobalEventHandlers)
-                   -> JSIO (Maybe EventHandlerNonNull)
-  onloadedmetadata a = tryJS "GlobalEventHandlers.onloadedmetadata"
-                     $ GlobalEventHandlers.prim__onloadedmetadata a
+  onwebkittransitionend : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onwebkittransitionend = fromNullablePrim "GlobalEventHandlers.getonwebkittransitionend"
+                                           prim__onwebkittransitionend
+                                           prim__setOnwebkittransitionend
   
   export
-  setOnloadedmetadata :  (obj : GlobalEventHandlers)
-                      -> (value : Maybe EventHandlerNonNull)
-                      -> JSIO ()
-  setOnloadedmetadata a b = primJS
-                          $ GlobalEventHandlers.prim__setOnloadedmetadata a
-                                                                          (toFFI b)
-  
-  export
-  onloadstart : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onloadstart a = tryJS "GlobalEventHandlers.onloadstart"
-                $ GlobalEventHandlers.prim__onloadstart a
-  
-  export
-  setOnloadstart :  (obj : GlobalEventHandlers)
-                 -> (value : Maybe EventHandlerNonNull)
-                 -> JSIO ()
-  setOnloadstart a b = primJS
-                     $ GlobalEventHandlers.prim__setOnloadstart a (toFFI b)
-  
-  export
-  onmousedown : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onmousedown a = tryJS "GlobalEventHandlers.onmousedown"
-                $ GlobalEventHandlers.prim__onmousedown a
-  
-  export
-  setOnmousedown :  (obj : GlobalEventHandlers)
-                 -> (value : Maybe EventHandlerNonNull)
-                 -> JSIO ()
-  setOnmousedown a b = primJS
-                     $ GlobalEventHandlers.prim__setOnmousedown a (toFFI b)
-  
-  export
-  onmouseenter : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onmouseenter a = tryJS "GlobalEventHandlers.onmouseenter"
-                 $ GlobalEventHandlers.prim__onmouseenter a
-  
-  export
-  setOnmouseenter :  (obj : GlobalEventHandlers)
-                  -> (value : Maybe EventHandlerNonNull)
-                  -> JSIO ()
-  setOnmouseenter a b = primJS
-                      $ GlobalEventHandlers.prim__setOnmouseenter a (toFFI b)
-  
-  export
-  onmouseleave : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onmouseleave a = tryJS "GlobalEventHandlers.onmouseleave"
-                 $ GlobalEventHandlers.prim__onmouseleave a
-  
-  export
-  setOnmouseleave :  (obj : GlobalEventHandlers)
-                  -> (value : Maybe EventHandlerNonNull)
-                  -> JSIO ()
-  setOnmouseleave a b = primJS
-                      $ GlobalEventHandlers.prim__setOnmouseleave a (toFFI b)
-  
-  export
-  onmousemove : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onmousemove a = tryJS "GlobalEventHandlers.onmousemove"
-                $ GlobalEventHandlers.prim__onmousemove a
-  
-  export
-  setOnmousemove :  (obj : GlobalEventHandlers)
-                 -> (value : Maybe EventHandlerNonNull)
-                 -> JSIO ()
-  setOnmousemove a b = primJS
-                     $ GlobalEventHandlers.prim__setOnmousemove a (toFFI b)
-  
-  export
-  onmouseout : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onmouseout a = tryJS "GlobalEventHandlers.onmouseout"
-               $ GlobalEventHandlers.prim__onmouseout a
-  
-  export
-  setOnmouseout :  (obj : GlobalEventHandlers)
-                -> (value : Maybe EventHandlerNonNull)
-                -> JSIO ()
-  setOnmouseout a b = primJS
-                    $ GlobalEventHandlers.prim__setOnmouseout a (toFFI b)
-  
-  export
-  onmouseover : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onmouseover a = tryJS "GlobalEventHandlers.onmouseover"
-                $ GlobalEventHandlers.prim__onmouseover a
-  
-  export
-  setOnmouseover :  (obj : GlobalEventHandlers)
-                 -> (value : Maybe EventHandlerNonNull)
-                 -> JSIO ()
-  setOnmouseover a b = primJS
-                     $ GlobalEventHandlers.prim__setOnmouseover a (toFFI b)
-  
-  export
-  onmouseup : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onmouseup a = tryJS "GlobalEventHandlers.onmouseup"
-              $ GlobalEventHandlers.prim__onmouseup a
-  
-  export
-  setOnmouseup :  (obj : GlobalEventHandlers)
-               -> (value : Maybe EventHandlerNonNull)
-               -> JSIO ()
-  setOnmouseup a b = primJS $ GlobalEventHandlers.prim__setOnmouseup a (toFFI b)
-  
-  export
-  onpause : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onpause a = tryJS "GlobalEventHandlers.onpause"
-            $ GlobalEventHandlers.prim__onpause a
-  
-  export
-  setOnpause :  (obj : GlobalEventHandlers)
-             -> (value : Maybe EventHandlerNonNull)
-             -> JSIO ()
-  setOnpause a b = primJS $ GlobalEventHandlers.prim__setOnpause a (toFFI b)
-  
-  export
-  onplay : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onplay a = tryJS "GlobalEventHandlers.onplay"
-           $ GlobalEventHandlers.prim__onplay a
-  
-  export
-  setOnplay :  (obj : GlobalEventHandlers)
-            -> (value : Maybe EventHandlerNonNull)
-            -> JSIO ()
-  setOnplay a b = primJS $ GlobalEventHandlers.prim__setOnplay a (toFFI b)
-  
-  export
-  onplaying : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onplaying a = tryJS "GlobalEventHandlers.onplaying"
-              $ GlobalEventHandlers.prim__onplaying a
-  
-  export
-  setOnplaying :  (obj : GlobalEventHandlers)
-               -> (value : Maybe EventHandlerNonNull)
-               -> JSIO ()
-  setOnplaying a b = primJS $ GlobalEventHandlers.prim__setOnplaying a (toFFI b)
-  
-  export
-  onprogress : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onprogress a = tryJS "GlobalEventHandlers.onprogress"
-               $ GlobalEventHandlers.prim__onprogress a
-  
-  export
-  setOnprogress :  (obj : GlobalEventHandlers)
-                -> (value : Maybe EventHandlerNonNull)
-                -> JSIO ()
-  setOnprogress a b = primJS
-                    $ GlobalEventHandlers.prim__setOnprogress a (toFFI b)
-  
-  export
-  onratechange : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onratechange a = tryJS "GlobalEventHandlers.onratechange"
-                 $ GlobalEventHandlers.prim__onratechange a
-  
-  export
-  setOnratechange :  (obj : GlobalEventHandlers)
-                  -> (value : Maybe EventHandlerNonNull)
-                  -> JSIO ()
-  setOnratechange a b = primJS
-                      $ GlobalEventHandlers.prim__setOnratechange a (toFFI b)
-  
-  export
-  onreset : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onreset a = tryJS "GlobalEventHandlers.onreset"
-            $ GlobalEventHandlers.prim__onreset a
-  
-  export
-  setOnreset :  (obj : GlobalEventHandlers)
-             -> (value : Maybe EventHandlerNonNull)
-             -> JSIO ()
-  setOnreset a b = primJS $ GlobalEventHandlers.prim__setOnreset a (toFFI b)
-  
-  export
-  onresize : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onresize a = tryJS "GlobalEventHandlers.onresize"
-             $ GlobalEventHandlers.prim__onresize a
-  
-  export
-  setOnresize :  (obj : GlobalEventHandlers)
-              -> (value : Maybe EventHandlerNonNull)
-              -> JSIO ()
-  setOnresize a b = primJS $ GlobalEventHandlers.prim__setOnresize a (toFFI b)
-  
-  export
-  onscroll : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onscroll a = tryJS "GlobalEventHandlers.onscroll"
-             $ GlobalEventHandlers.prim__onscroll a
-  
-  export
-  setOnscroll :  (obj : GlobalEventHandlers)
-              -> (value : Maybe EventHandlerNonNull)
-              -> JSIO ()
-  setOnscroll a b = primJS $ GlobalEventHandlers.prim__setOnscroll a (toFFI b)
-  
-  export
-  onsecuritypolicyviolation :  (obj : GlobalEventHandlers)
-                            -> JSIO (Maybe EventHandlerNonNull)
-  onsecuritypolicyviolation a = tryJS "GlobalEventHandlers.onsecuritypolicyviolation"
-                              $ GlobalEventHandlers.prim__onsecuritypolicyviolation a
-  
-  export
-  setOnsecuritypolicyviolation :  (obj : GlobalEventHandlers)
-                               -> (value : Maybe EventHandlerNonNull)
-                               -> JSIO ()
-  setOnsecuritypolicyviolation a b = primJS
-                                   $ GlobalEventHandlers.prim__setOnsecuritypolicyviolation a
-                                                                                            (toFFI b)
-  
-  export
-  onseeked : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onseeked a = tryJS "GlobalEventHandlers.onseeked"
-             $ GlobalEventHandlers.prim__onseeked a
-  
-  export
-  setOnseeked :  (obj : GlobalEventHandlers)
-              -> (value : Maybe EventHandlerNonNull)
-              -> JSIO ()
-  setOnseeked a b = primJS $ GlobalEventHandlers.prim__setOnseeked a (toFFI b)
-  
-  export
-  onseeking : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onseeking a = tryJS "GlobalEventHandlers.onseeking"
-              $ GlobalEventHandlers.prim__onseeking a
-  
-  export
-  setOnseeking :  (obj : GlobalEventHandlers)
-               -> (value : Maybe EventHandlerNonNull)
-               -> JSIO ()
-  setOnseeking a b = primJS $ GlobalEventHandlers.prim__setOnseeking a (toFFI b)
-  
-  export
-  onselect : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onselect a = tryJS "GlobalEventHandlers.onselect"
-             $ GlobalEventHandlers.prim__onselect a
-  
-  export
-  setOnselect :  (obj : GlobalEventHandlers)
-              -> (value : Maybe EventHandlerNonNull)
-              -> JSIO ()
-  setOnselect a b = primJS $ GlobalEventHandlers.prim__setOnselect a (toFFI b)
-  
-  export
-  onslotchange : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onslotchange a = tryJS "GlobalEventHandlers.onslotchange"
-                 $ GlobalEventHandlers.prim__onslotchange a
-  
-  export
-  setOnslotchange :  (obj : GlobalEventHandlers)
-                  -> (value : Maybe EventHandlerNonNull)
-                  -> JSIO ()
-  setOnslotchange a b = primJS
-                      $ GlobalEventHandlers.prim__setOnslotchange a (toFFI b)
-  
-  export
-  onstalled : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onstalled a = tryJS "GlobalEventHandlers.onstalled"
-              $ GlobalEventHandlers.prim__onstalled a
-  
-  export
-  setOnstalled :  (obj : GlobalEventHandlers)
-               -> (value : Maybe EventHandlerNonNull)
-               -> JSIO ()
-  setOnstalled a b = primJS $ GlobalEventHandlers.prim__setOnstalled a (toFFI b)
-  
-  export
-  onsubmit : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onsubmit a = tryJS "GlobalEventHandlers.onsubmit"
-             $ GlobalEventHandlers.prim__onsubmit a
-  
-  export
-  setOnsubmit :  (obj : GlobalEventHandlers)
-              -> (value : Maybe EventHandlerNonNull)
-              -> JSIO ()
-  setOnsubmit a b = primJS $ GlobalEventHandlers.prim__setOnsubmit a (toFFI b)
-  
-  export
-  onsuspend : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onsuspend a = tryJS "GlobalEventHandlers.onsuspend"
-              $ GlobalEventHandlers.prim__onsuspend a
-  
-  export
-  setOnsuspend :  (obj : GlobalEventHandlers)
-               -> (value : Maybe EventHandlerNonNull)
-               -> JSIO ()
-  setOnsuspend a b = primJS $ GlobalEventHandlers.prim__setOnsuspend a (toFFI b)
-  
-  export
-  ontimeupdate : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  ontimeupdate a = tryJS "GlobalEventHandlers.ontimeupdate"
-                 $ GlobalEventHandlers.prim__ontimeupdate a
-  
-  export
-  setOntimeupdate :  (obj : GlobalEventHandlers)
-                  -> (value : Maybe EventHandlerNonNull)
-                  -> JSIO ()
-  setOntimeupdate a b = primJS
-                      $ GlobalEventHandlers.prim__setOntimeupdate a (toFFI b)
-  
-  export
-  ontoggle : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  ontoggle a = tryJS "GlobalEventHandlers.ontoggle"
-             $ GlobalEventHandlers.prim__ontoggle a
-  
-  export
-  setOntoggle :  (obj : GlobalEventHandlers)
-              -> (value : Maybe EventHandlerNonNull)
-              -> JSIO ()
-  setOntoggle a b = primJS $ GlobalEventHandlers.prim__setOntoggle a (toFFI b)
-  
-  export
-  onvolumechange :  (obj : GlobalEventHandlers)
-                 -> JSIO (Maybe EventHandlerNonNull)
-  onvolumechange a = tryJS "GlobalEventHandlers.onvolumechange"
-                   $ GlobalEventHandlers.prim__onvolumechange a
-  
-  export
-  setOnvolumechange :  (obj : GlobalEventHandlers)
-                    -> (value : Maybe EventHandlerNonNull)
-                    -> JSIO ()
-  setOnvolumechange a b = primJS
-                        $ GlobalEventHandlers.prim__setOnvolumechange a
-                                                                      (toFFI b)
-  
-  export
-  onwaiting : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onwaiting a = tryJS "GlobalEventHandlers.onwaiting"
-              $ GlobalEventHandlers.prim__onwaiting a
-  
-  export
-  setOnwaiting :  (obj : GlobalEventHandlers)
-               -> (value : Maybe EventHandlerNonNull)
-               -> JSIO ()
-  setOnwaiting a b = primJS $ GlobalEventHandlers.prim__setOnwaiting a (toFFI b)
-  
-  export
-  onwebkitanimationend :  (obj : GlobalEventHandlers)
-                       -> JSIO (Maybe EventHandlerNonNull)
-  onwebkitanimationend a = tryJS "GlobalEventHandlers.onwebkitanimationend"
-                         $ GlobalEventHandlers.prim__onwebkitanimationend a
-  
-  export
-  setOnwebkitanimationend :  (obj : GlobalEventHandlers)
-                          -> (value : Maybe EventHandlerNonNull)
-                          -> JSIO ()
-  setOnwebkitanimationend a b = primJS
-                              $ GlobalEventHandlers.prim__setOnwebkitanimationend a
-                                                                                  (toFFI b)
-  
-  export
-  onwebkitanimationiteration :  (obj : GlobalEventHandlers)
-                             -> JSIO (Maybe EventHandlerNonNull)
-  onwebkitanimationiteration a = tryJS "GlobalEventHandlers.onwebkitanimationiteration"
-                               $ GlobalEventHandlers.prim__onwebkitanimationiteration a
-  
-  export
-  setOnwebkitanimationiteration :  (obj : GlobalEventHandlers)
-                                -> (value : Maybe EventHandlerNonNull)
-                                -> JSIO ()
-  setOnwebkitanimationiteration a b = primJS
-                                    $ GlobalEventHandlers.prim__setOnwebkitanimationiteration a
-                                                                                              (toFFI b)
-  
-  export
-  onwebkitanimationstart :  (obj : GlobalEventHandlers)
-                         -> JSIO (Maybe EventHandlerNonNull)
-  onwebkitanimationstart a = tryJS "GlobalEventHandlers.onwebkitanimationstart"
-                           $ GlobalEventHandlers.prim__onwebkitanimationstart a
-  
-  export
-  setOnwebkitanimationstart :  (obj : GlobalEventHandlers)
-                            -> (value : Maybe EventHandlerNonNull)
-                            -> JSIO ()
-  setOnwebkitanimationstart a b = primJS
-                                $ GlobalEventHandlers.prim__setOnwebkitanimationstart a
-                                                                                      (toFFI b)
-  
-  export
-  onwebkittransitionend :  (obj : GlobalEventHandlers)
-                        -> JSIO (Maybe EventHandlerNonNull)
-  onwebkittransitionend a = tryJS "GlobalEventHandlers.onwebkittransitionend"
-                          $ GlobalEventHandlers.prim__onwebkittransitionend a
-  
-  export
-  setOnwebkittransitionend :  (obj : GlobalEventHandlers)
-                           -> (value : Maybe EventHandlerNonNull)
-                           -> JSIO ()
-  setOnwebkittransitionend a b = primJS
-                               $ GlobalEventHandlers.prim__setOnwebkittransitionend a
-                                                                                    (toFFI b)
-  
-  export
-  onwheel : (obj : GlobalEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onwheel a = tryJS "GlobalEventHandlers.onwheel"
-            $ GlobalEventHandlers.prim__onwheel a
-  
-  export
-  setOnwheel :  (obj : GlobalEventHandlers)
-             -> (value : Maybe EventHandlerNonNull)
-             -> JSIO ()
-  setOnwheel a b = primJS $ GlobalEventHandlers.prim__setOnwheel a (toFFI b)
+  onwheel : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onwheel = fromNullablePrim "GlobalEventHandlers.getonwheel"
+                             prim__onwheel
+                             prim__setOnwheel
 
 namespace HTMLHyperlinkElementUtils
   
   export
-  hash : (obj : HTMLHyperlinkElementUtils) -> JSIO String
-  hash a = primJS $ HTMLHyperlinkElementUtils.prim__hash a
+  hash : HTMLHyperlinkElementUtils -> Attribute True I String
+  hash = fromPrim "HTMLHyperlinkElementUtils.gethash" prim__hash prim__setHash
   
   export
-  setHash : (obj : HTMLHyperlinkElementUtils) -> (value : String) -> JSIO ()
-  setHash a b = primJS $ HTMLHyperlinkElementUtils.prim__setHash a b
+  host : HTMLHyperlinkElementUtils -> Attribute True I String
+  host = fromPrim "HTMLHyperlinkElementUtils.gethost" prim__host prim__setHost
   
   export
-  host : (obj : HTMLHyperlinkElementUtils) -> JSIO String
-  host a = primJS $ HTMLHyperlinkElementUtils.prim__host a
+  hostname : HTMLHyperlinkElementUtils -> Attribute True I String
+  hostname = fromPrim "HTMLHyperlinkElementUtils.gethostname"
+                      prim__hostname
+                      prim__setHostname
   
   export
-  setHost : (obj : HTMLHyperlinkElementUtils) -> (value : String) -> JSIO ()
-  setHost a b = primJS $ HTMLHyperlinkElementUtils.prim__setHost a b
-  
-  export
-  hostname : (obj : HTMLHyperlinkElementUtils) -> JSIO String
-  hostname a = primJS $ HTMLHyperlinkElementUtils.prim__hostname a
-  
-  export
-  setHostname : (obj : HTMLHyperlinkElementUtils) -> (value : String) -> JSIO ()
-  setHostname a b = primJS $ HTMLHyperlinkElementUtils.prim__setHostname a b
-  
-  export
-  href : (obj : HTMLHyperlinkElementUtils) -> JSIO String
-  href a = primJS $ HTMLHyperlinkElementUtils.prim__href a
-  
-  export
-  setHref : (obj : HTMLHyperlinkElementUtils) -> (value : String) -> JSIO ()
-  setHref a b = primJS $ HTMLHyperlinkElementUtils.prim__setHref a b
+  href : HTMLHyperlinkElementUtils -> Attribute True I String
+  href = fromPrim "HTMLHyperlinkElementUtils.gethref" prim__href prim__setHref
   
   export
   origin : (obj : HTMLHyperlinkElementUtils) -> JSIO String
   origin a = primJS $ HTMLHyperlinkElementUtils.prim__origin a
   
   export
-  password : (obj : HTMLHyperlinkElementUtils) -> JSIO String
-  password a = primJS $ HTMLHyperlinkElementUtils.prim__password a
+  password : HTMLHyperlinkElementUtils -> Attribute True I String
+  password = fromPrim "HTMLHyperlinkElementUtils.getpassword"
+                      prim__password
+                      prim__setPassword
   
   export
-  setPassword : (obj : HTMLHyperlinkElementUtils) -> (value : String) -> JSIO ()
-  setPassword a b = primJS $ HTMLHyperlinkElementUtils.prim__setPassword a b
+  pathname : HTMLHyperlinkElementUtils -> Attribute True I String
+  pathname = fromPrim "HTMLHyperlinkElementUtils.getpathname"
+                      prim__pathname
+                      prim__setPathname
   
   export
-  pathname : (obj : HTMLHyperlinkElementUtils) -> JSIO String
-  pathname a = primJS $ HTMLHyperlinkElementUtils.prim__pathname a
+  port : HTMLHyperlinkElementUtils -> Attribute True I String
+  port = fromPrim "HTMLHyperlinkElementUtils.getport" prim__port prim__setPort
   
   export
-  setPathname : (obj : HTMLHyperlinkElementUtils) -> (value : String) -> JSIO ()
-  setPathname a b = primJS $ HTMLHyperlinkElementUtils.prim__setPathname a b
+  protocol : HTMLHyperlinkElementUtils -> Attribute True I String
+  protocol = fromPrim "HTMLHyperlinkElementUtils.getprotocol"
+                      prim__protocol
+                      prim__setProtocol
   
   export
-  port : (obj : HTMLHyperlinkElementUtils) -> JSIO String
-  port a = primJS $ HTMLHyperlinkElementUtils.prim__port a
+  search : HTMLHyperlinkElementUtils -> Attribute True I String
+  search = fromPrim "HTMLHyperlinkElementUtils.getsearch"
+                    prim__search
+                    prim__setSearch
   
   export
-  setPort : (obj : HTMLHyperlinkElementUtils) -> (value : String) -> JSIO ()
-  setPort a b = primJS $ HTMLHyperlinkElementUtils.prim__setPort a b
-  
-  export
-  protocol : (obj : HTMLHyperlinkElementUtils) -> JSIO String
-  protocol a = primJS $ HTMLHyperlinkElementUtils.prim__protocol a
-  
-  export
-  setProtocol : (obj : HTMLHyperlinkElementUtils) -> (value : String) -> JSIO ()
-  setProtocol a b = primJS $ HTMLHyperlinkElementUtils.prim__setProtocol a b
-  
-  export
-  search : (obj : HTMLHyperlinkElementUtils) -> JSIO String
-  search a = primJS $ HTMLHyperlinkElementUtils.prim__search a
-  
-  export
-  setSearch : (obj : HTMLHyperlinkElementUtils) -> (value : String) -> JSIO ()
-  setSearch a b = primJS $ HTMLHyperlinkElementUtils.prim__setSearch a b
-  
-  export
-  username : (obj : HTMLHyperlinkElementUtils) -> JSIO String
-  username a = primJS $ HTMLHyperlinkElementUtils.prim__username a
-  
-  export
-  setUsername : (obj : HTMLHyperlinkElementUtils) -> (value : String) -> JSIO ()
-  setUsername a b = primJS $ HTMLHyperlinkElementUtils.prim__setUsername a b
+  username : HTMLHyperlinkElementUtils -> Attribute True I String
+  username = fromPrim "HTMLHyperlinkElementUtils.getusername"
+                      prim__username
+                      prim__setUsername
 
 namespace HTMLOrSVGElement
   
   export
-  autofocus : (obj : HTMLOrSVGElement) -> JSIO Bool
-  autofocus a = tryJS "HTMLOrSVGElement.autofocus"
-              $ HTMLOrSVGElement.prim__autofocus a
-  
-  export
-  setAutofocus : (obj : HTMLOrSVGElement) -> (value : Bool) -> JSIO ()
-  setAutofocus a b = primJS $ HTMLOrSVGElement.prim__setAutofocus a (toFFI b)
+  autofocus : HTMLOrSVGElement -> Attribute True I Bool
+  autofocus = fromPrim "HTMLOrSVGElement.getautofocus"
+                       prim__autofocus
+                       prim__setAutofocus
   
   export
   dataset : (obj : HTMLOrSVGElement) -> JSIO DOMStringMap
   dataset a = primJS $ HTMLOrSVGElement.prim__dataset a
   
   export
-  nonce : (obj : HTMLOrSVGElement) -> JSIO String
-  nonce a = primJS $ HTMLOrSVGElement.prim__nonce a
+  nonce : HTMLOrSVGElement -> Attribute True I String
+  nonce = fromPrim "HTMLOrSVGElement.getnonce" prim__nonce prim__setNonce
   
   export
-  setNonce : (obj : HTMLOrSVGElement) -> (value : String) -> JSIO ()
-  setNonce a b = primJS $ HTMLOrSVGElement.prim__setNonce a b
-  
-  export
-  tabIndex : (obj : HTMLOrSVGElement) -> JSIO Int32
-  tabIndex a = primJS $ HTMLOrSVGElement.prim__tabIndex a
-  
-  export
-  setTabIndex : (obj : HTMLOrSVGElement) -> (value : Int32) -> JSIO ()
-  setTabIndex a b = primJS $ HTMLOrSVGElement.prim__setTabIndex a b
+  tabIndex : HTMLOrSVGElement -> Attribute True I Int32
+  tabIndex = fromPrim "HTMLOrSVGElement.gettabIndex"
+                      prim__tabIndex
+                      prim__setTabIndex
   
   export
   blur : (obj : HTMLOrSVGElement) -> JSIO ()
@@ -10854,202 +8678,100 @@ namespace NavigatorPlugins
 namespace WindowEventHandlers
   
   export
-  onafterprint : (obj : WindowEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onafterprint a = tryJS "WindowEventHandlers.onafterprint"
-                 $ WindowEventHandlers.prim__onafterprint a
+  onafterprint : WindowEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onafterprint = fromNullablePrim "WindowEventHandlers.getonafterprint"
+                                  prim__onafterprint
+                                  prim__setOnafterprint
   
   export
-  setOnafterprint :  (obj : WindowEventHandlers)
-                  -> (value : Maybe EventHandlerNonNull)
-                  -> JSIO ()
-  setOnafterprint a b = primJS
-                      $ WindowEventHandlers.prim__setOnafterprint a (toFFI b)
+  onbeforeprint : WindowEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onbeforeprint = fromNullablePrim "WindowEventHandlers.getonbeforeprint"
+                                   prim__onbeforeprint
+                                   prim__setOnbeforeprint
   
   export
-  onbeforeprint :  (obj : WindowEventHandlers)
-                -> JSIO (Maybe EventHandlerNonNull)
-  onbeforeprint a = tryJS "WindowEventHandlers.onbeforeprint"
-                  $ WindowEventHandlers.prim__onbeforeprint a
+  onbeforeunload : WindowEventHandlers -> Attribute False Maybe OnBeforeUnloadEventHandlerNonNull
+  onbeforeunload = fromNullablePrim "WindowEventHandlers.getonbeforeunload"
+                                    prim__onbeforeunload
+                                    prim__setOnbeforeunload
   
   export
-  setOnbeforeprint :  (obj : WindowEventHandlers)
-                   -> (value : Maybe EventHandlerNonNull)
-                   -> JSIO ()
-  setOnbeforeprint a b = primJS
-                       $ WindowEventHandlers.prim__setOnbeforeprint a (toFFI b)
+  onhashchange : WindowEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onhashchange = fromNullablePrim "WindowEventHandlers.getonhashchange"
+                                  prim__onhashchange
+                                  prim__setOnhashchange
   
   export
-  onbeforeunload :  (obj : WindowEventHandlers)
-                 -> JSIO (Maybe OnBeforeUnloadEventHandlerNonNull)
-  onbeforeunload a = tryJS "WindowEventHandlers.onbeforeunload"
-                   $ WindowEventHandlers.prim__onbeforeunload a
+  onlanguagechange : WindowEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onlanguagechange = fromNullablePrim "WindowEventHandlers.getonlanguagechange"
+                                      prim__onlanguagechange
+                                      prim__setOnlanguagechange
   
   export
-  setOnbeforeunload :  (obj : WindowEventHandlers)
-                    -> (value : Maybe OnBeforeUnloadEventHandlerNonNull)
-                    -> JSIO ()
-  setOnbeforeunload a b = primJS
-                        $ WindowEventHandlers.prim__setOnbeforeunload a
-                                                                      (toFFI b)
+  onmessage : WindowEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onmessage = fromNullablePrim "WindowEventHandlers.getonmessage"
+                               prim__onmessage
+                               prim__setOnmessage
   
   export
-  onhashchange : (obj : WindowEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onhashchange a = tryJS "WindowEventHandlers.onhashchange"
-                 $ WindowEventHandlers.prim__onhashchange a
+  onmessageerror : WindowEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onmessageerror = fromNullablePrim "WindowEventHandlers.getonmessageerror"
+                                    prim__onmessageerror
+                                    prim__setOnmessageerror
   
   export
-  setOnhashchange :  (obj : WindowEventHandlers)
-                  -> (value : Maybe EventHandlerNonNull)
-                  -> JSIO ()
-  setOnhashchange a b = primJS
-                      $ WindowEventHandlers.prim__setOnhashchange a (toFFI b)
+  onoffline : WindowEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onoffline = fromNullablePrim "WindowEventHandlers.getonoffline"
+                               prim__onoffline
+                               prim__setOnoffline
   
   export
-  onlanguagechange :  (obj : WindowEventHandlers)
-                   -> JSIO (Maybe EventHandlerNonNull)
-  onlanguagechange a = tryJS "WindowEventHandlers.onlanguagechange"
-                     $ WindowEventHandlers.prim__onlanguagechange a
+  ononline : WindowEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  ononline = fromNullablePrim "WindowEventHandlers.getononline"
+                              prim__ononline
+                              prim__setOnonline
   
   export
-  setOnlanguagechange :  (obj : WindowEventHandlers)
-                      -> (value : Maybe EventHandlerNonNull)
-                      -> JSIO ()
-  setOnlanguagechange a b = primJS
-                          $ WindowEventHandlers.prim__setOnlanguagechange a
-                                                                          (toFFI b)
+  onpagehide : WindowEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onpagehide = fromNullablePrim "WindowEventHandlers.getonpagehide"
+                                prim__onpagehide
+                                prim__setOnpagehide
   
   export
-  onmessage : (obj : WindowEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onmessage a = tryJS "WindowEventHandlers.onmessage"
-              $ WindowEventHandlers.prim__onmessage a
+  onpageshow : WindowEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onpageshow = fromNullablePrim "WindowEventHandlers.getonpageshow"
+                                prim__onpageshow
+                                prim__setOnpageshow
   
   export
-  setOnmessage :  (obj : WindowEventHandlers)
-               -> (value : Maybe EventHandlerNonNull)
-               -> JSIO ()
-  setOnmessage a b = primJS $ WindowEventHandlers.prim__setOnmessage a (toFFI b)
+  onpopstate : WindowEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onpopstate = fromNullablePrim "WindowEventHandlers.getonpopstate"
+                                prim__onpopstate
+                                prim__setOnpopstate
   
   export
-  onmessageerror :  (obj : WindowEventHandlers)
-                 -> JSIO (Maybe EventHandlerNonNull)
-  onmessageerror a = tryJS "WindowEventHandlers.onmessageerror"
-                   $ WindowEventHandlers.prim__onmessageerror a
+  onrejectionhandled : WindowEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onrejectionhandled = fromNullablePrim "WindowEventHandlers.getonrejectionhandled"
+                                        prim__onrejectionhandled
+                                        prim__setOnrejectionhandled
   
   export
-  setOnmessageerror :  (obj : WindowEventHandlers)
-                    -> (value : Maybe EventHandlerNonNull)
-                    -> JSIO ()
-  setOnmessageerror a b = primJS
-                        $ WindowEventHandlers.prim__setOnmessageerror a
-                                                                      (toFFI b)
+  onstorage : WindowEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onstorage = fromNullablePrim "WindowEventHandlers.getonstorage"
+                               prim__onstorage
+                               prim__setOnstorage
   
   export
-  onoffline : (obj : WindowEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onoffline a = tryJS "WindowEventHandlers.onoffline"
-              $ WindowEventHandlers.prim__onoffline a
+  onunhandledrejection : WindowEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onunhandledrejection = fromNullablePrim "WindowEventHandlers.getonunhandledrejection"
+                                          prim__onunhandledrejection
+                                          prim__setOnunhandledrejection
   
   export
-  setOnoffline :  (obj : WindowEventHandlers)
-               -> (value : Maybe EventHandlerNonNull)
-               -> JSIO ()
-  setOnoffline a b = primJS $ WindowEventHandlers.prim__setOnoffline a (toFFI b)
-  
-  export
-  ononline : (obj : WindowEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  ononline a = tryJS "WindowEventHandlers.ononline"
-             $ WindowEventHandlers.prim__ononline a
-  
-  export
-  setOnonline :  (obj : WindowEventHandlers)
-              -> (value : Maybe EventHandlerNonNull)
-              -> JSIO ()
-  setOnonline a b = primJS $ WindowEventHandlers.prim__setOnonline a (toFFI b)
-  
-  export
-  onpagehide : (obj : WindowEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onpagehide a = tryJS "WindowEventHandlers.onpagehide"
-               $ WindowEventHandlers.prim__onpagehide a
-  
-  export
-  setOnpagehide :  (obj : WindowEventHandlers)
-                -> (value : Maybe EventHandlerNonNull)
-                -> JSIO ()
-  setOnpagehide a b = primJS
-                    $ WindowEventHandlers.prim__setOnpagehide a (toFFI b)
-  
-  export
-  onpageshow : (obj : WindowEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onpageshow a = tryJS "WindowEventHandlers.onpageshow"
-               $ WindowEventHandlers.prim__onpageshow a
-  
-  export
-  setOnpageshow :  (obj : WindowEventHandlers)
-                -> (value : Maybe EventHandlerNonNull)
-                -> JSIO ()
-  setOnpageshow a b = primJS
-                    $ WindowEventHandlers.prim__setOnpageshow a (toFFI b)
-  
-  export
-  onpopstate : (obj : WindowEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onpopstate a = tryJS "WindowEventHandlers.onpopstate"
-               $ WindowEventHandlers.prim__onpopstate a
-  
-  export
-  setOnpopstate :  (obj : WindowEventHandlers)
-                -> (value : Maybe EventHandlerNonNull)
-                -> JSIO ()
-  setOnpopstate a b = primJS
-                    $ WindowEventHandlers.prim__setOnpopstate a (toFFI b)
-  
-  export
-  onrejectionhandled :  (obj : WindowEventHandlers)
-                     -> JSIO (Maybe EventHandlerNonNull)
-  onrejectionhandled a = tryJS "WindowEventHandlers.onrejectionhandled"
-                       $ WindowEventHandlers.prim__onrejectionhandled a
-  
-  export
-  setOnrejectionhandled :  (obj : WindowEventHandlers)
-                        -> (value : Maybe EventHandlerNonNull)
-                        -> JSIO ()
-  setOnrejectionhandled a b = primJS
-                            $ WindowEventHandlers.prim__setOnrejectionhandled a
-                                                                              (toFFI b)
-  
-  export
-  onstorage : (obj : WindowEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onstorage a = tryJS "WindowEventHandlers.onstorage"
-              $ WindowEventHandlers.prim__onstorage a
-  
-  export
-  setOnstorage :  (obj : WindowEventHandlers)
-               -> (value : Maybe EventHandlerNonNull)
-               -> JSIO ()
-  setOnstorage a b = primJS $ WindowEventHandlers.prim__setOnstorage a (toFFI b)
-  
-  export
-  onunhandledrejection :  (obj : WindowEventHandlers)
-                       -> JSIO (Maybe EventHandlerNonNull)
-  onunhandledrejection a = tryJS "WindowEventHandlers.onunhandledrejection"
-                         $ WindowEventHandlers.prim__onunhandledrejection a
-  
-  export
-  setOnunhandledrejection :  (obj : WindowEventHandlers)
-                          -> (value : Maybe EventHandlerNonNull)
-                          -> JSIO ()
-  setOnunhandledrejection a b = primJS
-                              $ WindowEventHandlers.prim__setOnunhandledrejection a
-                                                                                  (toFFI b)
-  
-  export
-  onunload : (obj : WindowEventHandlers) -> JSIO (Maybe EventHandlerNonNull)
-  onunload a = tryJS "WindowEventHandlers.onunload"
-             $ WindowEventHandlers.prim__onunload a
-  
-  export
-  setOnunload :  (obj : WindowEventHandlers)
-              -> (value : Maybe EventHandlerNonNull)
-              -> JSIO ()
-  setOnunload a b = primJS $ WindowEventHandlers.prim__setOnunload a (toFFI b)
+  onunload : WindowEventHandlers -> Attribute False Maybe EventHandlerNonNull
+  onunload = fromNullablePrim "WindowEventHandlers.getonunload"
+                              prim__onunload
+                              prim__setOnunload
 
 --------------------------------------------------------------------------------
 --          Dictionaries
@@ -11072,19 +8794,11 @@ namespace AssignedNodesOptions
   new' = primJS $ AssignedNodesOptions.prim__new undef
   
   export
-  flatten : (obj : AssignedNodesOptions) -> JSIO $ Optional Bool
-  flatten a = tryJS "AssignedNodesOptions.flatten"
-            $ AssignedNodesOptions.prim__flatten a
-  
-  export
-  setFlatten :  (obj : AssignedNodesOptions)
-             -> (value : Optional Bool)
-             -> JSIO ()
-  setFlatten a b = primJS $ AssignedNodesOptions.prim__setFlatten a (toFFI b)
-
-  export
-  setFlatten' : (obj : AssignedNodesOptions) -> JSIO ()
-  setFlatten' a = primJS $ AssignedNodesOptions.prim__setFlatten a undef
+  flatten : AssignedNodesOptions -> Attribute True Optional Bool
+  flatten = fromUndefOrPrim "AssignedNodesOptions.getflatten"
+                            prim__flatten
+                            prim__setFlatten
+                            False
 
 namespace CanvasRenderingContext2DSettings
   
@@ -11106,40 +8820,18 @@ namespace CanvasRenderingContext2DSettings
   new' = primJS $ CanvasRenderingContext2DSettings.prim__new undef undef
   
   export
-  alpha : (obj : CanvasRenderingContext2DSettings) -> JSIO $ Optional Bool
-  alpha a = tryJS "CanvasRenderingContext2DSettings.alpha"
-          $ CanvasRenderingContext2DSettings.prim__alpha a
+  alpha : CanvasRenderingContext2DSettings -> Attribute True Optional Bool
+  alpha = fromUndefOrPrim "CanvasRenderingContext2DSettings.getalpha"
+                          prim__alpha
+                          prim__setAlpha
+                          True
   
   export
-  setAlpha :  (obj : CanvasRenderingContext2DSettings)
-           -> (value : Optional Bool)
-           -> JSIO ()
-  setAlpha a b = primJS
-               $ CanvasRenderingContext2DSettings.prim__setAlpha a (toFFI b)
-
-  export
-  setAlpha' : (obj : CanvasRenderingContext2DSettings) -> JSIO ()
-  setAlpha' a = primJS $ CanvasRenderingContext2DSettings.prim__setAlpha a undef
-  
-  export
-  desynchronized :  (obj : CanvasRenderingContext2DSettings)
-                 -> JSIO $ Optional Bool
-  desynchronized a = tryJS "CanvasRenderingContext2DSettings.desynchronized"
-                   $ CanvasRenderingContext2DSettings.prim__desynchronized a
-  
-  export
-  setDesynchronized :  (obj : CanvasRenderingContext2DSettings)
-                    -> (value : Optional Bool)
-                    -> JSIO ()
-  setDesynchronized a b = primJS
-                        $ CanvasRenderingContext2DSettings.prim__setDesynchronized a
-                                                                                   (toFFI b)
-
-  export
-  setDesynchronized' : (obj : CanvasRenderingContext2DSettings) -> JSIO ()
-  setDesynchronized' a = primJS
-                       $ CanvasRenderingContext2DSettings.prim__setDesynchronized a
-                                                                                  undef
+  desynchronized : CanvasRenderingContext2DSettings -> Attribute True Optional Bool
+  desynchronized = fromUndefOrPrim "CanvasRenderingContext2DSettings.getdesynchronized"
+                                   prim__desynchronized
+                                   prim__setDesynchronized
+                                   False
 
 namespace CloseEventInit
   
@@ -11161,40 +8853,22 @@ namespace CloseEventInit
   new' = primJS $ CloseEventInit.prim__new undef undef undef
   
   export
-  code : (obj : CloseEventInit) -> JSIO $ Optional UInt16
-  code a = tryJS "CloseEventInit.code" $ CloseEventInit.prim__code a
+  code : CloseEventInit -> Attribute True Optional UInt16
+  code = fromUndefOrPrim "CloseEventInit.getcode" prim__code prim__setCode 0
   
   export
-  setCode : (obj : CloseEventInit) -> (value : Optional UInt16) -> JSIO ()
-  setCode a b = primJS $ CloseEventInit.prim__setCode a (toFFI b)
-
-  export
-  setCode' : (obj : CloseEventInit) -> JSIO ()
-  setCode' a = primJS $ CloseEventInit.prim__setCode a undef
+  reason : CloseEventInit -> Attribute True Optional String
+  reason = fromUndefOrPrim "CloseEventInit.getreason"
+                           prim__reason
+                           prim__setReason
+                           ""
   
   export
-  reason : (obj : CloseEventInit) -> JSIO $ Optional String
-  reason a = tryJS "CloseEventInit.reason" $ CloseEventInit.prim__reason a
-  
-  export
-  setReason : (obj : CloseEventInit) -> (value : Optional String) -> JSIO ()
-  setReason a b = primJS $ CloseEventInit.prim__setReason a (toFFI b)
-
-  export
-  setReason' : (obj : CloseEventInit) -> JSIO ()
-  setReason' a = primJS $ CloseEventInit.prim__setReason a undef
-  
-  export
-  wasClean : (obj : CloseEventInit) -> JSIO $ Optional Bool
-  wasClean a = tryJS "CloseEventInit.wasClean" $ CloseEventInit.prim__wasClean a
-  
-  export
-  setWasClean : (obj : CloseEventInit) -> (value : Optional Bool) -> JSIO ()
-  setWasClean a b = primJS $ CloseEventInit.prim__setWasClean a (toFFI b)
-
-  export
-  setWasClean' : (obj : CloseEventInit) -> JSIO ()
-  setWasClean' a = primJS $ CloseEventInit.prim__setWasClean a undef
+  wasClean : CloseEventInit -> Attribute True Optional Bool
+  wasClean = fromUndefOrPrim "CloseEventInit.getwasClean"
+                             prim__wasClean
+                             prim__setWasClean
+                             False
 
 namespace DragEventInit
   
@@ -11218,19 +8892,11 @@ namespace DragEventInit
   new' = primJS $ DragEventInit.prim__new undef
   
   export
-  dataTransfer : (obj : DragEventInit) -> JSIO $ Optional (Maybe DataTransfer)
-  dataTransfer a = tryJS "DragEventInit.dataTransfer"
-                 $ DragEventInit.prim__dataTransfer a
-  
-  export
-  setDataTransfer :  (obj : DragEventInit)
-                  -> (value : Optional (Maybe DataTransfer))
-                  -> JSIO ()
-  setDataTransfer a b = primJS $ DragEventInit.prim__setDataTransfer a (toFFI b)
-
-  export
-  setDataTransfer' : (obj : DragEventInit) -> JSIO ()
-  setDataTransfer' a = primJS $ DragEventInit.prim__setDataTransfer a undef
+  dataTransfer : DragEventInit -> Attribute True Optional (Maybe DataTransfer)
+  dataTransfer = fromUndefOrPrim "DragEventInit.getdataTransfer"
+                                 prim__dataTransfer
+                                 prim__setDataTransfer
+                                 Nothing
 
 namespace ElementDefinitionOptions
   
@@ -11249,20 +8915,10 @@ namespace ElementDefinitionOptions
   new' = primJS $ ElementDefinitionOptions.prim__new undef
   
   export
-  extends : (obj : ElementDefinitionOptions) -> JSIO $ Optional String
-  extends a = tryJS "ElementDefinitionOptions.extends"
-            $ ElementDefinitionOptions.prim__extends a
-  
-  export
-  setExtends :  (obj : ElementDefinitionOptions)
-             -> (value : Optional String)
-             -> JSIO ()
-  setExtends a b = primJS
-                 $ ElementDefinitionOptions.prim__setExtends a (toFFI b)
-
-  export
-  setExtends' : (obj : ElementDefinitionOptions) -> JSIO ()
-  setExtends' a = primJS $ ElementDefinitionOptions.prim__setExtends a undef
+  extends : ElementDefinitionOptions -> Attribute False Optional String
+  extends = fromUndefOrPrimNoDefault "ElementDefinitionOptions.getextends"
+                                     prim__extends
+                                     prim__setExtends
 
 namespace ErrorEventInit
   
@@ -11277,7 +8933,7 @@ namespace ErrorEventInit
       -> (filename : Optional String)
       -> (lineno : Optional UInt32)
       -> (colno : Optional UInt32)
-      -> (error : Optional AnyPtr)
+      -> (error : Optional Any)
       -> JSIO ErrorEventInit
   new a b c d e = primJS
                 $ ErrorEventInit.prim__new (toFFI a)
@@ -11291,64 +8947,36 @@ namespace ErrorEventInit
   new' = primJS $ ErrorEventInit.prim__new undef undef undef undef undef
   
   export
-  colno : (obj : ErrorEventInit) -> JSIO $ Optional UInt32
-  colno a = tryJS "ErrorEventInit.colno" $ ErrorEventInit.prim__colno a
+  colno : ErrorEventInit -> Attribute True Optional UInt32
+  colno = fromUndefOrPrim "ErrorEventInit.getcolno" prim__colno prim__setColno 0
   
   export
-  setColno : (obj : ErrorEventInit) -> (value : Optional UInt32) -> JSIO ()
-  setColno a b = primJS $ ErrorEventInit.prim__setColno a (toFFI b)
-
-  export
-  setColno' : (obj : ErrorEventInit) -> JSIO ()
-  setColno' a = primJS $ ErrorEventInit.prim__setColno a undef
+  error : ErrorEventInit -> Attribute True Optional Any
+  error = fromUndefOrPrim "ErrorEventInit.geterror"
+                          prim__error
+                          prim__setError
+                          (MkAny $ null {a = ()})
   
   export
-  error : (obj : ErrorEventInit) -> JSIO $ Optional AnyPtr
-  error a = tryJS "ErrorEventInit.error" $ ErrorEventInit.prim__error a
+  filename : ErrorEventInit -> Attribute True Optional String
+  filename = fromUndefOrPrim "ErrorEventInit.getfilename"
+                             prim__filename
+                             prim__setFilename
+                             ""
   
   export
-  setError : (obj : ErrorEventInit) -> (value : Optional AnyPtr) -> JSIO ()
-  setError a b = primJS $ ErrorEventInit.prim__setError a (toFFI b)
-
-  export
-  setError' : (obj : ErrorEventInit) -> JSIO ()
-  setError' a = primJS $ ErrorEventInit.prim__setError a undef
+  lineno : ErrorEventInit -> Attribute True Optional UInt32
+  lineno = fromUndefOrPrim "ErrorEventInit.getlineno"
+                           prim__lineno
+                           prim__setLineno
+                           0
   
   export
-  filename : (obj : ErrorEventInit) -> JSIO $ Optional String
-  filename a = tryJS "ErrorEventInit.filename" $ ErrorEventInit.prim__filename a
-  
-  export
-  setFilename : (obj : ErrorEventInit) -> (value : Optional String) -> JSIO ()
-  setFilename a b = primJS $ ErrorEventInit.prim__setFilename a (toFFI b)
-
-  export
-  setFilename' : (obj : ErrorEventInit) -> JSIO ()
-  setFilename' a = primJS $ ErrorEventInit.prim__setFilename a undef
-  
-  export
-  lineno : (obj : ErrorEventInit) -> JSIO $ Optional UInt32
-  lineno a = tryJS "ErrorEventInit.lineno" $ ErrorEventInit.prim__lineno a
-  
-  export
-  setLineno : (obj : ErrorEventInit) -> (value : Optional UInt32) -> JSIO ()
-  setLineno a b = primJS $ ErrorEventInit.prim__setLineno a (toFFI b)
-
-  export
-  setLineno' : (obj : ErrorEventInit) -> JSIO ()
-  setLineno' a = primJS $ ErrorEventInit.prim__setLineno a undef
-  
-  export
-  message : (obj : ErrorEventInit) -> JSIO $ Optional String
-  message a = tryJS "ErrorEventInit.message" $ ErrorEventInit.prim__message a
-  
-  export
-  setMessage : (obj : ErrorEventInit) -> (value : Optional String) -> JSIO ()
-  setMessage a b = primJS $ ErrorEventInit.prim__setMessage a (toFFI b)
-
-  export
-  setMessage' : (obj : ErrorEventInit) -> JSIO ()
-  setMessage' a = primJS $ ErrorEventInit.prim__setMessage a undef
+  message : ErrorEventInit -> Attribute True Optional String
+  message = fromUndefOrPrim "ErrorEventInit.getmessage"
+                            prim__message
+                            prim__setMessage
+                            ""
 
 namespace EventSourceInit
   
@@ -11367,21 +8995,11 @@ namespace EventSourceInit
   new' = primJS $ EventSourceInit.prim__new undef
   
   export
-  withCredentials : (obj : EventSourceInit) -> JSIO $ Optional Bool
-  withCredentials a = tryJS "EventSourceInit.withCredentials"
-                    $ EventSourceInit.prim__withCredentials a
-  
-  export
-  setWithCredentials :  (obj : EventSourceInit)
-                     -> (value : Optional Bool)
-                     -> JSIO ()
-  setWithCredentials a b = primJS
-                         $ EventSourceInit.prim__setWithCredentials a (toFFI b)
-
-  export
-  setWithCredentials' : (obj : EventSourceInit) -> JSIO ()
-  setWithCredentials' a = primJS
-                        $ EventSourceInit.prim__setWithCredentials a undef
+  withCredentials : EventSourceInit -> Attribute True Optional Bool
+  withCredentials = fromUndefOrPrim "EventSourceInit.getwithCredentials"
+                                    prim__withCredentials
+                                    prim__setWithCredentials
+                                    False
 
 namespace FocusOptions
   
@@ -11400,18 +9018,11 @@ namespace FocusOptions
   new' = primJS $ FocusOptions.prim__new undef
   
   export
-  preventScroll : (obj : FocusOptions) -> JSIO $ Optional Bool
-  preventScroll a = tryJS "FocusOptions.preventScroll"
-                  $ FocusOptions.prim__preventScroll a
-  
-  export
-  setPreventScroll : (obj : FocusOptions) -> (value : Optional Bool) -> JSIO ()
-  setPreventScroll a b = primJS
-                       $ FocusOptions.prim__setPreventScroll a (toFFI b)
-
-  export
-  setPreventScroll' : (obj : FocusOptions) -> JSIO ()
-  setPreventScroll' a = primJS $ FocusOptions.prim__setPreventScroll a undef
+  preventScroll : FocusOptions -> Attribute True Optional Bool
+  preventScroll = fromUndefOrPrim "FocusOptions.getpreventScroll"
+                                  prim__preventScroll
+                                  prim__setPreventScroll
+                                  False
 
 namespace FormDataEventInit
   
@@ -11426,12 +9037,10 @@ namespace FormDataEventInit
   new a = primJS $ FormDataEventInit.prim__new a
   
   export
-  formData : (obj : FormDataEventInit) -> JSIO FormData
-  formData a = primJS $ FormDataEventInit.prim__formData a
-  
-  export
-  setFormData : (obj : FormDataEventInit) -> (value : FormData) -> JSIO ()
-  setFormData a b = primJS $ FormDataEventInit.prim__setFormData a b
+  formData : FormDataEventInit -> Attribute True I FormData
+  formData = fromPrim "FormDataEventInit.getformData"
+                      prim__formData
+                      prim__setFormData
 
 namespace HashChangeEventInit
   
@@ -11452,34 +9061,18 @@ namespace HashChangeEventInit
   new' = primJS $ HashChangeEventInit.prim__new undef undef
   
   export
-  newURL : (obj : HashChangeEventInit) -> JSIO $ Optional String
-  newURL a = tryJS "HashChangeEventInit.newURL"
-           $ HashChangeEventInit.prim__newURL a
+  newURL : HashChangeEventInit -> Attribute True Optional String
+  newURL = fromUndefOrPrim "HashChangeEventInit.getnewURL"
+                           prim__newURL
+                           prim__setNewURL
+                           ""
   
   export
-  setNewURL :  (obj : HashChangeEventInit)
-            -> (value : Optional String)
-            -> JSIO ()
-  setNewURL a b = primJS $ HashChangeEventInit.prim__setNewURL a (toFFI b)
-
-  export
-  setNewURL' : (obj : HashChangeEventInit) -> JSIO ()
-  setNewURL' a = primJS $ HashChangeEventInit.prim__setNewURL a undef
-  
-  export
-  oldURL : (obj : HashChangeEventInit) -> JSIO $ Optional String
-  oldURL a = tryJS "HashChangeEventInit.oldURL"
-           $ HashChangeEventInit.prim__oldURL a
-  
-  export
-  setOldURL :  (obj : HashChangeEventInit)
-            -> (value : Optional String)
-            -> JSIO ()
-  setOldURL a b = primJS $ HashChangeEventInit.prim__setOldURL a (toFFI b)
-
-  export
-  setOldURL' : (obj : HashChangeEventInit) -> JSIO ()
-  setOldURL' a = primJS $ HashChangeEventInit.prim__setOldURL a undef
+  oldURL : HashChangeEventInit -> Attribute True Optional String
+  oldURL = fromUndefOrPrim "HashChangeEventInit.getoldURL"
+                           prim__oldURL
+                           prim__setOldURL
+                           ""
 
 namespace ImageBitmapOptions
   
@@ -11511,111 +9104,40 @@ namespace ImageBitmapOptions
        $ ImageBitmapOptions.prim__new undef undef undef undef undef undef
   
   export
-  colorSpaceConversion :  (obj : ImageBitmapOptions)
-                       -> JSIO $ Optional ColorSpaceConversion
-  colorSpaceConversion a = tryJS "ImageBitmapOptions.colorSpaceConversion"
-                         $ ImageBitmapOptions.prim__colorSpaceConversion a
+  colorSpaceConversion : ImageBitmapOptions -> Attribute False Optional ColorSpaceConversion
+  colorSpaceConversion = fromUndefOrPrimNoDefault "ImageBitmapOptions.getcolorSpaceConversion"
+                                                  prim__colorSpaceConversion
+                                                  prim__setColorSpaceConversion
   
   export
-  setColorSpaceConversion :  (obj : ImageBitmapOptions)
-                          -> (value : Optional ColorSpaceConversion)
-                          -> JSIO ()
-  setColorSpaceConversion a b = primJS
-                              $ ImageBitmapOptions.prim__setColorSpaceConversion a
-                                                                                 (toFFI b)
-
-  export
-  setColorSpaceConversion' : (obj : ImageBitmapOptions) -> JSIO ()
-  setColorSpaceConversion' a = primJS
-                             $ ImageBitmapOptions.prim__setColorSpaceConversion a
-                                                                                undef
+  imageOrientation : ImageBitmapOptions -> Attribute False Optional ImageOrientation
+  imageOrientation = fromUndefOrPrimNoDefault "ImageBitmapOptions.getimageOrientation"
+                                              prim__imageOrientation
+                                              prim__setImageOrientation
   
   export
-  imageOrientation :  (obj : ImageBitmapOptions)
-                   -> JSIO $ Optional ImageOrientation
-  imageOrientation a = tryJS "ImageBitmapOptions.imageOrientation"
-                     $ ImageBitmapOptions.prim__imageOrientation a
+  premultiplyAlpha : ImageBitmapOptions -> Attribute False Optional PremultiplyAlpha
+  premultiplyAlpha = fromUndefOrPrimNoDefault "ImageBitmapOptions.getpremultiplyAlpha"
+                                              prim__premultiplyAlpha
+                                              prim__setPremultiplyAlpha
   
   export
-  setImageOrientation :  (obj : ImageBitmapOptions)
-                      -> (value : Optional ImageOrientation)
-                      -> JSIO ()
-  setImageOrientation a b = primJS
-                          $ ImageBitmapOptions.prim__setImageOrientation a
-                                                                         (toFFI b)
-
-  export
-  setImageOrientation' : (obj : ImageBitmapOptions) -> JSIO ()
-  setImageOrientation' a = primJS
-                         $ ImageBitmapOptions.prim__setImageOrientation a undef
+  resizeHeight : ImageBitmapOptions -> Attribute False Optional UInt32
+  resizeHeight = fromUndefOrPrimNoDefault "ImageBitmapOptions.getresizeHeight"
+                                          prim__resizeHeight
+                                          prim__setResizeHeight
   
   export
-  premultiplyAlpha :  (obj : ImageBitmapOptions)
-                   -> JSIO $ Optional PremultiplyAlpha
-  premultiplyAlpha a = tryJS "ImageBitmapOptions.premultiplyAlpha"
-                     $ ImageBitmapOptions.prim__premultiplyAlpha a
+  resizeQuality : ImageBitmapOptions -> Attribute False Optional ResizeQuality
+  resizeQuality = fromUndefOrPrimNoDefault "ImageBitmapOptions.getresizeQuality"
+                                           prim__resizeQuality
+                                           prim__setResizeQuality
   
   export
-  setPremultiplyAlpha :  (obj : ImageBitmapOptions)
-                      -> (value : Optional PremultiplyAlpha)
-                      -> JSIO ()
-  setPremultiplyAlpha a b = primJS
-                          $ ImageBitmapOptions.prim__setPremultiplyAlpha a
-                                                                         (toFFI b)
-
-  export
-  setPremultiplyAlpha' : (obj : ImageBitmapOptions) -> JSIO ()
-  setPremultiplyAlpha' a = primJS
-                         $ ImageBitmapOptions.prim__setPremultiplyAlpha a undef
-  
-  export
-  resizeHeight : (obj : ImageBitmapOptions) -> JSIO $ Optional UInt32
-  resizeHeight a = tryJS "ImageBitmapOptions.resizeHeight"
-                 $ ImageBitmapOptions.prim__resizeHeight a
-  
-  export
-  setResizeHeight :  (obj : ImageBitmapOptions)
-                  -> (value : Optional UInt32)
-                  -> JSIO ()
-  setResizeHeight a b = primJS
-                      $ ImageBitmapOptions.prim__setResizeHeight a (toFFI b)
-
-  export
-  setResizeHeight' : (obj : ImageBitmapOptions) -> JSIO ()
-  setResizeHeight' a = primJS $ ImageBitmapOptions.prim__setResizeHeight a undef
-  
-  export
-  resizeQuality : (obj : ImageBitmapOptions) -> JSIO $ Optional ResizeQuality
-  resizeQuality a = tryJS "ImageBitmapOptions.resizeQuality"
-                  $ ImageBitmapOptions.prim__resizeQuality a
-  
-  export
-  setResizeQuality :  (obj : ImageBitmapOptions)
-                   -> (value : Optional ResizeQuality)
-                   -> JSIO ()
-  setResizeQuality a b = primJS
-                       $ ImageBitmapOptions.prim__setResizeQuality a (toFFI b)
-
-  export
-  setResizeQuality' : (obj : ImageBitmapOptions) -> JSIO ()
-  setResizeQuality' a = primJS
-                      $ ImageBitmapOptions.prim__setResizeQuality a undef
-  
-  export
-  resizeWidth : (obj : ImageBitmapOptions) -> JSIO $ Optional UInt32
-  resizeWidth a = tryJS "ImageBitmapOptions.resizeWidth"
-                $ ImageBitmapOptions.prim__resizeWidth a
-  
-  export
-  setResizeWidth :  (obj : ImageBitmapOptions)
-                 -> (value : Optional UInt32)
-                 -> JSIO ()
-  setResizeWidth a b = primJS
-                     $ ImageBitmapOptions.prim__setResizeWidth a (toFFI b)
-
-  export
-  setResizeWidth' : (obj : ImageBitmapOptions) -> JSIO ()
-  setResizeWidth' a = primJS $ ImageBitmapOptions.prim__setResizeWidth a undef
+  resizeWidth : ImageBitmapOptions -> Attribute False Optional UInt32
+  resizeWidth = fromUndefOrPrimNoDefault "ImageBitmapOptions.getresizeWidth"
+                                         prim__resizeWidth
+                                         prim__setResizeWidth
 
 namespace ImageBitmapRenderingContextSettings
   
@@ -11634,21 +9156,11 @@ namespace ImageBitmapRenderingContextSettings
   new' = primJS $ ImageBitmapRenderingContextSettings.prim__new undef
   
   export
-  alpha : (obj : ImageBitmapRenderingContextSettings) -> JSIO $ Optional Bool
-  alpha a = tryJS "ImageBitmapRenderingContextSettings.alpha"
-          $ ImageBitmapRenderingContextSettings.prim__alpha a
-  
-  export
-  setAlpha :  (obj : ImageBitmapRenderingContextSettings)
-           -> (value : Optional Bool)
-           -> JSIO ()
-  setAlpha a b = primJS
-               $ ImageBitmapRenderingContextSettings.prim__setAlpha a (toFFI b)
-
-  export
-  setAlpha' : (obj : ImageBitmapRenderingContextSettings) -> JSIO ()
-  setAlpha' a = primJS
-              $ ImageBitmapRenderingContextSettings.prim__setAlpha a undef
+  alpha : ImageBitmapRenderingContextSettings -> Attribute True Optional Bool
+  alpha = fromUndefOrPrim "ImageBitmapRenderingContextSettings.getalpha"
+                          prim__alpha
+                          prim__setAlpha
+                          True
 
 namespace ImageEncodeOptions
   
@@ -11669,31 +9181,17 @@ namespace ImageEncodeOptions
   new' = primJS $ ImageEncodeOptions.prim__new undef undef
   
   export
-  quality : (obj : ImageEncodeOptions) -> JSIO $ Optional Double
-  quality a = tryJS "ImageEncodeOptions.quality"
-            $ ImageEncodeOptions.prim__quality a
+  quality : ImageEncodeOptions -> Attribute False Optional Double
+  quality = fromUndefOrPrimNoDefault "ImageEncodeOptions.getquality"
+                                     prim__quality
+                                     prim__setQuality
   
   export
-  setQuality :  (obj : ImageEncodeOptions)
-             -> (value : Optional Double)
-             -> JSIO ()
-  setQuality a b = primJS $ ImageEncodeOptions.prim__setQuality a (toFFI b)
-
-  export
-  setQuality' : (obj : ImageEncodeOptions) -> JSIO ()
-  setQuality' a = primJS $ ImageEncodeOptions.prim__setQuality a undef
-  
-  export
-  type : (obj : ImageEncodeOptions) -> JSIO $ Optional String
-  type a = tryJS "ImageEncodeOptions.type" $ ImageEncodeOptions.prim__type a
-  
-  export
-  setType : (obj : ImageEncodeOptions) -> (value : Optional String) -> JSIO ()
-  setType a b = primJS $ ImageEncodeOptions.prim__setType a (toFFI b)
-
-  export
-  setType' : (obj : ImageEncodeOptions) -> JSIO ()
-  setType' a = primJS $ ImageEncodeOptions.prim__setType a undef
+  type : ImageEncodeOptions -> Attribute True Optional String
+  type = fromUndefOrPrim "ImageEncodeOptions.gettype"
+                         prim__type
+                         prim__setType
+                         "image/png"
 
 namespace MessageEventInit
   
@@ -11704,7 +9202,7 @@ namespace MessageEventInit
     mixins =  []
   
   export
-  new :  (data_ : Optional AnyPtr)
+  new :  (data_ : Optional Any)
       -> (origin : Optional String)
       -> (lastEventId : Optional String)
       -> (source : Optional (Maybe (NS I [ WindowProxy
@@ -11725,78 +9223,40 @@ namespace MessageEventInit
   new' = primJS $ MessageEventInit.prim__new undef undef undef undef undef
   
   export
-  data_ : (obj : MessageEventInit) -> JSIO $ Optional AnyPtr
-  data_ a = tryJS "MessageEventInit.data_" $ MessageEventInit.prim__data a
+  data_ : MessageEventInit -> Attribute True Optional Any
+  data_ = fromUndefOrPrim "MessageEventInit.getdata"
+                          prim__data
+                          prim__setData
+                          (MkAny $ null {a = ()})
   
   export
-  setData : (obj : MessageEventInit) -> (value : Optional AnyPtr) -> JSIO ()
-  setData a b = primJS $ MessageEventInit.prim__setData a (toFFI b)
-
-  export
-  setData' : (obj : MessageEventInit) -> JSIO ()
-  setData' a = primJS $ MessageEventInit.prim__setData a undef
+  lastEventId : MessageEventInit -> Attribute True Optional String
+  lastEventId = fromUndefOrPrim "MessageEventInit.getlastEventId"
+                                prim__lastEventId
+                                prim__setLastEventId
+                                ""
   
   export
-  lastEventId : (obj : MessageEventInit) -> JSIO $ Optional String
-  lastEventId a = tryJS "MessageEventInit.lastEventId"
-                $ MessageEventInit.prim__lastEventId a
+  origin : MessageEventInit -> Attribute True Optional String
+  origin = fromUndefOrPrim "MessageEventInit.getorigin"
+                           prim__origin
+                           prim__setOrigin
+                           ""
   
   export
-  setLastEventId :  (obj : MessageEventInit)
-                 -> (value : Optional String)
-                 -> JSIO ()
-  setLastEventId a b = primJS
-                     $ MessageEventInit.prim__setLastEventId a (toFFI b)
-
-  export
-  setLastEventId' : (obj : MessageEventInit) -> JSIO ()
-  setLastEventId' a = primJS $ MessageEventInit.prim__setLastEventId a undef
+  ports : MessageEventInit -> Attribute False Optional (Array MessagePort)
+  ports = fromUndefOrPrimNoDefault "MessageEventInit.getports"
+                                   prim__ports
+                                   prim__setPorts
   
   export
-  origin : (obj : MessageEventInit) -> JSIO $ Optional String
-  origin a = tryJS "MessageEventInit.origin" $ MessageEventInit.prim__origin a
-  
-  export
-  setOrigin : (obj : MessageEventInit) -> (value : Optional String) -> JSIO ()
-  setOrigin a b = primJS $ MessageEventInit.prim__setOrigin a (toFFI b)
-
-  export
-  setOrigin' : (obj : MessageEventInit) -> JSIO ()
-  setOrigin' a = primJS $ MessageEventInit.prim__setOrigin a undef
-  
-  export
-  ports : (obj : MessageEventInit) -> JSIO $ Optional (Array MessagePort)
-  ports a = tryJS "MessageEventInit.ports" $ MessageEventInit.prim__ports a
-  
-  export
-  setPorts :  (obj : MessageEventInit)
-           -> (value : Optional (Array MessagePort))
-           -> JSIO ()
-  setPorts a b = primJS $ MessageEventInit.prim__setPorts a (toFFI b)
-
-  export
-  setPorts' : (obj : MessageEventInit) -> JSIO ()
-  setPorts' a = primJS $ MessageEventInit.prim__setPorts a undef
-  
-  export
-  source :  (obj : MessageEventInit)
-         -> JSIO $ Optional (Maybe (Union3 WindowProxy
-                                           MessagePort
-                                           ServiceWorker))
-  source a = tryJS "MessageEventInit.source" $ MessageEventInit.prim__source a
-  
-  export
-  setSource :  (obj : MessageEventInit)
-            -> (value : Optional (Maybe (NS I [ WindowProxy
-                                              , MessagePort
-                                              , ServiceWorker
-                                              ])))
-            -> JSIO ()
-  setSource a b = primJS $ MessageEventInit.prim__setSource a (toFFI b)
-
-  export
-  setSource' : (obj : MessageEventInit) -> JSIO ()
-  setSource' a = primJS $ MessageEventInit.prim__setSource a undef
+  source : MessageEventInit -> Attribute True Optional (Maybe (Union3 WindowProxy
+                                                                      MessagePort
+                                                                      ServiceWorker))
+  source = fromUndefOrPrim "MessageEventInit.getsource"
+                           prim__source
+                           prim__setSource
+                           Nothing
 
 namespace PageTransitionEventInit
   
@@ -11815,20 +9275,11 @@ namespace PageTransitionEventInit
   new' = primJS $ PageTransitionEventInit.prim__new undef
   
   export
-  persisted : (obj : PageTransitionEventInit) -> JSIO $ Optional Bool
-  persisted a = tryJS "PageTransitionEventInit.persisted"
-              $ PageTransitionEventInit.prim__persisted a
-  
-  export
-  setPersisted :  (obj : PageTransitionEventInit)
-               -> (value : Optional Bool)
-               -> JSIO ()
-  setPersisted a b = primJS
-                   $ PageTransitionEventInit.prim__setPersisted a (toFFI b)
-
-  export
-  setPersisted' : (obj : PageTransitionEventInit) -> JSIO ()
-  setPersisted' a = primJS $ PageTransitionEventInit.prim__setPersisted a undef
+  persisted : PageTransitionEventInit -> Attribute True Optional Bool
+  persisted = fromUndefOrPrim "PageTransitionEventInit.getpersisted"
+                              prim__persisted
+                              prim__setPersisted
+                              False
 
 namespace PopStateEventInit
   
@@ -11839,7 +9290,7 @@ namespace PopStateEventInit
     mixins =  []
   
   export
-  new : (state : Optional AnyPtr) -> JSIO PopStateEventInit
+  new : (state : Optional Any) -> JSIO PopStateEventInit
   new a = primJS $ PopStateEventInit.prim__new (toFFI a)
 
   export
@@ -11847,16 +9298,11 @@ namespace PopStateEventInit
   new' = primJS $ PopStateEventInit.prim__new undef
   
   export
-  state : (obj : PopStateEventInit) -> JSIO $ Optional AnyPtr
-  state a = tryJS "PopStateEventInit.state" $ PopStateEventInit.prim__state a
-  
-  export
-  setState : (obj : PopStateEventInit) -> (value : Optional AnyPtr) -> JSIO ()
-  setState a b = primJS $ PopStateEventInit.prim__setState a (toFFI b)
-
-  export
-  setState' : (obj : PopStateEventInit) -> JSIO ()
-  setState' a = primJS $ PopStateEventInit.prim__setState a undef
+  state : PopStateEventInit -> Attribute True Optional Any
+  state = fromUndefOrPrim "PopStateEventInit.getstate"
+                          prim__state
+                          prim__setState
+                          (MkAny $ null {a = ()})
 
 namespace PostMessageOptions
   
@@ -11875,19 +9321,10 @@ namespace PostMessageOptions
   new' = primJS $ PostMessageOptions.prim__new undef
   
   export
-  transfer : (obj : PostMessageOptions) -> JSIO $ Optional (Array Object)
-  transfer a = tryJS "PostMessageOptions.transfer"
-             $ PostMessageOptions.prim__transfer a
-  
-  export
-  setTransfer :  (obj : PostMessageOptions)
-              -> (value : Optional (Array Object))
-              -> JSIO ()
-  setTransfer a b = primJS $ PostMessageOptions.prim__setTransfer a (toFFI b)
-
-  export
-  setTransfer' : (obj : PostMessageOptions) -> JSIO ()
-  setTransfer' a = primJS $ PostMessageOptions.prim__setTransfer a undef
+  transfer : PostMessageOptions -> Attribute False Optional (Array Object)
+  transfer = fromUndefOrPrimNoDefault "PostMessageOptions.gettransfer"
+                                      prim__transfer
+                                      prim__setTransfer
 
 namespace PromiseRejectionEventInit
   
@@ -11899,7 +9336,7 @@ namespace PromiseRejectionEventInit
   
   export
   new :  (promise : Promise AnyPtr)
-      -> (reason : Optional AnyPtr)
+      -> (reason : Optional Any)
       -> JSIO PromiseRejectionEventInit
   new a b = primJS $ PromiseRejectionEventInit.prim__new a (toFFI b)
 
@@ -11908,29 +9345,16 @@ namespace PromiseRejectionEventInit
   new' a = primJS $ PromiseRejectionEventInit.prim__new a undef
   
   export
-  promise : (obj : PromiseRejectionEventInit) -> JSIO (Promise AnyPtr)
-  promise a = primJS $ PromiseRejectionEventInit.prim__promise a
+  promise : PromiseRejectionEventInit -> Attribute True I (Promise AnyPtr)
+  promise = fromPrim "PromiseRejectionEventInit.getpromise"
+                     prim__promise
+                     prim__setPromise
   
   export
-  setPromise :  (obj : PromiseRejectionEventInit)
-             -> (value : Promise AnyPtr)
-             -> JSIO ()
-  setPromise a b = primJS $ PromiseRejectionEventInit.prim__setPromise a b
-  
-  export
-  reason : (obj : PromiseRejectionEventInit) -> JSIO $ Optional AnyPtr
-  reason a = tryJS "PromiseRejectionEventInit.reason"
-           $ PromiseRejectionEventInit.prim__reason a
-  
-  export
-  setReason :  (obj : PromiseRejectionEventInit)
-            -> (value : Optional AnyPtr)
-            -> JSIO ()
-  setReason a b = primJS $ PromiseRejectionEventInit.prim__setReason a (toFFI b)
-
-  export
-  setReason' : (obj : PromiseRejectionEventInit) -> JSIO ()
-  setReason' a = primJS $ PromiseRejectionEventInit.prim__setReason a undef
+  reason : PromiseRejectionEventInit -> Attribute False Optional Any
+  reason = fromUndefOrPrimNoDefault "PromiseRejectionEventInit.getreason"
+                                    prim__reason
+                                    prim__setReason
 
 namespace StorageEventInit
   
@@ -11959,76 +9383,33 @@ namespace StorageEventInit
   new' = primJS $ StorageEventInit.prim__new undef undef undef undef undef
   
   export
-  key : (obj : StorageEventInit) -> JSIO $ Optional (Maybe String)
-  key a = tryJS "StorageEventInit.key" $ StorageEventInit.prim__key a
+  key : StorageEventInit -> Attribute True Optional (Maybe String)
+  key = fromUndefOrPrim "StorageEventInit.getkey" prim__key prim__setKey Nothing
   
   export
-  setKey :  (obj : StorageEventInit)
-         -> (value : Optional (Maybe String))
-         -> JSIO ()
-  setKey a b = primJS $ StorageEventInit.prim__setKey a (toFFI b)
-
-  export
-  setKey' : (obj : StorageEventInit) -> JSIO ()
-  setKey' a = primJS $ StorageEventInit.prim__setKey a undef
+  newValue : StorageEventInit -> Attribute True Optional (Maybe String)
+  newValue = fromUndefOrPrim "StorageEventInit.getnewValue"
+                             prim__newValue
+                             prim__setNewValue
+                             Nothing
   
   export
-  newValue : (obj : StorageEventInit) -> JSIO $ Optional (Maybe String)
-  newValue a = tryJS "StorageEventInit.newValue"
-             $ StorageEventInit.prim__newValue a
+  oldValue : StorageEventInit -> Attribute True Optional (Maybe String)
+  oldValue = fromUndefOrPrim "StorageEventInit.getoldValue"
+                             prim__oldValue
+                             prim__setOldValue
+                             Nothing
   
   export
-  setNewValue :  (obj : StorageEventInit)
-              -> (value : Optional (Maybe String))
-              -> JSIO ()
-  setNewValue a b = primJS $ StorageEventInit.prim__setNewValue a (toFFI b)
-
-  export
-  setNewValue' : (obj : StorageEventInit) -> JSIO ()
-  setNewValue' a = primJS $ StorageEventInit.prim__setNewValue a undef
+  storageArea : StorageEventInit -> Attribute True Optional (Maybe Storage)
+  storageArea = fromUndefOrPrim "StorageEventInit.getstorageArea"
+                                prim__storageArea
+                                prim__setStorageArea
+                                Nothing
   
   export
-  oldValue : (obj : StorageEventInit) -> JSIO $ Optional (Maybe String)
-  oldValue a = tryJS "StorageEventInit.oldValue"
-             $ StorageEventInit.prim__oldValue a
-  
-  export
-  setOldValue :  (obj : StorageEventInit)
-              -> (value : Optional (Maybe String))
-              -> JSIO ()
-  setOldValue a b = primJS $ StorageEventInit.prim__setOldValue a (toFFI b)
-
-  export
-  setOldValue' : (obj : StorageEventInit) -> JSIO ()
-  setOldValue' a = primJS $ StorageEventInit.prim__setOldValue a undef
-  
-  export
-  storageArea : (obj : StorageEventInit) -> JSIO $ Optional (Maybe Storage)
-  storageArea a = tryJS "StorageEventInit.storageArea"
-                $ StorageEventInit.prim__storageArea a
-  
-  export
-  setStorageArea :  (obj : StorageEventInit)
-                 -> (value : Optional (Maybe Storage))
-                 -> JSIO ()
-  setStorageArea a b = primJS
-                     $ StorageEventInit.prim__setStorageArea a (toFFI b)
-
-  export
-  setStorageArea' : (obj : StorageEventInit) -> JSIO ()
-  setStorageArea' a = primJS $ StorageEventInit.prim__setStorageArea a undef
-  
-  export
-  url : (obj : StorageEventInit) -> JSIO $ Optional String
-  url a = tryJS "StorageEventInit.url" $ StorageEventInit.prim__url a
-  
-  export
-  setUrl : (obj : StorageEventInit) -> (value : Optional String) -> JSIO ()
-  setUrl a b = primJS $ StorageEventInit.prim__setUrl a (toFFI b)
-
-  export
-  setUrl' : (obj : StorageEventInit) -> JSIO ()
-  setUrl' a = primJS $ StorageEventInit.prim__setUrl a undef
+  url : StorageEventInit -> Attribute True Optional String
+  url = fromUndefOrPrim "StorageEventInit.geturl" prim__url prim__setUrl ""
 
 namespace SubmitEventInit
   
@@ -12047,19 +9428,11 @@ namespace SubmitEventInit
   new' = primJS $ SubmitEventInit.prim__new undef
   
   export
-  submitter : (obj : SubmitEventInit) -> JSIO $ Optional (Maybe HTMLElement)
-  submitter a = tryJS "SubmitEventInit.submitter"
-              $ SubmitEventInit.prim__submitter a
-  
-  export
-  setSubmitter :  (obj : SubmitEventInit)
-               -> (value : Optional (Maybe HTMLElement))
-               -> JSIO ()
-  setSubmitter a b = primJS $ SubmitEventInit.prim__setSubmitter a (toFFI b)
-
-  export
-  setSubmitter' : (obj : SubmitEventInit) -> JSIO ()
-  setSubmitter' a = primJS $ SubmitEventInit.prim__setSubmitter a undef
+  submitter : SubmitEventInit -> Attribute True Optional (Maybe HTMLElement)
+  submitter = fromUndefOrPrim "SubmitEventInit.getsubmitter"
+                              prim__submitter
+                              prim__setSubmitter
+                              Nothing
 
 namespace TrackEventInit
   
@@ -12082,25 +9455,14 @@ namespace TrackEventInit
   new' = primJS $ TrackEventInit.prim__new undef
   
   export
-  track :  (obj : TrackEventInit)
-        -> JSIO $ Optional (Maybe (NS I [ VideoTrack
-                                        , AudioTrack
-                                        , TextTrack
-                                        ]))
-  track a = tryJS "TrackEventInit.track" $ TrackEventInit.prim__track a
-  
-  export
-  setTrack :  (obj : TrackEventInit)
-           -> (value : Optional (Maybe (NS I [ VideoTrack
-                                             , AudioTrack
-                                             , TextTrack
-                                             ])))
-           -> JSIO ()
-  setTrack a b = primJS $ TrackEventInit.prim__setTrack a (toFFI b)
-
-  export
-  setTrack' : (obj : TrackEventInit) -> JSIO ()
-  setTrack' a = primJS $ TrackEventInit.prim__setTrack a undef
+  track : TrackEventInit -> Attribute True Optional (Maybe (NS I [ VideoTrack
+                                                                 , AudioTrack
+                                                                 , TextTrack
+                                                                 ]))
+  track = fromUndefOrPrim "TrackEventInit.gettrack"
+                          prim__track
+                          prim__setTrack
+                          Nothing
 
 namespace ValidityStateFlags
   
@@ -12149,159 +9511,74 @@ namespace ValidityStateFlags
                                       undef
   
   export
-  badInput : (obj : ValidityStateFlags) -> JSIO $ Optional Bool
-  badInput a = tryJS "ValidityStateFlags.badInput"
-             $ ValidityStateFlags.prim__badInput a
+  badInput : ValidityStateFlags -> Attribute True Optional Bool
+  badInput = fromUndefOrPrim "ValidityStateFlags.getbadInput"
+                             prim__badInput
+                             prim__setBadInput
+                             False
   
   export
-  setBadInput : (obj : ValidityStateFlags) -> (value : Optional Bool) -> JSIO ()
-  setBadInput a b = primJS $ ValidityStateFlags.prim__setBadInput a (toFFI b)
-
-  export
-  setBadInput' : (obj : ValidityStateFlags) -> JSIO ()
-  setBadInput' a = primJS $ ValidityStateFlags.prim__setBadInput a undef
+  customError : ValidityStateFlags -> Attribute True Optional Bool
+  customError = fromUndefOrPrim "ValidityStateFlags.getcustomError"
+                                prim__customError
+                                prim__setCustomError
+                                False
   
   export
-  customError : (obj : ValidityStateFlags) -> JSIO $ Optional Bool
-  customError a = tryJS "ValidityStateFlags.customError"
-                $ ValidityStateFlags.prim__customError a
+  patternMismatch : ValidityStateFlags -> Attribute True Optional Bool
+  patternMismatch = fromUndefOrPrim "ValidityStateFlags.getpatternMismatch"
+                                    prim__patternMismatch
+                                    prim__setPatternMismatch
+                                    False
   
   export
-  setCustomError :  (obj : ValidityStateFlags)
-                 -> (value : Optional Bool)
-                 -> JSIO ()
-  setCustomError a b = primJS
-                     $ ValidityStateFlags.prim__setCustomError a (toFFI b)
-
-  export
-  setCustomError' : (obj : ValidityStateFlags) -> JSIO ()
-  setCustomError' a = primJS $ ValidityStateFlags.prim__setCustomError a undef
+  rangeOverflow : ValidityStateFlags -> Attribute True Optional Bool
+  rangeOverflow = fromUndefOrPrim "ValidityStateFlags.getrangeOverflow"
+                                  prim__rangeOverflow
+                                  prim__setRangeOverflow
+                                  False
   
   export
-  patternMismatch : (obj : ValidityStateFlags) -> JSIO $ Optional Bool
-  patternMismatch a = tryJS "ValidityStateFlags.patternMismatch"
-                    $ ValidityStateFlags.prim__patternMismatch a
+  rangeUnderflow : ValidityStateFlags -> Attribute True Optional Bool
+  rangeUnderflow = fromUndefOrPrim "ValidityStateFlags.getrangeUnderflow"
+                                   prim__rangeUnderflow
+                                   prim__setRangeUnderflow
+                                   False
   
   export
-  setPatternMismatch :  (obj : ValidityStateFlags)
-                     -> (value : Optional Bool)
-                     -> JSIO ()
-  setPatternMismatch a b = primJS
-                         $ ValidityStateFlags.prim__setPatternMismatch a
-                                                                       (toFFI b)
-
-  export
-  setPatternMismatch' : (obj : ValidityStateFlags) -> JSIO ()
-  setPatternMismatch' a = primJS
-                        $ ValidityStateFlags.prim__setPatternMismatch a undef
+  stepMismatch : ValidityStateFlags -> Attribute True Optional Bool
+  stepMismatch = fromUndefOrPrim "ValidityStateFlags.getstepMismatch"
+                                 prim__stepMismatch
+                                 prim__setStepMismatch
+                                 False
   
   export
-  rangeOverflow : (obj : ValidityStateFlags) -> JSIO $ Optional Bool
-  rangeOverflow a = tryJS "ValidityStateFlags.rangeOverflow"
-                  $ ValidityStateFlags.prim__rangeOverflow a
+  tooLong : ValidityStateFlags -> Attribute True Optional Bool
+  tooLong = fromUndefOrPrim "ValidityStateFlags.gettooLong"
+                            prim__tooLong
+                            prim__setTooLong
+                            False
   
   export
-  setRangeOverflow :  (obj : ValidityStateFlags)
-                   -> (value : Optional Bool)
-                   -> JSIO ()
-  setRangeOverflow a b = primJS
-                       $ ValidityStateFlags.prim__setRangeOverflow a (toFFI b)
-
-  export
-  setRangeOverflow' : (obj : ValidityStateFlags) -> JSIO ()
-  setRangeOverflow' a = primJS
-                      $ ValidityStateFlags.prim__setRangeOverflow a undef
+  tooShort : ValidityStateFlags -> Attribute True Optional Bool
+  tooShort = fromUndefOrPrim "ValidityStateFlags.gettooShort"
+                             prim__tooShort
+                             prim__setTooShort
+                             False
   
   export
-  rangeUnderflow : (obj : ValidityStateFlags) -> JSIO $ Optional Bool
-  rangeUnderflow a = tryJS "ValidityStateFlags.rangeUnderflow"
-                   $ ValidityStateFlags.prim__rangeUnderflow a
+  typeMismatch : ValidityStateFlags -> Attribute True Optional Bool
+  typeMismatch = fromUndefOrPrim "ValidityStateFlags.gettypeMismatch"
+                                 prim__typeMismatch
+                                 prim__setTypeMismatch
+                                 False
   
   export
-  setRangeUnderflow :  (obj : ValidityStateFlags)
-                    -> (value : Optional Bool)
-                    -> JSIO ()
-  setRangeUnderflow a b = primJS
-                        $ ValidityStateFlags.prim__setRangeUnderflow a (toFFI b)
-
-  export
-  setRangeUnderflow' : (obj : ValidityStateFlags) -> JSIO ()
-  setRangeUnderflow' a = primJS
-                       $ ValidityStateFlags.prim__setRangeUnderflow a undef
-  
-  export
-  stepMismatch : (obj : ValidityStateFlags) -> JSIO $ Optional Bool
-  stepMismatch a = tryJS "ValidityStateFlags.stepMismatch"
-                 $ ValidityStateFlags.prim__stepMismatch a
-  
-  export
-  setStepMismatch :  (obj : ValidityStateFlags)
-                  -> (value : Optional Bool)
-                  -> JSIO ()
-  setStepMismatch a b = primJS
-                      $ ValidityStateFlags.prim__setStepMismatch a (toFFI b)
-
-  export
-  setStepMismatch' : (obj : ValidityStateFlags) -> JSIO ()
-  setStepMismatch' a = primJS $ ValidityStateFlags.prim__setStepMismatch a undef
-  
-  export
-  tooLong : (obj : ValidityStateFlags) -> JSIO $ Optional Bool
-  tooLong a = tryJS "ValidityStateFlags.tooLong"
-            $ ValidityStateFlags.prim__tooLong a
-  
-  export
-  setTooLong : (obj : ValidityStateFlags) -> (value : Optional Bool) -> JSIO ()
-  setTooLong a b = primJS $ ValidityStateFlags.prim__setTooLong a (toFFI b)
-
-  export
-  setTooLong' : (obj : ValidityStateFlags) -> JSIO ()
-  setTooLong' a = primJS $ ValidityStateFlags.prim__setTooLong a undef
-  
-  export
-  tooShort : (obj : ValidityStateFlags) -> JSIO $ Optional Bool
-  tooShort a = tryJS "ValidityStateFlags.tooShort"
-             $ ValidityStateFlags.prim__tooShort a
-  
-  export
-  setTooShort : (obj : ValidityStateFlags) -> (value : Optional Bool) -> JSIO ()
-  setTooShort a b = primJS $ ValidityStateFlags.prim__setTooShort a (toFFI b)
-
-  export
-  setTooShort' : (obj : ValidityStateFlags) -> JSIO ()
-  setTooShort' a = primJS $ ValidityStateFlags.prim__setTooShort a undef
-  
-  export
-  typeMismatch : (obj : ValidityStateFlags) -> JSIO $ Optional Bool
-  typeMismatch a = tryJS "ValidityStateFlags.typeMismatch"
-                 $ ValidityStateFlags.prim__typeMismatch a
-  
-  export
-  setTypeMismatch :  (obj : ValidityStateFlags)
-                  -> (value : Optional Bool)
-                  -> JSIO ()
-  setTypeMismatch a b = primJS
-                      $ ValidityStateFlags.prim__setTypeMismatch a (toFFI b)
-
-  export
-  setTypeMismatch' : (obj : ValidityStateFlags) -> JSIO ()
-  setTypeMismatch' a = primJS $ ValidityStateFlags.prim__setTypeMismatch a undef
-  
-  export
-  valueMissing : (obj : ValidityStateFlags) -> JSIO $ Optional Bool
-  valueMissing a = tryJS "ValidityStateFlags.valueMissing"
-                 $ ValidityStateFlags.prim__valueMissing a
-  
-  export
-  setValueMissing :  (obj : ValidityStateFlags)
-                  -> (value : Optional Bool)
-                  -> JSIO ()
-  setValueMissing a b = primJS
-                      $ ValidityStateFlags.prim__setValueMissing a (toFFI b)
-
-  export
-  setValueMissing' : (obj : ValidityStateFlags) -> JSIO ()
-  setValueMissing' a = primJS $ ValidityStateFlags.prim__setValueMissing a undef
+  valueMissing : ValidityStateFlags -> Attribute True Optional Bool
+  valueMissing = fromUndefOrPrim "ValidityStateFlags.getvalueMissing"
+                                 prim__valueMissing
+                                 prim__setValueMissing
+                                 False
 
 namespace WindowPostMessageOptions
   
@@ -12320,22 +9597,11 @@ namespace WindowPostMessageOptions
   new' = primJS $ WindowPostMessageOptions.prim__new undef
   
   export
-  targetOrigin : (obj : WindowPostMessageOptions) -> JSIO $ Optional String
-  targetOrigin a = tryJS "WindowPostMessageOptions.targetOrigin"
-                 $ WindowPostMessageOptions.prim__targetOrigin a
-  
-  export
-  setTargetOrigin :  (obj : WindowPostMessageOptions)
-                  -> (value : Optional String)
-                  -> JSIO ()
-  setTargetOrigin a b = primJS
-                      $ WindowPostMessageOptions.prim__setTargetOrigin a
-                                                                       (toFFI b)
-
-  export
-  setTargetOrigin' : (obj : WindowPostMessageOptions) -> JSIO ()
-  setTargetOrigin' a = primJS
-                     $ WindowPostMessageOptions.prim__setTargetOrigin a undef
+  targetOrigin : WindowPostMessageOptions -> Attribute True Optional String
+  targetOrigin = fromUndefOrPrim "WindowPostMessageOptions.gettargetOrigin"
+                                 prim__targetOrigin
+                                 prim__setTargetOrigin
+                                 "/"
 
 namespace WorkerOptions
   
@@ -12357,43 +9623,20 @@ namespace WorkerOptions
   new' = primJS $ WorkerOptions.prim__new undef undef undef
   
   export
-  credentials : (obj : WorkerOptions) -> JSIO $ Optional RequestCredentials
-  credentials a = tryJS "WorkerOptions.credentials"
-                $ WorkerOptions.prim__credentials a
+  credentials : WorkerOptions -> Attribute False Optional RequestCredentials
+  credentials = fromUndefOrPrimNoDefault "WorkerOptions.getcredentials"
+                                         prim__credentials
+                                         prim__setCredentials
   
   export
-  setCredentials :  (obj : WorkerOptions)
-                 -> (value : Optional RequestCredentials)
-                 -> JSIO ()
-  setCredentials a b = primJS $ WorkerOptions.prim__setCredentials a (toFFI b)
-
-  export
-  setCredentials' : (obj : WorkerOptions) -> JSIO ()
-  setCredentials' a = primJS $ WorkerOptions.prim__setCredentials a undef
+  name : WorkerOptions -> Attribute True Optional String
+  name = fromUndefOrPrim "WorkerOptions.getname" prim__name prim__setName ""
   
   export
-  name : (obj : WorkerOptions) -> JSIO $ Optional String
-  name a = tryJS "WorkerOptions.name" $ WorkerOptions.prim__name a
-  
-  export
-  setName : (obj : WorkerOptions) -> (value : Optional String) -> JSIO ()
-  setName a b = primJS $ WorkerOptions.prim__setName a (toFFI b)
-
-  export
-  setName' : (obj : WorkerOptions) -> JSIO ()
-  setName' a = primJS $ WorkerOptions.prim__setName a undef
-  
-  export
-  type : (obj : WorkerOptions) -> JSIO $ Optional WorkerType
-  type a = tryJS "WorkerOptions.type" $ WorkerOptions.prim__type a
-  
-  export
-  setType : (obj : WorkerOptions) -> (value : Optional WorkerType) -> JSIO ()
-  setType a b = primJS $ WorkerOptions.prim__setType a (toFFI b)
-
-  export
-  setType' : (obj : WorkerOptions) -> JSIO ()
-  setType' a = primJS $ WorkerOptions.prim__setType a undef
+  type : WorkerOptions -> Attribute False Optional WorkerType
+  type = fromUndefOrPrimNoDefault "WorkerOptions.gettype"
+                                  prim__type
+                                  prim__setType
 
 namespace WorkletOptions
   
@@ -12412,19 +9655,10 @@ namespace WorkletOptions
   new' = primJS $ WorkletOptions.prim__new undef
   
   export
-  credentials : (obj : WorkletOptions) -> JSIO $ Optional RequestCredentials
-  credentials a = tryJS "WorkletOptions.credentials"
-                $ WorkletOptions.prim__credentials a
-  
-  export
-  setCredentials :  (obj : WorkletOptions)
-                 -> (value : Optional RequestCredentials)
-                 -> JSIO ()
-  setCredentials a b = primJS $ WorkletOptions.prim__setCredentials a (toFFI b)
-
-  export
-  setCredentials' : (obj : WorkletOptions) -> JSIO ()
-  setCredentials' a = primJS $ WorkletOptions.prim__setCredentials a undef
+  credentials : WorkletOptions -> Attribute False Optional RequestCredentials
+  credentials = fromUndefOrPrimNoDefault "WorkletOptions.getcredentials"
+                                         prim__credentials
+                                         prim__setCredentials
 
 --------------------------------------------------------------------------------
 --          Callbacks

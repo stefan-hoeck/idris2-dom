@@ -261,6 +261,7 @@ namespace RequestInit
                                                     FormData
                                                     URLSearchParams
                                                     String))
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.body = v}"
@@ -286,6 +287,7 @@ namespace RequestInit
   export
   %foreign "browser:lambda:x=>x.cache"
   prim__cache : RequestInit -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.cache = v}"
@@ -294,6 +296,7 @@ namespace RequestInit
   export
   %foreign "browser:lambda:x=>x.credentials"
   prim__credentials : RequestInit -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.credentials = v}"
@@ -304,6 +307,7 @@ namespace RequestInit
   prim__headers :  RequestInit
                 -> PrimIO $ UndefOr (Union2 (Array (Array ByteString))
                                             (Record ByteString ByteString))
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.headers = v}"
@@ -315,6 +319,7 @@ namespace RequestInit
   export
   %foreign "browser:lambda:x=>x.integrity"
   prim__integrity : RequestInit -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.integrity = v}"
@@ -323,6 +328,7 @@ namespace RequestInit
   export
   %foreign "browser:lambda:x=>x.keepalive"
   prim__keepalive : RequestInit -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.keepalive = v}"
@@ -331,6 +337,7 @@ namespace RequestInit
   export
   %foreign "browser:lambda:x=>x.method"
   prim__method : RequestInit -> PrimIO $ UndefOr ByteString
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.method = v}"
@@ -339,6 +346,7 @@ namespace RequestInit
   export
   %foreign "browser:lambda:x=>x.mode"
   prim__mode : RequestInit -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.mode = v}"
@@ -347,6 +355,7 @@ namespace RequestInit
   export
   %foreign "browser:lambda:x=>x.redirect"
   prim__redirect : RequestInit -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.redirect = v}"
@@ -355,6 +364,7 @@ namespace RequestInit
   export
   %foreign "browser:lambda:x=>x.referrer"
   prim__referrer : RequestInit -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.referrer = v}"
@@ -363,6 +373,7 @@ namespace RequestInit
   export
   %foreign "browser:lambda:x=>x.referrerPolicy"
   prim__referrerPolicy : RequestInit -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.referrerPolicy = v}"
@@ -371,6 +382,7 @@ namespace RequestInit
   export
   %foreign "browser:lambda:x=>x.signal"
   prim__signal : RequestInit -> PrimIO $ UndefOr (Nullable AbortSignal)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.signal = v}"
@@ -379,6 +391,7 @@ namespace RequestInit
   export
   %foreign "browser:lambda:x=>x.window"
   prim__window : RequestInit -> PrimIO $ UndefOr AnyPtr
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.window = v}"
@@ -399,6 +412,7 @@ namespace ResponseInit
   prim__headers :  ResponseInit
                 -> PrimIO $ UndefOr (Union2 (Array (Array ByteString))
                                             (Record ByteString ByteString))
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.headers = v}"
@@ -410,6 +424,7 @@ namespace ResponseInit
   export
   %foreign "browser:lambda:x=>x.status"
   prim__status : ResponseInit -> PrimIO $ UndefOr UInt16
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.status = v}"
@@ -418,6 +433,7 @@ namespace ResponseInit
   export
   %foreign "browser:lambda:x=>x.statusText"
   prim__statusText : ResponseInit -> PrimIO $ UndefOr ByteString
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.statusText = v}"

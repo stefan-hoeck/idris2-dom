@@ -4,6 +4,7 @@ import public Control.Monad.Either
 import public Data.List.Elem
 import public Data.Maybe
 import public Data.SOP
+import public JS.Any
 import public JS.Attribute
 import public JS.Array
 import public JS.ByteString

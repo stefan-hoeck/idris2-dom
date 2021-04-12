@@ -756,148 +756,52 @@ namespace DOMMatrix2DInit
                                    undef
   
   export
-  a : (obj : DOMMatrix2DInit) -> JSIO $ Optional Double
-  a b = tryJS "DOMMatrix2DInit.a" $ DOMMatrix2DInit.prim__a b
+  a : DOMMatrix2DInit -> Attribute False Optional Double
+  a = fromUndefOrPrimNoDefault "DOMMatrix2DInit.geta" prim__a prim__setA
   
   export
-  setA : (obj : DOMMatrix2DInit) -> (value : Optional Double) -> JSIO ()
-  setA a b = primJS $ DOMMatrix2DInit.prim__setA a (toFFI b)
-
-  export
-  setA' : (obj : DOMMatrix2DInit) -> JSIO ()
-  setA' a = primJS $ DOMMatrix2DInit.prim__setA a undef
+  b : DOMMatrix2DInit -> Attribute False Optional Double
+  b = fromUndefOrPrimNoDefault "DOMMatrix2DInit.getb" prim__b prim__setB
   
   export
-  b : (obj : DOMMatrix2DInit) -> JSIO $ Optional Double
-  b a = tryJS "DOMMatrix2DInit.b" $ DOMMatrix2DInit.prim__b a
+  c : DOMMatrix2DInit -> Attribute False Optional Double
+  c = fromUndefOrPrimNoDefault "DOMMatrix2DInit.getc" prim__c prim__setC
   
   export
-  setB : (obj : DOMMatrix2DInit) -> (value : Optional Double) -> JSIO ()
-  setB a b = primJS $ DOMMatrix2DInit.prim__setB a (toFFI b)
-
-  export
-  setB' : (obj : DOMMatrix2DInit) -> JSIO ()
-  setB' a = primJS $ DOMMatrix2DInit.prim__setB a undef
+  d : DOMMatrix2DInit -> Attribute False Optional Double
+  d = fromUndefOrPrimNoDefault "DOMMatrix2DInit.getd" prim__d prim__setD
   
   export
-  c : (obj : DOMMatrix2DInit) -> JSIO $ Optional Double
-  c a = tryJS "DOMMatrix2DInit.c" $ DOMMatrix2DInit.prim__c a
+  e : DOMMatrix2DInit -> Attribute False Optional Double
+  e = fromUndefOrPrimNoDefault "DOMMatrix2DInit.gete" prim__e prim__setE
   
   export
-  setC : (obj : DOMMatrix2DInit) -> (value : Optional Double) -> JSIO ()
-  setC a b = primJS $ DOMMatrix2DInit.prim__setC a (toFFI b)
-
-  export
-  setC' : (obj : DOMMatrix2DInit) -> JSIO ()
-  setC' a = primJS $ DOMMatrix2DInit.prim__setC a undef
+  f : DOMMatrix2DInit -> Attribute False Optional Double
+  f = fromUndefOrPrimNoDefault "DOMMatrix2DInit.getf" prim__f prim__setF
   
   export
-  d : (obj : DOMMatrix2DInit) -> JSIO $ Optional Double
-  d a = tryJS "DOMMatrix2DInit.d" $ DOMMatrix2DInit.prim__d a
+  m11 : DOMMatrix2DInit -> Attribute False Optional Double
+  m11 = fromUndefOrPrimNoDefault "DOMMatrix2DInit.getm11" prim__m11 prim__setM11
   
   export
-  setD : (obj : DOMMatrix2DInit) -> (value : Optional Double) -> JSIO ()
-  setD a b = primJS $ DOMMatrix2DInit.prim__setD a (toFFI b)
-
-  export
-  setD' : (obj : DOMMatrix2DInit) -> JSIO ()
-  setD' a = primJS $ DOMMatrix2DInit.prim__setD a undef
+  m12 : DOMMatrix2DInit -> Attribute False Optional Double
+  m12 = fromUndefOrPrimNoDefault "DOMMatrix2DInit.getm12" prim__m12 prim__setM12
   
   export
-  e : (obj : DOMMatrix2DInit) -> JSIO $ Optional Double
-  e a = tryJS "DOMMatrix2DInit.e" $ DOMMatrix2DInit.prim__e a
+  m21 : DOMMatrix2DInit -> Attribute False Optional Double
+  m21 = fromUndefOrPrimNoDefault "DOMMatrix2DInit.getm21" prim__m21 prim__setM21
   
   export
-  setE : (obj : DOMMatrix2DInit) -> (value : Optional Double) -> JSIO ()
-  setE a b = primJS $ DOMMatrix2DInit.prim__setE a (toFFI b)
-
-  export
-  setE' : (obj : DOMMatrix2DInit) -> JSIO ()
-  setE' a = primJS $ DOMMatrix2DInit.prim__setE a undef
+  m22 : DOMMatrix2DInit -> Attribute False Optional Double
+  m22 = fromUndefOrPrimNoDefault "DOMMatrix2DInit.getm22" prim__m22 prim__setM22
   
   export
-  f : (obj : DOMMatrix2DInit) -> JSIO $ Optional Double
-  f a = tryJS "DOMMatrix2DInit.f" $ DOMMatrix2DInit.prim__f a
+  m41 : DOMMatrix2DInit -> Attribute False Optional Double
+  m41 = fromUndefOrPrimNoDefault "DOMMatrix2DInit.getm41" prim__m41 prim__setM41
   
   export
-  setF : (obj : DOMMatrix2DInit) -> (value : Optional Double) -> JSIO ()
-  setF a b = primJS $ DOMMatrix2DInit.prim__setF a (toFFI b)
-
-  export
-  setF' : (obj : DOMMatrix2DInit) -> JSIO ()
-  setF' a = primJS $ DOMMatrix2DInit.prim__setF a undef
-  
-  export
-  m11 : (obj : DOMMatrix2DInit) -> JSIO $ Optional Double
-  m11 a = tryJS "DOMMatrix2DInit.m11" $ DOMMatrix2DInit.prim__m11 a
-  
-  export
-  setM11 : (obj : DOMMatrix2DInit) -> (value : Optional Double) -> JSIO ()
-  setM11 a b = primJS $ DOMMatrix2DInit.prim__setM11 a (toFFI b)
-
-  export
-  setM11' : (obj : DOMMatrix2DInit) -> JSIO ()
-  setM11' a = primJS $ DOMMatrix2DInit.prim__setM11 a undef
-  
-  export
-  m12 : (obj : DOMMatrix2DInit) -> JSIO $ Optional Double
-  m12 a = tryJS "DOMMatrix2DInit.m12" $ DOMMatrix2DInit.prim__m12 a
-  
-  export
-  setM12 : (obj : DOMMatrix2DInit) -> (value : Optional Double) -> JSIO ()
-  setM12 a b = primJS $ DOMMatrix2DInit.prim__setM12 a (toFFI b)
-
-  export
-  setM12' : (obj : DOMMatrix2DInit) -> JSIO ()
-  setM12' a = primJS $ DOMMatrix2DInit.prim__setM12 a undef
-  
-  export
-  m21 : (obj : DOMMatrix2DInit) -> JSIO $ Optional Double
-  m21 a = tryJS "DOMMatrix2DInit.m21" $ DOMMatrix2DInit.prim__m21 a
-  
-  export
-  setM21 : (obj : DOMMatrix2DInit) -> (value : Optional Double) -> JSIO ()
-  setM21 a b = primJS $ DOMMatrix2DInit.prim__setM21 a (toFFI b)
-
-  export
-  setM21' : (obj : DOMMatrix2DInit) -> JSIO ()
-  setM21' a = primJS $ DOMMatrix2DInit.prim__setM21 a undef
-  
-  export
-  m22 : (obj : DOMMatrix2DInit) -> JSIO $ Optional Double
-  m22 a = tryJS "DOMMatrix2DInit.m22" $ DOMMatrix2DInit.prim__m22 a
-  
-  export
-  setM22 : (obj : DOMMatrix2DInit) -> (value : Optional Double) -> JSIO ()
-  setM22 a b = primJS $ DOMMatrix2DInit.prim__setM22 a (toFFI b)
-
-  export
-  setM22' : (obj : DOMMatrix2DInit) -> JSIO ()
-  setM22' a = primJS $ DOMMatrix2DInit.prim__setM22 a undef
-  
-  export
-  m41 : (obj : DOMMatrix2DInit) -> JSIO $ Optional Double
-  m41 a = tryJS "DOMMatrix2DInit.m41" $ DOMMatrix2DInit.prim__m41 a
-  
-  export
-  setM41 : (obj : DOMMatrix2DInit) -> (value : Optional Double) -> JSIO ()
-  setM41 a b = primJS $ DOMMatrix2DInit.prim__setM41 a (toFFI b)
-
-  export
-  setM41' : (obj : DOMMatrix2DInit) -> JSIO ()
-  setM41' a = primJS $ DOMMatrix2DInit.prim__setM41 a undef
-  
-  export
-  m42 : (obj : DOMMatrix2DInit) -> JSIO $ Optional Double
-  m42 a = tryJS "DOMMatrix2DInit.m42" $ DOMMatrix2DInit.prim__m42 a
-  
-  export
-  setM42 : (obj : DOMMatrix2DInit) -> (value : Optional Double) -> JSIO ()
-  setM42 a b = primJS $ DOMMatrix2DInit.prim__setM42 a (toFFI b)
-
-  export
-  setM42' : (obj : DOMMatrix2DInit) -> JSIO ()
-  setM42' a = primJS $ DOMMatrix2DInit.prim__setM42 a undef
+  m42 : DOMMatrix2DInit -> Attribute False Optional Double
+  m42 = fromUndefOrPrimNoDefault "DOMMatrix2DInit.getm42" prim__m42 prim__setM42
 
 namespace DOMMatrixInit
   
@@ -949,136 +853,50 @@ namespace DOMMatrixInit
                                  undef
   
   export
-  is2D : (obj : DOMMatrixInit) -> JSIO $ Optional Bool
-  is2D a = tryJS "DOMMatrixInit.is2D" $ DOMMatrixInit.prim__is2D a
+  is2D : DOMMatrixInit -> Attribute False Optional Bool
+  is2D = fromUndefOrPrimNoDefault "DOMMatrixInit.getis2D"
+                                  prim__is2D
+                                  prim__setIs2D
   
   export
-  setIs2D : (obj : DOMMatrixInit) -> (value : Optional Bool) -> JSIO ()
-  setIs2D a b = primJS $ DOMMatrixInit.prim__setIs2D a (toFFI b)
-
-  export
-  setIs2D' : (obj : DOMMatrixInit) -> JSIO ()
-  setIs2D' a = primJS $ DOMMatrixInit.prim__setIs2D a undef
+  m13 : DOMMatrixInit -> Attribute True Optional Double
+  m13 = fromUndefOrPrim "DOMMatrixInit.getm13" prim__m13 prim__setM13 0
   
   export
-  m13 : (obj : DOMMatrixInit) -> JSIO $ Optional Double
-  m13 a = tryJS "DOMMatrixInit.m13" $ DOMMatrixInit.prim__m13 a
+  m14 : DOMMatrixInit -> Attribute True Optional Double
+  m14 = fromUndefOrPrim "DOMMatrixInit.getm14" prim__m14 prim__setM14 0
   
   export
-  setM13 : (obj : DOMMatrixInit) -> (value : Optional Double) -> JSIO ()
-  setM13 a b = primJS $ DOMMatrixInit.prim__setM13 a (toFFI b)
-
-  export
-  setM13' : (obj : DOMMatrixInit) -> JSIO ()
-  setM13' a = primJS $ DOMMatrixInit.prim__setM13 a undef
+  m23 : DOMMatrixInit -> Attribute True Optional Double
+  m23 = fromUndefOrPrim "DOMMatrixInit.getm23" prim__m23 prim__setM23 0
   
   export
-  m14 : (obj : DOMMatrixInit) -> JSIO $ Optional Double
-  m14 a = tryJS "DOMMatrixInit.m14" $ DOMMatrixInit.prim__m14 a
+  m24 : DOMMatrixInit -> Attribute True Optional Double
+  m24 = fromUndefOrPrim "DOMMatrixInit.getm24" prim__m24 prim__setM24 0
   
   export
-  setM14 : (obj : DOMMatrixInit) -> (value : Optional Double) -> JSIO ()
-  setM14 a b = primJS $ DOMMatrixInit.prim__setM14 a (toFFI b)
-
-  export
-  setM14' : (obj : DOMMatrixInit) -> JSIO ()
-  setM14' a = primJS $ DOMMatrixInit.prim__setM14 a undef
+  m31 : DOMMatrixInit -> Attribute True Optional Double
+  m31 = fromUndefOrPrim "DOMMatrixInit.getm31" prim__m31 prim__setM31 0
   
   export
-  m23 : (obj : DOMMatrixInit) -> JSIO $ Optional Double
-  m23 a = tryJS "DOMMatrixInit.m23" $ DOMMatrixInit.prim__m23 a
+  m32 : DOMMatrixInit -> Attribute True Optional Double
+  m32 = fromUndefOrPrim "DOMMatrixInit.getm32" prim__m32 prim__setM32 0
   
   export
-  setM23 : (obj : DOMMatrixInit) -> (value : Optional Double) -> JSIO ()
-  setM23 a b = primJS $ DOMMatrixInit.prim__setM23 a (toFFI b)
-
-  export
-  setM23' : (obj : DOMMatrixInit) -> JSIO ()
-  setM23' a = primJS $ DOMMatrixInit.prim__setM23 a undef
+  m33 : DOMMatrixInit -> Attribute True Optional Double
+  m33 = fromUndefOrPrim "DOMMatrixInit.getm33" prim__m33 prim__setM33 1
   
   export
-  m24 : (obj : DOMMatrixInit) -> JSIO $ Optional Double
-  m24 a = tryJS "DOMMatrixInit.m24" $ DOMMatrixInit.prim__m24 a
+  m34 : DOMMatrixInit -> Attribute True Optional Double
+  m34 = fromUndefOrPrim "DOMMatrixInit.getm34" prim__m34 prim__setM34 0
   
   export
-  setM24 : (obj : DOMMatrixInit) -> (value : Optional Double) -> JSIO ()
-  setM24 a b = primJS $ DOMMatrixInit.prim__setM24 a (toFFI b)
-
-  export
-  setM24' : (obj : DOMMatrixInit) -> JSIO ()
-  setM24' a = primJS $ DOMMatrixInit.prim__setM24 a undef
+  m43 : DOMMatrixInit -> Attribute True Optional Double
+  m43 = fromUndefOrPrim "DOMMatrixInit.getm43" prim__m43 prim__setM43 0
   
   export
-  m31 : (obj : DOMMatrixInit) -> JSIO $ Optional Double
-  m31 a = tryJS "DOMMatrixInit.m31" $ DOMMatrixInit.prim__m31 a
-  
-  export
-  setM31 : (obj : DOMMatrixInit) -> (value : Optional Double) -> JSIO ()
-  setM31 a b = primJS $ DOMMatrixInit.prim__setM31 a (toFFI b)
-
-  export
-  setM31' : (obj : DOMMatrixInit) -> JSIO ()
-  setM31' a = primJS $ DOMMatrixInit.prim__setM31 a undef
-  
-  export
-  m32 : (obj : DOMMatrixInit) -> JSIO $ Optional Double
-  m32 a = tryJS "DOMMatrixInit.m32" $ DOMMatrixInit.prim__m32 a
-  
-  export
-  setM32 : (obj : DOMMatrixInit) -> (value : Optional Double) -> JSIO ()
-  setM32 a b = primJS $ DOMMatrixInit.prim__setM32 a (toFFI b)
-
-  export
-  setM32' : (obj : DOMMatrixInit) -> JSIO ()
-  setM32' a = primJS $ DOMMatrixInit.prim__setM32 a undef
-  
-  export
-  m33 : (obj : DOMMatrixInit) -> JSIO $ Optional Double
-  m33 a = tryJS "DOMMatrixInit.m33" $ DOMMatrixInit.prim__m33 a
-  
-  export
-  setM33 : (obj : DOMMatrixInit) -> (value : Optional Double) -> JSIO ()
-  setM33 a b = primJS $ DOMMatrixInit.prim__setM33 a (toFFI b)
-
-  export
-  setM33' : (obj : DOMMatrixInit) -> JSIO ()
-  setM33' a = primJS $ DOMMatrixInit.prim__setM33 a undef
-  
-  export
-  m34 : (obj : DOMMatrixInit) -> JSIO $ Optional Double
-  m34 a = tryJS "DOMMatrixInit.m34" $ DOMMatrixInit.prim__m34 a
-  
-  export
-  setM34 : (obj : DOMMatrixInit) -> (value : Optional Double) -> JSIO ()
-  setM34 a b = primJS $ DOMMatrixInit.prim__setM34 a (toFFI b)
-
-  export
-  setM34' : (obj : DOMMatrixInit) -> JSIO ()
-  setM34' a = primJS $ DOMMatrixInit.prim__setM34 a undef
-  
-  export
-  m43 : (obj : DOMMatrixInit) -> JSIO $ Optional Double
-  m43 a = tryJS "DOMMatrixInit.m43" $ DOMMatrixInit.prim__m43 a
-  
-  export
-  setM43 : (obj : DOMMatrixInit) -> (value : Optional Double) -> JSIO ()
-  setM43 a b = primJS $ DOMMatrixInit.prim__setM43 a (toFFI b)
-
-  export
-  setM43' : (obj : DOMMatrixInit) -> JSIO ()
-  setM43' a = primJS $ DOMMatrixInit.prim__setM43 a undef
-  
-  export
-  m44 : (obj : DOMMatrixInit) -> JSIO $ Optional Double
-  m44 a = tryJS "DOMMatrixInit.m44" $ DOMMatrixInit.prim__m44 a
-  
-  export
-  setM44 : (obj : DOMMatrixInit) -> (value : Optional Double) -> JSIO ()
-  setM44 a b = primJS $ DOMMatrixInit.prim__setM44 a (toFFI b)
-
-  export
-  setM44' : (obj : DOMMatrixInit) -> JSIO ()
-  setM44' a = primJS $ DOMMatrixInit.prim__setM44 a undef
+  m44 : DOMMatrixInit -> Attribute True Optional Double
+  m44 = fromUndefOrPrim "DOMMatrixInit.getm44" prim__m44 prim__setM44 1
 
 namespace DOMPointInit
   
@@ -1102,52 +920,20 @@ namespace DOMPointInit
   new' = primJS $ DOMPointInit.prim__new undef undef undef undef
   
   export
-  w : (obj : DOMPointInit) -> JSIO $ Optional Double
-  w a = tryJS "DOMPointInit.w" $ DOMPointInit.prim__w a
+  w : DOMPointInit -> Attribute True Optional Double
+  w = fromUndefOrPrim "DOMPointInit.getw" prim__w prim__setW 1
   
   export
-  setW : (obj : DOMPointInit) -> (value : Optional Double) -> JSIO ()
-  setW a b = primJS $ DOMPointInit.prim__setW a (toFFI b)
-
-  export
-  setW' : (obj : DOMPointInit) -> JSIO ()
-  setW' a = primJS $ DOMPointInit.prim__setW a undef
+  x : DOMPointInit -> Attribute True Optional Double
+  x = fromUndefOrPrim "DOMPointInit.getx" prim__x prim__setX 0
   
   export
-  x : (obj : DOMPointInit) -> JSIO $ Optional Double
-  x a = tryJS "DOMPointInit.x" $ DOMPointInit.prim__x a
+  y : DOMPointInit -> Attribute True Optional Double
+  y = fromUndefOrPrim "DOMPointInit.gety" prim__y prim__setY 0
   
   export
-  setX : (obj : DOMPointInit) -> (value : Optional Double) -> JSIO ()
-  setX a b = primJS $ DOMPointInit.prim__setX a (toFFI b)
-
-  export
-  setX' : (obj : DOMPointInit) -> JSIO ()
-  setX' a = primJS $ DOMPointInit.prim__setX a undef
-  
-  export
-  y : (obj : DOMPointInit) -> JSIO $ Optional Double
-  y a = tryJS "DOMPointInit.y" $ DOMPointInit.prim__y a
-  
-  export
-  setY : (obj : DOMPointInit) -> (value : Optional Double) -> JSIO ()
-  setY a b = primJS $ DOMPointInit.prim__setY a (toFFI b)
-
-  export
-  setY' : (obj : DOMPointInit) -> JSIO ()
-  setY' a = primJS $ DOMPointInit.prim__setY a undef
-  
-  export
-  z : (obj : DOMPointInit) -> JSIO $ Optional Double
-  z a = tryJS "DOMPointInit.z" $ DOMPointInit.prim__z a
-  
-  export
-  setZ : (obj : DOMPointInit) -> (value : Optional Double) -> JSIO ()
-  setZ a b = primJS $ DOMPointInit.prim__setZ a (toFFI b)
-
-  export
-  setZ' : (obj : DOMPointInit) -> JSIO ()
-  setZ' a = primJS $ DOMPointInit.prim__setZ a undef
+  z : DOMPointInit -> Attribute True Optional Double
+  z = fromUndefOrPrim "DOMPointInit.getz" prim__z prim__setZ 0
 
 namespace DOMQuadInit
   
@@ -1171,52 +957,20 @@ namespace DOMQuadInit
   new' = primJS $ DOMQuadInit.prim__new undef undef undef undef
   
   export
-  p1 : (obj : DOMQuadInit) -> JSIO $ Optional DOMPointInit
-  p1 a = tryJS "DOMQuadInit.p1" $ DOMQuadInit.prim__p1 a
+  p1 : DOMQuadInit -> Attribute False Optional DOMPointInit
+  p1 = fromUndefOrPrimNoDefault "DOMQuadInit.getp1" prim__p1 prim__setP1
   
   export
-  setP1 : (obj : DOMQuadInit) -> (value : Optional DOMPointInit) -> JSIO ()
-  setP1 a b = primJS $ DOMQuadInit.prim__setP1 a (toFFI b)
-
-  export
-  setP1' : (obj : DOMQuadInit) -> JSIO ()
-  setP1' a = primJS $ DOMQuadInit.prim__setP1 a undef
+  p2 : DOMQuadInit -> Attribute False Optional DOMPointInit
+  p2 = fromUndefOrPrimNoDefault "DOMQuadInit.getp2" prim__p2 prim__setP2
   
   export
-  p2 : (obj : DOMQuadInit) -> JSIO $ Optional DOMPointInit
-  p2 a = tryJS "DOMQuadInit.p2" $ DOMQuadInit.prim__p2 a
+  p3 : DOMQuadInit -> Attribute False Optional DOMPointInit
+  p3 = fromUndefOrPrimNoDefault "DOMQuadInit.getp3" prim__p3 prim__setP3
   
   export
-  setP2 : (obj : DOMQuadInit) -> (value : Optional DOMPointInit) -> JSIO ()
-  setP2 a b = primJS $ DOMQuadInit.prim__setP2 a (toFFI b)
-
-  export
-  setP2' : (obj : DOMQuadInit) -> JSIO ()
-  setP2' a = primJS $ DOMQuadInit.prim__setP2 a undef
-  
-  export
-  p3 : (obj : DOMQuadInit) -> JSIO $ Optional DOMPointInit
-  p3 a = tryJS "DOMQuadInit.p3" $ DOMQuadInit.prim__p3 a
-  
-  export
-  setP3 : (obj : DOMQuadInit) -> (value : Optional DOMPointInit) -> JSIO ()
-  setP3 a b = primJS $ DOMQuadInit.prim__setP3 a (toFFI b)
-
-  export
-  setP3' : (obj : DOMQuadInit) -> JSIO ()
-  setP3' a = primJS $ DOMQuadInit.prim__setP3 a undef
-  
-  export
-  p4 : (obj : DOMQuadInit) -> JSIO $ Optional DOMPointInit
-  p4 a = tryJS "DOMQuadInit.p4" $ DOMQuadInit.prim__p4 a
-  
-  export
-  setP4 : (obj : DOMQuadInit) -> (value : Optional DOMPointInit) -> JSIO ()
-  setP4 a b = primJS $ DOMQuadInit.prim__setP4 a (toFFI b)
-
-  export
-  setP4' : (obj : DOMQuadInit) -> JSIO ()
-  setP4' a = primJS $ DOMQuadInit.prim__setP4 a undef
+  p4 : DOMQuadInit -> Attribute False Optional DOMPointInit
+  p4 = fromUndefOrPrimNoDefault "DOMQuadInit.getp4" prim__p4 prim__setP4
 
 namespace DOMRectInit
   
@@ -1240,49 +994,20 @@ namespace DOMRectInit
   new' = primJS $ DOMRectInit.prim__new undef undef undef undef
   
   export
-  height : (obj : DOMRectInit) -> JSIO $ Optional Double
-  height a = tryJS "DOMRectInit.height" $ DOMRectInit.prim__height a
+  height : DOMRectInit -> Attribute True Optional Double
+  height = fromUndefOrPrim "DOMRectInit.getheight"
+                           prim__height
+                           prim__setHeight
+                           0
   
   export
-  setHeight : (obj : DOMRectInit) -> (value : Optional Double) -> JSIO ()
-  setHeight a b = primJS $ DOMRectInit.prim__setHeight a (toFFI b)
-
-  export
-  setHeight' : (obj : DOMRectInit) -> JSIO ()
-  setHeight' a = primJS $ DOMRectInit.prim__setHeight a undef
+  width : DOMRectInit -> Attribute True Optional Double
+  width = fromUndefOrPrim "DOMRectInit.getwidth" prim__width prim__setWidth 0
   
   export
-  width : (obj : DOMRectInit) -> JSIO $ Optional Double
-  width a = tryJS "DOMRectInit.width" $ DOMRectInit.prim__width a
+  x : DOMRectInit -> Attribute True Optional Double
+  x = fromUndefOrPrim "DOMRectInit.getx" prim__x prim__setX 0
   
   export
-  setWidth : (obj : DOMRectInit) -> (value : Optional Double) -> JSIO ()
-  setWidth a b = primJS $ DOMRectInit.prim__setWidth a (toFFI b)
-
-  export
-  setWidth' : (obj : DOMRectInit) -> JSIO ()
-  setWidth' a = primJS $ DOMRectInit.prim__setWidth a undef
-  
-  export
-  x : (obj : DOMRectInit) -> JSIO $ Optional Double
-  x a = tryJS "DOMRectInit.x" $ DOMRectInit.prim__x a
-  
-  export
-  setX : (obj : DOMRectInit) -> (value : Optional Double) -> JSIO ()
-  setX a b = primJS $ DOMRectInit.prim__setX a (toFFI b)
-
-  export
-  setX' : (obj : DOMRectInit) -> JSIO ()
-  setX' a = primJS $ DOMRectInit.prim__setX a undef
-  
-  export
-  y : (obj : DOMRectInit) -> JSIO $ Optional Double
-  y a = tryJS "DOMRectInit.y" $ DOMRectInit.prim__y a
-  
-  export
-  setY : (obj : DOMRectInit) -> (value : Optional Double) -> JSIO ()
-  setY a b = primJS $ DOMRectInit.prim__setY a (toFFI b)
-
-  export
-  setY' : (obj : DOMRectInit) -> JSIO ()
-  setY' a = primJS $ DOMRectInit.prim__setY a undef
+  y : DOMRectInit -> Attribute True Optional Double
+  y = fromUndefOrPrim "DOMRectInit.gety" prim__y prim__setY 0

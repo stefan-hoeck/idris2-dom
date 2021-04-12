@@ -53,44 +53,26 @@ namespace SVGAElement
               ]
   
   export
-  download : (obj : SVGAElement) -> JSIO String
-  download a = primJS $ SVGAElement.prim__download a
+  download : SVGAElement -> Attribute True I String
+  download = fromPrim "SVGAElement.getdownload" prim__download prim__setDownload
   
   export
-  setDownload : (obj : SVGAElement) -> (value : String) -> JSIO ()
-  setDownload a b = primJS $ SVGAElement.prim__setDownload a b
+  hreflang : SVGAElement -> Attribute True I String
+  hreflang = fromPrim "SVGAElement.gethreflang" prim__hreflang prim__setHreflang
   
   export
-  hreflang : (obj : SVGAElement) -> JSIO String
-  hreflang a = primJS $ SVGAElement.prim__hreflang a
+  ping : SVGAElement -> Attribute True I String
+  ping = fromPrim "SVGAElement.getping" prim__ping prim__setPing
   
   export
-  setHreflang : (obj : SVGAElement) -> (value : String) -> JSIO ()
-  setHreflang a b = primJS $ SVGAElement.prim__setHreflang a b
+  referrerPolicy : SVGAElement -> Attribute True I String
+  referrerPolicy = fromPrim "SVGAElement.getreferrerPolicy"
+                            prim__referrerPolicy
+                            prim__setReferrerPolicy
   
   export
-  ping : (obj : SVGAElement) -> JSIO String
-  ping a = primJS $ SVGAElement.prim__ping a
-  
-  export
-  setPing : (obj : SVGAElement) -> (value : String) -> JSIO ()
-  setPing a b = primJS $ SVGAElement.prim__setPing a b
-  
-  export
-  referrerPolicy : (obj : SVGAElement) -> JSIO String
-  referrerPolicy a = primJS $ SVGAElement.prim__referrerPolicy a
-  
-  export
-  setReferrerPolicy : (obj : SVGAElement) -> (value : String) -> JSIO ()
-  setReferrerPolicy a b = primJS $ SVGAElement.prim__setReferrerPolicy a b
-  
-  export
-  rel : (obj : SVGAElement) -> JSIO String
-  rel a = primJS $ SVGAElement.prim__rel a
-  
-  export
-  setRel : (obj : SVGAElement) -> (value : String) -> JSIO ()
-  setRel a b = primJS $ SVGAElement.prim__setRel a b
+  rel : SVGAElement -> Attribute True I String
+  rel = fromPrim "SVGAElement.getrel" prim__rel prim__setRel
   
   export
   relList : (obj : SVGAElement) -> JSIO DOMTokenList
@@ -101,20 +83,12 @@ namespace SVGAElement
   target a = primJS $ SVGAElement.prim__target a
   
   export
-  text : (obj : SVGAElement) -> JSIO String
-  text a = primJS $ SVGAElement.prim__text a
+  text : SVGAElement -> Attribute True I String
+  text = fromPrim "SVGAElement.gettext" prim__text prim__setText
   
   export
-  setText : (obj : SVGAElement) -> (value : String) -> JSIO ()
-  setText a b = primJS $ SVGAElement.prim__setText a b
-  
-  export
-  type : (obj : SVGAElement) -> JSIO String
-  type a = primJS $ SVGAElement.prim__type a
-  
-  export
-  setType : (obj : SVGAElement) -> (value : String) -> JSIO ()
-  setType a b = primJS $ SVGAElement.prim__setType a b
+  type : SVGAElement -> Attribute True I String
+  type = fromPrim "SVGAElement.gettype" prim__type prim__setType
 
 namespace SVGAngle
   
@@ -149,29 +123,20 @@ namespace SVGAngle
   unitType a = primJS $ SVGAngle.prim__unitType a
   
   export
-  value : (obj : SVGAngle) -> JSIO Double
-  value a = primJS $ SVGAngle.prim__value a
+  value : SVGAngle -> Attribute True I Double
+  value = fromPrim "SVGAngle.getvalue" prim__value prim__setValue
   
   export
-  setValue : (obj : SVGAngle) -> (value : Double) -> JSIO ()
-  setValue a b = primJS $ SVGAngle.prim__setValue a b
+  valueAsString : SVGAngle -> Attribute True I String
+  valueAsString = fromPrim "SVGAngle.getvalueAsString"
+                           prim__valueAsString
+                           prim__setValueAsString
   
   export
-  valueAsString : (obj : SVGAngle) -> JSIO String
-  valueAsString a = primJS $ SVGAngle.prim__valueAsString a
-  
-  export
-  setValueAsString : (obj : SVGAngle) -> (value : String) -> JSIO ()
-  setValueAsString a b = primJS $ SVGAngle.prim__setValueAsString a b
-  
-  export
-  valueInSpecifiedUnits : (obj : SVGAngle) -> JSIO Double
-  valueInSpecifiedUnits a = primJS $ SVGAngle.prim__valueInSpecifiedUnits a
-  
-  export
-  setValueInSpecifiedUnits : (obj : SVGAngle) -> (value : Double) -> JSIO ()
-  setValueInSpecifiedUnits a b = primJS
-                               $ SVGAngle.prim__setValueInSpecifiedUnits a b
+  valueInSpecifiedUnits : SVGAngle -> Attribute True I Double
+  valueInSpecifiedUnits = fromPrim "SVGAngle.getvalueInSpecifiedUnits"
+                                   prim__valueInSpecifiedUnits
+                                   prim__setValueInSpecifiedUnits
   
   export
   convertToSpecifiedUnits : (obj : SVGAngle) -> (unitType : UInt16) -> JSIO ()
@@ -216,13 +181,10 @@ namespace SVGAnimatedBoolean
             $ SVGAnimatedBoolean.prim__animVal a
   
   export
-  baseVal : (obj : SVGAnimatedBoolean) -> JSIO Bool
-  baseVal a = tryJS "SVGAnimatedBoolean.baseVal"
-            $ SVGAnimatedBoolean.prim__baseVal a
-  
-  export
-  setBaseVal : (obj : SVGAnimatedBoolean) -> (value : Bool) -> JSIO ()
-  setBaseVal a b = primJS $ SVGAnimatedBoolean.prim__setBaseVal a (toFFI b)
+  baseVal : SVGAnimatedBoolean -> Attribute True I Bool
+  baseVal = fromPrim "SVGAnimatedBoolean.getbaseVal"
+                     prim__baseVal
+                     prim__setBaseVal
 
 namespace SVGAnimatedEnumeration
   
@@ -237,12 +199,10 @@ namespace SVGAnimatedEnumeration
   animVal a = primJS $ SVGAnimatedEnumeration.prim__animVal a
   
   export
-  baseVal : (obj : SVGAnimatedEnumeration) -> JSIO UInt16
-  baseVal a = primJS $ SVGAnimatedEnumeration.prim__baseVal a
-  
-  export
-  setBaseVal : (obj : SVGAnimatedEnumeration) -> (value : UInt16) -> JSIO ()
-  setBaseVal a b = primJS $ SVGAnimatedEnumeration.prim__setBaseVal a b
+  baseVal : SVGAnimatedEnumeration -> Attribute True I UInt16
+  baseVal = fromPrim "SVGAnimatedEnumeration.getbaseVal"
+                     prim__baseVal
+                     prim__setBaseVal
 
 namespace SVGAnimatedInteger
   
@@ -257,12 +217,10 @@ namespace SVGAnimatedInteger
   animVal a = primJS $ SVGAnimatedInteger.prim__animVal a
   
   export
-  baseVal : (obj : SVGAnimatedInteger) -> JSIO Int32
-  baseVal a = primJS $ SVGAnimatedInteger.prim__baseVal a
-  
-  export
-  setBaseVal : (obj : SVGAnimatedInteger) -> (value : Int32) -> JSIO ()
-  setBaseVal a b = primJS $ SVGAnimatedInteger.prim__setBaseVal a b
+  baseVal : SVGAnimatedInteger -> Attribute True I Int32
+  baseVal = fromPrim "SVGAnimatedInteger.getbaseVal"
+                     prim__baseVal
+                     prim__setBaseVal
 
 namespace SVGAnimatedLength
   
@@ -309,12 +267,10 @@ namespace SVGAnimatedNumber
   animVal a = primJS $ SVGAnimatedNumber.prim__animVal a
   
   export
-  baseVal : (obj : SVGAnimatedNumber) -> JSIO Double
-  baseVal a = primJS $ SVGAnimatedNumber.prim__baseVal a
-  
-  export
-  setBaseVal : (obj : SVGAnimatedNumber) -> (value : Double) -> JSIO ()
-  setBaseVal a b = primJS $ SVGAnimatedNumber.prim__setBaseVal a b
+  baseVal : SVGAnimatedNumber -> Attribute True I Double
+  baseVal = fromPrim "SVGAnimatedNumber.getbaseVal"
+                     prim__baseVal
+                     prim__setBaseVal
 
 namespace SVGAnimatedNumberList
   
@@ -379,12 +335,10 @@ namespace SVGAnimatedString
   animVal a = primJS $ SVGAnimatedString.prim__animVal a
   
   export
-  baseVal : (obj : SVGAnimatedString) -> JSIO String
-  baseVal a = primJS $ SVGAnimatedString.prim__baseVal a
-  
-  export
-  setBaseVal : (obj : SVGAnimatedString) -> (value : String) -> JSIO ()
-  setBaseVal a b = primJS $ SVGAnimatedString.prim__setBaseVal a b
+  baseVal : SVGAnimatedString -> Attribute True I String
+  baseVal = fromPrim "SVGAnimatedString.getbaseVal"
+                     prim__baseVal
+                     prim__setBaseVal
 
 namespace SVGAnimatedTransformList
   
@@ -804,13 +758,10 @@ namespace SVGImageElement
               ]
   
   export
-  crossOrigin : (obj : SVGImageElement) -> JSIO (Maybe String)
-  crossOrigin a = tryJS "SVGImageElement.crossOrigin"
-                $ SVGImageElement.prim__crossOrigin a
-  
-  export
-  setCrossOrigin : (obj : SVGImageElement) -> (value : Maybe String) -> JSIO ()
-  setCrossOrigin a b = primJS $ SVGImageElement.prim__setCrossOrigin a (toFFI b)
+  crossOrigin : SVGImageElement -> Attribute False Maybe String
+  crossOrigin = fromNullablePrim "SVGImageElement.getcrossOrigin"
+                                 prim__crossOrigin
+                                 prim__setCrossOrigin
   
   export
   height : (obj : SVGImageElement) -> JSIO SVGAnimatedLength
@@ -890,29 +841,20 @@ namespace SVGLength
   unitType a = primJS $ SVGLength.prim__unitType a
   
   export
-  value : (obj : SVGLength) -> JSIO Double
-  value a = primJS $ SVGLength.prim__value a
+  value : SVGLength -> Attribute True I Double
+  value = fromPrim "SVGLength.getvalue" prim__value prim__setValue
   
   export
-  setValue : (obj : SVGLength) -> (value : Double) -> JSIO ()
-  setValue a b = primJS $ SVGLength.prim__setValue a b
+  valueAsString : SVGLength -> Attribute True I String
+  valueAsString = fromPrim "SVGLength.getvalueAsString"
+                           prim__valueAsString
+                           prim__setValueAsString
   
   export
-  valueAsString : (obj : SVGLength) -> JSIO String
-  valueAsString a = primJS $ SVGLength.prim__valueAsString a
-  
-  export
-  setValueAsString : (obj : SVGLength) -> (value : String) -> JSIO ()
-  setValueAsString a b = primJS $ SVGLength.prim__setValueAsString a b
-  
-  export
-  valueInSpecifiedUnits : (obj : SVGLength) -> JSIO Double
-  valueInSpecifiedUnits a = primJS $ SVGLength.prim__valueInSpecifiedUnits a
-  
-  export
-  setValueInSpecifiedUnits : (obj : SVGLength) -> (value : Double) -> JSIO ()
-  setValueInSpecifiedUnits a b = primJS
-                               $ SVGLength.prim__setValueInSpecifiedUnits a b
+  valueInSpecifiedUnits : SVGLength -> Attribute True I Double
+  valueInSpecifiedUnits = fromPrim "SVGLength.getvalueInSpecifiedUnits"
+                                   prim__valueInSpecifiedUnits
+                                   prim__setValueInSpecifiedUnits
   
   export
   convertToSpecifiedUnits : (obj : SVGLength) -> (unitType : UInt16) -> JSIO ()
@@ -1123,12 +1065,8 @@ namespace SVGMarkerElement
   markerWidth a = primJS $ SVGMarkerElement.prim__markerWidth a
   
   export
-  orient : (obj : SVGMarkerElement) -> JSIO String
-  orient a = primJS $ SVGMarkerElement.prim__orient a
-  
-  export
-  setOrient : (obj : SVGMarkerElement) -> (value : String) -> JSIO ()
-  setOrient a b = primJS $ SVGMarkerElement.prim__setOrient a b
+  orient : SVGMarkerElement -> Attribute True I String
+  orient = fromPrim "SVGMarkerElement.getorient" prim__orient prim__setOrient
   
   export
   orientAngle : (obj : SVGMarkerElement) -> JSIO SVGAnimatedAngle
@@ -1181,12 +1119,8 @@ namespace SVGNumber
     mixins =  []
   
   export
-  value : (obj : SVGNumber) -> JSIO Double
-  value a = primJS $ SVGNumber.prim__value a
-  
-  export
-  setValue : (obj : SVGNumber) -> (value : Double) -> JSIO ()
-  setValue a b = primJS $ SVGNumber.prim__setValue a b
+  value : SVGNumber -> Attribute True I Double
+  value = fromPrim "SVGNumber.getvalue" prim__value prim__setValue
 
 namespace SVGNumberList
   
@@ -1495,20 +1429,14 @@ namespace SVGPreserveAspectRatio
   SVG_PRESERVEASPECTRATIO_XMINYMIN = 2
   
   export
-  align : (obj : SVGPreserveAspectRatio) -> JSIO UInt16
-  align a = primJS $ SVGPreserveAspectRatio.prim__align a
+  align : SVGPreserveAspectRatio -> Attribute True I UInt16
+  align = fromPrim "SVGPreserveAspectRatio.getalign" prim__align prim__setAlign
   
   export
-  setAlign : (obj : SVGPreserveAspectRatio) -> (value : UInt16) -> JSIO ()
-  setAlign a b = primJS $ SVGPreserveAspectRatio.prim__setAlign a b
-  
-  export
-  meetOrSlice : (obj : SVGPreserveAspectRatio) -> JSIO UInt16
-  meetOrSlice a = primJS $ SVGPreserveAspectRatio.prim__meetOrSlice a
-  
-  export
-  setMeetOrSlice : (obj : SVGPreserveAspectRatio) -> (value : UInt16) -> JSIO ()
-  setMeetOrSlice a b = primJS $ SVGPreserveAspectRatio.prim__setMeetOrSlice a b
+  meetOrSlice : SVGPreserveAspectRatio -> Attribute True I UInt16
+  meetOrSlice = fromPrim "SVGPreserveAspectRatio.getmeetOrSlice"
+                         prim__meetOrSlice
+                         prim__setMeetOrSlice
 
 namespace SVGRadialGradientElement
   
@@ -1637,12 +1565,10 @@ namespace SVGSVGElement
               ]
   
   export
-  currentScale : (obj : SVGSVGElement) -> JSIO Double
-  currentScale a = primJS $ SVGSVGElement.prim__currentScale a
-  
-  export
-  setCurrentScale : (obj : SVGSVGElement) -> (value : Double) -> JSIO ()
-  setCurrentScale a b = primJS $ SVGSVGElement.prim__setCurrentScale a b
+  currentScale : SVGSVGElement -> Attribute True I Double
+  currentScale = fromPrim "SVGSVGElement.getcurrentScale"
+                          prim__currentScale
+                          prim__setCurrentScale
   
   export
   currentTranslate : (obj : SVGSVGElement) -> JSIO DOMPointReadOnly
@@ -1788,22 +1714,14 @@ namespace SVGScriptElement
               ]
   
   export
-  crossOrigin : (obj : SVGScriptElement) -> JSIO (Maybe String)
-  crossOrigin a = tryJS "SVGScriptElement.crossOrigin"
-                $ SVGScriptElement.prim__crossOrigin a
+  crossOrigin : SVGScriptElement -> Attribute False Maybe String
+  crossOrigin = fromNullablePrim "SVGScriptElement.getcrossOrigin"
+                                 prim__crossOrigin
+                                 prim__setCrossOrigin
   
   export
-  setCrossOrigin : (obj : SVGScriptElement) -> (value : Maybe String) -> JSIO ()
-  setCrossOrigin a b = primJS
-                     $ SVGScriptElement.prim__setCrossOrigin a (toFFI b)
-  
-  export
-  type : (obj : SVGScriptElement) -> JSIO String
-  type a = primJS $ SVGScriptElement.prim__type a
-  
-  export
-  setType : (obj : SVGScriptElement) -> (value : String) -> JSIO ()
-  setType a b = primJS $ SVGScriptElement.prim__setType a b
+  type : SVGScriptElement -> Attribute True I String
+  type = fromPrim "SVGScriptElement.gettype" prim__type prim__setType
 
 namespace SVGStopElement
   
@@ -1904,28 +1822,16 @@ namespace SVGStyleElement
               ]
   
   export
-  media : (obj : SVGStyleElement) -> JSIO String
-  media a = primJS $ SVGStyleElement.prim__media a
+  media : SVGStyleElement -> Attribute True I String
+  media = fromPrim "SVGStyleElement.getmedia" prim__media prim__setMedia
   
   export
-  setMedia : (obj : SVGStyleElement) -> (value : String) -> JSIO ()
-  setMedia a b = primJS $ SVGStyleElement.prim__setMedia a b
+  title : SVGStyleElement -> Attribute True I String
+  title = fromPrim "SVGStyleElement.gettitle" prim__title prim__setTitle
   
   export
-  title : (obj : SVGStyleElement) -> JSIO String
-  title a = primJS $ SVGStyleElement.prim__title a
-  
-  export
-  setTitle : (obj : SVGStyleElement) -> (value : String) -> JSIO ()
-  setTitle a b = primJS $ SVGStyleElement.prim__setTitle a b
-  
-  export
-  type : (obj : SVGStyleElement) -> JSIO String
-  type a = primJS $ SVGStyleElement.prim__type a
-  
-  export
-  setType : (obj : SVGStyleElement) -> (value : String) -> JSIO ()
-  setType a b = primJS $ SVGStyleElement.prim__setType a b
+  type : SVGStyleElement -> Attribute True I String
+  type = fromPrim "SVGStyleElement.gettype" prim__type prim__setType
 
 namespace SVGSwitchElement
   
@@ -2644,59 +2550,29 @@ namespace SVGBoundingBoxOptions
   new' = primJS $ SVGBoundingBoxOptions.prim__new undef undef undef undef
   
   export
-  clipped : (obj : SVGBoundingBoxOptions) -> JSIO $ Optional Bool
-  clipped a = tryJS "SVGBoundingBoxOptions.clipped"
-            $ SVGBoundingBoxOptions.prim__clipped a
+  clipped : SVGBoundingBoxOptions -> Attribute True Optional Bool
+  clipped = fromUndefOrPrim "SVGBoundingBoxOptions.getclipped"
+                            prim__clipped
+                            prim__setClipped
+                            False
   
   export
-  setClipped :  (obj : SVGBoundingBoxOptions)
-             -> (value : Optional Bool)
-             -> JSIO ()
-  setClipped a b = primJS $ SVGBoundingBoxOptions.prim__setClipped a (toFFI b)
-
-  export
-  setClipped' : (obj : SVGBoundingBoxOptions) -> JSIO ()
-  setClipped' a = primJS $ SVGBoundingBoxOptions.prim__setClipped a undef
+  fill : SVGBoundingBoxOptions -> Attribute True Optional Bool
+  fill = fromUndefOrPrim "SVGBoundingBoxOptions.getfill"
+                         prim__fill
+                         prim__setFill
+                         True
   
   export
-  fill : (obj : SVGBoundingBoxOptions) -> JSIO $ Optional Bool
-  fill a = tryJS "SVGBoundingBoxOptions.fill"
-         $ SVGBoundingBoxOptions.prim__fill a
+  markers : SVGBoundingBoxOptions -> Attribute True Optional Bool
+  markers = fromUndefOrPrim "SVGBoundingBoxOptions.getmarkers"
+                            prim__markers
+                            prim__setMarkers
+                            False
   
   export
-  setFill : (obj : SVGBoundingBoxOptions) -> (value : Optional Bool) -> JSIO ()
-  setFill a b = primJS $ SVGBoundingBoxOptions.prim__setFill a (toFFI b)
-
-  export
-  setFill' : (obj : SVGBoundingBoxOptions) -> JSIO ()
-  setFill' a = primJS $ SVGBoundingBoxOptions.prim__setFill a undef
-  
-  export
-  markers : (obj : SVGBoundingBoxOptions) -> JSIO $ Optional Bool
-  markers a = tryJS "SVGBoundingBoxOptions.markers"
-            $ SVGBoundingBoxOptions.prim__markers a
-  
-  export
-  setMarkers :  (obj : SVGBoundingBoxOptions)
-             -> (value : Optional Bool)
-             -> JSIO ()
-  setMarkers a b = primJS $ SVGBoundingBoxOptions.prim__setMarkers a (toFFI b)
-
-  export
-  setMarkers' : (obj : SVGBoundingBoxOptions) -> JSIO ()
-  setMarkers' a = primJS $ SVGBoundingBoxOptions.prim__setMarkers a undef
-  
-  export
-  stroke : (obj : SVGBoundingBoxOptions) -> JSIO $ Optional Bool
-  stroke a = tryJS "SVGBoundingBoxOptions.stroke"
-           $ SVGBoundingBoxOptions.prim__stroke a
-  
-  export
-  setStroke :  (obj : SVGBoundingBoxOptions)
-            -> (value : Optional Bool)
-            -> JSIO ()
-  setStroke a b = primJS $ SVGBoundingBoxOptions.prim__setStroke a (toFFI b)
-
-  export
-  setStroke' : (obj : SVGBoundingBoxOptions) -> JSIO ()
-  setStroke' a = primJS $ SVGBoundingBoxOptions.prim__setStroke a undef
+  stroke : SVGBoundingBoxOptions -> Attribute True Optional Bool
+  stroke = fromUndefOrPrim "SVGBoundingBoxOptions.getstroke"
+                           prim__stroke
+                           prim__setStroke
+                           False

@@ -14,6 +14,7 @@ namespace SVGAElement
   export
   %foreign "browser:lambda:x=>x.download"
   prim__download : SVGAElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.download = v}"
@@ -22,6 +23,7 @@ namespace SVGAElement
   export
   %foreign "browser:lambda:x=>x.hreflang"
   prim__hreflang : SVGAElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.hreflang = v}"
@@ -30,6 +32,7 @@ namespace SVGAElement
   export
   %foreign "browser:lambda:x=>x.ping"
   prim__ping : SVGAElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ping = v}"
@@ -38,6 +41,7 @@ namespace SVGAElement
   export
   %foreign "browser:lambda:x=>x.referrerPolicy"
   prim__referrerPolicy : SVGAElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.referrerPolicy = v}"
@@ -46,6 +50,7 @@ namespace SVGAElement
   export
   %foreign "browser:lambda:x=>x.rel"
   prim__rel : SVGAElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.rel = v}"
@@ -62,6 +67,7 @@ namespace SVGAElement
   export
   %foreign "browser:lambda:x=>x.text"
   prim__text : SVGAElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.text = v}"
@@ -70,6 +76,7 @@ namespace SVGAElement
   export
   %foreign "browser:lambda:x=>x.type"
   prim__type : SVGAElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.type = v}"
@@ -84,6 +91,7 @@ namespace SVGAngle
   export
   %foreign "browser:lambda:x=>x.value"
   prim__value : SVGAngle -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.value = v}"
@@ -92,6 +100,7 @@ namespace SVGAngle
   export
   %foreign "browser:lambda:x=>x.valueAsString"
   prim__valueAsString : SVGAngle -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.valueAsString = v}"
@@ -100,6 +109,7 @@ namespace SVGAngle
   export
   %foreign "browser:lambda:x=>x.valueInSpecifiedUnits"
   prim__valueInSpecifiedUnits : SVGAngle -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.valueInSpecifiedUnits = v}"
@@ -132,6 +142,7 @@ namespace SVGAnimatedBoolean
   export
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : SVGAnimatedBoolean -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.baseVal = v}"
@@ -146,6 +157,7 @@ namespace SVGAnimatedEnumeration
   export
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : SVGAnimatedEnumeration -> PrimIO UInt16
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.baseVal = v}"
@@ -160,6 +172,7 @@ namespace SVGAnimatedInteger
   export
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : SVGAnimatedInteger -> PrimIO Int32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.baseVal = v}"
@@ -194,6 +207,7 @@ namespace SVGAnimatedNumber
   export
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : SVGAnimatedNumber -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.baseVal = v}"
@@ -240,6 +254,7 @@ namespace SVGAnimatedString
   export
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : SVGAnimatedString -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.baseVal = v}"
@@ -388,6 +403,7 @@ namespace SVGImageElement
   export
   %foreign "browser:lambda:x=>x.crossOrigin"
   prim__crossOrigin : SVGImageElement -> PrimIO (Nullable String)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.crossOrigin = v}"
@@ -423,6 +439,7 @@ namespace SVGLength
   export
   %foreign "browser:lambda:x=>x.value"
   prim__value : SVGLength -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.value = v}"
@@ -431,6 +448,7 @@ namespace SVGLength
   export
   %foreign "browser:lambda:x=>x.valueAsString"
   prim__valueAsString : SVGLength -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.valueAsString = v}"
@@ -439,6 +457,7 @@ namespace SVGLength
   export
   %foreign "browser:lambda:x=>x.valueInSpecifiedUnits"
   prim__valueInSpecifiedUnits : SVGLength -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.valueInSpecifiedUnits = v}"
@@ -550,6 +569,7 @@ namespace SVGMarkerElement
   export
   %foreign "browser:lambda:x=>x.orient"
   prim__orient : SVGMarkerElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.orient = v}"
@@ -585,6 +605,7 @@ namespace SVGNumber
   export
   %foreign "browser:lambda:x=>x.value"
   prim__value : SVGNumber -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.value = v}"
@@ -715,6 +736,7 @@ namespace SVGPreserveAspectRatio
   export
   %foreign "browser:lambda:x=>x.align"
   prim__align : SVGPreserveAspectRatio -> PrimIO UInt16
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.align = v}"
@@ -723,6 +745,7 @@ namespace SVGPreserveAspectRatio
   export
   %foreign "browser:lambda:x=>x.meetOrSlice"
   prim__meetOrSlice : SVGPreserveAspectRatio -> PrimIO UInt16
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.meetOrSlice = v}"
@@ -785,6 +808,7 @@ namespace SVGSVGElement
   export
   %foreign "browser:lambda:x=>x.currentScale"
   prim__currentScale : SVGSVGElement -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.currentScale = v}"
@@ -901,6 +925,7 @@ namespace SVGScriptElement
   export
   %foreign "browser:lambda:x=>x.crossOrigin"
   prim__crossOrigin : SVGScriptElement -> PrimIO (Nullable String)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.crossOrigin = v}"
@@ -909,6 +934,7 @@ namespace SVGScriptElement
   export
   %foreign "browser:lambda:x=>x.type"
   prim__type : SVGScriptElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.type = v}"
@@ -967,6 +993,7 @@ namespace SVGStyleElement
   export
   %foreign "browser:lambda:x=>x.media"
   prim__media : SVGStyleElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.media = v}"
@@ -975,6 +1002,7 @@ namespace SVGStyleElement
   export
   %foreign "browser:lambda:x=>x.title"
   prim__title : SVGStyleElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.title = v}"
@@ -983,6 +1011,7 @@ namespace SVGStyleElement
   export
   %foreign "browser:lambda:x=>x.type"
   prim__type : SVGStyleElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.type = v}"
@@ -1295,6 +1324,7 @@ namespace SVGBoundingBoxOptions
   export
   %foreign "browser:lambda:x=>x.clipped"
   prim__clipped : SVGBoundingBoxOptions -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.clipped = v}"
@@ -1303,6 +1333,7 @@ namespace SVGBoundingBoxOptions
   export
   %foreign "browser:lambda:x=>x.fill"
   prim__fill : SVGBoundingBoxOptions -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.fill = v}"
@@ -1311,6 +1342,7 @@ namespace SVGBoundingBoxOptions
   export
   %foreign "browser:lambda:x=>x.markers"
   prim__markers : SVGBoundingBoxOptions -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.markers = v}"
@@ -1319,6 +1351,7 @@ namespace SVGBoundingBoxOptions
   export
   %foreign "browser:lambda:x=>x.stroke"
   prim__stroke : SVGBoundingBoxOptions -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.stroke = v}"

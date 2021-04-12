@@ -108,6 +108,7 @@ namespace FileReader
   export
   %foreign "browser:lambda:x=>x.onabort"
   prim__onabort : FileReader -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onabort = v}"
@@ -116,6 +117,7 @@ namespace FileReader
   export
   %foreign "browser:lambda:x=>x.onerror"
   prim__onerror : FileReader -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onerror = v}"
@@ -124,6 +126,7 @@ namespace FileReader
   export
   %foreign "browser:lambda:x=>x.onload"
   prim__onload : FileReader -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onload = v}"
@@ -132,6 +135,7 @@ namespace FileReader
   export
   %foreign "browser:lambda:x=>x.onloadend"
   prim__onloadend : FileReader -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onloadend = v}"
@@ -140,6 +144,7 @@ namespace FileReader
   export
   %foreign "browser:lambda:x=>x.onloadstart"
   prim__onloadstart : FileReader -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onloadstart = v}"
@@ -148,6 +153,7 @@ namespace FileReader
   export
   %foreign "browser:lambda:x=>x.onprogress"
   prim__onprogress : FileReader -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onprogress = v}"
@@ -217,6 +223,7 @@ namespace BlobPropertyBag
   export
   %foreign "browser:lambda:x=>x.endings"
   prim__endings : BlobPropertyBag -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.endings = v}"
@@ -225,6 +232,7 @@ namespace BlobPropertyBag
   export
   %foreign "browser:lambda:x=>x.type"
   prim__type : BlobPropertyBag -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.type = v}"
@@ -239,6 +247,7 @@ namespace FilePropertyBag
   export
   %foreign "browser:lambda:x=>x.lastModified"
   prim__lastModified : FilePropertyBag -> PrimIO $ UndefOr Int64
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.lastModified = v}"

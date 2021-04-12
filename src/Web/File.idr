@@ -168,65 +168,38 @@ namespace FileReader
   error a = tryJS "FileReader.error" $ FileReader.prim__error a
   
   export
-  onabort : (obj : FileReader) -> JSIO (Maybe EventHandlerNonNull)
-  onabort a = tryJS "FileReader.onabort" $ FileReader.prim__onabort a
+  onabort : FileReader -> Attribute False Maybe EventHandlerNonNull
+  onabort = fromNullablePrim "FileReader.getonabort"
+                             prim__onabort
+                             prim__setOnabort
   
   export
-  setOnabort :  (obj : FileReader)
-             -> (value : Maybe EventHandlerNonNull)
-             -> JSIO ()
-  setOnabort a b = primJS $ FileReader.prim__setOnabort a (toFFI b)
+  onerror : FileReader -> Attribute False Maybe EventHandlerNonNull
+  onerror = fromNullablePrim "FileReader.getonerror"
+                             prim__onerror
+                             prim__setOnerror
   
   export
-  onerror : (obj : FileReader) -> JSIO (Maybe EventHandlerNonNull)
-  onerror a = tryJS "FileReader.onerror" $ FileReader.prim__onerror a
+  onload : FileReader -> Attribute False Maybe EventHandlerNonNull
+  onload = fromNullablePrim "FileReader.getonload" prim__onload prim__setOnload
   
   export
-  setOnerror :  (obj : FileReader)
-             -> (value : Maybe EventHandlerNonNull)
-             -> JSIO ()
-  setOnerror a b = primJS $ FileReader.prim__setOnerror a (toFFI b)
+  onloadend : FileReader -> Attribute False Maybe EventHandlerNonNull
+  onloadend = fromNullablePrim "FileReader.getonloadend"
+                               prim__onloadend
+                               prim__setOnloadend
   
   export
-  onload : (obj : FileReader) -> JSIO (Maybe EventHandlerNonNull)
-  onload a = tryJS "FileReader.onload" $ FileReader.prim__onload a
+  onloadstart : FileReader -> Attribute False Maybe EventHandlerNonNull
+  onloadstart = fromNullablePrim "FileReader.getonloadstart"
+                                 prim__onloadstart
+                                 prim__setOnloadstart
   
   export
-  setOnload :  (obj : FileReader)
-            -> (value : Maybe EventHandlerNonNull)
-            -> JSIO ()
-  setOnload a b = primJS $ FileReader.prim__setOnload a (toFFI b)
-  
-  export
-  onloadend : (obj : FileReader) -> JSIO (Maybe EventHandlerNonNull)
-  onloadend a = tryJS "FileReader.onloadend" $ FileReader.prim__onloadend a
-  
-  export
-  setOnloadend :  (obj : FileReader)
-               -> (value : Maybe EventHandlerNonNull)
-               -> JSIO ()
-  setOnloadend a b = primJS $ FileReader.prim__setOnloadend a (toFFI b)
-  
-  export
-  onloadstart : (obj : FileReader) -> JSIO (Maybe EventHandlerNonNull)
-  onloadstart a = tryJS "FileReader.onloadstart"
-                $ FileReader.prim__onloadstart a
-  
-  export
-  setOnloadstart :  (obj : FileReader)
-                 -> (value : Maybe EventHandlerNonNull)
-                 -> JSIO ()
-  setOnloadstart a b = primJS $ FileReader.prim__setOnloadstart a (toFFI b)
-  
-  export
-  onprogress : (obj : FileReader) -> JSIO (Maybe EventHandlerNonNull)
-  onprogress a = tryJS "FileReader.onprogress" $ FileReader.prim__onprogress a
-  
-  export
-  setOnprogress :  (obj : FileReader)
-                -> (value : Maybe EventHandlerNonNull)
-                -> JSIO ()
-  setOnprogress a b = primJS $ FileReader.prim__setOnprogress a (toFFI b)
+  onprogress : FileReader -> Attribute False Maybe EventHandlerNonNull
+  onprogress = fromNullablePrim "FileReader.getonprogress"
+                                prim__onprogress
+                                prim__setOnprogress
   
   export
   readyState : (obj : FileReader) -> JSIO UInt16
@@ -324,30 +297,14 @@ namespace BlobPropertyBag
   new' = primJS $ BlobPropertyBag.prim__new undef undef
   
   export
-  endings : (obj : BlobPropertyBag) -> JSIO $ Optional EndingType
-  endings a = tryJS "BlobPropertyBag.endings" $ BlobPropertyBag.prim__endings a
+  endings : BlobPropertyBag -> Attribute False Optional EndingType
+  endings = fromUndefOrPrimNoDefault "BlobPropertyBag.getendings"
+                                     prim__endings
+                                     prim__setEndings
   
   export
-  setEndings :  (obj : BlobPropertyBag)
-             -> (value : Optional EndingType)
-             -> JSIO ()
-  setEndings a b = primJS $ BlobPropertyBag.prim__setEndings a (toFFI b)
-
-  export
-  setEndings' : (obj : BlobPropertyBag) -> JSIO ()
-  setEndings' a = primJS $ BlobPropertyBag.prim__setEndings a undef
-  
-  export
-  type : (obj : BlobPropertyBag) -> JSIO $ Optional String
-  type a = tryJS "BlobPropertyBag.type" $ BlobPropertyBag.prim__type a
-  
-  export
-  setType : (obj : BlobPropertyBag) -> (value : Optional String) -> JSIO ()
-  setType a b = primJS $ BlobPropertyBag.prim__setType a (toFFI b)
-
-  export
-  setType' : (obj : BlobPropertyBag) -> JSIO ()
-  setType' a = primJS $ BlobPropertyBag.prim__setType a undef
+  type : BlobPropertyBag -> Attribute True Optional String
+  type = fromUndefOrPrim "BlobPropertyBag.gettype" prim__type prim__setType ""
 
 namespace FilePropertyBag
   
@@ -366,17 +323,7 @@ namespace FilePropertyBag
   new' = primJS $ FilePropertyBag.prim__new undef
   
   export
-  lastModified : (obj : FilePropertyBag) -> JSIO $ Optional Int64
-  lastModified a = tryJS "FilePropertyBag.lastModified"
-                 $ FilePropertyBag.prim__lastModified a
-  
-  export
-  setLastModified :  (obj : FilePropertyBag)
-                  -> (value : Optional Int64)
-                  -> JSIO ()
-  setLastModified a b = primJS
-                      $ FilePropertyBag.prim__setLastModified a (toFFI b)
-
-  export
-  setLastModified' : (obj : FilePropertyBag) -> JSIO ()
-  setLastModified' a = primJS $ FilePropertyBag.prim__setLastModified a undef
+  lastModified : FilePropertyBag -> Attribute False Optional Int64
+  lastModified = fromUndefOrPrimNoDefault "FilePropertyBag.getlastModified"
+                                          prim__lastModified
+                                          prim__setLastModified

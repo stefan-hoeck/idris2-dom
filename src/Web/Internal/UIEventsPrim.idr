@@ -180,6 +180,7 @@ namespace CompositionEventInit
   export
   %foreign "browser:lambda:x=>x.data"
   prim__data : CompositionEventInit -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.data = v}"
@@ -208,6 +209,7 @@ namespace EventModifierInit
   export
   %foreign "browser:lambda:x=>x.altKey"
   prim__altKey : EventModifierInit -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.altKey = v}"
@@ -216,6 +218,7 @@ namespace EventModifierInit
   export
   %foreign "browser:lambda:x=>x.ctrlKey"
   prim__ctrlKey : EventModifierInit -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ctrlKey = v}"
@@ -224,6 +227,7 @@ namespace EventModifierInit
   export
   %foreign "browser:lambda:x=>x.metaKey"
   prim__metaKey : EventModifierInit -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.metaKey = v}"
@@ -232,6 +236,7 @@ namespace EventModifierInit
   export
   %foreign "browser:lambda:x=>x.modifierAltGraph"
   prim__modifierAltGraph : EventModifierInit -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.modifierAltGraph = v}"
@@ -240,6 +245,7 @@ namespace EventModifierInit
   export
   %foreign "browser:lambda:x=>x.modifierCapsLock"
   prim__modifierCapsLock : EventModifierInit -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.modifierCapsLock = v}"
@@ -248,6 +254,7 @@ namespace EventModifierInit
   export
   %foreign "browser:lambda:x=>x.modifierFn"
   prim__modifierFn : EventModifierInit -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.modifierFn = v}"
@@ -256,6 +263,7 @@ namespace EventModifierInit
   export
   %foreign "browser:lambda:x=>x.modifierFnLock"
   prim__modifierFnLock : EventModifierInit -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.modifierFnLock = v}"
@@ -264,6 +272,7 @@ namespace EventModifierInit
   export
   %foreign "browser:lambda:x=>x.modifierHyper"
   prim__modifierHyper : EventModifierInit -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.modifierHyper = v}"
@@ -272,6 +281,7 @@ namespace EventModifierInit
   export
   %foreign "browser:lambda:x=>x.modifierNumLock"
   prim__modifierNumLock : EventModifierInit -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.modifierNumLock = v}"
@@ -280,6 +290,7 @@ namespace EventModifierInit
   export
   %foreign "browser:lambda:x=>x.modifierScrollLock"
   prim__modifierScrollLock : EventModifierInit -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.modifierScrollLock = v}"
@@ -290,6 +301,7 @@ namespace EventModifierInit
   export
   %foreign "browser:lambda:x=>x.modifierSuper"
   prim__modifierSuper : EventModifierInit -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.modifierSuper = v}"
@@ -298,6 +310,7 @@ namespace EventModifierInit
   export
   %foreign "browser:lambda:x=>x.modifierSymbol"
   prim__modifierSymbol : EventModifierInit -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.modifierSymbol = v}"
@@ -306,6 +319,7 @@ namespace EventModifierInit
   export
   %foreign "browser:lambda:x=>x.modifierSymbolLock"
   prim__modifierSymbolLock : EventModifierInit -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.modifierSymbolLock = v}"
@@ -316,6 +330,7 @@ namespace EventModifierInit
   export
   %foreign "browser:lambda:x=>x.shiftKey"
   prim__shiftKey : EventModifierInit -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.shiftKey = v}"
@@ -331,6 +346,7 @@ namespace FocusEventInit
   %foreign "browser:lambda:x=>x.relatedTarget"
   prim__relatedTarget :  FocusEventInit
                       -> PrimIO $ UndefOr (Nullable EventTarget)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.relatedTarget = v}"
@@ -350,6 +366,7 @@ namespace InputEventInit
   export
   %foreign "browser:lambda:x=>x.data"
   prim__data : InputEventInit -> PrimIO $ UndefOr (Nullable String)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.data = v}"
@@ -358,6 +375,7 @@ namespace InputEventInit
   export
   %foreign "browser:lambda:x=>x.inputType"
   prim__inputType : InputEventInit -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.inputType = v}"
@@ -366,6 +384,7 @@ namespace InputEventInit
   export
   %foreign "browser:lambda:x=>x.isComposing"
   prim__isComposing : InputEventInit -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.isComposing = v}"
@@ -385,6 +404,7 @@ namespace KeyboardEventInit
   export
   %foreign "browser:lambda:x=>x.code"
   prim__code : KeyboardEventInit -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.code = v}"
@@ -393,6 +413,7 @@ namespace KeyboardEventInit
   export
   %foreign "browser:lambda:x=>x.isComposing"
   prim__isComposing : KeyboardEventInit -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.isComposing = v}"
@@ -401,6 +422,7 @@ namespace KeyboardEventInit
   export
   %foreign "browser:lambda:x=>x.key"
   prim__key : KeyboardEventInit -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.key = v}"
@@ -409,6 +431,7 @@ namespace KeyboardEventInit
   export
   %foreign "browser:lambda:x=>x.location"
   prim__location : KeyboardEventInit -> PrimIO $ UndefOr UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.location = v}"
@@ -417,6 +440,7 @@ namespace KeyboardEventInit
   export
   %foreign "browser:lambda:x=>x.repeat"
   prim__repeat : KeyboardEventInit -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.repeat = v}"
@@ -438,6 +462,7 @@ namespace MouseEventInit
   export
   %foreign "browser:lambda:x=>x.button"
   prim__button : MouseEventInit -> PrimIO $ UndefOr Int16
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.button = v}"
@@ -446,6 +471,7 @@ namespace MouseEventInit
   export
   %foreign "browser:lambda:x=>x.buttons"
   prim__buttons : MouseEventInit -> PrimIO $ UndefOr UInt16
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.buttons = v}"
@@ -454,6 +480,7 @@ namespace MouseEventInit
   export
   %foreign "browser:lambda:x=>x.clientX"
   prim__clientX : MouseEventInit -> PrimIO $ UndefOr Int32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.clientX = v}"
@@ -462,6 +489,7 @@ namespace MouseEventInit
   export
   %foreign "browser:lambda:x=>x.clientY"
   prim__clientY : MouseEventInit -> PrimIO $ UndefOr Int32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.clientY = v}"
@@ -471,6 +499,7 @@ namespace MouseEventInit
   %foreign "browser:lambda:x=>x.relatedTarget"
   prim__relatedTarget :  MouseEventInit
                       -> PrimIO $ UndefOr (Nullable EventTarget)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.relatedTarget = v}"
@@ -481,6 +510,7 @@ namespace MouseEventInit
   export
   %foreign "browser:lambda:x=>x.screenX"
   prim__screenX : MouseEventInit -> PrimIO $ UndefOr Int32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.screenX = v}"
@@ -489,6 +519,7 @@ namespace MouseEventInit
   export
   %foreign "browser:lambda:x=>x.screenY"
   prim__screenY : MouseEventInit -> PrimIO $ UndefOr Int32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.screenY = v}"
@@ -503,6 +534,7 @@ namespace UIEventInit
   export
   %foreign "browser:lambda:x=>x.detail"
   prim__detail : UIEventInit -> PrimIO $ UndefOr Int32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.detail = v}"
@@ -511,6 +543,7 @@ namespace UIEventInit
   export
   %foreign "browser:lambda:x=>x.view"
   prim__view : UIEventInit -> PrimIO $ UndefOr (Nullable Window)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.view = v}"
@@ -529,6 +562,7 @@ namespace WheelEventInit
   export
   %foreign "browser:lambda:x=>x.deltaMode"
   prim__deltaMode : WheelEventInit -> PrimIO $ UndefOr UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.deltaMode = v}"
@@ -537,6 +571,7 @@ namespace WheelEventInit
   export
   %foreign "browser:lambda:x=>x.deltaX"
   prim__deltaX : WheelEventInit -> PrimIO $ UndefOr Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.deltaX = v}"
@@ -545,6 +580,7 @@ namespace WheelEventInit
   export
   %foreign "browser:lambda:x=>x.deltaY"
   prim__deltaY : WheelEventInit -> PrimIO $ UndefOr Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.deltaY = v}"
@@ -553,6 +589,7 @@ namespace WheelEventInit
   export
   %foreign "browser:lambda:x=>x.deltaZ"
   prim__deltaZ : WheelEventInit -> PrimIO $ UndefOr Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.deltaZ = v}"

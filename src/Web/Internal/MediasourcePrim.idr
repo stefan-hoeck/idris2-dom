@@ -25,6 +25,7 @@ namespace MediaSource
   export
   %foreign "browser:lambda:x=>x.duration"
   prim__duration : MediaSource -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.duration = v}"
@@ -33,6 +34,7 @@ namespace MediaSource
   export
   %foreign "browser:lambda:x=>x.onsourceclose"
   prim__onsourceclose : MediaSource -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onsourceclose = v}"
@@ -43,6 +45,7 @@ namespace MediaSource
   export
   %foreign "browser:lambda:x=>x.onsourceended"
   prim__onsourceended : MediaSource -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onsourceended = v}"
@@ -53,6 +56,7 @@ namespace MediaSource
   export
   %foreign "browser:lambda:x=>x.onsourceopen"
   prim__onsourceopen : MediaSource -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onsourceopen = v}"
@@ -93,6 +97,7 @@ namespace SourceBuffer
   export
   %foreign "browser:lambda:x=>x.appendWindowEnd"
   prim__appendWindowEnd : SourceBuffer -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.appendWindowEnd = v}"
@@ -101,6 +106,7 @@ namespace SourceBuffer
   export
   %foreign "browser:lambda:x=>x.appendWindowStart"
   prim__appendWindowStart : SourceBuffer -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.appendWindowStart = v}"
@@ -117,6 +123,7 @@ namespace SourceBuffer
   export
   %foreign "browser:lambda:x=>x.mode"
   prim__mode : SourceBuffer -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.mode = v}"
@@ -125,6 +132,7 @@ namespace SourceBuffer
   export
   %foreign "browser:lambda:x=>x.onabort"
   prim__onabort : SourceBuffer -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onabort = v}"
@@ -133,6 +141,7 @@ namespace SourceBuffer
   export
   %foreign "browser:lambda:x=>x.onerror"
   prim__onerror : SourceBuffer -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onerror = v}"
@@ -141,6 +150,7 @@ namespace SourceBuffer
   export
   %foreign "browser:lambda:x=>x.onupdate"
   prim__onupdate : SourceBuffer -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onupdate = v}"
@@ -149,6 +159,7 @@ namespace SourceBuffer
   export
   %foreign "browser:lambda:x=>x.onupdateend"
   prim__onupdateend : SourceBuffer -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onupdateend = v}"
@@ -159,6 +170,7 @@ namespace SourceBuffer
   export
   %foreign "browser:lambda:x=>x.onupdatestart"
   prim__onupdatestart : SourceBuffer -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onupdatestart = v}"
@@ -173,6 +185,7 @@ namespace SourceBuffer
   export
   %foreign "browser:lambda:x=>x.timestampOffset"
   prim__timestampOffset : SourceBuffer -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.timestampOffset = v}"
@@ -224,6 +237,7 @@ namespace SourceBufferList
   %foreign "browser:lambda:x=>x.onaddsourcebuffer"
   prim__onaddsourcebuffer :  SourceBufferList
                           -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onaddsourcebuffer = v}"
@@ -235,6 +249,7 @@ namespace SourceBufferList
   %foreign "browser:lambda:x=>x.onremovesourcebuffer"
   prim__onremovesourcebuffer :  SourceBufferList
                              -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onremovesourcebuffer = v}"

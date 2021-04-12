@@ -293,7 +293,7 @@ namespace RequestInit
       -> (integrity : Optional String)
       -> (keepalive : Optional Bool)
       -> (signal : Optional (Maybe AbortSignal))
-      -> (window : Optional AnyPtr)
+      -> (window : Optional Any)
       -> JSIO RequestInit
   new a b c d e f g h i j k l m = primJS
                                 $ RequestInit.prim__new (toFFI a)
@@ -328,211 +328,95 @@ namespace RequestInit
                                undef
   
   export
-  body :  (obj : RequestInit)
-       -> JSIO $ Optional (Maybe (Union16 ReadableStream
-                                          Blob
-                                          Int8Array
-                                          Int16Array
-                                          Int32Array
-                                          UInt8Array
-                                          UInt8Array
-                                          UInt8Array
-                                          UInt8ClampedArray
-                                          Float32Array
-                                          Float64Array
-                                          DataView
-                                          ArrayBuffer
-                                          FormData
-                                          URLSearchParams
-                                          String))
-  body a = tryJS "RequestInit.body" $ RequestInit.prim__body a
+  body : RequestInit -> Attribute False Optional (Maybe (Union16 ReadableStream
+                                                                 Blob
+                                                                 Int8Array
+                                                                 Int16Array
+                                                                 Int32Array
+                                                                 UInt8Array
+                                                                 UInt8Array
+                                                                 UInt8Array
+                                                                 UInt8ClampedArray
+                                                                 Float32Array
+                                                                 Float64Array
+                                                                 DataView
+                                                                 ArrayBuffer
+                                                                 FormData
+                                                                 URLSearchParams
+                                                                 String))
+  body = fromUndefOrPrimNoDefault "RequestInit.getbody" prim__body prim__setBody
   
   export
-  setBody :  (obj : RequestInit)
-          -> (value : Optional (Maybe (NS I [ ReadableStream
-                                            , Blob
-                                            , Int8Array
-                                            , Int16Array
-                                            , Int32Array
-                                            , UInt8Array
-                                            , UInt8Array
-                                            , UInt8Array
-                                            , UInt8ClampedArray
-                                            , Float32Array
-                                            , Float64Array
-                                            , DataView
-                                            , ArrayBuffer
-                                            , FormData
-                                            , URLSearchParams
-                                            , String
-                                            ])))
-          -> JSIO ()
-  setBody a b = primJS $ RequestInit.prim__setBody a (toFFI b)
-
-  export
-  setBody' : (obj : RequestInit) -> JSIO ()
-  setBody' a = primJS $ RequestInit.prim__setBody a undef
+  cache : RequestInit -> Attribute False Optional RequestCache
+  cache = fromUndefOrPrimNoDefault "RequestInit.getcache"
+                                   prim__cache
+                                   prim__setCache
   
   export
-  cache : (obj : RequestInit) -> JSIO $ Optional RequestCache
-  cache a = tryJS "RequestInit.cache" $ RequestInit.prim__cache a
+  credentials : RequestInit -> Attribute False Optional RequestCredentials
+  credentials = fromUndefOrPrimNoDefault "RequestInit.getcredentials"
+                                         prim__credentials
+                                         prim__setCredentials
   
   export
-  setCache : (obj : RequestInit) -> (value : Optional RequestCache) -> JSIO ()
-  setCache a b = primJS $ RequestInit.prim__setCache a (toFFI b)
-
-  export
-  setCache' : (obj : RequestInit) -> JSIO ()
-  setCache' a = primJS $ RequestInit.prim__setCache a undef
+  headers : RequestInit -> Attribute False Optional (Union2 (Array (Array ByteString))
+                                                            (Record ByteString
+                                                                    ByteString))
+  headers = fromUndefOrPrimNoDefault "RequestInit.getheaders"
+                                     prim__headers
+                                     prim__setHeaders
   
   export
-  credentials : (obj : RequestInit) -> JSIO $ Optional RequestCredentials
-  credentials a = tryJS "RequestInit.credentials"
-                $ RequestInit.prim__credentials a
+  integrity : RequestInit -> Attribute False Optional String
+  integrity = fromUndefOrPrimNoDefault "RequestInit.getintegrity"
+                                       prim__integrity
+                                       prim__setIntegrity
   
   export
-  setCredentials :  (obj : RequestInit)
-                 -> (value : Optional RequestCredentials)
-                 -> JSIO ()
-  setCredentials a b = primJS $ RequestInit.prim__setCredentials a (toFFI b)
-
-  export
-  setCredentials' : (obj : RequestInit) -> JSIO ()
-  setCredentials' a = primJS $ RequestInit.prim__setCredentials a undef
+  keepalive : RequestInit -> Attribute False Optional Bool
+  keepalive = fromUndefOrPrimNoDefault "RequestInit.getkeepalive"
+                                       prim__keepalive
+                                       prim__setKeepalive
   
   export
-  headers :  (obj : RequestInit)
-          -> JSIO $ Optional (Union2 (Array (Array ByteString))
-                                     (Record ByteString ByteString))
-  headers a = tryJS "RequestInit.headers" $ RequestInit.prim__headers a
+  method : RequestInit -> Attribute False Optional ByteString
+  method = fromUndefOrPrimNoDefault "RequestInit.getmethod"
+                                    prim__method
+                                    prim__setMethod
   
   export
-  setHeaders :  (obj : RequestInit)
-             -> (value : Optional (NS I [ Array (Array ByteString)
-                                        , Record ByteString ByteString
-                                        ]))
-             -> JSIO ()
-  setHeaders a b = primJS $ RequestInit.prim__setHeaders a (toFFI b)
-
-  export
-  setHeaders' : (obj : RequestInit) -> JSIO ()
-  setHeaders' a = primJS $ RequestInit.prim__setHeaders a undef
+  mode : RequestInit -> Attribute False Optional RequestMode
+  mode = fromUndefOrPrimNoDefault "RequestInit.getmode" prim__mode prim__setMode
   
   export
-  integrity : (obj : RequestInit) -> JSIO $ Optional String
-  integrity a = tryJS "RequestInit.integrity" $ RequestInit.prim__integrity a
+  redirect : RequestInit -> Attribute False Optional RequestRedirect
+  redirect = fromUndefOrPrimNoDefault "RequestInit.getredirect"
+                                      prim__redirect
+                                      prim__setRedirect
   
   export
-  setIntegrity : (obj : RequestInit) -> (value : Optional String) -> JSIO ()
-  setIntegrity a b = primJS $ RequestInit.prim__setIntegrity a (toFFI b)
-
-  export
-  setIntegrity' : (obj : RequestInit) -> JSIO ()
-  setIntegrity' a = primJS $ RequestInit.prim__setIntegrity a undef
+  referrer : RequestInit -> Attribute False Optional String
+  referrer = fromUndefOrPrimNoDefault "RequestInit.getreferrer"
+                                      prim__referrer
+                                      prim__setReferrer
   
   export
-  keepalive : (obj : RequestInit) -> JSIO $ Optional Bool
-  keepalive a = tryJS "RequestInit.keepalive" $ RequestInit.prim__keepalive a
+  referrerPolicy : RequestInit -> Attribute False Optional ReferrerPolicy
+  referrerPolicy = fromUndefOrPrimNoDefault "RequestInit.getreferrerPolicy"
+                                            prim__referrerPolicy
+                                            prim__setReferrerPolicy
   
   export
-  setKeepalive : (obj : RequestInit) -> (value : Optional Bool) -> JSIO ()
-  setKeepalive a b = primJS $ RequestInit.prim__setKeepalive a (toFFI b)
-
-  export
-  setKeepalive' : (obj : RequestInit) -> JSIO ()
-  setKeepalive' a = primJS $ RequestInit.prim__setKeepalive a undef
+  signal : RequestInit -> Attribute False Optional (Maybe AbortSignal)
+  signal = fromUndefOrPrimNoDefault "RequestInit.getsignal"
+                                    prim__signal
+                                    prim__setSignal
   
   export
-  method : (obj : RequestInit) -> JSIO $ Optional ByteString
-  method a = tryJS "RequestInit.method" $ RequestInit.prim__method a
-  
-  export
-  setMethod : (obj : RequestInit) -> (value : Optional ByteString) -> JSIO ()
-  setMethod a b = primJS $ RequestInit.prim__setMethod a (toFFI b)
-
-  export
-  setMethod' : (obj : RequestInit) -> JSIO ()
-  setMethod' a = primJS $ RequestInit.prim__setMethod a undef
-  
-  export
-  mode : (obj : RequestInit) -> JSIO $ Optional RequestMode
-  mode a = tryJS "RequestInit.mode" $ RequestInit.prim__mode a
-  
-  export
-  setMode : (obj : RequestInit) -> (value : Optional RequestMode) -> JSIO ()
-  setMode a b = primJS $ RequestInit.prim__setMode a (toFFI b)
-
-  export
-  setMode' : (obj : RequestInit) -> JSIO ()
-  setMode' a = primJS $ RequestInit.prim__setMode a undef
-  
-  export
-  redirect : (obj : RequestInit) -> JSIO $ Optional RequestRedirect
-  redirect a = tryJS "RequestInit.redirect" $ RequestInit.prim__redirect a
-  
-  export
-  setRedirect :  (obj : RequestInit)
-              -> (value : Optional RequestRedirect)
-              -> JSIO ()
-  setRedirect a b = primJS $ RequestInit.prim__setRedirect a (toFFI b)
-
-  export
-  setRedirect' : (obj : RequestInit) -> JSIO ()
-  setRedirect' a = primJS $ RequestInit.prim__setRedirect a undef
-  
-  export
-  referrer : (obj : RequestInit) -> JSIO $ Optional String
-  referrer a = tryJS "RequestInit.referrer" $ RequestInit.prim__referrer a
-  
-  export
-  setReferrer : (obj : RequestInit) -> (value : Optional String) -> JSIO ()
-  setReferrer a b = primJS $ RequestInit.prim__setReferrer a (toFFI b)
-
-  export
-  setReferrer' : (obj : RequestInit) -> JSIO ()
-  setReferrer' a = primJS $ RequestInit.prim__setReferrer a undef
-  
-  export
-  referrerPolicy : (obj : RequestInit) -> JSIO $ Optional ReferrerPolicy
-  referrerPolicy a = tryJS "RequestInit.referrerPolicy"
-                   $ RequestInit.prim__referrerPolicy a
-  
-  export
-  setReferrerPolicy :  (obj : RequestInit)
-                    -> (value : Optional ReferrerPolicy)
-                    -> JSIO ()
-  setReferrerPolicy a b = primJS
-                        $ RequestInit.prim__setReferrerPolicy a (toFFI b)
-
-  export
-  setReferrerPolicy' : (obj : RequestInit) -> JSIO ()
-  setReferrerPolicy' a = primJS $ RequestInit.prim__setReferrerPolicy a undef
-  
-  export
-  signal : (obj : RequestInit) -> JSIO $ Optional (Maybe AbortSignal)
-  signal a = tryJS "RequestInit.signal" $ RequestInit.prim__signal a
-  
-  export
-  setSignal :  (obj : RequestInit)
-            -> (value : Optional (Maybe AbortSignal))
-            -> JSIO ()
-  setSignal a b = primJS $ RequestInit.prim__setSignal a (toFFI b)
-
-  export
-  setSignal' : (obj : RequestInit) -> JSIO ()
-  setSignal' a = primJS $ RequestInit.prim__setSignal a undef
-  
-  export
-  window : (obj : RequestInit) -> JSIO $ Optional AnyPtr
-  window a = tryJS "RequestInit.window" $ RequestInit.prim__window a
-  
-  export
-  setWindow : (obj : RequestInit) -> (value : Optional AnyPtr) -> JSIO ()
-  setWindow a b = primJS $ RequestInit.prim__setWindow a (toFFI b)
-
-  export
-  setWindow' : (obj : RequestInit) -> JSIO ()
-  setWindow' a = primJS $ RequestInit.prim__setWindow a undef
+  window : RequestInit -> Attribute False Optional Any
+  window = fromUndefOrPrimNoDefault "RequestInit.getwindow"
+                                    prim__window
+                                    prim__setWindow
 
 namespace ResponseInit
   
@@ -556,46 +440,22 @@ namespace ResponseInit
   new' = primJS $ ResponseInit.prim__new undef undef undef
   
   export
-  headers :  (obj : ResponseInit)
-          -> JSIO $ Optional (Union2 (Array (Array ByteString))
-                                     (Record ByteString ByteString))
-  headers a = tryJS "ResponseInit.headers" $ ResponseInit.prim__headers a
+  headers : ResponseInit -> Attribute False Optional (Union2 (Array (Array ByteString))
+                                                             (Record ByteString
+                                                                     ByteString))
+  headers = fromUndefOrPrimNoDefault "ResponseInit.getheaders"
+                                     prim__headers
+                                     prim__setHeaders
   
   export
-  setHeaders :  (obj : ResponseInit)
-             -> (value : Optional (NS I [ Array (Array ByteString)
-                                        , Record ByteString ByteString
-                                        ]))
-             -> JSIO ()
-  setHeaders a b = primJS $ ResponseInit.prim__setHeaders a (toFFI b)
-
-  export
-  setHeaders' : (obj : ResponseInit) -> JSIO ()
-  setHeaders' a = primJS $ ResponseInit.prim__setHeaders a undef
+  status : ResponseInit -> Attribute True Optional UInt16
+  status = fromUndefOrPrim "ResponseInit.getstatus"
+                           prim__status
+                           prim__setStatus
+                           200
   
   export
-  status : (obj : ResponseInit) -> JSIO $ Optional UInt16
-  status a = tryJS "ResponseInit.status" $ ResponseInit.prim__status a
-  
-  export
-  setStatus : (obj : ResponseInit) -> (value : Optional UInt16) -> JSIO ()
-  setStatus a b = primJS $ ResponseInit.prim__setStatus a (toFFI b)
-
-  export
-  setStatus' : (obj : ResponseInit) -> JSIO ()
-  setStatus' a = primJS $ ResponseInit.prim__setStatus a undef
-  
-  export
-  statusText : (obj : ResponseInit) -> JSIO $ Optional ByteString
-  statusText a = tryJS "ResponseInit.statusText"
-               $ ResponseInit.prim__statusText a
-  
-  export
-  setStatusText :  (obj : ResponseInit)
-                -> (value : Optional ByteString)
-                -> JSIO ()
-  setStatusText a b = primJS $ ResponseInit.prim__setStatusText a (toFFI b)
-
-  export
-  setStatusText' : (obj : ResponseInit) -> JSIO ()
-  setStatusText' a = primJS $ ResponseInit.prim__setStatusText a undef
+  statusText : ResponseInit -> Attribute False Optional ByteString
+  statusText = fromUndefOrPrimNoDefault "ResponseInit.getstatusText"
+                                        prim__statusText
+                                        prim__setStatusText

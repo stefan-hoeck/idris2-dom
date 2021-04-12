@@ -64,6 +64,7 @@ namespace CSSPageRule
   export
   %foreign "browser:lambda:x=>x.selectorText"
   prim__selectorText : CSSPageRule -> PrimIO CSSOMString
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.selectorText = v}"
@@ -88,6 +89,7 @@ namespace CSSRule
   export
   %foreign "browser:lambda:x=>x.cssText"
   prim__cssText : CSSRule -> PrimIO CSSOMString
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.cssText = v}"
@@ -120,6 +122,7 @@ namespace CSSStyleDeclaration
   export
   %foreign "browser:lambda:x=>x.cssFloat"
   prim__cssFloat : CSSStyleDeclaration -> PrimIO CSSOMString
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.cssFloat = v}"
@@ -128,6 +131,7 @@ namespace CSSStyleDeclaration
   export
   %foreign "browser:lambda:x=>x.cssText"
   prim__cssText : CSSStyleDeclaration -> PrimIO CSSOMString
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.cssText = v}"
@@ -176,6 +180,7 @@ namespace CSSStyleRule
   export
   %foreign "browser:lambda:x=>x.selectorText"
   prim__selectorText : CSSStyleRule -> PrimIO CSSOMString
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.selectorText = v}"
@@ -231,6 +236,7 @@ namespace MediaList
   export
   %foreign "browser:lambda:x=>x.mediaText"
   prim__mediaText : MediaList -> PrimIO CSSOMString
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.mediaText = v}"
@@ -253,6 +259,7 @@ namespace StyleSheet
   export
   %foreign "browser:lambda:x=>x.disabled"
   prim__disabled : StyleSheet -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.disabled = v}"

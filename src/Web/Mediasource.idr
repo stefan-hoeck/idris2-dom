@@ -30,45 +30,26 @@ namespace MediaSource
   activeSourceBuffers a = primJS $ MediaSource.prim__activeSourceBuffers a
   
   export
-  duration : (obj : MediaSource) -> JSIO Double
-  duration a = primJS $ MediaSource.prim__duration a
+  duration : MediaSource -> Attribute True I Double
+  duration = fromPrim "MediaSource.getduration" prim__duration prim__setDuration
   
   export
-  setDuration : (obj : MediaSource) -> (value : Double) -> JSIO ()
-  setDuration a b = primJS $ MediaSource.prim__setDuration a b
+  onsourceclose : MediaSource -> Attribute False Maybe EventHandlerNonNull
+  onsourceclose = fromNullablePrim "MediaSource.getonsourceclose"
+                                   prim__onsourceclose
+                                   prim__setOnsourceclose
   
   export
-  onsourceclose : (obj : MediaSource) -> JSIO (Maybe EventHandlerNonNull)
-  onsourceclose a = tryJS "MediaSource.onsourceclose"
-                  $ MediaSource.prim__onsourceclose a
+  onsourceended : MediaSource -> Attribute False Maybe EventHandlerNonNull
+  onsourceended = fromNullablePrim "MediaSource.getonsourceended"
+                                   prim__onsourceended
+                                   prim__setOnsourceended
   
   export
-  setOnsourceclose :  (obj : MediaSource)
-                   -> (value : Maybe EventHandlerNonNull)
-                   -> JSIO ()
-  setOnsourceclose a b = primJS $ MediaSource.prim__setOnsourceclose a (toFFI b)
-  
-  export
-  onsourceended : (obj : MediaSource) -> JSIO (Maybe EventHandlerNonNull)
-  onsourceended a = tryJS "MediaSource.onsourceended"
-                  $ MediaSource.prim__onsourceended a
-  
-  export
-  setOnsourceended :  (obj : MediaSource)
-                   -> (value : Maybe EventHandlerNonNull)
-                   -> JSIO ()
-  setOnsourceended a b = primJS $ MediaSource.prim__setOnsourceended a (toFFI b)
-  
-  export
-  onsourceopen : (obj : MediaSource) -> JSIO (Maybe EventHandlerNonNull)
-  onsourceopen a = tryJS "MediaSource.onsourceopen"
-                 $ MediaSource.prim__onsourceopen a
-  
-  export
-  setOnsourceopen :  (obj : MediaSource)
-                  -> (value : Maybe EventHandlerNonNull)
-                  -> JSIO ()
-  setOnsourceopen a b = primJS $ MediaSource.prim__setOnsourceopen a (toFFI b)
+  onsourceopen : MediaSource -> Attribute False Maybe EventHandlerNonNull
+  onsourceopen = fromNullablePrim "MediaSource.getonsourceopen"
+                                  prim__onsourceopen
+                                  prim__setOnsourceopen
   
   export
   readyState : (obj : MediaSource) -> JSIO ReadyState
@@ -119,21 +100,16 @@ namespace SourceBuffer
     mixins =  []
   
   export
-  appendWindowEnd : (obj : SourceBuffer) -> JSIO Double
-  appendWindowEnd a = primJS $ SourceBuffer.prim__appendWindowEnd a
+  appendWindowEnd : SourceBuffer -> Attribute True I Double
+  appendWindowEnd = fromPrim "SourceBuffer.getappendWindowEnd"
+                             prim__appendWindowEnd
+                             prim__setAppendWindowEnd
   
   export
-  setAppendWindowEnd : (obj : SourceBuffer) -> (value : Double) -> JSIO ()
-  setAppendWindowEnd a b = primJS $ SourceBuffer.prim__setAppendWindowEnd a b
-  
-  export
-  appendWindowStart : (obj : SourceBuffer) -> JSIO Double
-  appendWindowStart a = primJS $ SourceBuffer.prim__appendWindowStart a
-  
-  export
-  setAppendWindowStart : (obj : SourceBuffer) -> (value : Double) -> JSIO ()
-  setAppendWindowStart a b = primJS
-                           $ SourceBuffer.prim__setAppendWindowStart a b
+  appendWindowStart : SourceBuffer -> Attribute True I Double
+  appendWindowStart = fromPrim "SourceBuffer.getappendWindowStart"
+                               prim__appendWindowStart
+                               prim__setAppendWindowStart
   
   export
   audioTracks : (obj : SourceBuffer) -> JSIO AudioTrackList
@@ -144,77 +120,48 @@ namespace SourceBuffer
   buffered a = primJS $ SourceBuffer.prim__buffered a
   
   export
-  mode : (obj : SourceBuffer) -> JSIO AppendMode
-  mode a = tryJS "SourceBuffer.mode" $ SourceBuffer.prim__mode a
+  mode : SourceBuffer -> Attribute True I AppendMode
+  mode = fromPrim "SourceBuffer.getmode" prim__mode prim__setMode
   
   export
-  setMode : (obj : SourceBuffer) -> (value : AppendMode) -> JSIO ()
-  setMode a b = primJS $ SourceBuffer.prim__setMode a (toFFI b)
+  onabort : SourceBuffer -> Attribute False Maybe EventHandlerNonNull
+  onabort = fromNullablePrim "SourceBuffer.getonabort"
+                             prim__onabort
+                             prim__setOnabort
   
   export
-  onabort : (obj : SourceBuffer) -> JSIO (Maybe EventHandlerNonNull)
-  onabort a = tryJS "SourceBuffer.onabort" $ SourceBuffer.prim__onabort a
+  onerror : SourceBuffer -> Attribute False Maybe EventHandlerNonNull
+  onerror = fromNullablePrim "SourceBuffer.getonerror"
+                             prim__onerror
+                             prim__setOnerror
   
   export
-  setOnabort :  (obj : SourceBuffer)
-             -> (value : Maybe EventHandlerNonNull)
-             -> JSIO ()
-  setOnabort a b = primJS $ SourceBuffer.prim__setOnabort a (toFFI b)
+  onupdate : SourceBuffer -> Attribute False Maybe EventHandlerNonNull
+  onupdate = fromNullablePrim "SourceBuffer.getonupdate"
+                              prim__onupdate
+                              prim__setOnupdate
   
   export
-  onerror : (obj : SourceBuffer) -> JSIO (Maybe EventHandlerNonNull)
-  onerror a = tryJS "SourceBuffer.onerror" $ SourceBuffer.prim__onerror a
+  onupdateend : SourceBuffer -> Attribute False Maybe EventHandlerNonNull
+  onupdateend = fromNullablePrim "SourceBuffer.getonupdateend"
+                                 prim__onupdateend
+                                 prim__setOnupdateend
   
   export
-  setOnerror :  (obj : SourceBuffer)
-             -> (value : Maybe EventHandlerNonNull)
-             -> JSIO ()
-  setOnerror a b = primJS $ SourceBuffer.prim__setOnerror a (toFFI b)
-  
-  export
-  onupdate : (obj : SourceBuffer) -> JSIO (Maybe EventHandlerNonNull)
-  onupdate a = tryJS "SourceBuffer.onupdate" $ SourceBuffer.prim__onupdate a
-  
-  export
-  setOnupdate :  (obj : SourceBuffer)
-              -> (value : Maybe EventHandlerNonNull)
-              -> JSIO ()
-  setOnupdate a b = primJS $ SourceBuffer.prim__setOnupdate a (toFFI b)
-  
-  export
-  onupdateend : (obj : SourceBuffer) -> JSIO (Maybe EventHandlerNonNull)
-  onupdateend a = tryJS "SourceBuffer.onupdateend"
-                $ SourceBuffer.prim__onupdateend a
-  
-  export
-  setOnupdateend :  (obj : SourceBuffer)
-                 -> (value : Maybe EventHandlerNonNull)
-                 -> JSIO ()
-  setOnupdateend a b = primJS $ SourceBuffer.prim__setOnupdateend a (toFFI b)
-  
-  export
-  onupdatestart : (obj : SourceBuffer) -> JSIO (Maybe EventHandlerNonNull)
-  onupdatestart a = tryJS "SourceBuffer.onupdatestart"
-                  $ SourceBuffer.prim__onupdatestart a
-  
-  export
-  setOnupdatestart :  (obj : SourceBuffer)
-                   -> (value : Maybe EventHandlerNonNull)
-                   -> JSIO ()
-  setOnupdatestart a b = primJS
-                       $ SourceBuffer.prim__setOnupdatestart a (toFFI b)
+  onupdatestart : SourceBuffer -> Attribute False Maybe EventHandlerNonNull
+  onupdatestart = fromNullablePrim "SourceBuffer.getonupdatestart"
+                                   prim__onupdatestart
+                                   prim__setOnupdatestart
   
   export
   textTracks : (obj : SourceBuffer) -> JSIO TextTrackList
   textTracks a = primJS $ SourceBuffer.prim__textTracks a
   
   export
-  timestampOffset : (obj : SourceBuffer) -> JSIO Double
-  timestampOffset a = primJS $ SourceBuffer.prim__timestampOffset a
-  
-  export
-  setTimestampOffset : (obj : SourceBuffer) -> (value : Double) -> JSIO ()
-  setTimestampOffset a b = primJS $ SourceBuffer.prim__setTimestampOffset a b
+  timestampOffset : SourceBuffer -> Attribute True I Double
+  timestampOffset = fromPrim "SourceBuffer.gettimestampOffset"
+                             prim__timestampOffset
+                             prim__setTimestampOffset
   
   export
   updating : (obj : SourceBuffer) -> JSIO Bool
@@ -266,31 +213,15 @@ namespace SourceBufferList
   length a = primJS $ SourceBufferList.prim__length a
   
   export
-  onaddsourcebuffer :  (obj : SourceBufferList)
-                    -> JSIO (Maybe EventHandlerNonNull)
-  onaddsourcebuffer a = tryJS "SourceBufferList.onaddsourcebuffer"
-                      $ SourceBufferList.prim__onaddsourcebuffer a
+  onaddsourcebuffer : SourceBufferList -> Attribute False Maybe EventHandlerNonNull
+  onaddsourcebuffer = fromNullablePrim "SourceBufferList.getonaddsourcebuffer"
+                                       prim__onaddsourcebuffer
+                                       prim__setOnaddsourcebuffer
   
   export
-  setOnaddsourcebuffer :  (obj : SourceBufferList)
-                       -> (value : Maybe EventHandlerNonNull)
-                       -> JSIO ()
-  setOnaddsourcebuffer a b = primJS
-                           $ SourceBufferList.prim__setOnaddsourcebuffer a
-                                                                         (toFFI b)
-  
-  export
-  onremovesourcebuffer :  (obj : SourceBufferList)
-                       -> JSIO (Maybe EventHandlerNonNull)
-  onremovesourcebuffer a = tryJS "SourceBufferList.onremovesourcebuffer"
-                         $ SourceBufferList.prim__onremovesourcebuffer a
-  
-  export
-  setOnremovesourcebuffer :  (obj : SourceBufferList)
-                          -> (value : Maybe EventHandlerNonNull)
-                          -> JSIO ()
-  setOnremovesourcebuffer a b = primJS
-                              $ SourceBufferList.prim__setOnremovesourcebuffer a
-                                                                               (toFFI b)
+  onremovesourcebuffer : SourceBufferList -> Attribute False Maybe EventHandlerNonNull
+  onremovesourcebuffer = fromNullablePrim "SourceBufferList.getonremovesourcebuffer"
+                                          prim__onremovesourcebuffer
+                                          prim__setOnremovesourcebuffer
 
 

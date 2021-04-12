@@ -13,6 +13,7 @@ namespace AudioTrack
   export
   %foreign "browser:lambda:x=>x.enabled"
   prim__enabled : AudioTrack -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.enabled = v}"
@@ -51,6 +52,7 @@ namespace AudioTrackList
   export
   %foreign "browser:lambda:x=>x.onaddtrack"
   prim__onaddtrack : AudioTrackList -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onaddtrack = v}"
@@ -61,6 +63,7 @@ namespace AudioTrackList
   export
   %foreign "browser:lambda:x=>x.onchange"
   prim__onchange : AudioTrackList -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onchange = v}"
@@ -71,6 +74,7 @@ namespace AudioTrackList
   export
   %foreign "browser:lambda:x=>x.onremovetrack"
   prim__onremovetrack : AudioTrackList -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onremovetrack = v}"
@@ -93,6 +97,7 @@ namespace BeforeUnloadEvent
   export
   %foreign "browser:lambda:x=>x.returnValue"
   prim__returnValue : BeforeUnloadEvent -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.returnValue = v}"
@@ -111,6 +116,7 @@ namespace BroadcastChannel
   export
   %foreign "browser:lambda:x=>x.onmessage"
   prim__onmessage : BroadcastChannel -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmessage = v}"
@@ -122,6 +128,7 @@ namespace BroadcastChannel
   %foreign "browser:lambda:x=>x.onmessageerror"
   prim__onmessageerror :  BroadcastChannel
                        -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmessageerror = v}"
@@ -247,6 +254,7 @@ namespace DataTransfer
   export
   %foreign "browser:lambda:x=>x.dropEffect"
   prim__dropEffect : DataTransfer -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.dropEffect = v}"
@@ -255,6 +263,7 @@ namespace DataTransfer
   export
   %foreign "browser:lambda:x=>x.effectAllowed"
   prim__effectAllowed : DataTransfer -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.effectAllowed = v}"
@@ -349,6 +358,7 @@ namespace DedicatedWorkerGlobalScope
   %foreign "browser:lambda:x=>x.onmessage"
   prim__onmessage :  DedicatedWorkerGlobalScope
                   -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmessage = v}"
@@ -360,6 +370,7 @@ namespace DedicatedWorkerGlobalScope
   %foreign "browser:lambda:x=>x.onmessageerror"
   prim__onmessageerror :  DedicatedWorkerGlobalScope
                        -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmessageerror = v}"
@@ -479,6 +490,7 @@ namespace EventSource
   export
   %foreign "browser:lambda:x=>x.onerror"
   prim__onerror : EventSource -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onerror = v}"
@@ -487,6 +499,7 @@ namespace EventSource
   export
   %foreign "browser:lambda:x=>x.onmessage"
   prim__onmessage : EventSource -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmessage = v}"
@@ -495,6 +508,7 @@ namespace EventSource
   export
   %foreign "browser:lambda:x=>x.onopen"
   prim__onopen : EventSource -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onopen = v}"
@@ -567,6 +581,7 @@ namespace HTMLAnchorElement
   export
   %foreign "browser:lambda:x=>x.charset"
   prim__charset : HTMLAnchorElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.charset = v}"
@@ -575,6 +590,7 @@ namespace HTMLAnchorElement
   export
   %foreign "browser:lambda:x=>x.coords"
   prim__coords : HTMLAnchorElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.coords = v}"
@@ -583,6 +599,7 @@ namespace HTMLAnchorElement
   export
   %foreign "browser:lambda:x=>x.download"
   prim__download : HTMLAnchorElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.download = v}"
@@ -591,6 +608,7 @@ namespace HTMLAnchorElement
   export
   %foreign "browser:lambda:x=>x.hreflang"
   prim__hreflang : HTMLAnchorElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.hreflang = v}"
@@ -599,6 +617,7 @@ namespace HTMLAnchorElement
   export
   %foreign "browser:lambda:x=>x.name"
   prim__name : HTMLAnchorElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.name = v}"
@@ -607,6 +626,7 @@ namespace HTMLAnchorElement
   export
   %foreign "browser:lambda:x=>x.ping"
   prim__ping : HTMLAnchorElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ping = v}"
@@ -615,6 +635,7 @@ namespace HTMLAnchorElement
   export
   %foreign "browser:lambda:x=>x.referrerPolicy"
   prim__referrerPolicy : HTMLAnchorElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.referrerPolicy = v}"
@@ -623,6 +644,7 @@ namespace HTMLAnchorElement
   export
   %foreign "browser:lambda:x=>x.rel"
   prim__rel : HTMLAnchorElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.rel = v}"
@@ -635,6 +657,7 @@ namespace HTMLAnchorElement
   export
   %foreign "browser:lambda:x=>x.rev"
   prim__rev : HTMLAnchorElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.rev = v}"
@@ -643,6 +666,7 @@ namespace HTMLAnchorElement
   export
   %foreign "browser:lambda:x=>x.shape"
   prim__shape : HTMLAnchorElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.shape = v}"
@@ -651,6 +675,7 @@ namespace HTMLAnchorElement
   export
   %foreign "browser:lambda:x=>x.target"
   prim__target : HTMLAnchorElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.target = v}"
@@ -659,6 +684,7 @@ namespace HTMLAnchorElement
   export
   %foreign "browser:lambda:x=>x.text"
   prim__text : HTMLAnchorElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.text = v}"
@@ -667,6 +693,7 @@ namespace HTMLAnchorElement
   export
   %foreign "browser:lambda:x=>x.type"
   prim__type : HTMLAnchorElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.type = v}"
@@ -681,6 +708,7 @@ namespace HTMLAreaElement
   export
   %foreign "browser:lambda:x=>x.alt"
   prim__alt : HTMLAreaElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.alt = v}"
@@ -689,6 +717,7 @@ namespace HTMLAreaElement
   export
   %foreign "browser:lambda:x=>x.coords"
   prim__coords : HTMLAreaElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.coords = v}"
@@ -697,6 +726,7 @@ namespace HTMLAreaElement
   export
   %foreign "browser:lambda:x=>x.download"
   prim__download : HTMLAreaElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.download = v}"
@@ -705,6 +735,7 @@ namespace HTMLAreaElement
   export
   %foreign "browser:lambda:x=>x.noHref"
   prim__noHref : HTMLAreaElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.noHref = v}"
@@ -713,6 +744,7 @@ namespace HTMLAreaElement
   export
   %foreign "browser:lambda:x=>x.ping"
   prim__ping : HTMLAreaElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ping = v}"
@@ -721,6 +753,7 @@ namespace HTMLAreaElement
   export
   %foreign "browser:lambda:x=>x.referrerPolicy"
   prim__referrerPolicy : HTMLAreaElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.referrerPolicy = v}"
@@ -729,6 +762,7 @@ namespace HTMLAreaElement
   export
   %foreign "browser:lambda:x=>x.rel"
   prim__rel : HTMLAreaElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.rel = v}"
@@ -741,6 +775,7 @@ namespace HTMLAreaElement
   export
   %foreign "browser:lambda:x=>x.shape"
   prim__shape : HTMLAreaElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.shape = v}"
@@ -749,6 +784,7 @@ namespace HTMLAreaElement
   export
   %foreign "browser:lambda:x=>x.target"
   prim__target : HTMLAreaElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.target = v}"
@@ -769,6 +805,7 @@ namespace HTMLBRElement
   export
   %foreign "browser:lambda:x=>x.clear"
   prim__clear : HTMLBRElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.clear = v}"
@@ -783,6 +820,7 @@ namespace HTMLBaseElement
   export
   %foreign "browser:lambda:x=>x.href"
   prim__href : HTMLBaseElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.href = v}"
@@ -791,6 +829,7 @@ namespace HTMLBaseElement
   export
   %foreign "browser:lambda:x=>x.target"
   prim__target : HTMLBaseElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.target = v}"
@@ -805,6 +844,7 @@ namespace HTMLBodyElement
   export
   %foreign "browser:lambda:x=>x.aLink"
   prim__aLink : HTMLBodyElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.aLink = v}"
@@ -813,6 +853,7 @@ namespace HTMLBodyElement
   export
   %foreign "browser:lambda:x=>x.background"
   prim__background : HTMLBodyElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.background = v}"
@@ -821,6 +862,7 @@ namespace HTMLBodyElement
   export
   %foreign "browser:lambda:x=>x.bgColor"
   prim__bgColor : HTMLBodyElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.bgColor = v}"
@@ -829,6 +871,7 @@ namespace HTMLBodyElement
   export
   %foreign "browser:lambda:x=>x.link"
   prim__link : HTMLBodyElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.link = v}"
@@ -837,6 +880,7 @@ namespace HTMLBodyElement
   export
   %foreign "browser:lambda:x=>x.text"
   prim__text : HTMLBodyElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.text = v}"
@@ -845,6 +889,7 @@ namespace HTMLBodyElement
   export
   %foreign "browser:lambda:x=>x.vLink"
   prim__vLink : HTMLBodyElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.vLink = v}"
@@ -859,6 +904,7 @@ namespace HTMLButtonElement
   export
   %foreign "browser:lambda:x=>x.disabled"
   prim__disabled : HTMLButtonElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.disabled = v}"
@@ -871,6 +917,7 @@ namespace HTMLButtonElement
   export
   %foreign "browser:lambda:x=>x.formAction"
   prim__formAction : HTMLButtonElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.formAction = v}"
@@ -879,6 +926,7 @@ namespace HTMLButtonElement
   export
   %foreign "browser:lambda:x=>x.formEnctype"
   prim__formEnctype : HTMLButtonElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.formEnctype = v}"
@@ -887,6 +935,7 @@ namespace HTMLButtonElement
   export
   %foreign "browser:lambda:x=>x.formMethod"
   prim__formMethod : HTMLButtonElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.formMethod = v}"
@@ -895,6 +944,7 @@ namespace HTMLButtonElement
   export
   %foreign "browser:lambda:x=>x.formNoValidate"
   prim__formNoValidate : HTMLButtonElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.formNoValidate = v}"
@@ -903,6 +953,7 @@ namespace HTMLButtonElement
   export
   %foreign "browser:lambda:x=>x.formTarget"
   prim__formTarget : HTMLButtonElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.formTarget = v}"
@@ -915,6 +966,7 @@ namespace HTMLButtonElement
   export
   %foreign "browser:lambda:x=>x.name"
   prim__name : HTMLButtonElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.name = v}"
@@ -923,6 +975,7 @@ namespace HTMLButtonElement
   export
   %foreign "browser:lambda:x=>x.type"
   prim__type : HTMLButtonElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.type = v}"
@@ -939,6 +992,7 @@ namespace HTMLButtonElement
   export
   %foreign "browser:lambda:x=>x.value"
   prim__value : HTMLButtonElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.value = v}"
@@ -969,6 +1023,7 @@ namespace HTMLCanvasElement
   export
   %foreign "browser:lambda:x=>x.height"
   prim__height : HTMLCanvasElement -> PrimIO UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.height = v}"
@@ -977,6 +1032,7 @@ namespace HTMLCanvasElement
   export
   %foreign "browser:lambda:x=>x.width"
   prim__width : HTMLCanvasElement -> PrimIO UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.width = v}"
@@ -1020,6 +1076,7 @@ namespace HTMLDListElement
   export
   %foreign "browser:lambda:x=>x.compact"
   prim__compact : HTMLDListElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.compact = v}"
@@ -1034,6 +1091,7 @@ namespace HTMLDataElement
   export
   %foreign "browser:lambda:x=>x.value"
   prim__value : HTMLDataElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.value = v}"
@@ -1058,6 +1116,7 @@ namespace HTMLDetailsElement
   export
   %foreign "browser:lambda:x=>x.open"
   prim__open : HTMLDetailsElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.open = v}"
@@ -1072,6 +1131,7 @@ namespace HTMLDialogElement
   export
   %foreign "browser:lambda:x=>x.open"
   prim__open : HTMLDialogElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.open = v}"
@@ -1080,6 +1140,7 @@ namespace HTMLDialogElement
   export
   %foreign "browser:lambda:x=>x.returnValue"
   prim__returnValue : HTMLDialogElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.returnValue = v}"
@@ -1106,6 +1167,7 @@ namespace HTMLDirectoryElement
   export
   %foreign "browser:lambda:x=>x.compact"
   prim__compact : HTMLDirectoryElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.compact = v}"
@@ -1120,6 +1182,7 @@ namespace HTMLDivElement
   export
   %foreign "browser:lambda:x=>x.align"
   prim__align : HTMLDivElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.align = v}"
@@ -1134,6 +1197,7 @@ namespace HTMLElement
   export
   %foreign "browser:lambda:x=>x.accessKey"
   prim__accessKey : HTMLElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.accessKey = v}"
@@ -1146,6 +1210,7 @@ namespace HTMLElement
   export
   %foreign "browser:lambda:x=>x.autocapitalize"
   prim__autocapitalize : HTMLElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.autocapitalize = v}"
@@ -1154,6 +1219,7 @@ namespace HTMLElement
   export
   %foreign "browser:lambda:x=>x.dir"
   prim__dir : HTMLElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.dir = v}"
@@ -1162,6 +1228,7 @@ namespace HTMLElement
   export
   %foreign "browser:lambda:x=>x.draggable"
   prim__draggable : HTMLElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.draggable = v}"
@@ -1170,6 +1237,7 @@ namespace HTMLElement
   export
   %foreign "browser:lambda:x=>x.hidden"
   prim__hidden : HTMLElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.hidden = v}"
@@ -1178,6 +1246,7 @@ namespace HTMLElement
   export
   %foreign "browser:lambda:x=>x.innerText"
   prim__innerText : HTMLElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.innerText = v}"
@@ -1186,6 +1255,7 @@ namespace HTMLElement
   export
   %foreign "browser:lambda:x=>x.lang"
   prim__lang : HTMLElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.lang = v}"
@@ -1194,6 +1264,7 @@ namespace HTMLElement
   export
   %foreign "browser:lambda:x=>x.spellcheck"
   prim__spellcheck : HTMLElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.spellcheck = v}"
@@ -1202,6 +1273,7 @@ namespace HTMLElement
   export
   %foreign "browser:lambda:x=>x.title"
   prim__title : HTMLElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.title = v}"
@@ -1210,6 +1282,7 @@ namespace HTMLElement
   export
   %foreign "browser:lambda:x=>x.translate"
   prim__translate : HTMLElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.translate = v}"
@@ -1232,6 +1305,7 @@ namespace HTMLEmbedElement
   export
   %foreign "browser:lambda:x=>x.align"
   prim__align : HTMLEmbedElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.align = v}"
@@ -1240,6 +1314,7 @@ namespace HTMLEmbedElement
   export
   %foreign "browser:lambda:x=>x.height"
   prim__height : HTMLEmbedElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.height = v}"
@@ -1248,6 +1323,7 @@ namespace HTMLEmbedElement
   export
   %foreign "browser:lambda:x=>x.name"
   prim__name : HTMLEmbedElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.name = v}"
@@ -1256,6 +1332,7 @@ namespace HTMLEmbedElement
   export
   %foreign "browser:lambda:x=>x.src"
   prim__src : HTMLEmbedElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.src = v}"
@@ -1264,6 +1341,7 @@ namespace HTMLEmbedElement
   export
   %foreign "browser:lambda:x=>x.type"
   prim__type : HTMLEmbedElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.type = v}"
@@ -1272,6 +1350,7 @@ namespace HTMLEmbedElement
   export
   %foreign "browser:lambda:x=>x.width"
   prim__width : HTMLEmbedElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.width = v}"
@@ -1290,6 +1369,7 @@ namespace HTMLFieldSetElement
   export
   %foreign "browser:lambda:x=>x.disabled"
   prim__disabled : HTMLFieldSetElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.disabled = v}"
@@ -1306,6 +1386,7 @@ namespace HTMLFieldSetElement
   export
   %foreign "browser:lambda:x=>x.name"
   prim__name : HTMLFieldSetElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.name = v}"
@@ -1348,6 +1429,7 @@ namespace HTMLFontElement
   export
   %foreign "browser:lambda:x=>x.color"
   prim__color : HTMLFontElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.color = v}"
@@ -1356,6 +1438,7 @@ namespace HTMLFontElement
   export
   %foreign "browser:lambda:x=>x.face"
   prim__face : HTMLFontElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.face = v}"
@@ -1364,6 +1447,7 @@ namespace HTMLFontElement
   export
   %foreign "browser:lambda:x=>x.size"
   prim__size : HTMLFontElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.size = v}"
@@ -1396,6 +1480,7 @@ namespace HTMLFormElement
   export
   %foreign "browser:lambda:x=>x.acceptCharset"
   prim__acceptCharset : HTMLFormElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.acceptCharset = v}"
@@ -1404,6 +1489,7 @@ namespace HTMLFormElement
   export
   %foreign "browser:lambda:x=>x.action"
   prim__action : HTMLFormElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.action = v}"
@@ -1412,6 +1498,7 @@ namespace HTMLFormElement
   export
   %foreign "browser:lambda:x=>x.autocomplete"
   prim__autocomplete : HTMLFormElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.autocomplete = v}"
@@ -1424,6 +1511,7 @@ namespace HTMLFormElement
   export
   %foreign "browser:lambda:x=>x.encoding"
   prim__encoding : HTMLFormElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.encoding = v}"
@@ -1432,6 +1520,7 @@ namespace HTMLFormElement
   export
   %foreign "browser:lambda:x=>x.enctype"
   prim__enctype : HTMLFormElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.enctype = v}"
@@ -1444,6 +1533,7 @@ namespace HTMLFormElement
   export
   %foreign "browser:lambda:x=>x.method"
   prim__method : HTMLFormElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.method = v}"
@@ -1452,6 +1542,7 @@ namespace HTMLFormElement
   export
   %foreign "browser:lambda:x=>x.name"
   prim__name : HTMLFormElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.name = v}"
@@ -1460,6 +1551,7 @@ namespace HTMLFormElement
   export
   %foreign "browser:lambda:x=>x.noValidate"
   prim__noValidate : HTMLFormElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.noValidate = v}"
@@ -1468,6 +1560,7 @@ namespace HTMLFormElement
   export
   %foreign "browser:lambda:x=>x.rel"
   prim__rel : HTMLFormElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.rel = v}"
@@ -1480,6 +1573,7 @@ namespace HTMLFormElement
   export
   %foreign "browser:lambda:x=>x.target"
   prim__target : HTMLFormElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.target = v}"
@@ -1524,6 +1618,7 @@ namespace HTMLFrameElement
   export
   %foreign "browser:lambda:x=>x.frameBorder"
   prim__frameBorder : HTMLFrameElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.frameBorder = v}"
@@ -1532,6 +1627,7 @@ namespace HTMLFrameElement
   export
   %foreign "browser:lambda:x=>x.longDesc"
   prim__longDesc : HTMLFrameElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.longDesc = v}"
@@ -1540,6 +1636,7 @@ namespace HTMLFrameElement
   export
   %foreign "browser:lambda:x=>x.marginHeight"
   prim__marginHeight : HTMLFrameElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.marginHeight = v}"
@@ -1548,6 +1645,7 @@ namespace HTMLFrameElement
   export
   %foreign "browser:lambda:x=>x.marginWidth"
   prim__marginWidth : HTMLFrameElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.marginWidth = v}"
@@ -1556,6 +1654,7 @@ namespace HTMLFrameElement
   export
   %foreign "browser:lambda:x=>x.name"
   prim__name : HTMLFrameElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.name = v}"
@@ -1564,6 +1663,7 @@ namespace HTMLFrameElement
   export
   %foreign "browser:lambda:x=>x.noResize"
   prim__noResize : HTMLFrameElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.noResize = v}"
@@ -1572,6 +1672,7 @@ namespace HTMLFrameElement
   export
   %foreign "browser:lambda:x=>x.scrolling"
   prim__scrolling : HTMLFrameElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.scrolling = v}"
@@ -1580,6 +1681,7 @@ namespace HTMLFrameElement
   export
   %foreign "browser:lambda:x=>x.src"
   prim__src : HTMLFrameElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.src = v}"
@@ -1594,6 +1696,7 @@ namespace HTMLFrameSetElement
   export
   %foreign "browser:lambda:x=>x.cols"
   prim__cols : HTMLFrameSetElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.cols = v}"
@@ -1602,6 +1705,7 @@ namespace HTMLFrameSetElement
   export
   %foreign "browser:lambda:x=>x.rows"
   prim__rows : HTMLFrameSetElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.rows = v}"
@@ -1616,6 +1720,7 @@ namespace HTMLHRElement
   export
   %foreign "browser:lambda:x=>x.align"
   prim__align : HTMLHRElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.align = v}"
@@ -1624,6 +1729,7 @@ namespace HTMLHRElement
   export
   %foreign "browser:lambda:x=>x.color"
   prim__color : HTMLHRElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.color = v}"
@@ -1632,6 +1738,7 @@ namespace HTMLHRElement
   export
   %foreign "browser:lambda:x=>x.noShade"
   prim__noShade : HTMLHRElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.noShade = v}"
@@ -1640,6 +1747,7 @@ namespace HTMLHRElement
   export
   %foreign "browser:lambda:x=>x.size"
   prim__size : HTMLHRElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.size = v}"
@@ -1648,6 +1756,7 @@ namespace HTMLHRElement
   export
   %foreign "browser:lambda:x=>x.width"
   prim__width : HTMLHRElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.width = v}"
@@ -1668,6 +1777,7 @@ namespace HTMLHeadingElement
   export
   %foreign "browser:lambda:x=>x.align"
   prim__align : HTMLHeadingElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.align = v}"
@@ -1682,6 +1792,7 @@ namespace HTMLHtmlElement
   export
   %foreign "browser:lambda:x=>x.version"
   prim__version : HTMLHtmlElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.version = v}"
@@ -1696,6 +1807,7 @@ namespace HTMLIFrameElement
   export
   %foreign "browser:lambda:x=>x.align"
   prim__align : HTMLIFrameElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.align = v}"
@@ -1704,6 +1816,7 @@ namespace HTMLIFrameElement
   export
   %foreign "browser:lambda:x=>x.allow"
   prim__allow : HTMLIFrameElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.allow = v}"
@@ -1712,6 +1825,7 @@ namespace HTMLIFrameElement
   export
   %foreign "browser:lambda:x=>x.allowFullscreen"
   prim__allowFullscreen : HTMLIFrameElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.allowFullscreen = v}"
@@ -1728,6 +1842,7 @@ namespace HTMLIFrameElement
   export
   %foreign "browser:lambda:x=>x.frameBorder"
   prim__frameBorder : HTMLIFrameElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.frameBorder = v}"
@@ -1736,6 +1851,7 @@ namespace HTMLIFrameElement
   export
   %foreign "browser:lambda:x=>x.height"
   prim__height : HTMLIFrameElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.height = v}"
@@ -1744,6 +1860,7 @@ namespace HTMLIFrameElement
   export
   %foreign "browser:lambda:x=>x.loading"
   prim__loading : HTMLIFrameElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.loading = v}"
@@ -1752,6 +1869,7 @@ namespace HTMLIFrameElement
   export
   %foreign "browser:lambda:x=>x.longDesc"
   prim__longDesc : HTMLIFrameElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.longDesc = v}"
@@ -1760,6 +1878,7 @@ namespace HTMLIFrameElement
   export
   %foreign "browser:lambda:x=>x.marginHeight"
   prim__marginHeight : HTMLIFrameElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.marginHeight = v}"
@@ -1768,6 +1887,7 @@ namespace HTMLIFrameElement
   export
   %foreign "browser:lambda:x=>x.marginWidth"
   prim__marginWidth : HTMLIFrameElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.marginWidth = v}"
@@ -1776,6 +1896,7 @@ namespace HTMLIFrameElement
   export
   %foreign "browser:lambda:x=>x.name"
   prim__name : HTMLIFrameElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.name = v}"
@@ -1784,6 +1905,7 @@ namespace HTMLIFrameElement
   export
   %foreign "browser:lambda:x=>x.referrerPolicy"
   prim__referrerPolicy : HTMLIFrameElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.referrerPolicy = v}"
@@ -1796,6 +1918,7 @@ namespace HTMLIFrameElement
   export
   %foreign "browser:lambda:x=>x.scrolling"
   prim__scrolling : HTMLIFrameElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.scrolling = v}"
@@ -1804,6 +1927,7 @@ namespace HTMLIFrameElement
   export
   %foreign "browser:lambda:x=>x.src"
   prim__src : HTMLIFrameElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.src = v}"
@@ -1812,6 +1936,7 @@ namespace HTMLIFrameElement
   export
   %foreign "browser:lambda:x=>x.srcdoc"
   prim__srcdoc : HTMLIFrameElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.srcdoc = v}"
@@ -1820,6 +1945,7 @@ namespace HTMLIFrameElement
   export
   %foreign "browser:lambda:x=>x.width"
   prim__width : HTMLIFrameElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.width = v}"
@@ -1838,6 +1964,7 @@ namespace HTMLImageElement
   export
   %foreign "browser:lambda:x=>x.align"
   prim__align : HTMLImageElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.align = v}"
@@ -1846,6 +1973,7 @@ namespace HTMLImageElement
   export
   %foreign "browser:lambda:x=>x.alt"
   prim__alt : HTMLImageElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.alt = v}"
@@ -1854,6 +1982,7 @@ namespace HTMLImageElement
   export
   %foreign "browser:lambda:x=>x.border"
   prim__border : HTMLImageElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.border = v}"
@@ -1866,6 +1995,7 @@ namespace HTMLImageElement
   export
   %foreign "browser:lambda:x=>x.crossOrigin"
   prim__crossOrigin : HTMLImageElement -> PrimIO (Nullable String)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.crossOrigin = v}"
@@ -1878,6 +2008,7 @@ namespace HTMLImageElement
   export
   %foreign "browser:lambda:x=>x.decoding"
   prim__decoding : HTMLImageElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.decoding = v}"
@@ -1886,6 +2017,7 @@ namespace HTMLImageElement
   export
   %foreign "browser:lambda:x=>x.height"
   prim__height : HTMLImageElement -> PrimIO UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.height = v}"
@@ -1894,6 +2026,7 @@ namespace HTMLImageElement
   export
   %foreign "browser:lambda:x=>x.hspace"
   prim__hspace : HTMLImageElement -> PrimIO UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.hspace = v}"
@@ -1902,6 +2035,7 @@ namespace HTMLImageElement
   export
   %foreign "browser:lambda:x=>x.isMap"
   prim__isMap : HTMLImageElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.isMap = v}"
@@ -1910,6 +2044,7 @@ namespace HTMLImageElement
   export
   %foreign "browser:lambda:x=>x.loading"
   prim__loading : HTMLImageElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.loading = v}"
@@ -1918,6 +2053,7 @@ namespace HTMLImageElement
   export
   %foreign "browser:lambda:x=>x.longDesc"
   prim__longDesc : HTMLImageElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.longDesc = v}"
@@ -1926,6 +2062,7 @@ namespace HTMLImageElement
   export
   %foreign "browser:lambda:x=>x.lowsrc"
   prim__lowsrc : HTMLImageElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.lowsrc = v}"
@@ -1934,6 +2071,7 @@ namespace HTMLImageElement
   export
   %foreign "browser:lambda:x=>x.name"
   prim__name : HTMLImageElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.name = v}"
@@ -1950,6 +2088,7 @@ namespace HTMLImageElement
   export
   %foreign "browser:lambda:x=>x.referrerPolicy"
   prim__referrerPolicy : HTMLImageElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.referrerPolicy = v}"
@@ -1958,6 +2097,7 @@ namespace HTMLImageElement
   export
   %foreign "browser:lambda:x=>x.sizes"
   prim__sizes : HTMLImageElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.sizes = v}"
@@ -1966,6 +2106,7 @@ namespace HTMLImageElement
   export
   %foreign "browser:lambda:x=>x.src"
   prim__src : HTMLImageElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.src = v}"
@@ -1974,6 +2115,7 @@ namespace HTMLImageElement
   export
   %foreign "browser:lambda:x=>x.srcset"
   prim__srcset : HTMLImageElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.srcset = v}"
@@ -1982,6 +2124,7 @@ namespace HTMLImageElement
   export
   %foreign "browser:lambda:x=>x.useMap"
   prim__useMap : HTMLImageElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.useMap = v}"
@@ -1990,6 +2133,7 @@ namespace HTMLImageElement
   export
   %foreign "browser:lambda:x=>x.vspace"
   prim__vspace : HTMLImageElement -> PrimIO UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.vspace = v}"
@@ -1998,6 +2142,7 @@ namespace HTMLImageElement
   export
   %foreign "browser:lambda:x=>x.width"
   prim__width : HTMLImageElement -> PrimIO UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.width = v}"
@@ -2016,6 +2161,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.accept"
   prim__accept : HTMLInputElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.accept = v}"
@@ -2024,6 +2170,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.align"
   prim__align : HTMLInputElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.align = v}"
@@ -2032,6 +2179,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.alt"
   prim__alt : HTMLInputElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.alt = v}"
@@ -2040,6 +2188,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.autocomplete"
   prim__autocomplete : HTMLInputElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.autocomplete = v}"
@@ -2048,6 +2197,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.checked"
   prim__checked : HTMLInputElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.checked = v}"
@@ -2056,6 +2206,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.defaultChecked"
   prim__defaultChecked : HTMLInputElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.defaultChecked = v}"
@@ -2064,6 +2215,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.defaultValue"
   prim__defaultValue : HTMLInputElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.defaultValue = v}"
@@ -2072,6 +2224,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.dirName"
   prim__dirName : HTMLInputElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.dirName = v}"
@@ -2080,6 +2233,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.disabled"
   prim__disabled : HTMLInputElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.disabled = v}"
@@ -2088,6 +2242,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.files"
   prim__files : HTMLInputElement -> PrimIO (Nullable FileList)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.files = v}"
@@ -2100,6 +2255,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.formAction"
   prim__formAction : HTMLInputElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.formAction = v}"
@@ -2108,6 +2264,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.formEnctype"
   prim__formEnctype : HTMLInputElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.formEnctype = v}"
@@ -2116,6 +2273,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.formMethod"
   prim__formMethod : HTMLInputElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.formMethod = v}"
@@ -2124,6 +2282,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.formNoValidate"
   prim__formNoValidate : HTMLInputElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.formNoValidate = v}"
@@ -2132,6 +2291,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.formTarget"
   prim__formTarget : HTMLInputElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.formTarget = v}"
@@ -2140,6 +2300,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.height"
   prim__height : HTMLInputElement -> PrimIO UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.height = v}"
@@ -2148,6 +2309,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.indeterminate"
   prim__indeterminate : HTMLInputElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.indeterminate = v}"
@@ -2164,6 +2326,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.max"
   prim__max : HTMLInputElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.max = v}"
@@ -2172,6 +2335,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.maxLength"
   prim__maxLength : HTMLInputElement -> PrimIO Int32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.maxLength = v}"
@@ -2180,6 +2344,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.min"
   prim__min : HTMLInputElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.min = v}"
@@ -2188,6 +2353,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.minLength"
   prim__minLength : HTMLInputElement -> PrimIO Int32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.minLength = v}"
@@ -2196,6 +2362,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.multiple"
   prim__multiple : HTMLInputElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.multiple = v}"
@@ -2204,6 +2371,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.name"
   prim__name : HTMLInputElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.name = v}"
@@ -2212,6 +2380,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.pattern"
   prim__pattern : HTMLInputElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.pattern = v}"
@@ -2220,6 +2389,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.placeholder"
   prim__placeholder : HTMLInputElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.placeholder = v}"
@@ -2228,6 +2398,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.readOnly"
   prim__readOnly : HTMLInputElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.readOnly = v}"
@@ -2236,6 +2407,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.required"
   prim__required : HTMLInputElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.required = v}"
@@ -2244,6 +2416,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.selectionDirection"
   prim__selectionDirection : HTMLInputElement -> PrimIO (Nullable String)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.selectionDirection = v}"
@@ -2252,6 +2425,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.selectionEnd"
   prim__selectionEnd : HTMLInputElement -> PrimIO (Nullable UInt32)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.selectionEnd = v}"
@@ -2260,6 +2434,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.selectionStart"
   prim__selectionStart : HTMLInputElement -> PrimIO (Nullable UInt32)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.selectionStart = v}"
@@ -2268,6 +2443,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.size"
   prim__size : HTMLInputElement -> PrimIO UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.size = v}"
@@ -2276,6 +2452,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.src"
   prim__src : HTMLInputElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.src = v}"
@@ -2284,6 +2461,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.step"
   prim__step : HTMLInputElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.step = v}"
@@ -2292,6 +2470,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.type"
   prim__type : HTMLInputElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.type = v}"
@@ -2300,6 +2479,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.useMap"
   prim__useMap : HTMLInputElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.useMap = v}"
@@ -2316,6 +2496,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.value"
   prim__value : HTMLInputElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.value = v}"
@@ -2324,6 +2505,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.valueAsDate"
   prim__valueAsDate : HTMLInputElement -> PrimIO (Nullable Object)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.valueAsDate = v}"
@@ -2332,6 +2514,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.valueAsNumber"
   prim__valueAsNumber : HTMLInputElement -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.valueAsNumber = v}"
@@ -2340,6 +2523,7 @@ namespace HTMLInputElement
   export
   %foreign "browser:lambda:x=>x.width"
   prim__width : HTMLInputElement -> PrimIO UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.width = v}"
@@ -2403,6 +2587,7 @@ namespace HTMLLIElement
   export
   %foreign "browser:lambda:x=>x.type"
   prim__type : HTMLLIElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.type = v}"
@@ -2411,6 +2596,7 @@ namespace HTMLLIElement
   export
   %foreign "browser:lambda:x=>x.value"
   prim__value : HTMLLIElement -> PrimIO Int32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.value = v}"
@@ -2433,6 +2619,7 @@ namespace HTMLLabelElement
   export
   %foreign "browser:lambda:x=>x.htmlFor"
   prim__htmlFor : HTMLLabelElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.htmlFor = v}"
@@ -2447,6 +2634,7 @@ namespace HTMLLegendElement
   export
   %foreign "browser:lambda:x=>x.align"
   prim__align : HTMLLegendElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.align = v}"
@@ -2465,6 +2653,7 @@ namespace HTMLLinkElement
   export
   %foreign "browser:lambda:x=>x.as"
   prim__as : HTMLLinkElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.as = v}"
@@ -2473,6 +2662,7 @@ namespace HTMLLinkElement
   export
   %foreign "browser:lambda:x=>x.charset"
   prim__charset : HTMLLinkElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.charset = v}"
@@ -2481,6 +2671,7 @@ namespace HTMLLinkElement
   export
   %foreign "browser:lambda:x=>x.crossOrigin"
   prim__crossOrigin : HTMLLinkElement -> PrimIO (Nullable String)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.crossOrigin = v}"
@@ -2489,6 +2680,7 @@ namespace HTMLLinkElement
   export
   %foreign "browser:lambda:x=>x.disabled"
   prim__disabled : HTMLLinkElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.disabled = v}"
@@ -2497,6 +2689,7 @@ namespace HTMLLinkElement
   export
   %foreign "browser:lambda:x=>x.href"
   prim__href : HTMLLinkElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.href = v}"
@@ -2505,6 +2698,7 @@ namespace HTMLLinkElement
   export
   %foreign "browser:lambda:x=>x.hreflang"
   prim__hreflang : HTMLLinkElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.hreflang = v}"
@@ -2513,6 +2707,7 @@ namespace HTMLLinkElement
   export
   %foreign "browser:lambda:x=>x.imageSizes"
   prim__imageSizes : HTMLLinkElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.imageSizes = v}"
@@ -2521,6 +2716,7 @@ namespace HTMLLinkElement
   export
   %foreign "browser:lambda:x=>x.imageSrcset"
   prim__imageSrcset : HTMLLinkElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.imageSrcset = v}"
@@ -2529,6 +2725,7 @@ namespace HTMLLinkElement
   export
   %foreign "browser:lambda:x=>x.integrity"
   prim__integrity : HTMLLinkElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.integrity = v}"
@@ -2537,6 +2734,7 @@ namespace HTMLLinkElement
   export
   %foreign "browser:lambda:x=>x.media"
   prim__media : HTMLLinkElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.media = v}"
@@ -2545,6 +2743,7 @@ namespace HTMLLinkElement
   export
   %foreign "browser:lambda:x=>x.referrerPolicy"
   prim__referrerPolicy : HTMLLinkElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.referrerPolicy = v}"
@@ -2553,6 +2752,7 @@ namespace HTMLLinkElement
   export
   %foreign "browser:lambda:x=>x.rel"
   prim__rel : HTMLLinkElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.rel = v}"
@@ -2565,6 +2765,7 @@ namespace HTMLLinkElement
   export
   %foreign "browser:lambda:x=>x.rev"
   prim__rev : HTMLLinkElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.rev = v}"
@@ -2577,6 +2778,7 @@ namespace HTMLLinkElement
   export
   %foreign "browser:lambda:x=>x.target"
   prim__target : HTMLLinkElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.target = v}"
@@ -2585,6 +2787,7 @@ namespace HTMLLinkElement
   export
   %foreign "browser:lambda:x=>x.type"
   prim__type : HTMLLinkElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.type = v}"
@@ -2603,6 +2806,7 @@ namespace HTMLMapElement
   export
   %foreign "browser:lambda:x=>x.name"
   prim__name : HTMLMapElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.name = v}"
@@ -2617,6 +2821,7 @@ namespace HTMLMarqueeElement
   export
   %foreign "browser:lambda:x=>x.behavior"
   prim__behavior : HTMLMarqueeElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.behavior = v}"
@@ -2625,6 +2830,7 @@ namespace HTMLMarqueeElement
   export
   %foreign "browser:lambda:x=>x.bgColor"
   prim__bgColor : HTMLMarqueeElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.bgColor = v}"
@@ -2633,6 +2839,7 @@ namespace HTMLMarqueeElement
   export
   %foreign "browser:lambda:x=>x.direction"
   prim__direction : HTMLMarqueeElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.direction = v}"
@@ -2641,6 +2848,7 @@ namespace HTMLMarqueeElement
   export
   %foreign "browser:lambda:x=>x.height"
   prim__height : HTMLMarqueeElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.height = v}"
@@ -2649,6 +2857,7 @@ namespace HTMLMarqueeElement
   export
   %foreign "browser:lambda:x=>x.hspace"
   prim__hspace : HTMLMarqueeElement -> PrimIO UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.hspace = v}"
@@ -2657,6 +2866,7 @@ namespace HTMLMarqueeElement
   export
   %foreign "browser:lambda:x=>x.loop"
   prim__loop : HTMLMarqueeElement -> PrimIO Int32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.loop = v}"
@@ -2665,6 +2875,7 @@ namespace HTMLMarqueeElement
   export
   %foreign "browser:lambda:x=>x.scrollAmount"
   prim__scrollAmount : HTMLMarqueeElement -> PrimIO UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.scrollAmount = v}"
@@ -2673,6 +2884,7 @@ namespace HTMLMarqueeElement
   export
   %foreign "browser:lambda:x=>x.scrollDelay"
   prim__scrollDelay : HTMLMarqueeElement -> PrimIO UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.scrollDelay = v}"
@@ -2681,6 +2893,7 @@ namespace HTMLMarqueeElement
   export
   %foreign "browser:lambda:x=>x.trueSpeed"
   prim__trueSpeed : HTMLMarqueeElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.trueSpeed = v}"
@@ -2689,6 +2902,7 @@ namespace HTMLMarqueeElement
   export
   %foreign "browser:lambda:x=>x.vspace"
   prim__vspace : HTMLMarqueeElement -> PrimIO UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.vspace = v}"
@@ -2697,6 +2911,7 @@ namespace HTMLMarqueeElement
   export
   %foreign "browser:lambda:x=>x.width"
   prim__width : HTMLMarqueeElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.width = v}"
@@ -2719,6 +2934,7 @@ namespace HTMLMediaElement
   export
   %foreign "browser:lambda:x=>x.autoplay"
   prim__autoplay : HTMLMediaElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.autoplay = v}"
@@ -2731,6 +2947,7 @@ namespace HTMLMediaElement
   export
   %foreign "browser:lambda:x=>x.controls"
   prim__controls : HTMLMediaElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.controls = v}"
@@ -2739,6 +2956,7 @@ namespace HTMLMediaElement
   export
   %foreign "browser:lambda:x=>x.crossOrigin"
   prim__crossOrigin : HTMLMediaElement -> PrimIO (Nullable String)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.crossOrigin = v}"
@@ -2751,6 +2969,7 @@ namespace HTMLMediaElement
   export
   %foreign "browser:lambda:x=>x.currentTime"
   prim__currentTime : HTMLMediaElement -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.currentTime = v}"
@@ -2759,6 +2978,7 @@ namespace HTMLMediaElement
   export
   %foreign "browser:lambda:x=>x.defaultMuted"
   prim__defaultMuted : HTMLMediaElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.defaultMuted = v}"
@@ -2767,6 +2987,7 @@ namespace HTMLMediaElement
   export
   %foreign "browser:lambda:x=>x.defaultPlaybackRate"
   prim__defaultPlaybackRate : HTMLMediaElement -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.defaultPlaybackRate = v}"
@@ -2787,6 +3008,7 @@ namespace HTMLMediaElement
   export
   %foreign "browser:lambda:x=>x.loop"
   prim__loop : HTMLMediaElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.loop = v}"
@@ -2795,6 +3017,7 @@ namespace HTMLMediaElement
   export
   %foreign "browser:lambda:x=>x.muted"
   prim__muted : HTMLMediaElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.muted = v}"
@@ -2811,6 +3034,7 @@ namespace HTMLMediaElement
   export
   %foreign "browser:lambda:x=>x.playbackRate"
   prim__playbackRate : HTMLMediaElement -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.playbackRate = v}"
@@ -2823,6 +3047,7 @@ namespace HTMLMediaElement
   export
   %foreign "browser:lambda:x=>x.preload"
   prim__preload : HTMLMediaElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.preload = v}"
@@ -2831,6 +3056,7 @@ namespace HTMLMediaElement
   export
   %foreign "browser:lambda:x=>x.preservesPitch"
   prim__preservesPitch : HTMLMediaElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.preservesPitch = v}"
@@ -2851,6 +3077,7 @@ namespace HTMLMediaElement
   export
   %foreign "browser:lambda:x=>x.src"
   prim__src : HTMLMediaElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.src = v}"
@@ -2860,6 +3087,7 @@ namespace HTMLMediaElement
   %foreign "browser:lambda:x=>x.srcObject"
   prim__srcObject :  HTMLMediaElement
                   -> PrimIO (Nullable (Union3 MediaStream MediaSource Blob))
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.srcObject = v}"
@@ -2878,6 +3106,7 @@ namespace HTMLMediaElement
   export
   %foreign "browser:lambda:x=>x.volume"
   prim__volume : HTMLMediaElement -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.volume = v}"
@@ -2924,6 +3153,7 @@ namespace HTMLMenuElement
   export
   %foreign "browser:lambda:x=>x.compact"
   prim__compact : HTMLMenuElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.compact = v}"
@@ -2938,6 +3168,7 @@ namespace HTMLMetaElement
   export
   %foreign "browser:lambda:x=>x.content"
   prim__content : HTMLMetaElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.content = v}"
@@ -2946,6 +3177,7 @@ namespace HTMLMetaElement
   export
   %foreign "browser:lambda:x=>x.httpEquiv"
   prim__httpEquiv : HTMLMetaElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.httpEquiv = v}"
@@ -2954,6 +3186,7 @@ namespace HTMLMetaElement
   export
   %foreign "browser:lambda:x=>x.name"
   prim__name : HTMLMetaElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.name = v}"
@@ -2962,6 +3195,7 @@ namespace HTMLMetaElement
   export
   %foreign "browser:lambda:x=>x.scheme"
   prim__scheme : HTMLMetaElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.scheme = v}"
@@ -2976,6 +3210,7 @@ namespace HTMLMeterElement
   export
   %foreign "browser:lambda:x=>x.high"
   prim__high : HTMLMeterElement -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.high = v}"
@@ -2988,6 +3223,7 @@ namespace HTMLMeterElement
   export
   %foreign "browser:lambda:x=>x.low"
   prim__low : HTMLMeterElement -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.low = v}"
@@ -2996,6 +3232,7 @@ namespace HTMLMeterElement
   export
   %foreign "browser:lambda:x=>x.max"
   prim__max : HTMLMeterElement -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.max = v}"
@@ -3004,6 +3241,7 @@ namespace HTMLMeterElement
   export
   %foreign "browser:lambda:x=>x.min"
   prim__min : HTMLMeterElement -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.min = v}"
@@ -3012,6 +3250,7 @@ namespace HTMLMeterElement
   export
   %foreign "browser:lambda:x=>x.optimum"
   prim__optimum : HTMLMeterElement -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.optimum = v}"
@@ -3020,6 +3259,7 @@ namespace HTMLMeterElement
   export
   %foreign "browser:lambda:x=>x.value"
   prim__value : HTMLMeterElement -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.value = v}"
@@ -3034,6 +3274,7 @@ namespace HTMLModElement
   export
   %foreign "browser:lambda:x=>x.cite"
   prim__cite : HTMLModElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.cite = v}"
@@ -3042,6 +3283,7 @@ namespace HTMLModElement
   export
   %foreign "browser:lambda:x=>x.dateTime"
   prim__dateTime : HTMLModElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.dateTime = v}"
@@ -3056,6 +3298,7 @@ namespace HTMLOListElement
   export
   %foreign "browser:lambda:x=>x.compact"
   prim__compact : HTMLOListElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.compact = v}"
@@ -3064,6 +3307,7 @@ namespace HTMLOListElement
   export
   %foreign "browser:lambda:x=>x.reversed"
   prim__reversed : HTMLOListElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.reversed = v}"
@@ -3072,6 +3316,7 @@ namespace HTMLOListElement
   export
   %foreign "browser:lambda:x=>x.start"
   prim__start : HTMLOListElement -> PrimIO Int32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.start = v}"
@@ -3080,6 +3325,7 @@ namespace HTMLOListElement
   export
   %foreign "browser:lambda:x=>x.type"
   prim__type : HTMLOListElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.type = v}"
@@ -3094,6 +3340,7 @@ namespace HTMLObjectElement
   export
   %foreign "browser:lambda:x=>x.align"
   prim__align : HTMLObjectElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.align = v}"
@@ -3102,6 +3349,7 @@ namespace HTMLObjectElement
   export
   %foreign "browser:lambda:x=>x.archive"
   prim__archive : HTMLObjectElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.archive = v}"
@@ -3110,6 +3358,7 @@ namespace HTMLObjectElement
   export
   %foreign "browser:lambda:x=>x.border"
   prim__border : HTMLObjectElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.border = v}"
@@ -3118,6 +3367,7 @@ namespace HTMLObjectElement
   export
   %foreign "browser:lambda:x=>x.code"
   prim__code : HTMLObjectElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.code = v}"
@@ -3126,6 +3376,7 @@ namespace HTMLObjectElement
   export
   %foreign "browser:lambda:x=>x.codeBase"
   prim__codeBase : HTMLObjectElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.codeBase = v}"
@@ -3134,6 +3385,7 @@ namespace HTMLObjectElement
   export
   %foreign "browser:lambda:x=>x.codeType"
   prim__codeType : HTMLObjectElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.codeType = v}"
@@ -3150,6 +3402,7 @@ namespace HTMLObjectElement
   export
   %foreign "browser:lambda:x=>x.data"
   prim__data : HTMLObjectElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.data = v}"
@@ -3158,6 +3411,7 @@ namespace HTMLObjectElement
   export
   %foreign "browser:lambda:x=>x.declare"
   prim__declare : HTMLObjectElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.declare = v}"
@@ -3170,6 +3424,7 @@ namespace HTMLObjectElement
   export
   %foreign "browser:lambda:x=>x.height"
   prim__height : HTMLObjectElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.height = v}"
@@ -3178,6 +3433,7 @@ namespace HTMLObjectElement
   export
   %foreign "browser:lambda:x=>x.hspace"
   prim__hspace : HTMLObjectElement -> PrimIO UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.hspace = v}"
@@ -3186,6 +3442,7 @@ namespace HTMLObjectElement
   export
   %foreign "browser:lambda:x=>x.name"
   prim__name : HTMLObjectElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.name = v}"
@@ -3194,6 +3451,7 @@ namespace HTMLObjectElement
   export
   %foreign "browser:lambda:x=>x.standby"
   prim__standby : HTMLObjectElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.standby = v}"
@@ -3202,6 +3460,7 @@ namespace HTMLObjectElement
   export
   %foreign "browser:lambda:x=>x.type"
   prim__type : HTMLObjectElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.type = v}"
@@ -3210,6 +3469,7 @@ namespace HTMLObjectElement
   export
   %foreign "browser:lambda:x=>x.useMap"
   prim__useMap : HTMLObjectElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.useMap = v}"
@@ -3226,6 +3486,7 @@ namespace HTMLObjectElement
   export
   %foreign "browser:lambda:x=>x.vspace"
   prim__vspace : HTMLObjectElement -> PrimIO UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.vspace = v}"
@@ -3234,6 +3495,7 @@ namespace HTMLObjectElement
   export
   %foreign "browser:lambda:x=>x.width"
   prim__width : HTMLObjectElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.width = v}"
@@ -3268,6 +3530,7 @@ namespace HTMLOptGroupElement
   export
   %foreign "browser:lambda:x=>x.disabled"
   prim__disabled : HTMLOptGroupElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.disabled = v}"
@@ -3276,6 +3539,7 @@ namespace HTMLOptGroupElement
   export
   %foreign "browser:lambda:x=>x.label"
   prim__label : HTMLOptGroupElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.label = v}"
@@ -3290,6 +3554,7 @@ namespace HTMLOptionElement
   export
   %foreign "browser:lambda:x=>x.defaultSelected"
   prim__defaultSelected : HTMLOptionElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.defaultSelected = v}"
@@ -3298,6 +3563,7 @@ namespace HTMLOptionElement
   export
   %foreign "browser:lambda:x=>x.disabled"
   prim__disabled : HTMLOptionElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.disabled = v}"
@@ -3314,6 +3580,7 @@ namespace HTMLOptionElement
   export
   %foreign "browser:lambda:x=>x.label"
   prim__label : HTMLOptionElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.label = v}"
@@ -3322,6 +3589,7 @@ namespace HTMLOptionElement
   export
   %foreign "browser:lambda:x=>x.selected"
   prim__selected : HTMLOptionElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.selected = v}"
@@ -3330,6 +3598,7 @@ namespace HTMLOptionElement
   export
   %foreign "browser:lambda:x=>x.text"
   prim__text : HTMLOptionElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.text = v}"
@@ -3338,6 +3607,7 @@ namespace HTMLOptionElement
   export
   %foreign "browser:lambda:x=>x.value"
   prim__value : HTMLOptionElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.value = v}"
@@ -3355,6 +3625,7 @@ namespace HTMLOptionsCollection
   export
   %foreign "browser:lambda:x=>x.length"
   prim__length : HTMLOptionsCollection -> PrimIO UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.length = v}"
@@ -3363,6 +3634,7 @@ namespace HTMLOptionsCollection
   export
   %foreign "browser:lambda:x=>x.selectedIndex"
   prim__selectedIndex : HTMLOptionsCollection -> PrimIO Int32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.selectedIndex = v}"
@@ -3388,6 +3660,7 @@ namespace HTMLOutputElement
   export
   %foreign "browser:lambda:x=>x.defaultValue"
   prim__defaultValue : HTMLOutputElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.defaultValue = v}"
@@ -3408,6 +3681,7 @@ namespace HTMLOutputElement
   export
   %foreign "browser:lambda:x=>x.name"
   prim__name : HTMLOutputElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.name = v}"
@@ -3428,6 +3702,7 @@ namespace HTMLOutputElement
   export
   %foreign "browser:lambda:x=>x.value"
   prim__value : HTMLOutputElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.value = v}"
@@ -3458,6 +3733,7 @@ namespace HTMLParagraphElement
   export
   %foreign "browser:lambda:x=>x.align"
   prim__align : HTMLParagraphElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.align = v}"
@@ -3472,6 +3748,7 @@ namespace HTMLParamElement
   export
   %foreign "browser:lambda:x=>x.name"
   prim__name : HTMLParamElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.name = v}"
@@ -3480,6 +3757,7 @@ namespace HTMLParamElement
   export
   %foreign "browser:lambda:x=>x.type"
   prim__type : HTMLParamElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.type = v}"
@@ -3488,6 +3766,7 @@ namespace HTMLParamElement
   export
   %foreign "browser:lambda:x=>x.value"
   prim__value : HTMLParamElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.value = v}"
@@ -3496,6 +3775,7 @@ namespace HTMLParamElement
   export
   %foreign "browser:lambda:x=>x.valueType"
   prim__valueType : HTMLParamElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.valueType = v}"
@@ -3516,6 +3796,7 @@ namespace HTMLPreElement
   export
   %foreign "browser:lambda:x=>x.width"
   prim__width : HTMLPreElement -> PrimIO Int32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.width = v}"
@@ -3534,6 +3815,7 @@ namespace HTMLProgressElement
   export
   %foreign "browser:lambda:x=>x.max"
   prim__max : HTMLProgressElement -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.max = v}"
@@ -3546,6 +3828,7 @@ namespace HTMLProgressElement
   export
   %foreign "browser:lambda:x=>x.value"
   prim__value : HTMLProgressElement -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.value = v}"
@@ -3560,6 +3843,7 @@ namespace HTMLQuoteElement
   export
   %foreign "browser:lambda:x=>x.cite"
   prim__cite : HTMLQuoteElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.cite = v}"
@@ -3574,6 +3858,7 @@ namespace HTMLScriptElement
   export
   %foreign "browser:lambda:x=>x.async"
   prim__async : HTMLScriptElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.async = v}"
@@ -3582,6 +3867,7 @@ namespace HTMLScriptElement
   export
   %foreign "browser:lambda:x=>x.charset"
   prim__charset : HTMLScriptElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.charset = v}"
@@ -3590,6 +3876,7 @@ namespace HTMLScriptElement
   export
   %foreign "browser:lambda:x=>x.crossOrigin"
   prim__crossOrigin : HTMLScriptElement -> PrimIO (Nullable String)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.crossOrigin = v}"
@@ -3598,6 +3885,7 @@ namespace HTMLScriptElement
   export
   %foreign "browser:lambda:x=>x.defer"
   prim__defer : HTMLScriptElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.defer = v}"
@@ -3606,6 +3894,7 @@ namespace HTMLScriptElement
   export
   %foreign "browser:lambda:x=>x.event"
   prim__event : HTMLScriptElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.event = v}"
@@ -3614,6 +3903,7 @@ namespace HTMLScriptElement
   export
   %foreign "browser:lambda:x=>x.htmlFor"
   prim__htmlFor : HTMLScriptElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.htmlFor = v}"
@@ -3622,6 +3912,7 @@ namespace HTMLScriptElement
   export
   %foreign "browser:lambda:x=>x.integrity"
   prim__integrity : HTMLScriptElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.integrity = v}"
@@ -3630,6 +3921,7 @@ namespace HTMLScriptElement
   export
   %foreign "browser:lambda:x=>x.noModule"
   prim__noModule : HTMLScriptElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.noModule = v}"
@@ -3638,6 +3930,7 @@ namespace HTMLScriptElement
   export
   %foreign "browser:lambda:x=>x.referrerPolicy"
   prim__referrerPolicy : HTMLScriptElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.referrerPolicy = v}"
@@ -3646,6 +3939,7 @@ namespace HTMLScriptElement
   export
   %foreign "browser:lambda:x=>x.src"
   prim__src : HTMLScriptElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.src = v}"
@@ -3654,6 +3948,7 @@ namespace HTMLScriptElement
   export
   %foreign "browser:lambda:x=>x.text"
   prim__text : HTMLScriptElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.text = v}"
@@ -3662,6 +3957,7 @@ namespace HTMLScriptElement
   export
   %foreign "browser:lambda:x=>x.type"
   prim__type : HTMLScriptElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.type = v}"
@@ -3683,6 +3979,7 @@ namespace HTMLSelectElement
   export
   %foreign "browser:lambda:x=>x.autocomplete"
   prim__autocomplete : HTMLSelectElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.autocomplete = v}"
@@ -3691,6 +3988,7 @@ namespace HTMLSelectElement
   export
   %foreign "browser:lambda:x=>x.disabled"
   prim__disabled : HTMLSelectElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.disabled = v}"
@@ -3707,6 +4005,7 @@ namespace HTMLSelectElement
   export
   %foreign "browser:lambda:x=>x.length"
   prim__length : HTMLSelectElement -> PrimIO UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.length = v}"
@@ -3715,6 +4014,7 @@ namespace HTMLSelectElement
   export
   %foreign "browser:lambda:x=>x.multiple"
   prim__multiple : HTMLSelectElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.multiple = v}"
@@ -3723,6 +4023,7 @@ namespace HTMLSelectElement
   export
   %foreign "browser:lambda:x=>x.name"
   prim__name : HTMLSelectElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.name = v}"
@@ -3735,6 +4036,7 @@ namespace HTMLSelectElement
   export
   %foreign "browser:lambda:x=>x.required"
   prim__required : HTMLSelectElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.required = v}"
@@ -3743,6 +4045,7 @@ namespace HTMLSelectElement
   export
   %foreign "browser:lambda:x=>x.selectedIndex"
   prim__selectedIndex : HTMLSelectElement -> PrimIO Int32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.selectedIndex = v}"
@@ -3755,6 +4058,7 @@ namespace HTMLSelectElement
   export
   %foreign "browser:lambda:x=>x.size"
   prim__size : HTMLSelectElement -> PrimIO UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.size = v}"
@@ -3775,6 +4079,7 @@ namespace HTMLSelectElement
   export
   %foreign "browser:lambda:x=>x.value"
   prim__value : HTMLSelectElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.value = v}"
@@ -3830,6 +4135,7 @@ namespace HTMLSlotElement
   export
   %foreign "browser:lambda:x=>x.name"
   prim__name : HTMLSlotElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.name = v}"
@@ -3856,6 +4162,7 @@ namespace HTMLSourceElement
   export
   %foreign "browser:lambda:x=>x.height"
   prim__height : HTMLSourceElement -> PrimIO UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.height = v}"
@@ -3864,6 +4171,7 @@ namespace HTMLSourceElement
   export
   %foreign "browser:lambda:x=>x.media"
   prim__media : HTMLSourceElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.media = v}"
@@ -3872,6 +4180,7 @@ namespace HTMLSourceElement
   export
   %foreign "browser:lambda:x=>x.sizes"
   prim__sizes : HTMLSourceElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.sizes = v}"
@@ -3880,6 +4189,7 @@ namespace HTMLSourceElement
   export
   %foreign "browser:lambda:x=>x.src"
   prim__src : HTMLSourceElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.src = v}"
@@ -3888,6 +4198,7 @@ namespace HTMLSourceElement
   export
   %foreign "browser:lambda:x=>x.srcset"
   prim__srcset : HTMLSourceElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.srcset = v}"
@@ -3896,6 +4207,7 @@ namespace HTMLSourceElement
   export
   %foreign "browser:lambda:x=>x.type"
   prim__type : HTMLSourceElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.type = v}"
@@ -3904,6 +4216,7 @@ namespace HTMLSourceElement
   export
   %foreign "browser:lambda:x=>x.width"
   prim__width : HTMLSourceElement -> PrimIO UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.width = v}"
@@ -3924,6 +4237,7 @@ namespace HTMLStyleElement
   export
   %foreign "browser:lambda:x=>x.media"
   prim__media : HTMLStyleElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.media = v}"
@@ -3932,6 +4246,7 @@ namespace HTMLStyleElement
   export
   %foreign "browser:lambda:x=>x.type"
   prim__type : HTMLStyleElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.type = v}"
@@ -3946,6 +4261,7 @@ namespace HTMLTableCaptionElement
   export
   %foreign "browser:lambda:x=>x.align"
   prim__align : HTMLTableCaptionElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.align = v}"
@@ -3960,6 +4276,7 @@ namespace HTMLTableCellElement
   export
   %foreign "browser:lambda:x=>x.abbr"
   prim__abbr : HTMLTableCellElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.abbr = v}"
@@ -3968,6 +4285,7 @@ namespace HTMLTableCellElement
   export
   %foreign "browser:lambda:x=>x.align"
   prim__align : HTMLTableCellElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.align = v}"
@@ -3976,6 +4294,7 @@ namespace HTMLTableCellElement
   export
   %foreign "browser:lambda:x=>x.axis"
   prim__axis : HTMLTableCellElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.axis = v}"
@@ -3984,6 +4303,7 @@ namespace HTMLTableCellElement
   export
   %foreign "browser:lambda:x=>x.bgColor"
   prim__bgColor : HTMLTableCellElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.bgColor = v}"
@@ -3996,6 +4316,7 @@ namespace HTMLTableCellElement
   export
   %foreign "browser:lambda:x=>x.ch"
   prim__ch : HTMLTableCellElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ch = v}"
@@ -4004,6 +4325,7 @@ namespace HTMLTableCellElement
   export
   %foreign "browser:lambda:x=>x.chOff"
   prim__chOff : HTMLTableCellElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.chOff = v}"
@@ -4012,6 +4334,7 @@ namespace HTMLTableCellElement
   export
   %foreign "browser:lambda:x=>x.colSpan"
   prim__colSpan : HTMLTableCellElement -> PrimIO UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.colSpan = v}"
@@ -4020,6 +4343,7 @@ namespace HTMLTableCellElement
   export
   %foreign "browser:lambda:x=>x.headers"
   prim__headers : HTMLTableCellElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.headers = v}"
@@ -4028,6 +4352,7 @@ namespace HTMLTableCellElement
   export
   %foreign "browser:lambda:x=>x.height"
   prim__height : HTMLTableCellElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.height = v}"
@@ -4036,6 +4361,7 @@ namespace HTMLTableCellElement
   export
   %foreign "browser:lambda:x=>x.noWrap"
   prim__noWrap : HTMLTableCellElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.noWrap = v}"
@@ -4044,6 +4370,7 @@ namespace HTMLTableCellElement
   export
   %foreign "browser:lambda:x=>x.rowSpan"
   prim__rowSpan : HTMLTableCellElement -> PrimIO UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.rowSpan = v}"
@@ -4052,6 +4379,7 @@ namespace HTMLTableCellElement
   export
   %foreign "browser:lambda:x=>x.scope"
   prim__scope : HTMLTableCellElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.scope = v}"
@@ -4060,6 +4388,7 @@ namespace HTMLTableCellElement
   export
   %foreign "browser:lambda:x=>x.vAlign"
   prim__vAlign : HTMLTableCellElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.vAlign = v}"
@@ -4068,6 +4397,7 @@ namespace HTMLTableCellElement
   export
   %foreign "browser:lambda:x=>x.width"
   prim__width : HTMLTableCellElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.width = v}"
@@ -4082,6 +4412,7 @@ namespace HTMLTableColElement
   export
   %foreign "browser:lambda:x=>x.align"
   prim__align : HTMLTableColElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.align = v}"
@@ -4090,6 +4421,7 @@ namespace HTMLTableColElement
   export
   %foreign "browser:lambda:x=>x.ch"
   prim__ch : HTMLTableColElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ch = v}"
@@ -4098,6 +4430,7 @@ namespace HTMLTableColElement
   export
   %foreign "browser:lambda:x=>x.chOff"
   prim__chOff : HTMLTableColElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.chOff = v}"
@@ -4106,6 +4439,7 @@ namespace HTMLTableColElement
   export
   %foreign "browser:lambda:x=>x.span"
   prim__span : HTMLTableColElement -> PrimIO UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.span = v}"
@@ -4114,6 +4448,7 @@ namespace HTMLTableColElement
   export
   %foreign "browser:lambda:x=>x.vAlign"
   prim__vAlign : HTMLTableColElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.vAlign = v}"
@@ -4122,6 +4457,7 @@ namespace HTMLTableColElement
   export
   %foreign "browser:lambda:x=>x.width"
   prim__width : HTMLTableColElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.width = v}"
@@ -4136,6 +4472,7 @@ namespace HTMLTableElement
   export
   %foreign "browser:lambda:x=>x.align"
   prim__align : HTMLTableElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.align = v}"
@@ -4144,6 +4481,7 @@ namespace HTMLTableElement
   export
   %foreign "browser:lambda:x=>x.bgColor"
   prim__bgColor : HTMLTableElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.bgColor = v}"
@@ -4152,6 +4490,7 @@ namespace HTMLTableElement
   export
   %foreign "browser:lambda:x=>x.border"
   prim__border : HTMLTableElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.border = v}"
@@ -4160,6 +4499,7 @@ namespace HTMLTableElement
   export
   %foreign "browser:lambda:x=>x.caption"
   prim__caption : HTMLTableElement -> PrimIO (Nullable HTMLTableCaptionElement)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.caption = v}"
@@ -4170,6 +4510,7 @@ namespace HTMLTableElement
   export
   %foreign "browser:lambda:x=>x.cellPadding"
   prim__cellPadding : HTMLTableElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.cellPadding = v}"
@@ -4178,6 +4519,7 @@ namespace HTMLTableElement
   export
   %foreign "browser:lambda:x=>x.cellSpacing"
   prim__cellSpacing : HTMLTableElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.cellSpacing = v}"
@@ -4186,6 +4528,7 @@ namespace HTMLTableElement
   export
   %foreign "browser:lambda:x=>x.frame"
   prim__frame : HTMLTableElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.frame = v}"
@@ -4198,6 +4541,7 @@ namespace HTMLTableElement
   export
   %foreign "browser:lambda:x=>x.rules"
   prim__rules : HTMLTableElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.rules = v}"
@@ -4206,6 +4550,7 @@ namespace HTMLTableElement
   export
   %foreign "browser:lambda:x=>x.summary"
   prim__summary : HTMLTableElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.summary = v}"
@@ -4218,6 +4563,7 @@ namespace HTMLTableElement
   export
   %foreign "browser:lambda:x=>x.tFoot"
   prim__tFoot : HTMLTableElement -> PrimIO (Nullable HTMLTableSectionElement)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.tFoot = v}"
@@ -4228,6 +4574,7 @@ namespace HTMLTableElement
   export
   %foreign "browser:lambda:x=>x.tHead"
   prim__tHead : HTMLTableElement -> PrimIO (Nullable HTMLTableSectionElement)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.tHead = v}"
@@ -4238,6 +4585,7 @@ namespace HTMLTableElement
   export
   %foreign "browser:lambda:x=>x.width"
   prim__width : HTMLTableElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.width = v}"
@@ -4290,6 +4638,7 @@ namespace HTMLTableRowElement
   export
   %foreign "browser:lambda:x=>x.align"
   prim__align : HTMLTableRowElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.align = v}"
@@ -4298,6 +4647,7 @@ namespace HTMLTableRowElement
   export
   %foreign "browser:lambda:x=>x.bgColor"
   prim__bgColor : HTMLTableRowElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.bgColor = v}"
@@ -4310,6 +4660,7 @@ namespace HTMLTableRowElement
   export
   %foreign "browser:lambda:x=>x.ch"
   prim__ch : HTMLTableRowElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ch = v}"
@@ -4318,6 +4669,7 @@ namespace HTMLTableRowElement
   export
   %foreign "browser:lambda:x=>x.chOff"
   prim__chOff : HTMLTableRowElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.chOff = v}"
@@ -4334,6 +4686,7 @@ namespace HTMLTableRowElement
   export
   %foreign "browser:lambda:x=>x.vAlign"
   prim__vAlign : HTMLTableRowElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.vAlign = v}"
@@ -4358,6 +4711,7 @@ namespace HTMLTableSectionElement
   export
   %foreign "browser:lambda:x=>x.align"
   prim__align : HTMLTableSectionElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.align = v}"
@@ -4366,6 +4720,7 @@ namespace HTMLTableSectionElement
   export
   %foreign "browser:lambda:x=>x.ch"
   prim__ch : HTMLTableSectionElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ch = v}"
@@ -4374,6 +4729,7 @@ namespace HTMLTableSectionElement
   export
   %foreign "browser:lambda:x=>x.chOff"
   prim__chOff : HTMLTableSectionElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.chOff = v}"
@@ -4386,6 +4742,7 @@ namespace HTMLTableSectionElement
   export
   %foreign "browser:lambda:x=>x.vAlign"
   prim__vAlign : HTMLTableSectionElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.vAlign = v}"
@@ -4420,6 +4777,7 @@ namespace HTMLTextAreaElement
   export
   %foreign "browser:lambda:x=>x.autocomplete"
   prim__autocomplete : HTMLTextAreaElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.autocomplete = v}"
@@ -4428,6 +4786,7 @@ namespace HTMLTextAreaElement
   export
   %foreign "browser:lambda:x=>x.cols"
   prim__cols : HTMLTextAreaElement -> PrimIO UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.cols = v}"
@@ -4436,6 +4795,7 @@ namespace HTMLTextAreaElement
   export
   %foreign "browser:lambda:x=>x.defaultValue"
   prim__defaultValue : HTMLTextAreaElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.defaultValue = v}"
@@ -4444,6 +4804,7 @@ namespace HTMLTextAreaElement
   export
   %foreign "browser:lambda:x=>x.dirName"
   prim__dirName : HTMLTextAreaElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.dirName = v}"
@@ -4452,6 +4813,7 @@ namespace HTMLTextAreaElement
   export
   %foreign "browser:lambda:x=>x.disabled"
   prim__disabled : HTMLTextAreaElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.disabled = v}"
@@ -4468,6 +4830,7 @@ namespace HTMLTextAreaElement
   export
   %foreign "browser:lambda:x=>x.maxLength"
   prim__maxLength : HTMLTextAreaElement -> PrimIO Int32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.maxLength = v}"
@@ -4476,6 +4839,7 @@ namespace HTMLTextAreaElement
   export
   %foreign "browser:lambda:x=>x.minLength"
   prim__minLength : HTMLTextAreaElement -> PrimIO Int32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.minLength = v}"
@@ -4484,6 +4848,7 @@ namespace HTMLTextAreaElement
   export
   %foreign "browser:lambda:x=>x.name"
   prim__name : HTMLTextAreaElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.name = v}"
@@ -4492,6 +4857,7 @@ namespace HTMLTextAreaElement
   export
   %foreign "browser:lambda:x=>x.placeholder"
   prim__placeholder : HTMLTextAreaElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.placeholder = v}"
@@ -4500,6 +4866,7 @@ namespace HTMLTextAreaElement
   export
   %foreign "browser:lambda:x=>x.readOnly"
   prim__readOnly : HTMLTextAreaElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.readOnly = v}"
@@ -4508,6 +4875,7 @@ namespace HTMLTextAreaElement
   export
   %foreign "browser:lambda:x=>x.required"
   prim__required : HTMLTextAreaElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.required = v}"
@@ -4516,6 +4884,7 @@ namespace HTMLTextAreaElement
   export
   %foreign "browser:lambda:x=>x.rows"
   prim__rows : HTMLTextAreaElement -> PrimIO UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.rows = v}"
@@ -4524,6 +4893,7 @@ namespace HTMLTextAreaElement
   export
   %foreign "browser:lambda:x=>x.selectionDirection"
   prim__selectionDirection : HTMLTextAreaElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.selectionDirection = v}"
@@ -4532,6 +4902,7 @@ namespace HTMLTextAreaElement
   export
   %foreign "browser:lambda:x=>x.selectionEnd"
   prim__selectionEnd : HTMLTextAreaElement -> PrimIO UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.selectionEnd = v}"
@@ -4540,6 +4911,7 @@ namespace HTMLTextAreaElement
   export
   %foreign "browser:lambda:x=>x.selectionStart"
   prim__selectionStart : HTMLTextAreaElement -> PrimIO UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.selectionStart = v}"
@@ -4564,6 +4936,7 @@ namespace HTMLTextAreaElement
   export
   %foreign "browser:lambda:x=>x.value"
   prim__value : HTMLTextAreaElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.value = v}"
@@ -4576,6 +4949,7 @@ namespace HTMLTextAreaElement
   export
   %foreign "browser:lambda:x=>x.wrap"
   prim__wrap : HTMLTextAreaElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.wrap = v}"
@@ -4627,6 +5001,7 @@ namespace HTMLTimeElement
   export
   %foreign "browser:lambda:x=>x.dateTime"
   prim__dateTime : HTMLTimeElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.dateTime = v}"
@@ -4641,6 +5016,7 @@ namespace HTMLTitleElement
   export
   %foreign "browser:lambda:x=>x.text"
   prim__text : HTMLTitleElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.text = v}"
@@ -4655,6 +5031,7 @@ namespace HTMLTrackElement
   export
   %foreign "browser:lambda:x=>x.default"
   prim__default : HTMLTrackElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.default = v}"
@@ -4663,6 +5040,7 @@ namespace HTMLTrackElement
   export
   %foreign "browser:lambda:x=>x.kind"
   prim__kind : HTMLTrackElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.kind = v}"
@@ -4671,6 +5049,7 @@ namespace HTMLTrackElement
   export
   %foreign "browser:lambda:x=>x.label"
   prim__label : HTMLTrackElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.label = v}"
@@ -4683,6 +5062,7 @@ namespace HTMLTrackElement
   export
   %foreign "browser:lambda:x=>x.src"
   prim__src : HTMLTrackElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.src = v}"
@@ -4691,6 +5071,7 @@ namespace HTMLTrackElement
   export
   %foreign "browser:lambda:x=>x.srclang"
   prim__srclang : HTMLTrackElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.srclang = v}"
@@ -4709,6 +5090,7 @@ namespace HTMLUListElement
   export
   %foreign "browser:lambda:x=>x.compact"
   prim__compact : HTMLUListElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.compact = v}"
@@ -4717,6 +5099,7 @@ namespace HTMLUListElement
   export
   %foreign "browser:lambda:x=>x.type"
   prim__type : HTMLUListElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.type = v}"
@@ -4732,6 +5115,7 @@ namespace HTMLVideoElement
   export
   %foreign "browser:lambda:x=>x.height"
   prim__height : HTMLVideoElement -> PrimIO UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.height = v}"
@@ -4740,6 +5124,7 @@ namespace HTMLVideoElement
   export
   %foreign "browser:lambda:x=>x.playsInline"
   prim__playsInline : HTMLVideoElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.playsInline = v}"
@@ -4748,6 +5133,7 @@ namespace HTMLVideoElement
   export
   %foreign "browser:lambda:x=>x.poster"
   prim__poster : HTMLVideoElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.poster = v}"
@@ -4764,6 +5150,7 @@ namespace HTMLVideoElement
   export
   %foreign "browser:lambda:x=>x.width"
   prim__width : HTMLVideoElement -> PrimIO UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.width = v}"
@@ -4792,6 +5179,7 @@ namespace History
   export
   %foreign "browser:lambda:x=>x.scrollRestoration"
   prim__scrollRestoration : History -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.scrollRestoration = v}"
@@ -4887,6 +5275,7 @@ namespace Location
   export
   %foreign "browser:lambda:x=>x.hash"
   prim__hash : Location -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.hash = v}"
@@ -4895,6 +5284,7 @@ namespace Location
   export
   %foreign "browser:lambda:x=>x.host"
   prim__host : Location -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.host = v}"
@@ -4903,6 +5293,7 @@ namespace Location
   export
   %foreign "browser:lambda:x=>x.hostname"
   prim__hostname : Location -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.hostname = v}"
@@ -4911,6 +5302,7 @@ namespace Location
   export
   %foreign "browser:lambda:x=>x.href"
   prim__href : Location -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.href = v}"
@@ -4923,6 +5315,7 @@ namespace Location
   export
   %foreign "browser:lambda:x=>x.pathname"
   prim__pathname : Location -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.pathname = v}"
@@ -4931,6 +5324,7 @@ namespace Location
   export
   %foreign "browser:lambda:x=>x.port"
   prim__port : Location -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.port = v}"
@@ -4939,6 +5333,7 @@ namespace Location
   export
   %foreign "browser:lambda:x=>x.protocol"
   prim__protocol : Location -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.protocol = v}"
@@ -4947,6 +5342,7 @@ namespace Location
   export
   %foreign "browser:lambda:x=>x.search"
   prim__search : Location -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.search = v}"
@@ -5037,6 +5433,7 @@ namespace MessagePort
   export
   %foreign "browser:lambda:x=>x.onmessage"
   prim__onmessage : MessagePort -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmessage = v}"
@@ -5045,6 +5442,7 @@ namespace MessagePort
   export
   %foreign "browser:lambda:x=>x.onmessageerror"
   prim__onmessageerror : MessagePort -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmessageerror = v}"
@@ -5138,6 +5536,7 @@ namespace OffscreenCanvas
   export
   %foreign "browser:lambda:x=>x.height"
   prim__height : OffscreenCanvas -> PrimIO UInt64
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.height = v}"
@@ -5146,6 +5545,7 @@ namespace OffscreenCanvas
   export
   %foreign "browser:lambda:x=>x.width"
   prim__width : OffscreenCanvas -> PrimIO UInt64
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.width = v}"
@@ -5278,6 +5678,7 @@ namespace RadioNodeList
   export
   %foreign "browser:lambda:x=>x.value"
   prim__value : RadioNodeList -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.value = v}"
@@ -5305,6 +5706,7 @@ namespace SharedWorkerGlobalScope
   %foreign "browser:lambda:x=>x.onconnect"
   prim__onconnect :  SharedWorkerGlobalScope
                   -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onconnect = v}"
@@ -5470,6 +5872,7 @@ namespace TextTrack
   export
   %foreign "browser:lambda:x=>x.mode"
   prim__mode : TextTrack -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.mode = v}"
@@ -5478,6 +5881,7 @@ namespace TextTrack
   export
   %foreign "browser:lambda:x=>x.oncuechange"
   prim__oncuechange : TextTrack -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.oncuechange = v}"
@@ -5500,6 +5904,7 @@ namespace TextTrackCue
   export
   %foreign "browser:lambda:x=>x.endTime"
   prim__endTime : TextTrackCue -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.endTime = v}"
@@ -5508,6 +5913,7 @@ namespace TextTrackCue
   export
   %foreign "browser:lambda:x=>x.id"
   prim__id : TextTrackCue -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.id = v}"
@@ -5516,6 +5922,7 @@ namespace TextTrackCue
   export
   %foreign "browser:lambda:x=>x.onenter"
   prim__onenter : TextTrackCue -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onenter = v}"
@@ -5524,6 +5931,7 @@ namespace TextTrackCue
   export
   %foreign "browser:lambda:x=>x.onexit"
   prim__onexit : TextTrackCue -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onexit = v}"
@@ -5532,6 +5940,7 @@ namespace TextTrackCue
   export
   %foreign "browser:lambda:x=>x.pauseOnExit"
   prim__pauseOnExit : TextTrackCue -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.pauseOnExit = v}"
@@ -5540,6 +5949,7 @@ namespace TextTrackCue
   export
   %foreign "browser:lambda:x=>x.startTime"
   prim__startTime : TextTrackCue -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.startTime = v}"
@@ -5578,6 +5988,7 @@ namespace TextTrackList
   export
   %foreign "browser:lambda:x=>x.onaddtrack"
   prim__onaddtrack : TextTrackList -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onaddtrack = v}"
@@ -5588,6 +5999,7 @@ namespace TextTrackList
   export
   %foreign "browser:lambda:x=>x.onchange"
   prim__onchange : TextTrackList -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onchange = v}"
@@ -5596,6 +6008,7 @@ namespace TextTrackList
   export
   %foreign "browser:lambda:x=>x.onremovetrack"
   prim__onremovetrack : TextTrackList -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onremovetrack = v}"
@@ -5699,6 +6112,7 @@ namespace VideoTrack
   export
   %foreign "browser:lambda:x=>x.selected"
   prim__selected : VideoTrack -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.selected = v}"
@@ -5721,6 +6135,7 @@ namespace VideoTrackList
   export
   %foreign "browser:lambda:x=>x.onaddtrack"
   prim__onaddtrack : VideoTrackList -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onaddtrack = v}"
@@ -5731,6 +6146,7 @@ namespace VideoTrackList
   export
   %foreign "browser:lambda:x=>x.onchange"
   prim__onchange : VideoTrackList -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onchange = v}"
@@ -5741,6 +6157,7 @@ namespace VideoTrackList
   export
   %foreign "browser:lambda:x=>x.onremovetrack"
   prim__onremovetrack : VideoTrackList -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onremovetrack = v}"
@@ -5767,6 +6184,7 @@ namespace WebSocket
   export
   %foreign "browser:lambda:x=>x.binaryType"
   prim__binaryType : WebSocket -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.binaryType = v}"
@@ -5783,6 +6201,7 @@ namespace WebSocket
   export
   %foreign "browser:lambda:x=>x.onclose"
   prim__onclose : WebSocket -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onclose = v}"
@@ -5791,6 +6210,7 @@ namespace WebSocket
   export
   %foreign "browser:lambda:x=>x.onerror"
   prim__onerror : WebSocket -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onerror = v}"
@@ -5799,6 +6219,7 @@ namespace WebSocket
   export
   %foreign "browser:lambda:x=>x.onmessage"
   prim__onmessage : WebSocket -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmessage = v}"
@@ -5807,6 +6228,7 @@ namespace WebSocket
   export
   %foreign "browser:lambda:x=>x.onopen"
   prim__onopen : WebSocket -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onopen = v}"
@@ -5912,6 +6334,7 @@ namespace Window
   export
   %foreign "browser:lambda:x=>x.name"
   prim__name : Window -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.name = v}"
@@ -5924,6 +6347,7 @@ namespace Window
   export
   %foreign "browser:lambda:x=>x.opener"
   prim__opener : Window -> PrimIO AnyPtr
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.opener = v}"
@@ -5952,6 +6376,7 @@ namespace Window
   export
   %foreign "browser:lambda:x=>x.status"
   prim__status : Window -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.status = v}"
@@ -6059,6 +6484,7 @@ namespace Worker
   export
   %foreign "browser:lambda:x=>x.onmessage"
   prim__onmessage : Worker -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmessage = v}"
@@ -6067,6 +6493,7 @@ namespace Worker
   export
   %foreign "browser:lambda:x=>x.onmessageerror"
   prim__onmessageerror : Worker -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmessageerror = v}"
@@ -6101,6 +6528,7 @@ namespace WorkerGlobalScope
   %foreign "browser:lambda:x=>x.onerror"
   prim__onerror :  WorkerGlobalScope
                 -> PrimIO (Nullable OnErrorEventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onerror = v}"
@@ -6112,6 +6540,7 @@ namespace WorkerGlobalScope
   %foreign "browser:lambda:x=>x.onlanguagechange"
   prim__onlanguagechange :  WorkerGlobalScope
                          -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onlanguagechange = v}"
@@ -6122,6 +6551,7 @@ namespace WorkerGlobalScope
   export
   %foreign "browser:lambda:x=>x.onoffline"
   prim__onoffline : WorkerGlobalScope -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onoffline = v}"
@@ -6132,6 +6562,7 @@ namespace WorkerGlobalScope
   export
   %foreign "browser:lambda:x=>x.ononline"
   prim__ononline : WorkerGlobalScope -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ononline = v}"
@@ -6143,6 +6574,7 @@ namespace WorkerGlobalScope
   %foreign "browser:lambda:x=>x.onrejectionhandled"
   prim__onrejectionhandled :  WorkerGlobalScope
                            -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onrejectionhandled = v}"
@@ -6154,6 +6586,7 @@ namespace WorkerGlobalScope
   %foreign "browser:lambda:x=>x.onunhandledrejection"
   prim__onunhandledrejection :  WorkerGlobalScope
                              -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onunhandledrejection = v}"
@@ -6236,6 +6669,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaAtomic"
   prim__ariaAtomic : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaAtomic = v}"
@@ -6244,6 +6678,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaAutoComplete"
   prim__ariaAutoComplete : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaAutoComplete = v}"
@@ -6252,6 +6687,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaBusy"
   prim__ariaBusy : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaBusy = v}"
@@ -6260,6 +6696,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaChecked"
   prim__ariaChecked : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaChecked = v}"
@@ -6268,6 +6705,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaColCount"
   prim__ariaColCount : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaColCount = v}"
@@ -6276,6 +6714,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaColIndex"
   prim__ariaColIndex : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaColIndex = v}"
@@ -6284,6 +6723,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaColIndexText"
   prim__ariaColIndexText : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaColIndexText = v}"
@@ -6292,6 +6732,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaColSpan"
   prim__ariaColSpan : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaColSpan = v}"
@@ -6300,6 +6741,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaCurrent"
   prim__ariaCurrent : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaCurrent = v}"
@@ -6308,6 +6750,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaDescription"
   prim__ariaDescription : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaDescription = v}"
@@ -6316,6 +6759,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaDisabled"
   prim__ariaDisabled : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaDisabled = v}"
@@ -6324,6 +6768,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaExpanded"
   prim__ariaExpanded : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaExpanded = v}"
@@ -6332,6 +6777,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaHasPopup"
   prim__ariaHasPopup : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaHasPopup = v}"
@@ -6340,6 +6786,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaHidden"
   prim__ariaHidden : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaHidden = v}"
@@ -6348,6 +6795,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaInvalid"
   prim__ariaInvalid : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaInvalid = v}"
@@ -6356,6 +6804,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaKeyShortcuts"
   prim__ariaKeyShortcuts : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaKeyShortcuts = v}"
@@ -6364,6 +6813,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaLabel"
   prim__ariaLabel : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaLabel = v}"
@@ -6372,6 +6822,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaLevel"
   prim__ariaLevel : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaLevel = v}"
@@ -6380,6 +6831,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaLive"
   prim__ariaLive : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaLive = v}"
@@ -6388,6 +6840,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaModal"
   prim__ariaModal : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaModal = v}"
@@ -6396,6 +6849,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaMultiLine"
   prim__ariaMultiLine : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaMultiLine = v}"
@@ -6404,6 +6858,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaMultiSelectable"
   prim__ariaMultiSelectable : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaMultiSelectable = v}"
@@ -6412,6 +6867,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaOrientation"
   prim__ariaOrientation : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaOrientation = v}"
@@ -6420,6 +6876,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaPlaceholder"
   prim__ariaPlaceholder : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaPlaceholder = v}"
@@ -6428,6 +6885,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaPosInSet"
   prim__ariaPosInSet : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaPosInSet = v}"
@@ -6436,6 +6894,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaPressed"
   prim__ariaPressed : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaPressed = v}"
@@ -6444,6 +6903,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaReadOnly"
   prim__ariaReadOnly : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaReadOnly = v}"
@@ -6452,6 +6912,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaRequired"
   prim__ariaRequired : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaRequired = v}"
@@ -6460,6 +6921,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaRoleDescription"
   prim__ariaRoleDescription : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaRoleDescription = v}"
@@ -6468,6 +6930,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaRowCount"
   prim__ariaRowCount : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaRowCount = v}"
@@ -6476,6 +6939,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaRowIndex"
   prim__ariaRowIndex : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaRowIndex = v}"
@@ -6484,6 +6948,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaRowIndexText"
   prim__ariaRowIndexText : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaRowIndexText = v}"
@@ -6492,6 +6957,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaRowSpan"
   prim__ariaRowSpan : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaRowSpan = v}"
@@ -6500,6 +6966,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaSelected"
   prim__ariaSelected : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaSelected = v}"
@@ -6508,6 +6975,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaSetSize"
   prim__ariaSetSize : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaSetSize = v}"
@@ -6516,6 +6984,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaSort"
   prim__ariaSort : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaSort = v}"
@@ -6524,6 +6993,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaValueMax"
   prim__ariaValueMax : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaValueMax = v}"
@@ -6532,6 +7002,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaValueMin"
   prim__ariaValueMin : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaValueMin = v}"
@@ -6540,6 +7011,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaValueNow"
   prim__ariaValueNow : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaValueNow = v}"
@@ -6548,6 +7020,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.ariaValueText"
   prim__ariaValueText : ARIAMixin -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ariaValueText = v}"
@@ -6556,6 +7029,7 @@ namespace ARIAMixin
   export
   %foreign "browser:lambda:x=>x.role"
   prim__role : ARIAMixin -> PrimIO (Nullable String)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.role = v}"
@@ -6566,6 +7040,7 @@ namespace AbstractWorker
   export
   %foreign "browser:lambda:x=>x.onerror"
   prim__onerror : AbstractWorker -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onerror = v}"
@@ -6576,6 +7051,7 @@ namespace CanvasCompositing
   export
   %foreign "browser:lambda:x=>x.globalAlpha"
   prim__globalAlpha : CanvasCompositing -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.globalAlpha = v}"
@@ -6584,6 +7060,7 @@ namespace CanvasCompositing
   export
   %foreign "browser:lambda:x=>x.globalCompositeOperation"
   prim__globalCompositeOperation : CanvasCompositing -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.globalCompositeOperation = v}"
@@ -6703,6 +7180,7 @@ namespace CanvasFillStrokeStyles
   %foreign "browser:lambda:x=>x.fillStyle"
   prim__fillStyle :  CanvasFillStrokeStyles
                   -> PrimIO (Union3 String CanvasGradient CanvasPattern)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.fillStyle = v}"
@@ -6714,6 +7192,7 @@ namespace CanvasFillStrokeStyles
   %foreign "browser:lambda:x=>x.strokeStyle"
   prim__strokeStyle :  CanvasFillStrokeStyles
                     -> PrimIO (Union3 String CanvasGradient CanvasPattern)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.strokeStyle = v}"
@@ -6758,6 +7237,7 @@ namespace CanvasFilters
   export
   %foreign "browser:lambda:x=>x.filter"
   prim__filter : CanvasFilters -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.filter = v}"
@@ -6807,6 +7287,7 @@ namespace CanvasImageSmoothing
   export
   %foreign "browser:lambda:x=>x.imageSmoothingEnabled"
   prim__imageSmoothingEnabled : CanvasImageSmoothing -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.imageSmoothingEnabled = v}"
@@ -6815,6 +7296,7 @@ namespace CanvasImageSmoothing
   export
   %foreign "browser:lambda:x=>x.imageSmoothingQuality"
   prim__imageSmoothingQuality : CanvasImageSmoothing -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.imageSmoothingQuality = v}"
@@ -6897,6 +7379,7 @@ namespace CanvasPathDrawingStyles
   export
   %foreign "browser:lambda:x=>x.lineCap"
   prim__lineCap : CanvasPathDrawingStyles -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.lineCap = v}"
@@ -6905,6 +7388,7 @@ namespace CanvasPathDrawingStyles
   export
   %foreign "browser:lambda:x=>x.lineDashOffset"
   prim__lineDashOffset : CanvasPathDrawingStyles -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.lineDashOffset = v}"
@@ -6913,6 +7397,7 @@ namespace CanvasPathDrawingStyles
   export
   %foreign "browser:lambda:x=>x.lineJoin"
   prim__lineJoin : CanvasPathDrawingStyles -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.lineJoin = v}"
@@ -6921,6 +7406,7 @@ namespace CanvasPathDrawingStyles
   export
   %foreign "browser:lambda:x=>x.lineWidth"
   prim__lineWidth : CanvasPathDrawingStyles -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.lineWidth = v}"
@@ -6929,6 +7415,7 @@ namespace CanvasPathDrawingStyles
   export
   %foreign "browser:lambda:x=>x.miterLimit"
   prim__miterLimit : CanvasPathDrawingStyles -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.miterLimit = v}"
@@ -6976,6 +7463,7 @@ namespace CanvasShadowStyles
   export
   %foreign "browser:lambda:x=>x.shadowBlur"
   prim__shadowBlur : CanvasShadowStyles -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.shadowBlur = v}"
@@ -6984,6 +7472,7 @@ namespace CanvasShadowStyles
   export
   %foreign "browser:lambda:x=>x.shadowColor"
   prim__shadowColor : CanvasShadowStyles -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.shadowColor = v}"
@@ -6992,6 +7481,7 @@ namespace CanvasShadowStyles
   export
   %foreign "browser:lambda:x=>x.shadowOffsetX"
   prim__shadowOffsetX : CanvasShadowStyles -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.shadowOffsetX = v}"
@@ -7000,6 +7490,7 @@ namespace CanvasShadowStyles
   export
   %foreign "browser:lambda:x=>x.shadowOffsetY"
   prim__shadowOffsetY : CanvasShadowStyles -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.shadowOffsetY = v}"
@@ -7044,6 +7535,7 @@ namespace CanvasTextDrawingStyles
   export
   %foreign "browser:lambda:x=>x.direction"
   prim__direction : CanvasTextDrawingStyles -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.direction = v}"
@@ -7052,6 +7544,7 @@ namespace CanvasTextDrawingStyles
   export
   %foreign "browser:lambda:x=>x.font"
   prim__font : CanvasTextDrawingStyles -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.font = v}"
@@ -7060,6 +7553,7 @@ namespace CanvasTextDrawingStyles
   export
   %foreign "browser:lambda:x=>x.textAlign"
   prim__textAlign : CanvasTextDrawingStyles -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.textAlign = v}"
@@ -7068,6 +7562,7 @@ namespace CanvasTextDrawingStyles
   export
   %foreign "browser:lambda:x=>x.textBaseline"
   prim__textBaseline : CanvasTextDrawingStyles -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.textBaseline = v}"
@@ -7148,6 +7643,7 @@ namespace DocumentAndElementEventHandlers
   %foreign "browser:lambda:x=>x.oncopy"
   prim__oncopy :  DocumentAndElementEventHandlers
                -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.oncopy = v}"
@@ -7159,6 +7655,7 @@ namespace DocumentAndElementEventHandlers
   %foreign "browser:lambda:x=>x.oncut"
   prim__oncut :  DocumentAndElementEventHandlers
               -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.oncut = v}"
@@ -7170,6 +7667,7 @@ namespace DocumentAndElementEventHandlers
   %foreign "browser:lambda:x=>x.onpaste"
   prim__onpaste :  DocumentAndElementEventHandlers
                 -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onpaste = v}"
@@ -7182,6 +7680,7 @@ namespace ElementContentEditable
   export
   %foreign "browser:lambda:x=>x.contentEditable"
   prim__contentEditable : ElementContentEditable -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.contentEditable = v}"
@@ -7190,6 +7689,7 @@ namespace ElementContentEditable
   export
   %foreign "browser:lambda:x=>x.enterKeyHint"
   prim__enterKeyHint : ElementContentEditable -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.enterKeyHint = v}"
@@ -7198,6 +7698,7 @@ namespace ElementContentEditable
   export
   %foreign "browser:lambda:x=>x.inputMode"
   prim__inputMode : ElementContentEditable -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.inputMode = v}"
@@ -7212,6 +7713,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.onabort"
   prim__onabort : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onabort = v}"
@@ -7223,6 +7725,7 @@ namespace GlobalEventHandlers
   %foreign "browser:lambda:x=>x.onauxclick"
   prim__onauxclick :  GlobalEventHandlers
                    -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onauxclick = v}"
@@ -7233,6 +7736,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.onblur"
   prim__onblur : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onblur = v}"
@@ -7243,6 +7747,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.oncancel"
   prim__oncancel : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.oncancel = v}"
@@ -7253,6 +7758,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.oncanplay"
   prim__oncanplay : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.oncanplay = v}"
@@ -7264,6 +7770,7 @@ namespace GlobalEventHandlers
   %foreign "browser:lambda:x=>x.oncanplaythrough"
   prim__oncanplaythrough :  GlobalEventHandlers
                          -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.oncanplaythrough = v}"
@@ -7274,6 +7781,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.onchange"
   prim__onchange : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onchange = v}"
@@ -7284,6 +7792,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.onclick"
   prim__onclick : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onclick = v}"
@@ -7294,6 +7803,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.onclose"
   prim__onclose : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onclose = v}"
@@ -7305,6 +7815,7 @@ namespace GlobalEventHandlers
   %foreign "browser:lambda:x=>x.oncontextmenu"
   prim__oncontextmenu :  GlobalEventHandlers
                       -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.oncontextmenu = v}"
@@ -7316,6 +7827,7 @@ namespace GlobalEventHandlers
   %foreign "browser:lambda:x=>x.oncuechange"
   prim__oncuechange :  GlobalEventHandlers
                     -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.oncuechange = v}"
@@ -7327,6 +7839,7 @@ namespace GlobalEventHandlers
   %foreign "browser:lambda:x=>x.ondblclick"
   prim__ondblclick :  GlobalEventHandlers
                    -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ondblclick = v}"
@@ -7337,6 +7850,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.ondrag"
   prim__ondrag : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ondrag = v}"
@@ -7347,6 +7861,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.ondragend"
   prim__ondragend : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ondragend = v}"
@@ -7358,6 +7873,7 @@ namespace GlobalEventHandlers
   %foreign "browser:lambda:x=>x.ondragenter"
   prim__ondragenter :  GlobalEventHandlers
                     -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ondragenter = v}"
@@ -7369,6 +7885,7 @@ namespace GlobalEventHandlers
   %foreign "browser:lambda:x=>x.ondragleave"
   prim__ondragleave :  GlobalEventHandlers
                     -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ondragleave = v}"
@@ -7380,6 +7897,7 @@ namespace GlobalEventHandlers
   %foreign "browser:lambda:x=>x.ondragover"
   prim__ondragover :  GlobalEventHandlers
                    -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ondragover = v}"
@@ -7391,6 +7909,7 @@ namespace GlobalEventHandlers
   %foreign "browser:lambda:x=>x.ondragstart"
   prim__ondragstart :  GlobalEventHandlers
                     -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ondragstart = v}"
@@ -7401,6 +7920,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.ondrop"
   prim__ondrop : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ondrop = v}"
@@ -7412,6 +7932,7 @@ namespace GlobalEventHandlers
   %foreign "browser:lambda:x=>x.ondurationchange"
   prim__ondurationchange :  GlobalEventHandlers
                          -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ondurationchange = v}"
@@ -7422,6 +7943,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.onemptied"
   prim__onemptied : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onemptied = v}"
@@ -7432,6 +7954,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.onended"
   prim__onended : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onended = v}"
@@ -7443,6 +7966,7 @@ namespace GlobalEventHandlers
   %foreign "browser:lambda:x=>x.onerror"
   prim__onerror :  GlobalEventHandlers
                 -> PrimIO (Nullable OnErrorEventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onerror = v}"
@@ -7453,6 +7977,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.onfocus"
   prim__onfocus : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onfocus = v}"
@@ -7464,6 +7989,7 @@ namespace GlobalEventHandlers
   %foreign "browser:lambda:x=>x.onformdata"
   prim__onformdata :  GlobalEventHandlers
                    -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onformdata = v}"
@@ -7474,6 +8000,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.oninput"
   prim__oninput : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.oninput = v}"
@@ -7484,6 +8011,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.oninvalid"
   prim__oninvalid : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.oninvalid = v}"
@@ -7494,6 +8022,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.onkeydown"
   prim__onkeydown : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onkeydown = v}"
@@ -7505,6 +8034,7 @@ namespace GlobalEventHandlers
   %foreign "browser:lambda:x=>x.onkeypress"
   prim__onkeypress :  GlobalEventHandlers
                    -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onkeypress = v}"
@@ -7515,6 +8045,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.onkeyup"
   prim__onkeyup : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onkeyup = v}"
@@ -7525,6 +8056,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.onload"
   prim__onload : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onload = v}"
@@ -7536,6 +8068,7 @@ namespace GlobalEventHandlers
   %foreign "browser:lambda:x=>x.onloadeddata"
   prim__onloadeddata :  GlobalEventHandlers
                      -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onloadeddata = v}"
@@ -7547,6 +8080,7 @@ namespace GlobalEventHandlers
   %foreign "browser:lambda:x=>x.onloadedmetadata"
   prim__onloadedmetadata :  GlobalEventHandlers
                          -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onloadedmetadata = v}"
@@ -7558,6 +8092,7 @@ namespace GlobalEventHandlers
   %foreign "browser:lambda:x=>x.onloadstart"
   prim__onloadstart :  GlobalEventHandlers
                     -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onloadstart = v}"
@@ -7569,6 +8104,7 @@ namespace GlobalEventHandlers
   %foreign "browser:lambda:x=>x.onmousedown"
   prim__onmousedown :  GlobalEventHandlers
                     -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmousedown = v}"
@@ -7580,6 +8116,7 @@ namespace GlobalEventHandlers
   %foreign "browser:lambda:x=>x.onmouseenter"
   prim__onmouseenter :  GlobalEventHandlers
                      -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmouseenter = v}"
@@ -7591,6 +8128,7 @@ namespace GlobalEventHandlers
   %foreign "browser:lambda:x=>x.onmouseleave"
   prim__onmouseleave :  GlobalEventHandlers
                      -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmouseleave = v}"
@@ -7602,6 +8140,7 @@ namespace GlobalEventHandlers
   %foreign "browser:lambda:x=>x.onmousemove"
   prim__onmousemove :  GlobalEventHandlers
                     -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmousemove = v}"
@@ -7613,6 +8152,7 @@ namespace GlobalEventHandlers
   %foreign "browser:lambda:x=>x.onmouseout"
   prim__onmouseout :  GlobalEventHandlers
                    -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmouseout = v}"
@@ -7624,6 +8164,7 @@ namespace GlobalEventHandlers
   %foreign "browser:lambda:x=>x.onmouseover"
   prim__onmouseover :  GlobalEventHandlers
                     -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmouseover = v}"
@@ -7634,6 +8175,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.onmouseup"
   prim__onmouseup : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmouseup = v}"
@@ -7644,6 +8186,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.onpause"
   prim__onpause : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onpause = v}"
@@ -7654,6 +8197,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.onplay"
   prim__onplay : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onplay = v}"
@@ -7664,6 +8208,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.onplaying"
   prim__onplaying : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onplaying = v}"
@@ -7675,6 +8220,7 @@ namespace GlobalEventHandlers
   %foreign "browser:lambda:x=>x.onprogress"
   prim__onprogress :  GlobalEventHandlers
                    -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onprogress = v}"
@@ -7686,6 +8232,7 @@ namespace GlobalEventHandlers
   %foreign "browser:lambda:x=>x.onratechange"
   prim__onratechange :  GlobalEventHandlers
                      -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onratechange = v}"
@@ -7696,6 +8243,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.onreset"
   prim__onreset : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onreset = v}"
@@ -7706,6 +8254,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.onresize"
   prim__onresize : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onresize = v}"
@@ -7716,6 +8265,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.onscroll"
   prim__onscroll : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onscroll = v}"
@@ -7727,6 +8277,7 @@ namespace GlobalEventHandlers
   %foreign "browser:lambda:x=>x.onsecuritypolicyviolation"
   prim__onsecuritypolicyviolation :  GlobalEventHandlers
                                   -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onsecuritypolicyviolation = v}"
@@ -7737,6 +8288,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.onseeked"
   prim__onseeked : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onseeked = v}"
@@ -7747,6 +8299,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.onseeking"
   prim__onseeking : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onseeking = v}"
@@ -7757,6 +8310,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.onselect"
   prim__onselect : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onselect = v}"
@@ -7768,6 +8322,7 @@ namespace GlobalEventHandlers
   %foreign "browser:lambda:x=>x.onslotchange"
   prim__onslotchange :  GlobalEventHandlers
                      -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onslotchange = v}"
@@ -7778,6 +8333,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.onstalled"
   prim__onstalled : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onstalled = v}"
@@ -7788,6 +8344,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.onsubmit"
   prim__onsubmit : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onsubmit = v}"
@@ -7798,6 +8355,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.onsuspend"
   prim__onsuspend : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onsuspend = v}"
@@ -7809,6 +8367,7 @@ namespace GlobalEventHandlers
   %foreign "browser:lambda:x=>x.ontimeupdate"
   prim__ontimeupdate :  GlobalEventHandlers
                      -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ontimeupdate = v}"
@@ -7819,6 +8378,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.ontoggle"
   prim__ontoggle : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ontoggle = v}"
@@ -7830,6 +8390,7 @@ namespace GlobalEventHandlers
   %foreign "browser:lambda:x=>x.onvolumechange"
   prim__onvolumechange :  GlobalEventHandlers
                        -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onvolumechange = v}"
@@ -7840,6 +8401,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.onwaiting"
   prim__onwaiting : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onwaiting = v}"
@@ -7851,6 +8413,7 @@ namespace GlobalEventHandlers
   %foreign "browser:lambda:x=>x.onwebkitanimationend"
   prim__onwebkitanimationend :  GlobalEventHandlers
                              -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onwebkitanimationend = v}"
@@ -7862,6 +8425,7 @@ namespace GlobalEventHandlers
   %foreign "browser:lambda:x=>x.onwebkitanimationiteration"
   prim__onwebkitanimationiteration :  GlobalEventHandlers
                                    -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onwebkitanimationiteration = v}"
@@ -7873,6 +8437,7 @@ namespace GlobalEventHandlers
   %foreign "browser:lambda:x=>x.onwebkitanimationstart"
   prim__onwebkitanimationstart :  GlobalEventHandlers
                                -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onwebkitanimationstart = v}"
@@ -7884,6 +8449,7 @@ namespace GlobalEventHandlers
   %foreign "browser:lambda:x=>x.onwebkittransitionend"
   prim__onwebkittransitionend :  GlobalEventHandlers
                               -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onwebkittransitionend = v}"
@@ -7894,6 +8460,7 @@ namespace GlobalEventHandlers
   export
   %foreign "browser:lambda:x=>x.onwheel"
   prim__onwheel : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onwheel = v}"
@@ -7906,6 +8473,7 @@ namespace HTMLHyperlinkElementUtils
   export
   %foreign "browser:lambda:x=>x.hash"
   prim__hash : HTMLHyperlinkElementUtils -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.hash = v}"
@@ -7914,6 +8482,7 @@ namespace HTMLHyperlinkElementUtils
   export
   %foreign "browser:lambda:x=>x.host"
   prim__host : HTMLHyperlinkElementUtils -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.host = v}"
@@ -7922,6 +8491,7 @@ namespace HTMLHyperlinkElementUtils
   export
   %foreign "browser:lambda:x=>x.hostname"
   prim__hostname : HTMLHyperlinkElementUtils -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.hostname = v}"
@@ -7930,6 +8500,7 @@ namespace HTMLHyperlinkElementUtils
   export
   %foreign "browser:lambda:x=>x.href"
   prim__href : HTMLHyperlinkElementUtils -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.href = v}"
@@ -7942,6 +8513,7 @@ namespace HTMLHyperlinkElementUtils
   export
   %foreign "browser:lambda:x=>x.password"
   prim__password : HTMLHyperlinkElementUtils -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.password = v}"
@@ -7950,6 +8522,7 @@ namespace HTMLHyperlinkElementUtils
   export
   %foreign "browser:lambda:x=>x.pathname"
   prim__pathname : HTMLHyperlinkElementUtils -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.pathname = v}"
@@ -7958,6 +8531,7 @@ namespace HTMLHyperlinkElementUtils
   export
   %foreign "browser:lambda:x=>x.port"
   prim__port : HTMLHyperlinkElementUtils -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.port = v}"
@@ -7966,6 +8540,7 @@ namespace HTMLHyperlinkElementUtils
   export
   %foreign "browser:lambda:x=>x.protocol"
   prim__protocol : HTMLHyperlinkElementUtils -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.protocol = v}"
@@ -7974,6 +8549,7 @@ namespace HTMLHyperlinkElementUtils
   export
   %foreign "browser:lambda:x=>x.search"
   prim__search : HTMLHyperlinkElementUtils -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.search = v}"
@@ -7982,6 +8558,7 @@ namespace HTMLHyperlinkElementUtils
   export
   %foreign "browser:lambda:x=>x.username"
   prim__username : HTMLHyperlinkElementUtils -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.username = v}"
@@ -7992,6 +8569,7 @@ namespace HTMLOrSVGElement
   export
   %foreign "browser:lambda:x=>x.autofocus"
   prim__autofocus : HTMLOrSVGElement -> PrimIO Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.autofocus = v}"
@@ -8004,6 +8582,7 @@ namespace HTMLOrSVGElement
   export
   %foreign "browser:lambda:x=>x.nonce"
   prim__nonce : HTMLOrSVGElement -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.nonce = v}"
@@ -8012,6 +8591,7 @@ namespace HTMLOrSVGElement
   export
   %foreign "browser:lambda:x=>x.tabIndex"
   prim__tabIndex : HTMLOrSVGElement -> PrimIO Int32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.tabIndex = v}"
@@ -8127,6 +8707,7 @@ namespace WindowEventHandlers
   %foreign "browser:lambda:x=>x.onafterprint"
   prim__onafterprint :  WindowEventHandlers
                      -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onafterprint = v}"
@@ -8138,6 +8719,7 @@ namespace WindowEventHandlers
   %foreign "browser:lambda:x=>x.onbeforeprint"
   prim__onbeforeprint :  WindowEventHandlers
                       -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onbeforeprint = v}"
@@ -8149,6 +8731,7 @@ namespace WindowEventHandlers
   %foreign "browser:lambda:x=>x.onbeforeunload"
   prim__onbeforeunload :  WindowEventHandlers
                        -> PrimIO (Nullable OnBeforeUnloadEventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onbeforeunload = v}"
@@ -8160,6 +8743,7 @@ namespace WindowEventHandlers
   %foreign "browser:lambda:x=>x.onhashchange"
   prim__onhashchange :  WindowEventHandlers
                      -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onhashchange = v}"
@@ -8171,6 +8755,7 @@ namespace WindowEventHandlers
   %foreign "browser:lambda:x=>x.onlanguagechange"
   prim__onlanguagechange :  WindowEventHandlers
                          -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onlanguagechange = v}"
@@ -8181,6 +8766,7 @@ namespace WindowEventHandlers
   export
   %foreign "browser:lambda:x=>x.onmessage"
   prim__onmessage : WindowEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmessage = v}"
@@ -8192,6 +8778,7 @@ namespace WindowEventHandlers
   %foreign "browser:lambda:x=>x.onmessageerror"
   prim__onmessageerror :  WindowEventHandlers
                        -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmessageerror = v}"
@@ -8202,6 +8789,7 @@ namespace WindowEventHandlers
   export
   %foreign "browser:lambda:x=>x.onoffline"
   prim__onoffline : WindowEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onoffline = v}"
@@ -8212,6 +8800,7 @@ namespace WindowEventHandlers
   export
   %foreign "browser:lambda:x=>x.ononline"
   prim__ononline : WindowEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ononline = v}"
@@ -8223,6 +8812,7 @@ namespace WindowEventHandlers
   %foreign "browser:lambda:x=>x.onpagehide"
   prim__onpagehide :  WindowEventHandlers
                    -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onpagehide = v}"
@@ -8234,6 +8824,7 @@ namespace WindowEventHandlers
   %foreign "browser:lambda:x=>x.onpageshow"
   prim__onpageshow :  WindowEventHandlers
                    -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onpageshow = v}"
@@ -8245,6 +8836,7 @@ namespace WindowEventHandlers
   %foreign "browser:lambda:x=>x.onpopstate"
   prim__onpopstate :  WindowEventHandlers
                    -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onpopstate = v}"
@@ -8256,6 +8848,7 @@ namespace WindowEventHandlers
   %foreign "browser:lambda:x=>x.onrejectionhandled"
   prim__onrejectionhandled :  WindowEventHandlers
                            -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onrejectionhandled = v}"
@@ -8266,6 +8859,7 @@ namespace WindowEventHandlers
   export
   %foreign "browser:lambda:x=>x.onstorage"
   prim__onstorage : WindowEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onstorage = v}"
@@ -8277,6 +8871,7 @@ namespace WindowEventHandlers
   %foreign "browser:lambda:x=>x.onunhandledrejection"
   prim__onunhandledrejection :  WindowEventHandlers
                              -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onunhandledrejection = v}"
@@ -8287,6 +8882,7 @@ namespace WindowEventHandlers
   export
   %foreign "browser:lambda:x=>x.onunload"
   prim__onunload : WindowEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onunload = v}"
@@ -8307,6 +8903,7 @@ namespace AssignedNodesOptions
   export
   %foreign "browser:lambda:x=>x.flatten"
   prim__flatten : AssignedNodesOptions -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.flatten = v}"
@@ -8323,6 +8920,7 @@ namespace CanvasRenderingContext2DSettings
   export
   %foreign "browser:lambda:x=>x.alpha"
   prim__alpha : CanvasRenderingContext2DSettings -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.alpha = v}"
@@ -8334,6 +8932,7 @@ namespace CanvasRenderingContext2DSettings
   %foreign "browser:lambda:x=>x.desynchronized"
   prim__desynchronized :  CanvasRenderingContext2DSettings
                        -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.desynchronized = v}"
@@ -8353,6 +8952,7 @@ namespace CloseEventInit
   export
   %foreign "browser:lambda:x=>x.code"
   prim__code : CloseEventInit -> PrimIO $ UndefOr UInt16
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.code = v}"
@@ -8361,6 +8961,7 @@ namespace CloseEventInit
   export
   %foreign "browser:lambda:x=>x.reason"
   prim__reason : CloseEventInit -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.reason = v}"
@@ -8369,6 +8970,7 @@ namespace CloseEventInit
   export
   %foreign "browser:lambda:x=>x.wasClean"
   prim__wasClean : CloseEventInit -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.wasClean = v}"
@@ -8383,6 +8985,7 @@ namespace DragEventInit
   export
   %foreign "browser:lambda:x=>x.dataTransfer"
   prim__dataTransfer : DragEventInit -> PrimIO $ UndefOr (Nullable DataTransfer)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.dataTransfer = v}"
@@ -8399,6 +9002,7 @@ namespace ElementDefinitionOptions
   export
   %foreign "browser:lambda:x=>x.extends"
   prim__extends : ElementDefinitionOptions -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.extends = v}"
@@ -8418,6 +9022,7 @@ namespace ErrorEventInit
   export
   %foreign "browser:lambda:x=>x.colno"
   prim__colno : ErrorEventInit -> PrimIO $ UndefOr UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.colno = v}"
@@ -8426,6 +9031,7 @@ namespace ErrorEventInit
   export
   %foreign "browser:lambda:x=>x.error"
   prim__error : ErrorEventInit -> PrimIO $ UndefOr AnyPtr
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.error = v}"
@@ -8434,6 +9040,7 @@ namespace ErrorEventInit
   export
   %foreign "browser:lambda:x=>x.filename"
   prim__filename : ErrorEventInit -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.filename = v}"
@@ -8442,6 +9049,7 @@ namespace ErrorEventInit
   export
   %foreign "browser:lambda:x=>x.lineno"
   prim__lineno : ErrorEventInit -> PrimIO $ UndefOr UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.lineno = v}"
@@ -8450,6 +9058,7 @@ namespace ErrorEventInit
   export
   %foreign "browser:lambda:x=>x.message"
   prim__message : ErrorEventInit -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.message = v}"
@@ -8464,6 +9073,7 @@ namespace EventSourceInit
   export
   %foreign "browser:lambda:x=>x.withCredentials"
   prim__withCredentials : EventSourceInit -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.withCredentials = v}"
@@ -8478,6 +9088,7 @@ namespace FocusOptions
   export
   %foreign "browser:lambda:x=>x.preventScroll"
   prim__preventScroll : FocusOptions -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.preventScroll = v}"
@@ -8492,6 +9103,7 @@ namespace FormDataEventInit
   export
   %foreign "browser:lambda:x=>x.formData"
   prim__formData : FormDataEventInit -> PrimIO FormData
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.formData = v}"
@@ -8506,6 +9118,7 @@ namespace HashChangeEventInit
   export
   %foreign "browser:lambda:x=>x.newURL"
   prim__newURL : HashChangeEventInit -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.newURL = v}"
@@ -8514,6 +9127,7 @@ namespace HashChangeEventInit
   export
   %foreign "browser:lambda:x=>x.oldURL"
   prim__oldURL : HashChangeEventInit -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.oldURL = v}"
@@ -8534,6 +9148,7 @@ namespace ImageBitmapOptions
   export
   %foreign "browser:lambda:x=>x.colorSpaceConversion"
   prim__colorSpaceConversion : ImageBitmapOptions -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.colorSpaceConversion = v}"
@@ -8544,6 +9159,7 @@ namespace ImageBitmapOptions
   export
   %foreign "browser:lambda:x=>x.imageOrientation"
   prim__imageOrientation : ImageBitmapOptions -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.imageOrientation = v}"
@@ -8552,6 +9168,7 @@ namespace ImageBitmapOptions
   export
   %foreign "browser:lambda:x=>x.premultiplyAlpha"
   prim__premultiplyAlpha : ImageBitmapOptions -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.premultiplyAlpha = v}"
@@ -8560,6 +9177,7 @@ namespace ImageBitmapOptions
   export
   %foreign "browser:lambda:x=>x.resizeHeight"
   prim__resizeHeight : ImageBitmapOptions -> PrimIO $ UndefOr UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.resizeHeight = v}"
@@ -8568,6 +9186,7 @@ namespace ImageBitmapOptions
   export
   %foreign "browser:lambda:x=>x.resizeQuality"
   prim__resizeQuality : ImageBitmapOptions -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.resizeQuality = v}"
@@ -8576,6 +9195,7 @@ namespace ImageBitmapOptions
   export
   %foreign "browser:lambda:x=>x.resizeWidth"
   prim__resizeWidth : ImageBitmapOptions -> PrimIO $ UndefOr UInt32
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.resizeWidth = v}"
@@ -8590,6 +9210,7 @@ namespace ImageBitmapRenderingContextSettings
   export
   %foreign "browser:lambda:x=>x.alpha"
   prim__alpha : ImageBitmapRenderingContextSettings -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.alpha = v}"
@@ -8606,6 +9227,7 @@ namespace ImageEncodeOptions
   export
   %foreign "browser:lambda:x=>x.quality"
   prim__quality : ImageEncodeOptions -> PrimIO $ UndefOr Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.quality = v}"
@@ -8614,6 +9236,7 @@ namespace ImageEncodeOptions
   export
   %foreign "browser:lambda:x=>x.type"
   prim__type : ImageEncodeOptions -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.type = v}"
@@ -8633,6 +9256,7 @@ namespace MessageEventInit
   export
   %foreign "browser:lambda:x=>x.data"
   prim__data : MessageEventInit -> PrimIO $ UndefOr AnyPtr
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.data = v}"
@@ -8641,6 +9265,7 @@ namespace MessageEventInit
   export
   %foreign "browser:lambda:x=>x.lastEventId"
   prim__lastEventId : MessageEventInit -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.lastEventId = v}"
@@ -8649,6 +9274,7 @@ namespace MessageEventInit
   export
   %foreign "browser:lambda:x=>x.origin"
   prim__origin : MessageEventInit -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.origin = v}"
@@ -8657,6 +9283,7 @@ namespace MessageEventInit
   export
   %foreign "browser:lambda:x=>x.ports"
   prim__ports : MessageEventInit -> PrimIO $ UndefOr (Array MessagePort)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ports = v}"
@@ -8668,6 +9295,7 @@ namespace MessageEventInit
                -> PrimIO $ UndefOr (Nullable (Union3 WindowProxy
                                                      MessagePort
                                                      ServiceWorker))
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.source = v}"
@@ -8686,6 +9314,7 @@ namespace PageTransitionEventInit
   export
   %foreign "browser:lambda:x=>x.persisted"
   prim__persisted : PageTransitionEventInit -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.persisted = v}"
@@ -8700,6 +9329,7 @@ namespace PopStateEventInit
   export
   %foreign "browser:lambda:x=>x.state"
   prim__state : PopStateEventInit -> PrimIO $ UndefOr AnyPtr
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.state = v}"
@@ -8714,6 +9344,7 @@ namespace PostMessageOptions
   export
   %foreign "browser:lambda:x=>x.transfer"
   prim__transfer : PostMessageOptions -> PrimIO $ UndefOr (Array Object)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.transfer = v}"
@@ -8730,6 +9361,7 @@ namespace PromiseRejectionEventInit
   export
   %foreign "browser:lambda:x=>x.promise"
   prim__promise : PromiseRejectionEventInit -> PrimIO (Promise AnyPtr)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.promise = v}"
@@ -8738,6 +9370,7 @@ namespace PromiseRejectionEventInit
   export
   %foreign "browser:lambda:x=>x.reason"
   prim__reason : PromiseRejectionEventInit -> PrimIO $ UndefOr AnyPtr
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.reason = v}"
@@ -8757,6 +9390,7 @@ namespace StorageEventInit
   export
   %foreign "browser:lambda:x=>x.key"
   prim__key : StorageEventInit -> PrimIO $ UndefOr (Nullable String)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.key = v}"
@@ -8765,6 +9399,7 @@ namespace StorageEventInit
   export
   %foreign "browser:lambda:x=>x.newValue"
   prim__newValue : StorageEventInit -> PrimIO $ UndefOr (Nullable String)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.newValue = v}"
@@ -8773,6 +9408,7 @@ namespace StorageEventInit
   export
   %foreign "browser:lambda:x=>x.oldValue"
   prim__oldValue : StorageEventInit -> PrimIO $ UndefOr (Nullable String)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.oldValue = v}"
@@ -8781,6 +9417,7 @@ namespace StorageEventInit
   export
   %foreign "browser:lambda:x=>x.storageArea"
   prim__storageArea : StorageEventInit -> PrimIO $ UndefOr (Nullable Storage)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.storageArea = v}"
@@ -8791,6 +9428,7 @@ namespace StorageEventInit
   export
   %foreign "browser:lambda:x=>x.url"
   prim__url : StorageEventInit -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.url = v}"
@@ -8805,6 +9443,7 @@ namespace SubmitEventInit
   export
   %foreign "browser:lambda:x=>x.submitter"
   prim__submitter : SubmitEventInit -> PrimIO $ UndefOr (Nullable HTMLElement)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.submitter = v}"
@@ -8825,6 +9464,7 @@ namespace TrackEventInit
               -> PrimIO $ UndefOr (Nullable (Union3 VideoTrack
                                                     AudioTrack
                                                     TextTrack))
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.track = v}"
@@ -8851,6 +9491,7 @@ namespace ValidityStateFlags
   export
   %foreign "browser:lambda:x=>x.badInput"
   prim__badInput : ValidityStateFlags -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.badInput = v}"
@@ -8859,6 +9500,7 @@ namespace ValidityStateFlags
   export
   %foreign "browser:lambda:x=>x.customError"
   prim__customError : ValidityStateFlags -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.customError = v}"
@@ -8867,6 +9509,7 @@ namespace ValidityStateFlags
   export
   %foreign "browser:lambda:x=>x.patternMismatch"
   prim__patternMismatch : ValidityStateFlags -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.patternMismatch = v}"
@@ -8875,6 +9518,7 @@ namespace ValidityStateFlags
   export
   %foreign "browser:lambda:x=>x.rangeOverflow"
   prim__rangeOverflow : ValidityStateFlags -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.rangeOverflow = v}"
@@ -8883,6 +9527,7 @@ namespace ValidityStateFlags
   export
   %foreign "browser:lambda:x=>x.rangeUnderflow"
   prim__rangeUnderflow : ValidityStateFlags -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.rangeUnderflow = v}"
@@ -8891,6 +9536,7 @@ namespace ValidityStateFlags
   export
   %foreign "browser:lambda:x=>x.stepMismatch"
   prim__stepMismatch : ValidityStateFlags -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.stepMismatch = v}"
@@ -8899,6 +9545,7 @@ namespace ValidityStateFlags
   export
   %foreign "browser:lambda:x=>x.tooLong"
   prim__tooLong : ValidityStateFlags -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.tooLong = v}"
@@ -8907,6 +9554,7 @@ namespace ValidityStateFlags
   export
   %foreign "browser:lambda:x=>x.tooShort"
   prim__tooShort : ValidityStateFlags -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.tooShort = v}"
@@ -8915,6 +9563,7 @@ namespace ValidityStateFlags
   export
   %foreign "browser:lambda:x=>x.typeMismatch"
   prim__typeMismatch : ValidityStateFlags -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.typeMismatch = v}"
@@ -8923,6 +9572,7 @@ namespace ValidityStateFlags
   export
   %foreign "browser:lambda:x=>x.valueMissing"
   prim__valueMissing : ValidityStateFlags -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.valueMissing = v}"
@@ -8937,6 +9587,7 @@ namespace WindowPostMessageOptions
   export
   %foreign "browser:lambda:x=>x.targetOrigin"
   prim__targetOrigin : WindowPostMessageOptions -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.targetOrigin = v}"
@@ -8956,6 +9607,7 @@ namespace WorkerOptions
   export
   %foreign "browser:lambda:x=>x.credentials"
   prim__credentials : WorkerOptions -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.credentials = v}"
@@ -8964,6 +9616,7 @@ namespace WorkerOptions
   export
   %foreign "browser:lambda:x=>x.name"
   prim__name : WorkerOptions -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.name = v}"
@@ -8972,6 +9625,7 @@ namespace WorkerOptions
   export
   %foreign "browser:lambda:x=>x.type"
   prim__type : WorkerOptions -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.type = v}"
@@ -8986,6 +9640,7 @@ namespace WorkletOptions
   export
   %foreign "browser:lambda:x=>x.credentials"
   prim__credentials : WorkletOptions -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.credentials = v}"

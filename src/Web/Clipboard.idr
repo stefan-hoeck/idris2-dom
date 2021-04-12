@@ -131,22 +131,11 @@ namespace ClipboardEventInit
   new' = primJS $ ClipboardEventInit.prim__new undef
   
   export
-  clipboardData :  (obj : ClipboardEventInit)
-                -> JSIO $ Optional (Maybe DataTransfer)
-  clipboardData a = tryJS "ClipboardEventInit.clipboardData"
-                  $ ClipboardEventInit.prim__clipboardData a
-  
-  export
-  setClipboardData :  (obj : ClipboardEventInit)
-                   -> (value : Optional (Maybe DataTransfer))
-                   -> JSIO ()
-  setClipboardData a b = primJS
-                       $ ClipboardEventInit.prim__setClipboardData a (toFFI b)
-
-  export
-  setClipboardData' : (obj : ClipboardEventInit) -> JSIO ()
-  setClipboardData' a = primJS
-                      $ ClipboardEventInit.prim__setClipboardData a undef
+  clipboardData : ClipboardEventInit -> Attribute True Optional (Maybe DataTransfer)
+  clipboardData = fromUndefOrPrim "ClipboardEventInit.getclipboardData"
+                                  prim__clipboardData
+                                  prim__setClipboardData
+                                  Nothing
 
 namespace ClipboardItemOptions
   
@@ -166,24 +155,10 @@ namespace ClipboardItemOptions
   new' = primJS $ ClipboardItemOptions.prim__new undef
   
   export
-  presentationStyle :  (obj : ClipboardItemOptions)
-                    -> JSIO $ Optional PresentationStyle
-  presentationStyle a = tryJS "ClipboardItemOptions.presentationStyle"
-                      $ ClipboardItemOptions.prim__presentationStyle a
-  
-  export
-  setPresentationStyle :  (obj : ClipboardItemOptions)
-                       -> (value : Optional PresentationStyle)
-                       -> JSIO ()
-  setPresentationStyle a b = primJS
-                           $ ClipboardItemOptions.prim__setPresentationStyle a
-                                                                             (toFFI b)
-
-  export
-  setPresentationStyle' : (obj : ClipboardItemOptions) -> JSIO ()
-  setPresentationStyle' a = primJS
-                          $ ClipboardItemOptions.prim__setPresentationStyle a
-                                                                            undef
+  presentationStyle : ClipboardItemOptions -> Attribute False Optional PresentationStyle
+  presentationStyle = fromUndefOrPrimNoDefault "ClipboardItemOptions.getpresentationStyle"
+                                               prim__presentationStyle
+                                               prim__setPresentationStyle
 
 namespace ClipboardPermissionDescriptor
   
@@ -203,24 +178,11 @@ namespace ClipboardPermissionDescriptor
   new' = primJS $ ClipboardPermissionDescriptor.prim__new undef
   
   export
-  allowWithoutGesture :  (obj : ClipboardPermissionDescriptor)
-                      -> JSIO $ Optional Bool
-  allowWithoutGesture a = tryJS "ClipboardPermissionDescriptor.allowWithoutGesture"
-                        $ ClipboardPermissionDescriptor.prim__allowWithoutGesture a
-  
-  export
-  setAllowWithoutGesture :  (obj : ClipboardPermissionDescriptor)
-                         -> (value : Optional Bool)
-                         -> JSIO ()
-  setAllowWithoutGesture a b = primJS
-                             $ ClipboardPermissionDescriptor.prim__setAllowWithoutGesture a
-                                                                                          (toFFI b)
-
-  export
-  setAllowWithoutGesture' : (obj : ClipboardPermissionDescriptor) -> JSIO ()
-  setAllowWithoutGesture' a = primJS
-                            $ ClipboardPermissionDescriptor.prim__setAllowWithoutGesture a
-                                                                                         undef
+  allowWithoutGesture : ClipboardPermissionDescriptor -> Attribute True Optional Bool
+  allowWithoutGesture = fromUndefOrPrim "ClipboardPermissionDescriptor.getallowWithoutGesture"
+                                        prim__allowWithoutGesture
+                                        prim__setAllowWithoutGesture
+                                        False
 
 --------------------------------------------------------------------------------
 --          Callbacks

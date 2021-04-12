@@ -37,92 +37,52 @@ namespace URL
   revokeObjectURL a = primJS $ URL.prim__revokeObjectURL a
   
   export
-  hash : (obj : URL) -> JSIO String
-  hash a = primJS $ URL.prim__hash a
+  hash : URL -> Attribute True I String
+  hash = fromPrim "URL.gethash" prim__hash prim__setHash
   
   export
-  setHash : (obj : URL) -> (value : String) -> JSIO ()
-  setHash a b = primJS $ URL.prim__setHash a b
+  host : URL -> Attribute True I String
+  host = fromPrim "URL.gethost" prim__host prim__setHost
   
   export
-  host : (obj : URL) -> JSIO String
-  host a = primJS $ URL.prim__host a
+  hostname : URL -> Attribute True I String
+  hostname = fromPrim "URL.gethostname" prim__hostname prim__setHostname
   
   export
-  setHost : (obj : URL) -> (value : String) -> JSIO ()
-  setHost a b = primJS $ URL.prim__setHost a b
-  
-  export
-  hostname : (obj : URL) -> JSIO String
-  hostname a = primJS $ URL.prim__hostname a
-  
-  export
-  setHostname : (obj : URL) -> (value : String) -> JSIO ()
-  setHostname a b = primJS $ URL.prim__setHostname a b
-  
-  export
-  href : (obj : URL) -> JSIO String
-  href a = primJS $ URL.prim__href a
-  
-  export
-  setHref : (obj : URL) -> (value : String) -> JSIO ()
-  setHref a b = primJS $ URL.prim__setHref a b
+  href : URL -> Attribute True I String
+  href = fromPrim "URL.gethref" prim__href prim__setHref
   
   export
   origin : (obj : URL) -> JSIO String
   origin a = primJS $ URL.prim__origin a
   
   export
-  password : (obj : URL) -> JSIO String
-  password a = primJS $ URL.prim__password a
+  password : URL -> Attribute True I String
+  password = fromPrim "URL.getpassword" prim__password prim__setPassword
   
   export
-  setPassword : (obj : URL) -> (value : String) -> JSIO ()
-  setPassword a b = primJS $ URL.prim__setPassword a b
+  pathname : URL -> Attribute True I String
+  pathname = fromPrim "URL.getpathname" prim__pathname prim__setPathname
   
   export
-  pathname : (obj : URL) -> JSIO String
-  pathname a = primJS $ URL.prim__pathname a
+  port : URL -> Attribute True I String
+  port = fromPrim "URL.getport" prim__port prim__setPort
   
   export
-  setPathname : (obj : URL) -> (value : String) -> JSIO ()
-  setPathname a b = primJS $ URL.prim__setPathname a b
+  protocol : URL -> Attribute True I String
+  protocol = fromPrim "URL.getprotocol" prim__protocol prim__setProtocol
   
   export
-  port : (obj : URL) -> JSIO String
-  port a = primJS $ URL.prim__port a
-  
-  export
-  setPort : (obj : URL) -> (value : String) -> JSIO ()
-  setPort a b = primJS $ URL.prim__setPort a b
-  
-  export
-  protocol : (obj : URL) -> JSIO String
-  protocol a = primJS $ URL.prim__protocol a
-  
-  export
-  setProtocol : (obj : URL) -> (value : String) -> JSIO ()
-  setProtocol a b = primJS $ URL.prim__setProtocol a b
-  
-  export
-  search : (obj : URL) -> JSIO String
-  search a = primJS $ URL.prim__search a
-  
-  export
-  setSearch : (obj : URL) -> (value : String) -> JSIO ()
-  setSearch a b = primJS $ URL.prim__setSearch a b
+  search : URL -> Attribute True I String
+  search = fromPrim "URL.getsearch" prim__search prim__setSearch
   
   export
   searchParams : (obj : URL) -> JSIO URLSearchParams
   searchParams a = primJS $ URL.prim__searchParams a
   
   export
-  username : (obj : URL) -> JSIO String
-  username a = primJS $ URL.prim__username a
-  
-  export
-  setUsername : (obj : URL) -> (value : String) -> JSIO ()
-  setUsername a b = primJS $ URL.prim__setUsername a b
+  username : URL -> Attribute True I String
+  username = fromPrim "URL.getusername" prim__username prim__setUsername
   
   export
   toJSON : (obj : URL) -> JSIO String

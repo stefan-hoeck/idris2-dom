@@ -1833,8 +1833,8 @@ namespace WebGL2RenderingContextBase
                                  -> (program : WebGLProgram)
                                  -> (uniformBlockIndex : UInt32)
                                  -> (pname : UInt32)
-                                 -> JSIO AnyPtr
-  getActiveUniformBlockParameter a b c d = primJS
+                                 -> JSIO Any
+  getActiveUniformBlockParameter a b c d = tryJS "WebGL2RenderingContextBase.getActiveUniformBlockParameter"
                                          $ WebGL2RenderingContextBase.prim__getActiveUniformBlockParameter a
                                                                                                            b
                                                                                                            c
@@ -1845,8 +1845,8 @@ namespace WebGL2RenderingContextBase
                     -> (program : WebGLProgram)
                     -> (uniformIndices : Array UInt32)
                     -> (pname : UInt32)
-                    -> JSIO AnyPtr
-  getActiveUniforms a b c d = primJS
+                    -> JSIO Any
+  getActiveUniforms a b c d = tryJS "WebGL2RenderingContextBase.getActiveUniforms"
                             $ WebGL2RenderingContextBase.prim__getActiveUniforms a
                                                                                  b
                                                                                  c
@@ -1916,8 +1916,8 @@ namespace WebGL2RenderingContextBase
   getIndexedParameter :  (obj : WebGL2RenderingContextBase)
                       -> (target : UInt32)
                       -> (index : UInt32)
-                      -> JSIO AnyPtr
-  getIndexedParameter a b c = primJS
+                      -> JSIO Any
+  getIndexedParameter a b c = tryJS "WebGL2RenderingContextBase.getIndexedParameter"
                             $ WebGL2RenderingContextBase.prim__getIndexedParameter a
                                                                                    b
                                                                                    c
@@ -1927,8 +1927,8 @@ namespace WebGL2RenderingContextBase
                              -> (target : UInt32)
                              -> (internalformat : UInt32)
                              -> (pname : UInt32)
-                             -> JSIO AnyPtr
-  getInternalformatParameter a b c d = primJS
+                             -> JSIO Any
+  getInternalformatParameter a b c d = tryJS "WebGL2RenderingContextBase.getInternalformatParameter"
                                      $ WebGL2RenderingContextBase.prim__getInternalformatParameter a
                                                                                                    b
                                                                                                    c
@@ -1938,8 +1938,8 @@ namespace WebGL2RenderingContextBase
   getQueryParameter :  (obj : WebGL2RenderingContextBase)
                     -> (query : WebGLQuery)
                     -> (pname : UInt32)
-                    -> JSIO AnyPtr
-  getQueryParameter a b c = primJS
+                    -> JSIO Any
+  getQueryParameter a b c = tryJS "WebGL2RenderingContextBase.getQueryParameter"
                           $ WebGL2RenderingContextBase.prim__getQueryParameter a
                                                                                b
                                                                                c
@@ -1956,8 +1956,8 @@ namespace WebGL2RenderingContextBase
   getSamplerParameter :  (obj : WebGL2RenderingContextBase)
                       -> (sampler : WebGLSampler)
                       -> (pname : UInt32)
-                      -> JSIO AnyPtr
-  getSamplerParameter a b c = primJS
+                      -> JSIO Any
+  getSamplerParameter a b c = tryJS "WebGL2RenderingContextBase.getSamplerParameter"
                             $ WebGL2RenderingContextBase.prim__getSamplerParameter a
                                                                                    b
                                                                                    c
@@ -1966,8 +1966,8 @@ namespace WebGL2RenderingContextBase
   getSyncParameter :  (obj : WebGL2RenderingContextBase)
                    -> (sync : WebGLSync)
                    -> (pname : UInt32)
-                   -> JSIO AnyPtr
-  getSyncParameter a b c = primJS
+                   -> JSIO Any
+  getSyncParameter a b c = tryJS "WebGL2RenderingContextBase.getSyncParameter"
                          $ WebGL2RenderingContextBase.prim__getSyncParameter a
                                                                              b
                                                                              c
@@ -5536,8 +5536,8 @@ namespace WebGLRenderingContextBase
   getBufferParameter :  (obj : WebGLRenderingContextBase)
                      -> (target : UInt32)
                      -> (pname : UInt32)
-                     -> JSIO AnyPtr
-  getBufferParameter a b c = primJS
+                     -> JSIO Any
+  getBufferParameter a b c = tryJS "WebGLRenderingContextBase.getBufferParameter"
                            $ WebGLRenderingContextBase.prim__getBufferParameter a
                                                                                 b
                                                                                 c
@@ -5564,8 +5564,8 @@ namespace WebGLRenderingContextBase
                                     -> (target : UInt32)
                                     -> (attachment : UInt32)
                                     -> (pname : UInt32)
-                                    -> JSIO AnyPtr
-  getFramebufferAttachmentParameter a b c d = primJS
+                                    -> JSIO Any
+  getFramebufferAttachmentParameter a b c d = tryJS "WebGLRenderingContextBase.getFramebufferAttachmentParameter"
                                             $ WebGLRenderingContextBase.prim__getFramebufferAttachmentParameter a
                                                                                                                 b
                                                                                                                 c
@@ -5574,8 +5574,9 @@ namespace WebGLRenderingContextBase
   export
   getParameter :  (obj : WebGLRenderingContextBase)
                -> (pname : UInt32)
-               -> JSIO AnyPtr
-  getParameter a b = primJS $ WebGLRenderingContextBase.prim__getParameter a b
+               -> JSIO Any
+  getParameter a b = tryJS "WebGLRenderingContextBase.getParameter"
+                   $ WebGLRenderingContextBase.prim__getParameter a b
   
   export
   getProgramInfoLog :  (obj : WebGLRenderingContextBase)
@@ -5588,8 +5589,8 @@ namespace WebGLRenderingContextBase
   getProgramParameter :  (obj : WebGLRenderingContextBase)
                       -> (program : WebGLProgram)
                       -> (pname : UInt32)
-                      -> JSIO AnyPtr
-  getProgramParameter a b c = primJS
+                      -> JSIO Any
+  getProgramParameter a b c = tryJS "WebGLRenderingContextBase.getProgramParameter"
                             $ WebGLRenderingContextBase.prim__getProgramParameter a
                                                                                   b
                                                                                   c
@@ -5598,8 +5599,8 @@ namespace WebGLRenderingContextBase
   getRenderbufferParameter :  (obj : WebGLRenderingContextBase)
                            -> (target : UInt32)
                            -> (pname : UInt32)
-                           -> JSIO AnyPtr
-  getRenderbufferParameter a b c = primJS
+                           -> JSIO Any
+  getRenderbufferParameter a b c = tryJS "WebGLRenderingContextBase.getRenderbufferParameter"
                                  $ WebGLRenderingContextBase.prim__getRenderbufferParameter a
                                                                                             b
                                                                                             c
@@ -5615,8 +5616,8 @@ namespace WebGLRenderingContextBase
   getShaderParameter :  (obj : WebGLRenderingContextBase)
                      -> (shader : WebGLShader)
                      -> (pname : UInt32)
-                     -> JSIO AnyPtr
-  getShaderParameter a b c = primJS
+                     -> JSIO Any
+  getShaderParameter a b c = tryJS "WebGLRenderingContextBase.getShaderParameter"
                            $ WebGLRenderingContextBase.prim__getShaderParameter a
                                                                                 b
                                                                                 c
@@ -5648,8 +5649,8 @@ namespace WebGLRenderingContextBase
   getTexParameter :  (obj : WebGLRenderingContextBase)
                   -> (target : UInt32)
                   -> (pname : UInt32)
-                  -> JSIO AnyPtr
-  getTexParameter a b c = primJS
+                  -> JSIO Any
+  getTexParameter a b c = tryJS "WebGLRenderingContextBase.getTexParameter"
                         $ WebGLRenderingContextBase.prim__getTexParameter a b c
   
   export
@@ -5666,8 +5667,9 @@ namespace WebGLRenderingContextBase
   getUniform :  (obj : WebGLRenderingContextBase)
              -> (program : WebGLProgram)
              -> (location : WebGLUniformLocation)
-             -> JSIO AnyPtr
-  getUniform a b c = primJS $ WebGLRenderingContextBase.prim__getUniform a b c
+             -> JSIO Any
+  getUniform a b c = tryJS "WebGLRenderingContextBase.getUniform"
+                   $ WebGLRenderingContextBase.prim__getUniform a b c
   
   export
   getVertexAttribOffset :  (obj : WebGLRenderingContextBase)
@@ -5683,8 +5685,8 @@ namespace WebGLRenderingContextBase
   getVertexAttrib :  (obj : WebGLRenderingContextBase)
                   -> (index : UInt32)
                   -> (pname : UInt32)
-                  -> JSIO AnyPtr
-  getVertexAttrib a b c = primJS
+                  -> JSIO Any
+  getVertexAttrib a b c = tryJS "WebGLRenderingContextBase.getVertexAttrib"
                         $ WebGLRenderingContextBase.prim__getVertexAttrib a b c
   
   export
@@ -6547,158 +6549,63 @@ namespace WebGLContextAttributes
                                           undef
   
   export
-  alpha : (obj : WebGLContextAttributes) -> JSIO $ Optional Bool
-  alpha a = tryJS "WebGLContextAttributes.alpha"
-          $ WebGLContextAttributes.prim__alpha a
+  alpha : WebGLContextAttributes -> Attribute True Optional Bool
+  alpha = fromUndefOrPrim "WebGLContextAttributes.getalpha"
+                          prim__alpha
+                          prim__setAlpha
+                          True
   
   export
-  setAlpha :  (obj : WebGLContextAttributes)
-           -> (value : Optional Bool)
-           -> JSIO ()
-  setAlpha a b = primJS $ WebGLContextAttributes.prim__setAlpha a (toFFI b)
-
-  export
-  setAlpha' : (obj : WebGLContextAttributes) -> JSIO ()
-  setAlpha' a = primJS $ WebGLContextAttributes.prim__setAlpha a undef
+  antialias : WebGLContextAttributes -> Attribute True Optional Bool
+  antialias = fromUndefOrPrim "WebGLContextAttributes.getantialias"
+                              prim__antialias
+                              prim__setAntialias
+                              True
   
   export
-  antialias : (obj : WebGLContextAttributes) -> JSIO $ Optional Bool
-  antialias a = tryJS "WebGLContextAttributes.antialias"
-              $ WebGLContextAttributes.prim__antialias a
+  depth : WebGLContextAttributes -> Attribute True Optional Bool
+  depth = fromUndefOrPrim "WebGLContextAttributes.getdepth"
+                          prim__depth
+                          prim__setDepth
+                          True
   
   export
-  setAntialias :  (obj : WebGLContextAttributes)
-               -> (value : Optional Bool)
-               -> JSIO ()
-  setAntialias a b = primJS
-                   $ WebGLContextAttributes.prim__setAntialias a (toFFI b)
-
-  export
-  setAntialias' : (obj : WebGLContextAttributes) -> JSIO ()
-  setAntialias' a = primJS $ WebGLContextAttributes.prim__setAntialias a undef
+  desynchronized : WebGLContextAttributes -> Attribute True Optional Bool
+  desynchronized = fromUndefOrPrim "WebGLContextAttributes.getdesynchronized"
+                                   prim__desynchronized
+                                   prim__setDesynchronized
+                                   False
   
   export
-  depth : (obj : WebGLContextAttributes) -> JSIO $ Optional Bool
-  depth a = tryJS "WebGLContextAttributes.depth"
-          $ WebGLContextAttributes.prim__depth a
+  failIfMajorPerformanceCaveat : WebGLContextAttributes -> Attribute True Optional Bool
+  failIfMajorPerformanceCaveat = fromUndefOrPrim "WebGLContextAttributes.getfailIfMajorPerformanceCaveat"
+                                                 prim__failIfMajorPerformanceCaveat
+                                                 prim__setFailIfMajorPerformanceCaveat
+                                                 False
   
   export
-  setDepth :  (obj : WebGLContextAttributes)
-           -> (value : Optional Bool)
-           -> JSIO ()
-  setDepth a b = primJS $ WebGLContextAttributes.prim__setDepth a (toFFI b)
-
-  export
-  setDepth' : (obj : WebGLContextAttributes) -> JSIO ()
-  setDepth' a = primJS $ WebGLContextAttributes.prim__setDepth a undef
+  powerPreference : WebGLContextAttributes -> Attribute False Optional WebGLPowerPreference
+  powerPreference = fromUndefOrPrimNoDefault "WebGLContextAttributes.getpowerPreference"
+                                             prim__powerPreference
+                                             prim__setPowerPreference
   
   export
-  desynchronized : (obj : WebGLContextAttributes) -> JSIO $ Optional Bool
-  desynchronized a = tryJS "WebGLContextAttributes.desynchronized"
-                   $ WebGLContextAttributes.prim__desynchronized a
+  premultipliedAlpha : WebGLContextAttributes -> Attribute True Optional Bool
+  premultipliedAlpha = fromUndefOrPrim "WebGLContextAttributes.getpremultipliedAlpha"
+                                       prim__premultipliedAlpha
+                                       prim__setPremultipliedAlpha
+                                       True
   
   export
-  setDesynchronized :  (obj : WebGLContextAttributes)
-                    -> (value : Optional Bool)
-                    -> JSIO ()
-  setDesynchronized a b = primJS
-                        $ WebGLContextAttributes.prim__setDesynchronized a
-                                                                         (toFFI b)
-
-  export
-  setDesynchronized' : (obj : WebGLContextAttributes) -> JSIO ()
-  setDesynchronized' a = primJS
-                       $ WebGLContextAttributes.prim__setDesynchronized a undef
+  preserveDrawingBuffer : WebGLContextAttributes -> Attribute True Optional Bool
+  preserveDrawingBuffer = fromUndefOrPrim "WebGLContextAttributes.getpreserveDrawingBuffer"
+                                          prim__preserveDrawingBuffer
+                                          prim__setPreserveDrawingBuffer
+                                          False
   
   export
-  failIfMajorPerformanceCaveat :  (obj : WebGLContextAttributes)
-                               -> JSIO $ Optional Bool
-  failIfMajorPerformanceCaveat a = tryJS "WebGLContextAttributes.failIfMajorPerformanceCaveat"
-                                 $ WebGLContextAttributes.prim__failIfMajorPerformanceCaveat a
-  
-  export
-  setFailIfMajorPerformanceCaveat :  (obj : WebGLContextAttributes)
-                                  -> (value : Optional Bool)
-                                  -> JSIO ()
-  setFailIfMajorPerformanceCaveat a b = primJS
-                                      $ WebGLContextAttributes.prim__setFailIfMajorPerformanceCaveat a
-                                                                                                     (toFFI b)
-
-  export
-  setFailIfMajorPerformanceCaveat' : (obj : WebGLContextAttributes) -> JSIO ()
-  setFailIfMajorPerformanceCaveat' a = primJS
-                                     $ WebGLContextAttributes.prim__setFailIfMajorPerformanceCaveat a
-                                                                                                    undef
-  
-  export
-  powerPreference :  (obj : WebGLContextAttributes)
-                  -> JSIO $ Optional WebGLPowerPreference
-  powerPreference a = tryJS "WebGLContextAttributes.powerPreference"
-                    $ WebGLContextAttributes.prim__powerPreference a
-  
-  export
-  setPowerPreference :  (obj : WebGLContextAttributes)
-                     -> (value : Optional WebGLPowerPreference)
-                     -> JSIO ()
-  setPowerPreference a b = primJS
-                         $ WebGLContextAttributes.prim__setPowerPreference a
-                                                                           (toFFI b)
-
-  export
-  setPowerPreference' : (obj : WebGLContextAttributes) -> JSIO ()
-  setPowerPreference' a = primJS
-                        $ WebGLContextAttributes.prim__setPowerPreference a
-                                                                          undef
-  
-  export
-  premultipliedAlpha : (obj : WebGLContextAttributes) -> JSIO $ Optional Bool
-  premultipliedAlpha a = tryJS "WebGLContextAttributes.premultipliedAlpha"
-                       $ WebGLContextAttributes.prim__premultipliedAlpha a
-  
-  export
-  setPremultipliedAlpha :  (obj : WebGLContextAttributes)
-                        -> (value : Optional Bool)
-                        -> JSIO ()
-  setPremultipliedAlpha a b = primJS
-                            $ WebGLContextAttributes.prim__setPremultipliedAlpha a
-                                                                                 (toFFI b)
-
-  export
-  setPremultipliedAlpha' : (obj : WebGLContextAttributes) -> JSIO ()
-  setPremultipliedAlpha' a = primJS
-                           $ WebGLContextAttributes.prim__setPremultipliedAlpha a
-                                                                                undef
-  
-  export
-  preserveDrawingBuffer : (obj : WebGLContextAttributes) -> JSIO $ Optional Bool
-  preserveDrawingBuffer a = tryJS "WebGLContextAttributes.preserveDrawingBuffer"
-                          $ WebGLContextAttributes.prim__preserveDrawingBuffer a
-  
-  export
-  setPreserveDrawingBuffer :  (obj : WebGLContextAttributes)
-                           -> (value : Optional Bool)
-                           -> JSIO ()
-  setPreserveDrawingBuffer a b = primJS
-                               $ WebGLContextAttributes.prim__setPreserveDrawingBuffer a
-                                                                                       (toFFI b)
-
-  export
-  setPreserveDrawingBuffer' : (obj : WebGLContextAttributes) -> JSIO ()
-  setPreserveDrawingBuffer' a = primJS
-                              $ WebGLContextAttributes.prim__setPreserveDrawingBuffer a
-                                                                                      undef
-  
-  export
-  stencil : (obj : WebGLContextAttributes) -> JSIO $ Optional Bool
-  stencil a = tryJS "WebGLContextAttributes.stencil"
-            $ WebGLContextAttributes.prim__stencil a
-  
-  export
-  setStencil :  (obj : WebGLContextAttributes)
-             -> (value : Optional Bool)
-             -> JSIO ()
-  setStencil a b = primJS $ WebGLContextAttributes.prim__setStencil a (toFFI b)
-
-  export
-  setStencil' : (obj : WebGLContextAttributes) -> JSIO ()
-  setStencil' a = primJS $ WebGLContextAttributes.prim__setStencil a undef
+  stencil : WebGLContextAttributes -> Attribute True Optional Bool
+  stencil = fromUndefOrPrim "WebGLContextAttributes.getstencil"
+                            prim__stencil
+                            prim__setStencil
+                            False

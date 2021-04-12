@@ -17,15 +17,10 @@ namespace PermissionStatus
     mixins =  []
   
   export
-  onchange : (obj : PermissionStatus) -> JSIO (Maybe EventHandlerNonNull)
-  onchange a = tryJS "PermissionStatus.onchange"
-             $ PermissionStatus.prim__onchange a
-  
-  export
-  setOnchange :  (obj : PermissionStatus)
-              -> (value : Maybe EventHandlerNonNull)
-              -> JSIO ()
-  setOnchange a b = primJS $ PermissionStatus.prim__setOnchange a (toFFI b)
+  onchange : PermissionStatus -> Attribute False Maybe EventHandlerNonNull
+  onchange = fromNullablePrim "PermissionStatus.getonchange"
+                              prim__onchange
+                              prim__setOnchange
   
   export
   state : (obj : PermissionStatus) -> JSIO PermissionState
@@ -67,23 +62,11 @@ namespace CameraDevicePermissionDescriptor
   new' = primJS $ CameraDevicePermissionDescriptor.prim__new undef
   
   export
-  panTiltZoom : (obj : CameraDevicePermissionDescriptor) -> JSIO $ Optional Bool
-  panTiltZoom a = tryJS "CameraDevicePermissionDescriptor.panTiltZoom"
-                $ CameraDevicePermissionDescriptor.prim__panTiltZoom a
-  
-  export
-  setPanTiltZoom :  (obj : CameraDevicePermissionDescriptor)
-                 -> (value : Optional Bool)
-                 -> JSIO ()
-  setPanTiltZoom a b = primJS
-                     $ CameraDevicePermissionDescriptor.prim__setPanTiltZoom a
-                                                                             (toFFI b)
-
-  export
-  setPanTiltZoom' : (obj : CameraDevicePermissionDescriptor) -> JSIO ()
-  setPanTiltZoom' a = primJS
-                    $ CameraDevicePermissionDescriptor.prim__setPanTiltZoom a
-                                                                            undef
+  panTiltZoom : CameraDevicePermissionDescriptor -> Attribute True Optional Bool
+  panTiltZoom = fromUndefOrPrim "CameraDevicePermissionDescriptor.getpanTiltZoom"
+                                prim__panTiltZoom
+                                prim__setPanTiltZoom
+                                False
 
 namespace DevicePermissionDescriptor
   
@@ -102,20 +85,10 @@ namespace DevicePermissionDescriptor
   new' = primJS $ DevicePermissionDescriptor.prim__new undef
   
   export
-  deviceId : (obj : DevicePermissionDescriptor) -> JSIO $ Optional String
-  deviceId a = tryJS "DevicePermissionDescriptor.deviceId"
-             $ DevicePermissionDescriptor.prim__deviceId a
-  
-  export
-  setDeviceId :  (obj : DevicePermissionDescriptor)
-              -> (value : Optional String)
-              -> JSIO ()
-  setDeviceId a b = primJS
-                  $ DevicePermissionDescriptor.prim__setDeviceId a (toFFI b)
-
-  export
-  setDeviceId' : (obj : DevicePermissionDescriptor) -> JSIO ()
-  setDeviceId' a = primJS $ DevicePermissionDescriptor.prim__setDeviceId a undef
+  deviceId : DevicePermissionDescriptor -> Attribute False Optional String
+  deviceId = fromUndefOrPrimNoDefault "DevicePermissionDescriptor.getdeviceId"
+                                      prim__deviceId
+                                      prim__setDeviceId
 
 namespace MidiPermissionDescriptor
   
@@ -134,19 +107,11 @@ namespace MidiPermissionDescriptor
   new' = primJS $ MidiPermissionDescriptor.prim__new undef
   
   export
-  sysex : (obj : MidiPermissionDescriptor) -> JSIO $ Optional Bool
-  sysex a = tryJS "MidiPermissionDescriptor.sysex"
-          $ MidiPermissionDescriptor.prim__sysex a
-  
-  export
-  setSysex :  (obj : MidiPermissionDescriptor)
-           -> (value : Optional Bool)
-           -> JSIO ()
-  setSysex a b = primJS $ MidiPermissionDescriptor.prim__setSysex a (toFFI b)
-
-  export
-  setSysex' : (obj : MidiPermissionDescriptor) -> JSIO ()
-  setSysex' a = primJS $ MidiPermissionDescriptor.prim__setSysex a undef
+  sysex : MidiPermissionDescriptor -> Attribute True Optional Bool
+  sysex = fromUndefOrPrim "MidiPermissionDescriptor.getsysex"
+                          prim__sysex
+                          prim__setSysex
+                          False
 
 namespace PermissionDescriptor
   
@@ -161,12 +126,8 @@ namespace PermissionDescriptor
   new a = primJS $ PermissionDescriptor.prim__new (toFFI a)
   
   export
-  name : (obj : PermissionDescriptor) -> JSIO PermissionName
-  name a = tryJS "PermissionDescriptor.name" $ PermissionDescriptor.prim__name a
-  
-  export
-  setName : (obj : PermissionDescriptor) -> (value : PermissionName) -> JSIO ()
-  setName a b = primJS $ PermissionDescriptor.prim__setName a (toFFI b)
+  name : PermissionDescriptor -> Attribute True I PermissionName
+  name = fromPrim "PermissionDescriptor.getname" prim__name prim__setName
 
 namespace PermissionSetParameters
   
@@ -190,41 +151,21 @@ namespace PermissionSetParameters
   new' a b = primJS $ PermissionSetParameters.prim__new a (toFFI b) undef
   
   export
-  descriptor : (obj : PermissionSetParameters) -> JSIO PermissionDescriptor
-  descriptor a = primJS $ PermissionSetParameters.prim__descriptor a
+  descriptor : PermissionSetParameters -> Attribute True I PermissionDescriptor
+  descriptor = fromPrim "PermissionSetParameters.getdescriptor"
+                        prim__descriptor
+                        prim__setDescriptor
   
   export
-  setDescriptor :  (obj : PermissionSetParameters)
-                -> (value : PermissionDescriptor)
-                -> JSIO ()
-  setDescriptor a b = primJS $ PermissionSetParameters.prim__setDescriptor a b
+  oneRealm : PermissionSetParameters -> Attribute True Optional Bool
+  oneRealm = fromUndefOrPrim "PermissionSetParameters.getoneRealm"
+                             prim__oneRealm
+                             prim__setOneRealm
+                             False
   
   export
-  oneRealm : (obj : PermissionSetParameters) -> JSIO $ Optional Bool
-  oneRealm a = tryJS "PermissionSetParameters.oneRealm"
-             $ PermissionSetParameters.prim__oneRealm a
-  
-  export
-  setOneRealm :  (obj : PermissionSetParameters)
-              -> (value : Optional Bool)
-              -> JSIO ()
-  setOneRealm a b = primJS
-                  $ PermissionSetParameters.prim__setOneRealm a (toFFI b)
-
-  export
-  setOneRealm' : (obj : PermissionSetParameters) -> JSIO ()
-  setOneRealm' a = primJS $ PermissionSetParameters.prim__setOneRealm a undef
-  
-  export
-  state : (obj : PermissionSetParameters) -> JSIO PermissionState
-  state a = tryJS "PermissionSetParameters.state"
-          $ PermissionSetParameters.prim__state a
-  
-  export
-  setState :  (obj : PermissionSetParameters)
-           -> (value : PermissionState)
-           -> JSIO ()
-  setState a b = primJS $ PermissionSetParameters.prim__setState a (toFFI b)
+  state : PermissionSetParameters -> Attribute True I PermissionState
+  state = fromPrim "PermissionSetParameters.getstate" prim__state prim__setState
 
 namespace PushPermissionDescriptor
   
@@ -243,20 +184,8 @@ namespace PushPermissionDescriptor
   new' = primJS $ PushPermissionDescriptor.prim__new undef
   
   export
-  userVisibleOnly : (obj : PushPermissionDescriptor) -> JSIO $ Optional Bool
-  userVisibleOnly a = tryJS "PushPermissionDescriptor.userVisibleOnly"
-                    $ PushPermissionDescriptor.prim__userVisibleOnly a
-  
-  export
-  setUserVisibleOnly :  (obj : PushPermissionDescriptor)
-                     -> (value : Optional Bool)
-                     -> JSIO ()
-  setUserVisibleOnly a b = primJS
-                         $ PushPermissionDescriptor.prim__setUserVisibleOnly a
-                                                                             (toFFI b)
-
-  export
-  setUserVisibleOnly' : (obj : PushPermissionDescriptor) -> JSIO ()
-  setUserVisibleOnly' a = primJS
-                        $ PushPermissionDescriptor.prim__setUserVisibleOnly a
-                                                                            undef
+  userVisibleOnly : PushPermissionDescriptor -> Attribute True Optional Bool
+  userVisibleOnly = fromUndefOrPrim "PushPermissionDescriptor.getuserVisibleOnly"
+                                    prim__userVisibleOnly
+                                    prim__setUserVisibleOnly
+                                    False

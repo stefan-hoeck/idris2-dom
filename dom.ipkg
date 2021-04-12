@@ -7,6 +7,7 @@ depends    = base        >= 0.3.0
            , sop         >= 0.1.1
 
 modules = JS
+        , JS.Any
         , JS.Array
         , JS.Attribute
         , JS.Boolean

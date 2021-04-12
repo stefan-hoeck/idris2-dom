@@ -264,17 +264,11 @@ namespace CompositionEventInit
   new' = primJS $ CompositionEventInit.prim__new undef
   
   export
-  data_ : (obj : CompositionEventInit) -> JSIO $ Optional String
-  data_ a = tryJS "CompositionEventInit.data_"
-          $ CompositionEventInit.prim__data a
-  
-  export
-  setData : (obj : CompositionEventInit) -> (value : Optional String) -> JSIO ()
-  setData a b = primJS $ CompositionEventInit.prim__setData a (toFFI b)
-
-  export
-  setData' : (obj : CompositionEventInit) -> JSIO ()
-  setData' a = primJS $ CompositionEventInit.prim__setData a undef
+  data_ : CompositionEventInit -> Attribute True Optional String
+  data_ = fromUndefOrPrim "CompositionEventInit.getdata"
+                          prim__data
+                          prim__setData
+                          ""
 
 namespace EventModifierInit
   
@@ -335,230 +329,102 @@ namespace EventModifierInit
                                      undef
   
   export
-  altKey : (obj : EventModifierInit) -> JSIO $ Optional Bool
-  altKey a = tryJS "EventModifierInit.altKey" $ EventModifierInit.prim__altKey a
+  altKey : EventModifierInit -> Attribute True Optional Bool
+  altKey = fromUndefOrPrim "EventModifierInit.getaltKey"
+                           prim__altKey
+                           prim__setAltKey
+                           False
   
   export
-  setAltKey : (obj : EventModifierInit) -> (value : Optional Bool) -> JSIO ()
-  setAltKey a b = primJS $ EventModifierInit.prim__setAltKey a (toFFI b)
-
-  export
-  setAltKey' : (obj : EventModifierInit) -> JSIO ()
-  setAltKey' a = primJS $ EventModifierInit.prim__setAltKey a undef
+  ctrlKey : EventModifierInit -> Attribute True Optional Bool
+  ctrlKey = fromUndefOrPrim "EventModifierInit.getctrlKey"
+                            prim__ctrlKey
+                            prim__setCtrlKey
+                            False
   
   export
-  ctrlKey : (obj : EventModifierInit) -> JSIO $ Optional Bool
-  ctrlKey a = tryJS "EventModifierInit.ctrlKey"
-            $ EventModifierInit.prim__ctrlKey a
+  metaKey : EventModifierInit -> Attribute True Optional Bool
+  metaKey = fromUndefOrPrim "EventModifierInit.getmetaKey"
+                            prim__metaKey
+                            prim__setMetaKey
+                            False
   
   export
-  setCtrlKey : (obj : EventModifierInit) -> (value : Optional Bool) -> JSIO ()
-  setCtrlKey a b = primJS $ EventModifierInit.prim__setCtrlKey a (toFFI b)
-
-  export
-  setCtrlKey' : (obj : EventModifierInit) -> JSIO ()
-  setCtrlKey' a = primJS $ EventModifierInit.prim__setCtrlKey a undef
+  modifierAltGraph : EventModifierInit -> Attribute True Optional Bool
+  modifierAltGraph = fromUndefOrPrim "EventModifierInit.getmodifierAltGraph"
+                                     prim__modifierAltGraph
+                                     prim__setModifierAltGraph
+                                     False
   
   export
-  metaKey : (obj : EventModifierInit) -> JSIO $ Optional Bool
-  metaKey a = tryJS "EventModifierInit.metaKey"
-            $ EventModifierInit.prim__metaKey a
+  modifierCapsLock : EventModifierInit -> Attribute True Optional Bool
+  modifierCapsLock = fromUndefOrPrim "EventModifierInit.getmodifierCapsLock"
+                                     prim__modifierCapsLock
+                                     prim__setModifierCapsLock
+                                     False
   
   export
-  setMetaKey : (obj : EventModifierInit) -> (value : Optional Bool) -> JSIO ()
-  setMetaKey a b = primJS $ EventModifierInit.prim__setMetaKey a (toFFI b)
-
-  export
-  setMetaKey' : (obj : EventModifierInit) -> JSIO ()
-  setMetaKey' a = primJS $ EventModifierInit.prim__setMetaKey a undef
+  modifierFn : EventModifierInit -> Attribute True Optional Bool
+  modifierFn = fromUndefOrPrim "EventModifierInit.getmodifierFn"
+                               prim__modifierFn
+                               prim__setModifierFn
+                               False
   
   export
-  modifierAltGraph : (obj : EventModifierInit) -> JSIO $ Optional Bool
-  modifierAltGraph a = tryJS "EventModifierInit.modifierAltGraph"
-                     $ EventModifierInit.prim__modifierAltGraph a
+  modifierFnLock : EventModifierInit -> Attribute True Optional Bool
+  modifierFnLock = fromUndefOrPrim "EventModifierInit.getmodifierFnLock"
+                                   prim__modifierFnLock
+                                   prim__setModifierFnLock
+                                   False
   
   export
-  setModifierAltGraph :  (obj : EventModifierInit)
-                      -> (value : Optional Bool)
-                      -> JSIO ()
-  setModifierAltGraph a b = primJS
-                          $ EventModifierInit.prim__setModifierAltGraph a
-                                                                        (toFFI b)
-
-  export
-  setModifierAltGraph' : (obj : EventModifierInit) -> JSIO ()
-  setModifierAltGraph' a = primJS
-                         $ EventModifierInit.prim__setModifierAltGraph a undef
+  modifierHyper : EventModifierInit -> Attribute True Optional Bool
+  modifierHyper = fromUndefOrPrim "EventModifierInit.getmodifierHyper"
+                                  prim__modifierHyper
+                                  prim__setModifierHyper
+                                  False
   
   export
-  modifierCapsLock : (obj : EventModifierInit) -> JSIO $ Optional Bool
-  modifierCapsLock a = tryJS "EventModifierInit.modifierCapsLock"
-                     $ EventModifierInit.prim__modifierCapsLock a
+  modifierNumLock : EventModifierInit -> Attribute True Optional Bool
+  modifierNumLock = fromUndefOrPrim "EventModifierInit.getmodifierNumLock"
+                                    prim__modifierNumLock
+                                    prim__setModifierNumLock
+                                    False
   
   export
-  setModifierCapsLock :  (obj : EventModifierInit)
-                      -> (value : Optional Bool)
-                      -> JSIO ()
-  setModifierCapsLock a b = primJS
-                          $ EventModifierInit.prim__setModifierCapsLock a
-                                                                        (toFFI b)
-
-  export
-  setModifierCapsLock' : (obj : EventModifierInit) -> JSIO ()
-  setModifierCapsLock' a = primJS
-                         $ EventModifierInit.prim__setModifierCapsLock a undef
+  modifierScrollLock : EventModifierInit -> Attribute True Optional Bool
+  modifierScrollLock = fromUndefOrPrim "EventModifierInit.getmodifierScrollLock"
+                                       prim__modifierScrollLock
+                                       prim__setModifierScrollLock
+                                       False
   
   export
-  modifierFn : (obj : EventModifierInit) -> JSIO $ Optional Bool
-  modifierFn a = tryJS "EventModifierInit.modifierFn"
-               $ EventModifierInit.prim__modifierFn a
+  modifierSuper : EventModifierInit -> Attribute True Optional Bool
+  modifierSuper = fromUndefOrPrim "EventModifierInit.getmodifierSuper"
+                                  prim__modifierSuper
+                                  prim__setModifierSuper
+                                  False
   
   export
-  setModifierFn :  (obj : EventModifierInit)
-                -> (value : Optional Bool)
-                -> JSIO ()
-  setModifierFn a b = primJS $ EventModifierInit.prim__setModifierFn a (toFFI b)
-
-  export
-  setModifierFn' : (obj : EventModifierInit) -> JSIO ()
-  setModifierFn' a = primJS $ EventModifierInit.prim__setModifierFn a undef
+  modifierSymbol : EventModifierInit -> Attribute True Optional Bool
+  modifierSymbol = fromUndefOrPrim "EventModifierInit.getmodifierSymbol"
+                                   prim__modifierSymbol
+                                   prim__setModifierSymbol
+                                   False
   
   export
-  modifierFnLock : (obj : EventModifierInit) -> JSIO $ Optional Bool
-  modifierFnLock a = tryJS "EventModifierInit.modifierFnLock"
-                   $ EventModifierInit.prim__modifierFnLock a
+  modifierSymbolLock : EventModifierInit -> Attribute True Optional Bool
+  modifierSymbolLock = fromUndefOrPrim "EventModifierInit.getmodifierSymbolLock"
+                                       prim__modifierSymbolLock
+                                       prim__setModifierSymbolLock
+                                       False
   
   export
-  setModifierFnLock :  (obj : EventModifierInit)
-                    -> (value : Optional Bool)
-                    -> JSIO ()
-  setModifierFnLock a b = primJS
-                        $ EventModifierInit.prim__setModifierFnLock a (toFFI b)
-
-  export
-  setModifierFnLock' : (obj : EventModifierInit) -> JSIO ()
-  setModifierFnLock' a = primJS
-                       $ EventModifierInit.prim__setModifierFnLock a undef
-  
-  export
-  modifierHyper : (obj : EventModifierInit) -> JSIO $ Optional Bool
-  modifierHyper a = tryJS "EventModifierInit.modifierHyper"
-                  $ EventModifierInit.prim__modifierHyper a
-  
-  export
-  setModifierHyper :  (obj : EventModifierInit)
-                   -> (value : Optional Bool)
-                   -> JSIO ()
-  setModifierHyper a b = primJS
-                       $ EventModifierInit.prim__setModifierHyper a (toFFI b)
-
-  export
-  setModifierHyper' : (obj : EventModifierInit) -> JSIO ()
-  setModifierHyper' a = primJS
-                      $ EventModifierInit.prim__setModifierHyper a undef
-  
-  export
-  modifierNumLock : (obj : EventModifierInit) -> JSIO $ Optional Bool
-  modifierNumLock a = tryJS "EventModifierInit.modifierNumLock"
-                    $ EventModifierInit.prim__modifierNumLock a
-  
-  export
-  setModifierNumLock :  (obj : EventModifierInit)
-                     -> (value : Optional Bool)
-                     -> JSIO ()
-  setModifierNumLock a b = primJS
-                         $ EventModifierInit.prim__setModifierNumLock a
-                                                                      (toFFI b)
-
-  export
-  setModifierNumLock' : (obj : EventModifierInit) -> JSIO ()
-  setModifierNumLock' a = primJS
-                        $ EventModifierInit.prim__setModifierNumLock a undef
-  
-  export
-  modifierScrollLock : (obj : EventModifierInit) -> JSIO $ Optional Bool
-  modifierScrollLock a = tryJS "EventModifierInit.modifierScrollLock"
-                       $ EventModifierInit.prim__modifierScrollLock a
-  
-  export
-  setModifierScrollLock :  (obj : EventModifierInit)
-                        -> (value : Optional Bool)
-                        -> JSIO ()
-  setModifierScrollLock a b = primJS
-                            $ EventModifierInit.prim__setModifierScrollLock a
-                                                                            (toFFI b)
-
-  export
-  setModifierScrollLock' : (obj : EventModifierInit) -> JSIO ()
-  setModifierScrollLock' a = primJS
-                           $ EventModifierInit.prim__setModifierScrollLock a
-                                                                           undef
-  
-  export
-  modifierSuper : (obj : EventModifierInit) -> JSIO $ Optional Bool
-  modifierSuper a = tryJS "EventModifierInit.modifierSuper"
-                  $ EventModifierInit.prim__modifierSuper a
-  
-  export
-  setModifierSuper :  (obj : EventModifierInit)
-                   -> (value : Optional Bool)
-                   -> JSIO ()
-  setModifierSuper a b = primJS
-                       $ EventModifierInit.prim__setModifierSuper a (toFFI b)
-
-  export
-  setModifierSuper' : (obj : EventModifierInit) -> JSIO ()
-  setModifierSuper' a = primJS
-                      $ EventModifierInit.prim__setModifierSuper a undef
-  
-  export
-  modifierSymbol : (obj : EventModifierInit) -> JSIO $ Optional Bool
-  modifierSymbol a = tryJS "EventModifierInit.modifierSymbol"
-                   $ EventModifierInit.prim__modifierSymbol a
-  
-  export
-  setModifierSymbol :  (obj : EventModifierInit)
-                    -> (value : Optional Bool)
-                    -> JSIO ()
-  setModifierSymbol a b = primJS
-                        $ EventModifierInit.prim__setModifierSymbol a (toFFI b)
-
-  export
-  setModifierSymbol' : (obj : EventModifierInit) -> JSIO ()
-  setModifierSymbol' a = primJS
-                       $ EventModifierInit.prim__setModifierSymbol a undef
-  
-  export
-  modifierSymbolLock : (obj : EventModifierInit) -> JSIO $ Optional Bool
-  modifierSymbolLock a = tryJS "EventModifierInit.modifierSymbolLock"
-                       $ EventModifierInit.prim__modifierSymbolLock a
-  
-  export
-  setModifierSymbolLock :  (obj : EventModifierInit)
-                        -> (value : Optional Bool)
-                        -> JSIO ()
-  setModifierSymbolLock a b = primJS
-                            $ EventModifierInit.prim__setModifierSymbolLock a
-                                                                            (toFFI b)
-
-  export
-  setModifierSymbolLock' : (obj : EventModifierInit) -> JSIO ()
-  setModifierSymbolLock' a = primJS
-                           $ EventModifierInit.prim__setModifierSymbolLock a
-                                                                           undef
-  
-  export
-  shiftKey : (obj : EventModifierInit) -> JSIO $ Optional Bool
-  shiftKey a = tryJS "EventModifierInit.shiftKey"
-             $ EventModifierInit.prim__shiftKey a
-  
-  export
-  setShiftKey : (obj : EventModifierInit) -> (value : Optional Bool) -> JSIO ()
-  setShiftKey a b = primJS $ EventModifierInit.prim__setShiftKey a (toFFI b)
-
-  export
-  setShiftKey' : (obj : EventModifierInit) -> JSIO ()
-  setShiftKey' a = primJS $ EventModifierInit.prim__setShiftKey a undef
+  shiftKey : EventModifierInit -> Attribute True Optional Bool
+  shiftKey = fromUndefOrPrim "EventModifierInit.getshiftKey"
+                             prim__shiftKey
+                             prim__setShiftKey
+                             False
 
 namespace FocusEventInit
   
@@ -577,20 +443,11 @@ namespace FocusEventInit
   new' = primJS $ FocusEventInit.prim__new undef
   
   export
-  relatedTarget : (obj : FocusEventInit) -> JSIO $ Optional (Maybe EventTarget)
-  relatedTarget a = tryJS "FocusEventInit.relatedTarget"
-                  $ FocusEventInit.prim__relatedTarget a
-  
-  export
-  setRelatedTarget :  (obj : FocusEventInit)
-                   -> (value : Optional (Maybe EventTarget))
-                   -> JSIO ()
-  setRelatedTarget a b = primJS
-                       $ FocusEventInit.prim__setRelatedTarget a (toFFI b)
-
-  export
-  setRelatedTarget' : (obj : FocusEventInit) -> JSIO ()
-  setRelatedTarget' a = primJS $ FocusEventInit.prim__setRelatedTarget a undef
+  relatedTarget : FocusEventInit -> Attribute True Optional (Maybe EventTarget)
+  relatedTarget = fromUndefOrPrim "FocusEventInit.getrelatedTarget"
+                                  prim__relatedTarget
+                                  prim__setRelatedTarget
+                                  Nothing
 
 namespace InputEventInit
   
@@ -612,44 +469,25 @@ namespace InputEventInit
   new' = primJS $ InputEventInit.prim__new undef undef undef
   
   export
-  data_ : (obj : InputEventInit) -> JSIO $ Optional (Maybe String)
-  data_ a = tryJS "InputEventInit.data_" $ InputEventInit.prim__data a
+  data_ : InputEventInit -> Attribute True Optional (Maybe String)
+  data_ = fromUndefOrPrim "InputEventInit.getdata"
+                          prim__data
+                          prim__setData
+                          (Just "")
   
   export
-  setData :  (obj : InputEventInit)
-          -> (value : Optional (Maybe String))
-          -> JSIO ()
-  setData a b = primJS $ InputEventInit.prim__setData a (toFFI b)
-
-  export
-  setData' : (obj : InputEventInit) -> JSIO ()
-  setData' a = primJS $ InputEventInit.prim__setData a undef
+  inputType : InputEventInit -> Attribute True Optional String
+  inputType = fromUndefOrPrim "InputEventInit.getinputType"
+                              prim__inputType
+                              prim__setInputType
+                              ""
   
   export
-  inputType : (obj : InputEventInit) -> JSIO $ Optional String
-  inputType a = tryJS "InputEventInit.inputType"
-              $ InputEventInit.prim__inputType a
-  
-  export
-  setInputType : (obj : InputEventInit) -> (value : Optional String) -> JSIO ()
-  setInputType a b = primJS $ InputEventInit.prim__setInputType a (toFFI b)
-
-  export
-  setInputType' : (obj : InputEventInit) -> JSIO ()
-  setInputType' a = primJS $ InputEventInit.prim__setInputType a undef
-  
-  export
-  isComposing : (obj : InputEventInit) -> JSIO $ Optional Bool
-  isComposing a = tryJS "InputEventInit.isComposing"
-                $ InputEventInit.prim__isComposing a
-  
-  export
-  setIsComposing : (obj : InputEventInit) -> (value : Optional Bool) -> JSIO ()
-  setIsComposing a b = primJS $ InputEventInit.prim__setIsComposing a (toFFI b)
-
-  export
-  setIsComposing' : (obj : InputEventInit) -> JSIO ()
-  setIsComposing' a = primJS $ InputEventInit.prim__setIsComposing a undef
+  isComposing : InputEventInit -> Attribute True Optional Bool
+  isComposing = fromUndefOrPrim "InputEventInit.getisComposing"
+                                prim__isComposing
+                                prim__setIsComposing
+                                False
 
 namespace KeyboardEventInit
   
@@ -678,71 +516,33 @@ namespace KeyboardEventInit
   new' = primJS $ KeyboardEventInit.prim__new undef undef undef undef undef
   
   export
-  code : (obj : KeyboardEventInit) -> JSIO $ Optional String
-  code a = tryJS "KeyboardEventInit.code" $ KeyboardEventInit.prim__code a
+  code : KeyboardEventInit -> Attribute True Optional String
+  code = fromUndefOrPrim "KeyboardEventInit.getcode" prim__code prim__setCode ""
   
   export
-  setCode : (obj : KeyboardEventInit) -> (value : Optional String) -> JSIO ()
-  setCode a b = primJS $ KeyboardEventInit.prim__setCode a (toFFI b)
-
-  export
-  setCode' : (obj : KeyboardEventInit) -> JSIO ()
-  setCode' a = primJS $ KeyboardEventInit.prim__setCode a undef
+  isComposing : KeyboardEventInit -> Attribute True Optional Bool
+  isComposing = fromUndefOrPrim "KeyboardEventInit.getisComposing"
+                                prim__isComposing
+                                prim__setIsComposing
+                                False
   
   export
-  isComposing : (obj : KeyboardEventInit) -> JSIO $ Optional Bool
-  isComposing a = tryJS "KeyboardEventInit.isComposing"
-                $ KeyboardEventInit.prim__isComposing a
+  key : KeyboardEventInit -> Attribute True Optional String
+  key = fromUndefOrPrim "KeyboardEventInit.getkey" prim__key prim__setKey ""
   
   export
-  setIsComposing :  (obj : KeyboardEventInit)
-                 -> (value : Optional Bool)
-                 -> JSIO ()
-  setIsComposing a b = primJS
-                     $ KeyboardEventInit.prim__setIsComposing a (toFFI b)
-
-  export
-  setIsComposing' : (obj : KeyboardEventInit) -> JSIO ()
-  setIsComposing' a = primJS $ KeyboardEventInit.prim__setIsComposing a undef
+  location : KeyboardEventInit -> Attribute True Optional UInt32
+  location = fromUndefOrPrim "KeyboardEventInit.getlocation"
+                             prim__location
+                             prim__setLocation
+                             0
   
   export
-  key : (obj : KeyboardEventInit) -> JSIO $ Optional String
-  key a = tryJS "KeyboardEventInit.key" $ KeyboardEventInit.prim__key a
-  
-  export
-  setKey : (obj : KeyboardEventInit) -> (value : Optional String) -> JSIO ()
-  setKey a b = primJS $ KeyboardEventInit.prim__setKey a (toFFI b)
-
-  export
-  setKey' : (obj : KeyboardEventInit) -> JSIO ()
-  setKey' a = primJS $ KeyboardEventInit.prim__setKey a undef
-  
-  export
-  location : (obj : KeyboardEventInit) -> JSIO $ Optional UInt32
-  location a = tryJS "KeyboardEventInit.location"
-             $ KeyboardEventInit.prim__location a
-  
-  export
-  setLocation :  (obj : KeyboardEventInit)
-              -> (value : Optional UInt32)
-              -> JSIO ()
-  setLocation a b = primJS $ KeyboardEventInit.prim__setLocation a (toFFI b)
-
-  export
-  setLocation' : (obj : KeyboardEventInit) -> JSIO ()
-  setLocation' a = primJS $ KeyboardEventInit.prim__setLocation a undef
-  
-  export
-  repeat : (obj : KeyboardEventInit) -> JSIO $ Optional Bool
-  repeat a = tryJS "KeyboardEventInit.repeat" $ KeyboardEventInit.prim__repeat a
-  
-  export
-  setRepeat : (obj : KeyboardEventInit) -> (value : Optional Bool) -> JSIO ()
-  setRepeat a b = primJS $ KeyboardEventInit.prim__setRepeat a (toFFI b)
-
-  export
-  setRepeat' : (obj : KeyboardEventInit) -> JSIO ()
-  setRepeat' a = primJS $ KeyboardEventInit.prim__setRepeat a undef
+  repeat : KeyboardEventInit -> Attribute True Optional Bool
+  repeat = fromUndefOrPrim "KeyboardEventInit.getrepeat"
+                           prim__repeat
+                           prim__setRepeat
+                           False
 
 namespace MouseEventInit
   
@@ -776,92 +576,53 @@ namespace MouseEventInit
        $ MouseEventInit.prim__new undef undef undef undef undef undef undef
   
   export
-  button : (obj : MouseEventInit) -> JSIO $ Optional Int16
-  button a = tryJS "MouseEventInit.button" $ MouseEventInit.prim__button a
+  button : MouseEventInit -> Attribute True Optional Int16
+  button = fromUndefOrPrim "MouseEventInit.getbutton"
+                           prim__button
+                           prim__setButton
+                           0
   
   export
-  setButton : (obj : MouseEventInit) -> (value : Optional Int16) -> JSIO ()
-  setButton a b = primJS $ MouseEventInit.prim__setButton a (toFFI b)
-
-  export
-  setButton' : (obj : MouseEventInit) -> JSIO ()
-  setButton' a = primJS $ MouseEventInit.prim__setButton a undef
+  buttons : MouseEventInit -> Attribute True Optional UInt16
+  buttons = fromUndefOrPrim "MouseEventInit.getbuttons"
+                            prim__buttons
+                            prim__setButtons
+                            0
   
   export
-  buttons : (obj : MouseEventInit) -> JSIO $ Optional UInt16
-  buttons a = tryJS "MouseEventInit.buttons" $ MouseEventInit.prim__buttons a
+  clientX : MouseEventInit -> Attribute True Optional Int32
+  clientX = fromUndefOrPrim "MouseEventInit.getclientX"
+                            prim__clientX
+                            prim__setClientX
+                            0
   
   export
-  setButtons : (obj : MouseEventInit) -> (value : Optional UInt16) -> JSIO ()
-  setButtons a b = primJS $ MouseEventInit.prim__setButtons a (toFFI b)
-
-  export
-  setButtons' : (obj : MouseEventInit) -> JSIO ()
-  setButtons' a = primJS $ MouseEventInit.prim__setButtons a undef
+  clientY : MouseEventInit -> Attribute True Optional Int32
+  clientY = fromUndefOrPrim "MouseEventInit.getclientY"
+                            prim__clientY
+                            prim__setClientY
+                            0
   
   export
-  clientX : (obj : MouseEventInit) -> JSIO $ Optional Int32
-  clientX a = tryJS "MouseEventInit.clientX" $ MouseEventInit.prim__clientX a
+  relatedTarget : MouseEventInit -> Attribute True Optional (Maybe EventTarget)
+  relatedTarget = fromUndefOrPrim "MouseEventInit.getrelatedTarget"
+                                  prim__relatedTarget
+                                  prim__setRelatedTarget
+                                  Nothing
   
   export
-  setClientX : (obj : MouseEventInit) -> (value : Optional Int32) -> JSIO ()
-  setClientX a b = primJS $ MouseEventInit.prim__setClientX a (toFFI b)
-
-  export
-  setClientX' : (obj : MouseEventInit) -> JSIO ()
-  setClientX' a = primJS $ MouseEventInit.prim__setClientX a undef
+  screenX : MouseEventInit -> Attribute True Optional Int32
+  screenX = fromUndefOrPrim "MouseEventInit.getscreenX"
+                            prim__screenX
+                            prim__setScreenX
+                            0
   
   export
-  clientY : (obj : MouseEventInit) -> JSIO $ Optional Int32
-  clientY a = tryJS "MouseEventInit.clientY" $ MouseEventInit.prim__clientY a
-  
-  export
-  setClientY : (obj : MouseEventInit) -> (value : Optional Int32) -> JSIO ()
-  setClientY a b = primJS $ MouseEventInit.prim__setClientY a (toFFI b)
-
-  export
-  setClientY' : (obj : MouseEventInit) -> JSIO ()
-  setClientY' a = primJS $ MouseEventInit.prim__setClientY a undef
-  
-  export
-  relatedTarget : (obj : MouseEventInit) -> JSIO $ Optional (Maybe EventTarget)
-  relatedTarget a = tryJS "MouseEventInit.relatedTarget"
-                  $ MouseEventInit.prim__relatedTarget a
-  
-  export
-  setRelatedTarget :  (obj : MouseEventInit)
-                   -> (value : Optional (Maybe EventTarget))
-                   -> JSIO ()
-  setRelatedTarget a b = primJS
-                       $ MouseEventInit.prim__setRelatedTarget a (toFFI b)
-
-  export
-  setRelatedTarget' : (obj : MouseEventInit) -> JSIO ()
-  setRelatedTarget' a = primJS $ MouseEventInit.prim__setRelatedTarget a undef
-  
-  export
-  screenX : (obj : MouseEventInit) -> JSIO $ Optional Int32
-  screenX a = tryJS "MouseEventInit.screenX" $ MouseEventInit.prim__screenX a
-  
-  export
-  setScreenX : (obj : MouseEventInit) -> (value : Optional Int32) -> JSIO ()
-  setScreenX a b = primJS $ MouseEventInit.prim__setScreenX a (toFFI b)
-
-  export
-  setScreenX' : (obj : MouseEventInit) -> JSIO ()
-  setScreenX' a = primJS $ MouseEventInit.prim__setScreenX a undef
-  
-  export
-  screenY : (obj : MouseEventInit) -> JSIO $ Optional Int32
-  screenY a = tryJS "MouseEventInit.screenY" $ MouseEventInit.prim__screenY a
-  
-  export
-  setScreenY : (obj : MouseEventInit) -> (value : Optional Int32) -> JSIO ()
-  setScreenY a b = primJS $ MouseEventInit.prim__setScreenY a (toFFI b)
-
-  export
-  setScreenY' : (obj : MouseEventInit) -> JSIO ()
-  setScreenY' a = primJS $ MouseEventInit.prim__setScreenY a undef
+  screenY : MouseEventInit -> Attribute True Optional Int32
+  screenY = fromUndefOrPrim "MouseEventInit.getscreenY"
+                            prim__screenY
+                            prim__setScreenY
+                            0
 
 namespace UIEventInit
   
@@ -882,28 +643,15 @@ namespace UIEventInit
   new' = primJS $ UIEventInit.prim__new undef undef
   
   export
-  detail : (obj : UIEventInit) -> JSIO $ Optional Int32
-  detail a = tryJS "UIEventInit.detail" $ UIEventInit.prim__detail a
+  detail : UIEventInit -> Attribute True Optional Int32
+  detail = fromUndefOrPrim "UIEventInit.getdetail"
+                           prim__detail
+                           prim__setDetail
+                           0
   
   export
-  setDetail : (obj : UIEventInit) -> (value : Optional Int32) -> JSIO ()
-  setDetail a b = primJS $ UIEventInit.prim__setDetail a (toFFI b)
-
-  export
-  setDetail' : (obj : UIEventInit) -> JSIO ()
-  setDetail' a = primJS $ UIEventInit.prim__setDetail a undef
-  
-  export
-  view : (obj : UIEventInit) -> JSIO $ Optional (Maybe Window)
-  view a = tryJS "UIEventInit.view" $ UIEventInit.prim__view a
-  
-  export
-  setView : (obj : UIEventInit) -> (value : Optional (Maybe Window)) -> JSIO ()
-  setView a b = primJS $ UIEventInit.prim__setView a (toFFI b)
-
-  export
-  setView' : (obj : UIEventInit) -> JSIO ()
-  setView' a = primJS $ UIEventInit.prim__setView a undef
+  view : UIEventInit -> Attribute True Optional (Maybe Window)
+  view = fromUndefOrPrim "UIEventInit.getview" prim__view prim__setView Nothing
 
 namespace WheelEventInit
   
@@ -932,50 +680,29 @@ namespace WheelEventInit
   new' = primJS $ WheelEventInit.prim__new undef undef undef undef
   
   export
-  deltaMode : (obj : WheelEventInit) -> JSIO $ Optional UInt32
-  deltaMode a = tryJS "WheelEventInit.deltaMode"
-              $ WheelEventInit.prim__deltaMode a
+  deltaMode : WheelEventInit -> Attribute True Optional UInt32
+  deltaMode = fromUndefOrPrim "WheelEventInit.getdeltaMode"
+                              prim__deltaMode
+                              prim__setDeltaMode
+                              0
   
   export
-  setDeltaMode : (obj : WheelEventInit) -> (value : Optional UInt32) -> JSIO ()
-  setDeltaMode a b = primJS $ WheelEventInit.prim__setDeltaMode a (toFFI b)
-
-  export
-  setDeltaMode' : (obj : WheelEventInit) -> JSIO ()
-  setDeltaMode' a = primJS $ WheelEventInit.prim__setDeltaMode a undef
+  deltaX : WheelEventInit -> Attribute True Optional Double
+  deltaX = fromUndefOrPrim "WheelEventInit.getdeltaX"
+                           prim__deltaX
+                           prim__setDeltaX
+                           0.0
   
   export
-  deltaX : (obj : WheelEventInit) -> JSIO $ Optional Double
-  deltaX a = tryJS "WheelEventInit.deltaX" $ WheelEventInit.prim__deltaX a
+  deltaY : WheelEventInit -> Attribute True Optional Double
+  deltaY = fromUndefOrPrim "WheelEventInit.getdeltaY"
+                           prim__deltaY
+                           prim__setDeltaY
+                           0.0
   
   export
-  setDeltaX : (obj : WheelEventInit) -> (value : Optional Double) -> JSIO ()
-  setDeltaX a b = primJS $ WheelEventInit.prim__setDeltaX a (toFFI b)
-
-  export
-  setDeltaX' : (obj : WheelEventInit) -> JSIO ()
-  setDeltaX' a = primJS $ WheelEventInit.prim__setDeltaX a undef
-  
-  export
-  deltaY : (obj : WheelEventInit) -> JSIO $ Optional Double
-  deltaY a = tryJS "WheelEventInit.deltaY" $ WheelEventInit.prim__deltaY a
-  
-  export
-  setDeltaY : (obj : WheelEventInit) -> (value : Optional Double) -> JSIO ()
-  setDeltaY a b = primJS $ WheelEventInit.prim__setDeltaY a (toFFI b)
-
-  export
-  setDeltaY' : (obj : WheelEventInit) -> JSIO ()
-  setDeltaY' a = primJS $ WheelEventInit.prim__setDeltaY a undef
-  
-  export
-  deltaZ : (obj : WheelEventInit) -> JSIO $ Optional Double
-  deltaZ a = tryJS "WheelEventInit.deltaZ" $ WheelEventInit.prim__deltaZ a
-  
-  export
-  setDeltaZ : (obj : WheelEventInit) -> (value : Optional Double) -> JSIO ()
-  setDeltaZ a b = primJS $ WheelEventInit.prim__setDeltaZ a (toFFI b)
-
-  export
-  setDeltaZ' : (obj : WheelEventInit) -> JSIO ()
-  setDeltaZ' a = primJS $ WheelEventInit.prim__setDeltaZ a undef
+  deltaZ : WheelEventInit -> Attribute True Optional Double
+  deltaZ = fromUndefOrPrim "WheelEventInit.getdeltaZ"
+                           prim__deltaZ
+                           prim__setDeltaZ
+                           0.0

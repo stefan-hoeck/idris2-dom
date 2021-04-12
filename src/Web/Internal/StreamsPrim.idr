@@ -348,6 +348,7 @@ namespace QueuingStrategy
   export
   %foreign "browser:lambda:x=>x.highWaterMark"
   prim__highWaterMark : QueuingStrategy -> PrimIO $ UndefOr Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.highWaterMark = v}"
@@ -356,6 +357,7 @@ namespace QueuingStrategy
   export
   %foreign "browser:lambda:x=>x.size"
   prim__size : QueuingStrategy -> PrimIO $ UndefOr QueuingStrategySize
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.size = v}"
@@ -370,6 +372,7 @@ namespace QueuingStrategyInit
   export
   %foreign "browser:lambda:x=>x.highWaterMark"
   prim__highWaterMark : QueuingStrategyInit -> PrimIO Double
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.highWaterMark = v}"
@@ -395,6 +398,7 @@ namespace ReadableStreamBYOBReadResult
   export
   %foreign "browser:lambda:x=>x.done"
   prim__done : ReadableStreamBYOBReadResult -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.done = v}"
@@ -413,6 +417,7 @@ namespace ReadableStreamBYOBReadResult
                                            Float32Array
                                            Float64Array
                                            DataView)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.value = v}"
@@ -440,6 +445,7 @@ namespace ReadableStreamDefaultReadResult
   export
   %foreign "browser:lambda:x=>x.done"
   prim__done : ReadableStreamDefaultReadResult -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.done = v}"
@@ -450,6 +456,7 @@ namespace ReadableStreamDefaultReadResult
   export
   %foreign "browser:lambda:x=>x.value"
   prim__value : ReadableStreamDefaultReadResult -> PrimIO $ UndefOr AnyPtr
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.value = v}"
@@ -466,6 +473,7 @@ namespace ReadableStreamGetReaderOptions
   export
   %foreign "browser:lambda:x=>x.mode"
   prim__mode : ReadableStreamGetReaderOptions -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.mode = v}"
@@ -481,6 +489,7 @@ namespace ReadableStreamIteratorOptions
   %foreign "browser:lambda:x=>x.preventCancel"
   prim__preventCancel :  ReadableStreamIteratorOptions
                       -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.preventCancel = v}"
@@ -497,6 +506,7 @@ namespace ReadableWritablePair
   export
   %foreign "browser:lambda:x=>x.readable"
   prim__readable : ReadableWritablePair -> PrimIO ReadableStream
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.readable = v}"
@@ -505,6 +515,7 @@ namespace ReadableWritablePair
   export
   %foreign "browser:lambda:x=>x.writable"
   prim__writable : ReadableWritablePair -> PrimIO WritableStream
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.writable = v}"
@@ -523,6 +534,7 @@ namespace StreamPipeOptions
   export
   %foreign "browser:lambda:x=>x.preventAbort"
   prim__preventAbort : StreamPipeOptions -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.preventAbort = v}"
@@ -531,6 +543,7 @@ namespace StreamPipeOptions
   export
   %foreign "browser:lambda:x=>x.preventCancel"
   prim__preventCancel : StreamPipeOptions -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.preventCancel = v}"
@@ -539,6 +552,7 @@ namespace StreamPipeOptions
   export
   %foreign "browser:lambda:x=>x.preventClose"
   prim__preventClose : StreamPipeOptions -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.preventClose = v}"
@@ -547,6 +561,7 @@ namespace StreamPipeOptions
   export
   %foreign "browser:lambda:x=>x.signal"
   prim__signal : StreamPipeOptions -> PrimIO $ UndefOr AbortSignal
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.signal = v}"
@@ -566,6 +581,7 @@ namespace Transformer
   export
   %foreign "browser:lambda:x=>x.flush"
   prim__flush : Transformer -> PrimIO $ UndefOr TransformerFlushCallback
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.flush = v}"
@@ -574,6 +590,7 @@ namespace Transformer
   export
   %foreign "browser:lambda:x=>x.readableType"
   prim__readableType : Transformer -> PrimIO $ UndefOr AnyPtr
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.readableType = v}"
@@ -582,6 +599,7 @@ namespace Transformer
   export
   %foreign "browser:lambda:x=>x.start"
   prim__start : Transformer -> PrimIO $ UndefOr TransformerStartCallback
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.start = v}"
@@ -590,6 +608,7 @@ namespace Transformer
   export
   %foreign "browser:lambda:x=>x.transform"
   prim__transform : Transformer -> PrimIO $ UndefOr TransformerTransformCallback
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.transform = v}"
@@ -600,6 +619,7 @@ namespace Transformer
   export
   %foreign "browser:lambda:x=>x.writableType"
   prim__writableType : Transformer -> PrimIO $ UndefOr AnyPtr
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.writableType = v}"
@@ -619,6 +639,7 @@ namespace UnderlyingSink
   export
   %foreign "browser:lambda:x=>x.abort"
   prim__abort : UnderlyingSink -> PrimIO $ UndefOr UnderlyingSinkAbortCallback
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.abort = v}"
@@ -629,6 +650,7 @@ namespace UnderlyingSink
   export
   %foreign "browser:lambda:x=>x.close"
   prim__close : UnderlyingSink -> PrimIO $ UndefOr UnderlyingSinkCloseCallback
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.close = v}"
@@ -639,6 +661,7 @@ namespace UnderlyingSink
   export
   %foreign "browser:lambda:x=>x.start"
   prim__start : UnderlyingSink -> PrimIO $ UndefOr UnderlyingSinkStartCallback
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.start = v}"
@@ -649,6 +672,7 @@ namespace UnderlyingSink
   export
   %foreign "browser:lambda:x=>x.type"
   prim__type : UnderlyingSink -> PrimIO $ UndefOr AnyPtr
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.type = v}"
@@ -657,6 +681,7 @@ namespace UnderlyingSink
   export
   %foreign "browser:lambda:x=>x.write"
   prim__write : UnderlyingSink -> PrimIO $ UndefOr UnderlyingSinkWriteCallback
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.write = v}"
@@ -678,6 +703,7 @@ namespace UnderlyingSource
   export
   %foreign "browser:lambda:x=>x.autoAllocateChunkSize"
   prim__autoAllocateChunkSize : UnderlyingSource -> PrimIO $ UndefOr UInt64
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.autoAllocateChunkSize = v}"
@@ -689,6 +715,7 @@ namespace UnderlyingSource
   %foreign "browser:lambda:x=>x.cancel"
   prim__cancel :  UnderlyingSource
                -> PrimIO $ UndefOr UnderlyingSourceCancelCallback
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.cancel = v}"
@@ -699,6 +726,7 @@ namespace UnderlyingSource
   export
   %foreign "browser:lambda:x=>x.pull"
   prim__pull : UnderlyingSource -> PrimIO $ UndefOr UnderlyingSourcePullCallback
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.pull = v}"
@@ -710,6 +738,7 @@ namespace UnderlyingSource
   %foreign "browser:lambda:x=>x.start"
   prim__start :  UnderlyingSource
               -> PrimIO $ UndefOr UnderlyingSourceStartCallback
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.start = v}"
@@ -720,6 +749,7 @@ namespace UnderlyingSource
   export
   %foreign "browser:lambda:x=>x.type"
   prim__type : UnderlyingSource -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.type = v}"

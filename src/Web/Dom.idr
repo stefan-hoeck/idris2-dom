@@ -45,14 +45,10 @@ namespace AbortSignal
   aborted a = tryJS "AbortSignal.aborted" $ AbortSignal.prim__aborted a
   
   export
-  onabort : (obj : AbortSignal) -> JSIO (Maybe EventHandlerNonNull)
-  onabort a = tryJS "AbortSignal.onabort" $ AbortSignal.prim__onabort a
-  
-  export
-  setOnabort :  (obj : AbortSignal)
-             -> (value : Maybe EventHandlerNonNull)
-             -> JSIO ()
-  setOnabort a b = primJS $ AbortSignal.prim__setOnabort a (toFFI b)
+  onabort : AbortSignal -> Attribute False Maybe EventHandlerNonNull
+  onabort = fromNullablePrim "AbortSignal.getonabort"
+                             prim__onabort
+                             prim__setOnabort
 
 namespace AbstractRange
   
@@ -116,12 +112,8 @@ namespace Attr
   specified a = tryJS "Attr.specified" $ Attr.prim__specified a
   
   export
-  value : (obj : Attr) -> JSIO String
-  value a = primJS $ Attr.prim__value a
-  
-  export
-  setValue : (obj : Attr) -> (value : String) -> JSIO ()
-  setValue a b = primJS $ Attr.prim__setValue a b
+  value : Attr -> Attribute True I String
+  value = fromPrim "Attr.getvalue" prim__value prim__setValue
 
 namespace CDATASection
   
@@ -140,12 +132,8 @@ namespace CharacterData
     mixins =  [ ChildNode , NonDocumentTypeChildNode ]
   
   export
-  data_ : (obj : CharacterData) -> JSIO String
-  data_ a = primJS $ CharacterData.prim__data a
-  
-  export
-  setData : (obj : CharacterData) -> (value : String) -> JSIO ()
-  setData a b = primJS $ CharacterData.prim__setData a b
+  data_ : CharacterData -> Attribute True I String
+  data_ = fromPrim "CharacterData.getdata" prim__data prim__setData
   
   export
   length : (obj : CharacterData) -> JSIO UInt32
@@ -219,15 +207,15 @@ namespace CustomEvent
   new' a = primJS $ CustomEvent.prim__new a undef
   
   export
-  detail : (obj : CustomEvent) -> JSIO AnyPtr
-  detail a = primJS $ CustomEvent.prim__detail a
+  detail : (obj : CustomEvent) -> JSIO Any
+  detail a = tryJS "CustomEvent.detail" $ CustomEvent.prim__detail a
   
   export
   initCustomEvent :  (obj : CustomEvent)
                   -> (type : String)
                   -> (bubbles : Optional Bool)
                   -> (cancelable : Optional Bool)
-                  -> (detail : Optional AnyPtr)
+                  -> (detail : Optional Any)
                   -> JSIO ()
   initCustomEvent a b c d e = primJS
                             $ CustomEvent.prim__initCustomEvent a
@@ -315,12 +303,8 @@ namespace DOMTokenList
   length a = primJS $ DOMTokenList.prim__length a
   
   export
-  value : (obj : DOMTokenList) -> JSIO String
-  value a = primJS $ DOMTokenList.prim__value a
-  
-  export
-  setValue : (obj : DOMTokenList) -> (value : String) -> JSIO ()
-  setValue a b = primJS $ DOMTokenList.prim__setValue a b
+  value : DOMTokenList -> Attribute True I String
+  value = fromPrim "DOMTokenList.getvalue" prim__value prim__setValue
   
   export
   add : (obj : DOMTokenList) -> (tokens : VarArg String) -> JSIO ()
@@ -390,12 +374,10 @@ namespace Document
   URL a = primJS $ Document.prim__URL a
   
   export
-  alinkColor : (obj : Document) -> JSIO String
-  alinkColor a = primJS $ Document.prim__alinkColor a
-  
-  export
-  setAlinkColor : (obj : Document) -> (value : String) -> JSIO ()
-  setAlinkColor a b = primJS $ Document.prim__setAlinkColor a b
+  alinkColor : Document -> Attribute True I String
+  alinkColor = fromPrim "Document.getalinkColor"
+                        prim__alinkColor
+                        prim__setAlinkColor
   
   export
   all : (obj : Document) -> JSIO HTMLAllCollection
@@ -410,20 +392,12 @@ namespace Document
   applets a = primJS $ Document.prim__applets a
   
   export
-  bgColor : (obj : Document) -> JSIO String
-  bgColor a = primJS $ Document.prim__bgColor a
+  bgColor : Document -> Attribute True I String
+  bgColor = fromPrim "Document.getbgColor" prim__bgColor prim__setBgColor
   
   export
-  setBgColor : (obj : Document) -> (value : String) -> JSIO ()
-  setBgColor a b = primJS $ Document.prim__setBgColor a b
-  
-  export
-  body : (obj : Document) -> JSIO (Maybe HTMLElement)
-  body a = tryJS "Document.body" $ Document.prim__body a
-  
-  export
-  setBody : (obj : Document) -> (value : Maybe HTMLElement) -> JSIO ()
-  setBody a b = primJS $ Document.prim__setBody a (toFFI b)
+  body : Document -> Attribute False Maybe HTMLElement
+  body = fromNullablePrim "Document.getbody" prim__body prim__setBody
   
   export
   characterSet : (obj : Document) -> JSIO String
@@ -442,12 +416,8 @@ namespace Document
   contentType a = primJS $ Document.prim__contentType a
   
   export
-  cookie : (obj : Document) -> JSIO String
-  cookie a = primJS $ Document.prim__cookie a
-  
-  export
-  setCookie : (obj : Document) -> (value : String) -> JSIO ()
-  setCookie a b = primJS $ Document.prim__setCookie a b
+  cookie : Document -> Attribute True I String
+  cookie = fromPrim "Document.getcookie" prim__cookie prim__setCookie
   
   export
   currentScript :  (obj : Document)
@@ -460,20 +430,14 @@ namespace Document
   defaultView a = tryJS "Document.defaultView" $ Document.prim__defaultView a
   
   export
-  designMode : (obj : Document) -> JSIO String
-  designMode a = primJS $ Document.prim__designMode a
+  designMode : Document -> Attribute True I String
+  designMode = fromPrim "Document.getdesignMode"
+                        prim__designMode
+                        prim__setDesignMode
   
   export
-  setDesignMode : (obj : Document) -> (value : String) -> JSIO ()
-  setDesignMode a b = primJS $ Document.prim__setDesignMode a b
-  
-  export
-  dir : (obj : Document) -> JSIO String
-  dir a = primJS $ Document.prim__dir a
-  
-  export
-  setDir : (obj : Document) -> (value : String) -> JSIO ()
-  setDir a b = primJS $ Document.prim__setDir a b
+  dir : Document -> Attribute True I String
+  dir = fromPrim "Document.getdir" prim__dir prim__setDir
   
   export
   doctype : (obj : Document) -> JSIO (Maybe DocumentType)
@@ -489,24 +453,16 @@ namespace Document
   documentURI a = primJS $ Document.prim__documentURI a
   
   export
-  domain : (obj : Document) -> JSIO String
-  domain a = primJS $ Document.prim__domain a
-  
-  export
-  setDomain : (obj : Document) -> (value : String) -> JSIO ()
-  setDomain a b = primJS $ Document.prim__setDomain a b
+  domain : Document -> Attribute True I String
+  domain = fromPrim "Document.getdomain" prim__domain prim__setDomain
   
   export
   embeds : (obj : Document) -> JSIO HTMLCollection
   embeds a = primJS $ Document.prim__embeds a
   
   export
-  fgColor : (obj : Document) -> JSIO String
-  fgColor a = primJS $ Document.prim__fgColor a
-  
-  export
-  setFgColor : (obj : Document) -> (value : String) -> JSIO ()
-  setFgColor a b = primJS $ Document.prim__setFgColor a b
+  fgColor : Document -> Attribute True I String
+  fgColor = fromPrim "Document.getfgColor" prim__fgColor prim__setFgColor
   
   export
   forms : (obj : Document) -> JSIO HTMLCollection
@@ -537,12 +493,10 @@ namespace Document
   lastModified a = primJS $ Document.prim__lastModified a
   
   export
-  linkColor : (obj : Document) -> JSIO String
-  linkColor a = primJS $ Document.prim__linkColor a
-  
-  export
-  setLinkColor : (obj : Document) -> (value : String) -> JSIO ()
-  setLinkColor a b = primJS $ Document.prim__setLinkColor a b
+  linkColor : Document -> Attribute True I String
+  linkColor = fromPrim "Document.getlinkColor"
+                       prim__linkColor
+                       prim__setLinkColor
   
   export
   links : (obj : Document) -> JSIO HTMLCollection
@@ -553,28 +507,16 @@ namespace Document
   location a = tryJS "Document.location" $ Document.prim__location a
   
   export
-  onreadystatechange : (obj : Document) -> JSIO (Maybe EventHandlerNonNull)
-  onreadystatechange a = tryJS "Document.onreadystatechange"
-                       $ Document.prim__onreadystatechange a
+  onreadystatechange : Document -> Attribute False Maybe EventHandlerNonNull
+  onreadystatechange = fromNullablePrim "Document.getonreadystatechange"
+                                        prim__onreadystatechange
+                                        prim__setOnreadystatechange
   
   export
-  setOnreadystatechange :  (obj : Document)
-                        -> (value : Maybe EventHandlerNonNull)
-                        -> JSIO ()
-  setOnreadystatechange a b = primJS
-                            $ Document.prim__setOnreadystatechange a (toFFI b)
-  
-  export
-  onvisibilitychange : (obj : Document) -> JSIO (Maybe EventHandlerNonNull)
-  onvisibilitychange a = tryJS "Document.onvisibilitychange"
-                       $ Document.prim__onvisibilitychange a
-  
-  export
-  setOnvisibilitychange :  (obj : Document)
-                        -> (value : Maybe EventHandlerNonNull)
-                        -> JSIO ()
-  setOnvisibilitychange a b = primJS
-                            $ Document.prim__setOnvisibilitychange a (toFFI b)
+  onvisibilitychange : Document -> Attribute False Maybe EventHandlerNonNull
+  onvisibilitychange = fromNullablePrim "Document.getonvisibilitychange"
+                                        prim__onvisibilitychange
+                                        prim__setOnvisibilitychange
   
   export
   plugins : (obj : Document) -> JSIO HTMLCollection
@@ -601,12 +543,8 @@ namespace Document
   timeline a = primJS $ Document.prim__timeline a
   
   export
-  title : (obj : Document) -> JSIO String
-  title a = primJS $ Document.prim__title a
-  
-  export
-  setTitle : (obj : Document) -> (value : String) -> JSIO ()
-  setTitle a b = primJS $ Document.prim__setTitle a b
+  title : Document -> Attribute True I String
+  title = fromPrim "Document.gettitle" prim__title prim__setTitle
   
   export
   visibilityState : (obj : Document) -> JSIO VisibilityState
@@ -614,12 +552,10 @@ namespace Document
                     $ Document.prim__visibilityState a
   
   export
-  vlinkColor : (obj : Document) -> JSIO String
-  vlinkColor a = primJS $ Document.prim__vlinkColor a
-  
-  export
-  setVlinkColor : (obj : Document) -> (value : String) -> JSIO ()
-  setVlinkColor a b = primJS $ Document.prim__setVlinkColor a b
+  vlinkColor : Document -> Attribute True I String
+  vlinkColor = fromPrim "Document.getvlinkColor"
+                        prim__vlinkColor
+                        prim__setVlinkColor
   
   export
   adoptNode : (obj : Document) -> (node : Node) -> JSIO Node
@@ -923,20 +859,12 @@ namespace Element
   classList a = primJS $ Element.prim__classList a
   
   export
-  className : (obj : Element) -> JSIO String
-  className a = primJS $ Element.prim__className a
+  className : Element -> Attribute True I String
+  className = fromPrim "Element.getclassName" prim__className prim__setClassName
   
   export
-  setClassName : (obj : Element) -> (value : String) -> JSIO ()
-  setClassName a b = primJS $ Element.prim__setClassName a b
-  
-  export
-  id : (obj : Element) -> JSIO String
-  id a = primJS $ Element.prim__id a
-  
-  export
-  setId : (obj : Element) -> (value : String) -> JSIO ()
-  setId a b = primJS $ Element.prim__setId a b
+  id : Element -> Attribute True I String
+  id = fromPrim "Element.getid" prim__id prim__setId
   
   export
   localName : (obj : Element) -> JSIO String
@@ -955,12 +883,8 @@ namespace Element
   shadowRoot a = tryJS "Element.shadowRoot" $ Element.prim__shadowRoot a
   
   export
-  slot : (obj : Element) -> JSIO String
-  slot a = primJS $ Element.prim__slot a
-  
-  export
-  setSlot : (obj : Element) -> (value : String) -> JSIO ()
-  setSlot a b = primJS $ Element.prim__setSlot a b
+  slot : Element -> Attribute True I String
+  slot = fromPrim "Element.getslot" prim__slot prim__setSlot
   
   export
   tagName : (obj : Element) -> JSIO String
@@ -1169,12 +1093,10 @@ namespace Event
   bubbles a = tryJS "Event.bubbles" $ Event.prim__bubbles a
   
   export
-  cancelBubble : (obj : Event) -> JSIO Bool
-  cancelBubble a = tryJS "Event.cancelBubble" $ Event.prim__cancelBubble a
-  
-  export
-  setCancelBubble : (obj : Event) -> (value : Bool) -> JSIO ()
-  setCancelBubble a b = primJS $ Event.prim__setCancelBubble a (toFFI b)
+  cancelBubble : Event -> Attribute True I Bool
+  cancelBubble = fromPrim "Event.getcancelBubble"
+                          prim__cancelBubble
+                          prim__setCancelBubble
   
   export
   cancelable : (obj : Event) -> JSIO Bool
@@ -1202,12 +1124,10 @@ namespace Event
   isTrusted a = tryJS "Event.isTrusted" $ Event.prim__isTrusted a
   
   export
-  returnValue : (obj : Event) -> JSIO Bool
-  returnValue a = tryJS "Event.returnValue" $ Event.prim__returnValue a
-  
-  export
-  setReturnValue : (obj : Event) -> (value : Bool) -> JSIO ()
-  setReturnValue a b = primJS $ Event.prim__setReturnValue a (toFFI b)
+  returnValue : Event -> Attribute True I Bool
+  returnValue = fromPrim "Event.getreturnValue"
+                         prim__returnValue
+                         prim__setReturnValue
   
   export
   srcElement : (obj : Event) -> JSIO (Maybe EventTarget)
@@ -1588,12 +1508,10 @@ namespace Node
   nodeType a = primJS $ Node.prim__nodeType a
   
   export
-  nodeValue : (obj : Node) -> JSIO (Maybe String)
-  nodeValue a = tryJS "Node.nodeValue" $ Node.prim__nodeValue a
-  
-  export
-  setNodeValue : (obj : Node) -> (value : Maybe String) -> JSIO ()
-  setNodeValue a b = primJS $ Node.prim__setNodeValue a (toFFI b)
+  nodeValue : Node -> Attribute False Maybe String
+  nodeValue = fromNullablePrim "Node.getnodeValue"
+                               prim__nodeValue
+                               prim__setNodeValue
   
   export
   ownerDocument : (obj : Node) -> JSIO (Maybe Document)
@@ -1613,12 +1531,10 @@ namespace Node
                     $ Node.prim__previousSibling a
   
   export
-  textContent : (obj : Node) -> JSIO (Maybe String)
-  textContent a = tryJS "Node.textContent" $ Node.prim__textContent a
-  
-  export
-  setTextContent : (obj : Node) -> (value : Maybe String) -> JSIO ()
-  setTextContent a b = primJS $ Node.prim__setTextContent a (toFFI b)
+  textContent : Node -> Attribute False Maybe String
+  textContent = fromNullablePrim "Node.gettextContent"
+                                 prim__textContent
+                                 prim__setTextContent
   
   export
   appendChild : (obj : Node) -> (node : Node) -> JSIO Node
@@ -1939,15 +1855,10 @@ namespace ShadowRoot
   mode a = tryJS "ShadowRoot.mode" $ ShadowRoot.prim__mode a
   
   export
-  onslotchange : (obj : ShadowRoot) -> JSIO (Maybe EventHandlerNonNull)
-  onslotchange a = tryJS "ShadowRoot.onslotchange"
-                 $ ShadowRoot.prim__onslotchange a
-  
-  export
-  setOnslotchange :  (obj : ShadowRoot)
-                  -> (value : Maybe EventHandlerNonNull)
-                  -> JSIO ()
-  setOnslotchange a b = primJS $ ShadowRoot.prim__setOnslotchange a (toFFI b)
+  onslotchange : ShadowRoot -> Attribute False Maybe EventHandlerNonNull
+  onslotchange = fromNullablePrim "ShadowRoot.getonslotchange"
+                                  prim__onslotchange
+                                  prim__setOnslotchange
 
 namespace StaticRange
   
@@ -1994,12 +1905,10 @@ namespace TreeWalker
     mixins =  []
   
   export
-  currentNode : (obj : TreeWalker) -> JSIO Node
-  currentNode a = primJS $ TreeWalker.prim__currentNode a
-  
-  export
-  setCurrentNode : (obj : TreeWalker) -> (value : Node) -> JSIO ()
-  setCurrentNode a b = primJS $ TreeWalker.prim__setCurrentNode a b
+  currentNode : TreeWalker -> Attribute True I Node
+  currentNode = fromPrim "TreeWalker.getcurrentNode"
+                         prim__currentNode
+                         prim__setCurrentNode
   
   export
   filter : (obj : TreeWalker) -> JSIO (Maybe NodeFilter)
@@ -2364,49 +2273,24 @@ namespace AddEventListenerOptions
   new' = primJS $ AddEventListenerOptions.prim__new undef undef undef
   
   export
-  once : (obj : AddEventListenerOptions) -> JSIO $ Optional Bool
-  once a = tryJS "AddEventListenerOptions.once"
-         $ AddEventListenerOptions.prim__once a
+  once : AddEventListenerOptions -> Attribute True Optional Bool
+  once = fromUndefOrPrim "AddEventListenerOptions.getonce"
+                         prim__once
+                         prim__setOnce
+                         False
   
   export
-  setOnce :  (obj : AddEventListenerOptions)
-          -> (value : Optional Bool)
-          -> JSIO ()
-  setOnce a b = primJS $ AddEventListenerOptions.prim__setOnce a (toFFI b)
-
-  export
-  setOnce' : (obj : AddEventListenerOptions) -> JSIO ()
-  setOnce' a = primJS $ AddEventListenerOptions.prim__setOnce a undef
+  passive : AddEventListenerOptions -> Attribute True Optional Bool
+  passive = fromUndefOrPrim "AddEventListenerOptions.getpassive"
+                            prim__passive
+                            prim__setPassive
+                            False
   
   export
-  passive : (obj : AddEventListenerOptions) -> JSIO $ Optional Bool
-  passive a = tryJS "AddEventListenerOptions.passive"
-            $ AddEventListenerOptions.prim__passive a
-  
-  export
-  setPassive :  (obj : AddEventListenerOptions)
-             -> (value : Optional Bool)
-             -> JSIO ()
-  setPassive a b = primJS $ AddEventListenerOptions.prim__setPassive a (toFFI b)
-
-  export
-  setPassive' : (obj : AddEventListenerOptions) -> JSIO ()
-  setPassive' a = primJS $ AddEventListenerOptions.prim__setPassive a undef
-  
-  export
-  signal : (obj : AddEventListenerOptions) -> JSIO $ Optional AbortSignal
-  signal a = tryJS "AddEventListenerOptions.signal"
-           $ AddEventListenerOptions.prim__signal a
-  
-  export
-  setSignal :  (obj : AddEventListenerOptions)
-            -> (value : Optional AbortSignal)
-            -> JSIO ()
-  setSignal a b = primJS $ AddEventListenerOptions.prim__setSignal a (toFFI b)
-
-  export
-  setSignal' : (obj : AddEventListenerOptions) -> JSIO ()
-  setSignal' a = primJS $ AddEventListenerOptions.prim__setSignal a undef
+  signal : AddEventListenerOptions -> Attribute False Optional AbortSignal
+  signal = fromUndefOrPrimNoDefault "AddEventListenerOptions.getsignal"
+                                    prim__signal
+                                    prim__setSignal
 
 namespace CustomEventInit
   
@@ -2417,7 +2301,7 @@ namespace CustomEventInit
     mixins =  []
   
   export
-  new : (detail : Optional AnyPtr) -> JSIO CustomEventInit
+  new : (detail : Optional Any) -> JSIO CustomEventInit
   new a = primJS $ CustomEventInit.prim__new (toFFI a)
 
   export
@@ -2425,16 +2309,11 @@ namespace CustomEventInit
   new' = primJS $ CustomEventInit.prim__new undef
   
   export
-  detail : (obj : CustomEventInit) -> JSIO $ Optional AnyPtr
-  detail a = tryJS "CustomEventInit.detail" $ CustomEventInit.prim__detail a
-  
-  export
-  setDetail : (obj : CustomEventInit) -> (value : Optional AnyPtr) -> JSIO ()
-  setDetail a b = primJS $ CustomEventInit.prim__setDetail a (toFFI b)
-
-  export
-  setDetail' : (obj : CustomEventInit) -> JSIO ()
-  setDetail' a = primJS $ CustomEventInit.prim__setDetail a undef
+  detail : CustomEventInit -> Attribute True Optional Any
+  detail = fromUndefOrPrim "CustomEventInit.getdetail"
+                           prim__detail
+                           prim__setDetail
+                           (MkAny $ null {a = ()})
 
 namespace ElementCreationOptions
   
@@ -2453,16 +2332,10 @@ namespace ElementCreationOptions
   new' = primJS $ ElementCreationOptions.prim__new undef
   
   export
-  is : (obj : ElementCreationOptions) -> JSIO $ Optional String
-  is a = tryJS "ElementCreationOptions.is" $ ElementCreationOptions.prim__is a
-  
-  export
-  setIs : (obj : ElementCreationOptions) -> (value : Optional String) -> JSIO ()
-  setIs a b = primJS $ ElementCreationOptions.prim__setIs a (toFFI b)
-
-  export
-  setIs' : (obj : ElementCreationOptions) -> JSIO ()
-  setIs' a = primJS $ ElementCreationOptions.prim__setIs a undef
+  is : ElementCreationOptions -> Attribute False Optional String
+  is = fromUndefOrPrimNoDefault "ElementCreationOptions.getis"
+                                prim__is
+                                prim__setIs
 
 namespace EventInit
   
@@ -2484,40 +2357,25 @@ namespace EventInit
   new' = primJS $ EventInit.prim__new undef undef undef
   
   export
-  bubbles : (obj : EventInit) -> JSIO $ Optional Bool
-  bubbles a = tryJS "EventInit.bubbles" $ EventInit.prim__bubbles a
+  bubbles : EventInit -> Attribute True Optional Bool
+  bubbles = fromUndefOrPrim "EventInit.getbubbles"
+                            prim__bubbles
+                            prim__setBubbles
+                            False
   
   export
-  setBubbles : (obj : EventInit) -> (value : Optional Bool) -> JSIO ()
-  setBubbles a b = primJS $ EventInit.prim__setBubbles a (toFFI b)
-
-  export
-  setBubbles' : (obj : EventInit) -> JSIO ()
-  setBubbles' a = primJS $ EventInit.prim__setBubbles a undef
+  cancelable : EventInit -> Attribute True Optional Bool
+  cancelable = fromUndefOrPrim "EventInit.getcancelable"
+                               prim__cancelable
+                               prim__setCancelable
+                               False
   
   export
-  cancelable : (obj : EventInit) -> JSIO $ Optional Bool
-  cancelable a = tryJS "EventInit.cancelable" $ EventInit.prim__cancelable a
-  
-  export
-  setCancelable : (obj : EventInit) -> (value : Optional Bool) -> JSIO ()
-  setCancelable a b = primJS $ EventInit.prim__setCancelable a (toFFI b)
-
-  export
-  setCancelable' : (obj : EventInit) -> JSIO ()
-  setCancelable' a = primJS $ EventInit.prim__setCancelable a undef
-  
-  export
-  composed : (obj : EventInit) -> JSIO $ Optional Bool
-  composed a = tryJS "EventInit.composed" $ EventInit.prim__composed a
-  
-  export
-  setComposed : (obj : EventInit) -> (value : Optional Bool) -> JSIO ()
-  setComposed a b = primJS $ EventInit.prim__setComposed a (toFFI b)
-
-  export
-  setComposed' : (obj : EventInit) -> JSIO ()
-  setComposed' a = primJS $ EventInit.prim__setComposed a undef
+  composed : EventInit -> Attribute True Optional Bool
+  composed = fromUndefOrPrim "EventInit.getcomposed"
+                             prim__composed
+                             prim__setComposed
+                             False
 
 namespace EventListenerOptions
   
@@ -2536,19 +2394,11 @@ namespace EventListenerOptions
   new' = primJS $ EventListenerOptions.prim__new undef
   
   export
-  capture : (obj : EventListenerOptions) -> JSIO $ Optional Bool
-  capture a = tryJS "EventListenerOptions.capture"
-            $ EventListenerOptions.prim__capture a
-  
-  export
-  setCapture :  (obj : EventListenerOptions)
-             -> (value : Optional Bool)
-             -> JSIO ()
-  setCapture a b = primJS $ EventListenerOptions.prim__setCapture a (toFFI b)
-
-  export
-  setCapture' : (obj : EventListenerOptions) -> JSIO ()
-  setCapture' a = primJS $ EventListenerOptions.prim__setCapture a undef
+  capture : EventListenerOptions -> Attribute True Optional Bool
+  capture = fromUndefOrPrim "EventListenerOptions.getcapture"
+                            prim__capture
+                            prim__setCapture
+                            False
 
 namespace GetRootNodeOptions
   
@@ -2567,17 +2417,11 @@ namespace GetRootNodeOptions
   new' = primJS $ GetRootNodeOptions.prim__new undef
   
   export
-  composed : (obj : GetRootNodeOptions) -> JSIO $ Optional Bool
-  composed a = tryJS "GetRootNodeOptions.composed"
-             $ GetRootNodeOptions.prim__composed a
-  
-  export
-  setComposed : (obj : GetRootNodeOptions) -> (value : Optional Bool) -> JSIO ()
-  setComposed a b = primJS $ GetRootNodeOptions.prim__setComposed a (toFFI b)
-
-  export
-  setComposed' : (obj : GetRootNodeOptions) -> JSIO ()
-  setComposed' a = primJS $ GetRootNodeOptions.prim__setComposed a undef
+  composed : GetRootNodeOptions -> Attribute True Optional Bool
+  composed = fromUndefOrPrim "GetRootNodeOptions.getcomposed"
+                             prim__composed
+                             prim__setComposed
+                             False
 
 namespace MutationObserverInit
   
@@ -2617,125 +2461,48 @@ namespace MutationObserverInit
                                         undef
   
   export
-  attributeFilter :  (obj : MutationObserverInit)
-                  -> JSIO $ Optional (Array String)
-  attributeFilter a = tryJS "MutationObserverInit.attributeFilter"
-                    $ MutationObserverInit.prim__attributeFilter a
+  attributeFilter : MutationObserverInit -> Attribute False Optional (Array String)
+  attributeFilter = fromUndefOrPrimNoDefault "MutationObserverInit.getattributeFilter"
+                                             prim__attributeFilter
+                                             prim__setAttributeFilter
   
   export
-  setAttributeFilter :  (obj : MutationObserverInit)
-                     -> (value : Optional (Array String))
-                     -> JSIO ()
-  setAttributeFilter a b = primJS
-                         $ MutationObserverInit.prim__setAttributeFilter a
-                                                                         (toFFI b)
-
-  export
-  setAttributeFilter' : (obj : MutationObserverInit) -> JSIO ()
-  setAttributeFilter' a = primJS
-                        $ MutationObserverInit.prim__setAttributeFilter a undef
+  attributeOldValue : MutationObserverInit -> Attribute False Optional Bool
+  attributeOldValue = fromUndefOrPrimNoDefault "MutationObserverInit.getattributeOldValue"
+                                               prim__attributeOldValue
+                                               prim__setAttributeOldValue
   
   export
-  attributeOldValue : (obj : MutationObserverInit) -> JSIO $ Optional Bool
-  attributeOldValue a = tryJS "MutationObserverInit.attributeOldValue"
-                      $ MutationObserverInit.prim__attributeOldValue a
+  attributes : MutationObserverInit -> Attribute False Optional Bool
+  attributes = fromUndefOrPrimNoDefault "MutationObserverInit.getattributes"
+                                        prim__attributes
+                                        prim__setAttributes
   
   export
-  setAttributeOldValue :  (obj : MutationObserverInit)
-                       -> (value : Optional Bool)
-                       -> JSIO ()
-  setAttributeOldValue a b = primJS
-                           $ MutationObserverInit.prim__setAttributeOldValue a
-                                                                             (toFFI b)
-
-  export
-  setAttributeOldValue' : (obj : MutationObserverInit) -> JSIO ()
-  setAttributeOldValue' a = primJS
-                          $ MutationObserverInit.prim__setAttributeOldValue a
-                                                                            undef
+  characterData : MutationObserverInit -> Attribute False Optional Bool
+  characterData = fromUndefOrPrimNoDefault "MutationObserverInit.getcharacterData"
+                                           prim__characterData
+                                           prim__setCharacterData
   
   export
-  attributes : (obj : MutationObserverInit) -> JSIO $ Optional Bool
-  attributes a = tryJS "MutationObserverInit.attributes"
-               $ MutationObserverInit.prim__attributes a
+  characterDataOldValue : MutationObserverInit -> Attribute False Optional Bool
+  characterDataOldValue = fromUndefOrPrimNoDefault "MutationObserverInit.getcharacterDataOldValue"
+                                                   prim__characterDataOldValue
+                                                   prim__setCharacterDataOldValue
   
   export
-  setAttributes :  (obj : MutationObserverInit)
-                -> (value : Optional Bool)
-                -> JSIO ()
-  setAttributes a b = primJS
-                    $ MutationObserverInit.prim__setAttributes a (toFFI b)
-
-  export
-  setAttributes' : (obj : MutationObserverInit) -> JSIO ()
-  setAttributes' a = primJS $ MutationObserverInit.prim__setAttributes a undef
+  childList : MutationObserverInit -> Attribute True Optional Bool
+  childList = fromUndefOrPrim "MutationObserverInit.getchildList"
+                              prim__childList
+                              prim__setChildList
+                              False
   
   export
-  characterData : (obj : MutationObserverInit) -> JSIO $ Optional Bool
-  characterData a = tryJS "MutationObserverInit.characterData"
-                  $ MutationObserverInit.prim__characterData a
-  
-  export
-  setCharacterData :  (obj : MutationObserverInit)
-                   -> (value : Optional Bool)
-                   -> JSIO ()
-  setCharacterData a b = primJS
-                       $ MutationObserverInit.prim__setCharacterData a (toFFI b)
-
-  export
-  setCharacterData' : (obj : MutationObserverInit) -> JSIO ()
-  setCharacterData' a = primJS
-                      $ MutationObserverInit.prim__setCharacterData a undef
-  
-  export
-  characterDataOldValue : (obj : MutationObserverInit) -> JSIO $ Optional Bool
-  characterDataOldValue a = tryJS "MutationObserverInit.characterDataOldValue"
-                          $ MutationObserverInit.prim__characterDataOldValue a
-  
-  export
-  setCharacterDataOldValue :  (obj : MutationObserverInit)
-                           -> (value : Optional Bool)
-                           -> JSIO ()
-  setCharacterDataOldValue a b = primJS
-                               $ MutationObserverInit.prim__setCharacterDataOldValue a
-                                                                                     (toFFI b)
-
-  export
-  setCharacterDataOldValue' : (obj : MutationObserverInit) -> JSIO ()
-  setCharacterDataOldValue' a = primJS
-                              $ MutationObserverInit.prim__setCharacterDataOldValue a
-                                                                                    undef
-  
-  export
-  childList : (obj : MutationObserverInit) -> JSIO $ Optional Bool
-  childList a = tryJS "MutationObserverInit.childList"
-              $ MutationObserverInit.prim__childList a
-  
-  export
-  setChildList :  (obj : MutationObserverInit)
-               -> (value : Optional Bool)
-               -> JSIO ()
-  setChildList a b = primJS
-                   $ MutationObserverInit.prim__setChildList a (toFFI b)
-
-  export
-  setChildList' : (obj : MutationObserverInit) -> JSIO ()
-  setChildList' a = primJS $ MutationObserverInit.prim__setChildList a undef
-  
-  export
-  subtree : (obj : MutationObserverInit) -> JSIO $ Optional Bool
-  subtree a = tryJS "MutationObserverInit.subtree"
-            $ MutationObserverInit.prim__subtree a
-  
-  export
-  setSubtree :  (obj : MutationObserverInit)
-             -> (value : Optional Bool)
-             -> JSIO ()
-  setSubtree a b = primJS $ MutationObserverInit.prim__setSubtree a (toFFI b)
-
-  export
-  setSubtree' : (obj : MutationObserverInit) -> JSIO ()
-  setSubtree' a = primJS $ MutationObserverInit.prim__setSubtree a undef
+  subtree : MutationObserverInit -> Attribute True Optional Bool
+  subtree = fromUndefOrPrim "MutationObserverInit.getsubtree"
+                            prim__subtree
+                            prim__setSubtree
+                            False
 
 namespace ShadowRootInit
   
@@ -2756,28 +2523,15 @@ namespace ShadowRootInit
   new' a = primJS $ ShadowRootInit.prim__new (toFFI a) undef
   
   export
-  delegatesFocus : (obj : ShadowRootInit) -> JSIO $ Optional Bool
-  delegatesFocus a = tryJS "ShadowRootInit.delegatesFocus"
-                   $ ShadowRootInit.prim__delegatesFocus a
+  delegatesFocus : ShadowRootInit -> Attribute True Optional Bool
+  delegatesFocus = fromUndefOrPrim "ShadowRootInit.getdelegatesFocus"
+                                   prim__delegatesFocus
+                                   prim__setDelegatesFocus
+                                   False
   
   export
-  setDelegatesFocus :  (obj : ShadowRootInit)
-                    -> (value : Optional Bool)
-                    -> JSIO ()
-  setDelegatesFocus a b = primJS
-                        $ ShadowRootInit.prim__setDelegatesFocus a (toFFI b)
-
-  export
-  setDelegatesFocus' : (obj : ShadowRootInit) -> JSIO ()
-  setDelegatesFocus' a = primJS $ ShadowRootInit.prim__setDelegatesFocus a undef
-  
-  export
-  mode : (obj : ShadowRootInit) -> JSIO ShadowRootMode
-  mode a = tryJS "ShadowRootInit.mode" $ ShadowRootInit.prim__mode a
-  
-  export
-  setMode : (obj : ShadowRootInit) -> (value : ShadowRootMode) -> JSIO ()
-  setMode a b = primJS $ ShadowRootInit.prim__setMode a (toFFI b)
+  mode : ShadowRootInit -> Attribute True I ShadowRootMode
+  mode = fromPrim "ShadowRootInit.getmode" prim__mode prim__setMode
 
 namespace StaticRangeInit
   
@@ -2796,36 +2550,28 @@ namespace StaticRangeInit
   new a b c d = primJS $ StaticRangeInit.prim__new a b c d
   
   export
-  endContainer : (obj : StaticRangeInit) -> JSIO Node
-  endContainer a = primJS $ StaticRangeInit.prim__endContainer a
+  endContainer : StaticRangeInit -> Attribute True I Node
+  endContainer = fromPrim "StaticRangeInit.getendContainer"
+                          prim__endContainer
+                          prim__setEndContainer
   
   export
-  setEndContainer : (obj : StaticRangeInit) -> (value : Node) -> JSIO ()
-  setEndContainer a b = primJS $ StaticRangeInit.prim__setEndContainer a b
+  endOffset : StaticRangeInit -> Attribute True I UInt32
+  endOffset = fromPrim "StaticRangeInit.getendOffset"
+                       prim__endOffset
+                       prim__setEndOffset
   
   export
-  endOffset : (obj : StaticRangeInit) -> JSIO UInt32
-  endOffset a = primJS $ StaticRangeInit.prim__endOffset a
+  startContainer : StaticRangeInit -> Attribute True I Node
+  startContainer = fromPrim "StaticRangeInit.getstartContainer"
+                            prim__startContainer
+                            prim__setStartContainer
   
   export
-  setEndOffset : (obj : StaticRangeInit) -> (value : UInt32) -> JSIO ()
-  setEndOffset a b = primJS $ StaticRangeInit.prim__setEndOffset a b
-  
-  export
-  startContainer : (obj : StaticRangeInit) -> JSIO Node
-  startContainer a = primJS $ StaticRangeInit.prim__startContainer a
-  
-  export
-  setStartContainer : (obj : StaticRangeInit) -> (value : Node) -> JSIO ()
-  setStartContainer a b = primJS $ StaticRangeInit.prim__setStartContainer a b
-  
-  export
-  startOffset : (obj : StaticRangeInit) -> JSIO UInt32
-  startOffset a = primJS $ StaticRangeInit.prim__startOffset a
-  
-  export
-  setStartOffset : (obj : StaticRangeInit) -> (value : UInt32) -> JSIO ()
-  setStartOffset a b = primJS $ StaticRangeInit.prim__setStartOffset a b
+  startOffset : StaticRangeInit -> Attribute True I UInt32
+  startOffset = fromPrim "StaticRangeInit.getstartOffset"
+                         prim__startOffset
+                         prim__setStartOffset
 
 --------------------------------------------------------------------------------
 --          Callbacks

@@ -13,6 +13,7 @@ namespace PermissionStatus
   export
   %foreign "browser:lambda:x=>x.onchange"
   prim__onchange : PermissionStatus -> PrimIO (Nullable EventHandlerNonNull)
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onchange = v}"
@@ -45,6 +46,7 @@ namespace CameraDevicePermissionDescriptor
   %foreign "browser:lambda:x=>x.panTiltZoom"
   prim__panTiltZoom :  CameraDevicePermissionDescriptor
                     -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.panTiltZoom = v}"
@@ -61,6 +63,7 @@ namespace DevicePermissionDescriptor
   export
   %foreign "browser:lambda:x=>x.deviceId"
   prim__deviceId : DevicePermissionDescriptor -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.deviceId = v}"
@@ -75,6 +78,7 @@ namespace MidiPermissionDescriptor
   export
   %foreign "browser:lambda:x=>x.sysex"
   prim__sysex : MidiPermissionDescriptor -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.sysex = v}"
@@ -89,6 +93,7 @@ namespace PermissionDescriptor
   export
   %foreign "browser:lambda:x=>x.name"
   prim__name : PermissionDescriptor -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.name = v}"
@@ -106,6 +111,7 @@ namespace PermissionSetParameters
   export
   %foreign "browser:lambda:x=>x.descriptor"
   prim__descriptor : PermissionSetParameters -> PrimIO PermissionDescriptor
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.descriptor = v}"
@@ -116,6 +122,7 @@ namespace PermissionSetParameters
   export
   %foreign "browser:lambda:x=>x.oneRealm"
   prim__oneRealm : PermissionSetParameters -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.oneRealm = v}"
@@ -124,6 +131,7 @@ namespace PermissionSetParameters
   export
   %foreign "browser:lambda:x=>x.state"
   prim__state : PermissionSetParameters -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.state = v}"
@@ -138,6 +146,7 @@ namespace PushPermissionDescriptor
   export
   %foreign "browser:lambda:x=>x.userVisibleOnly"
   prim__userVisibleOnly : PushPermissionDescriptor -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.userVisibleOnly = v}"

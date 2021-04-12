@@ -96,12 +96,10 @@ namespace CSSPageRule
     mixins =  []
   
   export
-  selectorText : (obj : CSSPageRule) -> JSIO CSSOMString
-  selectorText a = primJS $ CSSPageRule.prim__selectorText a
-  
-  export
-  setSelectorText : (obj : CSSPageRule) -> (value : CSSOMString) -> JSIO ()
-  setSelectorText a b = primJS $ CSSPageRule.prim__setSelectorText a b
+  selectorText : CSSPageRule -> Attribute True I CSSOMString
+  selectorText = fromPrim "CSSPageRule.getselectorText"
+                          prim__selectorText
+                          prim__setSelectorText
   
   export
   style : (obj : CSSPageRule) -> JSIO CSSStyleDeclaration
@@ -164,12 +162,8 @@ namespace CSSRule
   STYLE_RULE = 1
   
   export
-  cssText : (obj : CSSRule) -> JSIO CSSOMString
-  cssText a = primJS $ CSSRule.prim__cssText a
-  
-  export
-  setCssText : (obj : CSSRule) -> (value : CSSOMString) -> JSIO ()
-  setCssText a b = primJS $ CSSRule.prim__setCssText a b
+  cssText : CSSRule -> Attribute True I CSSOMString
+  cssText = fromPrim "CSSRule.getcssText" prim__cssText prim__setCssText
   
   export
   parentRule : (obj : CSSRule) -> JSIO (Maybe CSSRule)
@@ -209,20 +203,16 @@ namespace CSSStyleDeclaration
     mixins =  []
   
   export
-  cssFloat : (obj : CSSStyleDeclaration) -> JSIO CSSOMString
-  cssFloat a = primJS $ CSSStyleDeclaration.prim__cssFloat a
+  cssFloat : CSSStyleDeclaration -> Attribute True I CSSOMString
+  cssFloat = fromPrim "CSSStyleDeclaration.getcssFloat"
+                      prim__cssFloat
+                      prim__setCssFloat
   
   export
-  setCssFloat : (obj : CSSStyleDeclaration) -> (value : CSSOMString) -> JSIO ()
-  setCssFloat a b = primJS $ CSSStyleDeclaration.prim__setCssFloat a b
-  
-  export
-  cssText : (obj : CSSStyleDeclaration) -> JSIO CSSOMString
-  cssText a = primJS $ CSSStyleDeclaration.prim__cssText a
-  
-  export
-  setCssText : (obj : CSSStyleDeclaration) -> (value : CSSOMString) -> JSIO ()
-  setCssText a b = primJS $ CSSStyleDeclaration.prim__setCssText a b
+  cssText : CSSStyleDeclaration -> Attribute True I CSSOMString
+  cssText = fromPrim "CSSStyleDeclaration.getcssText"
+                     prim__cssText
+                     prim__setCssText
   
   export
   length : (obj : CSSStyleDeclaration) -> JSIO UInt32
@@ -282,12 +272,10 @@ namespace CSSStyleRule
     mixins =  []
   
   export
-  selectorText : (obj : CSSStyleRule) -> JSIO CSSOMString
-  selectorText a = primJS $ CSSStyleRule.prim__selectorText a
-  
-  export
-  setSelectorText : (obj : CSSStyleRule) -> (value : CSSOMString) -> JSIO ()
-  setSelectorText a b = primJS $ CSSStyleRule.prim__setSelectorText a b
+  selectorText : CSSStyleRule -> Attribute True I CSSOMString
+  selectorText = fromPrim "CSSStyleRule.getselectorText"
+                          prim__selectorText
+                          prim__setSelectorText
   
   export
   style : (obj : CSSStyleRule) -> JSIO CSSStyleDeclaration
@@ -363,12 +351,10 @@ namespace MediaList
   length a = primJS $ MediaList.prim__length a
   
   export
-  mediaText : (obj : MediaList) -> JSIO CSSOMString
-  mediaText a = primJS $ MediaList.prim__mediaText a
-  
-  export
-  setMediaText : (obj : MediaList) -> (value : CSSOMString) -> JSIO ()
-  setMediaText a b = primJS $ MediaList.prim__setMediaText a b
+  mediaText : MediaList -> Attribute True I CSSOMString
+  mediaText = fromPrim "MediaList.getmediaText"
+                       prim__mediaText
+                       prim__setMediaText
   
   export
   appendMedium : (obj : MediaList) -> (medium : CSSOMString) -> JSIO ()
@@ -391,12 +377,8 @@ namespace StyleSheet
     mixins =  []
   
   export
-  disabled : (obj : StyleSheet) -> JSIO Bool
-  disabled a = tryJS "StyleSheet.disabled" $ StyleSheet.prim__disabled a
-  
-  export
-  setDisabled : (obj : StyleSheet) -> (value : Bool) -> JSIO ()
-  setDisabled a b = primJS $ StyleSheet.prim__setDisabled a (toFFI b)
+  disabled : StyleSheet -> Attribute True I Bool
+  disabled = fromPrim "StyleSheet.getdisabled" prim__disabled prim__setDisabled
   
   export
   href : (obj : StyleSheet) -> JSIO (Maybe String)

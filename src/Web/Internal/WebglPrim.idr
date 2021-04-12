@@ -2540,6 +2540,7 @@ namespace WebGLContextAttributes
   export
   %foreign "browser:lambda:x=>x.alpha"
   prim__alpha : WebGLContextAttributes -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.alpha = v}"
@@ -2548,6 +2549,7 @@ namespace WebGLContextAttributes
   export
   %foreign "browser:lambda:x=>x.antialias"
   prim__antialias : WebGLContextAttributes -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.antialias = v}"
@@ -2556,6 +2558,7 @@ namespace WebGLContextAttributes
   export
   %foreign "browser:lambda:x=>x.depth"
   prim__depth : WebGLContextAttributes -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.depth = v}"
@@ -2564,6 +2567,7 @@ namespace WebGLContextAttributes
   export
   %foreign "browser:lambda:x=>x.desynchronized"
   prim__desynchronized : WebGLContextAttributes -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.desynchronized = v}"
@@ -2575,6 +2579,7 @@ namespace WebGLContextAttributes
   %foreign "browser:lambda:x=>x.failIfMajorPerformanceCaveat"
   prim__failIfMajorPerformanceCaveat :  WebGLContextAttributes
                                      -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.failIfMajorPerformanceCaveat = v}"
@@ -2585,6 +2590,7 @@ namespace WebGLContextAttributes
   export
   %foreign "browser:lambda:x=>x.powerPreference"
   prim__powerPreference : WebGLContextAttributes -> PrimIO $ UndefOr String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.powerPreference = v}"
@@ -2595,6 +2601,7 @@ namespace WebGLContextAttributes
   export
   %foreign "browser:lambda:x=>x.premultipliedAlpha"
   prim__premultipliedAlpha : WebGLContextAttributes -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.premultipliedAlpha = v}"
@@ -2606,6 +2613,7 @@ namespace WebGLContextAttributes
   %foreign "browser:lambda:x=>x.preserveDrawingBuffer"
   prim__preserveDrawingBuffer :  WebGLContextAttributes
                               -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.preserveDrawingBuffer = v}"
@@ -2616,6 +2624,7 @@ namespace WebGLContextAttributes
   export
   %foreign "browser:lambda:x=>x.stencil"
   prim__stencil : WebGLContextAttributes -> PrimIO $ UndefOr Boolean
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.stencil = v}"

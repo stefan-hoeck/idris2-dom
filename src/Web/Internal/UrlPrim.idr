@@ -29,6 +29,7 @@ namespace URL
   export
   %foreign "browser:lambda:x=>x.hash"
   prim__hash : URL -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.hash = v}"
@@ -37,6 +38,7 @@ namespace URL
   export
   %foreign "browser:lambda:x=>x.host"
   prim__host : URL -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.host = v}"
@@ -45,6 +47,7 @@ namespace URL
   export
   %foreign "browser:lambda:x=>x.hostname"
   prim__hostname : URL -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.hostname = v}"
@@ -53,6 +56,7 @@ namespace URL
   export
   %foreign "browser:lambda:x=>x.href"
   prim__href : URL -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.href = v}"
@@ -65,6 +69,7 @@ namespace URL
   export
   %foreign "browser:lambda:x=>x.password"
   prim__password : URL -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.password = v}"
@@ -73,6 +78,7 @@ namespace URL
   export
   %foreign "browser:lambda:x=>x.pathname"
   prim__pathname : URL -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.pathname = v}"
@@ -81,6 +87,7 @@ namespace URL
   export
   %foreign "browser:lambda:x=>x.port"
   prim__port : URL -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.port = v}"
@@ -89,6 +96,7 @@ namespace URL
   export
   %foreign "browser:lambda:x=>x.protocol"
   prim__protocol : URL -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.protocol = v}"
@@ -97,6 +105,7 @@ namespace URL
   export
   %foreign "browser:lambda:x=>x.search"
   prim__search : URL -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.search = v}"
@@ -109,6 +118,7 @@ namespace URL
   export
   %foreign "browser:lambda:x=>x.username"
   prim__username : URL -> PrimIO String
+
   
   export
   %foreign "browser:lambda:(x,v)=>{x.username = v}"
