@@ -25,7 +25,7 @@ namespace Headers
 
   export
   new' : JSIO Headers
-  new' = new Undef
+  new' = primJS $ Headers.prim__new undef
   
   export
   append :  (obj : Headers)
@@ -69,7 +69,7 @@ namespace Request
 
   export
   new' : (input : NS I [ Request , String ]) -> JSIO Request
-  new' a = new a Undef
+  new' a = primJS $ Request.prim__new (toFFI a) undef
   
   export
   cache : (obj : Request) -> JSIO RequestCache
@@ -93,11 +93,13 @@ namespace Request
   
   export
   isHistoryNavigation : (obj : Request) -> JSIO Bool
-  isHistoryNavigation a = tryJS "Request.isHistoryNavigation" $ Request.prim__isHistoryNavigation a
+  isHistoryNavigation a = tryJS "Request.isHistoryNavigation"
+                        $ Request.prim__isHistoryNavigation a
   
   export
   isReloadNavigation : (obj : Request) -> JSIO Bool
-  isReloadNavigation a = tryJS "Request.isReloadNavigation" $ Request.prim__isReloadNavigation a
+  isReloadNavigation a = tryJS "Request.isReloadNavigation"
+                       $ Request.prim__isReloadNavigation a
   
   export
   keepalive : (obj : Request) -> JSIO Bool
@@ -121,7 +123,8 @@ namespace Request
   
   export
   referrerPolicy : (obj : Request) -> JSIO ReferrerPolicy
-  referrerPolicy a = tryJS "Request.referrerPolicy" $ Request.prim__referrerPolicy a
+  referrerPolicy a = tryJS "Request.referrerPolicy"
+                   $ Request.prim__referrerPolicy a
   
   export
   signal : (obj : Request) -> JSIO AbortSignal
@@ -167,7 +170,7 @@ namespace Response
 
   export
   new' : JSIO Response
-  new' = new Undef Undef
+  new' = primJS $ Response.prim__new undef undef
   
   export
   error : JSIO Response
@@ -179,7 +182,7 @@ namespace Response
 
   export
   redirect' : (url : String) -> JSIO Response
-  redirect' a = redirect a Undef
+  redirect' a = primJS $ Response.prim__redirect a undef
   
   export
   headers : (obj : Response) -> JSIO Headers
@@ -292,35 +295,37 @@ namespace RequestInit
       -> (signal : Optional (Maybe AbortSignal))
       -> (window : Optional AnyPtr)
       -> JSIO RequestInit
-  new a b c d e f g h i j k l m = primJS $ RequestInit.prim__new (toFFI a)
-                                                                 (toFFI b)
-                                                                 (toFFI c)
-                                                                 (toFFI d)
-                                                                 (toFFI e)
-                                                                 (toFFI f)
-                                                                 (toFFI g)
-                                                                 (toFFI h)
-                                                                 (toFFI i)
-                                                                 (toFFI j)
-                                                                 (toFFI k)
-                                                                 (toFFI l)
-                                                                 (toFFI m)
+  new a b c d e f g h i j k l m = primJS
+                                $ RequestInit.prim__new (toFFI a)
+                                                        (toFFI b)
+                                                        (toFFI c)
+                                                        (toFFI d)
+                                                        (toFFI e)
+                                                        (toFFI f)
+                                                        (toFFI g)
+                                                        (toFFI h)
+                                                        (toFFI i)
+                                                        (toFFI j)
+                                                        (toFFI k)
+                                                        (toFFI l)
+                                                        (toFFI m)
 
   export
   new' : JSIO RequestInit
-  new' = new Undef
-             Undef
-             Undef
-             Undef
-             Undef
-             Undef
-             Undef
-             Undef
-             Undef
-             Undef
-             Undef
-             Undef
-             Undef
+  new' = primJS
+       $ RequestInit.prim__new undef
+                               undef
+                               undef
+                               undef
+                               undef
+                               undef
+                               undef
+                               undef
+                               undef
+                               undef
+                               undef
+                               undef
+                               undef
   
   export
   body :  (obj : RequestInit)
@@ -366,7 +371,7 @@ namespace RequestInit
 
   export
   setBody' : (obj : RequestInit) -> JSIO ()
-  setBody' a = setBody a Undef
+  setBody' a = primJS $ RequestInit.prim__setBody a undef
   
   export
   cache : (obj : RequestInit) -> JSIO $ Optional RequestCache
@@ -378,11 +383,12 @@ namespace RequestInit
 
   export
   setCache' : (obj : RequestInit) -> JSIO ()
-  setCache' a = setCache a Undef
+  setCache' a = primJS $ RequestInit.prim__setCache a undef
   
   export
   credentials : (obj : RequestInit) -> JSIO $ Optional RequestCredentials
-  credentials a = tryJS "RequestInit.credentials" $ RequestInit.prim__credentials a
+  credentials a = tryJS "RequestInit.credentials"
+                $ RequestInit.prim__credentials a
   
   export
   setCredentials :  (obj : RequestInit)
@@ -392,7 +398,7 @@ namespace RequestInit
 
   export
   setCredentials' : (obj : RequestInit) -> JSIO ()
-  setCredentials' a = setCredentials a Undef
+  setCredentials' a = primJS $ RequestInit.prim__setCredentials a undef
   
   export
   headers :  (obj : RequestInit)
@@ -410,7 +416,7 @@ namespace RequestInit
 
   export
   setHeaders' : (obj : RequestInit) -> JSIO ()
-  setHeaders' a = setHeaders a Undef
+  setHeaders' a = primJS $ RequestInit.prim__setHeaders a undef
   
   export
   integrity : (obj : RequestInit) -> JSIO $ Optional String
@@ -422,7 +428,7 @@ namespace RequestInit
 
   export
   setIntegrity' : (obj : RequestInit) -> JSIO ()
-  setIntegrity' a = setIntegrity a Undef
+  setIntegrity' a = primJS $ RequestInit.prim__setIntegrity a undef
   
   export
   keepalive : (obj : RequestInit) -> JSIO $ Optional Bool
@@ -434,7 +440,7 @@ namespace RequestInit
 
   export
   setKeepalive' : (obj : RequestInit) -> JSIO ()
-  setKeepalive' a = setKeepalive a Undef
+  setKeepalive' a = primJS $ RequestInit.prim__setKeepalive a undef
   
   export
   method : (obj : RequestInit) -> JSIO $ Optional ByteString
@@ -446,7 +452,7 @@ namespace RequestInit
 
   export
   setMethod' : (obj : RequestInit) -> JSIO ()
-  setMethod' a = setMethod a Undef
+  setMethod' a = primJS $ RequestInit.prim__setMethod a undef
   
   export
   mode : (obj : RequestInit) -> JSIO $ Optional RequestMode
@@ -458,7 +464,7 @@ namespace RequestInit
 
   export
   setMode' : (obj : RequestInit) -> JSIO ()
-  setMode' a = setMode a Undef
+  setMode' a = primJS $ RequestInit.prim__setMode a undef
   
   export
   redirect : (obj : RequestInit) -> JSIO $ Optional RequestRedirect
@@ -472,7 +478,7 @@ namespace RequestInit
 
   export
   setRedirect' : (obj : RequestInit) -> JSIO ()
-  setRedirect' a = setRedirect a Undef
+  setRedirect' a = primJS $ RequestInit.prim__setRedirect a undef
   
   export
   referrer : (obj : RequestInit) -> JSIO $ Optional String
@@ -484,22 +490,23 @@ namespace RequestInit
 
   export
   setReferrer' : (obj : RequestInit) -> JSIO ()
-  setReferrer' a = setReferrer a Undef
+  setReferrer' a = primJS $ RequestInit.prim__setReferrer a undef
   
   export
   referrerPolicy : (obj : RequestInit) -> JSIO $ Optional ReferrerPolicy
-  referrerPolicy a = tryJS "RequestInit.referrerPolicy" $ RequestInit.prim__referrerPolicy a
+  referrerPolicy a = tryJS "RequestInit.referrerPolicy"
+                   $ RequestInit.prim__referrerPolicy a
   
   export
   setReferrerPolicy :  (obj : RequestInit)
                     -> (value : Optional ReferrerPolicy)
                     -> JSIO ()
-  setReferrerPolicy a b = primJS $ RequestInit.prim__setReferrerPolicy a
-                                                                       (toFFI b)
+  setReferrerPolicy a b = primJS
+                        $ RequestInit.prim__setReferrerPolicy a (toFFI b)
 
   export
   setReferrerPolicy' : (obj : RequestInit) -> JSIO ()
-  setReferrerPolicy' a = setReferrerPolicy a Undef
+  setReferrerPolicy' a = primJS $ RequestInit.prim__setReferrerPolicy a undef
   
   export
   signal : (obj : RequestInit) -> JSIO $ Optional (Maybe AbortSignal)
@@ -513,7 +520,7 @@ namespace RequestInit
 
   export
   setSignal' : (obj : RequestInit) -> JSIO ()
-  setSignal' a = setSignal a Undef
+  setSignal' a = primJS $ RequestInit.prim__setSignal a undef
   
   export
   window : (obj : RequestInit) -> JSIO $ Optional AnyPtr
@@ -525,7 +532,7 @@ namespace RequestInit
 
   export
   setWindow' : (obj : RequestInit) -> JSIO ()
-  setWindow' a = setWindow a Undef
+  setWindow' a = primJS $ RequestInit.prim__setWindow a undef
 
 namespace ResponseInit
   
@@ -546,7 +553,7 @@ namespace ResponseInit
 
   export
   new' : JSIO ResponseInit
-  new' = new Undef Undef Undef
+  new' = primJS $ ResponseInit.prim__new undef undef undef
   
   export
   headers :  (obj : ResponseInit)
@@ -564,7 +571,7 @@ namespace ResponseInit
 
   export
   setHeaders' : (obj : ResponseInit) -> JSIO ()
-  setHeaders' a = setHeaders a Undef
+  setHeaders' a = primJS $ ResponseInit.prim__setHeaders a undef
   
   export
   status : (obj : ResponseInit) -> JSIO $ Optional UInt16
@@ -576,11 +583,12 @@ namespace ResponseInit
 
   export
   setStatus' : (obj : ResponseInit) -> JSIO ()
-  setStatus' a = setStatus a Undef
+  setStatus' a = primJS $ ResponseInit.prim__setStatus a undef
   
   export
   statusText : (obj : ResponseInit) -> JSIO $ Optional ByteString
-  statusText a = tryJS "ResponseInit.statusText" $ ResponseInit.prim__statusText a
+  statusText a = tryJS "ResponseInit.statusText"
+               $ ResponseInit.prim__statusText a
   
   export
   setStatusText :  (obj : ResponseInit)
@@ -590,4 +598,4 @@ namespace ResponseInit
 
   export
   setStatusText' : (obj : ResponseInit) -> JSIO ()
-  setStatusText' a = setStatusText a Undef
+  setStatusText' a = primJS $ ResponseInit.prim__setStatusText a undef

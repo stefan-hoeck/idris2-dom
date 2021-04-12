@@ -124,3 +124,15 @@ namespace ClipboardPermissionDescriptor
   prim__setAllowWithoutGesture :  ClipboardPermissionDescriptor
                                -> UndefOr Boolean
                                -> PrimIO ()
+
+--------------------------------------------------------------------------------
+--          Callbacks
+--------------------------------------------------------------------------------
+
+namespace ClipboardItemDelayedCallback
+  
+  export
+  %foreign "browser:lambda:x=>{()=>x()()}"
+  prim__toClipboardItemDelayedCallback :  (() -> IO (Promise (Union2 String
+                                                                     Blob)))
+                                       -> PrimIO ClipboardItemDelayedCallback

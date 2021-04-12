@@ -22,7 +22,8 @@ namespace MediaSource
   
   export
   isTypeSupported : (type : String) -> JSIO Bool
-  isTypeSupported a = tryJS "MediaSource.isTypeSupported" $ MediaSource.prim__isTypeSupported a
+  isTypeSupported a = tryJS "MediaSource.isTypeSupported"
+                    $ MediaSource.prim__isTypeSupported a
   
   export
   activeSourceBuffers : (obj : MediaSource) -> JSIO SourceBufferList
@@ -38,7 +39,8 @@ namespace MediaSource
   
   export
   onsourceclose : (obj : MediaSource) -> JSIO (Maybe EventHandlerNonNull)
-  onsourceclose a = tryJS "MediaSource.onsourceclose" $ MediaSource.prim__onsourceclose a
+  onsourceclose a = tryJS "MediaSource.onsourceclose"
+                  $ MediaSource.prim__onsourceclose a
   
   export
   setOnsourceclose :  (obj : MediaSource)
@@ -48,7 +50,8 @@ namespace MediaSource
   
   export
   onsourceended : (obj : MediaSource) -> JSIO (Maybe EventHandlerNonNull)
-  onsourceended a = tryJS "MediaSource.onsourceended" $ MediaSource.prim__onsourceended a
+  onsourceended a = tryJS "MediaSource.onsourceended"
+                  $ MediaSource.prim__onsourceended a
   
   export
   setOnsourceended :  (obj : MediaSource)
@@ -58,7 +61,8 @@ namespace MediaSource
   
   export
   onsourceopen : (obj : MediaSource) -> JSIO (Maybe EventHandlerNonNull)
-  onsourceopen a = tryJS "MediaSource.onsourceopen" $ MediaSource.prim__onsourceopen a
+  onsourceopen a = tryJS "MediaSource.onsourceopen"
+                 $ MediaSource.prim__onsourceopen a
   
   export
   setOnsourceopen :  (obj : MediaSource)
@@ -90,7 +94,7 @@ namespace MediaSource
 
   export
   endOfStream' : (obj : MediaSource) -> JSIO ()
-  endOfStream' a = endOfStream a Undef
+  endOfStream' a = primJS $ MediaSource.prim__endOfStream a undef
   
   export
   removeSourceBuffer :  (obj : MediaSource)
@@ -103,9 +107,8 @@ namespace MediaSource
                        -> (start : Double)
                        -> (end : Double)
                        -> JSIO ()
-  setLiveSeekableRange a b c = primJS $ MediaSource.prim__setLiveSeekableRange a
-                                                                               b
-                                                                               c
+  setLiveSeekableRange a b c = primJS
+                             $ MediaSource.prim__setLiveSeekableRange a b c
 
 namespace SourceBuffer
   
@@ -129,8 +132,8 @@ namespace SourceBuffer
   
   export
   setAppendWindowStart : (obj : SourceBuffer) -> (value : Double) -> JSIO ()
-  setAppendWindowStart a b = primJS $ SourceBuffer.prim__setAppendWindowStart a
-                                                                              b
+  setAppendWindowStart a b = primJS
+                           $ SourceBuffer.prim__setAppendWindowStart a b
   
   export
   audioTracks : (obj : SourceBuffer) -> JSIO AudioTrackList
@@ -180,7 +183,8 @@ namespace SourceBuffer
   
   export
   onupdateend : (obj : SourceBuffer) -> JSIO (Maybe EventHandlerNonNull)
-  onupdateend a = tryJS "SourceBuffer.onupdateend" $ SourceBuffer.prim__onupdateend a
+  onupdateend a = tryJS "SourceBuffer.onupdateend"
+                $ SourceBuffer.prim__onupdateend a
   
   export
   setOnupdateend :  (obj : SourceBuffer)
@@ -190,14 +194,15 @@ namespace SourceBuffer
   
   export
   onupdatestart : (obj : SourceBuffer) -> JSIO (Maybe EventHandlerNonNull)
-  onupdatestart a = tryJS "SourceBuffer.onupdatestart" $ SourceBuffer.prim__onupdatestart a
+  onupdatestart a = tryJS "SourceBuffer.onupdatestart"
+                  $ SourceBuffer.prim__onupdatestart a
   
   export
   setOnupdatestart :  (obj : SourceBuffer)
                    -> (value : Maybe EventHandlerNonNull)
                    -> JSIO ()
-  setOnupdatestart a b = primJS $ SourceBuffer.prim__setOnupdatestart a
-                                                                      (toFFI b)
+  setOnupdatestart a b = primJS
+                       $ SourceBuffer.prim__setOnupdatestart a (toFFI b)
   
   export
   textTracks : (obj : SourceBuffer) -> JSIO TextTrackList
@@ -263,25 +268,29 @@ namespace SourceBufferList
   export
   onaddsourcebuffer :  (obj : SourceBufferList)
                     -> JSIO (Maybe EventHandlerNonNull)
-  onaddsourcebuffer a = tryJS "SourceBufferList.onaddsourcebuffer" $ SourceBufferList.prim__onaddsourcebuffer a
+  onaddsourcebuffer a = tryJS "SourceBufferList.onaddsourcebuffer"
+                      $ SourceBufferList.prim__onaddsourcebuffer a
   
   export
   setOnaddsourcebuffer :  (obj : SourceBufferList)
                        -> (value : Maybe EventHandlerNonNull)
                        -> JSIO ()
-  setOnaddsourcebuffer a b = primJS $ SourceBufferList.prim__setOnaddsourcebuffer a
-                                                                                  (toFFI b)
+  setOnaddsourcebuffer a b = primJS
+                           $ SourceBufferList.prim__setOnaddsourcebuffer a
+                                                                         (toFFI b)
   
   export
   onremovesourcebuffer :  (obj : SourceBufferList)
                        -> JSIO (Maybe EventHandlerNonNull)
-  onremovesourcebuffer a = tryJS "SourceBufferList.onremovesourcebuffer" $ SourceBufferList.prim__onremovesourcebuffer a
+  onremovesourcebuffer a = tryJS "SourceBufferList.onremovesourcebuffer"
+                         $ SourceBufferList.prim__onremovesourcebuffer a
   
   export
   setOnremovesourcebuffer :  (obj : SourceBufferList)
                           -> (value : Maybe EventHandlerNonNull)
                           -> JSIO ()
-  setOnremovesourcebuffer a b = primJS $ SourceBufferList.prim__setOnremovesourcebuffer a
-                                                                                        (toFFI b)
+  setOnremovesourcebuffer a b = primJS
+                              $ SourceBufferList.prim__setOnremovesourcebuffer a
+                                                                               (toFFI b)
 
 

@@ -8990,3 +8990,54 @@ namespace WorkletOptions
   export
   %foreign "browser:lambda:(x,v)=>{x.credentials = v}"
   prim__setCredentials : WorkletOptions -> UndefOr String -> PrimIO ()
+
+--------------------------------------------------------------------------------
+--          Callbacks
+--------------------------------------------------------------------------------
+
+namespace BlobCallback
+  
+  export
+  %foreign "browser:lambda:x=>{(a)=>x(a)()}"
+  prim__toBlobCallback : ( Nullable Blob -> IO () ) -> PrimIO BlobCallback
+
+namespace CustomElementConstructor
+  
+  export
+  %foreign "browser:lambda:x=>{()=>x()()}"
+  prim__toCustomElementConstructor :  (() -> IO HTMLElement)
+                                   -> PrimIO CustomElementConstructor
+
+namespace EventHandlerNonNull
+  
+  export
+  %foreign "browser:lambda:x=>{(a)=>x(a)()}"
+  prim__toEventHandlerNonNull :  ( Event -> IO AnyPtr )
+                              -> PrimIO EventHandlerNonNull
+
+namespace FunctionStringCallback
+  
+  export
+  %foreign "browser:lambda:x=>{(a)=>x(a)()}"
+  prim__toFunctionStringCallback :  ( String -> IO () )
+                                 -> PrimIO FunctionStringCallback
+
+namespace OnBeforeUnloadEventHandlerNonNull
+  
+  export
+  %foreign "browser:lambda:x=>{(a)=>x(a)()}"
+  prim__toOnBeforeUnloadEventHandlerNonNull :  ( Event -> IO (Nullable String) )
+                                            -> PrimIO OnBeforeUnloadEventHandlerNonNull
+
+namespace OnErrorEventHandlerNonNull
+  
+  export
+  %foreign "browser:lambda:x=>{(a,b,c,d,e)=>x(a,b,c,d,e)()}"
+  prim__toOnErrorEventHandlerNonNull :  (  Union2 Event String
+                                        -> UndefOr String
+                                        -> UndefOr UInt32
+                                        -> UndefOr UInt32
+                                        -> UndefOr AnyPtr
+                                        -> IO AnyPtr
+                                        )
+                                     -> PrimIO OnErrorEventHandlerNonNull

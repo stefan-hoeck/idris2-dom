@@ -50,11 +50,12 @@ namespace ClipboardEvent
 
   export
   new' : (type : String) -> JSIO ClipboardEvent
-  new' a = new a Undef
+  new' a = primJS $ ClipboardEvent.prim__new a undef
   
   export
   clipboardData : (obj : ClipboardEvent) -> JSIO (Maybe DataTransfer)
-  clipboardData a = tryJS "ClipboardEvent.clipboardData" $ ClipboardEvent.prim__clipboardData a
+  clipboardData a = tryJS "ClipboardEvent.clipboardData"
+                  $ ClipboardEvent.prim__clipboardData a
 
 namespace ClipboardItem
   
@@ -73,7 +74,7 @@ namespace ClipboardItem
   export
   new' :  (items : Record String (Promise (Union2 String Blob)))
        -> JSIO ClipboardItem
-  new' a = new a Undef
+  new' a = primJS $ ClipboardItem.prim__new a undef
   
   export
   createDelayed :  (items : Record String ClipboardItemDelayedCallback)
@@ -84,7 +85,7 @@ namespace ClipboardItem
   export
   createDelayed' :  (items : Record String ClipboardItemDelayedCallback)
                  -> JSIO ClipboardItem
-  createDelayed' a = createDelayed a Undef
+  createDelayed' a = primJS $ ClipboardItem.prim__createDelayed a undef
   
   export
   delayed : (obj : ClipboardItem) -> JSIO Bool
@@ -96,7 +97,8 @@ namespace ClipboardItem
   
   export
   presentationStyle : (obj : ClipboardItem) -> JSIO PresentationStyle
-  presentationStyle a = tryJS "ClipboardItem.presentationStyle" $ ClipboardItem.prim__presentationStyle a
+  presentationStyle a = tryJS "ClipboardItem.presentationStyle"
+                      $ ClipboardItem.prim__presentationStyle a
   
   export
   types : (obj : ClipboardItem) -> JSIO (Array String)
@@ -126,23 +128,25 @@ namespace ClipboardEventInit
 
   export
   new' : JSIO ClipboardEventInit
-  new' = new Undef
+  new' = primJS $ ClipboardEventInit.prim__new undef
   
   export
   clipboardData :  (obj : ClipboardEventInit)
                 -> JSIO $ Optional (Maybe DataTransfer)
-  clipboardData a = tryJS "ClipboardEventInit.clipboardData" $ ClipboardEventInit.prim__clipboardData a
+  clipboardData a = tryJS "ClipboardEventInit.clipboardData"
+                  $ ClipboardEventInit.prim__clipboardData a
   
   export
   setClipboardData :  (obj : ClipboardEventInit)
                    -> (value : Optional (Maybe DataTransfer))
                    -> JSIO ()
-  setClipboardData a b = primJS $ ClipboardEventInit.prim__setClipboardData a
-                                                                            (toFFI b)
+  setClipboardData a b = primJS
+                       $ ClipboardEventInit.prim__setClipboardData a (toFFI b)
 
   export
   setClipboardData' : (obj : ClipboardEventInit) -> JSIO ()
-  setClipboardData' a = setClipboardData a Undef
+  setClipboardData' a = primJS
+                      $ ClipboardEventInit.prim__setClipboardData a undef
 
 namespace ClipboardItemOptions
   
@@ -159,23 +163,27 @@ namespace ClipboardItemOptions
 
   export
   new' : JSIO ClipboardItemOptions
-  new' = new Undef
+  new' = primJS $ ClipboardItemOptions.prim__new undef
   
   export
   presentationStyle :  (obj : ClipboardItemOptions)
                     -> JSIO $ Optional PresentationStyle
-  presentationStyle a = tryJS "ClipboardItemOptions.presentationStyle" $ ClipboardItemOptions.prim__presentationStyle a
+  presentationStyle a = tryJS "ClipboardItemOptions.presentationStyle"
+                      $ ClipboardItemOptions.prim__presentationStyle a
   
   export
   setPresentationStyle :  (obj : ClipboardItemOptions)
                        -> (value : Optional PresentationStyle)
                        -> JSIO ()
-  setPresentationStyle a b = primJS $ ClipboardItemOptions.prim__setPresentationStyle a
-                                                                                      (toFFI b)
+  setPresentationStyle a b = primJS
+                           $ ClipboardItemOptions.prim__setPresentationStyle a
+                                                                             (toFFI b)
 
   export
   setPresentationStyle' : (obj : ClipboardItemOptions) -> JSIO ()
-  setPresentationStyle' a = setPresentationStyle a Undef
+  setPresentationStyle' a = primJS
+                          $ ClipboardItemOptions.prim__setPresentationStyle a
+                                                                            undef
 
 namespace ClipboardPermissionDescriptor
   
@@ -192,24 +200,35 @@ namespace ClipboardPermissionDescriptor
 
   export
   new' : JSIO ClipboardPermissionDescriptor
-  new' = new Undef
+  new' = primJS $ ClipboardPermissionDescriptor.prim__new undef
   
   export
   allowWithoutGesture :  (obj : ClipboardPermissionDescriptor)
                       -> JSIO $ Optional Bool
-  allowWithoutGesture a = tryJS "ClipboardPermissionDescriptor.allowWithoutGesture" $ ClipboardPermissionDescriptor.prim__allowWithoutGesture a
+  allowWithoutGesture a = tryJS "ClipboardPermissionDescriptor.allowWithoutGesture"
+                        $ ClipboardPermissionDescriptor.prim__allowWithoutGesture a
   
   export
   setAllowWithoutGesture :  (obj : ClipboardPermissionDescriptor)
                          -> (value : Optional Bool)
                          -> JSIO ()
-  setAllowWithoutGesture a b = primJS $ ClipboardPermissionDescriptor.prim__setAllowWithoutGesture a
-                                                                                                   (toFFI b)
+  setAllowWithoutGesture a b = primJS
+                             $ ClipboardPermissionDescriptor.prim__setAllowWithoutGesture a
+                                                                                          (toFFI b)
 
   export
   setAllowWithoutGesture' : (obj : ClipboardPermissionDescriptor) -> JSIO ()
-  setAllowWithoutGesture' a = setAllowWithoutGesture a Undef
+  setAllowWithoutGesture' a = primJS
+                            $ ClipboardPermissionDescriptor.prim__setAllowWithoutGesture a
+                                                                                         undef
 
 --------------------------------------------------------------------------------
 --          Callbacks
 --------------------------------------------------------------------------------
+
+namespace ClipboardItemDelayedCallback
+  
+  export
+  toClipboardItemDelayedCallback :  (() -> IO (Promise (Union2 String Blob)))
+                                 -> JSIO ClipboardItemDelayedCallback
+  toClipboardItemDelayedCallback cb = primJS $ prim__toClipboardItemDelayedCallback cb

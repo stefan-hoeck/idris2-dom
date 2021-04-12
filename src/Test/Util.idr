@@ -1,6 +1,6 @@
 module Test.Util
 
-import JS.Util
+import JS
 import Hedgehog
 
 --------------------------------------------------------------------------------
@@ -34,7 +34,7 @@ prop_string_notNull =
 
 prop_undefinedIsNull : Property
 prop_undefinedIsNull =
-  withTests 1 . property $ do u <- forAllWith (const "null") (pure JS.Util.null)
+  withTests 1 . property $ do u <- forAllWith (const "null") (pure $ null {a = Int})
                               assert (isNull u)
 
 undefinedProps : Group

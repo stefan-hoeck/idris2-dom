@@ -724,3 +724,106 @@ namespace UnderlyingSource
   export
   %foreign "browser:lambda:(x,v)=>{x.type = v}"
   prim__setType : UnderlyingSource -> UndefOr String -> PrimIO ()
+
+--------------------------------------------------------------------------------
+--          Callbacks
+--------------------------------------------------------------------------------
+
+namespace QueuingStrategySize
+  
+  export
+  %foreign "browser:lambda:x=>{(a)=>x(a)()}"
+  prim__toQueuingStrategySize :  ( UndefOr AnyPtr -> IO Double )
+                              -> PrimIO QueuingStrategySize
+
+namespace TransformerFlushCallback
+  
+  export
+  %foreign "browser:lambda:x=>{(a)=>x(a)()}"
+  prim__toTransformerFlushCallback :  (  TransformStreamDefaultController
+                                      -> IO (Promise Undefined)
+                                      )
+                                   -> PrimIO TransformerFlushCallback
+
+namespace TransformerStartCallback
+  
+  export
+  %foreign "browser:lambda:x=>{(a)=>x(a)()}"
+  prim__toTransformerStartCallback :  (  TransformStreamDefaultController
+                                      -> IO AnyPtr
+                                      )
+                                   -> PrimIO TransformerStartCallback
+
+namespace TransformerTransformCallback
+  
+  export
+  %foreign "browser:lambda:x=>{(a,b)=>x(a,b)()}"
+  prim__toTransformerTransformCallback :  (  AnyPtr
+                                          -> TransformStreamDefaultController
+                                          -> IO (Promise Undefined)
+                                          )
+                                       -> PrimIO TransformerTransformCallback
+
+namespace UnderlyingSinkAbortCallback
+  
+  export
+  %foreign "browser:lambda:x=>{(a)=>x(a)()}"
+  prim__toUnderlyingSinkAbortCallback :  (  UndefOr AnyPtr
+                                         -> IO (Promise Undefined)
+                                         )
+                                      -> PrimIO UnderlyingSinkAbortCallback
+
+namespace UnderlyingSinkCloseCallback
+  
+  export
+  %foreign "browser:lambda:x=>{()=>x()()}"
+  prim__toUnderlyingSinkCloseCallback :  (() -> IO (Promise Undefined))
+                                      -> PrimIO UnderlyingSinkCloseCallback
+
+namespace UnderlyingSinkStartCallback
+  
+  export
+  %foreign "browser:lambda:x=>{(a)=>x(a)()}"
+  prim__toUnderlyingSinkStartCallback :  (  WritableStreamDefaultController
+                                         -> IO AnyPtr
+                                         )
+                                      -> PrimIO UnderlyingSinkStartCallback
+
+namespace UnderlyingSinkWriteCallback
+  
+  export
+  %foreign "browser:lambda:x=>{(a,b)=>x(a,b)()}"
+  prim__toUnderlyingSinkWriteCallback :  (  AnyPtr
+                                         -> WritableStreamDefaultController
+                                         -> IO (Promise Undefined)
+                                         )
+                                      -> PrimIO UnderlyingSinkWriteCallback
+
+namespace UnderlyingSourceCancelCallback
+  
+  export
+  %foreign "browser:lambda:x=>{(a)=>x(a)()}"
+  prim__toUnderlyingSourceCancelCallback :  (  UndefOr AnyPtr
+                                            -> IO (Promise Undefined)
+                                            )
+                                         -> PrimIO UnderlyingSourceCancelCallback
+
+namespace UnderlyingSourcePullCallback
+  
+  export
+  %foreign "browser:lambda:x=>{(a)=>x(a)()}"
+  prim__toUnderlyingSourcePullCallback :  (  Union2 ReadableStreamDefaultController
+                                                    ReadableByteStreamController
+                                          -> IO (Promise Undefined)
+                                          )
+                                       -> PrimIO UnderlyingSourcePullCallback
+
+namespace UnderlyingSourceStartCallback
+  
+  export
+  %foreign "browser:lambda:x=>{(a)=>x(a)()}"
+  prim__toUnderlyingSourceStartCallback :  (  Union2 ReadableStreamDefaultController
+                                                     ReadableByteStreamController
+                                           -> IO AnyPtr
+                                           )
+                                        -> PrimIO UnderlyingSourceStartCallback

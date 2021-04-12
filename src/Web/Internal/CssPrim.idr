@@ -308,3 +308,4 @@ namespace LinkStyle
   export
   %foreign "browser:lambda:x=>x.sheet"
   prim__sheet : LinkStyle -> PrimIO (Nullable CSSStyleSheet)
+

@@ -39,7 +39,7 @@ namespace Cache
   delete' :  (obj : Cache)
           -> (request : NS I [ Request , String ])
           -> JSIO (Promise Boolean)
-  delete' a b = delete a b Undef
+  delete' a b = primJS $ Cache.prim__delete a (toFFI b) undef
   
   export
   keys :  (obj : Cache)
@@ -50,7 +50,7 @@ namespace Cache
 
   export
   keys' : (obj : Cache) -> JSIO (Promise (Array Request))
-  keys' a = keys a Undef Undef
+  keys' a = primJS $ Cache.prim__keys a undef undef
   
   export
   matchAll :  (obj : Cache)
@@ -61,7 +61,7 @@ namespace Cache
 
   export
   matchAll' : (obj : Cache) -> JSIO (Promise (Array Response))
-  matchAll' a = matchAll a Undef Undef
+  matchAll' a = primJS $ Cache.prim__matchAll a undef undef
   
   export
   match :  (obj : Cache)
@@ -74,7 +74,7 @@ namespace Cache
   match' :  (obj : Cache)
          -> (request : NS I [ Request , String ])
          -> JSIO (Promise (Union2 Response Undefined))
-  match' a b = match a b Undef
+  match' a b = primJS $ Cache.prim__match a (toFFI b) undef
   
   export
   put :  (obj : Cache)
@@ -116,7 +116,7 @@ namespace CacheStorage
   match' :  (obj : CacheStorage)
          -> (request : NS I [ Request , String ])
          -> JSIO (Promise (Union2 Response Undefined))
-  match' a b = match a b Undef
+  match' a b = primJS $ CacheStorage.prim__match a (toFFI b) undef
   
   export
   open_ : (obj : CacheStorage) -> (cacheName : String) -> JSIO (Promise Cache)
@@ -162,7 +162,7 @@ namespace Client
 
   export
   postMessage1' : (obj : Client) -> (message : AnyPtr) -> JSIO ()
-  postMessage1' a b = postMessage1 a b Undef
+  postMessage1' a b = primJS $ Client.prim__postMessage1 a b undef
 
 namespace Clients
   
@@ -190,7 +190,7 @@ namespace Clients
 
   export
   matchAll' : (obj : Clients) -> JSIO (Promise (Array Client))
-  matchAll' a = matchAll a Undef
+  matchAll' a = primJS $ Clients.prim__matchAll a undef
   
   export
   openWindow :  (obj : Clients)
@@ -214,7 +214,7 @@ namespace ExtendableEvent
 
   export
   new' : (type : String) -> JSIO ExtendableEvent
-  new' a = new a Undef
+  new' a = primJS $ ExtendableEvent.prim__new a undef
   
   export
   waitUntil : (obj : ExtendableEvent) -> (f : Promise AnyPtr) -> JSIO ()
@@ -236,7 +236,7 @@ namespace ExtendableMessageEvent
 
   export
   new' : (type : String) -> JSIO ExtendableMessageEvent
-  new' a = new a Undef
+  new' a = primJS $ ExtendableMessageEvent.prim__new a undef
   
   export
   data_ : (obj : ExtendableMessageEvent) -> JSIO AnyPtr
@@ -257,7 +257,8 @@ namespace ExtendableMessageEvent
   export
   source :  (obj : ExtendableMessageEvent)
          -> JSIO (Maybe (NS I [ Client , ServiceWorker , MessagePort ]))
-  source a = tryJS "ExtendableMessageEvent.source" $ ExtendableMessageEvent.prim__source a
+  source a = tryJS "ExtendableMessageEvent.source"
+           $ ExtendableMessageEvent.prim__source a
 
 namespace FetchEvent
   
@@ -324,8 +325,8 @@ namespace NavigationPreloadManager
   setHeaderValue :  (obj : NavigationPreloadManager)
                  -> (value : ByteString)
                  -> JSIO (Promise Undefined)
-  setHeaderValue a b = primJS $ NavigationPreloadManager.prim__setHeaderValue a
-                                                                              b
+  setHeaderValue a b = primJS
+                     $ NavigationPreloadManager.prim__setHeaderValue a b
 
 namespace ServiceWorker
   
@@ -337,14 +338,15 @@ namespace ServiceWorker
   
   export
   onstatechange : (obj : ServiceWorker) -> JSIO (Maybe EventHandlerNonNull)
-  onstatechange a = tryJS "ServiceWorker.onstatechange" $ ServiceWorker.prim__onstatechange a
+  onstatechange a = tryJS "ServiceWorker.onstatechange"
+                  $ ServiceWorker.prim__onstatechange a
   
   export
   setOnstatechange :  (obj : ServiceWorker)
                    -> (value : Maybe EventHandlerNonNull)
                    -> JSIO ()
-  setOnstatechange a b = primJS $ ServiceWorker.prim__setOnstatechange a
-                                                                       (toFFI b)
+  setOnstatechange a b = primJS
+                       $ ServiceWorker.prim__setOnstatechange a (toFFI b)
   
   export
   scriptURL : (obj : ServiceWorker) -> JSIO String
@@ -370,7 +372,7 @@ namespace ServiceWorker
 
   export
   postMessage1' : (obj : ServiceWorker) -> (message : AnyPtr) -> JSIO ()
-  postMessage1' a b = postMessage1 a b Undef
+  postMessage1' a b = primJS $ ServiceWorker.prim__postMessage1 a b undef
 
 namespace ServiceWorkerContainer
   
@@ -382,42 +384,48 @@ namespace ServiceWorkerContainer
   
   export
   controller : (obj : ServiceWorkerContainer) -> JSIO (Maybe ServiceWorker)
-  controller a = tryJS "ServiceWorkerContainer.controller" $ ServiceWorkerContainer.prim__controller a
+  controller a = tryJS "ServiceWorkerContainer.controller"
+               $ ServiceWorkerContainer.prim__controller a
   
   export
   oncontrollerchange :  (obj : ServiceWorkerContainer)
                      -> JSIO (Maybe EventHandlerNonNull)
-  oncontrollerchange a = tryJS "ServiceWorkerContainer.oncontrollerchange" $ ServiceWorkerContainer.prim__oncontrollerchange a
+  oncontrollerchange a = tryJS "ServiceWorkerContainer.oncontrollerchange"
+                       $ ServiceWorkerContainer.prim__oncontrollerchange a
   
   export
   setOncontrollerchange :  (obj : ServiceWorkerContainer)
                         -> (value : Maybe EventHandlerNonNull)
                         -> JSIO ()
-  setOncontrollerchange a b = primJS $ ServiceWorkerContainer.prim__setOncontrollerchange a
-                                                                                          (toFFI b)
+  setOncontrollerchange a b = primJS
+                            $ ServiceWorkerContainer.prim__setOncontrollerchange a
+                                                                                 (toFFI b)
   
   export
   onmessage : (obj : ServiceWorkerContainer) -> JSIO (Maybe EventHandlerNonNull)
-  onmessage a = tryJS "ServiceWorkerContainer.onmessage" $ ServiceWorkerContainer.prim__onmessage a
+  onmessage a = tryJS "ServiceWorkerContainer.onmessage"
+              $ ServiceWorkerContainer.prim__onmessage a
   
   export
   setOnmessage :  (obj : ServiceWorkerContainer)
                -> (value : Maybe EventHandlerNonNull)
                -> JSIO ()
-  setOnmessage a b = primJS $ ServiceWorkerContainer.prim__setOnmessage a
-                                                                        (toFFI b)
+  setOnmessage a b = primJS
+                   $ ServiceWorkerContainer.prim__setOnmessage a (toFFI b)
   
   export
   onmessageerror :  (obj : ServiceWorkerContainer)
                  -> JSIO (Maybe EventHandlerNonNull)
-  onmessageerror a = tryJS "ServiceWorkerContainer.onmessageerror" $ ServiceWorkerContainer.prim__onmessageerror a
+  onmessageerror a = tryJS "ServiceWorkerContainer.onmessageerror"
+                   $ ServiceWorkerContainer.prim__onmessageerror a
   
   export
   setOnmessageerror :  (obj : ServiceWorkerContainer)
                     -> (value : Maybe EventHandlerNonNull)
                     -> JSIO ()
-  setOnmessageerror a b = primJS $ ServiceWorkerContainer.prim__setOnmessageerror a
-                                                                                  (toFFI b)
+  setOnmessageerror a b = primJS
+                        $ ServiceWorkerContainer.prim__setOnmessageerror a
+                                                                         (toFFI b)
   
   export
   ready :  (obj : ServiceWorkerContainer)
@@ -428,14 +436,15 @@ namespace ServiceWorkerContainer
   getRegistration :  (obj : ServiceWorkerContainer)
                   -> (clientURL : Optional String)
                   -> JSIO (Promise (Union2 ServiceWorkerRegistration Undefined))
-  getRegistration a b = primJS $ ServiceWorkerContainer.prim__getRegistration a
-                                                                              (toFFI b)
+  getRegistration a b = primJS
+                      $ ServiceWorkerContainer.prim__getRegistration a (toFFI b)
 
   export
   getRegistration' :  (obj : ServiceWorkerContainer)
                    -> JSIO (Promise (Union2 ServiceWorkerRegistration
                                             Undefined))
-  getRegistration' a = getRegistration a Undef
+  getRegistration' a = primJS
+                     $ ServiceWorkerContainer.prim__getRegistration a undef
   
   export
   getRegistrations :  (obj : ServiceWorkerContainer)
@@ -453,7 +462,7 @@ namespace ServiceWorkerContainer
   register' :  (obj : ServiceWorkerContainer)
             -> (scriptURL : String)
             -> JSIO (Promise ServiceWorkerRegistration)
-  register' a b = register a b Undef
+  register' a b = primJS $ ServiceWorkerContainer.prim__register a b undef
   
   export
   startMessages : (obj : ServiceWorkerContainer) -> JSIO ()
@@ -474,61 +483,67 @@ namespace ServiceWorkerGlobalScope
   export
   onactivate :  (obj : ServiceWorkerGlobalScope)
              -> JSIO (Maybe EventHandlerNonNull)
-  onactivate a = tryJS "ServiceWorkerGlobalScope.onactivate" $ ServiceWorkerGlobalScope.prim__onactivate a
+  onactivate a = tryJS "ServiceWorkerGlobalScope.onactivate"
+               $ ServiceWorkerGlobalScope.prim__onactivate a
   
   export
   setOnactivate :  (obj : ServiceWorkerGlobalScope)
                 -> (value : Maybe EventHandlerNonNull)
                 -> JSIO ()
-  setOnactivate a b = primJS $ ServiceWorkerGlobalScope.prim__setOnactivate a
-                                                                            (toFFI b)
+  setOnactivate a b = primJS
+                    $ ServiceWorkerGlobalScope.prim__setOnactivate a (toFFI b)
   
   export
   onfetch : (obj : ServiceWorkerGlobalScope) -> JSIO (Maybe EventHandlerNonNull)
-  onfetch a = tryJS "ServiceWorkerGlobalScope.onfetch" $ ServiceWorkerGlobalScope.prim__onfetch a
+  onfetch a = tryJS "ServiceWorkerGlobalScope.onfetch"
+            $ ServiceWorkerGlobalScope.prim__onfetch a
   
   export
   setOnfetch :  (obj : ServiceWorkerGlobalScope)
              -> (value : Maybe EventHandlerNonNull)
              -> JSIO ()
-  setOnfetch a b = primJS $ ServiceWorkerGlobalScope.prim__setOnfetch a
-                                                                      (toFFI b)
+  setOnfetch a b = primJS
+                 $ ServiceWorkerGlobalScope.prim__setOnfetch a (toFFI b)
   
   export
   oninstall :  (obj : ServiceWorkerGlobalScope)
             -> JSIO (Maybe EventHandlerNonNull)
-  oninstall a = tryJS "ServiceWorkerGlobalScope.oninstall" $ ServiceWorkerGlobalScope.prim__oninstall a
+  oninstall a = tryJS "ServiceWorkerGlobalScope.oninstall"
+              $ ServiceWorkerGlobalScope.prim__oninstall a
   
   export
   setOninstall :  (obj : ServiceWorkerGlobalScope)
                -> (value : Maybe EventHandlerNonNull)
                -> JSIO ()
-  setOninstall a b = primJS $ ServiceWorkerGlobalScope.prim__setOninstall a
-                                                                          (toFFI b)
+  setOninstall a b = primJS
+                   $ ServiceWorkerGlobalScope.prim__setOninstall a (toFFI b)
   
   export
   onmessage :  (obj : ServiceWorkerGlobalScope)
             -> JSIO (Maybe EventHandlerNonNull)
-  onmessage a = tryJS "ServiceWorkerGlobalScope.onmessage" $ ServiceWorkerGlobalScope.prim__onmessage a
+  onmessage a = tryJS "ServiceWorkerGlobalScope.onmessage"
+              $ ServiceWorkerGlobalScope.prim__onmessage a
   
   export
   setOnmessage :  (obj : ServiceWorkerGlobalScope)
                -> (value : Maybe EventHandlerNonNull)
                -> JSIO ()
-  setOnmessage a b = primJS $ ServiceWorkerGlobalScope.prim__setOnmessage a
-                                                                          (toFFI b)
+  setOnmessage a b = primJS
+                   $ ServiceWorkerGlobalScope.prim__setOnmessage a (toFFI b)
   
   export
   onmessageerror :  (obj : ServiceWorkerGlobalScope)
                  -> JSIO (Maybe EventHandlerNonNull)
-  onmessageerror a = tryJS "ServiceWorkerGlobalScope.onmessageerror" $ ServiceWorkerGlobalScope.prim__onmessageerror a
+  onmessageerror a = tryJS "ServiceWorkerGlobalScope.onmessageerror"
+                   $ ServiceWorkerGlobalScope.prim__onmessageerror a
   
   export
   setOnmessageerror :  (obj : ServiceWorkerGlobalScope)
                     -> (value : Maybe EventHandlerNonNull)
                     -> JSIO ()
-  setOnmessageerror a b = primJS $ ServiceWorkerGlobalScope.prim__setOnmessageerror a
-                                                                                    (toFFI b)
+  setOnmessageerror a b = primJS
+                        $ ServiceWorkerGlobalScope.prim__setOnmessageerror a
+                                                                           (toFFI b)
   
   export
   registration :  (obj : ServiceWorkerGlobalScope)
@@ -553,28 +568,33 @@ namespace ServiceWorkerRegistration
   
   export
   active : (obj : ServiceWorkerRegistration) -> JSIO (Maybe ServiceWorker)
-  active a = tryJS "ServiceWorkerRegistration.active" $ ServiceWorkerRegistration.prim__active a
+  active a = tryJS "ServiceWorkerRegistration.active"
+           $ ServiceWorkerRegistration.prim__active a
   
   export
   installing : (obj : ServiceWorkerRegistration) -> JSIO (Maybe ServiceWorker)
-  installing a = tryJS "ServiceWorkerRegistration.installing" $ ServiceWorkerRegistration.prim__installing a
+  installing a = tryJS "ServiceWorkerRegistration.installing"
+               $ ServiceWorkerRegistration.prim__installing a
   
   export
   navigationPreload :  (obj : ServiceWorkerRegistration)
                     -> JSIO NavigationPreloadManager
-  navigationPreload a = primJS $ ServiceWorkerRegistration.prim__navigationPreload a
+  navigationPreload a = primJS
+                      $ ServiceWorkerRegistration.prim__navigationPreload a
   
   export
   onupdatefound :  (obj : ServiceWorkerRegistration)
                 -> JSIO (Maybe EventHandlerNonNull)
-  onupdatefound a = tryJS "ServiceWorkerRegistration.onupdatefound" $ ServiceWorkerRegistration.prim__onupdatefound a
+  onupdatefound a = tryJS "ServiceWorkerRegistration.onupdatefound"
+                  $ ServiceWorkerRegistration.prim__onupdatefound a
   
   export
   setOnupdatefound :  (obj : ServiceWorkerRegistration)
                    -> (value : Maybe EventHandlerNonNull)
                    -> JSIO ()
-  setOnupdatefound a b = primJS $ ServiceWorkerRegistration.prim__setOnupdatefound a
-                                                                                   (toFFI b)
+  setOnupdatefound a b = primJS
+                       $ ServiceWorkerRegistration.prim__setOnupdatefound a
+                                                                          (toFFI b)
   
   export
   scope : (obj : ServiceWorkerRegistration) -> JSIO String
@@ -583,11 +603,13 @@ namespace ServiceWorkerRegistration
   export
   updateViaCache :  (obj : ServiceWorkerRegistration)
                  -> JSIO ServiceWorkerUpdateViaCache
-  updateViaCache a = tryJS "ServiceWorkerRegistration.updateViaCache" $ ServiceWorkerRegistration.prim__updateViaCache a
+  updateViaCache a = tryJS "ServiceWorkerRegistration.updateViaCache"
+                   $ ServiceWorkerRegistration.prim__updateViaCache a
   
   export
   waiting : (obj : ServiceWorkerRegistration) -> JSIO (Maybe ServiceWorker)
-  waiting a = tryJS "ServiceWorkerRegistration.waiting" $ ServiceWorkerRegistration.prim__waiting a
+  waiting a = tryJS "ServiceWorkerRegistration.waiting"
+            $ ServiceWorkerRegistration.prim__waiting a
   
   export
   unregister : (obj : ServiceWorkerRegistration) -> JSIO (Promise Boolean)
@@ -615,7 +637,8 @@ namespace WindowClient
   
   export
   visibilityState : (obj : WindowClient) -> JSIO VisibilityState
-  visibilityState a = tryJS "WindowClient.visibilityState" $ WindowClient.prim__visibilityState a
+  visibilityState a = tryJS "WindowClient.visibilityState"
+                    $ WindowClient.prim__visibilityState a
   
   export
   focus : (obj : WindowClient) -> JSIO (Promise WindowClient)
@@ -649,41 +672,44 @@ namespace CacheQueryOptions
 
   export
   new' : JSIO CacheQueryOptions
-  new' = new Undef Undef Undef
+  new' = primJS $ CacheQueryOptions.prim__new undef undef undef
   
   export
   ignoreMethod : (obj : CacheQueryOptions) -> JSIO $ Optional Bool
-  ignoreMethod a = tryJS "CacheQueryOptions.ignoreMethod" $ CacheQueryOptions.prim__ignoreMethod a
+  ignoreMethod a = tryJS "CacheQueryOptions.ignoreMethod"
+                 $ CacheQueryOptions.prim__ignoreMethod a
   
   export
   setIgnoreMethod :  (obj : CacheQueryOptions)
                   -> (value : Optional Bool)
                   -> JSIO ()
-  setIgnoreMethod a b = primJS $ CacheQueryOptions.prim__setIgnoreMethod a
-                                                                         (toFFI b)
+  setIgnoreMethod a b = primJS
+                      $ CacheQueryOptions.prim__setIgnoreMethod a (toFFI b)
 
   export
   setIgnoreMethod' : (obj : CacheQueryOptions) -> JSIO ()
-  setIgnoreMethod' a = setIgnoreMethod a Undef
+  setIgnoreMethod' a = primJS $ CacheQueryOptions.prim__setIgnoreMethod a undef
   
   export
   ignoreSearch : (obj : CacheQueryOptions) -> JSIO $ Optional Bool
-  ignoreSearch a = tryJS "CacheQueryOptions.ignoreSearch" $ CacheQueryOptions.prim__ignoreSearch a
+  ignoreSearch a = tryJS "CacheQueryOptions.ignoreSearch"
+                 $ CacheQueryOptions.prim__ignoreSearch a
   
   export
   setIgnoreSearch :  (obj : CacheQueryOptions)
                   -> (value : Optional Bool)
                   -> JSIO ()
-  setIgnoreSearch a b = primJS $ CacheQueryOptions.prim__setIgnoreSearch a
-                                                                         (toFFI b)
+  setIgnoreSearch a b = primJS
+                      $ CacheQueryOptions.prim__setIgnoreSearch a (toFFI b)
 
   export
   setIgnoreSearch' : (obj : CacheQueryOptions) -> JSIO ()
-  setIgnoreSearch' a = setIgnoreSearch a Undef
+  setIgnoreSearch' a = primJS $ CacheQueryOptions.prim__setIgnoreSearch a undef
   
   export
   ignoreVary : (obj : CacheQueryOptions) -> JSIO $ Optional Bool
-  ignoreVary a = tryJS "CacheQueryOptions.ignoreVary" $ CacheQueryOptions.prim__ignoreVary a
+  ignoreVary a = tryJS "CacheQueryOptions.ignoreVary"
+               $ CacheQueryOptions.prim__ignoreVary a
   
   export
   setIgnoreVary :  (obj : CacheQueryOptions)
@@ -693,7 +719,7 @@ namespace CacheQueryOptions
 
   export
   setIgnoreVary' : (obj : CacheQueryOptions) -> JSIO ()
-  setIgnoreVary' a = setIgnoreVary a Undef
+  setIgnoreVary' a = primJS $ CacheQueryOptions.prim__setIgnoreVary a undef
 
 namespace ClientQueryOptions
   
@@ -711,22 +737,26 @@ namespace ClientQueryOptions
 
   export
   new' : JSIO ClientQueryOptions
-  new' = new Undef Undef
+  new' = primJS $ ClientQueryOptions.prim__new undef undef
   
   export
   includeUncontrolled : (obj : ClientQueryOptions) -> JSIO $ Optional Bool
-  includeUncontrolled a = tryJS "ClientQueryOptions.includeUncontrolled" $ ClientQueryOptions.prim__includeUncontrolled a
+  includeUncontrolled a = tryJS "ClientQueryOptions.includeUncontrolled"
+                        $ ClientQueryOptions.prim__includeUncontrolled a
   
   export
   setIncludeUncontrolled :  (obj : ClientQueryOptions)
                          -> (value : Optional Bool)
                          -> JSIO ()
-  setIncludeUncontrolled a b = primJS $ ClientQueryOptions.prim__setIncludeUncontrolled a
-                                                                                        (toFFI b)
+  setIncludeUncontrolled a b = primJS
+                             $ ClientQueryOptions.prim__setIncludeUncontrolled a
+                                                                               (toFFI b)
 
   export
   setIncludeUncontrolled' : (obj : ClientQueryOptions) -> JSIO ()
-  setIncludeUncontrolled' a = setIncludeUncontrolled a Undef
+  setIncludeUncontrolled' a = primJS
+                            $ ClientQueryOptions.prim__setIncludeUncontrolled a
+                                                                              undef
   
   export
   type : (obj : ClientQueryOptions) -> JSIO $ Optional ClientType
@@ -740,7 +770,7 @@ namespace ClientQueryOptions
 
   export
   setType' : (obj : ClientQueryOptions) -> JSIO ()
-  setType' a = setType a Undef
+  setType' a = primJS $ ClientQueryOptions.prim__setType a undef
 
 namespace ExtendableEventInit
   
@@ -772,19 +802,22 @@ namespace ExtendableMessageEventInit
                                          ])))
       -> (ports : Optional (Array MessagePort))
       -> JSIO ExtendableMessageEventInit
-  new a b c d e = primJS $ ExtendableMessageEventInit.prim__new (toFFI a)
-                                                                (toFFI b)
-                                                                (toFFI c)
-                                                                (toFFI d)
-                                                                (toFFI e)
+  new a b c d e = primJS
+                $ ExtendableMessageEventInit.prim__new (toFFI a)
+                                                       (toFFI b)
+                                                       (toFFI c)
+                                                       (toFFI d)
+                                                       (toFFI e)
 
   export
   new' : JSIO ExtendableMessageEventInit
-  new' = new Undef Undef Undef Undef Undef
+  new' = primJS
+       $ ExtendableMessageEventInit.prim__new undef undef undef undef undef
   
   export
   data_ : (obj : ExtendableMessageEventInit) -> JSIO $ Optional AnyPtr
-  data_ a = tryJS "ExtendableMessageEventInit.data_" $ ExtendableMessageEventInit.prim__data a
+  data_ a = tryJS "ExtendableMessageEventInit.data_"
+          $ ExtendableMessageEventInit.prim__data a
   
   export
   setData :  (obj : ExtendableMessageEventInit)
@@ -794,42 +827,47 @@ namespace ExtendableMessageEventInit
 
   export
   setData' : (obj : ExtendableMessageEventInit) -> JSIO ()
-  setData' a = setData a Undef
+  setData' a = primJS $ ExtendableMessageEventInit.prim__setData a undef
   
   export
   lastEventId : (obj : ExtendableMessageEventInit) -> JSIO $ Optional String
-  lastEventId a = tryJS "ExtendableMessageEventInit.lastEventId" $ ExtendableMessageEventInit.prim__lastEventId a
+  lastEventId a = tryJS "ExtendableMessageEventInit.lastEventId"
+                $ ExtendableMessageEventInit.prim__lastEventId a
   
   export
   setLastEventId :  (obj : ExtendableMessageEventInit)
                  -> (value : Optional String)
                  -> JSIO ()
-  setLastEventId a b = primJS $ ExtendableMessageEventInit.prim__setLastEventId a
-                                                                                (toFFI b)
+  setLastEventId a b = primJS
+                     $ ExtendableMessageEventInit.prim__setLastEventId a
+                                                                       (toFFI b)
 
   export
   setLastEventId' : (obj : ExtendableMessageEventInit) -> JSIO ()
-  setLastEventId' a = setLastEventId a Undef
+  setLastEventId' a = primJS
+                    $ ExtendableMessageEventInit.prim__setLastEventId a undef
   
   export
   origin : (obj : ExtendableMessageEventInit) -> JSIO $ Optional String
-  origin a = tryJS "ExtendableMessageEventInit.origin" $ ExtendableMessageEventInit.prim__origin a
+  origin a = tryJS "ExtendableMessageEventInit.origin"
+           $ ExtendableMessageEventInit.prim__origin a
   
   export
   setOrigin :  (obj : ExtendableMessageEventInit)
             -> (value : Optional String)
             -> JSIO ()
-  setOrigin a b = primJS $ ExtendableMessageEventInit.prim__setOrigin a
-                                                                      (toFFI b)
+  setOrigin a b = primJS
+                $ ExtendableMessageEventInit.prim__setOrigin a (toFFI b)
 
   export
   setOrigin' : (obj : ExtendableMessageEventInit) -> JSIO ()
-  setOrigin' a = setOrigin a Undef
+  setOrigin' a = primJS $ ExtendableMessageEventInit.prim__setOrigin a undef
   
   export
   ports :  (obj : ExtendableMessageEventInit)
         -> JSIO $ Optional (Array MessagePort)
-  ports a = tryJS "ExtendableMessageEventInit.ports" $ ExtendableMessageEventInit.prim__ports a
+  ports a = tryJS "ExtendableMessageEventInit.ports"
+          $ ExtendableMessageEventInit.prim__ports a
   
   export
   setPorts :  (obj : ExtendableMessageEventInit)
@@ -839,7 +877,7 @@ namespace ExtendableMessageEventInit
 
   export
   setPorts' : (obj : ExtendableMessageEventInit) -> JSIO ()
-  setPorts' a = setPorts a Undef
+  setPorts' a = primJS $ ExtendableMessageEventInit.prim__setPorts a undef
   
   export
   source :  (obj : ExtendableMessageEventInit)
@@ -847,7 +885,8 @@ namespace ExtendableMessageEventInit
                                          , ServiceWorker
                                          , MessagePort
                                          ]))
-  source a = tryJS "ExtendableMessageEventInit.source" $ ExtendableMessageEventInit.prim__source a
+  source a = tryJS "ExtendableMessageEventInit.source"
+           $ ExtendableMessageEventInit.prim__source a
   
   export
   setSource :  (obj : ExtendableMessageEventInit)
@@ -856,12 +895,12 @@ namespace ExtendableMessageEventInit
                                               , MessagePort
                                               ])))
             -> JSIO ()
-  setSource a b = primJS $ ExtendableMessageEventInit.prim__setSource a
-                                                                      (toFFI b)
+  setSource a b = primJS
+                $ ExtendableMessageEventInit.prim__setSource a (toFFI b)
 
   export
   setSource' : (obj : ExtendableMessageEventInit) -> JSIO ()
-  setSource' a = setSource a Undef
+  setSource' a = primJS $ ExtendableMessageEventInit.prim__setSource a undef
 
 namespace FetchEventInit
   
@@ -879,16 +918,17 @@ namespace FetchEventInit
       -> (replacesClientId : Optional String)
       -> (handled : Optional (Promise Undefined))
       -> JSIO FetchEventInit
-  new a b c d e f = primJS $ FetchEventInit.prim__new a
-                                                      (toFFI b)
-                                                      (toFFI c)
-                                                      (toFFI d)
-                                                      (toFFI e)
-                                                      (toFFI f)
+  new a b c d e f = primJS
+                  $ FetchEventInit.prim__new a
+                                             (toFFI b)
+                                             (toFFI c)
+                                             (toFFI d)
+                                             (toFFI e)
+                                             (toFFI f)
 
   export
   new' : (request : Request) -> JSIO FetchEventInit
-  new' a = new a Undef Undef Undef Undef Undef
+  new' a = primJS $ FetchEventInit.prim__new a undef undef undef undef undef
   
   export
   clientId : (obj : FetchEventInit) -> JSIO $ Optional String
@@ -900,7 +940,7 @@ namespace FetchEventInit
 
   export
   setClientId' : (obj : FetchEventInit) -> JSIO ()
-  setClientId' a = setClientId a Undef
+  setClientId' a = primJS $ FetchEventInit.prim__setClientId a undef
   
   export
   handled : (obj : FetchEventInit) -> JSIO $ Optional (Promise Undefined)
@@ -914,37 +954,41 @@ namespace FetchEventInit
 
   export
   setHandled' : (obj : FetchEventInit) -> JSIO ()
-  setHandled' a = setHandled a Undef
+  setHandled' a = primJS $ FetchEventInit.prim__setHandled a undef
   
   export
   preloadResponse : (obj : FetchEventInit) -> JSIO $ Optional (Promise AnyPtr)
-  preloadResponse a = tryJS "FetchEventInit.preloadResponse" $ FetchEventInit.prim__preloadResponse a
+  preloadResponse a = tryJS "FetchEventInit.preloadResponse"
+                    $ FetchEventInit.prim__preloadResponse a
   
   export
   setPreloadResponse :  (obj : FetchEventInit)
                      -> (value : Optional (Promise AnyPtr))
                      -> JSIO ()
-  setPreloadResponse a b = primJS $ FetchEventInit.prim__setPreloadResponse a
-                                                                            (toFFI b)
+  setPreloadResponse a b = primJS
+                         $ FetchEventInit.prim__setPreloadResponse a (toFFI b)
 
   export
   setPreloadResponse' : (obj : FetchEventInit) -> JSIO ()
-  setPreloadResponse' a = setPreloadResponse a Undef
+  setPreloadResponse' a = primJS
+                        $ FetchEventInit.prim__setPreloadResponse a undef
   
   export
   replacesClientId : (obj : FetchEventInit) -> JSIO $ Optional String
-  replacesClientId a = tryJS "FetchEventInit.replacesClientId" $ FetchEventInit.prim__replacesClientId a
+  replacesClientId a = tryJS "FetchEventInit.replacesClientId"
+                     $ FetchEventInit.prim__replacesClientId a
   
   export
   setReplacesClientId :  (obj : FetchEventInit)
                       -> (value : Optional String)
                       -> JSIO ()
-  setReplacesClientId a b = primJS $ FetchEventInit.prim__setReplacesClientId a
-                                                                              (toFFI b)
+  setReplacesClientId a b = primJS
+                          $ FetchEventInit.prim__setReplacesClientId a (toFFI b)
 
   export
   setReplacesClientId' : (obj : FetchEventInit) -> JSIO ()
-  setReplacesClientId' a = setReplacesClientId a Undef
+  setReplacesClientId' a = primJS
+                         $ FetchEventInit.prim__setReplacesClientId a undef
   
   export
   request : (obj : FetchEventInit) -> JSIO Request
@@ -956,18 +1000,21 @@ namespace FetchEventInit
   
   export
   resultingClientId : (obj : FetchEventInit) -> JSIO $ Optional String
-  resultingClientId a = tryJS "FetchEventInit.resultingClientId" $ FetchEventInit.prim__resultingClientId a
+  resultingClientId a = tryJS "FetchEventInit.resultingClientId"
+                      $ FetchEventInit.prim__resultingClientId a
   
   export
   setResultingClientId :  (obj : FetchEventInit)
                        -> (value : Optional String)
                        -> JSIO ()
-  setResultingClientId a b = primJS $ FetchEventInit.prim__setResultingClientId a
-                                                                                (toFFI b)
+  setResultingClientId a b = primJS
+                           $ FetchEventInit.prim__setResultingClientId a
+                                                                       (toFFI b)
 
   export
   setResultingClientId' : (obj : FetchEventInit) -> JSIO ()
-  setResultingClientId' a = setResultingClientId a Undef
+  setResultingClientId' a = primJS
+                          $ FetchEventInit.prim__setResultingClientId a undef
 
 namespace MultiCacheQueryOptions
   
@@ -983,22 +1030,23 @@ namespace MultiCacheQueryOptions
 
   export
   new' : JSIO MultiCacheQueryOptions
-  new' = new Undef
+  new' = primJS $ MultiCacheQueryOptions.prim__new undef
   
   export
   cacheName : (obj : MultiCacheQueryOptions) -> JSIO $ Optional String
-  cacheName a = tryJS "MultiCacheQueryOptions.cacheName" $ MultiCacheQueryOptions.prim__cacheName a
+  cacheName a = tryJS "MultiCacheQueryOptions.cacheName"
+              $ MultiCacheQueryOptions.prim__cacheName a
   
   export
   setCacheName :  (obj : MultiCacheQueryOptions)
                -> (value : Optional String)
                -> JSIO ()
-  setCacheName a b = primJS $ MultiCacheQueryOptions.prim__setCacheName a
-                                                                        (toFFI b)
+  setCacheName a b = primJS
+                   $ MultiCacheQueryOptions.prim__setCacheName a (toFFI b)
 
   export
   setCacheName' : (obj : MultiCacheQueryOptions) -> JSIO ()
-  setCacheName' a = setCacheName a Undef
+  setCacheName' a = primJS $ MultiCacheQueryOptions.prim__setCacheName a undef
 
 namespace NavigationPreloadState
   
@@ -1016,11 +1064,12 @@ namespace NavigationPreloadState
 
   export
   new' : JSIO NavigationPreloadState
-  new' = new Undef Undef
+  new' = primJS $ NavigationPreloadState.prim__new undef undef
   
   export
   enabled : (obj : NavigationPreloadState) -> JSIO $ Optional Bool
-  enabled a = tryJS "NavigationPreloadState.enabled" $ NavigationPreloadState.prim__enabled a
+  enabled a = tryJS "NavigationPreloadState.enabled"
+            $ NavigationPreloadState.prim__enabled a
   
   export
   setEnabled :  (obj : NavigationPreloadState)
@@ -1030,22 +1079,24 @@ namespace NavigationPreloadState
 
   export
   setEnabled' : (obj : NavigationPreloadState) -> JSIO ()
-  setEnabled' a = setEnabled a Undef
+  setEnabled' a = primJS $ NavigationPreloadState.prim__setEnabled a undef
   
   export
   headerValue : (obj : NavigationPreloadState) -> JSIO $ Optional ByteString
-  headerValue a = tryJS "NavigationPreloadState.headerValue" $ NavigationPreloadState.prim__headerValue a
+  headerValue a = tryJS "NavigationPreloadState.headerValue"
+                $ NavigationPreloadState.prim__headerValue a
   
   export
   setHeaderValue :  (obj : NavigationPreloadState)
                  -> (value : Optional ByteString)
                  -> JSIO ()
-  setHeaderValue a b = primJS $ NavigationPreloadState.prim__setHeaderValue a
-                                                                            (toFFI b)
+  setHeaderValue a b = primJS
+                     $ NavigationPreloadState.prim__setHeaderValue a (toFFI b)
 
   export
   setHeaderValue' : (obj : NavigationPreloadState) -> JSIO ()
-  setHeaderValue' a = setHeaderValue a Undef
+  setHeaderValue' a = primJS
+                    $ NavigationPreloadState.prim__setHeaderValue a undef
 
 namespace RegistrationOptions
   
@@ -1060,17 +1111,17 @@ namespace RegistrationOptions
       -> (type : Optional WorkerType)
       -> (updateViaCache : Optional ServiceWorkerUpdateViaCache)
       -> JSIO RegistrationOptions
-  new a b c = primJS $ RegistrationOptions.prim__new (toFFI a)
-                                                     (toFFI b)
-                                                     (toFFI c)
+  new a b c = primJS
+            $ RegistrationOptions.prim__new (toFFI a) (toFFI b) (toFFI c)
 
   export
   new' : JSIO RegistrationOptions
-  new' = new Undef Undef Undef
+  new' = primJS $ RegistrationOptions.prim__new undef undef undef
   
   export
   scope : (obj : RegistrationOptions) -> JSIO $ Optional String
-  scope a = tryJS "RegistrationOptions.scope" $ RegistrationOptions.prim__scope a
+  scope a = tryJS "RegistrationOptions.scope"
+          $ RegistrationOptions.prim__scope a
   
   export
   setScope : (obj : RegistrationOptions) -> (value : Optional String) -> JSIO ()
@@ -1078,7 +1129,7 @@ namespace RegistrationOptions
 
   export
   setScope' : (obj : RegistrationOptions) -> JSIO ()
-  setScope' a = setScope a Undef
+  setScope' a = primJS $ RegistrationOptions.prim__setScope a undef
   
   export
   type : (obj : RegistrationOptions) -> JSIO $ Optional WorkerType
@@ -1092,20 +1143,23 @@ namespace RegistrationOptions
 
   export
   setType' : (obj : RegistrationOptions) -> JSIO ()
-  setType' a = setType a Undef
+  setType' a = primJS $ RegistrationOptions.prim__setType a undef
   
   export
   updateViaCache :  (obj : RegistrationOptions)
                  -> JSIO $ Optional ServiceWorkerUpdateViaCache
-  updateViaCache a = tryJS "RegistrationOptions.updateViaCache" $ RegistrationOptions.prim__updateViaCache a
+  updateViaCache a = tryJS "RegistrationOptions.updateViaCache"
+                   $ RegistrationOptions.prim__updateViaCache a
   
   export
   setUpdateViaCache :  (obj : RegistrationOptions)
                     -> (value : Optional ServiceWorkerUpdateViaCache)
                     -> JSIO ()
-  setUpdateViaCache a b = primJS $ RegistrationOptions.prim__setUpdateViaCache a
-                                                                               (toFFI b)
+  setUpdateViaCache a b = primJS
+                        $ RegistrationOptions.prim__setUpdateViaCache a
+                                                                      (toFFI b)
 
   export
   setUpdateViaCache' : (obj : RegistrationOptions) -> JSIO ()
-  setUpdateViaCache' a = setUpdateViaCache a Undef
+  setUpdateViaCache' a = primJS
+                       $ RegistrationOptions.prim__setUpdateViaCache a undef

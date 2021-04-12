@@ -1240,8 +1240,9 @@ namespace WebGL2RenderingContextBase
   beginTransformFeedback :  (obj : WebGL2RenderingContextBase)
                          -> (primitiveMode : UInt32)
                          -> JSIO ()
-  beginTransformFeedback a b = primJS $ WebGL2RenderingContextBase.prim__beginTransformFeedback a
-                                                                                                b
+  beginTransformFeedback a b = primJS
+                             $ WebGL2RenderingContextBase.prim__beginTransformFeedback a
+                                                                                       b
   
   export
   bindBufferBase :  (obj : WebGL2RenderingContextBase)
@@ -1249,10 +1250,11 @@ namespace WebGL2RenderingContextBase
                  -> (index : UInt32)
                  -> (buffer : Maybe WebGLBuffer)
                  -> JSIO ()
-  bindBufferBase a b c d = primJS $ WebGL2RenderingContextBase.prim__bindBufferBase a
-                                                                                    b
-                                                                                    c
-                                                                                    (toFFI d)
+  bindBufferBase a b c d = primJS
+                         $ WebGL2RenderingContextBase.prim__bindBufferBase a
+                                                                           b
+                                                                           c
+                                                                           (toFFI d)
   
   export
   bindBufferRange :  (obj : WebGL2RenderingContextBase)
@@ -1262,37 +1264,39 @@ namespace WebGL2RenderingContextBase
                   -> (offset : Int64)
                   -> (size : Int64)
                   -> JSIO ()
-  bindBufferRange a b c d e f = primJS $ WebGL2RenderingContextBase.prim__bindBufferRange a
-                                                                                          b
-                                                                                          c
-                                                                                          (toFFI d)
-                                                                                          e
-                                                                                          f
+  bindBufferRange a b c d e f = primJS
+                              $ WebGL2RenderingContextBase.prim__bindBufferRange a
+                                                                                 b
+                                                                                 c
+                                                                                 (toFFI d)
+                                                                                 e
+                                                                                 f
   
   export
   bindSampler :  (obj : WebGL2RenderingContextBase)
               -> (unit : UInt32)
               -> (sampler : Maybe WebGLSampler)
               -> JSIO ()
-  bindSampler a b c = primJS $ WebGL2RenderingContextBase.prim__bindSampler a
-                                                                            b
-                                                                            (toFFI c)
+  bindSampler a b c = primJS
+                    $ WebGL2RenderingContextBase.prim__bindSampler a b (toFFI c)
   
   export
   bindTransformFeedback :  (obj : WebGL2RenderingContextBase)
                         -> (target : UInt32)
                         -> (tf : Maybe WebGLTransformFeedback)
                         -> JSIO ()
-  bindTransformFeedback a b c = primJS $ WebGL2RenderingContextBase.prim__bindTransformFeedback a
-                                                                                                b
-                                                                                                (toFFI c)
+  bindTransformFeedback a b c = primJS
+                              $ WebGL2RenderingContextBase.prim__bindTransformFeedback a
+                                                                                       b
+                                                                                       (toFFI c)
   
   export
   bindVertexArray :  (obj : WebGL2RenderingContextBase)
                   -> (array : Maybe WebGLVertexArrayObject)
                   -> JSIO ()
-  bindVertexArray a b = primJS $ WebGL2RenderingContextBase.prim__bindVertexArray a
-                                                                                  (toFFI b)
+  bindVertexArray a b = primJS
+                      $ WebGL2RenderingContextBase.prim__bindVertexArray a
+                                                                         (toFFI b)
   
   export
   blitFramebuffer :  (obj : WebGL2RenderingContextBase)
@@ -1307,17 +1311,18 @@ namespace WebGL2RenderingContextBase
                   -> (mask : UInt32)
                   -> (filter : UInt32)
                   -> JSIO ()
-  blitFramebuffer a b c d e f g h i j k = primJS $ WebGL2RenderingContextBase.prim__blitFramebuffer a
-                                                                                                    b
-                                                                                                    c
-                                                                                                    d
-                                                                                                    e
-                                                                                                    f
-                                                                                                    g
-                                                                                                    h
-                                                                                                    i
-                                                                                                    j
-                                                                                                    k
+  blitFramebuffer a b c d e f g h i j k = primJS
+                                        $ WebGL2RenderingContextBase.prim__blitFramebuffer a
+                                                                                           b
+                                                                                           c
+                                                                                           d
+                                                                                           e
+                                                                                           f
+                                                                                           g
+                                                                                           h
+                                                                                           i
+                                                                                           j
+                                                                                           k
   
   export
   clearBufferfi :  (obj : WebGL2RenderingContextBase)
@@ -1326,11 +1331,12 @@ namespace WebGL2RenderingContextBase
                 -> (depth : Double)
                 -> (stencil : Int32)
                 -> JSIO ()
-  clearBufferfi a b c d e = primJS $ WebGL2RenderingContextBase.prim__clearBufferfi a
-                                                                                    b
-                                                                                    c
-                                                                                    d
-                                                                                    e
+  clearBufferfi a b c d e = primJS
+                          $ WebGL2RenderingContextBase.prim__clearBufferfi a
+                                                                           b
+                                                                           c
+                                                                           d
+                                                                           e
   
   export
   clearBufferfv :  (obj : WebGL2RenderingContextBase)
@@ -1339,11 +1345,12 @@ namespace WebGL2RenderingContextBase
                 -> (values : NS I [ Float32Array , Array Double ])
                 -> (srcOffset : Optional UInt32)
                 -> JSIO ()
-  clearBufferfv a b c d e = primJS $ WebGL2RenderingContextBase.prim__clearBufferfv a
-                                                                                    b
-                                                                                    c
-                                                                                    (toFFI d)
-                                                                                    (toFFI e)
+  clearBufferfv a b c d e = primJS
+                          $ WebGL2RenderingContextBase.prim__clearBufferfv a
+                                                                           b
+                                                                           c
+                                                                           (toFFI d)
+                                                                           (toFFI e)
 
   export
   clearBufferfv' :  (obj : WebGL2RenderingContextBase)
@@ -1351,7 +1358,12 @@ namespace WebGL2RenderingContextBase
                  -> (drawbuffer : Int32)
                  -> (values : NS I [ Float32Array , Array Double ])
                  -> JSIO ()
-  clearBufferfv' a b c d = clearBufferfv a b c d Undef
+  clearBufferfv' a b c d = primJS
+                         $ WebGL2RenderingContextBase.prim__clearBufferfv a
+                                                                          b
+                                                                          c
+                                                                          (toFFI d)
+                                                                          undef
   
   export
   clearBufferiv :  (obj : WebGL2RenderingContextBase)
@@ -1360,11 +1372,12 @@ namespace WebGL2RenderingContextBase
                 -> (values : NS I [ Int32Array , Array Int32 ])
                 -> (srcOffset : Optional UInt32)
                 -> JSIO ()
-  clearBufferiv a b c d e = primJS $ WebGL2RenderingContextBase.prim__clearBufferiv a
-                                                                                    b
-                                                                                    c
-                                                                                    (toFFI d)
-                                                                                    (toFFI e)
+  clearBufferiv a b c d e = primJS
+                          $ WebGL2RenderingContextBase.prim__clearBufferiv a
+                                                                           b
+                                                                           c
+                                                                           (toFFI d)
+                                                                           (toFFI e)
 
   export
   clearBufferiv' :  (obj : WebGL2RenderingContextBase)
@@ -1372,7 +1385,12 @@ namespace WebGL2RenderingContextBase
                  -> (drawbuffer : Int32)
                  -> (values : NS I [ Int32Array , Array Int32 ])
                  -> JSIO ()
-  clearBufferiv' a b c d = clearBufferiv a b c d Undef
+  clearBufferiv' a b c d = primJS
+                         $ WebGL2RenderingContextBase.prim__clearBufferiv a
+                                                                          b
+                                                                          c
+                                                                          (toFFI d)
+                                                                          undef
   
   export
   clearBufferuiv :  (obj : WebGL2RenderingContextBase)
@@ -1381,11 +1399,12 @@ namespace WebGL2RenderingContextBase
                  -> (values : NS I [ UInt8Array , Array UInt32 ])
                  -> (srcOffset : Optional UInt32)
                  -> JSIO ()
-  clearBufferuiv a b c d e = primJS $ WebGL2RenderingContextBase.prim__clearBufferuiv a
-                                                                                      b
-                                                                                      c
-                                                                                      (toFFI d)
-                                                                                      (toFFI e)
+  clearBufferuiv a b c d e = primJS
+                           $ WebGL2RenderingContextBase.prim__clearBufferuiv a
+                                                                             b
+                                                                             c
+                                                                             (toFFI d)
+                                                                             (toFFI e)
 
   export
   clearBufferuiv' :  (obj : WebGL2RenderingContextBase)
@@ -1393,7 +1412,12 @@ namespace WebGL2RenderingContextBase
                   -> (drawbuffer : Int32)
                   -> (values : NS I [ UInt8Array , Array UInt32 ])
                   -> JSIO ()
-  clearBufferuiv' a b c d = clearBufferuiv a b c d Undef
+  clearBufferuiv' a b c d = primJS
+                          $ WebGL2RenderingContextBase.prim__clearBufferuiv a
+                                                                            b
+                                                                            c
+                                                                            (toFFI d)
+                                                                            undef
   
   export
   clientWaitSync :  (obj : WebGL2RenderingContextBase)
@@ -1401,10 +1425,11 @@ namespace WebGL2RenderingContextBase
                  -> (flags : UInt32)
                  -> (timeout : UInt64)
                  -> JSIO UInt32
-  clientWaitSync a b c d = primJS $ WebGL2RenderingContextBase.prim__clientWaitSync a
-                                                                                    b
-                                                                                    c
-                                                                                    d
+  clientWaitSync a b c d = primJS
+                         $ WebGL2RenderingContextBase.prim__clientWaitSync a
+                                                                           b
+                                                                           c
+                                                                           d
   
   export
   compressedTexImage3D :  (obj : WebGL2RenderingContextBase)
@@ -1418,16 +1443,17 @@ namespace WebGL2RenderingContextBase
                        -> (imageSize : Int32)
                        -> (offset : Int64)
                        -> JSIO ()
-  compressedTexImage3D a b c d e f g h i j = primJS $ WebGL2RenderingContextBase.prim__compressedTexImage3D a
-                                                                                                            b
-                                                                                                            c
-                                                                                                            d
-                                                                                                            e
-                                                                                                            f
-                                                                                                            g
-                                                                                                            h
-                                                                                                            i
-                                                                                                            j
+  compressedTexImage3D a b c d e f g h i j = primJS
+                                           $ WebGL2RenderingContextBase.prim__compressedTexImage3D a
+                                                                                                   b
+                                                                                                   c
+                                                                                                   d
+                                                                                                   e
+                                                                                                   f
+                                                                                                   g
+                                                                                                   h
+                                                                                                   i
+                                                                                                   j
   
   export
   compressedTexImage3D1 :  (obj : WebGL2RenderingContextBase)
@@ -1452,17 +1478,18 @@ namespace WebGL2RenderingContextBase
                         -> (srcOffset : Optional UInt32)
                         -> (srcLengthOverride : Optional UInt32)
                         -> JSIO ()
-  compressedTexImage3D1 a b c d e f g h i j k = primJS $ WebGL2RenderingContextBase.prim__compressedTexImage3D1 a
-                                                                                                                b
-                                                                                                                c
-                                                                                                                d
-                                                                                                                e
-                                                                                                                f
-                                                                                                                g
-                                                                                                                h
-                                                                                                                (toFFI i)
-                                                                                                                (toFFI j)
-                                                                                                                (toFFI k)
+  compressedTexImage3D1 a b c d e f g h i j k = primJS
+                                              $ WebGL2RenderingContextBase.prim__compressedTexImage3D1 a
+                                                                                                       b
+                                                                                                       c
+                                                                                                       d
+                                                                                                       e
+                                                                                                       f
+                                                                                                       g
+                                                                                                       h
+                                                                                                       (toFFI i)
+                                                                                                       (toFFI j)
+                                                                                                       (toFFI k)
 
   export
   compressedTexImage3D1' :  (obj : WebGL2RenderingContextBase)
@@ -1485,17 +1512,18 @@ namespace WebGL2RenderingContextBase
                                             , DataView
                                             ])
                          -> JSIO ()
-  compressedTexImage3D1' a b c d e f g h i = compressedTexImage3D1 a
-                                                                   b
-                                                                   c
-                                                                   d
-                                                                   e
-                                                                   f
-                                                                   g
-                                                                   h
-                                                                   i
-                                                                   Undef
-                                                                   Undef
+  compressedTexImage3D1' a b c d e f g h i = primJS
+                                           $ WebGL2RenderingContextBase.prim__compressedTexImage3D1 a
+                                                                                                    b
+                                                                                                    c
+                                                                                                    d
+                                                                                                    e
+                                                                                                    f
+                                                                                                    g
+                                                                                                    h
+                                                                                                    (toFFI i)
+                                                                                                    undef
+                                                                                                    undef
   
   export
   compressedTexSubImage3D :  (obj : WebGL2RenderingContextBase)
@@ -1511,18 +1539,19 @@ namespace WebGL2RenderingContextBase
                           -> (imageSize : Int32)
                           -> (offset : Int64)
                           -> JSIO ()
-  compressedTexSubImage3D a b c d e f g h i j k l = primJS $ WebGL2RenderingContextBase.prim__compressedTexSubImage3D a
-                                                                                                                      b
-                                                                                                                      c
-                                                                                                                      d
-                                                                                                                      e
-                                                                                                                      f
-                                                                                                                      g
-                                                                                                                      h
-                                                                                                                      i
-                                                                                                                      j
-                                                                                                                      k
-                                                                                                                      l
+  compressedTexSubImage3D a b c d e f g h i j k l = primJS
+                                                  $ WebGL2RenderingContextBase.prim__compressedTexSubImage3D a
+                                                                                                             b
+                                                                                                             c
+                                                                                                             d
+                                                                                                             e
+                                                                                                             f
+                                                                                                             g
+                                                                                                             h
+                                                                                                             i
+                                                                                                             j
+                                                                                                             k
+                                                                                                             l
   
   export
   compressedTexSubImage3D1 :  (obj : WebGL2RenderingContextBase)
@@ -1549,19 +1578,20 @@ namespace WebGL2RenderingContextBase
                            -> (srcOffset : Optional UInt32)
                            -> (srcLengthOverride : Optional UInt32)
                            -> JSIO ()
-  compressedTexSubImage3D1 a b c d e f g h i j k l m = primJS $ WebGL2RenderingContextBase.prim__compressedTexSubImage3D1 a
-                                                                                                                          b
-                                                                                                                          c
-                                                                                                                          d
-                                                                                                                          e
-                                                                                                                          f
-                                                                                                                          g
-                                                                                                                          h
-                                                                                                                          i
-                                                                                                                          j
-                                                                                                                          (toFFI k)
-                                                                                                                          (toFFI l)
-                                                                                                                          (toFFI m)
+  compressedTexSubImage3D1 a b c d e f g h i j k l m = primJS
+                                                     $ WebGL2RenderingContextBase.prim__compressedTexSubImage3D1 a
+                                                                                                                 b
+                                                                                                                 c
+                                                                                                                 d
+                                                                                                                 e
+                                                                                                                 f
+                                                                                                                 g
+                                                                                                                 h
+                                                                                                                 i
+                                                                                                                 j
+                                                                                                                 (toFFI k)
+                                                                                                                 (toFFI l)
+                                                                                                                 (toFFI m)
 
   export
   compressedTexSubImage3D1' :  (obj : WebGL2RenderingContextBase)
@@ -1586,19 +1616,20 @@ namespace WebGL2RenderingContextBase
                                                , DataView
                                                ])
                             -> JSIO ()
-  compressedTexSubImage3D1' a b c d e f g h i j k = compressedTexSubImage3D1 a
-                                                                             b
-                                                                             c
-                                                                             d
-                                                                             e
-                                                                             f
-                                                                             g
-                                                                             h
-                                                                             i
-                                                                             j
-                                                                             k
-                                                                             Undef
-                                                                             Undef
+  compressedTexSubImage3D1' a b c d e f g h i j k = primJS
+                                                  $ WebGL2RenderingContextBase.prim__compressedTexSubImage3D1 a
+                                                                                                              b
+                                                                                                              c
+                                                                                                              d
+                                                                                                              e
+                                                                                                              f
+                                                                                                              g
+                                                                                                              h
+                                                                                                              i
+                                                                                                              j
+                                                                                                              (toFFI k)
+                                                                                                              undef
+                                                                                                              undef
   
   export
   copyBufferSubData :  (obj : WebGL2RenderingContextBase)
@@ -1608,12 +1639,13 @@ namespace WebGL2RenderingContextBase
                     -> (writeOffset : Int64)
                     -> (size : Int64)
                     -> JSIO ()
-  copyBufferSubData a b c d e f = primJS $ WebGL2RenderingContextBase.prim__copyBufferSubData a
-                                                                                              b
-                                                                                              c
-                                                                                              d
-                                                                                              e
-                                                                                              f
+  copyBufferSubData a b c d e f = primJS
+                                $ WebGL2RenderingContextBase.prim__copyBufferSubData a
+                                                                                     b
+                                                                                     c
+                                                                                     d
+                                                                                     e
+                                                                                     f
   
   export
   copyTexSubImage3D :  (obj : WebGL2RenderingContextBase)
@@ -1627,70 +1659,77 @@ namespace WebGL2RenderingContextBase
                     -> (width : Int32)
                     -> (height : Int32)
                     -> JSIO ()
-  copyTexSubImage3D a b c d e f g h i j = primJS $ WebGL2RenderingContextBase.prim__copyTexSubImage3D a
-                                                                                                      b
-                                                                                                      c
-                                                                                                      d
-                                                                                                      e
-                                                                                                      f
-                                                                                                      g
-                                                                                                      h
-                                                                                                      i
-                                                                                                      j
+  copyTexSubImage3D a b c d e f g h i j = primJS
+                                        $ WebGL2RenderingContextBase.prim__copyTexSubImage3D a
+                                                                                             b
+                                                                                             c
+                                                                                             d
+                                                                                             e
+                                                                                             f
+                                                                                             g
+                                                                                             h
+                                                                                             i
+                                                                                             j
   
   export
   createQuery : (obj : WebGL2RenderingContextBase) -> JSIO (Maybe WebGLQuery)
-  createQuery a = tryJS "WebGL2RenderingContextBase.createQuery" $ WebGL2RenderingContextBase.prim__createQuery a
+  createQuery a = tryJS "WebGL2RenderingContextBase.createQuery"
+                $ WebGL2RenderingContextBase.prim__createQuery a
   
   export
   createSampler :  (obj : WebGL2RenderingContextBase)
                 -> JSIO (Maybe WebGLSampler)
-  createSampler a = tryJS "WebGL2RenderingContextBase.createSampler" $ WebGL2RenderingContextBase.prim__createSampler a
+  createSampler a = tryJS "WebGL2RenderingContextBase.createSampler"
+                  $ WebGL2RenderingContextBase.prim__createSampler a
   
   export
   createTransformFeedback :  (obj : WebGL2RenderingContextBase)
                           -> JSIO (Maybe WebGLTransformFeedback)
-  createTransformFeedback a = tryJS "WebGL2RenderingContextBase.createTransformFeedback" $ WebGL2RenderingContextBase.prim__createTransformFeedback a
+  createTransformFeedback a = tryJS "WebGL2RenderingContextBase.createTransformFeedback"
+                            $ WebGL2RenderingContextBase.prim__createTransformFeedback a
   
   export
   createVertexArray :  (obj : WebGL2RenderingContextBase)
                     -> JSIO (Maybe WebGLVertexArrayObject)
-  createVertexArray a = tryJS "WebGL2RenderingContextBase.createVertexArray" $ WebGL2RenderingContextBase.prim__createVertexArray a
+  createVertexArray a = tryJS "WebGL2RenderingContextBase.createVertexArray"
+                      $ WebGL2RenderingContextBase.prim__createVertexArray a
   
   export
   deleteQuery :  (obj : WebGL2RenderingContextBase)
               -> (query : Maybe WebGLQuery)
               -> JSIO ()
-  deleteQuery a b = primJS $ WebGL2RenderingContextBase.prim__deleteQuery a
-                                                                          (toFFI b)
+  deleteQuery a b = primJS
+                  $ WebGL2RenderingContextBase.prim__deleteQuery a (toFFI b)
   
   export
   deleteSampler :  (obj : WebGL2RenderingContextBase)
                 -> (sampler : Maybe WebGLSampler)
                 -> JSIO ()
-  deleteSampler a b = primJS $ WebGL2RenderingContextBase.prim__deleteSampler a
-                                                                              (toFFI b)
+  deleteSampler a b = primJS
+                    $ WebGL2RenderingContextBase.prim__deleteSampler a (toFFI b)
   
   export
   deleteSync :  (obj : WebGL2RenderingContextBase)
              -> (sync : Maybe WebGLSync)
              -> JSIO ()
-  deleteSync a b = primJS $ WebGL2RenderingContextBase.prim__deleteSync a
-                                                                        (toFFI b)
+  deleteSync a b = primJS
+                 $ WebGL2RenderingContextBase.prim__deleteSync a (toFFI b)
   
   export
   deleteTransformFeedback :  (obj : WebGL2RenderingContextBase)
                           -> (tf : Maybe WebGLTransformFeedback)
                           -> JSIO ()
-  deleteTransformFeedback a b = primJS $ WebGL2RenderingContextBase.prim__deleteTransformFeedback a
-                                                                                                  (toFFI b)
+  deleteTransformFeedback a b = primJS
+                              $ WebGL2RenderingContextBase.prim__deleteTransformFeedback a
+                                                                                         (toFFI b)
   
   export
   deleteVertexArray :  (obj : WebGL2RenderingContextBase)
                     -> (vertexArray : Maybe WebGLVertexArrayObject)
                     -> JSIO ()
-  deleteVertexArray a b = primJS $ WebGL2RenderingContextBase.prim__deleteVertexArray a
-                                                                                      (toFFI b)
+  deleteVertexArray a b = primJS
+                        $ WebGL2RenderingContextBase.prim__deleteVertexArray a
+                                                                             (toFFI b)
   
   export
   drawArraysInstanced :  (obj : WebGL2RenderingContextBase)
@@ -1699,11 +1738,12 @@ namespace WebGL2RenderingContextBase
                       -> (count : Int32)
                       -> (instanceCount : Int32)
                       -> JSIO ()
-  drawArraysInstanced a b c d e = primJS $ WebGL2RenderingContextBase.prim__drawArraysInstanced a
-                                                                                                b
-                                                                                                c
-                                                                                                d
-                                                                                                e
+  drawArraysInstanced a b c d e = primJS
+                                $ WebGL2RenderingContextBase.prim__drawArraysInstanced a
+                                                                                       b
+                                                                                       c
+                                                                                       d
+                                                                                       e
   
   export
   drawBuffers :  (obj : WebGL2RenderingContextBase)
@@ -1719,12 +1759,13 @@ namespace WebGL2RenderingContextBase
                         -> (offset : Int64)
                         -> (instanceCount : Int32)
                         -> JSIO ()
-  drawElementsInstanced a b c d e f = primJS $ WebGL2RenderingContextBase.prim__drawElementsInstanced a
-                                                                                                      b
-                                                                                                      c
-                                                                                                      d
-                                                                                                      e
-                                                                                                      f
+  drawElementsInstanced a b c d e f = primJS
+                                    $ WebGL2RenderingContextBase.prim__drawElementsInstanced a
+                                                                                             b
+                                                                                             c
+                                                                                             d
+                                                                                             e
+                                                                                             f
   
   export
   drawRangeElements :  (obj : WebGL2RenderingContextBase)
@@ -1735,13 +1776,14 @@ namespace WebGL2RenderingContextBase
                     -> (type : UInt32)
                     -> (offset : Int64)
                     -> JSIO ()
-  drawRangeElements a b c d e f g = primJS $ WebGL2RenderingContextBase.prim__drawRangeElements a
-                                                                                                b
-                                                                                                c
-                                                                                                d
-                                                                                                e
-                                                                                                f
-                                                                                                g
+  drawRangeElements a b c d e f g = primJS
+                                  $ WebGL2RenderingContextBase.prim__drawRangeElements a
+                                                                                       b
+                                                                                       c
+                                                                                       d
+                                                                                       e
+                                                                                       f
+                                                                                       g
   
   export
   endQuery : (obj : WebGL2RenderingContextBase) -> (target : UInt32) -> JSIO ()
@@ -1749,16 +1791,16 @@ namespace WebGL2RenderingContextBase
   
   export
   endTransformFeedback : (obj : WebGL2RenderingContextBase) -> JSIO ()
-  endTransformFeedback a = primJS $ WebGL2RenderingContextBase.prim__endTransformFeedback a
+  endTransformFeedback a = primJS
+                         $ WebGL2RenderingContextBase.prim__endTransformFeedback a
   
   export
   fenceSync :  (obj : WebGL2RenderingContextBase)
             -> (condition : UInt32)
             -> (flags : UInt32)
             -> JSIO (Maybe WebGLSync)
-  fenceSync a b c = tryJS "WebGL2RenderingContextBase.fenceSync" $ WebGL2RenderingContextBase.prim__fenceSync a
-                                                                                                              b
-                                                                                                              c
+  fenceSync a b c = tryJS "WebGL2RenderingContextBase.fenceSync"
+                  $ WebGL2RenderingContextBase.prim__fenceSync a b c
   
   export
   framebufferTextureLayer :  (obj : WebGL2RenderingContextBase)
@@ -1768,21 +1810,23 @@ namespace WebGL2RenderingContextBase
                           -> (level : Int32)
                           -> (layer : Int32)
                           -> JSIO ()
-  framebufferTextureLayer a b c d e f = primJS $ WebGL2RenderingContextBase.prim__framebufferTextureLayer a
-                                                                                                          b
-                                                                                                          c
-                                                                                                          (toFFI d)
-                                                                                                          e
-                                                                                                          f
+  framebufferTextureLayer a b c d e f = primJS
+                                      $ WebGL2RenderingContextBase.prim__framebufferTextureLayer a
+                                                                                                 b
+                                                                                                 c
+                                                                                                 (toFFI d)
+                                                                                                 e
+                                                                                                 f
   
   export
   getActiveUniformBlockName :  (obj : WebGL2RenderingContextBase)
                             -> (program : WebGLProgram)
                             -> (uniformBlockIndex : UInt32)
                             -> JSIO (Maybe String)
-  getActiveUniformBlockName a b c = tryJS "WebGL2RenderingContextBase.getActiveUniformBlockName" $ WebGL2RenderingContextBase.prim__getActiveUniformBlockName a
-                                                                                                                                                              b
-                                                                                                                                                              c
+  getActiveUniformBlockName a b c = tryJS "WebGL2RenderingContextBase.getActiveUniformBlockName"
+                                  $ WebGL2RenderingContextBase.prim__getActiveUniformBlockName a
+                                                                                               b
+                                                                                               c
   
   export
   getActiveUniformBlockParameter :  (obj : WebGL2RenderingContextBase)
@@ -1790,10 +1834,11 @@ namespace WebGL2RenderingContextBase
                                  -> (uniformBlockIndex : UInt32)
                                  -> (pname : UInt32)
                                  -> JSIO AnyPtr
-  getActiveUniformBlockParameter a b c d = primJS $ WebGL2RenderingContextBase.prim__getActiveUniformBlockParameter a
-                                                                                                                    b
-                                                                                                                    c
-                                                                                                                    d
+  getActiveUniformBlockParameter a b c d = primJS
+                                         $ WebGL2RenderingContextBase.prim__getActiveUniformBlockParameter a
+                                                                                                           b
+                                                                                                           c
+                                                                                                           d
   
   export
   getActiveUniforms :  (obj : WebGL2RenderingContextBase)
@@ -1801,10 +1846,11 @@ namespace WebGL2RenderingContextBase
                     -> (uniformIndices : Array UInt32)
                     -> (pname : UInt32)
                     -> JSIO AnyPtr
-  getActiveUniforms a b c d = primJS $ WebGL2RenderingContextBase.prim__getActiveUniforms a
-                                                                                          b
-                                                                                          c
-                                                                                          d
+  getActiveUniforms a b c d = primJS
+                            $ WebGL2RenderingContextBase.prim__getActiveUniforms a
+                                                                                 b
+                                                                                 c
+                                                                                 d
   
   export
   getBufferSubData :  (obj : WebGL2RenderingContextBase)
@@ -1824,12 +1870,13 @@ namespace WebGL2RenderingContextBase
                    -> (dstOffset : Optional UInt32)
                    -> (length : Optional UInt32)
                    -> JSIO ()
-  getBufferSubData a b c d e f = primJS $ WebGL2RenderingContextBase.prim__getBufferSubData a
-                                                                                            b
-                                                                                            c
-                                                                                            (toFFI d)
-                                                                                            (toFFI e)
-                                                                                            (toFFI f)
+  getBufferSubData a b c d e f = primJS
+                               $ WebGL2RenderingContextBase.prim__getBufferSubData a
+                                                                                   b
+                                                                                   c
+                                                                                   (toFFI d)
+                                                                                   (toFFI e)
+                                                                                   (toFFI f)
 
   export
   getBufferSubData' :  (obj : WebGL2RenderingContextBase)
@@ -1847,25 +1894,33 @@ namespace WebGL2RenderingContextBase
                                          , DataView
                                          ])
                     -> JSIO ()
-  getBufferSubData' a b c d = getBufferSubData a b c d Undef Undef
+  getBufferSubData' a b c d = primJS
+                            $ WebGL2RenderingContextBase.prim__getBufferSubData a
+                                                                                b
+                                                                                c
+                                                                                (toFFI d)
+                                                                                undef
+                                                                                undef
   
   export
   getFragDataLocation :  (obj : WebGL2RenderingContextBase)
                       -> (program : WebGLProgram)
                       -> (name : String)
                       -> JSIO Int32
-  getFragDataLocation a b c = primJS $ WebGL2RenderingContextBase.prim__getFragDataLocation a
-                                                                                            b
-                                                                                            c
+  getFragDataLocation a b c = primJS
+                            $ WebGL2RenderingContextBase.prim__getFragDataLocation a
+                                                                                   b
+                                                                                   c
   
   export
   getIndexedParameter :  (obj : WebGL2RenderingContextBase)
                       -> (target : UInt32)
                       -> (index : UInt32)
                       -> JSIO AnyPtr
-  getIndexedParameter a b c = primJS $ WebGL2RenderingContextBase.prim__getIndexedParameter a
-                                                                                            b
-                                                                                            c
+  getIndexedParameter a b c = primJS
+                            $ WebGL2RenderingContextBase.prim__getIndexedParameter a
+                                                                                   b
+                                                                                   c
   
   export
   getInternalformatParameter :  (obj : WebGL2RenderingContextBase)
@@ -1873,82 +1928,89 @@ namespace WebGL2RenderingContextBase
                              -> (internalformat : UInt32)
                              -> (pname : UInt32)
                              -> JSIO AnyPtr
-  getInternalformatParameter a b c d = primJS $ WebGL2RenderingContextBase.prim__getInternalformatParameter a
-                                                                                                            b
-                                                                                                            c
-                                                                                                            d
+  getInternalformatParameter a b c d = primJS
+                                     $ WebGL2RenderingContextBase.prim__getInternalformatParameter a
+                                                                                                   b
+                                                                                                   c
+                                                                                                   d
   
   export
   getQueryParameter :  (obj : WebGL2RenderingContextBase)
                     -> (query : WebGLQuery)
                     -> (pname : UInt32)
                     -> JSIO AnyPtr
-  getQueryParameter a b c = primJS $ WebGL2RenderingContextBase.prim__getQueryParameter a
-                                                                                        b
-                                                                                        c
+  getQueryParameter a b c = primJS
+                          $ WebGL2RenderingContextBase.prim__getQueryParameter a
+                                                                               b
+                                                                               c
   
   export
   getQuery :  (obj : WebGL2RenderingContextBase)
            -> (target : UInt32)
            -> (pname : UInt32)
            -> JSIO (Maybe WebGLQuery)
-  getQuery a b c = tryJS "WebGL2RenderingContextBase.getQuery" $ WebGL2RenderingContextBase.prim__getQuery a
-                                                                                                           b
-                                                                                                           c
+  getQuery a b c = tryJS "WebGL2RenderingContextBase.getQuery"
+                 $ WebGL2RenderingContextBase.prim__getQuery a b c
   
   export
   getSamplerParameter :  (obj : WebGL2RenderingContextBase)
                       -> (sampler : WebGLSampler)
                       -> (pname : UInt32)
                       -> JSIO AnyPtr
-  getSamplerParameter a b c = primJS $ WebGL2RenderingContextBase.prim__getSamplerParameter a
-                                                                                            b
-                                                                                            c
+  getSamplerParameter a b c = primJS
+                            $ WebGL2RenderingContextBase.prim__getSamplerParameter a
+                                                                                   b
+                                                                                   c
   
   export
   getSyncParameter :  (obj : WebGL2RenderingContextBase)
                    -> (sync : WebGLSync)
                    -> (pname : UInt32)
                    -> JSIO AnyPtr
-  getSyncParameter a b c = primJS $ WebGL2RenderingContextBase.prim__getSyncParameter a
-                                                                                      b
-                                                                                      c
+  getSyncParameter a b c = primJS
+                         $ WebGL2RenderingContextBase.prim__getSyncParameter a
+                                                                             b
+                                                                             c
   
   export
   getTransformFeedbackVarying :  (obj : WebGL2RenderingContextBase)
                               -> (program : WebGLProgram)
                               -> (index : UInt32)
                               -> JSIO (Maybe WebGLActiveInfo)
-  getTransformFeedbackVarying a b c = tryJS "WebGL2RenderingContextBase.getTransformFeedbackVarying" $ WebGL2RenderingContextBase.prim__getTransformFeedbackVarying a
-                                                                                                                                                                    b
-                                                                                                                                                                    c
+  getTransformFeedbackVarying a b c = tryJS "WebGL2RenderingContextBase.getTransformFeedbackVarying"
+                                    $ WebGL2RenderingContextBase.prim__getTransformFeedbackVarying a
+                                                                                                   b
+                                                                                                   c
   
   export
   getUniformBlockIndex :  (obj : WebGL2RenderingContextBase)
                        -> (program : WebGLProgram)
                        -> (uniformBlockName : String)
                        -> JSIO UInt32
-  getUniformBlockIndex a b c = primJS $ WebGL2RenderingContextBase.prim__getUniformBlockIndex a
-                                                                                              b
-                                                                                              c
+  getUniformBlockIndex a b c = primJS
+                             $ WebGL2RenderingContextBase.prim__getUniformBlockIndex a
+                                                                                     b
+                                                                                     c
   
   export
   getUniformIndices :  (obj : WebGL2RenderingContextBase)
                     -> (program : WebGLProgram)
                     -> (uniformNames : Array String)
                     -> JSIO (Maybe (Array UInt32))
-  getUniformIndices a b c = tryJS "WebGL2RenderingContextBase.getUniformIndices" $ WebGL2RenderingContextBase.prim__getUniformIndices a
-                                                                                                                                      b
-                                                                                                                                      c
+  getUniformIndices a b c = tryJS "WebGL2RenderingContextBase.getUniformIndices"
+                          $ WebGL2RenderingContextBase.prim__getUniformIndices a
+                                                                               b
+                                                                               c
   
   export
   invalidateFramebuffer :  (obj : WebGL2RenderingContextBase)
                         -> (target : UInt32)
                         -> (attachments : Array UInt32)
                         -> JSIO ()
-  invalidateFramebuffer a b c = primJS $ WebGL2RenderingContextBase.prim__invalidateFramebuffer a
-                                                                                                b
-                                                                                                c
+  invalidateFramebuffer a b c = primJS
+                              $ WebGL2RenderingContextBase.prim__invalidateFramebuffer a
+                                                                                       b
+                                                                                       c
   
   export
   invalidateSubFramebuffer :  (obj : WebGL2RenderingContextBase)
@@ -1959,52 +2021,55 @@ namespace WebGL2RenderingContextBase
                            -> (width : Int32)
                            -> (height : Int32)
                            -> JSIO ()
-  invalidateSubFramebuffer a b c d e f g = primJS $ WebGL2RenderingContextBase.prim__invalidateSubFramebuffer a
-                                                                                                              b
-                                                                                                              c
-                                                                                                              d
-                                                                                                              e
-                                                                                                              f
-                                                                                                              g
+  invalidateSubFramebuffer a b c d e f g = primJS
+                                         $ WebGL2RenderingContextBase.prim__invalidateSubFramebuffer a
+                                                                                                     b
+                                                                                                     c
+                                                                                                     d
+                                                                                                     e
+                                                                                                     f
+                                                                                                     g
   
   export
   isQuery :  (obj : WebGL2RenderingContextBase)
           -> (query : Maybe WebGLQuery)
           -> JSIO Bool
-  isQuery a b = tryJS "WebGL2RenderingContextBase.isQuery" $ WebGL2RenderingContextBase.prim__isQuery a
-                                                                                                      (toFFI b)
+  isQuery a b = tryJS "WebGL2RenderingContextBase.isQuery"
+              $ WebGL2RenderingContextBase.prim__isQuery a (toFFI b)
   
   export
   isSampler :  (obj : WebGL2RenderingContextBase)
             -> (sampler : Maybe WebGLSampler)
             -> JSIO Bool
-  isSampler a b = tryJS "WebGL2RenderingContextBase.isSampler" $ WebGL2RenderingContextBase.prim__isSampler a
-                                                                                                            (toFFI b)
+  isSampler a b = tryJS "WebGL2RenderingContextBase.isSampler"
+                $ WebGL2RenderingContextBase.prim__isSampler a (toFFI b)
   
   export
   isSync :  (obj : WebGL2RenderingContextBase)
          -> (sync : Maybe WebGLSync)
          -> JSIO Bool
-  isSync a b = tryJS "WebGL2RenderingContextBase.isSync" $ WebGL2RenderingContextBase.prim__isSync a
-                                                                                                   (toFFI b)
+  isSync a b = tryJS "WebGL2RenderingContextBase.isSync"
+             $ WebGL2RenderingContextBase.prim__isSync a (toFFI b)
   
   export
   isTransformFeedback :  (obj : WebGL2RenderingContextBase)
                       -> (tf : Maybe WebGLTransformFeedback)
                       -> JSIO Bool
-  isTransformFeedback a b = tryJS "WebGL2RenderingContextBase.isTransformFeedback" $ WebGL2RenderingContextBase.prim__isTransformFeedback a
-                                                                                                                                          (toFFI b)
+  isTransformFeedback a b = tryJS "WebGL2RenderingContextBase.isTransformFeedback"
+                          $ WebGL2RenderingContextBase.prim__isTransformFeedback a
+                                                                                 (toFFI b)
   
   export
   isVertexArray :  (obj : WebGL2RenderingContextBase)
                 -> (vertexArray : Maybe WebGLVertexArrayObject)
                 -> JSIO Bool
-  isVertexArray a b = tryJS "WebGL2RenderingContextBase.isVertexArray" $ WebGL2RenderingContextBase.prim__isVertexArray a
-                                                                                                                        (toFFI b)
+  isVertexArray a b = tryJS "WebGL2RenderingContextBase.isVertexArray"
+                    $ WebGL2RenderingContextBase.prim__isVertexArray a (toFFI b)
   
   export
   pauseTransformFeedback : (obj : WebGL2RenderingContextBase) -> JSIO ()
-  pauseTransformFeedback a = primJS $ WebGL2RenderingContextBase.prim__pauseTransformFeedback a
+  pauseTransformFeedback a = primJS
+                           $ WebGL2RenderingContextBase.prim__pauseTransformFeedback a
   
   export
   readBuffer : (obj : WebGL2RenderingContextBase) -> (src : UInt32) -> JSIO ()
@@ -2018,16 +2083,18 @@ namespace WebGL2RenderingContextBase
                                  -> (width : Int32)
                                  -> (height : Int32)
                                  -> JSIO ()
-  renderbufferStorageMultisample a b c d e f = primJS $ WebGL2RenderingContextBase.prim__renderbufferStorageMultisample a
-                                                                                                                        b
-                                                                                                                        c
-                                                                                                                        d
-                                                                                                                        e
-                                                                                                                        f
+  renderbufferStorageMultisample a b c d e f = primJS
+                                             $ WebGL2RenderingContextBase.prim__renderbufferStorageMultisample a
+                                                                                                               b
+                                                                                                               c
+                                                                                                               d
+                                                                                                               e
+                                                                                                               f
   
   export
   resumeTransformFeedback : (obj : WebGL2RenderingContextBase) -> JSIO ()
-  resumeTransformFeedback a = primJS $ WebGL2RenderingContextBase.prim__resumeTransformFeedback a
+  resumeTransformFeedback a = primJS
+                            $ WebGL2RenderingContextBase.prim__resumeTransformFeedback a
   
   export
   samplerParameterf :  (obj : WebGL2RenderingContextBase)
@@ -2035,10 +2102,11 @@ namespace WebGL2RenderingContextBase
                     -> (pname : UInt32)
                     -> (param : Double)
                     -> JSIO ()
-  samplerParameterf a b c d = primJS $ WebGL2RenderingContextBase.prim__samplerParameterf a
-                                                                                          b
-                                                                                          c
-                                                                                          d
+  samplerParameterf a b c d = primJS
+                            $ WebGL2RenderingContextBase.prim__samplerParameterf a
+                                                                                 b
+                                                                                 c
+                                                                                 d
   
   export
   samplerParameteri :  (obj : WebGL2RenderingContextBase)
@@ -2046,10 +2114,11 @@ namespace WebGL2RenderingContextBase
                     -> (pname : UInt32)
                     -> (param : Int32)
                     -> JSIO ()
-  samplerParameteri a b c d = primJS $ WebGL2RenderingContextBase.prim__samplerParameteri a
-                                                                                          b
-                                                                                          c
-                                                                                          d
+  samplerParameteri a b c d = primJS
+                            $ WebGL2RenderingContextBase.prim__samplerParameteri a
+                                                                                 b
+                                                                                 c
+                                                                                 d
   
   export
   texImage3D :  (obj : WebGL2RenderingContextBase)
@@ -2064,17 +2133,18 @@ namespace WebGL2RenderingContextBase
              -> (type : UInt32)
              -> (pboOffset : Int64)
              -> JSIO ()
-  texImage3D a b c d e f g h i j k = primJS $ WebGL2RenderingContextBase.prim__texImage3D a
-                                                                                          b
-                                                                                          c
-                                                                                          d
-                                                                                          e
-                                                                                          f
-                                                                                          g
-                                                                                          h
-                                                                                          i
-                                                                                          j
-                                                                                          k
+  texImage3D a b c d e f g h i j k = primJS
+                                   $ WebGL2RenderingContextBase.prim__texImage3D a
+                                                                                 b
+                                                                                 c
+                                                                                 d
+                                                                                 e
+                                                                                 f
+                                                                                 g
+                                                                                 h
+                                                                                 i
+                                                                                 j
+                                                                                 k
   
   export
   texImage3D1 :  (obj : WebGL2RenderingContextBase)
@@ -2095,17 +2165,18 @@ namespace WebGL2RenderingContextBase
                                 , OffscreenCanvas
                                 ])
               -> JSIO ()
-  texImage3D1 a b c d e f g h i j k = primJS $ WebGL2RenderingContextBase.prim__texImage3D1 a
-                                                                                            b
-                                                                                            c
-                                                                                            d
-                                                                                            e
-                                                                                            f
-                                                                                            g
-                                                                                            h
-                                                                                            i
-                                                                                            j
-                                                                                            (toFFI k)
+  texImage3D1 a b c d e f g h i j k = primJS
+                                    $ WebGL2RenderingContextBase.prim__texImage3D1 a
+                                                                                   b
+                                                                                   c
+                                                                                   d
+                                                                                   e
+                                                                                   f
+                                                                                   g
+                                                                                   h
+                                                                                   i
+                                                                                   j
+                                                                                   (toFFI k)
   
   export
   texImage3D2 :  (obj : WebGL2RenderingContextBase)
@@ -2130,17 +2201,18 @@ namespace WebGL2RenderingContextBase
                                         , DataView
                                         ]))
               -> JSIO ()
-  texImage3D2 a b c d e f g h i j k = primJS $ WebGL2RenderingContextBase.prim__texImage3D2 a
-                                                                                            b
-                                                                                            c
-                                                                                            d
-                                                                                            e
-                                                                                            f
-                                                                                            g
-                                                                                            h
-                                                                                            i
-                                                                                            j
-                                                                                            (toFFI k)
+  texImage3D2 a b c d e f g h i j k = primJS
+                                    $ WebGL2RenderingContextBase.prim__texImage3D2 a
+                                                                                   b
+                                                                                   c
+                                                                                   d
+                                                                                   e
+                                                                                   f
+                                                                                   g
+                                                                                   h
+                                                                                   i
+                                                                                   j
+                                                                                   (toFFI k)
   
   export
   texImage3D3 :  (obj : WebGL2RenderingContextBase)
@@ -2166,18 +2238,19 @@ namespace WebGL2RenderingContextBase
                                  ])
               -> (srcOffset : UInt32)
               -> JSIO ()
-  texImage3D3 a b c d e f g h i j k l = primJS $ WebGL2RenderingContextBase.prim__texImage3D3 a
-                                                                                              b
-                                                                                              c
-                                                                                              d
-                                                                                              e
-                                                                                              f
-                                                                                              g
-                                                                                              h
-                                                                                              i
-                                                                                              j
-                                                                                              (toFFI k)
-                                                                                              l
+  texImage3D3 a b c d e f g h i j k l = primJS
+                                      $ WebGL2RenderingContextBase.prim__texImage3D3 a
+                                                                                     b
+                                                                                     c
+                                                                                     d
+                                                                                     e
+                                                                                     f
+                                                                                     g
+                                                                                     h
+                                                                                     i
+                                                                                     j
+                                                                                     (toFFI k)
+                                                                                     l
   
   export
   texStorage2D :  (obj : WebGL2RenderingContextBase)
@@ -2187,12 +2260,13 @@ namespace WebGL2RenderingContextBase
                -> (width : Int32)
                -> (height : Int32)
                -> JSIO ()
-  texStorage2D a b c d e f = primJS $ WebGL2RenderingContextBase.prim__texStorage2D a
-                                                                                    b
-                                                                                    c
-                                                                                    d
-                                                                                    e
-                                                                                    f
+  texStorage2D a b c d e f = primJS
+                           $ WebGL2RenderingContextBase.prim__texStorage2D a
+                                                                           b
+                                                                           c
+                                                                           d
+                                                                           e
+                                                                           f
   
   export
   texStorage3D :  (obj : WebGL2RenderingContextBase)
@@ -2203,13 +2277,14 @@ namespace WebGL2RenderingContextBase
                -> (height : Int32)
                -> (depth : Int32)
                -> JSIO ()
-  texStorage3D a b c d e f g = primJS $ WebGL2RenderingContextBase.prim__texStorage3D a
-                                                                                      b
-                                                                                      c
-                                                                                      d
-                                                                                      e
-                                                                                      f
-                                                                                      g
+  texStorage3D a b c d e f g = primJS
+                             $ WebGL2RenderingContextBase.prim__texStorage3D a
+                                                                             b
+                                                                             c
+                                                                             d
+                                                                             e
+                                                                             f
+                                                                             g
   
   export
   texSubImage3D :  (obj : WebGL2RenderingContextBase)
@@ -2225,18 +2300,19 @@ namespace WebGL2RenderingContextBase
                 -> (type : UInt32)
                 -> (pboOffset : Int64)
                 -> JSIO ()
-  texSubImage3D a b c d e f g h i j k l = primJS $ WebGL2RenderingContextBase.prim__texSubImage3D a
-                                                                                                  b
-                                                                                                  c
-                                                                                                  d
-                                                                                                  e
-                                                                                                  f
-                                                                                                  g
-                                                                                                  h
-                                                                                                  i
-                                                                                                  j
-                                                                                                  k
-                                                                                                  l
+  texSubImage3D a b c d e f g h i j k l = primJS
+                                        $ WebGL2RenderingContextBase.prim__texSubImage3D a
+                                                                                         b
+                                                                                         c
+                                                                                         d
+                                                                                         e
+                                                                                         f
+                                                                                         g
+                                                                                         h
+                                                                                         i
+                                                                                         j
+                                                                                         k
+                                                                                         l
   
   export
   texSubImage3D1 :  (obj : WebGL2RenderingContextBase)
@@ -2258,18 +2334,19 @@ namespace WebGL2RenderingContextBase
                                    , OffscreenCanvas
                                    ])
                  -> JSIO ()
-  texSubImage3D1 a b c d e f g h i j k l = primJS $ WebGL2RenderingContextBase.prim__texSubImage3D1 a
-                                                                                                    b
-                                                                                                    c
-                                                                                                    d
-                                                                                                    e
-                                                                                                    f
-                                                                                                    g
-                                                                                                    h
-                                                                                                    i
-                                                                                                    j
-                                                                                                    k
-                                                                                                    (toFFI l)
+  texSubImage3D1 a b c d e f g h i j k l = primJS
+                                         $ WebGL2RenderingContextBase.prim__texSubImage3D1 a
+                                                                                           b
+                                                                                           c
+                                                                                           d
+                                                                                           e
+                                                                                           f
+                                                                                           g
+                                                                                           h
+                                                                                           i
+                                                                                           j
+                                                                                           k
+                                                                                           (toFFI l)
   
   export
   texSubImage3D2 :  (obj : WebGL2RenderingContextBase)
@@ -2296,19 +2373,20 @@ namespace WebGL2RenderingContextBase
                                            ]))
                  -> (srcOffset : Optional UInt32)
                  -> JSIO ()
-  texSubImage3D2 a b c d e f g h i j k l m = primJS $ WebGL2RenderingContextBase.prim__texSubImage3D2 a
-                                                                                                      b
-                                                                                                      c
-                                                                                                      d
-                                                                                                      e
-                                                                                                      f
-                                                                                                      g
-                                                                                                      h
-                                                                                                      i
-                                                                                                      j
-                                                                                                      k
-                                                                                                      (toFFI l)
-                                                                                                      (toFFI m)
+  texSubImage3D2 a b c d e f g h i j k l m = primJS
+                                           $ WebGL2RenderingContextBase.prim__texSubImage3D2 a
+                                                                                             b
+                                                                                             c
+                                                                                             d
+                                                                                             e
+                                                                                             f
+                                                                                             g
+                                                                                             h
+                                                                                             i
+                                                                                             j
+                                                                                             k
+                                                                                             (toFFI l)
+                                                                                             (toFFI m)
 
   export
   texSubImage3D2' :  (obj : WebGL2RenderingContextBase)
@@ -2334,19 +2412,20 @@ namespace WebGL2RenderingContextBase
                                             , DataView
                                             ]))
                   -> JSIO ()
-  texSubImage3D2' a b c d e f g h i j k l = texSubImage3D2 a
-                                                           b
-                                                           c
-                                                           d
-                                                           e
-                                                           f
-                                                           g
-                                                           h
-                                                           i
-                                                           j
-                                                           k
-                                                           l
-                                                           Undef
+  texSubImage3D2' a b c d e f g h i j k l = primJS
+                                          $ WebGL2RenderingContextBase.prim__texSubImage3D2 a
+                                                                                            b
+                                                                                            c
+                                                                                            d
+                                                                                            e
+                                                                                            f
+                                                                                            g
+                                                                                            h
+                                                                                            i
+                                                                                            j
+                                                                                            k
+                                                                                            (toFFI l)
+                                                                                            undef
   
   export
   transformFeedbackVaryings :  (obj : WebGL2RenderingContextBase)
@@ -2354,19 +2433,19 @@ namespace WebGL2RenderingContextBase
                             -> (varyings : Array String)
                             -> (bufferMode : UInt32)
                             -> JSIO ()
-  transformFeedbackVaryings a b c d = primJS $ WebGL2RenderingContextBase.prim__transformFeedbackVaryings a
-                                                                                                          b
-                                                                                                          c
-                                                                                                          d
+  transformFeedbackVaryings a b c d = primJS
+                                    $ WebGL2RenderingContextBase.prim__transformFeedbackVaryings a
+                                                                                                 b
+                                                                                                 c
+                                                                                                 d
   
   export
   uniform1ui :  (obj : WebGL2RenderingContextBase)
              -> (location : Maybe WebGLUniformLocation)
              -> (v0 : UInt32)
              -> JSIO ()
-  uniform1ui a b c = primJS $ WebGL2RenderingContextBase.prim__uniform1ui a
-                                                                          (toFFI b)
-                                                                          c
+  uniform1ui a b c = primJS
+                   $ WebGL2RenderingContextBase.prim__uniform1ui a (toFFI b) c
   
   export
   uniform1uiv :  (obj : WebGL2RenderingContextBase)
@@ -2375,18 +2454,24 @@ namespace WebGL2RenderingContextBase
               -> (srcOffset : Optional UInt32)
               -> (srcLength : Optional UInt32)
               -> JSIO ()
-  uniform1uiv a b c d e = primJS $ WebGL2RenderingContextBase.prim__uniform1uiv a
-                                                                                (toFFI b)
-                                                                                (toFFI c)
-                                                                                (toFFI d)
-                                                                                (toFFI e)
+  uniform1uiv a b c d e = primJS
+                        $ WebGL2RenderingContextBase.prim__uniform1uiv a
+                                                                       (toFFI b)
+                                                                       (toFFI c)
+                                                                       (toFFI d)
+                                                                       (toFFI e)
 
   export
   uniform1uiv' :  (obj : WebGL2RenderingContextBase)
                -> (location : Maybe WebGLUniformLocation)
                -> (data_ : NS I [ UInt8Array , Array UInt32 ])
                -> JSIO ()
-  uniform1uiv' a b c = uniform1uiv a b c Undef Undef
+  uniform1uiv' a b c = primJS
+                     $ WebGL2RenderingContextBase.prim__uniform1uiv a
+                                                                    (toFFI b)
+                                                                    (toFFI c)
+                                                                    undef
+                                                                    undef
   
   export
   uniform2ui :  (obj : WebGL2RenderingContextBase)
@@ -2394,10 +2479,11 @@ namespace WebGL2RenderingContextBase
              -> (v0 : UInt32)
              -> (v1 : UInt32)
              -> JSIO ()
-  uniform2ui a b c d = primJS $ WebGL2RenderingContextBase.prim__uniform2ui a
-                                                                            (toFFI b)
-                                                                            c
-                                                                            d
+  uniform2ui a b c d = primJS
+                     $ WebGL2RenderingContextBase.prim__uniform2ui a
+                                                                   (toFFI b)
+                                                                   c
+                                                                   d
   
   export
   uniform2uiv :  (obj : WebGL2RenderingContextBase)
@@ -2406,18 +2492,24 @@ namespace WebGL2RenderingContextBase
               -> (srcOffset : Optional UInt32)
               -> (srcLength : Optional UInt32)
               -> JSIO ()
-  uniform2uiv a b c d e = primJS $ WebGL2RenderingContextBase.prim__uniform2uiv a
-                                                                                (toFFI b)
-                                                                                (toFFI c)
-                                                                                (toFFI d)
-                                                                                (toFFI e)
+  uniform2uiv a b c d e = primJS
+                        $ WebGL2RenderingContextBase.prim__uniform2uiv a
+                                                                       (toFFI b)
+                                                                       (toFFI c)
+                                                                       (toFFI d)
+                                                                       (toFFI e)
 
   export
   uniform2uiv' :  (obj : WebGL2RenderingContextBase)
                -> (location : Maybe WebGLUniformLocation)
                -> (data_ : NS I [ UInt8Array , Array UInt32 ])
                -> JSIO ()
-  uniform2uiv' a b c = uniform2uiv a b c Undef Undef
+  uniform2uiv' a b c = primJS
+                     $ WebGL2RenderingContextBase.prim__uniform2uiv a
+                                                                    (toFFI b)
+                                                                    (toFFI c)
+                                                                    undef
+                                                                    undef
   
   export
   uniform3ui :  (obj : WebGL2RenderingContextBase)
@@ -2426,11 +2518,12 @@ namespace WebGL2RenderingContextBase
              -> (v1 : UInt32)
              -> (v2 : UInt32)
              -> JSIO ()
-  uniform3ui a b c d e = primJS $ WebGL2RenderingContextBase.prim__uniform3ui a
-                                                                              (toFFI b)
-                                                                              c
-                                                                              d
-                                                                              e
+  uniform3ui a b c d e = primJS
+                       $ WebGL2RenderingContextBase.prim__uniform3ui a
+                                                                     (toFFI b)
+                                                                     c
+                                                                     d
+                                                                     e
   
   export
   uniform3uiv :  (obj : WebGL2RenderingContextBase)
@@ -2439,18 +2532,24 @@ namespace WebGL2RenderingContextBase
               -> (srcOffset : Optional UInt32)
               -> (srcLength : Optional UInt32)
               -> JSIO ()
-  uniform3uiv a b c d e = primJS $ WebGL2RenderingContextBase.prim__uniform3uiv a
-                                                                                (toFFI b)
-                                                                                (toFFI c)
-                                                                                (toFFI d)
-                                                                                (toFFI e)
+  uniform3uiv a b c d e = primJS
+                        $ WebGL2RenderingContextBase.prim__uniform3uiv a
+                                                                       (toFFI b)
+                                                                       (toFFI c)
+                                                                       (toFFI d)
+                                                                       (toFFI e)
 
   export
   uniform3uiv' :  (obj : WebGL2RenderingContextBase)
                -> (location : Maybe WebGLUniformLocation)
                -> (data_ : NS I [ UInt8Array , Array UInt32 ])
                -> JSIO ()
-  uniform3uiv' a b c = uniform3uiv a b c Undef Undef
+  uniform3uiv' a b c = primJS
+                     $ WebGL2RenderingContextBase.prim__uniform3uiv a
+                                                                    (toFFI b)
+                                                                    (toFFI c)
+                                                                    undef
+                                                                    undef
   
   export
   uniform4ui :  (obj : WebGL2RenderingContextBase)
@@ -2460,12 +2559,13 @@ namespace WebGL2RenderingContextBase
              -> (v2 : UInt32)
              -> (v3 : UInt32)
              -> JSIO ()
-  uniform4ui a b c d e f = primJS $ WebGL2RenderingContextBase.prim__uniform4ui a
-                                                                                (toFFI b)
-                                                                                c
-                                                                                d
-                                                                                e
-                                                                                f
+  uniform4ui a b c d e f = primJS
+                         $ WebGL2RenderingContextBase.prim__uniform4ui a
+                                                                       (toFFI b)
+                                                                       c
+                                                                       d
+                                                                       e
+                                                                       f
   
   export
   uniform4uiv :  (obj : WebGL2RenderingContextBase)
@@ -2474,18 +2574,24 @@ namespace WebGL2RenderingContextBase
               -> (srcOffset : Optional UInt32)
               -> (srcLength : Optional UInt32)
               -> JSIO ()
-  uniform4uiv a b c d e = primJS $ WebGL2RenderingContextBase.prim__uniform4uiv a
-                                                                                (toFFI b)
-                                                                                (toFFI c)
-                                                                                (toFFI d)
-                                                                                (toFFI e)
+  uniform4uiv a b c d e = primJS
+                        $ WebGL2RenderingContextBase.prim__uniform4uiv a
+                                                                       (toFFI b)
+                                                                       (toFFI c)
+                                                                       (toFFI d)
+                                                                       (toFFI e)
 
   export
   uniform4uiv' :  (obj : WebGL2RenderingContextBase)
                -> (location : Maybe WebGLUniformLocation)
                -> (data_ : NS I [ UInt8Array , Array UInt32 ])
                -> JSIO ()
-  uniform4uiv' a b c = uniform4uiv a b c Undef Undef
+  uniform4uiv' a b c = primJS
+                     $ WebGL2RenderingContextBase.prim__uniform4uiv a
+                                                                    (toFFI b)
+                                                                    (toFFI c)
+                                                                    undef
+                                                                    undef
   
   export
   uniformBlockBinding :  (obj : WebGL2RenderingContextBase)
@@ -2493,10 +2599,11 @@ namespace WebGL2RenderingContextBase
                       -> (uniformBlockIndex : UInt32)
                       -> (uniformBlockBinding : UInt32)
                       -> JSIO ()
-  uniformBlockBinding a b c d = primJS $ WebGL2RenderingContextBase.prim__uniformBlockBinding a
-                                                                                              b
-                                                                                              c
-                                                                                              d
+  uniformBlockBinding a b c d = primJS
+                              $ WebGL2RenderingContextBase.prim__uniformBlockBinding a
+                                                                                     b
+                                                                                     c
+                                                                                     d
   
   export
   uniformMatrix2x3fv :  (obj : WebGL2RenderingContextBase)
@@ -2506,12 +2613,13 @@ namespace WebGL2RenderingContextBase
                      -> (srcOffset : Optional UInt32)
                      -> (srcLength : Optional UInt32)
                      -> JSIO ()
-  uniformMatrix2x3fv a b c d e f = primJS $ WebGL2RenderingContextBase.prim__uniformMatrix2x3fv a
-                                                                                                (toFFI b)
-                                                                                                (toFFI c)
-                                                                                                (toFFI d)
-                                                                                                (toFFI e)
-                                                                                                (toFFI f)
+  uniformMatrix2x3fv a b c d e f = primJS
+                                 $ WebGL2RenderingContextBase.prim__uniformMatrix2x3fv a
+                                                                                       (toFFI b)
+                                                                                       (toFFI c)
+                                                                                       (toFFI d)
+                                                                                       (toFFI e)
+                                                                                       (toFFI f)
 
   export
   uniformMatrix2x3fv' :  (obj : WebGL2RenderingContextBase)
@@ -2519,7 +2627,13 @@ namespace WebGL2RenderingContextBase
                       -> (transpose : Bool)
                       -> (data_ : NS I [ Float32Array , Array Double ])
                       -> JSIO ()
-  uniformMatrix2x3fv' a b c d = uniformMatrix2x3fv a b c d Undef Undef
+  uniformMatrix2x3fv' a b c d = primJS
+                              $ WebGL2RenderingContextBase.prim__uniformMatrix2x3fv a
+                                                                                    (toFFI b)
+                                                                                    (toFFI c)
+                                                                                    (toFFI d)
+                                                                                    undef
+                                                                                    undef
   
   export
   uniformMatrix2x4fv :  (obj : WebGL2RenderingContextBase)
@@ -2529,12 +2643,13 @@ namespace WebGL2RenderingContextBase
                      -> (srcOffset : Optional UInt32)
                      -> (srcLength : Optional UInt32)
                      -> JSIO ()
-  uniformMatrix2x4fv a b c d e f = primJS $ WebGL2RenderingContextBase.prim__uniformMatrix2x4fv a
-                                                                                                (toFFI b)
-                                                                                                (toFFI c)
-                                                                                                (toFFI d)
-                                                                                                (toFFI e)
-                                                                                                (toFFI f)
+  uniformMatrix2x4fv a b c d e f = primJS
+                                 $ WebGL2RenderingContextBase.prim__uniformMatrix2x4fv a
+                                                                                       (toFFI b)
+                                                                                       (toFFI c)
+                                                                                       (toFFI d)
+                                                                                       (toFFI e)
+                                                                                       (toFFI f)
 
   export
   uniformMatrix2x4fv' :  (obj : WebGL2RenderingContextBase)
@@ -2542,7 +2657,13 @@ namespace WebGL2RenderingContextBase
                       -> (transpose : Bool)
                       -> (data_ : NS I [ Float32Array , Array Double ])
                       -> JSIO ()
-  uniformMatrix2x4fv' a b c d = uniformMatrix2x4fv a b c d Undef Undef
+  uniformMatrix2x4fv' a b c d = primJS
+                              $ WebGL2RenderingContextBase.prim__uniformMatrix2x4fv a
+                                                                                    (toFFI b)
+                                                                                    (toFFI c)
+                                                                                    (toFFI d)
+                                                                                    undef
+                                                                                    undef
   
   export
   uniformMatrix3x2fv :  (obj : WebGL2RenderingContextBase)
@@ -2552,12 +2673,13 @@ namespace WebGL2RenderingContextBase
                      -> (srcOffset : Optional UInt32)
                      -> (srcLength : Optional UInt32)
                      -> JSIO ()
-  uniformMatrix3x2fv a b c d e f = primJS $ WebGL2RenderingContextBase.prim__uniformMatrix3x2fv a
-                                                                                                (toFFI b)
-                                                                                                (toFFI c)
-                                                                                                (toFFI d)
-                                                                                                (toFFI e)
-                                                                                                (toFFI f)
+  uniformMatrix3x2fv a b c d e f = primJS
+                                 $ WebGL2RenderingContextBase.prim__uniformMatrix3x2fv a
+                                                                                       (toFFI b)
+                                                                                       (toFFI c)
+                                                                                       (toFFI d)
+                                                                                       (toFFI e)
+                                                                                       (toFFI f)
 
   export
   uniformMatrix3x2fv' :  (obj : WebGL2RenderingContextBase)
@@ -2565,7 +2687,13 @@ namespace WebGL2RenderingContextBase
                       -> (transpose : Bool)
                       -> (data_ : NS I [ Float32Array , Array Double ])
                       -> JSIO ()
-  uniformMatrix3x2fv' a b c d = uniformMatrix3x2fv a b c d Undef Undef
+  uniformMatrix3x2fv' a b c d = primJS
+                              $ WebGL2RenderingContextBase.prim__uniformMatrix3x2fv a
+                                                                                    (toFFI b)
+                                                                                    (toFFI c)
+                                                                                    (toFFI d)
+                                                                                    undef
+                                                                                    undef
   
   export
   uniformMatrix3x4fv :  (obj : WebGL2RenderingContextBase)
@@ -2575,12 +2703,13 @@ namespace WebGL2RenderingContextBase
                      -> (srcOffset : Optional UInt32)
                      -> (srcLength : Optional UInt32)
                      -> JSIO ()
-  uniformMatrix3x4fv a b c d e f = primJS $ WebGL2RenderingContextBase.prim__uniformMatrix3x4fv a
-                                                                                                (toFFI b)
-                                                                                                (toFFI c)
-                                                                                                (toFFI d)
-                                                                                                (toFFI e)
-                                                                                                (toFFI f)
+  uniformMatrix3x4fv a b c d e f = primJS
+                                 $ WebGL2RenderingContextBase.prim__uniformMatrix3x4fv a
+                                                                                       (toFFI b)
+                                                                                       (toFFI c)
+                                                                                       (toFFI d)
+                                                                                       (toFFI e)
+                                                                                       (toFFI f)
 
   export
   uniformMatrix3x4fv' :  (obj : WebGL2RenderingContextBase)
@@ -2588,7 +2717,13 @@ namespace WebGL2RenderingContextBase
                       -> (transpose : Bool)
                       -> (data_ : NS I [ Float32Array , Array Double ])
                       -> JSIO ()
-  uniformMatrix3x4fv' a b c d = uniformMatrix3x4fv a b c d Undef Undef
+  uniformMatrix3x4fv' a b c d = primJS
+                              $ WebGL2RenderingContextBase.prim__uniformMatrix3x4fv a
+                                                                                    (toFFI b)
+                                                                                    (toFFI c)
+                                                                                    (toFFI d)
+                                                                                    undef
+                                                                                    undef
   
   export
   uniformMatrix4x2fv :  (obj : WebGL2RenderingContextBase)
@@ -2598,12 +2733,13 @@ namespace WebGL2RenderingContextBase
                      -> (srcOffset : Optional UInt32)
                      -> (srcLength : Optional UInt32)
                      -> JSIO ()
-  uniformMatrix4x2fv a b c d e f = primJS $ WebGL2RenderingContextBase.prim__uniformMatrix4x2fv a
-                                                                                                (toFFI b)
-                                                                                                (toFFI c)
-                                                                                                (toFFI d)
-                                                                                                (toFFI e)
-                                                                                                (toFFI f)
+  uniformMatrix4x2fv a b c d e f = primJS
+                                 $ WebGL2RenderingContextBase.prim__uniformMatrix4x2fv a
+                                                                                       (toFFI b)
+                                                                                       (toFFI c)
+                                                                                       (toFFI d)
+                                                                                       (toFFI e)
+                                                                                       (toFFI f)
 
   export
   uniformMatrix4x2fv' :  (obj : WebGL2RenderingContextBase)
@@ -2611,7 +2747,13 @@ namespace WebGL2RenderingContextBase
                       -> (transpose : Bool)
                       -> (data_ : NS I [ Float32Array , Array Double ])
                       -> JSIO ()
-  uniformMatrix4x2fv' a b c d = uniformMatrix4x2fv a b c d Undef Undef
+  uniformMatrix4x2fv' a b c d = primJS
+                              $ WebGL2RenderingContextBase.prim__uniformMatrix4x2fv a
+                                                                                    (toFFI b)
+                                                                                    (toFFI c)
+                                                                                    (toFFI d)
+                                                                                    undef
+                                                                                    undef
   
   export
   uniformMatrix4x3fv :  (obj : WebGL2RenderingContextBase)
@@ -2621,12 +2763,13 @@ namespace WebGL2RenderingContextBase
                      -> (srcOffset : Optional UInt32)
                      -> (srcLength : Optional UInt32)
                      -> JSIO ()
-  uniformMatrix4x3fv a b c d e f = primJS $ WebGL2RenderingContextBase.prim__uniformMatrix4x3fv a
-                                                                                                (toFFI b)
-                                                                                                (toFFI c)
-                                                                                                (toFFI d)
-                                                                                                (toFFI e)
-                                                                                                (toFFI f)
+  uniformMatrix4x3fv a b c d e f = primJS
+                                 $ WebGL2RenderingContextBase.prim__uniformMatrix4x3fv a
+                                                                                       (toFFI b)
+                                                                                       (toFFI c)
+                                                                                       (toFFI d)
+                                                                                       (toFFI e)
+                                                                                       (toFFI f)
 
   export
   uniformMatrix4x3fv' :  (obj : WebGL2RenderingContextBase)
@@ -2634,16 +2777,23 @@ namespace WebGL2RenderingContextBase
                       -> (transpose : Bool)
                       -> (data_ : NS I [ Float32Array , Array Double ])
                       -> JSIO ()
-  uniformMatrix4x3fv' a b c d = uniformMatrix4x3fv a b c d Undef Undef
+  uniformMatrix4x3fv' a b c d = primJS
+                              $ WebGL2RenderingContextBase.prim__uniformMatrix4x3fv a
+                                                                                    (toFFI b)
+                                                                                    (toFFI c)
+                                                                                    (toFFI d)
+                                                                                    undef
+                                                                                    undef
   
   export
   vertexAttribDivisor :  (obj : WebGL2RenderingContextBase)
                       -> (index : UInt32)
                       -> (divisor : UInt32)
                       -> JSIO ()
-  vertexAttribDivisor a b c = primJS $ WebGL2RenderingContextBase.prim__vertexAttribDivisor a
-                                                                                            b
-                                                                                            c
+  vertexAttribDivisor a b c = primJS
+                            $ WebGL2RenderingContextBase.prim__vertexAttribDivisor a
+                                                                                   b
+                                                                                   c
   
   export
   vertexAttribI4i :  (obj : WebGL2RenderingContextBase)
@@ -2653,21 +2803,23 @@ namespace WebGL2RenderingContextBase
                   -> (z : Int32)
                   -> (w : Int32)
                   -> JSIO ()
-  vertexAttribI4i a b c d e f = primJS $ WebGL2RenderingContextBase.prim__vertexAttribI4i a
-                                                                                          b
-                                                                                          c
-                                                                                          d
-                                                                                          e
-                                                                                          f
+  vertexAttribI4i a b c d e f = primJS
+                              $ WebGL2RenderingContextBase.prim__vertexAttribI4i a
+                                                                                 b
+                                                                                 c
+                                                                                 d
+                                                                                 e
+                                                                                 f
   
   export
   vertexAttribI4iv :  (obj : WebGL2RenderingContextBase)
                    -> (index : UInt32)
                    -> (values : NS I [ Int32Array , Array Int32 ])
                    -> JSIO ()
-  vertexAttribI4iv a b c = primJS $ WebGL2RenderingContextBase.prim__vertexAttribI4iv a
-                                                                                      b
-                                                                                      (toFFI c)
+  vertexAttribI4iv a b c = primJS
+                         $ WebGL2RenderingContextBase.prim__vertexAttribI4iv a
+                                                                             b
+                                                                             (toFFI c)
   
   export
   vertexAttribI4ui :  (obj : WebGL2RenderingContextBase)
@@ -2677,21 +2829,23 @@ namespace WebGL2RenderingContextBase
                    -> (z : UInt32)
                    -> (w : UInt32)
                    -> JSIO ()
-  vertexAttribI4ui a b c d e f = primJS $ WebGL2RenderingContextBase.prim__vertexAttribI4ui a
-                                                                                            b
-                                                                                            c
-                                                                                            d
-                                                                                            e
-                                                                                            f
+  vertexAttribI4ui a b c d e f = primJS
+                               $ WebGL2RenderingContextBase.prim__vertexAttribI4ui a
+                                                                                   b
+                                                                                   c
+                                                                                   d
+                                                                                   e
+                                                                                   f
   
   export
   vertexAttribI4uiv :  (obj : WebGL2RenderingContextBase)
                     -> (index : UInt32)
                     -> (values : NS I [ UInt8Array , Array UInt32 ])
                     -> JSIO ()
-  vertexAttribI4uiv a b c = primJS $ WebGL2RenderingContextBase.prim__vertexAttribI4uiv a
-                                                                                        b
-                                                                                        (toFFI c)
+  vertexAttribI4uiv a b c = primJS
+                          $ WebGL2RenderingContextBase.prim__vertexAttribI4uiv a
+                                                                               b
+                                                                               (toFFI c)
   
   export
   vertexAttribIPointer :  (obj : WebGL2RenderingContextBase)
@@ -2701,12 +2855,13 @@ namespace WebGL2RenderingContextBase
                        -> (stride : Int32)
                        -> (offset : Int64)
                        -> JSIO ()
-  vertexAttribIPointer a b c d e f = primJS $ WebGL2RenderingContextBase.prim__vertexAttribIPointer a
-                                                                                                    b
-                                                                                                    c
-                                                                                                    d
-                                                                                                    e
-                                                                                                    f
+  vertexAttribIPointer a b c d e f = primJS
+                                   $ WebGL2RenderingContextBase.prim__vertexAttribIPointer a
+                                                                                           b
+                                                                                           c
+                                                                                           d
+                                                                                           e
+                                                                                           f
   
   export
   waitSync :  (obj : WebGL2RenderingContextBase)
@@ -2724,10 +2879,8 @@ namespace WebGL2RenderingContextOverloads
              -> (size : Int64)
              -> (usage : UInt32)
              -> JSIO ()
-  bufferData a b c d = primJS $ WebGL2RenderingContextOverloads.prim__bufferData a
-                                                                                 b
-                                                                                 c
-                                                                                 d
+  bufferData a b c d = primJS
+                     $ WebGL2RenderingContextOverloads.prim__bufferData a b c d
   
   export
   bufferData1 :  (obj : WebGL2RenderingContextOverloads)
@@ -2746,10 +2899,11 @@ namespace WebGL2RenderingContextOverloads
                                         ]))
               -> (usage : UInt32)
               -> JSIO ()
-  bufferData1 a b c d = primJS $ WebGL2RenderingContextOverloads.prim__bufferData1 a
-                                                                                   b
-                                                                                   (toFFI c)
-                                                                                   d
+  bufferData1 a b c d = primJS
+                      $ WebGL2RenderingContextOverloads.prim__bufferData1 a
+                                                                          b
+                                                                          (toFFI c)
+                                                                          d
   
   export
   bufferData2 :  (obj : WebGL2RenderingContextOverloads)
@@ -2769,12 +2923,13 @@ namespace WebGL2RenderingContextOverloads
               -> (srcOffset : UInt32)
               -> (length : Optional UInt32)
               -> JSIO ()
-  bufferData2 a b c d e f = primJS $ WebGL2RenderingContextOverloads.prim__bufferData2 a
-                                                                                       b
-                                                                                       (toFFI c)
-                                                                                       d
-                                                                                       e
-                                                                                       (toFFI f)
+  bufferData2 a b c d e f = primJS
+                          $ WebGL2RenderingContextOverloads.prim__bufferData2 a
+                                                                              b
+                                                                              (toFFI c)
+                                                                              d
+                                                                              e
+                                                                              (toFFI f)
 
   export
   bufferData2' :  (obj : WebGL2RenderingContextOverloads)
@@ -2793,7 +2948,13 @@ namespace WebGL2RenderingContextOverloads
                -> (usage : UInt32)
                -> (srcOffset : UInt32)
                -> JSIO ()
-  bufferData2' a b c d e = bufferData2 a b c d e Undef
+  bufferData2' a b c d e = primJS
+                         $ WebGL2RenderingContextOverloads.prim__bufferData2 a
+                                                                             b
+                                                                             (toFFI c)
+                                                                             d
+                                                                             e
+                                                                             undef
   
   export
   bufferSubData :  (obj : WebGL2RenderingContextOverloads)
@@ -2812,10 +2973,11 @@ namespace WebGL2RenderingContextOverloads
                                    , ArrayBuffer
                                    ])
                 -> JSIO ()
-  bufferSubData a b c d = primJS $ WebGL2RenderingContextOverloads.prim__bufferSubData a
-                                                                                       b
-                                                                                       c
-                                                                                       (toFFI d)
+  bufferSubData a b c d = primJS
+                        $ WebGL2RenderingContextOverloads.prim__bufferSubData a
+                                                                              b
+                                                                              c
+                                                                              (toFFI d)
   
   export
   bufferSubData1 :  (obj : WebGL2RenderingContextOverloads)
@@ -2835,12 +2997,13 @@ namespace WebGL2RenderingContextOverloads
                  -> (srcOffset : UInt32)
                  -> (length : Optional UInt32)
                  -> JSIO ()
-  bufferSubData1 a b c d e f = primJS $ WebGL2RenderingContextOverloads.prim__bufferSubData1 a
-                                                                                             b
-                                                                                             c
-                                                                                             (toFFI d)
-                                                                                             e
-                                                                                             (toFFI f)
+  bufferSubData1 a b c d e f = primJS
+                             $ WebGL2RenderingContextOverloads.prim__bufferSubData1 a
+                                                                                    b
+                                                                                    c
+                                                                                    (toFFI d)
+                                                                                    e
+                                                                                    (toFFI f)
 
   export
   bufferSubData1' :  (obj : WebGL2RenderingContextOverloads)
@@ -2859,7 +3022,13 @@ namespace WebGL2RenderingContextOverloads
                                      ])
                   -> (srcOffset : UInt32)
                   -> JSIO ()
-  bufferSubData1' a b c d e = bufferSubData1 a b c d e Undef
+  bufferSubData1' a b c d e = primJS
+                            $ WebGL2RenderingContextOverloads.prim__bufferSubData1 a
+                                                                                   b
+                                                                                   c
+                                                                                   (toFFI d)
+                                                                                   e
+                                                                                   undef
   
   export
   compressedTexImage2D :  (obj : WebGL2RenderingContextOverloads)
@@ -2872,15 +3041,16 @@ namespace WebGL2RenderingContextOverloads
                        -> (imageSize : Int32)
                        -> (offset : Int64)
                        -> JSIO ()
-  compressedTexImage2D a b c d e f g h i = primJS $ WebGL2RenderingContextOverloads.prim__compressedTexImage2D a
-                                                                                                               b
-                                                                                                               c
-                                                                                                               d
-                                                                                                               e
-                                                                                                               f
-                                                                                                               g
-                                                                                                               h
-                                                                                                               i
+  compressedTexImage2D a b c d e f g h i = primJS
+                                         $ WebGL2RenderingContextOverloads.prim__compressedTexImage2D a
+                                                                                                      b
+                                                                                                      c
+                                                                                                      d
+                                                                                                      e
+                                                                                                      f
+                                                                                                      g
+                                                                                                      h
+                                                                                                      i
   
   export
   compressedTexImage2D1 :  (obj : WebGL2RenderingContextOverloads)
@@ -2904,16 +3074,17 @@ namespace WebGL2RenderingContextOverloads
                         -> (srcOffset : Optional UInt32)
                         -> (srcLengthOverride : Optional UInt32)
                         -> JSIO ()
-  compressedTexImage2D1 a b c d e f g h i j = primJS $ WebGL2RenderingContextOverloads.prim__compressedTexImage2D1 a
-                                                                                                                   b
-                                                                                                                   c
-                                                                                                                   d
-                                                                                                                   e
-                                                                                                                   f
-                                                                                                                   g
-                                                                                                                   (toFFI h)
-                                                                                                                   (toFFI i)
-                                                                                                                   (toFFI j)
+  compressedTexImage2D1 a b c d e f g h i j = primJS
+                                            $ WebGL2RenderingContextOverloads.prim__compressedTexImage2D1 a
+                                                                                                          b
+                                                                                                          c
+                                                                                                          d
+                                                                                                          e
+                                                                                                          f
+                                                                                                          g
+                                                                                                          (toFFI h)
+                                                                                                          (toFFI i)
+                                                                                                          (toFFI j)
 
   export
   compressedTexImage2D1' :  (obj : WebGL2RenderingContextOverloads)
@@ -2935,16 +3106,17 @@ namespace WebGL2RenderingContextOverloads
                                             , DataView
                                             ])
                          -> JSIO ()
-  compressedTexImage2D1' a b c d e f g h = compressedTexImage2D1 a
-                                                                 b
-                                                                 c
-                                                                 d
-                                                                 e
-                                                                 f
-                                                                 g
-                                                                 h
-                                                                 Undef
-                                                                 Undef
+  compressedTexImage2D1' a b c d e f g h = primJS
+                                         $ WebGL2RenderingContextOverloads.prim__compressedTexImage2D1 a
+                                                                                                       b
+                                                                                                       c
+                                                                                                       d
+                                                                                                       e
+                                                                                                       f
+                                                                                                       g
+                                                                                                       (toFFI h)
+                                                                                                       undef
+                                                                                                       undef
   
   export
   compressedTexSubImage2D :  (obj : WebGL2RenderingContextOverloads)
@@ -2958,16 +3130,17 @@ namespace WebGL2RenderingContextOverloads
                           -> (imageSize : Int32)
                           -> (offset : Int64)
                           -> JSIO ()
-  compressedTexSubImage2D a b c d e f g h i j = primJS $ WebGL2RenderingContextOverloads.prim__compressedTexSubImage2D a
-                                                                                                                       b
-                                                                                                                       c
-                                                                                                                       d
-                                                                                                                       e
-                                                                                                                       f
-                                                                                                                       g
-                                                                                                                       h
-                                                                                                                       i
-                                                                                                                       j
+  compressedTexSubImage2D a b c d e f g h i j = primJS
+                                              $ WebGL2RenderingContextOverloads.prim__compressedTexSubImage2D a
+                                                                                                              b
+                                                                                                              c
+                                                                                                              d
+                                                                                                              e
+                                                                                                              f
+                                                                                                              g
+                                                                                                              h
+                                                                                                              i
+                                                                                                              j
   
   export
   compressedTexSubImage2D1 :  (obj : WebGL2RenderingContextOverloads)
@@ -2992,17 +3165,18 @@ namespace WebGL2RenderingContextOverloads
                            -> (srcOffset : Optional UInt32)
                            -> (srcLengthOverride : Optional UInt32)
                            -> JSIO ()
-  compressedTexSubImage2D1 a b c d e f g h i j k = primJS $ WebGL2RenderingContextOverloads.prim__compressedTexSubImage2D1 a
-                                                                                                                           b
-                                                                                                                           c
-                                                                                                                           d
-                                                                                                                           e
-                                                                                                                           f
-                                                                                                                           g
-                                                                                                                           h
-                                                                                                                           (toFFI i)
-                                                                                                                           (toFFI j)
-                                                                                                                           (toFFI k)
+  compressedTexSubImage2D1 a b c d e f g h i j k = primJS
+                                                 $ WebGL2RenderingContextOverloads.prim__compressedTexSubImage2D1 a
+                                                                                                                  b
+                                                                                                                  c
+                                                                                                                  d
+                                                                                                                  e
+                                                                                                                  f
+                                                                                                                  g
+                                                                                                                  h
+                                                                                                                  (toFFI i)
+                                                                                                                  (toFFI j)
+                                                                                                                  (toFFI k)
 
   export
   compressedTexSubImage2D1' :  (obj : WebGL2RenderingContextOverloads)
@@ -3025,17 +3199,18 @@ namespace WebGL2RenderingContextOverloads
                                                , DataView
                                                ])
                             -> JSIO ()
-  compressedTexSubImage2D1' a b c d e f g h i = compressedTexSubImage2D1 a
-                                                                         b
-                                                                         c
-                                                                         d
-                                                                         e
-                                                                         f
-                                                                         g
-                                                                         h
-                                                                         i
-                                                                         Undef
-                                                                         Undef
+  compressedTexSubImage2D1' a b c d e f g h i = primJS
+                                              $ WebGL2RenderingContextOverloads.prim__compressedTexSubImage2D1 a
+                                                                                                               b
+                                                                                                               c
+                                                                                                               d
+                                                                                                               e
+                                                                                                               f
+                                                                                                               g
+                                                                                                               h
+                                                                                                               (toFFI i)
+                                                                                                               undef
+                                                                                                               undef
   
   export
   readPixels :  (obj : WebGL2RenderingContextOverloads)
@@ -3057,14 +3232,15 @@ namespace WebGL2RenderingContextOverloads
                                        , DataView
                                        ]))
              -> JSIO ()
-  readPixels a b c d e f g h = primJS $ WebGL2RenderingContextOverloads.prim__readPixels a
-                                                                                         b
-                                                                                         c
-                                                                                         d
-                                                                                         e
-                                                                                         f
-                                                                                         g
-                                                                                         (toFFI h)
+  readPixels a b c d e f g h = primJS
+                             $ WebGL2RenderingContextOverloads.prim__readPixels a
+                                                                                b
+                                                                                c
+                                                                                d
+                                                                                e
+                                                                                f
+                                                                                g
+                                                                                (toFFI h)
   
   export
   readPixels1 :  (obj : WebGL2RenderingContextOverloads)
@@ -3076,14 +3252,15 @@ namespace WebGL2RenderingContextOverloads
               -> (type : UInt32)
               -> (offset : Int64)
               -> JSIO ()
-  readPixels1 a b c d e f g h = primJS $ WebGL2RenderingContextOverloads.prim__readPixels1 a
-                                                                                           b
-                                                                                           c
-                                                                                           d
-                                                                                           e
-                                                                                           f
-                                                                                           g
-                                                                                           h
+  readPixels1 a b c d e f g h = primJS
+                              $ WebGL2RenderingContextOverloads.prim__readPixels1 a
+                                                                                  b
+                                                                                  c
+                                                                                  d
+                                                                                  e
+                                                                                  f
+                                                                                  g
+                                                                                  h
   
   export
   readPixels2 :  (obj : WebGL2RenderingContextOverloads)
@@ -3106,15 +3283,16 @@ namespace WebGL2RenderingContextOverloads
                                  ])
               -> (dstOffset : UInt32)
               -> JSIO ()
-  readPixels2 a b c d e f g h i = primJS $ WebGL2RenderingContextOverloads.prim__readPixels2 a
-                                                                                             b
-                                                                                             c
-                                                                                             d
-                                                                                             e
-                                                                                             f
-                                                                                             g
-                                                                                             (toFFI h)
-                                                                                             i
+  readPixels2 a b c d e f g h i = primJS
+                                $ WebGL2RenderingContextOverloads.prim__readPixels2 a
+                                                                                    b
+                                                                                    c
+                                                                                    d
+                                                                                    e
+                                                                                    f
+                                                                                    g
+                                                                                    (toFFI h)
+                                                                                    i
   
   export
   texImage2D :  (obj : WebGL2RenderingContextOverloads)
@@ -3138,16 +3316,17 @@ namespace WebGL2RenderingContextOverloads
                                       , DataView
                                       ]))
              -> JSIO ()
-  texImage2D a b c d e f g h i j = primJS $ WebGL2RenderingContextOverloads.prim__texImage2D a
-                                                                                             b
-                                                                                             c
-                                                                                             d
-                                                                                             e
-                                                                                             f
-                                                                                             g
-                                                                                             h
-                                                                                             i
-                                                                                             (toFFI j)
+  texImage2D a b c d e f g h i j = primJS
+                                 $ WebGL2RenderingContextOverloads.prim__texImage2D a
+                                                                                    b
+                                                                                    c
+                                                                                    d
+                                                                                    e
+                                                                                    f
+                                                                                    g
+                                                                                    h
+                                                                                    i
+                                                                                    (toFFI j)
   
   export
   texImage2D1 :  (obj : WebGL2RenderingContextOverloads)
@@ -3164,13 +3343,14 @@ namespace WebGL2RenderingContextOverloads
                                 , OffscreenCanvas
                                 ])
               -> JSIO ()
-  texImage2D1 a b c d e f g = primJS $ WebGL2RenderingContextOverloads.prim__texImage2D1 a
-                                                                                         b
-                                                                                         c
-                                                                                         d
-                                                                                         e
-                                                                                         f
-                                                                                         (toFFI g)
+  texImage2D1 a b c d e f g = primJS
+                            $ WebGL2RenderingContextOverloads.prim__texImage2D1 a
+                                                                                b
+                                                                                c
+                                                                                d
+                                                                                e
+                                                                                f
+                                                                                (toFFI g)
   
   export
   texImage2D2 :  (obj : WebGL2RenderingContextOverloads)
@@ -3184,16 +3364,17 @@ namespace WebGL2RenderingContextOverloads
               -> (type : UInt32)
               -> (pboOffset : Int64)
               -> JSIO ()
-  texImage2D2 a b c d e f g h i j = primJS $ WebGL2RenderingContextOverloads.prim__texImage2D2 a
-                                                                                               b
-                                                                                               c
-                                                                                               d
-                                                                                               e
-                                                                                               f
-                                                                                               g
-                                                                                               h
-                                                                                               i
-                                                                                               j
+  texImage2D2 a b c d e f g h i j = primJS
+                                  $ WebGL2RenderingContextOverloads.prim__texImage2D2 a
+                                                                                      b
+                                                                                      c
+                                                                                      d
+                                                                                      e
+                                                                                      f
+                                                                                      g
+                                                                                      h
+                                                                                      i
+                                                                                      j
   
   export
   texImage2D3 :  (obj : WebGL2RenderingContextOverloads)
@@ -3213,16 +3394,17 @@ namespace WebGL2RenderingContextOverloads
                                 , OffscreenCanvas
                                 ])
               -> JSIO ()
-  texImage2D3 a b c d e f g h i j = primJS $ WebGL2RenderingContextOverloads.prim__texImage2D3 a
-                                                                                               b
-                                                                                               c
-                                                                                               d
-                                                                                               e
-                                                                                               f
-                                                                                               g
-                                                                                               h
-                                                                                               i
-                                                                                               (toFFI j)
+  texImage2D3 a b c d e f g h i j = primJS
+                                  $ WebGL2RenderingContextOverloads.prim__texImage2D3 a
+                                                                                      b
+                                                                                      c
+                                                                                      d
+                                                                                      e
+                                                                                      f
+                                                                                      g
+                                                                                      h
+                                                                                      i
+                                                                                      (toFFI j)
   
   export
   texImage2D4 :  (obj : WebGL2RenderingContextOverloads)
@@ -3247,17 +3429,18 @@ namespace WebGL2RenderingContextOverloads
                                  ])
               -> (srcOffset : UInt32)
               -> JSIO ()
-  texImage2D4 a b c d e f g h i j k = primJS $ WebGL2RenderingContextOverloads.prim__texImage2D4 a
-                                                                                                 b
-                                                                                                 c
-                                                                                                 d
-                                                                                                 e
-                                                                                                 f
-                                                                                                 g
-                                                                                                 h
-                                                                                                 i
-                                                                                                 (toFFI j)
-                                                                                                 k
+  texImage2D4 a b c d e f g h i j k = primJS
+                                    $ WebGL2RenderingContextOverloads.prim__texImage2D4 a
+                                                                                        b
+                                                                                        c
+                                                                                        d
+                                                                                        e
+                                                                                        f
+                                                                                        g
+                                                                                        h
+                                                                                        i
+                                                                                        (toFFI j)
+                                                                                        k
   
   export
   texSubImage2D :  (obj : WebGL2RenderingContextOverloads)
@@ -3281,16 +3464,17 @@ namespace WebGL2RenderingContextOverloads
                                          , DataView
                                          ]))
                 -> JSIO ()
-  texSubImage2D a b c d e f g h i j = primJS $ WebGL2RenderingContextOverloads.prim__texSubImage2D a
-                                                                                                   b
-                                                                                                   c
-                                                                                                   d
-                                                                                                   e
-                                                                                                   f
-                                                                                                   g
-                                                                                                   h
-                                                                                                   i
-                                                                                                   (toFFI j)
+  texSubImage2D a b c d e f g h i j = primJS
+                                    $ WebGL2RenderingContextOverloads.prim__texSubImage2D a
+                                                                                          b
+                                                                                          c
+                                                                                          d
+                                                                                          e
+                                                                                          f
+                                                                                          g
+                                                                                          h
+                                                                                          i
+                                                                                          (toFFI j)
   
   export
   texSubImage2D1 :  (obj : WebGL2RenderingContextOverloads)
@@ -3308,14 +3492,15 @@ namespace WebGL2RenderingContextOverloads
                                    , OffscreenCanvas
                                    ])
                  -> JSIO ()
-  texSubImage2D1 a b c d e f g h = primJS $ WebGL2RenderingContextOverloads.prim__texSubImage2D1 a
-                                                                                                 b
-                                                                                                 c
-                                                                                                 d
-                                                                                                 e
-                                                                                                 f
-                                                                                                 g
-                                                                                                 (toFFI h)
+  texSubImage2D1 a b c d e f g h = primJS
+                                 $ WebGL2RenderingContextOverloads.prim__texSubImage2D1 a
+                                                                                        b
+                                                                                        c
+                                                                                        d
+                                                                                        e
+                                                                                        f
+                                                                                        g
+                                                                                        (toFFI h)
   
   export
   texSubImage2D2 :  (obj : WebGL2RenderingContextOverloads)
@@ -3329,16 +3514,17 @@ namespace WebGL2RenderingContextOverloads
                  -> (type : UInt32)
                  -> (pboOffset : Int64)
                  -> JSIO ()
-  texSubImage2D2 a b c d e f g h i j = primJS $ WebGL2RenderingContextOverloads.prim__texSubImage2D2 a
-                                                                                                     b
-                                                                                                     c
-                                                                                                     d
-                                                                                                     e
-                                                                                                     f
-                                                                                                     g
-                                                                                                     h
-                                                                                                     i
-                                                                                                     j
+  texSubImage2D2 a b c d e f g h i j = primJS
+                                     $ WebGL2RenderingContextOverloads.prim__texSubImage2D2 a
+                                                                                            b
+                                                                                            c
+                                                                                            d
+                                                                                            e
+                                                                                            f
+                                                                                            g
+                                                                                            h
+                                                                                            i
+                                                                                            j
   
   export
   texSubImage2D3 :  (obj : WebGL2RenderingContextOverloads)
@@ -3358,16 +3544,17 @@ namespace WebGL2RenderingContextOverloads
                                    , OffscreenCanvas
                                    ])
                  -> JSIO ()
-  texSubImage2D3 a b c d e f g h i j = primJS $ WebGL2RenderingContextOverloads.prim__texSubImage2D3 a
-                                                                                                     b
-                                                                                                     c
-                                                                                                     d
-                                                                                                     e
-                                                                                                     f
-                                                                                                     g
-                                                                                                     h
-                                                                                                     i
-                                                                                                     (toFFI j)
+  texSubImage2D3 a b c d e f g h i j = primJS
+                                     $ WebGL2RenderingContextOverloads.prim__texSubImage2D3 a
+                                                                                            b
+                                                                                            c
+                                                                                            d
+                                                                                            e
+                                                                                            f
+                                                                                            g
+                                                                                            h
+                                                                                            i
+                                                                                            (toFFI j)
   
   export
   texSubImage2D4 :  (obj : WebGL2RenderingContextOverloads)
@@ -3392,17 +3579,18 @@ namespace WebGL2RenderingContextOverloads
                                     ])
                  -> (srcOffset : UInt32)
                  -> JSIO ()
-  texSubImage2D4 a b c d e f g h i j k = primJS $ WebGL2RenderingContextOverloads.prim__texSubImage2D4 a
-                                                                                                       b
-                                                                                                       c
-                                                                                                       d
-                                                                                                       e
-                                                                                                       f
-                                                                                                       g
-                                                                                                       h
-                                                                                                       i
-                                                                                                       (toFFI j)
-                                                                                                       k
+  texSubImage2D4 a b c d e f g h i j k = primJS
+                                       $ WebGL2RenderingContextOverloads.prim__texSubImage2D4 a
+                                                                                              b
+                                                                                              c
+                                                                                              d
+                                                                                              e
+                                                                                              f
+                                                                                              g
+                                                                                              h
+                                                                                              i
+                                                                                              (toFFI j)
+                                                                                              k
   
   export
   uniform1fv :  (obj : WebGL2RenderingContextOverloads)
@@ -3411,18 +3599,24 @@ namespace WebGL2RenderingContextOverloads
              -> (srcOffset : Optional UInt32)
              -> (srcLength : Optional UInt32)
              -> JSIO ()
-  uniform1fv a b c d e = primJS $ WebGL2RenderingContextOverloads.prim__uniform1fv a
-                                                                                   (toFFI b)
-                                                                                   (toFFI c)
-                                                                                   (toFFI d)
-                                                                                   (toFFI e)
+  uniform1fv a b c d e = primJS
+                       $ WebGL2RenderingContextOverloads.prim__uniform1fv a
+                                                                          (toFFI b)
+                                                                          (toFFI c)
+                                                                          (toFFI d)
+                                                                          (toFFI e)
 
   export
   uniform1fv' :  (obj : WebGL2RenderingContextOverloads)
               -> (location : Maybe WebGLUniformLocation)
               -> (data_ : NS I [ Float32Array , Array Double ])
               -> JSIO ()
-  uniform1fv' a b c = uniform1fv a b c Undef Undef
+  uniform1fv' a b c = primJS
+                    $ WebGL2RenderingContextOverloads.prim__uniform1fv a
+                                                                       (toFFI b)
+                                                                       (toFFI c)
+                                                                       undef
+                                                                       undef
   
   export
   uniform1iv :  (obj : WebGL2RenderingContextOverloads)
@@ -3431,18 +3625,24 @@ namespace WebGL2RenderingContextOverloads
              -> (srcOffset : Optional UInt32)
              -> (srcLength : Optional UInt32)
              -> JSIO ()
-  uniform1iv a b c d e = primJS $ WebGL2RenderingContextOverloads.prim__uniform1iv a
-                                                                                   (toFFI b)
-                                                                                   (toFFI c)
-                                                                                   (toFFI d)
-                                                                                   (toFFI e)
+  uniform1iv a b c d e = primJS
+                       $ WebGL2RenderingContextOverloads.prim__uniform1iv a
+                                                                          (toFFI b)
+                                                                          (toFFI c)
+                                                                          (toFFI d)
+                                                                          (toFFI e)
 
   export
   uniform1iv' :  (obj : WebGL2RenderingContextOverloads)
               -> (location : Maybe WebGLUniformLocation)
               -> (data_ : NS I [ Int32Array , Array Int32 ])
               -> JSIO ()
-  uniform1iv' a b c = uniform1iv a b c Undef Undef
+  uniform1iv' a b c = primJS
+                    $ WebGL2RenderingContextOverloads.prim__uniform1iv a
+                                                                       (toFFI b)
+                                                                       (toFFI c)
+                                                                       undef
+                                                                       undef
   
   export
   uniform2fv :  (obj : WebGL2RenderingContextOverloads)
@@ -3451,18 +3651,24 @@ namespace WebGL2RenderingContextOverloads
              -> (srcOffset : Optional UInt32)
              -> (srcLength : Optional UInt32)
              -> JSIO ()
-  uniform2fv a b c d e = primJS $ WebGL2RenderingContextOverloads.prim__uniform2fv a
-                                                                                   (toFFI b)
-                                                                                   (toFFI c)
-                                                                                   (toFFI d)
-                                                                                   (toFFI e)
+  uniform2fv a b c d e = primJS
+                       $ WebGL2RenderingContextOverloads.prim__uniform2fv a
+                                                                          (toFFI b)
+                                                                          (toFFI c)
+                                                                          (toFFI d)
+                                                                          (toFFI e)
 
   export
   uniform2fv' :  (obj : WebGL2RenderingContextOverloads)
               -> (location : Maybe WebGLUniformLocation)
               -> (data_ : NS I [ Float32Array , Array Double ])
               -> JSIO ()
-  uniform2fv' a b c = uniform2fv a b c Undef Undef
+  uniform2fv' a b c = primJS
+                    $ WebGL2RenderingContextOverloads.prim__uniform2fv a
+                                                                       (toFFI b)
+                                                                       (toFFI c)
+                                                                       undef
+                                                                       undef
   
   export
   uniform2iv :  (obj : WebGL2RenderingContextOverloads)
@@ -3471,18 +3677,24 @@ namespace WebGL2RenderingContextOverloads
              -> (srcOffset : Optional UInt32)
              -> (srcLength : Optional UInt32)
              -> JSIO ()
-  uniform2iv a b c d e = primJS $ WebGL2RenderingContextOverloads.prim__uniform2iv a
-                                                                                   (toFFI b)
-                                                                                   (toFFI c)
-                                                                                   (toFFI d)
-                                                                                   (toFFI e)
+  uniform2iv a b c d e = primJS
+                       $ WebGL2RenderingContextOverloads.prim__uniform2iv a
+                                                                          (toFFI b)
+                                                                          (toFFI c)
+                                                                          (toFFI d)
+                                                                          (toFFI e)
 
   export
   uniform2iv' :  (obj : WebGL2RenderingContextOverloads)
               -> (location : Maybe WebGLUniformLocation)
               -> (data_ : NS I [ Int32Array , Array Int32 ])
               -> JSIO ()
-  uniform2iv' a b c = uniform2iv a b c Undef Undef
+  uniform2iv' a b c = primJS
+                    $ WebGL2RenderingContextOverloads.prim__uniform2iv a
+                                                                       (toFFI b)
+                                                                       (toFFI c)
+                                                                       undef
+                                                                       undef
   
   export
   uniform3fv :  (obj : WebGL2RenderingContextOverloads)
@@ -3491,18 +3703,24 @@ namespace WebGL2RenderingContextOverloads
              -> (srcOffset : Optional UInt32)
              -> (srcLength : Optional UInt32)
              -> JSIO ()
-  uniform3fv a b c d e = primJS $ WebGL2RenderingContextOverloads.prim__uniform3fv a
-                                                                                   (toFFI b)
-                                                                                   (toFFI c)
-                                                                                   (toFFI d)
-                                                                                   (toFFI e)
+  uniform3fv a b c d e = primJS
+                       $ WebGL2RenderingContextOverloads.prim__uniform3fv a
+                                                                          (toFFI b)
+                                                                          (toFFI c)
+                                                                          (toFFI d)
+                                                                          (toFFI e)
 
   export
   uniform3fv' :  (obj : WebGL2RenderingContextOverloads)
               -> (location : Maybe WebGLUniformLocation)
               -> (data_ : NS I [ Float32Array , Array Double ])
               -> JSIO ()
-  uniform3fv' a b c = uniform3fv a b c Undef Undef
+  uniform3fv' a b c = primJS
+                    $ WebGL2RenderingContextOverloads.prim__uniform3fv a
+                                                                       (toFFI b)
+                                                                       (toFFI c)
+                                                                       undef
+                                                                       undef
   
   export
   uniform3iv :  (obj : WebGL2RenderingContextOverloads)
@@ -3511,18 +3729,24 @@ namespace WebGL2RenderingContextOverloads
              -> (srcOffset : Optional UInt32)
              -> (srcLength : Optional UInt32)
              -> JSIO ()
-  uniform3iv a b c d e = primJS $ WebGL2RenderingContextOverloads.prim__uniform3iv a
-                                                                                   (toFFI b)
-                                                                                   (toFFI c)
-                                                                                   (toFFI d)
-                                                                                   (toFFI e)
+  uniform3iv a b c d e = primJS
+                       $ WebGL2RenderingContextOverloads.prim__uniform3iv a
+                                                                          (toFFI b)
+                                                                          (toFFI c)
+                                                                          (toFFI d)
+                                                                          (toFFI e)
 
   export
   uniform3iv' :  (obj : WebGL2RenderingContextOverloads)
               -> (location : Maybe WebGLUniformLocation)
               -> (data_ : NS I [ Int32Array , Array Int32 ])
               -> JSIO ()
-  uniform3iv' a b c = uniform3iv a b c Undef Undef
+  uniform3iv' a b c = primJS
+                    $ WebGL2RenderingContextOverloads.prim__uniform3iv a
+                                                                       (toFFI b)
+                                                                       (toFFI c)
+                                                                       undef
+                                                                       undef
   
   export
   uniform4fv :  (obj : WebGL2RenderingContextOverloads)
@@ -3531,18 +3755,24 @@ namespace WebGL2RenderingContextOverloads
              -> (srcOffset : Optional UInt32)
              -> (srcLength : Optional UInt32)
              -> JSIO ()
-  uniform4fv a b c d e = primJS $ WebGL2RenderingContextOverloads.prim__uniform4fv a
-                                                                                   (toFFI b)
-                                                                                   (toFFI c)
-                                                                                   (toFFI d)
-                                                                                   (toFFI e)
+  uniform4fv a b c d e = primJS
+                       $ WebGL2RenderingContextOverloads.prim__uniform4fv a
+                                                                          (toFFI b)
+                                                                          (toFFI c)
+                                                                          (toFFI d)
+                                                                          (toFFI e)
 
   export
   uniform4fv' :  (obj : WebGL2RenderingContextOverloads)
               -> (location : Maybe WebGLUniformLocation)
               -> (data_ : NS I [ Float32Array , Array Double ])
               -> JSIO ()
-  uniform4fv' a b c = uniform4fv a b c Undef Undef
+  uniform4fv' a b c = primJS
+                    $ WebGL2RenderingContextOverloads.prim__uniform4fv a
+                                                                       (toFFI b)
+                                                                       (toFFI c)
+                                                                       undef
+                                                                       undef
   
   export
   uniform4iv :  (obj : WebGL2RenderingContextOverloads)
@@ -3551,18 +3781,24 @@ namespace WebGL2RenderingContextOverloads
              -> (srcOffset : Optional UInt32)
              -> (srcLength : Optional UInt32)
              -> JSIO ()
-  uniform4iv a b c d e = primJS $ WebGL2RenderingContextOverloads.prim__uniform4iv a
-                                                                                   (toFFI b)
-                                                                                   (toFFI c)
-                                                                                   (toFFI d)
-                                                                                   (toFFI e)
+  uniform4iv a b c d e = primJS
+                       $ WebGL2RenderingContextOverloads.prim__uniform4iv a
+                                                                          (toFFI b)
+                                                                          (toFFI c)
+                                                                          (toFFI d)
+                                                                          (toFFI e)
 
   export
   uniform4iv' :  (obj : WebGL2RenderingContextOverloads)
               -> (location : Maybe WebGLUniformLocation)
               -> (data_ : NS I [ Int32Array , Array Int32 ])
               -> JSIO ()
-  uniform4iv' a b c = uniform4iv a b c Undef Undef
+  uniform4iv' a b c = primJS
+                    $ WebGL2RenderingContextOverloads.prim__uniform4iv a
+                                                                       (toFFI b)
+                                                                       (toFFI c)
+                                                                       undef
+                                                                       undef
   
   export
   uniformMatrix2fv :  (obj : WebGL2RenderingContextOverloads)
@@ -3572,12 +3808,13 @@ namespace WebGL2RenderingContextOverloads
                    -> (srcOffset : Optional UInt32)
                    -> (srcLength : Optional UInt32)
                    -> JSIO ()
-  uniformMatrix2fv a b c d e f = primJS $ WebGL2RenderingContextOverloads.prim__uniformMatrix2fv a
-                                                                                                 (toFFI b)
-                                                                                                 (toFFI c)
-                                                                                                 (toFFI d)
-                                                                                                 (toFFI e)
-                                                                                                 (toFFI f)
+  uniformMatrix2fv a b c d e f = primJS
+                               $ WebGL2RenderingContextOverloads.prim__uniformMatrix2fv a
+                                                                                        (toFFI b)
+                                                                                        (toFFI c)
+                                                                                        (toFFI d)
+                                                                                        (toFFI e)
+                                                                                        (toFFI f)
 
   export
   uniformMatrix2fv' :  (obj : WebGL2RenderingContextOverloads)
@@ -3585,7 +3822,13 @@ namespace WebGL2RenderingContextOverloads
                     -> (transpose : Bool)
                     -> (data_ : NS I [ Float32Array , Array Double ])
                     -> JSIO ()
-  uniformMatrix2fv' a b c d = uniformMatrix2fv a b c d Undef Undef
+  uniformMatrix2fv' a b c d = primJS
+                            $ WebGL2RenderingContextOverloads.prim__uniformMatrix2fv a
+                                                                                     (toFFI b)
+                                                                                     (toFFI c)
+                                                                                     (toFFI d)
+                                                                                     undef
+                                                                                     undef
   
   export
   uniformMatrix3fv :  (obj : WebGL2RenderingContextOverloads)
@@ -3595,12 +3838,13 @@ namespace WebGL2RenderingContextOverloads
                    -> (srcOffset : Optional UInt32)
                    -> (srcLength : Optional UInt32)
                    -> JSIO ()
-  uniformMatrix3fv a b c d e f = primJS $ WebGL2RenderingContextOverloads.prim__uniformMatrix3fv a
-                                                                                                 (toFFI b)
-                                                                                                 (toFFI c)
-                                                                                                 (toFFI d)
-                                                                                                 (toFFI e)
-                                                                                                 (toFFI f)
+  uniformMatrix3fv a b c d e f = primJS
+                               $ WebGL2RenderingContextOverloads.prim__uniformMatrix3fv a
+                                                                                        (toFFI b)
+                                                                                        (toFFI c)
+                                                                                        (toFFI d)
+                                                                                        (toFFI e)
+                                                                                        (toFFI f)
 
   export
   uniformMatrix3fv' :  (obj : WebGL2RenderingContextOverloads)
@@ -3608,7 +3852,13 @@ namespace WebGL2RenderingContextOverloads
                     -> (transpose : Bool)
                     -> (data_ : NS I [ Float32Array , Array Double ])
                     -> JSIO ()
-  uniformMatrix3fv' a b c d = uniformMatrix3fv a b c d Undef Undef
+  uniformMatrix3fv' a b c d = primJS
+                            $ WebGL2RenderingContextOverloads.prim__uniformMatrix3fv a
+                                                                                     (toFFI b)
+                                                                                     (toFFI c)
+                                                                                     (toFFI d)
+                                                                                     undef
+                                                                                     undef
   
   export
   uniformMatrix4fv :  (obj : WebGL2RenderingContextOverloads)
@@ -3618,12 +3868,13 @@ namespace WebGL2RenderingContextOverloads
                    -> (srcOffset : Optional UInt32)
                    -> (srcLength : Optional UInt32)
                    -> JSIO ()
-  uniformMatrix4fv a b c d e f = primJS $ WebGL2RenderingContextOverloads.prim__uniformMatrix4fv a
-                                                                                                 (toFFI b)
-                                                                                                 (toFFI c)
-                                                                                                 (toFFI d)
-                                                                                                 (toFFI e)
-                                                                                                 (toFFI f)
+  uniformMatrix4fv a b c d e f = primJS
+                               $ WebGL2RenderingContextOverloads.prim__uniformMatrix4fv a
+                                                                                        (toFFI b)
+                                                                                        (toFFI c)
+                                                                                        (toFFI d)
+                                                                                        (toFFI e)
+                                                                                        (toFFI f)
 
   export
   uniformMatrix4fv' :  (obj : WebGL2RenderingContextOverloads)
@@ -3631,7 +3882,13 @@ namespace WebGL2RenderingContextOverloads
                     -> (transpose : Bool)
                     -> (data_ : NS I [ Float32Array , Array Double ])
                     -> JSIO ()
-  uniformMatrix4fv' a b c d = uniformMatrix4fv a b c d Undef Undef
+  uniformMatrix4fv' a b c d = primJS
+                            $ WebGL2RenderingContextOverloads.prim__uniformMatrix4fv a
+                                                                                     (toFFI b)
+                                                                                     (toFFI c)
+                                                                                     (toFFI d)
+                                                                                     undef
+                                                                                     undef
 
 namespace WebGLRenderingContextBase
   
@@ -4822,15 +5079,18 @@ namespace WebGLRenderingContextBase
   export
   canvas :  (obj : WebGLRenderingContextBase)
          -> JSIO (NS I [ HTMLCanvasElement , OffscreenCanvas ])
-  canvas a = tryJS "WebGLRenderingContextBase.canvas" $ WebGLRenderingContextBase.prim__canvas a
+  canvas a = tryJS "WebGLRenderingContextBase.canvas"
+           $ WebGLRenderingContextBase.prim__canvas a
   
   export
   drawingBufferHeight : (obj : WebGLRenderingContextBase) -> JSIO Int32
-  drawingBufferHeight a = primJS $ WebGLRenderingContextBase.prim__drawingBufferHeight a
+  drawingBufferHeight a = primJS
+                        $ WebGLRenderingContextBase.prim__drawingBufferHeight a
   
   export
   drawingBufferWidth : (obj : WebGLRenderingContextBase) -> JSIO Int32
-  drawingBufferWidth a = primJS $ WebGLRenderingContextBase.prim__drawingBufferWidth a
+  drawingBufferWidth a = primJS
+                       $ WebGLRenderingContextBase.prim__drawingBufferWidth a
   
   export
   activeTexture :  (obj : WebGLRenderingContextBase)
@@ -4843,9 +5103,8 @@ namespace WebGLRenderingContextBase
                -> (program : WebGLProgram)
                -> (shader : WebGLShader)
                -> JSIO ()
-  attachShader a b c = primJS $ WebGLRenderingContextBase.prim__attachShader a
-                                                                             b
-                                                                             c
+  attachShader a b c = primJS
+                     $ WebGLRenderingContextBase.prim__attachShader a b c
   
   export
   bindAttribLocation :  (obj : WebGLRenderingContextBase)
@@ -4853,46 +5112,47 @@ namespace WebGLRenderingContextBase
                      -> (index : UInt32)
                      -> (name : String)
                      -> JSIO ()
-  bindAttribLocation a b c d = primJS $ WebGLRenderingContextBase.prim__bindAttribLocation a
-                                                                                           b
-                                                                                           c
-                                                                                           d
+  bindAttribLocation a b c d = primJS
+                             $ WebGLRenderingContextBase.prim__bindAttribLocation a
+                                                                                  b
+                                                                                  c
+                                                                                  d
   
   export
   bindBuffer :  (obj : WebGLRenderingContextBase)
              -> (target : UInt32)
              -> (buffer : Maybe WebGLBuffer)
              -> JSIO ()
-  bindBuffer a b c = primJS $ WebGLRenderingContextBase.prim__bindBuffer a
-                                                                         b
-                                                                         (toFFI c)
+  bindBuffer a b c = primJS
+                   $ WebGLRenderingContextBase.prim__bindBuffer a b (toFFI c)
   
   export
   bindFramebuffer :  (obj : WebGLRenderingContextBase)
                   -> (target : UInt32)
                   -> (framebuffer : Maybe WebGLFramebuffer)
                   -> JSIO ()
-  bindFramebuffer a b c = primJS $ WebGLRenderingContextBase.prim__bindFramebuffer a
-                                                                                   b
-                                                                                   (toFFI c)
+  bindFramebuffer a b c = primJS
+                        $ WebGLRenderingContextBase.prim__bindFramebuffer a
+                                                                          b
+                                                                          (toFFI c)
   
   export
   bindRenderbuffer :  (obj : WebGLRenderingContextBase)
                    -> (target : UInt32)
                    -> (renderbuffer : Maybe WebGLRenderbuffer)
                    -> JSIO ()
-  bindRenderbuffer a b c = primJS $ WebGLRenderingContextBase.prim__bindRenderbuffer a
-                                                                                     b
-                                                                                     (toFFI c)
+  bindRenderbuffer a b c = primJS
+                         $ WebGLRenderingContextBase.prim__bindRenderbuffer a
+                                                                            b
+                                                                            (toFFI c)
   
   export
   bindTexture :  (obj : WebGLRenderingContextBase)
               -> (target : UInt32)
               -> (texture : Maybe WebGLTexture)
               -> JSIO ()
-  bindTexture a b c = primJS $ WebGLRenderingContextBase.prim__bindTexture a
-                                                                           b
-                                                                           (toFFI c)
+  bindTexture a b c = primJS
+                    $ WebGLRenderingContextBase.prim__bindTexture a b (toFFI c)
   
   export
   blendColor :  (obj : WebGLRenderingContextBase)
@@ -4901,20 +5161,18 @@ namespace WebGLRenderingContextBase
              -> (blue : Double)
              -> (alpha : Double)
              -> JSIO ()
-  blendColor a b c d e = primJS $ WebGLRenderingContextBase.prim__blendColor a
-                                                                             b
-                                                                             c
-                                                                             d
-                                                                             e
+  blendColor a b c d e = primJS
+                       $ WebGLRenderingContextBase.prim__blendColor a b c d e
   
   export
   blendEquationSeparate :  (obj : WebGLRenderingContextBase)
                         -> (modeRGB : UInt32)
                         -> (modeAlpha : UInt32)
                         -> JSIO ()
-  blendEquationSeparate a b c = primJS $ WebGLRenderingContextBase.prim__blendEquationSeparate a
-                                                                                               b
-                                                                                               c
+  blendEquationSeparate a b c = primJS
+                              $ WebGLRenderingContextBase.prim__blendEquationSeparate a
+                                                                                      b
+                                                                                      c
   
   export
   blendEquation :  (obj : WebGLRenderingContextBase)
@@ -4929,11 +5187,12 @@ namespace WebGLRenderingContextBase
                     -> (srcAlpha : UInt32)
                     -> (dstAlpha : UInt32)
                     -> JSIO ()
-  blendFuncSeparate a b c d e = primJS $ WebGLRenderingContextBase.prim__blendFuncSeparate a
-                                                                                           b
-                                                                                           c
-                                                                                           d
-                                                                                           e
+  blendFuncSeparate a b c d e = primJS
+                              $ WebGLRenderingContextBase.prim__blendFuncSeparate a
+                                                                                  b
+                                                                                  c
+                                                                                  d
+                                                                                  e
   
   export
   blendFunc :  (obj : WebGLRenderingContextBase)
@@ -4946,8 +5205,9 @@ namespace WebGLRenderingContextBase
   checkFramebufferStatus :  (obj : WebGLRenderingContextBase)
                          -> (target : UInt32)
                          -> JSIO UInt32
-  checkFramebufferStatus a b = primJS $ WebGLRenderingContextBase.prim__checkFramebufferStatus a
-                                                                                               b
+  checkFramebufferStatus a b = primJS
+                             $ WebGLRenderingContextBase.prim__checkFramebufferStatus a
+                                                                                      b
   
   export
   clearColor :  (obj : WebGLRenderingContextBase)
@@ -4956,11 +5216,8 @@ namespace WebGLRenderingContextBase
              -> (blue : Double)
              -> (alpha : Double)
              -> JSIO ()
-  clearColor a b c d e = primJS $ WebGLRenderingContextBase.prim__clearColor a
-                                                                             b
-                                                                             c
-                                                                             d
-                                                                             e
+  clearColor a b c d e = primJS
+                       $ WebGLRenderingContextBase.prim__clearColor a b c d e
   
   export
   clearDepth : (obj : WebGLRenderingContextBase) -> (depth : Double) -> JSIO ()
@@ -4981,11 +5238,12 @@ namespace WebGLRenderingContextBase
             -> (blue : Bool)
             -> (alpha : Bool)
             -> JSIO ()
-  colorMask a b c d e = primJS $ WebGLRenderingContextBase.prim__colorMask a
-                                                                           (toFFI b)
-                                                                           (toFFI c)
-                                                                           (toFFI d)
-                                                                           (toFFI e)
+  colorMask a b c d e = primJS
+                      $ WebGLRenderingContextBase.prim__colorMask a
+                                                                  (toFFI b)
+                                                                  (toFFI c)
+                                                                  (toFFI d)
+                                                                  (toFFI e)
   
   export
   compileShader :  (obj : WebGLRenderingContextBase)
@@ -5004,15 +5262,16 @@ namespace WebGLRenderingContextBase
                  -> (height : Int32)
                  -> (border : Int32)
                  -> JSIO ()
-  copyTexImage2D a b c d e f g h i = primJS $ WebGLRenderingContextBase.prim__copyTexImage2D a
-                                                                                             b
-                                                                                             c
-                                                                                             d
-                                                                                             e
-                                                                                             f
-                                                                                             g
-                                                                                             h
-                                                                                             i
+  copyTexImage2D a b c d e f g h i = primJS
+                                   $ WebGLRenderingContextBase.prim__copyTexImage2D a
+                                                                                    b
+                                                                                    c
+                                                                                    d
+                                                                                    e
+                                                                                    f
+                                                                                    g
+                                                                                    h
+                                                                                    i
   
   export
   copyTexSubImage2D :  (obj : WebGLRenderingContextBase)
@@ -5025,44 +5284,50 @@ namespace WebGLRenderingContextBase
                     -> (width : Int32)
                     -> (height : Int32)
                     -> JSIO ()
-  copyTexSubImage2D a b c d e f g h i = primJS $ WebGLRenderingContextBase.prim__copyTexSubImage2D a
-                                                                                                   b
-                                                                                                   c
-                                                                                                   d
-                                                                                                   e
-                                                                                                   f
-                                                                                                   g
-                                                                                                   h
-                                                                                                   i
+  copyTexSubImage2D a b c d e f g h i = primJS
+                                      $ WebGLRenderingContextBase.prim__copyTexSubImage2D a
+                                                                                          b
+                                                                                          c
+                                                                                          d
+                                                                                          e
+                                                                                          f
+                                                                                          g
+                                                                                          h
+                                                                                          i
   
   export
   createBuffer : (obj : WebGLRenderingContextBase) -> JSIO (Maybe WebGLBuffer)
-  createBuffer a = tryJS "WebGLRenderingContextBase.createBuffer" $ WebGLRenderingContextBase.prim__createBuffer a
+  createBuffer a = tryJS "WebGLRenderingContextBase.createBuffer"
+                 $ WebGLRenderingContextBase.prim__createBuffer a
   
   export
   createFramebuffer :  (obj : WebGLRenderingContextBase)
                     -> JSIO (Maybe WebGLFramebuffer)
-  createFramebuffer a = tryJS "WebGLRenderingContextBase.createFramebuffer" $ WebGLRenderingContextBase.prim__createFramebuffer a
+  createFramebuffer a = tryJS "WebGLRenderingContextBase.createFramebuffer"
+                      $ WebGLRenderingContextBase.prim__createFramebuffer a
   
   export
   createProgram : (obj : WebGLRenderingContextBase) -> JSIO (Maybe WebGLProgram)
-  createProgram a = tryJS "WebGLRenderingContextBase.createProgram" $ WebGLRenderingContextBase.prim__createProgram a
+  createProgram a = tryJS "WebGLRenderingContextBase.createProgram"
+                  $ WebGLRenderingContextBase.prim__createProgram a
   
   export
   createRenderbuffer :  (obj : WebGLRenderingContextBase)
                      -> JSIO (Maybe WebGLRenderbuffer)
-  createRenderbuffer a = tryJS "WebGLRenderingContextBase.createRenderbuffer" $ WebGLRenderingContextBase.prim__createRenderbuffer a
+  createRenderbuffer a = tryJS "WebGLRenderingContextBase.createRenderbuffer"
+                       $ WebGLRenderingContextBase.prim__createRenderbuffer a
   
   export
   createShader :  (obj : WebGLRenderingContextBase)
                -> (type : UInt32)
                -> JSIO (Maybe WebGLShader)
-  createShader a b = tryJS "WebGLRenderingContextBase.createShader" $ WebGLRenderingContextBase.prim__createShader a
-                                                                                                                   b
+  createShader a b = tryJS "WebGLRenderingContextBase.createShader"
+                   $ WebGLRenderingContextBase.prim__createShader a b
   
   export
   createTexture : (obj : WebGLRenderingContextBase) -> JSIO (Maybe WebGLTexture)
-  createTexture a = tryJS "WebGLRenderingContextBase.createTexture" $ WebGLRenderingContextBase.prim__createTexture a
+  createTexture a = tryJS "WebGLRenderingContextBase.createTexture"
+                  $ WebGLRenderingContextBase.prim__createTexture a
   
   export
   cullFace : (obj : WebGLRenderingContextBase) -> (mode : UInt32) -> JSIO ()
@@ -5072,43 +5337,45 @@ namespace WebGLRenderingContextBase
   deleteBuffer :  (obj : WebGLRenderingContextBase)
                -> (buffer : Maybe WebGLBuffer)
                -> JSIO ()
-  deleteBuffer a b = primJS $ WebGLRenderingContextBase.prim__deleteBuffer a
-                                                                           (toFFI b)
+  deleteBuffer a b = primJS
+                   $ WebGLRenderingContextBase.prim__deleteBuffer a (toFFI b)
   
   export
   deleteFramebuffer :  (obj : WebGLRenderingContextBase)
                     -> (framebuffer : Maybe WebGLFramebuffer)
                     -> JSIO ()
-  deleteFramebuffer a b = primJS $ WebGLRenderingContextBase.prim__deleteFramebuffer a
-                                                                                     (toFFI b)
+  deleteFramebuffer a b = primJS
+                        $ WebGLRenderingContextBase.prim__deleteFramebuffer a
+                                                                            (toFFI b)
   
   export
   deleteProgram :  (obj : WebGLRenderingContextBase)
                 -> (program : Maybe WebGLProgram)
                 -> JSIO ()
-  deleteProgram a b = primJS $ WebGLRenderingContextBase.prim__deleteProgram a
-                                                                             (toFFI b)
+  deleteProgram a b = primJS
+                    $ WebGLRenderingContextBase.prim__deleteProgram a (toFFI b)
   
   export
   deleteRenderbuffer :  (obj : WebGLRenderingContextBase)
                      -> (renderbuffer : Maybe WebGLRenderbuffer)
                      -> JSIO ()
-  deleteRenderbuffer a b = primJS $ WebGLRenderingContextBase.prim__deleteRenderbuffer a
-                                                                                       (toFFI b)
+  deleteRenderbuffer a b = primJS
+                         $ WebGLRenderingContextBase.prim__deleteRenderbuffer a
+                                                                              (toFFI b)
   
   export
   deleteShader :  (obj : WebGLRenderingContextBase)
                -> (shader : Maybe WebGLShader)
                -> JSIO ()
-  deleteShader a b = primJS $ WebGLRenderingContextBase.prim__deleteShader a
-                                                                           (toFFI b)
+  deleteShader a b = primJS
+                   $ WebGLRenderingContextBase.prim__deleteShader a (toFFI b)
   
   export
   deleteTexture :  (obj : WebGLRenderingContextBase)
                 -> (texture : Maybe WebGLTexture)
                 -> JSIO ()
-  deleteTexture a b = primJS $ WebGLRenderingContextBase.prim__deleteTexture a
-                                                                             (toFFI b)
+  deleteTexture a b = primJS
+                    $ WebGLRenderingContextBase.prim__deleteTexture a (toFFI b)
   
   export
   depthFunc : (obj : WebGLRenderingContextBase) -> (func : UInt32) -> JSIO ()
@@ -5130,16 +5397,16 @@ namespace WebGLRenderingContextBase
                -> (program : WebGLProgram)
                -> (shader : WebGLShader)
                -> JSIO ()
-  detachShader a b c = primJS $ WebGLRenderingContextBase.prim__detachShader a
-                                                                             b
-                                                                             c
+  detachShader a b c = primJS
+                     $ WebGLRenderingContextBase.prim__detachShader a b c
   
   export
   disableVertexAttribArray :  (obj : WebGLRenderingContextBase)
                            -> (index : UInt32)
                            -> JSIO ()
-  disableVertexAttribArray a b = primJS $ WebGLRenderingContextBase.prim__disableVertexAttribArray a
-                                                                                                   b
+  disableVertexAttribArray a b = primJS
+                               $ WebGLRenderingContextBase.prim__disableVertexAttribArray a
+                                                                                          b
   
   export
   disable : (obj : WebGLRenderingContextBase) -> (cap : UInt32) -> JSIO ()
@@ -5151,10 +5418,8 @@ namespace WebGLRenderingContextBase
              -> (first : Int32)
              -> (count : Int32)
              -> JSIO ()
-  drawArrays a b c d = primJS $ WebGLRenderingContextBase.prim__drawArrays a
-                                                                           b
-                                                                           c
-                                                                           d
+  drawArrays a b c d = primJS
+                     $ WebGLRenderingContextBase.prim__drawArrays a b c d
   
   export
   drawElements :  (obj : WebGLRenderingContextBase)
@@ -5163,18 +5428,20 @@ namespace WebGLRenderingContextBase
                -> (type : UInt32)
                -> (offset : Int64)
                -> JSIO ()
-  drawElements a b c d e = primJS $ WebGLRenderingContextBase.prim__drawElements a
-                                                                                 b
-                                                                                 c
-                                                                                 d
-                                                                                 e
+  drawElements a b c d e = primJS
+                         $ WebGLRenderingContextBase.prim__drawElements a
+                                                                        b
+                                                                        c
+                                                                        d
+                                                                        e
   
   export
   enableVertexAttribArray :  (obj : WebGLRenderingContextBase)
                           -> (index : UInt32)
                           -> JSIO ()
-  enableVertexAttribArray a b = primJS $ WebGLRenderingContextBase.prim__enableVertexAttribArray a
-                                                                                                 b
+  enableVertexAttribArray a b = primJS
+                              $ WebGLRenderingContextBase.prim__enableVertexAttribArray a
+                                                                                        b
   
   export
   enable : (obj : WebGLRenderingContextBase) -> (cap : UInt32) -> JSIO ()
@@ -5195,11 +5462,12 @@ namespace WebGLRenderingContextBase
                           -> (renderbuffertarget : UInt32)
                           -> (renderbuffer : Maybe WebGLRenderbuffer)
                           -> JSIO ()
-  framebufferRenderbuffer a b c d e = primJS $ WebGLRenderingContextBase.prim__framebufferRenderbuffer a
-                                                                                                       b
-                                                                                                       c
-                                                                                                       d
-                                                                                                       (toFFI e)
+  framebufferRenderbuffer a b c d e = primJS
+                                    $ WebGLRenderingContextBase.prim__framebufferRenderbuffer a
+                                                                                              b
+                                                                                              c
+                                                                                              d
+                                                                                              (toFFI e)
   
   export
   framebufferTexture2D :  (obj : WebGLRenderingContextBase)
@@ -5209,12 +5477,13 @@ namespace WebGLRenderingContextBase
                        -> (texture : Maybe WebGLTexture)
                        -> (level : Int32)
                        -> JSIO ()
-  framebufferTexture2D a b c d e f = primJS $ WebGLRenderingContextBase.prim__framebufferTexture2D a
-                                                                                                   b
-                                                                                                   c
-                                                                                                   d
-                                                                                                   (toFFI e)
-                                                                                                   f
+  framebufferTexture2D a b c d e f = primJS
+                                   $ WebGLRenderingContextBase.prim__framebufferTexture2D a
+                                                                                          b
+                                                                                          c
+                                                                                          d
+                                                                                          (toFFI e)
+                                                                                          f
   
   export
   frontFace : (obj : WebGLRenderingContextBase) -> (mode : UInt32) -> JSIO ()
@@ -5224,56 +5493,60 @@ namespace WebGLRenderingContextBase
   generateMipmap :  (obj : WebGLRenderingContextBase)
                  -> (target : UInt32)
                  -> JSIO ()
-  generateMipmap a b = primJS $ WebGLRenderingContextBase.prim__generateMipmap a
-                                                                               b
+  generateMipmap a b = primJS
+                     $ WebGLRenderingContextBase.prim__generateMipmap a b
   
   export
   getActiveAttrib :  (obj : WebGLRenderingContextBase)
                   -> (program : WebGLProgram)
                   -> (index : UInt32)
                   -> JSIO (Maybe WebGLActiveInfo)
-  getActiveAttrib a b c = tryJS "WebGLRenderingContextBase.getActiveAttrib" $ WebGLRenderingContextBase.prim__getActiveAttrib a
-                                                                                                                              b
-                                                                                                                              c
+  getActiveAttrib a b c = tryJS "WebGLRenderingContextBase.getActiveAttrib"
+                        $ WebGLRenderingContextBase.prim__getActiveAttrib a b c
   
   export
   getActiveUniform :  (obj : WebGLRenderingContextBase)
                    -> (program : WebGLProgram)
                    -> (index : UInt32)
                    -> JSIO (Maybe WebGLActiveInfo)
-  getActiveUniform a b c = tryJS "WebGLRenderingContextBase.getActiveUniform" $ WebGLRenderingContextBase.prim__getActiveUniform a
-                                                                                                                                 b
-                                                                                                                                 c
+  getActiveUniform a b c = tryJS "WebGLRenderingContextBase.getActiveUniform"
+                         $ WebGLRenderingContextBase.prim__getActiveUniform a
+                                                                            b
+                                                                            c
   
   export
   getAttachedShaders :  (obj : WebGLRenderingContextBase)
                      -> (program : WebGLProgram)
                      -> JSIO (Maybe (Array WebGLShader))
-  getAttachedShaders a b = tryJS "WebGLRenderingContextBase.getAttachedShaders" $ WebGLRenderingContextBase.prim__getAttachedShaders a
-                                                                                                                                     b
+  getAttachedShaders a b = tryJS "WebGLRenderingContextBase.getAttachedShaders"
+                         $ WebGLRenderingContextBase.prim__getAttachedShaders a
+                                                                              b
   
   export
   getAttribLocation :  (obj : WebGLRenderingContextBase)
                     -> (program : WebGLProgram)
                     -> (name : String)
                     -> JSIO Int32
-  getAttribLocation a b c = primJS $ WebGLRenderingContextBase.prim__getAttribLocation a
-                                                                                       b
-                                                                                       c
+  getAttribLocation a b c = primJS
+                          $ WebGLRenderingContextBase.prim__getAttribLocation a
+                                                                              b
+                                                                              c
   
   export
   getBufferParameter :  (obj : WebGLRenderingContextBase)
                      -> (target : UInt32)
                      -> (pname : UInt32)
                      -> JSIO AnyPtr
-  getBufferParameter a b c = primJS $ WebGLRenderingContextBase.prim__getBufferParameter a
-                                                                                         b
-                                                                                         c
+  getBufferParameter a b c = primJS
+                           $ WebGLRenderingContextBase.prim__getBufferParameter a
+                                                                                b
+                                                                                c
   
   export
   getContextAttributes :  (obj : WebGLRenderingContextBase)
                        -> JSIO (Maybe WebGLContextAttributes)
-  getContextAttributes a = tryJS "WebGLRenderingContextBase.getContextAttributes" $ WebGLRenderingContextBase.prim__getContextAttributes a
+  getContextAttributes a = tryJS "WebGLRenderingContextBase.getContextAttributes"
+                         $ WebGLRenderingContextBase.prim__getContextAttributes a
   
   export
   getError : (obj : WebGLRenderingContextBase) -> JSIO UInt32
@@ -5283,8 +5556,8 @@ namespace WebGLRenderingContextBase
   getExtension :  (obj : WebGLRenderingContextBase)
                -> (name : String)
                -> JSIO (Maybe Object)
-  getExtension a b = tryJS "WebGLRenderingContextBase.getExtension" $ WebGLRenderingContextBase.prim__getExtension a
-                                                                                                                   b
+  getExtension a b = tryJS "WebGLRenderingContextBase.getExtension"
+                   $ WebGLRenderingContextBase.prim__getExtension a b
   
   export
   getFramebufferAttachmentParameter :  (obj : WebGLRenderingContextBase)
@@ -5292,10 +5565,11 @@ namespace WebGLRenderingContextBase
                                     -> (attachment : UInt32)
                                     -> (pname : UInt32)
                                     -> JSIO AnyPtr
-  getFramebufferAttachmentParameter a b c d = primJS $ WebGLRenderingContextBase.prim__getFramebufferAttachmentParameter a
-                                                                                                                         b
-                                                                                                                         c
-                                                                                                                         d
+  getFramebufferAttachmentParameter a b c d = primJS
+                                            $ WebGLRenderingContextBase.prim__getFramebufferAttachmentParameter a
+                                                                                                                b
+                                                                                                                c
+                                                                                                                d
   
   export
   getParameter :  (obj : WebGLRenderingContextBase)
@@ -5307,81 +5581,86 @@ namespace WebGLRenderingContextBase
   getProgramInfoLog :  (obj : WebGLRenderingContextBase)
                     -> (program : WebGLProgram)
                     -> JSIO (Maybe String)
-  getProgramInfoLog a b = tryJS "WebGLRenderingContextBase.getProgramInfoLog" $ WebGLRenderingContextBase.prim__getProgramInfoLog a
-                                                                                                                                  b
+  getProgramInfoLog a b = tryJS "WebGLRenderingContextBase.getProgramInfoLog"
+                        $ WebGLRenderingContextBase.prim__getProgramInfoLog a b
   
   export
   getProgramParameter :  (obj : WebGLRenderingContextBase)
                       -> (program : WebGLProgram)
                       -> (pname : UInt32)
                       -> JSIO AnyPtr
-  getProgramParameter a b c = primJS $ WebGLRenderingContextBase.prim__getProgramParameter a
-                                                                                           b
-                                                                                           c
+  getProgramParameter a b c = primJS
+                            $ WebGLRenderingContextBase.prim__getProgramParameter a
+                                                                                  b
+                                                                                  c
   
   export
   getRenderbufferParameter :  (obj : WebGLRenderingContextBase)
                            -> (target : UInt32)
                            -> (pname : UInt32)
                            -> JSIO AnyPtr
-  getRenderbufferParameter a b c = primJS $ WebGLRenderingContextBase.prim__getRenderbufferParameter a
-                                                                                                     b
-                                                                                                     c
+  getRenderbufferParameter a b c = primJS
+                                 $ WebGLRenderingContextBase.prim__getRenderbufferParameter a
+                                                                                            b
+                                                                                            c
   
   export
   getShaderInfoLog :  (obj : WebGLRenderingContextBase)
                    -> (shader : WebGLShader)
                    -> JSIO (Maybe String)
-  getShaderInfoLog a b = tryJS "WebGLRenderingContextBase.getShaderInfoLog" $ WebGLRenderingContextBase.prim__getShaderInfoLog a
-                                                                                                                               b
+  getShaderInfoLog a b = tryJS "WebGLRenderingContextBase.getShaderInfoLog"
+                       $ WebGLRenderingContextBase.prim__getShaderInfoLog a b
   
   export
   getShaderParameter :  (obj : WebGLRenderingContextBase)
                      -> (shader : WebGLShader)
                      -> (pname : UInt32)
                      -> JSIO AnyPtr
-  getShaderParameter a b c = primJS $ WebGLRenderingContextBase.prim__getShaderParameter a
-                                                                                         b
-                                                                                         c
+  getShaderParameter a b c = primJS
+                           $ WebGLRenderingContextBase.prim__getShaderParameter a
+                                                                                b
+                                                                                c
   
   export
   getShaderPrecisionFormat :  (obj : WebGLRenderingContextBase)
                            -> (shadertype : UInt32)
                            -> (precisiontype : UInt32)
                            -> JSIO (Maybe WebGLShaderPrecisionFormat)
-  getShaderPrecisionFormat a b c = tryJS "WebGLRenderingContextBase.getShaderPrecisionFormat" $ WebGLRenderingContextBase.prim__getShaderPrecisionFormat a
-                                                                                                                                                         b
-                                                                                                                                                         c
+  getShaderPrecisionFormat a b c = tryJS "WebGLRenderingContextBase.getShaderPrecisionFormat"
+                                 $ WebGLRenderingContextBase.prim__getShaderPrecisionFormat a
+                                                                                            b
+                                                                                            c
   
   export
   getShaderSource :  (obj : WebGLRenderingContextBase)
                   -> (shader : WebGLShader)
                   -> JSIO (Maybe String)
-  getShaderSource a b = tryJS "WebGLRenderingContextBase.getShaderSource" $ WebGLRenderingContextBase.prim__getShaderSource a
-                                                                                                                            b
+  getShaderSource a b = tryJS "WebGLRenderingContextBase.getShaderSource"
+                      $ WebGLRenderingContextBase.prim__getShaderSource a b
   
   export
   getSupportedExtensions :  (obj : WebGLRenderingContextBase)
                          -> JSIO (Maybe (Array String))
-  getSupportedExtensions a = tryJS "WebGLRenderingContextBase.getSupportedExtensions" $ WebGLRenderingContextBase.prim__getSupportedExtensions a
+  getSupportedExtensions a = tryJS "WebGLRenderingContextBase.getSupportedExtensions"
+                           $ WebGLRenderingContextBase.prim__getSupportedExtensions a
   
   export
   getTexParameter :  (obj : WebGLRenderingContextBase)
                   -> (target : UInt32)
                   -> (pname : UInt32)
                   -> JSIO AnyPtr
-  getTexParameter a b c = primJS $ WebGLRenderingContextBase.prim__getTexParameter a
-                                                                                   b
-                                                                                   c
+  getTexParameter a b c = primJS
+                        $ WebGLRenderingContextBase.prim__getTexParameter a b c
   
   export
   getUniformLocation :  (obj : WebGLRenderingContextBase)
                      -> (program : WebGLProgram)
                      -> (name : String)
                      -> JSIO (Maybe WebGLUniformLocation)
-  getUniformLocation a b c = tryJS "WebGLRenderingContextBase.getUniformLocation" $ WebGLRenderingContextBase.prim__getUniformLocation a
-                                                                                                                                       b
-                                                                                                                                       c
+  getUniformLocation a b c = tryJS "WebGLRenderingContextBase.getUniformLocation"
+                           $ WebGLRenderingContextBase.prim__getUniformLocation a
+                                                                                b
+                                                                                c
   
   export
   getUniform :  (obj : WebGLRenderingContextBase)
@@ -5395,18 +5674,18 @@ namespace WebGLRenderingContextBase
                         -> (index : UInt32)
                         -> (pname : UInt32)
                         -> JSIO Int64
-  getVertexAttribOffset a b c = primJS $ WebGLRenderingContextBase.prim__getVertexAttribOffset a
-                                                                                               b
-                                                                                               c
+  getVertexAttribOffset a b c = primJS
+                              $ WebGLRenderingContextBase.prim__getVertexAttribOffset a
+                                                                                      b
+                                                                                      c
   
   export
   getVertexAttrib :  (obj : WebGLRenderingContextBase)
                   -> (index : UInt32)
                   -> (pname : UInt32)
                   -> JSIO AnyPtr
-  getVertexAttrib a b c = primJS $ WebGLRenderingContextBase.prim__getVertexAttrib a
-                                                                                   b
-                                                                                   c
+  getVertexAttrib a b c = primJS
+                        $ WebGLRenderingContextBase.prim__getVertexAttrib a b c
   
   export
   hint :  (obj : WebGLRenderingContextBase)
@@ -5419,52 +5698,54 @@ namespace WebGLRenderingContextBase
   isBuffer :  (obj : WebGLRenderingContextBase)
            -> (buffer : Maybe WebGLBuffer)
            -> JSIO Bool
-  isBuffer a b = tryJS "WebGLRenderingContextBase.isBuffer" $ WebGLRenderingContextBase.prim__isBuffer a
-                                                                                                       (toFFI b)
+  isBuffer a b = tryJS "WebGLRenderingContextBase.isBuffer"
+               $ WebGLRenderingContextBase.prim__isBuffer a (toFFI b)
   
   export
   isContextLost : (obj : WebGLRenderingContextBase) -> JSIO Bool
-  isContextLost a = tryJS "WebGLRenderingContextBase.isContextLost" $ WebGLRenderingContextBase.prim__isContextLost a
+  isContextLost a = tryJS "WebGLRenderingContextBase.isContextLost"
+                  $ WebGLRenderingContextBase.prim__isContextLost a
   
   export
   isEnabled : (obj : WebGLRenderingContextBase) -> (cap : UInt32) -> JSIO Bool
-  isEnabled a b = tryJS "WebGLRenderingContextBase.isEnabled" $ WebGLRenderingContextBase.prim__isEnabled a
-                                                                                                          b
+  isEnabled a b = tryJS "WebGLRenderingContextBase.isEnabled"
+                $ WebGLRenderingContextBase.prim__isEnabled a b
   
   export
   isFramebuffer :  (obj : WebGLRenderingContextBase)
                 -> (framebuffer : Maybe WebGLFramebuffer)
                 -> JSIO Bool
-  isFramebuffer a b = tryJS "WebGLRenderingContextBase.isFramebuffer" $ WebGLRenderingContextBase.prim__isFramebuffer a
-                                                                                                                      (toFFI b)
+  isFramebuffer a b = tryJS "WebGLRenderingContextBase.isFramebuffer"
+                    $ WebGLRenderingContextBase.prim__isFramebuffer a (toFFI b)
   
   export
   isProgram :  (obj : WebGLRenderingContextBase)
             -> (program : Maybe WebGLProgram)
             -> JSIO Bool
-  isProgram a b = tryJS "WebGLRenderingContextBase.isProgram" $ WebGLRenderingContextBase.prim__isProgram a
-                                                                                                          (toFFI b)
+  isProgram a b = tryJS "WebGLRenderingContextBase.isProgram"
+                $ WebGLRenderingContextBase.prim__isProgram a (toFFI b)
   
   export
   isRenderbuffer :  (obj : WebGLRenderingContextBase)
                  -> (renderbuffer : Maybe WebGLRenderbuffer)
                  -> JSIO Bool
-  isRenderbuffer a b = tryJS "WebGLRenderingContextBase.isRenderbuffer" $ WebGLRenderingContextBase.prim__isRenderbuffer a
-                                                                                                                         (toFFI b)
+  isRenderbuffer a b = tryJS "WebGLRenderingContextBase.isRenderbuffer"
+                     $ WebGLRenderingContextBase.prim__isRenderbuffer a
+                                                                      (toFFI b)
   
   export
   isShader :  (obj : WebGLRenderingContextBase)
            -> (shader : Maybe WebGLShader)
            -> JSIO Bool
-  isShader a b = tryJS "WebGLRenderingContextBase.isShader" $ WebGLRenderingContextBase.prim__isShader a
-                                                                                                       (toFFI b)
+  isShader a b = tryJS "WebGLRenderingContextBase.isShader"
+               $ WebGLRenderingContextBase.prim__isShader a (toFFI b)
   
   export
   isTexture :  (obj : WebGLRenderingContextBase)
             -> (texture : Maybe WebGLTexture)
             -> JSIO Bool
-  isTexture a b = tryJS "WebGLRenderingContextBase.isTexture" $ WebGLRenderingContextBase.prim__isTexture a
-                                                                                                          (toFFI b)
+  isTexture a b = tryJS "WebGLRenderingContextBase.isTexture"
+                $ WebGLRenderingContextBase.prim__isTexture a (toFFI b)
   
   export
   lineWidth : (obj : WebGLRenderingContextBase) -> (width : Double) -> JSIO ()
@@ -5488,9 +5769,8 @@ namespace WebGLRenderingContextBase
                 -> (factor : Double)
                 -> (units : Double)
                 -> JSIO ()
-  polygonOffset a b c = primJS $ WebGLRenderingContextBase.prim__polygonOffset a
-                                                                               b
-                                                                               c
+  polygonOffset a b c = primJS
+                      $ WebGLRenderingContextBase.prim__polygonOffset a b c
   
   export
   renderbufferStorage :  (obj : WebGLRenderingContextBase)
@@ -5499,20 +5779,22 @@ namespace WebGLRenderingContextBase
                       -> (width : Int32)
                       -> (height : Int32)
                       -> JSIO ()
-  renderbufferStorage a b c d e = primJS $ WebGLRenderingContextBase.prim__renderbufferStorage a
-                                                                                               b
-                                                                                               c
-                                                                                               d
-                                                                                               e
+  renderbufferStorage a b c d e = primJS
+                                $ WebGLRenderingContextBase.prim__renderbufferStorage a
+                                                                                      b
+                                                                                      c
+                                                                                      d
+                                                                                      e
   
   export
   sampleCoverage :  (obj : WebGLRenderingContextBase)
                  -> (value : Double)
                  -> (invert : Bool)
                  -> JSIO ()
-  sampleCoverage a b c = primJS $ WebGLRenderingContextBase.prim__sampleCoverage a
-                                                                                 b
-                                                                                 (toFFI c)
+  sampleCoverage a b c = primJS
+                       $ WebGLRenderingContextBase.prim__sampleCoverage a
+                                                                        b
+                                                                        (toFFI c)
   
   export
   scissor :  (obj : WebGLRenderingContextBase)
@@ -5528,9 +5810,8 @@ namespace WebGLRenderingContextBase
                -> (shader : WebGLShader)
                -> (source : String)
                -> JSIO ()
-  shaderSource a b c = primJS $ WebGLRenderingContextBase.prim__shaderSource a
-                                                                             b
-                                                                             c
+  shaderSource a b c = primJS
+                     $ WebGLRenderingContextBase.prim__shaderSource a b c
   
   export
   stencilFuncSeparate :  (obj : WebGLRenderingContextBase)
@@ -5539,11 +5820,12 @@ namespace WebGLRenderingContextBase
                       -> (ref : Int32)
                       -> (mask : UInt32)
                       -> JSIO ()
-  stencilFuncSeparate a b c d e = primJS $ WebGLRenderingContextBase.prim__stencilFuncSeparate a
-                                                                                               b
-                                                                                               c
-                                                                                               d
-                                                                                               e
+  stencilFuncSeparate a b c d e = primJS
+                                $ WebGLRenderingContextBase.prim__stencilFuncSeparate a
+                                                                                      b
+                                                                                      c
+                                                                                      d
+                                                                                      e
   
   export
   stencilFunc :  (obj : WebGLRenderingContextBase)
@@ -5551,19 +5833,18 @@ namespace WebGLRenderingContextBase
               -> (ref : Int32)
               -> (mask : UInt32)
               -> JSIO ()
-  stencilFunc a b c d = primJS $ WebGLRenderingContextBase.prim__stencilFunc a
-                                                                             b
-                                                                             c
-                                                                             d
+  stencilFunc a b c d = primJS
+                      $ WebGLRenderingContextBase.prim__stencilFunc a b c d
   
   export
   stencilMaskSeparate :  (obj : WebGLRenderingContextBase)
                       -> (face : UInt32)
                       -> (mask : UInt32)
                       -> JSIO ()
-  stencilMaskSeparate a b c = primJS $ WebGLRenderingContextBase.prim__stencilMaskSeparate a
-                                                                                           b
-                                                                                           c
+  stencilMaskSeparate a b c = primJS
+                            $ WebGLRenderingContextBase.prim__stencilMaskSeparate a
+                                                                                  b
+                                                                                  c
   
   export
   stencilMask : (obj : WebGLRenderingContextBase) -> (mask : UInt32) -> JSIO ()
@@ -5576,11 +5857,12 @@ namespace WebGLRenderingContextBase
                     -> (zfail : UInt32)
                     -> (zpass : UInt32)
                     -> JSIO ()
-  stencilOpSeparate a b c d e = primJS $ WebGLRenderingContextBase.prim__stencilOpSeparate a
-                                                                                           b
-                                                                                           c
-                                                                                           d
-                                                                                           e
+  stencilOpSeparate a b c d e = primJS
+                              $ WebGLRenderingContextBase.prim__stencilOpSeparate a
+                                                                                  b
+                                                                                  c
+                                                                                  d
+                                                                                  e
   
   export
   stencilOp :  (obj : WebGLRenderingContextBase)
@@ -5596,10 +5878,8 @@ namespace WebGLRenderingContextBase
                 -> (pname : UInt32)
                 -> (param : Double)
                 -> JSIO ()
-  texParameterf a b c d = primJS $ WebGLRenderingContextBase.prim__texParameterf a
-                                                                                 b
-                                                                                 c
-                                                                                 d
+  texParameterf a b c d = primJS
+                        $ WebGLRenderingContextBase.prim__texParameterf a b c d
   
   export
   texParameteri :  (obj : WebGLRenderingContextBase)
@@ -5607,28 +5887,24 @@ namespace WebGLRenderingContextBase
                 -> (pname : UInt32)
                 -> (param : Int32)
                 -> JSIO ()
-  texParameteri a b c d = primJS $ WebGLRenderingContextBase.prim__texParameteri a
-                                                                                 b
-                                                                                 c
-                                                                                 d
+  texParameteri a b c d = primJS
+                        $ WebGLRenderingContextBase.prim__texParameteri a b c d
   
   export
   uniform1f :  (obj : WebGLRenderingContextBase)
             -> (location : Maybe WebGLUniformLocation)
             -> (x : Double)
             -> JSIO ()
-  uniform1f a b c = primJS $ WebGLRenderingContextBase.prim__uniform1f a
-                                                                       (toFFI b)
-                                                                       c
+  uniform1f a b c = primJS
+                  $ WebGLRenderingContextBase.prim__uniform1f a (toFFI b) c
   
   export
   uniform1i :  (obj : WebGLRenderingContextBase)
             -> (location : Maybe WebGLUniformLocation)
             -> (x : Int32)
             -> JSIO ()
-  uniform1i a b c = primJS $ WebGLRenderingContextBase.prim__uniform1i a
-                                                                       (toFFI b)
-                                                                       c
+  uniform1i a b c = primJS
+                  $ WebGLRenderingContextBase.prim__uniform1i a (toFFI b) c
   
   export
   uniform2f :  (obj : WebGLRenderingContextBase)
@@ -5636,10 +5912,8 @@ namespace WebGLRenderingContextBase
             -> (x : Double)
             -> (y : Double)
             -> JSIO ()
-  uniform2f a b c d = primJS $ WebGLRenderingContextBase.prim__uniform2f a
-                                                                         (toFFI b)
-                                                                         c
-                                                                         d
+  uniform2f a b c d = primJS
+                    $ WebGLRenderingContextBase.prim__uniform2f a (toFFI b) c d
   
   export
   uniform2i :  (obj : WebGLRenderingContextBase)
@@ -5647,10 +5921,8 @@ namespace WebGLRenderingContextBase
             -> (x : Int32)
             -> (y : Int32)
             -> JSIO ()
-  uniform2i a b c d = primJS $ WebGLRenderingContextBase.prim__uniform2i a
-                                                                         (toFFI b)
-                                                                         c
-                                                                         d
+  uniform2i a b c d = primJS
+                    $ WebGLRenderingContextBase.prim__uniform2i a (toFFI b) c d
   
   export
   uniform3f :  (obj : WebGLRenderingContextBase)
@@ -5659,11 +5931,12 @@ namespace WebGLRenderingContextBase
             -> (y : Double)
             -> (z : Double)
             -> JSIO ()
-  uniform3f a b c d e = primJS $ WebGLRenderingContextBase.prim__uniform3f a
-                                                                           (toFFI b)
-                                                                           c
-                                                                           d
-                                                                           e
+  uniform3f a b c d e = primJS
+                      $ WebGLRenderingContextBase.prim__uniform3f a
+                                                                  (toFFI b)
+                                                                  c
+                                                                  d
+                                                                  e
   
   export
   uniform3i :  (obj : WebGLRenderingContextBase)
@@ -5672,11 +5945,12 @@ namespace WebGLRenderingContextBase
             -> (y : Int32)
             -> (z : Int32)
             -> JSIO ()
-  uniform3i a b c d e = primJS $ WebGLRenderingContextBase.prim__uniform3i a
-                                                                           (toFFI b)
-                                                                           c
-                                                                           d
-                                                                           e
+  uniform3i a b c d e = primJS
+                      $ WebGLRenderingContextBase.prim__uniform3i a
+                                                                  (toFFI b)
+                                                                  c
+                                                                  d
+                                                                  e
   
   export
   uniform4f :  (obj : WebGLRenderingContextBase)
@@ -5686,12 +5960,13 @@ namespace WebGLRenderingContextBase
             -> (z : Double)
             -> (w : Double)
             -> JSIO ()
-  uniform4f a b c d e f = primJS $ WebGLRenderingContextBase.prim__uniform4f a
-                                                                             (toFFI b)
-                                                                             c
-                                                                             d
-                                                                             e
-                                                                             f
+  uniform4f a b c d e f = primJS
+                        $ WebGLRenderingContextBase.prim__uniform4f a
+                                                                    (toFFI b)
+                                                                    c
+                                                                    d
+                                                                    e
+                                                                    f
   
   export
   uniform4i :  (obj : WebGLRenderingContextBase)
@@ -5701,44 +5976,45 @@ namespace WebGLRenderingContextBase
             -> (z : Int32)
             -> (w : Int32)
             -> JSIO ()
-  uniform4i a b c d e f = primJS $ WebGLRenderingContextBase.prim__uniform4i a
-                                                                             (toFFI b)
-                                                                             c
-                                                                             d
-                                                                             e
-                                                                             f
+  uniform4i a b c d e f = primJS
+                        $ WebGLRenderingContextBase.prim__uniform4i a
+                                                                    (toFFI b)
+                                                                    c
+                                                                    d
+                                                                    e
+                                                                    f
   
   export
   useProgram :  (obj : WebGLRenderingContextBase)
              -> (program : Maybe WebGLProgram)
              -> JSIO ()
-  useProgram a b = primJS $ WebGLRenderingContextBase.prim__useProgram a
-                                                                       (toFFI b)
+  useProgram a b = primJS
+                 $ WebGLRenderingContextBase.prim__useProgram a (toFFI b)
   
   export
   validateProgram :  (obj : WebGLRenderingContextBase)
                   -> (program : WebGLProgram)
                   -> JSIO ()
-  validateProgram a b = primJS $ WebGLRenderingContextBase.prim__validateProgram a
-                                                                                 b
+  validateProgram a b = primJS
+                      $ WebGLRenderingContextBase.prim__validateProgram a b
   
   export
   vertexAttrib1f :  (obj : WebGLRenderingContextBase)
                  -> (index : UInt32)
                  -> (x : Double)
                  -> JSIO ()
-  vertexAttrib1f a b c = primJS $ WebGLRenderingContextBase.prim__vertexAttrib1f a
-                                                                                 b
-                                                                                 c
+  vertexAttrib1f a b c = primJS
+                       $ WebGLRenderingContextBase.prim__vertexAttrib1f a b c
   
   export
   vertexAttrib1fv :  (obj : WebGLRenderingContextBase)
                   -> (index : UInt32)
                   -> (values : NS I [ Float32Array , Array Double ])
                   -> JSIO ()
-  vertexAttrib1fv a b c = primJS $ WebGLRenderingContextBase.prim__vertexAttrib1fv a
-                                                                                   b
-                                                                                   (toFFI c)
+  vertexAttrib1fv a b c = primJS
+                        $ WebGLRenderingContextBase.prim__vertexAttrib1fv a
+                                                                          b
+                                                                          (toFFI c)
   
   export
   vertexAttrib2f :  (obj : WebGLRenderingContextBase)
@@ -5746,19 +6022,21 @@ namespace WebGLRenderingContextBase
                  -> (x : Double)
                  -> (y : Double)
                  -> JSIO ()
-  vertexAttrib2f a b c d = primJS $ WebGLRenderingContextBase.prim__vertexAttrib2f a
-                                                                                   b
-                                                                                   c
-                                                                                   d
+  vertexAttrib2f a b c d = primJS
+                         $ WebGLRenderingContextBase.prim__vertexAttrib2f a
+                                                                          b
+                                                                          c
+                                                                          d
   
   export
   vertexAttrib2fv :  (obj : WebGLRenderingContextBase)
                   -> (index : UInt32)
                   -> (values : NS I [ Float32Array , Array Double ])
                   -> JSIO ()
-  vertexAttrib2fv a b c = primJS $ WebGLRenderingContextBase.prim__vertexAttrib2fv a
-                                                                                   b
-                                                                                   (toFFI c)
+  vertexAttrib2fv a b c = primJS
+                        $ WebGLRenderingContextBase.prim__vertexAttrib2fv a
+                                                                          b
+                                                                          (toFFI c)
   
   export
   vertexAttrib3f :  (obj : WebGLRenderingContextBase)
@@ -5767,20 +6045,22 @@ namespace WebGLRenderingContextBase
                  -> (y : Double)
                  -> (z : Double)
                  -> JSIO ()
-  vertexAttrib3f a b c d e = primJS $ WebGLRenderingContextBase.prim__vertexAttrib3f a
-                                                                                     b
-                                                                                     c
-                                                                                     d
-                                                                                     e
+  vertexAttrib3f a b c d e = primJS
+                           $ WebGLRenderingContextBase.prim__vertexAttrib3f a
+                                                                            b
+                                                                            c
+                                                                            d
+                                                                            e
   
   export
   vertexAttrib3fv :  (obj : WebGLRenderingContextBase)
                   -> (index : UInt32)
                   -> (values : NS I [ Float32Array , Array Double ])
                   -> JSIO ()
-  vertexAttrib3fv a b c = primJS $ WebGLRenderingContextBase.prim__vertexAttrib3fv a
-                                                                                   b
-                                                                                   (toFFI c)
+  vertexAttrib3fv a b c = primJS
+                        $ WebGLRenderingContextBase.prim__vertexAttrib3fv a
+                                                                          b
+                                                                          (toFFI c)
   
   export
   vertexAttrib4f :  (obj : WebGLRenderingContextBase)
@@ -5790,21 +6070,23 @@ namespace WebGLRenderingContextBase
                  -> (z : Double)
                  -> (w : Double)
                  -> JSIO ()
-  vertexAttrib4f a b c d e f = primJS $ WebGLRenderingContextBase.prim__vertexAttrib4f a
-                                                                                       b
-                                                                                       c
-                                                                                       d
-                                                                                       e
-                                                                                       f
+  vertexAttrib4f a b c d e f = primJS
+                             $ WebGLRenderingContextBase.prim__vertexAttrib4f a
+                                                                              b
+                                                                              c
+                                                                              d
+                                                                              e
+                                                                              f
   
   export
   vertexAttrib4fv :  (obj : WebGLRenderingContextBase)
                   -> (index : UInt32)
                   -> (values : NS I [ Float32Array , Array Double ])
                   -> JSIO ()
-  vertexAttrib4fv a b c = primJS $ WebGLRenderingContextBase.prim__vertexAttrib4fv a
-                                                                                   b
-                                                                                   (toFFI c)
+  vertexAttrib4fv a b c = primJS
+                        $ WebGLRenderingContextBase.prim__vertexAttrib4fv a
+                                                                          b
+                                                                          (toFFI c)
   
   export
   vertexAttribPointer :  (obj : WebGLRenderingContextBase)
@@ -5815,13 +6097,14 @@ namespace WebGLRenderingContextBase
                       -> (stride : Int32)
                       -> (offset : Int64)
                       -> JSIO ()
-  vertexAttribPointer a b c d e f g = primJS $ WebGLRenderingContextBase.prim__vertexAttribPointer a
-                                                                                                   b
-                                                                                                   c
-                                                                                                   d
-                                                                                                   (toFFI e)
-                                                                                                   f
-                                                                                                   g
+  vertexAttribPointer a b c d e f g = primJS
+                                    $ WebGLRenderingContextBase.prim__vertexAttribPointer a
+                                                                                          b
+                                                                                          c
+                                                                                          d
+                                                                                          (toFFI e)
+                                                                                          f
+                                                                                          g
   
   export
   viewport :  (obj : WebGLRenderingContextBase)
@@ -5830,11 +6113,8 @@ namespace WebGLRenderingContextBase
            -> (width : Int32)
            -> (height : Int32)
            -> JSIO ()
-  viewport a b c d e = primJS $ WebGLRenderingContextBase.prim__viewport a
-                                                                         b
-                                                                         c
-                                                                         d
-                                                                         e
+  viewport a b c d e = primJS
+                     $ WebGLRenderingContextBase.prim__viewport a b c d e
 
 namespace WebGLRenderingContextOverloads
   
@@ -5844,10 +6124,8 @@ namespace WebGLRenderingContextOverloads
              -> (size : Int64)
              -> (usage : UInt32)
              -> JSIO ()
-  bufferData a b c d = primJS $ WebGLRenderingContextOverloads.prim__bufferData a
-                                                                                b
-                                                                                c
-                                                                                d
+  bufferData a b c d = primJS
+                     $ WebGLRenderingContextOverloads.prim__bufferData a b c d
   
   export
   bufferData1 :  (obj : WebGLRenderingContextOverloads)
@@ -5866,10 +6144,11 @@ namespace WebGLRenderingContextOverloads
                                       ]))
               -> (usage : UInt32)
               -> JSIO ()
-  bufferData1 a b c d = primJS $ WebGLRenderingContextOverloads.prim__bufferData1 a
-                                                                                  b
-                                                                                  (toFFI c)
-                                                                                  d
+  bufferData1 a b c d = primJS
+                      $ WebGLRenderingContextOverloads.prim__bufferData1 a
+                                                                         b
+                                                                         (toFFI c)
+                                                                         d
   
   export
   bufferSubData :  (obj : WebGLRenderingContextOverloads)
@@ -5888,10 +6167,11 @@ namespace WebGLRenderingContextOverloads
                                  , ArrayBuffer
                                  ])
                 -> JSIO ()
-  bufferSubData a b c d = primJS $ WebGLRenderingContextOverloads.prim__bufferSubData a
-                                                                                      b
-                                                                                      c
-                                                                                      (toFFI d)
+  bufferSubData a b c d = primJS
+                        $ WebGLRenderingContextOverloads.prim__bufferSubData a
+                                                                             b
+                                                                             c
+                                                                             (toFFI d)
   
   export
   compressedTexImage2D :  (obj : WebGLRenderingContextOverloads)
@@ -5913,14 +6193,15 @@ namespace WebGLRenderingContextOverloads
                                         , DataView
                                         ])
                        -> JSIO ()
-  compressedTexImage2D a b c d e f g h = primJS $ WebGLRenderingContextOverloads.prim__compressedTexImage2D a
-                                                                                                            b
-                                                                                                            c
-                                                                                                            d
-                                                                                                            e
-                                                                                                            f
-                                                                                                            g
-                                                                                                            (toFFI h)
+  compressedTexImage2D a b c d e f g h = primJS
+                                       $ WebGLRenderingContextOverloads.prim__compressedTexImage2D a
+                                                                                                   b
+                                                                                                   c
+                                                                                                   d
+                                                                                                   e
+                                                                                                   f
+                                                                                                   g
+                                                                                                   (toFFI h)
   
   export
   compressedTexSubImage2D :  (obj : WebGLRenderingContextOverloads)
@@ -5943,15 +6224,16 @@ namespace WebGLRenderingContextOverloads
                                            , DataView
                                            ])
                           -> JSIO ()
-  compressedTexSubImage2D a b c d e f g h i = primJS $ WebGLRenderingContextOverloads.prim__compressedTexSubImage2D a
-                                                                                                                    b
-                                                                                                                    c
-                                                                                                                    d
-                                                                                                                    e
-                                                                                                                    f
-                                                                                                                    g
-                                                                                                                    h
-                                                                                                                    (toFFI i)
+  compressedTexSubImage2D a b c d e f g h i = primJS
+                                            $ WebGLRenderingContextOverloads.prim__compressedTexSubImage2D a
+                                                                                                           b
+                                                                                                           c
+                                                                                                           d
+                                                                                                           e
+                                                                                                           f
+                                                                                                           g
+                                                                                                           h
+                                                                                                           (toFFI i)
   
   export
   readPixels :  (obj : WebGLRenderingContextOverloads)
@@ -5973,14 +6255,15 @@ namespace WebGLRenderingContextOverloads
                                       , DataView
                                       ]))
              -> JSIO ()
-  readPixels a b c d e f g h = primJS $ WebGLRenderingContextOverloads.prim__readPixels a
-                                                                                        b
-                                                                                        c
-                                                                                        d
-                                                                                        e
-                                                                                        f
-                                                                                        g
-                                                                                        (toFFI h)
+  readPixels a b c d e f g h = primJS
+                             $ WebGLRenderingContextOverloads.prim__readPixels a
+                                                                               b
+                                                                               c
+                                                                               d
+                                                                               e
+                                                                               f
+                                                                               g
+                                                                               (toFFI h)
   
   export
   texImage2D :  (obj : WebGLRenderingContextOverloads)
@@ -6004,16 +6287,17 @@ namespace WebGLRenderingContextOverloads
                                       , DataView
                                       ]))
              -> JSIO ()
-  texImage2D a b c d e f g h i j = primJS $ WebGLRenderingContextOverloads.prim__texImage2D a
-                                                                                            b
-                                                                                            c
-                                                                                            d
-                                                                                            e
-                                                                                            f
-                                                                                            g
-                                                                                            h
-                                                                                            i
-                                                                                            (toFFI j)
+  texImage2D a b c d e f g h i j = primJS
+                                 $ WebGLRenderingContextOverloads.prim__texImage2D a
+                                                                                   b
+                                                                                   c
+                                                                                   d
+                                                                                   e
+                                                                                   f
+                                                                                   g
+                                                                                   h
+                                                                                   i
+                                                                                   (toFFI j)
   
   export
   texImage2D1 :  (obj : WebGLRenderingContextOverloads)
@@ -6030,13 +6314,14 @@ namespace WebGLRenderingContextOverloads
                                 , OffscreenCanvas
                                 ])
               -> JSIO ()
-  texImage2D1 a b c d e f g = primJS $ WebGLRenderingContextOverloads.prim__texImage2D1 a
-                                                                                        b
-                                                                                        c
-                                                                                        d
-                                                                                        e
-                                                                                        f
-                                                                                        (toFFI g)
+  texImage2D1 a b c d e f g = primJS
+                            $ WebGLRenderingContextOverloads.prim__texImage2D1 a
+                                                                               b
+                                                                               c
+                                                                               d
+                                                                               e
+                                                                               f
+                                                                               (toFFI g)
   
   export
   texSubImage2D :  (obj : WebGLRenderingContextOverloads)
@@ -6060,16 +6345,17 @@ namespace WebGLRenderingContextOverloads
                                          , DataView
                                          ]))
                 -> JSIO ()
-  texSubImage2D a b c d e f g h i j = primJS $ WebGLRenderingContextOverloads.prim__texSubImage2D a
-                                                                                                  b
-                                                                                                  c
-                                                                                                  d
-                                                                                                  e
-                                                                                                  f
-                                                                                                  g
-                                                                                                  h
-                                                                                                  i
-                                                                                                  (toFFI j)
+  texSubImage2D a b c d e f g h i j = primJS
+                                    $ WebGLRenderingContextOverloads.prim__texSubImage2D a
+                                                                                         b
+                                                                                         c
+                                                                                         d
+                                                                                         e
+                                                                                         f
+                                                                                         g
+                                                                                         h
+                                                                                         i
+                                                                                         (toFFI j)
   
   export
   texSubImage2D1 :  (obj : WebGLRenderingContextOverloads)
@@ -6087,86 +6373,95 @@ namespace WebGLRenderingContextOverloads
                                    , OffscreenCanvas
                                    ])
                  -> JSIO ()
-  texSubImage2D1 a b c d e f g h = primJS $ WebGLRenderingContextOverloads.prim__texSubImage2D1 a
-                                                                                                b
-                                                                                                c
-                                                                                                d
-                                                                                                e
-                                                                                                f
-                                                                                                g
-                                                                                                (toFFI h)
+  texSubImage2D1 a b c d e f g h = primJS
+                                 $ WebGLRenderingContextOverloads.prim__texSubImage2D1 a
+                                                                                       b
+                                                                                       c
+                                                                                       d
+                                                                                       e
+                                                                                       f
+                                                                                       g
+                                                                                       (toFFI h)
   
   export
   uniform1fv :  (obj : WebGLRenderingContextOverloads)
              -> (location : Maybe WebGLUniformLocation)
              -> (v : NS I [ Float32Array , Array Double ])
              -> JSIO ()
-  uniform1fv a b c = primJS $ WebGLRenderingContextOverloads.prim__uniform1fv a
-                                                                              (toFFI b)
-                                                                              (toFFI c)
+  uniform1fv a b c = primJS
+                   $ WebGLRenderingContextOverloads.prim__uniform1fv a
+                                                                     (toFFI b)
+                                                                     (toFFI c)
   
   export
   uniform1iv :  (obj : WebGLRenderingContextOverloads)
              -> (location : Maybe WebGLUniformLocation)
              -> (v : NS I [ Int32Array , Array Int32 ])
              -> JSIO ()
-  uniform1iv a b c = primJS $ WebGLRenderingContextOverloads.prim__uniform1iv a
-                                                                              (toFFI b)
-                                                                              (toFFI c)
+  uniform1iv a b c = primJS
+                   $ WebGLRenderingContextOverloads.prim__uniform1iv a
+                                                                     (toFFI b)
+                                                                     (toFFI c)
   
   export
   uniform2fv :  (obj : WebGLRenderingContextOverloads)
              -> (location : Maybe WebGLUniformLocation)
              -> (v : NS I [ Float32Array , Array Double ])
              -> JSIO ()
-  uniform2fv a b c = primJS $ WebGLRenderingContextOverloads.prim__uniform2fv a
-                                                                              (toFFI b)
-                                                                              (toFFI c)
+  uniform2fv a b c = primJS
+                   $ WebGLRenderingContextOverloads.prim__uniform2fv a
+                                                                     (toFFI b)
+                                                                     (toFFI c)
   
   export
   uniform2iv :  (obj : WebGLRenderingContextOverloads)
              -> (location : Maybe WebGLUniformLocation)
              -> (v : NS I [ Int32Array , Array Int32 ])
              -> JSIO ()
-  uniform2iv a b c = primJS $ WebGLRenderingContextOverloads.prim__uniform2iv a
-                                                                              (toFFI b)
-                                                                              (toFFI c)
+  uniform2iv a b c = primJS
+                   $ WebGLRenderingContextOverloads.prim__uniform2iv a
+                                                                     (toFFI b)
+                                                                     (toFFI c)
   
   export
   uniform3fv :  (obj : WebGLRenderingContextOverloads)
              -> (location : Maybe WebGLUniformLocation)
              -> (v : NS I [ Float32Array , Array Double ])
              -> JSIO ()
-  uniform3fv a b c = primJS $ WebGLRenderingContextOverloads.prim__uniform3fv a
-                                                                              (toFFI b)
-                                                                              (toFFI c)
+  uniform3fv a b c = primJS
+                   $ WebGLRenderingContextOverloads.prim__uniform3fv a
+                                                                     (toFFI b)
+                                                                     (toFFI c)
   
   export
   uniform3iv :  (obj : WebGLRenderingContextOverloads)
              -> (location : Maybe WebGLUniformLocation)
              -> (v : NS I [ Int32Array , Array Int32 ])
              -> JSIO ()
-  uniform3iv a b c = primJS $ WebGLRenderingContextOverloads.prim__uniform3iv a
-                                                                              (toFFI b)
-                                                                              (toFFI c)
+  uniform3iv a b c = primJS
+                   $ WebGLRenderingContextOverloads.prim__uniform3iv a
+                                                                     (toFFI b)
+                                                                     (toFFI c)
   
   export
   uniform4fv :  (obj : WebGLRenderingContextOverloads)
              -> (location : Maybe WebGLUniformLocation)
              -> (v : NS I [ Float32Array , Array Double ])
              -> JSIO ()
-  uniform4fv a b c = primJS $ WebGLRenderingContextOverloads.prim__uniform4fv a
-                                                                              (toFFI b)
-                                                                              (toFFI c)
+  uniform4fv a b c = primJS
+                   $ WebGLRenderingContextOverloads.prim__uniform4fv a
+                                                                     (toFFI b)
+                                                                     (toFFI c)
   
   export
   uniform4iv :  (obj : WebGLRenderingContextOverloads)
              -> (location : Maybe WebGLUniformLocation)
              -> (v : NS I [ Int32Array , Array Int32 ])
              -> JSIO ()
-  uniform4iv a b c = primJS $ WebGLRenderingContextOverloads.prim__uniform4iv a
-                                                                              (toFFI b)
-                                                                              (toFFI c)
+  uniform4iv a b c = primJS
+                   $ WebGLRenderingContextOverloads.prim__uniform4iv a
+                                                                     (toFFI b)
+                                                                     (toFFI c)
   
   export
   uniformMatrix2fv :  (obj : WebGLRenderingContextOverloads)
@@ -6174,10 +6469,11 @@ namespace WebGLRenderingContextOverloads
                    -> (transpose : Bool)
                    -> (value : NS I [ Float32Array , Array Double ])
                    -> JSIO ()
-  uniformMatrix2fv a b c d = primJS $ WebGLRenderingContextOverloads.prim__uniformMatrix2fv a
-                                                                                            (toFFI b)
-                                                                                            (toFFI c)
-                                                                                            (toFFI d)
+  uniformMatrix2fv a b c d = primJS
+                           $ WebGLRenderingContextOverloads.prim__uniformMatrix2fv a
+                                                                                   (toFFI b)
+                                                                                   (toFFI c)
+                                                                                   (toFFI d)
   
   export
   uniformMatrix3fv :  (obj : WebGLRenderingContextOverloads)
@@ -6185,10 +6481,11 @@ namespace WebGLRenderingContextOverloads
                    -> (transpose : Bool)
                    -> (value : NS I [ Float32Array , Array Double ])
                    -> JSIO ()
-  uniformMatrix3fv a b c d = primJS $ WebGLRenderingContextOverloads.prim__uniformMatrix3fv a
-                                                                                            (toFFI b)
-                                                                                            (toFFI c)
-                                                                                            (toFFI d)
+  uniformMatrix3fv a b c d = primJS
+                           $ WebGLRenderingContextOverloads.prim__uniformMatrix3fv a
+                                                                                   (toFFI b)
+                                                                                   (toFFI c)
+                                                                                   (toFFI d)
   
   export
   uniformMatrix4fv :  (obj : WebGLRenderingContextOverloads)
@@ -6196,10 +6493,11 @@ namespace WebGLRenderingContextOverloads
                    -> (transpose : Bool)
                    -> (value : NS I [ Float32Array , Array Double ])
                    -> JSIO ()
-  uniformMatrix4fv a b c d = primJS $ WebGLRenderingContextOverloads.prim__uniformMatrix4fv a
-                                                                                            (toFFI b)
-                                                                                            (toFFI c)
-                                                                                            (toFFI d)
+  uniformMatrix4fv a b c d = primJS
+                           $ WebGLRenderingContextOverloads.prim__uniformMatrix4fv a
+                                                                                   (toFFI b)
+                                                                                   (toFFI c)
+                                                                                   (toFFI d)
 
 --------------------------------------------------------------------------------
 --          Dictionaries
@@ -6224,23 +6522,34 @@ namespace WebGLContextAttributes
       -> (failIfMajorPerformanceCaveat : Optional Bool)
       -> (desynchronized : Optional Bool)
       -> JSIO WebGLContextAttributes
-  new a b c d e f g h i = primJS $ WebGLContextAttributes.prim__new (toFFI a)
-                                                                    (toFFI b)
-                                                                    (toFFI c)
-                                                                    (toFFI d)
-                                                                    (toFFI e)
-                                                                    (toFFI f)
-                                                                    (toFFI g)
-                                                                    (toFFI h)
-                                                                    (toFFI i)
+  new a b c d e f g h i = primJS
+                        $ WebGLContextAttributes.prim__new (toFFI a)
+                                                           (toFFI b)
+                                                           (toFFI c)
+                                                           (toFFI d)
+                                                           (toFFI e)
+                                                           (toFFI f)
+                                                           (toFFI g)
+                                                           (toFFI h)
+                                                           (toFFI i)
 
   export
   new' : JSIO WebGLContextAttributes
-  new' = new Undef Undef Undef Undef Undef Undef Undef Undef Undef
+  new' = primJS
+       $ WebGLContextAttributes.prim__new undef
+                                          undef
+                                          undef
+                                          undef
+                                          undef
+                                          undef
+                                          undef
+                                          undef
+                                          undef
   
   export
   alpha : (obj : WebGLContextAttributes) -> JSIO $ Optional Bool
-  alpha a = tryJS "WebGLContextAttributes.alpha" $ WebGLContextAttributes.prim__alpha a
+  alpha a = tryJS "WebGLContextAttributes.alpha"
+          $ WebGLContextAttributes.prim__alpha a
   
   export
   setAlpha :  (obj : WebGLContextAttributes)
@@ -6250,26 +6559,28 @@ namespace WebGLContextAttributes
 
   export
   setAlpha' : (obj : WebGLContextAttributes) -> JSIO ()
-  setAlpha' a = setAlpha a Undef
+  setAlpha' a = primJS $ WebGLContextAttributes.prim__setAlpha a undef
   
   export
   antialias : (obj : WebGLContextAttributes) -> JSIO $ Optional Bool
-  antialias a = tryJS "WebGLContextAttributes.antialias" $ WebGLContextAttributes.prim__antialias a
+  antialias a = tryJS "WebGLContextAttributes.antialias"
+              $ WebGLContextAttributes.prim__antialias a
   
   export
   setAntialias :  (obj : WebGLContextAttributes)
                -> (value : Optional Bool)
                -> JSIO ()
-  setAntialias a b = primJS $ WebGLContextAttributes.prim__setAntialias a
-                                                                        (toFFI b)
+  setAntialias a b = primJS
+                   $ WebGLContextAttributes.prim__setAntialias a (toFFI b)
 
   export
   setAntialias' : (obj : WebGLContextAttributes) -> JSIO ()
-  setAntialias' a = setAntialias a Undef
+  setAntialias' a = primJS $ WebGLContextAttributes.prim__setAntialias a undef
   
   export
   depth : (obj : WebGLContextAttributes) -> JSIO $ Optional Bool
-  depth a = tryJS "WebGLContextAttributes.depth" $ WebGLContextAttributes.prim__depth a
+  depth a = tryJS "WebGLContextAttributes.depth"
+          $ WebGLContextAttributes.prim__depth a
   
   export
   setDepth :  (obj : WebGLContextAttributes)
@@ -6279,88 +6590,108 @@ namespace WebGLContextAttributes
 
   export
   setDepth' : (obj : WebGLContextAttributes) -> JSIO ()
-  setDepth' a = setDepth a Undef
+  setDepth' a = primJS $ WebGLContextAttributes.prim__setDepth a undef
   
   export
   desynchronized : (obj : WebGLContextAttributes) -> JSIO $ Optional Bool
-  desynchronized a = tryJS "WebGLContextAttributes.desynchronized" $ WebGLContextAttributes.prim__desynchronized a
+  desynchronized a = tryJS "WebGLContextAttributes.desynchronized"
+                   $ WebGLContextAttributes.prim__desynchronized a
   
   export
   setDesynchronized :  (obj : WebGLContextAttributes)
                     -> (value : Optional Bool)
                     -> JSIO ()
-  setDesynchronized a b = primJS $ WebGLContextAttributes.prim__setDesynchronized a
-                                                                                  (toFFI b)
+  setDesynchronized a b = primJS
+                        $ WebGLContextAttributes.prim__setDesynchronized a
+                                                                         (toFFI b)
 
   export
   setDesynchronized' : (obj : WebGLContextAttributes) -> JSIO ()
-  setDesynchronized' a = setDesynchronized a Undef
+  setDesynchronized' a = primJS
+                       $ WebGLContextAttributes.prim__setDesynchronized a undef
   
   export
   failIfMajorPerformanceCaveat :  (obj : WebGLContextAttributes)
                                -> JSIO $ Optional Bool
-  failIfMajorPerformanceCaveat a = tryJS "WebGLContextAttributes.failIfMajorPerformanceCaveat" $ WebGLContextAttributes.prim__failIfMajorPerformanceCaveat a
+  failIfMajorPerformanceCaveat a = tryJS "WebGLContextAttributes.failIfMajorPerformanceCaveat"
+                                 $ WebGLContextAttributes.prim__failIfMajorPerformanceCaveat a
   
   export
   setFailIfMajorPerformanceCaveat :  (obj : WebGLContextAttributes)
                                   -> (value : Optional Bool)
                                   -> JSIO ()
-  setFailIfMajorPerformanceCaveat a b = primJS $ WebGLContextAttributes.prim__setFailIfMajorPerformanceCaveat a
-                                                                                                              (toFFI b)
+  setFailIfMajorPerformanceCaveat a b = primJS
+                                      $ WebGLContextAttributes.prim__setFailIfMajorPerformanceCaveat a
+                                                                                                     (toFFI b)
 
   export
   setFailIfMajorPerformanceCaveat' : (obj : WebGLContextAttributes) -> JSIO ()
-  setFailIfMajorPerformanceCaveat' a = setFailIfMajorPerformanceCaveat a Undef
+  setFailIfMajorPerformanceCaveat' a = primJS
+                                     $ WebGLContextAttributes.prim__setFailIfMajorPerformanceCaveat a
+                                                                                                    undef
   
   export
   powerPreference :  (obj : WebGLContextAttributes)
                   -> JSIO $ Optional WebGLPowerPreference
-  powerPreference a = tryJS "WebGLContextAttributes.powerPreference" $ WebGLContextAttributes.prim__powerPreference a
+  powerPreference a = tryJS "WebGLContextAttributes.powerPreference"
+                    $ WebGLContextAttributes.prim__powerPreference a
   
   export
   setPowerPreference :  (obj : WebGLContextAttributes)
                      -> (value : Optional WebGLPowerPreference)
                      -> JSIO ()
-  setPowerPreference a b = primJS $ WebGLContextAttributes.prim__setPowerPreference a
-                                                                                    (toFFI b)
+  setPowerPreference a b = primJS
+                         $ WebGLContextAttributes.prim__setPowerPreference a
+                                                                           (toFFI b)
 
   export
   setPowerPreference' : (obj : WebGLContextAttributes) -> JSIO ()
-  setPowerPreference' a = setPowerPreference a Undef
+  setPowerPreference' a = primJS
+                        $ WebGLContextAttributes.prim__setPowerPreference a
+                                                                          undef
   
   export
   premultipliedAlpha : (obj : WebGLContextAttributes) -> JSIO $ Optional Bool
-  premultipliedAlpha a = tryJS "WebGLContextAttributes.premultipliedAlpha" $ WebGLContextAttributes.prim__premultipliedAlpha a
+  premultipliedAlpha a = tryJS "WebGLContextAttributes.premultipliedAlpha"
+                       $ WebGLContextAttributes.prim__premultipliedAlpha a
   
   export
   setPremultipliedAlpha :  (obj : WebGLContextAttributes)
                         -> (value : Optional Bool)
                         -> JSIO ()
-  setPremultipliedAlpha a b = primJS $ WebGLContextAttributes.prim__setPremultipliedAlpha a
-                                                                                          (toFFI b)
+  setPremultipliedAlpha a b = primJS
+                            $ WebGLContextAttributes.prim__setPremultipliedAlpha a
+                                                                                 (toFFI b)
 
   export
   setPremultipliedAlpha' : (obj : WebGLContextAttributes) -> JSIO ()
-  setPremultipliedAlpha' a = setPremultipliedAlpha a Undef
+  setPremultipliedAlpha' a = primJS
+                           $ WebGLContextAttributes.prim__setPremultipliedAlpha a
+                                                                                undef
   
   export
   preserveDrawingBuffer : (obj : WebGLContextAttributes) -> JSIO $ Optional Bool
-  preserveDrawingBuffer a = tryJS "WebGLContextAttributes.preserveDrawingBuffer" $ WebGLContextAttributes.prim__preserveDrawingBuffer a
+  preserveDrawingBuffer a = tryJS "WebGLContextAttributes.preserveDrawingBuffer"
+                          $ WebGLContextAttributes.prim__preserveDrawingBuffer a
   
   export
   setPreserveDrawingBuffer :  (obj : WebGLContextAttributes)
                            -> (value : Optional Bool)
                            -> JSIO ()
-  setPreserveDrawingBuffer a b = primJS $ WebGLContextAttributes.prim__setPreserveDrawingBuffer a
-                                                                                                (toFFI b)
+  setPreserveDrawingBuffer a b = primJS
+                               $ WebGLContextAttributes.prim__setPreserveDrawingBuffer a
+                                                                                       (toFFI b)
 
   export
   setPreserveDrawingBuffer' : (obj : WebGLContextAttributes) -> JSIO ()
-  setPreserveDrawingBuffer' a = setPreserveDrawingBuffer a Undef
+  setPreserveDrawingBuffer' a = primJS
+                              $ WebGLContextAttributes.prim__setPreserveDrawingBuffer a
+                                                                                      undef
   
   export
   stencil : (obj : WebGLContextAttributes) -> JSIO $ Optional Bool
-  stencil a = tryJS "WebGLContextAttributes.stencil" $ WebGLContextAttributes.prim__stencil a
+  stencil a = tryJS "WebGLContextAttributes.stencil"
+            $ WebGLContextAttributes.prim__stencil a
   
   export
   setStencil :  (obj : WebGLContextAttributes)
@@ -6370,4 +6701,4 @@ namespace WebGLContextAttributes
 
   export
   setStencil' : (obj : WebGLContextAttributes) -> JSIO ()
-  setStencil' a = setStencil a Undef
+  setStencil' a = primJS $ WebGLContextAttributes.prim__setStencil a undef

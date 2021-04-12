@@ -124,7 +124,7 @@ namespace DOMException
 
   export
   new' : JSIO DOMException
-  new' = new Undef Undef
+  new' = primJS $ DOMException.prim__new undef undef
   
   export
   code : (obj : DOMException) -> JSIO UInt16
@@ -144,3 +144,14 @@ namespace DOMException
 --          Callbacks
 --------------------------------------------------------------------------------
 
+namespace Function
+  
+  export
+  toFunction : ( VarArg AnyPtr -> IO AnyPtr ) -> JSIO Function
+  toFunction cb = primJS $ prim__toFunction cb
+
+namespace VoidFunction
+  
+  export
+  toVoidFunction : (() -> IO ()) -> JSIO VoidFunction
+  toVoidFunction cb = primJS $ prim__toVoidFunction cb

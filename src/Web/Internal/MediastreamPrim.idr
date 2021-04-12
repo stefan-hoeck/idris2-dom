@@ -1198,3 +1198,21 @@ namespace ULongRange
   export
   %foreign "browser:lambda:(x,v)=>{x.min = v}"
   prim__setMin : ULongRange -> UndefOr UInt32 -> PrimIO ()
+
+--------------------------------------------------------------------------------
+--          Callbacks
+--------------------------------------------------------------------------------
+
+namespace NavigatorUserMediaErrorCallback
+  
+  export
+  %foreign "browser:lambda:x=>{(a)=>x(a)()}"
+  prim__toNavigatorUserMediaErrorCallback :  ( DOMException -> IO () )
+                                          -> PrimIO NavigatorUserMediaErrorCallback
+
+namespace NavigatorUserMediaSuccessCallback
+  
+  export
+  %foreign "browser:lambda:x=>{(a)=>x(a)()}"
+  prim__toNavigatorUserMediaSuccessCallback :  ( MediaStream -> IO () )
+                                            -> PrimIO NavigatorUserMediaSuccessCallback

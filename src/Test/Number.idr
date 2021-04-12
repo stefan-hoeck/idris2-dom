@@ -97,7 +97,7 @@ chck = ignore . checkGroup . withTests 1000
 
 export
 test : IO ()
-test = do chck (signedIntegral "Int8" 8 (cast . int8ToDouble))
-          chck (signedIntegral "Int16" 16 (cast . int16ToDouble))
-          chck (signedIntegral "Int32" 32 (cast . int32ToDouble))
-          chck (signedIntegral "Int64" 64 (cast {from = Int} . value))
+test = do chck (signedIntegral "Int8" 8 (cast . fromInt8))
+          chck (signedIntegral "Int16" 16 (cast . fromInt16))
+          chck (signedIntegral "Int32" 32 (cast . fromInt32))
+          -- chck (signedIntegral "Int64" 64 (cast . fromInt64))

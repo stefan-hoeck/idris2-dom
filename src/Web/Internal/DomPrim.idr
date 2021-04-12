@@ -1863,3 +1863,36 @@ namespace StaticRangeInit
   export
   %foreign "browser:lambda:(x,v)=>{x.startOffset = v}"
   prim__setStartOffset : StaticRangeInit -> UInt32 -> PrimIO ()
+
+--------------------------------------------------------------------------------
+--          Callbacks
+--------------------------------------------------------------------------------
+
+namespace EventListener
+  
+  export
+  %foreign "browser:lambda:x=>{(a)=>x(a)()}"
+  prim__toEventListener : ( Event -> IO () ) -> PrimIO EventListener
+
+namespace MutationCallback
+  
+  export
+  %foreign "browser:lambda:x=>{(a,b)=>x(a,b)()}"
+  prim__toMutationCallback :  (  Array MutationRecord
+                              -> MutationObserver
+                              -> IO ()
+                              )
+                           -> PrimIO MutationCallback
+
+namespace NodeFilter
+  
+  export
+  %foreign "browser:lambda:x=>{(a)=>x(a)()}"
+  prim__toNodeFilter : ( Node -> IO UInt16 ) -> PrimIO NodeFilter
+
+namespace XPathNSResolver
+  
+  export
+  %foreign "browser:lambda:x=>{(a)=>x(a)()}"
+  prim__toXPathNSResolver :  ( Nullable String -> IO (Nullable String) )
+                          -> PrimIO XPathNSResolver
