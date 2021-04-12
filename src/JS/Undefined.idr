@@ -130,6 +130,11 @@ optional : Lazy b -> (a -> b) -> Optional a -> b
 optional x f Undef   = x
 optional _ f (Def y) = f y
 
+public export
+fromOptional : Lazy a -> Optional a -> a
+fromOptional a Undef   = a
+fromOptional _ (Def a) = a
+
 export
 optionalToUndefOr : Optional a -> UndefOr a
 optionalToUndefOr = optional undef def
