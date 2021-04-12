@@ -54,6 +54,10 @@ export
 FromFFI (Union2 a b) (Union2 a b) where
   fromFFI = Just
 
+export
+ToFFI (Union2 a b) (Union2 a b) where
+  toFFI = id
+
 --------------------------------------------------------------------------------
 --          Union3
 --------------------------------------------------------------------------------
@@ -82,6 +86,10 @@ export
 export
 FromFFI (Union3 a b c) (Union3 a b c) where
   fromFFI = Just
+
+export
+ToFFI (Union3 a b c) (Union3 a b c) where
+  toFFI = id
 
 --------------------------------------------------------------------------------
 --          Union4
@@ -112,6 +120,10 @@ export
 FromFFI (Union4 a b c d) (Union4 a b c d) where
   fromFFI = Just
 
+export
+ToFFI (Union4 a b c d) (Union4 a b c d) where
+  toFFI = id
+
 --------------------------------------------------------------------------------
 --          Union5
 --------------------------------------------------------------------------------
@@ -141,6 +153,10 @@ export
 export
 FromFFI (Union5 a b c d e) (Union5 a b c d e) where
   fromFFI = Just
+
+export
+ToFFI (Union5 a b c d e) (Union5 a b c d e) where
+  toFFI = id
 
 --------------------------------------------------------------------------------
 --          Union6
@@ -173,6 +189,10 @@ export
 FromFFI (Union6 a b c d e f) (Union6 a b c d e f) where
   fromFFI = Just
 
+export
+ToFFI (Union6 a b c d e f) (Union6 a b c d e f) where
+  toFFI = id
+
 --------------------------------------------------------------------------------
 --          Union7
 --------------------------------------------------------------------------------
@@ -203,6 +223,10 @@ NP SafeCast [m,n,o,p,r,s,t] =>
 export
 FromFFI (Union7 a b c d e f g) (Union7 a b c d e f g) where
   fromFFI = Just
+
+export
+ToFFI (Union7 a b c d e f g) (Union7 a b c d e f g) where
+  toFFI = id
 
 --------------------------------------------------------------------------------
 --          Union8
@@ -235,6 +259,10 @@ export
 FromFFI (Union8 a b c d e f g h) (Union8 a b c d e f g h) where
   fromFFI = Just
 
+export
+ToFFI (Union8 a b c d e f g h) (Union8 a b c d e f g h) where
+  toFFI = id
+
 --------------------------------------------------------------------------------
 --          Union9
 --------------------------------------------------------------------------------
@@ -265,6 +293,10 @@ NP SafeCast [m,n,o,p,r,s,t,u,v] =>
 export
 FromFFI (Union9 a b c d e f g h i) (Union9 a b c d e f g h i) where
   fromFFI = Just
+
+export
+ToFFI (Union9 a b c d e f g h i) (Union9 a b c d e f g h i) where
+  toFFI = id
 
 --------------------------------------------------------------------------------
 --          Union10
@@ -297,6 +329,10 @@ export
 FromFFI (Union10 a b c d e f g h i j) (Union10 a b c d e f g h i j) where
   fromFFI = Just
 
+export
+ToFFI (Union10 a b c d e f g h i j) (Union10 a b c d e f g h i j) where
+  toFFI = id
+
 --------------------------------------------------------------------------------
 --          Union11
 --------------------------------------------------------------------------------
@@ -327,6 +363,10 @@ NP SafeCast [m,n,o,p,q,r,s,t,u,v,w] =>
 export
 FromFFI (Union11 a b c d e f g h i j k) (Union11 a b c d e f g h i j k) where
   fromFFI = Just
+
+export
+ToFFI (Union11 a b c d e f g h i j k) (Union11 a b c d e f g h i j k) where
+  toFFI = id
 
 --------------------------------------------------------------------------------
 --          Union12
@@ -359,6 +399,10 @@ export
 FromFFI (Union12 a b c d e f g h i j k l) (Union12 a b c d e f g h i j k l) where
   fromFFI = Just
 
+export
+ToFFI (Union12 a b c d e f g h i j k l) (Union12 a b c d e f g h i j k l) where
+  toFFI = id
+
 --------------------------------------------------------------------------------
 --          Union13
 --------------------------------------------------------------------------------
@@ -389,6 +433,10 @@ NP SafeCast [m,n,o,p,q,r,s,t,u,v,w,x,y] =>
 export
 FromFFI (Union13 a b c d e f g h i j k l m) (Union13 a b c d e f g h i j k l m) where
   fromFFI = Just
+
+export
+ToFFI (Union13 a b c d e f g h i j k l m) (Union13 a b c d e f g h i j k l m) where
+  toFFI = id
 
 --------------------------------------------------------------------------------
 --          Union14
@@ -421,6 +469,10 @@ export
 FromFFI (Union14 a b c d e f g h i j k l m n) (Union14 a b c d e f g h i j k l m n) where
   fromFFI = Just
 
+export
+ToFFI (Union14 a b c d e f g h i j k l m n) (Union14 a b c d e f g h i j k l m n) where
+  toFFI = id
+
 --------------------------------------------------------------------------------
 --          Union15
 --------------------------------------------------------------------------------
@@ -452,6 +504,10 @@ export
 FromFFI (Union15 a b c d e f g h i j k l m n o) (Union15 a b c d e f g h i j k l m n o) where
   fromFFI = Just
 
+export
+ToFFI (Union15 a b c d e f g h i j k l m n o) (Union15 a b c d e f g h i j k l m n o) where
+  toFFI = id
+
 --------------------------------------------------------------------------------
 --          Union16
 --------------------------------------------------------------------------------
@@ -482,3 +538,7 @@ NP SafeCast [m,n,o,p,q,r,s,t,u,v,w,x,y,z,z1,z2] =>
 export
 FromFFI (Union16 a b c d e f g h i j k l m n o p) (Union16 a b c d e f g h i j k l m n o p) where
   fromFFI = Just
+
+export
+ToFFI (Union16 a b c d e f g h i j k l m n o p) (Union16 a b c d e f g h i j k l m n o p) where
+  toFFI = id
