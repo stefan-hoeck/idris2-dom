@@ -17,7 +17,7 @@ namespace Headers
             -> PrimIO Headers
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.append(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.append(a,b)"
   prim__append : Headers -> ByteString -> ByteString -> PrimIO ()
   
   export
@@ -33,13 +33,13 @@ namespace Headers
   prim__has : Headers -> ByteString -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.set(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.set(a,b)"
   prim__set : Headers -> ByteString -> ByteString -> PrimIO ()
 
 namespace Request
   
   export
-  %foreign "browser:lambda:(a,b)=> new Request(a b)"
+  %foreign "browser:lambda:(a,b)=> new Request(a,b)"
   prim__new : Union2 Request String -> UndefOr RequestInit -> PrimIO Request
   
   export
@@ -109,7 +109,7 @@ namespace Request
 namespace Response
   
   export
-  %foreign "browser:lambda:(a,b)=> new Response(a b)"
+  %foreign "browser:lambda:(a,b)=> new Response(a,b)"
   prim__new :  UndefOr (Nullable (Union16 ReadableStream
                                           Blob
                                           Int8Array
@@ -134,7 +134,7 @@ namespace Response
   prim__error : PrimIO Response
   
   export
-  %foreign "browser:lambda:(a,b)=>Response.redirect(a b)"
+  %foreign "browser:lambda:(a,b)=>Response.redirect(a,b)"
   prim__redirect : String -> UndefOr UInt16 -> PrimIO Response
   
   export

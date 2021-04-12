@@ -202,7 +202,7 @@ namespace KeyframeEffect
 namespace Animatable
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.animate(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.animate(a,b)"
   prim__animate :  Animatable
                 -> Nullable Object
                 -> UndefOr (Union2 Double KeyframeAnimationOptions)

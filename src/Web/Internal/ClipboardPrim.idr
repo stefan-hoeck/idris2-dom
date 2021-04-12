@@ -29,7 +29,7 @@ namespace Clipboard
 namespace ClipboardEvent
   
   export
-  %foreign "browser:lambda:(a,b)=> new ClipboardEvent(a b)"
+  %foreign "browser:lambda:(a,b)=> new ClipboardEvent(a,b)"
   prim__new : String -> UndefOr ClipboardEventInit -> PrimIO ClipboardEvent
   
   export
@@ -39,13 +39,13 @@ namespace ClipboardEvent
 namespace ClipboardItem
   
   export
-  %foreign "browser:lambda:(a,b)=> new ClipboardItem(a b)"
+  %foreign "browser:lambda:(a,b)=> new ClipboardItem(a,b)"
   prim__new :  Record String (Promise (Union2 String Blob))
             -> UndefOr ClipboardItemOptions
             -> PrimIO ClipboardItem
   
   export
-  %foreign "browser:lambda:(a,b)=>ClipboardItem.createDelayed(a b)"
+  %foreign "browser:lambda:(a,b)=>ClipboardItem.createDelayed(a,b)"
   prim__createDelayed :  Record String ClipboardItemDelayedCallback
                       -> UndefOr ClipboardItemOptions
                       -> PrimIO ClipboardItem
@@ -135,7 +135,7 @@ namespace ClipboardPermissionDescriptor
 namespace ClipboardItemDelayedCallback
   
   export
-  %foreign "browser:lambda:x=>{()=>x()()}"
+  %foreign "browser:lambda:x=>()=>x()()"
   prim__toClipboardItemDelayedCallback :  (() -> IO (Promise (Union2 String
                                                                      Blob)))
                                        -> PrimIO ClipboardItemDelayedCallback

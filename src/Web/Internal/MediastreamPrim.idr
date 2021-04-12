@@ -250,7 +250,7 @@ namespace MediaStreamTrack
 namespace MediaStreamTrackEvent
   
   export
-  %foreign "browser:lambda:(a,b)=> new MediaStreamTrackEvent(a b)"
+  %foreign "browser:lambda:(a,b)=> new MediaStreamTrackEvent(a,b)"
   prim__new :  String
             -> MediaStreamTrackEventInit
             -> PrimIO MediaStreamTrackEvent
@@ -262,7 +262,7 @@ namespace MediaStreamTrackEvent
 namespace OverconstrainedError
   
   export
-  %foreign "browser:lambda:(a,b)=> new OverconstrainedError(a b)"
+  %foreign "browser:lambda:(a,b)=> new OverconstrainedError(a,b)"
   prim__new : String -> UndefOr String -> PrimIO OverconstrainedError
   
   export
@@ -1290,13 +1290,13 @@ namespace ULongRange
 namespace NavigatorUserMediaErrorCallback
   
   export
-  %foreign "browser:lambda:x=>{(a)=>x(a)()}"
+  %foreign "browser:lambda:x=>(a)=>x(a)()"
   prim__toNavigatorUserMediaErrorCallback :  ( DOMException -> IO () )
                                           -> PrimIO NavigatorUserMediaErrorCallback
 
 namespace NavigatorUserMediaSuccessCallback
   
   export
-  %foreign "browser:lambda:x=>{(a)=>x(a)()}"
+  %foreign "browser:lambda:x=>(a)=>x(a)()"
   prim__toNavigatorUserMediaSuccessCallback :  ( MediaStream -> IO () )
                                             -> PrimIO NavigatorUserMediaSuccessCallback

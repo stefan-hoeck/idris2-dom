@@ -40,6 +40,13 @@ jsShow v = prim__show (believe_me v)
 --          IO
 --------------------------------------------------------------------------------
 
+%foreign "browser:lambda:x=>console.log(x)"
+prim__consoleLog : String -> PrimIO ()
+
+export
+consoleLog : String -> IO ()
+consoleLog s = fromPrim $ prim__consoleLog s
+
 public export
 data JSErr : Type where
   CastErr : (inFunction : String) -> (value : a) -> JSErr
@@ -62,7 +69,7 @@ runJSWith f (MkEitherT io) = io >>= either f pure
 
 export
 runJS : JSIO () -> IO ()
-runJS = runJSWith (putStrLn . dispErr)
+runJS = runJSWith (consoleLog . dispErr)
 
 export %inline
 primJS : PrimIO a -> JSIO a

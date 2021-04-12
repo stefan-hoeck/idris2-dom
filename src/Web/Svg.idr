@@ -20,6 +20,7 @@ namespace MathMLElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -44,6 +45,7 @@ namespace SVGAElement
               , GlobalEventHandlers
               , HTMLHyperlinkElementUtils
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance
@@ -375,6 +377,7 @@ namespace SVGCircleElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance
@@ -412,6 +415,7 @@ namespace SVGDefsElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance
@@ -431,6 +435,7 @@ namespace SVGDescElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance
@@ -449,6 +454,7 @@ namespace SVGElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance
@@ -488,6 +494,7 @@ namespace SVGEllipseElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance
@@ -529,6 +536,7 @@ namespace SVGForeignObjectElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance
@@ -570,6 +578,7 @@ namespace SVGGElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance
@@ -595,6 +604,7 @@ namespace SVGGeometryElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance
@@ -652,6 +662,7 @@ namespace SVGGradientElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance
@@ -700,6 +711,7 @@ namespace SVGGraphicsElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance
@@ -749,6 +761,7 @@ namespace SVGImageElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance
@@ -945,6 +958,7 @@ namespace SVGLineElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance
@@ -986,6 +1000,7 @@ namespace SVGLinearGradientElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance
@@ -1021,6 +1036,7 @@ namespace SVGMarkerElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance
@@ -1104,6 +1120,7 @@ namespace SVGMetadataElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance
@@ -1198,6 +1215,7 @@ namespace SVGPathElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance
@@ -1217,6 +1235,7 @@ namespace SVGPatternElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance
@@ -1329,6 +1348,7 @@ namespace SVGPolygonElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGAnimatedPoints
@@ -1356,6 +1376,7 @@ namespace SVGPolylineElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGAnimatedPoints
@@ -1456,6 +1477,7 @@ namespace SVGRadialGradientElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance
@@ -1506,6 +1528,7 @@ namespace SVGRectElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance
@@ -1555,6 +1578,7 @@ namespace SVGSVGElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance
@@ -1706,6 +1730,7 @@ namespace SVGScriptElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance
@@ -1735,6 +1760,7 @@ namespace SVGStopElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance
@@ -1814,6 +1840,7 @@ namespace SVGStyleElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , LinkStyle
               , NonDocumentTypeChildNode
               , ParentNode
@@ -1851,6 +1878,7 @@ namespace SVGSwitchElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance
@@ -1876,6 +1904,7 @@ namespace SVGSymbolElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance
@@ -1904,6 +1933,7 @@ namespace SVGTSpanElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance
@@ -1929,6 +1959,7 @@ namespace SVGTextContentElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance
@@ -2046,6 +2077,7 @@ namespace SVGTextElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance
@@ -2072,6 +2104,7 @@ namespace SVGTextPathElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance
@@ -2135,6 +2168,7 @@ namespace SVGTextPositioningElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance
@@ -2174,6 +2208,7 @@ namespace SVGTitleElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance
@@ -2384,6 +2419,7 @@ namespace SVGUseElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance
@@ -2424,7 +2460,11 @@ namespace SVGUseElementShadowRoot
   JSType SVGUseElementShadowRoot where
     parents =  [ ShadowRoot , DocumentFragment , Node , EventTarget , Object ]
 
-    mixins =  [ DocumentOrShadowRoot , NonElementParentNode , ParentNode ]
+    mixins =  [ DocumentOrShadowRoot
+              , InnerHTML
+              , NonElementParentNode
+              , ParentNode
+              ]
 
 namespace SVGViewElement
   
@@ -2438,6 +2478,7 @@ namespace SVGViewElement
               , ElementCSSInlineStyle
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , SVGElementInstance

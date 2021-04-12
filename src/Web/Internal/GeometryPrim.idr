@@ -35,7 +35,7 @@ namespace DOMMatrix
   prim__preMultiplySelf : DOMMatrix -> UndefOr DOMMatrixInit -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.rotateAxisAngleSelf(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.rotateAxisAngleSelf(a,b,c,d)"
   prim__rotateAxisAngleSelf :  DOMMatrix
                             -> UndefOr Double
                             -> UndefOr Double
@@ -44,14 +44,14 @@ namespace DOMMatrix
                             -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.rotateFromVectorSelf(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.rotateFromVectorSelf(a,b)"
   prim__rotateFromVectorSelf :  DOMMatrix
                              -> UndefOr Double
                              -> UndefOr Double
                              -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.rotateSelf(a b c)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.rotateSelf(a,b,c)"
   prim__rotateSelf :  DOMMatrix
                    -> UndefOr Double
                    -> UndefOr Double
@@ -59,7 +59,7 @@ namespace DOMMatrix
                    -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.scale3dSelf(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.scale3dSelf(a,b,c,d)"
   prim__scale3dSelf :  DOMMatrix
                     -> UndefOr Double
                     -> UndefOr Double
@@ -68,7 +68,7 @@ namespace DOMMatrix
                     -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.scaleSelf(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.scaleSelf(a,b,c,d,e,f)"
   prim__scaleSelf :  DOMMatrix
                   -> UndefOr Double
                   -> UndefOr Double
@@ -91,7 +91,7 @@ namespace DOMMatrix
   prim__skewYSelf : DOMMatrix -> UndefOr Double -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.translateSelf(a b c)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.translateSelf(a,b,c)"
   prim__translateSelf :  DOMMatrix
                       -> UndefOr Double
                       -> UndefOr Double
@@ -227,7 +227,7 @@ namespace DOMMatrixReadOnly
                  -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.rotateAxisAngle(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.rotateAxisAngle(a,b,c,d)"
   prim__rotateAxisAngle :  DOMMatrixReadOnly
                         -> UndefOr Double
                         -> UndefOr Double
@@ -236,7 +236,7 @@ namespace DOMMatrixReadOnly
                         -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.rotate(a b c)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.rotate(a,b,c)"
   prim__rotate :  DOMMatrixReadOnly
                -> UndefOr Double
                -> UndefOr Double
@@ -244,14 +244,14 @@ namespace DOMMatrixReadOnly
                -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.rotateFromVector(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.rotateFromVector(a,b)"
   prim__rotateFromVector :  DOMMatrixReadOnly
                          -> UndefOr Double
                          -> UndefOr Double
                          -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.scale3d(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.scale3d(a,b,c,d)"
   prim__scale3d :  DOMMatrixReadOnly
                 -> UndefOr Double
                 -> UndefOr Double
@@ -260,7 +260,7 @@ namespace DOMMatrixReadOnly
                 -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.scale(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.scale(a,b,c,d,e,f)"
   prim__scale :  DOMMatrixReadOnly
               -> UndefOr Double
               -> UndefOr Double
@@ -271,7 +271,7 @@ namespace DOMMatrixReadOnly
               -> PrimIO DOMMatrix
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.scaleNonUniform(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.scaleNonUniform(a,b)"
   prim__scaleNonUniform :  DOMMatrixReadOnly
                         -> UndefOr Double
                         -> UndefOr Double
@@ -308,7 +308,7 @@ namespace DOMMatrixReadOnly
                        -> PrimIO DOMPoint
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.translate(a b c)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.translate(a,b,c)"
   prim__translate :  DOMMatrixReadOnly
                   -> UndefOr Double
                   -> UndefOr Double

@@ -808,6 +808,7 @@ namespace HTMLAnchorElement
               , GlobalEventHandlers
               , HTMLHyperlinkElementUtils
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -895,6 +896,7 @@ namespace HTMLAreaElement
               , GlobalEventHandlers
               , HTMLHyperlinkElementUtils
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -967,6 +969,7 @@ namespace HTMLAudioElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -989,6 +992,7 @@ namespace HTMLBRElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -1015,6 +1019,7 @@ namespace HTMLBaseElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -1045,6 +1050,7 @@ namespace HTMLBodyElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -1094,6 +1100,7 @@ namespace HTMLButtonElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -1199,6 +1206,7 @@ namespace HTMLCanvasElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -1282,6 +1290,7 @@ namespace HTMLDListElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -1310,6 +1319,7 @@ namespace HTMLDataElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -1336,6 +1346,7 @@ namespace HTMLDataListElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -1362,6 +1373,7 @@ namespace HTMLDetailsElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -1388,6 +1400,7 @@ namespace HTMLDialogElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -1438,6 +1451,7 @@ namespace HTMLDirectoryElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -1466,6 +1480,7 @@ namespace HTMLDivElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -1492,6 +1507,7 @@ namespace HTMLElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -1578,6 +1594,7 @@ namespace HTMLEmbedElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -1629,6 +1646,7 @@ namespace HTMLFieldSetElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -1701,6 +1719,7 @@ namespace HTMLFontElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -1750,6 +1769,7 @@ namespace HTMLFormElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -1870,6 +1890,7 @@ namespace HTMLFrameElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -1946,6 +1967,7 @@ namespace HTMLFrameSetElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -1977,6 +1999,7 @@ namespace HTMLHRElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -2019,6 +2042,7 @@ namespace HTMLHeadElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -2041,6 +2065,7 @@ namespace HTMLHeadingElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -2067,6 +2092,7 @@ namespace HTMLHtmlElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -2093,6 +2119,7 @@ namespace HTMLIFrameElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -2210,6 +2237,7 @@ namespace HTMLImageElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -2339,6 +2367,7 @@ namespace HTMLInputElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -2676,6 +2705,7 @@ namespace HTMLLIElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -2706,6 +2736,7 @@ namespace HTMLLabelElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -2743,6 +2774,7 @@ namespace HTMLLegendElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -2773,6 +2805,7 @@ namespace HTMLLinkElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , LinkStyle
               , NonDocumentTypeChildNode
               , ParentNode
@@ -2878,6 +2911,7 @@ namespace HTMLMapElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -2908,6 +2942,7 @@ namespace HTMLMarqueeElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -2994,6 +3029,7 @@ namespace HTMLMediaElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -3233,6 +3269,7 @@ namespace HTMLMenuElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -3259,6 +3296,7 @@ namespace HTMLMetaElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -3299,6 +3337,7 @@ namespace HTMLMeterElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -3351,6 +3390,7 @@ namespace HTMLModElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -3383,6 +3423,7 @@ namespace HTMLOListElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -3425,6 +3466,7 @@ namespace HTMLObjectElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -3567,6 +3609,7 @@ namespace HTMLOptGroupElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -3599,6 +3642,7 @@ namespace HTMLOptionElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -3703,6 +3747,7 @@ namespace HTMLOutputElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -3782,6 +3827,7 @@ namespace HTMLParagraphElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -3808,6 +3854,7 @@ namespace HTMLParamElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -3848,6 +3895,7 @@ namespace HTMLPictureElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -3870,6 +3918,7 @@ namespace HTMLPreElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -3896,6 +3945,7 @@ namespace HTMLProgressElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -3934,6 +3984,7 @@ namespace HTMLQuoteElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -3960,6 +4011,7 @@ namespace HTMLScriptElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -4042,6 +4094,7 @@ namespace HTMLSelectElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -4196,6 +4249,7 @@ namespace HTMLSlotElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -4243,6 +4297,7 @@ namespace HTMLSourceElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -4293,6 +4348,7 @@ namespace HTMLSpanElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -4315,6 +4371,7 @@ namespace HTMLStyleElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , LinkStyle
               , NonDocumentTypeChildNode
               , ParentNode
@@ -4346,6 +4403,7 @@ namespace HTMLTableCaptionElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -4372,6 +4430,7 @@ namespace HTMLTableCellElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -4468,6 +4527,7 @@ namespace HTMLTableColElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -4514,6 +4574,7 @@ namespace HTMLTableElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -4648,6 +4709,7 @@ namespace HTMLTableRowElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -4718,6 +4780,7 @@ namespace HTMLTableSectionElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -4776,6 +4839,7 @@ namespace HTMLTemplateElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -4802,6 +4866,7 @@ namespace HTMLTextAreaElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -5016,6 +5081,7 @@ namespace HTMLTimeElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -5044,6 +5110,7 @@ namespace HTMLTitleElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -5070,6 +5137,7 @@ namespace HTMLTrackElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -5140,6 +5208,7 @@ namespace HTMLUListElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -5172,6 +5241,7 @@ namespace HTMLUnknownElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -5196,6 +5266,7 @@ namespace HTMLVideoElement
               , ElementContentEditable
               , GlobalEventHandlers
               , HTMLOrSVGElement
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable

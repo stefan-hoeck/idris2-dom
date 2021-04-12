@@ -1,5 +1,6 @@
 module JS.Inheritance
 
+import Control.Monad.Either
 import JS.Util
 import Data.List.Elem
 import Data.SOP
@@ -51,7 +52,7 @@ up :  JSType a
    => a
    -> {auto 0 _ : Either (Elem b (Parents a)) (Elem b (Mixins a))}
    -> b
-up = believe_me
+up v = believe_me v
 
 infixl 1 :>
 
@@ -82,7 +83,7 @@ a :> _ = up a
              o = p;
            }
            return 0;
-         };
+         }
          """#
 prim__hasProtoName : String -> AnyPtr -> Double
 
@@ -169,3 +170,13 @@ SafeCast Bits64 where
 export
 SafeCast Int where
   safeCast = bounded (- 0x80000000) (0x7fffffff)
+
+export
+tryCast : SafeCast a => (fun : String) -> any -> JSIO a
+tryCast fun val = case safeCast val of
+                       Just a  => pure a
+                       Nothing => throwError $ CastErr fun val
+
+export
+castingTo : SafeCast a => (fun : String) -> JSIO any -> JSIO a
+castingTo fun io = io >>= tryCast fun

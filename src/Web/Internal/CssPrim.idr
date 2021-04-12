@@ -19,7 +19,7 @@ namespace CSSGroupingRule
   prim__deleteRule : CSSGroupingRule -> UInt32 -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.insertRule(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.insertRule(a,b)"
   prim__insertRule :  CSSGroupingRule
                    -> CSSOMString
                    -> UndefOr UInt32
@@ -168,7 +168,7 @@ namespace CSSStyleDeclaration
                        -> PrimIO CSSOMString
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.setProperty(a b c)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.setProperty(a,b,c)"
   prim__setProperty :  CSSStyleDeclaration
                     -> CSSOMString
                     -> CSSOMString
@@ -205,7 +205,7 @@ namespace CSSStyleSheet
   prim__rules : CSSStyleSheet -> PrimIO CSSRuleList
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.addRule(a b c)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.addRule(a,b,c)"
   prim__addRule :  CSSStyleSheet
                 -> UndefOr String
                 -> UndefOr String
@@ -217,7 +217,7 @@ namespace CSSStyleSheet
   prim__deleteRule : CSSStyleSheet -> UInt32 -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.insertRule(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.insertRule(a,b)"
   prim__insertRule :  CSSStyleSheet
                    -> CSSOMString
                    -> UndefOr UInt32

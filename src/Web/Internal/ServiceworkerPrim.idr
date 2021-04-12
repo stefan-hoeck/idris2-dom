@@ -21,35 +21,35 @@ namespace Cache
   prim__add : Cache -> Union2 Request String -> PrimIO (Promise Undefined)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.delete(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.delete(a,b)"
   prim__delete :  Cache
                -> Union2 Request String
                -> UndefOr CacheQueryOptions
                -> PrimIO (Promise Boolean)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.keys(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.keys(a,b)"
   prim__keys :  Cache
              -> UndefOr (Union2 Request String)
              -> UndefOr CacheQueryOptions
              -> PrimIO (Promise (Array Request))
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.matchAll(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.matchAll(a,b)"
   prim__matchAll :  Cache
                  -> UndefOr (Union2 Request String)
                  -> UndefOr CacheQueryOptions
                  -> PrimIO (Promise (Array Response))
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.match(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.match(a,b)"
   prim__match :  Cache
               -> Union2 Request String
               -> UndefOr CacheQueryOptions
               -> PrimIO (Promise (Union2 Response Undefined))
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.put(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.put(a,b)"
   prim__put :  Cache
             -> Union2 Request String
             -> Response
@@ -70,7 +70,7 @@ namespace CacheStorage
   prim__keys : CacheStorage -> PrimIO (Promise (Array String))
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.match(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.match(a,b)"
   prim__match :  CacheStorage
               -> Union2 Request String
               -> UndefOr MultiCacheQueryOptions
@@ -99,11 +99,11 @@ namespace Client
   prim__url : Client -> PrimIO String
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.postMessage(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.postMessage(a,b)"
   prim__postMessage : Client -> AnyPtr -> Array Object -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.postMessage(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.postMessage(a,b)"
   prim__postMessage1 :  Client
                      -> AnyPtr
                      -> UndefOr PostMessageOptions
@@ -134,7 +134,7 @@ namespace Clients
 namespace ExtendableEvent
   
   export
-  %foreign "browser:lambda:(a,b)=> new ExtendableEvent(a b)"
+  %foreign "browser:lambda:(a,b)=> new ExtendableEvent(a,b)"
   prim__new : String -> UndefOr ExtendableEventInit -> PrimIO ExtendableEvent
   
   export
@@ -144,7 +144,7 @@ namespace ExtendableEvent
 namespace ExtendableMessageEvent
   
   export
-  %foreign "browser:lambda:(a,b)=> new ExtendableMessageEvent(a b)"
+  %foreign "browser:lambda:(a,b)=> new ExtendableMessageEvent(a,b)"
   prim__new :  String
             -> UndefOr ExtendableMessageEventInit
             -> PrimIO ExtendableMessageEvent
@@ -173,7 +173,7 @@ namespace ExtendableMessageEvent
 namespace FetchEvent
   
   export
-  %foreign "browser:lambda:(a,b)=> new FetchEvent(a b)"
+  %foreign "browser:lambda:(a,b)=> new FetchEvent(a,b)"
   prim__new : String -> FetchEventInit -> PrimIO FetchEvent
   
   export
@@ -247,11 +247,11 @@ namespace ServiceWorker
   prim__state : ServiceWorker -> PrimIO String
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.postMessage(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.postMessage(a,b)"
   prim__postMessage : ServiceWorker -> AnyPtr -> Array Object -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.postMessage(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.postMessage(a,b)"
   prim__postMessage1 :  ServiceWorker
                      -> AnyPtr
                      -> UndefOr PostMessageOptions
@@ -317,7 +317,7 @@ namespace ServiceWorkerContainer
                          -> PrimIO (Promise (Array ServiceWorkerRegistration))
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.register(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.register(a,b)"
   prim__register :  ServiceWorkerContainer
                  -> String
                  -> UndefOr RegistrationOptions

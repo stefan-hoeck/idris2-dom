@@ -845,6 +845,7 @@ namespace Element
 
     mixins =  [ Animatable
               , ChildNode
+              , InnerHTML
               , NonDocumentTypeChildNode
               , ParentNode
               , Slottable
@@ -873,6 +874,10 @@ namespace Element
   export
   namespaceURI : (obj : Element) -> JSIO (Maybe String)
   namespaceURI a = tryJS "Element.namespaceURI" $ Element.prim__namespaceURI a
+  
+  export
+  outerHTML : Element -> Attribute True I String
+  outerHTML = fromPrim "Element.getouterHTML" prim__outerHTML prim__setOuterHTML
   
   export
   prefix_ : (obj : Element) -> JSIO (Maybe String)
@@ -979,6 +984,13 @@ namespace Element
                         -> JSIO (Maybe Element)
   insertAdjacentElement a b c = tryJS "Element.insertAdjacentElement"
                               $ Element.prim__insertAdjacentElement a b c
+  
+  export
+  insertAdjacentHTML :  (obj : Element)
+                     -> (position : String)
+                     -> (text : String)
+                     -> JSIO ()
+  insertAdjacentHTML a b c = primJS $ Element.prim__insertAdjacentHTML a b c
   
   export
   insertAdjacentText :  (obj : Element)
@@ -1770,6 +1782,13 @@ namespace Range
   comparePoint a b c = primJS $ Range.prim__comparePoint a b c
   
   export
+  createContextualFragment :  (obj : Range)
+                           -> (fragment : String)
+                           -> JSIO DocumentFragment
+  createContextualFragment a b = primJS
+                               $ Range.prim__createContextualFragment a b
+  
+  export
   deleteContents : (obj : Range) -> JSIO ()
   deleteContents a = primJS $ Range.prim__deleteContents a
   
@@ -1844,7 +1863,11 @@ namespace ShadowRoot
   JSType ShadowRoot where
     parents =  [ DocumentFragment , Node , EventTarget , Object ]
 
-    mixins =  [ DocumentOrShadowRoot , NonElementParentNode , ParentNode ]
+    mixins =  [ DocumentOrShadowRoot
+              , InnerHTML
+              , NonElementParentNode
+              , ParentNode
+              ]
   
   export
   host : (obj : ShadowRoot) -> JSIO Element
@@ -1966,6 +1989,22 @@ namespace XMLDocument
               , ParentNode
               , XPathEvaluatorBase
               ]
+
+namespace XMLSerializer
+  
+  public export
+  JSType XMLSerializer where
+    parents =  [ Object ]
+
+    mixins =  []
+  
+  export
+  new : JSIO XMLSerializer
+  new = primJS $ XMLSerializer.prim__new 
+  
+  export
+  serializeToString : (obj : XMLSerializer) -> (root : Node) -> JSIO String
+  serializeToString a b = primJS $ XMLSerializer.prim__serializeToString a b
 
 namespace XPathEvaluator
   
@@ -2120,6 +2159,14 @@ namespace DocumentOrShadowRoot
   export
   styleSheets : (obj : DocumentOrShadowRoot) -> JSIO StyleSheetList
   styleSheets a = primJS $ DocumentOrShadowRoot.prim__styleSheets a
+
+namespace InnerHTML
+  
+  export
+  innerHTML : InnerHTML -> Attribute True I String
+  innerHTML = fromPrim "InnerHTML.getinnerHTML"
+                       prim__innerHTML
+                       prim__setInnerHTML
 
 namespace NonDocumentTypeChildNode
   

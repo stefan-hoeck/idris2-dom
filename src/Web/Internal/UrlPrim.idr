@@ -11,7 +11,7 @@ import Web.Internal.Types
 namespace URL
   
   export
-  %foreign "browser:lambda:(a,b)=> new URL(a b)"
+  %foreign "browser:lambda:(a,b)=> new URL(a,b)"
   prim__new : String -> UndefOr String -> PrimIO URL
   
   export
@@ -138,7 +138,7 @@ namespace URLSearchParams
             -> PrimIO URLSearchParams
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.append(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.append(a,b)"
   prim__append : URLSearchParams -> String -> String -> PrimIO ()
   
   export
@@ -158,7 +158,7 @@ namespace URLSearchParams
   prim__has : URLSearchParams -> String -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.set(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.set(a,b)"
   prim__set : URLSearchParams -> String -> String -> PrimIO ()
   
   export

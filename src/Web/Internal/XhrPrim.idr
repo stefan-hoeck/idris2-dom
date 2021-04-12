@@ -15,11 +15,11 @@ namespace FormData
   prim__new : UndefOr HTMLFormElement -> PrimIO FormData
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.append(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.append(a,b)"
   prim__append : FormData -> String -> String -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.append(a b c)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.append(a,b,c)"
   prim__append1 : FormData -> String -> Blob -> UndefOr String -> PrimIO ()
   
   export
@@ -39,17 +39,17 @@ namespace FormData
   prim__has : FormData -> String -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.set(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.set(a,b)"
   prim__set : FormData -> String -> String -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.set(a b c)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.set(a,b,c)"
   prim__set1 : FormData -> String -> Blob -> UndefOr String -> PrimIO ()
 
 namespace ProgressEvent
   
   export
-  %foreign "browser:lambda:(a,b)=> new ProgressEvent(a b)"
+  %foreign "browser:lambda:(a,b)=> new ProgressEvent(a,b)"
   prim__new : String -> UndefOr ProgressEventInit -> PrimIO ProgressEvent
   
   export
@@ -156,11 +156,11 @@ namespace XMLHttpRequest
                           -> PrimIO (Nullable ByteString)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.open(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.open(a,b)"
   prim__open : XMLHttpRequest -> ByteString -> String -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.open(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.open(a,b,c,d,e)"
   prim__open1 :  XMLHttpRequest
               -> ByteString
               -> String
@@ -195,7 +195,7 @@ namespace XMLHttpRequest
              -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.setRequestHeader(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.setRequestHeader(a,b)"
   prim__setRequestHeader :  XMLHttpRequest
                          -> ByteString
                          -> ByteString

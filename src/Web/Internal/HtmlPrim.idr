@@ -147,7 +147,7 @@ namespace BroadcastChannel
 namespace CanvasGradient
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.addColorStop(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.addColorStop(a,b)"
   prim__addColorStop : CanvasGradient -> Double -> String -> PrimIO ()
 
 namespace CanvasPattern
@@ -170,7 +170,7 @@ namespace CanvasRenderingContext2D
 namespace CloseEvent
   
   export
-  %foreign "browser:lambda:(a,b)=> new CloseEvent(a b)"
+  %foreign "browser:lambda:(a,b)=> new CloseEvent(a,b)"
   prim__new : String -> UndefOr CloseEventInit -> PrimIO CloseEvent
   
   export
@@ -188,7 +188,7 @@ namespace CloseEvent
 namespace CustomElementRegistry
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.define(a b c)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.define(a,b,c)"
   prim__define :  CustomElementRegistry
                -> String
                -> CustomElementConstructor
@@ -218,7 +218,7 @@ namespace DOMParser
   prim__new : PrimIO DOMParser
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.parseFromString(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.parseFromString(a,b)"
   prim__parseFromString : DOMParser -> String -> String -> PrimIO Document
 
 namespace DOMStringList
@@ -290,11 +290,11 @@ namespace DataTransfer
   prim__getData : DataTransfer -> String -> PrimIO String
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.setData(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.setData(a,b)"
   prim__setData : DataTransfer -> String -> String -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.setDragImage(a b c)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.setDragImage(a,b,c)"
   prim__setDragImage : DataTransfer -> Element -> Int32 -> Int32 -> PrimIO ()
 
 namespace DataTransferItem
@@ -328,7 +328,7 @@ namespace DataTransferItemList
   prim__length : DataTransferItemList -> PrimIO UInt32
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.add(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.add(a,b)"
   prim__add :  DataTransferItemList
             -> String
             -> String
@@ -383,14 +383,14 @@ namespace DedicatedWorkerGlobalScope
   prim__close : DedicatedWorkerGlobalScope -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.postMessage(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.postMessage(a,b)"
   prim__postMessage :  DedicatedWorkerGlobalScope
                     -> AnyPtr
                     -> Array Object
                     -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.postMessage(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.postMessage(a,b)"
   prim__postMessage1 :  DedicatedWorkerGlobalScope
                      -> AnyPtr
                      -> UndefOr PostMessageOptions
@@ -399,7 +399,7 @@ namespace DedicatedWorkerGlobalScope
 namespace DragEvent
   
   export
-  %foreign "browser:lambda:(a,b)=> new DragEvent(a b)"
+  %foreign "browser:lambda:(a,b)=> new DragEvent(a,b)"
   prim__new : String -> UndefOr DragEventInit -> PrimIO DragEvent
   
   export
@@ -441,14 +441,14 @@ namespace ElementInternals
   prim__reportValidity : ElementInternals -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.setFormValue(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.setFormValue(a,b)"
   prim__setFormValue :  ElementInternals
                      -> Nullable (Union3 File String FormData)
                      -> UndefOr (Nullable (Union3 File String FormData))
                      -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.setValidity(a b c)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.setValidity(a,b,c)"
   prim__setValidity :  ElementInternals
                     -> UndefOr ValidityStateFlags
                     -> UndefOr String
@@ -458,7 +458,7 @@ namespace ElementInternals
 namespace ErrorEvent
   
   export
-  %foreign "browser:lambda:(a,b)=> new ErrorEvent(a b)"
+  %foreign "browser:lambda:(a,b)=> new ErrorEvent(a,b)"
   prim__new : String -> UndefOr ErrorEventInit -> PrimIO ErrorEvent
   
   export
@@ -484,7 +484,7 @@ namespace ErrorEvent
 namespace EventSource
   
   export
-  %foreign "browser:lambda:(a,b)=> new EventSource(a b)"
+  %foreign "browser:lambda:(a,b)=> new EventSource(a,b)"
   prim__new : String -> UndefOr EventSourceInit -> PrimIO EventSource
   
   export
@@ -543,7 +543,7 @@ namespace External
 namespace FormDataEvent
   
   export
-  %foreign "browser:lambda:(a,b)=> new FormDataEvent(a b)"
+  %foreign "browser:lambda:(a,b)=> new FormDataEvent(a,b)"
   prim__new : String -> FormDataEventInit -> PrimIO FormDataEvent
   
   export
@@ -1039,7 +1039,7 @@ namespace HTMLCanvasElement
   prim__setWidth : HTMLCanvasElement -> UInt32 -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.getContext(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.getContext(a,b)"
   prim__getContext :  HTMLCanvasElement
                    -> String
                    -> UndefOr AnyPtr
@@ -1049,7 +1049,7 @@ namespace HTMLCanvasElement
                                                WebGL2RenderingContext))
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.toBlob(a b c)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.toBlob(a,b,c)"
   prim__toBlob :  HTMLCanvasElement
                -> BlobCallback
                -> UndefOr String
@@ -1057,7 +1057,7 @@ namespace HTMLCanvasElement
                -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.toDataURL(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.toDataURL(a,b)"
   prim__toDataURL :  HTMLCanvasElement
                   -> UndefOr String
                   -> UndefOr AnyPtr
@@ -2554,7 +2554,7 @@ namespace HTMLInputElement
   prim__setRangeText : HTMLInputElement -> String -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.setRangeText(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.setRangeText(a,b,c,d)"
   prim__setRangeText1 :  HTMLInputElement
                       -> String
                       -> UInt32
@@ -2563,7 +2563,7 @@ namespace HTMLInputElement
                       -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.setSelectionRange(a b c)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.setSelectionRange(a,b,c)"
   prim__setSelectionRange :  HTMLInputElement
                           -> UInt32
                           -> UInt32
@@ -3113,7 +3113,7 @@ namespace HTMLMediaElement
   prim__setVolume : HTMLMediaElement -> Double -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.addTextTrack(a b c)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.addTextTrack(a,b,c)"
   prim__addTextTrack :  HTMLMediaElement
                      -> String
                      -> UndefOr String
@@ -3641,7 +3641,7 @@ namespace HTMLOptionsCollection
   prim__setSelectedIndex : HTMLOptionsCollection -> Int32 -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.add(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.add(a,b)"
   prim__add :  HTMLOptionsCollection
             -> Union2 HTMLOptionElement HTMLOptGroupElement
             -> UndefOr (Nullable (Union2 HTMLElement Int32))
@@ -4090,7 +4090,7 @@ namespace HTMLSelectElement
   prim__willValidate : HTMLSelectElement -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.add(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.add(a,b)"
   prim__add :  HTMLSelectElement
             -> Union2 HTMLOptionElement HTMLOptGroupElement
             -> UndefOr (Nullable (Union2 HTMLElement Int32))
@@ -4976,7 +4976,7 @@ namespace HTMLTextAreaElement
   prim__setRangeText : HTMLTextAreaElement -> String -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.setRangeText(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.setRangeText(a,b,c,d)"
   prim__setRangeText1 :  HTMLTextAreaElement
                       -> String
                       -> UInt32
@@ -4985,7 +4985,7 @@ namespace HTMLTextAreaElement
                       -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.setSelectionRange(a b c)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.setSelectionRange(a,b,c)"
   prim__setSelectionRange :  HTMLTextAreaElement
                           -> UInt32
                           -> UInt32
@@ -5159,7 +5159,7 @@ namespace HTMLVideoElement
 namespace HashChangeEvent
   
   export
-  %foreign "browser:lambda:(a,b)=> new HashChangeEvent(a b)"
+  %foreign "browser:lambda:(a,b)=> new HashChangeEvent(a,b)"
   prim__new : String -> UndefOr HashChangeEventInit -> PrimIO HashChangeEvent
   
   export
@@ -5202,7 +5202,7 @@ namespace History
   prim__go : History -> UndefOr Int32 -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.pushState(a b c)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.pushState(a,b,c)"
   prim__pushState :  History
                   -> AnyPtr
                   -> String
@@ -5210,7 +5210,7 @@ namespace History
                   -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.replaceState(a b c)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.replaceState(a,b,c)"
   prim__replaceState :  History
                      -> AnyPtr
                      -> String
@@ -5247,11 +5247,11 @@ namespace ImageBitmapRenderingContext
 namespace ImageData
   
   export
-  %foreign "browser:lambda:(a,b)=> new ImageData(a b)"
+  %foreign "browser:lambda:(a,b)=> new ImageData(a,b)"
   prim__new : UInt32 -> UInt32 -> PrimIO ImageData
   
   export
-  %foreign "browser:lambda:(a,b,c)=> new ImageData(a b c)"
+  %foreign "browser:lambda:(a,b,c)=> new ImageData(a,b,c)"
   prim__new1 : UInt8ClampedArray -> UInt32 -> UndefOr UInt32 -> PrimIO ImageData
   
   export
@@ -5387,7 +5387,7 @@ namespace MessageChannel
 namespace MessageEvent
   
   export
-  %foreign "browser:lambda:(a,b)=> new MessageEvent(a b)"
+  %foreign "browser:lambda:(a,b)=> new MessageEvent(a,b)"
   prim__new : String -> UndefOr MessageEventInit -> PrimIO MessageEvent
   
   export
@@ -5414,7 +5414,7 @@ namespace MessageEvent
                                            ServiceWorker))
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h)=>x.initMessageEvent(a b c d e f g h)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h)=>x.initMessageEvent(a,b,c,d,e,f,g,h)"
   prim__initMessageEvent :  MessageEvent
                          -> String
                          -> UndefOr Boolean
@@ -5455,11 +5455,11 @@ namespace MessagePort
   prim__close : MessagePort -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.postMessage(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.postMessage(a,b)"
   prim__postMessage : MessagePort -> AnyPtr -> Array Object -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.postMessage(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.postMessage(a,b)"
   prim__postMessage1 :  MessagePort
                      -> AnyPtr
                      -> UndefOr PostMessageOptions
@@ -5520,7 +5520,7 @@ namespace Navigator
   prim__serviceWorker : Navigator -> PrimIO ServiceWorkerContainer
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.getUserMedia(a b c)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.getUserMedia(a,b,c)"
   prim__getUserMedia :  Navigator
                      -> MediaStreamConstraints
                      -> NavigatorUserMediaSuccessCallback
@@ -5530,7 +5530,7 @@ namespace Navigator
 namespace OffscreenCanvas
   
   export
-  %foreign "browser:lambda:(a,b)=> new OffscreenCanvas(a b)"
+  %foreign "browser:lambda:(a,b)=> new OffscreenCanvas(a,b)"
   prim__new : UInt64 -> UInt64 -> PrimIO OffscreenCanvas
   
   export
@@ -5558,7 +5558,7 @@ namespace OffscreenCanvas
                       -> PrimIO (Promise Blob)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.getContext(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.getContext(a,b)"
   prim__getContext :  OffscreenCanvas
                    -> String
                    -> UndefOr AnyPtr
@@ -5584,7 +5584,7 @@ namespace OffscreenCanvasRenderingContext2D
 namespace PageTransitionEvent
   
   export
-  %foreign "browser:lambda:(a,b)=> new PageTransitionEvent(a b)"
+  %foreign "browser:lambda:(a,b)=> new PageTransitionEvent(a,b)"
   prim__new :  String
             -> UndefOr PageTransitionEventInit
             -> PrimIO PageTransitionEvent
@@ -5600,7 +5600,7 @@ namespace Path2D
   prim__new : UndefOr (Union2 Path2D String) -> PrimIO Path2D
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.addPath(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.addPath(a,b)"
   prim__addPath : Path2D -> Path2D -> UndefOr DOMMatrix2DInit -> PrimIO ()
 
 namespace Plugin
@@ -5650,7 +5650,7 @@ namespace PluginArray
 namespace PopStateEvent
   
   export
-  %foreign "browser:lambda:(a,b)=> new PopStateEvent(a b)"
+  %foreign "browser:lambda:(a,b)=> new PopStateEvent(a,b)"
   prim__new : String -> UndefOr PopStateEventInit -> PrimIO PopStateEvent
   
   export
@@ -5660,7 +5660,7 @@ namespace PopStateEvent
 namespace PromiseRejectionEvent
   
   export
-  %foreign "browser:lambda:(a,b)=> new PromiseRejectionEvent(a b)"
+  %foreign "browser:lambda:(a,b)=> new PromiseRejectionEvent(a,b)"
   prim__new :  String
             -> PromiseRejectionEventInit
             -> PrimIO PromiseRejectionEvent
@@ -5687,7 +5687,7 @@ namespace RadioNodeList
 namespace SharedWorker
   
   export
-  %foreign "browser:lambda:(a,b)=> new SharedWorker(a b)"
+  %foreign "browser:lambda:(a,b)=> new SharedWorker(a,b)"
   prim__new :  String
             -> UndefOr (Union2 String WorkerOptions)
             -> PrimIO SharedWorker
@@ -5737,13 +5737,13 @@ namespace Storage
   prim__key : Storage -> UInt32 -> PrimIO (Nullable String)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.setItem(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.setItem(a,b)"
   prim__setItem : Storage -> String -> String -> PrimIO ()
 
 namespace StorageEvent
   
   export
-  %foreign "browser:lambda:(a,b)=> new StorageEvent(a b)"
+  %foreign "browser:lambda:(a,b)=> new StorageEvent(a,b)"
   prim__new : String -> UndefOr StorageEventInit -> PrimIO StorageEvent
   
   export
@@ -5767,7 +5767,7 @@ namespace StorageEvent
   prim__url : StorageEvent -> PrimIO String
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h)=>x.initStorageEvent(a b c d e f g h)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h)=>x.initStorageEvent(a,b,c,d,e,f,g,h)"
   prim__initStorageEvent :  StorageEvent
                          -> String
                          -> UndefOr Boolean
@@ -5782,7 +5782,7 @@ namespace StorageEvent
 namespace SubmitEvent
   
   export
-  %foreign "browser:lambda:(a,b)=> new SubmitEvent(a b)"
+  %foreign "browser:lambda:(a,b)=> new SubmitEvent(a,b)"
   prim__new : String -> UndefOr SubmitEventInit -> PrimIO SubmitEvent
   
   export
@@ -6037,7 +6037,7 @@ namespace TimeRanges
 namespace TrackEvent
   
   export
-  %foreign "browser:lambda:(a,b)=> new TrackEvent(a b)"
+  %foreign "browser:lambda:(a,b)=> new TrackEvent(a,b)"
   prim__new : String -> UndefOr TrackEventInit -> PrimIO TrackEvent
   
   export
@@ -6176,7 +6176,7 @@ namespace VideoTrackList
 namespace WebSocket
   
   export
-  %foreign "browser:lambda:(a,b)=> new WebSocket(a b)"
+  %foreign "browser:lambda:(a,b)=> new WebSocket(a,b)"
   prim__new :  String
             -> UndefOr (Union2 String (Array String))
             -> PrimIO WebSocket
@@ -6247,7 +6247,7 @@ namespace WebSocket
   prim__url : WebSocket -> PrimIO String
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.close(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.close(a,b)"
   prim__close : WebSocket -> UndefOr UInt16 -> UndefOr String -> PrimIO ()
   
   export
@@ -6427,14 +6427,14 @@ namespace Window
   prim__focus : Window -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.getComputedStyle(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.getComputedStyle(a,b)"
   prim__getComputedStyle :  Window
                          -> Element
                          -> UndefOr (Nullable CSSOMString)
                          -> PrimIO CSSStyleDeclaration
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.open(a b c)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.open(a,b,c)"
   prim__open :  Window
              -> UndefOr String
              -> UndefOr String
@@ -6442,7 +6442,7 @@ namespace Window
              -> PrimIO (Nullable WindowProxy)
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.postMessage(a b c)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.postMessage(a,b,c)"
   prim__postMessage :  Window
                     -> AnyPtr
                     -> String
@@ -6450,7 +6450,7 @@ namespace Window
                     -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.postMessage(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.postMessage(a,b)"
   prim__postMessage1 :  Window
                      -> AnyPtr
                      -> UndefOr WindowPostMessageOptions
@@ -6461,7 +6461,7 @@ namespace Window
   prim__print : Window -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.prompt(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.prompt(a,b)"
   prim__prompt :  Window
                -> UndefOr String
                -> UndefOr String
@@ -6478,7 +6478,7 @@ namespace Window
 namespace Worker
   
   export
-  %foreign "browser:lambda:(a,b)=> new Worker(a b)"
+  %foreign "browser:lambda:(a,b)=> new Worker(a,b)"
   prim__new : String -> UndefOr WorkerOptions -> PrimIO Worker
   
   export
@@ -6500,11 +6500,11 @@ namespace Worker
   prim__setOnmessageerror : Worker -> Nullable EventHandlerNonNull -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.postMessage(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.postMessage(a,b)"
   prim__postMessage : Worker -> AnyPtr -> Array Object -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.postMessage(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.postMessage(a,b)"
   prim__postMessage1 :  Worker
                      -> AnyPtr
                      -> UndefOr PostMessageOptions
@@ -6653,7 +6653,7 @@ namespace WorkerNavigator
 namespace Worklet
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.addModule(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.addModule(a,b)"
   prim__addModule :  Worklet
                   -> String
                   -> UndefOr WorkletOptions
@@ -7069,7 +7069,7 @@ namespace CanvasCompositing
 namespace CanvasDrawImage
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.drawImage(a b c)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.drawImage(a,b,c)"
   prim__drawImage :  CanvasDrawImage
                   -> Union6 HTMLImageElement
                             SVGImageElement
@@ -7082,7 +7082,7 @@ namespace CanvasDrawImage
                   -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.drawImage(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.drawImage(a,b,c,d,e)"
   prim__drawImage1 :  CanvasDrawImage
                    -> Union6 HTMLImageElement
                              SVGImageElement
@@ -7097,7 +7097,7 @@ namespace CanvasDrawImage
                    -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i)=>x.drawImage(a b c d e f g h i)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i)=>x.drawImage(a,b,c,d,e,f,g,h,i)"
   prim__drawImage2 :  CanvasDrawImage
                    -> Union6 HTMLImageElement
                              SVGImageElement
@@ -7126,7 +7126,7 @@ namespace CanvasDrawPath
   prim__clip : CanvasDrawPath -> UndefOr String -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.clip(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.clip(a,b)"
   prim__clip1 : CanvasDrawPath -> Path2D -> UndefOr String -> PrimIO ()
   
   export
@@ -7134,11 +7134,11 @@ namespace CanvasDrawPath
   prim__fill : CanvasDrawPath -> UndefOr String -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.fill(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.fill(a,b)"
   prim__fill1 : CanvasDrawPath -> Path2D -> UndefOr String -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.isPointInPath(a b c)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.isPointInPath(a,b,c)"
   prim__isPointInPath :  CanvasDrawPath
                       -> Double
                       -> Double
@@ -7146,7 +7146,7 @@ namespace CanvasDrawPath
                       -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.isPointInPath(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.isPointInPath(a,b,c,d)"
   prim__isPointInPath1 :  CanvasDrawPath
                        -> Path2D
                        -> Double
@@ -7155,11 +7155,11 @@ namespace CanvasDrawPath
                        -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.isPointInStroke(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.isPointInStroke(a,b)"
   prim__isPointInStroke : CanvasDrawPath -> Double -> Double -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.isPointInStroke(a b c)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.isPointInStroke(a,b,c)"
   prim__isPointInStroke1 :  CanvasDrawPath
                          -> Path2D
                          -> Double
@@ -7201,7 +7201,7 @@ namespace CanvasFillStrokeStyles
                        -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.createLinearGradient(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.createLinearGradient(a,b,c,d)"
   prim__createLinearGradient :  CanvasFillStrokeStyles
                              -> Double
                              -> Double
@@ -7210,7 +7210,7 @@ namespace CanvasFillStrokeStyles
                              -> PrimIO CanvasGradient
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.createPattern(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.createPattern(a,b)"
   prim__createPattern :  CanvasFillStrokeStyles
                       -> Union6 HTMLImageElement
                                 SVGImageElement
@@ -7222,7 +7222,7 @@ namespace CanvasFillStrokeStyles
                       -> PrimIO (Nullable CanvasPattern)
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.createRadialGradient(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.createRadialGradient(a,b,c,d,e,f)"
   prim__createRadialGradient :  CanvasFillStrokeStyles
                              -> Double
                              -> Double
@@ -7246,7 +7246,7 @@ namespace CanvasFilters
 namespace CanvasImageData
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.createImageData(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.createImageData(a,b)"
   prim__createImageData : CanvasImageData -> Int32 -> Int32 -> PrimIO ImageData
   
   export
@@ -7254,7 +7254,7 @@ namespace CanvasImageData
   prim__createImageData1 : CanvasImageData -> ImageData -> PrimIO ImageData
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.getImageData(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.getImageData(a,b,c,d)"
   prim__getImageData :  CanvasImageData
                      -> Int32
                      -> Int32
@@ -7263,7 +7263,7 @@ namespace CanvasImageData
                      -> PrimIO ImageData
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.putImageData(a b c)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.putImageData(a,b,c)"
   prim__putImageData :  CanvasImageData
                      -> ImageData
                      -> Int32
@@ -7271,7 +7271,7 @@ namespace CanvasImageData
                      -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g)=>x.putImageData(a b c d e f g)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g)=>x.putImageData(a,b,c,d,e,f,g)"
   prim__putImageData1 :  CanvasImageData
                       -> ImageData
                       -> Int32
@@ -7305,7 +7305,7 @@ namespace CanvasImageSmoothing
 namespace CanvasPath
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.arc(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.arc(a,b,c,d,e,f)"
   prim__arc :  CanvasPath
             -> Double
             -> Double
@@ -7316,7 +7316,7 @@ namespace CanvasPath
             -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.arcTo(a b c d e)"
+  %foreign "browser:lambda:(x,a,b,c,d,e)=>x.arcTo(a,b,c,d,e)"
   prim__arcTo :  CanvasPath
               -> Double
               -> Double
@@ -7326,7 +7326,7 @@ namespace CanvasPath
               -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.bezierCurveTo(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.bezierCurveTo(a,b,c,d,e,f)"
   prim__bezierCurveTo :  CanvasPath
                       -> Double
                       -> Double
@@ -7341,7 +7341,7 @@ namespace CanvasPath
   prim__closePath : CanvasPath -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h)=>x.ellipse(a b c d e f g h)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h)=>x.ellipse(a,b,c,d,e,f,g,h)"
   prim__ellipse :  CanvasPath
                 -> Double
                 -> Double
@@ -7354,15 +7354,15 @@ namespace CanvasPath
                 -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.lineTo(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.lineTo(a,b)"
   prim__lineTo : CanvasPath -> Double -> Double -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.moveTo(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.moveTo(a,b)"
   prim__moveTo : CanvasPath -> Double -> Double -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.quadraticCurveTo(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.quadraticCurveTo(a,b,c,d)"
   prim__quadraticCurveTo :  CanvasPath
                          -> Double
                          -> Double
@@ -7371,7 +7371,7 @@ namespace CanvasPath
                          -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.rect(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.rect(a,b,c,d)"
   prim__rect : CanvasPath -> Double -> Double -> Double -> Double -> PrimIO ()
 
 namespace CanvasPathDrawingStyles
@@ -7432,7 +7432,7 @@ namespace CanvasPathDrawingStyles
 namespace CanvasRect
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.clearRect(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.clearRect(a,b,c,d)"
   prim__clearRect :  CanvasRect
                   -> Double
                   -> Double
@@ -7441,7 +7441,7 @@ namespace CanvasRect
                   -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.fillRect(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.fillRect(a,b,c,d)"
   prim__fillRect :  CanvasRect
                  -> Double
                  -> Double
@@ -7450,7 +7450,7 @@ namespace CanvasRect
                  -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.strokeRect(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.strokeRect(a,b,c,d)"
   prim__strokeRect :  CanvasRect
                    -> Double
                    -> Double
@@ -7509,7 +7509,7 @@ namespace CanvasState
 namespace CanvasText
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.fillText(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.fillText(a,b,c,d)"
   prim__fillText :  CanvasText
                  -> String
                  -> Double
@@ -7522,7 +7522,7 @@ namespace CanvasText
   prim__measureText : CanvasText -> String -> PrimIO TextMetrics
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d)=>x.strokeText(a b c d)"
+  %foreign "browser:lambda:(x,a,b,c,d)=>x.strokeText(a,b,c,d)"
   prim__strokeText :  CanvasText
                    -> String
                    -> Double
@@ -7583,11 +7583,11 @@ namespace CanvasTransform
   prim__rotate : CanvasTransform -> Double -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.scale(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.scale(a,b)"
   prim__scale : CanvasTransform -> Double -> Double -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.setTransform(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.setTransform(a,b,c,d,e,f)"
   prim__setTransform :  CanvasTransform
                      -> Double
                      -> Double
@@ -7602,7 +7602,7 @@ namespace CanvasTransform
   prim__setTransform1 : CanvasTransform -> UndefOr DOMMatrix2DInit -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.transform(a b c d e f)"
+  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.transform(a,b,c,d,e,f)"
   prim__transform :  CanvasTransform
                   -> Double
                   -> Double
@@ -7613,7 +7613,7 @@ namespace CanvasTransform
                   -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.translate(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.translate(a,b)"
   prim__translate : CanvasTransform -> Double -> Double -> PrimIO ()
 
 namespace CanvasUserInterface
@@ -7623,7 +7623,7 @@ namespace CanvasUserInterface
   prim__drawFocusIfNeeded : CanvasUserInterface -> Element -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.drawFocusIfNeeded(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.drawFocusIfNeeded(a,b)"
   prim__drawFocusIfNeeded1 :  CanvasUserInterface
                            -> Path2D
                            -> Element
@@ -8614,14 +8614,14 @@ namespace NavigatorConcurrentHardware
 namespace NavigatorContentUtils
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.registerProtocolHandler(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.registerProtocolHandler(a,b)"
   prim__registerProtocolHandler :  NavigatorContentUtils
                                 -> String
                                 -> String
                                 -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.unregisterProtocolHandler(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.unregisterProtocolHandler(a,b)"
   prim__unregisterProtocolHandler :  NavigatorContentUtils
                                   -> String
                                   -> String
@@ -9653,41 +9653,41 @@ namespace WorkletOptions
 namespace BlobCallback
   
   export
-  %foreign "browser:lambda:x=>{(a)=>x(a)()}"
+  %foreign "browser:lambda:x=>(a)=>x(a)()"
   prim__toBlobCallback : ( Nullable Blob -> IO () ) -> PrimIO BlobCallback
 
 namespace CustomElementConstructor
   
   export
-  %foreign "browser:lambda:x=>{()=>x()()}"
+  %foreign "browser:lambda:x=>()=>x()()"
   prim__toCustomElementConstructor :  (() -> IO HTMLElement)
                                    -> PrimIO CustomElementConstructor
 
 namespace EventHandlerNonNull
   
   export
-  %foreign "browser:lambda:x=>{(a)=>x(a)()}"
+  %foreign "browser:lambda:x=>(a)=>x(a)()"
   prim__toEventHandlerNonNull :  ( Event -> IO AnyPtr )
                               -> PrimIO EventHandlerNonNull
 
 namespace FunctionStringCallback
   
   export
-  %foreign "browser:lambda:x=>{(a)=>x(a)()}"
+  %foreign "browser:lambda:x=>(a)=>x(a)()"
   prim__toFunctionStringCallback :  ( String -> IO () )
                                  -> PrimIO FunctionStringCallback
 
 namespace OnBeforeUnloadEventHandlerNonNull
   
   export
-  %foreign "browser:lambda:x=>{(a)=>x(a)()}"
+  %foreign "browser:lambda:x=>(a)=>x(a)()"
   prim__toOnBeforeUnloadEventHandlerNonNull :  ( Event -> IO (Nullable String) )
                                             -> PrimIO OnBeforeUnloadEventHandlerNonNull
 
 namespace OnErrorEventHandlerNonNull
   
   export
-  %foreign "browser:lambda:x=>{(a,b,c,d,e)=>x(a,b,c,d,e)()}"
+  %foreign "browser:lambda:x=>(a,b,c,d,e)=>x(a,b,c,d,e)()"
   prim__toOnErrorEventHandlerNonNull :  (  Union2 Event String
                                         -> UndefOr String
                                         -> UndefOr UInt32

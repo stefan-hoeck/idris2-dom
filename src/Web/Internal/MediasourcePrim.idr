@@ -89,7 +89,7 @@ namespace MediaSource
   prim__removeSourceBuffer : MediaSource -> SourceBuffer -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.setLiveSeekableRange(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.setLiveSeekableRange(a,b)"
   prim__setLiveSeekableRange : MediaSource -> Double -> Double -> PrimIO ()
 
 namespace SourceBuffer
@@ -220,7 +220,7 @@ namespace SourceBuffer
                      -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.remove(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.remove(a,b)"
   prim__remove : SourceBuffer -> Double -> Double -> PrimIO ()
 
 namespace SourceBufferList

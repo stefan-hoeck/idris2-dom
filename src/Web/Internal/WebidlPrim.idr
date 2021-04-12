@@ -11,7 +11,7 @@ import Web.Internal.Types
 namespace DOMException
   
   export
-  %foreign "browser:lambda:(a,b)=> new DOMException(a b)"
+  %foreign "browser:lambda:(a,b)=> new DOMException(a,b)"
   prim__new : UndefOr String -> UndefOr String -> PrimIO DOMException
   
   export
@@ -35,11 +35,11 @@ namespace DOMException
 namespace Function
   
   export
-  %foreign "browser:lambda:x=>{(a)=>x(a)()}"
+  %foreign "browser:lambda:x=>(a)=>x(a)()"
   prim__toFunction : ( VarArg AnyPtr -> IO AnyPtr ) -> PrimIO Function
 
 namespace VoidFunction
   
   export
-  %foreign "browser:lambda:x=>{()=>x()()}"
+  %foreign "browser:lambda:x=>()=>x()()"
   prim__toVoidFunction : (() -> IO ()) -> PrimIO VoidFunction

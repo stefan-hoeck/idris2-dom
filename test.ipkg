@@ -5,10 +5,10 @@ version    = 0.0.1
 readme     = "README.md"
 license    = "BSD-2 Clause"
 
-opts       = "--codegen node"
+opts       = "--codegen javascript"
 
 main       = Test.Main
-executable = runTest
+executable = "runTest.html"
 
 sourcedir  = "src"
 

@@ -120,7 +120,7 @@ namespace SVGAngle
   prim__convertToSpecifiedUnits : SVGAngle -> UInt16 -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.newValueSpecifiedUnits(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.newValueSpecifiedUnits(a,b)"
   prim__newValueSpecifiedUnits : SVGAngle -> UInt16 -> Double -> PrimIO ()
 
 namespace SVGAnimatedAngle
@@ -468,7 +468,7 @@ namespace SVGLength
   prim__convertToSpecifiedUnits : SVGLength -> UInt16 -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.newValueSpecifiedUnits(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.newValueSpecifiedUnits(a,b)"
   prim__newValueSpecifiedUnits : SVGLength -> UInt16 -> Double -> PrimIO ()
 
 namespace SVGLengthList
@@ -502,7 +502,7 @@ namespace SVGLengthList
   prim__initialize : SVGLengthList -> SVGLength -> PrimIO SVGLength
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.insertItemBefore(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.insertItemBefore(a,b)"
   prim__insertItemBefore :  SVGLengthList
                          -> SVGLength
                          -> UInt32
@@ -513,7 +513,7 @@ namespace SVGLengthList
   prim__removeItem : SVGLengthList -> UInt32 -> PrimIO SVGLength
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.replaceItem(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.replaceItem(a,b)"
   prim__replaceItem : SVGLengthList -> SVGLength -> UInt32 -> PrimIO SVGLength
 
 namespace SVGLineElement
@@ -642,7 +642,7 @@ namespace SVGNumberList
   prim__initialize : SVGNumberList -> SVGNumber -> PrimIO SVGNumber
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.insertItemBefore(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.insertItemBefore(a,b)"
   prim__insertItemBefore :  SVGNumberList
                          -> SVGNumber
                          -> UInt32
@@ -653,7 +653,7 @@ namespace SVGNumberList
   prim__removeItem : SVGNumberList -> UInt32 -> PrimIO SVGNumber
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.replaceItem(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.replaceItem(a,b)"
   prim__replaceItem : SVGNumberList -> SVGNumber -> UInt32 -> PrimIO SVGNumber
 
 
@@ -718,7 +718,7 @@ namespace SVGPointList
   prim__initialize : SVGPointList -> DOMPoint -> PrimIO DOMPoint
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.insertItemBefore(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.insertItemBefore(a,b)"
   prim__insertItemBefore : SVGPointList -> DOMPoint -> UInt32 -> PrimIO DOMPoint
   
   export
@@ -726,7 +726,7 @@ namespace SVGPointList
   prim__removeItem : SVGPointList -> UInt32 -> PrimIO DOMPoint
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.replaceItem(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.replaceItem(a,b)"
   prim__replaceItem : SVGPointList -> DOMPoint -> UInt32 -> PrimIO DOMPoint
 
 
@@ -835,14 +835,14 @@ namespace SVGSVGElement
   prim__y : SVGSVGElement -> PrimIO SVGAnimatedLength
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.checkEnclosure(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.checkEnclosure(a,b)"
   prim__checkEnclosure :  SVGSVGElement
                        -> SVGElement
                        -> DOMRectReadOnly
                        -> PrimIO Boolean
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.checkIntersection(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.checkIntersection(a,b)"
   prim__checkIntersection :  SVGSVGElement
                           -> SVGElement
                           -> DOMRectReadOnly
@@ -895,14 +895,14 @@ namespace SVGSVGElement
   prim__getElementById : SVGSVGElement -> String -> PrimIO Element
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.getEnclosureList(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.getEnclosureList(a,b)"
   prim__getEnclosureList :  SVGSVGElement
                          -> DOMRectReadOnly
                          -> Nullable SVGElement
                          -> PrimIO NodeList
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.getIntersectionList(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.getIntersectionList(a,b)"
   prim__getIntersectionList :  SVGSVGElement
                             -> DOMRectReadOnly
                             -> Nullable SVGElement
@@ -977,7 +977,7 @@ namespace SVGStringList
   prim__initialize : SVGStringList -> String -> PrimIO String
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.insertItemBefore(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.insertItemBefore(a,b)"
   prim__insertItemBefore : SVGStringList -> String -> UInt32 -> PrimIO String
   
   export
@@ -985,7 +985,7 @@ namespace SVGStringList
   prim__removeItem : SVGStringList -> UInt32 -> PrimIO String
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.replaceItem(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.replaceItem(a,b)"
   prim__replaceItem : SVGStringList -> String -> UInt32 -> PrimIO String
 
 namespace SVGStyleElement
@@ -1065,14 +1065,14 @@ namespace SVGTextContentElement
                                -> PrimIO DOMPoint
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.getSubStringLength(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.getSubStringLength(a,b)"
   prim__getSubStringLength :  SVGTextContentElement
                            -> UInt32
                            -> UInt32
                            -> PrimIO Double
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.selectSubString(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.selectSubString(a,b)"
   prim__selectSubString : SVGTextContentElement -> UInt32 -> UInt32 -> PrimIO ()
 
 
@@ -1132,11 +1132,11 @@ namespace SVGTransform
   prim__setMatrix : SVGTransform -> UndefOr DOMMatrix2DInit -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.setRotate(a b c)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.setRotate(a,b,c)"
   prim__setRotate : SVGTransform -> Double -> Double -> Double -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.setScale(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.setScale(a,b)"
   prim__setScale : SVGTransform -> Double -> Double -> PrimIO ()
   
   export
@@ -1148,7 +1148,7 @@ namespace SVGTransform
   prim__setSkewY : SVGTransform -> Double -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.setTranslate(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.setTranslate(a,b)"
   prim__setTranslate : SVGTransform -> Double -> Double -> PrimIO ()
 
 namespace SVGTransformList
@@ -1192,7 +1192,7 @@ namespace SVGTransformList
   prim__initialize : SVGTransformList -> SVGTransform -> PrimIO SVGTransform
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.insertItemBefore(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.insertItemBefore(a,b)"
   prim__insertItemBefore :  SVGTransformList
                          -> SVGTransform
                          -> UInt32
@@ -1203,7 +1203,7 @@ namespace SVGTransformList
   prim__removeItem : SVGTransformList -> UInt32 -> PrimIO SVGTransform
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.replaceItem(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.replaceItem(a,b)"
   prim__replaceItem :  SVGTransformList
                     -> SVGTransform
                     -> UInt32
@@ -1241,7 +1241,7 @@ namespace SVGUseElement
 namespace ShadowAnimation
   
   export
-  %foreign "browser:lambda:(a,b)=> new ShadowAnimation(a b)"
+  %foreign "browser:lambda:(a,b)=> new ShadowAnimation(a,b)"
   prim__new : Animation -> Animatable -> PrimIO ShadowAnimation
   
   export

@@ -420,6 +420,18 @@ export
 SafeCast XMLDocument where
   safeCast = unsafeCastOnPrototypeName "XMLDocument"
 
+export data XMLSerializer : Type where [external]
+  
+export
+ToFFI XMLSerializer XMLSerializer where toFFI = id
+  
+export
+FromFFI XMLSerializer XMLSerializer where fromFFI = Just
+
+export
+SafeCast XMLSerializer where
+  safeCast = unsafeCastOnPrototypeName "XMLSerializer"
+
 export data XPathEvaluator : Type where [external]
   
 export
@@ -587,6 +599,14 @@ ToFFI DocumentOrShadowRoot DocumentOrShadowRoot where toFFI = id
   
 export
 FromFFI DocumentOrShadowRoot DocumentOrShadowRoot where fromFFI = Just
+
+export data InnerHTML : Type where [external]
+  
+export
+ToFFI InnerHTML InnerHTML where toFFI = id
+  
+export
+FromFFI InnerHTML InnerHTML where fromFFI = Just
 
 export data NonDocumentTypeChildNode : Type where [external]
   

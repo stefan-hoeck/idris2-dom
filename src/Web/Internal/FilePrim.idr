@@ -11,7 +11,7 @@ import Web.Internal.Types
 namespace Blob
   
   export
-  %foreign "browser:lambda:(a,b)=> new Blob(a b)"
+  %foreign "browser:lambda:(a,b)=> new Blob(a,b)"
   prim__new :  UndefOr (Array (Union13 Int8Array
                                        Int16Array
                                        Int32Array
@@ -41,7 +41,7 @@ namespace Blob
   prim__arrayBuffer : Blob -> PrimIO (Promise ArrayBuffer)
   
   export
-  %foreign "browser:lambda:(x,a,b,c)=>x.slice(a b c)"
+  %foreign "browser:lambda:(x,a,b,c)=>x.slice(a,b,c)"
   prim__slice :  Blob
               -> UndefOr Int64
               -> UndefOr Int64
@@ -59,7 +59,7 @@ namespace Blob
 namespace File
   
   export
-  %foreign "browser:lambda:(a,b,c)=> new File(a b c)"
+  %foreign "browser:lambda:(a,b,c)=> new File(a,b,c)"
   prim__new :  Array (Union13 Int8Array
                               Int16Array
                               Int32Array
@@ -184,7 +184,7 @@ namespace FileReader
   prim__readAsDataURL : FileReader -> Blob -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.readAsText(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.readAsText(a,b)"
   prim__readAsText : FileReader -> Blob -> UndefOr String -> PrimIO ()
 
 namespace FileReaderSync
@@ -206,7 +206,7 @@ namespace FileReaderSync
   prim__readAsDataURL : FileReaderSync -> Blob -> PrimIO String
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.readAsText(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.readAsText(a,b)"
   prim__readAsText : FileReaderSync -> Blob -> UndefOr String -> PrimIO String
 
 

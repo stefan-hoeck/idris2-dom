@@ -73,7 +73,7 @@ namespace ReadableByteStreamController
 namespace ReadableStream
   
   export
-  %foreign "browser:lambda:(a,b)=> new ReadableStream(a b)"
+  %foreign "browser:lambda:(a,b)=> new ReadableStream(a,b)"
   prim__new : UndefOr Object -> UndefOr QueuingStrategy -> PrimIO ReadableStream
   
   export
@@ -92,14 +92,14 @@ namespace ReadableStream
                                     ReadableStreamBYOBReader)
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.pipeThrough(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.pipeThrough(a,b)"
   prim__pipeThrough :  ReadableStream
                     -> ReadableWritablePair
                     -> UndefOr StreamPipeOptions
                     -> PrimIO ReadableStream
   
   export
-  %foreign "browser:lambda:(x,a,b)=>x.pipeTo(a b)"
+  %foreign "browser:lambda:(x,a,b)=>x.pipeTo(a,b)"
   prim__pipeTo :  ReadableStream
                -> WritableStream
                -> UndefOr StreamPipeOptions
@@ -206,7 +206,7 @@ namespace ReadableStreamDefaultReader
 namespace TransformStream
   
   export
-  %foreign "browser:lambda:(a,b,c)=> new TransformStream(a b c)"
+  %foreign "browser:lambda:(a,b,c)=> new TransformStream(a,b,c)"
   prim__new :  UndefOr Object
             -> UndefOr QueuingStrategy
             -> UndefOr QueuingStrategy
@@ -244,7 +244,7 @@ namespace TransformStreamDefaultController
 namespace WritableStream
   
   export
-  %foreign "browser:lambda:(a,b)=> new WritableStream(a b)"
+  %foreign "browser:lambda:(a,b)=> new WritableStream(a,b)"
   prim__new : UndefOr Object -> UndefOr QueuingStrategy -> PrimIO WritableStream
   
   export
@@ -762,14 +762,14 @@ namespace UnderlyingSource
 namespace QueuingStrategySize
   
   export
-  %foreign "browser:lambda:x=>{(a)=>x(a)()}"
+  %foreign "browser:lambda:x=>(a)=>x(a)()"
   prim__toQueuingStrategySize :  ( UndefOr AnyPtr -> IO Double )
                               -> PrimIO QueuingStrategySize
 
 namespace TransformerFlushCallback
   
   export
-  %foreign "browser:lambda:x=>{(a)=>x(a)()}"
+  %foreign "browser:lambda:x=>(a)=>x(a)()"
   prim__toTransformerFlushCallback :  (  TransformStreamDefaultController
                                       -> IO (Promise Undefined)
                                       )
@@ -778,7 +778,7 @@ namespace TransformerFlushCallback
 namespace TransformerStartCallback
   
   export
-  %foreign "browser:lambda:x=>{(a)=>x(a)()}"
+  %foreign "browser:lambda:x=>(a)=>x(a)()"
   prim__toTransformerStartCallback :  (  TransformStreamDefaultController
                                       -> IO AnyPtr
                                       )
@@ -787,7 +787,7 @@ namespace TransformerStartCallback
 namespace TransformerTransformCallback
   
   export
-  %foreign "browser:lambda:x=>{(a,b)=>x(a,b)()}"
+  %foreign "browser:lambda:x=>(a,b)=>x(a,b)()"
   prim__toTransformerTransformCallback :  (  AnyPtr
                                           -> TransformStreamDefaultController
                                           -> IO (Promise Undefined)
@@ -797,7 +797,7 @@ namespace TransformerTransformCallback
 namespace UnderlyingSinkAbortCallback
   
   export
-  %foreign "browser:lambda:x=>{(a)=>x(a)()}"
+  %foreign "browser:lambda:x=>(a)=>x(a)()"
   prim__toUnderlyingSinkAbortCallback :  (  UndefOr AnyPtr
                                          -> IO (Promise Undefined)
                                          )
@@ -806,14 +806,14 @@ namespace UnderlyingSinkAbortCallback
 namespace UnderlyingSinkCloseCallback
   
   export
-  %foreign "browser:lambda:x=>{()=>x()()}"
+  %foreign "browser:lambda:x=>()=>x()()"
   prim__toUnderlyingSinkCloseCallback :  (() -> IO (Promise Undefined))
                                       -> PrimIO UnderlyingSinkCloseCallback
 
 namespace UnderlyingSinkStartCallback
   
   export
-  %foreign "browser:lambda:x=>{(a)=>x(a)()}"
+  %foreign "browser:lambda:x=>(a)=>x(a)()"
   prim__toUnderlyingSinkStartCallback :  (  WritableStreamDefaultController
                                          -> IO AnyPtr
                                          )
@@ -822,7 +822,7 @@ namespace UnderlyingSinkStartCallback
 namespace UnderlyingSinkWriteCallback
   
   export
-  %foreign "browser:lambda:x=>{(a,b)=>x(a,b)()}"
+  %foreign "browser:lambda:x=>(a,b)=>x(a,b)()"
   prim__toUnderlyingSinkWriteCallback :  (  AnyPtr
                                          -> WritableStreamDefaultController
                                          -> IO (Promise Undefined)
@@ -832,7 +832,7 @@ namespace UnderlyingSinkWriteCallback
 namespace UnderlyingSourceCancelCallback
   
   export
-  %foreign "browser:lambda:x=>{(a)=>x(a)()}"
+  %foreign "browser:lambda:x=>(a)=>x(a)()"
   prim__toUnderlyingSourceCancelCallback :  (  UndefOr AnyPtr
                                             -> IO (Promise Undefined)
                                             )
@@ -841,7 +841,7 @@ namespace UnderlyingSourceCancelCallback
 namespace UnderlyingSourcePullCallback
   
   export
-  %foreign "browser:lambda:x=>{(a)=>x(a)()}"
+  %foreign "browser:lambda:x=>(a)=>x(a)()"
   prim__toUnderlyingSourcePullCallback :  (  Union2 ReadableStreamDefaultController
                                                     ReadableByteStreamController
                                           -> IO (Promise Undefined)
@@ -851,7 +851,7 @@ namespace UnderlyingSourcePullCallback
 namespace UnderlyingSourceStartCallback
   
   export
-  %foreign "browser:lambda:x=>{(a)=>x(a)()}"
+  %foreign "browser:lambda:x=>(a)=>x(a)()"
   prim__toUnderlyingSourceStartCallback :  (  Union2 ReadableStreamDefaultController
                                                      ReadableByteStreamController
                                            -> IO AnyPtr
