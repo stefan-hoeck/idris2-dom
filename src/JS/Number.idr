@@ -112,10 +112,10 @@ Bits Int8 where
   testBit x i = (x .&. bit i) /= 0
   shiftR x    = toInt8 . prim__shr (fromInt8 x) . fromInteger . cast . fst
 
-  shiftL x    = toInt8 
-              . prim__shlSigned (fromInt8 x) 128 
-              . fromInteger 
-              . cast 
+  shiftL x    = toInt8
+              . prim__shlSigned (fromInt8 x) 128
+              . fromInteger
+              . cast
               . fst
 
   complement  = xor (-1)
@@ -197,10 +197,10 @@ Bits Int16 where
   testBit x i = (x .&. bit i) /= 0
   shiftR x    = toInt16 . prim__shr (fromInt16 x) . fromInteger . cast . fst
 
-  shiftL x    = toInt16 
-              . prim__shlSigned (fromInt16 x) 32768.0 
-              . fromInteger 
-              . cast 
+  shiftL x    = toInt16
+              . prim__shlSigned (fromInt16 x) 32768.0
+              . fromInteger
+              . cast
               . fst
 
   complement  = xor (-1)
@@ -282,10 +282,10 @@ Bits Int32 where
   testBit x i = (x .&. bit i) /= 0
   shiftR x    = toInt32 . prim__shr (fromInt32 x) . fromInteger . cast . fst
 
-  shiftL x    = toInt32 
+  shiftL x    = toInt32
               . prim__shlSigned (fromInt32 x) 2147483648.0
-              . fromInteger 
-              . cast 
+              . fromInteger
+              . cast
               . fst
 
   complement  = xor (-1)
@@ -428,10 +428,10 @@ Bits UInt8 where
   testBit x i = (x .&. bit i) /= 0
   shiftR x    = toUInt8 . prim__shr (fromUInt8 x) . fromInteger . cast . fst
 
-  shiftL x    = toUInt8 
+  shiftL x    = toUInt8
               . prim__shlUnsigned (fromUInt8 x) 256
-              . fromInteger 
-              . cast 
+              . fromInteger
+              . cast
               . fst
 
   complement  = xor 255
@@ -508,10 +508,10 @@ Bits UInt16 where
   testBit x i = (x .&. bit i) /= 0
   shiftR x    = toUInt16 . prim__shr (fromUInt16 x) . fromInteger . cast . fst
 
-  shiftL x    = toUInt16 
+  shiftL x    = toUInt16
               . prim__shlUnsigned (fromUInt16 x) 65536.0
-              . fromInteger 
-              . cast 
+              . fromInteger
+              . cast
               . fst
 
   complement  = xor 65535
@@ -584,10 +584,10 @@ Bits UInt32 where
   testBit x i = (x .&. bit i) /= 0
   shiftR x    = toUInt32 . prim__shr (fromUInt32 x) . fromInteger . cast . fst
 
-  shiftL x    = toUInt32 
+  shiftL x    = toUInt32
               . prim__shlUnsigned (fromUInt32 x) 4294967296.0
-              . fromInteger 
-              . cast 
+              . fromInteger
+              . cast
               . fst
 
   complement  = xor 4294967295

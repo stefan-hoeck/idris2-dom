@@ -19,4 +19,3 @@ FromFFI Any AnyPtr where
 export
 SafeCast Any where
   safeCast = Just . MkAny
-

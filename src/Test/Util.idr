@@ -50,4 +50,3 @@ undefinedProps = MkGroup "Undefined and Null"
 export
 test : IO ()
 test = do ignore $ checkGroup undefinedProps
-

@@ -1,5 +1,5 @@
 module Web.Internal.HtmlTypes
- 
+
 import JS
 
 --------------------------------------------------------------------------------
@@ -7,7 +7,7 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace DOMParserSupportedType
-  
+
   public export
   data DOMParserSupportedType = TextHtml
                               | TextXml
@@ -55,7 +55,7 @@ namespace DOMParserSupportedType
     fromFFI = read
 
 namespace DocumentReadyState
-  
+
   public export
   data DocumentReadyState = Loading | Interactive | Complete
 
@@ -95,7 +95,7 @@ namespace DocumentReadyState
     fromFFI = read
 
 namespace CanPlayTypeResult
-  
+
   public export
   data CanPlayTypeResult = Empty | Maybe | Probably
 
@@ -135,7 +135,7 @@ namespace CanPlayTypeResult
     fromFFI = read
 
 namespace ScrollRestoration
-  
+
   public export
   data ScrollRestoration = Auto | Manual
 
@@ -173,7 +173,7 @@ namespace ScrollRestoration
     fromFFI = read
 
 namespace ImageOrientation
-  
+
   public export
   data ImageOrientation = None | FlipY
 
@@ -211,7 +211,7 @@ namespace ImageOrientation
     fromFFI = read
 
 namespace PremultiplyAlpha
-  
+
   public export
   data PremultiplyAlpha = None | Premultiply | Default
 
@@ -251,7 +251,7 @@ namespace PremultiplyAlpha
     fromFFI = read
 
 namespace ColorSpaceConversion
-  
+
   public export
   data ColorSpaceConversion = None | Default
 
@@ -289,7 +289,7 @@ namespace ColorSpaceConversion
     fromFFI = read
 
 namespace ResizeQuality
-  
+
   public export
   data ResizeQuality = Pixelated | Low | Medium | High
 
@@ -331,7 +331,7 @@ namespace ResizeQuality
     fromFFI = read
 
 namespace CanvasFillRule
-  
+
   public export
   data CanvasFillRule = Nonzero | Evenodd
 
@@ -369,7 +369,7 @@ namespace CanvasFillRule
     fromFFI = read
 
 namespace ImageSmoothingQuality
-  
+
   public export
   data ImageSmoothingQuality = Low | Medium | High
 
@@ -409,7 +409,7 @@ namespace ImageSmoothingQuality
     fromFFI = read
 
 namespace CanvasLineCap
-  
+
   public export
   data CanvasLineCap = Butt | Round | Square
 
@@ -449,7 +449,7 @@ namespace CanvasLineCap
     fromFFI = read
 
 namespace CanvasLineJoin
-  
+
   public export
   data CanvasLineJoin = Round | Bevel | Miter
 
@@ -489,7 +489,7 @@ namespace CanvasLineJoin
     fromFFI = read
 
 namespace CanvasTextAlign
-  
+
   public export
   data CanvasTextAlign = Start | End | Left | Right | Center
 
@@ -533,7 +533,7 @@ namespace CanvasTextAlign
     fromFFI = read
 
 namespace CanvasTextBaseline
-  
+
   public export
   data CanvasTextBaseline = Top
                           | Hanging
@@ -584,7 +584,7 @@ namespace CanvasTextBaseline
     fromFFI = read
 
 namespace CanvasDirection
-  
+
   public export
   data CanvasDirection = Ltr | Rtl | Inherit
 
@@ -624,7 +624,7 @@ namespace CanvasDirection
     fromFFI = read
 
 namespace OffscreenRenderingContextId
-  
+
   public export
   data OffscreenRenderingContextId = TwoD | Bitmaprenderer | Webgl | Webgl2
 
@@ -666,7 +666,7 @@ namespace OffscreenRenderingContextId
     fromFFI = read
 
 namespace TextTrackMode
-  
+
   public export
   data TextTrackMode = Disabled | Hidden | Showing
 
@@ -706,7 +706,7 @@ namespace TextTrackMode
     fromFFI = read
 
 namespace TextTrackKind
-  
+
   public export
   data TextTrackKind = Subtitles | Captions | Descriptions | Chapters | Metadata
 
@@ -750,7 +750,7 @@ namespace TextTrackKind
     fromFFI = read
 
 namespace BinaryType
-  
+
   public export
   data BinaryType = Blob | Arraybuffer
 
@@ -788,7 +788,7 @@ namespace BinaryType
     fromFFI = read
 
 namespace WorkerType
-  
+
   public export
   data WorkerType = Classic | Module
 
@@ -826,7 +826,7 @@ namespace WorkerType
     fromFFI = read
 
 namespace SelectionMode
-  
+
   public export
   data SelectionMode = Select | Start | End | Preserve
 
@@ -872,10 +872,10 @@ namespace SelectionMode
 --------------------------------------------------------------------------------
 
 export data AudioTrack : Type where [external]
-  
+
 export
 ToFFI AudioTrack AudioTrack where toFFI = id
-  
+
 export
 FromFFI AudioTrack AudioTrack where fromFFI = Just
 
@@ -884,10 +884,10 @@ SafeCast AudioTrack where
   safeCast = unsafeCastOnPrototypeName "AudioTrack"
 
 export data AudioTrackList : Type where [external]
-  
+
 export
 ToFFI AudioTrackList AudioTrackList where toFFI = id
-  
+
 export
 FromFFI AudioTrackList AudioTrackList where fromFFI = Just
 
@@ -896,10 +896,10 @@ SafeCast AudioTrackList where
   safeCast = unsafeCastOnPrototypeName "AudioTrackList"
 
 export data BarProp : Type where [external]
-  
+
 export
 ToFFI BarProp BarProp where toFFI = id
-  
+
 export
 FromFFI BarProp BarProp where fromFFI = Just
 
@@ -908,10 +908,10 @@ SafeCast BarProp where
   safeCast = unsafeCastOnPrototypeName "BarProp"
 
 export data BeforeUnloadEvent : Type where [external]
-  
+
 export
 ToFFI BeforeUnloadEvent BeforeUnloadEvent where toFFI = id
-  
+
 export
 FromFFI BeforeUnloadEvent BeforeUnloadEvent where fromFFI = Just
 
@@ -920,10 +920,10 @@ SafeCast BeforeUnloadEvent where
   safeCast = unsafeCastOnPrototypeName "BeforeUnloadEvent"
 
 export data BroadcastChannel : Type where [external]
-  
+
 export
 ToFFI BroadcastChannel BroadcastChannel where toFFI = id
-  
+
 export
 FromFFI BroadcastChannel BroadcastChannel where fromFFI = Just
 
@@ -932,10 +932,10 @@ SafeCast BroadcastChannel where
   safeCast = unsafeCastOnPrototypeName "BroadcastChannel"
 
 export data CanvasGradient : Type where [external]
-  
+
 export
 ToFFI CanvasGradient CanvasGradient where toFFI = id
-  
+
 export
 FromFFI CanvasGradient CanvasGradient where fromFFI = Just
 
@@ -944,10 +944,10 @@ SafeCast CanvasGradient where
   safeCast = unsafeCastOnPrototypeName "CanvasGradient"
 
 export data CanvasPattern : Type where [external]
-  
+
 export
 ToFFI CanvasPattern CanvasPattern where toFFI = id
-  
+
 export
 FromFFI CanvasPattern CanvasPattern where fromFFI = Just
 
@@ -956,10 +956,10 @@ SafeCast CanvasPattern where
   safeCast = unsafeCastOnPrototypeName "CanvasPattern"
 
 export data CanvasRenderingContext2D : Type where [external]
-  
+
 export
 ToFFI CanvasRenderingContext2D CanvasRenderingContext2D where toFFI = id
-  
+
 export
 FromFFI CanvasRenderingContext2D CanvasRenderingContext2D where fromFFI = Just
 
@@ -968,10 +968,10 @@ SafeCast CanvasRenderingContext2D where
   safeCast = unsafeCastOnPrototypeName "CanvasRenderingContext2D"
 
 export data CloseEvent : Type where [external]
-  
+
 export
 ToFFI CloseEvent CloseEvent where toFFI = id
-  
+
 export
 FromFFI CloseEvent CloseEvent where fromFFI = Just
 
@@ -980,10 +980,10 @@ SafeCast CloseEvent where
   safeCast = unsafeCastOnPrototypeName "CloseEvent"
 
 export data CustomElementRegistry : Type where [external]
-  
+
 export
 ToFFI CustomElementRegistry CustomElementRegistry where toFFI = id
-  
+
 export
 FromFFI CustomElementRegistry CustomElementRegistry where fromFFI = Just
 
@@ -992,10 +992,10 @@ SafeCast CustomElementRegistry where
   safeCast = unsafeCastOnPrototypeName "CustomElementRegistry"
 
 export data DOMParser : Type where [external]
-  
+
 export
 ToFFI DOMParser DOMParser where toFFI = id
-  
+
 export
 FromFFI DOMParser DOMParser where fromFFI = Just
 
@@ -1004,10 +1004,10 @@ SafeCast DOMParser where
   safeCast = unsafeCastOnPrototypeName "DOMParser"
 
 export data DOMStringList : Type where [external]
-  
+
 export
 ToFFI DOMStringList DOMStringList where toFFI = id
-  
+
 export
 FromFFI DOMStringList DOMStringList where fromFFI = Just
 
@@ -1016,10 +1016,10 @@ SafeCast DOMStringList where
   safeCast = unsafeCastOnPrototypeName "DOMStringList"
 
 export data DOMStringMap : Type where [external]
-  
+
 export
 ToFFI DOMStringMap DOMStringMap where toFFI = id
-  
+
 export
 FromFFI DOMStringMap DOMStringMap where fromFFI = Just
 
@@ -1028,10 +1028,10 @@ SafeCast DOMStringMap where
   safeCast = unsafeCastOnPrototypeName "DOMStringMap"
 
 export data DataTransfer : Type where [external]
-  
+
 export
 ToFFI DataTransfer DataTransfer where toFFI = id
-  
+
 export
 FromFFI DataTransfer DataTransfer where fromFFI = Just
 
@@ -1040,10 +1040,10 @@ SafeCast DataTransfer where
   safeCast = unsafeCastOnPrototypeName "DataTransfer"
 
 export data DataTransferItem : Type where [external]
-  
+
 export
 ToFFI DataTransferItem DataTransferItem where toFFI = id
-  
+
 export
 FromFFI DataTransferItem DataTransferItem where fromFFI = Just
 
@@ -1052,10 +1052,10 @@ SafeCast DataTransferItem where
   safeCast = unsafeCastOnPrototypeName "DataTransferItem"
 
 export data DataTransferItemList : Type where [external]
-  
+
 export
 ToFFI DataTransferItemList DataTransferItemList where toFFI = id
-  
+
 export
 FromFFI DataTransferItemList DataTransferItemList where fromFFI = Just
 
@@ -1064,10 +1064,10 @@ SafeCast DataTransferItemList where
   safeCast = unsafeCastOnPrototypeName "DataTransferItemList"
 
 export data DedicatedWorkerGlobalScope : Type where [external]
-  
+
 export
 ToFFI DedicatedWorkerGlobalScope DedicatedWorkerGlobalScope where toFFI = id
-  
+
 export
 FromFFI DedicatedWorkerGlobalScope DedicatedWorkerGlobalScope where fromFFI = Just
 
@@ -1076,10 +1076,10 @@ SafeCast DedicatedWorkerGlobalScope where
   safeCast = unsafeCastOnPrototypeName "DedicatedWorkerGlobalScope"
 
 export data DragEvent : Type where [external]
-  
+
 export
 ToFFI DragEvent DragEvent where toFFI = id
-  
+
 export
 FromFFI DragEvent DragEvent where fromFFI = Just
 
@@ -1088,10 +1088,10 @@ SafeCast DragEvent where
   safeCast = unsafeCastOnPrototypeName "DragEvent"
 
 export data ElementInternals : Type where [external]
-  
+
 export
 ToFFI ElementInternals ElementInternals where toFFI = id
-  
+
 export
 FromFFI ElementInternals ElementInternals where fromFFI = Just
 
@@ -1100,10 +1100,10 @@ SafeCast ElementInternals where
   safeCast = unsafeCastOnPrototypeName "ElementInternals"
 
 export data ErrorEvent : Type where [external]
-  
+
 export
 ToFFI ErrorEvent ErrorEvent where toFFI = id
-  
+
 export
 FromFFI ErrorEvent ErrorEvent where fromFFI = Just
 
@@ -1112,10 +1112,10 @@ SafeCast ErrorEvent where
   safeCast = unsafeCastOnPrototypeName "ErrorEvent"
 
 export data EventSource : Type where [external]
-  
+
 export
 ToFFI EventSource EventSource where toFFI = id
-  
+
 export
 FromFFI EventSource EventSource where fromFFI = Just
 
@@ -1124,10 +1124,10 @@ SafeCast EventSource where
   safeCast = unsafeCastOnPrototypeName "EventSource"
 
 export data External : Type where [external]
-  
+
 export
 ToFFI External External where toFFI = id
-  
+
 export
 FromFFI External External where fromFFI = Just
 
@@ -1136,10 +1136,10 @@ SafeCast External where
   safeCast = unsafeCastOnPrototypeName "External"
 
 export data FormDataEvent : Type where [external]
-  
+
 export
 ToFFI FormDataEvent FormDataEvent where toFFI = id
-  
+
 export
 FromFFI FormDataEvent FormDataEvent where fromFFI = Just
 
@@ -1148,10 +1148,10 @@ SafeCast FormDataEvent where
   safeCast = unsafeCastOnPrototypeName "FormDataEvent"
 
 export data HTMLAllCollection : Type where [external]
-  
+
 export
 ToFFI HTMLAllCollection HTMLAllCollection where toFFI = id
-  
+
 export
 FromFFI HTMLAllCollection HTMLAllCollection where fromFFI = Just
 
@@ -1160,10 +1160,10 @@ SafeCast HTMLAllCollection where
   safeCast = unsafeCastOnPrototypeName "HTMLAllCollection"
 
 export data HTMLAnchorElement : Type where [external]
-  
+
 export
 ToFFI HTMLAnchorElement HTMLAnchorElement where toFFI = id
-  
+
 export
 FromFFI HTMLAnchorElement HTMLAnchorElement where fromFFI = Just
 
@@ -1172,10 +1172,10 @@ SafeCast HTMLAnchorElement where
   safeCast = unsafeCastOnPrototypeName "HTMLAnchorElement"
 
 export data HTMLAreaElement : Type where [external]
-  
+
 export
 ToFFI HTMLAreaElement HTMLAreaElement where toFFI = id
-  
+
 export
 FromFFI HTMLAreaElement HTMLAreaElement where fromFFI = Just
 
@@ -1184,10 +1184,10 @@ SafeCast HTMLAreaElement where
   safeCast = unsafeCastOnPrototypeName "HTMLAreaElement"
 
 export data HTMLAudioElement : Type where [external]
-  
+
 export
 ToFFI HTMLAudioElement HTMLAudioElement where toFFI = id
-  
+
 export
 FromFFI HTMLAudioElement HTMLAudioElement where fromFFI = Just
 
@@ -1196,10 +1196,10 @@ SafeCast HTMLAudioElement where
   safeCast = unsafeCastOnPrototypeName "HTMLAudioElement"
 
 export data HTMLBRElement : Type where [external]
-  
+
 export
 ToFFI HTMLBRElement HTMLBRElement where toFFI = id
-  
+
 export
 FromFFI HTMLBRElement HTMLBRElement where fromFFI = Just
 
@@ -1208,10 +1208,10 @@ SafeCast HTMLBRElement where
   safeCast = unsafeCastOnPrototypeName "HTMLBRElement"
 
 export data HTMLBaseElement : Type where [external]
-  
+
 export
 ToFFI HTMLBaseElement HTMLBaseElement where toFFI = id
-  
+
 export
 FromFFI HTMLBaseElement HTMLBaseElement where fromFFI = Just
 
@@ -1220,10 +1220,10 @@ SafeCast HTMLBaseElement where
   safeCast = unsafeCastOnPrototypeName "HTMLBaseElement"
 
 export data HTMLBodyElement : Type where [external]
-  
+
 export
 ToFFI HTMLBodyElement HTMLBodyElement where toFFI = id
-  
+
 export
 FromFFI HTMLBodyElement HTMLBodyElement where fromFFI = Just
 
@@ -1232,10 +1232,10 @@ SafeCast HTMLBodyElement where
   safeCast = unsafeCastOnPrototypeName "HTMLBodyElement"
 
 export data HTMLButtonElement : Type where [external]
-  
+
 export
 ToFFI HTMLButtonElement HTMLButtonElement where toFFI = id
-  
+
 export
 FromFFI HTMLButtonElement HTMLButtonElement where fromFFI = Just
 
@@ -1244,10 +1244,10 @@ SafeCast HTMLButtonElement where
   safeCast = unsafeCastOnPrototypeName "HTMLButtonElement"
 
 export data HTMLCanvasElement : Type where [external]
-  
+
 export
 ToFFI HTMLCanvasElement HTMLCanvasElement where toFFI = id
-  
+
 export
 FromFFI HTMLCanvasElement HTMLCanvasElement where fromFFI = Just
 
@@ -1256,10 +1256,10 @@ SafeCast HTMLCanvasElement where
   safeCast = unsafeCastOnPrototypeName "HTMLCanvasElement"
 
 export data HTMLDListElement : Type where [external]
-  
+
 export
 ToFFI HTMLDListElement HTMLDListElement where toFFI = id
-  
+
 export
 FromFFI HTMLDListElement HTMLDListElement where fromFFI = Just
 
@@ -1268,10 +1268,10 @@ SafeCast HTMLDListElement where
   safeCast = unsafeCastOnPrototypeName "HTMLDListElement"
 
 export data HTMLDataElement : Type where [external]
-  
+
 export
 ToFFI HTMLDataElement HTMLDataElement where toFFI = id
-  
+
 export
 FromFFI HTMLDataElement HTMLDataElement where fromFFI = Just
 
@@ -1280,10 +1280,10 @@ SafeCast HTMLDataElement where
   safeCast = unsafeCastOnPrototypeName "HTMLDataElement"
 
 export data HTMLDataListElement : Type where [external]
-  
+
 export
 ToFFI HTMLDataListElement HTMLDataListElement where toFFI = id
-  
+
 export
 FromFFI HTMLDataListElement HTMLDataListElement where fromFFI = Just
 
@@ -1292,10 +1292,10 @@ SafeCast HTMLDataListElement where
   safeCast = unsafeCastOnPrototypeName "HTMLDataListElement"
 
 export data HTMLDetailsElement : Type where [external]
-  
+
 export
 ToFFI HTMLDetailsElement HTMLDetailsElement where toFFI = id
-  
+
 export
 FromFFI HTMLDetailsElement HTMLDetailsElement where fromFFI = Just
 
@@ -1304,10 +1304,10 @@ SafeCast HTMLDetailsElement where
   safeCast = unsafeCastOnPrototypeName "HTMLDetailsElement"
 
 export data HTMLDialogElement : Type where [external]
-  
+
 export
 ToFFI HTMLDialogElement HTMLDialogElement where toFFI = id
-  
+
 export
 FromFFI HTMLDialogElement HTMLDialogElement where fromFFI = Just
 
@@ -1316,10 +1316,10 @@ SafeCast HTMLDialogElement where
   safeCast = unsafeCastOnPrototypeName "HTMLDialogElement"
 
 export data HTMLDirectoryElement : Type where [external]
-  
+
 export
 ToFFI HTMLDirectoryElement HTMLDirectoryElement where toFFI = id
-  
+
 export
 FromFFI HTMLDirectoryElement HTMLDirectoryElement where fromFFI = Just
 
@@ -1328,10 +1328,10 @@ SafeCast HTMLDirectoryElement where
   safeCast = unsafeCastOnPrototypeName "HTMLDirectoryElement"
 
 export data HTMLDivElement : Type where [external]
-  
+
 export
 ToFFI HTMLDivElement HTMLDivElement where toFFI = id
-  
+
 export
 FromFFI HTMLDivElement HTMLDivElement where fromFFI = Just
 
@@ -1340,10 +1340,10 @@ SafeCast HTMLDivElement where
   safeCast = unsafeCastOnPrototypeName "HTMLDivElement"
 
 export data HTMLElement : Type where [external]
-  
+
 export
 ToFFI HTMLElement HTMLElement where toFFI = id
-  
+
 export
 FromFFI HTMLElement HTMLElement where fromFFI = Just
 
@@ -1352,10 +1352,10 @@ SafeCast HTMLElement where
   safeCast = unsafeCastOnPrototypeName "HTMLElement"
 
 export data HTMLEmbedElement : Type where [external]
-  
+
 export
 ToFFI HTMLEmbedElement HTMLEmbedElement where toFFI = id
-  
+
 export
 FromFFI HTMLEmbedElement HTMLEmbedElement where fromFFI = Just
 
@@ -1364,10 +1364,10 @@ SafeCast HTMLEmbedElement where
   safeCast = unsafeCastOnPrototypeName "HTMLEmbedElement"
 
 export data HTMLFieldSetElement : Type where [external]
-  
+
 export
 ToFFI HTMLFieldSetElement HTMLFieldSetElement where toFFI = id
-  
+
 export
 FromFFI HTMLFieldSetElement HTMLFieldSetElement where fromFFI = Just
 
@@ -1376,10 +1376,10 @@ SafeCast HTMLFieldSetElement where
   safeCast = unsafeCastOnPrototypeName "HTMLFieldSetElement"
 
 export data HTMLFontElement : Type where [external]
-  
+
 export
 ToFFI HTMLFontElement HTMLFontElement where toFFI = id
-  
+
 export
 FromFFI HTMLFontElement HTMLFontElement where fromFFI = Just
 
@@ -1388,10 +1388,10 @@ SafeCast HTMLFontElement where
   safeCast = unsafeCastOnPrototypeName "HTMLFontElement"
 
 export data HTMLFormControlsCollection : Type where [external]
-  
+
 export
 ToFFI HTMLFormControlsCollection HTMLFormControlsCollection where toFFI = id
-  
+
 export
 FromFFI HTMLFormControlsCollection HTMLFormControlsCollection where fromFFI = Just
 
@@ -1400,10 +1400,10 @@ SafeCast HTMLFormControlsCollection where
   safeCast = unsafeCastOnPrototypeName "HTMLFormControlsCollection"
 
 export data HTMLFormElement : Type where [external]
-  
+
 export
 ToFFI HTMLFormElement HTMLFormElement where toFFI = id
-  
+
 export
 FromFFI HTMLFormElement HTMLFormElement where fromFFI = Just
 
@@ -1412,10 +1412,10 @@ SafeCast HTMLFormElement where
   safeCast = unsafeCastOnPrototypeName "HTMLFormElement"
 
 export data HTMLFrameElement : Type where [external]
-  
+
 export
 ToFFI HTMLFrameElement HTMLFrameElement where toFFI = id
-  
+
 export
 FromFFI HTMLFrameElement HTMLFrameElement where fromFFI = Just
 
@@ -1424,10 +1424,10 @@ SafeCast HTMLFrameElement where
   safeCast = unsafeCastOnPrototypeName "HTMLFrameElement"
 
 export data HTMLFrameSetElement : Type where [external]
-  
+
 export
 ToFFI HTMLFrameSetElement HTMLFrameSetElement where toFFI = id
-  
+
 export
 FromFFI HTMLFrameSetElement HTMLFrameSetElement where fromFFI = Just
 
@@ -1436,10 +1436,10 @@ SafeCast HTMLFrameSetElement where
   safeCast = unsafeCastOnPrototypeName "HTMLFrameSetElement"
 
 export data HTMLHRElement : Type where [external]
-  
+
 export
 ToFFI HTMLHRElement HTMLHRElement where toFFI = id
-  
+
 export
 FromFFI HTMLHRElement HTMLHRElement where fromFFI = Just
 
@@ -1448,10 +1448,10 @@ SafeCast HTMLHRElement where
   safeCast = unsafeCastOnPrototypeName "HTMLHRElement"
 
 export data HTMLHeadElement : Type where [external]
-  
+
 export
 ToFFI HTMLHeadElement HTMLHeadElement where toFFI = id
-  
+
 export
 FromFFI HTMLHeadElement HTMLHeadElement where fromFFI = Just
 
@@ -1460,10 +1460,10 @@ SafeCast HTMLHeadElement where
   safeCast = unsafeCastOnPrototypeName "HTMLHeadElement"
 
 export data HTMLHeadingElement : Type where [external]
-  
+
 export
 ToFFI HTMLHeadingElement HTMLHeadingElement where toFFI = id
-  
+
 export
 FromFFI HTMLHeadingElement HTMLHeadingElement where fromFFI = Just
 
@@ -1472,10 +1472,10 @@ SafeCast HTMLHeadingElement where
   safeCast = unsafeCastOnPrototypeName "HTMLHeadingElement"
 
 export data HTMLHtmlElement : Type where [external]
-  
+
 export
 ToFFI HTMLHtmlElement HTMLHtmlElement where toFFI = id
-  
+
 export
 FromFFI HTMLHtmlElement HTMLHtmlElement where fromFFI = Just
 
@@ -1484,10 +1484,10 @@ SafeCast HTMLHtmlElement where
   safeCast = unsafeCastOnPrototypeName "HTMLHtmlElement"
 
 export data HTMLIFrameElement : Type where [external]
-  
+
 export
 ToFFI HTMLIFrameElement HTMLIFrameElement where toFFI = id
-  
+
 export
 FromFFI HTMLIFrameElement HTMLIFrameElement where fromFFI = Just
 
@@ -1496,10 +1496,10 @@ SafeCast HTMLIFrameElement where
   safeCast = unsafeCastOnPrototypeName "HTMLIFrameElement"
 
 export data HTMLImageElement : Type where [external]
-  
+
 export
 ToFFI HTMLImageElement HTMLImageElement where toFFI = id
-  
+
 export
 FromFFI HTMLImageElement HTMLImageElement where fromFFI = Just
 
@@ -1508,10 +1508,10 @@ SafeCast HTMLImageElement where
   safeCast = unsafeCastOnPrototypeName "HTMLImageElement"
 
 export data HTMLInputElement : Type where [external]
-  
+
 export
 ToFFI HTMLInputElement HTMLInputElement where toFFI = id
-  
+
 export
 FromFFI HTMLInputElement HTMLInputElement where fromFFI = Just
 
@@ -1520,10 +1520,10 @@ SafeCast HTMLInputElement where
   safeCast = unsafeCastOnPrototypeName "HTMLInputElement"
 
 export data HTMLLIElement : Type where [external]
-  
+
 export
 ToFFI HTMLLIElement HTMLLIElement where toFFI = id
-  
+
 export
 FromFFI HTMLLIElement HTMLLIElement where fromFFI = Just
 
@@ -1532,10 +1532,10 @@ SafeCast HTMLLIElement where
   safeCast = unsafeCastOnPrototypeName "HTMLLIElement"
 
 export data HTMLLabelElement : Type where [external]
-  
+
 export
 ToFFI HTMLLabelElement HTMLLabelElement where toFFI = id
-  
+
 export
 FromFFI HTMLLabelElement HTMLLabelElement where fromFFI = Just
 
@@ -1544,10 +1544,10 @@ SafeCast HTMLLabelElement where
   safeCast = unsafeCastOnPrototypeName "HTMLLabelElement"
 
 export data HTMLLegendElement : Type where [external]
-  
+
 export
 ToFFI HTMLLegendElement HTMLLegendElement where toFFI = id
-  
+
 export
 FromFFI HTMLLegendElement HTMLLegendElement where fromFFI = Just
 
@@ -1556,10 +1556,10 @@ SafeCast HTMLLegendElement where
   safeCast = unsafeCastOnPrototypeName "HTMLLegendElement"
 
 export data HTMLLinkElement : Type where [external]
-  
+
 export
 ToFFI HTMLLinkElement HTMLLinkElement where toFFI = id
-  
+
 export
 FromFFI HTMLLinkElement HTMLLinkElement where fromFFI = Just
 
@@ -1568,10 +1568,10 @@ SafeCast HTMLLinkElement where
   safeCast = unsafeCastOnPrototypeName "HTMLLinkElement"
 
 export data HTMLMapElement : Type where [external]
-  
+
 export
 ToFFI HTMLMapElement HTMLMapElement where toFFI = id
-  
+
 export
 FromFFI HTMLMapElement HTMLMapElement where fromFFI = Just
 
@@ -1580,10 +1580,10 @@ SafeCast HTMLMapElement where
   safeCast = unsafeCastOnPrototypeName "HTMLMapElement"
 
 export data HTMLMarqueeElement : Type where [external]
-  
+
 export
 ToFFI HTMLMarqueeElement HTMLMarqueeElement where toFFI = id
-  
+
 export
 FromFFI HTMLMarqueeElement HTMLMarqueeElement where fromFFI = Just
 
@@ -1592,10 +1592,10 @@ SafeCast HTMLMarqueeElement where
   safeCast = unsafeCastOnPrototypeName "HTMLMarqueeElement"
 
 export data HTMLMediaElement : Type where [external]
-  
+
 export
 ToFFI HTMLMediaElement HTMLMediaElement where toFFI = id
-  
+
 export
 FromFFI HTMLMediaElement HTMLMediaElement where fromFFI = Just
 
@@ -1604,10 +1604,10 @@ SafeCast HTMLMediaElement where
   safeCast = unsafeCastOnPrototypeName "HTMLMediaElement"
 
 export data HTMLMenuElement : Type where [external]
-  
+
 export
 ToFFI HTMLMenuElement HTMLMenuElement where toFFI = id
-  
+
 export
 FromFFI HTMLMenuElement HTMLMenuElement where fromFFI = Just
 
@@ -1616,10 +1616,10 @@ SafeCast HTMLMenuElement where
   safeCast = unsafeCastOnPrototypeName "HTMLMenuElement"
 
 export data HTMLMetaElement : Type where [external]
-  
+
 export
 ToFFI HTMLMetaElement HTMLMetaElement where toFFI = id
-  
+
 export
 FromFFI HTMLMetaElement HTMLMetaElement where fromFFI = Just
 
@@ -1628,10 +1628,10 @@ SafeCast HTMLMetaElement where
   safeCast = unsafeCastOnPrototypeName "HTMLMetaElement"
 
 export data HTMLMeterElement : Type where [external]
-  
+
 export
 ToFFI HTMLMeterElement HTMLMeterElement where toFFI = id
-  
+
 export
 FromFFI HTMLMeterElement HTMLMeterElement where fromFFI = Just
 
@@ -1640,10 +1640,10 @@ SafeCast HTMLMeterElement where
   safeCast = unsafeCastOnPrototypeName "HTMLMeterElement"
 
 export data HTMLModElement : Type where [external]
-  
+
 export
 ToFFI HTMLModElement HTMLModElement where toFFI = id
-  
+
 export
 FromFFI HTMLModElement HTMLModElement where fromFFI = Just
 
@@ -1652,10 +1652,10 @@ SafeCast HTMLModElement where
   safeCast = unsafeCastOnPrototypeName "HTMLModElement"
 
 export data HTMLOListElement : Type where [external]
-  
+
 export
 ToFFI HTMLOListElement HTMLOListElement where toFFI = id
-  
+
 export
 FromFFI HTMLOListElement HTMLOListElement where fromFFI = Just
 
@@ -1664,10 +1664,10 @@ SafeCast HTMLOListElement where
   safeCast = unsafeCastOnPrototypeName "HTMLOListElement"
 
 export data HTMLObjectElement : Type where [external]
-  
+
 export
 ToFFI HTMLObjectElement HTMLObjectElement where toFFI = id
-  
+
 export
 FromFFI HTMLObjectElement HTMLObjectElement where fromFFI = Just
 
@@ -1676,10 +1676,10 @@ SafeCast HTMLObjectElement where
   safeCast = unsafeCastOnPrototypeName "HTMLObjectElement"
 
 export data HTMLOptGroupElement : Type where [external]
-  
+
 export
 ToFFI HTMLOptGroupElement HTMLOptGroupElement where toFFI = id
-  
+
 export
 FromFFI HTMLOptGroupElement HTMLOptGroupElement where fromFFI = Just
 
@@ -1688,10 +1688,10 @@ SafeCast HTMLOptGroupElement where
   safeCast = unsafeCastOnPrototypeName "HTMLOptGroupElement"
 
 export data HTMLOptionElement : Type where [external]
-  
+
 export
 ToFFI HTMLOptionElement HTMLOptionElement where toFFI = id
-  
+
 export
 FromFFI HTMLOptionElement HTMLOptionElement where fromFFI = Just
 
@@ -1700,10 +1700,10 @@ SafeCast HTMLOptionElement where
   safeCast = unsafeCastOnPrototypeName "HTMLOptionElement"
 
 export data HTMLOptionsCollection : Type where [external]
-  
+
 export
 ToFFI HTMLOptionsCollection HTMLOptionsCollection where toFFI = id
-  
+
 export
 FromFFI HTMLOptionsCollection HTMLOptionsCollection where fromFFI = Just
 
@@ -1712,10 +1712,10 @@ SafeCast HTMLOptionsCollection where
   safeCast = unsafeCastOnPrototypeName "HTMLOptionsCollection"
 
 export data HTMLOutputElement : Type where [external]
-  
+
 export
 ToFFI HTMLOutputElement HTMLOutputElement where toFFI = id
-  
+
 export
 FromFFI HTMLOutputElement HTMLOutputElement where fromFFI = Just
 
@@ -1724,10 +1724,10 @@ SafeCast HTMLOutputElement where
   safeCast = unsafeCastOnPrototypeName "HTMLOutputElement"
 
 export data HTMLParagraphElement : Type where [external]
-  
+
 export
 ToFFI HTMLParagraphElement HTMLParagraphElement where toFFI = id
-  
+
 export
 FromFFI HTMLParagraphElement HTMLParagraphElement where fromFFI = Just
 
@@ -1736,10 +1736,10 @@ SafeCast HTMLParagraphElement where
   safeCast = unsafeCastOnPrototypeName "HTMLParagraphElement"
 
 export data HTMLParamElement : Type where [external]
-  
+
 export
 ToFFI HTMLParamElement HTMLParamElement where toFFI = id
-  
+
 export
 FromFFI HTMLParamElement HTMLParamElement where fromFFI = Just
 
@@ -1748,10 +1748,10 @@ SafeCast HTMLParamElement where
   safeCast = unsafeCastOnPrototypeName "HTMLParamElement"
 
 export data HTMLPictureElement : Type where [external]
-  
+
 export
 ToFFI HTMLPictureElement HTMLPictureElement where toFFI = id
-  
+
 export
 FromFFI HTMLPictureElement HTMLPictureElement where fromFFI = Just
 
@@ -1760,10 +1760,10 @@ SafeCast HTMLPictureElement where
   safeCast = unsafeCastOnPrototypeName "HTMLPictureElement"
 
 export data HTMLPreElement : Type where [external]
-  
+
 export
 ToFFI HTMLPreElement HTMLPreElement where toFFI = id
-  
+
 export
 FromFFI HTMLPreElement HTMLPreElement where fromFFI = Just
 
@@ -1772,10 +1772,10 @@ SafeCast HTMLPreElement where
   safeCast = unsafeCastOnPrototypeName "HTMLPreElement"
 
 export data HTMLProgressElement : Type where [external]
-  
+
 export
 ToFFI HTMLProgressElement HTMLProgressElement where toFFI = id
-  
+
 export
 FromFFI HTMLProgressElement HTMLProgressElement where fromFFI = Just
 
@@ -1784,10 +1784,10 @@ SafeCast HTMLProgressElement where
   safeCast = unsafeCastOnPrototypeName "HTMLProgressElement"
 
 export data HTMLQuoteElement : Type where [external]
-  
+
 export
 ToFFI HTMLQuoteElement HTMLQuoteElement where toFFI = id
-  
+
 export
 FromFFI HTMLQuoteElement HTMLQuoteElement where fromFFI = Just
 
@@ -1796,10 +1796,10 @@ SafeCast HTMLQuoteElement where
   safeCast = unsafeCastOnPrototypeName "HTMLQuoteElement"
 
 export data HTMLScriptElement : Type where [external]
-  
+
 export
 ToFFI HTMLScriptElement HTMLScriptElement where toFFI = id
-  
+
 export
 FromFFI HTMLScriptElement HTMLScriptElement where fromFFI = Just
 
@@ -1808,10 +1808,10 @@ SafeCast HTMLScriptElement where
   safeCast = unsafeCastOnPrototypeName "HTMLScriptElement"
 
 export data HTMLSelectElement : Type where [external]
-  
+
 export
 ToFFI HTMLSelectElement HTMLSelectElement where toFFI = id
-  
+
 export
 FromFFI HTMLSelectElement HTMLSelectElement where fromFFI = Just
 
@@ -1820,10 +1820,10 @@ SafeCast HTMLSelectElement where
   safeCast = unsafeCastOnPrototypeName "HTMLSelectElement"
 
 export data HTMLSlotElement : Type where [external]
-  
+
 export
 ToFFI HTMLSlotElement HTMLSlotElement where toFFI = id
-  
+
 export
 FromFFI HTMLSlotElement HTMLSlotElement where fromFFI = Just
 
@@ -1832,10 +1832,10 @@ SafeCast HTMLSlotElement where
   safeCast = unsafeCastOnPrototypeName "HTMLSlotElement"
 
 export data HTMLSourceElement : Type where [external]
-  
+
 export
 ToFFI HTMLSourceElement HTMLSourceElement where toFFI = id
-  
+
 export
 FromFFI HTMLSourceElement HTMLSourceElement where fromFFI = Just
 
@@ -1844,10 +1844,10 @@ SafeCast HTMLSourceElement where
   safeCast = unsafeCastOnPrototypeName "HTMLSourceElement"
 
 export data HTMLSpanElement : Type where [external]
-  
+
 export
 ToFFI HTMLSpanElement HTMLSpanElement where toFFI = id
-  
+
 export
 FromFFI HTMLSpanElement HTMLSpanElement where fromFFI = Just
 
@@ -1856,10 +1856,10 @@ SafeCast HTMLSpanElement where
   safeCast = unsafeCastOnPrototypeName "HTMLSpanElement"
 
 export data HTMLStyleElement : Type where [external]
-  
+
 export
 ToFFI HTMLStyleElement HTMLStyleElement where toFFI = id
-  
+
 export
 FromFFI HTMLStyleElement HTMLStyleElement where fromFFI = Just
 
@@ -1868,10 +1868,10 @@ SafeCast HTMLStyleElement where
   safeCast = unsafeCastOnPrototypeName "HTMLStyleElement"
 
 export data HTMLTableCaptionElement : Type where [external]
-  
+
 export
 ToFFI HTMLTableCaptionElement HTMLTableCaptionElement where toFFI = id
-  
+
 export
 FromFFI HTMLTableCaptionElement HTMLTableCaptionElement where fromFFI = Just
 
@@ -1880,10 +1880,10 @@ SafeCast HTMLTableCaptionElement where
   safeCast = unsafeCastOnPrototypeName "HTMLTableCaptionElement"
 
 export data HTMLTableCellElement : Type where [external]
-  
+
 export
 ToFFI HTMLTableCellElement HTMLTableCellElement where toFFI = id
-  
+
 export
 FromFFI HTMLTableCellElement HTMLTableCellElement where fromFFI = Just
 
@@ -1892,10 +1892,10 @@ SafeCast HTMLTableCellElement where
   safeCast = unsafeCastOnPrototypeName "HTMLTableCellElement"
 
 export data HTMLTableColElement : Type where [external]
-  
+
 export
 ToFFI HTMLTableColElement HTMLTableColElement where toFFI = id
-  
+
 export
 FromFFI HTMLTableColElement HTMLTableColElement where fromFFI = Just
 
@@ -1904,10 +1904,10 @@ SafeCast HTMLTableColElement where
   safeCast = unsafeCastOnPrototypeName "HTMLTableColElement"
 
 export data HTMLTableElement : Type where [external]
-  
+
 export
 ToFFI HTMLTableElement HTMLTableElement where toFFI = id
-  
+
 export
 FromFFI HTMLTableElement HTMLTableElement where fromFFI = Just
 
@@ -1916,10 +1916,10 @@ SafeCast HTMLTableElement where
   safeCast = unsafeCastOnPrototypeName "HTMLTableElement"
 
 export data HTMLTableRowElement : Type where [external]
-  
+
 export
 ToFFI HTMLTableRowElement HTMLTableRowElement where toFFI = id
-  
+
 export
 FromFFI HTMLTableRowElement HTMLTableRowElement where fromFFI = Just
 
@@ -1928,10 +1928,10 @@ SafeCast HTMLTableRowElement where
   safeCast = unsafeCastOnPrototypeName "HTMLTableRowElement"
 
 export data HTMLTableSectionElement : Type where [external]
-  
+
 export
 ToFFI HTMLTableSectionElement HTMLTableSectionElement where toFFI = id
-  
+
 export
 FromFFI HTMLTableSectionElement HTMLTableSectionElement where fromFFI = Just
 
@@ -1940,10 +1940,10 @@ SafeCast HTMLTableSectionElement where
   safeCast = unsafeCastOnPrototypeName "HTMLTableSectionElement"
 
 export data HTMLTemplateElement : Type where [external]
-  
+
 export
 ToFFI HTMLTemplateElement HTMLTemplateElement where toFFI = id
-  
+
 export
 FromFFI HTMLTemplateElement HTMLTemplateElement where fromFFI = Just
 
@@ -1952,10 +1952,10 @@ SafeCast HTMLTemplateElement where
   safeCast = unsafeCastOnPrototypeName "HTMLTemplateElement"
 
 export data HTMLTextAreaElement : Type where [external]
-  
+
 export
 ToFFI HTMLTextAreaElement HTMLTextAreaElement where toFFI = id
-  
+
 export
 FromFFI HTMLTextAreaElement HTMLTextAreaElement where fromFFI = Just
 
@@ -1964,10 +1964,10 @@ SafeCast HTMLTextAreaElement where
   safeCast = unsafeCastOnPrototypeName "HTMLTextAreaElement"
 
 export data HTMLTimeElement : Type where [external]
-  
+
 export
 ToFFI HTMLTimeElement HTMLTimeElement where toFFI = id
-  
+
 export
 FromFFI HTMLTimeElement HTMLTimeElement where fromFFI = Just
 
@@ -1976,10 +1976,10 @@ SafeCast HTMLTimeElement where
   safeCast = unsafeCastOnPrototypeName "HTMLTimeElement"
 
 export data HTMLTitleElement : Type where [external]
-  
+
 export
 ToFFI HTMLTitleElement HTMLTitleElement where toFFI = id
-  
+
 export
 FromFFI HTMLTitleElement HTMLTitleElement where fromFFI = Just
 
@@ -1988,10 +1988,10 @@ SafeCast HTMLTitleElement where
   safeCast = unsafeCastOnPrototypeName "HTMLTitleElement"
 
 export data HTMLTrackElement : Type where [external]
-  
+
 export
 ToFFI HTMLTrackElement HTMLTrackElement where toFFI = id
-  
+
 export
 FromFFI HTMLTrackElement HTMLTrackElement where fromFFI = Just
 
@@ -2000,10 +2000,10 @@ SafeCast HTMLTrackElement where
   safeCast = unsafeCastOnPrototypeName "HTMLTrackElement"
 
 export data HTMLUListElement : Type where [external]
-  
+
 export
 ToFFI HTMLUListElement HTMLUListElement where toFFI = id
-  
+
 export
 FromFFI HTMLUListElement HTMLUListElement where fromFFI = Just
 
@@ -2012,10 +2012,10 @@ SafeCast HTMLUListElement where
   safeCast = unsafeCastOnPrototypeName "HTMLUListElement"
 
 export data HTMLUnknownElement : Type where [external]
-  
+
 export
 ToFFI HTMLUnknownElement HTMLUnknownElement where toFFI = id
-  
+
 export
 FromFFI HTMLUnknownElement HTMLUnknownElement where fromFFI = Just
 
@@ -2024,10 +2024,10 @@ SafeCast HTMLUnknownElement where
   safeCast = unsafeCastOnPrototypeName "HTMLUnknownElement"
 
 export data HTMLVideoElement : Type where [external]
-  
+
 export
 ToFFI HTMLVideoElement HTMLVideoElement where toFFI = id
-  
+
 export
 FromFFI HTMLVideoElement HTMLVideoElement where fromFFI = Just
 
@@ -2036,10 +2036,10 @@ SafeCast HTMLVideoElement where
   safeCast = unsafeCastOnPrototypeName "HTMLVideoElement"
 
 export data HashChangeEvent : Type where [external]
-  
+
 export
 ToFFI HashChangeEvent HashChangeEvent where toFFI = id
-  
+
 export
 FromFFI HashChangeEvent HashChangeEvent where fromFFI = Just
 
@@ -2048,10 +2048,10 @@ SafeCast HashChangeEvent where
   safeCast = unsafeCastOnPrototypeName "HashChangeEvent"
 
 export data History : Type where [external]
-  
+
 export
 ToFFI History History where toFFI = id
-  
+
 export
 FromFFI History History where fromFFI = Just
 
@@ -2060,10 +2060,10 @@ SafeCast History where
   safeCast = unsafeCastOnPrototypeName "History"
 
 export data ImageBitmap : Type where [external]
-  
+
 export
 ToFFI ImageBitmap ImageBitmap where toFFI = id
-  
+
 export
 FromFFI ImageBitmap ImageBitmap where fromFFI = Just
 
@@ -2072,10 +2072,10 @@ SafeCast ImageBitmap where
   safeCast = unsafeCastOnPrototypeName "ImageBitmap"
 
 export data ImageBitmapRenderingContext : Type where [external]
-  
+
 export
 ToFFI ImageBitmapRenderingContext ImageBitmapRenderingContext where toFFI = id
-  
+
 export
 FromFFI ImageBitmapRenderingContext ImageBitmapRenderingContext where fromFFI = Just
 
@@ -2084,10 +2084,10 @@ SafeCast ImageBitmapRenderingContext where
   safeCast = unsafeCastOnPrototypeName "ImageBitmapRenderingContext"
 
 export data ImageData : Type where [external]
-  
+
 export
 ToFFI ImageData ImageData where toFFI = id
-  
+
 export
 FromFFI ImageData ImageData where fromFFI = Just
 
@@ -2096,10 +2096,10 @@ SafeCast ImageData where
   safeCast = unsafeCastOnPrototypeName "ImageData"
 
 export data Location : Type where [external]
-  
+
 export
 ToFFI Location Location where toFFI = id
-  
+
 export
 FromFFI Location Location where fromFFI = Just
 
@@ -2108,10 +2108,10 @@ SafeCast Location where
   safeCast = unsafeCastOnPrototypeName "Location"
 
 export data MediaError : Type where [external]
-  
+
 export
 ToFFI MediaError MediaError where toFFI = id
-  
+
 export
 FromFFI MediaError MediaError where fromFFI = Just
 
@@ -2120,10 +2120,10 @@ SafeCast MediaError where
   safeCast = unsafeCastOnPrototypeName "MediaError"
 
 export data MessageChannel : Type where [external]
-  
+
 export
 ToFFI MessageChannel MessageChannel where toFFI = id
-  
+
 export
 FromFFI MessageChannel MessageChannel where fromFFI = Just
 
@@ -2132,10 +2132,10 @@ SafeCast MessageChannel where
   safeCast = unsafeCastOnPrototypeName "MessageChannel"
 
 export data MessageEvent : Type where [external]
-  
+
 export
 ToFFI MessageEvent MessageEvent where toFFI = id
-  
+
 export
 FromFFI MessageEvent MessageEvent where fromFFI = Just
 
@@ -2144,10 +2144,10 @@ SafeCast MessageEvent where
   safeCast = unsafeCastOnPrototypeName "MessageEvent"
 
 export data MessagePort : Type where [external]
-  
+
 export
 ToFFI MessagePort MessagePort where toFFI = id
-  
+
 export
 FromFFI MessagePort MessagePort where fromFFI = Just
 
@@ -2156,10 +2156,10 @@ SafeCast MessagePort where
   safeCast = unsafeCastOnPrototypeName "MessagePort"
 
 export data MimeType : Type where [external]
-  
+
 export
 ToFFI MimeType MimeType where toFFI = id
-  
+
 export
 FromFFI MimeType MimeType where fromFFI = Just
 
@@ -2168,10 +2168,10 @@ SafeCast MimeType where
   safeCast = unsafeCastOnPrototypeName "MimeType"
 
 export data MimeTypeArray : Type where [external]
-  
+
 export
 ToFFI MimeTypeArray MimeTypeArray where toFFI = id
-  
+
 export
 FromFFI MimeTypeArray MimeTypeArray where fromFFI = Just
 
@@ -2180,10 +2180,10 @@ SafeCast MimeTypeArray where
   safeCast = unsafeCastOnPrototypeName "MimeTypeArray"
 
 export data Navigator : Type where [external]
-  
+
 export
 ToFFI Navigator Navigator where toFFI = id
-  
+
 export
 FromFFI Navigator Navigator where fromFFI = Just
 
@@ -2192,10 +2192,10 @@ SafeCast Navigator where
   safeCast = unsafeCastOnPrototypeName "Navigator"
 
 export data OffscreenCanvas : Type where [external]
-  
+
 export
 ToFFI OffscreenCanvas OffscreenCanvas where toFFI = id
-  
+
 export
 FromFFI OffscreenCanvas OffscreenCanvas where fromFFI = Just
 
@@ -2204,10 +2204,10 @@ SafeCast OffscreenCanvas where
   safeCast = unsafeCastOnPrototypeName "OffscreenCanvas"
 
 export data OffscreenCanvasRenderingContext2D : Type where [external]
-  
+
 export
 ToFFI OffscreenCanvasRenderingContext2D OffscreenCanvasRenderingContext2D where toFFI = id
-  
+
 export
 FromFFI OffscreenCanvasRenderingContext2D OffscreenCanvasRenderingContext2D where fromFFI = Just
 
@@ -2216,10 +2216,10 @@ SafeCast OffscreenCanvasRenderingContext2D where
   safeCast = unsafeCastOnPrototypeName "OffscreenCanvasRenderingContext2D"
 
 export data PageTransitionEvent : Type where [external]
-  
+
 export
 ToFFI PageTransitionEvent PageTransitionEvent where toFFI = id
-  
+
 export
 FromFFI PageTransitionEvent PageTransitionEvent where fromFFI = Just
 
@@ -2228,10 +2228,10 @@ SafeCast PageTransitionEvent where
   safeCast = unsafeCastOnPrototypeName "PageTransitionEvent"
 
 export data Path2D : Type where [external]
-  
+
 export
 ToFFI Path2D Path2D where toFFI = id
-  
+
 export
 FromFFI Path2D Path2D where fromFFI = Just
 
@@ -2240,10 +2240,10 @@ SafeCast Path2D where
   safeCast = unsafeCastOnPrototypeName "Path2D"
 
 export data Plugin : Type where [external]
-  
+
 export
 ToFFI Plugin Plugin where toFFI = id
-  
+
 export
 FromFFI Plugin Plugin where fromFFI = Just
 
@@ -2252,10 +2252,10 @@ SafeCast Plugin where
   safeCast = unsafeCastOnPrototypeName "Plugin"
 
 export data PluginArray : Type where [external]
-  
+
 export
 ToFFI PluginArray PluginArray where toFFI = id
-  
+
 export
 FromFFI PluginArray PluginArray where fromFFI = Just
 
@@ -2264,10 +2264,10 @@ SafeCast PluginArray where
   safeCast = unsafeCastOnPrototypeName "PluginArray"
 
 export data PopStateEvent : Type where [external]
-  
+
 export
 ToFFI PopStateEvent PopStateEvent where toFFI = id
-  
+
 export
 FromFFI PopStateEvent PopStateEvent where fromFFI = Just
 
@@ -2276,10 +2276,10 @@ SafeCast PopStateEvent where
   safeCast = unsafeCastOnPrototypeName "PopStateEvent"
 
 export data PromiseRejectionEvent : Type where [external]
-  
+
 export
 ToFFI PromiseRejectionEvent PromiseRejectionEvent where toFFI = id
-  
+
 export
 FromFFI PromiseRejectionEvent PromiseRejectionEvent where fromFFI = Just
 
@@ -2288,10 +2288,10 @@ SafeCast PromiseRejectionEvent where
   safeCast = unsafeCastOnPrototypeName "PromiseRejectionEvent"
 
 export data RadioNodeList : Type where [external]
-  
+
 export
 ToFFI RadioNodeList RadioNodeList where toFFI = id
-  
+
 export
 FromFFI RadioNodeList RadioNodeList where fromFFI = Just
 
@@ -2300,10 +2300,10 @@ SafeCast RadioNodeList where
   safeCast = unsafeCastOnPrototypeName "RadioNodeList"
 
 export data SharedWorker : Type where [external]
-  
+
 export
 ToFFI SharedWorker SharedWorker where toFFI = id
-  
+
 export
 FromFFI SharedWorker SharedWorker where fromFFI = Just
 
@@ -2312,10 +2312,10 @@ SafeCast SharedWorker where
   safeCast = unsafeCastOnPrototypeName "SharedWorker"
 
 export data SharedWorkerGlobalScope : Type where [external]
-  
+
 export
 ToFFI SharedWorkerGlobalScope SharedWorkerGlobalScope where toFFI = id
-  
+
 export
 FromFFI SharedWorkerGlobalScope SharedWorkerGlobalScope where fromFFI = Just
 
@@ -2324,10 +2324,10 @@ SafeCast SharedWorkerGlobalScope where
   safeCast = unsafeCastOnPrototypeName "SharedWorkerGlobalScope"
 
 export data Storage : Type where [external]
-  
+
 export
 ToFFI Storage Storage where toFFI = id
-  
+
 export
 FromFFI Storage Storage where fromFFI = Just
 
@@ -2336,10 +2336,10 @@ SafeCast Storage where
   safeCast = unsafeCastOnPrototypeName "Storage"
 
 export data StorageEvent : Type where [external]
-  
+
 export
 ToFFI StorageEvent StorageEvent where toFFI = id
-  
+
 export
 FromFFI StorageEvent StorageEvent where fromFFI = Just
 
@@ -2348,10 +2348,10 @@ SafeCast StorageEvent where
   safeCast = unsafeCastOnPrototypeName "StorageEvent"
 
 export data SubmitEvent : Type where [external]
-  
+
 export
 ToFFI SubmitEvent SubmitEvent where toFFI = id
-  
+
 export
 FromFFI SubmitEvent SubmitEvent where fromFFI = Just
 
@@ -2360,10 +2360,10 @@ SafeCast SubmitEvent where
   safeCast = unsafeCastOnPrototypeName "SubmitEvent"
 
 export data TextMetrics : Type where [external]
-  
+
 export
 ToFFI TextMetrics TextMetrics where toFFI = id
-  
+
 export
 FromFFI TextMetrics TextMetrics where fromFFI = Just
 
@@ -2372,10 +2372,10 @@ SafeCast TextMetrics where
   safeCast = unsafeCastOnPrototypeName "TextMetrics"
 
 export data TextTrack : Type where [external]
-  
+
 export
 ToFFI TextTrack TextTrack where toFFI = id
-  
+
 export
 FromFFI TextTrack TextTrack where fromFFI = Just
 
@@ -2384,10 +2384,10 @@ SafeCast TextTrack where
   safeCast = unsafeCastOnPrototypeName "TextTrack"
 
 export data TextTrackCue : Type where [external]
-  
+
 export
 ToFFI TextTrackCue TextTrackCue where toFFI = id
-  
+
 export
 FromFFI TextTrackCue TextTrackCue where fromFFI = Just
 
@@ -2396,10 +2396,10 @@ SafeCast TextTrackCue where
   safeCast = unsafeCastOnPrototypeName "TextTrackCue"
 
 export data TextTrackCueList : Type where [external]
-  
+
 export
 ToFFI TextTrackCueList TextTrackCueList where toFFI = id
-  
+
 export
 FromFFI TextTrackCueList TextTrackCueList where fromFFI = Just
 
@@ -2408,10 +2408,10 @@ SafeCast TextTrackCueList where
   safeCast = unsafeCastOnPrototypeName "TextTrackCueList"
 
 export data TextTrackList : Type where [external]
-  
+
 export
 ToFFI TextTrackList TextTrackList where toFFI = id
-  
+
 export
 FromFFI TextTrackList TextTrackList where fromFFI = Just
 
@@ -2420,10 +2420,10 @@ SafeCast TextTrackList where
   safeCast = unsafeCastOnPrototypeName "TextTrackList"
 
 export data TimeRanges : Type where [external]
-  
+
 export
 ToFFI TimeRanges TimeRanges where toFFI = id
-  
+
 export
 FromFFI TimeRanges TimeRanges where fromFFI = Just
 
@@ -2432,10 +2432,10 @@ SafeCast TimeRanges where
   safeCast = unsafeCastOnPrototypeName "TimeRanges"
 
 export data TrackEvent : Type where [external]
-  
+
 export
 ToFFI TrackEvent TrackEvent where toFFI = id
-  
+
 export
 FromFFI TrackEvent TrackEvent where fromFFI = Just
 
@@ -2444,10 +2444,10 @@ SafeCast TrackEvent where
   safeCast = unsafeCastOnPrototypeName "TrackEvent"
 
 export data ValidityState : Type where [external]
-  
+
 export
 ToFFI ValidityState ValidityState where toFFI = id
-  
+
 export
 FromFFI ValidityState ValidityState where fromFFI = Just
 
@@ -2456,10 +2456,10 @@ SafeCast ValidityState where
   safeCast = unsafeCastOnPrototypeName "ValidityState"
 
 export data VideoTrack : Type where [external]
-  
+
 export
 ToFFI VideoTrack VideoTrack where toFFI = id
-  
+
 export
 FromFFI VideoTrack VideoTrack where fromFFI = Just
 
@@ -2468,10 +2468,10 @@ SafeCast VideoTrack where
   safeCast = unsafeCastOnPrototypeName "VideoTrack"
 
 export data VideoTrackList : Type where [external]
-  
+
 export
 ToFFI VideoTrackList VideoTrackList where toFFI = id
-  
+
 export
 FromFFI VideoTrackList VideoTrackList where fromFFI = Just
 
@@ -2480,10 +2480,10 @@ SafeCast VideoTrackList where
   safeCast = unsafeCastOnPrototypeName "VideoTrackList"
 
 export data WebSocket : Type where [external]
-  
+
 export
 ToFFI WebSocket WebSocket where toFFI = id
-  
+
 export
 FromFFI WebSocket WebSocket where fromFFI = Just
 
@@ -2492,10 +2492,10 @@ SafeCast WebSocket where
   safeCast = unsafeCastOnPrototypeName "WebSocket"
 
 export data Window : Type where [external]
-  
+
 export
 ToFFI Window Window where toFFI = id
-  
+
 export
 FromFFI Window Window where fromFFI = Just
 
@@ -2504,10 +2504,10 @@ SafeCast Window where
   safeCast = unsafeCastOnPrototypeName "Window"
 
 export data Worker : Type where [external]
-  
+
 export
 ToFFI Worker Worker where toFFI = id
-  
+
 export
 FromFFI Worker Worker where fromFFI = Just
 
@@ -2516,10 +2516,10 @@ SafeCast Worker where
   safeCast = unsafeCastOnPrototypeName "Worker"
 
 export data WorkerGlobalScope : Type where [external]
-  
+
 export
 ToFFI WorkerGlobalScope WorkerGlobalScope where toFFI = id
-  
+
 export
 FromFFI WorkerGlobalScope WorkerGlobalScope where fromFFI = Just
 
@@ -2528,10 +2528,10 @@ SafeCast WorkerGlobalScope where
   safeCast = unsafeCastOnPrototypeName "WorkerGlobalScope"
 
 export data WorkerLocation : Type where [external]
-  
+
 export
 ToFFI WorkerLocation WorkerLocation where toFFI = id
-  
+
 export
 FromFFI WorkerLocation WorkerLocation where fromFFI = Just
 
@@ -2540,10 +2540,10 @@ SafeCast WorkerLocation where
   safeCast = unsafeCastOnPrototypeName "WorkerLocation"
 
 export data WorkerNavigator : Type where [external]
-  
+
 export
 ToFFI WorkerNavigator WorkerNavigator where toFFI = id
-  
+
 export
 FromFFI WorkerNavigator WorkerNavigator where fromFFI = Just
 
@@ -2552,10 +2552,10 @@ SafeCast WorkerNavigator where
   safeCast = unsafeCastOnPrototypeName "WorkerNavigator"
 
 export data Worklet : Type where [external]
-  
+
 export
 ToFFI Worklet Worklet where toFFI = id
-  
+
 export
 FromFFI Worklet Worklet where fromFFI = Just
 
@@ -2564,10 +2564,10 @@ SafeCast Worklet where
   safeCast = unsafeCastOnPrototypeName "Worklet"
 
 export data WorkletGlobalScope : Type where [external]
-  
+
 export
 ToFFI WorkletGlobalScope WorkletGlobalScope where toFFI = id
-  
+
 export
 FromFFI WorkletGlobalScope WorkletGlobalScope where fromFFI = Just
 
@@ -2580,10 +2580,10 @@ SafeCast WorkletGlobalScope where
 --------------------------------------------------------------------------------
 
 export data AssignedNodesOptions : Type where [external]
-  
+
 export
 ToFFI AssignedNodesOptions AssignedNodesOptions where toFFI = id
-  
+
 export
 FromFFI AssignedNodesOptions AssignedNodesOptions where fromFFI = Just
 
@@ -2592,10 +2592,10 @@ SafeCast AssignedNodesOptions where
   safeCast = unsafeCastOnPrototypeName "AssignedNodesOptions"
 
 export data CanvasRenderingContext2DSettings : Type where [external]
-  
+
 export
 ToFFI CanvasRenderingContext2DSettings CanvasRenderingContext2DSettings where toFFI = id
-  
+
 export
 FromFFI CanvasRenderingContext2DSettings CanvasRenderingContext2DSettings where fromFFI = Just
 
@@ -2604,10 +2604,10 @@ SafeCast CanvasRenderingContext2DSettings where
   safeCast = unsafeCastOnPrototypeName "CanvasRenderingContext2DSettings"
 
 export data CloseEventInit : Type where [external]
-  
+
 export
 ToFFI CloseEventInit CloseEventInit where toFFI = id
-  
+
 export
 FromFFI CloseEventInit CloseEventInit where fromFFI = Just
 
@@ -2616,10 +2616,10 @@ SafeCast CloseEventInit where
   safeCast = unsafeCastOnPrototypeName "CloseEventInit"
 
 export data DragEventInit : Type where [external]
-  
+
 export
 ToFFI DragEventInit DragEventInit where toFFI = id
-  
+
 export
 FromFFI DragEventInit DragEventInit where fromFFI = Just
 
@@ -2628,10 +2628,10 @@ SafeCast DragEventInit where
   safeCast = unsafeCastOnPrototypeName "DragEventInit"
 
 export data ElementDefinitionOptions : Type where [external]
-  
+
 export
 ToFFI ElementDefinitionOptions ElementDefinitionOptions where toFFI = id
-  
+
 export
 FromFFI ElementDefinitionOptions ElementDefinitionOptions where fromFFI = Just
 
@@ -2640,10 +2640,10 @@ SafeCast ElementDefinitionOptions where
   safeCast = unsafeCastOnPrototypeName "ElementDefinitionOptions"
 
 export data ErrorEventInit : Type where [external]
-  
+
 export
 ToFFI ErrorEventInit ErrorEventInit where toFFI = id
-  
+
 export
 FromFFI ErrorEventInit ErrorEventInit where fromFFI = Just
 
@@ -2652,10 +2652,10 @@ SafeCast ErrorEventInit where
   safeCast = unsafeCastOnPrototypeName "ErrorEventInit"
 
 export data EventSourceInit : Type where [external]
-  
+
 export
 ToFFI EventSourceInit EventSourceInit where toFFI = id
-  
+
 export
 FromFFI EventSourceInit EventSourceInit where fromFFI = Just
 
@@ -2664,10 +2664,10 @@ SafeCast EventSourceInit where
   safeCast = unsafeCastOnPrototypeName "EventSourceInit"
 
 export data FocusOptions : Type where [external]
-  
+
 export
 ToFFI FocusOptions FocusOptions where toFFI = id
-  
+
 export
 FromFFI FocusOptions FocusOptions where fromFFI = Just
 
@@ -2676,10 +2676,10 @@ SafeCast FocusOptions where
   safeCast = unsafeCastOnPrototypeName "FocusOptions"
 
 export data FormDataEventInit : Type where [external]
-  
+
 export
 ToFFI FormDataEventInit FormDataEventInit where toFFI = id
-  
+
 export
 FromFFI FormDataEventInit FormDataEventInit where fromFFI = Just
 
@@ -2688,10 +2688,10 @@ SafeCast FormDataEventInit where
   safeCast = unsafeCastOnPrototypeName "FormDataEventInit"
 
 export data HashChangeEventInit : Type where [external]
-  
+
 export
 ToFFI HashChangeEventInit HashChangeEventInit where toFFI = id
-  
+
 export
 FromFFI HashChangeEventInit HashChangeEventInit where fromFFI = Just
 
@@ -2700,10 +2700,10 @@ SafeCast HashChangeEventInit where
   safeCast = unsafeCastOnPrototypeName "HashChangeEventInit"
 
 export data ImageBitmapOptions : Type where [external]
-  
+
 export
 ToFFI ImageBitmapOptions ImageBitmapOptions where toFFI = id
-  
+
 export
 FromFFI ImageBitmapOptions ImageBitmapOptions where fromFFI = Just
 
@@ -2712,10 +2712,10 @@ SafeCast ImageBitmapOptions where
   safeCast = unsafeCastOnPrototypeName "ImageBitmapOptions"
 
 export data ImageBitmapRenderingContextSettings : Type where [external]
-  
+
 export
 ToFFI ImageBitmapRenderingContextSettings ImageBitmapRenderingContextSettings where toFFI = id
-  
+
 export
 FromFFI ImageBitmapRenderingContextSettings ImageBitmapRenderingContextSettings where fromFFI = Just
 
@@ -2724,10 +2724,10 @@ SafeCast ImageBitmapRenderingContextSettings where
   safeCast = unsafeCastOnPrototypeName "ImageBitmapRenderingContextSettings"
 
 export data ImageEncodeOptions : Type where [external]
-  
+
 export
 ToFFI ImageEncodeOptions ImageEncodeOptions where toFFI = id
-  
+
 export
 FromFFI ImageEncodeOptions ImageEncodeOptions where fromFFI = Just
 
@@ -2736,10 +2736,10 @@ SafeCast ImageEncodeOptions where
   safeCast = unsafeCastOnPrototypeName "ImageEncodeOptions"
 
 export data MessageEventInit : Type where [external]
-  
+
 export
 ToFFI MessageEventInit MessageEventInit where toFFI = id
-  
+
 export
 FromFFI MessageEventInit MessageEventInit where fromFFI = Just
 
@@ -2748,10 +2748,10 @@ SafeCast MessageEventInit where
   safeCast = unsafeCastOnPrototypeName "MessageEventInit"
 
 export data PageTransitionEventInit : Type where [external]
-  
+
 export
 ToFFI PageTransitionEventInit PageTransitionEventInit where toFFI = id
-  
+
 export
 FromFFI PageTransitionEventInit PageTransitionEventInit where fromFFI = Just
 
@@ -2760,10 +2760,10 @@ SafeCast PageTransitionEventInit where
   safeCast = unsafeCastOnPrototypeName "PageTransitionEventInit"
 
 export data PopStateEventInit : Type where [external]
-  
+
 export
 ToFFI PopStateEventInit PopStateEventInit where toFFI = id
-  
+
 export
 FromFFI PopStateEventInit PopStateEventInit where fromFFI = Just
 
@@ -2772,10 +2772,10 @@ SafeCast PopStateEventInit where
   safeCast = unsafeCastOnPrototypeName "PopStateEventInit"
 
 export data PostMessageOptions : Type where [external]
-  
+
 export
 ToFFI PostMessageOptions PostMessageOptions where toFFI = id
-  
+
 export
 FromFFI PostMessageOptions PostMessageOptions where fromFFI = Just
 
@@ -2784,10 +2784,10 @@ SafeCast PostMessageOptions where
   safeCast = unsafeCastOnPrototypeName "PostMessageOptions"
 
 export data PromiseRejectionEventInit : Type where [external]
-  
+
 export
 ToFFI PromiseRejectionEventInit PromiseRejectionEventInit where toFFI = id
-  
+
 export
 FromFFI PromiseRejectionEventInit PromiseRejectionEventInit where fromFFI = Just
 
@@ -2796,10 +2796,10 @@ SafeCast PromiseRejectionEventInit where
   safeCast = unsafeCastOnPrototypeName "PromiseRejectionEventInit"
 
 export data StorageEventInit : Type where [external]
-  
+
 export
 ToFFI StorageEventInit StorageEventInit where toFFI = id
-  
+
 export
 FromFFI StorageEventInit StorageEventInit where fromFFI = Just
 
@@ -2808,10 +2808,10 @@ SafeCast StorageEventInit where
   safeCast = unsafeCastOnPrototypeName "StorageEventInit"
 
 export data SubmitEventInit : Type where [external]
-  
+
 export
 ToFFI SubmitEventInit SubmitEventInit where toFFI = id
-  
+
 export
 FromFFI SubmitEventInit SubmitEventInit where fromFFI = Just
 
@@ -2820,10 +2820,10 @@ SafeCast SubmitEventInit where
   safeCast = unsafeCastOnPrototypeName "SubmitEventInit"
 
 export data TrackEventInit : Type where [external]
-  
+
 export
 ToFFI TrackEventInit TrackEventInit where toFFI = id
-  
+
 export
 FromFFI TrackEventInit TrackEventInit where fromFFI = Just
 
@@ -2832,10 +2832,10 @@ SafeCast TrackEventInit where
   safeCast = unsafeCastOnPrototypeName "TrackEventInit"
 
 export data ValidityStateFlags : Type where [external]
-  
+
 export
 ToFFI ValidityStateFlags ValidityStateFlags where toFFI = id
-  
+
 export
 FromFFI ValidityStateFlags ValidityStateFlags where fromFFI = Just
 
@@ -2844,10 +2844,10 @@ SafeCast ValidityStateFlags where
   safeCast = unsafeCastOnPrototypeName "ValidityStateFlags"
 
 export data WindowPostMessageOptions : Type where [external]
-  
+
 export
 ToFFI WindowPostMessageOptions WindowPostMessageOptions where toFFI = id
-  
+
 export
 FromFFI WindowPostMessageOptions WindowPostMessageOptions where fromFFI = Just
 
@@ -2856,10 +2856,10 @@ SafeCast WindowPostMessageOptions where
   safeCast = unsafeCastOnPrototypeName "WindowPostMessageOptions"
 
 export data WorkerOptions : Type where [external]
-  
+
 export
 ToFFI WorkerOptions WorkerOptions where toFFI = id
-  
+
 export
 FromFFI WorkerOptions WorkerOptions where fromFFI = Just
 
@@ -2868,10 +2868,10 @@ SafeCast WorkerOptions where
   safeCast = unsafeCastOnPrototypeName "WorkerOptions"
 
 export data WorkletOptions : Type where [external]
-  
+
 export
 ToFFI WorkletOptions WorkletOptions where toFFI = id
-  
+
 export
 FromFFI WorkletOptions WorkletOptions where fromFFI = Just
 
@@ -2884,250 +2884,250 @@ SafeCast WorkletOptions where
 --------------------------------------------------------------------------------
 
 export data ARIAMixin : Type where [external]
-  
+
 export
 ToFFI ARIAMixin ARIAMixin where toFFI = id
-  
+
 export
 FromFFI ARIAMixin ARIAMixin where fromFFI = Just
 
 export data AbstractWorker : Type where [external]
-  
+
 export
 ToFFI AbstractWorker AbstractWorker where toFFI = id
-  
+
 export
 FromFFI AbstractWorker AbstractWorker where fromFFI = Just
 
 export data CanvasCompositing : Type where [external]
-  
+
 export
 ToFFI CanvasCompositing CanvasCompositing where toFFI = id
-  
+
 export
 FromFFI CanvasCompositing CanvasCompositing where fromFFI = Just
 
 export data CanvasDrawImage : Type where [external]
-  
+
 export
 ToFFI CanvasDrawImage CanvasDrawImage where toFFI = id
-  
+
 export
 FromFFI CanvasDrawImage CanvasDrawImage where fromFFI = Just
 
 export data CanvasDrawPath : Type where [external]
-  
+
 export
 ToFFI CanvasDrawPath CanvasDrawPath where toFFI = id
-  
+
 export
 FromFFI CanvasDrawPath CanvasDrawPath where fromFFI = Just
 
 export data CanvasFillStrokeStyles : Type where [external]
-  
+
 export
 ToFFI CanvasFillStrokeStyles CanvasFillStrokeStyles where toFFI = id
-  
+
 export
 FromFFI CanvasFillStrokeStyles CanvasFillStrokeStyles where fromFFI = Just
 
 export data CanvasFilters : Type where [external]
-  
+
 export
 ToFFI CanvasFilters CanvasFilters where toFFI = id
-  
+
 export
 FromFFI CanvasFilters CanvasFilters where fromFFI = Just
 
 export data CanvasImageData : Type where [external]
-  
+
 export
 ToFFI CanvasImageData CanvasImageData where toFFI = id
-  
+
 export
 FromFFI CanvasImageData CanvasImageData where fromFFI = Just
 
 export data CanvasImageSmoothing : Type where [external]
-  
+
 export
 ToFFI CanvasImageSmoothing CanvasImageSmoothing where toFFI = id
-  
+
 export
 FromFFI CanvasImageSmoothing CanvasImageSmoothing where fromFFI = Just
 
 export data CanvasPath : Type where [external]
-  
+
 export
 ToFFI CanvasPath CanvasPath where toFFI = id
-  
+
 export
 FromFFI CanvasPath CanvasPath where fromFFI = Just
 
 export data CanvasPathDrawingStyles : Type where [external]
-  
+
 export
 ToFFI CanvasPathDrawingStyles CanvasPathDrawingStyles where toFFI = id
-  
+
 export
 FromFFI CanvasPathDrawingStyles CanvasPathDrawingStyles where fromFFI = Just
 
 export data CanvasRect : Type where [external]
-  
+
 export
 ToFFI CanvasRect CanvasRect where toFFI = id
-  
+
 export
 FromFFI CanvasRect CanvasRect where fromFFI = Just
 
 export data CanvasShadowStyles : Type where [external]
-  
+
 export
 ToFFI CanvasShadowStyles CanvasShadowStyles where toFFI = id
-  
+
 export
 FromFFI CanvasShadowStyles CanvasShadowStyles where fromFFI = Just
 
 export data CanvasState : Type where [external]
-  
+
 export
 ToFFI CanvasState CanvasState where toFFI = id
-  
+
 export
 FromFFI CanvasState CanvasState where fromFFI = Just
 
 export data CanvasText : Type where [external]
-  
+
 export
 ToFFI CanvasText CanvasText where toFFI = id
-  
+
 export
 FromFFI CanvasText CanvasText where fromFFI = Just
 
 export data CanvasTextDrawingStyles : Type where [external]
-  
+
 export
 ToFFI CanvasTextDrawingStyles CanvasTextDrawingStyles where toFFI = id
-  
+
 export
 FromFFI CanvasTextDrawingStyles CanvasTextDrawingStyles where fromFFI = Just
 
 export data CanvasTransform : Type where [external]
-  
+
 export
 ToFFI CanvasTransform CanvasTransform where toFFI = id
-  
+
 export
 FromFFI CanvasTransform CanvasTransform where fromFFI = Just
 
 export data CanvasUserInterface : Type where [external]
-  
+
 export
 ToFFI CanvasUserInterface CanvasUserInterface where toFFI = id
-  
+
 export
 FromFFI CanvasUserInterface CanvasUserInterface where fromFFI = Just
 
 export data DocumentAndElementEventHandlers : Type where [external]
-  
+
 export
 ToFFI DocumentAndElementEventHandlers DocumentAndElementEventHandlers where toFFI = id
-  
+
 export
 FromFFI DocumentAndElementEventHandlers DocumentAndElementEventHandlers where fromFFI = Just
 
 export data ElementContentEditable : Type where [external]
-  
+
 export
 ToFFI ElementContentEditable ElementContentEditable where toFFI = id
-  
+
 export
 FromFFI ElementContentEditable ElementContentEditable where fromFFI = Just
 
 export data GlobalEventHandlers : Type where [external]
-  
+
 export
 ToFFI GlobalEventHandlers GlobalEventHandlers where toFFI = id
-  
+
 export
 FromFFI GlobalEventHandlers GlobalEventHandlers where fromFFI = Just
 
 export data HTMLHyperlinkElementUtils : Type where [external]
-  
+
 export
 ToFFI HTMLHyperlinkElementUtils HTMLHyperlinkElementUtils where toFFI = id
-  
+
 export
 FromFFI HTMLHyperlinkElementUtils HTMLHyperlinkElementUtils where fromFFI = Just
 
 export data HTMLOrSVGElement : Type where [external]
-  
+
 export
 ToFFI HTMLOrSVGElement HTMLOrSVGElement where toFFI = id
-  
+
 export
 FromFFI HTMLOrSVGElement HTMLOrSVGElement where fromFFI = Just
 
 export data NavigatorConcurrentHardware : Type where [external]
-  
+
 export
 ToFFI NavigatorConcurrentHardware NavigatorConcurrentHardware where toFFI = id
-  
+
 export
 FromFFI NavigatorConcurrentHardware NavigatorConcurrentHardware where fromFFI = Just
 
 export data NavigatorContentUtils : Type where [external]
-  
+
 export
 ToFFI NavigatorContentUtils NavigatorContentUtils where toFFI = id
-  
+
 export
 FromFFI NavigatorContentUtils NavigatorContentUtils where fromFFI = Just
 
 export data NavigatorCookies : Type where [external]
-  
+
 export
 ToFFI NavigatorCookies NavigatorCookies where toFFI = id
-  
+
 export
 FromFFI NavigatorCookies NavigatorCookies where fromFFI = Just
 
 export data NavigatorID : Type where [external]
-  
+
 export
 ToFFI NavigatorID NavigatorID where toFFI = id
-  
+
 export
 FromFFI NavigatorID NavigatorID where fromFFI = Just
 
 export data NavigatorLanguage : Type where [external]
-  
+
 export
 ToFFI NavigatorLanguage NavigatorLanguage where toFFI = id
-  
+
 export
 FromFFI NavigatorLanguage NavigatorLanguage where fromFFI = Just
 
 export data NavigatorOnLine : Type where [external]
-  
+
 export
 ToFFI NavigatorOnLine NavigatorOnLine where toFFI = id
-  
+
 export
 FromFFI NavigatorOnLine NavigatorOnLine where fromFFI = Just
 
 export data NavigatorPlugins : Type where [external]
-  
+
 export
 ToFFI NavigatorPlugins NavigatorPlugins where toFFI = id
-  
+
 export
 FromFFI NavigatorPlugins NavigatorPlugins where fromFFI = Just
 
 export data WindowEventHandlers : Type where [external]
-  
+
 export
 ToFFI WindowEventHandlers WindowEventHandlers where toFFI = id
-  
+
 export
 FromFFI WindowEventHandlers WindowEventHandlers where fromFFI = Just
 
@@ -3136,49 +3136,49 @@ FromFFI WindowEventHandlers WindowEventHandlers where fromFFI = Just
 --------------------------------------------------------------------------------
 
 export data BlobCallback : Type where [external]
-  
+
 export
 ToFFI BlobCallback BlobCallback where toFFI = id
-  
+
 export
 FromFFI BlobCallback BlobCallback where fromFFI = Just
 
 export data CustomElementConstructor : Type where [external]
-  
+
 export
 ToFFI CustomElementConstructor CustomElementConstructor where toFFI = id
-  
+
 export
 FromFFI CustomElementConstructor CustomElementConstructor where fromFFI = Just
 
 export data EventHandlerNonNull : Type where [external]
-  
+
 export
 ToFFI EventHandlerNonNull EventHandlerNonNull where toFFI = id
-  
+
 export
 FromFFI EventHandlerNonNull EventHandlerNonNull where fromFFI = Just
 
 export data FunctionStringCallback : Type where [external]
-  
+
 export
 ToFFI FunctionStringCallback FunctionStringCallback where toFFI = id
-  
+
 export
 FromFFI FunctionStringCallback FunctionStringCallback where fromFFI = Just
 
 export data OnBeforeUnloadEventHandlerNonNull : Type where [external]
-  
+
 export
 ToFFI OnBeforeUnloadEventHandlerNonNull OnBeforeUnloadEventHandlerNonNull where toFFI = id
-  
+
 export
 FromFFI OnBeforeUnloadEventHandlerNonNull OnBeforeUnloadEventHandlerNonNull where fromFFI = Just
 
 export data OnErrorEventHandlerNonNull : Type where [external]
-  
+
 export
 ToFFI OnErrorEventHandlerNonNull OnErrorEventHandlerNonNull where toFFI = id
-  
+
 export
 FromFFI OnErrorEventHandlerNonNull OnErrorEventHandlerNonNull where fromFFI = Just

@@ -84,17 +84,17 @@ unset o g = set' (g o) empty
 infix 1 .=
 
 export
-(.=) : Attribute b f a -> a -> JSIO () 
+(.=) : Attribute b f a -> a -> JSIO ()
 (.=) = set
 
 infixr 0 !>, ?>
 
 export
-(!>) : Callback a fun => Attribute b f a -> fun -> JSIO () 
+(!>) : Callback a fun => Attribute b f a -> fun -> JSIO ()
 a !> cb = callback cb >>= set a
 
 export
-(?>) : Callback a (x -> y) => Attribute b f a -> y -> JSIO () 
+(?>) : Callback a (x -> y) => Attribute b f a -> y -> JSIO ()
 a ?> v = a !> const v
 
 --------------------------------------------------------------------------------

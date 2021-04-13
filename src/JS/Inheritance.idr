@@ -90,7 +90,7 @@ prim__hasProtoName : String -> AnyPtr -> Double
 ||| This is an interface which should be implemented by external
 ||| types, the type of which can be inspected at runtime.
 |||
-||| This allows us to at runtime try and safely cast any value 
+||| This allows us to at runtime try and safely cast any value
 ||| to the type implementing this interface.
 |||
 ||| Typically, there are two mechanisms for inspecting a value's
@@ -146,7 +146,7 @@ SafeCast String where
 
 export
 bounded : Num a => (min : Integer) -> (max : Integer) -> any -> Maybe a
-bounded min max ptr = 
+bounded min max ptr =
   safeCast ptr >>= \n => if n >= min && n <= max
                             then Just (fromInteger n)
                             else Nothing

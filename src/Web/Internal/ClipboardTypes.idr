@@ -1,5 +1,5 @@
 module Web.Internal.ClipboardTypes
- 
+
 import JS
 
 --------------------------------------------------------------------------------
@@ -7,7 +7,7 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace PresentationStyle
-  
+
   public export
   data PresentationStyle = Unspecified | Inline | Attachment
 
@@ -51,10 +51,10 @@ namespace PresentationStyle
 --------------------------------------------------------------------------------
 
 export data Clipboard : Type where [external]
-  
+
 export
 ToFFI Clipboard Clipboard where toFFI = id
-  
+
 export
 FromFFI Clipboard Clipboard where fromFFI = Just
 
@@ -63,10 +63,10 @@ SafeCast Clipboard where
   safeCast = unsafeCastOnPrototypeName "Clipboard"
 
 export data ClipboardEvent : Type where [external]
-  
+
 export
 ToFFI ClipboardEvent ClipboardEvent where toFFI = id
-  
+
 export
 FromFFI ClipboardEvent ClipboardEvent where fromFFI = Just
 
@@ -75,10 +75,10 @@ SafeCast ClipboardEvent where
   safeCast = unsafeCastOnPrototypeName "ClipboardEvent"
 
 export data ClipboardItem : Type where [external]
-  
+
 export
 ToFFI ClipboardItem ClipboardItem where toFFI = id
-  
+
 export
 FromFFI ClipboardItem ClipboardItem where fromFFI = Just
 
@@ -91,10 +91,10 @@ SafeCast ClipboardItem where
 --------------------------------------------------------------------------------
 
 export data ClipboardEventInit : Type where [external]
-  
+
 export
 ToFFI ClipboardEventInit ClipboardEventInit where toFFI = id
-  
+
 export
 FromFFI ClipboardEventInit ClipboardEventInit where fromFFI = Just
 
@@ -103,10 +103,10 @@ SafeCast ClipboardEventInit where
   safeCast = unsafeCastOnPrototypeName "ClipboardEventInit"
 
 export data ClipboardItemOptions : Type where [external]
-  
+
 export
 ToFFI ClipboardItemOptions ClipboardItemOptions where toFFI = id
-  
+
 export
 FromFFI ClipboardItemOptions ClipboardItemOptions where fromFFI = Just
 
@@ -115,10 +115,10 @@ SafeCast ClipboardItemOptions where
   safeCast = unsafeCastOnPrototypeName "ClipboardItemOptions"
 
 export data ClipboardPermissionDescriptor : Type where [external]
-  
+
 export
 ToFFI ClipboardPermissionDescriptor ClipboardPermissionDescriptor where toFFI = id
-  
+
 export
 FromFFI ClipboardPermissionDescriptor ClipboardPermissionDescriptor where fromFFI = Just
 
@@ -132,9 +132,9 @@ SafeCast ClipboardPermissionDescriptor where
 --------------------------------------------------------------------------------
 
 export data ClipboardItemDelayedCallback : Type where [external]
-  
+
 export
 ToFFI ClipboardItemDelayedCallback ClipboardItemDelayedCallback where toFFI = id
-  
+
 export
 FromFFI ClipboardItemDelayedCallback ClipboardItemDelayedCallback where fromFFI = Just
