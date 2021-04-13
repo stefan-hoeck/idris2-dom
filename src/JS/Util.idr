@@ -49,7 +49,8 @@ consoleLog s = fromPrim $ prim__consoleLog s
 
 public export
 data JSErr : Type where
-  CastErr : (inFunction : String) -> (value : a) -> JSErr
+  CastErr   : (inFunction : String) -> (value : a) -> JSErr
+  IsNothing : (callSite : String) -> JSErr
 
 dispErr : JSErr -> String
 dispErr (CastErr inFunction value) = #"""
@@ -57,6 +58,9 @@ dispErr (CastErr inFunction value) = #"""
     The value was: \#{jsShow value}.
     The value's type was \#{typeof value}.
   """#
+
+dispErr (IsNothing callSite) =
+  #"Trying to extract a value from Nothing at \#{callSite}"#
 
 
 public export
@@ -73,7 +77,13 @@ runJS = runJSWith (consoleLog . dispErr)
 
 export %inline
 primJS : PrimIO a -> JSIO a
-primJS p = liftIO (fromPrim p)
+primJS = primIO
+
+export
+unMaybe : (callSite : String) -> JSIO (Maybe a) -> JSIO a
+unMaybe callSite io = do Just a <- io
+                           | Nothing => throwError $ IsNothing callSite
+                         pure a
 
 --------------------------------------------------------------------------------
 --          Common external types

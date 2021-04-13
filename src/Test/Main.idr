@@ -19,22 +19,29 @@ window = primJS prim__window
 document : JSIO Document
 document = primJS prim__document
 
+body : JSIO HTMLElement
+body = unMaybe "Test.body" $ document >>= (`get'` body)
+
+createElement : (0 a : Type) -> SafeCast a => String -> JSIO a
+createElement _ tag =
+  castingTo #"Test.createElement [\#{tag}]"# $ document >>= (`createElement'` tag)
+
 handle : (Event -> JSIO ()) -> JSIO EventHandlerNonNull
-handle f = toEventHandlerNonNull (\v => believe_me (runJS $ f v))
+handle f = toEventHandlerNonNull (map (toFFI . MkAny) . runJS . f)
 
 handle' : JSIO () -> JSIO EventHandlerNonNull
 handle' = handle . const
 
 button : JSIO HTMLButtonElement
-button = castingTo "button" $ document >>= (`createElement'` "button")
+button = createElement _ "button"
 
 prog : JSIO ()
 prog = do btn <- button
-          textContent (up btn) `set` "Click me!"
+          textContent (up btn) ::= "Click me!"
           handler <- handle' $ textContent (up btn) `set` "Yeah!"
           onclick (up btn) ::= handler
-          bd  <- document >>= (`get'` body)
-          traverse_ (\b => up b `appendChild` up btn) bd
+          bd  <- body
+          ignore $ up bd `appendChild` up btn
 
 main : IO ()
 main = runJS prog

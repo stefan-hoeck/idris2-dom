@@ -8,7 +8,7 @@ license    = "BSD-2 Clause"
 opts       = "--codegen javascript"
 
 main       = Test.Main
-executable = "runTest.html"
+executable = "runTest.js"
 
 sourcedir  = "src"
 
