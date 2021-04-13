@@ -65,11 +65,11 @@ export
 unset : Alternative f => (o : obj) -> (obj -> Attribute b f a) -> JSIO ()
 unset o g = set' (g o) empty
 
-infix 0 ::=
+infix 0 .=
 
 export
-(::=) : Attribute b f a -> a -> JSIO () 
-(::=) = set
+(.=) : Attribute b f a -> a -> JSIO () 
+(.=) = set
 
 --------------------------------------------------------------------------------
 --          Creating Attributes

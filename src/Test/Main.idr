@@ -24,7 +24,8 @@ body = unMaybe "Test.body" $ document >>= (`get'` body)
 
 createElement : (0 a : Type) -> SafeCast a => String -> JSIO a
 createElement _ tag =
-  castingTo #"Test.createElement [\#{tag}]"# $ document >>= (`createElement'` tag)
+  castingTo #"Test.createElement [\#{tag}]"# $
+  document >>= (`createElement'` tag)
 
 handle : (Event -> JSIO ()) -> JSIO EventHandlerNonNull
 handle f = toEventHandlerNonNull (map (toFFI . MkAny) . runJS . f)
@@ -37,9 +38,8 @@ button = createElement _ "button"
 
 prog : JSIO ()
 prog = do btn <- button
-          textContent (up btn) ::= "Click me!"
-          handler <- handle' $ textContent (up btn) `set` "Yeah!"
-          onclick (up btn) ::= handler
+          textContent (up btn) .= "Click me!"
+          onclick (up btn) .= !(handle' $ textContent (up btn) .= "Yeah!")
           bd  <- body
           ignore $ up bd `appendChild` up btn
 
