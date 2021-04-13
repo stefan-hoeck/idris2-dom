@@ -68,12 +68,16 @@ JSIO : Type -> Type
 JSIO = EitherT JSErr IO
 
 export
-runJSWith : (JSErr -> IO a) -> JSIO a -> IO a
+runJSWith : Lazy (JSErr -> IO a) -> JSIO a -> IO a
 runJSWith f (MkEitherT io) = io >>= either f pure
 
 export
 runJS : JSIO () -> IO ()
 runJS = runJSWith (consoleLog . dispErr)
+
+export
+runJSWithDefault : Lazy a -> JSIO a -> IO a
+runJSWithDefault a = runJSWith (\e => consoleLog (dispErr e) $> a)
 
 export %inline
 primJS : PrimIO a -> JSIO a

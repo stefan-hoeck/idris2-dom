@@ -87,9 +87,11 @@ export
 FromFFI WindowProxy WindowProxy where fromFFI = Just
 
 export
+tryFromFFI : FromFFI a ffiRepr => (fun : String) -> ffiRepr -> JSIO a
+tryFromFFI fun ptr = case fromFFI ptr of
+                          Nothing => throwError $ CastErr fun ptr
+                          Just v  => pure v
+
+export
 tryJS : FromFFI a ffiRepr => (fun : String) -> PrimIO ffiRepr -> JSIO a
-tryJS fun prim = MkEitherT $ map foo (fromPrim prim)
-  where foo : ffiRepr -> Either JSErr a
-        foo ptr = case fromFFI ptr of
-                       Nothing => Left $ CastErr fun ptr
-                       Just v  => Right v
+tryJS fun prim = primJS prim >>= tryFromFFI fun

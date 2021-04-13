@@ -2,31 +2,8 @@ module Test.Main
 
 import JS
 import Web.Internal.Types
-import Web.Raw.Dom
-import Web.Raw.Html
-
-Callback EventHandlerNonNull (Event -> JSIO ()) where
-  callback f = toEventHandlerNonNull (map (toFFI . MkAny) . runJS . f)
-
-%foreign "browser:lambda:()=>window"
-prim__window : PrimIO Window
-
-%foreign "browser:lambda:()=>document"
-prim__document : PrimIO Document
-
-window : JSIO Window
-window = primJS prim__window
-
-document : JSIO Document
-document = primJS prim__document
-
-body : JSIO HTMLElement
-body = unMaybe "Test.body" $ document >>= to body
-
-createElement : (0 a : Type) -> SafeCast a => String -> JSIO a
-createElement _ tag =
-  castingTo #"Test.createElement [\#{tag}]"# $
-  document >>= (`createElement'` tag)
+import Web.Dom
+import Web.Html
 
 prog : JSIO ()
 prog = do btn <- createElement HTMLButtonElement "button"

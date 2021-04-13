@@ -25,6 +25,9 @@ modules = JS
         , JS.Union
         , JS.Util
         , JS.VarArg
+        
+        , Web.Dom
+        , Web.Html
 
         , Web.Raw.Animation
         , Web.Raw.Clipboard
