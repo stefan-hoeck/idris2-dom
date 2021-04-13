@@ -2,6 +2,7 @@ module JS.Attribute
 
 import Control.Monad.Either
 import Data.SOP
+import JS.Callback
 import JS.Marshall
 import JS.Nullable
 import JS.Undefined
@@ -33,12 +34,16 @@ data Attribute :  (alwaysReturns : Bool)
                         -> Attribute False Optional a
 
 export
-get' : (o : obj) -> (attr : obj -> Attribute b f a) -> JSIO $ f a
-get' o g = case g o of
-                Attr                  gt _   => gt
-                NullableAttr          gt _   => gt
-                OptionalAttr          gt _ _ => gt
-                OptionalAttrNoDefault gt _   => gt
+get : (o : obj) -> (attr : obj -> Attribute b f a) -> JSIO $ f a
+get o g = case g o of
+               Attr                  gt _   => gt
+               NullableAttr          gt _   => gt
+               OptionalAttr          gt _ _ => gt
+               OptionalAttrNoDefault gt _   => gt
+
+export
+to : (attr : obj -> Attribute b f a) -> (o : obj) -> JSIO $ f a
+to = flip get
 
 
 export
@@ -49,27 +54,48 @@ set' (OptionalAttr          _ s _) = s
 set' (OptionalAttrNoDefault _ s)   = s
 
 export
-get : (o : obj) -> (attr : obj -> Attribute True f a) -> JSIO a
-get o g = case g o of
-               Attr         gt _     => gt
-               OptionalAttr gt _ def => map (fromOptional def) gt
+getDef : (o : obj) -> (attr : obj -> Attribute True f a) -> JSIO a
+getDef o g = case g o of
+                  Attr         gt _     => gt
+                  OptionalAttr gt _ def => map (fromOptional def) gt
+
+export
+toDef : (attr : obj -> Attribute True f a) -> (o : obj) -> JSIO a
+toDef = flip getDef
 
 export
 set : Attribute b f a -> a -> JSIO ()
-set (Attr         _ s)   y = s y
-set (NullableAttr _ s)   y = s (Just y)
-set (OptionalAttr _ s _) y = s (Def y)
+set (Attr         _ s)          y = s y
+set (NullableAttr _ s)          y = s (Just y)
+set (OptionalAttr _ s _)        y = s (Def y)
 set (OptionalAttrNoDefault _ s) y = s (Def y)
+
+export
+mod : Attribute b f a -> (a -> a) -> JSIO ()
+mod (Attr         g s)          f = g >>= s . f
+mod (NullableAttr g s)          f = g >>= s . map f
+mod (OptionalAttr g s _)        f = g >>= s . map f
+mod (OptionalAttrNoDefault g s) f = g >>= s . map f
 
 export
 unset : Alternative f => (o : obj) -> (obj -> Attribute b f a) -> JSIO ()
 unset o g = set' (g o) empty
 
-infix 0 .=
+infix 1 .=
 
 export
 (.=) : Attribute b f a -> a -> JSIO () 
 (.=) = set
+
+infixr 0 !>, ?>
+
+export
+(!>) : Callback a fun => Attribute b f a -> fun -> JSIO () 
+a !> cb = callback cb >>= set a
+
+export
+(?>) : Callback a (x -> y) => Attribute b f a -> y -> JSIO () 
+a ?> v = a !> const v
 
 --------------------------------------------------------------------------------
 --          Creating Attributes

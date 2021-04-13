@@ -13,6 +13,7 @@ modules = JS
         , JS.Boolean
         , JS.ByteString
         , JS.Buffer
+        , JS.Callback
         , JS.Inheritance
         , JS.Marshall
         , JS.Nullable

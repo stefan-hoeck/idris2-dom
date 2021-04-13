@@ -7,6 +7,9 @@ import Web.Html
 import Test.Number
 import Test.Util
 
+Callback EventHandlerNonNull (Event -> JSIO ()) where
+  callback f = toEventHandlerNonNull (map (toFFI . MkAny) . runJS . f)
+
 %foreign "browser:lambda:()=>window"
 prim__window : PrimIO Window
 
@@ -20,28 +23,18 @@ document : JSIO Document
 document = primJS prim__document
 
 body : JSIO HTMLElement
-body = unMaybe "Test.body" $ document >>= (`get'` body)
+body = unMaybe "Test.body" $ document >>= to body
 
 createElement : (0 a : Type) -> SafeCast a => String -> JSIO a
 createElement _ tag =
   castingTo #"Test.createElement [\#{tag}]"# $
   document >>= (`createElement'` tag)
 
-handle : (Event -> JSIO ()) -> JSIO EventHandlerNonNull
-handle f = toEventHandlerNonNull (map (toFFI . MkAny) . runJS . f)
-
-handle' : JSIO () -> JSIO EventHandlerNonNull
-handle' = handle . const
-
-button : JSIO HTMLButtonElement
-button = createElement _ "button"
-
 prog : JSIO ()
-prog = do btn <- button
+prog = do btn <- createElement HTMLButtonElement "button"
           textContent (up btn) .= "Click me!"
-          onclick (up btn) .= !(handle' $ textContent (up btn) .= "Yeah!")
-          bd  <- body
-          ignore $ up bd `appendChild` up btn
+          onclick (up btn) ?> textContent (up btn) .= "Yeah!"
+          ignore $ !(map up body) `appendChild` up btn
 
 main : IO ()
 main = runJS prog

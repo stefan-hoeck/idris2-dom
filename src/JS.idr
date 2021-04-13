@@ -10,6 +10,7 @@ import public JS.Array
 import public JS.ByteString
 import public JS.Boolean
 import public JS.Buffer
+import public JS.Callback
 import public JS.Inheritance
 import public JS.Marshall
 import public JS.Nullable
