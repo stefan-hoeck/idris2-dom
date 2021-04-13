@@ -44,15 +44,3 @@ Callback OnErrorEventHandlerNonNull (  NS I [Event, String]
                            (undeforToOptional c)
                            (undeforToOptional d)
                            (MkAny <$> undeforToOptional e)
-               
-
---   export
---   toOnErrorEventHandlerNonNull :  (  Union2 Event String
---                                   -> UndefOr String
---                                   -> UndefOr UInt32
---                                   -> UndefOr UInt32
---                                   -> UndefOr AnyPtr
---                                   -> IO AnyPtr
---                                   )
---                                -> JSIO OnErrorEventHandlerNonNull
---   toOnErrorEventHandlerNonNull cb = primJS $ prim__toOnErrorEventHandlerNonNull cb
