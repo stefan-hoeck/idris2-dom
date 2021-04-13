@@ -1,4 +1,4 @@
-module Web.Url
+module Web.Raw.Url
  
 import JS
 import Web.Internal.UrlPrim

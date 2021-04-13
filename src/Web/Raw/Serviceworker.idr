@@ -1,4 +1,4 @@
-module Web.Serviceworker
+module Web.Raw.Serviceworker
  
 import JS
 import Web.Internal.ServiceworkerPrim

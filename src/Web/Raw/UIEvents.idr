@@ -1,4 +1,4 @@
-module Web.UIEvents
+module Web.Raw.UIEvents
  
 import JS
 import Web.Internal.UIEventsPrim

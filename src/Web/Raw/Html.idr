@@ -1,4 +1,4 @@
-module Web.Html
+module Web.Raw.Html
  
 import JS
 import Web.Internal.HtmlPrim

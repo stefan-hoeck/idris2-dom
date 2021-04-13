@@ -2,10 +2,8 @@ module Test.Main
 
 import JS
 import Web.Internal.Types
-import Web.Dom
-import Web.Html
-import Test.Number
-import Test.Util
+import Web.Raw.Dom
+import Web.Raw.Html
 
 Callback EventHandlerNonNull (Event -> JSIO ()) where
   callback f = toEventHandlerNonNull (map (toFFI . MkAny) . runJS . f)

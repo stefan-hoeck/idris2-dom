@@ -1,4 +1,4 @@
-module Web.Svg
+module Web.Raw.Svg
  
 import JS
 import Web.Internal.SvgPrim

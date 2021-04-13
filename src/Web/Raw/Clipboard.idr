@@ -1,4 +1,4 @@
-module Web.Clipboard
+module Web.Raw.Clipboard
  
 import JS
 import Web.Internal.ClipboardPrim

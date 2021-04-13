@@ -1,4 +1,4 @@
-module Web.Permissions
+module Web.Raw.Permissions
  
 import JS
 import Web.Internal.PermissionsPrim

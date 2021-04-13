@@ -1,4 +1,4 @@
-module Web.Dom
+module Web.Raw.Dom
  
 import JS
 import Web.Internal.DomPrim

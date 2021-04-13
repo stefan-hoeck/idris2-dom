@@ -1,4 +1,4 @@
-module Web.Webidl
+module Web.Raw.Webidl
  
 import JS
 import Web.Internal.WebidlPrim

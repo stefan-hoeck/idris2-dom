@@ -1,4 +1,4 @@
-module Web.File
+module Web.Raw.File
  
 import JS
 import Web.Internal.FilePrim

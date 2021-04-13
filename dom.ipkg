@@ -26,23 +26,23 @@ modules = JS
         , JS.Util
         , JS.VarArg
 
-        , Web.Animation
-        , Web.Clipboard
-        , Web.Css
-        , Web.Dom
-        , Web.Fetch
-        , Web.File
-        , Web.Geometry
-        , Web.Html
-        , Web.Mediasource
-        , Web.Mediastream
-        , Web.Permissions
-        , Web.Serviceworker
-        , Web.Streams
-        , Web.Svg
-        , Web.UIEvents
-        , Web.Url
-        , Web.Visibility
-        , Web.Webgl
-        , Web.Webidl
-        , Web.Xhr
+        , Web.Raw.Animation
+        , Web.Raw.Clipboard
+        , Web.Raw.Css
+        , Web.Raw.Dom
+        , Web.Raw.Fetch
+        , Web.Raw.File
+        , Web.Raw.Geometry
+        , Web.Raw.Html
+        , Web.Raw.Mediasource
+        , Web.Raw.Mediastream
+        , Web.Raw.Permissions
+        , Web.Raw.Serviceworker
+        , Web.Raw.Streams
+        , Web.Raw.Svg
+        , Web.Raw.UIEvents
+        , Web.Raw.Url
+        , Web.Raw.Visibility
+        , Web.Raw.Webgl
+        , Web.Raw.Webidl
+        , Web.Raw.Xhr

@@ -1,4 +1,4 @@
-module Web.Event
+module Web.Raw.Event
  
 import JS
 import Web.Internal.EventPrim

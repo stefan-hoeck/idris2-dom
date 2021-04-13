@@ -1,4 +1,4 @@
-module Web.Xhr
+module Web.Raw.Xhr
  
 import JS
 import Web.Internal.XhrPrim

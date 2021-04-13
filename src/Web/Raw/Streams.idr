@@ -1,4 +1,4 @@
-module Web.Streams
+module Web.Raw.Streams
  
 import JS
 import Web.Internal.StreamsPrim

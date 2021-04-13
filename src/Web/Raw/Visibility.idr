@@ -1,4 +1,4 @@
-module Web.Visibility
+module Web.Raw.Visibility
  
 import JS
 import Web.Internal.VisibilityPrim

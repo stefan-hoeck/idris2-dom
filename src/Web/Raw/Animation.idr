@@ -1,4 +1,4 @@
-module Web.Animation
+module Web.Raw.Animation
  
 import JS
 import Web.Internal.AnimationPrim

@@ -1,4 +1,4 @@
-module Web.Mediastream
+module Web.Raw.Mediastream
  
 import JS
 import Web.Internal.MediastreamPrim

@@ -1,4 +1,4 @@
-module Web.Css
+module Web.Raw.Css
  
 import JS
 import Web.Internal.CssPrim

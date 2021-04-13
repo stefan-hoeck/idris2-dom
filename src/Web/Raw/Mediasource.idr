@@ -1,4 +1,4 @@
-module Web.Mediasource
+module Web.Raw.Mediasource
  
 import JS
 import Web.Internal.MediasourcePrim

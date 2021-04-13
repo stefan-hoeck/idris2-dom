@@ -1,4 +1,4 @@
-module Web.Fetch
+module Web.Raw.Fetch
  
 import JS
 import Web.Internal.FetchPrim

@@ -1,4 +1,4 @@
-module Web.Webgl
+module Web.Raw.Webgl
  
 import JS
 import Web.Internal.WebglPrim
