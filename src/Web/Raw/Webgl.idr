@@ -6729,63 +6729,99 @@ namespace WebGLContextAttributes
                                           undef
   
   export
-  alpha : WebGLContextAttributes -> Attribute True Optional Bool
-  alpha = fromUndefOrPrim "WebGLContextAttributes.getalpha"
-                          prim__alpha
-                          prim__setAlpha
-                          True
+  alpha :  JSType t
+        => {auto 0 _ : Elem WebGLContextAttributes (Types t)}
+        -> t
+        -> Attribute True Optional Bool
+  alpha v = fromUndefOrPrim "WebGLContextAttributes.getalpha"
+                            prim__alpha
+                            prim__setAlpha
+                            True
+                            (v :> WebGLContextAttributes)
   
   export
-  antialias : WebGLContextAttributes -> Attribute True Optional Bool
-  antialias = fromUndefOrPrim "WebGLContextAttributes.getantialias"
-                              prim__antialias
-                              prim__setAntialias
-                              True
+  antialias :  JSType t
+            => {auto 0 _ : Elem WebGLContextAttributes (Types t)}
+            -> t
+            -> Attribute True Optional Bool
+  antialias v = fromUndefOrPrim "WebGLContextAttributes.getantialias"
+                                prim__antialias
+                                prim__setAntialias
+                                True
+                                (v :> WebGLContextAttributes)
   
   export
-  depth : WebGLContextAttributes -> Attribute True Optional Bool
-  depth = fromUndefOrPrim "WebGLContextAttributes.getdepth"
-                          prim__depth
-                          prim__setDepth
-                          True
+  depth :  JSType t
+        => {auto 0 _ : Elem WebGLContextAttributes (Types t)}
+        -> t
+        -> Attribute True Optional Bool
+  depth v = fromUndefOrPrim "WebGLContextAttributes.getdepth"
+                            prim__depth
+                            prim__setDepth
+                            True
+                            (v :> WebGLContextAttributes)
   
   export
-  desynchronized : WebGLContextAttributes -> Attribute True Optional Bool
-  desynchronized = fromUndefOrPrim "WebGLContextAttributes.getdesynchronized"
-                                   prim__desynchronized
-                                   prim__setDesynchronized
-                                   False
+  desynchronized :  JSType t
+                 => {auto 0 _ : Elem WebGLContextAttributes (Types t)}
+                 -> t
+                 -> Attribute True Optional Bool
+  desynchronized v = fromUndefOrPrim "WebGLContextAttributes.getdesynchronized"
+                                     prim__desynchronized
+                                     prim__setDesynchronized
+                                     False
+                                     (v :> WebGLContextAttributes)
   
   export
-  failIfMajorPerformanceCaveat : WebGLContextAttributes -> Attribute True Optional Bool
-  failIfMajorPerformanceCaveat = fromUndefOrPrim "WebGLContextAttributes.getfailIfMajorPerformanceCaveat"
-                                                 prim__failIfMajorPerformanceCaveat
-                                                 prim__setFailIfMajorPerformanceCaveat
-                                                 False
+  failIfMajorPerformanceCaveat :  JSType t
+                               => {auto 0 _ : Elem WebGLContextAttributes (Types t)}
+                               -> t
+                               -> Attribute True Optional Bool
+  failIfMajorPerformanceCaveat v = fromUndefOrPrim "WebGLContextAttributes.getfailIfMajorPerformanceCaveat"
+                                                   prim__failIfMajorPerformanceCaveat
+                                                   prim__setFailIfMajorPerformanceCaveat
+                                                   False
+                                                   (v :> WebGLContextAttributes)
   
   export
-  powerPreference : WebGLContextAttributes -> Attribute False Optional WebGLPowerPreference
-  powerPreference = fromUndefOrPrimNoDefault "WebGLContextAttributes.getpowerPreference"
-                                             prim__powerPreference
-                                             prim__setPowerPreference
+  powerPreference :  JSType t
+                  => {auto 0 _ : Elem WebGLContextAttributes (Types t)}
+                  -> t
+                  -> Attribute False Optional WebGLPowerPreference
+  powerPreference v = fromUndefOrPrimNoDefault "WebGLContextAttributes.getpowerPreference"
+                                               prim__powerPreference
+                                               prim__setPowerPreference
+                                               (v :> WebGLContextAttributes)
   
   export
-  premultipliedAlpha : WebGLContextAttributes -> Attribute True Optional Bool
-  premultipliedAlpha = fromUndefOrPrim "WebGLContextAttributes.getpremultipliedAlpha"
-                                       prim__premultipliedAlpha
-                                       prim__setPremultipliedAlpha
-                                       True
+  premultipliedAlpha :  JSType t
+                     => {auto 0 _ : Elem WebGLContextAttributes (Types t)}
+                     -> t
+                     -> Attribute True Optional Bool
+  premultipliedAlpha v = fromUndefOrPrim "WebGLContextAttributes.getpremultipliedAlpha"
+                                         prim__premultipliedAlpha
+                                         prim__setPremultipliedAlpha
+                                         True
+                                         (v :> WebGLContextAttributes)
   
   export
-  preserveDrawingBuffer : WebGLContextAttributes -> Attribute True Optional Bool
-  preserveDrawingBuffer = fromUndefOrPrim "WebGLContextAttributes.getpreserveDrawingBuffer"
-                                          prim__preserveDrawingBuffer
-                                          prim__setPreserveDrawingBuffer
-                                          False
+  preserveDrawingBuffer :  JSType t
+                        => {auto 0 _ : Elem WebGLContextAttributes (Types t)}
+                        -> t
+                        -> Attribute True Optional Bool
+  preserveDrawingBuffer v = fromUndefOrPrim "WebGLContextAttributes.getpreserveDrawingBuffer"
+                                            prim__preserveDrawingBuffer
+                                            prim__setPreserveDrawingBuffer
+                                            False
+                                            (v :> WebGLContextAttributes)
   
   export
-  stencil : WebGLContextAttributes -> Attribute True Optional Bool
-  stencil = fromUndefOrPrim "WebGLContextAttributes.getstencil"
-                            prim__stencil
-                            prim__setStencil
-                            False
+  stencil :  JSType t
+          => {auto 0 _ : Elem WebGLContextAttributes (Types t)}
+          -> t
+          -> Attribute True Optional Bool
+  stencil v = fromUndefOrPrim "WebGLContextAttributes.getstencil"
+                              prim__stencil
+                              prim__setStencil
+                              False
+                              (v :> WebGLContextAttributes)

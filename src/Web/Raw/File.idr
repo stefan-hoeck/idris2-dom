@@ -184,38 +184,64 @@ namespace FileReader
   error a = tryJS "FileReader.error" $ FileReader.prim__error (up a)
   
   export
-  onabort : FileReader -> Attribute False Maybe EventHandlerNonNull
-  onabort = fromNullablePrim "FileReader.getonabort"
-                             prim__onabort
-                             prim__setOnabort
+  onabort :  JSType t
+          => {auto 0 _ : Elem FileReader (Types t)}
+          -> t
+          -> Attribute False Maybe EventHandlerNonNull
+  onabort v = fromNullablePrim "FileReader.getonabort"
+                               prim__onabort
+                               prim__setOnabort
+                               (v :> FileReader)
   
   export
-  onerror : FileReader -> Attribute False Maybe EventHandlerNonNull
-  onerror = fromNullablePrim "FileReader.getonerror"
-                             prim__onerror
-                             prim__setOnerror
+  onerror :  JSType t
+          => {auto 0 _ : Elem FileReader (Types t)}
+          -> t
+          -> Attribute False Maybe EventHandlerNonNull
+  onerror v = fromNullablePrim "FileReader.getonerror"
+                               prim__onerror
+                               prim__setOnerror
+                               (v :> FileReader)
   
   export
-  onload : FileReader -> Attribute False Maybe EventHandlerNonNull
-  onload = fromNullablePrim "FileReader.getonload" prim__onload prim__setOnload
+  onload :  JSType t
+         => {auto 0 _ : Elem FileReader (Types t)}
+         -> t
+         -> Attribute False Maybe EventHandlerNonNull
+  onload v = fromNullablePrim "FileReader.getonload"
+                              prim__onload
+                              prim__setOnload
+                              (v :> FileReader)
   
   export
-  onloadend : FileReader -> Attribute False Maybe EventHandlerNonNull
-  onloadend = fromNullablePrim "FileReader.getonloadend"
-                               prim__onloadend
-                               prim__setOnloadend
+  onloadend :  JSType t
+            => {auto 0 _ : Elem FileReader (Types t)}
+            -> t
+            -> Attribute False Maybe EventHandlerNonNull
+  onloadend v = fromNullablePrim "FileReader.getonloadend"
+                                 prim__onloadend
+                                 prim__setOnloadend
+                                 (v :> FileReader)
   
   export
-  onloadstart : FileReader -> Attribute False Maybe EventHandlerNonNull
-  onloadstart = fromNullablePrim "FileReader.getonloadstart"
-                                 prim__onloadstart
-                                 prim__setOnloadstart
+  onloadstart :  JSType t
+              => {auto 0 _ : Elem FileReader (Types t)}
+              -> t
+              -> Attribute False Maybe EventHandlerNonNull
+  onloadstart v = fromNullablePrim "FileReader.getonloadstart"
+                                   prim__onloadstart
+                                   prim__setOnloadstart
+                                   (v :> FileReader)
   
   export
-  onprogress : FileReader -> Attribute False Maybe EventHandlerNonNull
-  onprogress = fromNullablePrim "FileReader.getonprogress"
-                                prim__onprogress
-                                prim__setOnprogress
+  onprogress :  JSType t
+             => {auto 0 _ : Elem FileReader (Types t)}
+             -> t
+             -> Attribute False Maybe EventHandlerNonNull
+  onprogress v = fromNullablePrim "FileReader.getonprogress"
+                                  prim__onprogress
+                                  prim__setOnprogress
+                                  (v :> FileReader)
   
   export
   readyState :  JSType t1
@@ -370,14 +396,25 @@ namespace BlobPropertyBag
   new' = primJS $ BlobPropertyBag.prim__new undef undef
   
   export
-  endings : BlobPropertyBag -> Attribute False Optional EndingType
-  endings = fromUndefOrPrimNoDefault "BlobPropertyBag.getendings"
-                                     prim__endings
-                                     prim__setEndings
+  endings :  JSType t
+          => {auto 0 _ : Elem BlobPropertyBag (Types t)}
+          -> t
+          -> Attribute False Optional EndingType
+  endings v = fromUndefOrPrimNoDefault "BlobPropertyBag.getendings"
+                                       prim__endings
+                                       prim__setEndings
+                                       (v :> BlobPropertyBag)
   
   export
-  type : BlobPropertyBag -> Attribute True Optional String
-  type = fromUndefOrPrim "BlobPropertyBag.gettype" prim__type prim__setType ""
+  type :  JSType t
+       => {auto 0 _ : Elem BlobPropertyBag (Types t)}
+       -> t
+       -> Attribute True Optional String
+  type v = fromUndefOrPrim "BlobPropertyBag.gettype"
+                           prim__type
+                           prim__setType
+                           ""
+                           (v :> BlobPropertyBag)
 
 namespace FilePropertyBag
   
@@ -390,7 +427,11 @@ namespace FilePropertyBag
   new' = primJS $ FilePropertyBag.prim__new undef
   
   export
-  lastModified : FilePropertyBag -> Attribute False Optional Int64
-  lastModified = fromUndefOrPrimNoDefault "FilePropertyBag.getlastModified"
-                                          prim__lastModified
-                                          prim__setLastModified
+  lastModified :  JSType t
+               => {auto 0 _ : Elem FilePropertyBag (Types t)}
+               -> t
+               -> Attribute False Optional Int64
+  lastModified v = fromUndefOrPrimNoDefault "FilePropertyBag.getlastModified"
+                                            prim__lastModified
+                                            prim__setLastModified
+                                            (v :> FilePropertyBag)

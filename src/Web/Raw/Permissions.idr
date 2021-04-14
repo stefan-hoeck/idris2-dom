@@ -11,10 +11,14 @@ import Web.Internal.Types
 namespace PermissionStatus
   
   export
-  onchange : PermissionStatus -> Attribute False Maybe EventHandlerNonNull
-  onchange = fromNullablePrim "PermissionStatus.getonchange"
-                              prim__onchange
-                              prim__setOnchange
+  onchange :  JSType t
+           => {auto 0 _ : Elem PermissionStatus (Types t)}
+           -> t
+           -> Attribute False Maybe EventHandlerNonNull
+  onchange v = fromNullablePrim "PermissionStatus.getonchange"
+                                prim__onchange
+                                prim__setOnchange
+                                (v :> PermissionStatus)
   
   export
   state :  JSType t1
@@ -51,11 +55,15 @@ namespace CameraDevicePermissionDescriptor
   new' = primJS $ CameraDevicePermissionDescriptor.prim__new undef
   
   export
-  panTiltZoom : CameraDevicePermissionDescriptor -> Attribute True Optional Bool
-  panTiltZoom = fromUndefOrPrim "CameraDevicePermissionDescriptor.getpanTiltZoom"
-                                prim__panTiltZoom
-                                prim__setPanTiltZoom
-                                False
+  panTiltZoom :  JSType t
+              => {auto 0 _ : Elem CameraDevicePermissionDescriptor (Types t)}
+              -> t
+              -> Attribute True Optional Bool
+  panTiltZoom v = fromUndefOrPrim "CameraDevicePermissionDescriptor.getpanTiltZoom"
+                                  prim__panTiltZoom
+                                  prim__setPanTiltZoom
+                                  False
+                                  (v :> CameraDevicePermissionDescriptor)
 
 namespace DevicePermissionDescriptor
   
@@ -68,10 +76,14 @@ namespace DevicePermissionDescriptor
   new' = primJS $ DevicePermissionDescriptor.prim__new undef
   
   export
-  deviceId : DevicePermissionDescriptor -> Attribute False Optional String
-  deviceId = fromUndefOrPrimNoDefault "DevicePermissionDescriptor.getdeviceId"
-                                      prim__deviceId
-                                      prim__setDeviceId
+  deviceId :  JSType t
+           => {auto 0 _ : Elem DevicePermissionDescriptor (Types t)}
+           -> t
+           -> Attribute False Optional String
+  deviceId v = fromUndefOrPrimNoDefault "DevicePermissionDescriptor.getdeviceId"
+                                        prim__deviceId
+                                        prim__setDeviceId
+                                        (v :> DevicePermissionDescriptor)
 
 namespace MidiPermissionDescriptor
   
@@ -84,11 +96,15 @@ namespace MidiPermissionDescriptor
   new' = primJS $ MidiPermissionDescriptor.prim__new undef
   
   export
-  sysex : MidiPermissionDescriptor -> Attribute True Optional Bool
-  sysex = fromUndefOrPrim "MidiPermissionDescriptor.getsysex"
-                          prim__sysex
-                          prim__setSysex
-                          False
+  sysex :  JSType t
+        => {auto 0 _ : Elem MidiPermissionDescriptor (Types t)}
+        -> t
+        -> Attribute True Optional Bool
+  sysex v = fromUndefOrPrim "MidiPermissionDescriptor.getsysex"
+                            prim__sysex
+                            prim__setSysex
+                            False
+                            (v :> MidiPermissionDescriptor)
 
 namespace PermissionDescriptor
   
@@ -97,8 +113,14 @@ namespace PermissionDescriptor
   new a = primJS $ PermissionDescriptor.prim__new (toFFI a)
   
   export
-  name : PermissionDescriptor -> Attribute True I PermissionName
-  name = fromPrim "PermissionDescriptor.getname" prim__name prim__setName
+  name :  JSType t
+       => {auto 0 _ : Elem PermissionDescriptor (Types t)}
+       -> t
+       -> Attribute True I PermissionName
+  name v = fromPrim "PermissionDescriptor.getname"
+                    prim__name
+                    prim__setName
+                    (v :> PermissionDescriptor)
 
 namespace PermissionSetParameters
   
@@ -121,21 +143,35 @@ namespace PermissionSetParameters
   new' a b = primJS $ PermissionSetParameters.prim__new (up a) (toFFI b) undef
   
   export
-  descriptor : PermissionSetParameters -> Attribute True I PermissionDescriptor
-  descriptor = fromPrim "PermissionSetParameters.getdescriptor"
-                        prim__descriptor
-                        prim__setDescriptor
+  descriptor :  JSType t
+             => {auto 0 _ : Elem PermissionSetParameters (Types t)}
+             -> t
+             -> Attribute True I PermissionDescriptor
+  descriptor v = fromPrim "PermissionSetParameters.getdescriptor"
+                          prim__descriptor
+                          prim__setDescriptor
+                          (v :> PermissionSetParameters)
   
   export
-  oneRealm : PermissionSetParameters -> Attribute True Optional Bool
-  oneRealm = fromUndefOrPrim "PermissionSetParameters.getoneRealm"
-                             prim__oneRealm
-                             prim__setOneRealm
-                             False
+  oneRealm :  JSType t
+           => {auto 0 _ : Elem PermissionSetParameters (Types t)}
+           -> t
+           -> Attribute True Optional Bool
+  oneRealm v = fromUndefOrPrim "PermissionSetParameters.getoneRealm"
+                               prim__oneRealm
+                               prim__setOneRealm
+                               False
+                               (v :> PermissionSetParameters)
   
   export
-  state : PermissionSetParameters -> Attribute True I PermissionState
-  state = fromPrim "PermissionSetParameters.getstate" prim__state prim__setState
+  state :  JSType t
+        => {auto 0 _ : Elem PermissionSetParameters (Types t)}
+        -> t
+        -> Attribute True I PermissionState
+  state v = fromPrim "PermissionSetParameters.getstate"
+                     prim__state
+                     prim__setState
+                     (v :> PermissionSetParameters)
 
 namespace PushPermissionDescriptor
   
@@ -148,8 +184,12 @@ namespace PushPermissionDescriptor
   new' = primJS $ PushPermissionDescriptor.prim__new undef
   
   export
-  userVisibleOnly : PushPermissionDescriptor -> Attribute True Optional Bool
-  userVisibleOnly = fromUndefOrPrim "PushPermissionDescriptor.getuserVisibleOnly"
-                                    prim__userVisibleOnly
-                                    prim__setUserVisibleOnly
-                                    False
+  userVisibleOnly :  JSType t
+                  => {auto 0 _ : Elem PushPermissionDescriptor (Types t)}
+                  -> t
+                  -> Attribute True Optional Bool
+  userVisibleOnly v = fromUndefOrPrim "PushPermissionDescriptor.getuserVisibleOnly"
+                                      prim__userVisibleOnly
+                                      prim__setUserVisibleOnly
+                                      False
+                                      (v :> PushPermissionDescriptor)

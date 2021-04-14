@@ -398,95 +398,150 @@ namespace RequestInit
                                undef
   
   export
-  body : RequestInit -> Attribute False Optional (Maybe (Union16 ReadableStream
-                                                                 Blob
-                                                                 Int8Array
-                                                                 Int16Array
-                                                                 Int32Array
-                                                                 UInt8Array
-                                                                 UInt8Array
-                                                                 UInt8Array
-                                                                 UInt8ClampedArray
-                                                                 Float32Array
-                                                                 Float64Array
-                                                                 DataView
-                                                                 ArrayBuffer
-                                                                 FormData
-                                                                 URLSearchParams
-                                                                 String))
-  body = fromUndefOrPrimNoDefault "RequestInit.getbody" prim__body prim__setBody
+  body :  JSType t
+       => {auto 0 _ : Elem RequestInit (Types t)}
+       -> t
+       -> Attribute False Optional (Maybe (Union16 ReadableStream
+                                                   Blob
+                                                   Int8Array
+                                                   Int16Array
+                                                   Int32Array
+                                                   UInt8Array
+                                                   UInt8Array
+                                                   UInt8Array
+                                                   UInt8ClampedArray
+                                                   Float32Array
+                                                   Float64Array
+                                                   DataView
+                                                   ArrayBuffer
+                                                   FormData
+                                                   URLSearchParams
+                                                   String))
+  body v = fromUndefOrPrimNoDefault "RequestInit.getbody"
+                                    prim__body
+                                    prim__setBody
+                                    (v :> RequestInit)
   
   export
-  cache : RequestInit -> Attribute False Optional RequestCache
-  cache = fromUndefOrPrimNoDefault "RequestInit.getcache"
-                                   prim__cache
-                                   prim__setCache
+  cache :  JSType t
+        => {auto 0 _ : Elem RequestInit (Types t)}
+        -> t
+        -> Attribute False Optional RequestCache
+  cache v = fromUndefOrPrimNoDefault "RequestInit.getcache"
+                                     prim__cache
+                                     prim__setCache
+                                     (v :> RequestInit)
   
   export
-  credentials : RequestInit -> Attribute False Optional RequestCredentials
-  credentials = fromUndefOrPrimNoDefault "RequestInit.getcredentials"
-                                         prim__credentials
-                                         prim__setCredentials
+  credentials :  JSType t
+              => {auto 0 _ : Elem RequestInit (Types t)}
+              -> t
+              -> Attribute False Optional RequestCredentials
+  credentials v = fromUndefOrPrimNoDefault "RequestInit.getcredentials"
+                                           prim__credentials
+                                           prim__setCredentials
+                                           (v :> RequestInit)
   
   export
-  headers : RequestInit -> Attribute False Optional (Union2 (Array (Array ByteString))
-                                                            (Record ByteString
-                                                                    ByteString))
-  headers = fromUndefOrPrimNoDefault "RequestInit.getheaders"
-                                     prim__headers
-                                     prim__setHeaders
+  headers :  JSType t
+          => {auto 0 _ : Elem RequestInit (Types t)}
+          -> t
+          -> Attribute False Optional (Union2 (Array (Array ByteString))
+                                              (Record ByteString ByteString))
+  headers v = fromUndefOrPrimNoDefault "RequestInit.getheaders"
+                                       prim__headers
+                                       prim__setHeaders
+                                       (v :> RequestInit)
   
   export
-  integrity : RequestInit -> Attribute False Optional String
-  integrity = fromUndefOrPrimNoDefault "RequestInit.getintegrity"
-                                       prim__integrity
-                                       prim__setIntegrity
+  integrity :  JSType t
+            => {auto 0 _ : Elem RequestInit (Types t)}
+            -> t
+            -> Attribute False Optional String
+  integrity v = fromUndefOrPrimNoDefault "RequestInit.getintegrity"
+                                         prim__integrity
+                                         prim__setIntegrity
+                                         (v :> RequestInit)
   
   export
-  keepalive : RequestInit -> Attribute False Optional Bool
-  keepalive = fromUndefOrPrimNoDefault "RequestInit.getkeepalive"
-                                       prim__keepalive
-                                       prim__setKeepalive
+  keepalive :  JSType t
+            => {auto 0 _ : Elem RequestInit (Types t)}
+            -> t
+            -> Attribute False Optional Bool
+  keepalive v = fromUndefOrPrimNoDefault "RequestInit.getkeepalive"
+                                         prim__keepalive
+                                         prim__setKeepalive
+                                         (v :> RequestInit)
   
   export
-  method : RequestInit -> Attribute False Optional ByteString
-  method = fromUndefOrPrimNoDefault "RequestInit.getmethod"
-                                    prim__method
-                                    prim__setMethod
+  method :  JSType t
+         => {auto 0 _ : Elem RequestInit (Types t)}
+         -> t
+         -> Attribute False Optional ByteString
+  method v = fromUndefOrPrimNoDefault "RequestInit.getmethod"
+                                      prim__method
+                                      prim__setMethod
+                                      (v :> RequestInit)
   
   export
-  mode : RequestInit -> Attribute False Optional RequestMode
-  mode = fromUndefOrPrimNoDefault "RequestInit.getmode" prim__mode prim__setMode
+  mode :  JSType t
+       => {auto 0 _ : Elem RequestInit (Types t)}
+       -> t
+       -> Attribute False Optional RequestMode
+  mode v = fromUndefOrPrimNoDefault "RequestInit.getmode"
+                                    prim__mode
+                                    prim__setMode
+                                    (v :> RequestInit)
   
   export
-  redirect : RequestInit -> Attribute False Optional RequestRedirect
-  redirect = fromUndefOrPrimNoDefault "RequestInit.getredirect"
-                                      prim__redirect
-                                      prim__setRedirect
+  redirect :  JSType t
+           => {auto 0 _ : Elem RequestInit (Types t)}
+           -> t
+           -> Attribute False Optional RequestRedirect
+  redirect v = fromUndefOrPrimNoDefault "RequestInit.getredirect"
+                                        prim__redirect
+                                        prim__setRedirect
+                                        (v :> RequestInit)
   
   export
-  referrer : RequestInit -> Attribute False Optional String
-  referrer = fromUndefOrPrimNoDefault "RequestInit.getreferrer"
-                                      prim__referrer
-                                      prim__setReferrer
+  referrer :  JSType t
+           => {auto 0 _ : Elem RequestInit (Types t)}
+           -> t
+           -> Attribute False Optional String
+  referrer v = fromUndefOrPrimNoDefault "RequestInit.getreferrer"
+                                        prim__referrer
+                                        prim__setReferrer
+                                        (v :> RequestInit)
   
   export
-  referrerPolicy : RequestInit -> Attribute False Optional ReferrerPolicy
-  referrerPolicy = fromUndefOrPrimNoDefault "RequestInit.getreferrerPolicy"
-                                            prim__referrerPolicy
-                                            prim__setReferrerPolicy
+  referrerPolicy :  JSType t
+                 => {auto 0 _ : Elem RequestInit (Types t)}
+                 -> t
+                 -> Attribute False Optional ReferrerPolicy
+  referrerPolicy v = fromUndefOrPrimNoDefault "RequestInit.getreferrerPolicy"
+                                              prim__referrerPolicy
+                                              prim__setReferrerPolicy
+                                              (v :> RequestInit)
   
   export
-  signal : RequestInit -> Attribute False Optional (Maybe AbortSignal)
-  signal = fromUndefOrPrimNoDefault "RequestInit.getsignal"
-                                    prim__signal
-                                    prim__setSignal
+  signal :  JSType t
+         => {auto 0 _ : Elem RequestInit (Types t)}
+         -> t
+         -> Attribute False Optional (Maybe AbortSignal)
+  signal v = fromUndefOrPrimNoDefault "RequestInit.getsignal"
+                                      prim__signal
+                                      prim__setSignal
+                                      (v :> RequestInit)
   
   export
-  window : RequestInit -> Attribute False Optional Any
-  window = fromUndefOrPrimNoDefault "RequestInit.getwindow"
-                                    prim__window
-                                    prim__setWindow
+  window :  JSType t
+         => {auto 0 _ : Elem RequestInit (Types t)}
+         -> t
+         -> Attribute False Optional Any
+  window v = fromUndefOrPrimNoDefault "RequestInit.getwindow"
+                                      prim__window
+                                      prim__setWindow
+                                      (v :> RequestInit)
 
 namespace ResponseInit
   
@@ -504,22 +559,33 @@ namespace ResponseInit
   new' = primJS $ ResponseInit.prim__new undef undef undef
   
   export
-  headers : ResponseInit -> Attribute False Optional (Union2 (Array (Array ByteString))
-                                                             (Record ByteString
-                                                                     ByteString))
-  headers = fromUndefOrPrimNoDefault "ResponseInit.getheaders"
-                                     prim__headers
-                                     prim__setHeaders
+  headers :  JSType t
+          => {auto 0 _ : Elem ResponseInit (Types t)}
+          -> t
+          -> Attribute False Optional (Union2 (Array (Array ByteString))
+                                              (Record ByteString ByteString))
+  headers v = fromUndefOrPrimNoDefault "ResponseInit.getheaders"
+                                       prim__headers
+                                       prim__setHeaders
+                                       (v :> ResponseInit)
   
   export
-  status : ResponseInit -> Attribute True Optional UInt16
-  status = fromUndefOrPrim "ResponseInit.getstatus"
-                           prim__status
-                           prim__setStatus
-                           200
+  status :  JSType t
+         => {auto 0 _ : Elem ResponseInit (Types t)}
+         -> t
+         -> Attribute True Optional UInt16
+  status v = fromUndefOrPrim "ResponseInit.getstatus"
+                             prim__status
+                             prim__setStatus
+                             200
+                             (v :> ResponseInit)
   
   export
-  statusText : ResponseInit -> Attribute False Optional ByteString
-  statusText = fromUndefOrPrimNoDefault "ResponseInit.getstatusText"
-                                        prim__statusText
-                                        prim__setStatusText
+  statusText :  JSType t
+             => {auto 0 _ : Elem ResponseInit (Types t)}
+             -> t
+             -> Attribute False Optional ByteString
+  statusText v = fromUndefOrPrimNoDefault "ResponseInit.getstatusText"
+                                          prim__statusText
+                                          prim__setStatusText
+                                          (v :> ResponseInit)

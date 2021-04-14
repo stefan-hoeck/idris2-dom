@@ -27,26 +27,44 @@ namespace MediaSource
   activeSourceBuffers a = primJS $ MediaSource.prim__activeSourceBuffers (up a)
   
   export
-  duration : MediaSource -> Attribute True I Double
-  duration = fromPrim "MediaSource.getduration" prim__duration prim__setDuration
+  duration :  JSType t
+           => {auto 0 _ : Elem MediaSource (Types t)}
+           -> t
+           -> Attribute True I Double
+  duration v = fromPrim "MediaSource.getduration"
+                        prim__duration
+                        prim__setDuration
+                        (v :> MediaSource)
   
   export
-  onsourceclose : MediaSource -> Attribute False Maybe EventHandlerNonNull
-  onsourceclose = fromNullablePrim "MediaSource.getonsourceclose"
-                                   prim__onsourceclose
-                                   prim__setOnsourceclose
+  onsourceclose :  JSType t
+                => {auto 0 _ : Elem MediaSource (Types t)}
+                -> t
+                -> Attribute False Maybe EventHandlerNonNull
+  onsourceclose v = fromNullablePrim "MediaSource.getonsourceclose"
+                                     prim__onsourceclose
+                                     prim__setOnsourceclose
+                                     (v :> MediaSource)
   
   export
-  onsourceended : MediaSource -> Attribute False Maybe EventHandlerNonNull
-  onsourceended = fromNullablePrim "MediaSource.getonsourceended"
-                                   prim__onsourceended
-                                   prim__setOnsourceended
+  onsourceended :  JSType t
+                => {auto 0 _ : Elem MediaSource (Types t)}
+                -> t
+                -> Attribute False Maybe EventHandlerNonNull
+  onsourceended v = fromNullablePrim "MediaSource.getonsourceended"
+                                     prim__onsourceended
+                                     prim__setOnsourceended
+                                     (v :> MediaSource)
   
   export
-  onsourceopen : MediaSource -> Attribute False Maybe EventHandlerNonNull
-  onsourceopen = fromNullablePrim "MediaSource.getonsourceopen"
-                                  prim__onsourceopen
-                                  prim__setOnsourceopen
+  onsourceopen :  JSType t
+               => {auto 0 _ : Elem MediaSource (Types t)}
+               -> t
+               -> Attribute False Maybe EventHandlerNonNull
+  onsourceopen v = fromNullablePrim "MediaSource.getonsourceopen"
+                                    prim__onsourceopen
+                                    prim__setOnsourceopen
+                                    (v :> MediaSource)
   
   export
   readyState :  JSType t1
@@ -118,16 +136,24 @@ namespace MediaSource
 namespace SourceBuffer
   
   export
-  appendWindowEnd : SourceBuffer -> Attribute True I Double
-  appendWindowEnd = fromPrim "SourceBuffer.getappendWindowEnd"
-                             prim__appendWindowEnd
-                             prim__setAppendWindowEnd
+  appendWindowEnd :  JSType t
+                  => {auto 0 _ : Elem SourceBuffer (Types t)}
+                  -> t
+                  -> Attribute True I Double
+  appendWindowEnd v = fromPrim "SourceBuffer.getappendWindowEnd"
+                               prim__appendWindowEnd
+                               prim__setAppendWindowEnd
+                               (v :> SourceBuffer)
   
   export
-  appendWindowStart : SourceBuffer -> Attribute True I Double
-  appendWindowStart = fromPrim "SourceBuffer.getappendWindowStart"
-                               prim__appendWindowStart
-                               prim__setAppendWindowStart
+  appendWindowStart :  JSType t
+                    => {auto 0 _ : Elem SourceBuffer (Types t)}
+                    -> t
+                    -> Attribute True I Double
+  appendWindowStart v = fromPrim "SourceBuffer.getappendWindowStart"
+                                 prim__appendWindowStart
+                                 prim__setAppendWindowStart
+                                 (v :> SourceBuffer)
   
   export
   audioTracks :  JSType t1
@@ -144,38 +170,64 @@ namespace SourceBuffer
   buffered a = primJS $ SourceBuffer.prim__buffered (up a)
   
   export
-  mode : SourceBuffer -> Attribute True I AppendMode
-  mode = fromPrim "SourceBuffer.getmode" prim__mode prim__setMode
+  mode :  JSType t
+       => {auto 0 _ : Elem SourceBuffer (Types t)}
+       -> t
+       -> Attribute True I AppendMode
+  mode v = fromPrim "SourceBuffer.getmode"
+                    prim__mode
+                    prim__setMode
+                    (v :> SourceBuffer)
   
   export
-  onabort : SourceBuffer -> Attribute False Maybe EventHandlerNonNull
-  onabort = fromNullablePrim "SourceBuffer.getonabort"
-                             prim__onabort
-                             prim__setOnabort
+  onabort :  JSType t
+          => {auto 0 _ : Elem SourceBuffer (Types t)}
+          -> t
+          -> Attribute False Maybe EventHandlerNonNull
+  onabort v = fromNullablePrim "SourceBuffer.getonabort"
+                               prim__onabort
+                               prim__setOnabort
+                               (v :> SourceBuffer)
   
   export
-  onerror : SourceBuffer -> Attribute False Maybe EventHandlerNonNull
-  onerror = fromNullablePrim "SourceBuffer.getonerror"
-                             prim__onerror
-                             prim__setOnerror
+  onerror :  JSType t
+          => {auto 0 _ : Elem SourceBuffer (Types t)}
+          -> t
+          -> Attribute False Maybe EventHandlerNonNull
+  onerror v = fromNullablePrim "SourceBuffer.getonerror"
+                               prim__onerror
+                               prim__setOnerror
+                               (v :> SourceBuffer)
   
   export
-  onupdate : SourceBuffer -> Attribute False Maybe EventHandlerNonNull
-  onupdate = fromNullablePrim "SourceBuffer.getonupdate"
-                              prim__onupdate
-                              prim__setOnupdate
+  onupdate :  JSType t
+           => {auto 0 _ : Elem SourceBuffer (Types t)}
+           -> t
+           -> Attribute False Maybe EventHandlerNonNull
+  onupdate v = fromNullablePrim "SourceBuffer.getonupdate"
+                                prim__onupdate
+                                prim__setOnupdate
+                                (v :> SourceBuffer)
   
   export
-  onupdateend : SourceBuffer -> Attribute False Maybe EventHandlerNonNull
-  onupdateend = fromNullablePrim "SourceBuffer.getonupdateend"
-                                 prim__onupdateend
-                                 prim__setOnupdateend
+  onupdateend :  JSType t
+              => {auto 0 _ : Elem SourceBuffer (Types t)}
+              -> t
+              -> Attribute False Maybe EventHandlerNonNull
+  onupdateend v = fromNullablePrim "SourceBuffer.getonupdateend"
+                                   prim__onupdateend
+                                   prim__setOnupdateend
+                                   (v :> SourceBuffer)
   
   export
-  onupdatestart : SourceBuffer -> Attribute False Maybe EventHandlerNonNull
-  onupdatestart = fromNullablePrim "SourceBuffer.getonupdatestart"
-                                   prim__onupdatestart
-                                   prim__setOnupdatestart
+  onupdatestart :  JSType t
+                => {auto 0 _ : Elem SourceBuffer (Types t)}
+                -> t
+                -> Attribute False Maybe EventHandlerNonNull
+  onupdatestart v = fromNullablePrim "SourceBuffer.getonupdatestart"
+                                     prim__onupdatestart
+                                     prim__setOnupdatestart
+                                     (v :> SourceBuffer)
   
   export
   textTracks :  JSType t1
@@ -185,10 +237,14 @@ namespace SourceBuffer
   textTracks a = primJS $ SourceBuffer.prim__textTracks (up a)
   
   export
-  timestampOffset : SourceBuffer -> Attribute True I Double
-  timestampOffset = fromPrim "SourceBuffer.gettimestampOffset"
-                             prim__timestampOffset
-                             prim__setTimestampOffset
+  timestampOffset :  JSType t
+                  => {auto 0 _ : Elem SourceBuffer (Types t)}
+                  -> t
+                  -> Attribute True I Double
+  timestampOffset v = fromPrim "SourceBuffer.gettimestampOffset"
+                               prim__timestampOffset
+                               prim__setTimestampOffset
+                               (v :> SourceBuffer)
   
   export
   updating :  JSType t1
@@ -258,15 +314,23 @@ namespace SourceBufferList
   length a = primJS $ SourceBufferList.prim__length (up a)
   
   export
-  onaddsourcebuffer : SourceBufferList -> Attribute False Maybe EventHandlerNonNull
-  onaddsourcebuffer = fromNullablePrim "SourceBufferList.getonaddsourcebuffer"
-                                       prim__onaddsourcebuffer
-                                       prim__setOnaddsourcebuffer
+  onaddsourcebuffer :  JSType t
+                    => {auto 0 _ : Elem SourceBufferList (Types t)}
+                    -> t
+                    -> Attribute False Maybe EventHandlerNonNull
+  onaddsourcebuffer v = fromNullablePrim "SourceBufferList.getonaddsourcebuffer"
+                                         prim__onaddsourcebuffer
+                                         prim__setOnaddsourcebuffer
+                                         (v :> SourceBufferList)
   
   export
-  onremovesourcebuffer : SourceBufferList -> Attribute False Maybe EventHandlerNonNull
-  onremovesourcebuffer = fromNullablePrim "SourceBufferList.getonremovesourcebuffer"
-                                          prim__onremovesourcebuffer
-                                          prim__setOnremovesourcebuffer
+  onremovesourcebuffer :  JSType t
+                       => {auto 0 _ : Elem SourceBufferList (Types t)}
+                       -> t
+                       -> Attribute False Maybe EventHandlerNonNull
+  onremovesourcebuffer v = fromNullablePrim "SourceBufferList.getonremovesourcebuffer"
+                                            prim__onremovesourcebuffer
+                                            prim__setOnremovesourcebuffer
+                                            (v :> SourceBufferList)
 
 

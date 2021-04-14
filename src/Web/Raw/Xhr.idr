@@ -180,10 +180,14 @@ namespace XMLHttpRequest
   new = primJS $ XMLHttpRequest.prim__new 
   
   export
-  onreadystatechange : XMLHttpRequest -> Attribute False Maybe EventHandlerNonNull
-  onreadystatechange = fromNullablePrim "XMLHttpRequest.getonreadystatechange"
-                                        prim__onreadystatechange
-                                        prim__setOnreadystatechange
+  onreadystatechange :  JSType t
+                     => {auto 0 _ : Elem XMLHttpRequest (Types t)}
+                     -> t
+                     -> Attribute False Maybe EventHandlerNonNull
+  onreadystatechange v = fromNullablePrim "XMLHttpRequest.getonreadystatechange"
+                                          prim__onreadystatechange
+                                          prim__setOnreadystatechange
+                                          (v :> XMLHttpRequest)
   
   export
   readyState :  JSType t1
@@ -208,10 +212,14 @@ namespace XMLHttpRequest
   responseText a = primJS $ XMLHttpRequest.prim__responseText (up a)
   
   export
-  responseType : XMLHttpRequest -> Attribute True I XMLHttpRequestResponseType
-  responseType = fromPrim "XMLHttpRequest.getresponseType"
-                          prim__responseType
-                          prim__setResponseType
+  responseType :  JSType t
+               => {auto 0 _ : Elem XMLHttpRequest (Types t)}
+               -> t
+               -> Attribute True I XMLHttpRequestResponseType
+  responseType v = fromPrim "XMLHttpRequest.getresponseType"
+                            prim__responseType
+                            prim__setResponseType
+                            (v :> XMLHttpRequest)
   
   export
   responseURL :  JSType t1
@@ -243,8 +251,14 @@ namespace XMLHttpRequest
   statusText a = primJS $ XMLHttpRequest.prim__statusText (up a)
   
   export
-  timeout : XMLHttpRequest -> Attribute True I UInt32
-  timeout = fromPrim "XMLHttpRequest.gettimeout" prim__timeout prim__setTimeout
+  timeout :  JSType t
+          => {auto 0 _ : Elem XMLHttpRequest (Types t)}
+          -> t
+          -> Attribute True I UInt32
+  timeout v = fromPrim "XMLHttpRequest.gettimeout"
+                       prim__timeout
+                       prim__setTimeout
+                       (v :> XMLHttpRequest)
   
   export
   upload :  JSType t1
@@ -254,10 +268,14 @@ namespace XMLHttpRequest
   upload a = primJS $ XMLHttpRequest.prim__upload (up a)
   
   export
-  withCredentials : XMLHttpRequest -> Attribute True I Bool
-  withCredentials = fromPrim "XMLHttpRequest.getwithCredentials"
-                             prim__withCredentials
-                             prim__setWithCredentials
+  withCredentials :  JSType t
+                  => {auto 0 _ : Elem XMLHttpRequest (Types t)}
+                  -> t
+                  -> Attribute True I Bool
+  withCredentials v = fromPrim "XMLHttpRequest.getwithCredentials"
+                               prim__withCredentials
+                               prim__setWithCredentials
+                               (v :> XMLHttpRequest)
   
   export
   abort :  JSType t1
@@ -373,46 +391,74 @@ namespace XMLHttpRequest
 namespace XMLHttpRequestEventTarget
   
   export
-  onabort : XMLHttpRequestEventTarget -> Attribute False Maybe EventHandlerNonNull
-  onabort = fromNullablePrim "XMLHttpRequestEventTarget.getonabort"
-                             prim__onabort
-                             prim__setOnabort
+  onabort :  JSType t
+          => {auto 0 _ : Elem XMLHttpRequestEventTarget (Types t)}
+          -> t
+          -> Attribute False Maybe EventHandlerNonNull
+  onabort v = fromNullablePrim "XMLHttpRequestEventTarget.getonabort"
+                               prim__onabort
+                               prim__setOnabort
+                               (v :> XMLHttpRequestEventTarget)
   
   export
-  onerror : XMLHttpRequestEventTarget -> Attribute False Maybe EventHandlerNonNull
-  onerror = fromNullablePrim "XMLHttpRequestEventTarget.getonerror"
-                             prim__onerror
-                             prim__setOnerror
+  onerror :  JSType t
+          => {auto 0 _ : Elem XMLHttpRequestEventTarget (Types t)}
+          -> t
+          -> Attribute False Maybe EventHandlerNonNull
+  onerror v = fromNullablePrim "XMLHttpRequestEventTarget.getonerror"
+                               prim__onerror
+                               prim__setOnerror
+                               (v :> XMLHttpRequestEventTarget)
   
   export
-  onload : XMLHttpRequestEventTarget -> Attribute False Maybe EventHandlerNonNull
-  onload = fromNullablePrim "XMLHttpRequestEventTarget.getonload"
-                            prim__onload
-                            prim__setOnload
+  onload :  JSType t
+         => {auto 0 _ : Elem XMLHttpRequestEventTarget (Types t)}
+         -> t
+         -> Attribute False Maybe EventHandlerNonNull
+  onload v = fromNullablePrim "XMLHttpRequestEventTarget.getonload"
+                              prim__onload
+                              prim__setOnload
+                              (v :> XMLHttpRequestEventTarget)
   
   export
-  onloadend : XMLHttpRequestEventTarget -> Attribute False Maybe EventHandlerNonNull
-  onloadend = fromNullablePrim "XMLHttpRequestEventTarget.getonloadend"
-                               prim__onloadend
-                               prim__setOnloadend
+  onloadend :  JSType t
+            => {auto 0 _ : Elem XMLHttpRequestEventTarget (Types t)}
+            -> t
+            -> Attribute False Maybe EventHandlerNonNull
+  onloadend v = fromNullablePrim "XMLHttpRequestEventTarget.getonloadend"
+                                 prim__onloadend
+                                 prim__setOnloadend
+                                 (v :> XMLHttpRequestEventTarget)
   
   export
-  onloadstart : XMLHttpRequestEventTarget -> Attribute False Maybe EventHandlerNonNull
-  onloadstart = fromNullablePrim "XMLHttpRequestEventTarget.getonloadstart"
-                                 prim__onloadstart
-                                 prim__setOnloadstart
+  onloadstart :  JSType t
+              => {auto 0 _ : Elem XMLHttpRequestEventTarget (Types t)}
+              -> t
+              -> Attribute False Maybe EventHandlerNonNull
+  onloadstart v = fromNullablePrim "XMLHttpRequestEventTarget.getonloadstart"
+                                   prim__onloadstart
+                                   prim__setOnloadstart
+                                   (v :> XMLHttpRequestEventTarget)
   
   export
-  onprogress : XMLHttpRequestEventTarget -> Attribute False Maybe EventHandlerNonNull
-  onprogress = fromNullablePrim "XMLHttpRequestEventTarget.getonprogress"
-                                prim__onprogress
-                                prim__setOnprogress
+  onprogress :  JSType t
+             => {auto 0 _ : Elem XMLHttpRequestEventTarget (Types t)}
+             -> t
+             -> Attribute False Maybe EventHandlerNonNull
+  onprogress v = fromNullablePrim "XMLHttpRequestEventTarget.getonprogress"
+                                  prim__onprogress
+                                  prim__setOnprogress
+                                  (v :> XMLHttpRequestEventTarget)
   
   export
-  ontimeout : XMLHttpRequestEventTarget -> Attribute False Maybe EventHandlerNonNull
-  ontimeout = fromNullablePrim "XMLHttpRequestEventTarget.getontimeout"
-                               prim__ontimeout
-                               prim__setOntimeout
+  ontimeout :  JSType t
+            => {auto 0 _ : Elem XMLHttpRequestEventTarget (Types t)}
+            -> t
+            -> Attribute False Maybe EventHandlerNonNull
+  ontimeout v = fromNullablePrim "XMLHttpRequestEventTarget.getontimeout"
+                                 prim__ontimeout
+                                 prim__setOntimeout
+                                 (v :> XMLHttpRequestEventTarget)
 
 
 
@@ -434,22 +480,34 @@ namespace ProgressEventInit
   new' = primJS $ ProgressEventInit.prim__new undef undef undef
   
   export
-  lengthComputable : ProgressEventInit -> Attribute True Optional Bool
-  lengthComputable = fromUndefOrPrim "ProgressEventInit.getlengthComputable"
-                                     prim__lengthComputable
-                                     prim__setLengthComputable
-                                     False
+  lengthComputable :  JSType t
+                   => {auto 0 _ : Elem ProgressEventInit (Types t)}
+                   -> t
+                   -> Attribute True Optional Bool
+  lengthComputable v = fromUndefOrPrim "ProgressEventInit.getlengthComputable"
+                                       prim__lengthComputable
+                                       prim__setLengthComputable
+                                       False
+                                       (v :> ProgressEventInit)
   
   export
-  loaded : ProgressEventInit -> Attribute True Optional UInt64
-  loaded = fromUndefOrPrim "ProgressEventInit.getloaded"
-                           prim__loaded
-                           prim__setLoaded
-                           0
+  loaded :  JSType t
+         => {auto 0 _ : Elem ProgressEventInit (Types t)}
+         -> t
+         -> Attribute True Optional UInt64
+  loaded v = fromUndefOrPrim "ProgressEventInit.getloaded"
+                             prim__loaded
+                             prim__setLoaded
+                             0
+                             (v :> ProgressEventInit)
   
   export
-  total_ : ProgressEventInit -> Attribute True Optional UInt64
-  total_ = fromUndefOrPrim "ProgressEventInit.gettotal"
-                           prim__total
-                           prim__setTotal
-                           0
+  total_ :  JSType t
+         => {auto 0 _ : Elem ProgressEventInit (Types t)}
+         -> t
+         -> Attribute True Optional UInt64
+  total_ v = fromUndefOrPrim "ProgressEventInit.gettotal"
+                             prim__total
+                             prim__setTotal
+                             0
+                             (v :> ProgressEventInit)

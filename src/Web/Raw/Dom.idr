@@ -42,10 +42,14 @@ namespace AbortSignal
   aborted a = tryJS "AbortSignal.aborted" $ AbortSignal.prim__aborted (up a)
   
   export
-  onabort : AbortSignal -> Attribute False Maybe EventHandlerNonNull
-  onabort = fromNullablePrim "AbortSignal.getonabort"
-                             prim__onabort
-                             prim__setOnabort
+  onabort :  JSType t
+          => {auto 0 _ : Elem AbortSignal (Types t)}
+          -> t
+          -> Attribute False Maybe EventHandlerNonNull
+  onabort v = fromNullablePrim "AbortSignal.getonabort"
+                               prim__onabort
+                               prim__setOnabort
+                               (v :> AbortSignal)
 
 namespace AbstractRange
   
@@ -130,15 +134,24 @@ namespace Attr
   specified a = tryJS "Attr.specified" $ Attr.prim__specified (up a)
   
   export
-  value : Attr -> Attribute True I String
-  value = fromPrim "Attr.getvalue" prim__value prim__setValue
+  value :  JSType t
+        => {auto 0 _ : Elem Attr (Types t)}
+        -> t
+        -> Attribute True I String
+  value v = fromPrim "Attr.getvalue" prim__value prim__setValue (v :> Attr)
 
 
 namespace CharacterData
   
   export
-  data_ : CharacterData -> Attribute True I String
-  data_ = fromPrim "CharacterData.getdata" prim__data prim__setData
+  data_ :  JSType t
+        => {auto 0 _ : Elem CharacterData (Types t)}
+        -> t
+        -> Attribute True I String
+  data_ v = fromPrim "CharacterData.getdata"
+                     prim__data
+                     prim__setData
+                     (v :> CharacterData)
   
   export
   length :  JSType t1
@@ -334,8 +347,14 @@ namespace DOMTokenList
   length a = primJS $ DOMTokenList.prim__length (up a)
   
   export
-  value : DOMTokenList -> Attribute True I String
-  value = fromPrim "DOMTokenList.getvalue" prim__value prim__setValue
+  value :  JSType t
+        => {auto 0 _ : Elem DOMTokenList (Types t)}
+        -> t
+        -> Attribute True I String
+  value v = fromPrim "DOMTokenList.getvalue"
+                     prim__value
+                     prim__setValue
+                     (v :> DOMTokenList)
   
   export
   add :  JSType t1
@@ -430,10 +449,14 @@ namespace Document
   URL a = primJS $ Document.prim__URL (up a)
   
   export
-  alinkColor : Document -> Attribute True I String
-  alinkColor = fromPrim "Document.getalinkColor"
-                        prim__alinkColor
-                        prim__setAlinkColor
+  alinkColor :  JSType t
+             => {auto 0 _ : Elem Document (Types t)}
+             -> t
+             -> Attribute True I String
+  alinkColor v = fromPrim "Document.getalinkColor"
+                          prim__alinkColor
+                          prim__setAlinkColor
+                          (v :> Document)
   
   export
   all :  JSType t1
@@ -457,12 +480,24 @@ namespace Document
   applets a = primJS $ Document.prim__applets (up a)
   
   export
-  bgColor : Document -> Attribute True I String
-  bgColor = fromPrim "Document.getbgColor" prim__bgColor prim__setBgColor
+  bgColor :  JSType t
+          => {auto 0 _ : Elem Document (Types t)}
+          -> t
+          -> Attribute True I String
+  bgColor v = fromPrim "Document.getbgColor"
+                       prim__bgColor
+                       prim__setBgColor
+                       (v :> Document)
   
   export
-  body : Document -> Attribute False Maybe HTMLElement
-  body = fromNullablePrim "Document.getbody" prim__body prim__setBody
+  body :  JSType t
+       => {auto 0 _ : Elem Document (Types t)}
+       -> t
+       -> Attribute False Maybe HTMLElement
+  body v = fromNullablePrim "Document.getbody"
+                            prim__body
+                            prim__setBody
+                            (v :> Document)
   
   export
   characterSet :  JSType t1
@@ -493,8 +528,14 @@ namespace Document
   contentType a = primJS $ Document.prim__contentType (up a)
   
   export
-  cookie : Document -> Attribute True I String
-  cookie = fromPrim "Document.getcookie" prim__cookie prim__setCookie
+  cookie :  JSType t
+         => {auto 0 _ : Elem Document (Types t)}
+         -> t
+         -> Attribute True I String
+  cookie v = fromPrim "Document.getcookie"
+                      prim__cookie
+                      prim__setCookie
+                      (v :> Document)
   
   export
   currentScript :  JSType t1
@@ -513,14 +554,21 @@ namespace Document
                 $ Document.prim__defaultView (up a)
   
   export
-  designMode : Document -> Attribute True I String
-  designMode = fromPrim "Document.getdesignMode"
-                        prim__designMode
-                        prim__setDesignMode
+  designMode :  JSType t
+             => {auto 0 _ : Elem Document (Types t)}
+             -> t
+             -> Attribute True I String
+  designMode v = fromPrim "Document.getdesignMode"
+                          prim__designMode
+                          prim__setDesignMode
+                          (v :> Document)
   
   export
-  dir : Document -> Attribute True I String
-  dir = fromPrim "Document.getdir" prim__dir prim__setDir
+  dir :  JSType t
+      => {auto 0 _ : Elem Document (Types t)}
+      -> t
+      -> Attribute True I String
+  dir v = fromPrim "Document.getdir" prim__dir prim__setDir (v :> Document)
   
   export
   doctype :  JSType t1
@@ -545,8 +593,14 @@ namespace Document
   documentURI a = primJS $ Document.prim__documentURI (up a)
   
   export
-  domain : Document -> Attribute True I String
-  domain = fromPrim "Document.getdomain" prim__domain prim__setDomain
+  domain :  JSType t
+         => {auto 0 _ : Elem Document (Types t)}
+         -> t
+         -> Attribute True I String
+  domain v = fromPrim "Document.getdomain"
+                      prim__domain
+                      prim__setDomain
+                      (v :> Document)
   
   export
   embeds :  JSType t1
@@ -556,8 +610,14 @@ namespace Document
   embeds a = primJS $ Document.prim__embeds (up a)
   
   export
-  fgColor : Document -> Attribute True I String
-  fgColor = fromPrim "Document.getfgColor" prim__fgColor prim__setFgColor
+  fgColor :  JSType t
+          => {auto 0 _ : Elem Document (Types t)}
+          -> t
+          -> Attribute True I String
+  fgColor v = fromPrim "Document.getfgColor"
+                       prim__fgColor
+                       prim__setFgColor
+                       (v :> Document)
   
   export
   forms :  JSType t1
@@ -609,10 +669,14 @@ namespace Document
   lastModified a = primJS $ Document.prim__lastModified (up a)
   
   export
-  linkColor : Document -> Attribute True I String
-  linkColor = fromPrim "Document.getlinkColor"
-                       prim__linkColor
-                       prim__setLinkColor
+  linkColor :  JSType t
+            => {auto 0 _ : Elem Document (Types t)}
+            -> t
+            -> Attribute True I String
+  linkColor v = fromPrim "Document.getlinkColor"
+                         prim__linkColor
+                         prim__setLinkColor
+                         (v :> Document)
   
   export
   links :  JSType t1
@@ -629,16 +693,24 @@ namespace Document
   location a = tryJS "Document.location" $ Document.prim__location (up a)
   
   export
-  onreadystatechange : Document -> Attribute False Maybe EventHandlerNonNull
-  onreadystatechange = fromNullablePrim "Document.getonreadystatechange"
-                                        prim__onreadystatechange
-                                        prim__setOnreadystatechange
+  onreadystatechange :  JSType t
+                     => {auto 0 _ : Elem Document (Types t)}
+                     -> t
+                     -> Attribute False Maybe EventHandlerNonNull
+  onreadystatechange v = fromNullablePrim "Document.getonreadystatechange"
+                                          prim__onreadystatechange
+                                          prim__setOnreadystatechange
+                                          (v :> Document)
   
   export
-  onvisibilitychange : Document -> Attribute False Maybe EventHandlerNonNull
-  onvisibilitychange = fromNullablePrim "Document.getonvisibilitychange"
-                                        prim__onvisibilitychange
-                                        prim__setOnvisibilitychange
+  onvisibilitychange :  JSType t
+                     => {auto 0 _ : Elem Document (Types t)}
+                     -> t
+                     -> Attribute False Maybe EventHandlerNonNull
+  onvisibilitychange v = fromNullablePrim "Document.getonvisibilitychange"
+                                          prim__onvisibilitychange
+                                          prim__setOnvisibilitychange
+                                          (v :> Document)
   
   export
   plugins :  JSType t1
@@ -684,8 +756,14 @@ namespace Document
   timeline a = primJS $ Document.prim__timeline (up a)
   
   export
-  title : Document -> Attribute True I String
-  title = fromPrim "Document.gettitle" prim__title prim__setTitle
+  title :  JSType t
+        => {auto 0 _ : Elem Document (Types t)}
+        -> t
+        -> Attribute True I String
+  title v = fromPrim "Document.gettitle"
+                     prim__title
+                     prim__setTitle
+                     (v :> Document)
   
   export
   visibilityState :  JSType t1
@@ -696,10 +774,14 @@ namespace Document
                     $ Document.prim__visibilityState (up a)
   
   export
-  vlinkColor : Document -> Attribute True I String
-  vlinkColor = fromPrim "Document.getvlinkColor"
-                        prim__vlinkColor
-                        prim__setVlinkColor
+  vlinkColor :  JSType t
+             => {auto 0 _ : Elem Document (Types t)}
+             -> t
+             -> Attribute True I String
+  vlinkColor v = fromPrim "Document.getvlinkColor"
+                          prim__vlinkColor
+                          prim__setVlinkColor
+                          (v :> Document)
   
   export
   adoptNode :  JSType t1
@@ -1149,12 +1231,21 @@ namespace Element
   classList a = primJS $ Element.prim__classList (up a)
   
   export
-  className : Element -> Attribute True I String
-  className = fromPrim "Element.getclassName" prim__className prim__setClassName
+  className :  JSType t
+            => {auto 0 _ : Elem Element (Types t)}
+            -> t
+            -> Attribute True I String
+  className v = fromPrim "Element.getclassName"
+                         prim__className
+                         prim__setClassName
+                         (v :> Element)
   
   export
-  id : Element -> Attribute True I String
-  id = fromPrim "Element.getid" prim__id prim__setId
+  id :  JSType t
+     => {auto 0 _ : Elem Element (Types t)}
+     -> t
+     -> Attribute True I String
+  id v = fromPrim "Element.getid" prim__id prim__setId (v :> Element)
   
   export
   localName :  JSType t1
@@ -1172,8 +1263,14 @@ namespace Element
                  $ Element.prim__namespaceURI (up a)
   
   export
-  outerHTML : Element -> Attribute True I String
-  outerHTML = fromPrim "Element.getouterHTML" prim__outerHTML prim__setOuterHTML
+  outerHTML :  JSType t
+            => {auto 0 _ : Elem Element (Types t)}
+            -> t
+            -> Attribute True I String
+  outerHTML v = fromPrim "Element.getouterHTML"
+                         prim__outerHTML
+                         prim__setOuterHTML
+                         (v :> Element)
   
   export
   prefix_ :  JSType t1
@@ -1190,8 +1287,11 @@ namespace Element
   shadowRoot a = tryJS "Element.shadowRoot" $ Element.prim__shadowRoot (up a)
   
   export
-  slot : Element -> Attribute True I String
-  slot = fromPrim "Element.getslot" prim__slot prim__setSlot
+  slot :  JSType t
+       => {auto 0 _ : Elem Element (Types t)}
+       -> t
+       -> Attribute True I String
+  slot v = fromPrim "Element.getslot" prim__slot prim__setSlot (v :> Element)
   
   export
   tagName :  JSType t1
@@ -1507,10 +1607,14 @@ namespace Event
   bubbles a = tryJS "Event.bubbles" $ Event.prim__bubbles (up a)
   
   export
-  cancelBubble : Event -> Attribute True I Bool
-  cancelBubble = fromPrim "Event.getcancelBubble"
-                          prim__cancelBubble
-                          prim__setCancelBubble
+  cancelBubble :  JSType t
+               => {auto 0 _ : Elem Event (Types t)}
+               -> t
+               -> Attribute True I Bool
+  cancelBubble v = fromPrim "Event.getcancelBubble"
+                            prim__cancelBubble
+                            prim__setCancelBubble
+                            (v :> Event)
   
   export
   cancelable :  JSType t1
@@ -1557,10 +1661,14 @@ namespace Event
   isTrusted a = tryJS "Event.isTrusted" $ Event.prim__isTrusted (up a)
   
   export
-  returnValue : Event -> Attribute True I Bool
-  returnValue = fromPrim "Event.getreturnValue"
-                         prim__returnValue
-                         prim__setReturnValue
+  returnValue :  JSType t
+              => {auto 0 _ : Elem Event (Types t)}
+              -> t
+              -> Attribute True I Bool
+  returnValue v = fromPrim "Event.getreturnValue"
+                           prim__returnValue
+                           prim__setReturnValue
+                           (v :> Event)
   
   export
   srcElement :  JSType t1
@@ -2062,10 +2170,14 @@ namespace Node
   nodeType a = primJS $ Node.prim__nodeType (up a)
   
   export
-  nodeValue : Node -> Attribute False Maybe String
-  nodeValue = fromNullablePrim "Node.getnodeValue"
-                               prim__nodeValue
-                               prim__setNodeValue
+  nodeValue :  JSType t
+            => {auto 0 _ : Elem Node (Types t)}
+            -> t
+            -> Attribute False Maybe String
+  nodeValue v = fromNullablePrim "Node.getnodeValue"
+                                 prim__nodeValue
+                                 prim__setNodeValue
+                                 (v :> Node)
   
   export
   ownerDocument :  JSType t1
@@ -2097,10 +2209,14 @@ namespace Node
                     $ Node.prim__previousSibling (up a)
   
   export
-  textContent : Node -> Attribute False Maybe String
-  textContent = fromNullablePrim "Node.gettextContent"
-                                 prim__textContent
-                                 prim__setTextContent
+  textContent :  JSType t
+              => {auto 0 _ : Elem Node (Types t)}
+              -> t
+              -> Attribute False Maybe String
+  textContent v = fromNullablePrim "Node.gettextContent"
+                                   prim__textContent
+                                   prim__setTextContent
+                                   (v :> Node)
   
   export
   appendChild :  JSType t1
@@ -2637,10 +2753,14 @@ namespace ShadowRoot
   mode a = tryJS "ShadowRoot.mode" $ ShadowRoot.prim__mode (up a)
   
   export
-  onslotchange : ShadowRoot -> Attribute False Maybe EventHandlerNonNull
-  onslotchange = fromNullablePrim "ShadowRoot.getonslotchange"
-                                  prim__onslotchange
-                                  prim__setOnslotchange
+  onslotchange :  JSType t
+               => {auto 0 _ : Elem ShadowRoot (Types t)}
+               -> t
+               -> Attribute False Maybe EventHandlerNonNull
+  onslotchange v = fromNullablePrim "ShadowRoot.getonslotchange"
+                                    prim__onslotchange
+                                    prim__setOnslotchange
+                                    (v :> ShadowRoot)
 
 namespace StaticRange
   
@@ -2679,10 +2799,14 @@ namespace Text
 namespace TreeWalker
   
   export
-  currentNode : TreeWalker -> Attribute True I Node
-  currentNode = fromPrim "TreeWalker.getcurrentNode"
-                         prim__currentNode
-                         prim__setCurrentNode
+  currentNode :  JSType t
+              => {auto 0 _ : Elem TreeWalker (Types t)}
+              -> t
+              -> Attribute True I Node
+  currentNode v = fromPrim "TreeWalker.getcurrentNode"
+                           prim__currentNode
+                           prim__setCurrentNode
+                           (v :> TreeWalker)
   
   export
   filter :  JSType t1
@@ -2958,10 +3082,14 @@ namespace DocumentOrShadowRoot
 namespace InnerHTML
   
   export
-  innerHTML : InnerHTML -> Attribute True I String
-  innerHTML = fromPrim "InnerHTML.getinnerHTML"
-                       prim__innerHTML
-                       prim__setInnerHTML
+  innerHTML :  JSType t
+            => {auto 0 _ : Elem InnerHTML (Types t)}
+            -> t
+            -> Attribute True I String
+  innerHTML v = fromPrim "InnerHTML.getinnerHTML"
+                         prim__innerHTML
+                         prim__setInnerHTML
+                         (v :> InnerHTML)
 
 namespace NonDocumentTypeChildNode
   
@@ -3125,24 +3253,36 @@ namespace AddEventListenerOptions
   new' = primJS $ AddEventListenerOptions.prim__new undef undef undef
   
   export
-  once : AddEventListenerOptions -> Attribute True Optional Bool
-  once = fromUndefOrPrim "AddEventListenerOptions.getonce"
-                         prim__once
-                         prim__setOnce
-                         False
+  once :  JSType t
+       => {auto 0 _ : Elem AddEventListenerOptions (Types t)}
+       -> t
+       -> Attribute True Optional Bool
+  once v = fromUndefOrPrim "AddEventListenerOptions.getonce"
+                           prim__once
+                           prim__setOnce
+                           False
+                           (v :> AddEventListenerOptions)
   
   export
-  passive : AddEventListenerOptions -> Attribute True Optional Bool
-  passive = fromUndefOrPrim "AddEventListenerOptions.getpassive"
-                            prim__passive
-                            prim__setPassive
-                            False
+  passive :  JSType t
+          => {auto 0 _ : Elem AddEventListenerOptions (Types t)}
+          -> t
+          -> Attribute True Optional Bool
+  passive v = fromUndefOrPrim "AddEventListenerOptions.getpassive"
+                              prim__passive
+                              prim__setPassive
+                              False
+                              (v :> AddEventListenerOptions)
   
   export
-  signal : AddEventListenerOptions -> Attribute False Optional AbortSignal
-  signal = fromUndefOrPrimNoDefault "AddEventListenerOptions.getsignal"
-                                    prim__signal
-                                    prim__setSignal
+  signal :  JSType t
+         => {auto 0 _ : Elem AddEventListenerOptions (Types t)}
+         -> t
+         -> Attribute False Optional AbortSignal
+  signal v = fromUndefOrPrimNoDefault "AddEventListenerOptions.getsignal"
+                                      prim__signal
+                                      prim__setSignal
+                                      (v :> AddEventListenerOptions)
 
 namespace CustomEventInit
   
@@ -3155,11 +3295,15 @@ namespace CustomEventInit
   new' = primJS $ CustomEventInit.prim__new undef
   
   export
-  detail : CustomEventInit -> Attribute True Optional Any
-  detail = fromUndefOrPrim "CustomEventInit.getdetail"
-                           prim__detail
-                           prim__setDetail
-                           (MkAny $ null {a = ()})
+  detail :  JSType t
+         => {auto 0 _ : Elem CustomEventInit (Types t)}
+         -> t
+         -> Attribute True Optional Any
+  detail v = fromUndefOrPrim "CustomEventInit.getdetail"
+                             prim__detail
+                             prim__setDetail
+                             (MkAny $ null {a = ()})
+                             (v :> CustomEventInit)
 
 namespace ElementCreationOptions
   
@@ -3172,10 +3316,14 @@ namespace ElementCreationOptions
   new' = primJS $ ElementCreationOptions.prim__new undef
   
   export
-  is : ElementCreationOptions -> Attribute False Optional String
-  is = fromUndefOrPrimNoDefault "ElementCreationOptions.getis"
-                                prim__is
-                                prim__setIs
+  is :  JSType t
+     => {auto 0 _ : Elem ElementCreationOptions (Types t)}
+     -> t
+     -> Attribute False Optional String
+  is v = fromUndefOrPrimNoDefault "ElementCreationOptions.getis"
+                                  prim__is
+                                  prim__setIs
+                                  (v :> ElementCreationOptions)
 
 namespace EventInit
   
@@ -3191,25 +3339,37 @@ namespace EventInit
   new' = primJS $ EventInit.prim__new undef undef undef
   
   export
-  bubbles : EventInit -> Attribute True Optional Bool
-  bubbles = fromUndefOrPrim "EventInit.getbubbles"
-                            prim__bubbles
-                            prim__setBubbles
-                            False
+  bubbles :  JSType t
+          => {auto 0 _ : Elem EventInit (Types t)}
+          -> t
+          -> Attribute True Optional Bool
+  bubbles v = fromUndefOrPrim "EventInit.getbubbles"
+                              prim__bubbles
+                              prim__setBubbles
+                              False
+                              (v :> EventInit)
   
   export
-  cancelable : EventInit -> Attribute True Optional Bool
-  cancelable = fromUndefOrPrim "EventInit.getcancelable"
-                               prim__cancelable
-                               prim__setCancelable
+  cancelable :  JSType t
+             => {auto 0 _ : Elem EventInit (Types t)}
+             -> t
+             -> Attribute True Optional Bool
+  cancelable v = fromUndefOrPrim "EventInit.getcancelable"
+                                 prim__cancelable
+                                 prim__setCancelable
+                                 False
+                                 (v :> EventInit)
+  
+  export
+  composed :  JSType t
+           => {auto 0 _ : Elem EventInit (Types t)}
+           -> t
+           -> Attribute True Optional Bool
+  composed v = fromUndefOrPrim "EventInit.getcomposed"
+                               prim__composed
+                               prim__setComposed
                                False
-  
-  export
-  composed : EventInit -> Attribute True Optional Bool
-  composed = fromUndefOrPrim "EventInit.getcomposed"
-                             prim__composed
-                             prim__setComposed
-                             False
+                               (v :> EventInit)
 
 namespace EventListenerOptions
   
@@ -3222,11 +3382,15 @@ namespace EventListenerOptions
   new' = primJS $ EventListenerOptions.prim__new undef
   
   export
-  capture : EventListenerOptions -> Attribute True Optional Bool
-  capture = fromUndefOrPrim "EventListenerOptions.getcapture"
-                            prim__capture
-                            prim__setCapture
-                            False
+  capture :  JSType t
+          => {auto 0 _ : Elem EventListenerOptions (Types t)}
+          -> t
+          -> Attribute True Optional Bool
+  capture v = fromUndefOrPrim "EventListenerOptions.getcapture"
+                              prim__capture
+                              prim__setCapture
+                              False
+                              (v :> EventListenerOptions)
 
 namespace GetRootNodeOptions
   
@@ -3239,11 +3403,15 @@ namespace GetRootNodeOptions
   new' = primJS $ GetRootNodeOptions.prim__new undef
   
   export
-  composed : GetRootNodeOptions -> Attribute True Optional Bool
-  composed = fromUndefOrPrim "GetRootNodeOptions.getcomposed"
-                             prim__composed
-                             prim__setComposed
-                             False
+  composed :  JSType t
+           => {auto 0 _ : Elem GetRootNodeOptions (Types t)}
+           -> t
+           -> Attribute True Optional Bool
+  composed v = fromUndefOrPrim "GetRootNodeOptions.getcomposed"
+                               prim__composed
+                               prim__setComposed
+                               False
+                               (v :> GetRootNodeOptions)
 
 namespace MutationObserverInit
   
@@ -3277,48 +3445,76 @@ namespace MutationObserverInit
                                         undef
   
   export
-  attributeFilter : MutationObserverInit -> Attribute False Optional (Array String)
-  attributeFilter = fromUndefOrPrimNoDefault "MutationObserverInit.getattributeFilter"
-                                             prim__attributeFilter
-                                             prim__setAttributeFilter
+  attributeFilter :  JSType t
+                  => {auto 0 _ : Elem MutationObserverInit (Types t)}
+                  -> t
+                  -> Attribute False Optional (Array String)
+  attributeFilter v = fromUndefOrPrimNoDefault "MutationObserverInit.getattributeFilter"
+                                               prim__attributeFilter
+                                               prim__setAttributeFilter
+                                               (v :> MutationObserverInit)
   
   export
-  attributeOldValue : MutationObserverInit -> Attribute False Optional Bool
-  attributeOldValue = fromUndefOrPrimNoDefault "MutationObserverInit.getattributeOldValue"
-                                               prim__attributeOldValue
-                                               prim__setAttributeOldValue
+  attributeOldValue :  JSType t
+                    => {auto 0 _ : Elem MutationObserverInit (Types t)}
+                    -> t
+                    -> Attribute False Optional Bool
+  attributeOldValue v = fromUndefOrPrimNoDefault "MutationObserverInit.getattributeOldValue"
+                                                 prim__attributeOldValue
+                                                 prim__setAttributeOldValue
+                                                 (v :> MutationObserverInit)
   
   export
-  attributes : MutationObserverInit -> Attribute False Optional Bool
-  attributes = fromUndefOrPrimNoDefault "MutationObserverInit.getattributes"
-                                        prim__attributes
-                                        prim__setAttributes
+  attributes :  JSType t
+             => {auto 0 _ : Elem MutationObserverInit (Types t)}
+             -> t
+             -> Attribute False Optional Bool
+  attributes v = fromUndefOrPrimNoDefault "MutationObserverInit.getattributes"
+                                          prim__attributes
+                                          prim__setAttributes
+                                          (v :> MutationObserverInit)
   
   export
-  characterData : MutationObserverInit -> Attribute False Optional Bool
-  characterData = fromUndefOrPrimNoDefault "MutationObserverInit.getcharacterData"
-                                           prim__characterData
-                                           prim__setCharacterData
+  characterData :  JSType t
+                => {auto 0 _ : Elem MutationObserverInit (Types t)}
+                -> t
+                -> Attribute False Optional Bool
+  characterData v = fromUndefOrPrimNoDefault "MutationObserverInit.getcharacterData"
+                                             prim__characterData
+                                             prim__setCharacterData
+                                             (v :> MutationObserverInit)
   
   export
-  characterDataOldValue : MutationObserverInit -> Attribute False Optional Bool
-  characterDataOldValue = fromUndefOrPrimNoDefault "MutationObserverInit.getcharacterDataOldValue"
-                                                   prim__characterDataOldValue
-                                                   prim__setCharacterDataOldValue
+  characterDataOldValue :  JSType t
+                        => {auto 0 _ : Elem MutationObserverInit (Types t)}
+                        -> t
+                        -> Attribute False Optional Bool
+  characterDataOldValue v = fromUndefOrPrimNoDefault "MutationObserverInit.getcharacterDataOldValue"
+                                                     prim__characterDataOldValue
+                                                     prim__setCharacterDataOldValue
+                                                     (v :> MutationObserverInit)
   
   export
-  childList : MutationObserverInit -> Attribute True Optional Bool
-  childList = fromUndefOrPrim "MutationObserverInit.getchildList"
-                              prim__childList
-                              prim__setChildList
+  childList :  JSType t
+            => {auto 0 _ : Elem MutationObserverInit (Types t)}
+            -> t
+            -> Attribute True Optional Bool
+  childList v = fromUndefOrPrim "MutationObserverInit.getchildList"
+                                prim__childList
+                                prim__setChildList
+                                False
+                                (v :> MutationObserverInit)
+  
+  export
+  subtree :  JSType t
+          => {auto 0 _ : Elem MutationObserverInit (Types t)}
+          -> t
+          -> Attribute True Optional Bool
+  subtree v = fromUndefOrPrim "MutationObserverInit.getsubtree"
+                              prim__subtree
+                              prim__setSubtree
                               False
-  
-  export
-  subtree : MutationObserverInit -> Attribute True Optional Bool
-  subtree = fromUndefOrPrim "MutationObserverInit.getsubtree"
-                            prim__subtree
-                            prim__setSubtree
-                            False
+                              (v :> MutationObserverInit)
 
 namespace ShadowRootInit
   
@@ -3333,15 +3529,25 @@ namespace ShadowRootInit
   new' a = primJS $ ShadowRootInit.prim__new (toFFI a) undef
   
   export
-  delegatesFocus : ShadowRootInit -> Attribute True Optional Bool
-  delegatesFocus = fromUndefOrPrim "ShadowRootInit.getdelegatesFocus"
-                                   prim__delegatesFocus
-                                   prim__setDelegatesFocus
-                                   False
+  delegatesFocus :  JSType t
+                 => {auto 0 _ : Elem ShadowRootInit (Types t)}
+                 -> t
+                 -> Attribute True Optional Bool
+  delegatesFocus v = fromUndefOrPrim "ShadowRootInit.getdelegatesFocus"
+                                     prim__delegatesFocus
+                                     prim__setDelegatesFocus
+                                     False
+                                     (v :> ShadowRootInit)
   
   export
-  mode : ShadowRootInit -> Attribute True I ShadowRootMode
-  mode = fromPrim "ShadowRootInit.getmode" prim__mode prim__setMode
+  mode :  JSType t
+       => {auto 0 _ : Elem ShadowRootInit (Types t)}
+       -> t
+       -> Attribute True I ShadowRootMode
+  mode v = fromPrim "ShadowRootInit.getmode"
+                    prim__mode
+                    prim__setMode
+                    (v :> ShadowRootInit)
 
 namespace StaticRangeInit
   
@@ -3358,28 +3564,44 @@ namespace StaticRangeInit
   new a b c d = primJS $ StaticRangeInit.prim__new (up a) b (up c) d
   
   export
-  endContainer : StaticRangeInit -> Attribute True I Node
-  endContainer = fromPrim "StaticRangeInit.getendContainer"
-                          prim__endContainer
-                          prim__setEndContainer
+  endContainer :  JSType t
+               => {auto 0 _ : Elem StaticRangeInit (Types t)}
+               -> t
+               -> Attribute True I Node
+  endContainer v = fromPrim "StaticRangeInit.getendContainer"
+                            prim__endContainer
+                            prim__setEndContainer
+                            (v :> StaticRangeInit)
   
   export
-  endOffset : StaticRangeInit -> Attribute True I UInt32
-  endOffset = fromPrim "StaticRangeInit.getendOffset"
-                       prim__endOffset
-                       prim__setEndOffset
+  endOffset :  JSType t
+            => {auto 0 _ : Elem StaticRangeInit (Types t)}
+            -> t
+            -> Attribute True I UInt32
+  endOffset v = fromPrim "StaticRangeInit.getendOffset"
+                         prim__endOffset
+                         prim__setEndOffset
+                         (v :> StaticRangeInit)
   
   export
-  startContainer : StaticRangeInit -> Attribute True I Node
-  startContainer = fromPrim "StaticRangeInit.getstartContainer"
-                            prim__startContainer
-                            prim__setStartContainer
+  startContainer :  JSType t
+                 => {auto 0 _ : Elem StaticRangeInit (Types t)}
+                 -> t
+                 -> Attribute True I Node
+  startContainer v = fromPrim "StaticRangeInit.getstartContainer"
+                              prim__startContainer
+                              prim__setStartContainer
+                              (v :> StaticRangeInit)
   
   export
-  startOffset : StaticRangeInit -> Attribute True I UInt32
-  startOffset = fromPrim "StaticRangeInit.getstartOffset"
-                         prim__startOffset
-                         prim__setStartOffset
+  startOffset :  JSType t
+              => {auto 0 _ : Elem StaticRangeInit (Types t)}
+              -> t
+              -> Attribute True I UInt32
+  startOffset v = fromPrim "StaticRangeInit.getstartOffset"
+                           prim__startOffset
+                           prim__setStartOffset
+                           (v :> StaticRangeInit)
 
 --------------------------------------------------------------------------------
 --          Callbacks

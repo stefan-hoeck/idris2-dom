@@ -7,8 +7,8 @@ import Web.Html
 
 prog : JSIO ()
 prog = do btn <- createElement HTMLButtonElement "button"
-          textContent (up btn) .= "Click me!"
-          onclick (up btn) ?> textContent (up btn) .= "Yeah!"
+          textContent btn .= "Click me!"
+          onclick btn ?> textContent btn .= "Yeah!"
           ignore $ !body `appendChild` btn
 
 main : IO ()

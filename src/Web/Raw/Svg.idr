@@ -12,26 +12,54 @@ import Web.Internal.Types
 namespace SVGAElement
   
   export
-  download : SVGAElement -> Attribute True I String
-  download = fromPrim "SVGAElement.getdownload" prim__download prim__setDownload
+  download :  JSType t
+           => {auto 0 _ : Elem SVGAElement (Types t)}
+           -> t
+           -> Attribute True I String
+  download v = fromPrim "SVGAElement.getdownload"
+                        prim__download
+                        prim__setDownload
+                        (v :> SVGAElement)
   
   export
-  hreflang : SVGAElement -> Attribute True I String
-  hreflang = fromPrim "SVGAElement.gethreflang" prim__hreflang prim__setHreflang
+  hreflang :  JSType t
+           => {auto 0 _ : Elem SVGAElement (Types t)}
+           -> t
+           -> Attribute True I String
+  hreflang v = fromPrim "SVGAElement.gethreflang"
+                        prim__hreflang
+                        prim__setHreflang
+                        (v :> SVGAElement)
   
   export
-  ping : SVGAElement -> Attribute True I String
-  ping = fromPrim "SVGAElement.getping" prim__ping prim__setPing
+  ping :  JSType t
+       => {auto 0 _ : Elem SVGAElement (Types t)}
+       -> t
+       -> Attribute True I String
+  ping v = fromPrim "SVGAElement.getping"
+                    prim__ping
+                    prim__setPing
+                    (v :> SVGAElement)
   
   export
-  referrerPolicy : SVGAElement -> Attribute True I String
-  referrerPolicy = fromPrim "SVGAElement.getreferrerPolicy"
-                            prim__referrerPolicy
-                            prim__setReferrerPolicy
+  referrerPolicy :  JSType t
+                 => {auto 0 _ : Elem SVGAElement (Types t)}
+                 -> t
+                 -> Attribute True I String
+  referrerPolicy v = fromPrim "SVGAElement.getreferrerPolicy"
+                              prim__referrerPolicy
+                              prim__setReferrerPolicy
+                              (v :> SVGAElement)
   
   export
-  rel : SVGAElement -> Attribute True I String
-  rel = fromPrim "SVGAElement.getrel" prim__rel prim__setRel
+  rel :  JSType t
+      => {auto 0 _ : Elem SVGAElement (Types t)}
+      -> t
+      -> Attribute True I String
+  rel v = fromPrim "SVGAElement.getrel"
+                   prim__rel
+                   prim__setRel
+                   (v :> SVGAElement)
   
   export
   relList :  JSType t1
@@ -48,12 +76,24 @@ namespace SVGAElement
   target a = primJS $ SVGAElement.prim__target (up a)
   
   export
-  text : SVGAElement -> Attribute True I String
-  text = fromPrim "SVGAElement.gettext" prim__text prim__setText
+  text :  JSType t
+       => {auto 0 _ : Elem SVGAElement (Types t)}
+       -> t
+       -> Attribute True I String
+  text v = fromPrim "SVGAElement.gettext"
+                    prim__text
+                    prim__setText
+                    (v :> SVGAElement)
   
   export
-  type : SVGAElement -> Attribute True I String
-  type = fromPrim "SVGAElement.gettype" prim__type prim__setType
+  type :  JSType t
+       => {auto 0 _ : Elem SVGAElement (Types t)}
+       -> t
+       -> Attribute True I String
+  type v = fromPrim "SVGAElement.gettype"
+                    prim__type
+                    prim__setType
+                    (v :> SVGAElement)
 
 namespace SVGAngle
   
@@ -85,20 +125,34 @@ namespace SVGAngle
   unitType a = primJS $ SVGAngle.prim__unitType (up a)
   
   export
-  value : SVGAngle -> Attribute True I Double
-  value = fromPrim "SVGAngle.getvalue" prim__value prim__setValue
+  value :  JSType t
+        => {auto 0 _ : Elem SVGAngle (Types t)}
+        -> t
+        -> Attribute True I Double
+  value v = fromPrim "SVGAngle.getvalue"
+                     prim__value
+                     prim__setValue
+                     (v :> SVGAngle)
   
   export
-  valueAsString : SVGAngle -> Attribute True I String
-  valueAsString = fromPrim "SVGAngle.getvalueAsString"
-                           prim__valueAsString
-                           prim__setValueAsString
+  valueAsString :  JSType t
+                => {auto 0 _ : Elem SVGAngle (Types t)}
+                -> t
+                -> Attribute True I String
+  valueAsString v = fromPrim "SVGAngle.getvalueAsString"
+                             prim__valueAsString
+                             prim__setValueAsString
+                             (v :> SVGAngle)
   
   export
-  valueInSpecifiedUnits : SVGAngle -> Attribute True I Double
-  valueInSpecifiedUnits = fromPrim "SVGAngle.getvalueInSpecifiedUnits"
-                                   prim__valueInSpecifiedUnits
-                                   prim__setValueInSpecifiedUnits
+  valueInSpecifiedUnits :  JSType t
+                        => {auto 0 _ : Elem SVGAngle (Types t)}
+                        -> t
+                        -> Attribute True I Double
+  valueInSpecifiedUnits v = fromPrim "SVGAngle.getvalueInSpecifiedUnits"
+                                     prim__valueInSpecifiedUnits
+                                     prim__setValueInSpecifiedUnits
+                                     (v :> SVGAngle)
   
   export
   convertToSpecifiedUnits :  JSType t1
@@ -148,10 +202,14 @@ namespace SVGAnimatedBoolean
             $ SVGAnimatedBoolean.prim__animVal (up a)
   
   export
-  baseVal : SVGAnimatedBoolean -> Attribute True I Bool
-  baseVal = fromPrim "SVGAnimatedBoolean.getbaseVal"
-                     prim__baseVal
-                     prim__setBaseVal
+  baseVal :  JSType t
+          => {auto 0 _ : Elem SVGAnimatedBoolean (Types t)}
+          -> t
+          -> Attribute True I Bool
+  baseVal v = fromPrim "SVGAnimatedBoolean.getbaseVal"
+                       prim__baseVal
+                       prim__setBaseVal
+                       (v :> SVGAnimatedBoolean)
 
 namespace SVGAnimatedEnumeration
   
@@ -163,10 +221,14 @@ namespace SVGAnimatedEnumeration
   animVal a = primJS $ SVGAnimatedEnumeration.prim__animVal (up a)
   
   export
-  baseVal : SVGAnimatedEnumeration -> Attribute True I UInt16
-  baseVal = fromPrim "SVGAnimatedEnumeration.getbaseVal"
-                     prim__baseVal
-                     prim__setBaseVal
+  baseVal :  JSType t
+          => {auto 0 _ : Elem SVGAnimatedEnumeration (Types t)}
+          -> t
+          -> Attribute True I UInt16
+  baseVal v = fromPrim "SVGAnimatedEnumeration.getbaseVal"
+                       prim__baseVal
+                       prim__setBaseVal
+                       (v :> SVGAnimatedEnumeration)
 
 namespace SVGAnimatedInteger
   
@@ -178,10 +240,14 @@ namespace SVGAnimatedInteger
   animVal a = primJS $ SVGAnimatedInteger.prim__animVal (up a)
   
   export
-  baseVal : SVGAnimatedInteger -> Attribute True I Int32
-  baseVal = fromPrim "SVGAnimatedInteger.getbaseVal"
-                     prim__baseVal
-                     prim__setBaseVal
+  baseVal :  JSType t
+          => {auto 0 _ : Elem SVGAnimatedInteger (Types t)}
+          -> t
+          -> Attribute True I Int32
+  baseVal v = fromPrim "SVGAnimatedInteger.getbaseVal"
+                       prim__baseVal
+                       prim__setBaseVal
+                       (v :> SVGAnimatedInteger)
 
 namespace SVGAnimatedLength
   
@@ -225,10 +291,14 @@ namespace SVGAnimatedNumber
   animVal a = primJS $ SVGAnimatedNumber.prim__animVal (up a)
   
   export
-  baseVal : SVGAnimatedNumber -> Attribute True I Double
-  baseVal = fromPrim "SVGAnimatedNumber.getbaseVal"
-                     prim__baseVal
-                     prim__setBaseVal
+  baseVal :  JSType t
+          => {auto 0 _ : Elem SVGAnimatedNumber (Types t)}
+          -> t
+          -> Attribute True I Double
+  baseVal v = fromPrim "SVGAnimatedNumber.getbaseVal"
+                       prim__baseVal
+                       prim__setBaseVal
+                       (v :> SVGAnimatedNumber)
 
 namespace SVGAnimatedNumberList
   
@@ -288,10 +358,14 @@ namespace SVGAnimatedString
   animVal a = primJS $ SVGAnimatedString.prim__animVal (up a)
   
   export
-  baseVal : SVGAnimatedString -> Attribute True I String
-  baseVal = fromPrim "SVGAnimatedString.getbaseVal"
-                     prim__baseVal
-                     prim__setBaseVal
+  baseVal :  JSType t
+          => {auto 0 _ : Elem SVGAnimatedString (Types t)}
+          -> t
+          -> Attribute True I String
+  baseVal v = fromPrim "SVGAnimatedString.getbaseVal"
+                       prim__baseVal
+                       prim__setBaseVal
+                       (v :> SVGAnimatedString)
 
 namespace SVGAnimatedTransformList
   
@@ -569,10 +643,14 @@ namespace SVGGraphicsElement
 namespace SVGImageElement
   
   export
-  crossOrigin : SVGImageElement -> Attribute False Maybe String
-  crossOrigin = fromNullablePrim "SVGImageElement.getcrossOrigin"
-                                 prim__crossOrigin
-                                 prim__setCrossOrigin
+  crossOrigin :  JSType t
+              => {auto 0 _ : Elem SVGImageElement (Types t)}
+              -> t
+              -> Attribute False Maybe String
+  crossOrigin v = fromNullablePrim "SVGImageElement.getcrossOrigin"
+                                   prim__crossOrigin
+                                   prim__setCrossOrigin
+                                   (v :> SVGImageElement)
   
   export
   height :  JSType t1
@@ -664,20 +742,34 @@ namespace SVGLength
   unitType a = primJS $ SVGLength.prim__unitType (up a)
   
   export
-  value : SVGLength -> Attribute True I Double
-  value = fromPrim "SVGLength.getvalue" prim__value prim__setValue
+  value :  JSType t
+        => {auto 0 _ : Elem SVGLength (Types t)}
+        -> t
+        -> Attribute True I Double
+  value v = fromPrim "SVGLength.getvalue"
+                     prim__value
+                     prim__setValue
+                     (v :> SVGLength)
   
   export
-  valueAsString : SVGLength -> Attribute True I String
-  valueAsString = fromPrim "SVGLength.getvalueAsString"
-                           prim__valueAsString
-                           prim__setValueAsString
+  valueAsString :  JSType t
+                => {auto 0 _ : Elem SVGLength (Types t)}
+                -> t
+                -> Attribute True I String
+  valueAsString v = fromPrim "SVGLength.getvalueAsString"
+                             prim__valueAsString
+                             prim__setValueAsString
+                             (v :> SVGLength)
   
   export
-  valueInSpecifiedUnits : SVGLength -> Attribute True I Double
-  valueInSpecifiedUnits = fromPrim "SVGLength.getvalueInSpecifiedUnits"
-                                   prim__valueInSpecifiedUnits
-                                   prim__setValueInSpecifiedUnits
+  valueInSpecifiedUnits :  JSType t
+                        => {auto 0 _ : Elem SVGLength (Types t)}
+                        -> t
+                        -> Attribute True I Double
+  valueInSpecifiedUnits v = fromPrim "SVGLength.getvalueInSpecifiedUnits"
+                                     prim__valueInSpecifiedUnits
+                                     prim__setValueInSpecifiedUnits
+                                     (v :> SVGLength)
   
   export
   convertToSpecifiedUnits :  JSType t1
@@ -901,8 +993,14 @@ namespace SVGMarkerElement
   markerWidth a = primJS $ SVGMarkerElement.prim__markerWidth (up a)
   
   export
-  orient : SVGMarkerElement -> Attribute True I String
-  orient = fromPrim "SVGMarkerElement.getorient" prim__orient prim__setOrient
+  orient :  JSType t
+         => {auto 0 _ : Elem SVGMarkerElement (Types t)}
+         -> t
+         -> Attribute True I String
+  orient v = fromPrim "SVGMarkerElement.getorient"
+                      prim__orient
+                      prim__setOrient
+                      (v :> SVGMarkerElement)
   
   export
   orientAngle :  JSType t1
@@ -954,8 +1052,14 @@ namespace SVGMarkerElement
 namespace SVGNumber
   
   export
-  value : SVGNumber -> Attribute True I Double
-  value = fromPrim "SVGNumber.getvalue" prim__value prim__setValue
+  value :  JSType t
+        => {auto 0 _ : Elem SVGNumber (Types t)}
+        -> t
+        -> Attribute True I Double
+  value v = fromPrim "SVGNumber.getvalue"
+                     prim__value
+                     prim__setValue
+                     (v :> SVGNumber)
 
 namespace SVGNumberList
   
@@ -1257,14 +1361,24 @@ namespace SVGPreserveAspectRatio
   SVG_PRESERVEASPECTRATIO_XMINYMIN = 2
   
   export
-  align : SVGPreserveAspectRatio -> Attribute True I UInt16
-  align = fromPrim "SVGPreserveAspectRatio.getalign" prim__align prim__setAlign
+  align :  JSType t
+        => {auto 0 _ : Elem SVGPreserveAspectRatio (Types t)}
+        -> t
+        -> Attribute True I UInt16
+  align v = fromPrim "SVGPreserveAspectRatio.getalign"
+                     prim__align
+                     prim__setAlign
+                     (v :> SVGPreserveAspectRatio)
   
   export
-  meetOrSlice : SVGPreserveAspectRatio -> Attribute True I UInt16
-  meetOrSlice = fromPrim "SVGPreserveAspectRatio.getmeetOrSlice"
-                         prim__meetOrSlice
-                         prim__setMeetOrSlice
+  meetOrSlice :  JSType t
+              => {auto 0 _ : Elem SVGPreserveAspectRatio (Types t)}
+              -> t
+              -> Attribute True I UInt16
+  meetOrSlice v = fromPrim "SVGPreserveAspectRatio.getmeetOrSlice"
+                           prim__meetOrSlice
+                           prim__setMeetOrSlice
+                           (v :> SVGPreserveAspectRatio)
 
 namespace SVGRadialGradientElement
   
@@ -1357,10 +1471,14 @@ namespace SVGRectElement
 namespace SVGSVGElement
   
   export
-  currentScale : SVGSVGElement -> Attribute True I Double
-  currentScale = fromPrim "SVGSVGElement.getcurrentScale"
-                          prim__currentScale
-                          prim__setCurrentScale
+  currentScale :  JSType t
+               => {auto 0 _ : Elem SVGSVGElement (Types t)}
+               -> t
+               -> Attribute True I Double
+  currentScale v = fromPrim "SVGSVGElement.getcurrentScale"
+                            prim__currentScale
+                            prim__setCurrentScale
+                            (v :> SVGSVGElement)
   
   export
   currentTranslate :  JSType t1
@@ -1577,14 +1695,24 @@ namespace SVGSVGElement
 namespace SVGScriptElement
   
   export
-  crossOrigin : SVGScriptElement -> Attribute False Maybe String
-  crossOrigin = fromNullablePrim "SVGScriptElement.getcrossOrigin"
-                                 prim__crossOrigin
-                                 prim__setCrossOrigin
+  crossOrigin :  JSType t
+              => {auto 0 _ : Elem SVGScriptElement (Types t)}
+              -> t
+              -> Attribute False Maybe String
+  crossOrigin v = fromNullablePrim "SVGScriptElement.getcrossOrigin"
+                                   prim__crossOrigin
+                                   prim__setCrossOrigin
+                                   (v :> SVGScriptElement)
   
   export
-  type : SVGScriptElement -> Attribute True I String
-  type = fromPrim "SVGScriptElement.gettype" prim__type prim__setType
+  type :  JSType t
+       => {auto 0 _ : Elem SVGScriptElement (Types t)}
+       -> t
+       -> Attribute True I String
+  type v = fromPrim "SVGScriptElement.gettype"
+                    prim__type
+                    prim__setType
+                    (v :> SVGScriptElement)
 
 namespace SVGStopElement
   
@@ -1681,16 +1809,34 @@ namespace SVGStringList
 namespace SVGStyleElement
   
   export
-  media : SVGStyleElement -> Attribute True I String
-  media = fromPrim "SVGStyleElement.getmedia" prim__media prim__setMedia
+  media :  JSType t
+        => {auto 0 _ : Elem SVGStyleElement (Types t)}
+        -> t
+        -> Attribute True I String
+  media v = fromPrim "SVGStyleElement.getmedia"
+                     prim__media
+                     prim__setMedia
+                     (v :> SVGStyleElement)
   
   export
-  title : SVGStyleElement -> Attribute True I String
-  title = fromPrim "SVGStyleElement.gettitle" prim__title prim__setTitle
+  title :  JSType t
+        => {auto 0 _ : Elem SVGStyleElement (Types t)}
+        -> t
+        -> Attribute True I String
+  title v = fromPrim "SVGStyleElement.gettitle"
+                     prim__title
+                     prim__setTitle
+                     (v :> SVGStyleElement)
   
   export
-  type : SVGStyleElement -> Attribute True I String
-  type = fromPrim "SVGStyleElement.gettype" prim__type prim__setType
+  type :  JSType t
+       => {auto 0 _ : Elem SVGStyleElement (Types t)}
+       -> t
+       -> Attribute True I String
+  type v = fromPrim "SVGStyleElement.gettype"
+                    prim__type
+                    prim__setType
+                    (v :> SVGStyleElement)
 
 
 
@@ -2305,29 +2451,45 @@ namespace SVGBoundingBoxOptions
   new' = primJS $ SVGBoundingBoxOptions.prim__new undef undef undef undef
   
   export
-  clipped : SVGBoundingBoxOptions -> Attribute True Optional Bool
-  clipped = fromUndefOrPrim "SVGBoundingBoxOptions.getclipped"
-                            prim__clipped
-                            prim__setClipped
-                            False
+  clipped :  JSType t
+          => {auto 0 _ : Elem SVGBoundingBoxOptions (Types t)}
+          -> t
+          -> Attribute True Optional Bool
+  clipped v = fromUndefOrPrim "SVGBoundingBoxOptions.getclipped"
+                              prim__clipped
+                              prim__setClipped
+                              False
+                              (v :> SVGBoundingBoxOptions)
   
   export
-  fill : SVGBoundingBoxOptions -> Attribute True Optional Bool
-  fill = fromUndefOrPrim "SVGBoundingBoxOptions.getfill"
-                         prim__fill
-                         prim__setFill
-                         True
+  fill :  JSType t
+       => {auto 0 _ : Elem SVGBoundingBoxOptions (Types t)}
+       -> t
+       -> Attribute True Optional Bool
+  fill v = fromUndefOrPrim "SVGBoundingBoxOptions.getfill"
+                           prim__fill
+                           prim__setFill
+                           True
+                           (v :> SVGBoundingBoxOptions)
   
   export
-  markers : SVGBoundingBoxOptions -> Attribute True Optional Bool
-  markers = fromUndefOrPrim "SVGBoundingBoxOptions.getmarkers"
-                            prim__markers
-                            prim__setMarkers
-                            False
+  markers :  JSType t
+          => {auto 0 _ : Elem SVGBoundingBoxOptions (Types t)}
+          -> t
+          -> Attribute True Optional Bool
+  markers v = fromUndefOrPrim "SVGBoundingBoxOptions.getmarkers"
+                              prim__markers
+                              prim__setMarkers
+                              False
+                              (v :> SVGBoundingBoxOptions)
   
   export
-  stroke : SVGBoundingBoxOptions -> Attribute True Optional Bool
-  stroke = fromUndefOrPrim "SVGBoundingBoxOptions.getstroke"
-                           prim__stroke
-                           prim__setStroke
-                           False
+  stroke :  JSType t
+         => {auto 0 _ : Elem SVGBoundingBoxOptions (Types t)}
+         -> t
+         -> Attribute True Optional Bool
+  stroke v = fromUndefOrPrim "SVGBoundingBoxOptions.getstroke"
+                             prim__stroke
+                             prim__setStroke
+                             False
+                             (v :> SVGBoundingBoxOptions)

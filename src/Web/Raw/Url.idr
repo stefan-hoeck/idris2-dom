@@ -34,20 +34,35 @@ namespace URL
   revokeObjectURL a = primJS $ URL.prim__revokeObjectURL a
   
   export
-  hash : URL -> Attribute True I String
-  hash = fromPrim "URL.gethash" prim__hash prim__setHash
+  hash :  JSType t
+       => {auto 0 _ : Elem URL (Types t)}
+       -> t
+       -> Attribute True I String
+  hash v = fromPrim "URL.gethash" prim__hash prim__setHash (v :> URL)
   
   export
-  host : URL -> Attribute True I String
-  host = fromPrim "URL.gethost" prim__host prim__setHost
+  host :  JSType t
+       => {auto 0 _ : Elem URL (Types t)}
+       -> t
+       -> Attribute True I String
+  host v = fromPrim "URL.gethost" prim__host prim__setHost (v :> URL)
   
   export
-  hostname : URL -> Attribute True I String
-  hostname = fromPrim "URL.gethostname" prim__hostname prim__setHostname
+  hostname :  JSType t
+           => {auto 0 _ : Elem URL (Types t)}
+           -> t
+           -> Attribute True I String
+  hostname v = fromPrim "URL.gethostname"
+                        prim__hostname
+                        prim__setHostname
+                        (v :> URL)
   
   export
-  href : URL -> Attribute True I String
-  href = fromPrim "URL.gethref" prim__href prim__setHref
+  href :  JSType t
+       => {auto 0 _ : Elem URL (Types t)}
+       -> t
+       -> Attribute True I String
+  href v = fromPrim "URL.gethref" prim__href prim__setHref (v :> URL)
   
   export
   origin :  JSType t1
@@ -57,24 +72,48 @@ namespace URL
   origin a = primJS $ URL.prim__origin (up a)
   
   export
-  password : URL -> Attribute True I String
-  password = fromPrim "URL.getpassword" prim__password prim__setPassword
+  password :  JSType t
+           => {auto 0 _ : Elem URL (Types t)}
+           -> t
+           -> Attribute True I String
+  password v = fromPrim "URL.getpassword"
+                        prim__password
+                        prim__setPassword
+                        (v :> URL)
   
   export
-  pathname : URL -> Attribute True I String
-  pathname = fromPrim "URL.getpathname" prim__pathname prim__setPathname
+  pathname :  JSType t
+           => {auto 0 _ : Elem URL (Types t)}
+           -> t
+           -> Attribute True I String
+  pathname v = fromPrim "URL.getpathname"
+                        prim__pathname
+                        prim__setPathname
+                        (v :> URL)
   
   export
-  port : URL -> Attribute True I String
-  port = fromPrim "URL.getport" prim__port prim__setPort
+  port :  JSType t
+       => {auto 0 _ : Elem URL (Types t)}
+       -> t
+       -> Attribute True I String
+  port v = fromPrim "URL.getport" prim__port prim__setPort (v :> URL)
   
   export
-  protocol : URL -> Attribute True I String
-  protocol = fromPrim "URL.getprotocol" prim__protocol prim__setProtocol
+  protocol :  JSType t
+           => {auto 0 _ : Elem URL (Types t)}
+           -> t
+           -> Attribute True I String
+  protocol v = fromPrim "URL.getprotocol"
+                        prim__protocol
+                        prim__setProtocol
+                        (v :> URL)
   
   export
-  search : URL -> Attribute True I String
-  search = fromPrim "URL.getsearch" prim__search prim__setSearch
+  search :  JSType t
+         => {auto 0 _ : Elem URL (Types t)}
+         -> t
+         -> Attribute True I String
+  search v = fromPrim "URL.getsearch" prim__search prim__setSearch (v :> URL)
   
   export
   searchParams :  JSType t1
@@ -84,8 +123,14 @@ namespace URL
   searchParams a = primJS $ URL.prim__searchParams (up a)
   
   export
-  username : URL -> Attribute True I String
-  username = fromPrim "URL.getusername" prim__username prim__setUsername
+  username :  JSType t
+           => {auto 0 _ : Elem URL (Types t)}
+           -> t
+           -> Attribute True I String
+  username v = fromPrim "URL.getusername"
+                        prim__username
+                        prim__setUsername
+                        (v :> URL)
   
   export
   toJSON :  JSType t1

@@ -101,10 +101,14 @@ namespace CSSNamespaceRule
 namespace CSSPageRule
   
   export
-  selectorText : CSSPageRule -> Attribute True I CSSOMString
-  selectorText = fromPrim "CSSPageRule.getselectorText"
-                          prim__selectorText
-                          prim__setSelectorText
+  selectorText :  JSType t
+               => {auto 0 _ : Elem CSSPageRule (Types t)}
+               -> t
+               -> Attribute True I CSSOMString
+  selectorText v = fromPrim "CSSPageRule.getselectorText"
+                            prim__selectorText
+                            prim__setSelectorText
+                            (v :> CSSPageRule)
   
   export
   style :  JSType t1
@@ -164,8 +168,14 @@ namespace CSSRule
   STYLE_RULE = 1
   
   export
-  cssText : CSSRule -> Attribute True I CSSOMString
-  cssText = fromPrim "CSSRule.getcssText" prim__cssText prim__setCssText
+  cssText :  JSType t
+          => {auto 0 _ : Elem CSSRule (Types t)}
+          -> t
+          -> Attribute True I CSSOMString
+  cssText v = fromPrim "CSSRule.getcssText"
+                       prim__cssText
+                       prim__setCssText
+                       (v :> CSSRule)
   
   export
   parentRule :  JSType t1
@@ -209,16 +219,24 @@ namespace CSSRuleList
 namespace CSSStyleDeclaration
   
   export
-  cssFloat : CSSStyleDeclaration -> Attribute True I CSSOMString
-  cssFloat = fromPrim "CSSStyleDeclaration.getcssFloat"
-                      prim__cssFloat
-                      prim__setCssFloat
+  cssFloat :  JSType t
+           => {auto 0 _ : Elem CSSStyleDeclaration (Types t)}
+           -> t
+           -> Attribute True I CSSOMString
+  cssFloat v = fromPrim "CSSStyleDeclaration.getcssFloat"
+                        prim__cssFloat
+                        prim__setCssFloat
+                        (v :> CSSStyleDeclaration)
   
   export
-  cssText : CSSStyleDeclaration -> Attribute True I CSSOMString
-  cssText = fromPrim "CSSStyleDeclaration.getcssText"
-                     prim__cssText
-                     prim__setCssText
+  cssText :  JSType t
+          => {auto 0 _ : Elem CSSStyleDeclaration (Types t)}
+          -> t
+          -> Attribute True I CSSOMString
+  cssText v = fromPrim "CSSStyleDeclaration.getcssText"
+                       prim__cssText
+                       prim__setCssText
+                       (v :> CSSStyleDeclaration)
   
   export
   length :  JSType t1
@@ -298,10 +316,14 @@ namespace CSSStyleDeclaration
 namespace CSSStyleRule
   
   export
-  selectorText : CSSStyleRule -> Attribute True I CSSOMString
-  selectorText = fromPrim "CSSStyleRule.getselectorText"
-                          prim__selectorText
-                          prim__setSelectorText
+  selectorText :  JSType t
+               => {auto 0 _ : Elem CSSStyleRule (Types t)}
+               -> t
+               -> Attribute True I CSSOMString
+  selectorText v = fromPrim "CSSStyleRule.getselectorText"
+                            prim__selectorText
+                            prim__setSelectorText
+                            (v :> CSSStyleRule)
   
   export
   style :  JSType t1
@@ -405,10 +427,14 @@ namespace MediaList
   length a = primJS $ MediaList.prim__length (up a)
   
   export
-  mediaText : MediaList -> Attribute True I CSSOMString
-  mediaText = fromPrim "MediaList.getmediaText"
-                       prim__mediaText
-                       prim__setMediaText
+  mediaText :  JSType t
+            => {auto 0 _ : Elem MediaList (Types t)}
+            -> t
+            -> Attribute True I CSSOMString
+  mediaText v = fromPrim "MediaList.getmediaText"
+                         prim__mediaText
+                         prim__setMediaText
+                         (v :> MediaList)
   
   export
   appendMedium :  JSType t1
@@ -437,8 +463,14 @@ namespace MediaList
 namespace StyleSheet
   
   export
-  disabled : StyleSheet -> Attribute True I Bool
-  disabled = fromPrim "StyleSheet.getdisabled" prim__disabled prim__setDisabled
+  disabled :  JSType t
+           => {auto 0 _ : Elem StyleSheet (Types t)}
+           -> t
+           -> Attribute True I Bool
+  disabled v = fromPrim "StyleSheet.getdisabled"
+                        prim__disabled
+                        prim__setDisabled
+                        (v :> StyleSheet)
   
   export
   href :  JSType t1

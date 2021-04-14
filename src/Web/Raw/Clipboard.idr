@@ -146,11 +146,15 @@ namespace ClipboardEventInit
   new' = primJS $ ClipboardEventInit.prim__new undef
   
   export
-  clipboardData : ClipboardEventInit -> Attribute True Optional (Maybe DataTransfer)
-  clipboardData = fromUndefOrPrim "ClipboardEventInit.getclipboardData"
-                                  prim__clipboardData
-                                  prim__setClipboardData
-                                  Nothing
+  clipboardData :  JSType t
+                => {auto 0 _ : Elem ClipboardEventInit (Types t)}
+                -> t
+                -> Attribute True Optional (Maybe DataTransfer)
+  clipboardData v = fromUndefOrPrim "ClipboardEventInit.getclipboardData"
+                                    prim__clipboardData
+                                    prim__setClipboardData
+                                    Nothing
+                                    (v :> ClipboardEventInit)
 
 namespace ClipboardItemOptions
   
@@ -164,10 +168,14 @@ namespace ClipboardItemOptions
   new' = primJS $ ClipboardItemOptions.prim__new undef
   
   export
-  presentationStyle : ClipboardItemOptions -> Attribute False Optional PresentationStyle
-  presentationStyle = fromUndefOrPrimNoDefault "ClipboardItemOptions.getpresentationStyle"
-                                               prim__presentationStyle
-                                               prim__setPresentationStyle
+  presentationStyle :  JSType t
+                    => {auto 0 _ : Elem ClipboardItemOptions (Types t)}
+                    -> t
+                    -> Attribute False Optional PresentationStyle
+  presentationStyle v = fromUndefOrPrimNoDefault "ClipboardItemOptions.getpresentationStyle"
+                                                 prim__presentationStyle
+                                                 prim__setPresentationStyle
+                                                 (v :> ClipboardItemOptions)
 
 namespace ClipboardPermissionDescriptor
   
@@ -181,11 +189,15 @@ namespace ClipboardPermissionDescriptor
   new' = primJS $ ClipboardPermissionDescriptor.prim__new undef
   
   export
-  allowWithoutGesture : ClipboardPermissionDescriptor -> Attribute True Optional Bool
-  allowWithoutGesture = fromUndefOrPrim "ClipboardPermissionDescriptor.getallowWithoutGesture"
-                                        prim__allowWithoutGesture
-                                        prim__setAllowWithoutGesture
-                                        False
+  allowWithoutGesture :  JSType t
+                      => {auto 0 _ : Elem ClipboardPermissionDescriptor (Types t)}
+                      -> t
+                      -> Attribute True Optional Bool
+  allowWithoutGesture v = fromUndefOrPrim "ClipboardPermissionDescriptor.getallowWithoutGesture"
+                                          prim__allowWithoutGesture
+                                          prim__setAllowWithoutGesture
+                                          False
+                                          (v :> ClipboardPermissionDescriptor)
 
 --------------------------------------------------------------------------------
 --          Callbacks

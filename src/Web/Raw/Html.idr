@@ -11,8 +11,14 @@ import Web.Internal.Types
 namespace AudioTrack
   
   export
-  enabled : AudioTrack -> Attribute True I Bool
-  enabled = fromPrim "AudioTrack.getenabled" prim__enabled prim__setEnabled
+  enabled :  JSType t
+          => {auto 0 _ : Elem AudioTrack (Types t)}
+          -> t
+          -> Attribute True I Bool
+  enabled v = fromPrim "AudioTrack.getenabled"
+                       prim__enabled
+                       prim__setEnabled
+                       (v :> AudioTrack)
   
   export
   id :  JSType t1
@@ -68,22 +74,34 @@ namespace AudioTrackList
   length a = primJS $ AudioTrackList.prim__length (up a)
   
   export
-  onaddtrack : AudioTrackList -> Attribute False Maybe EventHandlerNonNull
-  onaddtrack = fromNullablePrim "AudioTrackList.getonaddtrack"
-                                prim__onaddtrack
-                                prim__setOnaddtrack
+  onaddtrack :  JSType t
+             => {auto 0 _ : Elem AudioTrackList (Types t)}
+             -> t
+             -> Attribute False Maybe EventHandlerNonNull
+  onaddtrack v = fromNullablePrim "AudioTrackList.getonaddtrack"
+                                  prim__onaddtrack
+                                  prim__setOnaddtrack
+                                  (v :> AudioTrackList)
   
   export
-  onchange : AudioTrackList -> Attribute False Maybe EventHandlerNonNull
-  onchange = fromNullablePrim "AudioTrackList.getonchange"
-                              prim__onchange
-                              prim__setOnchange
+  onchange :  JSType t
+           => {auto 0 _ : Elem AudioTrackList (Types t)}
+           -> t
+           -> Attribute False Maybe EventHandlerNonNull
+  onchange v = fromNullablePrim "AudioTrackList.getonchange"
+                                prim__onchange
+                                prim__setOnchange
+                                (v :> AudioTrackList)
   
   export
-  onremovetrack : AudioTrackList -> Attribute False Maybe EventHandlerNonNull
-  onremovetrack = fromNullablePrim "AudioTrackList.getonremovetrack"
-                                   prim__onremovetrack
-                                   prim__setOnremovetrack
+  onremovetrack :  JSType t
+                => {auto 0 _ : Elem AudioTrackList (Types t)}
+                -> t
+                -> Attribute False Maybe EventHandlerNonNull
+  onremovetrack v = fromNullablePrim "AudioTrackList.getonremovetrack"
+                                     prim__onremovetrack
+                                     prim__setOnremovetrack
+                                     (v :> AudioTrackList)
   
   export
   getTrackById :  JSType t1
@@ -106,10 +124,14 @@ namespace BarProp
 namespace BeforeUnloadEvent
   
   export
-  returnValue : BeforeUnloadEvent -> Attribute True I String
-  returnValue = fromPrim "BeforeUnloadEvent.getreturnValue"
-                         prim__returnValue
-                         prim__setReturnValue
+  returnValue :  JSType t
+              => {auto 0 _ : Elem BeforeUnloadEvent (Types t)}
+              -> t
+              -> Attribute True I String
+  returnValue v = fromPrim "BeforeUnloadEvent.getreturnValue"
+                           prim__returnValue
+                           prim__setReturnValue
+                           (v :> BeforeUnloadEvent)
 
 namespace BroadcastChannel
   
@@ -125,16 +147,24 @@ namespace BroadcastChannel
   name a = primJS $ BroadcastChannel.prim__name (up a)
   
   export
-  onmessage : BroadcastChannel -> Attribute False Maybe EventHandlerNonNull
-  onmessage = fromNullablePrim "BroadcastChannel.getonmessage"
-                               prim__onmessage
-                               prim__setOnmessage
+  onmessage :  JSType t
+            => {auto 0 _ : Elem BroadcastChannel (Types t)}
+            -> t
+            -> Attribute False Maybe EventHandlerNonNull
+  onmessage v = fromNullablePrim "BroadcastChannel.getonmessage"
+                                 prim__onmessage
+                                 prim__setOnmessage
+                                 (v :> BroadcastChannel)
   
   export
-  onmessageerror : BroadcastChannel -> Attribute False Maybe EventHandlerNonNull
-  onmessageerror = fromNullablePrim "BroadcastChannel.getonmessageerror"
-                                    prim__onmessageerror
-                                    prim__setOnmessageerror
+  onmessageerror :  JSType t
+                 => {auto 0 _ : Elem BroadcastChannel (Types t)}
+                 -> t
+                 -> Attribute False Maybe EventHandlerNonNull
+  onmessageerror v = fromNullablePrim "BroadcastChannel.getonmessageerror"
+                                      prim__onmessageerror
+                                      prim__setOnmessageerror
+                                      (v :> BroadcastChannel)
   
   export
   close :  JSType t1
@@ -351,16 +381,24 @@ namespace DataTransfer
   new = primJS $ DataTransfer.prim__new 
   
   export
-  dropEffect : DataTransfer -> Attribute True I String
-  dropEffect = fromPrim "DataTransfer.getdropEffect"
-                        prim__dropEffect
-                        prim__setDropEffect
+  dropEffect :  JSType t
+             => {auto 0 _ : Elem DataTransfer (Types t)}
+             -> t
+             -> Attribute True I String
+  dropEffect v = fromPrim "DataTransfer.getdropEffect"
+                          prim__dropEffect
+                          prim__setDropEffect
+                          (v :> DataTransfer)
   
   export
-  effectAllowed : DataTransfer -> Attribute True I String
-  effectAllowed = fromPrim "DataTransfer.geteffectAllowed"
-                           prim__effectAllowed
-                           prim__setEffectAllowed
+  effectAllowed :  JSType t
+                => {auto 0 _ : Elem DataTransfer (Types t)}
+                -> t
+                -> Attribute True I String
+  effectAllowed v = fromPrim "DataTransfer.geteffectAllowed"
+                             prim__effectAllowed
+                             prim__setEffectAllowed
+                             (v :> DataTransfer)
   
   export
   files :  JSType t1
@@ -523,16 +561,24 @@ namespace DedicatedWorkerGlobalScope
   name a = primJS $ DedicatedWorkerGlobalScope.prim__name (up a)
   
   export
-  onmessage : DedicatedWorkerGlobalScope -> Attribute False Maybe EventHandlerNonNull
-  onmessage = fromNullablePrim "DedicatedWorkerGlobalScope.getonmessage"
-                               prim__onmessage
-                               prim__setOnmessage
+  onmessage :  JSType t
+            => {auto 0 _ : Elem DedicatedWorkerGlobalScope (Types t)}
+            -> t
+            -> Attribute False Maybe EventHandlerNonNull
+  onmessage v = fromNullablePrim "DedicatedWorkerGlobalScope.getonmessage"
+                                 prim__onmessage
+                                 prim__setOnmessage
+                                 (v :> DedicatedWorkerGlobalScope)
   
   export
-  onmessageerror : DedicatedWorkerGlobalScope -> Attribute False Maybe EventHandlerNonNull
-  onmessageerror = fromNullablePrim "DedicatedWorkerGlobalScope.getonmessageerror"
-                                    prim__onmessageerror
-                                    prim__setOnmessageerror
+  onmessageerror :  JSType t
+                 => {auto 0 _ : Elem DedicatedWorkerGlobalScope (Types t)}
+                 -> t
+                 -> Attribute False Maybe EventHandlerNonNull
+  onmessageerror v = fromNullablePrim "DedicatedWorkerGlobalScope.getonmessageerror"
+                                      prim__onmessageerror
+                                      prim__setOnmessageerror
+                                      (v :> DedicatedWorkerGlobalScope)
   
   export
   close :  JSType t1
@@ -785,20 +831,34 @@ namespace EventSource
   new' a = primJS $ EventSource.prim__new a undef
   
   export
-  onerror : EventSource -> Attribute False Maybe EventHandlerNonNull
-  onerror = fromNullablePrim "EventSource.getonerror"
-                             prim__onerror
-                             prim__setOnerror
+  onerror :  JSType t
+          => {auto 0 _ : Elem EventSource (Types t)}
+          -> t
+          -> Attribute False Maybe EventHandlerNonNull
+  onerror v = fromNullablePrim "EventSource.getonerror"
+                               prim__onerror
+                               prim__setOnerror
+                               (v :> EventSource)
   
   export
-  onmessage : EventSource -> Attribute False Maybe EventHandlerNonNull
-  onmessage = fromNullablePrim "EventSource.getonmessage"
-                               prim__onmessage
-                               prim__setOnmessage
+  onmessage :  JSType t
+            => {auto 0 _ : Elem EventSource (Types t)}
+            -> t
+            -> Attribute False Maybe EventHandlerNonNull
+  onmessage v = fromNullablePrim "EventSource.getonmessage"
+                                 prim__onmessage
+                                 prim__setOnmessage
+                                 (v :> EventSource)
   
   export
-  onopen : EventSource -> Attribute False Maybe EventHandlerNonNull
-  onopen = fromNullablePrim "EventSource.getonopen" prim__onopen prim__setOnopen
+  onopen :  JSType t
+         => {auto 0 _ : Elem EventSource (Types t)}
+         -> t
+         -> Attribute False Maybe EventHandlerNonNull
+  onopen v = fromNullablePrim "EventSource.getonopen"
+                              prim__onopen
+                              prim__setOnopen
+                              (v :> EventSource)
   
   export
   readyState :  JSType t1
@@ -913,44 +973,84 @@ namespace HTMLAnchorElement
   new = primJS $ HTMLAnchorElement.prim__new 
   
   export
-  charset : HTMLAnchorElement -> Attribute True I String
-  charset = fromPrim "HTMLAnchorElement.getcharset"
-                     prim__charset
-                     prim__setCharset
+  charset :  JSType t
+          => {auto 0 _ : Elem HTMLAnchorElement (Types t)}
+          -> t
+          -> Attribute True I String
+  charset v = fromPrim "HTMLAnchorElement.getcharset"
+                       prim__charset
+                       prim__setCharset
+                       (v :> HTMLAnchorElement)
   
   export
-  coords : HTMLAnchorElement -> Attribute True I String
-  coords = fromPrim "HTMLAnchorElement.getcoords" prim__coords prim__setCoords
+  coords :  JSType t
+         => {auto 0 _ : Elem HTMLAnchorElement (Types t)}
+         -> t
+         -> Attribute True I String
+  coords v = fromPrim "HTMLAnchorElement.getcoords"
+                      prim__coords
+                      prim__setCoords
+                      (v :> HTMLAnchorElement)
   
   export
-  download : HTMLAnchorElement -> Attribute True I String
-  download = fromPrim "HTMLAnchorElement.getdownload"
-                      prim__download
-                      prim__setDownload
+  download :  JSType t
+           => {auto 0 _ : Elem HTMLAnchorElement (Types t)}
+           -> t
+           -> Attribute True I String
+  download v = fromPrim "HTMLAnchorElement.getdownload"
+                        prim__download
+                        prim__setDownload
+                        (v :> HTMLAnchorElement)
   
   export
-  hreflang : HTMLAnchorElement -> Attribute True I String
-  hreflang = fromPrim "HTMLAnchorElement.gethreflang"
-                      prim__hreflang
-                      prim__setHreflang
+  hreflang :  JSType t
+           => {auto 0 _ : Elem HTMLAnchorElement (Types t)}
+           -> t
+           -> Attribute True I String
+  hreflang v = fromPrim "HTMLAnchorElement.gethreflang"
+                        prim__hreflang
+                        prim__setHreflang
+                        (v :> HTMLAnchorElement)
   
   export
-  name : HTMLAnchorElement -> Attribute True I String
-  name = fromPrim "HTMLAnchorElement.getname" prim__name prim__setName
+  name :  JSType t
+       => {auto 0 _ : Elem HTMLAnchorElement (Types t)}
+       -> t
+       -> Attribute True I String
+  name v = fromPrim "HTMLAnchorElement.getname"
+                    prim__name
+                    prim__setName
+                    (v :> HTMLAnchorElement)
   
   export
-  ping : HTMLAnchorElement -> Attribute True I String
-  ping = fromPrim "HTMLAnchorElement.getping" prim__ping prim__setPing
+  ping :  JSType t
+       => {auto 0 _ : Elem HTMLAnchorElement (Types t)}
+       -> t
+       -> Attribute True I String
+  ping v = fromPrim "HTMLAnchorElement.getping"
+                    prim__ping
+                    prim__setPing
+                    (v :> HTMLAnchorElement)
   
   export
-  referrerPolicy : HTMLAnchorElement -> Attribute True I String
-  referrerPolicy = fromPrim "HTMLAnchorElement.getreferrerPolicy"
-                            prim__referrerPolicy
-                            prim__setReferrerPolicy
+  referrerPolicy :  JSType t
+                 => {auto 0 _ : Elem HTMLAnchorElement (Types t)}
+                 -> t
+                 -> Attribute True I String
+  referrerPolicy v = fromPrim "HTMLAnchorElement.getreferrerPolicy"
+                              prim__referrerPolicy
+                              prim__setReferrerPolicy
+                              (v :> HTMLAnchorElement)
   
   export
-  rel : HTMLAnchorElement -> Attribute True I String
-  rel = fromPrim "HTMLAnchorElement.getrel" prim__rel prim__setRel
+  rel :  JSType t
+      => {auto 0 _ : Elem HTMLAnchorElement (Types t)}
+      -> t
+      -> Attribute True I String
+  rel v = fromPrim "HTMLAnchorElement.getrel"
+                   prim__rel
+                   prim__setRel
+                   (v :> HTMLAnchorElement)
   
   export
   relList :  JSType t1
@@ -960,24 +1060,54 @@ namespace HTMLAnchorElement
   relList a = primJS $ HTMLAnchorElement.prim__relList (up a)
   
   export
-  rev : HTMLAnchorElement -> Attribute True I String
-  rev = fromPrim "HTMLAnchorElement.getrev" prim__rev prim__setRev
+  rev :  JSType t
+      => {auto 0 _ : Elem HTMLAnchorElement (Types t)}
+      -> t
+      -> Attribute True I String
+  rev v = fromPrim "HTMLAnchorElement.getrev"
+                   prim__rev
+                   prim__setRev
+                   (v :> HTMLAnchorElement)
   
   export
-  shape : HTMLAnchorElement -> Attribute True I String
-  shape = fromPrim "HTMLAnchorElement.getshape" prim__shape prim__setShape
+  shape :  JSType t
+        => {auto 0 _ : Elem HTMLAnchorElement (Types t)}
+        -> t
+        -> Attribute True I String
+  shape v = fromPrim "HTMLAnchorElement.getshape"
+                     prim__shape
+                     prim__setShape
+                     (v :> HTMLAnchorElement)
   
   export
-  target : HTMLAnchorElement -> Attribute True I String
-  target = fromPrim "HTMLAnchorElement.gettarget" prim__target prim__setTarget
+  target :  JSType t
+         => {auto 0 _ : Elem HTMLAnchorElement (Types t)}
+         -> t
+         -> Attribute True I String
+  target v = fromPrim "HTMLAnchorElement.gettarget"
+                      prim__target
+                      prim__setTarget
+                      (v :> HTMLAnchorElement)
   
   export
-  text : HTMLAnchorElement -> Attribute True I String
-  text = fromPrim "HTMLAnchorElement.gettext" prim__text prim__setText
+  text :  JSType t
+       => {auto 0 _ : Elem HTMLAnchorElement (Types t)}
+       -> t
+       -> Attribute True I String
+  text v = fromPrim "HTMLAnchorElement.gettext"
+                    prim__text
+                    prim__setText
+                    (v :> HTMLAnchorElement)
   
   export
-  type : HTMLAnchorElement -> Attribute True I String
-  type = fromPrim "HTMLAnchorElement.gettype" prim__type prim__setType
+  type :  JSType t
+       => {auto 0 _ : Elem HTMLAnchorElement (Types t)}
+       -> t
+       -> Attribute True I String
+  type v = fromPrim "HTMLAnchorElement.gettype"
+                    prim__type
+                    prim__setType
+                    (v :> HTMLAnchorElement)
 
 namespace HTMLAreaElement
   
@@ -986,36 +1116,74 @@ namespace HTMLAreaElement
   new = primJS $ HTMLAreaElement.prim__new 
   
   export
-  alt : HTMLAreaElement -> Attribute True I String
-  alt = fromPrim "HTMLAreaElement.getalt" prim__alt prim__setAlt
+  alt :  JSType t
+      => {auto 0 _ : Elem HTMLAreaElement (Types t)}
+      -> t
+      -> Attribute True I String
+  alt v = fromPrim "HTMLAreaElement.getalt"
+                   prim__alt
+                   prim__setAlt
+                   (v :> HTMLAreaElement)
   
   export
-  coords : HTMLAreaElement -> Attribute True I String
-  coords = fromPrim "HTMLAreaElement.getcoords" prim__coords prim__setCoords
+  coords :  JSType t
+         => {auto 0 _ : Elem HTMLAreaElement (Types t)}
+         -> t
+         -> Attribute True I String
+  coords v = fromPrim "HTMLAreaElement.getcoords"
+                      prim__coords
+                      prim__setCoords
+                      (v :> HTMLAreaElement)
   
   export
-  download : HTMLAreaElement -> Attribute True I String
-  download = fromPrim "HTMLAreaElement.getdownload"
-                      prim__download
-                      prim__setDownload
+  download :  JSType t
+           => {auto 0 _ : Elem HTMLAreaElement (Types t)}
+           -> t
+           -> Attribute True I String
+  download v = fromPrim "HTMLAreaElement.getdownload"
+                        prim__download
+                        prim__setDownload
+                        (v :> HTMLAreaElement)
   
   export
-  noHref : HTMLAreaElement -> Attribute True I Bool
-  noHref = fromPrim "HTMLAreaElement.getnoHref" prim__noHref prim__setNoHref
+  noHref :  JSType t
+         => {auto 0 _ : Elem HTMLAreaElement (Types t)}
+         -> t
+         -> Attribute True I Bool
+  noHref v = fromPrim "HTMLAreaElement.getnoHref"
+                      prim__noHref
+                      prim__setNoHref
+                      (v :> HTMLAreaElement)
   
   export
-  ping : HTMLAreaElement -> Attribute True I String
-  ping = fromPrim "HTMLAreaElement.getping" prim__ping prim__setPing
+  ping :  JSType t
+       => {auto 0 _ : Elem HTMLAreaElement (Types t)}
+       -> t
+       -> Attribute True I String
+  ping v = fromPrim "HTMLAreaElement.getping"
+                    prim__ping
+                    prim__setPing
+                    (v :> HTMLAreaElement)
   
   export
-  referrerPolicy : HTMLAreaElement -> Attribute True I String
-  referrerPolicy = fromPrim "HTMLAreaElement.getreferrerPolicy"
-                            prim__referrerPolicy
-                            prim__setReferrerPolicy
+  referrerPolicy :  JSType t
+                 => {auto 0 _ : Elem HTMLAreaElement (Types t)}
+                 -> t
+                 -> Attribute True I String
+  referrerPolicy v = fromPrim "HTMLAreaElement.getreferrerPolicy"
+                              prim__referrerPolicy
+                              prim__setReferrerPolicy
+                              (v :> HTMLAreaElement)
   
   export
-  rel : HTMLAreaElement -> Attribute True I String
-  rel = fromPrim "HTMLAreaElement.getrel" prim__rel prim__setRel
+  rel :  JSType t
+      => {auto 0 _ : Elem HTMLAreaElement (Types t)}
+      -> t
+      -> Attribute True I String
+  rel v = fromPrim "HTMLAreaElement.getrel"
+                   prim__rel
+                   prim__setRel
+                   (v :> HTMLAreaElement)
   
   export
   relList :  JSType t1
@@ -1025,12 +1193,24 @@ namespace HTMLAreaElement
   relList a = primJS $ HTMLAreaElement.prim__relList (up a)
   
   export
-  shape : HTMLAreaElement -> Attribute True I String
-  shape = fromPrim "HTMLAreaElement.getshape" prim__shape prim__setShape
+  shape :  JSType t
+        => {auto 0 _ : Elem HTMLAreaElement (Types t)}
+        -> t
+        -> Attribute True I String
+  shape v = fromPrim "HTMLAreaElement.getshape"
+                     prim__shape
+                     prim__setShape
+                     (v :> HTMLAreaElement)
   
   export
-  target : HTMLAreaElement -> Attribute True I String
-  target = fromPrim "HTMLAreaElement.gettarget" prim__target prim__setTarget
+  target :  JSType t
+         => {auto 0 _ : Elem HTMLAreaElement (Types t)}
+         -> t
+         -> Attribute True I String
+  target v = fromPrim "HTMLAreaElement.gettarget"
+                      prim__target
+                      prim__setTarget
+                      (v :> HTMLAreaElement)
 
 namespace HTMLAudioElement
   
@@ -1045,8 +1225,14 @@ namespace HTMLBRElement
   new = primJS $ HTMLBRElement.prim__new 
   
   export
-  clear : HTMLBRElement -> Attribute True I String
-  clear = fromPrim "HTMLBRElement.getclear" prim__clear prim__setClear
+  clear :  JSType t
+        => {auto 0 _ : Elem HTMLBRElement (Types t)}
+        -> t
+        -> Attribute True I String
+  clear v = fromPrim "HTMLBRElement.getclear"
+                     prim__clear
+                     prim__setClear
+                     (v :> HTMLBRElement)
 
 namespace HTMLBaseElement
   
@@ -1055,12 +1241,24 @@ namespace HTMLBaseElement
   new = primJS $ HTMLBaseElement.prim__new 
   
   export
-  href : HTMLBaseElement -> Attribute True I String
-  href = fromPrim "HTMLBaseElement.gethref" prim__href prim__setHref
+  href :  JSType t
+       => {auto 0 _ : Elem HTMLBaseElement (Types t)}
+       -> t
+       -> Attribute True I String
+  href v = fromPrim "HTMLBaseElement.gethref"
+                    prim__href
+                    prim__setHref
+                    (v :> HTMLBaseElement)
   
   export
-  target : HTMLBaseElement -> Attribute True I String
-  target = fromPrim "HTMLBaseElement.gettarget" prim__target prim__setTarget
+  target :  JSType t
+         => {auto 0 _ : Elem HTMLBaseElement (Types t)}
+         -> t
+         -> Attribute True I String
+  target v = fromPrim "HTMLBaseElement.gettarget"
+                      prim__target
+                      prim__setTarget
+                      (v :> HTMLBaseElement)
 
 namespace HTMLBodyElement
   
@@ -1069,30 +1267,64 @@ namespace HTMLBodyElement
   new = primJS $ HTMLBodyElement.prim__new 
   
   export
-  aLink : HTMLBodyElement -> Attribute True I String
-  aLink = fromPrim "HTMLBodyElement.getaLink" prim__aLink prim__setALink
+  aLink :  JSType t
+        => {auto 0 _ : Elem HTMLBodyElement (Types t)}
+        -> t
+        -> Attribute True I String
+  aLink v = fromPrim "HTMLBodyElement.getaLink"
+                     prim__aLink
+                     prim__setALink
+                     (v :> HTMLBodyElement)
   
   export
-  background : HTMLBodyElement -> Attribute True I String
-  background = fromPrim "HTMLBodyElement.getbackground"
-                        prim__background
-                        prim__setBackground
+  background :  JSType t
+             => {auto 0 _ : Elem HTMLBodyElement (Types t)}
+             -> t
+             -> Attribute True I String
+  background v = fromPrim "HTMLBodyElement.getbackground"
+                          prim__background
+                          prim__setBackground
+                          (v :> HTMLBodyElement)
   
   export
-  bgColor : HTMLBodyElement -> Attribute True I String
-  bgColor = fromPrim "HTMLBodyElement.getbgColor" prim__bgColor prim__setBgColor
+  bgColor :  JSType t
+          => {auto 0 _ : Elem HTMLBodyElement (Types t)}
+          -> t
+          -> Attribute True I String
+  bgColor v = fromPrim "HTMLBodyElement.getbgColor"
+                       prim__bgColor
+                       prim__setBgColor
+                       (v :> HTMLBodyElement)
   
   export
-  link : HTMLBodyElement -> Attribute True I String
-  link = fromPrim "HTMLBodyElement.getlink" prim__link prim__setLink
+  link :  JSType t
+       => {auto 0 _ : Elem HTMLBodyElement (Types t)}
+       -> t
+       -> Attribute True I String
+  link v = fromPrim "HTMLBodyElement.getlink"
+                    prim__link
+                    prim__setLink
+                    (v :> HTMLBodyElement)
   
   export
-  text : HTMLBodyElement -> Attribute True I String
-  text = fromPrim "HTMLBodyElement.gettext" prim__text prim__setText
+  text :  JSType t
+       => {auto 0 _ : Elem HTMLBodyElement (Types t)}
+       -> t
+       -> Attribute True I String
+  text v = fromPrim "HTMLBodyElement.gettext"
+                    prim__text
+                    prim__setText
+                    (v :> HTMLBodyElement)
   
   export
-  vLink : HTMLBodyElement -> Attribute True I String
-  vLink = fromPrim "HTMLBodyElement.getvLink" prim__vLink prim__setVLink
+  vLink :  JSType t
+        => {auto 0 _ : Elem HTMLBodyElement (Types t)}
+        -> t
+        -> Attribute True I String
+  vLink v = fromPrim "HTMLBodyElement.getvLink"
+                     prim__vLink
+                     prim__setVLink
+                     (v :> HTMLBodyElement)
 
 namespace HTMLButtonElement
   
@@ -1101,10 +1333,14 @@ namespace HTMLButtonElement
   new = primJS $ HTMLButtonElement.prim__new 
   
   export
-  disabled : HTMLButtonElement -> Attribute True I Bool
-  disabled = fromPrim "HTMLButtonElement.getdisabled"
-                      prim__disabled
-                      prim__setDisabled
+  disabled :  JSType t
+           => {auto 0 _ : Elem HTMLButtonElement (Types t)}
+           -> t
+           -> Attribute True I Bool
+  disabled v = fromPrim "HTMLButtonElement.getdisabled"
+                        prim__disabled
+                        prim__setDisabled
+                        (v :> HTMLButtonElement)
   
   export
   form :  JSType t1
@@ -1114,34 +1350,54 @@ namespace HTMLButtonElement
   form a = tryJS "HTMLButtonElement.form" $ HTMLButtonElement.prim__form (up a)
   
   export
-  formAction : HTMLButtonElement -> Attribute True I String
-  formAction = fromPrim "HTMLButtonElement.getformAction"
-                        prim__formAction
-                        prim__setFormAction
+  formAction :  JSType t
+             => {auto 0 _ : Elem HTMLButtonElement (Types t)}
+             -> t
+             -> Attribute True I String
+  formAction v = fromPrim "HTMLButtonElement.getformAction"
+                          prim__formAction
+                          prim__setFormAction
+                          (v :> HTMLButtonElement)
   
   export
-  formEnctype : HTMLButtonElement -> Attribute True I String
-  formEnctype = fromPrim "HTMLButtonElement.getformEnctype"
-                         prim__formEnctype
-                         prim__setFormEnctype
+  formEnctype :  JSType t
+              => {auto 0 _ : Elem HTMLButtonElement (Types t)}
+              -> t
+              -> Attribute True I String
+  formEnctype v = fromPrim "HTMLButtonElement.getformEnctype"
+                           prim__formEnctype
+                           prim__setFormEnctype
+                           (v :> HTMLButtonElement)
   
   export
-  formMethod : HTMLButtonElement -> Attribute True I String
-  formMethod = fromPrim "HTMLButtonElement.getformMethod"
-                        prim__formMethod
-                        prim__setFormMethod
+  formMethod :  JSType t
+             => {auto 0 _ : Elem HTMLButtonElement (Types t)}
+             -> t
+             -> Attribute True I String
+  formMethod v = fromPrim "HTMLButtonElement.getformMethod"
+                          prim__formMethod
+                          prim__setFormMethod
+                          (v :> HTMLButtonElement)
   
   export
-  formNoValidate : HTMLButtonElement -> Attribute True I Bool
-  formNoValidate = fromPrim "HTMLButtonElement.getformNoValidate"
-                            prim__formNoValidate
-                            prim__setFormNoValidate
+  formNoValidate :  JSType t
+                 => {auto 0 _ : Elem HTMLButtonElement (Types t)}
+                 -> t
+                 -> Attribute True I Bool
+  formNoValidate v = fromPrim "HTMLButtonElement.getformNoValidate"
+                              prim__formNoValidate
+                              prim__setFormNoValidate
+                              (v :> HTMLButtonElement)
   
   export
-  formTarget : HTMLButtonElement -> Attribute True I String
-  formTarget = fromPrim "HTMLButtonElement.getformTarget"
-                        prim__formTarget
-                        prim__setFormTarget
+  formTarget :  JSType t
+             => {auto 0 _ : Elem HTMLButtonElement (Types t)}
+             -> t
+             -> Attribute True I String
+  formTarget v = fromPrim "HTMLButtonElement.getformTarget"
+                          prim__formTarget
+                          prim__setFormTarget
+                          (v :> HTMLButtonElement)
   
   export
   labels :  JSType t1
@@ -1151,12 +1407,24 @@ namespace HTMLButtonElement
   labels a = primJS $ HTMLButtonElement.prim__labels (up a)
   
   export
-  name : HTMLButtonElement -> Attribute True I String
-  name = fromPrim "HTMLButtonElement.getname" prim__name prim__setName
+  name :  JSType t
+       => {auto 0 _ : Elem HTMLButtonElement (Types t)}
+       -> t
+       -> Attribute True I String
+  name v = fromPrim "HTMLButtonElement.getname"
+                    prim__name
+                    prim__setName
+                    (v :> HTMLButtonElement)
   
   export
-  type : HTMLButtonElement -> Attribute True I String
-  type = fromPrim "HTMLButtonElement.gettype" prim__type prim__setType
+  type :  JSType t
+       => {auto 0 _ : Elem HTMLButtonElement (Types t)}
+       -> t
+       -> Attribute True I String
+  type v = fromPrim "HTMLButtonElement.gettype"
+                    prim__type
+                    prim__setType
+                    (v :> HTMLButtonElement)
   
   export
   validationMessage :  JSType t1
@@ -1174,8 +1442,14 @@ namespace HTMLButtonElement
   validity a = primJS $ HTMLButtonElement.prim__validity (up a)
   
   export
-  value : HTMLButtonElement -> Attribute True I String
-  value = fromPrim "HTMLButtonElement.getvalue" prim__value prim__setValue
+  value :  JSType t
+        => {auto 0 _ : Elem HTMLButtonElement (Types t)}
+        -> t
+        -> Attribute True I String
+  value v = fromPrim "HTMLButtonElement.getvalue"
+                     prim__value
+                     prim__setValue
+                     (v :> HTMLButtonElement)
   
   export
   willValidate :  JSType t1
@@ -1217,12 +1491,24 @@ namespace HTMLCanvasElement
   new = primJS $ HTMLCanvasElement.prim__new 
   
   export
-  height : HTMLCanvasElement -> Attribute True I UInt32
-  height = fromPrim "HTMLCanvasElement.getheight" prim__height prim__setHeight
+  height :  JSType t
+         => {auto 0 _ : Elem HTMLCanvasElement (Types t)}
+         -> t
+         -> Attribute True I UInt32
+  height v = fromPrim "HTMLCanvasElement.getheight"
+                      prim__height
+                      prim__setHeight
+                      (v :> HTMLCanvasElement)
   
   export
-  width : HTMLCanvasElement -> Attribute True I UInt32
-  width = fromPrim "HTMLCanvasElement.getwidth" prim__width prim__setWidth
+  width :  JSType t
+        => {auto 0 _ : Elem HTMLCanvasElement (Types t)}
+        -> t
+        -> Attribute True I UInt32
+  width v = fromPrim "HTMLCanvasElement.getwidth"
+                     prim__width
+                     prim__setWidth
+                     (v :> HTMLCanvasElement)
   
   export
   getContext :  JSType t1
@@ -1302,10 +1588,14 @@ namespace HTMLDListElement
   new = primJS $ HTMLDListElement.prim__new 
   
   export
-  compact : HTMLDListElement -> Attribute True I Bool
-  compact = fromPrim "HTMLDListElement.getcompact"
-                     prim__compact
-                     prim__setCompact
+  compact :  JSType t
+          => {auto 0 _ : Elem HTMLDListElement (Types t)}
+          -> t
+          -> Attribute True I Bool
+  compact v = fromPrim "HTMLDListElement.getcompact"
+                       prim__compact
+                       prim__setCompact
+                       (v :> HTMLDListElement)
 
 namespace HTMLDataElement
   
@@ -1314,8 +1604,14 @@ namespace HTMLDataElement
   new = primJS $ HTMLDataElement.prim__new 
   
   export
-  value : HTMLDataElement -> Attribute True I String
-  value = fromPrim "HTMLDataElement.getvalue" prim__value prim__setValue
+  value :  JSType t
+        => {auto 0 _ : Elem HTMLDataElement (Types t)}
+        -> t
+        -> Attribute True I String
+  value v = fromPrim "HTMLDataElement.getvalue"
+                     prim__value
+                     prim__setValue
+                     (v :> HTMLDataElement)
 
 namespace HTMLDataListElement
   
@@ -1337,8 +1633,14 @@ namespace HTMLDetailsElement
   new = primJS $ HTMLDetailsElement.prim__new 
   
   export
-  open_ : HTMLDetailsElement -> Attribute True I Bool
-  open_ = fromPrim "HTMLDetailsElement.getopen" prim__open prim__setOpen
+  open_ :  JSType t
+        => {auto 0 _ : Elem HTMLDetailsElement (Types t)}
+        -> t
+        -> Attribute True I Bool
+  open_ v = fromPrim "HTMLDetailsElement.getopen"
+                     prim__open
+                     prim__setOpen
+                     (v :> HTMLDetailsElement)
 
 namespace HTMLDialogElement
   
@@ -1347,14 +1649,24 @@ namespace HTMLDialogElement
   new = primJS $ HTMLDialogElement.prim__new 
   
   export
-  open_ : HTMLDialogElement -> Attribute True I Bool
-  open_ = fromPrim "HTMLDialogElement.getopen" prim__open prim__setOpen
+  open_ :  JSType t
+        => {auto 0 _ : Elem HTMLDialogElement (Types t)}
+        -> t
+        -> Attribute True I Bool
+  open_ v = fromPrim "HTMLDialogElement.getopen"
+                     prim__open
+                     prim__setOpen
+                     (v :> HTMLDialogElement)
   
   export
-  returnValue : HTMLDialogElement -> Attribute True I String
-  returnValue = fromPrim "HTMLDialogElement.getreturnValue"
-                         prim__returnValue
-                         prim__setReturnValue
+  returnValue :  JSType t
+              => {auto 0 _ : Elem HTMLDialogElement (Types t)}
+              -> t
+              -> Attribute True I String
+  returnValue v = fromPrim "HTMLDialogElement.getreturnValue"
+                           prim__returnValue
+                           prim__setReturnValue
+                           (v :> HTMLDialogElement)
   
   export
   close :  JSType t1
@@ -1392,10 +1704,14 @@ namespace HTMLDirectoryElement
   new = primJS $ HTMLDirectoryElement.prim__new 
   
   export
-  compact : HTMLDirectoryElement -> Attribute True I Bool
-  compact = fromPrim "HTMLDirectoryElement.getcompact"
-                     prim__compact
-                     prim__setCompact
+  compact :  JSType t
+          => {auto 0 _ : Elem HTMLDirectoryElement (Types t)}
+          -> t
+          -> Attribute True I Bool
+  compact v = fromPrim "HTMLDirectoryElement.getcompact"
+                       prim__compact
+                       prim__setCompact
+                       (v :> HTMLDirectoryElement)
 
 namespace HTMLDivElement
   
@@ -1404,8 +1720,14 @@ namespace HTMLDivElement
   new = primJS $ HTMLDivElement.prim__new 
   
   export
-  align : HTMLDivElement -> Attribute True I String
-  align = fromPrim "HTMLDivElement.getalign" prim__align prim__setAlign
+  align :  JSType t
+        => {auto 0 _ : Elem HTMLDivElement (Types t)}
+        -> t
+        -> Attribute True I String
+  align v = fromPrim "HTMLDivElement.getalign"
+                     prim__align
+                     prim__setAlign
+                     (v :> HTMLDivElement)
 
 namespace HTMLElement
   
@@ -1414,10 +1736,14 @@ namespace HTMLElement
   new = primJS $ HTMLElement.prim__new 
   
   export
-  accessKey : HTMLElement -> Attribute True I String
-  accessKey = fromPrim "HTMLElement.getaccessKey"
-                       prim__accessKey
-                       prim__setAccessKey
+  accessKey :  JSType t
+            => {auto 0 _ : Elem HTMLElement (Types t)}
+            -> t
+            -> Attribute True I String
+  accessKey v = fromPrim "HTMLElement.getaccessKey"
+                         prim__accessKey
+                         prim__setAccessKey
+                         (v :> HTMLElement)
   
   export
   accessKeyLabel :  JSType t1
@@ -1427,50 +1753,94 @@ namespace HTMLElement
   accessKeyLabel a = primJS $ HTMLElement.prim__accessKeyLabel (up a)
   
   export
-  autocapitalize : HTMLElement -> Attribute True I String
-  autocapitalize = fromPrim "HTMLElement.getautocapitalize"
-                            prim__autocapitalize
-                            prim__setAutocapitalize
+  autocapitalize :  JSType t
+                 => {auto 0 _ : Elem HTMLElement (Types t)}
+                 -> t
+                 -> Attribute True I String
+  autocapitalize v = fromPrim "HTMLElement.getautocapitalize"
+                              prim__autocapitalize
+                              prim__setAutocapitalize
+                              (v :> HTMLElement)
   
   export
-  dir : HTMLElement -> Attribute True I String
-  dir = fromPrim "HTMLElement.getdir" prim__dir prim__setDir
+  dir :  JSType t
+      => {auto 0 _ : Elem HTMLElement (Types t)}
+      -> t
+      -> Attribute True I String
+  dir v = fromPrim "HTMLElement.getdir"
+                   prim__dir
+                   prim__setDir
+                   (v :> HTMLElement)
   
   export
-  draggable : HTMLElement -> Attribute True I Bool
-  draggable = fromPrim "HTMLElement.getdraggable"
-                       prim__draggable
-                       prim__setDraggable
+  draggable :  JSType t
+            => {auto 0 _ : Elem HTMLElement (Types t)}
+            -> t
+            -> Attribute True I Bool
+  draggable v = fromPrim "HTMLElement.getdraggable"
+                         prim__draggable
+                         prim__setDraggable
+                         (v :> HTMLElement)
   
   export
-  hidden : HTMLElement -> Attribute True I Bool
-  hidden = fromPrim "HTMLElement.gethidden" prim__hidden prim__setHidden
+  hidden :  JSType t
+         => {auto 0 _ : Elem HTMLElement (Types t)}
+         -> t
+         -> Attribute True I Bool
+  hidden v = fromPrim "HTMLElement.gethidden"
+                      prim__hidden
+                      prim__setHidden
+                      (v :> HTMLElement)
   
   export
-  innerText : HTMLElement -> Attribute True I String
-  innerText = fromPrim "HTMLElement.getinnerText"
-                       prim__innerText
-                       prim__setInnerText
+  innerText :  JSType t
+            => {auto 0 _ : Elem HTMLElement (Types t)}
+            -> t
+            -> Attribute True I String
+  innerText v = fromPrim "HTMLElement.getinnerText"
+                         prim__innerText
+                         prim__setInnerText
+                         (v :> HTMLElement)
   
   export
-  lang : HTMLElement -> Attribute True I String
-  lang = fromPrim "HTMLElement.getlang" prim__lang prim__setLang
+  lang :  JSType t
+       => {auto 0 _ : Elem HTMLElement (Types t)}
+       -> t
+       -> Attribute True I String
+  lang v = fromPrim "HTMLElement.getlang"
+                    prim__lang
+                    prim__setLang
+                    (v :> HTMLElement)
   
   export
-  spellcheck : HTMLElement -> Attribute True I Bool
-  spellcheck = fromPrim "HTMLElement.getspellcheck"
-                        prim__spellcheck
-                        prim__setSpellcheck
+  spellcheck :  JSType t
+             => {auto 0 _ : Elem HTMLElement (Types t)}
+             -> t
+             -> Attribute True I Bool
+  spellcheck v = fromPrim "HTMLElement.getspellcheck"
+                          prim__spellcheck
+                          prim__setSpellcheck
+                          (v :> HTMLElement)
   
   export
-  title : HTMLElement -> Attribute True I String
-  title = fromPrim "HTMLElement.gettitle" prim__title prim__setTitle
+  title :  JSType t
+        => {auto 0 _ : Elem HTMLElement (Types t)}
+        -> t
+        -> Attribute True I String
+  title v = fromPrim "HTMLElement.gettitle"
+                     prim__title
+                     prim__setTitle
+                     (v :> HTMLElement)
   
   export
-  translate : HTMLElement -> Attribute True I Bool
-  translate = fromPrim "HTMLElement.gettranslate"
-                       prim__translate
-                       prim__setTranslate
+  translate :  JSType t
+            => {auto 0 _ : Elem HTMLElement (Types t)}
+            -> t
+            -> Attribute True I Bool
+  translate v = fromPrim "HTMLElement.gettranslate"
+                         prim__translate
+                         prim__setTranslate
+                         (v :> HTMLElement)
   
   export
   attachInternals :  JSType t1
@@ -1493,28 +1863,64 @@ namespace HTMLEmbedElement
   new = primJS $ HTMLEmbedElement.prim__new 
   
   export
-  align : HTMLEmbedElement -> Attribute True I String
-  align = fromPrim "HTMLEmbedElement.getalign" prim__align prim__setAlign
+  align :  JSType t
+        => {auto 0 _ : Elem HTMLEmbedElement (Types t)}
+        -> t
+        -> Attribute True I String
+  align v = fromPrim "HTMLEmbedElement.getalign"
+                     prim__align
+                     prim__setAlign
+                     (v :> HTMLEmbedElement)
   
   export
-  height : HTMLEmbedElement -> Attribute True I String
-  height = fromPrim "HTMLEmbedElement.getheight" prim__height prim__setHeight
+  height :  JSType t
+         => {auto 0 _ : Elem HTMLEmbedElement (Types t)}
+         -> t
+         -> Attribute True I String
+  height v = fromPrim "HTMLEmbedElement.getheight"
+                      prim__height
+                      prim__setHeight
+                      (v :> HTMLEmbedElement)
   
   export
-  name : HTMLEmbedElement -> Attribute True I String
-  name = fromPrim "HTMLEmbedElement.getname" prim__name prim__setName
+  name :  JSType t
+       => {auto 0 _ : Elem HTMLEmbedElement (Types t)}
+       -> t
+       -> Attribute True I String
+  name v = fromPrim "HTMLEmbedElement.getname"
+                    prim__name
+                    prim__setName
+                    (v :> HTMLEmbedElement)
   
   export
-  src : HTMLEmbedElement -> Attribute True I String
-  src = fromPrim "HTMLEmbedElement.getsrc" prim__src prim__setSrc
+  src :  JSType t
+      => {auto 0 _ : Elem HTMLEmbedElement (Types t)}
+      -> t
+      -> Attribute True I String
+  src v = fromPrim "HTMLEmbedElement.getsrc"
+                   prim__src
+                   prim__setSrc
+                   (v :> HTMLEmbedElement)
   
   export
-  type : HTMLEmbedElement -> Attribute True I String
-  type = fromPrim "HTMLEmbedElement.gettype" prim__type prim__setType
+  type :  JSType t
+       => {auto 0 _ : Elem HTMLEmbedElement (Types t)}
+       -> t
+       -> Attribute True I String
+  type v = fromPrim "HTMLEmbedElement.gettype"
+                    prim__type
+                    prim__setType
+                    (v :> HTMLEmbedElement)
   
   export
-  width : HTMLEmbedElement -> Attribute True I String
-  width = fromPrim "HTMLEmbedElement.getwidth" prim__width prim__setWidth
+  width :  JSType t
+        => {auto 0 _ : Elem HTMLEmbedElement (Types t)}
+        -> t
+        -> Attribute True I String
+  width v = fromPrim "HTMLEmbedElement.getwidth"
+                     prim__width
+                     prim__setWidth
+                     (v :> HTMLEmbedElement)
   
   export
   getSVGDocument :  JSType t1
@@ -1531,10 +1937,14 @@ namespace HTMLFieldSetElement
   new = primJS $ HTMLFieldSetElement.prim__new 
   
   export
-  disabled : HTMLFieldSetElement -> Attribute True I Bool
-  disabled = fromPrim "HTMLFieldSetElement.getdisabled"
-                      prim__disabled
-                      prim__setDisabled
+  disabled :  JSType t
+           => {auto 0 _ : Elem HTMLFieldSetElement (Types t)}
+           -> t
+           -> Attribute True I Bool
+  disabled v = fromPrim "HTMLFieldSetElement.getdisabled"
+                        prim__disabled
+                        prim__setDisabled
+                        (v :> HTMLFieldSetElement)
   
   export
   elements :  JSType t1
@@ -1552,8 +1962,14 @@ namespace HTMLFieldSetElement
          $ HTMLFieldSetElement.prim__form (up a)
   
   export
-  name : HTMLFieldSetElement -> Attribute True I String
-  name = fromPrim "HTMLFieldSetElement.getname" prim__name prim__setName
+  name :  JSType t
+       => {auto 0 _ : Elem HTMLFieldSetElement (Types t)}
+       -> t
+       -> Attribute True I String
+  name v = fromPrim "HTMLFieldSetElement.getname"
+                    prim__name
+                    prim__setName
+                    (v :> HTMLFieldSetElement)
   
   export
   type :  JSType t1
@@ -1617,16 +2033,34 @@ namespace HTMLFontElement
   new = primJS $ HTMLFontElement.prim__new 
   
   export
-  color : HTMLFontElement -> Attribute True I String
-  color = fromPrim "HTMLFontElement.getcolor" prim__color prim__setColor
+  color :  JSType t
+        => {auto 0 _ : Elem HTMLFontElement (Types t)}
+        -> t
+        -> Attribute True I String
+  color v = fromPrim "HTMLFontElement.getcolor"
+                     prim__color
+                     prim__setColor
+                     (v :> HTMLFontElement)
   
   export
-  face : HTMLFontElement -> Attribute True I String
-  face = fromPrim "HTMLFontElement.getface" prim__face prim__setFace
+  face :  JSType t
+       => {auto 0 _ : Elem HTMLFontElement (Types t)}
+       -> t
+       -> Attribute True I String
+  face v = fromPrim "HTMLFontElement.getface"
+                    prim__face
+                    prim__setFace
+                    (v :> HTMLFontElement)
   
   export
-  size : HTMLFontElement -> Attribute True I String
-  size = fromPrim "HTMLFontElement.getsize" prim__size prim__setSize
+  size :  JSType t
+       => {auto 0 _ : Elem HTMLFontElement (Types t)}
+       -> t
+       -> Attribute True I String
+  size v = fromPrim "HTMLFontElement.getsize"
+                    prim__size
+                    prim__setSize
+                    (v :> HTMLFontElement)
 
 namespace HTMLFormControlsCollection
   
@@ -1662,20 +2096,34 @@ namespace HTMLFormElement
   get1 a b = tryJS "HTMLFormElement.get1" $ HTMLFormElement.prim__get1 (up a) b
   
   export
-  acceptCharset : HTMLFormElement -> Attribute True I String
-  acceptCharset = fromPrim "HTMLFormElement.getacceptCharset"
-                           prim__acceptCharset
-                           prim__setAcceptCharset
+  acceptCharset :  JSType t
+                => {auto 0 _ : Elem HTMLFormElement (Types t)}
+                -> t
+                -> Attribute True I String
+  acceptCharset v = fromPrim "HTMLFormElement.getacceptCharset"
+                             prim__acceptCharset
+                             prim__setAcceptCharset
+                             (v :> HTMLFormElement)
   
   export
-  action : HTMLFormElement -> Attribute True I String
-  action = fromPrim "HTMLFormElement.getaction" prim__action prim__setAction
+  action :  JSType t
+         => {auto 0 _ : Elem HTMLFormElement (Types t)}
+         -> t
+         -> Attribute True I String
+  action v = fromPrim "HTMLFormElement.getaction"
+                      prim__action
+                      prim__setAction
+                      (v :> HTMLFormElement)
   
   export
-  autocomplete : HTMLFormElement -> Attribute True I String
-  autocomplete = fromPrim "HTMLFormElement.getautocomplete"
-                          prim__autocomplete
-                          prim__setAutocomplete
+  autocomplete :  JSType t
+               => {auto 0 _ : Elem HTMLFormElement (Types t)}
+               -> t
+               -> Attribute True I String
+  autocomplete v = fromPrim "HTMLFormElement.getautocomplete"
+                            prim__autocomplete
+                            prim__setAutocomplete
+                            (v :> HTMLFormElement)
   
   export
   elements :  JSType t1
@@ -1685,14 +2133,24 @@ namespace HTMLFormElement
   elements a = primJS $ HTMLFormElement.prim__elements (up a)
   
   export
-  encoding : HTMLFormElement -> Attribute True I String
-  encoding = fromPrim "HTMLFormElement.getencoding"
-                      prim__encoding
-                      prim__setEncoding
+  encoding :  JSType t
+           => {auto 0 _ : Elem HTMLFormElement (Types t)}
+           -> t
+           -> Attribute True I String
+  encoding v = fromPrim "HTMLFormElement.getencoding"
+                        prim__encoding
+                        prim__setEncoding
+                        (v :> HTMLFormElement)
   
   export
-  enctype : HTMLFormElement -> Attribute True I String
-  enctype = fromPrim "HTMLFormElement.getenctype" prim__enctype prim__setEnctype
+  enctype :  JSType t
+          => {auto 0 _ : Elem HTMLFormElement (Types t)}
+          -> t
+          -> Attribute True I String
+  enctype v = fromPrim "HTMLFormElement.getenctype"
+                       prim__enctype
+                       prim__setEnctype
+                       (v :> HTMLFormElement)
   
   export
   length :  JSType t1
@@ -1702,22 +2160,44 @@ namespace HTMLFormElement
   length a = primJS $ HTMLFormElement.prim__length (up a)
   
   export
-  method : HTMLFormElement -> Attribute True I String
-  method = fromPrim "HTMLFormElement.getmethod" prim__method prim__setMethod
+  method :  JSType t
+         => {auto 0 _ : Elem HTMLFormElement (Types t)}
+         -> t
+         -> Attribute True I String
+  method v = fromPrim "HTMLFormElement.getmethod"
+                      prim__method
+                      prim__setMethod
+                      (v :> HTMLFormElement)
   
   export
-  name : HTMLFormElement -> Attribute True I String
-  name = fromPrim "HTMLFormElement.getname" prim__name prim__setName
+  name :  JSType t
+       => {auto 0 _ : Elem HTMLFormElement (Types t)}
+       -> t
+       -> Attribute True I String
+  name v = fromPrim "HTMLFormElement.getname"
+                    prim__name
+                    prim__setName
+                    (v :> HTMLFormElement)
   
   export
-  noValidate : HTMLFormElement -> Attribute True I Bool
-  noValidate = fromPrim "HTMLFormElement.getnoValidate"
-                        prim__noValidate
-                        prim__setNoValidate
+  noValidate :  JSType t
+             => {auto 0 _ : Elem HTMLFormElement (Types t)}
+             -> t
+             -> Attribute True I Bool
+  noValidate v = fromPrim "HTMLFormElement.getnoValidate"
+                          prim__noValidate
+                          prim__setNoValidate
+                          (v :> HTMLFormElement)
   
   export
-  rel : HTMLFormElement -> Attribute True I String
-  rel = fromPrim "HTMLFormElement.getrel" prim__rel prim__setRel
+  rel :  JSType t
+      => {auto 0 _ : Elem HTMLFormElement (Types t)}
+      -> t
+      -> Attribute True I String
+  rel v = fromPrim "HTMLFormElement.getrel"
+                   prim__rel
+                   prim__setRel
+                   (v :> HTMLFormElement)
   
   export
   relList :  JSType t1
@@ -1727,8 +2207,14 @@ namespace HTMLFormElement
   relList a = primJS $ HTMLFormElement.prim__relList (up a)
   
   export
-  target : HTMLFormElement -> Attribute True I String
-  target = fromPrim "HTMLFormElement.gettarget" prim__target prim__setTarget
+  target :  JSType t
+         => {auto 0 _ : Elem HTMLFormElement (Types t)}
+         -> t
+         -> Attribute True I String
+  target v = fromPrim "HTMLFormElement.gettarget"
+                      prim__target
+                      prim__setTarget
+                      (v :> HTMLFormElement)
   
   export
   checkValidity :  JSType t1
@@ -1801,48 +2287,84 @@ namespace HTMLFrameElement
                   $ HTMLFrameElement.prim__contentWindow (up a)
   
   export
-  frameBorder : HTMLFrameElement -> Attribute True I String
-  frameBorder = fromPrim "HTMLFrameElement.getframeBorder"
-                         prim__frameBorder
-                         prim__setFrameBorder
+  frameBorder :  JSType t
+              => {auto 0 _ : Elem HTMLFrameElement (Types t)}
+              -> t
+              -> Attribute True I String
+  frameBorder v = fromPrim "HTMLFrameElement.getframeBorder"
+                           prim__frameBorder
+                           prim__setFrameBorder
+                           (v :> HTMLFrameElement)
   
   export
-  longDesc : HTMLFrameElement -> Attribute True I String
-  longDesc = fromPrim "HTMLFrameElement.getlongDesc"
-                      prim__longDesc
-                      prim__setLongDesc
+  longDesc :  JSType t
+           => {auto 0 _ : Elem HTMLFrameElement (Types t)}
+           -> t
+           -> Attribute True I String
+  longDesc v = fromPrim "HTMLFrameElement.getlongDesc"
+                        prim__longDesc
+                        prim__setLongDesc
+                        (v :> HTMLFrameElement)
   
   export
-  marginHeight : HTMLFrameElement -> Attribute True I String
-  marginHeight = fromPrim "HTMLFrameElement.getmarginHeight"
-                          prim__marginHeight
-                          prim__setMarginHeight
+  marginHeight :  JSType t
+               => {auto 0 _ : Elem HTMLFrameElement (Types t)}
+               -> t
+               -> Attribute True I String
+  marginHeight v = fromPrim "HTMLFrameElement.getmarginHeight"
+                            prim__marginHeight
+                            prim__setMarginHeight
+                            (v :> HTMLFrameElement)
   
   export
-  marginWidth : HTMLFrameElement -> Attribute True I String
-  marginWidth = fromPrim "HTMLFrameElement.getmarginWidth"
-                         prim__marginWidth
-                         prim__setMarginWidth
+  marginWidth :  JSType t
+              => {auto 0 _ : Elem HTMLFrameElement (Types t)}
+              -> t
+              -> Attribute True I String
+  marginWidth v = fromPrim "HTMLFrameElement.getmarginWidth"
+                           prim__marginWidth
+                           prim__setMarginWidth
+                           (v :> HTMLFrameElement)
   
   export
-  name : HTMLFrameElement -> Attribute True I String
-  name = fromPrim "HTMLFrameElement.getname" prim__name prim__setName
+  name :  JSType t
+       => {auto 0 _ : Elem HTMLFrameElement (Types t)}
+       -> t
+       -> Attribute True I String
+  name v = fromPrim "HTMLFrameElement.getname"
+                    prim__name
+                    prim__setName
+                    (v :> HTMLFrameElement)
   
   export
-  noResize : HTMLFrameElement -> Attribute True I Bool
-  noResize = fromPrim "HTMLFrameElement.getnoResize"
-                      prim__noResize
-                      prim__setNoResize
+  noResize :  JSType t
+           => {auto 0 _ : Elem HTMLFrameElement (Types t)}
+           -> t
+           -> Attribute True I Bool
+  noResize v = fromPrim "HTMLFrameElement.getnoResize"
+                        prim__noResize
+                        prim__setNoResize
+                        (v :> HTMLFrameElement)
   
   export
-  scrolling : HTMLFrameElement -> Attribute True I String
-  scrolling = fromPrim "HTMLFrameElement.getscrolling"
-                       prim__scrolling
-                       prim__setScrolling
+  scrolling :  JSType t
+            => {auto 0 _ : Elem HTMLFrameElement (Types t)}
+            -> t
+            -> Attribute True I String
+  scrolling v = fromPrim "HTMLFrameElement.getscrolling"
+                         prim__scrolling
+                         prim__setScrolling
+                         (v :> HTMLFrameElement)
   
   export
-  src : HTMLFrameElement -> Attribute True I String
-  src = fromPrim "HTMLFrameElement.getsrc" prim__src prim__setSrc
+  src :  JSType t
+      => {auto 0 _ : Elem HTMLFrameElement (Types t)}
+      -> t
+      -> Attribute True I String
+  src v = fromPrim "HTMLFrameElement.getsrc"
+                   prim__src
+                   prim__setSrc
+                   (v :> HTMLFrameElement)
 
 namespace HTMLFrameSetElement
   
@@ -1851,12 +2373,24 @@ namespace HTMLFrameSetElement
   new = primJS $ HTMLFrameSetElement.prim__new 
   
   export
-  cols : HTMLFrameSetElement -> Attribute True I String
-  cols = fromPrim "HTMLFrameSetElement.getcols" prim__cols prim__setCols
+  cols :  JSType t
+       => {auto 0 _ : Elem HTMLFrameSetElement (Types t)}
+       -> t
+       -> Attribute True I String
+  cols v = fromPrim "HTMLFrameSetElement.getcols"
+                    prim__cols
+                    prim__setCols
+                    (v :> HTMLFrameSetElement)
   
   export
-  rows : HTMLFrameSetElement -> Attribute True I String
-  rows = fromPrim "HTMLFrameSetElement.getrows" prim__rows prim__setRows
+  rows :  JSType t
+       => {auto 0 _ : Elem HTMLFrameSetElement (Types t)}
+       -> t
+       -> Attribute True I String
+  rows v = fromPrim "HTMLFrameSetElement.getrows"
+                    prim__rows
+                    prim__setRows
+                    (v :> HTMLFrameSetElement)
 
 namespace HTMLHRElement
   
@@ -1865,24 +2399,54 @@ namespace HTMLHRElement
   new = primJS $ HTMLHRElement.prim__new 
   
   export
-  align : HTMLHRElement -> Attribute True I String
-  align = fromPrim "HTMLHRElement.getalign" prim__align prim__setAlign
+  align :  JSType t
+        => {auto 0 _ : Elem HTMLHRElement (Types t)}
+        -> t
+        -> Attribute True I String
+  align v = fromPrim "HTMLHRElement.getalign"
+                     prim__align
+                     prim__setAlign
+                     (v :> HTMLHRElement)
   
   export
-  color : HTMLHRElement -> Attribute True I String
-  color = fromPrim "HTMLHRElement.getcolor" prim__color prim__setColor
+  color :  JSType t
+        => {auto 0 _ : Elem HTMLHRElement (Types t)}
+        -> t
+        -> Attribute True I String
+  color v = fromPrim "HTMLHRElement.getcolor"
+                     prim__color
+                     prim__setColor
+                     (v :> HTMLHRElement)
   
   export
-  noShade : HTMLHRElement -> Attribute True I Bool
-  noShade = fromPrim "HTMLHRElement.getnoShade" prim__noShade prim__setNoShade
+  noShade :  JSType t
+          => {auto 0 _ : Elem HTMLHRElement (Types t)}
+          -> t
+          -> Attribute True I Bool
+  noShade v = fromPrim "HTMLHRElement.getnoShade"
+                       prim__noShade
+                       prim__setNoShade
+                       (v :> HTMLHRElement)
   
   export
-  size : HTMLHRElement -> Attribute True I String
-  size = fromPrim "HTMLHRElement.getsize" prim__size prim__setSize
+  size :  JSType t
+       => {auto 0 _ : Elem HTMLHRElement (Types t)}
+       -> t
+       -> Attribute True I String
+  size v = fromPrim "HTMLHRElement.getsize"
+                    prim__size
+                    prim__setSize
+                    (v :> HTMLHRElement)
   
   export
-  width : HTMLHRElement -> Attribute True I String
-  width = fromPrim "HTMLHRElement.getwidth" prim__width prim__setWidth
+  width :  JSType t
+        => {auto 0 _ : Elem HTMLHRElement (Types t)}
+        -> t
+        -> Attribute True I String
+  width v = fromPrim "HTMLHRElement.getwidth"
+                     prim__width
+                     prim__setWidth
+                     (v :> HTMLHRElement)
 
 namespace HTMLHeadElement
   
@@ -1897,8 +2461,14 @@ namespace HTMLHeadingElement
   new = primJS $ HTMLHeadingElement.prim__new 
   
   export
-  align : HTMLHeadingElement -> Attribute True I String
-  align = fromPrim "HTMLHeadingElement.getalign" prim__align prim__setAlign
+  align :  JSType t
+        => {auto 0 _ : Elem HTMLHeadingElement (Types t)}
+        -> t
+        -> Attribute True I String
+  align v = fromPrim "HTMLHeadingElement.getalign"
+                     prim__align
+                     prim__setAlign
+                     (v :> HTMLHeadingElement)
 
 namespace HTMLHtmlElement
   
@@ -1907,8 +2477,14 @@ namespace HTMLHtmlElement
   new = primJS $ HTMLHtmlElement.prim__new 
   
   export
-  version : HTMLHtmlElement -> Attribute True I String
-  version = fromPrim "HTMLHtmlElement.getversion" prim__version prim__setVersion
+  version :  JSType t
+          => {auto 0 _ : Elem HTMLHtmlElement (Types t)}
+          -> t
+          -> Attribute True I String
+  version v = fromPrim "HTMLHtmlElement.getversion"
+                       prim__version
+                       prim__setVersion
+                       (v :> HTMLHtmlElement)
 
 namespace HTMLIFrameElement
   
@@ -1917,18 +2493,34 @@ namespace HTMLIFrameElement
   new = primJS $ HTMLIFrameElement.prim__new 
   
   export
-  align : HTMLIFrameElement -> Attribute True I String
-  align = fromPrim "HTMLIFrameElement.getalign" prim__align prim__setAlign
+  align :  JSType t
+        => {auto 0 _ : Elem HTMLIFrameElement (Types t)}
+        -> t
+        -> Attribute True I String
+  align v = fromPrim "HTMLIFrameElement.getalign"
+                     prim__align
+                     prim__setAlign
+                     (v :> HTMLIFrameElement)
   
   export
-  allow : HTMLIFrameElement -> Attribute True I String
-  allow = fromPrim "HTMLIFrameElement.getallow" prim__allow prim__setAllow
+  allow :  JSType t
+        => {auto 0 _ : Elem HTMLIFrameElement (Types t)}
+        -> t
+        -> Attribute True I String
+  allow v = fromPrim "HTMLIFrameElement.getallow"
+                     prim__allow
+                     prim__setAllow
+                     (v :> HTMLIFrameElement)
   
   export
-  allowFullscreen : HTMLIFrameElement -> Attribute True I Bool
-  allowFullscreen = fromPrim "HTMLIFrameElement.getallowFullscreen"
-                             prim__allowFullscreen
-                             prim__setAllowFullscreen
+  allowFullscreen :  JSType t
+                  => {auto 0 _ : Elem HTMLIFrameElement (Types t)}
+                  -> t
+                  -> Attribute True I Bool
+  allowFullscreen v = fromPrim "HTMLIFrameElement.getallowFullscreen"
+                               prim__allowFullscreen
+                               prim__setAllowFullscreen
+                               (v :> HTMLIFrameElement)
   
   export
   contentDocument :  JSType t1
@@ -1947,48 +2539,84 @@ namespace HTMLIFrameElement
                   $ HTMLIFrameElement.prim__contentWindow (up a)
   
   export
-  frameBorder : HTMLIFrameElement -> Attribute True I String
-  frameBorder = fromPrim "HTMLIFrameElement.getframeBorder"
-                         prim__frameBorder
-                         prim__setFrameBorder
+  frameBorder :  JSType t
+              => {auto 0 _ : Elem HTMLIFrameElement (Types t)}
+              -> t
+              -> Attribute True I String
+  frameBorder v = fromPrim "HTMLIFrameElement.getframeBorder"
+                           prim__frameBorder
+                           prim__setFrameBorder
+                           (v :> HTMLIFrameElement)
   
   export
-  height : HTMLIFrameElement -> Attribute True I String
-  height = fromPrim "HTMLIFrameElement.getheight" prim__height prim__setHeight
+  height :  JSType t
+         => {auto 0 _ : Elem HTMLIFrameElement (Types t)}
+         -> t
+         -> Attribute True I String
+  height v = fromPrim "HTMLIFrameElement.getheight"
+                      prim__height
+                      prim__setHeight
+                      (v :> HTMLIFrameElement)
   
   export
-  loading : HTMLIFrameElement -> Attribute True I String
-  loading = fromPrim "HTMLIFrameElement.getloading"
-                     prim__loading
-                     prim__setLoading
+  loading :  JSType t
+          => {auto 0 _ : Elem HTMLIFrameElement (Types t)}
+          -> t
+          -> Attribute True I String
+  loading v = fromPrim "HTMLIFrameElement.getloading"
+                       prim__loading
+                       prim__setLoading
+                       (v :> HTMLIFrameElement)
   
   export
-  longDesc : HTMLIFrameElement -> Attribute True I String
-  longDesc = fromPrim "HTMLIFrameElement.getlongDesc"
-                      prim__longDesc
-                      prim__setLongDesc
+  longDesc :  JSType t
+           => {auto 0 _ : Elem HTMLIFrameElement (Types t)}
+           -> t
+           -> Attribute True I String
+  longDesc v = fromPrim "HTMLIFrameElement.getlongDesc"
+                        prim__longDesc
+                        prim__setLongDesc
+                        (v :> HTMLIFrameElement)
   
   export
-  marginHeight : HTMLIFrameElement -> Attribute True I String
-  marginHeight = fromPrim "HTMLIFrameElement.getmarginHeight"
-                          prim__marginHeight
-                          prim__setMarginHeight
+  marginHeight :  JSType t
+               => {auto 0 _ : Elem HTMLIFrameElement (Types t)}
+               -> t
+               -> Attribute True I String
+  marginHeight v = fromPrim "HTMLIFrameElement.getmarginHeight"
+                            prim__marginHeight
+                            prim__setMarginHeight
+                            (v :> HTMLIFrameElement)
   
   export
-  marginWidth : HTMLIFrameElement -> Attribute True I String
-  marginWidth = fromPrim "HTMLIFrameElement.getmarginWidth"
-                         prim__marginWidth
-                         prim__setMarginWidth
+  marginWidth :  JSType t
+              => {auto 0 _ : Elem HTMLIFrameElement (Types t)}
+              -> t
+              -> Attribute True I String
+  marginWidth v = fromPrim "HTMLIFrameElement.getmarginWidth"
+                           prim__marginWidth
+                           prim__setMarginWidth
+                           (v :> HTMLIFrameElement)
   
   export
-  name : HTMLIFrameElement -> Attribute True I String
-  name = fromPrim "HTMLIFrameElement.getname" prim__name prim__setName
+  name :  JSType t
+       => {auto 0 _ : Elem HTMLIFrameElement (Types t)}
+       -> t
+       -> Attribute True I String
+  name v = fromPrim "HTMLIFrameElement.getname"
+                    prim__name
+                    prim__setName
+                    (v :> HTMLIFrameElement)
   
   export
-  referrerPolicy : HTMLIFrameElement -> Attribute True I String
-  referrerPolicy = fromPrim "HTMLIFrameElement.getreferrerPolicy"
-                            prim__referrerPolicy
-                            prim__setReferrerPolicy
+  referrerPolicy :  JSType t
+                 => {auto 0 _ : Elem HTMLIFrameElement (Types t)}
+                 -> t
+                 -> Attribute True I String
+  referrerPolicy v = fromPrim "HTMLIFrameElement.getreferrerPolicy"
+                              prim__referrerPolicy
+                              prim__setReferrerPolicy
+                              (v :> HTMLIFrameElement)
   
   export
   sandbox :  JSType t1
@@ -1998,22 +2626,44 @@ namespace HTMLIFrameElement
   sandbox a = primJS $ HTMLIFrameElement.prim__sandbox (up a)
   
   export
-  scrolling : HTMLIFrameElement -> Attribute True I String
-  scrolling = fromPrim "HTMLIFrameElement.getscrolling"
-                       prim__scrolling
-                       prim__setScrolling
+  scrolling :  JSType t
+            => {auto 0 _ : Elem HTMLIFrameElement (Types t)}
+            -> t
+            -> Attribute True I String
+  scrolling v = fromPrim "HTMLIFrameElement.getscrolling"
+                         prim__scrolling
+                         prim__setScrolling
+                         (v :> HTMLIFrameElement)
   
   export
-  src : HTMLIFrameElement -> Attribute True I String
-  src = fromPrim "HTMLIFrameElement.getsrc" prim__src prim__setSrc
+  src :  JSType t
+      => {auto 0 _ : Elem HTMLIFrameElement (Types t)}
+      -> t
+      -> Attribute True I String
+  src v = fromPrim "HTMLIFrameElement.getsrc"
+                   prim__src
+                   prim__setSrc
+                   (v :> HTMLIFrameElement)
   
   export
-  srcdoc : HTMLIFrameElement -> Attribute True I String
-  srcdoc = fromPrim "HTMLIFrameElement.getsrcdoc" prim__srcdoc prim__setSrcdoc
+  srcdoc :  JSType t
+         => {auto 0 _ : Elem HTMLIFrameElement (Types t)}
+         -> t
+         -> Attribute True I String
+  srcdoc v = fromPrim "HTMLIFrameElement.getsrcdoc"
+                      prim__srcdoc
+                      prim__setSrcdoc
+                      (v :> HTMLIFrameElement)
   
   export
-  width : HTMLIFrameElement -> Attribute True I String
-  width = fromPrim "HTMLIFrameElement.getwidth" prim__width prim__setWidth
+  width :  JSType t
+        => {auto 0 _ : Elem HTMLIFrameElement (Types t)}
+        -> t
+        -> Attribute True I String
+  width v = fromPrim "HTMLIFrameElement.getwidth"
+                     prim__width
+                     prim__setWidth
+                     (v :> HTMLIFrameElement)
   
   export
   getSVGDocument :  JSType t1
@@ -2030,16 +2680,34 @@ namespace HTMLImageElement
   new = primJS $ HTMLImageElement.prim__new 
   
   export
-  align : HTMLImageElement -> Attribute True I String
-  align = fromPrim "HTMLImageElement.getalign" prim__align prim__setAlign
+  align :  JSType t
+        => {auto 0 _ : Elem HTMLImageElement (Types t)}
+        -> t
+        -> Attribute True I String
+  align v = fromPrim "HTMLImageElement.getalign"
+                     prim__align
+                     prim__setAlign
+                     (v :> HTMLImageElement)
   
   export
-  alt : HTMLImageElement -> Attribute True I String
-  alt = fromPrim "HTMLImageElement.getalt" prim__alt prim__setAlt
+  alt :  JSType t
+      => {auto 0 _ : Elem HTMLImageElement (Types t)}
+      -> t
+      -> Attribute True I String
+  alt v = fromPrim "HTMLImageElement.getalt"
+                   prim__alt
+                   prim__setAlt
+                   (v :> HTMLImageElement)
   
   export
-  border : HTMLImageElement -> Attribute True I String
-  border = fromPrim "HTMLImageElement.getborder" prim__border prim__setBorder
+  border :  JSType t
+         => {auto 0 _ : Elem HTMLImageElement (Types t)}
+         -> t
+         -> Attribute True I String
+  border v = fromPrim "HTMLImageElement.getborder"
+                      prim__border
+                      prim__setBorder
+                      (v :> HTMLImageElement)
   
   export
   complete :  JSType t1
@@ -2050,10 +2718,14 @@ namespace HTMLImageElement
              $ HTMLImageElement.prim__complete (up a)
   
   export
-  crossOrigin : HTMLImageElement -> Attribute False Maybe String
-  crossOrigin = fromNullablePrim "HTMLImageElement.getcrossOrigin"
-                                 prim__crossOrigin
-                                 prim__setCrossOrigin
+  crossOrigin :  JSType t
+              => {auto 0 _ : Elem HTMLImageElement (Types t)}
+              -> t
+              -> Attribute False Maybe String
+  crossOrigin v = fromNullablePrim "HTMLImageElement.getcrossOrigin"
+                                   prim__crossOrigin
+                                   prim__setCrossOrigin
+                                   (v :> HTMLImageElement)
   
   export
   currentSrc :  JSType t1
@@ -2063,42 +2735,84 @@ namespace HTMLImageElement
   currentSrc a = primJS $ HTMLImageElement.prim__currentSrc (up a)
   
   export
-  decoding : HTMLImageElement -> Attribute True I String
-  decoding = fromPrim "HTMLImageElement.getdecoding"
-                      prim__decoding
-                      prim__setDecoding
+  decoding :  JSType t
+           => {auto 0 _ : Elem HTMLImageElement (Types t)}
+           -> t
+           -> Attribute True I String
+  decoding v = fromPrim "HTMLImageElement.getdecoding"
+                        prim__decoding
+                        prim__setDecoding
+                        (v :> HTMLImageElement)
   
   export
-  height : HTMLImageElement -> Attribute True I UInt32
-  height = fromPrim "HTMLImageElement.getheight" prim__height prim__setHeight
+  height :  JSType t
+         => {auto 0 _ : Elem HTMLImageElement (Types t)}
+         -> t
+         -> Attribute True I UInt32
+  height v = fromPrim "HTMLImageElement.getheight"
+                      prim__height
+                      prim__setHeight
+                      (v :> HTMLImageElement)
   
   export
-  hspace : HTMLImageElement -> Attribute True I UInt32
-  hspace = fromPrim "HTMLImageElement.gethspace" prim__hspace prim__setHspace
+  hspace :  JSType t
+         => {auto 0 _ : Elem HTMLImageElement (Types t)}
+         -> t
+         -> Attribute True I UInt32
+  hspace v = fromPrim "HTMLImageElement.gethspace"
+                      prim__hspace
+                      prim__setHspace
+                      (v :> HTMLImageElement)
   
   export
-  isMap : HTMLImageElement -> Attribute True I Bool
-  isMap = fromPrim "HTMLImageElement.getisMap" prim__isMap prim__setIsMap
+  isMap :  JSType t
+        => {auto 0 _ : Elem HTMLImageElement (Types t)}
+        -> t
+        -> Attribute True I Bool
+  isMap v = fromPrim "HTMLImageElement.getisMap"
+                     prim__isMap
+                     prim__setIsMap
+                     (v :> HTMLImageElement)
   
   export
-  loading : HTMLImageElement -> Attribute True I String
-  loading = fromPrim "HTMLImageElement.getloading"
-                     prim__loading
-                     prim__setLoading
+  loading :  JSType t
+          => {auto 0 _ : Elem HTMLImageElement (Types t)}
+          -> t
+          -> Attribute True I String
+  loading v = fromPrim "HTMLImageElement.getloading"
+                       prim__loading
+                       prim__setLoading
+                       (v :> HTMLImageElement)
   
   export
-  longDesc : HTMLImageElement -> Attribute True I String
-  longDesc = fromPrim "HTMLImageElement.getlongDesc"
-                      prim__longDesc
-                      prim__setLongDesc
+  longDesc :  JSType t
+           => {auto 0 _ : Elem HTMLImageElement (Types t)}
+           -> t
+           -> Attribute True I String
+  longDesc v = fromPrim "HTMLImageElement.getlongDesc"
+                        prim__longDesc
+                        prim__setLongDesc
+                        (v :> HTMLImageElement)
   
   export
-  lowsrc : HTMLImageElement -> Attribute True I String
-  lowsrc = fromPrim "HTMLImageElement.getlowsrc" prim__lowsrc prim__setLowsrc
+  lowsrc :  JSType t
+         => {auto 0 _ : Elem HTMLImageElement (Types t)}
+         -> t
+         -> Attribute True I String
+  lowsrc v = fromPrim "HTMLImageElement.getlowsrc"
+                      prim__lowsrc
+                      prim__setLowsrc
+                      (v :> HTMLImageElement)
   
   export
-  name : HTMLImageElement -> Attribute True I String
-  name = fromPrim "HTMLImageElement.getname" prim__name prim__setName
+  name :  JSType t
+       => {auto 0 _ : Elem HTMLImageElement (Types t)}
+       -> t
+       -> Attribute True I String
+  name v = fromPrim "HTMLImageElement.getname"
+                    prim__name
+                    prim__setName
+                    (v :> HTMLImageElement)
   
   export
   naturalHeight :  JSType t1
@@ -2115,34 +2829,74 @@ namespace HTMLImageElement
   naturalWidth a = primJS $ HTMLImageElement.prim__naturalWidth (up a)
   
   export
-  referrerPolicy : HTMLImageElement -> Attribute True I String
-  referrerPolicy = fromPrim "HTMLImageElement.getreferrerPolicy"
-                            prim__referrerPolicy
-                            prim__setReferrerPolicy
+  referrerPolicy :  JSType t
+                 => {auto 0 _ : Elem HTMLImageElement (Types t)}
+                 -> t
+                 -> Attribute True I String
+  referrerPolicy v = fromPrim "HTMLImageElement.getreferrerPolicy"
+                              prim__referrerPolicy
+                              prim__setReferrerPolicy
+                              (v :> HTMLImageElement)
   
   export
-  sizes : HTMLImageElement -> Attribute True I String
-  sizes = fromPrim "HTMLImageElement.getsizes" prim__sizes prim__setSizes
+  sizes :  JSType t
+        => {auto 0 _ : Elem HTMLImageElement (Types t)}
+        -> t
+        -> Attribute True I String
+  sizes v = fromPrim "HTMLImageElement.getsizes"
+                     prim__sizes
+                     prim__setSizes
+                     (v :> HTMLImageElement)
   
   export
-  src : HTMLImageElement -> Attribute True I String
-  src = fromPrim "HTMLImageElement.getsrc" prim__src prim__setSrc
+  src :  JSType t
+      => {auto 0 _ : Elem HTMLImageElement (Types t)}
+      -> t
+      -> Attribute True I String
+  src v = fromPrim "HTMLImageElement.getsrc"
+                   prim__src
+                   prim__setSrc
+                   (v :> HTMLImageElement)
   
   export
-  srcset : HTMLImageElement -> Attribute True I String
-  srcset = fromPrim "HTMLImageElement.getsrcset" prim__srcset prim__setSrcset
+  srcset :  JSType t
+         => {auto 0 _ : Elem HTMLImageElement (Types t)}
+         -> t
+         -> Attribute True I String
+  srcset v = fromPrim "HTMLImageElement.getsrcset"
+                      prim__srcset
+                      prim__setSrcset
+                      (v :> HTMLImageElement)
   
   export
-  useMap : HTMLImageElement -> Attribute True I String
-  useMap = fromPrim "HTMLImageElement.getuseMap" prim__useMap prim__setUseMap
+  useMap :  JSType t
+         => {auto 0 _ : Elem HTMLImageElement (Types t)}
+         -> t
+         -> Attribute True I String
+  useMap v = fromPrim "HTMLImageElement.getuseMap"
+                      prim__useMap
+                      prim__setUseMap
+                      (v :> HTMLImageElement)
   
   export
-  vspace : HTMLImageElement -> Attribute True I UInt32
-  vspace = fromPrim "HTMLImageElement.getvspace" prim__vspace prim__setVspace
+  vspace :  JSType t
+         => {auto 0 _ : Elem HTMLImageElement (Types t)}
+         -> t
+         -> Attribute True I UInt32
+  vspace v = fromPrim "HTMLImageElement.getvspace"
+                      prim__vspace
+                      prim__setVspace
+                      (v :> HTMLImageElement)
   
   export
-  width : HTMLImageElement -> Attribute True I UInt32
-  width = fromPrim "HTMLImageElement.getwidth" prim__width prim__setWidth
+  width :  JSType t
+        => {auto 0 _ : Elem HTMLImageElement (Types t)}
+        -> t
+        -> Attribute True I UInt32
+  width v = fromPrim "HTMLImageElement.getwidth"
+                     prim__width
+                     prim__setWidth
+                     (v :> HTMLImageElement)
   
   export
   decode :  JSType t1
@@ -2158,58 +2912,104 @@ namespace HTMLInputElement
   new = primJS $ HTMLInputElement.prim__new 
   
   export
-  accept : HTMLInputElement -> Attribute True I String
-  accept = fromPrim "HTMLInputElement.getaccept" prim__accept prim__setAccept
+  accept :  JSType t
+         => {auto 0 _ : Elem HTMLInputElement (Types t)}
+         -> t
+         -> Attribute True I String
+  accept v = fromPrim "HTMLInputElement.getaccept"
+                      prim__accept
+                      prim__setAccept
+                      (v :> HTMLInputElement)
   
   export
-  align : HTMLInputElement -> Attribute True I String
-  align = fromPrim "HTMLInputElement.getalign" prim__align prim__setAlign
+  align :  JSType t
+        => {auto 0 _ : Elem HTMLInputElement (Types t)}
+        -> t
+        -> Attribute True I String
+  align v = fromPrim "HTMLInputElement.getalign"
+                     prim__align
+                     prim__setAlign
+                     (v :> HTMLInputElement)
   
   export
-  alt : HTMLInputElement -> Attribute True I String
-  alt = fromPrim "HTMLInputElement.getalt" prim__alt prim__setAlt
+  alt :  JSType t
+      => {auto 0 _ : Elem HTMLInputElement (Types t)}
+      -> t
+      -> Attribute True I String
+  alt v = fromPrim "HTMLInputElement.getalt"
+                   prim__alt
+                   prim__setAlt
+                   (v :> HTMLInputElement)
   
   export
-  autocomplete : HTMLInputElement -> Attribute True I String
-  autocomplete = fromPrim "HTMLInputElement.getautocomplete"
-                          prim__autocomplete
-                          prim__setAutocomplete
+  autocomplete :  JSType t
+               => {auto 0 _ : Elem HTMLInputElement (Types t)}
+               -> t
+               -> Attribute True I String
+  autocomplete v = fromPrim "HTMLInputElement.getautocomplete"
+                            prim__autocomplete
+                            prim__setAutocomplete
+                            (v :> HTMLInputElement)
   
   export
-  checked : HTMLInputElement -> Attribute True I Bool
-  checked = fromPrim "HTMLInputElement.getchecked"
-                     prim__checked
-                     prim__setChecked
+  checked :  JSType t
+          => {auto 0 _ : Elem HTMLInputElement (Types t)}
+          -> t
+          -> Attribute True I Bool
+  checked v = fromPrim "HTMLInputElement.getchecked"
+                       prim__checked
+                       prim__setChecked
+                       (v :> HTMLInputElement)
   
   export
-  defaultChecked : HTMLInputElement -> Attribute True I Bool
-  defaultChecked = fromPrim "HTMLInputElement.getdefaultChecked"
-                            prim__defaultChecked
-                            prim__setDefaultChecked
+  defaultChecked :  JSType t
+                 => {auto 0 _ : Elem HTMLInputElement (Types t)}
+                 -> t
+                 -> Attribute True I Bool
+  defaultChecked v = fromPrim "HTMLInputElement.getdefaultChecked"
+                              prim__defaultChecked
+                              prim__setDefaultChecked
+                              (v :> HTMLInputElement)
   
   export
-  defaultValue : HTMLInputElement -> Attribute True I String
-  defaultValue = fromPrim "HTMLInputElement.getdefaultValue"
-                          prim__defaultValue
-                          prim__setDefaultValue
+  defaultValue :  JSType t
+               => {auto 0 _ : Elem HTMLInputElement (Types t)}
+               -> t
+               -> Attribute True I String
+  defaultValue v = fromPrim "HTMLInputElement.getdefaultValue"
+                            prim__defaultValue
+                            prim__setDefaultValue
+                            (v :> HTMLInputElement)
   
   export
-  dirName : HTMLInputElement -> Attribute True I String
-  dirName = fromPrim "HTMLInputElement.getdirName"
-                     prim__dirName
-                     prim__setDirName
+  dirName :  JSType t
+          => {auto 0 _ : Elem HTMLInputElement (Types t)}
+          -> t
+          -> Attribute True I String
+  dirName v = fromPrim "HTMLInputElement.getdirName"
+                       prim__dirName
+                       prim__setDirName
+                       (v :> HTMLInputElement)
   
   export
-  disabled : HTMLInputElement -> Attribute True I Bool
-  disabled = fromPrim "HTMLInputElement.getdisabled"
-                      prim__disabled
-                      prim__setDisabled
+  disabled :  JSType t
+           => {auto 0 _ : Elem HTMLInputElement (Types t)}
+           -> t
+           -> Attribute True I Bool
+  disabled v = fromPrim "HTMLInputElement.getdisabled"
+                        prim__disabled
+                        prim__setDisabled
+                        (v :> HTMLInputElement)
   
   export
-  files : HTMLInputElement -> Attribute False Maybe FileList
-  files = fromNullablePrim "HTMLInputElement.getfiles"
-                           prim__files
-                           prim__setFiles
+  files :  JSType t
+        => {auto 0 _ : Elem HTMLInputElement (Types t)}
+        -> t
+        -> Attribute False Maybe FileList
+  files v = fromNullablePrim "HTMLInputElement.getfiles"
+                             prim__files
+                             prim__setFiles
+                             (v :> HTMLInputElement)
   
   export
   form :  JSType t1
@@ -2219,44 +3019,74 @@ namespace HTMLInputElement
   form a = tryJS "HTMLInputElement.form" $ HTMLInputElement.prim__form (up a)
   
   export
-  formAction : HTMLInputElement -> Attribute True I String
-  formAction = fromPrim "HTMLInputElement.getformAction"
-                        prim__formAction
-                        prim__setFormAction
+  formAction :  JSType t
+             => {auto 0 _ : Elem HTMLInputElement (Types t)}
+             -> t
+             -> Attribute True I String
+  formAction v = fromPrim "HTMLInputElement.getformAction"
+                          prim__formAction
+                          prim__setFormAction
+                          (v :> HTMLInputElement)
   
   export
-  formEnctype : HTMLInputElement -> Attribute True I String
-  formEnctype = fromPrim "HTMLInputElement.getformEnctype"
-                         prim__formEnctype
-                         prim__setFormEnctype
+  formEnctype :  JSType t
+              => {auto 0 _ : Elem HTMLInputElement (Types t)}
+              -> t
+              -> Attribute True I String
+  formEnctype v = fromPrim "HTMLInputElement.getformEnctype"
+                           prim__formEnctype
+                           prim__setFormEnctype
+                           (v :> HTMLInputElement)
   
   export
-  formMethod : HTMLInputElement -> Attribute True I String
-  formMethod = fromPrim "HTMLInputElement.getformMethod"
-                        prim__formMethod
-                        prim__setFormMethod
+  formMethod :  JSType t
+             => {auto 0 _ : Elem HTMLInputElement (Types t)}
+             -> t
+             -> Attribute True I String
+  formMethod v = fromPrim "HTMLInputElement.getformMethod"
+                          prim__formMethod
+                          prim__setFormMethod
+                          (v :> HTMLInputElement)
   
   export
-  formNoValidate : HTMLInputElement -> Attribute True I Bool
-  formNoValidate = fromPrim "HTMLInputElement.getformNoValidate"
-                            prim__formNoValidate
-                            prim__setFormNoValidate
+  formNoValidate :  JSType t
+                 => {auto 0 _ : Elem HTMLInputElement (Types t)}
+                 -> t
+                 -> Attribute True I Bool
+  formNoValidate v = fromPrim "HTMLInputElement.getformNoValidate"
+                              prim__formNoValidate
+                              prim__setFormNoValidate
+                              (v :> HTMLInputElement)
   
   export
-  formTarget : HTMLInputElement -> Attribute True I String
-  formTarget = fromPrim "HTMLInputElement.getformTarget"
-                        prim__formTarget
-                        prim__setFormTarget
+  formTarget :  JSType t
+             => {auto 0 _ : Elem HTMLInputElement (Types t)}
+             -> t
+             -> Attribute True I String
+  formTarget v = fromPrim "HTMLInputElement.getformTarget"
+                          prim__formTarget
+                          prim__setFormTarget
+                          (v :> HTMLInputElement)
   
   export
-  height : HTMLInputElement -> Attribute True I UInt32
-  height = fromPrim "HTMLInputElement.getheight" prim__height prim__setHeight
+  height :  JSType t
+         => {auto 0 _ : Elem HTMLInputElement (Types t)}
+         -> t
+         -> Attribute True I UInt32
+  height v = fromPrim "HTMLInputElement.getheight"
+                      prim__height
+                      prim__setHeight
+                      (v :> HTMLInputElement)
   
   export
-  indeterminate : HTMLInputElement -> Attribute True I Bool
-  indeterminate = fromPrim "HTMLInputElement.getindeterminate"
-                           prim__indeterminate
-                           prim__setIndeterminate
+  indeterminate :  JSType t
+                => {auto 0 _ : Elem HTMLInputElement (Types t)}
+                -> t
+                -> Attribute True I Bool
+  indeterminate v = fromPrim "HTMLInputElement.getindeterminate"
+                             prim__indeterminate
+                             prim__setIndeterminate
+                             (v :> HTMLInputElement)
   
   export
   labels :  JSType t1
@@ -2274,96 +3104,184 @@ namespace HTMLInputElement
   list a = tryJS "HTMLInputElement.list" $ HTMLInputElement.prim__list (up a)
   
   export
-  max : HTMLInputElement -> Attribute True I String
-  max = fromPrim "HTMLInputElement.getmax" prim__max prim__setMax
+  max :  JSType t
+      => {auto 0 _ : Elem HTMLInputElement (Types t)}
+      -> t
+      -> Attribute True I String
+  max v = fromPrim "HTMLInputElement.getmax"
+                   prim__max
+                   prim__setMax
+                   (v :> HTMLInputElement)
   
   export
-  maxLength : HTMLInputElement -> Attribute True I Int32
-  maxLength = fromPrim "HTMLInputElement.getmaxLength"
-                       prim__maxLength
-                       prim__setMaxLength
+  maxLength :  JSType t
+            => {auto 0 _ : Elem HTMLInputElement (Types t)}
+            -> t
+            -> Attribute True I Int32
+  maxLength v = fromPrim "HTMLInputElement.getmaxLength"
+                         prim__maxLength
+                         prim__setMaxLength
+                         (v :> HTMLInputElement)
   
   export
-  min : HTMLInputElement -> Attribute True I String
-  min = fromPrim "HTMLInputElement.getmin" prim__min prim__setMin
+  min :  JSType t
+      => {auto 0 _ : Elem HTMLInputElement (Types t)}
+      -> t
+      -> Attribute True I String
+  min v = fromPrim "HTMLInputElement.getmin"
+                   prim__min
+                   prim__setMin
+                   (v :> HTMLInputElement)
   
   export
-  minLength : HTMLInputElement -> Attribute True I Int32
-  minLength = fromPrim "HTMLInputElement.getminLength"
-                       prim__minLength
-                       prim__setMinLength
+  minLength :  JSType t
+            => {auto 0 _ : Elem HTMLInputElement (Types t)}
+            -> t
+            -> Attribute True I Int32
+  minLength v = fromPrim "HTMLInputElement.getminLength"
+                         prim__minLength
+                         prim__setMinLength
+                         (v :> HTMLInputElement)
   
   export
-  multiple : HTMLInputElement -> Attribute True I Bool
-  multiple = fromPrim "HTMLInputElement.getmultiple"
-                      prim__multiple
-                      prim__setMultiple
+  multiple :  JSType t
+           => {auto 0 _ : Elem HTMLInputElement (Types t)}
+           -> t
+           -> Attribute True I Bool
+  multiple v = fromPrim "HTMLInputElement.getmultiple"
+                        prim__multiple
+                        prim__setMultiple
+                        (v :> HTMLInputElement)
   
   export
-  name : HTMLInputElement -> Attribute True I String
-  name = fromPrim "HTMLInputElement.getname" prim__name prim__setName
+  name :  JSType t
+       => {auto 0 _ : Elem HTMLInputElement (Types t)}
+       -> t
+       -> Attribute True I String
+  name v = fromPrim "HTMLInputElement.getname"
+                    prim__name
+                    prim__setName
+                    (v :> HTMLInputElement)
   
   export
-  pattern : HTMLInputElement -> Attribute True I String
-  pattern = fromPrim "HTMLInputElement.getpattern"
-                     prim__pattern
-                     prim__setPattern
+  pattern :  JSType t
+          => {auto 0 _ : Elem HTMLInputElement (Types t)}
+          -> t
+          -> Attribute True I String
+  pattern v = fromPrim "HTMLInputElement.getpattern"
+                       prim__pattern
+                       prim__setPattern
+                       (v :> HTMLInputElement)
   
   export
-  placeholder : HTMLInputElement -> Attribute True I String
-  placeholder = fromPrim "HTMLInputElement.getplaceholder"
-                         prim__placeholder
-                         prim__setPlaceholder
+  placeholder :  JSType t
+              => {auto 0 _ : Elem HTMLInputElement (Types t)}
+              -> t
+              -> Attribute True I String
+  placeholder v = fromPrim "HTMLInputElement.getplaceholder"
+                           prim__placeholder
+                           prim__setPlaceholder
+                           (v :> HTMLInputElement)
   
   export
-  readOnly : HTMLInputElement -> Attribute True I Bool
-  readOnly = fromPrim "HTMLInputElement.getreadOnly"
-                      prim__readOnly
-                      prim__setReadOnly
+  readOnly :  JSType t
+           => {auto 0 _ : Elem HTMLInputElement (Types t)}
+           -> t
+           -> Attribute True I Bool
+  readOnly v = fromPrim "HTMLInputElement.getreadOnly"
+                        prim__readOnly
+                        prim__setReadOnly
+                        (v :> HTMLInputElement)
   
   export
-  required : HTMLInputElement -> Attribute True I Bool
-  required = fromPrim "HTMLInputElement.getrequired"
-                      prim__required
-                      prim__setRequired
+  required :  JSType t
+           => {auto 0 _ : Elem HTMLInputElement (Types t)}
+           -> t
+           -> Attribute True I Bool
+  required v = fromPrim "HTMLInputElement.getrequired"
+                        prim__required
+                        prim__setRequired
+                        (v :> HTMLInputElement)
   
   export
-  selectionDirection : HTMLInputElement -> Attribute False Maybe String
-  selectionDirection = fromNullablePrim "HTMLInputElement.getselectionDirection"
-                                        prim__selectionDirection
-                                        prim__setSelectionDirection
+  selectionDirection :  JSType t
+                     => {auto 0 _ : Elem HTMLInputElement (Types t)}
+                     -> t
+                     -> Attribute False Maybe String
+  selectionDirection v = fromNullablePrim "HTMLInputElement.getselectionDirection"
+                                          prim__selectionDirection
+                                          prim__setSelectionDirection
+                                          (v :> HTMLInputElement)
   
   export
-  selectionEnd : HTMLInputElement -> Attribute False Maybe UInt32
-  selectionEnd = fromNullablePrim "HTMLInputElement.getselectionEnd"
-                                  prim__selectionEnd
-                                  prim__setSelectionEnd
+  selectionEnd :  JSType t
+               => {auto 0 _ : Elem HTMLInputElement (Types t)}
+               -> t
+               -> Attribute False Maybe UInt32
+  selectionEnd v = fromNullablePrim "HTMLInputElement.getselectionEnd"
+                                    prim__selectionEnd
+                                    prim__setSelectionEnd
+                                    (v :> HTMLInputElement)
   
   export
-  selectionStart : HTMLInputElement -> Attribute False Maybe UInt32
-  selectionStart = fromNullablePrim "HTMLInputElement.getselectionStart"
-                                    prim__selectionStart
-                                    prim__setSelectionStart
+  selectionStart :  JSType t
+                 => {auto 0 _ : Elem HTMLInputElement (Types t)}
+                 -> t
+                 -> Attribute False Maybe UInt32
+  selectionStart v = fromNullablePrim "HTMLInputElement.getselectionStart"
+                                      prim__selectionStart
+                                      prim__setSelectionStart
+                                      (v :> HTMLInputElement)
   
   export
-  size : HTMLInputElement -> Attribute True I UInt32
-  size = fromPrim "HTMLInputElement.getsize" prim__size prim__setSize
+  size :  JSType t
+       => {auto 0 _ : Elem HTMLInputElement (Types t)}
+       -> t
+       -> Attribute True I UInt32
+  size v = fromPrim "HTMLInputElement.getsize"
+                    prim__size
+                    prim__setSize
+                    (v :> HTMLInputElement)
   
   export
-  src : HTMLInputElement -> Attribute True I String
-  src = fromPrim "HTMLInputElement.getsrc" prim__src prim__setSrc
+  src :  JSType t
+      => {auto 0 _ : Elem HTMLInputElement (Types t)}
+      -> t
+      -> Attribute True I String
+  src v = fromPrim "HTMLInputElement.getsrc"
+                   prim__src
+                   prim__setSrc
+                   (v :> HTMLInputElement)
   
   export
-  step : HTMLInputElement -> Attribute True I String
-  step = fromPrim "HTMLInputElement.getstep" prim__step prim__setStep
+  step :  JSType t
+       => {auto 0 _ : Elem HTMLInputElement (Types t)}
+       -> t
+       -> Attribute True I String
+  step v = fromPrim "HTMLInputElement.getstep"
+                    prim__step
+                    prim__setStep
+                    (v :> HTMLInputElement)
   
   export
-  type : HTMLInputElement -> Attribute True I String
-  type = fromPrim "HTMLInputElement.gettype" prim__type prim__setType
+  type :  JSType t
+       => {auto 0 _ : Elem HTMLInputElement (Types t)}
+       -> t
+       -> Attribute True I String
+  type v = fromPrim "HTMLInputElement.gettype"
+                    prim__type
+                    prim__setType
+                    (v :> HTMLInputElement)
   
   export
-  useMap : HTMLInputElement -> Attribute True I String
-  useMap = fromPrim "HTMLInputElement.getuseMap" prim__useMap prim__setUseMap
+  useMap :  JSType t
+         => {auto 0 _ : Elem HTMLInputElement (Types t)}
+         -> t
+         -> Attribute True I String
+  useMap v = fromPrim "HTMLInputElement.getuseMap"
+                      prim__useMap
+                      prim__setUseMap
+                      (v :> HTMLInputElement)
   
   export
   validationMessage :  JSType t1
@@ -2380,24 +3298,44 @@ namespace HTMLInputElement
   validity a = primJS $ HTMLInputElement.prim__validity (up a)
   
   export
-  value : HTMLInputElement -> Attribute True I String
-  value = fromPrim "HTMLInputElement.getvalue" prim__value prim__setValue
+  value :  JSType t
+        => {auto 0 _ : Elem HTMLInputElement (Types t)}
+        -> t
+        -> Attribute True I String
+  value v = fromPrim "HTMLInputElement.getvalue"
+                     prim__value
+                     prim__setValue
+                     (v :> HTMLInputElement)
   
   export
-  valueAsDate : HTMLInputElement -> Attribute False Maybe Object
-  valueAsDate = fromNullablePrim "HTMLInputElement.getvalueAsDate"
-                                 prim__valueAsDate
-                                 prim__setValueAsDate
+  valueAsDate :  JSType t
+              => {auto 0 _ : Elem HTMLInputElement (Types t)}
+              -> t
+              -> Attribute False Maybe Object
+  valueAsDate v = fromNullablePrim "HTMLInputElement.getvalueAsDate"
+                                   prim__valueAsDate
+                                   prim__setValueAsDate
+                                   (v :> HTMLInputElement)
   
   export
-  valueAsNumber : HTMLInputElement -> Attribute True I Double
-  valueAsNumber = fromPrim "HTMLInputElement.getvalueAsNumber"
-                           prim__valueAsNumber
-                           prim__setValueAsNumber
+  valueAsNumber :  JSType t
+                => {auto 0 _ : Elem HTMLInputElement (Types t)}
+                -> t
+                -> Attribute True I Double
+  valueAsNumber v = fromPrim "HTMLInputElement.getvalueAsNumber"
+                             prim__valueAsNumber
+                             prim__setValueAsNumber
+                             (v :> HTMLInputElement)
   
   export
-  width : HTMLInputElement -> Attribute True I UInt32
-  width = fromPrim "HTMLInputElement.getwidth" prim__width prim__setWidth
+  width :  JSType t
+        => {auto 0 _ : Elem HTMLInputElement (Types t)}
+        -> t
+        -> Attribute True I UInt32
+  width v = fromPrim "HTMLInputElement.getwidth"
+                     prim__width
+                     prim__setWidth
+                     (v :> HTMLInputElement)
   
   export
   willValidate :  JSType t1
@@ -2542,12 +3480,24 @@ namespace HTMLLIElement
   new = primJS $ HTMLLIElement.prim__new 
   
   export
-  type : HTMLLIElement -> Attribute True I String
-  type = fromPrim "HTMLLIElement.gettype" prim__type prim__setType
+  type :  JSType t
+       => {auto 0 _ : Elem HTMLLIElement (Types t)}
+       -> t
+       -> Attribute True I String
+  type v = fromPrim "HTMLLIElement.gettype"
+                    prim__type
+                    prim__setType
+                    (v :> HTMLLIElement)
   
   export
-  value : HTMLLIElement -> Attribute True I Int32
-  value = fromPrim "HTMLLIElement.getvalue" prim__value prim__setValue
+  value :  JSType t
+        => {auto 0 _ : Elem HTMLLIElement (Types t)}
+        -> t
+        -> Attribute True I Int32
+  value v = fromPrim "HTMLLIElement.getvalue"
+                     prim__value
+                     prim__setValue
+                     (v :> HTMLLIElement)
 
 namespace HTMLLabelElement
   
@@ -2571,10 +3521,14 @@ namespace HTMLLabelElement
   form a = tryJS "HTMLLabelElement.form" $ HTMLLabelElement.prim__form (up a)
   
   export
-  htmlFor : HTMLLabelElement -> Attribute True I String
-  htmlFor = fromPrim "HTMLLabelElement.gethtmlFor"
-                     prim__htmlFor
-                     prim__setHtmlFor
+  htmlFor :  JSType t
+          => {auto 0 _ : Elem HTMLLabelElement (Types t)}
+          -> t
+          -> Attribute True I String
+  htmlFor v = fromPrim "HTMLLabelElement.gethtmlFor"
+                       prim__htmlFor
+                       prim__setHtmlFor
+                       (v :> HTMLLabelElement)
 
 namespace HTMLLegendElement
   
@@ -2583,8 +3537,14 @@ namespace HTMLLegendElement
   new = primJS $ HTMLLegendElement.prim__new 
   
   export
-  align : HTMLLegendElement -> Attribute True I String
-  align = fromPrim "HTMLLegendElement.getalign" prim__align prim__setAlign
+  align :  JSType t
+        => {auto 0 _ : Elem HTMLLegendElement (Types t)}
+        -> t
+        -> Attribute True I String
+  align v = fromPrim "HTMLLegendElement.getalign"
+                     prim__align
+                     prim__setAlign
+                     (v :> HTMLLegendElement)
   
   export
   form :  JSType t1
@@ -2600,66 +3560,124 @@ namespace HTMLLinkElement
   new = primJS $ HTMLLinkElement.prim__new 
   
   export
-  as : HTMLLinkElement -> Attribute True I String
-  as = fromPrim "HTMLLinkElement.getas" prim__as prim__setAs
+  as :  JSType t
+     => {auto 0 _ : Elem HTMLLinkElement (Types t)}
+     -> t
+     -> Attribute True I String
+  as v = fromPrim "HTMLLinkElement.getas"
+                  prim__as
+                  prim__setAs
+                  (v :> HTMLLinkElement)
   
   export
-  charset : HTMLLinkElement -> Attribute True I String
-  charset = fromPrim "HTMLLinkElement.getcharset" prim__charset prim__setCharset
+  charset :  JSType t
+          => {auto 0 _ : Elem HTMLLinkElement (Types t)}
+          -> t
+          -> Attribute True I String
+  charset v = fromPrim "HTMLLinkElement.getcharset"
+                       prim__charset
+                       prim__setCharset
+                       (v :> HTMLLinkElement)
   
   export
-  crossOrigin : HTMLLinkElement -> Attribute False Maybe String
-  crossOrigin = fromNullablePrim "HTMLLinkElement.getcrossOrigin"
-                                 prim__crossOrigin
-                                 prim__setCrossOrigin
+  crossOrigin :  JSType t
+              => {auto 0 _ : Elem HTMLLinkElement (Types t)}
+              -> t
+              -> Attribute False Maybe String
+  crossOrigin v = fromNullablePrim "HTMLLinkElement.getcrossOrigin"
+                                   prim__crossOrigin
+                                   prim__setCrossOrigin
+                                   (v :> HTMLLinkElement)
   
   export
-  disabled : HTMLLinkElement -> Attribute True I Bool
-  disabled = fromPrim "HTMLLinkElement.getdisabled"
-                      prim__disabled
-                      prim__setDisabled
+  disabled :  JSType t
+           => {auto 0 _ : Elem HTMLLinkElement (Types t)}
+           -> t
+           -> Attribute True I Bool
+  disabled v = fromPrim "HTMLLinkElement.getdisabled"
+                        prim__disabled
+                        prim__setDisabled
+                        (v :> HTMLLinkElement)
   
   export
-  href : HTMLLinkElement -> Attribute True I String
-  href = fromPrim "HTMLLinkElement.gethref" prim__href prim__setHref
+  href :  JSType t
+       => {auto 0 _ : Elem HTMLLinkElement (Types t)}
+       -> t
+       -> Attribute True I String
+  href v = fromPrim "HTMLLinkElement.gethref"
+                    prim__href
+                    prim__setHref
+                    (v :> HTMLLinkElement)
   
   export
-  hreflang : HTMLLinkElement -> Attribute True I String
-  hreflang = fromPrim "HTMLLinkElement.gethreflang"
-                      prim__hreflang
-                      prim__setHreflang
+  hreflang :  JSType t
+           => {auto 0 _ : Elem HTMLLinkElement (Types t)}
+           -> t
+           -> Attribute True I String
+  hreflang v = fromPrim "HTMLLinkElement.gethreflang"
+                        prim__hreflang
+                        prim__setHreflang
+                        (v :> HTMLLinkElement)
   
   export
-  imageSizes : HTMLLinkElement -> Attribute True I String
-  imageSizes = fromPrim "HTMLLinkElement.getimageSizes"
-                        prim__imageSizes
-                        prim__setImageSizes
+  imageSizes :  JSType t
+             => {auto 0 _ : Elem HTMLLinkElement (Types t)}
+             -> t
+             -> Attribute True I String
+  imageSizes v = fromPrim "HTMLLinkElement.getimageSizes"
+                          prim__imageSizes
+                          prim__setImageSizes
+                          (v :> HTMLLinkElement)
   
   export
-  imageSrcset : HTMLLinkElement -> Attribute True I String
-  imageSrcset = fromPrim "HTMLLinkElement.getimageSrcset"
-                         prim__imageSrcset
-                         prim__setImageSrcset
+  imageSrcset :  JSType t
+              => {auto 0 _ : Elem HTMLLinkElement (Types t)}
+              -> t
+              -> Attribute True I String
+  imageSrcset v = fromPrim "HTMLLinkElement.getimageSrcset"
+                           prim__imageSrcset
+                           prim__setImageSrcset
+                           (v :> HTMLLinkElement)
   
   export
-  integrity : HTMLLinkElement -> Attribute True I String
-  integrity = fromPrim "HTMLLinkElement.getintegrity"
-                       prim__integrity
-                       prim__setIntegrity
+  integrity :  JSType t
+            => {auto 0 _ : Elem HTMLLinkElement (Types t)}
+            -> t
+            -> Attribute True I String
+  integrity v = fromPrim "HTMLLinkElement.getintegrity"
+                         prim__integrity
+                         prim__setIntegrity
+                         (v :> HTMLLinkElement)
   
   export
-  media : HTMLLinkElement -> Attribute True I String
-  media = fromPrim "HTMLLinkElement.getmedia" prim__media prim__setMedia
+  media :  JSType t
+        => {auto 0 _ : Elem HTMLLinkElement (Types t)}
+        -> t
+        -> Attribute True I String
+  media v = fromPrim "HTMLLinkElement.getmedia"
+                     prim__media
+                     prim__setMedia
+                     (v :> HTMLLinkElement)
   
   export
-  referrerPolicy : HTMLLinkElement -> Attribute True I String
-  referrerPolicy = fromPrim "HTMLLinkElement.getreferrerPolicy"
-                            prim__referrerPolicy
-                            prim__setReferrerPolicy
+  referrerPolicy :  JSType t
+                 => {auto 0 _ : Elem HTMLLinkElement (Types t)}
+                 -> t
+                 -> Attribute True I String
+  referrerPolicy v = fromPrim "HTMLLinkElement.getreferrerPolicy"
+                              prim__referrerPolicy
+                              prim__setReferrerPolicy
+                              (v :> HTMLLinkElement)
   
   export
-  rel : HTMLLinkElement -> Attribute True I String
-  rel = fromPrim "HTMLLinkElement.getrel" prim__rel prim__setRel
+  rel :  JSType t
+      => {auto 0 _ : Elem HTMLLinkElement (Types t)}
+      -> t
+      -> Attribute True I String
+  rel v = fromPrim "HTMLLinkElement.getrel"
+                   prim__rel
+                   prim__setRel
+                   (v :> HTMLLinkElement)
   
   export
   relList :  JSType t1
@@ -2669,8 +3687,14 @@ namespace HTMLLinkElement
   relList a = primJS $ HTMLLinkElement.prim__relList (up a)
   
   export
-  rev : HTMLLinkElement -> Attribute True I String
-  rev = fromPrim "HTMLLinkElement.getrev" prim__rev prim__setRev
+  rev :  JSType t
+      => {auto 0 _ : Elem HTMLLinkElement (Types t)}
+      -> t
+      -> Attribute True I String
+  rev v = fromPrim "HTMLLinkElement.getrev"
+                   prim__rev
+                   prim__setRev
+                   (v :> HTMLLinkElement)
   
   export
   sizes :  JSType t1
@@ -2680,12 +3704,24 @@ namespace HTMLLinkElement
   sizes a = primJS $ HTMLLinkElement.prim__sizes (up a)
   
   export
-  target : HTMLLinkElement -> Attribute True I String
-  target = fromPrim "HTMLLinkElement.gettarget" prim__target prim__setTarget
+  target :  JSType t
+         => {auto 0 _ : Elem HTMLLinkElement (Types t)}
+         -> t
+         -> Attribute True I String
+  target v = fromPrim "HTMLLinkElement.gettarget"
+                      prim__target
+                      prim__setTarget
+                      (v :> HTMLLinkElement)
   
   export
-  type : HTMLLinkElement -> Attribute True I String
-  type = fromPrim "HTMLLinkElement.gettype" prim__type prim__setType
+  type :  JSType t
+       => {auto 0 _ : Elem HTMLLinkElement (Types t)}
+       -> t
+       -> Attribute True I String
+  type v = fromPrim "HTMLLinkElement.gettype"
+                    prim__type
+                    prim__setType
+                    (v :> HTMLLinkElement)
 
 namespace HTMLMapElement
   
@@ -2701,8 +3737,14 @@ namespace HTMLMapElement
   areas a = primJS $ HTMLMapElement.prim__areas (up a)
   
   export
-  name : HTMLMapElement -> Attribute True I String
-  name = fromPrim "HTMLMapElement.getname" prim__name prim__setName
+  name :  JSType t
+       => {auto 0 _ : Elem HTMLMapElement (Types t)}
+       -> t
+       -> Attribute True I String
+  name v = fromPrim "HTMLMapElement.getname"
+                    prim__name
+                    prim__setName
+                    (v :> HTMLMapElement)
 
 namespace HTMLMarqueeElement
   
@@ -2711,60 +3753,114 @@ namespace HTMLMarqueeElement
   new = primJS $ HTMLMarqueeElement.prim__new 
   
   export
-  behavior : HTMLMarqueeElement -> Attribute True I String
-  behavior = fromPrim "HTMLMarqueeElement.getbehavior"
-                      prim__behavior
-                      prim__setBehavior
+  behavior :  JSType t
+           => {auto 0 _ : Elem HTMLMarqueeElement (Types t)}
+           -> t
+           -> Attribute True I String
+  behavior v = fromPrim "HTMLMarqueeElement.getbehavior"
+                        prim__behavior
+                        prim__setBehavior
+                        (v :> HTMLMarqueeElement)
   
   export
-  bgColor : HTMLMarqueeElement -> Attribute True I String
-  bgColor = fromPrim "HTMLMarqueeElement.getbgColor"
-                     prim__bgColor
-                     prim__setBgColor
+  bgColor :  JSType t
+          => {auto 0 _ : Elem HTMLMarqueeElement (Types t)}
+          -> t
+          -> Attribute True I String
+  bgColor v = fromPrim "HTMLMarqueeElement.getbgColor"
+                       prim__bgColor
+                       prim__setBgColor
+                       (v :> HTMLMarqueeElement)
   
   export
-  direction : HTMLMarqueeElement -> Attribute True I String
-  direction = fromPrim "HTMLMarqueeElement.getdirection"
-                       prim__direction
-                       prim__setDirection
+  direction :  JSType t
+            => {auto 0 _ : Elem HTMLMarqueeElement (Types t)}
+            -> t
+            -> Attribute True I String
+  direction v = fromPrim "HTMLMarqueeElement.getdirection"
+                         prim__direction
+                         prim__setDirection
+                         (v :> HTMLMarqueeElement)
   
   export
-  height : HTMLMarqueeElement -> Attribute True I String
-  height = fromPrim "HTMLMarqueeElement.getheight" prim__height prim__setHeight
+  height :  JSType t
+         => {auto 0 _ : Elem HTMLMarqueeElement (Types t)}
+         -> t
+         -> Attribute True I String
+  height v = fromPrim "HTMLMarqueeElement.getheight"
+                      prim__height
+                      prim__setHeight
+                      (v :> HTMLMarqueeElement)
   
   export
-  hspace : HTMLMarqueeElement -> Attribute True I UInt32
-  hspace = fromPrim "HTMLMarqueeElement.gethspace" prim__hspace prim__setHspace
+  hspace :  JSType t
+         => {auto 0 _ : Elem HTMLMarqueeElement (Types t)}
+         -> t
+         -> Attribute True I UInt32
+  hspace v = fromPrim "HTMLMarqueeElement.gethspace"
+                      prim__hspace
+                      prim__setHspace
+                      (v :> HTMLMarqueeElement)
   
   export
-  loop : HTMLMarqueeElement -> Attribute True I Int32
-  loop = fromPrim "HTMLMarqueeElement.getloop" prim__loop prim__setLoop
+  loop :  JSType t
+       => {auto 0 _ : Elem HTMLMarqueeElement (Types t)}
+       -> t
+       -> Attribute True I Int32
+  loop v = fromPrim "HTMLMarqueeElement.getloop"
+                    prim__loop
+                    prim__setLoop
+                    (v :> HTMLMarqueeElement)
   
   export
-  scrollAmount : HTMLMarqueeElement -> Attribute True I UInt32
-  scrollAmount = fromPrim "HTMLMarqueeElement.getscrollAmount"
-                          prim__scrollAmount
-                          prim__setScrollAmount
+  scrollAmount :  JSType t
+               => {auto 0 _ : Elem HTMLMarqueeElement (Types t)}
+               -> t
+               -> Attribute True I UInt32
+  scrollAmount v = fromPrim "HTMLMarqueeElement.getscrollAmount"
+                            prim__scrollAmount
+                            prim__setScrollAmount
+                            (v :> HTMLMarqueeElement)
   
   export
-  scrollDelay : HTMLMarqueeElement -> Attribute True I UInt32
-  scrollDelay = fromPrim "HTMLMarqueeElement.getscrollDelay"
-                         prim__scrollDelay
-                         prim__setScrollDelay
+  scrollDelay :  JSType t
+              => {auto 0 _ : Elem HTMLMarqueeElement (Types t)}
+              -> t
+              -> Attribute True I UInt32
+  scrollDelay v = fromPrim "HTMLMarqueeElement.getscrollDelay"
+                           prim__scrollDelay
+                           prim__setScrollDelay
+                           (v :> HTMLMarqueeElement)
   
   export
-  trueSpeed : HTMLMarqueeElement -> Attribute True I Bool
-  trueSpeed = fromPrim "HTMLMarqueeElement.gettrueSpeed"
-                       prim__trueSpeed
-                       prim__setTrueSpeed
+  trueSpeed :  JSType t
+            => {auto 0 _ : Elem HTMLMarqueeElement (Types t)}
+            -> t
+            -> Attribute True I Bool
+  trueSpeed v = fromPrim "HTMLMarqueeElement.gettrueSpeed"
+                         prim__trueSpeed
+                         prim__setTrueSpeed
+                         (v :> HTMLMarqueeElement)
   
   export
-  vspace : HTMLMarqueeElement -> Attribute True I UInt32
-  vspace = fromPrim "HTMLMarqueeElement.getvspace" prim__vspace prim__setVspace
+  vspace :  JSType t
+         => {auto 0 _ : Elem HTMLMarqueeElement (Types t)}
+         -> t
+         -> Attribute True I UInt32
+  vspace v = fromPrim "HTMLMarqueeElement.getvspace"
+                      prim__vspace
+                      prim__setVspace
+                      (v :> HTMLMarqueeElement)
   
   export
-  width : HTMLMarqueeElement -> Attribute True I String
-  width = fromPrim "HTMLMarqueeElement.getwidth" prim__width prim__setWidth
+  width :  JSType t
+        => {auto 0 _ : Elem HTMLMarqueeElement (Types t)}
+        -> t
+        -> Attribute True I String
+  width v = fromPrim "HTMLMarqueeElement.getwidth"
+                     prim__width
+                     prim__setWidth
+                     (v :> HTMLMarqueeElement)
   
   export
   start :  JSType t1
@@ -2826,10 +3922,14 @@ namespace HTMLMediaElement
   audioTracks a = primJS $ HTMLMediaElement.prim__audioTracks (up a)
   
   export
-  autoplay : HTMLMediaElement -> Attribute True I Bool
-  autoplay = fromPrim "HTMLMediaElement.getautoplay"
-                      prim__autoplay
-                      prim__setAutoplay
+  autoplay :  JSType t
+           => {auto 0 _ : Elem HTMLMediaElement (Types t)}
+           -> t
+           -> Attribute True I Bool
+  autoplay v = fromPrim "HTMLMediaElement.getautoplay"
+                        prim__autoplay
+                        prim__setAutoplay
+                        (v :> HTMLMediaElement)
   
   export
   buffered :  JSType t1
@@ -2839,16 +3939,24 @@ namespace HTMLMediaElement
   buffered a = primJS $ HTMLMediaElement.prim__buffered (up a)
   
   export
-  controls : HTMLMediaElement -> Attribute True I Bool
-  controls = fromPrim "HTMLMediaElement.getcontrols"
-                      prim__controls
-                      prim__setControls
+  controls :  JSType t
+           => {auto 0 _ : Elem HTMLMediaElement (Types t)}
+           -> t
+           -> Attribute True I Bool
+  controls v = fromPrim "HTMLMediaElement.getcontrols"
+                        prim__controls
+                        prim__setControls
+                        (v :> HTMLMediaElement)
   
   export
-  crossOrigin : HTMLMediaElement -> Attribute False Maybe String
-  crossOrigin = fromNullablePrim "HTMLMediaElement.getcrossOrigin"
-                                 prim__crossOrigin
-                                 prim__setCrossOrigin
+  crossOrigin :  JSType t
+              => {auto 0 _ : Elem HTMLMediaElement (Types t)}
+              -> t
+              -> Attribute False Maybe String
+  crossOrigin v = fromNullablePrim "HTMLMediaElement.getcrossOrigin"
+                                   prim__crossOrigin
+                                   prim__setCrossOrigin
+                                   (v :> HTMLMediaElement)
   
   export
   currentSrc :  JSType t1
@@ -2858,22 +3966,34 @@ namespace HTMLMediaElement
   currentSrc a = primJS $ HTMLMediaElement.prim__currentSrc (up a)
   
   export
-  currentTime : HTMLMediaElement -> Attribute True I Double
-  currentTime = fromPrim "HTMLMediaElement.getcurrentTime"
-                         prim__currentTime
-                         prim__setCurrentTime
+  currentTime :  JSType t
+              => {auto 0 _ : Elem HTMLMediaElement (Types t)}
+              -> t
+              -> Attribute True I Double
+  currentTime v = fromPrim "HTMLMediaElement.getcurrentTime"
+                           prim__currentTime
+                           prim__setCurrentTime
+                           (v :> HTMLMediaElement)
   
   export
-  defaultMuted : HTMLMediaElement -> Attribute True I Bool
-  defaultMuted = fromPrim "HTMLMediaElement.getdefaultMuted"
-                          prim__defaultMuted
-                          prim__setDefaultMuted
+  defaultMuted :  JSType t
+               => {auto 0 _ : Elem HTMLMediaElement (Types t)}
+               -> t
+               -> Attribute True I Bool
+  defaultMuted v = fromPrim "HTMLMediaElement.getdefaultMuted"
+                            prim__defaultMuted
+                            prim__setDefaultMuted
+                            (v :> HTMLMediaElement)
   
   export
-  defaultPlaybackRate : HTMLMediaElement -> Attribute True I Double
-  defaultPlaybackRate = fromPrim "HTMLMediaElement.getdefaultPlaybackRate"
-                                 prim__defaultPlaybackRate
-                                 prim__setDefaultPlaybackRate
+  defaultPlaybackRate :  JSType t
+                      => {auto 0 _ : Elem HTMLMediaElement (Types t)}
+                      -> t
+                      -> Attribute True I Double
+  defaultPlaybackRate v = fromPrim "HTMLMediaElement.getdefaultPlaybackRate"
+                                   prim__defaultPlaybackRate
+                                   prim__setDefaultPlaybackRate
+                                   (v :> HTMLMediaElement)
   
   export
   duration :  JSType t1
@@ -2897,12 +4017,24 @@ namespace HTMLMediaElement
   error a = tryJS "HTMLMediaElement.error" $ HTMLMediaElement.prim__error (up a)
   
   export
-  loop : HTMLMediaElement -> Attribute True I Bool
-  loop = fromPrim "HTMLMediaElement.getloop" prim__loop prim__setLoop
+  loop :  JSType t
+       => {auto 0 _ : Elem HTMLMediaElement (Types t)}
+       -> t
+       -> Attribute True I Bool
+  loop v = fromPrim "HTMLMediaElement.getloop"
+                    prim__loop
+                    prim__setLoop
+                    (v :> HTMLMediaElement)
   
   export
-  muted : HTMLMediaElement -> Attribute True I Bool
-  muted = fromPrim "HTMLMediaElement.getmuted" prim__muted prim__setMuted
+  muted :  JSType t
+        => {auto 0 _ : Elem HTMLMediaElement (Types t)}
+        -> t
+        -> Attribute True I Bool
+  muted v = fromPrim "HTMLMediaElement.getmuted"
+                     prim__muted
+                     prim__setMuted
+                     (v :> HTMLMediaElement)
   
   export
   networkState :  JSType t1
@@ -2920,10 +4052,14 @@ namespace HTMLMediaElement
            $ HTMLMediaElement.prim__paused (up a)
   
   export
-  playbackRate : HTMLMediaElement -> Attribute True I Double
-  playbackRate = fromPrim "HTMLMediaElement.getplaybackRate"
-                          prim__playbackRate
-                          prim__setPlaybackRate
+  playbackRate :  JSType t
+               => {auto 0 _ : Elem HTMLMediaElement (Types t)}
+               -> t
+               -> Attribute True I Double
+  playbackRate v = fromPrim "HTMLMediaElement.getplaybackRate"
+                            prim__playbackRate
+                            prim__setPlaybackRate
+                            (v :> HTMLMediaElement)
   
   export
   played :  JSType t1
@@ -2933,16 +4069,24 @@ namespace HTMLMediaElement
   played a = primJS $ HTMLMediaElement.prim__played (up a)
   
   export
-  preload : HTMLMediaElement -> Attribute True I String
-  preload = fromPrim "HTMLMediaElement.getpreload"
-                     prim__preload
-                     prim__setPreload
+  preload :  JSType t
+          => {auto 0 _ : Elem HTMLMediaElement (Types t)}
+          -> t
+          -> Attribute True I String
+  preload v = fromPrim "HTMLMediaElement.getpreload"
+                       prim__preload
+                       prim__setPreload
+                       (v :> HTMLMediaElement)
   
   export
-  preservesPitch : HTMLMediaElement -> Attribute True I Bool
-  preservesPitch = fromPrim "HTMLMediaElement.getpreservesPitch"
-                            prim__preservesPitch
-                            prim__setPreservesPitch
+  preservesPitch :  JSType t
+                 => {auto 0 _ : Elem HTMLMediaElement (Types t)}
+                 -> t
+                 -> Attribute True I Bool
+  preservesPitch v = fromPrim "HTMLMediaElement.getpreservesPitch"
+                              prim__preservesPitch
+                              prim__setPreservesPitch
+                              (v :> HTMLMediaElement)
   
   export
   readyState :  JSType t1
@@ -2967,17 +4111,24 @@ namespace HTMLMediaElement
             $ HTMLMediaElement.prim__seeking (up a)
   
   export
-  src : HTMLMediaElement -> Attribute True I String
-  src = fromPrim "HTMLMediaElement.getsrc" prim__src prim__setSrc
+  src :  JSType t
+      => {auto 0 _ : Elem HTMLMediaElement (Types t)}
+      -> t
+      -> Attribute True I String
+  src v = fromPrim "HTMLMediaElement.getsrc"
+                   prim__src
+                   prim__setSrc
+                   (v :> HTMLMediaElement)
   
   export
-  srcObject : HTMLMediaElement -> Attribute False Maybe (NS I [ MediaStream
-                                                              , MediaSource
-                                                              , Blob
-                                                              ])
-  srcObject = fromNullablePrim "HTMLMediaElement.getsrcObject"
-                               prim__srcObject
-                               prim__setSrcObject
+  srcObject :  JSType t
+            => {auto 0 _ : Elem HTMLMediaElement (Types t)}
+            -> t
+            -> Attribute False Maybe (NS I [ MediaStream , MediaSource , Blob ])
+  srcObject v = fromNullablePrim "HTMLMediaElement.getsrcObject"
+                                 prim__srcObject
+                                 prim__setSrcObject
+                                 (v :> HTMLMediaElement)
   
   export
   textTracks :  JSType t1
@@ -2994,8 +4145,14 @@ namespace HTMLMediaElement
   videoTracks a = primJS $ HTMLMediaElement.prim__videoTracks (up a)
   
   export
-  volume : HTMLMediaElement -> Attribute True I Double
-  volume = fromPrim "HTMLMediaElement.getvolume" prim__volume prim__setVolume
+  volume :  JSType t
+         => {auto 0 _ : Elem HTMLMediaElement (Types t)}
+         -> t
+         -> Attribute True I Double
+  volume v = fromPrim "HTMLMediaElement.getvolume"
+                      prim__volume
+                      prim__setVolume
+                      (v :> HTMLMediaElement)
   
   export
   addTextTrack :  JSType t1
@@ -3075,8 +4232,14 @@ namespace HTMLMenuElement
   new = primJS $ HTMLMenuElement.prim__new 
   
   export
-  compact : HTMLMenuElement -> Attribute True I Bool
-  compact = fromPrim "HTMLMenuElement.getcompact" prim__compact prim__setCompact
+  compact :  JSType t
+          => {auto 0 _ : Elem HTMLMenuElement (Types t)}
+          -> t
+          -> Attribute True I Bool
+  compact v = fromPrim "HTMLMenuElement.getcompact"
+                       prim__compact
+                       prim__setCompact
+                       (v :> HTMLMenuElement)
 
 namespace HTMLMetaElement
   
@@ -3085,22 +4248,44 @@ namespace HTMLMetaElement
   new = primJS $ HTMLMetaElement.prim__new 
   
   export
-  content : HTMLMetaElement -> Attribute True I String
-  content = fromPrim "HTMLMetaElement.getcontent" prim__content prim__setContent
+  content :  JSType t
+          => {auto 0 _ : Elem HTMLMetaElement (Types t)}
+          -> t
+          -> Attribute True I String
+  content v = fromPrim "HTMLMetaElement.getcontent"
+                       prim__content
+                       prim__setContent
+                       (v :> HTMLMetaElement)
   
   export
-  httpEquiv : HTMLMetaElement -> Attribute True I String
-  httpEquiv = fromPrim "HTMLMetaElement.gethttpEquiv"
-                       prim__httpEquiv
-                       prim__setHttpEquiv
+  httpEquiv :  JSType t
+            => {auto 0 _ : Elem HTMLMetaElement (Types t)}
+            -> t
+            -> Attribute True I String
+  httpEquiv v = fromPrim "HTMLMetaElement.gethttpEquiv"
+                         prim__httpEquiv
+                         prim__setHttpEquiv
+                         (v :> HTMLMetaElement)
   
   export
-  name : HTMLMetaElement -> Attribute True I String
-  name = fromPrim "HTMLMetaElement.getname" prim__name prim__setName
+  name :  JSType t
+       => {auto 0 _ : Elem HTMLMetaElement (Types t)}
+       -> t
+       -> Attribute True I String
+  name v = fromPrim "HTMLMetaElement.getname"
+                    prim__name
+                    prim__setName
+                    (v :> HTMLMetaElement)
   
   export
-  scheme : HTMLMetaElement -> Attribute True I String
-  scheme = fromPrim "HTMLMetaElement.getscheme" prim__scheme prim__setScheme
+  scheme :  JSType t
+         => {auto 0 _ : Elem HTMLMetaElement (Types t)}
+         -> t
+         -> Attribute True I String
+  scheme v = fromPrim "HTMLMetaElement.getscheme"
+                      prim__scheme
+                      prim__setScheme
+                      (v :> HTMLMetaElement)
 
 namespace HTMLMeterElement
   
@@ -3109,8 +4294,14 @@ namespace HTMLMeterElement
   new = primJS $ HTMLMeterElement.prim__new 
   
   export
-  high : HTMLMeterElement -> Attribute True I Double
-  high = fromPrim "HTMLMeterElement.gethigh" prim__high prim__setHigh
+  high :  JSType t
+       => {auto 0 _ : Elem HTMLMeterElement (Types t)}
+       -> t
+       -> Attribute True I Double
+  high v = fromPrim "HTMLMeterElement.gethigh"
+                    prim__high
+                    prim__setHigh
+                    (v :> HTMLMeterElement)
   
   export
   labels :  JSType t1
@@ -3120,26 +4311,54 @@ namespace HTMLMeterElement
   labels a = primJS $ HTMLMeterElement.prim__labels (up a)
   
   export
-  low : HTMLMeterElement -> Attribute True I Double
-  low = fromPrim "HTMLMeterElement.getlow" prim__low prim__setLow
+  low :  JSType t
+      => {auto 0 _ : Elem HTMLMeterElement (Types t)}
+      -> t
+      -> Attribute True I Double
+  low v = fromPrim "HTMLMeterElement.getlow"
+                   prim__low
+                   prim__setLow
+                   (v :> HTMLMeterElement)
   
   export
-  max : HTMLMeterElement -> Attribute True I Double
-  max = fromPrim "HTMLMeterElement.getmax" prim__max prim__setMax
+  max :  JSType t
+      => {auto 0 _ : Elem HTMLMeterElement (Types t)}
+      -> t
+      -> Attribute True I Double
+  max v = fromPrim "HTMLMeterElement.getmax"
+                   prim__max
+                   prim__setMax
+                   (v :> HTMLMeterElement)
   
   export
-  min : HTMLMeterElement -> Attribute True I Double
-  min = fromPrim "HTMLMeterElement.getmin" prim__min prim__setMin
+  min :  JSType t
+      => {auto 0 _ : Elem HTMLMeterElement (Types t)}
+      -> t
+      -> Attribute True I Double
+  min v = fromPrim "HTMLMeterElement.getmin"
+                   prim__min
+                   prim__setMin
+                   (v :> HTMLMeterElement)
   
   export
-  optimum : HTMLMeterElement -> Attribute True I Double
-  optimum = fromPrim "HTMLMeterElement.getoptimum"
-                     prim__optimum
-                     prim__setOptimum
+  optimum :  JSType t
+          => {auto 0 _ : Elem HTMLMeterElement (Types t)}
+          -> t
+          -> Attribute True I Double
+  optimum v = fromPrim "HTMLMeterElement.getoptimum"
+                       prim__optimum
+                       prim__setOptimum
+                       (v :> HTMLMeterElement)
   
   export
-  value : HTMLMeterElement -> Attribute True I Double
-  value = fromPrim "HTMLMeterElement.getvalue" prim__value prim__setValue
+  value :  JSType t
+        => {auto 0 _ : Elem HTMLMeterElement (Types t)}
+        -> t
+        -> Attribute True I Double
+  value v = fromPrim "HTMLMeterElement.getvalue"
+                     prim__value
+                     prim__setValue
+                     (v :> HTMLMeterElement)
 
 namespace HTMLModElement
   
@@ -3148,14 +4367,24 @@ namespace HTMLModElement
   new = primJS $ HTMLModElement.prim__new 
   
   export
-  cite : HTMLModElement -> Attribute True I String
-  cite = fromPrim "HTMLModElement.getcite" prim__cite prim__setCite
+  cite :  JSType t
+       => {auto 0 _ : Elem HTMLModElement (Types t)}
+       -> t
+       -> Attribute True I String
+  cite v = fromPrim "HTMLModElement.getcite"
+                    prim__cite
+                    prim__setCite
+                    (v :> HTMLModElement)
   
   export
-  dateTime : HTMLModElement -> Attribute True I String
-  dateTime = fromPrim "HTMLModElement.getdateTime"
-                      prim__dateTime
-                      prim__setDateTime
+  dateTime :  JSType t
+           => {auto 0 _ : Elem HTMLModElement (Types t)}
+           -> t
+           -> Attribute True I String
+  dateTime v = fromPrim "HTMLModElement.getdateTime"
+                        prim__dateTime
+                        prim__setDateTime
+                        (v :> HTMLModElement)
 
 namespace HTMLOListElement
   
@@ -3164,24 +4393,44 @@ namespace HTMLOListElement
   new = primJS $ HTMLOListElement.prim__new 
   
   export
-  compact : HTMLOListElement -> Attribute True I Bool
-  compact = fromPrim "HTMLOListElement.getcompact"
-                     prim__compact
-                     prim__setCompact
+  compact :  JSType t
+          => {auto 0 _ : Elem HTMLOListElement (Types t)}
+          -> t
+          -> Attribute True I Bool
+  compact v = fromPrim "HTMLOListElement.getcompact"
+                       prim__compact
+                       prim__setCompact
+                       (v :> HTMLOListElement)
   
   export
-  reversed : HTMLOListElement -> Attribute True I Bool
-  reversed = fromPrim "HTMLOListElement.getreversed"
-                      prim__reversed
-                      prim__setReversed
+  reversed :  JSType t
+           => {auto 0 _ : Elem HTMLOListElement (Types t)}
+           -> t
+           -> Attribute True I Bool
+  reversed v = fromPrim "HTMLOListElement.getreversed"
+                        prim__reversed
+                        prim__setReversed
+                        (v :> HTMLOListElement)
   
   export
-  start : HTMLOListElement -> Attribute True I Int32
-  start = fromPrim "HTMLOListElement.getstart" prim__start prim__setStart
+  start :  JSType t
+        => {auto 0 _ : Elem HTMLOListElement (Types t)}
+        -> t
+        -> Attribute True I Int32
+  start v = fromPrim "HTMLOListElement.getstart"
+                     prim__start
+                     prim__setStart
+                     (v :> HTMLOListElement)
   
   export
-  type : HTMLOListElement -> Attribute True I String
-  type = fromPrim "HTMLOListElement.gettype" prim__type prim__setType
+  type :  JSType t
+       => {auto 0 _ : Elem HTMLOListElement (Types t)}
+       -> t
+       -> Attribute True I String
+  type v = fromPrim "HTMLOListElement.gettype"
+                    prim__type
+                    prim__setType
+                    (v :> HTMLOListElement)
 
 namespace HTMLObjectElement
   
@@ -3190,34 +4439,64 @@ namespace HTMLObjectElement
   new = primJS $ HTMLObjectElement.prim__new 
   
   export
-  align : HTMLObjectElement -> Attribute True I String
-  align = fromPrim "HTMLObjectElement.getalign" prim__align prim__setAlign
+  align :  JSType t
+        => {auto 0 _ : Elem HTMLObjectElement (Types t)}
+        -> t
+        -> Attribute True I String
+  align v = fromPrim "HTMLObjectElement.getalign"
+                     prim__align
+                     prim__setAlign
+                     (v :> HTMLObjectElement)
   
   export
-  archive : HTMLObjectElement -> Attribute True I String
-  archive = fromPrim "HTMLObjectElement.getarchive"
-                     prim__archive
-                     prim__setArchive
+  archive :  JSType t
+          => {auto 0 _ : Elem HTMLObjectElement (Types t)}
+          -> t
+          -> Attribute True I String
+  archive v = fromPrim "HTMLObjectElement.getarchive"
+                       prim__archive
+                       prim__setArchive
+                       (v :> HTMLObjectElement)
   
   export
-  border : HTMLObjectElement -> Attribute True I String
-  border = fromPrim "HTMLObjectElement.getborder" prim__border prim__setBorder
+  border :  JSType t
+         => {auto 0 _ : Elem HTMLObjectElement (Types t)}
+         -> t
+         -> Attribute True I String
+  border v = fromPrim "HTMLObjectElement.getborder"
+                      prim__border
+                      prim__setBorder
+                      (v :> HTMLObjectElement)
   
   export
-  code : HTMLObjectElement -> Attribute True I String
-  code = fromPrim "HTMLObjectElement.getcode" prim__code prim__setCode
+  code :  JSType t
+       => {auto 0 _ : Elem HTMLObjectElement (Types t)}
+       -> t
+       -> Attribute True I String
+  code v = fromPrim "HTMLObjectElement.getcode"
+                    prim__code
+                    prim__setCode
+                    (v :> HTMLObjectElement)
   
   export
-  codeBase : HTMLObjectElement -> Attribute True I String
-  codeBase = fromPrim "HTMLObjectElement.getcodeBase"
-                      prim__codeBase
-                      prim__setCodeBase
+  codeBase :  JSType t
+           => {auto 0 _ : Elem HTMLObjectElement (Types t)}
+           -> t
+           -> Attribute True I String
+  codeBase v = fromPrim "HTMLObjectElement.getcodeBase"
+                        prim__codeBase
+                        prim__setCodeBase
+                        (v :> HTMLObjectElement)
   
   export
-  codeType : HTMLObjectElement -> Attribute True I String
-  codeType = fromPrim "HTMLObjectElement.getcodeType"
-                      prim__codeType
-                      prim__setCodeType
+  codeType :  JSType t
+           => {auto 0 _ : Elem HTMLObjectElement (Types t)}
+           -> t
+           -> Attribute True I String
+  codeType v = fromPrim "HTMLObjectElement.getcodeType"
+                        prim__codeType
+                        prim__setCodeType
+                        (v :> HTMLObjectElement)
   
   export
   contentDocument :  JSType t1
@@ -3236,14 +4515,24 @@ namespace HTMLObjectElement
                   $ HTMLObjectElement.prim__contentWindow (up a)
   
   export
-  data_ : HTMLObjectElement -> Attribute True I String
-  data_ = fromPrim "HTMLObjectElement.getdata" prim__data prim__setData
+  data_ :  JSType t
+        => {auto 0 _ : Elem HTMLObjectElement (Types t)}
+        -> t
+        -> Attribute True I String
+  data_ v = fromPrim "HTMLObjectElement.getdata"
+                     prim__data
+                     prim__setData
+                     (v :> HTMLObjectElement)
   
   export
-  declare : HTMLObjectElement -> Attribute True I Bool
-  declare = fromPrim "HTMLObjectElement.getdeclare"
-                     prim__declare
-                     prim__setDeclare
+  declare :  JSType t
+          => {auto 0 _ : Elem HTMLObjectElement (Types t)}
+          -> t
+          -> Attribute True I Bool
+  declare v = fromPrim "HTMLObjectElement.getdeclare"
+                       prim__declare
+                       prim__setDeclare
+                       (v :> HTMLObjectElement)
   
   export
   form :  JSType t1
@@ -3253,30 +4542,64 @@ namespace HTMLObjectElement
   form a = tryJS "HTMLObjectElement.form" $ HTMLObjectElement.prim__form (up a)
   
   export
-  height : HTMLObjectElement -> Attribute True I String
-  height = fromPrim "HTMLObjectElement.getheight" prim__height prim__setHeight
+  height :  JSType t
+         => {auto 0 _ : Elem HTMLObjectElement (Types t)}
+         -> t
+         -> Attribute True I String
+  height v = fromPrim "HTMLObjectElement.getheight"
+                      prim__height
+                      prim__setHeight
+                      (v :> HTMLObjectElement)
   
   export
-  hspace : HTMLObjectElement -> Attribute True I UInt32
-  hspace = fromPrim "HTMLObjectElement.gethspace" prim__hspace prim__setHspace
+  hspace :  JSType t
+         => {auto 0 _ : Elem HTMLObjectElement (Types t)}
+         -> t
+         -> Attribute True I UInt32
+  hspace v = fromPrim "HTMLObjectElement.gethspace"
+                      prim__hspace
+                      prim__setHspace
+                      (v :> HTMLObjectElement)
   
   export
-  name : HTMLObjectElement -> Attribute True I String
-  name = fromPrim "HTMLObjectElement.getname" prim__name prim__setName
+  name :  JSType t
+       => {auto 0 _ : Elem HTMLObjectElement (Types t)}
+       -> t
+       -> Attribute True I String
+  name v = fromPrim "HTMLObjectElement.getname"
+                    prim__name
+                    prim__setName
+                    (v :> HTMLObjectElement)
   
   export
-  standby : HTMLObjectElement -> Attribute True I String
-  standby = fromPrim "HTMLObjectElement.getstandby"
-                     prim__standby
-                     prim__setStandby
+  standby :  JSType t
+          => {auto 0 _ : Elem HTMLObjectElement (Types t)}
+          -> t
+          -> Attribute True I String
+  standby v = fromPrim "HTMLObjectElement.getstandby"
+                       prim__standby
+                       prim__setStandby
+                       (v :> HTMLObjectElement)
   
   export
-  type : HTMLObjectElement -> Attribute True I String
-  type = fromPrim "HTMLObjectElement.gettype" prim__type prim__setType
+  type :  JSType t
+       => {auto 0 _ : Elem HTMLObjectElement (Types t)}
+       -> t
+       -> Attribute True I String
+  type v = fromPrim "HTMLObjectElement.gettype"
+                    prim__type
+                    prim__setType
+                    (v :> HTMLObjectElement)
   
   export
-  useMap : HTMLObjectElement -> Attribute True I String
-  useMap = fromPrim "HTMLObjectElement.getuseMap" prim__useMap prim__setUseMap
+  useMap :  JSType t
+         => {auto 0 _ : Elem HTMLObjectElement (Types t)}
+         -> t
+         -> Attribute True I String
+  useMap v = fromPrim "HTMLObjectElement.getuseMap"
+                      prim__useMap
+                      prim__setUseMap
+                      (v :> HTMLObjectElement)
   
   export
   validationMessage :  JSType t1
@@ -3294,12 +4617,24 @@ namespace HTMLObjectElement
   validity a = primJS $ HTMLObjectElement.prim__validity (up a)
   
   export
-  vspace : HTMLObjectElement -> Attribute True I UInt32
-  vspace = fromPrim "HTMLObjectElement.getvspace" prim__vspace prim__setVspace
+  vspace :  JSType t
+         => {auto 0 _ : Elem HTMLObjectElement (Types t)}
+         -> t
+         -> Attribute True I UInt32
+  vspace v = fromPrim "HTMLObjectElement.getvspace"
+                      prim__vspace
+                      prim__setVspace
+                      (v :> HTMLObjectElement)
   
   export
-  width : HTMLObjectElement -> Attribute True I String
-  width = fromPrim "HTMLObjectElement.getwidth" prim__width prim__setWidth
+  width :  JSType t
+        => {auto 0 _ : Elem HTMLObjectElement (Types t)}
+        -> t
+        -> Attribute True I String
+  width v = fromPrim "HTMLObjectElement.getwidth"
+                     prim__width
+                     prim__setWidth
+                     (v :> HTMLObjectElement)
   
   export
   willValidate :  JSType t1
@@ -3349,14 +4684,24 @@ namespace HTMLOptGroupElement
   new = primJS $ HTMLOptGroupElement.prim__new 
   
   export
-  disabled : HTMLOptGroupElement -> Attribute True I Bool
-  disabled = fromPrim "HTMLOptGroupElement.getdisabled"
-                      prim__disabled
-                      prim__setDisabled
+  disabled :  JSType t
+           => {auto 0 _ : Elem HTMLOptGroupElement (Types t)}
+           -> t
+           -> Attribute True I Bool
+  disabled v = fromPrim "HTMLOptGroupElement.getdisabled"
+                        prim__disabled
+                        prim__setDisabled
+                        (v :> HTMLOptGroupElement)
   
   export
-  label : HTMLOptGroupElement -> Attribute True I String
-  label = fromPrim "HTMLOptGroupElement.getlabel" prim__label prim__setLabel
+  label :  JSType t
+        => {auto 0 _ : Elem HTMLOptGroupElement (Types t)}
+        -> t
+        -> Attribute True I String
+  label v = fromPrim "HTMLOptGroupElement.getlabel"
+                     prim__label
+                     prim__setLabel
+                     (v :> HTMLOptGroupElement)
 
 namespace HTMLOptionElement
   
@@ -3365,16 +4710,24 @@ namespace HTMLOptionElement
   new = primJS $ HTMLOptionElement.prim__new 
   
   export
-  defaultSelected : HTMLOptionElement -> Attribute True I Bool
-  defaultSelected = fromPrim "HTMLOptionElement.getdefaultSelected"
-                             prim__defaultSelected
-                             prim__setDefaultSelected
+  defaultSelected :  JSType t
+                  => {auto 0 _ : Elem HTMLOptionElement (Types t)}
+                  -> t
+                  -> Attribute True I Bool
+  defaultSelected v = fromPrim "HTMLOptionElement.getdefaultSelected"
+                               prim__defaultSelected
+                               prim__setDefaultSelected
+                               (v :> HTMLOptionElement)
   
   export
-  disabled : HTMLOptionElement -> Attribute True I Bool
-  disabled = fromPrim "HTMLOptionElement.getdisabled"
-                      prim__disabled
-                      prim__setDisabled
+  disabled :  JSType t
+           => {auto 0 _ : Elem HTMLOptionElement (Types t)}
+           -> t
+           -> Attribute True I Bool
+  disabled v = fromPrim "HTMLOptionElement.getdisabled"
+                        prim__disabled
+                        prim__setDisabled
+                        (v :> HTMLOptionElement)
   
   export
   form :  JSType t1
@@ -3391,22 +4744,44 @@ namespace HTMLOptionElement
   index a = primJS $ HTMLOptionElement.prim__index (up a)
   
   export
-  label : HTMLOptionElement -> Attribute True I String
-  label = fromPrim "HTMLOptionElement.getlabel" prim__label prim__setLabel
+  label :  JSType t
+        => {auto 0 _ : Elem HTMLOptionElement (Types t)}
+        -> t
+        -> Attribute True I String
+  label v = fromPrim "HTMLOptionElement.getlabel"
+                     prim__label
+                     prim__setLabel
+                     (v :> HTMLOptionElement)
   
   export
-  selected : HTMLOptionElement -> Attribute True I Bool
-  selected = fromPrim "HTMLOptionElement.getselected"
-                      prim__selected
-                      prim__setSelected
+  selected :  JSType t
+           => {auto 0 _ : Elem HTMLOptionElement (Types t)}
+           -> t
+           -> Attribute True I Bool
+  selected v = fromPrim "HTMLOptionElement.getselected"
+                        prim__selected
+                        prim__setSelected
+                        (v :> HTMLOptionElement)
   
   export
-  text : HTMLOptionElement -> Attribute True I String
-  text = fromPrim "HTMLOptionElement.gettext" prim__text prim__setText
+  text :  JSType t
+       => {auto 0 _ : Elem HTMLOptionElement (Types t)}
+       -> t
+       -> Attribute True I String
+  text v = fromPrim "HTMLOptionElement.gettext"
+                    prim__text
+                    prim__setText
+                    (v :> HTMLOptionElement)
   
   export
-  value : HTMLOptionElement -> Attribute True I String
-  value = fromPrim "HTMLOptionElement.getvalue" prim__value prim__setValue
+  value :  JSType t
+        => {auto 0 _ : Elem HTMLOptionElement (Types t)}
+        -> t
+        -> Attribute True I String
+  value v = fromPrim "HTMLOptionElement.getvalue"
+                     prim__value
+                     prim__setValue
+                     (v :> HTMLOptionElement)
 
 namespace HTMLOptionsCollection
   
@@ -3422,16 +4797,24 @@ namespace HTMLOptionsCollection
   set a b c = primJS $ HTMLOptionsCollection.prim__set (up a) b (mayUp c)
   
   export
-  length : HTMLOptionsCollection -> Attribute True I UInt32
-  length = fromPrim "HTMLOptionsCollection.getlength"
-                    prim__length
-                    prim__setLength
+  length :  JSType t
+         => {auto 0 _ : Elem HTMLOptionsCollection (Types t)}
+         -> t
+         -> Attribute True I UInt32
+  length v = fromPrim "HTMLOptionsCollection.getlength"
+                      prim__length
+                      prim__setLength
+                      (v :> HTMLOptionsCollection)
   
   export
-  selectedIndex : HTMLOptionsCollection -> Attribute True I Int32
-  selectedIndex = fromPrim "HTMLOptionsCollection.getselectedIndex"
-                           prim__selectedIndex
-                           prim__setSelectedIndex
+  selectedIndex :  JSType t
+                => {auto 0 _ : Elem HTMLOptionsCollection (Types t)}
+                -> t
+                -> Attribute True I Int32
+  selectedIndex v = fromPrim "HTMLOptionsCollection.getselectedIndex"
+                             prim__selectedIndex
+                             prim__setSelectedIndex
+                             (v :> HTMLOptionsCollection)
   
   export
   add :  JSType t1
@@ -3466,10 +4849,14 @@ namespace HTMLOutputElement
   new = primJS $ HTMLOutputElement.prim__new 
   
   export
-  defaultValue : HTMLOutputElement -> Attribute True I String
-  defaultValue = fromPrim "HTMLOutputElement.getdefaultValue"
-                          prim__defaultValue
-                          prim__setDefaultValue
+  defaultValue :  JSType t
+               => {auto 0 _ : Elem HTMLOutputElement (Types t)}
+               -> t
+               -> Attribute True I String
+  defaultValue v = fromPrim "HTMLOutputElement.getdefaultValue"
+                            prim__defaultValue
+                            prim__setDefaultValue
+                            (v :> HTMLOutputElement)
   
   export
   form :  JSType t1
@@ -3493,8 +4880,14 @@ namespace HTMLOutputElement
   labels a = primJS $ HTMLOutputElement.prim__labels (up a)
   
   export
-  name : HTMLOutputElement -> Attribute True I String
-  name = fromPrim "HTMLOutputElement.getname" prim__name prim__setName
+  name :  JSType t
+       => {auto 0 _ : Elem HTMLOutputElement (Types t)}
+       -> t
+       -> Attribute True I String
+  name v = fromPrim "HTMLOutputElement.getname"
+                    prim__name
+                    prim__setName
+                    (v :> HTMLOutputElement)
   
   export
   type :  JSType t1
@@ -3519,8 +4912,14 @@ namespace HTMLOutputElement
   validity a = primJS $ HTMLOutputElement.prim__validity (up a)
   
   export
-  value : HTMLOutputElement -> Attribute True I String
-  value = fromPrim "HTMLOutputElement.getvalue" prim__value prim__setValue
+  value :  JSType t
+        => {auto 0 _ : Elem HTMLOutputElement (Types t)}
+        -> t
+        -> Attribute True I String
+  value v = fromPrim "HTMLOutputElement.getvalue"
+                     prim__value
+                     prim__setValue
+                     (v :> HTMLOutputElement)
   
   export
   willValidate :  JSType t1
@@ -3562,8 +4961,14 @@ namespace HTMLParagraphElement
   new = primJS $ HTMLParagraphElement.prim__new 
   
   export
-  align : HTMLParagraphElement -> Attribute True I String
-  align = fromPrim "HTMLParagraphElement.getalign" prim__align prim__setAlign
+  align :  JSType t
+        => {auto 0 _ : Elem HTMLParagraphElement (Types t)}
+        -> t
+        -> Attribute True I String
+  align v = fromPrim "HTMLParagraphElement.getalign"
+                     prim__align
+                     prim__setAlign
+                     (v :> HTMLParagraphElement)
 
 namespace HTMLParamElement
   
@@ -3572,22 +4977,44 @@ namespace HTMLParamElement
   new = primJS $ HTMLParamElement.prim__new 
   
   export
-  name : HTMLParamElement -> Attribute True I String
-  name = fromPrim "HTMLParamElement.getname" prim__name prim__setName
+  name :  JSType t
+       => {auto 0 _ : Elem HTMLParamElement (Types t)}
+       -> t
+       -> Attribute True I String
+  name v = fromPrim "HTMLParamElement.getname"
+                    prim__name
+                    prim__setName
+                    (v :> HTMLParamElement)
   
   export
-  type : HTMLParamElement -> Attribute True I String
-  type = fromPrim "HTMLParamElement.gettype" prim__type prim__setType
+  type :  JSType t
+       => {auto 0 _ : Elem HTMLParamElement (Types t)}
+       -> t
+       -> Attribute True I String
+  type v = fromPrim "HTMLParamElement.gettype"
+                    prim__type
+                    prim__setType
+                    (v :> HTMLParamElement)
   
   export
-  value : HTMLParamElement -> Attribute True I String
-  value = fromPrim "HTMLParamElement.getvalue" prim__value prim__setValue
+  value :  JSType t
+        => {auto 0 _ : Elem HTMLParamElement (Types t)}
+        -> t
+        -> Attribute True I String
+  value v = fromPrim "HTMLParamElement.getvalue"
+                     prim__value
+                     prim__setValue
+                     (v :> HTMLParamElement)
   
   export
-  valueType : HTMLParamElement -> Attribute True I String
-  valueType = fromPrim "HTMLParamElement.getvalueType"
-                       prim__valueType
-                       prim__setValueType
+  valueType :  JSType t
+            => {auto 0 _ : Elem HTMLParamElement (Types t)}
+            -> t
+            -> Attribute True I String
+  valueType v = fromPrim "HTMLParamElement.getvalueType"
+                         prim__valueType
+                         prim__setValueType
+                         (v :> HTMLParamElement)
 
 namespace HTMLPictureElement
   
@@ -3602,8 +5029,14 @@ namespace HTMLPreElement
   new = primJS $ HTMLPreElement.prim__new 
   
   export
-  width : HTMLPreElement -> Attribute True I Int32
-  width = fromPrim "HTMLPreElement.getwidth" prim__width prim__setWidth
+  width :  JSType t
+        => {auto 0 _ : Elem HTMLPreElement (Types t)}
+        -> t
+        -> Attribute True I Int32
+  width v = fromPrim "HTMLPreElement.getwidth"
+                     prim__width
+                     prim__setWidth
+                     (v :> HTMLPreElement)
 
 namespace HTMLProgressElement
   
@@ -3619,8 +5052,14 @@ namespace HTMLProgressElement
   labels a = primJS $ HTMLProgressElement.prim__labels (up a)
   
   export
-  max : HTMLProgressElement -> Attribute True I Double
-  max = fromPrim "HTMLProgressElement.getmax" prim__max prim__setMax
+  max :  JSType t
+      => {auto 0 _ : Elem HTMLProgressElement (Types t)}
+      -> t
+      -> Attribute True I Double
+  max v = fromPrim "HTMLProgressElement.getmax"
+                   prim__max
+                   prim__setMax
+                   (v :> HTMLProgressElement)
   
   export
   position :  JSType t1
@@ -3630,8 +5069,14 @@ namespace HTMLProgressElement
   position a = primJS $ HTMLProgressElement.prim__position (up a)
   
   export
-  value : HTMLProgressElement -> Attribute True I Double
-  value = fromPrim "HTMLProgressElement.getvalue" prim__value prim__setValue
+  value :  JSType t
+        => {auto 0 _ : Elem HTMLProgressElement (Types t)}
+        -> t
+        -> Attribute True I Double
+  value v = fromPrim "HTMLProgressElement.getvalue"
+                     prim__value
+                     prim__setValue
+                     (v :> HTMLProgressElement)
 
 namespace HTMLQuoteElement
   
@@ -3640,8 +5085,14 @@ namespace HTMLQuoteElement
   new = primJS $ HTMLQuoteElement.prim__new 
   
   export
-  cite : HTMLQuoteElement -> Attribute True I String
-  cite = fromPrim "HTMLQuoteElement.getcite" prim__cite prim__setCite
+  cite :  JSType t
+       => {auto 0 _ : Elem HTMLQuoteElement (Types t)}
+       -> t
+       -> Attribute True I String
+  cite v = fromPrim "HTMLQuoteElement.getcite"
+                    prim__cite
+                    prim__setCite
+                    (v :> HTMLQuoteElement)
 
 namespace HTMLScriptElement
   
@@ -3650,64 +5101,124 @@ namespace HTMLScriptElement
   new = primJS $ HTMLScriptElement.prim__new 
   
   export
-  async : HTMLScriptElement -> Attribute True I Bool
-  async = fromPrim "HTMLScriptElement.getasync" prim__async prim__setAsync
+  async :  JSType t
+        => {auto 0 _ : Elem HTMLScriptElement (Types t)}
+        -> t
+        -> Attribute True I Bool
+  async v = fromPrim "HTMLScriptElement.getasync"
+                     prim__async
+                     prim__setAsync
+                     (v :> HTMLScriptElement)
   
   export
-  charset : HTMLScriptElement -> Attribute True I String
-  charset = fromPrim "HTMLScriptElement.getcharset"
-                     prim__charset
-                     prim__setCharset
+  charset :  JSType t
+          => {auto 0 _ : Elem HTMLScriptElement (Types t)}
+          -> t
+          -> Attribute True I String
+  charset v = fromPrim "HTMLScriptElement.getcharset"
+                       prim__charset
+                       prim__setCharset
+                       (v :> HTMLScriptElement)
   
   export
-  crossOrigin : HTMLScriptElement -> Attribute False Maybe String
-  crossOrigin = fromNullablePrim "HTMLScriptElement.getcrossOrigin"
-                                 prim__crossOrigin
-                                 prim__setCrossOrigin
+  crossOrigin :  JSType t
+              => {auto 0 _ : Elem HTMLScriptElement (Types t)}
+              -> t
+              -> Attribute False Maybe String
+  crossOrigin v = fromNullablePrim "HTMLScriptElement.getcrossOrigin"
+                                   prim__crossOrigin
+                                   prim__setCrossOrigin
+                                   (v :> HTMLScriptElement)
   
   export
-  defer : HTMLScriptElement -> Attribute True I Bool
-  defer = fromPrim "HTMLScriptElement.getdefer" prim__defer prim__setDefer
+  defer :  JSType t
+        => {auto 0 _ : Elem HTMLScriptElement (Types t)}
+        -> t
+        -> Attribute True I Bool
+  defer v = fromPrim "HTMLScriptElement.getdefer"
+                     prim__defer
+                     prim__setDefer
+                     (v :> HTMLScriptElement)
   
   export
-  event : HTMLScriptElement -> Attribute True I String
-  event = fromPrim "HTMLScriptElement.getevent" prim__event prim__setEvent
+  event :  JSType t
+        => {auto 0 _ : Elem HTMLScriptElement (Types t)}
+        -> t
+        -> Attribute True I String
+  event v = fromPrim "HTMLScriptElement.getevent"
+                     prim__event
+                     prim__setEvent
+                     (v :> HTMLScriptElement)
   
   export
-  htmlFor : HTMLScriptElement -> Attribute True I String
-  htmlFor = fromPrim "HTMLScriptElement.gethtmlFor"
-                     prim__htmlFor
-                     prim__setHtmlFor
+  htmlFor :  JSType t
+          => {auto 0 _ : Elem HTMLScriptElement (Types t)}
+          -> t
+          -> Attribute True I String
+  htmlFor v = fromPrim "HTMLScriptElement.gethtmlFor"
+                       prim__htmlFor
+                       prim__setHtmlFor
+                       (v :> HTMLScriptElement)
   
   export
-  integrity : HTMLScriptElement -> Attribute True I String
-  integrity = fromPrim "HTMLScriptElement.getintegrity"
-                       prim__integrity
-                       prim__setIntegrity
+  integrity :  JSType t
+            => {auto 0 _ : Elem HTMLScriptElement (Types t)}
+            -> t
+            -> Attribute True I String
+  integrity v = fromPrim "HTMLScriptElement.getintegrity"
+                         prim__integrity
+                         prim__setIntegrity
+                         (v :> HTMLScriptElement)
   
   export
-  noModule : HTMLScriptElement -> Attribute True I Bool
-  noModule = fromPrim "HTMLScriptElement.getnoModule"
-                      prim__noModule
-                      prim__setNoModule
+  noModule :  JSType t
+           => {auto 0 _ : Elem HTMLScriptElement (Types t)}
+           -> t
+           -> Attribute True I Bool
+  noModule v = fromPrim "HTMLScriptElement.getnoModule"
+                        prim__noModule
+                        prim__setNoModule
+                        (v :> HTMLScriptElement)
   
   export
-  referrerPolicy : HTMLScriptElement -> Attribute True I String
-  referrerPolicy = fromPrim "HTMLScriptElement.getreferrerPolicy"
-                            prim__referrerPolicy
-                            prim__setReferrerPolicy
+  referrerPolicy :  JSType t
+                 => {auto 0 _ : Elem HTMLScriptElement (Types t)}
+                 -> t
+                 -> Attribute True I String
+  referrerPolicy v = fromPrim "HTMLScriptElement.getreferrerPolicy"
+                              prim__referrerPolicy
+                              prim__setReferrerPolicy
+                              (v :> HTMLScriptElement)
   
   export
-  src : HTMLScriptElement -> Attribute True I String
-  src = fromPrim "HTMLScriptElement.getsrc" prim__src prim__setSrc
+  src :  JSType t
+      => {auto 0 _ : Elem HTMLScriptElement (Types t)}
+      -> t
+      -> Attribute True I String
+  src v = fromPrim "HTMLScriptElement.getsrc"
+                   prim__src
+                   prim__setSrc
+                   (v :> HTMLScriptElement)
   
   export
-  text : HTMLScriptElement -> Attribute True I String
-  text = fromPrim "HTMLScriptElement.gettext" prim__text prim__setText
+  text :  JSType t
+       => {auto 0 _ : Elem HTMLScriptElement (Types t)}
+       -> t
+       -> Attribute True I String
+  text v = fromPrim "HTMLScriptElement.gettext"
+                    prim__text
+                    prim__setText
+                    (v :> HTMLScriptElement)
   
   export
-  type : HTMLScriptElement -> Attribute True I String
-  type = fromPrim "HTMLScriptElement.gettype" prim__type prim__setType
+  type :  JSType t
+       => {auto 0 _ : Elem HTMLScriptElement (Types t)}
+       -> t
+       -> Attribute True I String
+  type v = fromPrim "HTMLScriptElement.gettype"
+                    prim__type
+                    prim__setType
+                    (v :> HTMLScriptElement)
 
 namespace HTMLSelectElement
   
@@ -3727,16 +5238,24 @@ namespace HTMLSelectElement
   set a b c = primJS $ HTMLSelectElement.prim__set (up a) b (mayUp c)
   
   export
-  autocomplete : HTMLSelectElement -> Attribute True I String
-  autocomplete = fromPrim "HTMLSelectElement.getautocomplete"
-                          prim__autocomplete
-                          prim__setAutocomplete
+  autocomplete :  JSType t
+               => {auto 0 _ : Elem HTMLSelectElement (Types t)}
+               -> t
+               -> Attribute True I String
+  autocomplete v = fromPrim "HTMLSelectElement.getautocomplete"
+                            prim__autocomplete
+                            prim__setAutocomplete
+                            (v :> HTMLSelectElement)
   
   export
-  disabled : HTMLSelectElement -> Attribute True I Bool
-  disabled = fromPrim "HTMLSelectElement.getdisabled"
-                      prim__disabled
-                      prim__setDisabled
+  disabled :  JSType t
+           => {auto 0 _ : Elem HTMLSelectElement (Types t)}
+           -> t
+           -> Attribute True I Bool
+  disabled v = fromPrim "HTMLSelectElement.getdisabled"
+                        prim__disabled
+                        prim__setDisabled
+                        (v :> HTMLSelectElement)
   
   export
   form :  JSType t1
@@ -3753,18 +5272,34 @@ namespace HTMLSelectElement
   labels a = primJS $ HTMLSelectElement.prim__labels (up a)
   
   export
-  length : HTMLSelectElement -> Attribute True I UInt32
-  length = fromPrim "HTMLSelectElement.getlength" prim__length prim__setLength
+  length :  JSType t
+         => {auto 0 _ : Elem HTMLSelectElement (Types t)}
+         -> t
+         -> Attribute True I UInt32
+  length v = fromPrim "HTMLSelectElement.getlength"
+                      prim__length
+                      prim__setLength
+                      (v :> HTMLSelectElement)
   
   export
-  multiple : HTMLSelectElement -> Attribute True I Bool
-  multiple = fromPrim "HTMLSelectElement.getmultiple"
-                      prim__multiple
-                      prim__setMultiple
+  multiple :  JSType t
+           => {auto 0 _ : Elem HTMLSelectElement (Types t)}
+           -> t
+           -> Attribute True I Bool
+  multiple v = fromPrim "HTMLSelectElement.getmultiple"
+                        prim__multiple
+                        prim__setMultiple
+                        (v :> HTMLSelectElement)
   
   export
-  name : HTMLSelectElement -> Attribute True I String
-  name = fromPrim "HTMLSelectElement.getname" prim__name prim__setName
+  name :  JSType t
+       => {auto 0 _ : Elem HTMLSelectElement (Types t)}
+       -> t
+       -> Attribute True I String
+  name v = fromPrim "HTMLSelectElement.getname"
+                    prim__name
+                    prim__setName
+                    (v :> HTMLSelectElement)
   
   export
   options :  JSType t1
@@ -3774,16 +5309,24 @@ namespace HTMLSelectElement
   options a = primJS $ HTMLSelectElement.prim__options (up a)
   
   export
-  required : HTMLSelectElement -> Attribute True I Bool
-  required = fromPrim "HTMLSelectElement.getrequired"
-                      prim__required
-                      prim__setRequired
+  required :  JSType t
+           => {auto 0 _ : Elem HTMLSelectElement (Types t)}
+           -> t
+           -> Attribute True I Bool
+  required v = fromPrim "HTMLSelectElement.getrequired"
+                        prim__required
+                        prim__setRequired
+                        (v :> HTMLSelectElement)
   
   export
-  selectedIndex : HTMLSelectElement -> Attribute True I Int32
-  selectedIndex = fromPrim "HTMLSelectElement.getselectedIndex"
-                           prim__selectedIndex
-                           prim__setSelectedIndex
+  selectedIndex :  JSType t
+                => {auto 0 _ : Elem HTMLSelectElement (Types t)}
+                -> t
+                -> Attribute True I Int32
+  selectedIndex v = fromPrim "HTMLSelectElement.getselectedIndex"
+                             prim__selectedIndex
+                             prim__setSelectedIndex
+                             (v :> HTMLSelectElement)
   
   export
   selectedOptions :  JSType t1
@@ -3793,8 +5336,14 @@ namespace HTMLSelectElement
   selectedOptions a = primJS $ HTMLSelectElement.prim__selectedOptions (up a)
   
   export
-  size : HTMLSelectElement -> Attribute True I UInt32
-  size = fromPrim "HTMLSelectElement.getsize" prim__size prim__setSize
+  size :  JSType t
+       => {auto 0 _ : Elem HTMLSelectElement (Types t)}
+       -> t
+       -> Attribute True I UInt32
+  size v = fromPrim "HTMLSelectElement.getsize"
+                    prim__size
+                    prim__setSize
+                    (v :> HTMLSelectElement)
   
   export
   type :  JSType t1
@@ -3819,8 +5368,14 @@ namespace HTMLSelectElement
   validity a = primJS $ HTMLSelectElement.prim__validity (up a)
   
   export
-  value : HTMLSelectElement -> Attribute True I String
-  value = fromPrim "HTMLSelectElement.getvalue" prim__value prim__setValue
+  value :  JSType t
+        => {auto 0 _ : Elem HTMLSelectElement (Types t)}
+        -> t
+        -> Attribute True I String
+  value v = fromPrim "HTMLSelectElement.getvalue"
+                     prim__value
+                     prim__setValue
+                     (v :> HTMLSelectElement)
   
   export
   willValidate :  JSType t1
@@ -3912,8 +5467,14 @@ namespace HTMLSlotElement
   new = primJS $ HTMLSlotElement.prim__new 
   
   export
-  name : HTMLSlotElement -> Attribute True I String
-  name = fromPrim "HTMLSlotElement.getname" prim__name prim__setName
+  name :  JSType t
+       => {auto 0 _ : Elem HTMLSlotElement (Types t)}
+       -> t
+       -> Attribute True I String
+  name v = fromPrim "HTMLSlotElement.getname"
+                    prim__name
+                    prim__setName
+                    (v :> HTMLSlotElement)
   
   export
   assignedElements :  JSType t1
@@ -3959,32 +5520,74 @@ namespace HTMLSourceElement
   new = primJS $ HTMLSourceElement.prim__new 
   
   export
-  height : HTMLSourceElement -> Attribute True I UInt32
-  height = fromPrim "HTMLSourceElement.getheight" prim__height prim__setHeight
+  height :  JSType t
+         => {auto 0 _ : Elem HTMLSourceElement (Types t)}
+         -> t
+         -> Attribute True I UInt32
+  height v = fromPrim "HTMLSourceElement.getheight"
+                      prim__height
+                      prim__setHeight
+                      (v :> HTMLSourceElement)
   
   export
-  media : HTMLSourceElement -> Attribute True I String
-  media = fromPrim "HTMLSourceElement.getmedia" prim__media prim__setMedia
+  media :  JSType t
+        => {auto 0 _ : Elem HTMLSourceElement (Types t)}
+        -> t
+        -> Attribute True I String
+  media v = fromPrim "HTMLSourceElement.getmedia"
+                     prim__media
+                     prim__setMedia
+                     (v :> HTMLSourceElement)
   
   export
-  sizes : HTMLSourceElement -> Attribute True I String
-  sizes = fromPrim "HTMLSourceElement.getsizes" prim__sizes prim__setSizes
+  sizes :  JSType t
+        => {auto 0 _ : Elem HTMLSourceElement (Types t)}
+        -> t
+        -> Attribute True I String
+  sizes v = fromPrim "HTMLSourceElement.getsizes"
+                     prim__sizes
+                     prim__setSizes
+                     (v :> HTMLSourceElement)
   
   export
-  src : HTMLSourceElement -> Attribute True I String
-  src = fromPrim "HTMLSourceElement.getsrc" prim__src prim__setSrc
+  src :  JSType t
+      => {auto 0 _ : Elem HTMLSourceElement (Types t)}
+      -> t
+      -> Attribute True I String
+  src v = fromPrim "HTMLSourceElement.getsrc"
+                   prim__src
+                   prim__setSrc
+                   (v :> HTMLSourceElement)
   
   export
-  srcset : HTMLSourceElement -> Attribute True I String
-  srcset = fromPrim "HTMLSourceElement.getsrcset" prim__srcset prim__setSrcset
+  srcset :  JSType t
+         => {auto 0 _ : Elem HTMLSourceElement (Types t)}
+         -> t
+         -> Attribute True I String
+  srcset v = fromPrim "HTMLSourceElement.getsrcset"
+                      prim__srcset
+                      prim__setSrcset
+                      (v :> HTMLSourceElement)
   
   export
-  type : HTMLSourceElement -> Attribute True I String
-  type = fromPrim "HTMLSourceElement.gettype" prim__type prim__setType
+  type :  JSType t
+       => {auto 0 _ : Elem HTMLSourceElement (Types t)}
+       -> t
+       -> Attribute True I String
+  type v = fromPrim "HTMLSourceElement.gettype"
+                    prim__type
+                    prim__setType
+                    (v :> HTMLSourceElement)
   
   export
-  width : HTMLSourceElement -> Attribute True I UInt32
-  width = fromPrim "HTMLSourceElement.getwidth" prim__width prim__setWidth
+  width :  JSType t
+        => {auto 0 _ : Elem HTMLSourceElement (Types t)}
+        -> t
+        -> Attribute True I UInt32
+  width v = fromPrim "HTMLSourceElement.getwidth"
+                     prim__width
+                     prim__setWidth
+                     (v :> HTMLSourceElement)
 
 namespace HTMLSpanElement
   
@@ -3999,12 +5602,24 @@ namespace HTMLStyleElement
   new = primJS $ HTMLStyleElement.prim__new 
   
   export
-  media : HTMLStyleElement -> Attribute True I String
-  media = fromPrim "HTMLStyleElement.getmedia" prim__media prim__setMedia
+  media :  JSType t
+        => {auto 0 _ : Elem HTMLStyleElement (Types t)}
+        -> t
+        -> Attribute True I String
+  media v = fromPrim "HTMLStyleElement.getmedia"
+                     prim__media
+                     prim__setMedia
+                     (v :> HTMLStyleElement)
   
   export
-  type : HTMLStyleElement -> Attribute True I String
-  type = fromPrim "HTMLStyleElement.gettype" prim__type prim__setType
+  type :  JSType t
+       => {auto 0 _ : Elem HTMLStyleElement (Types t)}
+       -> t
+       -> Attribute True I String
+  type v = fromPrim "HTMLStyleElement.gettype"
+                    prim__type
+                    prim__setType
+                    (v :> HTMLStyleElement)
 
 namespace HTMLTableCaptionElement
   
@@ -4013,8 +5628,14 @@ namespace HTMLTableCaptionElement
   new = primJS $ HTMLTableCaptionElement.prim__new 
   
   export
-  align : HTMLTableCaptionElement -> Attribute True I String
-  align = fromPrim "HTMLTableCaptionElement.getalign" prim__align prim__setAlign
+  align :  JSType t
+        => {auto 0 _ : Elem HTMLTableCaptionElement (Types t)}
+        -> t
+        -> Attribute True I String
+  align v = fromPrim "HTMLTableCaptionElement.getalign"
+                     prim__align
+                     prim__setAlign
+                     (v :> HTMLTableCaptionElement)
 
 namespace HTMLTableCellElement
   
@@ -4023,22 +5644,44 @@ namespace HTMLTableCellElement
   new = primJS $ HTMLTableCellElement.prim__new 
   
   export
-  abbr : HTMLTableCellElement -> Attribute True I String
-  abbr = fromPrim "HTMLTableCellElement.getabbr" prim__abbr prim__setAbbr
+  abbr :  JSType t
+       => {auto 0 _ : Elem HTMLTableCellElement (Types t)}
+       -> t
+       -> Attribute True I String
+  abbr v = fromPrim "HTMLTableCellElement.getabbr"
+                    prim__abbr
+                    prim__setAbbr
+                    (v :> HTMLTableCellElement)
   
   export
-  align : HTMLTableCellElement -> Attribute True I String
-  align = fromPrim "HTMLTableCellElement.getalign" prim__align prim__setAlign
+  align :  JSType t
+        => {auto 0 _ : Elem HTMLTableCellElement (Types t)}
+        -> t
+        -> Attribute True I String
+  align v = fromPrim "HTMLTableCellElement.getalign"
+                     prim__align
+                     prim__setAlign
+                     (v :> HTMLTableCellElement)
   
   export
-  axis : HTMLTableCellElement -> Attribute True I String
-  axis = fromPrim "HTMLTableCellElement.getaxis" prim__axis prim__setAxis
+  axis :  JSType t
+       => {auto 0 _ : Elem HTMLTableCellElement (Types t)}
+       -> t
+       -> Attribute True I String
+  axis v = fromPrim "HTMLTableCellElement.getaxis"
+                    prim__axis
+                    prim__setAxis
+                    (v :> HTMLTableCellElement)
   
   export
-  bgColor : HTMLTableCellElement -> Attribute True I String
-  bgColor = fromPrim "HTMLTableCellElement.getbgColor"
-                     prim__bgColor
-                     prim__setBgColor
+  bgColor :  JSType t
+          => {auto 0 _ : Elem HTMLTableCellElement (Types t)}
+          -> t
+          -> Attribute True I String
+  bgColor v = fromPrim "HTMLTableCellElement.getbgColor"
+                       prim__bgColor
+                       prim__setBgColor
+                       (v :> HTMLTableCellElement)
   
   export
   cellIndex :  JSType t1
@@ -4048,56 +5691,104 @@ namespace HTMLTableCellElement
   cellIndex a = primJS $ HTMLTableCellElement.prim__cellIndex (up a)
   
   export
-  ch : HTMLTableCellElement -> Attribute True I String
-  ch = fromPrim "HTMLTableCellElement.getch" prim__ch prim__setCh
+  ch :  JSType t
+     => {auto 0 _ : Elem HTMLTableCellElement (Types t)}
+     -> t
+     -> Attribute True I String
+  ch v = fromPrim "HTMLTableCellElement.getch"
+                  prim__ch
+                  prim__setCh
+                  (v :> HTMLTableCellElement)
   
   export
-  chOff : HTMLTableCellElement -> Attribute True I String
-  chOff = fromPrim "HTMLTableCellElement.getchOff" prim__chOff prim__setChOff
+  chOff :  JSType t
+        => {auto 0 _ : Elem HTMLTableCellElement (Types t)}
+        -> t
+        -> Attribute True I String
+  chOff v = fromPrim "HTMLTableCellElement.getchOff"
+                     prim__chOff
+                     prim__setChOff
+                     (v :> HTMLTableCellElement)
   
   export
-  colSpan : HTMLTableCellElement -> Attribute True I UInt32
-  colSpan = fromPrim "HTMLTableCellElement.getcolSpan"
-                     prim__colSpan
-                     prim__setColSpan
+  colSpan :  JSType t
+          => {auto 0 _ : Elem HTMLTableCellElement (Types t)}
+          -> t
+          -> Attribute True I UInt32
+  colSpan v = fromPrim "HTMLTableCellElement.getcolSpan"
+                       prim__colSpan
+                       prim__setColSpan
+                       (v :> HTMLTableCellElement)
   
   export
-  headers : HTMLTableCellElement -> Attribute True I String
-  headers = fromPrim "HTMLTableCellElement.getheaders"
-                     prim__headers
-                     prim__setHeaders
+  headers :  JSType t
+          => {auto 0 _ : Elem HTMLTableCellElement (Types t)}
+          -> t
+          -> Attribute True I String
+  headers v = fromPrim "HTMLTableCellElement.getheaders"
+                       prim__headers
+                       prim__setHeaders
+                       (v :> HTMLTableCellElement)
   
   export
-  height : HTMLTableCellElement -> Attribute True I String
-  height = fromPrim "HTMLTableCellElement.getheight"
-                    prim__height
-                    prim__setHeight
+  height :  JSType t
+         => {auto 0 _ : Elem HTMLTableCellElement (Types t)}
+         -> t
+         -> Attribute True I String
+  height v = fromPrim "HTMLTableCellElement.getheight"
+                      prim__height
+                      prim__setHeight
+                      (v :> HTMLTableCellElement)
   
   export
-  noWrap : HTMLTableCellElement -> Attribute True I Bool
-  noWrap = fromPrim "HTMLTableCellElement.getnoWrap"
-                    prim__noWrap
-                    prim__setNoWrap
+  noWrap :  JSType t
+         => {auto 0 _ : Elem HTMLTableCellElement (Types t)}
+         -> t
+         -> Attribute True I Bool
+  noWrap v = fromPrim "HTMLTableCellElement.getnoWrap"
+                      prim__noWrap
+                      prim__setNoWrap
+                      (v :> HTMLTableCellElement)
   
   export
-  rowSpan : HTMLTableCellElement -> Attribute True I UInt32
-  rowSpan = fromPrim "HTMLTableCellElement.getrowSpan"
-                     prim__rowSpan
-                     prim__setRowSpan
+  rowSpan :  JSType t
+          => {auto 0 _ : Elem HTMLTableCellElement (Types t)}
+          -> t
+          -> Attribute True I UInt32
+  rowSpan v = fromPrim "HTMLTableCellElement.getrowSpan"
+                       prim__rowSpan
+                       prim__setRowSpan
+                       (v :> HTMLTableCellElement)
   
   export
-  scope : HTMLTableCellElement -> Attribute True I String
-  scope = fromPrim "HTMLTableCellElement.getscope" prim__scope prim__setScope
+  scope :  JSType t
+        => {auto 0 _ : Elem HTMLTableCellElement (Types t)}
+        -> t
+        -> Attribute True I String
+  scope v = fromPrim "HTMLTableCellElement.getscope"
+                     prim__scope
+                     prim__setScope
+                     (v :> HTMLTableCellElement)
   
   export
-  vAlign : HTMLTableCellElement -> Attribute True I String
-  vAlign = fromPrim "HTMLTableCellElement.getvAlign"
-                    prim__vAlign
-                    prim__setVAlign
+  vAlign :  JSType t
+         => {auto 0 _ : Elem HTMLTableCellElement (Types t)}
+         -> t
+         -> Attribute True I String
+  vAlign v = fromPrim "HTMLTableCellElement.getvAlign"
+                      prim__vAlign
+                      prim__setVAlign
+                      (v :> HTMLTableCellElement)
   
   export
-  width : HTMLTableCellElement -> Attribute True I String
-  width = fromPrim "HTMLTableCellElement.getwidth" prim__width prim__setWidth
+  width :  JSType t
+        => {auto 0 _ : Elem HTMLTableCellElement (Types t)}
+        -> t
+        -> Attribute True I String
+  width v = fromPrim "HTMLTableCellElement.getwidth"
+                     prim__width
+                     prim__setWidth
+                     (v :> HTMLTableCellElement)
 
 namespace HTMLTableColElement
   
@@ -4106,28 +5797,64 @@ namespace HTMLTableColElement
   new = primJS $ HTMLTableColElement.prim__new 
   
   export
-  align : HTMLTableColElement -> Attribute True I String
-  align = fromPrim "HTMLTableColElement.getalign" prim__align prim__setAlign
+  align :  JSType t
+        => {auto 0 _ : Elem HTMLTableColElement (Types t)}
+        -> t
+        -> Attribute True I String
+  align v = fromPrim "HTMLTableColElement.getalign"
+                     prim__align
+                     prim__setAlign
+                     (v :> HTMLTableColElement)
   
   export
-  ch : HTMLTableColElement -> Attribute True I String
-  ch = fromPrim "HTMLTableColElement.getch" prim__ch prim__setCh
+  ch :  JSType t
+     => {auto 0 _ : Elem HTMLTableColElement (Types t)}
+     -> t
+     -> Attribute True I String
+  ch v = fromPrim "HTMLTableColElement.getch"
+                  prim__ch
+                  prim__setCh
+                  (v :> HTMLTableColElement)
   
   export
-  chOff : HTMLTableColElement -> Attribute True I String
-  chOff = fromPrim "HTMLTableColElement.getchOff" prim__chOff prim__setChOff
+  chOff :  JSType t
+        => {auto 0 _ : Elem HTMLTableColElement (Types t)}
+        -> t
+        -> Attribute True I String
+  chOff v = fromPrim "HTMLTableColElement.getchOff"
+                     prim__chOff
+                     prim__setChOff
+                     (v :> HTMLTableColElement)
   
   export
-  span : HTMLTableColElement -> Attribute True I UInt32
-  span = fromPrim "HTMLTableColElement.getspan" prim__span prim__setSpan
+  span :  JSType t
+       => {auto 0 _ : Elem HTMLTableColElement (Types t)}
+       -> t
+       -> Attribute True I UInt32
+  span v = fromPrim "HTMLTableColElement.getspan"
+                    prim__span
+                    prim__setSpan
+                    (v :> HTMLTableColElement)
   
   export
-  vAlign : HTMLTableColElement -> Attribute True I String
-  vAlign = fromPrim "HTMLTableColElement.getvAlign" prim__vAlign prim__setVAlign
+  vAlign :  JSType t
+         => {auto 0 _ : Elem HTMLTableColElement (Types t)}
+         -> t
+         -> Attribute True I String
+  vAlign v = fromPrim "HTMLTableColElement.getvAlign"
+                      prim__vAlign
+                      prim__setVAlign
+                      (v :> HTMLTableColElement)
   
   export
-  width : HTMLTableColElement -> Attribute True I String
-  width = fromPrim "HTMLTableColElement.getwidth" prim__width prim__setWidth
+  width :  JSType t
+        => {auto 0 _ : Elem HTMLTableColElement (Types t)}
+        -> t
+        -> Attribute True I String
+  width v = fromPrim "HTMLTableColElement.getwidth"
+                     prim__width
+                     prim__setWidth
+                     (v :> HTMLTableColElement)
 
 namespace HTMLTableElement
   
@@ -4136,40 +5863,74 @@ namespace HTMLTableElement
   new = primJS $ HTMLTableElement.prim__new 
   
   export
-  align : HTMLTableElement -> Attribute True I String
-  align = fromPrim "HTMLTableElement.getalign" prim__align prim__setAlign
+  align :  JSType t
+        => {auto 0 _ : Elem HTMLTableElement (Types t)}
+        -> t
+        -> Attribute True I String
+  align v = fromPrim "HTMLTableElement.getalign"
+                     prim__align
+                     prim__setAlign
+                     (v :> HTMLTableElement)
   
   export
-  bgColor : HTMLTableElement -> Attribute True I String
-  bgColor = fromPrim "HTMLTableElement.getbgColor"
-                     prim__bgColor
-                     prim__setBgColor
+  bgColor :  JSType t
+          => {auto 0 _ : Elem HTMLTableElement (Types t)}
+          -> t
+          -> Attribute True I String
+  bgColor v = fromPrim "HTMLTableElement.getbgColor"
+                       prim__bgColor
+                       prim__setBgColor
+                       (v :> HTMLTableElement)
   
   export
-  border : HTMLTableElement -> Attribute True I String
-  border = fromPrim "HTMLTableElement.getborder" prim__border prim__setBorder
+  border :  JSType t
+         => {auto 0 _ : Elem HTMLTableElement (Types t)}
+         -> t
+         -> Attribute True I String
+  border v = fromPrim "HTMLTableElement.getborder"
+                      prim__border
+                      prim__setBorder
+                      (v :> HTMLTableElement)
   
   export
-  caption : HTMLTableElement -> Attribute False Maybe HTMLTableCaptionElement
-  caption = fromNullablePrim "HTMLTableElement.getcaption"
-                             prim__caption
-                             prim__setCaption
+  caption :  JSType t
+          => {auto 0 _ : Elem HTMLTableElement (Types t)}
+          -> t
+          -> Attribute False Maybe HTMLTableCaptionElement
+  caption v = fromNullablePrim "HTMLTableElement.getcaption"
+                               prim__caption
+                               prim__setCaption
+                               (v :> HTMLTableElement)
   
   export
-  cellPadding : HTMLTableElement -> Attribute True I String
-  cellPadding = fromPrim "HTMLTableElement.getcellPadding"
-                         prim__cellPadding
-                         prim__setCellPadding
+  cellPadding :  JSType t
+              => {auto 0 _ : Elem HTMLTableElement (Types t)}
+              -> t
+              -> Attribute True I String
+  cellPadding v = fromPrim "HTMLTableElement.getcellPadding"
+                           prim__cellPadding
+                           prim__setCellPadding
+                           (v :> HTMLTableElement)
   
   export
-  cellSpacing : HTMLTableElement -> Attribute True I String
-  cellSpacing = fromPrim "HTMLTableElement.getcellSpacing"
-                         prim__cellSpacing
-                         prim__setCellSpacing
+  cellSpacing :  JSType t
+              => {auto 0 _ : Elem HTMLTableElement (Types t)}
+              -> t
+              -> Attribute True I String
+  cellSpacing v = fromPrim "HTMLTableElement.getcellSpacing"
+                           prim__cellSpacing
+                           prim__setCellSpacing
+                           (v :> HTMLTableElement)
   
   export
-  frame : HTMLTableElement -> Attribute True I String
-  frame = fromPrim "HTMLTableElement.getframe" prim__frame prim__setFrame
+  frame :  JSType t
+        => {auto 0 _ : Elem HTMLTableElement (Types t)}
+        -> t
+        -> Attribute True I String
+  frame v = fromPrim "HTMLTableElement.getframe"
+                     prim__frame
+                     prim__setFrame
+                     (v :> HTMLTableElement)
   
   export
   rows :  JSType t1
@@ -4179,14 +5940,24 @@ namespace HTMLTableElement
   rows a = primJS $ HTMLTableElement.prim__rows (up a)
   
   export
-  rules : HTMLTableElement -> Attribute True I String
-  rules = fromPrim "HTMLTableElement.getrules" prim__rules prim__setRules
+  rules :  JSType t
+        => {auto 0 _ : Elem HTMLTableElement (Types t)}
+        -> t
+        -> Attribute True I String
+  rules v = fromPrim "HTMLTableElement.getrules"
+                     prim__rules
+                     prim__setRules
+                     (v :> HTMLTableElement)
   
   export
-  summary : HTMLTableElement -> Attribute True I String
-  summary = fromPrim "HTMLTableElement.getsummary"
-                     prim__summary
-                     prim__setSummary
+  summary :  JSType t
+          => {auto 0 _ : Elem HTMLTableElement (Types t)}
+          -> t
+          -> Attribute True I String
+  summary v = fromPrim "HTMLTableElement.getsummary"
+                       prim__summary
+                       prim__setSummary
+                       (v :> HTMLTableElement)
   
   export
   tBodies :  JSType t1
@@ -4196,20 +5967,34 @@ namespace HTMLTableElement
   tBodies a = primJS $ HTMLTableElement.prim__tBodies (up a)
   
   export
-  tFoot : HTMLTableElement -> Attribute False Maybe HTMLTableSectionElement
-  tFoot = fromNullablePrim "HTMLTableElement.gettFoot"
-                           prim__tFoot
-                           prim__setTFoot
+  tFoot :  JSType t
+        => {auto 0 _ : Elem HTMLTableElement (Types t)}
+        -> t
+        -> Attribute False Maybe HTMLTableSectionElement
+  tFoot v = fromNullablePrim "HTMLTableElement.gettFoot"
+                             prim__tFoot
+                             prim__setTFoot
+                             (v :> HTMLTableElement)
   
   export
-  tHead : HTMLTableElement -> Attribute False Maybe HTMLTableSectionElement
-  tHead = fromNullablePrim "HTMLTableElement.gettHead"
-                           prim__tHead
-                           prim__setTHead
+  tHead :  JSType t
+        => {auto 0 _ : Elem HTMLTableElement (Types t)}
+        -> t
+        -> Attribute False Maybe HTMLTableSectionElement
+  tHead v = fromNullablePrim "HTMLTableElement.gettHead"
+                             prim__tHead
+                             prim__setTHead
+                             (v :> HTMLTableElement)
   
   export
-  width : HTMLTableElement -> Attribute True I String
-  width = fromPrim "HTMLTableElement.getwidth" prim__width prim__setWidth
+  width :  JSType t
+        => {auto 0 _ : Elem HTMLTableElement (Types t)}
+        -> t
+        -> Attribute True I String
+  width v = fromPrim "HTMLTableElement.getwidth"
+                     prim__width
+                     prim__setWidth
+                     (v :> HTMLTableElement)
   
   export
   createCaption :  JSType t1
@@ -4290,14 +6075,24 @@ namespace HTMLTableRowElement
   new = primJS $ HTMLTableRowElement.prim__new 
   
   export
-  align : HTMLTableRowElement -> Attribute True I String
-  align = fromPrim "HTMLTableRowElement.getalign" prim__align prim__setAlign
+  align :  JSType t
+        => {auto 0 _ : Elem HTMLTableRowElement (Types t)}
+        -> t
+        -> Attribute True I String
+  align v = fromPrim "HTMLTableRowElement.getalign"
+                     prim__align
+                     prim__setAlign
+                     (v :> HTMLTableRowElement)
   
   export
-  bgColor : HTMLTableRowElement -> Attribute True I String
-  bgColor = fromPrim "HTMLTableRowElement.getbgColor"
-                     prim__bgColor
-                     prim__setBgColor
+  bgColor :  JSType t
+          => {auto 0 _ : Elem HTMLTableRowElement (Types t)}
+          -> t
+          -> Attribute True I String
+  bgColor v = fromPrim "HTMLTableRowElement.getbgColor"
+                       prim__bgColor
+                       prim__setBgColor
+                       (v :> HTMLTableRowElement)
   
   export
   cells :  JSType t1
@@ -4307,12 +6102,24 @@ namespace HTMLTableRowElement
   cells a = primJS $ HTMLTableRowElement.prim__cells (up a)
   
   export
-  ch : HTMLTableRowElement -> Attribute True I String
-  ch = fromPrim "HTMLTableRowElement.getch" prim__ch prim__setCh
+  ch :  JSType t
+     => {auto 0 _ : Elem HTMLTableRowElement (Types t)}
+     -> t
+     -> Attribute True I String
+  ch v = fromPrim "HTMLTableRowElement.getch"
+                  prim__ch
+                  prim__setCh
+                  (v :> HTMLTableRowElement)
   
   export
-  chOff : HTMLTableRowElement -> Attribute True I String
-  chOff = fromPrim "HTMLTableRowElement.getchOff" prim__chOff prim__setChOff
+  chOff :  JSType t
+        => {auto 0 _ : Elem HTMLTableRowElement (Types t)}
+        -> t
+        -> Attribute True I String
+  chOff v = fromPrim "HTMLTableRowElement.getchOff"
+                     prim__chOff
+                     prim__setChOff
+                     (v :> HTMLTableRowElement)
   
   export
   rowIndex :  JSType t1
@@ -4329,8 +6136,14 @@ namespace HTMLTableRowElement
   sectionRowIndex a = primJS $ HTMLTableRowElement.prim__sectionRowIndex (up a)
   
   export
-  vAlign : HTMLTableRowElement -> Attribute True I String
-  vAlign = fromPrim "HTMLTableRowElement.getvAlign" prim__vAlign prim__setVAlign
+  vAlign :  JSType t
+         => {auto 0 _ : Elem HTMLTableRowElement (Types t)}
+         -> t
+         -> Attribute True I String
+  vAlign v = fromPrim "HTMLTableRowElement.getvAlign"
+                      prim__vAlign
+                      prim__setVAlign
+                      (v :> HTMLTableRowElement)
   
   export
   deleteCell :  JSType t1
@@ -4363,16 +6176,34 @@ namespace HTMLTableSectionElement
   new = primJS $ HTMLTableSectionElement.prim__new 
   
   export
-  align : HTMLTableSectionElement -> Attribute True I String
-  align = fromPrim "HTMLTableSectionElement.getalign" prim__align prim__setAlign
+  align :  JSType t
+        => {auto 0 _ : Elem HTMLTableSectionElement (Types t)}
+        -> t
+        -> Attribute True I String
+  align v = fromPrim "HTMLTableSectionElement.getalign"
+                     prim__align
+                     prim__setAlign
+                     (v :> HTMLTableSectionElement)
   
   export
-  ch : HTMLTableSectionElement -> Attribute True I String
-  ch = fromPrim "HTMLTableSectionElement.getch" prim__ch prim__setCh
+  ch :  JSType t
+     => {auto 0 _ : Elem HTMLTableSectionElement (Types t)}
+     -> t
+     -> Attribute True I String
+  ch v = fromPrim "HTMLTableSectionElement.getch"
+                  prim__ch
+                  prim__setCh
+                  (v :> HTMLTableSectionElement)
   
   export
-  chOff : HTMLTableSectionElement -> Attribute True I String
-  chOff = fromPrim "HTMLTableSectionElement.getchOff" prim__chOff prim__setChOff
+  chOff :  JSType t
+        => {auto 0 _ : Elem HTMLTableSectionElement (Types t)}
+        -> t
+        -> Attribute True I String
+  chOff v = fromPrim "HTMLTableSectionElement.getchOff"
+                     prim__chOff
+                     prim__setChOff
+                     (v :> HTMLTableSectionElement)
   
   export
   rows :  JSType t1
@@ -4382,10 +6213,14 @@ namespace HTMLTableSectionElement
   rows a = primJS $ HTMLTableSectionElement.prim__rows (up a)
   
   export
-  vAlign : HTMLTableSectionElement -> Attribute True I String
-  vAlign = fromPrim "HTMLTableSectionElement.getvAlign"
-                    prim__vAlign
-                    prim__setVAlign
+  vAlign :  JSType t
+         => {auto 0 _ : Elem HTMLTableSectionElement (Types t)}
+         -> t
+         -> Attribute True I String
+  vAlign v = fromPrim "HTMLTableSectionElement.getvAlign"
+                      prim__vAlign
+                      prim__setVAlign
+                      (v :> HTMLTableSectionElement)
   
   export
   deleteRow :  JSType t1
@@ -4431,32 +6266,54 @@ namespace HTMLTextAreaElement
   new = primJS $ HTMLTextAreaElement.prim__new 
   
   export
-  autocomplete : HTMLTextAreaElement -> Attribute True I String
-  autocomplete = fromPrim "HTMLTextAreaElement.getautocomplete"
-                          prim__autocomplete
-                          prim__setAutocomplete
+  autocomplete :  JSType t
+               => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
+               -> t
+               -> Attribute True I String
+  autocomplete v = fromPrim "HTMLTextAreaElement.getautocomplete"
+                            prim__autocomplete
+                            prim__setAutocomplete
+                            (v :> HTMLTextAreaElement)
   
   export
-  cols : HTMLTextAreaElement -> Attribute True I UInt32
-  cols = fromPrim "HTMLTextAreaElement.getcols" prim__cols prim__setCols
+  cols :  JSType t
+       => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
+       -> t
+       -> Attribute True I UInt32
+  cols v = fromPrim "HTMLTextAreaElement.getcols"
+                    prim__cols
+                    prim__setCols
+                    (v :> HTMLTextAreaElement)
   
   export
-  defaultValue : HTMLTextAreaElement -> Attribute True I String
-  defaultValue = fromPrim "HTMLTextAreaElement.getdefaultValue"
-                          prim__defaultValue
-                          prim__setDefaultValue
+  defaultValue :  JSType t
+               => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
+               -> t
+               -> Attribute True I String
+  defaultValue v = fromPrim "HTMLTextAreaElement.getdefaultValue"
+                            prim__defaultValue
+                            prim__setDefaultValue
+                            (v :> HTMLTextAreaElement)
   
   export
-  dirName : HTMLTextAreaElement -> Attribute True I String
-  dirName = fromPrim "HTMLTextAreaElement.getdirName"
-                     prim__dirName
-                     prim__setDirName
+  dirName :  JSType t
+          => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
+          -> t
+          -> Attribute True I String
+  dirName v = fromPrim "HTMLTextAreaElement.getdirName"
+                       prim__dirName
+                       prim__setDirName
+                       (v :> HTMLTextAreaElement)
   
   export
-  disabled : HTMLTextAreaElement -> Attribute True I Bool
-  disabled = fromPrim "HTMLTextAreaElement.getdisabled"
-                      prim__disabled
-                      prim__setDisabled
+  disabled :  JSType t
+           => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
+           -> t
+           -> Attribute True I Bool
+  disabled v = fromPrim "HTMLTextAreaElement.getdisabled"
+                        prim__disabled
+                        prim__setDisabled
+                        (v :> HTMLTextAreaElement)
   
   export
   form :  JSType t1
@@ -4474,60 +6331,104 @@ namespace HTMLTextAreaElement
   labels a = primJS $ HTMLTextAreaElement.prim__labels (up a)
   
   export
-  maxLength : HTMLTextAreaElement -> Attribute True I Int32
-  maxLength = fromPrim "HTMLTextAreaElement.getmaxLength"
-                       prim__maxLength
-                       prim__setMaxLength
+  maxLength :  JSType t
+            => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
+            -> t
+            -> Attribute True I Int32
+  maxLength v = fromPrim "HTMLTextAreaElement.getmaxLength"
+                         prim__maxLength
+                         prim__setMaxLength
+                         (v :> HTMLTextAreaElement)
   
   export
-  minLength : HTMLTextAreaElement -> Attribute True I Int32
-  minLength = fromPrim "HTMLTextAreaElement.getminLength"
-                       prim__minLength
-                       prim__setMinLength
+  minLength :  JSType t
+            => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
+            -> t
+            -> Attribute True I Int32
+  minLength v = fromPrim "HTMLTextAreaElement.getminLength"
+                         prim__minLength
+                         prim__setMinLength
+                         (v :> HTMLTextAreaElement)
   
   export
-  name : HTMLTextAreaElement -> Attribute True I String
-  name = fromPrim "HTMLTextAreaElement.getname" prim__name prim__setName
+  name :  JSType t
+       => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
+       -> t
+       -> Attribute True I String
+  name v = fromPrim "HTMLTextAreaElement.getname"
+                    prim__name
+                    prim__setName
+                    (v :> HTMLTextAreaElement)
   
   export
-  placeholder : HTMLTextAreaElement -> Attribute True I String
-  placeholder = fromPrim "HTMLTextAreaElement.getplaceholder"
-                         prim__placeholder
-                         prim__setPlaceholder
+  placeholder :  JSType t
+              => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
+              -> t
+              -> Attribute True I String
+  placeholder v = fromPrim "HTMLTextAreaElement.getplaceholder"
+                           prim__placeholder
+                           prim__setPlaceholder
+                           (v :> HTMLTextAreaElement)
   
   export
-  readOnly : HTMLTextAreaElement -> Attribute True I Bool
-  readOnly = fromPrim "HTMLTextAreaElement.getreadOnly"
-                      prim__readOnly
-                      prim__setReadOnly
+  readOnly :  JSType t
+           => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
+           -> t
+           -> Attribute True I Bool
+  readOnly v = fromPrim "HTMLTextAreaElement.getreadOnly"
+                        prim__readOnly
+                        prim__setReadOnly
+                        (v :> HTMLTextAreaElement)
   
   export
-  required : HTMLTextAreaElement -> Attribute True I Bool
-  required = fromPrim "HTMLTextAreaElement.getrequired"
-                      prim__required
-                      prim__setRequired
+  required :  JSType t
+           => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
+           -> t
+           -> Attribute True I Bool
+  required v = fromPrim "HTMLTextAreaElement.getrequired"
+                        prim__required
+                        prim__setRequired
+                        (v :> HTMLTextAreaElement)
   
   export
-  rows : HTMLTextAreaElement -> Attribute True I UInt32
-  rows = fromPrim "HTMLTextAreaElement.getrows" prim__rows prim__setRows
+  rows :  JSType t
+       => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
+       -> t
+       -> Attribute True I UInt32
+  rows v = fromPrim "HTMLTextAreaElement.getrows"
+                    prim__rows
+                    prim__setRows
+                    (v :> HTMLTextAreaElement)
   
   export
-  selectionDirection : HTMLTextAreaElement -> Attribute True I String
-  selectionDirection = fromPrim "HTMLTextAreaElement.getselectionDirection"
-                                prim__selectionDirection
-                                prim__setSelectionDirection
+  selectionDirection :  JSType t
+                     => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
+                     -> t
+                     -> Attribute True I String
+  selectionDirection v = fromPrim "HTMLTextAreaElement.getselectionDirection"
+                                  prim__selectionDirection
+                                  prim__setSelectionDirection
+                                  (v :> HTMLTextAreaElement)
   
   export
-  selectionEnd : HTMLTextAreaElement -> Attribute True I UInt32
-  selectionEnd = fromPrim "HTMLTextAreaElement.getselectionEnd"
-                          prim__selectionEnd
-                          prim__setSelectionEnd
+  selectionEnd :  JSType t
+               => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
+               -> t
+               -> Attribute True I UInt32
+  selectionEnd v = fromPrim "HTMLTextAreaElement.getselectionEnd"
+                            prim__selectionEnd
+                            prim__setSelectionEnd
+                            (v :> HTMLTextAreaElement)
   
   export
-  selectionStart : HTMLTextAreaElement -> Attribute True I UInt32
-  selectionStart = fromPrim "HTMLTextAreaElement.getselectionStart"
-                            prim__selectionStart
-                            prim__setSelectionStart
+  selectionStart :  JSType t
+                 => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
+                 -> t
+                 -> Attribute True I UInt32
+  selectionStart v = fromPrim "HTMLTextAreaElement.getselectionStart"
+                              prim__selectionStart
+                              prim__setSelectionStart
+                              (v :> HTMLTextAreaElement)
   
   export
   textLength :  JSType t1
@@ -4559,8 +6460,14 @@ namespace HTMLTextAreaElement
   validity a = primJS $ HTMLTextAreaElement.prim__validity (up a)
   
   export
-  value : HTMLTextAreaElement -> Attribute True I String
-  value = fromPrim "HTMLTextAreaElement.getvalue" prim__value prim__setValue
+  value :  JSType t
+        => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
+        -> t
+        -> Attribute True I String
+  value v = fromPrim "HTMLTextAreaElement.getvalue"
+                     prim__value
+                     prim__setValue
+                     (v :> HTMLTextAreaElement)
   
   export
   willValidate :  JSType t1
@@ -4571,8 +6478,14 @@ namespace HTMLTextAreaElement
                  $ HTMLTextAreaElement.prim__willValidate (up a)
   
   export
-  wrap : HTMLTextAreaElement -> Attribute True I String
-  wrap = fromPrim "HTMLTextAreaElement.getwrap" prim__wrap prim__setWrap
+  wrap :  JSType t
+       => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
+       -> t
+       -> Attribute True I String
+  wrap v = fromPrim "HTMLTextAreaElement.getwrap"
+                    prim__wrap
+                    prim__setWrap
+                    (v :> HTMLTextAreaElement)
   
   export
   checkValidity :  JSType t1
@@ -4679,10 +6592,14 @@ namespace HTMLTimeElement
   new = primJS $ HTMLTimeElement.prim__new 
   
   export
-  dateTime : HTMLTimeElement -> Attribute True I String
-  dateTime = fromPrim "HTMLTimeElement.getdateTime"
-                      prim__dateTime
-                      prim__setDateTime
+  dateTime :  JSType t
+           => {auto 0 _ : Elem HTMLTimeElement (Types t)}
+           -> t
+           -> Attribute True I String
+  dateTime v = fromPrim "HTMLTimeElement.getdateTime"
+                        prim__dateTime
+                        prim__setDateTime
+                        (v :> HTMLTimeElement)
 
 namespace HTMLTitleElement
   
@@ -4691,8 +6608,14 @@ namespace HTMLTitleElement
   new = primJS $ HTMLTitleElement.prim__new 
   
   export
-  text : HTMLTitleElement -> Attribute True I String
-  text = fromPrim "HTMLTitleElement.gettext" prim__text prim__setText
+  text :  JSType t
+       => {auto 0 _ : Elem HTMLTitleElement (Types t)}
+       -> t
+       -> Attribute True I String
+  text v = fromPrim "HTMLTitleElement.gettext"
+                    prim__text
+                    prim__setText
+                    (v :> HTMLTitleElement)
 
 namespace HTMLTrackElement
   
@@ -4717,18 +6640,34 @@ namespace HTMLTrackElement
   new = primJS $ HTMLTrackElement.prim__new 
   
   export
-  default_ : HTMLTrackElement -> Attribute True I Bool
-  default_ = fromPrim "HTMLTrackElement.getdefault"
-                      prim__default
-                      prim__setDefault
+  default_ :  JSType t
+           => {auto 0 _ : Elem HTMLTrackElement (Types t)}
+           -> t
+           -> Attribute True I Bool
+  default_ v = fromPrim "HTMLTrackElement.getdefault"
+                        prim__default
+                        prim__setDefault
+                        (v :> HTMLTrackElement)
   
   export
-  kind : HTMLTrackElement -> Attribute True I String
-  kind = fromPrim "HTMLTrackElement.getkind" prim__kind prim__setKind
+  kind :  JSType t
+       => {auto 0 _ : Elem HTMLTrackElement (Types t)}
+       -> t
+       -> Attribute True I String
+  kind v = fromPrim "HTMLTrackElement.getkind"
+                    prim__kind
+                    prim__setKind
+                    (v :> HTMLTrackElement)
   
   export
-  label : HTMLTrackElement -> Attribute True I String
-  label = fromPrim "HTMLTrackElement.getlabel" prim__label prim__setLabel
+  label :  JSType t
+        => {auto 0 _ : Elem HTMLTrackElement (Types t)}
+        -> t
+        -> Attribute True I String
+  label v = fromPrim "HTMLTrackElement.getlabel"
+                     prim__label
+                     prim__setLabel
+                     (v :> HTMLTrackElement)
   
   export
   readyState :  JSType t1
@@ -4738,14 +6677,24 @@ namespace HTMLTrackElement
   readyState a = primJS $ HTMLTrackElement.prim__readyState (up a)
   
   export
-  src : HTMLTrackElement -> Attribute True I String
-  src = fromPrim "HTMLTrackElement.getsrc" prim__src prim__setSrc
+  src :  JSType t
+      => {auto 0 _ : Elem HTMLTrackElement (Types t)}
+      -> t
+      -> Attribute True I String
+  src v = fromPrim "HTMLTrackElement.getsrc"
+                   prim__src
+                   prim__setSrc
+                   (v :> HTMLTrackElement)
   
   export
-  srclang : HTMLTrackElement -> Attribute True I String
-  srclang = fromPrim "HTMLTrackElement.getsrclang"
-                     prim__srclang
-                     prim__setSrclang
+  srclang :  JSType t
+          => {auto 0 _ : Elem HTMLTrackElement (Types t)}
+          -> t
+          -> Attribute True I String
+  srclang v = fromPrim "HTMLTrackElement.getsrclang"
+                       prim__srclang
+                       prim__setSrclang
+                       (v :> HTMLTrackElement)
   
   export
   track :  JSType t1
@@ -4761,14 +6710,24 @@ namespace HTMLUListElement
   new = primJS $ HTMLUListElement.prim__new 
   
   export
-  compact : HTMLUListElement -> Attribute True I Bool
-  compact = fromPrim "HTMLUListElement.getcompact"
-                     prim__compact
-                     prim__setCompact
+  compact :  JSType t
+          => {auto 0 _ : Elem HTMLUListElement (Types t)}
+          -> t
+          -> Attribute True I Bool
+  compact v = fromPrim "HTMLUListElement.getcompact"
+                       prim__compact
+                       prim__setCompact
+                       (v :> HTMLUListElement)
   
   export
-  type : HTMLUListElement -> Attribute True I String
-  type = fromPrim "HTMLUListElement.gettype" prim__type prim__setType
+  type :  JSType t
+       => {auto 0 _ : Elem HTMLUListElement (Types t)}
+       -> t
+       -> Attribute True I String
+  type v = fromPrim "HTMLUListElement.gettype"
+                    prim__type
+                    prim__setType
+                    (v :> HTMLUListElement)
 
 
 namespace HTMLVideoElement
@@ -4778,18 +6737,34 @@ namespace HTMLVideoElement
   new = primJS $ HTMLVideoElement.prim__new 
   
   export
-  height : HTMLVideoElement -> Attribute True I UInt32
-  height = fromPrim "HTMLVideoElement.getheight" prim__height prim__setHeight
+  height :  JSType t
+         => {auto 0 _ : Elem HTMLVideoElement (Types t)}
+         -> t
+         -> Attribute True I UInt32
+  height v = fromPrim "HTMLVideoElement.getheight"
+                      prim__height
+                      prim__setHeight
+                      (v :> HTMLVideoElement)
   
   export
-  playsInline : HTMLVideoElement -> Attribute True I Bool
-  playsInline = fromPrim "HTMLVideoElement.getplaysInline"
-                         prim__playsInline
-                         prim__setPlaysInline
+  playsInline :  JSType t
+              => {auto 0 _ : Elem HTMLVideoElement (Types t)}
+              -> t
+              -> Attribute True I Bool
+  playsInline v = fromPrim "HTMLVideoElement.getplaysInline"
+                           prim__playsInline
+                           prim__setPlaysInline
+                           (v :> HTMLVideoElement)
   
   export
-  poster : HTMLVideoElement -> Attribute True I String
-  poster = fromPrim "HTMLVideoElement.getposter" prim__poster prim__setPoster
+  poster :  JSType t
+         => {auto 0 _ : Elem HTMLVideoElement (Types t)}
+         -> t
+         -> Attribute True I String
+  poster v = fromPrim "HTMLVideoElement.getposter"
+                      prim__poster
+                      prim__setPoster
+                      (v :> HTMLVideoElement)
   
   export
   videoHeight :  JSType t1
@@ -4806,8 +6781,14 @@ namespace HTMLVideoElement
   videoWidth a = primJS $ HTMLVideoElement.prim__videoWidth (up a)
   
   export
-  width : HTMLVideoElement -> Attribute True I UInt32
-  width = fromPrim "HTMLVideoElement.getwidth" prim__width prim__setWidth
+  width :  JSType t
+        => {auto 0 _ : Elem HTMLVideoElement (Types t)}
+        -> t
+        -> Attribute True I UInt32
+  width v = fromPrim "HTMLVideoElement.getwidth"
+                     prim__width
+                     prim__setWidth
+                     (v :> HTMLVideoElement)
 
 namespace HashChangeEvent
   
@@ -4847,10 +6828,14 @@ namespace History
   length a = primJS $ History.prim__length (up a)
   
   export
-  scrollRestoration : History -> Attribute True I ScrollRestoration
-  scrollRestoration = fromPrim "History.getscrollRestoration"
-                               prim__scrollRestoration
-                               prim__setScrollRestoration
+  scrollRestoration :  JSType t
+                    => {auto 0 _ : Elem History (Types t)}
+                    -> t
+                    -> Attribute True I ScrollRestoration
+  scrollRestoration v = fromPrim "History.getscrollRestoration"
+                                 prim__scrollRestoration
+                                 prim__setScrollRestoration
+                                 (v :> History)
   
   export
   state :  JSType t1
@@ -5022,20 +7007,35 @@ namespace Location
   ancestorOrigins a = primJS $ Location.prim__ancestorOrigins (up a)
   
   export
-  hash : Location -> Attribute True I String
-  hash = fromPrim "Location.gethash" prim__hash prim__setHash
+  hash :  JSType t
+       => {auto 0 _ : Elem Location (Types t)}
+       -> t
+       -> Attribute True I String
+  hash v = fromPrim "Location.gethash" prim__hash prim__setHash (v :> Location)
   
   export
-  host : Location -> Attribute True I String
-  host = fromPrim "Location.gethost" prim__host prim__setHost
+  host :  JSType t
+       => {auto 0 _ : Elem Location (Types t)}
+       -> t
+       -> Attribute True I String
+  host v = fromPrim "Location.gethost" prim__host prim__setHost (v :> Location)
   
   export
-  hostname : Location -> Attribute True I String
-  hostname = fromPrim "Location.gethostname" prim__hostname prim__setHostname
+  hostname :  JSType t
+           => {auto 0 _ : Elem Location (Types t)}
+           -> t
+           -> Attribute True I String
+  hostname v = fromPrim "Location.gethostname"
+                        prim__hostname
+                        prim__setHostname
+                        (v :> Location)
   
   export
-  href : Location -> Attribute True I String
-  href = fromPrim "Location.gethref" prim__href prim__setHref
+  href :  JSType t
+       => {auto 0 _ : Elem Location (Types t)}
+       -> t
+       -> Attribute True I String
+  href v = fromPrim "Location.gethref" prim__href prim__setHref (v :> Location)
   
   export
   origin :  JSType t1
@@ -5045,20 +7045,41 @@ namespace Location
   origin a = primJS $ Location.prim__origin (up a)
   
   export
-  pathname : Location -> Attribute True I String
-  pathname = fromPrim "Location.getpathname" prim__pathname prim__setPathname
+  pathname :  JSType t
+           => {auto 0 _ : Elem Location (Types t)}
+           -> t
+           -> Attribute True I String
+  pathname v = fromPrim "Location.getpathname"
+                        prim__pathname
+                        prim__setPathname
+                        (v :> Location)
   
   export
-  port : Location -> Attribute True I String
-  port = fromPrim "Location.getport" prim__port prim__setPort
+  port :  JSType t
+       => {auto 0 _ : Elem Location (Types t)}
+       -> t
+       -> Attribute True I String
+  port v = fromPrim "Location.getport" prim__port prim__setPort (v :> Location)
   
   export
-  protocol : Location -> Attribute True I String
-  protocol = fromPrim "Location.getprotocol" prim__protocol prim__setProtocol
+  protocol :  JSType t
+           => {auto 0 _ : Elem Location (Types t)}
+           -> t
+           -> Attribute True I String
+  protocol v = fromPrim "Location.getprotocol"
+                        prim__protocol
+                        prim__setProtocol
+                        (v :> Location)
   
   export
-  search : Location -> Attribute True I String
-  search = fromPrim "Location.getsearch" prim__search prim__setSearch
+  search :  JSType t
+         => {auto 0 _ : Elem Location (Types t)}
+         -> t
+         -> Attribute True I String
+  search v = fromPrim "Location.getsearch"
+                      prim__search
+                      prim__setSearch
+                      (v :> Location)
   
   export
   assign :  JSType t1
@@ -5231,16 +7252,24 @@ namespace MessageEvent
 namespace MessagePort
   
   export
-  onmessage : MessagePort -> Attribute False Maybe EventHandlerNonNull
-  onmessage = fromNullablePrim "MessagePort.getonmessage"
-                               prim__onmessage
-                               prim__setOnmessage
+  onmessage :  JSType t
+            => {auto 0 _ : Elem MessagePort (Types t)}
+            -> t
+            -> Attribute False Maybe EventHandlerNonNull
+  onmessage v = fromNullablePrim "MessagePort.getonmessage"
+                                 prim__onmessage
+                                 prim__setOnmessage
+                                 (v :> MessagePort)
   
   export
-  onmessageerror : MessagePort -> Attribute False Maybe EventHandlerNonNull
-  onmessageerror = fromNullablePrim "MessagePort.getonmessageerror"
-                                    prim__onmessageerror
-                                    prim__setOnmessageerror
+  onmessageerror :  JSType t
+                 => {auto 0 _ : Elem MessagePort (Types t)}
+                 -> t
+                 -> Attribute False Maybe EventHandlerNonNull
+  onmessageerror v = fromNullablePrim "MessagePort.getonmessageerror"
+                                      prim__onmessageerror
+                                      prim__setOnmessageerror
+                                      (v :> MessagePort)
   
   export
   close :  JSType t1
@@ -5391,12 +7420,24 @@ namespace OffscreenCanvas
   new a b = primJS $ OffscreenCanvas.prim__new a b
   
   export
-  height : OffscreenCanvas -> Attribute True I UInt64
-  height = fromPrim "OffscreenCanvas.getheight" prim__height prim__setHeight
+  height :  JSType t
+         => {auto 0 _ : Elem OffscreenCanvas (Types t)}
+         -> t
+         -> Attribute True I UInt64
+  height v = fromPrim "OffscreenCanvas.getheight"
+                      prim__height
+                      prim__setHeight
+                      (v :> OffscreenCanvas)
   
   export
-  width : OffscreenCanvas -> Attribute True I UInt64
-  width = fromPrim "OffscreenCanvas.getwidth" prim__width prim__setWidth
+  width :  JSType t
+        => {auto 0 _ : Elem OffscreenCanvas (Types t)}
+        -> t
+        -> Attribute True I UInt64
+  width v = fromPrim "OffscreenCanvas.getwidth"
+                     prim__width
+                     prim__setWidth
+                     (v :> OffscreenCanvas)
   
   export
   convertToBlob :  JSType t1
@@ -5650,8 +7691,14 @@ namespace PromiseRejectionEvent
 namespace RadioNodeList
   
   export
-  value : RadioNodeList -> Attribute True I String
-  value = fromPrim "RadioNodeList.getvalue" prim__value prim__setValue
+  value :  JSType t
+        => {auto 0 _ : Elem RadioNodeList (Types t)}
+        -> t
+        -> Attribute True I String
+  value v = fromPrim "RadioNodeList.getvalue"
+                     prim__value
+                     prim__setValue
+                     (v :> RadioNodeList)
 
 namespace SharedWorker
   
@@ -5682,10 +7729,14 @@ namespace SharedWorkerGlobalScope
   name a = primJS $ SharedWorkerGlobalScope.prim__name (up a)
   
   export
-  onconnect : SharedWorkerGlobalScope -> Attribute False Maybe EventHandlerNonNull
-  onconnect = fromNullablePrim "SharedWorkerGlobalScope.getonconnect"
-                               prim__onconnect
-                               prim__setOnconnect
+  onconnect :  JSType t
+            => {auto 0 _ : Elem SharedWorkerGlobalScope (Types t)}
+            -> t
+            -> Attribute False Maybe EventHandlerNonNull
+  onconnect v = fromNullablePrim "SharedWorkerGlobalScope.getonconnect"
+                                 prim__onconnect
+                                 prim__setOnconnect
+                                 (v :> SharedWorkerGlobalScope)
   
   export
   close :  JSType t1
@@ -5998,14 +8049,24 @@ namespace TextTrack
   language a = primJS $ TextTrack.prim__language (up a)
   
   export
-  mode : TextTrack -> Attribute True I TextTrackMode
-  mode = fromPrim "TextTrack.getmode" prim__mode prim__setMode
+  mode :  JSType t
+       => {auto 0 _ : Elem TextTrack (Types t)}
+       -> t
+       -> Attribute True I TextTrackMode
+  mode v = fromPrim "TextTrack.getmode"
+                    prim__mode
+                    prim__setMode
+                    (v :> TextTrack)
   
   export
-  oncuechange : TextTrack -> Attribute False Maybe EventHandlerNonNull
-  oncuechange = fromNullablePrim "TextTrack.getoncuechange"
-                                 prim__oncuechange
-                                 prim__setOncuechange
+  oncuechange :  JSType t
+              => {auto 0 _ : Elem TextTrack (Types t)}
+              -> t
+              -> Attribute False Maybe EventHandlerNonNull
+  oncuechange v = fromNullablePrim "TextTrack.getoncuechange"
+                                   prim__oncuechange
+                                   prim__setOncuechange
+                                   (v :> TextTrack)
   
   export
   sourceBuffer :  JSType t1
@@ -6038,36 +8099,61 @@ namespace TextTrack
 namespace TextTrackCue
   
   export
-  endTime : TextTrackCue -> Attribute True I Double
-  endTime = fromPrim "TextTrackCue.getendTime" prim__endTime prim__setEndTime
+  endTime :  JSType t
+          => {auto 0 _ : Elem TextTrackCue (Types t)}
+          -> t
+          -> Attribute True I Double
+  endTime v = fromPrim "TextTrackCue.getendTime"
+                       prim__endTime
+                       prim__setEndTime
+                       (v :> TextTrackCue)
   
   export
-  id : TextTrackCue -> Attribute True I String
-  id = fromPrim "TextTrackCue.getid" prim__id prim__setId
+  id :  JSType t
+     => {auto 0 _ : Elem TextTrackCue (Types t)}
+     -> t
+     -> Attribute True I String
+  id v = fromPrim "TextTrackCue.getid" prim__id prim__setId (v :> TextTrackCue)
   
   export
-  onenter : TextTrackCue -> Attribute False Maybe EventHandlerNonNull
-  onenter = fromNullablePrim "TextTrackCue.getonenter"
-                             prim__onenter
-                             prim__setOnenter
+  onenter :  JSType t
+          => {auto 0 _ : Elem TextTrackCue (Types t)}
+          -> t
+          -> Attribute False Maybe EventHandlerNonNull
+  onenter v = fromNullablePrim "TextTrackCue.getonenter"
+                               prim__onenter
+                               prim__setOnenter
+                               (v :> TextTrackCue)
   
   export
-  onexit : TextTrackCue -> Attribute False Maybe EventHandlerNonNull
-  onexit = fromNullablePrim "TextTrackCue.getonexit"
-                            prim__onexit
-                            prim__setOnexit
+  onexit :  JSType t
+         => {auto 0 _ : Elem TextTrackCue (Types t)}
+         -> t
+         -> Attribute False Maybe EventHandlerNonNull
+  onexit v = fromNullablePrim "TextTrackCue.getonexit"
+                              prim__onexit
+                              prim__setOnexit
+                              (v :> TextTrackCue)
   
   export
-  pauseOnExit : TextTrackCue -> Attribute True I Bool
-  pauseOnExit = fromPrim "TextTrackCue.getpauseOnExit"
-                         prim__pauseOnExit
-                         prim__setPauseOnExit
+  pauseOnExit :  JSType t
+              => {auto 0 _ : Elem TextTrackCue (Types t)}
+              -> t
+              -> Attribute True I Bool
+  pauseOnExit v = fromPrim "TextTrackCue.getpauseOnExit"
+                           prim__pauseOnExit
+                           prim__setPauseOnExit
+                           (v :> TextTrackCue)
   
   export
-  startTime : TextTrackCue -> Attribute True I Double
-  startTime = fromPrim "TextTrackCue.getstartTime"
-                       prim__startTime
-                       prim__setStartTime
+  startTime :  JSType t
+            => {auto 0 _ : Elem TextTrackCue (Types t)}
+            -> t
+            -> Attribute True I Double
+  startTime v = fromPrim "TextTrackCue.getstartTime"
+                         prim__startTime
+                         prim__setStartTime
+                         (v :> TextTrackCue)
   
   export
   track :  JSType t1
@@ -6120,22 +8206,34 @@ namespace TextTrackList
   length a = primJS $ TextTrackList.prim__length (up a)
   
   export
-  onaddtrack : TextTrackList -> Attribute False Maybe EventHandlerNonNull
-  onaddtrack = fromNullablePrim "TextTrackList.getonaddtrack"
-                                prim__onaddtrack
-                                prim__setOnaddtrack
+  onaddtrack :  JSType t
+             => {auto 0 _ : Elem TextTrackList (Types t)}
+             -> t
+             -> Attribute False Maybe EventHandlerNonNull
+  onaddtrack v = fromNullablePrim "TextTrackList.getonaddtrack"
+                                  prim__onaddtrack
+                                  prim__setOnaddtrack
+                                  (v :> TextTrackList)
   
   export
-  onchange : TextTrackList -> Attribute False Maybe EventHandlerNonNull
-  onchange = fromNullablePrim "TextTrackList.getonchange"
-                              prim__onchange
-                              prim__setOnchange
+  onchange :  JSType t
+           => {auto 0 _ : Elem TextTrackList (Types t)}
+           -> t
+           -> Attribute False Maybe EventHandlerNonNull
+  onchange v = fromNullablePrim "TextTrackList.getonchange"
+                                prim__onchange
+                                prim__setOnchange
+                                (v :> TextTrackList)
   
   export
-  onremovetrack : TextTrackList -> Attribute False Maybe EventHandlerNonNull
-  onremovetrack = fromNullablePrim "TextTrackList.getonremovetrack"
-                                   prim__onremovetrack
-                                   prim__setOnremovetrack
+  onremovetrack :  JSType t
+                => {auto 0 _ : Elem TextTrackList (Types t)}
+                -> t
+                -> Attribute False Maybe EventHandlerNonNull
+  onremovetrack v = fromNullablePrim "TextTrackList.getonremovetrack"
+                                     prim__onremovetrack
+                                     prim__setOnremovetrack
+                                     (v :> TextTrackList)
   
   export
   getTrackById :  JSType t1
@@ -6311,8 +8409,14 @@ namespace VideoTrack
   language a = primJS $ VideoTrack.prim__language (up a)
   
   export
-  selected : VideoTrack -> Attribute True I Bool
-  selected = fromPrim "VideoTrack.getselected" prim__selected prim__setSelected
+  selected :  JSType t
+           => {auto 0 _ : Elem VideoTrack (Types t)}
+           -> t
+           -> Attribute True I Bool
+  selected v = fromPrim "VideoTrack.getselected"
+                        prim__selected
+                        prim__setSelected
+                        (v :> VideoTrack)
   
   export
   sourceBuffer :  JSType t1
@@ -6340,22 +8444,34 @@ namespace VideoTrackList
   length a = primJS $ VideoTrackList.prim__length (up a)
   
   export
-  onaddtrack : VideoTrackList -> Attribute False Maybe EventHandlerNonNull
-  onaddtrack = fromNullablePrim "VideoTrackList.getonaddtrack"
-                                prim__onaddtrack
-                                prim__setOnaddtrack
+  onaddtrack :  JSType t
+             => {auto 0 _ : Elem VideoTrackList (Types t)}
+             -> t
+             -> Attribute False Maybe EventHandlerNonNull
+  onaddtrack v = fromNullablePrim "VideoTrackList.getonaddtrack"
+                                  prim__onaddtrack
+                                  prim__setOnaddtrack
+                                  (v :> VideoTrackList)
   
   export
-  onchange : VideoTrackList -> Attribute False Maybe EventHandlerNonNull
-  onchange = fromNullablePrim "VideoTrackList.getonchange"
-                              prim__onchange
-                              prim__setOnchange
+  onchange :  JSType t
+           => {auto 0 _ : Elem VideoTrackList (Types t)}
+           -> t
+           -> Attribute False Maybe EventHandlerNonNull
+  onchange v = fromNullablePrim "VideoTrackList.getonchange"
+                                prim__onchange
+                                prim__setOnchange
+                                (v :> VideoTrackList)
   
   export
-  onremovetrack : VideoTrackList -> Attribute False Maybe EventHandlerNonNull
-  onremovetrack = fromNullablePrim "VideoTrackList.getonremovetrack"
-                                   prim__onremovetrack
-                                   prim__setOnremovetrack
+  onremovetrack :  JSType t
+                => {auto 0 _ : Elem VideoTrackList (Types t)}
+                -> t
+                -> Attribute False Maybe EventHandlerNonNull
+  onremovetrack v = fromNullablePrim "VideoTrackList.getonremovetrack"
+                                     prim__onremovetrack
+                                     prim__setOnremovetrack
+                                     (v :> VideoTrackList)
   
   export
   selectedIndex :  JSType t1
@@ -6402,10 +8518,14 @@ namespace WebSocket
   new' a = primJS $ WebSocket.prim__new a undef
   
   export
-  binaryType : WebSocket -> Attribute True I BinaryType
-  binaryType = fromPrim "WebSocket.getbinaryType"
-                        prim__binaryType
-                        prim__setBinaryType
+  binaryType :  JSType t
+             => {auto 0 _ : Elem WebSocket (Types t)}
+             -> t
+             -> Attribute True I BinaryType
+  binaryType v = fromPrim "WebSocket.getbinaryType"
+                          prim__binaryType
+                          prim__setBinaryType
+                          (v :> WebSocket)
   
   export
   bufferedAmount :  JSType t1
@@ -6422,26 +8542,44 @@ namespace WebSocket
   extensions a = primJS $ WebSocket.prim__extensions (up a)
   
   export
-  onclose : WebSocket -> Attribute False Maybe EventHandlerNonNull
-  onclose = fromNullablePrim "WebSocket.getonclose"
-                             prim__onclose
-                             prim__setOnclose
+  onclose :  JSType t
+          => {auto 0 _ : Elem WebSocket (Types t)}
+          -> t
+          -> Attribute False Maybe EventHandlerNonNull
+  onclose v = fromNullablePrim "WebSocket.getonclose"
+                               prim__onclose
+                               prim__setOnclose
+                               (v :> WebSocket)
   
   export
-  onerror : WebSocket -> Attribute False Maybe EventHandlerNonNull
-  onerror = fromNullablePrim "WebSocket.getonerror"
-                             prim__onerror
-                             prim__setOnerror
+  onerror :  JSType t
+          => {auto 0 _ : Elem WebSocket (Types t)}
+          -> t
+          -> Attribute False Maybe EventHandlerNonNull
+  onerror v = fromNullablePrim "WebSocket.getonerror"
+                               prim__onerror
+                               prim__setOnerror
+                               (v :> WebSocket)
   
   export
-  onmessage : WebSocket -> Attribute False Maybe EventHandlerNonNull
-  onmessage = fromNullablePrim "WebSocket.getonmessage"
-                               prim__onmessage
-                               prim__setOnmessage
+  onmessage :  JSType t
+            => {auto 0 _ : Elem WebSocket (Types t)}
+            -> t
+            -> Attribute False Maybe EventHandlerNonNull
+  onmessage v = fromNullablePrim "WebSocket.getonmessage"
+                                 prim__onmessage
+                                 prim__setOnmessage
+                                 (v :> WebSocket)
   
   export
-  onopen : WebSocket -> Attribute False Maybe EventHandlerNonNull
-  onopen = fromNullablePrim "WebSocket.getonopen" prim__onopen prim__setOnopen
+  onopen :  JSType t
+         => {auto 0 _ : Elem WebSocket (Types t)}
+         -> t
+         -> Attribute False Maybe EventHandlerNonNull
+  onopen v = fromNullablePrim "WebSocket.getonopen"
+                              prim__onopen
+                              prim__setOnopen
+                              (v :> WebSocket)
   
   export
   protocol :  JSType t1
@@ -6620,8 +8758,11 @@ namespace Window
   menubar a = primJS $ Window.prim__menubar (up a)
   
   export
-  name : Window -> Attribute True I String
-  name = fromPrim "Window.getname" prim__name prim__setName
+  name :  JSType t
+       => {auto 0 _ : Elem Window (Types t)}
+       -> t
+       -> Attribute True I String
+  name v = fromPrim "Window.getname" prim__name prim__setName (v :> Window)
   
   export
   navigator :  JSType t1
@@ -6631,8 +8772,14 @@ namespace Window
   navigator a = primJS $ Window.prim__navigator (up a)
   
   export
-  opener : Window -> Attribute True I Any
-  opener = fromPrim "Window.getopener" prim__opener prim__setOpener
+  opener :  JSType t
+         => {auto 0 _ : Elem Window (Types t)}
+         -> t
+         -> Attribute True I Any
+  opener v = fromPrim "Window.getopener"
+                      prim__opener
+                      prim__setOpener
+                      (v :> Window)
   
   export
   originAgentCluster :  JSType t1
@@ -6671,8 +8818,14 @@ namespace Window
   self a = primJS $ Window.prim__self (up a)
   
   export
-  status : Window -> Attribute True I String
-  status = fromPrim "Window.getstatus" prim__status prim__setStatus
+  status :  JSType t
+         => {auto 0 _ : Elem Window (Types t)}
+         -> t
+         -> Attribute True I String
+  status v = fromPrim "Window.getstatus"
+                      prim__status
+                      prim__setStatus
+                      (v :> Window)
   
   export
   statusbar :  JSType t1
@@ -6895,16 +9048,24 @@ namespace Worker
   new' a = primJS $ Worker.prim__new a undef
   
   export
-  onmessage : Worker -> Attribute False Maybe EventHandlerNonNull
-  onmessage = fromNullablePrim "Worker.getonmessage"
-                               prim__onmessage
-                               prim__setOnmessage
+  onmessage :  JSType t
+            => {auto 0 _ : Elem Worker (Types t)}
+            -> t
+            -> Attribute False Maybe EventHandlerNonNull
+  onmessage v = fromNullablePrim "Worker.getonmessage"
+                                 prim__onmessage
+                                 prim__setOnmessage
+                                 (v :> Worker)
   
   export
-  onmessageerror : Worker -> Attribute False Maybe EventHandlerNonNull
-  onmessageerror = fromNullablePrim "Worker.getonmessageerror"
-                                    prim__onmessageerror
-                                    prim__setOnmessageerror
+  onmessageerror :  JSType t
+                 => {auto 0 _ : Elem Worker (Types t)}
+                 -> t
+                 -> Attribute False Maybe EventHandlerNonNull
+  onmessageerror v = fromNullablePrim "Worker.getonmessageerror"
+                                      prim__onmessageerror
+                                      prim__setOnmessageerror
+                                      (v :> Worker)
   
   export
   postMessage :  JSType t1
@@ -6959,40 +9120,64 @@ namespace WorkerGlobalScope
   navigator a = primJS $ WorkerGlobalScope.prim__navigator (up a)
   
   export
-  onerror : WorkerGlobalScope -> Attribute False Maybe OnErrorEventHandlerNonNull
-  onerror = fromNullablePrim "WorkerGlobalScope.getonerror"
-                             prim__onerror
-                             prim__setOnerror
+  onerror :  JSType t
+          => {auto 0 _ : Elem WorkerGlobalScope (Types t)}
+          -> t
+          -> Attribute False Maybe OnErrorEventHandlerNonNull
+  onerror v = fromNullablePrim "WorkerGlobalScope.getonerror"
+                               prim__onerror
+                               prim__setOnerror
+                               (v :> WorkerGlobalScope)
   
   export
-  onlanguagechange : WorkerGlobalScope -> Attribute False Maybe EventHandlerNonNull
-  onlanguagechange = fromNullablePrim "WorkerGlobalScope.getonlanguagechange"
-                                      prim__onlanguagechange
-                                      prim__setOnlanguagechange
+  onlanguagechange :  JSType t
+                   => {auto 0 _ : Elem WorkerGlobalScope (Types t)}
+                   -> t
+                   -> Attribute False Maybe EventHandlerNonNull
+  onlanguagechange v = fromNullablePrim "WorkerGlobalScope.getonlanguagechange"
+                                        prim__onlanguagechange
+                                        prim__setOnlanguagechange
+                                        (v :> WorkerGlobalScope)
   
   export
-  onoffline : WorkerGlobalScope -> Attribute False Maybe EventHandlerNonNull
-  onoffline = fromNullablePrim "WorkerGlobalScope.getonoffline"
-                               prim__onoffline
-                               prim__setOnoffline
+  onoffline :  JSType t
+            => {auto 0 _ : Elem WorkerGlobalScope (Types t)}
+            -> t
+            -> Attribute False Maybe EventHandlerNonNull
+  onoffline v = fromNullablePrim "WorkerGlobalScope.getonoffline"
+                                 prim__onoffline
+                                 prim__setOnoffline
+                                 (v :> WorkerGlobalScope)
   
   export
-  ononline : WorkerGlobalScope -> Attribute False Maybe EventHandlerNonNull
-  ononline = fromNullablePrim "WorkerGlobalScope.getononline"
-                              prim__ononline
-                              prim__setOnonline
+  ononline :  JSType t
+           => {auto 0 _ : Elem WorkerGlobalScope (Types t)}
+           -> t
+           -> Attribute False Maybe EventHandlerNonNull
+  ononline v = fromNullablePrim "WorkerGlobalScope.getononline"
+                                prim__ononline
+                                prim__setOnonline
+                                (v :> WorkerGlobalScope)
   
   export
-  onrejectionhandled : WorkerGlobalScope -> Attribute False Maybe EventHandlerNonNull
-  onrejectionhandled = fromNullablePrim "WorkerGlobalScope.getonrejectionhandled"
-                                        prim__onrejectionhandled
-                                        prim__setOnrejectionhandled
+  onrejectionhandled :  JSType t
+                     => {auto 0 _ : Elem WorkerGlobalScope (Types t)}
+                     -> t
+                     -> Attribute False Maybe EventHandlerNonNull
+  onrejectionhandled v = fromNullablePrim "WorkerGlobalScope.getonrejectionhandled"
+                                          prim__onrejectionhandled
+                                          prim__setOnrejectionhandled
+                                          (v :> WorkerGlobalScope)
   
   export
-  onunhandledrejection : WorkerGlobalScope -> Attribute False Maybe EventHandlerNonNull
-  onunhandledrejection = fromNullablePrim "WorkerGlobalScope.getonunhandledrejection"
-                                          prim__onunhandledrejection
-                                          prim__setOnunhandledrejection
+  onunhandledrejection :  JSType t
+                       => {auto 0 _ : Elem WorkerGlobalScope (Types t)}
+                       -> t
+                       -> Attribute False Maybe EventHandlerNonNull
+  onunhandledrejection v = fromNullablePrim "WorkerGlobalScope.getonunhandledrejection"
+                                            prim__onunhandledrejection
+                                            prim__setOnunhandledrejection
+                                            (v :> WorkerGlobalScope)
   
   export
   self :  JSType t1
@@ -7119,264 +9304,448 @@ namespace Worklet
 namespace ARIAMixin
   
   export
-  ariaAtomic : ARIAMixin -> Attribute True I String
-  ariaAtomic = fromPrim "ARIAMixin.getariaAtomic"
-                        prim__ariaAtomic
-                        prim__setAriaAtomic
+  ariaAtomic :  JSType t
+             => {auto 0 _ : Elem ARIAMixin (Types t)}
+             -> t
+             -> Attribute True I String
+  ariaAtomic v = fromPrim "ARIAMixin.getariaAtomic"
+                          prim__ariaAtomic
+                          prim__setAriaAtomic
+                          (v :> ARIAMixin)
   
   export
-  ariaAutoComplete : ARIAMixin -> Attribute True I String
-  ariaAutoComplete = fromPrim "ARIAMixin.getariaAutoComplete"
-                              prim__ariaAutoComplete
-                              prim__setAriaAutoComplete
+  ariaAutoComplete :  JSType t
+                   => {auto 0 _ : Elem ARIAMixin (Types t)}
+                   -> t
+                   -> Attribute True I String
+  ariaAutoComplete v = fromPrim "ARIAMixin.getariaAutoComplete"
+                                prim__ariaAutoComplete
+                                prim__setAriaAutoComplete
+                                (v :> ARIAMixin)
   
   export
-  ariaBusy : ARIAMixin -> Attribute True I String
-  ariaBusy = fromPrim "ARIAMixin.getariaBusy" prim__ariaBusy prim__setAriaBusy
+  ariaBusy :  JSType t
+           => {auto 0 _ : Elem ARIAMixin (Types t)}
+           -> t
+           -> Attribute True I String
+  ariaBusy v = fromPrim "ARIAMixin.getariaBusy"
+                        prim__ariaBusy
+                        prim__setAriaBusy
+                        (v :> ARIAMixin)
   
   export
-  ariaChecked : ARIAMixin -> Attribute True I String
-  ariaChecked = fromPrim "ARIAMixin.getariaChecked"
-                         prim__ariaChecked
-                         prim__setAriaChecked
+  ariaChecked :  JSType t
+              => {auto 0 _ : Elem ARIAMixin (Types t)}
+              -> t
+              -> Attribute True I String
+  ariaChecked v = fromPrim "ARIAMixin.getariaChecked"
+                           prim__ariaChecked
+                           prim__setAriaChecked
+                           (v :> ARIAMixin)
   
   export
-  ariaColCount : ARIAMixin -> Attribute True I String
-  ariaColCount = fromPrim "ARIAMixin.getariaColCount"
-                          prim__ariaColCount
-                          prim__setAriaColCount
+  ariaColCount :  JSType t
+               => {auto 0 _ : Elem ARIAMixin (Types t)}
+               -> t
+               -> Attribute True I String
+  ariaColCount v = fromPrim "ARIAMixin.getariaColCount"
+                            prim__ariaColCount
+                            prim__setAriaColCount
+                            (v :> ARIAMixin)
   
   export
-  ariaColIndex : ARIAMixin -> Attribute True I String
-  ariaColIndex = fromPrim "ARIAMixin.getariaColIndex"
-                          prim__ariaColIndex
-                          prim__setAriaColIndex
+  ariaColIndex :  JSType t
+               => {auto 0 _ : Elem ARIAMixin (Types t)}
+               -> t
+               -> Attribute True I String
+  ariaColIndex v = fromPrim "ARIAMixin.getariaColIndex"
+                            prim__ariaColIndex
+                            prim__setAriaColIndex
+                            (v :> ARIAMixin)
   
   export
-  ariaColIndexText : ARIAMixin -> Attribute True I String
-  ariaColIndexText = fromPrim "ARIAMixin.getariaColIndexText"
-                              prim__ariaColIndexText
-                              prim__setAriaColIndexText
+  ariaColIndexText :  JSType t
+                   => {auto 0 _ : Elem ARIAMixin (Types t)}
+                   -> t
+                   -> Attribute True I String
+  ariaColIndexText v = fromPrim "ARIAMixin.getariaColIndexText"
+                                prim__ariaColIndexText
+                                prim__setAriaColIndexText
+                                (v :> ARIAMixin)
   
   export
-  ariaColSpan : ARIAMixin -> Attribute True I String
-  ariaColSpan = fromPrim "ARIAMixin.getariaColSpan"
-                         prim__ariaColSpan
-                         prim__setAriaColSpan
+  ariaColSpan :  JSType t
+              => {auto 0 _ : Elem ARIAMixin (Types t)}
+              -> t
+              -> Attribute True I String
+  ariaColSpan v = fromPrim "ARIAMixin.getariaColSpan"
+                           prim__ariaColSpan
+                           prim__setAriaColSpan
+                           (v :> ARIAMixin)
   
   export
-  ariaCurrent : ARIAMixin -> Attribute True I String
-  ariaCurrent = fromPrim "ARIAMixin.getariaCurrent"
-                         prim__ariaCurrent
-                         prim__setAriaCurrent
+  ariaCurrent :  JSType t
+              => {auto 0 _ : Elem ARIAMixin (Types t)}
+              -> t
+              -> Attribute True I String
+  ariaCurrent v = fromPrim "ARIAMixin.getariaCurrent"
+                           prim__ariaCurrent
+                           prim__setAriaCurrent
+                           (v :> ARIAMixin)
   
   export
-  ariaDescription : ARIAMixin -> Attribute True I String
-  ariaDescription = fromPrim "ARIAMixin.getariaDescription"
-                             prim__ariaDescription
-                             prim__setAriaDescription
+  ariaDescription :  JSType t
+                  => {auto 0 _ : Elem ARIAMixin (Types t)}
+                  -> t
+                  -> Attribute True I String
+  ariaDescription v = fromPrim "ARIAMixin.getariaDescription"
+                               prim__ariaDescription
+                               prim__setAriaDescription
+                               (v :> ARIAMixin)
   
   export
-  ariaDisabled : ARIAMixin -> Attribute True I String
-  ariaDisabled = fromPrim "ARIAMixin.getariaDisabled"
-                          prim__ariaDisabled
-                          prim__setAriaDisabled
+  ariaDisabled :  JSType t
+               => {auto 0 _ : Elem ARIAMixin (Types t)}
+               -> t
+               -> Attribute True I String
+  ariaDisabled v = fromPrim "ARIAMixin.getariaDisabled"
+                            prim__ariaDisabled
+                            prim__setAriaDisabled
+                            (v :> ARIAMixin)
   
   export
-  ariaExpanded : ARIAMixin -> Attribute True I String
-  ariaExpanded = fromPrim "ARIAMixin.getariaExpanded"
-                          prim__ariaExpanded
-                          prim__setAriaExpanded
+  ariaExpanded :  JSType t
+               => {auto 0 _ : Elem ARIAMixin (Types t)}
+               -> t
+               -> Attribute True I String
+  ariaExpanded v = fromPrim "ARIAMixin.getariaExpanded"
+                            prim__ariaExpanded
+                            prim__setAriaExpanded
+                            (v :> ARIAMixin)
   
   export
-  ariaHasPopup : ARIAMixin -> Attribute True I String
-  ariaHasPopup = fromPrim "ARIAMixin.getariaHasPopup"
-                          prim__ariaHasPopup
-                          prim__setAriaHasPopup
+  ariaHasPopup :  JSType t
+               => {auto 0 _ : Elem ARIAMixin (Types t)}
+               -> t
+               -> Attribute True I String
+  ariaHasPopup v = fromPrim "ARIAMixin.getariaHasPopup"
+                            prim__ariaHasPopup
+                            prim__setAriaHasPopup
+                            (v :> ARIAMixin)
   
   export
-  ariaHidden : ARIAMixin -> Attribute True I String
-  ariaHidden = fromPrim "ARIAMixin.getariaHidden"
-                        prim__ariaHidden
-                        prim__setAriaHidden
+  ariaHidden :  JSType t
+             => {auto 0 _ : Elem ARIAMixin (Types t)}
+             -> t
+             -> Attribute True I String
+  ariaHidden v = fromPrim "ARIAMixin.getariaHidden"
+                          prim__ariaHidden
+                          prim__setAriaHidden
+                          (v :> ARIAMixin)
   
   export
-  ariaInvalid : ARIAMixin -> Attribute True I String
-  ariaInvalid = fromPrim "ARIAMixin.getariaInvalid"
-                         prim__ariaInvalid
-                         prim__setAriaInvalid
+  ariaInvalid :  JSType t
+              => {auto 0 _ : Elem ARIAMixin (Types t)}
+              -> t
+              -> Attribute True I String
+  ariaInvalid v = fromPrim "ARIAMixin.getariaInvalid"
+                           prim__ariaInvalid
+                           prim__setAriaInvalid
+                           (v :> ARIAMixin)
   
   export
-  ariaKeyShortcuts : ARIAMixin -> Attribute True I String
-  ariaKeyShortcuts = fromPrim "ARIAMixin.getariaKeyShortcuts"
-                              prim__ariaKeyShortcuts
-                              prim__setAriaKeyShortcuts
+  ariaKeyShortcuts :  JSType t
+                   => {auto 0 _ : Elem ARIAMixin (Types t)}
+                   -> t
+                   -> Attribute True I String
+  ariaKeyShortcuts v = fromPrim "ARIAMixin.getariaKeyShortcuts"
+                                prim__ariaKeyShortcuts
+                                prim__setAriaKeyShortcuts
+                                (v :> ARIAMixin)
   
   export
-  ariaLabel : ARIAMixin -> Attribute True I String
-  ariaLabel = fromPrim "ARIAMixin.getariaLabel"
-                       prim__ariaLabel
-                       prim__setAriaLabel
+  ariaLabel :  JSType t
+            => {auto 0 _ : Elem ARIAMixin (Types t)}
+            -> t
+            -> Attribute True I String
+  ariaLabel v = fromPrim "ARIAMixin.getariaLabel"
+                         prim__ariaLabel
+                         prim__setAriaLabel
+                         (v :> ARIAMixin)
   
   export
-  ariaLevel : ARIAMixin -> Attribute True I String
-  ariaLevel = fromPrim "ARIAMixin.getariaLevel"
-                       prim__ariaLevel
-                       prim__setAriaLevel
+  ariaLevel :  JSType t
+            => {auto 0 _ : Elem ARIAMixin (Types t)}
+            -> t
+            -> Attribute True I String
+  ariaLevel v = fromPrim "ARIAMixin.getariaLevel"
+                         prim__ariaLevel
+                         prim__setAriaLevel
+                         (v :> ARIAMixin)
   
   export
-  ariaLive : ARIAMixin -> Attribute True I String
-  ariaLive = fromPrim "ARIAMixin.getariaLive" prim__ariaLive prim__setAriaLive
+  ariaLive :  JSType t
+           => {auto 0 _ : Elem ARIAMixin (Types t)}
+           -> t
+           -> Attribute True I String
+  ariaLive v = fromPrim "ARIAMixin.getariaLive"
+                        prim__ariaLive
+                        prim__setAriaLive
+                        (v :> ARIAMixin)
   
   export
-  ariaModal : ARIAMixin -> Attribute True I String
-  ariaModal = fromPrim "ARIAMixin.getariaModal"
-                       prim__ariaModal
-                       prim__setAriaModal
+  ariaModal :  JSType t
+            => {auto 0 _ : Elem ARIAMixin (Types t)}
+            -> t
+            -> Attribute True I String
+  ariaModal v = fromPrim "ARIAMixin.getariaModal"
+                         prim__ariaModal
+                         prim__setAriaModal
+                         (v :> ARIAMixin)
   
   export
-  ariaMultiLine : ARIAMixin -> Attribute True I String
-  ariaMultiLine = fromPrim "ARIAMixin.getariaMultiLine"
-                           prim__ariaMultiLine
-                           prim__setAriaMultiLine
+  ariaMultiLine :  JSType t
+                => {auto 0 _ : Elem ARIAMixin (Types t)}
+                -> t
+                -> Attribute True I String
+  ariaMultiLine v = fromPrim "ARIAMixin.getariaMultiLine"
+                             prim__ariaMultiLine
+                             prim__setAriaMultiLine
+                             (v :> ARIAMixin)
   
   export
-  ariaMultiSelectable : ARIAMixin -> Attribute True I String
-  ariaMultiSelectable = fromPrim "ARIAMixin.getariaMultiSelectable"
-                                 prim__ariaMultiSelectable
-                                 prim__setAriaMultiSelectable
+  ariaMultiSelectable :  JSType t
+                      => {auto 0 _ : Elem ARIAMixin (Types t)}
+                      -> t
+                      -> Attribute True I String
+  ariaMultiSelectable v = fromPrim "ARIAMixin.getariaMultiSelectable"
+                                   prim__ariaMultiSelectable
+                                   prim__setAriaMultiSelectable
+                                   (v :> ARIAMixin)
   
   export
-  ariaOrientation : ARIAMixin -> Attribute True I String
-  ariaOrientation = fromPrim "ARIAMixin.getariaOrientation"
-                             prim__ariaOrientation
-                             prim__setAriaOrientation
+  ariaOrientation :  JSType t
+                  => {auto 0 _ : Elem ARIAMixin (Types t)}
+                  -> t
+                  -> Attribute True I String
+  ariaOrientation v = fromPrim "ARIAMixin.getariaOrientation"
+                               prim__ariaOrientation
+                               prim__setAriaOrientation
+                               (v :> ARIAMixin)
   
   export
-  ariaPlaceholder : ARIAMixin -> Attribute True I String
-  ariaPlaceholder = fromPrim "ARIAMixin.getariaPlaceholder"
-                             prim__ariaPlaceholder
-                             prim__setAriaPlaceholder
+  ariaPlaceholder :  JSType t
+                  => {auto 0 _ : Elem ARIAMixin (Types t)}
+                  -> t
+                  -> Attribute True I String
+  ariaPlaceholder v = fromPrim "ARIAMixin.getariaPlaceholder"
+                               prim__ariaPlaceholder
+                               prim__setAriaPlaceholder
+                               (v :> ARIAMixin)
   
   export
-  ariaPosInSet : ARIAMixin -> Attribute True I String
-  ariaPosInSet = fromPrim "ARIAMixin.getariaPosInSet"
-                          prim__ariaPosInSet
-                          prim__setAriaPosInSet
+  ariaPosInSet :  JSType t
+               => {auto 0 _ : Elem ARIAMixin (Types t)}
+               -> t
+               -> Attribute True I String
+  ariaPosInSet v = fromPrim "ARIAMixin.getariaPosInSet"
+                            prim__ariaPosInSet
+                            prim__setAriaPosInSet
+                            (v :> ARIAMixin)
   
   export
-  ariaPressed : ARIAMixin -> Attribute True I String
-  ariaPressed = fromPrim "ARIAMixin.getariaPressed"
-                         prim__ariaPressed
-                         prim__setAriaPressed
+  ariaPressed :  JSType t
+              => {auto 0 _ : Elem ARIAMixin (Types t)}
+              -> t
+              -> Attribute True I String
+  ariaPressed v = fromPrim "ARIAMixin.getariaPressed"
+                           prim__ariaPressed
+                           prim__setAriaPressed
+                           (v :> ARIAMixin)
   
   export
-  ariaReadOnly : ARIAMixin -> Attribute True I String
-  ariaReadOnly = fromPrim "ARIAMixin.getariaReadOnly"
-                          prim__ariaReadOnly
-                          prim__setAriaReadOnly
+  ariaReadOnly :  JSType t
+               => {auto 0 _ : Elem ARIAMixin (Types t)}
+               -> t
+               -> Attribute True I String
+  ariaReadOnly v = fromPrim "ARIAMixin.getariaReadOnly"
+                            prim__ariaReadOnly
+                            prim__setAriaReadOnly
+                            (v :> ARIAMixin)
   
   export
-  ariaRequired : ARIAMixin -> Attribute True I String
-  ariaRequired = fromPrim "ARIAMixin.getariaRequired"
-                          prim__ariaRequired
-                          prim__setAriaRequired
+  ariaRequired :  JSType t
+               => {auto 0 _ : Elem ARIAMixin (Types t)}
+               -> t
+               -> Attribute True I String
+  ariaRequired v = fromPrim "ARIAMixin.getariaRequired"
+                            prim__ariaRequired
+                            prim__setAriaRequired
+                            (v :> ARIAMixin)
   
   export
-  ariaRoleDescription : ARIAMixin -> Attribute True I String
-  ariaRoleDescription = fromPrim "ARIAMixin.getariaRoleDescription"
-                                 prim__ariaRoleDescription
-                                 prim__setAriaRoleDescription
+  ariaRoleDescription :  JSType t
+                      => {auto 0 _ : Elem ARIAMixin (Types t)}
+                      -> t
+                      -> Attribute True I String
+  ariaRoleDescription v = fromPrim "ARIAMixin.getariaRoleDescription"
+                                   prim__ariaRoleDescription
+                                   prim__setAriaRoleDescription
+                                   (v :> ARIAMixin)
   
   export
-  ariaRowCount : ARIAMixin -> Attribute True I String
-  ariaRowCount = fromPrim "ARIAMixin.getariaRowCount"
-                          prim__ariaRowCount
-                          prim__setAriaRowCount
+  ariaRowCount :  JSType t
+               => {auto 0 _ : Elem ARIAMixin (Types t)}
+               -> t
+               -> Attribute True I String
+  ariaRowCount v = fromPrim "ARIAMixin.getariaRowCount"
+                            prim__ariaRowCount
+                            prim__setAriaRowCount
+                            (v :> ARIAMixin)
   
   export
-  ariaRowIndex : ARIAMixin -> Attribute True I String
-  ariaRowIndex = fromPrim "ARIAMixin.getariaRowIndex"
-                          prim__ariaRowIndex
-                          prim__setAriaRowIndex
+  ariaRowIndex :  JSType t
+               => {auto 0 _ : Elem ARIAMixin (Types t)}
+               -> t
+               -> Attribute True I String
+  ariaRowIndex v = fromPrim "ARIAMixin.getariaRowIndex"
+                            prim__ariaRowIndex
+                            prim__setAriaRowIndex
+                            (v :> ARIAMixin)
   
   export
-  ariaRowIndexText : ARIAMixin -> Attribute True I String
-  ariaRowIndexText = fromPrim "ARIAMixin.getariaRowIndexText"
-                              prim__ariaRowIndexText
-                              prim__setAriaRowIndexText
+  ariaRowIndexText :  JSType t
+                   => {auto 0 _ : Elem ARIAMixin (Types t)}
+                   -> t
+                   -> Attribute True I String
+  ariaRowIndexText v = fromPrim "ARIAMixin.getariaRowIndexText"
+                                prim__ariaRowIndexText
+                                prim__setAriaRowIndexText
+                                (v :> ARIAMixin)
   
   export
-  ariaRowSpan : ARIAMixin -> Attribute True I String
-  ariaRowSpan = fromPrim "ARIAMixin.getariaRowSpan"
-                         prim__ariaRowSpan
-                         prim__setAriaRowSpan
+  ariaRowSpan :  JSType t
+              => {auto 0 _ : Elem ARIAMixin (Types t)}
+              -> t
+              -> Attribute True I String
+  ariaRowSpan v = fromPrim "ARIAMixin.getariaRowSpan"
+                           prim__ariaRowSpan
+                           prim__setAriaRowSpan
+                           (v :> ARIAMixin)
   
   export
-  ariaSelected : ARIAMixin -> Attribute True I String
-  ariaSelected = fromPrim "ARIAMixin.getariaSelected"
-                          prim__ariaSelected
-                          prim__setAriaSelected
+  ariaSelected :  JSType t
+               => {auto 0 _ : Elem ARIAMixin (Types t)}
+               -> t
+               -> Attribute True I String
+  ariaSelected v = fromPrim "ARIAMixin.getariaSelected"
+                            prim__ariaSelected
+                            prim__setAriaSelected
+                            (v :> ARIAMixin)
   
   export
-  ariaSetSize : ARIAMixin -> Attribute True I String
-  ariaSetSize = fromPrim "ARIAMixin.getariaSetSize"
-                         prim__ariaSetSize
-                         prim__setAriaSetSize
+  ariaSetSize :  JSType t
+              => {auto 0 _ : Elem ARIAMixin (Types t)}
+              -> t
+              -> Attribute True I String
+  ariaSetSize v = fromPrim "ARIAMixin.getariaSetSize"
+                           prim__ariaSetSize
+                           prim__setAriaSetSize
+                           (v :> ARIAMixin)
   
   export
-  ariaSort : ARIAMixin -> Attribute True I String
-  ariaSort = fromPrim "ARIAMixin.getariaSort" prim__ariaSort prim__setAriaSort
+  ariaSort :  JSType t
+           => {auto 0 _ : Elem ARIAMixin (Types t)}
+           -> t
+           -> Attribute True I String
+  ariaSort v = fromPrim "ARIAMixin.getariaSort"
+                        prim__ariaSort
+                        prim__setAriaSort
+                        (v :> ARIAMixin)
   
   export
-  ariaValueMax : ARIAMixin -> Attribute True I String
-  ariaValueMax = fromPrim "ARIAMixin.getariaValueMax"
-                          prim__ariaValueMax
-                          prim__setAriaValueMax
+  ariaValueMax :  JSType t
+               => {auto 0 _ : Elem ARIAMixin (Types t)}
+               -> t
+               -> Attribute True I String
+  ariaValueMax v = fromPrim "ARIAMixin.getariaValueMax"
+                            prim__ariaValueMax
+                            prim__setAriaValueMax
+                            (v :> ARIAMixin)
   
   export
-  ariaValueMin : ARIAMixin -> Attribute True I String
-  ariaValueMin = fromPrim "ARIAMixin.getariaValueMin"
-                          prim__ariaValueMin
-                          prim__setAriaValueMin
+  ariaValueMin :  JSType t
+               => {auto 0 _ : Elem ARIAMixin (Types t)}
+               -> t
+               -> Attribute True I String
+  ariaValueMin v = fromPrim "ARIAMixin.getariaValueMin"
+                            prim__ariaValueMin
+                            prim__setAriaValueMin
+                            (v :> ARIAMixin)
   
   export
-  ariaValueNow : ARIAMixin -> Attribute True I String
-  ariaValueNow = fromPrim "ARIAMixin.getariaValueNow"
-                          prim__ariaValueNow
-                          prim__setAriaValueNow
+  ariaValueNow :  JSType t
+               => {auto 0 _ : Elem ARIAMixin (Types t)}
+               -> t
+               -> Attribute True I String
+  ariaValueNow v = fromPrim "ARIAMixin.getariaValueNow"
+                            prim__ariaValueNow
+                            prim__setAriaValueNow
+                            (v :> ARIAMixin)
   
   export
-  ariaValueText : ARIAMixin -> Attribute True I String
-  ariaValueText = fromPrim "ARIAMixin.getariaValueText"
-                           prim__ariaValueText
-                           prim__setAriaValueText
+  ariaValueText :  JSType t
+                => {auto 0 _ : Elem ARIAMixin (Types t)}
+                -> t
+                -> Attribute True I String
+  ariaValueText v = fromPrim "ARIAMixin.getariaValueText"
+                             prim__ariaValueText
+                             prim__setAriaValueText
+                             (v :> ARIAMixin)
   
   export
-  role : ARIAMixin -> Attribute False Maybe String
-  role = fromNullablePrim "ARIAMixin.getrole" prim__role prim__setRole
+  role :  JSType t
+       => {auto 0 _ : Elem ARIAMixin (Types t)}
+       -> t
+       -> Attribute False Maybe String
+  role v = fromNullablePrim "ARIAMixin.getrole"
+                            prim__role
+                            prim__setRole
+                            (v :> ARIAMixin)
 
 namespace AbstractWorker
   
   export
-  onerror : AbstractWorker -> Attribute False Maybe EventHandlerNonNull
-  onerror = fromNullablePrim "AbstractWorker.getonerror"
-                             prim__onerror
-                             prim__setOnerror
+  onerror :  JSType t
+          => {auto 0 _ : Elem AbstractWorker (Types t)}
+          -> t
+          -> Attribute False Maybe EventHandlerNonNull
+  onerror v = fromNullablePrim "AbstractWorker.getonerror"
+                               prim__onerror
+                               prim__setOnerror
+                               (v :> AbstractWorker)
 
 namespace CanvasCompositing
   
   export
-  globalAlpha : CanvasCompositing -> Attribute True I Double
-  globalAlpha = fromPrim "CanvasCompositing.getglobalAlpha"
-                         prim__globalAlpha
-                         prim__setGlobalAlpha
+  globalAlpha :  JSType t
+              => {auto 0 _ : Elem CanvasCompositing (Types t)}
+              -> t
+              -> Attribute True I Double
+  globalAlpha v = fromPrim "CanvasCompositing.getglobalAlpha"
+                           prim__globalAlpha
+                           prim__setGlobalAlpha
+                           (v :> CanvasCompositing)
   
   export
-  globalCompositeOperation : CanvasCompositing -> Attribute True I String
-  globalCompositeOperation = fromPrim "CanvasCompositing.getglobalCompositeOperation"
-                                      prim__globalCompositeOperation
-                                      prim__setGlobalCompositeOperation
+  globalCompositeOperation :  JSType t
+                           => {auto 0 _ : Elem CanvasCompositing (Types t)}
+                           -> t
+                           -> Attribute True I String
+  globalCompositeOperation v = fromPrim "CanvasCompositing.getglobalCompositeOperation"
+                                        prim__globalCompositeOperation
+                                        prim__setGlobalCompositeOperation
+                                        (v :> CanvasCompositing)
 
 namespace CanvasDrawImage
   
@@ -7583,22 +9952,30 @@ namespace CanvasDrawPath
 namespace CanvasFillStrokeStyles
   
   export
-  fillStyle : CanvasFillStrokeStyles -> Attribute True I (NS I [ String
-                                                               , CanvasGradient
-                                                               , CanvasPattern
-                                                               ])
-  fillStyle = fromPrim "CanvasFillStrokeStyles.getfillStyle"
-                       prim__fillStyle
-                       prim__setFillStyle
+  fillStyle :  JSType t
+            => {auto 0 _ : Elem CanvasFillStrokeStyles (Types t)}
+            -> t
+            -> Attribute True I (NS I [ String
+                                      , CanvasGradient
+                                      , CanvasPattern
+                                      ])
+  fillStyle v = fromPrim "CanvasFillStrokeStyles.getfillStyle"
+                         prim__fillStyle
+                         prim__setFillStyle
+                         (v :> CanvasFillStrokeStyles)
   
   export
-  strokeStyle : CanvasFillStrokeStyles -> Attribute True I (NS I [ String
-                                                                 , CanvasGradient
-                                                                 , CanvasPattern
-                                                                 ])
-  strokeStyle = fromPrim "CanvasFillStrokeStyles.getstrokeStyle"
-                         prim__strokeStyle
-                         prim__setStrokeStyle
+  strokeStyle :  JSType t
+              => {auto 0 _ : Elem CanvasFillStrokeStyles (Types t)}
+              -> t
+              -> Attribute True I (NS I [ String
+                                        , CanvasGradient
+                                        , CanvasPattern
+                                        ])
+  strokeStyle v = fromPrim "CanvasFillStrokeStyles.getstrokeStyle"
+                           prim__strokeStyle
+                           prim__setStrokeStyle
+                           (v :> CanvasFillStrokeStyles)
   
   export
   createLinearGradient :  (obj : CanvasFillStrokeStyles)
@@ -7649,8 +10026,14 @@ namespace CanvasFillStrokeStyles
 namespace CanvasFilters
   
   export
-  filter : CanvasFilters -> Attribute True I String
-  filter = fromPrim "CanvasFilters.getfilter" prim__filter prim__setFilter
+  filter :  JSType t
+         => {auto 0 _ : Elem CanvasFilters (Types t)}
+         -> t
+         -> Attribute True I String
+  filter v = fromPrim "CanvasFilters.getfilter"
+                      prim__filter
+                      prim__setFilter
+                      (v :> CanvasFilters)
 
 namespace CanvasImageData
   
@@ -7715,16 +10098,24 @@ namespace CanvasImageData
 namespace CanvasImageSmoothing
   
   export
-  imageSmoothingEnabled : CanvasImageSmoothing -> Attribute True I Bool
-  imageSmoothingEnabled = fromPrim "CanvasImageSmoothing.getimageSmoothingEnabled"
-                                   prim__imageSmoothingEnabled
-                                   prim__setImageSmoothingEnabled
+  imageSmoothingEnabled :  JSType t
+                        => {auto 0 _ : Elem CanvasImageSmoothing (Types t)}
+                        -> t
+                        -> Attribute True I Bool
+  imageSmoothingEnabled v = fromPrim "CanvasImageSmoothing.getimageSmoothingEnabled"
+                                     prim__imageSmoothingEnabled
+                                     prim__setImageSmoothingEnabled
+                                     (v :> CanvasImageSmoothing)
   
   export
-  imageSmoothingQuality : CanvasImageSmoothing -> Attribute True I ImageSmoothingQuality
-  imageSmoothingQuality = fromPrim "CanvasImageSmoothing.getimageSmoothingQuality"
-                                   prim__imageSmoothingQuality
-                                   prim__setImageSmoothingQuality
+  imageSmoothingQuality :  JSType t
+                        => {auto 0 _ : Elem CanvasImageSmoothing (Types t)}
+                        -> t
+                        -> Attribute True I ImageSmoothingQuality
+  imageSmoothingQuality v = fromPrim "CanvasImageSmoothing.getimageSmoothingQuality"
+                                     prim__imageSmoothingQuality
+                                     prim__setImageSmoothingQuality
+                                     (v :> CanvasImageSmoothing)
 
 namespace CanvasPath
   
@@ -7832,34 +10223,54 @@ namespace CanvasPath
 namespace CanvasPathDrawingStyles
   
   export
-  lineCap : CanvasPathDrawingStyles -> Attribute True I CanvasLineCap
-  lineCap = fromPrim "CanvasPathDrawingStyles.getlineCap"
-                     prim__lineCap
-                     prim__setLineCap
+  lineCap :  JSType t
+          => {auto 0 _ : Elem CanvasPathDrawingStyles (Types t)}
+          -> t
+          -> Attribute True I CanvasLineCap
+  lineCap v = fromPrim "CanvasPathDrawingStyles.getlineCap"
+                       prim__lineCap
+                       prim__setLineCap
+                       (v :> CanvasPathDrawingStyles)
   
   export
-  lineDashOffset : CanvasPathDrawingStyles -> Attribute True I Double
-  lineDashOffset = fromPrim "CanvasPathDrawingStyles.getlineDashOffset"
-                            prim__lineDashOffset
-                            prim__setLineDashOffset
+  lineDashOffset :  JSType t
+                 => {auto 0 _ : Elem CanvasPathDrawingStyles (Types t)}
+                 -> t
+                 -> Attribute True I Double
+  lineDashOffset v = fromPrim "CanvasPathDrawingStyles.getlineDashOffset"
+                              prim__lineDashOffset
+                              prim__setLineDashOffset
+                              (v :> CanvasPathDrawingStyles)
   
   export
-  lineJoin : CanvasPathDrawingStyles -> Attribute True I CanvasLineJoin
-  lineJoin = fromPrim "CanvasPathDrawingStyles.getlineJoin"
-                      prim__lineJoin
-                      prim__setLineJoin
+  lineJoin :  JSType t
+           => {auto 0 _ : Elem CanvasPathDrawingStyles (Types t)}
+           -> t
+           -> Attribute True I CanvasLineJoin
+  lineJoin v = fromPrim "CanvasPathDrawingStyles.getlineJoin"
+                        prim__lineJoin
+                        prim__setLineJoin
+                        (v :> CanvasPathDrawingStyles)
   
   export
-  lineWidth : CanvasPathDrawingStyles -> Attribute True I Double
-  lineWidth = fromPrim "CanvasPathDrawingStyles.getlineWidth"
-                       prim__lineWidth
-                       prim__setLineWidth
+  lineWidth :  JSType t
+            => {auto 0 _ : Elem CanvasPathDrawingStyles (Types t)}
+            -> t
+            -> Attribute True I Double
+  lineWidth v = fromPrim "CanvasPathDrawingStyles.getlineWidth"
+                         prim__lineWidth
+                         prim__setLineWidth
+                         (v :> CanvasPathDrawingStyles)
   
   export
-  miterLimit : CanvasPathDrawingStyles -> Attribute True I Double
-  miterLimit = fromPrim "CanvasPathDrawingStyles.getmiterLimit"
-                        prim__miterLimit
-                        prim__setMiterLimit
+  miterLimit :  JSType t
+             => {auto 0 _ : Elem CanvasPathDrawingStyles (Types t)}
+             -> t
+             -> Attribute True I Double
+  miterLimit v = fromPrim "CanvasPathDrawingStyles.getmiterLimit"
+                          prim__miterLimit
+                          prim__setMiterLimit
+                          (v :> CanvasPathDrawingStyles)
   
   export
   getLineDash : (obj : CanvasPathDrawingStyles) -> JSIO (Array Double)
@@ -7903,28 +10314,44 @@ namespace CanvasRect
 namespace CanvasShadowStyles
   
   export
-  shadowBlur : CanvasShadowStyles -> Attribute True I Double
-  shadowBlur = fromPrim "CanvasShadowStyles.getshadowBlur"
-                        prim__shadowBlur
-                        prim__setShadowBlur
+  shadowBlur :  JSType t
+             => {auto 0 _ : Elem CanvasShadowStyles (Types t)}
+             -> t
+             -> Attribute True I Double
+  shadowBlur v = fromPrim "CanvasShadowStyles.getshadowBlur"
+                          prim__shadowBlur
+                          prim__setShadowBlur
+                          (v :> CanvasShadowStyles)
   
   export
-  shadowColor : CanvasShadowStyles -> Attribute True I String
-  shadowColor = fromPrim "CanvasShadowStyles.getshadowColor"
-                         prim__shadowColor
-                         prim__setShadowColor
+  shadowColor :  JSType t
+              => {auto 0 _ : Elem CanvasShadowStyles (Types t)}
+              -> t
+              -> Attribute True I String
+  shadowColor v = fromPrim "CanvasShadowStyles.getshadowColor"
+                           prim__shadowColor
+                           prim__setShadowColor
+                           (v :> CanvasShadowStyles)
   
   export
-  shadowOffsetX : CanvasShadowStyles -> Attribute True I Double
-  shadowOffsetX = fromPrim "CanvasShadowStyles.getshadowOffsetX"
-                           prim__shadowOffsetX
-                           prim__setShadowOffsetX
+  shadowOffsetX :  JSType t
+                => {auto 0 _ : Elem CanvasShadowStyles (Types t)}
+                -> t
+                -> Attribute True I Double
+  shadowOffsetX v = fromPrim "CanvasShadowStyles.getshadowOffsetX"
+                             prim__shadowOffsetX
+                             prim__setShadowOffsetX
+                             (v :> CanvasShadowStyles)
   
   export
-  shadowOffsetY : CanvasShadowStyles -> Attribute True I Double
-  shadowOffsetY = fromPrim "CanvasShadowStyles.getshadowOffsetY"
-                           prim__shadowOffsetY
-                           prim__setShadowOffsetY
+  shadowOffsetY :  JSType t
+                => {auto 0 _ : Elem CanvasShadowStyles (Types t)}
+                -> t
+                -> Attribute True I Double
+  shadowOffsetY v = fromPrim "CanvasShadowStyles.getshadowOffsetY"
+                             prim__shadowOffsetY
+                             prim__setShadowOffsetY
+                             (v :> CanvasShadowStyles)
 
 namespace CanvasState
   
@@ -7979,26 +10406,44 @@ namespace CanvasText
 namespace CanvasTextDrawingStyles
   
   export
-  direction : CanvasTextDrawingStyles -> Attribute True I CanvasDirection
-  direction = fromPrim "CanvasTextDrawingStyles.getdirection"
-                       prim__direction
-                       prim__setDirection
+  direction :  JSType t
+            => {auto 0 _ : Elem CanvasTextDrawingStyles (Types t)}
+            -> t
+            -> Attribute True I CanvasDirection
+  direction v = fromPrim "CanvasTextDrawingStyles.getdirection"
+                         prim__direction
+                         prim__setDirection
+                         (v :> CanvasTextDrawingStyles)
   
   export
-  font : CanvasTextDrawingStyles -> Attribute True I String
-  font = fromPrim "CanvasTextDrawingStyles.getfont" prim__font prim__setFont
+  font :  JSType t
+       => {auto 0 _ : Elem CanvasTextDrawingStyles (Types t)}
+       -> t
+       -> Attribute True I String
+  font v = fromPrim "CanvasTextDrawingStyles.getfont"
+                    prim__font
+                    prim__setFont
+                    (v :> CanvasTextDrawingStyles)
   
   export
-  textAlign : CanvasTextDrawingStyles -> Attribute True I CanvasTextAlign
-  textAlign = fromPrim "CanvasTextDrawingStyles.gettextAlign"
-                       prim__textAlign
-                       prim__setTextAlign
+  textAlign :  JSType t
+            => {auto 0 _ : Elem CanvasTextDrawingStyles (Types t)}
+            -> t
+            -> Attribute True I CanvasTextAlign
+  textAlign v = fromPrim "CanvasTextDrawingStyles.gettextAlign"
+                         prim__textAlign
+                         prim__setTextAlign
+                         (v :> CanvasTextDrawingStyles)
   
   export
-  textBaseline : CanvasTextDrawingStyles -> Attribute True I CanvasTextBaseline
-  textBaseline = fromPrim "CanvasTextDrawingStyles.gettextBaseline"
-                          prim__textBaseline
-                          prim__setTextBaseline
+  textBaseline :  JSType t
+               => {auto 0 _ : Elem CanvasTextDrawingStyles (Types t)}
+               -> t
+               -> Attribute True I CanvasTextBaseline
+  textBaseline v = fromPrim "CanvasTextDrawingStyles.gettextBaseline"
+                            prim__textBaseline
+                            prim__setTextBaseline
+                            (v :> CanvasTextDrawingStyles)
 
 namespace CanvasTransform
   
@@ -8100,42 +10545,66 @@ namespace CanvasUserInterface
 namespace DocumentAndElementEventHandlers
   
   export
-  oncopy : DocumentAndElementEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  oncopy = fromNullablePrim "DocumentAndElementEventHandlers.getoncopy"
-                            prim__oncopy
-                            prim__setOncopy
+  oncopy :  JSType t
+         => {auto 0 _ : Elem DocumentAndElementEventHandlers (Types t)}
+         -> t
+         -> Attribute False Maybe EventHandlerNonNull
+  oncopy v = fromNullablePrim "DocumentAndElementEventHandlers.getoncopy"
+                              prim__oncopy
+                              prim__setOncopy
+                              (v :> DocumentAndElementEventHandlers)
   
   export
-  oncut : DocumentAndElementEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  oncut = fromNullablePrim "DocumentAndElementEventHandlers.getoncut"
-                           prim__oncut
-                           prim__setOncut
+  oncut :  JSType t
+        => {auto 0 _ : Elem DocumentAndElementEventHandlers (Types t)}
+        -> t
+        -> Attribute False Maybe EventHandlerNonNull
+  oncut v = fromNullablePrim "DocumentAndElementEventHandlers.getoncut"
+                             prim__oncut
+                             prim__setOncut
+                             (v :> DocumentAndElementEventHandlers)
   
   export
-  onpaste : DocumentAndElementEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onpaste = fromNullablePrim "DocumentAndElementEventHandlers.getonpaste"
-                             prim__onpaste
-                             prim__setOnpaste
+  onpaste :  JSType t
+          => {auto 0 _ : Elem DocumentAndElementEventHandlers (Types t)}
+          -> t
+          -> Attribute False Maybe EventHandlerNonNull
+  onpaste v = fromNullablePrim "DocumentAndElementEventHandlers.getonpaste"
+                               prim__onpaste
+                               prim__setOnpaste
+                               (v :> DocumentAndElementEventHandlers)
 
 namespace ElementContentEditable
   
   export
-  contentEditable : ElementContentEditable -> Attribute True I String
-  contentEditable = fromPrim "ElementContentEditable.getcontentEditable"
-                             prim__contentEditable
-                             prim__setContentEditable
+  contentEditable :  JSType t
+                  => {auto 0 _ : Elem ElementContentEditable (Types t)}
+                  -> t
+                  -> Attribute True I String
+  contentEditable v = fromPrim "ElementContentEditable.getcontentEditable"
+                               prim__contentEditable
+                               prim__setContentEditable
+                               (v :> ElementContentEditable)
   
   export
-  enterKeyHint : ElementContentEditable -> Attribute True I String
-  enterKeyHint = fromPrim "ElementContentEditable.getenterKeyHint"
-                          prim__enterKeyHint
-                          prim__setEnterKeyHint
+  enterKeyHint :  JSType t
+               => {auto 0 _ : Elem ElementContentEditable (Types t)}
+               -> t
+               -> Attribute True I String
+  enterKeyHint v = fromPrim "ElementContentEditable.getenterKeyHint"
+                            prim__enterKeyHint
+                            prim__setEnterKeyHint
+                            (v :> ElementContentEditable)
   
   export
-  inputMode : ElementContentEditable -> Attribute True I String
-  inputMode = fromPrim "ElementContentEditable.getinputMode"
-                       prim__inputMode
-                       prim__setInputMode
+  inputMode :  JSType t
+            => {auto 0 _ : Elem ElementContentEditable (Types t)}
+            -> t
+            -> Attribute True I String
+  inputMode v = fromPrim "ElementContentEditable.getinputMode"
+                         prim__inputMode
+                         prim__setInputMode
+                         (v :> ElementContentEditable)
   
   export
   isContentEditable : (obj : ElementContentEditable) -> JSIO Bool
@@ -8145,480 +10614,806 @@ namespace ElementContentEditable
 namespace GlobalEventHandlers
   
   export
-  onabort : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onabort = fromNullablePrim "GlobalEventHandlers.getonabort"
-                             prim__onabort
-                             prim__setOnabort
-  
-  export
-  onauxclick : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onauxclick = fromNullablePrim "GlobalEventHandlers.getonauxclick"
-                                prim__onauxclick
-                                prim__setOnauxclick
-  
-  export
-  onblur : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onblur = fromNullablePrim "GlobalEventHandlers.getonblur"
-                            prim__onblur
-                            prim__setOnblur
-  
-  export
-  oncancel : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  oncancel = fromNullablePrim "GlobalEventHandlers.getoncancel"
-                              prim__oncancel
-                              prim__setOncancel
-  
-  export
-  oncanplay : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  oncanplay = fromNullablePrim "GlobalEventHandlers.getoncanplay"
-                               prim__oncanplay
-                               prim__setOncanplay
-  
-  export
-  oncanplaythrough : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  oncanplaythrough = fromNullablePrim "GlobalEventHandlers.getoncanplaythrough"
-                                      prim__oncanplaythrough
-                                      prim__setOncanplaythrough
-  
-  export
-  onchange : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onchange = fromNullablePrim "GlobalEventHandlers.getonchange"
-                              prim__onchange
-                              prim__setOnchange
-  
-  export
-  onclick : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onclick = fromNullablePrim "GlobalEventHandlers.getonclick"
-                             prim__onclick
-                             prim__setOnclick
-  
-  export
-  onclose : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onclose = fromNullablePrim "GlobalEventHandlers.getonclose"
-                             prim__onclose
-                             prim__setOnclose
-  
-  export
-  oncontextmenu : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  oncontextmenu = fromNullablePrim "GlobalEventHandlers.getoncontextmenu"
-                                   prim__oncontextmenu
-                                   prim__setOncontextmenu
-  
-  export
-  oncuechange : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  oncuechange = fromNullablePrim "GlobalEventHandlers.getoncuechange"
-                                 prim__oncuechange
-                                 prim__setOncuechange
-  
-  export
-  ondblclick : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  ondblclick = fromNullablePrim "GlobalEventHandlers.getondblclick"
-                                prim__ondblclick
-                                prim__setOndblclick
-  
-  export
-  ondrag : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  ondrag = fromNullablePrim "GlobalEventHandlers.getondrag"
-                            prim__ondrag
-                            prim__setOndrag
-  
-  export
-  ondragend : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  ondragend = fromNullablePrim "GlobalEventHandlers.getondragend"
-                               prim__ondragend
-                               prim__setOndragend
-  
-  export
-  ondragenter : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  ondragenter = fromNullablePrim "GlobalEventHandlers.getondragenter"
-                                 prim__ondragenter
-                                 prim__setOndragenter
-  
-  export
-  ondragleave : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  ondragleave = fromNullablePrim "GlobalEventHandlers.getondragleave"
-                                 prim__ondragleave
-                                 prim__setOndragleave
-  
-  export
-  ondragover : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  ondragover = fromNullablePrim "GlobalEventHandlers.getondragover"
-                                prim__ondragover
-                                prim__setOndragover
-  
-  export
-  ondragstart : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  ondragstart = fromNullablePrim "GlobalEventHandlers.getondragstart"
-                                 prim__ondragstart
-                                 prim__setOndragstart
-  
-  export
-  ondrop : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  ondrop = fromNullablePrim "GlobalEventHandlers.getondrop"
-                            prim__ondrop
-                            prim__setOndrop
-  
-  export
-  ondurationchange : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  ondurationchange = fromNullablePrim "GlobalEventHandlers.getondurationchange"
-                                      prim__ondurationchange
-                                      prim__setOndurationchange
-  
-  export
-  onemptied : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onemptied = fromNullablePrim "GlobalEventHandlers.getonemptied"
-                               prim__onemptied
-                               prim__setOnemptied
-  
-  export
-  onended : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onended = fromNullablePrim "GlobalEventHandlers.getonended"
-                             prim__onended
-                             prim__setOnended
-  
-  export
-  onerror : GlobalEventHandlers -> Attribute False Maybe OnErrorEventHandlerNonNull
-  onerror = fromNullablePrim "GlobalEventHandlers.getonerror"
-                             prim__onerror
-                             prim__setOnerror
-  
-  export
-  onfocus : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onfocus = fromNullablePrim "GlobalEventHandlers.getonfocus"
-                             prim__onfocus
-                             prim__setOnfocus
-  
-  export
-  onformdata : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onformdata = fromNullablePrim "GlobalEventHandlers.getonformdata"
-                                prim__onformdata
-                                prim__setOnformdata
-  
-  export
-  oninput : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  oninput = fromNullablePrim "GlobalEventHandlers.getoninput"
-                             prim__oninput
-                             prim__setOninput
-  
-  export
-  oninvalid : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  oninvalid = fromNullablePrim "GlobalEventHandlers.getoninvalid"
-                               prim__oninvalid
-                               prim__setOninvalid
-  
-  export
-  onkeydown : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onkeydown = fromNullablePrim "GlobalEventHandlers.getonkeydown"
-                               prim__onkeydown
-                               prim__setOnkeydown
-  
-  export
-  onkeypress : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onkeypress = fromNullablePrim "GlobalEventHandlers.getonkeypress"
-                                prim__onkeypress
-                                prim__setOnkeypress
-  
-  export
-  onkeyup : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onkeyup = fromNullablePrim "GlobalEventHandlers.getonkeyup"
-                             prim__onkeyup
-                             prim__setOnkeyup
-  
-  export
-  onload : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onload = fromNullablePrim "GlobalEventHandlers.getonload"
-                            prim__onload
-                            prim__setOnload
-  
-  export
-  onloadeddata : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onloadeddata = fromNullablePrim "GlobalEventHandlers.getonloadeddata"
-                                  prim__onloadeddata
-                                  prim__setOnloadeddata
-  
-  export
-  onloadedmetadata : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onloadedmetadata = fromNullablePrim "GlobalEventHandlers.getonloadedmetadata"
-                                      prim__onloadedmetadata
-                                      prim__setOnloadedmetadata
-  
-  export
-  onloadstart : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onloadstart = fromNullablePrim "GlobalEventHandlers.getonloadstart"
-                                 prim__onloadstart
-                                 prim__setOnloadstart
-  
-  export
-  onmousedown : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onmousedown = fromNullablePrim "GlobalEventHandlers.getonmousedown"
-                                 prim__onmousedown
-                                 prim__setOnmousedown
-  
-  export
-  onmouseenter : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onmouseenter = fromNullablePrim "GlobalEventHandlers.getonmouseenter"
-                                  prim__onmouseenter
-                                  prim__setOnmouseenter
-  
-  export
-  onmouseleave : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onmouseleave = fromNullablePrim "GlobalEventHandlers.getonmouseleave"
-                                  prim__onmouseleave
-                                  prim__setOnmouseleave
-  
-  export
-  onmousemove : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onmousemove = fromNullablePrim "GlobalEventHandlers.getonmousemove"
-                                 prim__onmousemove
-                                 prim__setOnmousemove
-  
-  export
-  onmouseout : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onmouseout = fromNullablePrim "GlobalEventHandlers.getonmouseout"
-                                prim__onmouseout
-                                prim__setOnmouseout
-  
-  export
-  onmouseover : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onmouseover = fromNullablePrim "GlobalEventHandlers.getonmouseover"
-                                 prim__onmouseover
-                                 prim__setOnmouseover
-  
-  export
-  onmouseup : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onmouseup = fromNullablePrim "GlobalEventHandlers.getonmouseup"
-                               prim__onmouseup
-                               prim__setOnmouseup
-  
-  export
-  onpause : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onpause = fromNullablePrim "GlobalEventHandlers.getonpause"
-                             prim__onpause
-                             prim__setOnpause
-  
-  export
-  onplay : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onplay = fromNullablePrim "GlobalEventHandlers.getonplay"
-                            prim__onplay
-                            prim__setOnplay
-  
-  export
-  onplaying : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onplaying = fromNullablePrim "GlobalEventHandlers.getonplaying"
-                               prim__onplaying
-                               prim__setOnplaying
-  
-  export
-  onprogress : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onprogress = fromNullablePrim "GlobalEventHandlers.getonprogress"
-                                prim__onprogress
-                                prim__setOnprogress
-  
-  export
-  onratechange : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onratechange = fromNullablePrim "GlobalEventHandlers.getonratechange"
-                                  prim__onratechange
-                                  prim__setOnratechange
-  
-  export
-  onreset : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onreset = fromNullablePrim "GlobalEventHandlers.getonreset"
-                             prim__onreset
-                             prim__setOnreset
-  
-  export
-  onresize : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onresize = fromNullablePrim "GlobalEventHandlers.getonresize"
-                              prim__onresize
-                              prim__setOnresize
-  
-  export
-  onscroll : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onscroll = fromNullablePrim "GlobalEventHandlers.getonscroll"
-                              prim__onscroll
-                              prim__setOnscroll
-  
-  export
-  onsecuritypolicyviolation : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onsecuritypolicyviolation = fromNullablePrim "GlobalEventHandlers.getonsecuritypolicyviolation"
-                                               prim__onsecuritypolicyviolation
-                                               prim__setOnsecuritypolicyviolation
-  
-  export
-  onseeked : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onseeked = fromNullablePrim "GlobalEventHandlers.getonseeked"
-                              prim__onseeked
-                              prim__setOnseeked
-  
-  export
-  onseeking : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onseeking = fromNullablePrim "GlobalEventHandlers.getonseeking"
-                               prim__onseeking
-                               prim__setOnseeking
-  
-  export
-  onselect : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onselect = fromNullablePrim "GlobalEventHandlers.getonselect"
-                              prim__onselect
-                              prim__setOnselect
-  
-  export
-  onslotchange : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onslotchange = fromNullablePrim "GlobalEventHandlers.getonslotchange"
-                                  prim__onslotchange
-                                  prim__setOnslotchange
-  
-  export
-  onstalled : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onstalled = fromNullablePrim "GlobalEventHandlers.getonstalled"
-                               prim__onstalled
-                               prim__setOnstalled
-  
-  export
-  onsubmit : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onsubmit = fromNullablePrim "GlobalEventHandlers.getonsubmit"
-                              prim__onsubmit
-                              prim__setOnsubmit
-  
-  export
-  onsuspend : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onsuspend = fromNullablePrim "GlobalEventHandlers.getonsuspend"
-                               prim__onsuspend
-                               prim__setOnsuspend
-  
-  export
-  ontimeupdate : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  ontimeupdate = fromNullablePrim "GlobalEventHandlers.getontimeupdate"
-                                  prim__ontimeupdate
-                                  prim__setOntimeupdate
-  
-  export
-  ontoggle : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  ontoggle = fromNullablePrim "GlobalEventHandlers.getontoggle"
-                              prim__ontoggle
-                              prim__setOntoggle
-  
-  export
-  onvolumechange : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onvolumechange = fromNullablePrim "GlobalEventHandlers.getonvolumechange"
-                                    prim__onvolumechange
-                                    prim__setOnvolumechange
-  
-  export
-  onwaiting : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onwaiting = fromNullablePrim "GlobalEventHandlers.getonwaiting"
-                               prim__onwaiting
-                               prim__setOnwaiting
-  
-  export
-  onwebkitanimationend : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onwebkitanimationend = fromNullablePrim "GlobalEventHandlers.getonwebkitanimationend"
-                                          prim__onwebkitanimationend
-                                          prim__setOnwebkitanimationend
-  
-  export
-  onwebkitanimationiteration : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onwebkitanimationiteration = fromNullablePrim "GlobalEventHandlers.getonwebkitanimationiteration"
-                                                prim__onwebkitanimationiteration
-                                                prim__setOnwebkitanimationiteration
-  
-  export
-  onwebkitanimationstart : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onwebkitanimationstart = fromNullablePrim "GlobalEventHandlers.getonwebkitanimationstart"
-                                            prim__onwebkitanimationstart
-                                            prim__setOnwebkitanimationstart
-  
-  export
-  onwebkittransitionend : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onwebkittransitionend = fromNullablePrim "GlobalEventHandlers.getonwebkittransitionend"
-                                           prim__onwebkittransitionend
-                                           prim__setOnwebkittransitionend
-  
-  export
-  onwheel : GlobalEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onwheel = fromNullablePrim "GlobalEventHandlers.getonwheel"
-                             prim__onwheel
-                             prim__setOnwheel
+  onabort :  JSType t
+          => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+          -> t
+          -> Attribute False Maybe EventHandlerNonNull
+  onabort v = fromNullablePrim "GlobalEventHandlers.getonabort"
+                               prim__onabort
+                               prim__setOnabort
+                               (v :> GlobalEventHandlers)
+  
+  export
+  onauxclick :  JSType t
+             => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+             -> t
+             -> Attribute False Maybe EventHandlerNonNull
+  onauxclick v = fromNullablePrim "GlobalEventHandlers.getonauxclick"
+                                  prim__onauxclick
+                                  prim__setOnauxclick
+                                  (v :> GlobalEventHandlers)
+  
+  export
+  onblur :  JSType t
+         => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+         -> t
+         -> Attribute False Maybe EventHandlerNonNull
+  onblur v = fromNullablePrim "GlobalEventHandlers.getonblur"
+                              prim__onblur
+                              prim__setOnblur
+                              (v :> GlobalEventHandlers)
+  
+  export
+  oncancel :  JSType t
+           => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+           -> t
+           -> Attribute False Maybe EventHandlerNonNull
+  oncancel v = fromNullablePrim "GlobalEventHandlers.getoncancel"
+                                prim__oncancel
+                                prim__setOncancel
+                                (v :> GlobalEventHandlers)
+  
+  export
+  oncanplay :  JSType t
+            => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+            -> t
+            -> Attribute False Maybe EventHandlerNonNull
+  oncanplay v = fromNullablePrim "GlobalEventHandlers.getoncanplay"
+                                 prim__oncanplay
+                                 prim__setOncanplay
+                                 (v :> GlobalEventHandlers)
+  
+  export
+  oncanplaythrough :  JSType t
+                   => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+                   -> t
+                   -> Attribute False Maybe EventHandlerNonNull
+  oncanplaythrough v = fromNullablePrim "GlobalEventHandlers.getoncanplaythrough"
+                                        prim__oncanplaythrough
+                                        prim__setOncanplaythrough
+                                        (v :> GlobalEventHandlers)
+  
+  export
+  onchange :  JSType t
+           => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+           -> t
+           -> Attribute False Maybe EventHandlerNonNull
+  onchange v = fromNullablePrim "GlobalEventHandlers.getonchange"
+                                prim__onchange
+                                prim__setOnchange
+                                (v :> GlobalEventHandlers)
+  
+  export
+  onclick :  JSType t
+          => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+          -> t
+          -> Attribute False Maybe EventHandlerNonNull
+  onclick v = fromNullablePrim "GlobalEventHandlers.getonclick"
+                               prim__onclick
+                               prim__setOnclick
+                               (v :> GlobalEventHandlers)
+  
+  export
+  onclose :  JSType t
+          => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+          -> t
+          -> Attribute False Maybe EventHandlerNonNull
+  onclose v = fromNullablePrim "GlobalEventHandlers.getonclose"
+                               prim__onclose
+                               prim__setOnclose
+                               (v :> GlobalEventHandlers)
+  
+  export
+  oncontextmenu :  JSType t
+                => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+                -> t
+                -> Attribute False Maybe EventHandlerNonNull
+  oncontextmenu v = fromNullablePrim "GlobalEventHandlers.getoncontextmenu"
+                                     prim__oncontextmenu
+                                     prim__setOncontextmenu
+                                     (v :> GlobalEventHandlers)
+  
+  export
+  oncuechange :  JSType t
+              => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+              -> t
+              -> Attribute False Maybe EventHandlerNonNull
+  oncuechange v = fromNullablePrim "GlobalEventHandlers.getoncuechange"
+                                   prim__oncuechange
+                                   prim__setOncuechange
+                                   (v :> GlobalEventHandlers)
+  
+  export
+  ondblclick :  JSType t
+             => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+             -> t
+             -> Attribute False Maybe EventHandlerNonNull
+  ondblclick v = fromNullablePrim "GlobalEventHandlers.getondblclick"
+                                  prim__ondblclick
+                                  prim__setOndblclick
+                                  (v :> GlobalEventHandlers)
+  
+  export
+  ondrag :  JSType t
+         => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+         -> t
+         -> Attribute False Maybe EventHandlerNonNull
+  ondrag v = fromNullablePrim "GlobalEventHandlers.getondrag"
+                              prim__ondrag
+                              prim__setOndrag
+                              (v :> GlobalEventHandlers)
+  
+  export
+  ondragend :  JSType t
+            => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+            -> t
+            -> Attribute False Maybe EventHandlerNonNull
+  ondragend v = fromNullablePrim "GlobalEventHandlers.getondragend"
+                                 prim__ondragend
+                                 prim__setOndragend
+                                 (v :> GlobalEventHandlers)
+  
+  export
+  ondragenter :  JSType t
+              => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+              -> t
+              -> Attribute False Maybe EventHandlerNonNull
+  ondragenter v = fromNullablePrim "GlobalEventHandlers.getondragenter"
+                                   prim__ondragenter
+                                   prim__setOndragenter
+                                   (v :> GlobalEventHandlers)
+  
+  export
+  ondragleave :  JSType t
+              => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+              -> t
+              -> Attribute False Maybe EventHandlerNonNull
+  ondragleave v = fromNullablePrim "GlobalEventHandlers.getondragleave"
+                                   prim__ondragleave
+                                   prim__setOndragleave
+                                   (v :> GlobalEventHandlers)
+  
+  export
+  ondragover :  JSType t
+             => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+             -> t
+             -> Attribute False Maybe EventHandlerNonNull
+  ondragover v = fromNullablePrim "GlobalEventHandlers.getondragover"
+                                  prim__ondragover
+                                  prim__setOndragover
+                                  (v :> GlobalEventHandlers)
+  
+  export
+  ondragstart :  JSType t
+              => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+              -> t
+              -> Attribute False Maybe EventHandlerNonNull
+  ondragstart v = fromNullablePrim "GlobalEventHandlers.getondragstart"
+                                   prim__ondragstart
+                                   prim__setOndragstart
+                                   (v :> GlobalEventHandlers)
+  
+  export
+  ondrop :  JSType t
+         => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+         -> t
+         -> Attribute False Maybe EventHandlerNonNull
+  ondrop v = fromNullablePrim "GlobalEventHandlers.getondrop"
+                              prim__ondrop
+                              prim__setOndrop
+                              (v :> GlobalEventHandlers)
+  
+  export
+  ondurationchange :  JSType t
+                   => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+                   -> t
+                   -> Attribute False Maybe EventHandlerNonNull
+  ondurationchange v = fromNullablePrim "GlobalEventHandlers.getondurationchange"
+                                        prim__ondurationchange
+                                        prim__setOndurationchange
+                                        (v :> GlobalEventHandlers)
+  
+  export
+  onemptied :  JSType t
+            => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+            -> t
+            -> Attribute False Maybe EventHandlerNonNull
+  onemptied v = fromNullablePrim "GlobalEventHandlers.getonemptied"
+                                 prim__onemptied
+                                 prim__setOnemptied
+                                 (v :> GlobalEventHandlers)
+  
+  export
+  onended :  JSType t
+          => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+          -> t
+          -> Attribute False Maybe EventHandlerNonNull
+  onended v = fromNullablePrim "GlobalEventHandlers.getonended"
+                               prim__onended
+                               prim__setOnended
+                               (v :> GlobalEventHandlers)
+  
+  export
+  onerror :  JSType t
+          => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+          -> t
+          -> Attribute False Maybe OnErrorEventHandlerNonNull
+  onerror v = fromNullablePrim "GlobalEventHandlers.getonerror"
+                               prim__onerror
+                               prim__setOnerror
+                               (v :> GlobalEventHandlers)
+  
+  export
+  onfocus :  JSType t
+          => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+          -> t
+          -> Attribute False Maybe EventHandlerNonNull
+  onfocus v = fromNullablePrim "GlobalEventHandlers.getonfocus"
+                               prim__onfocus
+                               prim__setOnfocus
+                               (v :> GlobalEventHandlers)
+  
+  export
+  onformdata :  JSType t
+             => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+             -> t
+             -> Attribute False Maybe EventHandlerNonNull
+  onformdata v = fromNullablePrim "GlobalEventHandlers.getonformdata"
+                                  prim__onformdata
+                                  prim__setOnformdata
+                                  (v :> GlobalEventHandlers)
+  
+  export
+  oninput :  JSType t
+          => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+          -> t
+          -> Attribute False Maybe EventHandlerNonNull
+  oninput v = fromNullablePrim "GlobalEventHandlers.getoninput"
+                               prim__oninput
+                               prim__setOninput
+                               (v :> GlobalEventHandlers)
+  
+  export
+  oninvalid :  JSType t
+            => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+            -> t
+            -> Attribute False Maybe EventHandlerNonNull
+  oninvalid v = fromNullablePrim "GlobalEventHandlers.getoninvalid"
+                                 prim__oninvalid
+                                 prim__setOninvalid
+                                 (v :> GlobalEventHandlers)
+  
+  export
+  onkeydown :  JSType t
+            => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+            -> t
+            -> Attribute False Maybe EventHandlerNonNull
+  onkeydown v = fromNullablePrim "GlobalEventHandlers.getonkeydown"
+                                 prim__onkeydown
+                                 prim__setOnkeydown
+                                 (v :> GlobalEventHandlers)
+  
+  export
+  onkeypress :  JSType t
+             => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+             -> t
+             -> Attribute False Maybe EventHandlerNonNull
+  onkeypress v = fromNullablePrim "GlobalEventHandlers.getonkeypress"
+                                  prim__onkeypress
+                                  prim__setOnkeypress
+                                  (v :> GlobalEventHandlers)
+  
+  export
+  onkeyup :  JSType t
+          => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+          -> t
+          -> Attribute False Maybe EventHandlerNonNull
+  onkeyup v = fromNullablePrim "GlobalEventHandlers.getonkeyup"
+                               prim__onkeyup
+                               prim__setOnkeyup
+                               (v :> GlobalEventHandlers)
+  
+  export
+  onload :  JSType t
+         => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+         -> t
+         -> Attribute False Maybe EventHandlerNonNull
+  onload v = fromNullablePrim "GlobalEventHandlers.getonload"
+                              prim__onload
+                              prim__setOnload
+                              (v :> GlobalEventHandlers)
+  
+  export
+  onloadeddata :  JSType t
+               => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+               -> t
+               -> Attribute False Maybe EventHandlerNonNull
+  onloadeddata v = fromNullablePrim "GlobalEventHandlers.getonloadeddata"
+                                    prim__onloadeddata
+                                    prim__setOnloadeddata
+                                    (v :> GlobalEventHandlers)
+  
+  export
+  onloadedmetadata :  JSType t
+                   => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+                   -> t
+                   -> Attribute False Maybe EventHandlerNonNull
+  onloadedmetadata v = fromNullablePrim "GlobalEventHandlers.getonloadedmetadata"
+                                        prim__onloadedmetadata
+                                        prim__setOnloadedmetadata
+                                        (v :> GlobalEventHandlers)
+  
+  export
+  onloadstart :  JSType t
+              => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+              -> t
+              -> Attribute False Maybe EventHandlerNonNull
+  onloadstart v = fromNullablePrim "GlobalEventHandlers.getonloadstart"
+                                   prim__onloadstart
+                                   prim__setOnloadstart
+                                   (v :> GlobalEventHandlers)
+  
+  export
+  onmousedown :  JSType t
+              => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+              -> t
+              -> Attribute False Maybe EventHandlerNonNull
+  onmousedown v = fromNullablePrim "GlobalEventHandlers.getonmousedown"
+                                   prim__onmousedown
+                                   prim__setOnmousedown
+                                   (v :> GlobalEventHandlers)
+  
+  export
+  onmouseenter :  JSType t
+               => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+               -> t
+               -> Attribute False Maybe EventHandlerNonNull
+  onmouseenter v = fromNullablePrim "GlobalEventHandlers.getonmouseenter"
+                                    prim__onmouseenter
+                                    prim__setOnmouseenter
+                                    (v :> GlobalEventHandlers)
+  
+  export
+  onmouseleave :  JSType t
+               => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+               -> t
+               -> Attribute False Maybe EventHandlerNonNull
+  onmouseleave v = fromNullablePrim "GlobalEventHandlers.getonmouseleave"
+                                    prim__onmouseleave
+                                    prim__setOnmouseleave
+                                    (v :> GlobalEventHandlers)
+  
+  export
+  onmousemove :  JSType t
+              => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+              -> t
+              -> Attribute False Maybe EventHandlerNonNull
+  onmousemove v = fromNullablePrim "GlobalEventHandlers.getonmousemove"
+                                   prim__onmousemove
+                                   prim__setOnmousemove
+                                   (v :> GlobalEventHandlers)
+  
+  export
+  onmouseout :  JSType t
+             => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+             -> t
+             -> Attribute False Maybe EventHandlerNonNull
+  onmouseout v = fromNullablePrim "GlobalEventHandlers.getonmouseout"
+                                  prim__onmouseout
+                                  prim__setOnmouseout
+                                  (v :> GlobalEventHandlers)
+  
+  export
+  onmouseover :  JSType t
+              => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+              -> t
+              -> Attribute False Maybe EventHandlerNonNull
+  onmouseover v = fromNullablePrim "GlobalEventHandlers.getonmouseover"
+                                   prim__onmouseover
+                                   prim__setOnmouseover
+                                   (v :> GlobalEventHandlers)
+  
+  export
+  onmouseup :  JSType t
+            => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+            -> t
+            -> Attribute False Maybe EventHandlerNonNull
+  onmouseup v = fromNullablePrim "GlobalEventHandlers.getonmouseup"
+                                 prim__onmouseup
+                                 prim__setOnmouseup
+                                 (v :> GlobalEventHandlers)
+  
+  export
+  onpause :  JSType t
+          => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+          -> t
+          -> Attribute False Maybe EventHandlerNonNull
+  onpause v = fromNullablePrim "GlobalEventHandlers.getonpause"
+                               prim__onpause
+                               prim__setOnpause
+                               (v :> GlobalEventHandlers)
+  
+  export
+  onplay :  JSType t
+         => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+         -> t
+         -> Attribute False Maybe EventHandlerNonNull
+  onplay v = fromNullablePrim "GlobalEventHandlers.getonplay"
+                              prim__onplay
+                              prim__setOnplay
+                              (v :> GlobalEventHandlers)
+  
+  export
+  onplaying :  JSType t
+            => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+            -> t
+            -> Attribute False Maybe EventHandlerNonNull
+  onplaying v = fromNullablePrim "GlobalEventHandlers.getonplaying"
+                                 prim__onplaying
+                                 prim__setOnplaying
+                                 (v :> GlobalEventHandlers)
+  
+  export
+  onprogress :  JSType t
+             => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+             -> t
+             -> Attribute False Maybe EventHandlerNonNull
+  onprogress v = fromNullablePrim "GlobalEventHandlers.getonprogress"
+                                  prim__onprogress
+                                  prim__setOnprogress
+                                  (v :> GlobalEventHandlers)
+  
+  export
+  onratechange :  JSType t
+               => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+               -> t
+               -> Attribute False Maybe EventHandlerNonNull
+  onratechange v = fromNullablePrim "GlobalEventHandlers.getonratechange"
+                                    prim__onratechange
+                                    prim__setOnratechange
+                                    (v :> GlobalEventHandlers)
+  
+  export
+  onreset :  JSType t
+          => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+          -> t
+          -> Attribute False Maybe EventHandlerNonNull
+  onreset v = fromNullablePrim "GlobalEventHandlers.getonreset"
+                               prim__onreset
+                               prim__setOnreset
+                               (v :> GlobalEventHandlers)
+  
+  export
+  onresize :  JSType t
+           => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+           -> t
+           -> Attribute False Maybe EventHandlerNonNull
+  onresize v = fromNullablePrim "GlobalEventHandlers.getonresize"
+                                prim__onresize
+                                prim__setOnresize
+                                (v :> GlobalEventHandlers)
+  
+  export
+  onscroll :  JSType t
+           => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+           -> t
+           -> Attribute False Maybe EventHandlerNonNull
+  onscroll v = fromNullablePrim "GlobalEventHandlers.getonscroll"
+                                prim__onscroll
+                                prim__setOnscroll
+                                (v :> GlobalEventHandlers)
+  
+  export
+  onsecuritypolicyviolation :  JSType t
+                            => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+                            -> t
+                            -> Attribute False Maybe EventHandlerNonNull
+  onsecuritypolicyviolation v = fromNullablePrim "GlobalEventHandlers.getonsecuritypolicyviolation"
+                                                 prim__onsecuritypolicyviolation
+                                                 prim__setOnsecuritypolicyviolation
+                                                 (v :> GlobalEventHandlers)
+  
+  export
+  onseeked :  JSType t
+           => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+           -> t
+           -> Attribute False Maybe EventHandlerNonNull
+  onseeked v = fromNullablePrim "GlobalEventHandlers.getonseeked"
+                                prim__onseeked
+                                prim__setOnseeked
+                                (v :> GlobalEventHandlers)
+  
+  export
+  onseeking :  JSType t
+            => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+            -> t
+            -> Attribute False Maybe EventHandlerNonNull
+  onseeking v = fromNullablePrim "GlobalEventHandlers.getonseeking"
+                                 prim__onseeking
+                                 prim__setOnseeking
+                                 (v :> GlobalEventHandlers)
+  
+  export
+  onselect :  JSType t
+           => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+           -> t
+           -> Attribute False Maybe EventHandlerNonNull
+  onselect v = fromNullablePrim "GlobalEventHandlers.getonselect"
+                                prim__onselect
+                                prim__setOnselect
+                                (v :> GlobalEventHandlers)
+  
+  export
+  onslotchange :  JSType t
+               => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+               -> t
+               -> Attribute False Maybe EventHandlerNonNull
+  onslotchange v = fromNullablePrim "GlobalEventHandlers.getonslotchange"
+                                    prim__onslotchange
+                                    prim__setOnslotchange
+                                    (v :> GlobalEventHandlers)
+  
+  export
+  onstalled :  JSType t
+            => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+            -> t
+            -> Attribute False Maybe EventHandlerNonNull
+  onstalled v = fromNullablePrim "GlobalEventHandlers.getonstalled"
+                                 prim__onstalled
+                                 prim__setOnstalled
+                                 (v :> GlobalEventHandlers)
+  
+  export
+  onsubmit :  JSType t
+           => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+           -> t
+           -> Attribute False Maybe EventHandlerNonNull
+  onsubmit v = fromNullablePrim "GlobalEventHandlers.getonsubmit"
+                                prim__onsubmit
+                                prim__setOnsubmit
+                                (v :> GlobalEventHandlers)
+  
+  export
+  onsuspend :  JSType t
+            => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+            -> t
+            -> Attribute False Maybe EventHandlerNonNull
+  onsuspend v = fromNullablePrim "GlobalEventHandlers.getonsuspend"
+                                 prim__onsuspend
+                                 prim__setOnsuspend
+                                 (v :> GlobalEventHandlers)
+  
+  export
+  ontimeupdate :  JSType t
+               => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+               -> t
+               -> Attribute False Maybe EventHandlerNonNull
+  ontimeupdate v = fromNullablePrim "GlobalEventHandlers.getontimeupdate"
+                                    prim__ontimeupdate
+                                    prim__setOntimeupdate
+                                    (v :> GlobalEventHandlers)
+  
+  export
+  ontoggle :  JSType t
+           => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+           -> t
+           -> Attribute False Maybe EventHandlerNonNull
+  ontoggle v = fromNullablePrim "GlobalEventHandlers.getontoggle"
+                                prim__ontoggle
+                                prim__setOntoggle
+                                (v :> GlobalEventHandlers)
+  
+  export
+  onvolumechange :  JSType t
+                 => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+                 -> t
+                 -> Attribute False Maybe EventHandlerNonNull
+  onvolumechange v = fromNullablePrim "GlobalEventHandlers.getonvolumechange"
+                                      prim__onvolumechange
+                                      prim__setOnvolumechange
+                                      (v :> GlobalEventHandlers)
+  
+  export
+  onwaiting :  JSType t
+            => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+            -> t
+            -> Attribute False Maybe EventHandlerNonNull
+  onwaiting v = fromNullablePrim "GlobalEventHandlers.getonwaiting"
+                                 prim__onwaiting
+                                 prim__setOnwaiting
+                                 (v :> GlobalEventHandlers)
+  
+  export
+  onwebkitanimationend :  JSType t
+                       => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+                       -> t
+                       -> Attribute False Maybe EventHandlerNonNull
+  onwebkitanimationend v = fromNullablePrim "GlobalEventHandlers.getonwebkitanimationend"
+                                            prim__onwebkitanimationend
+                                            prim__setOnwebkitanimationend
+                                            (v :> GlobalEventHandlers)
+  
+  export
+  onwebkitanimationiteration :  JSType t
+                             => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+                             -> t
+                             -> Attribute False Maybe EventHandlerNonNull
+  onwebkitanimationiteration v = fromNullablePrim "GlobalEventHandlers.getonwebkitanimationiteration"
+                                                  prim__onwebkitanimationiteration
+                                                  prim__setOnwebkitanimationiteration
+                                                  (v :> GlobalEventHandlers)
+  
+  export
+  onwebkitanimationstart :  JSType t
+                         => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+                         -> t
+                         -> Attribute False Maybe EventHandlerNonNull
+  onwebkitanimationstart v = fromNullablePrim "GlobalEventHandlers.getonwebkitanimationstart"
+                                              prim__onwebkitanimationstart
+                                              prim__setOnwebkitanimationstart
+                                              (v :> GlobalEventHandlers)
+  
+  export
+  onwebkittransitionend :  JSType t
+                        => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+                        -> t
+                        -> Attribute False Maybe EventHandlerNonNull
+  onwebkittransitionend v = fromNullablePrim "GlobalEventHandlers.getonwebkittransitionend"
+                                             prim__onwebkittransitionend
+                                             prim__setOnwebkittransitionend
+                                             (v :> GlobalEventHandlers)
+  
+  export
+  onwheel :  JSType t
+          => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+          -> t
+          -> Attribute False Maybe EventHandlerNonNull
+  onwheel v = fromNullablePrim "GlobalEventHandlers.getonwheel"
+                               prim__onwheel
+                               prim__setOnwheel
+                               (v :> GlobalEventHandlers)
 
 namespace HTMLHyperlinkElementUtils
   
   export
-  hash : HTMLHyperlinkElementUtils -> Attribute True I String
-  hash = fromPrim "HTMLHyperlinkElementUtils.gethash" prim__hash prim__setHash
+  hash :  JSType t
+       => {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
+       -> t
+       -> Attribute True I String
+  hash v = fromPrim "HTMLHyperlinkElementUtils.gethash"
+                    prim__hash
+                    prim__setHash
+                    (v :> HTMLHyperlinkElementUtils)
   
   export
-  host : HTMLHyperlinkElementUtils -> Attribute True I String
-  host = fromPrim "HTMLHyperlinkElementUtils.gethost" prim__host prim__setHost
+  host :  JSType t
+       => {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
+       -> t
+       -> Attribute True I String
+  host v = fromPrim "HTMLHyperlinkElementUtils.gethost"
+                    prim__host
+                    prim__setHost
+                    (v :> HTMLHyperlinkElementUtils)
   
   export
-  hostname : HTMLHyperlinkElementUtils -> Attribute True I String
-  hostname = fromPrim "HTMLHyperlinkElementUtils.gethostname"
-                      prim__hostname
-                      prim__setHostname
+  hostname :  JSType t
+           => {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
+           -> t
+           -> Attribute True I String
+  hostname v = fromPrim "HTMLHyperlinkElementUtils.gethostname"
+                        prim__hostname
+                        prim__setHostname
+                        (v :> HTMLHyperlinkElementUtils)
   
   export
-  href : HTMLHyperlinkElementUtils -> Attribute True I String
-  href = fromPrim "HTMLHyperlinkElementUtils.gethref" prim__href prim__setHref
+  href :  JSType t
+       => {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
+       -> t
+       -> Attribute True I String
+  href v = fromPrim "HTMLHyperlinkElementUtils.gethref"
+                    prim__href
+                    prim__setHref
+                    (v :> HTMLHyperlinkElementUtils)
   
   export
   origin : (obj : HTMLHyperlinkElementUtils) -> JSIO String
   origin a = primJS $ HTMLHyperlinkElementUtils.prim__origin a
   
   export
-  password : HTMLHyperlinkElementUtils -> Attribute True I String
-  password = fromPrim "HTMLHyperlinkElementUtils.getpassword"
-                      prim__password
-                      prim__setPassword
+  password :  JSType t
+           => {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
+           -> t
+           -> Attribute True I String
+  password v = fromPrim "HTMLHyperlinkElementUtils.getpassword"
+                        prim__password
+                        prim__setPassword
+                        (v :> HTMLHyperlinkElementUtils)
   
   export
-  pathname : HTMLHyperlinkElementUtils -> Attribute True I String
-  pathname = fromPrim "HTMLHyperlinkElementUtils.getpathname"
-                      prim__pathname
-                      prim__setPathname
+  pathname :  JSType t
+           => {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
+           -> t
+           -> Attribute True I String
+  pathname v = fromPrim "HTMLHyperlinkElementUtils.getpathname"
+                        prim__pathname
+                        prim__setPathname
+                        (v :> HTMLHyperlinkElementUtils)
   
   export
-  port : HTMLHyperlinkElementUtils -> Attribute True I String
-  port = fromPrim "HTMLHyperlinkElementUtils.getport" prim__port prim__setPort
+  port :  JSType t
+       => {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
+       -> t
+       -> Attribute True I String
+  port v = fromPrim "HTMLHyperlinkElementUtils.getport"
+                    prim__port
+                    prim__setPort
+                    (v :> HTMLHyperlinkElementUtils)
   
   export
-  protocol : HTMLHyperlinkElementUtils -> Attribute True I String
-  protocol = fromPrim "HTMLHyperlinkElementUtils.getprotocol"
-                      prim__protocol
-                      prim__setProtocol
+  protocol :  JSType t
+           => {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
+           -> t
+           -> Attribute True I String
+  protocol v = fromPrim "HTMLHyperlinkElementUtils.getprotocol"
+                        prim__protocol
+                        prim__setProtocol
+                        (v :> HTMLHyperlinkElementUtils)
   
   export
-  search : HTMLHyperlinkElementUtils -> Attribute True I String
-  search = fromPrim "HTMLHyperlinkElementUtils.getsearch"
-                    prim__search
-                    prim__setSearch
+  search :  JSType t
+         => {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
+         -> t
+         -> Attribute True I String
+  search v = fromPrim "HTMLHyperlinkElementUtils.getsearch"
+                      prim__search
+                      prim__setSearch
+                      (v :> HTMLHyperlinkElementUtils)
   
   export
-  username : HTMLHyperlinkElementUtils -> Attribute True I String
-  username = fromPrim "HTMLHyperlinkElementUtils.getusername"
-                      prim__username
-                      prim__setUsername
+  username :  JSType t
+           => {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
+           -> t
+           -> Attribute True I String
+  username v = fromPrim "HTMLHyperlinkElementUtils.getusername"
+                        prim__username
+                        prim__setUsername
+                        (v :> HTMLHyperlinkElementUtils)
 
 namespace HTMLOrSVGElement
   
   export
-  autofocus : HTMLOrSVGElement -> Attribute True I Bool
-  autofocus = fromPrim "HTMLOrSVGElement.getautofocus"
-                       prim__autofocus
-                       prim__setAutofocus
+  autofocus :  JSType t
+            => {auto 0 _ : Elem HTMLOrSVGElement (Types t)}
+            -> t
+            -> Attribute True I Bool
+  autofocus v = fromPrim "HTMLOrSVGElement.getautofocus"
+                         prim__autofocus
+                         prim__setAutofocus
+                         (v :> HTMLOrSVGElement)
   
   export
   dataset : (obj : HTMLOrSVGElement) -> JSIO DOMStringMap
   dataset a = primJS $ HTMLOrSVGElement.prim__dataset a
   
   export
-  nonce : HTMLOrSVGElement -> Attribute True I String
-  nonce = fromPrim "HTMLOrSVGElement.getnonce" prim__nonce prim__setNonce
+  nonce :  JSType t
+        => {auto 0 _ : Elem HTMLOrSVGElement (Types t)}
+        -> t
+        -> Attribute True I String
+  nonce v = fromPrim "HTMLOrSVGElement.getnonce"
+                     prim__nonce
+                     prim__setNonce
+                     (v :> HTMLOrSVGElement)
   
   export
-  tabIndex : HTMLOrSVGElement -> Attribute True I Int32
-  tabIndex = fromPrim "HTMLOrSVGElement.gettabIndex"
-                      prim__tabIndex
-                      prim__setTabIndex
+  tabIndex :  JSType t
+           => {auto 0 _ : Elem HTMLOrSVGElement (Types t)}
+           -> t
+           -> Attribute True I Int32
+  tabIndex v = fromPrim "HTMLOrSVGElement.gettabIndex"
+                        prim__tabIndex
+                        prim__setTabIndex
+                        (v :> HTMLOrSVGElement)
   
   export
   blur : (obj : HTMLOrSVGElement) -> JSIO ()
@@ -8744,100 +11539,164 @@ namespace NavigatorPlugins
 namespace WindowEventHandlers
   
   export
-  onafterprint : WindowEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onafterprint = fromNullablePrim "WindowEventHandlers.getonafterprint"
-                                  prim__onafterprint
-                                  prim__setOnafterprint
+  onafterprint :  JSType t
+               => {auto 0 _ : Elem WindowEventHandlers (Types t)}
+               -> t
+               -> Attribute False Maybe EventHandlerNonNull
+  onafterprint v = fromNullablePrim "WindowEventHandlers.getonafterprint"
+                                    prim__onafterprint
+                                    prim__setOnafterprint
+                                    (v :> WindowEventHandlers)
   
   export
-  onbeforeprint : WindowEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onbeforeprint = fromNullablePrim "WindowEventHandlers.getonbeforeprint"
-                                   prim__onbeforeprint
-                                   prim__setOnbeforeprint
+  onbeforeprint :  JSType t
+                => {auto 0 _ : Elem WindowEventHandlers (Types t)}
+                -> t
+                -> Attribute False Maybe EventHandlerNonNull
+  onbeforeprint v = fromNullablePrim "WindowEventHandlers.getonbeforeprint"
+                                     prim__onbeforeprint
+                                     prim__setOnbeforeprint
+                                     (v :> WindowEventHandlers)
   
   export
-  onbeforeunload : WindowEventHandlers -> Attribute False Maybe OnBeforeUnloadEventHandlerNonNull
-  onbeforeunload = fromNullablePrim "WindowEventHandlers.getonbeforeunload"
-                                    prim__onbeforeunload
-                                    prim__setOnbeforeunload
+  onbeforeunload :  JSType t
+                 => {auto 0 _ : Elem WindowEventHandlers (Types t)}
+                 -> t
+                 -> Attribute False Maybe OnBeforeUnloadEventHandlerNonNull
+  onbeforeunload v = fromNullablePrim "WindowEventHandlers.getonbeforeunload"
+                                      prim__onbeforeunload
+                                      prim__setOnbeforeunload
+                                      (v :> WindowEventHandlers)
   
   export
-  onhashchange : WindowEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onhashchange = fromNullablePrim "WindowEventHandlers.getonhashchange"
-                                  prim__onhashchange
-                                  prim__setOnhashchange
+  onhashchange :  JSType t
+               => {auto 0 _ : Elem WindowEventHandlers (Types t)}
+               -> t
+               -> Attribute False Maybe EventHandlerNonNull
+  onhashchange v = fromNullablePrim "WindowEventHandlers.getonhashchange"
+                                    prim__onhashchange
+                                    prim__setOnhashchange
+                                    (v :> WindowEventHandlers)
   
   export
-  onlanguagechange : WindowEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onlanguagechange = fromNullablePrim "WindowEventHandlers.getonlanguagechange"
-                                      prim__onlanguagechange
-                                      prim__setOnlanguagechange
+  onlanguagechange :  JSType t
+                   => {auto 0 _ : Elem WindowEventHandlers (Types t)}
+                   -> t
+                   -> Attribute False Maybe EventHandlerNonNull
+  onlanguagechange v = fromNullablePrim "WindowEventHandlers.getonlanguagechange"
+                                        prim__onlanguagechange
+                                        prim__setOnlanguagechange
+                                        (v :> WindowEventHandlers)
   
   export
-  onmessage : WindowEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onmessage = fromNullablePrim "WindowEventHandlers.getonmessage"
-                               prim__onmessage
-                               prim__setOnmessage
+  onmessage :  JSType t
+            => {auto 0 _ : Elem WindowEventHandlers (Types t)}
+            -> t
+            -> Attribute False Maybe EventHandlerNonNull
+  onmessage v = fromNullablePrim "WindowEventHandlers.getonmessage"
+                                 prim__onmessage
+                                 prim__setOnmessage
+                                 (v :> WindowEventHandlers)
   
   export
-  onmessageerror : WindowEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onmessageerror = fromNullablePrim "WindowEventHandlers.getonmessageerror"
-                                    prim__onmessageerror
-                                    prim__setOnmessageerror
+  onmessageerror :  JSType t
+                 => {auto 0 _ : Elem WindowEventHandlers (Types t)}
+                 -> t
+                 -> Attribute False Maybe EventHandlerNonNull
+  onmessageerror v = fromNullablePrim "WindowEventHandlers.getonmessageerror"
+                                      prim__onmessageerror
+                                      prim__setOnmessageerror
+                                      (v :> WindowEventHandlers)
   
   export
-  onoffline : WindowEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onoffline = fromNullablePrim "WindowEventHandlers.getonoffline"
-                               prim__onoffline
-                               prim__setOnoffline
+  onoffline :  JSType t
+            => {auto 0 _ : Elem WindowEventHandlers (Types t)}
+            -> t
+            -> Attribute False Maybe EventHandlerNonNull
+  onoffline v = fromNullablePrim "WindowEventHandlers.getonoffline"
+                                 prim__onoffline
+                                 prim__setOnoffline
+                                 (v :> WindowEventHandlers)
   
   export
-  ononline : WindowEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  ononline = fromNullablePrim "WindowEventHandlers.getononline"
-                              prim__ononline
-                              prim__setOnonline
+  ononline :  JSType t
+           => {auto 0 _ : Elem WindowEventHandlers (Types t)}
+           -> t
+           -> Attribute False Maybe EventHandlerNonNull
+  ononline v = fromNullablePrim "WindowEventHandlers.getononline"
+                                prim__ononline
+                                prim__setOnonline
+                                (v :> WindowEventHandlers)
   
   export
-  onpagehide : WindowEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onpagehide = fromNullablePrim "WindowEventHandlers.getonpagehide"
-                                prim__onpagehide
-                                prim__setOnpagehide
+  onpagehide :  JSType t
+             => {auto 0 _ : Elem WindowEventHandlers (Types t)}
+             -> t
+             -> Attribute False Maybe EventHandlerNonNull
+  onpagehide v = fromNullablePrim "WindowEventHandlers.getonpagehide"
+                                  prim__onpagehide
+                                  prim__setOnpagehide
+                                  (v :> WindowEventHandlers)
   
   export
-  onpageshow : WindowEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onpageshow = fromNullablePrim "WindowEventHandlers.getonpageshow"
-                                prim__onpageshow
-                                prim__setOnpageshow
+  onpageshow :  JSType t
+             => {auto 0 _ : Elem WindowEventHandlers (Types t)}
+             -> t
+             -> Attribute False Maybe EventHandlerNonNull
+  onpageshow v = fromNullablePrim "WindowEventHandlers.getonpageshow"
+                                  prim__onpageshow
+                                  prim__setOnpageshow
+                                  (v :> WindowEventHandlers)
   
   export
-  onpopstate : WindowEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onpopstate = fromNullablePrim "WindowEventHandlers.getonpopstate"
-                                prim__onpopstate
-                                prim__setOnpopstate
+  onpopstate :  JSType t
+             => {auto 0 _ : Elem WindowEventHandlers (Types t)}
+             -> t
+             -> Attribute False Maybe EventHandlerNonNull
+  onpopstate v = fromNullablePrim "WindowEventHandlers.getonpopstate"
+                                  prim__onpopstate
+                                  prim__setOnpopstate
+                                  (v :> WindowEventHandlers)
   
   export
-  onrejectionhandled : WindowEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onrejectionhandled = fromNullablePrim "WindowEventHandlers.getonrejectionhandled"
-                                        prim__onrejectionhandled
-                                        prim__setOnrejectionhandled
+  onrejectionhandled :  JSType t
+                     => {auto 0 _ : Elem WindowEventHandlers (Types t)}
+                     -> t
+                     -> Attribute False Maybe EventHandlerNonNull
+  onrejectionhandled v = fromNullablePrim "WindowEventHandlers.getonrejectionhandled"
+                                          prim__onrejectionhandled
+                                          prim__setOnrejectionhandled
+                                          (v :> WindowEventHandlers)
   
   export
-  onstorage : WindowEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onstorage = fromNullablePrim "WindowEventHandlers.getonstorage"
-                               prim__onstorage
-                               prim__setOnstorage
+  onstorage :  JSType t
+            => {auto 0 _ : Elem WindowEventHandlers (Types t)}
+            -> t
+            -> Attribute False Maybe EventHandlerNonNull
+  onstorage v = fromNullablePrim "WindowEventHandlers.getonstorage"
+                                 prim__onstorage
+                                 prim__setOnstorage
+                                 (v :> WindowEventHandlers)
   
   export
-  onunhandledrejection : WindowEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onunhandledrejection = fromNullablePrim "WindowEventHandlers.getonunhandledrejection"
-                                          prim__onunhandledrejection
-                                          prim__setOnunhandledrejection
+  onunhandledrejection :  JSType t
+                       => {auto 0 _ : Elem WindowEventHandlers (Types t)}
+                       -> t
+                       -> Attribute False Maybe EventHandlerNonNull
+  onunhandledrejection v = fromNullablePrim "WindowEventHandlers.getonunhandledrejection"
+                                            prim__onunhandledrejection
+                                            prim__setOnunhandledrejection
+                                            (v :> WindowEventHandlers)
   
   export
-  onunload : WindowEventHandlers -> Attribute False Maybe EventHandlerNonNull
-  onunload = fromNullablePrim "WindowEventHandlers.getonunload"
-                              prim__onunload
-                              prim__setOnunload
+  onunload :  JSType t
+           => {auto 0 _ : Elem WindowEventHandlers (Types t)}
+           -> t
+           -> Attribute False Maybe EventHandlerNonNull
+  onunload v = fromNullablePrim "WindowEventHandlers.getonunload"
+                                prim__onunload
+                                prim__setOnunload
+                                (v :> WindowEventHandlers)
 
 --------------------------------------------------------------------------------
 --          Dictionaries
@@ -8854,11 +11713,15 @@ namespace AssignedNodesOptions
   new' = primJS $ AssignedNodesOptions.prim__new undef
   
   export
-  flatten : AssignedNodesOptions -> Attribute True Optional Bool
-  flatten = fromUndefOrPrim "AssignedNodesOptions.getflatten"
-                            prim__flatten
-                            prim__setFlatten
-                            False
+  flatten :  JSType t
+          => {auto 0 _ : Elem AssignedNodesOptions (Types t)}
+          -> t
+          -> Attribute True Optional Bool
+  flatten v = fromUndefOrPrim "AssignedNodesOptions.getflatten"
+                              prim__flatten
+                              prim__setFlatten
+                              False
+                              (v :> AssignedNodesOptions)
 
 namespace CanvasRenderingContext2DSettings
   
@@ -8874,18 +11737,26 @@ namespace CanvasRenderingContext2DSettings
   new' = primJS $ CanvasRenderingContext2DSettings.prim__new undef undef
   
   export
-  alpha : CanvasRenderingContext2DSettings -> Attribute True Optional Bool
-  alpha = fromUndefOrPrim "CanvasRenderingContext2DSettings.getalpha"
-                          prim__alpha
-                          prim__setAlpha
-                          True
+  alpha :  JSType t
+        => {auto 0 _ : Elem CanvasRenderingContext2DSettings (Types t)}
+        -> t
+        -> Attribute True Optional Bool
+  alpha v = fromUndefOrPrim "CanvasRenderingContext2DSettings.getalpha"
+                            prim__alpha
+                            prim__setAlpha
+                            True
+                            (v :> CanvasRenderingContext2DSettings)
   
   export
-  desynchronized : CanvasRenderingContext2DSettings -> Attribute True Optional Bool
-  desynchronized = fromUndefOrPrim "CanvasRenderingContext2DSettings.getdesynchronized"
-                                   prim__desynchronized
-                                   prim__setDesynchronized
-                                   False
+  desynchronized :  JSType t
+                 => {auto 0 _ : Elem CanvasRenderingContext2DSettings (Types t)}
+                 -> t
+                 -> Attribute True Optional Bool
+  desynchronized v = fromUndefOrPrim "CanvasRenderingContext2DSettings.getdesynchronized"
+                                     prim__desynchronized
+                                     prim__setDesynchronized
+                                     False
+                                     (v :> CanvasRenderingContext2DSettings)
 
 namespace CloseEventInit
   
@@ -8901,22 +11772,37 @@ namespace CloseEventInit
   new' = primJS $ CloseEventInit.prim__new undef undef undef
   
   export
-  code : CloseEventInit -> Attribute True Optional UInt16
-  code = fromUndefOrPrim "CloseEventInit.getcode" prim__code prim__setCode 0
+  code :  JSType t
+       => {auto 0 _ : Elem CloseEventInit (Types t)}
+       -> t
+       -> Attribute True Optional UInt16
+  code v = fromUndefOrPrim "CloseEventInit.getcode"
+                           prim__code
+                           prim__setCode
+                           0
+                           (v :> CloseEventInit)
   
   export
-  reason : CloseEventInit -> Attribute True Optional String
-  reason = fromUndefOrPrim "CloseEventInit.getreason"
-                           prim__reason
-                           prim__setReason
-                           ""
+  reason :  JSType t
+         => {auto 0 _ : Elem CloseEventInit (Types t)}
+         -> t
+         -> Attribute True Optional String
+  reason v = fromUndefOrPrim "CloseEventInit.getreason"
+                             prim__reason
+                             prim__setReason
+                             ""
+                             (v :> CloseEventInit)
   
   export
-  wasClean : CloseEventInit -> Attribute True Optional Bool
-  wasClean = fromUndefOrPrim "CloseEventInit.getwasClean"
-                             prim__wasClean
-                             prim__setWasClean
-                             False
+  wasClean :  JSType t
+           => {auto 0 _ : Elem CloseEventInit (Types t)}
+           -> t
+           -> Attribute True Optional Bool
+  wasClean v = fromUndefOrPrim "CloseEventInit.getwasClean"
+                               prim__wasClean
+                               prim__setWasClean
+                               False
+                               (v :> CloseEventInit)
 
 namespace DragEventInit
   
@@ -8932,11 +11818,15 @@ namespace DragEventInit
   new' = primJS $ DragEventInit.prim__new undef
   
   export
-  dataTransfer : DragEventInit -> Attribute True Optional (Maybe DataTransfer)
-  dataTransfer = fromUndefOrPrim "DragEventInit.getdataTransfer"
-                                 prim__dataTransfer
-                                 prim__setDataTransfer
-                                 Nothing
+  dataTransfer :  JSType t
+               => {auto 0 _ : Elem DragEventInit (Types t)}
+               -> t
+               -> Attribute True Optional (Maybe DataTransfer)
+  dataTransfer v = fromUndefOrPrim "DragEventInit.getdataTransfer"
+                                   prim__dataTransfer
+                                   prim__setDataTransfer
+                                   Nothing
+                                   (v :> DragEventInit)
 
 namespace ElementDefinitionOptions
   
@@ -8949,10 +11839,14 @@ namespace ElementDefinitionOptions
   new' = primJS $ ElementDefinitionOptions.prim__new undef
   
   export
-  extends : ElementDefinitionOptions -> Attribute False Optional String
-  extends = fromUndefOrPrimNoDefault "ElementDefinitionOptions.getextends"
-                                     prim__extends
-                                     prim__setExtends
+  extends :  JSType t
+          => {auto 0 _ : Elem ElementDefinitionOptions (Types t)}
+          -> t
+          -> Attribute False Optional String
+  extends v = fromUndefOrPrimNoDefault "ElementDefinitionOptions.getextends"
+                                       prim__extends
+                                       prim__setExtends
+                                       (v :> ElementDefinitionOptions)
 
 namespace ErrorEventInit
   
@@ -8975,36 +11869,59 @@ namespace ErrorEventInit
   new' = primJS $ ErrorEventInit.prim__new undef undef undef undef undef
   
   export
-  colno : ErrorEventInit -> Attribute True Optional UInt32
-  colno = fromUndefOrPrim "ErrorEventInit.getcolno" prim__colno prim__setColno 0
+  colno :  JSType t
+        => {auto 0 _ : Elem ErrorEventInit (Types t)}
+        -> t
+        -> Attribute True Optional UInt32
+  colno v = fromUndefOrPrim "ErrorEventInit.getcolno"
+                            prim__colno
+                            prim__setColno
+                            0
+                            (v :> ErrorEventInit)
   
   export
-  error : ErrorEventInit -> Attribute True Optional Any
-  error = fromUndefOrPrim "ErrorEventInit.geterror"
-                          prim__error
-                          prim__setError
-                          (MkAny $ null {a = ()})
+  error :  JSType t
+        => {auto 0 _ : Elem ErrorEventInit (Types t)}
+        -> t
+        -> Attribute True Optional Any
+  error v = fromUndefOrPrim "ErrorEventInit.geterror"
+                            prim__error
+                            prim__setError
+                            (MkAny $ null {a = ()})
+                            (v :> ErrorEventInit)
   
   export
-  filename : ErrorEventInit -> Attribute True Optional String
-  filename = fromUndefOrPrim "ErrorEventInit.getfilename"
-                             prim__filename
-                             prim__setFilename
-                             ""
+  filename :  JSType t
+           => {auto 0 _ : Elem ErrorEventInit (Types t)}
+           -> t
+           -> Attribute True Optional String
+  filename v = fromUndefOrPrim "ErrorEventInit.getfilename"
+                               prim__filename
+                               prim__setFilename
+                               ""
+                               (v :> ErrorEventInit)
   
   export
-  lineno : ErrorEventInit -> Attribute True Optional UInt32
-  lineno = fromUndefOrPrim "ErrorEventInit.getlineno"
-                           prim__lineno
-                           prim__setLineno
-                           0
+  lineno :  JSType t
+         => {auto 0 _ : Elem ErrorEventInit (Types t)}
+         -> t
+         -> Attribute True Optional UInt32
+  lineno v = fromUndefOrPrim "ErrorEventInit.getlineno"
+                             prim__lineno
+                             prim__setLineno
+                             0
+                             (v :> ErrorEventInit)
   
   export
-  message : ErrorEventInit -> Attribute True Optional String
-  message = fromUndefOrPrim "ErrorEventInit.getmessage"
-                            prim__message
-                            prim__setMessage
-                            ""
+  message :  JSType t
+          => {auto 0 _ : Elem ErrorEventInit (Types t)}
+          -> t
+          -> Attribute True Optional String
+  message v = fromUndefOrPrim "ErrorEventInit.getmessage"
+                              prim__message
+                              prim__setMessage
+                              ""
+                              (v :> ErrorEventInit)
 
 namespace EventSourceInit
   
@@ -9017,11 +11934,15 @@ namespace EventSourceInit
   new' = primJS $ EventSourceInit.prim__new undef
   
   export
-  withCredentials : EventSourceInit -> Attribute True Optional Bool
-  withCredentials = fromUndefOrPrim "EventSourceInit.getwithCredentials"
-                                    prim__withCredentials
-                                    prim__setWithCredentials
-                                    False
+  withCredentials :  JSType t
+                  => {auto 0 _ : Elem EventSourceInit (Types t)}
+                  -> t
+                  -> Attribute True Optional Bool
+  withCredentials v = fromUndefOrPrim "EventSourceInit.getwithCredentials"
+                                      prim__withCredentials
+                                      prim__setWithCredentials
+                                      False
+                                      (v :> EventSourceInit)
 
 namespace FocusOptions
   
@@ -9034,11 +11955,15 @@ namespace FocusOptions
   new' = primJS $ FocusOptions.prim__new undef
   
   export
-  preventScroll : FocusOptions -> Attribute True Optional Bool
-  preventScroll = fromUndefOrPrim "FocusOptions.getpreventScroll"
-                                  prim__preventScroll
-                                  prim__setPreventScroll
-                                  False
+  preventScroll :  JSType t
+                => {auto 0 _ : Elem FocusOptions (Types t)}
+                -> t
+                -> Attribute True Optional Bool
+  preventScroll v = fromUndefOrPrim "FocusOptions.getpreventScroll"
+                                    prim__preventScroll
+                                    prim__setPreventScroll
+                                    False
+                                    (v :> FocusOptions)
 
 namespace FormDataEventInit
   
@@ -9050,10 +11975,14 @@ namespace FormDataEventInit
   new a = primJS $ FormDataEventInit.prim__new (up a)
   
   export
-  formData : FormDataEventInit -> Attribute True I FormData
-  formData = fromPrim "FormDataEventInit.getformData"
-                      prim__formData
-                      prim__setFormData
+  formData :  JSType t
+           => {auto 0 _ : Elem FormDataEventInit (Types t)}
+           -> t
+           -> Attribute True I FormData
+  formData v = fromPrim "FormDataEventInit.getformData"
+                        prim__formData
+                        prim__setFormData
+                        (v :> FormDataEventInit)
 
 namespace HashChangeEventInit
   
@@ -9068,18 +11997,26 @@ namespace HashChangeEventInit
   new' = primJS $ HashChangeEventInit.prim__new undef undef
   
   export
-  newURL : HashChangeEventInit -> Attribute True Optional String
-  newURL = fromUndefOrPrim "HashChangeEventInit.getnewURL"
-                           prim__newURL
-                           prim__setNewURL
-                           ""
+  newURL :  JSType t
+         => {auto 0 _ : Elem HashChangeEventInit (Types t)}
+         -> t
+         -> Attribute True Optional String
+  newURL v = fromUndefOrPrim "HashChangeEventInit.getnewURL"
+                             prim__newURL
+                             prim__setNewURL
+                             ""
+                             (v :> HashChangeEventInit)
   
   export
-  oldURL : HashChangeEventInit -> Attribute True Optional String
-  oldURL = fromUndefOrPrim "HashChangeEventInit.getoldURL"
-                           prim__oldURL
-                           prim__setOldURL
-                           ""
+  oldURL :  JSType t
+         => {auto 0 _ : Elem HashChangeEventInit (Types t)}
+         -> t
+         -> Attribute True Optional String
+  oldURL v = fromUndefOrPrim "HashChangeEventInit.getoldURL"
+                             prim__oldURL
+                             prim__setOldURL
+                             ""
+                             (v :> HashChangeEventInit)
 
 namespace ImageBitmapOptions
   
@@ -9105,40 +12042,64 @@ namespace ImageBitmapOptions
        $ ImageBitmapOptions.prim__new undef undef undef undef undef undef
   
   export
-  colorSpaceConversion : ImageBitmapOptions -> Attribute False Optional ColorSpaceConversion
-  colorSpaceConversion = fromUndefOrPrimNoDefault "ImageBitmapOptions.getcolorSpaceConversion"
-                                                  prim__colorSpaceConversion
-                                                  prim__setColorSpaceConversion
+  colorSpaceConversion :  JSType t
+                       => {auto 0 _ : Elem ImageBitmapOptions (Types t)}
+                       -> t
+                       -> Attribute False Optional ColorSpaceConversion
+  colorSpaceConversion v = fromUndefOrPrimNoDefault "ImageBitmapOptions.getcolorSpaceConversion"
+                                                    prim__colorSpaceConversion
+                                                    prim__setColorSpaceConversion
+                                                    (v :> ImageBitmapOptions)
   
   export
-  imageOrientation : ImageBitmapOptions -> Attribute False Optional ImageOrientation
-  imageOrientation = fromUndefOrPrimNoDefault "ImageBitmapOptions.getimageOrientation"
-                                              prim__imageOrientation
-                                              prim__setImageOrientation
+  imageOrientation :  JSType t
+                   => {auto 0 _ : Elem ImageBitmapOptions (Types t)}
+                   -> t
+                   -> Attribute False Optional ImageOrientation
+  imageOrientation v = fromUndefOrPrimNoDefault "ImageBitmapOptions.getimageOrientation"
+                                                prim__imageOrientation
+                                                prim__setImageOrientation
+                                                (v :> ImageBitmapOptions)
   
   export
-  premultiplyAlpha : ImageBitmapOptions -> Attribute False Optional PremultiplyAlpha
-  premultiplyAlpha = fromUndefOrPrimNoDefault "ImageBitmapOptions.getpremultiplyAlpha"
-                                              prim__premultiplyAlpha
-                                              prim__setPremultiplyAlpha
+  premultiplyAlpha :  JSType t
+                   => {auto 0 _ : Elem ImageBitmapOptions (Types t)}
+                   -> t
+                   -> Attribute False Optional PremultiplyAlpha
+  premultiplyAlpha v = fromUndefOrPrimNoDefault "ImageBitmapOptions.getpremultiplyAlpha"
+                                                prim__premultiplyAlpha
+                                                prim__setPremultiplyAlpha
+                                                (v :> ImageBitmapOptions)
   
   export
-  resizeHeight : ImageBitmapOptions -> Attribute False Optional UInt32
-  resizeHeight = fromUndefOrPrimNoDefault "ImageBitmapOptions.getresizeHeight"
-                                          prim__resizeHeight
-                                          prim__setResizeHeight
+  resizeHeight :  JSType t
+               => {auto 0 _ : Elem ImageBitmapOptions (Types t)}
+               -> t
+               -> Attribute False Optional UInt32
+  resizeHeight v = fromUndefOrPrimNoDefault "ImageBitmapOptions.getresizeHeight"
+                                            prim__resizeHeight
+                                            prim__setResizeHeight
+                                            (v :> ImageBitmapOptions)
   
   export
-  resizeQuality : ImageBitmapOptions -> Attribute False Optional ResizeQuality
-  resizeQuality = fromUndefOrPrimNoDefault "ImageBitmapOptions.getresizeQuality"
-                                           prim__resizeQuality
-                                           prim__setResizeQuality
+  resizeQuality :  JSType t
+                => {auto 0 _ : Elem ImageBitmapOptions (Types t)}
+                -> t
+                -> Attribute False Optional ResizeQuality
+  resizeQuality v = fromUndefOrPrimNoDefault "ImageBitmapOptions.getresizeQuality"
+                                             prim__resizeQuality
+                                             prim__setResizeQuality
+                                             (v :> ImageBitmapOptions)
   
   export
-  resizeWidth : ImageBitmapOptions -> Attribute False Optional UInt32
-  resizeWidth = fromUndefOrPrimNoDefault "ImageBitmapOptions.getresizeWidth"
-                                         prim__resizeWidth
-                                         prim__setResizeWidth
+  resizeWidth :  JSType t
+              => {auto 0 _ : Elem ImageBitmapOptions (Types t)}
+              -> t
+              -> Attribute False Optional UInt32
+  resizeWidth v = fromUndefOrPrimNoDefault "ImageBitmapOptions.getresizeWidth"
+                                           prim__resizeWidth
+                                           prim__setResizeWidth
+                                           (v :> ImageBitmapOptions)
 
 namespace ImageBitmapRenderingContextSettings
   
@@ -9151,11 +12112,15 @@ namespace ImageBitmapRenderingContextSettings
   new' = primJS $ ImageBitmapRenderingContextSettings.prim__new undef
   
   export
-  alpha : ImageBitmapRenderingContextSettings -> Attribute True Optional Bool
-  alpha = fromUndefOrPrim "ImageBitmapRenderingContextSettings.getalpha"
-                          prim__alpha
-                          prim__setAlpha
-                          True
+  alpha :  JSType t
+        => {auto 0 _ : Elem ImageBitmapRenderingContextSettings (Types t)}
+        -> t
+        -> Attribute True Optional Bool
+  alpha v = fromUndefOrPrim "ImageBitmapRenderingContextSettings.getalpha"
+                            prim__alpha
+                            prim__setAlpha
+                            True
+                            (v :> ImageBitmapRenderingContextSettings)
 
 namespace ImageEncodeOptions
   
@@ -9170,17 +12135,25 @@ namespace ImageEncodeOptions
   new' = primJS $ ImageEncodeOptions.prim__new undef undef
   
   export
-  quality : ImageEncodeOptions -> Attribute False Optional Double
-  quality = fromUndefOrPrimNoDefault "ImageEncodeOptions.getquality"
-                                     prim__quality
-                                     prim__setQuality
+  quality :  JSType t
+          => {auto 0 _ : Elem ImageEncodeOptions (Types t)}
+          -> t
+          -> Attribute False Optional Double
+  quality v = fromUndefOrPrimNoDefault "ImageEncodeOptions.getquality"
+                                       prim__quality
+                                       prim__setQuality
+                                       (v :> ImageEncodeOptions)
   
   export
-  type : ImageEncodeOptions -> Attribute True Optional String
-  type = fromUndefOrPrim "ImageEncodeOptions.gettype"
-                         prim__type
-                         prim__setType
-                         "image/png"
+  type :  JSType t
+       => {auto 0 _ : Elem ImageEncodeOptions (Types t)}
+       -> t
+       -> Attribute True Optional String
+  type v = fromUndefOrPrim "ImageEncodeOptions.gettype"
+                           prim__type
+                           prim__setType
+                           "image/png"
+                           (v :> ImageEncodeOptions)
 
 namespace MessageEventInit
   
@@ -9206,40 +12179,60 @@ namespace MessageEventInit
   new' = primJS $ MessageEventInit.prim__new undef undef undef undef undef
   
   export
-  data_ : MessageEventInit -> Attribute True Optional Any
-  data_ = fromUndefOrPrim "MessageEventInit.getdata"
-                          prim__data
-                          prim__setData
-                          (MkAny $ null {a = ()})
+  data_ :  JSType t
+        => {auto 0 _ : Elem MessageEventInit (Types t)}
+        -> t
+        -> Attribute True Optional Any
+  data_ v = fromUndefOrPrim "MessageEventInit.getdata"
+                            prim__data
+                            prim__setData
+                            (MkAny $ null {a = ()})
+                            (v :> MessageEventInit)
   
   export
-  lastEventId : MessageEventInit -> Attribute True Optional String
-  lastEventId = fromUndefOrPrim "MessageEventInit.getlastEventId"
-                                prim__lastEventId
-                                prim__setLastEventId
-                                ""
+  lastEventId :  JSType t
+              => {auto 0 _ : Elem MessageEventInit (Types t)}
+              -> t
+              -> Attribute True Optional String
+  lastEventId v = fromUndefOrPrim "MessageEventInit.getlastEventId"
+                                  prim__lastEventId
+                                  prim__setLastEventId
+                                  ""
+                                  (v :> MessageEventInit)
   
   export
-  origin : MessageEventInit -> Attribute True Optional String
-  origin = fromUndefOrPrim "MessageEventInit.getorigin"
-                           prim__origin
-                           prim__setOrigin
-                           ""
+  origin :  JSType t
+         => {auto 0 _ : Elem MessageEventInit (Types t)}
+         -> t
+         -> Attribute True Optional String
+  origin v = fromUndefOrPrim "MessageEventInit.getorigin"
+                             prim__origin
+                             prim__setOrigin
+                             ""
+                             (v :> MessageEventInit)
   
   export
-  ports : MessageEventInit -> Attribute False Optional (Array MessagePort)
-  ports = fromUndefOrPrimNoDefault "MessageEventInit.getports"
-                                   prim__ports
-                                   prim__setPorts
+  ports :  JSType t
+        => {auto 0 _ : Elem MessageEventInit (Types t)}
+        -> t
+        -> Attribute False Optional (Array MessagePort)
+  ports v = fromUndefOrPrimNoDefault "MessageEventInit.getports"
+                                     prim__ports
+                                     prim__setPorts
+                                     (v :> MessageEventInit)
   
   export
-  source : MessageEventInit -> Attribute True Optional (Maybe (Union3 WindowProxy
-                                                                      MessagePort
-                                                                      ServiceWorker))
-  source = fromUndefOrPrim "MessageEventInit.getsource"
-                           prim__source
-                           prim__setSource
-                           Nothing
+  source :  JSType t
+         => {auto 0 _ : Elem MessageEventInit (Types t)}
+         -> t
+         -> Attribute True Optional (Maybe (Union3 WindowProxy
+                                                   MessagePort
+                                                   ServiceWorker))
+  source v = fromUndefOrPrim "MessageEventInit.getsource"
+                             prim__source
+                             prim__setSource
+                             Nothing
+                             (v :> MessageEventInit)
 
 namespace PageTransitionEventInit
   
@@ -9252,11 +12245,15 @@ namespace PageTransitionEventInit
   new' = primJS $ PageTransitionEventInit.prim__new undef
   
   export
-  persisted : PageTransitionEventInit -> Attribute True Optional Bool
-  persisted = fromUndefOrPrim "PageTransitionEventInit.getpersisted"
-                              prim__persisted
-                              prim__setPersisted
-                              False
+  persisted :  JSType t
+            => {auto 0 _ : Elem PageTransitionEventInit (Types t)}
+            -> t
+            -> Attribute True Optional Bool
+  persisted v = fromUndefOrPrim "PageTransitionEventInit.getpersisted"
+                                prim__persisted
+                                prim__setPersisted
+                                False
+                                (v :> PageTransitionEventInit)
 
 namespace PopStateEventInit
   
@@ -9269,11 +12266,15 @@ namespace PopStateEventInit
   new' = primJS $ PopStateEventInit.prim__new undef
   
   export
-  state : PopStateEventInit -> Attribute True Optional Any
-  state = fromUndefOrPrim "PopStateEventInit.getstate"
-                          prim__state
-                          prim__setState
-                          (MkAny $ null {a = ()})
+  state :  JSType t
+        => {auto 0 _ : Elem PopStateEventInit (Types t)}
+        -> t
+        -> Attribute True Optional Any
+  state v = fromUndefOrPrim "PopStateEventInit.getstate"
+                            prim__state
+                            prim__setState
+                            (MkAny $ null {a = ()})
+                            (v :> PopStateEventInit)
 
 namespace PostMessageOptions
   
@@ -9286,10 +12287,14 @@ namespace PostMessageOptions
   new' = primJS $ PostMessageOptions.prim__new undef
   
   export
-  transfer : PostMessageOptions -> Attribute False Optional (Array Object)
-  transfer = fromUndefOrPrimNoDefault "PostMessageOptions.gettransfer"
-                                      prim__transfer
-                                      prim__setTransfer
+  transfer :  JSType t
+           => {auto 0 _ : Elem PostMessageOptions (Types t)}
+           -> t
+           -> Attribute False Optional (Array Object)
+  transfer v = fromUndefOrPrimNoDefault "PostMessageOptions.gettransfer"
+                                        prim__transfer
+                                        prim__setTransfer
+                                        (v :> PostMessageOptions)
 
 namespace PromiseRejectionEventInit
   
@@ -9304,16 +12309,24 @@ namespace PromiseRejectionEventInit
   new' a = primJS $ PromiseRejectionEventInit.prim__new a undef
   
   export
-  promise : PromiseRejectionEventInit -> Attribute True I (Promise AnyPtr)
-  promise = fromPrim "PromiseRejectionEventInit.getpromise"
-                     prim__promise
-                     prim__setPromise
+  promise :  JSType t
+          => {auto 0 _ : Elem PromiseRejectionEventInit (Types t)}
+          -> t
+          -> Attribute True I (Promise AnyPtr)
+  promise v = fromPrim "PromiseRejectionEventInit.getpromise"
+                       prim__promise
+                       prim__setPromise
+                       (v :> PromiseRejectionEventInit)
   
   export
-  reason : PromiseRejectionEventInit -> Attribute False Optional Any
-  reason = fromUndefOrPrimNoDefault "PromiseRejectionEventInit.getreason"
-                                    prim__reason
-                                    prim__setReason
+  reason :  JSType t
+         => {auto 0 _ : Elem PromiseRejectionEventInit (Types t)}
+         -> t
+         -> Attribute False Optional Any
+  reason v = fromUndefOrPrimNoDefault "PromiseRejectionEventInit.getreason"
+                                      prim__reason
+                                      prim__setReason
+                                      (v :> PromiseRejectionEventInit)
 
 namespace StorageEventInit
   
@@ -9338,33 +12351,59 @@ namespace StorageEventInit
   new' = primJS $ StorageEventInit.prim__new undef undef undef undef undef
   
   export
-  key : StorageEventInit -> Attribute True Optional (Maybe String)
-  key = fromUndefOrPrim "StorageEventInit.getkey" prim__key prim__setKey Nothing
+  key :  JSType t
+      => {auto 0 _ : Elem StorageEventInit (Types t)}
+      -> t
+      -> Attribute True Optional (Maybe String)
+  key v = fromUndefOrPrim "StorageEventInit.getkey"
+                          prim__key
+                          prim__setKey
+                          Nothing
+                          (v :> StorageEventInit)
   
   export
-  newValue : StorageEventInit -> Attribute True Optional (Maybe String)
-  newValue = fromUndefOrPrim "StorageEventInit.getnewValue"
-                             prim__newValue
-                             prim__setNewValue
-                             Nothing
+  newValue :  JSType t
+           => {auto 0 _ : Elem StorageEventInit (Types t)}
+           -> t
+           -> Attribute True Optional (Maybe String)
+  newValue v = fromUndefOrPrim "StorageEventInit.getnewValue"
+                               prim__newValue
+                               prim__setNewValue
+                               Nothing
+                               (v :> StorageEventInit)
   
   export
-  oldValue : StorageEventInit -> Attribute True Optional (Maybe String)
-  oldValue = fromUndefOrPrim "StorageEventInit.getoldValue"
-                             prim__oldValue
-                             prim__setOldValue
-                             Nothing
+  oldValue :  JSType t
+           => {auto 0 _ : Elem StorageEventInit (Types t)}
+           -> t
+           -> Attribute True Optional (Maybe String)
+  oldValue v = fromUndefOrPrim "StorageEventInit.getoldValue"
+                               prim__oldValue
+                               prim__setOldValue
+                               Nothing
+                               (v :> StorageEventInit)
   
   export
-  storageArea : StorageEventInit -> Attribute True Optional (Maybe Storage)
-  storageArea = fromUndefOrPrim "StorageEventInit.getstorageArea"
-                                prim__storageArea
-                                prim__setStorageArea
-                                Nothing
+  storageArea :  JSType t
+              => {auto 0 _ : Elem StorageEventInit (Types t)}
+              -> t
+              -> Attribute True Optional (Maybe Storage)
+  storageArea v = fromUndefOrPrim "StorageEventInit.getstorageArea"
+                                  prim__storageArea
+                                  prim__setStorageArea
+                                  Nothing
+                                  (v :> StorageEventInit)
   
   export
-  url : StorageEventInit -> Attribute True Optional String
-  url = fromUndefOrPrim "StorageEventInit.geturl" prim__url prim__setUrl ""
+  url :  JSType t
+      => {auto 0 _ : Elem StorageEventInit (Types t)}
+      -> t
+      -> Attribute True Optional String
+  url v = fromUndefOrPrim "StorageEventInit.geturl"
+                          prim__url
+                          prim__setUrl
+                          ""
+                          (v :> StorageEventInit)
 
 namespace SubmitEventInit
   
@@ -9380,11 +12419,15 @@ namespace SubmitEventInit
   new' = primJS $ SubmitEventInit.prim__new undef
   
   export
-  submitter : SubmitEventInit -> Attribute True Optional (Maybe HTMLElement)
-  submitter = fromUndefOrPrim "SubmitEventInit.getsubmitter"
-                              prim__submitter
-                              prim__setSubmitter
-                              Nothing
+  submitter :  JSType t
+            => {auto 0 _ : Elem SubmitEventInit (Types t)}
+            -> t
+            -> Attribute True Optional (Maybe HTMLElement)
+  submitter v = fromUndefOrPrim "SubmitEventInit.getsubmitter"
+                                prim__submitter
+                                prim__setSubmitter
+                                Nothing
+                                (v :> SubmitEventInit)
 
 namespace TrackEventInit
   
@@ -9401,14 +12444,18 @@ namespace TrackEventInit
   new' = primJS $ TrackEventInit.prim__new undef
   
   export
-  track : TrackEventInit -> Attribute True Optional (Maybe (NS I [ VideoTrack
-                                                                 , AudioTrack
-                                                                 , TextTrack
-                                                                 ]))
-  track = fromUndefOrPrim "TrackEventInit.gettrack"
-                          prim__track
-                          prim__setTrack
-                          Nothing
+  track :  JSType t
+        => {auto 0 _ : Elem TrackEventInit (Types t)}
+        -> t
+        -> Attribute True Optional (Maybe (NS I [ VideoTrack
+                                                , AudioTrack
+                                                , TextTrack
+                                                ]))
+  track v = fromUndefOrPrim "TrackEventInit.gettrack"
+                            prim__track
+                            prim__setTrack
+                            Nothing
+                            (v :> TrackEventInit)
 
 namespace ValidityStateFlags
   
@@ -9451,74 +12498,114 @@ namespace ValidityStateFlags
                                       undef
   
   export
-  badInput : ValidityStateFlags -> Attribute True Optional Bool
-  badInput = fromUndefOrPrim "ValidityStateFlags.getbadInput"
-                             prim__badInput
-                             prim__setBadInput
-                             False
+  badInput :  JSType t
+           => {auto 0 _ : Elem ValidityStateFlags (Types t)}
+           -> t
+           -> Attribute True Optional Bool
+  badInput v = fromUndefOrPrim "ValidityStateFlags.getbadInput"
+                               prim__badInput
+                               prim__setBadInput
+                               False
+                               (v :> ValidityStateFlags)
   
   export
-  customError : ValidityStateFlags -> Attribute True Optional Bool
-  customError = fromUndefOrPrim "ValidityStateFlags.getcustomError"
-                                prim__customError
-                                prim__setCustomError
-                                False
-  
-  export
-  patternMismatch : ValidityStateFlags -> Attribute True Optional Bool
-  patternMismatch = fromUndefOrPrim "ValidityStateFlags.getpatternMismatch"
-                                    prim__patternMismatch
-                                    prim__setPatternMismatch
-                                    False
-  
-  export
-  rangeOverflow : ValidityStateFlags -> Attribute True Optional Bool
-  rangeOverflow = fromUndefOrPrim "ValidityStateFlags.getrangeOverflow"
-                                  prim__rangeOverflow
-                                  prim__setRangeOverflow
+  customError :  JSType t
+              => {auto 0 _ : Elem ValidityStateFlags (Types t)}
+              -> t
+              -> Attribute True Optional Bool
+  customError v = fromUndefOrPrim "ValidityStateFlags.getcustomError"
+                                  prim__customError
+                                  prim__setCustomError
                                   False
+                                  (v :> ValidityStateFlags)
   
   export
-  rangeUnderflow : ValidityStateFlags -> Attribute True Optional Bool
-  rangeUnderflow = fromUndefOrPrim "ValidityStateFlags.getrangeUnderflow"
-                                   prim__rangeUnderflow
-                                   prim__setRangeUnderflow
+  patternMismatch :  JSType t
+                  => {auto 0 _ : Elem ValidityStateFlags (Types t)}
+                  -> t
+                  -> Attribute True Optional Bool
+  patternMismatch v = fromUndefOrPrim "ValidityStateFlags.getpatternMismatch"
+                                      prim__patternMismatch
+                                      prim__setPatternMismatch
+                                      False
+                                      (v :> ValidityStateFlags)
+  
+  export
+  rangeOverflow :  JSType t
+                => {auto 0 _ : Elem ValidityStateFlags (Types t)}
+                -> t
+                -> Attribute True Optional Bool
+  rangeOverflow v = fromUndefOrPrim "ValidityStateFlags.getrangeOverflow"
+                                    prim__rangeOverflow
+                                    prim__setRangeOverflow
+                                    False
+                                    (v :> ValidityStateFlags)
+  
+  export
+  rangeUnderflow :  JSType t
+                 => {auto 0 _ : Elem ValidityStateFlags (Types t)}
+                 -> t
+                 -> Attribute True Optional Bool
+  rangeUnderflow v = fromUndefOrPrim "ValidityStateFlags.getrangeUnderflow"
+                                     prim__rangeUnderflow
+                                     prim__setRangeUnderflow
+                                     False
+                                     (v :> ValidityStateFlags)
+  
+  export
+  stepMismatch :  JSType t
+               => {auto 0 _ : Elem ValidityStateFlags (Types t)}
+               -> t
+               -> Attribute True Optional Bool
+  stepMismatch v = fromUndefOrPrim "ValidityStateFlags.getstepMismatch"
+                                   prim__stepMismatch
+                                   prim__setStepMismatch
                                    False
+                                   (v :> ValidityStateFlags)
   
   export
-  stepMismatch : ValidityStateFlags -> Attribute True Optional Bool
-  stepMismatch = fromUndefOrPrim "ValidityStateFlags.getstepMismatch"
-                                 prim__stepMismatch
-                                 prim__setStepMismatch
-                                 False
+  tooLong :  JSType t
+          => {auto 0 _ : Elem ValidityStateFlags (Types t)}
+          -> t
+          -> Attribute True Optional Bool
+  tooLong v = fromUndefOrPrim "ValidityStateFlags.gettooLong"
+                              prim__tooLong
+                              prim__setTooLong
+                              False
+                              (v :> ValidityStateFlags)
   
   export
-  tooLong : ValidityStateFlags -> Attribute True Optional Bool
-  tooLong = fromUndefOrPrim "ValidityStateFlags.gettooLong"
-                            prim__tooLong
-                            prim__setTooLong
-                            False
+  tooShort :  JSType t
+           => {auto 0 _ : Elem ValidityStateFlags (Types t)}
+           -> t
+           -> Attribute True Optional Bool
+  tooShort v = fromUndefOrPrim "ValidityStateFlags.gettooShort"
+                               prim__tooShort
+                               prim__setTooShort
+                               False
+                               (v :> ValidityStateFlags)
   
   export
-  tooShort : ValidityStateFlags -> Attribute True Optional Bool
-  tooShort = fromUndefOrPrim "ValidityStateFlags.gettooShort"
-                             prim__tooShort
-                             prim__setTooShort
-                             False
+  typeMismatch :  JSType t
+               => {auto 0 _ : Elem ValidityStateFlags (Types t)}
+               -> t
+               -> Attribute True Optional Bool
+  typeMismatch v = fromUndefOrPrim "ValidityStateFlags.gettypeMismatch"
+                                   prim__typeMismatch
+                                   prim__setTypeMismatch
+                                   False
+                                   (v :> ValidityStateFlags)
   
   export
-  typeMismatch : ValidityStateFlags -> Attribute True Optional Bool
-  typeMismatch = fromUndefOrPrim "ValidityStateFlags.gettypeMismatch"
-                                 prim__typeMismatch
-                                 prim__setTypeMismatch
-                                 False
-  
-  export
-  valueMissing : ValidityStateFlags -> Attribute True Optional Bool
-  valueMissing = fromUndefOrPrim "ValidityStateFlags.getvalueMissing"
-                                 prim__valueMissing
-                                 prim__setValueMissing
-                                 False
+  valueMissing :  JSType t
+               => {auto 0 _ : Elem ValidityStateFlags (Types t)}
+               -> t
+               -> Attribute True Optional Bool
+  valueMissing v = fromUndefOrPrim "ValidityStateFlags.getvalueMissing"
+                                   prim__valueMissing
+                                   prim__setValueMissing
+                                   False
+                                   (v :> ValidityStateFlags)
 
 namespace WindowPostMessageOptions
   
@@ -9531,11 +12618,15 @@ namespace WindowPostMessageOptions
   new' = primJS $ WindowPostMessageOptions.prim__new undef
   
   export
-  targetOrigin : WindowPostMessageOptions -> Attribute True Optional String
-  targetOrigin = fromUndefOrPrim "WindowPostMessageOptions.gettargetOrigin"
-                                 prim__targetOrigin
-                                 prim__setTargetOrigin
-                                 "/"
+  targetOrigin :  JSType t
+               => {auto 0 _ : Elem WindowPostMessageOptions (Types t)}
+               -> t
+               -> Attribute True Optional String
+  targetOrigin v = fromUndefOrPrim "WindowPostMessageOptions.gettargetOrigin"
+                                   prim__targetOrigin
+                                   prim__setTargetOrigin
+                                   "/"
+                                   (v :> WindowPostMessageOptions)
 
 namespace WorkerOptions
   
@@ -9551,20 +12642,35 @@ namespace WorkerOptions
   new' = primJS $ WorkerOptions.prim__new undef undef undef
   
   export
-  credentials : WorkerOptions -> Attribute False Optional RequestCredentials
-  credentials = fromUndefOrPrimNoDefault "WorkerOptions.getcredentials"
-                                         prim__credentials
-                                         prim__setCredentials
+  credentials :  JSType t
+              => {auto 0 _ : Elem WorkerOptions (Types t)}
+              -> t
+              -> Attribute False Optional RequestCredentials
+  credentials v = fromUndefOrPrimNoDefault "WorkerOptions.getcredentials"
+                                           prim__credentials
+                                           prim__setCredentials
+                                           (v :> WorkerOptions)
   
   export
-  name : WorkerOptions -> Attribute True Optional String
-  name = fromUndefOrPrim "WorkerOptions.getname" prim__name prim__setName ""
+  name :  JSType t
+       => {auto 0 _ : Elem WorkerOptions (Types t)}
+       -> t
+       -> Attribute True Optional String
+  name v = fromUndefOrPrim "WorkerOptions.getname"
+                           prim__name
+                           prim__setName
+                           ""
+                           (v :> WorkerOptions)
   
   export
-  type : WorkerOptions -> Attribute False Optional WorkerType
-  type = fromUndefOrPrimNoDefault "WorkerOptions.gettype"
-                                  prim__type
-                                  prim__setType
+  type :  JSType t
+       => {auto 0 _ : Elem WorkerOptions (Types t)}
+       -> t
+       -> Attribute False Optional WorkerType
+  type v = fromUndefOrPrimNoDefault "WorkerOptions.gettype"
+                                    prim__type
+                                    prim__setType
+                                    (v :> WorkerOptions)
 
 namespace WorkletOptions
   
@@ -9577,10 +12683,14 @@ namespace WorkletOptions
   new' = primJS $ WorkletOptions.prim__new undef
   
   export
-  credentials : WorkletOptions -> Attribute False Optional RequestCredentials
-  credentials = fromUndefOrPrimNoDefault "WorkletOptions.getcredentials"
-                                         prim__credentials
-                                         prim__setCredentials
+  credentials :  JSType t
+              => {auto 0 _ : Elem WorkletOptions (Types t)}
+              -> t
+              -> Attribute False Optional RequestCredentials
+  credentials v = fromUndefOrPrimNoDefault "WorkletOptions.getcredentials"
+                                           prim__credentials
+                                           prim__setCredentials
+                                           (v :> WorkletOptions)
 
 --------------------------------------------------------------------------------
 --          Callbacks
