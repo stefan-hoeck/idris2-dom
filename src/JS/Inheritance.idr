@@ -34,35 +34,22 @@ interface JSType a where
 ||| Convenience alias for `parents`, which takes an explicit
 ||| erased type argument.
 public export
-Parents : (a : Type) -> JSType a => List Type
-Parents a = parents {a}
-
-||| Convenience alias for `mixins`, which takes an explicit
-||| erased type argument.
-public export
-Mixins : (a : Type) -> JSType a => List Type
-Mixins a = mixins {a}
+0 Types : (0 a : Type) -> JSType a => List Type
+Types a = a :: parents {a} ++ mixins {a}
 
 ||| Safe upcasting. This uses `believe_me` internally and is
 ||| therefore of course only safe, if the `JSType` implementation
 ||| is correct according to some specification and the backend
 ||| properly adhere to this specification.
 public export %inline
-up :  JSType a
-   => a
-   -> {auto 0 _ : Either (Elem b (Parents a)) (Elem b (Mixins a))}
-   -> b
+up : JSType a => a -> {auto 0 _ : Elem b (Types a)} -> b
 up v = believe_me v
 
 infixl 1 :>
 
 ||| Operator version of `up`.
 public export %inline
-(:>) :  JSType a
-     => a
-     -> (0 b : Type)
-     -> {auto 0 _ : Either (Elem b (Parents a)) (Elem b (Mixins a))}
-     -> b
+(:>) : JSType a => a -> (0 b : Type) -> {auto 0 _ : Elem b (Types a)} -> b
 a :> _ = up a
 
 --------------------------------------------------------------------------------

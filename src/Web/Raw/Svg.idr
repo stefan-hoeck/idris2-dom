@@ -1,5 +1,5 @@
 module Web.Raw.Svg
-
+ 
 import JS
 import Web.Internal.SvgPrim
 import Web.Internal.Types
@@ -8,2527 +8,2393 @@ import Web.Internal.Types
 --          Interfaces
 --------------------------------------------------------------------------------
 
-namespace MathMLElement
-
-  public export
-  JSType MathMLElement where
-    parents =  [ Element , Node , EventTarget , Object ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , Slottable
-              ]
 
 namespace SVGAElement
-
-  public export
-  JSType SVGAElement where
-    parents =  [ SVGGraphicsElement
-               , SVGElement
-               , Element
-               , Node
-               , EventTarget
-               , Object
-               ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLHyperlinkElementUtils
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , SVGTests
-              , SVGURIReference
-              , Slottable
-              ]
-
+  
   export
-  download : SVGAElement -> Attribute True I String
-  download = fromPrim "SVGAElement.getdownload" prim__download prim__setDownload
-
+  download :  JSType t
+           => {auto 0 _ : Elem SVGAElement (Types t)}
+           -> t
+           -> Attribute True I String
+  download v = fromPrim "SVGAElement.getdownload"
+                        prim__download
+                        prim__setDownload
+                        (v :> SVGAElement)
+  
   export
-  hreflang : SVGAElement -> Attribute True I String
-  hreflang = fromPrim "SVGAElement.gethreflang" prim__hreflang prim__setHreflang
-
+  hreflang :  JSType t
+           => {auto 0 _ : Elem SVGAElement (Types t)}
+           -> t
+           -> Attribute True I String
+  hreflang v = fromPrim "SVGAElement.gethreflang"
+                        prim__hreflang
+                        prim__setHreflang
+                        (v :> SVGAElement)
+  
   export
-  ping : SVGAElement -> Attribute True I String
-  ping = fromPrim "SVGAElement.getping" prim__ping prim__setPing
-
+  ping :  JSType t
+       => {auto 0 _ : Elem SVGAElement (Types t)}
+       -> t
+       -> Attribute True I String
+  ping v = fromPrim "SVGAElement.getping"
+                    prim__ping
+                    prim__setPing
+                    (v :> SVGAElement)
+  
   export
-  referrerPolicy : SVGAElement -> Attribute True I String
-  referrerPolicy = fromPrim "SVGAElement.getreferrerPolicy"
-                            prim__referrerPolicy
-                            prim__setReferrerPolicy
-
+  referrerPolicy :  JSType t
+                 => {auto 0 _ : Elem SVGAElement (Types t)}
+                 -> t
+                 -> Attribute True I String
+  referrerPolicy v = fromPrim "SVGAElement.getreferrerPolicy"
+                              prim__referrerPolicy
+                              prim__setReferrerPolicy
+                              (v :> SVGAElement)
+  
   export
-  rel : SVGAElement -> Attribute True I String
-  rel = fromPrim "SVGAElement.getrel" prim__rel prim__setRel
-
+  rel :  JSType t
+      => {auto 0 _ : Elem SVGAElement (Types t)}
+      -> t
+      -> Attribute True I String
+  rel v = fromPrim "SVGAElement.getrel"
+                   prim__rel
+                   prim__setRel
+                   (v :> SVGAElement)
+  
   export
-  relList : (obj : SVGAElement) -> JSIO DOMTokenList
-  relList a = primJS $ SVGAElement.prim__relList a
-
+  relList :  JSType t1
+          => {auto 0 _ : Elem SVGAElement (Types t1)}
+          -> (obj : t1)
+          -> JSIO DOMTokenList
+  relList a = primJS $ SVGAElement.prim__relList (up a)
+  
   export
-  target : (obj : SVGAElement) -> JSIO SVGAnimatedString
-  target a = primJS $ SVGAElement.prim__target a
-
+  target :  JSType t1
+         => {auto 0 _ : Elem SVGAElement (Types t1)}
+         -> (obj : t1)
+         -> JSIO SVGAnimatedString
+  target a = primJS $ SVGAElement.prim__target (up a)
+  
   export
-  text : SVGAElement -> Attribute True I String
-  text = fromPrim "SVGAElement.gettext" prim__text prim__setText
-
+  text :  JSType t
+       => {auto 0 _ : Elem SVGAElement (Types t)}
+       -> t
+       -> Attribute True I String
+  text v = fromPrim "SVGAElement.gettext"
+                    prim__text
+                    prim__setText
+                    (v :> SVGAElement)
+  
   export
-  type : SVGAElement -> Attribute True I String
-  type = fromPrim "SVGAElement.gettype" prim__type prim__setType
+  type :  JSType t
+       => {auto 0 _ : Elem SVGAElement (Types t)}
+       -> t
+       -> Attribute True I String
+  type v = fromPrim "SVGAElement.gettype"
+                    prim__type
+                    prim__setType
+                    (v :> SVGAElement)
 
 namespace SVGAngle
-
-  public export
-  JSType SVGAngle where
-    parents =  [ Object ]
-
-    mixins =  []
-
+  
   public export
   SVG_ANGLETYPE_DEG : UInt16
   SVG_ANGLETYPE_DEG = 2
-
+  
   public export
   SVG_ANGLETYPE_GRAD : UInt16
   SVG_ANGLETYPE_GRAD = 4
-
+  
   public export
   SVG_ANGLETYPE_RAD : UInt16
   SVG_ANGLETYPE_RAD = 3
-
+  
   public export
   SVG_ANGLETYPE_UNKNOWN : UInt16
   SVG_ANGLETYPE_UNKNOWN = 0
-
+  
   public export
   SVG_ANGLETYPE_UNSPECIFIED : UInt16
   SVG_ANGLETYPE_UNSPECIFIED = 1
-
+  
   export
-  unitType : (obj : SVGAngle) -> JSIO UInt16
-  unitType a = primJS $ SVGAngle.prim__unitType a
-
+  unitType :  JSType t1
+           => {auto 0 _ : Elem SVGAngle (Types t1)}
+           -> (obj : t1)
+           -> JSIO UInt16
+  unitType a = primJS $ SVGAngle.prim__unitType (up a)
+  
   export
-  value : SVGAngle -> Attribute True I Double
-  value = fromPrim "SVGAngle.getvalue" prim__value prim__setValue
-
+  value :  JSType t
+        => {auto 0 _ : Elem SVGAngle (Types t)}
+        -> t
+        -> Attribute True I Double
+  value v = fromPrim "SVGAngle.getvalue"
+                     prim__value
+                     prim__setValue
+                     (v :> SVGAngle)
+  
   export
-  valueAsString : SVGAngle -> Attribute True I String
-  valueAsString = fromPrim "SVGAngle.getvalueAsString"
-                           prim__valueAsString
-                           prim__setValueAsString
-
+  valueAsString :  JSType t
+                => {auto 0 _ : Elem SVGAngle (Types t)}
+                -> t
+                -> Attribute True I String
+  valueAsString v = fromPrim "SVGAngle.getvalueAsString"
+                             prim__valueAsString
+                             prim__setValueAsString
+                             (v :> SVGAngle)
+  
   export
-  valueInSpecifiedUnits : SVGAngle -> Attribute True I Double
-  valueInSpecifiedUnits = fromPrim "SVGAngle.getvalueInSpecifiedUnits"
-                                   prim__valueInSpecifiedUnits
-                                   prim__setValueInSpecifiedUnits
-
+  valueInSpecifiedUnits :  JSType t
+                        => {auto 0 _ : Elem SVGAngle (Types t)}
+                        -> t
+                        -> Attribute True I Double
+  valueInSpecifiedUnits v = fromPrim "SVGAngle.getvalueInSpecifiedUnits"
+                                     prim__valueInSpecifiedUnits
+                                     prim__setValueInSpecifiedUnits
+                                     (v :> SVGAngle)
+  
   export
-  convertToSpecifiedUnits : (obj : SVGAngle) -> (unitType : UInt16) -> JSIO ()
+  convertToSpecifiedUnits :  JSType t1
+                          => {auto 0 _ : Elem SVGAngle (Types t1)}
+                          -> (obj : t1)
+                          -> (unitType : UInt16)
+                          -> JSIO ()
   convertToSpecifiedUnits a b = primJS
-                              $ SVGAngle.prim__convertToSpecifiedUnits a b
-
+                              $ SVGAngle.prim__convertToSpecifiedUnits (up a) b
+  
   export
-  newValueSpecifiedUnits :  (obj : SVGAngle)
+  newValueSpecifiedUnits :  JSType t1
+                         => {auto 0 _ : Elem SVGAngle (Types t1)}
+                         -> (obj : t1)
                          -> (unitType : UInt16)
                          -> (valueInSpecifiedUnits : Double)
                          -> JSIO ()
   newValueSpecifiedUnits a b c = primJS
-                               $ SVGAngle.prim__newValueSpecifiedUnits a b c
+                               $ SVGAngle.prim__newValueSpecifiedUnits (up a)
+                                                                       b
+                                                                       c
 
 namespace SVGAnimatedAngle
-
-  public export
-  JSType SVGAnimatedAngle where
-    parents =  [ Object ]
-
-    mixins =  []
-
+  
   export
-  animVal : (obj : SVGAnimatedAngle) -> JSIO SVGAngle
-  animVal a = primJS $ SVGAnimatedAngle.prim__animVal a
-
+  animVal :  JSType t1
+          => {auto 0 _ : Elem SVGAnimatedAngle (Types t1)}
+          -> (obj : t1)
+          -> JSIO SVGAngle
+  animVal a = primJS $ SVGAnimatedAngle.prim__animVal (up a)
+  
   export
-  baseVal : (obj : SVGAnimatedAngle) -> JSIO SVGAngle
-  baseVal a = primJS $ SVGAnimatedAngle.prim__baseVal a
+  baseVal :  JSType t1
+          => {auto 0 _ : Elem SVGAnimatedAngle (Types t1)}
+          -> (obj : t1)
+          -> JSIO SVGAngle
+  baseVal a = primJS $ SVGAnimatedAngle.prim__baseVal (up a)
 
 namespace SVGAnimatedBoolean
-
-  public export
-  JSType SVGAnimatedBoolean where
-    parents =  [ Object ]
-
-    mixins =  []
-
+  
   export
-  animVal : (obj : SVGAnimatedBoolean) -> JSIO Bool
+  animVal :  JSType t1
+          => {auto 0 _ : Elem SVGAnimatedBoolean (Types t1)}
+          -> (obj : t1)
+          -> JSIO Bool
   animVal a = tryJS "SVGAnimatedBoolean.animVal"
-            $ SVGAnimatedBoolean.prim__animVal a
-
+            $ SVGAnimatedBoolean.prim__animVal (up a)
+  
   export
-  baseVal : SVGAnimatedBoolean -> Attribute True I Bool
-  baseVal = fromPrim "SVGAnimatedBoolean.getbaseVal"
-                     prim__baseVal
-                     prim__setBaseVal
+  baseVal :  JSType t
+          => {auto 0 _ : Elem SVGAnimatedBoolean (Types t)}
+          -> t
+          -> Attribute True I Bool
+  baseVal v = fromPrim "SVGAnimatedBoolean.getbaseVal"
+                       prim__baseVal
+                       prim__setBaseVal
+                       (v :> SVGAnimatedBoolean)
 
 namespace SVGAnimatedEnumeration
-
-  public export
-  JSType SVGAnimatedEnumeration where
-    parents =  [ Object ]
-
-    mixins =  []
-
+  
   export
-  animVal : (obj : SVGAnimatedEnumeration) -> JSIO UInt16
-  animVal a = primJS $ SVGAnimatedEnumeration.prim__animVal a
-
+  animVal :  JSType t1
+          => {auto 0 _ : Elem SVGAnimatedEnumeration (Types t1)}
+          -> (obj : t1)
+          -> JSIO UInt16
+  animVal a = primJS $ SVGAnimatedEnumeration.prim__animVal (up a)
+  
   export
-  baseVal : SVGAnimatedEnumeration -> Attribute True I UInt16
-  baseVal = fromPrim "SVGAnimatedEnumeration.getbaseVal"
-                     prim__baseVal
-                     prim__setBaseVal
+  baseVal :  JSType t
+          => {auto 0 _ : Elem SVGAnimatedEnumeration (Types t)}
+          -> t
+          -> Attribute True I UInt16
+  baseVal v = fromPrim "SVGAnimatedEnumeration.getbaseVal"
+                       prim__baseVal
+                       prim__setBaseVal
+                       (v :> SVGAnimatedEnumeration)
 
 namespace SVGAnimatedInteger
-
-  public export
-  JSType SVGAnimatedInteger where
-    parents =  [ Object ]
-
-    mixins =  []
-
+  
   export
-  animVal : (obj : SVGAnimatedInteger) -> JSIO Int32
-  animVal a = primJS $ SVGAnimatedInteger.prim__animVal a
-
+  animVal :  JSType t1
+          => {auto 0 _ : Elem SVGAnimatedInteger (Types t1)}
+          -> (obj : t1)
+          -> JSIO Int32
+  animVal a = primJS $ SVGAnimatedInteger.prim__animVal (up a)
+  
   export
-  baseVal : SVGAnimatedInteger -> Attribute True I Int32
-  baseVal = fromPrim "SVGAnimatedInteger.getbaseVal"
-                     prim__baseVal
-                     prim__setBaseVal
+  baseVal :  JSType t
+          => {auto 0 _ : Elem SVGAnimatedInteger (Types t)}
+          -> t
+          -> Attribute True I Int32
+  baseVal v = fromPrim "SVGAnimatedInteger.getbaseVal"
+                       prim__baseVal
+                       prim__setBaseVal
+                       (v :> SVGAnimatedInteger)
 
 namespace SVGAnimatedLength
-
-  public export
-  JSType SVGAnimatedLength where
-    parents =  [ Object ]
-
-    mixins =  []
-
+  
   export
-  animVal : (obj : SVGAnimatedLength) -> JSIO SVGLength
-  animVal a = primJS $ SVGAnimatedLength.prim__animVal a
-
+  animVal :  JSType t1
+          => {auto 0 _ : Elem SVGAnimatedLength (Types t1)}
+          -> (obj : t1)
+          -> JSIO SVGLength
+  animVal a = primJS $ SVGAnimatedLength.prim__animVal (up a)
+  
   export
-  baseVal : (obj : SVGAnimatedLength) -> JSIO SVGLength
-  baseVal a = primJS $ SVGAnimatedLength.prim__baseVal a
+  baseVal :  JSType t1
+          => {auto 0 _ : Elem SVGAnimatedLength (Types t1)}
+          -> (obj : t1)
+          -> JSIO SVGLength
+  baseVal a = primJS $ SVGAnimatedLength.prim__baseVal (up a)
 
 namespace SVGAnimatedLengthList
-
-  public export
-  JSType SVGAnimatedLengthList where
-    parents =  [ Object ]
-
-    mixins =  []
-
+  
   export
-  animVal : (obj : SVGAnimatedLengthList) -> JSIO SVGLengthList
-  animVal a = primJS $ SVGAnimatedLengthList.prim__animVal a
-
+  animVal :  JSType t1
+          => {auto 0 _ : Elem SVGAnimatedLengthList (Types t1)}
+          -> (obj : t1)
+          -> JSIO SVGLengthList
+  animVal a = primJS $ SVGAnimatedLengthList.prim__animVal (up a)
+  
   export
-  baseVal : (obj : SVGAnimatedLengthList) -> JSIO SVGLengthList
-  baseVal a = primJS $ SVGAnimatedLengthList.prim__baseVal a
+  baseVal :  JSType t1
+          => {auto 0 _ : Elem SVGAnimatedLengthList (Types t1)}
+          -> (obj : t1)
+          -> JSIO SVGLengthList
+  baseVal a = primJS $ SVGAnimatedLengthList.prim__baseVal (up a)
 
 namespace SVGAnimatedNumber
-
-  public export
-  JSType SVGAnimatedNumber where
-    parents =  [ Object ]
-
-    mixins =  []
-
+  
   export
-  animVal : (obj : SVGAnimatedNumber) -> JSIO Double
-  animVal a = primJS $ SVGAnimatedNumber.prim__animVal a
-
+  animVal :  JSType t1
+          => {auto 0 _ : Elem SVGAnimatedNumber (Types t1)}
+          -> (obj : t1)
+          -> JSIO Double
+  animVal a = primJS $ SVGAnimatedNumber.prim__animVal (up a)
+  
   export
-  baseVal : SVGAnimatedNumber -> Attribute True I Double
-  baseVal = fromPrim "SVGAnimatedNumber.getbaseVal"
-                     prim__baseVal
-                     prim__setBaseVal
+  baseVal :  JSType t
+          => {auto 0 _ : Elem SVGAnimatedNumber (Types t)}
+          -> t
+          -> Attribute True I Double
+  baseVal v = fromPrim "SVGAnimatedNumber.getbaseVal"
+                       prim__baseVal
+                       prim__setBaseVal
+                       (v :> SVGAnimatedNumber)
 
 namespace SVGAnimatedNumberList
-
-  public export
-  JSType SVGAnimatedNumberList where
-    parents =  [ Object ]
-
-    mixins =  []
-
+  
   export
-  animVal : (obj : SVGAnimatedNumberList) -> JSIO SVGNumberList
-  animVal a = primJS $ SVGAnimatedNumberList.prim__animVal a
-
+  animVal :  JSType t1
+          => {auto 0 _ : Elem SVGAnimatedNumberList (Types t1)}
+          -> (obj : t1)
+          -> JSIO SVGNumberList
+  animVal a = primJS $ SVGAnimatedNumberList.prim__animVal (up a)
+  
   export
-  baseVal : (obj : SVGAnimatedNumberList) -> JSIO SVGNumberList
-  baseVal a = primJS $ SVGAnimatedNumberList.prim__baseVal a
+  baseVal :  JSType t1
+          => {auto 0 _ : Elem SVGAnimatedNumberList (Types t1)}
+          -> (obj : t1)
+          -> JSIO SVGNumberList
+  baseVal a = primJS $ SVGAnimatedNumberList.prim__baseVal (up a)
 
 namespace SVGAnimatedPreserveAspectRatio
-
-  public export
-  JSType SVGAnimatedPreserveAspectRatio where
-    parents =  [ Object ]
-
-    mixins =  []
-
+  
   export
-  animVal :  (obj : SVGAnimatedPreserveAspectRatio)
+  animVal :  JSType t1
+          => {auto 0 _ : Elem SVGAnimatedPreserveAspectRatio (Types t1)}
+          -> (obj : t1)
           -> JSIO SVGPreserveAspectRatio
-  animVal a = primJS $ SVGAnimatedPreserveAspectRatio.prim__animVal a
-
+  animVal a = primJS $ SVGAnimatedPreserveAspectRatio.prim__animVal (up a)
+  
   export
-  baseVal :  (obj : SVGAnimatedPreserveAspectRatio)
+  baseVal :  JSType t1
+          => {auto 0 _ : Elem SVGAnimatedPreserveAspectRatio (Types t1)}
+          -> (obj : t1)
           -> JSIO SVGPreserveAspectRatio
-  baseVal a = primJS $ SVGAnimatedPreserveAspectRatio.prim__baseVal a
+  baseVal a = primJS $ SVGAnimatedPreserveAspectRatio.prim__baseVal (up a)
 
 namespace SVGAnimatedRect
-
-  public export
-  JSType SVGAnimatedRect where
-    parents =  [ Object ]
-
-    mixins =  []
-
+  
   export
-  animVal : (obj : SVGAnimatedRect) -> JSIO DOMRectReadOnly
-  animVal a = primJS $ SVGAnimatedRect.prim__animVal a
-
+  animVal :  JSType t1
+          => {auto 0 _ : Elem SVGAnimatedRect (Types t1)}
+          -> (obj : t1)
+          -> JSIO DOMRectReadOnly
+  animVal a = primJS $ SVGAnimatedRect.prim__animVal (up a)
+  
   export
-  baseVal : (obj : SVGAnimatedRect) -> JSIO DOMRect
-  baseVal a = primJS $ SVGAnimatedRect.prim__baseVal a
+  baseVal :  JSType t1
+          => {auto 0 _ : Elem SVGAnimatedRect (Types t1)}
+          -> (obj : t1)
+          -> JSIO DOMRect
+  baseVal a = primJS $ SVGAnimatedRect.prim__baseVal (up a)
 
 namespace SVGAnimatedString
-
-  public export
-  JSType SVGAnimatedString where
-    parents =  [ Object ]
-
-    mixins =  []
-
+  
   export
-  animVal : (obj : SVGAnimatedString) -> JSIO String
-  animVal a = primJS $ SVGAnimatedString.prim__animVal a
-
+  animVal :  JSType t1
+          => {auto 0 _ : Elem SVGAnimatedString (Types t1)}
+          -> (obj : t1)
+          -> JSIO String
+  animVal a = primJS $ SVGAnimatedString.prim__animVal (up a)
+  
   export
-  baseVal : SVGAnimatedString -> Attribute True I String
-  baseVal = fromPrim "SVGAnimatedString.getbaseVal"
-                     prim__baseVal
-                     prim__setBaseVal
+  baseVal :  JSType t
+          => {auto 0 _ : Elem SVGAnimatedString (Types t)}
+          -> t
+          -> Attribute True I String
+  baseVal v = fromPrim "SVGAnimatedString.getbaseVal"
+                       prim__baseVal
+                       prim__setBaseVal
+                       (v :> SVGAnimatedString)
 
 namespace SVGAnimatedTransformList
-
-  public export
-  JSType SVGAnimatedTransformList where
-    parents =  [ Object ]
-
-    mixins =  []
-
+  
   export
-  animVal : (obj : SVGAnimatedTransformList) -> JSIO SVGTransformList
-  animVal a = primJS $ SVGAnimatedTransformList.prim__animVal a
-
+  animVal :  JSType t1
+          => {auto 0 _ : Elem SVGAnimatedTransformList (Types t1)}
+          -> (obj : t1)
+          -> JSIO SVGTransformList
+  animVal a = primJS $ SVGAnimatedTransformList.prim__animVal (up a)
+  
   export
-  baseVal : (obj : SVGAnimatedTransformList) -> JSIO SVGTransformList
-  baseVal a = primJS $ SVGAnimatedTransformList.prim__baseVal a
+  baseVal :  JSType t1
+          => {auto 0 _ : Elem SVGAnimatedTransformList (Types t1)}
+          -> (obj : t1)
+          -> JSIO SVGTransformList
+  baseVal a = primJS $ SVGAnimatedTransformList.prim__baseVal (up a)
 
 namespace SVGCircleElement
-
-  public export
-  JSType SVGCircleElement where
-    parents =  [ SVGGeometryElement
-               , SVGGraphicsElement
-               , SVGElement
-               , Element
-               , Node
-               , EventTarget
-               , Object
-               ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , SVGTests
-              , Slottable
-              ]
-
+  
   export
-  cx : (obj : SVGCircleElement) -> JSIO SVGAnimatedLength
-  cx a = primJS $ SVGCircleElement.prim__cx a
-
+  cx :  JSType t1
+     => {auto 0 _ : Elem SVGCircleElement (Types t1)}
+     -> (obj : t1)
+     -> JSIO SVGAnimatedLength
+  cx a = primJS $ SVGCircleElement.prim__cx (up a)
+  
   export
-  cy : (obj : SVGCircleElement) -> JSIO SVGAnimatedLength
-  cy a = primJS $ SVGCircleElement.prim__cy a
-
+  cy :  JSType t1
+     => {auto 0 _ : Elem SVGCircleElement (Types t1)}
+     -> (obj : t1)
+     -> JSIO SVGAnimatedLength
+  cy a = primJS $ SVGCircleElement.prim__cy (up a)
+  
   export
-  r : (obj : SVGCircleElement) -> JSIO SVGAnimatedLength
-  r a = primJS $ SVGCircleElement.prim__r a
+  r :  JSType t1
+    => {auto 0 _ : Elem SVGCircleElement (Types t1)}
+    -> (obj : t1)
+    -> JSIO SVGAnimatedLength
+  r a = primJS $ SVGCircleElement.prim__r (up a)
 
-namespace SVGDefsElement
 
-  public export
-  JSType SVGDefsElement where
-    parents =  [ SVGGraphicsElement
-               , SVGElement
-               , Element
-               , Node
-               , EventTarget
-               , Object
-               ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , SVGTests
-              , Slottable
-              ]
-
-namespace SVGDescElement
-
-  public export
-  JSType SVGDescElement where
-    parents =  [ SVGElement , Element , Node , EventTarget , Object ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , Slottable
-              ]
 
 namespace SVGElement
-
-  public export
-  JSType SVGElement where
-    parents =  [ Element , Node , EventTarget , Object ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , Slottable
-              ]
-
+  
   export
-  className : (obj : SVGElement) -> JSIO SVGAnimatedString
-  className a = primJS $ SVGElement.prim__className a
-
+  className :  JSType t1
+            => {auto 0 _ : Elem SVGElement (Types t1)}
+            -> (obj : t1)
+            -> JSIO SVGAnimatedString
+  className a = primJS $ SVGElement.prim__className (up a)
+  
   export
-  ownerSVGElement : (obj : SVGElement) -> JSIO (Maybe SVGSVGElement)
+  ownerSVGElement :  JSType t1
+                  => {auto 0 _ : Elem SVGElement (Types t1)}
+                  -> (obj : t1)
+                  -> JSIO (Maybe SVGSVGElement)
   ownerSVGElement a = tryJS "SVGElement.ownerSVGElement"
-                    $ SVGElement.prim__ownerSVGElement a
-
+                    $ SVGElement.prim__ownerSVGElement (up a)
+  
   export
-  viewportElement : (obj : SVGElement) -> JSIO (Maybe SVGElement)
+  viewportElement :  JSType t1
+                  => {auto 0 _ : Elem SVGElement (Types t1)}
+                  -> (obj : t1)
+                  -> JSIO (Maybe SVGElement)
   viewportElement a = tryJS "SVGElement.viewportElement"
-                    $ SVGElement.prim__viewportElement a
+                    $ SVGElement.prim__viewportElement (up a)
 
 namespace SVGEllipseElement
-
-  public export
-  JSType SVGEllipseElement where
-    parents =  [ SVGGeometryElement
-               , SVGGraphicsElement
-               , SVGElement
-               , Element
-               , Node
-               , EventTarget
-               , Object
-               ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , SVGTests
-              , Slottable
-              ]
-
+  
   export
-  cx : (obj : SVGEllipseElement) -> JSIO SVGAnimatedLength
-  cx a = primJS $ SVGEllipseElement.prim__cx a
-
+  cx :  JSType t1
+     => {auto 0 _ : Elem SVGEllipseElement (Types t1)}
+     -> (obj : t1)
+     -> JSIO SVGAnimatedLength
+  cx a = primJS $ SVGEllipseElement.prim__cx (up a)
+  
   export
-  cy : (obj : SVGEllipseElement) -> JSIO SVGAnimatedLength
-  cy a = primJS $ SVGEllipseElement.prim__cy a
-
+  cy :  JSType t1
+     => {auto 0 _ : Elem SVGEllipseElement (Types t1)}
+     -> (obj : t1)
+     -> JSIO SVGAnimatedLength
+  cy a = primJS $ SVGEllipseElement.prim__cy (up a)
+  
   export
-  rx : (obj : SVGEllipseElement) -> JSIO SVGAnimatedLength
-  rx a = primJS $ SVGEllipseElement.prim__rx a
-
+  rx :  JSType t1
+     => {auto 0 _ : Elem SVGEllipseElement (Types t1)}
+     -> (obj : t1)
+     -> JSIO SVGAnimatedLength
+  rx a = primJS $ SVGEllipseElement.prim__rx (up a)
+  
   export
-  ry : (obj : SVGEllipseElement) -> JSIO SVGAnimatedLength
-  ry a = primJS $ SVGEllipseElement.prim__ry a
+  ry :  JSType t1
+     => {auto 0 _ : Elem SVGEllipseElement (Types t1)}
+     -> (obj : t1)
+     -> JSIO SVGAnimatedLength
+  ry a = primJS $ SVGEllipseElement.prim__ry (up a)
 
 namespace SVGForeignObjectElement
-
-  public export
-  JSType SVGForeignObjectElement where
-    parents =  [ SVGGraphicsElement
-               , SVGElement
-               , Element
-               , Node
-               , EventTarget
-               , Object
-               ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , SVGTests
-              , Slottable
-              ]
-
+  
   export
-  height : (obj : SVGForeignObjectElement) -> JSIO SVGAnimatedLength
-  height a = primJS $ SVGForeignObjectElement.prim__height a
-
+  height :  JSType t1
+         => {auto 0 _ : Elem SVGForeignObjectElement (Types t1)}
+         -> (obj : t1)
+         -> JSIO SVGAnimatedLength
+  height a = primJS $ SVGForeignObjectElement.prim__height (up a)
+  
   export
-  width : (obj : SVGForeignObjectElement) -> JSIO SVGAnimatedLength
-  width a = primJS $ SVGForeignObjectElement.prim__width a
-
+  width :  JSType t1
+        => {auto 0 _ : Elem SVGForeignObjectElement (Types t1)}
+        -> (obj : t1)
+        -> JSIO SVGAnimatedLength
+  width a = primJS $ SVGForeignObjectElement.prim__width (up a)
+  
   export
-  x : (obj : SVGForeignObjectElement) -> JSIO SVGAnimatedLength
-  x a = primJS $ SVGForeignObjectElement.prim__x a
-
+  x :  JSType t1
+    => {auto 0 _ : Elem SVGForeignObjectElement (Types t1)}
+    -> (obj : t1)
+    -> JSIO SVGAnimatedLength
+  x a = primJS $ SVGForeignObjectElement.prim__x (up a)
+  
   export
-  y : (obj : SVGForeignObjectElement) -> JSIO SVGAnimatedLength
-  y a = primJS $ SVGForeignObjectElement.prim__y a
+  y :  JSType t1
+    => {auto 0 _ : Elem SVGForeignObjectElement (Types t1)}
+    -> (obj : t1)
+    -> JSIO SVGAnimatedLength
+  y a = primJS $ SVGForeignObjectElement.prim__y (up a)
 
-namespace SVGGElement
-
-  public export
-  JSType SVGGElement where
-    parents =  [ SVGGraphicsElement
-               , SVGElement
-               , Element
-               , Node
-               , EventTarget
-               , Object
-               ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , SVGTests
-              , Slottable
-              ]
 
 namespace SVGGeometryElement
-
-  public export
-  JSType SVGGeometryElement where
-    parents =  [ SVGGraphicsElement
-               , SVGElement
-               , Element
-               , Node
-               , EventTarget
-               , Object
-               ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , SVGTests
-              , Slottable
-              ]
-
+  
   export
-  pathLength : (obj : SVGGeometryElement) -> JSIO SVGAnimatedNumber
-  pathLength a = primJS $ SVGGeometryElement.prim__pathLength a
-
+  pathLength :  JSType t1
+             => {auto 0 _ : Elem SVGGeometryElement (Types t1)}
+             -> (obj : t1)
+             -> JSIO SVGAnimatedNumber
+  pathLength a = primJS $ SVGGeometryElement.prim__pathLength (up a)
+  
   export
-  getPointAtLength :  (obj : SVGGeometryElement)
+  getPointAtLength :  JSType t1
+                   => {auto 0 _ : Elem SVGGeometryElement (Types t1)}
+                   -> (obj : t1)
                    -> (distance : Double)
                    -> JSIO DOMPoint
-  getPointAtLength a b = primJS $ SVGGeometryElement.prim__getPointAtLength a b
-
+  getPointAtLength a b = primJS
+                       $ SVGGeometryElement.prim__getPointAtLength (up a) b
+  
   export
-  getTotalLength : (obj : SVGGeometryElement) -> JSIO Double
-  getTotalLength a = primJS $ SVGGeometryElement.prim__getTotalLength a
-
+  getTotalLength :  JSType t1
+                 => {auto 0 _ : Elem SVGGeometryElement (Types t1)}
+                 -> (obj : t1)
+                 -> JSIO Double
+  getTotalLength a = primJS $ SVGGeometryElement.prim__getTotalLength (up a)
+  
   export
-  isPointInFill :  (obj : SVGGeometryElement)
-                -> (point : Optional DOMPointInit)
+  isPointInFill :  JSType t1
+                => JSType t2
+                => {auto 0 _ : Elem SVGGeometryElement (Types t1)}
+                -> {auto 0 _ : Elem DOMPointInit (Types t2)}
+                -> (obj : t1)
+                -> (point : Optional t2)
                 -> JSIO Bool
   isPointInFill a b = tryJS "SVGGeometryElement.isPointInFill"
-                    $ SVGGeometryElement.prim__isPointInFill a (toFFI b)
+                    $ SVGGeometryElement.prim__isPointInFill (up a) (optUp b)
 
   export
-  isPointInFill' : (obj : SVGGeometryElement) -> JSIO Bool
+  isPointInFill' :  JSType t1
+                 => {auto 0 _ : Elem SVGGeometryElement (Types t1)}
+                 -> (obj : t1)
+                 -> JSIO Bool
   isPointInFill' a = tryJS "SVGGeometryElement.isPointInFill'"
-                   $ SVGGeometryElement.prim__isPointInFill a undef
-
+                   $ SVGGeometryElement.prim__isPointInFill (up a) undef
+  
   export
-  isPointInStroke :  (obj : SVGGeometryElement)
-                  -> (point : Optional DOMPointInit)
+  isPointInStroke :  JSType t1
+                  => JSType t2
+                  => {auto 0 _ : Elem SVGGeometryElement (Types t1)}
+                  -> {auto 0 _ : Elem DOMPointInit (Types t2)}
+                  -> (obj : t1)
+                  -> (point : Optional t2)
                   -> JSIO Bool
   isPointInStroke a b = tryJS "SVGGeometryElement.isPointInStroke"
-                      $ SVGGeometryElement.prim__isPointInStroke a (toFFI b)
+                      $ SVGGeometryElement.prim__isPointInStroke (up a)
+                                                                 (optUp b)
 
   export
-  isPointInStroke' : (obj : SVGGeometryElement) -> JSIO Bool
+  isPointInStroke' :  JSType t1
+                   => {auto 0 _ : Elem SVGGeometryElement (Types t1)}
+                   -> (obj : t1)
+                   -> JSIO Bool
   isPointInStroke' a = tryJS "SVGGeometryElement.isPointInStroke'"
-                     $ SVGGeometryElement.prim__isPointInStroke a undef
+                     $ SVGGeometryElement.prim__isPointInStroke (up a) undef
 
 namespace SVGGradientElement
-
-  public export
-  JSType SVGGradientElement where
-    parents =  [ SVGElement , Element , Node , EventTarget , Object ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , SVGURIReference
-              , Slottable
-              ]
-
+  
   public export
   SVG_SPREADMETHOD_PAD : UInt16
   SVG_SPREADMETHOD_PAD = 1
-
+  
   public export
   SVG_SPREADMETHOD_REFLECT : UInt16
   SVG_SPREADMETHOD_REFLECT = 2
-
+  
   public export
   SVG_SPREADMETHOD_REPEAT : UInt16
   SVG_SPREADMETHOD_REPEAT = 3
-
+  
   public export
   SVG_SPREADMETHOD_UNKNOWN : UInt16
   SVG_SPREADMETHOD_UNKNOWN = 0
-
+  
   export
-  gradientTransform :  (obj : SVGGradientElement)
+  gradientTransform :  JSType t1
+                    => {auto 0 _ : Elem SVGGradientElement (Types t1)}
+                    -> (obj : t1)
                     -> JSIO SVGAnimatedTransformList
-  gradientTransform a = primJS $ SVGGradientElement.prim__gradientTransform a
-
+  gradientTransform a = primJS
+                      $ SVGGradientElement.prim__gradientTransform (up a)
+  
   export
-  gradientUnits : (obj : SVGGradientElement) -> JSIO SVGAnimatedEnumeration
-  gradientUnits a = primJS $ SVGGradientElement.prim__gradientUnits a
-
+  gradientUnits :  JSType t1
+                => {auto 0 _ : Elem SVGGradientElement (Types t1)}
+                -> (obj : t1)
+                -> JSIO SVGAnimatedEnumeration
+  gradientUnits a = primJS $ SVGGradientElement.prim__gradientUnits (up a)
+  
   export
-  spreadMethod : (obj : SVGGradientElement) -> JSIO SVGAnimatedEnumeration
-  spreadMethod a = primJS $ SVGGradientElement.prim__spreadMethod a
+  spreadMethod :  JSType t1
+               => {auto 0 _ : Elem SVGGradientElement (Types t1)}
+               -> (obj : t1)
+               -> JSIO SVGAnimatedEnumeration
+  spreadMethod a = primJS $ SVGGradientElement.prim__spreadMethod (up a)
 
 namespace SVGGraphicsElement
-
-  public export
-  JSType SVGGraphicsElement where
-    parents =  [ SVGElement , Element , Node , EventTarget , Object ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , SVGTests
-              , Slottable
-              ]
-
+  
   export
-  transform : (obj : SVGGraphicsElement) -> JSIO SVGAnimatedTransformList
-  transform a = primJS $ SVGGraphicsElement.prim__transform a
-
+  transform :  JSType t1
+            => {auto 0 _ : Elem SVGGraphicsElement (Types t1)}
+            -> (obj : t1)
+            -> JSIO SVGAnimatedTransformList
+  transform a = primJS $ SVGGraphicsElement.prim__transform (up a)
+  
   export
-  getBBox :  (obj : SVGGraphicsElement)
-          -> (options : Optional SVGBoundingBoxOptions)
+  getBBox :  JSType t1
+          => JSType t2
+          => {auto 0 _ : Elem SVGGraphicsElement (Types t1)}
+          -> {auto 0 _ : Elem SVGBoundingBoxOptions (Types t2)}
+          -> (obj : t1)
+          -> (options : Optional t2)
           -> JSIO DOMRect
-  getBBox a b = primJS $ SVGGraphicsElement.prim__getBBox a (toFFI b)
+  getBBox a b = primJS $ SVGGraphicsElement.prim__getBBox (up a) (optUp b)
 
   export
-  getBBox' : (obj : SVGGraphicsElement) -> JSIO DOMRect
-  getBBox' a = primJS $ SVGGraphicsElement.prim__getBBox a undef
-
+  getBBox' :  JSType t1
+           => {auto 0 _ : Elem SVGGraphicsElement (Types t1)}
+           -> (obj : t1)
+           -> JSIO DOMRect
+  getBBox' a = primJS $ SVGGraphicsElement.prim__getBBox (up a) undef
+  
   export
-  getCTM : (obj : SVGGraphicsElement) -> JSIO (Maybe DOMMatrix)
+  getCTM :  JSType t1
+         => {auto 0 _ : Elem SVGGraphicsElement (Types t1)}
+         -> (obj : t1)
+         -> JSIO (Maybe DOMMatrix)
   getCTM a = tryJS "SVGGraphicsElement.getCTM"
-           $ SVGGraphicsElement.prim__getCTM a
-
+           $ SVGGraphicsElement.prim__getCTM (up a)
+  
   export
-  getScreenCTM : (obj : SVGGraphicsElement) -> JSIO (Maybe DOMMatrix)
+  getScreenCTM :  JSType t1
+               => {auto 0 _ : Elem SVGGraphicsElement (Types t1)}
+               -> (obj : t1)
+               -> JSIO (Maybe DOMMatrix)
   getScreenCTM a = tryJS "SVGGraphicsElement.getScreenCTM"
-                 $ SVGGraphicsElement.prim__getScreenCTM a
+                 $ SVGGraphicsElement.prim__getScreenCTM (up a)
 
 namespace SVGImageElement
-
-  public export
-  JSType SVGImageElement where
-    parents =  [ SVGGraphicsElement
-               , SVGElement
-               , Element
-               , Node
-               , EventTarget
-               , Object
-               ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , SVGTests
-              , SVGURIReference
-              , Slottable
-              ]
-
+  
   export
-  crossOrigin : SVGImageElement -> Attribute False Maybe String
-  crossOrigin = fromNullablePrim "SVGImageElement.getcrossOrigin"
-                                 prim__crossOrigin
-                                 prim__setCrossOrigin
-
+  crossOrigin :  JSType t
+              => {auto 0 _ : Elem SVGImageElement (Types t)}
+              -> t
+              -> Attribute False Maybe String
+  crossOrigin v = fromNullablePrim "SVGImageElement.getcrossOrigin"
+                                   prim__crossOrigin
+                                   prim__setCrossOrigin
+                                   (v :> SVGImageElement)
+  
   export
-  height : (obj : SVGImageElement) -> JSIO SVGAnimatedLength
-  height a = primJS $ SVGImageElement.prim__height a
-
+  height :  JSType t1
+         => {auto 0 _ : Elem SVGImageElement (Types t1)}
+         -> (obj : t1)
+         -> JSIO SVGAnimatedLength
+  height a = primJS $ SVGImageElement.prim__height (up a)
+  
   export
-  preserveAspectRatio :  (obj : SVGImageElement)
+  preserveAspectRatio :  JSType t1
+                      => {auto 0 _ : Elem SVGImageElement (Types t1)}
+                      -> (obj : t1)
                       -> JSIO SVGAnimatedPreserveAspectRatio
-  preserveAspectRatio a = primJS $ SVGImageElement.prim__preserveAspectRatio a
-
+  preserveAspectRatio a = primJS
+                        $ SVGImageElement.prim__preserveAspectRatio (up a)
+  
   export
-  width : (obj : SVGImageElement) -> JSIO SVGAnimatedLength
-  width a = primJS $ SVGImageElement.prim__width a
-
+  width :  JSType t1
+        => {auto 0 _ : Elem SVGImageElement (Types t1)}
+        -> (obj : t1)
+        -> JSIO SVGAnimatedLength
+  width a = primJS $ SVGImageElement.prim__width (up a)
+  
   export
-  x : (obj : SVGImageElement) -> JSIO SVGAnimatedLength
-  x a = primJS $ SVGImageElement.prim__x a
-
+  x :  JSType t1
+    => {auto 0 _ : Elem SVGImageElement (Types t1)}
+    -> (obj : t1)
+    -> JSIO SVGAnimatedLength
+  x a = primJS $ SVGImageElement.prim__x (up a)
+  
   export
-  y : (obj : SVGImageElement) -> JSIO SVGAnimatedLength
-  y a = primJS $ SVGImageElement.prim__y a
+  y :  JSType t1
+    => {auto 0 _ : Elem SVGImageElement (Types t1)}
+    -> (obj : t1)
+    -> JSIO SVGAnimatedLength
+  y a = primJS $ SVGImageElement.prim__y (up a)
 
 namespace SVGLength
-
-  public export
-  JSType SVGLength where
-    parents =  [ Object ]
-
-    mixins =  []
-
+  
   public export
   SVG_LENGTHTYPE_CM : UInt16
   SVG_LENGTHTYPE_CM = 6
-
+  
   public export
   SVG_LENGTHTYPE_EMS : UInt16
   SVG_LENGTHTYPE_EMS = 3
-
+  
   public export
   SVG_LENGTHTYPE_EXS : UInt16
   SVG_LENGTHTYPE_EXS = 4
-
+  
   public export
   SVG_LENGTHTYPE_IN : UInt16
   SVG_LENGTHTYPE_IN = 8
-
+  
   public export
   SVG_LENGTHTYPE_MM : UInt16
   SVG_LENGTHTYPE_MM = 7
-
+  
   public export
   SVG_LENGTHTYPE_NUMBER : UInt16
   SVG_LENGTHTYPE_NUMBER = 1
-
+  
   public export
   SVG_LENGTHTYPE_PC : UInt16
   SVG_LENGTHTYPE_PC = 10
-
+  
   public export
   SVG_LENGTHTYPE_PERCENTAGE : UInt16
   SVG_LENGTHTYPE_PERCENTAGE = 2
-
+  
   public export
   SVG_LENGTHTYPE_PT : UInt16
   SVG_LENGTHTYPE_PT = 9
-
+  
   public export
   SVG_LENGTHTYPE_PX : UInt16
   SVG_LENGTHTYPE_PX = 5
-
+  
   public export
   SVG_LENGTHTYPE_UNKNOWN : UInt16
   SVG_LENGTHTYPE_UNKNOWN = 0
-
+  
   export
-  unitType : (obj : SVGLength) -> JSIO UInt16
-  unitType a = primJS $ SVGLength.prim__unitType a
-
+  unitType :  JSType t1
+           => {auto 0 _ : Elem SVGLength (Types t1)}
+           -> (obj : t1)
+           -> JSIO UInt16
+  unitType a = primJS $ SVGLength.prim__unitType (up a)
+  
   export
-  value : SVGLength -> Attribute True I Double
-  value = fromPrim "SVGLength.getvalue" prim__value prim__setValue
-
+  value :  JSType t
+        => {auto 0 _ : Elem SVGLength (Types t)}
+        -> t
+        -> Attribute True I Double
+  value v = fromPrim "SVGLength.getvalue"
+                     prim__value
+                     prim__setValue
+                     (v :> SVGLength)
+  
   export
-  valueAsString : SVGLength -> Attribute True I String
-  valueAsString = fromPrim "SVGLength.getvalueAsString"
-                           prim__valueAsString
-                           prim__setValueAsString
-
+  valueAsString :  JSType t
+                => {auto 0 _ : Elem SVGLength (Types t)}
+                -> t
+                -> Attribute True I String
+  valueAsString v = fromPrim "SVGLength.getvalueAsString"
+                             prim__valueAsString
+                             prim__setValueAsString
+                             (v :> SVGLength)
+  
   export
-  valueInSpecifiedUnits : SVGLength -> Attribute True I Double
-  valueInSpecifiedUnits = fromPrim "SVGLength.getvalueInSpecifiedUnits"
-                                   prim__valueInSpecifiedUnits
-                                   prim__setValueInSpecifiedUnits
-
+  valueInSpecifiedUnits :  JSType t
+                        => {auto 0 _ : Elem SVGLength (Types t)}
+                        -> t
+                        -> Attribute True I Double
+  valueInSpecifiedUnits v = fromPrim "SVGLength.getvalueInSpecifiedUnits"
+                                     prim__valueInSpecifiedUnits
+                                     prim__setValueInSpecifiedUnits
+                                     (v :> SVGLength)
+  
   export
-  convertToSpecifiedUnits : (obj : SVGLength) -> (unitType : UInt16) -> JSIO ()
+  convertToSpecifiedUnits :  JSType t1
+                          => {auto 0 _ : Elem SVGLength (Types t1)}
+                          -> (obj : t1)
+                          -> (unitType : UInt16)
+                          -> JSIO ()
   convertToSpecifiedUnits a b = primJS
-                              $ SVGLength.prim__convertToSpecifiedUnits a b
-
+                              $ SVGLength.prim__convertToSpecifiedUnits (up a) b
+  
   export
-  newValueSpecifiedUnits :  (obj : SVGLength)
+  newValueSpecifiedUnits :  JSType t1
+                         => {auto 0 _ : Elem SVGLength (Types t1)}
+                         -> (obj : t1)
                          -> (unitType : UInt16)
                          -> (valueInSpecifiedUnits : Double)
                          -> JSIO ()
   newValueSpecifiedUnits a b c = primJS
-                               $ SVGLength.prim__newValueSpecifiedUnits a b c
+                               $ SVGLength.prim__newValueSpecifiedUnits (up a)
+                                                                        b
+                                                                        c
 
 namespace SVGLengthList
-
-  public export
-  JSType SVGLengthList where
-    parents =  [ Object ]
-
-    mixins =  []
-
+  
   export
-  set :  (obj : SVGLengthList)
+  set :  JSType t1
+      => JSType t2
+      => {auto 0 _ : Elem SVGLengthList (Types t1)}
+      -> {auto 0 _ : Elem SVGLength (Types t2)}
+      -> (obj : t1)
       -> (index : UInt32)
-      -> (newItem : SVGLength)
+      -> (newItem : t2)
       -> JSIO ()
-  set a b c = primJS $ SVGLengthList.prim__set a b c
-
+  set a b c = primJS $ SVGLengthList.prim__set (up a) b (up c)
+  
   export
-  length : (obj : SVGLengthList) -> JSIO UInt32
-  length a = primJS $ SVGLengthList.prim__length a
-
+  length :  JSType t1
+         => {auto 0 _ : Elem SVGLengthList (Types t1)}
+         -> (obj : t1)
+         -> JSIO UInt32
+  length a = primJS $ SVGLengthList.prim__length (up a)
+  
   export
-  numberOfItems : (obj : SVGLengthList) -> JSIO UInt32
-  numberOfItems a = primJS $ SVGLengthList.prim__numberOfItems a
-
+  numberOfItems :  JSType t1
+                => {auto 0 _ : Elem SVGLengthList (Types t1)}
+                -> (obj : t1)
+                -> JSIO UInt32
+  numberOfItems a = primJS $ SVGLengthList.prim__numberOfItems (up a)
+  
   export
-  appendItem : (obj : SVGLengthList) -> (newItem : SVGLength) -> JSIO SVGLength
-  appendItem a b = primJS $ SVGLengthList.prim__appendItem a b
-
+  appendItem :  JSType t1
+             => JSType t2
+             => {auto 0 _ : Elem SVGLengthList (Types t1)}
+             -> {auto 0 _ : Elem SVGLength (Types t2)}
+             -> (obj : t1)
+             -> (newItem : t2)
+             -> JSIO SVGLength
+  appendItem a b = primJS $ SVGLengthList.prim__appendItem (up a) (up b)
+  
   export
-  clear : (obj : SVGLengthList) -> JSIO ()
-  clear a = primJS $ SVGLengthList.prim__clear a
-
+  clear :  JSType t1
+        => {auto 0 _ : Elem SVGLengthList (Types t1)}
+        -> (obj : t1)
+        -> JSIO ()
+  clear a = primJS $ SVGLengthList.prim__clear (up a)
+  
   export
-  getItem : (obj : SVGLengthList) -> (index : UInt32) -> JSIO SVGLength
-  getItem a b = primJS $ SVGLengthList.prim__getItem a b
-
+  getItem :  JSType t1
+          => {auto 0 _ : Elem SVGLengthList (Types t1)}
+          -> (obj : t1)
+          -> (index : UInt32)
+          -> JSIO SVGLength
+  getItem a b = primJS $ SVGLengthList.prim__getItem (up a) b
+  
   export
-  initialize : (obj : SVGLengthList) -> (newItem : SVGLength) -> JSIO SVGLength
-  initialize a b = primJS $ SVGLengthList.prim__initialize a b
-
+  initialize :  JSType t1
+             => JSType t2
+             => {auto 0 _ : Elem SVGLengthList (Types t1)}
+             -> {auto 0 _ : Elem SVGLength (Types t2)}
+             -> (obj : t1)
+             -> (newItem : t2)
+             -> JSIO SVGLength
+  initialize a b = primJS $ SVGLengthList.prim__initialize (up a) (up b)
+  
   export
-  insertItemBefore :  (obj : SVGLengthList)
-                   -> (newItem : SVGLength)
+  insertItemBefore :  JSType t1
+                   => JSType t2
+                   => {auto 0 _ : Elem SVGLengthList (Types t1)}
+                   -> {auto 0 _ : Elem SVGLength (Types t2)}
+                   -> (obj : t1)
+                   -> (newItem : t2)
                    -> (index : UInt32)
                    -> JSIO SVGLength
-  insertItemBefore a b c = primJS $ SVGLengthList.prim__insertItemBefore a b c
-
+  insertItemBefore a b c = primJS
+                         $ SVGLengthList.prim__insertItemBefore (up a) (up b) c
+  
   export
-  removeItem : (obj : SVGLengthList) -> (index : UInt32) -> JSIO SVGLength
-  removeItem a b = primJS $ SVGLengthList.prim__removeItem a b
-
+  removeItem :  JSType t1
+             => {auto 0 _ : Elem SVGLengthList (Types t1)}
+             -> (obj : t1)
+             -> (index : UInt32)
+             -> JSIO SVGLength
+  removeItem a b = primJS $ SVGLengthList.prim__removeItem (up a) b
+  
   export
-  replaceItem :  (obj : SVGLengthList)
-              -> (newItem : SVGLength)
+  replaceItem :  JSType t1
+              => JSType t2
+              => {auto 0 _ : Elem SVGLengthList (Types t1)}
+              -> {auto 0 _ : Elem SVGLength (Types t2)}
+              -> (obj : t1)
+              -> (newItem : t2)
               -> (index : UInt32)
               -> JSIO SVGLength
-  replaceItem a b c = primJS $ SVGLengthList.prim__replaceItem a b c
+  replaceItem a b c = primJS $ SVGLengthList.prim__replaceItem (up a) (up b) c
 
 namespace SVGLineElement
-
-  public export
-  JSType SVGLineElement where
-    parents =  [ SVGGeometryElement
-               , SVGGraphicsElement
-               , SVGElement
-               , Element
-               , Node
-               , EventTarget
-               , Object
-               ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , SVGTests
-              , Slottable
-              ]
-
+  
   export
-  x1 : (obj : SVGLineElement) -> JSIO SVGAnimatedLength
-  x1 a = primJS $ SVGLineElement.prim__x1 a
-
+  x1 :  JSType t1
+     => {auto 0 _ : Elem SVGLineElement (Types t1)}
+     -> (obj : t1)
+     -> JSIO SVGAnimatedLength
+  x1 a = primJS $ SVGLineElement.prim__x1 (up a)
+  
   export
-  x2 : (obj : SVGLineElement) -> JSIO SVGAnimatedLength
-  x2 a = primJS $ SVGLineElement.prim__x2 a
-
+  x2 :  JSType t1
+     => {auto 0 _ : Elem SVGLineElement (Types t1)}
+     -> (obj : t1)
+     -> JSIO SVGAnimatedLength
+  x2 a = primJS $ SVGLineElement.prim__x2 (up a)
+  
   export
-  y1 : (obj : SVGLineElement) -> JSIO SVGAnimatedLength
-  y1 a = primJS $ SVGLineElement.prim__y1 a
-
+  y1 :  JSType t1
+     => {auto 0 _ : Elem SVGLineElement (Types t1)}
+     -> (obj : t1)
+     -> JSIO SVGAnimatedLength
+  y1 a = primJS $ SVGLineElement.prim__y1 (up a)
+  
   export
-  y2 : (obj : SVGLineElement) -> JSIO SVGAnimatedLength
-  y2 a = primJS $ SVGLineElement.prim__y2 a
+  y2 :  JSType t1
+     => {auto 0 _ : Elem SVGLineElement (Types t1)}
+     -> (obj : t1)
+     -> JSIO SVGAnimatedLength
+  y2 a = primJS $ SVGLineElement.prim__y2 (up a)
 
 namespace SVGLinearGradientElement
-
-  public export
-  JSType SVGLinearGradientElement where
-    parents =  [ SVGGradientElement
-               , SVGElement
-               , Element
-               , Node
-               , EventTarget
-               , Object
-               ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , SVGURIReference
-              , Slottable
-              ]
-
+  
   export
-  x1 : (obj : SVGLinearGradientElement) -> JSIO SVGAnimatedLength
-  x1 a = primJS $ SVGLinearGradientElement.prim__x1 a
-
+  x1 :  JSType t1
+     => {auto 0 _ : Elem SVGLinearGradientElement (Types t1)}
+     -> (obj : t1)
+     -> JSIO SVGAnimatedLength
+  x1 a = primJS $ SVGLinearGradientElement.prim__x1 (up a)
+  
   export
-  x2 : (obj : SVGLinearGradientElement) -> JSIO SVGAnimatedLength
-  x2 a = primJS $ SVGLinearGradientElement.prim__x2 a
-
+  x2 :  JSType t1
+     => {auto 0 _ : Elem SVGLinearGradientElement (Types t1)}
+     -> (obj : t1)
+     -> JSIO SVGAnimatedLength
+  x2 a = primJS $ SVGLinearGradientElement.prim__x2 (up a)
+  
   export
-  y1 : (obj : SVGLinearGradientElement) -> JSIO SVGAnimatedLength
-  y1 a = primJS $ SVGLinearGradientElement.prim__y1 a
-
+  y1 :  JSType t1
+     => {auto 0 _ : Elem SVGLinearGradientElement (Types t1)}
+     -> (obj : t1)
+     -> JSIO SVGAnimatedLength
+  y1 a = primJS $ SVGLinearGradientElement.prim__y1 (up a)
+  
   export
-  y2 : (obj : SVGLinearGradientElement) -> JSIO SVGAnimatedLength
-  y2 a = primJS $ SVGLinearGradientElement.prim__y2 a
+  y2 :  JSType t1
+     => {auto 0 _ : Elem SVGLinearGradientElement (Types t1)}
+     -> (obj : t1)
+     -> JSIO SVGAnimatedLength
+  y2 a = primJS $ SVGLinearGradientElement.prim__y2 (up a)
 
 namespace SVGMarkerElement
-
-  public export
-  JSType SVGMarkerElement where
-    parents =  [ SVGElement , Element , Node , EventTarget , Object ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , SVGFitToViewBox
-              , Slottable
-              ]
-
+  
   public export
   SVG_MARKERUNITS_STROKEWIDTH : UInt16
   SVG_MARKERUNITS_STROKEWIDTH = 2
-
+  
   public export
   SVG_MARKERUNITS_UNKNOWN : UInt16
   SVG_MARKERUNITS_UNKNOWN = 0
-
+  
   public export
   SVG_MARKERUNITS_USERSPACEONUSE : UInt16
   SVG_MARKERUNITS_USERSPACEONUSE = 1
-
+  
   public export
   SVG_MARKER_ORIENT_ANGLE : UInt16
   SVG_MARKER_ORIENT_ANGLE = 2
-
+  
   public export
   SVG_MARKER_ORIENT_AUTO : UInt16
   SVG_MARKER_ORIENT_AUTO = 1
-
+  
   public export
   SVG_MARKER_ORIENT_UNKNOWN : UInt16
   SVG_MARKER_ORIENT_UNKNOWN = 0
-
+  
   export
-  markerHeight : (obj : SVGMarkerElement) -> JSIO SVGAnimatedLength
-  markerHeight a = primJS $ SVGMarkerElement.prim__markerHeight a
-
+  markerHeight :  JSType t1
+               => {auto 0 _ : Elem SVGMarkerElement (Types t1)}
+               -> (obj : t1)
+               -> JSIO SVGAnimatedLength
+  markerHeight a = primJS $ SVGMarkerElement.prim__markerHeight (up a)
+  
   export
-  markerUnits : (obj : SVGMarkerElement) -> JSIO SVGAnimatedEnumeration
-  markerUnits a = primJS $ SVGMarkerElement.prim__markerUnits a
-
+  markerUnits :  JSType t1
+              => {auto 0 _ : Elem SVGMarkerElement (Types t1)}
+              -> (obj : t1)
+              -> JSIO SVGAnimatedEnumeration
+  markerUnits a = primJS $ SVGMarkerElement.prim__markerUnits (up a)
+  
   export
-  markerWidth : (obj : SVGMarkerElement) -> JSIO SVGAnimatedLength
-  markerWidth a = primJS $ SVGMarkerElement.prim__markerWidth a
-
+  markerWidth :  JSType t1
+              => {auto 0 _ : Elem SVGMarkerElement (Types t1)}
+              -> (obj : t1)
+              -> JSIO SVGAnimatedLength
+  markerWidth a = primJS $ SVGMarkerElement.prim__markerWidth (up a)
+  
   export
-  orient : SVGMarkerElement -> Attribute True I String
-  orient = fromPrim "SVGMarkerElement.getorient" prim__orient prim__setOrient
-
+  orient :  JSType t
+         => {auto 0 _ : Elem SVGMarkerElement (Types t)}
+         -> t
+         -> Attribute True I String
+  orient v = fromPrim "SVGMarkerElement.getorient"
+                      prim__orient
+                      prim__setOrient
+                      (v :> SVGMarkerElement)
+  
   export
-  orientAngle : (obj : SVGMarkerElement) -> JSIO SVGAnimatedAngle
-  orientAngle a = primJS $ SVGMarkerElement.prim__orientAngle a
-
+  orientAngle :  JSType t1
+              => {auto 0 _ : Elem SVGMarkerElement (Types t1)}
+              -> (obj : t1)
+              -> JSIO SVGAnimatedAngle
+  orientAngle a = primJS $ SVGMarkerElement.prim__orientAngle (up a)
+  
   export
-  orientType : (obj : SVGMarkerElement) -> JSIO SVGAnimatedEnumeration
-  orientType a = primJS $ SVGMarkerElement.prim__orientType a
-
+  orientType :  JSType t1
+             => {auto 0 _ : Elem SVGMarkerElement (Types t1)}
+             -> (obj : t1)
+             -> JSIO SVGAnimatedEnumeration
+  orientType a = primJS $ SVGMarkerElement.prim__orientType (up a)
+  
   export
-  refX : (obj : SVGMarkerElement) -> JSIO SVGAnimatedLength
-  refX a = primJS $ SVGMarkerElement.prim__refX a
-
+  refX :  JSType t1
+       => {auto 0 _ : Elem SVGMarkerElement (Types t1)}
+       -> (obj : t1)
+       -> JSIO SVGAnimatedLength
+  refX a = primJS $ SVGMarkerElement.prim__refX (up a)
+  
   export
-  refY : (obj : SVGMarkerElement) -> JSIO SVGAnimatedLength
-  refY a = primJS $ SVGMarkerElement.prim__refY a
-
+  refY :  JSType t1
+       => {auto 0 _ : Elem SVGMarkerElement (Types t1)}
+       -> (obj : t1)
+       -> JSIO SVGAnimatedLength
+  refY a = primJS $ SVGMarkerElement.prim__refY (up a)
+  
   export
-  setOrientToAngle : (obj : SVGMarkerElement) -> (angle : SVGAngle) -> JSIO ()
-  setOrientToAngle a b = primJS $ SVGMarkerElement.prim__setOrientToAngle a b
-
+  setOrientToAngle :  JSType t1
+                   => JSType t2
+                   => {auto 0 _ : Elem SVGMarkerElement (Types t1)}
+                   -> {auto 0 _ : Elem SVGAngle (Types t2)}
+                   -> (obj : t1)
+                   -> (angle : t2)
+                   -> JSIO ()
+  setOrientToAngle a b = primJS
+                       $ SVGMarkerElement.prim__setOrientToAngle (up a) (up b)
+  
   export
-  setOrientToAuto : (obj : SVGMarkerElement) -> JSIO ()
-  setOrientToAuto a = primJS $ SVGMarkerElement.prim__setOrientToAuto a
+  setOrientToAuto :  JSType t1
+                  => {auto 0 _ : Elem SVGMarkerElement (Types t1)}
+                  -> (obj : t1)
+                  -> JSIO ()
+  setOrientToAuto a = primJS $ SVGMarkerElement.prim__setOrientToAuto (up a)
 
-namespace SVGMetadataElement
-
-  public export
-  JSType SVGMetadataElement where
-    parents =  [ SVGElement , Element , Node , EventTarget , Object ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , Slottable
-              ]
 
 namespace SVGNumber
-
-  public export
-  JSType SVGNumber where
-    parents =  [ Object ]
-
-    mixins =  []
-
+  
   export
-  value : SVGNumber -> Attribute True I Double
-  value = fromPrim "SVGNumber.getvalue" prim__value prim__setValue
+  value :  JSType t
+        => {auto 0 _ : Elem SVGNumber (Types t)}
+        -> t
+        -> Attribute True I Double
+  value v = fromPrim "SVGNumber.getvalue"
+                     prim__value
+                     prim__setValue
+                     (v :> SVGNumber)
 
 namespace SVGNumberList
-
-  public export
-  JSType SVGNumberList where
-    parents =  [ Object ]
-
-    mixins =  []
-
+  
   export
-  set :  (obj : SVGNumberList)
+  set :  JSType t1
+      => JSType t2
+      => {auto 0 _ : Elem SVGNumberList (Types t1)}
+      -> {auto 0 _ : Elem SVGNumber (Types t2)}
+      -> (obj : t1)
       -> (index : UInt32)
-      -> (newItem : SVGNumber)
+      -> (newItem : t2)
       -> JSIO ()
-  set a b c = primJS $ SVGNumberList.prim__set a b c
-
+  set a b c = primJS $ SVGNumberList.prim__set (up a) b (up c)
+  
   export
-  length : (obj : SVGNumberList) -> JSIO UInt32
-  length a = primJS $ SVGNumberList.prim__length a
-
+  length :  JSType t1
+         => {auto 0 _ : Elem SVGNumberList (Types t1)}
+         -> (obj : t1)
+         -> JSIO UInt32
+  length a = primJS $ SVGNumberList.prim__length (up a)
+  
   export
-  numberOfItems : (obj : SVGNumberList) -> JSIO UInt32
-  numberOfItems a = primJS $ SVGNumberList.prim__numberOfItems a
-
+  numberOfItems :  JSType t1
+                => {auto 0 _ : Elem SVGNumberList (Types t1)}
+                -> (obj : t1)
+                -> JSIO UInt32
+  numberOfItems a = primJS $ SVGNumberList.prim__numberOfItems (up a)
+  
   export
-  appendItem : (obj : SVGNumberList) -> (newItem : SVGNumber) -> JSIO SVGNumber
-  appendItem a b = primJS $ SVGNumberList.prim__appendItem a b
-
+  appendItem :  JSType t1
+             => JSType t2
+             => {auto 0 _ : Elem SVGNumberList (Types t1)}
+             -> {auto 0 _ : Elem SVGNumber (Types t2)}
+             -> (obj : t1)
+             -> (newItem : t2)
+             -> JSIO SVGNumber
+  appendItem a b = primJS $ SVGNumberList.prim__appendItem (up a) (up b)
+  
   export
-  clear : (obj : SVGNumberList) -> JSIO ()
-  clear a = primJS $ SVGNumberList.prim__clear a
-
+  clear :  JSType t1
+        => {auto 0 _ : Elem SVGNumberList (Types t1)}
+        -> (obj : t1)
+        -> JSIO ()
+  clear a = primJS $ SVGNumberList.prim__clear (up a)
+  
   export
-  getItem : (obj : SVGNumberList) -> (index : UInt32) -> JSIO SVGNumber
-  getItem a b = primJS $ SVGNumberList.prim__getItem a b
-
+  getItem :  JSType t1
+          => {auto 0 _ : Elem SVGNumberList (Types t1)}
+          -> (obj : t1)
+          -> (index : UInt32)
+          -> JSIO SVGNumber
+  getItem a b = primJS $ SVGNumberList.prim__getItem (up a) b
+  
   export
-  initialize : (obj : SVGNumberList) -> (newItem : SVGNumber) -> JSIO SVGNumber
-  initialize a b = primJS $ SVGNumberList.prim__initialize a b
-
+  initialize :  JSType t1
+             => JSType t2
+             => {auto 0 _ : Elem SVGNumberList (Types t1)}
+             -> {auto 0 _ : Elem SVGNumber (Types t2)}
+             -> (obj : t1)
+             -> (newItem : t2)
+             -> JSIO SVGNumber
+  initialize a b = primJS $ SVGNumberList.prim__initialize (up a) (up b)
+  
   export
-  insertItemBefore :  (obj : SVGNumberList)
-                   -> (newItem : SVGNumber)
+  insertItemBefore :  JSType t1
+                   => JSType t2
+                   => {auto 0 _ : Elem SVGNumberList (Types t1)}
+                   -> {auto 0 _ : Elem SVGNumber (Types t2)}
+                   -> (obj : t1)
+                   -> (newItem : t2)
                    -> (index : UInt32)
                    -> JSIO SVGNumber
-  insertItemBefore a b c = primJS $ SVGNumberList.prim__insertItemBefore a b c
-
+  insertItemBefore a b c = primJS
+                         $ SVGNumberList.prim__insertItemBefore (up a) (up b) c
+  
   export
-  removeItem : (obj : SVGNumberList) -> (index : UInt32) -> JSIO SVGNumber
-  removeItem a b = primJS $ SVGNumberList.prim__removeItem a b
-
+  removeItem :  JSType t1
+             => {auto 0 _ : Elem SVGNumberList (Types t1)}
+             -> (obj : t1)
+             -> (index : UInt32)
+             -> JSIO SVGNumber
+  removeItem a b = primJS $ SVGNumberList.prim__removeItem (up a) b
+  
   export
-  replaceItem :  (obj : SVGNumberList)
-              -> (newItem : SVGNumber)
+  replaceItem :  JSType t1
+              => JSType t2
+              => {auto 0 _ : Elem SVGNumberList (Types t1)}
+              -> {auto 0 _ : Elem SVGNumber (Types t2)}
+              -> (obj : t1)
+              -> (newItem : t2)
               -> (index : UInt32)
               -> JSIO SVGNumber
-  replaceItem a b c = primJS $ SVGNumberList.prim__replaceItem a b c
+  replaceItem a b c = primJS $ SVGNumberList.prim__replaceItem (up a) (up b) c
 
-namespace SVGPathElement
-
-  public export
-  JSType SVGPathElement where
-    parents =  [ SVGGeometryElement
-               , SVGGraphicsElement
-               , SVGElement
-               , Element
-               , Node
-               , EventTarget
-               , Object
-               ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , SVGTests
-              , Slottable
-              ]
 
 namespace SVGPatternElement
-
-  public export
-  JSType SVGPatternElement where
-    parents =  [ SVGElement , Element , Node , EventTarget , Object ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , SVGFitToViewBox
-              , SVGURIReference
-              , Slottable
-              ]
-
+  
   export
-  height : (obj : SVGPatternElement) -> JSIO SVGAnimatedLength
-  height a = primJS $ SVGPatternElement.prim__height a
-
+  height :  JSType t1
+         => {auto 0 _ : Elem SVGPatternElement (Types t1)}
+         -> (obj : t1)
+         -> JSIO SVGAnimatedLength
+  height a = primJS $ SVGPatternElement.prim__height (up a)
+  
   export
-  patternContentUnits : (obj : SVGPatternElement) -> JSIO SVGAnimatedEnumeration
-  patternContentUnits a = primJS $ SVGPatternElement.prim__patternContentUnits a
-
+  patternContentUnits :  JSType t1
+                      => {auto 0 _ : Elem SVGPatternElement (Types t1)}
+                      -> (obj : t1)
+                      -> JSIO SVGAnimatedEnumeration
+  patternContentUnits a = primJS
+                        $ SVGPatternElement.prim__patternContentUnits (up a)
+  
   export
-  patternTransform : (obj : SVGPatternElement) -> JSIO SVGAnimatedTransformList
-  patternTransform a = primJS $ SVGPatternElement.prim__patternTransform a
-
+  patternTransform :  JSType t1
+                   => {auto 0 _ : Elem SVGPatternElement (Types t1)}
+                   -> (obj : t1)
+                   -> JSIO SVGAnimatedTransformList
+  patternTransform a = primJS $ SVGPatternElement.prim__patternTransform (up a)
+  
   export
-  patternUnits : (obj : SVGPatternElement) -> JSIO SVGAnimatedEnumeration
-  patternUnits a = primJS $ SVGPatternElement.prim__patternUnits a
-
+  patternUnits :  JSType t1
+               => {auto 0 _ : Elem SVGPatternElement (Types t1)}
+               -> (obj : t1)
+               -> JSIO SVGAnimatedEnumeration
+  patternUnits a = primJS $ SVGPatternElement.prim__patternUnits (up a)
+  
   export
-  width : (obj : SVGPatternElement) -> JSIO SVGAnimatedLength
-  width a = primJS $ SVGPatternElement.prim__width a
-
+  width :  JSType t1
+        => {auto 0 _ : Elem SVGPatternElement (Types t1)}
+        -> (obj : t1)
+        -> JSIO SVGAnimatedLength
+  width a = primJS $ SVGPatternElement.prim__width (up a)
+  
   export
-  x : (obj : SVGPatternElement) -> JSIO SVGAnimatedLength
-  x a = primJS $ SVGPatternElement.prim__x a
-
+  x :  JSType t1
+    => {auto 0 _ : Elem SVGPatternElement (Types t1)}
+    -> (obj : t1)
+    -> JSIO SVGAnimatedLength
+  x a = primJS $ SVGPatternElement.prim__x (up a)
+  
   export
-  y : (obj : SVGPatternElement) -> JSIO SVGAnimatedLength
-  y a = primJS $ SVGPatternElement.prim__y a
+  y :  JSType t1
+    => {auto 0 _ : Elem SVGPatternElement (Types t1)}
+    -> (obj : t1)
+    -> JSIO SVGAnimatedLength
+  y a = primJS $ SVGPatternElement.prim__y (up a)
 
 namespace SVGPointList
-
-  public export
-  JSType SVGPointList where
-    parents =  [ Object ]
-
-    mixins =  []
-
+  
   export
-  set :  (obj : SVGPointList)
+  set :  JSType t1
+      => JSType t2
+      => {auto 0 _ : Elem SVGPointList (Types t1)}
+      -> {auto 0 _ : Elem DOMPoint (Types t2)}
+      -> (obj : t1)
       -> (index : UInt32)
-      -> (newItem : DOMPoint)
+      -> (newItem : t2)
       -> JSIO ()
-  set a b c = primJS $ SVGPointList.prim__set a b c
-
+  set a b c = primJS $ SVGPointList.prim__set (up a) b (up c)
+  
   export
-  length : (obj : SVGPointList) -> JSIO UInt32
-  length a = primJS $ SVGPointList.prim__length a
-
+  length :  JSType t1
+         => {auto 0 _ : Elem SVGPointList (Types t1)}
+         -> (obj : t1)
+         -> JSIO UInt32
+  length a = primJS $ SVGPointList.prim__length (up a)
+  
   export
-  numberOfItems : (obj : SVGPointList) -> JSIO UInt32
-  numberOfItems a = primJS $ SVGPointList.prim__numberOfItems a
-
+  numberOfItems :  JSType t1
+                => {auto 0 _ : Elem SVGPointList (Types t1)}
+                -> (obj : t1)
+                -> JSIO UInt32
+  numberOfItems a = primJS $ SVGPointList.prim__numberOfItems (up a)
+  
   export
-  appendItem : (obj : SVGPointList) -> (newItem : DOMPoint) -> JSIO DOMPoint
-  appendItem a b = primJS $ SVGPointList.prim__appendItem a b
-
+  appendItem :  JSType t1
+             => JSType t2
+             => {auto 0 _ : Elem SVGPointList (Types t1)}
+             -> {auto 0 _ : Elem DOMPoint (Types t2)}
+             -> (obj : t1)
+             -> (newItem : t2)
+             -> JSIO DOMPoint
+  appendItem a b = primJS $ SVGPointList.prim__appendItem (up a) (up b)
+  
   export
-  clear : (obj : SVGPointList) -> JSIO ()
-  clear a = primJS $ SVGPointList.prim__clear a
-
+  clear :  JSType t1
+        => {auto 0 _ : Elem SVGPointList (Types t1)}
+        -> (obj : t1)
+        -> JSIO ()
+  clear a = primJS $ SVGPointList.prim__clear (up a)
+  
   export
-  getItem : (obj : SVGPointList) -> (index : UInt32) -> JSIO DOMPoint
-  getItem a b = primJS $ SVGPointList.prim__getItem a b
-
+  getItem :  JSType t1
+          => {auto 0 _ : Elem SVGPointList (Types t1)}
+          -> (obj : t1)
+          -> (index : UInt32)
+          -> JSIO DOMPoint
+  getItem a b = primJS $ SVGPointList.prim__getItem (up a) b
+  
   export
-  initialize : (obj : SVGPointList) -> (newItem : DOMPoint) -> JSIO DOMPoint
-  initialize a b = primJS $ SVGPointList.prim__initialize a b
-
+  initialize :  JSType t1
+             => JSType t2
+             => {auto 0 _ : Elem SVGPointList (Types t1)}
+             -> {auto 0 _ : Elem DOMPoint (Types t2)}
+             -> (obj : t1)
+             -> (newItem : t2)
+             -> JSIO DOMPoint
+  initialize a b = primJS $ SVGPointList.prim__initialize (up a) (up b)
+  
   export
-  insertItemBefore :  (obj : SVGPointList)
-                   -> (newItem : DOMPoint)
+  insertItemBefore :  JSType t1
+                   => JSType t2
+                   => {auto 0 _ : Elem SVGPointList (Types t1)}
+                   -> {auto 0 _ : Elem DOMPoint (Types t2)}
+                   -> (obj : t1)
+                   -> (newItem : t2)
                    -> (index : UInt32)
                    -> JSIO DOMPoint
-  insertItemBefore a b c = primJS $ SVGPointList.prim__insertItemBefore a b c
-
+  insertItemBefore a b c = primJS
+                         $ SVGPointList.prim__insertItemBefore (up a) (up b) c
+  
   export
-  removeItem : (obj : SVGPointList) -> (index : UInt32) -> JSIO DOMPoint
-  removeItem a b = primJS $ SVGPointList.prim__removeItem a b
-
+  removeItem :  JSType t1
+             => {auto 0 _ : Elem SVGPointList (Types t1)}
+             -> (obj : t1)
+             -> (index : UInt32)
+             -> JSIO DOMPoint
+  removeItem a b = primJS $ SVGPointList.prim__removeItem (up a) b
+  
   export
-  replaceItem :  (obj : SVGPointList)
-              -> (newItem : DOMPoint)
+  replaceItem :  JSType t1
+              => JSType t2
+              => {auto 0 _ : Elem SVGPointList (Types t1)}
+              -> {auto 0 _ : Elem DOMPoint (Types t2)}
+              -> (obj : t1)
+              -> (newItem : t2)
               -> (index : UInt32)
               -> JSIO DOMPoint
-  replaceItem a b c = primJS $ SVGPointList.prim__replaceItem a b c
+  replaceItem a b c = primJS $ SVGPointList.prim__replaceItem (up a) (up b) c
 
-namespace SVGPolygonElement
 
-  public export
-  JSType SVGPolygonElement where
-    parents =  [ SVGGeometryElement
-               , SVGGraphicsElement
-               , SVGElement
-               , Element
-               , Node
-               , EventTarget
-               , Object
-               ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGAnimatedPoints
-              , SVGElementInstance
-              , SVGTests
-              , Slottable
-              ]
-
-namespace SVGPolylineElement
-
-  public export
-  JSType SVGPolylineElement where
-    parents =  [ SVGGeometryElement
-               , SVGGraphicsElement
-               , SVGElement
-               , Element
-               , Node
-               , EventTarget
-               , Object
-               ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGAnimatedPoints
-              , SVGElementInstance
-              , SVGTests
-              , Slottable
-              ]
 
 namespace SVGPreserveAspectRatio
-
-  public export
-  JSType SVGPreserveAspectRatio where
-    parents =  [ Object ]
-
-    mixins =  []
-
+  
   public export
   SVG_MEETORSLICE_MEET : UInt16
   SVG_MEETORSLICE_MEET = 1
-
+  
   public export
   SVG_MEETORSLICE_SLICE : UInt16
   SVG_MEETORSLICE_SLICE = 2
-
+  
   public export
   SVG_MEETORSLICE_UNKNOWN : UInt16
   SVG_MEETORSLICE_UNKNOWN = 0
-
+  
   public export
   SVG_PRESERVEASPECTRATIO_NONE : UInt16
   SVG_PRESERVEASPECTRATIO_NONE = 1
-
+  
   public export
   SVG_PRESERVEASPECTRATIO_UNKNOWN : UInt16
   SVG_PRESERVEASPECTRATIO_UNKNOWN = 0
-
+  
   public export
   SVG_PRESERVEASPECTRATIO_XMAXYMAX : UInt16
   SVG_PRESERVEASPECTRATIO_XMAXYMAX = 10
-
+  
   public export
   SVG_PRESERVEASPECTRATIO_XMAXYMID : UInt16
   SVG_PRESERVEASPECTRATIO_XMAXYMID = 7
-
+  
   public export
   SVG_PRESERVEASPECTRATIO_XMAXYMIN : UInt16
   SVG_PRESERVEASPECTRATIO_XMAXYMIN = 4
-
+  
   public export
   SVG_PRESERVEASPECTRATIO_XMIDYMAX : UInt16
   SVG_PRESERVEASPECTRATIO_XMIDYMAX = 9
-
+  
   public export
   SVG_PRESERVEASPECTRATIO_XMIDYMID : UInt16
   SVG_PRESERVEASPECTRATIO_XMIDYMID = 6
-
+  
   public export
   SVG_PRESERVEASPECTRATIO_XMIDYMIN : UInt16
   SVG_PRESERVEASPECTRATIO_XMIDYMIN = 3
-
+  
   public export
   SVG_PRESERVEASPECTRATIO_XMINYMAX : UInt16
   SVG_PRESERVEASPECTRATIO_XMINYMAX = 8
-
+  
   public export
   SVG_PRESERVEASPECTRATIO_XMINYMID : UInt16
   SVG_PRESERVEASPECTRATIO_XMINYMID = 5
-
+  
   public export
   SVG_PRESERVEASPECTRATIO_XMINYMIN : UInt16
   SVG_PRESERVEASPECTRATIO_XMINYMIN = 2
-
+  
   export
-  align : SVGPreserveAspectRatio -> Attribute True I UInt16
-  align = fromPrim "SVGPreserveAspectRatio.getalign" prim__align prim__setAlign
-
+  align :  JSType t
+        => {auto 0 _ : Elem SVGPreserveAspectRatio (Types t)}
+        -> t
+        -> Attribute True I UInt16
+  align v = fromPrim "SVGPreserveAspectRatio.getalign"
+                     prim__align
+                     prim__setAlign
+                     (v :> SVGPreserveAspectRatio)
+  
   export
-  meetOrSlice : SVGPreserveAspectRatio -> Attribute True I UInt16
-  meetOrSlice = fromPrim "SVGPreserveAspectRatio.getmeetOrSlice"
-                         prim__meetOrSlice
-                         prim__setMeetOrSlice
+  meetOrSlice :  JSType t
+              => {auto 0 _ : Elem SVGPreserveAspectRatio (Types t)}
+              -> t
+              -> Attribute True I UInt16
+  meetOrSlice v = fromPrim "SVGPreserveAspectRatio.getmeetOrSlice"
+                           prim__meetOrSlice
+                           prim__setMeetOrSlice
+                           (v :> SVGPreserveAspectRatio)
 
 namespace SVGRadialGradientElement
-
-  public export
-  JSType SVGRadialGradientElement where
-    parents =  [ SVGGradientElement
-               , SVGElement
-               , Element
-               , Node
-               , EventTarget
-               , Object
-               ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , SVGURIReference
-              , Slottable
-              ]
-
+  
   export
-  cx : (obj : SVGRadialGradientElement) -> JSIO SVGAnimatedLength
-  cx a = primJS $ SVGRadialGradientElement.prim__cx a
-
+  cx :  JSType t1
+     => {auto 0 _ : Elem SVGRadialGradientElement (Types t1)}
+     -> (obj : t1)
+     -> JSIO SVGAnimatedLength
+  cx a = primJS $ SVGRadialGradientElement.prim__cx (up a)
+  
   export
-  cy : (obj : SVGRadialGradientElement) -> JSIO SVGAnimatedLength
-  cy a = primJS $ SVGRadialGradientElement.prim__cy a
-
+  cy :  JSType t1
+     => {auto 0 _ : Elem SVGRadialGradientElement (Types t1)}
+     -> (obj : t1)
+     -> JSIO SVGAnimatedLength
+  cy a = primJS $ SVGRadialGradientElement.prim__cy (up a)
+  
   export
-  fr : (obj : SVGRadialGradientElement) -> JSIO SVGAnimatedLength
-  fr a = primJS $ SVGRadialGradientElement.prim__fr a
-
+  fr :  JSType t1
+     => {auto 0 _ : Elem SVGRadialGradientElement (Types t1)}
+     -> (obj : t1)
+     -> JSIO SVGAnimatedLength
+  fr a = primJS $ SVGRadialGradientElement.prim__fr (up a)
+  
   export
-  fx : (obj : SVGRadialGradientElement) -> JSIO SVGAnimatedLength
-  fx a = primJS $ SVGRadialGradientElement.prim__fx a
-
+  fx :  JSType t1
+     => {auto 0 _ : Elem SVGRadialGradientElement (Types t1)}
+     -> (obj : t1)
+     -> JSIO SVGAnimatedLength
+  fx a = primJS $ SVGRadialGradientElement.prim__fx (up a)
+  
   export
-  fy : (obj : SVGRadialGradientElement) -> JSIO SVGAnimatedLength
-  fy a = primJS $ SVGRadialGradientElement.prim__fy a
-
+  fy :  JSType t1
+     => {auto 0 _ : Elem SVGRadialGradientElement (Types t1)}
+     -> (obj : t1)
+     -> JSIO SVGAnimatedLength
+  fy a = primJS $ SVGRadialGradientElement.prim__fy (up a)
+  
   export
-  r : (obj : SVGRadialGradientElement) -> JSIO SVGAnimatedLength
-  r a = primJS $ SVGRadialGradientElement.prim__r a
+  r :  JSType t1
+    => {auto 0 _ : Elem SVGRadialGradientElement (Types t1)}
+    -> (obj : t1)
+    -> JSIO SVGAnimatedLength
+  r a = primJS $ SVGRadialGradientElement.prim__r (up a)
 
 namespace SVGRectElement
-
-  public export
-  JSType SVGRectElement where
-    parents =  [ SVGGeometryElement
-               , SVGGraphicsElement
-               , SVGElement
-               , Element
-               , Node
-               , EventTarget
-               , Object
-               ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , SVGTests
-              , Slottable
-              ]
-
+  
   export
-  height : (obj : SVGRectElement) -> JSIO SVGAnimatedLength
-  height a = primJS $ SVGRectElement.prim__height a
-
+  height :  JSType t1
+         => {auto 0 _ : Elem SVGRectElement (Types t1)}
+         -> (obj : t1)
+         -> JSIO SVGAnimatedLength
+  height a = primJS $ SVGRectElement.prim__height (up a)
+  
   export
-  rx : (obj : SVGRectElement) -> JSIO SVGAnimatedLength
-  rx a = primJS $ SVGRectElement.prim__rx a
-
+  rx :  JSType t1
+     => {auto 0 _ : Elem SVGRectElement (Types t1)}
+     -> (obj : t1)
+     -> JSIO SVGAnimatedLength
+  rx a = primJS $ SVGRectElement.prim__rx (up a)
+  
   export
-  ry : (obj : SVGRectElement) -> JSIO SVGAnimatedLength
-  ry a = primJS $ SVGRectElement.prim__ry a
-
+  ry :  JSType t1
+     => {auto 0 _ : Elem SVGRectElement (Types t1)}
+     -> (obj : t1)
+     -> JSIO SVGAnimatedLength
+  ry a = primJS $ SVGRectElement.prim__ry (up a)
+  
   export
-  width : (obj : SVGRectElement) -> JSIO SVGAnimatedLength
-  width a = primJS $ SVGRectElement.prim__width a
-
+  width :  JSType t1
+        => {auto 0 _ : Elem SVGRectElement (Types t1)}
+        -> (obj : t1)
+        -> JSIO SVGAnimatedLength
+  width a = primJS $ SVGRectElement.prim__width (up a)
+  
   export
-  x : (obj : SVGRectElement) -> JSIO SVGAnimatedLength
-  x a = primJS $ SVGRectElement.prim__x a
-
+  x :  JSType t1
+    => {auto 0 _ : Elem SVGRectElement (Types t1)}
+    -> (obj : t1)
+    -> JSIO SVGAnimatedLength
+  x a = primJS $ SVGRectElement.prim__x (up a)
+  
   export
-  y : (obj : SVGRectElement) -> JSIO SVGAnimatedLength
-  y a = primJS $ SVGRectElement.prim__y a
+  y :  JSType t1
+    => {auto 0 _ : Elem SVGRectElement (Types t1)}
+    -> (obj : t1)
+    -> JSIO SVGAnimatedLength
+  y a = primJS $ SVGRectElement.prim__y (up a)
 
 namespace SVGSVGElement
-
-  public export
-  JSType SVGSVGElement where
-    parents =  [ SVGGraphicsElement
-               , SVGElement
-               , Element
-               , Node
-               , EventTarget
-               , Object
-               ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , SVGFitToViewBox
-              , SVGTests
-              , Slottable
-              , WindowEventHandlers
-              ]
-
+  
   export
-  currentScale : SVGSVGElement -> Attribute True I Double
-  currentScale = fromPrim "SVGSVGElement.getcurrentScale"
-                          prim__currentScale
-                          prim__setCurrentScale
-
+  currentScale :  JSType t
+               => {auto 0 _ : Elem SVGSVGElement (Types t)}
+               -> t
+               -> Attribute True I Double
+  currentScale v = fromPrim "SVGSVGElement.getcurrentScale"
+                            prim__currentScale
+                            prim__setCurrentScale
+                            (v :> SVGSVGElement)
+  
   export
-  currentTranslate : (obj : SVGSVGElement) -> JSIO DOMPointReadOnly
-  currentTranslate a = primJS $ SVGSVGElement.prim__currentTranslate a
-
+  currentTranslate :  JSType t1
+                   => {auto 0 _ : Elem SVGSVGElement (Types t1)}
+                   -> (obj : t1)
+                   -> JSIO DOMPointReadOnly
+  currentTranslate a = primJS $ SVGSVGElement.prim__currentTranslate (up a)
+  
   export
-  height : (obj : SVGSVGElement) -> JSIO SVGAnimatedLength
-  height a = primJS $ SVGSVGElement.prim__height a
-
+  height :  JSType t1
+         => {auto 0 _ : Elem SVGSVGElement (Types t1)}
+         -> (obj : t1)
+         -> JSIO SVGAnimatedLength
+  height a = primJS $ SVGSVGElement.prim__height (up a)
+  
   export
-  width : (obj : SVGSVGElement) -> JSIO SVGAnimatedLength
-  width a = primJS $ SVGSVGElement.prim__width a
-
+  width :  JSType t1
+        => {auto 0 _ : Elem SVGSVGElement (Types t1)}
+        -> (obj : t1)
+        -> JSIO SVGAnimatedLength
+  width a = primJS $ SVGSVGElement.prim__width (up a)
+  
   export
-  x : (obj : SVGSVGElement) -> JSIO SVGAnimatedLength
-  x a = primJS $ SVGSVGElement.prim__x a
-
+  x :  JSType t1
+    => {auto 0 _ : Elem SVGSVGElement (Types t1)}
+    -> (obj : t1)
+    -> JSIO SVGAnimatedLength
+  x a = primJS $ SVGSVGElement.prim__x (up a)
+  
   export
-  y : (obj : SVGSVGElement) -> JSIO SVGAnimatedLength
-  y a = primJS $ SVGSVGElement.prim__y a
-
+  y :  JSType t1
+    => {auto 0 _ : Elem SVGSVGElement (Types t1)}
+    -> (obj : t1)
+    -> JSIO SVGAnimatedLength
+  y a = primJS $ SVGSVGElement.prim__y (up a)
+  
   export
-  checkEnclosure :  (obj : SVGSVGElement)
-                 -> (element : SVGElement)
-                 -> (rect : DOMRectReadOnly)
+  checkEnclosure :  JSType t1
+                 => JSType t2
+                 => JSType t3
+                 => {auto 0 _ : Elem SVGSVGElement (Types t1)}
+                 -> {auto 0 _ : Elem SVGElement (Types t2)}
+                 -> {auto 0 _ : Elem DOMRectReadOnly (Types t3)}
+                 -> (obj : t1)
+                 -> (element : t2)
+                 -> (rect : t3)
                  -> JSIO Bool
   checkEnclosure a b c = tryJS "SVGSVGElement.checkEnclosure"
-                       $ SVGSVGElement.prim__checkEnclosure a b c
-
+                       $ SVGSVGElement.prim__checkEnclosure (up a) (up b) (up c)
+  
   export
-  checkIntersection :  (obj : SVGSVGElement)
-                    -> (element : SVGElement)
-                    -> (rect : DOMRectReadOnly)
+  checkIntersection :  JSType t1
+                    => JSType t2
+                    => JSType t3
+                    => {auto 0 _ : Elem SVGSVGElement (Types t1)}
+                    -> {auto 0 _ : Elem SVGElement (Types t2)}
+                    -> {auto 0 _ : Elem DOMRectReadOnly (Types t3)}
+                    -> (obj : t1)
+                    -> (element : t2)
+                    -> (rect : t3)
                     -> JSIO Bool
   checkIntersection a b c = tryJS "SVGSVGElement.checkIntersection"
-                          $ SVGSVGElement.prim__checkIntersection a b c
-
+                          $ SVGSVGElement.prim__checkIntersection (up a)
+                                                                  (up b)
+                                                                  (up c)
+  
   export
-  createSVGAngle : (obj : SVGSVGElement) -> JSIO SVGAngle
-  createSVGAngle a = primJS $ SVGSVGElement.prim__createSVGAngle a
-
+  createSVGAngle :  JSType t1
+                 => {auto 0 _ : Elem SVGSVGElement (Types t1)}
+                 -> (obj : t1)
+                 -> JSIO SVGAngle
+  createSVGAngle a = primJS $ SVGSVGElement.prim__createSVGAngle (up a)
+  
   export
-  createSVGLength : (obj : SVGSVGElement) -> JSIO SVGLength
-  createSVGLength a = primJS $ SVGSVGElement.prim__createSVGLength a
-
+  createSVGLength :  JSType t1
+                  => {auto 0 _ : Elem SVGSVGElement (Types t1)}
+                  -> (obj : t1)
+                  -> JSIO SVGLength
+  createSVGLength a = primJS $ SVGSVGElement.prim__createSVGLength (up a)
+  
   export
-  createSVGMatrix : (obj : SVGSVGElement) -> JSIO DOMMatrix
-  createSVGMatrix a = primJS $ SVGSVGElement.prim__createSVGMatrix a
-
+  createSVGMatrix :  JSType t1
+                  => {auto 0 _ : Elem SVGSVGElement (Types t1)}
+                  -> (obj : t1)
+                  -> JSIO DOMMatrix
+  createSVGMatrix a = primJS $ SVGSVGElement.prim__createSVGMatrix (up a)
+  
   export
-  createSVGNumber : (obj : SVGSVGElement) -> JSIO SVGNumber
-  createSVGNumber a = primJS $ SVGSVGElement.prim__createSVGNumber a
-
+  createSVGNumber :  JSType t1
+                  => {auto 0 _ : Elem SVGSVGElement (Types t1)}
+                  -> (obj : t1)
+                  -> JSIO SVGNumber
+  createSVGNumber a = primJS $ SVGSVGElement.prim__createSVGNumber (up a)
+  
   export
-  createSVGPoint : (obj : SVGSVGElement) -> JSIO DOMPoint
-  createSVGPoint a = primJS $ SVGSVGElement.prim__createSVGPoint a
-
+  createSVGPoint :  JSType t1
+                 => {auto 0 _ : Elem SVGSVGElement (Types t1)}
+                 -> (obj : t1)
+                 -> JSIO DOMPoint
+  createSVGPoint a = primJS $ SVGSVGElement.prim__createSVGPoint (up a)
+  
   export
-  createSVGRect : (obj : SVGSVGElement) -> JSIO DOMRect
-  createSVGRect a = primJS $ SVGSVGElement.prim__createSVGRect a
-
+  createSVGRect :  JSType t1
+                => {auto 0 _ : Elem SVGSVGElement (Types t1)}
+                -> (obj : t1)
+                -> JSIO DOMRect
+  createSVGRect a = primJS $ SVGSVGElement.prim__createSVGRect (up a)
+  
   export
-  createSVGTransformFromMatrix :  (obj : SVGSVGElement)
-                               -> (matrix : Optional DOMMatrix2DInit)
+  createSVGTransformFromMatrix :  JSType t1
+                               => JSType t2
+                               => {auto 0 _ : Elem SVGSVGElement (Types t1)}
+                               -> {auto 0 _ : Elem DOMMatrix2DInit (Types t2)}
+                               -> (obj : t1)
+                               -> (matrix : Optional t2)
                                -> JSIO SVGTransform
   createSVGTransformFromMatrix a b = primJS
-                                   $ SVGSVGElement.prim__createSVGTransformFromMatrix a
-                                                                                      (toFFI b)
+                                   $ SVGSVGElement.prim__createSVGTransformFromMatrix (up a)
+                                                                                      (optUp b)
 
   export
-  createSVGTransformFromMatrix' : (obj : SVGSVGElement) -> JSIO SVGTransform
+  createSVGTransformFromMatrix' :  JSType t1
+                                => {auto 0 _ : Elem SVGSVGElement (Types t1)}
+                                -> (obj : t1)
+                                -> JSIO SVGTransform
   createSVGTransformFromMatrix' a = primJS
-                                  $ SVGSVGElement.prim__createSVGTransformFromMatrix a
+                                  $ SVGSVGElement.prim__createSVGTransformFromMatrix (up a)
                                                                                      undef
-
+  
   export
-  createSVGTransform : (obj : SVGSVGElement) -> JSIO SVGTransform
-  createSVGTransform a = primJS $ SVGSVGElement.prim__createSVGTransform a
-
+  createSVGTransform :  JSType t1
+                     => {auto 0 _ : Elem SVGSVGElement (Types t1)}
+                     -> (obj : t1)
+                     -> JSIO SVGTransform
+  createSVGTransform a = primJS $ SVGSVGElement.prim__createSVGTransform (up a)
+  
   export
-  deselectAll : (obj : SVGSVGElement) -> JSIO ()
-  deselectAll a = primJS $ SVGSVGElement.prim__deselectAll a
-
+  deselectAll :  JSType t1
+              => {auto 0 _ : Elem SVGSVGElement (Types t1)}
+              -> (obj : t1)
+              -> JSIO ()
+  deselectAll a = primJS $ SVGSVGElement.prim__deselectAll (up a)
+  
   export
-  forceRedraw : (obj : SVGSVGElement) -> JSIO ()
-  forceRedraw a = primJS $ SVGSVGElement.prim__forceRedraw a
-
+  forceRedraw :  JSType t1
+              => {auto 0 _ : Elem SVGSVGElement (Types t1)}
+              -> (obj : t1)
+              -> JSIO ()
+  forceRedraw a = primJS $ SVGSVGElement.prim__forceRedraw (up a)
+  
   export
-  getElementById : (obj : SVGSVGElement) -> (elementId : String) -> JSIO Element
-  getElementById a b = primJS $ SVGSVGElement.prim__getElementById a b
-
+  getElementById :  JSType t1
+                 => {auto 0 _ : Elem SVGSVGElement (Types t1)}
+                 -> (obj : t1)
+                 -> (elementId : String)
+                 -> JSIO Element
+  getElementById a b = primJS $ SVGSVGElement.prim__getElementById (up a) b
+  
   export
-  getEnclosureList :  (obj : SVGSVGElement)
-                   -> (rect : DOMRectReadOnly)
-                   -> (referenceElement : Maybe SVGElement)
+  getEnclosureList :  JSType t1
+                   => JSType t2
+                   => JSType t3
+                   => {auto 0 _ : Elem SVGSVGElement (Types t1)}
+                   -> {auto 0 _ : Elem DOMRectReadOnly (Types t2)}
+                   -> {auto 0 _ : Elem SVGElement (Types t3)}
+                   -> (obj : t1)
+                   -> (rect : t2)
+                   -> (referenceElement : Maybe t3)
                    -> JSIO NodeList
   getEnclosureList a b c = primJS
-                         $ SVGSVGElement.prim__getEnclosureList a b (toFFI c)
-
+                         $ SVGSVGElement.prim__getEnclosureList (up a)
+                                                                (up b)
+                                                                (mayUp c)
+  
   export
-  getIntersectionList :  (obj : SVGSVGElement)
-                      -> (rect : DOMRectReadOnly)
-                      -> (referenceElement : Maybe SVGElement)
+  getIntersectionList :  JSType t1
+                      => JSType t2
+                      => JSType t3
+                      => {auto 0 _ : Elem SVGSVGElement (Types t1)}
+                      -> {auto 0 _ : Elem DOMRectReadOnly (Types t2)}
+                      -> {auto 0 _ : Elem SVGElement (Types t3)}
+                      -> (obj : t1)
+                      -> (rect : t2)
+                      -> (referenceElement : Maybe t3)
                       -> JSIO NodeList
   getIntersectionList a b c = primJS
-                            $ SVGSVGElement.prim__getIntersectionList a
-                                                                      b
-                                                                      (toFFI c)
-
+                            $ SVGSVGElement.prim__getIntersectionList (up a)
+                                                                      (up b)
+                                                                      (mayUp c)
+  
   export
-  suspendRedraw :  (obj : SVGSVGElement)
+  suspendRedraw :  JSType t1
+                => {auto 0 _ : Elem SVGSVGElement (Types t1)}
+                -> (obj : t1)
                 -> (maxWaitMilliseconds : UInt32)
                 -> JSIO UInt32
-  suspendRedraw a b = primJS $ SVGSVGElement.prim__suspendRedraw a b
-
+  suspendRedraw a b = primJS $ SVGSVGElement.prim__suspendRedraw (up a) b
+  
   export
-  unsuspendRedrawAll : (obj : SVGSVGElement) -> JSIO ()
-  unsuspendRedrawAll a = primJS $ SVGSVGElement.prim__unsuspendRedrawAll a
-
+  unsuspendRedrawAll :  JSType t1
+                     => {auto 0 _ : Elem SVGSVGElement (Types t1)}
+                     -> (obj : t1)
+                     -> JSIO ()
+  unsuspendRedrawAll a = primJS $ SVGSVGElement.prim__unsuspendRedrawAll (up a)
+  
   export
-  unsuspendRedraw :  (obj : SVGSVGElement)
+  unsuspendRedraw :  JSType t1
+                  => {auto 0 _ : Elem SVGSVGElement (Types t1)}
+                  -> (obj : t1)
                   -> (suspendHandleID : UInt32)
                   -> JSIO ()
-  unsuspendRedraw a b = primJS $ SVGSVGElement.prim__unsuspendRedraw a b
+  unsuspendRedraw a b = primJS $ SVGSVGElement.prim__unsuspendRedraw (up a) b
 
 namespace SVGScriptElement
-
-  public export
-  JSType SVGScriptElement where
-    parents =  [ SVGElement , Element , Node , EventTarget , Object ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , SVGURIReference
-              , Slottable
-              ]
-
+  
   export
-  crossOrigin : SVGScriptElement -> Attribute False Maybe String
-  crossOrigin = fromNullablePrim "SVGScriptElement.getcrossOrigin"
-                                 prim__crossOrigin
-                                 prim__setCrossOrigin
-
+  crossOrigin :  JSType t
+              => {auto 0 _ : Elem SVGScriptElement (Types t)}
+              -> t
+              -> Attribute False Maybe String
+  crossOrigin v = fromNullablePrim "SVGScriptElement.getcrossOrigin"
+                                   prim__crossOrigin
+                                   prim__setCrossOrigin
+                                   (v :> SVGScriptElement)
+  
   export
-  type : SVGScriptElement -> Attribute True I String
-  type = fromPrim "SVGScriptElement.gettype" prim__type prim__setType
+  type :  JSType t
+       => {auto 0 _ : Elem SVGScriptElement (Types t)}
+       -> t
+       -> Attribute True I String
+  type v = fromPrim "SVGScriptElement.gettype"
+                    prim__type
+                    prim__setType
+                    (v :> SVGScriptElement)
 
 namespace SVGStopElement
-
-  public export
-  JSType SVGStopElement where
-    parents =  [ SVGElement , Element , Node , EventTarget , Object ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , Slottable
-              ]
-
+  
   export
-  offset : (obj : SVGStopElement) -> JSIO SVGAnimatedNumber
-  offset a = primJS $ SVGStopElement.prim__offset a
+  offset :  JSType t1
+         => {auto 0 _ : Elem SVGStopElement (Types t1)}
+         -> (obj : t1)
+         -> JSIO SVGAnimatedNumber
+  offset a = primJS $ SVGStopElement.prim__offset (up a)
 
 namespace SVGStringList
-
-  public export
-  JSType SVGStringList where
-    parents =  [ Object ]
-
-    mixins =  []
-
+  
   export
-  set :  (obj : SVGStringList)
+  set :  JSType t1
+      => {auto 0 _ : Elem SVGStringList (Types t1)}
+      -> (obj : t1)
       -> (index : UInt32)
       -> (newItem : String)
       -> JSIO ()
-  set a b c = primJS $ SVGStringList.prim__set a b c
-
+  set a b c = primJS $ SVGStringList.prim__set (up a) b c
+  
   export
-  length : (obj : SVGStringList) -> JSIO UInt32
-  length a = primJS $ SVGStringList.prim__length a
-
+  length :  JSType t1
+         => {auto 0 _ : Elem SVGStringList (Types t1)}
+         -> (obj : t1)
+         -> JSIO UInt32
+  length a = primJS $ SVGStringList.prim__length (up a)
+  
   export
-  numberOfItems : (obj : SVGStringList) -> JSIO UInt32
-  numberOfItems a = primJS $ SVGStringList.prim__numberOfItems a
-
+  numberOfItems :  JSType t1
+                => {auto 0 _ : Elem SVGStringList (Types t1)}
+                -> (obj : t1)
+                -> JSIO UInt32
+  numberOfItems a = primJS $ SVGStringList.prim__numberOfItems (up a)
+  
   export
-  appendItem : (obj : SVGStringList) -> (newItem : String) -> JSIO String
-  appendItem a b = primJS $ SVGStringList.prim__appendItem a b
-
+  appendItem :  JSType t1
+             => {auto 0 _ : Elem SVGStringList (Types t1)}
+             -> (obj : t1)
+             -> (newItem : String)
+             -> JSIO String
+  appendItem a b = primJS $ SVGStringList.prim__appendItem (up a) b
+  
   export
-  clear : (obj : SVGStringList) -> JSIO ()
-  clear a = primJS $ SVGStringList.prim__clear a
-
+  clear :  JSType t1
+        => {auto 0 _ : Elem SVGStringList (Types t1)}
+        -> (obj : t1)
+        -> JSIO ()
+  clear a = primJS $ SVGStringList.prim__clear (up a)
+  
   export
-  getItem : (obj : SVGStringList) -> (index : UInt32) -> JSIO String
-  getItem a b = primJS $ SVGStringList.prim__getItem a b
-
+  getItem :  JSType t1
+          => {auto 0 _ : Elem SVGStringList (Types t1)}
+          -> (obj : t1)
+          -> (index : UInt32)
+          -> JSIO String
+  getItem a b = primJS $ SVGStringList.prim__getItem (up a) b
+  
   export
-  initialize : (obj : SVGStringList) -> (newItem : String) -> JSIO String
-  initialize a b = primJS $ SVGStringList.prim__initialize a b
-
+  initialize :  JSType t1
+             => {auto 0 _ : Elem SVGStringList (Types t1)}
+             -> (obj : t1)
+             -> (newItem : String)
+             -> JSIO String
+  initialize a b = primJS $ SVGStringList.prim__initialize (up a) b
+  
   export
-  insertItemBefore :  (obj : SVGStringList)
+  insertItemBefore :  JSType t1
+                   => {auto 0 _ : Elem SVGStringList (Types t1)}
+                   -> (obj : t1)
                    -> (newItem : String)
                    -> (index : UInt32)
                    -> JSIO String
-  insertItemBefore a b c = primJS $ SVGStringList.prim__insertItemBefore a b c
-
+  insertItemBefore a b c = primJS
+                         $ SVGStringList.prim__insertItemBefore (up a) b c
+  
   export
-  removeItem : (obj : SVGStringList) -> (index : UInt32) -> JSIO String
-  removeItem a b = primJS $ SVGStringList.prim__removeItem a b
-
+  removeItem :  JSType t1
+             => {auto 0 _ : Elem SVGStringList (Types t1)}
+             -> (obj : t1)
+             -> (index : UInt32)
+             -> JSIO String
+  removeItem a b = primJS $ SVGStringList.prim__removeItem (up a) b
+  
   export
-  replaceItem :  (obj : SVGStringList)
+  replaceItem :  JSType t1
+              => {auto 0 _ : Elem SVGStringList (Types t1)}
+              -> (obj : t1)
               -> (newItem : String)
               -> (index : UInt32)
               -> JSIO String
-  replaceItem a b c = primJS $ SVGStringList.prim__replaceItem a b c
+  replaceItem a b c = primJS $ SVGStringList.prim__replaceItem (up a) b c
 
 namespace SVGStyleElement
-
-  public export
-  JSType SVGStyleElement where
-    parents =  [ SVGElement , Element , Node , EventTarget , Object ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , LinkStyle
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , Slottable
-              ]
-
+  
   export
-  media : SVGStyleElement -> Attribute True I String
-  media = fromPrim "SVGStyleElement.getmedia" prim__media prim__setMedia
-
+  media :  JSType t
+        => {auto 0 _ : Elem SVGStyleElement (Types t)}
+        -> t
+        -> Attribute True I String
+  media v = fromPrim "SVGStyleElement.getmedia"
+                     prim__media
+                     prim__setMedia
+                     (v :> SVGStyleElement)
+  
   export
-  title : SVGStyleElement -> Attribute True I String
-  title = fromPrim "SVGStyleElement.gettitle" prim__title prim__setTitle
-
+  title :  JSType t
+        => {auto 0 _ : Elem SVGStyleElement (Types t)}
+        -> t
+        -> Attribute True I String
+  title v = fromPrim "SVGStyleElement.gettitle"
+                     prim__title
+                     prim__setTitle
+                     (v :> SVGStyleElement)
+  
   export
-  type : SVGStyleElement -> Attribute True I String
-  type = fromPrim "SVGStyleElement.gettype" prim__type prim__setType
+  type :  JSType t
+       => {auto 0 _ : Elem SVGStyleElement (Types t)}
+       -> t
+       -> Attribute True I String
+  type v = fromPrim "SVGStyleElement.gettype"
+                    prim__type
+                    prim__setType
+                    (v :> SVGStyleElement)
 
-namespace SVGSwitchElement
 
-  public export
-  JSType SVGSwitchElement where
-    parents =  [ SVGGraphicsElement
-               , SVGElement
-               , Element
-               , Node
-               , EventTarget
-               , Object
-               ]
 
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , SVGTests
-              , Slottable
-              ]
-
-namespace SVGSymbolElement
-
-  public export
-  JSType SVGSymbolElement where
-    parents =  [ SVGGraphicsElement
-               , SVGElement
-               , Element
-               , Node
-               , EventTarget
-               , Object
-               ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , SVGFitToViewBox
-              , SVGTests
-              , Slottable
-              ]
-
-namespace SVGTSpanElement
-
-  public export
-  JSType SVGTSpanElement where
-    parents =  [ SVGTextPositioningElement
-               , SVGTextContentElement
-               , SVGGraphicsElement
-               , SVGElement
-               , Element
-               , Node
-               , EventTarget
-               , Object
-               ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , SVGTests
-              , Slottable
-              ]
 
 namespace SVGTextContentElement
-
-  public export
-  JSType SVGTextContentElement where
-    parents =  [ SVGGraphicsElement
-               , SVGElement
-               , Element
-               , Node
-               , EventTarget
-               , Object
-               ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , SVGTests
-              , Slottable
-              ]
-
+  
   public export
   LENGTHADJUST_SPACING : UInt16
   LENGTHADJUST_SPACING = 1
-
+  
   public export
   LENGTHADJUST_SPACINGANDGLYPHS : UInt16
   LENGTHADJUST_SPACINGANDGLYPHS = 2
-
+  
   public export
   LENGTHADJUST_UNKNOWN : UInt16
   LENGTHADJUST_UNKNOWN = 0
-
+  
   export
-  lengthAdjust : (obj : SVGTextContentElement) -> JSIO SVGAnimatedEnumeration
-  lengthAdjust a = primJS $ SVGTextContentElement.prim__lengthAdjust a
-
+  lengthAdjust :  JSType t1
+               => {auto 0 _ : Elem SVGTextContentElement (Types t1)}
+               -> (obj : t1)
+               -> JSIO SVGAnimatedEnumeration
+  lengthAdjust a = primJS $ SVGTextContentElement.prim__lengthAdjust (up a)
+  
   export
-  textLength : (obj : SVGTextContentElement) -> JSIO SVGAnimatedLength
-  textLength a = primJS $ SVGTextContentElement.prim__textLength a
-
+  textLength :  JSType t1
+             => {auto 0 _ : Elem SVGTextContentElement (Types t1)}
+             -> (obj : t1)
+             -> JSIO SVGAnimatedLength
+  textLength a = primJS $ SVGTextContentElement.prim__textLength (up a)
+  
   export
-  getCharNumAtPosition :  (obj : SVGTextContentElement)
-                       -> (point : Optional DOMPointInit)
+  getCharNumAtPosition :  JSType t1
+                       => JSType t2
+                       => {auto 0 _ : Elem SVGTextContentElement (Types t1)}
+                       -> {auto 0 _ : Elem DOMPointInit (Types t2)}
+                       -> (obj : t1)
+                       -> (point : Optional t2)
                        -> JSIO Int32
   getCharNumAtPosition a b = primJS
-                           $ SVGTextContentElement.prim__getCharNumAtPosition a
-                                                                              (toFFI b)
+                           $ SVGTextContentElement.prim__getCharNumAtPosition (up a)
+                                                                              (optUp b)
 
   export
-  getCharNumAtPosition' : (obj : SVGTextContentElement) -> JSIO Int32
+  getCharNumAtPosition' :  JSType t1
+                        => {auto 0 _ : Elem SVGTextContentElement (Types t1)}
+                        -> (obj : t1)
+                        -> JSIO Int32
   getCharNumAtPosition' a = primJS
-                          $ SVGTextContentElement.prim__getCharNumAtPosition a
+                          $ SVGTextContentElement.prim__getCharNumAtPosition (up a)
                                                                              undef
-
+  
   export
-  getComputedTextLength : (obj : SVGTextContentElement) -> JSIO Double
+  getComputedTextLength :  JSType t1
+                        => {auto 0 _ : Elem SVGTextContentElement (Types t1)}
+                        -> (obj : t1)
+                        -> JSIO Double
   getComputedTextLength a = primJS
-                          $ SVGTextContentElement.prim__getComputedTextLength a
-
+                          $ SVGTextContentElement.prim__getComputedTextLength (up a)
+  
   export
-  getEndPositionOfChar :  (obj : SVGTextContentElement)
+  getEndPositionOfChar :  JSType t1
+                       => {auto 0 _ : Elem SVGTextContentElement (Types t1)}
+                       -> (obj : t1)
                        -> (charnum : UInt32)
                        -> JSIO DOMPoint
   getEndPositionOfChar a b = primJS
-                           $ SVGTextContentElement.prim__getEndPositionOfChar a
+                           $ SVGTextContentElement.prim__getEndPositionOfChar (up a)
                                                                               b
-
+  
   export
-  getExtentOfChar :  (obj : SVGTextContentElement)
+  getExtentOfChar :  JSType t1
+                  => {auto 0 _ : Elem SVGTextContentElement (Types t1)}
+                  -> (obj : t1)
                   -> (charnum : UInt32)
                   -> JSIO DOMRect
-  getExtentOfChar a b = primJS $ SVGTextContentElement.prim__getExtentOfChar a b
-
+  getExtentOfChar a b = primJS
+                      $ SVGTextContentElement.prim__getExtentOfChar (up a) b
+  
   export
-  getNumberOfChars : (obj : SVGTextContentElement) -> JSIO Int32
-  getNumberOfChars a = primJS $ SVGTextContentElement.prim__getNumberOfChars a
-
+  getNumberOfChars :  JSType t1
+                   => {auto 0 _ : Elem SVGTextContentElement (Types t1)}
+                   -> (obj : t1)
+                   -> JSIO Int32
+  getNumberOfChars a = primJS
+                     $ SVGTextContentElement.prim__getNumberOfChars (up a)
+  
   export
-  getRotationOfChar :  (obj : SVGTextContentElement)
+  getRotationOfChar :  JSType t1
+                    => {auto 0 _ : Elem SVGTextContentElement (Types t1)}
+                    -> (obj : t1)
                     -> (charnum : UInt32)
                     -> JSIO Double
   getRotationOfChar a b = primJS
-                        $ SVGTextContentElement.prim__getRotationOfChar a b
-
+                        $ SVGTextContentElement.prim__getRotationOfChar (up a) b
+  
   export
-  getStartPositionOfChar :  (obj : SVGTextContentElement)
+  getStartPositionOfChar :  JSType t1
+                         => {auto 0 _ : Elem SVGTextContentElement (Types t1)}
+                         -> (obj : t1)
                          -> (charnum : UInt32)
                          -> JSIO DOMPoint
   getStartPositionOfChar a b = primJS
-                             $ SVGTextContentElement.prim__getStartPositionOfChar a
+                             $ SVGTextContentElement.prim__getStartPositionOfChar (up a)
                                                                                   b
-
+  
   export
-  getSubStringLength :  (obj : SVGTextContentElement)
+  getSubStringLength :  JSType t1
+                     => {auto 0 _ : Elem SVGTextContentElement (Types t1)}
+                     -> (obj : t1)
                      -> (charnum : UInt32)
                      -> (nchars : UInt32)
                      -> JSIO Double
   getSubStringLength a b c = primJS
-                           $ SVGTextContentElement.prim__getSubStringLength a
+                           $ SVGTextContentElement.prim__getSubStringLength (up a)
                                                                             b
                                                                             c
-
+  
   export
-  selectSubString :  (obj : SVGTextContentElement)
+  selectSubString :  JSType t1
+                  => {auto 0 _ : Elem SVGTextContentElement (Types t1)}
+                  -> (obj : t1)
                   -> (charnum : UInt32)
                   -> (nchars : UInt32)
                   -> JSIO ()
   selectSubString a b c = primJS
-                        $ SVGTextContentElement.prim__selectSubString a b c
+                        $ SVGTextContentElement.prim__selectSubString (up a) b c
 
-namespace SVGTextElement
-
-  public export
-  JSType SVGTextElement where
-    parents =  [ SVGTextPositioningElement
-               , SVGTextContentElement
-               , SVGGraphicsElement
-               , SVGElement
-               , Element
-               , Node
-               , EventTarget
-               , Object
-               ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , SVGTests
-              , Slottable
-              ]
 
 namespace SVGTextPathElement
-
-  public export
-  JSType SVGTextPathElement where
-    parents =  [ SVGTextContentElement
-               , SVGGraphicsElement
-               , SVGElement
-               , Element
-               , Node
-               , EventTarget
-               , Object
-               ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , SVGTests
-              , SVGURIReference
-              , Slottable
-              ]
-
+  
   public export
   TEXTPATH_METHODTYPE_ALIGN : UInt16
   TEXTPATH_METHODTYPE_ALIGN = 1
-
+  
   public export
   TEXTPATH_METHODTYPE_STRETCH : UInt16
   TEXTPATH_METHODTYPE_STRETCH = 2
-
+  
   public export
   TEXTPATH_METHODTYPE_UNKNOWN : UInt16
   TEXTPATH_METHODTYPE_UNKNOWN = 0
-
+  
   public export
   TEXTPATH_SPACINGTYPE_AUTO : UInt16
   TEXTPATH_SPACINGTYPE_AUTO = 1
-
+  
   public export
   TEXTPATH_SPACINGTYPE_EXACT : UInt16
   TEXTPATH_SPACINGTYPE_EXACT = 2
-
+  
   public export
   TEXTPATH_SPACINGTYPE_UNKNOWN : UInt16
   TEXTPATH_SPACINGTYPE_UNKNOWN = 0
-
+  
   export
-  method : (obj : SVGTextPathElement) -> JSIO SVGAnimatedEnumeration
-  method a = primJS $ SVGTextPathElement.prim__method a
-
+  method :  JSType t1
+         => {auto 0 _ : Elem SVGTextPathElement (Types t1)}
+         -> (obj : t1)
+         -> JSIO SVGAnimatedEnumeration
+  method a = primJS $ SVGTextPathElement.prim__method (up a)
+  
   export
-  spacing : (obj : SVGTextPathElement) -> JSIO SVGAnimatedEnumeration
-  spacing a = primJS $ SVGTextPathElement.prim__spacing a
-
+  spacing :  JSType t1
+          => {auto 0 _ : Elem SVGTextPathElement (Types t1)}
+          -> (obj : t1)
+          -> JSIO SVGAnimatedEnumeration
+  spacing a = primJS $ SVGTextPathElement.prim__spacing (up a)
+  
   export
-  startOffset : (obj : SVGTextPathElement) -> JSIO SVGAnimatedLength
-  startOffset a = primJS $ SVGTextPathElement.prim__startOffset a
+  startOffset :  JSType t1
+              => {auto 0 _ : Elem SVGTextPathElement (Types t1)}
+              -> (obj : t1)
+              -> JSIO SVGAnimatedLength
+  startOffset a = primJS $ SVGTextPathElement.prim__startOffset (up a)
 
 namespace SVGTextPositioningElement
-
-  public export
-  JSType SVGTextPositioningElement where
-    parents =  [ SVGTextContentElement
-               , SVGGraphicsElement
-               , SVGElement
-               , Element
-               , Node
-               , EventTarget
-               , Object
-               ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , SVGTests
-              , Slottable
-              ]
-
+  
   export
-  dx : (obj : SVGTextPositioningElement) -> JSIO SVGAnimatedLengthList
-  dx a = primJS $ SVGTextPositioningElement.prim__dx a
-
+  dx :  JSType t1
+     => {auto 0 _ : Elem SVGTextPositioningElement (Types t1)}
+     -> (obj : t1)
+     -> JSIO SVGAnimatedLengthList
+  dx a = primJS $ SVGTextPositioningElement.prim__dx (up a)
+  
   export
-  dy : (obj : SVGTextPositioningElement) -> JSIO SVGAnimatedLengthList
-  dy a = primJS $ SVGTextPositioningElement.prim__dy a
-
+  dy :  JSType t1
+     => {auto 0 _ : Elem SVGTextPositioningElement (Types t1)}
+     -> (obj : t1)
+     -> JSIO SVGAnimatedLengthList
+  dy a = primJS $ SVGTextPositioningElement.prim__dy (up a)
+  
   export
-  rotate : (obj : SVGTextPositioningElement) -> JSIO SVGAnimatedNumberList
-  rotate a = primJS $ SVGTextPositioningElement.prim__rotate a
-
+  rotate :  JSType t1
+         => {auto 0 _ : Elem SVGTextPositioningElement (Types t1)}
+         -> (obj : t1)
+         -> JSIO SVGAnimatedNumberList
+  rotate a = primJS $ SVGTextPositioningElement.prim__rotate (up a)
+  
   export
-  x : (obj : SVGTextPositioningElement) -> JSIO SVGAnimatedLengthList
-  x a = primJS $ SVGTextPositioningElement.prim__x a
-
+  x :  JSType t1
+    => {auto 0 _ : Elem SVGTextPositioningElement (Types t1)}
+    -> (obj : t1)
+    -> JSIO SVGAnimatedLengthList
+  x a = primJS $ SVGTextPositioningElement.prim__x (up a)
+  
   export
-  y : (obj : SVGTextPositioningElement) -> JSIO SVGAnimatedLengthList
-  y a = primJS $ SVGTextPositioningElement.prim__y a
+  y :  JSType t1
+    => {auto 0 _ : Elem SVGTextPositioningElement (Types t1)}
+    -> (obj : t1)
+    -> JSIO SVGAnimatedLengthList
+  y a = primJS $ SVGTextPositioningElement.prim__y (up a)
 
-namespace SVGTitleElement
-
-  public export
-  JSType SVGTitleElement where
-    parents =  [ SVGElement , Element , Node , EventTarget , Object ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , Slottable
-              ]
 
 namespace SVGTransform
-
-  public export
-  JSType SVGTransform where
-    parents =  [ Object ]
-
-    mixins =  []
-
+  
   public export
   SVG_TRANSFORM_MATRIX : UInt16
   SVG_TRANSFORM_MATRIX = 1
-
+  
   public export
   SVG_TRANSFORM_ROTATE : UInt16
   SVG_TRANSFORM_ROTATE = 4
-
+  
   public export
   SVG_TRANSFORM_SCALE : UInt16
   SVG_TRANSFORM_SCALE = 3
-
+  
   public export
   SVG_TRANSFORM_SKEWX : UInt16
   SVG_TRANSFORM_SKEWX = 5
-
+  
   public export
   SVG_TRANSFORM_SKEWY : UInt16
   SVG_TRANSFORM_SKEWY = 6
-
+  
   public export
   SVG_TRANSFORM_TRANSLATE : UInt16
   SVG_TRANSFORM_TRANSLATE = 2
-
+  
   public export
   SVG_TRANSFORM_UNKNOWN : UInt16
   SVG_TRANSFORM_UNKNOWN = 0
-
+  
   export
-  angle : (obj : SVGTransform) -> JSIO Double
-  angle a = primJS $ SVGTransform.prim__angle a
-
+  angle :  JSType t1
+        => {auto 0 _ : Elem SVGTransform (Types t1)}
+        -> (obj : t1)
+        -> JSIO Double
+  angle a = primJS $ SVGTransform.prim__angle (up a)
+  
   export
-  matrix : (obj : SVGTransform) -> JSIO DOMMatrix
-  matrix a = primJS $ SVGTransform.prim__matrix a
-
+  matrix :  JSType t1
+         => {auto 0 _ : Elem SVGTransform (Types t1)}
+         -> (obj : t1)
+         -> JSIO DOMMatrix
+  matrix a = primJS $ SVGTransform.prim__matrix (up a)
+  
   export
-  type : (obj : SVGTransform) -> JSIO UInt16
-  type a = primJS $ SVGTransform.prim__type a
-
+  type :  JSType t1
+       => {auto 0 _ : Elem SVGTransform (Types t1)}
+       -> (obj : t1)
+       -> JSIO UInt16
+  type a = primJS $ SVGTransform.prim__type (up a)
+  
   export
-  setMatrix :  (obj : SVGTransform)
-            -> (matrix : Optional DOMMatrix2DInit)
+  setMatrix :  JSType t1
+            => JSType t2
+            => {auto 0 _ : Elem SVGTransform (Types t1)}
+            -> {auto 0 _ : Elem DOMMatrix2DInit (Types t2)}
+            -> (obj : t1)
+            -> (matrix : Optional t2)
             -> JSIO ()
-  setMatrix a b = primJS $ SVGTransform.prim__setMatrix a (toFFI b)
+  setMatrix a b = primJS $ SVGTransform.prim__setMatrix (up a) (optUp b)
 
   export
-  setMatrix' : (obj : SVGTransform) -> JSIO ()
-  setMatrix' a = primJS $ SVGTransform.prim__setMatrix a undef
-
+  setMatrix' :  JSType t1
+             => {auto 0 _ : Elem SVGTransform (Types t1)}
+             -> (obj : t1)
+             -> JSIO ()
+  setMatrix' a = primJS $ SVGTransform.prim__setMatrix (up a) undef
+  
   export
-  setRotate :  (obj : SVGTransform)
+  setRotate :  JSType t1
+            => {auto 0 _ : Elem SVGTransform (Types t1)}
+            -> (obj : t1)
             -> (angle : Double)
             -> (cx : Double)
             -> (cy : Double)
             -> JSIO ()
-  setRotate a b c d = primJS $ SVGTransform.prim__setRotate a b c d
-
+  setRotate a b c d = primJS $ SVGTransform.prim__setRotate (up a) b c d
+  
   export
-  setScale : (obj : SVGTransform) -> (sx : Double) -> (sy : Double) -> JSIO ()
-  setScale a b c = primJS $ SVGTransform.prim__setScale a b c
-
+  setScale :  JSType t1
+           => {auto 0 _ : Elem SVGTransform (Types t1)}
+           -> (obj : t1)
+           -> (sx : Double)
+           -> (sy : Double)
+           -> JSIO ()
+  setScale a b c = primJS $ SVGTransform.prim__setScale (up a) b c
+  
   export
-  setSkewX : (obj : SVGTransform) -> (angle : Double) -> JSIO ()
-  setSkewX a b = primJS $ SVGTransform.prim__setSkewX a b
-
+  setSkewX :  JSType t1
+           => {auto 0 _ : Elem SVGTransform (Types t1)}
+           -> (obj : t1)
+           -> (angle : Double)
+           -> JSIO ()
+  setSkewX a b = primJS $ SVGTransform.prim__setSkewX (up a) b
+  
   export
-  setSkewY : (obj : SVGTransform) -> (angle : Double) -> JSIO ()
-  setSkewY a b = primJS $ SVGTransform.prim__setSkewY a b
-
+  setSkewY :  JSType t1
+           => {auto 0 _ : Elem SVGTransform (Types t1)}
+           -> (obj : t1)
+           -> (angle : Double)
+           -> JSIO ()
+  setSkewY a b = primJS $ SVGTransform.prim__setSkewY (up a) b
+  
   export
-  setTranslate :  (obj : SVGTransform)
+  setTranslate :  JSType t1
+               => {auto 0 _ : Elem SVGTransform (Types t1)}
+               -> (obj : t1)
                -> (tx : Double)
                -> (ty : Double)
                -> JSIO ()
-  setTranslate a b c = primJS $ SVGTransform.prim__setTranslate a b c
+  setTranslate a b c = primJS $ SVGTransform.prim__setTranslate (up a) b c
 
 namespace SVGTransformList
-
-  public export
-  JSType SVGTransformList where
-    parents =  [ Object ]
-
-    mixins =  []
-
+  
   export
-  set :  (obj : SVGTransformList)
+  set :  JSType t1
+      => JSType t2
+      => {auto 0 _ : Elem SVGTransformList (Types t1)}
+      -> {auto 0 _ : Elem SVGTransform (Types t2)}
+      -> (obj : t1)
       -> (index : UInt32)
-      -> (newItem : SVGTransform)
+      -> (newItem : t2)
       -> JSIO ()
-  set a b c = primJS $ SVGTransformList.prim__set a b c
-
+  set a b c = primJS $ SVGTransformList.prim__set (up a) b (up c)
+  
   export
-  length : (obj : SVGTransformList) -> JSIO UInt32
-  length a = primJS $ SVGTransformList.prim__length a
-
+  length :  JSType t1
+         => {auto 0 _ : Elem SVGTransformList (Types t1)}
+         -> (obj : t1)
+         -> JSIO UInt32
+  length a = primJS $ SVGTransformList.prim__length (up a)
+  
   export
-  numberOfItems : (obj : SVGTransformList) -> JSIO UInt32
-  numberOfItems a = primJS $ SVGTransformList.prim__numberOfItems a
-
+  numberOfItems :  JSType t1
+                => {auto 0 _ : Elem SVGTransformList (Types t1)}
+                -> (obj : t1)
+                -> JSIO UInt32
+  numberOfItems a = primJS $ SVGTransformList.prim__numberOfItems (up a)
+  
   export
-  appendItem :  (obj : SVGTransformList)
-             -> (newItem : SVGTransform)
+  appendItem :  JSType t1
+             => JSType t2
+             => {auto 0 _ : Elem SVGTransformList (Types t1)}
+             -> {auto 0 _ : Elem SVGTransform (Types t2)}
+             -> (obj : t1)
+             -> (newItem : t2)
              -> JSIO SVGTransform
-  appendItem a b = primJS $ SVGTransformList.prim__appendItem a b
-
+  appendItem a b = primJS $ SVGTransformList.prim__appendItem (up a) (up b)
+  
   export
-  clear : (obj : SVGTransformList) -> JSIO ()
-  clear a = primJS $ SVGTransformList.prim__clear a
-
+  clear :  JSType t1
+        => {auto 0 _ : Elem SVGTransformList (Types t1)}
+        -> (obj : t1)
+        -> JSIO ()
+  clear a = primJS $ SVGTransformList.prim__clear (up a)
+  
   export
-  consolidate : (obj : SVGTransformList) -> JSIO (Maybe SVGTransform)
+  consolidate :  JSType t1
+              => {auto 0 _ : Elem SVGTransformList (Types t1)}
+              -> (obj : t1)
+              -> JSIO (Maybe SVGTransform)
   consolidate a = tryJS "SVGTransformList.consolidate"
-                $ SVGTransformList.prim__consolidate a
-
+                $ SVGTransformList.prim__consolidate (up a)
+  
   export
-  createSVGTransformFromMatrix :  (obj : SVGTransformList)
-                               -> (matrix : Optional DOMMatrix2DInit)
+  createSVGTransformFromMatrix :  JSType t1
+                               => JSType t2
+                               => {auto 0 _ : Elem SVGTransformList (Types t1)}
+                               -> {auto 0 _ : Elem DOMMatrix2DInit (Types t2)}
+                               -> (obj : t1)
+                               -> (matrix : Optional t2)
                                -> JSIO SVGTransform
   createSVGTransformFromMatrix a b = primJS
-                                   $ SVGTransformList.prim__createSVGTransformFromMatrix a
-                                                                                         (toFFI b)
+                                   $ SVGTransformList.prim__createSVGTransformFromMatrix (up a)
+                                                                                         (optUp b)
 
   export
-  createSVGTransformFromMatrix' : (obj : SVGTransformList) -> JSIO SVGTransform
+  createSVGTransformFromMatrix' :  JSType t1
+                                => {auto 0 _ : Elem SVGTransformList (Types t1)}
+                                -> (obj : t1)
+                                -> JSIO SVGTransform
   createSVGTransformFromMatrix' a = primJS
-                                  $ SVGTransformList.prim__createSVGTransformFromMatrix a
+                                  $ SVGTransformList.prim__createSVGTransformFromMatrix (up a)
                                                                                         undef
-
+  
   export
-  getItem : (obj : SVGTransformList) -> (index : UInt32) -> JSIO SVGTransform
-  getItem a b = primJS $ SVGTransformList.prim__getItem a b
-
+  getItem :  JSType t1
+          => {auto 0 _ : Elem SVGTransformList (Types t1)}
+          -> (obj : t1)
+          -> (index : UInt32)
+          -> JSIO SVGTransform
+  getItem a b = primJS $ SVGTransformList.prim__getItem (up a) b
+  
   export
-  initialize :  (obj : SVGTransformList)
-             -> (newItem : SVGTransform)
+  initialize :  JSType t1
+             => JSType t2
+             => {auto 0 _ : Elem SVGTransformList (Types t1)}
+             -> {auto 0 _ : Elem SVGTransform (Types t2)}
+             -> (obj : t1)
+             -> (newItem : t2)
              -> JSIO SVGTransform
-  initialize a b = primJS $ SVGTransformList.prim__initialize a b
-
+  initialize a b = primJS $ SVGTransformList.prim__initialize (up a) (up b)
+  
   export
-  insertItemBefore :  (obj : SVGTransformList)
-                   -> (newItem : SVGTransform)
+  insertItemBefore :  JSType t1
+                   => JSType t2
+                   => {auto 0 _ : Elem SVGTransformList (Types t1)}
+                   -> {auto 0 _ : Elem SVGTransform (Types t2)}
+                   -> (obj : t1)
+                   -> (newItem : t2)
                    -> (index : UInt32)
                    -> JSIO SVGTransform
   insertItemBefore a b c = primJS
-                         $ SVGTransformList.prim__insertItemBefore a b c
-
+                         $ SVGTransformList.prim__insertItemBefore (up a)
+                                                                   (up b)
+                                                                   c
+  
   export
-  removeItem : (obj : SVGTransformList) -> (index : UInt32) -> JSIO SVGTransform
-  removeItem a b = primJS $ SVGTransformList.prim__removeItem a b
-
+  removeItem :  JSType t1
+             => {auto 0 _ : Elem SVGTransformList (Types t1)}
+             -> (obj : t1)
+             -> (index : UInt32)
+             -> JSIO SVGTransform
+  removeItem a b = primJS $ SVGTransformList.prim__removeItem (up a) b
+  
   export
-  replaceItem :  (obj : SVGTransformList)
-              -> (newItem : SVGTransform)
+  replaceItem :  JSType t1
+              => JSType t2
+              => {auto 0 _ : Elem SVGTransformList (Types t1)}
+              -> {auto 0 _ : Elem SVGTransform (Types t2)}
+              -> (obj : t1)
+              -> (newItem : t2)
               -> (index : UInt32)
               -> JSIO SVGTransform
-  replaceItem a b c = primJS $ SVGTransformList.prim__replaceItem a b c
+  replaceItem a b c = primJS
+                    $ SVGTransformList.prim__replaceItem (up a) (up b) c
 
 namespace SVGUnitTypes
-
-  public export
-  JSType SVGUnitTypes where
-    parents =  [ Object ]
-
-    mixins =  []
-
+  
   public export
   SVG_UNIT_TYPE_OBJECTBOUNDINGBOX : UInt16
   SVG_UNIT_TYPE_OBJECTBOUNDINGBOX = 2
-
+  
   public export
   SVG_UNIT_TYPE_UNKNOWN : UInt16
   SVG_UNIT_TYPE_UNKNOWN = 0
-
+  
   public export
   SVG_UNIT_TYPE_USERSPACEONUSE : UInt16
   SVG_UNIT_TYPE_USERSPACEONUSE = 1
 
 namespace SVGUseElement
-
-  public export
-  JSType SVGUseElement where
-    parents =  [ SVGGraphicsElement
-               , SVGElement
-               , Element
-               , Node
-               , EventTarget
-               , Object
-               ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , SVGTests
-              , SVGURIReference
-              , Slottable
-              ]
-
+  
   export
-  animatedInstanceRoot : (obj : SVGUseElement) -> JSIO (Maybe SVGElement)
+  animatedInstanceRoot :  JSType t1
+                       => {auto 0 _ : Elem SVGUseElement (Types t1)}
+                       -> (obj : t1)
+                       -> JSIO (Maybe SVGElement)
   animatedInstanceRoot a = tryJS "SVGUseElement.animatedInstanceRoot"
-                         $ SVGUseElement.prim__animatedInstanceRoot a
-
+                         $ SVGUseElement.prim__animatedInstanceRoot (up a)
+  
   export
-  height : (obj : SVGUseElement) -> JSIO SVGAnimatedLength
-  height a = primJS $ SVGUseElement.prim__height a
-
+  height :  JSType t1
+         => {auto 0 _ : Elem SVGUseElement (Types t1)}
+         -> (obj : t1)
+         -> JSIO SVGAnimatedLength
+  height a = primJS $ SVGUseElement.prim__height (up a)
+  
   export
-  instanceRoot : (obj : SVGUseElement) -> JSIO (Maybe SVGElement)
+  instanceRoot :  JSType t1
+               => {auto 0 _ : Elem SVGUseElement (Types t1)}
+               -> (obj : t1)
+               -> JSIO (Maybe SVGElement)
   instanceRoot a = tryJS "SVGUseElement.instanceRoot"
-                 $ SVGUseElement.prim__instanceRoot a
-
+                 $ SVGUseElement.prim__instanceRoot (up a)
+  
   export
-  width : (obj : SVGUseElement) -> JSIO SVGAnimatedLength
-  width a = primJS $ SVGUseElement.prim__width a
-
+  width :  JSType t1
+        => {auto 0 _ : Elem SVGUseElement (Types t1)}
+        -> (obj : t1)
+        -> JSIO SVGAnimatedLength
+  width a = primJS $ SVGUseElement.prim__width (up a)
+  
   export
-  x : (obj : SVGUseElement) -> JSIO SVGAnimatedLength
-  x a = primJS $ SVGUseElement.prim__x a
-
+  x :  JSType t1
+    => {auto 0 _ : Elem SVGUseElement (Types t1)}
+    -> (obj : t1)
+    -> JSIO SVGAnimatedLength
+  x a = primJS $ SVGUseElement.prim__x (up a)
+  
   export
-  y : (obj : SVGUseElement) -> JSIO SVGAnimatedLength
-  y a = primJS $ SVGUseElement.prim__y a
+  y :  JSType t1
+    => {auto 0 _ : Elem SVGUseElement (Types t1)}
+    -> (obj : t1)
+    -> JSIO SVGAnimatedLength
+  y a = primJS $ SVGUseElement.prim__y (up a)
 
-namespace SVGUseElementShadowRoot
 
-  public export
-  JSType SVGUseElementShadowRoot where
-    parents =  [ ShadowRoot , DocumentFragment , Node , EventTarget , Object ]
-
-    mixins =  [ DocumentOrShadowRoot
-              , InnerHTML
-              , NonElementParentNode
-              , ParentNode
-              ]
-
-namespace SVGViewElement
-
-  public export
-  JSType SVGViewElement where
-    parents =  [ SVGElement , Element , Node , EventTarget , Object ]
-
-    mixins =  [ Animatable
-              , ChildNode
-              , DocumentAndElementEventHandlers
-              , ElementCSSInlineStyle
-              , GlobalEventHandlers
-              , HTMLOrSVGElement
-              , InnerHTML
-              , NonDocumentTypeChildNode
-              , ParentNode
-              , SVGElementInstance
-              , SVGFitToViewBox
-              , Slottable
-              ]
 
 namespace ShadowAnimation
-
-  public export
-  JSType ShadowAnimation where
-    parents =  [ Animation , EventTarget , Object ]
-
-    mixins =  []
-
+  
   export
-  new : (source : Animation) -> (newTarget : Animatable) -> JSIO ShadowAnimation
-  new a b = primJS $ ShadowAnimation.prim__new a b
-
+  new :  JSType t1
+      => {auto 0 _ : Elem Animation (Types t1)}
+      -> (source : t1)
+      -> (newTarget : Animatable)
+      -> JSIO ShadowAnimation
+  new a b = primJS $ ShadowAnimation.prim__new (up a) b
+  
   export
-  sourceAnimation : (obj : ShadowAnimation) -> JSIO Animation
-  sourceAnimation a = primJS $ ShadowAnimation.prim__sourceAnimation a
+  sourceAnimation :  JSType t1
+                  => {auto 0 _ : Elem ShadowAnimation (Types t1)}
+                  -> (obj : t1)
+                  -> JSIO Animation
+  sourceAnimation a = primJS $ ShadowAnimation.prim__sourceAnimation (up a)
 
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------
 
 namespace GetSVGDocument
-
+  
   export
   getSVGDocument : (obj : GetSVGDocument) -> JSIO Document
   getSVGDocument a = primJS $ GetSVGDocument.prim__getSVGDocument a
 
 namespace SVGAnimatedPoints
-
+  
   export
   animatedPoints : (obj : SVGAnimatedPoints) -> JSIO SVGPointList
   animatedPoints a = primJS $ SVGAnimatedPoints.prim__animatedPoints a
-
+  
   export
   points : (obj : SVGAnimatedPoints) -> JSIO SVGPointList
   points a = primJS $ SVGAnimatedPoints.prim__points a
 
 namespace SVGElementInstance
-
+  
   export
   correspondingElement : (obj : SVGElementInstance) -> JSIO (Maybe SVGElement)
   correspondingElement a = tryJS "SVGElementInstance.correspondingElement"
                          $ SVGElementInstance.prim__correspondingElement a
-
+  
   export
   correspondingUseElement :  (obj : SVGElementInstance)
                           -> JSIO (Maybe SVGUseElement)
@@ -2536,28 +2402,28 @@ namespace SVGElementInstance
                             $ SVGElementInstance.prim__correspondingUseElement a
 
 namespace SVGFitToViewBox
-
+  
   export
   preserveAspectRatio :  (obj : SVGFitToViewBox)
                       -> JSIO SVGAnimatedPreserveAspectRatio
   preserveAspectRatio a = primJS $ SVGFitToViewBox.prim__preserveAspectRatio a
-
+  
   export
   viewBox : (obj : SVGFitToViewBox) -> JSIO SVGAnimatedRect
   viewBox a = primJS $ SVGFitToViewBox.prim__viewBox a
 
 namespace SVGTests
-
+  
   export
   requiredExtensions : (obj : SVGTests) -> JSIO SVGStringList
   requiredExtensions a = primJS $ SVGTests.prim__requiredExtensions a
-
+  
   export
   systemLanguage : (obj : SVGTests) -> JSIO SVGStringList
   systemLanguage a = primJS $ SVGTests.prim__systemLanguage a
 
 namespace SVGURIReference
-
+  
   export
   href : (obj : SVGURIReference) -> JSIO SVGAnimatedString
   href a = primJS $ SVGURIReference.prim__href a
@@ -2567,13 +2433,7 @@ namespace SVGURIReference
 --------------------------------------------------------------------------------
 
 namespace SVGBoundingBoxOptions
-
-  public export
-  JSType SVGBoundingBoxOptions where
-    parents =  [ Object ]
-
-    mixins =  []
-
+  
   export
   new :  (fill : Optional Bool)
       -> (stroke : Optional Bool)
@@ -2589,31 +2449,47 @@ namespace SVGBoundingBoxOptions
   export
   new' : JSIO SVGBoundingBoxOptions
   new' = primJS $ SVGBoundingBoxOptions.prim__new undef undef undef undef
-
+  
   export
-  clipped : SVGBoundingBoxOptions -> Attribute True Optional Bool
-  clipped = fromUndefOrPrim "SVGBoundingBoxOptions.getclipped"
-                            prim__clipped
-                            prim__setClipped
-                            False
-
+  clipped :  JSType t
+          => {auto 0 _ : Elem SVGBoundingBoxOptions (Types t)}
+          -> t
+          -> Attribute True Optional Bool
+  clipped v = fromUndefOrPrim "SVGBoundingBoxOptions.getclipped"
+                              prim__clipped
+                              prim__setClipped
+                              False
+                              (v :> SVGBoundingBoxOptions)
+  
   export
-  fill : SVGBoundingBoxOptions -> Attribute True Optional Bool
-  fill = fromUndefOrPrim "SVGBoundingBoxOptions.getfill"
-                         prim__fill
-                         prim__setFill
-                         True
-
+  fill :  JSType t
+       => {auto 0 _ : Elem SVGBoundingBoxOptions (Types t)}
+       -> t
+       -> Attribute True Optional Bool
+  fill v = fromUndefOrPrim "SVGBoundingBoxOptions.getfill"
+                           prim__fill
+                           prim__setFill
+                           True
+                           (v :> SVGBoundingBoxOptions)
+  
   export
-  markers : SVGBoundingBoxOptions -> Attribute True Optional Bool
-  markers = fromUndefOrPrim "SVGBoundingBoxOptions.getmarkers"
-                            prim__markers
-                            prim__setMarkers
-                            False
-
+  markers :  JSType t
+          => {auto 0 _ : Elem SVGBoundingBoxOptions (Types t)}
+          -> t
+          -> Attribute True Optional Bool
+  markers v = fromUndefOrPrim "SVGBoundingBoxOptions.getmarkers"
+                              prim__markers
+                              prim__setMarkers
+                              False
+                              (v :> SVGBoundingBoxOptions)
+  
   export
-  stroke : SVGBoundingBoxOptions -> Attribute True Optional Bool
-  stroke = fromUndefOrPrim "SVGBoundingBoxOptions.getstroke"
-                           prim__stroke
-                           prim__setStroke
-                           False
+  stroke :  JSType t
+         => {auto 0 _ : Elem SVGBoundingBoxOptions (Types t)}
+         -> t
+         -> Attribute True Optional Bool
+  stroke v = fromUndefOrPrim "SVGBoundingBoxOptions.getstroke"
+                             prim__stroke
+                             prim__setStroke
+                             False
+                             (v :> SVGBoundingBoxOptions)

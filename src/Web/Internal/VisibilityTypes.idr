@@ -1,5 +1,5 @@
 module Web.Internal.VisibilityTypes
-
+ 
 import JS
 
 --------------------------------------------------------------------------------
@@ -7,7 +7,7 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace VisibilityState
-
+  
   public export
   data VisibilityState = Hidden | Visible
 
@@ -43,3 +43,6 @@ namespace VisibilityState
   export
   FromFFI VisibilityState String where
     fromFFI = read
+
+
+
