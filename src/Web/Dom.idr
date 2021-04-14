@@ -4,6 +4,8 @@ import JS
 import public Web.Internal.Types
 import public Web.Raw.Dom as Dom
 
+%default total
+
 %foreign "browser:lambda:()=>window"
 prim__window : PrimIO Window
 
@@ -28,18 +30,30 @@ body = unMaybe "Test.body" $ document >>= to body
 
 ||| TODO : extend this
 public export
-data ElementType = Div
+data ElementType = A
+                 | Area
+                 | Audio
+                 | Br
+                 | Div
                  | Button
                  | Input
 
 public export
 elementTag : ElementType -> String
+elementTag A      = "a"
+elementTag Area   = "area"
+elementTag Audio  = "audio"
+elementTag Br     = "br"
 elementTag Div    = "div"
 elementTag Button = "button"
 elementTag Input  = "input"
 
 public export
 0 ElemTpe : ElementType -> Type
+ElemTpe A      = HTMLAnchorElement
+ElemTpe Area   = HTMLAreaElement
+ElemTpe Audio  = HTMLAudioElement
+ElemTpe Br     = HTMLBRElement
 ElemTpe Div    = HTMLDivElement
 ElemTpe Button = HTMLButtonElement
 ElemTpe Input  = HTMLInputElement
@@ -47,6 +61,10 @@ ElemTpe Input  = HTMLInputElement
 elemCast :  (forall a . SafeCast a => JSIO a)
          -> (e : ElementType)
          -> JSIO (ElemTpe e)
+elemCast f A      = f
+elemCast f Area   = f
+elemCast f Audio  = f
+elemCast f Br     = f
 elemCast f Div    = f
 elemCast f Button = f
 elemCast f Input  = f
