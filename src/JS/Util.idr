@@ -44,8 +44,8 @@ jsShow v = prim__show (believe_me v)
 prim__consoleLog : String -> PrimIO ()
 
 export
-consoleLog : String -> IO ()
-consoleLog s = fromPrim $ prim__consoleLog s
+consoleLog : HasIO io => String -> io ()
+consoleLog s = primIO $ prim__consoleLog s
 
 public export
 data JSErr : Type where
