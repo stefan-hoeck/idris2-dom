@@ -9,7 +9,7 @@ prog : JSIO ()
 prog = do btn <- createElement HTMLButtonElement "button"
           textContent (up btn) .= "Click me!"
           onclick (up btn) ?> textContent (up btn) .= "Yeah!"
-          ignore $ !(map up body) `appendChild` up btn
+          ignore $ !body `appendChild` btn
 
 main : IO ()
 main = runJS prog

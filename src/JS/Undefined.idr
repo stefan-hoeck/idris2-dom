@@ -1,8 +1,10 @@
 module JS.Undefined
 
+import Data.List.Elem
 import JS.Util
 import JS.Inheritance
 import JS.Marshall
+import JS.Nullable
 
 --------------------------------------------------------------------------------
 --          Undefined
@@ -138,6 +140,17 @@ fromOptional _ (Def a) = a
 export
 optionalToUndefOr : Optional a -> UndefOr a
 optionalToUndefOr = optional undef def
+
+export
+optUp : JSType a => Optional a -> {auto 0 _ : Elem b (Types a)} -> UndefOr b
+optUp x = optional undef (\v => def $ up v) x
+
+export
+omyUp :  JSType a
+      => Optional (Maybe a)
+      -> {auto 0 _ : Elem b (Types a)}
+      -> UndefOr (Nullable b)
+omyUp x = optionalToUndefOr $ map (\m => mayUp m) x
 
 export
 undeforToOptional : UndefOr a -> Optional a

@@ -15,3 +15,8 @@ FromFFI Object Object where fromFFI = Just
 export
 SafeCast Object where
   safeCast = unsafeCastOnPrototypeName "object"
+
+public export
+JSType Object where
+  parents = []
+  mixins = []

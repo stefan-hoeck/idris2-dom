@@ -1,5 +1,5 @@
 module Web.Internal.FetchTypes
-
+ 
 import JS
 
 --------------------------------------------------------------------------------
@@ -7,7 +7,7 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace RequestDestination
-
+  
   public export
   data RequestDestination = Empty
                           | Audio
@@ -100,7 +100,7 @@ namespace RequestDestination
     fromFFI = read
 
 namespace RequestMode
-
+  
   public export
   data RequestMode = Navigate | SameOrigin | NoCors | Cors
 
@@ -142,7 +142,7 @@ namespace RequestMode
     fromFFI = read
 
 namespace RequestCredentials
-
+  
   public export
   data RequestCredentials = Omit | SameOrigin | Include
 
@@ -182,7 +182,7 @@ namespace RequestCredentials
     fromFFI = read
 
 namespace RequestCache
-
+  
   public export
   data RequestCache = Default
                     | NoStore
@@ -233,7 +233,7 @@ namespace RequestCache
     fromFFI = read
 
 namespace RequestRedirect
-
+  
   public export
   data RequestRedirect = Follow | Error | Manual
 
@@ -273,7 +273,7 @@ namespace RequestRedirect
     fromFFI = read
 
 namespace ResponseType
-
+  
   public export
   data ResponseType = Basic | Cors | Default | Error | Opaque | Opaqueredirect
 
@@ -319,7 +319,7 @@ namespace ResponseType
     fromFFI = read
 
 namespace ReferrerPolicy
-
+  
   public export
   data ReferrerPolicy = Empty
                       | NoReferrer
@@ -383,10 +383,10 @@ namespace ReferrerPolicy
 --------------------------------------------------------------------------------
 
 export data Headers : Type where [external]
-
+  
 export
 ToFFI Headers Headers where toFFI = id
-
+  
 export
 FromFFI Headers Headers where fromFFI = Just
 
@@ -395,10 +395,10 @@ SafeCast Headers where
   safeCast = unsafeCastOnPrototypeName "Headers"
 
 export data Request : Type where [external]
-
+  
 export
 ToFFI Request Request where toFFI = id
-
+  
 export
 FromFFI Request Request where fromFFI = Just
 
@@ -407,10 +407,10 @@ SafeCast Request where
   safeCast = unsafeCastOnPrototypeName "Request"
 
 export data Response : Type where [external]
-
+  
 export
 ToFFI Response Response where toFFI = id
-
+  
 export
 FromFFI Response Response where fromFFI = Just
 
@@ -423,10 +423,10 @@ SafeCast Response where
 --------------------------------------------------------------------------------
 
 export data RequestInit : Type where [external]
-
+  
 export
 ToFFI RequestInit RequestInit where toFFI = id
-
+  
 export
 FromFFI RequestInit RequestInit where fromFFI = Just
 
@@ -435,10 +435,10 @@ SafeCast RequestInit where
   safeCast = unsafeCastOnPrototypeName "RequestInit"
 
 export data ResponseInit : Type where [external]
-
+  
 export
 ToFFI ResponseInit ResponseInit where toFFI = id
-
+  
 export
 FromFFI ResponseInit ResponseInit where fromFFI = Just
 
@@ -451,9 +451,9 @@ SafeCast ResponseInit where
 --------------------------------------------------------------------------------
 
 export data Body : Type where [external]
-
+  
 export
 ToFFI Body Body where toFFI = id
-
+  
 export
 FromFFI Body Body where fromFFI = Just

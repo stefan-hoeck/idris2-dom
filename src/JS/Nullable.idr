@@ -1,5 +1,6 @@
 module JS.Nullable
 
+import Data.List.Elem
 import JS.Inheritance
 import JS.Marshall
 import JS.Util
@@ -26,6 +27,10 @@ isNull = eqv prim__null
 export
 maybeToNullable : Maybe a -> Nullable a
 maybeToNullable = maybe null nonNull
+
+export
+mayUp : JSType a => Maybe a -> {auto 0 _ : Elem b (Types a)} -> Nullable b
+mayUp x = maybe null (\v => nonNull $ up v) x
 
 export
 nullableToMaybe : Nullable a -> Maybe a

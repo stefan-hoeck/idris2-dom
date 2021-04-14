@@ -1,5 +1,5 @@
 module Web.Internal.AnimationTypes
-
+ 
 import JS
 
 --------------------------------------------------------------------------------
@@ -7,7 +7,7 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace AnimationPlayState
-
+  
   public export
   data AnimationPlayState = Idle | Running | Paused | Finished
 
@@ -49,7 +49,7 @@ namespace AnimationPlayState
     fromFFI = read
 
 namespace FillMode
-
+  
   public export
   data FillMode = None | Forwards | Backwards | Both | Auto
 
@@ -91,7 +91,7 @@ namespace FillMode
     fromFFI = read
 
 namespace PlaybackDirection
-
+  
   public export
   data PlaybackDirection = Normal | Reverse | Alternate | AlternateReverse
 
@@ -133,7 +133,7 @@ namespace PlaybackDirection
     fromFFI = read
 
 namespace IterationCompositeOperation
-
+  
   public export
   data IterationCompositeOperation = Replace | Accumulate
 
@@ -171,7 +171,7 @@ namespace IterationCompositeOperation
     fromFFI = read
 
 namespace CompositeOperation
-
+  
   public export
   data CompositeOperation = Replace | Add | Accumulate
 
@@ -211,7 +211,7 @@ namespace CompositeOperation
     fromFFI = read
 
 namespace CompositeOperationOrAuto
-
+  
   public export
   data CompositeOperationOrAuto = Replace | Add | Accumulate | Auto
 
@@ -257,10 +257,10 @@ namespace CompositeOperationOrAuto
 --------------------------------------------------------------------------------
 
 export data Animation : Type where [external]
-
+  
 export
 ToFFI Animation Animation where toFFI = id
-
+  
 export
 FromFFI Animation Animation where fromFFI = Just
 
@@ -269,10 +269,10 @@ SafeCast Animation where
   safeCast = unsafeCastOnPrototypeName "Animation"
 
 export data AnimationEffect : Type where [external]
-
+  
 export
 ToFFI AnimationEffect AnimationEffect where toFFI = id
-
+  
 export
 FromFFI AnimationEffect AnimationEffect where fromFFI = Just
 
@@ -281,10 +281,10 @@ SafeCast AnimationEffect where
   safeCast = unsafeCastOnPrototypeName "AnimationEffect"
 
 export data AnimationPlaybackEvent : Type where [external]
-
+  
 export
 ToFFI AnimationPlaybackEvent AnimationPlaybackEvent where toFFI = id
-
+  
 export
 FromFFI AnimationPlaybackEvent AnimationPlaybackEvent where fromFFI = Just
 
@@ -293,10 +293,10 @@ SafeCast AnimationPlaybackEvent where
   safeCast = unsafeCastOnPrototypeName "AnimationPlaybackEvent"
 
 export data AnimationTimeline : Type where [external]
-
+  
 export
 ToFFI AnimationTimeline AnimationTimeline where toFFI = id
-
+  
 export
 FromFFI AnimationTimeline AnimationTimeline where fromFFI = Just
 
@@ -305,10 +305,10 @@ SafeCast AnimationTimeline where
   safeCast = unsafeCastOnPrototypeName "AnimationTimeline"
 
 export data DocumentTimeline : Type where [external]
-
+  
 export
 ToFFI DocumentTimeline DocumentTimeline where toFFI = id
-
+  
 export
 FromFFI DocumentTimeline DocumentTimeline where fromFFI = Just
 
@@ -317,10 +317,10 @@ SafeCast DocumentTimeline where
   safeCast = unsafeCastOnPrototypeName "DocumentTimeline"
 
 export data KeyframeEffect : Type where [external]
-
+  
 export
 ToFFI KeyframeEffect KeyframeEffect where toFFI = id
-
+  
 export
 FromFFI KeyframeEffect KeyframeEffect where fromFFI = Just
 
@@ -333,10 +333,10 @@ SafeCast KeyframeEffect where
 --------------------------------------------------------------------------------
 
 export data AnimationPlaybackEventInit : Type where [external]
-
+  
 export
 ToFFI AnimationPlaybackEventInit AnimationPlaybackEventInit where toFFI = id
-
+  
 export
 FromFFI AnimationPlaybackEventInit AnimationPlaybackEventInit where fromFFI = Just
 
@@ -345,10 +345,10 @@ SafeCast AnimationPlaybackEventInit where
   safeCast = unsafeCastOnPrototypeName "AnimationPlaybackEventInit"
 
 export data BaseComputedKeyframe : Type where [external]
-
+  
 export
 ToFFI BaseComputedKeyframe BaseComputedKeyframe where toFFI = id
-
+  
 export
 FromFFI BaseComputedKeyframe BaseComputedKeyframe where fromFFI = Just
 
@@ -357,10 +357,10 @@ SafeCast BaseComputedKeyframe where
   safeCast = unsafeCastOnPrototypeName "BaseComputedKeyframe"
 
 export data BaseKeyframe : Type where [external]
-
+  
 export
 ToFFI BaseKeyframe BaseKeyframe where toFFI = id
-
+  
 export
 FromFFI BaseKeyframe BaseKeyframe where fromFFI = Just
 
@@ -369,10 +369,10 @@ SafeCast BaseKeyframe where
   safeCast = unsafeCastOnPrototypeName "BaseKeyframe"
 
 export data BasePropertyIndexedKeyframe : Type where [external]
-
+  
 export
 ToFFI BasePropertyIndexedKeyframe BasePropertyIndexedKeyframe where toFFI = id
-
+  
 export
 FromFFI BasePropertyIndexedKeyframe BasePropertyIndexedKeyframe where fromFFI = Just
 
@@ -381,10 +381,10 @@ SafeCast BasePropertyIndexedKeyframe where
   safeCast = unsafeCastOnPrototypeName "BasePropertyIndexedKeyframe"
 
 export data ComputedEffectTiming : Type where [external]
-
+  
 export
 ToFFI ComputedEffectTiming ComputedEffectTiming where toFFI = id
-
+  
 export
 FromFFI ComputedEffectTiming ComputedEffectTiming where fromFFI = Just
 
@@ -393,10 +393,10 @@ SafeCast ComputedEffectTiming where
   safeCast = unsafeCastOnPrototypeName "ComputedEffectTiming"
 
 export data DocumentTimelineOptions : Type where [external]
-
+  
 export
 ToFFI DocumentTimelineOptions DocumentTimelineOptions where toFFI = id
-
+  
 export
 FromFFI DocumentTimelineOptions DocumentTimelineOptions where fromFFI = Just
 
@@ -405,10 +405,10 @@ SafeCast DocumentTimelineOptions where
   safeCast = unsafeCastOnPrototypeName "DocumentTimelineOptions"
 
 export data EffectTiming : Type where [external]
-
+  
 export
 ToFFI EffectTiming EffectTiming where toFFI = id
-
+  
 export
 FromFFI EffectTiming EffectTiming where fromFFI = Just
 
@@ -417,10 +417,10 @@ SafeCast EffectTiming where
   safeCast = unsafeCastOnPrototypeName "EffectTiming"
 
 export data KeyframeAnimationOptions : Type where [external]
-
+  
 export
 ToFFI KeyframeAnimationOptions KeyframeAnimationOptions where toFFI = id
-
+  
 export
 FromFFI KeyframeAnimationOptions KeyframeAnimationOptions where fromFFI = Just
 
@@ -429,10 +429,10 @@ SafeCast KeyframeAnimationOptions where
   safeCast = unsafeCastOnPrototypeName "KeyframeAnimationOptions"
 
 export data KeyframeEffectOptions : Type where [external]
-
+  
 export
 ToFFI KeyframeEffectOptions KeyframeEffectOptions where toFFI = id
-
+  
 export
 FromFFI KeyframeEffectOptions KeyframeEffectOptions where fromFFI = Just
 
@@ -441,10 +441,10 @@ SafeCast KeyframeEffectOptions where
   safeCast = unsafeCastOnPrototypeName "KeyframeEffectOptions"
 
 export data OptionalEffectTiming : Type where [external]
-
+  
 export
 ToFFI OptionalEffectTiming OptionalEffectTiming where toFFI = id
-
+  
 export
 FromFFI OptionalEffectTiming OptionalEffectTiming where fromFFI = Just
 
@@ -457,9 +457,9 @@ SafeCast OptionalEffectTiming where
 --------------------------------------------------------------------------------
 
 export data Animatable : Type where [external]
-
+  
 export
 ToFFI Animatable Animatable where toFFI = id
-
+  
 export
 FromFFI Animatable Animatable where fromFFI = Just
