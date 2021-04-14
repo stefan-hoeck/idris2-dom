@@ -24,6 +24,14 @@ export
 body : JSIO HTMLElement
 body = unMaybe "Test.body" $ document >>= to body
 
+export
+getElementById : String -> JSIO (Maybe Element)
+getElementById s = getElementById !document s
+
+export
+castElementById : SafeCast a => String -> JSIO (Maybe a)
+castElementById = map safeCast . getElementById
+
 --------------------------------------------------------------------------------
 --          Elements
 --------------------------------------------------------------------------------
