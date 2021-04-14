@@ -29,8 +29,8 @@ getElementById : String -> JSIO (Maybe Element)
 getElementById s = getElementById !document s
 
 export
-castElementById : SafeCast a => String -> JSIO (Maybe a)
-castElementById = map safeCast . getElementById
+castElementById : (0 a : Type) -> SafeCast a => String -> JSIO (Maybe a)
+castElementById _ = map (>>= safeCast) . getElementById
 
 --------------------------------------------------------------------------------
 --          Elements

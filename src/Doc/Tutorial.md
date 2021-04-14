@@ -3,8 +3,8 @@
 In this tutorial I am going to explain the core functionality
 provided by this library and shed some light on implementation
 details, design decisions, and the module structure of
-this library. This whole thing is still evolving - as is Idris2 itself -
-so expect things to change frequently until things settle down
+idris2-dom. This whole thing is still evolving - as is Idris2 itself -
+so expect stuff to change frequently until things settle down
 a bit.
 
 ### Before we begin: Some background
@@ -18,12 +18,13 @@ internet. You can find the specs used in the `idl` folder
 of the idris2-webidl project.
 
 The generated code consists of a set of external type
-specifications (to be found in the submoduls of
+declarations (to be found in the submoduls of
 `Web.Internal` whose names end on `Type.idr`). This was done to
 avoid cyclic module dependencies, since many of these types
 are freely shared across specifications and the related
 modules. The whole set of external types is reexported
-by `Web.Internal.Types`.
+by `Web.Internal.Types`, which also includes the subtyping
+relations (more on that later).
 
 FFI bindings are defined in submoduls of `Web.Internal` ending on `Prim.idr`.
 If you are interested in how to interact with javascript through the FFI,
@@ -31,8 +32,7 @@ you will find lots of examples there.
 
 The actual API of this library is provided by the
 modules in `Web.Raw`, which provide a convenience layer around
-the FFI primitives. Many of these functions can be conveniently
-used out of the box.
+the FFI primitives.
 
 Finally, direct submodules of `Web` add yet another layer of
 safety and convenience. Unlike the modules in `Web.Internal` and `Web.Raw`,
@@ -44,7 +44,8 @@ itself. This includes interfaces for converting values from and to
 their FFI representation, subtyping and safe casts, nullable
 and undefined values, plus a set of integral types, which are represented
 by Javascript `Number`s in the backend, unlike the Idris2 integer primitives,
-which all are bound to `BigInt`.
+which all are bound to `BigInt` (although this might change in the
+future).
 
 It is the goal of this tutorial, to explain how all these pieces
 fit together.
@@ -55,7 +56,7 @@ Below is the logic of a simple web page consisting of a
 button and a text field. Users can enter their name in
 the text field and receive a friendly greeting upon clicking
 the butten. At the same time, during text input, the program
-checks whether the name entered is a palindrome.
+checks whether the name entered is a palindrome or not.
 
 ```idris
 module Doc.Tutorial
@@ -76,6 +77,7 @@ export
 prog : JSIO ()
 prog = do btn <- createElement Button
           textContent btn .= "Click me!"
+          Element.id btn .= "the_button"
 
           txt <- createElement Input
           type txt .= the String "text"
@@ -98,7 +100,7 @@ prog = do btn <- createElement Button
                    (txtDiv `appendChild` txt)
 ```
 
-You can give this a try in the browser, by replacing the
+You can give this a try in the browser by replacing the
 `main` function in `Doc.Main` with `main = runJS Doc.Tutorial.prog`
 followed by building the `doc` package: `idris2 --build doc.ipkg`.
 Now, load `doc.html` in the project's root folder in your browser.
@@ -109,7 +111,8 @@ It will not look very nice, but it should behave as described.
 ### The `JSIO` monad
 The program is of type `JSIO ()`, which is just an alias for
 `EitherT JSErr IO ()`. Since the world of Javascript is highly unsafe,
-error handling comes built-in in the default IO monad we use.
+error handling comes built-in in the default IO monad we use (however, we do
+not catch a lot of errors so far).
 The error type `JSErr` is defined in module `JS.Util` and reexported
 by module `JS`, which provides the core types and functionality
 required for interacting with the world of Javascript.
@@ -124,8 +127,60 @@ for error handling.
 ### Programmatically creating HTML elements
 
 Function `Web.Dom.createElement` takes a tag from an enum type
-and returns a properly typed, newly created html element.
-This is a safer wrapper around `Web.Raw.Dom.Document.createElement`.
+and returns a properly typed, newly created HTML element.
+This is a convenient wrapper around the automatically generated
+`Web.Raw.Dom.Document.createElement`.
 
-This is probably the right place to explain how to try and safely cast
-one Javascript external type to another one.
+This is probably the right place to explain how safe type casts
+are handled in this library. There are mainly two ways to inspect
+the type of a value at runtime in Javascript: One is function
+`typeof`, a binding to which is available in `JS.Util`. This
+function is mostly useful to figure out the types of primitives
+like numbers and strings. For other types like `HTMLElement`, which
+is also inherits methods and attributes from `Node` and `Object`
+(and some others), it is necessary to inspect
+the chain of prototype objects to figure out, from which
+types a value inherits its functionality.
+
+External types whose type can be verified at runtime by one of
+the two means described above implement interface
+`SafeCast` from module `JS.Inheritance`. This module also provides
+the two main (unsafe) functions to inspect a value's type at runtime
+plus some utility functions.
+Please note, that `SafeCast` is meant to be used for external types only.
+Note also, that `SafeCast` is typically not the thing you want
+for upcasting (that is, casting a type to one of its parent
+types or included mixins): For this, there is another interface,
+which will be desribed below.
+
+As an example: In the program above, we know that the element
+with id "the_button" is a `HTMLButtonElement`. However,
+function `getElementById` from `Web.Raw.Dom` returns a `Maybe Element`.
+If we'd like to disable this button, we first have to cast it to
+the proper type. We can use `safeCast` for this:
+
+```idris
+export
+disableBtn : JSIO ()
+disableBtn = do maybeElem <- getElementById !document "the_button"
+                let maybeBtn = maybeElem >>= safeCast {a = HTMLButtonElement} 
+                for_ maybeBtn \btn => do disabled btn .= True
+                                         consoleLog "Disabled button"
+```
+
+You can try the action above by modifying our original
+program:
+
+```
+main = runJS $ prog *> disableBtn
+```
+
+Since looking up an element and refining its type by downcasting
+is a common pattern, there is function `castElementById` in `Web.Dom`:
+
+```idris
+export
+disableBtn2 : JSIO ()
+disableBtn2 = do maybeBtn <- castElementById HTMLButtonElement "the_button"
+                 for_ maybeBtn \btn => disabled btn .= True
+```
