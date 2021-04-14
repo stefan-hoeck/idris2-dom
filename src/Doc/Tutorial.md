@@ -182,5 +182,5 @@ is a common pattern, there is function `castElementById` in `Web.Dom`:
 export
 disableBtn2 : JSIO ()
 disableBtn2 = do maybeBtn <- castElementById HTMLButtonElement "the_button"
-                 for_ maybeBtn \btn => disabled btn .= True
+                 for_ maybeBtn $ disabled =. True
 ```

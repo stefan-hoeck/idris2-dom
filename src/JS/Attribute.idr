@@ -115,6 +115,10 @@ toDef : (attr : obj -> Attribute True f a) -> (o : obj) -> JSIO a
 toDef = flip getDef
 
 ||| Sets the value of an `Attribute`.
+|||
+||| ```idris example
+||| disabled btn `set` True
+||| ```
 export
 set : Attribute b f a -> a -> JSIO ()
 set (Attr         _ s)          y = s y
@@ -138,9 +142,28 @@ unset o g = set' (g o) empty
 infix 1 .=
 
 ||| Operator version of `set`.
+|||
+||| ```idris example
+||| disabled btn .= True
+||| ```
 export
 (.=) : Attribute b f a -> a -> JSIO ()
 (.=) = set
+
+infix 1 =.
+
+||| Like set, but useful when the object, on which
+||| an attribute should operate, is supposed to
+||| be the last argument (for instance, when
+||| iterating over a foldable):
+|||
+||| ```idris example
+||| disableAll : List HTMLButtonElement -> JSIO ()
+||| disableAll buttons = for_ buttons $ disabled =. True
+||| ```
+export
+(=.) : (obj -> Attribute b f a) -> a -> obj -> JSIO ()
+(=.) f v o = set (f o) v
 
 infixr 0 !>, ?>
 
@@ -157,7 +180,7 @@ a !> cb = callback cb >>= set a
 ||| but ignores its input.
 |||
 ||| ```idris
-||| onclick btn !> consoleLog "Boom!"
+||| onclick btn ?> consoleLog "Boom!"
 ||| ```
 export
 (?>) : Callback a (x -> y) => Attribute b f a -> y -> JSIO ()
