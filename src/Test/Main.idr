@@ -29,8 +29,8 @@ prog = do btn <- createElement Button
           onclick btn ?> do name <- txt `get` value
                             textContent outDiv .= #"Hello \#{name}!"#
 
-          oninput txt ?> do name <- txt `get` value
-                            textContent lenDiv .= checkPalindrome name
+          oninput txt ?> do reply <- checkPalindrome `over` value txt
+                            textContent lenDiv .= reply
 
           ignore $ (!body `appendChild` btn)    *>
                    (!body `appendChild` txtDiv) *>
