@@ -1,0 +1,20 @@
+package dom-doc
+
+authors    = "stefan-hoeck"
+version    = 0.0.1
+readme     = "README.md"
+license    = "BSD-2 Clause"
+
+opts       = "--codegen javascript"
+
+main       = Doc.Main
+executable = "dom-doc.js"
+
+sourcedir  = "src"
+
+depends    = base        >= 0.3.0
+           , contrib     >= 0.3.0
+           , elab-util   >= 0.1.1
+           , sop         >= 0.1.1
+
+modules = Doc.Tutorial
