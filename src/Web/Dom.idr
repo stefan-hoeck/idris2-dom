@@ -22,11 +22,41 @@ export
 body : JSIO HTMLElement
 body = unMaybe "Test.body" $ document >>= to body
 
+--------------------------------------------------------------------------------
+--          Elements
+--------------------------------------------------------------------------------
+
+||| TODO : extend this
+public export
+data ElementType = Div
+                 | Button
+                 | Input
+
+public export
+elementTag : ElementType -> String
+elementTag Div    = "div"
+elementTag Button = "button"
+elementTag Input  = "input"
+
+public export
+0 ElemTpe : ElementType -> Type
+ElemTpe Div    = HTMLDivElement
+ElemTpe Button = HTMLButtonElement
+ElemTpe Input  = HTMLInputElement
+
+elemCast :  (forall a . SafeCast a => JSIO a)
+         -> (e : ElementType)
+         -> JSIO (ElemTpe e)
+elemCast f Div    = f
+elemCast f Button = f
+elemCast f Input  = f
+
 export
-createElement : (0 a : Type) -> SafeCast a => String -> JSIO a
-createElement _ tag =
-  castingTo #"JS.Dom..createElement [\#{tag}]"# $
-  document >>= (`createElement'` tag)
+createElement : (e : ElementType) -> JSIO (ElemTpe e)
+createElement e =
+  let tag = elementTag e
+   in elemCast ( castingTo #"JS.Dom..createElement [\#{tag}]"# $
+                 document >>= (`createElement'` tag)) e
 
 --------------------------------------------------------------------------------
 --          Callbacks

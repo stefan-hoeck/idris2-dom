@@ -6,15 +6,15 @@ import Web.Dom
 import Web.Html
 
 prog : JSIO ()
-prog = do btn <- createElement HTMLButtonElement "button"
+prog = do btn <- createElement Button
           textContent btn .= "Click me!"
 
-          txt <- createElement HTMLInputElement "input"
+          txt <- createElement Input
           HTMLInputElement.type txt .= "text"
           placeholder txt .= "Please enter your name here."
 
-          txtDiv <- createElement HTMLDivElement "div"
-          outDiv <- createElement HTMLDivElement "div"
+          txtDiv <- createElement Div
+          outDiv <- createElement Div
 
           onclick btn ?> do name <- txt `get` HTMLInputElement.value
                             textContent outDiv .= #"Hello \#{name}!"#
