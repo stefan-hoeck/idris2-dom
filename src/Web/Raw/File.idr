@@ -89,9 +89,7 @@ namespace Blob
 namespace File
   
   export
-  new :  JSType t1
-      => {auto 0 _ : Elem FilePropertyBag (Types t1)}
-      -> (fileBits : Array (Union13 Int8Array
+  new :  (fileBits : Array (Union13 Int8Array
                                     Int16Array
                                     Int32Array
                                     UInt8Array
@@ -105,9 +103,9 @@ namespace File
                                     Blob
                                     String))
       -> (fileName : String)
-      -> (options : Optional t1)
+      -> (options : Optional FilePropertyBag)
       -> JSIO File
-  new a b c = primJS $ File.prim__new a b (optUp c)
+  new a b c = primJS $ File.prim__new a b (toFFI c)
 
   export
   new' :  (fileBits : Array (Union13 Int8Array
@@ -128,35 +126,22 @@ namespace File
   new' a b = primJS $ File.prim__new a b undef
   
   export
-  lastModified :  JSType t1
-               => {auto 0 _ : Elem File (Types t1)}
-               -> (obj : t1)
-               -> JSIO Int64
-  lastModified a = primJS $ File.prim__lastModified (up a)
+  lastModified : (obj : File) -> JSIO Int64
+  lastModified a = primJS $ File.prim__lastModified a
   
   export
-  name :  JSType t1
-       => {auto 0 _ : Elem File (Types t1)}
-       -> (obj : t1)
-       -> JSIO String
-  name a = primJS $ File.prim__name (up a)
+  name : (obj : File) -> JSIO String
+  name a = primJS $ File.prim__name a
 
 namespace FileList
   
   export
-  length :  JSType t1
-         => {auto 0 _ : Elem FileList (Types t1)}
-         -> (obj : t1)
-         -> JSIO UInt32
-  length a = primJS $ FileList.prim__length (up a)
+  length : (obj : FileList) -> JSIO UInt32
+  length a = primJS $ FileList.prim__length a
   
   export
-  item :  JSType t1
-       => {auto 0 _ : Elem FileList (Types t1)}
-       -> (obj : t1)
-       -> (index : UInt32)
-       -> JSIO (Maybe File)
-  item a b = tryJS "FileList.item" $ FileList.prim__item (up a) b
+  item : (obj : FileList) -> (index : UInt32) -> JSIO (Maybe File)
+  item a b = tryJS "FileList.item" $ FileList.prim__item a b
 
 namespace FileReader
   
@@ -177,146 +162,103 @@ namespace FileReader
   new = primJS $ FileReader.prim__new 
   
   export
-  error :  JSType t1
-        => {auto 0 _ : Elem FileReader (Types t1)}
-        -> (obj : t1)
-        -> JSIO (Maybe DOMException)
-  error a = tryJS "FileReader.error" $ FileReader.prim__error (up a)
+  error : (obj : FileReader) -> JSIO (Maybe DOMException)
+  error a = tryJS "FileReader.error" $ FileReader.prim__error a
   
   export
-  onabort :  JSType t
-          => {auto 0 _ : Elem FileReader (Types t)}
-          -> t
-          -> Attribute False Maybe EventHandlerNonNull
+  onabort : FileReader -> Attribute False Maybe EventHandlerNonNull
   onabort v = fromNullablePrim "FileReader.getonabort"
                                prim__onabort
                                prim__setOnabort
-                               (v :> FileReader)
+                               v
   
   export
-  onerror :  JSType t
-          => {auto 0 _ : Elem FileReader (Types t)}
-          -> t
-          -> Attribute False Maybe EventHandlerNonNull
+  onerror : FileReader -> Attribute False Maybe EventHandlerNonNull
   onerror v = fromNullablePrim "FileReader.getonerror"
                                prim__onerror
                                prim__setOnerror
-                               (v :> FileReader)
+                               v
   
   export
-  onload :  JSType t
-         => {auto 0 _ : Elem FileReader (Types t)}
-         -> t
-         -> Attribute False Maybe EventHandlerNonNull
+  onload : FileReader -> Attribute False Maybe EventHandlerNonNull
   onload v = fromNullablePrim "FileReader.getonload"
                               prim__onload
                               prim__setOnload
-                              (v :> FileReader)
+                              v
   
   export
-  onloadend :  JSType t
-            => {auto 0 _ : Elem FileReader (Types t)}
-            -> t
-            -> Attribute False Maybe EventHandlerNonNull
+  onloadend : FileReader -> Attribute False Maybe EventHandlerNonNull
   onloadend v = fromNullablePrim "FileReader.getonloadend"
                                  prim__onloadend
                                  prim__setOnloadend
-                                 (v :> FileReader)
+                                 v
   
   export
-  onloadstart :  JSType t
-              => {auto 0 _ : Elem FileReader (Types t)}
-              -> t
-              -> Attribute False Maybe EventHandlerNonNull
+  onloadstart : FileReader -> Attribute False Maybe EventHandlerNonNull
   onloadstart v = fromNullablePrim "FileReader.getonloadstart"
                                    prim__onloadstart
                                    prim__setOnloadstart
-                                   (v :> FileReader)
+                                   v
   
   export
-  onprogress :  JSType t
-             => {auto 0 _ : Elem FileReader (Types t)}
-             -> t
-             -> Attribute False Maybe EventHandlerNonNull
+  onprogress : FileReader -> Attribute False Maybe EventHandlerNonNull
   onprogress v = fromNullablePrim "FileReader.getonprogress"
                                   prim__onprogress
                                   prim__setOnprogress
-                                  (v :> FileReader)
+                                  v
   
   export
-  readyState :  JSType t1
-             => {auto 0 _ : Elem FileReader (Types t1)}
-             -> (obj : t1)
-             -> JSIO UInt16
-  readyState a = primJS $ FileReader.prim__readyState (up a)
+  readyState : (obj : FileReader) -> JSIO UInt16
+  readyState a = primJS $ FileReader.prim__readyState a
   
   export
-  result :  JSType t1
-         => {auto 0 _ : Elem FileReader (Types t1)}
-         -> (obj : t1)
-         -> JSIO (Maybe (Union2 String ArrayBuffer))
-  result a = tryJS "FileReader.result" $ FileReader.prim__result (up a)
+  result : (obj : FileReader) -> JSIO (Maybe (Union2 String ArrayBuffer))
+  result a = tryJS "FileReader.result" $ FileReader.prim__result a
   
   export
-  abort :  JSType t1
-        => {auto 0 _ : Elem FileReader (Types t1)}
-        -> (obj : t1)
-        -> JSIO ()
-  abort a = primJS $ FileReader.prim__abort (up a)
+  abort : (obj : FileReader) -> JSIO ()
+  abort a = primJS $ FileReader.prim__abort a
   
   export
   readAsArrayBuffer :  JSType t1
-                    => JSType t2
-                    => {auto 0 _ : Elem FileReader (Types t1)}
-                    -> {auto 0 _ : Elem Blob (Types t2)}
-                    -> (obj : t1)
-                    -> (blob : t2)
+                    => {auto 0 _ : Elem Blob (Types t1)}
+                    -> (obj : FileReader)
+                    -> (blob : t1)
                     -> JSIO ()
-  readAsArrayBuffer a b = primJS
-                        $ FileReader.prim__readAsArrayBuffer (up a) (up b)
+  readAsArrayBuffer a b = primJS $ FileReader.prim__readAsArrayBuffer a (up b)
   
   export
   readAsBinaryString :  JSType t1
-                     => JSType t2
-                     => {auto 0 _ : Elem FileReader (Types t1)}
-                     -> {auto 0 _ : Elem Blob (Types t2)}
-                     -> (obj : t1)
-                     -> (blob : t2)
+                     => {auto 0 _ : Elem Blob (Types t1)}
+                     -> (obj : FileReader)
+                     -> (blob : t1)
                      -> JSIO ()
-  readAsBinaryString a b = primJS
-                         $ FileReader.prim__readAsBinaryString (up a) (up b)
+  readAsBinaryString a b = primJS $ FileReader.prim__readAsBinaryString a (up b)
   
   export
   readAsDataURL :  JSType t1
-                => JSType t2
-                => {auto 0 _ : Elem FileReader (Types t1)}
-                -> {auto 0 _ : Elem Blob (Types t2)}
-                -> (obj : t1)
-                -> (blob : t2)
+                => {auto 0 _ : Elem Blob (Types t1)}
+                -> (obj : FileReader)
+                -> (blob : t1)
                 -> JSIO ()
-  readAsDataURL a b = primJS $ FileReader.prim__readAsDataURL (up a) (up b)
+  readAsDataURL a b = primJS $ FileReader.prim__readAsDataURL a (up b)
   
   export
   readAsText :  JSType t1
-             => JSType t2
-             => {auto 0 _ : Elem FileReader (Types t1)}
-             -> {auto 0 _ : Elem Blob (Types t2)}
-             -> (obj : t1)
-             -> (blob : t2)
+             => {auto 0 _ : Elem Blob (Types t1)}
+             -> (obj : FileReader)
+             -> (blob : t1)
              -> (encoding : Optional String)
              -> JSIO ()
-  readAsText a b c = primJS
-                   $ FileReader.prim__readAsText (up a) (up b) (toFFI c)
+  readAsText a b c = primJS $ FileReader.prim__readAsText a (up b) (toFFI c)
 
   export
   readAsText' :  JSType t1
-              => JSType t2
-              => {auto 0 _ : Elem FileReader (Types t1)}
-              -> {auto 0 _ : Elem Blob (Types t2)}
-              -> (obj : t1)
-              -> (blob : t2)
+              => {auto 0 _ : Elem Blob (Types t1)}
+              -> (obj : FileReader)
+              -> (blob : t1)
               -> JSIO ()
-  readAsText' a b = primJS $ FileReader.prim__readAsText (up a) (up b) undef
+  readAsText' a b = primJS $ FileReader.prim__readAsText a (up b) undef
 
 namespace FileReaderSync
   
@@ -326,57 +268,46 @@ namespace FileReaderSync
   
   export
   readAsArrayBuffer :  JSType t1
-                    => JSType t2
-                    => {auto 0 _ : Elem FileReaderSync (Types t1)}
-                    -> {auto 0 _ : Elem Blob (Types t2)}
-                    -> (obj : t1)
-                    -> (blob : t2)
+                    => {auto 0 _ : Elem Blob (Types t1)}
+                    -> (obj : FileReaderSync)
+                    -> (blob : t1)
                     -> JSIO ArrayBuffer
   readAsArrayBuffer a b = primJS
-                        $ FileReaderSync.prim__readAsArrayBuffer (up a) (up b)
+                        $ FileReaderSync.prim__readAsArrayBuffer a (up b)
   
   export
   readAsBinaryString :  JSType t1
-                     => JSType t2
-                     => {auto 0 _ : Elem FileReaderSync (Types t1)}
-                     -> {auto 0 _ : Elem Blob (Types t2)}
-                     -> (obj : t1)
-                     -> (blob : t2)
+                     => {auto 0 _ : Elem Blob (Types t1)}
+                     -> (obj : FileReaderSync)
+                     -> (blob : t1)
                      -> JSIO String
   readAsBinaryString a b = primJS
-                         $ FileReaderSync.prim__readAsBinaryString (up a) (up b)
+                         $ FileReaderSync.prim__readAsBinaryString a (up b)
   
   export
   readAsDataURL :  JSType t1
-                => JSType t2
-                => {auto 0 _ : Elem FileReaderSync (Types t1)}
-                -> {auto 0 _ : Elem Blob (Types t2)}
-                -> (obj : t1)
-                -> (blob : t2)
+                => {auto 0 _ : Elem Blob (Types t1)}
+                -> (obj : FileReaderSync)
+                -> (blob : t1)
                 -> JSIO String
-  readAsDataURL a b = primJS $ FileReaderSync.prim__readAsDataURL (up a) (up b)
+  readAsDataURL a b = primJS $ FileReaderSync.prim__readAsDataURL a (up b)
   
   export
   readAsText :  JSType t1
-             => JSType t2
-             => {auto 0 _ : Elem FileReaderSync (Types t1)}
-             -> {auto 0 _ : Elem Blob (Types t2)}
-             -> (obj : t1)
-             -> (blob : t2)
+             => {auto 0 _ : Elem Blob (Types t1)}
+             -> (obj : FileReaderSync)
+             -> (blob : t1)
              -> (encoding : Optional String)
              -> JSIO String
-  readAsText a b c = primJS
-                   $ FileReaderSync.prim__readAsText (up a) (up b) (toFFI c)
+  readAsText a b c = primJS $ FileReaderSync.prim__readAsText a (up b) (toFFI c)
 
   export
   readAsText' :  JSType t1
-              => JSType t2
-              => {auto 0 _ : Elem FileReaderSync (Types t1)}
-              -> {auto 0 _ : Elem Blob (Types t2)}
-              -> (obj : t1)
-              -> (blob : t2)
+              => {auto 0 _ : Elem Blob (Types t1)}
+              -> (obj : FileReaderSync)
+              -> (blob : t1)
               -> JSIO String
-  readAsText' a b = primJS $ FileReaderSync.prim__readAsText (up a) (up b) undef
+  readAsText' a b = primJS $ FileReaderSync.prim__readAsText a (up b) undef
 
 
 --------------------------------------------------------------------------------
@@ -427,11 +358,8 @@ namespace FilePropertyBag
   new' = primJS $ FilePropertyBag.prim__new undef
   
   export
-  lastModified :  JSType t
-               => {auto 0 _ : Elem FilePropertyBag (Types t)}
-               -> t
-               -> Attribute False Optional Int64
+  lastModified : FilePropertyBag -> Attribute False Optional Int64
   lastModified v = fromUndefOrPrimNoDefault "FilePropertyBag.getlastModified"
                                             prim__lastModified
                                             prim__setLastModified
-                                            (v :> FilePropertyBag)
+                                            v

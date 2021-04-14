@@ -20,258 +20,165 @@ namespace MediaSource
                     $ MediaSource.prim__isTypeSupported a
   
   export
-  activeSourceBuffers :  JSType t1
-                      => {auto 0 _ : Elem MediaSource (Types t1)}
-                      -> (obj : t1)
-                      -> JSIO SourceBufferList
-  activeSourceBuffers a = primJS $ MediaSource.prim__activeSourceBuffers (up a)
+  activeSourceBuffers : (obj : MediaSource) -> JSIO SourceBufferList
+  activeSourceBuffers a = primJS $ MediaSource.prim__activeSourceBuffers a
   
   export
-  duration :  JSType t
-           => {auto 0 _ : Elem MediaSource (Types t)}
-           -> t
-           -> Attribute True I Double
+  duration : MediaSource -> Attribute True I Double
   duration v = fromPrim "MediaSource.getduration"
                         prim__duration
                         prim__setDuration
-                        (v :> MediaSource)
+                        v
   
   export
-  onsourceclose :  JSType t
-                => {auto 0 _ : Elem MediaSource (Types t)}
-                -> t
-                -> Attribute False Maybe EventHandlerNonNull
+  onsourceclose : MediaSource -> Attribute False Maybe EventHandlerNonNull
   onsourceclose v = fromNullablePrim "MediaSource.getonsourceclose"
                                      prim__onsourceclose
                                      prim__setOnsourceclose
-                                     (v :> MediaSource)
+                                     v
   
   export
-  onsourceended :  JSType t
-                => {auto 0 _ : Elem MediaSource (Types t)}
-                -> t
-                -> Attribute False Maybe EventHandlerNonNull
+  onsourceended : MediaSource -> Attribute False Maybe EventHandlerNonNull
   onsourceended v = fromNullablePrim "MediaSource.getonsourceended"
                                      prim__onsourceended
                                      prim__setOnsourceended
-                                     (v :> MediaSource)
+                                     v
   
   export
-  onsourceopen :  JSType t
-               => {auto 0 _ : Elem MediaSource (Types t)}
-               -> t
-               -> Attribute False Maybe EventHandlerNonNull
+  onsourceopen : MediaSource -> Attribute False Maybe EventHandlerNonNull
   onsourceopen v = fromNullablePrim "MediaSource.getonsourceopen"
                                     prim__onsourceopen
                                     prim__setOnsourceopen
-                                    (v :> MediaSource)
+                                    v
   
   export
-  readyState :  JSType t1
-             => {auto 0 _ : Elem MediaSource (Types t1)}
-             -> (obj : t1)
-             -> JSIO ReadyState
-  readyState a = tryJS "MediaSource.readyState"
-               $ MediaSource.prim__readyState (up a)
+  readyState : (obj : MediaSource) -> JSIO ReadyState
+  readyState a = tryJS "MediaSource.readyState" $ MediaSource.prim__readyState a
   
   export
-  sourceBuffers :  JSType t1
-                => {auto 0 _ : Elem MediaSource (Types t1)}
-                -> (obj : t1)
-                -> JSIO SourceBufferList
-  sourceBuffers a = primJS $ MediaSource.prim__sourceBuffers (up a)
+  sourceBuffers : (obj : MediaSource) -> JSIO SourceBufferList
+  sourceBuffers a = primJS $ MediaSource.prim__sourceBuffers a
   
   export
-  addSourceBuffer :  JSType t1
-                  => {auto 0 _ : Elem MediaSource (Types t1)}
-                  -> (obj : t1)
-                  -> (type : String)
-                  -> JSIO SourceBuffer
-  addSourceBuffer a b = primJS $ MediaSource.prim__addSourceBuffer (up a) b
+  addSourceBuffer : (obj : MediaSource) -> (type : String) -> JSIO SourceBuffer
+  addSourceBuffer a b = primJS $ MediaSource.prim__addSourceBuffer a b
   
   export
-  clearLiveSeekableRange :  JSType t1
-                         => {auto 0 _ : Elem MediaSource (Types t1)}
-                         -> (obj : t1)
-                         -> JSIO ()
-  clearLiveSeekableRange a = primJS
-                           $ MediaSource.prim__clearLiveSeekableRange (up a)
+  clearLiveSeekableRange : (obj : MediaSource) -> JSIO ()
+  clearLiveSeekableRange a = primJS $ MediaSource.prim__clearLiveSeekableRange a
   
   export
-  endOfStream :  JSType t1
-              => {auto 0 _ : Elem MediaSource (Types t1)}
-              -> (obj : t1)
+  endOfStream :  (obj : MediaSource)
               -> (error : Optional EndOfStreamError)
               -> JSIO ()
-  endOfStream a b = primJS $ MediaSource.prim__endOfStream (up a) (toFFI b)
+  endOfStream a b = primJS $ MediaSource.prim__endOfStream a (toFFI b)
 
   export
-  endOfStream' :  JSType t1
-               => {auto 0 _ : Elem MediaSource (Types t1)}
-               -> (obj : t1)
-               -> JSIO ()
-  endOfStream' a = primJS $ MediaSource.prim__endOfStream (up a) undef
+  endOfStream' : (obj : MediaSource) -> JSIO ()
+  endOfStream' a = primJS $ MediaSource.prim__endOfStream a undef
   
   export
-  removeSourceBuffer :  JSType t1
-                     => JSType t2
-                     => {auto 0 _ : Elem MediaSource (Types t1)}
-                     -> {auto 0 _ : Elem SourceBuffer (Types t2)}
-                     -> (obj : t1)
-                     -> (sourceBuffer : t2)
+  removeSourceBuffer :  (obj : MediaSource)
+                     -> (sourceBuffer : SourceBuffer)
                      -> JSIO ()
-  removeSourceBuffer a b = primJS
-                         $ MediaSource.prim__removeSourceBuffer (up a) (up b)
+  removeSourceBuffer a b = primJS $ MediaSource.prim__removeSourceBuffer a b
   
   export
-  setLiveSeekableRange :  JSType t1
-                       => {auto 0 _ : Elem MediaSource (Types t1)}
-                       -> (obj : t1)
+  setLiveSeekableRange :  (obj : MediaSource)
                        -> (start : Double)
                        -> (end : Double)
                        -> JSIO ()
   setLiveSeekableRange a b c = primJS
-                             $ MediaSource.prim__setLiveSeekableRange (up a) b c
+                             $ MediaSource.prim__setLiveSeekableRange a b c
 
 namespace SourceBuffer
   
   export
-  appendWindowEnd :  JSType t
-                  => {auto 0 _ : Elem SourceBuffer (Types t)}
-                  -> t
-                  -> Attribute True I Double
+  appendWindowEnd : SourceBuffer -> Attribute True I Double
   appendWindowEnd v = fromPrim "SourceBuffer.getappendWindowEnd"
                                prim__appendWindowEnd
                                prim__setAppendWindowEnd
-                               (v :> SourceBuffer)
+                               v
   
   export
-  appendWindowStart :  JSType t
-                    => {auto 0 _ : Elem SourceBuffer (Types t)}
-                    -> t
-                    -> Attribute True I Double
+  appendWindowStart : SourceBuffer -> Attribute True I Double
   appendWindowStart v = fromPrim "SourceBuffer.getappendWindowStart"
                                  prim__appendWindowStart
                                  prim__setAppendWindowStart
-                                 (v :> SourceBuffer)
+                                 v
   
   export
-  audioTracks :  JSType t1
-              => {auto 0 _ : Elem SourceBuffer (Types t1)}
-              -> (obj : t1)
-              -> JSIO AudioTrackList
-  audioTracks a = primJS $ SourceBuffer.prim__audioTracks (up a)
+  audioTracks : (obj : SourceBuffer) -> JSIO AudioTrackList
+  audioTracks a = primJS $ SourceBuffer.prim__audioTracks a
   
   export
-  buffered :  JSType t1
-           => {auto 0 _ : Elem SourceBuffer (Types t1)}
-           -> (obj : t1)
-           -> JSIO TimeRanges
-  buffered a = primJS $ SourceBuffer.prim__buffered (up a)
+  buffered : (obj : SourceBuffer) -> JSIO TimeRanges
+  buffered a = primJS $ SourceBuffer.prim__buffered a
   
   export
-  mode :  JSType t
-       => {auto 0 _ : Elem SourceBuffer (Types t)}
-       -> t
-       -> Attribute True I AppendMode
-  mode v = fromPrim "SourceBuffer.getmode"
-                    prim__mode
-                    prim__setMode
-                    (v :> SourceBuffer)
+  mode : SourceBuffer -> Attribute True I AppendMode
+  mode v = fromPrim "SourceBuffer.getmode" prim__mode prim__setMode v
   
   export
-  onabort :  JSType t
-          => {auto 0 _ : Elem SourceBuffer (Types t)}
-          -> t
-          -> Attribute False Maybe EventHandlerNonNull
+  onabort : SourceBuffer -> Attribute False Maybe EventHandlerNonNull
   onabort v = fromNullablePrim "SourceBuffer.getonabort"
                                prim__onabort
                                prim__setOnabort
-                               (v :> SourceBuffer)
+                               v
   
   export
-  onerror :  JSType t
-          => {auto 0 _ : Elem SourceBuffer (Types t)}
-          -> t
-          -> Attribute False Maybe EventHandlerNonNull
+  onerror : SourceBuffer -> Attribute False Maybe EventHandlerNonNull
   onerror v = fromNullablePrim "SourceBuffer.getonerror"
                                prim__onerror
                                prim__setOnerror
-                               (v :> SourceBuffer)
+                               v
   
   export
-  onupdate :  JSType t
-           => {auto 0 _ : Elem SourceBuffer (Types t)}
-           -> t
-           -> Attribute False Maybe EventHandlerNonNull
+  onupdate : SourceBuffer -> Attribute False Maybe EventHandlerNonNull
   onupdate v = fromNullablePrim "SourceBuffer.getonupdate"
                                 prim__onupdate
                                 prim__setOnupdate
-                                (v :> SourceBuffer)
+                                v
   
   export
-  onupdateend :  JSType t
-              => {auto 0 _ : Elem SourceBuffer (Types t)}
-              -> t
-              -> Attribute False Maybe EventHandlerNonNull
+  onupdateend : SourceBuffer -> Attribute False Maybe EventHandlerNonNull
   onupdateend v = fromNullablePrim "SourceBuffer.getonupdateend"
                                    prim__onupdateend
                                    prim__setOnupdateend
-                                   (v :> SourceBuffer)
+                                   v
   
   export
-  onupdatestart :  JSType t
-                => {auto 0 _ : Elem SourceBuffer (Types t)}
-                -> t
-                -> Attribute False Maybe EventHandlerNonNull
+  onupdatestart : SourceBuffer -> Attribute False Maybe EventHandlerNonNull
   onupdatestart v = fromNullablePrim "SourceBuffer.getonupdatestart"
                                      prim__onupdatestart
                                      prim__setOnupdatestart
-                                     (v :> SourceBuffer)
+                                     v
   
   export
-  textTracks :  JSType t1
-             => {auto 0 _ : Elem SourceBuffer (Types t1)}
-             -> (obj : t1)
-             -> JSIO TextTrackList
-  textTracks a = primJS $ SourceBuffer.prim__textTracks (up a)
+  textTracks : (obj : SourceBuffer) -> JSIO TextTrackList
+  textTracks a = primJS $ SourceBuffer.prim__textTracks a
   
   export
-  timestampOffset :  JSType t
-                  => {auto 0 _ : Elem SourceBuffer (Types t)}
-                  -> t
-                  -> Attribute True I Double
+  timestampOffset : SourceBuffer -> Attribute True I Double
   timestampOffset v = fromPrim "SourceBuffer.gettimestampOffset"
                                prim__timestampOffset
                                prim__setTimestampOffset
-                               (v :> SourceBuffer)
+                               v
   
   export
-  updating :  JSType t1
-           => {auto 0 _ : Elem SourceBuffer (Types t1)}
-           -> (obj : t1)
-           -> JSIO Bool
-  updating a = tryJS "SourceBuffer.updating"
-             $ SourceBuffer.prim__updating (up a)
+  updating : (obj : SourceBuffer) -> JSIO Bool
+  updating a = tryJS "SourceBuffer.updating" $ SourceBuffer.prim__updating a
   
   export
-  videoTracks :  JSType t1
-              => {auto 0 _ : Elem SourceBuffer (Types t1)}
-              -> (obj : t1)
-              -> JSIO VideoTrackList
-  videoTracks a = primJS $ SourceBuffer.prim__videoTracks (up a)
+  videoTracks : (obj : SourceBuffer) -> JSIO VideoTrackList
+  videoTracks a = primJS $ SourceBuffer.prim__videoTracks a
   
   export
-  abort :  JSType t1
-        => {auto 0 _ : Elem SourceBuffer (Types t1)}
-        -> (obj : t1)
-        -> JSIO ()
-  abort a = primJS $ SourceBuffer.prim__abort (up a)
+  abort : (obj : SourceBuffer) -> JSIO ()
+  abort a = primJS $ SourceBuffer.prim__abort a
   
   export
-  appendBuffer :  JSType t1
-               => {auto 0 _ : Elem SourceBuffer (Types t1)}
-               -> (obj : t1)
+  appendBuffer :  (obj : SourceBuffer)
                -> (data_ : NS I [ Int8Array
                                 , Int16Array
                                 , Int32Array
@@ -285,52 +192,36 @@ namespace SourceBuffer
                                 , ArrayBuffer
                                 ])
                -> JSIO ()
-  appendBuffer a b = primJS $ SourceBuffer.prim__appendBuffer (up a) (toFFI b)
+  appendBuffer a b = primJS $ SourceBuffer.prim__appendBuffer a (toFFI b)
   
   export
-  remove :  JSType t1
-         => {auto 0 _ : Elem SourceBuffer (Types t1)}
-         -> (obj : t1)
-         -> (start : Double)
-         -> (end : Double)
-         -> JSIO ()
-  remove a b c = primJS $ SourceBuffer.prim__remove (up a) b c
+  remove : (obj : SourceBuffer) -> (start : Double) -> (end : Double) -> JSIO ()
+  remove a b c = primJS $ SourceBuffer.prim__remove a b c
 
 namespace SourceBufferList
   
   export
-  get :  JSType t1
-      => {auto 0 _ : Elem SourceBufferList (Types t1)}
-      -> (obj : t1)
-      -> (index : UInt32)
-      -> JSIO SourceBuffer
-  get a b = primJS $ SourceBufferList.prim__get (up a) b
+  get : (obj : SourceBufferList) -> (index : UInt32) -> JSIO SourceBuffer
+  get a b = primJS $ SourceBufferList.prim__get a b
   
   export
-  length :  JSType t1
-         => {auto 0 _ : Elem SourceBufferList (Types t1)}
-         -> (obj : t1)
-         -> JSIO UInt32
-  length a = primJS $ SourceBufferList.prim__length (up a)
+  length : (obj : SourceBufferList) -> JSIO UInt32
+  length a = primJS $ SourceBufferList.prim__length a
   
   export
-  onaddsourcebuffer :  JSType t
-                    => {auto 0 _ : Elem SourceBufferList (Types t)}
-                    -> t
+  onaddsourcebuffer :  SourceBufferList
                     -> Attribute False Maybe EventHandlerNonNull
   onaddsourcebuffer v = fromNullablePrim "SourceBufferList.getonaddsourcebuffer"
                                          prim__onaddsourcebuffer
                                          prim__setOnaddsourcebuffer
-                                         (v :> SourceBufferList)
+                                         v
   
   export
-  onremovesourcebuffer :  JSType t
-                       => {auto 0 _ : Elem SourceBufferList (Types t)}
-                       -> t
+  onremovesourcebuffer :  SourceBufferList
                        -> Attribute False Maybe EventHandlerNonNull
   onremovesourcebuffer v = fromNullablePrim "SourceBufferList.getonremovesourcebuffer"
                                             prim__onremovesourcebuffer
                                             prim__setOnremovesourcebuffer
-                                            (v :> SourceBufferList)
+                                            v
 
 

@@ -15,18 +15,12 @@ namespace AbortController
   new = primJS $ AbortController.prim__new 
   
   export
-  signal :  JSType t1
-         => {auto 0 _ : Elem AbortController (Types t1)}
-         -> (obj : t1)
-         -> JSIO AbortSignal
-  signal a = primJS $ AbortController.prim__signal (up a)
+  signal : (obj : AbortController) -> JSIO AbortSignal
+  signal a = primJS $ AbortController.prim__signal a
   
   export
-  abort :  JSType t1
-        => {auto 0 _ : Elem AbortController (Types t1)}
-        -> (obj : t1)
-        -> JSIO ()
-  abort a = primJS $ AbortController.prim__abort (up a)
+  abort : (obj : AbortController) -> JSIO ()
+  abort a = primJS $ AbortController.prim__abort a
 
 namespace AbortSignal
   
@@ -35,21 +29,15 @@ namespace AbortSignal
   abort = primJS $ AbortSignal.prim__abort 
   
   export
-  aborted :  JSType t1
-          => {auto 0 _ : Elem AbortSignal (Types t1)}
-          -> (obj : t1)
-          -> JSIO Bool
-  aborted a = tryJS "AbortSignal.aborted" $ AbortSignal.prim__aborted (up a)
+  aborted : (obj : AbortSignal) -> JSIO Bool
+  aborted a = tryJS "AbortSignal.aborted" $ AbortSignal.prim__aborted a
   
   export
-  onabort :  JSType t
-          => {auto 0 _ : Elem AbortSignal (Types t)}
-          -> t
-          -> Attribute False Maybe EventHandlerNonNull
+  onabort : AbortSignal -> Attribute False Maybe EventHandlerNonNull
   onabort v = fromNullablePrim "AbortSignal.getonabort"
                                prim__onabort
                                prim__setOnabort
-                               (v :> AbortSignal)
+                               v
 
 namespace AbstractRange
   
@@ -92,53 +80,32 @@ namespace AbstractRange
 namespace Attr
   
   export
-  localName :  JSType t1
-            => {auto 0 _ : Elem Attr (Types t1)}
-            -> (obj : t1)
-            -> JSIO String
-  localName a = primJS $ Attr.prim__localName (up a)
+  localName : (obj : Attr) -> JSIO String
+  localName a = primJS $ Attr.prim__localName a
   
   export
-  name :  JSType t1
-       => {auto 0 _ : Elem Attr (Types t1)}
-       -> (obj : t1)
-       -> JSIO String
-  name a = primJS $ Attr.prim__name (up a)
+  name : (obj : Attr) -> JSIO String
+  name a = primJS $ Attr.prim__name a
   
   export
-  namespaceURI :  JSType t1
-               => {auto 0 _ : Elem Attr (Types t1)}
-               -> (obj : t1)
-               -> JSIO (Maybe String)
-  namespaceURI a = tryJS "Attr.namespaceURI" $ Attr.prim__namespaceURI (up a)
+  namespaceURI : (obj : Attr) -> JSIO (Maybe String)
+  namespaceURI a = tryJS "Attr.namespaceURI" $ Attr.prim__namespaceURI a
   
   export
-  ownerElement :  JSType t1
-               => {auto 0 _ : Elem Attr (Types t1)}
-               -> (obj : t1)
-               -> JSIO (Maybe Element)
-  ownerElement a = tryJS "Attr.ownerElement" $ Attr.prim__ownerElement (up a)
+  ownerElement : (obj : Attr) -> JSIO (Maybe Element)
+  ownerElement a = tryJS "Attr.ownerElement" $ Attr.prim__ownerElement a
   
   export
-  prefix_ :  JSType t1
-          => {auto 0 _ : Elem Attr (Types t1)}
-          -> (obj : t1)
-          -> JSIO (Maybe String)
-  prefix_ a = tryJS "Attr.prefix_" $ Attr.prim__prefix (up a)
+  prefix_ : (obj : Attr) -> JSIO (Maybe String)
+  prefix_ a = tryJS "Attr.prefix_" $ Attr.prim__prefix a
   
   export
-  specified :  JSType t1
-            => {auto 0 _ : Elem Attr (Types t1)}
-            -> (obj : t1)
-            -> JSIO Bool
-  specified a = tryJS "Attr.specified" $ Attr.prim__specified (up a)
+  specified : (obj : Attr) -> JSIO Bool
+  specified a = tryJS "Attr.specified" $ Attr.prim__specified a
   
   export
-  value :  JSType t
-        => {auto 0 _ : Elem Attr (Types t)}
-        -> t
-        -> Attribute True I String
-  value v = fromPrim "Attr.getvalue" prim__value prim__setValue (v :> Attr)
+  value : Attr -> Attribute True I String
+  value v = fromPrim "Attr.getvalue" prim__value prim__setValue v
 
 
 namespace CharacterData
@@ -218,214 +185,143 @@ namespace Comment
 namespace CustomEvent
   
   export
-  new :  JSType t1
-      => {auto 0 _ : Elem CustomEventInit (Types t1)}
-      -> (type : String)
-      -> (eventInitDict : Optional t1)
+  new :  (type : String)
+      -> (eventInitDict : Optional CustomEventInit)
       -> JSIO CustomEvent
-  new a b = primJS $ CustomEvent.prim__new a (optUp b)
+  new a b = primJS $ CustomEvent.prim__new a (toFFI b)
 
   export
   new' : (type : String) -> JSIO CustomEvent
   new' a = primJS $ CustomEvent.prim__new a undef
   
   export
-  detail :  JSType t1
-         => {auto 0 _ : Elem CustomEvent (Types t1)}
-         -> (obj : t1)
-         -> JSIO Any
-  detail a = tryJS "CustomEvent.detail" $ CustomEvent.prim__detail (up a)
+  detail : (obj : CustomEvent) -> JSIO Any
+  detail a = tryJS "CustomEvent.detail" $ CustomEvent.prim__detail a
   
   export
-  initCustomEvent :  JSType t1
-                  => {auto 0 _ : Elem CustomEvent (Types t1)}
-                  -> (obj : t1)
+  initCustomEvent :  (obj : CustomEvent)
                   -> (type : String)
                   -> (bubbles : Optional Bool)
                   -> (cancelable : Optional Bool)
                   -> (detail : Optional Any)
                   -> JSIO ()
   initCustomEvent a b c d e = primJS
-                            $ CustomEvent.prim__initCustomEvent (up a)
+                            $ CustomEvent.prim__initCustomEvent a
                                                                 b
                                                                 (toFFI c)
                                                                 (toFFI d)
                                                                 (toFFI e)
 
   export
-  initCustomEvent' :  JSType t1
-                   => {auto 0 _ : Elem CustomEvent (Types t1)}
-                   -> (obj : t1)
-                   -> (type : String)
-                   -> JSIO ()
+  initCustomEvent' : (obj : CustomEvent) -> (type : String) -> JSIO ()
   initCustomEvent' a b = primJS
-                       $ CustomEvent.prim__initCustomEvent (up a)
-                                                           b
-                                                           undef
-                                                           undef
-                                                           undef
+                       $ CustomEvent.prim__initCustomEvent a b undef undef undef
 
 namespace DOMImplementation
   
   export
-  createDocument :  JSType t1
-                 => JSType t2
-                 => {auto 0 _ : Elem DOMImplementation (Types t1)}
-                 -> {auto 0 _ : Elem DocumentType (Types t2)}
-                 -> (obj : t1)
+  createDocument :  (obj : DOMImplementation)
                  -> (namespace_ : Maybe String)
                  -> (qualifiedName : String)
-                 -> (doctype : Optional (Maybe t2))
+                 -> (doctype : Optional (Maybe DocumentType))
                  -> JSIO XMLDocument
   createDocument a b c d = primJS
-                         $ DOMImplementation.prim__createDocument (up a)
+                         $ DOMImplementation.prim__createDocument a
                                                                   (toFFI b)
                                                                   c
-                                                                  (omyUp d)
+                                                                  (toFFI d)
 
   export
-  createDocument' :  JSType t1
-                  => {auto 0 _ : Elem DOMImplementation (Types t1)}
-                  -> (obj : t1)
+  createDocument' :  (obj : DOMImplementation)
                   -> (namespace_ : Maybe String)
                   -> (qualifiedName : String)
                   -> JSIO XMLDocument
   createDocument' a b c = primJS
-                        $ DOMImplementation.prim__createDocument (up a)
+                        $ DOMImplementation.prim__createDocument a
                                                                  (toFFI b)
                                                                  c
                                                                  undef
   
   export
-  createDocumentType :  JSType t1
-                     => {auto 0 _ : Elem DOMImplementation (Types t1)}
-                     -> (obj : t1)
+  createDocumentType :  (obj : DOMImplementation)
                      -> (qualifiedName : String)
                      -> (publicId : String)
                      -> (systemId : String)
                      -> JSIO DocumentType
   createDocumentType a b c d = primJS
-                             $ DOMImplementation.prim__createDocumentType (up a)
+                             $ DOMImplementation.prim__createDocumentType a
                                                                           b
                                                                           c
                                                                           d
   
   export
-  createHTMLDocument :  JSType t1
-                     => {auto 0 _ : Elem DOMImplementation (Types t1)}
-                     -> (obj : t1)
+  createHTMLDocument :  (obj : DOMImplementation)
                      -> (title : Optional String)
                      -> JSIO Document
   createHTMLDocument a b = primJS
-                         $ DOMImplementation.prim__createHTMLDocument (up a)
+                         $ DOMImplementation.prim__createHTMLDocument a
                                                                       (toFFI b)
 
   export
-  createHTMLDocument' :  JSType t1
-                      => {auto 0 _ : Elem DOMImplementation (Types t1)}
-                      -> (obj : t1)
-                      -> JSIO Document
+  createHTMLDocument' : (obj : DOMImplementation) -> JSIO Document
   createHTMLDocument' a = primJS
-                        $ DOMImplementation.prim__createHTMLDocument (up a)
-                                                                     undef
+                        $ DOMImplementation.prim__createHTMLDocument a undef
   
   export
-  hasFeature :  JSType t1
-             => {auto 0 _ : Elem DOMImplementation (Types t1)}
-             -> (obj : t1)
-             -> JSIO Bool
+  hasFeature : (obj : DOMImplementation) -> JSIO Bool
   hasFeature a = tryJS "DOMImplementation.hasFeature"
-               $ DOMImplementation.prim__hasFeature (up a)
+               $ DOMImplementation.prim__hasFeature a
 
 namespace DOMTokenList
   
   export
-  length :  JSType t1
-         => {auto 0 _ : Elem DOMTokenList (Types t1)}
-         -> (obj : t1)
-         -> JSIO UInt32
-  length a = primJS $ DOMTokenList.prim__length (up a)
+  length : (obj : DOMTokenList) -> JSIO UInt32
+  length a = primJS $ DOMTokenList.prim__length a
   
   export
-  value :  JSType t
-        => {auto 0 _ : Elem DOMTokenList (Types t)}
-        -> t
-        -> Attribute True I String
-  value v = fromPrim "DOMTokenList.getvalue"
-                     prim__value
-                     prim__setValue
-                     (v :> DOMTokenList)
+  value : DOMTokenList -> Attribute True I String
+  value v = fromPrim "DOMTokenList.getvalue" prim__value prim__setValue v
   
   export
-  add :  JSType t1
-      => {auto 0 _ : Elem DOMTokenList (Types t1)}
-      -> (obj : t1)
-      -> (tokens : VarArg String)
-      -> JSIO ()
-  add a b = primJS $ DOMTokenList.prim__add (up a) b
+  add : (obj : DOMTokenList) -> (tokens : VarArg String) -> JSIO ()
+  add a b = primJS $ DOMTokenList.prim__add a b
   
   export
-  contains :  JSType t1
-           => {auto 0 _ : Elem DOMTokenList (Types t1)}
-           -> (obj : t1)
-           -> (token : String)
-           -> JSIO Bool
-  contains a b = tryJS "DOMTokenList.contains"
-               $ DOMTokenList.prim__contains (up a) b
+  contains : (obj : DOMTokenList) -> (token : String) -> JSIO Bool
+  contains a b = tryJS "DOMTokenList.contains" $ DOMTokenList.prim__contains a b
   
   export
-  item :  JSType t1
-       => {auto 0 _ : Elem DOMTokenList (Types t1)}
-       -> (obj : t1)
-       -> (index : UInt32)
-       -> JSIO (Maybe String)
-  item a b = tryJS "DOMTokenList.item" $ DOMTokenList.prim__item (up a) b
+  item : (obj : DOMTokenList) -> (index : UInt32) -> JSIO (Maybe String)
+  item a b = tryJS "DOMTokenList.item" $ DOMTokenList.prim__item a b
   
   export
-  remove :  JSType t1
-         => {auto 0 _ : Elem DOMTokenList (Types t1)}
-         -> (obj : t1)
-         -> (tokens : VarArg String)
-         -> JSIO ()
-  remove a b = primJS $ DOMTokenList.prim__remove (up a) b
+  remove : (obj : DOMTokenList) -> (tokens : VarArg String) -> JSIO ()
+  remove a b = primJS $ DOMTokenList.prim__remove a b
   
   export
-  replace :  JSType t1
-          => {auto 0 _ : Elem DOMTokenList (Types t1)}
-          -> (obj : t1)
+  replace :  (obj : DOMTokenList)
           -> (token : String)
           -> (newToken : String)
           -> JSIO Bool
   replace a b c = tryJS "DOMTokenList.replace"
-                $ DOMTokenList.prim__replace (up a) b c
+                $ DOMTokenList.prim__replace a b c
   
   export
-  supports :  JSType t1
-           => {auto 0 _ : Elem DOMTokenList (Types t1)}
-           -> (obj : t1)
-           -> (token : String)
-           -> JSIO Bool
-  supports a b = tryJS "DOMTokenList.supports"
-               $ DOMTokenList.prim__supports (up a) b
+  supports : (obj : DOMTokenList) -> (token : String) -> JSIO Bool
+  supports a b = tryJS "DOMTokenList.supports" $ DOMTokenList.prim__supports a b
   
   export
-  toggle :  JSType t1
-         => {auto 0 _ : Elem DOMTokenList (Types t1)}
-         -> (obj : t1)
+  toggle :  (obj : DOMTokenList)
          -> (token : String)
          -> (force : Optional Bool)
          -> JSIO Bool
   toggle a b c = tryJS "DOMTokenList.toggle"
-               $ DOMTokenList.prim__toggle (up a) b (toFFI c)
+               $ DOMTokenList.prim__toggle a b (toFFI c)
 
   export
-  toggle' :  JSType t1
-          => {auto 0 _ : Elem DOMTokenList (Types t1)}
-          -> (obj : t1)
-          -> (token : String)
-          -> JSIO Bool
+  toggle' : (obj : DOMTokenList) -> (token : String) -> JSIO Bool
   toggle' a b = tryJS "DOMTokenList.toggle'"
-              $ DOMTokenList.prim__toggle (up a) b undef
+              $ DOMTokenList.prim__toggle a b undef
 
 namespace Document
   
@@ -1194,25 +1090,16 @@ namespace DocumentFragment
 namespace DocumentType
   
   export
-  name :  JSType t1
-       => {auto 0 _ : Elem DocumentType (Types t1)}
-       -> (obj : t1)
-       -> JSIO String
-  name a = primJS $ DocumentType.prim__name (up a)
+  name : (obj : DocumentType) -> JSIO String
+  name a = primJS $ DocumentType.prim__name a
   
   export
-  publicId :  JSType t1
-           => {auto 0 _ : Elem DocumentType (Types t1)}
-           -> (obj : t1)
-           -> JSIO String
-  publicId a = primJS $ DocumentType.prim__publicId (up a)
+  publicId : (obj : DocumentType) -> JSIO String
+  publicId a = primJS $ DocumentType.prim__publicId a
   
   export
-  systemId :  JSType t1
-           => {auto 0 _ : Elem DocumentType (Types t1)}
-           -> (obj : t1)
-           -> JSIO String
-  systemId a = primJS $ DocumentType.prim__systemId (up a)
+  systemId : (obj : DocumentType) -> JSIO String
+  systemId a = primJS $ DocumentType.prim__systemId a
 
 namespace Element
   
@@ -1302,13 +1189,11 @@ namespace Element
   
   export
   attachShadow :  JSType t1
-               => JSType t2
                => {auto 0 _ : Elem Element (Types t1)}
-               -> {auto 0 _ : Elem ShadowRootInit (Types t2)}
                -> (obj : t1)
-               -> (init : t2)
+               -> (init : ShadowRootInit)
                -> JSIO ShadowRoot
-  attachShadow a b = primJS $ Element.prim__attachShadow (up a) (up b)
+  attachShadow a b = primJS $ Element.prim__attachShadow (up a) b
   
   export
   closest :  JSType t1
@@ -1490,14 +1375,11 @@ namespace Element
   
   export
   removeAttributeNode :  JSType t1
-                      => JSType t2
                       => {auto 0 _ : Elem Element (Types t1)}
-                      -> {auto 0 _ : Elem Attr (Types t2)}
                       -> (obj : t1)
-                      -> (attr : t2)
+                      -> (attr : Attr)
                       -> JSIO Attr
-  removeAttributeNode a b = primJS
-                          $ Element.prim__removeAttributeNode (up a) (up b)
+  removeAttributeNode a b = primJS $ Element.prim__removeAttributeNode (up a) b
   
   export
   setAttribute :  JSType t1
@@ -1521,25 +1403,21 @@ namespace Element
   
   export
   setAttributeNode :  JSType t1
-                   => JSType t2
                    => {auto 0 _ : Elem Element (Types t1)}
-                   -> {auto 0 _ : Elem Attr (Types t2)}
                    -> (obj : t1)
-                   -> (attr : t2)
+                   -> (attr : Attr)
                    -> JSIO (Maybe Attr)
   setAttributeNode a b = tryJS "Element.setAttributeNode"
-                       $ Element.prim__setAttributeNode (up a) (up b)
+                       $ Element.prim__setAttributeNode (up a) b
   
   export
   setAttributeNodeNS :  JSType t1
-                     => JSType t2
                      => {auto 0 _ : Elem Element (Types t1)}
-                     -> {auto 0 _ : Elem Attr (Types t2)}
                      -> (obj : t1)
-                     -> (attr : t2)
+                     -> (attr : Attr)
                      -> JSIO (Maybe Attr)
   setAttributeNodeNS a b = tryJS "Element.setAttributeNodeNS"
-                         $ Element.prim__setAttributeNodeNS (up a) (up b)
+                         $ Element.prim__setAttributeNodeNS (up a) b
   
   export
   toggleAttribute :  JSType t1
@@ -1854,190 +1732,120 @@ namespace MutationObserver
   new a = primJS $ MutationObserver.prim__new a
   
   export
-  disconnect :  JSType t1
-             => {auto 0 _ : Elem MutationObserver (Types t1)}
-             -> (obj : t1)
-             -> JSIO ()
-  disconnect a = primJS $ MutationObserver.prim__disconnect (up a)
+  disconnect : (obj : MutationObserver) -> JSIO ()
+  disconnect a = primJS $ MutationObserver.prim__disconnect a
   
   export
   observe :  JSType t1
-          => JSType t2
-          => JSType t3
-          => {auto 0 _ : Elem MutationObserver (Types t1)}
-          -> {auto 0 _ : Elem Node (Types t2)}
-          -> {auto 0 _ : Elem MutationObserverInit (Types t3)}
-          -> (obj : t1)
-          -> (target : t2)
-          -> (options : Optional t3)
+          => {auto 0 _ : Elem Node (Types t1)}
+          -> (obj : MutationObserver)
+          -> (target : t1)
+          -> (options : Optional MutationObserverInit)
           -> JSIO ()
-  observe a b c = primJS
-                $ MutationObserver.prim__observe (up a) (up b) (optUp c)
+  observe a b c = primJS $ MutationObserver.prim__observe a (up b) (toFFI c)
 
   export
   observe' :  JSType t1
-           => JSType t2
-           => {auto 0 _ : Elem MutationObserver (Types t1)}
-           -> {auto 0 _ : Elem Node (Types t2)}
-           -> (obj : t1)
-           -> (target : t2)
+           => {auto 0 _ : Elem Node (Types t1)}
+           -> (obj : MutationObserver)
+           -> (target : t1)
            -> JSIO ()
-  observe' a b = primJS $ MutationObserver.prim__observe (up a) (up b) undef
+  observe' a b = primJS $ MutationObserver.prim__observe a (up b) undef
   
   export
-  takeRecords :  JSType t1
-              => {auto 0 _ : Elem MutationObserver (Types t1)}
-              -> (obj : t1)
-              -> JSIO (Array MutationRecord)
-  takeRecords a = primJS $ MutationObserver.prim__takeRecords (up a)
+  takeRecords : (obj : MutationObserver) -> JSIO (Array MutationRecord)
+  takeRecords a = primJS $ MutationObserver.prim__takeRecords a
 
 namespace MutationRecord
   
   export
-  addedNodes :  JSType t1
-             => {auto 0 _ : Elem MutationRecord (Types t1)}
-             -> (obj : t1)
-             -> JSIO NodeList
-  addedNodes a = primJS $ MutationRecord.prim__addedNodes (up a)
+  addedNodes : (obj : MutationRecord) -> JSIO NodeList
+  addedNodes a = primJS $ MutationRecord.prim__addedNodes a
   
   export
-  attributeName :  JSType t1
-                => {auto 0 _ : Elem MutationRecord (Types t1)}
-                -> (obj : t1)
-                -> JSIO (Maybe String)
+  attributeName : (obj : MutationRecord) -> JSIO (Maybe String)
   attributeName a = tryJS "MutationRecord.attributeName"
-                  $ MutationRecord.prim__attributeName (up a)
+                  $ MutationRecord.prim__attributeName a
   
   export
-  attributeNamespace :  JSType t1
-                     => {auto 0 _ : Elem MutationRecord (Types t1)}
-                     -> (obj : t1)
-                     -> JSIO (Maybe String)
+  attributeNamespace : (obj : MutationRecord) -> JSIO (Maybe String)
   attributeNamespace a = tryJS "MutationRecord.attributeNamespace"
-                       $ MutationRecord.prim__attributeNamespace (up a)
+                       $ MutationRecord.prim__attributeNamespace a
   
   export
-  nextSibling :  JSType t1
-              => {auto 0 _ : Elem MutationRecord (Types t1)}
-              -> (obj : t1)
-              -> JSIO (Maybe Node)
+  nextSibling : (obj : MutationRecord) -> JSIO (Maybe Node)
   nextSibling a = tryJS "MutationRecord.nextSibling"
-                $ MutationRecord.prim__nextSibling (up a)
+                $ MutationRecord.prim__nextSibling a
   
   export
-  oldValue :  JSType t1
-           => {auto 0 _ : Elem MutationRecord (Types t1)}
-           -> (obj : t1)
-           -> JSIO (Maybe String)
-  oldValue a = tryJS "MutationRecord.oldValue"
-             $ MutationRecord.prim__oldValue (up a)
+  oldValue : (obj : MutationRecord) -> JSIO (Maybe String)
+  oldValue a = tryJS "MutationRecord.oldValue" $ MutationRecord.prim__oldValue a
   
   export
-  previousSibling :  JSType t1
-                  => {auto 0 _ : Elem MutationRecord (Types t1)}
-                  -> (obj : t1)
-                  -> JSIO (Maybe Node)
+  previousSibling : (obj : MutationRecord) -> JSIO (Maybe Node)
   previousSibling a = tryJS "MutationRecord.previousSibling"
-                    $ MutationRecord.prim__previousSibling (up a)
+                    $ MutationRecord.prim__previousSibling a
   
   export
-  removedNodes :  JSType t1
-               => {auto 0 _ : Elem MutationRecord (Types t1)}
-               -> (obj : t1)
-               -> JSIO NodeList
-  removedNodes a = primJS $ MutationRecord.prim__removedNodes (up a)
+  removedNodes : (obj : MutationRecord) -> JSIO NodeList
+  removedNodes a = primJS $ MutationRecord.prim__removedNodes a
   
   export
-  target :  JSType t1
-         => {auto 0 _ : Elem MutationRecord (Types t1)}
-         -> (obj : t1)
-         -> JSIO Node
-  target a = primJS $ MutationRecord.prim__target (up a)
+  target : (obj : MutationRecord) -> JSIO Node
+  target a = primJS $ MutationRecord.prim__target a
   
   export
-  type :  JSType t1
-       => {auto 0 _ : Elem MutationRecord (Types t1)}
-       -> (obj : t1)
-       -> JSIO String
-  type a = primJS $ MutationRecord.prim__type (up a)
+  type : (obj : MutationRecord) -> JSIO String
+  type a = primJS $ MutationRecord.prim__type a
 
 namespace NamedNodeMap
   
   export
-  length :  JSType t1
-         => {auto 0 _ : Elem NamedNodeMap (Types t1)}
-         -> (obj : t1)
-         -> JSIO UInt32
-  length a = primJS $ NamedNodeMap.prim__length (up a)
+  length : (obj : NamedNodeMap) -> JSIO UInt32
+  length a = primJS $ NamedNodeMap.prim__length a
   
   export
-  getNamedItemNS :  JSType t1
-                 => {auto 0 _ : Elem NamedNodeMap (Types t1)}
-                 -> (obj : t1)
+  getNamedItemNS :  (obj : NamedNodeMap)
                  -> (namespace_ : Maybe String)
                  -> (localName : String)
                  -> JSIO (Maybe Attr)
   getNamedItemNS a b c = tryJS "NamedNodeMap.getNamedItemNS"
-                       $ NamedNodeMap.prim__getNamedItemNS (up a) (toFFI b) c
+                       $ NamedNodeMap.prim__getNamedItemNS a (toFFI b) c
   
   export
-  getNamedItem :  JSType t1
-               => {auto 0 _ : Elem NamedNodeMap (Types t1)}
-               -> (obj : t1)
+  getNamedItem :  (obj : NamedNodeMap)
                -> (qualifiedName : String)
                -> JSIO (Maybe Attr)
   getNamedItem a b = tryJS "NamedNodeMap.getNamedItem"
-                   $ NamedNodeMap.prim__getNamedItem (up a) b
+                   $ NamedNodeMap.prim__getNamedItem a b
   
   export
-  item :  JSType t1
-       => {auto 0 _ : Elem NamedNodeMap (Types t1)}
-       -> (obj : t1)
-       -> (index : UInt32)
-       -> JSIO (Maybe Attr)
-  item a b = tryJS "NamedNodeMap.item" $ NamedNodeMap.prim__item (up a) b
+  item : (obj : NamedNodeMap) -> (index : UInt32) -> JSIO (Maybe Attr)
+  item a b = tryJS "NamedNodeMap.item" $ NamedNodeMap.prim__item a b
   
   export
-  removeNamedItemNS :  JSType t1
-                    => {auto 0 _ : Elem NamedNodeMap (Types t1)}
-                    -> (obj : t1)
+  removeNamedItemNS :  (obj : NamedNodeMap)
                     -> (namespace_ : Maybe String)
                     -> (localName : String)
                     -> JSIO Attr
   removeNamedItemNS a b c = primJS
-                          $ NamedNodeMap.prim__removeNamedItemNS (up a)
-                                                                 (toFFI b)
-                                                                 c
+                          $ NamedNodeMap.prim__removeNamedItemNS a (toFFI b) c
   
   export
-  removeNamedItem :  JSType t1
-                  => {auto 0 _ : Elem NamedNodeMap (Types t1)}
-                  -> (obj : t1)
+  removeNamedItem :  (obj : NamedNodeMap)
                   -> (qualifiedName : String)
                   -> JSIO Attr
-  removeNamedItem a b = primJS $ NamedNodeMap.prim__removeNamedItem (up a) b
+  removeNamedItem a b = primJS $ NamedNodeMap.prim__removeNamedItem a b
   
   export
-  setNamedItemNS :  JSType t1
-                 => JSType t2
-                 => {auto 0 _ : Elem NamedNodeMap (Types t1)}
-                 -> {auto 0 _ : Elem Attr (Types t2)}
-                 -> (obj : t1)
-                 -> (attr : t2)
-                 -> JSIO (Maybe Attr)
+  setNamedItemNS : (obj : NamedNodeMap) -> (attr : Attr) -> JSIO (Maybe Attr)
   setNamedItemNS a b = tryJS "NamedNodeMap.setNamedItemNS"
-                     $ NamedNodeMap.prim__setNamedItemNS (up a) (up b)
+                     $ NamedNodeMap.prim__setNamedItemNS a b
   
   export
-  setNamedItem :  JSType t1
-               => JSType t2
-               => {auto 0 _ : Elem NamedNodeMap (Types t1)}
-               -> {auto 0 _ : Elem Attr (Types t2)}
-               -> (obj : t1)
-               -> (attr : t2)
-               -> JSIO (Maybe Attr)
+  setNamedItem : (obj : NamedNodeMap) -> (attr : Attr) -> JSIO (Maybe Attr)
   setNamedItem a b = tryJS "NamedNodeMap.setNamedItem"
-                   $ NamedNodeMap.prim__setNamedItem (up a) (up b)
+                   $ NamedNodeMap.prim__setNamedItem a b
 
 namespace Node
   
@@ -2266,13 +2074,11 @@ namespace Node
   
   export
   getRootNode :  JSType t1
-              => JSType t2
               => {auto 0 _ : Elem Node (Types t1)}
-              -> {auto 0 _ : Elem GetRootNodeOptions (Types t2)}
               -> (obj : t1)
-              -> (options : Optional t2)
+              -> (options : Optional GetRootNodeOptions)
               -> JSIO Node
-  getRootNode a b = primJS $ Node.prim__getRootNode (up a) (optUp b)
+  getRootNode a b = primJS $ Node.prim__getRootNode (up a) (toFFI b)
 
   export
   getRootNode' :  JSType t1
@@ -2383,63 +2189,38 @@ namespace Node
 namespace NodeIterator
   
   export
-  filter :  JSType t1
-         => {auto 0 _ : Elem NodeIterator (Types t1)}
-         -> (obj : t1)
-         -> JSIO (Maybe NodeFilter)
-  filter a = tryJS "NodeIterator.filter" $ NodeIterator.prim__filter (up a)
+  filter : (obj : NodeIterator) -> JSIO (Maybe NodeFilter)
+  filter a = tryJS "NodeIterator.filter" $ NodeIterator.prim__filter a
   
   export
-  pointerBeforeReferenceNode :  JSType t1
-                             => {auto 0 _ : Elem NodeIterator (Types t1)}
-                             -> (obj : t1)
-                             -> JSIO Bool
+  pointerBeforeReferenceNode : (obj : NodeIterator) -> JSIO Bool
   pointerBeforeReferenceNode a = tryJS "NodeIterator.pointerBeforeReferenceNode"
-                               $ NodeIterator.prim__pointerBeforeReferenceNode (up a)
+                               $ NodeIterator.prim__pointerBeforeReferenceNode a
   
   export
-  referenceNode :  JSType t1
-                => {auto 0 _ : Elem NodeIterator (Types t1)}
-                -> (obj : t1)
-                -> JSIO Node
-  referenceNode a = primJS $ NodeIterator.prim__referenceNode (up a)
+  referenceNode : (obj : NodeIterator) -> JSIO Node
+  referenceNode a = primJS $ NodeIterator.prim__referenceNode a
   
   export
-  root :  JSType t1
-       => {auto 0 _ : Elem NodeIterator (Types t1)}
-       -> (obj : t1)
-       -> JSIO Node
-  root a = primJS $ NodeIterator.prim__root (up a)
+  root : (obj : NodeIterator) -> JSIO Node
+  root a = primJS $ NodeIterator.prim__root a
   
   export
-  whatToShow :  JSType t1
-             => {auto 0 _ : Elem NodeIterator (Types t1)}
-             -> (obj : t1)
-             -> JSIO UInt32
-  whatToShow a = primJS $ NodeIterator.prim__whatToShow (up a)
+  whatToShow : (obj : NodeIterator) -> JSIO UInt32
+  whatToShow a = primJS $ NodeIterator.prim__whatToShow a
   
   export
-  detach :  JSType t1
-         => {auto 0 _ : Elem NodeIterator (Types t1)}
-         -> (obj : t1)
-         -> JSIO ()
-  detach a = primJS $ NodeIterator.prim__detach (up a)
+  detach : (obj : NodeIterator) -> JSIO ()
+  detach a = primJS $ NodeIterator.prim__detach a
   
   export
-  nextNode :  JSType t1
-           => {auto 0 _ : Elem NodeIterator (Types t1)}
-           -> (obj : t1)
-           -> JSIO (Maybe Node)
-  nextNode a = tryJS "NodeIterator.nextNode"
-             $ NodeIterator.prim__nextNode (up a)
+  nextNode : (obj : NodeIterator) -> JSIO (Maybe Node)
+  nextNode a = tryJS "NodeIterator.nextNode" $ NodeIterator.prim__nextNode a
   
   export
-  previousNode :  JSType t1
-               => {auto 0 _ : Elem NodeIterator (Types t1)}
-               -> (obj : t1)
-               -> JSIO (Maybe Node)
+  previousNode : (obj : NodeIterator) -> JSIO (Maybe Node)
   previousNode a = tryJS "NodeIterator.previousNode"
-                 $ NodeIterator.prim__previousNode (up a)
+                 $ NodeIterator.prim__previousNode a
 
 namespace NodeList
   
@@ -2461,34 +2242,22 @@ namespace NodeList
 namespace Performance
   
   export
-  timeOrigin :  JSType t1
-             => {auto 0 _ : Elem Performance (Types t1)}
-             -> (obj : t1)
-             -> JSIO Double
-  timeOrigin a = primJS $ Performance.prim__timeOrigin (up a)
+  timeOrigin : (obj : Performance) -> JSIO Double
+  timeOrigin a = primJS $ Performance.prim__timeOrigin a
   
   export
-  now :  JSType t1
-      => {auto 0 _ : Elem Performance (Types t1)}
-      -> (obj : t1)
-      -> JSIO Double
-  now a = primJS $ Performance.prim__now (up a)
+  now : (obj : Performance) -> JSIO Double
+  now a = primJS $ Performance.prim__now a
   
   export
-  toJSON :  JSType t1
-         => {auto 0 _ : Elem Performance (Types t1)}
-         -> (obj : t1)
-         -> JSIO Object
-  toJSON a = primJS $ Performance.prim__toJSON (up a)
+  toJSON : (obj : Performance) -> JSIO Object
+  toJSON a = primJS $ Performance.prim__toJSON a
 
 namespace ProcessingInstruction
   
   export
-  target :  JSType t1
-         => {auto 0 _ : Elem ProcessingInstruction (Types t1)}
-         -> (obj : t1)
-         -> JSIO String
-  target a = primJS $ ProcessingInstruction.prim__target (up a)
+  target : (obj : ProcessingInstruction) -> JSIO String
+  target a = primJS $ ProcessingInstruction.prim__target a
 
 namespace Range
   
@@ -2513,228 +2282,164 @@ namespace Range
   new = primJS $ Range.prim__new 
   
   export
-  commonAncestorContainer :  JSType t1
-                          => {auto 0 _ : Elem Range (Types t1)}
-                          -> (obj : t1)
-                          -> JSIO Node
-  commonAncestorContainer a = primJS
-                            $ Range.prim__commonAncestorContainer (up a)
+  commonAncestorContainer : (obj : Range) -> JSIO Node
+  commonAncestorContainer a = primJS $ Range.prim__commonAncestorContainer a
   
   export
-  cloneContents :  JSType t1
-                => {auto 0 _ : Elem Range (Types t1)}
-                -> (obj : t1)
-                -> JSIO DocumentFragment
-  cloneContents a = primJS $ Range.prim__cloneContents (up a)
+  cloneContents : (obj : Range) -> JSIO DocumentFragment
+  cloneContents a = primJS $ Range.prim__cloneContents a
   
   export
-  cloneRange :  JSType t1
-             => {auto 0 _ : Elem Range (Types t1)}
-             -> (obj : t1)
-             -> JSIO Range
-  cloneRange a = primJS $ Range.prim__cloneRange (up a)
+  cloneRange : (obj : Range) -> JSIO Range
+  cloneRange a = primJS $ Range.prim__cloneRange a
   
   export
-  collapse :  JSType t1
-           => {auto 0 _ : Elem Range (Types t1)}
-           -> (obj : t1)
-           -> (toStart : Optional Bool)
-           -> JSIO ()
-  collapse a b = primJS $ Range.prim__collapse (up a) (toFFI b)
+  collapse : (obj : Range) -> (toStart : Optional Bool) -> JSIO ()
+  collapse a b = primJS $ Range.prim__collapse a (toFFI b)
 
   export
-  collapse' :  JSType t1
-            => {auto 0 _ : Elem Range (Types t1)}
-            -> (obj : t1)
-            -> JSIO ()
-  collapse' a = primJS $ Range.prim__collapse (up a) undef
+  collapse' : (obj : Range) -> JSIO ()
+  collapse' a = primJS $ Range.prim__collapse a undef
   
   export
-  compareBoundaryPoints :  JSType t1
-                        => JSType t2
-                        => {auto 0 _ : Elem Range (Types t1)}
-                        -> {auto 0 _ : Elem Range (Types t2)}
-                        -> (obj : t1)
+  compareBoundaryPoints :  (obj : Range)
                         -> (how : UInt16)
-                        -> (sourceRange : t2)
+                        -> (sourceRange : Range)
                         -> JSIO Int16
-  compareBoundaryPoints a b c = primJS
-                              $ Range.prim__compareBoundaryPoints (up a)
-                                                                  b
-                                                                  (up c)
+  compareBoundaryPoints a b c = primJS $ Range.prim__compareBoundaryPoints a b c
   
   export
   comparePoint :  JSType t1
-               => JSType t2
-               => {auto 0 _ : Elem Range (Types t1)}
-               -> {auto 0 _ : Elem Node (Types t2)}
-               -> (obj : t1)
-               -> (node : t2)
+               => {auto 0 _ : Elem Node (Types t1)}
+               -> (obj : Range)
+               -> (node : t1)
                -> (offset : UInt32)
                -> JSIO Int16
-  comparePoint a b c = primJS $ Range.prim__comparePoint (up a) (up b) c
+  comparePoint a b c = primJS $ Range.prim__comparePoint a (up b) c
   
   export
-  createContextualFragment :  JSType t1
-                           => {auto 0 _ : Elem Range (Types t1)}
-                           -> (obj : t1)
+  createContextualFragment :  (obj : Range)
                            -> (fragment : String)
                            -> JSIO DocumentFragment
   createContextualFragment a b = primJS
-                               $ Range.prim__createContextualFragment (up a) b
+                               $ Range.prim__createContextualFragment a b
   
   export
-  deleteContents :  JSType t1
-                 => {auto 0 _ : Elem Range (Types t1)}
-                 -> (obj : t1)
-                 -> JSIO ()
-  deleteContents a = primJS $ Range.prim__deleteContents (up a)
+  deleteContents : (obj : Range) -> JSIO ()
+  deleteContents a = primJS $ Range.prim__deleteContents a
   
   export
-  detach :  JSType t1
-         => {auto 0 _ : Elem Range (Types t1)}
-         -> (obj : t1)
-         -> JSIO ()
-  detach a = primJS $ Range.prim__detach (up a)
+  detach : (obj : Range) -> JSIO ()
+  detach a = primJS $ Range.prim__detach a
   
   export
-  extractContents :  JSType t1
-                  => {auto 0 _ : Elem Range (Types t1)}
-                  -> (obj : t1)
-                  -> JSIO DocumentFragment
-  extractContents a = primJS $ Range.prim__extractContents (up a)
+  extractContents : (obj : Range) -> JSIO DocumentFragment
+  extractContents a = primJS $ Range.prim__extractContents a
   
   export
   insertNode :  JSType t1
-             => JSType t2
-             => {auto 0 _ : Elem Range (Types t1)}
-             -> {auto 0 _ : Elem Node (Types t2)}
-             -> (obj : t1)
-             -> (node : t2)
+             => {auto 0 _ : Elem Node (Types t1)}
+             -> (obj : Range)
+             -> (node : t1)
              -> JSIO ()
-  insertNode a b = primJS $ Range.prim__insertNode (up a) (up b)
+  insertNode a b = primJS $ Range.prim__insertNode a (up b)
   
   export
   intersectsNode :  JSType t1
-                 => JSType t2
-                 => {auto 0 _ : Elem Range (Types t1)}
-                 -> {auto 0 _ : Elem Node (Types t2)}
-                 -> (obj : t1)
-                 -> (node : t2)
+                 => {auto 0 _ : Elem Node (Types t1)}
+                 -> (obj : Range)
+                 -> (node : t1)
                  -> JSIO Bool
   intersectsNode a b = tryJS "Range.intersectsNode"
-                     $ Range.prim__intersectsNode (up a) (up b)
+                     $ Range.prim__intersectsNode a (up b)
   
   export
   isPointInRange :  JSType t1
-                 => JSType t2
-                 => {auto 0 _ : Elem Range (Types t1)}
-                 -> {auto 0 _ : Elem Node (Types t2)}
-                 -> (obj : t1)
-                 -> (node : t2)
+                 => {auto 0 _ : Elem Node (Types t1)}
+                 -> (obj : Range)
+                 -> (node : t1)
                  -> (offset : UInt32)
                  -> JSIO Bool
   isPointInRange a b c = tryJS "Range.isPointInRange"
-                       $ Range.prim__isPointInRange (up a) (up b) c
+                       $ Range.prim__isPointInRange a (up b) c
   
   export
   selectNodeContents :  JSType t1
-                     => JSType t2
-                     => {auto 0 _ : Elem Range (Types t1)}
-                     -> {auto 0 _ : Elem Node (Types t2)}
-                     -> (obj : t1)
-                     -> (node : t2)
+                     => {auto 0 _ : Elem Node (Types t1)}
+                     -> (obj : Range)
+                     -> (node : t1)
                      -> JSIO ()
-  selectNodeContents a b = primJS $ Range.prim__selectNodeContents (up a) (up b)
+  selectNodeContents a b = primJS $ Range.prim__selectNodeContents a (up b)
   
   export
   selectNode :  JSType t1
-             => JSType t2
-             => {auto 0 _ : Elem Range (Types t1)}
-             -> {auto 0 _ : Elem Node (Types t2)}
-             -> (obj : t1)
-             -> (node : t2)
+             => {auto 0 _ : Elem Node (Types t1)}
+             -> (obj : Range)
+             -> (node : t1)
              -> JSIO ()
-  selectNode a b = primJS $ Range.prim__selectNode (up a) (up b)
+  selectNode a b = primJS $ Range.prim__selectNode a (up b)
   
   export
   setEndAfter :  JSType t1
-              => JSType t2
-              => {auto 0 _ : Elem Range (Types t1)}
-              -> {auto 0 _ : Elem Node (Types t2)}
-              -> (obj : t1)
-              -> (node : t2)
+              => {auto 0 _ : Elem Node (Types t1)}
+              -> (obj : Range)
+              -> (node : t1)
               -> JSIO ()
-  setEndAfter a b = primJS $ Range.prim__setEndAfter (up a) (up b)
+  setEndAfter a b = primJS $ Range.prim__setEndAfter a (up b)
   
   export
   setEndBefore :  JSType t1
-               => JSType t2
-               => {auto 0 _ : Elem Range (Types t1)}
-               -> {auto 0 _ : Elem Node (Types t2)}
-               -> (obj : t1)
-               -> (node : t2)
+               => {auto 0 _ : Elem Node (Types t1)}
+               -> (obj : Range)
+               -> (node : t1)
                -> JSIO ()
-  setEndBefore a b = primJS $ Range.prim__setEndBefore (up a) (up b)
+  setEndBefore a b = primJS $ Range.prim__setEndBefore a (up b)
   
   export
   setEnd :  JSType t1
-         => JSType t2
-         => {auto 0 _ : Elem Range (Types t1)}
-         -> {auto 0 _ : Elem Node (Types t2)}
-         -> (obj : t1)
-         -> (node : t2)
+         => {auto 0 _ : Elem Node (Types t1)}
+         -> (obj : Range)
+         -> (node : t1)
          -> (offset : UInt32)
          -> JSIO ()
-  setEnd a b c = primJS $ Range.prim__setEnd (up a) (up b) c
+  setEnd a b c = primJS $ Range.prim__setEnd a (up b) c
   
   export
   setStartAfter :  JSType t1
-                => JSType t2
-                => {auto 0 _ : Elem Range (Types t1)}
-                -> {auto 0 _ : Elem Node (Types t2)}
-                -> (obj : t1)
-                -> (node : t2)
+                => {auto 0 _ : Elem Node (Types t1)}
+                -> (obj : Range)
+                -> (node : t1)
                 -> JSIO ()
-  setStartAfter a b = primJS $ Range.prim__setStartAfter (up a) (up b)
+  setStartAfter a b = primJS $ Range.prim__setStartAfter a (up b)
   
   export
   setStartBefore :  JSType t1
-                 => JSType t2
-                 => {auto 0 _ : Elem Range (Types t1)}
-                 -> {auto 0 _ : Elem Node (Types t2)}
-                 -> (obj : t1)
-                 -> (node : t2)
+                 => {auto 0 _ : Elem Node (Types t1)}
+                 -> (obj : Range)
+                 -> (node : t1)
                  -> JSIO ()
-  setStartBefore a b = primJS $ Range.prim__setStartBefore (up a) (up b)
+  setStartBefore a b = primJS $ Range.prim__setStartBefore a (up b)
   
   export
   setStart :  JSType t1
-           => JSType t2
-           => {auto 0 _ : Elem Range (Types t1)}
-           -> {auto 0 _ : Elem Node (Types t2)}
-           -> (obj : t1)
-           -> (node : t2)
+           => {auto 0 _ : Elem Node (Types t1)}
+           -> (obj : Range)
+           -> (node : t1)
            -> (offset : UInt32)
            -> JSIO ()
-  setStart a b c = primJS $ Range.prim__setStart (up a) (up b) c
+  setStart a b c = primJS $ Range.prim__setStart a (up b) c
   
   export
   surroundContents :  JSType t1
-                   => JSType t2
-                   => {auto 0 _ : Elem Range (Types t1)}
-                   -> {auto 0 _ : Elem Node (Types t2)}
-                   -> (obj : t1)
-                   -> (newParent : t2)
+                   => {auto 0 _ : Elem Node (Types t1)}
+                   -> (obj : Range)
+                   -> (newParent : t1)
                    -> JSIO ()
-  surroundContents a b = primJS $ Range.prim__surroundContents (up a) (up b)
+  surroundContents a b = primJS $ Range.prim__surroundContents a (up b)
   
   export
-  toString :  JSType t1
-           => {auto 0 _ : Elem Range (Types t1)}
-           -> (obj : t1)
-           -> JSIO String
-  toString a = primJS $ Range.prim__toString (up a)
+  toString : (obj : Range) -> JSIO String
+  toString a = primJS $ Range.prim__toString a
 
 namespace ShadowRoot
   
@@ -2765,11 +2470,8 @@ namespace ShadowRoot
 namespace StaticRange
   
   export
-  new :  JSType t1
-      => {auto 0 _ : Elem StaticRangeInit (Types t1)}
-      -> (init : t1)
-      -> JSIO StaticRange
-  new a = primJS $ StaticRange.prim__new (up a)
+  new : (init : StaticRangeInit) -> JSIO StaticRange
+  new a = primJS $ StaticRange.prim__new a
 
 namespace Text
   
@@ -2799,89 +2501,54 @@ namespace Text
 namespace TreeWalker
   
   export
-  currentNode :  JSType t
-              => {auto 0 _ : Elem TreeWalker (Types t)}
-              -> t
-              -> Attribute True I Node
+  currentNode : TreeWalker -> Attribute True I Node
   currentNode v = fromPrim "TreeWalker.getcurrentNode"
                            prim__currentNode
                            prim__setCurrentNode
-                           (v :> TreeWalker)
+                           v
   
   export
-  filter :  JSType t1
-         => {auto 0 _ : Elem TreeWalker (Types t1)}
-         -> (obj : t1)
-         -> JSIO (Maybe NodeFilter)
-  filter a = tryJS "TreeWalker.filter" $ TreeWalker.prim__filter (up a)
+  filter : (obj : TreeWalker) -> JSIO (Maybe NodeFilter)
+  filter a = tryJS "TreeWalker.filter" $ TreeWalker.prim__filter a
   
   export
-  root :  JSType t1
-       => {auto 0 _ : Elem TreeWalker (Types t1)}
-       -> (obj : t1)
-       -> JSIO Node
-  root a = primJS $ TreeWalker.prim__root (up a)
+  root : (obj : TreeWalker) -> JSIO Node
+  root a = primJS $ TreeWalker.prim__root a
   
   export
-  whatToShow :  JSType t1
-             => {auto 0 _ : Elem TreeWalker (Types t1)}
-             -> (obj : t1)
-             -> JSIO UInt32
-  whatToShow a = primJS $ TreeWalker.prim__whatToShow (up a)
+  whatToShow : (obj : TreeWalker) -> JSIO UInt32
+  whatToShow a = primJS $ TreeWalker.prim__whatToShow a
   
   export
-  firstChild :  JSType t1
-             => {auto 0 _ : Elem TreeWalker (Types t1)}
-             -> (obj : t1)
-             -> JSIO (Maybe Node)
-  firstChild a = tryJS "TreeWalker.firstChild"
-               $ TreeWalker.prim__firstChild (up a)
+  firstChild : (obj : TreeWalker) -> JSIO (Maybe Node)
+  firstChild a = tryJS "TreeWalker.firstChild" $ TreeWalker.prim__firstChild a
   
   export
-  lastChild :  JSType t1
-            => {auto 0 _ : Elem TreeWalker (Types t1)}
-            -> (obj : t1)
-            -> JSIO (Maybe Node)
-  lastChild a = tryJS "TreeWalker.lastChild" $ TreeWalker.prim__lastChild (up a)
+  lastChild : (obj : TreeWalker) -> JSIO (Maybe Node)
+  lastChild a = tryJS "TreeWalker.lastChild" $ TreeWalker.prim__lastChild a
   
   export
-  nextNode :  JSType t1
-           => {auto 0 _ : Elem TreeWalker (Types t1)}
-           -> (obj : t1)
-           -> JSIO (Maybe Node)
-  nextNode a = tryJS "TreeWalker.nextNode" $ TreeWalker.prim__nextNode (up a)
+  nextNode : (obj : TreeWalker) -> JSIO (Maybe Node)
+  nextNode a = tryJS "TreeWalker.nextNode" $ TreeWalker.prim__nextNode a
   
   export
-  nextSibling :  JSType t1
-              => {auto 0 _ : Elem TreeWalker (Types t1)}
-              -> (obj : t1)
-              -> JSIO (Maybe Node)
+  nextSibling : (obj : TreeWalker) -> JSIO (Maybe Node)
   nextSibling a = tryJS "TreeWalker.nextSibling"
-                $ TreeWalker.prim__nextSibling (up a)
+                $ TreeWalker.prim__nextSibling a
   
   export
-  parentNode :  JSType t1
-             => {auto 0 _ : Elem TreeWalker (Types t1)}
-             -> (obj : t1)
-             -> JSIO (Maybe Node)
-  parentNode a = tryJS "TreeWalker.parentNode"
-               $ TreeWalker.prim__parentNode (up a)
+  parentNode : (obj : TreeWalker) -> JSIO (Maybe Node)
+  parentNode a = tryJS "TreeWalker.parentNode" $ TreeWalker.prim__parentNode a
   
   export
-  previousNode :  JSType t1
-               => {auto 0 _ : Elem TreeWalker (Types t1)}
-               -> (obj : t1)
-               -> JSIO (Maybe Node)
+  previousNode : (obj : TreeWalker) -> JSIO (Maybe Node)
   previousNode a = tryJS "TreeWalker.previousNode"
-                 $ TreeWalker.prim__previousNode (up a)
+                 $ TreeWalker.prim__previousNode a
   
   export
-  previousSibling :  JSType t1
-                  => {auto 0 _ : Elem TreeWalker (Types t1)}
-                  -> (obj : t1)
-                  -> JSIO (Maybe Node)
+  previousSibling : (obj : TreeWalker) -> JSIO (Maybe Node)
   previousSibling a = tryJS "TreeWalker.previousSibling"
-                    $ TreeWalker.prim__previousSibling (up a)
+                    $ TreeWalker.prim__previousSibling a
 
 
 namespace XMLSerializer
@@ -2892,14 +2559,12 @@ namespace XMLSerializer
   
   export
   serializeToString :  JSType t1
-                    => JSType t2
-                    => {auto 0 _ : Elem XMLSerializer (Types t1)}
-                    -> {auto 0 _ : Elem Node (Types t2)}
-                    -> (obj : t1)
-                    -> (root : t2)
+                    => {auto 0 _ : Elem Node (Types t1)}
+                    -> (obj : XMLSerializer)
+                    -> (root : t1)
                     -> JSIO String
   serializeToString a b = primJS
-                        $ XMLSerializer.prim__serializeToString (up a) (up b)
+                        $ XMLSerializer.prim__serializeToString a (up b)
 
 namespace XPathEvaluator
   
@@ -2911,32 +2576,22 @@ namespace XPathExpression
   
   export
   evaluate :  JSType t1
-           => JSType t2
-           => JSType t3
-           => {auto 0 _ : Elem XPathExpression (Types t1)}
-           -> {auto 0 _ : Elem Node (Types t2)}
-           -> {auto 0 _ : Elem XPathResult (Types t3)}
-           -> (obj : t1)
-           -> (contextNode : t2)
+           => {auto 0 _ : Elem Node (Types t1)}
+           -> (obj : XPathExpression)
+           -> (contextNode : t1)
            -> (type : Optional UInt16)
-           -> (result : Optional (Maybe t3))
+           -> (result : Optional (Maybe XPathResult))
            -> JSIO XPathResult
   evaluate a b c d = primJS
-                   $ XPathExpression.prim__evaluate (up a)
-                                                    (up b)
-                                                    (toFFI c)
-                                                    (omyUp d)
+                   $ XPathExpression.prim__evaluate a (up b) (toFFI c) (toFFI d)
 
   export
   evaluate' :  JSType t1
-            => JSType t2
-            => {auto 0 _ : Elem XPathExpression (Types t1)}
-            -> {auto 0 _ : Elem Node (Types t2)}
-            -> (obj : t1)
-            -> (contextNode : t2)
+            => {auto 0 _ : Elem Node (Types t1)}
+            -> (obj : XPathExpression)
+            -> (contextNode : t1)
             -> JSIO XPathResult
-  evaluate' a b = primJS
-                $ XPathExpression.prim__evaluate (up a) (up b) undef undef
+  evaluate' a b = primJS $ XPathExpression.prim__evaluate a (up b) undef undef
 
 namespace XPathResult
   
@@ -2981,73 +2636,45 @@ namespace XPathResult
   UNORDERED_NODE_SNAPSHOT_TYPE = 6
   
   export
-  booleanValue :  JSType t1
-               => {auto 0 _ : Elem XPathResult (Types t1)}
-               -> (obj : t1)
-               -> JSIO Bool
+  booleanValue : (obj : XPathResult) -> JSIO Bool
   booleanValue a = tryJS "XPathResult.booleanValue"
-                 $ XPathResult.prim__booleanValue (up a)
+                 $ XPathResult.prim__booleanValue a
   
   export
-  invalidIteratorState :  JSType t1
-                       => {auto 0 _ : Elem XPathResult (Types t1)}
-                       -> (obj : t1)
-                       -> JSIO Bool
+  invalidIteratorState : (obj : XPathResult) -> JSIO Bool
   invalidIteratorState a = tryJS "XPathResult.invalidIteratorState"
-                         $ XPathResult.prim__invalidIteratorState (up a)
+                         $ XPathResult.prim__invalidIteratorState a
   
   export
-  numberValue :  JSType t1
-              => {auto 0 _ : Elem XPathResult (Types t1)}
-              -> (obj : t1)
-              -> JSIO Double
-  numberValue a = primJS $ XPathResult.prim__numberValue (up a)
+  numberValue : (obj : XPathResult) -> JSIO Double
+  numberValue a = primJS $ XPathResult.prim__numberValue a
   
   export
-  resultType :  JSType t1
-             => {auto 0 _ : Elem XPathResult (Types t1)}
-             -> (obj : t1)
-             -> JSIO UInt16
-  resultType a = primJS $ XPathResult.prim__resultType (up a)
+  resultType : (obj : XPathResult) -> JSIO UInt16
+  resultType a = primJS $ XPathResult.prim__resultType a
   
   export
-  singleNodeValue :  JSType t1
-                  => {auto 0 _ : Elem XPathResult (Types t1)}
-                  -> (obj : t1)
-                  -> JSIO (Maybe Node)
+  singleNodeValue : (obj : XPathResult) -> JSIO (Maybe Node)
   singleNodeValue a = tryJS "XPathResult.singleNodeValue"
-                    $ XPathResult.prim__singleNodeValue (up a)
+                    $ XPathResult.prim__singleNodeValue a
   
   export
-  snapshotLength :  JSType t1
-                 => {auto 0 _ : Elem XPathResult (Types t1)}
-                 -> (obj : t1)
-                 -> JSIO UInt32
-  snapshotLength a = primJS $ XPathResult.prim__snapshotLength (up a)
+  snapshotLength : (obj : XPathResult) -> JSIO UInt32
+  snapshotLength a = primJS $ XPathResult.prim__snapshotLength a
   
   export
-  stringValue :  JSType t1
-              => {auto 0 _ : Elem XPathResult (Types t1)}
-              -> (obj : t1)
-              -> JSIO String
-  stringValue a = primJS $ XPathResult.prim__stringValue (up a)
+  stringValue : (obj : XPathResult) -> JSIO String
+  stringValue a = primJS $ XPathResult.prim__stringValue a
   
   export
-  iterateNext :  JSType t1
-              => {auto 0 _ : Elem XPathResult (Types t1)}
-              -> (obj : t1)
-              -> JSIO (Maybe Node)
+  iterateNext : (obj : XPathResult) -> JSIO (Maybe Node)
   iterateNext a = tryJS "XPathResult.iterateNext"
-                $ XPathResult.prim__iterateNext (up a)
+                $ XPathResult.prim__iterateNext a
   
   export
-  snapshotItem :  JSType t1
-               => {auto 0 _ : Elem XPathResult (Types t1)}
-               -> (obj : t1)
-               -> (index : UInt32)
-               -> JSIO (Maybe Node)
+  snapshotItem : (obj : XPathResult) -> (index : UInt32) -> JSIO (Maybe Node)
   snapshotItem a b = tryJS "XPathResult.snapshotItem"
-                   $ XPathResult.prim__snapshotItem (up a) b
+                   $ XPathResult.prim__snapshotItem a b
 
 --------------------------------------------------------------------------------
 --          Mixins
@@ -3056,28 +2683,44 @@ namespace XPathResult
 namespace ChildNode
   
   export
-  after : (obj : ChildNode) -> (nodes : VarArg (Union2 Node String)) -> JSIO ()
-  after a b = primJS $ ChildNode.prim__after a b
+  after :  JSType t1
+        => {auto 0 _ : Elem ChildNode (Types t1)}
+        -> (obj : t1)
+        -> (nodes : VarArg (Union2 Node String))
+        -> JSIO ()
+  after a b = primJS $ ChildNode.prim__after (up a) b
   
   export
-  before : (obj : ChildNode) -> (nodes : VarArg (Union2 Node String)) -> JSIO ()
-  before a b = primJS $ ChildNode.prim__before a b
+  before :  JSType t1
+         => {auto 0 _ : Elem ChildNode (Types t1)}
+         -> (obj : t1)
+         -> (nodes : VarArg (Union2 Node String))
+         -> JSIO ()
+  before a b = primJS $ ChildNode.prim__before (up a) b
   
   export
-  remove : (obj : ChildNode) -> JSIO ()
-  remove a = primJS $ ChildNode.prim__remove a
+  remove :  JSType t1
+         => {auto 0 _ : Elem ChildNode (Types t1)}
+         -> (obj : t1)
+         -> JSIO ()
+  remove a = primJS $ ChildNode.prim__remove (up a)
   
   export
-  replaceWith :  (obj : ChildNode)
+  replaceWith :  JSType t1
+              => {auto 0 _ : Elem ChildNode (Types t1)}
+              -> (obj : t1)
               -> (nodes : VarArg (Union2 Node String))
               -> JSIO ()
-  replaceWith a b = primJS $ ChildNode.prim__replaceWith a b
+  replaceWith a b = primJS $ ChildNode.prim__replaceWith (up a) b
 
 namespace DocumentOrShadowRoot
   
   export
-  styleSheets : (obj : DocumentOrShadowRoot) -> JSIO StyleSheetList
-  styleSheets a = primJS $ DocumentOrShadowRoot.prim__styleSheets a
+  styleSheets :  JSType t1
+              => {auto 0 _ : Elem DocumentOrShadowRoot (Types t1)}
+              -> (obj : t1)
+              -> JSIO StyleSheetList
+  styleSheets a = primJS $ DocumentOrShadowRoot.prim__styleSheets (up a)
 
 namespace InnerHTML
   
@@ -3094,138 +2737,182 @@ namespace InnerHTML
 namespace NonDocumentTypeChildNode
   
   export
-  nextElementSibling : (obj : NonDocumentTypeChildNode) -> JSIO (Maybe Element)
+  nextElementSibling :  JSType t1
+                     => {auto 0 _ : Elem NonDocumentTypeChildNode (Types t1)}
+                     -> (obj : t1)
+                     -> JSIO (Maybe Element)
   nextElementSibling a = tryJS "NonDocumentTypeChildNode.nextElementSibling"
-                       $ NonDocumentTypeChildNode.prim__nextElementSibling a
+                       $ NonDocumentTypeChildNode.prim__nextElementSibling (up a)
   
   export
-  previousElementSibling :  (obj : NonDocumentTypeChildNode)
+  previousElementSibling :  JSType t1
+                         => {auto 0 _ : Elem NonDocumentTypeChildNode (Types t1)}
+                         -> (obj : t1)
                          -> JSIO (Maybe Element)
   previousElementSibling a = tryJS "NonDocumentTypeChildNode.previousElementSibling"
-                           $ NonDocumentTypeChildNode.prim__previousElementSibling a
+                           $ NonDocumentTypeChildNode.prim__previousElementSibling (up a)
 
 namespace NonElementParentNode
   
   export
-  getElementById :  (obj : NonElementParentNode)
+  getElementById :  JSType t1
+                 => {auto 0 _ : Elem NonElementParentNode (Types t1)}
+                 -> (obj : t1)
                  -> (elementId : String)
                  -> JSIO (Maybe Element)
   getElementById a b = tryJS "NonElementParentNode.getElementById"
-                     $ NonElementParentNode.prim__getElementById a b
+                     $ NonElementParentNode.prim__getElementById (up a) b
 
 namespace ParentNode
   
   export
-  childElementCount : (obj : ParentNode) -> JSIO UInt32
-  childElementCount a = primJS $ ParentNode.prim__childElementCount a
+  childElementCount :  JSType t1
+                    => {auto 0 _ : Elem ParentNode (Types t1)}
+                    -> (obj : t1)
+                    -> JSIO UInt32
+  childElementCount a = primJS $ ParentNode.prim__childElementCount (up a)
   
   export
-  children : (obj : ParentNode) -> JSIO HTMLCollection
-  children a = primJS $ ParentNode.prim__children a
+  children :  JSType t1
+           => {auto 0 _ : Elem ParentNode (Types t1)}
+           -> (obj : t1)
+           -> JSIO HTMLCollection
+  children a = primJS $ ParentNode.prim__children (up a)
   
   export
-  firstElementChild : (obj : ParentNode) -> JSIO (Maybe Element)
+  firstElementChild :  JSType t1
+                    => {auto 0 _ : Elem ParentNode (Types t1)}
+                    -> (obj : t1)
+                    -> JSIO (Maybe Element)
   firstElementChild a = tryJS "ParentNode.firstElementChild"
-                      $ ParentNode.prim__firstElementChild a
+                      $ ParentNode.prim__firstElementChild (up a)
   
   export
-  lastElementChild : (obj : ParentNode) -> JSIO (Maybe Element)
+  lastElementChild :  JSType t1
+                   => {auto 0 _ : Elem ParentNode (Types t1)}
+                   -> (obj : t1)
+                   -> JSIO (Maybe Element)
   lastElementChild a = tryJS "ParentNode.lastElementChild"
-                     $ ParentNode.prim__lastElementChild a
+                     $ ParentNode.prim__lastElementChild (up a)
   
   export
-  append :  (obj : ParentNode)
+  append :  JSType t1
+         => {auto 0 _ : Elem ParentNode (Types t1)}
+         -> (obj : t1)
          -> (nodes : VarArg (Union2 Node String))
          -> JSIO ()
-  append a b = primJS $ ParentNode.prim__append a b
+  append a b = primJS $ ParentNode.prim__append (up a) b
   
   export
-  prepend :  (obj : ParentNode)
+  prepend :  JSType t1
+          => {auto 0 _ : Elem ParentNode (Types t1)}
+          -> (obj : t1)
           -> (nodes : VarArg (Union2 Node String))
           -> JSIO ()
-  prepend a b = primJS $ ParentNode.prim__prepend a b
+  prepend a b = primJS $ ParentNode.prim__prepend (up a) b
   
   export
-  querySelectorAll : (obj : ParentNode) -> (selectors : String) -> JSIO NodeList
-  querySelectorAll a b = primJS $ ParentNode.prim__querySelectorAll a b
+  querySelectorAll :  JSType t1
+                   => {auto 0 _ : Elem ParentNode (Types t1)}
+                   -> (obj : t1)
+                   -> (selectors : String)
+                   -> JSIO NodeList
+  querySelectorAll a b = primJS $ ParentNode.prim__querySelectorAll (up a) b
   
   export
-  querySelector :  (obj : ParentNode)
+  querySelector :  JSType t1
+                => {auto 0 _ : Elem ParentNode (Types t1)}
+                -> (obj : t1)
                 -> (selectors : String)
                 -> JSIO (Maybe Element)
   querySelector a b = tryJS "ParentNode.querySelector"
-                    $ ParentNode.prim__querySelector a b
+                    $ ParentNode.prim__querySelector (up a) b
   
   export
-  replaceChildren :  (obj : ParentNode)
+  replaceChildren :  JSType t1
+                  => {auto 0 _ : Elem ParentNode (Types t1)}
+                  -> (obj : t1)
                   -> (nodes : VarArg (Union2 Node String))
                   -> JSIO ()
-  replaceChildren a b = primJS $ ParentNode.prim__replaceChildren a b
+  replaceChildren a b = primJS $ ParentNode.prim__replaceChildren (up a) b
 
 namespace Slottable
   
   export
-  assignedSlot : (obj : Slottable) -> JSIO (Maybe HTMLSlotElement)
+  assignedSlot :  JSType t1
+               => {auto 0 _ : Elem Slottable (Types t1)}
+               -> (obj : t1)
+               -> JSIO (Maybe HTMLSlotElement)
   assignedSlot a = tryJS "Slottable.assignedSlot"
-                 $ Slottable.prim__assignedSlot a
+                 $ Slottable.prim__assignedSlot (up a)
 
 namespace XPathEvaluatorBase
   
   export
-  createExpression :  (obj : XPathEvaluatorBase)
+  createExpression :  JSType t1
+                   => {auto 0 _ : Elem XPathEvaluatorBase (Types t1)}
+                   -> (obj : t1)
                    -> (expression : String)
                    -> (resolver : Optional (Maybe XPathNSResolver))
                    -> JSIO XPathExpression
   createExpression a b c = primJS
-                         $ XPathEvaluatorBase.prim__createExpression a
+                         $ XPathEvaluatorBase.prim__createExpression (up a)
                                                                      b
                                                                      (toFFI c)
 
   export
-  createExpression' :  (obj : XPathEvaluatorBase)
+  createExpression' :  JSType t1
+                    => {auto 0 _ : Elem XPathEvaluatorBase (Types t1)}
+                    -> (obj : t1)
                     -> (expression : String)
                     -> JSIO XPathExpression
   createExpression' a b = primJS
-                        $ XPathEvaluatorBase.prim__createExpression a b undef
+                        $ XPathEvaluatorBase.prim__createExpression (up a)
+                                                                    b
+                                                                    undef
   
   export
   createNSResolver :  JSType t1
-                   => {auto 0 _ : Elem Node (Types t1)}
-                   -> (obj : XPathEvaluatorBase)
-                   -> (nodeResolver : t1)
+                   => JSType t2
+                   => {auto 0 _ : Elem XPathEvaluatorBase (Types t1)}
+                   -> {auto 0 _ : Elem Node (Types t2)}
+                   -> (obj : t1)
+                   -> (nodeResolver : t2)
                    -> JSIO XPathNSResolver
   createNSResolver a b = primJS
-                       $ XPathEvaluatorBase.prim__createNSResolver a (up b)
+                       $ XPathEvaluatorBase.prim__createNSResolver (up a) (up b)
   
   export
   evaluate :  JSType t1
            => JSType t2
-           => {auto 0 _ : Elem Node (Types t1)}
-           -> {auto 0 _ : Elem XPathResult (Types t2)}
-           -> (obj : XPathEvaluatorBase)
+           => {auto 0 _ : Elem XPathEvaluatorBase (Types t1)}
+           -> {auto 0 _ : Elem Node (Types t2)}
+           -> (obj : t1)
            -> (expression : String)
-           -> (contextNode : t1)
+           -> (contextNode : t2)
            -> (resolver : Optional (Maybe XPathNSResolver))
            -> (type : Optional UInt16)
-           -> (result : Optional (Maybe t2))
+           -> (result : Optional (Maybe XPathResult))
            -> JSIO XPathResult
   evaluate a b c d e f = primJS
-                       $ XPathEvaluatorBase.prim__evaluate a
+                       $ XPathEvaluatorBase.prim__evaluate (up a)
                                                            b
                                                            (up c)
                                                            (toFFI d)
                                                            (toFFI e)
-                                                           (omyUp f)
+                                                           (toFFI f)
 
   export
   evaluate' :  JSType t1
-            => {auto 0 _ : Elem Node (Types t1)}
-            -> (obj : XPathEvaluatorBase)
+            => JSType t2
+            => {auto 0 _ : Elem XPathEvaluatorBase (Types t1)}
+            -> {auto 0 _ : Elem Node (Types t2)}
+            -> (obj : t1)
             -> (expression : String)
-            -> (contextNode : t1)
+            -> (contextNode : t2)
             -> JSIO XPathResult
   evaluate' a b c = primJS
-                  $ XPathEvaluatorBase.prim__evaluate a
+                  $ XPathEvaluatorBase.prim__evaluate (up a)
                                                       b
                                                       (up c)
                                                       undef
@@ -3239,50 +2926,39 @@ namespace XPathEvaluatorBase
 namespace AddEventListenerOptions
   
   export
-  new :  JSType t1
-      => {auto 0 _ : Elem AbortSignal (Types t1)}
-      -> (passive : Optional Bool)
+  new :  (passive : Optional Bool)
       -> (once : Optional Bool)
-      -> (signal : Optional t1)
+      -> (signal : Optional AbortSignal)
       -> JSIO AddEventListenerOptions
   new a b c = primJS
-            $ AddEventListenerOptions.prim__new (toFFI a) (toFFI b) (optUp c)
+            $ AddEventListenerOptions.prim__new (toFFI a) (toFFI b) (toFFI c)
 
   export
   new' : JSIO AddEventListenerOptions
   new' = primJS $ AddEventListenerOptions.prim__new undef undef undef
   
   export
-  once :  JSType t
-       => {auto 0 _ : Elem AddEventListenerOptions (Types t)}
-       -> t
-       -> Attribute True Optional Bool
+  once : AddEventListenerOptions -> Attribute True Optional Bool
   once v = fromUndefOrPrim "AddEventListenerOptions.getonce"
                            prim__once
                            prim__setOnce
                            False
-                           (v :> AddEventListenerOptions)
+                           v
   
   export
-  passive :  JSType t
-          => {auto 0 _ : Elem AddEventListenerOptions (Types t)}
-          -> t
-          -> Attribute True Optional Bool
+  passive : AddEventListenerOptions -> Attribute True Optional Bool
   passive v = fromUndefOrPrim "AddEventListenerOptions.getpassive"
                               prim__passive
                               prim__setPassive
                               False
-                              (v :> AddEventListenerOptions)
+                              v
   
   export
-  signal :  JSType t
-         => {auto 0 _ : Elem AddEventListenerOptions (Types t)}
-         -> t
-         -> Attribute False Optional AbortSignal
+  signal : AddEventListenerOptions -> Attribute False Optional AbortSignal
   signal v = fromUndefOrPrimNoDefault "AddEventListenerOptions.getsignal"
                                       prim__signal
                                       prim__setSignal
-                                      (v :> AddEventListenerOptions)
+                                      v
 
 namespace CustomEventInit
   
@@ -3295,15 +2971,12 @@ namespace CustomEventInit
   new' = primJS $ CustomEventInit.prim__new undef
   
   export
-  detail :  JSType t
-         => {auto 0 _ : Elem CustomEventInit (Types t)}
-         -> t
-         -> Attribute True Optional Any
+  detail : CustomEventInit -> Attribute True Optional Any
   detail v = fromUndefOrPrim "CustomEventInit.getdetail"
                              prim__detail
                              prim__setDetail
                              (MkAny $ null {a = ()})
-                             (v :> CustomEventInit)
+                             v
 
 namespace ElementCreationOptions
   
@@ -3316,14 +2989,11 @@ namespace ElementCreationOptions
   new' = primJS $ ElementCreationOptions.prim__new undef
   
   export
-  is :  JSType t
-     => {auto 0 _ : Elem ElementCreationOptions (Types t)}
-     -> t
-     -> Attribute False Optional String
+  is : ElementCreationOptions -> Attribute False Optional String
   is v = fromUndefOrPrimNoDefault "ElementCreationOptions.getis"
                                   prim__is
                                   prim__setIs
-                                  (v :> ElementCreationOptions)
+                                  v
 
 namespace EventInit
   
@@ -3403,15 +3073,12 @@ namespace GetRootNodeOptions
   new' = primJS $ GetRootNodeOptions.prim__new undef
   
   export
-  composed :  JSType t
-           => {auto 0 _ : Elem GetRootNodeOptions (Types t)}
-           -> t
-           -> Attribute True Optional Bool
+  composed : GetRootNodeOptions -> Attribute True Optional Bool
   composed v = fromUndefOrPrim "GetRootNodeOptions.getcomposed"
                                prim__composed
                                prim__setComposed
                                False
-                               (v :> GetRootNodeOptions)
+                               v
 
 namespace MutationObserverInit
   
@@ -3445,76 +3112,56 @@ namespace MutationObserverInit
                                         undef
   
   export
-  attributeFilter :  JSType t
-                  => {auto 0 _ : Elem MutationObserverInit (Types t)}
-                  -> t
+  attributeFilter :  MutationObserverInit
                   -> Attribute False Optional (Array String)
   attributeFilter v = fromUndefOrPrimNoDefault "MutationObserverInit.getattributeFilter"
                                                prim__attributeFilter
                                                prim__setAttributeFilter
-                                               (v :> MutationObserverInit)
+                                               v
   
   export
-  attributeOldValue :  JSType t
-                    => {auto 0 _ : Elem MutationObserverInit (Types t)}
-                    -> t
-                    -> Attribute False Optional Bool
+  attributeOldValue : MutationObserverInit -> Attribute False Optional Bool
   attributeOldValue v = fromUndefOrPrimNoDefault "MutationObserverInit.getattributeOldValue"
                                                  prim__attributeOldValue
                                                  prim__setAttributeOldValue
-                                                 (v :> MutationObserverInit)
+                                                 v
   
   export
-  attributes :  JSType t
-             => {auto 0 _ : Elem MutationObserverInit (Types t)}
-             -> t
-             -> Attribute False Optional Bool
+  attributes : MutationObserverInit -> Attribute False Optional Bool
   attributes v = fromUndefOrPrimNoDefault "MutationObserverInit.getattributes"
                                           prim__attributes
                                           prim__setAttributes
-                                          (v :> MutationObserverInit)
+                                          v
   
   export
-  characterData :  JSType t
-                => {auto 0 _ : Elem MutationObserverInit (Types t)}
-                -> t
-                -> Attribute False Optional Bool
+  characterData : MutationObserverInit -> Attribute False Optional Bool
   characterData v = fromUndefOrPrimNoDefault "MutationObserverInit.getcharacterData"
                                              prim__characterData
                                              prim__setCharacterData
-                                             (v :> MutationObserverInit)
+                                             v
   
   export
-  characterDataOldValue :  JSType t
-                        => {auto 0 _ : Elem MutationObserverInit (Types t)}
-                        -> t
-                        -> Attribute False Optional Bool
+  characterDataOldValue : MutationObserverInit -> Attribute False Optional Bool
   characterDataOldValue v = fromUndefOrPrimNoDefault "MutationObserverInit.getcharacterDataOldValue"
                                                      prim__characterDataOldValue
                                                      prim__setCharacterDataOldValue
-                                                     (v :> MutationObserverInit)
+                                                     v
   
   export
-  childList :  JSType t
-            => {auto 0 _ : Elem MutationObserverInit (Types t)}
-            -> t
-            -> Attribute True Optional Bool
+  childList : MutationObserverInit -> Attribute True Optional Bool
   childList v = fromUndefOrPrim "MutationObserverInit.getchildList"
                                 prim__childList
                                 prim__setChildList
                                 False
-                                (v :> MutationObserverInit)
+                                v
   
   export
-  subtree :  JSType t
-          => {auto 0 _ : Elem MutationObserverInit (Types t)}
-          -> t
-          -> Attribute True Optional Bool
+  subtree : MutationObserverInit -> Attribute True Optional Bool
   subtree v = fromUndefOrPrim "MutationObserverInit.getsubtree"
                               prim__subtree
                               prim__setSubtree
                               False
-                              (v :> MutationObserverInit)
+                              v
 
 namespace ShadowRootInit
   
@@ -3529,25 +3176,16 @@ namespace ShadowRootInit
   new' a = primJS $ ShadowRootInit.prim__new (toFFI a) undef
   
   export
-  delegatesFocus :  JSType t
-                 => {auto 0 _ : Elem ShadowRootInit (Types t)}
-                 -> t
-                 -> Attribute True Optional Bool
+  delegatesFocus : ShadowRootInit -> Attribute True Optional Bool
   delegatesFocus v = fromUndefOrPrim "ShadowRootInit.getdelegatesFocus"
                                      prim__delegatesFocus
                                      prim__setDelegatesFocus
                                      False
-                                     (v :> ShadowRootInit)
+                                     v
   
   export
-  mode :  JSType t
-       => {auto 0 _ : Elem ShadowRootInit (Types t)}
-       -> t
-       -> Attribute True I ShadowRootMode
-  mode v = fromPrim "ShadowRootInit.getmode"
-                    prim__mode
-                    prim__setMode
-                    (v :> ShadowRootInit)
+  mode : ShadowRootInit -> Attribute True I ShadowRootMode
+  mode v = fromPrim "ShadowRootInit.getmode" prim__mode prim__setMode v
 
 namespace StaticRangeInit
   
@@ -3564,44 +3202,32 @@ namespace StaticRangeInit
   new a b c d = primJS $ StaticRangeInit.prim__new (up a) b (up c) d
   
   export
-  endContainer :  JSType t
-               => {auto 0 _ : Elem StaticRangeInit (Types t)}
-               -> t
-               -> Attribute True I Node
+  endContainer : StaticRangeInit -> Attribute True I Node
   endContainer v = fromPrim "StaticRangeInit.getendContainer"
                             prim__endContainer
                             prim__setEndContainer
-                            (v :> StaticRangeInit)
+                            v
   
   export
-  endOffset :  JSType t
-            => {auto 0 _ : Elem StaticRangeInit (Types t)}
-            -> t
-            -> Attribute True I UInt32
+  endOffset : StaticRangeInit -> Attribute True I UInt32
   endOffset v = fromPrim "StaticRangeInit.getendOffset"
                          prim__endOffset
                          prim__setEndOffset
-                         (v :> StaticRangeInit)
+                         v
   
   export
-  startContainer :  JSType t
-                 => {auto 0 _ : Elem StaticRangeInit (Types t)}
-                 -> t
-                 -> Attribute True I Node
+  startContainer : StaticRangeInit -> Attribute True I Node
   startContainer v = fromPrim "StaticRangeInit.getstartContainer"
                               prim__startContainer
                               prim__setStartContainer
-                              (v :> StaticRangeInit)
+                              v
   
   export
-  startOffset :  JSType t
-              => {auto 0 _ : Elem StaticRangeInit (Types t)}
-              -> t
-              -> Attribute True I UInt32
+  startOffset : StaticRangeInit -> Attribute True I UInt32
   startOffset v = fromPrim "StaticRangeInit.getstartOffset"
                            prim__startOffset
                            prim__setStartOffset
-                           (v :> StaticRangeInit)
+                           v
 
 --------------------------------------------------------------------------------
 --          Callbacks

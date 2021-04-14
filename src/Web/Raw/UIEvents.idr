@@ -11,45 +11,30 @@ import Web.Internal.Types
 namespace CompositionEvent
   
   export
-  data_ :  JSType t1
-        => {auto 0 _ : Elem CompositionEvent (Types t1)}
-        -> (obj : t1)
-        -> JSIO String
-  data_ a = primJS $ CompositionEvent.prim__data (up a)
+  data_ : (obj : CompositionEvent) -> JSIO String
+  data_ a = primJS $ CompositionEvent.prim__data a
 
 namespace FocusEvent
   
   export
-  relatedTarget :  JSType t1
-                => {auto 0 _ : Elem FocusEvent (Types t1)}
-                -> (obj : t1)
-                -> JSIO (Maybe EventTarget)
+  relatedTarget : (obj : FocusEvent) -> JSIO (Maybe EventTarget)
   relatedTarget a = tryJS "FocusEvent.relatedTarget"
-                  $ FocusEvent.prim__relatedTarget (up a)
+                  $ FocusEvent.prim__relatedTarget a
 
 namespace InputEvent
   
   export
-  data_ :  JSType t1
-        => {auto 0 _ : Elem InputEvent (Types t1)}
-        -> (obj : t1)
-        -> JSIO (Maybe String)
-  data_ a = tryJS "InputEvent.data_" $ InputEvent.prim__data (up a)
+  data_ : (obj : InputEvent) -> JSIO (Maybe String)
+  data_ a = tryJS "InputEvent.data_" $ InputEvent.prim__data a
   
   export
-  inputType :  JSType t1
-            => {auto 0 _ : Elem InputEvent (Types t1)}
-            -> (obj : t1)
-            -> JSIO String
-  inputType a = primJS $ InputEvent.prim__inputType (up a)
+  inputType : (obj : InputEvent) -> JSIO String
+  inputType a = primJS $ InputEvent.prim__inputType a
   
   export
-  isComposing :  JSType t1
-              => {auto 0 _ : Elem InputEvent (Types t1)}
-              -> (obj : t1)
-              -> JSIO Bool
+  isComposing : (obj : InputEvent) -> JSIO Bool
   isComposing a = tryJS "InputEvent.isComposing"
-                $ InputEvent.prim__isComposing (up a)
+                $ InputEvent.prim__isComposing a
 
 namespace KeyboardEvent
   
@@ -70,92 +55,54 @@ namespace KeyboardEvent
   DOM_KEY_LOCATION_STANDARD = 0x0
   
   export
-  altKey :  JSType t1
-         => {auto 0 _ : Elem KeyboardEvent (Types t1)}
-         -> (obj : t1)
-         -> JSIO Bool
-  altKey a = tryJS "KeyboardEvent.altKey" $ KeyboardEvent.prim__altKey (up a)
+  altKey : (obj : KeyboardEvent) -> JSIO Bool
+  altKey a = tryJS "KeyboardEvent.altKey" $ KeyboardEvent.prim__altKey a
   
   export
-  charCode :  JSType t1
-           => {auto 0 _ : Elem KeyboardEvent (Types t1)}
-           -> (obj : t1)
-           -> JSIO UInt32
-  charCode a = primJS $ KeyboardEvent.prim__charCode (up a)
+  charCode : (obj : KeyboardEvent) -> JSIO UInt32
+  charCode a = primJS $ KeyboardEvent.prim__charCode a
   
   export
-  code :  JSType t1
-       => {auto 0 _ : Elem KeyboardEvent (Types t1)}
-       -> (obj : t1)
-       -> JSIO String
-  code a = primJS $ KeyboardEvent.prim__code (up a)
+  code : (obj : KeyboardEvent) -> JSIO String
+  code a = primJS $ KeyboardEvent.prim__code a
   
   export
-  ctrlKey :  JSType t1
-          => {auto 0 _ : Elem KeyboardEvent (Types t1)}
-          -> (obj : t1)
-          -> JSIO Bool
-  ctrlKey a = tryJS "KeyboardEvent.ctrlKey" $ KeyboardEvent.prim__ctrlKey (up a)
+  ctrlKey : (obj : KeyboardEvent) -> JSIO Bool
+  ctrlKey a = tryJS "KeyboardEvent.ctrlKey" $ KeyboardEvent.prim__ctrlKey a
   
   export
-  isComposing :  JSType t1
-              => {auto 0 _ : Elem KeyboardEvent (Types t1)}
-              -> (obj : t1)
-              -> JSIO Bool
+  isComposing : (obj : KeyboardEvent) -> JSIO Bool
   isComposing a = tryJS "KeyboardEvent.isComposing"
-                $ KeyboardEvent.prim__isComposing (up a)
+                $ KeyboardEvent.prim__isComposing a
   
   export
-  key :  JSType t1
-      => {auto 0 _ : Elem KeyboardEvent (Types t1)}
-      -> (obj : t1)
-      -> JSIO String
-  key a = primJS $ KeyboardEvent.prim__key (up a)
+  key : (obj : KeyboardEvent) -> JSIO String
+  key a = primJS $ KeyboardEvent.prim__key a
   
   export
-  keyCode :  JSType t1
-          => {auto 0 _ : Elem KeyboardEvent (Types t1)}
-          -> (obj : t1)
-          -> JSIO UInt32
-  keyCode a = primJS $ KeyboardEvent.prim__keyCode (up a)
+  keyCode : (obj : KeyboardEvent) -> JSIO UInt32
+  keyCode a = primJS $ KeyboardEvent.prim__keyCode a
   
   export
-  location :  JSType t1
-           => {auto 0 _ : Elem KeyboardEvent (Types t1)}
-           -> (obj : t1)
-           -> JSIO UInt32
-  location a = primJS $ KeyboardEvent.prim__location (up a)
+  location : (obj : KeyboardEvent) -> JSIO UInt32
+  location a = primJS $ KeyboardEvent.prim__location a
   
   export
-  metaKey :  JSType t1
-          => {auto 0 _ : Elem KeyboardEvent (Types t1)}
-          -> (obj : t1)
-          -> JSIO Bool
-  metaKey a = tryJS "KeyboardEvent.metaKey" $ KeyboardEvent.prim__metaKey (up a)
+  metaKey : (obj : KeyboardEvent) -> JSIO Bool
+  metaKey a = tryJS "KeyboardEvent.metaKey" $ KeyboardEvent.prim__metaKey a
   
   export
-  repeat :  JSType t1
-         => {auto 0 _ : Elem KeyboardEvent (Types t1)}
-         -> (obj : t1)
-         -> JSIO Bool
-  repeat a = tryJS "KeyboardEvent.repeat" $ KeyboardEvent.prim__repeat (up a)
+  repeat : (obj : KeyboardEvent) -> JSIO Bool
+  repeat a = tryJS "KeyboardEvent.repeat" $ KeyboardEvent.prim__repeat a
   
   export
-  shiftKey :  JSType t1
-           => {auto 0 _ : Elem KeyboardEvent (Types t1)}
-           -> (obj : t1)
-           -> JSIO Bool
-  shiftKey a = tryJS "KeyboardEvent.shiftKey"
-             $ KeyboardEvent.prim__shiftKey (up a)
+  shiftKey : (obj : KeyboardEvent) -> JSIO Bool
+  shiftKey a = tryJS "KeyboardEvent.shiftKey" $ KeyboardEvent.prim__shiftKey a
   
   export
-  getModifierState :  JSType t1
-                   => {auto 0 _ : Elem KeyboardEvent (Types t1)}
-                   -> (obj : t1)
-                   -> (keyArg : String)
-                   -> JSIO Bool
+  getModifierState : (obj : KeyboardEvent) -> (keyArg : String) -> JSIO Bool
   getModifierState a b = tryJS "KeyboardEvent.getModifierState"
-                       $ KeyboardEvent.prim__getModifierState (up a) b
+                       $ KeyboardEvent.prim__getModifierState a b
 
 namespace MouseEvent
   
@@ -284,32 +231,20 @@ namespace WheelEvent
   DOM_DELTA_PIXEL = 0x0
   
   export
-  deltaMode :  JSType t1
-            => {auto 0 _ : Elem WheelEvent (Types t1)}
-            -> (obj : t1)
-            -> JSIO UInt32
-  deltaMode a = primJS $ WheelEvent.prim__deltaMode (up a)
+  deltaMode : (obj : WheelEvent) -> JSIO UInt32
+  deltaMode a = primJS $ WheelEvent.prim__deltaMode a
   
   export
-  deltaX :  JSType t1
-         => {auto 0 _ : Elem WheelEvent (Types t1)}
-         -> (obj : t1)
-         -> JSIO Double
-  deltaX a = primJS $ WheelEvent.prim__deltaX (up a)
+  deltaX : (obj : WheelEvent) -> JSIO Double
+  deltaX a = primJS $ WheelEvent.prim__deltaX a
   
   export
-  deltaY :  JSType t1
-         => {auto 0 _ : Elem WheelEvent (Types t1)}
-         -> (obj : t1)
-         -> JSIO Double
-  deltaY a = primJS $ WheelEvent.prim__deltaY (up a)
+  deltaY : (obj : WheelEvent) -> JSIO Double
+  deltaY a = primJS $ WheelEvent.prim__deltaY a
   
   export
-  deltaZ :  JSType t1
-         => {auto 0 _ : Elem WheelEvent (Types t1)}
-         -> (obj : t1)
-         -> JSIO Double
-  deltaZ a = primJS $ WheelEvent.prim__deltaZ (up a)
+  deltaZ : (obj : WheelEvent) -> JSIO Double
+  deltaZ a = primJS $ WheelEvent.prim__deltaZ a
 
 
 --------------------------------------------------------------------------------
@@ -327,15 +262,12 @@ namespace CompositionEventInit
   new' = primJS $ CompositionEventInit.prim__new undef
   
   export
-  data_ :  JSType t
-        => {auto 0 _ : Elem CompositionEventInit (Types t)}
-        -> t
-        -> Attribute True Optional String
+  data_ : CompositionEventInit -> Attribute True Optional String
   data_ v = fromUndefOrPrim "CompositionEventInit.getdata"
                             prim__data
                             prim__setData
                             ""
-                            (v :> CompositionEventInit)
+                            v
 
 namespace EventModifierInit
   
@@ -557,15 +489,12 @@ namespace FocusEventInit
   new' = primJS $ FocusEventInit.prim__new undef
   
   export
-  relatedTarget :  JSType t
-                => {auto 0 _ : Elem FocusEventInit (Types t)}
-                -> t
-                -> Attribute True Optional (Maybe EventTarget)
+  relatedTarget : FocusEventInit -> Attribute True Optional (Maybe EventTarget)
   relatedTarget v = fromUndefOrPrim "FocusEventInit.getrelatedTarget"
                                     prim__relatedTarget
                                     prim__setRelatedTarget
                                     Nothing
-                                    (v :> FocusEventInit)
+                                    v
 
 namespace InputEventInit
   
@@ -581,37 +510,28 @@ namespace InputEventInit
   new' = primJS $ InputEventInit.prim__new undef undef undef
   
   export
-  data_ :  JSType t
-        => {auto 0 _ : Elem InputEventInit (Types t)}
-        -> t
-        -> Attribute True Optional (Maybe String)
+  data_ : InputEventInit -> Attribute True Optional (Maybe String)
   data_ v = fromUndefOrPrim "InputEventInit.getdata"
                             prim__data
                             prim__setData
                             (Just "")
-                            (v :> InputEventInit)
+                            v
   
   export
-  inputType :  JSType t
-            => {auto 0 _ : Elem InputEventInit (Types t)}
-            -> t
-            -> Attribute True Optional String
+  inputType : InputEventInit -> Attribute True Optional String
   inputType v = fromUndefOrPrim "InputEventInit.getinputType"
                                 prim__inputType
                                 prim__setInputType
                                 ""
-                                (v :> InputEventInit)
+                                v
   
   export
-  isComposing :  JSType t
-              => {auto 0 _ : Elem InputEventInit (Types t)}
-              -> t
-              -> Attribute True Optional Bool
+  isComposing : InputEventInit -> Attribute True Optional Bool
   isComposing v = fromUndefOrPrim "InputEventInit.getisComposing"
                                   prim__isComposing
                                   prim__setIsComposing
                                   False
-                                  (v :> InputEventInit)
+                                  v
 
 namespace KeyboardEventInit
   
@@ -634,59 +554,40 @@ namespace KeyboardEventInit
   new' = primJS $ KeyboardEventInit.prim__new undef undef undef undef undef
   
   export
-  code :  JSType t
-       => {auto 0 _ : Elem KeyboardEventInit (Types t)}
-       -> t
-       -> Attribute True Optional String
+  code : KeyboardEventInit -> Attribute True Optional String
   code v = fromUndefOrPrim "KeyboardEventInit.getcode"
                            prim__code
                            prim__setCode
                            ""
-                           (v :> KeyboardEventInit)
+                           v
   
   export
-  isComposing :  JSType t
-              => {auto 0 _ : Elem KeyboardEventInit (Types t)}
-              -> t
-              -> Attribute True Optional Bool
+  isComposing : KeyboardEventInit -> Attribute True Optional Bool
   isComposing v = fromUndefOrPrim "KeyboardEventInit.getisComposing"
                                   prim__isComposing
                                   prim__setIsComposing
                                   False
-                                  (v :> KeyboardEventInit)
+                                  v
   
   export
-  key :  JSType t
-      => {auto 0 _ : Elem KeyboardEventInit (Types t)}
-      -> t
-      -> Attribute True Optional String
-  key v = fromUndefOrPrim "KeyboardEventInit.getkey"
-                          prim__key
-                          prim__setKey
-                          ""
-                          (v :> KeyboardEventInit)
+  key : KeyboardEventInit -> Attribute True Optional String
+  key v = fromUndefOrPrim "KeyboardEventInit.getkey" prim__key prim__setKey "" v
   
   export
-  location :  JSType t
-           => {auto 0 _ : Elem KeyboardEventInit (Types t)}
-           -> t
-           -> Attribute True Optional UInt32
+  location : KeyboardEventInit -> Attribute True Optional UInt32
   location v = fromUndefOrPrim "KeyboardEventInit.getlocation"
                                prim__location
                                prim__setLocation
                                0
-                               (v :> KeyboardEventInit)
+                               v
   
   export
-  repeat :  JSType t
-         => {auto 0 _ : Elem KeyboardEventInit (Types t)}
-         -> t
-         -> Attribute True Optional Bool
+  repeat : KeyboardEventInit -> Attribute True Optional Bool
   repeat v = fromUndefOrPrim "KeyboardEventInit.getrepeat"
                              prim__repeat
                              prim__setRepeat
                              False
-                             (v :> KeyboardEventInit)
+                             v
 
 namespace MouseEventInit
   
@@ -795,12 +696,10 @@ namespace MouseEventInit
 namespace UIEventInit
   
   export
-  new :  JSType t1
-      => {auto 0 _ : Elem Window (Types t1)}
-      -> (view : Optional (Maybe t1))
+  new :  (view : Optional (Maybe Window))
       -> (detail : Optional Int32)
       -> JSIO UIEventInit
-  new a b = primJS $ UIEventInit.prim__new (omyUp a) (toFFI b)
+  new a b = primJS $ UIEventInit.prim__new (toFFI a) (toFFI b)
 
   export
   new' : JSIO UIEventInit
@@ -844,45 +743,33 @@ namespace WheelEventInit
   new' = primJS $ WheelEventInit.prim__new undef undef undef undef
   
   export
-  deltaMode :  JSType t
-            => {auto 0 _ : Elem WheelEventInit (Types t)}
-            -> t
-            -> Attribute True Optional UInt32
+  deltaMode : WheelEventInit -> Attribute True Optional UInt32
   deltaMode v = fromUndefOrPrim "WheelEventInit.getdeltaMode"
                                 prim__deltaMode
                                 prim__setDeltaMode
                                 0
-                                (v :> WheelEventInit)
+                                v
   
   export
-  deltaX :  JSType t
-         => {auto 0 _ : Elem WheelEventInit (Types t)}
-         -> t
-         -> Attribute True Optional Double
+  deltaX : WheelEventInit -> Attribute True Optional Double
   deltaX v = fromUndefOrPrim "WheelEventInit.getdeltaX"
                              prim__deltaX
                              prim__setDeltaX
                              0.0
-                             (v :> WheelEventInit)
+                             v
   
   export
-  deltaY :  JSType t
-         => {auto 0 _ : Elem WheelEventInit (Types t)}
-         -> t
-         -> Attribute True Optional Double
+  deltaY : WheelEventInit -> Attribute True Optional Double
   deltaY v = fromUndefOrPrim "WheelEventInit.getdeltaY"
                              prim__deltaY
                              prim__setDeltaY
                              0.0
-                             (v :> WheelEventInit)
+                             v
   
   export
-  deltaZ :  JSType t
-         => {auto 0 _ : Elem WheelEventInit (Types t)}
-         -> t
-         -> Attribute True Optional Double
+  deltaZ : WheelEventInit -> Attribute True Optional Double
   deltaZ v = fromUndefOrPrim "WheelEventInit.getdeltaZ"
                              prim__deltaZ
                              prim__setDeltaZ
                              0.0
-                             (v :> WheelEventInit)
+                             v

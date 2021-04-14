@@ -176,14 +176,12 @@ namespace AnimationEffect
   
   export
   updateTiming :  JSType t1
-               => JSType t2
                => {auto 0 _ : Elem AnimationEffect (Types t1)}
-               -> {auto 0 _ : Elem OptionalEffectTiming (Types t2)}
                -> (obj : t1)
-               -> (timing : Optional t2)
+               -> (timing : Optional OptionalEffectTiming)
                -> JSIO ()
   updateTiming a b = primJS
-                   $ AnimationEffect.prim__updateTiming (up a) (optUp b)
+                   $ AnimationEffect.prim__updateTiming (up a) (toFFI b)
 
   export
   updateTiming' :  JSType t1
@@ -195,20 +193,14 @@ namespace AnimationEffect
 namespace AnimationPlaybackEvent
   
   export
-  currentTime :  JSType t1
-              => {auto 0 _ : Elem AnimationPlaybackEvent (Types t1)}
-              -> (obj : t1)
-              -> JSIO (Maybe Double)
+  currentTime : (obj : AnimationPlaybackEvent) -> JSIO (Maybe Double)
   currentTime a = tryJS "AnimationPlaybackEvent.currentTime"
-                $ AnimationPlaybackEvent.prim__currentTime (up a)
+                $ AnimationPlaybackEvent.prim__currentTime a
   
   export
-  timelineTime :  JSType t1
-               => {auto 0 _ : Elem AnimationPlaybackEvent (Types t1)}
-               -> (obj : t1)
-               -> JSIO (Maybe Double)
+  timelineTime : (obj : AnimationPlaybackEvent) -> JSIO (Maybe Double)
   timelineTime a = tryJS "AnimationPlaybackEvent.timelineTime"
-                 $ AnimationPlaybackEvent.prim__timelineTime (up a)
+                 $ AnimationPlaybackEvent.prim__timelineTime a
 
 namespace AnimationTimeline
   
@@ -224,51 +216,39 @@ namespace AnimationTimeline
 namespace KeyframeEffect
   
   export
-  composite :  JSType t
-            => {auto 0 _ : Elem KeyframeEffect (Types t)}
-            -> t
-            -> Attribute True I CompositeOperation
+  composite : KeyframeEffect -> Attribute True I CompositeOperation
   composite v = fromPrim "KeyframeEffect.getcomposite"
                          prim__composite
                          prim__setComposite
-                         (v :> KeyframeEffect)
+                         v
   
   export
-  iterationComposite :  JSType t
-                     => {auto 0 _ : Elem KeyframeEffect (Types t)}
-                     -> t
+  iterationComposite :  KeyframeEffect
                      -> Attribute True I IterationCompositeOperation
   iterationComposite v = fromPrim "KeyframeEffect.getiterationComposite"
                                   prim__iterationComposite
                                   prim__setIterationComposite
-                                  (v :> KeyframeEffect)
+                                  v
   
   export
-  target :  JSType t
-         => {auto 0 _ : Elem KeyframeEffect (Types t)}
-         -> t
+  target :  KeyframeEffect
          -> Attribute False Maybe (NS I [ Element , CSSPseudoElement ])
   target v = fromNullablePrim "KeyframeEffect.gettarget"
                               prim__target
                               prim__setTarget
-                              (v :> KeyframeEffect)
+                              v
   
   export
-  getKeyframes :  JSType t1
-               => {auto 0 _ : Elem KeyframeEffect (Types t1)}
-               -> (obj : t1)
-               -> JSIO (Array Object)
-  getKeyframes a = primJS $ KeyframeEffect.prim__getKeyframes (up a)
+  getKeyframes : (obj : KeyframeEffect) -> JSIO (Array Object)
+  getKeyframes a = primJS $ KeyframeEffect.prim__getKeyframes a
   
   export
   setKeyframes :  JSType t1
-               => JSType t2
-               => {auto 0 _ : Elem KeyframeEffect (Types t1)}
-               -> {auto 0 _ : Elem Object (Types t2)}
-               -> (obj : t1)
-               -> (keyframes : Maybe t2)
+               => {auto 0 _ : Elem Object (Types t1)}
+               -> (obj : KeyframeEffect)
+               -> (keyframes : Maybe t1)
                -> JSIO ()
-  setKeyframes a b = primJS $ KeyframeEffect.prim__setKeyframes (up a) (mayUp b)
+  setKeyframes a b = primJS $ KeyframeEffect.prim__setKeyframes a (mayUp b)
 
 --------------------------------------------------------------------------------
 --          Mixins
@@ -278,24 +258,31 @@ namespace Animatable
   
   export
   animate :  JSType t1
-          => {auto 0 _ : Elem Object (Types t1)}
-          -> (obj : Animatable)
-          -> (keyframes : Maybe t1)
+          => JSType t2
+          => {auto 0 _ : Elem Animatable (Types t1)}
+          -> {auto 0 _ : Elem Object (Types t2)}
+          -> (obj : t1)
+          -> (keyframes : Maybe t2)
           -> (options : Optional (NS I [ Double , KeyframeAnimationOptions ]))
           -> JSIO Animation
-  animate a b c = primJS $ Animatable.prim__animate a (mayUp b) (toFFI c)
+  animate a b c = primJS $ Animatable.prim__animate (up a) (mayUp b) (toFFI c)
 
   export
   animate' :  JSType t1
-           => {auto 0 _ : Elem Object (Types t1)}
-           -> (obj : Animatable)
-           -> (keyframes : Maybe t1)
+           => JSType t2
+           => {auto 0 _ : Elem Animatable (Types t1)}
+           -> {auto 0 _ : Elem Object (Types t2)}
+           -> (obj : t1)
+           -> (keyframes : Maybe t2)
            -> JSIO Animation
-  animate' a b = primJS $ Animatable.prim__animate a (mayUp b) undef
+  animate' a b = primJS $ Animatable.prim__animate (up a) (mayUp b) undef
   
   export
-  getAnimations : (obj : Animatable) -> JSIO (Array Animation)
-  getAnimations a = primJS $ Animatable.prim__getAnimations a
+  getAnimations :  JSType t1
+                => {auto 0 _ : Elem Animatable (Types t1)}
+                -> (obj : t1)
+                -> JSIO (Array Animation)
+  getAnimations a = primJS $ Animatable.prim__getAnimations (up a)
 
 --------------------------------------------------------------------------------
 --          Dictionaries
@@ -314,26 +301,22 @@ namespace AnimationPlaybackEventInit
   new' = primJS $ AnimationPlaybackEventInit.prim__new undef undef
   
   export
-  currentTime :  JSType t
-              => {auto 0 _ : Elem AnimationPlaybackEventInit (Types t)}
-              -> t
+  currentTime :  AnimationPlaybackEventInit
               -> Attribute True Optional (Maybe Double)
   currentTime v = fromUndefOrPrim "AnimationPlaybackEventInit.getcurrentTime"
                                   prim__currentTime
                                   prim__setCurrentTime
                                   Nothing
-                                  (v :> AnimationPlaybackEventInit)
+                                  v
   
   export
-  timelineTime :  JSType t
-               => {auto 0 _ : Elem AnimationPlaybackEventInit (Types t)}
-               -> t
+  timelineTime :  AnimationPlaybackEventInit
                -> Attribute True Optional (Maybe Double)
   timelineTime v = fromUndefOrPrim "AnimationPlaybackEventInit.gettimelineTime"
                                    prim__timelineTime
                                    prim__setTimelineTime
                                    Nothing
-                                   (v :> AnimationPlaybackEventInit)
+                                   v
 
 namespace BaseComputedKeyframe
   
@@ -354,46 +337,35 @@ namespace BaseComputedKeyframe
   new' = primJS $ BaseComputedKeyframe.prim__new undef undef undef undef
   
   export
-  composite :  JSType t
-            => {auto 0 _ : Elem BaseComputedKeyframe (Types t)}
-            -> t
+  composite :  BaseComputedKeyframe
             -> Attribute False Optional CompositeOperationOrAuto
   composite v = fromUndefOrPrimNoDefault "BaseComputedKeyframe.getcomposite"
                                          prim__composite
                                          prim__setComposite
-                                         (v :> BaseComputedKeyframe)
+                                         v
   
   export
-  computedOffset :  JSType t
-                 => {auto 0 _ : Elem BaseComputedKeyframe (Types t)}
-                 -> t
-                 -> Attribute False Optional Double
+  computedOffset : BaseComputedKeyframe -> Attribute False Optional Double
   computedOffset v = fromUndefOrPrimNoDefault "BaseComputedKeyframe.getcomputedOffset"
                                               prim__computedOffset
                                               prim__setComputedOffset
-                                              (v :> BaseComputedKeyframe)
+                                              v
   
   export
-  easing :  JSType t
-         => {auto 0 _ : Elem BaseComputedKeyframe (Types t)}
-         -> t
-         -> Attribute True Optional String
+  easing : BaseComputedKeyframe -> Attribute True Optional String
   easing v = fromUndefOrPrim "BaseComputedKeyframe.geteasing"
                              prim__easing
                              prim__setEasing
                              "linear"
-                             (v :> BaseComputedKeyframe)
+                             v
   
   export
-  offset :  JSType t
-         => {auto 0 _ : Elem BaseComputedKeyframe (Types t)}
-         -> t
-         -> Attribute True Optional (Maybe Double)
+  offset : BaseComputedKeyframe -> Attribute True Optional (Maybe Double)
   offset v = fromUndefOrPrim "BaseComputedKeyframe.getoffset"
                              prim__offset
                              prim__setOffset
                              Nothing
-                             (v :> BaseComputedKeyframe)
+                             v
 
 namespace BaseKeyframe
   
@@ -409,36 +381,27 @@ namespace BaseKeyframe
   new' = primJS $ BaseKeyframe.prim__new undef undef undef
   
   export
-  composite :  JSType t
-            => {auto 0 _ : Elem BaseKeyframe (Types t)}
-            -> t
-            -> Attribute False Optional CompositeOperationOrAuto
+  composite : BaseKeyframe -> Attribute False Optional CompositeOperationOrAuto
   composite v = fromUndefOrPrimNoDefault "BaseKeyframe.getcomposite"
                                          prim__composite
                                          prim__setComposite
-                                         (v :> BaseKeyframe)
+                                         v
   
   export
-  easing :  JSType t
-         => {auto 0 _ : Elem BaseKeyframe (Types t)}
-         -> t
-         -> Attribute True Optional String
+  easing : BaseKeyframe -> Attribute True Optional String
   easing v = fromUndefOrPrim "BaseKeyframe.geteasing"
                              prim__easing
                              prim__setEasing
                              "linear"
-                             (v :> BaseKeyframe)
+                             v
   
   export
-  offset :  JSType t
-         => {auto 0 _ : Elem BaseKeyframe (Types t)}
-         -> t
-         -> Attribute True Optional (Maybe Double)
+  offset : BaseKeyframe -> Attribute True Optional (Maybe Double)
   offset v = fromUndefOrPrim "BaseKeyframe.getoffset"
                              prim__offset
                              prim__setOffset
                              Nothing
-                             (v :> BaseKeyframe)
+                             v
 
 namespace BasePropertyIndexedKeyframe
   
@@ -459,35 +422,29 @@ namespace BasePropertyIndexedKeyframe
   new' = primJS $ BasePropertyIndexedKeyframe.prim__new undef undef undef
   
   export
-  composite :  JSType t
-            => {auto 0 _ : Elem BasePropertyIndexedKeyframe (Types t)}
-            -> t
+  composite :  BasePropertyIndexedKeyframe
             -> Attribute False Optional (Union2 String (Array String))
   composite v = fromUndefOrPrimNoDefault "BasePropertyIndexedKeyframe.getcomposite"
                                          prim__composite
                                          prim__setComposite
-                                         (v :> BasePropertyIndexedKeyframe)
+                                         v
   
   export
-  easing :  JSType t
-         => {auto 0 _ : Elem BasePropertyIndexedKeyframe (Types t)}
-         -> t
+  easing :  BasePropertyIndexedKeyframe
          -> Attribute False Optional (Union2 String (Array String))
   easing v = fromUndefOrPrimNoDefault "BasePropertyIndexedKeyframe.geteasing"
                                       prim__easing
                                       prim__setEasing
-                                      (v :> BasePropertyIndexedKeyframe)
+                                      v
   
   export
-  offset :  JSType t
-         => {auto 0 _ : Elem BasePropertyIndexedKeyframe (Types t)}
-         -> t
+  offset :  BasePropertyIndexedKeyframe
          -> Attribute False Optional (Maybe (Union2 Double
                                                     (Array (Nullable Double))))
   offset v = fromUndefOrPrimNoDefault "BasePropertyIndexedKeyframe.getoffset"
                                       prim__offset
                                       prim__setOffset
-                                      (v :> BasePropertyIndexedKeyframe)
+                                      v
 
 namespace ComputedEffectTiming
   
@@ -510,54 +467,40 @@ namespace ComputedEffectTiming
   new' = primJS $ ComputedEffectTiming.prim__new undef undef undef undef undef
   
   export
-  activeDuration :  JSType t
-                 => {auto 0 _ : Elem ComputedEffectTiming (Types t)}
-                 -> t
-                 -> Attribute False Optional Double
+  activeDuration : ComputedEffectTiming -> Attribute False Optional Double
   activeDuration v = fromUndefOrPrimNoDefault "ComputedEffectTiming.getactiveDuration"
                                               prim__activeDuration
                                               prim__setActiveDuration
-                                              (v :> ComputedEffectTiming)
+                                              v
   
   export
-  currentIteration :  JSType t
-                   => {auto 0 _ : Elem ComputedEffectTiming (Types t)}
-                   -> t
+  currentIteration :  ComputedEffectTiming
                    -> Attribute False Optional (Maybe Double)
   currentIteration v = fromUndefOrPrimNoDefault "ComputedEffectTiming.getcurrentIteration"
                                                 prim__currentIteration
                                                 prim__setCurrentIteration
-                                                (v :> ComputedEffectTiming)
+                                                v
   
   export
-  endTime :  JSType t
-          => {auto 0 _ : Elem ComputedEffectTiming (Types t)}
-          -> t
-          -> Attribute False Optional Double
+  endTime : ComputedEffectTiming -> Attribute False Optional Double
   endTime v = fromUndefOrPrimNoDefault "ComputedEffectTiming.getendTime"
                                        prim__endTime
                                        prim__setEndTime
-                                       (v :> ComputedEffectTiming)
+                                       v
   
   export
-  localTime :  JSType t
-            => {auto 0 _ : Elem ComputedEffectTiming (Types t)}
-            -> t
-            -> Attribute False Optional (Maybe Double)
+  localTime : ComputedEffectTiming -> Attribute False Optional (Maybe Double)
   localTime v = fromUndefOrPrimNoDefault "ComputedEffectTiming.getlocalTime"
                                          prim__localTime
                                          prim__setLocalTime
-                                         (v :> ComputedEffectTiming)
+                                         v
   
   export
-  progress :  JSType t
-           => {auto 0 _ : Elem ComputedEffectTiming (Types t)}
-           -> t
-           -> Attribute False Optional (Maybe Double)
+  progress : ComputedEffectTiming -> Attribute False Optional (Maybe Double)
   progress v = fromUndefOrPrimNoDefault "ComputedEffectTiming.getprogress"
                                         prim__progress
                                         prim__setProgress
-                                        (v :> ComputedEffectTiming)
+                                        v
 
 namespace DocumentTimelineOptions
   
@@ -570,15 +513,12 @@ namespace DocumentTimelineOptions
   new' = primJS $ DocumentTimelineOptions.prim__new undef
   
   export
-  originTime :  JSType t
-             => {auto 0 _ : Elem DocumentTimelineOptions (Types t)}
-             -> t
-             -> Attribute True Optional Double
+  originTime : DocumentTimelineOptions -> Attribute True Optional Double
   originTime v = fromUndefOrPrim "DocumentTimelineOptions.getoriginTime"
                                  prim__originTime
                                  prim__setOriginTime
                                  0
-                                 (v :> DocumentTimelineOptions)
+                                 v
 
 namespace EffectTiming
   
@@ -703,15 +643,12 @@ namespace KeyframeAnimationOptions
   new' = primJS $ KeyframeAnimationOptions.prim__new undef
   
   export
-  id :  JSType t
-     => {auto 0 _ : Elem KeyframeAnimationOptions (Types t)}
-     -> t
-     -> Attribute True Optional String
+  id : KeyframeAnimationOptions -> Attribute True Optional String
   id v = fromUndefOrPrim "KeyframeAnimationOptions.getid"
                          prim__id
                          prim__setId
                          ""
-                         (v :> KeyframeAnimationOptions)
+                         v
 
 namespace KeyframeEffectOptions
   
@@ -780,81 +717,58 @@ namespace OptionalEffectTiming
                                         undef
   
   export
-  delay :  JSType t
-        => {auto 0 _ : Elem OptionalEffectTiming (Types t)}
-        -> t
-        -> Attribute False Optional Double
+  delay : OptionalEffectTiming -> Attribute False Optional Double
   delay v = fromUndefOrPrimNoDefault "OptionalEffectTiming.getdelay"
                                      prim__delay
                                      prim__setDelay
-                                     (v :> OptionalEffectTiming)
+                                     v
   
   export
-  direction :  JSType t
-            => {auto 0 _ : Elem OptionalEffectTiming (Types t)}
-            -> t
-            -> Attribute False Optional PlaybackDirection
+  direction : OptionalEffectTiming -> Attribute False Optional PlaybackDirection
   direction v = fromUndefOrPrimNoDefault "OptionalEffectTiming.getdirection"
                                          prim__direction
                                          prim__setDirection
-                                         (v :> OptionalEffectTiming)
+                                         v
   
   export
-  duration :  JSType t
-           => {auto 0 _ : Elem OptionalEffectTiming (Types t)}
-           -> t
+  duration :  OptionalEffectTiming
            -> Attribute False Optional (NS I [ Double , String ])
   duration v = fromUndefOrPrimNoDefault "OptionalEffectTiming.getduration"
                                         prim__duration
                                         prim__setDuration
-                                        (v :> OptionalEffectTiming)
+                                        v
   
   export
-  easing :  JSType t
-         => {auto 0 _ : Elem OptionalEffectTiming (Types t)}
-         -> t
-         -> Attribute False Optional String
+  easing : OptionalEffectTiming -> Attribute False Optional String
   easing v = fromUndefOrPrimNoDefault "OptionalEffectTiming.geteasing"
                                       prim__easing
                                       prim__setEasing
-                                      (v :> OptionalEffectTiming)
+                                      v
   
   export
-  endDelay :  JSType t
-           => {auto 0 _ : Elem OptionalEffectTiming (Types t)}
-           -> t
-           -> Attribute False Optional Double
+  endDelay : OptionalEffectTiming -> Attribute False Optional Double
   endDelay v = fromUndefOrPrimNoDefault "OptionalEffectTiming.getendDelay"
                                         prim__endDelay
                                         prim__setEndDelay
-                                        (v :> OptionalEffectTiming)
+                                        v
   
   export
-  fill :  JSType t
-       => {auto 0 _ : Elem OptionalEffectTiming (Types t)}
-       -> t
-       -> Attribute False Optional FillMode
+  fill : OptionalEffectTiming -> Attribute False Optional FillMode
   fill v = fromUndefOrPrimNoDefault "OptionalEffectTiming.getfill"
                                     prim__fill
                                     prim__setFill
-                                    (v :> OptionalEffectTiming)
+                                    v
   
   export
-  iterationStart :  JSType t
-                 => {auto 0 _ : Elem OptionalEffectTiming (Types t)}
-                 -> t
-                 -> Attribute False Optional Double
+  iterationStart : OptionalEffectTiming -> Attribute False Optional Double
   iterationStart v = fromUndefOrPrimNoDefault "OptionalEffectTiming.getiterationStart"
                                               prim__iterationStart
                                               prim__setIterationStart
-                                              (v :> OptionalEffectTiming)
+                                              v
   
   export
-  iterations :  JSType t
-             => {auto 0 _ : Elem OptionalEffectTiming (Types t)}
-             -> t
-             -> Attribute False Optional Double
+  iterations : OptionalEffectTiming -> Attribute False Optional Double
   iterations v = fromUndefOrPrimNoDefault "OptionalEffectTiming.getiterations"
                                           prim__iterations
                                           prim__setIterations
-                                          (v :> OptionalEffectTiming)
+                                          v

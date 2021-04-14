@@ -11,127 +11,82 @@ import Web.Internal.Types
 namespace AudioTrack
   
   export
-  enabled :  JSType t
-          => {auto 0 _ : Elem AudioTrack (Types t)}
-          -> t
-          -> Attribute True I Bool
-  enabled v = fromPrim "AudioTrack.getenabled"
-                       prim__enabled
-                       prim__setEnabled
-                       (v :> AudioTrack)
+  enabled : AudioTrack -> Attribute True I Bool
+  enabled v = fromPrim "AudioTrack.getenabled" prim__enabled prim__setEnabled v
   
   export
-  id :  JSType t1
-     => {auto 0 _ : Elem AudioTrack (Types t1)}
-     -> (obj : t1)
-     -> JSIO String
-  id a = primJS $ AudioTrack.prim__id (up a)
+  id : (obj : AudioTrack) -> JSIO String
+  id a = primJS $ AudioTrack.prim__id a
   
   export
-  kind :  JSType t1
-       => {auto 0 _ : Elem AudioTrack (Types t1)}
-       -> (obj : t1)
-       -> JSIO String
-  kind a = primJS $ AudioTrack.prim__kind (up a)
+  kind : (obj : AudioTrack) -> JSIO String
+  kind a = primJS $ AudioTrack.prim__kind a
   
   export
-  label :  JSType t1
-        => {auto 0 _ : Elem AudioTrack (Types t1)}
-        -> (obj : t1)
-        -> JSIO String
-  label a = primJS $ AudioTrack.prim__label (up a)
+  label : (obj : AudioTrack) -> JSIO String
+  label a = primJS $ AudioTrack.prim__label a
   
   export
-  language :  JSType t1
-           => {auto 0 _ : Elem AudioTrack (Types t1)}
-           -> (obj : t1)
-           -> JSIO String
-  language a = primJS $ AudioTrack.prim__language (up a)
+  language : (obj : AudioTrack) -> JSIO String
+  language a = primJS $ AudioTrack.prim__language a
   
   export
-  sourceBuffer :  JSType t1
-               => {auto 0 _ : Elem AudioTrack (Types t1)}
-               -> (obj : t1)
-               -> JSIO (Maybe SourceBuffer)
+  sourceBuffer : (obj : AudioTrack) -> JSIO (Maybe SourceBuffer)
   sourceBuffer a = tryJS "AudioTrack.sourceBuffer"
-                 $ AudioTrack.prim__sourceBuffer (up a)
+                 $ AudioTrack.prim__sourceBuffer a
 
 namespace AudioTrackList
   
   export
-  get :  JSType t1
-      => {auto 0 _ : Elem AudioTrackList (Types t1)}
-      -> (obj : t1)
-      -> (index : UInt32)
-      -> JSIO AudioTrack
-  get a b = primJS $ AudioTrackList.prim__get (up a) b
+  get : (obj : AudioTrackList) -> (index : UInt32) -> JSIO AudioTrack
+  get a b = primJS $ AudioTrackList.prim__get a b
   
   export
-  length :  JSType t1
-         => {auto 0 _ : Elem AudioTrackList (Types t1)}
-         -> (obj : t1)
-         -> JSIO UInt32
-  length a = primJS $ AudioTrackList.prim__length (up a)
+  length : (obj : AudioTrackList) -> JSIO UInt32
+  length a = primJS $ AudioTrackList.prim__length a
   
   export
-  onaddtrack :  JSType t
-             => {auto 0 _ : Elem AudioTrackList (Types t)}
-             -> t
-             -> Attribute False Maybe EventHandlerNonNull
+  onaddtrack : AudioTrackList -> Attribute False Maybe EventHandlerNonNull
   onaddtrack v = fromNullablePrim "AudioTrackList.getonaddtrack"
                                   prim__onaddtrack
                                   prim__setOnaddtrack
-                                  (v :> AudioTrackList)
+                                  v
   
   export
-  onchange :  JSType t
-           => {auto 0 _ : Elem AudioTrackList (Types t)}
-           -> t
-           -> Attribute False Maybe EventHandlerNonNull
+  onchange : AudioTrackList -> Attribute False Maybe EventHandlerNonNull
   onchange v = fromNullablePrim "AudioTrackList.getonchange"
                                 prim__onchange
                                 prim__setOnchange
-                                (v :> AudioTrackList)
+                                v
   
   export
-  onremovetrack :  JSType t
-                => {auto 0 _ : Elem AudioTrackList (Types t)}
-                -> t
-                -> Attribute False Maybe EventHandlerNonNull
+  onremovetrack : AudioTrackList -> Attribute False Maybe EventHandlerNonNull
   onremovetrack v = fromNullablePrim "AudioTrackList.getonremovetrack"
                                      prim__onremovetrack
                                      prim__setOnremovetrack
-                                     (v :> AudioTrackList)
+                                     v
   
   export
-  getTrackById :  JSType t1
-               => {auto 0 _ : Elem AudioTrackList (Types t1)}
-               -> (obj : t1)
+  getTrackById :  (obj : AudioTrackList)
                -> (id : String)
                -> JSIO (Maybe AudioTrack)
   getTrackById a b = tryJS "AudioTrackList.getTrackById"
-                   $ AudioTrackList.prim__getTrackById (up a) b
+                   $ AudioTrackList.prim__getTrackById a b
 
 namespace BarProp
   
   export
-  visible :  JSType t1
-          => {auto 0 _ : Elem BarProp (Types t1)}
-          -> (obj : t1)
-          -> JSIO Bool
-  visible a = tryJS "BarProp.visible" $ BarProp.prim__visible (up a)
+  visible : (obj : BarProp) -> JSIO Bool
+  visible a = tryJS "BarProp.visible" $ BarProp.prim__visible a
 
 namespace BeforeUnloadEvent
   
   export
-  returnValue :  JSType t
-              => {auto 0 _ : Elem BeforeUnloadEvent (Types t)}
-              -> t
-              -> Attribute True I String
+  returnValue : BeforeUnloadEvent -> Attribute True I String
   returnValue v = fromPrim "BeforeUnloadEvent.getreturnValue"
                            prim__returnValue
                            prim__setReturnValue
-                           (v :> BeforeUnloadEvent)
+                           v
 
 namespace BroadcastChannel
   
@@ -140,178 +95,126 @@ namespace BroadcastChannel
   new a = primJS $ BroadcastChannel.prim__new a
   
   export
-  name :  JSType t1
-       => {auto 0 _ : Elem BroadcastChannel (Types t1)}
-       -> (obj : t1)
-       -> JSIO String
-  name a = primJS $ BroadcastChannel.prim__name (up a)
+  name : (obj : BroadcastChannel) -> JSIO String
+  name a = primJS $ BroadcastChannel.prim__name a
   
   export
-  onmessage :  JSType t
-            => {auto 0 _ : Elem BroadcastChannel (Types t)}
-            -> t
-            -> Attribute False Maybe EventHandlerNonNull
+  onmessage : BroadcastChannel -> Attribute False Maybe EventHandlerNonNull
   onmessage v = fromNullablePrim "BroadcastChannel.getonmessage"
                                  prim__onmessage
                                  prim__setOnmessage
-                                 (v :> BroadcastChannel)
+                                 v
   
   export
-  onmessageerror :  JSType t
-                 => {auto 0 _ : Elem BroadcastChannel (Types t)}
-                 -> t
-                 -> Attribute False Maybe EventHandlerNonNull
+  onmessageerror : BroadcastChannel -> Attribute False Maybe EventHandlerNonNull
   onmessageerror v = fromNullablePrim "BroadcastChannel.getonmessageerror"
                                       prim__onmessageerror
                                       prim__setOnmessageerror
-                                      (v :> BroadcastChannel)
+                                      v
   
   export
-  close :  JSType t1
-        => {auto 0 _ : Elem BroadcastChannel (Types t1)}
-        -> (obj : t1)
-        -> JSIO ()
-  close a = primJS $ BroadcastChannel.prim__close (up a)
+  close : (obj : BroadcastChannel) -> JSIO ()
+  close a = primJS $ BroadcastChannel.prim__close a
   
   export
-  postMessage :  JSType t1
-              => {auto 0 _ : Elem BroadcastChannel (Types t1)}
-              -> (obj : t1)
-              -> (message : Any)
-              -> JSIO ()
-  postMessage a b = primJS $ BroadcastChannel.prim__postMessage (up a) (toFFI b)
+  postMessage : (obj : BroadcastChannel) -> (message : Any) -> JSIO ()
+  postMessage a b = primJS $ BroadcastChannel.prim__postMessage a (toFFI b)
 
 namespace CanvasGradient
   
   export
-  addColorStop :  JSType t1
-               => {auto 0 _ : Elem CanvasGradient (Types t1)}
-               -> (obj : t1)
+  addColorStop :  (obj : CanvasGradient)
                -> (offset : Double)
                -> (color : String)
                -> JSIO ()
-  addColorStop a b c = primJS $ CanvasGradient.prim__addColorStop (up a) b c
+  addColorStop a b c = primJS $ CanvasGradient.prim__addColorStop a b c
 
 namespace CanvasPattern
   
   export
   setTransform :  JSType t1
-               => JSType t2
-               => {auto 0 _ : Elem CanvasPattern (Types t1)}
-               -> {auto 0 _ : Elem DOMMatrix2DInit (Types t2)}
-               -> (obj : t1)
-               -> (transform : Optional t2)
+               => {auto 0 _ : Elem DOMMatrix2DInit (Types t1)}
+               -> (obj : CanvasPattern)
+               -> (transform : Optional t1)
                -> JSIO ()
-  setTransform a b = primJS $ CanvasPattern.prim__setTransform (up a) (optUp b)
+  setTransform a b = primJS $ CanvasPattern.prim__setTransform a (optUp b)
 
   export
-  setTransform' :  JSType t1
-                => {auto 0 _ : Elem CanvasPattern (Types t1)}
-                -> (obj : t1)
-                -> JSIO ()
-  setTransform' a = primJS $ CanvasPattern.prim__setTransform (up a) undef
+  setTransform' : (obj : CanvasPattern) -> JSIO ()
+  setTransform' a = primJS $ CanvasPattern.prim__setTransform a undef
 
 namespace CanvasRenderingContext2D
   
   export
-  canvas :  JSType t1
-         => {auto 0 _ : Elem CanvasRenderingContext2D (Types t1)}
-         -> (obj : t1)
-         -> JSIO HTMLCanvasElement
-  canvas a = primJS $ CanvasRenderingContext2D.prim__canvas (up a)
+  canvas : (obj : CanvasRenderingContext2D) -> JSIO HTMLCanvasElement
+  canvas a = primJS $ CanvasRenderingContext2D.prim__canvas a
   
   export
-  getContextAttributes :  JSType t1
-                       => {auto 0 _ : Elem CanvasRenderingContext2D (Types t1)}
-                       -> (obj : t1)
+  getContextAttributes :  (obj : CanvasRenderingContext2D)
                        -> JSIO CanvasRenderingContext2DSettings
   getContextAttributes a = primJS
-                         $ CanvasRenderingContext2D.prim__getContextAttributes (up a)
+                         $ CanvasRenderingContext2D.prim__getContextAttributes a
 
 namespace CloseEvent
   
   export
-  new :  JSType t1
-      => {auto 0 _ : Elem CloseEventInit (Types t1)}
-      -> (type : String)
-      -> (eventInitDict : Optional t1)
+  new :  (type : String)
+      -> (eventInitDict : Optional CloseEventInit)
       -> JSIO CloseEvent
-  new a b = primJS $ CloseEvent.prim__new a (optUp b)
+  new a b = primJS $ CloseEvent.prim__new a (toFFI b)
 
   export
   new' : (type : String) -> JSIO CloseEvent
   new' a = primJS $ CloseEvent.prim__new a undef
   
   export
-  code :  JSType t1
-       => {auto 0 _ : Elem CloseEvent (Types t1)}
-       -> (obj : t1)
-       -> JSIO UInt16
-  code a = primJS $ CloseEvent.prim__code (up a)
+  code : (obj : CloseEvent) -> JSIO UInt16
+  code a = primJS $ CloseEvent.prim__code a
   
   export
-  reason :  JSType t1
-         => {auto 0 _ : Elem CloseEvent (Types t1)}
-         -> (obj : t1)
-         -> JSIO String
-  reason a = primJS $ CloseEvent.prim__reason (up a)
+  reason : (obj : CloseEvent) -> JSIO String
+  reason a = primJS $ CloseEvent.prim__reason a
   
   export
-  wasClean :  JSType t1
-           => {auto 0 _ : Elem CloseEvent (Types t1)}
-           -> (obj : t1)
-           -> JSIO Bool
-  wasClean a = tryJS "CloseEvent.wasClean" $ CloseEvent.prim__wasClean (up a)
+  wasClean : (obj : CloseEvent) -> JSIO Bool
+  wasClean a = tryJS "CloseEvent.wasClean" $ CloseEvent.prim__wasClean a
 
 namespace CustomElementRegistry
   
   export
-  define :  JSType t1
-         => JSType t2
-         => {auto 0 _ : Elem CustomElementRegistry (Types t1)}
-         -> {auto 0 _ : Elem ElementDefinitionOptions (Types t2)}
-         -> (obj : t1)
+  define :  (obj : CustomElementRegistry)
          -> (name : String)
          -> (constructor : CustomElementConstructor)
-         -> (options : Optional t2)
+         -> (options : Optional ElementDefinitionOptions)
          -> JSIO ()
-  define a b c d = primJS
-                 $ CustomElementRegistry.prim__define (up a) b c (optUp d)
+  define a b c d = primJS $ CustomElementRegistry.prim__define a b c (toFFI d)
 
   export
-  define' :  JSType t1
-          => {auto 0 _ : Elem CustomElementRegistry (Types t1)}
-          -> (obj : t1)
+  define' :  (obj : CustomElementRegistry)
           -> (name : String)
           -> (constructor : CustomElementConstructor)
           -> JSIO ()
-  define' a b c = primJS $ CustomElementRegistry.prim__define (up a) b c undef
+  define' a b c = primJS $ CustomElementRegistry.prim__define a b c undef
   
   export
-  get :  JSType t1
-      => {auto 0 _ : Elem CustomElementRegistry (Types t1)}
-      -> (obj : t1)
+  get :  (obj : CustomElementRegistry)
       -> (name : String)
       -> JSIO (Union2 CustomElementConstructor Undefined)
-  get a b = primJS $ CustomElementRegistry.prim__get (up a) b
+  get a b = primJS $ CustomElementRegistry.prim__get a b
   
   export
   upgrade :  JSType t1
-          => JSType t2
-          => {auto 0 _ : Elem CustomElementRegistry (Types t1)}
-          -> {auto 0 _ : Elem Node (Types t2)}
-          -> (obj : t1)
-          -> (root : t2)
+          => {auto 0 _ : Elem Node (Types t1)}
+          -> (obj : CustomElementRegistry)
+          -> (root : t1)
           -> JSIO ()
-  upgrade a b = primJS $ CustomElementRegistry.prim__upgrade (up a) (up b)
+  upgrade a b = primJS $ CustomElementRegistry.prim__upgrade a (up b)
   
   export
-  whenDefined :  JSType t1
-              => {auto 0 _ : Elem CustomElementRegistry (Types t1)}
-              -> (obj : t1)
+  whenDefined :  (obj : CustomElementRegistry)
               -> (name : String)
               -> JSIO (Promise CustomElementConstructor)
-  whenDefined a b = primJS $ CustomElementRegistry.prim__whenDefined (up a) b
+  whenDefined a b = primJS $ CustomElementRegistry.prim__whenDefined a b
 
 namespace DOMParser
   
@@ -320,59 +223,36 @@ namespace DOMParser
   new = primJS $ DOMParser.prim__new 
   
   export
-  parseFromString :  JSType t1
-                  => {auto 0 _ : Elem DOMParser (Types t1)}
-                  -> (obj : t1)
+  parseFromString :  (obj : DOMParser)
                   -> (string : String)
                   -> (type : DOMParserSupportedType)
                   -> JSIO Document
-  parseFromString a b c = primJS
-                        $ DOMParser.prim__parseFromString (up a) b (toFFI c)
+  parseFromString a b c = primJS $ DOMParser.prim__parseFromString a b (toFFI c)
 
 namespace DOMStringList
   
   export
-  length :  JSType t1
-         => {auto 0 _ : Elem DOMStringList (Types t1)}
-         -> (obj : t1)
-         -> JSIO UInt32
-  length a = primJS $ DOMStringList.prim__length (up a)
+  length : (obj : DOMStringList) -> JSIO UInt32
+  length a = primJS $ DOMStringList.prim__length a
   
   export
-  contains :  JSType t1
-           => {auto 0 _ : Elem DOMStringList (Types t1)}
-           -> (obj : t1)
-           -> (string : String)
-           -> JSIO Bool
+  contains : (obj : DOMStringList) -> (string : String) -> JSIO Bool
   contains a b = tryJS "DOMStringList.contains"
-               $ DOMStringList.prim__contains (up a) b
+               $ DOMStringList.prim__contains a b
   
   export
-  item :  JSType t1
-       => {auto 0 _ : Elem DOMStringList (Types t1)}
-       -> (obj : t1)
-       -> (index : UInt32)
-       -> JSIO (Maybe String)
-  item a b = tryJS "DOMStringList.item" $ DOMStringList.prim__item (up a) b
+  item : (obj : DOMStringList) -> (index : UInt32) -> JSIO (Maybe String)
+  item a b = tryJS "DOMStringList.item" $ DOMStringList.prim__item a b
 
 namespace DOMStringMap
   
   export
-  get :  JSType t1
-      => {auto 0 _ : Elem DOMStringMap (Types t1)}
-      -> (obj : t1)
-      -> (name : String)
-      -> JSIO String
-  get a b = primJS $ DOMStringMap.prim__get (up a) b
+  get : (obj : DOMStringMap) -> (name : String) -> JSIO String
+  get a b = primJS $ DOMStringMap.prim__get a b
   
   export
-  set :  JSType t1
-      => {auto 0 _ : Elem DOMStringMap (Types t1)}
-      -> (obj : t1)
-      -> (name : String)
-      -> (value : String)
-      -> JSIO ()
-  set a b c = primJS $ DOMStringMap.prim__set (up a) b c
+  set : (obj : DOMStringMap) -> (name : String) -> (value : String) -> JSIO ()
+  set a b c = primJS $ DOMStringMap.prim__set a b c
 
 namespace DataTransfer
   
@@ -381,428 +261,291 @@ namespace DataTransfer
   new = primJS $ DataTransfer.prim__new 
   
   export
-  dropEffect :  JSType t
-             => {auto 0 _ : Elem DataTransfer (Types t)}
-             -> t
-             -> Attribute True I String
+  dropEffect : DataTransfer -> Attribute True I String
   dropEffect v = fromPrim "DataTransfer.getdropEffect"
                           prim__dropEffect
                           prim__setDropEffect
-                          (v :> DataTransfer)
+                          v
   
   export
-  effectAllowed :  JSType t
-                => {auto 0 _ : Elem DataTransfer (Types t)}
-                -> t
-                -> Attribute True I String
+  effectAllowed : DataTransfer -> Attribute True I String
   effectAllowed v = fromPrim "DataTransfer.geteffectAllowed"
                              prim__effectAllowed
                              prim__setEffectAllowed
-                             (v :> DataTransfer)
+                             v
   
   export
-  files :  JSType t1
-        => {auto 0 _ : Elem DataTransfer (Types t1)}
-        -> (obj : t1)
-        -> JSIO FileList
-  files a = primJS $ DataTransfer.prim__files (up a)
+  files : (obj : DataTransfer) -> JSIO FileList
+  files a = primJS $ DataTransfer.prim__files a
   
   export
-  items :  JSType t1
-        => {auto 0 _ : Elem DataTransfer (Types t1)}
-        -> (obj : t1)
-        -> JSIO DataTransferItemList
-  items a = primJS $ DataTransfer.prim__items (up a)
+  items : (obj : DataTransfer) -> JSIO DataTransferItemList
+  items a = primJS $ DataTransfer.prim__items a
   
   export
-  types :  JSType t1
-        => {auto 0 _ : Elem DataTransfer (Types t1)}
-        -> (obj : t1)
-        -> JSIO (Array String)
-  types a = primJS $ DataTransfer.prim__types (up a)
+  types : (obj : DataTransfer) -> JSIO (Array String)
+  types a = primJS $ DataTransfer.prim__types a
   
   export
-  clearData :  JSType t1
-            => {auto 0 _ : Elem DataTransfer (Types t1)}
-            -> (obj : t1)
-            -> (format : Optional String)
-            -> JSIO ()
-  clearData a b = primJS $ DataTransfer.prim__clearData (up a) (toFFI b)
+  clearData : (obj : DataTransfer) -> (format : Optional String) -> JSIO ()
+  clearData a b = primJS $ DataTransfer.prim__clearData a (toFFI b)
 
   export
-  clearData' :  JSType t1
-             => {auto 0 _ : Elem DataTransfer (Types t1)}
-             -> (obj : t1)
-             -> JSIO ()
-  clearData' a = primJS $ DataTransfer.prim__clearData (up a) undef
+  clearData' : (obj : DataTransfer) -> JSIO ()
+  clearData' a = primJS $ DataTransfer.prim__clearData a undef
   
   export
-  getData :  JSType t1
-          => {auto 0 _ : Elem DataTransfer (Types t1)}
-          -> (obj : t1)
-          -> (format : String)
-          -> JSIO String
-  getData a b = primJS $ DataTransfer.prim__getData (up a) b
+  getData : (obj : DataTransfer) -> (format : String) -> JSIO String
+  getData a b = primJS $ DataTransfer.prim__getData a b
   
   export
-  setData :  JSType t1
-          => {auto 0 _ : Elem DataTransfer (Types t1)}
-          -> (obj : t1)
+  setData :  (obj : DataTransfer)
           -> (format : String)
           -> (data_ : String)
           -> JSIO ()
-  setData a b c = primJS $ DataTransfer.prim__setData (up a) b c
+  setData a b c = primJS $ DataTransfer.prim__setData a b c
   
   export
   setDragImage :  JSType t1
-               => JSType t2
-               => {auto 0 _ : Elem DataTransfer (Types t1)}
-               -> {auto 0 _ : Elem Element (Types t2)}
-               -> (obj : t1)
-               -> (image : t2)
+               => {auto 0 _ : Elem Element (Types t1)}
+               -> (obj : DataTransfer)
+               -> (image : t1)
                -> (x : Int32)
                -> (y : Int32)
                -> JSIO ()
-  setDragImage a b c d = primJS
-                       $ DataTransfer.prim__setDragImage (up a) (up b) c d
+  setDragImage a b c d = primJS $ DataTransfer.prim__setDragImage a (up b) c d
 
 namespace DataTransferItem
   
   export
-  kind :  JSType t1
-       => {auto 0 _ : Elem DataTransferItem (Types t1)}
-       -> (obj : t1)
-       -> JSIO String
-  kind a = primJS $ DataTransferItem.prim__kind (up a)
+  kind : (obj : DataTransferItem) -> JSIO String
+  kind a = primJS $ DataTransferItem.prim__kind a
   
   export
-  type :  JSType t1
-       => {auto 0 _ : Elem DataTransferItem (Types t1)}
-       -> (obj : t1)
-       -> JSIO String
-  type a = primJS $ DataTransferItem.prim__type (up a)
+  type : (obj : DataTransferItem) -> JSIO String
+  type a = primJS $ DataTransferItem.prim__type a
   
   export
-  getAsFile :  JSType t1
-            => {auto 0 _ : Elem DataTransferItem (Types t1)}
-            -> (obj : t1)
-            -> JSIO (Maybe File)
+  getAsFile : (obj : DataTransferItem) -> JSIO (Maybe File)
   getAsFile a = tryJS "DataTransferItem.getAsFile"
-              $ DataTransferItem.prim__getAsFile (up a)
+              $ DataTransferItem.prim__getAsFile a
   
   export
-  getAsString :  JSType t1
-              => {auto 0 _ : Elem DataTransferItem (Types t1)}
-              -> (obj : t1)
+  getAsString :  (obj : DataTransferItem)
               -> (callback : Maybe FunctionStringCallback)
               -> JSIO ()
-  getAsString a b = primJS $ DataTransferItem.prim__getAsString (up a) (toFFI b)
+  getAsString a b = primJS $ DataTransferItem.prim__getAsString a (toFFI b)
 
 namespace DataTransferItemList
   
   export
-  get :  JSType t1
-      => {auto 0 _ : Elem DataTransferItemList (Types t1)}
-      -> (obj : t1)
+  get :  (obj : DataTransferItemList)
       -> (index : UInt32)
       -> JSIO DataTransferItem
-  get a b = primJS $ DataTransferItemList.prim__get (up a) b
+  get a b = primJS $ DataTransferItemList.prim__get a b
   
   export
-  length :  JSType t1
-         => {auto 0 _ : Elem DataTransferItemList (Types t1)}
-         -> (obj : t1)
-         -> JSIO UInt32
-  length a = primJS $ DataTransferItemList.prim__length (up a)
+  length : (obj : DataTransferItemList) -> JSIO UInt32
+  length a = primJS $ DataTransferItemList.prim__length a
   
   export
-  add :  JSType t1
-      => {auto 0 _ : Elem DataTransferItemList (Types t1)}
-      -> (obj : t1)
+  add :  (obj : DataTransferItemList)
       -> (data_ : String)
       -> (type : String)
       -> JSIO (Maybe DataTransferItem)
   add a b c = tryJS "DataTransferItemList.add"
-            $ DataTransferItemList.prim__add (up a) b c
+            $ DataTransferItemList.prim__add a b c
   
   export
-  add1 :  JSType t1
-       => JSType t2
-       => {auto 0 _ : Elem DataTransferItemList (Types t1)}
-       -> {auto 0 _ : Elem File (Types t2)}
-       -> (obj : t1)
-       -> (data_ : t2)
+  add1 :  (obj : DataTransferItemList)
+       -> (data_ : File)
        -> JSIO (Maybe DataTransferItem)
   add1 a b = tryJS "DataTransferItemList.add1"
-           $ DataTransferItemList.prim__add1 (up a) (up b)
+           $ DataTransferItemList.prim__add1 a b
   
   export
-  clear :  JSType t1
-        => {auto 0 _ : Elem DataTransferItemList (Types t1)}
-        -> (obj : t1)
-        -> JSIO ()
-  clear a = primJS $ DataTransferItemList.prim__clear (up a)
+  clear : (obj : DataTransferItemList) -> JSIO ()
+  clear a = primJS $ DataTransferItemList.prim__clear a
   
   export
-  remove :  JSType t1
-         => {auto 0 _ : Elem DataTransferItemList (Types t1)}
-         -> (obj : t1)
-         -> (index : UInt32)
-         -> JSIO ()
-  remove a b = primJS $ DataTransferItemList.prim__remove (up a) b
+  remove : (obj : DataTransferItemList) -> (index : UInt32) -> JSIO ()
+  remove a b = primJS $ DataTransferItemList.prim__remove a b
 
 namespace DedicatedWorkerGlobalScope
   
   export
-  name :  JSType t1
-       => {auto 0 _ : Elem DedicatedWorkerGlobalScope (Types t1)}
-       -> (obj : t1)
-       -> JSIO String
-  name a = primJS $ DedicatedWorkerGlobalScope.prim__name (up a)
+  name : (obj : DedicatedWorkerGlobalScope) -> JSIO String
+  name a = primJS $ DedicatedWorkerGlobalScope.prim__name a
   
   export
-  onmessage :  JSType t
-            => {auto 0 _ : Elem DedicatedWorkerGlobalScope (Types t)}
-            -> t
+  onmessage :  DedicatedWorkerGlobalScope
             -> Attribute False Maybe EventHandlerNonNull
   onmessage v = fromNullablePrim "DedicatedWorkerGlobalScope.getonmessage"
                                  prim__onmessage
                                  prim__setOnmessage
-                                 (v :> DedicatedWorkerGlobalScope)
+                                 v
   
   export
-  onmessageerror :  JSType t
-                 => {auto 0 _ : Elem DedicatedWorkerGlobalScope (Types t)}
-                 -> t
+  onmessageerror :  DedicatedWorkerGlobalScope
                  -> Attribute False Maybe EventHandlerNonNull
   onmessageerror v = fromNullablePrim "DedicatedWorkerGlobalScope.getonmessageerror"
                                       prim__onmessageerror
                                       prim__setOnmessageerror
-                                      (v :> DedicatedWorkerGlobalScope)
+                                      v
   
   export
-  close :  JSType t1
-        => {auto 0 _ : Elem DedicatedWorkerGlobalScope (Types t1)}
-        -> (obj : t1)
-        -> JSIO ()
-  close a = primJS $ DedicatedWorkerGlobalScope.prim__close (up a)
+  close : (obj : DedicatedWorkerGlobalScope) -> JSIO ()
+  close a = primJS $ DedicatedWorkerGlobalScope.prim__close a
   
   export
-  postMessage :  JSType t1
-              => {auto 0 _ : Elem DedicatedWorkerGlobalScope (Types t1)}
-              -> (obj : t1)
+  postMessage :  (obj : DedicatedWorkerGlobalScope)
               -> (message : Any)
               -> (transfer : Array Object)
               -> JSIO ()
   postMessage a b c = primJS
-                    $ DedicatedWorkerGlobalScope.prim__postMessage (up a)
-                                                                   (toFFI b)
-                                                                   c
+                    $ DedicatedWorkerGlobalScope.prim__postMessage a (toFFI b) c
   
   export
   postMessage1 :  JSType t1
-               => JSType t2
-               => {auto 0 _ : Elem DedicatedWorkerGlobalScope (Types t1)}
-               -> {auto 0 _ : Elem PostMessageOptions (Types t2)}
-               -> (obj : t1)
+               => {auto 0 _ : Elem PostMessageOptions (Types t1)}
+               -> (obj : DedicatedWorkerGlobalScope)
                -> (message : Any)
-               -> (options : Optional t2)
+               -> (options : Optional t1)
                -> JSIO ()
   postMessage1 a b c = primJS
-                     $ DedicatedWorkerGlobalScope.prim__postMessage1 (up a)
+                     $ DedicatedWorkerGlobalScope.prim__postMessage1 a
                                                                      (toFFI b)
                                                                      (optUp c)
 
   export
-  postMessage1' :  JSType t1
-                => {auto 0 _ : Elem DedicatedWorkerGlobalScope (Types t1)}
-                -> (obj : t1)
+  postMessage1' :  (obj : DedicatedWorkerGlobalScope)
                 -> (message : Any)
                 -> JSIO ()
   postMessage1' a b = primJS
-                    $ DedicatedWorkerGlobalScope.prim__postMessage1 (up a)
+                    $ DedicatedWorkerGlobalScope.prim__postMessage1 a
                                                                     (toFFI b)
                                                                     undef
 
 namespace DragEvent
   
   export
-  new :  JSType t1
-      => {auto 0 _ : Elem DragEventInit (Types t1)}
-      -> (type : String)
-      -> (eventInitDict : Optional t1)
+  new :  (type : String)
+      -> (eventInitDict : Optional DragEventInit)
       -> JSIO DragEvent
-  new a b = primJS $ DragEvent.prim__new a (optUp b)
+  new a b = primJS $ DragEvent.prim__new a (toFFI b)
 
   export
   new' : (type : String) -> JSIO DragEvent
   new' a = primJS $ DragEvent.prim__new a undef
   
   export
-  dataTransfer :  JSType t1
-               => {auto 0 _ : Elem DragEvent (Types t1)}
-               -> (obj : t1)
-               -> JSIO (Maybe DataTransfer)
+  dataTransfer : (obj : DragEvent) -> JSIO (Maybe DataTransfer)
   dataTransfer a = tryJS "DragEvent.dataTransfer"
-                 $ DragEvent.prim__dataTransfer (up a)
+                 $ DragEvent.prim__dataTransfer a
 
 namespace ElementInternals
   
   export
-  form :  JSType t1
-       => {auto 0 _ : Elem ElementInternals (Types t1)}
-       -> (obj : t1)
-       -> JSIO (Maybe HTMLFormElement)
-  form a = tryJS "ElementInternals.form" $ ElementInternals.prim__form (up a)
+  form : (obj : ElementInternals) -> JSIO (Maybe HTMLFormElement)
+  form a = tryJS "ElementInternals.form" $ ElementInternals.prim__form a
   
   export
-  labels :  JSType t1
-         => {auto 0 _ : Elem ElementInternals (Types t1)}
-         -> (obj : t1)
-         -> JSIO NodeList
-  labels a = primJS $ ElementInternals.prim__labels (up a)
+  labels : (obj : ElementInternals) -> JSIO NodeList
+  labels a = primJS $ ElementInternals.prim__labels a
   
   export
-  shadowRoot :  JSType t1
-             => {auto 0 _ : Elem ElementInternals (Types t1)}
-             -> (obj : t1)
-             -> JSIO (Maybe ShadowRoot)
+  shadowRoot : (obj : ElementInternals) -> JSIO (Maybe ShadowRoot)
   shadowRoot a = tryJS "ElementInternals.shadowRoot"
-               $ ElementInternals.prim__shadowRoot (up a)
+               $ ElementInternals.prim__shadowRoot a
   
   export
-  validationMessage :  JSType t1
-                    => {auto 0 _ : Elem ElementInternals (Types t1)}
-                    -> (obj : t1)
-                    -> JSIO String
-  validationMessage a = primJS $ ElementInternals.prim__validationMessage (up a)
+  validationMessage : (obj : ElementInternals) -> JSIO String
+  validationMessage a = primJS $ ElementInternals.prim__validationMessage a
   
   export
-  validity :  JSType t1
-           => {auto 0 _ : Elem ElementInternals (Types t1)}
-           -> (obj : t1)
-           -> JSIO ValidityState
-  validity a = primJS $ ElementInternals.prim__validity (up a)
+  validity : (obj : ElementInternals) -> JSIO ValidityState
+  validity a = primJS $ ElementInternals.prim__validity a
   
   export
-  willValidate :  JSType t1
-               => {auto 0 _ : Elem ElementInternals (Types t1)}
-               -> (obj : t1)
-               -> JSIO Bool
+  willValidate : (obj : ElementInternals) -> JSIO Bool
   willValidate a = tryJS "ElementInternals.willValidate"
-                 $ ElementInternals.prim__willValidate (up a)
+                 $ ElementInternals.prim__willValidate a
   
   export
-  checkValidity :  JSType t1
-                => {auto 0 _ : Elem ElementInternals (Types t1)}
-                -> (obj : t1)
-                -> JSIO Bool
+  checkValidity : (obj : ElementInternals) -> JSIO Bool
   checkValidity a = tryJS "ElementInternals.checkValidity"
-                  $ ElementInternals.prim__checkValidity (up a)
+                  $ ElementInternals.prim__checkValidity a
   
   export
-  reportValidity :  JSType t1
-                 => {auto 0 _ : Elem ElementInternals (Types t1)}
-                 -> (obj : t1)
-                 -> JSIO Bool
+  reportValidity : (obj : ElementInternals) -> JSIO Bool
   reportValidity a = tryJS "ElementInternals.reportValidity"
-                   $ ElementInternals.prim__reportValidity (up a)
+                   $ ElementInternals.prim__reportValidity a
   
   export
-  setFormValue :  JSType t1
-               => {auto 0 _ : Elem ElementInternals (Types t1)}
-               -> (obj : t1)
+  setFormValue :  (obj : ElementInternals)
                -> (value : Maybe (NS I [ File , String , FormData ]))
                -> (state : Optional (Maybe (NS I [ File , String , FormData ])))
                -> JSIO ()
   setFormValue a b c = primJS
-                     $ ElementInternals.prim__setFormValue (up a)
-                                                           (toFFI b)
-                                                           (toFFI c)
+                     $ ElementInternals.prim__setFormValue a (toFFI b) (toFFI c)
 
   export
-  setFormValue' :  JSType t1
-                => {auto 0 _ : Elem ElementInternals (Types t1)}
-                -> (obj : t1)
+  setFormValue' :  (obj : ElementInternals)
                 -> (value : Maybe (NS I [ File , String , FormData ]))
                 -> JSIO ()
   setFormValue' a b = primJS
-                    $ ElementInternals.prim__setFormValue (up a) (toFFI b) undef
+                    $ ElementInternals.prim__setFormValue a (toFFI b) undef
   
   export
   setValidity :  JSType t1
-              => JSType t2
-              => JSType t3
-              => {auto 0 _ : Elem ElementInternals (Types t1)}
-              -> {auto 0 _ : Elem ValidityStateFlags (Types t2)}
-              -> {auto 0 _ : Elem HTMLElement (Types t3)}
-              -> (obj : t1)
-              -> (flags : Optional t2)
+              => {auto 0 _ : Elem HTMLElement (Types t1)}
+              -> (obj : ElementInternals)
+              -> (flags : Optional ValidityStateFlags)
               -> (message : Optional String)
-              -> (anchor : Optional t3)
+              -> (anchor : Optional t1)
               -> JSIO ()
   setValidity a b c d = primJS
-                      $ ElementInternals.prim__setValidity (up a)
-                                                           (optUp b)
+                      $ ElementInternals.prim__setValidity a
+                                                           (toFFI b)
                                                            (toFFI c)
                                                            (optUp d)
 
   export
-  setValidity' :  JSType t1
-               => {auto 0 _ : Elem ElementInternals (Types t1)}
-               -> (obj : t1)
-               -> JSIO ()
+  setValidity' : (obj : ElementInternals) -> JSIO ()
   setValidity' a = primJS
-                 $ ElementInternals.prim__setValidity (up a) undef undef undef
+                 $ ElementInternals.prim__setValidity a undef undef undef
 
 namespace ErrorEvent
   
   export
-  new :  JSType t1
-      => {auto 0 _ : Elem ErrorEventInit (Types t1)}
-      -> (type : String)
-      -> (eventInitDict : Optional t1)
+  new :  (type : String)
+      -> (eventInitDict : Optional ErrorEventInit)
       -> JSIO ErrorEvent
-  new a b = primJS $ ErrorEvent.prim__new a (optUp b)
+  new a b = primJS $ ErrorEvent.prim__new a (toFFI b)
 
   export
   new' : (type : String) -> JSIO ErrorEvent
   new' a = primJS $ ErrorEvent.prim__new a undef
   
   export
-  colno :  JSType t1
-        => {auto 0 _ : Elem ErrorEvent (Types t1)}
-        -> (obj : t1)
-        -> JSIO UInt32
-  colno a = primJS $ ErrorEvent.prim__colno (up a)
+  colno : (obj : ErrorEvent) -> JSIO UInt32
+  colno a = primJS $ ErrorEvent.prim__colno a
   
   export
-  error :  JSType t1
-        => {auto 0 _ : Elem ErrorEvent (Types t1)}
-        -> (obj : t1)
-        -> JSIO Any
-  error a = tryJS "ErrorEvent.error" $ ErrorEvent.prim__error (up a)
+  error : (obj : ErrorEvent) -> JSIO Any
+  error a = tryJS "ErrorEvent.error" $ ErrorEvent.prim__error a
   
   export
-  filename :  JSType t1
-           => {auto 0 _ : Elem ErrorEvent (Types t1)}
-           -> (obj : t1)
-           -> JSIO String
-  filename a = primJS $ ErrorEvent.prim__filename (up a)
+  filename : (obj : ErrorEvent) -> JSIO String
+  filename a = primJS $ ErrorEvent.prim__filename a
   
   export
-  lineno :  JSType t1
-         => {auto 0 _ : Elem ErrorEvent (Types t1)}
-         -> (obj : t1)
-         -> JSIO UInt32
-  lineno a = primJS $ ErrorEvent.prim__lineno (up a)
+  lineno : (obj : ErrorEvent) -> JSIO UInt32
+  lineno a = primJS $ ErrorEvent.prim__lineno a
   
   export
-  message :  JSType t1
-          => {auto 0 _ : Elem ErrorEvent (Types t1)}
-          -> (obj : t1)
-          -> JSIO String
-  message a = primJS $ ErrorEvent.prim__message (up a)
+  message : (obj : ErrorEvent) -> JSIO String
+  message a = primJS $ ErrorEvent.prim__message a
 
 namespace EventSource
   
@@ -819,152 +562,105 @@ namespace EventSource
   OPEN = 1
   
   export
-  new :  JSType t1
-      => {auto 0 _ : Elem EventSourceInit (Types t1)}
-      -> (url : String)
-      -> (eventSourceInitDict : Optional t1)
+  new :  (url : String)
+      -> (eventSourceInitDict : Optional EventSourceInit)
       -> JSIO EventSource
-  new a b = primJS $ EventSource.prim__new a (optUp b)
+  new a b = primJS $ EventSource.prim__new a (toFFI b)
 
   export
   new' : (url : String) -> JSIO EventSource
   new' a = primJS $ EventSource.prim__new a undef
   
   export
-  onerror :  JSType t
-          => {auto 0 _ : Elem EventSource (Types t)}
-          -> t
-          -> Attribute False Maybe EventHandlerNonNull
+  onerror : EventSource -> Attribute False Maybe EventHandlerNonNull
   onerror v = fromNullablePrim "EventSource.getonerror"
                                prim__onerror
                                prim__setOnerror
-                               (v :> EventSource)
+                               v
   
   export
-  onmessage :  JSType t
-            => {auto 0 _ : Elem EventSource (Types t)}
-            -> t
-            -> Attribute False Maybe EventHandlerNonNull
+  onmessage : EventSource -> Attribute False Maybe EventHandlerNonNull
   onmessage v = fromNullablePrim "EventSource.getonmessage"
                                  prim__onmessage
                                  prim__setOnmessage
-                                 (v :> EventSource)
+                                 v
   
   export
-  onopen :  JSType t
-         => {auto 0 _ : Elem EventSource (Types t)}
-         -> t
-         -> Attribute False Maybe EventHandlerNonNull
+  onopen : EventSource -> Attribute False Maybe EventHandlerNonNull
   onopen v = fromNullablePrim "EventSource.getonopen"
                               prim__onopen
                               prim__setOnopen
-                              (v :> EventSource)
+                              v
   
   export
-  readyState :  JSType t1
-             => {auto 0 _ : Elem EventSource (Types t1)}
-             -> (obj : t1)
-             -> JSIO UInt16
-  readyState a = primJS $ EventSource.prim__readyState (up a)
+  readyState : (obj : EventSource) -> JSIO UInt16
+  readyState a = primJS $ EventSource.prim__readyState a
   
   export
-  url :  JSType t1
-      => {auto 0 _ : Elem EventSource (Types t1)}
-      -> (obj : t1)
-      -> JSIO String
-  url a = primJS $ EventSource.prim__url (up a)
+  url : (obj : EventSource) -> JSIO String
+  url a = primJS $ EventSource.prim__url a
   
   export
-  withCredentials :  JSType t1
-                  => {auto 0 _ : Elem EventSource (Types t1)}
-                  -> (obj : t1)
-                  -> JSIO Bool
+  withCredentials : (obj : EventSource) -> JSIO Bool
   withCredentials a = tryJS "EventSource.withCredentials"
-                    $ EventSource.prim__withCredentials (up a)
+                    $ EventSource.prim__withCredentials a
   
   export
-  close :  JSType t1
-        => {auto 0 _ : Elem EventSource (Types t1)}
-        -> (obj : t1)
-        -> JSIO ()
-  close a = primJS $ EventSource.prim__close (up a)
+  close : (obj : EventSource) -> JSIO ()
+  close a = primJS $ EventSource.prim__close a
 
 namespace External
   
   export
-  AddSearchProvider :  JSType t1
-                    => {auto 0 _ : Elem External (Types t1)}
-                    -> (obj : t1)
-                    -> JSIO ()
-  AddSearchProvider a = primJS $ External.prim__AddSearchProvider (up a)
+  AddSearchProvider : (obj : External) -> JSIO ()
+  AddSearchProvider a = primJS $ External.prim__AddSearchProvider a
   
   export
-  IsSearchProviderInstalled :  JSType t1
-                            => {auto 0 _ : Elem External (Types t1)}
-                            -> (obj : t1)
-                            -> JSIO ()
+  IsSearchProviderInstalled : (obj : External) -> JSIO ()
   IsSearchProviderInstalled a = primJS
-                              $ External.prim__IsSearchProviderInstalled (up a)
+                              $ External.prim__IsSearchProviderInstalled a
 
 namespace FormDataEvent
   
   export
-  new :  JSType t1
-      => {auto 0 _ : Elem FormDataEventInit (Types t1)}
-      -> (type : String)
-      -> (eventInitDict : t1)
+  new :  (type : String)
+      -> (eventInitDict : FormDataEventInit)
       -> JSIO FormDataEvent
-  new a b = primJS $ FormDataEvent.prim__new a (up b)
+  new a b = primJS $ FormDataEvent.prim__new a b
   
   export
-  formData :  JSType t1
-           => {auto 0 _ : Elem FormDataEvent (Types t1)}
-           -> (obj : t1)
-           -> JSIO FormData
-  formData a = primJS $ FormDataEvent.prim__formData (up a)
+  formData : (obj : FormDataEvent) -> JSIO FormData
+  formData a = primJS $ FormDataEvent.prim__formData a
 
 namespace HTMLAllCollection
   
   export
-  get :  JSType t1
-      => {auto 0 _ : Elem HTMLAllCollection (Types t1)}
-      -> (obj : t1)
-      -> (index : UInt32)
-      -> JSIO Element
-  get a b = primJS $ HTMLAllCollection.prim__get (up a) b
+  get : (obj : HTMLAllCollection) -> (index : UInt32) -> JSIO Element
+  get a b = primJS $ HTMLAllCollection.prim__get a b
   
   export
-  length :  JSType t1
-         => {auto 0 _ : Elem HTMLAllCollection (Types t1)}
-         -> (obj : t1)
-         -> JSIO UInt32
-  length a = primJS $ HTMLAllCollection.prim__length (up a)
+  length : (obj : HTMLAllCollection) -> JSIO UInt32
+  length a = primJS $ HTMLAllCollection.prim__length a
   
   export
-  item :  JSType t1
-       => {auto 0 _ : Elem HTMLAllCollection (Types t1)}
-       -> (obj : t1)
+  item :  (obj : HTMLAllCollection)
        -> (nameOrIndex : Optional String)
        -> JSIO (Maybe (NS I [ HTMLCollection , Element ]))
   item a b = tryJS "HTMLAllCollection.item"
-           $ HTMLAllCollection.prim__item (up a) (toFFI b)
+           $ HTMLAllCollection.prim__item a (toFFI b)
 
   export
-  item' :  JSType t1
-        => {auto 0 _ : Elem HTMLAllCollection (Types t1)}
-        -> (obj : t1)
+  item' :  (obj : HTMLAllCollection)
         -> JSIO (Maybe (NS I [ HTMLCollection , Element ]))
   item' a = tryJS "HTMLAllCollection.item'"
-          $ HTMLAllCollection.prim__item (up a) undef
+          $ HTMLAllCollection.prim__item a undef
   
   export
-  namedItem :  JSType t1
-            => {auto 0 _ : Elem HTMLAllCollection (Types t1)}
-            -> (obj : t1)
+  namedItem :  (obj : HTMLAllCollection)
             -> (name : String)
             -> JSIO (Maybe (NS I [ HTMLCollection , Element ]))
   namedItem a b = tryJS "HTMLAllCollection.namedItem"
-                $ HTMLAllCollection.prim__namedItem (up a) b
+                $ HTMLAllCollection.prim__namedItem a b
 
 namespace HTMLAnchorElement
   
@@ -973,141 +669,78 @@ namespace HTMLAnchorElement
   new = primJS $ HTMLAnchorElement.prim__new 
   
   export
-  charset :  JSType t
-          => {auto 0 _ : Elem HTMLAnchorElement (Types t)}
-          -> t
-          -> Attribute True I String
+  charset : HTMLAnchorElement -> Attribute True I String
   charset v = fromPrim "HTMLAnchorElement.getcharset"
                        prim__charset
                        prim__setCharset
-                       (v :> HTMLAnchorElement)
+                       v
   
   export
-  coords :  JSType t
-         => {auto 0 _ : Elem HTMLAnchorElement (Types t)}
-         -> t
-         -> Attribute True I String
+  coords : HTMLAnchorElement -> Attribute True I String
   coords v = fromPrim "HTMLAnchorElement.getcoords"
                       prim__coords
                       prim__setCoords
-                      (v :> HTMLAnchorElement)
+                      v
   
   export
-  download :  JSType t
-           => {auto 0 _ : Elem HTMLAnchorElement (Types t)}
-           -> t
-           -> Attribute True I String
+  download : HTMLAnchorElement -> Attribute True I String
   download v = fromPrim "HTMLAnchorElement.getdownload"
                         prim__download
                         prim__setDownload
-                        (v :> HTMLAnchorElement)
+                        v
   
   export
-  hreflang :  JSType t
-           => {auto 0 _ : Elem HTMLAnchorElement (Types t)}
-           -> t
-           -> Attribute True I String
+  hreflang : HTMLAnchorElement -> Attribute True I String
   hreflang v = fromPrim "HTMLAnchorElement.gethreflang"
                         prim__hreflang
                         prim__setHreflang
-                        (v :> HTMLAnchorElement)
+                        v
   
   export
-  name :  JSType t
-       => {auto 0 _ : Elem HTMLAnchorElement (Types t)}
-       -> t
-       -> Attribute True I String
-  name v = fromPrim "HTMLAnchorElement.getname"
-                    prim__name
-                    prim__setName
-                    (v :> HTMLAnchorElement)
+  name : HTMLAnchorElement -> Attribute True I String
+  name v = fromPrim "HTMLAnchorElement.getname" prim__name prim__setName v
   
   export
-  ping :  JSType t
-       => {auto 0 _ : Elem HTMLAnchorElement (Types t)}
-       -> t
-       -> Attribute True I String
-  ping v = fromPrim "HTMLAnchorElement.getping"
-                    prim__ping
-                    prim__setPing
-                    (v :> HTMLAnchorElement)
+  ping : HTMLAnchorElement -> Attribute True I String
+  ping v = fromPrim "HTMLAnchorElement.getping" prim__ping prim__setPing v
   
   export
-  referrerPolicy :  JSType t
-                 => {auto 0 _ : Elem HTMLAnchorElement (Types t)}
-                 -> t
-                 -> Attribute True I String
+  referrerPolicy : HTMLAnchorElement -> Attribute True I String
   referrerPolicy v = fromPrim "HTMLAnchorElement.getreferrerPolicy"
                               prim__referrerPolicy
                               prim__setReferrerPolicy
-                              (v :> HTMLAnchorElement)
+                              v
   
   export
-  rel :  JSType t
-      => {auto 0 _ : Elem HTMLAnchorElement (Types t)}
-      -> t
-      -> Attribute True I String
-  rel v = fromPrim "HTMLAnchorElement.getrel"
-                   prim__rel
-                   prim__setRel
-                   (v :> HTMLAnchorElement)
+  rel : HTMLAnchorElement -> Attribute True I String
+  rel v = fromPrim "HTMLAnchorElement.getrel" prim__rel prim__setRel v
   
   export
-  relList :  JSType t1
-          => {auto 0 _ : Elem HTMLAnchorElement (Types t1)}
-          -> (obj : t1)
-          -> JSIO DOMTokenList
-  relList a = primJS $ HTMLAnchorElement.prim__relList (up a)
+  relList : (obj : HTMLAnchorElement) -> JSIO DOMTokenList
+  relList a = primJS $ HTMLAnchorElement.prim__relList a
   
   export
-  rev :  JSType t
-      => {auto 0 _ : Elem HTMLAnchorElement (Types t)}
-      -> t
-      -> Attribute True I String
-  rev v = fromPrim "HTMLAnchorElement.getrev"
-                   prim__rev
-                   prim__setRev
-                   (v :> HTMLAnchorElement)
+  rev : HTMLAnchorElement -> Attribute True I String
+  rev v = fromPrim "HTMLAnchorElement.getrev" prim__rev prim__setRev v
   
   export
-  shape :  JSType t
-        => {auto 0 _ : Elem HTMLAnchorElement (Types t)}
-        -> t
-        -> Attribute True I String
-  shape v = fromPrim "HTMLAnchorElement.getshape"
-                     prim__shape
-                     prim__setShape
-                     (v :> HTMLAnchorElement)
+  shape : HTMLAnchorElement -> Attribute True I String
+  shape v = fromPrim "HTMLAnchorElement.getshape" prim__shape prim__setShape v
   
   export
-  target :  JSType t
-         => {auto 0 _ : Elem HTMLAnchorElement (Types t)}
-         -> t
-         -> Attribute True I String
+  target : HTMLAnchorElement -> Attribute True I String
   target v = fromPrim "HTMLAnchorElement.gettarget"
                       prim__target
                       prim__setTarget
-                      (v :> HTMLAnchorElement)
+                      v
   
   export
-  text :  JSType t
-       => {auto 0 _ : Elem HTMLAnchorElement (Types t)}
-       -> t
-       -> Attribute True I String
-  text v = fromPrim "HTMLAnchorElement.gettext"
-                    prim__text
-                    prim__setText
-                    (v :> HTMLAnchorElement)
+  text : HTMLAnchorElement -> Attribute True I String
+  text v = fromPrim "HTMLAnchorElement.gettext" prim__text prim__setText v
   
   export
-  type :  JSType t
-       => {auto 0 _ : Elem HTMLAnchorElement (Types t)}
-       -> t
-       -> Attribute True I String
-  type v = fromPrim "HTMLAnchorElement.gettype"
-                    prim__type
-                    prim__setType
-                    (v :> HTMLAnchorElement)
+  type : HTMLAnchorElement -> Attribute True I String
+  type v = fromPrim "HTMLAnchorElement.gettype" prim__type prim__setType v
 
 namespace HTMLAreaElement
   
@@ -1116,101 +749,50 @@ namespace HTMLAreaElement
   new = primJS $ HTMLAreaElement.prim__new 
   
   export
-  alt :  JSType t
-      => {auto 0 _ : Elem HTMLAreaElement (Types t)}
-      -> t
-      -> Attribute True I String
-  alt v = fromPrim "HTMLAreaElement.getalt"
-                   prim__alt
-                   prim__setAlt
-                   (v :> HTMLAreaElement)
+  alt : HTMLAreaElement -> Attribute True I String
+  alt v = fromPrim "HTMLAreaElement.getalt" prim__alt prim__setAlt v
   
   export
-  coords :  JSType t
-         => {auto 0 _ : Elem HTMLAreaElement (Types t)}
-         -> t
-         -> Attribute True I String
-  coords v = fromPrim "HTMLAreaElement.getcoords"
-                      prim__coords
-                      prim__setCoords
-                      (v :> HTMLAreaElement)
+  coords : HTMLAreaElement -> Attribute True I String
+  coords v = fromPrim "HTMLAreaElement.getcoords" prim__coords prim__setCoords v
   
   export
-  download :  JSType t
-           => {auto 0 _ : Elem HTMLAreaElement (Types t)}
-           -> t
-           -> Attribute True I String
+  download : HTMLAreaElement -> Attribute True I String
   download v = fromPrim "HTMLAreaElement.getdownload"
                         prim__download
                         prim__setDownload
-                        (v :> HTMLAreaElement)
+                        v
   
   export
-  noHref :  JSType t
-         => {auto 0 _ : Elem HTMLAreaElement (Types t)}
-         -> t
-         -> Attribute True I Bool
-  noHref v = fromPrim "HTMLAreaElement.getnoHref"
-                      prim__noHref
-                      prim__setNoHref
-                      (v :> HTMLAreaElement)
+  noHref : HTMLAreaElement -> Attribute True I Bool
+  noHref v = fromPrim "HTMLAreaElement.getnoHref" prim__noHref prim__setNoHref v
   
   export
-  ping :  JSType t
-       => {auto 0 _ : Elem HTMLAreaElement (Types t)}
-       -> t
-       -> Attribute True I String
-  ping v = fromPrim "HTMLAreaElement.getping"
-                    prim__ping
-                    prim__setPing
-                    (v :> HTMLAreaElement)
+  ping : HTMLAreaElement -> Attribute True I String
+  ping v = fromPrim "HTMLAreaElement.getping" prim__ping prim__setPing v
   
   export
-  referrerPolicy :  JSType t
-                 => {auto 0 _ : Elem HTMLAreaElement (Types t)}
-                 -> t
-                 -> Attribute True I String
+  referrerPolicy : HTMLAreaElement -> Attribute True I String
   referrerPolicy v = fromPrim "HTMLAreaElement.getreferrerPolicy"
                               prim__referrerPolicy
                               prim__setReferrerPolicy
-                              (v :> HTMLAreaElement)
+                              v
   
   export
-  rel :  JSType t
-      => {auto 0 _ : Elem HTMLAreaElement (Types t)}
-      -> t
-      -> Attribute True I String
-  rel v = fromPrim "HTMLAreaElement.getrel"
-                   prim__rel
-                   prim__setRel
-                   (v :> HTMLAreaElement)
+  rel : HTMLAreaElement -> Attribute True I String
+  rel v = fromPrim "HTMLAreaElement.getrel" prim__rel prim__setRel v
   
   export
-  relList :  JSType t1
-          => {auto 0 _ : Elem HTMLAreaElement (Types t1)}
-          -> (obj : t1)
-          -> JSIO DOMTokenList
-  relList a = primJS $ HTMLAreaElement.prim__relList (up a)
+  relList : (obj : HTMLAreaElement) -> JSIO DOMTokenList
+  relList a = primJS $ HTMLAreaElement.prim__relList a
   
   export
-  shape :  JSType t
-        => {auto 0 _ : Elem HTMLAreaElement (Types t)}
-        -> t
-        -> Attribute True I String
-  shape v = fromPrim "HTMLAreaElement.getshape"
-                     prim__shape
-                     prim__setShape
-                     (v :> HTMLAreaElement)
+  shape : HTMLAreaElement -> Attribute True I String
+  shape v = fromPrim "HTMLAreaElement.getshape" prim__shape prim__setShape v
   
   export
-  target :  JSType t
-         => {auto 0 _ : Elem HTMLAreaElement (Types t)}
-         -> t
-         -> Attribute True I String
-  target v = fromPrim "HTMLAreaElement.gettarget"
-                      prim__target
-                      prim__setTarget
-                      (v :> HTMLAreaElement)
+  target : HTMLAreaElement -> Attribute True I String
+  target v = fromPrim "HTMLAreaElement.gettarget" prim__target prim__setTarget v
 
 namespace HTMLAudioElement
   
@@ -1225,14 +807,8 @@ namespace HTMLBRElement
   new = primJS $ HTMLBRElement.prim__new 
   
   export
-  clear :  JSType t
-        => {auto 0 _ : Elem HTMLBRElement (Types t)}
-        -> t
-        -> Attribute True I String
-  clear v = fromPrim "HTMLBRElement.getclear"
-                     prim__clear
-                     prim__setClear
-                     (v :> HTMLBRElement)
+  clear : HTMLBRElement -> Attribute True I String
+  clear v = fromPrim "HTMLBRElement.getclear" prim__clear prim__setClear v
 
 namespace HTMLBaseElement
   
@@ -1241,24 +817,12 @@ namespace HTMLBaseElement
   new = primJS $ HTMLBaseElement.prim__new 
   
   export
-  href :  JSType t
-       => {auto 0 _ : Elem HTMLBaseElement (Types t)}
-       -> t
-       -> Attribute True I String
-  href v = fromPrim "HTMLBaseElement.gethref"
-                    prim__href
-                    prim__setHref
-                    (v :> HTMLBaseElement)
+  href : HTMLBaseElement -> Attribute True I String
+  href v = fromPrim "HTMLBaseElement.gethref" prim__href prim__setHref v
   
   export
-  target :  JSType t
-         => {auto 0 _ : Elem HTMLBaseElement (Types t)}
-         -> t
-         -> Attribute True I String
-  target v = fromPrim "HTMLBaseElement.gettarget"
-                      prim__target
-                      prim__setTarget
-                      (v :> HTMLBaseElement)
+  target : HTMLBaseElement -> Attribute True I String
+  target v = fromPrim "HTMLBaseElement.gettarget" prim__target prim__setTarget v
 
 namespace HTMLBodyElement
   
@@ -1267,64 +831,34 @@ namespace HTMLBodyElement
   new = primJS $ HTMLBodyElement.prim__new 
   
   export
-  aLink :  JSType t
-        => {auto 0 _ : Elem HTMLBodyElement (Types t)}
-        -> t
-        -> Attribute True I String
-  aLink v = fromPrim "HTMLBodyElement.getaLink"
-                     prim__aLink
-                     prim__setALink
-                     (v :> HTMLBodyElement)
+  aLink : HTMLBodyElement -> Attribute True I String
+  aLink v = fromPrim "HTMLBodyElement.getaLink" prim__aLink prim__setALink v
   
   export
-  background :  JSType t
-             => {auto 0 _ : Elem HTMLBodyElement (Types t)}
-             -> t
-             -> Attribute True I String
+  background : HTMLBodyElement -> Attribute True I String
   background v = fromPrim "HTMLBodyElement.getbackground"
                           prim__background
                           prim__setBackground
-                          (v :> HTMLBodyElement)
+                          v
   
   export
-  bgColor :  JSType t
-          => {auto 0 _ : Elem HTMLBodyElement (Types t)}
-          -> t
-          -> Attribute True I String
+  bgColor : HTMLBodyElement -> Attribute True I String
   bgColor v = fromPrim "HTMLBodyElement.getbgColor"
                        prim__bgColor
                        prim__setBgColor
-                       (v :> HTMLBodyElement)
+                       v
   
   export
-  link :  JSType t
-       => {auto 0 _ : Elem HTMLBodyElement (Types t)}
-       -> t
-       -> Attribute True I String
-  link v = fromPrim "HTMLBodyElement.getlink"
-                    prim__link
-                    prim__setLink
-                    (v :> HTMLBodyElement)
+  link : HTMLBodyElement -> Attribute True I String
+  link v = fromPrim "HTMLBodyElement.getlink" prim__link prim__setLink v
   
   export
-  text :  JSType t
-       => {auto 0 _ : Elem HTMLBodyElement (Types t)}
-       -> t
-       -> Attribute True I String
-  text v = fromPrim "HTMLBodyElement.gettext"
-                    prim__text
-                    prim__setText
-                    (v :> HTMLBodyElement)
+  text : HTMLBodyElement -> Attribute True I String
+  text v = fromPrim "HTMLBodyElement.gettext" prim__text prim__setText v
   
   export
-  vLink :  JSType t
-        => {auto 0 _ : Elem HTMLBodyElement (Types t)}
-        -> t
-        -> Attribute True I String
-  vLink v = fromPrim "HTMLBodyElement.getvLink"
-                     prim__vLink
-                     prim__setVLink
-                     (v :> HTMLBodyElement)
+  vLink : HTMLBodyElement -> Attribute True I String
+  vLink v = fromPrim "HTMLBodyElement.getvLink" prim__vLink prim__setVLink v
 
 namespace HTMLButtonElement
   
@@ -1333,156 +867,93 @@ namespace HTMLButtonElement
   new = primJS $ HTMLButtonElement.prim__new 
   
   export
-  disabled :  JSType t
-           => {auto 0 _ : Elem HTMLButtonElement (Types t)}
-           -> t
-           -> Attribute True I Bool
+  disabled : HTMLButtonElement -> Attribute True I Bool
   disabled v = fromPrim "HTMLButtonElement.getdisabled"
                         prim__disabled
                         prim__setDisabled
-                        (v :> HTMLButtonElement)
+                        v
   
   export
-  form :  JSType t1
-       => {auto 0 _ : Elem HTMLButtonElement (Types t1)}
-       -> (obj : t1)
-       -> JSIO (Maybe HTMLFormElement)
-  form a = tryJS "HTMLButtonElement.form" $ HTMLButtonElement.prim__form (up a)
+  form : (obj : HTMLButtonElement) -> JSIO (Maybe HTMLFormElement)
+  form a = tryJS "HTMLButtonElement.form" $ HTMLButtonElement.prim__form a
   
   export
-  formAction :  JSType t
-             => {auto 0 _ : Elem HTMLButtonElement (Types t)}
-             -> t
-             -> Attribute True I String
+  formAction : HTMLButtonElement -> Attribute True I String
   formAction v = fromPrim "HTMLButtonElement.getformAction"
                           prim__formAction
                           prim__setFormAction
-                          (v :> HTMLButtonElement)
+                          v
   
   export
-  formEnctype :  JSType t
-              => {auto 0 _ : Elem HTMLButtonElement (Types t)}
-              -> t
-              -> Attribute True I String
+  formEnctype : HTMLButtonElement -> Attribute True I String
   formEnctype v = fromPrim "HTMLButtonElement.getformEnctype"
                            prim__formEnctype
                            prim__setFormEnctype
-                           (v :> HTMLButtonElement)
+                           v
   
   export
-  formMethod :  JSType t
-             => {auto 0 _ : Elem HTMLButtonElement (Types t)}
-             -> t
-             -> Attribute True I String
+  formMethod : HTMLButtonElement -> Attribute True I String
   formMethod v = fromPrim "HTMLButtonElement.getformMethod"
                           prim__formMethod
                           prim__setFormMethod
-                          (v :> HTMLButtonElement)
+                          v
   
   export
-  formNoValidate :  JSType t
-                 => {auto 0 _ : Elem HTMLButtonElement (Types t)}
-                 -> t
-                 -> Attribute True I Bool
+  formNoValidate : HTMLButtonElement -> Attribute True I Bool
   formNoValidate v = fromPrim "HTMLButtonElement.getformNoValidate"
                               prim__formNoValidate
                               prim__setFormNoValidate
-                              (v :> HTMLButtonElement)
+                              v
   
   export
-  formTarget :  JSType t
-             => {auto 0 _ : Elem HTMLButtonElement (Types t)}
-             -> t
-             -> Attribute True I String
+  formTarget : HTMLButtonElement -> Attribute True I String
   formTarget v = fromPrim "HTMLButtonElement.getformTarget"
                           prim__formTarget
                           prim__setFormTarget
-                          (v :> HTMLButtonElement)
+                          v
   
   export
-  labels :  JSType t1
-         => {auto 0 _ : Elem HTMLButtonElement (Types t1)}
-         -> (obj : t1)
-         -> JSIO NodeList
-  labels a = primJS $ HTMLButtonElement.prim__labels (up a)
+  labels : (obj : HTMLButtonElement) -> JSIO NodeList
+  labels a = primJS $ HTMLButtonElement.prim__labels a
   
   export
-  name :  JSType t
-       => {auto 0 _ : Elem HTMLButtonElement (Types t)}
-       -> t
-       -> Attribute True I String
-  name v = fromPrim "HTMLButtonElement.getname"
-                    prim__name
-                    prim__setName
-                    (v :> HTMLButtonElement)
+  name : HTMLButtonElement -> Attribute True I String
+  name v = fromPrim "HTMLButtonElement.getname" prim__name prim__setName v
   
   export
-  type :  JSType t
-       => {auto 0 _ : Elem HTMLButtonElement (Types t)}
-       -> t
-       -> Attribute True I String
-  type v = fromPrim "HTMLButtonElement.gettype"
-                    prim__type
-                    prim__setType
-                    (v :> HTMLButtonElement)
+  type : HTMLButtonElement -> Attribute True I String
+  type v = fromPrim "HTMLButtonElement.gettype" prim__type prim__setType v
   
   export
-  validationMessage :  JSType t1
-                    => {auto 0 _ : Elem HTMLButtonElement (Types t1)}
-                    -> (obj : t1)
-                    -> JSIO String
-  validationMessage a = primJS
-                      $ HTMLButtonElement.prim__validationMessage (up a)
+  validationMessage : (obj : HTMLButtonElement) -> JSIO String
+  validationMessage a = primJS $ HTMLButtonElement.prim__validationMessage a
   
   export
-  validity :  JSType t1
-           => {auto 0 _ : Elem HTMLButtonElement (Types t1)}
-           -> (obj : t1)
-           -> JSIO ValidityState
-  validity a = primJS $ HTMLButtonElement.prim__validity (up a)
+  validity : (obj : HTMLButtonElement) -> JSIO ValidityState
+  validity a = primJS $ HTMLButtonElement.prim__validity a
   
   export
-  value :  JSType t
-        => {auto 0 _ : Elem HTMLButtonElement (Types t)}
-        -> t
-        -> Attribute True I String
-  value v = fromPrim "HTMLButtonElement.getvalue"
-                     prim__value
-                     prim__setValue
-                     (v :> HTMLButtonElement)
+  value : HTMLButtonElement -> Attribute True I String
+  value v = fromPrim "HTMLButtonElement.getvalue" prim__value prim__setValue v
   
   export
-  willValidate :  JSType t1
-               => {auto 0 _ : Elem HTMLButtonElement (Types t1)}
-               -> (obj : t1)
-               -> JSIO Bool
+  willValidate : (obj : HTMLButtonElement) -> JSIO Bool
   willValidate a = tryJS "HTMLButtonElement.willValidate"
-                 $ HTMLButtonElement.prim__willValidate (up a)
+                 $ HTMLButtonElement.prim__willValidate a
   
   export
-  checkValidity :  JSType t1
-                => {auto 0 _ : Elem HTMLButtonElement (Types t1)}
-                -> (obj : t1)
-                -> JSIO Bool
+  checkValidity : (obj : HTMLButtonElement) -> JSIO Bool
   checkValidity a = tryJS "HTMLButtonElement.checkValidity"
-                  $ HTMLButtonElement.prim__checkValidity (up a)
+                  $ HTMLButtonElement.prim__checkValidity a
   
   export
-  reportValidity :  JSType t1
-                 => {auto 0 _ : Elem HTMLButtonElement (Types t1)}
-                 -> (obj : t1)
-                 -> JSIO Bool
+  reportValidity : (obj : HTMLButtonElement) -> JSIO Bool
   reportValidity a = tryJS "HTMLButtonElement.reportValidity"
-                   $ HTMLButtonElement.prim__reportValidity (up a)
+                   $ HTMLButtonElement.prim__reportValidity a
   
   export
-  setCustomValidity :  JSType t1
-                    => {auto 0 _ : Elem HTMLButtonElement (Types t1)}
-                    -> (obj : t1)
-                    -> (error : String)
-                    -> JSIO ()
-  setCustomValidity a b = primJS
-                        $ HTMLButtonElement.prim__setCustomValidity (up a) b
+  setCustomValidity : (obj : HTMLButtonElement) -> (error : String) -> JSIO ()
+  setCustomValidity a b = primJS $ HTMLButtonElement.prim__setCustomValidity a b
 
 namespace HTMLCanvasElement
   
@@ -1491,29 +962,18 @@ namespace HTMLCanvasElement
   new = primJS $ HTMLCanvasElement.prim__new 
   
   export
-  height :  JSType t
-         => {auto 0 _ : Elem HTMLCanvasElement (Types t)}
-         -> t
-         -> Attribute True I UInt32
+  height : HTMLCanvasElement -> Attribute True I UInt32
   height v = fromPrim "HTMLCanvasElement.getheight"
                       prim__height
                       prim__setHeight
-                      (v :> HTMLCanvasElement)
+                      v
   
   export
-  width :  JSType t
-        => {auto 0 _ : Elem HTMLCanvasElement (Types t)}
-        -> t
-        -> Attribute True I UInt32
-  width v = fromPrim "HTMLCanvasElement.getwidth"
-                     prim__width
-                     prim__setWidth
-                     (v :> HTMLCanvasElement)
+  width : HTMLCanvasElement -> Attribute True I UInt32
+  width v = fromPrim "HTMLCanvasElement.getwidth" prim__width prim__setWidth v
   
   export
-  getContext :  JSType t1
-             => {auto 0 _ : Elem HTMLCanvasElement (Types t1)}
-             -> (obj : t1)
+  getContext :  (obj : HTMLCanvasElement)
              -> (contextId : String)
              -> (options : Optional Any)
              -> JSIO (Maybe (NS I [ CanvasRenderingContext2D
@@ -1522,12 +982,10 @@ namespace HTMLCanvasElement
                                   , WebGL2RenderingContext
                                   ]))
   getContext a b c = tryJS "HTMLCanvasElement.getContext"
-                   $ HTMLCanvasElement.prim__getContext (up a) b (toFFI c)
+                   $ HTMLCanvasElement.prim__getContext a b (toFFI c)
 
   export
-  getContext' :  JSType t1
-              => {auto 0 _ : Elem HTMLCanvasElement (Types t1)}
-              -> (obj : t1)
+  getContext' :  (obj : HTMLCanvasElement)
               -> (contextId : String)
               -> JSIO (Maybe (NS I [ CanvasRenderingContext2D
                                    , ImageBitmapRenderingContext
@@ -1535,51 +993,37 @@ namespace HTMLCanvasElement
                                    , WebGL2RenderingContext
                                    ]))
   getContext' a b = tryJS "HTMLCanvasElement.getContext'"
-                  $ HTMLCanvasElement.prim__getContext (up a) b undef
+                  $ HTMLCanvasElement.prim__getContext a b undef
   
   export
-  toBlob :  JSType t1
-         => {auto 0 _ : Elem HTMLCanvasElement (Types t1)}
-         -> (obj : t1)
+  toBlob :  (obj : HTMLCanvasElement)
          -> (callback : BlobCallback)
          -> (type : Optional String)
          -> (quality : Optional Any)
          -> JSIO ()
   toBlob a b c d = primJS
-                 $ HTMLCanvasElement.prim__toBlob (up a) b (toFFI c) (toFFI d)
+                 $ HTMLCanvasElement.prim__toBlob a b (toFFI c) (toFFI d)
 
   export
-  toBlob' :  JSType t1
-          => {auto 0 _ : Elem HTMLCanvasElement (Types t1)}
-          -> (obj : t1)
-          -> (callback : BlobCallback)
-          -> JSIO ()
-  toBlob' a b = primJS $ HTMLCanvasElement.prim__toBlob (up a) b undef undef
+  toBlob' : (obj : HTMLCanvasElement) -> (callback : BlobCallback) -> JSIO ()
+  toBlob' a b = primJS $ HTMLCanvasElement.prim__toBlob a b undef undef
   
   export
-  toDataURL :  JSType t1
-            => {auto 0 _ : Elem HTMLCanvasElement (Types t1)}
-            -> (obj : t1)
+  toDataURL :  (obj : HTMLCanvasElement)
             -> (type : Optional String)
             -> (quality : Optional Any)
             -> JSIO String
   toDataURL a b c = primJS
-                  $ HTMLCanvasElement.prim__toDataURL (up a) (toFFI b) (toFFI c)
+                  $ HTMLCanvasElement.prim__toDataURL a (toFFI b) (toFFI c)
 
   export
-  toDataURL' :  JSType t1
-             => {auto 0 _ : Elem HTMLCanvasElement (Types t1)}
-             -> (obj : t1)
-             -> JSIO String
-  toDataURL' a = primJS $ HTMLCanvasElement.prim__toDataURL (up a) undef undef
+  toDataURL' : (obj : HTMLCanvasElement) -> JSIO String
+  toDataURL' a = primJS $ HTMLCanvasElement.prim__toDataURL a undef undef
   
   export
-  transferControlToOffscreen :  JSType t1
-                             => {auto 0 _ : Elem HTMLCanvasElement (Types t1)}
-                             -> (obj : t1)
-                             -> JSIO OffscreenCanvas
+  transferControlToOffscreen : (obj : HTMLCanvasElement) -> JSIO OffscreenCanvas
   transferControlToOffscreen a = primJS
-                               $ HTMLCanvasElement.prim__transferControlToOffscreen (up a)
+                               $ HTMLCanvasElement.prim__transferControlToOffscreen a
 
 namespace HTMLDListElement
   
@@ -1588,14 +1032,11 @@ namespace HTMLDListElement
   new = primJS $ HTMLDListElement.prim__new 
   
   export
-  compact :  JSType t
-          => {auto 0 _ : Elem HTMLDListElement (Types t)}
-          -> t
-          -> Attribute True I Bool
+  compact : HTMLDListElement -> Attribute True I Bool
   compact v = fromPrim "HTMLDListElement.getcompact"
                        prim__compact
                        prim__setCompact
-                       (v :> HTMLDListElement)
+                       v
 
 namespace HTMLDataElement
   
@@ -1604,14 +1045,8 @@ namespace HTMLDataElement
   new = primJS $ HTMLDataElement.prim__new 
   
   export
-  value :  JSType t
-        => {auto 0 _ : Elem HTMLDataElement (Types t)}
-        -> t
-        -> Attribute True I String
-  value v = fromPrim "HTMLDataElement.getvalue"
-                     prim__value
-                     prim__setValue
-                     (v :> HTMLDataElement)
+  value : HTMLDataElement -> Attribute True I String
+  value v = fromPrim "HTMLDataElement.getvalue" prim__value prim__setValue v
 
 namespace HTMLDataListElement
   
@@ -1620,11 +1055,8 @@ namespace HTMLDataListElement
   new = primJS $ HTMLDataListElement.prim__new 
   
   export
-  options :  JSType t1
-          => {auto 0 _ : Elem HTMLDataListElement (Types t1)}
-          -> (obj : t1)
-          -> JSIO HTMLCollection
-  options a = primJS $ HTMLDataListElement.prim__options (up a)
+  options : (obj : HTMLDataListElement) -> JSIO HTMLCollection
+  options a = primJS $ HTMLDataListElement.prim__options a
 
 namespace HTMLDetailsElement
   
@@ -1633,14 +1065,8 @@ namespace HTMLDetailsElement
   new = primJS $ HTMLDetailsElement.prim__new 
   
   export
-  open_ :  JSType t
-        => {auto 0 _ : Elem HTMLDetailsElement (Types t)}
-        -> t
-        -> Attribute True I Bool
-  open_ v = fromPrim "HTMLDetailsElement.getopen"
-                     prim__open
-                     prim__setOpen
-                     (v :> HTMLDetailsElement)
+  open_ : HTMLDetailsElement -> Attribute True I Bool
+  open_ v = fromPrim "HTMLDetailsElement.getopen" prim__open prim__setOpen v
 
 namespace HTMLDialogElement
   
@@ -1649,53 +1075,33 @@ namespace HTMLDialogElement
   new = primJS $ HTMLDialogElement.prim__new 
   
   export
-  open_ :  JSType t
-        => {auto 0 _ : Elem HTMLDialogElement (Types t)}
-        -> t
-        -> Attribute True I Bool
-  open_ v = fromPrim "HTMLDialogElement.getopen"
-                     prim__open
-                     prim__setOpen
-                     (v :> HTMLDialogElement)
+  open_ : HTMLDialogElement -> Attribute True I Bool
+  open_ v = fromPrim "HTMLDialogElement.getopen" prim__open prim__setOpen v
   
   export
-  returnValue :  JSType t
-              => {auto 0 _ : Elem HTMLDialogElement (Types t)}
-              -> t
-              -> Attribute True I String
+  returnValue : HTMLDialogElement -> Attribute True I String
   returnValue v = fromPrim "HTMLDialogElement.getreturnValue"
                            prim__returnValue
                            prim__setReturnValue
-                           (v :> HTMLDialogElement)
+                           v
   
   export
-  close :  JSType t1
-        => {auto 0 _ : Elem HTMLDialogElement (Types t1)}
-        -> (obj : t1)
+  close :  (obj : HTMLDialogElement)
         -> (returnValue : Optional String)
         -> JSIO ()
-  close a b = primJS $ HTMLDialogElement.prim__close (up a) (toFFI b)
+  close a b = primJS $ HTMLDialogElement.prim__close a (toFFI b)
 
   export
-  close' :  JSType t1
-         => {auto 0 _ : Elem HTMLDialogElement (Types t1)}
-         -> (obj : t1)
-         -> JSIO ()
-  close' a = primJS $ HTMLDialogElement.prim__close (up a) undef
+  close' : (obj : HTMLDialogElement) -> JSIO ()
+  close' a = primJS $ HTMLDialogElement.prim__close a undef
   
   export
-  show :  JSType t1
-       => {auto 0 _ : Elem HTMLDialogElement (Types t1)}
-       -> (obj : t1)
-       -> JSIO ()
-  show a = primJS $ HTMLDialogElement.prim__show (up a)
+  show : (obj : HTMLDialogElement) -> JSIO ()
+  show a = primJS $ HTMLDialogElement.prim__show a
   
   export
-  showModal :  JSType t1
-            => {auto 0 _ : Elem HTMLDialogElement (Types t1)}
-            -> (obj : t1)
-            -> JSIO ()
-  showModal a = primJS $ HTMLDialogElement.prim__showModal (up a)
+  showModal : (obj : HTMLDialogElement) -> JSIO ()
+  showModal a = primJS $ HTMLDialogElement.prim__showModal a
 
 namespace HTMLDirectoryElement
   
@@ -1704,14 +1110,11 @@ namespace HTMLDirectoryElement
   new = primJS $ HTMLDirectoryElement.prim__new 
   
   export
-  compact :  JSType t
-          => {auto 0 _ : Elem HTMLDirectoryElement (Types t)}
-          -> t
-          -> Attribute True I Bool
+  compact : HTMLDirectoryElement -> Attribute True I Bool
   compact v = fromPrim "HTMLDirectoryElement.getcompact"
                        prim__compact
                        prim__setCompact
-                       (v :> HTMLDirectoryElement)
+                       v
 
 namespace HTMLDivElement
   
@@ -1720,14 +1123,8 @@ namespace HTMLDivElement
   new = primJS $ HTMLDivElement.prim__new 
   
   export
-  align :  JSType t
-        => {auto 0 _ : Elem HTMLDivElement (Types t)}
-        -> t
-        -> Attribute True I String
-  align v = fromPrim "HTMLDivElement.getalign"
-                     prim__align
-                     prim__setAlign
-                     (v :> HTMLDivElement)
+  align : HTMLDivElement -> Attribute True I String
+  align v = fromPrim "HTMLDivElement.getalign" prim__align prim__setAlign v
 
 namespace HTMLElement
   
@@ -1863,72 +1260,36 @@ namespace HTMLEmbedElement
   new = primJS $ HTMLEmbedElement.prim__new 
   
   export
-  align :  JSType t
-        => {auto 0 _ : Elem HTMLEmbedElement (Types t)}
-        -> t
-        -> Attribute True I String
-  align v = fromPrim "HTMLEmbedElement.getalign"
-                     prim__align
-                     prim__setAlign
-                     (v :> HTMLEmbedElement)
+  align : HTMLEmbedElement -> Attribute True I String
+  align v = fromPrim "HTMLEmbedElement.getalign" prim__align prim__setAlign v
   
   export
-  height :  JSType t
-         => {auto 0 _ : Elem HTMLEmbedElement (Types t)}
-         -> t
-         -> Attribute True I String
+  height : HTMLEmbedElement -> Attribute True I String
   height v = fromPrim "HTMLEmbedElement.getheight"
                       prim__height
                       prim__setHeight
-                      (v :> HTMLEmbedElement)
+                      v
   
   export
-  name :  JSType t
-       => {auto 0 _ : Elem HTMLEmbedElement (Types t)}
-       -> t
-       -> Attribute True I String
-  name v = fromPrim "HTMLEmbedElement.getname"
-                    prim__name
-                    prim__setName
-                    (v :> HTMLEmbedElement)
+  name : HTMLEmbedElement -> Attribute True I String
+  name v = fromPrim "HTMLEmbedElement.getname" prim__name prim__setName v
   
   export
-  src :  JSType t
-      => {auto 0 _ : Elem HTMLEmbedElement (Types t)}
-      -> t
-      -> Attribute True I String
-  src v = fromPrim "HTMLEmbedElement.getsrc"
-                   prim__src
-                   prim__setSrc
-                   (v :> HTMLEmbedElement)
+  src : HTMLEmbedElement -> Attribute True I String
+  src v = fromPrim "HTMLEmbedElement.getsrc" prim__src prim__setSrc v
   
   export
-  type :  JSType t
-       => {auto 0 _ : Elem HTMLEmbedElement (Types t)}
-       -> t
-       -> Attribute True I String
-  type v = fromPrim "HTMLEmbedElement.gettype"
-                    prim__type
-                    prim__setType
-                    (v :> HTMLEmbedElement)
+  type : HTMLEmbedElement -> Attribute True I String
+  type v = fromPrim "HTMLEmbedElement.gettype" prim__type prim__setType v
   
   export
-  width :  JSType t
-        => {auto 0 _ : Elem HTMLEmbedElement (Types t)}
-        -> t
-        -> Attribute True I String
-  width v = fromPrim "HTMLEmbedElement.getwidth"
-                     prim__width
-                     prim__setWidth
-                     (v :> HTMLEmbedElement)
+  width : HTMLEmbedElement -> Attribute True I String
+  width v = fromPrim "HTMLEmbedElement.getwidth" prim__width prim__setWidth v
   
   export
-  getSVGDocument :  JSType t1
-                 => {auto 0 _ : Elem HTMLEmbedElement (Types t1)}
-                 -> (obj : t1)
-                 -> JSIO (Maybe Document)
+  getSVGDocument : (obj : HTMLEmbedElement) -> JSIO (Maybe Document)
   getSVGDocument a = tryJS "HTMLEmbedElement.getSVGDocument"
-                   $ HTMLEmbedElement.prim__getSVGDocument (up a)
+                   $ HTMLEmbedElement.prim__getSVGDocument a
 
 namespace HTMLFieldSetElement
   
@@ -1937,94 +1298,55 @@ namespace HTMLFieldSetElement
   new = primJS $ HTMLFieldSetElement.prim__new 
   
   export
-  disabled :  JSType t
-           => {auto 0 _ : Elem HTMLFieldSetElement (Types t)}
-           -> t
-           -> Attribute True I Bool
+  disabled : HTMLFieldSetElement -> Attribute True I Bool
   disabled v = fromPrim "HTMLFieldSetElement.getdisabled"
                         prim__disabled
                         prim__setDisabled
-                        (v :> HTMLFieldSetElement)
+                        v
   
   export
-  elements :  JSType t1
-           => {auto 0 _ : Elem HTMLFieldSetElement (Types t1)}
-           -> (obj : t1)
-           -> JSIO HTMLCollection
-  elements a = primJS $ HTMLFieldSetElement.prim__elements (up a)
+  elements : (obj : HTMLFieldSetElement) -> JSIO HTMLCollection
+  elements a = primJS $ HTMLFieldSetElement.prim__elements a
   
   export
-  form :  JSType t1
-       => {auto 0 _ : Elem HTMLFieldSetElement (Types t1)}
-       -> (obj : t1)
-       -> JSIO (Maybe HTMLFormElement)
-  form a = tryJS "HTMLFieldSetElement.form"
-         $ HTMLFieldSetElement.prim__form (up a)
+  form : (obj : HTMLFieldSetElement) -> JSIO (Maybe HTMLFormElement)
+  form a = tryJS "HTMLFieldSetElement.form" $ HTMLFieldSetElement.prim__form a
   
   export
-  name :  JSType t
-       => {auto 0 _ : Elem HTMLFieldSetElement (Types t)}
-       -> t
-       -> Attribute True I String
-  name v = fromPrim "HTMLFieldSetElement.getname"
-                    prim__name
-                    prim__setName
-                    (v :> HTMLFieldSetElement)
+  name : HTMLFieldSetElement -> Attribute True I String
+  name v = fromPrim "HTMLFieldSetElement.getname" prim__name prim__setName v
   
   export
-  type :  JSType t1
-       => {auto 0 _ : Elem HTMLFieldSetElement (Types t1)}
-       -> (obj : t1)
-       -> JSIO String
-  type a = primJS $ HTMLFieldSetElement.prim__type (up a)
+  type : (obj : HTMLFieldSetElement) -> JSIO String
+  type a = primJS $ HTMLFieldSetElement.prim__type a
   
   export
-  validationMessage :  JSType t1
-                    => {auto 0 _ : Elem HTMLFieldSetElement (Types t1)}
-                    -> (obj : t1)
-                    -> JSIO String
-  validationMessage a = primJS
-                      $ HTMLFieldSetElement.prim__validationMessage (up a)
+  validationMessage : (obj : HTMLFieldSetElement) -> JSIO String
+  validationMessage a = primJS $ HTMLFieldSetElement.prim__validationMessage a
   
   export
-  validity :  JSType t1
-           => {auto 0 _ : Elem HTMLFieldSetElement (Types t1)}
-           -> (obj : t1)
-           -> JSIO ValidityState
-  validity a = primJS $ HTMLFieldSetElement.prim__validity (up a)
+  validity : (obj : HTMLFieldSetElement) -> JSIO ValidityState
+  validity a = primJS $ HTMLFieldSetElement.prim__validity a
   
   export
-  willValidate :  JSType t1
-               => {auto 0 _ : Elem HTMLFieldSetElement (Types t1)}
-               -> (obj : t1)
-               -> JSIO Bool
+  willValidate : (obj : HTMLFieldSetElement) -> JSIO Bool
   willValidate a = tryJS "HTMLFieldSetElement.willValidate"
-                 $ HTMLFieldSetElement.prim__willValidate (up a)
+                 $ HTMLFieldSetElement.prim__willValidate a
   
   export
-  checkValidity :  JSType t1
-                => {auto 0 _ : Elem HTMLFieldSetElement (Types t1)}
-                -> (obj : t1)
-                -> JSIO Bool
+  checkValidity : (obj : HTMLFieldSetElement) -> JSIO Bool
   checkValidity a = tryJS "HTMLFieldSetElement.checkValidity"
-                  $ HTMLFieldSetElement.prim__checkValidity (up a)
+                  $ HTMLFieldSetElement.prim__checkValidity a
   
   export
-  reportValidity :  JSType t1
-                 => {auto 0 _ : Elem HTMLFieldSetElement (Types t1)}
-                 -> (obj : t1)
-                 -> JSIO Bool
+  reportValidity : (obj : HTMLFieldSetElement) -> JSIO Bool
   reportValidity a = tryJS "HTMLFieldSetElement.reportValidity"
-                   $ HTMLFieldSetElement.prim__reportValidity (up a)
+                   $ HTMLFieldSetElement.prim__reportValidity a
   
   export
-  setCustomValidity :  JSType t1
-                    => {auto 0 _ : Elem HTMLFieldSetElement (Types t1)}
-                    -> (obj : t1)
-                    -> (error : String)
-                    -> JSIO ()
+  setCustomValidity : (obj : HTMLFieldSetElement) -> (error : String) -> JSIO ()
   setCustomValidity a b = primJS
-                        $ HTMLFieldSetElement.prim__setCustomValidity (up a) b
+                        $ HTMLFieldSetElement.prim__setCustomValidity a b
 
 namespace HTMLFontElement
   
@@ -2033,45 +1355,25 @@ namespace HTMLFontElement
   new = primJS $ HTMLFontElement.prim__new 
   
   export
-  color :  JSType t
-        => {auto 0 _ : Elem HTMLFontElement (Types t)}
-        -> t
-        -> Attribute True I String
-  color v = fromPrim "HTMLFontElement.getcolor"
-                     prim__color
-                     prim__setColor
-                     (v :> HTMLFontElement)
+  color : HTMLFontElement -> Attribute True I String
+  color v = fromPrim "HTMLFontElement.getcolor" prim__color prim__setColor v
   
   export
-  face :  JSType t
-       => {auto 0 _ : Elem HTMLFontElement (Types t)}
-       -> t
-       -> Attribute True I String
-  face v = fromPrim "HTMLFontElement.getface"
-                    prim__face
-                    prim__setFace
-                    (v :> HTMLFontElement)
+  face : HTMLFontElement -> Attribute True I String
+  face v = fromPrim "HTMLFontElement.getface" prim__face prim__setFace v
   
   export
-  size :  JSType t
-       => {auto 0 _ : Elem HTMLFontElement (Types t)}
-       -> t
-       -> Attribute True I String
-  size v = fromPrim "HTMLFontElement.getsize"
-                    prim__size
-                    prim__setSize
-                    (v :> HTMLFontElement)
+  size : HTMLFontElement -> Attribute True I String
+  size v = fromPrim "HTMLFontElement.getsize" prim__size prim__setSize v
 
 namespace HTMLFormControlsCollection
   
   export
-  namedItem :  JSType t1
-            => {auto 0 _ : Elem HTMLFormControlsCollection (Types t1)}
-            -> (obj : t1)
+  namedItem :  (obj : HTMLFormControlsCollection)
             -> (name : String)
             -> JSIO (Maybe (NS I [ RadioNodeList , Element ]))
   namedItem a b = tryJS "HTMLFormControlsCollection.namedItem"
-                $ HTMLFormControlsCollection.prim__namedItem (up a) b
+                $ HTMLFormControlsCollection.prim__namedItem a b
 
 namespace HTMLFormElement
   
@@ -2080,189 +1382,111 @@ namespace HTMLFormElement
   new = primJS $ HTMLFormElement.prim__new 
   
   export
-  get :  JSType t1
-      => {auto 0 _ : Elem HTMLFormElement (Types t1)}
-      -> (obj : t1)
-      -> (index : UInt32)
-      -> JSIO Element
-  get a b = primJS $ HTMLFormElement.prim__get (up a) b
+  get : (obj : HTMLFormElement) -> (index : UInt32) -> JSIO Element
+  get a b = primJS $ HTMLFormElement.prim__get a b
   
   export
-  get1 :  JSType t1
-       => {auto 0 _ : Elem HTMLFormElement (Types t1)}
-       -> (obj : t1)
+  get1 :  (obj : HTMLFormElement)
        -> (name : String)
        -> JSIO (NS I [ RadioNodeList , Element ])
-  get1 a b = tryJS "HTMLFormElement.get1" $ HTMLFormElement.prim__get1 (up a) b
+  get1 a b = tryJS "HTMLFormElement.get1" $ HTMLFormElement.prim__get1 a b
   
   export
-  acceptCharset :  JSType t
-                => {auto 0 _ : Elem HTMLFormElement (Types t)}
-                -> t
-                -> Attribute True I String
+  acceptCharset : HTMLFormElement -> Attribute True I String
   acceptCharset v = fromPrim "HTMLFormElement.getacceptCharset"
                              prim__acceptCharset
                              prim__setAcceptCharset
-                             (v :> HTMLFormElement)
+                             v
   
   export
-  action :  JSType t
-         => {auto 0 _ : Elem HTMLFormElement (Types t)}
-         -> t
-         -> Attribute True I String
-  action v = fromPrim "HTMLFormElement.getaction"
-                      prim__action
-                      prim__setAction
-                      (v :> HTMLFormElement)
+  action : HTMLFormElement -> Attribute True I String
+  action v = fromPrim "HTMLFormElement.getaction" prim__action prim__setAction v
   
   export
-  autocomplete :  JSType t
-               => {auto 0 _ : Elem HTMLFormElement (Types t)}
-               -> t
-               -> Attribute True I String
+  autocomplete : HTMLFormElement -> Attribute True I String
   autocomplete v = fromPrim "HTMLFormElement.getautocomplete"
                             prim__autocomplete
                             prim__setAutocomplete
-                            (v :> HTMLFormElement)
+                            v
   
   export
-  elements :  JSType t1
-           => {auto 0 _ : Elem HTMLFormElement (Types t1)}
-           -> (obj : t1)
-           -> JSIO HTMLFormControlsCollection
-  elements a = primJS $ HTMLFormElement.prim__elements (up a)
+  elements : (obj : HTMLFormElement) -> JSIO HTMLFormControlsCollection
+  elements a = primJS $ HTMLFormElement.prim__elements a
   
   export
-  encoding :  JSType t
-           => {auto 0 _ : Elem HTMLFormElement (Types t)}
-           -> t
-           -> Attribute True I String
+  encoding : HTMLFormElement -> Attribute True I String
   encoding v = fromPrim "HTMLFormElement.getencoding"
                         prim__encoding
                         prim__setEncoding
-                        (v :> HTMLFormElement)
+                        v
   
   export
-  enctype :  JSType t
-          => {auto 0 _ : Elem HTMLFormElement (Types t)}
-          -> t
-          -> Attribute True I String
+  enctype : HTMLFormElement -> Attribute True I String
   enctype v = fromPrim "HTMLFormElement.getenctype"
                        prim__enctype
                        prim__setEnctype
-                       (v :> HTMLFormElement)
+                       v
   
   export
-  length :  JSType t1
-         => {auto 0 _ : Elem HTMLFormElement (Types t1)}
-         -> (obj : t1)
-         -> JSIO UInt32
-  length a = primJS $ HTMLFormElement.prim__length (up a)
+  length : (obj : HTMLFormElement) -> JSIO UInt32
+  length a = primJS $ HTMLFormElement.prim__length a
   
   export
-  method :  JSType t
-         => {auto 0 _ : Elem HTMLFormElement (Types t)}
-         -> t
-         -> Attribute True I String
-  method v = fromPrim "HTMLFormElement.getmethod"
-                      prim__method
-                      prim__setMethod
-                      (v :> HTMLFormElement)
+  method : HTMLFormElement -> Attribute True I String
+  method v = fromPrim "HTMLFormElement.getmethod" prim__method prim__setMethod v
   
   export
-  name :  JSType t
-       => {auto 0 _ : Elem HTMLFormElement (Types t)}
-       -> t
-       -> Attribute True I String
-  name v = fromPrim "HTMLFormElement.getname"
-                    prim__name
-                    prim__setName
-                    (v :> HTMLFormElement)
+  name : HTMLFormElement -> Attribute True I String
+  name v = fromPrim "HTMLFormElement.getname" prim__name prim__setName v
   
   export
-  noValidate :  JSType t
-             => {auto 0 _ : Elem HTMLFormElement (Types t)}
-             -> t
-             -> Attribute True I Bool
+  noValidate : HTMLFormElement -> Attribute True I Bool
   noValidate v = fromPrim "HTMLFormElement.getnoValidate"
                           prim__noValidate
                           prim__setNoValidate
-                          (v :> HTMLFormElement)
+                          v
   
   export
-  rel :  JSType t
-      => {auto 0 _ : Elem HTMLFormElement (Types t)}
-      -> t
-      -> Attribute True I String
-  rel v = fromPrim "HTMLFormElement.getrel"
-                   prim__rel
-                   prim__setRel
-                   (v :> HTMLFormElement)
+  rel : HTMLFormElement -> Attribute True I String
+  rel v = fromPrim "HTMLFormElement.getrel" prim__rel prim__setRel v
   
   export
-  relList :  JSType t1
-          => {auto 0 _ : Elem HTMLFormElement (Types t1)}
-          -> (obj : t1)
-          -> JSIO DOMTokenList
-  relList a = primJS $ HTMLFormElement.prim__relList (up a)
+  relList : (obj : HTMLFormElement) -> JSIO DOMTokenList
+  relList a = primJS $ HTMLFormElement.prim__relList a
   
   export
-  target :  JSType t
-         => {auto 0 _ : Elem HTMLFormElement (Types t)}
-         -> t
-         -> Attribute True I String
-  target v = fromPrim "HTMLFormElement.gettarget"
-                      prim__target
-                      prim__setTarget
-                      (v :> HTMLFormElement)
+  target : HTMLFormElement -> Attribute True I String
+  target v = fromPrim "HTMLFormElement.gettarget" prim__target prim__setTarget v
   
   export
-  checkValidity :  JSType t1
-                => {auto 0 _ : Elem HTMLFormElement (Types t1)}
-                -> (obj : t1)
-                -> JSIO Bool
+  checkValidity : (obj : HTMLFormElement) -> JSIO Bool
   checkValidity a = tryJS "HTMLFormElement.checkValidity"
-                  $ HTMLFormElement.prim__checkValidity (up a)
+                  $ HTMLFormElement.prim__checkValidity a
   
   export
-  reportValidity :  JSType t1
-                 => {auto 0 _ : Elem HTMLFormElement (Types t1)}
-                 -> (obj : t1)
-                 -> JSIO Bool
+  reportValidity : (obj : HTMLFormElement) -> JSIO Bool
   reportValidity a = tryJS "HTMLFormElement.reportValidity"
-                   $ HTMLFormElement.prim__reportValidity (up a)
+                   $ HTMLFormElement.prim__reportValidity a
   
   export
   requestSubmit :  JSType t1
-                => JSType t2
-                => {auto 0 _ : Elem HTMLFormElement (Types t1)}
-                -> {auto 0 _ : Elem HTMLElement (Types t2)}
-                -> (obj : t1)
-                -> (submitter : Optional (Maybe t2))
+                => {auto 0 _ : Elem HTMLElement (Types t1)}
+                -> (obj : HTMLFormElement)
+                -> (submitter : Optional (Maybe t1))
                 -> JSIO ()
-  requestSubmit a b = primJS
-                    $ HTMLFormElement.prim__requestSubmit (up a) (omyUp b)
+  requestSubmit a b = primJS $ HTMLFormElement.prim__requestSubmit a (omyUp b)
 
   export
-  requestSubmit' :  JSType t1
-                 => {auto 0 _ : Elem HTMLFormElement (Types t1)}
-                 -> (obj : t1)
-                 -> JSIO ()
-  requestSubmit' a = primJS $ HTMLFormElement.prim__requestSubmit (up a) undef
+  requestSubmit' : (obj : HTMLFormElement) -> JSIO ()
+  requestSubmit' a = primJS $ HTMLFormElement.prim__requestSubmit a undef
   
   export
-  reset :  JSType t1
-        => {auto 0 _ : Elem HTMLFormElement (Types t1)}
-        -> (obj : t1)
-        -> JSIO ()
-  reset a = primJS $ HTMLFormElement.prim__reset (up a)
+  reset : (obj : HTMLFormElement) -> JSIO ()
+  reset a = primJS $ HTMLFormElement.prim__reset a
   
   export
-  submit :  JSType t1
-         => {auto 0 _ : Elem HTMLFormElement (Types t1)}
-         -> (obj : t1)
-         -> JSIO ()
-  submit a = primJS $ HTMLFormElement.prim__submit (up a)
+  submit : (obj : HTMLFormElement) -> JSIO ()
+  submit a = primJS $ HTMLFormElement.prim__submit a
 
 namespace HTMLFrameElement
   
@@ -2271,100 +1495,64 @@ namespace HTMLFrameElement
   new = primJS $ HTMLFrameElement.prim__new 
   
   export
-  contentDocument :  JSType t1
-                  => {auto 0 _ : Elem HTMLFrameElement (Types t1)}
-                  -> (obj : t1)
-                  -> JSIO (Maybe Document)
+  contentDocument : (obj : HTMLFrameElement) -> JSIO (Maybe Document)
   contentDocument a = tryJS "HTMLFrameElement.contentDocument"
-                    $ HTMLFrameElement.prim__contentDocument (up a)
+                    $ HTMLFrameElement.prim__contentDocument a
   
   export
-  contentWindow :  JSType t1
-                => {auto 0 _ : Elem HTMLFrameElement (Types t1)}
-                -> (obj : t1)
-                -> JSIO (Maybe WindowProxy)
+  contentWindow : (obj : HTMLFrameElement) -> JSIO (Maybe WindowProxy)
   contentWindow a = tryJS "HTMLFrameElement.contentWindow"
-                  $ HTMLFrameElement.prim__contentWindow (up a)
+                  $ HTMLFrameElement.prim__contentWindow a
   
   export
-  frameBorder :  JSType t
-              => {auto 0 _ : Elem HTMLFrameElement (Types t)}
-              -> t
-              -> Attribute True I String
+  frameBorder : HTMLFrameElement -> Attribute True I String
   frameBorder v = fromPrim "HTMLFrameElement.getframeBorder"
                            prim__frameBorder
                            prim__setFrameBorder
-                           (v :> HTMLFrameElement)
+                           v
   
   export
-  longDesc :  JSType t
-           => {auto 0 _ : Elem HTMLFrameElement (Types t)}
-           -> t
-           -> Attribute True I String
+  longDesc : HTMLFrameElement -> Attribute True I String
   longDesc v = fromPrim "HTMLFrameElement.getlongDesc"
                         prim__longDesc
                         prim__setLongDesc
-                        (v :> HTMLFrameElement)
+                        v
   
   export
-  marginHeight :  JSType t
-               => {auto 0 _ : Elem HTMLFrameElement (Types t)}
-               -> t
-               -> Attribute True I String
+  marginHeight : HTMLFrameElement -> Attribute True I String
   marginHeight v = fromPrim "HTMLFrameElement.getmarginHeight"
                             prim__marginHeight
                             prim__setMarginHeight
-                            (v :> HTMLFrameElement)
+                            v
   
   export
-  marginWidth :  JSType t
-              => {auto 0 _ : Elem HTMLFrameElement (Types t)}
-              -> t
-              -> Attribute True I String
+  marginWidth : HTMLFrameElement -> Attribute True I String
   marginWidth v = fromPrim "HTMLFrameElement.getmarginWidth"
                            prim__marginWidth
                            prim__setMarginWidth
-                           (v :> HTMLFrameElement)
+                           v
   
   export
-  name :  JSType t
-       => {auto 0 _ : Elem HTMLFrameElement (Types t)}
-       -> t
-       -> Attribute True I String
-  name v = fromPrim "HTMLFrameElement.getname"
-                    prim__name
-                    prim__setName
-                    (v :> HTMLFrameElement)
+  name : HTMLFrameElement -> Attribute True I String
+  name v = fromPrim "HTMLFrameElement.getname" prim__name prim__setName v
   
   export
-  noResize :  JSType t
-           => {auto 0 _ : Elem HTMLFrameElement (Types t)}
-           -> t
-           -> Attribute True I Bool
+  noResize : HTMLFrameElement -> Attribute True I Bool
   noResize v = fromPrim "HTMLFrameElement.getnoResize"
                         prim__noResize
                         prim__setNoResize
-                        (v :> HTMLFrameElement)
+                        v
   
   export
-  scrolling :  JSType t
-            => {auto 0 _ : Elem HTMLFrameElement (Types t)}
-            -> t
-            -> Attribute True I String
+  scrolling : HTMLFrameElement -> Attribute True I String
   scrolling v = fromPrim "HTMLFrameElement.getscrolling"
                          prim__scrolling
                          prim__setScrolling
-                         (v :> HTMLFrameElement)
+                         v
   
   export
-  src :  JSType t
-      => {auto 0 _ : Elem HTMLFrameElement (Types t)}
-      -> t
-      -> Attribute True I String
-  src v = fromPrim "HTMLFrameElement.getsrc"
-                   prim__src
-                   prim__setSrc
-                   (v :> HTMLFrameElement)
+  src : HTMLFrameElement -> Attribute True I String
+  src v = fromPrim "HTMLFrameElement.getsrc" prim__src prim__setSrc v
 
 namespace HTMLFrameSetElement
   
@@ -2373,24 +1561,12 @@ namespace HTMLFrameSetElement
   new = primJS $ HTMLFrameSetElement.prim__new 
   
   export
-  cols :  JSType t
-       => {auto 0 _ : Elem HTMLFrameSetElement (Types t)}
-       -> t
-       -> Attribute True I String
-  cols v = fromPrim "HTMLFrameSetElement.getcols"
-                    prim__cols
-                    prim__setCols
-                    (v :> HTMLFrameSetElement)
+  cols : HTMLFrameSetElement -> Attribute True I String
+  cols v = fromPrim "HTMLFrameSetElement.getcols" prim__cols prim__setCols v
   
   export
-  rows :  JSType t
-       => {auto 0 _ : Elem HTMLFrameSetElement (Types t)}
-       -> t
-       -> Attribute True I String
-  rows v = fromPrim "HTMLFrameSetElement.getrows"
-                    prim__rows
-                    prim__setRows
-                    (v :> HTMLFrameSetElement)
+  rows : HTMLFrameSetElement -> Attribute True I String
+  rows v = fromPrim "HTMLFrameSetElement.getrows" prim__rows prim__setRows v
 
 namespace HTMLHRElement
   
@@ -2399,54 +1575,27 @@ namespace HTMLHRElement
   new = primJS $ HTMLHRElement.prim__new 
   
   export
-  align :  JSType t
-        => {auto 0 _ : Elem HTMLHRElement (Types t)}
-        -> t
-        -> Attribute True I String
-  align v = fromPrim "HTMLHRElement.getalign"
-                     prim__align
-                     prim__setAlign
-                     (v :> HTMLHRElement)
+  align : HTMLHRElement -> Attribute True I String
+  align v = fromPrim "HTMLHRElement.getalign" prim__align prim__setAlign v
   
   export
-  color :  JSType t
-        => {auto 0 _ : Elem HTMLHRElement (Types t)}
-        -> t
-        -> Attribute True I String
-  color v = fromPrim "HTMLHRElement.getcolor"
-                     prim__color
-                     prim__setColor
-                     (v :> HTMLHRElement)
+  color : HTMLHRElement -> Attribute True I String
+  color v = fromPrim "HTMLHRElement.getcolor" prim__color prim__setColor v
   
   export
-  noShade :  JSType t
-          => {auto 0 _ : Elem HTMLHRElement (Types t)}
-          -> t
-          -> Attribute True I Bool
+  noShade : HTMLHRElement -> Attribute True I Bool
   noShade v = fromPrim "HTMLHRElement.getnoShade"
                        prim__noShade
                        prim__setNoShade
-                       (v :> HTMLHRElement)
+                       v
   
   export
-  size :  JSType t
-       => {auto 0 _ : Elem HTMLHRElement (Types t)}
-       -> t
-       -> Attribute True I String
-  size v = fromPrim "HTMLHRElement.getsize"
-                    prim__size
-                    prim__setSize
-                    (v :> HTMLHRElement)
+  size : HTMLHRElement -> Attribute True I String
+  size v = fromPrim "HTMLHRElement.getsize" prim__size prim__setSize v
   
   export
-  width :  JSType t
-        => {auto 0 _ : Elem HTMLHRElement (Types t)}
-        -> t
-        -> Attribute True I String
-  width v = fromPrim "HTMLHRElement.getwidth"
-                     prim__width
-                     prim__setWidth
-                     (v :> HTMLHRElement)
+  width : HTMLHRElement -> Attribute True I String
+  width v = fromPrim "HTMLHRElement.getwidth" prim__width prim__setWidth v
 
 namespace HTMLHeadElement
   
@@ -2461,14 +1610,8 @@ namespace HTMLHeadingElement
   new = primJS $ HTMLHeadingElement.prim__new 
   
   export
-  align :  JSType t
-        => {auto 0 _ : Elem HTMLHeadingElement (Types t)}
-        -> t
-        -> Attribute True I String
-  align v = fromPrim "HTMLHeadingElement.getalign"
-                     prim__align
-                     prim__setAlign
-                     (v :> HTMLHeadingElement)
+  align : HTMLHeadingElement -> Attribute True I String
+  align v = fromPrim "HTMLHeadingElement.getalign" prim__align prim__setAlign v
 
 namespace HTMLHtmlElement
   
@@ -2477,14 +1620,11 @@ namespace HTMLHtmlElement
   new = primJS $ HTMLHtmlElement.prim__new 
   
   export
-  version :  JSType t
-          => {auto 0 _ : Elem HTMLHtmlElement (Types t)}
-          -> t
-          -> Attribute True I String
+  version : HTMLHtmlElement -> Attribute True I String
   version v = fromPrim "HTMLHtmlElement.getversion"
                        prim__version
                        prim__setVersion
-                       (v :> HTMLHtmlElement)
+                       v
 
 namespace HTMLIFrameElement
   
@@ -2493,185 +1633,113 @@ namespace HTMLIFrameElement
   new = primJS $ HTMLIFrameElement.prim__new 
   
   export
-  align :  JSType t
-        => {auto 0 _ : Elem HTMLIFrameElement (Types t)}
-        -> t
-        -> Attribute True I String
-  align v = fromPrim "HTMLIFrameElement.getalign"
-                     prim__align
-                     prim__setAlign
-                     (v :> HTMLIFrameElement)
+  align : HTMLIFrameElement -> Attribute True I String
+  align v = fromPrim "HTMLIFrameElement.getalign" prim__align prim__setAlign v
   
   export
-  allow :  JSType t
-        => {auto 0 _ : Elem HTMLIFrameElement (Types t)}
-        -> t
-        -> Attribute True I String
-  allow v = fromPrim "HTMLIFrameElement.getallow"
-                     prim__allow
-                     prim__setAllow
-                     (v :> HTMLIFrameElement)
+  allow : HTMLIFrameElement -> Attribute True I String
+  allow v = fromPrim "HTMLIFrameElement.getallow" prim__allow prim__setAllow v
   
   export
-  allowFullscreen :  JSType t
-                  => {auto 0 _ : Elem HTMLIFrameElement (Types t)}
-                  -> t
-                  -> Attribute True I Bool
+  allowFullscreen : HTMLIFrameElement -> Attribute True I Bool
   allowFullscreen v = fromPrim "HTMLIFrameElement.getallowFullscreen"
                                prim__allowFullscreen
                                prim__setAllowFullscreen
-                               (v :> HTMLIFrameElement)
+                               v
   
   export
-  contentDocument :  JSType t1
-                  => {auto 0 _ : Elem HTMLIFrameElement (Types t1)}
-                  -> (obj : t1)
-                  -> JSIO (Maybe Document)
+  contentDocument : (obj : HTMLIFrameElement) -> JSIO (Maybe Document)
   contentDocument a = tryJS "HTMLIFrameElement.contentDocument"
-                    $ HTMLIFrameElement.prim__contentDocument (up a)
+                    $ HTMLIFrameElement.prim__contentDocument a
   
   export
-  contentWindow :  JSType t1
-                => {auto 0 _ : Elem HTMLIFrameElement (Types t1)}
-                -> (obj : t1)
-                -> JSIO (Maybe WindowProxy)
+  contentWindow : (obj : HTMLIFrameElement) -> JSIO (Maybe WindowProxy)
   contentWindow a = tryJS "HTMLIFrameElement.contentWindow"
-                  $ HTMLIFrameElement.prim__contentWindow (up a)
+                  $ HTMLIFrameElement.prim__contentWindow a
   
   export
-  frameBorder :  JSType t
-              => {auto 0 _ : Elem HTMLIFrameElement (Types t)}
-              -> t
-              -> Attribute True I String
+  frameBorder : HTMLIFrameElement -> Attribute True I String
   frameBorder v = fromPrim "HTMLIFrameElement.getframeBorder"
                            prim__frameBorder
                            prim__setFrameBorder
-                           (v :> HTMLIFrameElement)
+                           v
   
   export
-  height :  JSType t
-         => {auto 0 _ : Elem HTMLIFrameElement (Types t)}
-         -> t
-         -> Attribute True I String
+  height : HTMLIFrameElement -> Attribute True I String
   height v = fromPrim "HTMLIFrameElement.getheight"
                       prim__height
                       prim__setHeight
-                      (v :> HTMLIFrameElement)
+                      v
   
   export
-  loading :  JSType t
-          => {auto 0 _ : Elem HTMLIFrameElement (Types t)}
-          -> t
-          -> Attribute True I String
+  loading : HTMLIFrameElement -> Attribute True I String
   loading v = fromPrim "HTMLIFrameElement.getloading"
                        prim__loading
                        prim__setLoading
-                       (v :> HTMLIFrameElement)
+                       v
   
   export
-  longDesc :  JSType t
-           => {auto 0 _ : Elem HTMLIFrameElement (Types t)}
-           -> t
-           -> Attribute True I String
+  longDesc : HTMLIFrameElement -> Attribute True I String
   longDesc v = fromPrim "HTMLIFrameElement.getlongDesc"
                         prim__longDesc
                         prim__setLongDesc
-                        (v :> HTMLIFrameElement)
+                        v
   
   export
-  marginHeight :  JSType t
-               => {auto 0 _ : Elem HTMLIFrameElement (Types t)}
-               -> t
-               -> Attribute True I String
+  marginHeight : HTMLIFrameElement -> Attribute True I String
   marginHeight v = fromPrim "HTMLIFrameElement.getmarginHeight"
                             prim__marginHeight
                             prim__setMarginHeight
-                            (v :> HTMLIFrameElement)
+                            v
   
   export
-  marginWidth :  JSType t
-              => {auto 0 _ : Elem HTMLIFrameElement (Types t)}
-              -> t
-              -> Attribute True I String
+  marginWidth : HTMLIFrameElement -> Attribute True I String
   marginWidth v = fromPrim "HTMLIFrameElement.getmarginWidth"
                            prim__marginWidth
                            prim__setMarginWidth
-                           (v :> HTMLIFrameElement)
+                           v
   
   export
-  name :  JSType t
-       => {auto 0 _ : Elem HTMLIFrameElement (Types t)}
-       -> t
-       -> Attribute True I String
-  name v = fromPrim "HTMLIFrameElement.getname"
-                    prim__name
-                    prim__setName
-                    (v :> HTMLIFrameElement)
+  name : HTMLIFrameElement -> Attribute True I String
+  name v = fromPrim "HTMLIFrameElement.getname" prim__name prim__setName v
   
   export
-  referrerPolicy :  JSType t
-                 => {auto 0 _ : Elem HTMLIFrameElement (Types t)}
-                 -> t
-                 -> Attribute True I String
+  referrerPolicy : HTMLIFrameElement -> Attribute True I String
   referrerPolicy v = fromPrim "HTMLIFrameElement.getreferrerPolicy"
                               prim__referrerPolicy
                               prim__setReferrerPolicy
-                              (v :> HTMLIFrameElement)
+                              v
   
   export
-  sandbox :  JSType t1
-          => {auto 0 _ : Elem HTMLIFrameElement (Types t1)}
-          -> (obj : t1)
-          -> JSIO DOMTokenList
-  sandbox a = primJS $ HTMLIFrameElement.prim__sandbox (up a)
+  sandbox : (obj : HTMLIFrameElement) -> JSIO DOMTokenList
+  sandbox a = primJS $ HTMLIFrameElement.prim__sandbox a
   
   export
-  scrolling :  JSType t
-            => {auto 0 _ : Elem HTMLIFrameElement (Types t)}
-            -> t
-            -> Attribute True I String
+  scrolling : HTMLIFrameElement -> Attribute True I String
   scrolling v = fromPrim "HTMLIFrameElement.getscrolling"
                          prim__scrolling
                          prim__setScrolling
-                         (v :> HTMLIFrameElement)
+                         v
   
   export
-  src :  JSType t
-      => {auto 0 _ : Elem HTMLIFrameElement (Types t)}
-      -> t
-      -> Attribute True I String
-  src v = fromPrim "HTMLIFrameElement.getsrc"
-                   prim__src
-                   prim__setSrc
-                   (v :> HTMLIFrameElement)
+  src : HTMLIFrameElement -> Attribute True I String
+  src v = fromPrim "HTMLIFrameElement.getsrc" prim__src prim__setSrc v
   
   export
-  srcdoc :  JSType t
-         => {auto 0 _ : Elem HTMLIFrameElement (Types t)}
-         -> t
-         -> Attribute True I String
+  srcdoc : HTMLIFrameElement -> Attribute True I String
   srcdoc v = fromPrim "HTMLIFrameElement.getsrcdoc"
                       prim__srcdoc
                       prim__setSrcdoc
-                      (v :> HTMLIFrameElement)
+                      v
   
   export
-  width :  JSType t
-        => {auto 0 _ : Elem HTMLIFrameElement (Types t)}
-        -> t
-        -> Attribute True I String
-  width v = fromPrim "HTMLIFrameElement.getwidth"
-                     prim__width
-                     prim__setWidth
-                     (v :> HTMLIFrameElement)
+  width : HTMLIFrameElement -> Attribute True I String
+  width v = fromPrim "HTMLIFrameElement.getwidth" prim__width prim__setWidth v
   
   export
-  getSVGDocument :  JSType t1
-                 => {auto 0 _ : Elem HTMLIFrameElement (Types t1)}
-                 -> (obj : t1)
-                 -> JSIO (Maybe Document)
+  getSVGDocument : (obj : HTMLIFrameElement) -> JSIO (Maybe Document)
   getSVGDocument a = tryJS "HTMLIFrameElement.getSVGDocument"
-                   $ HTMLIFrameElement.prim__getSVGDocument (up a)
+                   $ HTMLIFrameElement.prim__getSVGDocument a
 
 namespace HTMLImageElement
   
@@ -2680,230 +1748,137 @@ namespace HTMLImageElement
   new = primJS $ HTMLImageElement.prim__new 
   
   export
-  align :  JSType t
-        => {auto 0 _ : Elem HTMLImageElement (Types t)}
-        -> t
-        -> Attribute True I String
-  align v = fromPrim "HTMLImageElement.getalign"
-                     prim__align
-                     prim__setAlign
-                     (v :> HTMLImageElement)
+  align : HTMLImageElement -> Attribute True I String
+  align v = fromPrim "HTMLImageElement.getalign" prim__align prim__setAlign v
   
   export
-  alt :  JSType t
-      => {auto 0 _ : Elem HTMLImageElement (Types t)}
-      -> t
-      -> Attribute True I String
-  alt v = fromPrim "HTMLImageElement.getalt"
-                   prim__alt
-                   prim__setAlt
-                   (v :> HTMLImageElement)
+  alt : HTMLImageElement -> Attribute True I String
+  alt v = fromPrim "HTMLImageElement.getalt" prim__alt prim__setAlt v
   
   export
-  border :  JSType t
-         => {auto 0 _ : Elem HTMLImageElement (Types t)}
-         -> t
-         -> Attribute True I String
+  border : HTMLImageElement -> Attribute True I String
   border v = fromPrim "HTMLImageElement.getborder"
                       prim__border
                       prim__setBorder
-                      (v :> HTMLImageElement)
+                      v
   
   export
-  complete :  JSType t1
-           => {auto 0 _ : Elem HTMLImageElement (Types t1)}
-           -> (obj : t1)
-           -> JSIO Bool
+  complete : (obj : HTMLImageElement) -> JSIO Bool
   complete a = tryJS "HTMLImageElement.complete"
-             $ HTMLImageElement.prim__complete (up a)
+             $ HTMLImageElement.prim__complete a
   
   export
-  crossOrigin :  JSType t
-              => {auto 0 _ : Elem HTMLImageElement (Types t)}
-              -> t
-              -> Attribute False Maybe String
+  crossOrigin : HTMLImageElement -> Attribute False Maybe String
   crossOrigin v = fromNullablePrim "HTMLImageElement.getcrossOrigin"
                                    prim__crossOrigin
                                    prim__setCrossOrigin
-                                   (v :> HTMLImageElement)
+                                   v
   
   export
-  currentSrc :  JSType t1
-             => {auto 0 _ : Elem HTMLImageElement (Types t1)}
-             -> (obj : t1)
-             -> JSIO String
-  currentSrc a = primJS $ HTMLImageElement.prim__currentSrc (up a)
+  currentSrc : (obj : HTMLImageElement) -> JSIO String
+  currentSrc a = primJS $ HTMLImageElement.prim__currentSrc a
   
   export
-  decoding :  JSType t
-           => {auto 0 _ : Elem HTMLImageElement (Types t)}
-           -> t
-           -> Attribute True I String
+  decoding : HTMLImageElement -> Attribute True I String
   decoding v = fromPrim "HTMLImageElement.getdecoding"
                         prim__decoding
                         prim__setDecoding
-                        (v :> HTMLImageElement)
+                        v
   
   export
-  height :  JSType t
-         => {auto 0 _ : Elem HTMLImageElement (Types t)}
-         -> t
-         -> Attribute True I UInt32
+  height : HTMLImageElement -> Attribute True I UInt32
   height v = fromPrim "HTMLImageElement.getheight"
                       prim__height
                       prim__setHeight
-                      (v :> HTMLImageElement)
+                      v
   
   export
-  hspace :  JSType t
-         => {auto 0 _ : Elem HTMLImageElement (Types t)}
-         -> t
-         -> Attribute True I UInt32
+  hspace : HTMLImageElement -> Attribute True I UInt32
   hspace v = fromPrim "HTMLImageElement.gethspace"
                       prim__hspace
                       prim__setHspace
-                      (v :> HTMLImageElement)
+                      v
   
   export
-  isMap :  JSType t
-        => {auto 0 _ : Elem HTMLImageElement (Types t)}
-        -> t
-        -> Attribute True I Bool
-  isMap v = fromPrim "HTMLImageElement.getisMap"
-                     prim__isMap
-                     prim__setIsMap
-                     (v :> HTMLImageElement)
+  isMap : HTMLImageElement -> Attribute True I Bool
+  isMap v = fromPrim "HTMLImageElement.getisMap" prim__isMap prim__setIsMap v
   
   export
-  loading :  JSType t
-          => {auto 0 _ : Elem HTMLImageElement (Types t)}
-          -> t
-          -> Attribute True I String
+  loading : HTMLImageElement -> Attribute True I String
   loading v = fromPrim "HTMLImageElement.getloading"
                        prim__loading
                        prim__setLoading
-                       (v :> HTMLImageElement)
+                       v
   
   export
-  longDesc :  JSType t
-           => {auto 0 _ : Elem HTMLImageElement (Types t)}
-           -> t
-           -> Attribute True I String
+  longDesc : HTMLImageElement -> Attribute True I String
   longDesc v = fromPrim "HTMLImageElement.getlongDesc"
                         prim__longDesc
                         prim__setLongDesc
-                        (v :> HTMLImageElement)
+                        v
   
   export
-  lowsrc :  JSType t
-         => {auto 0 _ : Elem HTMLImageElement (Types t)}
-         -> t
-         -> Attribute True I String
+  lowsrc : HTMLImageElement -> Attribute True I String
   lowsrc v = fromPrim "HTMLImageElement.getlowsrc"
                       prim__lowsrc
                       prim__setLowsrc
-                      (v :> HTMLImageElement)
+                      v
   
   export
-  name :  JSType t
-       => {auto 0 _ : Elem HTMLImageElement (Types t)}
-       -> t
-       -> Attribute True I String
-  name v = fromPrim "HTMLImageElement.getname"
-                    prim__name
-                    prim__setName
-                    (v :> HTMLImageElement)
+  name : HTMLImageElement -> Attribute True I String
+  name v = fromPrim "HTMLImageElement.getname" prim__name prim__setName v
   
   export
-  naturalHeight :  JSType t1
-                => {auto 0 _ : Elem HTMLImageElement (Types t1)}
-                -> (obj : t1)
-                -> JSIO UInt32
-  naturalHeight a = primJS $ HTMLImageElement.prim__naturalHeight (up a)
+  naturalHeight : (obj : HTMLImageElement) -> JSIO UInt32
+  naturalHeight a = primJS $ HTMLImageElement.prim__naturalHeight a
   
   export
-  naturalWidth :  JSType t1
-               => {auto 0 _ : Elem HTMLImageElement (Types t1)}
-               -> (obj : t1)
-               -> JSIO UInt32
-  naturalWidth a = primJS $ HTMLImageElement.prim__naturalWidth (up a)
+  naturalWidth : (obj : HTMLImageElement) -> JSIO UInt32
+  naturalWidth a = primJS $ HTMLImageElement.prim__naturalWidth a
   
   export
-  referrerPolicy :  JSType t
-                 => {auto 0 _ : Elem HTMLImageElement (Types t)}
-                 -> t
-                 -> Attribute True I String
+  referrerPolicy : HTMLImageElement -> Attribute True I String
   referrerPolicy v = fromPrim "HTMLImageElement.getreferrerPolicy"
                               prim__referrerPolicy
                               prim__setReferrerPolicy
-                              (v :> HTMLImageElement)
+                              v
   
   export
-  sizes :  JSType t
-        => {auto 0 _ : Elem HTMLImageElement (Types t)}
-        -> t
-        -> Attribute True I String
-  sizes v = fromPrim "HTMLImageElement.getsizes"
-                     prim__sizes
-                     prim__setSizes
-                     (v :> HTMLImageElement)
+  sizes : HTMLImageElement -> Attribute True I String
+  sizes v = fromPrim "HTMLImageElement.getsizes" prim__sizes prim__setSizes v
   
   export
-  src :  JSType t
-      => {auto 0 _ : Elem HTMLImageElement (Types t)}
-      -> t
-      -> Attribute True I String
-  src v = fromPrim "HTMLImageElement.getsrc"
-                   prim__src
-                   prim__setSrc
-                   (v :> HTMLImageElement)
+  src : HTMLImageElement -> Attribute True I String
+  src v = fromPrim "HTMLImageElement.getsrc" prim__src prim__setSrc v
   
   export
-  srcset :  JSType t
-         => {auto 0 _ : Elem HTMLImageElement (Types t)}
-         -> t
-         -> Attribute True I String
+  srcset : HTMLImageElement -> Attribute True I String
   srcset v = fromPrim "HTMLImageElement.getsrcset"
                       prim__srcset
                       prim__setSrcset
-                      (v :> HTMLImageElement)
+                      v
   
   export
-  useMap :  JSType t
-         => {auto 0 _ : Elem HTMLImageElement (Types t)}
-         -> t
-         -> Attribute True I String
+  useMap : HTMLImageElement -> Attribute True I String
   useMap v = fromPrim "HTMLImageElement.getuseMap"
                       prim__useMap
                       prim__setUseMap
-                      (v :> HTMLImageElement)
+                      v
   
   export
-  vspace :  JSType t
-         => {auto 0 _ : Elem HTMLImageElement (Types t)}
-         -> t
-         -> Attribute True I UInt32
+  vspace : HTMLImageElement -> Attribute True I UInt32
   vspace v = fromPrim "HTMLImageElement.getvspace"
                       prim__vspace
                       prim__setVspace
-                      (v :> HTMLImageElement)
+                      v
   
   export
-  width :  JSType t
-        => {auto 0 _ : Elem HTMLImageElement (Types t)}
-        -> t
-        -> Attribute True I UInt32
-  width v = fromPrim "HTMLImageElement.getwidth"
-                     prim__width
-                     prim__setWidth
-                     (v :> HTMLImageElement)
+  width : HTMLImageElement -> Attribute True I UInt32
+  width v = fromPrim "HTMLImageElement.getwidth" prim__width prim__setWidth v
   
   export
-  decode :  JSType t1
-         => {auto 0 _ : Elem HTMLImageElement (Types t1)}
-         -> (obj : t1)
-         -> JSIO (Promise Undefined)
-  decode a = primJS $ HTMLImageElement.prim__decode (up a)
+  decode : (obj : HTMLImageElement) -> JSIO (Promise Undefined)
+  decode a = primJS $ HTMLImageElement.prim__decode a
 
 namespace HTMLInputElement
   
@@ -2912,566 +1887,353 @@ namespace HTMLInputElement
   new = primJS $ HTMLInputElement.prim__new 
   
   export
-  accept :  JSType t
-         => {auto 0 _ : Elem HTMLInputElement (Types t)}
-         -> t
-         -> Attribute True I String
+  accept : HTMLInputElement -> Attribute True I String
   accept v = fromPrim "HTMLInputElement.getaccept"
                       prim__accept
                       prim__setAccept
-                      (v :> HTMLInputElement)
+                      v
   
   export
-  align :  JSType t
-        => {auto 0 _ : Elem HTMLInputElement (Types t)}
-        -> t
-        -> Attribute True I String
-  align v = fromPrim "HTMLInputElement.getalign"
-                     prim__align
-                     prim__setAlign
-                     (v :> HTMLInputElement)
+  align : HTMLInputElement -> Attribute True I String
+  align v = fromPrim "HTMLInputElement.getalign" prim__align prim__setAlign v
   
   export
-  alt :  JSType t
-      => {auto 0 _ : Elem HTMLInputElement (Types t)}
-      -> t
-      -> Attribute True I String
-  alt v = fromPrim "HTMLInputElement.getalt"
-                   prim__alt
-                   prim__setAlt
-                   (v :> HTMLInputElement)
+  alt : HTMLInputElement -> Attribute True I String
+  alt v = fromPrim "HTMLInputElement.getalt" prim__alt prim__setAlt v
   
   export
-  autocomplete :  JSType t
-               => {auto 0 _ : Elem HTMLInputElement (Types t)}
-               -> t
-               -> Attribute True I String
+  autocomplete : HTMLInputElement -> Attribute True I String
   autocomplete v = fromPrim "HTMLInputElement.getautocomplete"
                             prim__autocomplete
                             prim__setAutocomplete
-                            (v :> HTMLInputElement)
+                            v
   
   export
-  checked :  JSType t
-          => {auto 0 _ : Elem HTMLInputElement (Types t)}
-          -> t
-          -> Attribute True I Bool
+  checked : HTMLInputElement -> Attribute True I Bool
   checked v = fromPrim "HTMLInputElement.getchecked"
                        prim__checked
                        prim__setChecked
-                       (v :> HTMLInputElement)
+                       v
   
   export
-  defaultChecked :  JSType t
-                 => {auto 0 _ : Elem HTMLInputElement (Types t)}
-                 -> t
-                 -> Attribute True I Bool
+  defaultChecked : HTMLInputElement -> Attribute True I Bool
   defaultChecked v = fromPrim "HTMLInputElement.getdefaultChecked"
                               prim__defaultChecked
                               prim__setDefaultChecked
-                              (v :> HTMLInputElement)
+                              v
   
   export
-  defaultValue :  JSType t
-               => {auto 0 _ : Elem HTMLInputElement (Types t)}
-               -> t
-               -> Attribute True I String
+  defaultValue : HTMLInputElement -> Attribute True I String
   defaultValue v = fromPrim "HTMLInputElement.getdefaultValue"
                             prim__defaultValue
                             prim__setDefaultValue
-                            (v :> HTMLInputElement)
+                            v
   
   export
-  dirName :  JSType t
-          => {auto 0 _ : Elem HTMLInputElement (Types t)}
-          -> t
-          -> Attribute True I String
+  dirName : HTMLInputElement -> Attribute True I String
   dirName v = fromPrim "HTMLInputElement.getdirName"
                        prim__dirName
                        prim__setDirName
-                       (v :> HTMLInputElement)
+                       v
   
   export
-  disabled :  JSType t
-           => {auto 0 _ : Elem HTMLInputElement (Types t)}
-           -> t
-           -> Attribute True I Bool
+  disabled : HTMLInputElement -> Attribute True I Bool
   disabled v = fromPrim "HTMLInputElement.getdisabled"
                         prim__disabled
                         prim__setDisabled
-                        (v :> HTMLInputElement)
+                        v
   
   export
-  files :  JSType t
-        => {auto 0 _ : Elem HTMLInputElement (Types t)}
-        -> t
-        -> Attribute False Maybe FileList
+  files : HTMLInputElement -> Attribute False Maybe FileList
   files v = fromNullablePrim "HTMLInputElement.getfiles"
                              prim__files
                              prim__setFiles
-                             (v :> HTMLInputElement)
+                             v
   
   export
-  form :  JSType t1
-       => {auto 0 _ : Elem HTMLInputElement (Types t1)}
-       -> (obj : t1)
-       -> JSIO (Maybe HTMLFormElement)
-  form a = tryJS "HTMLInputElement.form" $ HTMLInputElement.prim__form (up a)
+  form : (obj : HTMLInputElement) -> JSIO (Maybe HTMLFormElement)
+  form a = tryJS "HTMLInputElement.form" $ HTMLInputElement.prim__form a
   
   export
-  formAction :  JSType t
-             => {auto 0 _ : Elem HTMLInputElement (Types t)}
-             -> t
-             -> Attribute True I String
+  formAction : HTMLInputElement -> Attribute True I String
   formAction v = fromPrim "HTMLInputElement.getformAction"
                           prim__formAction
                           prim__setFormAction
-                          (v :> HTMLInputElement)
+                          v
   
   export
-  formEnctype :  JSType t
-              => {auto 0 _ : Elem HTMLInputElement (Types t)}
-              -> t
-              -> Attribute True I String
+  formEnctype : HTMLInputElement -> Attribute True I String
   formEnctype v = fromPrim "HTMLInputElement.getformEnctype"
                            prim__formEnctype
                            prim__setFormEnctype
-                           (v :> HTMLInputElement)
+                           v
   
   export
-  formMethod :  JSType t
-             => {auto 0 _ : Elem HTMLInputElement (Types t)}
-             -> t
-             -> Attribute True I String
+  formMethod : HTMLInputElement -> Attribute True I String
   formMethod v = fromPrim "HTMLInputElement.getformMethod"
                           prim__formMethod
                           prim__setFormMethod
-                          (v :> HTMLInputElement)
+                          v
   
   export
-  formNoValidate :  JSType t
-                 => {auto 0 _ : Elem HTMLInputElement (Types t)}
-                 -> t
-                 -> Attribute True I Bool
+  formNoValidate : HTMLInputElement -> Attribute True I Bool
   formNoValidate v = fromPrim "HTMLInputElement.getformNoValidate"
                               prim__formNoValidate
                               prim__setFormNoValidate
-                              (v :> HTMLInputElement)
+                              v
   
   export
-  formTarget :  JSType t
-             => {auto 0 _ : Elem HTMLInputElement (Types t)}
-             -> t
-             -> Attribute True I String
+  formTarget : HTMLInputElement -> Attribute True I String
   formTarget v = fromPrim "HTMLInputElement.getformTarget"
                           prim__formTarget
                           prim__setFormTarget
-                          (v :> HTMLInputElement)
+                          v
   
   export
-  height :  JSType t
-         => {auto 0 _ : Elem HTMLInputElement (Types t)}
-         -> t
-         -> Attribute True I UInt32
+  height : HTMLInputElement -> Attribute True I UInt32
   height v = fromPrim "HTMLInputElement.getheight"
                       prim__height
                       prim__setHeight
-                      (v :> HTMLInputElement)
+                      v
   
   export
-  indeterminate :  JSType t
-                => {auto 0 _ : Elem HTMLInputElement (Types t)}
-                -> t
-                -> Attribute True I Bool
+  indeterminate : HTMLInputElement -> Attribute True I Bool
   indeterminate v = fromPrim "HTMLInputElement.getindeterminate"
                              prim__indeterminate
                              prim__setIndeterminate
-                             (v :> HTMLInputElement)
+                             v
   
   export
-  labels :  JSType t1
-         => {auto 0 _ : Elem HTMLInputElement (Types t1)}
-         -> (obj : t1)
-         -> JSIO (Maybe NodeList)
-  labels a = tryJS "HTMLInputElement.labels"
-           $ HTMLInputElement.prim__labels (up a)
+  labels : (obj : HTMLInputElement) -> JSIO (Maybe NodeList)
+  labels a = tryJS "HTMLInputElement.labels" $ HTMLInputElement.prim__labels a
   
   export
-  list :  JSType t1
-       => {auto 0 _ : Elem HTMLInputElement (Types t1)}
-       -> (obj : t1)
-       -> JSIO (Maybe HTMLElement)
-  list a = tryJS "HTMLInputElement.list" $ HTMLInputElement.prim__list (up a)
+  list : (obj : HTMLInputElement) -> JSIO (Maybe HTMLElement)
+  list a = tryJS "HTMLInputElement.list" $ HTMLInputElement.prim__list a
   
   export
-  max :  JSType t
-      => {auto 0 _ : Elem HTMLInputElement (Types t)}
-      -> t
-      -> Attribute True I String
-  max v = fromPrim "HTMLInputElement.getmax"
-                   prim__max
-                   prim__setMax
-                   (v :> HTMLInputElement)
+  max : HTMLInputElement -> Attribute True I String
+  max v = fromPrim "HTMLInputElement.getmax" prim__max prim__setMax v
   
   export
-  maxLength :  JSType t
-            => {auto 0 _ : Elem HTMLInputElement (Types t)}
-            -> t
-            -> Attribute True I Int32
+  maxLength : HTMLInputElement -> Attribute True I Int32
   maxLength v = fromPrim "HTMLInputElement.getmaxLength"
                          prim__maxLength
                          prim__setMaxLength
-                         (v :> HTMLInputElement)
+                         v
   
   export
-  min :  JSType t
-      => {auto 0 _ : Elem HTMLInputElement (Types t)}
-      -> t
-      -> Attribute True I String
-  min v = fromPrim "HTMLInputElement.getmin"
-                   prim__min
-                   prim__setMin
-                   (v :> HTMLInputElement)
+  min : HTMLInputElement -> Attribute True I String
+  min v = fromPrim "HTMLInputElement.getmin" prim__min prim__setMin v
   
   export
-  minLength :  JSType t
-            => {auto 0 _ : Elem HTMLInputElement (Types t)}
-            -> t
-            -> Attribute True I Int32
+  minLength : HTMLInputElement -> Attribute True I Int32
   minLength v = fromPrim "HTMLInputElement.getminLength"
                          prim__minLength
                          prim__setMinLength
-                         (v :> HTMLInputElement)
+                         v
   
   export
-  multiple :  JSType t
-           => {auto 0 _ : Elem HTMLInputElement (Types t)}
-           -> t
-           -> Attribute True I Bool
+  multiple : HTMLInputElement -> Attribute True I Bool
   multiple v = fromPrim "HTMLInputElement.getmultiple"
                         prim__multiple
                         prim__setMultiple
-                        (v :> HTMLInputElement)
+                        v
   
   export
-  name :  JSType t
-       => {auto 0 _ : Elem HTMLInputElement (Types t)}
-       -> t
-       -> Attribute True I String
-  name v = fromPrim "HTMLInputElement.getname"
-                    prim__name
-                    prim__setName
-                    (v :> HTMLInputElement)
+  name : HTMLInputElement -> Attribute True I String
+  name v = fromPrim "HTMLInputElement.getname" prim__name prim__setName v
   
   export
-  pattern :  JSType t
-          => {auto 0 _ : Elem HTMLInputElement (Types t)}
-          -> t
-          -> Attribute True I String
+  pattern : HTMLInputElement -> Attribute True I String
   pattern v = fromPrim "HTMLInputElement.getpattern"
                        prim__pattern
                        prim__setPattern
-                       (v :> HTMLInputElement)
+                       v
   
   export
-  placeholder :  JSType t
-              => {auto 0 _ : Elem HTMLInputElement (Types t)}
-              -> t
-              -> Attribute True I String
+  placeholder : HTMLInputElement -> Attribute True I String
   placeholder v = fromPrim "HTMLInputElement.getplaceholder"
                            prim__placeholder
                            prim__setPlaceholder
-                           (v :> HTMLInputElement)
+                           v
   
   export
-  readOnly :  JSType t
-           => {auto 0 _ : Elem HTMLInputElement (Types t)}
-           -> t
-           -> Attribute True I Bool
+  readOnly : HTMLInputElement -> Attribute True I Bool
   readOnly v = fromPrim "HTMLInputElement.getreadOnly"
                         prim__readOnly
                         prim__setReadOnly
-                        (v :> HTMLInputElement)
+                        v
   
   export
-  required :  JSType t
-           => {auto 0 _ : Elem HTMLInputElement (Types t)}
-           -> t
-           -> Attribute True I Bool
+  required : HTMLInputElement -> Attribute True I Bool
   required v = fromPrim "HTMLInputElement.getrequired"
                         prim__required
                         prim__setRequired
-                        (v :> HTMLInputElement)
+                        v
   
   export
-  selectionDirection :  JSType t
-                     => {auto 0 _ : Elem HTMLInputElement (Types t)}
-                     -> t
-                     -> Attribute False Maybe String
+  selectionDirection : HTMLInputElement -> Attribute False Maybe String
   selectionDirection v = fromNullablePrim "HTMLInputElement.getselectionDirection"
                                           prim__selectionDirection
                                           prim__setSelectionDirection
-                                          (v :> HTMLInputElement)
+                                          v
   
   export
-  selectionEnd :  JSType t
-               => {auto 0 _ : Elem HTMLInputElement (Types t)}
-               -> t
-               -> Attribute False Maybe UInt32
+  selectionEnd : HTMLInputElement -> Attribute False Maybe UInt32
   selectionEnd v = fromNullablePrim "HTMLInputElement.getselectionEnd"
                                     prim__selectionEnd
                                     prim__setSelectionEnd
-                                    (v :> HTMLInputElement)
+                                    v
   
   export
-  selectionStart :  JSType t
-                 => {auto 0 _ : Elem HTMLInputElement (Types t)}
-                 -> t
-                 -> Attribute False Maybe UInt32
+  selectionStart : HTMLInputElement -> Attribute False Maybe UInt32
   selectionStart v = fromNullablePrim "HTMLInputElement.getselectionStart"
                                       prim__selectionStart
                                       prim__setSelectionStart
-                                      (v :> HTMLInputElement)
+                                      v
   
   export
-  size :  JSType t
-       => {auto 0 _ : Elem HTMLInputElement (Types t)}
-       -> t
-       -> Attribute True I UInt32
-  size v = fromPrim "HTMLInputElement.getsize"
-                    prim__size
-                    prim__setSize
-                    (v :> HTMLInputElement)
+  size : HTMLInputElement -> Attribute True I UInt32
+  size v = fromPrim "HTMLInputElement.getsize" prim__size prim__setSize v
   
   export
-  src :  JSType t
-      => {auto 0 _ : Elem HTMLInputElement (Types t)}
-      -> t
-      -> Attribute True I String
-  src v = fromPrim "HTMLInputElement.getsrc"
-                   prim__src
-                   prim__setSrc
-                   (v :> HTMLInputElement)
+  src : HTMLInputElement -> Attribute True I String
+  src v = fromPrim "HTMLInputElement.getsrc" prim__src prim__setSrc v
   
   export
-  step :  JSType t
-       => {auto 0 _ : Elem HTMLInputElement (Types t)}
-       -> t
-       -> Attribute True I String
-  step v = fromPrim "HTMLInputElement.getstep"
-                    prim__step
-                    prim__setStep
-                    (v :> HTMLInputElement)
+  step : HTMLInputElement -> Attribute True I String
+  step v = fromPrim "HTMLInputElement.getstep" prim__step prim__setStep v
   
   export
-  type :  JSType t
-       => {auto 0 _ : Elem HTMLInputElement (Types t)}
-       -> t
-       -> Attribute True I String
-  type v = fromPrim "HTMLInputElement.gettype"
-                    prim__type
-                    prim__setType
-                    (v :> HTMLInputElement)
+  type : HTMLInputElement -> Attribute True I String
+  type v = fromPrim "HTMLInputElement.gettype" prim__type prim__setType v
   
   export
-  useMap :  JSType t
-         => {auto 0 _ : Elem HTMLInputElement (Types t)}
-         -> t
-         -> Attribute True I String
+  useMap : HTMLInputElement -> Attribute True I String
   useMap v = fromPrim "HTMLInputElement.getuseMap"
                       prim__useMap
                       prim__setUseMap
-                      (v :> HTMLInputElement)
+                      v
   
   export
-  validationMessage :  JSType t1
-                    => {auto 0 _ : Elem HTMLInputElement (Types t1)}
-                    -> (obj : t1)
-                    -> JSIO String
-  validationMessage a = primJS $ HTMLInputElement.prim__validationMessage (up a)
+  validationMessage : (obj : HTMLInputElement) -> JSIO String
+  validationMessage a = primJS $ HTMLInputElement.prim__validationMessage a
   
   export
-  validity :  JSType t1
-           => {auto 0 _ : Elem HTMLInputElement (Types t1)}
-           -> (obj : t1)
-           -> JSIO ValidityState
-  validity a = primJS $ HTMLInputElement.prim__validity (up a)
+  validity : (obj : HTMLInputElement) -> JSIO ValidityState
+  validity a = primJS $ HTMLInputElement.prim__validity a
   
   export
-  value :  JSType t
-        => {auto 0 _ : Elem HTMLInputElement (Types t)}
-        -> t
-        -> Attribute True I String
-  value v = fromPrim "HTMLInputElement.getvalue"
-                     prim__value
-                     prim__setValue
-                     (v :> HTMLInputElement)
+  value : HTMLInputElement -> Attribute True I String
+  value v = fromPrim "HTMLInputElement.getvalue" prim__value prim__setValue v
   
   export
-  valueAsDate :  JSType t
-              => {auto 0 _ : Elem HTMLInputElement (Types t)}
-              -> t
-              -> Attribute False Maybe Object
+  valueAsDate : HTMLInputElement -> Attribute False Maybe Object
   valueAsDate v = fromNullablePrim "HTMLInputElement.getvalueAsDate"
                                    prim__valueAsDate
                                    prim__setValueAsDate
-                                   (v :> HTMLInputElement)
+                                   v
   
   export
-  valueAsNumber :  JSType t
-                => {auto 0 _ : Elem HTMLInputElement (Types t)}
-                -> t
-                -> Attribute True I Double
+  valueAsNumber : HTMLInputElement -> Attribute True I Double
   valueAsNumber v = fromPrim "HTMLInputElement.getvalueAsNumber"
                              prim__valueAsNumber
                              prim__setValueAsNumber
-                             (v :> HTMLInputElement)
+                             v
   
   export
-  width :  JSType t
-        => {auto 0 _ : Elem HTMLInputElement (Types t)}
-        -> t
-        -> Attribute True I UInt32
-  width v = fromPrim "HTMLInputElement.getwidth"
-                     prim__width
-                     prim__setWidth
-                     (v :> HTMLInputElement)
+  width : HTMLInputElement -> Attribute True I UInt32
+  width v = fromPrim "HTMLInputElement.getwidth" prim__width prim__setWidth v
   
   export
-  willValidate :  JSType t1
-               => {auto 0 _ : Elem HTMLInputElement (Types t1)}
-               -> (obj : t1)
-               -> JSIO Bool
+  willValidate : (obj : HTMLInputElement) -> JSIO Bool
   willValidate a = tryJS "HTMLInputElement.willValidate"
-                 $ HTMLInputElement.prim__willValidate (up a)
+                 $ HTMLInputElement.prim__willValidate a
   
   export
-  checkValidity :  JSType t1
-                => {auto 0 _ : Elem HTMLInputElement (Types t1)}
-                -> (obj : t1)
-                -> JSIO Bool
+  checkValidity : (obj : HTMLInputElement) -> JSIO Bool
   checkValidity a = tryJS "HTMLInputElement.checkValidity"
-                  $ HTMLInputElement.prim__checkValidity (up a)
+                  $ HTMLInputElement.prim__checkValidity a
   
   export
-  reportValidity :  JSType t1
-                 => {auto 0 _ : Elem HTMLInputElement (Types t1)}
-                 -> (obj : t1)
-                 -> JSIO Bool
+  reportValidity : (obj : HTMLInputElement) -> JSIO Bool
   reportValidity a = tryJS "HTMLInputElement.reportValidity"
-                   $ HTMLInputElement.prim__reportValidity (up a)
+                   $ HTMLInputElement.prim__reportValidity a
   
   export
-  select :  JSType t1
-         => {auto 0 _ : Elem HTMLInputElement (Types t1)}
-         -> (obj : t1)
-         -> JSIO ()
-  select a = primJS $ HTMLInputElement.prim__select (up a)
+  select : (obj : HTMLInputElement) -> JSIO ()
+  select a = primJS $ HTMLInputElement.prim__select a
   
   export
-  setCustomValidity :  JSType t1
-                    => {auto 0 _ : Elem HTMLInputElement (Types t1)}
-                    -> (obj : t1)
-                    -> (error : String)
-                    -> JSIO ()
-  setCustomValidity a b = primJS
-                        $ HTMLInputElement.prim__setCustomValidity (up a) b
+  setCustomValidity : (obj : HTMLInputElement) -> (error : String) -> JSIO ()
+  setCustomValidity a b = primJS $ HTMLInputElement.prim__setCustomValidity a b
   
   export
-  setRangeText :  JSType t1
-               => {auto 0 _ : Elem HTMLInputElement (Types t1)}
-               -> (obj : t1)
-               -> (replacement : String)
-               -> JSIO ()
-  setRangeText a b = primJS $ HTMLInputElement.prim__setRangeText (up a) b
+  setRangeText : (obj : HTMLInputElement) -> (replacement : String) -> JSIO ()
+  setRangeText a b = primJS $ HTMLInputElement.prim__setRangeText a b
   
   export
-  setRangeText1 :  JSType t1
-                => {auto 0 _ : Elem HTMLInputElement (Types t1)}
-                -> (obj : t1)
+  setRangeText1 :  (obj : HTMLInputElement)
                 -> (replacement : String)
                 -> (start : UInt32)
                 -> (end : UInt32)
                 -> (selectionMode : Optional SelectionMode)
                 -> JSIO ()
   setRangeText1 a b c d e = primJS
-                          $ HTMLInputElement.prim__setRangeText1 (up a)
+                          $ HTMLInputElement.prim__setRangeText1 a
                                                                  b
                                                                  c
                                                                  d
                                                                  (toFFI e)
 
   export
-  setRangeText1' :  JSType t1
-                 => {auto 0 _ : Elem HTMLInputElement (Types t1)}
-                 -> (obj : t1)
+  setRangeText1' :  (obj : HTMLInputElement)
                  -> (replacement : String)
                  -> (start : UInt32)
                  -> (end : UInt32)
                  -> JSIO ()
   setRangeText1' a b c d = primJS
-                         $ HTMLInputElement.prim__setRangeText1 (up a)
-                                                                b
-                                                                c
-                                                                d
-                                                                undef
+                         $ HTMLInputElement.prim__setRangeText1 a b c d undef
   
   export
-  setSelectionRange :  JSType t1
-                    => {auto 0 _ : Elem HTMLInputElement (Types t1)}
-                    -> (obj : t1)
+  setSelectionRange :  (obj : HTMLInputElement)
                     -> (start : UInt32)
                     -> (end : UInt32)
                     -> (direction : Optional String)
                     -> JSIO ()
   setSelectionRange a b c d = primJS
-                            $ HTMLInputElement.prim__setSelectionRange (up a)
+                            $ HTMLInputElement.prim__setSelectionRange a
                                                                        b
                                                                        c
                                                                        (toFFI d)
 
   export
-  setSelectionRange' :  JSType t1
-                     => {auto 0 _ : Elem HTMLInputElement (Types t1)}
-                     -> (obj : t1)
+  setSelectionRange' :  (obj : HTMLInputElement)
                      -> (start : UInt32)
                      -> (end : UInt32)
                      -> JSIO ()
   setSelectionRange' a b c = primJS
-                           $ HTMLInputElement.prim__setSelectionRange (up a)
+                           $ HTMLInputElement.prim__setSelectionRange a
                                                                       b
                                                                       c
                                                                       undef
   
   export
-  stepDown :  JSType t1
-           => {auto 0 _ : Elem HTMLInputElement (Types t1)}
-           -> (obj : t1)
-           -> (n : Optional Int32)
-           -> JSIO ()
-  stepDown a b = primJS $ HTMLInputElement.prim__stepDown (up a) (toFFI b)
+  stepDown : (obj : HTMLInputElement) -> (n : Optional Int32) -> JSIO ()
+  stepDown a b = primJS $ HTMLInputElement.prim__stepDown a (toFFI b)
 
   export
-  stepDown' :  JSType t1
-            => {auto 0 _ : Elem HTMLInputElement (Types t1)}
-            -> (obj : t1)
-            -> JSIO ()
-  stepDown' a = primJS $ HTMLInputElement.prim__stepDown (up a) undef
+  stepDown' : (obj : HTMLInputElement) -> JSIO ()
+  stepDown' a = primJS $ HTMLInputElement.prim__stepDown a undef
   
   export
-  stepUp :  JSType t1
-         => {auto 0 _ : Elem HTMLInputElement (Types t1)}
-         -> (obj : t1)
-         -> (n : Optional Int32)
-         -> JSIO ()
-  stepUp a b = primJS $ HTMLInputElement.prim__stepUp (up a) (toFFI b)
+  stepUp : (obj : HTMLInputElement) -> (n : Optional Int32) -> JSIO ()
+  stepUp a b = primJS $ HTMLInputElement.prim__stepUp a (toFFI b)
 
   export
-  stepUp' :  JSType t1
-          => {auto 0 _ : Elem HTMLInputElement (Types t1)}
-          -> (obj : t1)
-          -> JSIO ()
-  stepUp' a = primJS $ HTMLInputElement.prim__stepUp (up a) undef
+  stepUp' : (obj : HTMLInputElement) -> JSIO ()
+  stepUp' a = primJS $ HTMLInputElement.prim__stepUp a undef
 
 namespace HTMLLIElement
   
@@ -3480,24 +2242,12 @@ namespace HTMLLIElement
   new = primJS $ HTMLLIElement.prim__new 
   
   export
-  type :  JSType t
-       => {auto 0 _ : Elem HTMLLIElement (Types t)}
-       -> t
-       -> Attribute True I String
-  type v = fromPrim "HTMLLIElement.gettype"
-                    prim__type
-                    prim__setType
-                    (v :> HTMLLIElement)
+  type : HTMLLIElement -> Attribute True I String
+  type v = fromPrim "HTMLLIElement.gettype" prim__type prim__setType v
   
   export
-  value :  JSType t
-        => {auto 0 _ : Elem HTMLLIElement (Types t)}
-        -> t
-        -> Attribute True I Int32
-  value v = fromPrim "HTMLLIElement.getvalue"
-                     prim__value
-                     prim__setValue
-                     (v :> HTMLLIElement)
+  value : HTMLLIElement -> Attribute True I Int32
+  value v = fromPrim "HTMLLIElement.getvalue" prim__value prim__setValue v
 
 namespace HTMLLabelElement
   
@@ -3506,29 +2256,20 @@ namespace HTMLLabelElement
   new = primJS $ HTMLLabelElement.prim__new 
   
   export
-  control :  JSType t1
-          => {auto 0 _ : Elem HTMLLabelElement (Types t1)}
-          -> (obj : t1)
-          -> JSIO (Maybe HTMLElement)
+  control : (obj : HTMLLabelElement) -> JSIO (Maybe HTMLElement)
   control a = tryJS "HTMLLabelElement.control"
-            $ HTMLLabelElement.prim__control (up a)
+            $ HTMLLabelElement.prim__control a
   
   export
-  form :  JSType t1
-       => {auto 0 _ : Elem HTMLLabelElement (Types t1)}
-       -> (obj : t1)
-       -> JSIO (Maybe HTMLFormElement)
-  form a = tryJS "HTMLLabelElement.form" $ HTMLLabelElement.prim__form (up a)
+  form : (obj : HTMLLabelElement) -> JSIO (Maybe HTMLFormElement)
+  form a = tryJS "HTMLLabelElement.form" $ HTMLLabelElement.prim__form a
   
   export
-  htmlFor :  JSType t
-          => {auto 0 _ : Elem HTMLLabelElement (Types t)}
-          -> t
-          -> Attribute True I String
+  htmlFor : HTMLLabelElement -> Attribute True I String
   htmlFor v = fromPrim "HTMLLabelElement.gethtmlFor"
                        prim__htmlFor
                        prim__setHtmlFor
-                       (v :> HTMLLabelElement)
+                       v
 
 namespace HTMLLegendElement
   
@@ -3537,21 +2278,12 @@ namespace HTMLLegendElement
   new = primJS $ HTMLLegendElement.prim__new 
   
   export
-  align :  JSType t
-        => {auto 0 _ : Elem HTMLLegendElement (Types t)}
-        -> t
-        -> Attribute True I String
-  align v = fromPrim "HTMLLegendElement.getalign"
-                     prim__align
-                     prim__setAlign
-                     (v :> HTMLLegendElement)
+  align : HTMLLegendElement -> Attribute True I String
+  align v = fromPrim "HTMLLegendElement.getalign" prim__align prim__setAlign v
   
   export
-  form :  JSType t1
-       => {auto 0 _ : Elem HTMLLegendElement (Types t1)}
-       -> (obj : t1)
-       -> JSIO (Maybe HTMLFormElement)
-  form a = tryJS "HTMLLegendElement.form" $ HTMLLegendElement.prim__form (up a)
+  form : (obj : HTMLLegendElement) -> JSIO (Maybe HTMLFormElement)
+  form a = tryJS "HTMLLegendElement.form" $ HTMLLegendElement.prim__form a
 
 namespace HTMLLinkElement
   
@@ -3560,168 +2292,96 @@ namespace HTMLLinkElement
   new = primJS $ HTMLLinkElement.prim__new 
   
   export
-  as :  JSType t
-     => {auto 0 _ : Elem HTMLLinkElement (Types t)}
-     -> t
-     -> Attribute True I String
-  as v = fromPrim "HTMLLinkElement.getas"
-                  prim__as
-                  prim__setAs
-                  (v :> HTMLLinkElement)
+  as : HTMLLinkElement -> Attribute True I String
+  as v = fromPrim "HTMLLinkElement.getas" prim__as prim__setAs v
   
   export
-  charset :  JSType t
-          => {auto 0 _ : Elem HTMLLinkElement (Types t)}
-          -> t
-          -> Attribute True I String
+  charset : HTMLLinkElement -> Attribute True I String
   charset v = fromPrim "HTMLLinkElement.getcharset"
                        prim__charset
                        prim__setCharset
-                       (v :> HTMLLinkElement)
+                       v
   
   export
-  crossOrigin :  JSType t
-              => {auto 0 _ : Elem HTMLLinkElement (Types t)}
-              -> t
-              -> Attribute False Maybe String
+  crossOrigin : HTMLLinkElement -> Attribute False Maybe String
   crossOrigin v = fromNullablePrim "HTMLLinkElement.getcrossOrigin"
                                    prim__crossOrigin
                                    prim__setCrossOrigin
-                                   (v :> HTMLLinkElement)
+                                   v
   
   export
-  disabled :  JSType t
-           => {auto 0 _ : Elem HTMLLinkElement (Types t)}
-           -> t
-           -> Attribute True I Bool
+  disabled : HTMLLinkElement -> Attribute True I Bool
   disabled v = fromPrim "HTMLLinkElement.getdisabled"
                         prim__disabled
                         prim__setDisabled
-                        (v :> HTMLLinkElement)
+                        v
   
   export
-  href :  JSType t
-       => {auto 0 _ : Elem HTMLLinkElement (Types t)}
-       -> t
-       -> Attribute True I String
-  href v = fromPrim "HTMLLinkElement.gethref"
-                    prim__href
-                    prim__setHref
-                    (v :> HTMLLinkElement)
+  href : HTMLLinkElement -> Attribute True I String
+  href v = fromPrim "HTMLLinkElement.gethref" prim__href prim__setHref v
   
   export
-  hreflang :  JSType t
-           => {auto 0 _ : Elem HTMLLinkElement (Types t)}
-           -> t
-           -> Attribute True I String
+  hreflang : HTMLLinkElement -> Attribute True I String
   hreflang v = fromPrim "HTMLLinkElement.gethreflang"
                         prim__hreflang
                         prim__setHreflang
-                        (v :> HTMLLinkElement)
+                        v
   
   export
-  imageSizes :  JSType t
-             => {auto 0 _ : Elem HTMLLinkElement (Types t)}
-             -> t
-             -> Attribute True I String
+  imageSizes : HTMLLinkElement -> Attribute True I String
   imageSizes v = fromPrim "HTMLLinkElement.getimageSizes"
                           prim__imageSizes
                           prim__setImageSizes
-                          (v :> HTMLLinkElement)
+                          v
   
   export
-  imageSrcset :  JSType t
-              => {auto 0 _ : Elem HTMLLinkElement (Types t)}
-              -> t
-              -> Attribute True I String
+  imageSrcset : HTMLLinkElement -> Attribute True I String
   imageSrcset v = fromPrim "HTMLLinkElement.getimageSrcset"
                            prim__imageSrcset
                            prim__setImageSrcset
-                           (v :> HTMLLinkElement)
+                           v
   
   export
-  integrity :  JSType t
-            => {auto 0 _ : Elem HTMLLinkElement (Types t)}
-            -> t
-            -> Attribute True I String
+  integrity : HTMLLinkElement -> Attribute True I String
   integrity v = fromPrim "HTMLLinkElement.getintegrity"
                          prim__integrity
                          prim__setIntegrity
-                         (v :> HTMLLinkElement)
+                         v
   
   export
-  media :  JSType t
-        => {auto 0 _ : Elem HTMLLinkElement (Types t)}
-        -> t
-        -> Attribute True I String
-  media v = fromPrim "HTMLLinkElement.getmedia"
-                     prim__media
-                     prim__setMedia
-                     (v :> HTMLLinkElement)
+  media : HTMLLinkElement -> Attribute True I String
+  media v = fromPrim "HTMLLinkElement.getmedia" prim__media prim__setMedia v
   
   export
-  referrerPolicy :  JSType t
-                 => {auto 0 _ : Elem HTMLLinkElement (Types t)}
-                 -> t
-                 -> Attribute True I String
+  referrerPolicy : HTMLLinkElement -> Attribute True I String
   referrerPolicy v = fromPrim "HTMLLinkElement.getreferrerPolicy"
                               prim__referrerPolicy
                               prim__setReferrerPolicy
-                              (v :> HTMLLinkElement)
+                              v
   
   export
-  rel :  JSType t
-      => {auto 0 _ : Elem HTMLLinkElement (Types t)}
-      -> t
-      -> Attribute True I String
-  rel v = fromPrim "HTMLLinkElement.getrel"
-                   prim__rel
-                   prim__setRel
-                   (v :> HTMLLinkElement)
+  rel : HTMLLinkElement -> Attribute True I String
+  rel v = fromPrim "HTMLLinkElement.getrel" prim__rel prim__setRel v
   
   export
-  relList :  JSType t1
-          => {auto 0 _ : Elem HTMLLinkElement (Types t1)}
-          -> (obj : t1)
-          -> JSIO DOMTokenList
-  relList a = primJS $ HTMLLinkElement.prim__relList (up a)
+  relList : (obj : HTMLLinkElement) -> JSIO DOMTokenList
+  relList a = primJS $ HTMLLinkElement.prim__relList a
   
   export
-  rev :  JSType t
-      => {auto 0 _ : Elem HTMLLinkElement (Types t)}
-      -> t
-      -> Attribute True I String
-  rev v = fromPrim "HTMLLinkElement.getrev"
-                   prim__rev
-                   prim__setRev
-                   (v :> HTMLLinkElement)
+  rev : HTMLLinkElement -> Attribute True I String
+  rev v = fromPrim "HTMLLinkElement.getrev" prim__rev prim__setRev v
   
   export
-  sizes :  JSType t1
-        => {auto 0 _ : Elem HTMLLinkElement (Types t1)}
-        -> (obj : t1)
-        -> JSIO DOMTokenList
-  sizes a = primJS $ HTMLLinkElement.prim__sizes (up a)
+  sizes : (obj : HTMLLinkElement) -> JSIO DOMTokenList
+  sizes a = primJS $ HTMLLinkElement.prim__sizes a
   
   export
-  target :  JSType t
-         => {auto 0 _ : Elem HTMLLinkElement (Types t)}
-         -> t
-         -> Attribute True I String
-  target v = fromPrim "HTMLLinkElement.gettarget"
-                      prim__target
-                      prim__setTarget
-                      (v :> HTMLLinkElement)
+  target : HTMLLinkElement -> Attribute True I String
+  target v = fromPrim "HTMLLinkElement.gettarget" prim__target prim__setTarget v
   
   export
-  type :  JSType t
-       => {auto 0 _ : Elem HTMLLinkElement (Types t)}
-       -> t
-       -> Attribute True I String
-  type v = fromPrim "HTMLLinkElement.gettype"
-                    prim__type
-                    prim__setType
-                    (v :> HTMLLinkElement)
+  type : HTMLLinkElement -> Attribute True I String
+  type v = fromPrim "HTMLLinkElement.gettype" prim__type prim__setType v
 
 namespace HTMLMapElement
   
@@ -3730,21 +2390,12 @@ namespace HTMLMapElement
   new = primJS $ HTMLMapElement.prim__new 
   
   export
-  areas :  JSType t1
-        => {auto 0 _ : Elem HTMLMapElement (Types t1)}
-        -> (obj : t1)
-        -> JSIO HTMLCollection
-  areas a = primJS $ HTMLMapElement.prim__areas (up a)
+  areas : (obj : HTMLMapElement) -> JSIO HTMLCollection
+  areas a = primJS $ HTMLMapElement.prim__areas a
   
   export
-  name :  JSType t
-       => {auto 0 _ : Elem HTMLMapElement (Types t)}
-       -> t
-       -> Attribute True I String
-  name v = fromPrim "HTMLMapElement.getname"
-                    prim__name
-                    prim__setName
-                    (v :> HTMLMapElement)
+  name : HTMLMapElement -> Attribute True I String
+  name v = fromPrim "HTMLMapElement.getname" prim__name prim__setName v
 
 namespace HTMLMarqueeElement
   
@@ -3753,128 +2404,83 @@ namespace HTMLMarqueeElement
   new = primJS $ HTMLMarqueeElement.prim__new 
   
   export
-  behavior :  JSType t
-           => {auto 0 _ : Elem HTMLMarqueeElement (Types t)}
-           -> t
-           -> Attribute True I String
+  behavior : HTMLMarqueeElement -> Attribute True I String
   behavior v = fromPrim "HTMLMarqueeElement.getbehavior"
                         prim__behavior
                         prim__setBehavior
-                        (v :> HTMLMarqueeElement)
+                        v
   
   export
-  bgColor :  JSType t
-          => {auto 0 _ : Elem HTMLMarqueeElement (Types t)}
-          -> t
-          -> Attribute True I String
+  bgColor : HTMLMarqueeElement -> Attribute True I String
   bgColor v = fromPrim "HTMLMarqueeElement.getbgColor"
                        prim__bgColor
                        prim__setBgColor
-                       (v :> HTMLMarqueeElement)
+                       v
   
   export
-  direction :  JSType t
-            => {auto 0 _ : Elem HTMLMarqueeElement (Types t)}
-            -> t
-            -> Attribute True I String
+  direction : HTMLMarqueeElement -> Attribute True I String
   direction v = fromPrim "HTMLMarqueeElement.getdirection"
                          prim__direction
                          prim__setDirection
-                         (v :> HTMLMarqueeElement)
+                         v
   
   export
-  height :  JSType t
-         => {auto 0 _ : Elem HTMLMarqueeElement (Types t)}
-         -> t
-         -> Attribute True I String
+  height : HTMLMarqueeElement -> Attribute True I String
   height v = fromPrim "HTMLMarqueeElement.getheight"
                       prim__height
                       prim__setHeight
-                      (v :> HTMLMarqueeElement)
+                      v
   
   export
-  hspace :  JSType t
-         => {auto 0 _ : Elem HTMLMarqueeElement (Types t)}
-         -> t
-         -> Attribute True I UInt32
+  hspace : HTMLMarqueeElement -> Attribute True I UInt32
   hspace v = fromPrim "HTMLMarqueeElement.gethspace"
                       prim__hspace
                       prim__setHspace
-                      (v :> HTMLMarqueeElement)
+                      v
   
   export
-  loop :  JSType t
-       => {auto 0 _ : Elem HTMLMarqueeElement (Types t)}
-       -> t
-       -> Attribute True I Int32
-  loop v = fromPrim "HTMLMarqueeElement.getloop"
-                    prim__loop
-                    prim__setLoop
-                    (v :> HTMLMarqueeElement)
+  loop : HTMLMarqueeElement -> Attribute True I Int32
+  loop v = fromPrim "HTMLMarqueeElement.getloop" prim__loop prim__setLoop v
   
   export
-  scrollAmount :  JSType t
-               => {auto 0 _ : Elem HTMLMarqueeElement (Types t)}
-               -> t
-               -> Attribute True I UInt32
+  scrollAmount : HTMLMarqueeElement -> Attribute True I UInt32
   scrollAmount v = fromPrim "HTMLMarqueeElement.getscrollAmount"
                             prim__scrollAmount
                             prim__setScrollAmount
-                            (v :> HTMLMarqueeElement)
+                            v
   
   export
-  scrollDelay :  JSType t
-              => {auto 0 _ : Elem HTMLMarqueeElement (Types t)}
-              -> t
-              -> Attribute True I UInt32
+  scrollDelay : HTMLMarqueeElement -> Attribute True I UInt32
   scrollDelay v = fromPrim "HTMLMarqueeElement.getscrollDelay"
                            prim__scrollDelay
                            prim__setScrollDelay
-                           (v :> HTMLMarqueeElement)
+                           v
   
   export
-  trueSpeed :  JSType t
-            => {auto 0 _ : Elem HTMLMarqueeElement (Types t)}
-            -> t
-            -> Attribute True I Bool
+  trueSpeed : HTMLMarqueeElement -> Attribute True I Bool
   trueSpeed v = fromPrim "HTMLMarqueeElement.gettrueSpeed"
                          prim__trueSpeed
                          prim__setTrueSpeed
-                         (v :> HTMLMarqueeElement)
+                         v
   
   export
-  vspace :  JSType t
-         => {auto 0 _ : Elem HTMLMarqueeElement (Types t)}
-         -> t
-         -> Attribute True I UInt32
+  vspace : HTMLMarqueeElement -> Attribute True I UInt32
   vspace v = fromPrim "HTMLMarqueeElement.getvspace"
                       prim__vspace
                       prim__setVspace
-                      (v :> HTMLMarqueeElement)
+                      v
   
   export
-  width :  JSType t
-        => {auto 0 _ : Elem HTMLMarqueeElement (Types t)}
-        -> t
-        -> Attribute True I String
-  width v = fromPrim "HTMLMarqueeElement.getwidth"
-                     prim__width
-                     prim__setWidth
-                     (v :> HTMLMarqueeElement)
+  width : HTMLMarqueeElement -> Attribute True I String
+  width v = fromPrim "HTMLMarqueeElement.getwidth" prim__width prim__setWidth v
   
   export
-  start :  JSType t1
-        => {auto 0 _ : Elem HTMLMarqueeElement (Types t1)}
-        -> (obj : t1)
-        -> JSIO ()
-  start a = primJS $ HTMLMarqueeElement.prim__start (up a)
+  start : (obj : HTMLMarqueeElement) -> JSIO ()
+  start a = primJS $ HTMLMarqueeElement.prim__start a
   
   export
-  stop :  JSType t1
-       => {auto 0 _ : Elem HTMLMarqueeElement (Types t1)}
-       -> (obj : t1)
-       -> JSIO ()
-  stop a = primJS $ HTMLMarqueeElement.prim__stop (up a)
+  stop : (obj : HTMLMarqueeElement) -> JSIO ()
+  stop a = primJS $ HTMLMarqueeElement.prim__stop a
 
 namespace HTMLMediaElement
   
@@ -4232,14 +2838,11 @@ namespace HTMLMenuElement
   new = primJS $ HTMLMenuElement.prim__new 
   
   export
-  compact :  JSType t
-          => {auto 0 _ : Elem HTMLMenuElement (Types t)}
-          -> t
-          -> Attribute True I Bool
+  compact : HTMLMenuElement -> Attribute True I Bool
   compact v = fromPrim "HTMLMenuElement.getcompact"
                        prim__compact
                        prim__setCompact
-                       (v :> HTMLMenuElement)
+                       v
 
 namespace HTMLMetaElement
   
@@ -4248,44 +2851,26 @@ namespace HTMLMetaElement
   new = primJS $ HTMLMetaElement.prim__new 
   
   export
-  content :  JSType t
-          => {auto 0 _ : Elem HTMLMetaElement (Types t)}
-          -> t
-          -> Attribute True I String
+  content : HTMLMetaElement -> Attribute True I String
   content v = fromPrim "HTMLMetaElement.getcontent"
                        prim__content
                        prim__setContent
-                       (v :> HTMLMetaElement)
+                       v
   
   export
-  httpEquiv :  JSType t
-            => {auto 0 _ : Elem HTMLMetaElement (Types t)}
-            -> t
-            -> Attribute True I String
+  httpEquiv : HTMLMetaElement -> Attribute True I String
   httpEquiv v = fromPrim "HTMLMetaElement.gethttpEquiv"
                          prim__httpEquiv
                          prim__setHttpEquiv
-                         (v :> HTMLMetaElement)
+                         v
   
   export
-  name :  JSType t
-       => {auto 0 _ : Elem HTMLMetaElement (Types t)}
-       -> t
-       -> Attribute True I String
-  name v = fromPrim "HTMLMetaElement.getname"
-                    prim__name
-                    prim__setName
-                    (v :> HTMLMetaElement)
+  name : HTMLMetaElement -> Attribute True I String
+  name v = fromPrim "HTMLMetaElement.getname" prim__name prim__setName v
   
   export
-  scheme :  JSType t
-         => {auto 0 _ : Elem HTMLMetaElement (Types t)}
-         -> t
-         -> Attribute True I String
-  scheme v = fromPrim "HTMLMetaElement.getscheme"
-                      prim__scheme
-                      prim__setScheme
-                      (v :> HTMLMetaElement)
+  scheme : HTMLMetaElement -> Attribute True I String
+  scheme v = fromPrim "HTMLMetaElement.getscheme" prim__scheme prim__setScheme v
 
 namespace HTMLMeterElement
   
@@ -4294,71 +2879,35 @@ namespace HTMLMeterElement
   new = primJS $ HTMLMeterElement.prim__new 
   
   export
-  high :  JSType t
-       => {auto 0 _ : Elem HTMLMeterElement (Types t)}
-       -> t
-       -> Attribute True I Double
-  high v = fromPrim "HTMLMeterElement.gethigh"
-                    prim__high
-                    prim__setHigh
-                    (v :> HTMLMeterElement)
+  high : HTMLMeterElement -> Attribute True I Double
+  high v = fromPrim "HTMLMeterElement.gethigh" prim__high prim__setHigh v
   
   export
-  labels :  JSType t1
-         => {auto 0 _ : Elem HTMLMeterElement (Types t1)}
-         -> (obj : t1)
-         -> JSIO NodeList
-  labels a = primJS $ HTMLMeterElement.prim__labels (up a)
+  labels : (obj : HTMLMeterElement) -> JSIO NodeList
+  labels a = primJS $ HTMLMeterElement.prim__labels a
   
   export
-  low :  JSType t
-      => {auto 0 _ : Elem HTMLMeterElement (Types t)}
-      -> t
-      -> Attribute True I Double
-  low v = fromPrim "HTMLMeterElement.getlow"
-                   prim__low
-                   prim__setLow
-                   (v :> HTMLMeterElement)
+  low : HTMLMeterElement -> Attribute True I Double
+  low v = fromPrim "HTMLMeterElement.getlow" prim__low prim__setLow v
   
   export
-  max :  JSType t
-      => {auto 0 _ : Elem HTMLMeterElement (Types t)}
-      -> t
-      -> Attribute True I Double
-  max v = fromPrim "HTMLMeterElement.getmax"
-                   prim__max
-                   prim__setMax
-                   (v :> HTMLMeterElement)
+  max : HTMLMeterElement -> Attribute True I Double
+  max v = fromPrim "HTMLMeterElement.getmax" prim__max prim__setMax v
   
   export
-  min :  JSType t
-      => {auto 0 _ : Elem HTMLMeterElement (Types t)}
-      -> t
-      -> Attribute True I Double
-  min v = fromPrim "HTMLMeterElement.getmin"
-                   prim__min
-                   prim__setMin
-                   (v :> HTMLMeterElement)
+  min : HTMLMeterElement -> Attribute True I Double
+  min v = fromPrim "HTMLMeterElement.getmin" prim__min prim__setMin v
   
   export
-  optimum :  JSType t
-          => {auto 0 _ : Elem HTMLMeterElement (Types t)}
-          -> t
-          -> Attribute True I Double
+  optimum : HTMLMeterElement -> Attribute True I Double
   optimum v = fromPrim "HTMLMeterElement.getoptimum"
                        prim__optimum
                        prim__setOptimum
-                       (v :> HTMLMeterElement)
+                       v
   
   export
-  value :  JSType t
-        => {auto 0 _ : Elem HTMLMeterElement (Types t)}
-        -> t
-        -> Attribute True I Double
-  value v = fromPrim "HTMLMeterElement.getvalue"
-                     prim__value
-                     prim__setValue
-                     (v :> HTMLMeterElement)
+  value : HTMLMeterElement -> Attribute True I Double
+  value v = fromPrim "HTMLMeterElement.getvalue" prim__value prim__setValue v
 
 namespace HTMLModElement
   
@@ -4367,24 +2916,15 @@ namespace HTMLModElement
   new = primJS $ HTMLModElement.prim__new 
   
   export
-  cite :  JSType t
-       => {auto 0 _ : Elem HTMLModElement (Types t)}
-       -> t
-       -> Attribute True I String
-  cite v = fromPrim "HTMLModElement.getcite"
-                    prim__cite
-                    prim__setCite
-                    (v :> HTMLModElement)
+  cite : HTMLModElement -> Attribute True I String
+  cite v = fromPrim "HTMLModElement.getcite" prim__cite prim__setCite v
   
   export
-  dateTime :  JSType t
-           => {auto 0 _ : Elem HTMLModElement (Types t)}
-           -> t
-           -> Attribute True I String
+  dateTime : HTMLModElement -> Attribute True I String
   dateTime v = fromPrim "HTMLModElement.getdateTime"
                         prim__dateTime
                         prim__setDateTime
-                        (v :> HTMLModElement)
+                        v
 
 namespace HTMLOListElement
   
@@ -4393,44 +2933,26 @@ namespace HTMLOListElement
   new = primJS $ HTMLOListElement.prim__new 
   
   export
-  compact :  JSType t
-          => {auto 0 _ : Elem HTMLOListElement (Types t)}
-          -> t
-          -> Attribute True I Bool
+  compact : HTMLOListElement -> Attribute True I Bool
   compact v = fromPrim "HTMLOListElement.getcompact"
                        prim__compact
                        prim__setCompact
-                       (v :> HTMLOListElement)
+                       v
   
   export
-  reversed :  JSType t
-           => {auto 0 _ : Elem HTMLOListElement (Types t)}
-           -> t
-           -> Attribute True I Bool
+  reversed : HTMLOListElement -> Attribute True I Bool
   reversed v = fromPrim "HTMLOListElement.getreversed"
                         prim__reversed
                         prim__setReversed
-                        (v :> HTMLOListElement)
+                        v
   
   export
-  start :  JSType t
-        => {auto 0 _ : Elem HTMLOListElement (Types t)}
-        -> t
-        -> Attribute True I Int32
-  start v = fromPrim "HTMLOListElement.getstart"
-                     prim__start
-                     prim__setStart
-                     (v :> HTMLOListElement)
+  start : HTMLOListElement -> Attribute True I Int32
+  start v = fromPrim "HTMLOListElement.getstart" prim__start prim__setStart v
   
   export
-  type :  JSType t
-       => {auto 0 _ : Elem HTMLOListElement (Types t)}
-       -> t
-       -> Attribute True I String
-  type v = fromPrim "HTMLOListElement.gettype"
-                    prim__type
-                    prim__setType
-                    (v :> HTMLOListElement)
+  type : HTMLOListElement -> Attribute True I String
+  type v = fromPrim "HTMLOListElement.gettype" prim__type prim__setType v
 
 namespace HTMLObjectElement
   
@@ -4439,243 +2961,144 @@ namespace HTMLObjectElement
   new = primJS $ HTMLObjectElement.prim__new 
   
   export
-  align :  JSType t
-        => {auto 0 _ : Elem HTMLObjectElement (Types t)}
-        -> t
-        -> Attribute True I String
-  align v = fromPrim "HTMLObjectElement.getalign"
-                     prim__align
-                     prim__setAlign
-                     (v :> HTMLObjectElement)
+  align : HTMLObjectElement -> Attribute True I String
+  align v = fromPrim "HTMLObjectElement.getalign" prim__align prim__setAlign v
   
   export
-  archive :  JSType t
-          => {auto 0 _ : Elem HTMLObjectElement (Types t)}
-          -> t
-          -> Attribute True I String
+  archive : HTMLObjectElement -> Attribute True I String
   archive v = fromPrim "HTMLObjectElement.getarchive"
                        prim__archive
                        prim__setArchive
-                       (v :> HTMLObjectElement)
+                       v
   
   export
-  border :  JSType t
-         => {auto 0 _ : Elem HTMLObjectElement (Types t)}
-         -> t
-         -> Attribute True I String
+  border : HTMLObjectElement -> Attribute True I String
   border v = fromPrim "HTMLObjectElement.getborder"
                       prim__border
                       prim__setBorder
-                      (v :> HTMLObjectElement)
+                      v
   
   export
-  code :  JSType t
-       => {auto 0 _ : Elem HTMLObjectElement (Types t)}
-       -> t
-       -> Attribute True I String
-  code v = fromPrim "HTMLObjectElement.getcode"
-                    prim__code
-                    prim__setCode
-                    (v :> HTMLObjectElement)
+  code : HTMLObjectElement -> Attribute True I String
+  code v = fromPrim "HTMLObjectElement.getcode" prim__code prim__setCode v
   
   export
-  codeBase :  JSType t
-           => {auto 0 _ : Elem HTMLObjectElement (Types t)}
-           -> t
-           -> Attribute True I String
+  codeBase : HTMLObjectElement -> Attribute True I String
   codeBase v = fromPrim "HTMLObjectElement.getcodeBase"
                         prim__codeBase
                         prim__setCodeBase
-                        (v :> HTMLObjectElement)
+                        v
   
   export
-  codeType :  JSType t
-           => {auto 0 _ : Elem HTMLObjectElement (Types t)}
-           -> t
-           -> Attribute True I String
+  codeType : HTMLObjectElement -> Attribute True I String
   codeType v = fromPrim "HTMLObjectElement.getcodeType"
                         prim__codeType
                         prim__setCodeType
-                        (v :> HTMLObjectElement)
+                        v
   
   export
-  contentDocument :  JSType t1
-                  => {auto 0 _ : Elem HTMLObjectElement (Types t1)}
-                  -> (obj : t1)
-                  -> JSIO (Maybe Document)
+  contentDocument : (obj : HTMLObjectElement) -> JSIO (Maybe Document)
   contentDocument a = tryJS "HTMLObjectElement.contentDocument"
-                    $ HTMLObjectElement.prim__contentDocument (up a)
+                    $ HTMLObjectElement.prim__contentDocument a
   
   export
-  contentWindow :  JSType t1
-                => {auto 0 _ : Elem HTMLObjectElement (Types t1)}
-                -> (obj : t1)
-                -> JSIO (Maybe WindowProxy)
+  contentWindow : (obj : HTMLObjectElement) -> JSIO (Maybe WindowProxy)
   contentWindow a = tryJS "HTMLObjectElement.contentWindow"
-                  $ HTMLObjectElement.prim__contentWindow (up a)
+                  $ HTMLObjectElement.prim__contentWindow a
   
   export
-  data_ :  JSType t
-        => {auto 0 _ : Elem HTMLObjectElement (Types t)}
-        -> t
-        -> Attribute True I String
-  data_ v = fromPrim "HTMLObjectElement.getdata"
-                     prim__data
-                     prim__setData
-                     (v :> HTMLObjectElement)
+  data_ : HTMLObjectElement -> Attribute True I String
+  data_ v = fromPrim "HTMLObjectElement.getdata" prim__data prim__setData v
   
   export
-  declare :  JSType t
-          => {auto 0 _ : Elem HTMLObjectElement (Types t)}
-          -> t
-          -> Attribute True I Bool
+  declare : HTMLObjectElement -> Attribute True I Bool
   declare v = fromPrim "HTMLObjectElement.getdeclare"
                        prim__declare
                        prim__setDeclare
-                       (v :> HTMLObjectElement)
+                       v
   
   export
-  form :  JSType t1
-       => {auto 0 _ : Elem HTMLObjectElement (Types t1)}
-       -> (obj : t1)
-       -> JSIO (Maybe HTMLFormElement)
-  form a = tryJS "HTMLObjectElement.form" $ HTMLObjectElement.prim__form (up a)
+  form : (obj : HTMLObjectElement) -> JSIO (Maybe HTMLFormElement)
+  form a = tryJS "HTMLObjectElement.form" $ HTMLObjectElement.prim__form a
   
   export
-  height :  JSType t
-         => {auto 0 _ : Elem HTMLObjectElement (Types t)}
-         -> t
-         -> Attribute True I String
+  height : HTMLObjectElement -> Attribute True I String
   height v = fromPrim "HTMLObjectElement.getheight"
                       prim__height
                       prim__setHeight
-                      (v :> HTMLObjectElement)
+                      v
   
   export
-  hspace :  JSType t
-         => {auto 0 _ : Elem HTMLObjectElement (Types t)}
-         -> t
-         -> Attribute True I UInt32
+  hspace : HTMLObjectElement -> Attribute True I UInt32
   hspace v = fromPrim "HTMLObjectElement.gethspace"
                       prim__hspace
                       prim__setHspace
-                      (v :> HTMLObjectElement)
+                      v
   
   export
-  name :  JSType t
-       => {auto 0 _ : Elem HTMLObjectElement (Types t)}
-       -> t
-       -> Attribute True I String
-  name v = fromPrim "HTMLObjectElement.getname"
-                    prim__name
-                    prim__setName
-                    (v :> HTMLObjectElement)
+  name : HTMLObjectElement -> Attribute True I String
+  name v = fromPrim "HTMLObjectElement.getname" prim__name prim__setName v
   
   export
-  standby :  JSType t
-          => {auto 0 _ : Elem HTMLObjectElement (Types t)}
-          -> t
-          -> Attribute True I String
+  standby : HTMLObjectElement -> Attribute True I String
   standby v = fromPrim "HTMLObjectElement.getstandby"
                        prim__standby
                        prim__setStandby
-                       (v :> HTMLObjectElement)
+                       v
   
   export
-  type :  JSType t
-       => {auto 0 _ : Elem HTMLObjectElement (Types t)}
-       -> t
-       -> Attribute True I String
-  type v = fromPrim "HTMLObjectElement.gettype"
-                    prim__type
-                    prim__setType
-                    (v :> HTMLObjectElement)
+  type : HTMLObjectElement -> Attribute True I String
+  type v = fromPrim "HTMLObjectElement.gettype" prim__type prim__setType v
   
   export
-  useMap :  JSType t
-         => {auto 0 _ : Elem HTMLObjectElement (Types t)}
-         -> t
-         -> Attribute True I String
+  useMap : HTMLObjectElement -> Attribute True I String
   useMap v = fromPrim "HTMLObjectElement.getuseMap"
                       prim__useMap
                       prim__setUseMap
-                      (v :> HTMLObjectElement)
+                      v
   
   export
-  validationMessage :  JSType t1
-                    => {auto 0 _ : Elem HTMLObjectElement (Types t1)}
-                    -> (obj : t1)
-                    -> JSIO String
-  validationMessage a = primJS
-                      $ HTMLObjectElement.prim__validationMessage (up a)
+  validationMessage : (obj : HTMLObjectElement) -> JSIO String
+  validationMessage a = primJS $ HTMLObjectElement.prim__validationMessage a
   
   export
-  validity :  JSType t1
-           => {auto 0 _ : Elem HTMLObjectElement (Types t1)}
-           -> (obj : t1)
-           -> JSIO ValidityState
-  validity a = primJS $ HTMLObjectElement.prim__validity (up a)
+  validity : (obj : HTMLObjectElement) -> JSIO ValidityState
+  validity a = primJS $ HTMLObjectElement.prim__validity a
   
   export
-  vspace :  JSType t
-         => {auto 0 _ : Elem HTMLObjectElement (Types t)}
-         -> t
-         -> Attribute True I UInt32
+  vspace : HTMLObjectElement -> Attribute True I UInt32
   vspace v = fromPrim "HTMLObjectElement.getvspace"
                       prim__vspace
                       prim__setVspace
-                      (v :> HTMLObjectElement)
+                      v
   
   export
-  width :  JSType t
-        => {auto 0 _ : Elem HTMLObjectElement (Types t)}
-        -> t
-        -> Attribute True I String
-  width v = fromPrim "HTMLObjectElement.getwidth"
-                     prim__width
-                     prim__setWidth
-                     (v :> HTMLObjectElement)
+  width : HTMLObjectElement -> Attribute True I String
+  width v = fromPrim "HTMLObjectElement.getwidth" prim__width prim__setWidth v
   
   export
-  willValidate :  JSType t1
-               => {auto 0 _ : Elem HTMLObjectElement (Types t1)}
-               -> (obj : t1)
-               -> JSIO Bool
+  willValidate : (obj : HTMLObjectElement) -> JSIO Bool
   willValidate a = tryJS "HTMLObjectElement.willValidate"
-                 $ HTMLObjectElement.prim__willValidate (up a)
+                 $ HTMLObjectElement.prim__willValidate a
   
   export
-  checkValidity :  JSType t1
-                => {auto 0 _ : Elem HTMLObjectElement (Types t1)}
-                -> (obj : t1)
-                -> JSIO Bool
+  checkValidity : (obj : HTMLObjectElement) -> JSIO Bool
   checkValidity a = tryJS "HTMLObjectElement.checkValidity"
-                  $ HTMLObjectElement.prim__checkValidity (up a)
+                  $ HTMLObjectElement.prim__checkValidity a
   
   export
-  getSVGDocument :  JSType t1
-                 => {auto 0 _ : Elem HTMLObjectElement (Types t1)}
-                 -> (obj : t1)
-                 -> JSIO (Maybe Document)
+  getSVGDocument : (obj : HTMLObjectElement) -> JSIO (Maybe Document)
   getSVGDocument a = tryJS "HTMLObjectElement.getSVGDocument"
-                   $ HTMLObjectElement.prim__getSVGDocument (up a)
+                   $ HTMLObjectElement.prim__getSVGDocument a
   
   export
-  reportValidity :  JSType t1
-                 => {auto 0 _ : Elem HTMLObjectElement (Types t1)}
-                 -> (obj : t1)
-                 -> JSIO Bool
+  reportValidity : (obj : HTMLObjectElement) -> JSIO Bool
   reportValidity a = tryJS "HTMLObjectElement.reportValidity"
-                   $ HTMLObjectElement.prim__reportValidity (up a)
+                   $ HTMLObjectElement.prim__reportValidity a
   
   export
-  setCustomValidity :  JSType t1
-                    => {auto 0 _ : Elem HTMLObjectElement (Types t1)}
-                    -> (obj : t1)
-                    -> (error : String)
-                    -> JSIO ()
-  setCustomValidity a b = primJS
-                        $ HTMLObjectElement.prim__setCustomValidity (up a) b
+  setCustomValidity : (obj : HTMLObjectElement) -> (error : String) -> JSIO ()
+  setCustomValidity a b = primJS $ HTMLObjectElement.prim__setCustomValidity a b
 
 namespace HTMLOptGroupElement
   
@@ -4684,24 +3107,15 @@ namespace HTMLOptGroupElement
   new = primJS $ HTMLOptGroupElement.prim__new 
   
   export
-  disabled :  JSType t
-           => {auto 0 _ : Elem HTMLOptGroupElement (Types t)}
-           -> t
-           -> Attribute True I Bool
+  disabled : HTMLOptGroupElement -> Attribute True I Bool
   disabled v = fromPrim "HTMLOptGroupElement.getdisabled"
                         prim__disabled
                         prim__setDisabled
-                        (v :> HTMLOptGroupElement)
+                        v
   
   export
-  label :  JSType t
-        => {auto 0 _ : Elem HTMLOptGroupElement (Types t)}
-        -> t
-        -> Attribute True I String
-  label v = fromPrim "HTMLOptGroupElement.getlabel"
-                     prim__label
-                     prim__setLabel
-                     (v :> HTMLOptGroupElement)
+  label : HTMLOptGroupElement -> Attribute True I String
+  label v = fromPrim "HTMLOptGroupElement.getlabel" prim__label prim__setLabel v
 
 namespace HTMLOptionElement
   
@@ -4710,137 +3124,85 @@ namespace HTMLOptionElement
   new = primJS $ HTMLOptionElement.prim__new 
   
   export
-  defaultSelected :  JSType t
-                  => {auto 0 _ : Elem HTMLOptionElement (Types t)}
-                  -> t
-                  -> Attribute True I Bool
+  defaultSelected : HTMLOptionElement -> Attribute True I Bool
   defaultSelected v = fromPrim "HTMLOptionElement.getdefaultSelected"
                                prim__defaultSelected
                                prim__setDefaultSelected
-                               (v :> HTMLOptionElement)
+                               v
   
   export
-  disabled :  JSType t
-           => {auto 0 _ : Elem HTMLOptionElement (Types t)}
-           -> t
-           -> Attribute True I Bool
+  disabled : HTMLOptionElement -> Attribute True I Bool
   disabled v = fromPrim "HTMLOptionElement.getdisabled"
                         prim__disabled
                         prim__setDisabled
-                        (v :> HTMLOptionElement)
+                        v
   
   export
-  form :  JSType t1
-       => {auto 0 _ : Elem HTMLOptionElement (Types t1)}
-       -> (obj : t1)
-       -> JSIO (Maybe HTMLFormElement)
-  form a = tryJS "HTMLOptionElement.form" $ HTMLOptionElement.prim__form (up a)
+  form : (obj : HTMLOptionElement) -> JSIO (Maybe HTMLFormElement)
+  form a = tryJS "HTMLOptionElement.form" $ HTMLOptionElement.prim__form a
   
   export
-  index :  JSType t1
-        => {auto 0 _ : Elem HTMLOptionElement (Types t1)}
-        -> (obj : t1)
-        -> JSIO Int32
-  index a = primJS $ HTMLOptionElement.prim__index (up a)
+  index : (obj : HTMLOptionElement) -> JSIO Int32
+  index a = primJS $ HTMLOptionElement.prim__index a
   
   export
-  label :  JSType t
-        => {auto 0 _ : Elem HTMLOptionElement (Types t)}
-        -> t
-        -> Attribute True I String
-  label v = fromPrim "HTMLOptionElement.getlabel"
-                     prim__label
-                     prim__setLabel
-                     (v :> HTMLOptionElement)
+  label : HTMLOptionElement -> Attribute True I String
+  label v = fromPrim "HTMLOptionElement.getlabel" prim__label prim__setLabel v
   
   export
-  selected :  JSType t
-           => {auto 0 _ : Elem HTMLOptionElement (Types t)}
-           -> t
-           -> Attribute True I Bool
+  selected : HTMLOptionElement -> Attribute True I Bool
   selected v = fromPrim "HTMLOptionElement.getselected"
                         prim__selected
                         prim__setSelected
-                        (v :> HTMLOptionElement)
+                        v
   
   export
-  text :  JSType t
-       => {auto 0 _ : Elem HTMLOptionElement (Types t)}
-       -> t
-       -> Attribute True I String
-  text v = fromPrim "HTMLOptionElement.gettext"
-                    prim__text
-                    prim__setText
-                    (v :> HTMLOptionElement)
+  text : HTMLOptionElement -> Attribute True I String
+  text v = fromPrim "HTMLOptionElement.gettext" prim__text prim__setText v
   
   export
-  value :  JSType t
-        => {auto 0 _ : Elem HTMLOptionElement (Types t)}
-        -> t
-        -> Attribute True I String
-  value v = fromPrim "HTMLOptionElement.getvalue"
-                     prim__value
-                     prim__setValue
-                     (v :> HTMLOptionElement)
+  value : HTMLOptionElement -> Attribute True I String
+  value v = fromPrim "HTMLOptionElement.getvalue" prim__value prim__setValue v
 
 namespace HTMLOptionsCollection
   
   export
-  set :  JSType t1
-      => JSType t2
-      => {auto 0 _ : Elem HTMLOptionsCollection (Types t1)}
-      -> {auto 0 _ : Elem HTMLOptionElement (Types t2)}
-      -> (obj : t1)
+  set :  (obj : HTMLOptionsCollection)
       -> (index : UInt32)
-      -> (option : Maybe t2)
+      -> (option : Maybe HTMLOptionElement)
       -> JSIO ()
-  set a b c = primJS $ HTMLOptionsCollection.prim__set (up a) b (mayUp c)
+  set a b c = primJS $ HTMLOptionsCollection.prim__set a b (toFFI c)
   
   export
-  length :  JSType t
-         => {auto 0 _ : Elem HTMLOptionsCollection (Types t)}
-         -> t
-         -> Attribute True I UInt32
+  length : HTMLOptionsCollection -> Attribute True I UInt32
   length v = fromPrim "HTMLOptionsCollection.getlength"
                       prim__length
                       prim__setLength
-                      (v :> HTMLOptionsCollection)
+                      v
   
   export
-  selectedIndex :  JSType t
-                => {auto 0 _ : Elem HTMLOptionsCollection (Types t)}
-                -> t
-                -> Attribute True I Int32
+  selectedIndex : HTMLOptionsCollection -> Attribute True I Int32
   selectedIndex v = fromPrim "HTMLOptionsCollection.getselectedIndex"
                              prim__selectedIndex
                              prim__setSelectedIndex
-                             (v :> HTMLOptionsCollection)
+                             v
   
   export
-  add :  JSType t1
-      => {auto 0 _ : Elem HTMLOptionsCollection (Types t1)}
-      -> (obj : t1)
+  add :  (obj : HTMLOptionsCollection)
       -> (element : NS I [ HTMLOptionElement , HTMLOptGroupElement ])
       -> (before : Optional (Maybe (NS I [ HTMLElement , Int32 ])))
       -> JSIO ()
-  add a b c = primJS
-            $ HTMLOptionsCollection.prim__add (up a) (toFFI b) (toFFI c)
+  add a b c = primJS $ HTMLOptionsCollection.prim__add a (toFFI b) (toFFI c)
 
   export
-  add' :  JSType t1
-       => {auto 0 _ : Elem HTMLOptionsCollection (Types t1)}
-       -> (obj : t1)
+  add' :  (obj : HTMLOptionsCollection)
        -> (element : NS I [ HTMLOptionElement , HTMLOptGroupElement ])
        -> JSIO ()
-  add' a b = primJS $ HTMLOptionsCollection.prim__add (up a) (toFFI b) undef
+  add' a b = primJS $ HTMLOptionsCollection.prim__add a (toFFI b) undef
   
   export
-  remove :  JSType t1
-         => {auto 0 _ : Elem HTMLOptionsCollection (Types t1)}
-         -> (obj : t1)
-         -> (index : Int32)
-         -> JSIO ()
-  remove a b = primJS $ HTMLOptionsCollection.prim__remove (up a) b
+  remove : (obj : HTMLOptionsCollection) -> (index : Int32) -> JSIO ()
+  remove a b = primJS $ HTMLOptionsCollection.prim__remove a b
 
 namespace HTMLOutputElement
   
@@ -4849,110 +3211,62 @@ namespace HTMLOutputElement
   new = primJS $ HTMLOutputElement.prim__new 
   
   export
-  defaultValue :  JSType t
-               => {auto 0 _ : Elem HTMLOutputElement (Types t)}
-               -> t
-               -> Attribute True I String
+  defaultValue : HTMLOutputElement -> Attribute True I String
   defaultValue v = fromPrim "HTMLOutputElement.getdefaultValue"
                             prim__defaultValue
                             prim__setDefaultValue
-                            (v :> HTMLOutputElement)
+                            v
   
   export
-  form :  JSType t1
-       => {auto 0 _ : Elem HTMLOutputElement (Types t1)}
-       -> (obj : t1)
-       -> JSIO (Maybe HTMLFormElement)
-  form a = tryJS "HTMLOutputElement.form" $ HTMLOutputElement.prim__form (up a)
+  form : (obj : HTMLOutputElement) -> JSIO (Maybe HTMLFormElement)
+  form a = tryJS "HTMLOutputElement.form" $ HTMLOutputElement.prim__form a
   
   export
-  htmlFor :  JSType t1
-          => {auto 0 _ : Elem HTMLOutputElement (Types t1)}
-          -> (obj : t1)
-          -> JSIO DOMTokenList
-  htmlFor a = primJS $ HTMLOutputElement.prim__htmlFor (up a)
+  htmlFor : (obj : HTMLOutputElement) -> JSIO DOMTokenList
+  htmlFor a = primJS $ HTMLOutputElement.prim__htmlFor a
   
   export
-  labels :  JSType t1
-         => {auto 0 _ : Elem HTMLOutputElement (Types t1)}
-         -> (obj : t1)
-         -> JSIO NodeList
-  labels a = primJS $ HTMLOutputElement.prim__labels (up a)
+  labels : (obj : HTMLOutputElement) -> JSIO NodeList
+  labels a = primJS $ HTMLOutputElement.prim__labels a
   
   export
-  name :  JSType t
-       => {auto 0 _ : Elem HTMLOutputElement (Types t)}
-       -> t
-       -> Attribute True I String
-  name v = fromPrim "HTMLOutputElement.getname"
-                    prim__name
-                    prim__setName
-                    (v :> HTMLOutputElement)
+  name : HTMLOutputElement -> Attribute True I String
+  name v = fromPrim "HTMLOutputElement.getname" prim__name prim__setName v
   
   export
-  type :  JSType t1
-       => {auto 0 _ : Elem HTMLOutputElement (Types t1)}
-       -> (obj : t1)
-       -> JSIO String
-  type a = primJS $ HTMLOutputElement.prim__type (up a)
+  type : (obj : HTMLOutputElement) -> JSIO String
+  type a = primJS $ HTMLOutputElement.prim__type a
   
   export
-  validationMessage :  JSType t1
-                    => {auto 0 _ : Elem HTMLOutputElement (Types t1)}
-                    -> (obj : t1)
-                    -> JSIO String
-  validationMessage a = primJS
-                      $ HTMLOutputElement.prim__validationMessage (up a)
+  validationMessage : (obj : HTMLOutputElement) -> JSIO String
+  validationMessage a = primJS $ HTMLOutputElement.prim__validationMessage a
   
   export
-  validity :  JSType t1
-           => {auto 0 _ : Elem HTMLOutputElement (Types t1)}
-           -> (obj : t1)
-           -> JSIO ValidityState
-  validity a = primJS $ HTMLOutputElement.prim__validity (up a)
+  validity : (obj : HTMLOutputElement) -> JSIO ValidityState
+  validity a = primJS $ HTMLOutputElement.prim__validity a
   
   export
-  value :  JSType t
-        => {auto 0 _ : Elem HTMLOutputElement (Types t)}
-        -> t
-        -> Attribute True I String
-  value v = fromPrim "HTMLOutputElement.getvalue"
-                     prim__value
-                     prim__setValue
-                     (v :> HTMLOutputElement)
+  value : HTMLOutputElement -> Attribute True I String
+  value v = fromPrim "HTMLOutputElement.getvalue" prim__value prim__setValue v
   
   export
-  willValidate :  JSType t1
-               => {auto 0 _ : Elem HTMLOutputElement (Types t1)}
-               -> (obj : t1)
-               -> JSIO Bool
+  willValidate : (obj : HTMLOutputElement) -> JSIO Bool
   willValidate a = tryJS "HTMLOutputElement.willValidate"
-                 $ HTMLOutputElement.prim__willValidate (up a)
+                 $ HTMLOutputElement.prim__willValidate a
   
   export
-  checkValidity :  JSType t1
-                => {auto 0 _ : Elem HTMLOutputElement (Types t1)}
-                -> (obj : t1)
-                -> JSIO Bool
+  checkValidity : (obj : HTMLOutputElement) -> JSIO Bool
   checkValidity a = tryJS "HTMLOutputElement.checkValidity"
-                  $ HTMLOutputElement.prim__checkValidity (up a)
+                  $ HTMLOutputElement.prim__checkValidity a
   
   export
-  reportValidity :  JSType t1
-                 => {auto 0 _ : Elem HTMLOutputElement (Types t1)}
-                 -> (obj : t1)
-                 -> JSIO Bool
+  reportValidity : (obj : HTMLOutputElement) -> JSIO Bool
   reportValidity a = tryJS "HTMLOutputElement.reportValidity"
-                   $ HTMLOutputElement.prim__reportValidity (up a)
+                   $ HTMLOutputElement.prim__reportValidity a
   
   export
-  setCustomValidity :  JSType t1
-                    => {auto 0 _ : Elem HTMLOutputElement (Types t1)}
-                    -> (obj : t1)
-                    -> (error : String)
-                    -> JSIO ()
-  setCustomValidity a b = primJS
-                        $ HTMLOutputElement.prim__setCustomValidity (up a) b
+  setCustomValidity : (obj : HTMLOutputElement) -> (error : String) -> JSIO ()
+  setCustomValidity a b = primJS $ HTMLOutputElement.prim__setCustomValidity a b
 
 namespace HTMLParagraphElement
   
@@ -4961,14 +3275,11 @@ namespace HTMLParagraphElement
   new = primJS $ HTMLParagraphElement.prim__new 
   
   export
-  align :  JSType t
-        => {auto 0 _ : Elem HTMLParagraphElement (Types t)}
-        -> t
-        -> Attribute True I String
+  align : HTMLParagraphElement -> Attribute True I String
   align v = fromPrim "HTMLParagraphElement.getalign"
                      prim__align
                      prim__setAlign
-                     (v :> HTMLParagraphElement)
+                     v
 
 namespace HTMLParamElement
   
@@ -4977,44 +3288,23 @@ namespace HTMLParamElement
   new = primJS $ HTMLParamElement.prim__new 
   
   export
-  name :  JSType t
-       => {auto 0 _ : Elem HTMLParamElement (Types t)}
-       -> t
-       -> Attribute True I String
-  name v = fromPrim "HTMLParamElement.getname"
-                    prim__name
-                    prim__setName
-                    (v :> HTMLParamElement)
+  name : HTMLParamElement -> Attribute True I String
+  name v = fromPrim "HTMLParamElement.getname" prim__name prim__setName v
   
   export
-  type :  JSType t
-       => {auto 0 _ : Elem HTMLParamElement (Types t)}
-       -> t
-       -> Attribute True I String
-  type v = fromPrim "HTMLParamElement.gettype"
-                    prim__type
-                    prim__setType
-                    (v :> HTMLParamElement)
+  type : HTMLParamElement -> Attribute True I String
+  type v = fromPrim "HTMLParamElement.gettype" prim__type prim__setType v
   
   export
-  value :  JSType t
-        => {auto 0 _ : Elem HTMLParamElement (Types t)}
-        -> t
-        -> Attribute True I String
-  value v = fromPrim "HTMLParamElement.getvalue"
-                     prim__value
-                     prim__setValue
-                     (v :> HTMLParamElement)
+  value : HTMLParamElement -> Attribute True I String
+  value v = fromPrim "HTMLParamElement.getvalue" prim__value prim__setValue v
   
   export
-  valueType :  JSType t
-            => {auto 0 _ : Elem HTMLParamElement (Types t)}
-            -> t
-            -> Attribute True I String
+  valueType : HTMLParamElement -> Attribute True I String
   valueType v = fromPrim "HTMLParamElement.getvalueType"
                          prim__valueType
                          prim__setValueType
-                         (v :> HTMLParamElement)
+                         v
 
 namespace HTMLPictureElement
   
@@ -5029,14 +3319,8 @@ namespace HTMLPreElement
   new = primJS $ HTMLPreElement.prim__new 
   
   export
-  width :  JSType t
-        => {auto 0 _ : Elem HTMLPreElement (Types t)}
-        -> t
-        -> Attribute True I Int32
-  width v = fromPrim "HTMLPreElement.getwidth"
-                     prim__width
-                     prim__setWidth
-                     (v :> HTMLPreElement)
+  width : HTMLPreElement -> Attribute True I Int32
+  width v = fromPrim "HTMLPreElement.getwidth" prim__width prim__setWidth v
 
 namespace HTMLProgressElement
   
@@ -5045,38 +3329,20 @@ namespace HTMLProgressElement
   new = primJS $ HTMLProgressElement.prim__new 
   
   export
-  labels :  JSType t1
-         => {auto 0 _ : Elem HTMLProgressElement (Types t1)}
-         -> (obj : t1)
-         -> JSIO NodeList
-  labels a = primJS $ HTMLProgressElement.prim__labels (up a)
+  labels : (obj : HTMLProgressElement) -> JSIO NodeList
+  labels a = primJS $ HTMLProgressElement.prim__labels a
   
   export
-  max :  JSType t
-      => {auto 0 _ : Elem HTMLProgressElement (Types t)}
-      -> t
-      -> Attribute True I Double
-  max v = fromPrim "HTMLProgressElement.getmax"
-                   prim__max
-                   prim__setMax
-                   (v :> HTMLProgressElement)
+  max : HTMLProgressElement -> Attribute True I Double
+  max v = fromPrim "HTMLProgressElement.getmax" prim__max prim__setMax v
   
   export
-  position :  JSType t1
-           => {auto 0 _ : Elem HTMLProgressElement (Types t1)}
-           -> (obj : t1)
-           -> JSIO Double
-  position a = primJS $ HTMLProgressElement.prim__position (up a)
+  position : (obj : HTMLProgressElement) -> JSIO Double
+  position a = primJS $ HTMLProgressElement.prim__position a
   
   export
-  value :  JSType t
-        => {auto 0 _ : Elem HTMLProgressElement (Types t)}
-        -> t
-        -> Attribute True I Double
-  value v = fromPrim "HTMLProgressElement.getvalue"
-                     prim__value
-                     prim__setValue
-                     (v :> HTMLProgressElement)
+  value : HTMLProgressElement -> Attribute True I Double
+  value v = fromPrim "HTMLProgressElement.getvalue" prim__value prim__setValue v
 
 namespace HTMLQuoteElement
   
@@ -5085,14 +3351,8 @@ namespace HTMLQuoteElement
   new = primJS $ HTMLQuoteElement.prim__new 
   
   export
-  cite :  JSType t
-       => {auto 0 _ : Elem HTMLQuoteElement (Types t)}
-       -> t
-       -> Attribute True I String
-  cite v = fromPrim "HTMLQuoteElement.getcite"
-                    prim__cite
-                    prim__setCite
-                    (v :> HTMLQuoteElement)
+  cite : HTMLQuoteElement -> Attribute True I String
+  cite v = fromPrim "HTMLQuoteElement.getcite" prim__cite prim__setCite v
 
 namespace HTMLScriptElement
   
@@ -5101,124 +3361,70 @@ namespace HTMLScriptElement
   new = primJS $ HTMLScriptElement.prim__new 
   
   export
-  async :  JSType t
-        => {auto 0 _ : Elem HTMLScriptElement (Types t)}
-        -> t
-        -> Attribute True I Bool
-  async v = fromPrim "HTMLScriptElement.getasync"
-                     prim__async
-                     prim__setAsync
-                     (v :> HTMLScriptElement)
+  async : HTMLScriptElement -> Attribute True I Bool
+  async v = fromPrim "HTMLScriptElement.getasync" prim__async prim__setAsync v
   
   export
-  charset :  JSType t
-          => {auto 0 _ : Elem HTMLScriptElement (Types t)}
-          -> t
-          -> Attribute True I String
+  charset : HTMLScriptElement -> Attribute True I String
   charset v = fromPrim "HTMLScriptElement.getcharset"
                        prim__charset
                        prim__setCharset
-                       (v :> HTMLScriptElement)
+                       v
   
   export
-  crossOrigin :  JSType t
-              => {auto 0 _ : Elem HTMLScriptElement (Types t)}
-              -> t
-              -> Attribute False Maybe String
+  crossOrigin : HTMLScriptElement -> Attribute False Maybe String
   crossOrigin v = fromNullablePrim "HTMLScriptElement.getcrossOrigin"
                                    prim__crossOrigin
                                    prim__setCrossOrigin
-                                   (v :> HTMLScriptElement)
+                                   v
   
   export
-  defer :  JSType t
-        => {auto 0 _ : Elem HTMLScriptElement (Types t)}
-        -> t
-        -> Attribute True I Bool
-  defer v = fromPrim "HTMLScriptElement.getdefer"
-                     prim__defer
-                     prim__setDefer
-                     (v :> HTMLScriptElement)
+  defer : HTMLScriptElement -> Attribute True I Bool
+  defer v = fromPrim "HTMLScriptElement.getdefer" prim__defer prim__setDefer v
   
   export
-  event :  JSType t
-        => {auto 0 _ : Elem HTMLScriptElement (Types t)}
-        -> t
-        -> Attribute True I String
-  event v = fromPrim "HTMLScriptElement.getevent"
-                     prim__event
-                     prim__setEvent
-                     (v :> HTMLScriptElement)
+  event : HTMLScriptElement -> Attribute True I String
+  event v = fromPrim "HTMLScriptElement.getevent" prim__event prim__setEvent v
   
   export
-  htmlFor :  JSType t
-          => {auto 0 _ : Elem HTMLScriptElement (Types t)}
-          -> t
-          -> Attribute True I String
+  htmlFor : HTMLScriptElement -> Attribute True I String
   htmlFor v = fromPrim "HTMLScriptElement.gethtmlFor"
                        prim__htmlFor
                        prim__setHtmlFor
-                       (v :> HTMLScriptElement)
+                       v
   
   export
-  integrity :  JSType t
-            => {auto 0 _ : Elem HTMLScriptElement (Types t)}
-            -> t
-            -> Attribute True I String
+  integrity : HTMLScriptElement -> Attribute True I String
   integrity v = fromPrim "HTMLScriptElement.getintegrity"
                          prim__integrity
                          prim__setIntegrity
-                         (v :> HTMLScriptElement)
+                         v
   
   export
-  noModule :  JSType t
-           => {auto 0 _ : Elem HTMLScriptElement (Types t)}
-           -> t
-           -> Attribute True I Bool
+  noModule : HTMLScriptElement -> Attribute True I Bool
   noModule v = fromPrim "HTMLScriptElement.getnoModule"
                         prim__noModule
                         prim__setNoModule
-                        (v :> HTMLScriptElement)
+                        v
   
   export
-  referrerPolicy :  JSType t
-                 => {auto 0 _ : Elem HTMLScriptElement (Types t)}
-                 -> t
-                 -> Attribute True I String
+  referrerPolicy : HTMLScriptElement -> Attribute True I String
   referrerPolicy v = fromPrim "HTMLScriptElement.getreferrerPolicy"
                               prim__referrerPolicy
                               prim__setReferrerPolicy
-                              (v :> HTMLScriptElement)
+                              v
   
   export
-  src :  JSType t
-      => {auto 0 _ : Elem HTMLScriptElement (Types t)}
-      -> t
-      -> Attribute True I String
-  src v = fromPrim "HTMLScriptElement.getsrc"
-                   prim__src
-                   prim__setSrc
-                   (v :> HTMLScriptElement)
+  src : HTMLScriptElement -> Attribute True I String
+  src v = fromPrim "HTMLScriptElement.getsrc" prim__src prim__setSrc v
   
   export
-  text :  JSType t
-       => {auto 0 _ : Elem HTMLScriptElement (Types t)}
-       -> t
-       -> Attribute True I String
-  text v = fromPrim "HTMLScriptElement.gettext"
-                    prim__text
-                    prim__setText
-                    (v :> HTMLScriptElement)
+  text : HTMLScriptElement -> Attribute True I String
+  text v = fromPrim "HTMLScriptElement.gettext" prim__text prim__setText v
   
   export
-  type :  JSType t
-       => {auto 0 _ : Elem HTMLScriptElement (Types t)}
-       -> t
-       -> Attribute True I String
-  type v = fromPrim "HTMLScriptElement.gettype"
-                    prim__type
-                    prim__setType
-                    (v :> HTMLScriptElement)
+  type : HTMLScriptElement -> Attribute True I String
+  type v = fromPrim "HTMLScriptElement.gettype" prim__type prim__setType v
 
 namespace HTMLSelectElement
   
@@ -5227,238 +3433,144 @@ namespace HTMLSelectElement
   new = primJS $ HTMLSelectElement.prim__new 
   
   export
-  set :  JSType t1
-      => JSType t2
-      => {auto 0 _ : Elem HTMLSelectElement (Types t1)}
-      -> {auto 0 _ : Elem HTMLOptionElement (Types t2)}
-      -> (obj : t1)
+  set :  (obj : HTMLSelectElement)
       -> (index : UInt32)
-      -> (option : Maybe t2)
+      -> (option : Maybe HTMLOptionElement)
       -> JSIO ()
-  set a b c = primJS $ HTMLSelectElement.prim__set (up a) b (mayUp c)
+  set a b c = primJS $ HTMLSelectElement.prim__set a b (toFFI c)
   
   export
-  autocomplete :  JSType t
-               => {auto 0 _ : Elem HTMLSelectElement (Types t)}
-               -> t
-               -> Attribute True I String
+  autocomplete : HTMLSelectElement -> Attribute True I String
   autocomplete v = fromPrim "HTMLSelectElement.getautocomplete"
                             prim__autocomplete
                             prim__setAutocomplete
-                            (v :> HTMLSelectElement)
+                            v
   
   export
-  disabled :  JSType t
-           => {auto 0 _ : Elem HTMLSelectElement (Types t)}
-           -> t
-           -> Attribute True I Bool
+  disabled : HTMLSelectElement -> Attribute True I Bool
   disabled v = fromPrim "HTMLSelectElement.getdisabled"
                         prim__disabled
                         prim__setDisabled
-                        (v :> HTMLSelectElement)
+                        v
   
   export
-  form :  JSType t1
-       => {auto 0 _ : Elem HTMLSelectElement (Types t1)}
-       -> (obj : t1)
-       -> JSIO (Maybe HTMLFormElement)
-  form a = tryJS "HTMLSelectElement.form" $ HTMLSelectElement.prim__form (up a)
+  form : (obj : HTMLSelectElement) -> JSIO (Maybe HTMLFormElement)
+  form a = tryJS "HTMLSelectElement.form" $ HTMLSelectElement.prim__form a
   
   export
-  labels :  JSType t1
-         => {auto 0 _ : Elem HTMLSelectElement (Types t1)}
-         -> (obj : t1)
-         -> JSIO NodeList
-  labels a = primJS $ HTMLSelectElement.prim__labels (up a)
+  labels : (obj : HTMLSelectElement) -> JSIO NodeList
+  labels a = primJS $ HTMLSelectElement.prim__labels a
   
   export
-  length :  JSType t
-         => {auto 0 _ : Elem HTMLSelectElement (Types t)}
-         -> t
-         -> Attribute True I UInt32
+  length : HTMLSelectElement -> Attribute True I UInt32
   length v = fromPrim "HTMLSelectElement.getlength"
                       prim__length
                       prim__setLength
-                      (v :> HTMLSelectElement)
+                      v
   
   export
-  multiple :  JSType t
-           => {auto 0 _ : Elem HTMLSelectElement (Types t)}
-           -> t
-           -> Attribute True I Bool
+  multiple : HTMLSelectElement -> Attribute True I Bool
   multiple v = fromPrim "HTMLSelectElement.getmultiple"
                         prim__multiple
                         prim__setMultiple
-                        (v :> HTMLSelectElement)
+                        v
   
   export
-  name :  JSType t
-       => {auto 0 _ : Elem HTMLSelectElement (Types t)}
-       -> t
-       -> Attribute True I String
-  name v = fromPrim "HTMLSelectElement.getname"
-                    prim__name
-                    prim__setName
-                    (v :> HTMLSelectElement)
+  name : HTMLSelectElement -> Attribute True I String
+  name v = fromPrim "HTMLSelectElement.getname" prim__name prim__setName v
   
   export
-  options :  JSType t1
-          => {auto 0 _ : Elem HTMLSelectElement (Types t1)}
-          -> (obj : t1)
-          -> JSIO HTMLOptionsCollection
-  options a = primJS $ HTMLSelectElement.prim__options (up a)
+  options : (obj : HTMLSelectElement) -> JSIO HTMLOptionsCollection
+  options a = primJS $ HTMLSelectElement.prim__options a
   
   export
-  required :  JSType t
-           => {auto 0 _ : Elem HTMLSelectElement (Types t)}
-           -> t
-           -> Attribute True I Bool
+  required : HTMLSelectElement -> Attribute True I Bool
   required v = fromPrim "HTMLSelectElement.getrequired"
                         prim__required
                         prim__setRequired
-                        (v :> HTMLSelectElement)
+                        v
   
   export
-  selectedIndex :  JSType t
-                => {auto 0 _ : Elem HTMLSelectElement (Types t)}
-                -> t
-                -> Attribute True I Int32
+  selectedIndex : HTMLSelectElement -> Attribute True I Int32
   selectedIndex v = fromPrim "HTMLSelectElement.getselectedIndex"
                              prim__selectedIndex
                              prim__setSelectedIndex
-                             (v :> HTMLSelectElement)
+                             v
   
   export
-  selectedOptions :  JSType t1
-                  => {auto 0 _ : Elem HTMLSelectElement (Types t1)}
-                  -> (obj : t1)
-                  -> JSIO HTMLCollection
-  selectedOptions a = primJS $ HTMLSelectElement.prim__selectedOptions (up a)
+  selectedOptions : (obj : HTMLSelectElement) -> JSIO HTMLCollection
+  selectedOptions a = primJS $ HTMLSelectElement.prim__selectedOptions a
   
   export
-  size :  JSType t
-       => {auto 0 _ : Elem HTMLSelectElement (Types t)}
-       -> t
-       -> Attribute True I UInt32
-  size v = fromPrim "HTMLSelectElement.getsize"
-                    prim__size
-                    prim__setSize
-                    (v :> HTMLSelectElement)
+  size : HTMLSelectElement -> Attribute True I UInt32
+  size v = fromPrim "HTMLSelectElement.getsize" prim__size prim__setSize v
   
   export
-  type :  JSType t1
-       => {auto 0 _ : Elem HTMLSelectElement (Types t1)}
-       -> (obj : t1)
-       -> JSIO String
-  type a = primJS $ HTMLSelectElement.prim__type (up a)
+  type : (obj : HTMLSelectElement) -> JSIO String
+  type a = primJS $ HTMLSelectElement.prim__type a
   
   export
-  validationMessage :  JSType t1
-                    => {auto 0 _ : Elem HTMLSelectElement (Types t1)}
-                    -> (obj : t1)
-                    -> JSIO String
-  validationMessage a = primJS
-                      $ HTMLSelectElement.prim__validationMessage (up a)
+  validationMessage : (obj : HTMLSelectElement) -> JSIO String
+  validationMessage a = primJS $ HTMLSelectElement.prim__validationMessage a
   
   export
-  validity :  JSType t1
-           => {auto 0 _ : Elem HTMLSelectElement (Types t1)}
-           -> (obj : t1)
-           -> JSIO ValidityState
-  validity a = primJS $ HTMLSelectElement.prim__validity (up a)
+  validity : (obj : HTMLSelectElement) -> JSIO ValidityState
+  validity a = primJS $ HTMLSelectElement.prim__validity a
   
   export
-  value :  JSType t
-        => {auto 0 _ : Elem HTMLSelectElement (Types t)}
-        -> t
-        -> Attribute True I String
-  value v = fromPrim "HTMLSelectElement.getvalue"
-                     prim__value
-                     prim__setValue
-                     (v :> HTMLSelectElement)
+  value : HTMLSelectElement -> Attribute True I String
+  value v = fromPrim "HTMLSelectElement.getvalue" prim__value prim__setValue v
   
   export
-  willValidate :  JSType t1
-               => {auto 0 _ : Elem HTMLSelectElement (Types t1)}
-               -> (obj : t1)
-               -> JSIO Bool
+  willValidate : (obj : HTMLSelectElement) -> JSIO Bool
   willValidate a = tryJS "HTMLSelectElement.willValidate"
-                 $ HTMLSelectElement.prim__willValidate (up a)
+                 $ HTMLSelectElement.prim__willValidate a
   
   export
-  add :  JSType t1
-      => {auto 0 _ : Elem HTMLSelectElement (Types t1)}
-      -> (obj : t1)
+  add :  (obj : HTMLSelectElement)
       -> (element : NS I [ HTMLOptionElement , HTMLOptGroupElement ])
       -> (before : Optional (Maybe (NS I [ HTMLElement , Int32 ])))
       -> JSIO ()
-  add a b c = primJS $ HTMLSelectElement.prim__add (up a) (toFFI b) (toFFI c)
+  add a b c = primJS $ HTMLSelectElement.prim__add a (toFFI b) (toFFI c)
 
   export
-  add' :  JSType t1
-       => {auto 0 _ : Elem HTMLSelectElement (Types t1)}
-       -> (obj : t1)
+  add' :  (obj : HTMLSelectElement)
        -> (element : NS I [ HTMLOptionElement , HTMLOptGroupElement ])
        -> JSIO ()
-  add' a b = primJS $ HTMLSelectElement.prim__add (up a) (toFFI b) undef
+  add' a b = primJS $ HTMLSelectElement.prim__add a (toFFI b) undef
   
   export
-  checkValidity :  JSType t1
-                => {auto 0 _ : Elem HTMLSelectElement (Types t1)}
-                -> (obj : t1)
-                -> JSIO Bool
+  checkValidity : (obj : HTMLSelectElement) -> JSIO Bool
   checkValidity a = tryJS "HTMLSelectElement.checkValidity"
-                  $ HTMLSelectElement.prim__checkValidity (up a)
+                  $ HTMLSelectElement.prim__checkValidity a
   
   export
-  item :  JSType t1
-       => {auto 0 _ : Elem HTMLSelectElement (Types t1)}
-       -> (obj : t1)
-       -> (index : UInt32)
-       -> JSIO (Maybe Element)
-  item a b = tryJS "HTMLSelectElement.item"
-           $ HTMLSelectElement.prim__item (up a) b
+  item : (obj : HTMLSelectElement) -> (index : UInt32) -> JSIO (Maybe Element)
+  item a b = tryJS "HTMLSelectElement.item" $ HTMLSelectElement.prim__item a b
   
   export
-  namedItem :  JSType t1
-            => {auto 0 _ : Elem HTMLSelectElement (Types t1)}
-            -> (obj : t1)
+  namedItem :  (obj : HTMLSelectElement)
             -> (name : String)
             -> JSIO (Maybe HTMLOptionElement)
   namedItem a b = tryJS "HTMLSelectElement.namedItem"
-                $ HTMLSelectElement.prim__namedItem (up a) b
+                $ HTMLSelectElement.prim__namedItem a b
   
   export
-  remove :  JSType t1
-         => {auto 0 _ : Elem HTMLSelectElement (Types t1)}
-         -> (obj : t1)
-         -> JSIO ()
-  remove a = primJS $ HTMLSelectElement.prim__remove (up a)
+  remove : (obj : HTMLSelectElement) -> JSIO ()
+  remove a = primJS $ HTMLSelectElement.prim__remove a
   
   export
-  remove1 :  JSType t1
-          => {auto 0 _ : Elem HTMLSelectElement (Types t1)}
-          -> (obj : t1)
-          -> (index : Int32)
-          -> JSIO ()
-  remove1 a b = primJS $ HTMLSelectElement.prim__remove1 (up a) b
+  remove1 : (obj : HTMLSelectElement) -> (index : Int32) -> JSIO ()
+  remove1 a b = primJS $ HTMLSelectElement.prim__remove1 a b
   
   export
-  reportValidity :  JSType t1
-                 => {auto 0 _ : Elem HTMLSelectElement (Types t1)}
-                 -> (obj : t1)
-                 -> JSIO Bool
+  reportValidity : (obj : HTMLSelectElement) -> JSIO Bool
   reportValidity a = tryJS "HTMLSelectElement.reportValidity"
-                   $ HTMLSelectElement.prim__reportValidity (up a)
+                   $ HTMLSelectElement.prim__reportValidity a
   
   export
-  setCustomValidity :  JSType t1
-                    => {auto 0 _ : Elem HTMLSelectElement (Types t1)}
-                    -> (obj : t1)
-                    -> (error : String)
-                    -> JSIO ()
-  setCustomValidity a b = primJS
-                        $ HTMLSelectElement.prim__setCustomValidity (up a) b
+  setCustomValidity : (obj : HTMLSelectElement) -> (error : String) -> JSIO ()
+  setCustomValidity a b = primJS $ HTMLSelectElement.prim__setCustomValidity a b
 
 namespace HTMLSlotElement
   
@@ -5467,51 +3579,29 @@ namespace HTMLSlotElement
   new = primJS $ HTMLSlotElement.prim__new 
   
   export
-  name :  JSType t
-       => {auto 0 _ : Elem HTMLSlotElement (Types t)}
-       -> t
-       -> Attribute True I String
-  name v = fromPrim "HTMLSlotElement.getname"
-                    prim__name
-                    prim__setName
-                    (v :> HTMLSlotElement)
+  name : HTMLSlotElement -> Attribute True I String
+  name v = fromPrim "HTMLSlotElement.getname" prim__name prim__setName v
   
   export
-  assignedElements :  JSType t1
-                   => JSType t2
-                   => {auto 0 _ : Elem HTMLSlotElement (Types t1)}
-                   -> {auto 0 _ : Elem AssignedNodesOptions (Types t2)}
-                   -> (obj : t1)
-                   -> (options : Optional t2)
+  assignedElements :  (obj : HTMLSlotElement)
+                   -> (options : Optional AssignedNodesOptions)
                    -> JSIO (Array Element)
   assignedElements a b = primJS
-                       $ HTMLSlotElement.prim__assignedElements (up a) (optUp b)
+                       $ HTMLSlotElement.prim__assignedElements a (toFFI b)
 
   export
-  assignedElements' :  JSType t1
-                    => {auto 0 _ : Elem HTMLSlotElement (Types t1)}
-                    -> (obj : t1)
-                    -> JSIO (Array Element)
-  assignedElements' a = primJS
-                      $ HTMLSlotElement.prim__assignedElements (up a) undef
+  assignedElements' : (obj : HTMLSlotElement) -> JSIO (Array Element)
+  assignedElements' a = primJS $ HTMLSlotElement.prim__assignedElements a undef
   
   export
-  assignedNodes :  JSType t1
-                => JSType t2
-                => {auto 0 _ : Elem HTMLSlotElement (Types t1)}
-                -> {auto 0 _ : Elem AssignedNodesOptions (Types t2)}
-                -> (obj : t1)
-                -> (options : Optional t2)
+  assignedNodes :  (obj : HTMLSlotElement)
+                -> (options : Optional AssignedNodesOptions)
                 -> JSIO (Array Node)
-  assignedNodes a b = primJS
-                    $ HTMLSlotElement.prim__assignedNodes (up a) (optUp b)
+  assignedNodes a b = primJS $ HTMLSlotElement.prim__assignedNodes a (toFFI b)
 
   export
-  assignedNodes' :  JSType t1
-                 => {auto 0 _ : Elem HTMLSlotElement (Types t1)}
-                 -> (obj : t1)
-                 -> JSIO (Array Node)
-  assignedNodes' a = primJS $ HTMLSlotElement.prim__assignedNodes (up a) undef
+  assignedNodes' : (obj : HTMLSlotElement) -> JSIO (Array Node)
+  assignedNodes' a = primJS $ HTMLSlotElement.prim__assignedNodes a undef
 
 namespace HTMLSourceElement
   
@@ -5520,74 +3610,38 @@ namespace HTMLSourceElement
   new = primJS $ HTMLSourceElement.prim__new 
   
   export
-  height :  JSType t
-         => {auto 0 _ : Elem HTMLSourceElement (Types t)}
-         -> t
-         -> Attribute True I UInt32
+  height : HTMLSourceElement -> Attribute True I UInt32
   height v = fromPrim "HTMLSourceElement.getheight"
                       prim__height
                       prim__setHeight
-                      (v :> HTMLSourceElement)
+                      v
   
   export
-  media :  JSType t
-        => {auto 0 _ : Elem HTMLSourceElement (Types t)}
-        -> t
-        -> Attribute True I String
-  media v = fromPrim "HTMLSourceElement.getmedia"
-                     prim__media
-                     prim__setMedia
-                     (v :> HTMLSourceElement)
+  media : HTMLSourceElement -> Attribute True I String
+  media v = fromPrim "HTMLSourceElement.getmedia" prim__media prim__setMedia v
   
   export
-  sizes :  JSType t
-        => {auto 0 _ : Elem HTMLSourceElement (Types t)}
-        -> t
-        -> Attribute True I String
-  sizes v = fromPrim "HTMLSourceElement.getsizes"
-                     prim__sizes
-                     prim__setSizes
-                     (v :> HTMLSourceElement)
+  sizes : HTMLSourceElement -> Attribute True I String
+  sizes v = fromPrim "HTMLSourceElement.getsizes" prim__sizes prim__setSizes v
   
   export
-  src :  JSType t
-      => {auto 0 _ : Elem HTMLSourceElement (Types t)}
-      -> t
-      -> Attribute True I String
-  src v = fromPrim "HTMLSourceElement.getsrc"
-                   prim__src
-                   prim__setSrc
-                   (v :> HTMLSourceElement)
+  src : HTMLSourceElement -> Attribute True I String
+  src v = fromPrim "HTMLSourceElement.getsrc" prim__src prim__setSrc v
   
   export
-  srcset :  JSType t
-         => {auto 0 _ : Elem HTMLSourceElement (Types t)}
-         -> t
-         -> Attribute True I String
+  srcset : HTMLSourceElement -> Attribute True I String
   srcset v = fromPrim "HTMLSourceElement.getsrcset"
                       prim__srcset
                       prim__setSrcset
-                      (v :> HTMLSourceElement)
+                      v
   
   export
-  type :  JSType t
-       => {auto 0 _ : Elem HTMLSourceElement (Types t)}
-       -> t
-       -> Attribute True I String
-  type v = fromPrim "HTMLSourceElement.gettype"
-                    prim__type
-                    prim__setType
-                    (v :> HTMLSourceElement)
+  type : HTMLSourceElement -> Attribute True I String
+  type v = fromPrim "HTMLSourceElement.gettype" prim__type prim__setType v
   
   export
-  width :  JSType t
-        => {auto 0 _ : Elem HTMLSourceElement (Types t)}
-        -> t
-        -> Attribute True I UInt32
-  width v = fromPrim "HTMLSourceElement.getwidth"
-                     prim__width
-                     prim__setWidth
-                     (v :> HTMLSourceElement)
+  width : HTMLSourceElement -> Attribute True I UInt32
+  width v = fromPrim "HTMLSourceElement.getwidth" prim__width prim__setWidth v
 
 namespace HTMLSpanElement
   
@@ -5602,24 +3656,12 @@ namespace HTMLStyleElement
   new = primJS $ HTMLStyleElement.prim__new 
   
   export
-  media :  JSType t
-        => {auto 0 _ : Elem HTMLStyleElement (Types t)}
-        -> t
-        -> Attribute True I String
-  media v = fromPrim "HTMLStyleElement.getmedia"
-                     prim__media
-                     prim__setMedia
-                     (v :> HTMLStyleElement)
+  media : HTMLStyleElement -> Attribute True I String
+  media v = fromPrim "HTMLStyleElement.getmedia" prim__media prim__setMedia v
   
   export
-  type :  JSType t
-       => {auto 0 _ : Elem HTMLStyleElement (Types t)}
-       -> t
-       -> Attribute True I String
-  type v = fromPrim "HTMLStyleElement.gettype"
-                    prim__type
-                    prim__setType
-                    (v :> HTMLStyleElement)
+  type : HTMLStyleElement -> Attribute True I String
+  type v = fromPrim "HTMLStyleElement.gettype" prim__type prim__setType v
 
 namespace HTMLTableCaptionElement
   
@@ -5628,14 +3670,11 @@ namespace HTMLTableCaptionElement
   new = primJS $ HTMLTableCaptionElement.prim__new 
   
   export
-  align :  JSType t
-        => {auto 0 _ : Elem HTMLTableCaptionElement (Types t)}
-        -> t
-        -> Attribute True I String
+  align : HTMLTableCaptionElement -> Attribute True I String
   align v = fromPrim "HTMLTableCaptionElement.getalign"
                      prim__align
                      prim__setAlign
-                     (v :> HTMLTableCaptionElement)
+                     v
 
 namespace HTMLTableCellElement
   
@@ -5644,151 +3683,97 @@ namespace HTMLTableCellElement
   new = primJS $ HTMLTableCellElement.prim__new 
   
   export
-  abbr :  JSType t
-       => {auto 0 _ : Elem HTMLTableCellElement (Types t)}
-       -> t
-       -> Attribute True I String
-  abbr v = fromPrim "HTMLTableCellElement.getabbr"
-                    prim__abbr
-                    prim__setAbbr
-                    (v :> HTMLTableCellElement)
+  abbr : HTMLTableCellElement -> Attribute True I String
+  abbr v = fromPrim "HTMLTableCellElement.getabbr" prim__abbr prim__setAbbr v
   
   export
-  align :  JSType t
-        => {auto 0 _ : Elem HTMLTableCellElement (Types t)}
-        -> t
-        -> Attribute True I String
+  align : HTMLTableCellElement -> Attribute True I String
   align v = fromPrim "HTMLTableCellElement.getalign"
                      prim__align
                      prim__setAlign
-                     (v :> HTMLTableCellElement)
+                     v
   
   export
-  axis :  JSType t
-       => {auto 0 _ : Elem HTMLTableCellElement (Types t)}
-       -> t
-       -> Attribute True I String
-  axis v = fromPrim "HTMLTableCellElement.getaxis"
-                    prim__axis
-                    prim__setAxis
-                    (v :> HTMLTableCellElement)
+  axis : HTMLTableCellElement -> Attribute True I String
+  axis v = fromPrim "HTMLTableCellElement.getaxis" prim__axis prim__setAxis v
   
   export
-  bgColor :  JSType t
-          => {auto 0 _ : Elem HTMLTableCellElement (Types t)}
-          -> t
-          -> Attribute True I String
+  bgColor : HTMLTableCellElement -> Attribute True I String
   bgColor v = fromPrim "HTMLTableCellElement.getbgColor"
                        prim__bgColor
                        prim__setBgColor
-                       (v :> HTMLTableCellElement)
+                       v
   
   export
-  cellIndex :  JSType t1
-            => {auto 0 _ : Elem HTMLTableCellElement (Types t1)}
-            -> (obj : t1)
-            -> JSIO Int32
-  cellIndex a = primJS $ HTMLTableCellElement.prim__cellIndex (up a)
+  cellIndex : (obj : HTMLTableCellElement) -> JSIO Int32
+  cellIndex a = primJS $ HTMLTableCellElement.prim__cellIndex a
   
   export
-  ch :  JSType t
-     => {auto 0 _ : Elem HTMLTableCellElement (Types t)}
-     -> t
-     -> Attribute True I String
-  ch v = fromPrim "HTMLTableCellElement.getch"
-                  prim__ch
-                  prim__setCh
-                  (v :> HTMLTableCellElement)
+  ch : HTMLTableCellElement -> Attribute True I String
+  ch v = fromPrim "HTMLTableCellElement.getch" prim__ch prim__setCh v
   
   export
-  chOff :  JSType t
-        => {auto 0 _ : Elem HTMLTableCellElement (Types t)}
-        -> t
-        -> Attribute True I String
+  chOff : HTMLTableCellElement -> Attribute True I String
   chOff v = fromPrim "HTMLTableCellElement.getchOff"
                      prim__chOff
                      prim__setChOff
-                     (v :> HTMLTableCellElement)
+                     v
   
   export
-  colSpan :  JSType t
-          => {auto 0 _ : Elem HTMLTableCellElement (Types t)}
-          -> t
-          -> Attribute True I UInt32
+  colSpan : HTMLTableCellElement -> Attribute True I UInt32
   colSpan v = fromPrim "HTMLTableCellElement.getcolSpan"
                        prim__colSpan
                        prim__setColSpan
-                       (v :> HTMLTableCellElement)
+                       v
   
   export
-  headers :  JSType t
-          => {auto 0 _ : Elem HTMLTableCellElement (Types t)}
-          -> t
-          -> Attribute True I String
+  headers : HTMLTableCellElement -> Attribute True I String
   headers v = fromPrim "HTMLTableCellElement.getheaders"
                        prim__headers
                        prim__setHeaders
-                       (v :> HTMLTableCellElement)
+                       v
   
   export
-  height :  JSType t
-         => {auto 0 _ : Elem HTMLTableCellElement (Types t)}
-         -> t
-         -> Attribute True I String
+  height : HTMLTableCellElement -> Attribute True I String
   height v = fromPrim "HTMLTableCellElement.getheight"
                       prim__height
                       prim__setHeight
-                      (v :> HTMLTableCellElement)
+                      v
   
   export
-  noWrap :  JSType t
-         => {auto 0 _ : Elem HTMLTableCellElement (Types t)}
-         -> t
-         -> Attribute True I Bool
+  noWrap : HTMLTableCellElement -> Attribute True I Bool
   noWrap v = fromPrim "HTMLTableCellElement.getnoWrap"
                       prim__noWrap
                       prim__setNoWrap
-                      (v :> HTMLTableCellElement)
+                      v
   
   export
-  rowSpan :  JSType t
-          => {auto 0 _ : Elem HTMLTableCellElement (Types t)}
-          -> t
-          -> Attribute True I UInt32
+  rowSpan : HTMLTableCellElement -> Attribute True I UInt32
   rowSpan v = fromPrim "HTMLTableCellElement.getrowSpan"
                        prim__rowSpan
                        prim__setRowSpan
-                       (v :> HTMLTableCellElement)
+                       v
   
   export
-  scope :  JSType t
-        => {auto 0 _ : Elem HTMLTableCellElement (Types t)}
-        -> t
-        -> Attribute True I String
+  scope : HTMLTableCellElement -> Attribute True I String
   scope v = fromPrim "HTMLTableCellElement.getscope"
                      prim__scope
                      prim__setScope
-                     (v :> HTMLTableCellElement)
+                     v
   
   export
-  vAlign :  JSType t
-         => {auto 0 _ : Elem HTMLTableCellElement (Types t)}
-         -> t
-         -> Attribute True I String
+  vAlign : HTMLTableCellElement -> Attribute True I String
   vAlign v = fromPrim "HTMLTableCellElement.getvAlign"
                       prim__vAlign
                       prim__setVAlign
-                      (v :> HTMLTableCellElement)
+                      v
   
   export
-  width :  JSType t
-        => {auto 0 _ : Elem HTMLTableCellElement (Types t)}
-        -> t
-        -> Attribute True I String
+  width : HTMLTableCellElement -> Attribute True I String
   width v = fromPrim "HTMLTableCellElement.getwidth"
                      prim__width
                      prim__setWidth
-                     (v :> HTMLTableCellElement)
+                     v
 
 namespace HTMLTableColElement
   
@@ -5797,64 +3782,31 @@ namespace HTMLTableColElement
   new = primJS $ HTMLTableColElement.prim__new 
   
   export
-  align :  JSType t
-        => {auto 0 _ : Elem HTMLTableColElement (Types t)}
-        -> t
-        -> Attribute True I String
-  align v = fromPrim "HTMLTableColElement.getalign"
-                     prim__align
-                     prim__setAlign
-                     (v :> HTMLTableColElement)
+  align : HTMLTableColElement -> Attribute True I String
+  align v = fromPrim "HTMLTableColElement.getalign" prim__align prim__setAlign v
   
   export
-  ch :  JSType t
-     => {auto 0 _ : Elem HTMLTableColElement (Types t)}
-     -> t
-     -> Attribute True I String
-  ch v = fromPrim "HTMLTableColElement.getch"
-                  prim__ch
-                  prim__setCh
-                  (v :> HTMLTableColElement)
+  ch : HTMLTableColElement -> Attribute True I String
+  ch v = fromPrim "HTMLTableColElement.getch" prim__ch prim__setCh v
   
   export
-  chOff :  JSType t
-        => {auto 0 _ : Elem HTMLTableColElement (Types t)}
-        -> t
-        -> Attribute True I String
-  chOff v = fromPrim "HTMLTableColElement.getchOff"
-                     prim__chOff
-                     prim__setChOff
-                     (v :> HTMLTableColElement)
+  chOff : HTMLTableColElement -> Attribute True I String
+  chOff v = fromPrim "HTMLTableColElement.getchOff" prim__chOff prim__setChOff v
   
   export
-  span :  JSType t
-       => {auto 0 _ : Elem HTMLTableColElement (Types t)}
-       -> t
-       -> Attribute True I UInt32
-  span v = fromPrim "HTMLTableColElement.getspan"
-                    prim__span
-                    prim__setSpan
-                    (v :> HTMLTableColElement)
+  span : HTMLTableColElement -> Attribute True I UInt32
+  span v = fromPrim "HTMLTableColElement.getspan" prim__span prim__setSpan v
   
   export
-  vAlign :  JSType t
-         => {auto 0 _ : Elem HTMLTableColElement (Types t)}
-         -> t
-         -> Attribute True I String
+  vAlign : HTMLTableColElement -> Attribute True I String
   vAlign v = fromPrim "HTMLTableColElement.getvAlign"
                       prim__vAlign
                       prim__setVAlign
-                      (v :> HTMLTableColElement)
+                      v
   
   export
-  width :  JSType t
-        => {auto 0 _ : Elem HTMLTableColElement (Types t)}
-        -> t
-        -> Attribute True I String
-  width v = fromPrim "HTMLTableColElement.getwidth"
-                     prim__width
-                     prim__setWidth
-                     (v :> HTMLTableColElement)
+  width : HTMLTableColElement -> Attribute True I String
+  width v = fromPrim "HTMLTableColElement.getwidth" prim__width prim__setWidth v
 
 namespace HTMLTableElement
   
@@ -5863,210 +3815,126 @@ namespace HTMLTableElement
   new = primJS $ HTMLTableElement.prim__new 
   
   export
-  align :  JSType t
-        => {auto 0 _ : Elem HTMLTableElement (Types t)}
-        -> t
-        -> Attribute True I String
-  align v = fromPrim "HTMLTableElement.getalign"
-                     prim__align
-                     prim__setAlign
-                     (v :> HTMLTableElement)
+  align : HTMLTableElement -> Attribute True I String
+  align v = fromPrim "HTMLTableElement.getalign" prim__align prim__setAlign v
   
   export
-  bgColor :  JSType t
-          => {auto 0 _ : Elem HTMLTableElement (Types t)}
-          -> t
-          -> Attribute True I String
+  bgColor : HTMLTableElement -> Attribute True I String
   bgColor v = fromPrim "HTMLTableElement.getbgColor"
                        prim__bgColor
                        prim__setBgColor
-                       (v :> HTMLTableElement)
+                       v
   
   export
-  border :  JSType t
-         => {auto 0 _ : Elem HTMLTableElement (Types t)}
-         -> t
-         -> Attribute True I String
+  border : HTMLTableElement -> Attribute True I String
   border v = fromPrim "HTMLTableElement.getborder"
                       prim__border
                       prim__setBorder
-                      (v :> HTMLTableElement)
+                      v
   
   export
-  caption :  JSType t
-          => {auto 0 _ : Elem HTMLTableElement (Types t)}
-          -> t
-          -> Attribute False Maybe HTMLTableCaptionElement
+  caption : HTMLTableElement -> Attribute False Maybe HTMLTableCaptionElement
   caption v = fromNullablePrim "HTMLTableElement.getcaption"
                                prim__caption
                                prim__setCaption
-                               (v :> HTMLTableElement)
+                               v
   
   export
-  cellPadding :  JSType t
-              => {auto 0 _ : Elem HTMLTableElement (Types t)}
-              -> t
-              -> Attribute True I String
+  cellPadding : HTMLTableElement -> Attribute True I String
   cellPadding v = fromPrim "HTMLTableElement.getcellPadding"
                            prim__cellPadding
                            prim__setCellPadding
-                           (v :> HTMLTableElement)
+                           v
   
   export
-  cellSpacing :  JSType t
-              => {auto 0 _ : Elem HTMLTableElement (Types t)}
-              -> t
-              -> Attribute True I String
+  cellSpacing : HTMLTableElement -> Attribute True I String
   cellSpacing v = fromPrim "HTMLTableElement.getcellSpacing"
                            prim__cellSpacing
                            prim__setCellSpacing
-                           (v :> HTMLTableElement)
+                           v
   
   export
-  frame :  JSType t
-        => {auto 0 _ : Elem HTMLTableElement (Types t)}
-        -> t
-        -> Attribute True I String
-  frame v = fromPrim "HTMLTableElement.getframe"
-                     prim__frame
-                     prim__setFrame
-                     (v :> HTMLTableElement)
+  frame : HTMLTableElement -> Attribute True I String
+  frame v = fromPrim "HTMLTableElement.getframe" prim__frame prim__setFrame v
   
   export
-  rows :  JSType t1
-       => {auto 0 _ : Elem HTMLTableElement (Types t1)}
-       -> (obj : t1)
-       -> JSIO HTMLCollection
-  rows a = primJS $ HTMLTableElement.prim__rows (up a)
+  rows : (obj : HTMLTableElement) -> JSIO HTMLCollection
+  rows a = primJS $ HTMLTableElement.prim__rows a
   
   export
-  rules :  JSType t
-        => {auto 0 _ : Elem HTMLTableElement (Types t)}
-        -> t
-        -> Attribute True I String
-  rules v = fromPrim "HTMLTableElement.getrules"
-                     prim__rules
-                     prim__setRules
-                     (v :> HTMLTableElement)
+  rules : HTMLTableElement -> Attribute True I String
+  rules v = fromPrim "HTMLTableElement.getrules" prim__rules prim__setRules v
   
   export
-  summary :  JSType t
-          => {auto 0 _ : Elem HTMLTableElement (Types t)}
-          -> t
-          -> Attribute True I String
+  summary : HTMLTableElement -> Attribute True I String
   summary v = fromPrim "HTMLTableElement.getsummary"
                        prim__summary
                        prim__setSummary
-                       (v :> HTMLTableElement)
+                       v
   
   export
-  tBodies :  JSType t1
-          => {auto 0 _ : Elem HTMLTableElement (Types t1)}
-          -> (obj : t1)
-          -> JSIO HTMLCollection
-  tBodies a = primJS $ HTMLTableElement.prim__tBodies (up a)
+  tBodies : (obj : HTMLTableElement) -> JSIO HTMLCollection
+  tBodies a = primJS $ HTMLTableElement.prim__tBodies a
   
   export
-  tFoot :  JSType t
-        => {auto 0 _ : Elem HTMLTableElement (Types t)}
-        -> t
-        -> Attribute False Maybe HTMLTableSectionElement
+  tFoot : HTMLTableElement -> Attribute False Maybe HTMLTableSectionElement
   tFoot v = fromNullablePrim "HTMLTableElement.gettFoot"
                              prim__tFoot
                              prim__setTFoot
-                             (v :> HTMLTableElement)
+                             v
   
   export
-  tHead :  JSType t
-        => {auto 0 _ : Elem HTMLTableElement (Types t)}
-        -> t
-        -> Attribute False Maybe HTMLTableSectionElement
+  tHead : HTMLTableElement -> Attribute False Maybe HTMLTableSectionElement
   tHead v = fromNullablePrim "HTMLTableElement.gettHead"
                              prim__tHead
                              prim__setTHead
-                             (v :> HTMLTableElement)
+                             v
   
   export
-  width :  JSType t
-        => {auto 0 _ : Elem HTMLTableElement (Types t)}
-        -> t
-        -> Attribute True I String
-  width v = fromPrim "HTMLTableElement.getwidth"
-                     prim__width
-                     prim__setWidth
-                     (v :> HTMLTableElement)
+  width : HTMLTableElement -> Attribute True I String
+  width v = fromPrim "HTMLTableElement.getwidth" prim__width prim__setWidth v
   
   export
-  createCaption :  JSType t1
-                => {auto 0 _ : Elem HTMLTableElement (Types t1)}
-                -> (obj : t1)
-                -> JSIO HTMLTableCaptionElement
-  createCaption a = primJS $ HTMLTableElement.prim__createCaption (up a)
+  createCaption : (obj : HTMLTableElement) -> JSIO HTMLTableCaptionElement
+  createCaption a = primJS $ HTMLTableElement.prim__createCaption a
   
   export
-  createTBody :  JSType t1
-              => {auto 0 _ : Elem HTMLTableElement (Types t1)}
-              -> (obj : t1)
-              -> JSIO HTMLTableSectionElement
-  createTBody a = primJS $ HTMLTableElement.prim__createTBody (up a)
+  createTBody : (obj : HTMLTableElement) -> JSIO HTMLTableSectionElement
+  createTBody a = primJS $ HTMLTableElement.prim__createTBody a
   
   export
-  createTFoot :  JSType t1
-              => {auto 0 _ : Elem HTMLTableElement (Types t1)}
-              -> (obj : t1)
-              -> JSIO HTMLTableSectionElement
-  createTFoot a = primJS $ HTMLTableElement.prim__createTFoot (up a)
+  createTFoot : (obj : HTMLTableElement) -> JSIO HTMLTableSectionElement
+  createTFoot a = primJS $ HTMLTableElement.prim__createTFoot a
   
   export
-  createTHead :  JSType t1
-              => {auto 0 _ : Elem HTMLTableElement (Types t1)}
-              -> (obj : t1)
-              -> JSIO HTMLTableSectionElement
-  createTHead a = primJS $ HTMLTableElement.prim__createTHead (up a)
+  createTHead : (obj : HTMLTableElement) -> JSIO HTMLTableSectionElement
+  createTHead a = primJS $ HTMLTableElement.prim__createTHead a
   
   export
-  deleteCaption :  JSType t1
-                => {auto 0 _ : Elem HTMLTableElement (Types t1)}
-                -> (obj : t1)
-                -> JSIO ()
-  deleteCaption a = primJS $ HTMLTableElement.prim__deleteCaption (up a)
+  deleteCaption : (obj : HTMLTableElement) -> JSIO ()
+  deleteCaption a = primJS $ HTMLTableElement.prim__deleteCaption a
   
   export
-  deleteRow :  JSType t1
-            => {auto 0 _ : Elem HTMLTableElement (Types t1)}
-            -> (obj : t1)
-            -> (index : Int32)
-            -> JSIO ()
-  deleteRow a b = primJS $ HTMLTableElement.prim__deleteRow (up a) b
+  deleteRow : (obj : HTMLTableElement) -> (index : Int32) -> JSIO ()
+  deleteRow a b = primJS $ HTMLTableElement.prim__deleteRow a b
   
   export
-  deleteTFoot :  JSType t1
-              => {auto 0 _ : Elem HTMLTableElement (Types t1)}
-              -> (obj : t1)
-              -> JSIO ()
-  deleteTFoot a = primJS $ HTMLTableElement.prim__deleteTFoot (up a)
+  deleteTFoot : (obj : HTMLTableElement) -> JSIO ()
+  deleteTFoot a = primJS $ HTMLTableElement.prim__deleteTFoot a
   
   export
-  deleteTHead :  JSType t1
-              => {auto 0 _ : Elem HTMLTableElement (Types t1)}
-              -> (obj : t1)
-              -> JSIO ()
-  deleteTHead a = primJS $ HTMLTableElement.prim__deleteTHead (up a)
+  deleteTHead : (obj : HTMLTableElement) -> JSIO ()
+  deleteTHead a = primJS $ HTMLTableElement.prim__deleteTHead a
   
   export
-  insertRow :  JSType t1
-            => {auto 0 _ : Elem HTMLTableElement (Types t1)}
-            -> (obj : t1)
+  insertRow :  (obj : HTMLTableElement)
             -> (index : Optional Int32)
             -> JSIO HTMLTableRowElement
-  insertRow a b = primJS $ HTMLTableElement.prim__insertRow (up a) (toFFI b)
+  insertRow a b = primJS $ HTMLTableElement.prim__insertRow a (toFFI b)
 
   export
-  insertRow' :  JSType t1
-             => {auto 0 _ : Elem HTMLTableElement (Types t1)}
-             -> (obj : t1)
-             -> JSIO HTMLTableRowElement
-  insertRow' a = primJS $ HTMLTableElement.prim__insertRow (up a) undef
+  insertRow' : (obj : HTMLTableElement) -> JSIO HTMLTableRowElement
+  insertRow' a = primJS $ HTMLTableElement.prim__insertRow a undef
 
 namespace HTMLTableRowElement
   
@@ -6075,99 +3943,56 @@ namespace HTMLTableRowElement
   new = primJS $ HTMLTableRowElement.prim__new 
   
   export
-  align :  JSType t
-        => {auto 0 _ : Elem HTMLTableRowElement (Types t)}
-        -> t
-        -> Attribute True I String
-  align v = fromPrim "HTMLTableRowElement.getalign"
-                     prim__align
-                     prim__setAlign
-                     (v :> HTMLTableRowElement)
+  align : HTMLTableRowElement -> Attribute True I String
+  align v = fromPrim "HTMLTableRowElement.getalign" prim__align prim__setAlign v
   
   export
-  bgColor :  JSType t
-          => {auto 0 _ : Elem HTMLTableRowElement (Types t)}
-          -> t
-          -> Attribute True I String
+  bgColor : HTMLTableRowElement -> Attribute True I String
   bgColor v = fromPrim "HTMLTableRowElement.getbgColor"
                        prim__bgColor
                        prim__setBgColor
-                       (v :> HTMLTableRowElement)
+                       v
   
   export
-  cells :  JSType t1
-        => {auto 0 _ : Elem HTMLTableRowElement (Types t1)}
-        -> (obj : t1)
-        -> JSIO HTMLCollection
-  cells a = primJS $ HTMLTableRowElement.prim__cells (up a)
+  cells : (obj : HTMLTableRowElement) -> JSIO HTMLCollection
+  cells a = primJS $ HTMLTableRowElement.prim__cells a
   
   export
-  ch :  JSType t
-     => {auto 0 _ : Elem HTMLTableRowElement (Types t)}
-     -> t
-     -> Attribute True I String
-  ch v = fromPrim "HTMLTableRowElement.getch"
-                  prim__ch
-                  prim__setCh
-                  (v :> HTMLTableRowElement)
+  ch : HTMLTableRowElement -> Attribute True I String
+  ch v = fromPrim "HTMLTableRowElement.getch" prim__ch prim__setCh v
   
   export
-  chOff :  JSType t
-        => {auto 0 _ : Elem HTMLTableRowElement (Types t)}
-        -> t
-        -> Attribute True I String
-  chOff v = fromPrim "HTMLTableRowElement.getchOff"
-                     prim__chOff
-                     prim__setChOff
-                     (v :> HTMLTableRowElement)
+  chOff : HTMLTableRowElement -> Attribute True I String
+  chOff v = fromPrim "HTMLTableRowElement.getchOff" prim__chOff prim__setChOff v
   
   export
-  rowIndex :  JSType t1
-           => {auto 0 _ : Elem HTMLTableRowElement (Types t1)}
-           -> (obj : t1)
-           -> JSIO Int32
-  rowIndex a = primJS $ HTMLTableRowElement.prim__rowIndex (up a)
+  rowIndex : (obj : HTMLTableRowElement) -> JSIO Int32
+  rowIndex a = primJS $ HTMLTableRowElement.prim__rowIndex a
   
   export
-  sectionRowIndex :  JSType t1
-                  => {auto 0 _ : Elem HTMLTableRowElement (Types t1)}
-                  -> (obj : t1)
-                  -> JSIO Int32
-  sectionRowIndex a = primJS $ HTMLTableRowElement.prim__sectionRowIndex (up a)
+  sectionRowIndex : (obj : HTMLTableRowElement) -> JSIO Int32
+  sectionRowIndex a = primJS $ HTMLTableRowElement.prim__sectionRowIndex a
   
   export
-  vAlign :  JSType t
-         => {auto 0 _ : Elem HTMLTableRowElement (Types t)}
-         -> t
-         -> Attribute True I String
+  vAlign : HTMLTableRowElement -> Attribute True I String
   vAlign v = fromPrim "HTMLTableRowElement.getvAlign"
                       prim__vAlign
                       prim__setVAlign
-                      (v :> HTMLTableRowElement)
+                      v
   
   export
-  deleteCell :  JSType t1
-             => {auto 0 _ : Elem HTMLTableRowElement (Types t1)}
-             -> (obj : t1)
-             -> (index : Int32)
-             -> JSIO ()
-  deleteCell a b = primJS $ HTMLTableRowElement.prim__deleteCell (up a) b
+  deleteCell : (obj : HTMLTableRowElement) -> (index : Int32) -> JSIO ()
+  deleteCell a b = primJS $ HTMLTableRowElement.prim__deleteCell a b
   
   export
-  insertCell :  JSType t1
-             => {auto 0 _ : Elem HTMLTableRowElement (Types t1)}
-             -> (obj : t1)
+  insertCell :  (obj : HTMLTableRowElement)
              -> (index : Optional Int32)
              -> JSIO HTMLTableCellElement
-  insertCell a b = primJS
-                 $ HTMLTableRowElement.prim__insertCell (up a) (toFFI b)
+  insertCell a b = primJS $ HTMLTableRowElement.prim__insertCell a (toFFI b)
 
   export
-  insertCell' :  JSType t1
-              => {auto 0 _ : Elem HTMLTableRowElement (Types t1)}
-              -> (obj : t1)
-              -> JSIO HTMLTableCellElement
-  insertCell' a = primJS $ HTMLTableRowElement.prim__insertCell (up a) undef
+  insertCell' : (obj : HTMLTableRowElement) -> JSIO HTMLTableCellElement
+  insertCell' a = primJS $ HTMLTableRowElement.prim__insertCell a undef
 
 namespace HTMLTableSectionElement
   
@@ -6176,75 +4001,47 @@ namespace HTMLTableSectionElement
   new = primJS $ HTMLTableSectionElement.prim__new 
   
   export
-  align :  JSType t
-        => {auto 0 _ : Elem HTMLTableSectionElement (Types t)}
-        -> t
-        -> Attribute True I String
+  align : HTMLTableSectionElement -> Attribute True I String
   align v = fromPrim "HTMLTableSectionElement.getalign"
                      prim__align
                      prim__setAlign
-                     (v :> HTMLTableSectionElement)
+                     v
   
   export
-  ch :  JSType t
-     => {auto 0 _ : Elem HTMLTableSectionElement (Types t)}
-     -> t
-     -> Attribute True I String
-  ch v = fromPrim "HTMLTableSectionElement.getch"
-                  prim__ch
-                  prim__setCh
-                  (v :> HTMLTableSectionElement)
+  ch : HTMLTableSectionElement -> Attribute True I String
+  ch v = fromPrim "HTMLTableSectionElement.getch" prim__ch prim__setCh v
   
   export
-  chOff :  JSType t
-        => {auto 0 _ : Elem HTMLTableSectionElement (Types t)}
-        -> t
-        -> Attribute True I String
+  chOff : HTMLTableSectionElement -> Attribute True I String
   chOff v = fromPrim "HTMLTableSectionElement.getchOff"
                      prim__chOff
                      prim__setChOff
-                     (v :> HTMLTableSectionElement)
+                     v
   
   export
-  rows :  JSType t1
-       => {auto 0 _ : Elem HTMLTableSectionElement (Types t1)}
-       -> (obj : t1)
-       -> JSIO HTMLCollection
-  rows a = primJS $ HTMLTableSectionElement.prim__rows (up a)
+  rows : (obj : HTMLTableSectionElement) -> JSIO HTMLCollection
+  rows a = primJS $ HTMLTableSectionElement.prim__rows a
   
   export
-  vAlign :  JSType t
-         => {auto 0 _ : Elem HTMLTableSectionElement (Types t)}
-         -> t
-         -> Attribute True I String
+  vAlign : HTMLTableSectionElement -> Attribute True I String
   vAlign v = fromPrim "HTMLTableSectionElement.getvAlign"
                       prim__vAlign
                       prim__setVAlign
-                      (v :> HTMLTableSectionElement)
+                      v
   
   export
-  deleteRow :  JSType t1
-            => {auto 0 _ : Elem HTMLTableSectionElement (Types t1)}
-            -> (obj : t1)
-            -> (index : Int32)
-            -> JSIO ()
-  deleteRow a b = primJS $ HTMLTableSectionElement.prim__deleteRow (up a) b
+  deleteRow : (obj : HTMLTableSectionElement) -> (index : Int32) -> JSIO ()
+  deleteRow a b = primJS $ HTMLTableSectionElement.prim__deleteRow a b
   
   export
-  insertRow :  JSType t1
-            => {auto 0 _ : Elem HTMLTableSectionElement (Types t1)}
-            -> (obj : t1)
+  insertRow :  (obj : HTMLTableSectionElement)
             -> (index : Optional Int32)
             -> JSIO HTMLTableRowElement
-  insertRow a b = primJS
-                $ HTMLTableSectionElement.prim__insertRow (up a) (toFFI b)
+  insertRow a b = primJS $ HTMLTableSectionElement.prim__insertRow a (toFFI b)
 
   export
-  insertRow' :  JSType t1
-             => {auto 0 _ : Elem HTMLTableSectionElement (Types t1)}
-             -> (obj : t1)
-             -> JSIO HTMLTableRowElement
-  insertRow' a = primJS $ HTMLTableSectionElement.prim__insertRow (up a) undef
+  insertRow' : (obj : HTMLTableSectionElement) -> JSIO HTMLTableRowElement
+  insertRow' a = primJS $ HTMLTableSectionElement.prim__insertRow a undef
 
 namespace HTMLTemplateElement
   
@@ -6253,11 +4050,8 @@ namespace HTMLTemplateElement
   new = primJS $ HTMLTemplateElement.prim__new 
   
   export
-  content :  JSType t1
-          => {auto 0 _ : Elem HTMLTemplateElement (Types t1)}
-          -> (obj : t1)
-          -> JSIO DocumentFragment
-  content a = primJS $ HTMLTemplateElement.prim__content (up a)
+  content : (obj : HTMLTemplateElement) -> JSIO DocumentFragment
+  content a = primJS $ HTMLTemplateElement.prim__content a
 
 namespace HTMLTextAreaElement
   
@@ -6266,321 +4060,205 @@ namespace HTMLTextAreaElement
   new = primJS $ HTMLTextAreaElement.prim__new 
   
   export
-  autocomplete :  JSType t
-               => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
-               -> t
-               -> Attribute True I String
+  autocomplete : HTMLTextAreaElement -> Attribute True I String
   autocomplete v = fromPrim "HTMLTextAreaElement.getautocomplete"
                             prim__autocomplete
                             prim__setAutocomplete
-                            (v :> HTMLTextAreaElement)
+                            v
   
   export
-  cols :  JSType t
-       => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
-       -> t
-       -> Attribute True I UInt32
-  cols v = fromPrim "HTMLTextAreaElement.getcols"
-                    prim__cols
-                    prim__setCols
-                    (v :> HTMLTextAreaElement)
+  cols : HTMLTextAreaElement -> Attribute True I UInt32
+  cols v = fromPrim "HTMLTextAreaElement.getcols" prim__cols prim__setCols v
   
   export
-  defaultValue :  JSType t
-               => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
-               -> t
-               -> Attribute True I String
+  defaultValue : HTMLTextAreaElement -> Attribute True I String
   defaultValue v = fromPrim "HTMLTextAreaElement.getdefaultValue"
                             prim__defaultValue
                             prim__setDefaultValue
-                            (v :> HTMLTextAreaElement)
+                            v
   
   export
-  dirName :  JSType t
-          => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
-          -> t
-          -> Attribute True I String
+  dirName : HTMLTextAreaElement -> Attribute True I String
   dirName v = fromPrim "HTMLTextAreaElement.getdirName"
                        prim__dirName
                        prim__setDirName
-                       (v :> HTMLTextAreaElement)
+                       v
   
   export
-  disabled :  JSType t
-           => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
-           -> t
-           -> Attribute True I Bool
+  disabled : HTMLTextAreaElement -> Attribute True I Bool
   disabled v = fromPrim "HTMLTextAreaElement.getdisabled"
                         prim__disabled
                         prim__setDisabled
-                        (v :> HTMLTextAreaElement)
+                        v
   
   export
-  form :  JSType t1
-       => {auto 0 _ : Elem HTMLTextAreaElement (Types t1)}
-       -> (obj : t1)
-       -> JSIO (Maybe HTMLFormElement)
-  form a = tryJS "HTMLTextAreaElement.form"
-         $ HTMLTextAreaElement.prim__form (up a)
+  form : (obj : HTMLTextAreaElement) -> JSIO (Maybe HTMLFormElement)
+  form a = tryJS "HTMLTextAreaElement.form" $ HTMLTextAreaElement.prim__form a
   
   export
-  labels :  JSType t1
-         => {auto 0 _ : Elem HTMLTextAreaElement (Types t1)}
-         -> (obj : t1)
-         -> JSIO NodeList
-  labels a = primJS $ HTMLTextAreaElement.prim__labels (up a)
+  labels : (obj : HTMLTextAreaElement) -> JSIO NodeList
+  labels a = primJS $ HTMLTextAreaElement.prim__labels a
   
   export
-  maxLength :  JSType t
-            => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
-            -> t
-            -> Attribute True I Int32
+  maxLength : HTMLTextAreaElement -> Attribute True I Int32
   maxLength v = fromPrim "HTMLTextAreaElement.getmaxLength"
                          prim__maxLength
                          prim__setMaxLength
-                         (v :> HTMLTextAreaElement)
+                         v
   
   export
-  minLength :  JSType t
-            => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
-            -> t
-            -> Attribute True I Int32
+  minLength : HTMLTextAreaElement -> Attribute True I Int32
   minLength v = fromPrim "HTMLTextAreaElement.getminLength"
                          prim__minLength
                          prim__setMinLength
-                         (v :> HTMLTextAreaElement)
+                         v
   
   export
-  name :  JSType t
-       => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
-       -> t
-       -> Attribute True I String
-  name v = fromPrim "HTMLTextAreaElement.getname"
-                    prim__name
-                    prim__setName
-                    (v :> HTMLTextAreaElement)
+  name : HTMLTextAreaElement -> Attribute True I String
+  name v = fromPrim "HTMLTextAreaElement.getname" prim__name prim__setName v
   
   export
-  placeholder :  JSType t
-              => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
-              -> t
-              -> Attribute True I String
+  placeholder : HTMLTextAreaElement -> Attribute True I String
   placeholder v = fromPrim "HTMLTextAreaElement.getplaceholder"
                            prim__placeholder
                            prim__setPlaceholder
-                           (v :> HTMLTextAreaElement)
+                           v
   
   export
-  readOnly :  JSType t
-           => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
-           -> t
-           -> Attribute True I Bool
+  readOnly : HTMLTextAreaElement -> Attribute True I Bool
   readOnly v = fromPrim "HTMLTextAreaElement.getreadOnly"
                         prim__readOnly
                         prim__setReadOnly
-                        (v :> HTMLTextAreaElement)
+                        v
   
   export
-  required :  JSType t
-           => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
-           -> t
-           -> Attribute True I Bool
+  required : HTMLTextAreaElement -> Attribute True I Bool
   required v = fromPrim "HTMLTextAreaElement.getrequired"
                         prim__required
                         prim__setRequired
-                        (v :> HTMLTextAreaElement)
+                        v
   
   export
-  rows :  JSType t
-       => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
-       -> t
-       -> Attribute True I UInt32
-  rows v = fromPrim "HTMLTextAreaElement.getrows"
-                    prim__rows
-                    prim__setRows
-                    (v :> HTMLTextAreaElement)
+  rows : HTMLTextAreaElement -> Attribute True I UInt32
+  rows v = fromPrim "HTMLTextAreaElement.getrows" prim__rows prim__setRows v
   
   export
-  selectionDirection :  JSType t
-                     => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
-                     -> t
-                     -> Attribute True I String
+  selectionDirection : HTMLTextAreaElement -> Attribute True I String
   selectionDirection v = fromPrim "HTMLTextAreaElement.getselectionDirection"
                                   prim__selectionDirection
                                   prim__setSelectionDirection
-                                  (v :> HTMLTextAreaElement)
+                                  v
   
   export
-  selectionEnd :  JSType t
-               => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
-               -> t
-               -> Attribute True I UInt32
+  selectionEnd : HTMLTextAreaElement -> Attribute True I UInt32
   selectionEnd v = fromPrim "HTMLTextAreaElement.getselectionEnd"
                             prim__selectionEnd
                             prim__setSelectionEnd
-                            (v :> HTMLTextAreaElement)
+                            v
   
   export
-  selectionStart :  JSType t
-                 => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
-                 -> t
-                 -> Attribute True I UInt32
+  selectionStart : HTMLTextAreaElement -> Attribute True I UInt32
   selectionStart v = fromPrim "HTMLTextAreaElement.getselectionStart"
                               prim__selectionStart
                               prim__setSelectionStart
-                              (v :> HTMLTextAreaElement)
+                              v
   
   export
-  textLength :  JSType t1
-             => {auto 0 _ : Elem HTMLTextAreaElement (Types t1)}
-             -> (obj : t1)
-             -> JSIO UInt32
-  textLength a = primJS $ HTMLTextAreaElement.prim__textLength (up a)
+  textLength : (obj : HTMLTextAreaElement) -> JSIO UInt32
+  textLength a = primJS $ HTMLTextAreaElement.prim__textLength a
   
   export
-  type :  JSType t1
-       => {auto 0 _ : Elem HTMLTextAreaElement (Types t1)}
-       -> (obj : t1)
-       -> JSIO String
-  type a = primJS $ HTMLTextAreaElement.prim__type (up a)
+  type : (obj : HTMLTextAreaElement) -> JSIO String
+  type a = primJS $ HTMLTextAreaElement.prim__type a
   
   export
-  validationMessage :  JSType t1
-                    => {auto 0 _ : Elem HTMLTextAreaElement (Types t1)}
-                    -> (obj : t1)
-                    -> JSIO String
-  validationMessage a = primJS
-                      $ HTMLTextAreaElement.prim__validationMessage (up a)
+  validationMessage : (obj : HTMLTextAreaElement) -> JSIO String
+  validationMessage a = primJS $ HTMLTextAreaElement.prim__validationMessage a
   
   export
-  validity :  JSType t1
-           => {auto 0 _ : Elem HTMLTextAreaElement (Types t1)}
-           -> (obj : t1)
-           -> JSIO ValidityState
-  validity a = primJS $ HTMLTextAreaElement.prim__validity (up a)
+  validity : (obj : HTMLTextAreaElement) -> JSIO ValidityState
+  validity a = primJS $ HTMLTextAreaElement.prim__validity a
   
   export
-  value :  JSType t
-        => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
-        -> t
-        -> Attribute True I String
-  value v = fromPrim "HTMLTextAreaElement.getvalue"
-                     prim__value
-                     prim__setValue
-                     (v :> HTMLTextAreaElement)
+  value : HTMLTextAreaElement -> Attribute True I String
+  value v = fromPrim "HTMLTextAreaElement.getvalue" prim__value prim__setValue v
   
   export
-  willValidate :  JSType t1
-               => {auto 0 _ : Elem HTMLTextAreaElement (Types t1)}
-               -> (obj : t1)
-               -> JSIO Bool
+  willValidate : (obj : HTMLTextAreaElement) -> JSIO Bool
   willValidate a = tryJS "HTMLTextAreaElement.willValidate"
-                 $ HTMLTextAreaElement.prim__willValidate (up a)
+                 $ HTMLTextAreaElement.prim__willValidate a
   
   export
-  wrap :  JSType t
-       => {auto 0 _ : Elem HTMLTextAreaElement (Types t)}
-       -> t
-       -> Attribute True I String
-  wrap v = fromPrim "HTMLTextAreaElement.getwrap"
-                    prim__wrap
-                    prim__setWrap
-                    (v :> HTMLTextAreaElement)
+  wrap : HTMLTextAreaElement -> Attribute True I String
+  wrap v = fromPrim "HTMLTextAreaElement.getwrap" prim__wrap prim__setWrap v
   
   export
-  checkValidity :  JSType t1
-                => {auto 0 _ : Elem HTMLTextAreaElement (Types t1)}
-                -> (obj : t1)
-                -> JSIO Bool
+  checkValidity : (obj : HTMLTextAreaElement) -> JSIO Bool
   checkValidity a = tryJS "HTMLTextAreaElement.checkValidity"
-                  $ HTMLTextAreaElement.prim__checkValidity (up a)
+                  $ HTMLTextAreaElement.prim__checkValidity a
   
   export
-  reportValidity :  JSType t1
-                 => {auto 0 _ : Elem HTMLTextAreaElement (Types t1)}
-                 -> (obj : t1)
-                 -> JSIO Bool
+  reportValidity : (obj : HTMLTextAreaElement) -> JSIO Bool
   reportValidity a = tryJS "HTMLTextAreaElement.reportValidity"
-                   $ HTMLTextAreaElement.prim__reportValidity (up a)
+                   $ HTMLTextAreaElement.prim__reportValidity a
   
   export
-  select :  JSType t1
-         => {auto 0 _ : Elem HTMLTextAreaElement (Types t1)}
-         -> (obj : t1)
-         -> JSIO ()
-  select a = primJS $ HTMLTextAreaElement.prim__select (up a)
+  select : (obj : HTMLTextAreaElement) -> JSIO ()
+  select a = primJS $ HTMLTextAreaElement.prim__select a
   
   export
-  setCustomValidity :  JSType t1
-                    => {auto 0 _ : Elem HTMLTextAreaElement (Types t1)}
-                    -> (obj : t1)
-                    -> (error : String)
-                    -> JSIO ()
+  setCustomValidity : (obj : HTMLTextAreaElement) -> (error : String) -> JSIO ()
   setCustomValidity a b = primJS
-                        $ HTMLTextAreaElement.prim__setCustomValidity (up a) b
+                        $ HTMLTextAreaElement.prim__setCustomValidity a b
   
   export
-  setRangeText :  JSType t1
-               => {auto 0 _ : Elem HTMLTextAreaElement (Types t1)}
-               -> (obj : t1)
+  setRangeText :  (obj : HTMLTextAreaElement)
                -> (replacement : String)
                -> JSIO ()
-  setRangeText a b = primJS $ HTMLTextAreaElement.prim__setRangeText (up a) b
+  setRangeText a b = primJS $ HTMLTextAreaElement.prim__setRangeText a b
   
   export
-  setRangeText1 :  JSType t1
-                => {auto 0 _ : Elem HTMLTextAreaElement (Types t1)}
-                -> (obj : t1)
+  setRangeText1 :  (obj : HTMLTextAreaElement)
                 -> (replacement : String)
                 -> (start : UInt32)
                 -> (end : UInt32)
                 -> (selectionMode : Optional SelectionMode)
                 -> JSIO ()
   setRangeText1 a b c d e = primJS
-                          $ HTMLTextAreaElement.prim__setRangeText1 (up a)
+                          $ HTMLTextAreaElement.prim__setRangeText1 a
                                                                     b
                                                                     c
                                                                     d
                                                                     (toFFI e)
 
   export
-  setRangeText1' :  JSType t1
-                 => {auto 0 _ : Elem HTMLTextAreaElement (Types t1)}
-                 -> (obj : t1)
+  setRangeText1' :  (obj : HTMLTextAreaElement)
                  -> (replacement : String)
                  -> (start : UInt32)
                  -> (end : UInt32)
                  -> JSIO ()
   setRangeText1' a b c d = primJS
-                         $ HTMLTextAreaElement.prim__setRangeText1 (up a)
-                                                                   b
-                                                                   c
-                                                                   d
-                                                                   undef
+                         $ HTMLTextAreaElement.prim__setRangeText1 a b c d undef
   
   export
-  setSelectionRange :  JSType t1
-                    => {auto 0 _ : Elem HTMLTextAreaElement (Types t1)}
-                    -> (obj : t1)
+  setSelectionRange :  (obj : HTMLTextAreaElement)
                     -> (start : UInt32)
                     -> (end : UInt32)
                     -> (direction : Optional String)
                     -> JSIO ()
   setSelectionRange a b c d = primJS
-                            $ HTMLTextAreaElement.prim__setSelectionRange (up a)
+                            $ HTMLTextAreaElement.prim__setSelectionRange a
                                                                           b
                                                                           c
                                                                           (toFFI d)
 
   export
-  setSelectionRange' :  JSType t1
-                     => {auto 0 _ : Elem HTMLTextAreaElement (Types t1)}
-                     -> (obj : t1)
+  setSelectionRange' :  (obj : HTMLTextAreaElement)
                      -> (start : UInt32)
                      -> (end : UInt32)
                      -> JSIO ()
   setSelectionRange' a b c = primJS
-                           $ HTMLTextAreaElement.prim__setSelectionRange (up a)
+                           $ HTMLTextAreaElement.prim__setSelectionRange a
                                                                          b
                                                                          c
                                                                          undef
@@ -6592,14 +4270,11 @@ namespace HTMLTimeElement
   new = primJS $ HTMLTimeElement.prim__new 
   
   export
-  dateTime :  JSType t
-           => {auto 0 _ : Elem HTMLTimeElement (Types t)}
-           -> t
-           -> Attribute True I String
+  dateTime : HTMLTimeElement -> Attribute True I String
   dateTime v = fromPrim "HTMLTimeElement.getdateTime"
                         prim__dateTime
                         prim__setDateTime
-                        (v :> HTMLTimeElement)
+                        v
 
 namespace HTMLTitleElement
   
@@ -6608,14 +4283,8 @@ namespace HTMLTitleElement
   new = primJS $ HTMLTitleElement.prim__new 
   
   export
-  text :  JSType t
-       => {auto 0 _ : Elem HTMLTitleElement (Types t)}
-       -> t
-       -> Attribute True I String
-  text v = fromPrim "HTMLTitleElement.gettext"
-                    prim__text
-                    prim__setText
-                    (v :> HTMLTitleElement)
+  text : HTMLTitleElement -> Attribute True I String
+  text v = fromPrim "HTMLTitleElement.gettext" prim__text prim__setText v
 
 namespace HTMLTrackElement
   
@@ -6640,68 +4309,38 @@ namespace HTMLTrackElement
   new = primJS $ HTMLTrackElement.prim__new 
   
   export
-  default_ :  JSType t
-           => {auto 0 _ : Elem HTMLTrackElement (Types t)}
-           -> t
-           -> Attribute True I Bool
+  default_ : HTMLTrackElement -> Attribute True I Bool
   default_ v = fromPrim "HTMLTrackElement.getdefault"
                         prim__default
                         prim__setDefault
-                        (v :> HTMLTrackElement)
+                        v
   
   export
-  kind :  JSType t
-       => {auto 0 _ : Elem HTMLTrackElement (Types t)}
-       -> t
-       -> Attribute True I String
-  kind v = fromPrim "HTMLTrackElement.getkind"
-                    prim__kind
-                    prim__setKind
-                    (v :> HTMLTrackElement)
+  kind : HTMLTrackElement -> Attribute True I String
+  kind v = fromPrim "HTMLTrackElement.getkind" prim__kind prim__setKind v
   
   export
-  label :  JSType t
-        => {auto 0 _ : Elem HTMLTrackElement (Types t)}
-        -> t
-        -> Attribute True I String
-  label v = fromPrim "HTMLTrackElement.getlabel"
-                     prim__label
-                     prim__setLabel
-                     (v :> HTMLTrackElement)
+  label : HTMLTrackElement -> Attribute True I String
+  label v = fromPrim "HTMLTrackElement.getlabel" prim__label prim__setLabel v
   
   export
-  readyState :  JSType t1
-             => {auto 0 _ : Elem HTMLTrackElement (Types t1)}
-             -> (obj : t1)
-             -> JSIO UInt16
-  readyState a = primJS $ HTMLTrackElement.prim__readyState (up a)
+  readyState : (obj : HTMLTrackElement) -> JSIO UInt16
+  readyState a = primJS $ HTMLTrackElement.prim__readyState a
   
   export
-  src :  JSType t
-      => {auto 0 _ : Elem HTMLTrackElement (Types t)}
-      -> t
-      -> Attribute True I String
-  src v = fromPrim "HTMLTrackElement.getsrc"
-                   prim__src
-                   prim__setSrc
-                   (v :> HTMLTrackElement)
+  src : HTMLTrackElement -> Attribute True I String
+  src v = fromPrim "HTMLTrackElement.getsrc" prim__src prim__setSrc v
   
   export
-  srclang :  JSType t
-          => {auto 0 _ : Elem HTMLTrackElement (Types t)}
-          -> t
-          -> Attribute True I String
+  srclang : HTMLTrackElement -> Attribute True I String
   srclang v = fromPrim "HTMLTrackElement.getsrclang"
                        prim__srclang
                        prim__setSrclang
-                       (v :> HTMLTrackElement)
+                       v
   
   export
-  track :  JSType t1
-        => {auto 0 _ : Elem HTMLTrackElement (Types t1)}
-        -> (obj : t1)
-        -> JSIO TextTrack
-  track a = primJS $ HTMLTrackElement.prim__track (up a)
+  track : (obj : HTMLTrackElement) -> JSIO TextTrack
+  track a = primJS $ HTMLTrackElement.prim__track a
 
 namespace HTMLUListElement
   
@@ -6710,24 +4349,15 @@ namespace HTMLUListElement
   new = primJS $ HTMLUListElement.prim__new 
   
   export
-  compact :  JSType t
-          => {auto 0 _ : Elem HTMLUListElement (Types t)}
-          -> t
-          -> Attribute True I Bool
+  compact : HTMLUListElement -> Attribute True I Bool
   compact v = fromPrim "HTMLUListElement.getcompact"
                        prim__compact
                        prim__setCompact
-                       (v :> HTMLUListElement)
+                       v
   
   export
-  type :  JSType t
-       => {auto 0 _ : Elem HTMLUListElement (Types t)}
-       -> t
-       -> Attribute True I String
-  type v = fromPrim "HTMLUListElement.gettype"
-                    prim__type
-                    prim__setType
-                    (v :> HTMLUListElement)
+  type : HTMLUListElement -> Attribute True I String
+  type v = fromPrim "HTMLUListElement.gettype" prim__type prim__setType v
 
 
 namespace HTMLVideoElement
@@ -6737,227 +4367,148 @@ namespace HTMLVideoElement
   new = primJS $ HTMLVideoElement.prim__new 
   
   export
-  height :  JSType t
-         => {auto 0 _ : Elem HTMLVideoElement (Types t)}
-         -> t
-         -> Attribute True I UInt32
+  height : HTMLVideoElement -> Attribute True I UInt32
   height v = fromPrim "HTMLVideoElement.getheight"
                       prim__height
                       prim__setHeight
-                      (v :> HTMLVideoElement)
+                      v
   
   export
-  playsInline :  JSType t
-              => {auto 0 _ : Elem HTMLVideoElement (Types t)}
-              -> t
-              -> Attribute True I Bool
+  playsInline : HTMLVideoElement -> Attribute True I Bool
   playsInline v = fromPrim "HTMLVideoElement.getplaysInline"
                            prim__playsInline
                            prim__setPlaysInline
-                           (v :> HTMLVideoElement)
+                           v
   
   export
-  poster :  JSType t
-         => {auto 0 _ : Elem HTMLVideoElement (Types t)}
-         -> t
-         -> Attribute True I String
+  poster : HTMLVideoElement -> Attribute True I String
   poster v = fromPrim "HTMLVideoElement.getposter"
                       prim__poster
                       prim__setPoster
-                      (v :> HTMLVideoElement)
+                      v
   
   export
-  videoHeight :  JSType t1
-              => {auto 0 _ : Elem HTMLVideoElement (Types t1)}
-              -> (obj : t1)
-              -> JSIO UInt32
-  videoHeight a = primJS $ HTMLVideoElement.prim__videoHeight (up a)
+  videoHeight : (obj : HTMLVideoElement) -> JSIO UInt32
+  videoHeight a = primJS $ HTMLVideoElement.prim__videoHeight a
   
   export
-  videoWidth :  JSType t1
-             => {auto 0 _ : Elem HTMLVideoElement (Types t1)}
-             -> (obj : t1)
-             -> JSIO UInt32
-  videoWidth a = primJS $ HTMLVideoElement.prim__videoWidth (up a)
+  videoWidth : (obj : HTMLVideoElement) -> JSIO UInt32
+  videoWidth a = primJS $ HTMLVideoElement.prim__videoWidth a
   
   export
-  width :  JSType t
-        => {auto 0 _ : Elem HTMLVideoElement (Types t)}
-        -> t
-        -> Attribute True I UInt32
-  width v = fromPrim "HTMLVideoElement.getwidth"
-                     prim__width
-                     prim__setWidth
-                     (v :> HTMLVideoElement)
+  width : HTMLVideoElement -> Attribute True I UInt32
+  width v = fromPrim "HTMLVideoElement.getwidth" prim__width prim__setWidth v
 
 namespace HashChangeEvent
   
   export
-  new :  JSType t1
-      => {auto 0 _ : Elem HashChangeEventInit (Types t1)}
-      -> (type : String)
-      -> (eventInitDict : Optional t1)
+  new :  (type : String)
+      -> (eventInitDict : Optional HashChangeEventInit)
       -> JSIO HashChangeEvent
-  new a b = primJS $ HashChangeEvent.prim__new a (optUp b)
+  new a b = primJS $ HashChangeEvent.prim__new a (toFFI b)
 
   export
   new' : (type : String) -> JSIO HashChangeEvent
   new' a = primJS $ HashChangeEvent.prim__new a undef
   
   export
-  newURL :  JSType t1
-         => {auto 0 _ : Elem HashChangeEvent (Types t1)}
-         -> (obj : t1)
-         -> JSIO String
-  newURL a = primJS $ HashChangeEvent.prim__newURL (up a)
+  newURL : (obj : HashChangeEvent) -> JSIO String
+  newURL a = primJS $ HashChangeEvent.prim__newURL a
   
   export
-  oldURL :  JSType t1
-         => {auto 0 _ : Elem HashChangeEvent (Types t1)}
-         -> (obj : t1)
-         -> JSIO String
-  oldURL a = primJS $ HashChangeEvent.prim__oldURL (up a)
+  oldURL : (obj : HashChangeEvent) -> JSIO String
+  oldURL a = primJS $ HashChangeEvent.prim__oldURL a
 
 namespace History
   
   export
-  length :  JSType t1
-         => {auto 0 _ : Elem History (Types t1)}
-         -> (obj : t1)
-         -> JSIO UInt32
-  length a = primJS $ History.prim__length (up a)
+  length : (obj : History) -> JSIO UInt32
+  length a = primJS $ History.prim__length a
   
   export
-  scrollRestoration :  JSType t
-                    => {auto 0 _ : Elem History (Types t)}
-                    -> t
-                    -> Attribute True I ScrollRestoration
+  scrollRestoration : History -> Attribute True I ScrollRestoration
   scrollRestoration v = fromPrim "History.getscrollRestoration"
                                  prim__scrollRestoration
                                  prim__setScrollRestoration
-                                 (v :> History)
+                                 v
   
   export
-  state :  JSType t1
-        => {auto 0 _ : Elem History (Types t1)}
-        -> (obj : t1)
-        -> JSIO Any
-  state a = tryJS "History.state" $ History.prim__state (up a)
+  state : (obj : History) -> JSIO Any
+  state a = tryJS "History.state" $ History.prim__state a
   
   export
-  back :  JSType t1
-       => {auto 0 _ : Elem History (Types t1)}
-       -> (obj : t1)
-       -> JSIO ()
-  back a = primJS $ History.prim__back (up a)
+  back : (obj : History) -> JSIO ()
+  back a = primJS $ History.prim__back a
   
   export
-  forward :  JSType t1
-          => {auto 0 _ : Elem History (Types t1)}
-          -> (obj : t1)
-          -> JSIO ()
-  forward a = primJS $ History.prim__forward (up a)
+  forward : (obj : History) -> JSIO ()
+  forward a = primJS $ History.prim__forward a
   
   export
-  go :  JSType t1
-     => {auto 0 _ : Elem History (Types t1)}
-     -> (obj : t1)
-     -> (delta : Optional Int32)
-     -> JSIO ()
-  go a b = primJS $ History.prim__go (up a) (toFFI b)
+  go : (obj : History) -> (delta : Optional Int32) -> JSIO ()
+  go a b = primJS $ History.prim__go a (toFFI b)
 
   export
-  go' :  JSType t1
-      => {auto 0 _ : Elem History (Types t1)}
-      -> (obj : t1)
-      -> JSIO ()
-  go' a = primJS $ History.prim__go (up a) undef
+  go' : (obj : History) -> JSIO ()
+  go' a = primJS $ History.prim__go a undef
   
   export
-  pushState :  JSType t1
-            => {auto 0 _ : Elem History (Types t1)}
-            -> (obj : t1)
+  pushState :  (obj : History)
             -> (data_ : Any)
             -> (unused : String)
             -> (url : Optional (Maybe String))
             -> JSIO ()
-  pushState a b c d = primJS
-                    $ History.prim__pushState (up a) (toFFI b) c (toFFI d)
+  pushState a b c d = primJS $ History.prim__pushState a (toFFI b) c (toFFI d)
 
   export
-  pushState' :  JSType t1
-             => {auto 0 _ : Elem History (Types t1)}
-             -> (obj : t1)
-             -> (data_ : Any)
-             -> (unused : String)
-             -> JSIO ()
-  pushState' a b c = primJS $ History.prim__pushState (up a) (toFFI b) c undef
+  pushState' : (obj : History) -> (data_ : Any) -> (unused : String) -> JSIO ()
+  pushState' a b c = primJS $ History.prim__pushState a (toFFI b) c undef
   
   export
-  replaceState :  JSType t1
-               => {auto 0 _ : Elem History (Types t1)}
-               -> (obj : t1)
+  replaceState :  (obj : History)
                -> (data_ : Any)
                -> (unused : String)
                -> (url : Optional (Maybe String))
                -> JSIO ()
   replaceState a b c d = primJS
-                       $ History.prim__replaceState (up a) (toFFI b) c (toFFI d)
+                       $ History.prim__replaceState a (toFFI b) c (toFFI d)
 
   export
-  replaceState' :  JSType t1
-                => {auto 0 _ : Elem History (Types t1)}
-                -> (obj : t1)
+  replaceState' :  (obj : History)
                 -> (data_ : Any)
                 -> (unused : String)
                 -> JSIO ()
-  replaceState' a b c = primJS
-                      $ History.prim__replaceState (up a) (toFFI b) c undef
+  replaceState' a b c = primJS $ History.prim__replaceState a (toFFI b) c undef
 
 namespace ImageBitmap
   
   export
-  height :  JSType t1
-         => {auto 0 _ : Elem ImageBitmap (Types t1)}
-         -> (obj : t1)
-         -> JSIO UInt32
-  height a = primJS $ ImageBitmap.prim__height (up a)
+  height : (obj : ImageBitmap) -> JSIO UInt32
+  height a = primJS $ ImageBitmap.prim__height a
   
   export
-  width :  JSType t1
-        => {auto 0 _ : Elem ImageBitmap (Types t1)}
-        -> (obj : t1)
-        -> JSIO UInt32
-  width a = primJS $ ImageBitmap.prim__width (up a)
+  width : (obj : ImageBitmap) -> JSIO UInt32
+  width a = primJS $ ImageBitmap.prim__width a
   
   export
-  close :  JSType t1
-        => {auto 0 _ : Elem ImageBitmap (Types t1)}
-        -> (obj : t1)
-        -> JSIO ()
-  close a = primJS $ ImageBitmap.prim__close (up a)
+  close : (obj : ImageBitmap) -> JSIO ()
+  close a = primJS $ ImageBitmap.prim__close a
 
 namespace ImageBitmapRenderingContext
   
   export
-  canvas :  JSType t1
-         => {auto 0 _ : Elem ImageBitmapRenderingContext (Types t1)}
-         -> (obj : t1)
+  canvas :  (obj : ImageBitmapRenderingContext)
          -> JSIO (NS I [ HTMLCanvasElement , OffscreenCanvas ])
   canvas a = tryJS "ImageBitmapRenderingContext.canvas"
-           $ ImageBitmapRenderingContext.prim__canvas (up a)
+           $ ImageBitmapRenderingContext.prim__canvas a
   
   export
-  transferFromImageBitmap :  JSType t1
-                          => JSType t2
-                          => {auto 0 _ : Elem ImageBitmapRenderingContext (Types t1)}
-                          -> {auto 0 _ : Elem ImageBitmap (Types t2)}
-                          -> (obj : t1)
-                          -> (bitmap : Maybe t2)
+  transferFromImageBitmap :  (obj : ImageBitmapRenderingContext)
+                          -> (bitmap : Maybe ImageBitmap)
                           -> JSIO ()
   transferFromImageBitmap a b = primJS
-                              $ ImageBitmapRenderingContext.prim__transferFromImageBitmap (up a)
-                                                                                          (mayUp b)
+                              $ ImageBitmapRenderingContext.prim__transferFromImageBitmap a
+                                                                                          (toFFI b)
 
 namespace ImageData
   
@@ -6977,132 +4528,79 @@ namespace ImageData
   new1' a b = primJS $ ImageData.prim__new1 a b undef
   
   export
-  data_ :  JSType t1
-        => {auto 0 _ : Elem ImageData (Types t1)}
-        -> (obj : t1)
-        -> JSIO UInt8ClampedArray
-  data_ a = primJS $ ImageData.prim__data (up a)
+  data_ : (obj : ImageData) -> JSIO UInt8ClampedArray
+  data_ a = primJS $ ImageData.prim__data a
   
   export
-  height :  JSType t1
-         => {auto 0 _ : Elem ImageData (Types t1)}
-         -> (obj : t1)
-         -> JSIO UInt32
-  height a = primJS $ ImageData.prim__height (up a)
+  height : (obj : ImageData) -> JSIO UInt32
+  height a = primJS $ ImageData.prim__height a
   
   export
-  width :  JSType t1
-        => {auto 0 _ : Elem ImageData (Types t1)}
-        -> (obj : t1)
-        -> JSIO UInt32
-  width a = primJS $ ImageData.prim__width (up a)
+  width : (obj : ImageData) -> JSIO UInt32
+  width a = primJS $ ImageData.prim__width a
 
 namespace Location
   
   export
-  ancestorOrigins :  JSType t1
-                  => {auto 0 _ : Elem Location (Types t1)}
-                  -> (obj : t1)
-                  -> JSIO DOMStringList
-  ancestorOrigins a = primJS $ Location.prim__ancestorOrigins (up a)
+  ancestorOrigins : (obj : Location) -> JSIO DOMStringList
+  ancestorOrigins a = primJS $ Location.prim__ancestorOrigins a
   
   export
-  hash :  JSType t
-       => {auto 0 _ : Elem Location (Types t)}
-       -> t
-       -> Attribute True I String
-  hash v = fromPrim "Location.gethash" prim__hash prim__setHash (v :> Location)
+  hash : Location -> Attribute True I String
+  hash v = fromPrim "Location.gethash" prim__hash prim__setHash v
   
   export
-  host :  JSType t
-       => {auto 0 _ : Elem Location (Types t)}
-       -> t
-       -> Attribute True I String
-  host v = fromPrim "Location.gethost" prim__host prim__setHost (v :> Location)
+  host : Location -> Attribute True I String
+  host v = fromPrim "Location.gethost" prim__host prim__setHost v
   
   export
-  hostname :  JSType t
-           => {auto 0 _ : Elem Location (Types t)}
-           -> t
-           -> Attribute True I String
+  hostname : Location -> Attribute True I String
   hostname v = fromPrim "Location.gethostname"
                         prim__hostname
                         prim__setHostname
-                        (v :> Location)
+                        v
   
   export
-  href :  JSType t
-       => {auto 0 _ : Elem Location (Types t)}
-       -> t
-       -> Attribute True I String
-  href v = fromPrim "Location.gethref" prim__href prim__setHref (v :> Location)
+  href : Location -> Attribute True I String
+  href v = fromPrim "Location.gethref" prim__href prim__setHref v
   
   export
-  origin :  JSType t1
-         => {auto 0 _ : Elem Location (Types t1)}
-         -> (obj : t1)
-         -> JSIO String
-  origin a = primJS $ Location.prim__origin (up a)
+  origin : (obj : Location) -> JSIO String
+  origin a = primJS $ Location.prim__origin a
   
   export
-  pathname :  JSType t
-           => {auto 0 _ : Elem Location (Types t)}
-           -> t
-           -> Attribute True I String
+  pathname : Location -> Attribute True I String
   pathname v = fromPrim "Location.getpathname"
                         prim__pathname
                         prim__setPathname
-                        (v :> Location)
+                        v
   
   export
-  port :  JSType t
-       => {auto 0 _ : Elem Location (Types t)}
-       -> t
-       -> Attribute True I String
-  port v = fromPrim "Location.getport" prim__port prim__setPort (v :> Location)
+  port : Location -> Attribute True I String
+  port v = fromPrim "Location.getport" prim__port prim__setPort v
   
   export
-  protocol :  JSType t
-           => {auto 0 _ : Elem Location (Types t)}
-           -> t
-           -> Attribute True I String
+  protocol : Location -> Attribute True I String
   protocol v = fromPrim "Location.getprotocol"
                         prim__protocol
                         prim__setProtocol
-                        (v :> Location)
+                        v
   
   export
-  search :  JSType t
-         => {auto 0 _ : Elem Location (Types t)}
-         -> t
-         -> Attribute True I String
-  search v = fromPrim "Location.getsearch"
-                      prim__search
-                      prim__setSearch
-                      (v :> Location)
+  search : Location -> Attribute True I String
+  search v = fromPrim "Location.getsearch" prim__search prim__setSearch v
   
   export
-  assign :  JSType t1
-         => {auto 0 _ : Elem Location (Types t1)}
-         -> (obj : t1)
-         -> (url : String)
-         -> JSIO ()
-  assign a b = primJS $ Location.prim__assign (up a) b
+  assign : (obj : Location) -> (url : String) -> JSIO ()
+  assign a b = primJS $ Location.prim__assign a b
   
   export
-  reload :  JSType t1
-         => {auto 0 _ : Elem Location (Types t1)}
-         -> (obj : t1)
-         -> JSIO ()
-  reload a = primJS $ Location.prim__reload (up a)
+  reload : (obj : Location) -> JSIO ()
+  reload a = primJS $ Location.prim__reload a
   
   export
-  replace :  JSType t1
-          => {auto 0 _ : Elem Location (Types t1)}
-          -> (obj : t1)
-          -> (url : String)
-          -> JSIO ()
-  replace a b = primJS $ Location.prim__replace (up a) b
+  replace : (obj : Location) -> (url : String) -> JSIO ()
+  replace a b = primJS $ Location.prim__replace a b
 
 namespace MediaError
   
@@ -7123,18 +4621,12 @@ namespace MediaError
   MEDIA_ERR_SRC_NOT_SUPPORTED = 4
   
   export
-  code :  JSType t1
-       => {auto 0 _ : Elem MediaError (Types t1)}
-       -> (obj : t1)
-       -> JSIO UInt16
-  code a = primJS $ MediaError.prim__code (up a)
+  code : (obj : MediaError) -> JSIO UInt16
+  code a = primJS $ MediaError.prim__code a
   
   export
-  message :  JSType t1
-          => {auto 0 _ : Elem MediaError (Types t1)}
-          -> (obj : t1)
-          -> JSIO String
-  message a = primJS $ MediaError.prim__message (up a)
+  message : (obj : MediaError) -> JSIO String
+  message a = primJS $ MediaError.prim__message a
 
 namespace MessageChannel
   
@@ -7143,72 +4635,48 @@ namespace MessageChannel
   new = primJS $ MessageChannel.prim__new 
   
   export
-  port1 :  JSType t1
-        => {auto 0 _ : Elem MessageChannel (Types t1)}
-        -> (obj : t1)
-        -> JSIO MessagePort
-  port1 a = primJS $ MessageChannel.prim__port1 (up a)
+  port1 : (obj : MessageChannel) -> JSIO MessagePort
+  port1 a = primJS $ MessageChannel.prim__port1 a
   
   export
-  port2 :  JSType t1
-        => {auto 0 _ : Elem MessageChannel (Types t1)}
-        -> (obj : t1)
-        -> JSIO MessagePort
-  port2 a = primJS $ MessageChannel.prim__port2 (up a)
+  port2 : (obj : MessageChannel) -> JSIO MessagePort
+  port2 a = primJS $ MessageChannel.prim__port2 a
 
 namespace MessageEvent
   
   export
-  new :  JSType t1
-      => {auto 0 _ : Elem MessageEventInit (Types t1)}
-      -> (type : String)
-      -> (eventInitDict : Optional t1)
+  new :  (type : String)
+      -> (eventInitDict : Optional MessageEventInit)
       -> JSIO MessageEvent
-  new a b = primJS $ MessageEvent.prim__new a (optUp b)
+  new a b = primJS $ MessageEvent.prim__new a (toFFI b)
 
   export
   new' : (type : String) -> JSIO MessageEvent
   new' a = primJS $ MessageEvent.prim__new a undef
   
   export
-  data_ :  JSType t1
-        => {auto 0 _ : Elem MessageEvent (Types t1)}
-        -> (obj : t1)
-        -> JSIO Any
-  data_ a = tryJS "MessageEvent.data_" $ MessageEvent.prim__data (up a)
+  data_ : (obj : MessageEvent) -> JSIO Any
+  data_ a = tryJS "MessageEvent.data_" $ MessageEvent.prim__data a
   
   export
-  lastEventId :  JSType t1
-              => {auto 0 _ : Elem MessageEvent (Types t1)}
-              -> (obj : t1)
-              -> JSIO String
-  lastEventId a = primJS $ MessageEvent.prim__lastEventId (up a)
+  lastEventId : (obj : MessageEvent) -> JSIO String
+  lastEventId a = primJS $ MessageEvent.prim__lastEventId a
   
   export
-  origin :  JSType t1
-         => {auto 0 _ : Elem MessageEvent (Types t1)}
-         -> (obj : t1)
-         -> JSIO String
-  origin a = primJS $ MessageEvent.prim__origin (up a)
+  origin : (obj : MessageEvent) -> JSIO String
+  origin a = primJS $ MessageEvent.prim__origin a
   
   export
-  ports :  JSType t1
-        => {auto 0 _ : Elem MessageEvent (Types t1)}
-        -> (obj : t1)
-        -> JSIO (Array MessagePort)
-  ports a = primJS $ MessageEvent.prim__ports (up a)
+  ports : (obj : MessageEvent) -> JSIO (Array MessagePort)
+  ports a = primJS $ MessageEvent.prim__ports a
   
   export
-  source :  JSType t1
-         => {auto 0 _ : Elem MessageEvent (Types t1)}
-         -> (obj : t1)
+  source :  (obj : MessageEvent)
          -> JSIO (Maybe (Union3 WindowProxy MessagePort ServiceWorker))
-  source a = tryJS "MessageEvent.source" $ MessageEvent.prim__source (up a)
+  source a = tryJS "MessageEvent.source" $ MessageEvent.prim__source a
   
   export
-  initMessageEvent :  JSType t1
-                   => {auto 0 _ : Elem MessageEvent (Types t1)}
-                   -> (obj : t1)
+  initMessageEvent :  (obj : MessageEvent)
                    -> (type : String)
                    -> (bubbles : Optional Bool)
                    -> (cancelable : Optional Bool)
@@ -7222,7 +4690,7 @@ namespace MessageEvent
                    -> (ports : Optional (Array MessagePort))
                    -> JSIO ()
   initMessageEvent a b c d e f g h i = primJS
-                                     $ MessageEvent.prim__initMessageEvent (up a)
+                                     $ MessageEvent.prim__initMessageEvent a
                                                                            b
                                                                            (toFFI c)
                                                                            (toFFI d)
@@ -7233,13 +4701,9 @@ namespace MessageEvent
                                                                            (toFFI i)
 
   export
-  initMessageEvent' :  JSType t1
-                    => {auto 0 _ : Elem MessageEvent (Types t1)}
-                    -> (obj : t1)
-                    -> (type : String)
-                    -> JSIO ()
+  initMessageEvent' : (obj : MessageEvent) -> (type : String) -> JSIO ()
   initMessageEvent' a b = primJS
-                        $ MessageEvent.prim__initMessageEvent (up a)
+                        $ MessageEvent.prim__initMessageEvent a
                                                               b
                                                               undef
                                                               undef
@@ -7252,166 +4716,106 @@ namespace MessageEvent
 namespace MessagePort
   
   export
-  onmessage :  JSType t
-            => {auto 0 _ : Elem MessagePort (Types t)}
-            -> t
-            -> Attribute False Maybe EventHandlerNonNull
+  onmessage : MessagePort -> Attribute False Maybe EventHandlerNonNull
   onmessage v = fromNullablePrim "MessagePort.getonmessage"
                                  prim__onmessage
                                  prim__setOnmessage
-                                 (v :> MessagePort)
+                                 v
   
   export
-  onmessageerror :  JSType t
-                 => {auto 0 _ : Elem MessagePort (Types t)}
-                 -> t
-                 -> Attribute False Maybe EventHandlerNonNull
+  onmessageerror : MessagePort -> Attribute False Maybe EventHandlerNonNull
   onmessageerror v = fromNullablePrim "MessagePort.getonmessageerror"
                                       prim__onmessageerror
                                       prim__setOnmessageerror
-                                      (v :> MessagePort)
+                                      v
   
   export
-  close :  JSType t1
-        => {auto 0 _ : Elem MessagePort (Types t1)}
-        -> (obj : t1)
-        -> JSIO ()
-  close a = primJS $ MessagePort.prim__close (up a)
+  close : (obj : MessagePort) -> JSIO ()
+  close a = primJS $ MessagePort.prim__close a
   
   export
-  postMessage :  JSType t1
-              => {auto 0 _ : Elem MessagePort (Types t1)}
-              -> (obj : t1)
+  postMessage :  (obj : MessagePort)
               -> (message : Any)
               -> (transfer : Array Object)
               -> JSIO ()
-  postMessage a b c = primJS $ MessagePort.prim__postMessage (up a) (toFFI b) c
+  postMessage a b c = primJS $ MessagePort.prim__postMessage a (toFFI b) c
   
   export
   postMessage1 :  JSType t1
-               => JSType t2
-               => {auto 0 _ : Elem MessagePort (Types t1)}
-               -> {auto 0 _ : Elem PostMessageOptions (Types t2)}
-               -> (obj : t1)
+               => {auto 0 _ : Elem PostMessageOptions (Types t1)}
+               -> (obj : MessagePort)
                -> (message : Any)
-               -> (options : Optional t2)
+               -> (options : Optional t1)
                -> JSIO ()
   postMessage1 a b c = primJS
-                     $ MessagePort.prim__postMessage1 (up a) (toFFI b) (optUp c)
+                     $ MessagePort.prim__postMessage1 a (toFFI b) (optUp c)
 
   export
-  postMessage1' :  JSType t1
-                => {auto 0 _ : Elem MessagePort (Types t1)}
-                -> (obj : t1)
-                -> (message : Any)
-                -> JSIO ()
-  postMessage1' a b = primJS
-                    $ MessagePort.prim__postMessage1 (up a) (toFFI b) undef
+  postMessage1' : (obj : MessagePort) -> (message : Any) -> JSIO ()
+  postMessage1' a b = primJS $ MessagePort.prim__postMessage1 a (toFFI b) undef
   
   export
-  start :  JSType t1
-        => {auto 0 _ : Elem MessagePort (Types t1)}
-        -> (obj : t1)
-        -> JSIO ()
-  start a = primJS $ MessagePort.prim__start (up a)
+  start : (obj : MessagePort) -> JSIO ()
+  start a = primJS $ MessagePort.prim__start a
 
 namespace MimeType
   
   export
-  description :  JSType t1
-              => {auto 0 _ : Elem MimeType (Types t1)}
-              -> (obj : t1)
-              -> JSIO ()
-  description a = primJS $ MimeType.prim__description (up a)
+  description : (obj : MimeType) -> JSIO ()
+  description a = primJS $ MimeType.prim__description a
   
   export
-  enabledPlugin :  JSType t1
-                => {auto 0 _ : Elem MimeType (Types t1)}
-                -> (obj : t1)
-                -> JSIO ()
-  enabledPlugin a = primJS $ MimeType.prim__enabledPlugin (up a)
+  enabledPlugin : (obj : MimeType) -> JSIO ()
+  enabledPlugin a = primJS $ MimeType.prim__enabledPlugin a
   
   export
-  suffixes :  JSType t1
-           => {auto 0 _ : Elem MimeType (Types t1)}
-           -> (obj : t1)
-           -> JSIO ()
-  suffixes a = primJS $ MimeType.prim__suffixes (up a)
+  suffixes : (obj : MimeType) -> JSIO ()
+  suffixes a = primJS $ MimeType.prim__suffixes a
   
   export
-  type :  JSType t1
-       => {auto 0 _ : Elem MimeType (Types t1)}
-       -> (obj : t1)
-       -> JSIO ()
-  type a = primJS $ MimeType.prim__type (up a)
+  type : (obj : MimeType) -> JSIO ()
+  type a = primJS $ MimeType.prim__type a
 
 namespace MimeTypeArray
   
   export
-  length :  JSType t1
-         => {auto 0 _ : Elem MimeTypeArray (Types t1)}
-         -> (obj : t1)
-         -> JSIO UInt32
-  length a = primJS $ MimeTypeArray.prim__length (up a)
+  length : (obj : MimeTypeArray) -> JSIO UInt32
+  length a = primJS $ MimeTypeArray.prim__length a
   
   export
-  item :  JSType t1
-       => {auto 0 _ : Elem MimeTypeArray (Types t1)}
-       -> (obj : t1)
-       -> (index : UInt32)
-       -> JSIO (Maybe Object)
-  item a b = tryJS "MimeTypeArray.item" $ MimeTypeArray.prim__item (up a) b
+  item : (obj : MimeTypeArray) -> (index : UInt32) -> JSIO (Maybe Object)
+  item a b = tryJS "MimeTypeArray.item" $ MimeTypeArray.prim__item a b
   
   export
-  namedItem :  JSType t1
-            => {auto 0 _ : Elem MimeTypeArray (Types t1)}
-            -> (obj : t1)
-            -> (name : String)
-            -> JSIO (Maybe Object)
+  namedItem : (obj : MimeTypeArray) -> (name : String) -> JSIO (Maybe Object)
   namedItem a b = tryJS "MimeTypeArray.namedItem"
-                $ MimeTypeArray.prim__namedItem (up a) b
+                $ MimeTypeArray.prim__namedItem a b
 
 namespace Navigator
   
   export
-  clipboard :  JSType t1
-            => {auto 0 _ : Elem Navigator (Types t1)}
-            -> (obj : t1)
-            -> JSIO Clipboard
-  clipboard a = primJS $ Navigator.prim__clipboard (up a)
+  clipboard : (obj : Navigator) -> JSIO Clipboard
+  clipboard a = primJS $ Navigator.prim__clipboard a
   
   export
-  mediaDevices :  JSType t1
-               => {auto 0 _ : Elem Navigator (Types t1)}
-               -> (obj : t1)
-               -> JSIO MediaDevices
-  mediaDevices a = primJS $ Navigator.prim__mediaDevices (up a)
+  mediaDevices : (obj : Navigator) -> JSIO MediaDevices
+  mediaDevices a = primJS $ Navigator.prim__mediaDevices a
   
   export
-  permissions :  JSType t1
-              => {auto 0 _ : Elem Navigator (Types t1)}
-              -> (obj : t1)
-              -> JSIO Permissions
-  permissions a = primJS $ Navigator.prim__permissions (up a)
+  permissions : (obj : Navigator) -> JSIO Permissions
+  permissions a = primJS $ Navigator.prim__permissions a
   
   export
-  serviceWorker :  JSType t1
-                => {auto 0 _ : Elem Navigator (Types t1)}
-                -> (obj : t1)
-                -> JSIO ServiceWorkerContainer
-  serviceWorker a = primJS $ Navigator.prim__serviceWorker (up a)
+  serviceWorker : (obj : Navigator) -> JSIO ServiceWorkerContainer
+  serviceWorker a = primJS $ Navigator.prim__serviceWorker a
   
   export
-  getUserMedia :  JSType t1
-               => JSType t2
-               => {auto 0 _ : Elem Navigator (Types t1)}
-               -> {auto 0 _ : Elem MediaStreamConstraints (Types t2)}
-               -> (obj : t1)
-               -> (constraints : t2)
+  getUserMedia :  (obj : Navigator)
+               -> (constraints : MediaStreamConstraints)
                -> (successCallback : NavigatorUserMediaSuccessCallback)
                -> (errorCallback : NavigatorUserMediaErrorCallback)
                -> JSIO ()
-  getUserMedia a b c d = primJS $ Navigator.prim__getUserMedia (up a) (up b) c d
+  getUserMedia a b c d = primJS $ Navigator.prim__getUserMedia a b c d
 
 namespace OffscreenCanvas
   
@@ -7420,47 +4824,25 @@ namespace OffscreenCanvas
   new a b = primJS $ OffscreenCanvas.prim__new a b
   
   export
-  height :  JSType t
-         => {auto 0 _ : Elem OffscreenCanvas (Types t)}
-         -> t
-         -> Attribute True I UInt64
-  height v = fromPrim "OffscreenCanvas.getheight"
-                      prim__height
-                      prim__setHeight
-                      (v :> OffscreenCanvas)
+  height : OffscreenCanvas -> Attribute True I UInt64
+  height v = fromPrim "OffscreenCanvas.getheight" prim__height prim__setHeight v
   
   export
-  width :  JSType t
-        => {auto 0 _ : Elem OffscreenCanvas (Types t)}
-        -> t
-        -> Attribute True I UInt64
-  width v = fromPrim "OffscreenCanvas.getwidth"
-                     prim__width
-                     prim__setWidth
-                     (v :> OffscreenCanvas)
+  width : OffscreenCanvas -> Attribute True I UInt64
+  width v = fromPrim "OffscreenCanvas.getwidth" prim__width prim__setWidth v
   
   export
-  convertToBlob :  JSType t1
-                => JSType t2
-                => {auto 0 _ : Elem OffscreenCanvas (Types t1)}
-                -> {auto 0 _ : Elem ImageEncodeOptions (Types t2)}
-                -> (obj : t1)
-                -> (options : Optional t2)
+  convertToBlob :  (obj : OffscreenCanvas)
+                -> (options : Optional ImageEncodeOptions)
                 -> JSIO (Promise Blob)
-  convertToBlob a b = primJS
-                    $ OffscreenCanvas.prim__convertToBlob (up a) (optUp b)
+  convertToBlob a b = primJS $ OffscreenCanvas.prim__convertToBlob a (toFFI b)
 
   export
-  convertToBlob' :  JSType t1
-                 => {auto 0 _ : Elem OffscreenCanvas (Types t1)}
-                 -> (obj : t1)
-                 -> JSIO (Promise Blob)
-  convertToBlob' a = primJS $ OffscreenCanvas.prim__convertToBlob (up a) undef
+  convertToBlob' : (obj : OffscreenCanvas) -> JSIO (Promise Blob)
+  convertToBlob' a = primJS $ OffscreenCanvas.prim__convertToBlob a undef
   
   export
-  getContext :  JSType t1
-             => {auto 0 _ : Elem OffscreenCanvas (Types t1)}
-             -> (obj : t1)
+  getContext :  (obj : OffscreenCanvas)
              -> (contextId : OffscreenRenderingContextId)
              -> (options : Optional Any)
              -> JSIO (Maybe (NS I [ OffscreenCanvasRenderingContext2D
@@ -7469,12 +4851,10 @@ namespace OffscreenCanvas
                                   , WebGL2RenderingContext
                                   ]))
   getContext a b c = tryJS "OffscreenCanvas.getContext"
-                   $ OffscreenCanvas.prim__getContext (up a) (toFFI b) (toFFI c)
+                   $ OffscreenCanvas.prim__getContext a (toFFI b) (toFFI c)
 
   export
-  getContext' :  JSType t1
-              => {auto 0 _ : Elem OffscreenCanvas (Types t1)}
-              -> (obj : t1)
+  getContext' :  (obj : OffscreenCanvas)
               -> (contextId : OffscreenRenderingContextId)
               -> JSIO (Maybe (NS I [ OffscreenCanvasRenderingContext2D
                                    , ImageBitmapRenderingContext
@@ -7482,53 +4862,39 @@ namespace OffscreenCanvas
                                    , WebGL2RenderingContext
                                    ]))
   getContext' a b = tryJS "OffscreenCanvas.getContext'"
-                  $ OffscreenCanvas.prim__getContext (up a) (toFFI b) undef
+                  $ OffscreenCanvas.prim__getContext a (toFFI b) undef
   
   export
-  transferToImageBitmap :  JSType t1
-                        => {auto 0 _ : Elem OffscreenCanvas (Types t1)}
-                        -> (obj : t1)
-                        -> JSIO ImageBitmap
+  transferToImageBitmap : (obj : OffscreenCanvas) -> JSIO ImageBitmap
   transferToImageBitmap a = primJS
-                          $ OffscreenCanvas.prim__transferToImageBitmap (up a)
+                          $ OffscreenCanvas.prim__transferToImageBitmap a
 
 namespace OffscreenCanvasRenderingContext2D
   
   export
-  canvas :  JSType t1
-         => {auto 0 _ : Elem OffscreenCanvasRenderingContext2D (Types t1)}
-         -> (obj : t1)
-         -> JSIO OffscreenCanvas
-  canvas a = primJS $ OffscreenCanvasRenderingContext2D.prim__canvas (up a)
+  canvas : (obj : OffscreenCanvasRenderingContext2D) -> JSIO OffscreenCanvas
+  canvas a = primJS $ OffscreenCanvasRenderingContext2D.prim__canvas a
   
   export
-  commit :  JSType t1
-         => {auto 0 _ : Elem OffscreenCanvasRenderingContext2D (Types t1)}
-         -> (obj : t1)
-         -> JSIO ()
-  commit a = primJS $ OffscreenCanvasRenderingContext2D.prim__commit (up a)
+  commit : (obj : OffscreenCanvasRenderingContext2D) -> JSIO ()
+  commit a = primJS $ OffscreenCanvasRenderingContext2D.prim__commit a
 
 namespace PageTransitionEvent
   
   export
-  new :  JSType t1
-      => {auto 0 _ : Elem PageTransitionEventInit (Types t1)}
-      -> (type : String)
-      -> (eventInitDict : Optional t1)
+  new :  (type : String)
+      -> (eventInitDict : Optional PageTransitionEventInit)
       -> JSIO PageTransitionEvent
-  new a b = primJS $ PageTransitionEvent.prim__new a (optUp b)
+  new a b = primJS $ PageTransitionEvent.prim__new a (toFFI b)
 
   export
   new' : (type : String) -> JSIO PageTransitionEvent
   new' a = primJS $ PageTransitionEvent.prim__new a undef
   
   export
-  persisted :  JSType t1
-            => {auto 0 _ : Elem PageTransitionEvent (Types t1)}
-            -> (obj : t1)
-            -> JSIO Bool
+  persisted : (obj : PageTransitionEvent) -> JSIO Bool
   persisted a = tryJS "PageTransitionEvent.persisted"
-              $ PageTransitionEvent.prim__persisted (up a)
+              $ PageTransitionEvent.prim__persisted a
 
 namespace Path2D
   
@@ -7542,163 +4908,100 @@ namespace Path2D
   
   export
   addPath :  JSType t1
-          => JSType t2
-          => JSType t3
-          => {auto 0 _ : Elem Path2D (Types t1)}
-          -> {auto 0 _ : Elem Path2D (Types t2)}
-          -> {auto 0 _ : Elem DOMMatrix2DInit (Types t3)}
-          -> (obj : t1)
-          -> (path : t2)
-          -> (transform : Optional t3)
+          => {auto 0 _ : Elem DOMMatrix2DInit (Types t1)}
+          -> (obj : Path2D)
+          -> (path : Path2D)
+          -> (transform : Optional t1)
           -> JSIO ()
-  addPath a b c = primJS $ Path2D.prim__addPath (up a) (up b) (optUp c)
+  addPath a b c = primJS $ Path2D.prim__addPath a b (optUp c)
 
   export
-  addPath' :  JSType t1
-           => JSType t2
-           => {auto 0 _ : Elem Path2D (Types t1)}
-           -> {auto 0 _ : Elem Path2D (Types t2)}
-           -> (obj : t1)
-           -> (path : t2)
-           -> JSIO ()
-  addPath' a b = primJS $ Path2D.prim__addPath (up a) (up b) undef
+  addPath' : (obj : Path2D) -> (path : Path2D) -> JSIO ()
+  addPath' a b = primJS $ Path2D.prim__addPath a b undef
 
 namespace Plugin
   
   export
-  description :  JSType t1
-              => {auto 0 _ : Elem Plugin (Types t1)}
-              -> (obj : t1)
-              -> JSIO ()
-  description a = primJS $ Plugin.prim__description (up a)
+  description : (obj : Plugin) -> JSIO ()
+  description a = primJS $ Plugin.prim__description a
   
   export
-  filename :  JSType t1
-           => {auto 0 _ : Elem Plugin (Types t1)}
-           -> (obj : t1)
-           -> JSIO ()
-  filename a = primJS $ Plugin.prim__filename (up a)
+  filename : (obj : Plugin) -> JSIO ()
+  filename a = primJS $ Plugin.prim__filename a
   
   export
-  length :  JSType t1
-         => {auto 0 _ : Elem Plugin (Types t1)}
-         -> (obj : t1)
-         -> JSIO ()
-  length a = primJS $ Plugin.prim__length (up a)
+  length : (obj : Plugin) -> JSIO ()
+  length a = primJS $ Plugin.prim__length a
   
   export
-  name :  JSType t1
-       => {auto 0 _ : Elem Plugin (Types t1)}
-       -> (obj : t1)
-       -> JSIO ()
-  name a = primJS $ Plugin.prim__name (up a)
+  name : (obj : Plugin) -> JSIO ()
+  name a = primJS $ Plugin.prim__name a
   
   export
-  item :  JSType t1
-       => {auto 0 _ : Elem Plugin (Types t1)}
-       -> (obj : t1)
-       -> (index : UInt32)
-       -> JSIO ()
-  item a b = primJS $ Plugin.prim__item (up a) b
+  item : (obj : Plugin) -> (index : UInt32) -> JSIO ()
+  item a b = primJS $ Plugin.prim__item a b
   
   export
-  namedItem :  JSType t1
-            => {auto 0 _ : Elem Plugin (Types t1)}
-            -> (obj : t1)
-            -> (name : String)
-            -> JSIO ()
-  namedItem a b = primJS $ Plugin.prim__namedItem (up a) b
+  namedItem : (obj : Plugin) -> (name : String) -> JSIO ()
+  namedItem a b = primJS $ Plugin.prim__namedItem a b
 
 namespace PluginArray
   
   export
-  length :  JSType t1
-         => {auto 0 _ : Elem PluginArray (Types t1)}
-         -> (obj : t1)
-         -> JSIO UInt32
-  length a = primJS $ PluginArray.prim__length (up a)
+  length : (obj : PluginArray) -> JSIO UInt32
+  length a = primJS $ PluginArray.prim__length a
   
   export
-  item :  JSType t1
-       => {auto 0 _ : Elem PluginArray (Types t1)}
-       -> (obj : t1)
-       -> (index : UInt32)
-       -> JSIO (Maybe Object)
-  item a b = tryJS "PluginArray.item" $ PluginArray.prim__item (up a) b
+  item : (obj : PluginArray) -> (index : UInt32) -> JSIO (Maybe Object)
+  item a b = tryJS "PluginArray.item" $ PluginArray.prim__item a b
   
   export
-  namedItem :  JSType t1
-            => {auto 0 _ : Elem PluginArray (Types t1)}
-            -> (obj : t1)
-            -> (name : String)
-            -> JSIO (Maybe Object)
+  namedItem : (obj : PluginArray) -> (name : String) -> JSIO (Maybe Object)
   namedItem a b = tryJS "PluginArray.namedItem"
-                $ PluginArray.prim__namedItem (up a) b
+                $ PluginArray.prim__namedItem a b
   
   export
-  refresh :  JSType t1
-          => {auto 0 _ : Elem PluginArray (Types t1)}
-          -> (obj : t1)
-          -> JSIO ()
-  refresh a = primJS $ PluginArray.prim__refresh (up a)
+  refresh : (obj : PluginArray) -> JSIO ()
+  refresh a = primJS $ PluginArray.prim__refresh a
 
 namespace PopStateEvent
   
   export
-  new :  JSType t1
-      => {auto 0 _ : Elem PopStateEventInit (Types t1)}
-      -> (type : String)
-      -> (eventInitDict : Optional t1)
+  new :  (type : String)
+      -> (eventInitDict : Optional PopStateEventInit)
       -> JSIO PopStateEvent
-  new a b = primJS $ PopStateEvent.prim__new a (optUp b)
+  new a b = primJS $ PopStateEvent.prim__new a (toFFI b)
 
   export
   new' : (type : String) -> JSIO PopStateEvent
   new' a = primJS $ PopStateEvent.prim__new a undef
   
   export
-  state :  JSType t1
-        => {auto 0 _ : Elem PopStateEvent (Types t1)}
-        -> (obj : t1)
-        -> JSIO Any
-  state a = tryJS "PopStateEvent.state" $ PopStateEvent.prim__state (up a)
+  state : (obj : PopStateEvent) -> JSIO Any
+  state a = tryJS "PopStateEvent.state" $ PopStateEvent.prim__state a
 
 namespace PromiseRejectionEvent
   
   export
-  new :  JSType t1
-      => {auto 0 _ : Elem PromiseRejectionEventInit (Types t1)}
-      -> (type : String)
-      -> (eventInitDict : t1)
+  new :  (type : String)
+      -> (eventInitDict : PromiseRejectionEventInit)
       -> JSIO PromiseRejectionEvent
-  new a b = primJS $ PromiseRejectionEvent.prim__new a (up b)
+  new a b = primJS $ PromiseRejectionEvent.prim__new a b
   
   export
-  promise :  JSType t1
-          => {auto 0 _ : Elem PromiseRejectionEvent (Types t1)}
-          -> (obj : t1)
-          -> JSIO (Promise AnyPtr)
-  promise a = primJS $ PromiseRejectionEvent.prim__promise (up a)
+  promise : (obj : PromiseRejectionEvent) -> JSIO (Promise AnyPtr)
+  promise a = primJS $ PromiseRejectionEvent.prim__promise a
   
   export
-  reason :  JSType t1
-         => {auto 0 _ : Elem PromiseRejectionEvent (Types t1)}
-         -> (obj : t1)
-         -> JSIO Any
+  reason : (obj : PromiseRejectionEvent) -> JSIO Any
   reason a = tryJS "PromiseRejectionEvent.reason"
-           $ PromiseRejectionEvent.prim__reason (up a)
+           $ PromiseRejectionEvent.prim__reason a
 
 namespace RadioNodeList
   
   export
-  value :  JSType t
-        => {auto 0 _ : Elem RadioNodeList (Types t)}
-        -> t
-        -> Attribute True I String
-  value v = fromPrim "RadioNodeList.getvalue"
-                     prim__value
-                     prim__setValue
-                     (v :> RadioNodeList)
+  value : RadioNodeList -> Attribute True I String
+  value v = fromPrim "RadioNodeList.getvalue" prim__value prim__setValue v
 
 namespace SharedWorker
   
@@ -7713,137 +5016,84 @@ namespace SharedWorker
   new' a = primJS $ SharedWorker.prim__new a undef
   
   export
-  port :  JSType t1
-       => {auto 0 _ : Elem SharedWorker (Types t1)}
-       -> (obj : t1)
-       -> JSIO MessagePort
-  port a = primJS $ SharedWorker.prim__port (up a)
+  port : (obj : SharedWorker) -> JSIO MessagePort
+  port a = primJS $ SharedWorker.prim__port a
 
 namespace SharedWorkerGlobalScope
   
   export
-  name :  JSType t1
-       => {auto 0 _ : Elem SharedWorkerGlobalScope (Types t1)}
-       -> (obj : t1)
-       -> JSIO String
-  name a = primJS $ SharedWorkerGlobalScope.prim__name (up a)
+  name : (obj : SharedWorkerGlobalScope) -> JSIO String
+  name a = primJS $ SharedWorkerGlobalScope.prim__name a
   
   export
-  onconnect :  JSType t
-            => {auto 0 _ : Elem SharedWorkerGlobalScope (Types t)}
-            -> t
+  onconnect :  SharedWorkerGlobalScope
             -> Attribute False Maybe EventHandlerNonNull
   onconnect v = fromNullablePrim "SharedWorkerGlobalScope.getonconnect"
                                  prim__onconnect
                                  prim__setOnconnect
-                                 (v :> SharedWorkerGlobalScope)
+                                 v
   
   export
-  close :  JSType t1
-        => {auto 0 _ : Elem SharedWorkerGlobalScope (Types t1)}
-        -> (obj : t1)
-        -> JSIO ()
-  close a = primJS $ SharedWorkerGlobalScope.prim__close (up a)
+  close : (obj : SharedWorkerGlobalScope) -> JSIO ()
+  close a = primJS $ SharedWorkerGlobalScope.prim__close a
 
 namespace Storage
   
   export
-  length :  JSType t1
-         => {auto 0 _ : Elem Storage (Types t1)}
-         -> (obj : t1)
-         -> JSIO UInt32
-  length a = primJS $ Storage.prim__length (up a)
+  length : (obj : Storage) -> JSIO UInt32
+  length a = primJS $ Storage.prim__length a
   
   export
-  clear :  JSType t1
-        => {auto 0 _ : Elem Storage (Types t1)}
-        -> (obj : t1)
-        -> JSIO ()
-  clear a = primJS $ Storage.prim__clear (up a)
+  clear : (obj : Storage) -> JSIO ()
+  clear a = primJS $ Storage.prim__clear a
   
   export
-  getItem :  JSType t1
-          => {auto 0 _ : Elem Storage (Types t1)}
-          -> (obj : t1)
-          -> (key : String)
-          -> JSIO (Maybe String)
-  getItem a b = tryJS "Storage.getItem" $ Storage.prim__getItem (up a) b
+  getItem : (obj : Storage) -> (key : String) -> JSIO (Maybe String)
+  getItem a b = tryJS "Storage.getItem" $ Storage.prim__getItem a b
   
   export
-  key :  JSType t1
-      => {auto 0 _ : Elem Storage (Types t1)}
-      -> (obj : t1)
-      -> (index : UInt32)
-      -> JSIO (Maybe String)
-  key a b = tryJS "Storage.key" $ Storage.prim__key (up a) b
+  key : (obj : Storage) -> (index : UInt32) -> JSIO (Maybe String)
+  key a b = tryJS "Storage.key" $ Storage.prim__key a b
   
   export
-  setItem :  JSType t1
-          => {auto 0 _ : Elem Storage (Types t1)}
-          -> (obj : t1)
-          -> (key : String)
-          -> (value : String)
-          -> JSIO ()
-  setItem a b c = primJS $ Storage.prim__setItem (up a) b c
+  setItem : (obj : Storage) -> (key : String) -> (value : String) -> JSIO ()
+  setItem a b c = primJS $ Storage.prim__setItem a b c
 
 namespace StorageEvent
   
   export
-  new :  JSType t1
-      => {auto 0 _ : Elem StorageEventInit (Types t1)}
-      -> (type : String)
-      -> (eventInitDict : Optional t1)
+  new :  (type : String)
+      -> (eventInitDict : Optional StorageEventInit)
       -> JSIO StorageEvent
-  new a b = primJS $ StorageEvent.prim__new a (optUp b)
+  new a b = primJS $ StorageEvent.prim__new a (toFFI b)
 
   export
   new' : (type : String) -> JSIO StorageEvent
   new' a = primJS $ StorageEvent.prim__new a undef
   
   export
-  key :  JSType t1
-      => {auto 0 _ : Elem StorageEvent (Types t1)}
-      -> (obj : t1)
-      -> JSIO (Maybe String)
-  key a = tryJS "StorageEvent.key" $ StorageEvent.prim__key (up a)
+  key : (obj : StorageEvent) -> JSIO (Maybe String)
+  key a = tryJS "StorageEvent.key" $ StorageEvent.prim__key a
   
   export
-  newValue :  JSType t1
-           => {auto 0 _ : Elem StorageEvent (Types t1)}
-           -> (obj : t1)
-           -> JSIO (Maybe String)
-  newValue a = tryJS "StorageEvent.newValue"
-             $ StorageEvent.prim__newValue (up a)
+  newValue : (obj : StorageEvent) -> JSIO (Maybe String)
+  newValue a = tryJS "StorageEvent.newValue" $ StorageEvent.prim__newValue a
   
   export
-  oldValue :  JSType t1
-           => {auto 0 _ : Elem StorageEvent (Types t1)}
-           -> (obj : t1)
-           -> JSIO (Maybe String)
-  oldValue a = tryJS "StorageEvent.oldValue"
-             $ StorageEvent.prim__oldValue (up a)
+  oldValue : (obj : StorageEvent) -> JSIO (Maybe String)
+  oldValue a = tryJS "StorageEvent.oldValue" $ StorageEvent.prim__oldValue a
   
   export
-  storageArea :  JSType t1
-              => {auto 0 _ : Elem StorageEvent (Types t1)}
-              -> (obj : t1)
-              -> JSIO (Maybe Storage)
+  storageArea : (obj : StorageEvent) -> JSIO (Maybe Storage)
   storageArea a = tryJS "StorageEvent.storageArea"
-                $ StorageEvent.prim__storageArea (up a)
+                $ StorageEvent.prim__storageArea a
   
   export
-  url :  JSType t1
-      => {auto 0 _ : Elem StorageEvent (Types t1)}
-      -> (obj : t1)
-      -> JSIO String
-  url a = primJS $ StorageEvent.prim__url (up a)
+  url : (obj : StorageEvent) -> JSIO String
+  url a = primJS $ StorageEvent.prim__url a
   
   export
-  initStorageEvent :  JSType t1
-                   => JSType t2
-                   => {auto 0 _ : Elem StorageEvent (Types t1)}
-                   -> {auto 0 _ : Elem Storage (Types t2)}
-                   -> (obj : t1)
+  initStorageEvent :  (obj : StorageEvent)
                    -> (type : String)
                    -> (bubbles : Optional Bool)
                    -> (cancelable : Optional Bool)
@@ -7851,10 +5101,10 @@ namespace StorageEvent
                    -> (oldValue : Optional (Maybe String))
                    -> (newValue : Optional (Maybe String))
                    -> (url : Optional String)
-                   -> (storageArea : Optional (Maybe t2))
+                   -> (storageArea : Optional (Maybe Storage))
                    -> JSIO ()
   initStorageEvent a b c d e f g h i = primJS
-                                     $ StorageEvent.prim__initStorageEvent (up a)
+                                     $ StorageEvent.prim__initStorageEvent a
                                                                            b
                                                                            (toFFI c)
                                                                            (toFFI d)
@@ -7862,16 +5112,12 @@ namespace StorageEvent
                                                                            (toFFI f)
                                                                            (toFFI g)
                                                                            (toFFI h)
-                                                                           (omyUp i)
+                                                                           (toFFI i)
 
   export
-  initStorageEvent' :  JSType t1
-                    => {auto 0 _ : Elem StorageEvent (Types t1)}
-                    -> (obj : t1)
-                    -> (type : String)
-                    -> JSIO ()
+  initStorageEvent' : (obj : StorageEvent) -> (type : String) -> JSIO ()
   initStorageEvent' a b = primJS
-                        $ StorageEvent.prim__initStorageEvent (up a)
+                        $ StorageEvent.prim__initStorageEvent a
                                                               b
                                                               undef
                                                               undef
@@ -7884,610 +5130,381 @@ namespace StorageEvent
 namespace SubmitEvent
   
   export
-  new :  JSType t1
-      => {auto 0 _ : Elem SubmitEventInit (Types t1)}
-      -> (type : String)
-      -> (eventInitDict : Optional t1)
+  new :  (type : String)
+      -> (eventInitDict : Optional SubmitEventInit)
       -> JSIO SubmitEvent
-  new a b = primJS $ SubmitEvent.prim__new a (optUp b)
+  new a b = primJS $ SubmitEvent.prim__new a (toFFI b)
 
   export
   new' : (type : String) -> JSIO SubmitEvent
   new' a = primJS $ SubmitEvent.prim__new a undef
   
   export
-  submitter :  JSType t1
-            => {auto 0 _ : Elem SubmitEvent (Types t1)}
-            -> (obj : t1)
-            -> JSIO (Maybe HTMLElement)
-  submitter a = tryJS "SubmitEvent.submitter"
-              $ SubmitEvent.prim__submitter (up a)
+  submitter : (obj : SubmitEvent) -> JSIO (Maybe HTMLElement)
+  submitter a = tryJS "SubmitEvent.submitter" $ SubmitEvent.prim__submitter a
 
 namespace TextMetrics
   
   export
-  actualBoundingBoxAscent :  JSType t1
-                          => {auto 0 _ : Elem TextMetrics (Types t1)}
-                          -> (obj : t1)
-                          -> JSIO Double
+  actualBoundingBoxAscent : (obj : TextMetrics) -> JSIO Double
   actualBoundingBoxAscent a = primJS
-                            $ TextMetrics.prim__actualBoundingBoxAscent (up a)
+                            $ TextMetrics.prim__actualBoundingBoxAscent a
   
   export
-  actualBoundingBoxDescent :  JSType t1
-                           => {auto 0 _ : Elem TextMetrics (Types t1)}
-                           -> (obj : t1)
-                           -> JSIO Double
+  actualBoundingBoxDescent : (obj : TextMetrics) -> JSIO Double
   actualBoundingBoxDescent a = primJS
-                             $ TextMetrics.prim__actualBoundingBoxDescent (up a)
+                             $ TextMetrics.prim__actualBoundingBoxDescent a
   
   export
-  actualBoundingBoxLeft :  JSType t1
-                        => {auto 0 _ : Elem TextMetrics (Types t1)}
-                        -> (obj : t1)
-                        -> JSIO Double
-  actualBoundingBoxLeft a = primJS
-                          $ TextMetrics.prim__actualBoundingBoxLeft (up a)
+  actualBoundingBoxLeft : (obj : TextMetrics) -> JSIO Double
+  actualBoundingBoxLeft a = primJS $ TextMetrics.prim__actualBoundingBoxLeft a
   
   export
-  actualBoundingBoxRight :  JSType t1
-                         => {auto 0 _ : Elem TextMetrics (Types t1)}
-                         -> (obj : t1)
-                         -> JSIO Double
-  actualBoundingBoxRight a = primJS
-                           $ TextMetrics.prim__actualBoundingBoxRight (up a)
+  actualBoundingBoxRight : (obj : TextMetrics) -> JSIO Double
+  actualBoundingBoxRight a = primJS $ TextMetrics.prim__actualBoundingBoxRight a
   
   export
-  alphabeticBaseline :  JSType t1
-                     => {auto 0 _ : Elem TextMetrics (Types t1)}
-                     -> (obj : t1)
-                     -> JSIO Double
-  alphabeticBaseline a = primJS $ TextMetrics.prim__alphabeticBaseline (up a)
+  alphabeticBaseline : (obj : TextMetrics) -> JSIO Double
+  alphabeticBaseline a = primJS $ TextMetrics.prim__alphabeticBaseline a
   
   export
-  emHeightAscent :  JSType t1
-                 => {auto 0 _ : Elem TextMetrics (Types t1)}
-                 -> (obj : t1)
-                 -> JSIO Double
-  emHeightAscent a = primJS $ TextMetrics.prim__emHeightAscent (up a)
+  emHeightAscent : (obj : TextMetrics) -> JSIO Double
+  emHeightAscent a = primJS $ TextMetrics.prim__emHeightAscent a
   
   export
-  emHeightDescent :  JSType t1
-                  => {auto 0 _ : Elem TextMetrics (Types t1)}
-                  -> (obj : t1)
-                  -> JSIO Double
-  emHeightDescent a = primJS $ TextMetrics.prim__emHeightDescent (up a)
+  emHeightDescent : (obj : TextMetrics) -> JSIO Double
+  emHeightDescent a = primJS $ TextMetrics.prim__emHeightDescent a
   
   export
-  fontBoundingBoxAscent :  JSType t1
-                        => {auto 0 _ : Elem TextMetrics (Types t1)}
-                        -> (obj : t1)
-                        -> JSIO Double
-  fontBoundingBoxAscent a = primJS
-                          $ TextMetrics.prim__fontBoundingBoxAscent (up a)
+  fontBoundingBoxAscent : (obj : TextMetrics) -> JSIO Double
+  fontBoundingBoxAscent a = primJS $ TextMetrics.prim__fontBoundingBoxAscent a
   
   export
-  fontBoundingBoxDescent :  JSType t1
-                         => {auto 0 _ : Elem TextMetrics (Types t1)}
-                         -> (obj : t1)
-                         -> JSIO Double
-  fontBoundingBoxDescent a = primJS
-                           $ TextMetrics.prim__fontBoundingBoxDescent (up a)
+  fontBoundingBoxDescent : (obj : TextMetrics) -> JSIO Double
+  fontBoundingBoxDescent a = primJS $ TextMetrics.prim__fontBoundingBoxDescent a
   
   export
-  hangingBaseline :  JSType t1
-                  => {auto 0 _ : Elem TextMetrics (Types t1)}
-                  -> (obj : t1)
-                  -> JSIO Double
-  hangingBaseline a = primJS $ TextMetrics.prim__hangingBaseline (up a)
+  hangingBaseline : (obj : TextMetrics) -> JSIO Double
+  hangingBaseline a = primJS $ TextMetrics.prim__hangingBaseline a
   
   export
-  ideographicBaseline :  JSType t1
-                      => {auto 0 _ : Elem TextMetrics (Types t1)}
-                      -> (obj : t1)
-                      -> JSIO Double
-  ideographicBaseline a = primJS $ TextMetrics.prim__ideographicBaseline (up a)
+  ideographicBaseline : (obj : TextMetrics) -> JSIO Double
+  ideographicBaseline a = primJS $ TextMetrics.prim__ideographicBaseline a
   
   export
-  width :  JSType t1
-        => {auto 0 _ : Elem TextMetrics (Types t1)}
-        -> (obj : t1)
-        -> JSIO Double
-  width a = primJS $ TextMetrics.prim__width (up a)
+  width : (obj : TextMetrics) -> JSIO Double
+  width a = primJS $ TextMetrics.prim__width a
 
 namespace TextTrack
   
   export
-  activeCues :  JSType t1
-             => {auto 0 _ : Elem TextTrack (Types t1)}
-             -> (obj : t1)
-             -> JSIO (Maybe TextTrackCueList)
-  activeCues a = tryJS "TextTrack.activeCues"
-               $ TextTrack.prim__activeCues (up a)
+  activeCues : (obj : TextTrack) -> JSIO (Maybe TextTrackCueList)
+  activeCues a = tryJS "TextTrack.activeCues" $ TextTrack.prim__activeCues a
   
   export
-  cues :  JSType t1
-       => {auto 0 _ : Elem TextTrack (Types t1)}
-       -> (obj : t1)
-       -> JSIO (Maybe TextTrackCueList)
-  cues a = tryJS "TextTrack.cues" $ TextTrack.prim__cues (up a)
+  cues : (obj : TextTrack) -> JSIO (Maybe TextTrackCueList)
+  cues a = tryJS "TextTrack.cues" $ TextTrack.prim__cues a
   
   export
-  id :  JSType t1
-     => {auto 0 _ : Elem TextTrack (Types t1)}
-     -> (obj : t1)
-     -> JSIO String
-  id a = primJS $ TextTrack.prim__id (up a)
+  id : (obj : TextTrack) -> JSIO String
+  id a = primJS $ TextTrack.prim__id a
   
   export
-  inBandMetadataTrackDispatchType :  JSType t1
-                                  => {auto 0 _ : Elem TextTrack (Types t1)}
-                                  -> (obj : t1)
-                                  -> JSIO String
+  inBandMetadataTrackDispatchType : (obj : TextTrack) -> JSIO String
   inBandMetadataTrackDispatchType a = primJS
-                                    $ TextTrack.prim__inBandMetadataTrackDispatchType (up a)
+                                    $ TextTrack.prim__inBandMetadataTrackDispatchType a
   
   export
-  kind :  JSType t1
-       => {auto 0 _ : Elem TextTrack (Types t1)}
-       -> (obj : t1)
-       -> JSIO TextTrackKind
-  kind a = tryJS "TextTrack.kind" $ TextTrack.prim__kind (up a)
+  kind : (obj : TextTrack) -> JSIO TextTrackKind
+  kind a = tryJS "TextTrack.kind" $ TextTrack.prim__kind a
   
   export
-  label :  JSType t1
-        => {auto 0 _ : Elem TextTrack (Types t1)}
-        -> (obj : t1)
-        -> JSIO String
-  label a = primJS $ TextTrack.prim__label (up a)
+  label : (obj : TextTrack) -> JSIO String
+  label a = primJS $ TextTrack.prim__label a
   
   export
-  language :  JSType t1
-           => {auto 0 _ : Elem TextTrack (Types t1)}
-           -> (obj : t1)
-           -> JSIO String
-  language a = primJS $ TextTrack.prim__language (up a)
+  language : (obj : TextTrack) -> JSIO String
+  language a = primJS $ TextTrack.prim__language a
   
   export
-  mode :  JSType t
-       => {auto 0 _ : Elem TextTrack (Types t)}
-       -> t
-       -> Attribute True I TextTrackMode
-  mode v = fromPrim "TextTrack.getmode"
-                    prim__mode
-                    prim__setMode
-                    (v :> TextTrack)
+  mode : TextTrack -> Attribute True I TextTrackMode
+  mode v = fromPrim "TextTrack.getmode" prim__mode prim__setMode v
   
   export
-  oncuechange :  JSType t
-              => {auto 0 _ : Elem TextTrack (Types t)}
-              -> t
-              -> Attribute False Maybe EventHandlerNonNull
+  oncuechange : TextTrack -> Attribute False Maybe EventHandlerNonNull
   oncuechange v = fromNullablePrim "TextTrack.getoncuechange"
                                    prim__oncuechange
                                    prim__setOncuechange
-                                   (v :> TextTrack)
+                                   v
   
   export
-  sourceBuffer :  JSType t1
-               => {auto 0 _ : Elem TextTrack (Types t1)}
-               -> (obj : t1)
-               -> JSIO (Maybe SourceBuffer)
+  sourceBuffer : (obj : TextTrack) -> JSIO (Maybe SourceBuffer)
   sourceBuffer a = tryJS "TextTrack.sourceBuffer"
-                 $ TextTrack.prim__sourceBuffer (up a)
+                 $ TextTrack.prim__sourceBuffer a
   
   export
-  addCue :  JSType t1
-         => JSType t2
-         => {auto 0 _ : Elem TextTrack (Types t1)}
-         -> {auto 0 _ : Elem TextTrackCue (Types t2)}
-         -> (obj : t1)
-         -> (cue : t2)
-         -> JSIO ()
-  addCue a b = primJS $ TextTrack.prim__addCue (up a) (up b)
+  addCue : (obj : TextTrack) -> (cue : TextTrackCue) -> JSIO ()
+  addCue a b = primJS $ TextTrack.prim__addCue a b
   
   export
-  removeCue :  JSType t1
-            => JSType t2
-            => {auto 0 _ : Elem TextTrack (Types t1)}
-            -> {auto 0 _ : Elem TextTrackCue (Types t2)}
-            -> (obj : t1)
-            -> (cue : t2)
-            -> JSIO ()
-  removeCue a b = primJS $ TextTrack.prim__removeCue (up a) (up b)
+  removeCue : (obj : TextTrack) -> (cue : TextTrackCue) -> JSIO ()
+  removeCue a b = primJS $ TextTrack.prim__removeCue a b
 
 namespace TextTrackCue
   
   export
-  endTime :  JSType t
-          => {auto 0 _ : Elem TextTrackCue (Types t)}
-          -> t
-          -> Attribute True I Double
+  endTime : TextTrackCue -> Attribute True I Double
   endTime v = fromPrim "TextTrackCue.getendTime"
                        prim__endTime
                        prim__setEndTime
-                       (v :> TextTrackCue)
+                       v
   
   export
-  id :  JSType t
-     => {auto 0 _ : Elem TextTrackCue (Types t)}
-     -> t
-     -> Attribute True I String
-  id v = fromPrim "TextTrackCue.getid" prim__id prim__setId (v :> TextTrackCue)
+  id : TextTrackCue -> Attribute True I String
+  id v = fromPrim "TextTrackCue.getid" prim__id prim__setId v
   
   export
-  onenter :  JSType t
-          => {auto 0 _ : Elem TextTrackCue (Types t)}
-          -> t
-          -> Attribute False Maybe EventHandlerNonNull
+  onenter : TextTrackCue -> Attribute False Maybe EventHandlerNonNull
   onenter v = fromNullablePrim "TextTrackCue.getonenter"
                                prim__onenter
                                prim__setOnenter
-                               (v :> TextTrackCue)
+                               v
   
   export
-  onexit :  JSType t
-         => {auto 0 _ : Elem TextTrackCue (Types t)}
-         -> t
-         -> Attribute False Maybe EventHandlerNonNull
+  onexit : TextTrackCue -> Attribute False Maybe EventHandlerNonNull
   onexit v = fromNullablePrim "TextTrackCue.getonexit"
                               prim__onexit
                               prim__setOnexit
-                              (v :> TextTrackCue)
+                              v
   
   export
-  pauseOnExit :  JSType t
-              => {auto 0 _ : Elem TextTrackCue (Types t)}
-              -> t
-              -> Attribute True I Bool
+  pauseOnExit : TextTrackCue -> Attribute True I Bool
   pauseOnExit v = fromPrim "TextTrackCue.getpauseOnExit"
                            prim__pauseOnExit
                            prim__setPauseOnExit
-                           (v :> TextTrackCue)
+                           v
   
   export
-  startTime :  JSType t
-            => {auto 0 _ : Elem TextTrackCue (Types t)}
-            -> t
-            -> Attribute True I Double
+  startTime : TextTrackCue -> Attribute True I Double
   startTime v = fromPrim "TextTrackCue.getstartTime"
                          prim__startTime
                          prim__setStartTime
-                         (v :> TextTrackCue)
+                         v
   
   export
-  track :  JSType t1
-        => {auto 0 _ : Elem TextTrackCue (Types t1)}
-        -> (obj : t1)
-        -> JSIO (Maybe TextTrack)
-  track a = tryJS "TextTrackCue.track" $ TextTrackCue.prim__track (up a)
+  track : (obj : TextTrackCue) -> JSIO (Maybe TextTrack)
+  track a = tryJS "TextTrackCue.track" $ TextTrackCue.prim__track a
 
 namespace TextTrackCueList
   
   export
-  get :  JSType t1
-      => {auto 0 _ : Elem TextTrackCueList (Types t1)}
-      -> (obj : t1)
-      -> (index : UInt32)
-      -> JSIO TextTrackCue
-  get a b = primJS $ TextTrackCueList.prim__get (up a) b
+  get : (obj : TextTrackCueList) -> (index : UInt32) -> JSIO TextTrackCue
+  get a b = primJS $ TextTrackCueList.prim__get a b
   
   export
-  length :  JSType t1
-         => {auto 0 _ : Elem TextTrackCueList (Types t1)}
-         -> (obj : t1)
-         -> JSIO UInt32
-  length a = primJS $ TextTrackCueList.prim__length (up a)
+  length : (obj : TextTrackCueList) -> JSIO UInt32
+  length a = primJS $ TextTrackCueList.prim__length a
   
   export
-  getCueById :  JSType t1
-             => {auto 0 _ : Elem TextTrackCueList (Types t1)}
-             -> (obj : t1)
+  getCueById :  (obj : TextTrackCueList)
              -> (id : String)
              -> JSIO (Maybe TextTrackCue)
   getCueById a b = tryJS "TextTrackCueList.getCueById"
-                 $ TextTrackCueList.prim__getCueById (up a) b
+                 $ TextTrackCueList.prim__getCueById a b
 
 namespace TextTrackList
   
   export
-  get :  JSType t1
-      => {auto 0 _ : Elem TextTrackList (Types t1)}
-      -> (obj : t1)
-      -> (index : UInt32)
-      -> JSIO TextTrack
-  get a b = primJS $ TextTrackList.prim__get (up a) b
+  get : (obj : TextTrackList) -> (index : UInt32) -> JSIO TextTrack
+  get a b = primJS $ TextTrackList.prim__get a b
   
   export
-  length :  JSType t1
-         => {auto 0 _ : Elem TextTrackList (Types t1)}
-         -> (obj : t1)
-         -> JSIO UInt32
-  length a = primJS $ TextTrackList.prim__length (up a)
+  length : (obj : TextTrackList) -> JSIO UInt32
+  length a = primJS $ TextTrackList.prim__length a
   
   export
-  onaddtrack :  JSType t
-             => {auto 0 _ : Elem TextTrackList (Types t)}
-             -> t
-             -> Attribute False Maybe EventHandlerNonNull
+  onaddtrack : TextTrackList -> Attribute False Maybe EventHandlerNonNull
   onaddtrack v = fromNullablePrim "TextTrackList.getonaddtrack"
                                   prim__onaddtrack
                                   prim__setOnaddtrack
-                                  (v :> TextTrackList)
+                                  v
   
   export
-  onchange :  JSType t
-           => {auto 0 _ : Elem TextTrackList (Types t)}
-           -> t
-           -> Attribute False Maybe EventHandlerNonNull
+  onchange : TextTrackList -> Attribute False Maybe EventHandlerNonNull
   onchange v = fromNullablePrim "TextTrackList.getonchange"
                                 prim__onchange
                                 prim__setOnchange
-                                (v :> TextTrackList)
+                                v
   
   export
-  onremovetrack :  JSType t
-                => {auto 0 _ : Elem TextTrackList (Types t)}
-                -> t
-                -> Attribute False Maybe EventHandlerNonNull
+  onremovetrack : TextTrackList -> Attribute False Maybe EventHandlerNonNull
   onremovetrack v = fromNullablePrim "TextTrackList.getonremovetrack"
                                      prim__onremovetrack
                                      prim__setOnremovetrack
-                                     (v :> TextTrackList)
+                                     v
   
   export
-  getTrackById :  JSType t1
-               => {auto 0 _ : Elem TextTrackList (Types t1)}
-               -> (obj : t1)
+  getTrackById :  (obj : TextTrackList)
                -> (id : String)
                -> JSIO (Maybe TextTrack)
   getTrackById a b = tryJS "TextTrackList.getTrackById"
-                   $ TextTrackList.prim__getTrackById (up a) b
+                   $ TextTrackList.prim__getTrackById a b
 
 namespace TimeRanges
   
   export
-  length :  JSType t1
-         => {auto 0 _ : Elem TimeRanges (Types t1)}
-         -> (obj : t1)
-         -> JSIO UInt32
-  length a = primJS $ TimeRanges.prim__length (up a)
+  length : (obj : TimeRanges) -> JSIO UInt32
+  length a = primJS $ TimeRanges.prim__length a
   
   export
-  end :  JSType t1
-      => {auto 0 _ : Elem TimeRanges (Types t1)}
-      -> (obj : t1)
-      -> (index : UInt32)
-      -> JSIO Double
-  end a b = primJS $ TimeRanges.prim__end (up a) b
+  end : (obj : TimeRanges) -> (index : UInt32) -> JSIO Double
+  end a b = primJS $ TimeRanges.prim__end a b
   
   export
-  start :  JSType t1
-        => {auto 0 _ : Elem TimeRanges (Types t1)}
-        -> (obj : t1)
-        -> (index : UInt32)
-        -> JSIO Double
-  start a b = primJS $ TimeRanges.prim__start (up a) b
+  start : (obj : TimeRanges) -> (index : UInt32) -> JSIO Double
+  start a b = primJS $ TimeRanges.prim__start a b
 
 namespace TrackEvent
   
   export
-  new :  JSType t1
-      => {auto 0 _ : Elem TrackEventInit (Types t1)}
-      -> (type : String)
-      -> (eventInitDict : Optional t1)
+  new :  (type : String)
+      -> (eventInitDict : Optional TrackEventInit)
       -> JSIO TrackEvent
-  new a b = primJS $ TrackEvent.prim__new a (optUp b)
+  new a b = primJS $ TrackEvent.prim__new a (toFFI b)
 
   export
   new' : (type : String) -> JSIO TrackEvent
   new' a = primJS $ TrackEvent.prim__new a undef
   
   export
-  track :  JSType t1
-        => {auto 0 _ : Elem TrackEvent (Types t1)}
-        -> (obj : t1)
+  track :  (obj : TrackEvent)
         -> JSIO (Maybe (NS I [ VideoTrack , AudioTrack , TextTrack ]))
-  track a = tryJS "TrackEvent.track" $ TrackEvent.prim__track (up a)
+  track a = tryJS "TrackEvent.track" $ TrackEvent.prim__track a
 
 namespace ValidityState
   
   export
-  badInput :  JSType t1
-           => {auto 0 _ : Elem ValidityState (Types t1)}
-           -> (obj : t1)
-           -> JSIO Bool
-  badInput a = tryJS "ValidityState.badInput"
-             $ ValidityState.prim__badInput (up a)
+  badInput : (obj : ValidityState) -> JSIO Bool
+  badInput a = tryJS "ValidityState.badInput" $ ValidityState.prim__badInput a
   
   export
-  customError :  JSType t1
-              => {auto 0 _ : Elem ValidityState (Types t1)}
-              -> (obj : t1)
-              -> JSIO Bool
+  customError : (obj : ValidityState) -> JSIO Bool
   customError a = tryJS "ValidityState.customError"
-                $ ValidityState.prim__customError (up a)
+                $ ValidityState.prim__customError a
   
   export
-  patternMismatch :  JSType t1
-                  => {auto 0 _ : Elem ValidityState (Types t1)}
-                  -> (obj : t1)
-                  -> JSIO Bool
+  patternMismatch : (obj : ValidityState) -> JSIO Bool
   patternMismatch a = tryJS "ValidityState.patternMismatch"
-                    $ ValidityState.prim__patternMismatch (up a)
+                    $ ValidityState.prim__patternMismatch a
   
   export
-  rangeOverflow :  JSType t1
-                => {auto 0 _ : Elem ValidityState (Types t1)}
-                -> (obj : t1)
-                -> JSIO Bool
+  rangeOverflow : (obj : ValidityState) -> JSIO Bool
   rangeOverflow a = tryJS "ValidityState.rangeOverflow"
-                  $ ValidityState.prim__rangeOverflow (up a)
+                  $ ValidityState.prim__rangeOverflow a
   
   export
-  rangeUnderflow :  JSType t1
-                 => {auto 0 _ : Elem ValidityState (Types t1)}
-                 -> (obj : t1)
-                 -> JSIO Bool
+  rangeUnderflow : (obj : ValidityState) -> JSIO Bool
   rangeUnderflow a = tryJS "ValidityState.rangeUnderflow"
-                   $ ValidityState.prim__rangeUnderflow (up a)
+                   $ ValidityState.prim__rangeUnderflow a
   
   export
-  stepMismatch :  JSType t1
-               => {auto 0 _ : Elem ValidityState (Types t1)}
-               -> (obj : t1)
-               -> JSIO Bool
+  stepMismatch : (obj : ValidityState) -> JSIO Bool
   stepMismatch a = tryJS "ValidityState.stepMismatch"
-                 $ ValidityState.prim__stepMismatch (up a)
+                 $ ValidityState.prim__stepMismatch a
   
   export
-  tooLong :  JSType t1
-          => {auto 0 _ : Elem ValidityState (Types t1)}
-          -> (obj : t1)
-          -> JSIO Bool
-  tooLong a = tryJS "ValidityState.tooLong" $ ValidityState.prim__tooLong (up a)
+  tooLong : (obj : ValidityState) -> JSIO Bool
+  tooLong a = tryJS "ValidityState.tooLong" $ ValidityState.prim__tooLong a
   
   export
-  tooShort :  JSType t1
-           => {auto 0 _ : Elem ValidityState (Types t1)}
-           -> (obj : t1)
-           -> JSIO Bool
-  tooShort a = tryJS "ValidityState.tooShort"
-             $ ValidityState.prim__tooShort (up a)
+  tooShort : (obj : ValidityState) -> JSIO Bool
+  tooShort a = tryJS "ValidityState.tooShort" $ ValidityState.prim__tooShort a
   
   export
-  typeMismatch :  JSType t1
-               => {auto 0 _ : Elem ValidityState (Types t1)}
-               -> (obj : t1)
-               -> JSIO Bool
+  typeMismatch : (obj : ValidityState) -> JSIO Bool
   typeMismatch a = tryJS "ValidityState.typeMismatch"
-                 $ ValidityState.prim__typeMismatch (up a)
+                 $ ValidityState.prim__typeMismatch a
   
   export
-  valid :  JSType t1
-        => {auto 0 _ : Elem ValidityState (Types t1)}
-        -> (obj : t1)
-        -> JSIO Bool
-  valid a = tryJS "ValidityState.valid" $ ValidityState.prim__valid (up a)
+  valid : (obj : ValidityState) -> JSIO Bool
+  valid a = tryJS "ValidityState.valid" $ ValidityState.prim__valid a
   
   export
-  valueMissing :  JSType t1
-               => {auto 0 _ : Elem ValidityState (Types t1)}
-               -> (obj : t1)
-               -> JSIO Bool
+  valueMissing : (obj : ValidityState) -> JSIO Bool
   valueMissing a = tryJS "ValidityState.valueMissing"
-                 $ ValidityState.prim__valueMissing (up a)
+                 $ ValidityState.prim__valueMissing a
 
 namespace VideoTrack
   
   export
-  id :  JSType t1
-     => {auto 0 _ : Elem VideoTrack (Types t1)}
-     -> (obj : t1)
-     -> JSIO String
-  id a = primJS $ VideoTrack.prim__id (up a)
+  id : (obj : VideoTrack) -> JSIO String
+  id a = primJS $ VideoTrack.prim__id a
   
   export
-  kind :  JSType t1
-       => {auto 0 _ : Elem VideoTrack (Types t1)}
-       -> (obj : t1)
-       -> JSIO String
-  kind a = primJS $ VideoTrack.prim__kind (up a)
+  kind : (obj : VideoTrack) -> JSIO String
+  kind a = primJS $ VideoTrack.prim__kind a
   
   export
-  label :  JSType t1
-        => {auto 0 _ : Elem VideoTrack (Types t1)}
-        -> (obj : t1)
-        -> JSIO String
-  label a = primJS $ VideoTrack.prim__label (up a)
+  label : (obj : VideoTrack) -> JSIO String
+  label a = primJS $ VideoTrack.prim__label a
   
   export
-  language :  JSType t1
-           => {auto 0 _ : Elem VideoTrack (Types t1)}
-           -> (obj : t1)
-           -> JSIO String
-  language a = primJS $ VideoTrack.prim__language (up a)
+  language : (obj : VideoTrack) -> JSIO String
+  language a = primJS $ VideoTrack.prim__language a
   
   export
-  selected :  JSType t
-           => {auto 0 _ : Elem VideoTrack (Types t)}
-           -> t
-           -> Attribute True I Bool
+  selected : VideoTrack -> Attribute True I Bool
   selected v = fromPrim "VideoTrack.getselected"
                         prim__selected
                         prim__setSelected
-                        (v :> VideoTrack)
+                        v
   
   export
-  sourceBuffer :  JSType t1
-               => {auto 0 _ : Elem VideoTrack (Types t1)}
-               -> (obj : t1)
-               -> JSIO (Maybe SourceBuffer)
+  sourceBuffer : (obj : VideoTrack) -> JSIO (Maybe SourceBuffer)
   sourceBuffer a = tryJS "VideoTrack.sourceBuffer"
-                 $ VideoTrack.prim__sourceBuffer (up a)
+                 $ VideoTrack.prim__sourceBuffer a
 
 namespace VideoTrackList
   
   export
-  get :  JSType t1
-      => {auto 0 _ : Elem VideoTrackList (Types t1)}
-      -> (obj : t1)
-      -> (index : UInt32)
-      -> JSIO VideoTrack
-  get a b = primJS $ VideoTrackList.prim__get (up a) b
+  get : (obj : VideoTrackList) -> (index : UInt32) -> JSIO VideoTrack
+  get a b = primJS $ VideoTrackList.prim__get a b
   
   export
-  length :  JSType t1
-         => {auto 0 _ : Elem VideoTrackList (Types t1)}
-         -> (obj : t1)
-         -> JSIO UInt32
-  length a = primJS $ VideoTrackList.prim__length (up a)
+  length : (obj : VideoTrackList) -> JSIO UInt32
+  length a = primJS $ VideoTrackList.prim__length a
   
   export
-  onaddtrack :  JSType t
-             => {auto 0 _ : Elem VideoTrackList (Types t)}
-             -> t
-             -> Attribute False Maybe EventHandlerNonNull
+  onaddtrack : VideoTrackList -> Attribute False Maybe EventHandlerNonNull
   onaddtrack v = fromNullablePrim "VideoTrackList.getonaddtrack"
                                   prim__onaddtrack
                                   prim__setOnaddtrack
-                                  (v :> VideoTrackList)
+                                  v
   
   export
-  onchange :  JSType t
-           => {auto 0 _ : Elem VideoTrackList (Types t)}
-           -> t
-           -> Attribute False Maybe EventHandlerNonNull
+  onchange : VideoTrackList -> Attribute False Maybe EventHandlerNonNull
   onchange v = fromNullablePrim "VideoTrackList.getonchange"
                                 prim__onchange
                                 prim__setOnchange
-                                (v :> VideoTrackList)
+                                v
   
   export
-  onremovetrack :  JSType t
-                => {auto 0 _ : Elem VideoTrackList (Types t)}
-                -> t
-                -> Attribute False Maybe EventHandlerNonNull
+  onremovetrack : VideoTrackList -> Attribute False Maybe EventHandlerNonNull
   onremovetrack v = fromNullablePrim "VideoTrackList.getonremovetrack"
                                      prim__onremovetrack
                                      prim__setOnremovetrack
-                                     (v :> VideoTrackList)
+                                     v
   
   export
-  selectedIndex :  JSType t1
-                => {auto 0 _ : Elem VideoTrackList (Types t1)}
-                -> (obj : t1)
-                -> JSIO Int32
-  selectedIndex a = primJS $ VideoTrackList.prim__selectedIndex (up a)
+  selectedIndex : (obj : VideoTrackList) -> JSIO Int32
+  selectedIndex a = primJS $ VideoTrackList.prim__selectedIndex a
   
   export
-  getTrackById :  JSType t1
-               => {auto 0 _ : Elem VideoTrackList (Types t1)}
-               -> (obj : t1)
+  getTrackById :  (obj : VideoTrackList)
                -> (id : String)
                -> JSIO (Maybe VideoTrack)
   getTrackById a b = tryJS "VideoTrackList.getTrackById"
-                   $ VideoTrackList.prim__getTrackById (up a) b
+                   $ VideoTrackList.prim__getTrackById a b
 
 namespace WebSocket
   
@@ -8518,136 +5535,89 @@ namespace WebSocket
   new' a = primJS $ WebSocket.prim__new a undef
   
   export
-  binaryType :  JSType t
-             => {auto 0 _ : Elem WebSocket (Types t)}
-             -> t
-             -> Attribute True I BinaryType
+  binaryType : WebSocket -> Attribute True I BinaryType
   binaryType v = fromPrim "WebSocket.getbinaryType"
                           prim__binaryType
                           prim__setBinaryType
-                          (v :> WebSocket)
+                          v
   
   export
-  bufferedAmount :  JSType t1
-                 => {auto 0 _ : Elem WebSocket (Types t1)}
-                 -> (obj : t1)
-                 -> JSIO UInt64
-  bufferedAmount a = primJS $ WebSocket.prim__bufferedAmount (up a)
+  bufferedAmount : (obj : WebSocket) -> JSIO UInt64
+  bufferedAmount a = primJS $ WebSocket.prim__bufferedAmount a
   
   export
-  extensions :  JSType t1
-             => {auto 0 _ : Elem WebSocket (Types t1)}
-             -> (obj : t1)
-             -> JSIO String
-  extensions a = primJS $ WebSocket.prim__extensions (up a)
+  extensions : (obj : WebSocket) -> JSIO String
+  extensions a = primJS $ WebSocket.prim__extensions a
   
   export
-  onclose :  JSType t
-          => {auto 0 _ : Elem WebSocket (Types t)}
-          -> t
-          -> Attribute False Maybe EventHandlerNonNull
+  onclose : WebSocket -> Attribute False Maybe EventHandlerNonNull
   onclose v = fromNullablePrim "WebSocket.getonclose"
                                prim__onclose
                                prim__setOnclose
-                               (v :> WebSocket)
+                               v
   
   export
-  onerror :  JSType t
-          => {auto 0 _ : Elem WebSocket (Types t)}
-          -> t
-          -> Attribute False Maybe EventHandlerNonNull
+  onerror : WebSocket -> Attribute False Maybe EventHandlerNonNull
   onerror v = fromNullablePrim "WebSocket.getonerror"
                                prim__onerror
                                prim__setOnerror
-                               (v :> WebSocket)
+                               v
   
   export
-  onmessage :  JSType t
-            => {auto 0 _ : Elem WebSocket (Types t)}
-            -> t
-            -> Attribute False Maybe EventHandlerNonNull
+  onmessage : WebSocket -> Attribute False Maybe EventHandlerNonNull
   onmessage v = fromNullablePrim "WebSocket.getonmessage"
                                  prim__onmessage
                                  prim__setOnmessage
-                                 (v :> WebSocket)
+                                 v
   
   export
-  onopen :  JSType t
-         => {auto 0 _ : Elem WebSocket (Types t)}
-         -> t
-         -> Attribute False Maybe EventHandlerNonNull
+  onopen : WebSocket -> Attribute False Maybe EventHandlerNonNull
   onopen v = fromNullablePrim "WebSocket.getonopen"
                               prim__onopen
                               prim__setOnopen
-                              (v :> WebSocket)
+                              v
   
   export
-  protocol :  JSType t1
-           => {auto 0 _ : Elem WebSocket (Types t1)}
-           -> (obj : t1)
-           -> JSIO String
-  protocol a = primJS $ WebSocket.prim__protocol (up a)
+  protocol : (obj : WebSocket) -> JSIO String
+  protocol a = primJS $ WebSocket.prim__protocol a
   
   export
-  readyState :  JSType t1
-             => {auto 0 _ : Elem WebSocket (Types t1)}
-             -> (obj : t1)
-             -> JSIO UInt16
-  readyState a = primJS $ WebSocket.prim__readyState (up a)
+  readyState : (obj : WebSocket) -> JSIO UInt16
+  readyState a = primJS $ WebSocket.prim__readyState a
   
   export
-  url :  JSType t1
-      => {auto 0 _ : Elem WebSocket (Types t1)}
-      -> (obj : t1)
-      -> JSIO String
-  url a = primJS $ WebSocket.prim__url (up a)
+  url : (obj : WebSocket) -> JSIO String
+  url a = primJS $ WebSocket.prim__url a
   
   export
-  close :  JSType t1
-        => {auto 0 _ : Elem WebSocket (Types t1)}
-        -> (obj : t1)
+  close :  (obj : WebSocket)
         -> (code : Optional UInt16)
         -> (reason : Optional String)
         -> JSIO ()
-  close a b c = primJS $ WebSocket.prim__close (up a) (toFFI b) (toFFI c)
+  close a b c = primJS $ WebSocket.prim__close a (toFFI b) (toFFI c)
 
   export
-  close' :  JSType t1
-         => {auto 0 _ : Elem WebSocket (Types t1)}
-         -> (obj : t1)
-         -> JSIO ()
-  close' a = primJS $ WebSocket.prim__close (up a) undef undef
+  close' : (obj : WebSocket) -> JSIO ()
+  close' a = primJS $ WebSocket.prim__close a undef undef
   
   export
-  send :  JSType t1
-       => {auto 0 _ : Elem WebSocket (Types t1)}
-       -> (obj : t1)
-       -> (data_ : String)
-       -> JSIO ()
-  send a b = primJS $ WebSocket.prim__send (up a) b
+  send : (obj : WebSocket) -> (data_ : String) -> JSIO ()
+  send a b = primJS $ WebSocket.prim__send a b
   
   export
   send1 :  JSType t1
-        => JSType t2
-        => {auto 0 _ : Elem WebSocket (Types t1)}
-        -> {auto 0 _ : Elem Blob (Types t2)}
-        -> (obj : t1)
-        -> (data_ : t2)
+        => {auto 0 _ : Elem Blob (Types t1)}
+        -> (obj : WebSocket)
+        -> (data_ : t1)
         -> JSIO ()
-  send1 a b = primJS $ WebSocket.prim__send1 (up a) (up b)
+  send1 a b = primJS $ WebSocket.prim__send1 a (up b)
   
   export
-  send2 :  JSType t1
-        => {auto 0 _ : Elem WebSocket (Types t1)}
-        -> (obj : t1)
-        -> (data_ : ArrayBuffer)
-        -> JSIO ()
-  send2 a b = primJS $ WebSocket.prim__send2 (up a) b
+  send2 : (obj : WebSocket) -> (data_ : ArrayBuffer) -> JSIO ()
+  send2 a b = primJS $ WebSocket.prim__send2 a b
   
   export
-  send3 :  JSType t1
-        => {auto 0 _ : Elem WebSocket (Types t1)}
-        -> (obj : t1)
+  send3 :  (obj : WebSocket)
         -> (data_ : NS I [ Int8Array
                          , Int16Array
                          , Int32Array
@@ -8660,448 +5630,278 @@ namespace WebSocket
                          , DataView
                          ])
         -> JSIO ()
-  send3 a b = primJS $ WebSocket.prim__send3 (up a) (toFFI b)
+  send3 a b = primJS $ WebSocket.prim__send3 a (toFFI b)
 
 namespace Window
   
   export
-  get :  JSType t1
-      => {auto 0 _ : Elem Window (Types t1)}
-      -> (obj : t1)
-      -> (name : String)
-      -> JSIO Object
-  get a b = primJS $ Window.prim__get (up a) b
+  get : (obj : Window) -> (name : String) -> JSIO Object
+  get a b = primJS $ Window.prim__get a b
   
   export
-  closed :  JSType t1
-         => {auto 0 _ : Elem Window (Types t1)}
-         -> (obj : t1)
-         -> JSIO Bool
-  closed a = tryJS "Window.closed" $ Window.prim__closed (up a)
+  closed : (obj : Window) -> JSIO Bool
+  closed a = tryJS "Window.closed" $ Window.prim__closed a
   
   export
-  customElements :  JSType t1
-                 => {auto 0 _ : Elem Window (Types t1)}
-                 -> (obj : t1)
-                 -> JSIO CustomElementRegistry
-  customElements a = primJS $ Window.prim__customElements (up a)
+  customElements : (obj : Window) -> JSIO CustomElementRegistry
+  customElements a = primJS $ Window.prim__customElements a
   
   export
-  document :  JSType t1
-           => {auto 0 _ : Elem Window (Types t1)}
-           -> (obj : t1)
-           -> JSIO Document
-  document a = primJS $ Window.prim__document (up a)
+  document : (obj : Window) -> JSIO Document
+  document a = primJS $ Window.prim__document a
   
   export
-  event :  JSType t1
-        => {auto 0 _ : Elem Window (Types t1)}
-        -> (obj : t1)
-        -> JSIO (NS I [ Event , Undefined ])
-  event a = tryJS "Window.event" $ Window.prim__event (up a)
+  event : (obj : Window) -> JSIO (NS I [ Event , Undefined ])
+  event a = tryJS "Window.event" $ Window.prim__event a
   
   export
-  external :  JSType t1
-           => {auto 0 _ : Elem Window (Types t1)}
-           -> (obj : t1)
-           -> JSIO External
-  external a = primJS $ Window.prim__external (up a)
+  external : (obj : Window) -> JSIO External
+  external a = primJS $ Window.prim__external a
   
   export
-  frameElement :  JSType t1
-               => {auto 0 _ : Elem Window (Types t1)}
-               -> (obj : t1)
-               -> JSIO (Maybe Element)
-  frameElement a = tryJS "Window.frameElement"
-                 $ Window.prim__frameElement (up a)
+  frameElement : (obj : Window) -> JSIO (Maybe Element)
+  frameElement a = tryJS "Window.frameElement" $ Window.prim__frameElement a
   
   export
-  frames :  JSType t1
-         => {auto 0 _ : Elem Window (Types t1)}
-         -> (obj : t1)
-         -> JSIO WindowProxy
-  frames a = primJS $ Window.prim__frames (up a)
+  frames : (obj : Window) -> JSIO WindowProxy
+  frames a = primJS $ Window.prim__frames a
   
   export
-  history :  JSType t1
-          => {auto 0 _ : Elem Window (Types t1)}
-          -> (obj : t1)
-          -> JSIO History
-  history a = primJS $ Window.prim__history (up a)
+  history : (obj : Window) -> JSIO History
+  history a = primJS $ Window.prim__history a
   
   export
-  length :  JSType t1
-         => {auto 0 _ : Elem Window (Types t1)}
-         -> (obj : t1)
-         -> JSIO UInt32
-  length a = primJS $ Window.prim__length (up a)
+  length : (obj : Window) -> JSIO UInt32
+  length a = primJS $ Window.prim__length a
   
   export
-  location :  JSType t1
-           => {auto 0 _ : Elem Window (Types t1)}
-           -> (obj : t1)
-           -> JSIO Location
-  location a = primJS $ Window.prim__location (up a)
+  location : (obj : Window) -> JSIO Location
+  location a = primJS $ Window.prim__location a
   
   export
-  locationbar :  JSType t1
-              => {auto 0 _ : Elem Window (Types t1)}
-              -> (obj : t1)
-              -> JSIO BarProp
-  locationbar a = primJS $ Window.prim__locationbar (up a)
+  locationbar : (obj : Window) -> JSIO BarProp
+  locationbar a = primJS $ Window.prim__locationbar a
   
   export
-  menubar :  JSType t1
-          => {auto 0 _ : Elem Window (Types t1)}
-          -> (obj : t1)
-          -> JSIO BarProp
-  menubar a = primJS $ Window.prim__menubar (up a)
+  menubar : (obj : Window) -> JSIO BarProp
+  menubar a = primJS $ Window.prim__menubar a
   
   export
-  name :  JSType t
-       => {auto 0 _ : Elem Window (Types t)}
-       -> t
-       -> Attribute True I String
-  name v = fromPrim "Window.getname" prim__name prim__setName (v :> Window)
+  name : Window -> Attribute True I String
+  name v = fromPrim "Window.getname" prim__name prim__setName v
   
   export
-  navigator :  JSType t1
-            => {auto 0 _ : Elem Window (Types t1)}
-            -> (obj : t1)
-            -> JSIO Navigator
-  navigator a = primJS $ Window.prim__navigator (up a)
+  navigator : (obj : Window) -> JSIO Navigator
+  navigator a = primJS $ Window.prim__navigator a
   
   export
-  opener :  JSType t
-         => {auto 0 _ : Elem Window (Types t)}
-         -> t
-         -> Attribute True I Any
-  opener v = fromPrim "Window.getopener"
-                      prim__opener
-                      prim__setOpener
-                      (v :> Window)
+  opener : Window -> Attribute True I Any
+  opener v = fromPrim "Window.getopener" prim__opener prim__setOpener v
   
   export
-  originAgentCluster :  JSType t1
-                     => {auto 0 _ : Elem Window (Types t1)}
-                     -> (obj : t1)
-                     -> JSIO Bool
+  originAgentCluster : (obj : Window) -> JSIO Bool
   originAgentCluster a = tryJS "Window.originAgentCluster"
-                       $ Window.prim__originAgentCluster (up a)
+                       $ Window.prim__originAgentCluster a
   
   export
-  parent :  JSType t1
-         => {auto 0 _ : Elem Window (Types t1)}
-         -> (obj : t1)
-         -> JSIO (Maybe WindowProxy)
-  parent a = tryJS "Window.parent" $ Window.prim__parent (up a)
+  parent : (obj : Window) -> JSIO (Maybe WindowProxy)
+  parent a = tryJS "Window.parent" $ Window.prim__parent a
   
   export
-  personalbar :  JSType t1
-              => {auto 0 _ : Elem Window (Types t1)}
-              -> (obj : t1)
-              -> JSIO BarProp
-  personalbar a = primJS $ Window.prim__personalbar (up a)
+  personalbar : (obj : Window) -> JSIO BarProp
+  personalbar a = primJS $ Window.prim__personalbar a
   
   export
-  scrollbars :  JSType t1
-             => {auto 0 _ : Elem Window (Types t1)}
-             -> (obj : t1)
-             -> JSIO BarProp
-  scrollbars a = primJS $ Window.prim__scrollbars (up a)
+  scrollbars : (obj : Window) -> JSIO BarProp
+  scrollbars a = primJS $ Window.prim__scrollbars a
   
   export
-  self :  JSType t1
-       => {auto 0 _ : Elem Window (Types t1)}
-       -> (obj : t1)
-       -> JSIO WindowProxy
-  self a = primJS $ Window.prim__self (up a)
+  self : (obj : Window) -> JSIO WindowProxy
+  self a = primJS $ Window.prim__self a
   
   export
-  status :  JSType t
-         => {auto 0 _ : Elem Window (Types t)}
-         -> t
-         -> Attribute True I String
-  status v = fromPrim "Window.getstatus"
-                      prim__status
-                      prim__setStatus
-                      (v :> Window)
+  status : Window -> Attribute True I String
+  status v = fromPrim "Window.getstatus" prim__status prim__setStatus v
   
   export
-  statusbar :  JSType t1
-            => {auto 0 _ : Elem Window (Types t1)}
-            -> (obj : t1)
-            -> JSIO BarProp
-  statusbar a = primJS $ Window.prim__statusbar (up a)
+  statusbar : (obj : Window) -> JSIO BarProp
+  statusbar a = primJS $ Window.prim__statusbar a
   
   export
-  toolbar :  JSType t1
-          => {auto 0 _ : Elem Window (Types t1)}
-          -> (obj : t1)
-          -> JSIO BarProp
-  toolbar a = primJS $ Window.prim__toolbar (up a)
+  toolbar : (obj : Window) -> JSIO BarProp
+  toolbar a = primJS $ Window.prim__toolbar a
   
   export
-  top :  JSType t1
-      => {auto 0 _ : Elem Window (Types t1)}
-      -> (obj : t1)
-      -> JSIO (Maybe WindowProxy)
-  top a = tryJS "Window.top" $ Window.prim__top (up a)
+  top : (obj : Window) -> JSIO (Maybe WindowProxy)
+  top a = tryJS "Window.top" $ Window.prim__top a
   
   export
-  window :  JSType t1
-         => {auto 0 _ : Elem Window (Types t1)}
-         -> (obj : t1)
-         -> JSIO WindowProxy
-  window a = primJS $ Window.prim__window (up a)
+  window : (obj : Window) -> JSIO WindowProxy
+  window a = primJS $ Window.prim__window a
   
   export
-  alert :  JSType t1
-        => {auto 0 _ : Elem Window (Types t1)}
-        -> (obj : t1)
-        -> JSIO ()
-  alert a = primJS $ Window.prim__alert (up a)
+  alert : (obj : Window) -> JSIO ()
+  alert a = primJS $ Window.prim__alert a
   
   export
-  alert1 :  JSType t1
-         => {auto 0 _ : Elem Window (Types t1)}
-         -> (obj : t1)
-         -> (message : String)
-         -> JSIO ()
-  alert1 a b = primJS $ Window.prim__alert1 (up a) b
+  alert1 : (obj : Window) -> (message : String) -> JSIO ()
+  alert1 a b = primJS $ Window.prim__alert1 a b
   
   export
-  blur :  JSType t1
-       => {auto 0 _ : Elem Window (Types t1)}
-       -> (obj : t1)
-       -> JSIO ()
-  blur a = primJS $ Window.prim__blur (up a)
+  blur : (obj : Window) -> JSIO ()
+  blur a = primJS $ Window.prim__blur a
   
   export
-  captureEvents :  JSType t1
-                => {auto 0 _ : Elem Window (Types t1)}
-                -> (obj : t1)
-                -> JSIO ()
-  captureEvents a = primJS $ Window.prim__captureEvents (up a)
+  captureEvents : (obj : Window) -> JSIO ()
+  captureEvents a = primJS $ Window.prim__captureEvents a
   
   export
-  close :  JSType t1
-        => {auto 0 _ : Elem Window (Types t1)}
-        -> (obj : t1)
-        -> JSIO ()
-  close a = primJS $ Window.prim__close (up a)
+  close : (obj : Window) -> JSIO ()
+  close a = primJS $ Window.prim__close a
   
   export
-  confirm :  JSType t1
-          => {auto 0 _ : Elem Window (Types t1)}
-          -> (obj : t1)
-          -> (message : Optional String)
-          -> JSIO Bool
-  confirm a b = tryJS "Window.confirm" $ Window.prim__confirm (up a) (toFFI b)
+  confirm : (obj : Window) -> (message : Optional String) -> JSIO Bool
+  confirm a b = tryJS "Window.confirm" $ Window.prim__confirm a (toFFI b)
 
   export
-  confirm' :  JSType t1
-           => {auto 0 _ : Elem Window (Types t1)}
-           -> (obj : t1)
-           -> JSIO Bool
-  confirm' a = tryJS "Window.confirm'" $ Window.prim__confirm (up a) undef
+  confirm' : (obj : Window) -> JSIO Bool
+  confirm' a = tryJS "Window.confirm'" $ Window.prim__confirm a undef
   
   export
-  focus :  JSType t1
-        => {auto 0 _ : Elem Window (Types t1)}
-        -> (obj : t1)
-        -> JSIO ()
-  focus a = primJS $ Window.prim__focus (up a)
+  focus : (obj : Window) -> JSIO ()
+  focus a = primJS $ Window.prim__focus a
   
   export
   getComputedStyle :  JSType t1
-                   => JSType t2
-                   => {auto 0 _ : Elem Window (Types t1)}
-                   -> {auto 0 _ : Elem Element (Types t2)}
-                   -> (obj : t1)
-                   -> (elt : t2)
+                   => {auto 0 _ : Elem Element (Types t1)}
+                   -> (obj : Window)
+                   -> (elt : t1)
                    -> (pseudoElt : Optional (Maybe CSSOMString))
                    -> JSIO CSSStyleDeclaration
   getComputedStyle a b c = primJS
-                         $ Window.prim__getComputedStyle (up a) (up b) (toFFI c)
+                         $ Window.prim__getComputedStyle a (up b) (toFFI c)
 
   export
   getComputedStyle' :  JSType t1
-                    => JSType t2
-                    => {auto 0 _ : Elem Window (Types t1)}
-                    -> {auto 0 _ : Elem Element (Types t2)}
-                    -> (obj : t1)
-                    -> (elt : t2)
+                    => {auto 0 _ : Elem Element (Types t1)}
+                    -> (obj : Window)
+                    -> (elt : t1)
                     -> JSIO CSSStyleDeclaration
-  getComputedStyle' a b = primJS
-                        $ Window.prim__getComputedStyle (up a) (up b) undef
+  getComputedStyle' a b = primJS $ Window.prim__getComputedStyle a (up b) undef
   
   export
-  open_ :  JSType t1
-        => {auto 0 _ : Elem Window (Types t1)}
-        -> (obj : t1)
+  open_ :  (obj : Window)
         -> (url : Optional String)
         -> (target : Optional String)
         -> (features : Optional String)
         -> JSIO (Maybe WindowProxy)
   open_ a b c d = tryJS "Window.open_"
-                $ Window.prim__open (up a) (toFFI b) (toFFI c) (toFFI d)
+                $ Window.prim__open a (toFFI b) (toFFI c) (toFFI d)
 
   export
-  open' :  JSType t1
-        => {auto 0 _ : Elem Window (Types t1)}
-        -> (obj : t1)
-        -> JSIO (Maybe WindowProxy)
-  open' a = tryJS "Window.open'" $ Window.prim__open (up a) undef undef undef
+  open' : (obj : Window) -> JSIO (Maybe WindowProxy)
+  open' a = tryJS "Window.open'" $ Window.prim__open a undef undef undef
   
   export
-  postMessage :  JSType t1
-              => {auto 0 _ : Elem Window (Types t1)}
-              -> (obj : t1)
+  postMessage :  (obj : Window)
               -> (message : Any)
               -> (targetOrigin : String)
               -> (transfer : Optional (Array Object))
               -> JSIO ()
   postMessage a b c d = primJS
-                      $ Window.prim__postMessage (up a) (toFFI b) c (toFFI d)
+                      $ Window.prim__postMessage a (toFFI b) c (toFFI d)
 
   export
-  postMessage' :  JSType t1
-               => {auto 0 _ : Elem Window (Types t1)}
-               -> (obj : t1)
+  postMessage' :  (obj : Window)
                -> (message : Any)
                -> (targetOrigin : String)
                -> JSIO ()
-  postMessage' a b c = primJS
-                     $ Window.prim__postMessage (up a) (toFFI b) c undef
+  postMessage' a b c = primJS $ Window.prim__postMessage a (toFFI b) c undef
   
   export
-  postMessage1 :  JSType t1
-               => JSType t2
-               => {auto 0 _ : Elem Window (Types t1)}
-               -> {auto 0 _ : Elem WindowPostMessageOptions (Types t2)}
-               -> (obj : t1)
+  postMessage1 :  (obj : Window)
                -> (message : Any)
-               -> (options : Optional t2)
+               -> (options : Optional WindowPostMessageOptions)
                -> JSIO ()
-  postMessage1 a b c = primJS
-                     $ Window.prim__postMessage1 (up a) (toFFI b) (optUp c)
+  postMessage1 a b c = primJS $ Window.prim__postMessage1 a (toFFI b) (toFFI c)
 
   export
-  postMessage1' :  JSType t1
-                => {auto 0 _ : Elem Window (Types t1)}
-                -> (obj : t1)
-                -> (message : Any)
-                -> JSIO ()
-  postMessage1' a b = primJS $ Window.prim__postMessage1 (up a) (toFFI b) undef
+  postMessage1' : (obj : Window) -> (message : Any) -> JSIO ()
+  postMessage1' a b = primJS $ Window.prim__postMessage1 a (toFFI b) undef
   
   export
-  print :  JSType t1
-        => {auto 0 _ : Elem Window (Types t1)}
-        -> (obj : t1)
-        -> JSIO ()
-  print a = primJS $ Window.prim__print (up a)
+  print : (obj : Window) -> JSIO ()
+  print a = primJS $ Window.prim__print a
   
   export
-  prompt :  JSType t1
-         => {auto 0 _ : Elem Window (Types t1)}
-         -> (obj : t1)
+  prompt :  (obj : Window)
          -> (message : Optional String)
          -> (default_ : Optional String)
          -> JSIO (Maybe String)
   prompt a b c = tryJS "Window.prompt"
-               $ Window.prim__prompt (up a) (toFFI b) (toFFI c)
+               $ Window.prim__prompt a (toFFI b) (toFFI c)
 
   export
-  prompt' :  JSType t1
-          => {auto 0 _ : Elem Window (Types t1)}
-          -> (obj : t1)
-          -> JSIO (Maybe String)
-  prompt' a = tryJS "Window.prompt'" $ Window.prim__prompt (up a) undef undef
+  prompt' : (obj : Window) -> JSIO (Maybe String)
+  prompt' a = tryJS "Window.prompt'" $ Window.prim__prompt a undef undef
   
   export
-  releaseEvents :  JSType t1
-                => {auto 0 _ : Elem Window (Types t1)}
-                -> (obj : t1)
-                -> JSIO ()
-  releaseEvents a = primJS $ Window.prim__releaseEvents (up a)
+  releaseEvents : (obj : Window) -> JSIO ()
+  releaseEvents a = primJS $ Window.prim__releaseEvents a
   
   export
-  stop :  JSType t1
-       => {auto 0 _ : Elem Window (Types t1)}
-       -> (obj : t1)
-       -> JSIO ()
-  stop a = primJS $ Window.prim__stop (up a)
+  stop : (obj : Window) -> JSIO ()
+  stop a = primJS $ Window.prim__stop a
 
 namespace Worker
   
   export
-  new :  JSType t1
-      => {auto 0 _ : Elem WorkerOptions (Types t1)}
-      -> (scriptURL : String)
-      -> (options : Optional t1)
+  new :  (scriptURL : String)
+      -> (options : Optional WorkerOptions)
       -> JSIO Worker
-  new a b = primJS $ Worker.prim__new a (optUp b)
+  new a b = primJS $ Worker.prim__new a (toFFI b)
 
   export
   new' : (scriptURL : String) -> JSIO Worker
   new' a = primJS $ Worker.prim__new a undef
   
   export
-  onmessage :  JSType t
-            => {auto 0 _ : Elem Worker (Types t)}
-            -> t
-            -> Attribute False Maybe EventHandlerNonNull
+  onmessage : Worker -> Attribute False Maybe EventHandlerNonNull
   onmessage v = fromNullablePrim "Worker.getonmessage"
                                  prim__onmessage
                                  prim__setOnmessage
-                                 (v :> Worker)
+                                 v
   
   export
-  onmessageerror :  JSType t
-                 => {auto 0 _ : Elem Worker (Types t)}
-                 -> t
-                 -> Attribute False Maybe EventHandlerNonNull
+  onmessageerror : Worker -> Attribute False Maybe EventHandlerNonNull
   onmessageerror v = fromNullablePrim "Worker.getonmessageerror"
                                       prim__onmessageerror
                                       prim__setOnmessageerror
-                                      (v :> Worker)
+                                      v
   
   export
-  postMessage :  JSType t1
-              => {auto 0 _ : Elem Worker (Types t1)}
-              -> (obj : t1)
+  postMessage :  (obj : Worker)
               -> (message : Any)
               -> (transfer : Array Object)
               -> JSIO ()
-  postMessage a b c = primJS $ Worker.prim__postMessage (up a) (toFFI b) c
+  postMessage a b c = primJS $ Worker.prim__postMessage a (toFFI b) c
   
   export
   postMessage1 :  JSType t1
-               => JSType t2
-               => {auto 0 _ : Elem Worker (Types t1)}
-               -> {auto 0 _ : Elem PostMessageOptions (Types t2)}
-               -> (obj : t1)
+               => {auto 0 _ : Elem PostMessageOptions (Types t1)}
+               -> (obj : Worker)
                -> (message : Any)
-               -> (options : Optional t2)
+               -> (options : Optional t1)
                -> JSIO ()
-  postMessage1 a b c = primJS
-                     $ Worker.prim__postMessage1 (up a) (toFFI b) (optUp c)
+  postMessage1 a b c = primJS $ Worker.prim__postMessage1 a (toFFI b) (optUp c)
 
   export
-  postMessage1' :  JSType t1
-                => {auto 0 _ : Elem Worker (Types t1)}
-                -> (obj : t1)
-                -> (message : Any)
-                -> JSIO ()
-  postMessage1' a b = primJS $ Worker.prim__postMessage1 (up a) (toFFI b) undef
+  postMessage1' : (obj : Worker) -> (message : Any) -> JSIO ()
+  postMessage1' a b = primJS $ Worker.prim__postMessage1 a (toFFI b) undef
   
   export
-  terminate :  JSType t1
-            => {auto 0 _ : Elem Worker (Types t1)}
-            -> (obj : t1)
-            -> JSIO ()
-  terminate a = primJS $ Worker.prim__terminate (up a)
+  terminate : (obj : Worker) -> JSIO ()
+  terminate a = primJS $ Worker.prim__terminate a
 
 namespace WorkerGlobalScope
   
@@ -9197,104 +5997,65 @@ namespace WorkerGlobalScope
 namespace WorkerLocation
   
   export
-  hash :  JSType t1
-       => {auto 0 _ : Elem WorkerLocation (Types t1)}
-       -> (obj : t1)
-       -> JSIO String
-  hash a = primJS $ WorkerLocation.prim__hash (up a)
+  hash : (obj : WorkerLocation) -> JSIO String
+  hash a = primJS $ WorkerLocation.prim__hash a
   
   export
-  host :  JSType t1
-       => {auto 0 _ : Elem WorkerLocation (Types t1)}
-       -> (obj : t1)
-       -> JSIO String
-  host a = primJS $ WorkerLocation.prim__host (up a)
+  host : (obj : WorkerLocation) -> JSIO String
+  host a = primJS $ WorkerLocation.prim__host a
   
   export
-  hostname :  JSType t1
-           => {auto 0 _ : Elem WorkerLocation (Types t1)}
-           -> (obj : t1)
-           -> JSIO String
-  hostname a = primJS $ WorkerLocation.prim__hostname (up a)
+  hostname : (obj : WorkerLocation) -> JSIO String
+  hostname a = primJS $ WorkerLocation.prim__hostname a
   
   export
-  href :  JSType t1
-       => {auto 0 _ : Elem WorkerLocation (Types t1)}
-       -> (obj : t1)
-       -> JSIO String
-  href a = primJS $ WorkerLocation.prim__href (up a)
+  href : (obj : WorkerLocation) -> JSIO String
+  href a = primJS $ WorkerLocation.prim__href a
   
   export
-  origin :  JSType t1
-         => {auto 0 _ : Elem WorkerLocation (Types t1)}
-         -> (obj : t1)
-         -> JSIO String
-  origin a = primJS $ WorkerLocation.prim__origin (up a)
+  origin : (obj : WorkerLocation) -> JSIO String
+  origin a = primJS $ WorkerLocation.prim__origin a
   
   export
-  pathname :  JSType t1
-           => {auto 0 _ : Elem WorkerLocation (Types t1)}
-           -> (obj : t1)
-           -> JSIO String
-  pathname a = primJS $ WorkerLocation.prim__pathname (up a)
+  pathname : (obj : WorkerLocation) -> JSIO String
+  pathname a = primJS $ WorkerLocation.prim__pathname a
   
   export
-  port :  JSType t1
-       => {auto 0 _ : Elem WorkerLocation (Types t1)}
-       -> (obj : t1)
-       -> JSIO String
-  port a = primJS $ WorkerLocation.prim__port (up a)
+  port : (obj : WorkerLocation) -> JSIO String
+  port a = primJS $ WorkerLocation.prim__port a
   
   export
-  protocol :  JSType t1
-           => {auto 0 _ : Elem WorkerLocation (Types t1)}
-           -> (obj : t1)
-           -> JSIO String
-  protocol a = primJS $ WorkerLocation.prim__protocol (up a)
+  protocol : (obj : WorkerLocation) -> JSIO String
+  protocol a = primJS $ WorkerLocation.prim__protocol a
   
   export
-  search :  JSType t1
-         => {auto 0 _ : Elem WorkerLocation (Types t1)}
-         -> (obj : t1)
-         -> JSIO String
-  search a = primJS $ WorkerLocation.prim__search (up a)
+  search : (obj : WorkerLocation) -> JSIO String
+  search a = primJS $ WorkerLocation.prim__search a
 
 namespace WorkerNavigator
   
   export
-  permissions :  JSType t1
-              => {auto 0 _ : Elem WorkerNavigator (Types t1)}
-              -> (obj : t1)
-              -> JSIO Permissions
-  permissions a = primJS $ WorkerNavigator.prim__permissions (up a)
+  permissions : (obj : WorkerNavigator) -> JSIO Permissions
+  permissions a = primJS $ WorkerNavigator.prim__permissions a
   
   export
-  serviceWorker :  JSType t1
-                => {auto 0 _ : Elem WorkerNavigator (Types t1)}
-                -> (obj : t1)
-                -> JSIO ServiceWorkerContainer
-  serviceWorker a = primJS $ WorkerNavigator.prim__serviceWorker (up a)
+  serviceWorker : (obj : WorkerNavigator) -> JSIO ServiceWorkerContainer
+  serviceWorker a = primJS $ WorkerNavigator.prim__serviceWorker a
 
 namespace Worklet
   
   export
-  addModule :  JSType t1
-            => JSType t2
-            => {auto 0 _ : Elem Worklet (Types t1)}
-            -> {auto 0 _ : Elem WorkletOptions (Types t2)}
-            -> (obj : t1)
+  addModule :  (obj : Worklet)
             -> (moduleURL : String)
-            -> (options : Optional t2)
+            -> (options : Optional WorkletOptions)
             -> JSIO (Promise Undefined)
-  addModule a b c = primJS $ Worklet.prim__addModule (up a) b (optUp c)
+  addModule a b c = primJS $ Worklet.prim__addModule a b (toFFI c)
 
   export
-  addModule' :  JSType t1
-             => {auto 0 _ : Elem Worklet (Types t1)}
-             -> (obj : t1)
+  addModule' :  (obj : Worklet)
              -> (moduleURL : String)
              -> JSIO (Promise Undefined)
-  addModule' a b = primJS $ Worklet.prim__addModule (up a) b undef
+  addModule' a b = primJS $ Worklet.prim__addModule a b undef
 
 
 --------------------------------------------------------------------------------
@@ -9750,7 +6511,9 @@ namespace CanvasCompositing
 namespace CanvasDrawImage
   
   export
-  drawImage :  (obj : CanvasDrawImage)
+  drawImage :  JSType t1
+            => {auto 0 _ : Elem CanvasDrawImage (Types t1)}
+            -> (obj : t1)
             -> (image : NS I [ HTMLImageElement
                              , SVGImageElement
                              , HTMLVideoElement
@@ -9761,10 +6524,13 @@ namespace CanvasDrawImage
             -> (dx : Double)
             -> (dy : Double)
             -> JSIO ()
-  drawImage a b c d = primJS $ CanvasDrawImage.prim__drawImage a (toFFI b) c d
+  drawImage a b c d = primJS
+                    $ CanvasDrawImage.prim__drawImage (up a) (toFFI b) c d
   
   export
-  drawImage1 :  (obj : CanvasDrawImage)
+  drawImage1 :  JSType t1
+             => {auto 0 _ : Elem CanvasDrawImage (Types t1)}
+             -> (obj : t1)
              -> (image : NS I [ HTMLImageElement
                               , SVGImageElement
                               , HTMLVideoElement
@@ -9778,10 +6544,17 @@ namespace CanvasDrawImage
              -> (dh : Double)
              -> JSIO ()
   drawImage1 a b c d e f = primJS
-                         $ CanvasDrawImage.prim__drawImage1 a (toFFI b) c d e f
+                         $ CanvasDrawImage.prim__drawImage1 (up a)
+                                                            (toFFI b)
+                                                            c
+                                                            d
+                                                            e
+                                                            f
   
   export
-  drawImage2 :  (obj : CanvasDrawImage)
+  drawImage2 :  JSType t1
+             => {auto 0 _ : Elem CanvasDrawImage (Types t1)}
+             -> (obj : t1)
              -> (image : NS I [ HTMLImageElement
                               , SVGImageElement
                               , HTMLVideoElement
@@ -9799,7 +6572,7 @@ namespace CanvasDrawImage
              -> (dh : Double)
              -> JSIO ()
   drawImage2 a b c d e f g h i j = primJS
-                                 $ CanvasDrawImage.prim__drawImage2 a
+                                 $ CanvasDrawImage.prim__drawImage2 (up a)
                                                                     (toFFI b)
                                                                     c
                                                                     d
@@ -9813,141 +6586,166 @@ namespace CanvasDrawImage
 namespace CanvasDrawPath
   
   export
-  beginPath : (obj : CanvasDrawPath) -> JSIO ()
-  beginPath a = primJS $ CanvasDrawPath.prim__beginPath a
+  beginPath :  JSType t1
+            => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+            -> (obj : t1)
+            -> JSIO ()
+  beginPath a = primJS $ CanvasDrawPath.prim__beginPath (up a)
   
   export
-  clip :  (obj : CanvasDrawPath)
+  clip :  JSType t1
+       => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+       -> (obj : t1)
        -> (fillRule : Optional CanvasFillRule)
        -> JSIO ()
-  clip a b = primJS $ CanvasDrawPath.prim__clip a (toFFI b)
+  clip a b = primJS $ CanvasDrawPath.prim__clip (up a) (toFFI b)
 
   export
-  clip' : (obj : CanvasDrawPath) -> JSIO ()
-  clip' a = primJS $ CanvasDrawPath.prim__clip a undef
+  clip' :  JSType t1
+        => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+        -> (obj : t1)
+        -> JSIO ()
+  clip' a = primJS $ CanvasDrawPath.prim__clip (up a) undef
   
   export
   clip1 :  JSType t1
-        => {auto 0 _ : Elem Path2D (Types t1)}
-        -> (obj : CanvasDrawPath)
-        -> (path : t1)
+        => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+        -> (obj : t1)
+        -> (path : Path2D)
         -> (fillRule : Optional CanvasFillRule)
         -> JSIO ()
-  clip1 a b c = primJS $ CanvasDrawPath.prim__clip1 a (up b) (toFFI c)
+  clip1 a b c = primJS $ CanvasDrawPath.prim__clip1 (up a) b (toFFI c)
 
   export
   clip1' :  JSType t1
-         => {auto 0 _ : Elem Path2D (Types t1)}
-         -> (obj : CanvasDrawPath)
-         -> (path : t1)
+         => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+         -> (obj : t1)
+         -> (path : Path2D)
          -> JSIO ()
-  clip1' a b = primJS $ CanvasDrawPath.prim__clip1 a (up b) undef
+  clip1' a b = primJS $ CanvasDrawPath.prim__clip1 (up a) b undef
   
   export
-  fill :  (obj : CanvasDrawPath)
+  fill :  JSType t1
+       => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+       -> (obj : t1)
        -> (fillRule : Optional CanvasFillRule)
        -> JSIO ()
-  fill a b = primJS $ CanvasDrawPath.prim__fill a (toFFI b)
+  fill a b = primJS $ CanvasDrawPath.prim__fill (up a) (toFFI b)
 
   export
-  fill' : (obj : CanvasDrawPath) -> JSIO ()
-  fill' a = primJS $ CanvasDrawPath.prim__fill a undef
+  fill' :  JSType t1
+        => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+        -> (obj : t1)
+        -> JSIO ()
+  fill' a = primJS $ CanvasDrawPath.prim__fill (up a) undef
   
   export
   fill1 :  JSType t1
-        => {auto 0 _ : Elem Path2D (Types t1)}
-        -> (obj : CanvasDrawPath)
-        -> (path : t1)
+        => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+        -> (obj : t1)
+        -> (path : Path2D)
         -> (fillRule : Optional CanvasFillRule)
         -> JSIO ()
-  fill1 a b c = primJS $ CanvasDrawPath.prim__fill1 a (up b) (toFFI c)
+  fill1 a b c = primJS $ CanvasDrawPath.prim__fill1 (up a) b (toFFI c)
 
   export
   fill1' :  JSType t1
-         => {auto 0 _ : Elem Path2D (Types t1)}
-         -> (obj : CanvasDrawPath)
-         -> (path : t1)
+         => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+         -> (obj : t1)
+         -> (path : Path2D)
          -> JSIO ()
-  fill1' a b = primJS $ CanvasDrawPath.prim__fill1 a (up b) undef
+  fill1' a b = primJS $ CanvasDrawPath.prim__fill1 (up a) b undef
   
   export
-  isPointInPath :  (obj : CanvasDrawPath)
+  isPointInPath :  JSType t1
+                => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+                -> (obj : t1)
                 -> (x : Double)
                 -> (y : Double)
                 -> (fillRule : Optional CanvasFillRule)
                 -> JSIO Bool
   isPointInPath a b c d = tryJS "CanvasDrawPath.isPointInPath"
-                        $ CanvasDrawPath.prim__isPointInPath a b c (toFFI d)
+                        $ CanvasDrawPath.prim__isPointInPath (up a)
+                                                             b
+                                                             c
+                                                             (toFFI d)
 
   export
-  isPointInPath' :  (obj : CanvasDrawPath)
+  isPointInPath' :  JSType t1
+                 => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+                 -> (obj : t1)
                  -> (x : Double)
                  -> (y : Double)
                  -> JSIO Bool
   isPointInPath' a b c = tryJS "CanvasDrawPath.isPointInPath'"
-                       $ CanvasDrawPath.prim__isPointInPath a b c undef
+                       $ CanvasDrawPath.prim__isPointInPath (up a) b c undef
   
   export
   isPointInPath1 :  JSType t1
-                 => {auto 0 _ : Elem Path2D (Types t1)}
-                 -> (obj : CanvasDrawPath)
-                 -> (path : t1)
+                 => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+                 -> (obj : t1)
+                 -> (path : Path2D)
                  -> (x : Double)
                  -> (y : Double)
                  -> (fillRule : Optional CanvasFillRule)
                  -> JSIO Bool
   isPointInPath1 a b c d e = tryJS "CanvasDrawPath.isPointInPath1"
-                           $ CanvasDrawPath.prim__isPointInPath1 a
-                                                                 (up b)
+                           $ CanvasDrawPath.prim__isPointInPath1 (up a)
+                                                                 b
                                                                  c
                                                                  d
                                                                  (toFFI e)
 
   export
   isPointInPath1' :  JSType t1
-                  => {auto 0 _ : Elem Path2D (Types t1)}
-                  -> (obj : CanvasDrawPath)
-                  -> (path : t1)
+                  => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+                  -> (obj : t1)
+                  -> (path : Path2D)
                   -> (x : Double)
                   -> (y : Double)
                   -> JSIO Bool
   isPointInPath1' a b c d = tryJS "CanvasDrawPath.isPointInPath1'"
-                          $ CanvasDrawPath.prim__isPointInPath1 a
-                                                                (up b)
+                          $ CanvasDrawPath.prim__isPointInPath1 (up a)
+                                                                b
                                                                 c
                                                                 d
                                                                 undef
   
   export
-  isPointInStroke :  (obj : CanvasDrawPath)
+  isPointInStroke :  JSType t1
+                  => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+                  -> (obj : t1)
                   -> (x : Double)
                   -> (y : Double)
                   -> JSIO Bool
   isPointInStroke a b c = tryJS "CanvasDrawPath.isPointInStroke"
-                        $ CanvasDrawPath.prim__isPointInStroke a b c
+                        $ CanvasDrawPath.prim__isPointInStroke (up a) b c
   
   export
   isPointInStroke1 :  JSType t1
-                   => {auto 0 _ : Elem Path2D (Types t1)}
-                   -> (obj : CanvasDrawPath)
-                   -> (path : t1)
+                   => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+                   -> (obj : t1)
+                   -> (path : Path2D)
                    -> (x : Double)
                    -> (y : Double)
                    -> JSIO Bool
   isPointInStroke1 a b c d = tryJS "CanvasDrawPath.isPointInStroke1"
-                           $ CanvasDrawPath.prim__isPointInStroke1 a (up b) c d
+                           $ CanvasDrawPath.prim__isPointInStroke1 (up a) b c d
   
   export
-  stroke : (obj : CanvasDrawPath) -> JSIO ()
-  stroke a = primJS $ CanvasDrawPath.prim__stroke a
+  stroke :  JSType t1
+         => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+         -> (obj : t1)
+         -> JSIO ()
+  stroke a = primJS $ CanvasDrawPath.prim__stroke (up a)
   
   export
   stroke1 :  JSType t1
-          => {auto 0 _ : Elem Path2D (Types t1)}
-          -> (obj : CanvasDrawPath)
-          -> (path : t1)
+          => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+          -> (obj : t1)
+          -> (path : Path2D)
           -> JSIO ()
-  stroke1 a b = primJS $ CanvasDrawPath.prim__stroke1 a (up b)
+  stroke1 a b = primJS $ CanvasDrawPath.prim__stroke1 (up a) b
 
 namespace CanvasFillStrokeStyles
   
@@ -9978,21 +6776,25 @@ namespace CanvasFillStrokeStyles
                            (v :> CanvasFillStrokeStyles)
   
   export
-  createLinearGradient :  (obj : CanvasFillStrokeStyles)
+  createLinearGradient :  JSType t1
+                       => {auto 0 _ : Elem CanvasFillStrokeStyles (Types t1)}
+                       -> (obj : t1)
                        -> (x0 : Double)
                        -> (y0 : Double)
                        -> (x1 : Double)
                        -> (y1 : Double)
                        -> JSIO CanvasGradient
   createLinearGradient a b c d e = primJS
-                                 $ CanvasFillStrokeStyles.prim__createLinearGradient a
+                                 $ CanvasFillStrokeStyles.prim__createLinearGradient (up a)
                                                                                      b
                                                                                      c
                                                                                      d
                                                                                      e
   
   export
-  createPattern :  (obj : CanvasFillStrokeStyles)
+  createPattern :  JSType t1
+                => {auto 0 _ : Elem CanvasFillStrokeStyles (Types t1)}
+                -> (obj : t1)
                 -> (image : NS I [ HTMLImageElement
                                  , SVGImageElement
                                  , HTMLVideoElement
@@ -10003,10 +6805,14 @@ namespace CanvasFillStrokeStyles
                 -> (repetition : String)
                 -> JSIO (Maybe CanvasPattern)
   createPattern a b c = tryJS "CanvasFillStrokeStyles.createPattern"
-                      $ CanvasFillStrokeStyles.prim__createPattern a (toFFI b) c
+                      $ CanvasFillStrokeStyles.prim__createPattern (up a)
+                                                                   (toFFI b)
+                                                                   c
   
   export
-  createRadialGradient :  (obj : CanvasFillStrokeStyles)
+  createRadialGradient :  JSType t1
+                       => {auto 0 _ : Elem CanvasFillStrokeStyles (Types t1)}
+                       -> (obj : t1)
                        -> (x0 : Double)
                        -> (y0 : Double)
                        -> (r0 : Double)
@@ -10015,7 +6821,7 @@ namespace CanvasFillStrokeStyles
                        -> (r1 : Double)
                        -> JSIO CanvasGradient
   createRadialGradient a b c d e f g = primJS
-                                     $ CanvasFillStrokeStyles.prim__createRadialGradient a
+                                     $ CanvasFillStrokeStyles.prim__createRadialGradient (up a)
                                                                                          b
                                                                                          c
                                                                                          d
@@ -10038,46 +6844,52 @@ namespace CanvasFilters
 namespace CanvasImageData
   
   export
-  createImageData :  (obj : CanvasImageData)
+  createImageData :  JSType t1
+                  => {auto 0 _ : Elem CanvasImageData (Types t1)}
+                  -> (obj : t1)
                   -> (sw : Int32)
                   -> (sh : Int32)
                   -> JSIO ImageData
-  createImageData a b c = primJS $ CanvasImageData.prim__createImageData a b c
+  createImageData a b c = primJS
+                        $ CanvasImageData.prim__createImageData (up a) b c
   
   export
   createImageData1 :  JSType t1
-                   => {auto 0 _ : Elem ImageData (Types t1)}
-                   -> (obj : CanvasImageData)
-                   -> (imagedata : t1)
+                   => {auto 0 _ : Elem CanvasImageData (Types t1)}
+                   -> (obj : t1)
+                   -> (imagedata : ImageData)
                    -> JSIO ImageData
   createImageData1 a b = primJS
-                       $ CanvasImageData.prim__createImageData1 a (up b)
+                       $ CanvasImageData.prim__createImageData1 (up a) b
   
   export
-  getImageData :  (obj : CanvasImageData)
+  getImageData :  JSType t1
+               => {auto 0 _ : Elem CanvasImageData (Types t1)}
+               -> (obj : t1)
                -> (sx : Int32)
                -> (sy : Int32)
                -> (sw : Int32)
                -> (sh : Int32)
                -> JSIO ImageData
-  getImageData a b c d e = primJS $ CanvasImageData.prim__getImageData a b c d e
+  getImageData a b c d e = primJS
+                         $ CanvasImageData.prim__getImageData (up a) b c d e
   
   export
   putImageData :  JSType t1
-               => {auto 0 _ : Elem ImageData (Types t1)}
-               -> (obj : CanvasImageData)
-               -> (imagedata : t1)
+               => {auto 0 _ : Elem CanvasImageData (Types t1)}
+               -> (obj : t1)
+               -> (imagedata : ImageData)
                -> (dx : Int32)
                -> (dy : Int32)
                -> JSIO ()
   putImageData a b c d = primJS
-                       $ CanvasImageData.prim__putImageData a (up b) c d
+                       $ CanvasImageData.prim__putImageData (up a) b c d
   
   export
   putImageData1 :  JSType t1
-                => {auto 0 _ : Elem ImageData (Types t1)}
-                -> (obj : CanvasImageData)
-                -> (imagedata : t1)
+                => {auto 0 _ : Elem CanvasImageData (Types t1)}
+                -> (obj : t1)
+                -> (imagedata : ImageData)
                 -> (dx : Int32)
                 -> (dy : Int32)
                 -> (dirtyX : Int32)
@@ -10086,8 +6898,8 @@ namespace CanvasImageData
                 -> (dirtyHeight : Int32)
                 -> JSIO ()
   putImageData1 a b c d e f g h = primJS
-                                $ CanvasImageData.prim__putImageData1 a
-                                                                      (up b)
+                                $ CanvasImageData.prim__putImageData1 (up a)
+                                                                      b
                                                                       c
                                                                       d
                                                                       e
@@ -10120,7 +6932,9 @@ namespace CanvasImageSmoothing
 namespace CanvasPath
   
   export
-  arc :  (obj : CanvasPath)
+  arc :  JSType t1
+      => {auto 0 _ : Elem CanvasPath (Types t1)}
+      -> (obj : t1)
       -> (x : Double)
       -> (y : Double)
       -> (radius : Double)
@@ -10128,30 +6942,36 @@ namespace CanvasPath
       -> (endAngle : Double)
       -> (counterclockwise : Optional Bool)
       -> JSIO ()
-  arc a b c d e f g = primJS $ CanvasPath.prim__arc a b c d e f (toFFI g)
+  arc a b c d e f g = primJS $ CanvasPath.prim__arc (up a) b c d e f (toFFI g)
 
   export
-  arc' :  (obj : CanvasPath)
+  arc' :  JSType t1
+       => {auto 0 _ : Elem CanvasPath (Types t1)}
+       -> (obj : t1)
        -> (x : Double)
        -> (y : Double)
        -> (radius : Double)
        -> (startAngle : Double)
        -> (endAngle : Double)
        -> JSIO ()
-  arc' a b c d e f = primJS $ CanvasPath.prim__arc a b c d e f undef
+  arc' a b c d e f = primJS $ CanvasPath.prim__arc (up a) b c d e f undef
   
   export
-  arcTo :  (obj : CanvasPath)
+  arcTo :  JSType t1
+        => {auto 0 _ : Elem CanvasPath (Types t1)}
+        -> (obj : t1)
         -> (x1 : Double)
         -> (y1 : Double)
         -> (x2 : Double)
         -> (y2 : Double)
         -> (radius : Double)
         -> JSIO ()
-  arcTo a b c d e f = primJS $ CanvasPath.prim__arcTo a b c d e f
+  arcTo a b c d e f = primJS $ CanvasPath.prim__arcTo (up a) b c d e f
   
   export
-  bezierCurveTo :  (obj : CanvasPath)
+  bezierCurveTo :  JSType t1
+                => {auto 0 _ : Elem CanvasPath (Types t1)}
+                -> (obj : t1)
                 -> (cp1x : Double)
                 -> (cp1y : Double)
                 -> (cp2x : Double)
@@ -10160,14 +6980,25 @@ namespace CanvasPath
                 -> (y : Double)
                 -> JSIO ()
   bezierCurveTo a b c d e f g = primJS
-                              $ CanvasPath.prim__bezierCurveTo a b c d e f g
+                              $ CanvasPath.prim__bezierCurveTo (up a)
+                                                               b
+                                                               c
+                                                               d
+                                                               e
+                                                               f
+                                                               g
   
   export
-  closePath : (obj : CanvasPath) -> JSIO ()
-  closePath a = primJS $ CanvasPath.prim__closePath a
+  closePath :  JSType t1
+            => {auto 0 _ : Elem CanvasPath (Types t1)}
+            -> (obj : t1)
+            -> JSIO ()
+  closePath a = primJS $ CanvasPath.prim__closePath (up a)
   
   export
-  ellipse :  (obj : CanvasPath)
+  ellipse :  JSType t1
+          => {auto 0 _ : Elem CanvasPath (Types t1)}
+          -> (obj : t1)
           -> (x : Double)
           -> (y : Double)
           -> (radiusX : Double)
@@ -10178,10 +7009,20 @@ namespace CanvasPath
           -> (counterclockwise : Optional Bool)
           -> JSIO ()
   ellipse a b c d e f g h i = primJS
-                            $ CanvasPath.prim__ellipse a b c d e f g h (toFFI i)
+                            $ CanvasPath.prim__ellipse (up a)
+                                                       b
+                                                       c
+                                                       d
+                                                       e
+                                                       f
+                                                       g
+                                                       h
+                                                       (toFFI i)
 
   export
-  ellipse' :  (obj : CanvasPath)
+  ellipse' :  JSType t1
+           => {auto 0 _ : Elem CanvasPath (Types t1)}
+           -> (obj : t1)
            -> (x : Double)
            -> (y : Double)
            -> (radiusX : Double)
@@ -10191,34 +7032,48 @@ namespace CanvasPath
            -> (endAngle : Double)
            -> JSIO ()
   ellipse' a b c d e f g h = primJS
-                           $ CanvasPath.prim__ellipse a b c d e f g h undef
+                           $ CanvasPath.prim__ellipse (up a) b c d e f g h undef
   
   export
-  lineTo : (obj : CanvasPath) -> (x : Double) -> (y : Double) -> JSIO ()
-  lineTo a b c = primJS $ CanvasPath.prim__lineTo a b c
+  lineTo :  JSType t1
+         => {auto 0 _ : Elem CanvasPath (Types t1)}
+         -> (obj : t1)
+         -> (x : Double)
+         -> (y : Double)
+         -> JSIO ()
+  lineTo a b c = primJS $ CanvasPath.prim__lineTo (up a) b c
   
   export
-  moveTo : (obj : CanvasPath) -> (x : Double) -> (y : Double) -> JSIO ()
-  moveTo a b c = primJS $ CanvasPath.prim__moveTo a b c
+  moveTo :  JSType t1
+         => {auto 0 _ : Elem CanvasPath (Types t1)}
+         -> (obj : t1)
+         -> (x : Double)
+         -> (y : Double)
+         -> JSIO ()
+  moveTo a b c = primJS $ CanvasPath.prim__moveTo (up a) b c
   
   export
-  quadraticCurveTo :  (obj : CanvasPath)
+  quadraticCurveTo :  JSType t1
+                   => {auto 0 _ : Elem CanvasPath (Types t1)}
+                   -> (obj : t1)
                    -> (cpx : Double)
                    -> (cpy : Double)
                    -> (x : Double)
                    -> (y : Double)
                    -> JSIO ()
   quadraticCurveTo a b c d e = primJS
-                             $ CanvasPath.prim__quadraticCurveTo a b c d e
+                             $ CanvasPath.prim__quadraticCurveTo (up a) b c d e
   
   export
-  rect :  (obj : CanvasPath)
+  rect :  JSType t1
+       => {auto 0 _ : Elem CanvasPath (Types t1)}
+       -> (obj : t1)
        -> (x : Double)
        -> (y : Double)
        -> (w : Double)
        -> (h : Double)
        -> JSIO ()
-  rect a b c d e = primJS $ CanvasPath.prim__rect a b c d e
+  rect a b c d e = primJS $ CanvasPath.prim__rect (up a) b c d e
 
 namespace CanvasPathDrawingStyles
   
@@ -10273,43 +7128,54 @@ namespace CanvasPathDrawingStyles
                           (v :> CanvasPathDrawingStyles)
   
   export
-  getLineDash : (obj : CanvasPathDrawingStyles) -> JSIO (Array Double)
-  getLineDash a = primJS $ CanvasPathDrawingStyles.prim__getLineDash a
+  getLineDash :  JSType t1
+              => {auto 0 _ : Elem CanvasPathDrawingStyles (Types t1)}
+              -> (obj : t1)
+              -> JSIO (Array Double)
+  getLineDash a = primJS $ CanvasPathDrawingStyles.prim__getLineDash (up a)
   
   export
-  setLineDash :  (obj : CanvasPathDrawingStyles)
+  setLineDash :  JSType t1
+              => {auto 0 _ : Elem CanvasPathDrawingStyles (Types t1)}
+              -> (obj : t1)
               -> (segments : Array Double)
               -> JSIO ()
-  setLineDash a b = primJS $ CanvasPathDrawingStyles.prim__setLineDash a b
+  setLineDash a b = primJS $ CanvasPathDrawingStyles.prim__setLineDash (up a) b
 
 namespace CanvasRect
   
   export
-  clearRect :  (obj : CanvasRect)
+  clearRect :  JSType t1
+            => {auto 0 _ : Elem CanvasRect (Types t1)}
+            -> (obj : t1)
             -> (x : Double)
             -> (y : Double)
             -> (w : Double)
             -> (h : Double)
             -> JSIO ()
-  clearRect a b c d e = primJS $ CanvasRect.prim__clearRect a b c d e
+  clearRect a b c d e = primJS $ CanvasRect.prim__clearRect (up a) b c d e
   
   export
-  fillRect :  (obj : CanvasRect)
+  fillRect :  JSType t1
+           => {auto 0 _ : Elem CanvasRect (Types t1)}
+           -> (obj : t1)
            -> (x : Double)
            -> (y : Double)
            -> (w : Double)
            -> (h : Double)
            -> JSIO ()
-  fillRect a b c d e = primJS $ CanvasRect.prim__fillRect a b c d e
+  fillRect a b c d e = primJS $ CanvasRect.prim__fillRect (up a) b c d e
   
   export
-  strokeRect :  (obj : CanvasRect)
+  strokeRect :  JSType t1
+             => {auto 0 _ : Elem CanvasRect (Types t1)}
+             -> (obj : t1)
              -> (x : Double)
              -> (y : Double)
              -> (w : Double)
              -> (h : Double)
              -> JSIO ()
-  strokeRect a b c d e = primJS $ CanvasRect.prim__strokeRect a b c d e
+  strokeRect a b c d e = primJS $ CanvasRect.prim__strokeRect (up a) b c d e
 
 namespace CanvasShadowStyles
   
@@ -10356,52 +7222,71 @@ namespace CanvasShadowStyles
 namespace CanvasState
   
   export
-  restore : (obj : CanvasState) -> JSIO ()
-  restore a = primJS $ CanvasState.prim__restore a
+  restore :  JSType t1
+          => {auto 0 _ : Elem CanvasState (Types t1)}
+          -> (obj : t1)
+          -> JSIO ()
+  restore a = primJS $ CanvasState.prim__restore (up a)
   
   export
-  save : (obj : CanvasState) -> JSIO ()
-  save a = primJS $ CanvasState.prim__save a
+  save :  JSType t1
+       => {auto 0 _ : Elem CanvasState (Types t1)}
+       -> (obj : t1)
+       -> JSIO ()
+  save a = primJS $ CanvasState.prim__save (up a)
 
 namespace CanvasText
   
   export
-  fillText :  (obj : CanvasText)
+  fillText :  JSType t1
+           => {auto 0 _ : Elem CanvasText (Types t1)}
+           -> (obj : t1)
            -> (text : String)
            -> (x : Double)
            -> (y : Double)
            -> (maxWidth : Optional Double)
            -> JSIO ()
-  fillText a b c d e = primJS $ CanvasText.prim__fillText a b c d (toFFI e)
+  fillText a b c d e = primJS $ CanvasText.prim__fillText (up a) b c d (toFFI e)
 
   export
-  fillText' :  (obj : CanvasText)
+  fillText' :  JSType t1
+            => {auto 0 _ : Elem CanvasText (Types t1)}
+            -> (obj : t1)
             -> (text : String)
             -> (x : Double)
             -> (y : Double)
             -> JSIO ()
-  fillText' a b c d = primJS $ CanvasText.prim__fillText a b c d undef
+  fillText' a b c d = primJS $ CanvasText.prim__fillText (up a) b c d undef
   
   export
-  measureText : (obj : CanvasText) -> (text : String) -> JSIO TextMetrics
-  measureText a b = primJS $ CanvasText.prim__measureText a b
+  measureText :  JSType t1
+              => {auto 0 _ : Elem CanvasText (Types t1)}
+              -> (obj : t1)
+              -> (text : String)
+              -> JSIO TextMetrics
+  measureText a b = primJS $ CanvasText.prim__measureText (up a) b
   
   export
-  strokeText :  (obj : CanvasText)
+  strokeText :  JSType t1
+             => {auto 0 _ : Elem CanvasText (Types t1)}
+             -> (obj : t1)
              -> (text : String)
              -> (x : Double)
              -> (y : Double)
              -> (maxWidth : Optional Double)
              -> JSIO ()
-  strokeText a b c d e = primJS $ CanvasText.prim__strokeText a b c d (toFFI e)
+  strokeText a b c d e = primJS
+                       $ CanvasText.prim__strokeText (up a) b c d (toFFI e)
 
   export
-  strokeText' :  (obj : CanvasText)
+  strokeText' :  JSType t1
+              => {auto 0 _ : Elem CanvasText (Types t1)}
+              -> (obj : t1)
               -> (text : String)
               -> (x : Double)
               -> (y : Double)
               -> JSIO ()
-  strokeText' a b c d = primJS $ CanvasText.prim__strokeText a b c d undef
+  strokeText' a b c d = primJS $ CanvasText.prim__strokeText (up a) b c d undef
 
 namespace CanvasTextDrawingStyles
   
@@ -10448,23 +7333,40 @@ namespace CanvasTextDrawingStyles
 namespace CanvasTransform
   
   export
-  getTransform : (obj : CanvasTransform) -> JSIO DOMMatrix
-  getTransform a = primJS $ CanvasTransform.prim__getTransform a
+  getTransform :  JSType t1
+               => {auto 0 _ : Elem CanvasTransform (Types t1)}
+               -> (obj : t1)
+               -> JSIO DOMMatrix
+  getTransform a = primJS $ CanvasTransform.prim__getTransform (up a)
   
   export
-  resetTransform : (obj : CanvasTransform) -> JSIO ()
-  resetTransform a = primJS $ CanvasTransform.prim__resetTransform a
+  resetTransform :  JSType t1
+                 => {auto 0 _ : Elem CanvasTransform (Types t1)}
+                 -> (obj : t1)
+                 -> JSIO ()
+  resetTransform a = primJS $ CanvasTransform.prim__resetTransform (up a)
   
   export
-  rotate : (obj : CanvasTransform) -> (angle : Double) -> JSIO ()
-  rotate a b = primJS $ CanvasTransform.prim__rotate a b
+  rotate :  JSType t1
+         => {auto 0 _ : Elem CanvasTransform (Types t1)}
+         -> (obj : t1)
+         -> (angle : Double)
+         -> JSIO ()
+  rotate a b = primJS $ CanvasTransform.prim__rotate (up a) b
   
   export
-  scale : (obj : CanvasTransform) -> (x : Double) -> (y : Double) -> JSIO ()
-  scale a b c = primJS $ CanvasTransform.prim__scale a b c
+  scale :  JSType t1
+        => {auto 0 _ : Elem CanvasTransform (Types t1)}
+        -> (obj : t1)
+        -> (x : Double)
+        -> (y : Double)
+        -> JSIO ()
+  scale a b c = primJS $ CanvasTransform.prim__scale (up a) b c
   
   export
-  setTransform :  (obj : CanvasTransform)
+  setTransform :  JSType t1
+               => {auto 0 _ : Elem CanvasTransform (Types t1)}
+               -> (obj : t1)
                -> (a : Double)
                -> (b : Double)
                -> (c : Double)
@@ -10473,22 +7375,36 @@ namespace CanvasTransform
                -> (f : Double)
                -> JSIO ()
   setTransform a b c d e f g = primJS
-                             $ CanvasTransform.prim__setTransform a b c d e f g
+                             $ CanvasTransform.prim__setTransform (up a)
+                                                                  b
+                                                                  c
+                                                                  d
+                                                                  e
+                                                                  f
+                                                                  g
   
   export
   setTransform1 :  JSType t1
-                => {auto 0 _ : Elem DOMMatrix2DInit (Types t1)}
-                -> (obj : CanvasTransform)
-                -> (transform : Optional t1)
+                => JSType t2
+                => {auto 0 _ : Elem CanvasTransform (Types t1)}
+                -> {auto 0 _ : Elem DOMMatrix2DInit (Types t2)}
+                -> (obj : t1)
+                -> (transform : Optional t2)
                 -> JSIO ()
-  setTransform1 a b = primJS $ CanvasTransform.prim__setTransform1 a (optUp b)
+  setTransform1 a b = primJS
+                    $ CanvasTransform.prim__setTransform1 (up a) (optUp b)
 
   export
-  setTransform1' : (obj : CanvasTransform) -> JSIO ()
-  setTransform1' a = primJS $ CanvasTransform.prim__setTransform1 a undef
+  setTransform1' :  JSType t1
+                 => {auto 0 _ : Elem CanvasTransform (Types t1)}
+                 -> (obj : t1)
+                 -> JSIO ()
+  setTransform1' a = primJS $ CanvasTransform.prim__setTransform1 (up a) undef
   
   export
-  transform :  (obj : CanvasTransform)
+  transform :  JSType t1
+            => {auto 0 _ : Elem CanvasTransform (Types t1)}
+            -> (obj : t1)
             -> (a : Double)
             -> (b : Double)
             -> (c : Double)
@@ -10497,50 +7413,62 @@ namespace CanvasTransform
             -> (f : Double)
             -> JSIO ()
   transform a b c d e f g = primJS
-                          $ CanvasTransform.prim__transform a b c d e f g
+                          $ CanvasTransform.prim__transform (up a) b c d e f g
   
   export
-  translate : (obj : CanvasTransform) -> (x : Double) -> (y : Double) -> JSIO ()
-  translate a b c = primJS $ CanvasTransform.prim__translate a b c
+  translate :  JSType t1
+            => {auto 0 _ : Elem CanvasTransform (Types t1)}
+            -> (obj : t1)
+            -> (x : Double)
+            -> (y : Double)
+            -> JSIO ()
+  translate a b c = primJS $ CanvasTransform.prim__translate (up a) b c
 
 namespace CanvasUserInterface
   
   export
   drawFocusIfNeeded :  JSType t1
-                    => {auto 0 _ : Elem Element (Types t1)}
-                    -> (obj : CanvasUserInterface)
-                    -> (element : t1)
+                    => JSType t2
+                    => {auto 0 _ : Elem CanvasUserInterface (Types t1)}
+                    -> {auto 0 _ : Elem Element (Types t2)}
+                    -> (obj : t1)
+                    -> (element : t2)
                     -> JSIO ()
   drawFocusIfNeeded a b = primJS
-                        $ CanvasUserInterface.prim__drawFocusIfNeeded a (up b)
+                        $ CanvasUserInterface.prim__drawFocusIfNeeded (up a)
+                                                                      (up b)
   
   export
   drawFocusIfNeeded1 :  JSType t1
                      => JSType t2
-                     => {auto 0 _ : Elem Path2D (Types t1)}
+                     => {auto 0 _ : Elem CanvasUserInterface (Types t1)}
                      -> {auto 0 _ : Elem Element (Types t2)}
-                     -> (obj : CanvasUserInterface)
-                     -> (path : t1)
+                     -> (obj : t1)
+                     -> (path : Path2D)
                      -> (element : t2)
                      -> JSIO ()
   drawFocusIfNeeded1 a b c = primJS
-                           $ CanvasUserInterface.prim__drawFocusIfNeeded1 a
-                                                                          (up b)
+                           $ CanvasUserInterface.prim__drawFocusIfNeeded1 (up a)
+                                                                          b
                                                                           (up c)
   
   export
-  scrollPathIntoView : (obj : CanvasUserInterface) -> JSIO ()
-  scrollPathIntoView a = primJS $ CanvasUserInterface.prim__scrollPathIntoView a
+  scrollPathIntoView :  JSType t1
+                     => {auto 0 _ : Elem CanvasUserInterface (Types t1)}
+                     -> (obj : t1)
+                     -> JSIO ()
+  scrollPathIntoView a = primJS
+                       $ CanvasUserInterface.prim__scrollPathIntoView (up a)
   
   export
   scrollPathIntoView1 :  JSType t1
-                      => {auto 0 _ : Elem Path2D (Types t1)}
-                      -> (obj : CanvasUserInterface)
-                      -> (path : t1)
+                      => {auto 0 _ : Elem CanvasUserInterface (Types t1)}
+                      -> (obj : t1)
+                      -> (path : Path2D)
                       -> JSIO ()
   scrollPathIntoView1 a b = primJS
-                          $ CanvasUserInterface.prim__scrollPathIntoView1 a
-                                                                          (up b)
+                          $ CanvasUserInterface.prim__scrollPathIntoView1 (up a)
+                                                                          b
 
 namespace DocumentAndElementEventHandlers
   
@@ -10607,9 +7535,12 @@ namespace ElementContentEditable
                          (v :> ElementContentEditable)
   
   export
-  isContentEditable : (obj : ElementContentEditable) -> JSIO Bool
+  isContentEditable :  JSType t1
+                    => {auto 0 _ : Elem ElementContentEditable (Types t1)}
+                    -> (obj : t1)
+                    -> JSIO Bool
   isContentEditable a = tryJS "ElementContentEditable.isContentEditable"
-                      $ ElementContentEditable.prim__isContentEditable a
+                      $ ElementContentEditable.prim__isContentEditable (up a)
 
 namespace GlobalEventHandlers
   
@@ -11316,8 +8247,11 @@ namespace HTMLHyperlinkElementUtils
                     (v :> HTMLHyperlinkElementUtils)
   
   export
-  origin : (obj : HTMLHyperlinkElementUtils) -> JSIO String
-  origin a = primJS $ HTMLHyperlinkElementUtils.prim__origin a
+  origin :  JSType t1
+         => {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t1)}
+         -> (obj : t1)
+         -> JSIO String
+  origin a = primJS $ HTMLHyperlinkElementUtils.prim__origin (up a)
   
   export
   password :  JSType t
@@ -11392,8 +8326,11 @@ namespace HTMLOrSVGElement
                          (v :> HTMLOrSVGElement)
   
   export
-  dataset : (obj : HTMLOrSVGElement) -> JSIO DOMStringMap
-  dataset a = primJS $ HTMLOrSVGElement.prim__dataset a
+  dataset :  JSType t1
+          => {auto 0 _ : Elem HTMLOrSVGElement (Types t1)}
+          -> (obj : t1)
+          -> JSIO DOMStringMap
+  dataset a = primJS $ HTMLOrSVGElement.prim__dataset (up a)
   
   export
   nonce :  JSType t
@@ -11416,125 +8353,187 @@ namespace HTMLOrSVGElement
                         (v :> HTMLOrSVGElement)
   
   export
-  blur : (obj : HTMLOrSVGElement) -> JSIO ()
-  blur a = primJS $ HTMLOrSVGElement.prim__blur a
+  blur :  JSType t1
+       => {auto 0 _ : Elem HTMLOrSVGElement (Types t1)}
+       -> (obj : t1)
+       -> JSIO ()
+  blur a = primJS $ HTMLOrSVGElement.prim__blur (up a)
   
   export
   focus :  JSType t1
-        => {auto 0 _ : Elem FocusOptions (Types t1)}
-        -> (obj : HTMLOrSVGElement)
-        -> (options : Optional t1)
+        => {auto 0 _ : Elem HTMLOrSVGElement (Types t1)}
+        -> (obj : t1)
+        -> (options : Optional FocusOptions)
         -> JSIO ()
-  focus a b = primJS $ HTMLOrSVGElement.prim__focus a (optUp b)
+  focus a b = primJS $ HTMLOrSVGElement.prim__focus (up a) (toFFI b)
 
   export
-  focus' : (obj : HTMLOrSVGElement) -> JSIO ()
-  focus' a = primJS $ HTMLOrSVGElement.prim__focus a undef
+  focus' :  JSType t1
+         => {auto 0 _ : Elem HTMLOrSVGElement (Types t1)}
+         -> (obj : t1)
+         -> JSIO ()
+  focus' a = primJS $ HTMLOrSVGElement.prim__focus (up a) undef
 
 namespace NavigatorConcurrentHardware
   
   export
-  hardwareConcurrency : (obj : NavigatorConcurrentHardware) -> JSIO UInt64
+  hardwareConcurrency :  JSType t1
+                      => {auto 0 _ : Elem NavigatorConcurrentHardware (Types t1)}
+                      -> (obj : t1)
+                      -> JSIO UInt64
   hardwareConcurrency a = primJS
-                        $ NavigatorConcurrentHardware.prim__hardwareConcurrency a
+                        $ NavigatorConcurrentHardware.prim__hardwareConcurrency (up a)
 
 namespace NavigatorContentUtils
   
   export
-  registerProtocolHandler :  (obj : NavigatorContentUtils)
+  registerProtocolHandler :  JSType t1
+                          => {auto 0 _ : Elem NavigatorContentUtils (Types t1)}
+                          -> (obj : t1)
                           -> (scheme : String)
                           -> (url : String)
                           -> JSIO ()
   registerProtocolHandler a b c = primJS
-                                $ NavigatorContentUtils.prim__registerProtocolHandler a
+                                $ NavigatorContentUtils.prim__registerProtocolHandler (up a)
                                                                                       b
                                                                                       c
   
   export
-  unregisterProtocolHandler :  (obj : NavigatorContentUtils)
+  unregisterProtocolHandler :  JSType t1
+                            => {auto 0 _ : Elem NavigatorContentUtils (Types t1)}
+                            -> (obj : t1)
                             -> (scheme : String)
                             -> (url : String)
                             -> JSIO ()
   unregisterProtocolHandler a b c = primJS
-                                  $ NavigatorContentUtils.prim__unregisterProtocolHandler a
+                                  $ NavigatorContentUtils.prim__unregisterProtocolHandler (up a)
                                                                                           b
                                                                                           c
 
 namespace NavigatorCookies
   
   export
-  cookieEnabled : (obj : NavigatorCookies) -> JSIO Bool
+  cookieEnabled :  JSType t1
+                => {auto 0 _ : Elem NavigatorCookies (Types t1)}
+                -> (obj : t1)
+                -> JSIO Bool
   cookieEnabled a = tryJS "NavigatorCookies.cookieEnabled"
-                  $ NavigatorCookies.prim__cookieEnabled a
+                  $ NavigatorCookies.prim__cookieEnabled (up a)
 
 namespace NavigatorID
   
   export
-  appCodeName : (obj : NavigatorID) -> JSIO String
-  appCodeName a = primJS $ NavigatorID.prim__appCodeName a
+  appCodeName :  JSType t1
+              => {auto 0 _ : Elem NavigatorID (Types t1)}
+              -> (obj : t1)
+              -> JSIO String
+  appCodeName a = primJS $ NavigatorID.prim__appCodeName (up a)
   
   export
-  appName : (obj : NavigatorID) -> JSIO String
-  appName a = primJS $ NavigatorID.prim__appName a
+  appName :  JSType t1
+          => {auto 0 _ : Elem NavigatorID (Types t1)}
+          -> (obj : t1)
+          -> JSIO String
+  appName a = primJS $ NavigatorID.prim__appName (up a)
   
   export
-  appVersion : (obj : NavigatorID) -> JSIO String
-  appVersion a = primJS $ NavigatorID.prim__appVersion a
+  appVersion :  JSType t1
+             => {auto 0 _ : Elem NavigatorID (Types t1)}
+             -> (obj : t1)
+             -> JSIO String
+  appVersion a = primJS $ NavigatorID.prim__appVersion (up a)
   
   export
-  platform : (obj : NavigatorID) -> JSIO String
-  platform a = primJS $ NavigatorID.prim__platform a
+  platform :  JSType t1
+           => {auto 0 _ : Elem NavigatorID (Types t1)}
+           -> (obj : t1)
+           -> JSIO String
+  platform a = primJS $ NavigatorID.prim__platform (up a)
   
   export
-  product : (obj : NavigatorID) -> JSIO String
-  product a = primJS $ NavigatorID.prim__product a
+  product :  JSType t1
+          => {auto 0 _ : Elem NavigatorID (Types t1)}
+          -> (obj : t1)
+          -> JSIO String
+  product a = primJS $ NavigatorID.prim__product (up a)
   
   export
-  productSub : (obj : NavigatorID) -> JSIO String
-  productSub a = primJS $ NavigatorID.prim__productSub a
+  productSub :  JSType t1
+             => {auto 0 _ : Elem NavigatorID (Types t1)}
+             -> (obj : t1)
+             -> JSIO String
+  productSub a = primJS $ NavigatorID.prim__productSub (up a)
   
   export
-  userAgent : (obj : NavigatorID) -> JSIO String
-  userAgent a = primJS $ NavigatorID.prim__userAgent a
+  userAgent :  JSType t1
+            => {auto 0 _ : Elem NavigatorID (Types t1)}
+            -> (obj : t1)
+            -> JSIO String
+  userAgent a = primJS $ NavigatorID.prim__userAgent (up a)
   
   export
-  vendor : (obj : NavigatorID) -> JSIO String
-  vendor a = primJS $ NavigatorID.prim__vendor a
+  vendor :  JSType t1
+         => {auto 0 _ : Elem NavigatorID (Types t1)}
+         -> (obj : t1)
+         -> JSIO String
+  vendor a = primJS $ NavigatorID.prim__vendor (up a)
   
   export
-  vendorSub : (obj : NavigatorID) -> JSIO String
-  vendorSub a = primJS $ NavigatorID.prim__vendorSub a
+  vendorSub :  JSType t1
+            => {auto 0 _ : Elem NavigatorID (Types t1)}
+            -> (obj : t1)
+            -> JSIO String
+  vendorSub a = primJS $ NavigatorID.prim__vendorSub (up a)
 
 namespace NavigatorLanguage
   
   export
-  language : (obj : NavigatorLanguage) -> JSIO String
-  language a = primJS $ NavigatorLanguage.prim__language a
+  language :  JSType t1
+           => {auto 0 _ : Elem NavigatorLanguage (Types t1)}
+           -> (obj : t1)
+           -> JSIO String
+  language a = primJS $ NavigatorLanguage.prim__language (up a)
   
   export
-  languages : (obj : NavigatorLanguage) -> JSIO (Array String)
-  languages a = primJS $ NavigatorLanguage.prim__languages a
+  languages :  JSType t1
+            => {auto 0 _ : Elem NavigatorLanguage (Types t1)}
+            -> (obj : t1)
+            -> JSIO (Array String)
+  languages a = primJS $ NavigatorLanguage.prim__languages (up a)
 
 namespace NavigatorOnLine
   
   export
-  onLine : (obj : NavigatorOnLine) -> JSIO Bool
-  onLine a = tryJS "NavigatorOnLine.onLine" $ NavigatorOnLine.prim__onLine a
+  onLine :  JSType t1
+         => {auto 0 _ : Elem NavigatorOnLine (Types t1)}
+         -> (obj : t1)
+         -> JSIO Bool
+  onLine a = tryJS "NavigatorOnLine.onLine"
+           $ NavigatorOnLine.prim__onLine (up a)
 
 namespace NavigatorPlugins
   
   export
-  mimeTypes : (obj : NavigatorPlugins) -> JSIO MimeTypeArray
-  mimeTypes a = primJS $ NavigatorPlugins.prim__mimeTypes a
+  mimeTypes :  JSType t1
+            => {auto 0 _ : Elem NavigatorPlugins (Types t1)}
+            -> (obj : t1)
+            -> JSIO MimeTypeArray
+  mimeTypes a = primJS $ NavigatorPlugins.prim__mimeTypes (up a)
   
   export
-  plugins : (obj : NavigatorPlugins) -> JSIO PluginArray
-  plugins a = primJS $ NavigatorPlugins.prim__plugins a
+  plugins :  JSType t1
+          => {auto 0 _ : Elem NavigatorPlugins (Types t1)}
+          -> (obj : t1)
+          -> JSIO PluginArray
+  plugins a = primJS $ NavigatorPlugins.prim__plugins (up a)
   
   export
-  javaEnabled : (obj : NavigatorPlugins) -> JSIO Bool
+  javaEnabled :  JSType t1
+              => {auto 0 _ : Elem NavigatorPlugins (Types t1)}
+              -> (obj : t1)
+              -> JSIO Bool
   javaEnabled a = tryJS "NavigatorPlugins.javaEnabled"
-                $ NavigatorPlugins.prim__javaEnabled a
+                $ NavigatorPlugins.prim__javaEnabled (up a)
 
 namespace WindowEventHandlers
   
@@ -11713,15 +8712,12 @@ namespace AssignedNodesOptions
   new' = primJS $ AssignedNodesOptions.prim__new undef
   
   export
-  flatten :  JSType t
-          => {auto 0 _ : Elem AssignedNodesOptions (Types t)}
-          -> t
-          -> Attribute True Optional Bool
+  flatten : AssignedNodesOptions -> Attribute True Optional Bool
   flatten v = fromUndefOrPrim "AssignedNodesOptions.getflatten"
                               prim__flatten
                               prim__setFlatten
                               False
-                              (v :> AssignedNodesOptions)
+                              v
 
 namespace CanvasRenderingContext2DSettings
   
@@ -11737,26 +8733,21 @@ namespace CanvasRenderingContext2DSettings
   new' = primJS $ CanvasRenderingContext2DSettings.prim__new undef undef
   
   export
-  alpha :  JSType t
-        => {auto 0 _ : Elem CanvasRenderingContext2DSettings (Types t)}
-        -> t
-        -> Attribute True Optional Bool
+  alpha : CanvasRenderingContext2DSettings -> Attribute True Optional Bool
   alpha v = fromUndefOrPrim "CanvasRenderingContext2DSettings.getalpha"
                             prim__alpha
                             prim__setAlpha
                             True
-                            (v :> CanvasRenderingContext2DSettings)
+                            v
   
   export
-  desynchronized :  JSType t
-                 => {auto 0 _ : Elem CanvasRenderingContext2DSettings (Types t)}
-                 -> t
+  desynchronized :  CanvasRenderingContext2DSettings
                  -> Attribute True Optional Bool
   desynchronized v = fromUndefOrPrim "CanvasRenderingContext2DSettings.getdesynchronized"
                                      prim__desynchronized
                                      prim__setDesynchronized
                                      False
-                                     (v :> CanvasRenderingContext2DSettings)
+                                     v
 
 namespace CloseEventInit
   
@@ -11772,61 +8763,42 @@ namespace CloseEventInit
   new' = primJS $ CloseEventInit.prim__new undef undef undef
   
   export
-  code :  JSType t
-       => {auto 0 _ : Elem CloseEventInit (Types t)}
-       -> t
-       -> Attribute True Optional UInt16
-  code v = fromUndefOrPrim "CloseEventInit.getcode"
-                           prim__code
-                           prim__setCode
-                           0
-                           (v :> CloseEventInit)
+  code : CloseEventInit -> Attribute True Optional UInt16
+  code v = fromUndefOrPrim "CloseEventInit.getcode" prim__code prim__setCode 0 v
   
   export
-  reason :  JSType t
-         => {auto 0 _ : Elem CloseEventInit (Types t)}
-         -> t
-         -> Attribute True Optional String
+  reason : CloseEventInit -> Attribute True Optional String
   reason v = fromUndefOrPrim "CloseEventInit.getreason"
                              prim__reason
                              prim__setReason
                              ""
-                             (v :> CloseEventInit)
+                             v
   
   export
-  wasClean :  JSType t
-           => {auto 0 _ : Elem CloseEventInit (Types t)}
-           -> t
-           -> Attribute True Optional Bool
+  wasClean : CloseEventInit -> Attribute True Optional Bool
   wasClean v = fromUndefOrPrim "CloseEventInit.getwasClean"
                                prim__wasClean
                                prim__setWasClean
                                False
-                               (v :> CloseEventInit)
+                               v
 
 namespace DragEventInit
   
   export
-  new :  JSType t1
-      => {auto 0 _ : Elem DataTransfer (Types t1)}
-      -> (dataTransfer : Optional (Maybe t1))
-      -> JSIO DragEventInit
-  new a = primJS $ DragEventInit.prim__new (omyUp a)
+  new : (dataTransfer : Optional (Maybe DataTransfer)) -> JSIO DragEventInit
+  new a = primJS $ DragEventInit.prim__new (toFFI a)
 
   export
   new' : JSIO DragEventInit
   new' = primJS $ DragEventInit.prim__new undef
   
   export
-  dataTransfer :  JSType t
-               => {auto 0 _ : Elem DragEventInit (Types t)}
-               -> t
-               -> Attribute True Optional (Maybe DataTransfer)
+  dataTransfer : DragEventInit -> Attribute True Optional (Maybe DataTransfer)
   dataTransfer v = fromUndefOrPrim "DragEventInit.getdataTransfer"
                                    prim__dataTransfer
                                    prim__setDataTransfer
                                    Nothing
-                                   (v :> DragEventInit)
+                                   v
 
 namespace ElementDefinitionOptions
   
@@ -11839,14 +8811,11 @@ namespace ElementDefinitionOptions
   new' = primJS $ ElementDefinitionOptions.prim__new undef
   
   export
-  extends :  JSType t
-          => {auto 0 _ : Elem ElementDefinitionOptions (Types t)}
-          -> t
-          -> Attribute False Optional String
+  extends : ElementDefinitionOptions -> Attribute False Optional String
   extends v = fromUndefOrPrimNoDefault "ElementDefinitionOptions.getextends"
                                        prim__extends
                                        prim__setExtends
-                                       (v :> ElementDefinitionOptions)
+                                       v
 
 namespace ErrorEventInit
   
@@ -11869,59 +8838,44 @@ namespace ErrorEventInit
   new' = primJS $ ErrorEventInit.prim__new undef undef undef undef undef
   
   export
-  colno :  JSType t
-        => {auto 0 _ : Elem ErrorEventInit (Types t)}
-        -> t
-        -> Attribute True Optional UInt32
+  colno : ErrorEventInit -> Attribute True Optional UInt32
   colno v = fromUndefOrPrim "ErrorEventInit.getcolno"
                             prim__colno
                             prim__setColno
                             0
-                            (v :> ErrorEventInit)
+                            v
   
   export
-  error :  JSType t
-        => {auto 0 _ : Elem ErrorEventInit (Types t)}
-        -> t
-        -> Attribute True Optional Any
+  error : ErrorEventInit -> Attribute True Optional Any
   error v = fromUndefOrPrim "ErrorEventInit.geterror"
                             prim__error
                             prim__setError
                             (MkAny $ null {a = ()})
-                            (v :> ErrorEventInit)
+                            v
   
   export
-  filename :  JSType t
-           => {auto 0 _ : Elem ErrorEventInit (Types t)}
-           -> t
-           -> Attribute True Optional String
+  filename : ErrorEventInit -> Attribute True Optional String
   filename v = fromUndefOrPrim "ErrorEventInit.getfilename"
                                prim__filename
                                prim__setFilename
                                ""
-                               (v :> ErrorEventInit)
+                               v
   
   export
-  lineno :  JSType t
-         => {auto 0 _ : Elem ErrorEventInit (Types t)}
-         -> t
-         -> Attribute True Optional UInt32
+  lineno : ErrorEventInit -> Attribute True Optional UInt32
   lineno v = fromUndefOrPrim "ErrorEventInit.getlineno"
                              prim__lineno
                              prim__setLineno
                              0
-                             (v :> ErrorEventInit)
+                             v
   
   export
-  message :  JSType t
-          => {auto 0 _ : Elem ErrorEventInit (Types t)}
-          -> t
-          -> Attribute True Optional String
+  message : ErrorEventInit -> Attribute True Optional String
   message v = fromUndefOrPrim "ErrorEventInit.getmessage"
                               prim__message
                               prim__setMessage
                               ""
-                              (v :> ErrorEventInit)
+                              v
 
 namespace EventSourceInit
   
@@ -11934,15 +8888,12 @@ namespace EventSourceInit
   new' = primJS $ EventSourceInit.prim__new undef
   
   export
-  withCredentials :  JSType t
-                  => {auto 0 _ : Elem EventSourceInit (Types t)}
-                  -> t
-                  -> Attribute True Optional Bool
+  withCredentials : EventSourceInit -> Attribute True Optional Bool
   withCredentials v = fromUndefOrPrim "EventSourceInit.getwithCredentials"
                                       prim__withCredentials
                                       prim__setWithCredentials
                                       False
-                                      (v :> EventSourceInit)
+                                      v
 
 namespace FocusOptions
   
@@ -11955,34 +8906,25 @@ namespace FocusOptions
   new' = primJS $ FocusOptions.prim__new undef
   
   export
-  preventScroll :  JSType t
-                => {auto 0 _ : Elem FocusOptions (Types t)}
-                -> t
-                -> Attribute True Optional Bool
+  preventScroll : FocusOptions -> Attribute True Optional Bool
   preventScroll v = fromUndefOrPrim "FocusOptions.getpreventScroll"
                                     prim__preventScroll
                                     prim__setPreventScroll
                                     False
-                                    (v :> FocusOptions)
+                                    v
 
 namespace FormDataEventInit
   
   export
-  new :  JSType t1
-      => {auto 0 _ : Elem FormData (Types t1)}
-      -> (formData : t1)
-      -> JSIO FormDataEventInit
-  new a = primJS $ FormDataEventInit.prim__new (up a)
+  new : (formData : FormData) -> JSIO FormDataEventInit
+  new a = primJS $ FormDataEventInit.prim__new a
   
   export
-  formData :  JSType t
-           => {auto 0 _ : Elem FormDataEventInit (Types t)}
-           -> t
-           -> Attribute True I FormData
+  formData : FormDataEventInit -> Attribute True I FormData
   formData v = fromPrim "FormDataEventInit.getformData"
                         prim__formData
                         prim__setFormData
-                        (v :> FormDataEventInit)
+                        v
 
 namespace HashChangeEventInit
   
@@ -11997,26 +8939,20 @@ namespace HashChangeEventInit
   new' = primJS $ HashChangeEventInit.prim__new undef undef
   
   export
-  newURL :  JSType t
-         => {auto 0 _ : Elem HashChangeEventInit (Types t)}
-         -> t
-         -> Attribute True Optional String
+  newURL : HashChangeEventInit -> Attribute True Optional String
   newURL v = fromUndefOrPrim "HashChangeEventInit.getnewURL"
                              prim__newURL
                              prim__setNewURL
                              ""
-                             (v :> HashChangeEventInit)
+                             v
   
   export
-  oldURL :  JSType t
-         => {auto 0 _ : Elem HashChangeEventInit (Types t)}
-         -> t
-         -> Attribute True Optional String
+  oldURL : HashChangeEventInit -> Attribute True Optional String
   oldURL v = fromUndefOrPrim "HashChangeEventInit.getoldURL"
                              prim__oldURL
                              prim__setOldURL
                              ""
-                             (v :> HashChangeEventInit)
+                             v
 
 namespace ImageBitmapOptions
   
@@ -12042,64 +8978,49 @@ namespace ImageBitmapOptions
        $ ImageBitmapOptions.prim__new undef undef undef undef undef undef
   
   export
-  colorSpaceConversion :  JSType t
-                       => {auto 0 _ : Elem ImageBitmapOptions (Types t)}
-                       -> t
+  colorSpaceConversion :  ImageBitmapOptions
                        -> Attribute False Optional ColorSpaceConversion
   colorSpaceConversion v = fromUndefOrPrimNoDefault "ImageBitmapOptions.getcolorSpaceConversion"
                                                     prim__colorSpaceConversion
                                                     prim__setColorSpaceConversion
-                                                    (v :> ImageBitmapOptions)
+                                                    v
   
   export
-  imageOrientation :  JSType t
-                   => {auto 0 _ : Elem ImageBitmapOptions (Types t)}
-                   -> t
+  imageOrientation :  ImageBitmapOptions
                    -> Attribute False Optional ImageOrientation
   imageOrientation v = fromUndefOrPrimNoDefault "ImageBitmapOptions.getimageOrientation"
                                                 prim__imageOrientation
                                                 prim__setImageOrientation
-                                                (v :> ImageBitmapOptions)
+                                                v
   
   export
-  premultiplyAlpha :  JSType t
-                   => {auto 0 _ : Elem ImageBitmapOptions (Types t)}
-                   -> t
+  premultiplyAlpha :  ImageBitmapOptions
                    -> Attribute False Optional PremultiplyAlpha
   premultiplyAlpha v = fromUndefOrPrimNoDefault "ImageBitmapOptions.getpremultiplyAlpha"
                                                 prim__premultiplyAlpha
                                                 prim__setPremultiplyAlpha
-                                                (v :> ImageBitmapOptions)
+                                                v
   
   export
-  resizeHeight :  JSType t
-               => {auto 0 _ : Elem ImageBitmapOptions (Types t)}
-               -> t
-               -> Attribute False Optional UInt32
+  resizeHeight : ImageBitmapOptions -> Attribute False Optional UInt32
   resizeHeight v = fromUndefOrPrimNoDefault "ImageBitmapOptions.getresizeHeight"
                                             prim__resizeHeight
                                             prim__setResizeHeight
-                                            (v :> ImageBitmapOptions)
+                                            v
   
   export
-  resizeQuality :  JSType t
-                => {auto 0 _ : Elem ImageBitmapOptions (Types t)}
-                -> t
-                -> Attribute False Optional ResizeQuality
+  resizeQuality : ImageBitmapOptions -> Attribute False Optional ResizeQuality
   resizeQuality v = fromUndefOrPrimNoDefault "ImageBitmapOptions.getresizeQuality"
                                              prim__resizeQuality
                                              prim__setResizeQuality
-                                             (v :> ImageBitmapOptions)
+                                             v
   
   export
-  resizeWidth :  JSType t
-              => {auto 0 _ : Elem ImageBitmapOptions (Types t)}
-              -> t
-              -> Attribute False Optional UInt32
+  resizeWidth : ImageBitmapOptions -> Attribute False Optional UInt32
   resizeWidth v = fromUndefOrPrimNoDefault "ImageBitmapOptions.getresizeWidth"
                                            prim__resizeWidth
                                            prim__setResizeWidth
-                                           (v :> ImageBitmapOptions)
+                                           v
 
 namespace ImageBitmapRenderingContextSettings
   
@@ -12112,15 +9033,12 @@ namespace ImageBitmapRenderingContextSettings
   new' = primJS $ ImageBitmapRenderingContextSettings.prim__new undef
   
   export
-  alpha :  JSType t
-        => {auto 0 _ : Elem ImageBitmapRenderingContextSettings (Types t)}
-        -> t
-        -> Attribute True Optional Bool
+  alpha : ImageBitmapRenderingContextSettings -> Attribute True Optional Bool
   alpha v = fromUndefOrPrim "ImageBitmapRenderingContextSettings.getalpha"
                             prim__alpha
                             prim__setAlpha
                             True
-                            (v :> ImageBitmapRenderingContextSettings)
+                            v
 
 namespace ImageEncodeOptions
   
@@ -12135,25 +9053,19 @@ namespace ImageEncodeOptions
   new' = primJS $ ImageEncodeOptions.prim__new undef undef
   
   export
-  quality :  JSType t
-          => {auto 0 _ : Elem ImageEncodeOptions (Types t)}
-          -> t
-          -> Attribute False Optional Double
+  quality : ImageEncodeOptions -> Attribute False Optional Double
   quality v = fromUndefOrPrimNoDefault "ImageEncodeOptions.getquality"
                                        prim__quality
                                        prim__setQuality
-                                       (v :> ImageEncodeOptions)
+                                       v
   
   export
-  type :  JSType t
-       => {auto 0 _ : Elem ImageEncodeOptions (Types t)}
-       -> t
-       -> Attribute True Optional String
+  type : ImageEncodeOptions -> Attribute True Optional String
   type v = fromUndefOrPrim "ImageEncodeOptions.gettype"
                            prim__type
                            prim__setType
                            "image/png"
-                           (v :> ImageEncodeOptions)
+                           v
 
 namespace MessageEventInit
   
@@ -12179,52 +9091,38 @@ namespace MessageEventInit
   new' = primJS $ MessageEventInit.prim__new undef undef undef undef undef
   
   export
-  data_ :  JSType t
-        => {auto 0 _ : Elem MessageEventInit (Types t)}
-        -> t
-        -> Attribute True Optional Any
+  data_ : MessageEventInit -> Attribute True Optional Any
   data_ v = fromUndefOrPrim "MessageEventInit.getdata"
                             prim__data
                             prim__setData
                             (MkAny $ null {a = ()})
-                            (v :> MessageEventInit)
+                            v
   
   export
-  lastEventId :  JSType t
-              => {auto 0 _ : Elem MessageEventInit (Types t)}
-              -> t
-              -> Attribute True Optional String
+  lastEventId : MessageEventInit -> Attribute True Optional String
   lastEventId v = fromUndefOrPrim "MessageEventInit.getlastEventId"
                                   prim__lastEventId
                                   prim__setLastEventId
                                   ""
-                                  (v :> MessageEventInit)
+                                  v
   
   export
-  origin :  JSType t
-         => {auto 0 _ : Elem MessageEventInit (Types t)}
-         -> t
-         -> Attribute True Optional String
+  origin : MessageEventInit -> Attribute True Optional String
   origin v = fromUndefOrPrim "MessageEventInit.getorigin"
                              prim__origin
                              prim__setOrigin
                              ""
-                             (v :> MessageEventInit)
+                             v
   
   export
-  ports :  JSType t
-        => {auto 0 _ : Elem MessageEventInit (Types t)}
-        -> t
-        -> Attribute False Optional (Array MessagePort)
+  ports : MessageEventInit -> Attribute False Optional (Array MessagePort)
   ports v = fromUndefOrPrimNoDefault "MessageEventInit.getports"
                                      prim__ports
                                      prim__setPorts
-                                     (v :> MessageEventInit)
+                                     v
   
   export
-  source :  JSType t
-         => {auto 0 _ : Elem MessageEventInit (Types t)}
-         -> t
+  source :  MessageEventInit
          -> Attribute True Optional (Maybe (Union3 WindowProxy
                                                    MessagePort
                                                    ServiceWorker))
@@ -12232,7 +9130,7 @@ namespace MessageEventInit
                              prim__source
                              prim__setSource
                              Nothing
-                             (v :> MessageEventInit)
+                             v
 
 namespace PageTransitionEventInit
   
@@ -12245,15 +9143,12 @@ namespace PageTransitionEventInit
   new' = primJS $ PageTransitionEventInit.prim__new undef
   
   export
-  persisted :  JSType t
-            => {auto 0 _ : Elem PageTransitionEventInit (Types t)}
-            -> t
-            -> Attribute True Optional Bool
+  persisted : PageTransitionEventInit -> Attribute True Optional Bool
   persisted v = fromUndefOrPrim "PageTransitionEventInit.getpersisted"
                                 prim__persisted
                                 prim__setPersisted
                                 False
-                                (v :> PageTransitionEventInit)
+                                v
 
 namespace PopStateEventInit
   
@@ -12266,15 +9161,12 @@ namespace PopStateEventInit
   new' = primJS $ PopStateEventInit.prim__new undef
   
   export
-  state :  JSType t
-        => {auto 0 _ : Elem PopStateEventInit (Types t)}
-        -> t
-        -> Attribute True Optional Any
+  state : PopStateEventInit -> Attribute True Optional Any
   state v = fromUndefOrPrim "PopStateEventInit.getstate"
                             prim__state
                             prim__setState
                             (MkAny $ null {a = ()})
-                            (v :> PopStateEventInit)
+                            v
 
 namespace PostMessageOptions
   
@@ -12309,101 +9201,74 @@ namespace PromiseRejectionEventInit
   new' a = primJS $ PromiseRejectionEventInit.prim__new a undef
   
   export
-  promise :  JSType t
-          => {auto 0 _ : Elem PromiseRejectionEventInit (Types t)}
-          -> t
-          -> Attribute True I (Promise AnyPtr)
+  promise : PromiseRejectionEventInit -> Attribute True I (Promise AnyPtr)
   promise v = fromPrim "PromiseRejectionEventInit.getpromise"
                        prim__promise
                        prim__setPromise
-                       (v :> PromiseRejectionEventInit)
+                       v
   
   export
-  reason :  JSType t
-         => {auto 0 _ : Elem PromiseRejectionEventInit (Types t)}
-         -> t
-         -> Attribute False Optional Any
+  reason : PromiseRejectionEventInit -> Attribute False Optional Any
   reason v = fromUndefOrPrimNoDefault "PromiseRejectionEventInit.getreason"
                                       prim__reason
                                       prim__setReason
-                                      (v :> PromiseRejectionEventInit)
+                                      v
 
 namespace StorageEventInit
   
   export
-  new :  JSType t1
-      => {auto 0 _ : Elem Storage (Types t1)}
-      -> (key : Optional (Maybe String))
+  new :  (key : Optional (Maybe String))
       -> (oldValue : Optional (Maybe String))
       -> (newValue : Optional (Maybe String))
       -> (url : Optional String)
-      -> (storageArea : Optional (Maybe t1))
+      -> (storageArea : Optional (Maybe Storage))
       -> JSIO StorageEventInit
   new a b c d e = primJS
                 $ StorageEventInit.prim__new (toFFI a)
                                              (toFFI b)
                                              (toFFI c)
                                              (toFFI d)
-                                             (omyUp e)
+                                             (toFFI e)
 
   export
   new' : JSIO StorageEventInit
   new' = primJS $ StorageEventInit.prim__new undef undef undef undef undef
   
   export
-  key :  JSType t
-      => {auto 0 _ : Elem StorageEventInit (Types t)}
-      -> t
-      -> Attribute True Optional (Maybe String)
+  key : StorageEventInit -> Attribute True Optional (Maybe String)
   key v = fromUndefOrPrim "StorageEventInit.getkey"
                           prim__key
                           prim__setKey
                           Nothing
-                          (v :> StorageEventInit)
+                          v
   
   export
-  newValue :  JSType t
-           => {auto 0 _ : Elem StorageEventInit (Types t)}
-           -> t
-           -> Attribute True Optional (Maybe String)
+  newValue : StorageEventInit -> Attribute True Optional (Maybe String)
   newValue v = fromUndefOrPrim "StorageEventInit.getnewValue"
                                prim__newValue
                                prim__setNewValue
                                Nothing
-                               (v :> StorageEventInit)
+                               v
   
   export
-  oldValue :  JSType t
-           => {auto 0 _ : Elem StorageEventInit (Types t)}
-           -> t
-           -> Attribute True Optional (Maybe String)
+  oldValue : StorageEventInit -> Attribute True Optional (Maybe String)
   oldValue v = fromUndefOrPrim "StorageEventInit.getoldValue"
                                prim__oldValue
                                prim__setOldValue
                                Nothing
-                               (v :> StorageEventInit)
+                               v
   
   export
-  storageArea :  JSType t
-              => {auto 0 _ : Elem StorageEventInit (Types t)}
-              -> t
-              -> Attribute True Optional (Maybe Storage)
+  storageArea : StorageEventInit -> Attribute True Optional (Maybe Storage)
   storageArea v = fromUndefOrPrim "StorageEventInit.getstorageArea"
                                   prim__storageArea
                                   prim__setStorageArea
                                   Nothing
-                                  (v :> StorageEventInit)
+                                  v
   
   export
-  url :  JSType t
-      => {auto 0 _ : Elem StorageEventInit (Types t)}
-      -> t
-      -> Attribute True Optional String
-  url v = fromUndefOrPrim "StorageEventInit.geturl"
-                          prim__url
-                          prim__setUrl
-                          ""
-                          (v :> StorageEventInit)
+  url : StorageEventInit -> Attribute True Optional String
+  url v = fromUndefOrPrim "StorageEventInit.geturl" prim__url prim__setUrl "" v
 
 namespace SubmitEventInit
   
@@ -12419,15 +9284,12 @@ namespace SubmitEventInit
   new' = primJS $ SubmitEventInit.prim__new undef
   
   export
-  submitter :  JSType t
-            => {auto 0 _ : Elem SubmitEventInit (Types t)}
-            -> t
-            -> Attribute True Optional (Maybe HTMLElement)
+  submitter : SubmitEventInit -> Attribute True Optional (Maybe HTMLElement)
   submitter v = fromUndefOrPrim "SubmitEventInit.getsubmitter"
                                 prim__submitter
                                 prim__setSubmitter
                                 Nothing
-                                (v :> SubmitEventInit)
+                                v
 
 namespace TrackEventInit
   
@@ -12444,9 +9306,7 @@ namespace TrackEventInit
   new' = primJS $ TrackEventInit.prim__new undef
   
   export
-  track :  JSType t
-        => {auto 0 _ : Elem TrackEventInit (Types t)}
-        -> t
+  track :  TrackEventInit
         -> Attribute True Optional (Maybe (NS I [ VideoTrack
                                                 , AudioTrack
                                                 , TextTrack
@@ -12455,7 +9315,7 @@ namespace TrackEventInit
                             prim__track
                             prim__setTrack
                             Nothing
-                            (v :> TrackEventInit)
+                            v
 
 namespace ValidityStateFlags
   
@@ -12498,114 +9358,84 @@ namespace ValidityStateFlags
                                       undef
   
   export
-  badInput :  JSType t
-           => {auto 0 _ : Elem ValidityStateFlags (Types t)}
-           -> t
-           -> Attribute True Optional Bool
+  badInput : ValidityStateFlags -> Attribute True Optional Bool
   badInput v = fromUndefOrPrim "ValidityStateFlags.getbadInput"
                                prim__badInput
                                prim__setBadInput
                                False
-                               (v :> ValidityStateFlags)
+                               v
   
   export
-  customError :  JSType t
-              => {auto 0 _ : Elem ValidityStateFlags (Types t)}
-              -> t
-              -> Attribute True Optional Bool
+  customError : ValidityStateFlags -> Attribute True Optional Bool
   customError v = fromUndefOrPrim "ValidityStateFlags.getcustomError"
                                   prim__customError
                                   prim__setCustomError
                                   False
-                                  (v :> ValidityStateFlags)
+                                  v
   
   export
-  patternMismatch :  JSType t
-                  => {auto 0 _ : Elem ValidityStateFlags (Types t)}
-                  -> t
-                  -> Attribute True Optional Bool
+  patternMismatch : ValidityStateFlags -> Attribute True Optional Bool
   patternMismatch v = fromUndefOrPrim "ValidityStateFlags.getpatternMismatch"
                                       prim__patternMismatch
                                       prim__setPatternMismatch
                                       False
-                                      (v :> ValidityStateFlags)
+                                      v
   
   export
-  rangeOverflow :  JSType t
-                => {auto 0 _ : Elem ValidityStateFlags (Types t)}
-                -> t
-                -> Attribute True Optional Bool
+  rangeOverflow : ValidityStateFlags -> Attribute True Optional Bool
   rangeOverflow v = fromUndefOrPrim "ValidityStateFlags.getrangeOverflow"
                                     prim__rangeOverflow
                                     prim__setRangeOverflow
                                     False
-                                    (v :> ValidityStateFlags)
+                                    v
   
   export
-  rangeUnderflow :  JSType t
-                 => {auto 0 _ : Elem ValidityStateFlags (Types t)}
-                 -> t
-                 -> Attribute True Optional Bool
+  rangeUnderflow : ValidityStateFlags -> Attribute True Optional Bool
   rangeUnderflow v = fromUndefOrPrim "ValidityStateFlags.getrangeUnderflow"
                                      prim__rangeUnderflow
                                      prim__setRangeUnderflow
                                      False
-                                     (v :> ValidityStateFlags)
+                                     v
   
   export
-  stepMismatch :  JSType t
-               => {auto 0 _ : Elem ValidityStateFlags (Types t)}
-               -> t
-               -> Attribute True Optional Bool
+  stepMismatch : ValidityStateFlags -> Attribute True Optional Bool
   stepMismatch v = fromUndefOrPrim "ValidityStateFlags.getstepMismatch"
                                    prim__stepMismatch
                                    prim__setStepMismatch
                                    False
-                                   (v :> ValidityStateFlags)
+                                   v
   
   export
-  tooLong :  JSType t
-          => {auto 0 _ : Elem ValidityStateFlags (Types t)}
-          -> t
-          -> Attribute True Optional Bool
+  tooLong : ValidityStateFlags -> Attribute True Optional Bool
   tooLong v = fromUndefOrPrim "ValidityStateFlags.gettooLong"
                               prim__tooLong
                               prim__setTooLong
                               False
-                              (v :> ValidityStateFlags)
+                              v
   
   export
-  tooShort :  JSType t
-           => {auto 0 _ : Elem ValidityStateFlags (Types t)}
-           -> t
-           -> Attribute True Optional Bool
+  tooShort : ValidityStateFlags -> Attribute True Optional Bool
   tooShort v = fromUndefOrPrim "ValidityStateFlags.gettooShort"
                                prim__tooShort
                                prim__setTooShort
                                False
-                               (v :> ValidityStateFlags)
+                               v
   
   export
-  typeMismatch :  JSType t
-               => {auto 0 _ : Elem ValidityStateFlags (Types t)}
-               -> t
-               -> Attribute True Optional Bool
+  typeMismatch : ValidityStateFlags -> Attribute True Optional Bool
   typeMismatch v = fromUndefOrPrim "ValidityStateFlags.gettypeMismatch"
                                    prim__typeMismatch
                                    prim__setTypeMismatch
                                    False
-                                   (v :> ValidityStateFlags)
+                                   v
   
   export
-  valueMissing :  JSType t
-               => {auto 0 _ : Elem ValidityStateFlags (Types t)}
-               -> t
-               -> Attribute True Optional Bool
+  valueMissing : ValidityStateFlags -> Attribute True Optional Bool
   valueMissing v = fromUndefOrPrim "ValidityStateFlags.getvalueMissing"
                                    prim__valueMissing
                                    prim__setValueMissing
                                    False
-                                   (v :> ValidityStateFlags)
+                                   v
 
 namespace WindowPostMessageOptions
   
@@ -12618,15 +9448,12 @@ namespace WindowPostMessageOptions
   new' = primJS $ WindowPostMessageOptions.prim__new undef
   
   export
-  targetOrigin :  JSType t
-               => {auto 0 _ : Elem WindowPostMessageOptions (Types t)}
-               -> t
-               -> Attribute True Optional String
+  targetOrigin : WindowPostMessageOptions -> Attribute True Optional String
   targetOrigin v = fromUndefOrPrim "WindowPostMessageOptions.gettargetOrigin"
                                    prim__targetOrigin
                                    prim__setTargetOrigin
                                    "/"
-                                   (v :> WindowPostMessageOptions)
+                                   v
 
 namespace WorkerOptions
   
@@ -12642,35 +9469,22 @@ namespace WorkerOptions
   new' = primJS $ WorkerOptions.prim__new undef undef undef
   
   export
-  credentials :  JSType t
-              => {auto 0 _ : Elem WorkerOptions (Types t)}
-              -> t
-              -> Attribute False Optional RequestCredentials
+  credentials : WorkerOptions -> Attribute False Optional RequestCredentials
   credentials v = fromUndefOrPrimNoDefault "WorkerOptions.getcredentials"
                                            prim__credentials
                                            prim__setCredentials
-                                           (v :> WorkerOptions)
+                                           v
   
   export
-  name :  JSType t
-       => {auto 0 _ : Elem WorkerOptions (Types t)}
-       -> t
-       -> Attribute True Optional String
-  name v = fromUndefOrPrim "WorkerOptions.getname"
-                           prim__name
-                           prim__setName
-                           ""
-                           (v :> WorkerOptions)
+  name : WorkerOptions -> Attribute True Optional String
+  name v = fromUndefOrPrim "WorkerOptions.getname" prim__name prim__setName "" v
   
   export
-  type :  JSType t
-       => {auto 0 _ : Elem WorkerOptions (Types t)}
-       -> t
-       -> Attribute False Optional WorkerType
+  type : WorkerOptions -> Attribute False Optional WorkerType
   type v = fromUndefOrPrimNoDefault "WorkerOptions.gettype"
                                     prim__type
                                     prim__setType
-                                    (v :> WorkerOptions)
+                                    v
 
 namespace WorkletOptions
   
@@ -12683,14 +9497,11 @@ namespace WorkletOptions
   new' = primJS $ WorkletOptions.prim__new undef
   
   export
-  credentials :  JSType t
-              => {auto 0 _ : Elem WorkletOptions (Types t)}
-              -> t
-              -> Attribute False Optional RequestCredentials
+  credentials : WorkletOptions -> Attribute False Optional RequestCredentials
   credentials v = fromUndefOrPrimNoDefault "WorkletOptions.getcredentials"
                                            prim__credentials
                                            prim__setCredentials
-                                           (v :> WorkletOptions)
+                                           v
 
 --------------------------------------------------------------------------------
 --          Callbacks

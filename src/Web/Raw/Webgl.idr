@@ -12,25 +12,16 @@ import Web.Internal.Types
 namespace WebGLActiveInfo
   
   export
-  name :  JSType t1
-       => {auto 0 _ : Elem WebGLActiveInfo (Types t1)}
-       -> (obj : t1)
-       -> JSIO String
-  name a = primJS $ WebGLActiveInfo.prim__name (up a)
+  name : (obj : WebGLActiveInfo) -> JSIO String
+  name a = primJS $ WebGLActiveInfo.prim__name a
   
   export
-  size :  JSType t1
-       => {auto 0 _ : Elem WebGLActiveInfo (Types t1)}
-       -> (obj : t1)
-       -> JSIO Int32
-  size a = primJS $ WebGLActiveInfo.prim__size (up a)
+  size : (obj : WebGLActiveInfo) -> JSIO Int32
+  size a = primJS $ WebGLActiveInfo.prim__size a
   
   export
-  type :  JSType t1
-       => {auto 0 _ : Elem WebGLActiveInfo (Types t1)}
-       -> (obj : t1)
-       -> JSIO UInt32
-  type a = primJS $ WebGLActiveInfo.prim__type (up a)
+  type : (obj : WebGLActiveInfo) -> JSIO UInt32
+  type a = primJS $ WebGLActiveInfo.prim__type a
 
 
 
@@ -44,25 +35,16 @@ namespace WebGLActiveInfo
 namespace WebGLShaderPrecisionFormat
   
   export
-  precision :  JSType t1
-            => {auto 0 _ : Elem WebGLShaderPrecisionFormat (Types t1)}
-            -> (obj : t1)
-            -> JSIO Int32
-  precision a = primJS $ WebGLShaderPrecisionFormat.prim__precision (up a)
+  precision : (obj : WebGLShaderPrecisionFormat) -> JSIO Int32
+  precision a = primJS $ WebGLShaderPrecisionFormat.prim__precision a
   
   export
-  rangeMax :  JSType t1
-           => {auto 0 _ : Elem WebGLShaderPrecisionFormat (Types t1)}
-           -> (obj : t1)
-           -> JSIO Int32
-  rangeMax a = primJS $ WebGLShaderPrecisionFormat.prim__rangeMax (up a)
+  rangeMax : (obj : WebGLShaderPrecisionFormat) -> JSIO Int32
+  rangeMax a = primJS $ WebGLShaderPrecisionFormat.prim__rangeMax a
   
   export
-  rangeMin :  JSType t1
-           => {auto 0 _ : Elem WebGLShaderPrecisionFormat (Types t1)}
-           -> (obj : t1)
-           -> JSIO Int32
-  rangeMin a = primJS $ WebGLShaderPrecisionFormat.prim__rangeMin (up a)
+  rangeMin : (obj : WebGLShaderPrecisionFormat) -> JSIO Int32
+  rangeMin a = primJS $ WebGLShaderPrecisionFormat.prim__rangeMin a
 
 
 
@@ -1129,88 +1111,94 @@ namespace WebGL2RenderingContextBase
   
   export
   beginQuery :  JSType t1
-             => {auto 0 _ : Elem WebGLQuery (Types t1)}
-             -> (obj : WebGL2RenderingContextBase)
+             => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+             -> (obj : t1)
              -> (target : UInt32)
-             -> (query : t1)
+             -> (query : WebGLQuery)
              -> JSIO ()
   beginQuery a b c = primJS
-                   $ WebGL2RenderingContextBase.prim__beginQuery a b (up c)
+                   $ WebGL2RenderingContextBase.prim__beginQuery (up a) b c
   
   export
-  beginTransformFeedback :  (obj : WebGL2RenderingContextBase)
+  beginTransformFeedback :  JSType t1
+                         => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                         -> (obj : t1)
                          -> (primitiveMode : UInt32)
                          -> JSIO ()
   beginTransformFeedback a b = primJS
-                             $ WebGL2RenderingContextBase.prim__beginTransformFeedback a
+                             $ WebGL2RenderingContextBase.prim__beginTransformFeedback (up a)
                                                                                        b
   
   export
   bindBufferBase :  JSType t1
-                 => {auto 0 _ : Elem WebGLBuffer (Types t1)}
-                 -> (obj : WebGL2RenderingContextBase)
+                 => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                 -> (obj : t1)
                  -> (target : UInt32)
                  -> (index : UInt32)
-                 -> (buffer : Maybe t1)
+                 -> (buffer : Maybe WebGLBuffer)
                  -> JSIO ()
   bindBufferBase a b c d = primJS
-                         $ WebGL2RenderingContextBase.prim__bindBufferBase a
+                         $ WebGL2RenderingContextBase.prim__bindBufferBase (up a)
                                                                            b
                                                                            c
-                                                                           (mayUp d)
+                                                                           (toFFI d)
   
   export
   bindBufferRange :  JSType t1
-                  => {auto 0 _ : Elem WebGLBuffer (Types t1)}
-                  -> (obj : WebGL2RenderingContextBase)
+                  => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                  -> (obj : t1)
                   -> (target : UInt32)
                   -> (index : UInt32)
-                  -> (buffer : Maybe t1)
+                  -> (buffer : Maybe WebGLBuffer)
                   -> (offset : Int64)
                   -> (size : Int64)
                   -> JSIO ()
   bindBufferRange a b c d e f = primJS
-                              $ WebGL2RenderingContextBase.prim__bindBufferRange a
+                              $ WebGL2RenderingContextBase.prim__bindBufferRange (up a)
                                                                                  b
                                                                                  c
-                                                                                 (mayUp d)
+                                                                                 (toFFI d)
                                                                                  e
                                                                                  f
   
   export
   bindSampler :  JSType t1
-              => {auto 0 _ : Elem WebGLSampler (Types t1)}
-              -> (obj : WebGL2RenderingContextBase)
+              => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+              -> (obj : t1)
               -> (unit : UInt32)
-              -> (sampler : Maybe t1)
+              -> (sampler : Maybe WebGLSampler)
               -> JSIO ()
   bindSampler a b c = primJS
-                    $ WebGL2RenderingContextBase.prim__bindSampler a b (mayUp c)
+                    $ WebGL2RenderingContextBase.prim__bindSampler (up a)
+                                                                   b
+                                                                   (toFFI c)
   
   export
   bindTransformFeedback :  JSType t1
-                        => {auto 0 _ : Elem WebGLTransformFeedback (Types t1)}
-                        -> (obj : WebGL2RenderingContextBase)
+                        => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                        -> (obj : t1)
                         -> (target : UInt32)
-                        -> (tf : Maybe t1)
+                        -> (tf : Maybe WebGLTransformFeedback)
                         -> JSIO ()
   bindTransformFeedback a b c = primJS
-                              $ WebGL2RenderingContextBase.prim__bindTransformFeedback a
+                              $ WebGL2RenderingContextBase.prim__bindTransformFeedback (up a)
                                                                                        b
-                                                                                       (mayUp c)
+                                                                                       (toFFI c)
   
   export
   bindVertexArray :  JSType t1
-                  => {auto 0 _ : Elem WebGLVertexArrayObject (Types t1)}
-                  -> (obj : WebGL2RenderingContextBase)
-                  -> (array : Maybe t1)
+                  => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                  -> (obj : t1)
+                  -> (array : Maybe WebGLVertexArrayObject)
                   -> JSIO ()
   bindVertexArray a b = primJS
-                      $ WebGL2RenderingContextBase.prim__bindVertexArray a
-                                                                         (mayUp b)
+                      $ WebGL2RenderingContextBase.prim__bindVertexArray (up a)
+                                                                         (toFFI b)
   
   export
-  blitFramebuffer :  (obj : WebGL2RenderingContextBase)
+  blitFramebuffer :  JSType t1
+                  => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                  -> (obj : t1)
                   -> (srcX0 : Int32)
                   -> (srcY0 : Int32)
                   -> (srcX1 : Int32)
@@ -1223,7 +1211,7 @@ namespace WebGL2RenderingContextBase
                   -> (filter : UInt32)
                   -> JSIO ()
   blitFramebuffer a b c d e f g h i j k = primJS
-                                        $ WebGL2RenderingContextBase.prim__blitFramebuffer a
+                                        $ WebGL2RenderingContextBase.prim__blitFramebuffer (up a)
                                                                                            b
                                                                                            c
                                                                                            d
@@ -1236,95 +1224,109 @@ namespace WebGL2RenderingContextBase
                                                                                            k
   
   export
-  clearBufferfi :  (obj : WebGL2RenderingContextBase)
+  clearBufferfi :  JSType t1
+                => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                -> (obj : t1)
                 -> (buffer : UInt32)
                 -> (drawbuffer : Int32)
                 -> (depth : Double)
                 -> (stencil : Int32)
                 -> JSIO ()
   clearBufferfi a b c d e = primJS
-                          $ WebGL2RenderingContextBase.prim__clearBufferfi a
+                          $ WebGL2RenderingContextBase.prim__clearBufferfi (up a)
                                                                            b
                                                                            c
                                                                            d
                                                                            e
   
   export
-  clearBufferfv :  (obj : WebGL2RenderingContextBase)
+  clearBufferfv :  JSType t1
+                => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                -> (obj : t1)
                 -> (buffer : UInt32)
                 -> (drawbuffer : Int32)
                 -> (values : NS I [ Float32Array , Array Double ])
                 -> (srcOffset : Optional UInt32)
                 -> JSIO ()
   clearBufferfv a b c d e = primJS
-                          $ WebGL2RenderingContextBase.prim__clearBufferfv a
+                          $ WebGL2RenderingContextBase.prim__clearBufferfv (up a)
                                                                            b
                                                                            c
                                                                            (toFFI d)
                                                                            (toFFI e)
 
   export
-  clearBufferfv' :  (obj : WebGL2RenderingContextBase)
+  clearBufferfv' :  JSType t1
+                 => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                 -> (obj : t1)
                  -> (buffer : UInt32)
                  -> (drawbuffer : Int32)
                  -> (values : NS I [ Float32Array , Array Double ])
                  -> JSIO ()
   clearBufferfv' a b c d = primJS
-                         $ WebGL2RenderingContextBase.prim__clearBufferfv a
+                         $ WebGL2RenderingContextBase.prim__clearBufferfv (up a)
                                                                           b
                                                                           c
                                                                           (toFFI d)
                                                                           undef
   
   export
-  clearBufferiv :  (obj : WebGL2RenderingContextBase)
+  clearBufferiv :  JSType t1
+                => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                -> (obj : t1)
                 -> (buffer : UInt32)
                 -> (drawbuffer : Int32)
                 -> (values : NS I [ Int32Array , Array Int32 ])
                 -> (srcOffset : Optional UInt32)
                 -> JSIO ()
   clearBufferiv a b c d e = primJS
-                          $ WebGL2RenderingContextBase.prim__clearBufferiv a
+                          $ WebGL2RenderingContextBase.prim__clearBufferiv (up a)
                                                                            b
                                                                            c
                                                                            (toFFI d)
                                                                            (toFFI e)
 
   export
-  clearBufferiv' :  (obj : WebGL2RenderingContextBase)
+  clearBufferiv' :  JSType t1
+                 => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                 -> (obj : t1)
                  -> (buffer : UInt32)
                  -> (drawbuffer : Int32)
                  -> (values : NS I [ Int32Array , Array Int32 ])
                  -> JSIO ()
   clearBufferiv' a b c d = primJS
-                         $ WebGL2RenderingContextBase.prim__clearBufferiv a
+                         $ WebGL2RenderingContextBase.prim__clearBufferiv (up a)
                                                                           b
                                                                           c
                                                                           (toFFI d)
                                                                           undef
   
   export
-  clearBufferuiv :  (obj : WebGL2RenderingContextBase)
+  clearBufferuiv :  JSType t1
+                 => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                 -> (obj : t1)
                  -> (buffer : UInt32)
                  -> (drawbuffer : Int32)
                  -> (values : NS I [ UInt8Array , Array UInt32 ])
                  -> (srcOffset : Optional UInt32)
                  -> JSIO ()
   clearBufferuiv a b c d e = primJS
-                           $ WebGL2RenderingContextBase.prim__clearBufferuiv a
+                           $ WebGL2RenderingContextBase.prim__clearBufferuiv (up a)
                                                                              b
                                                                              c
                                                                              (toFFI d)
                                                                              (toFFI e)
 
   export
-  clearBufferuiv' :  (obj : WebGL2RenderingContextBase)
+  clearBufferuiv' :  JSType t1
+                  => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                  -> (obj : t1)
                   -> (buffer : UInt32)
                   -> (drawbuffer : Int32)
                   -> (values : NS I [ UInt8Array , Array UInt32 ])
                   -> JSIO ()
   clearBufferuiv' a b c d = primJS
-                          $ WebGL2RenderingContextBase.prim__clearBufferuiv a
+                          $ WebGL2RenderingContextBase.prim__clearBufferuiv (up a)
                                                                             b
                                                                             c
                                                                             (toFFI d)
@@ -1332,20 +1334,22 @@ namespace WebGL2RenderingContextBase
   
   export
   clientWaitSync :  JSType t1
-                 => {auto 0 _ : Elem WebGLSync (Types t1)}
-                 -> (obj : WebGL2RenderingContextBase)
-                 -> (sync : t1)
+                 => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                 -> (obj : t1)
+                 -> (sync : WebGLSync)
                  -> (flags : UInt32)
                  -> (timeout : UInt64)
                  -> JSIO UInt32
   clientWaitSync a b c d = primJS
-                         $ WebGL2RenderingContextBase.prim__clientWaitSync a
-                                                                           (up b)
+                         $ WebGL2RenderingContextBase.prim__clientWaitSync (up a)
+                                                                           b
                                                                            c
                                                                            d
   
   export
-  compressedTexImage3D :  (obj : WebGL2RenderingContextBase)
+  compressedTexImage3D :  JSType t1
+                       => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                       -> (obj : t1)
                        -> (target : UInt32)
                        -> (level : Int32)
                        -> (internalformat : UInt32)
@@ -1357,7 +1361,7 @@ namespace WebGL2RenderingContextBase
                        -> (offset : Int64)
                        -> JSIO ()
   compressedTexImage3D a b c d e f g h i j = primJS
-                                           $ WebGL2RenderingContextBase.prim__compressedTexImage3D a
+                                           $ WebGL2RenderingContextBase.prim__compressedTexImage3D (up a)
                                                                                                    b
                                                                                                    c
                                                                                                    d
@@ -1369,7 +1373,9 @@ namespace WebGL2RenderingContextBase
                                                                                                    j
   
   export
-  compressedTexImage3D1 :  (obj : WebGL2RenderingContextBase)
+  compressedTexImage3D1 :  JSType t1
+                        => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                        -> (obj : t1)
                         -> (target : UInt32)
                         -> (level : Int32)
                         -> (internalformat : UInt32)
@@ -1392,7 +1398,7 @@ namespace WebGL2RenderingContextBase
                         -> (srcLengthOverride : Optional UInt32)
                         -> JSIO ()
   compressedTexImage3D1 a b c d e f g h i j k = primJS
-                                              $ WebGL2RenderingContextBase.prim__compressedTexImage3D1 a
+                                              $ WebGL2RenderingContextBase.prim__compressedTexImage3D1 (up a)
                                                                                                        b
                                                                                                        c
                                                                                                        d
@@ -1405,7 +1411,9 @@ namespace WebGL2RenderingContextBase
                                                                                                        (toFFI k)
 
   export
-  compressedTexImage3D1' :  (obj : WebGL2RenderingContextBase)
+  compressedTexImage3D1' :  JSType t1
+                         => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                         -> (obj : t1)
                          -> (target : UInt32)
                          -> (level : Int32)
                          -> (internalformat : UInt32)
@@ -1426,7 +1434,7 @@ namespace WebGL2RenderingContextBase
                                             ])
                          -> JSIO ()
   compressedTexImage3D1' a b c d e f g h i = primJS
-                                           $ WebGL2RenderingContextBase.prim__compressedTexImage3D1 a
+                                           $ WebGL2RenderingContextBase.prim__compressedTexImage3D1 (up a)
                                                                                                     b
                                                                                                     c
                                                                                                     d
@@ -1439,7 +1447,9 @@ namespace WebGL2RenderingContextBase
                                                                                                     undef
   
   export
-  compressedTexSubImage3D :  (obj : WebGL2RenderingContextBase)
+  compressedTexSubImage3D :  JSType t1
+                          => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                          -> (obj : t1)
                           -> (target : UInt32)
                           -> (level : Int32)
                           -> (xoffset : Int32)
@@ -1453,7 +1463,7 @@ namespace WebGL2RenderingContextBase
                           -> (offset : Int64)
                           -> JSIO ()
   compressedTexSubImage3D a b c d e f g h i j k l = primJS
-                                                  $ WebGL2RenderingContextBase.prim__compressedTexSubImage3D a
+                                                  $ WebGL2RenderingContextBase.prim__compressedTexSubImage3D (up a)
                                                                                                              b
                                                                                                              c
                                                                                                              d
@@ -1467,7 +1477,9 @@ namespace WebGL2RenderingContextBase
                                                                                                              l
   
   export
-  compressedTexSubImage3D1 :  (obj : WebGL2RenderingContextBase)
+  compressedTexSubImage3D1 :  JSType t1
+                           => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                           -> (obj : t1)
                            -> (target : UInt32)
                            -> (level : Int32)
                            -> (xoffset : Int32)
@@ -1492,7 +1504,7 @@ namespace WebGL2RenderingContextBase
                            -> (srcLengthOverride : Optional UInt32)
                            -> JSIO ()
   compressedTexSubImage3D1 a b c d e f g h i j k l m = primJS
-                                                     $ WebGL2RenderingContextBase.prim__compressedTexSubImage3D1 a
+                                                     $ WebGL2RenderingContextBase.prim__compressedTexSubImage3D1 (up a)
                                                                                                                  b
                                                                                                                  c
                                                                                                                  d
@@ -1507,7 +1519,9 @@ namespace WebGL2RenderingContextBase
                                                                                                                  (toFFI m)
 
   export
-  compressedTexSubImage3D1' :  (obj : WebGL2RenderingContextBase)
+  compressedTexSubImage3D1' :  JSType t1
+                            => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                            -> (obj : t1)
                             -> (target : UInt32)
                             -> (level : Int32)
                             -> (xoffset : Int32)
@@ -1530,7 +1544,7 @@ namespace WebGL2RenderingContextBase
                                                ])
                             -> JSIO ()
   compressedTexSubImage3D1' a b c d e f g h i j k = primJS
-                                                  $ WebGL2RenderingContextBase.prim__compressedTexSubImage3D1 a
+                                                  $ WebGL2RenderingContextBase.prim__compressedTexSubImage3D1 (up a)
                                                                                                               b
                                                                                                               c
                                                                                                               d
@@ -1545,7 +1559,9 @@ namespace WebGL2RenderingContextBase
                                                                                                               undef
   
   export
-  copyBufferSubData :  (obj : WebGL2RenderingContextBase)
+  copyBufferSubData :  JSType t1
+                    => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                    -> (obj : t1)
                     -> (readTarget : UInt32)
                     -> (writeTarget : UInt32)
                     -> (readOffset : Int64)
@@ -1553,7 +1569,7 @@ namespace WebGL2RenderingContextBase
                     -> (size : Int64)
                     -> JSIO ()
   copyBufferSubData a b c d e f = primJS
-                                $ WebGL2RenderingContextBase.prim__copyBufferSubData a
+                                $ WebGL2RenderingContextBase.prim__copyBufferSubData (up a)
                                                                                      b
                                                                                      c
                                                                                      d
@@ -1561,7 +1577,9 @@ namespace WebGL2RenderingContextBase
                                                                                      f
   
   export
-  copyTexSubImage3D :  (obj : WebGL2RenderingContextBase)
+  copyTexSubImage3D :  JSType t1
+                    => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                    -> (obj : t1)
                     -> (target : UInt32)
                     -> (level : Int32)
                     -> (xoffset : Int32)
@@ -1573,7 +1591,7 @@ namespace WebGL2RenderingContextBase
                     -> (height : Int32)
                     -> JSIO ()
   copyTexSubImage3D a b c d e f g h i j = primJS
-                                        $ WebGL2RenderingContextBase.prim__copyTexSubImage3D a
+                                        $ WebGL2RenderingContextBase.prim__copyTexSubImage3D (up a)
                                                                                              b
                                                                                              c
                                                                                              d
@@ -1585,97 +1603,115 @@ namespace WebGL2RenderingContextBase
                                                                                              j
   
   export
-  createQuery : (obj : WebGL2RenderingContextBase) -> JSIO (Maybe WebGLQuery)
+  createQuery :  JSType t1
+              => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+              -> (obj : t1)
+              -> JSIO (Maybe WebGLQuery)
   createQuery a = tryJS "WebGL2RenderingContextBase.createQuery"
-                $ WebGL2RenderingContextBase.prim__createQuery a
+                $ WebGL2RenderingContextBase.prim__createQuery (up a)
   
   export
-  createSampler :  (obj : WebGL2RenderingContextBase)
+  createSampler :  JSType t1
+                => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                -> (obj : t1)
                 -> JSIO (Maybe WebGLSampler)
   createSampler a = tryJS "WebGL2RenderingContextBase.createSampler"
-                  $ WebGL2RenderingContextBase.prim__createSampler a
+                  $ WebGL2RenderingContextBase.prim__createSampler (up a)
   
   export
-  createTransformFeedback :  (obj : WebGL2RenderingContextBase)
+  createTransformFeedback :  JSType t1
+                          => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                          -> (obj : t1)
                           -> JSIO (Maybe WebGLTransformFeedback)
   createTransformFeedback a = tryJS "WebGL2RenderingContextBase.createTransformFeedback"
-                            $ WebGL2RenderingContextBase.prim__createTransformFeedback a
+                            $ WebGL2RenderingContextBase.prim__createTransformFeedback (up a)
   
   export
-  createVertexArray :  (obj : WebGL2RenderingContextBase)
+  createVertexArray :  JSType t1
+                    => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                    -> (obj : t1)
                     -> JSIO (Maybe WebGLVertexArrayObject)
   createVertexArray a = tryJS "WebGL2RenderingContextBase.createVertexArray"
-                      $ WebGL2RenderingContextBase.prim__createVertexArray a
+                      $ WebGL2RenderingContextBase.prim__createVertexArray (up a)
   
   export
   deleteQuery :  JSType t1
-              => {auto 0 _ : Elem WebGLQuery (Types t1)}
-              -> (obj : WebGL2RenderingContextBase)
-              -> (query : Maybe t1)
+              => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+              -> (obj : t1)
+              -> (query : Maybe WebGLQuery)
               -> JSIO ()
   deleteQuery a b = primJS
-                  $ WebGL2RenderingContextBase.prim__deleteQuery a (mayUp b)
+                  $ WebGL2RenderingContextBase.prim__deleteQuery (up a)
+                                                                 (toFFI b)
   
   export
   deleteSampler :  JSType t1
-                => {auto 0 _ : Elem WebGLSampler (Types t1)}
-                -> (obj : WebGL2RenderingContextBase)
-                -> (sampler : Maybe t1)
+                => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                -> (obj : t1)
+                -> (sampler : Maybe WebGLSampler)
                 -> JSIO ()
   deleteSampler a b = primJS
-                    $ WebGL2RenderingContextBase.prim__deleteSampler a (mayUp b)
+                    $ WebGL2RenderingContextBase.prim__deleteSampler (up a)
+                                                                     (toFFI b)
   
   export
   deleteSync :  JSType t1
-             => {auto 0 _ : Elem WebGLSync (Types t1)}
-             -> (obj : WebGL2RenderingContextBase)
-             -> (sync : Maybe t1)
+             => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+             -> (obj : t1)
+             -> (sync : Maybe WebGLSync)
              -> JSIO ()
   deleteSync a b = primJS
-                 $ WebGL2RenderingContextBase.prim__deleteSync a (mayUp b)
+                 $ WebGL2RenderingContextBase.prim__deleteSync (up a) (toFFI b)
   
   export
   deleteTransformFeedback :  JSType t1
-                          => {auto 0 _ : Elem WebGLTransformFeedback (Types t1)}
-                          -> (obj : WebGL2RenderingContextBase)
-                          -> (tf : Maybe t1)
+                          => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                          -> (obj : t1)
+                          -> (tf : Maybe WebGLTransformFeedback)
                           -> JSIO ()
   deleteTransformFeedback a b = primJS
-                              $ WebGL2RenderingContextBase.prim__deleteTransformFeedback a
-                                                                                         (mayUp b)
+                              $ WebGL2RenderingContextBase.prim__deleteTransformFeedback (up a)
+                                                                                         (toFFI b)
   
   export
   deleteVertexArray :  JSType t1
-                    => {auto 0 _ : Elem WebGLVertexArrayObject (Types t1)}
-                    -> (obj : WebGL2RenderingContextBase)
-                    -> (vertexArray : Maybe t1)
+                    => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                    -> (obj : t1)
+                    -> (vertexArray : Maybe WebGLVertexArrayObject)
                     -> JSIO ()
   deleteVertexArray a b = primJS
-                        $ WebGL2RenderingContextBase.prim__deleteVertexArray a
-                                                                             (mayUp b)
+                        $ WebGL2RenderingContextBase.prim__deleteVertexArray (up a)
+                                                                             (toFFI b)
   
   export
-  drawArraysInstanced :  (obj : WebGL2RenderingContextBase)
+  drawArraysInstanced :  JSType t1
+                      => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                      -> (obj : t1)
                       -> (mode : UInt32)
                       -> (first : Int32)
                       -> (count : Int32)
                       -> (instanceCount : Int32)
                       -> JSIO ()
   drawArraysInstanced a b c d e = primJS
-                                $ WebGL2RenderingContextBase.prim__drawArraysInstanced a
+                                $ WebGL2RenderingContextBase.prim__drawArraysInstanced (up a)
                                                                                        b
                                                                                        c
                                                                                        d
                                                                                        e
   
   export
-  drawBuffers :  (obj : WebGL2RenderingContextBase)
+  drawBuffers :  JSType t1
+              => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+              -> (obj : t1)
               -> (buffers : Array UInt32)
               -> JSIO ()
-  drawBuffers a b = primJS $ WebGL2RenderingContextBase.prim__drawBuffers a b
+  drawBuffers a b = primJS
+                  $ WebGL2RenderingContextBase.prim__drawBuffers (up a) b
   
   export
-  drawElementsInstanced :  (obj : WebGL2RenderingContextBase)
+  drawElementsInstanced :  JSType t1
+                        => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                        -> (obj : t1)
                         -> (mode : UInt32)
                         -> (count : Int32)
                         -> (type : UInt32)
@@ -1683,7 +1719,7 @@ namespace WebGL2RenderingContextBase
                         -> (instanceCount : Int32)
                         -> JSIO ()
   drawElementsInstanced a b c d e f = primJS
-                                    $ WebGL2RenderingContextBase.prim__drawElementsInstanced a
+                                    $ WebGL2RenderingContextBase.prim__drawElementsInstanced (up a)
                                                                                              b
                                                                                              c
                                                                                              d
@@ -1691,7 +1727,9 @@ namespace WebGL2RenderingContextBase
                                                                                              f
   
   export
-  drawRangeElements :  (obj : WebGL2RenderingContextBase)
+  drawRangeElements :  JSType t1
+                    => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                    -> (obj : t1)
                     -> (mode : UInt32)
                     -> (start : UInt32)
                     -> (end : UInt32)
@@ -1700,7 +1738,7 @@ namespace WebGL2RenderingContextBase
                     -> (offset : Int64)
                     -> JSIO ()
   drawRangeElements a b c d e f g = primJS
-                                  $ WebGL2RenderingContextBase.prim__drawRangeElements a
+                                  $ WebGL2RenderingContextBase.prim__drawRangeElements (up a)
                                                                                        b
                                                                                        c
                                                                                        d
@@ -1709,82 +1747,93 @@ namespace WebGL2RenderingContextBase
                                                                                        g
   
   export
-  endQuery : (obj : WebGL2RenderingContextBase) -> (target : UInt32) -> JSIO ()
-  endQuery a b = primJS $ WebGL2RenderingContextBase.prim__endQuery a b
+  endQuery :  JSType t1
+           => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+           -> (obj : t1)
+           -> (target : UInt32)
+           -> JSIO ()
+  endQuery a b = primJS $ WebGL2RenderingContextBase.prim__endQuery (up a) b
   
   export
-  endTransformFeedback : (obj : WebGL2RenderingContextBase) -> JSIO ()
+  endTransformFeedback :  JSType t1
+                       => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                       -> (obj : t1)
+                       -> JSIO ()
   endTransformFeedback a = primJS
-                         $ WebGL2RenderingContextBase.prim__endTransformFeedback a
+                         $ WebGL2RenderingContextBase.prim__endTransformFeedback (up a)
   
   export
-  fenceSync :  (obj : WebGL2RenderingContextBase)
+  fenceSync :  JSType t1
+            => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+            -> (obj : t1)
             -> (condition : UInt32)
             -> (flags : UInt32)
             -> JSIO (Maybe WebGLSync)
   fenceSync a b c = tryJS "WebGL2RenderingContextBase.fenceSync"
-                  $ WebGL2RenderingContextBase.prim__fenceSync a b c
+                  $ WebGL2RenderingContextBase.prim__fenceSync (up a) b c
   
   export
   framebufferTextureLayer :  JSType t1
-                          => {auto 0 _ : Elem WebGLTexture (Types t1)}
-                          -> (obj : WebGL2RenderingContextBase)
+                          => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                          -> (obj : t1)
                           -> (target : UInt32)
                           -> (attachment : UInt32)
-                          -> (texture : Maybe t1)
+                          -> (texture : Maybe WebGLTexture)
                           -> (level : Int32)
                           -> (layer : Int32)
                           -> JSIO ()
   framebufferTextureLayer a b c d e f = primJS
-                                      $ WebGL2RenderingContextBase.prim__framebufferTextureLayer a
+                                      $ WebGL2RenderingContextBase.prim__framebufferTextureLayer (up a)
                                                                                                  b
                                                                                                  c
-                                                                                                 (mayUp d)
+                                                                                                 (toFFI d)
                                                                                                  e
                                                                                                  f
   
   export
   getActiveUniformBlockName :  JSType t1
-                            => {auto 0 _ : Elem WebGLProgram (Types t1)}
-                            -> (obj : WebGL2RenderingContextBase)
-                            -> (program : t1)
+                            => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                            -> (obj : t1)
+                            -> (program : WebGLProgram)
                             -> (uniformBlockIndex : UInt32)
                             -> JSIO (Maybe String)
   getActiveUniformBlockName a b c = tryJS "WebGL2RenderingContextBase.getActiveUniformBlockName"
-                                  $ WebGL2RenderingContextBase.prim__getActiveUniformBlockName a
-                                                                                               (up b)
+                                  $ WebGL2RenderingContextBase.prim__getActiveUniformBlockName (up a)
+                                                                                               b
                                                                                                c
   
   export
   getActiveUniformBlockParameter :  JSType t1
-                                 => {auto 0 _ : Elem WebGLProgram (Types t1)}
-                                 -> (obj : WebGL2RenderingContextBase)
-                                 -> (program : t1)
+                                 => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                                 -> (obj : t1)
+                                 -> (program : WebGLProgram)
                                  -> (uniformBlockIndex : UInt32)
                                  -> (pname : UInt32)
                                  -> JSIO Any
   getActiveUniformBlockParameter a b c d = tryJS "WebGL2RenderingContextBase.getActiveUniformBlockParameter"
-                                         $ WebGL2RenderingContextBase.prim__getActiveUniformBlockParameter a
-                                                                                                           (up b)
+                                         $ WebGL2RenderingContextBase.prim__getActiveUniformBlockParameter (up a)
+                                                                                                           b
                                                                                                            c
                                                                                                            d
   
   export
   getActiveUniforms :  JSType t1
-                    => {auto 0 _ : Elem WebGLProgram (Types t1)}
-                    -> (obj : WebGL2RenderingContextBase)
-                    -> (program : t1)
+                    => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                    -> (obj : t1)
+                    -> (program : WebGLProgram)
                     -> (uniformIndices : Array UInt32)
                     -> (pname : UInt32)
                     -> JSIO Any
   getActiveUniforms a b c d = tryJS "WebGL2RenderingContextBase.getActiveUniforms"
-                            $ WebGL2RenderingContextBase.prim__getActiveUniforms a
-                                                                                 (up b)
+                            $ WebGL2RenderingContextBase.prim__getActiveUniforms (up a)
+                                                                                 b
                                                                                  c
                                                                                  d
   
   export
-  getBufferSubData :  (obj : WebGL2RenderingContextBase)
+  getBufferSubData :  JSType t1
+                   => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                   -> (obj : t1)
                    -> (target : UInt32)
                    -> (srcByteOffset : Int64)
                    -> (dstBuffer : NS I [ Int8Array
@@ -1802,7 +1851,7 @@ namespace WebGL2RenderingContextBase
                    -> (length : Optional UInt32)
                    -> JSIO ()
   getBufferSubData a b c d e f = primJS
-                               $ WebGL2RenderingContextBase.prim__getBufferSubData a
+                               $ WebGL2RenderingContextBase.prim__getBufferSubData (up a)
                                                                                    b
                                                                                    c
                                                                                    (toFFI d)
@@ -1810,7 +1859,9 @@ namespace WebGL2RenderingContextBase
                                                                                    (toFFI f)
 
   export
-  getBufferSubData' :  (obj : WebGL2RenderingContextBase)
+  getBufferSubData' :  JSType t1
+                    => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                    -> (obj : t1)
                     -> (target : UInt32)
                     -> (srcByteOffset : Int64)
                     -> (dstBuffer : NS I [ Int8Array
@@ -1826,7 +1877,7 @@ namespace WebGL2RenderingContextBase
                                          ])
                     -> JSIO ()
   getBufferSubData' a b c d = primJS
-                            $ WebGL2RenderingContextBase.prim__getBufferSubData a
+                            $ WebGL2RenderingContextBase.prim__getBufferSubData (up a)
                                                                                 b
                                                                                 c
                                                                                 (toFFI d)
@@ -1835,130 +1886,140 @@ namespace WebGL2RenderingContextBase
   
   export
   getFragDataLocation :  JSType t1
-                      => {auto 0 _ : Elem WebGLProgram (Types t1)}
-                      -> (obj : WebGL2RenderingContextBase)
-                      -> (program : t1)
+                      => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                      -> (obj : t1)
+                      -> (program : WebGLProgram)
                       -> (name : String)
                       -> JSIO Int32
   getFragDataLocation a b c = primJS
-                            $ WebGL2RenderingContextBase.prim__getFragDataLocation a
-                                                                                   (up b)
-                                                                                   c
-  
-  export
-  getIndexedParameter :  (obj : WebGL2RenderingContextBase)
-                      -> (target : UInt32)
-                      -> (index : UInt32)
-                      -> JSIO Any
-  getIndexedParameter a b c = tryJS "WebGL2RenderingContextBase.getIndexedParameter"
-                            $ WebGL2RenderingContextBase.prim__getIndexedParameter a
+                            $ WebGL2RenderingContextBase.prim__getFragDataLocation (up a)
                                                                                    b
                                                                                    c
   
   export
-  getInternalformatParameter :  (obj : WebGL2RenderingContextBase)
+  getIndexedParameter :  JSType t1
+                      => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                      -> (obj : t1)
+                      -> (target : UInt32)
+                      -> (index : UInt32)
+                      -> JSIO Any
+  getIndexedParameter a b c = tryJS "WebGL2RenderingContextBase.getIndexedParameter"
+                            $ WebGL2RenderingContextBase.prim__getIndexedParameter (up a)
+                                                                                   b
+                                                                                   c
+  
+  export
+  getInternalformatParameter :  JSType t1
+                             => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                             -> (obj : t1)
                              -> (target : UInt32)
                              -> (internalformat : UInt32)
                              -> (pname : UInt32)
                              -> JSIO Any
   getInternalformatParameter a b c d = tryJS "WebGL2RenderingContextBase.getInternalformatParameter"
-                                     $ WebGL2RenderingContextBase.prim__getInternalformatParameter a
+                                     $ WebGL2RenderingContextBase.prim__getInternalformatParameter (up a)
                                                                                                    b
                                                                                                    c
                                                                                                    d
   
   export
   getQueryParameter :  JSType t1
-                    => {auto 0 _ : Elem WebGLQuery (Types t1)}
-                    -> (obj : WebGL2RenderingContextBase)
-                    -> (query : t1)
+                    => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                    -> (obj : t1)
+                    -> (query : WebGLQuery)
                     -> (pname : UInt32)
                     -> JSIO Any
   getQueryParameter a b c = tryJS "WebGL2RenderingContextBase.getQueryParameter"
-                          $ WebGL2RenderingContextBase.prim__getQueryParameter a
-                                                                               (up b)
+                          $ WebGL2RenderingContextBase.prim__getQueryParameter (up a)
+                                                                               b
                                                                                c
   
   export
-  getQuery :  (obj : WebGL2RenderingContextBase)
+  getQuery :  JSType t1
+           => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+           -> (obj : t1)
            -> (target : UInt32)
            -> (pname : UInt32)
            -> JSIO (Maybe WebGLQuery)
   getQuery a b c = tryJS "WebGL2RenderingContextBase.getQuery"
-                 $ WebGL2RenderingContextBase.prim__getQuery a b c
+                 $ WebGL2RenderingContextBase.prim__getQuery (up a) b c
   
   export
   getSamplerParameter :  JSType t1
-                      => {auto 0 _ : Elem WebGLSampler (Types t1)}
-                      -> (obj : WebGL2RenderingContextBase)
-                      -> (sampler : t1)
+                      => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                      -> (obj : t1)
+                      -> (sampler : WebGLSampler)
                       -> (pname : UInt32)
                       -> JSIO Any
   getSamplerParameter a b c = tryJS "WebGL2RenderingContextBase.getSamplerParameter"
-                            $ WebGL2RenderingContextBase.prim__getSamplerParameter a
-                                                                                   (up b)
+                            $ WebGL2RenderingContextBase.prim__getSamplerParameter (up a)
+                                                                                   b
                                                                                    c
   
   export
   getSyncParameter :  JSType t1
-                   => {auto 0 _ : Elem WebGLSync (Types t1)}
-                   -> (obj : WebGL2RenderingContextBase)
-                   -> (sync : t1)
+                   => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                   -> (obj : t1)
+                   -> (sync : WebGLSync)
                    -> (pname : UInt32)
                    -> JSIO Any
   getSyncParameter a b c = tryJS "WebGL2RenderingContextBase.getSyncParameter"
-                         $ WebGL2RenderingContextBase.prim__getSyncParameter a
-                                                                             (up b)
+                         $ WebGL2RenderingContextBase.prim__getSyncParameter (up a)
+                                                                             b
                                                                              c
   
   export
   getTransformFeedbackVarying :  JSType t1
-                              => {auto 0 _ : Elem WebGLProgram (Types t1)}
-                              -> (obj : WebGL2RenderingContextBase)
-                              -> (program : t1)
+                              => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                              -> (obj : t1)
+                              -> (program : WebGLProgram)
                               -> (index : UInt32)
                               -> JSIO (Maybe WebGLActiveInfo)
   getTransformFeedbackVarying a b c = tryJS "WebGL2RenderingContextBase.getTransformFeedbackVarying"
-                                    $ WebGL2RenderingContextBase.prim__getTransformFeedbackVarying a
-                                                                                                   (up b)
+                                    $ WebGL2RenderingContextBase.prim__getTransformFeedbackVarying (up a)
+                                                                                                   b
                                                                                                    c
   
   export
   getUniformBlockIndex :  JSType t1
-                       => {auto 0 _ : Elem WebGLProgram (Types t1)}
-                       -> (obj : WebGL2RenderingContextBase)
-                       -> (program : t1)
+                       => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                       -> (obj : t1)
+                       -> (program : WebGLProgram)
                        -> (uniformBlockName : String)
                        -> JSIO UInt32
   getUniformBlockIndex a b c = primJS
-                             $ WebGL2RenderingContextBase.prim__getUniformBlockIndex a
-                                                                                     (up b)
+                             $ WebGL2RenderingContextBase.prim__getUniformBlockIndex (up a)
+                                                                                     b
                                                                                      c
   
   export
   getUniformIndices :  JSType t1
-                    => {auto 0 _ : Elem WebGLProgram (Types t1)}
-                    -> (obj : WebGL2RenderingContextBase)
-                    -> (program : t1)
+                    => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                    -> (obj : t1)
+                    -> (program : WebGLProgram)
                     -> (uniformNames : Array String)
                     -> JSIO (Maybe (Array UInt32))
   getUniformIndices a b c = tryJS "WebGL2RenderingContextBase.getUniformIndices"
-                          $ WebGL2RenderingContextBase.prim__getUniformIndices a
-                                                                               (up b)
+                          $ WebGL2RenderingContextBase.prim__getUniformIndices (up a)
+                                                                               b
                                                                                c
   
   export
-  invalidateFramebuffer :  (obj : WebGL2RenderingContextBase)
+  invalidateFramebuffer :  JSType t1
+                        => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                        -> (obj : t1)
                         -> (target : UInt32)
                         -> (attachments : Array UInt32)
                         -> JSIO ()
   invalidateFramebuffer a b c = primJS
-                              $ WebGL2RenderingContextBase.prim__invalidateFramebuffer a
+                              $ WebGL2RenderingContextBase.prim__invalidateFramebuffer (up a)
                                                                                        b
                                                                                        c
   
   export
-  invalidateSubFramebuffer :  (obj : WebGL2RenderingContextBase)
+  invalidateSubFramebuffer :  JSType t1
+                           => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                           -> (obj : t1)
                            -> (target : UInt32)
                            -> (attachments : Array UInt32)
                            -> (x : Int32)
@@ -1967,7 +2028,7 @@ namespace WebGL2RenderingContextBase
                            -> (height : Int32)
                            -> JSIO ()
   invalidateSubFramebuffer a b c d e f g = primJS
-                                         $ WebGL2RenderingContextBase.prim__invalidateSubFramebuffer a
+                                         $ WebGL2RenderingContextBase.prim__invalidateSubFramebuffer (up a)
                                                                                                      b
                                                                                                      c
                                                                                                      d
@@ -1977,61 +2038,71 @@ namespace WebGL2RenderingContextBase
   
   export
   isQuery :  JSType t1
-          => {auto 0 _ : Elem WebGLQuery (Types t1)}
-          -> (obj : WebGL2RenderingContextBase)
-          -> (query : Maybe t1)
+          => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+          -> (obj : t1)
+          -> (query : Maybe WebGLQuery)
           -> JSIO Bool
   isQuery a b = tryJS "WebGL2RenderingContextBase.isQuery"
-              $ WebGL2RenderingContextBase.prim__isQuery a (mayUp b)
+              $ WebGL2RenderingContextBase.prim__isQuery (up a) (toFFI b)
   
   export
   isSampler :  JSType t1
-            => {auto 0 _ : Elem WebGLSampler (Types t1)}
-            -> (obj : WebGL2RenderingContextBase)
-            -> (sampler : Maybe t1)
+            => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+            -> (obj : t1)
+            -> (sampler : Maybe WebGLSampler)
             -> JSIO Bool
   isSampler a b = tryJS "WebGL2RenderingContextBase.isSampler"
-                $ WebGL2RenderingContextBase.prim__isSampler a (mayUp b)
+                $ WebGL2RenderingContextBase.prim__isSampler (up a) (toFFI b)
   
   export
   isSync :  JSType t1
-         => {auto 0 _ : Elem WebGLSync (Types t1)}
-         -> (obj : WebGL2RenderingContextBase)
-         -> (sync : Maybe t1)
+         => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+         -> (obj : t1)
+         -> (sync : Maybe WebGLSync)
          -> JSIO Bool
   isSync a b = tryJS "WebGL2RenderingContextBase.isSync"
-             $ WebGL2RenderingContextBase.prim__isSync a (mayUp b)
+             $ WebGL2RenderingContextBase.prim__isSync (up a) (toFFI b)
   
   export
   isTransformFeedback :  JSType t1
-                      => {auto 0 _ : Elem WebGLTransformFeedback (Types t1)}
-                      -> (obj : WebGL2RenderingContextBase)
-                      -> (tf : Maybe t1)
+                      => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                      -> (obj : t1)
+                      -> (tf : Maybe WebGLTransformFeedback)
                       -> JSIO Bool
   isTransformFeedback a b = tryJS "WebGL2RenderingContextBase.isTransformFeedback"
-                          $ WebGL2RenderingContextBase.prim__isTransformFeedback a
-                                                                                 (mayUp b)
+                          $ WebGL2RenderingContextBase.prim__isTransformFeedback (up a)
+                                                                                 (toFFI b)
   
   export
   isVertexArray :  JSType t1
-                => {auto 0 _ : Elem WebGLVertexArrayObject (Types t1)}
-                -> (obj : WebGL2RenderingContextBase)
-                -> (vertexArray : Maybe t1)
+                => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                -> (obj : t1)
+                -> (vertexArray : Maybe WebGLVertexArrayObject)
                 -> JSIO Bool
   isVertexArray a b = tryJS "WebGL2RenderingContextBase.isVertexArray"
-                    $ WebGL2RenderingContextBase.prim__isVertexArray a (mayUp b)
+                    $ WebGL2RenderingContextBase.prim__isVertexArray (up a)
+                                                                     (toFFI b)
   
   export
-  pauseTransformFeedback : (obj : WebGL2RenderingContextBase) -> JSIO ()
+  pauseTransformFeedback :  JSType t1
+                         => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                         -> (obj : t1)
+                         -> JSIO ()
   pauseTransformFeedback a = primJS
-                           $ WebGL2RenderingContextBase.prim__pauseTransformFeedback a
+                           $ WebGL2RenderingContextBase.prim__pauseTransformFeedback (up a)
   
   export
-  readBuffer : (obj : WebGL2RenderingContextBase) -> (src : UInt32) -> JSIO ()
-  readBuffer a b = primJS $ WebGL2RenderingContextBase.prim__readBuffer a b
+  readBuffer :  JSType t1
+             => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+             -> (obj : t1)
+             -> (src : UInt32)
+             -> JSIO ()
+  readBuffer a b = primJS $ WebGL2RenderingContextBase.prim__readBuffer (up a) b
   
   export
-  renderbufferStorageMultisample :  (obj : WebGL2RenderingContextBase)
+  renderbufferStorageMultisample :  JSType t1
+                                 => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                                 -> (obj : t1)
                                  -> (target : UInt32)
                                  -> (samples : Int32)
                                  -> (internalformat : UInt32)
@@ -2039,7 +2110,7 @@ namespace WebGL2RenderingContextBase
                                  -> (height : Int32)
                                  -> JSIO ()
   renderbufferStorageMultisample a b c d e f = primJS
-                                             $ WebGL2RenderingContextBase.prim__renderbufferStorageMultisample a
+                                             $ WebGL2RenderingContextBase.prim__renderbufferStorageMultisample (up a)
                                                                                                                b
                                                                                                                c
                                                                                                                d
@@ -2047,40 +2118,45 @@ namespace WebGL2RenderingContextBase
                                                                                                                f
   
   export
-  resumeTransformFeedback : (obj : WebGL2RenderingContextBase) -> JSIO ()
+  resumeTransformFeedback :  JSType t1
+                          => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                          -> (obj : t1)
+                          -> JSIO ()
   resumeTransformFeedback a = primJS
-                            $ WebGL2RenderingContextBase.prim__resumeTransformFeedback a
+                            $ WebGL2RenderingContextBase.prim__resumeTransformFeedback (up a)
   
   export
   samplerParameterf :  JSType t1
-                    => {auto 0 _ : Elem WebGLSampler (Types t1)}
-                    -> (obj : WebGL2RenderingContextBase)
-                    -> (sampler : t1)
+                    => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                    -> (obj : t1)
+                    -> (sampler : WebGLSampler)
                     -> (pname : UInt32)
                     -> (param : Double)
                     -> JSIO ()
   samplerParameterf a b c d = primJS
-                            $ WebGL2RenderingContextBase.prim__samplerParameterf a
-                                                                                 (up b)
+                            $ WebGL2RenderingContextBase.prim__samplerParameterf (up a)
+                                                                                 b
                                                                                  c
                                                                                  d
   
   export
   samplerParameteri :  JSType t1
-                    => {auto 0 _ : Elem WebGLSampler (Types t1)}
-                    -> (obj : WebGL2RenderingContextBase)
-                    -> (sampler : t1)
+                    => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                    -> (obj : t1)
+                    -> (sampler : WebGLSampler)
                     -> (pname : UInt32)
                     -> (param : Int32)
                     -> JSIO ()
   samplerParameteri a b c d = primJS
-                            $ WebGL2RenderingContextBase.prim__samplerParameteri a
-                                                                                 (up b)
+                            $ WebGL2RenderingContextBase.prim__samplerParameteri (up a)
+                                                                                 b
                                                                                  c
                                                                                  d
   
   export
-  texImage3D :  (obj : WebGL2RenderingContextBase)
+  texImage3D :  JSType t1
+             => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+             -> (obj : t1)
              -> (target : UInt32)
              -> (level : Int32)
              -> (internalformat : Int32)
@@ -2093,7 +2169,7 @@ namespace WebGL2RenderingContextBase
              -> (pboOffset : Int64)
              -> JSIO ()
   texImage3D a b c d e f g h i j k = primJS
-                                   $ WebGL2RenderingContextBase.prim__texImage3D a
+                                   $ WebGL2RenderingContextBase.prim__texImage3D (up a)
                                                                                  b
                                                                                  c
                                                                                  d
@@ -2106,7 +2182,9 @@ namespace WebGL2RenderingContextBase
                                                                                  k
   
   export
-  texImage3D1 :  (obj : WebGL2RenderingContextBase)
+  texImage3D1 :  JSType t1
+              => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+              -> (obj : t1)
               -> (target : UInt32)
               -> (level : Int32)
               -> (internalformat : Int32)
@@ -2125,7 +2203,7 @@ namespace WebGL2RenderingContextBase
                                 ])
               -> JSIO ()
   texImage3D1 a b c d e f g h i j k = primJS
-                                    $ WebGL2RenderingContextBase.prim__texImage3D1 a
+                                    $ WebGL2RenderingContextBase.prim__texImage3D1 (up a)
                                                                                    b
                                                                                    c
                                                                                    d
@@ -2138,7 +2216,9 @@ namespace WebGL2RenderingContextBase
                                                                                    (toFFI k)
   
   export
-  texImage3D2 :  (obj : WebGL2RenderingContextBase)
+  texImage3D2 :  JSType t1
+              => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+              -> (obj : t1)
               -> (target : UInt32)
               -> (level : Int32)
               -> (internalformat : Int32)
@@ -2161,7 +2241,7 @@ namespace WebGL2RenderingContextBase
                                         ]))
               -> JSIO ()
   texImage3D2 a b c d e f g h i j k = primJS
-                                    $ WebGL2RenderingContextBase.prim__texImage3D2 a
+                                    $ WebGL2RenderingContextBase.prim__texImage3D2 (up a)
                                                                                    b
                                                                                    c
                                                                                    d
@@ -2174,7 +2254,9 @@ namespace WebGL2RenderingContextBase
                                                                                    (toFFI k)
   
   export
-  texImage3D3 :  (obj : WebGL2RenderingContextBase)
+  texImage3D3 :  JSType t1
+              => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+              -> (obj : t1)
               -> (target : UInt32)
               -> (level : Int32)
               -> (internalformat : Int32)
@@ -2198,7 +2280,7 @@ namespace WebGL2RenderingContextBase
               -> (srcOffset : UInt32)
               -> JSIO ()
   texImage3D3 a b c d e f g h i j k l = primJS
-                                      $ WebGL2RenderingContextBase.prim__texImage3D3 a
+                                      $ WebGL2RenderingContextBase.prim__texImage3D3 (up a)
                                                                                      b
                                                                                      c
                                                                                      d
@@ -2212,7 +2294,9 @@ namespace WebGL2RenderingContextBase
                                                                                      l
   
   export
-  texStorage2D :  (obj : WebGL2RenderingContextBase)
+  texStorage2D :  JSType t1
+               => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+               -> (obj : t1)
                -> (target : UInt32)
                -> (levels : Int32)
                -> (internalformat : UInt32)
@@ -2220,7 +2304,7 @@ namespace WebGL2RenderingContextBase
                -> (height : Int32)
                -> JSIO ()
   texStorage2D a b c d e f = primJS
-                           $ WebGL2RenderingContextBase.prim__texStorage2D a
+                           $ WebGL2RenderingContextBase.prim__texStorage2D (up a)
                                                                            b
                                                                            c
                                                                            d
@@ -2228,7 +2312,9 @@ namespace WebGL2RenderingContextBase
                                                                            f
   
   export
-  texStorage3D :  (obj : WebGL2RenderingContextBase)
+  texStorage3D :  JSType t1
+               => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+               -> (obj : t1)
                -> (target : UInt32)
                -> (levels : Int32)
                -> (internalformat : UInt32)
@@ -2237,7 +2323,7 @@ namespace WebGL2RenderingContextBase
                -> (depth : Int32)
                -> JSIO ()
   texStorage3D a b c d e f g = primJS
-                             $ WebGL2RenderingContextBase.prim__texStorage3D a
+                             $ WebGL2RenderingContextBase.prim__texStorage3D (up a)
                                                                              b
                                                                              c
                                                                              d
@@ -2246,7 +2332,9 @@ namespace WebGL2RenderingContextBase
                                                                              g
   
   export
-  texSubImage3D :  (obj : WebGL2RenderingContextBase)
+  texSubImage3D :  JSType t1
+                => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                -> (obj : t1)
                 -> (target : UInt32)
                 -> (level : Int32)
                 -> (xoffset : Int32)
@@ -2260,7 +2348,7 @@ namespace WebGL2RenderingContextBase
                 -> (pboOffset : Int64)
                 -> JSIO ()
   texSubImage3D a b c d e f g h i j k l = primJS
-                                        $ WebGL2RenderingContextBase.prim__texSubImage3D a
+                                        $ WebGL2RenderingContextBase.prim__texSubImage3D (up a)
                                                                                          b
                                                                                          c
                                                                                          d
@@ -2274,7 +2362,9 @@ namespace WebGL2RenderingContextBase
                                                                                          l
   
   export
-  texSubImage3D1 :  (obj : WebGL2RenderingContextBase)
+  texSubImage3D1 :  JSType t1
+                 => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                 -> (obj : t1)
                  -> (target : UInt32)
                  -> (level : Int32)
                  -> (xoffset : Int32)
@@ -2294,7 +2384,7 @@ namespace WebGL2RenderingContextBase
                                    ])
                  -> JSIO ()
   texSubImage3D1 a b c d e f g h i j k l = primJS
-                                         $ WebGL2RenderingContextBase.prim__texSubImage3D1 a
+                                         $ WebGL2RenderingContextBase.prim__texSubImage3D1 (up a)
                                                                                            b
                                                                                            c
                                                                                            d
@@ -2308,7 +2398,9 @@ namespace WebGL2RenderingContextBase
                                                                                            (toFFI l)
   
   export
-  texSubImage3D2 :  (obj : WebGL2RenderingContextBase)
+  texSubImage3D2 :  JSType t1
+                 => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                 -> (obj : t1)
                  -> (target : UInt32)
                  -> (level : Int32)
                  -> (xoffset : Int32)
@@ -2333,7 +2425,7 @@ namespace WebGL2RenderingContextBase
                  -> (srcOffset : Optional UInt32)
                  -> JSIO ()
   texSubImage3D2 a b c d e f g h i j k l m = primJS
-                                           $ WebGL2RenderingContextBase.prim__texSubImage3D2 a
+                                           $ WebGL2RenderingContextBase.prim__texSubImage3D2 (up a)
                                                                                              b
                                                                                              c
                                                                                              d
@@ -2348,7 +2440,9 @@ namespace WebGL2RenderingContextBase
                                                                                              (toFFI m)
 
   export
-  texSubImage3D2' :  (obj : WebGL2RenderingContextBase)
+  texSubImage3D2' :  JSType t1
+                  => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                  -> (obj : t1)
                   -> (target : UInt32)
                   -> (level : Int32)
                   -> (xoffset : Int32)
@@ -2372,7 +2466,7 @@ namespace WebGL2RenderingContextBase
                                             ]))
                   -> JSIO ()
   texSubImage3D2' a b c d e f g h i j k l = primJS
-                                          $ WebGL2RenderingContextBase.prim__texSubImage3D2 a
+                                          $ WebGL2RenderingContextBase.prim__texSubImage3D2 (up a)
                                                                                             b
                                                                                             c
                                                                                             d
@@ -2388,161 +2482,163 @@ namespace WebGL2RenderingContextBase
   
   export
   transformFeedbackVaryings :  JSType t1
-                            => {auto 0 _ : Elem WebGLProgram (Types t1)}
-                            -> (obj : WebGL2RenderingContextBase)
-                            -> (program : t1)
+                            => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                            -> (obj : t1)
+                            -> (program : WebGLProgram)
                             -> (varyings : Array String)
                             -> (bufferMode : UInt32)
                             -> JSIO ()
   transformFeedbackVaryings a b c d = primJS
-                                    $ WebGL2RenderingContextBase.prim__transformFeedbackVaryings a
-                                                                                                 (up b)
+                                    $ WebGL2RenderingContextBase.prim__transformFeedbackVaryings (up a)
+                                                                                                 b
                                                                                                  c
                                                                                                  d
   
   export
   uniform1ui :  JSType t1
-             => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-             -> (obj : WebGL2RenderingContextBase)
-             -> (location : Maybe t1)
+             => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+             -> (obj : t1)
+             -> (location : Maybe WebGLUniformLocation)
              -> (v0 : UInt32)
              -> JSIO ()
   uniform1ui a b c = primJS
-                   $ WebGL2RenderingContextBase.prim__uniform1ui a (mayUp b) c
+                   $ WebGL2RenderingContextBase.prim__uniform1ui (up a)
+                                                                 (toFFI b)
+                                                                 c
   
   export
   uniform1uiv :  JSType t1
-              => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-              -> (obj : WebGL2RenderingContextBase)
-              -> (location : Maybe t1)
+              => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+              -> (obj : t1)
+              -> (location : Maybe WebGLUniformLocation)
               -> (data_ : NS I [ UInt8Array , Array UInt32 ])
               -> (srcOffset : Optional UInt32)
               -> (srcLength : Optional UInt32)
               -> JSIO ()
   uniform1uiv a b c d e = primJS
-                        $ WebGL2RenderingContextBase.prim__uniform1uiv a
-                                                                       (mayUp b)
+                        $ WebGL2RenderingContextBase.prim__uniform1uiv (up a)
+                                                                       (toFFI b)
                                                                        (toFFI c)
                                                                        (toFFI d)
                                                                        (toFFI e)
 
   export
   uniform1uiv' :  JSType t1
-               => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-               -> (obj : WebGL2RenderingContextBase)
-               -> (location : Maybe t1)
+               => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+               -> (obj : t1)
+               -> (location : Maybe WebGLUniformLocation)
                -> (data_ : NS I [ UInt8Array , Array UInt32 ])
                -> JSIO ()
   uniform1uiv' a b c = primJS
-                     $ WebGL2RenderingContextBase.prim__uniform1uiv a
-                                                                    (mayUp b)
+                     $ WebGL2RenderingContextBase.prim__uniform1uiv (up a)
+                                                                    (toFFI b)
                                                                     (toFFI c)
                                                                     undef
                                                                     undef
   
   export
   uniform2ui :  JSType t1
-             => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-             -> (obj : WebGL2RenderingContextBase)
-             -> (location : Maybe t1)
+             => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+             -> (obj : t1)
+             -> (location : Maybe WebGLUniformLocation)
              -> (v0 : UInt32)
              -> (v1 : UInt32)
              -> JSIO ()
   uniform2ui a b c d = primJS
-                     $ WebGL2RenderingContextBase.prim__uniform2ui a
-                                                                   (mayUp b)
+                     $ WebGL2RenderingContextBase.prim__uniform2ui (up a)
+                                                                   (toFFI b)
                                                                    c
                                                                    d
   
   export
   uniform2uiv :  JSType t1
-              => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-              -> (obj : WebGL2RenderingContextBase)
-              -> (location : Maybe t1)
+              => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+              -> (obj : t1)
+              -> (location : Maybe WebGLUniformLocation)
               -> (data_ : NS I [ UInt8Array , Array UInt32 ])
               -> (srcOffset : Optional UInt32)
               -> (srcLength : Optional UInt32)
               -> JSIO ()
   uniform2uiv a b c d e = primJS
-                        $ WebGL2RenderingContextBase.prim__uniform2uiv a
-                                                                       (mayUp b)
+                        $ WebGL2RenderingContextBase.prim__uniform2uiv (up a)
+                                                                       (toFFI b)
                                                                        (toFFI c)
                                                                        (toFFI d)
                                                                        (toFFI e)
 
   export
   uniform2uiv' :  JSType t1
-               => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-               -> (obj : WebGL2RenderingContextBase)
-               -> (location : Maybe t1)
+               => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+               -> (obj : t1)
+               -> (location : Maybe WebGLUniformLocation)
                -> (data_ : NS I [ UInt8Array , Array UInt32 ])
                -> JSIO ()
   uniform2uiv' a b c = primJS
-                     $ WebGL2RenderingContextBase.prim__uniform2uiv a
-                                                                    (mayUp b)
+                     $ WebGL2RenderingContextBase.prim__uniform2uiv (up a)
+                                                                    (toFFI b)
                                                                     (toFFI c)
                                                                     undef
                                                                     undef
   
   export
   uniform3ui :  JSType t1
-             => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-             -> (obj : WebGL2RenderingContextBase)
-             -> (location : Maybe t1)
+             => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+             -> (obj : t1)
+             -> (location : Maybe WebGLUniformLocation)
              -> (v0 : UInt32)
              -> (v1 : UInt32)
              -> (v2 : UInt32)
              -> JSIO ()
   uniform3ui a b c d e = primJS
-                       $ WebGL2RenderingContextBase.prim__uniform3ui a
-                                                                     (mayUp b)
+                       $ WebGL2RenderingContextBase.prim__uniform3ui (up a)
+                                                                     (toFFI b)
                                                                      c
                                                                      d
                                                                      e
   
   export
   uniform3uiv :  JSType t1
-              => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-              -> (obj : WebGL2RenderingContextBase)
-              -> (location : Maybe t1)
+              => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+              -> (obj : t1)
+              -> (location : Maybe WebGLUniformLocation)
               -> (data_ : NS I [ UInt8Array , Array UInt32 ])
               -> (srcOffset : Optional UInt32)
               -> (srcLength : Optional UInt32)
               -> JSIO ()
   uniform3uiv a b c d e = primJS
-                        $ WebGL2RenderingContextBase.prim__uniform3uiv a
-                                                                       (mayUp b)
+                        $ WebGL2RenderingContextBase.prim__uniform3uiv (up a)
+                                                                       (toFFI b)
                                                                        (toFFI c)
                                                                        (toFFI d)
                                                                        (toFFI e)
 
   export
   uniform3uiv' :  JSType t1
-               => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-               -> (obj : WebGL2RenderingContextBase)
-               -> (location : Maybe t1)
+               => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+               -> (obj : t1)
+               -> (location : Maybe WebGLUniformLocation)
                -> (data_ : NS I [ UInt8Array , Array UInt32 ])
                -> JSIO ()
   uniform3uiv' a b c = primJS
-                     $ WebGL2RenderingContextBase.prim__uniform3uiv a
-                                                                    (mayUp b)
+                     $ WebGL2RenderingContextBase.prim__uniform3uiv (up a)
+                                                                    (toFFI b)
                                                                     (toFFI c)
                                                                     undef
                                                                     undef
   
   export
   uniform4ui :  JSType t1
-             => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-             -> (obj : WebGL2RenderingContextBase)
-             -> (location : Maybe t1)
+             => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+             -> (obj : t1)
+             -> (location : Maybe WebGLUniformLocation)
              -> (v0 : UInt32)
              -> (v1 : UInt32)
              -> (v2 : UInt32)
              -> (v3 : UInt32)
              -> JSIO ()
   uniform4ui a b c d e f = primJS
-                         $ WebGL2RenderingContextBase.prim__uniform4ui a
-                                                                       (mayUp b)
+                         $ WebGL2RenderingContextBase.prim__uniform4ui (up a)
+                                                                       (toFFI b)
                                                                        c
                                                                        d
                                                                        e
@@ -2550,61 +2646,61 @@ namespace WebGL2RenderingContextBase
   
   export
   uniform4uiv :  JSType t1
-              => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-              -> (obj : WebGL2RenderingContextBase)
-              -> (location : Maybe t1)
+              => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+              -> (obj : t1)
+              -> (location : Maybe WebGLUniformLocation)
               -> (data_ : NS I [ UInt8Array , Array UInt32 ])
               -> (srcOffset : Optional UInt32)
               -> (srcLength : Optional UInt32)
               -> JSIO ()
   uniform4uiv a b c d e = primJS
-                        $ WebGL2RenderingContextBase.prim__uniform4uiv a
-                                                                       (mayUp b)
+                        $ WebGL2RenderingContextBase.prim__uniform4uiv (up a)
+                                                                       (toFFI b)
                                                                        (toFFI c)
                                                                        (toFFI d)
                                                                        (toFFI e)
 
   export
   uniform4uiv' :  JSType t1
-               => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-               -> (obj : WebGL2RenderingContextBase)
-               -> (location : Maybe t1)
+               => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+               -> (obj : t1)
+               -> (location : Maybe WebGLUniformLocation)
                -> (data_ : NS I [ UInt8Array , Array UInt32 ])
                -> JSIO ()
   uniform4uiv' a b c = primJS
-                     $ WebGL2RenderingContextBase.prim__uniform4uiv a
-                                                                    (mayUp b)
+                     $ WebGL2RenderingContextBase.prim__uniform4uiv (up a)
+                                                                    (toFFI b)
                                                                     (toFFI c)
                                                                     undef
                                                                     undef
   
   export
   uniformBlockBinding :  JSType t1
-                      => {auto 0 _ : Elem WebGLProgram (Types t1)}
-                      -> (obj : WebGL2RenderingContextBase)
-                      -> (program : t1)
+                      => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                      -> (obj : t1)
+                      -> (program : WebGLProgram)
                       -> (uniformBlockIndex : UInt32)
                       -> (uniformBlockBinding : UInt32)
                       -> JSIO ()
   uniformBlockBinding a b c d = primJS
-                              $ WebGL2RenderingContextBase.prim__uniformBlockBinding a
-                                                                                     (up b)
+                              $ WebGL2RenderingContextBase.prim__uniformBlockBinding (up a)
+                                                                                     b
                                                                                      c
                                                                                      d
   
   export
   uniformMatrix2x3fv :  JSType t1
-                     => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-                     -> (obj : WebGL2RenderingContextBase)
-                     -> (location : Maybe t1)
+                     => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                     -> (obj : t1)
+                     -> (location : Maybe WebGLUniformLocation)
                      -> (transpose : Bool)
                      -> (data_ : NS I [ Float32Array , Array Double ])
                      -> (srcOffset : Optional UInt32)
                      -> (srcLength : Optional UInt32)
                      -> JSIO ()
   uniformMatrix2x3fv a b c d e f = primJS
-                                 $ WebGL2RenderingContextBase.prim__uniformMatrix2x3fv a
-                                                                                       (mayUp b)
+                                 $ WebGL2RenderingContextBase.prim__uniformMatrix2x3fv (up a)
+                                                                                       (toFFI b)
                                                                                        (toFFI c)
                                                                                        (toFFI d)
                                                                                        (toFFI e)
@@ -2612,15 +2708,15 @@ namespace WebGL2RenderingContextBase
 
   export
   uniformMatrix2x3fv' :  JSType t1
-                      => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-                      -> (obj : WebGL2RenderingContextBase)
-                      -> (location : Maybe t1)
+                      => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                      -> (obj : t1)
+                      -> (location : Maybe WebGLUniformLocation)
                       -> (transpose : Bool)
                       -> (data_ : NS I [ Float32Array , Array Double ])
                       -> JSIO ()
   uniformMatrix2x3fv' a b c d = primJS
-                              $ WebGL2RenderingContextBase.prim__uniformMatrix2x3fv a
-                                                                                    (mayUp b)
+                              $ WebGL2RenderingContextBase.prim__uniformMatrix2x3fv (up a)
+                                                                                    (toFFI b)
                                                                                     (toFFI c)
                                                                                     (toFFI d)
                                                                                     undef
@@ -2628,17 +2724,17 @@ namespace WebGL2RenderingContextBase
   
   export
   uniformMatrix2x4fv :  JSType t1
-                     => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-                     -> (obj : WebGL2RenderingContextBase)
-                     -> (location : Maybe t1)
+                     => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                     -> (obj : t1)
+                     -> (location : Maybe WebGLUniformLocation)
                      -> (transpose : Bool)
                      -> (data_ : NS I [ Float32Array , Array Double ])
                      -> (srcOffset : Optional UInt32)
                      -> (srcLength : Optional UInt32)
                      -> JSIO ()
   uniformMatrix2x4fv a b c d e f = primJS
-                                 $ WebGL2RenderingContextBase.prim__uniformMatrix2x4fv a
-                                                                                       (mayUp b)
+                                 $ WebGL2RenderingContextBase.prim__uniformMatrix2x4fv (up a)
+                                                                                       (toFFI b)
                                                                                        (toFFI c)
                                                                                        (toFFI d)
                                                                                        (toFFI e)
@@ -2646,15 +2742,15 @@ namespace WebGL2RenderingContextBase
 
   export
   uniformMatrix2x4fv' :  JSType t1
-                      => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-                      -> (obj : WebGL2RenderingContextBase)
-                      -> (location : Maybe t1)
+                      => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                      -> (obj : t1)
+                      -> (location : Maybe WebGLUniformLocation)
                       -> (transpose : Bool)
                       -> (data_ : NS I [ Float32Array , Array Double ])
                       -> JSIO ()
   uniformMatrix2x4fv' a b c d = primJS
-                              $ WebGL2RenderingContextBase.prim__uniformMatrix2x4fv a
-                                                                                    (mayUp b)
+                              $ WebGL2RenderingContextBase.prim__uniformMatrix2x4fv (up a)
+                                                                                    (toFFI b)
                                                                                     (toFFI c)
                                                                                     (toFFI d)
                                                                                     undef
@@ -2662,17 +2758,17 @@ namespace WebGL2RenderingContextBase
   
   export
   uniformMatrix3x2fv :  JSType t1
-                     => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-                     -> (obj : WebGL2RenderingContextBase)
-                     -> (location : Maybe t1)
+                     => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                     -> (obj : t1)
+                     -> (location : Maybe WebGLUniformLocation)
                      -> (transpose : Bool)
                      -> (data_ : NS I [ Float32Array , Array Double ])
                      -> (srcOffset : Optional UInt32)
                      -> (srcLength : Optional UInt32)
                      -> JSIO ()
   uniformMatrix3x2fv a b c d e f = primJS
-                                 $ WebGL2RenderingContextBase.prim__uniformMatrix3x2fv a
-                                                                                       (mayUp b)
+                                 $ WebGL2RenderingContextBase.prim__uniformMatrix3x2fv (up a)
+                                                                                       (toFFI b)
                                                                                        (toFFI c)
                                                                                        (toFFI d)
                                                                                        (toFFI e)
@@ -2680,15 +2776,15 @@ namespace WebGL2RenderingContextBase
 
   export
   uniformMatrix3x2fv' :  JSType t1
-                      => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-                      -> (obj : WebGL2RenderingContextBase)
-                      -> (location : Maybe t1)
+                      => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                      -> (obj : t1)
+                      -> (location : Maybe WebGLUniformLocation)
                       -> (transpose : Bool)
                       -> (data_ : NS I [ Float32Array , Array Double ])
                       -> JSIO ()
   uniformMatrix3x2fv' a b c d = primJS
-                              $ WebGL2RenderingContextBase.prim__uniformMatrix3x2fv a
-                                                                                    (mayUp b)
+                              $ WebGL2RenderingContextBase.prim__uniformMatrix3x2fv (up a)
+                                                                                    (toFFI b)
                                                                                     (toFFI c)
                                                                                     (toFFI d)
                                                                                     undef
@@ -2696,17 +2792,17 @@ namespace WebGL2RenderingContextBase
   
   export
   uniformMatrix3x4fv :  JSType t1
-                     => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-                     -> (obj : WebGL2RenderingContextBase)
-                     -> (location : Maybe t1)
+                     => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                     -> (obj : t1)
+                     -> (location : Maybe WebGLUniformLocation)
                      -> (transpose : Bool)
                      -> (data_ : NS I [ Float32Array , Array Double ])
                      -> (srcOffset : Optional UInt32)
                      -> (srcLength : Optional UInt32)
                      -> JSIO ()
   uniformMatrix3x4fv a b c d e f = primJS
-                                 $ WebGL2RenderingContextBase.prim__uniformMatrix3x4fv a
-                                                                                       (mayUp b)
+                                 $ WebGL2RenderingContextBase.prim__uniformMatrix3x4fv (up a)
+                                                                                       (toFFI b)
                                                                                        (toFFI c)
                                                                                        (toFFI d)
                                                                                        (toFFI e)
@@ -2714,15 +2810,15 @@ namespace WebGL2RenderingContextBase
 
   export
   uniformMatrix3x4fv' :  JSType t1
-                      => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-                      -> (obj : WebGL2RenderingContextBase)
-                      -> (location : Maybe t1)
+                      => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                      -> (obj : t1)
+                      -> (location : Maybe WebGLUniformLocation)
                       -> (transpose : Bool)
                       -> (data_ : NS I [ Float32Array , Array Double ])
                       -> JSIO ()
   uniformMatrix3x4fv' a b c d = primJS
-                              $ WebGL2RenderingContextBase.prim__uniformMatrix3x4fv a
-                                                                                    (mayUp b)
+                              $ WebGL2RenderingContextBase.prim__uniformMatrix3x4fv (up a)
+                                                                                    (toFFI b)
                                                                                     (toFFI c)
                                                                                     (toFFI d)
                                                                                     undef
@@ -2730,17 +2826,17 @@ namespace WebGL2RenderingContextBase
   
   export
   uniformMatrix4x2fv :  JSType t1
-                     => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-                     -> (obj : WebGL2RenderingContextBase)
-                     -> (location : Maybe t1)
+                     => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                     -> (obj : t1)
+                     -> (location : Maybe WebGLUniformLocation)
                      -> (transpose : Bool)
                      -> (data_ : NS I [ Float32Array , Array Double ])
                      -> (srcOffset : Optional UInt32)
                      -> (srcLength : Optional UInt32)
                      -> JSIO ()
   uniformMatrix4x2fv a b c d e f = primJS
-                                 $ WebGL2RenderingContextBase.prim__uniformMatrix4x2fv a
-                                                                                       (mayUp b)
+                                 $ WebGL2RenderingContextBase.prim__uniformMatrix4x2fv (up a)
+                                                                                       (toFFI b)
                                                                                        (toFFI c)
                                                                                        (toFFI d)
                                                                                        (toFFI e)
@@ -2748,15 +2844,15 @@ namespace WebGL2RenderingContextBase
 
   export
   uniformMatrix4x2fv' :  JSType t1
-                      => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-                      -> (obj : WebGL2RenderingContextBase)
-                      -> (location : Maybe t1)
+                      => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                      -> (obj : t1)
+                      -> (location : Maybe WebGLUniformLocation)
                       -> (transpose : Bool)
                       -> (data_ : NS I [ Float32Array , Array Double ])
                       -> JSIO ()
   uniformMatrix4x2fv' a b c d = primJS
-                              $ WebGL2RenderingContextBase.prim__uniformMatrix4x2fv a
-                                                                                    (mayUp b)
+                              $ WebGL2RenderingContextBase.prim__uniformMatrix4x2fv (up a)
+                                                                                    (toFFI b)
                                                                                     (toFFI c)
                                                                                     (toFFI d)
                                                                                     undef
@@ -2764,17 +2860,17 @@ namespace WebGL2RenderingContextBase
   
   export
   uniformMatrix4x3fv :  JSType t1
-                     => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-                     -> (obj : WebGL2RenderingContextBase)
-                     -> (location : Maybe t1)
+                     => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                     -> (obj : t1)
+                     -> (location : Maybe WebGLUniformLocation)
                      -> (transpose : Bool)
                      -> (data_ : NS I [ Float32Array , Array Double ])
                      -> (srcOffset : Optional UInt32)
                      -> (srcLength : Optional UInt32)
                      -> JSIO ()
   uniformMatrix4x3fv a b c d e f = primJS
-                                 $ WebGL2RenderingContextBase.prim__uniformMatrix4x3fv a
-                                                                                       (mayUp b)
+                                 $ WebGL2RenderingContextBase.prim__uniformMatrix4x3fv (up a)
+                                                                                       (toFFI b)
                                                                                        (toFFI c)
                                                                                        (toFFI d)
                                                                                        (toFFI e)
@@ -2782,32 +2878,36 @@ namespace WebGL2RenderingContextBase
 
   export
   uniformMatrix4x3fv' :  JSType t1
-                      => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-                      -> (obj : WebGL2RenderingContextBase)
-                      -> (location : Maybe t1)
+                      => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                      -> (obj : t1)
+                      -> (location : Maybe WebGLUniformLocation)
                       -> (transpose : Bool)
                       -> (data_ : NS I [ Float32Array , Array Double ])
                       -> JSIO ()
   uniformMatrix4x3fv' a b c d = primJS
-                              $ WebGL2RenderingContextBase.prim__uniformMatrix4x3fv a
-                                                                                    (mayUp b)
+                              $ WebGL2RenderingContextBase.prim__uniformMatrix4x3fv (up a)
+                                                                                    (toFFI b)
                                                                                     (toFFI c)
                                                                                     (toFFI d)
                                                                                     undef
                                                                                     undef
   
   export
-  vertexAttribDivisor :  (obj : WebGL2RenderingContextBase)
+  vertexAttribDivisor :  JSType t1
+                      => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                      -> (obj : t1)
                       -> (index : UInt32)
                       -> (divisor : UInt32)
                       -> JSIO ()
   vertexAttribDivisor a b c = primJS
-                            $ WebGL2RenderingContextBase.prim__vertexAttribDivisor a
+                            $ WebGL2RenderingContextBase.prim__vertexAttribDivisor (up a)
                                                                                    b
                                                                                    c
   
   export
-  vertexAttribI4i :  (obj : WebGL2RenderingContextBase)
+  vertexAttribI4i :  JSType t1
+                  => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                  -> (obj : t1)
                   -> (index : UInt32)
                   -> (x : Int32)
                   -> (y : Int32)
@@ -2815,7 +2915,7 @@ namespace WebGL2RenderingContextBase
                   -> (w : Int32)
                   -> JSIO ()
   vertexAttribI4i a b c d e f = primJS
-                              $ WebGL2RenderingContextBase.prim__vertexAttribI4i a
+                              $ WebGL2RenderingContextBase.prim__vertexAttribI4i (up a)
                                                                                  b
                                                                                  c
                                                                                  d
@@ -2823,17 +2923,21 @@ namespace WebGL2RenderingContextBase
                                                                                  f
   
   export
-  vertexAttribI4iv :  (obj : WebGL2RenderingContextBase)
+  vertexAttribI4iv :  JSType t1
+                   => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                   -> (obj : t1)
                    -> (index : UInt32)
                    -> (values : NS I [ Int32Array , Array Int32 ])
                    -> JSIO ()
   vertexAttribI4iv a b c = primJS
-                         $ WebGL2RenderingContextBase.prim__vertexAttribI4iv a
+                         $ WebGL2RenderingContextBase.prim__vertexAttribI4iv (up a)
                                                                              b
                                                                              (toFFI c)
   
   export
-  vertexAttribI4ui :  (obj : WebGL2RenderingContextBase)
+  vertexAttribI4ui :  JSType t1
+                   => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                   -> (obj : t1)
                    -> (index : UInt32)
                    -> (x : UInt32)
                    -> (y : UInt32)
@@ -2841,7 +2945,7 @@ namespace WebGL2RenderingContextBase
                    -> (w : UInt32)
                    -> JSIO ()
   vertexAttribI4ui a b c d e f = primJS
-                               $ WebGL2RenderingContextBase.prim__vertexAttribI4ui a
+                               $ WebGL2RenderingContextBase.prim__vertexAttribI4ui (up a)
                                                                                    b
                                                                                    c
                                                                                    d
@@ -2849,17 +2953,21 @@ namespace WebGL2RenderingContextBase
                                                                                    f
   
   export
-  vertexAttribI4uiv :  (obj : WebGL2RenderingContextBase)
+  vertexAttribI4uiv :  JSType t1
+                    => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                    -> (obj : t1)
                     -> (index : UInt32)
                     -> (values : NS I [ UInt8Array , Array UInt32 ])
                     -> JSIO ()
   vertexAttribI4uiv a b c = primJS
-                          $ WebGL2RenderingContextBase.prim__vertexAttribI4uiv a
+                          $ WebGL2RenderingContextBase.prim__vertexAttribI4uiv (up a)
                                                                                b
                                                                                (toFFI c)
   
   export
-  vertexAttribIPointer :  (obj : WebGL2RenderingContextBase)
+  vertexAttribIPointer :  JSType t1
+                       => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+                       -> (obj : t1)
                        -> (index : UInt32)
                        -> (size : Int32)
                        -> (type : UInt32)
@@ -2867,7 +2975,7 @@ namespace WebGL2RenderingContextBase
                        -> (offset : Int64)
                        -> JSIO ()
   vertexAttribIPointer a b c d e f = primJS
-                                   $ WebGL2RenderingContextBase.prim__vertexAttribIPointer a
+                                   $ WebGL2RenderingContextBase.prim__vertexAttribIPointer (up a)
                                                                                            b
                                                                                            c
                                                                                            d
@@ -2876,28 +2984,35 @@ namespace WebGL2RenderingContextBase
   
   export
   waitSync :  JSType t1
-           => {auto 0 _ : Elem WebGLSync (Types t1)}
-           -> (obj : WebGL2RenderingContextBase)
-           -> (sync : t1)
+           => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+           -> (obj : t1)
+           -> (sync : WebGLSync)
            -> (flags : UInt32)
            -> (timeout : Int64)
            -> JSIO ()
   waitSync a b c d = primJS
-                   $ WebGL2RenderingContextBase.prim__waitSync a (up b) c d
+                   $ WebGL2RenderingContextBase.prim__waitSync (up a) b c d
 
 namespace WebGL2RenderingContextOverloads
   
   export
-  bufferData :  (obj : WebGL2RenderingContextOverloads)
+  bufferData :  JSType t1
+             => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+             -> (obj : t1)
              -> (target : UInt32)
              -> (size : Int64)
              -> (usage : UInt32)
              -> JSIO ()
   bufferData a b c d = primJS
-                     $ WebGL2RenderingContextOverloads.prim__bufferData a b c d
+                     $ WebGL2RenderingContextOverloads.prim__bufferData (up a)
+                                                                        b
+                                                                        c
+                                                                        d
   
   export
-  bufferData1 :  (obj : WebGL2RenderingContextOverloads)
+  bufferData1 :  JSType t1
+              => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+              -> (obj : t1)
               -> (target : UInt32)
               -> (srcData : Maybe (NS I [ Int8Array
                                         , Int16Array
@@ -2914,13 +3029,15 @@ namespace WebGL2RenderingContextOverloads
               -> (usage : UInt32)
               -> JSIO ()
   bufferData1 a b c d = primJS
-                      $ WebGL2RenderingContextOverloads.prim__bufferData1 a
+                      $ WebGL2RenderingContextOverloads.prim__bufferData1 (up a)
                                                                           b
                                                                           (toFFI c)
                                                                           d
   
   export
-  bufferData2 :  (obj : WebGL2RenderingContextOverloads)
+  bufferData2 :  JSType t1
+              => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+              -> (obj : t1)
               -> (target : UInt32)
               -> (srcData : NS I [ Int8Array
                                  , Int16Array
@@ -2938,7 +3055,7 @@ namespace WebGL2RenderingContextOverloads
               -> (length : Optional UInt32)
               -> JSIO ()
   bufferData2 a b c d e f = primJS
-                          $ WebGL2RenderingContextOverloads.prim__bufferData2 a
+                          $ WebGL2RenderingContextOverloads.prim__bufferData2 (up a)
                                                                               b
                                                                               (toFFI c)
                                                                               d
@@ -2946,7 +3063,9 @@ namespace WebGL2RenderingContextOverloads
                                                                               (toFFI f)
 
   export
-  bufferData2' :  (obj : WebGL2RenderingContextOverloads)
+  bufferData2' :  JSType t1
+               => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+               -> (obj : t1)
                -> (target : UInt32)
                -> (srcData : NS I [ Int8Array
                                   , Int16Array
@@ -2963,7 +3082,7 @@ namespace WebGL2RenderingContextOverloads
                -> (srcOffset : UInt32)
                -> JSIO ()
   bufferData2' a b c d e = primJS
-                         $ WebGL2RenderingContextOverloads.prim__bufferData2 a
+                         $ WebGL2RenderingContextOverloads.prim__bufferData2 (up a)
                                                                              b
                                                                              (toFFI c)
                                                                              d
@@ -2971,7 +3090,9 @@ namespace WebGL2RenderingContextOverloads
                                                                              undef
   
   export
-  bufferSubData :  (obj : WebGL2RenderingContextOverloads)
+  bufferSubData :  JSType t1
+                => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+                -> (obj : t1)
                 -> (target : UInt32)
                 -> (dstByteOffset : Int64)
                 -> (srcData : NS I [ Int8Array
@@ -2988,13 +3109,15 @@ namespace WebGL2RenderingContextOverloads
                                    ])
                 -> JSIO ()
   bufferSubData a b c d = primJS
-                        $ WebGL2RenderingContextOverloads.prim__bufferSubData a
+                        $ WebGL2RenderingContextOverloads.prim__bufferSubData (up a)
                                                                               b
                                                                               c
                                                                               (toFFI d)
   
   export
-  bufferSubData1 :  (obj : WebGL2RenderingContextOverloads)
+  bufferSubData1 :  JSType t1
+                 => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+                 -> (obj : t1)
                  -> (target : UInt32)
                  -> (dstByteOffset : Int64)
                  -> (srcData : NS I [ Int8Array
@@ -3012,7 +3135,7 @@ namespace WebGL2RenderingContextOverloads
                  -> (length : Optional UInt32)
                  -> JSIO ()
   bufferSubData1 a b c d e f = primJS
-                             $ WebGL2RenderingContextOverloads.prim__bufferSubData1 a
+                             $ WebGL2RenderingContextOverloads.prim__bufferSubData1 (up a)
                                                                                     b
                                                                                     c
                                                                                     (toFFI d)
@@ -3020,7 +3143,9 @@ namespace WebGL2RenderingContextOverloads
                                                                                     (toFFI f)
 
   export
-  bufferSubData1' :  (obj : WebGL2RenderingContextOverloads)
+  bufferSubData1' :  JSType t1
+                  => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+                  -> (obj : t1)
                   -> (target : UInt32)
                   -> (dstByteOffset : Int64)
                   -> (srcData : NS I [ Int8Array
@@ -3037,7 +3162,7 @@ namespace WebGL2RenderingContextOverloads
                   -> (srcOffset : UInt32)
                   -> JSIO ()
   bufferSubData1' a b c d e = primJS
-                            $ WebGL2RenderingContextOverloads.prim__bufferSubData1 a
+                            $ WebGL2RenderingContextOverloads.prim__bufferSubData1 (up a)
                                                                                    b
                                                                                    c
                                                                                    (toFFI d)
@@ -3045,7 +3170,9 @@ namespace WebGL2RenderingContextOverloads
                                                                                    undef
   
   export
-  compressedTexImage2D :  (obj : WebGL2RenderingContextOverloads)
+  compressedTexImage2D :  JSType t1
+                       => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+                       -> (obj : t1)
                        -> (target : UInt32)
                        -> (level : Int32)
                        -> (internalformat : UInt32)
@@ -3056,7 +3183,7 @@ namespace WebGL2RenderingContextOverloads
                        -> (offset : Int64)
                        -> JSIO ()
   compressedTexImage2D a b c d e f g h i = primJS
-                                         $ WebGL2RenderingContextOverloads.prim__compressedTexImage2D a
+                                         $ WebGL2RenderingContextOverloads.prim__compressedTexImage2D (up a)
                                                                                                       b
                                                                                                       c
                                                                                                       d
@@ -3067,7 +3194,9 @@ namespace WebGL2RenderingContextOverloads
                                                                                                       i
   
   export
-  compressedTexImage2D1 :  (obj : WebGL2RenderingContextOverloads)
+  compressedTexImage2D1 :  JSType t1
+                        => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+                        -> (obj : t1)
                         -> (target : UInt32)
                         -> (level : Int32)
                         -> (internalformat : UInt32)
@@ -3089,7 +3218,7 @@ namespace WebGL2RenderingContextOverloads
                         -> (srcLengthOverride : Optional UInt32)
                         -> JSIO ()
   compressedTexImage2D1 a b c d e f g h i j = primJS
-                                            $ WebGL2RenderingContextOverloads.prim__compressedTexImage2D1 a
+                                            $ WebGL2RenderingContextOverloads.prim__compressedTexImage2D1 (up a)
                                                                                                           b
                                                                                                           c
                                                                                                           d
@@ -3101,7 +3230,9 @@ namespace WebGL2RenderingContextOverloads
                                                                                                           (toFFI j)
 
   export
-  compressedTexImage2D1' :  (obj : WebGL2RenderingContextOverloads)
+  compressedTexImage2D1' :  JSType t1
+                         => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+                         -> (obj : t1)
                          -> (target : UInt32)
                          -> (level : Int32)
                          -> (internalformat : UInt32)
@@ -3121,7 +3252,7 @@ namespace WebGL2RenderingContextOverloads
                                             ])
                          -> JSIO ()
   compressedTexImage2D1' a b c d e f g h = primJS
-                                         $ WebGL2RenderingContextOverloads.prim__compressedTexImage2D1 a
+                                         $ WebGL2RenderingContextOverloads.prim__compressedTexImage2D1 (up a)
                                                                                                        b
                                                                                                        c
                                                                                                        d
@@ -3133,7 +3264,9 @@ namespace WebGL2RenderingContextOverloads
                                                                                                        undef
   
   export
-  compressedTexSubImage2D :  (obj : WebGL2RenderingContextOverloads)
+  compressedTexSubImage2D :  JSType t1
+                          => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+                          -> (obj : t1)
                           -> (target : UInt32)
                           -> (level : Int32)
                           -> (xoffset : Int32)
@@ -3145,7 +3278,7 @@ namespace WebGL2RenderingContextOverloads
                           -> (offset : Int64)
                           -> JSIO ()
   compressedTexSubImage2D a b c d e f g h i j = primJS
-                                              $ WebGL2RenderingContextOverloads.prim__compressedTexSubImage2D a
+                                              $ WebGL2RenderingContextOverloads.prim__compressedTexSubImage2D (up a)
                                                                                                               b
                                                                                                               c
                                                                                                               d
@@ -3157,7 +3290,9 @@ namespace WebGL2RenderingContextOverloads
                                                                                                               j
   
   export
-  compressedTexSubImage2D1 :  (obj : WebGL2RenderingContextOverloads)
+  compressedTexSubImage2D1 :  JSType t1
+                           => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+                           -> (obj : t1)
                            -> (target : UInt32)
                            -> (level : Int32)
                            -> (xoffset : Int32)
@@ -3180,7 +3315,7 @@ namespace WebGL2RenderingContextOverloads
                            -> (srcLengthOverride : Optional UInt32)
                            -> JSIO ()
   compressedTexSubImage2D1 a b c d e f g h i j k = primJS
-                                                 $ WebGL2RenderingContextOverloads.prim__compressedTexSubImage2D1 a
+                                                 $ WebGL2RenderingContextOverloads.prim__compressedTexSubImage2D1 (up a)
                                                                                                                   b
                                                                                                                   c
                                                                                                                   d
@@ -3193,7 +3328,9 @@ namespace WebGL2RenderingContextOverloads
                                                                                                                   (toFFI k)
 
   export
-  compressedTexSubImage2D1' :  (obj : WebGL2RenderingContextOverloads)
+  compressedTexSubImage2D1' :  JSType t1
+                            => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+                            -> (obj : t1)
                             -> (target : UInt32)
                             -> (level : Int32)
                             -> (xoffset : Int32)
@@ -3214,7 +3351,7 @@ namespace WebGL2RenderingContextOverloads
                                                ])
                             -> JSIO ()
   compressedTexSubImage2D1' a b c d e f g h i = primJS
-                                              $ WebGL2RenderingContextOverloads.prim__compressedTexSubImage2D1 a
+                                              $ WebGL2RenderingContextOverloads.prim__compressedTexSubImage2D1 (up a)
                                                                                                                b
                                                                                                                c
                                                                                                                d
@@ -3227,7 +3364,9 @@ namespace WebGL2RenderingContextOverloads
                                                                                                                undef
   
   export
-  readPixels :  (obj : WebGL2RenderingContextOverloads)
+  readPixels :  JSType t1
+             => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+             -> (obj : t1)
              -> (x : Int32)
              -> (y : Int32)
              -> (width : Int32)
@@ -3247,7 +3386,7 @@ namespace WebGL2RenderingContextOverloads
                                        ]))
              -> JSIO ()
   readPixels a b c d e f g h = primJS
-                             $ WebGL2RenderingContextOverloads.prim__readPixels a
+                             $ WebGL2RenderingContextOverloads.prim__readPixels (up a)
                                                                                 b
                                                                                 c
                                                                                 d
@@ -3257,7 +3396,9 @@ namespace WebGL2RenderingContextOverloads
                                                                                 (toFFI h)
   
   export
-  readPixels1 :  (obj : WebGL2RenderingContextOverloads)
+  readPixels1 :  JSType t1
+              => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+              -> (obj : t1)
               -> (x : Int32)
               -> (y : Int32)
               -> (width : Int32)
@@ -3267,7 +3408,7 @@ namespace WebGL2RenderingContextOverloads
               -> (offset : Int64)
               -> JSIO ()
   readPixels1 a b c d e f g h = primJS
-                              $ WebGL2RenderingContextOverloads.prim__readPixels1 a
+                              $ WebGL2RenderingContextOverloads.prim__readPixels1 (up a)
                                                                                   b
                                                                                   c
                                                                                   d
@@ -3277,7 +3418,9 @@ namespace WebGL2RenderingContextOverloads
                                                                                   h
   
   export
-  readPixels2 :  (obj : WebGL2RenderingContextOverloads)
+  readPixels2 :  JSType t1
+              => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+              -> (obj : t1)
               -> (x : Int32)
               -> (y : Int32)
               -> (width : Int32)
@@ -3298,7 +3441,7 @@ namespace WebGL2RenderingContextOverloads
               -> (dstOffset : UInt32)
               -> JSIO ()
   readPixels2 a b c d e f g h i = primJS
-                                $ WebGL2RenderingContextOverloads.prim__readPixels2 a
+                                $ WebGL2RenderingContextOverloads.prim__readPixels2 (up a)
                                                                                     b
                                                                                     c
                                                                                     d
@@ -3309,7 +3452,9 @@ namespace WebGL2RenderingContextOverloads
                                                                                     i
   
   export
-  texImage2D :  (obj : WebGL2RenderingContextOverloads)
+  texImage2D :  JSType t1
+             => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+             -> (obj : t1)
              -> (target : UInt32)
              -> (level : Int32)
              -> (internalformat : Int32)
@@ -3331,7 +3476,7 @@ namespace WebGL2RenderingContextOverloads
                                       ]))
              -> JSIO ()
   texImage2D a b c d e f g h i j = primJS
-                                 $ WebGL2RenderingContextOverloads.prim__texImage2D a
+                                 $ WebGL2RenderingContextOverloads.prim__texImage2D (up a)
                                                                                     b
                                                                                     c
                                                                                     d
@@ -3343,7 +3488,9 @@ namespace WebGL2RenderingContextOverloads
                                                                                     (toFFI j)
   
   export
-  texImage2D1 :  (obj : WebGL2RenderingContextOverloads)
+  texImage2D1 :  JSType t1
+              => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+              -> (obj : t1)
               -> (target : UInt32)
               -> (level : Int32)
               -> (internalformat : Int32)
@@ -3358,7 +3505,7 @@ namespace WebGL2RenderingContextOverloads
                                 ])
               -> JSIO ()
   texImage2D1 a b c d e f g = primJS
-                            $ WebGL2RenderingContextOverloads.prim__texImage2D1 a
+                            $ WebGL2RenderingContextOverloads.prim__texImage2D1 (up a)
                                                                                 b
                                                                                 c
                                                                                 d
@@ -3367,7 +3514,9 @@ namespace WebGL2RenderingContextOverloads
                                                                                 (toFFI g)
   
   export
-  texImage2D2 :  (obj : WebGL2RenderingContextOverloads)
+  texImage2D2 :  JSType t1
+              => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+              -> (obj : t1)
               -> (target : UInt32)
               -> (level : Int32)
               -> (internalformat : Int32)
@@ -3379,7 +3528,7 @@ namespace WebGL2RenderingContextOverloads
               -> (pboOffset : Int64)
               -> JSIO ()
   texImage2D2 a b c d e f g h i j = primJS
-                                  $ WebGL2RenderingContextOverloads.prim__texImage2D2 a
+                                  $ WebGL2RenderingContextOverloads.prim__texImage2D2 (up a)
                                                                                       b
                                                                                       c
                                                                                       d
@@ -3391,7 +3540,9 @@ namespace WebGL2RenderingContextOverloads
                                                                                       j
   
   export
-  texImage2D3 :  (obj : WebGL2RenderingContextOverloads)
+  texImage2D3 :  JSType t1
+              => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+              -> (obj : t1)
               -> (target : UInt32)
               -> (level : Int32)
               -> (internalformat : Int32)
@@ -3409,7 +3560,7 @@ namespace WebGL2RenderingContextOverloads
                                 ])
               -> JSIO ()
   texImage2D3 a b c d e f g h i j = primJS
-                                  $ WebGL2RenderingContextOverloads.prim__texImage2D3 a
+                                  $ WebGL2RenderingContextOverloads.prim__texImage2D3 (up a)
                                                                                       b
                                                                                       c
                                                                                       d
@@ -3421,7 +3572,9 @@ namespace WebGL2RenderingContextOverloads
                                                                                       (toFFI j)
   
   export
-  texImage2D4 :  (obj : WebGL2RenderingContextOverloads)
+  texImage2D4 :  JSType t1
+              => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+              -> (obj : t1)
               -> (target : UInt32)
               -> (level : Int32)
               -> (internalformat : Int32)
@@ -3444,7 +3597,7 @@ namespace WebGL2RenderingContextOverloads
               -> (srcOffset : UInt32)
               -> JSIO ()
   texImage2D4 a b c d e f g h i j k = primJS
-                                    $ WebGL2RenderingContextOverloads.prim__texImage2D4 a
+                                    $ WebGL2RenderingContextOverloads.prim__texImage2D4 (up a)
                                                                                         b
                                                                                         c
                                                                                         d
@@ -3457,7 +3610,9 @@ namespace WebGL2RenderingContextOverloads
                                                                                         k
   
   export
-  texSubImage2D :  (obj : WebGL2RenderingContextOverloads)
+  texSubImage2D :  JSType t1
+                => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+                -> (obj : t1)
                 -> (target : UInt32)
                 -> (level : Int32)
                 -> (xoffset : Int32)
@@ -3479,7 +3634,7 @@ namespace WebGL2RenderingContextOverloads
                                          ]))
                 -> JSIO ()
   texSubImage2D a b c d e f g h i j = primJS
-                                    $ WebGL2RenderingContextOverloads.prim__texSubImage2D a
+                                    $ WebGL2RenderingContextOverloads.prim__texSubImage2D (up a)
                                                                                           b
                                                                                           c
                                                                                           d
@@ -3491,7 +3646,9 @@ namespace WebGL2RenderingContextOverloads
                                                                                           (toFFI j)
   
   export
-  texSubImage2D1 :  (obj : WebGL2RenderingContextOverloads)
+  texSubImage2D1 :  JSType t1
+                 => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+                 -> (obj : t1)
                  -> (target : UInt32)
                  -> (level : Int32)
                  -> (xoffset : Int32)
@@ -3507,7 +3664,7 @@ namespace WebGL2RenderingContextOverloads
                                    ])
                  -> JSIO ()
   texSubImage2D1 a b c d e f g h = primJS
-                                 $ WebGL2RenderingContextOverloads.prim__texSubImage2D1 a
+                                 $ WebGL2RenderingContextOverloads.prim__texSubImage2D1 (up a)
                                                                                         b
                                                                                         c
                                                                                         d
@@ -3517,7 +3674,9 @@ namespace WebGL2RenderingContextOverloads
                                                                                         (toFFI h)
   
   export
-  texSubImage2D2 :  (obj : WebGL2RenderingContextOverloads)
+  texSubImage2D2 :  JSType t1
+                 => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+                 -> (obj : t1)
                  -> (target : UInt32)
                  -> (level : Int32)
                  -> (xoffset : Int32)
@@ -3529,7 +3688,7 @@ namespace WebGL2RenderingContextOverloads
                  -> (pboOffset : Int64)
                  -> JSIO ()
   texSubImage2D2 a b c d e f g h i j = primJS
-                                     $ WebGL2RenderingContextOverloads.prim__texSubImage2D2 a
+                                     $ WebGL2RenderingContextOverloads.prim__texSubImage2D2 (up a)
                                                                                             b
                                                                                             c
                                                                                             d
@@ -3541,7 +3700,9 @@ namespace WebGL2RenderingContextOverloads
                                                                                             j
   
   export
-  texSubImage2D3 :  (obj : WebGL2RenderingContextOverloads)
+  texSubImage2D3 :  JSType t1
+                 => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+                 -> (obj : t1)
                  -> (target : UInt32)
                  -> (level : Int32)
                  -> (xoffset : Int32)
@@ -3559,7 +3720,7 @@ namespace WebGL2RenderingContextOverloads
                                    ])
                  -> JSIO ()
   texSubImage2D3 a b c d e f g h i j = primJS
-                                     $ WebGL2RenderingContextOverloads.prim__texSubImage2D3 a
+                                     $ WebGL2RenderingContextOverloads.prim__texSubImage2D3 (up a)
                                                                                             b
                                                                                             c
                                                                                             d
@@ -3571,7 +3732,9 @@ namespace WebGL2RenderingContextOverloads
                                                                                             (toFFI j)
   
   export
-  texSubImage2D4 :  (obj : WebGL2RenderingContextOverloads)
+  texSubImage2D4 :  JSType t1
+                 => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+                 -> (obj : t1)
                  -> (target : UInt32)
                  -> (level : Int32)
                  -> (xoffset : Int32)
@@ -3594,7 +3757,7 @@ namespace WebGL2RenderingContextOverloads
                  -> (srcOffset : UInt32)
                  -> JSIO ()
   texSubImage2D4 a b c d e f g h i j k = primJS
-                                       $ WebGL2RenderingContextOverloads.prim__texSubImage2D4 a
+                                       $ WebGL2RenderingContextOverloads.prim__texSubImage2D4 (up a)
                                                                                               b
                                                                                               c
                                                                                               d
@@ -3608,257 +3771,257 @@ namespace WebGL2RenderingContextOverloads
   
   export
   uniform1fv :  JSType t1
-             => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-             -> (obj : WebGL2RenderingContextOverloads)
-             -> (location : Maybe t1)
+             => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+             -> (obj : t1)
+             -> (location : Maybe WebGLUniformLocation)
              -> (data_ : NS I [ Float32Array , Array Double ])
              -> (srcOffset : Optional UInt32)
              -> (srcLength : Optional UInt32)
              -> JSIO ()
   uniform1fv a b c d e = primJS
-                       $ WebGL2RenderingContextOverloads.prim__uniform1fv a
-                                                                          (mayUp b)
+                       $ WebGL2RenderingContextOverloads.prim__uniform1fv (up a)
+                                                                          (toFFI b)
                                                                           (toFFI c)
                                                                           (toFFI d)
                                                                           (toFFI e)
 
   export
   uniform1fv' :  JSType t1
-              => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-              -> (obj : WebGL2RenderingContextOverloads)
-              -> (location : Maybe t1)
+              => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+              -> (obj : t1)
+              -> (location : Maybe WebGLUniformLocation)
               -> (data_ : NS I [ Float32Array , Array Double ])
               -> JSIO ()
   uniform1fv' a b c = primJS
-                    $ WebGL2RenderingContextOverloads.prim__uniform1fv a
-                                                                       (mayUp b)
+                    $ WebGL2RenderingContextOverloads.prim__uniform1fv (up a)
+                                                                       (toFFI b)
                                                                        (toFFI c)
                                                                        undef
                                                                        undef
   
   export
   uniform1iv :  JSType t1
-             => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-             -> (obj : WebGL2RenderingContextOverloads)
-             -> (location : Maybe t1)
+             => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+             -> (obj : t1)
+             -> (location : Maybe WebGLUniformLocation)
              -> (data_ : NS I [ Int32Array , Array Int32 ])
              -> (srcOffset : Optional UInt32)
              -> (srcLength : Optional UInt32)
              -> JSIO ()
   uniform1iv a b c d e = primJS
-                       $ WebGL2RenderingContextOverloads.prim__uniform1iv a
-                                                                          (mayUp b)
+                       $ WebGL2RenderingContextOverloads.prim__uniform1iv (up a)
+                                                                          (toFFI b)
                                                                           (toFFI c)
                                                                           (toFFI d)
                                                                           (toFFI e)
 
   export
   uniform1iv' :  JSType t1
-              => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-              -> (obj : WebGL2RenderingContextOverloads)
-              -> (location : Maybe t1)
+              => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+              -> (obj : t1)
+              -> (location : Maybe WebGLUniformLocation)
               -> (data_ : NS I [ Int32Array , Array Int32 ])
               -> JSIO ()
   uniform1iv' a b c = primJS
-                    $ WebGL2RenderingContextOverloads.prim__uniform1iv a
-                                                                       (mayUp b)
+                    $ WebGL2RenderingContextOverloads.prim__uniform1iv (up a)
+                                                                       (toFFI b)
                                                                        (toFFI c)
                                                                        undef
                                                                        undef
   
   export
   uniform2fv :  JSType t1
-             => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-             -> (obj : WebGL2RenderingContextOverloads)
-             -> (location : Maybe t1)
+             => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+             -> (obj : t1)
+             -> (location : Maybe WebGLUniformLocation)
              -> (data_ : NS I [ Float32Array , Array Double ])
              -> (srcOffset : Optional UInt32)
              -> (srcLength : Optional UInt32)
              -> JSIO ()
   uniform2fv a b c d e = primJS
-                       $ WebGL2RenderingContextOverloads.prim__uniform2fv a
-                                                                          (mayUp b)
+                       $ WebGL2RenderingContextOverloads.prim__uniform2fv (up a)
+                                                                          (toFFI b)
                                                                           (toFFI c)
                                                                           (toFFI d)
                                                                           (toFFI e)
 
   export
   uniform2fv' :  JSType t1
-              => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-              -> (obj : WebGL2RenderingContextOverloads)
-              -> (location : Maybe t1)
+              => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+              -> (obj : t1)
+              -> (location : Maybe WebGLUniformLocation)
               -> (data_ : NS I [ Float32Array , Array Double ])
               -> JSIO ()
   uniform2fv' a b c = primJS
-                    $ WebGL2RenderingContextOverloads.prim__uniform2fv a
-                                                                       (mayUp b)
+                    $ WebGL2RenderingContextOverloads.prim__uniform2fv (up a)
+                                                                       (toFFI b)
                                                                        (toFFI c)
                                                                        undef
                                                                        undef
   
   export
   uniform2iv :  JSType t1
-             => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-             -> (obj : WebGL2RenderingContextOverloads)
-             -> (location : Maybe t1)
+             => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+             -> (obj : t1)
+             -> (location : Maybe WebGLUniformLocation)
              -> (data_ : NS I [ Int32Array , Array Int32 ])
              -> (srcOffset : Optional UInt32)
              -> (srcLength : Optional UInt32)
              -> JSIO ()
   uniform2iv a b c d e = primJS
-                       $ WebGL2RenderingContextOverloads.prim__uniform2iv a
-                                                                          (mayUp b)
+                       $ WebGL2RenderingContextOverloads.prim__uniform2iv (up a)
+                                                                          (toFFI b)
                                                                           (toFFI c)
                                                                           (toFFI d)
                                                                           (toFFI e)
 
   export
   uniform2iv' :  JSType t1
-              => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-              -> (obj : WebGL2RenderingContextOverloads)
-              -> (location : Maybe t1)
+              => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+              -> (obj : t1)
+              -> (location : Maybe WebGLUniformLocation)
               -> (data_ : NS I [ Int32Array , Array Int32 ])
               -> JSIO ()
   uniform2iv' a b c = primJS
-                    $ WebGL2RenderingContextOverloads.prim__uniform2iv a
-                                                                       (mayUp b)
+                    $ WebGL2RenderingContextOverloads.prim__uniform2iv (up a)
+                                                                       (toFFI b)
                                                                        (toFFI c)
                                                                        undef
                                                                        undef
   
   export
   uniform3fv :  JSType t1
-             => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-             -> (obj : WebGL2RenderingContextOverloads)
-             -> (location : Maybe t1)
+             => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+             -> (obj : t1)
+             -> (location : Maybe WebGLUniformLocation)
              -> (data_ : NS I [ Float32Array , Array Double ])
              -> (srcOffset : Optional UInt32)
              -> (srcLength : Optional UInt32)
              -> JSIO ()
   uniform3fv a b c d e = primJS
-                       $ WebGL2RenderingContextOverloads.prim__uniform3fv a
-                                                                          (mayUp b)
+                       $ WebGL2RenderingContextOverloads.prim__uniform3fv (up a)
+                                                                          (toFFI b)
                                                                           (toFFI c)
                                                                           (toFFI d)
                                                                           (toFFI e)
 
   export
   uniform3fv' :  JSType t1
-              => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-              -> (obj : WebGL2RenderingContextOverloads)
-              -> (location : Maybe t1)
+              => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+              -> (obj : t1)
+              -> (location : Maybe WebGLUniformLocation)
               -> (data_ : NS I [ Float32Array , Array Double ])
               -> JSIO ()
   uniform3fv' a b c = primJS
-                    $ WebGL2RenderingContextOverloads.prim__uniform3fv a
-                                                                       (mayUp b)
+                    $ WebGL2RenderingContextOverloads.prim__uniform3fv (up a)
+                                                                       (toFFI b)
                                                                        (toFFI c)
                                                                        undef
                                                                        undef
   
   export
   uniform3iv :  JSType t1
-             => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-             -> (obj : WebGL2RenderingContextOverloads)
-             -> (location : Maybe t1)
+             => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+             -> (obj : t1)
+             -> (location : Maybe WebGLUniformLocation)
              -> (data_ : NS I [ Int32Array , Array Int32 ])
              -> (srcOffset : Optional UInt32)
              -> (srcLength : Optional UInt32)
              -> JSIO ()
   uniform3iv a b c d e = primJS
-                       $ WebGL2RenderingContextOverloads.prim__uniform3iv a
-                                                                          (mayUp b)
+                       $ WebGL2RenderingContextOverloads.prim__uniform3iv (up a)
+                                                                          (toFFI b)
                                                                           (toFFI c)
                                                                           (toFFI d)
                                                                           (toFFI e)
 
   export
   uniform3iv' :  JSType t1
-              => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-              -> (obj : WebGL2RenderingContextOverloads)
-              -> (location : Maybe t1)
+              => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+              -> (obj : t1)
+              -> (location : Maybe WebGLUniformLocation)
               -> (data_ : NS I [ Int32Array , Array Int32 ])
               -> JSIO ()
   uniform3iv' a b c = primJS
-                    $ WebGL2RenderingContextOverloads.prim__uniform3iv a
-                                                                       (mayUp b)
+                    $ WebGL2RenderingContextOverloads.prim__uniform3iv (up a)
+                                                                       (toFFI b)
                                                                        (toFFI c)
                                                                        undef
                                                                        undef
   
   export
   uniform4fv :  JSType t1
-             => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-             -> (obj : WebGL2RenderingContextOverloads)
-             -> (location : Maybe t1)
+             => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+             -> (obj : t1)
+             -> (location : Maybe WebGLUniformLocation)
              -> (data_ : NS I [ Float32Array , Array Double ])
              -> (srcOffset : Optional UInt32)
              -> (srcLength : Optional UInt32)
              -> JSIO ()
   uniform4fv a b c d e = primJS
-                       $ WebGL2RenderingContextOverloads.prim__uniform4fv a
-                                                                          (mayUp b)
+                       $ WebGL2RenderingContextOverloads.prim__uniform4fv (up a)
+                                                                          (toFFI b)
                                                                           (toFFI c)
                                                                           (toFFI d)
                                                                           (toFFI e)
 
   export
   uniform4fv' :  JSType t1
-              => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-              -> (obj : WebGL2RenderingContextOverloads)
-              -> (location : Maybe t1)
+              => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+              -> (obj : t1)
+              -> (location : Maybe WebGLUniformLocation)
               -> (data_ : NS I [ Float32Array , Array Double ])
               -> JSIO ()
   uniform4fv' a b c = primJS
-                    $ WebGL2RenderingContextOverloads.prim__uniform4fv a
-                                                                       (mayUp b)
+                    $ WebGL2RenderingContextOverloads.prim__uniform4fv (up a)
+                                                                       (toFFI b)
                                                                        (toFFI c)
                                                                        undef
                                                                        undef
   
   export
   uniform4iv :  JSType t1
-             => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-             -> (obj : WebGL2RenderingContextOverloads)
-             -> (location : Maybe t1)
+             => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+             -> (obj : t1)
+             -> (location : Maybe WebGLUniformLocation)
              -> (data_ : NS I [ Int32Array , Array Int32 ])
              -> (srcOffset : Optional UInt32)
              -> (srcLength : Optional UInt32)
              -> JSIO ()
   uniform4iv a b c d e = primJS
-                       $ WebGL2RenderingContextOverloads.prim__uniform4iv a
-                                                                          (mayUp b)
+                       $ WebGL2RenderingContextOverloads.prim__uniform4iv (up a)
+                                                                          (toFFI b)
                                                                           (toFFI c)
                                                                           (toFFI d)
                                                                           (toFFI e)
 
   export
   uniform4iv' :  JSType t1
-              => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-              -> (obj : WebGL2RenderingContextOverloads)
-              -> (location : Maybe t1)
+              => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+              -> (obj : t1)
+              -> (location : Maybe WebGLUniformLocation)
               -> (data_ : NS I [ Int32Array , Array Int32 ])
               -> JSIO ()
   uniform4iv' a b c = primJS
-                    $ WebGL2RenderingContextOverloads.prim__uniform4iv a
-                                                                       (mayUp b)
+                    $ WebGL2RenderingContextOverloads.prim__uniform4iv (up a)
+                                                                       (toFFI b)
                                                                        (toFFI c)
                                                                        undef
                                                                        undef
   
   export
   uniformMatrix2fv :  JSType t1
-                   => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-                   -> (obj : WebGL2RenderingContextOverloads)
-                   -> (location : Maybe t1)
+                   => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+                   -> (obj : t1)
+                   -> (location : Maybe WebGLUniformLocation)
                    -> (transpose : Bool)
                    -> (data_ : NS I [ Float32Array , Array Double ])
                    -> (srcOffset : Optional UInt32)
                    -> (srcLength : Optional UInt32)
                    -> JSIO ()
   uniformMatrix2fv a b c d e f = primJS
-                               $ WebGL2RenderingContextOverloads.prim__uniformMatrix2fv a
-                                                                                        (mayUp b)
+                               $ WebGL2RenderingContextOverloads.prim__uniformMatrix2fv (up a)
+                                                                                        (toFFI b)
                                                                                         (toFFI c)
                                                                                         (toFFI d)
                                                                                         (toFFI e)
@@ -3866,15 +4029,15 @@ namespace WebGL2RenderingContextOverloads
 
   export
   uniformMatrix2fv' :  JSType t1
-                    => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-                    -> (obj : WebGL2RenderingContextOverloads)
-                    -> (location : Maybe t1)
+                    => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+                    -> (obj : t1)
+                    -> (location : Maybe WebGLUniformLocation)
                     -> (transpose : Bool)
                     -> (data_ : NS I [ Float32Array , Array Double ])
                     -> JSIO ()
   uniformMatrix2fv' a b c d = primJS
-                            $ WebGL2RenderingContextOverloads.prim__uniformMatrix2fv a
-                                                                                     (mayUp b)
+                            $ WebGL2RenderingContextOverloads.prim__uniformMatrix2fv (up a)
+                                                                                     (toFFI b)
                                                                                      (toFFI c)
                                                                                      (toFFI d)
                                                                                      undef
@@ -3882,17 +4045,17 @@ namespace WebGL2RenderingContextOverloads
   
   export
   uniformMatrix3fv :  JSType t1
-                   => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-                   -> (obj : WebGL2RenderingContextOverloads)
-                   -> (location : Maybe t1)
+                   => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+                   -> (obj : t1)
+                   -> (location : Maybe WebGLUniformLocation)
                    -> (transpose : Bool)
                    -> (data_ : NS I [ Float32Array , Array Double ])
                    -> (srcOffset : Optional UInt32)
                    -> (srcLength : Optional UInt32)
                    -> JSIO ()
   uniformMatrix3fv a b c d e f = primJS
-                               $ WebGL2RenderingContextOverloads.prim__uniformMatrix3fv a
-                                                                                        (mayUp b)
+                               $ WebGL2RenderingContextOverloads.prim__uniformMatrix3fv (up a)
+                                                                                        (toFFI b)
                                                                                         (toFFI c)
                                                                                         (toFFI d)
                                                                                         (toFFI e)
@@ -3900,15 +4063,15 @@ namespace WebGL2RenderingContextOverloads
 
   export
   uniformMatrix3fv' :  JSType t1
-                    => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-                    -> (obj : WebGL2RenderingContextOverloads)
-                    -> (location : Maybe t1)
+                    => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+                    -> (obj : t1)
+                    -> (location : Maybe WebGLUniformLocation)
                     -> (transpose : Bool)
                     -> (data_ : NS I [ Float32Array , Array Double ])
                     -> JSIO ()
   uniformMatrix3fv' a b c d = primJS
-                            $ WebGL2RenderingContextOverloads.prim__uniformMatrix3fv a
-                                                                                     (mayUp b)
+                            $ WebGL2RenderingContextOverloads.prim__uniformMatrix3fv (up a)
+                                                                                     (toFFI b)
                                                                                      (toFFI c)
                                                                                      (toFFI d)
                                                                                      undef
@@ -3916,17 +4079,17 @@ namespace WebGL2RenderingContextOverloads
   
   export
   uniformMatrix4fv :  JSType t1
-                   => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-                   -> (obj : WebGL2RenderingContextOverloads)
-                   -> (location : Maybe t1)
+                   => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+                   -> (obj : t1)
+                   -> (location : Maybe WebGLUniformLocation)
                    -> (transpose : Bool)
                    -> (data_ : NS I [ Float32Array , Array Double ])
                    -> (srcOffset : Optional UInt32)
                    -> (srcLength : Optional UInt32)
                    -> JSIO ()
   uniformMatrix4fv a b c d e f = primJS
-                               $ WebGL2RenderingContextOverloads.prim__uniformMatrix4fv a
-                                                                                        (mayUp b)
+                               $ WebGL2RenderingContextOverloads.prim__uniformMatrix4fv (up a)
+                                                                                        (toFFI b)
                                                                                         (toFFI c)
                                                                                         (toFFI d)
                                                                                         (toFFI e)
@@ -3934,15 +4097,15 @@ namespace WebGL2RenderingContextOverloads
 
   export
   uniformMatrix4fv' :  JSType t1
-                    => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-                    -> (obj : WebGL2RenderingContextOverloads)
-                    -> (location : Maybe t1)
+                    => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+                    -> (obj : t1)
+                    -> (location : Maybe WebGLUniformLocation)
                     -> (transpose : Bool)
                     -> (data_ : NS I [ Float32Array , Array Double ])
                     -> JSIO ()
   uniformMatrix4fv' a b c d = primJS
-                            $ WebGL2RenderingContextOverloads.prim__uniformMatrix4fv a
-                                                                                     (mayUp b)
+                            $ WebGL2RenderingContextOverloads.prim__uniformMatrix4fv (up a)
+                                                                                     (toFFI b)
                                                                                      (toFFI c)
                                                                                      (toFFI d)
                                                                                      undef
@@ -5135,185 +5298,235 @@ namespace WebGLRenderingContextBase
   ZERO = 0
   
   export
-  canvas :  (obj : WebGLRenderingContextBase)
+  canvas :  JSType t1
+         => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+         -> (obj : t1)
          -> JSIO (NS I [ HTMLCanvasElement , OffscreenCanvas ])
   canvas a = tryJS "WebGLRenderingContextBase.canvas"
-           $ WebGLRenderingContextBase.prim__canvas a
+           $ WebGLRenderingContextBase.prim__canvas (up a)
   
   export
-  drawingBufferHeight : (obj : WebGLRenderingContextBase) -> JSIO Int32
+  drawingBufferHeight :  JSType t1
+                      => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                      -> (obj : t1)
+                      -> JSIO Int32
   drawingBufferHeight a = primJS
-                        $ WebGLRenderingContextBase.prim__drawingBufferHeight a
+                        $ WebGLRenderingContextBase.prim__drawingBufferHeight (up a)
   
   export
-  drawingBufferWidth : (obj : WebGLRenderingContextBase) -> JSIO Int32
+  drawingBufferWidth :  JSType t1
+                     => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                     -> (obj : t1)
+                     -> JSIO Int32
   drawingBufferWidth a = primJS
-                       $ WebGLRenderingContextBase.prim__drawingBufferWidth a
+                       $ WebGLRenderingContextBase.prim__drawingBufferWidth (up a)
   
   export
-  activeTexture :  (obj : WebGLRenderingContextBase)
+  activeTexture :  JSType t1
+                => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                -> (obj : t1)
                 -> (texture : UInt32)
                 -> JSIO ()
-  activeTexture a b = primJS $ WebGLRenderingContextBase.prim__activeTexture a b
+  activeTexture a b = primJS
+                    $ WebGLRenderingContextBase.prim__activeTexture (up a) b
   
   export
   attachShader :  JSType t1
-               => JSType t2
-               => {auto 0 _ : Elem WebGLProgram (Types t1)}
-               -> {auto 0 _ : Elem WebGLShader (Types t2)}
-               -> (obj : WebGLRenderingContextBase)
-               -> (program : t1)
-               -> (shader : t2)
+               => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+               -> (obj : t1)
+               -> (program : WebGLProgram)
+               -> (shader : WebGLShader)
                -> JSIO ()
   attachShader a b c = primJS
-                     $ WebGLRenderingContextBase.prim__attachShader a
-                                                                    (up b)
-                                                                    (up c)
+                     $ WebGLRenderingContextBase.prim__attachShader (up a) b c
   
   export
   bindAttribLocation :  JSType t1
-                     => {auto 0 _ : Elem WebGLProgram (Types t1)}
-                     -> (obj : WebGLRenderingContextBase)
-                     -> (program : t1)
+                     => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                     -> (obj : t1)
+                     -> (program : WebGLProgram)
                      -> (index : UInt32)
                      -> (name : String)
                      -> JSIO ()
   bindAttribLocation a b c d = primJS
-                             $ WebGLRenderingContextBase.prim__bindAttribLocation a
-                                                                                  (up b)
+                             $ WebGLRenderingContextBase.prim__bindAttribLocation (up a)
+                                                                                  b
                                                                                   c
                                                                                   d
   
   export
   bindBuffer :  JSType t1
-             => {auto 0 _ : Elem WebGLBuffer (Types t1)}
-             -> (obj : WebGLRenderingContextBase)
+             => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+             -> (obj : t1)
              -> (target : UInt32)
-             -> (buffer : Maybe t1)
+             -> (buffer : Maybe WebGLBuffer)
              -> JSIO ()
   bindBuffer a b c = primJS
-                   $ WebGLRenderingContextBase.prim__bindBuffer a b (mayUp c)
+                   $ WebGLRenderingContextBase.prim__bindBuffer (up a)
+                                                                b
+                                                                (toFFI c)
   
   export
   bindFramebuffer :  JSType t1
-                  => {auto 0 _ : Elem WebGLFramebuffer (Types t1)}
-                  -> (obj : WebGLRenderingContextBase)
+                  => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                  -> (obj : t1)
                   -> (target : UInt32)
-                  -> (framebuffer : Maybe t1)
+                  -> (framebuffer : Maybe WebGLFramebuffer)
                   -> JSIO ()
   bindFramebuffer a b c = primJS
-                        $ WebGLRenderingContextBase.prim__bindFramebuffer a
+                        $ WebGLRenderingContextBase.prim__bindFramebuffer (up a)
                                                                           b
-                                                                          (mayUp c)
+                                                                          (toFFI c)
   
   export
   bindRenderbuffer :  JSType t1
-                   => {auto 0 _ : Elem WebGLRenderbuffer (Types t1)}
-                   -> (obj : WebGLRenderingContextBase)
+                   => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                   -> (obj : t1)
                    -> (target : UInt32)
-                   -> (renderbuffer : Maybe t1)
+                   -> (renderbuffer : Maybe WebGLRenderbuffer)
                    -> JSIO ()
   bindRenderbuffer a b c = primJS
-                         $ WebGLRenderingContextBase.prim__bindRenderbuffer a
+                         $ WebGLRenderingContextBase.prim__bindRenderbuffer (up a)
                                                                             b
-                                                                            (mayUp c)
+                                                                            (toFFI c)
   
   export
   bindTexture :  JSType t1
-              => {auto 0 _ : Elem WebGLTexture (Types t1)}
-              -> (obj : WebGLRenderingContextBase)
+              => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+              -> (obj : t1)
               -> (target : UInt32)
-              -> (texture : Maybe t1)
+              -> (texture : Maybe WebGLTexture)
               -> JSIO ()
   bindTexture a b c = primJS
-                    $ WebGLRenderingContextBase.prim__bindTexture a b (mayUp c)
+                    $ WebGLRenderingContextBase.prim__bindTexture (up a)
+                                                                  b
+                                                                  (toFFI c)
   
   export
-  blendColor :  (obj : WebGLRenderingContextBase)
+  blendColor :  JSType t1
+             => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+             -> (obj : t1)
              -> (red : Double)
              -> (green : Double)
              -> (blue : Double)
              -> (alpha : Double)
              -> JSIO ()
   blendColor a b c d e = primJS
-                       $ WebGLRenderingContextBase.prim__blendColor a b c d e
+                       $ WebGLRenderingContextBase.prim__blendColor (up a)
+                                                                    b
+                                                                    c
+                                                                    d
+                                                                    e
   
   export
-  blendEquationSeparate :  (obj : WebGLRenderingContextBase)
+  blendEquationSeparate :  JSType t1
+                        => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                        -> (obj : t1)
                         -> (modeRGB : UInt32)
                         -> (modeAlpha : UInt32)
                         -> JSIO ()
   blendEquationSeparate a b c = primJS
-                              $ WebGLRenderingContextBase.prim__blendEquationSeparate a
+                              $ WebGLRenderingContextBase.prim__blendEquationSeparate (up a)
                                                                                       b
                                                                                       c
   
   export
-  blendEquation :  (obj : WebGLRenderingContextBase)
+  blendEquation :  JSType t1
+                => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                -> (obj : t1)
                 -> (mode : UInt32)
                 -> JSIO ()
-  blendEquation a b = primJS $ WebGLRenderingContextBase.prim__blendEquation a b
+  blendEquation a b = primJS
+                    $ WebGLRenderingContextBase.prim__blendEquation (up a) b
   
   export
-  blendFuncSeparate :  (obj : WebGLRenderingContextBase)
+  blendFuncSeparate :  JSType t1
+                    => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                    -> (obj : t1)
                     -> (srcRGB : UInt32)
                     -> (dstRGB : UInt32)
                     -> (srcAlpha : UInt32)
                     -> (dstAlpha : UInt32)
                     -> JSIO ()
   blendFuncSeparate a b c d e = primJS
-                              $ WebGLRenderingContextBase.prim__blendFuncSeparate a
+                              $ WebGLRenderingContextBase.prim__blendFuncSeparate (up a)
                                                                                   b
                                                                                   c
                                                                                   d
                                                                                   e
   
   export
-  blendFunc :  (obj : WebGLRenderingContextBase)
+  blendFunc :  JSType t1
+            => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+            -> (obj : t1)
             -> (sfactor : UInt32)
             -> (dfactor : UInt32)
             -> JSIO ()
-  blendFunc a b c = primJS $ WebGLRenderingContextBase.prim__blendFunc a b c
+  blendFunc a b c = primJS
+                  $ WebGLRenderingContextBase.prim__blendFunc (up a) b c
   
   export
-  checkFramebufferStatus :  (obj : WebGLRenderingContextBase)
+  checkFramebufferStatus :  JSType t1
+                         => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                         -> (obj : t1)
                          -> (target : UInt32)
                          -> JSIO UInt32
   checkFramebufferStatus a b = primJS
-                             $ WebGLRenderingContextBase.prim__checkFramebufferStatus a
+                             $ WebGLRenderingContextBase.prim__checkFramebufferStatus (up a)
                                                                                       b
   
   export
-  clearColor :  (obj : WebGLRenderingContextBase)
+  clearColor :  JSType t1
+             => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+             -> (obj : t1)
              -> (red : Double)
              -> (green : Double)
              -> (blue : Double)
              -> (alpha : Double)
              -> JSIO ()
   clearColor a b c d e = primJS
-                       $ WebGLRenderingContextBase.prim__clearColor a b c d e
+                       $ WebGLRenderingContextBase.prim__clearColor (up a)
+                                                                    b
+                                                                    c
+                                                                    d
+                                                                    e
   
   export
-  clearDepth : (obj : WebGLRenderingContextBase) -> (depth : Double) -> JSIO ()
-  clearDepth a b = primJS $ WebGLRenderingContextBase.prim__clearDepth a b
+  clearDepth :  JSType t1
+             => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+             -> (obj : t1)
+             -> (depth : Double)
+             -> JSIO ()
+  clearDepth a b = primJS $ WebGLRenderingContextBase.prim__clearDepth (up a) b
   
   export
-  clearStencil : (obj : WebGLRenderingContextBase) -> (s : Int32) -> JSIO ()
-  clearStencil a b = primJS $ WebGLRenderingContextBase.prim__clearStencil a b
+  clearStencil :  JSType t1
+               => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+               -> (obj : t1)
+               -> (s : Int32)
+               -> JSIO ()
+  clearStencil a b = primJS
+                   $ WebGLRenderingContextBase.prim__clearStencil (up a) b
   
   export
-  clear : (obj : WebGLRenderingContextBase) -> (mask : UInt32) -> JSIO ()
-  clear a b = primJS $ WebGLRenderingContextBase.prim__clear a b
+  clear :  JSType t1
+        => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+        -> (obj : t1)
+        -> (mask : UInt32)
+        -> JSIO ()
+  clear a b = primJS $ WebGLRenderingContextBase.prim__clear (up a) b
   
   export
-  colorMask :  (obj : WebGLRenderingContextBase)
+  colorMask :  JSType t1
+            => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+            -> (obj : t1)
             -> (red : Bool)
             -> (green : Bool)
             -> (blue : Bool)
             -> (alpha : Bool)
             -> JSIO ()
   colorMask a b c d e = primJS
-                      $ WebGLRenderingContextBase.prim__colorMask a
+                      $ WebGLRenderingContextBase.prim__colorMask (up a)
                                                                   (toFFI b)
                                                                   (toFFI c)
                                                                   (toFFI d)
@@ -5321,15 +5534,17 @@ namespace WebGLRenderingContextBase
   
   export
   compileShader :  JSType t1
-                => {auto 0 _ : Elem WebGLShader (Types t1)}
-                -> (obj : WebGLRenderingContextBase)
-                -> (shader : t1)
+                => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                -> (obj : t1)
+                -> (shader : WebGLShader)
                 -> JSIO ()
   compileShader a b = primJS
-                    $ WebGLRenderingContextBase.prim__compileShader a (up b)
+                    $ WebGLRenderingContextBase.prim__compileShader (up a) b
   
   export
-  copyTexImage2D :  (obj : WebGLRenderingContextBase)
+  copyTexImage2D :  JSType t1
+                 => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                 -> (obj : t1)
                  -> (target : UInt32)
                  -> (level : Int32)
                  -> (internalformat : UInt32)
@@ -5340,7 +5555,7 @@ namespace WebGLRenderingContextBase
                  -> (border : Int32)
                  -> JSIO ()
   copyTexImage2D a b c d e f g h i = primJS
-                                   $ WebGLRenderingContextBase.prim__copyTexImage2D a
+                                   $ WebGLRenderingContextBase.prim__copyTexImage2D (up a)
                                                                                     b
                                                                                     c
                                                                                     d
@@ -5351,7 +5566,9 @@ namespace WebGLRenderingContextBase
                                                                                     i
   
   export
-  copyTexSubImage2D :  (obj : WebGLRenderingContextBase)
+  copyTexSubImage2D :  JSType t1
+                    => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                    -> (obj : t1)
                     -> (target : UInt32)
                     -> (level : Int32)
                     -> (xoffset : Int32)
@@ -5362,7 +5579,7 @@ namespace WebGLRenderingContextBase
                     -> (height : Int32)
                     -> JSIO ()
   copyTexSubImage2D a b c d e f g h i = primJS
-                                      $ WebGLRenderingContextBase.prim__copyTexSubImage2D a
+                                      $ WebGLRenderingContextBase.prim__copyTexSubImage2D (up a)
                                                                                           b
                                                                                           c
                                                                                           d
@@ -5373,756 +5590,900 @@ namespace WebGLRenderingContextBase
                                                                                           i
   
   export
-  createBuffer : (obj : WebGLRenderingContextBase) -> JSIO (Maybe WebGLBuffer)
+  createBuffer :  JSType t1
+               => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+               -> (obj : t1)
+               -> JSIO (Maybe WebGLBuffer)
   createBuffer a = tryJS "WebGLRenderingContextBase.createBuffer"
-                 $ WebGLRenderingContextBase.prim__createBuffer a
+                 $ WebGLRenderingContextBase.prim__createBuffer (up a)
   
   export
-  createFramebuffer :  (obj : WebGLRenderingContextBase)
+  createFramebuffer :  JSType t1
+                    => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                    -> (obj : t1)
                     -> JSIO (Maybe WebGLFramebuffer)
   createFramebuffer a = tryJS "WebGLRenderingContextBase.createFramebuffer"
-                      $ WebGLRenderingContextBase.prim__createFramebuffer a
+                      $ WebGLRenderingContextBase.prim__createFramebuffer (up a)
   
   export
-  createProgram : (obj : WebGLRenderingContextBase) -> JSIO (Maybe WebGLProgram)
+  createProgram :  JSType t1
+                => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                -> (obj : t1)
+                -> JSIO (Maybe WebGLProgram)
   createProgram a = tryJS "WebGLRenderingContextBase.createProgram"
-                  $ WebGLRenderingContextBase.prim__createProgram a
+                  $ WebGLRenderingContextBase.prim__createProgram (up a)
   
   export
-  createRenderbuffer :  (obj : WebGLRenderingContextBase)
+  createRenderbuffer :  JSType t1
+                     => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                     -> (obj : t1)
                      -> JSIO (Maybe WebGLRenderbuffer)
   createRenderbuffer a = tryJS "WebGLRenderingContextBase.createRenderbuffer"
-                       $ WebGLRenderingContextBase.prim__createRenderbuffer a
+                       $ WebGLRenderingContextBase.prim__createRenderbuffer (up a)
   
   export
-  createShader :  (obj : WebGLRenderingContextBase)
+  createShader :  JSType t1
+               => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+               -> (obj : t1)
                -> (type : UInt32)
                -> JSIO (Maybe WebGLShader)
   createShader a b = tryJS "WebGLRenderingContextBase.createShader"
-                   $ WebGLRenderingContextBase.prim__createShader a b
+                   $ WebGLRenderingContextBase.prim__createShader (up a) b
   
   export
-  createTexture : (obj : WebGLRenderingContextBase) -> JSIO (Maybe WebGLTexture)
+  createTexture :  JSType t1
+                => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                -> (obj : t1)
+                -> JSIO (Maybe WebGLTexture)
   createTexture a = tryJS "WebGLRenderingContextBase.createTexture"
-                  $ WebGLRenderingContextBase.prim__createTexture a
+                  $ WebGLRenderingContextBase.prim__createTexture (up a)
   
   export
-  cullFace : (obj : WebGLRenderingContextBase) -> (mode : UInt32) -> JSIO ()
-  cullFace a b = primJS $ WebGLRenderingContextBase.prim__cullFace a b
+  cullFace :  JSType t1
+           => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+           -> (obj : t1)
+           -> (mode : UInt32)
+           -> JSIO ()
+  cullFace a b = primJS $ WebGLRenderingContextBase.prim__cullFace (up a) b
   
   export
   deleteBuffer :  JSType t1
-               => {auto 0 _ : Elem WebGLBuffer (Types t1)}
-               -> (obj : WebGLRenderingContextBase)
-               -> (buffer : Maybe t1)
+               => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+               -> (obj : t1)
+               -> (buffer : Maybe WebGLBuffer)
                -> JSIO ()
   deleteBuffer a b = primJS
-                   $ WebGLRenderingContextBase.prim__deleteBuffer a (mayUp b)
+                   $ WebGLRenderingContextBase.prim__deleteBuffer (up a)
+                                                                  (toFFI b)
   
   export
   deleteFramebuffer :  JSType t1
-                    => {auto 0 _ : Elem WebGLFramebuffer (Types t1)}
-                    -> (obj : WebGLRenderingContextBase)
-                    -> (framebuffer : Maybe t1)
+                    => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                    -> (obj : t1)
+                    -> (framebuffer : Maybe WebGLFramebuffer)
                     -> JSIO ()
   deleteFramebuffer a b = primJS
-                        $ WebGLRenderingContextBase.prim__deleteFramebuffer a
-                                                                            (mayUp b)
+                        $ WebGLRenderingContextBase.prim__deleteFramebuffer (up a)
+                                                                            (toFFI b)
   
   export
   deleteProgram :  JSType t1
-                => {auto 0 _ : Elem WebGLProgram (Types t1)}
-                -> (obj : WebGLRenderingContextBase)
-                -> (program : Maybe t1)
+                => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                -> (obj : t1)
+                -> (program : Maybe WebGLProgram)
                 -> JSIO ()
   deleteProgram a b = primJS
-                    $ WebGLRenderingContextBase.prim__deleteProgram a (mayUp b)
+                    $ WebGLRenderingContextBase.prim__deleteProgram (up a)
+                                                                    (toFFI b)
   
   export
   deleteRenderbuffer :  JSType t1
-                     => {auto 0 _ : Elem WebGLRenderbuffer (Types t1)}
-                     -> (obj : WebGLRenderingContextBase)
-                     -> (renderbuffer : Maybe t1)
+                     => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                     -> (obj : t1)
+                     -> (renderbuffer : Maybe WebGLRenderbuffer)
                      -> JSIO ()
   deleteRenderbuffer a b = primJS
-                         $ WebGLRenderingContextBase.prim__deleteRenderbuffer a
-                                                                              (mayUp b)
+                         $ WebGLRenderingContextBase.prim__deleteRenderbuffer (up a)
+                                                                              (toFFI b)
   
   export
   deleteShader :  JSType t1
-               => {auto 0 _ : Elem WebGLShader (Types t1)}
-               -> (obj : WebGLRenderingContextBase)
-               -> (shader : Maybe t1)
+               => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+               -> (obj : t1)
+               -> (shader : Maybe WebGLShader)
                -> JSIO ()
   deleteShader a b = primJS
-                   $ WebGLRenderingContextBase.prim__deleteShader a (mayUp b)
+                   $ WebGLRenderingContextBase.prim__deleteShader (up a)
+                                                                  (toFFI b)
   
   export
   deleteTexture :  JSType t1
-                => {auto 0 _ : Elem WebGLTexture (Types t1)}
-                -> (obj : WebGLRenderingContextBase)
-                -> (texture : Maybe t1)
+                => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                -> (obj : t1)
+                -> (texture : Maybe WebGLTexture)
                 -> JSIO ()
   deleteTexture a b = primJS
-                    $ WebGLRenderingContextBase.prim__deleteTexture a (mayUp b)
+                    $ WebGLRenderingContextBase.prim__deleteTexture (up a)
+                                                                    (toFFI b)
   
   export
-  depthFunc : (obj : WebGLRenderingContextBase) -> (func : UInt32) -> JSIO ()
-  depthFunc a b = primJS $ WebGLRenderingContextBase.prim__depthFunc a b
+  depthFunc :  JSType t1
+            => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+            -> (obj : t1)
+            -> (func : UInt32)
+            -> JSIO ()
+  depthFunc a b = primJS $ WebGLRenderingContextBase.prim__depthFunc (up a) b
   
   export
-  depthMask : (obj : WebGLRenderingContextBase) -> (flag : Bool) -> JSIO ()
-  depthMask a b = primJS $ WebGLRenderingContextBase.prim__depthMask a (toFFI b)
+  depthMask :  JSType t1
+            => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+            -> (obj : t1)
+            -> (flag : Bool)
+            -> JSIO ()
+  depthMask a b = primJS
+                $ WebGLRenderingContextBase.prim__depthMask (up a) (toFFI b)
   
   export
-  depthRange :  (obj : WebGLRenderingContextBase)
+  depthRange :  JSType t1
+             => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+             -> (obj : t1)
              -> (zNear : Double)
              -> (zFar : Double)
              -> JSIO ()
-  depthRange a b c = primJS $ WebGLRenderingContextBase.prim__depthRange a b c
+  depthRange a b c = primJS
+                   $ WebGLRenderingContextBase.prim__depthRange (up a) b c
   
   export
   detachShader :  JSType t1
-               => JSType t2
-               => {auto 0 _ : Elem WebGLProgram (Types t1)}
-               -> {auto 0 _ : Elem WebGLShader (Types t2)}
-               -> (obj : WebGLRenderingContextBase)
-               -> (program : t1)
-               -> (shader : t2)
+               => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+               -> (obj : t1)
+               -> (program : WebGLProgram)
+               -> (shader : WebGLShader)
                -> JSIO ()
   detachShader a b c = primJS
-                     $ WebGLRenderingContextBase.prim__detachShader a
-                                                                    (up b)
-                                                                    (up c)
+                     $ WebGLRenderingContextBase.prim__detachShader (up a) b c
   
   export
-  disableVertexAttribArray :  (obj : WebGLRenderingContextBase)
+  disableVertexAttribArray :  JSType t1
+                           => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                           -> (obj : t1)
                            -> (index : UInt32)
                            -> JSIO ()
   disableVertexAttribArray a b = primJS
-                               $ WebGLRenderingContextBase.prim__disableVertexAttribArray a
+                               $ WebGLRenderingContextBase.prim__disableVertexAttribArray (up a)
                                                                                           b
   
   export
-  disable : (obj : WebGLRenderingContextBase) -> (cap : UInt32) -> JSIO ()
-  disable a b = primJS $ WebGLRenderingContextBase.prim__disable a b
+  disable :  JSType t1
+          => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+          -> (obj : t1)
+          -> (cap : UInt32)
+          -> JSIO ()
+  disable a b = primJS $ WebGLRenderingContextBase.prim__disable (up a) b
   
   export
-  drawArrays :  (obj : WebGLRenderingContextBase)
+  drawArrays :  JSType t1
+             => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+             -> (obj : t1)
              -> (mode : UInt32)
              -> (first : Int32)
              -> (count : Int32)
              -> JSIO ()
   drawArrays a b c d = primJS
-                     $ WebGLRenderingContextBase.prim__drawArrays a b c d
+                     $ WebGLRenderingContextBase.prim__drawArrays (up a) b c d
   
   export
-  drawElements :  (obj : WebGLRenderingContextBase)
+  drawElements :  JSType t1
+               => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+               -> (obj : t1)
                -> (mode : UInt32)
                -> (count : Int32)
                -> (type : UInt32)
                -> (offset : Int64)
                -> JSIO ()
   drawElements a b c d e = primJS
-                         $ WebGLRenderingContextBase.prim__drawElements a
+                         $ WebGLRenderingContextBase.prim__drawElements (up a)
                                                                         b
                                                                         c
                                                                         d
                                                                         e
   
   export
-  enableVertexAttribArray :  (obj : WebGLRenderingContextBase)
+  enableVertexAttribArray :  JSType t1
+                          => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                          -> (obj : t1)
                           -> (index : UInt32)
                           -> JSIO ()
   enableVertexAttribArray a b = primJS
-                              $ WebGLRenderingContextBase.prim__enableVertexAttribArray a
+                              $ WebGLRenderingContextBase.prim__enableVertexAttribArray (up a)
                                                                                         b
   
   export
-  enable : (obj : WebGLRenderingContextBase) -> (cap : UInt32) -> JSIO ()
-  enable a b = primJS $ WebGLRenderingContextBase.prim__enable a b
+  enable :  JSType t1
+         => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+         -> (obj : t1)
+         -> (cap : UInt32)
+         -> JSIO ()
+  enable a b = primJS $ WebGLRenderingContextBase.prim__enable (up a) b
   
   export
-  finish : (obj : WebGLRenderingContextBase) -> JSIO ()
-  finish a = primJS $ WebGLRenderingContextBase.prim__finish a
+  finish :  JSType t1
+         => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+         -> (obj : t1)
+         -> JSIO ()
+  finish a = primJS $ WebGLRenderingContextBase.prim__finish (up a)
   
   export
-  flush : (obj : WebGLRenderingContextBase) -> JSIO ()
-  flush a = primJS $ WebGLRenderingContextBase.prim__flush a
+  flush :  JSType t1
+        => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+        -> (obj : t1)
+        -> JSIO ()
+  flush a = primJS $ WebGLRenderingContextBase.prim__flush (up a)
   
   export
   framebufferRenderbuffer :  JSType t1
-                          => {auto 0 _ : Elem WebGLRenderbuffer (Types t1)}
-                          -> (obj : WebGLRenderingContextBase)
+                          => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                          -> (obj : t1)
                           -> (target : UInt32)
                           -> (attachment : UInt32)
                           -> (renderbuffertarget : UInt32)
-                          -> (renderbuffer : Maybe t1)
+                          -> (renderbuffer : Maybe WebGLRenderbuffer)
                           -> JSIO ()
   framebufferRenderbuffer a b c d e = primJS
-                                    $ WebGLRenderingContextBase.prim__framebufferRenderbuffer a
+                                    $ WebGLRenderingContextBase.prim__framebufferRenderbuffer (up a)
                                                                                               b
                                                                                               c
                                                                                               d
-                                                                                              (mayUp e)
+                                                                                              (toFFI e)
   
   export
   framebufferTexture2D :  JSType t1
-                       => {auto 0 _ : Elem WebGLTexture (Types t1)}
-                       -> (obj : WebGLRenderingContextBase)
+                       => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                       -> (obj : t1)
                        -> (target : UInt32)
                        -> (attachment : UInt32)
                        -> (textarget : UInt32)
-                       -> (texture : Maybe t1)
+                       -> (texture : Maybe WebGLTexture)
                        -> (level : Int32)
                        -> JSIO ()
   framebufferTexture2D a b c d e f = primJS
-                                   $ WebGLRenderingContextBase.prim__framebufferTexture2D a
+                                   $ WebGLRenderingContextBase.prim__framebufferTexture2D (up a)
                                                                                           b
                                                                                           c
                                                                                           d
-                                                                                          (mayUp e)
+                                                                                          (toFFI e)
                                                                                           f
   
   export
-  frontFace : (obj : WebGLRenderingContextBase) -> (mode : UInt32) -> JSIO ()
-  frontFace a b = primJS $ WebGLRenderingContextBase.prim__frontFace a b
+  frontFace :  JSType t1
+            => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+            -> (obj : t1)
+            -> (mode : UInt32)
+            -> JSIO ()
+  frontFace a b = primJS $ WebGLRenderingContextBase.prim__frontFace (up a) b
   
   export
-  generateMipmap :  (obj : WebGLRenderingContextBase)
+  generateMipmap :  JSType t1
+                 => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                 -> (obj : t1)
                  -> (target : UInt32)
                  -> JSIO ()
   generateMipmap a b = primJS
-                     $ WebGLRenderingContextBase.prim__generateMipmap a b
+                     $ WebGLRenderingContextBase.prim__generateMipmap (up a) b
   
   export
   getActiveAttrib :  JSType t1
-                  => {auto 0 _ : Elem WebGLProgram (Types t1)}
-                  -> (obj : WebGLRenderingContextBase)
-                  -> (program : t1)
+                  => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                  -> (obj : t1)
+                  -> (program : WebGLProgram)
                   -> (index : UInt32)
                   -> JSIO (Maybe WebGLActiveInfo)
   getActiveAttrib a b c = tryJS "WebGLRenderingContextBase.getActiveAttrib"
-                        $ WebGLRenderingContextBase.prim__getActiveAttrib a
-                                                                          (up b)
+                        $ WebGLRenderingContextBase.prim__getActiveAttrib (up a)
+                                                                          b
                                                                           c
   
   export
   getActiveUniform :  JSType t1
-                   => {auto 0 _ : Elem WebGLProgram (Types t1)}
-                   -> (obj : WebGLRenderingContextBase)
-                   -> (program : t1)
+                   => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                   -> (obj : t1)
+                   -> (program : WebGLProgram)
                    -> (index : UInt32)
                    -> JSIO (Maybe WebGLActiveInfo)
   getActiveUniform a b c = tryJS "WebGLRenderingContextBase.getActiveUniform"
-                         $ WebGLRenderingContextBase.prim__getActiveUniform a
-                                                                            (up b)
+                         $ WebGLRenderingContextBase.prim__getActiveUniform (up a)
+                                                                            b
                                                                             c
   
   export
   getAttachedShaders :  JSType t1
-                     => {auto 0 _ : Elem WebGLProgram (Types t1)}
-                     -> (obj : WebGLRenderingContextBase)
-                     -> (program : t1)
+                     => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                     -> (obj : t1)
+                     -> (program : WebGLProgram)
                      -> JSIO (Maybe (Array WebGLShader))
   getAttachedShaders a b = tryJS "WebGLRenderingContextBase.getAttachedShaders"
-                         $ WebGLRenderingContextBase.prim__getAttachedShaders a
-                                                                              (up b)
+                         $ WebGLRenderingContextBase.prim__getAttachedShaders (up a)
+                                                                              b
   
   export
   getAttribLocation :  JSType t1
-                    => {auto 0 _ : Elem WebGLProgram (Types t1)}
-                    -> (obj : WebGLRenderingContextBase)
-                    -> (program : t1)
+                    => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                    -> (obj : t1)
+                    -> (program : WebGLProgram)
                     -> (name : String)
                     -> JSIO Int32
   getAttribLocation a b c = primJS
-                          $ WebGLRenderingContextBase.prim__getAttribLocation a
-                                                                              (up b)
+                          $ WebGLRenderingContextBase.prim__getAttribLocation (up a)
+                                                                              b
                                                                               c
   
   export
-  getBufferParameter :  (obj : WebGLRenderingContextBase)
+  getBufferParameter :  JSType t1
+                     => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                     -> (obj : t1)
                      -> (target : UInt32)
                      -> (pname : UInt32)
                      -> JSIO Any
   getBufferParameter a b c = tryJS "WebGLRenderingContextBase.getBufferParameter"
-                           $ WebGLRenderingContextBase.prim__getBufferParameter a
+                           $ WebGLRenderingContextBase.prim__getBufferParameter (up a)
                                                                                 b
                                                                                 c
   
   export
-  getContextAttributes :  (obj : WebGLRenderingContextBase)
+  getContextAttributes :  JSType t1
+                       => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                       -> (obj : t1)
                        -> JSIO (Maybe WebGLContextAttributes)
   getContextAttributes a = tryJS "WebGLRenderingContextBase.getContextAttributes"
-                         $ WebGLRenderingContextBase.prim__getContextAttributes a
+                         $ WebGLRenderingContextBase.prim__getContextAttributes (up a)
   
   export
-  getError : (obj : WebGLRenderingContextBase) -> JSIO UInt32
-  getError a = primJS $ WebGLRenderingContextBase.prim__getError a
+  getError :  JSType t1
+           => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+           -> (obj : t1)
+           -> JSIO UInt32
+  getError a = primJS $ WebGLRenderingContextBase.prim__getError (up a)
   
   export
-  getExtension :  (obj : WebGLRenderingContextBase)
+  getExtension :  JSType t1
+               => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+               -> (obj : t1)
                -> (name : String)
                -> JSIO (Maybe Object)
   getExtension a b = tryJS "WebGLRenderingContextBase.getExtension"
-                   $ WebGLRenderingContextBase.prim__getExtension a b
+                   $ WebGLRenderingContextBase.prim__getExtension (up a) b
   
   export
-  getFramebufferAttachmentParameter :  (obj : WebGLRenderingContextBase)
+  getFramebufferAttachmentParameter :  JSType t1
+                                    => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                                    -> (obj : t1)
                                     -> (target : UInt32)
                                     -> (attachment : UInt32)
                                     -> (pname : UInt32)
                                     -> JSIO Any
   getFramebufferAttachmentParameter a b c d = tryJS "WebGLRenderingContextBase.getFramebufferAttachmentParameter"
-                                            $ WebGLRenderingContextBase.prim__getFramebufferAttachmentParameter a
+                                            $ WebGLRenderingContextBase.prim__getFramebufferAttachmentParameter (up a)
                                                                                                                 b
                                                                                                                 c
                                                                                                                 d
   
   export
-  getParameter :  (obj : WebGLRenderingContextBase)
+  getParameter :  JSType t1
+               => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+               -> (obj : t1)
                -> (pname : UInt32)
                -> JSIO Any
   getParameter a b = tryJS "WebGLRenderingContextBase.getParameter"
-                   $ WebGLRenderingContextBase.prim__getParameter a b
+                   $ WebGLRenderingContextBase.prim__getParameter (up a) b
   
   export
   getProgramInfoLog :  JSType t1
-                    => {auto 0 _ : Elem WebGLProgram (Types t1)}
-                    -> (obj : WebGLRenderingContextBase)
-                    -> (program : t1)
+                    => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                    -> (obj : t1)
+                    -> (program : WebGLProgram)
                     -> JSIO (Maybe String)
   getProgramInfoLog a b = tryJS "WebGLRenderingContextBase.getProgramInfoLog"
-                        $ WebGLRenderingContextBase.prim__getProgramInfoLog a
-                                                                            (up b)
+                        $ WebGLRenderingContextBase.prim__getProgramInfoLog (up a)
+                                                                            b
   
   export
   getProgramParameter :  JSType t1
-                      => {auto 0 _ : Elem WebGLProgram (Types t1)}
-                      -> (obj : WebGLRenderingContextBase)
-                      -> (program : t1)
+                      => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                      -> (obj : t1)
+                      -> (program : WebGLProgram)
                       -> (pname : UInt32)
                       -> JSIO Any
   getProgramParameter a b c = tryJS "WebGLRenderingContextBase.getProgramParameter"
-                            $ WebGLRenderingContextBase.prim__getProgramParameter a
-                                                                                  (up b)
+                            $ WebGLRenderingContextBase.prim__getProgramParameter (up a)
+                                                                                  b
                                                                                   c
   
   export
-  getRenderbufferParameter :  (obj : WebGLRenderingContextBase)
+  getRenderbufferParameter :  JSType t1
+                           => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                           -> (obj : t1)
                            -> (target : UInt32)
                            -> (pname : UInt32)
                            -> JSIO Any
   getRenderbufferParameter a b c = tryJS "WebGLRenderingContextBase.getRenderbufferParameter"
-                                 $ WebGLRenderingContextBase.prim__getRenderbufferParameter a
+                                 $ WebGLRenderingContextBase.prim__getRenderbufferParameter (up a)
                                                                                             b
                                                                                             c
   
   export
   getShaderInfoLog :  JSType t1
-                   => {auto 0 _ : Elem WebGLShader (Types t1)}
-                   -> (obj : WebGLRenderingContextBase)
-                   -> (shader : t1)
+                   => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                   -> (obj : t1)
+                   -> (shader : WebGLShader)
                    -> JSIO (Maybe String)
   getShaderInfoLog a b = tryJS "WebGLRenderingContextBase.getShaderInfoLog"
-                       $ WebGLRenderingContextBase.prim__getShaderInfoLog a
-                                                                          (up b)
+                       $ WebGLRenderingContextBase.prim__getShaderInfoLog (up a)
+                                                                          b
   
   export
   getShaderParameter :  JSType t1
-                     => {auto 0 _ : Elem WebGLShader (Types t1)}
-                     -> (obj : WebGLRenderingContextBase)
-                     -> (shader : t1)
+                     => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                     -> (obj : t1)
+                     -> (shader : WebGLShader)
                      -> (pname : UInt32)
                      -> JSIO Any
   getShaderParameter a b c = tryJS "WebGLRenderingContextBase.getShaderParameter"
-                           $ WebGLRenderingContextBase.prim__getShaderParameter a
-                                                                                (up b)
+                           $ WebGLRenderingContextBase.prim__getShaderParameter (up a)
+                                                                                b
                                                                                 c
   
   export
-  getShaderPrecisionFormat :  (obj : WebGLRenderingContextBase)
+  getShaderPrecisionFormat :  JSType t1
+                           => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                           -> (obj : t1)
                            -> (shadertype : UInt32)
                            -> (precisiontype : UInt32)
                            -> JSIO (Maybe WebGLShaderPrecisionFormat)
   getShaderPrecisionFormat a b c = tryJS "WebGLRenderingContextBase.getShaderPrecisionFormat"
-                                 $ WebGLRenderingContextBase.prim__getShaderPrecisionFormat a
+                                 $ WebGLRenderingContextBase.prim__getShaderPrecisionFormat (up a)
                                                                                             b
                                                                                             c
   
   export
   getShaderSource :  JSType t1
-                  => {auto 0 _ : Elem WebGLShader (Types t1)}
-                  -> (obj : WebGLRenderingContextBase)
-                  -> (shader : t1)
+                  => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                  -> (obj : t1)
+                  -> (shader : WebGLShader)
                   -> JSIO (Maybe String)
   getShaderSource a b = tryJS "WebGLRenderingContextBase.getShaderSource"
-                      $ WebGLRenderingContextBase.prim__getShaderSource a (up b)
+                      $ WebGLRenderingContextBase.prim__getShaderSource (up a) b
   
   export
-  getSupportedExtensions :  (obj : WebGLRenderingContextBase)
+  getSupportedExtensions :  JSType t1
+                         => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                         -> (obj : t1)
                          -> JSIO (Maybe (Array String))
   getSupportedExtensions a = tryJS "WebGLRenderingContextBase.getSupportedExtensions"
-                           $ WebGLRenderingContextBase.prim__getSupportedExtensions a
+                           $ WebGLRenderingContextBase.prim__getSupportedExtensions (up a)
   
   export
-  getTexParameter :  (obj : WebGLRenderingContextBase)
+  getTexParameter :  JSType t1
+                  => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                  -> (obj : t1)
                   -> (target : UInt32)
                   -> (pname : UInt32)
                   -> JSIO Any
   getTexParameter a b c = tryJS "WebGLRenderingContextBase.getTexParameter"
-                        $ WebGLRenderingContextBase.prim__getTexParameter a b c
+                        $ WebGLRenderingContextBase.prim__getTexParameter (up a)
+                                                                          b
+                                                                          c
   
   export
   getUniformLocation :  JSType t1
-                     => {auto 0 _ : Elem WebGLProgram (Types t1)}
-                     -> (obj : WebGLRenderingContextBase)
-                     -> (program : t1)
+                     => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                     -> (obj : t1)
+                     -> (program : WebGLProgram)
                      -> (name : String)
                      -> JSIO (Maybe WebGLUniformLocation)
   getUniformLocation a b c = tryJS "WebGLRenderingContextBase.getUniformLocation"
-                           $ WebGLRenderingContextBase.prim__getUniformLocation a
-                                                                                (up b)
+                           $ WebGLRenderingContextBase.prim__getUniformLocation (up a)
+                                                                                b
                                                                                 c
   
   export
   getUniform :  JSType t1
-             => JSType t2
-             => {auto 0 _ : Elem WebGLProgram (Types t1)}
-             -> {auto 0 _ : Elem WebGLUniformLocation (Types t2)}
-             -> (obj : WebGLRenderingContextBase)
-             -> (program : t1)
-             -> (location : t2)
+             => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+             -> (obj : t1)
+             -> (program : WebGLProgram)
+             -> (location : WebGLUniformLocation)
              -> JSIO Any
   getUniform a b c = tryJS "WebGLRenderingContextBase.getUniform"
-                   $ WebGLRenderingContextBase.prim__getUniform a (up b) (up c)
+                   $ WebGLRenderingContextBase.prim__getUniform (up a) b c
   
   export
-  getVertexAttribOffset :  (obj : WebGLRenderingContextBase)
+  getVertexAttribOffset :  JSType t1
+                        => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                        -> (obj : t1)
                         -> (index : UInt32)
                         -> (pname : UInt32)
                         -> JSIO Int64
   getVertexAttribOffset a b c = primJS
-                              $ WebGLRenderingContextBase.prim__getVertexAttribOffset a
+                              $ WebGLRenderingContextBase.prim__getVertexAttribOffset (up a)
                                                                                       b
                                                                                       c
   
   export
-  getVertexAttrib :  (obj : WebGLRenderingContextBase)
+  getVertexAttrib :  JSType t1
+                  => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                  -> (obj : t1)
                   -> (index : UInt32)
                   -> (pname : UInt32)
                   -> JSIO Any
   getVertexAttrib a b c = tryJS "WebGLRenderingContextBase.getVertexAttrib"
-                        $ WebGLRenderingContextBase.prim__getVertexAttrib a b c
+                        $ WebGLRenderingContextBase.prim__getVertexAttrib (up a)
+                                                                          b
+                                                                          c
   
   export
-  hint :  (obj : WebGLRenderingContextBase)
+  hint :  JSType t1
+       => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+       -> (obj : t1)
        -> (target : UInt32)
        -> (mode : UInt32)
        -> JSIO ()
-  hint a b c = primJS $ WebGLRenderingContextBase.prim__hint a b c
+  hint a b c = primJS $ WebGLRenderingContextBase.prim__hint (up a) b c
   
   export
   isBuffer :  JSType t1
-           => {auto 0 _ : Elem WebGLBuffer (Types t1)}
-           -> (obj : WebGLRenderingContextBase)
-           -> (buffer : Maybe t1)
+           => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+           -> (obj : t1)
+           -> (buffer : Maybe WebGLBuffer)
            -> JSIO Bool
   isBuffer a b = tryJS "WebGLRenderingContextBase.isBuffer"
-               $ WebGLRenderingContextBase.prim__isBuffer a (mayUp b)
+               $ WebGLRenderingContextBase.prim__isBuffer (up a) (toFFI b)
   
   export
-  isContextLost : (obj : WebGLRenderingContextBase) -> JSIO Bool
+  isContextLost :  JSType t1
+                => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                -> (obj : t1)
+                -> JSIO Bool
   isContextLost a = tryJS "WebGLRenderingContextBase.isContextLost"
-                  $ WebGLRenderingContextBase.prim__isContextLost a
+                  $ WebGLRenderingContextBase.prim__isContextLost (up a)
   
   export
-  isEnabled : (obj : WebGLRenderingContextBase) -> (cap : UInt32) -> JSIO Bool
+  isEnabled :  JSType t1
+            => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+            -> (obj : t1)
+            -> (cap : UInt32)
+            -> JSIO Bool
   isEnabled a b = tryJS "WebGLRenderingContextBase.isEnabled"
-                $ WebGLRenderingContextBase.prim__isEnabled a b
+                $ WebGLRenderingContextBase.prim__isEnabled (up a) b
   
   export
   isFramebuffer :  JSType t1
-                => {auto 0 _ : Elem WebGLFramebuffer (Types t1)}
-                -> (obj : WebGLRenderingContextBase)
-                -> (framebuffer : Maybe t1)
+                => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                -> (obj : t1)
+                -> (framebuffer : Maybe WebGLFramebuffer)
                 -> JSIO Bool
   isFramebuffer a b = tryJS "WebGLRenderingContextBase.isFramebuffer"
-                    $ WebGLRenderingContextBase.prim__isFramebuffer a (mayUp b)
+                    $ WebGLRenderingContextBase.prim__isFramebuffer (up a)
+                                                                    (toFFI b)
   
   export
   isProgram :  JSType t1
-            => {auto 0 _ : Elem WebGLProgram (Types t1)}
-            -> (obj : WebGLRenderingContextBase)
-            -> (program : Maybe t1)
+            => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+            -> (obj : t1)
+            -> (program : Maybe WebGLProgram)
             -> JSIO Bool
   isProgram a b = tryJS "WebGLRenderingContextBase.isProgram"
-                $ WebGLRenderingContextBase.prim__isProgram a (mayUp b)
+                $ WebGLRenderingContextBase.prim__isProgram (up a) (toFFI b)
   
   export
   isRenderbuffer :  JSType t1
-                 => {auto 0 _ : Elem WebGLRenderbuffer (Types t1)}
-                 -> (obj : WebGLRenderingContextBase)
-                 -> (renderbuffer : Maybe t1)
+                 => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                 -> (obj : t1)
+                 -> (renderbuffer : Maybe WebGLRenderbuffer)
                  -> JSIO Bool
   isRenderbuffer a b = tryJS "WebGLRenderingContextBase.isRenderbuffer"
-                     $ WebGLRenderingContextBase.prim__isRenderbuffer a
-                                                                      (mayUp b)
+                     $ WebGLRenderingContextBase.prim__isRenderbuffer (up a)
+                                                                      (toFFI b)
   
   export
   isShader :  JSType t1
-           => {auto 0 _ : Elem WebGLShader (Types t1)}
-           -> (obj : WebGLRenderingContextBase)
-           -> (shader : Maybe t1)
+           => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+           -> (obj : t1)
+           -> (shader : Maybe WebGLShader)
            -> JSIO Bool
   isShader a b = tryJS "WebGLRenderingContextBase.isShader"
-               $ WebGLRenderingContextBase.prim__isShader a (mayUp b)
+               $ WebGLRenderingContextBase.prim__isShader (up a) (toFFI b)
   
   export
   isTexture :  JSType t1
-            => {auto 0 _ : Elem WebGLTexture (Types t1)}
-            -> (obj : WebGLRenderingContextBase)
-            -> (texture : Maybe t1)
+            => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+            -> (obj : t1)
+            -> (texture : Maybe WebGLTexture)
             -> JSIO Bool
   isTexture a b = tryJS "WebGLRenderingContextBase.isTexture"
-                $ WebGLRenderingContextBase.prim__isTexture a (mayUp b)
+                $ WebGLRenderingContextBase.prim__isTexture (up a) (toFFI b)
   
   export
-  lineWidth : (obj : WebGLRenderingContextBase) -> (width : Double) -> JSIO ()
-  lineWidth a b = primJS $ WebGLRenderingContextBase.prim__lineWidth a b
+  lineWidth :  JSType t1
+            => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+            -> (obj : t1)
+            -> (width : Double)
+            -> JSIO ()
+  lineWidth a b = primJS $ WebGLRenderingContextBase.prim__lineWidth (up a) b
   
   export
   linkProgram :  JSType t1
-              => {auto 0 _ : Elem WebGLProgram (Types t1)}
-              -> (obj : WebGLRenderingContextBase)
-              -> (program : t1)
+              => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+              -> (obj : t1)
+              -> (program : WebGLProgram)
               -> JSIO ()
   linkProgram a b = primJS
-                  $ WebGLRenderingContextBase.prim__linkProgram a (up b)
+                  $ WebGLRenderingContextBase.prim__linkProgram (up a) b
   
   export
-  pixelStorei :  (obj : WebGLRenderingContextBase)
+  pixelStorei :  JSType t1
+              => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+              -> (obj : t1)
               -> (pname : UInt32)
               -> (param : Int32)
               -> JSIO ()
-  pixelStorei a b c = primJS $ WebGLRenderingContextBase.prim__pixelStorei a b c
+  pixelStorei a b c = primJS
+                    $ WebGLRenderingContextBase.prim__pixelStorei (up a) b c
   
   export
-  polygonOffset :  (obj : WebGLRenderingContextBase)
+  polygonOffset :  JSType t1
+                => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                -> (obj : t1)
                 -> (factor : Double)
                 -> (units : Double)
                 -> JSIO ()
   polygonOffset a b c = primJS
-                      $ WebGLRenderingContextBase.prim__polygonOffset a b c
+                      $ WebGLRenderingContextBase.prim__polygonOffset (up a) b c
   
   export
-  renderbufferStorage :  (obj : WebGLRenderingContextBase)
+  renderbufferStorage :  JSType t1
+                      => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                      -> (obj : t1)
                       -> (target : UInt32)
                       -> (internalformat : UInt32)
                       -> (width : Int32)
                       -> (height : Int32)
                       -> JSIO ()
   renderbufferStorage a b c d e = primJS
-                                $ WebGLRenderingContextBase.prim__renderbufferStorage a
+                                $ WebGLRenderingContextBase.prim__renderbufferStorage (up a)
                                                                                       b
                                                                                       c
                                                                                       d
                                                                                       e
   
   export
-  sampleCoverage :  (obj : WebGLRenderingContextBase)
+  sampleCoverage :  JSType t1
+                 => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                 -> (obj : t1)
                  -> (value : Double)
                  -> (invert : Bool)
                  -> JSIO ()
   sampleCoverage a b c = primJS
-                       $ WebGLRenderingContextBase.prim__sampleCoverage a
+                       $ WebGLRenderingContextBase.prim__sampleCoverage (up a)
                                                                         b
                                                                         (toFFI c)
   
   export
-  scissor :  (obj : WebGLRenderingContextBase)
+  scissor :  JSType t1
+          => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+          -> (obj : t1)
           -> (x : Int32)
           -> (y : Int32)
           -> (width : Int32)
           -> (height : Int32)
           -> JSIO ()
-  scissor a b c d e = primJS $ WebGLRenderingContextBase.prim__scissor a b c d e
+  scissor a b c d e = primJS
+                    $ WebGLRenderingContextBase.prim__scissor (up a) b c d e
   
   export
   shaderSource :  JSType t1
-               => {auto 0 _ : Elem WebGLShader (Types t1)}
-               -> (obj : WebGLRenderingContextBase)
-               -> (shader : t1)
+               => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+               -> (obj : t1)
+               -> (shader : WebGLShader)
                -> (source : String)
                -> JSIO ()
   shaderSource a b c = primJS
-                     $ WebGLRenderingContextBase.prim__shaderSource a (up b) c
+                     $ WebGLRenderingContextBase.prim__shaderSource (up a) b c
   
   export
-  stencilFuncSeparate :  (obj : WebGLRenderingContextBase)
+  stencilFuncSeparate :  JSType t1
+                      => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                      -> (obj : t1)
                       -> (face : UInt32)
                       -> (func : UInt32)
                       -> (ref : Int32)
                       -> (mask : UInt32)
                       -> JSIO ()
   stencilFuncSeparate a b c d e = primJS
-                                $ WebGLRenderingContextBase.prim__stencilFuncSeparate a
+                                $ WebGLRenderingContextBase.prim__stencilFuncSeparate (up a)
                                                                                       b
                                                                                       c
                                                                                       d
                                                                                       e
   
   export
-  stencilFunc :  (obj : WebGLRenderingContextBase)
+  stencilFunc :  JSType t1
+              => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+              -> (obj : t1)
               -> (func : UInt32)
               -> (ref : Int32)
               -> (mask : UInt32)
               -> JSIO ()
   stencilFunc a b c d = primJS
-                      $ WebGLRenderingContextBase.prim__stencilFunc a b c d
+                      $ WebGLRenderingContextBase.prim__stencilFunc (up a) b c d
   
   export
-  stencilMaskSeparate :  (obj : WebGLRenderingContextBase)
+  stencilMaskSeparate :  JSType t1
+                      => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                      -> (obj : t1)
                       -> (face : UInt32)
                       -> (mask : UInt32)
                       -> JSIO ()
   stencilMaskSeparate a b c = primJS
-                            $ WebGLRenderingContextBase.prim__stencilMaskSeparate a
+                            $ WebGLRenderingContextBase.prim__stencilMaskSeparate (up a)
                                                                                   b
                                                                                   c
   
   export
-  stencilMask : (obj : WebGLRenderingContextBase) -> (mask : UInt32) -> JSIO ()
-  stencilMask a b = primJS $ WebGLRenderingContextBase.prim__stencilMask a b
+  stencilMask :  JSType t1
+              => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+              -> (obj : t1)
+              -> (mask : UInt32)
+              -> JSIO ()
+  stencilMask a b = primJS
+                  $ WebGLRenderingContextBase.prim__stencilMask (up a) b
   
   export
-  stencilOpSeparate :  (obj : WebGLRenderingContextBase)
+  stencilOpSeparate :  JSType t1
+                    => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                    -> (obj : t1)
                     -> (face : UInt32)
                     -> (fail : UInt32)
                     -> (zfail : UInt32)
                     -> (zpass : UInt32)
                     -> JSIO ()
   stencilOpSeparate a b c d e = primJS
-                              $ WebGLRenderingContextBase.prim__stencilOpSeparate a
+                              $ WebGLRenderingContextBase.prim__stencilOpSeparate (up a)
                                                                                   b
                                                                                   c
                                                                                   d
                                                                                   e
   
   export
-  stencilOp :  (obj : WebGLRenderingContextBase)
+  stencilOp :  JSType t1
+            => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+            -> (obj : t1)
             -> (fail : UInt32)
             -> (zfail : UInt32)
             -> (zpass : UInt32)
             -> JSIO ()
-  stencilOp a b c d = primJS $ WebGLRenderingContextBase.prim__stencilOp a b c d
+  stencilOp a b c d = primJS
+                    $ WebGLRenderingContextBase.prim__stencilOp (up a) b c d
   
   export
-  texParameterf :  (obj : WebGLRenderingContextBase)
+  texParameterf :  JSType t1
+                => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                -> (obj : t1)
                 -> (target : UInt32)
                 -> (pname : UInt32)
                 -> (param : Double)
                 -> JSIO ()
   texParameterf a b c d = primJS
-                        $ WebGLRenderingContextBase.prim__texParameterf a b c d
+                        $ WebGLRenderingContextBase.prim__texParameterf (up a)
+                                                                        b
+                                                                        c
+                                                                        d
   
   export
-  texParameteri :  (obj : WebGLRenderingContextBase)
+  texParameteri :  JSType t1
+                => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                -> (obj : t1)
                 -> (target : UInt32)
                 -> (pname : UInt32)
                 -> (param : Int32)
                 -> JSIO ()
   texParameteri a b c d = primJS
-                        $ WebGLRenderingContextBase.prim__texParameteri a b c d
+                        $ WebGLRenderingContextBase.prim__texParameteri (up a)
+                                                                        b
+                                                                        c
+                                                                        d
   
   export
   uniform1f :  JSType t1
-            => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-            -> (obj : WebGLRenderingContextBase)
-            -> (location : Maybe t1)
+            => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+            -> (obj : t1)
+            -> (location : Maybe WebGLUniformLocation)
             -> (x : Double)
             -> JSIO ()
   uniform1f a b c = primJS
-                  $ WebGLRenderingContextBase.prim__uniform1f a (mayUp b) c
+                  $ WebGLRenderingContextBase.prim__uniform1f (up a) (toFFI b) c
   
   export
   uniform1i :  JSType t1
-            => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-            -> (obj : WebGLRenderingContextBase)
-            -> (location : Maybe t1)
+            => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+            -> (obj : t1)
+            -> (location : Maybe WebGLUniformLocation)
             -> (x : Int32)
             -> JSIO ()
   uniform1i a b c = primJS
-                  $ WebGLRenderingContextBase.prim__uniform1i a (mayUp b) c
+                  $ WebGLRenderingContextBase.prim__uniform1i (up a) (toFFI b) c
   
   export
   uniform2f :  JSType t1
-            => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-            -> (obj : WebGLRenderingContextBase)
-            -> (location : Maybe t1)
+            => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+            -> (obj : t1)
+            -> (location : Maybe WebGLUniformLocation)
             -> (x : Double)
             -> (y : Double)
             -> JSIO ()
   uniform2f a b c d = primJS
-                    $ WebGLRenderingContextBase.prim__uniform2f a (mayUp b) c d
+                    $ WebGLRenderingContextBase.prim__uniform2f (up a)
+                                                                (toFFI b)
+                                                                c
+                                                                d
   
   export
   uniform2i :  JSType t1
-            => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-            -> (obj : WebGLRenderingContextBase)
-            -> (location : Maybe t1)
+            => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+            -> (obj : t1)
+            -> (location : Maybe WebGLUniformLocation)
             -> (x : Int32)
             -> (y : Int32)
             -> JSIO ()
   uniform2i a b c d = primJS
-                    $ WebGLRenderingContextBase.prim__uniform2i a (mayUp b) c d
+                    $ WebGLRenderingContextBase.prim__uniform2i (up a)
+                                                                (toFFI b)
+                                                                c
+                                                                d
   
   export
   uniform3f :  JSType t1
-            => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-            -> (obj : WebGLRenderingContextBase)
-            -> (location : Maybe t1)
+            => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+            -> (obj : t1)
+            -> (location : Maybe WebGLUniformLocation)
             -> (x : Double)
             -> (y : Double)
             -> (z : Double)
             -> JSIO ()
   uniform3f a b c d e = primJS
-                      $ WebGLRenderingContextBase.prim__uniform3f a
-                                                                  (mayUp b)
+                      $ WebGLRenderingContextBase.prim__uniform3f (up a)
+                                                                  (toFFI b)
                                                                   c
                                                                   d
                                                                   e
   
   export
   uniform3i :  JSType t1
-            => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-            -> (obj : WebGLRenderingContextBase)
-            -> (location : Maybe t1)
+            => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+            -> (obj : t1)
+            -> (location : Maybe WebGLUniformLocation)
             -> (x : Int32)
             -> (y : Int32)
             -> (z : Int32)
             -> JSIO ()
   uniform3i a b c d e = primJS
-                      $ WebGLRenderingContextBase.prim__uniform3i a
-                                                                  (mayUp b)
+                      $ WebGLRenderingContextBase.prim__uniform3i (up a)
+                                                                  (toFFI b)
                                                                   c
                                                                   d
                                                                   e
   
   export
   uniform4f :  JSType t1
-            => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-            -> (obj : WebGLRenderingContextBase)
-            -> (location : Maybe t1)
+            => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+            -> (obj : t1)
+            -> (location : Maybe WebGLUniformLocation)
             -> (x : Double)
             -> (y : Double)
             -> (z : Double)
             -> (w : Double)
             -> JSIO ()
   uniform4f a b c d e f = primJS
-                        $ WebGLRenderingContextBase.prim__uniform4f a
-                                                                    (mayUp b)
+                        $ WebGLRenderingContextBase.prim__uniform4f (up a)
+                                                                    (toFFI b)
                                                                     c
                                                                     d
                                                                     e
@@ -6130,17 +6491,17 @@ namespace WebGLRenderingContextBase
   
   export
   uniform4i :  JSType t1
-            => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-            -> (obj : WebGLRenderingContextBase)
-            -> (location : Maybe t1)
+            => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+            -> (obj : t1)
+            -> (location : Maybe WebGLUniformLocation)
             -> (x : Int32)
             -> (y : Int32)
             -> (z : Int32)
             -> (w : Int32)
             -> JSIO ()
   uniform4i a b c d e f = primJS
-                        $ WebGLRenderingContextBase.prim__uniform4i a
-                                                                    (mayUp b)
+                        $ WebGLRenderingContextBase.prim__uniform4i (up a)
+                                                                    (toFFI b)
                                                                     c
                                                                     d
                                                                     e
@@ -6148,88 +6509,104 @@ namespace WebGLRenderingContextBase
   
   export
   useProgram :  JSType t1
-             => {auto 0 _ : Elem WebGLProgram (Types t1)}
-             -> (obj : WebGLRenderingContextBase)
-             -> (program : Maybe t1)
+             => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+             -> (obj : t1)
+             -> (program : Maybe WebGLProgram)
              -> JSIO ()
   useProgram a b = primJS
-                 $ WebGLRenderingContextBase.prim__useProgram a (mayUp b)
+                 $ WebGLRenderingContextBase.prim__useProgram (up a) (toFFI b)
   
   export
   validateProgram :  JSType t1
-                  => {auto 0 _ : Elem WebGLProgram (Types t1)}
-                  -> (obj : WebGLRenderingContextBase)
-                  -> (program : t1)
+                  => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                  -> (obj : t1)
+                  -> (program : WebGLProgram)
                   -> JSIO ()
   validateProgram a b = primJS
-                      $ WebGLRenderingContextBase.prim__validateProgram a (up b)
+                      $ WebGLRenderingContextBase.prim__validateProgram (up a) b
   
   export
-  vertexAttrib1f :  (obj : WebGLRenderingContextBase)
+  vertexAttrib1f :  JSType t1
+                 => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                 -> (obj : t1)
                  -> (index : UInt32)
                  -> (x : Double)
                  -> JSIO ()
   vertexAttrib1f a b c = primJS
-                       $ WebGLRenderingContextBase.prim__vertexAttrib1f a b c
+                       $ WebGLRenderingContextBase.prim__vertexAttrib1f (up a)
+                                                                        b
+                                                                        c
   
   export
-  vertexAttrib1fv :  (obj : WebGLRenderingContextBase)
+  vertexAttrib1fv :  JSType t1
+                  => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                  -> (obj : t1)
                   -> (index : UInt32)
                   -> (values : NS I [ Float32Array , Array Double ])
                   -> JSIO ()
   vertexAttrib1fv a b c = primJS
-                        $ WebGLRenderingContextBase.prim__vertexAttrib1fv a
+                        $ WebGLRenderingContextBase.prim__vertexAttrib1fv (up a)
                                                                           b
                                                                           (toFFI c)
   
   export
-  vertexAttrib2f :  (obj : WebGLRenderingContextBase)
+  vertexAttrib2f :  JSType t1
+                 => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                 -> (obj : t1)
                  -> (index : UInt32)
                  -> (x : Double)
                  -> (y : Double)
                  -> JSIO ()
   vertexAttrib2f a b c d = primJS
-                         $ WebGLRenderingContextBase.prim__vertexAttrib2f a
+                         $ WebGLRenderingContextBase.prim__vertexAttrib2f (up a)
                                                                           b
                                                                           c
                                                                           d
   
   export
-  vertexAttrib2fv :  (obj : WebGLRenderingContextBase)
+  vertexAttrib2fv :  JSType t1
+                  => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                  -> (obj : t1)
                   -> (index : UInt32)
                   -> (values : NS I [ Float32Array , Array Double ])
                   -> JSIO ()
   vertexAttrib2fv a b c = primJS
-                        $ WebGLRenderingContextBase.prim__vertexAttrib2fv a
+                        $ WebGLRenderingContextBase.prim__vertexAttrib2fv (up a)
                                                                           b
                                                                           (toFFI c)
   
   export
-  vertexAttrib3f :  (obj : WebGLRenderingContextBase)
+  vertexAttrib3f :  JSType t1
+                 => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                 -> (obj : t1)
                  -> (index : UInt32)
                  -> (x : Double)
                  -> (y : Double)
                  -> (z : Double)
                  -> JSIO ()
   vertexAttrib3f a b c d e = primJS
-                           $ WebGLRenderingContextBase.prim__vertexAttrib3f a
+                           $ WebGLRenderingContextBase.prim__vertexAttrib3f (up a)
                                                                             b
                                                                             c
                                                                             d
                                                                             e
   
   export
-  vertexAttrib3fv :  (obj : WebGLRenderingContextBase)
+  vertexAttrib3fv :  JSType t1
+                  => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                  -> (obj : t1)
                   -> (index : UInt32)
                   -> (values : NS I [ Float32Array , Array Double ])
                   -> JSIO ()
   vertexAttrib3fv a b c = primJS
-                        $ WebGLRenderingContextBase.prim__vertexAttrib3fv a
+                        $ WebGLRenderingContextBase.prim__vertexAttrib3fv (up a)
                                                                           b
                                                                           (toFFI c)
   
   export
-  vertexAttrib4f :  (obj : WebGLRenderingContextBase)
+  vertexAttrib4f :  JSType t1
+                 => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                 -> (obj : t1)
                  -> (index : UInt32)
                  -> (x : Double)
                  -> (y : Double)
@@ -6237,7 +6614,7 @@ namespace WebGLRenderingContextBase
                  -> (w : Double)
                  -> JSIO ()
   vertexAttrib4f a b c d e f = primJS
-                             $ WebGLRenderingContextBase.prim__vertexAttrib4f a
+                             $ WebGLRenderingContextBase.prim__vertexAttrib4f (up a)
                                                                               b
                                                                               c
                                                                               d
@@ -6245,17 +6622,21 @@ namespace WebGLRenderingContextBase
                                                                               f
   
   export
-  vertexAttrib4fv :  (obj : WebGLRenderingContextBase)
+  vertexAttrib4fv :  JSType t1
+                  => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                  -> (obj : t1)
                   -> (index : UInt32)
                   -> (values : NS I [ Float32Array , Array Double ])
                   -> JSIO ()
   vertexAttrib4fv a b c = primJS
-                        $ WebGLRenderingContextBase.prim__vertexAttrib4fv a
+                        $ WebGLRenderingContextBase.prim__vertexAttrib4fv (up a)
                                                                           b
                                                                           (toFFI c)
   
   export
-  vertexAttribPointer :  (obj : WebGLRenderingContextBase)
+  vertexAttribPointer :  JSType t1
+                      => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+                      -> (obj : t1)
                       -> (index : UInt32)
                       -> (size : Int32)
                       -> (type : UInt32)
@@ -6264,7 +6645,7 @@ namespace WebGLRenderingContextBase
                       -> (offset : Int64)
                       -> JSIO ()
   vertexAttribPointer a b c d e f g = primJS
-                                    $ WebGLRenderingContextBase.prim__vertexAttribPointer a
+                                    $ WebGLRenderingContextBase.prim__vertexAttribPointer (up a)
                                                                                           b
                                                                                           c
                                                                                           d
@@ -6273,28 +6654,37 @@ namespace WebGLRenderingContextBase
                                                                                           g
   
   export
-  viewport :  (obj : WebGLRenderingContextBase)
+  viewport :  JSType t1
+           => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
+           -> (obj : t1)
            -> (x : Int32)
            -> (y : Int32)
            -> (width : Int32)
            -> (height : Int32)
            -> JSIO ()
   viewport a b c d e = primJS
-                     $ WebGLRenderingContextBase.prim__viewport a b c d e
+                     $ WebGLRenderingContextBase.prim__viewport (up a) b c d e
 
 namespace WebGLRenderingContextOverloads
   
   export
-  bufferData :  (obj : WebGLRenderingContextOverloads)
+  bufferData :  JSType t1
+             => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
+             -> (obj : t1)
              -> (target : UInt32)
              -> (size : Int64)
              -> (usage : UInt32)
              -> JSIO ()
   bufferData a b c d = primJS
-                     $ WebGLRenderingContextOverloads.prim__bufferData a b c d
+                     $ WebGLRenderingContextOverloads.prim__bufferData (up a)
+                                                                       b
+                                                                       c
+                                                                       d
   
   export
-  bufferData1 :  (obj : WebGLRenderingContextOverloads)
+  bufferData1 :  JSType t1
+              => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
+              -> (obj : t1)
               -> (target : UInt32)
               -> (data_ : Maybe (NS I [ Int8Array
                                       , Int16Array
@@ -6311,13 +6701,15 @@ namespace WebGLRenderingContextOverloads
               -> (usage : UInt32)
               -> JSIO ()
   bufferData1 a b c d = primJS
-                      $ WebGLRenderingContextOverloads.prim__bufferData1 a
+                      $ WebGLRenderingContextOverloads.prim__bufferData1 (up a)
                                                                          b
                                                                          (toFFI c)
                                                                          d
   
   export
-  bufferSubData :  (obj : WebGLRenderingContextOverloads)
+  bufferSubData :  JSType t1
+                => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
+                -> (obj : t1)
                 -> (target : UInt32)
                 -> (offset : Int64)
                 -> (data_ : NS I [ Int8Array
@@ -6334,13 +6726,15 @@ namespace WebGLRenderingContextOverloads
                                  ])
                 -> JSIO ()
   bufferSubData a b c d = primJS
-                        $ WebGLRenderingContextOverloads.prim__bufferSubData a
+                        $ WebGLRenderingContextOverloads.prim__bufferSubData (up a)
                                                                              b
                                                                              c
                                                                              (toFFI d)
   
   export
-  compressedTexImage2D :  (obj : WebGLRenderingContextOverloads)
+  compressedTexImage2D :  JSType t1
+                       => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
+                       -> (obj : t1)
                        -> (target : UInt32)
                        -> (level : Int32)
                        -> (internalformat : UInt32)
@@ -6360,7 +6754,7 @@ namespace WebGLRenderingContextOverloads
                                         ])
                        -> JSIO ()
   compressedTexImage2D a b c d e f g h = primJS
-                                       $ WebGLRenderingContextOverloads.prim__compressedTexImage2D a
+                                       $ WebGLRenderingContextOverloads.prim__compressedTexImage2D (up a)
                                                                                                    b
                                                                                                    c
                                                                                                    d
@@ -6370,7 +6764,9 @@ namespace WebGLRenderingContextOverloads
                                                                                                    (toFFI h)
   
   export
-  compressedTexSubImage2D :  (obj : WebGLRenderingContextOverloads)
+  compressedTexSubImage2D :  JSType t1
+                          => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
+                          -> (obj : t1)
                           -> (target : UInt32)
                           -> (level : Int32)
                           -> (xoffset : Int32)
@@ -6391,7 +6787,7 @@ namespace WebGLRenderingContextOverloads
                                            ])
                           -> JSIO ()
   compressedTexSubImage2D a b c d e f g h i = primJS
-                                            $ WebGLRenderingContextOverloads.prim__compressedTexSubImage2D a
+                                            $ WebGLRenderingContextOverloads.prim__compressedTexSubImage2D (up a)
                                                                                                            b
                                                                                                            c
                                                                                                            d
@@ -6402,7 +6798,9 @@ namespace WebGLRenderingContextOverloads
                                                                                                            (toFFI i)
   
   export
-  readPixels :  (obj : WebGLRenderingContextOverloads)
+  readPixels :  JSType t1
+             => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
+             -> (obj : t1)
              -> (x : Int32)
              -> (y : Int32)
              -> (width : Int32)
@@ -6422,7 +6820,7 @@ namespace WebGLRenderingContextOverloads
                                       ]))
              -> JSIO ()
   readPixels a b c d e f g h = primJS
-                             $ WebGLRenderingContextOverloads.prim__readPixels a
+                             $ WebGLRenderingContextOverloads.prim__readPixels (up a)
                                                                                b
                                                                                c
                                                                                d
@@ -6432,7 +6830,9 @@ namespace WebGLRenderingContextOverloads
                                                                                (toFFI h)
   
   export
-  texImage2D :  (obj : WebGLRenderingContextOverloads)
+  texImage2D :  JSType t1
+             => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
+             -> (obj : t1)
              -> (target : UInt32)
              -> (level : Int32)
              -> (internalformat : Int32)
@@ -6454,7 +6854,7 @@ namespace WebGLRenderingContextOverloads
                                       ]))
              -> JSIO ()
   texImage2D a b c d e f g h i j = primJS
-                                 $ WebGLRenderingContextOverloads.prim__texImage2D a
+                                 $ WebGLRenderingContextOverloads.prim__texImage2D (up a)
                                                                                    b
                                                                                    c
                                                                                    d
@@ -6466,7 +6866,9 @@ namespace WebGLRenderingContextOverloads
                                                                                    (toFFI j)
   
   export
-  texImage2D1 :  (obj : WebGLRenderingContextOverloads)
+  texImage2D1 :  JSType t1
+              => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
+              -> (obj : t1)
               -> (target : UInt32)
               -> (level : Int32)
               -> (internalformat : Int32)
@@ -6481,7 +6883,7 @@ namespace WebGLRenderingContextOverloads
                                 ])
               -> JSIO ()
   texImage2D1 a b c d e f g = primJS
-                            $ WebGLRenderingContextOverloads.prim__texImage2D1 a
+                            $ WebGLRenderingContextOverloads.prim__texImage2D1 (up a)
                                                                                b
                                                                                c
                                                                                d
@@ -6490,7 +6892,9 @@ namespace WebGLRenderingContextOverloads
                                                                                (toFFI g)
   
   export
-  texSubImage2D :  (obj : WebGLRenderingContextOverloads)
+  texSubImage2D :  JSType t1
+                => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
+                -> (obj : t1)
                 -> (target : UInt32)
                 -> (level : Int32)
                 -> (xoffset : Int32)
@@ -6512,7 +6916,7 @@ namespace WebGLRenderingContextOverloads
                                          ]))
                 -> JSIO ()
   texSubImage2D a b c d e f g h i j = primJS
-                                    $ WebGLRenderingContextOverloads.prim__texSubImage2D a
+                                    $ WebGLRenderingContextOverloads.prim__texSubImage2D (up a)
                                                                                          b
                                                                                          c
                                                                                          d
@@ -6524,7 +6928,9 @@ namespace WebGLRenderingContextOverloads
                                                                                          (toFFI j)
   
   export
-  texSubImage2D1 :  (obj : WebGLRenderingContextOverloads)
+  texSubImage2D1 :  JSType t1
+                 => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
+                 -> (obj : t1)
                  -> (target : UInt32)
                  -> (level : Int32)
                  -> (xoffset : Int32)
@@ -6540,7 +6946,7 @@ namespace WebGLRenderingContextOverloads
                                    ])
                  -> JSIO ()
   texSubImage2D1 a b c d e f g h = primJS
-                                 $ WebGLRenderingContextOverloads.prim__texSubImage2D1 a
+                                 $ WebGLRenderingContextOverloads.prim__texSubImage2D1 (up a)
                                                                                        b
                                                                                        c
                                                                                        d
@@ -6551,139 +6957,139 @@ namespace WebGLRenderingContextOverloads
   
   export
   uniform1fv :  JSType t1
-             => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-             -> (obj : WebGLRenderingContextOverloads)
-             -> (location : Maybe t1)
+             => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
+             -> (obj : t1)
+             -> (location : Maybe WebGLUniformLocation)
              -> (v : NS I [ Float32Array , Array Double ])
              -> JSIO ()
   uniform1fv a b c = primJS
-                   $ WebGLRenderingContextOverloads.prim__uniform1fv a
-                                                                     (mayUp b)
+                   $ WebGLRenderingContextOverloads.prim__uniform1fv (up a)
+                                                                     (toFFI b)
                                                                      (toFFI c)
   
   export
   uniform1iv :  JSType t1
-             => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-             -> (obj : WebGLRenderingContextOverloads)
-             -> (location : Maybe t1)
+             => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
+             -> (obj : t1)
+             -> (location : Maybe WebGLUniformLocation)
              -> (v : NS I [ Int32Array , Array Int32 ])
              -> JSIO ()
   uniform1iv a b c = primJS
-                   $ WebGLRenderingContextOverloads.prim__uniform1iv a
-                                                                     (mayUp b)
+                   $ WebGLRenderingContextOverloads.prim__uniform1iv (up a)
+                                                                     (toFFI b)
                                                                      (toFFI c)
   
   export
   uniform2fv :  JSType t1
-             => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-             -> (obj : WebGLRenderingContextOverloads)
-             -> (location : Maybe t1)
+             => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
+             -> (obj : t1)
+             -> (location : Maybe WebGLUniformLocation)
              -> (v : NS I [ Float32Array , Array Double ])
              -> JSIO ()
   uniform2fv a b c = primJS
-                   $ WebGLRenderingContextOverloads.prim__uniform2fv a
-                                                                     (mayUp b)
+                   $ WebGLRenderingContextOverloads.prim__uniform2fv (up a)
+                                                                     (toFFI b)
                                                                      (toFFI c)
   
   export
   uniform2iv :  JSType t1
-             => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-             -> (obj : WebGLRenderingContextOverloads)
-             -> (location : Maybe t1)
+             => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
+             -> (obj : t1)
+             -> (location : Maybe WebGLUniformLocation)
              -> (v : NS I [ Int32Array , Array Int32 ])
              -> JSIO ()
   uniform2iv a b c = primJS
-                   $ WebGLRenderingContextOverloads.prim__uniform2iv a
-                                                                     (mayUp b)
+                   $ WebGLRenderingContextOverloads.prim__uniform2iv (up a)
+                                                                     (toFFI b)
                                                                      (toFFI c)
   
   export
   uniform3fv :  JSType t1
-             => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-             -> (obj : WebGLRenderingContextOverloads)
-             -> (location : Maybe t1)
+             => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
+             -> (obj : t1)
+             -> (location : Maybe WebGLUniformLocation)
              -> (v : NS I [ Float32Array , Array Double ])
              -> JSIO ()
   uniform3fv a b c = primJS
-                   $ WebGLRenderingContextOverloads.prim__uniform3fv a
-                                                                     (mayUp b)
+                   $ WebGLRenderingContextOverloads.prim__uniform3fv (up a)
+                                                                     (toFFI b)
                                                                      (toFFI c)
   
   export
   uniform3iv :  JSType t1
-             => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-             -> (obj : WebGLRenderingContextOverloads)
-             -> (location : Maybe t1)
+             => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
+             -> (obj : t1)
+             -> (location : Maybe WebGLUniformLocation)
              -> (v : NS I [ Int32Array , Array Int32 ])
              -> JSIO ()
   uniform3iv a b c = primJS
-                   $ WebGLRenderingContextOverloads.prim__uniform3iv a
-                                                                     (mayUp b)
+                   $ WebGLRenderingContextOverloads.prim__uniform3iv (up a)
+                                                                     (toFFI b)
                                                                      (toFFI c)
   
   export
   uniform4fv :  JSType t1
-             => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-             -> (obj : WebGLRenderingContextOverloads)
-             -> (location : Maybe t1)
+             => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
+             -> (obj : t1)
+             -> (location : Maybe WebGLUniformLocation)
              -> (v : NS I [ Float32Array , Array Double ])
              -> JSIO ()
   uniform4fv a b c = primJS
-                   $ WebGLRenderingContextOverloads.prim__uniform4fv a
-                                                                     (mayUp b)
+                   $ WebGLRenderingContextOverloads.prim__uniform4fv (up a)
+                                                                     (toFFI b)
                                                                      (toFFI c)
   
   export
   uniform4iv :  JSType t1
-             => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-             -> (obj : WebGLRenderingContextOverloads)
-             -> (location : Maybe t1)
+             => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
+             -> (obj : t1)
+             -> (location : Maybe WebGLUniformLocation)
              -> (v : NS I [ Int32Array , Array Int32 ])
              -> JSIO ()
   uniform4iv a b c = primJS
-                   $ WebGLRenderingContextOverloads.prim__uniform4iv a
-                                                                     (mayUp b)
+                   $ WebGLRenderingContextOverloads.prim__uniform4iv (up a)
+                                                                     (toFFI b)
                                                                      (toFFI c)
   
   export
   uniformMatrix2fv :  JSType t1
-                   => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-                   -> (obj : WebGLRenderingContextOverloads)
-                   -> (location : Maybe t1)
+                   => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
+                   -> (obj : t1)
+                   -> (location : Maybe WebGLUniformLocation)
                    -> (transpose : Bool)
                    -> (value : NS I [ Float32Array , Array Double ])
                    -> JSIO ()
   uniformMatrix2fv a b c d = primJS
-                           $ WebGLRenderingContextOverloads.prim__uniformMatrix2fv a
-                                                                                   (mayUp b)
+                           $ WebGLRenderingContextOverloads.prim__uniformMatrix2fv (up a)
+                                                                                   (toFFI b)
                                                                                    (toFFI c)
                                                                                    (toFFI d)
   
   export
   uniformMatrix3fv :  JSType t1
-                   => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-                   -> (obj : WebGLRenderingContextOverloads)
-                   -> (location : Maybe t1)
+                   => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
+                   -> (obj : t1)
+                   -> (location : Maybe WebGLUniformLocation)
                    -> (transpose : Bool)
                    -> (value : NS I [ Float32Array , Array Double ])
                    -> JSIO ()
   uniformMatrix3fv a b c d = primJS
-                           $ WebGLRenderingContextOverloads.prim__uniformMatrix3fv a
-                                                                                   (mayUp b)
+                           $ WebGLRenderingContextOverloads.prim__uniformMatrix3fv (up a)
+                                                                                   (toFFI b)
                                                                                    (toFFI c)
                                                                                    (toFFI d)
   
   export
   uniformMatrix4fv :  JSType t1
-                   => {auto 0 _ : Elem WebGLUniformLocation (Types t1)}
-                   -> (obj : WebGLRenderingContextOverloads)
-                   -> (location : Maybe t1)
+                   => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
+                   -> (obj : t1)
+                   -> (location : Maybe WebGLUniformLocation)
                    -> (transpose : Bool)
                    -> (value : NS I [ Float32Array , Array Double ])
                    -> JSIO ()
   uniformMatrix4fv a b c d = primJS
-                           $ WebGLRenderingContextOverloads.prim__uniformMatrix4fv a
-                                                                                   (mayUp b)
+                           $ WebGLRenderingContextOverloads.prim__uniformMatrix4fv (up a)
+                                                                                   (toFFI b)
                                                                                    (toFFI c)
                                                                                    (toFFI d)
 
@@ -6729,99 +7135,74 @@ namespace WebGLContextAttributes
                                           undef
   
   export
-  alpha :  JSType t
-        => {auto 0 _ : Elem WebGLContextAttributes (Types t)}
-        -> t
-        -> Attribute True Optional Bool
+  alpha : WebGLContextAttributes -> Attribute True Optional Bool
   alpha v = fromUndefOrPrim "WebGLContextAttributes.getalpha"
                             prim__alpha
                             prim__setAlpha
                             True
-                            (v :> WebGLContextAttributes)
+                            v
   
   export
-  antialias :  JSType t
-            => {auto 0 _ : Elem WebGLContextAttributes (Types t)}
-            -> t
-            -> Attribute True Optional Bool
+  antialias : WebGLContextAttributes -> Attribute True Optional Bool
   antialias v = fromUndefOrPrim "WebGLContextAttributes.getantialias"
                                 prim__antialias
                                 prim__setAntialias
                                 True
-                                (v :> WebGLContextAttributes)
+                                v
   
   export
-  depth :  JSType t
-        => {auto 0 _ : Elem WebGLContextAttributes (Types t)}
-        -> t
-        -> Attribute True Optional Bool
+  depth : WebGLContextAttributes -> Attribute True Optional Bool
   depth v = fromUndefOrPrim "WebGLContextAttributes.getdepth"
                             prim__depth
                             prim__setDepth
                             True
-                            (v :> WebGLContextAttributes)
+                            v
   
   export
-  desynchronized :  JSType t
-                 => {auto 0 _ : Elem WebGLContextAttributes (Types t)}
-                 -> t
-                 -> Attribute True Optional Bool
+  desynchronized : WebGLContextAttributes -> Attribute True Optional Bool
   desynchronized v = fromUndefOrPrim "WebGLContextAttributes.getdesynchronized"
                                      prim__desynchronized
                                      prim__setDesynchronized
                                      False
-                                     (v :> WebGLContextAttributes)
+                                     v
   
   export
-  failIfMajorPerformanceCaveat :  JSType t
-                               => {auto 0 _ : Elem WebGLContextAttributes (Types t)}
-                               -> t
+  failIfMajorPerformanceCaveat :  WebGLContextAttributes
                                -> Attribute True Optional Bool
   failIfMajorPerformanceCaveat v = fromUndefOrPrim "WebGLContextAttributes.getfailIfMajorPerformanceCaveat"
                                                    prim__failIfMajorPerformanceCaveat
                                                    prim__setFailIfMajorPerformanceCaveat
                                                    False
-                                                   (v :> WebGLContextAttributes)
+                                                   v
   
   export
-  powerPreference :  JSType t
-                  => {auto 0 _ : Elem WebGLContextAttributes (Types t)}
-                  -> t
+  powerPreference :  WebGLContextAttributes
                   -> Attribute False Optional WebGLPowerPreference
   powerPreference v = fromUndefOrPrimNoDefault "WebGLContextAttributes.getpowerPreference"
                                                prim__powerPreference
                                                prim__setPowerPreference
-                                               (v :> WebGLContextAttributes)
+                                               v
   
   export
-  premultipliedAlpha :  JSType t
-                     => {auto 0 _ : Elem WebGLContextAttributes (Types t)}
-                     -> t
-                     -> Attribute True Optional Bool
+  premultipliedAlpha : WebGLContextAttributes -> Attribute True Optional Bool
   premultipliedAlpha v = fromUndefOrPrim "WebGLContextAttributes.getpremultipliedAlpha"
                                          prim__premultipliedAlpha
                                          prim__setPremultipliedAlpha
                                          True
-                                         (v :> WebGLContextAttributes)
+                                         v
   
   export
-  preserveDrawingBuffer :  JSType t
-                        => {auto 0 _ : Elem WebGLContextAttributes (Types t)}
-                        -> t
-                        -> Attribute True Optional Bool
+  preserveDrawingBuffer : WebGLContextAttributes -> Attribute True Optional Bool
   preserveDrawingBuffer v = fromUndefOrPrim "WebGLContextAttributes.getpreserveDrawingBuffer"
                                             prim__preserveDrawingBuffer
                                             prim__setPreserveDrawingBuffer
                                             False
-                                            (v :> WebGLContextAttributes)
+                                            v
   
   export
-  stencil :  JSType t
-          => {auto 0 _ : Elem WebGLContextAttributes (Types t)}
-          -> t
-          -> Attribute True Optional Bool
+  stencil : WebGLContextAttributes -> Attribute True Optional Bool
   stencil v = fromUndefOrPrim "WebGLContextAttributes.getstencil"
                               prim__stencil
                               prim__setStencil
                               False
-                              (v :> WebGLContextAttributes)
+                              v

@@ -46,92 +46,59 @@ namespace CSSGroupingRule
 namespace CSSImportRule
   
   export
-  href :  JSType t1
-       => {auto 0 _ : Elem CSSImportRule (Types t1)}
-       -> (obj : t1)
-       -> JSIO String
-  href a = primJS $ CSSImportRule.prim__href (up a)
+  href : (obj : CSSImportRule) -> JSIO String
+  href a = primJS $ CSSImportRule.prim__href a
   
   export
-  media :  JSType t1
-        => {auto 0 _ : Elem CSSImportRule (Types t1)}
-        -> (obj : t1)
-        -> JSIO MediaList
-  media a = primJS $ CSSImportRule.prim__media (up a)
+  media : (obj : CSSImportRule) -> JSIO MediaList
+  media a = primJS $ CSSImportRule.prim__media a
   
   export
-  styleSheet :  JSType t1
-             => {auto 0 _ : Elem CSSImportRule (Types t1)}
-             -> (obj : t1)
-             -> JSIO CSSStyleSheet
-  styleSheet a = primJS $ CSSImportRule.prim__styleSheet (up a)
+  styleSheet : (obj : CSSImportRule) -> JSIO CSSStyleSheet
+  styleSheet a = primJS $ CSSImportRule.prim__styleSheet a
 
 namespace CSSMarginRule
   
   export
-  name :  JSType t1
-       => {auto 0 _ : Elem CSSMarginRule (Types t1)}
-       -> (obj : t1)
-       -> JSIO CSSOMString
-  name a = primJS $ CSSMarginRule.prim__name (up a)
+  name : (obj : CSSMarginRule) -> JSIO CSSOMString
+  name a = primJS $ CSSMarginRule.prim__name a
   
   export
-  style :  JSType t1
-        => {auto 0 _ : Elem CSSMarginRule (Types t1)}
-        -> (obj : t1)
-        -> JSIO CSSStyleDeclaration
-  style a = primJS $ CSSMarginRule.prim__style (up a)
+  style : (obj : CSSMarginRule) -> JSIO CSSStyleDeclaration
+  style a = primJS $ CSSMarginRule.prim__style a
 
 namespace CSSNamespaceRule
   
   export
-  namespaceURI :  JSType t1
-               => {auto 0 _ : Elem CSSNamespaceRule (Types t1)}
-               -> (obj : t1)
-               -> JSIO CSSOMString
-  namespaceURI a = primJS $ CSSNamespaceRule.prim__namespaceURI (up a)
+  namespaceURI : (obj : CSSNamespaceRule) -> JSIO CSSOMString
+  namespaceURI a = primJS $ CSSNamespaceRule.prim__namespaceURI a
   
   export
-  prefix_ :  JSType t1
-          => {auto 0 _ : Elem CSSNamespaceRule (Types t1)}
-          -> (obj : t1)
-          -> JSIO CSSOMString
-  prefix_ a = primJS $ CSSNamespaceRule.prim__prefix (up a)
+  prefix_ : (obj : CSSNamespaceRule) -> JSIO CSSOMString
+  prefix_ a = primJS $ CSSNamespaceRule.prim__prefix a
 
 namespace CSSPageRule
   
   export
-  selectorText :  JSType t
-               => {auto 0 _ : Elem CSSPageRule (Types t)}
-               -> t
-               -> Attribute True I CSSOMString
+  selectorText : CSSPageRule -> Attribute True I CSSOMString
   selectorText v = fromPrim "CSSPageRule.getselectorText"
                             prim__selectorText
                             prim__setSelectorText
-                            (v :> CSSPageRule)
+                            v
   
   export
-  style :  JSType t1
-        => {auto 0 _ : Elem CSSPageRule (Types t1)}
-        -> (obj : t1)
-        -> JSIO CSSStyleDeclaration
-  style a = primJS $ CSSPageRule.prim__style (up a)
+  style : (obj : CSSPageRule) -> JSIO CSSStyleDeclaration
+  style a = primJS $ CSSPageRule.prim__style a
 
 namespace CSSPseudoElement
   
   export
-  element :  JSType t1
-          => {auto 0 _ : Elem CSSPseudoElement (Types t1)}
-          -> (obj : t1)
-          -> JSIO Element
-  element a = primJS $ CSSPseudoElement.prim__element (up a)
+  element : (obj : CSSPseudoElement) -> JSIO Element
+  element a = primJS $ CSSPseudoElement.prim__element a
   
   export
-  type :  JSType t1
-       => {auto 0 _ : Elem CSSPseudoElement (Types t1)}
-       -> (obj : t1)
-       -> JSIO CSSOMString
-  type a = primJS $ CSSPseudoElement.prim__type (up a)
+  type : (obj : CSSPseudoElement) -> JSIO CSSOMString
+  type a = primJS $ CSSPseudoElement.prim__type a
 
 namespace CSSRule
   
@@ -202,263 +169,166 @@ namespace CSSRule
 namespace CSSRuleList
   
   export
-  length :  JSType t1
-         => {auto 0 _ : Elem CSSRuleList (Types t1)}
-         -> (obj : t1)
-         -> JSIO UInt32
-  length a = primJS $ CSSRuleList.prim__length (up a)
+  length : (obj : CSSRuleList) -> JSIO UInt32
+  length a = primJS $ CSSRuleList.prim__length a
   
   export
-  item :  JSType t1
-       => {auto 0 _ : Elem CSSRuleList (Types t1)}
-       -> (obj : t1)
-       -> (index : UInt32)
-       -> JSIO (Maybe CSSRule)
-  item a b = tryJS "CSSRuleList.item" $ CSSRuleList.prim__item (up a) b
+  item : (obj : CSSRuleList) -> (index : UInt32) -> JSIO (Maybe CSSRule)
+  item a b = tryJS "CSSRuleList.item" $ CSSRuleList.prim__item a b
 
 namespace CSSStyleDeclaration
   
   export
-  cssFloat :  JSType t
-           => {auto 0 _ : Elem CSSStyleDeclaration (Types t)}
-           -> t
-           -> Attribute True I CSSOMString
+  cssFloat : CSSStyleDeclaration -> Attribute True I CSSOMString
   cssFloat v = fromPrim "CSSStyleDeclaration.getcssFloat"
                         prim__cssFloat
                         prim__setCssFloat
-                        (v :> CSSStyleDeclaration)
+                        v
   
   export
-  cssText :  JSType t
-          => {auto 0 _ : Elem CSSStyleDeclaration (Types t)}
-          -> t
-          -> Attribute True I CSSOMString
+  cssText : CSSStyleDeclaration -> Attribute True I CSSOMString
   cssText v = fromPrim "CSSStyleDeclaration.getcssText"
                        prim__cssText
                        prim__setCssText
-                       (v :> CSSStyleDeclaration)
+                       v
   
   export
-  length :  JSType t1
-         => {auto 0 _ : Elem CSSStyleDeclaration (Types t1)}
-         -> (obj : t1)
-         -> JSIO UInt32
-  length a = primJS $ CSSStyleDeclaration.prim__length (up a)
+  length : (obj : CSSStyleDeclaration) -> JSIO UInt32
+  length a = primJS $ CSSStyleDeclaration.prim__length a
   
   export
-  parentRule :  JSType t1
-             => {auto 0 _ : Elem CSSStyleDeclaration (Types t1)}
-             -> (obj : t1)
-             -> JSIO (Maybe CSSRule)
+  parentRule : (obj : CSSStyleDeclaration) -> JSIO (Maybe CSSRule)
   parentRule a = tryJS "CSSStyleDeclaration.parentRule"
-               $ CSSStyleDeclaration.prim__parentRule (up a)
+               $ CSSStyleDeclaration.prim__parentRule a
   
   export
-  getPropertyPriority :  JSType t1
-                      => {auto 0 _ : Elem CSSStyleDeclaration (Types t1)}
-                      -> (obj : t1)
+  getPropertyPriority :  (obj : CSSStyleDeclaration)
                       -> (property : CSSOMString)
                       -> JSIO CSSOMString
   getPropertyPriority a b = primJS
-                          $ CSSStyleDeclaration.prim__getPropertyPriority (up a)
-                                                                          b
+                          $ CSSStyleDeclaration.prim__getPropertyPriority a b
   
   export
-  getPropertyValue :  JSType t1
-                   => {auto 0 _ : Elem CSSStyleDeclaration (Types t1)}
-                   -> (obj : t1)
+  getPropertyValue :  (obj : CSSStyleDeclaration)
                    -> (property : CSSOMString)
                    -> JSIO CSSOMString
-  getPropertyValue a b = primJS
-                       $ CSSStyleDeclaration.prim__getPropertyValue (up a) b
+  getPropertyValue a b = primJS $ CSSStyleDeclaration.prim__getPropertyValue a b
   
   export
-  item :  JSType t1
-       => {auto 0 _ : Elem CSSStyleDeclaration (Types t1)}
-       -> (obj : t1)
-       -> (index : UInt32)
-       -> JSIO CSSOMString
-  item a b = primJS $ CSSStyleDeclaration.prim__item (up a) b
+  item : (obj : CSSStyleDeclaration) -> (index : UInt32) -> JSIO CSSOMString
+  item a b = primJS $ CSSStyleDeclaration.prim__item a b
   
   export
-  removeProperty :  JSType t1
-                 => {auto 0 _ : Elem CSSStyleDeclaration (Types t1)}
-                 -> (obj : t1)
+  removeProperty :  (obj : CSSStyleDeclaration)
                  -> (property : CSSOMString)
                  -> JSIO CSSOMString
-  removeProperty a b = primJS
-                     $ CSSStyleDeclaration.prim__removeProperty (up a) b
+  removeProperty a b = primJS $ CSSStyleDeclaration.prim__removeProperty a b
   
   export
-  setProperty :  JSType t1
-              => {auto 0 _ : Elem CSSStyleDeclaration (Types t1)}
-              -> (obj : t1)
+  setProperty :  (obj : CSSStyleDeclaration)
               -> (property : CSSOMString)
               -> (value : CSSOMString)
               -> (priority : Optional CSSOMString)
               -> JSIO ()
   setProperty a b c d = primJS
-                      $ CSSStyleDeclaration.prim__setProperty (up a)
-                                                              b
-                                                              c
-                                                              (toFFI d)
+                      $ CSSStyleDeclaration.prim__setProperty a b c (toFFI d)
 
   export
-  setProperty' :  JSType t1
-               => {auto 0 _ : Elem CSSStyleDeclaration (Types t1)}
-               -> (obj : t1)
+  setProperty' :  (obj : CSSStyleDeclaration)
                -> (property : CSSOMString)
                -> (value : CSSOMString)
                -> JSIO ()
   setProperty' a b c = primJS
-                     $ CSSStyleDeclaration.prim__setProperty (up a) b c undef
+                     $ CSSStyleDeclaration.prim__setProperty a b c undef
 
 namespace CSSStyleRule
   
   export
-  selectorText :  JSType t
-               => {auto 0 _ : Elem CSSStyleRule (Types t)}
-               -> t
-               -> Attribute True I CSSOMString
+  selectorText : CSSStyleRule -> Attribute True I CSSOMString
   selectorText v = fromPrim "CSSStyleRule.getselectorText"
                             prim__selectorText
                             prim__setSelectorText
-                            (v :> CSSStyleRule)
+                            v
   
   export
-  style :  JSType t1
-        => {auto 0 _ : Elem CSSStyleRule (Types t1)}
-        -> (obj : t1)
-        -> JSIO CSSStyleDeclaration
-  style a = primJS $ CSSStyleRule.prim__style (up a)
+  style : (obj : CSSStyleRule) -> JSIO CSSStyleDeclaration
+  style a = primJS $ CSSStyleRule.prim__style a
 
 namespace CSSStyleSheet
   
   export
-  cssRules :  JSType t1
-           => {auto 0 _ : Elem CSSStyleSheet (Types t1)}
-           -> (obj : t1)
-           -> JSIO CSSRuleList
-  cssRules a = primJS $ CSSStyleSheet.prim__cssRules (up a)
+  cssRules : (obj : CSSStyleSheet) -> JSIO CSSRuleList
+  cssRules a = primJS $ CSSStyleSheet.prim__cssRules a
   
   export
-  ownerRule :  JSType t1
-            => {auto 0 _ : Elem CSSStyleSheet (Types t1)}
-            -> (obj : t1)
-            -> JSIO (Maybe CSSRule)
+  ownerRule : (obj : CSSStyleSheet) -> JSIO (Maybe CSSRule)
   ownerRule a = tryJS "CSSStyleSheet.ownerRule"
-              $ CSSStyleSheet.prim__ownerRule (up a)
+              $ CSSStyleSheet.prim__ownerRule a
   
   export
-  rules :  JSType t1
-        => {auto 0 _ : Elem CSSStyleSheet (Types t1)}
-        -> (obj : t1)
-        -> JSIO CSSRuleList
-  rules a = primJS $ CSSStyleSheet.prim__rules (up a)
+  rules : (obj : CSSStyleSheet) -> JSIO CSSRuleList
+  rules a = primJS $ CSSStyleSheet.prim__rules a
   
   export
-  addRule :  JSType t1
-          => {auto 0 _ : Elem CSSStyleSheet (Types t1)}
-          -> (obj : t1)
+  addRule :  (obj : CSSStyleSheet)
           -> (selector : Optional String)
           -> (style : Optional String)
           -> (index : Optional UInt32)
           -> JSIO Int32
   addRule a b c d = primJS
-                  $ CSSStyleSheet.prim__addRule (up a)
-                                                (toFFI b)
-                                                (toFFI c)
-                                                (toFFI d)
+                  $ CSSStyleSheet.prim__addRule a (toFFI b) (toFFI c) (toFFI d)
 
   export
-  addRule' :  JSType t1
-           => {auto 0 _ : Elem CSSStyleSheet (Types t1)}
-           -> (obj : t1)
-           -> JSIO Int32
-  addRule' a = primJS $ CSSStyleSheet.prim__addRule (up a) undef undef undef
+  addRule' : (obj : CSSStyleSheet) -> JSIO Int32
+  addRule' a = primJS $ CSSStyleSheet.prim__addRule a undef undef undef
   
   export
-  deleteRule :  JSType t1
-             => {auto 0 _ : Elem CSSStyleSheet (Types t1)}
-             -> (obj : t1)
-             -> (index : UInt32)
-             -> JSIO ()
-  deleteRule a b = primJS $ CSSStyleSheet.prim__deleteRule (up a) b
+  deleteRule : (obj : CSSStyleSheet) -> (index : UInt32) -> JSIO ()
+  deleteRule a b = primJS $ CSSStyleSheet.prim__deleteRule a b
   
   export
-  insertRule :  JSType t1
-             => {auto 0 _ : Elem CSSStyleSheet (Types t1)}
-             -> (obj : t1)
+  insertRule :  (obj : CSSStyleSheet)
              -> (rule : CSSOMString)
              -> (index : Optional UInt32)
              -> JSIO UInt32
-  insertRule a b c = primJS $ CSSStyleSheet.prim__insertRule (up a) b (toFFI c)
+  insertRule a b c = primJS $ CSSStyleSheet.prim__insertRule a b (toFFI c)
 
   export
-  insertRule' :  JSType t1
-              => {auto 0 _ : Elem CSSStyleSheet (Types t1)}
-              -> (obj : t1)
-              -> (rule : CSSOMString)
-              -> JSIO UInt32
-  insertRule' a b = primJS $ CSSStyleSheet.prim__insertRule (up a) b undef
+  insertRule' : (obj : CSSStyleSheet) -> (rule : CSSOMString) -> JSIO UInt32
+  insertRule' a b = primJS $ CSSStyleSheet.prim__insertRule a b undef
   
   export
-  removeRule :  JSType t1
-             => {auto 0 _ : Elem CSSStyleSheet (Types t1)}
-             -> (obj : t1)
-             -> (index : Optional UInt32)
-             -> JSIO ()
-  removeRule a b = primJS $ CSSStyleSheet.prim__removeRule (up a) (toFFI b)
+  removeRule : (obj : CSSStyleSheet) -> (index : Optional UInt32) -> JSIO ()
+  removeRule a b = primJS $ CSSStyleSheet.prim__removeRule a (toFFI b)
 
   export
-  removeRule' :  JSType t1
-              => {auto 0 _ : Elem CSSStyleSheet (Types t1)}
-              -> (obj : t1)
-              -> JSIO ()
-  removeRule' a = primJS $ CSSStyleSheet.prim__removeRule (up a) undef
+  removeRule' : (obj : CSSStyleSheet) -> JSIO ()
+  removeRule' a = primJS $ CSSStyleSheet.prim__removeRule a undef
 
 namespace MediaList
   
   export
-  length :  JSType t1
-         => {auto 0 _ : Elem MediaList (Types t1)}
-         -> (obj : t1)
-         -> JSIO UInt32
-  length a = primJS $ MediaList.prim__length (up a)
+  length : (obj : MediaList) -> JSIO UInt32
+  length a = primJS $ MediaList.prim__length a
   
   export
-  mediaText :  JSType t
-            => {auto 0 _ : Elem MediaList (Types t)}
-            -> t
-            -> Attribute True I CSSOMString
+  mediaText : MediaList -> Attribute True I CSSOMString
   mediaText v = fromPrim "MediaList.getmediaText"
                          prim__mediaText
                          prim__setMediaText
-                         (v :> MediaList)
+                         v
   
   export
-  appendMedium :  JSType t1
-               => {auto 0 _ : Elem MediaList (Types t1)}
-               -> (obj : t1)
-               -> (medium : CSSOMString)
-               -> JSIO ()
-  appendMedium a b = primJS $ MediaList.prim__appendMedium (up a) b
+  appendMedium : (obj : MediaList) -> (medium : CSSOMString) -> JSIO ()
+  appendMedium a b = primJS $ MediaList.prim__appendMedium a b
   
   export
-  deleteMedium :  JSType t1
-               => {auto 0 _ : Elem MediaList (Types t1)}
-               -> (obj : t1)
-               -> (medium : CSSOMString)
-               -> JSIO ()
-  deleteMedium a b = primJS $ MediaList.prim__deleteMedium (up a) b
+  deleteMedium : (obj : MediaList) -> (medium : CSSOMString) -> JSIO ()
+  deleteMedium a b = primJS $ MediaList.prim__deleteMedium a b
   
   export
-  item :  JSType t1
-       => {auto 0 _ : Elem MediaList (Types t1)}
-       -> (obj : t1)
-       -> (index : UInt32)
-       -> JSIO (Maybe CSSOMString)
-  item a b = tryJS "MediaList.item" $ MediaList.prim__item (up a) b
+  item : (obj : MediaList) -> (index : UInt32) -> JSIO (Maybe CSSOMString)
+  item a b = tryJS "MediaList.item" $ MediaList.prim__item a b
 
 namespace StyleSheet
   
@@ -518,19 +388,14 @@ namespace StyleSheet
 namespace StyleSheetList
   
   export
-  length :  JSType t1
-         => {auto 0 _ : Elem StyleSheetList (Types t1)}
-         -> (obj : t1)
-         -> JSIO UInt32
-  length a = primJS $ StyleSheetList.prim__length (up a)
+  length : (obj : StyleSheetList) -> JSIO UInt32
+  length a = primJS $ StyleSheetList.prim__length a
   
   export
-  item :  JSType t1
-       => {auto 0 _ : Elem StyleSheetList (Types t1)}
-       -> (obj : t1)
+  item :  (obj : StyleSheetList)
        -> (index : UInt32)
        -> JSIO (Maybe CSSStyleSheet)
-  item a b = tryJS "StyleSheetList.item" $ StyleSheetList.prim__item (up a) b
+  item a b = tryJS "StyleSheetList.item" $ StyleSheetList.prim__item a b
 
 --------------------------------------------------------------------------------
 --          Mixins
@@ -539,12 +404,18 @@ namespace StyleSheetList
 namespace ElementCSSInlineStyle
   
   export
-  style : (obj : ElementCSSInlineStyle) -> JSIO CSSStyleDeclaration
-  style a = primJS $ ElementCSSInlineStyle.prim__style a
+  style :  JSType t1
+        => {auto 0 _ : Elem ElementCSSInlineStyle (Types t1)}
+        -> (obj : t1)
+        -> JSIO CSSStyleDeclaration
+  style a = primJS $ ElementCSSInlineStyle.prim__style (up a)
 
 namespace LinkStyle
   
   export
-  sheet : (obj : LinkStyle) -> JSIO (Maybe CSSStyleSheet)
-  sheet a = tryJS "LinkStyle.sheet" $ LinkStyle.prim__sheet a
+  sheet :  JSType t1
+        => {auto 0 _ : Elem LinkStyle (Types t1)}
+        -> (obj : t1)
+        -> JSIO (Maybe CSSStyleSheet)
+  sheet a = tryJS "LinkStyle.sheet" $ LinkStyle.prim__sheet (up a)
 
