@@ -19,7 +19,7 @@ of the idris2-webidl project.
 
 The generated code consists of a set of external type
 specifications (to be found in the submoduls of
-`Web.Internal` whose name end on `Type.idr`. This was done, in order to
+`Web.Internal` whose names end on `Type.idr`). This was done to
 avoid cyclic module dependencies, since many of these types
 are freely shared across specifications and the related
 modules. The whole set of external types is reexported
