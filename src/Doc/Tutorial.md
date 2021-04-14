@@ -120,8 +120,8 @@ required for interacting with the world of Javascript.
 In order to run a program of type `JSIO ()`, we need a way to
 deal with the possibility of errors. The most basic option
 is function `runJS`, which logs any error to the console
-(function `JS.Util.consoleLog`). Note, that the modules found
-in `Control.Monad.Error` in `base` provide additional functionality
+(function `JS.Util.consoleLog`). `MonadError` exported by
+`Control.Monad.Either` in `base` provides additional functionality
 for error handling.
 
 ### Programmatically creating HTML elements
@@ -137,7 +137,7 @@ the type of a value at runtime in Javascript: One is function
 `typeof`, a binding to which is available in `JS.Util`. This
 function is mostly useful to figure out the types of primitives
 like numbers and strings. For other types like `HTMLElement`, which
-is also inherits methods and attributes from `Node` and `Object`
+also inherits methods and attributes from `Node` and `Object`
 (and some others), it is necessary to inspect
 the chain of prototype objects to figure out, from which
 types a value inherits its functionality.
