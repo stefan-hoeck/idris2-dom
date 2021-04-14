@@ -184,3 +184,24 @@ disableBtn2 : JSIO ()
 disableBtn2 = do maybeBtn <- castElementById HTMLButtonElement "the_button"
                  for_ maybeBtn $ disabled =. True
 ```
+
+### Attributes
+
+Attributes are amongst the most common members of Web IDL definitions.
+In this section, we are talking about non-static read/write attributes.
+Readonly attributes are mapped to plain functions in this library.
+Read/write attributes, however, are represented by an indexed
+data type and come with quite a few utility functions and operators.
+All of this is provided by module `JS.Attribute`. Lets have a look
+at how all of this works under the hood.
+
+All flavors of `JS.Attribute.Attribute` consist of a
+getter (of type `JSIO $ f a` for a context `f` and return type `a`)
+and a setter (of type `f a -> JSIO ()`). They differ in the context,
+in which a value is wrapped (`I` if the attribute is mandatory for
+a type an non-nullable, `Maybe` if it is mandatory but possibly `null`,
+and `Optional`, if the attribute might be altogether unset, in
+which case the getter at the FFI returns `undefined`), as well as
+whether it is possible to always get a concrete value when invoking
+the getter (this is even possible for optional attributes, if
+they have a default value defined in the spec).
