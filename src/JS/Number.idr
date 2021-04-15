@@ -22,7 +22,7 @@ prim__toIntegral : AnyPtr -> AnyPtr
 %foreign "javascript:lambda:(v,b)=>v >= b || v < (-b)?v%b:v"
 prim__truncSigned : Double -> Double -> Double
 
-%foreign "javascript:lambda:(v,b)=>v >= b || v < 0)?Math.abs(v)%b:v"
+%foreign "javascript:lambda:(v,b)=>v >= b || v < 0?Math.abs(v)%b:v"
 prim__truncUnsigned : Double -> Double -> Double
 
 %foreign "javascript:lambda:(a,b)=>a & b"
