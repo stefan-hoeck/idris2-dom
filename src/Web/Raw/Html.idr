@@ -158,10 +158,12 @@ namespace CanvasRenderingContext2D
 namespace CloseEvent
   
   export
-  new :  (type : String)
-      -> (eventInitDict : Optional CloseEventInit)
+  new :  JSType t1
+      => {auto 0 _ : Elem CloseEventInit (Types t1)}
+      -> (type : String)
+      -> (eventInitDict : Optional t1)
       -> JSIO CloseEvent
-  new a b = primJS $ CloseEvent.prim__new a (toFFI b)
+  new a b = primJS $ CloseEvent.prim__new a (optUp b)
 
   export
   new' : (type : String) -> JSIO CloseEvent
@@ -182,12 +184,14 @@ namespace CloseEvent
 namespace CustomElementRegistry
   
   export
-  define :  (obj : CustomElementRegistry)
+  define :  JSType t1
+         => {auto 0 _ : Elem ElementDefinitionOptions (Types t1)}
+         -> (obj : CustomElementRegistry)
          -> (name : String)
          -> (constructor : CustomElementConstructor)
-         -> (options : Optional ElementDefinitionOptions)
+         -> (options : Optional t1)
          -> JSIO ()
-  define a b c d = primJS $ CustomElementRegistry.prim__define a b c (toFFI d)
+  define a b c d = primJS $ CustomElementRegistry.prim__define a b c (optUp d)
 
   export
   define' :  (obj : CustomElementRegistry)
@@ -429,10 +433,12 @@ namespace DedicatedWorkerGlobalScope
 namespace DragEvent
   
   export
-  new :  (type : String)
-      -> (eventInitDict : Optional DragEventInit)
+  new :  JSType t1
+      => {auto 0 _ : Elem DragEventInit (Types t1)}
+      -> (type : String)
+      -> (eventInitDict : Optional t1)
       -> JSIO DragEvent
-  new a b = primJS $ DragEvent.prim__new a (toFFI b)
+  new a b = primJS $ DragEvent.prim__new a (optUp b)
 
   export
   new' : (type : String) -> JSIO DragEvent
@@ -498,15 +504,17 @@ namespace ElementInternals
   
   export
   setValidity :  JSType t1
-              => {auto 0 _ : Elem HTMLElement (Types t1)}
+              => JSType t2
+              => {auto 0 _ : Elem ValidityStateFlags (Types t1)}
+              -> {auto 0 _ : Elem HTMLElement (Types t2)}
               -> (obj : ElementInternals)
-              -> (flags : Optional ValidityStateFlags)
+              -> (flags : Optional t1)
               -> (message : Optional String)
-              -> (anchor : Optional t1)
+              -> (anchor : Optional t2)
               -> JSIO ()
   setValidity a b c d = primJS
                       $ ElementInternals.prim__setValidity a
-                                                           (toFFI b)
+                                                           (optUp b)
                                                            (toFFI c)
                                                            (optUp d)
 
@@ -518,10 +526,12 @@ namespace ElementInternals
 namespace ErrorEvent
   
   export
-  new :  (type : String)
-      -> (eventInitDict : Optional ErrorEventInit)
+  new :  JSType t1
+      => {auto 0 _ : Elem ErrorEventInit (Types t1)}
+      -> (type : String)
+      -> (eventInitDict : Optional t1)
       -> JSIO ErrorEvent
-  new a b = primJS $ ErrorEvent.prim__new a (toFFI b)
+  new a b = primJS $ ErrorEvent.prim__new a (optUp b)
 
   export
   new' : (type : String) -> JSIO ErrorEvent
@@ -562,10 +572,12 @@ namespace EventSource
   OPEN = 1
   
   export
-  new :  (url : String)
-      -> (eventSourceInitDict : Optional EventSourceInit)
+  new :  JSType t1
+      => {auto 0 _ : Elem EventSourceInit (Types t1)}
+      -> (url : String)
+      -> (eventSourceInitDict : Optional t1)
       -> JSIO EventSource
-  new a b = primJS $ EventSource.prim__new a (toFFI b)
+  new a b = primJS $ EventSource.prim__new a (optUp b)
 
   export
   new' : (url : String) -> JSIO EventSource
@@ -623,10 +635,12 @@ namespace External
 namespace FormDataEvent
   
   export
-  new :  (type : String)
-      -> (eventInitDict : FormDataEventInit)
+  new :  JSType t1
+      => {auto 0 _ : Elem FormDataEventInit (Types t1)}
+      -> (type : String)
+      -> (eventInitDict : t1)
       -> JSIO FormDataEvent
-  new a b = primJS $ FormDataEvent.prim__new a b
+  new a b = primJS $ FormDataEvent.prim__new a (up b)
   
   export
   formData : (obj : FormDataEvent) -> JSIO FormData
@@ -3583,21 +3597,25 @@ namespace HTMLSlotElement
   name v = fromPrim "HTMLSlotElement.getname" prim__name prim__setName v
   
   export
-  assignedElements :  (obj : HTMLSlotElement)
-                   -> (options : Optional AssignedNodesOptions)
+  assignedElements :  JSType t1
+                   => {auto 0 _ : Elem AssignedNodesOptions (Types t1)}
+                   -> (obj : HTMLSlotElement)
+                   -> (options : Optional t1)
                    -> JSIO (Array Element)
   assignedElements a b = primJS
-                       $ HTMLSlotElement.prim__assignedElements a (toFFI b)
+                       $ HTMLSlotElement.prim__assignedElements a (optUp b)
 
   export
   assignedElements' : (obj : HTMLSlotElement) -> JSIO (Array Element)
   assignedElements' a = primJS $ HTMLSlotElement.prim__assignedElements a undef
   
   export
-  assignedNodes :  (obj : HTMLSlotElement)
-                -> (options : Optional AssignedNodesOptions)
+  assignedNodes :  JSType t1
+                => {auto 0 _ : Elem AssignedNodesOptions (Types t1)}
+                -> (obj : HTMLSlotElement)
+                -> (options : Optional t1)
                 -> JSIO (Array Node)
-  assignedNodes a b = primJS $ HTMLSlotElement.prim__assignedNodes a (toFFI b)
+  assignedNodes a b = primJS $ HTMLSlotElement.prim__assignedNodes a (optUp b)
 
   export
   assignedNodes' : (obj : HTMLSlotElement) -> JSIO (Array Node)
@@ -4402,10 +4420,12 @@ namespace HTMLVideoElement
 namespace HashChangeEvent
   
   export
-  new :  (type : String)
-      -> (eventInitDict : Optional HashChangeEventInit)
+  new :  JSType t1
+      => {auto 0 _ : Elem HashChangeEventInit (Types t1)}
+      -> (type : String)
+      -> (eventInitDict : Optional t1)
       -> JSIO HashChangeEvent
-  new a b = primJS $ HashChangeEvent.prim__new a (toFFI b)
+  new a b = primJS $ HashChangeEvent.prim__new a (optUp b)
 
   export
   new' : (type : String) -> JSIO HashChangeEvent
@@ -4645,10 +4665,12 @@ namespace MessageChannel
 namespace MessageEvent
   
   export
-  new :  (type : String)
-      -> (eventInitDict : Optional MessageEventInit)
+  new :  JSType t1
+      => {auto 0 _ : Elem MessageEventInit (Types t1)}
+      -> (type : String)
+      -> (eventInitDict : Optional t1)
       -> JSIO MessageEvent
-  new a b = primJS $ MessageEvent.prim__new a (toFFI b)
+  new a b = primJS $ MessageEvent.prim__new a (optUp b)
 
   export
   new' : (type : String) -> JSIO MessageEvent
@@ -4810,12 +4832,14 @@ namespace Navigator
   serviceWorker a = primJS $ Navigator.prim__serviceWorker a
   
   export
-  getUserMedia :  (obj : Navigator)
-               -> (constraints : MediaStreamConstraints)
+  getUserMedia :  JSType t1
+               => {auto 0 _ : Elem MediaStreamConstraints (Types t1)}
+               -> (obj : Navigator)
+               -> (constraints : t1)
                -> (successCallback : NavigatorUserMediaSuccessCallback)
                -> (errorCallback : NavigatorUserMediaErrorCallback)
                -> JSIO ()
-  getUserMedia a b c d = primJS $ Navigator.prim__getUserMedia a b c d
+  getUserMedia a b c d = primJS $ Navigator.prim__getUserMedia a (up b) c d
 
 namespace OffscreenCanvas
   
@@ -4832,10 +4856,12 @@ namespace OffscreenCanvas
   width v = fromPrim "OffscreenCanvas.getwidth" prim__width prim__setWidth v
   
   export
-  convertToBlob :  (obj : OffscreenCanvas)
-                -> (options : Optional ImageEncodeOptions)
+  convertToBlob :  JSType t1
+                => {auto 0 _ : Elem ImageEncodeOptions (Types t1)}
+                -> (obj : OffscreenCanvas)
+                -> (options : Optional t1)
                 -> JSIO (Promise Blob)
-  convertToBlob a b = primJS $ OffscreenCanvas.prim__convertToBlob a (toFFI b)
+  convertToBlob a b = primJS $ OffscreenCanvas.prim__convertToBlob a (optUp b)
 
   export
   convertToBlob' : (obj : OffscreenCanvas) -> JSIO (Promise Blob)
@@ -4882,10 +4908,12 @@ namespace OffscreenCanvasRenderingContext2D
 namespace PageTransitionEvent
   
   export
-  new :  (type : String)
-      -> (eventInitDict : Optional PageTransitionEventInit)
+  new :  JSType t1
+      => {auto 0 _ : Elem PageTransitionEventInit (Types t1)}
+      -> (type : String)
+      -> (eventInitDict : Optional t1)
       -> JSIO PageTransitionEvent
-  new a b = primJS $ PageTransitionEvent.prim__new a (toFFI b)
+  new a b = primJS $ PageTransitionEvent.prim__new a (optUp b)
 
   export
   new' : (type : String) -> JSIO PageTransitionEvent
@@ -4967,10 +4995,12 @@ namespace PluginArray
 namespace PopStateEvent
   
   export
-  new :  (type : String)
-      -> (eventInitDict : Optional PopStateEventInit)
+  new :  JSType t1
+      => {auto 0 _ : Elem PopStateEventInit (Types t1)}
+      -> (type : String)
+      -> (eventInitDict : Optional t1)
       -> JSIO PopStateEvent
-  new a b = primJS $ PopStateEvent.prim__new a (toFFI b)
+  new a b = primJS $ PopStateEvent.prim__new a (optUp b)
 
   export
   new' : (type : String) -> JSIO PopStateEvent
@@ -4983,10 +5013,12 @@ namespace PopStateEvent
 namespace PromiseRejectionEvent
   
   export
-  new :  (type : String)
-      -> (eventInitDict : PromiseRejectionEventInit)
+  new :  JSType t1
+      => {auto 0 _ : Elem PromiseRejectionEventInit (Types t1)}
+      -> (type : String)
+      -> (eventInitDict : t1)
       -> JSIO PromiseRejectionEvent
-  new a b = primJS $ PromiseRejectionEvent.prim__new a b
+  new a b = primJS $ PromiseRejectionEvent.prim__new a (up b)
   
   export
   promise : (obj : PromiseRejectionEvent) -> JSIO (Promise AnyPtr)
@@ -5062,10 +5094,12 @@ namespace Storage
 namespace StorageEvent
   
   export
-  new :  (type : String)
-      -> (eventInitDict : Optional StorageEventInit)
+  new :  JSType t1
+      => {auto 0 _ : Elem StorageEventInit (Types t1)}
+      -> (type : String)
+      -> (eventInitDict : Optional t1)
       -> JSIO StorageEvent
-  new a b = primJS $ StorageEvent.prim__new a (toFFI b)
+  new a b = primJS $ StorageEvent.prim__new a (optUp b)
 
   export
   new' : (type : String) -> JSIO StorageEvent
@@ -5130,10 +5164,12 @@ namespace StorageEvent
 namespace SubmitEvent
   
   export
-  new :  (type : String)
-      -> (eventInitDict : Optional SubmitEventInit)
+  new :  JSType t1
+      => {auto 0 _ : Elem SubmitEventInit (Types t1)}
+      -> (type : String)
+      -> (eventInitDict : Optional t1)
       -> JSIO SubmitEvent
-  new a b = primJS $ SubmitEvent.prim__new a (toFFI b)
+  new a b = primJS $ SubmitEvent.prim__new a (optUp b)
 
   export
   new' : (type : String) -> JSIO SubmitEvent
@@ -5367,10 +5403,12 @@ namespace TimeRanges
 namespace TrackEvent
   
   export
-  new :  (type : String)
-      -> (eventInitDict : Optional TrackEventInit)
+  new :  JSType t1
+      => {auto 0 _ : Elem TrackEventInit (Types t1)}
+      -> (type : String)
+      -> (eventInitDict : Optional t1)
       -> JSIO TrackEvent
-  new a b = primJS $ TrackEvent.prim__new a (toFFI b)
+  new a b = primJS $ TrackEvent.prim__new a (optUp b)
 
   export
   new' : (type : String) -> JSIO TrackEvent
@@ -5819,11 +5857,13 @@ namespace Window
   postMessage' a b c = primJS $ Window.prim__postMessage a (toFFI b) c undef
   
   export
-  postMessage1 :  (obj : Window)
+  postMessage1 :  JSType t1
+               => {auto 0 _ : Elem WindowPostMessageOptions (Types t1)}
+               -> (obj : Window)
                -> (message : Any)
-               -> (options : Optional WindowPostMessageOptions)
+               -> (options : Optional t1)
                -> JSIO ()
-  postMessage1 a b c = primJS $ Window.prim__postMessage1 a (toFFI b) (toFFI c)
+  postMessage1 a b c = primJS $ Window.prim__postMessage1 a (toFFI b) (optUp c)
 
   export
   postMessage1' : (obj : Window) -> (message : Any) -> JSIO ()
@@ -5856,10 +5896,12 @@ namespace Window
 namespace Worker
   
   export
-  new :  (scriptURL : String)
-      -> (options : Optional WorkerOptions)
+  new :  JSType t1
+      => {auto 0 _ : Elem WorkerOptions (Types t1)}
+      -> (scriptURL : String)
+      -> (options : Optional t1)
       -> JSIO Worker
-  new a b = primJS $ Worker.prim__new a (toFFI b)
+  new a b = primJS $ Worker.prim__new a (optUp b)
 
   export
   new' : (scriptURL : String) -> JSIO Worker
@@ -6045,11 +6087,13 @@ namespace WorkerNavigator
 namespace Worklet
   
   export
-  addModule :  (obj : Worklet)
+  addModule :  JSType t1
+            => {auto 0 _ : Elem WorkletOptions (Types t1)}
+            -> (obj : Worklet)
             -> (moduleURL : String)
-            -> (options : Optional WorkletOptions)
+            -> (options : Optional t1)
             -> JSIO (Promise Undefined)
-  addModule a b c = primJS $ Worklet.prim__addModule a b (toFFI c)
+  addModule a b c = primJS $ Worklet.prim__addModule a b (optUp c)
 
   export
   addModule' :  (obj : Worklet)
@@ -8361,11 +8405,13 @@ namespace HTMLOrSVGElement
   
   export
   focus :  JSType t1
+        => JSType t2
         => {auto 0 _ : Elem HTMLOrSVGElement (Types t1)}
+        -> {auto 0 _ : Elem FocusOptions (Types t2)}
         -> (obj : t1)
-        -> (options : Optional FocusOptions)
+        -> (options : Optional t2)
         -> JSIO ()
-  focus a b = primJS $ HTMLOrSVGElement.prim__focus (up a) (toFFI b)
+  focus a b = primJS $ HTMLOrSVGElement.prim__focus (up a) (optUp b)
 
   export
   focus' :  JSType t1
@@ -8712,12 +8758,15 @@ namespace AssignedNodesOptions
   new' = primJS $ AssignedNodesOptions.prim__new undef
   
   export
-  flatten : AssignedNodesOptions -> Attribute True Optional Bool
+  flatten :  JSType t
+          => {auto 0 _ : Elem AssignedNodesOptions (Types t)}
+          -> t
+          -> Attribute True Optional Bool
   flatten v = fromUndefOrPrim "AssignedNodesOptions.getflatten"
                               prim__flatten
                               prim__setFlatten
                               False
-                              v
+                              (v :> AssignedNodesOptions)
 
 namespace CanvasRenderingContext2DSettings
   
@@ -8733,21 +8782,26 @@ namespace CanvasRenderingContext2DSettings
   new' = primJS $ CanvasRenderingContext2DSettings.prim__new undef undef
   
   export
-  alpha : CanvasRenderingContext2DSettings -> Attribute True Optional Bool
+  alpha :  JSType t
+        => {auto 0 _ : Elem CanvasRenderingContext2DSettings (Types t)}
+        -> t
+        -> Attribute True Optional Bool
   alpha v = fromUndefOrPrim "CanvasRenderingContext2DSettings.getalpha"
                             prim__alpha
                             prim__setAlpha
                             True
-                            v
+                            (v :> CanvasRenderingContext2DSettings)
   
   export
-  desynchronized :  CanvasRenderingContext2DSettings
+  desynchronized :  JSType t
+                 => {auto 0 _ : Elem CanvasRenderingContext2DSettings (Types t)}
+                 -> t
                  -> Attribute True Optional Bool
   desynchronized v = fromUndefOrPrim "CanvasRenderingContext2DSettings.getdesynchronized"
                                      prim__desynchronized
                                      prim__setDesynchronized
                                      False
-                                     v
+                                     (v :> CanvasRenderingContext2DSettings)
 
 namespace CloseEventInit
   
@@ -8763,24 +8817,37 @@ namespace CloseEventInit
   new' = primJS $ CloseEventInit.prim__new undef undef undef
   
   export
-  code : CloseEventInit -> Attribute True Optional UInt16
-  code v = fromUndefOrPrim "CloseEventInit.getcode" prim__code prim__setCode 0 v
+  code :  JSType t
+       => {auto 0 _ : Elem CloseEventInit (Types t)}
+       -> t
+       -> Attribute True Optional UInt16
+  code v = fromUndefOrPrim "CloseEventInit.getcode"
+                           prim__code
+                           prim__setCode
+                           0
+                           (v :> CloseEventInit)
   
   export
-  reason : CloseEventInit -> Attribute True Optional String
+  reason :  JSType t
+         => {auto 0 _ : Elem CloseEventInit (Types t)}
+         -> t
+         -> Attribute True Optional String
   reason v = fromUndefOrPrim "CloseEventInit.getreason"
                              prim__reason
                              prim__setReason
                              ""
-                             v
+                             (v :> CloseEventInit)
   
   export
-  wasClean : CloseEventInit -> Attribute True Optional Bool
+  wasClean :  JSType t
+           => {auto 0 _ : Elem CloseEventInit (Types t)}
+           -> t
+           -> Attribute True Optional Bool
   wasClean v = fromUndefOrPrim "CloseEventInit.getwasClean"
                                prim__wasClean
                                prim__setWasClean
                                False
-                               v
+                               (v :> CloseEventInit)
 
 namespace DragEventInit
   
@@ -8793,12 +8860,15 @@ namespace DragEventInit
   new' = primJS $ DragEventInit.prim__new undef
   
   export
-  dataTransfer : DragEventInit -> Attribute True Optional (Maybe DataTransfer)
+  dataTransfer :  JSType t
+               => {auto 0 _ : Elem DragEventInit (Types t)}
+               -> t
+               -> Attribute True Optional (Maybe DataTransfer)
   dataTransfer v = fromUndefOrPrim "DragEventInit.getdataTransfer"
                                    prim__dataTransfer
                                    prim__setDataTransfer
                                    Nothing
-                                   v
+                                   (v :> DragEventInit)
 
 namespace ElementDefinitionOptions
   
@@ -8811,11 +8881,14 @@ namespace ElementDefinitionOptions
   new' = primJS $ ElementDefinitionOptions.prim__new undef
   
   export
-  extends : ElementDefinitionOptions -> Attribute False Optional String
+  extends :  JSType t
+          => {auto 0 _ : Elem ElementDefinitionOptions (Types t)}
+          -> t
+          -> Attribute False Optional String
   extends v = fromUndefOrPrimNoDefault "ElementDefinitionOptions.getextends"
                                        prim__extends
                                        prim__setExtends
-                                       v
+                                       (v :> ElementDefinitionOptions)
 
 namespace ErrorEventInit
   
@@ -8838,44 +8911,59 @@ namespace ErrorEventInit
   new' = primJS $ ErrorEventInit.prim__new undef undef undef undef undef
   
   export
-  colno : ErrorEventInit -> Attribute True Optional UInt32
+  colno :  JSType t
+        => {auto 0 _ : Elem ErrorEventInit (Types t)}
+        -> t
+        -> Attribute True Optional UInt32
   colno v = fromUndefOrPrim "ErrorEventInit.getcolno"
                             prim__colno
                             prim__setColno
                             0
-                            v
+                            (v :> ErrorEventInit)
   
   export
-  error : ErrorEventInit -> Attribute True Optional Any
+  error :  JSType t
+        => {auto 0 _ : Elem ErrorEventInit (Types t)}
+        -> t
+        -> Attribute True Optional Any
   error v = fromUndefOrPrim "ErrorEventInit.geterror"
                             prim__error
                             prim__setError
                             (MkAny $ null {a = ()})
-                            v
+                            (v :> ErrorEventInit)
   
   export
-  filename : ErrorEventInit -> Attribute True Optional String
+  filename :  JSType t
+           => {auto 0 _ : Elem ErrorEventInit (Types t)}
+           -> t
+           -> Attribute True Optional String
   filename v = fromUndefOrPrim "ErrorEventInit.getfilename"
                                prim__filename
                                prim__setFilename
                                ""
-                               v
+                               (v :> ErrorEventInit)
   
   export
-  lineno : ErrorEventInit -> Attribute True Optional UInt32
+  lineno :  JSType t
+         => {auto 0 _ : Elem ErrorEventInit (Types t)}
+         -> t
+         -> Attribute True Optional UInt32
   lineno v = fromUndefOrPrim "ErrorEventInit.getlineno"
                              prim__lineno
                              prim__setLineno
                              0
-                             v
+                             (v :> ErrorEventInit)
   
   export
-  message : ErrorEventInit -> Attribute True Optional String
+  message :  JSType t
+          => {auto 0 _ : Elem ErrorEventInit (Types t)}
+          -> t
+          -> Attribute True Optional String
   message v = fromUndefOrPrim "ErrorEventInit.getmessage"
                               prim__message
                               prim__setMessage
                               ""
-                              v
+                              (v :> ErrorEventInit)
 
 namespace EventSourceInit
   
@@ -8888,12 +8976,15 @@ namespace EventSourceInit
   new' = primJS $ EventSourceInit.prim__new undef
   
   export
-  withCredentials : EventSourceInit -> Attribute True Optional Bool
+  withCredentials :  JSType t
+                  => {auto 0 _ : Elem EventSourceInit (Types t)}
+                  -> t
+                  -> Attribute True Optional Bool
   withCredentials v = fromUndefOrPrim "EventSourceInit.getwithCredentials"
                                       prim__withCredentials
                                       prim__setWithCredentials
                                       False
-                                      v
+                                      (v :> EventSourceInit)
 
 namespace FocusOptions
   
@@ -8906,12 +8997,15 @@ namespace FocusOptions
   new' = primJS $ FocusOptions.prim__new undef
   
   export
-  preventScroll : FocusOptions -> Attribute True Optional Bool
+  preventScroll :  JSType t
+                => {auto 0 _ : Elem FocusOptions (Types t)}
+                -> t
+                -> Attribute True Optional Bool
   preventScroll v = fromUndefOrPrim "FocusOptions.getpreventScroll"
                                     prim__preventScroll
                                     prim__setPreventScroll
                                     False
-                                    v
+                                    (v :> FocusOptions)
 
 namespace FormDataEventInit
   
@@ -8920,11 +9014,14 @@ namespace FormDataEventInit
   new a = primJS $ FormDataEventInit.prim__new a
   
   export
-  formData : FormDataEventInit -> Attribute True I FormData
+  formData :  JSType t
+           => {auto 0 _ : Elem FormDataEventInit (Types t)}
+           -> t
+           -> Attribute True I FormData
   formData v = fromPrim "FormDataEventInit.getformData"
                         prim__formData
                         prim__setFormData
-                        v
+                        (v :> FormDataEventInit)
 
 namespace HashChangeEventInit
   
@@ -8939,20 +9036,26 @@ namespace HashChangeEventInit
   new' = primJS $ HashChangeEventInit.prim__new undef undef
   
   export
-  newURL : HashChangeEventInit -> Attribute True Optional String
+  newURL :  JSType t
+         => {auto 0 _ : Elem HashChangeEventInit (Types t)}
+         -> t
+         -> Attribute True Optional String
   newURL v = fromUndefOrPrim "HashChangeEventInit.getnewURL"
                              prim__newURL
                              prim__setNewURL
                              ""
-                             v
+                             (v :> HashChangeEventInit)
   
   export
-  oldURL : HashChangeEventInit -> Attribute True Optional String
+  oldURL :  JSType t
+         => {auto 0 _ : Elem HashChangeEventInit (Types t)}
+         -> t
+         -> Attribute True Optional String
   oldURL v = fromUndefOrPrim "HashChangeEventInit.getoldURL"
                              prim__oldURL
                              prim__setOldURL
                              ""
-                             v
+                             (v :> HashChangeEventInit)
 
 namespace ImageBitmapOptions
   
@@ -8978,49 +9081,64 @@ namespace ImageBitmapOptions
        $ ImageBitmapOptions.prim__new undef undef undef undef undef undef
   
   export
-  colorSpaceConversion :  ImageBitmapOptions
+  colorSpaceConversion :  JSType t
+                       => {auto 0 _ : Elem ImageBitmapOptions (Types t)}
+                       -> t
                        -> Attribute False Optional ColorSpaceConversion
   colorSpaceConversion v = fromUndefOrPrimNoDefault "ImageBitmapOptions.getcolorSpaceConversion"
                                                     prim__colorSpaceConversion
                                                     prim__setColorSpaceConversion
-                                                    v
+                                                    (v :> ImageBitmapOptions)
   
   export
-  imageOrientation :  ImageBitmapOptions
+  imageOrientation :  JSType t
+                   => {auto 0 _ : Elem ImageBitmapOptions (Types t)}
+                   -> t
                    -> Attribute False Optional ImageOrientation
   imageOrientation v = fromUndefOrPrimNoDefault "ImageBitmapOptions.getimageOrientation"
                                                 prim__imageOrientation
                                                 prim__setImageOrientation
-                                                v
+                                                (v :> ImageBitmapOptions)
   
   export
-  premultiplyAlpha :  ImageBitmapOptions
+  premultiplyAlpha :  JSType t
+                   => {auto 0 _ : Elem ImageBitmapOptions (Types t)}
+                   -> t
                    -> Attribute False Optional PremultiplyAlpha
   premultiplyAlpha v = fromUndefOrPrimNoDefault "ImageBitmapOptions.getpremultiplyAlpha"
                                                 prim__premultiplyAlpha
                                                 prim__setPremultiplyAlpha
-                                                v
+                                                (v :> ImageBitmapOptions)
   
   export
-  resizeHeight : ImageBitmapOptions -> Attribute False Optional UInt32
+  resizeHeight :  JSType t
+               => {auto 0 _ : Elem ImageBitmapOptions (Types t)}
+               -> t
+               -> Attribute False Optional UInt32
   resizeHeight v = fromUndefOrPrimNoDefault "ImageBitmapOptions.getresizeHeight"
                                             prim__resizeHeight
                                             prim__setResizeHeight
-                                            v
+                                            (v :> ImageBitmapOptions)
   
   export
-  resizeQuality : ImageBitmapOptions -> Attribute False Optional ResizeQuality
+  resizeQuality :  JSType t
+                => {auto 0 _ : Elem ImageBitmapOptions (Types t)}
+                -> t
+                -> Attribute False Optional ResizeQuality
   resizeQuality v = fromUndefOrPrimNoDefault "ImageBitmapOptions.getresizeQuality"
                                              prim__resizeQuality
                                              prim__setResizeQuality
-                                             v
+                                             (v :> ImageBitmapOptions)
   
   export
-  resizeWidth : ImageBitmapOptions -> Attribute False Optional UInt32
+  resizeWidth :  JSType t
+              => {auto 0 _ : Elem ImageBitmapOptions (Types t)}
+              -> t
+              -> Attribute False Optional UInt32
   resizeWidth v = fromUndefOrPrimNoDefault "ImageBitmapOptions.getresizeWidth"
                                            prim__resizeWidth
                                            prim__setResizeWidth
-                                           v
+                                           (v :> ImageBitmapOptions)
 
 namespace ImageBitmapRenderingContextSettings
   
@@ -9033,12 +9151,15 @@ namespace ImageBitmapRenderingContextSettings
   new' = primJS $ ImageBitmapRenderingContextSettings.prim__new undef
   
   export
-  alpha : ImageBitmapRenderingContextSettings -> Attribute True Optional Bool
+  alpha :  JSType t
+        => {auto 0 _ : Elem ImageBitmapRenderingContextSettings (Types t)}
+        -> t
+        -> Attribute True Optional Bool
   alpha v = fromUndefOrPrim "ImageBitmapRenderingContextSettings.getalpha"
                             prim__alpha
                             prim__setAlpha
                             True
-                            v
+                            (v :> ImageBitmapRenderingContextSettings)
 
 namespace ImageEncodeOptions
   
@@ -9053,19 +9174,25 @@ namespace ImageEncodeOptions
   new' = primJS $ ImageEncodeOptions.prim__new undef undef
   
   export
-  quality : ImageEncodeOptions -> Attribute False Optional Double
+  quality :  JSType t
+          => {auto 0 _ : Elem ImageEncodeOptions (Types t)}
+          -> t
+          -> Attribute False Optional Double
   quality v = fromUndefOrPrimNoDefault "ImageEncodeOptions.getquality"
                                        prim__quality
                                        prim__setQuality
-                                       v
+                                       (v :> ImageEncodeOptions)
   
   export
-  type : ImageEncodeOptions -> Attribute True Optional String
+  type :  JSType t
+       => {auto 0 _ : Elem ImageEncodeOptions (Types t)}
+       -> t
+       -> Attribute True Optional String
   type v = fromUndefOrPrim "ImageEncodeOptions.gettype"
                            prim__type
                            prim__setType
                            "image/png"
-                           v
+                           (v :> ImageEncodeOptions)
 
 namespace MessageEventInit
   
@@ -9091,38 +9218,52 @@ namespace MessageEventInit
   new' = primJS $ MessageEventInit.prim__new undef undef undef undef undef
   
   export
-  data_ : MessageEventInit -> Attribute True Optional Any
+  data_ :  JSType t
+        => {auto 0 _ : Elem MessageEventInit (Types t)}
+        -> t
+        -> Attribute True Optional Any
   data_ v = fromUndefOrPrim "MessageEventInit.getdata"
                             prim__data
                             prim__setData
                             (MkAny $ null {a = ()})
-                            v
+                            (v :> MessageEventInit)
   
   export
-  lastEventId : MessageEventInit -> Attribute True Optional String
+  lastEventId :  JSType t
+              => {auto 0 _ : Elem MessageEventInit (Types t)}
+              -> t
+              -> Attribute True Optional String
   lastEventId v = fromUndefOrPrim "MessageEventInit.getlastEventId"
                                   prim__lastEventId
                                   prim__setLastEventId
                                   ""
-                                  v
+                                  (v :> MessageEventInit)
   
   export
-  origin : MessageEventInit -> Attribute True Optional String
+  origin :  JSType t
+         => {auto 0 _ : Elem MessageEventInit (Types t)}
+         -> t
+         -> Attribute True Optional String
   origin v = fromUndefOrPrim "MessageEventInit.getorigin"
                              prim__origin
                              prim__setOrigin
                              ""
-                             v
+                             (v :> MessageEventInit)
   
   export
-  ports : MessageEventInit -> Attribute False Optional (Array MessagePort)
+  ports :  JSType t
+        => {auto 0 _ : Elem MessageEventInit (Types t)}
+        -> t
+        -> Attribute False Optional (Array MessagePort)
   ports v = fromUndefOrPrimNoDefault "MessageEventInit.getports"
                                      prim__ports
                                      prim__setPorts
-                                     v
+                                     (v :> MessageEventInit)
   
   export
-  source :  MessageEventInit
+  source :  JSType t
+         => {auto 0 _ : Elem MessageEventInit (Types t)}
+         -> t
          -> Attribute True Optional (Maybe (Union3 WindowProxy
                                                    MessagePort
                                                    ServiceWorker))
@@ -9130,7 +9271,7 @@ namespace MessageEventInit
                              prim__source
                              prim__setSource
                              Nothing
-                             v
+                             (v :> MessageEventInit)
 
 namespace PageTransitionEventInit
   
@@ -9143,12 +9284,15 @@ namespace PageTransitionEventInit
   new' = primJS $ PageTransitionEventInit.prim__new undef
   
   export
-  persisted : PageTransitionEventInit -> Attribute True Optional Bool
+  persisted :  JSType t
+            => {auto 0 _ : Elem PageTransitionEventInit (Types t)}
+            -> t
+            -> Attribute True Optional Bool
   persisted v = fromUndefOrPrim "PageTransitionEventInit.getpersisted"
                                 prim__persisted
                                 prim__setPersisted
                                 False
-                                v
+                                (v :> PageTransitionEventInit)
 
 namespace PopStateEventInit
   
@@ -9161,12 +9305,15 @@ namespace PopStateEventInit
   new' = primJS $ PopStateEventInit.prim__new undef
   
   export
-  state : PopStateEventInit -> Attribute True Optional Any
+  state :  JSType t
+        => {auto 0 _ : Elem PopStateEventInit (Types t)}
+        -> t
+        -> Attribute True Optional Any
   state v = fromUndefOrPrim "PopStateEventInit.getstate"
                             prim__state
                             prim__setState
                             (MkAny $ null {a = ()})
-                            v
+                            (v :> PopStateEventInit)
 
 namespace PostMessageOptions
   
@@ -9201,18 +9348,24 @@ namespace PromiseRejectionEventInit
   new' a = primJS $ PromiseRejectionEventInit.prim__new a undef
   
   export
-  promise : PromiseRejectionEventInit -> Attribute True I (Promise AnyPtr)
+  promise :  JSType t
+          => {auto 0 _ : Elem PromiseRejectionEventInit (Types t)}
+          -> t
+          -> Attribute True I (Promise AnyPtr)
   promise v = fromPrim "PromiseRejectionEventInit.getpromise"
                        prim__promise
                        prim__setPromise
-                       v
+                       (v :> PromiseRejectionEventInit)
   
   export
-  reason : PromiseRejectionEventInit -> Attribute False Optional Any
+  reason :  JSType t
+         => {auto 0 _ : Elem PromiseRejectionEventInit (Types t)}
+         -> t
+         -> Attribute False Optional Any
   reason v = fromUndefOrPrimNoDefault "PromiseRejectionEventInit.getreason"
                                       prim__reason
                                       prim__setReason
-                                      v
+                                      (v :> PromiseRejectionEventInit)
 
 namespace StorageEventInit
   
@@ -9235,40 +9388,59 @@ namespace StorageEventInit
   new' = primJS $ StorageEventInit.prim__new undef undef undef undef undef
   
   export
-  key : StorageEventInit -> Attribute True Optional (Maybe String)
+  key :  JSType t
+      => {auto 0 _ : Elem StorageEventInit (Types t)}
+      -> t
+      -> Attribute True Optional (Maybe String)
   key v = fromUndefOrPrim "StorageEventInit.getkey"
                           prim__key
                           prim__setKey
                           Nothing
-                          v
+                          (v :> StorageEventInit)
   
   export
-  newValue : StorageEventInit -> Attribute True Optional (Maybe String)
+  newValue :  JSType t
+           => {auto 0 _ : Elem StorageEventInit (Types t)}
+           -> t
+           -> Attribute True Optional (Maybe String)
   newValue v = fromUndefOrPrim "StorageEventInit.getnewValue"
                                prim__newValue
                                prim__setNewValue
                                Nothing
-                               v
+                               (v :> StorageEventInit)
   
   export
-  oldValue : StorageEventInit -> Attribute True Optional (Maybe String)
+  oldValue :  JSType t
+           => {auto 0 _ : Elem StorageEventInit (Types t)}
+           -> t
+           -> Attribute True Optional (Maybe String)
   oldValue v = fromUndefOrPrim "StorageEventInit.getoldValue"
                                prim__oldValue
                                prim__setOldValue
                                Nothing
-                               v
+                               (v :> StorageEventInit)
   
   export
-  storageArea : StorageEventInit -> Attribute True Optional (Maybe Storage)
+  storageArea :  JSType t
+              => {auto 0 _ : Elem StorageEventInit (Types t)}
+              -> t
+              -> Attribute True Optional (Maybe Storage)
   storageArea v = fromUndefOrPrim "StorageEventInit.getstorageArea"
                                   prim__storageArea
                                   prim__setStorageArea
                                   Nothing
-                                  v
+                                  (v :> StorageEventInit)
   
   export
-  url : StorageEventInit -> Attribute True Optional String
-  url v = fromUndefOrPrim "StorageEventInit.geturl" prim__url prim__setUrl "" v
+  url :  JSType t
+      => {auto 0 _ : Elem StorageEventInit (Types t)}
+      -> t
+      -> Attribute True Optional String
+  url v = fromUndefOrPrim "StorageEventInit.geturl"
+                          prim__url
+                          prim__setUrl
+                          ""
+                          (v :> StorageEventInit)
 
 namespace SubmitEventInit
   
@@ -9284,12 +9456,15 @@ namespace SubmitEventInit
   new' = primJS $ SubmitEventInit.prim__new undef
   
   export
-  submitter : SubmitEventInit -> Attribute True Optional (Maybe HTMLElement)
+  submitter :  JSType t
+            => {auto 0 _ : Elem SubmitEventInit (Types t)}
+            -> t
+            -> Attribute True Optional (Maybe HTMLElement)
   submitter v = fromUndefOrPrim "SubmitEventInit.getsubmitter"
                                 prim__submitter
                                 prim__setSubmitter
                                 Nothing
-                                v
+                                (v :> SubmitEventInit)
 
 namespace TrackEventInit
   
@@ -9306,7 +9481,9 @@ namespace TrackEventInit
   new' = primJS $ TrackEventInit.prim__new undef
   
   export
-  track :  TrackEventInit
+  track :  JSType t
+        => {auto 0 _ : Elem TrackEventInit (Types t)}
+        -> t
         -> Attribute True Optional (Maybe (NS I [ VideoTrack
                                                 , AudioTrack
                                                 , TextTrack
@@ -9315,7 +9492,7 @@ namespace TrackEventInit
                             prim__track
                             prim__setTrack
                             Nothing
-                            v
+                            (v :> TrackEventInit)
 
 namespace ValidityStateFlags
   
@@ -9358,84 +9535,114 @@ namespace ValidityStateFlags
                                       undef
   
   export
-  badInput : ValidityStateFlags -> Attribute True Optional Bool
+  badInput :  JSType t
+           => {auto 0 _ : Elem ValidityStateFlags (Types t)}
+           -> t
+           -> Attribute True Optional Bool
   badInput v = fromUndefOrPrim "ValidityStateFlags.getbadInput"
                                prim__badInput
                                prim__setBadInput
                                False
-                               v
+                               (v :> ValidityStateFlags)
   
   export
-  customError : ValidityStateFlags -> Attribute True Optional Bool
+  customError :  JSType t
+              => {auto 0 _ : Elem ValidityStateFlags (Types t)}
+              -> t
+              -> Attribute True Optional Bool
   customError v = fromUndefOrPrim "ValidityStateFlags.getcustomError"
                                   prim__customError
                                   prim__setCustomError
                                   False
-                                  v
+                                  (v :> ValidityStateFlags)
   
   export
-  patternMismatch : ValidityStateFlags -> Attribute True Optional Bool
+  patternMismatch :  JSType t
+                  => {auto 0 _ : Elem ValidityStateFlags (Types t)}
+                  -> t
+                  -> Attribute True Optional Bool
   patternMismatch v = fromUndefOrPrim "ValidityStateFlags.getpatternMismatch"
                                       prim__patternMismatch
                                       prim__setPatternMismatch
                                       False
-                                      v
+                                      (v :> ValidityStateFlags)
   
   export
-  rangeOverflow : ValidityStateFlags -> Attribute True Optional Bool
+  rangeOverflow :  JSType t
+                => {auto 0 _ : Elem ValidityStateFlags (Types t)}
+                -> t
+                -> Attribute True Optional Bool
   rangeOverflow v = fromUndefOrPrim "ValidityStateFlags.getrangeOverflow"
                                     prim__rangeOverflow
                                     prim__setRangeOverflow
                                     False
-                                    v
+                                    (v :> ValidityStateFlags)
   
   export
-  rangeUnderflow : ValidityStateFlags -> Attribute True Optional Bool
+  rangeUnderflow :  JSType t
+                 => {auto 0 _ : Elem ValidityStateFlags (Types t)}
+                 -> t
+                 -> Attribute True Optional Bool
   rangeUnderflow v = fromUndefOrPrim "ValidityStateFlags.getrangeUnderflow"
                                      prim__rangeUnderflow
                                      prim__setRangeUnderflow
                                      False
-                                     v
+                                     (v :> ValidityStateFlags)
   
   export
-  stepMismatch : ValidityStateFlags -> Attribute True Optional Bool
+  stepMismatch :  JSType t
+               => {auto 0 _ : Elem ValidityStateFlags (Types t)}
+               -> t
+               -> Attribute True Optional Bool
   stepMismatch v = fromUndefOrPrim "ValidityStateFlags.getstepMismatch"
                                    prim__stepMismatch
                                    prim__setStepMismatch
                                    False
-                                   v
+                                   (v :> ValidityStateFlags)
   
   export
-  tooLong : ValidityStateFlags -> Attribute True Optional Bool
+  tooLong :  JSType t
+          => {auto 0 _ : Elem ValidityStateFlags (Types t)}
+          -> t
+          -> Attribute True Optional Bool
   tooLong v = fromUndefOrPrim "ValidityStateFlags.gettooLong"
                               prim__tooLong
                               prim__setTooLong
                               False
-                              v
+                              (v :> ValidityStateFlags)
   
   export
-  tooShort : ValidityStateFlags -> Attribute True Optional Bool
+  tooShort :  JSType t
+           => {auto 0 _ : Elem ValidityStateFlags (Types t)}
+           -> t
+           -> Attribute True Optional Bool
   tooShort v = fromUndefOrPrim "ValidityStateFlags.gettooShort"
                                prim__tooShort
                                prim__setTooShort
                                False
-                               v
+                               (v :> ValidityStateFlags)
   
   export
-  typeMismatch : ValidityStateFlags -> Attribute True Optional Bool
+  typeMismatch :  JSType t
+               => {auto 0 _ : Elem ValidityStateFlags (Types t)}
+               -> t
+               -> Attribute True Optional Bool
   typeMismatch v = fromUndefOrPrim "ValidityStateFlags.gettypeMismatch"
                                    prim__typeMismatch
                                    prim__setTypeMismatch
                                    False
-                                   v
+                                   (v :> ValidityStateFlags)
   
   export
-  valueMissing : ValidityStateFlags -> Attribute True Optional Bool
+  valueMissing :  JSType t
+               => {auto 0 _ : Elem ValidityStateFlags (Types t)}
+               -> t
+               -> Attribute True Optional Bool
   valueMissing v = fromUndefOrPrim "ValidityStateFlags.getvalueMissing"
                                    prim__valueMissing
                                    prim__setValueMissing
                                    False
-                                   v
+                                   (v :> ValidityStateFlags)
 
 namespace WindowPostMessageOptions
   
@@ -9448,12 +9655,15 @@ namespace WindowPostMessageOptions
   new' = primJS $ WindowPostMessageOptions.prim__new undef
   
   export
-  targetOrigin : WindowPostMessageOptions -> Attribute True Optional String
+  targetOrigin :  JSType t
+               => {auto 0 _ : Elem WindowPostMessageOptions (Types t)}
+               -> t
+               -> Attribute True Optional String
   targetOrigin v = fromUndefOrPrim "WindowPostMessageOptions.gettargetOrigin"
                                    prim__targetOrigin
                                    prim__setTargetOrigin
                                    "/"
-                                   v
+                                   (v :> WindowPostMessageOptions)
 
 namespace WorkerOptions
   
@@ -9469,22 +9679,35 @@ namespace WorkerOptions
   new' = primJS $ WorkerOptions.prim__new undef undef undef
   
   export
-  credentials : WorkerOptions -> Attribute False Optional RequestCredentials
+  credentials :  JSType t
+              => {auto 0 _ : Elem WorkerOptions (Types t)}
+              -> t
+              -> Attribute False Optional RequestCredentials
   credentials v = fromUndefOrPrimNoDefault "WorkerOptions.getcredentials"
                                            prim__credentials
                                            prim__setCredentials
-                                           v
+                                           (v :> WorkerOptions)
   
   export
-  name : WorkerOptions -> Attribute True Optional String
-  name v = fromUndefOrPrim "WorkerOptions.getname" prim__name prim__setName "" v
+  name :  JSType t
+       => {auto 0 _ : Elem WorkerOptions (Types t)}
+       -> t
+       -> Attribute True Optional String
+  name v = fromUndefOrPrim "WorkerOptions.getname"
+                           prim__name
+                           prim__setName
+                           ""
+                           (v :> WorkerOptions)
   
   export
-  type : WorkerOptions -> Attribute False Optional WorkerType
+  type :  JSType t
+       => {auto 0 _ : Elem WorkerOptions (Types t)}
+       -> t
+       -> Attribute False Optional WorkerType
   type v = fromUndefOrPrimNoDefault "WorkerOptions.gettype"
                                     prim__type
                                     prim__setType
-                                    v
+                                    (v :> WorkerOptions)
 
 namespace WorkletOptions
   
@@ -9497,11 +9720,14 @@ namespace WorkletOptions
   new' = primJS $ WorkletOptions.prim__new undef
   
   export
-  credentials : WorkletOptions -> Attribute False Optional RequestCredentials
+  credentials :  JSType t
+              => {auto 0 _ : Elem WorkletOptions (Types t)}
+              -> t
+              -> Attribute False Optional RequestCredentials
   credentials v = fromUndefOrPrimNoDefault "WorkletOptions.getcredentials"
                                            prim__credentials
                                            prim__setCredentials
-                                           v
+                                           (v :> WorkletOptions)
 
 --------------------------------------------------------------------------------
 --          Callbacks

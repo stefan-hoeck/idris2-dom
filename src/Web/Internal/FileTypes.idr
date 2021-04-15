@@ -120,10 +120,6 @@ ToFFI BlobPropertyBag BlobPropertyBag where toFFI = id
 export
 FromFFI BlobPropertyBag BlobPropertyBag where fromFFI = Just
 
-export
-SafeCast BlobPropertyBag where
-  safeCast = unsafeCastOnPrototypeName "BlobPropertyBag"
-
 export data FilePropertyBag : Type where [external]
   
 export
@@ -131,8 +127,4 @@ ToFFI FilePropertyBag FilePropertyBag where toFFI = id
   
 export
 FromFFI FilePropertyBag FilePropertyBag where fromFFI = Just
-
-export
-SafeCast FilePropertyBag where
-  safeCast = unsafeCastOnPrototypeName "FilePropertyBag"
 

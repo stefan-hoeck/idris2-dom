@@ -356,12 +356,14 @@ namespace SVGGeometryElement
   
   export
   isPointInFill :  JSType t1
+                => JSType t2
                 => {auto 0 _ : Elem SVGGeometryElement (Types t1)}
+                -> {auto 0 _ : Elem DOMPointInit (Types t2)}
                 -> (obj : t1)
-                -> (point : Optional DOMPointInit)
+                -> (point : Optional t2)
                 -> JSIO Bool
   isPointInFill a b = tryJS "SVGGeometryElement.isPointInFill"
-                    $ SVGGeometryElement.prim__isPointInFill (up a) (toFFI b)
+                    $ SVGGeometryElement.prim__isPointInFill (up a) (optUp b)
 
   export
   isPointInFill' :  JSType t1
@@ -373,13 +375,15 @@ namespace SVGGeometryElement
   
   export
   isPointInStroke :  JSType t1
+                  => JSType t2
                   => {auto 0 _ : Elem SVGGeometryElement (Types t1)}
+                  -> {auto 0 _ : Elem DOMPointInit (Types t2)}
                   -> (obj : t1)
-                  -> (point : Optional DOMPointInit)
+                  -> (point : Optional t2)
                   -> JSIO Bool
   isPointInStroke a b = tryJS "SVGGeometryElement.isPointInStroke"
                       $ SVGGeometryElement.prim__isPointInStroke (up a)
-                                                                 (toFFI b)
+                                                                 (optUp b)
 
   export
   isPointInStroke' :  JSType t1
@@ -440,11 +444,13 @@ namespace SVGGraphicsElement
   
   export
   getBBox :  JSType t1
+          => JSType t2
           => {auto 0 _ : Elem SVGGraphicsElement (Types t1)}
+          -> {auto 0 _ : Elem SVGBoundingBoxOptions (Types t2)}
           -> (obj : t1)
-          -> (options : Optional SVGBoundingBoxOptions)
+          -> (options : Optional t2)
           -> JSIO DOMRect
-  getBBox a b = primJS $ SVGGraphicsElement.prim__getBBox (up a) (toFFI b)
+  getBBox a b = primJS $ SVGGraphicsElement.prim__getBBox (up a) (optUp b)
 
   export
   getBBox' :  JSType t1
@@ -1274,13 +1280,15 @@ namespace SVGTextContentElement
   
   export
   getCharNumAtPosition :  JSType t1
+                       => JSType t2
                        => {auto 0 _ : Elem SVGTextContentElement (Types t1)}
+                       -> {auto 0 _ : Elem DOMPointInit (Types t2)}
                        -> (obj : t1)
-                       -> (point : Optional DOMPointInit)
+                       -> (point : Optional t2)
                        -> JSIO Int32
   getCharNumAtPosition a b = primJS
                            $ SVGTextContentElement.prim__getCharNumAtPosition (up a)
-                                                                              (toFFI b)
+                                                                              (optUp b)
 
   export
   getCharNumAtPosition' :  JSType t1
@@ -1774,33 +1782,45 @@ namespace SVGBoundingBoxOptions
   new' = primJS $ SVGBoundingBoxOptions.prim__new undef undef undef undef
   
   export
-  clipped : SVGBoundingBoxOptions -> Attribute True Optional Bool
+  clipped :  JSType t
+          => {auto 0 _ : Elem SVGBoundingBoxOptions (Types t)}
+          -> t
+          -> Attribute True Optional Bool
   clipped v = fromUndefOrPrim "SVGBoundingBoxOptions.getclipped"
                               prim__clipped
                               prim__setClipped
                               False
-                              v
+                              (v :> SVGBoundingBoxOptions)
   
   export
-  fill : SVGBoundingBoxOptions -> Attribute True Optional Bool
+  fill :  JSType t
+       => {auto 0 _ : Elem SVGBoundingBoxOptions (Types t)}
+       -> t
+       -> Attribute True Optional Bool
   fill v = fromUndefOrPrim "SVGBoundingBoxOptions.getfill"
                            prim__fill
                            prim__setFill
                            True
-                           v
+                           (v :> SVGBoundingBoxOptions)
   
   export
-  markers : SVGBoundingBoxOptions -> Attribute True Optional Bool
+  markers :  JSType t
+          => {auto 0 _ : Elem SVGBoundingBoxOptions (Types t)}
+          -> t
+          -> Attribute True Optional Bool
   markers v = fromUndefOrPrim "SVGBoundingBoxOptions.getmarkers"
                               prim__markers
                               prim__setMarkers
                               False
-                              v
+                              (v :> SVGBoundingBoxOptions)
   
   export
-  stroke : SVGBoundingBoxOptions -> Attribute True Optional Bool
+  stroke :  JSType t
+         => {auto 0 _ : Elem SVGBoundingBoxOptions (Types t)}
+         -> t
+         -> Attribute True Optional Bool
   stroke v = fromUndefOrPrim "SVGBoundingBoxOptions.getstroke"
                              prim__stroke
                              prim__setStroke
                              False
-                             v
+                             (v :> SVGBoundingBoxOptions)

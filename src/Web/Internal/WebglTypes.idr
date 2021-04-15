@@ -266,10 +266,6 @@ ToFFI WebGLContextAttributes WebGLContextAttributes where toFFI = id
 export
 FromFFI WebGLContextAttributes WebGLContextAttributes where fromFFI = Just
 
-export
-SafeCast WebGLContextAttributes where
-  safeCast = unsafeCastOnPrototypeName "WebGLContextAttributes"
-
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------

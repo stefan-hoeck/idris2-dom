@@ -179,10 +179,6 @@ ToFFI CameraDevicePermissionDescriptor CameraDevicePermissionDescriptor where to
 export
 FromFFI CameraDevicePermissionDescriptor CameraDevicePermissionDescriptor where fromFFI = Just
 
-export
-SafeCast CameraDevicePermissionDescriptor where
-  safeCast = unsafeCastOnPrototypeName "CameraDevicePermissionDescriptor"
-
 export data DevicePermissionDescriptor : Type where [external]
   
 export
@@ -190,10 +186,6 @@ ToFFI DevicePermissionDescriptor DevicePermissionDescriptor where toFFI = id
   
 export
 FromFFI DevicePermissionDescriptor DevicePermissionDescriptor where fromFFI = Just
-
-export
-SafeCast DevicePermissionDescriptor where
-  safeCast = unsafeCastOnPrototypeName "DevicePermissionDescriptor"
 
 export data MidiPermissionDescriptor : Type where [external]
   
@@ -203,10 +195,6 @@ ToFFI MidiPermissionDescriptor MidiPermissionDescriptor where toFFI = id
 export
 FromFFI MidiPermissionDescriptor MidiPermissionDescriptor where fromFFI = Just
 
-export
-SafeCast MidiPermissionDescriptor where
-  safeCast = unsafeCastOnPrototypeName "MidiPermissionDescriptor"
-
 export data PermissionDescriptor : Type where [external]
   
 export
@@ -214,10 +202,6 @@ ToFFI PermissionDescriptor PermissionDescriptor where toFFI = id
   
 export
 FromFFI PermissionDescriptor PermissionDescriptor where fromFFI = Just
-
-export
-SafeCast PermissionDescriptor where
-  safeCast = unsafeCastOnPrototypeName "PermissionDescriptor"
 
 export data PermissionSetParameters : Type where [external]
   
@@ -227,10 +211,6 @@ ToFFI PermissionSetParameters PermissionSetParameters where toFFI = id
 export
 FromFFI PermissionSetParameters PermissionSetParameters where fromFFI = Just
 
-export
-SafeCast PermissionSetParameters where
-  safeCast = unsafeCastOnPrototypeName "PermissionSetParameters"
-
 export data PushPermissionDescriptor : Type where [external]
   
 export
@@ -238,8 +218,4 @@ ToFFI PushPermissionDescriptor PushPermissionDescriptor where toFFI = id
   
 export
 FromFFI PushPermissionDescriptor PushPermissionDescriptor where fromFFI = Just
-
-export
-SafeCast PushPermissionDescriptor where
-  safeCast = unsafeCastOnPrototypeName "PushPermissionDescriptor"
 

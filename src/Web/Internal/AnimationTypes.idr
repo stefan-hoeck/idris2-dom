@@ -340,10 +340,6 @@ ToFFI AnimationPlaybackEventInit AnimationPlaybackEventInit where toFFI = id
 export
 FromFFI AnimationPlaybackEventInit AnimationPlaybackEventInit where fromFFI = Just
 
-export
-SafeCast AnimationPlaybackEventInit where
-  safeCast = unsafeCastOnPrototypeName "AnimationPlaybackEventInit"
-
 export data BaseComputedKeyframe : Type where [external]
   
 export
@@ -351,10 +347,6 @@ ToFFI BaseComputedKeyframe BaseComputedKeyframe where toFFI = id
   
 export
 FromFFI BaseComputedKeyframe BaseComputedKeyframe where fromFFI = Just
-
-export
-SafeCast BaseComputedKeyframe where
-  safeCast = unsafeCastOnPrototypeName "BaseComputedKeyframe"
 
 export data BaseKeyframe : Type where [external]
   
@@ -364,10 +356,6 @@ ToFFI BaseKeyframe BaseKeyframe where toFFI = id
 export
 FromFFI BaseKeyframe BaseKeyframe where fromFFI = Just
 
-export
-SafeCast BaseKeyframe where
-  safeCast = unsafeCastOnPrototypeName "BaseKeyframe"
-
 export data BasePropertyIndexedKeyframe : Type where [external]
   
 export
@@ -375,10 +363,6 @@ ToFFI BasePropertyIndexedKeyframe BasePropertyIndexedKeyframe where toFFI = id
   
 export
 FromFFI BasePropertyIndexedKeyframe BasePropertyIndexedKeyframe where fromFFI = Just
-
-export
-SafeCast BasePropertyIndexedKeyframe where
-  safeCast = unsafeCastOnPrototypeName "BasePropertyIndexedKeyframe"
 
 export data ComputedEffectTiming : Type where [external]
   
@@ -388,10 +372,6 @@ ToFFI ComputedEffectTiming ComputedEffectTiming where toFFI = id
 export
 FromFFI ComputedEffectTiming ComputedEffectTiming where fromFFI = Just
 
-export
-SafeCast ComputedEffectTiming where
-  safeCast = unsafeCastOnPrototypeName "ComputedEffectTiming"
-
 export data DocumentTimelineOptions : Type where [external]
   
 export
@@ -399,10 +379,6 @@ ToFFI DocumentTimelineOptions DocumentTimelineOptions where toFFI = id
   
 export
 FromFFI DocumentTimelineOptions DocumentTimelineOptions where fromFFI = Just
-
-export
-SafeCast DocumentTimelineOptions where
-  safeCast = unsafeCastOnPrototypeName "DocumentTimelineOptions"
 
 export data EffectTiming : Type where [external]
   
@@ -412,10 +388,6 @@ ToFFI EffectTiming EffectTiming where toFFI = id
 export
 FromFFI EffectTiming EffectTiming where fromFFI = Just
 
-export
-SafeCast EffectTiming where
-  safeCast = unsafeCastOnPrototypeName "EffectTiming"
-
 export data KeyframeAnimationOptions : Type where [external]
   
 export
@@ -423,10 +395,6 @@ ToFFI KeyframeAnimationOptions KeyframeAnimationOptions where toFFI = id
   
 export
 FromFFI KeyframeAnimationOptions KeyframeAnimationOptions where fromFFI = Just
-
-export
-SafeCast KeyframeAnimationOptions where
-  safeCast = unsafeCastOnPrototypeName "KeyframeAnimationOptions"
 
 export data KeyframeEffectOptions : Type where [external]
   
@@ -436,10 +404,6 @@ ToFFI KeyframeEffectOptions KeyframeEffectOptions where toFFI = id
 export
 FromFFI KeyframeEffectOptions KeyframeEffectOptions where fromFFI = Just
 
-export
-SafeCast KeyframeEffectOptions where
-  safeCast = unsafeCastOnPrototypeName "KeyframeEffectOptions"
-
 export data OptionalEffectTiming : Type where [external]
   
 export
@@ -447,10 +411,6 @@ ToFFI OptionalEffectTiming OptionalEffectTiming where toFFI = id
   
 export
 FromFFI OptionalEffectTiming OptionalEffectTiming where fromFFI = Just
-
-export
-SafeCast OptionalEffectTiming where
-  safeCast = unsafeCastOnPrototypeName "OptionalEffectTiming"
 
 --------------------------------------------------------------------------------
 --          Mixins

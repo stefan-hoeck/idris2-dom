@@ -87,10 +87,12 @@ namespace FormData
 namespace ProgressEvent
   
   export
-  new :  (type : String)
-      -> (eventInitDict : Optional ProgressEventInit)
+  new :  JSType t1
+      => {auto 0 _ : Elem ProgressEventInit (Types t1)}
+      -> (type : String)
+      -> (eventInitDict : Optional t1)
       -> JSIO ProgressEvent
-  new a b = primJS $ ProgressEvent.prim__new a (toFFI b)
+  new a b = primJS $ ProgressEvent.prim__new a (optUp b)
 
   export
   new' : (type : String) -> JSIO ProgressEvent
@@ -374,25 +376,34 @@ namespace ProgressEventInit
   new' = primJS $ ProgressEventInit.prim__new undef undef undef
   
   export
-  lengthComputable : ProgressEventInit -> Attribute True Optional Bool
+  lengthComputable :  JSType t
+                   => {auto 0 _ : Elem ProgressEventInit (Types t)}
+                   -> t
+                   -> Attribute True Optional Bool
   lengthComputable v = fromUndefOrPrim "ProgressEventInit.getlengthComputable"
                                        prim__lengthComputable
                                        prim__setLengthComputable
                                        False
-                                       v
+                                       (v :> ProgressEventInit)
   
   export
-  loaded : ProgressEventInit -> Attribute True Optional UInt64
+  loaded :  JSType t
+         => {auto 0 _ : Elem ProgressEventInit (Types t)}
+         -> t
+         -> Attribute True Optional UInt64
   loaded v = fromUndefOrPrim "ProgressEventInit.getloaded"
                              prim__loaded
                              prim__setLoaded
                              0
-                             v
+                             (v :> ProgressEventInit)
   
   export
-  total_ : ProgressEventInit -> Attribute True Optional UInt64
+  total_ :  JSType t
+         => {auto 0 _ : Elem ProgressEventInit (Types t)}
+         -> t
+         -> Attribute True Optional UInt64
   total_ v = fromUndefOrPrim "ProgressEventInit.gettotal"
                              prim__total
                              prim__setTotal
                              0
-                             v
+                             (v :> ProgressEventInit)

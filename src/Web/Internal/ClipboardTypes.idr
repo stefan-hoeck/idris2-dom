@@ -98,10 +98,6 @@ ToFFI ClipboardEventInit ClipboardEventInit where toFFI = id
 export
 FromFFI ClipboardEventInit ClipboardEventInit where fromFFI = Just
 
-export
-SafeCast ClipboardEventInit where
-  safeCast = unsafeCastOnPrototypeName "ClipboardEventInit"
-
 export data ClipboardItemOptions : Type where [external]
   
 export
@@ -110,10 +106,6 @@ ToFFI ClipboardItemOptions ClipboardItemOptions where toFFI = id
 export
 FromFFI ClipboardItemOptions ClipboardItemOptions where fromFFI = Just
 
-export
-SafeCast ClipboardItemOptions where
-  safeCast = unsafeCastOnPrototypeName "ClipboardItemOptions"
-
 export data ClipboardPermissionDescriptor : Type where [external]
   
 export
@@ -121,10 +113,6 @@ ToFFI ClipboardPermissionDescriptor ClipboardPermissionDescriptor where toFFI = 
   
 export
 FromFFI ClipboardPermissionDescriptor ClipboardPermissionDescriptor where fromFFI = Just
-
-export
-SafeCast ClipboardPermissionDescriptor where
-  safeCast = unsafeCastOnPrototypeName "ClipboardPermissionDescriptor"
 
 
 --------------------------------------------------------------------------------

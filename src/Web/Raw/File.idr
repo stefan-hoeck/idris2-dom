@@ -89,7 +89,9 @@ namespace Blob
 namespace File
   
   export
-  new :  (fileBits : Array (Union13 Int8Array
+  new :  JSType t1
+      => {auto 0 _ : Elem FilePropertyBag (Types t1)}
+      -> (fileBits : Array (Union13 Int8Array
                                     Int16Array
                                     Int32Array
                                     UInt8Array
@@ -103,9 +105,9 @@ namespace File
                                     Blob
                                     String))
       -> (fileName : String)
-      -> (options : Optional FilePropertyBag)
+      -> (options : Optional t1)
       -> JSIO File
-  new a b c = primJS $ File.prim__new a b (toFFI c)
+  new a b c = primJS $ File.prim__new a b (optUp c)
 
   export
   new' :  (fileBits : Array (Union13 Int8Array
@@ -358,8 +360,11 @@ namespace FilePropertyBag
   new' = primJS $ FilePropertyBag.prim__new undef
   
   export
-  lastModified : FilePropertyBag -> Attribute False Optional Int64
+  lastModified :  JSType t
+               => {auto 0 _ : Elem FilePropertyBag (Types t)}
+               -> t
+               -> Attribute False Optional Int64
   lastModified v = fromUndefOrPrimNoDefault "FilePropertyBag.getlastModified"
                                             prim__lastModified
                                             prim__setLastModified
-                                            v
+                                            (v :> FilePropertyBag)

@@ -133,7 +133,3 @@ ToFFI ProgressEventInit ProgressEventInit where toFFI = id
 export
 FromFFI ProgressEventInit ProgressEventInit where fromFFI = Just
 
-export
-SafeCast ProgressEventInit where
-  safeCast = unsafeCastOnPrototypeName "ProgressEventInit"
-

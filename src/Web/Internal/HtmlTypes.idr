@@ -2587,10 +2587,6 @@ ToFFI AssignedNodesOptions AssignedNodesOptions where toFFI = id
 export
 FromFFI AssignedNodesOptions AssignedNodesOptions where fromFFI = Just
 
-export
-SafeCast AssignedNodesOptions where
-  safeCast = unsafeCastOnPrototypeName "AssignedNodesOptions"
-
 export data CanvasRenderingContext2DSettings : Type where [external]
   
 export
@@ -2598,10 +2594,6 @@ ToFFI CanvasRenderingContext2DSettings CanvasRenderingContext2DSettings where to
   
 export
 FromFFI CanvasRenderingContext2DSettings CanvasRenderingContext2DSettings where fromFFI = Just
-
-export
-SafeCast CanvasRenderingContext2DSettings where
-  safeCast = unsafeCastOnPrototypeName "CanvasRenderingContext2DSettings"
 
 export data CloseEventInit : Type where [external]
   
@@ -2611,10 +2603,6 @@ ToFFI CloseEventInit CloseEventInit where toFFI = id
 export
 FromFFI CloseEventInit CloseEventInit where fromFFI = Just
 
-export
-SafeCast CloseEventInit where
-  safeCast = unsafeCastOnPrototypeName "CloseEventInit"
-
 export data DragEventInit : Type where [external]
   
 export
@@ -2622,10 +2610,6 @@ ToFFI DragEventInit DragEventInit where toFFI = id
   
 export
 FromFFI DragEventInit DragEventInit where fromFFI = Just
-
-export
-SafeCast DragEventInit where
-  safeCast = unsafeCastOnPrototypeName "DragEventInit"
 
 export data ElementDefinitionOptions : Type where [external]
   
@@ -2635,10 +2619,6 @@ ToFFI ElementDefinitionOptions ElementDefinitionOptions where toFFI = id
 export
 FromFFI ElementDefinitionOptions ElementDefinitionOptions where fromFFI = Just
 
-export
-SafeCast ElementDefinitionOptions where
-  safeCast = unsafeCastOnPrototypeName "ElementDefinitionOptions"
-
 export data ErrorEventInit : Type where [external]
   
 export
@@ -2646,10 +2626,6 @@ ToFFI ErrorEventInit ErrorEventInit where toFFI = id
   
 export
 FromFFI ErrorEventInit ErrorEventInit where fromFFI = Just
-
-export
-SafeCast ErrorEventInit where
-  safeCast = unsafeCastOnPrototypeName "ErrorEventInit"
 
 export data EventSourceInit : Type where [external]
   
@@ -2659,10 +2635,6 @@ ToFFI EventSourceInit EventSourceInit where toFFI = id
 export
 FromFFI EventSourceInit EventSourceInit where fromFFI = Just
 
-export
-SafeCast EventSourceInit where
-  safeCast = unsafeCastOnPrototypeName "EventSourceInit"
-
 export data FocusOptions : Type where [external]
   
 export
@@ -2670,10 +2642,6 @@ ToFFI FocusOptions FocusOptions where toFFI = id
   
 export
 FromFFI FocusOptions FocusOptions where fromFFI = Just
-
-export
-SafeCast FocusOptions where
-  safeCast = unsafeCastOnPrototypeName "FocusOptions"
 
 export data FormDataEventInit : Type where [external]
   
@@ -2683,10 +2651,6 @@ ToFFI FormDataEventInit FormDataEventInit where toFFI = id
 export
 FromFFI FormDataEventInit FormDataEventInit where fromFFI = Just
 
-export
-SafeCast FormDataEventInit where
-  safeCast = unsafeCastOnPrototypeName "FormDataEventInit"
-
 export data HashChangeEventInit : Type where [external]
   
 export
@@ -2694,10 +2658,6 @@ ToFFI HashChangeEventInit HashChangeEventInit where toFFI = id
   
 export
 FromFFI HashChangeEventInit HashChangeEventInit where fromFFI = Just
-
-export
-SafeCast HashChangeEventInit where
-  safeCast = unsafeCastOnPrototypeName "HashChangeEventInit"
 
 export data ImageBitmapOptions : Type where [external]
   
@@ -2707,10 +2667,6 @@ ToFFI ImageBitmapOptions ImageBitmapOptions where toFFI = id
 export
 FromFFI ImageBitmapOptions ImageBitmapOptions where fromFFI = Just
 
-export
-SafeCast ImageBitmapOptions where
-  safeCast = unsafeCastOnPrototypeName "ImageBitmapOptions"
-
 export data ImageBitmapRenderingContextSettings : Type where [external]
   
 export
@@ -2718,10 +2674,6 @@ ToFFI ImageBitmapRenderingContextSettings ImageBitmapRenderingContextSettings wh
   
 export
 FromFFI ImageBitmapRenderingContextSettings ImageBitmapRenderingContextSettings where fromFFI = Just
-
-export
-SafeCast ImageBitmapRenderingContextSettings where
-  safeCast = unsafeCastOnPrototypeName "ImageBitmapRenderingContextSettings"
 
 export data ImageEncodeOptions : Type where [external]
   
@@ -2731,10 +2683,6 @@ ToFFI ImageEncodeOptions ImageEncodeOptions where toFFI = id
 export
 FromFFI ImageEncodeOptions ImageEncodeOptions where fromFFI = Just
 
-export
-SafeCast ImageEncodeOptions where
-  safeCast = unsafeCastOnPrototypeName "ImageEncodeOptions"
-
 export data MessageEventInit : Type where [external]
   
 export
@@ -2742,10 +2690,6 @@ ToFFI MessageEventInit MessageEventInit where toFFI = id
   
 export
 FromFFI MessageEventInit MessageEventInit where fromFFI = Just
-
-export
-SafeCast MessageEventInit where
-  safeCast = unsafeCastOnPrototypeName "MessageEventInit"
 
 export data PageTransitionEventInit : Type where [external]
   
@@ -2755,10 +2699,6 @@ ToFFI PageTransitionEventInit PageTransitionEventInit where toFFI = id
 export
 FromFFI PageTransitionEventInit PageTransitionEventInit where fromFFI = Just
 
-export
-SafeCast PageTransitionEventInit where
-  safeCast = unsafeCastOnPrototypeName "PageTransitionEventInit"
-
 export data PopStateEventInit : Type where [external]
   
 export
@@ -2766,10 +2706,6 @@ ToFFI PopStateEventInit PopStateEventInit where toFFI = id
   
 export
 FromFFI PopStateEventInit PopStateEventInit where fromFFI = Just
-
-export
-SafeCast PopStateEventInit where
-  safeCast = unsafeCastOnPrototypeName "PopStateEventInit"
 
 export data PostMessageOptions : Type where [external]
   
@@ -2779,10 +2715,6 @@ ToFFI PostMessageOptions PostMessageOptions where toFFI = id
 export
 FromFFI PostMessageOptions PostMessageOptions where fromFFI = Just
 
-export
-SafeCast PostMessageOptions where
-  safeCast = unsafeCastOnPrototypeName "PostMessageOptions"
-
 export data PromiseRejectionEventInit : Type where [external]
   
 export
@@ -2790,10 +2722,6 @@ ToFFI PromiseRejectionEventInit PromiseRejectionEventInit where toFFI = id
   
 export
 FromFFI PromiseRejectionEventInit PromiseRejectionEventInit where fromFFI = Just
-
-export
-SafeCast PromiseRejectionEventInit where
-  safeCast = unsafeCastOnPrototypeName "PromiseRejectionEventInit"
 
 export data StorageEventInit : Type where [external]
   
@@ -2803,10 +2731,6 @@ ToFFI StorageEventInit StorageEventInit where toFFI = id
 export
 FromFFI StorageEventInit StorageEventInit where fromFFI = Just
 
-export
-SafeCast StorageEventInit where
-  safeCast = unsafeCastOnPrototypeName "StorageEventInit"
-
 export data SubmitEventInit : Type where [external]
   
 export
@@ -2814,10 +2738,6 @@ ToFFI SubmitEventInit SubmitEventInit where toFFI = id
   
 export
 FromFFI SubmitEventInit SubmitEventInit where fromFFI = Just
-
-export
-SafeCast SubmitEventInit where
-  safeCast = unsafeCastOnPrototypeName "SubmitEventInit"
 
 export data TrackEventInit : Type where [external]
   
@@ -2827,10 +2747,6 @@ ToFFI TrackEventInit TrackEventInit where toFFI = id
 export
 FromFFI TrackEventInit TrackEventInit where fromFFI = Just
 
-export
-SafeCast TrackEventInit where
-  safeCast = unsafeCastOnPrototypeName "TrackEventInit"
-
 export data ValidityStateFlags : Type where [external]
   
 export
@@ -2838,10 +2754,6 @@ ToFFI ValidityStateFlags ValidityStateFlags where toFFI = id
   
 export
 FromFFI ValidityStateFlags ValidityStateFlags where fromFFI = Just
-
-export
-SafeCast ValidityStateFlags where
-  safeCast = unsafeCastOnPrototypeName "ValidityStateFlags"
 
 export data WindowPostMessageOptions : Type where [external]
   
@@ -2851,10 +2763,6 @@ ToFFI WindowPostMessageOptions WindowPostMessageOptions where toFFI = id
 export
 FromFFI WindowPostMessageOptions WindowPostMessageOptions where fromFFI = Just
 
-export
-SafeCast WindowPostMessageOptions where
-  safeCast = unsafeCastOnPrototypeName "WindowPostMessageOptions"
-
 export data WorkerOptions : Type where [external]
   
 export
@@ -2863,10 +2771,6 @@ ToFFI WorkerOptions WorkerOptions where toFFI = id
 export
 FromFFI WorkerOptions WorkerOptions where fromFFI = Just
 
-export
-SafeCast WorkerOptions where
-  safeCast = unsafeCastOnPrototypeName "WorkerOptions"
-
 export data WorkletOptions : Type where [external]
   
 export
@@ -2874,10 +2778,6 @@ ToFFI WorkletOptions WorkletOptions where toFFI = id
   
 export
 FromFFI WorkletOptions WorkletOptions where fromFFI = Just
-
-export
-SafeCast WorkletOptions where
-  safeCast = unsafeCastOnPrototypeName "WorkletOptions"
 
 --------------------------------------------------------------------------------
 --          Mixins

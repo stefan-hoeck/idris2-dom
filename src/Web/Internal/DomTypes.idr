@@ -480,10 +480,6 @@ ToFFI AddEventListenerOptions AddEventListenerOptions where toFFI = id
 export
 FromFFI AddEventListenerOptions AddEventListenerOptions where fromFFI = Just
 
-export
-SafeCast AddEventListenerOptions where
-  safeCast = unsafeCastOnPrototypeName "AddEventListenerOptions"
-
 export data CustomEventInit : Type where [external]
   
 export
@@ -491,10 +487,6 @@ ToFFI CustomEventInit CustomEventInit where toFFI = id
   
 export
 FromFFI CustomEventInit CustomEventInit where fromFFI = Just
-
-export
-SafeCast CustomEventInit where
-  safeCast = unsafeCastOnPrototypeName "CustomEventInit"
 
 export data ElementCreationOptions : Type where [external]
   
@@ -504,10 +496,6 @@ ToFFI ElementCreationOptions ElementCreationOptions where toFFI = id
 export
 FromFFI ElementCreationOptions ElementCreationOptions where fromFFI = Just
 
-export
-SafeCast ElementCreationOptions where
-  safeCast = unsafeCastOnPrototypeName "ElementCreationOptions"
-
 export data EventInit : Type where [external]
   
 export
@@ -515,10 +503,6 @@ ToFFI EventInit EventInit where toFFI = id
   
 export
 FromFFI EventInit EventInit where fromFFI = Just
-
-export
-SafeCast EventInit where
-  safeCast = unsafeCastOnPrototypeName "EventInit"
 
 export data EventListenerOptions : Type where [external]
   
@@ -528,10 +512,6 @@ ToFFI EventListenerOptions EventListenerOptions where toFFI = id
 export
 FromFFI EventListenerOptions EventListenerOptions where fromFFI = Just
 
-export
-SafeCast EventListenerOptions where
-  safeCast = unsafeCastOnPrototypeName "EventListenerOptions"
-
 export data GetRootNodeOptions : Type where [external]
   
 export
@@ -539,10 +519,6 @@ ToFFI GetRootNodeOptions GetRootNodeOptions where toFFI = id
   
 export
 FromFFI GetRootNodeOptions GetRootNodeOptions where fromFFI = Just
-
-export
-SafeCast GetRootNodeOptions where
-  safeCast = unsafeCastOnPrototypeName "GetRootNodeOptions"
 
 export data MutationObserverInit : Type where [external]
   
@@ -552,10 +528,6 @@ ToFFI MutationObserverInit MutationObserverInit where toFFI = id
 export
 FromFFI MutationObserverInit MutationObserverInit where fromFFI = Just
 
-export
-SafeCast MutationObserverInit where
-  safeCast = unsafeCastOnPrototypeName "MutationObserverInit"
-
 export data ShadowRootInit : Type where [external]
   
 export
@@ -564,10 +536,6 @@ ToFFI ShadowRootInit ShadowRootInit where toFFI = id
 export
 FromFFI ShadowRootInit ShadowRootInit where fromFFI = Just
 
-export
-SafeCast ShadowRootInit where
-  safeCast = unsafeCastOnPrototypeName "ShadowRootInit"
-
 export data StaticRangeInit : Type where [external]
   
 export
@@ -575,10 +543,6 @@ ToFFI StaticRangeInit StaticRangeInit where toFFI = id
   
 export
 FromFFI StaticRangeInit StaticRangeInit where fromFFI = Just
-
-export
-SafeCast StaticRangeInit where
-  safeCast = unsafeCastOnPrototypeName "StaticRangeInit"
 
 --------------------------------------------------------------------------------
 --          Mixins

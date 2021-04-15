@@ -430,10 +430,6 @@ ToFFI RequestInit RequestInit where toFFI = id
 export
 FromFFI RequestInit RequestInit where fromFFI = Just
 
-export
-SafeCast RequestInit where
-  safeCast = unsafeCastOnPrototypeName "RequestInit"
-
 export data ResponseInit : Type where [external]
   
 export
@@ -441,10 +437,6 @@ ToFFI ResponseInit ResponseInit where toFFI = id
   
 export
 FromFFI ResponseInit ResponseInit where fromFFI = Just
-
-export
-SafeCast ResponseInit where
-  safeCast = unsafeCastOnPrototypeName "ResponseInit"
 
 --------------------------------------------------------------------------------
 --          Mixins

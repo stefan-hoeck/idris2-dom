@@ -103,10 +103,6 @@ ToFFI CompositionEventInit CompositionEventInit where toFFI = id
 export
 FromFFI CompositionEventInit CompositionEventInit where fromFFI = Just
 
-export
-SafeCast CompositionEventInit where
-  safeCast = unsafeCastOnPrototypeName "CompositionEventInit"
-
 export data EventModifierInit : Type where [external]
   
 export
@@ -114,10 +110,6 @@ ToFFI EventModifierInit EventModifierInit where toFFI = id
   
 export
 FromFFI EventModifierInit EventModifierInit where fromFFI = Just
-
-export
-SafeCast EventModifierInit where
-  safeCast = unsafeCastOnPrototypeName "EventModifierInit"
 
 export data FocusEventInit : Type where [external]
   
@@ -127,10 +119,6 @@ ToFFI FocusEventInit FocusEventInit where toFFI = id
 export
 FromFFI FocusEventInit FocusEventInit where fromFFI = Just
 
-export
-SafeCast FocusEventInit where
-  safeCast = unsafeCastOnPrototypeName "FocusEventInit"
-
 export data InputEventInit : Type where [external]
   
 export
@@ -138,10 +126,6 @@ ToFFI InputEventInit InputEventInit where toFFI = id
   
 export
 FromFFI InputEventInit InputEventInit where fromFFI = Just
-
-export
-SafeCast InputEventInit where
-  safeCast = unsafeCastOnPrototypeName "InputEventInit"
 
 export data KeyboardEventInit : Type where [external]
   
@@ -151,10 +135,6 @@ ToFFI KeyboardEventInit KeyboardEventInit where toFFI = id
 export
 FromFFI KeyboardEventInit KeyboardEventInit where fromFFI = Just
 
-export
-SafeCast KeyboardEventInit where
-  safeCast = unsafeCastOnPrototypeName "KeyboardEventInit"
-
 export data MouseEventInit : Type where [external]
   
 export
@@ -162,10 +142,6 @@ ToFFI MouseEventInit MouseEventInit where toFFI = id
   
 export
 FromFFI MouseEventInit MouseEventInit where fromFFI = Just
-
-export
-SafeCast MouseEventInit where
-  safeCast = unsafeCastOnPrototypeName "MouseEventInit"
 
 export data UIEventInit : Type where [external]
   
@@ -175,10 +151,6 @@ ToFFI UIEventInit UIEventInit where toFFI = id
 export
 FromFFI UIEventInit UIEventInit where fromFFI = Just
 
-export
-SafeCast UIEventInit where
-  safeCast = unsafeCastOnPrototypeName "UIEventInit"
-
 export data WheelEventInit : Type where [external]
   
 export
@@ -186,8 +158,4 @@ ToFFI WheelEventInit WheelEventInit where toFFI = id
   
 export
 FromFFI WheelEventInit WheelEventInit where fromFFI = Just
-
-export
-SafeCast WheelEventInit where
-  safeCast = unsafeCastOnPrototypeName "WheelEventInit"
 

@@ -115,10 +115,6 @@ ToFFI DOMMatrix2DInit DOMMatrix2DInit where toFFI = id
 export
 FromFFI DOMMatrix2DInit DOMMatrix2DInit where fromFFI = Just
 
-export
-SafeCast DOMMatrix2DInit where
-  safeCast = unsafeCastOnPrototypeName "DOMMatrix2DInit"
-
 export data DOMMatrixInit : Type where [external]
   
 export
@@ -126,10 +122,6 @@ ToFFI DOMMatrixInit DOMMatrixInit where toFFI = id
   
 export
 FromFFI DOMMatrixInit DOMMatrixInit where fromFFI = Just
-
-export
-SafeCast DOMMatrixInit where
-  safeCast = unsafeCastOnPrototypeName "DOMMatrixInit"
 
 export data DOMPointInit : Type where [external]
   
@@ -139,10 +131,6 @@ ToFFI DOMPointInit DOMPointInit where toFFI = id
 export
 FromFFI DOMPointInit DOMPointInit where fromFFI = Just
 
-export
-SafeCast DOMPointInit where
-  safeCast = unsafeCastOnPrototypeName "DOMPointInit"
-
 export data DOMQuadInit : Type where [external]
   
 export
@@ -151,10 +139,6 @@ ToFFI DOMQuadInit DOMQuadInit where toFFI = id
 export
 FromFFI DOMQuadInit DOMQuadInit where fromFFI = Just
 
-export
-SafeCast DOMQuadInit where
-  safeCast = unsafeCastOnPrototypeName "DOMQuadInit"
-
 export data DOMRectInit : Type where [external]
   
 export
@@ -162,8 +146,4 @@ ToFFI DOMRectInit DOMRectInit where toFFI = id
   
 export
 FromFFI DOMRectInit DOMRectInit where fromFFI = Just
-
-export
-SafeCast DOMRectInit where
-  safeCast = unsafeCastOnPrototypeName "DOMRectInit"
 

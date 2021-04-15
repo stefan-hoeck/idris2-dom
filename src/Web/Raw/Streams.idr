@@ -11,8 +11,11 @@ import Web.Internal.Types
 namespace ByteLengthQueuingStrategy
   
   export
-  new : (init : QueuingStrategyInit) -> JSIO ByteLengthQueuingStrategy
-  new a = primJS $ ByteLengthQueuingStrategy.prim__new a
+  new :  JSType t1
+      => {auto 0 _ : Elem QueuingStrategyInit (Types t1)}
+      -> (init : t1)
+      -> JSIO ByteLengthQueuingStrategy
+  new a = primJS $ ByteLengthQueuingStrategy.prim__new (up a)
   
   export
   highWaterMark : (obj : ByteLengthQueuingStrategy) -> JSIO Double
@@ -25,8 +28,11 @@ namespace ByteLengthQueuingStrategy
 namespace CountQueuingStrategy
   
   export
-  new : (init : QueuingStrategyInit) -> JSIO CountQueuingStrategy
-  new a = primJS $ CountQueuingStrategy.prim__new a
+  new :  JSType t1
+      => {auto 0 _ : Elem QueuingStrategyInit (Types t1)}
+      -> (init : t1)
+      -> JSIO CountQueuingStrategy
+  new a = primJS $ CountQueuingStrategy.prim__new (up a)
   
   export
   highWaterMark : (obj : CountQueuingStrategy) -> JSIO Double
@@ -81,11 +87,13 @@ namespace ReadableStream
   
   export
   new :  JSType t1
+      => JSType t2
       => {auto 0 _ : Elem Object (Types t1)}
+      -> {auto 0 _ : Elem QueuingStrategy (Types t2)}
       -> (underlyingSource : Optional t1)
-      -> (strategy : Optional QueuingStrategy)
+      -> (strategy : Optional t2)
       -> JSIO ReadableStream
-  new a b = primJS $ ReadableStream.prim__new (optUp a) (toFFI b)
+  new a b = primJS $ ReadableStream.prim__new (optUp a) (optUp b)
 
   export
   new' : JSIO ReadableStream
@@ -106,13 +114,15 @@ namespace ReadableStream
   cancel' a = primJS $ ReadableStream.prim__cancel a undef
   
   export
-  getReader :  (obj : ReadableStream)
-            -> (options : Optional ReadableStreamGetReaderOptions)
+  getReader :  JSType t1
+            => {auto 0 _ : Elem ReadableStreamGetReaderOptions (Types t1)}
+            -> (obj : ReadableStream)
+            -> (options : Optional t1)
             -> JSIO (NS I [ ReadableStreamDefaultReader
                           , ReadableStreamBYOBReader
                           ])
   getReader a b = tryJS "ReadableStream.getReader"
-                $ ReadableStream.prim__getReader a (toFFI b)
+                $ ReadableStream.prim__getReader a (optUp b)
 
   export
   getReader' :  (obj : ReadableStream)
@@ -123,24 +133,33 @@ namespace ReadableStream
                $ ReadableStream.prim__getReader a undef
   
   export
-  pipeThrough :  (obj : ReadableStream)
-              -> (transform : ReadableWritablePair)
-              -> (options : Optional StreamPipeOptions)
+  pipeThrough :  JSType t1
+              => JSType t2
+              => {auto 0 _ : Elem ReadableWritablePair (Types t1)}
+              -> {auto 0 _ : Elem StreamPipeOptions (Types t2)}
+              -> (obj : ReadableStream)
+              -> (transform : t1)
+              -> (options : Optional t2)
               -> JSIO ReadableStream
-  pipeThrough a b c = primJS $ ReadableStream.prim__pipeThrough a b (toFFI c)
+  pipeThrough a b c = primJS
+                    $ ReadableStream.prim__pipeThrough a (up b) (optUp c)
 
   export
-  pipeThrough' :  (obj : ReadableStream)
-               -> (transform : ReadableWritablePair)
+  pipeThrough' :  JSType t1
+               => {auto 0 _ : Elem ReadableWritablePair (Types t1)}
+               -> (obj : ReadableStream)
+               -> (transform : t1)
                -> JSIO ReadableStream
-  pipeThrough' a b = primJS $ ReadableStream.prim__pipeThrough a b undef
+  pipeThrough' a b = primJS $ ReadableStream.prim__pipeThrough a (up b) undef
   
   export
-  pipeTo :  (obj : ReadableStream)
+  pipeTo :  JSType t1
+         => {auto 0 _ : Elem StreamPipeOptions (Types t1)}
+         -> (obj : ReadableStream)
          -> (destination : WritableStream)
-         -> (options : Optional StreamPipeOptions)
+         -> (options : Optional t1)
          -> JSIO (Promise Undefined)
-  pipeTo a b c = primJS $ ReadableStream.prim__pipeTo a b (toFFI c)
+  pipeTo a b c = primJS $ ReadableStream.prim__pipeTo a b (optUp c)
 
   export
   pipeTo' :  (obj : ReadableStream)
@@ -270,12 +289,16 @@ namespace TransformStream
   
   export
   new :  JSType t1
+      => JSType t2
+      => JSType t3
       => {auto 0 _ : Elem Object (Types t1)}
+      -> {auto 0 _ : Elem QueuingStrategy (Types t2)}
+      -> {auto 0 _ : Elem QueuingStrategy (Types t3)}
       -> (transformer : Optional t1)
-      -> (writableStrategy : Optional QueuingStrategy)
-      -> (readableStrategy : Optional QueuingStrategy)
+      -> (writableStrategy : Optional t2)
+      -> (readableStrategy : Optional t3)
       -> JSIO TransformStream
-  new a b c = primJS $ TransformStream.prim__new (optUp a) (toFFI b) (toFFI c)
+  new a b c = primJS $ TransformStream.prim__new (optUp a) (optUp b) (optUp c)
 
   export
   new' : JSIO TransformStream
@@ -325,11 +348,13 @@ namespace WritableStream
   
   export
   new :  JSType t1
+      => JSType t2
       => {auto 0 _ : Elem Object (Types t1)}
+      -> {auto 0 _ : Elem QueuingStrategy (Types t2)}
       -> (underlyingSink : Optional t1)
-      -> (strategy : Optional QueuingStrategy)
+      -> (strategy : Optional t2)
       -> JSIO WritableStream
-  new a b = primJS $ WritableStream.prim__new (optUp a) (toFFI b)
+  new a b = primJS $ WritableStream.prim__new (optUp a) (optUp b)
 
   export
   new' : JSIO WritableStream
@@ -478,18 +503,24 @@ namespace QueuingStrategy
   new' = primJS $ QueuingStrategy.prim__new undef undef
   
   export
-  highWaterMark : QueuingStrategy -> Attribute False Optional Double
+  highWaterMark :  JSType t
+                => {auto 0 _ : Elem QueuingStrategy (Types t)}
+                -> t
+                -> Attribute False Optional Double
   highWaterMark v = fromUndefOrPrimNoDefault "QueuingStrategy.gethighWaterMark"
                                              prim__highWaterMark
                                              prim__setHighWaterMark
-                                             v
+                                             (v :> QueuingStrategy)
   
   export
-  size : QueuingStrategy -> Attribute False Optional QueuingStrategySize
+  size :  JSType t
+       => {auto 0 _ : Elem QueuingStrategy (Types t)}
+       -> t
+       -> Attribute False Optional QueuingStrategySize
   size v = fromUndefOrPrimNoDefault "QueuingStrategy.getsize"
                                     prim__size
                                     prim__setSize
-                                    v
+                                    (v :> QueuingStrategy)
 
 namespace QueuingStrategyInit
   
@@ -498,11 +529,14 @@ namespace QueuingStrategyInit
   new a = primJS $ QueuingStrategyInit.prim__new a
   
   export
-  highWaterMark : QueuingStrategyInit -> Attribute True I Double
+  highWaterMark :  JSType t
+                => {auto 0 _ : Elem QueuingStrategyInit (Types t)}
+                -> t
+                -> Attribute True I Double
   highWaterMark v = fromPrim "QueuingStrategyInit.gethighWaterMark"
                              prim__highWaterMark
                              prim__setHighWaterMark
-                             v
+                             (v :> QueuingStrategyInit)
 
 namespace ReadableStreamBYOBReadResult
   
@@ -527,14 +561,19 @@ namespace ReadableStreamBYOBReadResult
   new' = primJS $ ReadableStreamBYOBReadResult.prim__new undef undef
   
   export
-  done : ReadableStreamBYOBReadResult -> Attribute False Optional Bool
+  done :  JSType t
+       => {auto 0 _ : Elem ReadableStreamBYOBReadResult (Types t)}
+       -> t
+       -> Attribute False Optional Bool
   done v = fromUndefOrPrimNoDefault "ReadableStreamBYOBReadResult.getdone"
                                     prim__done
                                     prim__setDone
-                                    v
+                                    (v :> ReadableStreamBYOBReadResult)
   
   export
-  value :  ReadableStreamBYOBReadResult
+  value :  JSType t
+        => {auto 0 _ : Elem ReadableStreamBYOBReadResult (Types t)}
+        -> t
         -> Attribute False Optional (Union10 Int8Array
                                              Int16Array
                                              Int32Array
@@ -548,7 +587,7 @@ namespace ReadableStreamBYOBReadResult
   value v = fromUndefOrPrimNoDefault "ReadableStreamBYOBReadResult.getvalue"
                                      prim__value
                                      prim__setValue
-                                     v
+                                     (v :> ReadableStreamBYOBReadResult)
 
 namespace ReadableStreamDefaultReadResult
   
@@ -564,18 +603,24 @@ namespace ReadableStreamDefaultReadResult
   new' = primJS $ ReadableStreamDefaultReadResult.prim__new undef undef
   
   export
-  done : ReadableStreamDefaultReadResult -> Attribute False Optional Bool
+  done :  JSType t
+       => {auto 0 _ : Elem ReadableStreamDefaultReadResult (Types t)}
+       -> t
+       -> Attribute False Optional Bool
   done v = fromUndefOrPrimNoDefault "ReadableStreamDefaultReadResult.getdone"
                                     prim__done
                                     prim__setDone
-                                    v
+                                    (v :> ReadableStreamDefaultReadResult)
   
   export
-  value : ReadableStreamDefaultReadResult -> Attribute False Optional Any
+  value :  JSType t
+        => {auto 0 _ : Elem ReadableStreamDefaultReadResult (Types t)}
+        -> t
+        -> Attribute False Optional Any
   value v = fromUndefOrPrimNoDefault "ReadableStreamDefaultReadResult.getvalue"
                                      prim__value
                                      prim__setValue
-                                     v
+                                     (v :> ReadableStreamDefaultReadResult)
 
 namespace ReadableStreamGetReaderOptions
   
@@ -589,12 +634,14 @@ namespace ReadableStreamGetReaderOptions
   new' = primJS $ ReadableStreamGetReaderOptions.prim__new undef
   
   export
-  mode :  ReadableStreamGetReaderOptions
+  mode :  JSType t
+       => {auto 0 _ : Elem ReadableStreamGetReaderOptions (Types t)}
+       -> t
        -> Attribute False Optional ReadableStreamReaderMode
   mode v = fromUndefOrPrimNoDefault "ReadableStreamGetReaderOptions.getmode"
                                     prim__mode
                                     prim__setMode
-                                    v
+                                    (v :> ReadableStreamGetReaderOptions)
 
 namespace ReadableStreamIteratorOptions
   
@@ -607,12 +654,15 @@ namespace ReadableStreamIteratorOptions
   new' = primJS $ ReadableStreamIteratorOptions.prim__new undef
   
   export
-  preventCancel : ReadableStreamIteratorOptions -> Attribute True Optional Bool
+  preventCancel :  JSType t
+                => {auto 0 _ : Elem ReadableStreamIteratorOptions (Types t)}
+                -> t
+                -> Attribute True Optional Bool
   preventCancel v = fromUndefOrPrim "ReadableStreamIteratorOptions.getpreventCancel"
                                     prim__preventCancel
                                     prim__setPreventCancel
                                     False
-                                    v
+                                    (v :> ReadableStreamIteratorOptions)
 
 namespace ReadableWritablePair
   
@@ -623,18 +673,24 @@ namespace ReadableWritablePair
   new a b = primJS $ ReadableWritablePair.prim__new a b
   
   export
-  readable : ReadableWritablePair -> Attribute True I ReadableStream
+  readable :  JSType t
+           => {auto 0 _ : Elem ReadableWritablePair (Types t)}
+           -> t
+           -> Attribute True I ReadableStream
   readable v = fromPrim "ReadableWritablePair.getreadable"
                         prim__readable
                         prim__setReadable
-                        v
+                        (v :> ReadableWritablePair)
   
   export
-  writable : ReadableWritablePair -> Attribute True I WritableStream
+  writable :  JSType t
+           => {auto 0 _ : Elem ReadableWritablePair (Types t)}
+           -> t
+           -> Attribute True I WritableStream
   writable v = fromPrim "ReadableWritablePair.getwritable"
                         prim__writable
                         prim__setWritable
-                        v
+                        (v :> ReadableWritablePair)
 
 namespace StreamPipeOptions
   
@@ -655,35 +711,47 @@ namespace StreamPipeOptions
   new' = primJS $ StreamPipeOptions.prim__new undef undef undef undef
   
   export
-  preventAbort : StreamPipeOptions -> Attribute True Optional Bool
+  preventAbort :  JSType t
+               => {auto 0 _ : Elem StreamPipeOptions (Types t)}
+               -> t
+               -> Attribute True Optional Bool
   preventAbort v = fromUndefOrPrim "StreamPipeOptions.getpreventAbort"
                                    prim__preventAbort
                                    prim__setPreventAbort
                                    False
-                                   v
+                                   (v :> StreamPipeOptions)
   
   export
-  preventCancel : StreamPipeOptions -> Attribute True Optional Bool
+  preventCancel :  JSType t
+                => {auto 0 _ : Elem StreamPipeOptions (Types t)}
+                -> t
+                -> Attribute True Optional Bool
   preventCancel v = fromUndefOrPrim "StreamPipeOptions.getpreventCancel"
                                     prim__preventCancel
                                     prim__setPreventCancel
                                     False
-                                    v
+                                    (v :> StreamPipeOptions)
   
   export
-  preventClose : StreamPipeOptions -> Attribute True Optional Bool
+  preventClose :  JSType t
+               => {auto 0 _ : Elem StreamPipeOptions (Types t)}
+               -> t
+               -> Attribute True Optional Bool
   preventClose v = fromUndefOrPrim "StreamPipeOptions.getpreventClose"
                                    prim__preventClose
                                    prim__setPreventClose
                                    False
-                                   v
+                                   (v :> StreamPipeOptions)
   
   export
-  signal : StreamPipeOptions -> Attribute False Optional AbortSignal
+  signal :  JSType t
+         => {auto 0 _ : Elem StreamPipeOptions (Types t)}
+         -> t
+         -> Attribute False Optional AbortSignal
   signal v = fromUndefOrPrimNoDefault "StreamPipeOptions.getsignal"
                                       prim__signal
                                       prim__setSignal
-                                      v
+                                      (v :> StreamPipeOptions)
 
 namespace Transformer
   
@@ -706,40 +774,54 @@ namespace Transformer
   new' = primJS $ Transformer.prim__new undef undef undef undef undef
   
   export
-  flush : Transformer -> Attribute False Optional TransformerFlushCallback
+  flush :  JSType t
+        => {auto 0 _ : Elem Transformer (Types t)}
+        -> t
+        -> Attribute False Optional TransformerFlushCallback
   flush v = fromUndefOrPrimNoDefault "Transformer.getflush"
                                      prim__flush
                                      prim__setFlush
-                                     v
+                                     (v :> Transformer)
   
   export
-  readableType : Transformer -> Attribute False Optional Any
+  readableType :  JSType t
+               => {auto 0 _ : Elem Transformer (Types t)}
+               -> t
+               -> Attribute False Optional Any
   readableType v = fromUndefOrPrimNoDefault "Transformer.getreadableType"
                                             prim__readableType
                                             prim__setReadableType
-                                            v
+                                            (v :> Transformer)
   
   export
-  start : Transformer -> Attribute False Optional TransformerStartCallback
+  start :  JSType t
+        => {auto 0 _ : Elem Transformer (Types t)}
+        -> t
+        -> Attribute False Optional TransformerStartCallback
   start v = fromUndefOrPrimNoDefault "Transformer.getstart"
                                      prim__start
                                      prim__setStart
-                                     v
+                                     (v :> Transformer)
   
   export
-  transform :  Transformer
+  transform :  JSType t
+            => {auto 0 _ : Elem Transformer (Types t)}
+            -> t
             -> Attribute False Optional TransformerTransformCallback
   transform v = fromUndefOrPrimNoDefault "Transformer.gettransform"
                                          prim__transform
                                          prim__setTransform
-                                         v
+                                         (v :> Transformer)
   
   export
-  writableType : Transformer -> Attribute False Optional Any
+  writableType :  JSType t
+               => {auto 0 _ : Elem Transformer (Types t)}
+               -> t
+               -> Attribute False Optional Any
   writableType v = fromUndefOrPrimNoDefault "Transformer.getwritableType"
                                             prim__writableType
                                             prim__setWritableType
-                                            v
+                                            (v :> Transformer)
 
 namespace UnderlyingSink
   
@@ -762,39 +844,54 @@ namespace UnderlyingSink
   new' = primJS $ UnderlyingSink.prim__new undef undef undef undef undef
   
   export
-  abort : UnderlyingSink -> Attribute False Optional UnderlyingSinkAbortCallback
+  abort :  JSType t
+        => {auto 0 _ : Elem UnderlyingSink (Types t)}
+        -> t
+        -> Attribute False Optional UnderlyingSinkAbortCallback
   abort v = fromUndefOrPrimNoDefault "UnderlyingSink.getabort"
                                      prim__abort
                                      prim__setAbort
-                                     v
+                                     (v :> UnderlyingSink)
   
   export
-  close : UnderlyingSink -> Attribute False Optional UnderlyingSinkCloseCallback
+  close :  JSType t
+        => {auto 0 _ : Elem UnderlyingSink (Types t)}
+        -> t
+        -> Attribute False Optional UnderlyingSinkCloseCallback
   close v = fromUndefOrPrimNoDefault "UnderlyingSink.getclose"
                                      prim__close
                                      prim__setClose
-                                     v
+                                     (v :> UnderlyingSink)
   
   export
-  start : UnderlyingSink -> Attribute False Optional UnderlyingSinkStartCallback
+  start :  JSType t
+        => {auto 0 _ : Elem UnderlyingSink (Types t)}
+        -> t
+        -> Attribute False Optional UnderlyingSinkStartCallback
   start v = fromUndefOrPrimNoDefault "UnderlyingSink.getstart"
                                      prim__start
                                      prim__setStart
-                                     v
+                                     (v :> UnderlyingSink)
   
   export
-  type : UnderlyingSink -> Attribute False Optional Any
+  type :  JSType t
+       => {auto 0 _ : Elem UnderlyingSink (Types t)}
+       -> t
+       -> Attribute False Optional Any
   type v = fromUndefOrPrimNoDefault "UnderlyingSink.gettype"
                                     prim__type
                                     prim__setType
-                                    v
+                                    (v :> UnderlyingSink)
   
   export
-  write : UnderlyingSink -> Attribute False Optional UnderlyingSinkWriteCallback
+  write :  JSType t
+        => {auto 0 _ : Elem UnderlyingSink (Types t)}
+        -> t
+        -> Attribute False Optional UnderlyingSinkWriteCallback
   write v = fromUndefOrPrimNoDefault "UnderlyingSink.getwrite"
                                      prim__write
                                      prim__setWrite
-                                     v
+                                     (v :> UnderlyingSink)
 
 namespace UnderlyingSource
   
@@ -817,42 +914,54 @@ namespace UnderlyingSource
   new' = primJS $ UnderlyingSource.prim__new undef undef undef undef undef
   
   export
-  autoAllocateChunkSize : UnderlyingSource -> Attribute False Optional UInt64
+  autoAllocateChunkSize :  JSType t
+                        => {auto 0 _ : Elem UnderlyingSource (Types t)}
+                        -> t
+                        -> Attribute False Optional UInt64
   autoAllocateChunkSize v = fromUndefOrPrimNoDefault "UnderlyingSource.getautoAllocateChunkSize"
                                                      prim__autoAllocateChunkSize
                                                      prim__setAutoAllocateChunkSize
-                                                     v
+                                                     (v :> UnderlyingSource)
   
   export
-  cancel :  UnderlyingSource
+  cancel :  JSType t
+         => {auto 0 _ : Elem UnderlyingSource (Types t)}
+         -> t
          -> Attribute False Optional UnderlyingSourceCancelCallback
   cancel v = fromUndefOrPrimNoDefault "UnderlyingSource.getcancel"
                                       prim__cancel
                                       prim__setCancel
-                                      v
+                                      (v :> UnderlyingSource)
   
   export
-  pull :  UnderlyingSource
+  pull :  JSType t
+       => {auto 0 _ : Elem UnderlyingSource (Types t)}
+       -> t
        -> Attribute False Optional UnderlyingSourcePullCallback
   pull v = fromUndefOrPrimNoDefault "UnderlyingSource.getpull"
                                     prim__pull
                                     prim__setPull
-                                    v
+                                    (v :> UnderlyingSource)
   
   export
-  start :  UnderlyingSource
+  start :  JSType t
+        => {auto 0 _ : Elem UnderlyingSource (Types t)}
+        -> t
         -> Attribute False Optional UnderlyingSourceStartCallback
   start v = fromUndefOrPrimNoDefault "UnderlyingSource.getstart"
                                      prim__start
                                      prim__setStart
-                                     v
+                                     (v :> UnderlyingSource)
   
   export
-  type : UnderlyingSource -> Attribute False Optional ReadableStreamType
+  type :  JSType t
+       => {auto 0 _ : Elem UnderlyingSource (Types t)}
+       -> t
+       -> Attribute False Optional ReadableStreamType
   type v = fromUndefOrPrimNoDefault "UnderlyingSource.gettype"
                                     prim__type
                                     prim__setType
-                                    v
+                                    (v :> UnderlyingSource)
 
 --------------------------------------------------------------------------------
 --          Callbacks

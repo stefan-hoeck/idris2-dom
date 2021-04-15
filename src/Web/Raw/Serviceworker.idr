@@ -102,11 +102,13 @@ namespace CacheStorage
   keys a = primJS $ CacheStorage.prim__keys a
   
   export
-  match :  (obj : CacheStorage)
+  match :  JSType t1
+        => {auto 0 _ : Elem MultiCacheQueryOptions (Types t1)}
+        -> (obj : CacheStorage)
         -> (request : NS I [ Request , String ])
-        -> (options : Optional MultiCacheQueryOptions)
+        -> (options : Optional t1)
         -> JSIO (Promise (Union2 Response Undefined))
-  match a b c = primJS $ CacheStorage.prim__match a (toFFI b) (toFFI c)
+  match a b c = primJS $ CacheStorage.prim__match a (toFFI b) (optUp c)
 
   export
   match' :  (obj : CacheStorage)
@@ -190,10 +192,12 @@ namespace Clients
   get a b = primJS $ Clients.prim__get a b
   
   export
-  matchAll :  (obj : Clients)
-           -> (options : Optional ClientQueryOptions)
+  matchAll :  JSType t1
+           => {auto 0 _ : Elem ClientQueryOptions (Types t1)}
+           -> (obj : Clients)
+           -> (options : Optional t1)
            -> JSIO (Promise (Array Client))
-  matchAll a b = primJS $ Clients.prim__matchAll a (toFFI b)
+  matchAll a b = primJS $ Clients.prim__matchAll a (optUp b)
 
   export
   matchAll' : (obj : Clients) -> JSIO (Promise (Array Client))
@@ -230,10 +234,12 @@ namespace ExtendableEvent
 namespace ExtendableMessageEvent
   
   export
-  new :  (type : String)
-      -> (eventInitDict : Optional ExtendableMessageEventInit)
+  new :  JSType t1
+      => {auto 0 _ : Elem ExtendableMessageEventInit (Types t1)}
+      -> (type : String)
+      -> (eventInitDict : Optional t1)
       -> JSIO ExtendableMessageEvent
-  new a b = primJS $ ExtendableMessageEvent.prim__new a (toFFI b)
+  new a b = primJS $ ExtendableMessageEvent.prim__new a (optUp b)
 
   export
   new' : (type : String) -> JSIO ExtendableMessageEvent
@@ -265,8 +271,12 @@ namespace ExtendableMessageEvent
 namespace FetchEvent
   
   export
-  new : (type : String) -> (eventInitDict : FetchEventInit) -> JSIO FetchEvent
-  new a b = primJS $ FetchEvent.prim__new a b
+  new :  JSType t1
+      => {auto 0 _ : Elem FetchEventInit (Types t1)}
+      -> (type : String)
+      -> (eventInitDict : t1)
+      -> JSIO FetchEvent
+  new a b = primJS $ FetchEvent.prim__new a (up b)
   
   export
   clientId : (obj : FetchEvent) -> JSIO String
@@ -413,11 +423,13 @@ namespace ServiceWorkerContainer
   getRegistrations a = primJS $ ServiceWorkerContainer.prim__getRegistrations a
   
   export
-  register :  (obj : ServiceWorkerContainer)
+  register :  JSType t1
+           => {auto 0 _ : Elem RegistrationOptions (Types t1)}
+           -> (obj : ServiceWorkerContainer)
            -> (scriptURL : String)
-           -> (options : Optional RegistrationOptions)
+           -> (options : Optional t1)
            -> JSIO (Promise ServiceWorkerRegistration)
-  register a b c = primJS $ ServiceWorkerContainer.prim__register a b (toFFI c)
+  register a b c = primJS $ ServiceWorkerContainer.prim__register a b (optUp c)
 
   export
   register' :  (obj : ServiceWorkerContainer)
@@ -626,19 +638,25 @@ namespace ClientQueryOptions
   new' = primJS $ ClientQueryOptions.prim__new undef undef
   
   export
-  includeUncontrolled : ClientQueryOptions -> Attribute True Optional Bool
+  includeUncontrolled :  JSType t
+                      => {auto 0 _ : Elem ClientQueryOptions (Types t)}
+                      -> t
+                      -> Attribute True Optional Bool
   includeUncontrolled v = fromUndefOrPrim "ClientQueryOptions.getincludeUncontrolled"
                                           prim__includeUncontrolled
                                           prim__setIncludeUncontrolled
                                           False
-                                          v
+                                          (v :> ClientQueryOptions)
   
   export
-  type : ClientQueryOptions -> Attribute False Optional ClientType
+  type :  JSType t
+       => {auto 0 _ : Elem ClientQueryOptions (Types t)}
+       -> t
+       -> Attribute False Optional ClientType
   type v = fromUndefOrPrimNoDefault "ClientQueryOptions.gettype"
                                     prim__type
                                     prim__setType
-                                    v
+                                    (v :> ClientQueryOptions)
 
 namespace ExtendableEventInit
   
@@ -671,39 +689,52 @@ namespace ExtendableMessageEventInit
        $ ExtendableMessageEventInit.prim__new undef undef undef undef undef
   
   export
-  data_ : ExtendableMessageEventInit -> Attribute True Optional Any
+  data_ :  JSType t
+        => {auto 0 _ : Elem ExtendableMessageEventInit (Types t)}
+        -> t
+        -> Attribute True Optional Any
   data_ v = fromUndefOrPrim "ExtendableMessageEventInit.getdata"
                             prim__data
                             prim__setData
                             (MkAny $ null {a = ()})
-                            v
+                            (v :> ExtendableMessageEventInit)
   
   export
-  lastEventId : ExtendableMessageEventInit -> Attribute True Optional String
+  lastEventId :  JSType t
+              => {auto 0 _ : Elem ExtendableMessageEventInit (Types t)}
+              -> t
+              -> Attribute True Optional String
   lastEventId v = fromUndefOrPrim "ExtendableMessageEventInit.getlastEventId"
                                   prim__lastEventId
                                   prim__setLastEventId
                                   ""
-                                  v
+                                  (v :> ExtendableMessageEventInit)
   
   export
-  origin : ExtendableMessageEventInit -> Attribute True Optional String
+  origin :  JSType t
+         => {auto 0 _ : Elem ExtendableMessageEventInit (Types t)}
+         -> t
+         -> Attribute True Optional String
   origin v = fromUndefOrPrim "ExtendableMessageEventInit.getorigin"
                              prim__origin
                              prim__setOrigin
                              ""
-                             v
+                             (v :> ExtendableMessageEventInit)
   
   export
-  ports :  ExtendableMessageEventInit
+  ports :  JSType t
+        => {auto 0 _ : Elem ExtendableMessageEventInit (Types t)}
+        -> t
         -> Attribute False Optional (Array MessagePort)
   ports v = fromUndefOrPrimNoDefault "ExtendableMessageEventInit.getports"
                                      prim__ports
                                      prim__setPorts
-                                     v
+                                     (v :> ExtendableMessageEventInit)
   
   export
-  source :  ExtendableMessageEventInit
+  source :  JSType t
+         => {auto 0 _ : Elem ExtendableMessageEventInit (Types t)}
+         -> t
          -> Attribute True Optional (Maybe (NS I [ Client
                                                  , ServiceWorker
                                                  , MessagePort
@@ -712,7 +743,7 @@ namespace ExtendableMessageEventInit
                              prim__source
                              prim__setSource
                              Nothing
-                             v
+                             (v :> ExtendableMessageEventInit)
 
 namespace FetchEventInit
   
@@ -737,49 +768,67 @@ namespace FetchEventInit
   new' a = primJS $ FetchEventInit.prim__new a undef undef undef undef undef
   
   export
-  clientId : FetchEventInit -> Attribute True Optional String
+  clientId :  JSType t
+           => {auto 0 _ : Elem FetchEventInit (Types t)}
+           -> t
+           -> Attribute True Optional String
   clientId v = fromUndefOrPrim "FetchEventInit.getclientId"
                                prim__clientId
                                prim__setClientId
                                ""
-                               v
+                               (v :> FetchEventInit)
   
   export
-  handled : FetchEventInit -> Attribute False Optional (Promise Undefined)
+  handled :  JSType t
+          => {auto 0 _ : Elem FetchEventInit (Types t)}
+          -> t
+          -> Attribute False Optional (Promise Undefined)
   handled v = fromUndefOrPrimNoDefault "FetchEventInit.gethandled"
                                        prim__handled
                                        prim__setHandled
-                                       v
+                                       (v :> FetchEventInit)
   
   export
-  preloadResponse : FetchEventInit -> Attribute False Optional (Promise AnyPtr)
+  preloadResponse :  JSType t
+                  => {auto 0 _ : Elem FetchEventInit (Types t)}
+                  -> t
+                  -> Attribute False Optional (Promise AnyPtr)
   preloadResponse v = fromUndefOrPrimNoDefault "FetchEventInit.getpreloadResponse"
                                                prim__preloadResponse
                                                prim__setPreloadResponse
-                                               v
+                                               (v :> FetchEventInit)
   
   export
-  replacesClientId : FetchEventInit -> Attribute True Optional String
+  replacesClientId :  JSType t
+                   => {auto 0 _ : Elem FetchEventInit (Types t)}
+                   -> t
+                   -> Attribute True Optional String
   replacesClientId v = fromUndefOrPrim "FetchEventInit.getreplacesClientId"
                                        prim__replacesClientId
                                        prim__setReplacesClientId
                                        ""
-                                       v
+                                       (v :> FetchEventInit)
   
   export
-  request : FetchEventInit -> Attribute True I Request
+  request :  JSType t
+          => {auto 0 _ : Elem FetchEventInit (Types t)}
+          -> t
+          -> Attribute True I Request
   request v = fromPrim "FetchEventInit.getrequest"
                        prim__request
                        prim__setRequest
-                       v
+                       (v :> FetchEventInit)
   
   export
-  resultingClientId : FetchEventInit -> Attribute True Optional String
+  resultingClientId :  JSType t
+                    => {auto 0 _ : Elem FetchEventInit (Types t)}
+                    -> t
+                    -> Attribute True Optional String
   resultingClientId v = fromUndefOrPrim "FetchEventInit.getresultingClientId"
                                         prim__resultingClientId
                                         prim__setResultingClientId
                                         ""
-                                        v
+                                        (v :> FetchEventInit)
 
 namespace MultiCacheQueryOptions
   
@@ -792,11 +841,14 @@ namespace MultiCacheQueryOptions
   new' = primJS $ MultiCacheQueryOptions.prim__new undef
   
   export
-  cacheName : MultiCacheQueryOptions -> Attribute False Optional String
+  cacheName :  JSType t
+            => {auto 0 _ : Elem MultiCacheQueryOptions (Types t)}
+            -> t
+            -> Attribute False Optional String
   cacheName v = fromUndefOrPrimNoDefault "MultiCacheQueryOptions.getcacheName"
                                          prim__cacheName
                                          prim__setCacheName
-                                         v
+                                         (v :> MultiCacheQueryOptions)
 
 namespace NavigationPreloadState
   
@@ -811,19 +863,25 @@ namespace NavigationPreloadState
   new' = primJS $ NavigationPreloadState.prim__new undef undef
   
   export
-  enabled : NavigationPreloadState -> Attribute True Optional Bool
+  enabled :  JSType t
+          => {auto 0 _ : Elem NavigationPreloadState (Types t)}
+          -> t
+          -> Attribute True Optional Bool
   enabled v = fromUndefOrPrim "NavigationPreloadState.getenabled"
                               prim__enabled
                               prim__setEnabled
                               False
-                              v
+                              (v :> NavigationPreloadState)
   
   export
-  headerValue : NavigationPreloadState -> Attribute False Optional ByteString
+  headerValue :  JSType t
+              => {auto 0 _ : Elem NavigationPreloadState (Types t)}
+              -> t
+              -> Attribute False Optional ByteString
   headerValue v = fromUndefOrPrimNoDefault "NavigationPreloadState.getheaderValue"
                                            prim__headerValue
                                            prim__setHeaderValue
-                                           v
+                                           (v :> NavigationPreloadState)
 
 namespace RegistrationOptions
   
@@ -840,23 +898,31 @@ namespace RegistrationOptions
   new' = primJS $ RegistrationOptions.prim__new undef undef undef
   
   export
-  scope : RegistrationOptions -> Attribute False Optional String
+  scope :  JSType t
+        => {auto 0 _ : Elem RegistrationOptions (Types t)}
+        -> t
+        -> Attribute False Optional String
   scope v = fromUndefOrPrimNoDefault "RegistrationOptions.getscope"
                                      prim__scope
                                      prim__setScope
-                                     v
+                                     (v :> RegistrationOptions)
   
   export
-  type : RegistrationOptions -> Attribute False Optional WorkerType
+  type :  JSType t
+       => {auto 0 _ : Elem RegistrationOptions (Types t)}
+       -> t
+       -> Attribute False Optional WorkerType
   type v = fromUndefOrPrimNoDefault "RegistrationOptions.gettype"
                                     prim__type
                                     prim__setType
-                                    v
+                                    (v :> RegistrationOptions)
   
   export
-  updateViaCache :  RegistrationOptions
+  updateViaCache :  JSType t
+                 => {auto 0 _ : Elem RegistrationOptions (Types t)}
+                 -> t
                  -> Attribute False Optional ServiceWorkerUpdateViaCache
   updateViaCache v = fromUndefOrPrimNoDefault "RegistrationOptions.getupdateViaCache"
                                               prim__updateViaCache
                                               prim__setUpdateViaCache
-                                              v
+                                              (v :> RegistrationOptions)

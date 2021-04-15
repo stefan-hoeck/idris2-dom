@@ -763,10 +763,6 @@ ToFFI SVGBoundingBoxOptions SVGBoundingBoxOptions where toFFI = id
 export
 FromFFI SVGBoundingBoxOptions SVGBoundingBoxOptions where fromFFI = Just
 
-export
-SafeCast SVGBoundingBoxOptions where
-  safeCast = unsafeCastOnPrototypeName "SVGBoundingBoxOptions"
-
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------

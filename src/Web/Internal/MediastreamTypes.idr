@@ -276,10 +276,6 @@ ToFFI Capabilities Capabilities where toFFI = id
 export
 FromFFI Capabilities Capabilities where fromFFI = Just
 
-export
-SafeCast Capabilities where
-  safeCast = unsafeCastOnPrototypeName "Capabilities"
-
 export data ConstrainBooleanParameters : Type where [external]
   
 export
@@ -287,10 +283,6 @@ ToFFI ConstrainBooleanParameters ConstrainBooleanParameters where toFFI = id
   
 export
 FromFFI ConstrainBooleanParameters ConstrainBooleanParameters where fromFFI = Just
-
-export
-SafeCast ConstrainBooleanParameters where
-  safeCast = unsafeCastOnPrototypeName "ConstrainBooleanParameters"
 
 export data ConstrainDOMStringParameters : Type where [external]
   
@@ -300,10 +292,6 @@ ToFFI ConstrainDOMStringParameters ConstrainDOMStringParameters where toFFI = id
 export
 FromFFI ConstrainDOMStringParameters ConstrainDOMStringParameters where fromFFI = Just
 
-export
-SafeCast ConstrainDOMStringParameters where
-  safeCast = unsafeCastOnPrototypeName "ConstrainDOMStringParameters"
-
 export data ConstrainDoubleRange : Type where [external]
   
 export
@@ -311,10 +299,6 @@ ToFFI ConstrainDoubleRange ConstrainDoubleRange where toFFI = id
   
 export
 FromFFI ConstrainDoubleRange ConstrainDoubleRange where fromFFI = Just
-
-export
-SafeCast ConstrainDoubleRange where
-  safeCast = unsafeCastOnPrototypeName "ConstrainDoubleRange"
 
 export data ConstrainULongRange : Type where [external]
   
@@ -324,10 +308,6 @@ ToFFI ConstrainULongRange ConstrainULongRange where toFFI = id
 export
 FromFFI ConstrainULongRange ConstrainULongRange where fromFFI = Just
 
-export
-SafeCast ConstrainULongRange where
-  safeCast = unsafeCastOnPrototypeName "ConstrainULongRange"
-
 export data ConstraintSet : Type where [external]
   
 export
@@ -335,10 +315,6 @@ ToFFI ConstraintSet ConstraintSet where toFFI = id
   
 export
 FromFFI ConstraintSet ConstraintSet where fromFFI = Just
-
-export
-SafeCast ConstraintSet where
-  safeCast = unsafeCastOnPrototypeName "ConstraintSet"
 
 export data Constraints : Type where [external]
   
@@ -348,10 +324,6 @@ ToFFI Constraints Constraints where toFFI = id
 export
 FromFFI Constraints Constraints where fromFFI = Just
 
-export
-SafeCast Constraints where
-  safeCast = unsafeCastOnPrototypeName "Constraints"
-
 export data DoubleRange : Type where [external]
   
 export
@@ -359,10 +331,6 @@ ToFFI DoubleRange DoubleRange where toFFI = id
   
 export
 FromFFI DoubleRange DoubleRange where fromFFI = Just
-
-export
-SafeCast DoubleRange where
-  safeCast = unsafeCastOnPrototypeName "DoubleRange"
 
 export data MediaStreamConstraints : Type where [external]
   
@@ -372,10 +340,6 @@ ToFFI MediaStreamConstraints MediaStreamConstraints where toFFI = id
 export
 FromFFI MediaStreamConstraints MediaStreamConstraints where fromFFI = Just
 
-export
-SafeCast MediaStreamConstraints where
-  safeCast = unsafeCastOnPrototypeName "MediaStreamConstraints"
-
 export data MediaStreamTrackEventInit : Type where [external]
   
 export
@@ -383,10 +347,6 @@ ToFFI MediaStreamTrackEventInit MediaStreamTrackEventInit where toFFI = id
   
 export
 FromFFI MediaStreamTrackEventInit MediaStreamTrackEventInit where fromFFI = Just
-
-export
-SafeCast MediaStreamTrackEventInit where
-  safeCast = unsafeCastOnPrototypeName "MediaStreamTrackEventInit"
 
 export data MediaTrackCapabilities : Type where [external]
   
@@ -396,10 +356,6 @@ ToFFI MediaTrackCapabilities MediaTrackCapabilities where toFFI = id
 export
 FromFFI MediaTrackCapabilities MediaTrackCapabilities where fromFFI = Just
 
-export
-SafeCast MediaTrackCapabilities where
-  safeCast = unsafeCastOnPrototypeName "MediaTrackCapabilities"
-
 export data MediaTrackConstraintSet : Type where [external]
   
 export
@@ -407,10 +363,6 @@ ToFFI MediaTrackConstraintSet MediaTrackConstraintSet where toFFI = id
   
 export
 FromFFI MediaTrackConstraintSet MediaTrackConstraintSet where fromFFI = Just
-
-export
-SafeCast MediaTrackConstraintSet where
-  safeCast = unsafeCastOnPrototypeName "MediaTrackConstraintSet"
 
 export data MediaTrackConstraints : Type where [external]
   
@@ -420,10 +372,6 @@ ToFFI MediaTrackConstraints MediaTrackConstraints where toFFI = id
 export
 FromFFI MediaTrackConstraints MediaTrackConstraints where fromFFI = Just
 
-export
-SafeCast MediaTrackConstraints where
-  safeCast = unsafeCastOnPrototypeName "MediaTrackConstraints"
-
 export data MediaTrackSettings : Type where [external]
   
 export
@@ -431,10 +379,6 @@ ToFFI MediaTrackSettings MediaTrackSettings where toFFI = id
   
 export
 FromFFI MediaTrackSettings MediaTrackSettings where fromFFI = Just
-
-export
-SafeCast MediaTrackSettings where
-  safeCast = unsafeCastOnPrototypeName "MediaTrackSettings"
 
 export data MediaTrackSupportedConstraints : Type where [external]
   
@@ -444,10 +388,6 @@ ToFFI MediaTrackSupportedConstraints MediaTrackSupportedConstraints where toFFI 
 export
 FromFFI MediaTrackSupportedConstraints MediaTrackSupportedConstraints where fromFFI = Just
 
-export
-SafeCast MediaTrackSupportedConstraints where
-  safeCast = unsafeCastOnPrototypeName "MediaTrackSupportedConstraints"
-
 export data Settings : Type where [external]
   
 export
@@ -456,10 +396,6 @@ ToFFI Settings Settings where toFFI = id
 export
 FromFFI Settings Settings where fromFFI = Just
 
-export
-SafeCast Settings where
-  safeCast = unsafeCastOnPrototypeName "Settings"
-
 export data ULongRange : Type where [external]
   
 export
@@ -467,10 +403,6 @@ ToFFI ULongRange ULongRange where toFFI = id
   
 export
 FromFFI ULongRange ULongRange where fromFFI = Just
-
-export
-SafeCast ULongRange where
-  safeCast = unsafeCastOnPrototypeName "ULongRange"
 
 
 --------------------------------------------------------------------------------

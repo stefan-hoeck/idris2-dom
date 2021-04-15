@@ -353,10 +353,6 @@ ToFFI CacheQueryOptions CacheQueryOptions where toFFI = id
 export
 FromFFI CacheQueryOptions CacheQueryOptions where fromFFI = Just
 
-export
-SafeCast CacheQueryOptions where
-  safeCast = unsafeCastOnPrototypeName "CacheQueryOptions"
-
 export data ClientQueryOptions : Type where [external]
   
 export
@@ -364,10 +360,6 @@ ToFFI ClientQueryOptions ClientQueryOptions where toFFI = id
   
 export
 FromFFI ClientQueryOptions ClientQueryOptions where fromFFI = Just
-
-export
-SafeCast ClientQueryOptions where
-  safeCast = unsafeCastOnPrototypeName "ClientQueryOptions"
 
 export data ExtendableEventInit : Type where [external]
   
@@ -377,10 +369,6 @@ ToFFI ExtendableEventInit ExtendableEventInit where toFFI = id
 export
 FromFFI ExtendableEventInit ExtendableEventInit where fromFFI = Just
 
-export
-SafeCast ExtendableEventInit where
-  safeCast = unsafeCastOnPrototypeName "ExtendableEventInit"
-
 export data ExtendableMessageEventInit : Type where [external]
   
 export
@@ -388,10 +376,6 @@ ToFFI ExtendableMessageEventInit ExtendableMessageEventInit where toFFI = id
   
 export
 FromFFI ExtendableMessageEventInit ExtendableMessageEventInit where fromFFI = Just
-
-export
-SafeCast ExtendableMessageEventInit where
-  safeCast = unsafeCastOnPrototypeName "ExtendableMessageEventInit"
 
 export data FetchEventInit : Type where [external]
   
@@ -401,10 +385,6 @@ ToFFI FetchEventInit FetchEventInit where toFFI = id
 export
 FromFFI FetchEventInit FetchEventInit where fromFFI = Just
 
-export
-SafeCast FetchEventInit where
-  safeCast = unsafeCastOnPrototypeName "FetchEventInit"
-
 export data MultiCacheQueryOptions : Type where [external]
   
 export
@@ -412,10 +392,6 @@ ToFFI MultiCacheQueryOptions MultiCacheQueryOptions where toFFI = id
   
 export
 FromFFI MultiCacheQueryOptions MultiCacheQueryOptions where fromFFI = Just
-
-export
-SafeCast MultiCacheQueryOptions where
-  safeCast = unsafeCastOnPrototypeName "MultiCacheQueryOptions"
 
 export data NavigationPreloadState : Type where [external]
   
@@ -425,10 +401,6 @@ ToFFI NavigationPreloadState NavigationPreloadState where toFFI = id
 export
 FromFFI NavigationPreloadState NavigationPreloadState where fromFFI = Just
 
-export
-SafeCast NavigationPreloadState where
-  safeCast = unsafeCastOnPrototypeName "NavigationPreloadState"
-
 export data RegistrationOptions : Type where [external]
   
 export
@@ -436,8 +408,4 @@ ToFFI RegistrationOptions RegistrationOptions where toFFI = id
   
 export
 FromFFI RegistrationOptions RegistrationOptions where fromFFI = Just
-
-export
-SafeCast RegistrationOptions where
-  safeCast = unsafeCastOnPrototypeName "RegistrationOptions"
 

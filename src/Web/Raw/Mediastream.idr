@@ -11,11 +11,13 @@ import Web.Internal.Types
 namespace ConstrainablePattern
   
   export
-  applyConstraints :  (obj : ConstrainablePattern)
-                   -> (constraints : Optional Constraints)
+  applyConstraints :  JSType t1
+                   => {auto 0 _ : Elem Constraints (Types t1)}
+                   -> (obj : ConstrainablePattern)
+                   -> (constraints : Optional t1)
                    -> JSIO (Promise Undefined)
   applyConstraints a b = primJS
-                       $ ConstrainablePattern.prim__applyConstraints a (toFFI b)
+                       $ ConstrainablePattern.prim__applyConstraints a (optUp b)
 
   export
   applyConstraints' : (obj : ConstrainablePattern) -> JSIO (Promise Undefined)
@@ -98,10 +100,12 @@ namespace MediaDevices
                             $ MediaDevices.prim__getSupportedConstraints a
   
   export
-  getUserMedia :  (obj : MediaDevices)
-               -> (constraints : Optional MediaStreamConstraints)
+  getUserMedia :  JSType t1
+               => {auto 0 _ : Elem MediaStreamConstraints (Types t1)}
+               -> (obj : MediaDevices)
+               -> (constraints : Optional t1)
                -> JSIO (Promise MediaStream)
-  getUserMedia a b = primJS $ MediaDevices.prim__getUserMedia a (toFFI b)
+  getUserMedia a b = primJS $ MediaDevices.prim__getUserMedia a (optUp b)
 
   export
   getUserMedia' : (obj : MediaDevices) -> JSIO (Promise MediaStream)
@@ -226,11 +230,13 @@ namespace MediaStreamTrack
                $ MediaStreamTrack.prim__readyState a
   
   export
-  applyConstraints :  (obj : MediaStreamTrack)
-                   -> (constraints : Optional MediaTrackConstraints)
+  applyConstraints :  JSType t1
+                   => {auto 0 _ : Elem MediaTrackConstraints (Types t1)}
+                   -> (obj : MediaStreamTrack)
+                   -> (constraints : Optional t1)
                    -> JSIO (Promise Undefined)
   applyConstraints a b = primJS
-                       $ MediaStreamTrack.prim__applyConstraints a (toFFI b)
+                       $ MediaStreamTrack.prim__applyConstraints a (optUp b)
 
   export
   applyConstraints' : (obj : MediaStreamTrack) -> JSIO (Promise Undefined)
@@ -259,10 +265,12 @@ namespace MediaStreamTrack
 namespace MediaStreamTrackEvent
   
   export
-  new :  (type : String)
-      -> (eventInitDict : MediaStreamTrackEventInit)
+  new :  JSType t1
+      => {auto 0 _ : Elem MediaStreamTrackEventInit (Types t1)}
+      -> (type : String)
+      -> (eventInitDict : t1)
       -> JSIO MediaStreamTrackEvent
-  new a b = primJS $ MediaStreamTrackEvent.prim__new a b
+  new a b = primJS $ MediaStreamTrackEvent.prim__new a (up b)
   
   export
   track : (obj : MediaStreamTrackEvent) -> JSIO MediaStreamTrack
@@ -308,18 +316,24 @@ namespace ConstrainBooleanParameters
   new' = primJS $ ConstrainBooleanParameters.prim__new undef undef
   
   export
-  exact : ConstrainBooleanParameters -> Attribute False Optional Bool
+  exact :  JSType t
+        => {auto 0 _ : Elem ConstrainBooleanParameters (Types t)}
+        -> t
+        -> Attribute False Optional Bool
   exact v = fromUndefOrPrimNoDefault "ConstrainBooleanParameters.getexact"
                                      prim__exact
                                      prim__setExact
-                                     v
+                                     (v :> ConstrainBooleanParameters)
   
   export
-  ideal : ConstrainBooleanParameters -> Attribute False Optional Bool
+  ideal :  JSType t
+        => {auto 0 _ : Elem ConstrainBooleanParameters (Types t)}
+        -> t
+        -> Attribute False Optional Bool
   ideal v = fromUndefOrPrimNoDefault "ConstrainBooleanParameters.getideal"
                                      prim__ideal
                                      prim__setIdeal
-                                     v
+                                     (v :> ConstrainBooleanParameters)
 
 namespace ConstrainDOMStringParameters
   
@@ -334,20 +348,24 @@ namespace ConstrainDOMStringParameters
   new' = primJS $ ConstrainDOMStringParameters.prim__new undef undef
   
   export
-  exact :  ConstrainDOMStringParameters
+  exact :  JSType t
+        => {auto 0 _ : Elem ConstrainDOMStringParameters (Types t)}
+        -> t
         -> Attribute False Optional (Union2 String (Array String))
   exact v = fromUndefOrPrimNoDefault "ConstrainDOMStringParameters.getexact"
                                      prim__exact
                                      prim__setExact
-                                     v
+                                     (v :> ConstrainDOMStringParameters)
   
   export
-  ideal :  ConstrainDOMStringParameters
+  ideal :  JSType t
+        => {auto 0 _ : Elem ConstrainDOMStringParameters (Types t)}
+        -> t
         -> Attribute False Optional (Union2 String (Array String))
   ideal v = fromUndefOrPrimNoDefault "ConstrainDOMStringParameters.getideal"
                                      prim__ideal
                                      prim__setIdeal
-                                     v
+                                     (v :> ConstrainDOMStringParameters)
 
 namespace ConstrainDoubleRange
   
@@ -362,18 +380,24 @@ namespace ConstrainDoubleRange
   new' = primJS $ ConstrainDoubleRange.prim__new undef undef
   
   export
-  exact : ConstrainDoubleRange -> Attribute False Optional Double
+  exact :  JSType t
+        => {auto 0 _ : Elem ConstrainDoubleRange (Types t)}
+        -> t
+        -> Attribute False Optional Double
   exact v = fromUndefOrPrimNoDefault "ConstrainDoubleRange.getexact"
                                      prim__exact
                                      prim__setExact
-                                     v
+                                     (v :> ConstrainDoubleRange)
   
   export
-  ideal : ConstrainDoubleRange -> Attribute False Optional Double
+  ideal :  JSType t
+        => {auto 0 _ : Elem ConstrainDoubleRange (Types t)}
+        -> t
+        -> Attribute False Optional Double
   ideal v = fromUndefOrPrimNoDefault "ConstrainDoubleRange.getideal"
                                      prim__ideal
                                      prim__setIdeal
-                                     v
+                                     (v :> ConstrainDoubleRange)
 
 namespace ConstrainULongRange
   
@@ -388,18 +412,24 @@ namespace ConstrainULongRange
   new' = primJS $ ConstrainULongRange.prim__new undef undef
   
   export
-  exact : ConstrainULongRange -> Attribute False Optional UInt32
+  exact :  JSType t
+        => {auto 0 _ : Elem ConstrainULongRange (Types t)}
+        -> t
+        -> Attribute False Optional UInt32
   exact v = fromUndefOrPrimNoDefault "ConstrainULongRange.getexact"
                                      prim__exact
                                      prim__setExact
-                                     v
+                                     (v :> ConstrainULongRange)
   
   export
-  ideal : ConstrainULongRange -> Attribute False Optional UInt32
+  ideal :  JSType t
+        => {auto 0 _ : Elem ConstrainULongRange (Types t)}
+        -> t
+        -> Attribute False Optional UInt32
   ideal v = fromUndefOrPrimNoDefault "ConstrainULongRange.getideal"
                                      prim__ideal
                                      prim__setIdeal
-                                     v
+                                     (v :> ConstrainULongRange)
 
 namespace ConstraintSet
   
@@ -418,11 +448,14 @@ namespace Constraints
   new' = primJS $ Constraints.prim__new undef
   
   export
-  advanced : Constraints -> Attribute False Optional (Array ConstraintSet)
+  advanced :  JSType t
+           => {auto 0 _ : Elem Constraints (Types t)}
+           -> t
+           -> Attribute False Optional (Array ConstraintSet)
   advanced v = fromUndefOrPrimNoDefault "Constraints.getadvanced"
                                         prim__advanced
                                         prim__setAdvanced
-                                        v
+                                        (v :> Constraints)
 
 namespace DoubleRange
   
@@ -467,20 +500,24 @@ namespace MediaStreamConstraints
   new' = primJS $ MediaStreamConstraints.prim__new undef undef
   
   export
-  audio :  MediaStreamConstraints
-        -> Attribute False Optional (NS I [ Bool , MediaTrackConstraints ])
+  audio :  JSType t
+        => {auto 0 _ : Elem MediaStreamConstraints (Types t)}
+        -> t
+        -> Attribute False Optional (Union2 Boolean MediaTrackConstraints)
   audio v = fromUndefOrPrimNoDefault "MediaStreamConstraints.getaudio"
                                      prim__audio
                                      prim__setAudio
-                                     v
+                                     (v :> MediaStreamConstraints)
   
   export
-  video :  MediaStreamConstraints
-        -> Attribute False Optional (NS I [ Bool , MediaTrackConstraints ])
+  video :  JSType t
+        => {auto 0 _ : Elem MediaStreamConstraints (Types t)}
+        -> t
+        -> Attribute False Optional (Union2 Boolean MediaTrackConstraints)
   video v = fromUndefOrPrimNoDefault "MediaStreamConstraints.getvideo"
                                      prim__video
                                      prim__setVideo
-                                     v
+                                     (v :> MediaStreamConstraints)
 
 namespace MediaStreamTrackEventInit
   
@@ -489,11 +526,14 @@ namespace MediaStreamTrackEventInit
   new a = primJS $ MediaStreamTrackEventInit.prim__new a
   
   export
-  track : MediaStreamTrackEventInit -> Attribute True I MediaStreamTrack
+  track :  JSType t
+        => {auto 0 _ : Elem MediaStreamTrackEventInit (Types t)}
+        -> t
+        -> Attribute True I MediaStreamTrack
   track v = fromPrim "MediaStreamTrackEventInit.gettrack"
                      prim__track
                      prim__setTrack
-                     v
+                     (v :> MediaStreamTrackEventInit)
 
 namespace MediaTrackCapabilities
   
@@ -567,112 +607,154 @@ namespace MediaTrackCapabilities
                                           undef
   
   export
-  aspectRatio : MediaTrackCapabilities -> Attribute False Optional DoubleRange
+  aspectRatio :  JSType t
+              => {auto 0 _ : Elem MediaTrackCapabilities (Types t)}
+              -> t
+              -> Attribute False Optional DoubleRange
   aspectRatio v = fromUndefOrPrimNoDefault "MediaTrackCapabilities.getaspectRatio"
                                            prim__aspectRatio
                                            prim__setAspectRatio
-                                           v
+                                           (v :> MediaTrackCapabilities)
   
   export
-  autoGainControl :  MediaTrackCapabilities
+  autoGainControl :  JSType t
+                  => {auto 0 _ : Elem MediaTrackCapabilities (Types t)}
+                  -> t
                   -> Attribute False Optional (Array Boolean)
   autoGainControl v = fromUndefOrPrimNoDefault "MediaTrackCapabilities.getautoGainControl"
                                                prim__autoGainControl
                                                prim__setAutoGainControl
-                                               v
+                                               (v :> MediaTrackCapabilities)
   
   export
-  channelCount : MediaTrackCapabilities -> Attribute False Optional ULongRange
+  channelCount :  JSType t
+               => {auto 0 _ : Elem MediaTrackCapabilities (Types t)}
+               -> t
+               -> Attribute False Optional ULongRange
   channelCount v = fromUndefOrPrimNoDefault "MediaTrackCapabilities.getchannelCount"
                                             prim__channelCount
                                             prim__setChannelCount
-                                            v
+                                            (v :> MediaTrackCapabilities)
   
   export
-  deviceId : MediaTrackCapabilities -> Attribute False Optional String
+  deviceId :  JSType t
+           => {auto 0 _ : Elem MediaTrackCapabilities (Types t)}
+           -> t
+           -> Attribute False Optional String
   deviceId v = fromUndefOrPrimNoDefault "MediaTrackCapabilities.getdeviceId"
                                         prim__deviceId
                                         prim__setDeviceId
-                                        v
+                                        (v :> MediaTrackCapabilities)
   
   export
-  echoCancellation :  MediaTrackCapabilities
+  echoCancellation :  JSType t
+                   => {auto 0 _ : Elem MediaTrackCapabilities (Types t)}
+                   -> t
                    -> Attribute False Optional (Array Boolean)
   echoCancellation v = fromUndefOrPrimNoDefault "MediaTrackCapabilities.getechoCancellation"
                                                 prim__echoCancellation
                                                 prim__setEchoCancellation
-                                                v
+                                                (v :> MediaTrackCapabilities)
   
   export
-  facingMode : MediaTrackCapabilities -> Attribute False Optional (Array String)
+  facingMode :  JSType t
+             => {auto 0 _ : Elem MediaTrackCapabilities (Types t)}
+             -> t
+             -> Attribute False Optional (Array String)
   facingMode v = fromUndefOrPrimNoDefault "MediaTrackCapabilities.getfacingMode"
                                           prim__facingMode
                                           prim__setFacingMode
-                                          v
+                                          (v :> MediaTrackCapabilities)
   
   export
-  frameRate : MediaTrackCapabilities -> Attribute False Optional DoubleRange
+  frameRate :  JSType t
+            => {auto 0 _ : Elem MediaTrackCapabilities (Types t)}
+            -> t
+            -> Attribute False Optional DoubleRange
   frameRate v = fromUndefOrPrimNoDefault "MediaTrackCapabilities.getframeRate"
                                          prim__frameRate
                                          prim__setFrameRate
-                                         v
+                                         (v :> MediaTrackCapabilities)
   
   export
-  groupId : MediaTrackCapabilities -> Attribute False Optional String
+  groupId :  JSType t
+          => {auto 0 _ : Elem MediaTrackCapabilities (Types t)}
+          -> t
+          -> Attribute False Optional String
   groupId v = fromUndefOrPrimNoDefault "MediaTrackCapabilities.getgroupId"
                                        prim__groupId
                                        prim__setGroupId
-                                       v
+                                       (v :> MediaTrackCapabilities)
   
   export
-  height : MediaTrackCapabilities -> Attribute False Optional ULongRange
+  height :  JSType t
+         => {auto 0 _ : Elem MediaTrackCapabilities (Types t)}
+         -> t
+         -> Attribute False Optional ULongRange
   height v = fromUndefOrPrimNoDefault "MediaTrackCapabilities.getheight"
                                       prim__height
                                       prim__setHeight
-                                      v
+                                      (v :> MediaTrackCapabilities)
   
   export
-  latency : MediaTrackCapabilities -> Attribute False Optional DoubleRange
+  latency :  JSType t
+          => {auto 0 _ : Elem MediaTrackCapabilities (Types t)}
+          -> t
+          -> Attribute False Optional DoubleRange
   latency v = fromUndefOrPrimNoDefault "MediaTrackCapabilities.getlatency"
                                        prim__latency
                                        prim__setLatency
-                                       v
+                                       (v :> MediaTrackCapabilities)
   
   export
-  noiseSuppression :  MediaTrackCapabilities
+  noiseSuppression :  JSType t
+                   => {auto 0 _ : Elem MediaTrackCapabilities (Types t)}
+                   -> t
                    -> Attribute False Optional (Array Boolean)
   noiseSuppression v = fromUndefOrPrimNoDefault "MediaTrackCapabilities.getnoiseSuppression"
                                                 prim__noiseSuppression
                                                 prim__setNoiseSuppression
-                                                v
+                                                (v :> MediaTrackCapabilities)
   
   export
-  resizeMode : MediaTrackCapabilities -> Attribute False Optional (Array String)
+  resizeMode :  JSType t
+             => {auto 0 _ : Elem MediaTrackCapabilities (Types t)}
+             -> t
+             -> Attribute False Optional (Array String)
   resizeMode v = fromUndefOrPrimNoDefault "MediaTrackCapabilities.getresizeMode"
                                           prim__resizeMode
                                           prim__setResizeMode
-                                          v
+                                          (v :> MediaTrackCapabilities)
   
   export
-  sampleRate : MediaTrackCapabilities -> Attribute False Optional ULongRange
+  sampleRate :  JSType t
+             => {auto 0 _ : Elem MediaTrackCapabilities (Types t)}
+             -> t
+             -> Attribute False Optional ULongRange
   sampleRate v = fromUndefOrPrimNoDefault "MediaTrackCapabilities.getsampleRate"
                                           prim__sampleRate
                                           prim__setSampleRate
-                                          v
+                                          (v :> MediaTrackCapabilities)
   
   export
-  sampleSize : MediaTrackCapabilities -> Attribute False Optional ULongRange
+  sampleSize :  JSType t
+             => {auto 0 _ : Elem MediaTrackCapabilities (Types t)}
+             -> t
+             -> Attribute False Optional ULongRange
   sampleSize v = fromUndefOrPrimNoDefault "MediaTrackCapabilities.getsampleSize"
                                           prim__sampleSize
                                           prim__setSampleSize
-                                          v
+                                          (v :> MediaTrackCapabilities)
   
   export
-  width : MediaTrackCapabilities -> Attribute False Optional ULongRange
+  width :  JSType t
+        => {auto 0 _ : Elem MediaTrackCapabilities (Types t)}
+        -> t
+        -> Attribute False Optional ULongRange
   width v = fromUndefOrPrimNoDefault "MediaTrackCapabilities.getwidth"
                                      prim__width
                                      prim__setWidth
-                                     v
+                                     (v :> MediaTrackCapabilities)
 
 namespace MediaTrackConstraintSet
   
@@ -751,9 +833,7 @@ namespace MediaTrackConstraintSet
   aspectRatio :  JSType t
               => {auto 0 _ : Elem MediaTrackConstraintSet (Types t)}
               -> t
-              -> Attribute False Optional (NS I [ Double
-                                                , ConstrainDoubleRange
-                                                ])
+              -> Attribute False Optional (Union2 Double ConstrainDoubleRange)
   aspectRatio v = fromUndefOrPrimNoDefault "MediaTrackConstraintSet.getaspectRatio"
                                            prim__aspectRatio
                                            prim__setAspectRatio
@@ -763,9 +843,8 @@ namespace MediaTrackConstraintSet
   autoGainControl :  JSType t
                   => {auto 0 _ : Elem MediaTrackConstraintSet (Types t)}
                   -> t
-                  -> Attribute False Optional (NS I [ Bool
-                                                    , ConstrainBooleanParameters
-                                                    ])
+                  -> Attribute False Optional (Union2 Boolean
+                                                      ConstrainBooleanParameters)
   autoGainControl v = fromUndefOrPrimNoDefault "MediaTrackConstraintSet.getautoGainControl"
                                                prim__autoGainControl
                                                prim__setAutoGainControl
@@ -775,9 +854,7 @@ namespace MediaTrackConstraintSet
   channelCount :  JSType t
                => {auto 0 _ : Elem MediaTrackConstraintSet (Types t)}
                -> t
-               -> Attribute False Optional (NS I [ UInt32
-                                                 , ConstrainULongRange
-                                                 ])
+               -> Attribute False Optional (Union2 UInt32 ConstrainULongRange)
   channelCount v = fromUndefOrPrimNoDefault "MediaTrackConstraintSet.getchannelCount"
                                             prim__channelCount
                                             prim__setChannelCount
@@ -799,9 +876,8 @@ namespace MediaTrackConstraintSet
   echoCancellation :  JSType t
                    => {auto 0 _ : Elem MediaTrackConstraintSet (Types t)}
                    -> t
-                   -> Attribute False Optional (NS I [ Bool
-                                                     , ConstrainBooleanParameters
-                                                     ])
+                   -> Attribute False Optional (Union2 Boolean
+                                                       ConstrainBooleanParameters)
   echoCancellation v = fromUndefOrPrimNoDefault "MediaTrackConstraintSet.getechoCancellation"
                                                 prim__echoCancellation
                                                 prim__setEchoCancellation
@@ -823,7 +899,7 @@ namespace MediaTrackConstraintSet
   frameRate :  JSType t
             => {auto 0 _ : Elem MediaTrackConstraintSet (Types t)}
             -> t
-            -> Attribute False Optional (NS I [ Double , ConstrainDoubleRange ])
+            -> Attribute False Optional (Union2 Double ConstrainDoubleRange)
   frameRate v = fromUndefOrPrimNoDefault "MediaTrackConstraintSet.getframeRate"
                                          prim__frameRate
                                          prim__setFrameRate
@@ -845,7 +921,7 @@ namespace MediaTrackConstraintSet
   height :  JSType t
          => {auto 0 _ : Elem MediaTrackConstraintSet (Types t)}
          -> t
-         -> Attribute False Optional (NS I [ UInt32 , ConstrainULongRange ])
+         -> Attribute False Optional (Union2 UInt32 ConstrainULongRange)
   height v = fromUndefOrPrimNoDefault "MediaTrackConstraintSet.getheight"
                                       prim__height
                                       prim__setHeight
@@ -855,7 +931,7 @@ namespace MediaTrackConstraintSet
   latency :  JSType t
           => {auto 0 _ : Elem MediaTrackConstraintSet (Types t)}
           -> t
-          -> Attribute False Optional (NS I [ Double , ConstrainDoubleRange ])
+          -> Attribute False Optional (Union2 Double ConstrainDoubleRange)
   latency v = fromUndefOrPrimNoDefault "MediaTrackConstraintSet.getlatency"
                                        prim__latency
                                        prim__setLatency
@@ -865,9 +941,8 @@ namespace MediaTrackConstraintSet
   noiseSuppression :  JSType t
                    => {auto 0 _ : Elem MediaTrackConstraintSet (Types t)}
                    -> t
-                   -> Attribute False Optional (NS I [ Bool
-                                                     , ConstrainBooleanParameters
-                                                     ])
+                   -> Attribute False Optional (Union2 Boolean
+                                                       ConstrainBooleanParameters)
   noiseSuppression v = fromUndefOrPrimNoDefault "MediaTrackConstraintSet.getnoiseSuppression"
                                                 prim__noiseSuppression
                                                 prim__setNoiseSuppression
@@ -889,7 +964,7 @@ namespace MediaTrackConstraintSet
   sampleRate :  JSType t
              => {auto 0 _ : Elem MediaTrackConstraintSet (Types t)}
              -> t
-             -> Attribute False Optional (NS I [ UInt32 , ConstrainULongRange ])
+             -> Attribute False Optional (Union2 UInt32 ConstrainULongRange)
   sampleRate v = fromUndefOrPrimNoDefault "MediaTrackConstraintSet.getsampleRate"
                                           prim__sampleRate
                                           prim__setSampleRate
@@ -899,7 +974,7 @@ namespace MediaTrackConstraintSet
   sampleSize :  JSType t
              => {auto 0 _ : Elem MediaTrackConstraintSet (Types t)}
              -> t
-             -> Attribute False Optional (NS I [ UInt32 , ConstrainULongRange ])
+             -> Attribute False Optional (Union2 UInt32 ConstrainULongRange)
   sampleSize v = fromUndefOrPrimNoDefault "MediaTrackConstraintSet.getsampleSize"
                                           prim__sampleSize
                                           prim__setSampleSize
@@ -909,7 +984,7 @@ namespace MediaTrackConstraintSet
   width :  JSType t
         => {auto 0 _ : Elem MediaTrackConstraintSet (Types t)}
         -> t
-        -> Attribute False Optional (NS I [ UInt32 , ConstrainULongRange ])
+        -> Attribute False Optional (Union2 UInt32 ConstrainULongRange)
   width v = fromUndefOrPrimNoDefault "MediaTrackConstraintSet.getwidth"
                                      prim__width
                                      prim__setWidth
@@ -927,12 +1002,14 @@ namespace MediaTrackConstraints
   new' = primJS $ MediaTrackConstraints.prim__new undef
   
   export
-  advanced :  MediaTrackConstraints
+  advanced :  JSType t
+           => {auto 0 _ : Elem MediaTrackConstraints (Types t)}
+           -> t
            -> Attribute False Optional (Array MediaTrackConstraintSet)
   advanced v = fromUndefOrPrimNoDefault "MediaTrackConstraints.getadvanced"
                                         prim__advanced
                                         prim__setAdvanced
-                                        v
+                                        (v :> MediaTrackConstraints)
 
 namespace MediaTrackSettings
   
@@ -990,109 +1067,154 @@ namespace MediaTrackSettings
                                       undef
   
   export
-  aspectRatio : MediaTrackSettings -> Attribute False Optional Double
+  aspectRatio :  JSType t
+              => {auto 0 _ : Elem MediaTrackSettings (Types t)}
+              -> t
+              -> Attribute False Optional Double
   aspectRatio v = fromUndefOrPrimNoDefault "MediaTrackSettings.getaspectRatio"
                                            prim__aspectRatio
                                            prim__setAspectRatio
-                                           v
+                                           (v :> MediaTrackSettings)
   
   export
-  autoGainControl : MediaTrackSettings -> Attribute False Optional Bool
+  autoGainControl :  JSType t
+                  => {auto 0 _ : Elem MediaTrackSettings (Types t)}
+                  -> t
+                  -> Attribute False Optional Bool
   autoGainControl v = fromUndefOrPrimNoDefault "MediaTrackSettings.getautoGainControl"
                                                prim__autoGainControl
                                                prim__setAutoGainControl
-                                               v
+                                               (v :> MediaTrackSettings)
   
   export
-  channelCount : MediaTrackSettings -> Attribute False Optional Int32
+  channelCount :  JSType t
+               => {auto 0 _ : Elem MediaTrackSettings (Types t)}
+               -> t
+               -> Attribute False Optional Int32
   channelCount v = fromUndefOrPrimNoDefault "MediaTrackSettings.getchannelCount"
                                             prim__channelCount
                                             prim__setChannelCount
-                                            v
+                                            (v :> MediaTrackSettings)
   
   export
-  deviceId : MediaTrackSettings -> Attribute False Optional String
+  deviceId :  JSType t
+           => {auto 0 _ : Elem MediaTrackSettings (Types t)}
+           -> t
+           -> Attribute False Optional String
   deviceId v = fromUndefOrPrimNoDefault "MediaTrackSettings.getdeviceId"
                                         prim__deviceId
                                         prim__setDeviceId
-                                        v
+                                        (v :> MediaTrackSettings)
   
   export
-  echoCancellation : MediaTrackSettings -> Attribute False Optional Bool
+  echoCancellation :  JSType t
+                   => {auto 0 _ : Elem MediaTrackSettings (Types t)}
+                   -> t
+                   -> Attribute False Optional Bool
   echoCancellation v = fromUndefOrPrimNoDefault "MediaTrackSettings.getechoCancellation"
                                                 prim__echoCancellation
                                                 prim__setEchoCancellation
-                                                v
+                                                (v :> MediaTrackSettings)
   
   export
-  facingMode : MediaTrackSettings -> Attribute False Optional String
+  facingMode :  JSType t
+             => {auto 0 _ : Elem MediaTrackSettings (Types t)}
+             -> t
+             -> Attribute False Optional String
   facingMode v = fromUndefOrPrimNoDefault "MediaTrackSettings.getfacingMode"
                                           prim__facingMode
                                           prim__setFacingMode
-                                          v
+                                          (v :> MediaTrackSettings)
   
   export
-  frameRate : MediaTrackSettings -> Attribute False Optional Double
+  frameRate :  JSType t
+            => {auto 0 _ : Elem MediaTrackSettings (Types t)}
+            -> t
+            -> Attribute False Optional Double
   frameRate v = fromUndefOrPrimNoDefault "MediaTrackSettings.getframeRate"
                                          prim__frameRate
                                          prim__setFrameRate
-                                         v
+                                         (v :> MediaTrackSettings)
   
   export
-  groupId : MediaTrackSettings -> Attribute False Optional String
+  groupId :  JSType t
+          => {auto 0 _ : Elem MediaTrackSettings (Types t)}
+          -> t
+          -> Attribute False Optional String
   groupId v = fromUndefOrPrimNoDefault "MediaTrackSettings.getgroupId"
                                        prim__groupId
                                        prim__setGroupId
-                                       v
+                                       (v :> MediaTrackSettings)
   
   export
-  height : MediaTrackSettings -> Attribute False Optional Int32
+  height :  JSType t
+         => {auto 0 _ : Elem MediaTrackSettings (Types t)}
+         -> t
+         -> Attribute False Optional Int32
   height v = fromUndefOrPrimNoDefault "MediaTrackSettings.getheight"
                                       prim__height
                                       prim__setHeight
-                                      v
+                                      (v :> MediaTrackSettings)
   
   export
-  latency : MediaTrackSettings -> Attribute False Optional Double
+  latency :  JSType t
+          => {auto 0 _ : Elem MediaTrackSettings (Types t)}
+          -> t
+          -> Attribute False Optional Double
   latency v = fromUndefOrPrimNoDefault "MediaTrackSettings.getlatency"
                                        prim__latency
                                        prim__setLatency
-                                       v
+                                       (v :> MediaTrackSettings)
   
   export
-  noiseSuppression : MediaTrackSettings -> Attribute False Optional Bool
+  noiseSuppression :  JSType t
+                   => {auto 0 _ : Elem MediaTrackSettings (Types t)}
+                   -> t
+                   -> Attribute False Optional Bool
   noiseSuppression v = fromUndefOrPrimNoDefault "MediaTrackSettings.getnoiseSuppression"
                                                 prim__noiseSuppression
                                                 prim__setNoiseSuppression
-                                                v
+                                                (v :> MediaTrackSettings)
   
   export
-  resizeMode : MediaTrackSettings -> Attribute False Optional String
+  resizeMode :  JSType t
+             => {auto 0 _ : Elem MediaTrackSettings (Types t)}
+             -> t
+             -> Attribute False Optional String
   resizeMode v = fromUndefOrPrimNoDefault "MediaTrackSettings.getresizeMode"
                                           prim__resizeMode
                                           prim__setResizeMode
-                                          v
+                                          (v :> MediaTrackSettings)
   
   export
-  sampleRate : MediaTrackSettings -> Attribute False Optional Int32
+  sampleRate :  JSType t
+             => {auto 0 _ : Elem MediaTrackSettings (Types t)}
+             -> t
+             -> Attribute False Optional Int32
   sampleRate v = fromUndefOrPrimNoDefault "MediaTrackSettings.getsampleRate"
                                           prim__sampleRate
                                           prim__setSampleRate
-                                          v
+                                          (v :> MediaTrackSettings)
   
   export
-  sampleSize : MediaTrackSettings -> Attribute False Optional Int32
+  sampleSize :  JSType t
+             => {auto 0 _ : Elem MediaTrackSettings (Types t)}
+             -> t
+             -> Attribute False Optional Int32
   sampleSize v = fromUndefOrPrimNoDefault "MediaTrackSettings.getsampleSize"
                                           prim__sampleSize
                                           prim__setSampleSize
-                                          v
+                                          (v :> MediaTrackSettings)
   
   export
-  width : MediaTrackSettings -> Attribute False Optional Int32
+  width :  JSType t
+        => {auto 0 _ : Elem MediaTrackSettings (Types t)}
+        -> t
+        -> Attribute False Optional Int32
   width v = fromUndefOrPrimNoDefault "MediaTrackSettings.getwidth"
                                      prim__width
                                      prim__setWidth
-                                     v
+                                     (v :> MediaTrackSettings)
 
 namespace MediaTrackSupportedConstraints
   
@@ -1150,127 +1272,169 @@ namespace MediaTrackSupportedConstraints
                                                   undef
   
   export
-  aspectRatio : MediaTrackSupportedConstraints -> Attribute True Optional Bool
+  aspectRatio :  JSType t
+              => {auto 0 _ : Elem MediaTrackSupportedConstraints (Types t)}
+              -> t
+              -> Attribute True Optional Bool
   aspectRatio v = fromUndefOrPrim "MediaTrackSupportedConstraints.getaspectRatio"
                                   prim__aspectRatio
                                   prim__setAspectRatio
                                   True
-                                  v
+                                  (v :> MediaTrackSupportedConstraints)
   
   export
-  autoGainControl :  MediaTrackSupportedConstraints
+  autoGainControl :  JSType t
+                  => {auto 0 _ : Elem MediaTrackSupportedConstraints (Types t)}
+                  -> t
                   -> Attribute True Optional Bool
   autoGainControl v = fromUndefOrPrim "MediaTrackSupportedConstraints.getautoGainControl"
                                       prim__autoGainControl
                                       prim__setAutoGainControl
                                       True
-                                      v
+                                      (v :> MediaTrackSupportedConstraints)
   
   export
-  channelCount : MediaTrackSupportedConstraints -> Attribute True Optional Bool
+  channelCount :  JSType t
+               => {auto 0 _ : Elem MediaTrackSupportedConstraints (Types t)}
+               -> t
+               -> Attribute True Optional Bool
   channelCount v = fromUndefOrPrim "MediaTrackSupportedConstraints.getchannelCount"
                                    prim__channelCount
                                    prim__setChannelCount
                                    True
-                                   v
+                                   (v :> MediaTrackSupportedConstraints)
   
   export
-  deviceId : MediaTrackSupportedConstraints -> Attribute True Optional Bool
+  deviceId :  JSType t
+           => {auto 0 _ : Elem MediaTrackSupportedConstraints (Types t)}
+           -> t
+           -> Attribute True Optional Bool
   deviceId v = fromUndefOrPrim "MediaTrackSupportedConstraints.getdeviceId"
                                prim__deviceId
                                prim__setDeviceId
                                True
-                               v
+                               (v :> MediaTrackSupportedConstraints)
   
   export
-  echoCancellation :  MediaTrackSupportedConstraints
+  echoCancellation :  JSType t
+                   => {auto 0 _ : Elem MediaTrackSupportedConstraints (Types t)}
+                   -> t
                    -> Attribute True Optional Bool
   echoCancellation v = fromUndefOrPrim "MediaTrackSupportedConstraints.getechoCancellation"
                                        prim__echoCancellation
                                        prim__setEchoCancellation
                                        True
-                                       v
+                                       (v :> MediaTrackSupportedConstraints)
   
   export
-  facingMode : MediaTrackSupportedConstraints -> Attribute True Optional Bool
+  facingMode :  JSType t
+             => {auto 0 _ : Elem MediaTrackSupportedConstraints (Types t)}
+             -> t
+             -> Attribute True Optional Bool
   facingMode v = fromUndefOrPrim "MediaTrackSupportedConstraints.getfacingMode"
                                  prim__facingMode
                                  prim__setFacingMode
                                  True
-                                 v
+                                 (v :> MediaTrackSupportedConstraints)
   
   export
-  frameRate : MediaTrackSupportedConstraints -> Attribute True Optional Bool
+  frameRate :  JSType t
+            => {auto 0 _ : Elem MediaTrackSupportedConstraints (Types t)}
+            -> t
+            -> Attribute True Optional Bool
   frameRate v = fromUndefOrPrim "MediaTrackSupportedConstraints.getframeRate"
                                 prim__frameRate
                                 prim__setFrameRate
                                 True
-                                v
+                                (v :> MediaTrackSupportedConstraints)
   
   export
-  groupId : MediaTrackSupportedConstraints -> Attribute True Optional Bool
+  groupId :  JSType t
+          => {auto 0 _ : Elem MediaTrackSupportedConstraints (Types t)}
+          -> t
+          -> Attribute True Optional Bool
   groupId v = fromUndefOrPrim "MediaTrackSupportedConstraints.getgroupId"
                               prim__groupId
                               prim__setGroupId
                               True
-                              v
+                              (v :> MediaTrackSupportedConstraints)
   
   export
-  height : MediaTrackSupportedConstraints -> Attribute True Optional Bool
+  height :  JSType t
+         => {auto 0 _ : Elem MediaTrackSupportedConstraints (Types t)}
+         -> t
+         -> Attribute True Optional Bool
   height v = fromUndefOrPrim "MediaTrackSupportedConstraints.getheight"
                              prim__height
                              prim__setHeight
                              True
-                             v
+                             (v :> MediaTrackSupportedConstraints)
   
   export
-  latency : MediaTrackSupportedConstraints -> Attribute True Optional Bool
+  latency :  JSType t
+          => {auto 0 _ : Elem MediaTrackSupportedConstraints (Types t)}
+          -> t
+          -> Attribute True Optional Bool
   latency v = fromUndefOrPrim "MediaTrackSupportedConstraints.getlatency"
                               prim__latency
                               prim__setLatency
                               True
-                              v
+                              (v :> MediaTrackSupportedConstraints)
   
   export
-  noiseSuppression :  MediaTrackSupportedConstraints
+  noiseSuppression :  JSType t
+                   => {auto 0 _ : Elem MediaTrackSupportedConstraints (Types t)}
+                   -> t
                    -> Attribute True Optional Bool
   noiseSuppression v = fromUndefOrPrim "MediaTrackSupportedConstraints.getnoiseSuppression"
                                        prim__noiseSuppression
                                        prim__setNoiseSuppression
                                        True
-                                       v
+                                       (v :> MediaTrackSupportedConstraints)
   
   export
-  resizeMode : MediaTrackSupportedConstraints -> Attribute True Optional Bool
+  resizeMode :  JSType t
+             => {auto 0 _ : Elem MediaTrackSupportedConstraints (Types t)}
+             -> t
+             -> Attribute True Optional Bool
   resizeMode v = fromUndefOrPrim "MediaTrackSupportedConstraints.getresizeMode"
                                  prim__resizeMode
                                  prim__setResizeMode
                                  True
-                                 v
+                                 (v :> MediaTrackSupportedConstraints)
   
   export
-  sampleRate : MediaTrackSupportedConstraints -> Attribute True Optional Bool
+  sampleRate :  JSType t
+             => {auto 0 _ : Elem MediaTrackSupportedConstraints (Types t)}
+             -> t
+             -> Attribute True Optional Bool
   sampleRate v = fromUndefOrPrim "MediaTrackSupportedConstraints.getsampleRate"
                                  prim__sampleRate
                                  prim__setSampleRate
                                  True
-                                 v
+                                 (v :> MediaTrackSupportedConstraints)
   
   export
-  sampleSize : MediaTrackSupportedConstraints -> Attribute True Optional Bool
+  sampleSize :  JSType t
+             => {auto 0 _ : Elem MediaTrackSupportedConstraints (Types t)}
+             -> t
+             -> Attribute True Optional Bool
   sampleSize v = fromUndefOrPrim "MediaTrackSupportedConstraints.getsampleSize"
                                  prim__sampleSize
                                  prim__setSampleSize
                                  True
-                                 v
+                                 (v :> MediaTrackSupportedConstraints)
   
   export
-  width : MediaTrackSupportedConstraints -> Attribute True Optional Bool
+  width :  JSType t
+        => {auto 0 _ : Elem MediaTrackSupportedConstraints (Types t)}
+        -> t
+        -> Attribute True Optional Bool
   width v = fromUndefOrPrim "MediaTrackSupportedConstraints.getwidth"
                             prim__width
                             prim__setWidth
                             True
-                            v
+                            (v :> MediaTrackSupportedConstraints)
 
 namespace Settings
   

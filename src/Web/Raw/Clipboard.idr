@@ -31,10 +31,12 @@ namespace Clipboard
 namespace ClipboardEvent
   
   export
-  new :  (type : String)
-      -> (eventInitDict : Optional ClipboardEventInit)
+  new :  JSType t1
+      => {auto 0 _ : Elem ClipboardEventInit (Types t1)}
+      -> (type : String)
+      -> (eventInitDict : Optional t1)
       -> JSIO ClipboardEvent
-  new a b = primJS $ ClipboardEvent.prim__new a (toFFI b)
+  new a b = primJS $ ClipboardEvent.prim__new a (optUp b)
 
   export
   new' : (type : String) -> JSIO ClipboardEvent
@@ -48,10 +50,12 @@ namespace ClipboardEvent
 namespace ClipboardItem
   
   export
-  new :  (items : Record String (Promise (Union2 String Blob)))
-      -> (options : Optional ClipboardItemOptions)
+  new :  JSType t1
+      => {auto 0 _ : Elem ClipboardItemOptions (Types t1)}
+      -> (items : Record String (Promise (Union2 String Blob)))
+      -> (options : Optional t1)
       -> JSIO ClipboardItem
-  new a b = primJS $ ClipboardItem.prim__new a (toFFI b)
+  new a b = primJS $ ClipboardItem.prim__new a (optUp b)
 
   export
   new' :  (items : Record String (Promise (Union2 String Blob)))
@@ -59,10 +63,12 @@ namespace ClipboardItem
   new' a = primJS $ ClipboardItem.prim__new a undef
   
   export
-  createDelayed :  (items : Record String ClipboardItemDelayedCallback)
-                -> (options : Optional ClipboardItemOptions)
+  createDelayed :  JSType t1
+                => {auto 0 _ : Elem ClipboardItemOptions (Types t1)}
+                -> (items : Record String ClipboardItemDelayedCallback)
+                -> (options : Optional t1)
                 -> JSIO ClipboardItem
-  createDelayed a b = primJS $ ClipboardItem.prim__createDelayed a (toFFI b)
+  createDelayed a b = primJS $ ClipboardItem.prim__createDelayed a (optUp b)
 
   export
   createDelayed' :  (items : Record String ClipboardItemDelayedCallback)
@@ -107,13 +113,15 @@ namespace ClipboardEventInit
   new' = primJS $ ClipboardEventInit.prim__new undef
   
   export
-  clipboardData :  ClipboardEventInit
+  clipboardData :  JSType t
+                => {auto 0 _ : Elem ClipboardEventInit (Types t)}
+                -> t
                 -> Attribute True Optional (Maybe DataTransfer)
   clipboardData v = fromUndefOrPrim "ClipboardEventInit.getclipboardData"
                                     prim__clipboardData
                                     prim__setClipboardData
                                     Nothing
-                                    v
+                                    (v :> ClipboardEventInit)
 
 namespace ClipboardItemOptions
   
@@ -127,12 +135,14 @@ namespace ClipboardItemOptions
   new' = primJS $ ClipboardItemOptions.prim__new undef
   
   export
-  presentationStyle :  ClipboardItemOptions
+  presentationStyle :  JSType t
+                    => {auto 0 _ : Elem ClipboardItemOptions (Types t)}
+                    -> t
                     -> Attribute False Optional PresentationStyle
   presentationStyle v = fromUndefOrPrimNoDefault "ClipboardItemOptions.getpresentationStyle"
                                                  prim__presentationStyle
                                                  prim__setPresentationStyle
-                                                 v
+                                                 (v :> ClipboardItemOptions)
 
 namespace ClipboardPermissionDescriptor
   
@@ -146,13 +156,15 @@ namespace ClipboardPermissionDescriptor
   new' = primJS $ ClipboardPermissionDescriptor.prim__new undef
   
   export
-  allowWithoutGesture :  ClipboardPermissionDescriptor
+  allowWithoutGesture :  JSType t
+                      => {auto 0 _ : Elem ClipboardPermissionDescriptor (Types t)}
+                      -> t
                       -> Attribute True Optional Bool
   allowWithoutGesture v = fromUndefOrPrim "ClipboardPermissionDescriptor.getallowWithoutGesture"
                                           prim__allowWithoutGesture
                                           prim__setAllowWithoutGesture
                                           False
-                                          v
+                                          (v :> ClipboardPermissionDescriptor)
 
 --------------------------------------------------------------------------------
 --          Callbacks

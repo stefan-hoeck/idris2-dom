@@ -185,10 +185,12 @@ namespace Comment
 namespace CustomEvent
   
   export
-  new :  (type : String)
-      -> (eventInitDict : Optional CustomEventInit)
+  new :  JSType t1
+      => {auto 0 _ : Elem CustomEventInit (Types t1)}
+      -> (type : String)
+      -> (eventInitDict : Optional t1)
       -> JSIO CustomEvent
-  new a b = primJS $ CustomEvent.prim__new a (toFFI b)
+  new a b = primJS $ CustomEvent.prim__new a (optUp b)
 
   export
   new' : (type : String) -> JSIO CustomEvent
@@ -1189,11 +1191,13 @@ namespace Element
   
   export
   attachShadow :  JSType t1
+               => JSType t2
                => {auto 0 _ : Elem Element (Types t1)}
+               -> {auto 0 _ : Elem ShadowRootInit (Types t2)}
                -> (obj : t1)
-               -> (init : ShadowRootInit)
+               -> (init : t2)
                -> JSIO ShadowRoot
-  attachShadow a b = primJS $ Element.prim__attachShadow (up a) b
+  attachShadow a b = primJS $ Element.prim__attachShadow (up a) (up b)
   
   export
   closest :  JSType t1
@@ -1737,12 +1741,14 @@ namespace MutationObserver
   
   export
   observe :  JSType t1
+          => JSType t2
           => {auto 0 _ : Elem Node (Types t1)}
+          -> {auto 0 _ : Elem MutationObserverInit (Types t2)}
           -> (obj : MutationObserver)
           -> (target : t1)
-          -> (options : Optional MutationObserverInit)
+          -> (options : Optional t2)
           -> JSIO ()
-  observe a b c = primJS $ MutationObserver.prim__observe a (up b) (toFFI c)
+  observe a b c = primJS $ MutationObserver.prim__observe a (up b) (optUp c)
 
   export
   observe' :  JSType t1
@@ -2074,11 +2080,13 @@ namespace Node
   
   export
   getRootNode :  JSType t1
+              => JSType t2
               => {auto 0 _ : Elem Node (Types t1)}
+              -> {auto 0 _ : Elem GetRootNodeOptions (Types t2)}
               -> (obj : t1)
-              -> (options : Optional GetRootNodeOptions)
+              -> (options : Optional t2)
               -> JSIO Node
-  getRootNode a b = primJS $ Node.prim__getRootNode (up a) (toFFI b)
+  getRootNode a b = primJS $ Node.prim__getRootNode (up a) (optUp b)
 
   export
   getRootNode' :  JSType t1
@@ -2470,8 +2478,11 @@ namespace ShadowRoot
 namespace StaticRange
   
   export
-  new : (init : StaticRangeInit) -> JSIO StaticRange
-  new a = primJS $ StaticRange.prim__new a
+  new :  JSType t1
+      => {auto 0 _ : Elem StaticRangeInit (Types t1)}
+      -> (init : t1)
+      -> JSIO StaticRange
+  new a = primJS $ StaticRange.prim__new (up a)
 
 namespace Text
   
@@ -2938,27 +2949,36 @@ namespace AddEventListenerOptions
   new' = primJS $ AddEventListenerOptions.prim__new undef undef undef
   
   export
-  once : AddEventListenerOptions -> Attribute True Optional Bool
+  once :  JSType t
+       => {auto 0 _ : Elem AddEventListenerOptions (Types t)}
+       -> t
+       -> Attribute True Optional Bool
   once v = fromUndefOrPrim "AddEventListenerOptions.getonce"
                            prim__once
                            prim__setOnce
                            False
-                           v
+                           (v :> AddEventListenerOptions)
   
   export
-  passive : AddEventListenerOptions -> Attribute True Optional Bool
+  passive :  JSType t
+          => {auto 0 _ : Elem AddEventListenerOptions (Types t)}
+          -> t
+          -> Attribute True Optional Bool
   passive v = fromUndefOrPrim "AddEventListenerOptions.getpassive"
                               prim__passive
                               prim__setPassive
                               False
-                              v
+                              (v :> AddEventListenerOptions)
   
   export
-  signal : AddEventListenerOptions -> Attribute False Optional AbortSignal
+  signal :  JSType t
+         => {auto 0 _ : Elem AddEventListenerOptions (Types t)}
+         -> t
+         -> Attribute False Optional AbortSignal
   signal v = fromUndefOrPrimNoDefault "AddEventListenerOptions.getsignal"
                                       prim__signal
                                       prim__setSignal
-                                      v
+                                      (v :> AddEventListenerOptions)
 
 namespace CustomEventInit
   
@@ -2971,12 +2991,15 @@ namespace CustomEventInit
   new' = primJS $ CustomEventInit.prim__new undef
   
   export
-  detail : CustomEventInit -> Attribute True Optional Any
+  detail :  JSType t
+         => {auto 0 _ : Elem CustomEventInit (Types t)}
+         -> t
+         -> Attribute True Optional Any
   detail v = fromUndefOrPrim "CustomEventInit.getdetail"
                              prim__detail
                              prim__setDetail
                              (MkAny $ null {a = ()})
-                             v
+                             (v :> CustomEventInit)
 
 namespace ElementCreationOptions
   
@@ -2989,11 +3012,14 @@ namespace ElementCreationOptions
   new' = primJS $ ElementCreationOptions.prim__new undef
   
   export
-  is : ElementCreationOptions -> Attribute False Optional String
+  is :  JSType t
+     => {auto 0 _ : Elem ElementCreationOptions (Types t)}
+     -> t
+     -> Attribute False Optional String
   is v = fromUndefOrPrimNoDefault "ElementCreationOptions.getis"
                                   prim__is
                                   prim__setIs
-                                  v
+                                  (v :> ElementCreationOptions)
 
 namespace EventInit
   
@@ -3073,12 +3099,15 @@ namespace GetRootNodeOptions
   new' = primJS $ GetRootNodeOptions.prim__new undef
   
   export
-  composed : GetRootNodeOptions -> Attribute True Optional Bool
+  composed :  JSType t
+           => {auto 0 _ : Elem GetRootNodeOptions (Types t)}
+           -> t
+           -> Attribute True Optional Bool
   composed v = fromUndefOrPrim "GetRootNodeOptions.getcomposed"
                                prim__composed
                                prim__setComposed
                                False
-                               v
+                               (v :> GetRootNodeOptions)
 
 namespace MutationObserverInit
   
@@ -3112,56 +3141,76 @@ namespace MutationObserverInit
                                         undef
   
   export
-  attributeFilter :  MutationObserverInit
+  attributeFilter :  JSType t
+                  => {auto 0 _ : Elem MutationObserverInit (Types t)}
+                  -> t
                   -> Attribute False Optional (Array String)
   attributeFilter v = fromUndefOrPrimNoDefault "MutationObserverInit.getattributeFilter"
                                                prim__attributeFilter
                                                prim__setAttributeFilter
-                                               v
+                                               (v :> MutationObserverInit)
   
   export
-  attributeOldValue : MutationObserverInit -> Attribute False Optional Bool
+  attributeOldValue :  JSType t
+                    => {auto 0 _ : Elem MutationObserverInit (Types t)}
+                    -> t
+                    -> Attribute False Optional Bool
   attributeOldValue v = fromUndefOrPrimNoDefault "MutationObserverInit.getattributeOldValue"
                                                  prim__attributeOldValue
                                                  prim__setAttributeOldValue
-                                                 v
+                                                 (v :> MutationObserverInit)
   
   export
-  attributes : MutationObserverInit -> Attribute False Optional Bool
+  attributes :  JSType t
+             => {auto 0 _ : Elem MutationObserverInit (Types t)}
+             -> t
+             -> Attribute False Optional Bool
   attributes v = fromUndefOrPrimNoDefault "MutationObserverInit.getattributes"
                                           prim__attributes
                                           prim__setAttributes
-                                          v
+                                          (v :> MutationObserverInit)
   
   export
-  characterData : MutationObserverInit -> Attribute False Optional Bool
+  characterData :  JSType t
+                => {auto 0 _ : Elem MutationObserverInit (Types t)}
+                -> t
+                -> Attribute False Optional Bool
   characterData v = fromUndefOrPrimNoDefault "MutationObserverInit.getcharacterData"
                                              prim__characterData
                                              prim__setCharacterData
-                                             v
+                                             (v :> MutationObserverInit)
   
   export
-  characterDataOldValue : MutationObserverInit -> Attribute False Optional Bool
+  characterDataOldValue :  JSType t
+                        => {auto 0 _ : Elem MutationObserverInit (Types t)}
+                        -> t
+                        -> Attribute False Optional Bool
   characterDataOldValue v = fromUndefOrPrimNoDefault "MutationObserverInit.getcharacterDataOldValue"
                                                      prim__characterDataOldValue
                                                      prim__setCharacterDataOldValue
-                                                     v
+                                                     (v :> MutationObserverInit)
   
   export
-  childList : MutationObserverInit -> Attribute True Optional Bool
+  childList :  JSType t
+            => {auto 0 _ : Elem MutationObserverInit (Types t)}
+            -> t
+            -> Attribute True Optional Bool
   childList v = fromUndefOrPrim "MutationObserverInit.getchildList"
                                 prim__childList
                                 prim__setChildList
                                 False
-                                v
+                                (v :> MutationObserverInit)
   
   export
-  subtree : MutationObserverInit -> Attribute True Optional Bool
+  subtree :  JSType t
+          => {auto 0 _ : Elem MutationObserverInit (Types t)}
+          -> t
+          -> Attribute True Optional Bool
   subtree v = fromUndefOrPrim "MutationObserverInit.getsubtree"
                               prim__subtree
                               prim__setSubtree
                               False
-                              v
+                              (v :> MutationObserverInit)
 
 namespace ShadowRootInit
   
@@ -3176,16 +3225,25 @@ namespace ShadowRootInit
   new' a = primJS $ ShadowRootInit.prim__new (toFFI a) undef
   
   export
-  delegatesFocus : ShadowRootInit -> Attribute True Optional Bool
+  delegatesFocus :  JSType t
+                 => {auto 0 _ : Elem ShadowRootInit (Types t)}
+                 -> t
+                 -> Attribute True Optional Bool
   delegatesFocus v = fromUndefOrPrim "ShadowRootInit.getdelegatesFocus"
                                      prim__delegatesFocus
                                      prim__setDelegatesFocus
                                      False
-                                     v
+                                     (v :> ShadowRootInit)
   
   export
-  mode : ShadowRootInit -> Attribute True I ShadowRootMode
-  mode v = fromPrim "ShadowRootInit.getmode" prim__mode prim__setMode v
+  mode :  JSType t
+       => {auto 0 _ : Elem ShadowRootInit (Types t)}
+       -> t
+       -> Attribute True I ShadowRootMode
+  mode v = fromPrim "ShadowRootInit.getmode"
+                    prim__mode
+                    prim__setMode
+                    (v :> ShadowRootInit)
 
 namespace StaticRangeInit
   
@@ -3202,32 +3260,44 @@ namespace StaticRangeInit
   new a b c d = primJS $ StaticRangeInit.prim__new (up a) b (up c) d
   
   export
-  endContainer : StaticRangeInit -> Attribute True I Node
+  endContainer :  JSType t
+               => {auto 0 _ : Elem StaticRangeInit (Types t)}
+               -> t
+               -> Attribute True I Node
   endContainer v = fromPrim "StaticRangeInit.getendContainer"
                             prim__endContainer
                             prim__setEndContainer
-                            v
+                            (v :> StaticRangeInit)
   
   export
-  endOffset : StaticRangeInit -> Attribute True I UInt32
+  endOffset :  JSType t
+            => {auto 0 _ : Elem StaticRangeInit (Types t)}
+            -> t
+            -> Attribute True I UInt32
   endOffset v = fromPrim "StaticRangeInit.getendOffset"
                          prim__endOffset
                          prim__setEndOffset
-                         v
+                         (v :> StaticRangeInit)
   
   export
-  startContainer : StaticRangeInit -> Attribute True I Node
+  startContainer :  JSType t
+                 => {auto 0 _ : Elem StaticRangeInit (Types t)}
+                 -> t
+                 -> Attribute True I Node
   startContainer v = fromPrim "StaticRangeInit.getstartContainer"
                               prim__startContainer
                               prim__setStartContainer
-                              v
+                              (v :> StaticRangeInit)
   
   export
-  startOffset : StaticRangeInit -> Attribute True I UInt32
+  startOffset :  JSType t
+              => {auto 0 _ : Elem StaticRangeInit (Types t)}
+              -> t
+              -> Attribute True I UInt32
   startOffset v = fromPrim "StaticRangeInit.getstartOffset"
                            prim__startOffset
                            prim__setStartOffset
-                           v
+                           (v :> StaticRangeInit)
 
 --------------------------------------------------------------------------------
 --          Callbacks

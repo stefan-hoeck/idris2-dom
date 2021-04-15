@@ -250,10 +250,6 @@ ToFFI QueuingStrategy QueuingStrategy where toFFI = id
 export
 FromFFI QueuingStrategy QueuingStrategy where fromFFI = Just
 
-export
-SafeCast QueuingStrategy where
-  safeCast = unsafeCastOnPrototypeName "QueuingStrategy"
-
 export data QueuingStrategyInit : Type where [external]
   
 export
@@ -261,10 +257,6 @@ ToFFI QueuingStrategyInit QueuingStrategyInit where toFFI = id
   
 export
 FromFFI QueuingStrategyInit QueuingStrategyInit where fromFFI = Just
-
-export
-SafeCast QueuingStrategyInit where
-  safeCast = unsafeCastOnPrototypeName "QueuingStrategyInit"
 
 export data ReadableStreamBYOBReadResult : Type where [external]
   
@@ -274,10 +266,6 @@ ToFFI ReadableStreamBYOBReadResult ReadableStreamBYOBReadResult where toFFI = id
 export
 FromFFI ReadableStreamBYOBReadResult ReadableStreamBYOBReadResult where fromFFI = Just
 
-export
-SafeCast ReadableStreamBYOBReadResult where
-  safeCast = unsafeCastOnPrototypeName "ReadableStreamBYOBReadResult"
-
 export data ReadableStreamDefaultReadResult : Type where [external]
   
 export
@@ -285,10 +273,6 @@ ToFFI ReadableStreamDefaultReadResult ReadableStreamDefaultReadResult where toFF
   
 export
 FromFFI ReadableStreamDefaultReadResult ReadableStreamDefaultReadResult where fromFFI = Just
-
-export
-SafeCast ReadableStreamDefaultReadResult where
-  safeCast = unsafeCastOnPrototypeName "ReadableStreamDefaultReadResult"
 
 export data ReadableStreamGetReaderOptions : Type where [external]
   
@@ -298,10 +282,6 @@ ToFFI ReadableStreamGetReaderOptions ReadableStreamGetReaderOptions where toFFI 
 export
 FromFFI ReadableStreamGetReaderOptions ReadableStreamGetReaderOptions where fromFFI = Just
 
-export
-SafeCast ReadableStreamGetReaderOptions where
-  safeCast = unsafeCastOnPrototypeName "ReadableStreamGetReaderOptions"
-
 export data ReadableStreamIteratorOptions : Type where [external]
   
 export
@@ -309,10 +289,6 @@ ToFFI ReadableStreamIteratorOptions ReadableStreamIteratorOptions where toFFI = 
   
 export
 FromFFI ReadableStreamIteratorOptions ReadableStreamIteratorOptions where fromFFI = Just
-
-export
-SafeCast ReadableStreamIteratorOptions where
-  safeCast = unsafeCastOnPrototypeName "ReadableStreamIteratorOptions"
 
 export data ReadableWritablePair : Type where [external]
   
@@ -322,10 +298,6 @@ ToFFI ReadableWritablePair ReadableWritablePair where toFFI = id
 export
 FromFFI ReadableWritablePair ReadableWritablePair where fromFFI = Just
 
-export
-SafeCast ReadableWritablePair where
-  safeCast = unsafeCastOnPrototypeName "ReadableWritablePair"
-
 export data StreamPipeOptions : Type where [external]
   
 export
@@ -333,10 +305,6 @@ ToFFI StreamPipeOptions StreamPipeOptions where toFFI = id
   
 export
 FromFFI StreamPipeOptions StreamPipeOptions where fromFFI = Just
-
-export
-SafeCast StreamPipeOptions where
-  safeCast = unsafeCastOnPrototypeName "StreamPipeOptions"
 
 export data Transformer : Type where [external]
   
@@ -346,10 +314,6 @@ ToFFI Transformer Transformer where toFFI = id
 export
 FromFFI Transformer Transformer where fromFFI = Just
 
-export
-SafeCast Transformer where
-  safeCast = unsafeCastOnPrototypeName "Transformer"
-
 export data UnderlyingSink : Type where [external]
   
 export
@@ -358,10 +322,6 @@ ToFFI UnderlyingSink UnderlyingSink where toFFI = id
 export
 FromFFI UnderlyingSink UnderlyingSink where fromFFI = Just
 
-export
-SafeCast UnderlyingSink where
-  safeCast = unsafeCastOnPrototypeName "UnderlyingSink"
-
 export data UnderlyingSource : Type where [external]
   
 export
@@ -369,10 +329,6 @@ ToFFI UnderlyingSource UnderlyingSource where toFFI = id
   
 export
 FromFFI UnderlyingSource UnderlyingSource where fromFFI = Just
-
-export
-SafeCast UnderlyingSource where
-  safeCast = unsafeCastOnPrototypeName "UnderlyingSource"
 
 --------------------------------------------------------------------------------
 --          Mixins
