@@ -65,6 +65,7 @@ import Data.String
 import JS
 import Web.Dom
 import Web.Html
+import Web.Raw.UIEvents
 
 checkPalindrome : String -> String
 checkPalindrome s =
@@ -286,4 +287,48 @@ prim__logAndTest : Double -> PrimIO Boolean
 
 logAndTest : Double -> JSIO Answer
 logAndTest d = tryJS "Doc.Tutorial.logAndTest" $ prim__logAndTest d
+```
+
+### Callbacks
+
+For some types it is harder to write generic conversion
+functions. This is especially the case for callbacks, which
+are for instance used as event listeners in browser elements.
+Like most Web IDL definitions, callbacks get their own external
+type (see for instance `Web.Internal.DomTypes.EventListener`).
+However, it is not possible to directly write a `ToFFI` implementation
+for the corresponding Idris function for two reasons: First, interface
+resolution does not work for function types (but see below), and
+second, converting an Idris function to a callback is not referentially
+transparent, since each conversion will create a new Javascript
+function object.
+
+Therefore, we need a new interface for handling this corner case:
+`JS.Callback.Callback`. Automatically generating instances of this
+interface with proper marshalling proved to be hard,
+and since there are not many callbacks
+defined in the specs, I chose to implement these manually.
+
+Note, how interface resolution for `Callback` is based on the
+external type, so it is no problem that the second type is an
+Idris function.
+
+Attributes come with two utility operators for registering
+callbacks: `(!>)` allows us to register a unary callback function
+while `(?>)` registers an action which ignores the value passed to it.
+The following code snippets provides examples for both use cases:
+
+```idris
+complainOnClick : HTMLButtonElement -> JSIO ()
+complainOnClick btn = onclick btn ?> consoleLog "Don't touch me!"
+
+doComplain : Event -> JSIO ()
+doComplain e = do me <- tryCast_ MouseEvent "doComplain" e
+                  shiftPressed <- shiftKey me
+                  if shiftPressed
+                     then consoleLog "DON'T TOUCH ME!"
+                     else consoleLog "Don't touch me!"
+
+complainSomeMore : HTMLButtonElement -> JSIO ()
+complainSomeMore btn = onclick btn !> doComplain
 ```
