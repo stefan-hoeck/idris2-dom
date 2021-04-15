@@ -94,6 +94,10 @@ public export
 interface SafeCast a where
   safeCast : any -> Maybe a
 
+public export %inline
+castTo : any -> (0 a : Type) -> SafeCast a => Maybe a
+castTo v _ = safeCast v
+
 ||| Tries to create an n-ary sum by trying all possible
 ||| casts. The first successful cast will determine the
 ||| result.
@@ -163,6 +167,10 @@ tryCast : SafeCast a => (fun : String) -> any -> JSIO a
 tryCast fun val = case safeCast val of
                        Just a  => pure a
                        Nothing => throwError $ CastErr fun val
+
+export
+tryCast_ : (0 a : Type) -> SafeCast a => (fun : String) -> any -> JSIO a
+tryCast_ _ = tryCast
 
 export
 castingTo : SafeCast a => (fun : String) -> JSIO any -> JSIO a

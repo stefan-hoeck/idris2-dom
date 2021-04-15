@@ -2,6 +2,11 @@ module JS.Callback
 
 import JS.Util
 
+||| Interface for converting Idris functions to
+||| an external callback type.
+|||
+||| @cb  external callback type (for instance `EventListener`
+||| @fun Idris function type
 public export
-interface Callback a fun | a where
-  callback : fun -> JSIO a
+interface Callback cb fun | cb where
+  callback : fun -> JSIO cb
