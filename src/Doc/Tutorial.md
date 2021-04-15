@@ -26,9 +26,9 @@ modules. The whole set of external types is reexported
 by `Web.Internal.Types`, which also includes the subtyping
 relations (more on that later).
 
-FFI bindings are defined in submoduls of `Web.Internal` ending on `Prim.idr`.
+FFI bindings are defined in submodules of `Web.Internal` ending on `Prim.idr`.
 If you are interested in how to interact with javascript through the FFI,
-you will find lots of examples there.
+you will find many examples there.
 
 The actual API of this library is provided by the
 modules in `Web.Raw`, which provide a convenience layer around
@@ -41,13 +41,13 @@ these are hand-written and still lacking a lot of functionality.
 All of the above rely on a set of utility functions and types provided
 by the submodules in folder `src/JS` and reexported by module `JS`
 itself. This includes interfaces for converting values from and to
-their FFI representation, subtyping and safe casts, nullable
+their FFI representation, utilities for subtyping and safe casts, nullable
 and undefined values, plus a set of integral types, which are represented
 by Javascript `Number`s in the backend, unlike the Idris2 integer primitives,
 which all are bound to `BigInt` (although this might change in the
 future).
 
-It is the goal of this tutorial, to explain how all these pieces
+It is the goal of this tutorial to explain how all these pieces
 fit together.
 
 ### A first example
@@ -55,7 +55,7 @@ fit together.
 Below is the logic of a simple web page consisting of a
 button and a text field. Users can enter their name in
 the text field and receive a friendly greeting upon clicking
-the butten. At the same time, during text input, the program
+the button. At the same time, during text input, the program
 checks whether the name entered is a palindrome or not.
 
 ```idris
@@ -79,9 +79,9 @@ prog = do btn <- createElement Button
           textContent btn .= "Click me!"
           Element.id btn .= "the_button"
 
-          txt <- createElement Input
-          type txt .= the String "text"
-          placeholder txt .= "Enter your name here."
+          txt <- newElement Input [ type =. "text"
+                                  , placeholder =. "Enter your name here."
+                                  ]
 
           txtDiv <- createElement Div
           lenDiv <- createElement Div
@@ -103,7 +103,7 @@ prog = do btn <- createElement Button
 You can give this a try in the browser by replacing the
 `main` function in `Doc.Main` with `main = runJS Doc.Tutorial.prog`
 followed by building the `doc` package: `idris2 --build doc.ipkg`.
-Now, load `doc.html` in the project's root folder in your browser.
+Now, load the `doc.html` file in the project's root folder in your browser.
 It will not look very nice, but it should behave as described.
 
 ## Step-by-step program walkthrough
@@ -129,7 +129,11 @@ for error handling.
 Function `Web.Dom.createElement` takes a tag from an enum type
 and returns a properly typed, newly created HTML element.
 This is a convenient wrapper around the automatically generated
-`Web.Raw.Dom.Document.createElement`.
+`Web.Raw.Dom.Document.createElement`. In addition,
+`Web.Dom.newElement` takes an additional list of modifiers
+for adjusting the newly created element. This is especially
+useful for setting an element's attributes (see also the section
+about `Attribute`s below).
 
 This is probably the right place to explain how safe type casts
 are handled in this library. There are mainly two ways to inspect
@@ -142,10 +146,10 @@ also inherits methods and attributes from `Node` and `Object`
 the chain of prototype objects to figure out, from which
 types a value inherits its functionality.
 
-External types whose type can be verified at runtime by one of
-the two means described above implement interface
+External types, whose type can be verified at runtime by one of
+the two means described above, implement interface
 `SafeCast` from module `JS.Inheritance`. This module also provides
-the two main (unsafe) functions to inspect a value's type at runtime
+the two main (unsafe) functions to inspect and change a value's type at runtime
 plus some utility functions.
 Please note, that `SafeCast` is meant to be used for external types only.
 Note also, that `SafeCast` is typically not the thing you want
@@ -199,9 +203,29 @@ All flavors of `JS.Attribute.Attribute` consist of a
 getter (of type `JSIO $ f a` for a context `f` and return type `a`)
 and a setter (of type `f a -> JSIO ()`). They differ in the context,
 in which a value is wrapped (`I` if the attribute is mandatory for
-a type an non-nullable, `Maybe` if it is mandatory but possibly `null`,
-and `Optional`, if the attribute might be altogether unset, in
+and non-nullable, `Maybe` if it is mandatory but possibly `null`,
+and `Optional`, if the attribute might be missing altogether, in
 which case the getter at the FFI returns `undefined`), as well as
 whether it is possible to always get a concrete value when invoking
 the getter (this is even possible for optional attributes, if
 they have a default value defined in the spec).
+
+Although the Javascript constants `null` and `undefined` both describe
+a missing value, the can - depending on context - still have different
+semantics, therefore we use two different pairs of Idris2 types to deal with
+these. In foreign function calls, nullable values are represented
+by external type `Nullable a`, which is converted to `Maybe a`
+in the `*Raw` modules. Optional attributes and function arguments
+are represented by the external type `UndefOr a` at the FFI and
+marshalled from and to `Optional a`, a monadic type isomorphic to
+`Maybe a`.
+
+The `JS.Attribute` modules provides some utility functions and operators
+for accessing and updating the value stored in an attribute.
+New operators are always a delicate topic, so this module only adds six
+of them. `(.=)` is an infix version of `set`, as is `(=.)`, which
+is useful when the object, to which an attribute belongs, is stored
+in a traversable structure. Likewise, `(%=)` modifies an attribute's
+stored value, and `(=%)` is again the flipped variant.
+Finally, there are two operators `(!>)` and `(?>)` use for registering
+callback functions, a topic discussed in more detail below.
