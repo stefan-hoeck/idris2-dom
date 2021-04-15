@@ -5,7 +5,7 @@ writing Idris2 programs that run in the browser.
 
 This library comes "batteries included", as quite a few utility types
 and functions for interacting with the unsafe world of Javascript
-are provided via the `JS` submodules. These might be eventually moved
+are provided via the `JS` submodules. These might eventually be moved
 to their own library, but as Idris2 is still lacking an official
 package repository, it makes sense to keep this stuff in one package
 for the time being.

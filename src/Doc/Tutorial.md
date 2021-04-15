@@ -349,8 +349,8 @@ Web IDL.
 
 #### Callbacks and Callback Interfaces
 
-These describe function types: A identifier (the callback's name),
-a return type plus a list of typed arguments. In additiona, callback
+These describe function types: An identifier (the callback's name),
+a return type plus a list of typed arguments. In addition, callback
 interfaces can specify an arbitrary number of constants, which
 are mapped directly to corresponding nullary function declarations
 in Idris.
@@ -360,7 +360,7 @@ own external type of the same name as in the specifications
 plus some function for marshalling an appropriately typed
 Idris function to this external type. In addition, for
 some callback function types it makes sense to manually
-implement interface `Callback`. This hasn'b been do for
+implement interface `Callback`. This hasn't been done for
 all specified callbacks so far.
 
 Since the type of a callback cannot be inspected at runtime,
@@ -381,18 +381,20 @@ reflected by the type of generated Idris `Attribute`s as described in
 the section about attributes above.
 
 Dictionaries can have a weak form of subtyping relation:
-If a Javascript object has attributes of the correct names and types,
-it can be used as a dictionary with required attributes of
-the same names and types. This subtyping relation is given in
-the specifications for the dictionaries mentioned there,
+If a Javascript object has attributes of the same names and types
+as the ones listed in a Web IDL dictionary definition, this
+object can be as an argument to functions expecting such
+a dictionary value.  This subtyping relation is given in
+the Web IDL specifications for the dictionaries mentioned there,
 and corresponding subtyping relations are generated for and provided
-by this library (see below for an explanation, how subtyping is implemented
-here).
+by this library (see below for an explanation, how subtyping is handled
+in this library).
 
 For every dictionary, there are one or two constructors named `new`
 and `new'` available. Constructor `new'` is only available, if
 the dictionary has optional attributes, which are then missing
-for `new'` argument list. Constructor `new` can be used to
+from this constructor's argument list. Constructor `new`, on
+the other hand, can be used to
 set all attributes (optional and required ones) explicitly.
 
 Example: `Web.Internal.DomTypes.EventInit`.
@@ -415,8 +417,8 @@ See `Mixins` below.
 
 A Web IDL interface defines a proper type together with associated
 attributes and operations, for which it is possible
-to verify at runtime, whether a value is if this type by inspecting
-is prototype object chain. The Idris external types corresponding
+to verify at runtime, whether a value is of this type by inspecting
+its prototype object chain. The Idris2 external types corresponding
 to interfaces therefore come with a `SafeCast` instance.
 
 Interfaces specify subtyping relations (each interface can have at most
@@ -429,11 +431,14 @@ Example: `Web.Internal.DomTypes.Element`.
 
 A Web IDL mixin defines a set of attributes and operations shared
 between different interfaces without them being related by subtyping.
-It is typically not possible to check at runtime, whether a value
+It is typically not possible to directly check at runtime, whether a value
 belongs to a given mixin, therefore the corresponding external Idris
 types come without implementations of `SafeCast`. It is, however,
 possible, to cast a value to a mixin type by going via one of the
 interface types implementing that mixin.
+
+The Web IDL specifications use includes statems to specify, which
+interfaces include the functionality of a given mixin.
 
 Example: `Web.Internal.HtmlTypes.GlobalEventHandlers`.
 
@@ -448,7 +453,7 @@ escaping `CSSOMString`s.
 #### Typedef
 
 Type definitions define type aliases. These are not present
-in this library: The codegenerator de-aliases all types before
+in this library: The code generator resolves all type aliases before
 converting them to Idris types. While this renders some
 types drastically more verbose, it makes inspecting the type
 of an unfamiliar function much easier.
@@ -459,17 +464,17 @@ Subtyping relations as described for interfaces, mixins, and dictionaries,
 are handled by interface `JS.Inheritance.JSType`. Implementations of
 this interface list associated parent types and mixins for an
 external Idris type. Function `up` and operator `(:>)` can be
-used for safely upcasting a value to one of its parent types or
+used to safely upcast a value to one of its parent types or
 implemented mixins.
 
 Including the functionality for automatically upcasting
-arguments in API functions is a double-edged sword. In the one hand,
+arguments in API functions is a double-edged sword. On the one hand,
 it allows us to call these functions without having to manually
-invoking `up` on every single occasions, on the other hand
+invoking `up` on every single occasion, on the other hand
 it prevents Idris to figure out which function we mean in case
 of overloaded function names. Therefore, automatic argument
-upcasting is only present for arguments of a known parent interface
-(that is, a type inherited by at least one other type in the
+upcasting is only present for types corresponding to known parent interfaces
+(that is, interfaces inherited by at least one other type in the
 spec) as well as all dictionaries and mixins.
 
 For interfaces at the leaves of the inheritance tree, it makes
