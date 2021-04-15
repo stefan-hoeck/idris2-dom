@@ -38,9 +38,9 @@ castElementById _ = map (>>= safeCast) . getElementById
 
 ||| HTML Element Tags.
 |||
-||| This is mainly to be used with `Web.Dom.createElement`, and therefore
-||| leaves out HTML tags without their own element type.
-||| Some deprecated tags have been left out.
+||| This is mainly to be used with `Web.Dom.createElement` and `newElement`.
+||| Some deprecated tags have been left out, some others might
+||| still be missing.
 public export
 data ElementType : (tag : String) -> (htmlElement : Type) -> Type where
   A          : ElementType "a" HTMLAnchorElement
