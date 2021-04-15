@@ -202,23 +202,23 @@ at how all of this works under the hood.
 All flavors of `JS.Attribute.Attribute` consist of a
 getter (of type `JSIO $ f a` for a context `f` and return type `a`)
 and a setter (of type `f a -> JSIO ()`). They differ in the context,
-in which a value is wrapped (`I` if the attribute is mandatory for
+in which a value is wrapped (`I` if the attribute is mandatory
 and non-nullable, `Maybe` if it is mandatory but possibly `null`,
 and `Optional`, if the attribute might be missing altogether, in
 which case the getter at the FFI returns `undefined`), as well as
 whether it is possible to always get a concrete value when invoking
 the getter (this is even possible for optional attributes, if
-they have a default value defined in the spec).
+they have a default value defined in the specification).
 
 Although the Javascript constants `null` and `undefined` both describe
-a missing value, the can - depending on context - still have different
+a missing value, they can - depending on context - still have different
 semantics, therefore we use two different pairs of Idris2 types to deal with
-these. In foreign function calls, nullable values are represented
-by external type `Nullable a`, which is converted to `Maybe a`
+them. In foreign function calls, nullable values are represented
+by external type `Nullable a` from `JS.Nullable`, which is converted to `Maybe a`
 in the `*Raw` modules. Optional attributes and function arguments
 are represented by the external type `UndefOr a` at the FFI and
 marshalled from and to `Optional a`, a monadic type isomorphic to
-`Maybe a`.
+`Maybe a`. `UndefOr` and `Optional` are both defined in `JS.Undefined`.
 
 The `JS.Attribute` modules provides some utility functions and operators
 for accessing and updating the value stored in an attribute.
