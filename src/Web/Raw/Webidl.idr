@@ -150,7 +150,7 @@ namespace DOMException
 namespace Function
   
   export
-  toFunction : ( VarArg AnyPtr -> IO AnyPtr ) -> JSIO Function
+  toFunction : ( IO (Array AnyPtr) -> IO AnyPtr ) -> JSIO Function
   toFunction cb = primJS $ prim__toFunction cb
 
 namespace VoidFunction

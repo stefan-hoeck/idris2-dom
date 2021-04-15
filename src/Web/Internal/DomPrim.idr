@@ -203,8 +203,8 @@ namespace DOMTokenList
   prim__setValue : DOMTokenList -> String -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.add(a)"
-  prim__add : DOMTokenList -> VarArg String -> PrimIO ()
+  %foreign "browser:lambda:(x,va)=>x.add(...va())"
+  prim__add : DOMTokenList -> IO (Array String) -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a)=>x.contains(a)"
@@ -215,8 +215,8 @@ namespace DOMTokenList
   prim__item : DOMTokenList -> UInt32 -> PrimIO (Nullable String)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.remove(a)"
-  prim__remove : DOMTokenList -> VarArg String -> PrimIO ()
+  %foreign "browser:lambda:(x,va)=>x.remove(...va())"
+  prim__remove : DOMTokenList -> IO (Array String) -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.replace(a,b)"
@@ -645,12 +645,12 @@ namespace Document
   prim__releaseEvents : Document -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.write(a)"
-  prim__write : Document -> VarArg String -> PrimIO ()
+  %foreign "browser:lambda:(x,va)=>x.write(...va())"
+  prim__write : Document -> IO (Array String) -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.writeln(a)"
-  prim__writeln : Document -> VarArg String -> PrimIO ()
+  %foreign "browser:lambda:(x,va)=>x.writeln(...va())"
+  prim__writeln : Document -> IO (Array String) -> PrimIO ()
 
 namespace DocumentFragment
   
@@ -1547,20 +1547,20 @@ namespace XPathResult
 namespace ChildNode
   
   export
-  %foreign "browser:lambda:(x,a)=>x.after(a)"
-  prim__after : ChildNode -> VarArg (Union2 Node String) -> PrimIO ()
+  %foreign "browser:lambda:(x,va)=>x.after(...va())"
+  prim__after : ChildNode -> IO (Array (Union2 Node String)) -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.before(a)"
-  prim__before : ChildNode -> VarArg (Union2 Node String) -> PrimIO ()
+  %foreign "browser:lambda:(x,va)=>x.before(...va())"
+  prim__before : ChildNode -> IO (Array (Union2 Node String)) -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.remove()"
   prim__remove : ChildNode -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.replaceWith(a)"
-  prim__replaceWith : ChildNode -> VarArg (Union2 Node String) -> PrimIO ()
+  %foreign "browser:lambda:(x,va)=>x.replaceWith(...va())"
+  prim__replaceWith : ChildNode -> IO (Array (Union2 Node String)) -> PrimIO ()
 
 namespace DocumentOrShadowRoot
   
@@ -1618,12 +1618,12 @@ namespace ParentNode
   prim__lastElementChild : ParentNode -> PrimIO (Nullable Element)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.append(a)"
-  prim__append : ParentNode -> VarArg (Union2 Node String) -> PrimIO ()
+  %foreign "browser:lambda:(x,va)=>x.append(...va())"
+  prim__append : ParentNode -> IO (Array (Union2 Node String)) -> PrimIO ()
   
   export
-  %foreign "browser:lambda:(x,a)=>x.prepend(a)"
-  prim__prepend : ParentNode -> VarArg (Union2 Node String) -> PrimIO ()
+  %foreign "browser:lambda:(x,va)=>x.prepend(...va())"
+  prim__prepend : ParentNode -> IO (Array (Union2 Node String)) -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a)=>x.querySelectorAll(a)"
@@ -1634,8 +1634,10 @@ namespace ParentNode
   prim__querySelector : ParentNode -> String -> PrimIO (Nullable Element)
   
   export
-  %foreign "browser:lambda:(x,a)=>x.replaceChildren(a)"
-  prim__replaceChildren : ParentNode -> VarArg (Union2 Node String) -> PrimIO ()
+  %foreign "browser:lambda:(x,va)=>x.replaceChildren(...va())"
+  prim__replaceChildren :  ParentNode
+                        -> IO (Array (Union2 Node String))
+                        -> PrimIO ()
 
 namespace Slottable
   

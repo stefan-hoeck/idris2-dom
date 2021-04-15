@@ -36,7 +36,7 @@ namespace Function
   
   export
   %foreign "browser:lambda:x=>(a)=>x(a)()"
-  prim__toFunction : ( VarArg AnyPtr -> IO AnyPtr ) -> PrimIO Function
+  prim__toFunction : ( IO (Array AnyPtr) -> IO AnyPtr ) -> PrimIO Function
 
 namespace VoidFunction
   

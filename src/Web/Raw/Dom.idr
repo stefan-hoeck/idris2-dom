@@ -285,8 +285,8 @@ namespace DOMTokenList
   value v = fromPrim "DOMTokenList.getvalue" prim__value prim__setValue v
   
   export
-  add : (obj : DOMTokenList) -> (tokens : VarArg String) -> JSIO ()
-  add a b = primJS $ DOMTokenList.prim__add a b
+  add : (obj : DOMTokenList) -> (tokens : List String) -> JSIO ()
+  add a b = primJS $ DOMTokenList.prim__add a (toFFI b)
   
   export
   contains : (obj : DOMTokenList) -> (token : String) -> JSIO Bool
@@ -297,8 +297,8 @@ namespace DOMTokenList
   item a b = tryJS "DOMTokenList.item" $ DOMTokenList.prim__item a b
   
   export
-  remove : (obj : DOMTokenList) -> (tokens : VarArg String) -> JSIO ()
-  remove a b = primJS $ DOMTokenList.prim__remove a b
+  remove : (obj : DOMTokenList) -> (tokens : List String) -> JSIO ()
+  remove a b = primJS $ DOMTokenList.prim__remove a (toFFI b)
   
   export
   replace :  (obj : DOMTokenList)
@@ -1071,17 +1071,17 @@ namespace Document
   write :  JSType t1
         => {auto 0 _ : Elem Document (Types t1)}
         -> (obj : t1)
-        -> (text : VarArg String)
+        -> (text : List String)
         -> JSIO ()
-  write a b = primJS $ Document.prim__write (up a) b
+  write a b = primJS $ Document.prim__write (up a) (toFFI b)
   
   export
   writeln :  JSType t1
           => {auto 0 _ : Elem Document (Types t1)}
           -> (obj : t1)
-          -> (text : VarArg String)
+          -> (text : List String)
           -> JSIO ()
-  writeln a b = primJS $ Document.prim__writeln (up a) b
+  writeln a b = primJS $ Document.prim__writeln (up a) (toFFI b)
 
 namespace DocumentFragment
   
@@ -2697,17 +2697,17 @@ namespace ChildNode
   after :  JSType t1
         => {auto 0 _ : Elem ChildNode (Types t1)}
         -> (obj : t1)
-        -> (nodes : VarArg (Union2 Node String))
+        -> (nodes : List (NS I [ Node , String ]))
         -> JSIO ()
-  after a b = primJS $ ChildNode.prim__after (up a) b
+  after a b = primJS $ ChildNode.prim__after (up a) (toFFI b)
   
   export
   before :  JSType t1
          => {auto 0 _ : Elem ChildNode (Types t1)}
          -> (obj : t1)
-         -> (nodes : VarArg (Union2 Node String))
+         -> (nodes : List (NS I [ Node , String ]))
          -> JSIO ()
-  before a b = primJS $ ChildNode.prim__before (up a) b
+  before a b = primJS $ ChildNode.prim__before (up a) (toFFI b)
   
   export
   remove :  JSType t1
@@ -2720,9 +2720,9 @@ namespace ChildNode
   replaceWith :  JSType t1
               => {auto 0 _ : Elem ChildNode (Types t1)}
               -> (obj : t1)
-              -> (nodes : VarArg (Union2 Node String))
+              -> (nodes : List (NS I [ Node , String ]))
               -> JSIO ()
-  replaceWith a b = primJS $ ChildNode.prim__replaceWith (up a) b
+  replaceWith a b = primJS $ ChildNode.prim__replaceWith (up a) (toFFI b)
 
 namespace DocumentOrShadowRoot
   
@@ -2810,17 +2810,17 @@ namespace ParentNode
   append :  JSType t1
          => {auto 0 _ : Elem ParentNode (Types t1)}
          -> (obj : t1)
-         -> (nodes : VarArg (Union2 Node String))
+         -> (nodes : List (NS I [ Node , String ]))
          -> JSIO ()
-  append a b = primJS $ ParentNode.prim__append (up a) b
+  append a b = primJS $ ParentNode.prim__append (up a) (toFFI b)
   
   export
   prepend :  JSType t1
           => {auto 0 _ : Elem ParentNode (Types t1)}
           -> (obj : t1)
-          -> (nodes : VarArg (Union2 Node String))
+          -> (nodes : List (NS I [ Node , String ]))
           -> JSIO ()
-  prepend a b = primJS $ ParentNode.prim__prepend (up a) b
+  prepend a b = primJS $ ParentNode.prim__prepend (up a) (toFFI b)
   
   export
   querySelectorAll :  JSType t1
@@ -2843,9 +2843,10 @@ namespace ParentNode
   replaceChildren :  JSType t1
                   => {auto 0 _ : Elem ParentNode (Types t1)}
                   -> (obj : t1)
-                  -> (nodes : VarArg (Union2 Node String))
+                  -> (nodes : List (NS I [ Node , String ]))
                   -> JSIO ()
-  replaceChildren a b = primJS $ ParentNode.prim__replaceChildren (up a) b
+  replaceChildren a b = primJS
+                      $ ParentNode.prim__replaceChildren (up a) (toFFI b)
 
 namespace Slottable
   

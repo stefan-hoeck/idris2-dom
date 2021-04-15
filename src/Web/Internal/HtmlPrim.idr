@@ -6599,8 +6599,8 @@ namespace WorkerGlobalScope
   prim__self : WorkerGlobalScope -> PrimIO WorkerGlobalScope
   
   export
-  %foreign "browser:lambda:(x,a)=>x.importScripts(a)"
-  prim__importScripts : WorkerGlobalScope -> VarArg String -> PrimIO ()
+  %foreign "browser:lambda:(x,va)=>x.importScripts(...va())"
+  prim__importScripts : WorkerGlobalScope -> IO (Array String) -> PrimIO ()
 
 namespace WorkerLocation
   

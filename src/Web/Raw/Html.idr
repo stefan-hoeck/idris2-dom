@@ -6032,9 +6032,10 @@ namespace WorkerGlobalScope
   importScripts :  JSType t1
                 => {auto 0 _ : Elem WorkerGlobalScope (Types t1)}
                 -> (obj : t1)
-                -> (urls : VarArg String)
+                -> (urls : List String)
                 -> JSIO ()
-  importScripts a b = primJS $ WorkerGlobalScope.prim__importScripts (up a) b
+  importScripts a b = primJS
+                    $ WorkerGlobalScope.prim__importScripts (up a) (toFFI b)
 
 namespace WorkerLocation
   

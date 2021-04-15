@@ -490,6 +490,32 @@ uses concrete types, since there are no child interfaces for
 
 To be added...
 
+#### Varargs
+
+The Web IDL allows the definition of functions with a variable
+number of arguments. In this library, we support such functions
+by allowing them a `List` argument instead of a variadic number
+of arguments. When passed to the FFI, the list is converted to
+a `IO $ Array a` (see `List`s `ToFFI` implementation in `JS.Array`).
+
+In our example program, we could therefore also have added the different
+nodes to the body like so:
+
+```idris
+addNodes : HTMLButtonElement -> HTMLDivElement -> HTMLDivElement -> JSIO ()
+addNodes btn txtDiv outDiv =
+  ignore $ (!body `append` [ Z $ btn :> Node
+                           , Z $ txtDiv :> Node
+                           , Z $ outDiv :> Node
+                           ])
+```
+
+In this case, we wouldn't have gained much, as we'd need to
+manually upcast the different elements and inject them into the
+required sum, but for other functions with less complex argument
+types this can be sometimes quite convenient.
+
+
 ### Web IDL members
 
 To be added...
