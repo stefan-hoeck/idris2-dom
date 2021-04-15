@@ -168,7 +168,7 @@ the proper type. We can use `safeCast` for this:
 export
 disableBtn : JSIO ()
 disableBtn = do maybeElem <- getElementById !document "the_button"
-                let maybeBtn = maybeElem >>= safeCast {a = HTMLButtonElement} 
+                let maybeBtn = maybeElem >>= castTo HTMLButtonElement
                 for_ maybeBtn \btn => do disabled btn .= True
                                          consoleLog "Disabled button"
 ```

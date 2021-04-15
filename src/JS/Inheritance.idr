@@ -95,8 +95,8 @@ interface SafeCast a where
   safeCast : any -> Maybe a
 
 public export %inline
-castTo : any -> (0 a : Type) -> SafeCast a => Maybe a
-castTo v _ = safeCast v
+castTo : (0 a : Type) -> SafeCast a => any -> Maybe a
+castTo _ v = safeCast v
 
 ||| Tries to create an n-ary sum by trying all possible
 ||| casts. The first successful cast will determine the
