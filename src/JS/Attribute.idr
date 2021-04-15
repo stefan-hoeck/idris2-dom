@@ -126,7 +126,10 @@ set (NullableAttr _ s)          y = s (Just y)
 set (OptionalAttr _ s _)        y = s (Def y)
 set (OptionalAttrNoDefault _ s) y = s (Def y)
 
-||| Modifies the value of an `Attribute`.
+||| Modifies the stored value of an `Attribute`.
+|||
+||| Please note, that this will NOT change the attribute's
+||| values, if the attribute is unset or `null`.
 export
 mod : Attribute b f a -> (a -> a) -> JSIO ()
 mod (Attr         g s)          f = g >>= s . f
@@ -139,7 +142,7 @@ export
 unset : Alternative f => (o : obj) -> (obj -> Attribute b f a) -> JSIO ()
 unset o g = set' (g o) empty
 
-infix 1 .=
+infix 1 .=, =., %=, =%
 
 ||| Operator version of `set`.
 |||
@@ -150,9 +153,20 @@ export
 (.=) : Attribute b f a -> a -> JSIO ()
 (.=) = set
 
-infix 1 =.
+||| Operator version of `mod`.
+|||
+||| As with `mod`, this will NOT change the attribute's
+||| values, if the attribute is unset or `null`.
+|||
+||| ```idris example
+||| toggleCheckBox : HTMLInputElement -> JSIO ()
+||| toggleCheckBox cbx = checked cbx %= not
+||| ```
+export
+(%=) : Attribute b f a -> (a -> a) -> JSIO ()
+(%=) = mod
 
-||| Like set, but useful when the object, on which
+||| Like `set`, but useful when the object, on which
 ||| an attribute should operate, is supposed to
 ||| be the last argument (for instance, when
 ||| iterating over a foldable):
@@ -164,6 +178,19 @@ infix 1 =.
 export
 (=.) : (obj -> Attribute b f a) -> a -> obj -> JSIO ()
 (=.) f v o = set (f o) v
+
+||| Like `mod`, but useful when the object, on which
+||| an attribute should operate, is supposed to
+||| be the last argument (for instance, when
+||| iterating over a foldable):
+|||
+||| ```idris example
+||| toggleAll : List HTMLInputElement -> JSIO ()
+||| toggleAll cbxs = for_ cbxs $ checked =% not
+||| ```
+export
+(=%) : (obj -> Attribute b f a) -> (a -> a) -> obj -> JSIO ()
+(=%) f g o = mod (f o) g
 
 infixr 0 !>, ?>
 
