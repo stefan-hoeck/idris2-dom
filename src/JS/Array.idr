@@ -5,24 +5,24 @@ module JS.Array
 import Control.Monad.Either
 import Data.List
 
+import JS.Any
+import JS.Boolean
 import JS.Marshall
 import JS.Number
 import JS.Undefined
 import JS.Util
 
+--------------------------------------------------------------------------------
+--          FFI
+--------------------------------------------------------------------------------
+
 export
 data Array : Type -> Type where [external]
 
-export
-ToFFI (Array a) (Array a) where toFFI = id
-
-export
-FromFFI (Array a) (Array a) where fromFFI = Just
-
--- not on backend function, the type parameter is passed
+-- Note: on backend function, the type parameter is passed
 -- as an additional erased argument of type `undefined`
--- to the lambda. the lambda therefore needs one more
--- argument than expected.
+-- to the lambda. The lambda therefore needs one more
+-- argument.
 %foreign "javascript:lambda:(u,x) => x.length"
 prim__arrayLength : forall a . Array a -> PrimIO UInt32
 
@@ -34,6 +34,23 @@ prim__arraySet : forall a . Array a -> UInt32 -> a -> PrimIO ()
 
 %foreign "javascript:lambda:(u,n) => new Array(n)"
 prim__newArray : forall a . UInt32 -> PrimIO (Array a)
+
+%foreign "javascript:lambda:x => Array.isArray(x)"
+prim__isArray : AnyPtr -> Boolean
+
+--------------------------------------------------------------------------------
+--          IO Arrays
+--------------------------------------------------------------------------------
+
+export
+ToFFI (Array a) (Array a) where toFFI = id
+
+export
+FromFFI (Array a) (Array a) where fromFFI = Just
+
+export %inline
+isArray : any -> Bool
+isArray v = eqv true $ prim__isArray (toFFI $ MkAny v)
 
 export
 arrayLength : HasIO io => Array a -> io UInt32
@@ -50,6 +67,10 @@ arraySet arr ix v = primIO $  prim__arraySet arr ix v
 export
 newArray : HasIO io => UInt32 -> io (Array a)
 newArray n = primIO $  prim__newArray n
+
+--------------------------------------------------------------------------------
+--          Arrays and Lists
+--------------------------------------------------------------------------------
 
 export
 fromList : HasIO io => List a -> io (Array a)
