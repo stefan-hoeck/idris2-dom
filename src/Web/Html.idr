@@ -44,3 +44,27 @@ Callback OnErrorEventHandlerNonNull (  NS I [Event, String]
                            (undeforToOptional c)
                            (undeforToOptional d)
                            (MkAny <$> undeforToOptional e)
+
+export
+Callback FocusEventHandler (FocusEvent -> JSIO ()) where
+  callback f = toFocusEventHandler (runJS . f)
+
+export
+Callback InputEventHandler (InputEvent -> JSIO ()) where
+  callback f = toInputEventHandler (runJS . f)
+
+export
+Callback KeyboardEventHandler (KeyboardEvent -> JSIO ()) where
+  callback f = toKeyboardEventHandler (runJS . f)
+
+export
+Callback MouseEventHandler (MouseEvent -> JSIO ()) where
+  callback f = toMouseEventHandler (runJS . f)
+
+export
+Callback UIEventHandler (UIEvent -> JSIO ()) where
+  callback f = toUIEventHandler (runJS . f)
+
+export
+Callback WheelEventHandler (WheelEvent -> JSIO ()) where
+  callback f = toWheelEventHandler (runJS . f)

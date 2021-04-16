@@ -3043,6 +3043,14 @@ ToFFI BlobCallback BlobCallback where toFFI = id
 export
 FromFFI BlobCallback BlobCallback where fromFFI = Just
 
+export data CompositionEventHandler : Type where [external]
+  
+export
+ToFFI CompositionEventHandler CompositionEventHandler where toFFI = id
+  
+export
+FromFFI CompositionEventHandler CompositionEventHandler where fromFFI = Just
+
 export data CustomElementConstructor : Type where [external]
   
 export
@@ -3059,6 +3067,14 @@ ToFFI EventHandlerNonNull EventHandlerNonNull where toFFI = id
 export
 FromFFI EventHandlerNonNull EventHandlerNonNull where fromFFI = Just
 
+export data FocusEventHandler : Type where [external]
+  
+export
+ToFFI FocusEventHandler FocusEventHandler where toFFI = id
+  
+export
+FromFFI FocusEventHandler FocusEventHandler where fromFFI = Just
+
 export data FunctionStringCallback : Type where [external]
   
 export
@@ -3066,6 +3082,30 @@ ToFFI FunctionStringCallback FunctionStringCallback where toFFI = id
   
 export
 FromFFI FunctionStringCallback FunctionStringCallback where fromFFI = Just
+
+export data InputEventHandler : Type where [external]
+  
+export
+ToFFI InputEventHandler InputEventHandler where toFFI = id
+  
+export
+FromFFI InputEventHandler InputEventHandler where fromFFI = Just
+
+export data KeyboardEventHandler : Type where [external]
+  
+export
+ToFFI KeyboardEventHandler KeyboardEventHandler where toFFI = id
+  
+export
+FromFFI KeyboardEventHandler KeyboardEventHandler where fromFFI = Just
+
+export data MouseEventHandler : Type where [external]
+  
+export
+ToFFI MouseEventHandler MouseEventHandler where toFFI = id
+  
+export
+FromFFI MouseEventHandler MouseEventHandler where fromFFI = Just
 
 export data OnBeforeUnloadEventHandlerNonNull : Type where [external]
   
@@ -3082,3 +3122,19 @@ ToFFI OnErrorEventHandlerNonNull OnErrorEventHandlerNonNull where toFFI = id
   
 export
 FromFFI OnErrorEventHandlerNonNull OnErrorEventHandlerNonNull where fromFFI = Just
+
+export data UIEventHandler : Type where [external]
+  
+export
+ToFFI UIEventHandler UIEventHandler where toFFI = id
+  
+export
+FromFFI UIEventHandler UIEventHandler where fromFFI = Just
+
+export data WheelEventHandler : Type where [external]
+  
+export
+ToFFI WheelEventHandler WheelEventHandler where toFFI = id
+  
+export
+FromFFI WheelEventHandler WheelEventHandler where fromFFI = Just

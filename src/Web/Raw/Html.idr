@@ -7593,7 +7593,7 @@ namespace GlobalEventHandlers
   onabort :  JSType t
           => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
           -> t
-          -> Attribute False Maybe EventHandlerNonNull
+          -> Attribute False Maybe UIEventHandler
   onabort v = fromNullablePrim "GlobalEventHandlers.getonabort"
                                prim__onabort
                                prim__setOnabort
@@ -7603,7 +7603,7 @@ namespace GlobalEventHandlers
   onauxclick :  JSType t
              => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
              -> t
-             -> Attribute False Maybe EventHandlerNonNull
+             -> Attribute False Maybe MouseEventHandler
   onauxclick v = fromNullablePrim "GlobalEventHandlers.getonauxclick"
                                   prim__onauxclick
                                   prim__setOnauxclick
@@ -7613,7 +7613,7 @@ namespace GlobalEventHandlers
   onblur :  JSType t
          => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
          -> t
-         -> Attribute False Maybe EventHandlerNonNull
+         -> Attribute False Maybe FocusEventHandler
   onblur v = fromNullablePrim "GlobalEventHandlers.getonblur"
                               prim__onblur
                               prim__setOnblur
@@ -7663,7 +7663,7 @@ namespace GlobalEventHandlers
   onclick :  JSType t
           => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
           -> t
-          -> Attribute False Maybe EventHandlerNonNull
+          -> Attribute False Maybe MouseEventHandler
   onclick v = fromNullablePrim "GlobalEventHandlers.getonclick"
                                prim__onclick
                                prim__setOnclick
@@ -7703,7 +7703,7 @@ namespace GlobalEventHandlers
   ondblclick :  JSType t
              => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
              -> t
-             -> Attribute False Maybe EventHandlerNonNull
+             -> Attribute False Maybe MouseEventHandler
   ondblclick v = fromNullablePrim "GlobalEventHandlers.getondblclick"
                                   prim__ondblclick
                                   prim__setOndblclick
@@ -7823,7 +7823,7 @@ namespace GlobalEventHandlers
   onfocus :  JSType t
           => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
           -> t
-          -> Attribute False Maybe EventHandlerNonNull
+          -> Attribute False Maybe FocusEventHandler
   onfocus v = fromNullablePrim "GlobalEventHandlers.getonfocus"
                                prim__onfocus
                                prim__setOnfocus
@@ -7843,7 +7843,7 @@ namespace GlobalEventHandlers
   oninput :  JSType t
           => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
           -> t
-          -> Attribute False Maybe EventHandlerNonNull
+          -> Attribute False Maybe InputEventHandler
   oninput v = fromNullablePrim "GlobalEventHandlers.getoninput"
                                prim__oninput
                                prim__setOninput
@@ -7863,7 +7863,7 @@ namespace GlobalEventHandlers
   onkeydown :  JSType t
             => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
             -> t
-            -> Attribute False Maybe EventHandlerNonNull
+            -> Attribute False Maybe KeyboardEventHandler
   onkeydown v = fromNullablePrim "GlobalEventHandlers.getonkeydown"
                                  prim__onkeydown
                                  prim__setOnkeydown
@@ -7883,7 +7883,7 @@ namespace GlobalEventHandlers
   onkeyup :  JSType t
           => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
           -> t
-          -> Attribute False Maybe EventHandlerNonNull
+          -> Attribute False Maybe KeyboardEventHandler
   onkeyup v = fromNullablePrim "GlobalEventHandlers.getonkeyup"
                                prim__onkeyup
                                prim__setOnkeyup
@@ -7893,7 +7893,7 @@ namespace GlobalEventHandlers
   onload :  JSType t
          => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
          -> t
-         -> Attribute False Maybe EventHandlerNonNull
+         -> Attribute False Maybe UIEventHandler
   onload v = fromNullablePrim "GlobalEventHandlers.getonload"
                               prim__onload
                               prim__setOnload
@@ -7933,7 +7933,7 @@ namespace GlobalEventHandlers
   onmousedown :  JSType t
               => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
               -> t
-              -> Attribute False Maybe EventHandlerNonNull
+              -> Attribute False Maybe MouseEventHandler
   onmousedown v = fromNullablePrim "GlobalEventHandlers.getonmousedown"
                                    prim__onmousedown
                                    prim__setOnmousedown
@@ -7943,7 +7943,7 @@ namespace GlobalEventHandlers
   onmouseenter :  JSType t
                => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
                -> t
-               -> Attribute False Maybe EventHandlerNonNull
+               -> Attribute False Maybe MouseEventHandler
   onmouseenter v = fromNullablePrim "GlobalEventHandlers.getonmouseenter"
                                     prim__onmouseenter
                                     prim__setOnmouseenter
@@ -7953,7 +7953,7 @@ namespace GlobalEventHandlers
   onmouseleave :  JSType t
                => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
                -> t
-               -> Attribute False Maybe EventHandlerNonNull
+               -> Attribute False Maybe MouseEventHandler
   onmouseleave v = fromNullablePrim "GlobalEventHandlers.getonmouseleave"
                                     prim__onmouseleave
                                     prim__setOnmouseleave
@@ -7963,7 +7963,7 @@ namespace GlobalEventHandlers
   onmousemove :  JSType t
               => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
               -> t
-              -> Attribute False Maybe EventHandlerNonNull
+              -> Attribute False Maybe MouseEventHandler
   onmousemove v = fromNullablePrim "GlobalEventHandlers.getonmousemove"
                                    prim__onmousemove
                                    prim__setOnmousemove
@@ -7973,7 +7973,7 @@ namespace GlobalEventHandlers
   onmouseout :  JSType t
              => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
              -> t
-             -> Attribute False Maybe EventHandlerNonNull
+             -> Attribute False Maybe MouseEventHandler
   onmouseout v = fromNullablePrim "GlobalEventHandlers.getonmouseout"
                                   prim__onmouseout
                                   prim__setOnmouseout
@@ -7983,7 +7983,7 @@ namespace GlobalEventHandlers
   onmouseover :  JSType t
               => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
               -> t
-              -> Attribute False Maybe EventHandlerNonNull
+              -> Attribute False Maybe MouseEventHandler
   onmouseover v = fromNullablePrim "GlobalEventHandlers.getonmouseover"
                                    prim__onmouseover
                                    prim__setOnmouseover
@@ -7993,7 +7993,7 @@ namespace GlobalEventHandlers
   onmouseup :  JSType t
             => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
             -> t
-            -> Attribute False Maybe EventHandlerNonNull
+            -> Attribute False Maybe MouseEventHandler
   onmouseup v = fromNullablePrim "GlobalEventHandlers.getonmouseup"
                                  prim__onmouseup
                                  prim__setOnmouseup
@@ -8113,7 +8113,7 @@ namespace GlobalEventHandlers
   onselect :  JSType t
            => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
            -> t
-           -> Attribute False Maybe EventHandlerNonNull
+           -> Attribute False Maybe UIEventHandler
   onselect v = fromNullablePrim "GlobalEventHandlers.getonselect"
                                 prim__onselect
                                 prim__setOnselect
@@ -8243,7 +8243,7 @@ namespace GlobalEventHandlers
   onwheel :  JSType t
           => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
           -> t
-          -> Attribute False Maybe EventHandlerNonNull
+          -> Attribute False Maybe WheelEventHandler
   onwheel v = fromNullablePrim "GlobalEventHandlers.getonwheel"
                                prim__onwheel
                                prim__setOnwheel
@@ -8738,7 +8738,7 @@ namespace WindowEventHandlers
   onunload :  JSType t
            => {auto 0 _ : Elem WindowEventHandlers (Types t)}
            -> t
-           -> Attribute False Maybe EventHandlerNonNull
+           -> Attribute False Maybe UIEventHandler
   onunload v = fromNullablePrim "WindowEventHandlers.getonunload"
                                 prim__onunload
                                 prim__setOnunload
@@ -9740,6 +9740,13 @@ namespace BlobCallback
   toBlobCallback : ( Nullable Blob -> IO () ) -> JSIO BlobCallback
   toBlobCallback cb = primJS $ prim__toBlobCallback cb
 
+namespace CompositionEventHandler
+  
+  export
+  toCompositionEventHandler :  ( CompositionEvent -> IO () )
+                            -> JSIO CompositionEventHandler
+  toCompositionEventHandler cb = primJS $ prim__toCompositionEventHandler cb
+
 namespace CustomElementConstructor
   
   export
@@ -9753,11 +9760,36 @@ namespace EventHandlerNonNull
   toEventHandlerNonNull : ( Event -> IO AnyPtr ) -> JSIO EventHandlerNonNull
   toEventHandlerNonNull cb = primJS $ prim__toEventHandlerNonNull cb
 
+namespace FocusEventHandler
+  
+  export
+  toFocusEventHandler : ( FocusEvent -> IO () ) -> JSIO FocusEventHandler
+  toFocusEventHandler cb = primJS $ prim__toFocusEventHandler cb
+
 namespace FunctionStringCallback
   
   export
   toFunctionStringCallback : ( String -> IO () ) -> JSIO FunctionStringCallback
   toFunctionStringCallback cb = primJS $ prim__toFunctionStringCallback cb
+
+namespace InputEventHandler
+  
+  export
+  toInputEventHandler : ( InputEvent -> IO () ) -> JSIO InputEventHandler
+  toInputEventHandler cb = primJS $ prim__toInputEventHandler cb
+
+namespace KeyboardEventHandler
+  
+  export
+  toKeyboardEventHandler :  ( KeyboardEvent -> IO () )
+                         -> JSIO KeyboardEventHandler
+  toKeyboardEventHandler cb = primJS $ prim__toKeyboardEventHandler cb
+
+namespace MouseEventHandler
+  
+  export
+  toMouseEventHandler : ( MouseEvent -> IO () ) -> JSIO MouseEventHandler
+  toMouseEventHandler cb = primJS $ prim__toMouseEventHandler cb
 
 namespace OnBeforeUnloadEventHandlerNonNull
   
@@ -9778,3 +9810,15 @@ namespace OnErrorEventHandlerNonNull
                                   )
                                -> JSIO OnErrorEventHandlerNonNull
   toOnErrorEventHandlerNonNull cb = primJS $ prim__toOnErrorEventHandlerNonNull cb
+
+namespace UIEventHandler
+  
+  export
+  toUIEventHandler : ( UIEvent -> IO () ) -> JSIO UIEventHandler
+  toUIEventHandler cb = primJS $ prim__toUIEventHandler cb
+
+namespace WheelEventHandler
+  
+  export
+  toWheelEventHandler : ( WheelEvent -> IO () ) -> JSIO WheelEventHandler
+  toWheelEventHandler cb = primJS $ prim__toWheelEventHandler cb

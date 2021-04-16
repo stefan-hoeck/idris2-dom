@@ -7712,36 +7712,33 @@ namespace GlobalEventHandlers
   
   export
   %foreign "browser:lambda:x=>x.onabort"
-  prim__onabort : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+  prim__onabort : GlobalEventHandlers -> PrimIO (Nullable UIEventHandler)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onabort = v}"
-  prim__setOnabort :  GlobalEventHandlers
-                   -> Nullable EventHandlerNonNull
-                   -> PrimIO ()
+  prim__setOnabort : GlobalEventHandlers -> Nullable UIEventHandler -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onauxclick"
-  prim__onauxclick :  GlobalEventHandlers
-                   -> PrimIO (Nullable EventHandlerNonNull)
+  prim__onauxclick : GlobalEventHandlers -> PrimIO (Nullable MouseEventHandler)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onauxclick = v}"
   prim__setOnauxclick :  GlobalEventHandlers
-                      -> Nullable EventHandlerNonNull
+                      -> Nullable MouseEventHandler
                       -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onblur"
-  prim__onblur : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+  prim__onblur : GlobalEventHandlers -> PrimIO (Nullable FocusEventHandler)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onblur = v}"
   prim__setOnblur :  GlobalEventHandlers
-                  -> Nullable EventHandlerNonNull
+                  -> Nullable FocusEventHandler
                   -> PrimIO ()
   
   export
@@ -7791,13 +7788,13 @@ namespace GlobalEventHandlers
   
   export
   %foreign "browser:lambda:x=>x.onclick"
-  prim__onclick : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+  prim__onclick : GlobalEventHandlers -> PrimIO (Nullable MouseEventHandler)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onclick = v}"
   prim__setOnclick :  GlobalEventHandlers
-                   -> Nullable EventHandlerNonNull
+                   -> Nullable MouseEventHandler
                    -> PrimIO ()
   
   export
@@ -7837,14 +7834,13 @@ namespace GlobalEventHandlers
   
   export
   %foreign "browser:lambda:x=>x.ondblclick"
-  prim__ondblclick :  GlobalEventHandlers
-                   -> PrimIO (Nullable EventHandlerNonNull)
+  prim__ondblclick : GlobalEventHandlers -> PrimIO (Nullable MouseEventHandler)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ondblclick = v}"
   prim__setOndblclick :  GlobalEventHandlers
-                      -> Nullable EventHandlerNonNull
+                      -> Nullable MouseEventHandler
                       -> PrimIO ()
   
   export
@@ -7976,13 +7972,13 @@ namespace GlobalEventHandlers
   
   export
   %foreign "browser:lambda:x=>x.onfocus"
-  prim__onfocus : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+  prim__onfocus : GlobalEventHandlers -> PrimIO (Nullable FocusEventHandler)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onfocus = v}"
   prim__setOnfocus :  GlobalEventHandlers
-                   -> Nullable EventHandlerNonNull
+                   -> Nullable FocusEventHandler
                    -> PrimIO ()
   
   export
@@ -7999,13 +7995,13 @@ namespace GlobalEventHandlers
   
   export
   %foreign "browser:lambda:x=>x.oninput"
-  prim__oninput : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+  prim__oninput : GlobalEventHandlers -> PrimIO (Nullable InputEventHandler)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.oninput = v}"
   prim__setOninput :  GlobalEventHandlers
-                   -> Nullable EventHandlerNonNull
+                   -> Nullable InputEventHandler
                    -> PrimIO ()
   
   export
@@ -8021,13 +8017,14 @@ namespace GlobalEventHandlers
   
   export
   %foreign "browser:lambda:x=>x.onkeydown"
-  prim__onkeydown : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+  prim__onkeydown :  GlobalEventHandlers
+                  -> PrimIO (Nullable KeyboardEventHandler)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onkeydown = v}"
   prim__setOnkeydown :  GlobalEventHandlers
-                     -> Nullable EventHandlerNonNull
+                     -> Nullable KeyboardEventHandler
                      -> PrimIO ()
   
   export
@@ -8044,25 +8041,23 @@ namespace GlobalEventHandlers
   
   export
   %foreign "browser:lambda:x=>x.onkeyup"
-  prim__onkeyup : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+  prim__onkeyup : GlobalEventHandlers -> PrimIO (Nullable KeyboardEventHandler)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onkeyup = v}"
   prim__setOnkeyup :  GlobalEventHandlers
-                   -> Nullable EventHandlerNonNull
+                   -> Nullable KeyboardEventHandler
                    -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onload"
-  prim__onload : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+  prim__onload : GlobalEventHandlers -> PrimIO (Nullable UIEventHandler)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onload = v}"
-  prim__setOnload :  GlobalEventHandlers
-                  -> Nullable EventHandlerNonNull
-                  -> PrimIO ()
+  prim__setOnload : GlobalEventHandlers -> Nullable UIEventHandler -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onloadeddata"
@@ -8102,85 +8097,81 @@ namespace GlobalEventHandlers
   
   export
   %foreign "browser:lambda:x=>x.onmousedown"
-  prim__onmousedown :  GlobalEventHandlers
-                    -> PrimIO (Nullable EventHandlerNonNull)
+  prim__onmousedown : GlobalEventHandlers -> PrimIO (Nullable MouseEventHandler)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmousedown = v}"
   prim__setOnmousedown :  GlobalEventHandlers
-                       -> Nullable EventHandlerNonNull
+                       -> Nullable MouseEventHandler
                        -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onmouseenter"
   prim__onmouseenter :  GlobalEventHandlers
-                     -> PrimIO (Nullable EventHandlerNonNull)
+                     -> PrimIO (Nullable MouseEventHandler)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmouseenter = v}"
   prim__setOnmouseenter :  GlobalEventHandlers
-                        -> Nullable EventHandlerNonNull
+                        -> Nullable MouseEventHandler
                         -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onmouseleave"
   prim__onmouseleave :  GlobalEventHandlers
-                     -> PrimIO (Nullable EventHandlerNonNull)
+                     -> PrimIO (Nullable MouseEventHandler)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmouseleave = v}"
   prim__setOnmouseleave :  GlobalEventHandlers
-                        -> Nullable EventHandlerNonNull
+                        -> Nullable MouseEventHandler
                         -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onmousemove"
-  prim__onmousemove :  GlobalEventHandlers
-                    -> PrimIO (Nullable EventHandlerNonNull)
+  prim__onmousemove : GlobalEventHandlers -> PrimIO (Nullable MouseEventHandler)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmousemove = v}"
   prim__setOnmousemove :  GlobalEventHandlers
-                       -> Nullable EventHandlerNonNull
+                       -> Nullable MouseEventHandler
                        -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onmouseout"
-  prim__onmouseout :  GlobalEventHandlers
-                   -> PrimIO (Nullable EventHandlerNonNull)
+  prim__onmouseout : GlobalEventHandlers -> PrimIO (Nullable MouseEventHandler)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmouseout = v}"
   prim__setOnmouseout :  GlobalEventHandlers
-                      -> Nullable EventHandlerNonNull
+                      -> Nullable MouseEventHandler
                       -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onmouseover"
-  prim__onmouseover :  GlobalEventHandlers
-                    -> PrimIO (Nullable EventHandlerNonNull)
+  prim__onmouseover : GlobalEventHandlers -> PrimIO (Nullable MouseEventHandler)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmouseover = v}"
   prim__setOnmouseover :  GlobalEventHandlers
-                       -> Nullable EventHandlerNonNull
+                       -> Nullable MouseEventHandler
                        -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.onmouseup"
-  prim__onmouseup : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+  prim__onmouseup : GlobalEventHandlers -> PrimIO (Nullable MouseEventHandler)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onmouseup = v}"
   prim__setOnmouseup :  GlobalEventHandlers
-                     -> Nullable EventHandlerNonNull
+                     -> Nullable MouseEventHandler
                      -> PrimIO ()
   
   export
@@ -8309,13 +8300,13 @@ namespace GlobalEventHandlers
   
   export
   %foreign "browser:lambda:x=>x.onselect"
-  prim__onselect : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+  prim__onselect : GlobalEventHandlers -> PrimIO (Nullable UIEventHandler)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onselect = v}"
   prim__setOnselect :  GlobalEventHandlers
-                    -> Nullable EventHandlerNonNull
+                    -> Nullable UIEventHandler
                     -> PrimIO ()
   
   export
@@ -8459,13 +8450,13 @@ namespace GlobalEventHandlers
   
   export
   %foreign "browser:lambda:x=>x.onwheel"
-  prim__onwheel : GlobalEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+  prim__onwheel : GlobalEventHandlers -> PrimIO (Nullable WheelEventHandler)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onwheel = v}"
   prim__setOnwheel :  GlobalEventHandlers
-                   -> Nullable EventHandlerNonNull
+                   -> Nullable WheelEventHandler
                    -> PrimIO ()
 
 namespace HTMLHyperlinkElementUtils
@@ -8881,13 +8872,13 @@ namespace WindowEventHandlers
   
   export
   %foreign "browser:lambda:x=>x.onunload"
-  prim__onunload : WindowEventHandlers -> PrimIO (Nullable EventHandlerNonNull)
+  prim__onunload : WindowEventHandlers -> PrimIO (Nullable UIEventHandler)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.onunload = v}"
   prim__setOnunload :  WindowEventHandlers
-                    -> Nullable EventHandlerNonNull
+                    -> Nullable UIEventHandler
                     -> PrimIO ()
 
 --------------------------------------------------------------------------------
@@ -9656,6 +9647,13 @@ namespace BlobCallback
   %foreign "browser:lambda:x=>(a)=>x(a)()"
   prim__toBlobCallback : ( Nullable Blob -> IO () ) -> PrimIO BlobCallback
 
+namespace CompositionEventHandler
+  
+  export
+  %foreign "browser:lambda:x=>(a)=>x(a)()"
+  prim__toCompositionEventHandler :  ( CompositionEvent -> IO () )
+                                  -> PrimIO CompositionEventHandler
+
 namespace CustomElementConstructor
   
   export
@@ -9670,12 +9668,40 @@ namespace EventHandlerNonNull
   prim__toEventHandlerNonNull :  ( Event -> IO AnyPtr )
                               -> PrimIO EventHandlerNonNull
 
+namespace FocusEventHandler
+  
+  export
+  %foreign "browser:lambda:x=>(a)=>x(a)()"
+  prim__toFocusEventHandler :  ( FocusEvent -> IO () )
+                            -> PrimIO FocusEventHandler
+
 namespace FunctionStringCallback
   
   export
   %foreign "browser:lambda:x=>(a)=>x(a)()"
   prim__toFunctionStringCallback :  ( String -> IO () )
                                  -> PrimIO FunctionStringCallback
+
+namespace InputEventHandler
+  
+  export
+  %foreign "browser:lambda:x=>(a)=>x(a)()"
+  prim__toInputEventHandler :  ( InputEvent -> IO () )
+                            -> PrimIO InputEventHandler
+
+namespace KeyboardEventHandler
+  
+  export
+  %foreign "browser:lambda:x=>(a)=>x(a)()"
+  prim__toKeyboardEventHandler :  ( KeyboardEvent -> IO () )
+                               -> PrimIO KeyboardEventHandler
+
+namespace MouseEventHandler
+  
+  export
+  %foreign "browser:lambda:x=>(a)=>x(a)()"
+  prim__toMouseEventHandler :  ( MouseEvent -> IO () )
+                            -> PrimIO MouseEventHandler
 
 namespace OnBeforeUnloadEventHandlerNonNull
   
@@ -9696,3 +9722,16 @@ namespace OnErrorEventHandlerNonNull
                                         -> IO AnyPtr
                                         )
                                      -> PrimIO OnErrorEventHandlerNonNull
+
+namespace UIEventHandler
+  
+  export
+  %foreign "browser:lambda:x=>(a)=>x(a)()"
+  prim__toUIEventHandler : ( UIEvent -> IO () ) -> PrimIO UIEventHandler
+
+namespace WheelEventHandler
+  
+  export
+  %foreign "browser:lambda:x=>(a)=>x(a)()"
+  prim__toWheelEventHandler :  ( WheelEvent -> IO () )
+                            -> PrimIO WheelEventHandler

@@ -181,12 +181,13 @@ main = runJS $ prog *> disableBtn
 ```
 
 Since looking up an element and refining its type by downcasting
-is a common pattern, there is function `castElementById` in `Web.Dom`:
+is a common pattern, there are functions `castElementById`
+and `htmlElementById` in `Web.Dom`:
 
 ```idris
 export
 disableBtn2 : JSIO ()
-disableBtn2 = do maybeBtn <- castElementById HTMLButtonElement "the_button"
+disableBtn2 = do maybeBtn <- htmlElementById Button "the_button"
                  for_ maybeBtn $ disabled =. True
 ```
 
@@ -322,13 +323,13 @@ The following code snippets provides examples for both use cases:
 complainOnClick : HTMLButtonElement -> JSIO ()
 complainOnClick btn = onclick btn ?> consoleLog "Don't touch me!"
 
-doComplain : Event -> JSIO ()
-doComplain e = do me <- tryCast_ MouseEvent "doComplain" e
-                  shiftPressed <- shiftKey me
-                  if shiftPressed
-                     then consoleLog "DON'T TOUCH ME!"
-                     else consoleLog "Don't touch me!"
+doComplain : MouseEvent -> JSIO ()
+doComplain me = do shiftPressed <- shiftKey me
+                   if shiftPressed
+                      then consoleLog "DON'T TOUCH ME!"
+                      else consoleLog "Don't touch me!"
 
+export
 complainSomeMore : HTMLButtonElement -> JSIO ()
 complainSomeMore btn = onclick btn !> doComplain
 ```
