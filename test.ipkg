@@ -5,7 +5,7 @@ version    = 0.0.1
 readme     = "README.md"
 license    = "BSD-2 Clause"
 
-opts       = "--codegen javascript"
+opts       = "--codegen node"
 
 main       = Test.Main
 executable = "runTest.js"
