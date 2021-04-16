@@ -6,6 +6,10 @@ import public Web.Raw.Dom as Dom
 
 %default total
 
+--------------------------------------------------------------------------------
+--          Main entry points
+--------------------------------------------------------------------------------
+
 %foreign "browser:lambda:()=>window"
 prim__window : PrimIO Window
 
@@ -22,15 +26,7 @@ document = primJS prim__document
 
 export
 body : JSIO HTMLElement
-body = unMaybe "Test.body" $ document >>= to body
-
-export
-getElementById : String -> JSIO (Maybe Element)
-getElementById s = getElementById !document s
-
-export
-castElementById : (0 a : Type) -> SafeCast a => String -> JSIO (Maybe a)
-castElementById _ = map (>>= safeCast) . getElementById
+body = unMaybe "Web.Dom.body" $ document >>= to body
 
 --------------------------------------------------------------------------------
 --          Elements
@@ -124,82 +120,83 @@ elementTag _ = tag
 
 ||| Proof, that each element type has an instance of `SafeCast`.
 export
-elemCast :  (forall a . SafeCast a => JSIO a)
+elemCast :  (0 f : Type -> Type)
+         -> (forall a . SafeCast a => f a)
          -> (e : ElementType s t)
-         -> JSIO t
-elemCast f A          = f
-elemCast f Area       = f
-elemCast f Audio      = f
-elemCast f Base       = f
-elemCast f Blockquote = f
-elemCast f Body       = f
-elemCast f Br         = f
-elemCast f Button     = f
-elemCast f Canvas     = f
-elemCast f Caption    = f
-elemCast f Col        = f
-elemCast f Colgroup   = f
-elemCast f Data       = f
-elemCast f Datalist   = f
-elemCast f Del        = f
-elemCast f Details    = f
-elemCast f Dialog     = f
-elemCast f Div        = f
-elemCast f Dl         = f
-elemCast f Embed      = f
-elemCast f FieldSet   = f
-elemCast f Form       = f
-elemCast f H1         = f
-elemCast f H2         = f
-elemCast f H3         = f
-elemCast f H4         = f
-elemCast f H5         = f
-elemCast f H6         = f
-elemCast f HR         = f
-elemCast f Html       = f
-elemCast f IFrame     = f
-elemCast f Ime        = f
-elemCast f Input      = f
-elemCast f Ins        = f
-elemCast f Label      = f
-elemCast f Legend     = f
-elemCast f Li         = f
-elemCast f Link       = f
-elemCast f Map        = f
-elemCast f Menu       = f
-elemCast f Meta       = f
-elemCast f Meter      = f
-elemCast f Object     = f
-elemCast f Ol         = f
-elemCast f OptGroup   = f
-elemCast f Option     = f
-elemCast f Output     = f
-elemCast f P          = f
-elemCast f Param      = f
-elemCast f Picture    = f
-elemCast f Pre        = f
-elemCast f Progress   = f
-elemCast f Q          = f
-elemCast f Script     = f
-elemCast f Select     = f
-elemCast f Slot       = f
-elemCast f Source     = f
-elemCast f Span       = f
-elemCast f Style      = f
-elemCast f Table      = f
-elemCast f Tbody      = f
-elemCast f Td         = f
-elemCast f Template   = f
-elemCast f TextArea   = f
-elemCast f Tfoot      = f
-elemCast f Th         = f
-elemCast f Thead      = f
-elemCast f Time       = f
-elemCast f Title      = f
-elemCast f Tr         = f
-elemCast f Track      = f
-elemCast f Ul         = f
-elemCast f Video      = f
+         -> f t
+elemCast _ fun A          = fun
+elemCast _ fun Area       = fun
+elemCast _ fun Audio      = fun
+elemCast _ fun Base       = fun
+elemCast _ fun Blockquote = fun
+elemCast _ fun Body       = fun
+elemCast _ fun Br         = fun
+elemCast _ fun Button     = fun
+elemCast _ fun Canvas     = fun
+elemCast _ fun Caption    = fun
+elemCast _ fun Col        = fun
+elemCast _ fun Colgroup   = fun
+elemCast _ fun Data       = fun
+elemCast _ fun Datalist   = fun
+elemCast _ fun Del        = fun
+elemCast _ fun Details    = fun
+elemCast _ fun Dialog     = fun
+elemCast _ fun Div        = fun
+elemCast _ fun Dl         = fun
+elemCast _ fun Embed      = fun
+elemCast _ fun FieldSet   = fun
+elemCast _ fun Form       = fun
+elemCast _ fun H1         = fun
+elemCast _ fun H2         = fun
+elemCast _ fun H3         = fun
+elemCast _ fun H4         = fun
+elemCast _ fun H5         = fun
+elemCast _ fun H6         = fun
+elemCast _ fun HR         = fun
+elemCast _ fun Html       = fun
+elemCast _ fun IFrame     = fun
+elemCast _ fun Ime        = fun
+elemCast _ fun Input      = fun
+elemCast _ fun Ins        = fun
+elemCast _ fun Label      = fun
+elemCast _ fun Legend     = fun
+elemCast _ fun Li         = fun
+elemCast _ fun Link       = fun
+elemCast _ fun Map        = fun
+elemCast _ fun Menu       = fun
+elemCast _ fun Meta       = fun
+elemCast _ fun Meter      = fun
+elemCast _ fun Object     = fun
+elemCast _ fun Ol         = fun
+elemCast _ fun OptGroup   = fun
+elemCast _ fun Option     = fun
+elemCast _ fun Output     = fun
+elemCast _ fun P          = fun
+elemCast _ fun Param      = fun
+elemCast _ fun Picture    = fun
+elemCast _ fun Pre        = fun
+elemCast _ fun Progress   = fun
+elemCast _ fun Q          = fun
+elemCast _ fun Script     = fun
+elemCast _ fun Select     = fun
+elemCast _ fun Slot       = fun
+elemCast _ fun Source     = fun
+elemCast _ fun Span       = fun
+elemCast _ fun Style      = fun
+elemCast _ fun Table      = fun
+elemCast _ fun Tbody      = fun
+elemCast _ fun Td         = fun
+elemCast _ fun Template   = fun
+elemCast _ fun TextArea   = fun
+elemCast _ fun Tfoot      = fun
+elemCast _ fun Th         = fun
+elemCast _ fun Thead      = fun
+elemCast _ fun Time       = fun
+elemCast _ fun Title      = fun
+elemCast _ fun Tr         = fun
+elemCast _ fun Track      = fun
+elemCast _ fun Ul         = fun
+elemCast _ fun Video      = fun
 
 ||| Creates a new element using the given `ElementType`'s `tag`
 ||| and casting the result to the corresponding HTML element type.
@@ -207,8 +204,8 @@ elemCast f Video      = f
 export
 createElement : {tag : _} -> (e : ElementType tag t) -> JSIO t
 createElement e =
-   elemCast ( castingTo #"JS.Dom..createElement [\#{tag}]"# $
-              document >>= (`createElement'` tag)) e
+   elemCast JSIO ( castingTo #"JS.Dom.createElement [\#{tag}]"# $
+                   document >>= (`createElement'` tag)) e
 
 ||| Like `createElement` but applies the given set of
 ||| modifiers. This is especially useful for setting an element's
@@ -221,6 +218,26 @@ newElement :  {tag : _}
 newElement e mods = do res <- createElement e
                        for_ mods \m => m res
                        pure res
+
+--------------------------------------------------------------------------------
+--          Finding Elements
+--------------------------------------------------------------------------------
+
+export
+getElementById : String -> JSIO (Maybe Element)
+getElementById s = getElementById !document s
+
+export
+castElementById_ : SafeCast a => String -> JSIO (Maybe a)
+castElementById_ = map (>>= safeCast) . getElementById
+
+export
+castElementById : (0 a : Type) -> SafeCast a => String -> JSIO (Maybe a)
+castElementById _ = castElementById_
+
+export
+htmlElementById : ElementType tag a -> String -> JSIO (Maybe a)
+htmlElementById e s = elemCast (JSIO . Maybe) (castElementById_ s) e
 
 --------------------------------------------------------------------------------
 --          Callbacks
