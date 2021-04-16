@@ -157,6 +157,10 @@ undeforToOptional : UndefOr a -> Optional a
 undeforToOptional v = if isUndefined v then Undef else Def (believe_me v)
 
 export
+undeforToMaybe : UndefOr a -> Maybe a
+undeforToMaybe v = if isUndefined v then Nothing else Just (believe_me v)
+
+export
 ToFFI a b => ToFFI (Optional a) (UndefOr b) where
   toFFI = optionalToUndefOr . map toFFI
 
