@@ -96,12 +96,3 @@ unMaybe callSite io = do Just a <- io
 ||| See [spec](https://html.spec.whatwg.org/#windowproxy)
 export
 data WindowProxy : Type where [external]
-
---------------------------------------------------------------------------------
---          Aliases
---------------------------------------------------------------------------------
-
-||| A String alias used in some CSS functions.
-public export
-0 CSSOMString : Type
-CSSOMString = String

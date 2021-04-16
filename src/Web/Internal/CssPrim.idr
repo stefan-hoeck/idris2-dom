@@ -21,7 +21,7 @@ namespace CSSGroupingRule
   export
   %foreign "browser:lambda:(x,a,b)=>x.insertRule(a,b)"
   prim__insertRule :  CSSGroupingRule
-                   -> CSSOMString
+                   -> String
                    -> UndefOr UInt32
                    -> PrimIO UInt32
 
@@ -43,7 +43,7 @@ namespace CSSMarginRule
   
   export
   %foreign "browser:lambda:x=>x.name"
-  prim__name : CSSMarginRule -> PrimIO CSSOMString
+  prim__name : CSSMarginRule -> PrimIO String
   
   export
   %foreign "browser:lambda:x=>x.style"
@@ -53,22 +53,22 @@ namespace CSSNamespaceRule
   
   export
   %foreign "browser:lambda:x=>x.namespaceURI"
-  prim__namespaceURI : CSSNamespaceRule -> PrimIO CSSOMString
+  prim__namespaceURI : CSSNamespaceRule -> PrimIO String
   
   export
   %foreign "browser:lambda:x=>x.prefix"
-  prim__prefix : CSSNamespaceRule -> PrimIO CSSOMString
+  prim__prefix : CSSNamespaceRule -> PrimIO String
 
 namespace CSSPageRule
   
   export
   %foreign "browser:lambda:x=>x.selectorText"
-  prim__selectorText : CSSPageRule -> PrimIO CSSOMString
+  prim__selectorText : CSSPageRule -> PrimIO String
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.selectorText = v}"
-  prim__setSelectorText : CSSPageRule -> CSSOMString -> PrimIO ()
+  prim__setSelectorText : CSSPageRule -> String -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.style"
@@ -82,18 +82,18 @@ namespace CSSPseudoElement
   
   export
   %foreign "browser:lambda:x=>x.type"
-  prim__type : CSSPseudoElement -> PrimIO CSSOMString
+  prim__type : CSSPseudoElement -> PrimIO String
 
 namespace CSSRule
   
   export
   %foreign "browser:lambda:x=>x.cssText"
-  prim__cssText : CSSRule -> PrimIO CSSOMString
+  prim__cssText : CSSRule -> PrimIO String
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.cssText = v}"
-  prim__setCssText : CSSRule -> CSSOMString -> PrimIO ()
+  prim__setCssText : CSSRule -> String -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.parentRule"
@@ -121,21 +121,21 @@ namespace CSSStyleDeclaration
   
   export
   %foreign "browser:lambda:x=>x.cssFloat"
-  prim__cssFloat : CSSStyleDeclaration -> PrimIO CSSOMString
+  prim__cssFloat : CSSStyleDeclaration -> PrimIO String
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.cssFloat = v}"
-  prim__setCssFloat : CSSStyleDeclaration -> CSSOMString -> PrimIO ()
+  prim__setCssFloat : CSSStyleDeclaration -> String -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.cssText"
-  prim__cssText : CSSStyleDeclaration -> PrimIO CSSOMString
+  prim__cssText : CSSStyleDeclaration -> PrimIO String
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.cssText = v}"
-  prim__setCssText : CSSStyleDeclaration -> CSSOMString -> PrimIO ()
+  prim__setCssText : CSSStyleDeclaration -> String -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.length"
@@ -147,44 +147,38 @@ namespace CSSStyleDeclaration
   
   export
   %foreign "browser:lambda:(x,a)=>x.getPropertyPriority(a)"
-  prim__getPropertyPriority :  CSSStyleDeclaration
-                            -> CSSOMString
-                            -> PrimIO CSSOMString
+  prim__getPropertyPriority : CSSStyleDeclaration -> String -> PrimIO String
   
   export
   %foreign "browser:lambda:(x,a)=>x.getPropertyValue(a)"
-  prim__getPropertyValue :  CSSStyleDeclaration
-                         -> CSSOMString
-                         -> PrimIO CSSOMString
+  prim__getPropertyValue : CSSStyleDeclaration -> String -> PrimIO String
   
   export
   %foreign "browser:lambda:(x,a)=>x.item(a)"
-  prim__item : CSSStyleDeclaration -> UInt32 -> PrimIO CSSOMString
+  prim__item : CSSStyleDeclaration -> UInt32 -> PrimIO String
   
   export
   %foreign "browser:lambda:(x,a)=>x.removeProperty(a)"
-  prim__removeProperty :  CSSStyleDeclaration
-                       -> CSSOMString
-                       -> PrimIO CSSOMString
+  prim__removeProperty : CSSStyleDeclaration -> String -> PrimIO String
   
   export
   %foreign "browser:lambda:(x,a,b,c)=>x.setProperty(a,b,c)"
   prim__setProperty :  CSSStyleDeclaration
-                    -> CSSOMString
-                    -> CSSOMString
-                    -> UndefOr CSSOMString
+                    -> String
+                    -> String
+                    -> UndefOr String
                     -> PrimIO ()
 
 namespace CSSStyleRule
   
   export
   %foreign "browser:lambda:x=>x.selectorText"
-  prim__selectorText : CSSStyleRule -> PrimIO CSSOMString
+  prim__selectorText : CSSStyleRule -> PrimIO String
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.selectorText = v}"
-  prim__setSelectorText : CSSStyleRule -> CSSOMString -> PrimIO ()
+  prim__setSelectorText : CSSStyleRule -> String -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.style"
@@ -218,10 +212,7 @@ namespace CSSStyleSheet
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.insertRule(a,b)"
-  prim__insertRule :  CSSStyleSheet
-                   -> CSSOMString
-                   -> UndefOr UInt32
-                   -> PrimIO UInt32
+  prim__insertRule : CSSStyleSheet -> String -> UndefOr UInt32 -> PrimIO UInt32
   
   export
   %foreign "browser:lambda:(x,a)=>x.removeRule(a)"
@@ -235,24 +226,24 @@ namespace MediaList
   
   export
   %foreign "browser:lambda:x=>x.mediaText"
-  prim__mediaText : MediaList -> PrimIO CSSOMString
+  prim__mediaText : MediaList -> PrimIO String
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.mediaText = v}"
-  prim__setMediaText : MediaList -> CSSOMString -> PrimIO ()
+  prim__setMediaText : MediaList -> String -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a)=>x.appendMedium(a)"
-  prim__appendMedium : MediaList -> CSSOMString -> PrimIO ()
+  prim__appendMedium : MediaList -> String -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a)=>x.deleteMedium(a)"
-  prim__deleteMedium : MediaList -> CSSOMString -> PrimIO ()
+  prim__deleteMedium : MediaList -> String -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a)=>x.item(a)"
-  prim__item : MediaList -> UInt32 -> PrimIO (Nullable CSSOMString)
+  prim__item : MediaList -> UInt32 -> PrimIO (Nullable String)
 
 namespace StyleSheet
   
@@ -288,7 +279,7 @@ namespace StyleSheet
   
   export
   %foreign "browser:lambda:x=>x.type"
-  prim__type : StyleSheet -> PrimIO CSSOMString
+  prim__type : StyleSheet -> PrimIO String
 
 namespace StyleSheetList
   

@@ -5814,7 +5814,7 @@ namespace Window
                    => {auto 0 _ : Elem Element (Types t1)}
                    -> (obj : Window)
                    -> (elt : t1)
-                   -> (pseudoElt : Optional (Maybe CSSOMString))
+                   -> (pseudoElt : Optional (Maybe String))
                    -> JSIO CSSStyleDeclaration
   getComputedStyle a b c = primJS
                          $ Window.prim__getComputedStyle a (up b) (toFFI c)

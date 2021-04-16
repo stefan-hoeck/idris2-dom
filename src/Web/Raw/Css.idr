@@ -29,7 +29,7 @@ namespace CSSGroupingRule
   insertRule :  JSType t1
              => {auto 0 _ : Elem CSSGroupingRule (Types t1)}
              -> (obj : t1)
-             -> (rule : CSSOMString)
+             -> (rule : String)
              -> (index : Optional UInt32)
              -> JSIO UInt32
   insertRule a b c = primJS
@@ -39,7 +39,7 @@ namespace CSSGroupingRule
   insertRule' :  JSType t1
               => {auto 0 _ : Elem CSSGroupingRule (Types t1)}
               -> (obj : t1)
-              -> (rule : CSSOMString)
+              -> (rule : String)
               -> JSIO UInt32
   insertRule' a b = primJS $ CSSGroupingRule.prim__insertRule (up a) b undef
 
@@ -60,7 +60,7 @@ namespace CSSImportRule
 namespace CSSMarginRule
   
   export
-  name : (obj : CSSMarginRule) -> JSIO CSSOMString
+  name : (obj : CSSMarginRule) -> JSIO String
   name a = primJS $ CSSMarginRule.prim__name a
   
   export
@@ -70,17 +70,17 @@ namespace CSSMarginRule
 namespace CSSNamespaceRule
   
   export
-  namespaceURI : (obj : CSSNamespaceRule) -> JSIO CSSOMString
+  namespaceURI : (obj : CSSNamespaceRule) -> JSIO String
   namespaceURI a = primJS $ CSSNamespaceRule.prim__namespaceURI a
   
   export
-  prefix_ : (obj : CSSNamespaceRule) -> JSIO CSSOMString
+  prefix_ : (obj : CSSNamespaceRule) -> JSIO String
   prefix_ a = primJS $ CSSNamespaceRule.prim__prefix a
 
 namespace CSSPageRule
   
   export
-  selectorText : CSSPageRule -> Attribute True I CSSOMString
+  selectorText : CSSPageRule -> Attribute True I String
   selectorText v = fromPrim "CSSPageRule.getselectorText"
                             prim__selectorText
                             prim__setSelectorText
@@ -97,7 +97,7 @@ namespace CSSPseudoElement
   element a = primJS $ CSSPseudoElement.prim__element a
   
   export
-  type : (obj : CSSPseudoElement) -> JSIO CSSOMString
+  type : (obj : CSSPseudoElement) -> JSIO String
   type a = primJS $ CSSPseudoElement.prim__type a
 
 namespace CSSRule
@@ -138,7 +138,7 @@ namespace CSSRule
   cssText :  JSType t
           => {auto 0 _ : Elem CSSRule (Types t)}
           -> t
-          -> Attribute True I CSSOMString
+          -> Attribute True I String
   cssText v = fromPrim "CSSRule.getcssText"
                        prim__cssText
                        prim__setCssText
@@ -179,14 +179,14 @@ namespace CSSRuleList
 namespace CSSStyleDeclaration
   
   export
-  cssFloat : CSSStyleDeclaration -> Attribute True I CSSOMString
+  cssFloat : CSSStyleDeclaration -> Attribute True I String
   cssFloat v = fromPrim "CSSStyleDeclaration.getcssFloat"
                         prim__cssFloat
                         prim__setCssFloat
                         v
   
   export
-  cssText : CSSStyleDeclaration -> Attribute True I CSSOMString
+  cssText : CSSStyleDeclaration -> Attribute True I String
   cssText v = fromPrim "CSSStyleDeclaration.getcssText"
                        prim__cssText
                        prim__setCssText
@@ -203,40 +203,40 @@ namespace CSSStyleDeclaration
   
   export
   getPropertyPriority :  (obj : CSSStyleDeclaration)
-                      -> (property : CSSOMString)
-                      -> JSIO CSSOMString
+                      -> (property : String)
+                      -> JSIO String
   getPropertyPriority a b = primJS
                           $ CSSStyleDeclaration.prim__getPropertyPriority a b
   
   export
   getPropertyValue :  (obj : CSSStyleDeclaration)
-                   -> (property : CSSOMString)
-                   -> JSIO CSSOMString
+                   -> (property : String)
+                   -> JSIO String
   getPropertyValue a b = primJS $ CSSStyleDeclaration.prim__getPropertyValue a b
   
   export
-  item : (obj : CSSStyleDeclaration) -> (index : UInt32) -> JSIO CSSOMString
+  item : (obj : CSSStyleDeclaration) -> (index : UInt32) -> JSIO String
   item a b = primJS $ CSSStyleDeclaration.prim__item a b
   
   export
   removeProperty :  (obj : CSSStyleDeclaration)
-                 -> (property : CSSOMString)
-                 -> JSIO CSSOMString
+                 -> (property : String)
+                 -> JSIO String
   removeProperty a b = primJS $ CSSStyleDeclaration.prim__removeProperty a b
   
   export
   setProperty :  (obj : CSSStyleDeclaration)
-              -> (property : CSSOMString)
-              -> (value : CSSOMString)
-              -> (priority : Optional CSSOMString)
+              -> (property : String)
+              -> (value : String)
+              -> (priority : Optional String)
               -> JSIO ()
   setProperty a b c d = primJS
                       $ CSSStyleDeclaration.prim__setProperty a b c (toFFI d)
 
   export
   setProperty' :  (obj : CSSStyleDeclaration)
-               -> (property : CSSOMString)
-               -> (value : CSSOMString)
+               -> (property : String)
+               -> (value : String)
                -> JSIO ()
   setProperty' a b c = primJS
                      $ CSSStyleDeclaration.prim__setProperty a b c undef
@@ -244,7 +244,7 @@ namespace CSSStyleDeclaration
 namespace CSSStyleRule
   
   export
-  selectorText : CSSStyleRule -> Attribute True I CSSOMString
+  selectorText : CSSStyleRule -> Attribute True I String
   selectorText v = fromPrim "CSSStyleRule.getselectorText"
                             prim__selectorText
                             prim__setSelectorText
@@ -288,13 +288,13 @@ namespace CSSStyleSheet
   
   export
   insertRule :  (obj : CSSStyleSheet)
-             -> (rule : CSSOMString)
+             -> (rule : String)
              -> (index : Optional UInt32)
              -> JSIO UInt32
   insertRule a b c = primJS $ CSSStyleSheet.prim__insertRule a b (toFFI c)
 
   export
-  insertRule' : (obj : CSSStyleSheet) -> (rule : CSSOMString) -> JSIO UInt32
+  insertRule' : (obj : CSSStyleSheet) -> (rule : String) -> JSIO UInt32
   insertRule' a b = primJS $ CSSStyleSheet.prim__insertRule a b undef
   
   export
@@ -312,22 +312,22 @@ namespace MediaList
   length a = primJS $ MediaList.prim__length a
   
   export
-  mediaText : MediaList -> Attribute True I CSSOMString
+  mediaText : MediaList -> Attribute True I String
   mediaText v = fromPrim "MediaList.getmediaText"
                          prim__mediaText
                          prim__setMediaText
                          v
   
   export
-  appendMedium : (obj : MediaList) -> (medium : CSSOMString) -> JSIO ()
+  appendMedium : (obj : MediaList) -> (medium : String) -> JSIO ()
   appendMedium a b = primJS $ MediaList.prim__appendMedium a b
   
   export
-  deleteMedium : (obj : MediaList) -> (medium : CSSOMString) -> JSIO ()
+  deleteMedium : (obj : MediaList) -> (medium : String) -> JSIO ()
   deleteMedium a b = primJS $ MediaList.prim__deleteMedium a b
   
   export
-  item : (obj : MediaList) -> (index : UInt32) -> JSIO (Maybe CSSOMString)
+  item : (obj : MediaList) -> (index : UInt32) -> JSIO (Maybe String)
   item a b = tryJS "MediaList.item" $ MediaList.prim__item a b
 
 namespace StyleSheet
@@ -382,7 +382,7 @@ namespace StyleSheet
   type :  JSType t1
        => {auto 0 _ : Elem StyleSheet (Types t1)}
        -> (obj : t1)
-       -> JSIO CSSOMString
+       -> JSIO String
   type a = primJS $ StyleSheet.prim__type (up a)
 
 namespace StyleSheetList

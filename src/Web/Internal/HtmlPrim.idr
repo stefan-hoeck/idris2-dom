@@ -6430,7 +6430,7 @@ namespace Window
   %foreign "browser:lambda:(x,a,b)=>x.getComputedStyle(a,b)"
   prim__getComputedStyle :  Window
                          -> Element
-                         -> UndefOr (Nullable CSSOMString)
+                         -> UndefOr (Nullable String)
                          -> PrimIO CSSStyleDeclaration
   
   export

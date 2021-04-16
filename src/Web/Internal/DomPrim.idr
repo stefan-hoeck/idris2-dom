@@ -820,7 +820,7 @@ namespace Element
   
   export
   %foreign "browser:lambda:(x,a)=>x.pseudo(a)"
-  prim__pseudo : Element -> CSSOMString -> PrimIO (Nullable CSSPseudoElement)
+  prim__pseudo : Element -> String -> PrimIO (Nullable CSSPseudoElement)
   
   export
   %foreign "browser:lambda:(x,a)=>x.removeAttribute(a)"

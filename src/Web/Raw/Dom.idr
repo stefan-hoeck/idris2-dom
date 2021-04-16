@@ -1355,7 +1355,7 @@ namespace Element
   pseudo :  JSType t1
          => {auto 0 _ : Elem Element (Types t1)}
          -> (obj : t1)
-         -> (type : CSSOMString)
+         -> (type : String)
          -> JSIO (Maybe CSSPseudoElement)
   pseudo a b = tryJS "Element.pseudo" $ Element.prim__pseudo (up a) b
   
