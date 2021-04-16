@@ -43,9 +43,9 @@ found at `srd/Doc`. It can be built by running `idris2 --build doc.ipkg`
 and tested afterwards by loading `doc.html` in one's favorite browser.
 
 #### Tests
-There is also `test.ipkg`, but tests are not properly set up right now.
-However, this is on my todo list, given that `JS` is based on quite a
-few foreign function calls.
+There is also `test.ipkg` running several Hedgehog property tests.
+This should be built and run with node, as it mainly tests the
+Javascript utilities working on both Javascript backends.
 
 ### Dependencies
 
