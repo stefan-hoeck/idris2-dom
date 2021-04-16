@@ -3,6 +3,7 @@ module JS.Inheritance
 import Control.Monad.Either
 import JS.Util
 import Data.List.Elem
+import Data.String
 import Data.SOP
 
 --------------------------------------------------------------------------------
@@ -134,6 +135,15 @@ SafeCast Double where
 export
 SafeCast String where
   safeCast = unsafeCastOnTypeof "string"
+
+-- As far as I understand, there are no "single characters"
+-- in Javascript, only strings of length 1. Thats why we go via
+-- String here
+export
+SafeCast Char where
+  safeCast v = safeCast v >>= \s => case strM s of
+                                         StrCons x "" => Just x
+                                         _            => Nothing
 
 export
 bounded : Num a => (min : Integer) -> (max : Integer) -> any -> Maybe a

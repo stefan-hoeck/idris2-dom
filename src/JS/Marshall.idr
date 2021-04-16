@@ -39,6 +39,9 @@ export
 ToFFI Int Int where toFFI = id
 
 export
+ToFFI Char Char where toFFI = id
+
+export
 ToFFI Integer Integer where toFFI = id
 
 export
@@ -70,6 +73,9 @@ FromFFI Bits32 Bits32 where fromFFI = Just
 
 export
 FromFFI Bits64 Bits64 where fromFFI = Just
+
+export
+FromFFI Char Char where fromFFI = Just
 
 export
 FromFFI Int Int where fromFFI = Just
