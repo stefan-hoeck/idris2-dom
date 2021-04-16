@@ -49,6 +49,7 @@ consoleLog s = primIO $ prim__consoleLog s
 
 public export
 data JSErr : Type where
+  Caught    : (msg : String) -> JSErr
   CastErr   : (inFunction : String) -> (value : a) -> JSErr
   IsNothing : (callSite : String) -> JSErr
 
@@ -61,6 +62,8 @@ dispErr (CastErr inFunction value) = #"""
 
 dispErr (IsNothing callSite) =
   #"Trying to extract a value from Nothing at \#{callSite}"#
+
+dispErr (Caught msg) = msg
 
 
 public export
@@ -88,6 +91,43 @@ unMaybe : (callSite : String) -> JSIO (Maybe a) -> JSIO a
 unMaybe callSite io = do Just a <- io
                            | Nothing => throwError $ IsNothing callSite
                          pure a
+
+--------------------------------------------------------------------------------
+--          Error handling
+--------------------------------------------------------------------------------
+
+%foreign "javascript:lambda:(u,io) => try { return [1,io()]; } catch (e) { return [0,String(e)] }"
+prim__tryIO : IO a -> PrimIO AnyPtr
+
+%foreign "javascript:lambda:(x,y,f,v) => try { return [1,f(v)]; } catch (e) { return [0,String(e)] }"
+prim__try : (a -> b) -> a -> AnyPtr
+
+%foreign "javascript:lambda:x => x[0]"
+prim__errTag : AnyPtr -> Double
+
+%foreign "javascript:lambda:x => x[1]"
+prim__errVal : AnyPtr -> AnyPtr
+
+toEither : AnyPtr -> Either JSErr a
+toEither ptr = if 0.0 == prim__errTag ptr
+                  then Right (believe_me (prim__errVal ptr))
+                  else Left $ Caught (believe_me (prim__errVal ptr))
+
+||| Tries to execute an IO action, wrapping any runtime exception
+||| in its stringified version in a `Left . Caught`.
+export
+tryIO : IO a -> JSIO a
+tryIO io = do ptr <- primIO $ prim__tryIO io
+              if 0.0 == prim__errTag ptr
+                 then pure (believe_me (prim__errVal ptr))
+                 else throwError $ Caught (believe_me (prim__errVal ptr))
+
+||| Error handling in pure functions. This should only be used
+||| in foreign function calls that might fail but or otherwise
+||| pure calculations.
+export
+try : (a -> b) -> a -> Either JSErr b
+try f a = toEither $ prim__try f a
 
 --------------------------------------------------------------------------------
 --          Common external types
