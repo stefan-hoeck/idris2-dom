@@ -30,7 +30,7 @@ export
 ToFFI Bits16 Bits16 where toFFI = id
 
 export
-ToFFI Bits32 Bits32 where toFFI = id
+ToFFI Bits32 Double where toFFI = fromInteger . cast
 
 export
 ToFFI Bits64 Bits64 where toFFI = id
