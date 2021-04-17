@@ -19,55 +19,121 @@ import JS.Util
 --          FFI
 --------------------------------------------------------------------------------
 
--- Note: on backend function, the type parameter is passed
--- as an additional erased argument of type `undefined`
--- to the lambda. The lambda therefore needs one more
--- argument.
-%foreign "javascript:lambda:(u,x) => x.length"
-prim__arrayLengthIO : forall arr . arr -> PrimIO UInt32
+-- Note: in the backend, type parameters are passed
+-- as additional erased arguments of type `undefined`
+-- to the lambdas. The lambdas therefore need to take
+-- additional arguments, based on the number of type parameters.
 
-%foreign "javascript:lambda:(u,x) => x.length"
-prim__arrayLength : forall arr . arr -> UInt32
 
+-- determines the size of a (potentially) mutable Array-like object.
+%foreign "javascript:lambda:(u,x) => x.length"
+prim__sizeIO : forall arr . arr -> PrimIO UInt32
+
+-- reads a value at the given index from a (potentially) mutable Array-like object.
 %foreign "javascript:lambda:(u,v,arr,n) => arr[n]"
-prim__arrayGet : forall a,arr . arr -> UInt32 -> PrimIO (UndefOr a)
+prim__readIO : forall a,arr . arr -> UInt32 -> PrimIO (UndefOr a)
 
+-- determines the size of an immutable Array-like object.
+%foreign "javascript:lambda:(u,x) => x.length"
+prim__size : forall arr . arr -> UInt32
+
+-- reads a value at the given index from an immutable Array-like object.
+%foreign "javascript:lambda:(u,v,arr,n) => arr[n]"
+prim__read : forall a,arr . arr -> UInt32 -> UndefOr a
+
+-- writes a value to a mutable array
 %foreign "javascript:lambda:(u,arr,n,v) => arr[n] = v"
-prim__arraySet : forall a . ArrayData a -> UInt32 -> a -> PrimIO ()
+prim__writeIO : forall a . ArrayData a -> UInt32 -> a -> PrimIO ()
 
+-- creates a new mutable array of the given size
 %foreign "javascript:lambda:(u,n) => new Array(n)"
-prim__newArray : forall a . UInt32 -> PrimIO (ArrayData a)
+prim__newArrayIO : forall a . UInt32 -> PrimIO (ArrayData a)
 
+-- determines, whether the given pointer is an array.
 %foreign "javascript:lambda:x => Array.isArray(x)"
 prim__isArray : AnyPtr -> Boolean
 
+-- clones an Array-like object, thus creating a new array.
 %foreign "javascript:lambda:(u,x) => Array.from(x)"
 prim__fromArrayLikeIO : forall arr . arr -> PrimIO (ArrayData a)
 
-%foreign "javascript:lambda:(u,x) => Array.from(x)"
-prim__fromArrayLike : forall arr . arr -> ArrayData a
-
 --------------------------------------------------------------------------------
---          IOArrayLike
+--          ArrayLike
 --------------------------------------------------------------------------------
 
+||| Witness, that a given value represents an Array-like object.
+||| Array-like objects must provide the following functionality in
+||| the Javascript backend:
+|||
+|||  * a `length` property, returning the value's length as an unsigned 32bit
+|||    integer
+|||  * the ability to access values of the given `elem` type`
+|||    at a given index by means of the following syntax: `arr[12]`.
+|||
+||| Javascript Arrays are, of course, Array-like, as are Strings.
+||| Some other Array-likes include `NodeList` in the DOM.
+|||
+||| Note, that this is just a witnessing interface. All functionality
+||| is already implemented through functions `sizeIO` and `readIO`.
+||| It is possible to clone an `ArrayLike` to an actual Javascript
+||| Array by invoking `Array.from(v)` at the backend. This functionality
+||| is available through `arrayDataFrom` for mutable arrays and
+||| `arrayFrom` for immutable arrays.
 export
-interface IOArrayLike (0 arr : Type) (0 elem : Type) | arr where
+interface ArrayLike (0 arr : Type) (0 elem : Type) | arr where
 
 export
-sizeIO : (HasIO io, IOArrayLike arr elem) => arr -> io UInt32
-sizeIO v = primIO $ prim__arrayLengthIO v
+sizeIO : (HasIO io, ArrayLike arr elem) => arr -> io UInt32
+sizeIO v = primIO $ prim__sizeIO v
 
 export
-readIO : (HasIO io, IOArrayLike arr e) => arr -> UInt32 -> io (Maybe e)
-readIO v ix = undeforToMaybe <$> (primIO $ prim__arrayGet v ix)
+readIO : (HasIO io, ArrayLike arr e) => arr -> UInt32 -> io (Maybe e)
+readIO v ix = undeforToMaybe <$> (primIO $ prim__readIO v ix)
+
+export
+ArrayLike String Char where
+
+export
+ArrayLike (ArrayData a) a where
+
+||| Witness, that a given value represents an immutable
+||| Array-like object. The same rules as for `ArrayLike`
+||| hold, with the addition, that values of types implementing
+||| this interface must be immutable.
+||| It is then safe to provide pure versions of `readIO` and `sizeIO`.
+export
+interface ArrayLike arr elem => ImmutableArrayLike arr elem | arr where
+
+export
+read : ImmutableArrayLike arr elem => arr -> UInt32 -> Maybe elem
+read arr n = undeforToMaybe $ prim__read arr n
+
+export
+size : ImmutableArrayLike arr elem => arr -> UInt32
+size arr = prim__size arr
+
+export
+sameElements : (ImmutableArrayLike arr elem, Eq elem) =>
+               arr -> arr -> Bool
+sameElements a1 a2 = size a1 == size a2 && run 0 (size a1)
+  where run : UInt32 -> UInt32 -> Bool
+        run x y = if x >= y then True
+                  else if read a1 x /= read a2 x then False
+                  else run (x+1) y
+
+export
+arrayToList : ImmutableArrayLike arr elem => arr -> List (Maybe elem)
+arrayToList a = run 0 (size a)
+  where run : UInt32 -> UInt32 -> List (Maybe elem)
+        run x y = if x >= y then []
+                  else read a x :: run (1+1) y
+
+export
+ImmutableArrayLike String Char where
 
 --------------------------------------------------------------------------------
 --          IO Arrays
 --------------------------------------------------------------------------------
-
-export
-IOArrayLike (ArrayData a) a where
 
 export
 ToFFI (ArrayData a) (ArrayData a) where toFFI = id
@@ -80,80 +146,100 @@ isArray : any -> Bool
 isArray v = eqv true $ prim__isArray (toFFI $ MkAny v)
 
 export
-arraySet : HasIO io => ArrayData a -> UInt32 -> a -> io ()
-arraySet arr ix v = primIO $  prim__arraySet arr ix v
+writeIO : HasIO io => ArrayData a -> UInt32 -> a -> io ()
+writeIO arr ix v = primIO $  prim__writeIO arr ix v
 
 export
 newArrayIO : HasIO io => UInt32 -> io (ArrayData a)
-newArrayIO n = primIO $  prim__newArray n
+newArrayIO n = primIO $  prim__newArrayIO n
 
 export
-fromIOArrayLike : (HasIO io, IOArrayLike arr e) => arr -> io (ArrayData e)
-fromIOArrayLike arr = primIO $ prim__fromArrayLikeIO arr
+arrayDataFrom : (HasIO io, ArrayLike arr e) => arr -> io (ArrayData e)
+arrayDataFrom arr = primIO $ prim__fromArrayLikeIO arr
 
 --------------------------------------------------------------------------------
 --          Arrays and Lists
 --------------------------------------------------------------------------------
 
 export
-fromList : HasIO io => List a -> io (ArrayData a)
-fromList as = let len = the UInt32 (fromInteger $ natToInteger $ length as)
+fromListIO : HasIO io => List a -> io (ArrayData a)
+fromListIO as = let len = the UInt32 (fromInteger $ natToInteger $ length as)
                in newArrayIO len >>= fill 0 as
   where fill : UInt32 -> List a -> ArrayData a -> io (ArrayData a)
         fill _ []        arr = pure arr
-        fill n (x :: xs) arr = do arraySet arr n x
+        fill n (x :: xs) arr = do writeIO arr n x
                                   fill (n+1) xs arr
 
 export
-fromFoldable : (HasIO io, Foldable t) => t a -> io (ArrayData a)
-fromFoldable = fromList . toList
+fromFoldableIO : (HasIO io, Foldable t) => t a -> io (ArrayData a)
+fromFoldableIO = fromListIO . toList
 
 export
 ToFFI a b => ToFFI (List a) (IO $ ArrayData b)
-  where toFFI = fromList . map toFFI
+  where toFFI = fromListIO . map toFFI
 
 --------------------------------------------------------------------------------
 --          Immutable Arrays
 --------------------------------------------------------------------------------
 
--- Taken from Data.Linear.Array in contrib and adjusted to JS
-public export
-interface Array arr elem | arr where
-  read : (1 _ : arr) -> UInt32 -> Maybe elem
-  size : (1 _ : arr) -> UInt32
-
--- Mutable arrays which can be used linearly
--- Taken from Data.Linear.Array in contrib and adjusted to JS
-public export
-interface Array arr elem => MArray arr elem | arr where
-  newArray : (size : UInt32) -> (1 _ : (1 _ : arr) -> a) -> a
-  write : (1 _ : arr) -> UInt32 -> elem -> arr
-
-  mread : (1 _ : arr) -> Int -> Res (Maybe elem) (const arr)
-  msize : (1 _ : arr) -> Res UInt32 (const arr)
-
-||| A safe, immutable wrapper around a primitive array.
+||| An immutable array from a resource that guarantees, that
+||| this will not be modified any more.
+|||
+||| Typically, these are generated by freezing a `LinArray`
+||| or by cloning an `ArrayLike` value.
 export
-record IArray a where
-  constructor MkIArray
-  array : ArrayData a
+data IArray : Type -> Type where [external]
+
+%foreign "javascript:lambda:(u,arr,n,v) => { arr[n] = v; arr }"
+prim__write : forall a . IArray a -> UInt32 -> a -> IArray a
+
+%foreign "javascript:lambda:(u,n) => new Array(n)"
+prim__newArray : forall a . UInt32 -> IArray a
+
+export
+ArrayLike (IArray a) a where
+
+export
+ImmutableArrayLike (IArray a) a where
+
+export
+Eq a => Eq (IArray a) where
+  (==) = sameElements {elem = a}
+
+export
+Show a => Show (IArray a) where
+  showPrec p v = showCon p "fromList " (show $ arrayToList v)
 
 ||| A linear wrapper around a primitive array.
 export
 record LinArray a where
   constructor MkLinArray
-  array : ArrayData a
+  array : IArray a
 
 export
-Array (IArray a) a where
-  read (MkIArray arr) n = unsafePerformIO $ readIO arr n
-  size (MkIArray arr)   = unsafePerformIO $ sizeIO arr
+freeze : (1 _ : LinArray a) -> IArray a
+freeze (MkLinArray arr) = arr
 
 export
-Array (LinArray a) a where
-  read (MkLinArray arr) n = unsafePerformIO $ readIO arr n
-  size (MkLinArray arr)   = unsafePerformIO $ sizeIO arr
+newArray : (size : UInt32) -> (1 _ : (1 _ : LinArray x) -> a) -> a
+newArray size f = f (MkLinArray $ prim__newArray size)
 
 export
-MArray (LinArray a) a where
-  newArray size f = f (MkLinArray $ unsafePerformIO $ newArrayIO size)
+write : (1 _ : LinArray a) -> UInt32 -> a -> LinArray a
+write (MkLinArray arr) n v = MkLinArray $ prim__write arr n v
+
+export
+mread : (1 _ : LinArray a) -> UInt32 -> Res (Maybe a) (const $ LinArray a)
+mread (MkLinArray arr) n   = read arr n # MkLinArray arr
+
+export
+msize : (1 _ : LinArray a) -> Res UInt32 (const $ LinArray a)
+msize (MkLinArray arr)     = size arr # MkLinArray arr
+
+export
+fromList : List a -> IArray a
+fromList as = newArray (fromInteger . natToInteger $ length as)
+                       (run as 0)
+  where run : List a -> UInt32 -> (1 _ : LinArray a) -> IArray a
+        run [] _        linA = freeze linA
+        run (a :: as) n linA = run as (n+1) (write linA n a)
