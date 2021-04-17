@@ -93,7 +93,7 @@ signedIntegral name bits toInt =
            ]
 
 chck : Group -> IO ()
-chck = ignore . checkGroup . withTests 1000
+chck = ignore . checkGroup . withTests 100
 
 export
 test : IO ()
