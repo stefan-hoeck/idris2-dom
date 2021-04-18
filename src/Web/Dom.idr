@@ -240,8 +240,14 @@ htmlElementById : ElementType tag a -> String -> JSIO (Maybe a)
 htmlElementById e s = elemCast (JSIO . Maybe) (castElementById_ s) e
 
 --------------------------------------------------------------------------------
---          Callbacks
+--          Interfaces
 --------------------------------------------------------------------------------
+
+export
+ArrayLike NodeList Node where
+
+export
+ArrayLike DOMTokenList String where
 
 export
 Callback EventListener (Event -> JSIO ()) where

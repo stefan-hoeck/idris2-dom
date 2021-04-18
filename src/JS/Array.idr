@@ -147,7 +147,7 @@ prim__fromArrayLikeIO : forall arr . arr -> PrimIO (Array a)
 ||| Array by invoking `Array.from(v)` at the backend. This functionality
 ||| is available through `arrayDataFrom` for mutable arrays and
 ||| `arrayFrom` for immutable arrays.
-export
+public export
 interface ArrayLike (0 arr : Type) (0 elem : Type) | arr where
 
 export
@@ -169,7 +169,7 @@ ArrayLike (Array a) a where
 ||| hold, with the addition, that values of types implementing
 ||| this interface must be immutable.
 ||| It is then safe to provide pure versions of `readIO` and `sizeIO`.
-export
+public export
 interface ArrayLike arr elem => IArrayLike arr elem | arr where
 
 export
