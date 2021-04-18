@@ -271,7 +271,6 @@ export
 fromFoldableIO : (HasIO io, Foldable t) => t a -> io (Array a)
 fromFoldableIO = fromListIO . toList
 
--- TODO: Use immutable arrays for this
 export
 ToFFI a b => ToFFI (List a) (IO $ Array b)
   where toFFI = fromListIO . map toFFI
