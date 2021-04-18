@@ -8,6 +8,7 @@ module JS.Array
 
 import Control.Monad.Either
 import Decidable.Equality
+import Data.DPair
 import Data.List
 
 import JS.Any
@@ -30,6 +31,33 @@ implementation DecEq Bits32 where
              primitiveEq = believe_me (Refl {x})
              primitiveNotEq : forall x, y . x = y -> Void
              primitiveNotEq prf = believe_me {b = Void} ()
+
+--------------------------------------------------------------------------------
+--          Utilities
+--------------------------------------------------------------------------------
+
+public export
+Ix : Bits32 -> Type
+Ix n = Subset Bits32 \ix => ix < n = True
+
+public export
+len32 : List a -> Bits32
+len32 = fromInteger . natToInteger . length
+
+public export
+zipWithIndex : (as : List a) -> List (Ix $ len32 as, a) 
+zipWithIndex as = run 0 as
+  -- being pragmatic here and going via `believe_me`
+  where run : Bits32 -> List a -> List (Ix $ len32 as, a)
+        run _ []        = []
+        run n (x :: xs) =  (Element n $ believe_me (Refl {x}), x)
+                        :: run (n+1) xs
+
+public export
+toIx : (size : Bits32) -> Bits32 -> Maybe (Ix size)
+toIx size x = case decEq (x < size) True of
+                   Yes prf => Just $ Element x prf
+                   No  _   => Nothing
 
 --------------------------------------------------------------------------------
 --          FFI
@@ -129,11 +157,13 @@ size arr = fromInteger . cast $ prim__size arr
 
 export
 read : ImmutableArrayLike arr elem
-     => (elems : arr)
-     -> (ix : Bits32)
-     -> (0 prf : ix < size elems = True)
-     -> elem
-read elems ix _ = prim__read elems $ toFFI ix
+     => (elems : arr) -> (ix : Ix $ size elems) -> elem
+read elems (Element ix _) = prim__read elems $ toFFI ix
+
+export
+readMaybe : ImmutableArrayLike arr elem
+          => (elems : arr) -> Bits32 -> Maybe elem
+readMaybe elems = map (read elems) . toIx (size elems)
 
 export
 sameElements : (ImmutableArrayLike arr elem, Eq elem) =>
@@ -147,16 +177,31 @@ sameElements a1 a2 =
           case decEq (ix < size a1) True of
                No  _   => True
                Yes prf =>
-                 read a1 ix prf == read a2 ix (rewrite refl in prf) &&
+                 read a1 (Element ix prf) ==
+                   read a2 (Element ix (rewrite refl in prf)) &&
                  run refl (ix+1)
 
 export
+foldlArray :  ImmutableArrayLike arr elem
+           => (acc -> elem -> acc) -> acc -> arr -> acc
+foldlArray f ini arr = run 0 ini
+  where run : Bits32 -> acc -> acc
+        run n res = case readMaybe arr n of
+                         Just el => run (n+1) (f res el)
+                         Nothing => res
+
+export
+foldrArray :  ImmutableArrayLike arr elem
+           => (elem -> acc -> acc) -> acc -> arr -> acc
+foldrArray f ini arr = run 0
+  where run : Bits32 -> acc
+        run n = case readMaybe arr n of
+                     Just el => f el $ run (n+1)
+                     Nothing => ini
+
+export
 arrayToList : ImmutableArrayLike arr elem => arr -> List elem
-arrayToList a = run 0
-  where run : Bits32 -> List elem
-        run ix = case decEq (ix < size a) True of
-                      Yes refl => read a ix refl :: run (ix+1)
-                      No  _    => Nil
+arrayToList = foldrArray (::) Nil
 
 export
 ImmutableArrayLike String Char where
@@ -219,6 +264,12 @@ prim__write : forall a . Array a -> Double -> a -> Array a
 %foreign "javascript:lambda:(u,n,a) => { var res = new Array(n); return res.fill(a) }"
 prim__newArray : forall a . Double -> a -> Array a
 
+%foreign "javascript:lambda:(u,n) => { return new Array(n) }"
+prim__undefArray : forall a . Double -> Array a
+
+%foreign "javascript:lambda:u => { return = new Array(0) }"
+prim__emptyArray : forall a . Array a
+
 %foreign "javascript:lambda:(u,x,v) => Array.from(v)"
 prim__fromArray : forall arr . arr -> Array a
 
@@ -231,6 +282,21 @@ record LinArray (size : Bits32) (a : Type) where
 export
 thaw : (1 _ : LinArray size a) -> IO (Array a)
 thaw (MkLinArray arr) = pure arr
+
+-- This must not leak out, as we allocate a new array of
+-- `undefined` values. It is used to create an array by
+-- iteratively filling it up.
+private
+undefArray : (size : Bits32) -> (1 _ : (1 _ : LinArray size a) -> b) -> b
+undefArray size f = f (MkLinArray $ prim__undefArray (toFFI size))
+
+private
+unsafeWrite : (1 _ : LinArray size a) -> (n : Bits32) -> a -> LinArray size a
+unsafeWrite (MkLinArray arr) n v = MkLinArray $ prim__write arr (toFFI n) v
+
+export
+emptyArray : (1 _ : (1 _ : LinArray 0 a) -> b) -> b
+emptyArray f = f (MkLinArray $ prim__emptyArray)
 
 export
 newArray :  (val : a)
@@ -247,143 +313,149 @@ withArray :  ImmutableArrayLike arr elem
 withArray array f = f (MkLinArray $ prim__fromArray array)
 
 export
-write :  {size : _}
-      -> (1 _ : LinArray size a)
-      -> (ix : Bits32)
-      -> a
-      -> (0 _ : ix < size = True)
-      -> LinArray size a
-write (MkLinArray arr) n v _ = MkLinArray $ prim__write arr (toFFI n) v
+write : (1 _ : LinArray size a) -> (ix : Ix size) -> a -> LinArray size a
+write arr (Element n _) = unsafeWrite arr n
 
--- export
--- lread : (1 _ : LinArray a) -> Bits32 -> Res (Maybe a) (const $ LinArray a)
--- lread (MkLinArray arr) n = undeforToMaybe (prim__read arr n) # MkLinArray arr
--- 
--- export
--- lsize : (1 _ : LinArray a) -> Res Bits32 (const $ LinArray a)
--- lsize (MkLinArray arr) = prim__size arr # MkLinArray arr
--- 
--- export
--- fromList' : ((1 _ : LinArray a) -> b) -> List a -> b
--- fromList' f as = newArray (fromInteger . natToInteger $ length as)
---                           (run as 0)
---   where run : List a -> Bits32 -> (1 _ : LinArray a) -> b
---         run [] _        linA = f linA
---         run (a :: as) n linA = run as (n+1) (write linA n a)
--- 
--- export
--- map' : ImmutableArrayLike arr a =>
---        ((1 _ : LinArray b) -> c) -> (a -> b) -> arr -> c
--- map' f g arr = newArray (size arr) (run 0 (size arr))
---   where run : Bits32 -> Bits32 -> (1 _ : LinArray b) -> c
---         run x y lb = if x >= y then f lb
---                      else case read arr x of
---                                Nothing => run (x+1) y lb
---                                Just a  => run (x+1) y (write lb x (g a))
--- 
--- export
--- join' :  ImmutableArrayLike arr1 arr2
---       => ImmutableArrayLike arr2 el
---       => ((1 _ : LinArray el) -> a) -> arr1 -> a
--- join' f arr1 =
---   let si = totalSize 0 (size arr1) 0
---    in newArray si $ outer 0 (size arr1) 0
--- 
---   where totalSize : Bits32 -> Bits32 -> Bits32 -> Bits32
---         totalSize x y res =
---           if x >= y then res
---           else totalSize (x+1) y (res + maybe 0 size (read arr1 x))
--- 
---         inner :  Bits32 -> Bits32 -> Bits32 -> arr2 -> (1 _ : LinArray el)
---               -> LinArray el
---         inner x s pos as es =
---           if x >= s then es
---           else case read as x of
---                     Nothing => inner (x+1) s (pos+1) as es
---                     Just y  => inner (x+1) s (pos+1) as (write es pos y)
--- 
---         outer : Bits32 -> Bits32 -> Bits32 -> (1 _ : LinArray el) -> a
---         outer xo so pos es =
---           if xo >= so then f es
---           else case read arr1 xo of
---                     Nothing  => outer (xo+1) so pos es
---                     Just arr =>
---                       let si = size arr
---                        in outer (xo+1) so (pos + si) (inner 0 si pos arr es)
--- 
--- 
--- --------------------------------------------------------------------------------
--- --          Immutable Arrays
--- --------------------------------------------------------------------------------
--- 
--- ||| An immutable array from a resource that guarantees, that
--- ||| this will not be modified any more.
--- |||
--- ||| Typically, these are generated by freezing a `LinArray`
--- ||| or by cloning an `ArrayLike` value.
--- export
--- record IArray (a : Type) where
---   constructor MkIArray
---   array : Array a
--- 
--- export
--- freeze : (1 _ : LinArray a) -> IArray a
--- freeze (MkLinArray arr) = MkIArray arr
--- 
--- export
--- fromList : List a -> IArray a
--- fromList = fromList' freeze
--- 
--- export
--- singleton : a -> IArray a
--- singleton = fromList . pure
--- 
--- export
--- fromFoldable : List a -> IArray a
--- fromFoldable = fromList' freeze
--- 
--- export
--- fromString : String -> IArray Char
--- fromString s = withArray s freeze
--- 
--- export
--- ArrayLike (IArray a) a where
--- 
--- export
--- ImmutableArrayLike (IArray a) a where
--- 
--- export
--- concat : IArray (IArray a) -> IArray a
--- concat = join' freeze
--- 
--- export
--- Eq a => Eq (IArray a) where
---   (==) = sameElements {elem = a}
--- 
--- export
--- Show a => Show (IArray a) where
---   showPrec p v = showCon p "fromList " (show $ arrayToList v)
--- 
--- export
--- Functor IArray where
---   map = map' freeze
--- 
--- export
--- Applicative IArray where
---   pure = singleton
---   fs <*> as = concat $ map (\f => map (apply f) as) fs
--- 
--- export
--- Monad IArray where
---   join = concat
--- 
--- export
--- Foldable IArray where
--- --  foldr = foldrArrayLike
--- --  foldl = foldlArrayLike
--- --  null  = nullArrayLike
--- 
--- export
--- Alternative IArray where
---   empty = fromList []
---   as <|> bs = if null as then bs else as
+export
+lread :  (1 _ : LinArray size a)
+      -> (ix : Ix size)
+      -> Res a (const $ LinArray size a)
+lread (MkLinArray arr) (Element ix _) =
+  prim__read arr (toFFI ix) # MkLinArray arr
+
+export
+lsize : (1 _ : LinArray size a) -> Res Bits32 (\s => LinArray s a)
+lsize (MkLinArray arr) = fromInteger (cast $ prim__size arr) # MkLinArray arr
+
+export
+iterate' :  (size : Bits32)
+         -> (Ix size -> a)
+         -> ((1 _ : LinArray size a) -> b)
+         -> b
+iterate' size f g = undefArray size (run 0)
+  where run : Bits32 -> (1 _ : LinArray size a) -> b
+        run n arr = case toIx size n of
+                         Nothing => g arr
+                         Just ix => run (n+1) (write arr ix (f ix))
+
+export
+fromList' : (as : List a) -> ((1 _ : LinArray (len32 as) a) -> b) -> b
+fromList' as f = undefArray (len32 as) (run $ zipWithIndex as)
+  where run :  List (Ix $ len32 as, a) -> (1 _ : LinArray (len32 as) a) -> b
+        run []            linA = f linA
+        run ((ix,a) :: t) linA = run t (write linA ix a)
+
+export
+map' : ImmutableArrayLike arr a =>
+       (vs : arr) -> ((1 _ : LinArray (size vs) b) -> c) -> (a -> b) -> c
+map' vs fromArr f = iterate' (size vs) (\ix => f (read vs ix)) fromArr
+
+export
+totalSize : (ImmutableArrayLike arr1 arr2, ImmutableArrayLike arr2 el)
+          => arr1 -> Bits32
+totalSize = foldlArray (\n,vs => n + size vs) 0
+
+export
+join' :  (ImmutableArrayLike arr1 arr2, ImmutableArrayLike arr2 el)
+      => (vss : arr1)
+      -> ((1 _ : LinArray (totalSize {arr1} {arr2} vss) el) -> a)
+      -> a
+join' vss f = undefArray (totalSize {arr1} {arr2} vss) (outer 0 0)
+   where inner :  (n : Bits32)
+               -> (pos : Bits32)
+               -> arr2
+               -> (1 _ : LinArray (totalSize {arr1} {arr2} vss) el)
+               -> LinArray (totalSize {arr1} {arr2} vss) el
+         inner n pos as la =
+           case readMaybe as n of
+                Just v  => inner (n+1) pos as (unsafeWrite la (pos + n) v)
+                Nothing => la
+
+         outer :  (n : Bits32)
+               -> (pos : Bits32)
+               -> (1 _ : LinArray (totalSize {arr1} {arr2} vss) el)
+               -> a
+         outer n pos la =
+           case readMaybe vss n of
+                Just v  => outer (n+1) (pos + size v) (inner 0 pos v la)
+                Nothing => f la
+
+--------------------------------------------------------------------------------
+--          Immutable Arrays
+--------------------------------------------------------------------------------
+
+||| An immutable array from a resource that guarantees, that
+||| this will not be modified any more.
+|||
+||| Typically, these are generated by freezing a `LinArray`
+||| or by cloning an `ArrayLike` value.
+export
+record IArray (a : Type) where
+  constructor MkIArray
+  array : Array a
+
+export
+freeze : forall size,a . (1 _ : LinArray size a) -> IArray a
+freeze (MkLinArray arr) = MkIArray arr
+
+export
+fromList : List a -> IArray a
+fromList as = fromList' as freeze
+
+export
+singleton : a -> IArray a
+singleton = fromList . pure
+
+export
+fromString : String -> IArray Char
+fromString s = withArray s freeze
+
+export
+ArrayLike (IArray a) a where
+
+export
+ImmutableArrayLike (IArray a) a where
+
+export
+concat : IArray (IArray a) -> IArray a
+concat as = join' {arr2 = IArray a} as freeze
+
+export
+Eq a => Eq (IArray a) where
+  (==) = sameElements {elem = a}
+
+export
+Show a => Show (IArray a) where
+  showPrec p v = showCon p "fromList " (show $ arrayToList v)
+
+export
+Semigroup (IArray a) where
+  a1 <+> a2 = concat $ fromList [a1,a2]
+
+export
+Monoid (IArray a) where
+  neutral = fromList []
+
+export
+Functor IArray where
+  map f as = map' as freeze f
+
+export
+Applicative IArray where
+  pure = singleton
+  fs <*> as = concat $ map (\f => map (apply f) as) fs
+
+export
+Monad IArray where
+  join = concat
+
+export
+Foldable IArray where
+  foldr    = foldrArray
+  foldl    = foldlArray
+  null arr = size arr == 0
+
+export
+Alternative IArray where
+  empty     = fromList []
+  as <|> bs = if null as then bs else as
