@@ -2,8 +2,23 @@
 ||| to the functionality provided by `Data.IOArray.Prims` from base.
 |||
 ||| In addition to mutable arrays, we also provide linear arrays
-||| plus immutable arrays, the latter being guaranteed to always
+||| for imperatively filling arrays in a pure envirionment,
+||| as well as immutable arrays, the latter being guaranteed to always
 ||| return a value if an index is within bounds.
+|||
+||| We use `Bits32` for indexing, as this is the type reflecting
+||| most exactly the kinds of indices use to access array elements.
+||| However, right now, `Bits32` is represented by `BigInt` at the Javascript
+||| backend. This might negatively affect performance, as we always have
+||| to convert to `Number` first (that's `Double` in Idris2).
+||| Hopefully, the backend representation will change in the future, and
+||| this will be no longer an issue.
+|||
+||| In addition, `Bits32` does not offer a lot of functionality when
+||| it comes to available proofs for it being in bounds. This
+||| module provides a minimal amount of utilities for this, but again,
+||| these might hopefully go elswhere, where the whole topic is treated
+||| more thoroughly.
 module JS.Array
 
 import Control.Monad.Either
@@ -21,7 +36,7 @@ import JS.Util
 -- DecEq for Bits32
 --------------------------------------------------------------------------------
 
-||| This should go to base
+||| Eventually, this should go to base
 public export
 implementation DecEq Bits32 where
     decEq x y = case x == y of -- Blocks if x or y not concrete
@@ -36,14 +51,18 @@ implementation DecEq Bits32 where
 --          Utilities
 --------------------------------------------------------------------------------
 
+||| Type for indexing into an array of known size.
 public export
 Ix : Bits32 -> Type
 Ix n = Subset Bits32 \ix => ix < n = True
 
+||| Calculates the length of a list as an array index.
 public export
 len32 : List a -> Bits32
 len32 = fromInteger . natToInteger . length
 
+||| Zips a list of elements with the corresponding
+||| array indices.
 public export
 zipWithIndex : (as : List a) -> List (Ix $ len32 as, a) 
 zipWithIndex as = run 0 as
@@ -53,6 +72,8 @@ zipWithIndex as = run 0 as
         run n (x :: xs) =  (Element n $ believe_me (Refl {x}), x)
                         :: run (n+1) xs
 
+||| Tries to convert a number into an index for
+||| an array of the given size.
 public export
 toIx : (size : Bits32) -> Bits32 -> Maybe (Ix size)
 toIx size x = case decEq (x < size) True of
@@ -149,25 +170,26 @@ ArrayLike (Array a) a where
 ||| this interface must be immutable.
 ||| It is then safe to provide pure versions of `readIO` and `sizeIO`.
 export
-interface ArrayLike arr elem => ImmutableArrayLike arr elem | arr where
+interface ArrayLike arr elem => IArrayLike arr elem | arr where
 
 export
-size : ImmutableArrayLike arr elem => arr -> Bits32
+size : IArrayLike arr elem => arr -> Bits32
 size arr = fromInteger . cast $ prim__size arr
 
 export
-read : ImmutableArrayLike arr elem
+read : IArrayLike arr elem
      => (elems : arr) -> (ix : Ix $ size elems) -> elem
 read elems (Element ix _) = prim__read elems $ toFFI ix
 
 export
-readMaybe : ImmutableArrayLike arr elem
+readMaybe : IArrayLike arr elem
           => (elems : arr) -> Bits32 -> Maybe elem
 readMaybe elems = map (read elems) . toIx (size elems)
 
+||| Returns true if the given immutable arrays contain
+||| the same elements in the same order.
 export
-sameElements : (ImmutableArrayLike arr elem, Eq elem) =>
-               arr -> arr -> Bool
+sameElements : (IArrayLike arr elem, Eq elem) => arr -> arr -> Bool
 sameElements a1 a2 =
   case decEq (size a2) (size a1) of
        Yes prf => run prf 0
@@ -182,7 +204,7 @@ sameElements a1 a2 =
                  run refl (ix+1)
 
 export
-foldlArray :  ImmutableArrayLike arr elem
+foldlArray :  IArrayLike arr elem
            => (acc -> elem -> acc) -> acc -> arr -> acc
 foldlArray f ini arr = run 0 ini
   where run : Bits32 -> acc -> acc
@@ -191,7 +213,7 @@ foldlArray f ini arr = run 0 ini
                          Nothing => res
 
 export
-foldrArray :  ImmutableArrayLike arr elem
+foldrArray :  IArrayLike arr elem
            => (elem -> acc -> acc) -> acc -> arr -> acc
 foldrArray f ini arr = run 0
   where run : Bits32 -> acc
@@ -200,11 +222,11 @@ foldrArray f ini arr = run 0
                      Nothing => ini
 
 export
-arrayToList : ImmutableArrayLike arr elem => arr -> List elem
+arrayToList : IArrayLike arr elem => arr -> List elem
 arrayToList = foldrArray (::) Nil
 
 export
-ImmutableArrayLike String Char where
+IArrayLike String Char where
 
 --------------------------------------------------------------------------------
 --          IO Arrays
@@ -306,7 +328,7 @@ newArray :  (val : a)
 newArray v size f = f (MkLinArray $ prim__newArray (toFFI size) v)
 
 export
-withArray :  ImmutableArrayLike arr elem
+withArray :  IArrayLike arr elem
           => (v : arr)
           -> (1 _ : (1 _ : LinArray (size v) elem) -> a)
           -> a
@@ -346,26 +368,28 @@ fromList' as f = undefArray (len32 as) (run $ zipWithIndex as)
         run ((ix,a) :: t) linA = run t (write linA ix a)
 
 export
-map' : ImmutableArrayLike arr a =>
+map' : IArrayLike arr a =>
        (vs : arr) -> ((1 _ : LinArray (size vs) b) -> c) -> (a -> b) -> c
 map' vs fromArr f = iterate' (size vs) (\ix => f (read vs ix)) fromArr
 
 export
-totalSize : (ImmutableArrayLike arr1 arr2, ImmutableArrayLike arr2 el)
+totalSize : (IArrayLike arr1 arr2, IArrayLike arr2 el)
           => arr1 -> Bits32
 totalSize = foldlArray (\n,vs => n + size vs) 0
 
+||| Concatenates to nested layers of immutable
+||| array-like objects.
 export
-join' :  (ImmutableArrayLike arr1 arr2, ImmutableArrayLike arr2 el)
+join' :  (IArrayLike arr1 arr2, IArrayLike arr2 el)
       => (vss : arr1)
-      -> ((1 _ : LinArray (totalSize {arr1} {arr2} vss) el) -> a)
+      -> ((1 _ : LinArray (totalSize {arr2} vss) el) -> a)
       -> a
-join' vss f = undefArray (totalSize {arr1} {arr2} vss) (outer 0 0)
+join' vss f = undefArray (totalSize {arr2} vss) (outer 0 0)
    where inner :  (n : Bits32)
                -> (pos : Bits32)
                -> arr2
-               -> (1 _ : LinArray (totalSize {arr1} {arr2} vss) el)
-               -> LinArray (totalSize {arr1} {arr2} vss) el
+               -> (1 _ : LinArray (totalSize {arr2} vss) el)
+               -> LinArray (totalSize {arr2} vss) el
          inner n pos as la =
            case readMaybe as n of
                 Just v  => inner (n+1) pos as (unsafeWrite la (pos + n) v)
@@ -373,7 +397,7 @@ join' vss f = undefArray (totalSize {arr1} {arr2} vss) (outer 0 0)
 
          outer :  (n : Bits32)
                -> (pos : Bits32)
-               -> (1 _ : LinArray (totalSize {arr1} {arr2} vss) el)
+               -> (1 _ : LinArray (totalSize {arr2} vss) el)
                -> a
          outer n pos la =
            case readMaybe vss n of
@@ -414,15 +438,15 @@ export
 ArrayLike (IArray a) a where
 
 export
-ImmutableArrayLike (IArray a) a where
+IArrayLike (IArray a) a where
 
 export
 concat : IArray (IArray a) -> IArray a
 concat as = join' {arr2 = IArray a} as freeze
 
 export
-Eq a => Eq (IArray a) where
-  (==) = sameElements {elem = a}
+Eq elem => Eq (IArray elem) where
+  (==) = sameElements {elem}
 
 export
 Show a => Show (IArray a) where
@@ -454,6 +478,13 @@ Foldable IArray where
   foldr    = foldrArray
   foldl    = foldlArray
   null arr = size arr == 0
+
+-- No idea if this can be done more efficiently without
+-- going via List. Any idea to do this via direct iteration
+-- over the indices is highly welcome.
+export
+Traversable IArray where
+  traverse f arr = fromList <$> traverse f (toList arr)
 
 export
 Alternative IArray where
