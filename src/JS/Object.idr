@@ -180,10 +180,10 @@ vals = array . fromList
 toVal : Any -> Maybe Value
 toVal (MkAny ptr) =   (Str <$> safeCast ptr)
                   <|> (Boo <$> safeCast ptr)
+                  <|> (if isArray ptr then Just $ believe_me ptr else Nothing)
                   <|> (if isNull ptr then Just Null else Nothing)
                   <|> (Num <$> safeCast ptr)
                   <|> (Obj . MkIObject <$> unsafeCastOnTypeof "object" ptr)
-                  <|> (if isArray ptr then Just $ believe_me ptr else Nothing)
 
 export
 decode : String -> Either JSErr Value
