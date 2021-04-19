@@ -142,6 +142,84 @@ export
 {ks : _} -> NP (ToJSON . f) ks => ToJSON (NS f ks) where
   toJSON = ns
 
+--------------------------------------------------------------------------------
+--          FromJSON
+--------------------------------------------------------------------------------
+
+public export
+data JSONPathElement = Key String | Index Bits32
+
+%runElab derive "JSONPathElement" [Generic,Meta,Show,Eq]
+
+public export
+JSONPath : Type
+JSONPath = List JSONPathElement
+
+public export
+IResult : Type -> Type
+IResult = Either (JSONPath,String)
+
+public export
+interface FromJSON a  where
+  fromJSON : Value -> IResult a
+
+export
+withObject : (IObject -> IResult a) -> Value -> IResult a
+
+export
+withBool : (Bool -> IResult a) -> Value -> IResult a
+
+export
+withString : (String -> IResult a) -> Value -> IResult a
+
+export
+withNumber : (Double -> IResult a) -> Value -> IResult a
+
+export
+withArray : (IArray Value -> IResult a) -> Value -> IResult a
+
+||| Format a <http://goessner.net/articles/JsonPath/ JSONPath> as a 'String'
+||| which represents the path relative to some root object.
+formatRelativePath : JSONPath -> String
+formatRelativePath path = format "" path
+  where
+    isIdentifierKey : List Char -> Bool
+    isIdentifierKey []      = False
+    isIdentifierKey (x::xs) = isAlpha x && all isAlphaNum xs
+
+    escapeChar : Char -> String
+    escapeChar '\'' = "\\'"
+    escapeChar '\\' = "\\\\"
+    escapeChar c    = singleton c
+
+    escapeKey : List Char -> String
+    escapeKey = fastConcat . map escapeChar
+
+    formatKey : String -> String
+    formatKey key =
+      let chars = fastUnpack key
+       in if isIdentifierKey chars then fastPack $ '.' :: chars
+          else "['" ++ escapeKey chars ++ "']"
+
+    format : String -> JSONPath -> String
+    format pfx []                = pfx
+    format pfx (Index idx :: parts) = format (pfx ++ "[" ++ show idx ++ "]") parts
+    format pfx (Key key :: parts)   = format (pfx ++ formatKey key) parts
+
+||| Format a <http://goessner.net/articles/JsonPath/ JSONPath> as a 'String',
+||| representing the root object as @$@.
+formatPath : JSONPath -> String
+formatPath path = "$" ++ formatRelativePath path
+
+||| Annotate an error message with a
+||| <http://goessner.net/articles/JsonPath/ JSONPath> error location.
+formatError : JSONPath -> String -> String
+formatError path msg = "Error in " ++ formatPath path ++ ": " ++ msg
+
+--------------------------------------------------------------------------------
+--          Elab Deriving
+--------------------------------------------------------------------------------
+
 -- Converts a single applied constructor, without pairing it
 -- with its name.
 toJSONC1 : NP (ToJSON . f) ks => ConInfo ks -> NP f ks -> Value
@@ -170,10 +248,6 @@ genToJSON1 = toJSONSOP1 (metaFor a) . from
 export
 genToJSON : Meta a code => POP ToJSON code => a -> Value
 genToJSON = toJSONSOP (metaFor a) . from
-
---------------------------------------------------------------------------------
---          Elab Deriving
---------------------------------------------------------------------------------
 
 public export
 mkToJSON : (toJSON : a -> Value) -> ToJSON a
