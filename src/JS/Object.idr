@@ -55,19 +55,18 @@ record LinObject where
 
 export
 data LinVal : Type where
-  LObj  : Object        -> LinVal
-  LArr  : IArray AnyPtr -> LinVal
-  LStr  : String        -> LinVal
-  LNum  : Double        -> LinVal
+  LObj  : Object     -> LinVal
+  LArr  : IArray Any -> LinVal
+  LStr  : String     -> LinVal
+  LNum  : Double     -> LinVal
   LNull : LinVal
 
--- this seems hacky, though it looks safe
-toAny : LinVal -> AnyPtr
-toAny (LObj x) = toFFI $ MkAny x
-toAny (LArr x) = toFFI $ MkAny x
-toAny (LStr x) = toFFI $ MkAny x
-toAny (LNum x) = toFFI $ MkAny x
-toAny LNull    = toFFI $ MkAny (null {a = ()})
+toAny : LinVal -> Any
+toAny (LObj x) = MkAny x
+toAny (LArr x) = MkAny x
+toAny (LStr x) = MkAny x
+toAny (LNum x) = MkAny x
+toAny LNull    = MkAny (null {a = ()})
 
 export
 obj : (1 _ : LinObject) -> LinVal
