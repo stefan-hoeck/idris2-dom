@@ -491,6 +491,22 @@ uses concrete types, since there are no child interfaces for
 
 To be added...
 
+#### Object
+
+The `object` type is at the root of the inheritance tree in Javascript.
+Almost every value that is not a primitive inherits from `object`.
+Module `JS.Object` provides external type `Object` for representing
+external objects.
+
+However, this is by far not the most interesting part about objects
+in Javascript. `Object`s are efficient mutable mappings from `String`s to
+arbitrary values, and module `JS.Object` gives users access to this
+functionality by means of a mutable linear access object type `LinObject`
+and an immutable variant `IObject`, that can only be used for looking
+up values. In addition, there is an abstract `Value` data type together
+with functionality for encoding Idris2 values from and to JSON by
+means of external functions `JSON.stringify` and `JSON.parse`.
+
 #### Varargs
 
 The Web IDL allows the definition of functions with a variable
