@@ -7,10 +7,11 @@ import JS
 
 %language ElabReflection
 
+public export
 record Address where
   constructor MkAddress
   street : String
-  nr     : Nat
+  nr     : Bits32
   zip    : String
   city   : String
 
@@ -23,12 +24,13 @@ toStr s = #"{"street":\#{show s.street},"nr":\#{show s.nr},"zip":\#{show s.zip},
 -- Encoding via `stringify`.
 toJSON : Address -> String
 toJSON a = let ps = [ ("street",str a.street)
-                    , ("nr", num $ cast a.nr)
+                    , ("nr", num . fromInteger $ cast a.nr)
                     , ("zip", str a.zip)
                     , ("city", str a.city)
                     ]
-            in pairs ps \x => stringify (obj x)
+            in stringify (pairs ps)
 
+export
 fromJSON : String -> Maybe Address
 fromJSON s =
   do val <- decodeMaybe s
@@ -46,9 +48,10 @@ plainString : Gen String
 plainString = string (linear 1 10) alphaNum
 
 
+export
 addresses : Gen Address
 addresses = [| MkAddress plainString
-                         (nat $ linear 0 50)
+                         (bits32 $ linear 0 50)
                          plainString
                          plainString |]
 

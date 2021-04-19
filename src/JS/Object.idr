@@ -163,11 +163,15 @@ lsetVal o f (Num x) = lset o f x
 lsetVal o f Null    = lset o f (null {a = ()})
 
 export
-pairs : List (String,Value) -> ((1 _ : LinObject) -> a) -> a
-pairs ps f = newObj (run ps)
+withPairs : List (String,Value) -> ((1 _ : LinObject) -> a) -> a
+withPairs ps f = newObj (run ps)
   where run : List (String,Value) -> (1 _ : LinObject) -> a
         run []            o = f o
         run ((s,v) :: ps) o = run ps (lsetVal o s v)
+
+export
+pairs : List (String,Value) -> Value
+pairs ps = withPairs ps obj
 
 export
 vals : List Value -> Value
