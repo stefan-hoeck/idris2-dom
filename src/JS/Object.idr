@@ -28,10 +28,6 @@ ToFFI Object Object where toFFI = id
 export
 FromFFI Object Object where fromFFI = Just
 
-export
-SafeCast Object where
-  safeCast = unsafeCastOnTypeof "object"
-
 public export
 JSType Object where
   parents = []
@@ -186,7 +182,7 @@ toVal (MkAny ptr) =   (Str <$> safeCast ptr)
                   <|> (Boo <$> safeCast ptr)
                   <|> (if isNull ptr then Just Null else Nothing)
                   <|> (Num <$> safeCast ptr)
-                  <|> (Obj . MkIObject <$> safeCast ptr)
+                  <|> (Obj . MkIObject <$> unsafeCastOnTypeof "object" ptr)
                   <|> (if isArray ptr then Just $ believe_me ptr else Nothing)
 
 export
