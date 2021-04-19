@@ -2,6 +2,7 @@ module Test.Util
 
 import JS
 import Hedgehog
+import Data.Either
 
 --------------------------------------------------------------------------------
 --          Undefined
@@ -37,6 +38,16 @@ prop_undefinedIsNull =
   withTests 1 . property $ do u <- forAllWith (const "null") (pure $ null {a = Int})
                               assert (isNull u)
 
+invalidJSON : Gen String
+invalidJSON = ("{" ++) <$> string (linear 0 10) alphaNum
+
+%foreign "javascript:lambda:s => JSON.parse(s)"
+prim__parse : String -> AnyPtr
+
+prop_try : Property
+prop_try = property $ do s <- forAll invalidJSON
+                         assert $ isLeft (try prim__parse s)
+
 undefinedProps : Group
 undefinedProps = MkGroup "Undefined and Null"
                    [ ("prop_int_notUndefined", prop_int_notUndefined)
@@ -45,6 +56,7 @@ undefinedProps = MkGroup "Undefined and Null"
                    , ("prop_int_notNull", prop_int_notNull)
                    , ("prop_string_notNull", prop_string_notNull)
                    , ("prop_undefinedIsNull", prop_undefinedIsNull)
+                   , ("prop_try", prop_try)
                    ]
 
 export

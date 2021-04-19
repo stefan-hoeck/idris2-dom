@@ -53,6 +53,7 @@ data JSErr : Type where
   CastErr   : (inFunction : String) -> (value : a) -> JSErr
   IsNothing : (callSite : String) -> JSErr
 
+export
 dispErr : JSErr -> String
 dispErr (CastErr inFunction value) = #"""
   Error when casting a Javascript value in function \#{inFunction}.
@@ -96,11 +97,11 @@ unMaybe callSite io = do Just a <- io
 --          Error handling
 --------------------------------------------------------------------------------
 
-%foreign "javascript:lambda:(u,io) => try { return [1,io()]; } catch (e) { return [0,String(e)] }"
-prim__tryIO : IO a -> PrimIO AnyPtr
+%foreign "javascript:lambda:(u,io) => {try { return [1,io()]; } catch (e) { return [0,String(e)] }}"
+prim__tryIO : forall a . IO a -> PrimIO AnyPtr
 
-%foreign "javascript:lambda:(x,y,f,v) => try { return [1,f(v)]; } catch (e) { return [0,String(e)] }"
-prim__try : (a -> b) -> a -> AnyPtr
+%foreign "javascript:lambda:(x,y,f,v) => {try { return [1,f(v)]; } catch (e) { return [0,String(e)] }}"
+prim__try : forall a,b . (a -> b) -> a -> AnyPtr
 
 %foreign "javascript:lambda:x => x[0]"
 prim__errTag : AnyPtr -> Double
@@ -109,7 +110,7 @@ prim__errTag : AnyPtr -> Double
 prim__errVal : AnyPtr -> AnyPtr
 
 toEither : AnyPtr -> Either JSErr a
-toEither ptr = if 0.0 == prim__errTag ptr
+toEither ptr = if 1 == prim__errTag ptr
                   then Right (believe_me (prim__errVal ptr))
                   else Left $ Caught (believe_me (prim__errVal ptr))
 
@@ -118,7 +119,7 @@ toEither ptr = if 0.0 == prim__errTag ptr
 export
 tryIO : IO a -> JSIO a
 tryIO io = do ptr <- primIO $ prim__tryIO io
-              if 0.0 == prim__errTag ptr
+              if 1 == prim__errTag ptr
                  then pure (believe_me (prim__errVal ptr))
                  else throwError $ Caught (believe_me (prim__errVal ptr))
 

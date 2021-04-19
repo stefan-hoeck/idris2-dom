@@ -20,5 +20,7 @@ depends    = base        >= 0.3.0
            , hedgehog    >= 0.0.3
 
 modules = JS
+        , Test.Array
         , Test.Number
+        , Test.Object
         , Test.Util
