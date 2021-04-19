@@ -501,11 +501,16 @@ external objects.
 However, this is by far not the most interesting part about objects
 in Javascript. `Object`s are efficient mutable mappings from `String`s to
 arbitrary values, and module `JS.Object` gives users access to this
-functionality by means of a mutable linear access object type `LinObject`
+functionality by means of a mutable linear-access object type `LinObject`
 and an immutable variant `IObject`, that can only be used for looking
 up values. In addition, there is an abstract `Value` data type together
 with functionality for encoding Idris2 values from and to JSON by
 means of external functions `JSON.stringify` and `JSON.parse`.
+
+Note, that unlike most other external types, `Object` comes without an
+instance of `SafeCast`. Such an instance would allow us to "unfreeze"
+an immutable `IObject`, allowing us to mutate this object, thus
+breaking referential transparency.
 
 #### Varargs
 
