@@ -17,6 +17,9 @@ modules = JS
         , JS.Buffer
         , JS.Callback
         , JS.Inheritance
+        , JS.JSON
+        , JS.JSON.FromJSON
+        , JS.JSON.ToJSON
         , JS.Marshall
         , JS.Nullable
         , JS.Number

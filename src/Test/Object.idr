@@ -23,10 +23,10 @@ toStr s = #"{"street":\#{show s.street},"nr":\#{show s.nr},"zip":\#{show s.zip},
 
 -- Encoding via `stringify`.
 toJSON : Address -> String
-toJSON a = let ps = [ ("street",str a.street)
-                    , ("nr", num . fromInteger $ cast a.nr)
-                    , ("zip", str a.zip)
-                    , ("city", str a.city)
+toJSON a = let ps = [ ("street",Str a.street)
+                    , ("nr", Num . fromInteger $ cast a.nr)
+                    , ("zip", Str a.zip)
+                    , ("city", Str a.city)
                     ]
             in stringify (pairs ps)
 
@@ -76,7 +76,7 @@ prop_roundTrip = property $ do a <- forAll addresses
 
 export
 test : IO ()
-test = ignore . checkGroup . withTests 1000 $ MkGroup "Object" [
+test = ignore . checkGroup . withTests 100 $ MkGroup "Object" [
          ("prop_toJSON", prop_toJSON)
        , ("prop_decode", prop_decode)
        , ("prop_roundTrip", prop_roundTrip)

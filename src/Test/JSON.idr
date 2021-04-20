@@ -9,14 +9,14 @@ import Generics.Derive
 
 %language ElabReflection
 
-%runElab derive "Test.Object.Address" [ToJSON1]
+%runElab derive "Test.Object.Address" [ToJSON1,FromJSON1]
 
 prop_roundTrip : Property
 prop_roundTrip = property $ do a <- forAll addresses
-                               Just a === fromJSON (encode a)
+                               Right a === fromJSON (toJSON a)
 
 export
 test : IO ()
-test = ignore . checkGroup . withTests 1000 $ MkGroup "JSON" [
+test = ignore . checkGroup . withTests 100 $ MkGroup "JSON" [
          ("prop_roundTrip", prop_roundTrip)
        ]

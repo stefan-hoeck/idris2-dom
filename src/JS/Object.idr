@@ -99,68 +99,38 @@ get (MkIObject obj) str = safeCast $ prim__get obj str
 --          JSON Values
 --------------------------------------------------------------------------------
 
-export
+public export
 data Value : Type where
-  Arr  : IArray Any -> Value
-  Boo  : Boolean    -> Value
-  Null : Value
-  Num  : Double     -> Value
-  Obj  : IObject    -> Value
-  Str  : String     -> Value
+  Arr     : IArray Value -> Value
+  Boolean : Bool         -> Value
+  Null    : Value
+  Num     : Double       -> Value
+  Obj     : IObject      -> Value
+  Str     : String       -> Value
 
 toAny : Value -> Any
-toAny (Obj x) = MkAny x
-toAny (Boo x) = MkAny x
-toAny (Arr x) = MkAny x
-toAny (Str x) = MkAny x
-toAny (Num x) = MkAny x
-toAny Null    = MkAny (null {a = ()})
+toAny (Obj     x) = MkAny x
+toAny (Boolean x) = MkAny $ toFFI x
+toAny (Arr     x) = MkAny $ map toAny x
+toAny (Str     x) = MkAny x
+toAny (Num     x) = MkAny x
+toAny Null        = MkAny (null {a = ()})
 
 --------------------------------------------------------------------------------
 --          JSON Encoding
 --------------------------------------------------------------------------------
 
 export
-stringify : (1 _ : Value) -> String
-stringify (Boo x) = prim__stringify x
-stringify (Obj x) = prim__stringify x
-stringify (Arr x) = prim__stringify x
-stringify (Str x) = prim__stringify x
-stringify (Num x) = prim__stringify x
-stringify Null    = prim__stringify (null {a = ()})
+stringify : Value -> String
+stringify = prim__stringify . toFFI . toAny
 
 export
 obj : (1 _ : LinObject) -> Value
 obj (MkLinObject o) = Obj $ MkIObject o
 
 export
-str : String -> Value
-str = Str
-
-export
-bool : Bool -> Value
-bool = Boo . toFFI
-
-export
-num : Double -> Value
-num = Num
-
-export
-null : Value
-null = Null
-
-export
-array : IArray Value -> Value
-array = Arr . map toAny
-
-export
-lsetVal : (1 _ : LinObject) -> (fld : String) -> (1 _ : Value) -> LinObject
-lsetVal o f (Boo x) = lset o f x
-lsetVal o f (Obj x) = lset o f x
-lsetVal o f (Arr x) = lset o f x
-lsetVal o f (Str x) = lset o f x
-lsetVal o f (Num x) = lset o f x
-lsetVal o f Null    = lset o f (null {a = ()})
+lsetVal : (1 _ : LinObject) -> (fld : String) -> Value -> LinObject
+lsetVal o f v = lset o f (toFFI $ toAny v)
 
 export
 withPairs : List (String,Value) -> ((1 _ : LinObject) -> a) -> a
@@ -175,7 +145,7 @@ pairs ps = withPairs ps obj
 
 export
 vals : List Value -> Value
-vals = array . fromList
+vals = Arr . fromList
 
 --------------------------------------------------------------------------------
 --          JSON decoding
@@ -183,7 +153,7 @@ vals = array . fromList
 
 toVal : Any -> Maybe Value
 toVal (MkAny ptr) =   (Str <$> safeCast ptr)
-                  <|> (Boo <$> safeCast ptr)
+                  <|> (Boolean <$> (safeCast ptr >>= fromFFI))
                   <|> (if isArray ptr then Just $ believe_me ptr else Nothing)
                   <|> (if isNull ptr then Just Null else Nothing)
                   <|> (Num <$> safeCast ptr)
@@ -207,7 +177,7 @@ getObject _       = Nothing
 
 export
 getBool : Value -> Maybe Bool
-getBool (Boo x) = fromFFI x
+getBool (Boolean x) = Just x
 getBool _       = Nothing
 
 export
@@ -220,11 +190,9 @@ getNum : Value -> Maybe Double
 getNum (Num x) = Just x
 getNum _       = Nothing
 
--- `traverse` for `IArray` goes via `List` anyway, so we
--- can just as well return a `List`
 export
-getArray : Value -> Maybe (List Value)
-getArray (Arr x) = traverse toVal $ arrayToList x
+getArray : Value -> Maybe (IArray Value)
+getArray (Arr x) = Just x
 getArray _       = Nothing
 
 export
