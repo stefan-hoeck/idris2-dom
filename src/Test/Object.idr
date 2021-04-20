@@ -76,7 +76,7 @@ prop_roundTrip = property $ do a <- forAll addresses
 
 export
 test : IO ()
-test = ignore . checkGroup . withTests 100 $ MkGroup "Object" [
+test = ignore . checkGroup . withTests 1000 $ MkGroup "Object" [
          ("prop_toJSON", prop_toJSON)
        , ("prop_decode", prop_decode)
        , ("prop_roundTrip", prop_roundTrip)
