@@ -7,10 +7,11 @@ import JS
 
 %language ElabReflection
 
+public export
 record Address where
   constructor MkAddress
   street : String
-  nr     : Nat
+  nr     : Bits32
   zip    : String
   city   : String
 
@@ -22,16 +23,17 @@ toStr s = #"{"street":\#{show s.street},"nr":\#{show s.nr},"zip":\#{show s.zip},
 
 -- Encoding via `stringify`.
 toJSON : Address -> String
-toJSON a = let ps = [ ("street",str a.street)
-                    , ("nr", num $ cast a.nr)
-                    , ("zip", str a.zip)
-                    , ("city", str a.city)
+toJSON a = let ps = [ ("street",Str a.street)
+                    , ("nr", Num . fromInteger $ cast a.nr)
+                    , ("zip", Str a.zip)
+                    , ("city", Str a.city)
                     ]
-            in pairs ps \x => stringify (obj x)
+            in stringify (pairs ps)
 
+export
 fromJSON : String -> Maybe Address
 fromJSON s =
-  do val <- decodeMaybe s
+  do val <- parseMaybe s
      obj <- getObject val
      [| MkAddress (valueAt obj "street" >>= getStr)
                   (valueAt obj "nr" >>= map (fromInteger . cast) . getNum)
@@ -46,9 +48,10 @@ plainString : Gen String
 plainString = string (linear 1 10) alphaNum
 
 
+export
 addresses : Gen Address
 addresses = [| MkAddress plainString
-                         (nat $ linear 0 50)
+                         (bits32 $ linear 0 50)
                          plainString
                          plainString |]
 
@@ -62,7 +65,7 @@ prop_toJSON = property $ do a <- forAll addresses
 
 prop_decode : Property
 prop_decode = property $ do a <- forAll addresses
-                            case decode (toJSON a) of
+                            case parse (toJSON a) of
                                  Left e => do footnote (dispErr e)
                                               assert False
                                  Right _ => assert True
@@ -73,7 +76,7 @@ prop_roundTrip = property $ do a <- forAll addresses
 
 export
 test : IO ()
-test = ignore . checkGroup . withTests 1000 $ MkGroup "Object" [
+test = ignore . checkGroup . withTests 100 $ MkGroup "Object" [
          ("prop_toJSON", prop_toJSON)
        , ("prop_decode", prop_decode)
        , ("prop_roundTrip", prop_roundTrip)

@@ -76,6 +76,11 @@ data Optional : (a : Type) -> Type where
   Undef : Optional a
   Def   : a -> Optional a
 
+export
+Show a => Show (Optional a) where
+  showPrec _ Undef   = "Undef"
+  showPrec p (Def a) = showCon p "Def" (showArg a)
+
 public export
 Eq a => Eq (Optional a) where
   Undef == Undef = True
@@ -151,6 +156,14 @@ omyUp :  JSType a
       -> {auto 0 _ : Elem b (Types a)}
       -> UndefOr (Nullable b)
 omyUp x = optionalToUndefOr $ map (\m => mayUp m) x
+
+public export
+maybeToOptional : Maybe a -> Optional a
+maybeToOptional = maybe Undef Def
+
+public export
+optionalToMaybe : Optional a -> Maybe a
+optionalToMaybe = optional Nothing Just
 
 export
 undeforToOptional : UndefOr a -> Optional a
