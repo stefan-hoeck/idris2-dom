@@ -154,21 +154,25 @@ vals = Arr . fromList
 toVal : Any -> Maybe Value
 toVal (MkAny ptr) =   (Str <$> safeCast ptr)
                   <|> (Boolean <$> (safeCast ptr >>= fromFFI))
-                  <|> (if isArray ptr then Just $ believe_me ptr else Nothing)
+                  <|> (if isArray ptr then array ptr else Nothing)
                   <|> (if isNull ptr then Just Null else Nothing)
                   <|> (Num <$> safeCast ptr)
                   <|> (Obj . MkIObject <$> unsafeCastOnTypeof "object" ptr)
 
-export
-decode : String -> Either JSErr Value
-decode s = do ptr <- try prim__parse s
-              maybe (Left $ Caught #"Unable to decode JSON: \#{s}"#)
-                    Right 
-                    (toVal (MkAny ptr))
+  where array : a -> Maybe Value
+        array a = let arr = the (IArray Any) (believe_me a)
+                   in Arr <$> traverse toVal arr
 
 export
-decodeMaybe : String -> Maybe Value
-decodeMaybe = either (const Nothing) Just . decode
+parse : String -> Either JSErr Value
+parse s = do ptr <- try prim__parse s
+             maybe (Left $ Caught #"Unable to decode JSON: \#{s}"#)
+                   Right 
+                   (toVal (MkAny ptr))
+
+export
+parseMaybe : String -> Maybe Value
+parseMaybe = either (const Nothing) Just . parse
 
 export
 getObject : Value -> Maybe IObject

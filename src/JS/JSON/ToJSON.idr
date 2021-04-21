@@ -52,6 +52,9 @@ export
 ToJSON String where toJSON = Str
 
 export
+ToJSON Char where toJSON = Str . singleton
+
+export
 ToJSON Double where toJSON = Num
 
 export

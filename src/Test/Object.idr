@@ -33,7 +33,7 @@ toJSON a = let ps = [ ("street",Str a.street)
 export
 fromJSON : String -> Maybe Address
 fromJSON s =
-  do val <- decodeMaybe s
+  do val <- parseMaybe s
      obj <- getObject val
      [| MkAddress (valueAt obj "street" >>= getStr)
                   (valueAt obj "nr" >>= map (fromInteger . cast) . getNum)
@@ -65,7 +65,7 @@ prop_toJSON = property $ do a <- forAll addresses
 
 prop_decode : Property
 prop_decode = property $ do a <- forAll addresses
-                            case decode (toJSON a) of
+                            case parse (toJSON a) of
                                  Left e => do footnote (dispErr e)
                                               assert False
                                  Right _ => assert True
@@ -76,7 +76,7 @@ prop_roundTrip = property $ do a <- forAll addresses
 
 export
 test : IO ()
-test = ignore . checkGroup . withTests 1000 $ MkGroup "Object" [
+test = ignore . checkGroup . withTests 100 $ MkGroup "Object" [
          ("prop_toJSON", prop_toJSON)
        , ("prop_decode", prop_decode)
        , ("prop_roundTrip", prop_roundTrip)

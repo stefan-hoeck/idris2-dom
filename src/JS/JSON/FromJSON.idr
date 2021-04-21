@@ -20,6 +20,7 @@ import JS.Number
 import JS.JSON.ToJSON
 import JS.Object
 import JS.Undefined
+import JS.Util
 
 import Generics.Derive
 
@@ -56,12 +57,69 @@ orElse r@(Right _) _ = r
 orElse _           v = v
 
 --------------------------------------------------------------------------------
+--          Error Formatting
+--------------------------------------------------------------------------------
+
+||| Format a <http://goessner.net/articles/JsonPath/ JSONPath> as a 'String'
+||| which represents the path relative to some root object.
+export
+formatRelativePath : JSONPath -> String
+formatRelativePath path = format "" path
+  where
+    isIdentifierKey : List Char -> Bool
+    isIdentifierKey []      = False
+    isIdentifierKey (x::xs) = isAlpha x && all isAlphaNum xs
+
+    escapeChar : Char -> String
+    escapeChar '\'' = "\\'"
+    escapeChar '\\' = "\\\\"
+    escapeChar c    = singleton c
+
+    escapeKey : List Char -> String
+    escapeKey = fastConcat . map escapeChar
+
+    formatKey : String -> String
+    formatKey key =
+      let chars = fastUnpack key
+       in if isIdentifierKey chars then fastPack $ '.' :: chars
+          else "['" ++ escapeKey chars ++ "']"
+
+    format : String -> JSONPath -> String
+    format pfx []                = pfx
+    format pfx (Index idx :: parts) = format (pfx ++ "[" ++ show idx ++ "]") parts
+    format pfx (Key key :: parts)   = format (pfx ++ formatKey key) parts
+
+||| Format a <http://goessner.net/articles/JsonPath/ JSONPath> as a 'String',
+||| representing the root object as @$@.
+export
+formatPath : JSONPath -> String
+formatPath path = "$" ++ formatRelativePath path
+
+||| Annotate an error message with a
+||| <http://goessner.net/articles/JsonPath/ JSONPath> error location.
+export
+formatError : JSONPath -> String -> String
+formatError path msg = "Error in " ++ formatPath path ++ ": " ++ msg
+
+--------------------------------------------------------------------------------
 --          Interface
 --------------------------------------------------------------------------------
 
 public export
 interface FromJSON a  where
   fromJSON : Parser a
+
+export
+decode : FromJSON a => String -> Result a
+decode s = mapFst ((Nil,) . dispErr) (parse s) >>= fromJSON
+
+export
+decodeEither : FromJSON a => String -> Either String a
+decodeEither = mapFst (uncurry formatError) . decode
+
+export
+decodeMaybe : FromJSON a => String -> Maybe a
+decodeMaybe = either (const Nothing) Just . decode
 
 --------------------------------------------------------------------------------
 --          Parsing Utilities
@@ -251,48 +309,6 @@ parseFieldMaybe' : FromJSON a => IObject -> String -> Result (Maybe a)
 parseFieldMaybe' = (.:!)
 
 --------------------------------------------------------------------------------
---          Error Formatting
---------------------------------------------------------------------------------
-
-||| Format a <http://goessner.net/articles/JsonPath/ JSONPath> as a 'String'
-||| which represents the path relative to some root object.
-formatRelativePath : JSONPath -> String
-formatRelativePath path = format "" path
-  where
-    isIdentifierKey : List Char -> Bool
-    isIdentifierKey []      = False
-    isIdentifierKey (x::xs) = isAlpha x && all isAlphaNum xs
-
-    escapeChar : Char -> String
-    escapeChar '\'' = "\\'"
-    escapeChar '\\' = "\\\\"
-    escapeChar c    = singleton c
-
-    escapeKey : List Char -> String
-    escapeKey = fastConcat . map escapeChar
-
-    formatKey : String -> String
-    formatKey key =
-      let chars = fastUnpack key
-       in if isIdentifierKey chars then fastPack $ '.' :: chars
-          else "['" ++ escapeKey chars ++ "']"
-
-    format : String -> JSONPath -> String
-    format pfx []                = pfx
-    format pfx (Index idx :: parts) = format (pfx ++ "[" ++ show idx ++ "]") parts
-    format pfx (Key key :: parts)   = format (pfx ++ formatKey key) parts
-
-||| Format a <http://goessner.net/articles/JsonPath/ JSONPath> as a 'String',
-||| representing the root object as @$@.
-formatPath : JSONPath -> String
-formatPath path = "$" ++ formatRelativePath path
-
-||| Annotate an error message with a
-||| <http://goessner.net/articles/JsonPath/ JSONPath> error location.
-formatError : JSONPath -> String -> String
-formatError path msg = "Error in " ++ formatPath path ++ ": " ++ msg
-
---------------------------------------------------------------------------------
 --          Implementations
 --------------------------------------------------------------------------------
 
@@ -348,33 +364,33 @@ FromJSON UInt64 where
 
 export
 FromJSON Int8 where
-  fromJSON = boundedIntegral "Int8" (-0x100) 0x7f
+  fromJSON = boundedIntegral "Int8" (-0x80) 0x7f
 
 export
 FromJSON Int16 where
-  fromJSON = boundedIntegral "Int16" (-0x10000) 0x7fff
+  fromJSON = boundedIntegral "Int16" (-0x8000) 0x7fff
 
 export
 FromJSON Int32 where
-  fromJSON = boundedIntegral "Int32" (-0x100000000) 0x7fffffff
+  fromJSON = boundedIntegral "Int32" (-0x80000000) 0x7fffffff
 
 export
 FromJSON Int64 where
-  fromJSON = boundedIntegral "Int64" (-0x10000000000000000) 0x7fffffffffffffff
+  fromJSON = boundedIntegral "Int64" (-0x8000000000000000) 0x7fffffffffffffff
 
 export
 FromJSON Int where
-  fromJSON = boundedLargeIntegral "Int" (-0x10000000000000000) 0x7fffffffffffffff
+  fromJSON = boundedLargeIntegral "Int" (-0x8000000000000000) 0x7fffffffffffffff
 
 export
 FromJSON Nat where
-  fromJSON = withInteger "Nat" \n =>
+  fromJSON = withLargeInteger "Nat" \n =>
     if n >= 0 then pure $ fromInteger n
     else fail #"not a natural number: \#{show n}"#
 
 export
 FromJSON Integer where
-  fromJSON = withInteger "Integer" pure
+  fromJSON = withLargeInteger "Integer" pure
 
 export
 FromJSON String where
@@ -393,8 +409,16 @@ FromJSON a => FromJSON (Maybe a) where
   fromJSON v    = Just <$> fromJSON v
 
 export
+FromJSON a => FromJSON (Optional a) where
+  fromJSON = map maybeToOptional . fromJSON
+
+export
 FromJSON a => FromJSON (List a) where
   fromJSON = withList "List" $ traverse fromJSON
+
+export
+FromJSON a => FromJSON (IArray a) where
+  fromJSON = withArray "IArray" $ traverse fromJSON
 
 export
 FromJSON a => FromJSON (List1 a) where
