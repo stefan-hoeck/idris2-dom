@@ -340,6 +340,37 @@ arbitrary order below.
 
 ## Additional topics
 
+### Closure Compiler
+
+Generated Javascript files can be further compressed and optimized
+by using a recent release of the [Closure Compiler](https://developers.google.com/closure/compiler/).
+It needs to be recent enough to support `BigInt` literals, which is
+available through the `ECMASCRIPT_2020` output option.
+
+Here is an example `closure.sh` shell script that can be used to
+shrink Idris2-generated .js files:
+
+```sh
+#!/usr/bin/env bash
+
+java -jar ~/downloads/closure-compiler-v20210406.jar \
+          --language_in ECMASCRIPT_2020 \
+          --language_out ECMASCRIPT_2020 \
+          --jscomp_off undefinedVars \
+          --js $1
+
+```
+
+This script can then be invoked with
+
+```
+$ closure.sh build/exec/runTest.js > test.js
+```
+
+In my experience, this leads to a reduction in size of about 30%
+and a speedup of about 100% (compiled .js files run about
+twice as fast).
+
 ### Web IDL toplevel definitions and subtyping
 
 As explained at the beginning of this tutorials, the DOM bindings
