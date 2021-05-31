@@ -5,6 +5,7 @@ import public Data.IOArray.Prims
 import public Data.List.Elem
 import public Data.Maybe
 import public Data.SOP
+import public Experimental.Prelude
 import public JS.Any
 import public JS.Attribute
 import public JS.Array
