@@ -1,5 +1,6 @@
 module JS.Inheritance
 
+import Experimental.Prelude
 import Control.Monad.Either
 import JS.Util
 import Data.List.Elem
@@ -167,6 +168,22 @@ SafeCast Bits32 where
 export
 SafeCast Bits64 where
   safeCast = bounded 0 0xffffffffffffffff
+
+export
+SafeCast Int8 where
+  safeCast = bounded (-0x80) 0x7f
+
+export
+SafeCast Int16 where
+  safeCast = bounded (-0x8000) 0x7fff
+
+export
+SafeCast Int32 where
+  safeCast = bounded (-0x80000000) 0x7fffffff
+
+export
+SafeCast Int64 where
+  safeCast = bounded (-0x8000000000000000) 0x7fffffffffffffff
 
 export
 SafeCast Int where

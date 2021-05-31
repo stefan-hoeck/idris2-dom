@@ -95,27 +95,27 @@ data Array : Type -> Type where [external]
 
 -- determines the size of a (potentially) mutable Array-like object.
 %foreign "javascript:lambda:(u,x) => x.length"
-prim__sizeIO : forall arr . arr -> PrimIO Double
+prim__sizeIO : forall arr . arr -> PrimIO Bits32
 
 -- reads a value at the given index from a (potentially) mutable Array-like object.
 %foreign "javascript:lambda:(u,v,arr,n) => arr[n]"
-prim__readIO : forall a,arr . arr -> Double -> PrimIO (UndefOr a)
+prim__readIO : forall a,arr . arr -> Bits32 -> PrimIO (UndefOr a)
 
 -- determines the size of an immutable Array-like object.
 %foreign "javascript:lambda:(u,x) => x.length"
-prim__size : forall arr . arr -> Double
+prim__size : forall arr . arr -> Bits32
 
 -- reads a value at the given index from an immutable Array-like object.
 %foreign "javascript:lambda:(u,v,arr,n) => arr[n]"
-prim__read : forall a,arr . arr -> Double -> a
+prim__read : forall a,arr . arr -> Bits32 -> a
 
 -- writes a value to a mutable array
 %foreign "javascript:lambda:(u,arr,n,v) => { arr[n] = v }"
-prim__writeIO : forall a . Array a -> Double -> a -> PrimIO ()
+prim__writeIO : forall a . Array a -> Bits32 -> a -> PrimIO ()
 
 -- creates a new mutable array of the given size
 %foreign "javascript:lambda:(u,n) => { return new Array(n) }"
-prim__newArrayIO : forall a . Double -> PrimIO (Array a)
+prim__newArrayIO : forall a . Bits32 -> PrimIO (Array a)
 
 -- determines, whether the given pointer is an array.
 %foreign "javascript:lambda:x => Array.isArray(x)"
@@ -280,13 +280,13 @@ ToFFI a b => ToFFI (List a) (IO $ Array b)
 --------------------------------------------------------------------------------
 
 %foreign "javascript:lambda:(u,arr,n,v) => { arr[n] = v; return arr }"
-prim__write : forall a . Array a -> Double -> a -> Array a
+prim__write : forall a . Array a -> Bits32 -> a -> Array a
 
 %foreign "javascript:lambda:(u,n,a) => { var res = new Array(n); return res.fill(a) }"
-prim__newArray : forall a . Double -> a -> Array a
+prim__newArray : forall a . Bits32 -> a -> Array a
 
 %foreign "javascript:lambda:(u,n) => { return new Array(n) }"
-prim__undefArray : forall a . Double -> Array a
+prim__undefArray : forall a . Bits32 -> Array a
 
 %foreign "javascript:lambda:u => { return = new Array(0) }"
 prim__emptyArray : forall a . Array a

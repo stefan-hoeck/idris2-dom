@@ -30,10 +30,22 @@ export
 ToFFI Bits16 Bits16 where toFFI = id
 
 export
-ToFFI Bits32 Double where toFFI = fromInteger . cast
+ToFFI Bits32 Bits32 where toFFI = id
 
 export
 ToFFI Bits64 Bits64 where toFFI = id
+
+export
+ToFFI Int8 Int8 where toFFI = id
+
+export
+ToFFI Int16 Int16 where toFFI = id
+
+export
+ToFFI Int32 Int32 where toFFI = id
+
+export
+ToFFI Int64 Int64 where toFFI = id
 
 export
 ToFFI Int Int where toFFI = id
@@ -73,6 +85,18 @@ FromFFI Bits32 Bits32 where fromFFI = Just
 
 export
 FromFFI Bits64 Bits64 where fromFFI = Just
+
+export
+FromFFI Int8 Int8 where fromFFI = Just
+
+export
+FromFFI Int16 Int16 where fromFFI = Just
+
+export
+FromFFI Int32 Int32 where fromFFI = Just
+
+export
+FromFFI Int64 Int64 where fromFFI = Just
 
 export
 FromFFI Char Char where fromFFI = Just

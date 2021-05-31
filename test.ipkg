@@ -12,12 +12,13 @@ executable = "runTest.js"
 
 sourcedir  = "src"
 
-depends    = base        >= 0.3.0
-           , contrib     >= 0.3.0
-           , elab-util   >= 0.2.0
-           , pretty-show >= 0.1.2
-           , sop         >= 0.2.2
-           , hedgehog    >= 0.0.3
+depends    = base         >= 0.3.0
+           , contrib      >= 0.3.0
+           , elab-util    >= 0.2.0
+           , pretty-show  >= 0.1.2
+           , sop          >= 0.2.2
+           , hedgehog     >= 0.0.3
+           , experimental >= 0.1.0
 
 modules = JS
         , Test.Array

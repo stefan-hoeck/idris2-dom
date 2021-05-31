@@ -12,9 +12,10 @@ executable = "dom-doc.js"
 
 sourcedir  = "src"
 
-depends    = base        >= 0.3.0
-           , contrib     >= 0.3.0
-           , elab-util   >= 0.1.1
-           , sop         >= 0.1.1
+depends    = base         >= 0.3.0
+           , contrib      >= 0.3.0
+           , elab-util    >= 0.1.1
+           , sop          >= 0.1.1
+           , experimental >= 0.1.0
 
 modules = Doc.Tutorial
