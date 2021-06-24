@@ -201,11 +201,11 @@ namespace SourceBuffer
 namespace SourceBufferList
   
   export
-  get : (obj : SourceBufferList) -> (index : UInt32) -> JSIO SourceBuffer
+  get : (obj : SourceBufferList) -> (index : Bits32) -> JSIO SourceBuffer
   get a b = primJS $ SourceBufferList.prim__get a b
   
   export
-  length : (obj : SourceBufferList) -> JSIO UInt32
+  length : (obj : SourceBufferList) -> JSIO Bits32
   length a = primJS $ SourceBufferList.prim__length a
   
   export

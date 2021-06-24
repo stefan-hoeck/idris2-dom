@@ -104,33 +104,33 @@ namespace ProgressEvent
                      $ ProgressEvent.prim__lengthComputable a
   
   export
-  loaded : (obj : ProgressEvent) -> JSIO UInt64
+  loaded : (obj : ProgressEvent) -> JSIO JSBits64
   loaded a = primJS $ ProgressEvent.prim__loaded a
   
   export
-  total_ : (obj : ProgressEvent) -> JSIO UInt64
+  total_ : (obj : ProgressEvent) -> JSIO JSBits64
   total_ a = primJS $ ProgressEvent.prim__total a
 
 namespace XMLHttpRequest
   
   public export
-  DONE : UInt16
+  DONE : Bits16
   DONE = 4
   
   public export
-  HEADERS_RECEIVED : UInt16
+  HEADERS_RECEIVED : Bits16
   HEADERS_RECEIVED = 2
   
   public export
-  LOADING : UInt16
+  LOADING : Bits16
   LOADING = 3
   
   public export
-  OPENED : UInt16
+  OPENED : Bits16
   OPENED = 1
   
   public export
-  UNSENT : UInt16
+  UNSENT : Bits16
   UNSENT = 0
   
   export
@@ -146,7 +146,7 @@ namespace XMLHttpRequest
                                           v
   
   export
-  readyState : (obj : XMLHttpRequest) -> JSIO UInt16
+  readyState : (obj : XMLHttpRequest) -> JSIO Bits16
   readyState a = primJS $ XMLHttpRequest.prim__readyState a
   
   export
@@ -174,7 +174,7 @@ namespace XMLHttpRequest
                 $ XMLHttpRequest.prim__responseXML a
   
   export
-  status : (obj : XMLHttpRequest) -> JSIO UInt16
+  status : (obj : XMLHttpRequest) -> JSIO Bits16
   status a = primJS $ XMLHttpRequest.prim__status a
   
   export
@@ -182,7 +182,7 @@ namespace XMLHttpRequest
   statusText a = primJS $ XMLHttpRequest.prim__statusText a
   
   export
-  timeout : XMLHttpRequest -> Attribute True I UInt32
+  timeout : XMLHttpRequest -> Attribute True I Bits32
   timeout v = fromPrim "XMLHttpRequest.gettimeout"
                        prim__timeout
                        prim__setTimeout
@@ -366,8 +366,8 @@ namespace ProgressEventInit
   
   export
   new :  (lengthComputable : Optional Bool)
-      -> (loaded : Optional UInt64)
-      -> (total_ : Optional UInt64)
+      -> (loaded : Optional JSBits64)
+      -> (total_ : Optional JSBits64)
       -> JSIO ProgressEventInit
   new a b c = primJS $ ProgressEventInit.prim__new (toFFI a) (toFFI b) (toFFI c)
 
@@ -390,7 +390,7 @@ namespace ProgressEventInit
   loaded :  JSType t
          => {auto 0 _ : Elem ProgressEventInit (Types t)}
          -> t
-         -> Attribute True Optional UInt64
+         -> Attribute True Optional JSBits64
   loaded v = fromUndefOrPrim "ProgressEventInit.getloaded"
                              prim__loaded
                              prim__setLoaded
@@ -401,7 +401,7 @@ namespace ProgressEventInit
   total_ :  JSType t
          => {auto 0 _ : Elem ProgressEventInit (Types t)}
          -> t
-         -> Attribute True Optional UInt64
+         -> Attribute True Optional JSBits64
   total_ v = fromUndefOrPrim "ProgressEventInit.gettotal"
                              prim__total
                              prim__setTotal

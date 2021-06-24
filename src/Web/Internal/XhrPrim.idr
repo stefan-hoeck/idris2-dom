@@ -58,11 +58,11 @@ namespace ProgressEvent
   
   export
   %foreign "browser:lambda:x=>x.loaded"
-  prim__loaded : ProgressEvent -> PrimIO UInt64
+  prim__loaded : ProgressEvent -> PrimIO JSBits64
   
   export
   %foreign "browser:lambda:x=>x.total"
-  prim__total : ProgressEvent -> PrimIO UInt64
+  prim__total : ProgressEvent -> PrimIO JSBits64
 
 namespace XMLHttpRequest
   
@@ -84,7 +84,7 @@ namespace XMLHttpRequest
   
   export
   %foreign "browser:lambda:x=>x.readyState"
-  prim__readyState : XMLHttpRequest -> PrimIO UInt16
+  prim__readyState : XMLHttpRequest -> PrimIO Bits16
   
   export
   %foreign "browser:lambda:x=>x.response"
@@ -113,7 +113,7 @@ namespace XMLHttpRequest
   
   export
   %foreign "browser:lambda:x=>x.status"
-  prim__status : XMLHttpRequest -> PrimIO UInt16
+  prim__status : XMLHttpRequest -> PrimIO Bits16
   
   export
   %foreign "browser:lambda:x=>x.statusText"
@@ -121,12 +121,12 @@ namespace XMLHttpRequest
   
   export
   %foreign "browser:lambda:x=>x.timeout"
-  prim__timeout : XMLHttpRequest -> PrimIO UInt32
+  prim__timeout : XMLHttpRequest -> PrimIO Bits32
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.timeout = v}"
-  prim__setTimeout : XMLHttpRequest -> UInt32 -> PrimIO ()
+  prim__setTimeout : XMLHttpRequest -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.upload"
@@ -298,8 +298,8 @@ namespace ProgressEventInit
   export
   %foreign "browser:lambda:(a,b,c)=> {lengthComputable: a,loaded: b,total: c}"
   prim__new :  UndefOr Boolean
-            -> UndefOr UInt64
-            -> UndefOr UInt64
+            -> UndefOr JSBits64
+            -> UndefOr JSBits64
             -> PrimIO ProgressEventInit
   
   export
@@ -313,18 +313,18 @@ namespace ProgressEventInit
   
   export
   %foreign "browser:lambda:x=>x.loaded"
-  prim__loaded : ProgressEventInit -> PrimIO (UndefOr UInt64)
+  prim__loaded : ProgressEventInit -> PrimIO (UndefOr JSBits64)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.loaded = v}"
-  prim__setLoaded : ProgressEventInit -> UndefOr UInt64 -> PrimIO ()
+  prim__setLoaded : ProgressEventInit -> UndefOr JSBits64 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.total"
-  prim__total : ProgressEventInit -> PrimIO (UndefOr UInt64)
+  prim__total : ProgressEventInit -> PrimIO (UndefOr JSBits64)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.total = v}"
-  prim__setTotal : ProgressEventInit -> UndefOr UInt64 -> PrimIO ()
+  prim__setTotal : ProgressEventInit -> UndefOr JSBits64 -> PrimIO ()

@@ -39,19 +39,19 @@ namespace InputEvent
 namespace KeyboardEvent
   
   public export
-  DOM_KEY_LOCATION_LEFT : UInt32
+  DOM_KEY_LOCATION_LEFT : Bits32
   DOM_KEY_LOCATION_LEFT = 0x1
   
   public export
-  DOM_KEY_LOCATION_NUMPAD : UInt32
+  DOM_KEY_LOCATION_NUMPAD : Bits32
   DOM_KEY_LOCATION_NUMPAD = 0x3
   
   public export
-  DOM_KEY_LOCATION_RIGHT : UInt32
+  DOM_KEY_LOCATION_RIGHT : Bits32
   DOM_KEY_LOCATION_RIGHT = 0x2
   
   public export
-  DOM_KEY_LOCATION_STANDARD : UInt32
+  DOM_KEY_LOCATION_STANDARD : Bits32
   DOM_KEY_LOCATION_STANDARD = 0x0
   
   export
@@ -59,7 +59,7 @@ namespace KeyboardEvent
   altKey a = tryJS "KeyboardEvent.altKey" $ KeyboardEvent.prim__altKey a
   
   export
-  charCode : (obj : KeyboardEvent) -> JSIO UInt32
+  charCode : (obj : KeyboardEvent) -> JSIO Bits32
   charCode a = primJS $ KeyboardEvent.prim__charCode a
   
   export
@@ -80,11 +80,11 @@ namespace KeyboardEvent
   key a = primJS $ KeyboardEvent.prim__key a
   
   export
-  keyCode : (obj : KeyboardEvent) -> JSIO UInt32
+  keyCode : (obj : KeyboardEvent) -> JSIO Bits32
   keyCode a = primJS $ KeyboardEvent.prim__keyCode a
   
   export
-  location : (obj : KeyboardEvent) -> JSIO UInt32
+  location : (obj : KeyboardEvent) -> JSIO Bits32
   location a = primJS $ KeyboardEvent.prim__location a
   
   export
@@ -124,7 +124,7 @@ namespace MouseEvent
   buttons :  JSType t1
           => {auto 0 _ : Elem MouseEvent (Types t1)}
           -> (obj : t1)
-          -> JSIO UInt16
+          -> JSIO Bits16
   buttons a = primJS $ MouseEvent.prim__buttons (up a)
   
   export
@@ -213,25 +213,25 @@ namespace UIEvent
   which :  JSType t1
         => {auto 0 _ : Elem UIEvent (Types t1)}
         -> (obj : t1)
-        -> JSIO UInt32
+        -> JSIO Bits32
   which a = primJS $ UIEvent.prim__which (up a)
 
 namespace WheelEvent
   
   public export
-  DOM_DELTA_LINE : UInt32
+  DOM_DELTA_LINE : Bits32
   DOM_DELTA_LINE = 0x1
   
   public export
-  DOM_DELTA_PAGE : UInt32
+  DOM_DELTA_PAGE : Bits32
   DOM_DELTA_PAGE = 0x2
   
   public export
-  DOM_DELTA_PIXEL : UInt32
+  DOM_DELTA_PIXEL : Bits32
   DOM_DELTA_PIXEL = 0x0
   
   export
-  deltaMode : (obj : WheelEvent) -> JSIO UInt32
+  deltaMode : (obj : WheelEvent) -> JSIO Bits32
   deltaMode a = primJS $ WheelEvent.prim__deltaMode a
   
   export
@@ -553,7 +553,7 @@ namespace KeyboardEventInit
   export
   new :  (key : Optional String)
       -> (code : Optional String)
-      -> (location : Optional UInt32)
+      -> (location : Optional Bits32)
       -> (repeat : Optional Bool)
       -> (isComposing : Optional Bool)
       -> JSIO KeyboardEventInit
@@ -605,7 +605,7 @@ namespace KeyboardEventInit
   location :  JSType t
            => {auto 0 _ : Elem KeyboardEventInit (Types t)}
            -> t
-           -> Attribute True Optional UInt32
+           -> Attribute True Optional Bits32
   location v = fromUndefOrPrim "KeyboardEventInit.getlocation"
                                prim__location
                                prim__setLocation
@@ -633,7 +633,7 @@ namespace MouseEventInit
       -> (clientX : Optional Int32)
       -> (clientY : Optional Int32)
       -> (button : Optional Int16)
-      -> (buttons : Optional UInt16)
+      -> (buttons : Optional Bits16)
       -> (relatedTarget : Optional (Maybe t1))
       -> JSIO MouseEventInit
   new a b c d e f g = primJS
@@ -665,7 +665,7 @@ namespace MouseEventInit
   buttons :  JSType t
           => {auto 0 _ : Elem MouseEventInit (Types t)}
           -> t
-          -> Attribute True Optional UInt16
+          -> Attribute True Optional Bits16
   buttons v = fromUndefOrPrim "MouseEventInit.getbuttons"
                               prim__buttons
                               prim__setButtons
@@ -767,7 +767,7 @@ namespace WheelEventInit
   new :  (deltaX : Optional Double)
       -> (deltaY : Optional Double)
       -> (deltaZ : Optional Double)
-      -> (deltaMode : Optional UInt32)
+      -> (deltaMode : Optional Bits32)
       -> JSIO WheelEventInit
   new a b c d = primJS
               $ WheelEventInit.prim__new (toFFI a) (toFFI b) (toFFI c) (toFFI d)
@@ -780,7 +780,7 @@ namespace WheelEventInit
   deltaMode :  JSType t
             => {auto 0 _ : Elem WheelEventInit (Types t)}
             -> t
-            -> Attribute True Optional UInt32
+            -> Attribute True Optional Bits32
   deltaMode v = fromUndefOrPrim "WheelEventInit.getdeltaMode"
                                 prim__deltaMode
                                 prim__setDeltaMode

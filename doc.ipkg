@@ -1,7 +1,7 @@
 package dom-doc
 
 authors    = "stefan-hoeck"
-version    = 0.0.1
+version    = 0.1.0
 readme     = "README.md"
 license    = "BSD-2 Clause"
 
@@ -12,10 +12,10 @@ executable = "dom-doc.js"
 
 sourcedir  = "src"
 
-depends    = base         >= 0.3.0
-           , contrib      >= 0.3.0
-           , elab-util    >= 0.1.1
-           , sop          >= 0.1.1
-           , experimental >= 0.1.0
+depends    = base         >= 0.4.0
+           , contrib      >= 0.4.0
+           , elab-util    >= 0.3.0
+           , sop          >= 0.4.0
+           , experimental >= 0.2.0
 
 modules = Doc.Tutorial

@@ -43,11 +43,11 @@ namespace AudioTrackList
   
   export
   %foreign "browser:lambda:(o,x)=>o[x]"
-  prim__get : AudioTrackList -> UInt32 -> PrimIO AudioTrack
+  prim__get : AudioTrackList -> Bits32 -> PrimIO AudioTrack
   
   export
   %foreign "browser:lambda:x=>x.length"
-  prim__length : AudioTrackList -> PrimIO UInt32
+  prim__length : AudioTrackList -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:x=>x.onaddtrack"
@@ -175,7 +175,7 @@ namespace CloseEvent
   
   export
   %foreign "browser:lambda:x=>x.code"
-  prim__code : CloseEvent -> PrimIO UInt16
+  prim__code : CloseEvent -> PrimIO Bits16
   
   export
   %foreign "browser:lambda:x=>x.reason"
@@ -225,7 +225,7 @@ namespace DOMStringList
   
   export
   %foreign "browser:lambda:x=>x.length"
-  prim__length : DOMStringList -> PrimIO UInt32
+  prim__length : DOMStringList -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:(x,a)=>x.contains(a)"
@@ -233,7 +233,7 @@ namespace DOMStringList
   
   export
   %foreign "browser:lambda:(x,a)=>x.item(a)"
-  prim__item : DOMStringList -> UInt32 -> PrimIO (Nullable String)
+  prim__item : DOMStringList -> Bits32 -> PrimIO (Nullable String)
 
 namespace DOMStringMap
   
@@ -321,11 +321,11 @@ namespace DataTransferItemList
   
   export
   %foreign "browser:lambda:(o,x)=>o[x]"
-  prim__get : DataTransferItemList -> UInt32 -> PrimIO DataTransferItem
+  prim__get : DataTransferItemList -> Bits32 -> PrimIO DataTransferItem
   
   export
   %foreign "browser:lambda:x=>x.length"
-  prim__length : DataTransferItemList -> PrimIO UInt32
+  prim__length : DataTransferItemList -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.add(a,b)"
@@ -346,7 +346,7 @@ namespace DataTransferItemList
   
   export
   %foreign "browser:lambda:(x,a)=>x.remove(a)"
-  prim__remove : DataTransferItemList -> UInt32 -> PrimIO ()
+  prim__remove : DataTransferItemList -> Bits32 -> PrimIO ()
 
 namespace DedicatedWorkerGlobalScope
   
@@ -463,7 +463,7 @@ namespace ErrorEvent
   
   export
   %foreign "browser:lambda:x=>x.colno"
-  prim__colno : ErrorEvent -> PrimIO UInt32
+  prim__colno : ErrorEvent -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:x=>x.error"
@@ -475,7 +475,7 @@ namespace ErrorEvent
   
   export
   %foreign "browser:lambda:x=>x.lineno"
-  prim__lineno : ErrorEvent -> PrimIO UInt32
+  prim__lineno : ErrorEvent -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:x=>x.message"
@@ -516,7 +516,7 @@ namespace EventSource
   
   export
   %foreign "browser:lambda:x=>x.readyState"
-  prim__readyState : EventSource -> PrimIO UInt16
+  prim__readyState : EventSource -> PrimIO Bits16
   
   export
   %foreign "browser:lambda:x=>x.url"
@@ -554,11 +554,11 @@ namespace HTMLAllCollection
   
   export
   %foreign "browser:lambda:(o,x)=>o[x]"
-  prim__get : HTMLAllCollection -> UInt32 -> PrimIO Element
+  prim__get : HTMLAllCollection -> Bits32 -> PrimIO Element
   
   export
   %foreign "browser:lambda:x=>x.length"
-  prim__length : HTMLAllCollection -> PrimIO UInt32
+  prim__length : HTMLAllCollection -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:(x,a)=>x.item(a)"
@@ -1022,21 +1022,21 @@ namespace HTMLCanvasElement
   
   export
   %foreign "browser:lambda:x=>x.height"
-  prim__height : HTMLCanvasElement -> PrimIO UInt32
+  prim__height : HTMLCanvasElement -> PrimIO Bits32
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.height = v}"
-  prim__setHeight : HTMLCanvasElement -> UInt32 -> PrimIO ()
+  prim__setHeight : HTMLCanvasElement -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.width"
-  prim__width : HTMLCanvasElement -> PrimIO UInt32
+  prim__width : HTMLCanvasElement -> PrimIO Bits32
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.width = v}"
-  prim__setWidth : HTMLCanvasElement -> UInt32 -> PrimIO ()
+  prim__setWidth : HTMLCanvasElement -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.getContext(a,b)"
@@ -1469,7 +1469,7 @@ namespace HTMLFormElement
   
   export
   %foreign "browser:lambda:(o,x)=>o[x]"
-  prim__get : HTMLFormElement -> UInt32 -> PrimIO Element
+  prim__get : HTMLFormElement -> Bits32 -> PrimIO Element
   
   export
   %foreign "browser:lambda:(o,x)=>o[x]"
@@ -1528,7 +1528,7 @@ namespace HTMLFormElement
   
   export
   %foreign "browser:lambda:x=>x.length"
-  prim__length : HTMLFormElement -> PrimIO UInt32
+  prim__length : HTMLFormElement -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:x=>x.method"
@@ -2016,21 +2016,21 @@ namespace HTMLImageElement
   
   export
   %foreign "browser:lambda:x=>x.height"
-  prim__height : HTMLImageElement -> PrimIO UInt32
+  prim__height : HTMLImageElement -> PrimIO Bits32
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.height = v}"
-  prim__setHeight : HTMLImageElement -> UInt32 -> PrimIO ()
+  prim__setHeight : HTMLImageElement -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.hspace"
-  prim__hspace : HTMLImageElement -> PrimIO UInt32
+  prim__hspace : HTMLImageElement -> PrimIO Bits32
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.hspace = v}"
-  prim__setHspace : HTMLImageElement -> UInt32 -> PrimIO ()
+  prim__setHspace : HTMLImageElement -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.isMap"
@@ -2079,11 +2079,11 @@ namespace HTMLImageElement
   
   export
   %foreign "browser:lambda:x=>x.naturalHeight"
-  prim__naturalHeight : HTMLImageElement -> PrimIO UInt32
+  prim__naturalHeight : HTMLImageElement -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:x=>x.naturalWidth"
-  prim__naturalWidth : HTMLImageElement -> PrimIO UInt32
+  prim__naturalWidth : HTMLImageElement -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:x=>x.referrerPolicy"
@@ -2132,21 +2132,21 @@ namespace HTMLImageElement
   
   export
   %foreign "browser:lambda:x=>x.vspace"
-  prim__vspace : HTMLImageElement -> PrimIO UInt32
+  prim__vspace : HTMLImageElement -> PrimIO Bits32
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.vspace = v}"
-  prim__setVspace : HTMLImageElement -> UInt32 -> PrimIO ()
+  prim__setVspace : HTMLImageElement -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.width"
-  prim__width : HTMLImageElement -> PrimIO UInt32
+  prim__width : HTMLImageElement -> PrimIO Bits32
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.width = v}"
-  prim__setWidth : HTMLImageElement -> UInt32 -> PrimIO ()
+  prim__setWidth : HTMLImageElement -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.decode()"
@@ -2299,12 +2299,12 @@ namespace HTMLInputElement
   
   export
   %foreign "browser:lambda:x=>x.height"
-  prim__height : HTMLInputElement -> PrimIO UInt32
+  prim__height : HTMLInputElement -> PrimIO Bits32
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.height = v}"
-  prim__setHeight : HTMLInputElement -> UInt32 -> PrimIO ()
+  prim__setHeight : HTMLInputElement -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.indeterminate"
@@ -2424,30 +2424,30 @@ namespace HTMLInputElement
   
   export
   %foreign "browser:lambda:x=>x.selectionEnd"
-  prim__selectionEnd : HTMLInputElement -> PrimIO (Nullable UInt32)
+  prim__selectionEnd : HTMLInputElement -> PrimIO (Nullable Bits32)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.selectionEnd = v}"
-  prim__setSelectionEnd : HTMLInputElement -> Nullable UInt32 -> PrimIO ()
+  prim__setSelectionEnd : HTMLInputElement -> Nullable Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.selectionStart"
-  prim__selectionStart : HTMLInputElement -> PrimIO (Nullable UInt32)
+  prim__selectionStart : HTMLInputElement -> PrimIO (Nullable Bits32)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.selectionStart = v}"
-  prim__setSelectionStart : HTMLInputElement -> Nullable UInt32 -> PrimIO ()
+  prim__setSelectionStart : HTMLInputElement -> Nullable Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.size"
-  prim__size : HTMLInputElement -> PrimIO UInt32
+  prim__size : HTMLInputElement -> PrimIO Bits32
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.size = v}"
-  prim__setSize : HTMLInputElement -> UInt32 -> PrimIO ()
+  prim__setSize : HTMLInputElement -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.src"
@@ -2522,12 +2522,12 @@ namespace HTMLInputElement
   
   export
   %foreign "browser:lambda:x=>x.width"
-  prim__width : HTMLInputElement -> PrimIO UInt32
+  prim__width : HTMLInputElement -> PrimIO Bits32
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.width = v}"
-  prim__setWidth : HTMLInputElement -> UInt32 -> PrimIO ()
+  prim__setWidth : HTMLInputElement -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.willValidate"
@@ -2557,16 +2557,16 @@ namespace HTMLInputElement
   %foreign "browser:lambda:(x,a,b,c,d)=>x.setRangeText(a,b,c,d)"
   prim__setRangeText1 :  HTMLInputElement
                       -> String
-                      -> UInt32
-                      -> UInt32
+                      -> Bits32
+                      -> Bits32
                       -> UndefOr String
                       -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c)=>x.setSelectionRange(a,b,c)"
   prim__setSelectionRange :  HTMLInputElement
-                          -> UInt32
-                          -> UInt32
+                          -> Bits32
+                          -> Bits32
                           -> UndefOr String
                           -> PrimIO ()
   
@@ -2856,12 +2856,12 @@ namespace HTMLMarqueeElement
   
   export
   %foreign "browser:lambda:x=>x.hspace"
-  prim__hspace : HTMLMarqueeElement -> PrimIO UInt32
+  prim__hspace : HTMLMarqueeElement -> PrimIO Bits32
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.hspace = v}"
-  prim__setHspace : HTMLMarqueeElement -> UInt32 -> PrimIO ()
+  prim__setHspace : HTMLMarqueeElement -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.loop"
@@ -2874,21 +2874,21 @@ namespace HTMLMarqueeElement
   
   export
   %foreign "browser:lambda:x=>x.scrollAmount"
-  prim__scrollAmount : HTMLMarqueeElement -> PrimIO UInt32
+  prim__scrollAmount : HTMLMarqueeElement -> PrimIO Bits32
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.scrollAmount = v}"
-  prim__setScrollAmount : HTMLMarqueeElement -> UInt32 -> PrimIO ()
+  prim__setScrollAmount : HTMLMarqueeElement -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.scrollDelay"
-  prim__scrollDelay : HTMLMarqueeElement -> PrimIO UInt32
+  prim__scrollDelay : HTMLMarqueeElement -> PrimIO Bits32
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.scrollDelay = v}"
-  prim__setScrollDelay : HTMLMarqueeElement -> UInt32 -> PrimIO ()
+  prim__setScrollDelay : HTMLMarqueeElement -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.trueSpeed"
@@ -2901,12 +2901,12 @@ namespace HTMLMarqueeElement
   
   export
   %foreign "browser:lambda:x=>x.vspace"
-  prim__vspace : HTMLMarqueeElement -> PrimIO UInt32
+  prim__vspace : HTMLMarqueeElement -> PrimIO Bits32
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.vspace = v}"
-  prim__setVspace : HTMLMarqueeElement -> UInt32 -> PrimIO ()
+  prim__setVspace : HTMLMarqueeElement -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.width"
@@ -3025,7 +3025,7 @@ namespace HTMLMediaElement
   
   export
   %foreign "browser:lambda:x=>x.networkState"
-  prim__networkState : HTMLMediaElement -> PrimIO UInt16
+  prim__networkState : HTMLMediaElement -> PrimIO Bits16
   
   export
   %foreign "browser:lambda:x=>x.paused"
@@ -3064,7 +3064,7 @@ namespace HTMLMediaElement
   
   export
   %foreign "browser:lambda:x=>x.readyState"
-  prim__readyState : HTMLMediaElement -> PrimIO UInt16
+  prim__readyState : HTMLMediaElement -> PrimIO Bits16
   
   export
   %foreign "browser:lambda:x=>x.seekable"
@@ -3432,12 +3432,12 @@ namespace HTMLObjectElement
   
   export
   %foreign "browser:lambda:x=>x.hspace"
-  prim__hspace : HTMLObjectElement -> PrimIO UInt32
+  prim__hspace : HTMLObjectElement -> PrimIO Bits32
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.hspace = v}"
-  prim__setHspace : HTMLObjectElement -> UInt32 -> PrimIO ()
+  prim__setHspace : HTMLObjectElement -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.name"
@@ -3485,12 +3485,12 @@ namespace HTMLObjectElement
   
   export
   %foreign "browser:lambda:x=>x.vspace"
-  prim__vspace : HTMLObjectElement -> PrimIO UInt32
+  prim__vspace : HTMLObjectElement -> PrimIO Bits32
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.vspace = v}"
-  prim__setVspace : HTMLObjectElement -> UInt32 -> PrimIO ()
+  prim__setVspace : HTMLObjectElement -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.width"
@@ -3618,18 +3618,18 @@ namespace HTMLOptionsCollection
   export
   %foreign "browser:lambda:(o,x,v)=>o[x] = v"
   prim__set :  HTMLOptionsCollection
-            -> UInt32
+            -> Bits32
             -> Nullable HTMLOptionElement
             -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.length"
-  prim__length : HTMLOptionsCollection -> PrimIO UInt32
+  prim__length : HTMLOptionsCollection -> PrimIO Bits32
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.length = v}"
-  prim__setLength : HTMLOptionsCollection -> UInt32 -> PrimIO ()
+  prim__setLength : HTMLOptionsCollection -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.selectedIndex"
@@ -3972,7 +3972,7 @@ namespace HTMLSelectElement
   export
   %foreign "browser:lambda:(o,x,v)=>o[x] = v"
   prim__set :  HTMLSelectElement
-            -> UInt32
+            -> Bits32
             -> Nullable HTMLOptionElement
             -> PrimIO ()
   
@@ -4004,12 +4004,12 @@ namespace HTMLSelectElement
   
   export
   %foreign "browser:lambda:x=>x.length"
-  prim__length : HTMLSelectElement -> PrimIO UInt32
+  prim__length : HTMLSelectElement -> PrimIO Bits32
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.length = v}"
-  prim__setLength : HTMLSelectElement -> UInt32 -> PrimIO ()
+  prim__setLength : HTMLSelectElement -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.multiple"
@@ -4057,12 +4057,12 @@ namespace HTMLSelectElement
   
   export
   %foreign "browser:lambda:x=>x.size"
-  prim__size : HTMLSelectElement -> PrimIO UInt32
+  prim__size : HTMLSelectElement -> PrimIO Bits32
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.size = v}"
-  prim__setSize : HTMLSelectElement -> UInt32 -> PrimIO ()
+  prim__setSize : HTMLSelectElement -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.type"
@@ -4102,7 +4102,7 @@ namespace HTMLSelectElement
   
   export
   %foreign "browser:lambda:(x,a)=>x.item(a)"
-  prim__item : HTMLSelectElement -> UInt32 -> PrimIO (Nullable Element)
+  prim__item : HTMLSelectElement -> Bits32 -> PrimIO (Nullable Element)
   
   export
   %foreign "browser:lambda:(x,a)=>x.namedItem(a)"
@@ -4161,12 +4161,12 @@ namespace HTMLSourceElement
   
   export
   %foreign "browser:lambda:x=>x.height"
-  prim__height : HTMLSourceElement -> PrimIO UInt32
+  prim__height : HTMLSourceElement -> PrimIO Bits32
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.height = v}"
-  prim__setHeight : HTMLSourceElement -> UInt32 -> PrimIO ()
+  prim__setHeight : HTMLSourceElement -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.media"
@@ -4215,12 +4215,12 @@ namespace HTMLSourceElement
   
   export
   %foreign "browser:lambda:x=>x.width"
-  prim__width : HTMLSourceElement -> PrimIO UInt32
+  prim__width : HTMLSourceElement -> PrimIO Bits32
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.width = v}"
-  prim__setWidth : HTMLSourceElement -> UInt32 -> PrimIO ()
+  prim__setWidth : HTMLSourceElement -> Bits32 -> PrimIO ()
 
 namespace HTMLSpanElement
   
@@ -4333,12 +4333,12 @@ namespace HTMLTableCellElement
   
   export
   %foreign "browser:lambda:x=>x.colSpan"
-  prim__colSpan : HTMLTableCellElement -> PrimIO UInt32
+  prim__colSpan : HTMLTableCellElement -> PrimIO Bits32
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.colSpan = v}"
-  prim__setColSpan : HTMLTableCellElement -> UInt32 -> PrimIO ()
+  prim__setColSpan : HTMLTableCellElement -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.headers"
@@ -4369,12 +4369,12 @@ namespace HTMLTableCellElement
   
   export
   %foreign "browser:lambda:x=>x.rowSpan"
-  prim__rowSpan : HTMLTableCellElement -> PrimIO UInt32
+  prim__rowSpan : HTMLTableCellElement -> PrimIO Bits32
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.rowSpan = v}"
-  prim__setRowSpan : HTMLTableCellElement -> UInt32 -> PrimIO ()
+  prim__setRowSpan : HTMLTableCellElement -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.scope"
@@ -4438,12 +4438,12 @@ namespace HTMLTableColElement
   
   export
   %foreign "browser:lambda:x=>x.span"
-  prim__span : HTMLTableColElement -> PrimIO UInt32
+  prim__span : HTMLTableColElement -> PrimIO Bits32
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.span = v}"
-  prim__setSpan : HTMLTableColElement -> UInt32 -> PrimIO ()
+  prim__setSpan : HTMLTableColElement -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.vAlign"
@@ -4785,12 +4785,12 @@ namespace HTMLTextAreaElement
   
   export
   %foreign "browser:lambda:x=>x.cols"
-  prim__cols : HTMLTextAreaElement -> PrimIO UInt32
+  prim__cols : HTMLTextAreaElement -> PrimIO Bits32
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.cols = v}"
-  prim__setCols : HTMLTextAreaElement -> UInt32 -> PrimIO ()
+  prim__setCols : HTMLTextAreaElement -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.defaultValue"
@@ -4883,12 +4883,12 @@ namespace HTMLTextAreaElement
   
   export
   %foreign "browser:lambda:x=>x.rows"
-  prim__rows : HTMLTextAreaElement -> PrimIO UInt32
+  prim__rows : HTMLTextAreaElement -> PrimIO Bits32
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.rows = v}"
-  prim__setRows : HTMLTextAreaElement -> UInt32 -> PrimIO ()
+  prim__setRows : HTMLTextAreaElement -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.selectionDirection"
@@ -4901,25 +4901,25 @@ namespace HTMLTextAreaElement
   
   export
   %foreign "browser:lambda:x=>x.selectionEnd"
-  prim__selectionEnd : HTMLTextAreaElement -> PrimIO UInt32
+  prim__selectionEnd : HTMLTextAreaElement -> PrimIO Bits32
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.selectionEnd = v}"
-  prim__setSelectionEnd : HTMLTextAreaElement -> UInt32 -> PrimIO ()
+  prim__setSelectionEnd : HTMLTextAreaElement -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.selectionStart"
-  prim__selectionStart : HTMLTextAreaElement -> PrimIO UInt32
+  prim__selectionStart : HTMLTextAreaElement -> PrimIO Bits32
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.selectionStart = v}"
-  prim__setSelectionStart : HTMLTextAreaElement -> UInt32 -> PrimIO ()
+  prim__setSelectionStart : HTMLTextAreaElement -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.textLength"
-  prim__textLength : HTMLTextAreaElement -> PrimIO UInt32
+  prim__textLength : HTMLTextAreaElement -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:x=>x.type"
@@ -4979,16 +4979,16 @@ namespace HTMLTextAreaElement
   %foreign "browser:lambda:(x,a,b,c,d)=>x.setRangeText(a,b,c,d)"
   prim__setRangeText1 :  HTMLTextAreaElement
                       -> String
-                      -> UInt32
-                      -> UInt32
+                      -> Bits32
+                      -> Bits32
                       -> UndefOr String
                       -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c)=>x.setSelectionRange(a,b,c)"
   prim__setSelectionRange :  HTMLTextAreaElement
-                          -> UInt32
-                          -> UInt32
+                          -> Bits32
+                          -> Bits32
                           -> UndefOr String
                           -> PrimIO ()
 
@@ -5057,7 +5057,7 @@ namespace HTMLTrackElement
   
   export
   %foreign "browser:lambda:x=>x.readyState"
-  prim__readyState : HTMLTrackElement -> PrimIO UInt16
+  prim__readyState : HTMLTrackElement -> PrimIO Bits16
   
   export
   %foreign "browser:lambda:x=>x.src"
@@ -5114,12 +5114,12 @@ namespace HTMLVideoElement
   
   export
   %foreign "browser:lambda:x=>x.height"
-  prim__height : HTMLVideoElement -> PrimIO UInt32
+  prim__height : HTMLVideoElement -> PrimIO Bits32
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.height = v}"
-  prim__setHeight : HTMLVideoElement -> UInt32 -> PrimIO ()
+  prim__setHeight : HTMLVideoElement -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.playsInline"
@@ -5141,20 +5141,20 @@ namespace HTMLVideoElement
   
   export
   %foreign "browser:lambda:x=>x.videoHeight"
-  prim__videoHeight : HTMLVideoElement -> PrimIO UInt32
+  prim__videoHeight : HTMLVideoElement -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:x=>x.videoWidth"
-  prim__videoWidth : HTMLVideoElement -> PrimIO UInt32
+  prim__videoWidth : HTMLVideoElement -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:x=>x.width"
-  prim__width : HTMLVideoElement -> PrimIO UInt32
+  prim__width : HTMLVideoElement -> PrimIO Bits32
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.width = v}"
-  prim__setWidth : HTMLVideoElement -> UInt32 -> PrimIO ()
+  prim__setWidth : HTMLVideoElement -> Bits32 -> PrimIO ()
 
 namespace HashChangeEvent
   
@@ -5174,7 +5174,7 @@ namespace History
   
   export
   %foreign "browser:lambda:x=>x.length"
-  prim__length : History -> PrimIO UInt32
+  prim__length : History -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:x=>x.scrollRestoration"
@@ -5221,11 +5221,11 @@ namespace ImageBitmap
   
   export
   %foreign "browser:lambda:x=>x.height"
-  prim__height : ImageBitmap -> PrimIO UInt32
+  prim__height : ImageBitmap -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:x=>x.width"
-  prim__width : ImageBitmap -> PrimIO UInt32
+  prim__width : ImageBitmap -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:x=>x.close()"
@@ -5248,11 +5248,11 @@ namespace ImageData
   
   export
   %foreign "browser:lambda:(a,b)=> new ImageData(a,b)"
-  prim__new : UInt32 -> UInt32 -> PrimIO ImageData
+  prim__new : Bits32 -> Bits32 -> PrimIO ImageData
   
   export
   %foreign "browser:lambda:(a,b,c)=> new ImageData(a,b,c)"
-  prim__new1 : UInt8ClampedArray -> UInt32 -> UndefOr UInt32 -> PrimIO ImageData
+  prim__new1 : UInt8ClampedArray -> Bits32 -> UndefOr Bits32 -> PrimIO ImageData
   
   export
   %foreign "browser:lambda:x=>x.data"
@@ -5260,11 +5260,11 @@ namespace ImageData
   
   export
   %foreign "browser:lambda:x=>x.height"
-  prim__height : ImageData -> PrimIO UInt32
+  prim__height : ImageData -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:x=>x.width"
-  prim__width : ImageData -> PrimIO UInt32
+  prim__width : ImageData -> PrimIO Bits32
 
 namespace Location
   
@@ -5364,7 +5364,7 @@ namespace MediaError
   
   export
   %foreign "browser:lambda:x=>x.code"
-  prim__code : MediaError -> PrimIO UInt16
+  prim__code : MediaError -> PrimIO Bits16
   
   export
   %foreign "browser:lambda:x=>x.message"
@@ -5491,11 +5491,11 @@ namespace MimeTypeArray
   
   export
   %foreign "browser:lambda:x=>x.length"
-  prim__length : MimeTypeArray -> PrimIO UInt32
+  prim__length : MimeTypeArray -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:(x,a)=>x.item(a)"
-  prim__item : MimeTypeArray -> UInt32 -> PrimIO (Nullable Object)
+  prim__item : MimeTypeArray -> Bits32 -> PrimIO (Nullable Object)
   
   export
   %foreign "browser:lambda:(x,a)=>x.namedItem(a)"
@@ -5531,25 +5531,25 @@ namespace OffscreenCanvas
   
   export
   %foreign "browser:lambda:(a,b)=> new OffscreenCanvas(a,b)"
-  prim__new : UInt64 -> UInt64 -> PrimIO OffscreenCanvas
+  prim__new : JSBits64 -> JSBits64 -> PrimIO OffscreenCanvas
   
   export
   %foreign "browser:lambda:x=>x.height"
-  prim__height : OffscreenCanvas -> PrimIO UInt64
+  prim__height : OffscreenCanvas -> PrimIO JSBits64
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.height = v}"
-  prim__setHeight : OffscreenCanvas -> UInt64 -> PrimIO ()
+  prim__setHeight : OffscreenCanvas -> JSBits64 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.width"
-  prim__width : OffscreenCanvas -> PrimIO UInt64
+  prim__width : OffscreenCanvas -> PrimIO JSBits64
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.width = v}"
-  prim__setWidth : OffscreenCanvas -> UInt64 -> PrimIO ()
+  prim__setWidth : OffscreenCanvas -> JSBits64 -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a)=>x.convertToBlob(a)"
@@ -5623,7 +5623,7 @@ namespace Plugin
   
   export
   %foreign "browser:lambda:(x,a)=>x.item(a)"
-  prim__item : Plugin -> UInt32 -> PrimIO ()
+  prim__item : Plugin -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a)=>x.namedItem(a)"
@@ -5633,11 +5633,11 @@ namespace PluginArray
   
   export
   %foreign "browser:lambda:x=>x.length"
-  prim__length : PluginArray -> PrimIO UInt32
+  prim__length : PluginArray -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:(x,a)=>x.item(a)"
-  prim__item : PluginArray -> UInt32 -> PrimIO (Nullable Object)
+  prim__item : PluginArray -> Bits32 -> PrimIO (Nullable Object)
   
   export
   %foreign "browser:lambda:(x,a)=>x.namedItem(a)"
@@ -5722,7 +5722,7 @@ namespace Storage
   
   export
   %foreign "browser:lambda:x=>x.length"
-  prim__length : Storage -> PrimIO UInt32
+  prim__length : Storage -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:x=>x.clear()"
@@ -5734,7 +5734,7 @@ namespace Storage
   
   export
   %foreign "browser:lambda:(x,a)=>x.key(a)"
-  prim__key : Storage -> UInt32 -> PrimIO (Nullable String)
+  prim__key : Storage -> Bits32 -> PrimIO (Nullable String)
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.setItem(a,b)"
@@ -5963,11 +5963,11 @@ namespace TextTrackCueList
   
   export
   %foreign "browser:lambda:(o,x)=>o[x]"
-  prim__get : TextTrackCueList -> UInt32 -> PrimIO TextTrackCue
+  prim__get : TextTrackCueList -> Bits32 -> PrimIO TextTrackCue
   
   export
   %foreign "browser:lambda:x=>x.length"
-  prim__length : TextTrackCueList -> PrimIO UInt32
+  prim__length : TextTrackCueList -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:(x,a)=>x.getCueById(a)"
@@ -5979,11 +5979,11 @@ namespace TextTrackList
   
   export
   %foreign "browser:lambda:(o,x)=>o[x]"
-  prim__get : TextTrackList -> UInt32 -> PrimIO TextTrack
+  prim__get : TextTrackList -> Bits32 -> PrimIO TextTrack
   
   export
   %foreign "browser:lambda:x=>x.length"
-  prim__length : TextTrackList -> PrimIO UInt32
+  prim__length : TextTrackList -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:x=>x.onaddtrack"
@@ -6024,15 +6024,15 @@ namespace TimeRanges
   
   export
   %foreign "browser:lambda:x=>x.length"
-  prim__length : TimeRanges -> PrimIO UInt32
+  prim__length : TimeRanges -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:(x,a)=>x.end(a)"
-  prim__end : TimeRanges -> UInt32 -> PrimIO Double
+  prim__end : TimeRanges -> Bits32 -> PrimIO Double
   
   export
   %foreign "browser:lambda:(x,a)=>x.start(a)"
-  prim__start : TimeRanges -> UInt32 -> PrimIO Double
+  prim__start : TimeRanges -> Bits32 -> PrimIO Double
 
 namespace TrackEvent
   
@@ -6126,11 +6126,11 @@ namespace VideoTrackList
   
   export
   %foreign "browser:lambda:(o,x)=>o[x]"
-  prim__get : VideoTrackList -> UInt32 -> PrimIO VideoTrack
+  prim__get : VideoTrackList -> Bits32 -> PrimIO VideoTrack
   
   export
   %foreign "browser:lambda:x=>x.length"
-  prim__length : VideoTrackList -> PrimIO UInt32
+  prim__length : VideoTrackList -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:x=>x.onaddtrack"
@@ -6192,7 +6192,7 @@ namespace WebSocket
   
   export
   %foreign "browser:lambda:x=>x.bufferedAmount"
-  prim__bufferedAmount : WebSocket -> PrimIO UInt64
+  prim__bufferedAmount : WebSocket -> PrimIO JSBits64
   
   export
   %foreign "browser:lambda:x=>x.extensions"
@@ -6240,7 +6240,7 @@ namespace WebSocket
   
   export
   %foreign "browser:lambda:x=>x.readyState"
-  prim__readyState : WebSocket -> PrimIO UInt16
+  prim__readyState : WebSocket -> PrimIO Bits16
   
   export
   %foreign "browser:lambda:x=>x.url"
@@ -6248,7 +6248,7 @@ namespace WebSocket
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.close(a,b)"
-  prim__close : WebSocket -> UndefOr UInt16 -> UndefOr String -> PrimIO ()
+  prim__close : WebSocket -> UndefOr Bits16 -> UndefOr String -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a)=>x.send(a)"
@@ -6317,7 +6317,7 @@ namespace Window
   
   export
   %foreign "browser:lambda:x=>x.length"
-  prim__length : Window -> PrimIO UInt32
+  prim__length : Window -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:x=>x.location"
@@ -8600,7 +8600,7 @@ namespace NavigatorConcurrentHardware
   
   export
   %foreign "browser:lambda:x=>x.hardwareConcurrency"
-  prim__hardwareConcurrency : NavigatorConcurrentHardware -> PrimIO UInt64
+  prim__hardwareConcurrency : NavigatorConcurrentHardware -> PrimIO JSBits64
 
 namespace NavigatorContentUtils
   
@@ -8936,18 +8936,18 @@ namespace CloseEventInit
   export
   %foreign "browser:lambda:(a,b,c)=> {wasClean: a,code: b,reason: c}"
   prim__new :  UndefOr Boolean
-            -> UndefOr UInt16
+            -> UndefOr Bits16
             -> UndefOr String
             -> PrimIO CloseEventInit
   
   export
   %foreign "browser:lambda:x=>x.code"
-  prim__code : CloseEventInit -> PrimIO (UndefOr UInt16)
+  prim__code : CloseEventInit -> PrimIO (UndefOr Bits16)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.code = v}"
-  prim__setCode : CloseEventInit -> UndefOr UInt16 -> PrimIO ()
+  prim__setCode : CloseEventInit -> UndefOr Bits16 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.reason"
@@ -9005,19 +9005,19 @@ namespace ErrorEventInit
   %foreign "browser:lambda:(a,b,c,d,e)=> {message: a,filename: b,lineno: c,colno: d,error: e}"
   prim__new :  UndefOr String
             -> UndefOr String
-            -> UndefOr UInt32
-            -> UndefOr UInt32
+            -> UndefOr Bits32
+            -> UndefOr Bits32
             -> UndefOr AnyPtr
             -> PrimIO ErrorEventInit
   
   export
   %foreign "browser:lambda:x=>x.colno"
-  prim__colno : ErrorEventInit -> PrimIO (UndefOr UInt32)
+  prim__colno : ErrorEventInit -> PrimIO (UndefOr Bits32)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.colno = v}"
-  prim__setColno : ErrorEventInit -> UndefOr UInt32 -> PrimIO ()
+  prim__setColno : ErrorEventInit -> UndefOr Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.error"
@@ -9039,12 +9039,12 @@ namespace ErrorEventInit
   
   export
   %foreign "browser:lambda:x=>x.lineno"
-  prim__lineno : ErrorEventInit -> PrimIO (UndefOr UInt32)
+  prim__lineno : ErrorEventInit -> PrimIO (UndefOr Bits32)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.lineno = v}"
-  prim__setLineno : ErrorEventInit -> UndefOr UInt32 -> PrimIO ()
+  prim__setLineno : ErrorEventInit -> UndefOr Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.message"
@@ -9131,8 +9131,8 @@ namespace ImageBitmapOptions
   prim__new :  UndefOr String
             -> UndefOr String
             -> UndefOr String
-            -> UndefOr UInt32
-            -> UndefOr UInt32
+            -> UndefOr Bits32
+            -> UndefOr Bits32
             -> UndefOr String
             -> PrimIO ImageBitmapOptions
   
@@ -9167,12 +9167,12 @@ namespace ImageBitmapOptions
   
   export
   %foreign "browser:lambda:x=>x.resizeHeight"
-  prim__resizeHeight : ImageBitmapOptions -> PrimIO (UndefOr UInt32)
+  prim__resizeHeight : ImageBitmapOptions -> PrimIO (UndefOr Bits32)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.resizeHeight = v}"
-  prim__setResizeHeight : ImageBitmapOptions -> UndefOr UInt32 -> PrimIO ()
+  prim__setResizeHeight : ImageBitmapOptions -> UndefOr Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.resizeQuality"
@@ -9185,12 +9185,12 @@ namespace ImageBitmapOptions
   
   export
   %foreign "browser:lambda:x=>x.resizeWidth"
-  prim__resizeWidth : ImageBitmapOptions -> PrimIO (UndefOr UInt32)
+  prim__resizeWidth : ImageBitmapOptions -> PrimIO (UndefOr Bits32)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.resizeWidth = v}"
-  prim__setResizeWidth : ImageBitmapOptions -> UndefOr UInt32 -> PrimIO ()
+  prim__setResizeWidth : ImageBitmapOptions -> UndefOr Bits32 -> PrimIO ()
 
 namespace ImageBitmapRenderingContextSettings
   
@@ -9716,8 +9716,8 @@ namespace OnErrorEventHandlerNonNull
   %foreign "browser:lambda:x=>(a,b,c,d,e)=>x(a,b,c,d,e)()"
   prim__toOnErrorEventHandlerNonNull :  (  Union2 Event String
                                         -> UndefOr String
-                                        -> UndefOr UInt32
-                                        -> UndefOr UInt32
+                                        -> UndefOr Bits32
+                                        -> UndefOr Bits32
                                         -> UndefOr AnyPtr
                                         -> IO AnyPtr
                                         )

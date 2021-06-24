@@ -163,7 +163,7 @@ namespace Response
   error = primJS $ Response.prim__error 
   
   export
-  redirect : (url : String) -> (status : Optional UInt16) -> JSIO Response
+  redirect : (url : String) -> (status : Optional Bits16) -> JSIO Response
   redirect a b = primJS $ Response.prim__redirect a (toFFI b)
 
   export
@@ -183,7 +183,7 @@ namespace Response
   redirected a = tryJS "Response.redirected" $ Response.prim__redirected a
   
   export
-  status : (obj : Response) -> JSIO UInt16
+  status : (obj : Response) -> JSIO Bits16
   status a = primJS $ Response.prim__status a
   
   export
@@ -477,7 +477,7 @@ namespace RequestInit
 namespace ResponseInit
   
   export
-  new :  (status : Optional UInt16)
+  new :  (status : Optional Bits16)
       -> (statusText : Optional ByteString)
       -> (headers : Optional (NS I [ Array (Array ByteString)
                                    , Record ByteString ByteString
@@ -504,7 +504,7 @@ namespace ResponseInit
   status :  JSType t
          => {auto 0 _ : Elem ResponseInit (Types t)}
          -> t
-         -> Attribute True Optional UInt16
+         -> Attribute True Optional Bits16
   status v = fromUndefOrPrim "ResponseInit.getstatus"
                              prim__status
                              prim__setStatus

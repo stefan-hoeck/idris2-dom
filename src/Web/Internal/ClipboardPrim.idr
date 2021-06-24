@@ -56,7 +56,7 @@ namespace ClipboardItem
   
   export
   %foreign "browser:lambda:x=>x.lastModified"
-  prim__lastModified : ClipboardItem -> PrimIO Int64
+  prim__lastModified : ClipboardItem -> PrimIO JSInt64
   
   export
   %foreign "browser:lambda:x=>x.presentationStyle"

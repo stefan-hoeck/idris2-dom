@@ -80,7 +80,7 @@ namespace ClipboardItem
   delayed a = tryJS "ClipboardItem.delayed" $ ClipboardItem.prim__delayed a
   
   export
-  lastModified : (obj : ClipboardItem) -> JSIO Int64
+  lastModified : (obj : ClipboardItem) -> JSIO JSInt64
   lastModified a = primJS $ ClipboardItem.prim__lastModified a
   
   export

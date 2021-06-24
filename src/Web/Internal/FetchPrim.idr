@@ -135,7 +135,7 @@ namespace Response
   
   export
   %foreign "browser:lambda:(a,b)=>Response.redirect(a,b)"
-  prim__redirect : String -> UndefOr UInt16 -> PrimIO Response
+  prim__redirect : String -> UndefOr Bits16 -> PrimIO Response
   
   export
   %foreign "browser:lambda:x=>x.headers"
@@ -151,7 +151,7 @@ namespace Response
   
   export
   %foreign "browser:lambda:x=>x.status"
-  prim__status : Response -> PrimIO UInt16
+  prim__status : Response -> PrimIO Bits16
   
   export
   %foreign "browser:lambda:x=>x.statusText"
@@ -401,7 +401,7 @@ namespace ResponseInit
   
   export
   %foreign "browser:lambda:(a,b,c)=> {status: a,statusText: b,headers: c}"
-  prim__new :  UndefOr UInt16
+  prim__new :  UndefOr Bits16
             -> UndefOr ByteString
             -> UndefOr (Union2 (Array (Array ByteString))
                                (Record ByteString ByteString))
@@ -423,12 +423,12 @@ namespace ResponseInit
   
   export
   %foreign "browser:lambda:x=>x.status"
-  prim__status : ResponseInit -> PrimIO (UndefOr UInt16)
+  prim__status : ResponseInit -> PrimIO (UndefOr Bits16)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.status = v}"
-  prim__setStatus : ResponseInit -> UndefOr UInt16 -> PrimIO ()
+  prim__setStatus : ResponseInit -> UndefOr Bits16 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.statusText"

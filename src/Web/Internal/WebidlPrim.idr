@@ -16,7 +16,7 @@ namespace DOMException
   
   export
   %foreign "browser:lambda:x=>x.code"
-  prim__code : DOMException -> PrimIO UInt16
+  prim__code : DOMException -> PrimIO Bits16
   
   export
   %foreign "browser:lambda:x=>x.message"

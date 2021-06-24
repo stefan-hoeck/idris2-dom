@@ -38,7 +38,7 @@ namespace Blob
   size :  JSType t1
        => {auto 0 _ : Elem Blob (Types t1)}
        -> (obj : t1)
-       -> JSIO UInt64
+       -> JSIO JSBits64
   size a = primJS $ Blob.prim__size (up a)
   
   export
@@ -59,8 +59,8 @@ namespace Blob
   slice :  JSType t1
         => {auto 0 _ : Elem Blob (Types t1)}
         -> (obj : t1)
-        -> (start : Optional Int64)
-        -> (end : Optional Int64)
+        -> (start : Optional JSInt64)
+        -> (end : Optional JSInt64)
         -> (contentType : Optional String)
         -> JSIO Blob
   slice a b c d = primJS $ Blob.prim__slice (up a) (toFFI b) (toFFI c) (toFFI d)
@@ -128,7 +128,7 @@ namespace File
   new' a b = primJS $ File.prim__new a b undef
   
   export
-  lastModified : (obj : File) -> JSIO Int64
+  lastModified : (obj : File) -> JSIO JSInt64
   lastModified a = primJS $ File.prim__lastModified a
   
   export
@@ -138,25 +138,25 @@ namespace File
 namespace FileList
   
   export
-  length : (obj : FileList) -> JSIO UInt32
+  length : (obj : FileList) -> JSIO Bits32
   length a = primJS $ FileList.prim__length a
   
   export
-  item : (obj : FileList) -> (index : UInt32) -> JSIO (Maybe File)
+  item : (obj : FileList) -> (index : Bits32) -> JSIO (Maybe File)
   item a b = tryJS "FileList.item" $ FileList.prim__item a b
 
 namespace FileReader
   
   public export
-  DONE : UInt16
+  DONE : Bits16
   DONE = 2
   
   public export
-  EMPTY : UInt16
+  EMPTY : Bits16
   EMPTY = 0
   
   public export
-  LOADING : UInt16
+  LOADING : Bits16
   LOADING = 1
   
   export
@@ -210,7 +210,7 @@ namespace FileReader
                                   v
   
   export
-  readyState : (obj : FileReader) -> JSIO UInt16
+  readyState : (obj : FileReader) -> JSIO Bits16
   readyState a = primJS $ FileReader.prim__readyState a
   
   export
@@ -352,7 +352,7 @@ namespace BlobPropertyBag
 namespace FilePropertyBag
   
   export
-  new : (lastModified : Optional Int64) -> JSIO FilePropertyBag
+  new : (lastModified : Optional JSInt64) -> JSIO FilePropertyBag
   new a = primJS $ FilePropertyBag.prim__new (toFFI a)
 
   export
@@ -363,7 +363,7 @@ namespace FilePropertyBag
   lastModified :  JSType t
                => {auto 0 _ : Elem FilePropertyBag (Types t)}
                -> t
-               -> Attribute False Optional Int64
+               -> Attribute False Optional JSInt64
   lastModified v = fromUndefOrPrimNoDefault "FilePropertyBag.getlastModified"
                                             prim__lastModified
                                             prim__setLastModified

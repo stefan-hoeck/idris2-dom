@@ -148,10 +148,10 @@ prim__fromArrayLikeIO : forall arr . arr -> PrimIO (Array a)
 ||| is available through `arrayDataFrom` for mutable arrays and
 ||| `arrayFrom` for immutable arrays.
 public export
-interface ArrayLike (0 arr : Type) (0 elem : Type) | arr where
+interface ArrayLike (0 arr : Type) (0 el : Type) | arr where
 
 export
-sizeIO : (HasIO io, ArrayLike arr elem) => arr -> io Bits32
+sizeIO : (HasIO io, ArrayLike arr el) => arr -> io Bits32
 sizeIO v = fromInteger . cast <$> primIO (prim__sizeIO v)
 
 export
@@ -170,26 +170,26 @@ ArrayLike (Array a) a where
 ||| this interface must be immutable.
 ||| It is then safe to provide pure versions of `readIO` and `sizeIO`.
 public export
-interface ArrayLike arr elem => IArrayLike arr elem | arr where
+interface ArrayLike arr el => IArrayLike arr el | arr where
 
 export
-size : IArrayLike arr elem => arr -> Bits32
+size : IArrayLike arr el => arr -> Bits32
 size arr = fromInteger . cast $ prim__size arr
 
 export
-read : IArrayLike arr elem
-     => (elems : arr) -> (ix : Ix $ size elems) -> elem
+read : IArrayLike arr el
+     => (elems : arr) -> (ix : Ix $ size elems) -> el
 read elems (Element ix _) = prim__read elems $ toFFI ix
 
 export
-readMaybe : IArrayLike arr elem
-          => (elems : arr) -> Bits32 -> Maybe elem
+readMaybe : IArrayLike arr el
+          => (elems : arr) -> Bits32 -> Maybe el
 readMaybe elems = map (read elems) . toIx (size elems)
 
 ||| Returns true if the given immutable arrays contain
 ||| the same elements in the same order.
 export
-sameElements : (IArrayLike arr elem, Eq elem) => arr -> arr -> Bool
+sameElements : (IArrayLike arr el, Eq el) => arr -> arr -> Bool
 sameElements a1 a2 =
   case decEq (size a2) (size a1) of
        Yes prf => run prf 0
@@ -204,8 +204,8 @@ sameElements a1 a2 =
                  run refl (ix+1)
 
 export
-foldlArray :  IArrayLike arr elem
-           => (acc -> elem -> acc) -> acc -> arr -> acc
+foldlArray :  IArrayLike arr el
+           => (acc -> el -> acc) -> acc -> arr -> acc
 foldlArray f ini arr = run 0 ini
   where run : Bits32 -> acc -> acc
         run n res = case readMaybe arr n of
@@ -213,8 +213,8 @@ foldlArray f ini arr = run 0 ini
                          Nothing => res
 
 export
-foldrArray :  IArrayLike arr elem
-           => (elem -> acc -> acc) -> acc -> arr -> acc
+foldrArray :  IArrayLike arr el
+           => (el -> acc -> acc) -> acc -> arr -> acc
 foldrArray f ini arr = run 0
   where run : Bits32 -> acc
         run n = case readMaybe arr n of
@@ -222,7 +222,7 @@ foldrArray f ini arr = run 0
                      Nothing => ini
 
 export
-arrayToList : IArrayLike arr elem => arr -> List elem
+arrayToList : IArrayLike arr el => arr -> List el
 arrayToList = foldrArray (::) Nil
 
 export
@@ -239,7 +239,7 @@ export
 FromFFI (Array a) (Array a) where fromFFI = Just
 
 export %inline
-isArray : any -> Bool
+isArray : anyVal -> Bool
 isArray v = eqv true $ prim__isArray (toFFI $ MkAny v)
 
 export
@@ -296,23 +296,23 @@ prim__fromArray : forall arr . arr -> Array a
 
 ||| A linear wrapper around a primitive array.
 export
-record LinArray (size : Bits32) (a : Type) where
+record LinArray (sze : Bits32) (a : Type) where
   constructor MkLinArray
   array : Array a
 
 export
-thaw : (1 _ : LinArray size a) -> IO (Array a)
+thaw : (1 _ : LinArray sze a) -> IO (Array a)
 thaw (MkLinArray arr) = pure arr
 
 -- This must not leak out, as we allocate a new array of
 -- `undefined` values. It is used to create an array by
 -- iteratively filling it up.
 private
-undefArray : (size : Bits32) -> (1 _ : (1 _ : LinArray size a) -> b) -> b
-undefArray size f = f (MkLinArray $ prim__undefArray (toFFI size))
+undefArray : (sze : Bits32) -> (1 _ : (1 _ : LinArray sze a) -> b) -> b
+undefArray sze f = f (MkLinArray $ prim__undefArray (toFFI sze))
 
 private
-unsafeWrite : (1 _ : LinArray size a) -> (n : Bits32) -> a -> LinArray size a
+unsafeWrite : (1 _ : LinArray sze a) -> (n : Bits32) -> a -> LinArray sze a
 unsafeWrite (MkLinArray arr) n v = MkLinArray $ prim__write arr (toFFI n) v
 
 export
@@ -321,41 +321,41 @@ emptyArray f = f (MkLinArray $ prim__emptyArray)
 
 export
 newArray :  (val : a)
-         -> (size : Bits32)
-         -> (1 _ : (1 _ : LinArray size a) -> b)
+         -> (sze : Bits32)
+         -> (1 _ : (1 _ : LinArray sze a) -> b)
          -> b
-newArray v size f = f (MkLinArray $ prim__newArray (toFFI size) v)
+newArray v sze f = f (MkLinArray $ prim__newArray (toFFI sze) v)
 
 export
-withArray :  IArrayLike arr elem
+withArray :  IArrayLike arr el
           => (v : arr)
-          -> (1 _ : (1 _ : LinArray (size v) elem) -> a)
+          -> (1 _ : (1 _ : LinArray (size v) el) -> a)
           -> a
 withArray array f = f (MkLinArray $ prim__fromArray array)
 
 export
-write : (1 _ : LinArray size a) -> (ix : Ix size) -> a -> LinArray size a
+write : (1 _ : LinArray sze a) -> (ix : Ix sze) -> a -> LinArray sze a
 write arr (Element n _) = unsafeWrite arr n
 
 export
-lread :  (1 _ : LinArray size a)
-      -> (ix : Ix size)
-      -> Res a (const $ LinArray size a)
+lread :  (1 _ : LinArray sze a)
+      -> (ix : Ix sze)
+      -> Res a (const $ LinArray sze a)
 lread (MkLinArray arr) (Element ix _) =
   prim__read arr (toFFI ix) # MkLinArray arr
 
 export
-lsize : (1 _ : LinArray size a) -> Res Bits32 (\s => LinArray s a)
+lsize : (1 _ : LinArray sze a) -> Res Bits32 (\s => LinArray s a)
 lsize (MkLinArray arr) = fromInteger (cast $ prim__size arr) # MkLinArray arr
 
 export
-iterate' :  (size : Bits32)
-         -> (Ix size -> a)
-         -> ((1 _ : LinArray size a) -> b)
+iterate' :  (sze : Bits32)
+         -> (Ix sze -> a)
+         -> ((1 _ : LinArray sze a) -> b)
          -> b
-iterate' size f g = undefArray size (run 0)
-  where run : Bits32 -> (1 _ : LinArray size a) -> b
-        run n arr = case toIx size n of
+iterate' sze f g = undefArray sze (run 0)
+  where run : Bits32 -> (1 _ : LinArray sze a) -> b
+        run n arr = case toIx sze n of
                          Nothing => g arr
                          Just ix => run (n+1) (write arr ix (f ix))
 
@@ -418,7 +418,7 @@ record IArray (a : Type) where
   array : Array a
 
 export
-freeze : forall size,a . (1 _ : LinArray size a) -> IArray a
+freeze : forall sze,a . (1 _ : LinArray sze a) -> IArray a
 freeze (MkLinArray arr) = MkIArray arr
 
 export
@@ -444,8 +444,8 @@ concat : IArray (IArray a) -> IArray a
 concat as = join' {arr2 = IArray a} as freeze
 
 export
-Eq elem => Eq (IArray elem) where
-  (==) = sameElements {elem}
+Eq el => Eq (IArray el) where
+  (==) = sameElements {el}
 
 export
 Show a => Show (IArray a) where

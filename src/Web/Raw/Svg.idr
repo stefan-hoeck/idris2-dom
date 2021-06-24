@@ -59,27 +59,27 @@ namespace SVGAElement
 namespace SVGAngle
   
   public export
-  SVG_ANGLETYPE_DEG : UInt16
+  SVG_ANGLETYPE_DEG : Bits16
   SVG_ANGLETYPE_DEG = 2
   
   public export
-  SVG_ANGLETYPE_GRAD : UInt16
+  SVG_ANGLETYPE_GRAD : Bits16
   SVG_ANGLETYPE_GRAD = 4
   
   public export
-  SVG_ANGLETYPE_RAD : UInt16
+  SVG_ANGLETYPE_RAD : Bits16
   SVG_ANGLETYPE_RAD = 3
   
   public export
-  SVG_ANGLETYPE_UNKNOWN : UInt16
+  SVG_ANGLETYPE_UNKNOWN : Bits16
   SVG_ANGLETYPE_UNKNOWN = 0
   
   public export
-  SVG_ANGLETYPE_UNSPECIFIED : UInt16
+  SVG_ANGLETYPE_UNSPECIFIED : Bits16
   SVG_ANGLETYPE_UNSPECIFIED = 1
   
   export
-  unitType : (obj : SVGAngle) -> JSIO UInt16
+  unitType : (obj : SVGAngle) -> JSIO Bits16
   unitType a = primJS $ SVGAngle.prim__unitType a
   
   export
@@ -101,13 +101,13 @@ namespace SVGAngle
                                      v
   
   export
-  convertToSpecifiedUnits : (obj : SVGAngle) -> (unitType : UInt16) -> JSIO ()
+  convertToSpecifiedUnits : (obj : SVGAngle) -> (unitType : Bits16) -> JSIO ()
   convertToSpecifiedUnits a b = primJS
                               $ SVGAngle.prim__convertToSpecifiedUnits a b
   
   export
   newValueSpecifiedUnits :  (obj : SVGAngle)
-                         -> (unitType : UInt16)
+                         -> (unitType : Bits16)
                          -> (valueInSpecifiedUnits : Double)
                          -> JSIO ()
   newValueSpecifiedUnits a b c = primJS
@@ -140,11 +140,11 @@ namespace SVGAnimatedBoolean
 namespace SVGAnimatedEnumeration
   
   export
-  animVal : (obj : SVGAnimatedEnumeration) -> JSIO UInt16
+  animVal : (obj : SVGAnimatedEnumeration) -> JSIO Bits16
   animVal a = primJS $ SVGAnimatedEnumeration.prim__animVal a
   
   export
-  baseVal : SVGAnimatedEnumeration -> Attribute True I UInt16
+  baseVal : SVGAnimatedEnumeration -> Attribute True I Bits16
   baseVal v = fromPrim "SVGAnimatedEnumeration.getbaseVal"
                        prim__baseVal
                        prim__setBaseVal
@@ -396,19 +396,19 @@ namespace SVGGeometryElement
 namespace SVGGradientElement
   
   public export
-  SVG_SPREADMETHOD_PAD : UInt16
+  SVG_SPREADMETHOD_PAD : Bits16
   SVG_SPREADMETHOD_PAD = 1
   
   public export
-  SVG_SPREADMETHOD_REFLECT : UInt16
+  SVG_SPREADMETHOD_REFLECT : Bits16
   SVG_SPREADMETHOD_REFLECT = 2
   
   public export
-  SVG_SPREADMETHOD_REPEAT : UInt16
+  SVG_SPREADMETHOD_REPEAT : Bits16
   SVG_SPREADMETHOD_REPEAT = 3
   
   public export
-  SVG_SPREADMETHOD_UNKNOWN : UInt16
+  SVG_SPREADMETHOD_UNKNOWN : Bits16
   SVG_SPREADMETHOD_UNKNOWN = 0
   
   export
@@ -508,51 +508,51 @@ namespace SVGImageElement
 namespace SVGLength
   
   public export
-  SVG_LENGTHTYPE_CM : UInt16
+  SVG_LENGTHTYPE_CM : Bits16
   SVG_LENGTHTYPE_CM = 6
   
   public export
-  SVG_LENGTHTYPE_EMS : UInt16
+  SVG_LENGTHTYPE_EMS : Bits16
   SVG_LENGTHTYPE_EMS = 3
   
   public export
-  SVG_LENGTHTYPE_EXS : UInt16
+  SVG_LENGTHTYPE_EXS : Bits16
   SVG_LENGTHTYPE_EXS = 4
   
   public export
-  SVG_LENGTHTYPE_IN : UInt16
+  SVG_LENGTHTYPE_IN : Bits16
   SVG_LENGTHTYPE_IN = 8
   
   public export
-  SVG_LENGTHTYPE_MM : UInt16
+  SVG_LENGTHTYPE_MM : Bits16
   SVG_LENGTHTYPE_MM = 7
   
   public export
-  SVG_LENGTHTYPE_NUMBER : UInt16
+  SVG_LENGTHTYPE_NUMBER : Bits16
   SVG_LENGTHTYPE_NUMBER = 1
   
   public export
-  SVG_LENGTHTYPE_PC : UInt16
+  SVG_LENGTHTYPE_PC : Bits16
   SVG_LENGTHTYPE_PC = 10
   
   public export
-  SVG_LENGTHTYPE_PERCENTAGE : UInt16
+  SVG_LENGTHTYPE_PERCENTAGE : Bits16
   SVG_LENGTHTYPE_PERCENTAGE = 2
   
   public export
-  SVG_LENGTHTYPE_PT : UInt16
+  SVG_LENGTHTYPE_PT : Bits16
   SVG_LENGTHTYPE_PT = 9
   
   public export
-  SVG_LENGTHTYPE_PX : UInt16
+  SVG_LENGTHTYPE_PX : Bits16
   SVG_LENGTHTYPE_PX = 5
   
   public export
-  SVG_LENGTHTYPE_UNKNOWN : UInt16
+  SVG_LENGTHTYPE_UNKNOWN : Bits16
   SVG_LENGTHTYPE_UNKNOWN = 0
   
   export
-  unitType : (obj : SVGLength) -> JSIO UInt16
+  unitType : (obj : SVGLength) -> JSIO Bits16
   unitType a = primJS $ SVGLength.prim__unitType a
   
   export
@@ -574,13 +574,13 @@ namespace SVGLength
                                      v
   
   export
-  convertToSpecifiedUnits : (obj : SVGLength) -> (unitType : UInt16) -> JSIO ()
+  convertToSpecifiedUnits : (obj : SVGLength) -> (unitType : Bits16) -> JSIO ()
   convertToSpecifiedUnits a b = primJS
                               $ SVGLength.prim__convertToSpecifiedUnits a b
   
   export
   newValueSpecifiedUnits :  (obj : SVGLength)
-                         -> (unitType : UInt16)
+                         -> (unitType : Bits16)
                          -> (valueInSpecifiedUnits : Double)
                          -> JSIO ()
   newValueSpecifiedUnits a b c = primJS
@@ -590,17 +590,17 @@ namespace SVGLengthList
   
   export
   set :  (obj : SVGLengthList)
-      -> (index : UInt32)
+      -> (index : Bits32)
       -> (newItem : SVGLength)
       -> JSIO ()
   set a b c = primJS $ SVGLengthList.prim__set a b c
   
   export
-  length : (obj : SVGLengthList) -> JSIO UInt32
+  length : (obj : SVGLengthList) -> JSIO Bits32
   length a = primJS $ SVGLengthList.prim__length a
   
   export
-  numberOfItems : (obj : SVGLengthList) -> JSIO UInt32
+  numberOfItems : (obj : SVGLengthList) -> JSIO Bits32
   numberOfItems a = primJS $ SVGLengthList.prim__numberOfItems a
   
   export
@@ -612,7 +612,7 @@ namespace SVGLengthList
   clear a = primJS $ SVGLengthList.prim__clear a
   
   export
-  getItem : (obj : SVGLengthList) -> (index : UInt32) -> JSIO SVGLength
+  getItem : (obj : SVGLengthList) -> (index : Bits32) -> JSIO SVGLength
   getItem a b = primJS $ SVGLengthList.prim__getItem a b
   
   export
@@ -622,18 +622,18 @@ namespace SVGLengthList
   export
   insertItemBefore :  (obj : SVGLengthList)
                    -> (newItem : SVGLength)
-                   -> (index : UInt32)
+                   -> (index : Bits32)
                    -> JSIO SVGLength
   insertItemBefore a b c = primJS $ SVGLengthList.prim__insertItemBefore a b c
   
   export
-  removeItem : (obj : SVGLengthList) -> (index : UInt32) -> JSIO SVGLength
+  removeItem : (obj : SVGLengthList) -> (index : Bits32) -> JSIO SVGLength
   removeItem a b = primJS $ SVGLengthList.prim__removeItem a b
   
   export
   replaceItem :  (obj : SVGLengthList)
               -> (newItem : SVGLength)
-              -> (index : UInt32)
+              -> (index : Bits32)
               -> JSIO SVGLength
   replaceItem a b c = primJS $ SVGLengthList.prim__replaceItem a b c
 
@@ -676,27 +676,27 @@ namespace SVGLinearGradientElement
 namespace SVGMarkerElement
   
   public export
-  SVG_MARKERUNITS_STROKEWIDTH : UInt16
+  SVG_MARKERUNITS_STROKEWIDTH : Bits16
   SVG_MARKERUNITS_STROKEWIDTH = 2
   
   public export
-  SVG_MARKERUNITS_UNKNOWN : UInt16
+  SVG_MARKERUNITS_UNKNOWN : Bits16
   SVG_MARKERUNITS_UNKNOWN = 0
   
   public export
-  SVG_MARKERUNITS_USERSPACEONUSE : UInt16
+  SVG_MARKERUNITS_USERSPACEONUSE : Bits16
   SVG_MARKERUNITS_USERSPACEONUSE = 1
   
   public export
-  SVG_MARKER_ORIENT_ANGLE : UInt16
+  SVG_MARKER_ORIENT_ANGLE : Bits16
   SVG_MARKER_ORIENT_ANGLE = 2
   
   public export
-  SVG_MARKER_ORIENT_AUTO : UInt16
+  SVG_MARKER_ORIENT_AUTO : Bits16
   SVG_MARKER_ORIENT_AUTO = 1
   
   public export
-  SVG_MARKER_ORIENT_UNKNOWN : UInt16
+  SVG_MARKER_ORIENT_UNKNOWN : Bits16
   SVG_MARKER_ORIENT_UNKNOWN = 0
   
   export
@@ -753,17 +753,17 @@ namespace SVGNumberList
   
   export
   set :  (obj : SVGNumberList)
-      -> (index : UInt32)
+      -> (index : Bits32)
       -> (newItem : SVGNumber)
       -> JSIO ()
   set a b c = primJS $ SVGNumberList.prim__set a b c
   
   export
-  length : (obj : SVGNumberList) -> JSIO UInt32
+  length : (obj : SVGNumberList) -> JSIO Bits32
   length a = primJS $ SVGNumberList.prim__length a
   
   export
-  numberOfItems : (obj : SVGNumberList) -> JSIO UInt32
+  numberOfItems : (obj : SVGNumberList) -> JSIO Bits32
   numberOfItems a = primJS $ SVGNumberList.prim__numberOfItems a
   
   export
@@ -775,7 +775,7 @@ namespace SVGNumberList
   clear a = primJS $ SVGNumberList.prim__clear a
   
   export
-  getItem : (obj : SVGNumberList) -> (index : UInt32) -> JSIO SVGNumber
+  getItem : (obj : SVGNumberList) -> (index : Bits32) -> JSIO SVGNumber
   getItem a b = primJS $ SVGNumberList.prim__getItem a b
   
   export
@@ -785,18 +785,18 @@ namespace SVGNumberList
   export
   insertItemBefore :  (obj : SVGNumberList)
                    -> (newItem : SVGNumber)
-                   -> (index : UInt32)
+                   -> (index : Bits32)
                    -> JSIO SVGNumber
   insertItemBefore a b c = primJS $ SVGNumberList.prim__insertItemBefore a b c
   
   export
-  removeItem : (obj : SVGNumberList) -> (index : UInt32) -> JSIO SVGNumber
+  removeItem : (obj : SVGNumberList) -> (index : Bits32) -> JSIO SVGNumber
   removeItem a b = primJS $ SVGNumberList.prim__removeItem a b
   
   export
   replaceItem :  (obj : SVGNumberList)
               -> (newItem : SVGNumber)
-              -> (index : UInt32)
+              -> (index : Bits32)
               -> JSIO SVGNumber
   replaceItem a b c = primJS $ SVGNumberList.prim__replaceItem a b c
 
@@ -835,17 +835,17 @@ namespace SVGPointList
   
   export
   set :  (obj : SVGPointList)
-      -> (index : UInt32)
+      -> (index : Bits32)
       -> (newItem : DOMPoint)
       -> JSIO ()
   set a b c = primJS $ SVGPointList.prim__set a b c
   
   export
-  length : (obj : SVGPointList) -> JSIO UInt32
+  length : (obj : SVGPointList) -> JSIO Bits32
   length a = primJS $ SVGPointList.prim__length a
   
   export
-  numberOfItems : (obj : SVGPointList) -> JSIO UInt32
+  numberOfItems : (obj : SVGPointList) -> JSIO Bits32
   numberOfItems a = primJS $ SVGPointList.prim__numberOfItems a
   
   export
@@ -857,7 +857,7 @@ namespace SVGPointList
   clear a = primJS $ SVGPointList.prim__clear a
   
   export
-  getItem : (obj : SVGPointList) -> (index : UInt32) -> JSIO DOMPoint
+  getItem : (obj : SVGPointList) -> (index : Bits32) -> JSIO DOMPoint
   getItem a b = primJS $ SVGPointList.prim__getItem a b
   
   export
@@ -867,18 +867,18 @@ namespace SVGPointList
   export
   insertItemBefore :  (obj : SVGPointList)
                    -> (newItem : DOMPoint)
-                   -> (index : UInt32)
+                   -> (index : Bits32)
                    -> JSIO DOMPoint
   insertItemBefore a b c = primJS $ SVGPointList.prim__insertItemBefore a b c
   
   export
-  removeItem : (obj : SVGPointList) -> (index : UInt32) -> JSIO DOMPoint
+  removeItem : (obj : SVGPointList) -> (index : Bits32) -> JSIO DOMPoint
   removeItem a b = primJS $ SVGPointList.prim__removeItem a b
   
   export
   replaceItem :  (obj : SVGPointList)
               -> (newItem : DOMPoint)
-              -> (index : UInt32)
+              -> (index : Bits32)
               -> JSIO DOMPoint
   replaceItem a b c = primJS $ SVGPointList.prim__replaceItem a b c
 
@@ -887,70 +887,70 @@ namespace SVGPointList
 namespace SVGPreserveAspectRatio
   
   public export
-  SVG_MEETORSLICE_MEET : UInt16
+  SVG_MEETORSLICE_MEET : Bits16
   SVG_MEETORSLICE_MEET = 1
   
   public export
-  SVG_MEETORSLICE_SLICE : UInt16
+  SVG_MEETORSLICE_SLICE : Bits16
   SVG_MEETORSLICE_SLICE = 2
   
   public export
-  SVG_MEETORSLICE_UNKNOWN : UInt16
+  SVG_MEETORSLICE_UNKNOWN : Bits16
   SVG_MEETORSLICE_UNKNOWN = 0
   
   public export
-  SVG_PRESERVEASPECTRATIO_NONE : UInt16
+  SVG_PRESERVEASPECTRATIO_NONE : Bits16
   SVG_PRESERVEASPECTRATIO_NONE = 1
   
   public export
-  SVG_PRESERVEASPECTRATIO_UNKNOWN : UInt16
+  SVG_PRESERVEASPECTRATIO_UNKNOWN : Bits16
   SVG_PRESERVEASPECTRATIO_UNKNOWN = 0
   
   public export
-  SVG_PRESERVEASPECTRATIO_XMAXYMAX : UInt16
+  SVG_PRESERVEASPECTRATIO_XMAXYMAX : Bits16
   SVG_PRESERVEASPECTRATIO_XMAXYMAX = 10
   
   public export
-  SVG_PRESERVEASPECTRATIO_XMAXYMID : UInt16
+  SVG_PRESERVEASPECTRATIO_XMAXYMID : Bits16
   SVG_PRESERVEASPECTRATIO_XMAXYMID = 7
   
   public export
-  SVG_PRESERVEASPECTRATIO_XMAXYMIN : UInt16
+  SVG_PRESERVEASPECTRATIO_XMAXYMIN : Bits16
   SVG_PRESERVEASPECTRATIO_XMAXYMIN = 4
   
   public export
-  SVG_PRESERVEASPECTRATIO_XMIDYMAX : UInt16
+  SVG_PRESERVEASPECTRATIO_XMIDYMAX : Bits16
   SVG_PRESERVEASPECTRATIO_XMIDYMAX = 9
   
   public export
-  SVG_PRESERVEASPECTRATIO_XMIDYMID : UInt16
+  SVG_PRESERVEASPECTRATIO_XMIDYMID : Bits16
   SVG_PRESERVEASPECTRATIO_XMIDYMID = 6
   
   public export
-  SVG_PRESERVEASPECTRATIO_XMIDYMIN : UInt16
+  SVG_PRESERVEASPECTRATIO_XMIDYMIN : Bits16
   SVG_PRESERVEASPECTRATIO_XMIDYMIN = 3
   
   public export
-  SVG_PRESERVEASPECTRATIO_XMINYMAX : UInt16
+  SVG_PRESERVEASPECTRATIO_XMINYMAX : Bits16
   SVG_PRESERVEASPECTRATIO_XMINYMAX = 8
   
   public export
-  SVG_PRESERVEASPECTRATIO_XMINYMID : UInt16
+  SVG_PRESERVEASPECTRATIO_XMINYMID : Bits16
   SVG_PRESERVEASPECTRATIO_XMINYMID = 5
   
   public export
-  SVG_PRESERVEASPECTRATIO_XMINYMIN : UInt16
+  SVG_PRESERVEASPECTRATIO_XMINYMIN : Bits16
   SVG_PRESERVEASPECTRATIO_XMINYMIN = 2
   
   export
-  align : SVGPreserveAspectRatio -> Attribute True I UInt16
+  align : SVGPreserveAspectRatio -> Attribute True I Bits16
   align v = fromPrim "SVGPreserveAspectRatio.getalign"
                      prim__align
                      prim__setAlign
                      v
   
   export
-  meetOrSlice : SVGPreserveAspectRatio -> Attribute True I UInt16
+  meetOrSlice : SVGPreserveAspectRatio -> Attribute True I Bits16
   meetOrSlice v = fromPrim "SVGPreserveAspectRatio.getmeetOrSlice"
                            prim__meetOrSlice
                            prim__setMeetOrSlice
@@ -1149,8 +1149,8 @@ namespace SVGSVGElement
   
   export
   suspendRedraw :  (obj : SVGSVGElement)
-                -> (maxWaitMilliseconds : UInt32)
-                -> JSIO UInt32
+                -> (maxWaitMilliseconds : Bits32)
+                -> JSIO Bits32
   suspendRedraw a b = primJS $ SVGSVGElement.prim__suspendRedraw a b
   
   export
@@ -1159,7 +1159,7 @@ namespace SVGSVGElement
   
   export
   unsuspendRedraw :  (obj : SVGSVGElement)
-                  -> (suspendHandleID : UInt32)
+                  -> (suspendHandleID : Bits32)
                   -> JSIO ()
   unsuspendRedraw a b = primJS $ SVGSVGElement.prim__unsuspendRedraw a b
 
@@ -1186,17 +1186,17 @@ namespace SVGStringList
   
   export
   set :  (obj : SVGStringList)
-      -> (index : UInt32)
+      -> (index : Bits32)
       -> (newItem : String)
       -> JSIO ()
   set a b c = primJS $ SVGStringList.prim__set a b c
   
   export
-  length : (obj : SVGStringList) -> JSIO UInt32
+  length : (obj : SVGStringList) -> JSIO Bits32
   length a = primJS $ SVGStringList.prim__length a
   
   export
-  numberOfItems : (obj : SVGStringList) -> JSIO UInt32
+  numberOfItems : (obj : SVGStringList) -> JSIO Bits32
   numberOfItems a = primJS $ SVGStringList.prim__numberOfItems a
   
   export
@@ -1208,7 +1208,7 @@ namespace SVGStringList
   clear a = primJS $ SVGStringList.prim__clear a
   
   export
-  getItem : (obj : SVGStringList) -> (index : UInt32) -> JSIO String
+  getItem : (obj : SVGStringList) -> (index : Bits32) -> JSIO String
   getItem a b = primJS $ SVGStringList.prim__getItem a b
   
   export
@@ -1218,18 +1218,18 @@ namespace SVGStringList
   export
   insertItemBefore :  (obj : SVGStringList)
                    -> (newItem : String)
-                   -> (index : UInt32)
+                   -> (index : Bits32)
                    -> JSIO String
   insertItemBefore a b c = primJS $ SVGStringList.prim__insertItemBefore a b c
   
   export
-  removeItem : (obj : SVGStringList) -> (index : UInt32) -> JSIO String
+  removeItem : (obj : SVGStringList) -> (index : Bits32) -> JSIO String
   removeItem a b = primJS $ SVGStringList.prim__removeItem a b
   
   export
   replaceItem :  (obj : SVGStringList)
               -> (newItem : String)
-              -> (index : UInt32)
+              -> (index : Bits32)
               -> JSIO String
   replaceItem a b c = primJS $ SVGStringList.prim__replaceItem a b c
 
@@ -1253,15 +1253,15 @@ namespace SVGStyleElement
 namespace SVGTextContentElement
   
   public export
-  LENGTHADJUST_SPACING : UInt16
+  LENGTHADJUST_SPACING : Bits16
   LENGTHADJUST_SPACING = 1
   
   public export
-  LENGTHADJUST_SPACINGANDGLYPHS : UInt16
+  LENGTHADJUST_SPACINGANDGLYPHS : Bits16
   LENGTHADJUST_SPACINGANDGLYPHS = 2
   
   public export
-  LENGTHADJUST_UNKNOWN : UInt16
+  LENGTHADJUST_UNKNOWN : Bits16
   LENGTHADJUST_UNKNOWN = 0
   
   export
@@ -1311,7 +1311,7 @@ namespace SVGTextContentElement
   getEndPositionOfChar :  JSType t1
                        => {auto 0 _ : Elem SVGTextContentElement (Types t1)}
                        -> (obj : t1)
-                       -> (charnum : UInt32)
+                       -> (charnum : Bits32)
                        -> JSIO DOMPoint
   getEndPositionOfChar a b = primJS
                            $ SVGTextContentElement.prim__getEndPositionOfChar (up a)
@@ -1321,7 +1321,7 @@ namespace SVGTextContentElement
   getExtentOfChar :  JSType t1
                   => {auto 0 _ : Elem SVGTextContentElement (Types t1)}
                   -> (obj : t1)
-                  -> (charnum : UInt32)
+                  -> (charnum : Bits32)
                   -> JSIO DOMRect
   getExtentOfChar a b = primJS
                       $ SVGTextContentElement.prim__getExtentOfChar (up a) b
@@ -1338,7 +1338,7 @@ namespace SVGTextContentElement
   getRotationOfChar :  JSType t1
                     => {auto 0 _ : Elem SVGTextContentElement (Types t1)}
                     -> (obj : t1)
-                    -> (charnum : UInt32)
+                    -> (charnum : Bits32)
                     -> JSIO Double
   getRotationOfChar a b = primJS
                         $ SVGTextContentElement.prim__getRotationOfChar (up a) b
@@ -1347,7 +1347,7 @@ namespace SVGTextContentElement
   getStartPositionOfChar :  JSType t1
                          => {auto 0 _ : Elem SVGTextContentElement (Types t1)}
                          -> (obj : t1)
-                         -> (charnum : UInt32)
+                         -> (charnum : Bits32)
                          -> JSIO DOMPoint
   getStartPositionOfChar a b = primJS
                              $ SVGTextContentElement.prim__getStartPositionOfChar (up a)
@@ -1357,8 +1357,8 @@ namespace SVGTextContentElement
   getSubStringLength :  JSType t1
                      => {auto 0 _ : Elem SVGTextContentElement (Types t1)}
                      -> (obj : t1)
-                     -> (charnum : UInt32)
-                     -> (nchars : UInt32)
+                     -> (charnum : Bits32)
+                     -> (nchars : Bits32)
                      -> JSIO Double
   getSubStringLength a b c = primJS
                            $ SVGTextContentElement.prim__getSubStringLength (up a)
@@ -1369,8 +1369,8 @@ namespace SVGTextContentElement
   selectSubString :  JSType t1
                   => {auto 0 _ : Elem SVGTextContentElement (Types t1)}
                   -> (obj : t1)
-                  -> (charnum : UInt32)
-                  -> (nchars : UInt32)
+                  -> (charnum : Bits32)
+                  -> (nchars : Bits32)
                   -> JSIO ()
   selectSubString a b c = primJS
                         $ SVGTextContentElement.prim__selectSubString (up a) b c
@@ -1379,27 +1379,27 @@ namespace SVGTextContentElement
 namespace SVGTextPathElement
   
   public export
-  TEXTPATH_METHODTYPE_ALIGN : UInt16
+  TEXTPATH_METHODTYPE_ALIGN : Bits16
   TEXTPATH_METHODTYPE_ALIGN = 1
   
   public export
-  TEXTPATH_METHODTYPE_STRETCH : UInt16
+  TEXTPATH_METHODTYPE_STRETCH : Bits16
   TEXTPATH_METHODTYPE_STRETCH = 2
   
   public export
-  TEXTPATH_METHODTYPE_UNKNOWN : UInt16
+  TEXTPATH_METHODTYPE_UNKNOWN : Bits16
   TEXTPATH_METHODTYPE_UNKNOWN = 0
   
   public export
-  TEXTPATH_SPACINGTYPE_AUTO : UInt16
+  TEXTPATH_SPACINGTYPE_AUTO : Bits16
   TEXTPATH_SPACINGTYPE_AUTO = 1
   
   public export
-  TEXTPATH_SPACINGTYPE_EXACT : UInt16
+  TEXTPATH_SPACINGTYPE_EXACT : Bits16
   TEXTPATH_SPACINGTYPE_EXACT = 2
   
   public export
-  TEXTPATH_SPACINGTYPE_UNKNOWN : UInt16
+  TEXTPATH_SPACINGTYPE_UNKNOWN : Bits16
   TEXTPATH_SPACINGTYPE_UNKNOWN = 0
   
   export
@@ -1455,31 +1455,31 @@ namespace SVGTextPositioningElement
 namespace SVGTransform
   
   public export
-  SVG_TRANSFORM_MATRIX : UInt16
+  SVG_TRANSFORM_MATRIX : Bits16
   SVG_TRANSFORM_MATRIX = 1
   
   public export
-  SVG_TRANSFORM_ROTATE : UInt16
+  SVG_TRANSFORM_ROTATE : Bits16
   SVG_TRANSFORM_ROTATE = 4
   
   public export
-  SVG_TRANSFORM_SCALE : UInt16
+  SVG_TRANSFORM_SCALE : Bits16
   SVG_TRANSFORM_SCALE = 3
   
   public export
-  SVG_TRANSFORM_SKEWX : UInt16
+  SVG_TRANSFORM_SKEWX : Bits16
   SVG_TRANSFORM_SKEWX = 5
   
   public export
-  SVG_TRANSFORM_SKEWY : UInt16
+  SVG_TRANSFORM_SKEWY : Bits16
   SVG_TRANSFORM_SKEWY = 6
   
   public export
-  SVG_TRANSFORM_TRANSLATE : UInt16
+  SVG_TRANSFORM_TRANSLATE : Bits16
   SVG_TRANSFORM_TRANSLATE = 2
   
   public export
-  SVG_TRANSFORM_UNKNOWN : UInt16
+  SVG_TRANSFORM_UNKNOWN : Bits16
   SVG_TRANSFORM_UNKNOWN = 0
   
   export
@@ -1491,7 +1491,7 @@ namespace SVGTransform
   matrix a = primJS $ SVGTransform.prim__matrix a
   
   export
-  type : (obj : SVGTransform) -> JSIO UInt16
+  type : (obj : SVGTransform) -> JSIO Bits16
   type a = primJS $ SVGTransform.prim__type a
   
   export
@@ -1537,17 +1537,17 @@ namespace SVGTransformList
   
   export
   set :  (obj : SVGTransformList)
-      -> (index : UInt32)
+      -> (index : Bits32)
       -> (newItem : SVGTransform)
       -> JSIO ()
   set a b c = primJS $ SVGTransformList.prim__set a b c
   
   export
-  length : (obj : SVGTransformList) -> JSIO UInt32
+  length : (obj : SVGTransformList) -> JSIO Bits32
   length a = primJS $ SVGTransformList.prim__length a
   
   export
-  numberOfItems : (obj : SVGTransformList) -> JSIO UInt32
+  numberOfItems : (obj : SVGTransformList) -> JSIO Bits32
   numberOfItems a = primJS $ SVGTransformList.prim__numberOfItems a
   
   export
@@ -1582,7 +1582,7 @@ namespace SVGTransformList
                                                                                         undef
   
   export
-  getItem : (obj : SVGTransformList) -> (index : UInt32) -> JSIO SVGTransform
+  getItem : (obj : SVGTransformList) -> (index : Bits32) -> JSIO SVGTransform
   getItem a b = primJS $ SVGTransformList.prim__getItem a b
   
   export
@@ -1594,34 +1594,34 @@ namespace SVGTransformList
   export
   insertItemBefore :  (obj : SVGTransformList)
                    -> (newItem : SVGTransform)
-                   -> (index : UInt32)
+                   -> (index : Bits32)
                    -> JSIO SVGTransform
   insertItemBefore a b c = primJS
                          $ SVGTransformList.prim__insertItemBefore a b c
   
   export
-  removeItem : (obj : SVGTransformList) -> (index : UInt32) -> JSIO SVGTransform
+  removeItem : (obj : SVGTransformList) -> (index : Bits32) -> JSIO SVGTransform
   removeItem a b = primJS $ SVGTransformList.prim__removeItem a b
   
   export
   replaceItem :  (obj : SVGTransformList)
               -> (newItem : SVGTransform)
-              -> (index : UInt32)
+              -> (index : Bits32)
               -> JSIO SVGTransform
   replaceItem a b c = primJS $ SVGTransformList.prim__replaceItem a b c
 
 namespace SVGUnitTypes
   
   public export
-  SVG_UNIT_TYPE_OBJECTBOUNDINGBOX : UInt16
+  SVG_UNIT_TYPE_OBJECTBOUNDINGBOX : Bits16
   SVG_UNIT_TYPE_OBJECTBOUNDINGBOX = 2
   
   public export
-  SVG_UNIT_TYPE_UNKNOWN : UInt16
+  SVG_UNIT_TYPE_UNKNOWN : Bits16
   SVG_UNIT_TYPE_UNKNOWN = 0
   
   public export
-  SVG_UNIT_TYPE_USERSPACEONUSE : UInt16
+  SVG_UNIT_TYPE_USERSPACEONUSE : Bits16
   SVG_UNIT_TYPE_USERSPACEONUSE = 1
 
 namespace SVGUseElement

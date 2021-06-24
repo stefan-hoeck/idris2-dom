@@ -121,7 +121,7 @@ elementTag _ = tag
 ||| Proof, that each element type has an instance of `SafeCast`.
 export
 elemCast :  (0 f : Type -> Type)
-         -> (forall a . SafeCast a => f a)
+         -> ({0 a : Type} -> SafeCast a => f a)
          -> (e : ElementType s t)
          -> f t
 elemCast _ fun A          = fun
@@ -262,7 +262,7 @@ Callback MutationCallback (  Array MutationRecord
 ||| In case of an error, the error is logged to the console and
 ||| the node is rejected
 export
-Callback NodeFilter (Node -> JSIO UInt16 ) where
+Callback NodeFilter (Node -> JSIO Bits16) where
   callback f = toNodeFilter (runJSWithDefault FILTER_REJECT . f)
 
 export

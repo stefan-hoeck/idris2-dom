@@ -30,7 +30,7 @@ namespace Blob
   
   export
   %foreign "browser:lambda:x=>x.size"
-  prim__size : Blob -> PrimIO UInt64
+  prim__size : Blob -> PrimIO JSBits64
   
   export
   %foreign "browser:lambda:x=>x.type"
@@ -43,8 +43,8 @@ namespace Blob
   export
   %foreign "browser:lambda:(x,a,b,c)=>x.slice(a,b,c)"
   prim__slice :  Blob
-              -> UndefOr Int64
-              -> UndefOr Int64
+              -> UndefOr JSInt64
+              -> UndefOr JSInt64
               -> UndefOr String
               -> PrimIO Blob
   
@@ -79,7 +79,7 @@ namespace File
   
   export
   %foreign "browser:lambda:x=>x.lastModified"
-  prim__lastModified : File -> PrimIO Int64
+  prim__lastModified : File -> PrimIO JSInt64
   
   export
   %foreign "browser:lambda:x=>x.name"
@@ -89,11 +89,11 @@ namespace FileList
   
   export
   %foreign "browser:lambda:x=>x.length"
-  prim__length : FileList -> PrimIO UInt32
+  prim__length : FileList -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:(x,a)=>x.item(a)"
-  prim__item : FileList -> UInt32 -> PrimIO (Nullable File)
+  prim__item : FileList -> Bits32 -> PrimIO (Nullable File)
 
 namespace FileReader
   
@@ -161,7 +161,7 @@ namespace FileReader
   
   export
   %foreign "browser:lambda:x=>x.readyState"
-  prim__readyState : FileReader -> PrimIO UInt16
+  prim__readyState : FileReader -> PrimIO Bits16
   
   export
   %foreign "browser:lambda:x=>x.result"
@@ -242,13 +242,13 @@ namespace FilePropertyBag
   
   export
   %foreign "browser:lambda:(a)=> {lastModified: a}"
-  prim__new : UndefOr Int64 -> PrimIO FilePropertyBag
+  prim__new : UndefOr JSInt64 -> PrimIO FilePropertyBag
   
   export
   %foreign "browser:lambda:x=>x.lastModified"
-  prim__lastModified : FilePropertyBag -> PrimIO (UndefOr Int64)
+  prim__lastModified : FilePropertyBag -> PrimIO (UndefOr JSInt64)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.lastModified = v}"
-  prim__setLastModified : FilePropertyBag -> UndefOr Int64 -> PrimIO ()
+  prim__setLastModified : FilePropertyBag -> UndefOr JSInt64 -> PrimIO ()

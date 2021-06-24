@@ -14,6 +14,7 @@ module JS.JSON.ToJSON
 
 import Data.Vect
 import Data.List1
+import Experimental.Prelude
 import JS.Array
 import JS.Number
 import JS.Object
@@ -58,13 +59,13 @@ export
 ToJSON Double where toJSON = Num
 
 export
-ToJSON Bits8 where toJSON = Num . fromInteger . cast
+ToJSON Bits8 where toJSON = Num . cast
 
 export
-ToJSON Bits16 where toJSON = Num . fromInteger . cast
+ToJSON Bits16 where toJSON = Num . cast
 
 export
-ToJSON Bits32 where toJSON = Num . fromInteger . cast
+ToJSON Bits32 where toJSON = Num . cast
 
 export
 ToJSON Bits64 where toJSON = toJSON . show
@@ -82,28 +83,17 @@ export
 ToJSON Bool where toJSON = Boolean
 
 export
-ToJSON Int8 where toJSON = toJSON . fromInt8
+ToJSON Int8 where toJSON = Num . cast 
 
 export
-ToJSON Int16 where toJSON = toJSON . fromInt16
+ToJSON Int16 where toJSON = Num . cast
 
 export
-ToJSON Int32 where toJSON = toJSON . fromInt32
+ToJSON Int32 where toJSON = Num . cast
 
 export
-ToJSON Int64 where toJSON = toJSON . fromInt64
+ToJSON Int64 where toJSON = Num . cast
 
-export
-ToJSON UInt8 where toJSON = toJSON . fromUInt8
-
-export
-ToJSON UInt16 where toJSON = toJSON . fromUInt16
-
-export
-ToJSON UInt32 where toJSON = toJSON . fromUInt32
-
-export
-ToJSON UInt64 where toJSON = toJSON . fromUInt64
 
 export
 ToJSON a => ToJSON (Maybe a) where

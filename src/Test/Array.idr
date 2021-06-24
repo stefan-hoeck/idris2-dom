@@ -15,7 +15,7 @@ arrInt = map fromList ints
 
 prop_sizeEmpty : Property
 prop_sizeEmpty =
-  property $ do ns <- forAll (pure $ the (List UInt32) Nil)
+  property $ do ns <- forAll (pure $ the (List Int32) Nil)
                 size (JS.Array.fromList ns) === 0
 
 prop_size : Property

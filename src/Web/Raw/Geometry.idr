@@ -813,11 +813,11 @@ namespace DOMRect
 namespace DOMRectList
   
   export
-  length : (obj : DOMRectList) -> JSIO UInt32
+  length : (obj : DOMRectList) -> JSIO Bits32
   length a = primJS $ DOMRectList.prim__length a
   
   export
-  item : (obj : DOMRectList) -> (index : UInt32) -> JSIO (Maybe DOMRect)
+  item : (obj : DOMRectList) -> (index : Bits32) -> JSIO (Maybe DOMRect)
   item a b = tryJS "DOMRectList.item" $ DOMRectList.prim__item a b
 
 namespace DOMRectReadOnly

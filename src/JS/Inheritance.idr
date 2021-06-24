@@ -94,20 +94,20 @@ prim__hasProtoName : String -> AnyPtr -> Double
 ||| from and to the FFI, use interfaces `ToJS` and `FromJS`.
 public export
 interface SafeCast a where
-  safeCast : any -> Maybe a
+  safeCast : {0 x : Type} -> x -> Maybe a
 
 public export %inline
-castTo : (0 a : Type) -> SafeCast a => any -> Maybe a
+castTo : (0 a : Type) -> SafeCast a => x -> Maybe a
 castTo _ v = safeCast v
 
 ||| Tries to create an n-ary sum by trying all possible
 ||| casts. The first successful cast will determine the
 ||| result.
 export
-safeCastNS : (np : NP SafeCast ts) => any -> Maybe (NS I ts)
-safeCastNS any = choiceMap runNS $ apInjsNP np
+safeCastNS : (np : NP SafeCast ts) => x -> Maybe (NS I ts)
+safeCastNS x = choiceMap runNS $ apInjsNP np
   where runNS : NS SafeCast ts -> Maybe (NS I ts)
-        runNS = htraverse (\sc => safeCast any)
+        runNS = htraverse (\sc => safeCast x)
 
 ||| This is a utility function to implement instances of
 ||| `SafeCast`. Only use, if you know what you are doing.
@@ -147,7 +147,7 @@ SafeCast Char where
                                          _            => Nothing
 
 export
-bounded : Num a => (min : Integer) -> (max : Integer) -> any -> Maybe a
+bounded : Num a => (min : Integer) -> (max : Integer) -> x -> Maybe a
 bounded min max ptr =
   safeCast ptr >>= \n => if n >= min && n <= max
                             then Just (fromInteger n)
@@ -190,15 +190,15 @@ SafeCast Int where
   safeCast = bounded (- 0x80000000) (0x7fffffff)
 
 export
-tryCast : SafeCast a => (fun : String) -> any -> JSIO a
+tryCast : SafeCast a => (fun : String) -> x -> JSIO a
 tryCast fun val = case safeCast val of
                        Just a  => pure a
                        Nothing => throwError $ CastErr fun val
 
 export
-tryCast_ : (0 a : Type) -> SafeCast a => (fun : String) -> any -> JSIO a
+tryCast_ : (0 a : Type) -> SafeCast a => (fun : String) -> x -> JSIO a
 tryCast_ _ = tryCast
 
 export
-castingTo : SafeCast a => (fun : String) -> JSIO any -> JSIO a
+castingTo : SafeCast a => (fun : String) -> JSIO x -> JSIO a
 castingTo fun io = io >>= tryCast fun

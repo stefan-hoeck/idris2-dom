@@ -6,7 +6,7 @@ import JS.Marshall
 public export
 record Any where
   constructor MkAny
-  value : a
+  value : tpe
 
 export
 ToFFI Any AnyPtr where

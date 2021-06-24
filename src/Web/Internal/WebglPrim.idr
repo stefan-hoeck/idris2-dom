@@ -21,7 +21,7 @@ namespace WebGLActiveInfo
   
   export
   %foreign "browser:lambda:x=>x.type"
-  prim__type : WebGLActiveInfo -> PrimIO UInt32
+  prim__type : WebGLActiveInfo -> PrimIO Bits32
 
 
 
@@ -60,45 +60,45 @@ namespace WebGL2RenderingContextBase
   export
   %foreign "browser:lambda:(x,a,b)=>x.beginQuery(a,b)"
   prim__beginQuery :  WebGL2RenderingContextBase
-                   -> UInt32
+                   -> Bits32
                    -> WebGLQuery
                    -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a)=>x.beginTransformFeedback(a)"
   prim__beginTransformFeedback :  WebGL2RenderingContextBase
-                               -> UInt32
+                               -> Bits32
                                -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c)=>x.bindBufferBase(a,b,c)"
   prim__bindBufferBase :  WebGL2RenderingContextBase
-                       -> UInt32
-                       -> UInt32
+                       -> Bits32
+                       -> Bits32
                        -> Nullable WebGLBuffer
                        -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e)=>x.bindBufferRange(a,b,c,d,e)"
   prim__bindBufferRange :  WebGL2RenderingContextBase
-                        -> UInt32
-                        -> UInt32
+                        -> Bits32
+                        -> Bits32
                         -> Nullable WebGLBuffer
-                        -> Int64
-                        -> Int64
+                        -> JSInt64
+                        -> JSInt64
                         -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.bindSampler(a,b)"
   prim__bindSampler :  WebGL2RenderingContextBase
-                    -> UInt32
+                    -> Bits32
                     -> Nullable WebGLSampler
                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.bindTransformFeedback(a,b)"
   prim__bindTransformFeedback :  WebGL2RenderingContextBase
-                              -> UInt32
+                              -> Bits32
                               -> Nullable WebGLTransformFeedback
                               -> PrimIO ()
   
@@ -119,14 +119,14 @@ namespace WebGL2RenderingContextBase
                         -> Int32
                         -> Int32
                         -> Int32
-                        -> UInt32
-                        -> UInt32
+                        -> Bits32
+                        -> Bits32
                         -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d)=>x.clearBufferfi(a,b,c,d)"
   prim__clearBufferfi :  WebGL2RenderingContextBase
-                      -> UInt32
+                      -> Bits32
                       -> Int32
                       -> Double
                       -> Int32
@@ -135,58 +135,58 @@ namespace WebGL2RenderingContextBase
   export
   %foreign "browser:lambda:(x,a,b,c,d)=>x.clearBufferfv(a,b,c,d)"
   prim__clearBufferfv :  WebGL2RenderingContextBase
-                      -> UInt32
+                      -> Bits32
                       -> Int32
                       -> Union2 Float32Array (Array Double)
-                      -> UndefOr UInt32
+                      -> UndefOr Bits32
                       -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d)=>x.clearBufferiv(a,b,c,d)"
   prim__clearBufferiv :  WebGL2RenderingContextBase
-                      -> UInt32
+                      -> Bits32
                       -> Int32
                       -> Union2 Int32Array (Array Int32)
-                      -> UndefOr UInt32
+                      -> UndefOr Bits32
                       -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d)=>x.clearBufferuiv(a,b,c,d)"
   prim__clearBufferuiv :  WebGL2RenderingContextBase
-                       -> UInt32
+                       -> Bits32
                        -> Int32
-                       -> Union2 UInt8Array (Array UInt32)
-                       -> UndefOr UInt32
+                       -> Union2 UInt8Array (Array Bits32)
+                       -> UndefOr Bits32
                        -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c)=>x.clientWaitSync(a,b,c)"
   prim__clientWaitSync :  WebGL2RenderingContextBase
                        -> WebGLSync
-                       -> UInt32
-                       -> UInt64
-                       -> PrimIO UInt32
+                       -> Bits32
+                       -> JSBits64
+                       -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i)=>x.compressedTexImage3D(a,b,c,d,e,f,g,h,i)"
   prim__compressedTexImage3D :  WebGL2RenderingContextBase
-                             -> UInt32
+                             -> Bits32
                              -> Int32
-                             -> UInt32
-                             -> Int32
-                             -> Int32
+                             -> Bits32
                              -> Int32
                              -> Int32
                              -> Int32
-                             -> Int64
+                             -> Int32
+                             -> Int32
+                             -> JSInt64
                              -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j)=>x.compressedTexImage3D(a,b,c,d,e,f,g,h,i,j)"
   prim__compressedTexImage3D1 :  WebGL2RenderingContextBase
-                              -> UInt32
+                              -> Bits32
                               -> Int32
-                              -> UInt32
+                              -> Bits32
                               -> Int32
                               -> Int32
                               -> Int32
@@ -201,14 +201,14 @@ namespace WebGL2RenderingContextBase
                                          Float32Array
                                          Float64Array
                                          DataView
-                              -> UndefOr UInt32
-                              -> UndefOr UInt32
+                              -> UndefOr Bits32
+                              -> UndefOr Bits32
                               -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j,k)=>x.compressedTexSubImage3D(a,b,c,d,e,f,g,h,i,j,k)"
   prim__compressedTexSubImage3D :  WebGL2RenderingContextBase
-                                -> UInt32
+                                -> Bits32
                                 -> Int32
                                 -> Int32
                                 -> Int32
@@ -216,15 +216,15 @@ namespace WebGL2RenderingContextBase
                                 -> Int32
                                 -> Int32
                                 -> Int32
-                                -> UInt32
+                                -> Bits32
                                 -> Int32
-                                -> Int64
+                                -> JSInt64
                                 -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j,k,l)=>x.compressedTexSubImage3D(a,b,c,d,e,f,g,h,i,j,k,l)"
   prim__compressedTexSubImage3D1 :  WebGL2RenderingContextBase
-                                 -> UInt32
+                                 -> Bits32
                                  -> Int32
                                  -> Int32
                                  -> Int32
@@ -232,7 +232,7 @@ namespace WebGL2RenderingContextBase
                                  -> Int32
                                  -> Int32
                                  -> Int32
-                                 -> UInt32
+                                 -> Bits32
                                  -> Union10 Int8Array
                                             Int16Array
                                             Int32Array
@@ -243,24 +243,24 @@ namespace WebGL2RenderingContextBase
                                             Float32Array
                                             Float64Array
                                             DataView
-                                 -> UndefOr UInt32
-                                 -> UndefOr UInt32
+                                 -> UndefOr Bits32
+                                 -> UndefOr Bits32
                                  -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e)=>x.copyBufferSubData(a,b,c,d,e)"
   prim__copyBufferSubData :  WebGL2RenderingContextBase
-                          -> UInt32
-                          -> UInt32
-                          -> Int64
-                          -> Int64
-                          -> Int64
+                          -> Bits32
+                          -> Bits32
+                          -> JSInt64
+                          -> JSInt64
+                          -> JSInt64
                           -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i)=>x.copyTexSubImage3D(a,b,c,d,e,f,g,h,i)"
   prim__copyTexSubImage3D :  WebGL2RenderingContextBase
-                          -> UInt32
+                          -> Bits32
                           -> Int32
                           -> Int32
                           -> Int32
@@ -323,7 +323,7 @@ namespace WebGL2RenderingContextBase
   export
   %foreign "browser:lambda:(x,a,b,c,d)=>x.drawArraysInstanced(a,b,c,d)"
   prim__drawArraysInstanced :  WebGL2RenderingContextBase
-                            -> UInt32
+                            -> Bits32
                             -> Int32
                             -> Int32
                             -> Int32
@@ -331,32 +331,32 @@ namespace WebGL2RenderingContextBase
   
   export
   %foreign "browser:lambda:(x,a)=>x.drawBuffers(a)"
-  prim__drawBuffers : WebGL2RenderingContextBase -> Array UInt32 -> PrimIO ()
+  prim__drawBuffers : WebGL2RenderingContextBase -> Array Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e)=>x.drawElementsInstanced(a,b,c,d,e)"
   prim__drawElementsInstanced :  WebGL2RenderingContextBase
-                              -> UInt32
+                              -> Bits32
                               -> Int32
-                              -> UInt32
-                              -> Int64
+                              -> Bits32
+                              -> JSInt64
                               -> Int32
                               -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.drawRangeElements(a,b,c,d,e,f)"
   prim__drawRangeElements :  WebGL2RenderingContextBase
-                          -> UInt32
-                          -> UInt32
-                          -> UInt32
+                          -> Bits32
+                          -> Bits32
+                          -> Bits32
                           -> Int32
-                          -> UInt32
-                          -> Int64
+                          -> Bits32
+                          -> JSInt64
                           -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a)=>x.endQuery(a)"
-  prim__endQuery : WebGL2RenderingContextBase -> UInt32 -> PrimIO ()
+  prim__endQuery : WebGL2RenderingContextBase -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.endTransformFeedback()"
@@ -365,15 +365,15 @@ namespace WebGL2RenderingContextBase
   export
   %foreign "browser:lambda:(x,a,b)=>x.fenceSync(a,b)"
   prim__fenceSync :  WebGL2RenderingContextBase
-                  -> UInt32
-                  -> UInt32
+                  -> Bits32
+                  -> Bits32
                   -> PrimIO (Nullable WebGLSync)
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e)=>x.framebufferTextureLayer(a,b,c,d,e)"
   prim__framebufferTextureLayer :  WebGL2RenderingContextBase
-                                -> UInt32
-                                -> UInt32
+                                -> Bits32
+                                -> Bits32
                                 -> Nullable WebGLTexture
                                 -> Int32
                                 -> Int32
@@ -383,30 +383,30 @@ namespace WebGL2RenderingContextBase
   %foreign "browser:lambda:(x,a,b)=>x.getActiveUniformBlockName(a,b)"
   prim__getActiveUniformBlockName :  WebGL2RenderingContextBase
                                   -> WebGLProgram
-                                  -> UInt32
+                                  -> Bits32
                                   -> PrimIO (Nullable String)
   
   export
   %foreign "browser:lambda:(x,a,b,c)=>x.getActiveUniformBlockParameter(a,b,c)"
   prim__getActiveUniformBlockParameter :  WebGL2RenderingContextBase
                                        -> WebGLProgram
-                                       -> UInt32
-                                       -> UInt32
+                                       -> Bits32
+                                       -> Bits32
                                        -> PrimIO AnyPtr
   
   export
   %foreign "browser:lambda:(x,a,b,c)=>x.getActiveUniforms(a,b,c)"
   prim__getActiveUniforms :  WebGL2RenderingContextBase
                           -> WebGLProgram
-                          -> Array UInt32
-                          -> UInt32
+                          -> Array Bits32
+                          -> Bits32
                           -> PrimIO AnyPtr
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e)=>x.getBufferSubData(a,b,c,d,e)"
   prim__getBufferSubData :  WebGL2RenderingContextBase
-                         -> UInt32
-                         -> Int64
+                         -> Bits32
+                         -> JSInt64
                          -> Union10 Int8Array
                                     Int16Array
                                     Int32Array
@@ -417,8 +417,8 @@ namespace WebGL2RenderingContextBase
                                     Float32Array
                                     Float64Array
                                     DataView
-                         -> UndefOr UInt32
-                         -> UndefOr UInt32
+                         -> UndefOr Bits32
+                         -> UndefOr Bits32
                          -> PrimIO ()
   
   export
@@ -431,51 +431,51 @@ namespace WebGL2RenderingContextBase
   export
   %foreign "browser:lambda:(x,a,b)=>x.getIndexedParameter(a,b)"
   prim__getIndexedParameter :  WebGL2RenderingContextBase
-                            -> UInt32
-                            -> UInt32
+                            -> Bits32
+                            -> Bits32
                             -> PrimIO AnyPtr
   
   export
   %foreign "browser:lambda:(x,a,b,c)=>x.getInternalformatParameter(a,b,c)"
   prim__getInternalformatParameter :  WebGL2RenderingContextBase
-                                   -> UInt32
-                                   -> UInt32
-                                   -> UInt32
+                                   -> Bits32
+                                   -> Bits32
+                                   -> Bits32
                                    -> PrimIO AnyPtr
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.getQueryParameter(a,b)"
   prim__getQueryParameter :  WebGL2RenderingContextBase
                           -> WebGLQuery
-                          -> UInt32
+                          -> Bits32
                           -> PrimIO AnyPtr
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.getQuery(a,b)"
   prim__getQuery :  WebGL2RenderingContextBase
-                 -> UInt32
-                 -> UInt32
+                 -> Bits32
+                 -> Bits32
                  -> PrimIO (Nullable WebGLQuery)
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.getSamplerParameter(a,b)"
   prim__getSamplerParameter :  WebGL2RenderingContextBase
                             -> WebGLSampler
-                            -> UInt32
+                            -> Bits32
                             -> PrimIO AnyPtr
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.getSyncParameter(a,b)"
   prim__getSyncParameter :  WebGL2RenderingContextBase
                          -> WebGLSync
-                         -> UInt32
+                         -> Bits32
                          -> PrimIO AnyPtr
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.getTransformFeedbackVarying(a,b)"
   prim__getTransformFeedbackVarying :  WebGL2RenderingContextBase
                                     -> WebGLProgram
-                                    -> UInt32
+                                    -> Bits32
                                     -> PrimIO (Nullable WebGLActiveInfo)
   
   export
@@ -483,27 +483,27 @@ namespace WebGL2RenderingContextBase
   prim__getUniformBlockIndex :  WebGL2RenderingContextBase
                              -> WebGLProgram
                              -> String
-                             -> PrimIO UInt32
+                             -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.getUniformIndices(a,b)"
   prim__getUniformIndices :  WebGL2RenderingContextBase
                           -> WebGLProgram
                           -> Array String
-                          -> PrimIO (Nullable (Array UInt32))
+                          -> PrimIO (Nullable (Array Bits32))
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.invalidateFramebuffer(a,b)"
   prim__invalidateFramebuffer :  WebGL2RenderingContextBase
-                              -> UInt32
-                              -> Array UInt32
+                              -> Bits32
+                              -> Array Bits32
                               -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.invalidateSubFramebuffer(a,b,c,d,e,f)"
   prim__invalidateSubFramebuffer :  WebGL2RenderingContextBase
-                                 -> UInt32
-                                 -> Array UInt32
+                                 -> Bits32
+                                 -> Array Bits32
                                  -> Int32
                                  -> Int32
                                  -> Int32
@@ -546,14 +546,14 @@ namespace WebGL2RenderingContextBase
   
   export
   %foreign "browser:lambda:(x,a)=>x.readBuffer(a)"
-  prim__readBuffer : WebGL2RenderingContextBase -> UInt32 -> PrimIO ()
+  prim__readBuffer : WebGL2RenderingContextBase -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e)=>x.renderbufferStorageMultisample(a,b,c,d,e)"
   prim__renderbufferStorageMultisample :  WebGL2RenderingContextBase
-                                       -> UInt32
+                                       -> Bits32
                                        -> Int32
-                                       -> UInt32
+                                       -> Bits32
                                        -> Int32
                                        -> Int32
                                        -> PrimIO ()
@@ -566,7 +566,7 @@ namespace WebGL2RenderingContextBase
   %foreign "browser:lambda:(x,a,b,c)=>x.samplerParameterf(a,b,c)"
   prim__samplerParameterf :  WebGL2RenderingContextBase
                           -> WebGLSampler
-                          -> UInt32
+                          -> Bits32
                           -> Double
                           -> PrimIO ()
   
@@ -574,37 +574,37 @@ namespace WebGL2RenderingContextBase
   %foreign "browser:lambda:(x,a,b,c)=>x.samplerParameteri(a,b,c)"
   prim__samplerParameteri :  WebGL2RenderingContextBase
                           -> WebGLSampler
-                          -> UInt32
+                          -> Bits32
                           -> Int32
                           -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j)=>x.texImage3D(a,b,c,d,e,f,g,h,i,j)"
   prim__texImage3D :  WebGL2RenderingContextBase
-                   -> UInt32
+                   -> Bits32
                    -> Int32
                    -> Int32
                    -> Int32
                    -> Int32
                    -> Int32
                    -> Int32
-                   -> UInt32
-                   -> UInt32
-                   -> Int64
+                   -> Bits32
+                   -> Bits32
+                   -> JSInt64
                    -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j)=>x.texImage3D(a,b,c,d,e,f,g,h,i,j)"
   prim__texImage3D1 :  WebGL2RenderingContextBase
-                    -> UInt32
+                    -> Bits32
                     -> Int32
                     -> Int32
                     -> Int32
                     -> Int32
                     -> Int32
                     -> Int32
-                    -> UInt32
-                    -> UInt32
+                    -> Bits32
+                    -> Bits32
                     -> Union6 ImageBitmap
                               ImageData
                               HTMLImageElement
@@ -616,15 +616,15 @@ namespace WebGL2RenderingContextBase
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j)=>x.texImage3D(a,b,c,d,e,f,g,h,i,j)"
   prim__texImage3D2 :  WebGL2RenderingContextBase
-                    -> UInt32
+                    -> Bits32
                     -> Int32
                     -> Int32
                     -> Int32
                     -> Int32
                     -> Int32
                     -> Int32
-                    -> UInt32
-                    -> UInt32
+                    -> Bits32
+                    -> Bits32
                     -> Nullable (Union10 Int8Array
                                          Int16Array
                                          Int32Array
@@ -640,15 +640,15 @@ namespace WebGL2RenderingContextBase
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j,k)=>x.texImage3D(a,b,c,d,e,f,g,h,i,j,k)"
   prim__texImage3D3 :  WebGL2RenderingContextBase
-                    -> UInt32
+                    -> Bits32
                     -> Int32
                     -> Int32
                     -> Int32
                     -> Int32
                     -> Int32
                     -> Int32
-                    -> UInt32
-                    -> UInt32
+                    -> Bits32
+                    -> Bits32
                     -> Union10 Int8Array
                                Int16Array
                                Int32Array
@@ -659,15 +659,15 @@ namespace WebGL2RenderingContextBase
                                Float32Array
                                Float64Array
                                DataView
-                    -> UInt32
+                    -> Bits32
                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e)=>x.texStorage2D(a,b,c,d,e)"
   prim__texStorage2D :  WebGL2RenderingContextBase
-                     -> UInt32
+                     -> Bits32
                      -> Int32
-                     -> UInt32
+                     -> Bits32
                      -> Int32
                      -> Int32
                      -> PrimIO ()
@@ -675,9 +675,9 @@ namespace WebGL2RenderingContextBase
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.texStorage3D(a,b,c,d,e,f)"
   prim__texStorage3D :  WebGL2RenderingContextBase
-                     -> UInt32
+                     -> Bits32
                      -> Int32
-                     -> UInt32
+                     -> Bits32
                      -> Int32
                      -> Int32
                      -> Int32
@@ -686,7 +686,7 @@ namespace WebGL2RenderingContextBase
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j,k)=>x.texSubImage3D(a,b,c,d,e,f,g,h,i,j,k)"
   prim__texSubImage3D :  WebGL2RenderingContextBase
-                      -> UInt32
+                      -> Bits32
                       -> Int32
                       -> Int32
                       -> Int32
@@ -694,15 +694,15 @@ namespace WebGL2RenderingContextBase
                       -> Int32
                       -> Int32
                       -> Int32
-                      -> UInt32
-                      -> UInt32
-                      -> Int64
+                      -> Bits32
+                      -> Bits32
+                      -> JSInt64
                       -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j,k)=>x.texSubImage3D(a,b,c,d,e,f,g,h,i,j,k)"
   prim__texSubImage3D1 :  WebGL2RenderingContextBase
-                       -> UInt32
+                       -> Bits32
                        -> Int32
                        -> Int32
                        -> Int32
@@ -710,8 +710,8 @@ namespace WebGL2RenderingContextBase
                        -> Int32
                        -> Int32
                        -> Int32
-                       -> UInt32
-                       -> UInt32
+                       -> Bits32
+                       -> Bits32
                        -> Union6 ImageBitmap
                                  ImageData
                                  HTMLImageElement
@@ -723,7 +723,7 @@ namespace WebGL2RenderingContextBase
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j,k,l)=>x.texSubImage3D(a,b,c,d,e,f,g,h,i,j,k,l)"
   prim__texSubImage3D2 :  WebGL2RenderingContextBase
-                       -> UInt32
+                       -> Bits32
                        -> Int32
                        -> Int32
                        -> Int32
@@ -731,8 +731,8 @@ namespace WebGL2RenderingContextBase
                        -> Int32
                        -> Int32
                        -> Int32
-                       -> UInt32
-                       -> UInt32
+                       -> Bits32
+                       -> Bits32
                        -> Nullable (Union10 Int8Array
                                             Int16Array
                                             Int32Array
@@ -743,7 +743,7 @@ namespace WebGL2RenderingContextBase
                                             Float32Array
                                             Float64Array
                                             DataView)
-                       -> UndefOr UInt32
+                       -> UndefOr Bits32
                        -> PrimIO ()
   
   export
@@ -751,85 +751,85 @@ namespace WebGL2RenderingContextBase
   prim__transformFeedbackVaryings :  WebGL2RenderingContextBase
                                   -> WebGLProgram
                                   -> Array String
-                                  -> UInt32
+                                  -> Bits32
                                   -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.uniform1ui(a,b)"
   prim__uniform1ui :  WebGL2RenderingContextBase
                    -> Nullable WebGLUniformLocation
-                   -> UInt32
+                   -> Bits32
                    -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d)=>x.uniform1uiv(a,b,c,d)"
   prim__uniform1uiv :  WebGL2RenderingContextBase
                     -> Nullable WebGLUniformLocation
-                    -> Union2 UInt8Array (Array UInt32)
-                    -> UndefOr UInt32
-                    -> UndefOr UInt32
+                    -> Union2 UInt8Array (Array Bits32)
+                    -> UndefOr Bits32
+                    -> UndefOr Bits32
                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c)=>x.uniform2ui(a,b,c)"
   prim__uniform2ui :  WebGL2RenderingContextBase
                    -> Nullable WebGLUniformLocation
-                   -> UInt32
-                   -> UInt32
+                   -> Bits32
+                   -> Bits32
                    -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d)=>x.uniform2uiv(a,b,c,d)"
   prim__uniform2uiv :  WebGL2RenderingContextBase
                     -> Nullable WebGLUniformLocation
-                    -> Union2 UInt8Array (Array UInt32)
-                    -> UndefOr UInt32
-                    -> UndefOr UInt32
+                    -> Union2 UInt8Array (Array Bits32)
+                    -> UndefOr Bits32
+                    -> UndefOr Bits32
                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d)=>x.uniform3ui(a,b,c,d)"
   prim__uniform3ui :  WebGL2RenderingContextBase
                    -> Nullable WebGLUniformLocation
-                   -> UInt32
-                   -> UInt32
-                   -> UInt32
+                   -> Bits32
+                   -> Bits32
+                   -> Bits32
                    -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d)=>x.uniform3uiv(a,b,c,d)"
   prim__uniform3uiv :  WebGL2RenderingContextBase
                     -> Nullable WebGLUniformLocation
-                    -> Union2 UInt8Array (Array UInt32)
-                    -> UndefOr UInt32
-                    -> UndefOr UInt32
+                    -> Union2 UInt8Array (Array Bits32)
+                    -> UndefOr Bits32
+                    -> UndefOr Bits32
                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e)=>x.uniform4ui(a,b,c,d,e)"
   prim__uniform4ui :  WebGL2RenderingContextBase
                    -> Nullable WebGLUniformLocation
-                   -> UInt32
-                   -> UInt32
-                   -> UInt32
-                   -> UInt32
+                   -> Bits32
+                   -> Bits32
+                   -> Bits32
+                   -> Bits32
                    -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d)=>x.uniform4uiv(a,b,c,d)"
   prim__uniform4uiv :  WebGL2RenderingContextBase
                     -> Nullable WebGLUniformLocation
-                    -> Union2 UInt8Array (Array UInt32)
-                    -> UndefOr UInt32
-                    -> UndefOr UInt32
+                    -> Union2 UInt8Array (Array Bits32)
+                    -> UndefOr Bits32
+                    -> UndefOr Bits32
                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c)=>x.uniformBlockBinding(a,b,c)"
   prim__uniformBlockBinding :  WebGL2RenderingContextBase
                             -> WebGLProgram
-                            -> UInt32
-                            -> UInt32
+                            -> Bits32
+                            -> Bits32
                             -> PrimIO ()
   
   export
@@ -838,8 +838,8 @@ namespace WebGL2RenderingContextBase
                            -> Nullable WebGLUniformLocation
                            -> Boolean
                            -> Union2 Float32Array (Array Double)
-                           -> UndefOr UInt32
-                           -> UndefOr UInt32
+                           -> UndefOr Bits32
+                           -> UndefOr Bits32
                            -> PrimIO ()
   
   export
@@ -848,8 +848,8 @@ namespace WebGL2RenderingContextBase
                            -> Nullable WebGLUniformLocation
                            -> Boolean
                            -> Union2 Float32Array (Array Double)
-                           -> UndefOr UInt32
-                           -> UndefOr UInt32
+                           -> UndefOr Bits32
+                           -> UndefOr Bits32
                            -> PrimIO ()
   
   export
@@ -858,8 +858,8 @@ namespace WebGL2RenderingContextBase
                            -> Nullable WebGLUniformLocation
                            -> Boolean
                            -> Union2 Float32Array (Array Double)
-                           -> UndefOr UInt32
-                           -> UndefOr UInt32
+                           -> UndefOr Bits32
+                           -> UndefOr Bits32
                            -> PrimIO ()
   
   export
@@ -868,8 +868,8 @@ namespace WebGL2RenderingContextBase
                            -> Nullable WebGLUniformLocation
                            -> Boolean
                            -> Union2 Float32Array (Array Double)
-                           -> UndefOr UInt32
-                           -> UndefOr UInt32
+                           -> UndefOr Bits32
+                           -> UndefOr Bits32
                            -> PrimIO ()
   
   export
@@ -878,8 +878,8 @@ namespace WebGL2RenderingContextBase
                            -> Nullable WebGLUniformLocation
                            -> Boolean
                            -> Union2 Float32Array (Array Double)
-                           -> UndefOr UInt32
-                           -> UndefOr UInt32
+                           -> UndefOr Bits32
+                           -> UndefOr Bits32
                            -> PrimIO ()
   
   export
@@ -888,21 +888,21 @@ namespace WebGL2RenderingContextBase
                            -> Nullable WebGLUniformLocation
                            -> Boolean
                            -> Union2 Float32Array (Array Double)
-                           -> UndefOr UInt32
-                           -> UndefOr UInt32
+                           -> UndefOr Bits32
+                           -> UndefOr Bits32
                            -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.vertexAttribDivisor(a,b)"
   prim__vertexAttribDivisor :  WebGL2RenderingContextBase
-                            -> UInt32
-                            -> UInt32
+                            -> Bits32
+                            -> Bits32
                             -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e)=>x.vertexAttribI4i(a,b,c,d,e)"
   prim__vertexAttribI4i :  WebGL2RenderingContextBase
-                        -> UInt32
+                        -> Bits32
                         -> Int32
                         -> Int32
                         -> Int32
@@ -912,43 +912,43 @@ namespace WebGL2RenderingContextBase
   export
   %foreign "browser:lambda:(x,a,b)=>x.vertexAttribI4iv(a,b)"
   prim__vertexAttribI4iv :  WebGL2RenderingContextBase
-                         -> UInt32
+                         -> Bits32
                          -> Union2 Int32Array (Array Int32)
                          -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e)=>x.vertexAttribI4ui(a,b,c,d,e)"
   prim__vertexAttribI4ui :  WebGL2RenderingContextBase
-                         -> UInt32
-                         -> UInt32
-                         -> UInt32
-                         -> UInt32
-                         -> UInt32
+                         -> Bits32
+                         -> Bits32
+                         -> Bits32
+                         -> Bits32
+                         -> Bits32
                          -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.vertexAttribI4uiv(a,b)"
   prim__vertexAttribI4uiv :  WebGL2RenderingContextBase
-                          -> UInt32
-                          -> Union2 UInt8Array (Array UInt32)
+                          -> Bits32
+                          -> Union2 UInt8Array (Array Bits32)
                           -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e)=>x.vertexAttribIPointer(a,b,c,d,e)"
   prim__vertexAttribIPointer :  WebGL2RenderingContextBase
-                             -> UInt32
+                             -> Bits32
                              -> Int32
-                             -> UInt32
+                             -> Bits32
                              -> Int32
-                             -> Int64
+                             -> JSInt64
                              -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c)=>x.waitSync(a,b,c)"
   prim__waitSync :  WebGL2RenderingContextBase
                  -> WebGLSync
-                 -> UInt32
-                 -> Int64
+                 -> Bits32
+                 -> JSInt64
                  -> PrimIO ()
 
 namespace WebGL2RenderingContextOverloads
@@ -956,15 +956,15 @@ namespace WebGL2RenderingContextOverloads
   export
   %foreign "browser:lambda:(x,a,b,c)=>x.bufferData(a,b,c)"
   prim__bufferData :  WebGL2RenderingContextOverloads
-                   -> UInt32
-                   -> Int64
-                   -> UInt32
+                   -> Bits32
+                   -> JSInt64
+                   -> Bits32
                    -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c)=>x.bufferData(a,b,c)"
   prim__bufferData1 :  WebGL2RenderingContextOverloads
-                    -> UInt32
+                    -> Bits32
                     -> Nullable (Union11 Int8Array
                                          Int16Array
                                          Int32Array
@@ -976,13 +976,13 @@ namespace WebGL2RenderingContextOverloads
                                          Float64Array
                                          DataView
                                          ArrayBuffer)
-                    -> UInt32
+                    -> Bits32
                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e)=>x.bufferData(a,b,c,d,e)"
   prim__bufferData2 :  WebGL2RenderingContextOverloads
-                    -> UInt32
+                    -> Bits32
                     -> Union10 Int8Array
                                Int16Array
                                Int32Array
@@ -993,16 +993,16 @@ namespace WebGL2RenderingContextOverloads
                                Float32Array
                                Float64Array
                                DataView
-                    -> UInt32
-                    -> UInt32
-                    -> UndefOr UInt32
+                    -> Bits32
+                    -> Bits32
+                    -> UndefOr Bits32
                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c)=>x.bufferSubData(a,b,c)"
   prim__bufferSubData :  WebGL2RenderingContextOverloads
-                      -> UInt32
-                      -> Int64
+                      -> Bits32
+                      -> JSInt64
                       -> Union11 Int8Array
                                  Int16Array
                                  Int32Array
@@ -1019,8 +1019,8 @@ namespace WebGL2RenderingContextOverloads
   export
   %foreign "browser:lambda:(x,a,b,c,d,e)=>x.bufferSubData(a,b,c,d,e)"
   prim__bufferSubData1 :  WebGL2RenderingContextOverloads
-                       -> UInt32
-                       -> Int64
+                       -> Bits32
+                       -> JSInt64
                        -> Union10 Int8Array
                                   Int16Array
                                   Int32Array
@@ -1031,29 +1031,29 @@ namespace WebGL2RenderingContextOverloads
                                   Float32Array
                                   Float64Array
                                   DataView
-                       -> UInt32
-                       -> UndefOr UInt32
+                       -> Bits32
+                       -> UndefOr Bits32
                        -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h)=>x.compressedTexImage2D(a,b,c,d,e,f,g,h)"
   prim__compressedTexImage2D :  WebGL2RenderingContextOverloads
-                             -> UInt32
+                             -> Bits32
                              -> Int32
-                             -> UInt32
-                             -> Int32
-                             -> Int32
+                             -> Bits32
                              -> Int32
                              -> Int32
-                             -> Int64
+                             -> Int32
+                             -> Int32
+                             -> JSInt64
                              -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i)=>x.compressedTexImage2D(a,b,c,d,e,f,g,h,i)"
   prim__compressedTexImage2D1 :  WebGL2RenderingContextOverloads
-                              -> UInt32
+                              -> Bits32
                               -> Int32
-                              -> UInt32
+                              -> Bits32
                               -> Int32
                               -> Int32
                               -> Int32
@@ -1067,34 +1067,34 @@ namespace WebGL2RenderingContextOverloads
                                          Float32Array
                                          Float64Array
                                          DataView
-                              -> UndefOr UInt32
-                              -> UndefOr UInt32
+                              -> UndefOr Bits32
+                              -> UndefOr Bits32
                               -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i)=>x.compressedTexSubImage2D(a,b,c,d,e,f,g,h,i)"
   prim__compressedTexSubImage2D :  WebGL2RenderingContextOverloads
-                                -> UInt32
+                                -> Bits32
                                 -> Int32
                                 -> Int32
                                 -> Int32
                                 -> Int32
                                 -> Int32
-                                -> UInt32
+                                -> Bits32
                                 -> Int32
-                                -> Int64
+                                -> JSInt64
                                 -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j)=>x.compressedTexSubImage2D(a,b,c,d,e,f,g,h,i,j)"
   prim__compressedTexSubImage2D1 :  WebGL2RenderingContextOverloads
-                                 -> UInt32
+                                 -> Bits32
                                  -> Int32
                                  -> Int32
                                  -> Int32
                                  -> Int32
                                  -> Int32
-                                 -> UInt32
+                                 -> Bits32
                                  -> Union10 Int8Array
                                             Int16Array
                                             Int32Array
@@ -1105,8 +1105,8 @@ namespace WebGL2RenderingContextOverloads
                                             Float32Array
                                             Float64Array
                                             DataView
-                                 -> UndefOr UInt32
-                                 -> UndefOr UInt32
+                                 -> UndefOr Bits32
+                                 -> UndefOr Bits32
                                  -> PrimIO ()
   
   export
@@ -1116,8 +1116,8 @@ namespace WebGL2RenderingContextOverloads
                    -> Int32
                    -> Int32
                    -> Int32
-                   -> UInt32
-                   -> UInt32
+                   -> Bits32
+                   -> Bits32
                    -> Nullable (Union10 Int8Array
                                         Int16Array
                                         Int32Array
@@ -1137,9 +1137,9 @@ namespace WebGL2RenderingContextOverloads
                     -> Int32
                     -> Int32
                     -> Int32
-                    -> UInt32
-                    -> UInt32
-                    -> Int64
+                    -> Bits32
+                    -> Bits32
+                    -> JSInt64
                     -> PrimIO ()
   
   export
@@ -1149,8 +1149,8 @@ namespace WebGL2RenderingContextOverloads
                     -> Int32
                     -> Int32
                     -> Int32
-                    -> UInt32
-                    -> UInt32
+                    -> Bits32
+                    -> Bits32
                     -> Union10 Int8Array
                                Int16Array
                                Int32Array
@@ -1161,20 +1161,20 @@ namespace WebGL2RenderingContextOverloads
                                Float32Array
                                Float64Array
                                DataView
-                    -> UInt32
+                    -> Bits32
                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i)=>x.texImage2D(a,b,c,d,e,f,g,h,i)"
   prim__texImage2D :  WebGL2RenderingContextOverloads
-                   -> UInt32
+                   -> Bits32
                    -> Int32
                    -> Int32
                    -> Int32
                    -> Int32
                    -> Int32
-                   -> UInt32
-                   -> UInt32
+                   -> Bits32
+                   -> Bits32
                    -> Nullable (Union10 Int8Array
                                         Int16Array
                                         Int32Array
@@ -1190,11 +1190,11 @@ namespace WebGL2RenderingContextOverloads
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.texImage2D(a,b,c,d,e,f)"
   prim__texImage2D1 :  WebGL2RenderingContextOverloads
-                    -> UInt32
+                    -> Bits32
                     -> Int32
                     -> Int32
-                    -> UInt32
-                    -> UInt32
+                    -> Bits32
+                    -> Bits32
                     -> Union6 ImageBitmap
                               ImageData
                               HTMLImageElement
@@ -1206,28 +1206,28 @@ namespace WebGL2RenderingContextOverloads
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i)=>x.texImage2D(a,b,c,d,e,f,g,h,i)"
   prim__texImage2D2 :  WebGL2RenderingContextOverloads
-                    -> UInt32
+                    -> Bits32
                     -> Int32
                     -> Int32
                     -> Int32
                     -> Int32
                     -> Int32
-                    -> UInt32
-                    -> UInt32
-                    -> Int64
+                    -> Bits32
+                    -> Bits32
+                    -> JSInt64
                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i)=>x.texImage2D(a,b,c,d,e,f,g,h,i)"
   prim__texImage2D3 :  WebGL2RenderingContextOverloads
-                    -> UInt32
+                    -> Bits32
                     -> Int32
                     -> Int32
                     -> Int32
                     -> Int32
                     -> Int32
-                    -> UInt32
-                    -> UInt32
+                    -> Bits32
+                    -> Bits32
                     -> Union6 ImageBitmap
                               ImageData
                               HTMLImageElement
@@ -1239,14 +1239,14 @@ namespace WebGL2RenderingContextOverloads
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j)=>x.texImage2D(a,b,c,d,e,f,g,h,i,j)"
   prim__texImage2D4 :  WebGL2RenderingContextOverloads
-                    -> UInt32
+                    -> Bits32
                     -> Int32
                     -> Int32
                     -> Int32
                     -> Int32
                     -> Int32
-                    -> UInt32
-                    -> UInt32
+                    -> Bits32
+                    -> Bits32
                     -> Union10 Int8Array
                                Int16Array
                                Int32Array
@@ -1257,20 +1257,20 @@ namespace WebGL2RenderingContextOverloads
                                Float32Array
                                Float64Array
                                DataView
-                    -> UInt32
+                    -> Bits32
                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i)=>x.texSubImage2D(a,b,c,d,e,f,g,h,i)"
   prim__texSubImage2D :  WebGL2RenderingContextOverloads
-                      -> UInt32
+                      -> Bits32
                       -> Int32
                       -> Int32
                       -> Int32
                       -> Int32
                       -> Int32
-                      -> UInt32
-                      -> UInt32
+                      -> Bits32
+                      -> Bits32
                       -> Nullable (Union10 Int8Array
                                            Int16Array
                                            Int32Array
@@ -1286,12 +1286,12 @@ namespace WebGL2RenderingContextOverloads
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g)=>x.texSubImage2D(a,b,c,d,e,f,g)"
   prim__texSubImage2D1 :  WebGL2RenderingContextOverloads
-                       -> UInt32
+                       -> Bits32
                        -> Int32
                        -> Int32
                        -> Int32
-                       -> UInt32
-                       -> UInt32
+                       -> Bits32
+                       -> Bits32
                        -> Union6 ImageBitmap
                                  ImageData
                                  HTMLImageElement
@@ -1303,28 +1303,28 @@ namespace WebGL2RenderingContextOverloads
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i)=>x.texSubImage2D(a,b,c,d,e,f,g,h,i)"
   prim__texSubImage2D2 :  WebGL2RenderingContextOverloads
-                       -> UInt32
+                       -> Bits32
                        -> Int32
                        -> Int32
                        -> Int32
                        -> Int32
                        -> Int32
-                       -> UInt32
-                       -> UInt32
-                       -> Int64
+                       -> Bits32
+                       -> Bits32
+                       -> JSInt64
                        -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i)=>x.texSubImage2D(a,b,c,d,e,f,g,h,i)"
   prim__texSubImage2D3 :  WebGL2RenderingContextOverloads
-                       -> UInt32
+                       -> Bits32
                        -> Int32
                        -> Int32
                        -> Int32
                        -> Int32
                        -> Int32
-                       -> UInt32
-                       -> UInt32
+                       -> Bits32
+                       -> Bits32
                        -> Union6 ImageBitmap
                                  ImageData
                                  HTMLImageElement
@@ -1336,14 +1336,14 @@ namespace WebGL2RenderingContextOverloads
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i,j)=>x.texSubImage2D(a,b,c,d,e,f,g,h,i,j)"
   prim__texSubImage2D4 :  WebGL2RenderingContextOverloads
-                       -> UInt32
+                       -> Bits32
                        -> Int32
                        -> Int32
                        -> Int32
                        -> Int32
                        -> Int32
-                       -> UInt32
-                       -> UInt32
+                       -> Bits32
+                       -> Bits32
                        -> Union10 Int8Array
                                   Int16Array
                                   Int32Array
@@ -1354,7 +1354,7 @@ namespace WebGL2RenderingContextOverloads
                                   Float32Array
                                   Float64Array
                                   DataView
-                       -> UInt32
+                       -> Bits32
                        -> PrimIO ()
   
   export
@@ -1362,8 +1362,8 @@ namespace WebGL2RenderingContextOverloads
   prim__uniform1fv :  WebGL2RenderingContextOverloads
                    -> Nullable WebGLUniformLocation
                    -> Union2 Float32Array (Array Double)
-                   -> UndefOr UInt32
-                   -> UndefOr UInt32
+                   -> UndefOr Bits32
+                   -> UndefOr Bits32
                    -> PrimIO ()
   
   export
@@ -1371,8 +1371,8 @@ namespace WebGL2RenderingContextOverloads
   prim__uniform1iv :  WebGL2RenderingContextOverloads
                    -> Nullable WebGLUniformLocation
                    -> Union2 Int32Array (Array Int32)
-                   -> UndefOr UInt32
-                   -> UndefOr UInt32
+                   -> UndefOr Bits32
+                   -> UndefOr Bits32
                    -> PrimIO ()
   
   export
@@ -1380,8 +1380,8 @@ namespace WebGL2RenderingContextOverloads
   prim__uniform2fv :  WebGL2RenderingContextOverloads
                    -> Nullable WebGLUniformLocation
                    -> Union2 Float32Array (Array Double)
-                   -> UndefOr UInt32
-                   -> UndefOr UInt32
+                   -> UndefOr Bits32
+                   -> UndefOr Bits32
                    -> PrimIO ()
   
   export
@@ -1389,8 +1389,8 @@ namespace WebGL2RenderingContextOverloads
   prim__uniform2iv :  WebGL2RenderingContextOverloads
                    -> Nullable WebGLUniformLocation
                    -> Union2 Int32Array (Array Int32)
-                   -> UndefOr UInt32
-                   -> UndefOr UInt32
+                   -> UndefOr Bits32
+                   -> UndefOr Bits32
                    -> PrimIO ()
   
   export
@@ -1398,8 +1398,8 @@ namespace WebGL2RenderingContextOverloads
   prim__uniform3fv :  WebGL2RenderingContextOverloads
                    -> Nullable WebGLUniformLocation
                    -> Union2 Float32Array (Array Double)
-                   -> UndefOr UInt32
-                   -> UndefOr UInt32
+                   -> UndefOr Bits32
+                   -> UndefOr Bits32
                    -> PrimIO ()
   
   export
@@ -1407,8 +1407,8 @@ namespace WebGL2RenderingContextOverloads
   prim__uniform3iv :  WebGL2RenderingContextOverloads
                    -> Nullable WebGLUniformLocation
                    -> Union2 Int32Array (Array Int32)
-                   -> UndefOr UInt32
-                   -> UndefOr UInt32
+                   -> UndefOr Bits32
+                   -> UndefOr Bits32
                    -> PrimIO ()
   
   export
@@ -1416,8 +1416,8 @@ namespace WebGL2RenderingContextOverloads
   prim__uniform4fv :  WebGL2RenderingContextOverloads
                    -> Nullable WebGLUniformLocation
                    -> Union2 Float32Array (Array Double)
-                   -> UndefOr UInt32
-                   -> UndefOr UInt32
+                   -> UndefOr Bits32
+                   -> UndefOr Bits32
                    -> PrimIO ()
   
   export
@@ -1425,8 +1425,8 @@ namespace WebGL2RenderingContextOverloads
   prim__uniform4iv :  WebGL2RenderingContextOverloads
                    -> Nullable WebGLUniformLocation
                    -> Union2 Int32Array (Array Int32)
-                   -> UndefOr UInt32
-                   -> UndefOr UInt32
+                   -> UndefOr Bits32
+                   -> UndefOr Bits32
                    -> PrimIO ()
   
   export
@@ -1435,8 +1435,8 @@ namespace WebGL2RenderingContextOverloads
                          -> Nullable WebGLUniformLocation
                          -> Boolean
                          -> Union2 Float32Array (Array Double)
-                         -> UndefOr UInt32
-                         -> UndefOr UInt32
+                         -> UndefOr Bits32
+                         -> UndefOr Bits32
                          -> PrimIO ()
   
   export
@@ -1445,8 +1445,8 @@ namespace WebGL2RenderingContextOverloads
                          -> Nullable WebGLUniformLocation
                          -> Boolean
                          -> Union2 Float32Array (Array Double)
-                         -> UndefOr UInt32
-                         -> UndefOr UInt32
+                         -> UndefOr Bits32
+                         -> UndefOr Bits32
                          -> PrimIO ()
   
   export
@@ -1455,8 +1455,8 @@ namespace WebGL2RenderingContextOverloads
                          -> Nullable WebGLUniformLocation
                          -> Boolean
                          -> Union2 Float32Array (Array Double)
-                         -> UndefOr UInt32
-                         -> UndefOr UInt32
+                         -> UndefOr Bits32
+                         -> UndefOr Bits32
                          -> PrimIO ()
 
 namespace WebGLRenderingContextBase
@@ -1476,7 +1476,7 @@ namespace WebGLRenderingContextBase
   
   export
   %foreign "browser:lambda:(x,a)=>x.activeTexture(a)"
-  prim__activeTexture : WebGLRenderingContextBase -> UInt32 -> PrimIO ()
+  prim__activeTexture : WebGLRenderingContextBase -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.attachShader(a,b)"
@@ -1489,35 +1489,35 @@ namespace WebGLRenderingContextBase
   %foreign "browser:lambda:(x,a,b,c)=>x.bindAttribLocation(a,b,c)"
   prim__bindAttribLocation :  WebGLRenderingContextBase
                            -> WebGLProgram
-                           -> UInt32
+                           -> Bits32
                            -> String
                            -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.bindBuffer(a,b)"
   prim__bindBuffer :  WebGLRenderingContextBase
-                   -> UInt32
+                   -> Bits32
                    -> Nullable WebGLBuffer
                    -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.bindFramebuffer(a,b)"
   prim__bindFramebuffer :  WebGLRenderingContextBase
-                        -> UInt32
+                        -> Bits32
                         -> Nullable WebGLFramebuffer
                         -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.bindRenderbuffer(a,b)"
   prim__bindRenderbuffer :  WebGLRenderingContextBase
-                         -> UInt32
+                         -> Bits32
                          -> Nullable WebGLRenderbuffer
                          -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.bindTexture(a,b)"
   prim__bindTexture :  WebGLRenderingContextBase
-                    -> UInt32
+                    -> Bits32
                     -> Nullable WebGLTexture
                     -> PrimIO ()
   
@@ -1533,32 +1533,32 @@ namespace WebGLRenderingContextBase
   export
   %foreign "browser:lambda:(x,a,b)=>x.blendEquationSeparate(a,b)"
   prim__blendEquationSeparate :  WebGLRenderingContextBase
-                              -> UInt32
-                              -> UInt32
+                              -> Bits32
+                              -> Bits32
                               -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a)=>x.blendEquation(a)"
-  prim__blendEquation : WebGLRenderingContextBase -> UInt32 -> PrimIO ()
+  prim__blendEquation : WebGLRenderingContextBase -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d)=>x.blendFuncSeparate(a,b,c,d)"
   prim__blendFuncSeparate :  WebGLRenderingContextBase
-                          -> UInt32
-                          -> UInt32
-                          -> UInt32
-                          -> UInt32
+                          -> Bits32
+                          -> Bits32
+                          -> Bits32
+                          -> Bits32
                           -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.blendFunc(a,b)"
-  prim__blendFunc : WebGLRenderingContextBase -> UInt32 -> UInt32 -> PrimIO ()
+  prim__blendFunc : WebGLRenderingContextBase -> Bits32 -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a)=>x.checkFramebufferStatus(a)"
   prim__checkFramebufferStatus :  WebGLRenderingContextBase
-                               -> UInt32
-                               -> PrimIO UInt32
+                               -> Bits32
+                               -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:(x,a,b,c,d)=>x.clearColor(a,b,c,d)"
@@ -1579,7 +1579,7 @@ namespace WebGLRenderingContextBase
   
   export
   %foreign "browser:lambda:(x,a)=>x.clear(a)"
-  prim__clear : WebGLRenderingContextBase -> UInt32 -> PrimIO ()
+  prim__clear : WebGLRenderingContextBase -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d)=>x.colorMask(a,b,c,d)"
@@ -1597,9 +1597,9 @@ namespace WebGLRenderingContextBase
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h)=>x.copyTexImage2D(a,b,c,d,e,f,g,h)"
   prim__copyTexImage2D :  WebGLRenderingContextBase
-                       -> UInt32
+                       -> Bits32
                        -> Int32
-                       -> UInt32
+                       -> Bits32
                        -> Int32
                        -> Int32
                        -> Int32
@@ -1610,7 +1610,7 @@ namespace WebGLRenderingContextBase
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h)=>x.copyTexSubImage2D(a,b,c,d,e,f,g,h)"
   prim__copyTexSubImage2D :  WebGLRenderingContextBase
-                          -> UInt32
+                          -> Bits32
                           -> Int32
                           -> Int32
                           -> Int32
@@ -1643,7 +1643,7 @@ namespace WebGLRenderingContextBase
   export
   %foreign "browser:lambda:(x,a)=>x.createShader(a)"
   prim__createShader :  WebGLRenderingContextBase
-                     -> UInt32
+                     -> Bits32
                      -> PrimIO (Nullable WebGLShader)
   
   export
@@ -1653,7 +1653,7 @@ namespace WebGLRenderingContextBase
   
   export
   %foreign "browser:lambda:(x,a)=>x.cullFace(a)"
-  prim__cullFace : WebGLRenderingContextBase -> UInt32 -> PrimIO ()
+  prim__cullFace : WebGLRenderingContextBase -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a)=>x.deleteBuffer(a)"
@@ -1693,7 +1693,7 @@ namespace WebGLRenderingContextBase
   
   export
   %foreign "browser:lambda:(x,a)=>x.depthFunc(a)"
-  prim__depthFunc : WebGLRenderingContextBase -> UInt32 -> PrimIO ()
+  prim__depthFunc : WebGLRenderingContextBase -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a)=>x.depthMask(a)"
@@ -1713,17 +1713,17 @@ namespace WebGLRenderingContextBase
   export
   %foreign "browser:lambda:(x,a)=>x.disableVertexAttribArray(a)"
   prim__disableVertexAttribArray :  WebGLRenderingContextBase
-                                 -> UInt32
+                                 -> Bits32
                                  -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a)=>x.disable(a)"
-  prim__disable : WebGLRenderingContextBase -> UInt32 -> PrimIO ()
+  prim__disable : WebGLRenderingContextBase -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c)=>x.drawArrays(a,b,c)"
   prim__drawArrays :  WebGLRenderingContextBase
-                   -> UInt32
+                   -> Bits32
                    -> Int32
                    -> Int32
                    -> PrimIO ()
@@ -1731,21 +1731,21 @@ namespace WebGLRenderingContextBase
   export
   %foreign "browser:lambda:(x,a,b,c,d)=>x.drawElements(a,b,c,d)"
   prim__drawElements :  WebGLRenderingContextBase
-                     -> UInt32
+                     -> Bits32
                      -> Int32
-                     -> UInt32
-                     -> Int64
+                     -> Bits32
+                     -> JSInt64
                      -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a)=>x.enableVertexAttribArray(a)"
   prim__enableVertexAttribArray :  WebGLRenderingContextBase
-                                -> UInt32
+                                -> Bits32
                                 -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a)=>x.enable(a)"
-  prim__enable : WebGLRenderingContextBase -> UInt32 -> PrimIO ()
+  prim__enable : WebGLRenderingContextBase -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.finish()"
@@ -1758,42 +1758,42 @@ namespace WebGLRenderingContextBase
   export
   %foreign "browser:lambda:(x,a,b,c,d)=>x.framebufferRenderbuffer(a,b,c,d)"
   prim__framebufferRenderbuffer :  WebGLRenderingContextBase
-                                -> UInt32
-                                -> UInt32
-                                -> UInt32
+                                -> Bits32
+                                -> Bits32
+                                -> Bits32
                                 -> Nullable WebGLRenderbuffer
                                 -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e)=>x.framebufferTexture2D(a,b,c,d,e)"
   prim__framebufferTexture2D :  WebGLRenderingContextBase
-                             -> UInt32
-                             -> UInt32
-                             -> UInt32
+                             -> Bits32
+                             -> Bits32
+                             -> Bits32
                              -> Nullable WebGLTexture
                              -> Int32
                              -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a)=>x.frontFace(a)"
-  prim__frontFace : WebGLRenderingContextBase -> UInt32 -> PrimIO ()
+  prim__frontFace : WebGLRenderingContextBase -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a)=>x.generateMipmap(a)"
-  prim__generateMipmap : WebGLRenderingContextBase -> UInt32 -> PrimIO ()
+  prim__generateMipmap : WebGLRenderingContextBase -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.getActiveAttrib(a,b)"
   prim__getActiveAttrib :  WebGLRenderingContextBase
                         -> WebGLProgram
-                        -> UInt32
+                        -> Bits32
                         -> PrimIO (Nullable WebGLActiveInfo)
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.getActiveUniform(a,b)"
   prim__getActiveUniform :  WebGLRenderingContextBase
                          -> WebGLProgram
-                         -> UInt32
+                         -> Bits32
                          -> PrimIO (Nullable WebGLActiveInfo)
   
   export
@@ -1812,8 +1812,8 @@ namespace WebGLRenderingContextBase
   export
   %foreign "browser:lambda:(x,a,b)=>x.getBufferParameter(a,b)"
   prim__getBufferParameter :  WebGLRenderingContextBase
-                           -> UInt32
-                           -> UInt32
+                           -> Bits32
+                           -> Bits32
                            -> PrimIO AnyPtr
   
   export
@@ -1823,7 +1823,7 @@ namespace WebGLRenderingContextBase
   
   export
   %foreign "browser:lambda:x=>x.getError()"
-  prim__getError : WebGLRenderingContextBase -> PrimIO UInt32
+  prim__getError : WebGLRenderingContextBase -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:(x,a)=>x.getExtension(a)"
@@ -1834,14 +1834,14 @@ namespace WebGLRenderingContextBase
   export
   %foreign "browser:lambda:(x,a,b,c)=>x.getFramebufferAttachmentParameter(a,b,c)"
   prim__getFramebufferAttachmentParameter :  WebGLRenderingContextBase
-                                          -> UInt32
-                                          -> UInt32
-                                          -> UInt32
+                                          -> Bits32
+                                          -> Bits32
+                                          -> Bits32
                                           -> PrimIO AnyPtr
   
   export
   %foreign "browser:lambda:(x,a)=>x.getParameter(a)"
-  prim__getParameter : WebGLRenderingContextBase -> UInt32 -> PrimIO AnyPtr
+  prim__getParameter : WebGLRenderingContextBase -> Bits32 -> PrimIO AnyPtr
   
   export
   %foreign "browser:lambda:(x,a)=>x.getProgramInfoLog(a)"
@@ -1853,14 +1853,14 @@ namespace WebGLRenderingContextBase
   %foreign "browser:lambda:(x,a,b)=>x.getProgramParameter(a,b)"
   prim__getProgramParameter :  WebGLRenderingContextBase
                             -> WebGLProgram
-                            -> UInt32
+                            -> Bits32
                             -> PrimIO AnyPtr
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.getRenderbufferParameter(a,b)"
   prim__getRenderbufferParameter :  WebGLRenderingContextBase
-                                 -> UInt32
-                                 -> UInt32
+                                 -> Bits32
+                                 -> Bits32
                                  -> PrimIO AnyPtr
   
   export
@@ -1873,14 +1873,14 @@ namespace WebGLRenderingContextBase
   %foreign "browser:lambda:(x,a,b)=>x.getShaderParameter(a,b)"
   prim__getShaderParameter :  WebGLRenderingContextBase
                            -> WebGLShader
-                           -> UInt32
+                           -> Bits32
                            -> PrimIO AnyPtr
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.getShaderPrecisionFormat(a,b)"
   prim__getShaderPrecisionFormat :  WebGLRenderingContextBase
-                                 -> UInt32
-                                 -> UInt32
+                                 -> Bits32
+                                 -> Bits32
                                  -> PrimIO (Nullable WebGLShaderPrecisionFormat)
   
   export
@@ -1897,8 +1897,8 @@ namespace WebGLRenderingContextBase
   export
   %foreign "browser:lambda:(x,a,b)=>x.getTexParameter(a,b)"
   prim__getTexParameter :  WebGLRenderingContextBase
-                        -> UInt32
-                        -> UInt32
+                        -> Bits32
+                        -> Bits32
                         -> PrimIO AnyPtr
   
   export
@@ -1918,20 +1918,20 @@ namespace WebGLRenderingContextBase
   export
   %foreign "browser:lambda:(x,a,b)=>x.getVertexAttribOffset(a,b)"
   prim__getVertexAttribOffset :  WebGLRenderingContextBase
-                              -> UInt32
-                              -> UInt32
-                              -> PrimIO Int64
+                              -> Bits32
+                              -> Bits32
+                              -> PrimIO JSInt64
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.getVertexAttrib(a,b)"
   prim__getVertexAttrib :  WebGLRenderingContextBase
-                        -> UInt32
-                        -> UInt32
+                        -> Bits32
+                        -> Bits32
                         -> PrimIO AnyPtr
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.hint(a,b)"
-  prim__hint : WebGLRenderingContextBase -> UInt32 -> UInt32 -> PrimIO ()
+  prim__hint : WebGLRenderingContextBase -> Bits32 -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a)=>x.isBuffer(a)"
@@ -1945,7 +1945,7 @@ namespace WebGLRenderingContextBase
   
   export
   %foreign "browser:lambda:(x,a)=>x.isEnabled(a)"
-  prim__isEnabled : WebGLRenderingContextBase -> UInt32 -> PrimIO Boolean
+  prim__isEnabled : WebGLRenderingContextBase -> Bits32 -> PrimIO Boolean
   
   export
   %foreign "browser:lambda:(x,a)=>x.isFramebuffer(a)"
@@ -1987,7 +1987,7 @@ namespace WebGLRenderingContextBase
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.pixelStorei(a,b)"
-  prim__pixelStorei : WebGLRenderingContextBase -> UInt32 -> Int32 -> PrimIO ()
+  prim__pixelStorei : WebGLRenderingContextBase -> Bits32 -> Int32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.polygonOffset(a,b)"
@@ -1999,8 +1999,8 @@ namespace WebGLRenderingContextBase
   export
   %foreign "browser:lambda:(x,a,b,c,d)=>x.renderbufferStorage(a,b,c,d)"
   prim__renderbufferStorage :  WebGLRenderingContextBase
-                            -> UInt32
-                            -> UInt32
+                            -> Bits32
+                            -> Bits32
                             -> Int32
                             -> Int32
                             -> PrimIO ()
@@ -2031,61 +2031,61 @@ namespace WebGLRenderingContextBase
   export
   %foreign "browser:lambda:(x,a,b,c,d)=>x.stencilFuncSeparate(a,b,c,d)"
   prim__stencilFuncSeparate :  WebGLRenderingContextBase
-                            -> UInt32
-                            -> UInt32
+                            -> Bits32
+                            -> Bits32
                             -> Int32
-                            -> UInt32
+                            -> Bits32
                             -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c)=>x.stencilFunc(a,b,c)"
   prim__stencilFunc :  WebGLRenderingContextBase
-                    -> UInt32
+                    -> Bits32
                     -> Int32
-                    -> UInt32
+                    -> Bits32
                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.stencilMaskSeparate(a,b)"
   prim__stencilMaskSeparate :  WebGLRenderingContextBase
-                            -> UInt32
-                            -> UInt32
+                            -> Bits32
+                            -> Bits32
                             -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a)=>x.stencilMask(a)"
-  prim__stencilMask : WebGLRenderingContextBase -> UInt32 -> PrimIO ()
+  prim__stencilMask : WebGLRenderingContextBase -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d)=>x.stencilOpSeparate(a,b,c,d)"
   prim__stencilOpSeparate :  WebGLRenderingContextBase
-                          -> UInt32
-                          -> UInt32
-                          -> UInt32
-                          -> UInt32
+                          -> Bits32
+                          -> Bits32
+                          -> Bits32
+                          -> Bits32
                           -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c)=>x.stencilOp(a,b,c)"
   prim__stencilOp :  WebGLRenderingContextBase
-                  -> UInt32
-                  -> UInt32
-                  -> UInt32
+                  -> Bits32
+                  -> Bits32
+                  -> Bits32
                   -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c)=>x.texParameterf(a,b,c)"
   prim__texParameterf :  WebGLRenderingContextBase
-                      -> UInt32
-                      -> UInt32
+                      -> Bits32
+                      -> Bits32
                       -> Double
                       -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c)=>x.texParameteri(a,b,c)"
   prim__texParameteri :  WebGLRenderingContextBase
-                      -> UInt32
-                      -> UInt32
+                      -> Bits32
+                      -> Bits32
                       -> Int32
                       -> PrimIO ()
   
@@ -2170,21 +2170,21 @@ namespace WebGLRenderingContextBase
   export
   %foreign "browser:lambda:(x,a,b)=>x.vertexAttrib1f(a,b)"
   prim__vertexAttrib1f :  WebGLRenderingContextBase
-                       -> UInt32
+                       -> Bits32
                        -> Double
                        -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.vertexAttrib1fv(a,b)"
   prim__vertexAttrib1fv :  WebGLRenderingContextBase
-                        -> UInt32
+                        -> Bits32
                         -> Union2 Float32Array (Array Double)
                         -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c)=>x.vertexAttrib2f(a,b,c)"
   prim__vertexAttrib2f :  WebGLRenderingContextBase
-                       -> UInt32
+                       -> Bits32
                        -> Double
                        -> Double
                        -> PrimIO ()
@@ -2192,14 +2192,14 @@ namespace WebGLRenderingContextBase
   export
   %foreign "browser:lambda:(x,a,b)=>x.vertexAttrib2fv(a,b)"
   prim__vertexAttrib2fv :  WebGLRenderingContextBase
-                        -> UInt32
+                        -> Bits32
                         -> Union2 Float32Array (Array Double)
                         -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d)=>x.vertexAttrib3f(a,b,c,d)"
   prim__vertexAttrib3f :  WebGLRenderingContextBase
-                       -> UInt32
+                       -> Bits32
                        -> Double
                        -> Double
                        -> Double
@@ -2208,14 +2208,14 @@ namespace WebGLRenderingContextBase
   export
   %foreign "browser:lambda:(x,a,b)=>x.vertexAttrib3fv(a,b)"
   prim__vertexAttrib3fv :  WebGLRenderingContextBase
-                        -> UInt32
+                        -> Bits32
                         -> Union2 Float32Array (Array Double)
                         -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e)=>x.vertexAttrib4f(a,b,c,d,e)"
   prim__vertexAttrib4f :  WebGLRenderingContextBase
-                       -> UInt32
+                       -> Bits32
                        -> Double
                        -> Double
                        -> Double
@@ -2225,19 +2225,19 @@ namespace WebGLRenderingContextBase
   export
   %foreign "browser:lambda:(x,a,b)=>x.vertexAttrib4fv(a,b)"
   prim__vertexAttrib4fv :  WebGLRenderingContextBase
-                        -> UInt32
+                        -> Bits32
                         -> Union2 Float32Array (Array Double)
                         -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.vertexAttribPointer(a,b,c,d,e,f)"
   prim__vertexAttribPointer :  WebGLRenderingContextBase
-                            -> UInt32
+                            -> Bits32
                             -> Int32
-                            -> UInt32
+                            -> Bits32
                             -> Boolean
                             -> Int32
-                            -> Int64
+                            -> JSInt64
                             -> PrimIO ()
   
   export
@@ -2254,15 +2254,15 @@ namespace WebGLRenderingContextOverloads
   export
   %foreign "browser:lambda:(x,a,b,c)=>x.bufferData(a,b,c)"
   prim__bufferData :  WebGLRenderingContextOverloads
-                   -> UInt32
-                   -> Int64
-                   -> UInt32
+                   -> Bits32
+                   -> JSInt64
+                   -> Bits32
                    -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c)=>x.bufferData(a,b,c)"
   prim__bufferData1 :  WebGLRenderingContextOverloads
-                    -> UInt32
+                    -> Bits32
                     -> Nullable (Union11 Int8Array
                                          Int16Array
                                          Int32Array
@@ -2274,14 +2274,14 @@ namespace WebGLRenderingContextOverloads
                                          Float64Array
                                          DataView
                                          ArrayBuffer)
-                    -> UInt32
+                    -> Bits32
                     -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c)=>x.bufferSubData(a,b,c)"
   prim__bufferSubData :  WebGLRenderingContextOverloads
-                      -> UInt32
-                      -> Int64
+                      -> Bits32
+                      -> JSInt64
                       -> Union11 Int8Array
                                  Int16Array
                                  Int32Array
@@ -2298,9 +2298,9 @@ namespace WebGLRenderingContextOverloads
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g)=>x.compressedTexImage2D(a,b,c,d,e,f,g)"
   prim__compressedTexImage2D :  WebGLRenderingContextOverloads
-                             -> UInt32
+                             -> Bits32
                              -> Int32
-                             -> UInt32
+                             -> Bits32
                              -> Int32
                              -> Int32
                              -> Int32
@@ -2319,13 +2319,13 @@ namespace WebGLRenderingContextOverloads
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h)=>x.compressedTexSubImage2D(a,b,c,d,e,f,g,h)"
   prim__compressedTexSubImage2D :  WebGLRenderingContextOverloads
-                                -> UInt32
+                                -> Bits32
                                 -> Int32
                                 -> Int32
                                 -> Int32
                                 -> Int32
                                 -> Int32
-                                -> UInt32
+                                -> Bits32
                                 -> Union10 Int8Array
                                            Int16Array
                                            Int32Array
@@ -2345,8 +2345,8 @@ namespace WebGLRenderingContextOverloads
                    -> Int32
                    -> Int32
                    -> Int32
-                   -> UInt32
-                   -> UInt32
+                   -> Bits32
+                   -> Bits32
                    -> Nullable (Union10 Int8Array
                                         Int16Array
                                         Int32Array
@@ -2362,14 +2362,14 @@ namespace WebGLRenderingContextOverloads
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i)=>x.texImage2D(a,b,c,d,e,f,g,h,i)"
   prim__texImage2D :  WebGLRenderingContextOverloads
-                   -> UInt32
+                   -> Bits32
                    -> Int32
                    -> Int32
                    -> Int32
                    -> Int32
                    -> Int32
-                   -> UInt32
-                   -> UInt32
+                   -> Bits32
+                   -> Bits32
                    -> Nullable (Union10 Int8Array
                                         Int16Array
                                         Int32Array
@@ -2385,11 +2385,11 @@ namespace WebGLRenderingContextOverloads
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.texImage2D(a,b,c,d,e,f)"
   prim__texImage2D1 :  WebGLRenderingContextOverloads
-                    -> UInt32
+                    -> Bits32
                     -> Int32
                     -> Int32
-                    -> UInt32
-                    -> UInt32
+                    -> Bits32
+                    -> Bits32
                     -> Union6 ImageBitmap
                               ImageData
                               HTMLImageElement
@@ -2401,14 +2401,14 @@ namespace WebGLRenderingContextOverloads
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g,h,i)=>x.texSubImage2D(a,b,c,d,e,f,g,h,i)"
   prim__texSubImage2D :  WebGLRenderingContextOverloads
-                      -> UInt32
+                      -> Bits32
                       -> Int32
                       -> Int32
                       -> Int32
                       -> Int32
                       -> Int32
-                      -> UInt32
-                      -> UInt32
+                      -> Bits32
+                      -> Bits32
                       -> Nullable (Union10 Int8Array
                                            Int16Array
                                            Int32Array
@@ -2424,12 +2424,12 @@ namespace WebGLRenderingContextOverloads
   export
   %foreign "browser:lambda:(x,a,b,c,d,e,f,g)=>x.texSubImage2D(a,b,c,d,e,f,g)"
   prim__texSubImage2D1 :  WebGLRenderingContextOverloads
-                       -> UInt32
+                       -> Bits32
                        -> Int32
                        -> Int32
                        -> Int32
-                       -> UInt32
-                       -> UInt32
+                       -> Bits32
+                       -> Bits32
                        -> Union6 ImageBitmap
                                  ImageData
                                  HTMLImageElement

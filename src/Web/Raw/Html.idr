@@ -38,11 +38,11 @@ namespace AudioTrack
 namespace AudioTrackList
   
   export
-  get : (obj : AudioTrackList) -> (index : UInt32) -> JSIO AudioTrack
+  get : (obj : AudioTrackList) -> (index : Bits32) -> JSIO AudioTrack
   get a b = primJS $ AudioTrackList.prim__get a b
   
   export
-  length : (obj : AudioTrackList) -> JSIO UInt32
+  length : (obj : AudioTrackList) -> JSIO Bits32
   length a = primJS $ AudioTrackList.prim__length a
   
   export
@@ -170,7 +170,7 @@ namespace CloseEvent
   new' a = primJS $ CloseEvent.prim__new a undef
   
   export
-  code : (obj : CloseEvent) -> JSIO UInt16
+  code : (obj : CloseEvent) -> JSIO Bits16
   code a = primJS $ CloseEvent.prim__code a
   
   export
@@ -236,7 +236,7 @@ namespace DOMParser
 namespace DOMStringList
   
   export
-  length : (obj : DOMStringList) -> JSIO UInt32
+  length : (obj : DOMStringList) -> JSIO Bits32
   length a = primJS $ DOMStringList.prim__length a
   
   export
@@ -245,7 +245,7 @@ namespace DOMStringList
                $ DOMStringList.prim__contains a b
   
   export
-  item : (obj : DOMStringList) -> (index : UInt32) -> JSIO (Maybe String)
+  item : (obj : DOMStringList) -> (index : Bits32) -> JSIO (Maybe String)
   item a b = tryJS "DOMStringList.item" $ DOMStringList.prim__item a b
 
 namespace DOMStringMap
@@ -344,12 +344,12 @@ namespace DataTransferItemList
   
   export
   get :  (obj : DataTransferItemList)
-      -> (index : UInt32)
+      -> (index : Bits32)
       -> JSIO DataTransferItem
   get a b = primJS $ DataTransferItemList.prim__get a b
   
   export
-  length : (obj : DataTransferItemList) -> JSIO UInt32
+  length : (obj : DataTransferItemList) -> JSIO Bits32
   length a = primJS $ DataTransferItemList.prim__length a
   
   export
@@ -372,7 +372,7 @@ namespace DataTransferItemList
   clear a = primJS $ DataTransferItemList.prim__clear a
   
   export
-  remove : (obj : DataTransferItemList) -> (index : UInt32) -> JSIO ()
+  remove : (obj : DataTransferItemList) -> (index : Bits32) -> JSIO ()
   remove a b = primJS $ DataTransferItemList.prim__remove a b
 
 namespace DedicatedWorkerGlobalScope
@@ -538,7 +538,7 @@ namespace ErrorEvent
   new' a = primJS $ ErrorEvent.prim__new a undef
   
   export
-  colno : (obj : ErrorEvent) -> JSIO UInt32
+  colno : (obj : ErrorEvent) -> JSIO Bits32
   colno a = primJS $ ErrorEvent.prim__colno a
   
   export
@@ -550,7 +550,7 @@ namespace ErrorEvent
   filename a = primJS $ ErrorEvent.prim__filename a
   
   export
-  lineno : (obj : ErrorEvent) -> JSIO UInt32
+  lineno : (obj : ErrorEvent) -> JSIO Bits32
   lineno a = primJS $ ErrorEvent.prim__lineno a
   
   export
@@ -560,15 +560,15 @@ namespace ErrorEvent
 namespace EventSource
   
   public export
-  CLOSED : UInt16
+  CLOSED : Bits16
   CLOSED = 2
   
   public export
-  CONNECTING : UInt16
+  CONNECTING : Bits16
   CONNECTING = 0
   
   public export
-  OPEN : UInt16
+  OPEN : Bits16
   OPEN = 1
   
   export
@@ -605,7 +605,7 @@ namespace EventSource
                               v
   
   export
-  readyState : (obj : EventSource) -> JSIO UInt16
+  readyState : (obj : EventSource) -> JSIO Bits16
   readyState a = primJS $ EventSource.prim__readyState a
   
   export
@@ -649,11 +649,11 @@ namespace FormDataEvent
 namespace HTMLAllCollection
   
   export
-  get : (obj : HTMLAllCollection) -> (index : UInt32) -> JSIO Element
+  get : (obj : HTMLAllCollection) -> (index : Bits32) -> JSIO Element
   get a b = primJS $ HTMLAllCollection.prim__get a b
   
   export
-  length : (obj : HTMLAllCollection) -> JSIO UInt32
+  length : (obj : HTMLAllCollection) -> JSIO Bits32
   length a = primJS $ HTMLAllCollection.prim__length a
   
   export
@@ -976,14 +976,14 @@ namespace HTMLCanvasElement
   new = primJS $ HTMLCanvasElement.prim__new 
   
   export
-  height : HTMLCanvasElement -> Attribute True I UInt32
+  height : HTMLCanvasElement -> Attribute True I Bits32
   height v = fromPrim "HTMLCanvasElement.getheight"
                       prim__height
                       prim__setHeight
                       v
   
   export
-  width : HTMLCanvasElement -> Attribute True I UInt32
+  width : HTMLCanvasElement -> Attribute True I Bits32
   width v = fromPrim "HTMLCanvasElement.getwidth" prim__width prim__setWidth v
   
   export
@@ -1396,7 +1396,7 @@ namespace HTMLFormElement
   new = primJS $ HTMLFormElement.prim__new 
   
   export
-  get : (obj : HTMLFormElement) -> (index : UInt32) -> JSIO Element
+  get : (obj : HTMLFormElement) -> (index : Bits32) -> JSIO Element
   get a b = primJS $ HTMLFormElement.prim__get a b
   
   export
@@ -1442,7 +1442,7 @@ namespace HTMLFormElement
                        v
   
   export
-  length : (obj : HTMLFormElement) -> JSIO UInt32
+  length : (obj : HTMLFormElement) -> JSIO Bits32
   length a = primJS $ HTMLFormElement.prim__length a
   
   export
@@ -1800,14 +1800,14 @@ namespace HTMLImageElement
                         v
   
   export
-  height : HTMLImageElement -> Attribute True I UInt32
+  height : HTMLImageElement -> Attribute True I Bits32
   height v = fromPrim "HTMLImageElement.getheight"
                       prim__height
                       prim__setHeight
                       v
   
   export
-  hspace : HTMLImageElement -> Attribute True I UInt32
+  hspace : HTMLImageElement -> Attribute True I Bits32
   hspace v = fromPrim "HTMLImageElement.gethspace"
                       prim__hspace
                       prim__setHspace
@@ -1843,11 +1843,11 @@ namespace HTMLImageElement
   name v = fromPrim "HTMLImageElement.getname" prim__name prim__setName v
   
   export
-  naturalHeight : (obj : HTMLImageElement) -> JSIO UInt32
+  naturalHeight : (obj : HTMLImageElement) -> JSIO Bits32
   naturalHeight a = primJS $ HTMLImageElement.prim__naturalHeight a
   
   export
-  naturalWidth : (obj : HTMLImageElement) -> JSIO UInt32
+  naturalWidth : (obj : HTMLImageElement) -> JSIO Bits32
   naturalWidth a = primJS $ HTMLImageElement.prim__naturalWidth a
   
   export
@@ -1880,14 +1880,14 @@ namespace HTMLImageElement
                       v
   
   export
-  vspace : HTMLImageElement -> Attribute True I UInt32
+  vspace : HTMLImageElement -> Attribute True I Bits32
   vspace v = fromPrim "HTMLImageElement.getvspace"
                       prim__vspace
                       prim__setVspace
                       v
   
   export
-  width : HTMLImageElement -> Attribute True I UInt32
+  width : HTMLImageElement -> Attribute True I Bits32
   width v = fromPrim "HTMLImageElement.getwidth" prim__width prim__setWidth v
   
   export
@@ -2004,7 +2004,7 @@ namespace HTMLInputElement
                           v
   
   export
-  height : HTMLInputElement -> Attribute True I UInt32
+  height : HTMLInputElement -> Attribute True I Bits32
   height v = fromPrim "HTMLInputElement.getheight"
                       prim__height
                       prim__setHeight
@@ -2094,21 +2094,21 @@ namespace HTMLInputElement
                                           v
   
   export
-  selectionEnd : HTMLInputElement -> Attribute False Maybe UInt32
+  selectionEnd : HTMLInputElement -> Attribute False Maybe Bits32
   selectionEnd v = fromNullablePrim "HTMLInputElement.getselectionEnd"
                                     prim__selectionEnd
                                     prim__setSelectionEnd
                                     v
   
   export
-  selectionStart : HTMLInputElement -> Attribute False Maybe UInt32
+  selectionStart : HTMLInputElement -> Attribute False Maybe Bits32
   selectionStart v = fromNullablePrim "HTMLInputElement.getselectionStart"
                                       prim__selectionStart
                                       prim__setSelectionStart
                                       v
   
   export
-  size : HTMLInputElement -> Attribute True I UInt32
+  size : HTMLInputElement -> Attribute True I Bits32
   size v = fromPrim "HTMLInputElement.getsize" prim__size prim__setSize v
   
   export
@@ -2157,7 +2157,7 @@ namespace HTMLInputElement
                              v
   
   export
-  width : HTMLInputElement -> Attribute True I UInt32
+  width : HTMLInputElement -> Attribute True I Bits32
   width v = fromPrim "HTMLInputElement.getwidth" prim__width prim__setWidth v
   
   export
@@ -2190,8 +2190,8 @@ namespace HTMLInputElement
   export
   setRangeText1 :  (obj : HTMLInputElement)
                 -> (replacement : String)
-                -> (start : UInt32)
-                -> (end : UInt32)
+                -> (start : Bits32)
+                -> (end : Bits32)
                 -> (selectionMode : Optional SelectionMode)
                 -> JSIO ()
   setRangeText1 a b c d e = primJS
@@ -2204,16 +2204,16 @@ namespace HTMLInputElement
   export
   setRangeText1' :  (obj : HTMLInputElement)
                  -> (replacement : String)
-                 -> (start : UInt32)
-                 -> (end : UInt32)
+                 -> (start : Bits32)
+                 -> (end : Bits32)
                  -> JSIO ()
   setRangeText1' a b c d = primJS
                          $ HTMLInputElement.prim__setRangeText1 a b c d undef
   
   export
   setSelectionRange :  (obj : HTMLInputElement)
-                    -> (start : UInt32)
-                    -> (end : UInt32)
+                    -> (start : Bits32)
+                    -> (end : Bits32)
                     -> (direction : Optional String)
                     -> JSIO ()
   setSelectionRange a b c d = primJS
@@ -2224,8 +2224,8 @@ namespace HTMLInputElement
 
   export
   setSelectionRange' :  (obj : HTMLInputElement)
-                     -> (start : UInt32)
-                     -> (end : UInt32)
+                     -> (start : Bits32)
+                     -> (end : Bits32)
                      -> JSIO ()
   setSelectionRange' a b c = primJS
                            $ HTMLInputElement.prim__setSelectionRange a
@@ -2446,7 +2446,7 @@ namespace HTMLMarqueeElement
                       v
   
   export
-  hspace : HTMLMarqueeElement -> Attribute True I UInt32
+  hspace : HTMLMarqueeElement -> Attribute True I Bits32
   hspace v = fromPrim "HTMLMarqueeElement.gethspace"
                       prim__hspace
                       prim__setHspace
@@ -2457,14 +2457,14 @@ namespace HTMLMarqueeElement
   loop v = fromPrim "HTMLMarqueeElement.getloop" prim__loop prim__setLoop v
   
   export
-  scrollAmount : HTMLMarqueeElement -> Attribute True I UInt32
+  scrollAmount : HTMLMarqueeElement -> Attribute True I Bits32
   scrollAmount v = fromPrim "HTMLMarqueeElement.getscrollAmount"
                             prim__scrollAmount
                             prim__setScrollAmount
                             v
   
   export
-  scrollDelay : HTMLMarqueeElement -> Attribute True I UInt32
+  scrollDelay : HTMLMarqueeElement -> Attribute True I Bits32
   scrollDelay v = fromPrim "HTMLMarqueeElement.getscrollDelay"
                            prim__scrollDelay
                            prim__setScrollDelay
@@ -2478,7 +2478,7 @@ namespace HTMLMarqueeElement
                          v
   
   export
-  vspace : HTMLMarqueeElement -> Attribute True I UInt32
+  vspace : HTMLMarqueeElement -> Attribute True I Bits32
   vspace v = fromPrim "HTMLMarqueeElement.getvspace"
                       prim__vspace
                       prim__setVspace
@@ -2499,39 +2499,39 @@ namespace HTMLMarqueeElement
 namespace HTMLMediaElement
   
   public export
-  HAVE_CURRENT_DATA : UInt16
+  HAVE_CURRENT_DATA : Bits16
   HAVE_CURRENT_DATA = 2
   
   public export
-  HAVE_ENOUGH_DATA : UInt16
+  HAVE_ENOUGH_DATA : Bits16
   HAVE_ENOUGH_DATA = 4
   
   public export
-  HAVE_FUTURE_DATA : UInt16
+  HAVE_FUTURE_DATA : Bits16
   HAVE_FUTURE_DATA = 3
   
   public export
-  HAVE_METADATA : UInt16
+  HAVE_METADATA : Bits16
   HAVE_METADATA = 1
   
   public export
-  HAVE_NOTHING : UInt16
+  HAVE_NOTHING : Bits16
   HAVE_NOTHING = 0
   
   public export
-  NETWORK_EMPTY : UInt16
+  NETWORK_EMPTY : Bits16
   NETWORK_EMPTY = 0
   
   public export
-  NETWORK_IDLE : UInt16
+  NETWORK_IDLE : Bits16
   NETWORK_IDLE = 1
   
   public export
-  NETWORK_LOADING : UInt16
+  NETWORK_LOADING : Bits16
   NETWORK_LOADING = 2
   
   public export
-  NETWORK_NO_SOURCE : UInt16
+  NETWORK_NO_SOURCE : Bits16
   NETWORK_NO_SOURCE = 3
   
   export
@@ -2660,7 +2660,7 @@ namespace HTMLMediaElement
   networkState :  JSType t1
                => {auto 0 _ : Elem HTMLMediaElement (Types t1)}
                -> (obj : t1)
-               -> JSIO UInt16
+               -> JSIO Bits16
   networkState a = primJS $ HTMLMediaElement.prim__networkState (up a)
   
   export
@@ -2712,7 +2712,7 @@ namespace HTMLMediaElement
   readyState :  JSType t1
              => {auto 0 _ : Elem HTMLMediaElement (Types t1)}
              -> (obj : t1)
-             -> JSIO UInt16
+             -> JSIO Bits16
   readyState a = primJS $ HTMLMediaElement.prim__readyState (up a)
   
   export
@@ -3043,7 +3043,7 @@ namespace HTMLObjectElement
                       v
   
   export
-  hspace : HTMLObjectElement -> Attribute True I UInt32
+  hspace : HTMLObjectElement -> Attribute True I Bits32
   hspace v = fromPrim "HTMLObjectElement.gethspace"
                       prim__hspace
                       prim__setHspace
@@ -3080,7 +3080,7 @@ namespace HTMLObjectElement
   validity a = primJS $ HTMLObjectElement.prim__validity a
   
   export
-  vspace : HTMLObjectElement -> Attribute True I UInt32
+  vspace : HTMLObjectElement -> Attribute True I Bits32
   vspace v = fromPrim "HTMLObjectElement.getvspace"
                       prim__vspace
                       prim__setVspace
@@ -3182,13 +3182,13 @@ namespace HTMLOptionsCollection
   
   export
   set :  (obj : HTMLOptionsCollection)
-      -> (index : UInt32)
+      -> (index : Bits32)
       -> (option : Maybe HTMLOptionElement)
       -> JSIO ()
   set a b c = primJS $ HTMLOptionsCollection.prim__set a b (toFFI c)
   
   export
-  length : HTMLOptionsCollection -> Attribute True I UInt32
+  length : HTMLOptionsCollection -> Attribute True I Bits32
   length v = fromPrim "HTMLOptionsCollection.getlength"
                       prim__length
                       prim__setLength
@@ -3448,7 +3448,7 @@ namespace HTMLSelectElement
   
   export
   set :  (obj : HTMLSelectElement)
-      -> (index : UInt32)
+      -> (index : Bits32)
       -> (option : Maybe HTMLOptionElement)
       -> JSIO ()
   set a b c = primJS $ HTMLSelectElement.prim__set a b (toFFI c)
@@ -3476,7 +3476,7 @@ namespace HTMLSelectElement
   labels a = primJS $ HTMLSelectElement.prim__labels a
   
   export
-  length : HTMLSelectElement -> Attribute True I UInt32
+  length : HTMLSelectElement -> Attribute True I Bits32
   length v = fromPrim "HTMLSelectElement.getlength"
                       prim__length
                       prim__setLength
@@ -3516,7 +3516,7 @@ namespace HTMLSelectElement
   selectedOptions a = primJS $ HTMLSelectElement.prim__selectedOptions a
   
   export
-  size : HTMLSelectElement -> Attribute True I UInt32
+  size : HTMLSelectElement -> Attribute True I Bits32
   size v = fromPrim "HTMLSelectElement.getsize" prim__size prim__setSize v
   
   export
@@ -3559,7 +3559,7 @@ namespace HTMLSelectElement
                   $ HTMLSelectElement.prim__checkValidity a
   
   export
-  item : (obj : HTMLSelectElement) -> (index : UInt32) -> JSIO (Maybe Element)
+  item : (obj : HTMLSelectElement) -> (index : Bits32) -> JSIO (Maybe Element)
   item a b = tryJS "HTMLSelectElement.item" $ HTMLSelectElement.prim__item a b
   
   export
@@ -3628,7 +3628,7 @@ namespace HTMLSourceElement
   new = primJS $ HTMLSourceElement.prim__new 
   
   export
-  height : HTMLSourceElement -> Attribute True I UInt32
+  height : HTMLSourceElement -> Attribute True I Bits32
   height v = fromPrim "HTMLSourceElement.getheight"
                       prim__height
                       prim__setHeight
@@ -3658,7 +3658,7 @@ namespace HTMLSourceElement
   type v = fromPrim "HTMLSourceElement.gettype" prim__type prim__setType v
   
   export
-  width : HTMLSourceElement -> Attribute True I UInt32
+  width : HTMLSourceElement -> Attribute True I Bits32
   width v = fromPrim "HTMLSourceElement.getwidth" prim__width prim__setWidth v
 
 namespace HTMLSpanElement
@@ -3738,7 +3738,7 @@ namespace HTMLTableCellElement
                      v
   
   export
-  colSpan : HTMLTableCellElement -> Attribute True I UInt32
+  colSpan : HTMLTableCellElement -> Attribute True I Bits32
   colSpan v = fromPrim "HTMLTableCellElement.getcolSpan"
                        prim__colSpan
                        prim__setColSpan
@@ -3766,7 +3766,7 @@ namespace HTMLTableCellElement
                       v
   
   export
-  rowSpan : HTMLTableCellElement -> Attribute True I UInt32
+  rowSpan : HTMLTableCellElement -> Attribute True I Bits32
   rowSpan v = fromPrim "HTMLTableCellElement.getrowSpan"
                        prim__rowSpan
                        prim__setRowSpan
@@ -3812,7 +3812,7 @@ namespace HTMLTableColElement
   chOff v = fromPrim "HTMLTableColElement.getchOff" prim__chOff prim__setChOff v
   
   export
-  span : HTMLTableColElement -> Attribute True I UInt32
+  span : HTMLTableColElement -> Attribute True I Bits32
   span v = fromPrim "HTMLTableColElement.getspan" prim__span prim__setSpan v
   
   export
@@ -4085,7 +4085,7 @@ namespace HTMLTextAreaElement
                             v
   
   export
-  cols : HTMLTextAreaElement -> Attribute True I UInt32
+  cols : HTMLTextAreaElement -> Attribute True I Bits32
   cols v = fromPrim "HTMLTextAreaElement.getcols" prim__cols prim__setCols v
   
   export
@@ -4157,7 +4157,7 @@ namespace HTMLTextAreaElement
                         v
   
   export
-  rows : HTMLTextAreaElement -> Attribute True I UInt32
+  rows : HTMLTextAreaElement -> Attribute True I Bits32
   rows v = fromPrim "HTMLTextAreaElement.getrows" prim__rows prim__setRows v
   
   export
@@ -4168,21 +4168,21 @@ namespace HTMLTextAreaElement
                                   v
   
   export
-  selectionEnd : HTMLTextAreaElement -> Attribute True I UInt32
+  selectionEnd : HTMLTextAreaElement -> Attribute True I Bits32
   selectionEnd v = fromPrim "HTMLTextAreaElement.getselectionEnd"
                             prim__selectionEnd
                             prim__setSelectionEnd
                             v
   
   export
-  selectionStart : HTMLTextAreaElement -> Attribute True I UInt32
+  selectionStart : HTMLTextAreaElement -> Attribute True I Bits32
   selectionStart v = fromPrim "HTMLTextAreaElement.getselectionStart"
                               prim__selectionStart
                               prim__setSelectionStart
                               v
   
   export
-  textLength : (obj : HTMLTextAreaElement) -> JSIO UInt32
+  textLength : (obj : HTMLTextAreaElement) -> JSIO Bits32
   textLength a = primJS $ HTMLTextAreaElement.prim__textLength a
   
   export
@@ -4238,8 +4238,8 @@ namespace HTMLTextAreaElement
   export
   setRangeText1 :  (obj : HTMLTextAreaElement)
                 -> (replacement : String)
-                -> (start : UInt32)
-                -> (end : UInt32)
+                -> (start : Bits32)
+                -> (end : Bits32)
                 -> (selectionMode : Optional SelectionMode)
                 -> JSIO ()
   setRangeText1 a b c d e = primJS
@@ -4252,16 +4252,16 @@ namespace HTMLTextAreaElement
   export
   setRangeText1' :  (obj : HTMLTextAreaElement)
                  -> (replacement : String)
-                 -> (start : UInt32)
-                 -> (end : UInt32)
+                 -> (start : Bits32)
+                 -> (end : Bits32)
                  -> JSIO ()
   setRangeText1' a b c d = primJS
                          $ HTMLTextAreaElement.prim__setRangeText1 a b c d undef
   
   export
   setSelectionRange :  (obj : HTMLTextAreaElement)
-                    -> (start : UInt32)
-                    -> (end : UInt32)
+                    -> (start : Bits32)
+                    -> (end : Bits32)
                     -> (direction : Optional String)
                     -> JSIO ()
   setSelectionRange a b c d = primJS
@@ -4272,8 +4272,8 @@ namespace HTMLTextAreaElement
 
   export
   setSelectionRange' :  (obj : HTMLTextAreaElement)
-                     -> (start : UInt32)
-                     -> (end : UInt32)
+                     -> (start : Bits32)
+                     -> (end : Bits32)
                      -> JSIO ()
   setSelectionRange' a b c = primJS
                            $ HTMLTextAreaElement.prim__setSelectionRange a
@@ -4307,19 +4307,19 @@ namespace HTMLTitleElement
 namespace HTMLTrackElement
   
   public export
-  ERROR : UInt16
+  ERROR : Bits16
   ERROR = 3
   
   public export
-  LOADED : UInt16
+  LOADED : Bits16
   LOADED = 2
   
   public export
-  LOADING : UInt16
+  LOADING : Bits16
   LOADING = 1
   
   public export
-  NONE : UInt16
+  NONE : Bits16
   NONE = 0
   
   export
@@ -4342,7 +4342,7 @@ namespace HTMLTrackElement
   label v = fromPrim "HTMLTrackElement.getlabel" prim__label prim__setLabel v
   
   export
-  readyState : (obj : HTMLTrackElement) -> JSIO UInt16
+  readyState : (obj : HTMLTrackElement) -> JSIO Bits16
   readyState a = primJS $ HTMLTrackElement.prim__readyState a
   
   export
@@ -4385,7 +4385,7 @@ namespace HTMLVideoElement
   new = primJS $ HTMLVideoElement.prim__new 
   
   export
-  height : HTMLVideoElement -> Attribute True I UInt32
+  height : HTMLVideoElement -> Attribute True I Bits32
   height v = fromPrim "HTMLVideoElement.getheight"
                       prim__height
                       prim__setHeight
@@ -4406,15 +4406,15 @@ namespace HTMLVideoElement
                       v
   
   export
-  videoHeight : (obj : HTMLVideoElement) -> JSIO UInt32
+  videoHeight : (obj : HTMLVideoElement) -> JSIO Bits32
   videoHeight a = primJS $ HTMLVideoElement.prim__videoHeight a
   
   export
-  videoWidth : (obj : HTMLVideoElement) -> JSIO UInt32
+  videoWidth : (obj : HTMLVideoElement) -> JSIO Bits32
   videoWidth a = primJS $ HTMLVideoElement.prim__videoWidth a
   
   export
-  width : HTMLVideoElement -> Attribute True I UInt32
+  width : HTMLVideoElement -> Attribute True I Bits32
   width v = fromPrim "HTMLVideoElement.getwidth" prim__width prim__setWidth v
 
 namespace HashChangeEvent
@@ -4442,7 +4442,7 @@ namespace HashChangeEvent
 namespace History
   
   export
-  length : (obj : History) -> JSIO UInt32
+  length : (obj : History) -> JSIO Bits32
   length a = primJS $ History.prim__length a
   
   export
@@ -4503,11 +4503,11 @@ namespace History
 namespace ImageBitmap
   
   export
-  height : (obj : ImageBitmap) -> JSIO UInt32
+  height : (obj : ImageBitmap) -> JSIO Bits32
   height a = primJS $ ImageBitmap.prim__height a
   
   export
-  width : (obj : ImageBitmap) -> JSIO UInt32
+  width : (obj : ImageBitmap) -> JSIO Bits32
   width a = primJS $ ImageBitmap.prim__width a
   
   export
@@ -4533,18 +4533,18 @@ namespace ImageBitmapRenderingContext
 namespace ImageData
   
   export
-  new : (sw : UInt32) -> (sh : UInt32) -> JSIO ImageData
+  new : (sw : Bits32) -> (sh : Bits32) -> JSIO ImageData
   new a b = primJS $ ImageData.prim__new a b
   
   export
   new1 :  (data_ : UInt8ClampedArray)
-       -> (sw : UInt32)
-       -> (sh : Optional UInt32)
+       -> (sw : Bits32)
+       -> (sh : Optional Bits32)
        -> JSIO ImageData
   new1 a b c = primJS $ ImageData.prim__new1 a b (toFFI c)
 
   export
-  new1' : (data_ : UInt8ClampedArray) -> (sw : UInt32) -> JSIO ImageData
+  new1' : (data_ : UInt8ClampedArray) -> (sw : Bits32) -> JSIO ImageData
   new1' a b = primJS $ ImageData.prim__new1 a b undef
   
   export
@@ -4552,11 +4552,11 @@ namespace ImageData
   data_ a = primJS $ ImageData.prim__data a
   
   export
-  height : (obj : ImageData) -> JSIO UInt32
+  height : (obj : ImageData) -> JSIO Bits32
   height a = primJS $ ImageData.prim__height a
   
   export
-  width : (obj : ImageData) -> JSIO UInt32
+  width : (obj : ImageData) -> JSIO Bits32
   width a = primJS $ ImageData.prim__width a
 
 namespace Location
@@ -4625,23 +4625,23 @@ namespace Location
 namespace MediaError
   
   public export
-  MEDIA_ERR_ABORTED : UInt16
+  MEDIA_ERR_ABORTED : Bits16
   MEDIA_ERR_ABORTED = 1
   
   public export
-  MEDIA_ERR_DECODE : UInt16
+  MEDIA_ERR_DECODE : Bits16
   MEDIA_ERR_DECODE = 3
   
   public export
-  MEDIA_ERR_NETWORK : UInt16
+  MEDIA_ERR_NETWORK : Bits16
   MEDIA_ERR_NETWORK = 2
   
   public export
-  MEDIA_ERR_SRC_NOT_SUPPORTED : UInt16
+  MEDIA_ERR_SRC_NOT_SUPPORTED : Bits16
   MEDIA_ERR_SRC_NOT_SUPPORTED = 4
   
   export
-  code : (obj : MediaError) -> JSIO UInt16
+  code : (obj : MediaError) -> JSIO Bits16
   code a = primJS $ MediaError.prim__code a
   
   export
@@ -4801,11 +4801,11 @@ namespace MimeType
 namespace MimeTypeArray
   
   export
-  length : (obj : MimeTypeArray) -> JSIO UInt32
+  length : (obj : MimeTypeArray) -> JSIO Bits32
   length a = primJS $ MimeTypeArray.prim__length a
   
   export
-  item : (obj : MimeTypeArray) -> (index : UInt32) -> JSIO (Maybe Object)
+  item : (obj : MimeTypeArray) -> (index : Bits32) -> JSIO (Maybe Object)
   item a b = tryJS "MimeTypeArray.item" $ MimeTypeArray.prim__item a b
   
   export
@@ -4844,15 +4844,15 @@ namespace Navigator
 namespace OffscreenCanvas
   
   export
-  new : (width : UInt64) -> (height : UInt64) -> JSIO OffscreenCanvas
+  new : (width : JSBits64) -> (height : JSBits64) -> JSIO OffscreenCanvas
   new a b = primJS $ OffscreenCanvas.prim__new a b
   
   export
-  height : OffscreenCanvas -> Attribute True I UInt64
+  height : OffscreenCanvas -> Attribute True I JSBits64
   height v = fromPrim "OffscreenCanvas.getheight" prim__height prim__setHeight v
   
   export
-  width : OffscreenCanvas -> Attribute True I UInt64
+  width : OffscreenCanvas -> Attribute True I JSBits64
   width v = fromPrim "OffscreenCanvas.getwidth" prim__width prim__setWidth v
   
   export
@@ -4966,7 +4966,7 @@ namespace Plugin
   name a = primJS $ Plugin.prim__name a
   
   export
-  item : (obj : Plugin) -> (index : UInt32) -> JSIO ()
+  item : (obj : Plugin) -> (index : Bits32) -> JSIO ()
   item a b = primJS $ Plugin.prim__item a b
   
   export
@@ -4976,11 +4976,11 @@ namespace Plugin
 namespace PluginArray
   
   export
-  length : (obj : PluginArray) -> JSIO UInt32
+  length : (obj : PluginArray) -> JSIO Bits32
   length a = primJS $ PluginArray.prim__length a
   
   export
-  item : (obj : PluginArray) -> (index : UInt32) -> JSIO (Maybe Object)
+  item : (obj : PluginArray) -> (index : Bits32) -> JSIO (Maybe Object)
   item a b = tryJS "PluginArray.item" $ PluginArray.prim__item a b
   
   export
@@ -5072,7 +5072,7 @@ namespace SharedWorkerGlobalScope
 namespace Storage
   
   export
-  length : (obj : Storage) -> JSIO UInt32
+  length : (obj : Storage) -> JSIO Bits32
   length a = primJS $ Storage.prim__length a
   
   export
@@ -5084,7 +5084,7 @@ namespace Storage
   getItem a b = tryJS "Storage.getItem" $ Storage.prim__getItem a b
   
   export
-  key : (obj : Storage) -> (index : UInt32) -> JSIO (Maybe String)
+  key : (obj : Storage) -> (index : Bits32) -> JSIO (Maybe String)
   key a b = tryJS "Storage.key" $ Storage.prim__key a b
   
   export
@@ -5334,11 +5334,11 @@ namespace TextTrackCue
 namespace TextTrackCueList
   
   export
-  get : (obj : TextTrackCueList) -> (index : UInt32) -> JSIO TextTrackCue
+  get : (obj : TextTrackCueList) -> (index : Bits32) -> JSIO TextTrackCue
   get a b = primJS $ TextTrackCueList.prim__get a b
   
   export
-  length : (obj : TextTrackCueList) -> JSIO UInt32
+  length : (obj : TextTrackCueList) -> JSIO Bits32
   length a = primJS $ TextTrackCueList.prim__length a
   
   export
@@ -5351,11 +5351,11 @@ namespace TextTrackCueList
 namespace TextTrackList
   
   export
-  get : (obj : TextTrackList) -> (index : UInt32) -> JSIO TextTrack
+  get : (obj : TextTrackList) -> (index : Bits32) -> JSIO TextTrack
   get a b = primJS $ TextTrackList.prim__get a b
   
   export
-  length : (obj : TextTrackList) -> JSIO UInt32
+  length : (obj : TextTrackList) -> JSIO Bits32
   length a = primJS $ TextTrackList.prim__length a
   
   export
@@ -5389,15 +5389,15 @@ namespace TextTrackList
 namespace TimeRanges
   
   export
-  length : (obj : TimeRanges) -> JSIO UInt32
+  length : (obj : TimeRanges) -> JSIO Bits32
   length a = primJS $ TimeRanges.prim__length a
   
   export
-  end : (obj : TimeRanges) -> (index : UInt32) -> JSIO Double
+  end : (obj : TimeRanges) -> (index : Bits32) -> JSIO Double
   end a b = primJS $ TimeRanges.prim__end a b
   
   export
-  start : (obj : TimeRanges) -> (index : UInt32) -> JSIO Double
+  start : (obj : TimeRanges) -> (index : Bits32) -> JSIO Double
   start a b = primJS $ TimeRanges.prim__start a b
 
 namespace TrackEvent
@@ -5505,11 +5505,11 @@ namespace VideoTrack
 namespace VideoTrackList
   
   export
-  get : (obj : VideoTrackList) -> (index : UInt32) -> JSIO VideoTrack
+  get : (obj : VideoTrackList) -> (index : Bits32) -> JSIO VideoTrack
   get a b = primJS $ VideoTrackList.prim__get a b
   
   export
-  length : (obj : VideoTrackList) -> JSIO UInt32
+  length : (obj : VideoTrackList) -> JSIO Bits32
   length a = primJS $ VideoTrackList.prim__length a
   
   export
@@ -5547,19 +5547,19 @@ namespace VideoTrackList
 namespace WebSocket
   
   public export
-  CLOSED : UInt16
+  CLOSED : Bits16
   CLOSED = 3
   
   public export
-  CLOSING : UInt16
+  CLOSING : Bits16
   CLOSING = 2
   
   public export
-  CONNECTING : UInt16
+  CONNECTING : Bits16
   CONNECTING = 0
   
   public export
-  OPEN : UInt16
+  OPEN : Bits16
   OPEN = 1
   
   export
@@ -5580,7 +5580,7 @@ namespace WebSocket
                           v
   
   export
-  bufferedAmount : (obj : WebSocket) -> JSIO UInt64
+  bufferedAmount : (obj : WebSocket) -> JSIO JSBits64
   bufferedAmount a = primJS $ WebSocket.prim__bufferedAmount a
   
   export
@@ -5620,7 +5620,7 @@ namespace WebSocket
   protocol a = primJS $ WebSocket.prim__protocol a
   
   export
-  readyState : (obj : WebSocket) -> JSIO UInt16
+  readyState : (obj : WebSocket) -> JSIO Bits16
   readyState a = primJS $ WebSocket.prim__readyState a
   
   export
@@ -5629,7 +5629,7 @@ namespace WebSocket
   
   export
   close :  (obj : WebSocket)
-        -> (code : Optional UInt16)
+        -> (code : Optional Bits16)
         -> (reason : Optional String)
         -> JSIO ()
   close a b c = primJS $ WebSocket.prim__close a (toFFI b) (toFFI c)
@@ -5709,7 +5709,7 @@ namespace Window
   history a = primJS $ Window.prim__history a
   
   export
-  length : (obj : Window) -> JSIO UInt32
+  length : (obj : Window) -> JSIO Bits32
   length a = primJS $ Window.prim__length a
   
   export
@@ -8427,7 +8427,7 @@ namespace NavigatorConcurrentHardware
   hardwareConcurrency :  JSType t1
                       => {auto 0 _ : Elem NavigatorConcurrentHardware (Types t1)}
                       -> (obj : t1)
-                      -> JSIO UInt64
+                      -> JSIO JSBits64
   hardwareConcurrency a = primJS
                         $ NavigatorConcurrentHardware.prim__hardwareConcurrency (up a)
 
@@ -8808,7 +8808,7 @@ namespace CloseEventInit
   
   export
   new :  (wasClean : Optional Bool)
-      -> (code : Optional UInt16)
+      -> (code : Optional Bits16)
       -> (reason : Optional String)
       -> JSIO CloseEventInit
   new a b c = primJS $ CloseEventInit.prim__new (toFFI a) (toFFI b) (toFFI c)
@@ -8821,7 +8821,7 @@ namespace CloseEventInit
   code :  JSType t
        => {auto 0 _ : Elem CloseEventInit (Types t)}
        -> t
-       -> Attribute True Optional UInt16
+       -> Attribute True Optional Bits16
   code v = fromUndefOrPrim "CloseEventInit.getcode"
                            prim__code
                            prim__setCode
@@ -8896,8 +8896,8 @@ namespace ErrorEventInit
   export
   new :  (message : Optional String)
       -> (filename : Optional String)
-      -> (lineno : Optional UInt32)
-      -> (colno : Optional UInt32)
+      -> (lineno : Optional Bits32)
+      -> (colno : Optional Bits32)
       -> (error : Optional Any)
       -> JSIO ErrorEventInit
   new a b c d e = primJS
@@ -8915,7 +8915,7 @@ namespace ErrorEventInit
   colno :  JSType t
         => {auto 0 _ : Elem ErrorEventInit (Types t)}
         -> t
-        -> Attribute True Optional UInt32
+        -> Attribute True Optional Bits32
   colno v = fromUndefOrPrim "ErrorEventInit.getcolno"
                             prim__colno
                             prim__setColno
@@ -8948,7 +8948,7 @@ namespace ErrorEventInit
   lineno :  JSType t
          => {auto 0 _ : Elem ErrorEventInit (Types t)}
          -> t
-         -> Attribute True Optional UInt32
+         -> Attribute True Optional Bits32
   lineno v = fromUndefOrPrim "ErrorEventInit.getlineno"
                              prim__lineno
                              prim__setLineno
@@ -9064,8 +9064,8 @@ namespace ImageBitmapOptions
   new :  (imageOrientation : Optional ImageOrientation)
       -> (premultiplyAlpha : Optional PremultiplyAlpha)
       -> (colorSpaceConversion : Optional ColorSpaceConversion)
-      -> (resizeWidth : Optional UInt32)
-      -> (resizeHeight : Optional UInt32)
+      -> (resizeWidth : Optional Bits32)
+      -> (resizeHeight : Optional Bits32)
       -> (resizeQuality : Optional ResizeQuality)
       -> JSIO ImageBitmapOptions
   new a b c d e f = primJS
@@ -9115,7 +9115,7 @@ namespace ImageBitmapOptions
   resizeHeight :  JSType t
                => {auto 0 _ : Elem ImageBitmapOptions (Types t)}
                -> t
-               -> Attribute False Optional UInt32
+               -> Attribute False Optional Bits32
   resizeHeight v = fromUndefOrPrimNoDefault "ImageBitmapOptions.getresizeHeight"
                                             prim__resizeHeight
                                             prim__setResizeHeight
@@ -9135,7 +9135,7 @@ namespace ImageBitmapOptions
   resizeWidth :  JSType t
               => {auto 0 _ : Elem ImageBitmapOptions (Types t)}
               -> t
-              -> Attribute False Optional UInt32
+              -> Attribute False Optional Bits32
   resizeWidth v = fromUndefOrPrimNoDefault "ImageBitmapOptions.getresizeWidth"
                                            prim__resizeWidth
                                            prim__setResizeWidth
@@ -9803,8 +9803,8 @@ namespace OnErrorEventHandlerNonNull
   export
   toOnErrorEventHandlerNonNull :  (  Union2 Event String
                                   -> UndefOr String
-                                  -> UndefOr UInt32
-                                  -> UndefOr UInt32
+                                  -> UndefOr Bits32
+                                  -> UndefOr Bits32
                                   -> UndefOr AnyPtr
                                   -> IO AnyPtr
                                   )

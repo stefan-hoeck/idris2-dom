@@ -227,11 +227,11 @@ namespace SourceBufferList
   
   export
   %foreign "browser:lambda:(o,x)=>o[x]"
-  prim__get : SourceBufferList -> UInt32 -> PrimIO SourceBuffer
+  prim__get : SourceBufferList -> Bits32 -> PrimIO SourceBuffer
   
   export
   %foreign "browser:lambda:x=>x.length"
-  prim__length : SourceBufferList -> PrimIO UInt32
+  prim__length : SourceBufferList -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:x=>x.onaddsourcebuffer"

@@ -216,7 +216,7 @@ namespace ReadableStreamBYOBRequest
   
   export
   respond :  (obj : ReadableStreamBYOBRequest)
-          -> (bytesWritten : UInt64)
+          -> (bytesWritten : JSBits64)
           -> JSIO ()
   respond a b = primJS $ ReadableStreamBYOBRequest.prim__respond a b
   
@@ -900,7 +900,7 @@ namespace UnderlyingSource
       -> (pull : Optional UnderlyingSourcePullCallback)
       -> (cancel : Optional UnderlyingSourceCancelCallback)
       -> (type : Optional ReadableStreamType)
-      -> (autoAllocateChunkSize : Optional UInt64)
+      -> (autoAllocateChunkSize : Optional JSBits64)
       -> JSIO UnderlyingSource
   new a b c d e = primJS
                 $ UnderlyingSource.prim__new (toFFI a)
@@ -917,7 +917,7 @@ namespace UnderlyingSource
   autoAllocateChunkSize :  JSType t
                         => {auto 0 _ : Elem UnderlyingSource (Types t)}
                         -> t
-                        -> Attribute False Optional UInt64
+                        -> Attribute False Optional JSBits64
   autoAllocateChunkSize v = fromUndefOrPrimNoDefault "UnderlyingSource.getautoAllocateChunkSize"
                                                      prim__autoAllocateChunkSize
                                                      prim__setAutoAllocateChunkSize

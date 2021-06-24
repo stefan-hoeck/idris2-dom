@@ -32,8 +32,8 @@ Callback OnBeforeUnloadEventHandlerNonNull (Event -> JSIO (Maybe String)) where
 export
 Callback OnErrorEventHandlerNonNull (  NS I [Event, String]
                                     -> Optional String
-                                    -> Optional UInt32
-                                    -> Optional UInt32
+                                    -> Optional Bits32
+                                    -> Optional Bits32
                                     -> Optional Any
                                     -> JSIO Any
                                     ) where

@@ -397,11 +397,11 @@ namespace DOMRectList
   
   export
   %foreign "browser:lambda:x=>x.length"
-  prim__length : DOMRectList -> PrimIO UInt32
+  prim__length : DOMRectList -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:(x,a)=>x.item(a)"
-  prim__item : DOMRectList -> UInt32 -> PrimIO (Nullable DOMRect)
+  prim__item : DOMRectList -> Bits32 -> PrimIO (Nullable DOMRect)
 
 namespace DOMRectReadOnly
   

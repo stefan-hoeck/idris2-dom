@@ -53,7 +53,7 @@ namespace AbstractRange
   
   export
   %foreign "browser:lambda:x=>x.endOffset"
-  prim__endOffset : AbstractRange -> PrimIO UInt32
+  prim__endOffset : AbstractRange -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:x=>x.startContainer"
@@ -61,7 +61,7 @@ namespace AbstractRange
   
   export
   %foreign "browser:lambda:x=>x.startOffset"
-  prim__startOffset : AbstractRange -> PrimIO UInt32
+  prim__startOffset : AbstractRange -> PrimIO Bits32
 
 namespace Attr
   
@@ -112,7 +112,7 @@ namespace CharacterData
   
   export
   %foreign "browser:lambda:x=>x.length"
-  prim__length : CharacterData -> PrimIO UInt32
+  prim__length : CharacterData -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:(x,a)=>x.appendData(a)"
@@ -120,19 +120,19 @@ namespace CharacterData
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.deleteData(a,b)"
-  prim__deleteData : CharacterData -> UInt32 -> UInt32 -> PrimIO ()
+  prim__deleteData : CharacterData -> Bits32 -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.insertData(a,b)"
-  prim__insertData : CharacterData -> UInt32 -> String -> PrimIO ()
+  prim__insertData : CharacterData -> Bits32 -> String -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b,c)=>x.replaceData(a,b,c)"
-  prim__replaceData : CharacterData -> UInt32 -> UInt32 -> String -> PrimIO ()
+  prim__replaceData : CharacterData -> Bits32 -> Bits32 -> String -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.substringData(a,b)"
-  prim__substringData : CharacterData -> UInt32 -> UInt32 -> PrimIO String
+  prim__substringData : CharacterData -> Bits32 -> Bits32 -> PrimIO String
 
 namespace Comment
   
@@ -191,7 +191,7 @@ namespace DOMTokenList
   
   export
   %foreign "browser:lambda:x=>x.length"
-  prim__length : DOMTokenList -> PrimIO UInt32
+  prim__length : DOMTokenList -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:x=>x.value"
@@ -212,7 +212,7 @@ namespace DOMTokenList
   
   export
   %foreign "browser:lambda:(x,a)=>x.item(a)"
-  prim__item : DOMTokenList -> UInt32 -> PrimIO (Nullable String)
+  prim__item : DOMTokenList -> Bits32 -> PrimIO (Nullable String)
   
   export
   %foreign "browser:lambda:(x,va)=>x.remove(...va())"
@@ -542,7 +542,7 @@ namespace Document
   %foreign "browser:lambda:(x,a,b,c)=>x.createNodeIterator(a,b,c)"
   prim__createNodeIterator :  Document
                            -> Node
-                           -> UndefOr UInt32
+                           -> UndefOr Bits32
                            -> UndefOr (Nullable NodeFilter)
                            -> PrimIO NodeIterator
   
@@ -565,7 +565,7 @@ namespace Document
   %foreign "browser:lambda:(x,a,b,c)=>x.createTreeWalker(a,b,c)"
   prim__createTreeWalker :  Document
                          -> Node
-                         -> UndefOr UInt32
+                         -> UndefOr Bits32
                          -> UndefOr (Nullable NodeFilter)
                          -> PrimIO TreeWalker
   
@@ -899,7 +899,7 @@ namespace Event
   
   export
   %foreign "browser:lambda:x=>x.eventPhase"
-  prim__eventPhase : Event -> PrimIO UInt16
+  prim__eventPhase : Event -> PrimIO Bits16
   
   export
   %foreign "browser:lambda:x=>x.isTrusted"
@@ -984,11 +984,11 @@ namespace HTMLCollection
   
   export
   %foreign "browser:lambda:x=>x.length"
-  prim__length : HTMLCollection -> PrimIO UInt32
+  prim__length : HTMLCollection -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:(x,a)=>x.item(a)"
-  prim__item : HTMLCollection -> UInt32 -> PrimIO (Nullable Element)
+  prim__item : HTMLCollection -> Bits32 -> PrimIO (Nullable Element)
   
   export
   %foreign "browser:lambda:(x,a)=>x.namedItem(a)"
@@ -1057,7 +1057,7 @@ namespace NamedNodeMap
   
   export
   %foreign "browser:lambda:x=>x.length"
-  prim__length : NamedNodeMap -> PrimIO UInt32
+  prim__length : NamedNodeMap -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.getNamedItemNS(a,b)"
@@ -1072,7 +1072,7 @@ namespace NamedNodeMap
   
   export
   %foreign "browser:lambda:(x,a)=>x.item(a)"
-  prim__item : NamedNodeMap -> UInt32 -> PrimIO (Nullable Attr)
+  prim__item : NamedNodeMap -> Bits32 -> PrimIO (Nullable Attr)
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.removeNamedItemNS(a,b)"
@@ -1125,7 +1125,7 @@ namespace Node
   
   export
   %foreign "browser:lambda:x=>x.nodeType"
-  prim__nodeType : Node -> PrimIO UInt16
+  prim__nodeType : Node -> PrimIO Bits16
   
   export
   %foreign "browser:lambda:x=>x.nodeValue"
@@ -1171,7 +1171,7 @@ namespace Node
   
   export
   %foreign "browser:lambda:(x,a)=>x.compareDocumentPosition(a)"
-  prim__compareDocumentPosition : Node -> Node -> PrimIO UInt16
+  prim__compareDocumentPosition : Node -> Node -> PrimIO Bits16
   
   export
   %foreign "browser:lambda:(x,a)=>x.contains(a)"
@@ -1241,7 +1241,7 @@ namespace NodeIterator
   
   export
   %foreign "browser:lambda:x=>x.whatToShow"
-  prim__whatToShow : NodeIterator -> PrimIO UInt32
+  prim__whatToShow : NodeIterator -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:x=>x.detach()"
@@ -1259,11 +1259,11 @@ namespace NodeList
   
   export
   %foreign "browser:lambda:x=>x.length"
-  prim__length : NodeList -> PrimIO UInt32
+  prim__length : NodeList -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:(x,a)=>x.item(a)"
-  prim__item : NodeList -> UInt32 -> PrimIO (Nullable Node)
+  prim__item : NodeList -> Bits32 -> PrimIO (Nullable Node)
 
 namespace Performance
   
@@ -1309,11 +1309,11 @@ namespace Range
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.compareBoundaryPoints(a,b)"
-  prim__compareBoundaryPoints : Range -> UInt16 -> Range -> PrimIO Int16
+  prim__compareBoundaryPoints : Range -> Bits16 -> Range -> PrimIO Int16
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.comparePoint(a,b)"
-  prim__comparePoint : Range -> Node -> UInt32 -> PrimIO Int16
+  prim__comparePoint : Range -> Node -> Bits32 -> PrimIO Int16
   
   export
   %foreign "browser:lambda:(x,a)=>x.createContextualFragment(a)"
@@ -1341,7 +1341,7 @@ namespace Range
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.isPointInRange(a,b)"
-  prim__isPointInRange : Range -> Node -> UInt32 -> PrimIO Boolean
+  prim__isPointInRange : Range -> Node -> Bits32 -> PrimIO Boolean
   
   export
   %foreign "browser:lambda:(x,a)=>x.selectNodeContents(a)"
@@ -1361,7 +1361,7 @@ namespace Range
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.setEnd(a,b)"
-  prim__setEnd : Range -> Node -> UInt32 -> PrimIO ()
+  prim__setEnd : Range -> Node -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a)=>x.setStartAfter(a)"
@@ -1373,7 +1373,7 @@ namespace Range
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.setStart(a,b)"
-  prim__setStart : Range -> Node -> UInt32 -> PrimIO ()
+  prim__setStart : Range -> Node -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a)=>x.surroundContents(a)"
@@ -1422,7 +1422,7 @@ namespace Text
   
   export
   %foreign "browser:lambda:(x,a)=>x.splitText(a)"
-  prim__splitText : Text -> UInt32 -> PrimIO Text
+  prim__splitText : Text -> Bits32 -> PrimIO Text
 
 namespace TreeWalker
   
@@ -1445,7 +1445,7 @@ namespace TreeWalker
   
   export
   %foreign "browser:lambda:x=>x.whatToShow"
-  prim__whatToShow : TreeWalker -> PrimIO UInt32
+  prim__whatToShow : TreeWalker -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:x=>x.firstChild()"
@@ -1498,7 +1498,7 @@ namespace XPathExpression
   %foreign "browser:lambda:(x,a,b,c)=>x.evaluate(a,b,c)"
   prim__evaluate :  XPathExpression
                  -> Node
-                 -> UndefOr UInt16
+                 -> UndefOr Bits16
                  -> UndefOr (Nullable XPathResult)
                  -> PrimIO XPathResult
 
@@ -1518,7 +1518,7 @@ namespace XPathResult
   
   export
   %foreign "browser:lambda:x=>x.resultType"
-  prim__resultType : XPathResult -> PrimIO UInt16
+  prim__resultType : XPathResult -> PrimIO Bits16
   
   export
   %foreign "browser:lambda:x=>x.singleNodeValue"
@@ -1526,7 +1526,7 @@ namespace XPathResult
   
   export
   %foreign "browser:lambda:x=>x.snapshotLength"
-  prim__snapshotLength : XPathResult -> PrimIO UInt32
+  prim__snapshotLength : XPathResult -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:x=>x.stringValue"
@@ -1538,7 +1538,7 @@ namespace XPathResult
   
   export
   %foreign "browser:lambda:(x,a)=>x.snapshotItem(a)"
-  prim__snapshotItem : XPathResult -> UInt32 -> PrimIO (Nullable Node)
+  prim__snapshotItem : XPathResult -> Bits32 -> PrimIO (Nullable Node)
 
 --------------------------------------------------------------------------------
 --          Mixins
@@ -1603,7 +1603,7 @@ namespace ParentNode
   
   export
   %foreign "browser:lambda:x=>x.childElementCount"
-  prim__childElementCount : ParentNode -> PrimIO UInt32
+  prim__childElementCount : ParentNode -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:x=>x.children"
@@ -1664,7 +1664,7 @@ namespace XPathEvaluatorBase
                  -> String
                  -> Node
                  -> UndefOr (Nullable XPathNSResolver)
-                 -> UndefOr UInt16
+                 -> UndefOr Bits16
                  -> UndefOr (Nullable XPathResult)
                  -> PrimIO XPathResult
 
@@ -1915,7 +1915,7 @@ namespace StaticRangeInit
   
   export
   %foreign "browser:lambda:(a,b,c,d)=> {startContainer: a,startOffset: b,endContainer: c,endOffset: d}"
-  prim__new : Node -> UInt32 -> Node -> UInt32 -> PrimIO StaticRangeInit
+  prim__new : Node -> Bits32 -> Node -> Bits32 -> PrimIO StaticRangeInit
   
   export
   %foreign "browser:lambda:x=>x.endContainer"
@@ -1928,12 +1928,12 @@ namespace StaticRangeInit
   
   export
   %foreign "browser:lambda:x=>x.endOffset"
-  prim__endOffset : StaticRangeInit -> PrimIO UInt32
+  prim__endOffset : StaticRangeInit -> PrimIO Bits32
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.endOffset = v}"
-  prim__setEndOffset : StaticRangeInit -> UInt32 -> PrimIO ()
+  prim__setEndOffset : StaticRangeInit -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.startContainer"
@@ -1946,12 +1946,12 @@ namespace StaticRangeInit
   
   export
   %foreign "browser:lambda:x=>x.startOffset"
-  prim__startOffset : StaticRangeInit -> PrimIO UInt32
+  prim__startOffset : StaticRangeInit -> PrimIO Bits32
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.startOffset = v}"
-  prim__setStartOffset : StaticRangeInit -> UInt32 -> PrimIO ()
+  prim__setStartOffset : StaticRangeInit -> Bits32 -> PrimIO ()
 
 --------------------------------------------------------------------------------
 --          Callbacks
@@ -1977,7 +1977,7 @@ namespace NodeFilter
   
   export
   %foreign "browser:lambda:x=>(a)=>x(a)()"
-  prim__toNodeFilter : ( Node -> IO UInt16 ) -> PrimIO NodeFilter
+  prim__toNodeFilter : ( Node -> IO Bits16 ) -> PrimIO NodeFilter
 
 namespace XPathNSResolver
   

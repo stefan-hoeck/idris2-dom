@@ -16,14 +16,14 @@ namespace CSSGroupingRule
   
   export
   %foreign "browser:lambda:(x,a)=>x.deleteRule(a)"
-  prim__deleteRule : CSSGroupingRule -> UInt32 -> PrimIO ()
+  prim__deleteRule : CSSGroupingRule -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.insertRule(a,b)"
   prim__insertRule :  CSSGroupingRule
                    -> String
-                   -> UndefOr UInt32
-                   -> PrimIO UInt32
+                   -> UndefOr Bits32
+                   -> PrimIO Bits32
 
 namespace CSSImportRule
   
@@ -105,17 +105,17 @@ namespace CSSRule
   
   export
   %foreign "browser:lambda:x=>x.type"
-  prim__type : CSSRule -> PrimIO UInt16
+  prim__type : CSSRule -> PrimIO Bits16
 
 namespace CSSRuleList
   
   export
   %foreign "browser:lambda:x=>x.length"
-  prim__length : CSSRuleList -> PrimIO UInt32
+  prim__length : CSSRuleList -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:(x,a)=>x.item(a)"
-  prim__item : CSSRuleList -> UInt32 -> PrimIO (Nullable CSSRule)
+  prim__item : CSSRuleList -> Bits32 -> PrimIO (Nullable CSSRule)
 
 namespace CSSStyleDeclaration
   
@@ -139,7 +139,7 @@ namespace CSSStyleDeclaration
   
   export
   %foreign "browser:lambda:x=>x.length"
-  prim__length : CSSStyleDeclaration -> PrimIO UInt32
+  prim__length : CSSStyleDeclaration -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:x=>x.parentRule"
@@ -155,7 +155,7 @@ namespace CSSStyleDeclaration
   
   export
   %foreign "browser:lambda:(x,a)=>x.item(a)"
-  prim__item : CSSStyleDeclaration -> UInt32 -> PrimIO String
+  prim__item : CSSStyleDeclaration -> Bits32 -> PrimIO String
   
   export
   %foreign "browser:lambda:(x,a)=>x.removeProperty(a)"
@@ -203,26 +203,26 @@ namespace CSSStyleSheet
   prim__addRule :  CSSStyleSheet
                 -> UndefOr String
                 -> UndefOr String
-                -> UndefOr UInt32
+                -> UndefOr Bits32
                 -> PrimIO Int32
   
   export
   %foreign "browser:lambda:(x,a)=>x.deleteRule(a)"
-  prim__deleteRule : CSSStyleSheet -> UInt32 -> PrimIO ()
+  prim__deleteRule : CSSStyleSheet -> Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a,b)=>x.insertRule(a,b)"
-  prim__insertRule : CSSStyleSheet -> String -> UndefOr UInt32 -> PrimIO UInt32
+  prim__insertRule : CSSStyleSheet -> String -> UndefOr Bits32 -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:(x,a)=>x.removeRule(a)"
-  prim__removeRule : CSSStyleSheet -> UndefOr UInt32 -> PrimIO ()
+  prim__removeRule : CSSStyleSheet -> UndefOr Bits32 -> PrimIO ()
 
 namespace MediaList
   
   export
   %foreign "browser:lambda:x=>x.length"
-  prim__length : MediaList -> PrimIO UInt32
+  prim__length : MediaList -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:x=>x.mediaText"
@@ -243,7 +243,7 @@ namespace MediaList
   
   export
   %foreign "browser:lambda:(x,a)=>x.item(a)"
-  prim__item : MediaList -> UInt32 -> PrimIO (Nullable String)
+  prim__item : MediaList -> Bits32 -> PrimIO (Nullable String)
 
 namespace StyleSheet
   
@@ -285,11 +285,11 @@ namespace StyleSheetList
   
   export
   %foreign "browser:lambda:x=>x.length"
-  prim__length : StyleSheetList -> PrimIO UInt32
+  prim__length : StyleSheetList -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:(x,a)=>x.item(a)"
-  prim__item : StyleSheetList -> UInt32 -> PrimIO (Nullable CSSStyleSheet)
+  prim__item : StyleSheetList -> Bits32 -> PrimIO (Nullable CSSStyleSheet)
 
 --------------------------------------------------------------------------------
 --          Mixins

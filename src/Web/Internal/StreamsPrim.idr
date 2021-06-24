@@ -152,7 +152,7 @@ namespace ReadableStreamBYOBRequest
   
   export
   %foreign "browser:lambda:(x,a)=>x.respond(a)"
-  prim__respond : ReadableStreamBYOBRequest -> UInt64 -> PrimIO ()
+  prim__respond : ReadableStreamBYOBRequest -> JSBits64 -> PrimIO ()
   
   export
   %foreign "browser:lambda:(x,a)=>x.respondWithNewView(a)"
@@ -697,18 +697,18 @@ namespace UnderlyingSource
             -> UndefOr UnderlyingSourcePullCallback
             -> UndefOr UnderlyingSourceCancelCallback
             -> UndefOr String
-            -> UndefOr UInt64
+            -> UndefOr JSBits64
             -> PrimIO UnderlyingSource
   
   export
   %foreign "browser:lambda:x=>x.autoAllocateChunkSize"
-  prim__autoAllocateChunkSize : UnderlyingSource -> PrimIO (UndefOr UInt64)
+  prim__autoAllocateChunkSize : UnderlyingSource -> PrimIO (UndefOr JSBits64)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.autoAllocateChunkSize = v}"
   prim__setAutoAllocateChunkSize :  UnderlyingSource
-                                 -> UndefOr UInt64
+                                 -> UndefOr JSBits64
                                  -> PrimIO ()
   
   export

@@ -402,8 +402,8 @@ namespace ConstrainDoubleRange
 namespace ConstrainULongRange
   
   export
-  new :  (exact : Optional UInt32)
-      -> (ideal : Optional UInt32)
+  new :  (exact : Optional Bits32)
+      -> (ideal : Optional Bits32)
       -> JSIO ConstrainULongRange
   new a b = primJS $ ConstrainULongRange.prim__new (toFFI a) (toFFI b)
 
@@ -415,7 +415,7 @@ namespace ConstrainULongRange
   exact :  JSType t
         => {auto 0 _ : Elem ConstrainULongRange (Types t)}
         -> t
-        -> Attribute False Optional UInt32
+        -> Attribute False Optional Bits32
   exact v = fromUndefOrPrimNoDefault "ConstrainULongRange.getexact"
                                      prim__exact
                                      prim__setExact
@@ -425,7 +425,7 @@ namespace ConstrainULongRange
   ideal :  JSType t
         => {auto 0 _ : Elem ConstrainULongRange (Types t)}
         -> t
-        -> Attribute False Optional UInt32
+        -> Attribute False Optional Bits32
   ideal v = fromUndefOrPrimNoDefault "ConstrainULongRange.getideal"
                                      prim__ideal
                                      prim__setIdeal
@@ -759,8 +759,8 @@ namespace MediaTrackCapabilities
 namespace MediaTrackConstraintSet
   
   export
-  new :  (width : Optional (NS I [ UInt32 , ConstrainULongRange ]))
-      -> (height : Optional (NS I [ UInt32 , ConstrainULongRange ]))
+  new :  (width : Optional (NS I [ Bits32 , ConstrainULongRange ]))
+      -> (height : Optional (NS I [ Bits32 , ConstrainULongRange ]))
       -> (aspectRatio : Optional (NS I [ Double , ConstrainDoubleRange ]))
       -> (frameRate : Optional (NS I [ Double , ConstrainDoubleRange ]))
       -> (facingMode : Optional (NS I [ String
@@ -771,8 +771,8 @@ namespace MediaTrackConstraintSet
                                       , Array String
                                       , ConstrainDOMStringParameters
                                       ]))
-      -> (sampleRate : Optional (NS I [ UInt32 , ConstrainULongRange ]))
-      -> (sampleSize : Optional (NS I [ UInt32 , ConstrainULongRange ]))
+      -> (sampleRate : Optional (NS I [ Bits32 , ConstrainULongRange ]))
+      -> (sampleSize : Optional (NS I [ Bits32 , ConstrainULongRange ]))
       -> (echoCancellation : Optional (NS I [ Bool
                                             , ConstrainBooleanParameters
                                             ]))
@@ -783,7 +783,7 @@ namespace MediaTrackConstraintSet
                                             , ConstrainBooleanParameters
                                             ]))
       -> (latency : Optional (NS I [ Double , ConstrainDoubleRange ]))
-      -> (channelCount : Optional (NS I [ UInt32 , ConstrainULongRange ]))
+      -> (channelCount : Optional (NS I [ Bits32 , ConstrainULongRange ]))
       -> (deviceId : Optional (NS I [ String
                                     , Array String
                                     , ConstrainDOMStringParameters
@@ -854,7 +854,7 @@ namespace MediaTrackConstraintSet
   channelCount :  JSType t
                => {auto 0 _ : Elem MediaTrackConstraintSet (Types t)}
                -> t
-               -> Attribute False Optional (Union2 UInt32 ConstrainULongRange)
+               -> Attribute False Optional (Union2 Bits32 ConstrainULongRange)
   channelCount v = fromUndefOrPrimNoDefault "MediaTrackConstraintSet.getchannelCount"
                                             prim__channelCount
                                             prim__setChannelCount
@@ -921,7 +921,7 @@ namespace MediaTrackConstraintSet
   height :  JSType t
          => {auto 0 _ : Elem MediaTrackConstraintSet (Types t)}
          -> t
-         -> Attribute False Optional (Union2 UInt32 ConstrainULongRange)
+         -> Attribute False Optional (Union2 Bits32 ConstrainULongRange)
   height v = fromUndefOrPrimNoDefault "MediaTrackConstraintSet.getheight"
                                       prim__height
                                       prim__setHeight
@@ -964,7 +964,7 @@ namespace MediaTrackConstraintSet
   sampleRate :  JSType t
              => {auto 0 _ : Elem MediaTrackConstraintSet (Types t)}
              -> t
-             -> Attribute False Optional (Union2 UInt32 ConstrainULongRange)
+             -> Attribute False Optional (Union2 Bits32 ConstrainULongRange)
   sampleRate v = fromUndefOrPrimNoDefault "MediaTrackConstraintSet.getsampleRate"
                                           prim__sampleRate
                                           prim__setSampleRate
@@ -974,7 +974,7 @@ namespace MediaTrackConstraintSet
   sampleSize :  JSType t
              => {auto 0 _ : Elem MediaTrackConstraintSet (Types t)}
              -> t
-             -> Attribute False Optional (Union2 UInt32 ConstrainULongRange)
+             -> Attribute False Optional (Union2 Bits32 ConstrainULongRange)
   sampleSize v = fromUndefOrPrimNoDefault "MediaTrackConstraintSet.getsampleSize"
                                           prim__sampleSize
                                           prim__setSampleSize
@@ -984,7 +984,7 @@ namespace MediaTrackConstraintSet
   width :  JSType t
         => {auto 0 _ : Elem MediaTrackConstraintSet (Types t)}
         -> t
-        -> Attribute False Optional (Union2 UInt32 ConstrainULongRange)
+        -> Attribute False Optional (Union2 Bits32 ConstrainULongRange)
   width v = fromUndefOrPrimNoDefault "MediaTrackConstraintSet.getwidth"
                                      prim__width
                                      prim__setWidth
@@ -1445,7 +1445,7 @@ namespace Settings
 namespace ULongRange
   
   export
-  new : (max : Optional UInt32) -> (min : Optional UInt32) -> JSIO ULongRange
+  new : (max : Optional Bits32) -> (min : Optional Bits32) -> JSIO ULongRange
   new a b = primJS $ ULongRange.prim__new (toFFI a) (toFFI b)
 
   export
@@ -1456,7 +1456,7 @@ namespace ULongRange
   max :  JSType t
       => {auto 0 _ : Elem ULongRange (Types t)}
       -> t
-      -> Attribute False Optional UInt32
+      -> Attribute False Optional Bits32
   max v = fromUndefOrPrimNoDefault "ULongRange.getmax"
                                    prim__max
                                    prim__setMax
@@ -1466,7 +1466,7 @@ namespace ULongRange
   min :  JSType t
       => {auto 0 _ : Elem ULongRange (Types t)}
       -> t
-      -> Attribute False Optional UInt32
+      -> Attribute False Optional Bits32
   min v = fromUndefOrPrimNoDefault "ULongRange.getmin"
                                    prim__min
                                    prim__setMin

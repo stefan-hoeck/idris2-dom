@@ -21,7 +21,7 @@ namespace CSSGroupingRule
   deleteRule :  JSType t1
              => {auto 0 _ : Elem CSSGroupingRule (Types t1)}
              -> (obj : t1)
-             -> (index : UInt32)
+             -> (index : Bits32)
              -> JSIO ()
   deleteRule a b = primJS $ CSSGroupingRule.prim__deleteRule (up a) b
   
@@ -30,8 +30,8 @@ namespace CSSGroupingRule
              => {auto 0 _ : Elem CSSGroupingRule (Types t1)}
              -> (obj : t1)
              -> (rule : String)
-             -> (index : Optional UInt32)
-             -> JSIO UInt32
+             -> (index : Optional Bits32)
+             -> JSIO Bits32
   insertRule a b c = primJS
                    $ CSSGroupingRule.prim__insertRule (up a) b (toFFI c)
 
@@ -40,7 +40,7 @@ namespace CSSGroupingRule
               => {auto 0 _ : Elem CSSGroupingRule (Types t1)}
               -> (obj : t1)
               -> (rule : String)
-              -> JSIO UInt32
+              -> JSIO Bits32
   insertRule' a b = primJS $ CSSGroupingRule.prim__insertRule (up a) b undef
 
 namespace CSSImportRule
@@ -103,35 +103,35 @@ namespace CSSPseudoElement
 namespace CSSRule
   
   public export
-  CHARSET_RULE : UInt16
+  CHARSET_RULE : Bits16
   CHARSET_RULE = 2
   
   public export
-  FONT_FACE_RULE : UInt16
+  FONT_FACE_RULE : Bits16
   FONT_FACE_RULE = 5
   
   public export
-  IMPORT_RULE : UInt16
+  IMPORT_RULE : Bits16
   IMPORT_RULE = 3
   
   public export
-  MARGIN_RULE : UInt16
+  MARGIN_RULE : Bits16
   MARGIN_RULE = 9
   
   public export
-  MEDIA_RULE : UInt16
+  MEDIA_RULE : Bits16
   MEDIA_RULE = 4
   
   public export
-  NAMESPACE_RULE : UInt16
+  NAMESPACE_RULE : Bits16
   NAMESPACE_RULE = 10
   
   public export
-  PAGE_RULE : UInt16
+  PAGE_RULE : Bits16
   PAGE_RULE = 6
   
   public export
-  STYLE_RULE : UInt16
+  STYLE_RULE : Bits16
   STYLE_RULE = 1
   
   export
@@ -163,17 +163,17 @@ namespace CSSRule
   type :  JSType t1
        => {auto 0 _ : Elem CSSRule (Types t1)}
        -> (obj : t1)
-       -> JSIO UInt16
+       -> JSIO Bits16
   type a = primJS $ CSSRule.prim__type (up a)
 
 namespace CSSRuleList
   
   export
-  length : (obj : CSSRuleList) -> JSIO UInt32
+  length : (obj : CSSRuleList) -> JSIO Bits32
   length a = primJS $ CSSRuleList.prim__length a
   
   export
-  item : (obj : CSSRuleList) -> (index : UInt32) -> JSIO (Maybe CSSRule)
+  item : (obj : CSSRuleList) -> (index : Bits32) -> JSIO (Maybe CSSRule)
   item a b = tryJS "CSSRuleList.item" $ CSSRuleList.prim__item a b
 
 namespace CSSStyleDeclaration
@@ -193,7 +193,7 @@ namespace CSSStyleDeclaration
                        v
   
   export
-  length : (obj : CSSStyleDeclaration) -> JSIO UInt32
+  length : (obj : CSSStyleDeclaration) -> JSIO Bits32
   length a = primJS $ CSSStyleDeclaration.prim__length a
   
   export
@@ -215,7 +215,7 @@ namespace CSSStyleDeclaration
   getPropertyValue a b = primJS $ CSSStyleDeclaration.prim__getPropertyValue a b
   
   export
-  item : (obj : CSSStyleDeclaration) -> (index : UInt32) -> JSIO String
+  item : (obj : CSSStyleDeclaration) -> (index : Bits32) -> JSIO String
   item a b = primJS $ CSSStyleDeclaration.prim__item a b
   
   export
@@ -273,7 +273,7 @@ namespace CSSStyleSheet
   addRule :  (obj : CSSStyleSheet)
           -> (selector : Optional String)
           -> (style : Optional String)
-          -> (index : Optional UInt32)
+          -> (index : Optional Bits32)
           -> JSIO Int32
   addRule a b c d = primJS
                   $ CSSStyleSheet.prim__addRule a (toFFI b) (toFFI c) (toFFI d)
@@ -283,22 +283,22 @@ namespace CSSStyleSheet
   addRule' a = primJS $ CSSStyleSheet.prim__addRule a undef undef undef
   
   export
-  deleteRule : (obj : CSSStyleSheet) -> (index : UInt32) -> JSIO ()
+  deleteRule : (obj : CSSStyleSheet) -> (index : Bits32) -> JSIO ()
   deleteRule a b = primJS $ CSSStyleSheet.prim__deleteRule a b
   
   export
   insertRule :  (obj : CSSStyleSheet)
              -> (rule : String)
-             -> (index : Optional UInt32)
-             -> JSIO UInt32
+             -> (index : Optional Bits32)
+             -> JSIO Bits32
   insertRule a b c = primJS $ CSSStyleSheet.prim__insertRule a b (toFFI c)
 
   export
-  insertRule' : (obj : CSSStyleSheet) -> (rule : String) -> JSIO UInt32
+  insertRule' : (obj : CSSStyleSheet) -> (rule : String) -> JSIO Bits32
   insertRule' a b = primJS $ CSSStyleSheet.prim__insertRule a b undef
   
   export
-  removeRule : (obj : CSSStyleSheet) -> (index : Optional UInt32) -> JSIO ()
+  removeRule : (obj : CSSStyleSheet) -> (index : Optional Bits32) -> JSIO ()
   removeRule a b = primJS $ CSSStyleSheet.prim__removeRule a (toFFI b)
 
   export
@@ -308,7 +308,7 @@ namespace CSSStyleSheet
 namespace MediaList
   
   export
-  length : (obj : MediaList) -> JSIO UInt32
+  length : (obj : MediaList) -> JSIO Bits32
   length a = primJS $ MediaList.prim__length a
   
   export
@@ -327,7 +327,7 @@ namespace MediaList
   deleteMedium a b = primJS $ MediaList.prim__deleteMedium a b
   
   export
-  item : (obj : MediaList) -> (index : UInt32) -> JSIO (Maybe String)
+  item : (obj : MediaList) -> (index : Bits32) -> JSIO (Maybe String)
   item a b = tryJS "MediaList.item" $ MediaList.prim__item a b
 
 namespace StyleSheet
@@ -388,12 +388,12 @@ namespace StyleSheet
 namespace StyleSheetList
   
   export
-  length : (obj : StyleSheetList) -> JSIO UInt32
+  length : (obj : StyleSheetList) -> JSIO Bits32
   length a = primJS $ StyleSheetList.prim__length a
   
   export
   item :  (obj : StyleSheetList)
-       -> (index : UInt32)
+       -> (index : Bits32)
        -> JSIO (Maybe CSSStyleSheet)
   item a b = tryJS "StyleSheetList.item" $ StyleSheetList.prim__item a b
 

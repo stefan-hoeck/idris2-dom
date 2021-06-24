@@ -60,7 +60,7 @@ namespace AbstractRange
   endOffset :  JSType t1
             => {auto 0 _ : Elem AbstractRange (Types t1)}
             -> (obj : t1)
-            -> JSIO UInt32
+            -> JSIO Bits32
   endOffset a = primJS $ AbstractRange.prim__endOffset (up a)
   
   export
@@ -74,7 +74,7 @@ namespace AbstractRange
   startOffset :  JSType t1
               => {auto 0 _ : Elem AbstractRange (Types t1)}
               -> (obj : t1)
-              -> JSIO UInt32
+              -> JSIO Bits32
   startOffset a = primJS $ AbstractRange.prim__startOffset (up a)
 
 namespace Attr
@@ -124,7 +124,7 @@ namespace CharacterData
   length :  JSType t1
          => {auto 0 _ : Elem CharacterData (Types t1)}
          -> (obj : t1)
-         -> JSIO UInt32
+         -> JSIO Bits32
   length a = primJS $ CharacterData.prim__length (up a)
   
   export
@@ -139,8 +139,8 @@ namespace CharacterData
   deleteData :  JSType t1
              => {auto 0 _ : Elem CharacterData (Types t1)}
              -> (obj : t1)
-             -> (offset : UInt32)
-             -> (count : UInt32)
+             -> (offset : Bits32)
+             -> (count : Bits32)
              -> JSIO ()
   deleteData a b c = primJS $ CharacterData.prim__deleteData (up a) b c
   
@@ -148,7 +148,7 @@ namespace CharacterData
   insertData :  JSType t1
              => {auto 0 _ : Elem CharacterData (Types t1)}
              -> (obj : t1)
-             -> (offset : UInt32)
+             -> (offset : Bits32)
              -> (data_ : String)
              -> JSIO ()
   insertData a b c = primJS $ CharacterData.prim__insertData (up a) b c
@@ -157,8 +157,8 @@ namespace CharacterData
   replaceData :  JSType t1
               => {auto 0 _ : Elem CharacterData (Types t1)}
               -> (obj : t1)
-              -> (offset : UInt32)
-              -> (count : UInt32)
+              -> (offset : Bits32)
+              -> (count : Bits32)
               -> (data_ : String)
               -> JSIO ()
   replaceData a b c d = primJS $ CharacterData.prim__replaceData (up a) b c d
@@ -167,8 +167,8 @@ namespace CharacterData
   substringData :  JSType t1
                 => {auto 0 _ : Elem CharacterData (Types t1)}
                 -> (obj : t1)
-                -> (offset : UInt32)
-                -> (count : UInt32)
+                -> (offset : Bits32)
+                -> (count : Bits32)
                 -> JSIO String
   substringData a b c = primJS $ CharacterData.prim__substringData (up a) b c
 
@@ -277,7 +277,7 @@ namespace DOMImplementation
 namespace DOMTokenList
   
   export
-  length : (obj : DOMTokenList) -> JSIO UInt32
+  length : (obj : DOMTokenList) -> JSIO Bits32
   length a = primJS $ DOMTokenList.prim__length a
   
   export
@@ -293,7 +293,7 @@ namespace DOMTokenList
   contains a b = tryJS "DOMTokenList.contains" $ DOMTokenList.prim__contains a b
   
   export
-  item : (obj : DOMTokenList) -> (index : UInt32) -> JSIO (Maybe String)
+  item : (obj : DOMTokenList) -> (index : Bits32) -> JSIO (Maybe String)
   item a b = tryJS "DOMTokenList.item" $ DOMTokenList.prim__item a b
   
   export
@@ -817,7 +817,7 @@ namespace Document
                      -> {auto 0 _ : Elem Node (Types t2)}
                      -> (obj : t1)
                      -> (root : t2)
-                     -> (whatToShow : Optional UInt32)
+                     -> (whatToShow : Optional Bits32)
                      -> (filter : Optional (Maybe NodeFilter))
                      -> JSIO NodeIterator
   createNodeIterator a b c d = primJS
@@ -874,7 +874,7 @@ namespace Document
                    -> {auto 0 _ : Elem Node (Types t2)}
                    -> (obj : t1)
                    -> (root : t2)
-                   -> (whatToShow : Optional UInt32)
+                   -> (whatToShow : Optional Bits32)
                    -> (filter : Optional (Maybe NodeFilter))
                    -> JSIO TreeWalker
   createTreeWalker a b c d = primJS
@@ -1454,19 +1454,19 @@ namespace Element
 namespace Event
   
   public export
-  AT_TARGET : UInt16
+  AT_TARGET : Bits16
   AT_TARGET = 2
   
   public export
-  BUBBLING_PHASE : UInt16
+  BUBBLING_PHASE : Bits16
   BUBBLING_PHASE = 3
   
   public export
-  CAPTURING_PHASE : UInt16
+  CAPTURING_PHASE : Bits16
   CAPTURING_PHASE = 1
   
   public export
-  NONE : UInt16
+  NONE : Bits16
   NONE = 0
   
   export
@@ -1532,7 +1532,7 @@ namespace Event
   eventPhase :  JSType t1
              => {auto 0 _ : Elem Event (Types t1)}
              -> (obj : t1)
-             -> JSIO UInt16
+             -> JSIO Bits16
   eventPhase a = primJS $ Event.prim__eventPhase (up a)
   
   export
@@ -1709,14 +1709,14 @@ namespace HTMLCollection
   length :  JSType t1
          => {auto 0 _ : Elem HTMLCollection (Types t1)}
          -> (obj : t1)
-         -> JSIO UInt32
+         -> JSIO Bits32
   length a = primJS $ HTMLCollection.prim__length (up a)
   
   export
   item :  JSType t1
        => {auto 0 _ : Elem HTMLCollection (Types t1)}
        -> (obj : t1)
-       -> (index : UInt32)
+       -> (index : Bits32)
        -> JSIO (Maybe Element)
   item a b = tryJS "HTMLCollection.item" $ HTMLCollection.prim__item (up a) b
   
@@ -1807,7 +1807,7 @@ namespace MutationRecord
 namespace NamedNodeMap
   
   export
-  length : (obj : NamedNodeMap) -> JSIO UInt32
+  length : (obj : NamedNodeMap) -> JSIO Bits32
   length a = primJS $ NamedNodeMap.prim__length a
   
   export
@@ -1826,7 +1826,7 @@ namespace NamedNodeMap
                    $ NamedNodeMap.prim__getNamedItem a b
   
   export
-  item : (obj : NamedNodeMap) -> (index : UInt32) -> JSIO (Maybe Attr)
+  item : (obj : NamedNodeMap) -> (index : Bits32) -> JSIO (Maybe Attr)
   item a b = tryJS "NamedNodeMap.item" $ NamedNodeMap.prim__item a b
   
   export
@@ -1856,75 +1856,75 @@ namespace NamedNodeMap
 namespace Node
   
   public export
-  ATTRIBUTE_NODE : UInt16
+  ATTRIBUTE_NODE : Bits16
   ATTRIBUTE_NODE = 2
   
   public export
-  CDATA_SECTION_NODE : UInt16
+  CDATA_SECTION_NODE : Bits16
   CDATA_SECTION_NODE = 4
   
   public export
-  COMMENT_NODE : UInt16
+  COMMENT_NODE : Bits16
   COMMENT_NODE = 8
   
   public export
-  DOCUMENT_FRAGMENT_NODE : UInt16
+  DOCUMENT_FRAGMENT_NODE : Bits16
   DOCUMENT_FRAGMENT_NODE = 11
   
   public export
-  DOCUMENT_NODE : UInt16
+  DOCUMENT_NODE : Bits16
   DOCUMENT_NODE = 9
   
   public export
-  DOCUMENT_POSITION_CONTAINED_BY : UInt16
+  DOCUMENT_POSITION_CONTAINED_BY : Bits16
   DOCUMENT_POSITION_CONTAINED_BY = 0x10
   
   public export
-  DOCUMENT_POSITION_CONTAINS : UInt16
+  DOCUMENT_POSITION_CONTAINS : Bits16
   DOCUMENT_POSITION_CONTAINS = 0x8
   
   public export
-  DOCUMENT_POSITION_DISCONNECTED : UInt16
+  DOCUMENT_POSITION_DISCONNECTED : Bits16
   DOCUMENT_POSITION_DISCONNECTED = 0x1
   
   public export
-  DOCUMENT_POSITION_FOLLOWING : UInt16
+  DOCUMENT_POSITION_FOLLOWING : Bits16
   DOCUMENT_POSITION_FOLLOWING = 0x4
   
   public export
-  DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC : UInt16
+  DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC : Bits16
   DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC = 0x20
   
   public export
-  DOCUMENT_POSITION_PRECEDING : UInt16
+  DOCUMENT_POSITION_PRECEDING : Bits16
   DOCUMENT_POSITION_PRECEDING = 0x2
   
   public export
-  DOCUMENT_TYPE_NODE : UInt16
+  DOCUMENT_TYPE_NODE : Bits16
   DOCUMENT_TYPE_NODE = 10
   
   public export
-  ELEMENT_NODE : UInt16
+  ELEMENT_NODE : Bits16
   ELEMENT_NODE = 1
   
   public export
-  ENTITY_NODE : UInt16
+  ENTITY_NODE : Bits16
   ENTITY_NODE = 6
   
   public export
-  ENTITY_REFERENCE_NODE : UInt16
+  ENTITY_REFERENCE_NODE : Bits16
   ENTITY_REFERENCE_NODE = 5
   
   public export
-  NOTATION_NODE : UInt16
+  NOTATION_NODE : Bits16
   NOTATION_NODE = 12
   
   public export
-  PROCESSING_INSTRUCTION_NODE : UInt16
+  PROCESSING_INSTRUCTION_NODE : Bits16
   PROCESSING_INSTRUCTION_NODE = 7
   
   public export
-  TEXT_NODE : UInt16
+  TEXT_NODE : Bits16
   TEXT_NODE = 3
   
   export
@@ -1980,7 +1980,7 @@ namespace Node
   nodeType :  JSType t1
            => {auto 0 _ : Elem Node (Types t1)}
            -> (obj : t1)
-           -> JSIO UInt16
+           -> JSIO Bits16
   nodeType a = primJS $ Node.prim__nodeType (up a)
   
   export
@@ -2064,7 +2064,7 @@ namespace Node
                           -> {auto 0 _ : Elem Node (Types t2)}
                           -> (obj : t1)
                           -> (other : t2)
-                          -> JSIO UInt16
+                          -> JSIO Bits16
   compareDocumentPosition a b = primJS
                               $ Node.prim__compareDocumentPosition (up a) (up b)
   
@@ -2214,7 +2214,7 @@ namespace NodeIterator
   root a = primJS $ NodeIterator.prim__root a
   
   export
-  whatToShow : (obj : NodeIterator) -> JSIO UInt32
+  whatToShow : (obj : NodeIterator) -> JSIO Bits32
   whatToShow a = primJS $ NodeIterator.prim__whatToShow a
   
   export
@@ -2236,14 +2236,14 @@ namespace NodeList
   length :  JSType t1
          => {auto 0 _ : Elem NodeList (Types t1)}
          -> (obj : t1)
-         -> JSIO UInt32
+         -> JSIO Bits32
   length a = primJS $ NodeList.prim__length (up a)
   
   export
   item :  JSType t1
        => {auto 0 _ : Elem NodeList (Types t1)}
        -> (obj : t1)
-       -> (index : UInt32)
+       -> (index : Bits32)
        -> JSIO (Maybe Node)
   item a b = tryJS "NodeList.item" $ NodeList.prim__item (up a) b
 
@@ -2270,19 +2270,19 @@ namespace ProcessingInstruction
 namespace Range
   
   public export
-  END_TO_END : UInt16
+  END_TO_END : Bits16
   END_TO_END = 2
   
   public export
-  END_TO_START : UInt16
+  END_TO_START : Bits16
   END_TO_START = 3
   
   public export
-  START_TO_END : UInt16
+  START_TO_END : Bits16
   START_TO_END = 1
   
   public export
-  START_TO_START : UInt16
+  START_TO_START : Bits16
   START_TO_START = 0
   
   export
@@ -2311,7 +2311,7 @@ namespace Range
   
   export
   compareBoundaryPoints :  (obj : Range)
-                        -> (how : UInt16)
+                        -> (how : Bits16)
                         -> (sourceRange : Range)
                         -> JSIO Int16
   compareBoundaryPoints a b c = primJS $ Range.prim__compareBoundaryPoints a b c
@@ -2321,7 +2321,7 @@ namespace Range
                => {auto 0 _ : Elem Node (Types t1)}
                -> (obj : Range)
                -> (node : t1)
-               -> (offset : UInt32)
+               -> (offset : Bits32)
                -> JSIO Int16
   comparePoint a b c = primJS $ Range.prim__comparePoint a (up b) c
   
@@ -2366,7 +2366,7 @@ namespace Range
                  => {auto 0 _ : Elem Node (Types t1)}
                  -> (obj : Range)
                  -> (node : t1)
-                 -> (offset : UInt32)
+                 -> (offset : Bits32)
                  -> JSIO Bool
   isPointInRange a b c = tryJS "Range.isPointInRange"
                        $ Range.prim__isPointInRange a (up b) c
@@ -2408,7 +2408,7 @@ namespace Range
          => {auto 0 _ : Elem Node (Types t1)}
          -> (obj : Range)
          -> (node : t1)
-         -> (offset : UInt32)
+         -> (offset : Bits32)
          -> JSIO ()
   setEnd a b c = primJS $ Range.prim__setEnd a (up b) c
   
@@ -2433,7 +2433,7 @@ namespace Range
            => {auto 0 _ : Elem Node (Types t1)}
            -> (obj : Range)
            -> (node : t1)
-           -> (offset : UInt32)
+           -> (offset : Bits32)
            -> JSIO ()
   setStart a b c = primJS $ Range.prim__setStart a (up b) c
   
@@ -2505,7 +2505,7 @@ namespace Text
   splitText :  JSType t1
             => {auto 0 _ : Elem Text (Types t1)}
             -> (obj : t1)
-            -> (offset : UInt32)
+            -> (offset : Bits32)
             -> JSIO Text
   splitText a b = primJS $ Text.prim__splitText (up a) b
 
@@ -2527,7 +2527,7 @@ namespace TreeWalker
   root a = primJS $ TreeWalker.prim__root a
   
   export
-  whatToShow : (obj : TreeWalker) -> JSIO UInt32
+  whatToShow : (obj : TreeWalker) -> JSIO Bits32
   whatToShow a = primJS $ TreeWalker.prim__whatToShow a
   
   export
@@ -2590,7 +2590,7 @@ namespace XPathExpression
            => {auto 0 _ : Elem Node (Types t1)}
            -> (obj : XPathExpression)
            -> (contextNode : t1)
-           -> (type : Optional UInt16)
+           -> (type : Optional Bits16)
            -> (result : Optional (Maybe XPathResult))
            -> JSIO XPathResult
   evaluate a b c d = primJS
@@ -2607,43 +2607,43 @@ namespace XPathExpression
 namespace XPathResult
   
   public export
-  ANY_TYPE : UInt16
+  ANY_TYPE : Bits16
   ANY_TYPE = 0
   
   public export
-  ANY_UNORDERED_NODE_TYPE : UInt16
+  ANY_UNORDERED_NODE_TYPE : Bits16
   ANY_UNORDERED_NODE_TYPE = 8
   
   public export
-  BOOLEAN_TYPE : UInt16
+  BOOLEAN_TYPE : Bits16
   BOOLEAN_TYPE = 3
   
   public export
-  FIRST_ORDERED_NODE_TYPE : UInt16
+  FIRST_ORDERED_NODE_TYPE : Bits16
   FIRST_ORDERED_NODE_TYPE = 9
   
   public export
-  NUMBER_TYPE : UInt16
+  NUMBER_TYPE : Bits16
   NUMBER_TYPE = 1
   
   public export
-  ORDERED_NODE_ITERATOR_TYPE : UInt16
+  ORDERED_NODE_ITERATOR_TYPE : Bits16
   ORDERED_NODE_ITERATOR_TYPE = 5
   
   public export
-  ORDERED_NODE_SNAPSHOT_TYPE : UInt16
+  ORDERED_NODE_SNAPSHOT_TYPE : Bits16
   ORDERED_NODE_SNAPSHOT_TYPE = 7
   
   public export
-  STRING_TYPE : UInt16
+  STRING_TYPE : Bits16
   STRING_TYPE = 2
   
   public export
-  UNORDERED_NODE_ITERATOR_TYPE : UInt16
+  UNORDERED_NODE_ITERATOR_TYPE : Bits16
   UNORDERED_NODE_ITERATOR_TYPE = 4
   
   public export
-  UNORDERED_NODE_SNAPSHOT_TYPE : UInt16
+  UNORDERED_NODE_SNAPSHOT_TYPE : Bits16
   UNORDERED_NODE_SNAPSHOT_TYPE = 6
   
   export
@@ -2661,7 +2661,7 @@ namespace XPathResult
   numberValue a = primJS $ XPathResult.prim__numberValue a
   
   export
-  resultType : (obj : XPathResult) -> JSIO UInt16
+  resultType : (obj : XPathResult) -> JSIO Bits16
   resultType a = primJS $ XPathResult.prim__resultType a
   
   export
@@ -2670,7 +2670,7 @@ namespace XPathResult
                     $ XPathResult.prim__singleNodeValue a
   
   export
-  snapshotLength : (obj : XPathResult) -> JSIO UInt32
+  snapshotLength : (obj : XPathResult) -> JSIO Bits32
   snapshotLength a = primJS $ XPathResult.prim__snapshotLength a
   
   export
@@ -2683,7 +2683,7 @@ namespace XPathResult
                 $ XPathResult.prim__iterateNext a
   
   export
-  snapshotItem : (obj : XPathResult) -> (index : UInt32) -> JSIO (Maybe Node)
+  snapshotItem : (obj : XPathResult) -> (index : Bits32) -> JSIO (Maybe Node)
   snapshotItem a b = tryJS "XPathResult.snapshotItem"
                    $ XPathResult.prim__snapshotItem a b
 
@@ -2780,7 +2780,7 @@ namespace ParentNode
   childElementCount :  JSType t1
                     => {auto 0 _ : Elem ParentNode (Types t1)}
                     -> (obj : t1)
-                    -> JSIO UInt32
+                    -> JSIO Bits32
   childElementCount a = primJS $ ParentNode.prim__childElementCount (up a)
   
   export
@@ -2903,7 +2903,7 @@ namespace XPathEvaluatorBase
            -> (expression : String)
            -> (contextNode : t2)
            -> (resolver : Optional (Maybe XPathNSResolver))
-           -> (type : Optional UInt16)
+           -> (type : Optional Bits16)
            -> (result : Optional (Maybe XPathResult))
            -> JSIO XPathResult
   evaluate a b c d e f = primJS
@@ -3254,9 +3254,9 @@ namespace StaticRangeInit
       => {auto 0 _ : Elem Node (Types t1)}
       -> {auto 0 _ : Elem Node (Types t2)}
       -> (startContainer : t1)
-      -> (startOffset : UInt32)
+      -> (startOffset : Bits32)
       -> (endContainer : t2)
-      -> (endOffset : UInt32)
+      -> (endOffset : Bits32)
       -> JSIO StaticRangeInit
   new a b c d = primJS $ StaticRangeInit.prim__new (up a) b (up c) d
   
@@ -3274,7 +3274,7 @@ namespace StaticRangeInit
   endOffset :  JSType t
             => {auto 0 _ : Elem StaticRangeInit (Types t)}
             -> t
-            -> Attribute True I UInt32
+            -> Attribute True I Bits32
   endOffset v = fromPrim "StaticRangeInit.getendOffset"
                          prim__endOffset
                          prim__setEndOffset
@@ -3294,7 +3294,7 @@ namespace StaticRangeInit
   startOffset :  JSType t
               => {auto 0 _ : Elem StaticRangeInit (Types t)}
               -> t
-              -> Attribute True I UInt32
+              -> Attribute True I Bits32
   startOffset v = fromPrim "StaticRangeInit.getstartOffset"
                            prim__startOffset
                            prim__setStartOffset
@@ -3320,71 +3320,71 @@ namespace MutationCallback
 namespace NodeFilter
   
   export
-  toNodeFilter : ( Node -> IO UInt16 ) -> JSIO NodeFilter
+  toNodeFilter : ( Node -> IO Bits16 ) -> JSIO NodeFilter
   toNodeFilter cb = primJS $ prim__toNodeFilter cb
   
   public export
-  FILTER_ACCEPT : UInt16
+  FILTER_ACCEPT : Bits16
   FILTER_ACCEPT = 1
   
   public export
-  FILTER_REJECT : UInt16
+  FILTER_REJECT : Bits16
   FILTER_REJECT = 2
   
   public export
-  FILTER_SKIP : UInt16
+  FILTER_SKIP : Bits16
   FILTER_SKIP = 3
   
   public export
-  SHOW_ALL : UInt32
+  SHOW_ALL : Bits32
   SHOW_ALL = 0xFFFFFFFF
   
   public export
-  SHOW_ATTRIBUTE : UInt32
+  SHOW_ATTRIBUTE : Bits32
   SHOW_ATTRIBUTE = 0x2
   
   public export
-  SHOW_CDATA_SECTION : UInt32
+  SHOW_CDATA_SECTION : Bits32
   SHOW_CDATA_SECTION = 0x8
   
   public export
-  SHOW_COMMENT : UInt32
+  SHOW_COMMENT : Bits32
   SHOW_COMMENT = 0x80
   
   public export
-  SHOW_DOCUMENT : UInt32
+  SHOW_DOCUMENT : Bits32
   SHOW_DOCUMENT = 0x100
   
   public export
-  SHOW_DOCUMENT_FRAGMENT : UInt32
+  SHOW_DOCUMENT_FRAGMENT : Bits32
   SHOW_DOCUMENT_FRAGMENT = 0x400
   
   public export
-  SHOW_DOCUMENT_TYPE : UInt32
+  SHOW_DOCUMENT_TYPE : Bits32
   SHOW_DOCUMENT_TYPE = 0x200
   
   public export
-  SHOW_ELEMENT : UInt32
+  SHOW_ELEMENT : Bits32
   SHOW_ELEMENT = 0x1
   
   public export
-  SHOW_ENTITY : UInt32
+  SHOW_ENTITY : Bits32
   SHOW_ENTITY = 0x20
   
   public export
-  SHOW_ENTITY_REFERENCE : UInt32
+  SHOW_ENTITY_REFERENCE : Bits32
   SHOW_ENTITY_REFERENCE = 0x10
   
   public export
-  SHOW_NOTATION : UInt32
+  SHOW_NOTATION : Bits32
   SHOW_NOTATION = 0x800
   
   public export
-  SHOW_PROCESSING_INSTRUCTION : UInt32
+  SHOW_PROCESSING_INSTRUCTION : Bits32
   SHOW_PROCESSING_INSTRUCTION = 0x40
   
   public export
-  SHOW_TEXT : UInt32
+  SHOW_TEXT : Bits32
   SHOW_TEXT = 0x4
 
 namespace XPathNSResolver

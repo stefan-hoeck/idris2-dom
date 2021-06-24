@@ -366,25 +366,25 @@ namespace ConstrainULongRange
   
   export
   %foreign "browser:lambda:(a,b)=> {exact: a,ideal: b}"
-  prim__new : UndefOr UInt32 -> UndefOr UInt32 -> PrimIO ConstrainULongRange
+  prim__new : UndefOr Bits32 -> UndefOr Bits32 -> PrimIO ConstrainULongRange
   
   export
   %foreign "browser:lambda:x=>x.exact"
-  prim__exact : ConstrainULongRange -> PrimIO (UndefOr UInt32)
+  prim__exact : ConstrainULongRange -> PrimIO (UndefOr Bits32)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.exact = v}"
-  prim__setExact : ConstrainULongRange -> UndefOr UInt32 -> PrimIO ()
+  prim__setExact : ConstrainULongRange -> UndefOr Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.ideal"
-  prim__ideal : ConstrainULongRange -> PrimIO (UndefOr UInt32)
+  prim__ideal : ConstrainULongRange -> PrimIO (UndefOr Bits32)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.ideal = v}"
-  prim__setIdeal : ConstrainULongRange -> UndefOr UInt32 -> PrimIO ()
+  prim__setIdeal : ConstrainULongRange -> UndefOr Bits32 -> PrimIO ()
 
 namespace ConstraintSet
   
@@ -661,8 +661,8 @@ namespace MediaTrackConstraintSet
   
   export
   %foreign "browser:lambda:(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o)=> {width: a,height: b,aspectRatio: c,frameRate: d,facingMode: e,resizeMode: f,sampleRate: g,sampleSize: h,echoCancellation: i,autoGainControl: j,noiseSuppression: k,latency: l,channelCount: m,deviceId: n,groupId: o}"
-  prim__new :  UndefOr (Union2 UInt32 ConstrainULongRange)
-            -> UndefOr (Union2 UInt32 ConstrainULongRange)
+  prim__new :  UndefOr (Union2 Bits32 ConstrainULongRange)
+            -> UndefOr (Union2 Bits32 ConstrainULongRange)
             -> UndefOr (Union2 Double ConstrainDoubleRange)
             -> UndefOr (Union2 Double ConstrainDoubleRange)
             -> UndefOr (Union3 String
@@ -671,13 +671,13 @@ namespace MediaTrackConstraintSet
             -> UndefOr (Union3 String
                                (Array String)
                                ConstrainDOMStringParameters)
-            -> UndefOr (Union2 UInt32 ConstrainULongRange)
-            -> UndefOr (Union2 UInt32 ConstrainULongRange)
+            -> UndefOr (Union2 Bits32 ConstrainULongRange)
+            -> UndefOr (Union2 Bits32 ConstrainULongRange)
             -> UndefOr (Union2 Boolean ConstrainBooleanParameters)
             -> UndefOr (Union2 Boolean ConstrainBooleanParameters)
             -> UndefOr (Union2 Boolean ConstrainBooleanParameters)
             -> UndefOr (Union2 Double ConstrainDoubleRange)
-            -> UndefOr (Union2 UInt32 ConstrainULongRange)
+            -> UndefOr (Union2 Bits32 ConstrainULongRange)
             -> UndefOr (Union3 String
                                (Array String)
                                ConstrainDOMStringParameters)
@@ -715,13 +715,13 @@ namespace MediaTrackConstraintSet
   export
   %foreign "browser:lambda:x=>x.channelCount"
   prim__channelCount :  MediaTrackConstraintSet
-                     -> PrimIO (UndefOr (Union2 UInt32 ConstrainULongRange))
+                     -> PrimIO (UndefOr (Union2 Bits32 ConstrainULongRange))
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.channelCount = v}"
   prim__setChannelCount :  MediaTrackConstraintSet
-                        -> UndefOr (Union2 UInt32 ConstrainULongRange)
+                        -> UndefOr (Union2 Bits32 ConstrainULongRange)
                         -> PrimIO ()
   
   export
@@ -801,13 +801,13 @@ namespace MediaTrackConstraintSet
   export
   %foreign "browser:lambda:x=>x.height"
   prim__height :  MediaTrackConstraintSet
-               -> PrimIO (UndefOr (Union2 UInt32 ConstrainULongRange))
+               -> PrimIO (UndefOr (Union2 Bits32 ConstrainULongRange))
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.height = v}"
   prim__setHeight :  MediaTrackConstraintSet
-                  -> UndefOr (Union2 UInt32 ConstrainULongRange)
+                  -> UndefOr (Union2 Bits32 ConstrainULongRange)
                   -> PrimIO ()
   
   export
@@ -855,37 +855,37 @@ namespace MediaTrackConstraintSet
   export
   %foreign "browser:lambda:x=>x.sampleRate"
   prim__sampleRate :  MediaTrackConstraintSet
-                   -> PrimIO (UndefOr (Union2 UInt32 ConstrainULongRange))
+                   -> PrimIO (UndefOr (Union2 Bits32 ConstrainULongRange))
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.sampleRate = v}"
   prim__setSampleRate :  MediaTrackConstraintSet
-                      -> UndefOr (Union2 UInt32 ConstrainULongRange)
+                      -> UndefOr (Union2 Bits32 ConstrainULongRange)
                       -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.sampleSize"
   prim__sampleSize :  MediaTrackConstraintSet
-                   -> PrimIO (UndefOr (Union2 UInt32 ConstrainULongRange))
+                   -> PrimIO (UndefOr (Union2 Bits32 ConstrainULongRange))
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.sampleSize = v}"
   prim__setSampleSize :  MediaTrackConstraintSet
-                      -> UndefOr (Union2 UInt32 ConstrainULongRange)
+                      -> UndefOr (Union2 Bits32 ConstrainULongRange)
                       -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.width"
   prim__width :  MediaTrackConstraintSet
-              -> PrimIO (UndefOr (Union2 UInt32 ConstrainULongRange))
+              -> PrimIO (UndefOr (Union2 Bits32 ConstrainULongRange))
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.width = v}"
   prim__setWidth :  MediaTrackConstraintSet
-                 -> UndefOr (Union2 UInt32 ConstrainULongRange)
+                 -> UndefOr (Union2 Bits32 ConstrainULongRange)
                  -> PrimIO ()
 
 namespace MediaTrackConstraints
@@ -1263,25 +1263,25 @@ namespace ULongRange
   
   export
   %foreign "browser:lambda:(a,b)=> {max: a,min: b}"
-  prim__new : UndefOr UInt32 -> UndefOr UInt32 -> PrimIO ULongRange
+  prim__new : UndefOr Bits32 -> UndefOr Bits32 -> PrimIO ULongRange
   
   export
   %foreign "browser:lambda:x=>x.max"
-  prim__max : ULongRange -> PrimIO (UndefOr UInt32)
+  prim__max : ULongRange -> PrimIO (UndefOr Bits32)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.max = v}"
-  prim__setMax : ULongRange -> UndefOr UInt32 -> PrimIO ()
+  prim__setMax : ULongRange -> UndefOr Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.min"
-  prim__min : ULongRange -> PrimIO (UndefOr UInt32)
+  prim__min : ULongRange -> PrimIO (UndefOr Bits32)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.min = v}"
-  prim__setMin : ULongRange -> UndefOr UInt32 -> PrimIO ()
+  prim__setMin : ULongRange -> UndefOr Bits32 -> PrimIO ()
 
 --------------------------------------------------------------------------------
 --          Callbacks

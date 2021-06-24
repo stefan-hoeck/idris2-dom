@@ -15,6 +15,7 @@ module JS.JSON.FromJSON
 import Data.List1
 import Data.Vect
 import Control.Monad.Trans
+import Experimental.Prelude
 import JS.Array
 import JS.Number
 import JS.JSON.ToJSON
@@ -345,22 +346,6 @@ FromJSON Bits32 where
 export
 FromJSON Bits64 where
   fromJSON = boundedLargeIntegral "Bits64" 0 0xffffffffffffffff
-
-export
-FromJSON UInt8 where
-  fromJSON = boundedIntegral "UInt8" 0 0xff
-
-export
-FromJSON UInt16 where
-  fromJSON = boundedIntegral "UInt16" 0 0xffff
-
-export
-FromJSON UInt32 where
-  fromJSON = boundedIntegral "UInt32" 0 0xffffffff
-
-export
-FromJSON UInt64 where
-  fromJSON = boundedIntegral "UInt64" 0 0xffffffffffffffff
 
 export
 FromJSON Int8 where

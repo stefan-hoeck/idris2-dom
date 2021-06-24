@@ -42,7 +42,7 @@ namespace KeyboardEvent
   
   export
   %foreign "browser:lambda:x=>x.charCode"
-  prim__charCode : KeyboardEvent -> PrimIO UInt32
+  prim__charCode : KeyboardEvent -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:x=>x.code"
@@ -62,11 +62,11 @@ namespace KeyboardEvent
   
   export
   %foreign "browser:lambda:x=>x.keyCode"
-  prim__keyCode : KeyboardEvent -> PrimIO UInt32
+  prim__keyCode : KeyboardEvent -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:x=>x.location"
-  prim__location : KeyboardEvent -> PrimIO UInt32
+  prim__location : KeyboardEvent -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:x=>x.metaKey"
@@ -96,7 +96,7 @@ namespace MouseEvent
   
   export
   %foreign "browser:lambda:x=>x.buttons"
-  prim__buttons : MouseEvent -> PrimIO UInt16
+  prim__buttons : MouseEvent -> PrimIO Bits16
   
   export
   %foreign "browser:lambda:x=>x.clientX"
@@ -146,13 +146,13 @@ namespace UIEvent
   
   export
   %foreign "browser:lambda:x=>x.which"
-  prim__which : UIEvent -> PrimIO UInt32
+  prim__which : UIEvent -> PrimIO Bits32
 
 namespace WheelEvent
   
   export
   %foreign "browser:lambda:x=>x.deltaMode"
-  prim__deltaMode : WheelEvent -> PrimIO UInt32
+  prim__deltaMode : WheelEvent -> PrimIO Bits32
   
   export
   %foreign "browser:lambda:x=>x.deltaX"
@@ -396,7 +396,7 @@ namespace KeyboardEventInit
   %foreign "browser:lambda:(a,b,c,d,e)=> {key: a,code: b,location: c,repeat: d,isComposing: e}"
   prim__new :  UndefOr String
             -> UndefOr String
-            -> UndefOr UInt32
+            -> UndefOr Bits32
             -> UndefOr Boolean
             -> UndefOr Boolean
             -> PrimIO KeyboardEventInit
@@ -430,12 +430,12 @@ namespace KeyboardEventInit
   
   export
   %foreign "browser:lambda:x=>x.location"
-  prim__location : KeyboardEventInit -> PrimIO (UndefOr UInt32)
+  prim__location : KeyboardEventInit -> PrimIO (UndefOr Bits32)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.location = v}"
-  prim__setLocation : KeyboardEventInit -> UndefOr UInt32 -> PrimIO ()
+  prim__setLocation : KeyboardEventInit -> UndefOr Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.repeat"
@@ -455,7 +455,7 @@ namespace MouseEventInit
             -> UndefOr Int32
             -> UndefOr Int32
             -> UndefOr Int16
-            -> UndefOr UInt16
+            -> UndefOr Bits16
             -> UndefOr (Nullable EventTarget)
             -> PrimIO MouseEventInit
   
@@ -470,12 +470,12 @@ namespace MouseEventInit
   
   export
   %foreign "browser:lambda:x=>x.buttons"
-  prim__buttons : MouseEventInit -> PrimIO (UndefOr UInt16)
+  prim__buttons : MouseEventInit -> PrimIO (UndefOr Bits16)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.buttons = v}"
-  prim__setButtons : MouseEventInit -> UndefOr UInt16 -> PrimIO ()
+  prim__setButtons : MouseEventInit -> UndefOr Bits16 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.clientX"
@@ -556,17 +556,17 @@ namespace WheelEventInit
   prim__new :  UndefOr Double
             -> UndefOr Double
             -> UndefOr Double
-            -> UndefOr UInt32
+            -> UndefOr Bits32
             -> PrimIO WheelEventInit
   
   export
   %foreign "browser:lambda:x=>x.deltaMode"
-  prim__deltaMode : WheelEventInit -> PrimIO (UndefOr UInt32)
+  prim__deltaMode : WheelEventInit -> PrimIO (UndefOr Bits32)
 
   
   export
   %foreign "browser:lambda:(x,v)=>{x.deltaMode = v}"
-  prim__setDeltaMode : WheelEventInit -> UndefOr UInt32 -> PrimIO ()
+  prim__setDeltaMode : WheelEventInit -> UndefOr Bits32 -> PrimIO ()
   
   export
   %foreign "browser:lambda:x=>x.deltaX"
