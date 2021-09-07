@@ -3,7 +3,7 @@
 ||| own package.
 module JS.Util
 
-import Control.Monad.Either
+import public Control.Monad.Either
 import Data.Maybe
 
 export
