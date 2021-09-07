@@ -35,6 +35,48 @@ modules = JS
         , Web.Dom
         , Web.Html
 
+        , Web.Internal.AnimationPrim
+        , Web.Internal.AnimationTypes
+        , Web.Internal.ClipboardPrim
+        , Web.Internal.ClipboardTypes
+        , Web.Internal.CssPrim
+        , Web.Internal.CssTypes
+        , Web.Internal.DomPrim
+        , Web.Internal.DomTypes
+        , Web.Internal.FetchPrim
+        , Web.Internal.FetchTypes
+        , Web.Internal.FilePrim
+        , Web.Internal.FileTypes
+        , Web.Internal.GeometryPrim
+        , Web.Internal.GeometryTypes
+        , Web.Internal.HtmlPrim
+        , Web.Internal.HtmlTypes
+        , Web.Internal.MediasourcePrim
+        , Web.Internal.MediasourceTypes
+        , Web.Internal.MediastreamPrim
+        , Web.Internal.MediastreamTypes
+        , Web.Internal.PermissionsPrim
+        , Web.Internal.PermissionsTypes
+        , Web.Internal.ServiceworkerPrim
+        , Web.Internal.ServiceworkerTypes
+        , Web.Internal.StreamsPrim
+        , Web.Internal.StreamsTypes
+        , Web.Internal.SvgPrim
+        , Web.Internal.SvgTypes
+        , Web.Internal.Types
+        , Web.Internal.UIEventsPrim
+        , Web.Internal.UIEventsTypes
+        , Web.Internal.UrlPrim
+        , Web.Internal.UrlTypes
+        , Web.Internal.VisibilityPrim
+        , Web.Internal.VisibilityTypes
+        , Web.Internal.WebglPrim
+        , Web.Internal.WebglTypes
+        , Web.Internal.WebidlPrim
+        , Web.Internal.WebidlTypes
+        , Web.Internal.XhrPrim
+        , Web.Internal.XhrTypes
+
         , Web.Raw.Animation
         , Web.Raw.Clipboard
         , Web.Raw.Css
