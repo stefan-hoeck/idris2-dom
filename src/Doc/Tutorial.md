@@ -169,8 +169,8 @@ export
 disableBtn : JSIO ()
 disableBtn = do maybeElem <- getElementById !document "the_button"
                 let maybeBtn = maybeElem >>= castTo HTMLButtonElement
-                for_ maybeBtn \btn => do disabled btn .= True
-                                         consoleLog "Disabled button"
+                for_ maybeBtn $ \btn => do disabled btn .= True
+                                           consoleLog "Disabled button"
 ```
 
 You can try the action above by modifying our original

@@ -1,6 +1,5 @@
 module JS.Number
 
-import Experimental.Prelude
 import Data.DPair
 import Data.Bits
 import JS.Inheritance

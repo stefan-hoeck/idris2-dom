@@ -15,7 +15,6 @@ module JS.JSON.FromJSON
 import Data.List1
 import Data.Vect
 import Control.Monad.Trans
-import Experimental.Prelude
 import JS.Array
 import JS.Number
 import JS.JSON.ToJSON

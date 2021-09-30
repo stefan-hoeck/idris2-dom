@@ -1,6 +1,5 @@
 module JS.Inheritance
 
-import Experimental.Prelude
 import Control.Monad.Either
 import JS.Util
 import Data.List.Elem

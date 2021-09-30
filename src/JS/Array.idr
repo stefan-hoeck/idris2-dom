@@ -33,28 +33,13 @@ import JS.Undefined
 import JS.Util
 
 --------------------------------------------------------------------------------
--- DecEq for Bits32
---------------------------------------------------------------------------------
-
-||| Eventually, this should go to base
-public export
-implementation DecEq Bits32 where
-    decEq x y = case x == y of -- Blocks if x or y not concrete
-                     True => Yes primitiveEq
-                     False => No primitiveNotEq
-       where primitiveEq : forall x, y . x = y
-             primitiveEq = believe_me (Refl {x})
-             primitiveNotEq : forall x, y . x = y -> Void
-             primitiveNotEq prf = believe_me {b = Void} ()
-
---------------------------------------------------------------------------------
 --          Utilities
 --------------------------------------------------------------------------------
 
 ||| Type for indexing into an array of known size.
 public export
 Ix : Bits32 -> Type
-Ix n = Subset Bits32 \ix => ix < n = True
+Ix n = Subset Bits32 $ \ix => ix < n = True
 
 ||| Calculates the length of a list as an array index.
 public export

@@ -52,7 +52,6 @@ Javascript utilities working on both Javascript backends.
 Packages `dom.ipkg`, `doc.ipkg` and `js.ipkg` depend on the following packages:
 
   * [idris2-elab-util](https://github.com/stefan-hoeck/idris2-elab-util)
-  * [idris2-experimental](https://github.com/stefan-hoeck/idris2-experimental)
   * [idris2-sop](https://github.com/stefan-hoeck/idris2-sop)
 
 The test package `test.ipkg` depends on the same libraries plus
@@ -64,5 +63,5 @@ the following:
 ### Misc.
 
 This libary is still evolving - as is Idris2 itself - and I try to keep up
-with the latest Idris2 commits. The actual release requires Idris2, version 0.4.0.
-The latest commit has been built against Idris 2, version 0.4.0-ea1ad1688.
+with the latest Idris2 commits. The actual release requires Idris2, version 0.5.1.
+The latest commit has been built against Idris 2, version 0.5.1-3536f8dab.
