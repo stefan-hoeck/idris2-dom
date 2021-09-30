@@ -115,7 +115,7 @@ data ElementType : (tag : String) -> (htmlElement : Type) -> Type where
 
 ||| Extracts the `tag` String from a known `ElementType`.
 public export
-elementTag : {tag : _} -> ElementType tag t -> String
+elementTag : {tag : _} -> (0 _ : ElementType tag t) -> String
 elementTag _ = tag
 
 ||| Proof, that each element type has an instance of `SafeCast`.
