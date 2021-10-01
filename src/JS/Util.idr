@@ -71,6 +71,14 @@ public export
 JSIO : Type -> Type
 JSIO = EitherT JSErr IO
 
+public export
+interface HasIO io => LiftJSIO io where
+  liftJSIO : JSIO a -> io a
+
+export %inline
+LiftJSIO JSIO where
+  liftJSIO = id
+
 export
 runJSWith : Lazy (JSErr -> IO a) -> JSIO a -> IO a
 runJSWith f (MkEitherT io) = io >>= either f pure
