@@ -216,7 +216,7 @@ newElement :  {tag : _}
            -> (mods : List (t -> JSIO ()))
            -> JSIO t
 newElement e mods = do res <- createElement e
-                       for_ mods \m => m res
+                       for_ mods $ \m => m res
                        pure res
 
 --------------------------------------------------------------------------------
@@ -257,7 +257,7 @@ export
 Callback MutationCallback (  Array MutationRecord
                           -> MutationObserver
                           -> JSIO () ) where
-  callback f = toMutationCallback \a,m => runJS (f a m)
+  callback f = toMutationCallback $ \a,m => runJS (f a m)
 
 ||| In case of an error, the error is logged to the console and
 ||| the node is rejected

@@ -37,7 +37,7 @@ Callback OnErrorEventHandlerNonNull (  NS I [Event, String]
                                     -> Optional Any
                                     -> JSIO Any
                                     ) where
-  callback f = toOnErrorEventHandlerNonNull \u,b,c,d,e =>
+  callback f = toOnErrorEventHandlerNonNull $ \u,b,c,d,e =>
                  map toFFI $ runJSWithDefault (MkAny ()) $
                    do ns <- tryFromFFI "JS.Html.ErrorEventHandlerNonNull.callback" u
                       f ns (undeforToOptional b)

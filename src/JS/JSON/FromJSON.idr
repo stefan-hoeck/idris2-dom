@@ -192,7 +192,7 @@ withNumber = withValue "Number" getNum
 export
 withInteger : Lazy String -> (Integer -> Result a) -> Parser a
 withInteger s f =
-  withNumber s \d =>
+  withNumber s $ \d =>
     let n = the Integer (cast d)
     in if d == fromInteger n
           then f n
@@ -201,7 +201,7 @@ withInteger s f =
 export
 withLargeInteger : Lazy String -> (Integer -> Result a) -> Parser a
 withLargeInteger s f =
-  withString s \str =>
+  withString s $ \str =>
     case parseInteger {a = Integer} str of
          Nothing => fail #"not an integer: \#{show str}"#
          Just n  => f n
@@ -213,9 +213,10 @@ boundedIntegral :  Num a
                 -> (upper : Integer)
                 -> Parser a
 boundedIntegral s lo up =
-  withInteger s \n => if n >= lo && n <= up
-                         then pure $ fromInteger n
-                         else fail #"integer out of bounds: \#{show n}"#
+  withInteger s $ \n =>
+    if n >= lo && n <= up
+       then pure $ fromInteger n
+       else fail #"integer out of bounds: \#{show n}"#
 
 export
 boundedLargeIntegral :  Num a
@@ -224,9 +225,10 @@ boundedLargeIntegral :  Num a
                      -> (upper : Integer)
                      -> Parser a
 boundedLargeIntegral s lo up =
-  withLargeInteger s \n => if n >= lo && n <= up
-                              then pure $ fromInteger n
-                              else fail #"integer out of bounds: \#{show n}"#
+  withLargeInteger s $ \n =>
+    if n >= lo && n <= up
+       then pure $ fromInteger n
+       else fail #"integer out of bounds: \#{show n}"#
 
 export
 withArray : Lazy String -> (IArray Value -> Result a) -> Parser a
@@ -318,7 +320,7 @@ FromJSON Void where
 
 export
 FromJSON () where
-  fromJSON = withList "()"
+  fromJSON = withList "()" $
     \case Nil    => pure ()
           _ :: _ => fail "parsing () failed, expected empty list"
 
@@ -368,7 +370,7 @@ FromJSON Int where
 
 export
 FromJSON Nat where
-  fromJSON = withLargeInteger "Nat" \n =>
+  fromJSON = withLargeInteger "Nat" $ \n =>
     if n >= 0 then pure $ fromInteger n
     else fail #"not a natural number: \#{show n}"#
 
@@ -382,7 +384,7 @@ FromJSON String where
 
 export
 FromJSON Char where
-  fromJSON = withString "Char"
+  fromJSON = withString "Char" $
     \str => case strM str of
                  (StrCons c "") => pure c
                  _ => fail "expected a string of length 1"
@@ -406,20 +408,20 @@ FromJSON a => FromJSON (IArray a) where
 
 export
 FromJSON a => FromJSON (List1 a) where
-  fromJSON = withList "List1"
+  fromJSON = withList "List1" $
     \case Nil    => fail #"expected non-empty list"#
           h :: t => traverse fromJSON (h ::: t)
 
 export
 {n : Nat} -> FromJSON a => FromJSON (Vect n a) where
-  fromJSON = withList #"Vect \#{show n}"#
+  fromJSON = withList #"Vect \#{show n}"# $
     \vs => case toVect n vs of
                 Just vect => traverse fromJSON vect
                 Nothing   => fail #"expected list of length \#{show n}"#
 
 export
 (FromJSON a, FromJSON b) => FromJSON (Either a b) where
-  fromJSON = withObject "Either" \o =>
+  fromJSON = withObject "Either" $ \o =>
                map Left (o .: "Left") `orElse` map Right (o .: "Right")
 
 --------------------------------------------------------------------------------
@@ -480,7 +482,7 @@ NP (FromJSON . f) ks => FromJSON (NS f ks) where
 fromJSONC1 : NP (FromJSON . f) ks => ConInfo ks -> Parser (NP f ks)
 fromJSONC1 info = maybe fromJSON decRecord (argNames info)
   where decRecord : NP (K String) ks -> Parser (NP f ks)
-        decRecord names = withObject info.conName \o =>
+        decRecord names = withObject info.conName $ \o =>
                             hctraverse (FromJSON . f) (parseField o) names
 
 fromJSONSOP1 : NP (FromJSON . f) ks => TypeInfo [ks] -> Parser (SOP f [ks])
@@ -494,7 +496,7 @@ fromJSONC :  NP (FromJSON . f) ks
           -> ConInfo ks
           -> Parser (NP f ks)
 fromJSONC tn i@(MkConInfo _ n _) =
-  withObject tn \o => explicitParseField (fromJSONC1 i) o n
+  withObject tn $ \o => explicitParseField (fromJSONC1 i) o n
 
 fromJSONSOP :  (all : POP_ k (FromJSON . f) kss)
             => TypeInfo kss -> Parser (SOP_ k f kss)
