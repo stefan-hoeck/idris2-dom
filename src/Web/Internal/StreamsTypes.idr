@@ -78,6 +78,7 @@ namespace ReadableStreamType
   FromFFI ReadableStreamType String where
     fromFFI = read
 
+
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
@@ -238,6 +239,7 @@ export
 SafeCast WritableStreamDefaultWriter where
   safeCast = unsafeCastOnPrototypeName "WritableStreamDefaultWriter"
 
+
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
@@ -330,6 +332,7 @@ ToFFI UnderlyingSource UnderlyingSource where toFFI = id
 export
 FromFFI UnderlyingSource UnderlyingSource where fromFFI = Just
 
+
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------
@@ -349,6 +352,7 @@ ToFFI ReadableStreamGenericReader ReadableStreamGenericReader where toFFI = id
   
 export
 FromFFI ReadableStreamGenericReader ReadableStreamGenericReader where fromFFI = Just
+
 
 --------------------------------------------------------------------------------
 --          Callbacks
@@ -441,3 +445,4 @@ ToFFI UnderlyingSourceStartCallback UnderlyingSourceStartCallback where toFFI = 
   
 export
 FromFFI UnderlyingSourceStartCallback UnderlyingSourceStartCallback where fromFFI = Just
+

@@ -82,6 +82,7 @@ namespace URL
   toJSON : (obj : URL) -> JSIO String
   toJSON a = primJS $ URL.prim__toJSON a
 
+
 namespace URLSearchParams
   
   export
@@ -133,5 +134,7 @@ namespace URLSearchParams
   export
   toString : (obj : URLSearchParams) -> JSIO String
   toString a = primJS $ URLSearchParams.prim__toString a
+
+
 
 

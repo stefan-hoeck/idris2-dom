@@ -139,6 +139,7 @@ namespace PermissionName
   FromFFI PermissionName String where
     fromFFI = read
 
+
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
@@ -166,6 +167,7 @@ FromFFI Permissions Permissions where fromFFI = Just
 export
 SafeCast Permissions where
   safeCast = unsafeCastOnPrototypeName "Permissions"
+
 
 --------------------------------------------------------------------------------
 --          Dictionaries
@@ -218,4 +220,6 @@ ToFFI PushPermissionDescriptor PushPermissionDescriptor where toFFI = id
   
 export
 FromFFI PushPermissionDescriptor PushPermissionDescriptor where fromFFI = Just
+
+
 

@@ -23,7 +23,7 @@ namespace FormData
   append a b c = primJS $ FormData.prim__append a b c
   
   export
-  append1 :  JSType t1
+  append1 :  (0 _ : JSType t1)
           => {auto 0 _ : Elem Blob (Types t1)}
           -> (obj : FormData)
           -> (name : String)
@@ -33,7 +33,7 @@ namespace FormData
   append1 a b c d = primJS $ FormData.prim__append1 a b (up c) (toFFI d)
 
   export
-  append1' :  JSType t1
+  append1' :  (0 _ : JSType t1)
            => {auto 0 _ : Elem Blob (Types t1)}
            -> (obj : FormData)
            -> (name : String)
@@ -66,7 +66,7 @@ namespace FormData
   set a b c = primJS $ FormData.prim__set a b c
   
   export
-  set1 :  JSType t1
+  set1 :  (0 _ : JSType t1)
        => {auto 0 _ : Elem Blob (Types t1)}
        -> (obj : FormData)
        -> (name : String)
@@ -76,7 +76,7 @@ namespace FormData
   set1 a b c d = primJS $ FormData.prim__set1 a b (up c) (toFFI d)
 
   export
-  set1' :  JSType t1
+  set1' :  (0 _ : JSType t1)
         => {auto 0 _ : Elem Blob (Types t1)}
         -> (obj : FormData)
         -> (name : String)
@@ -84,10 +84,11 @@ namespace FormData
         -> JSIO ()
   set1' a b c = primJS $ FormData.prim__set1 a b (up c) undef
 
+
 namespace ProgressEvent
   
   export
-  new :  JSType t1
+  new :  (0 _ : JSType t1)
       => {auto 0 _ : Elem ProgressEventInit (Types t1)}
       -> (type : String)
       -> (eventInitDict : Optional t1)
@@ -110,6 +111,7 @@ namespace ProgressEvent
   export
   total_ : (obj : ProgressEvent) -> JSIO JSBits64
   total_ a = primJS $ ProgressEvent.prim__total a
+
 
 namespace XMLHttpRequest
   
@@ -284,10 +286,11 @@ namespace XMLHttpRequest
                    -> JSIO ()
   setRequestHeader a b c = primJS $ XMLHttpRequest.prim__setRequestHeader a b c
 
+
 namespace XMLHttpRequestEventTarget
   
   export
-  onabort :  JSType t
+  onabort :  (0 _ : JSType t)
           => {auto 0 _ : Elem XMLHttpRequestEventTarget (Types t)}
           -> t
           -> Attribute False Maybe EventHandlerNonNull
@@ -297,7 +300,7 @@ namespace XMLHttpRequestEventTarget
                                (v :> XMLHttpRequestEventTarget)
   
   export
-  onerror :  JSType t
+  onerror :  (0 _ : JSType t)
           => {auto 0 _ : Elem XMLHttpRequestEventTarget (Types t)}
           -> t
           -> Attribute False Maybe EventHandlerNonNull
@@ -307,7 +310,7 @@ namespace XMLHttpRequestEventTarget
                                (v :> XMLHttpRequestEventTarget)
   
   export
-  onload :  JSType t
+  onload :  (0 _ : JSType t)
          => {auto 0 _ : Elem XMLHttpRequestEventTarget (Types t)}
          -> t
          -> Attribute False Maybe EventHandlerNonNull
@@ -317,7 +320,7 @@ namespace XMLHttpRequestEventTarget
                               (v :> XMLHttpRequestEventTarget)
   
   export
-  onloadend :  JSType t
+  onloadend :  (0 _ : JSType t)
             => {auto 0 _ : Elem XMLHttpRequestEventTarget (Types t)}
             -> t
             -> Attribute False Maybe EventHandlerNonNull
@@ -327,7 +330,7 @@ namespace XMLHttpRequestEventTarget
                                  (v :> XMLHttpRequestEventTarget)
   
   export
-  onloadstart :  JSType t
+  onloadstart :  (0 _ : JSType t)
               => {auto 0 _ : Elem XMLHttpRequestEventTarget (Types t)}
               -> t
               -> Attribute False Maybe EventHandlerNonNull
@@ -337,7 +340,7 @@ namespace XMLHttpRequestEventTarget
                                    (v :> XMLHttpRequestEventTarget)
   
   export
-  onprogress :  JSType t
+  onprogress :  (0 _ : JSType t)
              => {auto 0 _ : Elem XMLHttpRequestEventTarget (Types t)}
              -> t
              -> Attribute False Maybe EventHandlerNonNull
@@ -347,7 +350,7 @@ namespace XMLHttpRequestEventTarget
                                   (v :> XMLHttpRequestEventTarget)
   
   export
-  ontimeout :  JSType t
+  ontimeout :  (0 _ : JSType t)
             => {auto 0 _ : Elem XMLHttpRequestEventTarget (Types t)}
             -> t
             -> Attribute False Maybe EventHandlerNonNull
@@ -355,6 +358,8 @@ namespace XMLHttpRequestEventTarget
                                  prim__ontimeout
                                  prim__setOntimeout
                                  (v :> XMLHttpRequestEventTarget)
+
+
 
 
 
@@ -376,7 +381,7 @@ namespace ProgressEventInit
   new' = primJS $ ProgressEventInit.prim__new undef undef undef
   
   export
-  lengthComputable :  JSType t
+  lengthComputable :  (0 _ : JSType t)
                    => {auto 0 _ : Elem ProgressEventInit (Types t)}
                    -> t
                    -> Attribute True Optional Bool
@@ -387,7 +392,7 @@ namespace ProgressEventInit
                                        (v :> ProgressEventInit)
   
   export
-  loaded :  JSType t
+  loaded :  (0 _ : JSType t)
          => {auto 0 _ : Elem ProgressEventInit (Types t)}
          -> t
          -> Attribute True Optional JSBits64
@@ -398,7 +403,7 @@ namespace ProgressEventInit
                              (v :> ProgressEventInit)
   
   export
-  total_ :  JSType t
+  total_ :  (0 _ : JSType t)
          => {auto 0 _ : Elem ProgressEventInit (Types t)}
          -> t
          -> Attribute True Optional JSBits64
@@ -407,3 +412,5 @@ namespace ProgressEventInit
                              prim__setTotal
                              0
                              (v :> ProgressEventInit)
+
+

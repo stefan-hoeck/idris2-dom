@@ -56,6 +56,7 @@ namespace Blob
   %foreign "browser:lambda:x=>x.text()"
   prim__text : Blob -> PrimIO (Promise String)
 
+
 namespace File
   
   export
@@ -85,6 +86,7 @@ namespace File
   %foreign "browser:lambda:x=>x.name"
   prim__name : File -> PrimIO String
 
+
 namespace FileList
   
   export
@@ -94,6 +96,7 @@ namespace FileList
   export
   %foreign "browser:lambda:(x,a)=>x.item(a)"
   prim__item : FileList -> Bits32 -> PrimIO (Nullable File)
+
 
 namespace FileReader
   
@@ -113,6 +116,7 @@ namespace FileReader
   export
   %foreign "browser:lambda:(x,v)=>{x.onabort = v}"
   prim__setOnabort : FileReader -> Nullable EventHandlerNonNull -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.onerror"
@@ -122,6 +126,7 @@ namespace FileReader
   export
   %foreign "browser:lambda:(x,v)=>{x.onerror = v}"
   prim__setOnerror : FileReader -> Nullable EventHandlerNonNull -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.onload"
@@ -131,6 +136,7 @@ namespace FileReader
   export
   %foreign "browser:lambda:(x,v)=>{x.onload = v}"
   prim__setOnload : FileReader -> Nullable EventHandlerNonNull -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.onloadend"
@@ -140,6 +146,7 @@ namespace FileReader
   export
   %foreign "browser:lambda:(x,v)=>{x.onloadend = v}"
   prim__setOnloadend : FileReader -> Nullable EventHandlerNonNull -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.onloadstart"
@@ -149,6 +156,7 @@ namespace FileReader
   export
   %foreign "browser:lambda:(x,v)=>{x.onloadstart = v}"
   prim__setOnloadstart : FileReader -> Nullable EventHandlerNonNull -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.onprogress"
@@ -158,6 +166,7 @@ namespace FileReader
   export
   %foreign "browser:lambda:(x,v)=>{x.onprogress = v}"
   prim__setOnprogress : FileReader -> Nullable EventHandlerNonNull -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.readyState"
@@ -187,6 +196,7 @@ namespace FileReader
   %foreign "browser:lambda:(x,a,b)=>x.readAsText(a,b)"
   prim__readAsText : FileReader -> Blob -> UndefOr String -> PrimIO ()
 
+
 namespace FileReaderSync
   
   export
@@ -210,6 +220,8 @@ namespace FileReaderSync
   prim__readAsText : FileReaderSync -> Blob -> UndefOr String -> PrimIO String
 
 
+
+
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
@@ -228,6 +240,7 @@ namespace BlobPropertyBag
   export
   %foreign "browser:lambda:(x,v)=>{x.endings = v}"
   prim__setEndings : BlobPropertyBag -> UndefOr String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.type"
@@ -237,6 +250,8 @@ namespace BlobPropertyBag
   export
   %foreign "browser:lambda:(x,v)=>{x.type = v}"
   prim__setType : BlobPropertyBag -> UndefOr String -> PrimIO ()
+
+
 
 namespace FilePropertyBag
   
@@ -252,3 +267,6 @@ namespace FilePropertyBag
   export
   %foreign "browser:lambda:(x,v)=>{x.lastModified = v}"
   prim__setLastModified : FilePropertyBag -> UndefOr JSInt64 -> PrimIO ()
+
+
+

@@ -121,25 +121,27 @@ namespace DOMException
   new' = primJS $ DOMException.prim__new undef undef
   
   export
-  code :  JSType t1
+  code :  (0 _ : JSType t1)
        => {auto 0 _ : Elem DOMException (Types t1)}
        -> (obj : t1)
        -> JSIO Bits16
   code a = primJS $ DOMException.prim__code (up a)
   
   export
-  message :  JSType t1
+  message :  (0 _ : JSType t1)
           => {auto 0 _ : Elem DOMException (Types t1)}
           -> (obj : t1)
           -> JSIO String
   message a = primJS $ DOMException.prim__message (up a)
   
   export
-  name :  JSType t1
+  name :  (0 _ : JSType t1)
        => {auto 0 _ : Elem DOMException (Types t1)}
        -> (obj : t1)
        -> JSIO String
   name a = primJS $ DOMException.prim__name (up a)
+
+
 
 
 
@@ -153,8 +155,10 @@ namespace Function
   toFunction : ( IO (Array AnyPtr) -> IO AnyPtr ) -> JSIO Function
   toFunction cb = primJS $ prim__toFunction cb
 
+
 namespace VoidFunction
   
   export
   toVoidFunction : (() -> IO ()) -> JSIO VoidFunction
   toVoidFunction cb = primJS $ prim__toVoidFunction cb
+

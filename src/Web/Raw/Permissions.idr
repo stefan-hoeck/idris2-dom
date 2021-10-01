@@ -21,15 +21,18 @@ namespace PermissionStatus
   state : (obj : PermissionStatus) -> JSIO PermissionState
   state a = tryJS "PermissionStatus.state" $ PermissionStatus.prim__state a
 
+
 namespace Permissions
   
   export
-  query :  JSType t1
+  query :  (0 _ : JSType t1)
         => {auto 0 _ : Elem Object (Types t1)}
         -> (obj : Permissions)
         -> (permissionDesc : t1)
         -> JSIO (Promise PermissionStatus)
   query a b = primJS $ Permissions.prim__query a (up b)
+
+
 
 
 --------------------------------------------------------------------------------
@@ -47,7 +50,7 @@ namespace CameraDevicePermissionDescriptor
   new' = primJS $ CameraDevicePermissionDescriptor.prim__new undef
   
   export
-  panTiltZoom :  JSType t
+  panTiltZoom :  (0 _ : JSType t)
               => {auto 0 _ : Elem CameraDevicePermissionDescriptor (Types t)}
               -> t
               -> Attribute True Optional Bool
@@ -56,6 +59,7 @@ namespace CameraDevicePermissionDescriptor
                                   prim__setPanTiltZoom
                                   False
                                   (v :> CameraDevicePermissionDescriptor)
+
 
 namespace DevicePermissionDescriptor
   
@@ -68,7 +72,7 @@ namespace DevicePermissionDescriptor
   new' = primJS $ DevicePermissionDescriptor.prim__new undef
   
   export
-  deviceId :  JSType t
+  deviceId :  (0 _ : JSType t)
            => {auto 0 _ : Elem DevicePermissionDescriptor (Types t)}
            -> t
            -> Attribute False Optional String
@@ -76,6 +80,7 @@ namespace DevicePermissionDescriptor
                                         prim__deviceId
                                         prim__setDeviceId
                                         (v :> DevicePermissionDescriptor)
+
 
 namespace MidiPermissionDescriptor
   
@@ -88,7 +93,7 @@ namespace MidiPermissionDescriptor
   new' = primJS $ MidiPermissionDescriptor.prim__new undef
   
   export
-  sysex :  JSType t
+  sysex :  (0 _ : JSType t)
         => {auto 0 _ : Elem MidiPermissionDescriptor (Types t)}
         -> t
         -> Attribute True Optional Bool
@@ -98,6 +103,7 @@ namespace MidiPermissionDescriptor
                             False
                             (v :> MidiPermissionDescriptor)
 
+
 namespace PermissionDescriptor
   
   export
@@ -105,7 +111,7 @@ namespace PermissionDescriptor
   new a = primJS $ PermissionDescriptor.prim__new (toFFI a)
   
   export
-  name :  JSType t
+  name :  (0 _ : JSType t)
        => {auto 0 _ : Elem PermissionDescriptor (Types t)}
        -> t
        -> Attribute True I PermissionName
@@ -114,10 +120,11 @@ namespace PermissionDescriptor
                     prim__setName
                     (v :> PermissionDescriptor)
 
+
 namespace PermissionSetParameters
   
   export
-  new :  JSType t1
+  new :  (0 _ : JSType t1)
       => {auto 0 _ : Elem PermissionDescriptor (Types t1)}
       -> (descriptor : t1)
       -> (state : PermissionState)
@@ -127,7 +134,7 @@ namespace PermissionSetParameters
             $ PermissionSetParameters.prim__new (up a) (toFFI b) (toFFI c)
 
   export
-  new' :  JSType t1
+  new' :  (0 _ : JSType t1)
        => {auto 0 _ : Elem PermissionDescriptor (Types t1)}
        -> (descriptor : t1)
        -> (state : PermissionState)
@@ -135,7 +142,7 @@ namespace PermissionSetParameters
   new' a b = primJS $ PermissionSetParameters.prim__new (up a) (toFFI b) undef
   
   export
-  descriptor :  JSType t
+  descriptor :  (0 _ : JSType t)
              => {auto 0 _ : Elem PermissionSetParameters (Types t)}
              -> t
              -> Attribute True I PermissionDescriptor
@@ -145,7 +152,7 @@ namespace PermissionSetParameters
                           (v :> PermissionSetParameters)
   
   export
-  oneRealm :  JSType t
+  oneRealm :  (0 _ : JSType t)
            => {auto 0 _ : Elem PermissionSetParameters (Types t)}
            -> t
            -> Attribute True Optional Bool
@@ -156,7 +163,7 @@ namespace PermissionSetParameters
                                (v :> PermissionSetParameters)
   
   export
-  state :  JSType t
+  state :  (0 _ : JSType t)
         => {auto 0 _ : Elem PermissionSetParameters (Types t)}
         -> t
         -> Attribute True I PermissionState
@@ -164,6 +171,7 @@ namespace PermissionSetParameters
                      prim__state
                      prim__setState
                      (v :> PermissionSetParameters)
+
 
 namespace PushPermissionDescriptor
   
@@ -176,7 +184,7 @@ namespace PushPermissionDescriptor
   new' = primJS $ PushPermissionDescriptor.prim__new undef
   
   export
-  userVisibleOnly :  JSType t
+  userVisibleOnly :  (0 _ : JSType t)
                   => {auto 0 _ : Elem PushPermissionDescriptor (Types t)}
                   -> t
                   -> Attribute True Optional Bool
@@ -185,3 +193,5 @@ namespace PushPermissionDescriptor
                                       prim__setUserVisibleOnly
                                       False
                                       (v :> PushPermissionDescriptor)
+
+

@@ -44,6 +44,7 @@ namespace EndingType
   FromFFI EndingType String where
     fromFFI = read
 
+
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
@@ -108,6 +109,7 @@ export
 SafeCast FileReaderSync where
   safeCast = unsafeCastOnPrototypeName "FileReaderSync"
 
+
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
@@ -127,4 +129,6 @@ ToFFI FilePropertyBag FilePropertyBag where toFFI = id
   
 export
 FromFFI FilePropertyBag FilePropertyBag where fromFFI = Just
+
+
 

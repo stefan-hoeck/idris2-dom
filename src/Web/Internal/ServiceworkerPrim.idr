@@ -55,6 +55,7 @@ namespace Cache
             -> Response
             -> PrimIO (Promise Undefined)
 
+
 namespace CacheStorage
   
   export
@@ -79,6 +80,7 @@ namespace CacheStorage
   export
   %foreign "browser:lambda:(x,a)=>x.open(a)"
   prim__open : CacheStorage -> String -> PrimIO (Promise Cache)
+
 
 namespace Client
   
@@ -109,6 +111,7 @@ namespace Client
                      -> UndefOr PostMessageOptions
                      -> PrimIO ()
 
+
 namespace Clients
   
   export
@@ -131,6 +134,7 @@ namespace Clients
                    -> String
                    -> PrimIO (Promise (Nullable WindowClient))
 
+
 namespace ExtendableEvent
   
   export
@@ -140,6 +144,7 @@ namespace ExtendableEvent
   export
   %foreign "browser:lambda:(x,a)=>x.waitUntil(a)"
   prim__waitUntil : ExtendableEvent -> Promise AnyPtr -> PrimIO ()
+
 
 namespace ExtendableMessageEvent
   
@@ -169,6 +174,7 @@ namespace ExtendableMessageEvent
   %foreign "browser:lambda:x=>x.source"
   prim__source :  ExtendableMessageEvent
                -> PrimIO (Nullable (Union3 Client ServiceWorker MessagePort))
+
 
 namespace FetchEvent
   
@@ -204,6 +210,7 @@ namespace FetchEvent
   %foreign "browser:lambda:(x,a)=>x.respondWith(a)"
   prim__respondWith : FetchEvent -> Promise Response -> PrimIO ()
 
+
 namespace NavigationPreloadManager
   
   export
@@ -225,6 +232,7 @@ namespace NavigationPreloadManager
                        -> ByteString
                        -> PrimIO (Promise Undefined)
 
+
 namespace ServiceWorker
   
   export
@@ -237,6 +245,7 @@ namespace ServiceWorker
   prim__setOnstatechange :  ServiceWorker
                          -> Nullable EventHandlerNonNull
                          -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.scriptURL"
@@ -257,6 +266,7 @@ namespace ServiceWorker
                      -> UndefOr PostMessageOptions
                      -> PrimIO ()
 
+
 namespace ServiceWorkerContainer
   
   export
@@ -274,6 +284,7 @@ namespace ServiceWorkerContainer
   prim__setOncontrollerchange :  ServiceWorkerContainer
                               -> Nullable EventHandlerNonNull
                               -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.onmessage"
@@ -286,6 +297,7 @@ namespace ServiceWorkerContainer
   prim__setOnmessage :  ServiceWorkerContainer
                      -> Nullable EventHandlerNonNull
                      -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.onmessageerror"
@@ -298,6 +310,7 @@ namespace ServiceWorkerContainer
   prim__setOnmessageerror :  ServiceWorkerContainer
                           -> Nullable EventHandlerNonNull
                           -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.ready"
@@ -327,6 +340,7 @@ namespace ServiceWorkerContainer
   %foreign "browser:lambda:x=>x.startMessages()"
   prim__startMessages : ServiceWorkerContainer -> PrimIO ()
 
+
 namespace ServiceWorkerGlobalScope
   
   export
@@ -344,6 +358,7 @@ namespace ServiceWorkerGlobalScope
   prim__setOnactivate :  ServiceWorkerGlobalScope
                       -> Nullable EventHandlerNonNull
                       -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.onfetch"
@@ -356,6 +371,7 @@ namespace ServiceWorkerGlobalScope
   prim__setOnfetch :  ServiceWorkerGlobalScope
                    -> Nullable EventHandlerNonNull
                    -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.oninstall"
@@ -368,6 +384,7 @@ namespace ServiceWorkerGlobalScope
   prim__setOninstall :  ServiceWorkerGlobalScope
                      -> Nullable EventHandlerNonNull
                      -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.onmessage"
@@ -380,6 +397,7 @@ namespace ServiceWorkerGlobalScope
   prim__setOnmessage :  ServiceWorkerGlobalScope
                      -> Nullable EventHandlerNonNull
                      -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.onmessageerror"
@@ -392,6 +410,7 @@ namespace ServiceWorkerGlobalScope
   prim__setOnmessageerror :  ServiceWorkerGlobalScope
                           -> Nullable EventHandlerNonNull
                           -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.registration"
@@ -405,6 +424,7 @@ namespace ServiceWorkerGlobalScope
   export
   %foreign "browser:lambda:x=>x.skipWaiting()"
   prim__skipWaiting : ServiceWorkerGlobalScope -> PrimIO (Promise Undefined)
+
 
 namespace ServiceWorkerRegistration
   
@@ -433,6 +453,7 @@ namespace ServiceWorkerRegistration
   prim__setOnupdatefound :  ServiceWorkerRegistration
                          -> Nullable EventHandlerNonNull
                          -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.scope"
@@ -453,6 +474,7 @@ namespace ServiceWorkerRegistration
   export
   %foreign "browser:lambda:x=>x.update()"
   prim__update : ServiceWorkerRegistration -> PrimIO (Promise Undefined)
+
 
 namespace WindowClient
   
@@ -479,6 +501,8 @@ namespace WindowClient
                  -> PrimIO (Promise (Nullable WindowClient))
 
 
+
+
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
@@ -500,6 +524,7 @@ namespace CacheQueryOptions
   export
   %foreign "browser:lambda:(x,v)=>{x.ignoreMethod = v}"
   prim__setIgnoreMethod : CacheQueryOptions -> UndefOr Boolean -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.ignoreSearch"
@@ -509,6 +534,7 @@ namespace CacheQueryOptions
   export
   %foreign "browser:lambda:(x,v)=>{x.ignoreSearch = v}"
   prim__setIgnoreSearch : CacheQueryOptions -> UndefOr Boolean -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.ignoreVary"
@@ -518,6 +544,8 @@ namespace CacheQueryOptions
   export
   %foreign "browser:lambda:(x,v)=>{x.ignoreVary = v}"
   prim__setIgnoreVary : CacheQueryOptions -> UndefOr Boolean -> PrimIO ()
+
+
 
 namespace ClientQueryOptions
   
@@ -535,6 +563,7 @@ namespace ClientQueryOptions
   prim__setIncludeUncontrolled :  ClientQueryOptions
                                -> UndefOr Boolean
                                -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.type"
@@ -545,11 +574,14 @@ namespace ClientQueryOptions
   %foreign "browser:lambda:(x,v)=>{x.type = v}"
   prim__setType : ClientQueryOptions -> UndefOr String -> PrimIO ()
 
+
+
 namespace ExtendableEventInit
   
   export
   %foreign "browser:lambda:()=> {}"
   prim__new : PrimIO ExtendableEventInit
+
 
 namespace ExtendableMessageEventInit
   
@@ -570,6 +602,7 @@ namespace ExtendableMessageEventInit
   export
   %foreign "browser:lambda:(x,v)=>{x.data = v}"
   prim__setData : ExtendableMessageEventInit -> UndefOr AnyPtr -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.lastEventId"
@@ -581,6 +614,7 @@ namespace ExtendableMessageEventInit
   prim__setLastEventId :  ExtendableMessageEventInit
                        -> UndefOr String
                        -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.origin"
@@ -590,6 +624,7 @@ namespace ExtendableMessageEventInit
   export
   %foreign "browser:lambda:(x,v)=>{x.origin = v}"
   prim__setOrigin : ExtendableMessageEventInit -> UndefOr String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.ports"
@@ -602,6 +637,7 @@ namespace ExtendableMessageEventInit
   prim__setPorts :  ExtendableMessageEventInit
                  -> UndefOr (Array MessagePort)
                  -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.source"
@@ -618,6 +654,8 @@ namespace ExtendableMessageEventInit
                                                ServiceWorker
                                                MessagePort))
                   -> PrimIO ()
+
+
 
 namespace FetchEventInit
   
@@ -639,6 +677,7 @@ namespace FetchEventInit
   export
   %foreign "browser:lambda:(x,v)=>{x.clientId = v}"
   prim__setClientId : FetchEventInit -> UndefOr String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.handled"
@@ -648,6 +687,7 @@ namespace FetchEventInit
   export
   %foreign "browser:lambda:(x,v)=>{x.handled = v}"
   prim__setHandled : FetchEventInit -> UndefOr (Promise Undefined) -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.preloadResponse"
@@ -659,6 +699,7 @@ namespace FetchEventInit
   prim__setPreloadResponse :  FetchEventInit
                            -> UndefOr (Promise AnyPtr)
                            -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.replacesClientId"
@@ -668,6 +709,7 @@ namespace FetchEventInit
   export
   %foreign "browser:lambda:(x,v)=>{x.replacesClientId = v}"
   prim__setReplacesClientId : FetchEventInit -> UndefOr String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.request"
@@ -677,6 +719,7 @@ namespace FetchEventInit
   export
   %foreign "browser:lambda:(x,v)=>{x.request = v}"
   prim__setRequest : FetchEventInit -> Request -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.resultingClientId"
@@ -686,6 +729,8 @@ namespace FetchEventInit
   export
   %foreign "browser:lambda:(x,v)=>{x.resultingClientId = v}"
   prim__setResultingClientId : FetchEventInit -> UndefOr String -> PrimIO ()
+
+
 
 namespace MultiCacheQueryOptions
   
@@ -701,6 +746,8 @@ namespace MultiCacheQueryOptions
   export
   %foreign "browser:lambda:(x,v)=>{x.cacheName = v}"
   prim__setCacheName : MultiCacheQueryOptions -> UndefOr String -> PrimIO ()
+
+
 
 namespace NavigationPreloadState
   
@@ -718,6 +765,7 @@ namespace NavigationPreloadState
   export
   %foreign "browser:lambda:(x,v)=>{x.enabled = v}"
   prim__setEnabled : NavigationPreloadState -> UndefOr Boolean -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.headerValue"
@@ -729,6 +777,8 @@ namespace NavigationPreloadState
   prim__setHeaderValue :  NavigationPreloadState
                        -> UndefOr ByteString
                        -> PrimIO ()
+
+
 
 namespace RegistrationOptions
   
@@ -747,6 +797,7 @@ namespace RegistrationOptions
   export
   %foreign "browser:lambda:(x,v)=>{x.scope = v}"
   prim__setScope : RegistrationOptions -> UndefOr String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.type"
@@ -756,6 +807,7 @@ namespace RegistrationOptions
   export
   %foreign "browser:lambda:(x,v)=>{x.type = v}"
   prim__setType : RegistrationOptions -> UndefOr String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.updateViaCache"
@@ -765,3 +817,6 @@ namespace RegistrationOptions
   export
   %foreign "browser:lambda:(x,v)=>{x.updateViaCache = v}"
   prim__setUpdateViaCache : RegistrationOptions -> UndefOr String -> PrimIO ()
+
+
+

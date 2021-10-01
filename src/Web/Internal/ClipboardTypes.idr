@@ -46,6 +46,7 @@ namespace PresentationStyle
   FromFFI PresentationStyle String where
     fromFFI = read
 
+
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
@@ -86,6 +87,7 @@ export
 SafeCast ClipboardItem where
   safeCast = unsafeCastOnPrototypeName "ClipboardItem"
 
+
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
@@ -115,6 +117,7 @@ export
 FromFFI ClipboardPermissionDescriptor ClipboardPermissionDescriptor where fromFFI = Just
 
 
+
 --------------------------------------------------------------------------------
 --          Callbacks
 --------------------------------------------------------------------------------
@@ -126,3 +129,4 @@ ToFFI ClipboardItemDelayedCallback ClipboardItemDelayedCallback where toFFI = id
   
 export
 FromFFI ClipboardItemDelayedCallback ClipboardItemDelayedCallback where fromFFI = Just
+

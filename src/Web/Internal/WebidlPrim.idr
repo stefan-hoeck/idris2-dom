@@ -28,6 +28,8 @@ namespace DOMException
 
 
 
+
+
 --------------------------------------------------------------------------------
 --          Callbacks
 --------------------------------------------------------------------------------
@@ -38,8 +40,10 @@ namespace Function
   %foreign "browser:lambda:x=>(a)=>x(a)()"
   prim__toFunction : ( IO (Array AnyPtr) -> IO AnyPtr ) -> PrimIO Function
 
+
 namespace VoidFunction
   
   export
   %foreign "browser:lambda:x=>()=>x()()"
   prim__toVoidFunction : (() -> IO ()) -> PrimIO VoidFunction
+

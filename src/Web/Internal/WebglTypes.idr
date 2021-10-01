@@ -46,6 +46,7 @@ namespace WebGLPowerPreference
   FromFFI WebGLPowerPreference String where
     fromFFI = read
 
+
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
@@ -254,6 +255,7 @@ export
 SafeCast WebGLVertexArrayObject where
   safeCast = unsafeCastOnPrototypeName "WebGLVertexArrayObject"
 
+
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
@@ -265,6 +267,7 @@ ToFFI WebGLContextAttributes WebGLContextAttributes where toFFI = id
   
 export
 FromFFI WebGLContextAttributes WebGLContextAttributes where fromFFI = Just
+
 
 --------------------------------------------------------------------------------
 --          Mixins
@@ -301,3 +304,5 @@ ToFFI WebGLRenderingContextOverloads WebGLRenderingContextOverloads where toFFI 
   
 export
 FromFFI WebGLRenderingContextOverloads WebGLRenderingContextOverloads where fromFFI = Just
+
+

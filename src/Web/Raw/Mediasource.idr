@@ -91,6 +91,7 @@ namespace MediaSource
   setLiveSeekableRange a b c = primJS
                              $ MediaSource.prim__setLiveSeekableRange a b c
 
+
 namespace SourceBuffer
   
   export
@@ -198,6 +199,7 @@ namespace SourceBuffer
   remove : (obj : SourceBuffer) -> (start : Double) -> (end : Double) -> JSIO ()
   remove a b c = primJS $ SourceBuffer.prim__remove a b c
 
+
 namespace SourceBufferList
   
   export
@@ -223,5 +225,7 @@ namespace SourceBufferList
                                             prim__onremovesourcebuffer
                                             prim__setOnremovesourcebuffer
                                             v
+
+
 
 

@@ -20,16 +20,20 @@ namespace PermissionStatus
   prim__setOnchange :  PermissionStatus
                     -> Nullable EventHandlerNonNull
                     -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.state"
   prim__state : PermissionStatus -> PrimIO String
+
 
 namespace Permissions
   
   export
   %foreign "browser:lambda:(x,a)=>x.query(a)"
   prim__query : Permissions -> Object -> PrimIO (Promise PermissionStatus)
+
+
 
 
 --------------------------------------------------------------------------------
@@ -54,6 +58,8 @@ namespace CameraDevicePermissionDescriptor
                        -> UndefOr Boolean
                        -> PrimIO ()
 
+
+
 namespace DevicePermissionDescriptor
   
   export
@@ -68,6 +74,8 @@ namespace DevicePermissionDescriptor
   export
   %foreign "browser:lambda:(x,v)=>{x.deviceId = v}"
   prim__setDeviceId : DevicePermissionDescriptor -> UndefOr String -> PrimIO ()
+
+
 
 namespace MidiPermissionDescriptor
   
@@ -84,6 +92,8 @@ namespace MidiPermissionDescriptor
   %foreign "browser:lambda:(x,v)=>{x.sysex = v}"
   prim__setSysex : MidiPermissionDescriptor -> UndefOr Boolean -> PrimIO ()
 
+
+
 namespace PermissionDescriptor
   
   export
@@ -98,6 +108,8 @@ namespace PermissionDescriptor
   export
   %foreign "browser:lambda:(x,v)=>{x.name = v}"
   prim__setName : PermissionDescriptor -> String -> PrimIO ()
+
+
 
 namespace PermissionSetParameters
   
@@ -118,6 +130,7 @@ namespace PermissionSetParameters
   prim__setDescriptor :  PermissionSetParameters
                       -> PermissionDescriptor
                       -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.oneRealm"
@@ -127,6 +140,7 @@ namespace PermissionSetParameters
   export
   %foreign "browser:lambda:(x,v)=>{x.oneRealm = v}"
   prim__setOneRealm : PermissionSetParameters -> UndefOr Boolean -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.state"
@@ -136,6 +150,8 @@ namespace PermissionSetParameters
   export
   %foreign "browser:lambda:(x,v)=>{x.state = v}"
   prim__setState : PermissionSetParameters -> String -> PrimIO ()
+
+
 
 namespace PushPermissionDescriptor
   
@@ -153,3 +169,6 @@ namespace PushPermissionDescriptor
   prim__setUserVisibleOnly :  PushPermissionDescriptor
                            -> UndefOr Boolean
                            -> PrimIO ()
+
+
+

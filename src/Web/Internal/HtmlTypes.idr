@@ -867,6 +867,7 @@ namespace SelectionMode
   FromFFI SelectionMode String where
     fromFFI = read
 
+
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
@@ -2575,6 +2576,7 @@ export
 SafeCast WorkletGlobalScope where
   safeCast = unsafeCastOnPrototypeName "WorkletGlobalScope"
 
+
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
@@ -2778,6 +2780,7 @@ ToFFI WorkletOptions WorkletOptions where toFFI = id
   
 export
 FromFFI WorkletOptions WorkletOptions where fromFFI = Just
+
 
 --------------------------------------------------------------------------------
 --          Mixins
@@ -3031,6 +3034,7 @@ ToFFI WindowEventHandlers WindowEventHandlers where toFFI = id
 export
 FromFFI WindowEventHandlers WindowEventHandlers where fromFFI = Just
 
+
 --------------------------------------------------------------------------------
 --          Callbacks
 --------------------------------------------------------------------------------
@@ -3138,3 +3142,4 @@ ToFFI WheelEventHandler WheelEventHandler where toFFI = id
   
 export
 FromFFI WheelEventHandler WheelEventHandler where fromFFI = Just
+

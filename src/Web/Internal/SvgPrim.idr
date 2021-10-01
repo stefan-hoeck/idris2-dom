@@ -19,6 +19,7 @@ namespace SVGAElement
   export
   %foreign "browser:lambda:(x,v)=>{x.download = v}"
   prim__setDownload : SVGAElement -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.hreflang"
@@ -28,6 +29,7 @@ namespace SVGAElement
   export
   %foreign "browser:lambda:(x,v)=>{x.hreflang = v}"
   prim__setHreflang : SVGAElement -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.ping"
@@ -37,6 +39,7 @@ namespace SVGAElement
   export
   %foreign "browser:lambda:(x,v)=>{x.ping = v}"
   prim__setPing : SVGAElement -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.referrerPolicy"
@@ -46,6 +49,7 @@ namespace SVGAElement
   export
   %foreign "browser:lambda:(x,v)=>{x.referrerPolicy = v}"
   prim__setReferrerPolicy : SVGAElement -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.rel"
@@ -55,6 +59,7 @@ namespace SVGAElement
   export
   %foreign "browser:lambda:(x,v)=>{x.rel = v}"
   prim__setRel : SVGAElement -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.relList"
@@ -72,6 +77,7 @@ namespace SVGAElement
   export
   %foreign "browser:lambda:(x,v)=>{x.text = v}"
   prim__setText : SVGAElement -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.type"
@@ -81,6 +87,8 @@ namespace SVGAElement
   export
   %foreign "browser:lambda:(x,v)=>{x.type = v}"
   prim__setType : SVGAElement -> String -> PrimIO ()
+
+
 
 namespace SVGAngle
   
@@ -96,6 +104,7 @@ namespace SVGAngle
   export
   %foreign "browser:lambda:(x,v)=>{x.value = v}"
   prim__setValue : SVGAngle -> Double -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.valueAsString"
@@ -105,6 +114,7 @@ namespace SVGAngle
   export
   %foreign "browser:lambda:(x,v)=>{x.valueAsString = v}"
   prim__setValueAsString : SVGAngle -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.valueInSpecifiedUnits"
@@ -114,6 +124,7 @@ namespace SVGAngle
   export
   %foreign "browser:lambda:(x,v)=>{x.valueInSpecifiedUnits = v}"
   prim__setValueInSpecifiedUnits : SVGAngle -> Double -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:(x,a)=>x.convertToSpecifiedUnits(a)"
@@ -122,6 +133,7 @@ namespace SVGAngle
   export
   %foreign "browser:lambda:(x,a,b)=>x.newValueSpecifiedUnits(a,b)"
   prim__newValueSpecifiedUnits : SVGAngle -> Bits16 -> Double -> PrimIO ()
+
 
 namespace SVGAnimatedAngle
   
@@ -132,6 +144,7 @@ namespace SVGAnimatedAngle
   export
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : SVGAnimatedAngle -> PrimIO SVGAngle
+
 
 namespace SVGAnimatedBoolean
   
@@ -148,6 +161,8 @@ namespace SVGAnimatedBoolean
   %foreign "browser:lambda:(x,v)=>{x.baseVal = v}"
   prim__setBaseVal : SVGAnimatedBoolean -> Boolean -> PrimIO ()
 
+
+
 namespace SVGAnimatedEnumeration
   
   export
@@ -162,6 +177,8 @@ namespace SVGAnimatedEnumeration
   export
   %foreign "browser:lambda:(x,v)=>{x.baseVal = v}"
   prim__setBaseVal : SVGAnimatedEnumeration -> Bits16 -> PrimIO ()
+
+
 
 namespace SVGAnimatedInteger
   
@@ -178,6 +195,8 @@ namespace SVGAnimatedInteger
   %foreign "browser:lambda:(x,v)=>{x.baseVal = v}"
   prim__setBaseVal : SVGAnimatedInteger -> Int32 -> PrimIO ()
 
+
+
 namespace SVGAnimatedLength
   
   export
@@ -188,6 +207,7 @@ namespace SVGAnimatedLength
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : SVGAnimatedLength -> PrimIO SVGLength
 
+
 namespace SVGAnimatedLengthList
   
   export
@@ -197,6 +217,7 @@ namespace SVGAnimatedLengthList
   export
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : SVGAnimatedLengthList -> PrimIO SVGLengthList
+
 
 namespace SVGAnimatedNumber
   
@@ -213,6 +234,8 @@ namespace SVGAnimatedNumber
   %foreign "browser:lambda:(x,v)=>{x.baseVal = v}"
   prim__setBaseVal : SVGAnimatedNumber -> Double -> PrimIO ()
 
+
+
 namespace SVGAnimatedNumberList
   
   export
@@ -222,6 +245,7 @@ namespace SVGAnimatedNumberList
   export
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : SVGAnimatedNumberList -> PrimIO SVGNumberList
+
 
 namespace SVGAnimatedPreserveAspectRatio
   
@@ -235,6 +259,7 @@ namespace SVGAnimatedPreserveAspectRatio
   prim__baseVal :  SVGAnimatedPreserveAspectRatio
                 -> PrimIO SVGPreserveAspectRatio
 
+
 namespace SVGAnimatedRect
   
   export
@@ -244,6 +269,7 @@ namespace SVGAnimatedRect
   export
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : SVGAnimatedRect -> PrimIO DOMRect
+
 
 namespace SVGAnimatedString
   
@@ -260,6 +286,8 @@ namespace SVGAnimatedString
   %foreign "browser:lambda:(x,v)=>{x.baseVal = v}"
   prim__setBaseVal : SVGAnimatedString -> String -> PrimIO ()
 
+
+
 namespace SVGAnimatedTransformList
   
   export
@@ -269,6 +297,7 @@ namespace SVGAnimatedTransformList
   export
   %foreign "browser:lambda:x=>x.baseVal"
   prim__baseVal : SVGAnimatedTransformList -> PrimIO SVGTransformList
+
 
 namespace SVGCircleElement
   
@@ -286,6 +315,7 @@ namespace SVGCircleElement
 
 
 
+
 namespace SVGElement
   
   export
@@ -299,6 +329,7 @@ namespace SVGElement
   export
   %foreign "browser:lambda:x=>x.viewportElement"
   prim__viewportElement : SVGElement -> PrimIO (Nullable SVGElement)
+
 
 namespace SVGEllipseElement
   
@@ -318,6 +349,7 @@ namespace SVGEllipseElement
   %foreign "browser:lambda:x=>x.ry"
   prim__ry : SVGEllipseElement -> PrimIO SVGAnimatedLength
 
+
 namespace SVGForeignObjectElement
   
   export
@@ -335,6 +367,7 @@ namespace SVGForeignObjectElement
   export
   %foreign "browser:lambda:x=>x.y"
   prim__y : SVGForeignObjectElement -> PrimIO SVGAnimatedLength
+
 
 
 namespace SVGGeometryElement
@@ -363,6 +396,7 @@ namespace SVGGeometryElement
                         -> UndefOr DOMPointInit
                         -> PrimIO Boolean
 
+
 namespace SVGGradientElement
   
   export
@@ -377,6 +411,7 @@ namespace SVGGradientElement
   export
   %foreign "browser:lambda:x=>x.spreadMethod"
   prim__spreadMethod : SVGGradientElement -> PrimIO SVGAnimatedEnumeration
+
 
 namespace SVGGraphicsElement
   
@@ -398,6 +433,7 @@ namespace SVGGraphicsElement
   %foreign "browser:lambda:x=>x.getScreenCTM()"
   prim__getScreenCTM : SVGGraphicsElement -> PrimIO (Nullable DOMMatrix)
 
+
 namespace SVGImageElement
   
   export
@@ -408,6 +444,7 @@ namespace SVGImageElement
   export
   %foreign "browser:lambda:(x,v)=>{x.crossOrigin = v}"
   prim__setCrossOrigin : SVGImageElement -> Nullable String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.height"
@@ -430,6 +467,7 @@ namespace SVGImageElement
   %foreign "browser:lambda:x=>x.y"
   prim__y : SVGImageElement -> PrimIO SVGAnimatedLength
 
+
 namespace SVGLength
   
   export
@@ -444,6 +482,7 @@ namespace SVGLength
   export
   %foreign "browser:lambda:(x,v)=>{x.value = v}"
   prim__setValue : SVGLength -> Double -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.valueAsString"
@@ -453,6 +492,7 @@ namespace SVGLength
   export
   %foreign "browser:lambda:(x,v)=>{x.valueAsString = v}"
   prim__setValueAsString : SVGLength -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.valueInSpecifiedUnits"
@@ -462,6 +502,7 @@ namespace SVGLength
   export
   %foreign "browser:lambda:(x,v)=>{x.valueInSpecifiedUnits = v}"
   prim__setValueInSpecifiedUnits : SVGLength -> Double -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:(x,a)=>x.convertToSpecifiedUnits(a)"
@@ -470,6 +511,7 @@ namespace SVGLength
   export
   %foreign "browser:lambda:(x,a,b)=>x.newValueSpecifiedUnits(a,b)"
   prim__newValueSpecifiedUnits : SVGLength -> Bits16 -> Double -> PrimIO ()
+
 
 namespace SVGLengthList
   
@@ -516,6 +558,7 @@ namespace SVGLengthList
   %foreign "browser:lambda:(x,a,b)=>x.replaceItem(a,b)"
   prim__replaceItem : SVGLengthList -> SVGLength -> Bits32 -> PrimIO SVGLength
 
+
 namespace SVGLineElement
   
   export
@@ -534,6 +577,7 @@ namespace SVGLineElement
   %foreign "browser:lambda:x=>x.y2"
   prim__y2 : SVGLineElement -> PrimIO SVGAnimatedLength
 
+
 namespace SVGLinearGradientElement
   
   export
@@ -551,6 +595,7 @@ namespace SVGLinearGradientElement
   export
   %foreign "browser:lambda:x=>x.y2"
   prim__y2 : SVGLinearGradientElement -> PrimIO SVGAnimatedLength
+
 
 namespace SVGMarkerElement
   
@@ -574,6 +619,7 @@ namespace SVGMarkerElement
   export
   %foreign "browser:lambda:(x,v)=>{x.orient = v}"
   prim__setOrient : SVGMarkerElement -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.orientAngle"
@@ -600,6 +646,7 @@ namespace SVGMarkerElement
   prim__setOrientToAuto : SVGMarkerElement -> PrimIO ()
 
 
+
 namespace SVGNumber
   
   export
@@ -610,6 +657,8 @@ namespace SVGNumber
   export
   %foreign "browser:lambda:(x,v)=>{x.value = v}"
   prim__setValue : SVGNumber -> Double -> PrimIO ()
+
+
 
 namespace SVGNumberList
   
@@ -657,6 +706,7 @@ namespace SVGNumberList
   prim__replaceItem : SVGNumberList -> SVGNumber -> Bits32 -> PrimIO SVGNumber
 
 
+
 namespace SVGPatternElement
   
   export
@@ -686,6 +736,7 @@ namespace SVGPatternElement
   export
   %foreign "browser:lambda:x=>x.y"
   prim__y : SVGPatternElement -> PrimIO SVGAnimatedLength
+
 
 namespace SVGPointList
   
@@ -731,6 +782,7 @@ namespace SVGPointList
 
 
 
+
 namespace SVGPreserveAspectRatio
   
   export
@@ -741,6 +793,7 @@ namespace SVGPreserveAspectRatio
   export
   %foreign "browser:lambda:(x,v)=>{x.align = v}"
   prim__setAlign : SVGPreserveAspectRatio -> Bits16 -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.meetOrSlice"
@@ -750,6 +803,8 @@ namespace SVGPreserveAspectRatio
   export
   %foreign "browser:lambda:(x,v)=>{x.meetOrSlice = v}"
   prim__setMeetOrSlice : SVGPreserveAspectRatio -> Bits16 -> PrimIO ()
+
+
 
 namespace SVGRadialGradientElement
   
@@ -777,6 +832,7 @@ namespace SVGRadialGradientElement
   %foreign "browser:lambda:x=>x.r"
   prim__r : SVGRadialGradientElement -> PrimIO SVGAnimatedLength
 
+
 namespace SVGRectElement
   
   export
@@ -803,6 +859,7 @@ namespace SVGRectElement
   %foreign "browser:lambda:x=>x.y"
   prim__y : SVGRectElement -> PrimIO SVGAnimatedLength
 
+
 namespace SVGSVGElement
   
   export
@@ -813,6 +870,7 @@ namespace SVGSVGElement
   export
   %foreign "browser:lambda:(x,v)=>{x.currentScale = v}"
   prim__setCurrentScale : SVGSVGElement -> Double -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.currentTranslate"
@@ -920,6 +978,7 @@ namespace SVGSVGElement
   %foreign "browser:lambda:(x,a)=>x.unsuspendRedraw(a)"
   prim__unsuspendRedraw : SVGSVGElement -> Bits32 -> PrimIO ()
 
+
 namespace SVGScriptElement
   
   export
@@ -930,6 +989,7 @@ namespace SVGScriptElement
   export
   %foreign "browser:lambda:(x,v)=>{x.crossOrigin = v}"
   prim__setCrossOrigin : SVGScriptElement -> Nullable String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.type"
@@ -940,11 +1000,14 @@ namespace SVGScriptElement
   %foreign "browser:lambda:(x,v)=>{x.type = v}"
   prim__setType : SVGScriptElement -> String -> PrimIO ()
 
+
+
 namespace SVGStopElement
   
   export
   %foreign "browser:lambda:x=>x.offset"
   prim__offset : SVGStopElement -> PrimIO SVGAnimatedNumber
+
 
 namespace SVGStringList
   
@@ -988,6 +1051,7 @@ namespace SVGStringList
   %foreign "browser:lambda:(x,a,b)=>x.replaceItem(a,b)"
   prim__replaceItem : SVGStringList -> String -> Bits32 -> PrimIO String
 
+
 namespace SVGStyleElement
   
   export
@@ -998,6 +1062,7 @@ namespace SVGStyleElement
   export
   %foreign "browser:lambda:(x,v)=>{x.media = v}"
   prim__setMedia : SVGStyleElement -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.title"
@@ -1007,6 +1072,7 @@ namespace SVGStyleElement
   export
   %foreign "browser:lambda:(x,v)=>{x.title = v}"
   prim__setTitle : SVGStyleElement -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.type"
@@ -1016,6 +1082,8 @@ namespace SVGStyleElement
   export
   %foreign "browser:lambda:(x,v)=>{x.type = v}"
   prim__setType : SVGStyleElement -> String -> PrimIO ()
+
+
 
 
 
@@ -1076,6 +1144,7 @@ namespace SVGTextContentElement
   prim__selectSubString : SVGTextContentElement -> Bits32 -> Bits32 -> PrimIO ()
 
 
+
 namespace SVGTextPathElement
   
   export
@@ -1089,6 +1158,7 @@ namespace SVGTextPathElement
   export
   %foreign "browser:lambda:x=>x.startOffset"
   prim__startOffset : SVGTextPathElement -> PrimIO SVGAnimatedLength
+
 
 namespace SVGTextPositioningElement
   
@@ -1111,6 +1181,7 @@ namespace SVGTextPositioningElement
   export
   %foreign "browser:lambda:x=>x.y"
   prim__y : SVGTextPositioningElement -> PrimIO SVGAnimatedLengthList
+
 
 
 namespace SVGTransform
@@ -1150,6 +1221,7 @@ namespace SVGTransform
   export
   %foreign "browser:lambda:(x,a,b)=>x.setTranslate(a,b)"
   prim__setTranslate : SVGTransform -> Double -> Double -> PrimIO ()
+
 
 namespace SVGTransformList
   
@@ -1210,6 +1282,7 @@ namespace SVGTransformList
                     -> PrimIO SVGTransform
 
 
+
 namespace SVGUseElement
   
   export
@@ -1238,6 +1311,7 @@ namespace SVGUseElement
 
 
 
+
 namespace ShadowAnimation
   
   export
@@ -1247,6 +1321,8 @@ namespace ShadowAnimation
   export
   %foreign "browser:lambda:x=>x.sourceAnimation"
   prim__sourceAnimation : ShadowAnimation -> PrimIO Animation
+
+
 
 --------------------------------------------------------------------------------
 --          Mixins
@@ -1258,6 +1334,7 @@ namespace GetSVGDocument
   %foreign "browser:lambda:x=>x.getSVGDocument()"
   prim__getSVGDocument : GetSVGDocument -> PrimIO Document
 
+
 namespace SVGAnimatedPoints
   
   export
@@ -1267,6 +1344,7 @@ namespace SVGAnimatedPoints
   export
   %foreign "browser:lambda:x=>x.points"
   prim__points : SVGAnimatedPoints -> PrimIO SVGPointList
+
 
 namespace SVGElementInstance
   
@@ -1280,6 +1358,7 @@ namespace SVGElementInstance
   prim__correspondingUseElement :  SVGElementInstance
                                 -> PrimIO (Nullable SVGUseElement)
 
+
 namespace SVGFitToViewBox
   
   export
@@ -1291,6 +1370,7 @@ namespace SVGFitToViewBox
   %foreign "browser:lambda:x=>x.viewBox"
   prim__viewBox : SVGFitToViewBox -> PrimIO SVGAnimatedRect
 
+
 namespace SVGTests
   
   export
@@ -1301,11 +1381,14 @@ namespace SVGTests
   %foreign "browser:lambda:x=>x.systemLanguage"
   prim__systemLanguage : SVGTests -> PrimIO SVGStringList
 
+
 namespace SVGURIReference
   
   export
   %foreign "browser:lambda:x=>x.href"
   prim__href : SVGURIReference -> PrimIO SVGAnimatedString
+
+
 
 --------------------------------------------------------------------------------
 --          Dictionaries
@@ -1329,6 +1412,7 @@ namespace SVGBoundingBoxOptions
   export
   %foreign "browser:lambda:(x,v)=>{x.clipped = v}"
   prim__setClipped : SVGBoundingBoxOptions -> UndefOr Boolean -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.fill"
@@ -1338,6 +1422,7 @@ namespace SVGBoundingBoxOptions
   export
   %foreign "browser:lambda:(x,v)=>{x.fill = v}"
   prim__setFill : SVGBoundingBoxOptions -> UndefOr Boolean -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.markers"
@@ -1347,6 +1432,7 @@ namespace SVGBoundingBoxOptions
   export
   %foreign "browser:lambda:(x,v)=>{x.markers = v}"
   prim__setMarkers : SVGBoundingBoxOptions -> UndefOr Boolean -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.stroke"
@@ -1356,3 +1442,6 @@ namespace SVGBoundingBoxOptions
   export
   %foreign "browser:lambda:(x,v)=>{x.stroke = v}"
   prim__setStroke : SVGBoundingBoxOptions -> UndefOr Boolean -> PrimIO ()
+
+
+

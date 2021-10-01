@@ -252,6 +252,7 @@ namespace CompositeOperationOrAuto
   FromFFI CompositeOperationOrAuto String where
     fromFFI = read
 
+
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
@@ -327,6 +328,7 @@ FromFFI KeyframeEffect KeyframeEffect where fromFFI = Just
 export
 SafeCast KeyframeEffect where
   safeCast = unsafeCastOnPrototypeName "KeyframeEffect"
+
 
 --------------------------------------------------------------------------------
 --          Dictionaries
@@ -412,6 +414,7 @@ ToFFI OptionalEffectTiming OptionalEffectTiming where toFFI = id
 export
 FromFFI OptionalEffectTiming OptionalEffectTiming where fromFFI = Just
 
+
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------
@@ -423,3 +426,5 @@ ToFFI Animatable Animatable where toFFI = id
   
 export
 FromFFI Animatable Animatable where fromFFI = Just
+
+

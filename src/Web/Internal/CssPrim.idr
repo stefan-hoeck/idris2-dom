@@ -25,6 +25,7 @@ namespace CSSGroupingRule
                    -> UndefOr Bits32
                    -> PrimIO Bits32
 
+
 namespace CSSImportRule
   
   export
@@ -39,6 +40,7 @@ namespace CSSImportRule
   %foreign "browser:lambda:x=>x.styleSheet"
   prim__styleSheet : CSSImportRule -> PrimIO CSSStyleSheet
 
+
 namespace CSSMarginRule
   
   export
@@ -48,6 +50,7 @@ namespace CSSMarginRule
   export
   %foreign "browser:lambda:x=>x.style"
   prim__style : CSSMarginRule -> PrimIO CSSStyleDeclaration
+
 
 namespace CSSNamespaceRule
   
@@ -59,6 +62,7 @@ namespace CSSNamespaceRule
   %foreign "browser:lambda:x=>x.prefix"
   prim__prefix : CSSNamespaceRule -> PrimIO String
 
+
 namespace CSSPageRule
   
   export
@@ -69,10 +73,12 @@ namespace CSSPageRule
   export
   %foreign "browser:lambda:(x,v)=>{x.selectorText = v}"
   prim__setSelectorText : CSSPageRule -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.style"
   prim__style : CSSPageRule -> PrimIO CSSStyleDeclaration
+
 
 namespace CSSPseudoElement
   
@@ -84,6 +90,7 @@ namespace CSSPseudoElement
   %foreign "browser:lambda:x=>x.type"
   prim__type : CSSPseudoElement -> PrimIO String
 
+
 namespace CSSRule
   
   export
@@ -94,6 +101,7 @@ namespace CSSRule
   export
   %foreign "browser:lambda:(x,v)=>{x.cssText = v}"
   prim__setCssText : CSSRule -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.parentRule"
@@ -107,6 +115,7 @@ namespace CSSRule
   %foreign "browser:lambda:x=>x.type"
   prim__type : CSSRule -> PrimIO Bits16
 
+
 namespace CSSRuleList
   
   export
@@ -116,6 +125,7 @@ namespace CSSRuleList
   export
   %foreign "browser:lambda:(x,a)=>x.item(a)"
   prim__item : CSSRuleList -> Bits32 -> PrimIO (Nullable CSSRule)
+
 
 namespace CSSStyleDeclaration
   
@@ -127,6 +137,7 @@ namespace CSSStyleDeclaration
   export
   %foreign "browser:lambda:(x,v)=>{x.cssFloat = v}"
   prim__setCssFloat : CSSStyleDeclaration -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.cssText"
@@ -136,6 +147,7 @@ namespace CSSStyleDeclaration
   export
   %foreign "browser:lambda:(x,v)=>{x.cssText = v}"
   prim__setCssText : CSSStyleDeclaration -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.length"
@@ -169,6 +181,7 @@ namespace CSSStyleDeclaration
                     -> UndefOr String
                     -> PrimIO ()
 
+
 namespace CSSStyleRule
   
   export
@@ -179,10 +192,12 @@ namespace CSSStyleRule
   export
   %foreign "browser:lambda:(x,v)=>{x.selectorText = v}"
   prim__setSelectorText : CSSStyleRule -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.style"
   prim__style : CSSStyleRule -> PrimIO CSSStyleDeclaration
+
 
 namespace CSSStyleSheet
   
@@ -218,6 +233,7 @@ namespace CSSStyleSheet
   %foreign "browser:lambda:(x,a)=>x.removeRule(a)"
   prim__removeRule : CSSStyleSheet -> UndefOr Bits32 -> PrimIO ()
 
+
 namespace MediaList
   
   export
@@ -232,6 +248,7 @@ namespace MediaList
   export
   %foreign "browser:lambda:(x,v)=>{x.mediaText = v}"
   prim__setMediaText : MediaList -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:(x,a)=>x.appendMedium(a)"
@@ -245,6 +262,7 @@ namespace MediaList
   %foreign "browser:lambda:(x,a)=>x.item(a)"
   prim__item : MediaList -> Bits32 -> PrimIO (Nullable String)
 
+
 namespace StyleSheet
   
   export
@@ -255,6 +273,7 @@ namespace StyleSheet
   export
   %foreign "browser:lambda:(x,v)=>{x.disabled = v}"
   prim__setDisabled : StyleSheet -> Boolean -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.href"
@@ -281,6 +300,7 @@ namespace StyleSheet
   %foreign "browser:lambda:x=>x.type"
   prim__type : StyleSheet -> PrimIO String
 
+
 namespace StyleSheetList
   
   export
@@ -290,6 +310,8 @@ namespace StyleSheetList
   export
   %foreign "browser:lambda:(x,a)=>x.item(a)"
   prim__item : StyleSheetList -> Bits32 -> PrimIO (Nullable CSSStyleSheet)
+
+
 
 --------------------------------------------------------------------------------
 --          Mixins
@@ -301,9 +323,12 @@ namespace ElementCSSInlineStyle
   %foreign "browser:lambda:x=>x.style"
   prim__style : ElementCSSInlineStyle -> PrimIO CSSStyleDeclaration
 
+
 namespace LinkStyle
   
   export
   %foreign "browser:lambda:x=>x.sheet"
   prim__sheet : LinkStyle -> PrimIO (Nullable CSSStyleSheet)
+
+
 

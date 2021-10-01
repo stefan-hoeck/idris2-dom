@@ -164,6 +164,7 @@ namespace MediaDeviceKind
   FromFFI MediaDeviceKind String where
     fromFFI = read
 
+
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
@@ -263,6 +264,7 @@ FromFFI OverconstrainedError OverconstrainedError where fromFFI = Just
 export
 SafeCast OverconstrainedError where
   safeCast = unsafeCastOnPrototypeName "OverconstrainedError"
+
 
 --------------------------------------------------------------------------------
 --          Dictionaries
@@ -405,6 +407,7 @@ export
 FromFFI ULongRange ULongRange where fromFFI = Just
 
 
+
 --------------------------------------------------------------------------------
 --          Callbacks
 --------------------------------------------------------------------------------
@@ -424,3 +427,4 @@ ToFFI NavigatorUserMediaSuccessCallback NavigatorUserMediaSuccessCallback where 
   
 export
 FromFFI NavigatorUserMediaSuccessCallback NavigatorUserMediaSuccessCallback where fromFFI = Just
+

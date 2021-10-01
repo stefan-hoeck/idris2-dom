@@ -29,7 +29,7 @@ maybeToNullable : Maybe a -> Nullable a
 maybeToNullable = maybe null nonNull
 
 export
-mayUp : JSType a => Maybe a -> {auto 0 _ : Elem b (Types a)} -> Nullable b
+mayUp : (0 _ : JSType a) => Maybe a -> {auto 0 _ : Elem b (Types a)} -> Nullable b
 mayUp x = maybe null (\v => nonNull $ up v) x
 
 export

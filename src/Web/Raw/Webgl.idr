@@ -32,6 +32,7 @@ namespace WebGLActiveInfo
 
 
 
+
 namespace WebGLShaderPrecisionFormat
   
   export
@@ -45,6 +46,8 @@ namespace WebGLShaderPrecisionFormat
   export
   rangeMin : (obj : WebGLShaderPrecisionFormat) -> JSIO Int32
   rangeMin a = primJS $ WebGLShaderPrecisionFormat.prim__rangeMin a
+
+
 
 
 
@@ -1110,7 +1113,7 @@ namespace WebGL2RenderingContextBase
   WAIT_FAILED = 0x911D
   
   export
-  beginQuery :  JSType t1
+  beginQuery :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
              -> (obj : t1)
              -> (target : Bits32)
@@ -1120,7 +1123,7 @@ namespace WebGL2RenderingContextBase
                    $ WebGL2RenderingContextBase.prim__beginQuery (up a) b c
   
   export
-  beginTransformFeedback :  JSType t1
+  beginTransformFeedback :  (0 _ : JSType t1)
                          => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                          -> (obj : t1)
                          -> (primitiveMode : Bits32)
@@ -1130,7 +1133,7 @@ namespace WebGL2RenderingContextBase
                                                                                        b
   
   export
-  bindBufferBase :  JSType t1
+  bindBufferBase :  (0 _ : JSType t1)
                  => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                  -> (obj : t1)
                  -> (target : Bits32)
@@ -1144,7 +1147,7 @@ namespace WebGL2RenderingContextBase
                                                                            (toFFI d)
   
   export
-  bindBufferRange :  JSType t1
+  bindBufferRange :  (0 _ : JSType t1)
                   => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                   -> (obj : t1)
                   -> (target : Bits32)
@@ -1162,7 +1165,7 @@ namespace WebGL2RenderingContextBase
                                                                                  f
   
   export
-  bindSampler :  JSType t1
+  bindSampler :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
               -> (obj : t1)
               -> (unit : Bits32)
@@ -1174,7 +1177,7 @@ namespace WebGL2RenderingContextBase
                                                                    (toFFI c)
   
   export
-  bindTransformFeedback :  JSType t1
+  bindTransformFeedback :  (0 _ : JSType t1)
                         => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                         -> (obj : t1)
                         -> (target : Bits32)
@@ -1186,7 +1189,7 @@ namespace WebGL2RenderingContextBase
                                                                                        (toFFI c)
   
   export
-  bindVertexArray :  JSType t1
+  bindVertexArray :  (0 _ : JSType t1)
                   => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                   -> (obj : t1)
                   -> (array : Maybe WebGLVertexArrayObject)
@@ -1196,7 +1199,7 @@ namespace WebGL2RenderingContextBase
                                                                          (toFFI b)
   
   export
-  blitFramebuffer :  JSType t1
+  blitFramebuffer :  (0 _ : JSType t1)
                   => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                   -> (obj : t1)
                   -> (srcX0 : Int32)
@@ -1224,7 +1227,7 @@ namespace WebGL2RenderingContextBase
                                                                                            k
   
   export
-  clearBufferfi :  JSType t1
+  clearBufferfi :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                 -> (obj : t1)
                 -> (buffer : Bits32)
@@ -1240,7 +1243,7 @@ namespace WebGL2RenderingContextBase
                                                                            e
   
   export
-  clearBufferfv :  JSType t1
+  clearBufferfv :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                 -> (obj : t1)
                 -> (buffer : Bits32)
@@ -1256,7 +1259,7 @@ namespace WebGL2RenderingContextBase
                                                                            (toFFI e)
 
   export
-  clearBufferfv' :  JSType t1
+  clearBufferfv' :  (0 _ : JSType t1)
                  => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                  -> (obj : t1)
                  -> (buffer : Bits32)
@@ -1271,7 +1274,7 @@ namespace WebGL2RenderingContextBase
                                                                           undef
   
   export
-  clearBufferiv :  JSType t1
+  clearBufferiv :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                 -> (obj : t1)
                 -> (buffer : Bits32)
@@ -1287,7 +1290,7 @@ namespace WebGL2RenderingContextBase
                                                                            (toFFI e)
 
   export
-  clearBufferiv' :  JSType t1
+  clearBufferiv' :  (0 _ : JSType t1)
                  => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                  -> (obj : t1)
                  -> (buffer : Bits32)
@@ -1302,7 +1305,7 @@ namespace WebGL2RenderingContextBase
                                                                           undef
   
   export
-  clearBufferuiv :  JSType t1
+  clearBufferuiv :  (0 _ : JSType t1)
                  => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                  -> (obj : t1)
                  -> (buffer : Bits32)
@@ -1318,7 +1321,7 @@ namespace WebGL2RenderingContextBase
                                                                              (toFFI e)
 
   export
-  clearBufferuiv' :  JSType t1
+  clearBufferuiv' :  (0 _ : JSType t1)
                   => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                   -> (obj : t1)
                   -> (buffer : Bits32)
@@ -1333,7 +1336,7 @@ namespace WebGL2RenderingContextBase
                                                                             undef
   
   export
-  clientWaitSync :  JSType t1
+  clientWaitSync :  (0 _ : JSType t1)
                  => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                  -> (obj : t1)
                  -> (sync : WebGLSync)
@@ -1347,7 +1350,7 @@ namespace WebGL2RenderingContextBase
                                                                            d
   
   export
-  compressedTexImage3D :  JSType t1
+  compressedTexImage3D :  (0 _ : JSType t1)
                        => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                        -> (obj : t1)
                        -> (target : Bits32)
@@ -1373,7 +1376,7 @@ namespace WebGL2RenderingContextBase
                                                                                                    j
   
   export
-  compressedTexImage3D1 :  JSType t1
+  compressedTexImage3D1 :  (0 _ : JSType t1)
                         => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                         -> (obj : t1)
                         -> (target : Bits32)
@@ -1411,7 +1414,7 @@ namespace WebGL2RenderingContextBase
                                                                                                        (toFFI k)
 
   export
-  compressedTexImage3D1' :  JSType t1
+  compressedTexImage3D1' :  (0 _ : JSType t1)
                          => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                          -> (obj : t1)
                          -> (target : Bits32)
@@ -1447,7 +1450,7 @@ namespace WebGL2RenderingContextBase
                                                                                                     undef
   
   export
-  compressedTexSubImage3D :  JSType t1
+  compressedTexSubImage3D :  (0 _ : JSType t1)
                           => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                           -> (obj : t1)
                           -> (target : Bits32)
@@ -1477,7 +1480,7 @@ namespace WebGL2RenderingContextBase
                                                                                                              l
   
   export
-  compressedTexSubImage3D1 :  JSType t1
+  compressedTexSubImage3D1 :  (0 _ : JSType t1)
                            => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                            -> (obj : t1)
                            -> (target : Bits32)
@@ -1519,7 +1522,7 @@ namespace WebGL2RenderingContextBase
                                                                                                                  (toFFI m)
 
   export
-  compressedTexSubImage3D1' :  JSType t1
+  compressedTexSubImage3D1' :  (0 _ : JSType t1)
                             => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                             -> (obj : t1)
                             -> (target : Bits32)
@@ -1559,7 +1562,7 @@ namespace WebGL2RenderingContextBase
                                                                                                               undef
   
   export
-  copyBufferSubData :  JSType t1
+  copyBufferSubData :  (0 _ : JSType t1)
                     => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                     -> (obj : t1)
                     -> (readTarget : Bits32)
@@ -1577,7 +1580,7 @@ namespace WebGL2RenderingContextBase
                                                                                      f
   
   export
-  copyTexSubImage3D :  JSType t1
+  copyTexSubImage3D :  (0 _ : JSType t1)
                     => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                     -> (obj : t1)
                     -> (target : Bits32)
@@ -1603,7 +1606,7 @@ namespace WebGL2RenderingContextBase
                                                                                              j
   
   export
-  createQuery :  JSType t1
+  createQuery :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
               -> (obj : t1)
               -> JSIO (Maybe WebGLQuery)
@@ -1611,7 +1614,7 @@ namespace WebGL2RenderingContextBase
                 $ WebGL2RenderingContextBase.prim__createQuery (up a)
   
   export
-  createSampler :  JSType t1
+  createSampler :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                 -> (obj : t1)
                 -> JSIO (Maybe WebGLSampler)
@@ -1619,7 +1622,7 @@ namespace WebGL2RenderingContextBase
                   $ WebGL2RenderingContextBase.prim__createSampler (up a)
   
   export
-  createTransformFeedback :  JSType t1
+  createTransformFeedback :  (0 _ : JSType t1)
                           => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                           -> (obj : t1)
                           -> JSIO (Maybe WebGLTransformFeedback)
@@ -1627,7 +1630,7 @@ namespace WebGL2RenderingContextBase
                             $ WebGL2RenderingContextBase.prim__createTransformFeedback (up a)
   
   export
-  createVertexArray :  JSType t1
+  createVertexArray :  (0 _ : JSType t1)
                     => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                     -> (obj : t1)
                     -> JSIO (Maybe WebGLVertexArrayObject)
@@ -1635,7 +1638,7 @@ namespace WebGL2RenderingContextBase
                       $ WebGL2RenderingContextBase.prim__createVertexArray (up a)
   
   export
-  deleteQuery :  JSType t1
+  deleteQuery :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
               -> (obj : t1)
               -> (query : Maybe WebGLQuery)
@@ -1645,7 +1648,7 @@ namespace WebGL2RenderingContextBase
                                                                  (toFFI b)
   
   export
-  deleteSampler :  JSType t1
+  deleteSampler :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                 -> (obj : t1)
                 -> (sampler : Maybe WebGLSampler)
@@ -1655,7 +1658,7 @@ namespace WebGL2RenderingContextBase
                                                                      (toFFI b)
   
   export
-  deleteSync :  JSType t1
+  deleteSync :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
              -> (obj : t1)
              -> (sync : Maybe WebGLSync)
@@ -1664,7 +1667,7 @@ namespace WebGL2RenderingContextBase
                  $ WebGL2RenderingContextBase.prim__deleteSync (up a) (toFFI b)
   
   export
-  deleteTransformFeedback :  JSType t1
+  deleteTransformFeedback :  (0 _ : JSType t1)
                           => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                           -> (obj : t1)
                           -> (tf : Maybe WebGLTransformFeedback)
@@ -1674,7 +1677,7 @@ namespace WebGL2RenderingContextBase
                                                                                          (toFFI b)
   
   export
-  deleteVertexArray :  JSType t1
+  deleteVertexArray :  (0 _ : JSType t1)
                     => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                     -> (obj : t1)
                     -> (vertexArray : Maybe WebGLVertexArrayObject)
@@ -1684,7 +1687,7 @@ namespace WebGL2RenderingContextBase
                                                                              (toFFI b)
   
   export
-  drawArraysInstanced :  JSType t1
+  drawArraysInstanced :  (0 _ : JSType t1)
                       => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                       -> (obj : t1)
                       -> (mode : Bits32)
@@ -1700,7 +1703,7 @@ namespace WebGL2RenderingContextBase
                                                                                        e
   
   export
-  drawBuffers :  JSType t1
+  drawBuffers :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
               -> (obj : t1)
               -> (buffers : Array Bits32)
@@ -1709,7 +1712,7 @@ namespace WebGL2RenderingContextBase
                   $ WebGL2RenderingContextBase.prim__drawBuffers (up a) b
   
   export
-  drawElementsInstanced :  JSType t1
+  drawElementsInstanced :  (0 _ : JSType t1)
                         => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                         -> (obj : t1)
                         -> (mode : Bits32)
@@ -1727,7 +1730,7 @@ namespace WebGL2RenderingContextBase
                                                                                              f
   
   export
-  drawRangeElements :  JSType t1
+  drawRangeElements :  (0 _ : JSType t1)
                     => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                     -> (obj : t1)
                     -> (mode : Bits32)
@@ -1747,7 +1750,7 @@ namespace WebGL2RenderingContextBase
                                                                                        g
   
   export
-  endQuery :  JSType t1
+  endQuery :  (0 _ : JSType t1)
            => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
            -> (obj : t1)
            -> (target : Bits32)
@@ -1755,7 +1758,7 @@ namespace WebGL2RenderingContextBase
   endQuery a b = primJS $ WebGL2RenderingContextBase.prim__endQuery (up a) b
   
   export
-  endTransformFeedback :  JSType t1
+  endTransformFeedback :  (0 _ : JSType t1)
                        => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                        -> (obj : t1)
                        -> JSIO ()
@@ -1763,7 +1766,7 @@ namespace WebGL2RenderingContextBase
                          $ WebGL2RenderingContextBase.prim__endTransformFeedback (up a)
   
   export
-  fenceSync :  JSType t1
+  fenceSync :  (0 _ : JSType t1)
             => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
             -> (obj : t1)
             -> (condition : Bits32)
@@ -1773,7 +1776,7 @@ namespace WebGL2RenderingContextBase
                   $ WebGL2RenderingContextBase.prim__fenceSync (up a) b c
   
   export
-  framebufferTextureLayer :  JSType t1
+  framebufferTextureLayer :  (0 _ : JSType t1)
                           => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                           -> (obj : t1)
                           -> (target : Bits32)
@@ -1791,7 +1794,7 @@ namespace WebGL2RenderingContextBase
                                                                                                  f
   
   export
-  getActiveUniformBlockName :  JSType t1
+  getActiveUniformBlockName :  (0 _ : JSType t1)
                             => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                             -> (obj : t1)
                             -> (program : WebGLProgram)
@@ -1803,7 +1806,7 @@ namespace WebGL2RenderingContextBase
                                                                                                c
   
   export
-  getActiveUniformBlockParameter :  JSType t1
+  getActiveUniformBlockParameter :  (0 _ : JSType t1)
                                  => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                                  -> (obj : t1)
                                  -> (program : WebGLProgram)
@@ -1817,7 +1820,7 @@ namespace WebGL2RenderingContextBase
                                                                                                            d
   
   export
-  getActiveUniforms :  JSType t1
+  getActiveUniforms :  (0 _ : JSType t1)
                     => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                     -> (obj : t1)
                     -> (program : WebGLProgram)
@@ -1831,7 +1834,7 @@ namespace WebGL2RenderingContextBase
                                                                                  d
   
   export
-  getBufferSubData :  JSType t1
+  getBufferSubData :  (0 _ : JSType t1)
                    => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                    -> (obj : t1)
                    -> (target : Bits32)
@@ -1859,7 +1862,7 @@ namespace WebGL2RenderingContextBase
                                                                                    (toFFI f)
 
   export
-  getBufferSubData' :  JSType t1
+  getBufferSubData' :  (0 _ : JSType t1)
                     => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                     -> (obj : t1)
                     -> (target : Bits32)
@@ -1885,7 +1888,7 @@ namespace WebGL2RenderingContextBase
                                                                                 undef
   
   export
-  getFragDataLocation :  JSType t1
+  getFragDataLocation :  (0 _ : JSType t1)
                       => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                       -> (obj : t1)
                       -> (program : WebGLProgram)
@@ -1897,7 +1900,7 @@ namespace WebGL2RenderingContextBase
                                                                                    c
   
   export
-  getIndexedParameter :  JSType t1
+  getIndexedParameter :  (0 _ : JSType t1)
                       => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                       -> (obj : t1)
                       -> (target : Bits32)
@@ -1909,7 +1912,7 @@ namespace WebGL2RenderingContextBase
                                                                                    c
   
   export
-  getInternalformatParameter :  JSType t1
+  getInternalformatParameter :  (0 _ : JSType t1)
                              => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                              -> (obj : t1)
                              -> (target : Bits32)
@@ -1923,7 +1926,7 @@ namespace WebGL2RenderingContextBase
                                                                                                    d
   
   export
-  getQueryParameter :  JSType t1
+  getQueryParameter :  (0 _ : JSType t1)
                     => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                     -> (obj : t1)
                     -> (query : WebGLQuery)
@@ -1935,7 +1938,7 @@ namespace WebGL2RenderingContextBase
                                                                                c
   
   export
-  getQuery :  JSType t1
+  getQuery :  (0 _ : JSType t1)
            => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
            -> (obj : t1)
            -> (target : Bits32)
@@ -1945,7 +1948,7 @@ namespace WebGL2RenderingContextBase
                  $ WebGL2RenderingContextBase.prim__getQuery (up a) b c
   
   export
-  getSamplerParameter :  JSType t1
+  getSamplerParameter :  (0 _ : JSType t1)
                       => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                       -> (obj : t1)
                       -> (sampler : WebGLSampler)
@@ -1957,7 +1960,7 @@ namespace WebGL2RenderingContextBase
                                                                                    c
   
   export
-  getSyncParameter :  JSType t1
+  getSyncParameter :  (0 _ : JSType t1)
                    => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                    -> (obj : t1)
                    -> (sync : WebGLSync)
@@ -1969,7 +1972,7 @@ namespace WebGL2RenderingContextBase
                                                                              c
   
   export
-  getTransformFeedbackVarying :  JSType t1
+  getTransformFeedbackVarying :  (0 _ : JSType t1)
                               => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                               -> (obj : t1)
                               -> (program : WebGLProgram)
@@ -1981,7 +1984,7 @@ namespace WebGL2RenderingContextBase
                                                                                                    c
   
   export
-  getUniformBlockIndex :  JSType t1
+  getUniformBlockIndex :  (0 _ : JSType t1)
                        => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                        -> (obj : t1)
                        -> (program : WebGLProgram)
@@ -1993,7 +1996,7 @@ namespace WebGL2RenderingContextBase
                                                                                      c
   
   export
-  getUniformIndices :  JSType t1
+  getUniformIndices :  (0 _ : JSType t1)
                     => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                     -> (obj : t1)
                     -> (program : WebGLProgram)
@@ -2005,7 +2008,7 @@ namespace WebGL2RenderingContextBase
                                                                                c
   
   export
-  invalidateFramebuffer :  JSType t1
+  invalidateFramebuffer :  (0 _ : JSType t1)
                         => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                         -> (obj : t1)
                         -> (target : Bits32)
@@ -2017,7 +2020,7 @@ namespace WebGL2RenderingContextBase
                                                                                        c
   
   export
-  invalidateSubFramebuffer :  JSType t1
+  invalidateSubFramebuffer :  (0 _ : JSType t1)
                            => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                            -> (obj : t1)
                            -> (target : Bits32)
@@ -2037,7 +2040,7 @@ namespace WebGL2RenderingContextBase
                                                                                                      g
   
   export
-  isQuery :  JSType t1
+  isQuery :  (0 _ : JSType t1)
           => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
           -> (obj : t1)
           -> (query : Maybe WebGLQuery)
@@ -2046,7 +2049,7 @@ namespace WebGL2RenderingContextBase
               $ WebGL2RenderingContextBase.prim__isQuery (up a) (toFFI b)
   
   export
-  isSampler :  JSType t1
+  isSampler :  (0 _ : JSType t1)
             => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
             -> (obj : t1)
             -> (sampler : Maybe WebGLSampler)
@@ -2055,7 +2058,7 @@ namespace WebGL2RenderingContextBase
                 $ WebGL2RenderingContextBase.prim__isSampler (up a) (toFFI b)
   
   export
-  isSync :  JSType t1
+  isSync :  (0 _ : JSType t1)
          => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
          -> (obj : t1)
          -> (sync : Maybe WebGLSync)
@@ -2064,7 +2067,7 @@ namespace WebGL2RenderingContextBase
              $ WebGL2RenderingContextBase.prim__isSync (up a) (toFFI b)
   
   export
-  isTransformFeedback :  JSType t1
+  isTransformFeedback :  (0 _ : JSType t1)
                       => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                       -> (obj : t1)
                       -> (tf : Maybe WebGLTransformFeedback)
@@ -2074,7 +2077,7 @@ namespace WebGL2RenderingContextBase
                                                                                  (toFFI b)
   
   export
-  isVertexArray :  JSType t1
+  isVertexArray :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                 -> (obj : t1)
                 -> (vertexArray : Maybe WebGLVertexArrayObject)
@@ -2084,7 +2087,7 @@ namespace WebGL2RenderingContextBase
                                                                      (toFFI b)
   
   export
-  pauseTransformFeedback :  JSType t1
+  pauseTransformFeedback :  (0 _ : JSType t1)
                          => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                          -> (obj : t1)
                          -> JSIO ()
@@ -2092,7 +2095,7 @@ namespace WebGL2RenderingContextBase
                            $ WebGL2RenderingContextBase.prim__pauseTransformFeedback (up a)
   
   export
-  readBuffer :  JSType t1
+  readBuffer :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
              -> (obj : t1)
              -> (src : Bits32)
@@ -2100,7 +2103,7 @@ namespace WebGL2RenderingContextBase
   readBuffer a b = primJS $ WebGL2RenderingContextBase.prim__readBuffer (up a) b
   
   export
-  renderbufferStorageMultisample :  JSType t1
+  renderbufferStorageMultisample :  (0 _ : JSType t1)
                                  => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                                  -> (obj : t1)
                                  -> (target : Bits32)
@@ -2118,7 +2121,7 @@ namespace WebGL2RenderingContextBase
                                                                                                                f
   
   export
-  resumeTransformFeedback :  JSType t1
+  resumeTransformFeedback :  (0 _ : JSType t1)
                           => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                           -> (obj : t1)
                           -> JSIO ()
@@ -2126,7 +2129,7 @@ namespace WebGL2RenderingContextBase
                             $ WebGL2RenderingContextBase.prim__resumeTransformFeedback (up a)
   
   export
-  samplerParameterf :  JSType t1
+  samplerParameterf :  (0 _ : JSType t1)
                     => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                     -> (obj : t1)
                     -> (sampler : WebGLSampler)
@@ -2140,7 +2143,7 @@ namespace WebGL2RenderingContextBase
                                                                                  d
   
   export
-  samplerParameteri :  JSType t1
+  samplerParameteri :  (0 _ : JSType t1)
                     => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                     -> (obj : t1)
                     -> (sampler : WebGLSampler)
@@ -2154,7 +2157,7 @@ namespace WebGL2RenderingContextBase
                                                                                  d
   
   export
-  texImage3D :  JSType t1
+  texImage3D :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
              -> (obj : t1)
              -> (target : Bits32)
@@ -2182,7 +2185,7 @@ namespace WebGL2RenderingContextBase
                                                                                  k
   
   export
-  texImage3D1 :  JSType t1
+  texImage3D1 :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
               -> (obj : t1)
               -> (target : Bits32)
@@ -2216,7 +2219,7 @@ namespace WebGL2RenderingContextBase
                                                                                    (toFFI k)
   
   export
-  texImage3D2 :  JSType t1
+  texImage3D2 :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
               -> (obj : t1)
               -> (target : Bits32)
@@ -2254,7 +2257,7 @@ namespace WebGL2RenderingContextBase
                                                                                    (toFFI k)
   
   export
-  texImage3D3 :  JSType t1
+  texImage3D3 :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
               -> (obj : t1)
               -> (target : Bits32)
@@ -2294,7 +2297,7 @@ namespace WebGL2RenderingContextBase
                                                                                      l
   
   export
-  texStorage2D :  JSType t1
+  texStorage2D :  (0 _ : JSType t1)
                => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                -> (obj : t1)
                -> (target : Bits32)
@@ -2312,7 +2315,7 @@ namespace WebGL2RenderingContextBase
                                                                            f
   
   export
-  texStorage3D :  JSType t1
+  texStorage3D :  (0 _ : JSType t1)
                => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                -> (obj : t1)
                -> (target : Bits32)
@@ -2332,7 +2335,7 @@ namespace WebGL2RenderingContextBase
                                                                              g
   
   export
-  texSubImage3D :  JSType t1
+  texSubImage3D :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                 -> (obj : t1)
                 -> (target : Bits32)
@@ -2362,7 +2365,7 @@ namespace WebGL2RenderingContextBase
                                                                                          l
   
   export
-  texSubImage3D1 :  JSType t1
+  texSubImage3D1 :  (0 _ : JSType t1)
                  => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                  -> (obj : t1)
                  -> (target : Bits32)
@@ -2398,7 +2401,7 @@ namespace WebGL2RenderingContextBase
                                                                                            (toFFI l)
   
   export
-  texSubImage3D2 :  JSType t1
+  texSubImage3D2 :  (0 _ : JSType t1)
                  => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                  -> (obj : t1)
                  -> (target : Bits32)
@@ -2440,7 +2443,7 @@ namespace WebGL2RenderingContextBase
                                                                                              (toFFI m)
 
   export
-  texSubImage3D2' :  JSType t1
+  texSubImage3D2' :  (0 _ : JSType t1)
                   => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                   -> (obj : t1)
                   -> (target : Bits32)
@@ -2481,7 +2484,7 @@ namespace WebGL2RenderingContextBase
                                                                                             undef
   
   export
-  transformFeedbackVaryings :  JSType t1
+  transformFeedbackVaryings :  (0 _ : JSType t1)
                             => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                             -> (obj : t1)
                             -> (program : WebGLProgram)
@@ -2495,7 +2498,7 @@ namespace WebGL2RenderingContextBase
                                                                                                  d
   
   export
-  uniform1ui :  JSType t1
+  uniform1ui :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
              -> (obj : t1)
              -> (location : Maybe WebGLUniformLocation)
@@ -2507,7 +2510,7 @@ namespace WebGL2RenderingContextBase
                                                                  c
   
   export
-  uniform1uiv :  JSType t1
+  uniform1uiv :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
               -> (obj : t1)
               -> (location : Maybe WebGLUniformLocation)
@@ -2523,7 +2526,7 @@ namespace WebGL2RenderingContextBase
                                                                        (toFFI e)
 
   export
-  uniform1uiv' :  JSType t1
+  uniform1uiv' :  (0 _ : JSType t1)
                => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                -> (obj : t1)
                -> (location : Maybe WebGLUniformLocation)
@@ -2537,7 +2540,7 @@ namespace WebGL2RenderingContextBase
                                                                     undef
   
   export
-  uniform2ui :  JSType t1
+  uniform2ui :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
              -> (obj : t1)
              -> (location : Maybe WebGLUniformLocation)
@@ -2551,7 +2554,7 @@ namespace WebGL2RenderingContextBase
                                                                    d
   
   export
-  uniform2uiv :  JSType t1
+  uniform2uiv :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
               -> (obj : t1)
               -> (location : Maybe WebGLUniformLocation)
@@ -2567,7 +2570,7 @@ namespace WebGL2RenderingContextBase
                                                                        (toFFI e)
 
   export
-  uniform2uiv' :  JSType t1
+  uniform2uiv' :  (0 _ : JSType t1)
                => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                -> (obj : t1)
                -> (location : Maybe WebGLUniformLocation)
@@ -2581,7 +2584,7 @@ namespace WebGL2RenderingContextBase
                                                                     undef
   
   export
-  uniform3ui :  JSType t1
+  uniform3ui :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
              -> (obj : t1)
              -> (location : Maybe WebGLUniformLocation)
@@ -2597,7 +2600,7 @@ namespace WebGL2RenderingContextBase
                                                                      e
   
   export
-  uniform3uiv :  JSType t1
+  uniform3uiv :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
               -> (obj : t1)
               -> (location : Maybe WebGLUniformLocation)
@@ -2613,7 +2616,7 @@ namespace WebGL2RenderingContextBase
                                                                        (toFFI e)
 
   export
-  uniform3uiv' :  JSType t1
+  uniform3uiv' :  (0 _ : JSType t1)
                => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                -> (obj : t1)
                -> (location : Maybe WebGLUniformLocation)
@@ -2627,7 +2630,7 @@ namespace WebGL2RenderingContextBase
                                                                     undef
   
   export
-  uniform4ui :  JSType t1
+  uniform4ui :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
              -> (obj : t1)
              -> (location : Maybe WebGLUniformLocation)
@@ -2645,7 +2648,7 @@ namespace WebGL2RenderingContextBase
                                                                        f
   
   export
-  uniform4uiv :  JSType t1
+  uniform4uiv :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
               -> (obj : t1)
               -> (location : Maybe WebGLUniformLocation)
@@ -2661,7 +2664,7 @@ namespace WebGL2RenderingContextBase
                                                                        (toFFI e)
 
   export
-  uniform4uiv' :  JSType t1
+  uniform4uiv' :  (0 _ : JSType t1)
                => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                -> (obj : t1)
                -> (location : Maybe WebGLUniformLocation)
@@ -2675,7 +2678,7 @@ namespace WebGL2RenderingContextBase
                                                                     undef
   
   export
-  uniformBlockBinding :  JSType t1
+  uniformBlockBinding :  (0 _ : JSType t1)
                       => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                       -> (obj : t1)
                       -> (program : WebGLProgram)
@@ -2689,7 +2692,7 @@ namespace WebGL2RenderingContextBase
                                                                                      d
   
   export
-  uniformMatrix2x3fv :  JSType t1
+  uniformMatrix2x3fv :  (0 _ : JSType t1)
                      => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                      -> (obj : t1)
                      -> (location : Maybe WebGLUniformLocation)
@@ -2707,7 +2710,7 @@ namespace WebGL2RenderingContextBase
                                                                                        (toFFI f)
 
   export
-  uniformMatrix2x3fv' :  JSType t1
+  uniformMatrix2x3fv' :  (0 _ : JSType t1)
                       => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                       -> (obj : t1)
                       -> (location : Maybe WebGLUniformLocation)
@@ -2723,7 +2726,7 @@ namespace WebGL2RenderingContextBase
                                                                                     undef
   
   export
-  uniformMatrix2x4fv :  JSType t1
+  uniformMatrix2x4fv :  (0 _ : JSType t1)
                      => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                      -> (obj : t1)
                      -> (location : Maybe WebGLUniformLocation)
@@ -2741,7 +2744,7 @@ namespace WebGL2RenderingContextBase
                                                                                        (toFFI f)
 
   export
-  uniformMatrix2x4fv' :  JSType t1
+  uniformMatrix2x4fv' :  (0 _ : JSType t1)
                       => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                       -> (obj : t1)
                       -> (location : Maybe WebGLUniformLocation)
@@ -2757,7 +2760,7 @@ namespace WebGL2RenderingContextBase
                                                                                     undef
   
   export
-  uniformMatrix3x2fv :  JSType t1
+  uniformMatrix3x2fv :  (0 _ : JSType t1)
                      => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                      -> (obj : t1)
                      -> (location : Maybe WebGLUniformLocation)
@@ -2775,7 +2778,7 @@ namespace WebGL2RenderingContextBase
                                                                                        (toFFI f)
 
   export
-  uniformMatrix3x2fv' :  JSType t1
+  uniformMatrix3x2fv' :  (0 _ : JSType t1)
                       => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                       -> (obj : t1)
                       -> (location : Maybe WebGLUniformLocation)
@@ -2791,7 +2794,7 @@ namespace WebGL2RenderingContextBase
                                                                                     undef
   
   export
-  uniformMatrix3x4fv :  JSType t1
+  uniformMatrix3x4fv :  (0 _ : JSType t1)
                      => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                      -> (obj : t1)
                      -> (location : Maybe WebGLUniformLocation)
@@ -2809,7 +2812,7 @@ namespace WebGL2RenderingContextBase
                                                                                        (toFFI f)
 
   export
-  uniformMatrix3x4fv' :  JSType t1
+  uniformMatrix3x4fv' :  (0 _ : JSType t1)
                       => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                       -> (obj : t1)
                       -> (location : Maybe WebGLUniformLocation)
@@ -2825,7 +2828,7 @@ namespace WebGL2RenderingContextBase
                                                                                     undef
   
   export
-  uniformMatrix4x2fv :  JSType t1
+  uniformMatrix4x2fv :  (0 _ : JSType t1)
                      => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                      -> (obj : t1)
                      -> (location : Maybe WebGLUniformLocation)
@@ -2843,7 +2846,7 @@ namespace WebGL2RenderingContextBase
                                                                                        (toFFI f)
 
   export
-  uniformMatrix4x2fv' :  JSType t1
+  uniformMatrix4x2fv' :  (0 _ : JSType t1)
                       => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                       -> (obj : t1)
                       -> (location : Maybe WebGLUniformLocation)
@@ -2859,7 +2862,7 @@ namespace WebGL2RenderingContextBase
                                                                                     undef
   
   export
-  uniformMatrix4x3fv :  JSType t1
+  uniformMatrix4x3fv :  (0 _ : JSType t1)
                      => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                      -> (obj : t1)
                      -> (location : Maybe WebGLUniformLocation)
@@ -2877,7 +2880,7 @@ namespace WebGL2RenderingContextBase
                                                                                        (toFFI f)
 
   export
-  uniformMatrix4x3fv' :  JSType t1
+  uniformMatrix4x3fv' :  (0 _ : JSType t1)
                       => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                       -> (obj : t1)
                       -> (location : Maybe WebGLUniformLocation)
@@ -2893,7 +2896,7 @@ namespace WebGL2RenderingContextBase
                                                                                     undef
   
   export
-  vertexAttribDivisor :  JSType t1
+  vertexAttribDivisor :  (0 _ : JSType t1)
                       => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                       -> (obj : t1)
                       -> (index : Bits32)
@@ -2905,7 +2908,7 @@ namespace WebGL2RenderingContextBase
                                                                                    c
   
   export
-  vertexAttribI4i :  JSType t1
+  vertexAttribI4i :  (0 _ : JSType t1)
                   => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                   -> (obj : t1)
                   -> (index : Bits32)
@@ -2923,7 +2926,7 @@ namespace WebGL2RenderingContextBase
                                                                                  f
   
   export
-  vertexAttribI4iv :  JSType t1
+  vertexAttribI4iv :  (0 _ : JSType t1)
                    => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                    -> (obj : t1)
                    -> (index : Bits32)
@@ -2935,7 +2938,7 @@ namespace WebGL2RenderingContextBase
                                                                              (toFFI c)
   
   export
-  vertexAttribI4ui :  JSType t1
+  vertexAttribI4ui :  (0 _ : JSType t1)
                    => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                    -> (obj : t1)
                    -> (index : Bits32)
@@ -2953,7 +2956,7 @@ namespace WebGL2RenderingContextBase
                                                                                    f
   
   export
-  vertexAttribI4uiv :  JSType t1
+  vertexAttribI4uiv :  (0 _ : JSType t1)
                     => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                     -> (obj : t1)
                     -> (index : Bits32)
@@ -2965,7 +2968,7 @@ namespace WebGL2RenderingContextBase
                                                                                (toFFI c)
   
   export
-  vertexAttribIPointer :  JSType t1
+  vertexAttribIPointer :  (0 _ : JSType t1)
                        => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
                        -> (obj : t1)
                        -> (index : Bits32)
@@ -2983,7 +2986,7 @@ namespace WebGL2RenderingContextBase
                                                                                            f
   
   export
-  waitSync :  JSType t1
+  waitSync :  (0 _ : JSType t1)
            => {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
            -> (obj : t1)
            -> (sync : WebGLSync)
@@ -2993,10 +2996,11 @@ namespace WebGL2RenderingContextBase
   waitSync a b c d = primJS
                    $ WebGL2RenderingContextBase.prim__waitSync (up a) b c d
 
+
 namespace WebGL2RenderingContextOverloads
   
   export
-  bufferData :  JSType t1
+  bufferData :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
              -> (obj : t1)
              -> (target : Bits32)
@@ -3010,7 +3014,7 @@ namespace WebGL2RenderingContextOverloads
                                                                         d
   
   export
-  bufferData1 :  JSType t1
+  bufferData1 :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
               -> (obj : t1)
               -> (target : Bits32)
@@ -3035,7 +3039,7 @@ namespace WebGL2RenderingContextOverloads
                                                                           d
   
   export
-  bufferData2 :  JSType t1
+  bufferData2 :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
               -> (obj : t1)
               -> (target : Bits32)
@@ -3063,7 +3067,7 @@ namespace WebGL2RenderingContextOverloads
                                                                               (toFFI f)
 
   export
-  bufferData2' :  JSType t1
+  bufferData2' :  (0 _ : JSType t1)
                => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
                -> (obj : t1)
                -> (target : Bits32)
@@ -3090,7 +3094,7 @@ namespace WebGL2RenderingContextOverloads
                                                                              undef
   
   export
-  bufferSubData :  JSType t1
+  bufferSubData :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
                 -> (obj : t1)
                 -> (target : Bits32)
@@ -3115,7 +3119,7 @@ namespace WebGL2RenderingContextOverloads
                                                                               (toFFI d)
   
   export
-  bufferSubData1 :  JSType t1
+  bufferSubData1 :  (0 _ : JSType t1)
                  => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
                  -> (obj : t1)
                  -> (target : Bits32)
@@ -3143,7 +3147,7 @@ namespace WebGL2RenderingContextOverloads
                                                                                     (toFFI f)
 
   export
-  bufferSubData1' :  JSType t1
+  bufferSubData1' :  (0 _ : JSType t1)
                   => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
                   -> (obj : t1)
                   -> (target : Bits32)
@@ -3170,7 +3174,7 @@ namespace WebGL2RenderingContextOverloads
                                                                                    undef
   
   export
-  compressedTexImage2D :  JSType t1
+  compressedTexImage2D :  (0 _ : JSType t1)
                        => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
                        -> (obj : t1)
                        -> (target : Bits32)
@@ -3194,7 +3198,7 @@ namespace WebGL2RenderingContextOverloads
                                                                                                       i
   
   export
-  compressedTexImage2D1 :  JSType t1
+  compressedTexImage2D1 :  (0 _ : JSType t1)
                         => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
                         -> (obj : t1)
                         -> (target : Bits32)
@@ -3230,7 +3234,7 @@ namespace WebGL2RenderingContextOverloads
                                                                                                           (toFFI j)
 
   export
-  compressedTexImage2D1' :  JSType t1
+  compressedTexImage2D1' :  (0 _ : JSType t1)
                          => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
                          -> (obj : t1)
                          -> (target : Bits32)
@@ -3264,7 +3268,7 @@ namespace WebGL2RenderingContextOverloads
                                                                                                        undef
   
   export
-  compressedTexSubImage2D :  JSType t1
+  compressedTexSubImage2D :  (0 _ : JSType t1)
                           => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
                           -> (obj : t1)
                           -> (target : Bits32)
@@ -3290,7 +3294,7 @@ namespace WebGL2RenderingContextOverloads
                                                                                                               j
   
   export
-  compressedTexSubImage2D1 :  JSType t1
+  compressedTexSubImage2D1 :  (0 _ : JSType t1)
                            => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
                            -> (obj : t1)
                            -> (target : Bits32)
@@ -3328,7 +3332,7 @@ namespace WebGL2RenderingContextOverloads
                                                                                                                   (toFFI k)
 
   export
-  compressedTexSubImage2D1' :  JSType t1
+  compressedTexSubImage2D1' :  (0 _ : JSType t1)
                             => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
                             -> (obj : t1)
                             -> (target : Bits32)
@@ -3364,7 +3368,7 @@ namespace WebGL2RenderingContextOverloads
                                                                                                                undef
   
   export
-  readPixels :  JSType t1
+  readPixels :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
              -> (obj : t1)
              -> (x : Int32)
@@ -3396,7 +3400,7 @@ namespace WebGL2RenderingContextOverloads
                                                                                 (toFFI h)
   
   export
-  readPixels1 :  JSType t1
+  readPixels1 :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
               -> (obj : t1)
               -> (x : Int32)
@@ -3418,7 +3422,7 @@ namespace WebGL2RenderingContextOverloads
                                                                                   h
   
   export
-  readPixels2 :  JSType t1
+  readPixels2 :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
               -> (obj : t1)
               -> (x : Int32)
@@ -3452,7 +3456,7 @@ namespace WebGL2RenderingContextOverloads
                                                                                     i
   
   export
-  texImage2D :  JSType t1
+  texImage2D :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
              -> (obj : t1)
              -> (target : Bits32)
@@ -3488,7 +3492,7 @@ namespace WebGL2RenderingContextOverloads
                                                                                     (toFFI j)
   
   export
-  texImage2D1 :  JSType t1
+  texImage2D1 :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
               -> (obj : t1)
               -> (target : Bits32)
@@ -3514,7 +3518,7 @@ namespace WebGL2RenderingContextOverloads
                                                                                 (toFFI g)
   
   export
-  texImage2D2 :  JSType t1
+  texImage2D2 :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
               -> (obj : t1)
               -> (target : Bits32)
@@ -3540,7 +3544,7 @@ namespace WebGL2RenderingContextOverloads
                                                                                       j
   
   export
-  texImage2D3 :  JSType t1
+  texImage2D3 :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
               -> (obj : t1)
               -> (target : Bits32)
@@ -3572,7 +3576,7 @@ namespace WebGL2RenderingContextOverloads
                                                                                       (toFFI j)
   
   export
-  texImage2D4 :  JSType t1
+  texImage2D4 :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
               -> (obj : t1)
               -> (target : Bits32)
@@ -3610,7 +3614,7 @@ namespace WebGL2RenderingContextOverloads
                                                                                         k
   
   export
-  texSubImage2D :  JSType t1
+  texSubImage2D :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
                 -> (obj : t1)
                 -> (target : Bits32)
@@ -3646,7 +3650,7 @@ namespace WebGL2RenderingContextOverloads
                                                                                           (toFFI j)
   
   export
-  texSubImage2D1 :  JSType t1
+  texSubImage2D1 :  (0 _ : JSType t1)
                  => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
                  -> (obj : t1)
                  -> (target : Bits32)
@@ -3674,7 +3678,7 @@ namespace WebGL2RenderingContextOverloads
                                                                                         (toFFI h)
   
   export
-  texSubImage2D2 :  JSType t1
+  texSubImage2D2 :  (0 _ : JSType t1)
                  => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
                  -> (obj : t1)
                  -> (target : Bits32)
@@ -3700,7 +3704,7 @@ namespace WebGL2RenderingContextOverloads
                                                                                             j
   
   export
-  texSubImage2D3 :  JSType t1
+  texSubImage2D3 :  (0 _ : JSType t1)
                  => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
                  -> (obj : t1)
                  -> (target : Bits32)
@@ -3732,7 +3736,7 @@ namespace WebGL2RenderingContextOverloads
                                                                                             (toFFI j)
   
   export
-  texSubImage2D4 :  JSType t1
+  texSubImage2D4 :  (0 _ : JSType t1)
                  => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
                  -> (obj : t1)
                  -> (target : Bits32)
@@ -3770,7 +3774,7 @@ namespace WebGL2RenderingContextOverloads
                                                                                               k
   
   export
-  uniform1fv :  JSType t1
+  uniform1fv :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
              -> (obj : t1)
              -> (location : Maybe WebGLUniformLocation)
@@ -3786,7 +3790,7 @@ namespace WebGL2RenderingContextOverloads
                                                                           (toFFI e)
 
   export
-  uniform1fv' :  JSType t1
+  uniform1fv' :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
               -> (obj : t1)
               -> (location : Maybe WebGLUniformLocation)
@@ -3800,7 +3804,7 @@ namespace WebGL2RenderingContextOverloads
                                                                        undef
   
   export
-  uniform1iv :  JSType t1
+  uniform1iv :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
              -> (obj : t1)
              -> (location : Maybe WebGLUniformLocation)
@@ -3816,7 +3820,7 @@ namespace WebGL2RenderingContextOverloads
                                                                           (toFFI e)
 
   export
-  uniform1iv' :  JSType t1
+  uniform1iv' :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
               -> (obj : t1)
               -> (location : Maybe WebGLUniformLocation)
@@ -3830,7 +3834,7 @@ namespace WebGL2RenderingContextOverloads
                                                                        undef
   
   export
-  uniform2fv :  JSType t1
+  uniform2fv :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
              -> (obj : t1)
              -> (location : Maybe WebGLUniformLocation)
@@ -3846,7 +3850,7 @@ namespace WebGL2RenderingContextOverloads
                                                                           (toFFI e)
 
   export
-  uniform2fv' :  JSType t1
+  uniform2fv' :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
               -> (obj : t1)
               -> (location : Maybe WebGLUniformLocation)
@@ -3860,7 +3864,7 @@ namespace WebGL2RenderingContextOverloads
                                                                        undef
   
   export
-  uniform2iv :  JSType t1
+  uniform2iv :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
              -> (obj : t1)
              -> (location : Maybe WebGLUniformLocation)
@@ -3876,7 +3880,7 @@ namespace WebGL2RenderingContextOverloads
                                                                           (toFFI e)
 
   export
-  uniform2iv' :  JSType t1
+  uniform2iv' :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
               -> (obj : t1)
               -> (location : Maybe WebGLUniformLocation)
@@ -3890,7 +3894,7 @@ namespace WebGL2RenderingContextOverloads
                                                                        undef
   
   export
-  uniform3fv :  JSType t1
+  uniform3fv :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
              -> (obj : t1)
              -> (location : Maybe WebGLUniformLocation)
@@ -3906,7 +3910,7 @@ namespace WebGL2RenderingContextOverloads
                                                                           (toFFI e)
 
   export
-  uniform3fv' :  JSType t1
+  uniform3fv' :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
               -> (obj : t1)
               -> (location : Maybe WebGLUniformLocation)
@@ -3920,7 +3924,7 @@ namespace WebGL2RenderingContextOverloads
                                                                        undef
   
   export
-  uniform3iv :  JSType t1
+  uniform3iv :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
              -> (obj : t1)
              -> (location : Maybe WebGLUniformLocation)
@@ -3936,7 +3940,7 @@ namespace WebGL2RenderingContextOverloads
                                                                           (toFFI e)
 
   export
-  uniform3iv' :  JSType t1
+  uniform3iv' :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
               -> (obj : t1)
               -> (location : Maybe WebGLUniformLocation)
@@ -3950,7 +3954,7 @@ namespace WebGL2RenderingContextOverloads
                                                                        undef
   
   export
-  uniform4fv :  JSType t1
+  uniform4fv :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
              -> (obj : t1)
              -> (location : Maybe WebGLUniformLocation)
@@ -3966,7 +3970,7 @@ namespace WebGL2RenderingContextOverloads
                                                                           (toFFI e)
 
   export
-  uniform4fv' :  JSType t1
+  uniform4fv' :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
               -> (obj : t1)
               -> (location : Maybe WebGLUniformLocation)
@@ -3980,7 +3984,7 @@ namespace WebGL2RenderingContextOverloads
                                                                        undef
   
   export
-  uniform4iv :  JSType t1
+  uniform4iv :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
              -> (obj : t1)
              -> (location : Maybe WebGLUniformLocation)
@@ -3996,7 +4000,7 @@ namespace WebGL2RenderingContextOverloads
                                                                           (toFFI e)
 
   export
-  uniform4iv' :  JSType t1
+  uniform4iv' :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
               -> (obj : t1)
               -> (location : Maybe WebGLUniformLocation)
@@ -4010,7 +4014,7 @@ namespace WebGL2RenderingContextOverloads
                                                                        undef
   
   export
-  uniformMatrix2fv :  JSType t1
+  uniformMatrix2fv :  (0 _ : JSType t1)
                    => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
                    -> (obj : t1)
                    -> (location : Maybe WebGLUniformLocation)
@@ -4028,7 +4032,7 @@ namespace WebGL2RenderingContextOverloads
                                                                                         (toFFI f)
 
   export
-  uniformMatrix2fv' :  JSType t1
+  uniformMatrix2fv' :  (0 _ : JSType t1)
                     => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
                     -> (obj : t1)
                     -> (location : Maybe WebGLUniformLocation)
@@ -4044,7 +4048,7 @@ namespace WebGL2RenderingContextOverloads
                                                                                      undef
   
   export
-  uniformMatrix3fv :  JSType t1
+  uniformMatrix3fv :  (0 _ : JSType t1)
                    => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
                    -> (obj : t1)
                    -> (location : Maybe WebGLUniformLocation)
@@ -4062,7 +4066,7 @@ namespace WebGL2RenderingContextOverloads
                                                                                         (toFFI f)
 
   export
-  uniformMatrix3fv' :  JSType t1
+  uniformMatrix3fv' :  (0 _ : JSType t1)
                     => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
                     -> (obj : t1)
                     -> (location : Maybe WebGLUniformLocation)
@@ -4078,7 +4082,7 @@ namespace WebGL2RenderingContextOverloads
                                                                                      undef
   
   export
-  uniformMatrix4fv :  JSType t1
+  uniformMatrix4fv :  (0 _ : JSType t1)
                    => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
                    -> (obj : t1)
                    -> (location : Maybe WebGLUniformLocation)
@@ -4096,7 +4100,7 @@ namespace WebGL2RenderingContextOverloads
                                                                                         (toFFI f)
 
   export
-  uniformMatrix4fv' :  JSType t1
+  uniformMatrix4fv' :  (0 _ : JSType t1)
                     => {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
                     -> (obj : t1)
                     -> (location : Maybe WebGLUniformLocation)
@@ -4110,6 +4114,7 @@ namespace WebGL2RenderingContextOverloads
                                                                                      (toFFI d)
                                                                                      undef
                                                                                      undef
+
 
 namespace WebGLRenderingContextBase
   
@@ -5298,7 +5303,7 @@ namespace WebGLRenderingContextBase
   ZERO = 0
   
   export
-  canvas :  JSType t1
+  canvas :  (0 _ : JSType t1)
          => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
          -> (obj : t1)
          -> JSIO (NS I [ HTMLCanvasElement , OffscreenCanvas ])
@@ -5306,7 +5311,7 @@ namespace WebGLRenderingContextBase
            $ WebGLRenderingContextBase.prim__canvas (up a)
   
   export
-  drawingBufferHeight :  JSType t1
+  drawingBufferHeight :  (0 _ : JSType t1)
                       => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                       -> (obj : t1)
                       -> JSIO Int32
@@ -5314,7 +5319,7 @@ namespace WebGLRenderingContextBase
                         $ WebGLRenderingContextBase.prim__drawingBufferHeight (up a)
   
   export
-  drawingBufferWidth :  JSType t1
+  drawingBufferWidth :  (0 _ : JSType t1)
                      => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                      -> (obj : t1)
                      -> JSIO Int32
@@ -5322,7 +5327,7 @@ namespace WebGLRenderingContextBase
                        $ WebGLRenderingContextBase.prim__drawingBufferWidth (up a)
   
   export
-  activeTexture :  JSType t1
+  activeTexture :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                 -> (obj : t1)
                 -> (texture : Bits32)
@@ -5331,7 +5336,7 @@ namespace WebGLRenderingContextBase
                     $ WebGLRenderingContextBase.prim__activeTexture (up a) b
   
   export
-  attachShader :  JSType t1
+  attachShader :  (0 _ : JSType t1)
                => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                -> (obj : t1)
                -> (program : WebGLProgram)
@@ -5341,7 +5346,7 @@ namespace WebGLRenderingContextBase
                      $ WebGLRenderingContextBase.prim__attachShader (up a) b c
   
   export
-  bindAttribLocation :  JSType t1
+  bindAttribLocation :  (0 _ : JSType t1)
                      => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                      -> (obj : t1)
                      -> (program : WebGLProgram)
@@ -5355,7 +5360,7 @@ namespace WebGLRenderingContextBase
                                                                                   d
   
   export
-  bindBuffer :  JSType t1
+  bindBuffer :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
              -> (obj : t1)
              -> (target : Bits32)
@@ -5367,7 +5372,7 @@ namespace WebGLRenderingContextBase
                                                                 (toFFI c)
   
   export
-  bindFramebuffer :  JSType t1
+  bindFramebuffer :  (0 _ : JSType t1)
                   => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                   -> (obj : t1)
                   -> (target : Bits32)
@@ -5379,7 +5384,7 @@ namespace WebGLRenderingContextBase
                                                                           (toFFI c)
   
   export
-  bindRenderbuffer :  JSType t1
+  bindRenderbuffer :  (0 _ : JSType t1)
                    => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                    -> (obj : t1)
                    -> (target : Bits32)
@@ -5391,7 +5396,7 @@ namespace WebGLRenderingContextBase
                                                                             (toFFI c)
   
   export
-  bindTexture :  JSType t1
+  bindTexture :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
               -> (obj : t1)
               -> (target : Bits32)
@@ -5403,7 +5408,7 @@ namespace WebGLRenderingContextBase
                                                                   (toFFI c)
   
   export
-  blendColor :  JSType t1
+  blendColor :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
              -> (obj : t1)
              -> (red : Double)
@@ -5419,7 +5424,7 @@ namespace WebGLRenderingContextBase
                                                                     e
   
   export
-  blendEquationSeparate :  JSType t1
+  blendEquationSeparate :  (0 _ : JSType t1)
                         => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                         -> (obj : t1)
                         -> (modeRGB : Bits32)
@@ -5431,7 +5436,7 @@ namespace WebGLRenderingContextBase
                                                                                       c
   
   export
-  blendEquation :  JSType t1
+  blendEquation :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                 -> (obj : t1)
                 -> (mode : Bits32)
@@ -5440,7 +5445,7 @@ namespace WebGLRenderingContextBase
                     $ WebGLRenderingContextBase.prim__blendEquation (up a) b
   
   export
-  blendFuncSeparate :  JSType t1
+  blendFuncSeparate :  (0 _ : JSType t1)
                     => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                     -> (obj : t1)
                     -> (srcRGB : Bits32)
@@ -5456,7 +5461,7 @@ namespace WebGLRenderingContextBase
                                                                                   e
   
   export
-  blendFunc :  JSType t1
+  blendFunc :  (0 _ : JSType t1)
             => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
             -> (obj : t1)
             -> (sfactor : Bits32)
@@ -5466,7 +5471,7 @@ namespace WebGLRenderingContextBase
                   $ WebGLRenderingContextBase.prim__blendFunc (up a) b c
   
   export
-  checkFramebufferStatus :  JSType t1
+  checkFramebufferStatus :  (0 _ : JSType t1)
                          => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                          -> (obj : t1)
                          -> (target : Bits32)
@@ -5476,7 +5481,7 @@ namespace WebGLRenderingContextBase
                                                                                       b
   
   export
-  clearColor :  JSType t1
+  clearColor :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
              -> (obj : t1)
              -> (red : Double)
@@ -5492,7 +5497,7 @@ namespace WebGLRenderingContextBase
                                                                     e
   
   export
-  clearDepth :  JSType t1
+  clearDepth :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
              -> (obj : t1)
              -> (depth : Double)
@@ -5500,7 +5505,7 @@ namespace WebGLRenderingContextBase
   clearDepth a b = primJS $ WebGLRenderingContextBase.prim__clearDepth (up a) b
   
   export
-  clearStencil :  JSType t1
+  clearStencil :  (0 _ : JSType t1)
                => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                -> (obj : t1)
                -> (s : Int32)
@@ -5509,7 +5514,7 @@ namespace WebGLRenderingContextBase
                    $ WebGLRenderingContextBase.prim__clearStencil (up a) b
   
   export
-  clear :  JSType t1
+  clear :  (0 _ : JSType t1)
         => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
         -> (obj : t1)
         -> (mask : Bits32)
@@ -5517,7 +5522,7 @@ namespace WebGLRenderingContextBase
   clear a b = primJS $ WebGLRenderingContextBase.prim__clear (up a) b
   
   export
-  colorMask :  JSType t1
+  colorMask :  (0 _ : JSType t1)
             => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
             -> (obj : t1)
             -> (red : Bool)
@@ -5533,7 +5538,7 @@ namespace WebGLRenderingContextBase
                                                                   (toFFI e)
   
   export
-  compileShader :  JSType t1
+  compileShader :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                 -> (obj : t1)
                 -> (shader : WebGLShader)
@@ -5542,7 +5547,7 @@ namespace WebGLRenderingContextBase
                     $ WebGLRenderingContextBase.prim__compileShader (up a) b
   
   export
-  copyTexImage2D :  JSType t1
+  copyTexImage2D :  (0 _ : JSType t1)
                  => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                  -> (obj : t1)
                  -> (target : Bits32)
@@ -5566,7 +5571,7 @@ namespace WebGLRenderingContextBase
                                                                                     i
   
   export
-  copyTexSubImage2D :  JSType t1
+  copyTexSubImage2D :  (0 _ : JSType t1)
                     => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                     -> (obj : t1)
                     -> (target : Bits32)
@@ -5590,7 +5595,7 @@ namespace WebGLRenderingContextBase
                                                                                           i
   
   export
-  createBuffer :  JSType t1
+  createBuffer :  (0 _ : JSType t1)
                => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                -> (obj : t1)
                -> JSIO (Maybe WebGLBuffer)
@@ -5598,7 +5603,7 @@ namespace WebGLRenderingContextBase
                  $ WebGLRenderingContextBase.prim__createBuffer (up a)
   
   export
-  createFramebuffer :  JSType t1
+  createFramebuffer :  (0 _ : JSType t1)
                     => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                     -> (obj : t1)
                     -> JSIO (Maybe WebGLFramebuffer)
@@ -5606,7 +5611,7 @@ namespace WebGLRenderingContextBase
                       $ WebGLRenderingContextBase.prim__createFramebuffer (up a)
   
   export
-  createProgram :  JSType t1
+  createProgram :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                 -> (obj : t1)
                 -> JSIO (Maybe WebGLProgram)
@@ -5614,7 +5619,7 @@ namespace WebGLRenderingContextBase
                   $ WebGLRenderingContextBase.prim__createProgram (up a)
   
   export
-  createRenderbuffer :  JSType t1
+  createRenderbuffer :  (0 _ : JSType t1)
                      => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                      -> (obj : t1)
                      -> JSIO (Maybe WebGLRenderbuffer)
@@ -5622,7 +5627,7 @@ namespace WebGLRenderingContextBase
                        $ WebGLRenderingContextBase.prim__createRenderbuffer (up a)
   
   export
-  createShader :  JSType t1
+  createShader :  (0 _ : JSType t1)
                => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                -> (obj : t1)
                -> (type : Bits32)
@@ -5631,7 +5636,7 @@ namespace WebGLRenderingContextBase
                    $ WebGLRenderingContextBase.prim__createShader (up a) b
   
   export
-  createTexture :  JSType t1
+  createTexture :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                 -> (obj : t1)
                 -> JSIO (Maybe WebGLTexture)
@@ -5639,7 +5644,7 @@ namespace WebGLRenderingContextBase
                   $ WebGLRenderingContextBase.prim__createTexture (up a)
   
   export
-  cullFace :  JSType t1
+  cullFace :  (0 _ : JSType t1)
            => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
            -> (obj : t1)
            -> (mode : Bits32)
@@ -5647,7 +5652,7 @@ namespace WebGLRenderingContextBase
   cullFace a b = primJS $ WebGLRenderingContextBase.prim__cullFace (up a) b
   
   export
-  deleteBuffer :  JSType t1
+  deleteBuffer :  (0 _ : JSType t1)
                => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                -> (obj : t1)
                -> (buffer : Maybe WebGLBuffer)
@@ -5657,7 +5662,7 @@ namespace WebGLRenderingContextBase
                                                                   (toFFI b)
   
   export
-  deleteFramebuffer :  JSType t1
+  deleteFramebuffer :  (0 _ : JSType t1)
                     => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                     -> (obj : t1)
                     -> (framebuffer : Maybe WebGLFramebuffer)
@@ -5667,7 +5672,7 @@ namespace WebGLRenderingContextBase
                                                                             (toFFI b)
   
   export
-  deleteProgram :  JSType t1
+  deleteProgram :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                 -> (obj : t1)
                 -> (program : Maybe WebGLProgram)
@@ -5677,7 +5682,7 @@ namespace WebGLRenderingContextBase
                                                                     (toFFI b)
   
   export
-  deleteRenderbuffer :  JSType t1
+  deleteRenderbuffer :  (0 _ : JSType t1)
                      => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                      -> (obj : t1)
                      -> (renderbuffer : Maybe WebGLRenderbuffer)
@@ -5687,7 +5692,7 @@ namespace WebGLRenderingContextBase
                                                                               (toFFI b)
   
   export
-  deleteShader :  JSType t1
+  deleteShader :  (0 _ : JSType t1)
                => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                -> (obj : t1)
                -> (shader : Maybe WebGLShader)
@@ -5697,7 +5702,7 @@ namespace WebGLRenderingContextBase
                                                                   (toFFI b)
   
   export
-  deleteTexture :  JSType t1
+  deleteTexture :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                 -> (obj : t1)
                 -> (texture : Maybe WebGLTexture)
@@ -5707,7 +5712,7 @@ namespace WebGLRenderingContextBase
                                                                     (toFFI b)
   
   export
-  depthFunc :  JSType t1
+  depthFunc :  (0 _ : JSType t1)
             => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
             -> (obj : t1)
             -> (func : Bits32)
@@ -5715,7 +5720,7 @@ namespace WebGLRenderingContextBase
   depthFunc a b = primJS $ WebGLRenderingContextBase.prim__depthFunc (up a) b
   
   export
-  depthMask :  JSType t1
+  depthMask :  (0 _ : JSType t1)
             => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
             -> (obj : t1)
             -> (flag : Bool)
@@ -5724,7 +5729,7 @@ namespace WebGLRenderingContextBase
                 $ WebGLRenderingContextBase.prim__depthMask (up a) (toFFI b)
   
   export
-  depthRange :  JSType t1
+  depthRange :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
              -> (obj : t1)
              -> (zNear : Double)
@@ -5734,7 +5739,7 @@ namespace WebGLRenderingContextBase
                    $ WebGLRenderingContextBase.prim__depthRange (up a) b c
   
   export
-  detachShader :  JSType t1
+  detachShader :  (0 _ : JSType t1)
                => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                -> (obj : t1)
                -> (program : WebGLProgram)
@@ -5744,7 +5749,7 @@ namespace WebGLRenderingContextBase
                      $ WebGLRenderingContextBase.prim__detachShader (up a) b c
   
   export
-  disableVertexAttribArray :  JSType t1
+  disableVertexAttribArray :  (0 _ : JSType t1)
                            => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                            -> (obj : t1)
                            -> (index : Bits32)
@@ -5754,7 +5759,7 @@ namespace WebGLRenderingContextBase
                                                                                           b
   
   export
-  disable :  JSType t1
+  disable :  (0 _ : JSType t1)
           => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
           -> (obj : t1)
           -> (cap : Bits32)
@@ -5762,7 +5767,7 @@ namespace WebGLRenderingContextBase
   disable a b = primJS $ WebGLRenderingContextBase.prim__disable (up a) b
   
   export
-  drawArrays :  JSType t1
+  drawArrays :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
              -> (obj : t1)
              -> (mode : Bits32)
@@ -5773,7 +5778,7 @@ namespace WebGLRenderingContextBase
                      $ WebGLRenderingContextBase.prim__drawArrays (up a) b c d
   
   export
-  drawElements :  JSType t1
+  drawElements :  (0 _ : JSType t1)
                => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                -> (obj : t1)
                -> (mode : Bits32)
@@ -5789,7 +5794,7 @@ namespace WebGLRenderingContextBase
                                                                         e
   
   export
-  enableVertexAttribArray :  JSType t1
+  enableVertexAttribArray :  (0 _ : JSType t1)
                           => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                           -> (obj : t1)
                           -> (index : Bits32)
@@ -5799,7 +5804,7 @@ namespace WebGLRenderingContextBase
                                                                                         b
   
   export
-  enable :  JSType t1
+  enable :  (0 _ : JSType t1)
          => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
          -> (obj : t1)
          -> (cap : Bits32)
@@ -5807,21 +5812,21 @@ namespace WebGLRenderingContextBase
   enable a b = primJS $ WebGLRenderingContextBase.prim__enable (up a) b
   
   export
-  finish :  JSType t1
+  finish :  (0 _ : JSType t1)
          => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
          -> (obj : t1)
          -> JSIO ()
   finish a = primJS $ WebGLRenderingContextBase.prim__finish (up a)
   
   export
-  flush :  JSType t1
+  flush :  (0 _ : JSType t1)
         => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
         -> (obj : t1)
         -> JSIO ()
   flush a = primJS $ WebGLRenderingContextBase.prim__flush (up a)
   
   export
-  framebufferRenderbuffer :  JSType t1
+  framebufferRenderbuffer :  (0 _ : JSType t1)
                           => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                           -> (obj : t1)
                           -> (target : Bits32)
@@ -5837,7 +5842,7 @@ namespace WebGLRenderingContextBase
                                                                                               (toFFI e)
   
   export
-  framebufferTexture2D :  JSType t1
+  framebufferTexture2D :  (0 _ : JSType t1)
                        => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                        -> (obj : t1)
                        -> (target : Bits32)
@@ -5855,7 +5860,7 @@ namespace WebGLRenderingContextBase
                                                                                           f
   
   export
-  frontFace :  JSType t1
+  frontFace :  (0 _ : JSType t1)
             => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
             -> (obj : t1)
             -> (mode : Bits32)
@@ -5863,7 +5868,7 @@ namespace WebGLRenderingContextBase
   frontFace a b = primJS $ WebGLRenderingContextBase.prim__frontFace (up a) b
   
   export
-  generateMipmap :  JSType t1
+  generateMipmap :  (0 _ : JSType t1)
                  => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                  -> (obj : t1)
                  -> (target : Bits32)
@@ -5872,7 +5877,7 @@ namespace WebGLRenderingContextBase
                      $ WebGLRenderingContextBase.prim__generateMipmap (up a) b
   
   export
-  getActiveAttrib :  JSType t1
+  getActiveAttrib :  (0 _ : JSType t1)
                   => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                   -> (obj : t1)
                   -> (program : WebGLProgram)
@@ -5884,7 +5889,7 @@ namespace WebGLRenderingContextBase
                                                                           c
   
   export
-  getActiveUniform :  JSType t1
+  getActiveUniform :  (0 _ : JSType t1)
                    => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                    -> (obj : t1)
                    -> (program : WebGLProgram)
@@ -5896,7 +5901,7 @@ namespace WebGLRenderingContextBase
                                                                             c
   
   export
-  getAttachedShaders :  JSType t1
+  getAttachedShaders :  (0 _ : JSType t1)
                      => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                      -> (obj : t1)
                      -> (program : WebGLProgram)
@@ -5906,7 +5911,7 @@ namespace WebGLRenderingContextBase
                                                                               b
   
   export
-  getAttribLocation :  JSType t1
+  getAttribLocation :  (0 _ : JSType t1)
                     => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                     -> (obj : t1)
                     -> (program : WebGLProgram)
@@ -5918,7 +5923,7 @@ namespace WebGLRenderingContextBase
                                                                               c
   
   export
-  getBufferParameter :  JSType t1
+  getBufferParameter :  (0 _ : JSType t1)
                      => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                      -> (obj : t1)
                      -> (target : Bits32)
@@ -5930,7 +5935,7 @@ namespace WebGLRenderingContextBase
                                                                                 c
   
   export
-  getContextAttributes :  JSType t1
+  getContextAttributes :  (0 _ : JSType t1)
                        => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                        -> (obj : t1)
                        -> JSIO (Maybe WebGLContextAttributes)
@@ -5938,14 +5943,14 @@ namespace WebGLRenderingContextBase
                          $ WebGLRenderingContextBase.prim__getContextAttributes (up a)
   
   export
-  getError :  JSType t1
+  getError :  (0 _ : JSType t1)
            => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
            -> (obj : t1)
            -> JSIO Bits32
   getError a = primJS $ WebGLRenderingContextBase.prim__getError (up a)
   
   export
-  getExtension :  JSType t1
+  getExtension :  (0 _ : JSType t1)
                => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                -> (obj : t1)
                -> (name : String)
@@ -5954,7 +5959,7 @@ namespace WebGLRenderingContextBase
                    $ WebGLRenderingContextBase.prim__getExtension (up a) b
   
   export
-  getFramebufferAttachmentParameter :  JSType t1
+  getFramebufferAttachmentParameter :  (0 _ : JSType t1)
                                     => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                                     -> (obj : t1)
                                     -> (target : Bits32)
@@ -5968,7 +5973,7 @@ namespace WebGLRenderingContextBase
                                                                                                                 d
   
   export
-  getParameter :  JSType t1
+  getParameter :  (0 _ : JSType t1)
                => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                -> (obj : t1)
                -> (pname : Bits32)
@@ -5977,7 +5982,7 @@ namespace WebGLRenderingContextBase
                    $ WebGLRenderingContextBase.prim__getParameter (up a) b
   
   export
-  getProgramInfoLog :  JSType t1
+  getProgramInfoLog :  (0 _ : JSType t1)
                     => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                     -> (obj : t1)
                     -> (program : WebGLProgram)
@@ -5987,7 +5992,7 @@ namespace WebGLRenderingContextBase
                                                                             b
   
   export
-  getProgramParameter :  JSType t1
+  getProgramParameter :  (0 _ : JSType t1)
                       => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                       -> (obj : t1)
                       -> (program : WebGLProgram)
@@ -5999,7 +6004,7 @@ namespace WebGLRenderingContextBase
                                                                                   c
   
   export
-  getRenderbufferParameter :  JSType t1
+  getRenderbufferParameter :  (0 _ : JSType t1)
                            => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                            -> (obj : t1)
                            -> (target : Bits32)
@@ -6011,7 +6016,7 @@ namespace WebGLRenderingContextBase
                                                                                             c
   
   export
-  getShaderInfoLog :  JSType t1
+  getShaderInfoLog :  (0 _ : JSType t1)
                    => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                    -> (obj : t1)
                    -> (shader : WebGLShader)
@@ -6021,7 +6026,7 @@ namespace WebGLRenderingContextBase
                                                                           b
   
   export
-  getShaderParameter :  JSType t1
+  getShaderParameter :  (0 _ : JSType t1)
                      => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                      -> (obj : t1)
                      -> (shader : WebGLShader)
@@ -6033,7 +6038,7 @@ namespace WebGLRenderingContextBase
                                                                                 c
   
   export
-  getShaderPrecisionFormat :  JSType t1
+  getShaderPrecisionFormat :  (0 _ : JSType t1)
                            => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                            -> (obj : t1)
                            -> (shadertype : Bits32)
@@ -6045,7 +6050,7 @@ namespace WebGLRenderingContextBase
                                                                                             c
   
   export
-  getShaderSource :  JSType t1
+  getShaderSource :  (0 _ : JSType t1)
                   => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                   -> (obj : t1)
                   -> (shader : WebGLShader)
@@ -6054,7 +6059,7 @@ namespace WebGLRenderingContextBase
                       $ WebGLRenderingContextBase.prim__getShaderSource (up a) b
   
   export
-  getSupportedExtensions :  JSType t1
+  getSupportedExtensions :  (0 _ : JSType t1)
                          => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                          -> (obj : t1)
                          -> JSIO (Maybe (Array String))
@@ -6062,7 +6067,7 @@ namespace WebGLRenderingContextBase
                            $ WebGLRenderingContextBase.prim__getSupportedExtensions (up a)
   
   export
-  getTexParameter :  JSType t1
+  getTexParameter :  (0 _ : JSType t1)
                   => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                   -> (obj : t1)
                   -> (target : Bits32)
@@ -6074,7 +6079,7 @@ namespace WebGLRenderingContextBase
                                                                           c
   
   export
-  getUniformLocation :  JSType t1
+  getUniformLocation :  (0 _ : JSType t1)
                      => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                      -> (obj : t1)
                      -> (program : WebGLProgram)
@@ -6086,7 +6091,7 @@ namespace WebGLRenderingContextBase
                                                                                 c
   
   export
-  getUniform :  JSType t1
+  getUniform :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
              -> (obj : t1)
              -> (program : WebGLProgram)
@@ -6096,7 +6101,7 @@ namespace WebGLRenderingContextBase
                    $ WebGLRenderingContextBase.prim__getUniform (up a) b c
   
   export
-  getVertexAttribOffset :  JSType t1
+  getVertexAttribOffset :  (0 _ : JSType t1)
                         => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                         -> (obj : t1)
                         -> (index : Bits32)
@@ -6108,7 +6113,7 @@ namespace WebGLRenderingContextBase
                                                                                       c
   
   export
-  getVertexAttrib :  JSType t1
+  getVertexAttrib :  (0 _ : JSType t1)
                   => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                   -> (obj : t1)
                   -> (index : Bits32)
@@ -6120,7 +6125,7 @@ namespace WebGLRenderingContextBase
                                                                           c
   
   export
-  hint :  JSType t1
+  hint :  (0 _ : JSType t1)
        => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
        -> (obj : t1)
        -> (target : Bits32)
@@ -6129,7 +6134,7 @@ namespace WebGLRenderingContextBase
   hint a b c = primJS $ WebGLRenderingContextBase.prim__hint (up a) b c
   
   export
-  isBuffer :  JSType t1
+  isBuffer :  (0 _ : JSType t1)
            => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
            -> (obj : t1)
            -> (buffer : Maybe WebGLBuffer)
@@ -6138,7 +6143,7 @@ namespace WebGLRenderingContextBase
                $ WebGLRenderingContextBase.prim__isBuffer (up a) (toFFI b)
   
   export
-  isContextLost :  JSType t1
+  isContextLost :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                 -> (obj : t1)
                 -> JSIO Bool
@@ -6146,7 +6151,7 @@ namespace WebGLRenderingContextBase
                   $ WebGLRenderingContextBase.prim__isContextLost (up a)
   
   export
-  isEnabled :  JSType t1
+  isEnabled :  (0 _ : JSType t1)
             => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
             -> (obj : t1)
             -> (cap : Bits32)
@@ -6155,7 +6160,7 @@ namespace WebGLRenderingContextBase
                 $ WebGLRenderingContextBase.prim__isEnabled (up a) b
   
   export
-  isFramebuffer :  JSType t1
+  isFramebuffer :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                 -> (obj : t1)
                 -> (framebuffer : Maybe WebGLFramebuffer)
@@ -6165,7 +6170,7 @@ namespace WebGLRenderingContextBase
                                                                     (toFFI b)
   
   export
-  isProgram :  JSType t1
+  isProgram :  (0 _ : JSType t1)
             => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
             -> (obj : t1)
             -> (program : Maybe WebGLProgram)
@@ -6174,7 +6179,7 @@ namespace WebGLRenderingContextBase
                 $ WebGLRenderingContextBase.prim__isProgram (up a) (toFFI b)
   
   export
-  isRenderbuffer :  JSType t1
+  isRenderbuffer :  (0 _ : JSType t1)
                  => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                  -> (obj : t1)
                  -> (renderbuffer : Maybe WebGLRenderbuffer)
@@ -6184,7 +6189,7 @@ namespace WebGLRenderingContextBase
                                                                       (toFFI b)
   
   export
-  isShader :  JSType t1
+  isShader :  (0 _ : JSType t1)
            => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
            -> (obj : t1)
            -> (shader : Maybe WebGLShader)
@@ -6193,7 +6198,7 @@ namespace WebGLRenderingContextBase
                $ WebGLRenderingContextBase.prim__isShader (up a) (toFFI b)
   
   export
-  isTexture :  JSType t1
+  isTexture :  (0 _ : JSType t1)
             => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
             -> (obj : t1)
             -> (texture : Maybe WebGLTexture)
@@ -6202,7 +6207,7 @@ namespace WebGLRenderingContextBase
                 $ WebGLRenderingContextBase.prim__isTexture (up a) (toFFI b)
   
   export
-  lineWidth :  JSType t1
+  lineWidth :  (0 _ : JSType t1)
             => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
             -> (obj : t1)
             -> (width : Double)
@@ -6210,7 +6215,7 @@ namespace WebGLRenderingContextBase
   lineWidth a b = primJS $ WebGLRenderingContextBase.prim__lineWidth (up a) b
   
   export
-  linkProgram :  JSType t1
+  linkProgram :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
               -> (obj : t1)
               -> (program : WebGLProgram)
@@ -6219,7 +6224,7 @@ namespace WebGLRenderingContextBase
                   $ WebGLRenderingContextBase.prim__linkProgram (up a) b
   
   export
-  pixelStorei :  JSType t1
+  pixelStorei :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
               -> (obj : t1)
               -> (pname : Bits32)
@@ -6229,7 +6234,7 @@ namespace WebGLRenderingContextBase
                     $ WebGLRenderingContextBase.prim__pixelStorei (up a) b c
   
   export
-  polygonOffset :  JSType t1
+  polygonOffset :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                 -> (obj : t1)
                 -> (factor : Double)
@@ -6239,7 +6244,7 @@ namespace WebGLRenderingContextBase
                       $ WebGLRenderingContextBase.prim__polygonOffset (up a) b c
   
   export
-  renderbufferStorage :  JSType t1
+  renderbufferStorage :  (0 _ : JSType t1)
                       => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                       -> (obj : t1)
                       -> (target : Bits32)
@@ -6255,7 +6260,7 @@ namespace WebGLRenderingContextBase
                                                                                       e
   
   export
-  sampleCoverage :  JSType t1
+  sampleCoverage :  (0 _ : JSType t1)
                  => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                  -> (obj : t1)
                  -> (value : Double)
@@ -6267,7 +6272,7 @@ namespace WebGLRenderingContextBase
                                                                         (toFFI c)
   
   export
-  scissor :  JSType t1
+  scissor :  (0 _ : JSType t1)
           => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
           -> (obj : t1)
           -> (x : Int32)
@@ -6279,7 +6284,7 @@ namespace WebGLRenderingContextBase
                     $ WebGLRenderingContextBase.prim__scissor (up a) b c d e
   
   export
-  shaderSource :  JSType t1
+  shaderSource :  (0 _ : JSType t1)
                => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                -> (obj : t1)
                -> (shader : WebGLShader)
@@ -6289,7 +6294,7 @@ namespace WebGLRenderingContextBase
                      $ WebGLRenderingContextBase.prim__shaderSource (up a) b c
   
   export
-  stencilFuncSeparate :  JSType t1
+  stencilFuncSeparate :  (0 _ : JSType t1)
                       => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                       -> (obj : t1)
                       -> (face : Bits32)
@@ -6305,7 +6310,7 @@ namespace WebGLRenderingContextBase
                                                                                       e
   
   export
-  stencilFunc :  JSType t1
+  stencilFunc :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
               -> (obj : t1)
               -> (func : Bits32)
@@ -6316,7 +6321,7 @@ namespace WebGLRenderingContextBase
                       $ WebGLRenderingContextBase.prim__stencilFunc (up a) b c d
   
   export
-  stencilMaskSeparate :  JSType t1
+  stencilMaskSeparate :  (0 _ : JSType t1)
                       => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                       -> (obj : t1)
                       -> (face : Bits32)
@@ -6328,7 +6333,7 @@ namespace WebGLRenderingContextBase
                                                                                   c
   
   export
-  stencilMask :  JSType t1
+  stencilMask :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
               -> (obj : t1)
               -> (mask : Bits32)
@@ -6337,7 +6342,7 @@ namespace WebGLRenderingContextBase
                   $ WebGLRenderingContextBase.prim__stencilMask (up a) b
   
   export
-  stencilOpSeparate :  JSType t1
+  stencilOpSeparate :  (0 _ : JSType t1)
                     => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                     -> (obj : t1)
                     -> (face : Bits32)
@@ -6353,7 +6358,7 @@ namespace WebGLRenderingContextBase
                                                                                   e
   
   export
-  stencilOp :  JSType t1
+  stencilOp :  (0 _ : JSType t1)
             => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
             -> (obj : t1)
             -> (fail : Bits32)
@@ -6364,7 +6369,7 @@ namespace WebGLRenderingContextBase
                     $ WebGLRenderingContextBase.prim__stencilOp (up a) b c d
   
   export
-  texParameterf :  JSType t1
+  texParameterf :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                 -> (obj : t1)
                 -> (target : Bits32)
@@ -6378,7 +6383,7 @@ namespace WebGLRenderingContextBase
                                                                         d
   
   export
-  texParameteri :  JSType t1
+  texParameteri :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                 -> (obj : t1)
                 -> (target : Bits32)
@@ -6392,7 +6397,7 @@ namespace WebGLRenderingContextBase
                                                                         d
   
   export
-  uniform1f :  JSType t1
+  uniform1f :  (0 _ : JSType t1)
             => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
             -> (obj : t1)
             -> (location : Maybe WebGLUniformLocation)
@@ -6402,7 +6407,7 @@ namespace WebGLRenderingContextBase
                   $ WebGLRenderingContextBase.prim__uniform1f (up a) (toFFI b) c
   
   export
-  uniform1i :  JSType t1
+  uniform1i :  (0 _ : JSType t1)
             => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
             -> (obj : t1)
             -> (location : Maybe WebGLUniformLocation)
@@ -6412,7 +6417,7 @@ namespace WebGLRenderingContextBase
                   $ WebGLRenderingContextBase.prim__uniform1i (up a) (toFFI b) c
   
   export
-  uniform2f :  JSType t1
+  uniform2f :  (0 _ : JSType t1)
             => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
             -> (obj : t1)
             -> (location : Maybe WebGLUniformLocation)
@@ -6426,7 +6431,7 @@ namespace WebGLRenderingContextBase
                                                                 d
   
   export
-  uniform2i :  JSType t1
+  uniform2i :  (0 _ : JSType t1)
             => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
             -> (obj : t1)
             -> (location : Maybe WebGLUniformLocation)
@@ -6440,7 +6445,7 @@ namespace WebGLRenderingContextBase
                                                                 d
   
   export
-  uniform3f :  JSType t1
+  uniform3f :  (0 _ : JSType t1)
             => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
             -> (obj : t1)
             -> (location : Maybe WebGLUniformLocation)
@@ -6456,7 +6461,7 @@ namespace WebGLRenderingContextBase
                                                                   e
   
   export
-  uniform3i :  JSType t1
+  uniform3i :  (0 _ : JSType t1)
             => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
             -> (obj : t1)
             -> (location : Maybe WebGLUniformLocation)
@@ -6472,7 +6477,7 @@ namespace WebGLRenderingContextBase
                                                                   e
   
   export
-  uniform4f :  JSType t1
+  uniform4f :  (0 _ : JSType t1)
             => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
             -> (obj : t1)
             -> (location : Maybe WebGLUniformLocation)
@@ -6490,7 +6495,7 @@ namespace WebGLRenderingContextBase
                                                                     f
   
   export
-  uniform4i :  JSType t1
+  uniform4i :  (0 _ : JSType t1)
             => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
             -> (obj : t1)
             -> (location : Maybe WebGLUniformLocation)
@@ -6508,7 +6513,7 @@ namespace WebGLRenderingContextBase
                                                                     f
   
   export
-  useProgram :  JSType t1
+  useProgram :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
              -> (obj : t1)
              -> (program : Maybe WebGLProgram)
@@ -6517,7 +6522,7 @@ namespace WebGLRenderingContextBase
                  $ WebGLRenderingContextBase.prim__useProgram (up a) (toFFI b)
   
   export
-  validateProgram :  JSType t1
+  validateProgram :  (0 _ : JSType t1)
                   => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                   -> (obj : t1)
                   -> (program : WebGLProgram)
@@ -6526,7 +6531,7 @@ namespace WebGLRenderingContextBase
                       $ WebGLRenderingContextBase.prim__validateProgram (up a) b
   
   export
-  vertexAttrib1f :  JSType t1
+  vertexAttrib1f :  (0 _ : JSType t1)
                  => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                  -> (obj : t1)
                  -> (index : Bits32)
@@ -6538,7 +6543,7 @@ namespace WebGLRenderingContextBase
                                                                         c
   
   export
-  vertexAttrib1fv :  JSType t1
+  vertexAttrib1fv :  (0 _ : JSType t1)
                   => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                   -> (obj : t1)
                   -> (index : Bits32)
@@ -6550,7 +6555,7 @@ namespace WebGLRenderingContextBase
                                                                           (toFFI c)
   
   export
-  vertexAttrib2f :  JSType t1
+  vertexAttrib2f :  (0 _ : JSType t1)
                  => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                  -> (obj : t1)
                  -> (index : Bits32)
@@ -6564,7 +6569,7 @@ namespace WebGLRenderingContextBase
                                                                           d
   
   export
-  vertexAttrib2fv :  JSType t1
+  vertexAttrib2fv :  (0 _ : JSType t1)
                   => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                   -> (obj : t1)
                   -> (index : Bits32)
@@ -6576,7 +6581,7 @@ namespace WebGLRenderingContextBase
                                                                           (toFFI c)
   
   export
-  vertexAttrib3f :  JSType t1
+  vertexAttrib3f :  (0 _ : JSType t1)
                  => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                  -> (obj : t1)
                  -> (index : Bits32)
@@ -6592,7 +6597,7 @@ namespace WebGLRenderingContextBase
                                                                             e
   
   export
-  vertexAttrib3fv :  JSType t1
+  vertexAttrib3fv :  (0 _ : JSType t1)
                   => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                   -> (obj : t1)
                   -> (index : Bits32)
@@ -6604,7 +6609,7 @@ namespace WebGLRenderingContextBase
                                                                           (toFFI c)
   
   export
-  vertexAttrib4f :  JSType t1
+  vertexAttrib4f :  (0 _ : JSType t1)
                  => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                  -> (obj : t1)
                  -> (index : Bits32)
@@ -6622,7 +6627,7 @@ namespace WebGLRenderingContextBase
                                                                               f
   
   export
-  vertexAttrib4fv :  JSType t1
+  vertexAttrib4fv :  (0 _ : JSType t1)
                   => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                   -> (obj : t1)
                   -> (index : Bits32)
@@ -6634,7 +6639,7 @@ namespace WebGLRenderingContextBase
                                                                           (toFFI c)
   
   export
-  vertexAttribPointer :  JSType t1
+  vertexAttribPointer :  (0 _ : JSType t1)
                       => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
                       -> (obj : t1)
                       -> (index : Bits32)
@@ -6654,7 +6659,7 @@ namespace WebGLRenderingContextBase
                                                                                           g
   
   export
-  viewport :  JSType t1
+  viewport :  (0 _ : JSType t1)
            => {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
            -> (obj : t1)
            -> (x : Int32)
@@ -6665,10 +6670,11 @@ namespace WebGLRenderingContextBase
   viewport a b c d e = primJS
                      $ WebGLRenderingContextBase.prim__viewport (up a) b c d e
 
+
 namespace WebGLRenderingContextOverloads
   
   export
-  bufferData :  JSType t1
+  bufferData :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
              -> (obj : t1)
              -> (target : Bits32)
@@ -6682,7 +6688,7 @@ namespace WebGLRenderingContextOverloads
                                                                        d
   
   export
-  bufferData1 :  JSType t1
+  bufferData1 :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
               -> (obj : t1)
               -> (target : Bits32)
@@ -6707,7 +6713,7 @@ namespace WebGLRenderingContextOverloads
                                                                          d
   
   export
-  bufferSubData :  JSType t1
+  bufferSubData :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
                 -> (obj : t1)
                 -> (target : Bits32)
@@ -6732,7 +6738,7 @@ namespace WebGLRenderingContextOverloads
                                                                              (toFFI d)
   
   export
-  compressedTexImage2D :  JSType t1
+  compressedTexImage2D :  (0 _ : JSType t1)
                        => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
                        -> (obj : t1)
                        -> (target : Bits32)
@@ -6764,7 +6770,7 @@ namespace WebGLRenderingContextOverloads
                                                                                                    (toFFI h)
   
   export
-  compressedTexSubImage2D :  JSType t1
+  compressedTexSubImage2D :  (0 _ : JSType t1)
                           => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
                           -> (obj : t1)
                           -> (target : Bits32)
@@ -6798,7 +6804,7 @@ namespace WebGLRenderingContextOverloads
                                                                                                            (toFFI i)
   
   export
-  readPixels :  JSType t1
+  readPixels :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
              -> (obj : t1)
              -> (x : Int32)
@@ -6830,7 +6836,7 @@ namespace WebGLRenderingContextOverloads
                                                                                (toFFI h)
   
   export
-  texImage2D :  JSType t1
+  texImage2D :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
              -> (obj : t1)
              -> (target : Bits32)
@@ -6866,7 +6872,7 @@ namespace WebGLRenderingContextOverloads
                                                                                    (toFFI j)
   
   export
-  texImage2D1 :  JSType t1
+  texImage2D1 :  (0 _ : JSType t1)
               => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
               -> (obj : t1)
               -> (target : Bits32)
@@ -6892,7 +6898,7 @@ namespace WebGLRenderingContextOverloads
                                                                                (toFFI g)
   
   export
-  texSubImage2D :  JSType t1
+  texSubImage2D :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
                 -> (obj : t1)
                 -> (target : Bits32)
@@ -6928,7 +6934,7 @@ namespace WebGLRenderingContextOverloads
                                                                                          (toFFI j)
   
   export
-  texSubImage2D1 :  JSType t1
+  texSubImage2D1 :  (0 _ : JSType t1)
                  => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
                  -> (obj : t1)
                  -> (target : Bits32)
@@ -6956,7 +6962,7 @@ namespace WebGLRenderingContextOverloads
                                                                                        (toFFI h)
   
   export
-  uniform1fv :  JSType t1
+  uniform1fv :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
              -> (obj : t1)
              -> (location : Maybe WebGLUniformLocation)
@@ -6968,7 +6974,7 @@ namespace WebGLRenderingContextOverloads
                                                                      (toFFI c)
   
   export
-  uniform1iv :  JSType t1
+  uniform1iv :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
              -> (obj : t1)
              -> (location : Maybe WebGLUniformLocation)
@@ -6980,7 +6986,7 @@ namespace WebGLRenderingContextOverloads
                                                                      (toFFI c)
   
   export
-  uniform2fv :  JSType t1
+  uniform2fv :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
              -> (obj : t1)
              -> (location : Maybe WebGLUniformLocation)
@@ -6992,7 +6998,7 @@ namespace WebGLRenderingContextOverloads
                                                                      (toFFI c)
   
   export
-  uniform2iv :  JSType t1
+  uniform2iv :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
              -> (obj : t1)
              -> (location : Maybe WebGLUniformLocation)
@@ -7004,7 +7010,7 @@ namespace WebGLRenderingContextOverloads
                                                                      (toFFI c)
   
   export
-  uniform3fv :  JSType t1
+  uniform3fv :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
              -> (obj : t1)
              -> (location : Maybe WebGLUniformLocation)
@@ -7016,7 +7022,7 @@ namespace WebGLRenderingContextOverloads
                                                                      (toFFI c)
   
   export
-  uniform3iv :  JSType t1
+  uniform3iv :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
              -> (obj : t1)
              -> (location : Maybe WebGLUniformLocation)
@@ -7028,7 +7034,7 @@ namespace WebGLRenderingContextOverloads
                                                                      (toFFI c)
   
   export
-  uniform4fv :  JSType t1
+  uniform4fv :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
              -> (obj : t1)
              -> (location : Maybe WebGLUniformLocation)
@@ -7040,7 +7046,7 @@ namespace WebGLRenderingContextOverloads
                                                                      (toFFI c)
   
   export
-  uniform4iv :  JSType t1
+  uniform4iv :  (0 _ : JSType t1)
              => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
              -> (obj : t1)
              -> (location : Maybe WebGLUniformLocation)
@@ -7052,7 +7058,7 @@ namespace WebGLRenderingContextOverloads
                                                                      (toFFI c)
   
   export
-  uniformMatrix2fv :  JSType t1
+  uniformMatrix2fv :  (0 _ : JSType t1)
                    => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
                    -> (obj : t1)
                    -> (location : Maybe WebGLUniformLocation)
@@ -7066,7 +7072,7 @@ namespace WebGLRenderingContextOverloads
                                                                                    (toFFI d)
   
   export
-  uniformMatrix3fv :  JSType t1
+  uniformMatrix3fv :  (0 _ : JSType t1)
                    => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
                    -> (obj : t1)
                    -> (location : Maybe WebGLUniformLocation)
@@ -7080,7 +7086,7 @@ namespace WebGLRenderingContextOverloads
                                                                                    (toFFI d)
   
   export
-  uniformMatrix4fv :  JSType t1
+  uniformMatrix4fv :  (0 _ : JSType t1)
                    => {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
                    -> (obj : t1)
                    -> (location : Maybe WebGLUniformLocation)
@@ -7092,6 +7098,8 @@ namespace WebGLRenderingContextOverloads
                                                                                    (toFFI b)
                                                                                    (toFFI c)
                                                                                    (toFFI d)
+
+
 
 --------------------------------------------------------------------------------
 --          Dictionaries
@@ -7135,7 +7143,7 @@ namespace WebGLContextAttributes
                                           undef
   
   export
-  alpha :  JSType t
+  alpha :  (0 _ : JSType t)
         => {auto 0 _ : Elem WebGLContextAttributes (Types t)}
         -> t
         -> Attribute True Optional Bool
@@ -7146,7 +7154,7 @@ namespace WebGLContextAttributes
                             (v :> WebGLContextAttributes)
   
   export
-  antialias :  JSType t
+  antialias :  (0 _ : JSType t)
             => {auto 0 _ : Elem WebGLContextAttributes (Types t)}
             -> t
             -> Attribute True Optional Bool
@@ -7157,7 +7165,7 @@ namespace WebGLContextAttributes
                                 (v :> WebGLContextAttributes)
   
   export
-  depth :  JSType t
+  depth :  (0 _ : JSType t)
         => {auto 0 _ : Elem WebGLContextAttributes (Types t)}
         -> t
         -> Attribute True Optional Bool
@@ -7168,7 +7176,7 @@ namespace WebGLContextAttributes
                             (v :> WebGLContextAttributes)
   
   export
-  desynchronized :  JSType t
+  desynchronized :  (0 _ : JSType t)
                  => {auto 0 _ : Elem WebGLContextAttributes (Types t)}
                  -> t
                  -> Attribute True Optional Bool
@@ -7179,7 +7187,7 @@ namespace WebGLContextAttributes
                                      (v :> WebGLContextAttributes)
   
   export
-  failIfMajorPerformanceCaveat :  JSType t
+  failIfMajorPerformanceCaveat :  (0 _ : JSType t)
                                => {auto 0 _ : Elem WebGLContextAttributes (Types t)}
                                -> t
                                -> Attribute True Optional Bool
@@ -7190,7 +7198,7 @@ namespace WebGLContextAttributes
                                                    (v :> WebGLContextAttributes)
   
   export
-  powerPreference :  JSType t
+  powerPreference :  (0 _ : JSType t)
                   => {auto 0 _ : Elem WebGLContextAttributes (Types t)}
                   -> t
                   -> Attribute False Optional WebGLPowerPreference
@@ -7200,7 +7208,7 @@ namespace WebGLContextAttributes
                                                (v :> WebGLContextAttributes)
   
   export
-  premultipliedAlpha :  JSType t
+  premultipliedAlpha :  (0 _ : JSType t)
                      => {auto 0 _ : Elem WebGLContextAttributes (Types t)}
                      -> t
                      -> Attribute True Optional Bool
@@ -7211,7 +7219,7 @@ namespace WebGLContextAttributes
                                          (v :> WebGLContextAttributes)
   
   export
-  preserveDrawingBuffer :  JSType t
+  preserveDrawingBuffer :  (0 _ : JSType t)
                         => {auto 0 _ : Elem WebGLContextAttributes (Types t)}
                         -> t
                         -> Attribute True Optional Bool
@@ -7222,7 +7230,7 @@ namespace WebGLContextAttributes
                                             (v :> WebGLContextAttributes)
   
   export
-  stencil :  JSType t
+  stencil :  (0 _ : JSType t)
           => {auto 0 _ : Elem WebGLContextAttributes (Types t)}
           -> t
           -> Attribute True Optional Bool
@@ -7231,3 +7239,5 @@ namespace WebGLContextAttributes
                               prim__setStencil
                               False
                               (v :> WebGLContextAttributes)
+
+

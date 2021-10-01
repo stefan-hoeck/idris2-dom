@@ -35,6 +35,7 @@ namespace AudioTrack
   sourceBuffer a = tryJS "AudioTrack.sourceBuffer"
                  $ AudioTrack.prim__sourceBuffer a
 
+
 namespace AudioTrackList
   
   export
@@ -73,11 +74,13 @@ namespace AudioTrackList
   getTrackById a b = tryJS "AudioTrackList.getTrackById"
                    $ AudioTrackList.prim__getTrackById a b
 
+
 namespace BarProp
   
   export
   visible : (obj : BarProp) -> JSIO Bool
   visible a = tryJS "BarProp.visible" $ BarProp.prim__visible a
+
 
 namespace BeforeUnloadEvent
   
@@ -87,6 +90,7 @@ namespace BeforeUnloadEvent
                            prim__returnValue
                            prim__setReturnValue
                            v
+
 
 namespace BroadcastChannel
   
@@ -120,6 +124,7 @@ namespace BroadcastChannel
   postMessage : (obj : BroadcastChannel) -> (message : Any) -> JSIO ()
   postMessage a b = primJS $ BroadcastChannel.prim__postMessage a (toFFI b)
 
+
 namespace CanvasGradient
   
   export
@@ -129,10 +134,11 @@ namespace CanvasGradient
                -> JSIO ()
   addColorStop a b c = primJS $ CanvasGradient.prim__addColorStop a b c
 
+
 namespace CanvasPattern
   
   export
-  setTransform :  JSType t1
+  setTransform :  (0 _ : JSType t1)
                => {auto 0 _ : Elem DOMMatrix2DInit (Types t1)}
                -> (obj : CanvasPattern)
                -> (transform : Optional t1)
@@ -142,6 +148,7 @@ namespace CanvasPattern
   export
   setTransform' : (obj : CanvasPattern) -> JSIO ()
   setTransform' a = primJS $ CanvasPattern.prim__setTransform a undef
+
 
 namespace CanvasRenderingContext2D
   
@@ -155,10 +162,11 @@ namespace CanvasRenderingContext2D
   getContextAttributes a = primJS
                          $ CanvasRenderingContext2D.prim__getContextAttributes a
 
+
 namespace CloseEvent
   
   export
-  new :  JSType t1
+  new :  (0 _ : JSType t1)
       => {auto 0 _ : Elem CloseEventInit (Types t1)}
       -> (type : String)
       -> (eventInitDict : Optional t1)
@@ -181,10 +189,11 @@ namespace CloseEvent
   wasClean : (obj : CloseEvent) -> JSIO Bool
   wasClean a = tryJS "CloseEvent.wasClean" $ CloseEvent.prim__wasClean a
 
+
 namespace CustomElementRegistry
   
   export
-  define :  JSType t1
+  define :  (0 _ : JSType t1)
          => {auto 0 _ : Elem ElementDefinitionOptions (Types t1)}
          -> (obj : CustomElementRegistry)
          -> (name : String)
@@ -207,7 +216,7 @@ namespace CustomElementRegistry
   get a b = primJS $ CustomElementRegistry.prim__get a b
   
   export
-  upgrade :  JSType t1
+  upgrade :  (0 _ : JSType t1)
           => {auto 0 _ : Elem Node (Types t1)}
           -> (obj : CustomElementRegistry)
           -> (root : t1)
@@ -219,6 +228,7 @@ namespace CustomElementRegistry
               -> (name : String)
               -> JSIO (Promise CustomElementConstructor)
   whenDefined a b = primJS $ CustomElementRegistry.prim__whenDefined a b
+
 
 namespace DOMParser
   
@@ -232,6 +242,7 @@ namespace DOMParser
                   -> (type : DOMParserSupportedType)
                   -> JSIO Document
   parseFromString a b c = primJS $ DOMParser.prim__parseFromString a b (toFFI c)
+
 
 namespace DOMStringList
   
@@ -248,6 +259,7 @@ namespace DOMStringList
   item : (obj : DOMStringList) -> (index : Bits32) -> JSIO (Maybe String)
   item a b = tryJS "DOMStringList.item" $ DOMStringList.prim__item a b
 
+
 namespace DOMStringMap
   
   export
@@ -257,6 +269,7 @@ namespace DOMStringMap
   export
   set : (obj : DOMStringMap) -> (name : String) -> (value : String) -> JSIO ()
   set a b c = primJS $ DOMStringMap.prim__set a b c
+
 
 namespace DataTransfer
   
@@ -310,7 +323,7 @@ namespace DataTransfer
   setData a b c = primJS $ DataTransfer.prim__setData a b c
   
   export
-  setDragImage :  JSType t1
+  setDragImage :  (0 _ : JSType t1)
                => {auto 0 _ : Elem Element (Types t1)}
                -> (obj : DataTransfer)
                -> (image : t1)
@@ -318,6 +331,7 @@ namespace DataTransfer
                -> (y : Int32)
                -> JSIO ()
   setDragImage a b c d = primJS $ DataTransfer.prim__setDragImage a (up b) c d
+
 
 namespace DataTransferItem
   
@@ -339,6 +353,7 @@ namespace DataTransferItem
               -> (callback : Maybe FunctionStringCallback)
               -> JSIO ()
   getAsString a b = primJS $ DataTransferItem.prim__getAsString a (toFFI b)
+
 
 namespace DataTransferItemList
   
@@ -375,6 +390,7 @@ namespace DataTransferItemList
   remove : (obj : DataTransferItemList) -> (index : Bits32) -> JSIO ()
   remove a b = primJS $ DataTransferItemList.prim__remove a b
 
+
 namespace DedicatedWorkerGlobalScope
   
   export
@@ -410,7 +426,7 @@ namespace DedicatedWorkerGlobalScope
                     $ DedicatedWorkerGlobalScope.prim__postMessage a (toFFI b) c
   
   export
-  postMessage1 :  JSType t1
+  postMessage1 :  (0 _ : JSType t1)
                => {auto 0 _ : Elem PostMessageOptions (Types t1)}
                -> (obj : DedicatedWorkerGlobalScope)
                -> (message : Any)
@@ -430,10 +446,11 @@ namespace DedicatedWorkerGlobalScope
                                                                     (toFFI b)
                                                                     undef
 
+
 namespace DragEvent
   
   export
-  new :  JSType t1
+  new :  (0 _ : JSType t1)
       => {auto 0 _ : Elem DragEventInit (Types t1)}
       -> (type : String)
       -> (eventInitDict : Optional t1)
@@ -448,6 +465,7 @@ namespace DragEvent
   dataTransfer : (obj : DragEvent) -> JSIO (Maybe DataTransfer)
   dataTransfer a = tryJS "DragEvent.dataTransfer"
                  $ DragEvent.prim__dataTransfer a
+
 
 namespace ElementInternals
   
@@ -503,8 +521,8 @@ namespace ElementInternals
                     $ ElementInternals.prim__setFormValue a (toFFI b) undef
   
   export
-  setValidity :  JSType t1
-              => JSType t2
+  setValidity :  (0 _ : JSType t1)
+              => (0 _ : JSType t2)
               => {auto 0 _ : Elem ValidityStateFlags (Types t1)}
               -> {auto 0 _ : Elem HTMLElement (Types t2)}
               -> (obj : ElementInternals)
@@ -523,10 +541,11 @@ namespace ElementInternals
   setValidity' a = primJS
                  $ ElementInternals.prim__setValidity a undef undef undef
 
+
 namespace ErrorEvent
   
   export
-  new :  JSType t1
+  new :  (0 _ : JSType t1)
       => {auto 0 _ : Elem ErrorEventInit (Types t1)}
       -> (type : String)
       -> (eventInitDict : Optional t1)
@@ -557,6 +576,7 @@ namespace ErrorEvent
   message : (obj : ErrorEvent) -> JSIO String
   message a = primJS $ ErrorEvent.prim__message a
 
+
 namespace EventSource
   
   public export
@@ -572,7 +592,7 @@ namespace EventSource
   OPEN = 1
   
   export
-  new :  JSType t1
+  new :  (0 _ : JSType t1)
       => {auto 0 _ : Elem EventSourceInit (Types t1)}
       -> (url : String)
       -> (eventSourceInitDict : Optional t1)
@@ -621,6 +641,7 @@ namespace EventSource
   close : (obj : EventSource) -> JSIO ()
   close a = primJS $ EventSource.prim__close a
 
+
 namespace External
   
   export
@@ -632,10 +653,11 @@ namespace External
   IsSearchProviderInstalled a = primJS
                               $ External.prim__IsSearchProviderInstalled a
 
+
 namespace FormDataEvent
   
   export
-  new :  JSType t1
+  new :  (0 _ : JSType t1)
       => {auto 0 _ : Elem FormDataEventInit (Types t1)}
       -> (type : String)
       -> (eventInitDict : t1)
@@ -645,6 +667,7 @@ namespace FormDataEvent
   export
   formData : (obj : FormDataEvent) -> JSIO FormData
   formData a = primJS $ FormDataEvent.prim__formData a
+
 
 namespace HTMLAllCollection
   
@@ -675,6 +698,7 @@ namespace HTMLAllCollection
             -> JSIO (Maybe (NS I [ HTMLCollection , Element ]))
   namedItem a b = tryJS "HTMLAllCollection.namedItem"
                 $ HTMLAllCollection.prim__namedItem a b
+
 
 namespace HTMLAnchorElement
   
@@ -756,6 +780,7 @@ namespace HTMLAnchorElement
   type : HTMLAnchorElement -> Attribute True I String
   type v = fromPrim "HTMLAnchorElement.gettype" prim__type prim__setType v
 
+
 namespace HTMLAreaElement
   
   export
@@ -808,11 +833,13 @@ namespace HTMLAreaElement
   target : HTMLAreaElement -> Attribute True I String
   target v = fromPrim "HTMLAreaElement.gettarget" prim__target prim__setTarget v
 
+
 namespace HTMLAudioElement
   
   export
   new : JSIO HTMLAudioElement
   new = primJS $ HTMLAudioElement.prim__new 
+
 
 namespace HTMLBRElement
   
@@ -823,6 +850,7 @@ namespace HTMLBRElement
   export
   clear : HTMLBRElement -> Attribute True I String
   clear v = fromPrim "HTMLBRElement.getclear" prim__clear prim__setClear v
+
 
 namespace HTMLBaseElement
   
@@ -837,6 +865,7 @@ namespace HTMLBaseElement
   export
   target : HTMLBaseElement -> Attribute True I String
   target v = fromPrim "HTMLBaseElement.gettarget" prim__target prim__setTarget v
+
 
 namespace HTMLBodyElement
   
@@ -873,6 +902,7 @@ namespace HTMLBodyElement
   export
   vLink : HTMLBodyElement -> Attribute True I String
   vLink v = fromPrim "HTMLBodyElement.getvLink" prim__vLink prim__setVLink v
+
 
 namespace HTMLButtonElement
   
@@ -969,6 +999,7 @@ namespace HTMLButtonElement
   setCustomValidity : (obj : HTMLButtonElement) -> (error : String) -> JSIO ()
   setCustomValidity a b = primJS $ HTMLButtonElement.prim__setCustomValidity a b
 
+
 namespace HTMLCanvasElement
   
   export
@@ -1039,6 +1070,7 @@ namespace HTMLCanvasElement
   transferControlToOffscreen a = primJS
                                $ HTMLCanvasElement.prim__transferControlToOffscreen a
 
+
 namespace HTMLDListElement
   
   export
@@ -1052,6 +1084,7 @@ namespace HTMLDListElement
                        prim__setCompact
                        v
 
+
 namespace HTMLDataElement
   
   export
@@ -1061,6 +1094,7 @@ namespace HTMLDataElement
   export
   value : HTMLDataElement -> Attribute True I String
   value v = fromPrim "HTMLDataElement.getvalue" prim__value prim__setValue v
+
 
 namespace HTMLDataListElement
   
@@ -1072,6 +1106,7 @@ namespace HTMLDataListElement
   options : (obj : HTMLDataListElement) -> JSIO HTMLCollection
   options a = primJS $ HTMLDataListElement.prim__options a
 
+
 namespace HTMLDetailsElement
   
   export
@@ -1081,6 +1116,7 @@ namespace HTMLDetailsElement
   export
   open_ : HTMLDetailsElement -> Attribute True I Bool
   open_ v = fromPrim "HTMLDetailsElement.getopen" prim__open prim__setOpen v
+
 
 namespace HTMLDialogElement
   
@@ -1117,6 +1153,7 @@ namespace HTMLDialogElement
   showModal : (obj : HTMLDialogElement) -> JSIO ()
   showModal a = primJS $ HTMLDialogElement.prim__showModal a
 
+
 namespace HTMLDirectoryElement
   
   export
@@ -1130,6 +1167,7 @@ namespace HTMLDirectoryElement
                        prim__setCompact
                        v
 
+
 namespace HTMLDivElement
   
   export
@@ -1140,6 +1178,7 @@ namespace HTMLDivElement
   align : HTMLDivElement -> Attribute True I String
   align v = fromPrim "HTMLDivElement.getalign" prim__align prim__setAlign v
 
+
 namespace HTMLElement
   
   export
@@ -1147,7 +1186,7 @@ namespace HTMLElement
   new = primJS $ HTMLElement.prim__new 
   
   export
-  accessKey :  JSType t
+  accessKey :  (0 _ : JSType t)
             => {auto 0 _ : Elem HTMLElement (Types t)}
             -> t
             -> Attribute True I String
@@ -1157,14 +1196,14 @@ namespace HTMLElement
                          (v :> HTMLElement)
   
   export
-  accessKeyLabel :  JSType t1
+  accessKeyLabel :  (0 _ : JSType t1)
                  => {auto 0 _ : Elem HTMLElement (Types t1)}
                  -> (obj : t1)
                  -> JSIO String
   accessKeyLabel a = primJS $ HTMLElement.prim__accessKeyLabel (up a)
   
   export
-  autocapitalize :  JSType t
+  autocapitalize :  (0 _ : JSType t)
                  => {auto 0 _ : Elem HTMLElement (Types t)}
                  -> t
                  -> Attribute True I String
@@ -1174,7 +1213,7 @@ namespace HTMLElement
                               (v :> HTMLElement)
   
   export
-  dir :  JSType t
+  dir :  (0 _ : JSType t)
       => {auto 0 _ : Elem HTMLElement (Types t)}
       -> t
       -> Attribute True I String
@@ -1184,7 +1223,7 @@ namespace HTMLElement
                    (v :> HTMLElement)
   
   export
-  draggable :  JSType t
+  draggable :  (0 _ : JSType t)
             => {auto 0 _ : Elem HTMLElement (Types t)}
             -> t
             -> Attribute True I Bool
@@ -1194,7 +1233,7 @@ namespace HTMLElement
                          (v :> HTMLElement)
   
   export
-  hidden :  JSType t
+  hidden :  (0 _ : JSType t)
          => {auto 0 _ : Elem HTMLElement (Types t)}
          -> t
          -> Attribute True I Bool
@@ -1204,7 +1243,7 @@ namespace HTMLElement
                       (v :> HTMLElement)
   
   export
-  innerText :  JSType t
+  innerText :  (0 _ : JSType t)
             => {auto 0 _ : Elem HTMLElement (Types t)}
             -> t
             -> Attribute True I String
@@ -1214,7 +1253,7 @@ namespace HTMLElement
                          (v :> HTMLElement)
   
   export
-  lang :  JSType t
+  lang :  (0 _ : JSType t)
        => {auto 0 _ : Elem HTMLElement (Types t)}
        -> t
        -> Attribute True I String
@@ -1224,7 +1263,7 @@ namespace HTMLElement
                     (v :> HTMLElement)
   
   export
-  spellcheck :  JSType t
+  spellcheck :  (0 _ : JSType t)
              => {auto 0 _ : Elem HTMLElement (Types t)}
              -> t
              -> Attribute True I Bool
@@ -1234,7 +1273,7 @@ namespace HTMLElement
                           (v :> HTMLElement)
   
   export
-  title :  JSType t
+  title :  (0 _ : JSType t)
         => {auto 0 _ : Elem HTMLElement (Types t)}
         -> t
         -> Attribute True I String
@@ -1244,7 +1283,7 @@ namespace HTMLElement
                      (v :> HTMLElement)
   
   export
-  translate :  JSType t
+  translate :  (0 _ : JSType t)
             => {auto 0 _ : Elem HTMLElement (Types t)}
             -> t
             -> Attribute True I Bool
@@ -1254,18 +1293,19 @@ namespace HTMLElement
                          (v :> HTMLElement)
   
   export
-  attachInternals :  JSType t1
+  attachInternals :  (0 _ : JSType t1)
                   => {auto 0 _ : Elem HTMLElement (Types t1)}
                   -> (obj : t1)
                   -> JSIO ElementInternals
   attachInternals a = primJS $ HTMLElement.prim__attachInternals (up a)
   
   export
-  click :  JSType t1
+  click :  (0 _ : JSType t1)
         => {auto 0 _ : Elem HTMLElement (Types t1)}
         -> (obj : t1)
         -> JSIO ()
   click a = primJS $ HTMLElement.prim__click (up a)
+
 
 namespace HTMLEmbedElement
   
@@ -1304,6 +1344,7 @@ namespace HTMLEmbedElement
   getSVGDocument : (obj : HTMLEmbedElement) -> JSIO (Maybe Document)
   getSVGDocument a = tryJS "HTMLEmbedElement.getSVGDocument"
                    $ HTMLEmbedElement.prim__getSVGDocument a
+
 
 namespace HTMLFieldSetElement
   
@@ -1362,6 +1403,7 @@ namespace HTMLFieldSetElement
   setCustomValidity a b = primJS
                         $ HTMLFieldSetElement.prim__setCustomValidity a b
 
+
 namespace HTMLFontElement
   
   export
@@ -1380,6 +1422,7 @@ namespace HTMLFontElement
   size : HTMLFontElement -> Attribute True I String
   size v = fromPrim "HTMLFontElement.getsize" prim__size prim__setSize v
 
+
 namespace HTMLFormControlsCollection
   
   export
@@ -1388,6 +1431,7 @@ namespace HTMLFormControlsCollection
             -> JSIO (Maybe (NS I [ RadioNodeList , Element ]))
   namedItem a b = tryJS "HTMLFormControlsCollection.namedItem"
                 $ HTMLFormControlsCollection.prim__namedItem a b
+
 
 namespace HTMLFormElement
   
@@ -1483,7 +1527,7 @@ namespace HTMLFormElement
                    $ HTMLFormElement.prim__reportValidity a
   
   export
-  requestSubmit :  JSType t1
+  requestSubmit :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem HTMLElement (Types t1)}
                 -> (obj : HTMLFormElement)
                 -> (submitter : Optional (Maybe t1))
@@ -1501,6 +1545,7 @@ namespace HTMLFormElement
   export
   submit : (obj : HTMLFormElement) -> JSIO ()
   submit a = primJS $ HTMLFormElement.prim__submit a
+
 
 namespace HTMLFrameElement
   
@@ -1568,6 +1613,7 @@ namespace HTMLFrameElement
   src : HTMLFrameElement -> Attribute True I String
   src v = fromPrim "HTMLFrameElement.getsrc" prim__src prim__setSrc v
 
+
 namespace HTMLFrameSetElement
   
   export
@@ -1581,6 +1627,7 @@ namespace HTMLFrameSetElement
   export
   rows : HTMLFrameSetElement -> Attribute True I String
   rows v = fromPrim "HTMLFrameSetElement.getrows" prim__rows prim__setRows v
+
 
 namespace HTMLHRElement
   
@@ -1611,11 +1658,13 @@ namespace HTMLHRElement
   width : HTMLHRElement -> Attribute True I String
   width v = fromPrim "HTMLHRElement.getwidth" prim__width prim__setWidth v
 
+
 namespace HTMLHeadElement
   
   export
   new : JSIO HTMLHeadElement
   new = primJS $ HTMLHeadElement.prim__new 
+
 
 namespace HTMLHeadingElement
   
@@ -1626,6 +1675,7 @@ namespace HTMLHeadingElement
   export
   align : HTMLHeadingElement -> Attribute True I String
   align v = fromPrim "HTMLHeadingElement.getalign" prim__align prim__setAlign v
+
 
 namespace HTMLHtmlElement
   
@@ -1639,6 +1689,7 @@ namespace HTMLHtmlElement
                        prim__version
                        prim__setVersion
                        v
+
 
 namespace HTMLIFrameElement
   
@@ -1754,6 +1805,7 @@ namespace HTMLIFrameElement
   getSVGDocument : (obj : HTMLIFrameElement) -> JSIO (Maybe Document)
   getSVGDocument a = tryJS "HTMLIFrameElement.getSVGDocument"
                    $ HTMLIFrameElement.prim__getSVGDocument a
+
 
 namespace HTMLImageElement
   
@@ -1893,6 +1945,7 @@ namespace HTMLImageElement
   export
   decode : (obj : HTMLImageElement) -> JSIO (Promise Undefined)
   decode a = primJS $ HTMLImageElement.prim__decode a
+
 
 namespace HTMLInputElement
   
@@ -2249,6 +2302,7 @@ namespace HTMLInputElement
   stepUp' : (obj : HTMLInputElement) -> JSIO ()
   stepUp' a = primJS $ HTMLInputElement.prim__stepUp a undef
 
+
 namespace HTMLLIElement
   
   export
@@ -2262,6 +2316,7 @@ namespace HTMLLIElement
   export
   value : HTMLLIElement -> Attribute True I Int32
   value v = fromPrim "HTMLLIElement.getvalue" prim__value prim__setValue v
+
 
 namespace HTMLLabelElement
   
@@ -2285,6 +2340,7 @@ namespace HTMLLabelElement
                        prim__setHtmlFor
                        v
 
+
 namespace HTMLLegendElement
   
   export
@@ -2298,6 +2354,7 @@ namespace HTMLLegendElement
   export
   form : (obj : HTMLLegendElement) -> JSIO (Maybe HTMLFormElement)
   form a = tryJS "HTMLLegendElement.form" $ HTMLLegendElement.prim__form a
+
 
 namespace HTMLLinkElement
   
@@ -2397,6 +2454,7 @@ namespace HTMLLinkElement
   type : HTMLLinkElement -> Attribute True I String
   type v = fromPrim "HTMLLinkElement.gettype" prim__type prim__setType v
 
+
 namespace HTMLMapElement
   
   export
@@ -2410,6 +2468,7 @@ namespace HTMLMapElement
   export
   name : HTMLMapElement -> Attribute True I String
   name v = fromPrim "HTMLMapElement.getname" prim__name prim__setName v
+
 
 namespace HTMLMarqueeElement
   
@@ -2496,6 +2555,7 @@ namespace HTMLMarqueeElement
   stop : (obj : HTMLMarqueeElement) -> JSIO ()
   stop a = primJS $ HTMLMarqueeElement.prim__stop a
 
+
 namespace HTMLMediaElement
   
   public export
@@ -2535,14 +2595,14 @@ namespace HTMLMediaElement
   NETWORK_NO_SOURCE = 3
   
   export
-  audioTracks :  JSType t1
+  audioTracks :  (0 _ : JSType t1)
               => {auto 0 _ : Elem HTMLMediaElement (Types t1)}
               -> (obj : t1)
               -> JSIO AudioTrackList
   audioTracks a = primJS $ HTMLMediaElement.prim__audioTracks (up a)
   
   export
-  autoplay :  JSType t
+  autoplay :  (0 _ : JSType t)
            => {auto 0 _ : Elem HTMLMediaElement (Types t)}
            -> t
            -> Attribute True I Bool
@@ -2552,14 +2612,14 @@ namespace HTMLMediaElement
                         (v :> HTMLMediaElement)
   
   export
-  buffered :  JSType t1
+  buffered :  (0 _ : JSType t1)
            => {auto 0 _ : Elem HTMLMediaElement (Types t1)}
            -> (obj : t1)
            -> JSIO TimeRanges
   buffered a = primJS $ HTMLMediaElement.prim__buffered (up a)
   
   export
-  controls :  JSType t
+  controls :  (0 _ : JSType t)
            => {auto 0 _ : Elem HTMLMediaElement (Types t)}
            -> t
            -> Attribute True I Bool
@@ -2569,7 +2629,7 @@ namespace HTMLMediaElement
                         (v :> HTMLMediaElement)
   
   export
-  crossOrigin :  JSType t
+  crossOrigin :  (0 _ : JSType t)
               => {auto 0 _ : Elem HTMLMediaElement (Types t)}
               -> t
               -> Attribute False Maybe String
@@ -2579,14 +2639,14 @@ namespace HTMLMediaElement
                                    (v :> HTMLMediaElement)
   
   export
-  currentSrc :  JSType t1
+  currentSrc :  (0 _ : JSType t1)
              => {auto 0 _ : Elem HTMLMediaElement (Types t1)}
              -> (obj : t1)
              -> JSIO String
   currentSrc a = primJS $ HTMLMediaElement.prim__currentSrc (up a)
   
   export
-  currentTime :  JSType t
+  currentTime :  (0 _ : JSType t)
               => {auto 0 _ : Elem HTMLMediaElement (Types t)}
               -> t
               -> Attribute True I Double
@@ -2596,7 +2656,7 @@ namespace HTMLMediaElement
                            (v :> HTMLMediaElement)
   
   export
-  defaultMuted :  JSType t
+  defaultMuted :  (0 _ : JSType t)
                => {auto 0 _ : Elem HTMLMediaElement (Types t)}
                -> t
                -> Attribute True I Bool
@@ -2606,7 +2666,7 @@ namespace HTMLMediaElement
                             (v :> HTMLMediaElement)
   
   export
-  defaultPlaybackRate :  JSType t
+  defaultPlaybackRate :  (0 _ : JSType t)
                       => {auto 0 _ : Elem HTMLMediaElement (Types t)}
                       -> t
                       -> Attribute True I Double
@@ -2616,28 +2676,28 @@ namespace HTMLMediaElement
                                    (v :> HTMLMediaElement)
   
   export
-  duration :  JSType t1
+  duration :  (0 _ : JSType t1)
            => {auto 0 _ : Elem HTMLMediaElement (Types t1)}
            -> (obj : t1)
            -> JSIO Double
   duration a = primJS $ HTMLMediaElement.prim__duration (up a)
   
   export
-  ended :  JSType t1
+  ended :  (0 _ : JSType t1)
         => {auto 0 _ : Elem HTMLMediaElement (Types t1)}
         -> (obj : t1)
         -> JSIO Bool
   ended a = tryJS "HTMLMediaElement.ended" $ HTMLMediaElement.prim__ended (up a)
   
   export
-  error :  JSType t1
+  error :  (0 _ : JSType t1)
         => {auto 0 _ : Elem HTMLMediaElement (Types t1)}
         -> (obj : t1)
         -> JSIO (Maybe MediaError)
   error a = tryJS "HTMLMediaElement.error" $ HTMLMediaElement.prim__error (up a)
   
   export
-  loop :  JSType t
+  loop :  (0 _ : JSType t)
        => {auto 0 _ : Elem HTMLMediaElement (Types t)}
        -> t
        -> Attribute True I Bool
@@ -2647,7 +2707,7 @@ namespace HTMLMediaElement
                     (v :> HTMLMediaElement)
   
   export
-  muted :  JSType t
+  muted :  (0 _ : JSType t)
         => {auto 0 _ : Elem HTMLMediaElement (Types t)}
         -> t
         -> Attribute True I Bool
@@ -2657,14 +2717,14 @@ namespace HTMLMediaElement
                      (v :> HTMLMediaElement)
   
   export
-  networkState :  JSType t1
+  networkState :  (0 _ : JSType t1)
                => {auto 0 _ : Elem HTMLMediaElement (Types t1)}
                -> (obj : t1)
                -> JSIO Bits16
   networkState a = primJS $ HTMLMediaElement.prim__networkState (up a)
   
   export
-  paused :  JSType t1
+  paused :  (0 _ : JSType t1)
          => {auto 0 _ : Elem HTMLMediaElement (Types t1)}
          -> (obj : t1)
          -> JSIO Bool
@@ -2672,7 +2732,7 @@ namespace HTMLMediaElement
            $ HTMLMediaElement.prim__paused (up a)
   
   export
-  playbackRate :  JSType t
+  playbackRate :  (0 _ : JSType t)
                => {auto 0 _ : Elem HTMLMediaElement (Types t)}
                -> t
                -> Attribute True I Double
@@ -2682,14 +2742,14 @@ namespace HTMLMediaElement
                             (v :> HTMLMediaElement)
   
   export
-  played :  JSType t1
+  played :  (0 _ : JSType t1)
          => {auto 0 _ : Elem HTMLMediaElement (Types t1)}
          -> (obj : t1)
          -> JSIO TimeRanges
   played a = primJS $ HTMLMediaElement.prim__played (up a)
   
   export
-  preload :  JSType t
+  preload :  (0 _ : JSType t)
           => {auto 0 _ : Elem HTMLMediaElement (Types t)}
           -> t
           -> Attribute True I String
@@ -2699,7 +2759,7 @@ namespace HTMLMediaElement
                        (v :> HTMLMediaElement)
   
   export
-  preservesPitch :  JSType t
+  preservesPitch :  (0 _ : JSType t)
                  => {auto 0 _ : Elem HTMLMediaElement (Types t)}
                  -> t
                  -> Attribute True I Bool
@@ -2709,21 +2769,21 @@ namespace HTMLMediaElement
                               (v :> HTMLMediaElement)
   
   export
-  readyState :  JSType t1
+  readyState :  (0 _ : JSType t1)
              => {auto 0 _ : Elem HTMLMediaElement (Types t1)}
              -> (obj : t1)
              -> JSIO Bits16
   readyState a = primJS $ HTMLMediaElement.prim__readyState (up a)
   
   export
-  seekable :  JSType t1
+  seekable :  (0 _ : JSType t1)
            => {auto 0 _ : Elem HTMLMediaElement (Types t1)}
            -> (obj : t1)
            -> JSIO TimeRanges
   seekable a = primJS $ HTMLMediaElement.prim__seekable (up a)
   
   export
-  seeking :  JSType t1
+  seeking :  (0 _ : JSType t1)
           => {auto 0 _ : Elem HTMLMediaElement (Types t1)}
           -> (obj : t1)
           -> JSIO Bool
@@ -2731,7 +2791,7 @@ namespace HTMLMediaElement
             $ HTMLMediaElement.prim__seeking (up a)
   
   export
-  src :  JSType t
+  src :  (0 _ : JSType t)
       => {auto 0 _ : Elem HTMLMediaElement (Types t)}
       -> t
       -> Attribute True I String
@@ -2741,7 +2801,7 @@ namespace HTMLMediaElement
                    (v :> HTMLMediaElement)
   
   export
-  srcObject :  JSType t
+  srcObject :  (0 _ : JSType t)
             => {auto 0 _ : Elem HTMLMediaElement (Types t)}
             -> t
             -> Attribute False Maybe (NS I [ MediaStream , MediaSource , Blob ])
@@ -2751,21 +2811,21 @@ namespace HTMLMediaElement
                                  (v :> HTMLMediaElement)
   
   export
-  textTracks :  JSType t1
+  textTracks :  (0 _ : JSType t1)
              => {auto 0 _ : Elem HTMLMediaElement (Types t1)}
              -> (obj : t1)
              -> JSIO TextTrackList
   textTracks a = primJS $ HTMLMediaElement.prim__textTracks (up a)
   
   export
-  videoTracks :  JSType t1
+  videoTracks :  (0 _ : JSType t1)
               => {auto 0 _ : Elem HTMLMediaElement (Types t1)}
               -> (obj : t1)
               -> JSIO VideoTrackList
   videoTracks a = primJS $ HTMLMediaElement.prim__videoTracks (up a)
   
   export
-  volume :  JSType t
+  volume :  (0 _ : JSType t)
          => {auto 0 _ : Elem HTMLMediaElement (Types t)}
          -> t
          -> Attribute True I Double
@@ -2775,7 +2835,7 @@ namespace HTMLMediaElement
                       (v :> HTMLMediaElement)
   
   export
-  addTextTrack :  JSType t1
+  addTextTrack :  (0 _ : JSType t1)
                => {auto 0 _ : Elem HTMLMediaElement (Types t1)}
                -> (obj : t1)
                -> (kind : TextTrackKind)
@@ -2789,7 +2849,7 @@ namespace HTMLMediaElement
                                                              (toFFI d)
 
   export
-  addTextTrack' :  JSType t1
+  addTextTrack' :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem HTMLMediaElement (Types t1)}
                 -> (obj : t1)
                 -> (kind : TextTrackKind)
@@ -2801,7 +2861,7 @@ namespace HTMLMediaElement
                                                           undef
   
   export
-  canPlayType :  JSType t1
+  canPlayType :  (0 _ : JSType t1)
               => {auto 0 _ : Elem HTMLMediaElement (Types t1)}
               -> (obj : t1)
               -> (type : String)
@@ -2810,7 +2870,7 @@ namespace HTMLMediaElement
                   $ HTMLMediaElement.prim__canPlayType (up a) b
   
   export
-  fastSeek :  JSType t1
+  fastSeek :  (0 _ : JSType t1)
            => {auto 0 _ : Elem HTMLMediaElement (Types t1)}
            -> (obj : t1)
            -> (time : Double)
@@ -2818,32 +2878,33 @@ namespace HTMLMediaElement
   fastSeek a b = primJS $ HTMLMediaElement.prim__fastSeek (up a) b
   
   export
-  getStartDate :  JSType t1
+  getStartDate :  (0 _ : JSType t1)
                => {auto 0 _ : Elem HTMLMediaElement (Types t1)}
                -> (obj : t1)
                -> JSIO Object
   getStartDate a = primJS $ HTMLMediaElement.prim__getStartDate (up a)
   
   export
-  load :  JSType t1
+  load :  (0 _ : JSType t1)
        => {auto 0 _ : Elem HTMLMediaElement (Types t1)}
        -> (obj : t1)
        -> JSIO ()
   load a = primJS $ HTMLMediaElement.prim__load (up a)
   
   export
-  pause :  JSType t1
+  pause :  (0 _ : JSType t1)
         => {auto 0 _ : Elem HTMLMediaElement (Types t1)}
         -> (obj : t1)
         -> JSIO ()
   pause a = primJS $ HTMLMediaElement.prim__pause (up a)
   
   export
-  play :  JSType t1
+  play :  (0 _ : JSType t1)
        => {auto 0 _ : Elem HTMLMediaElement (Types t1)}
        -> (obj : t1)
        -> JSIO (Promise Undefined)
   play a = primJS $ HTMLMediaElement.prim__play (up a)
+
 
 namespace HTMLMenuElement
   
@@ -2857,6 +2918,7 @@ namespace HTMLMenuElement
                        prim__compact
                        prim__setCompact
                        v
+
 
 namespace HTMLMetaElement
   
@@ -2885,6 +2947,7 @@ namespace HTMLMetaElement
   export
   scheme : HTMLMetaElement -> Attribute True I String
   scheme v = fromPrim "HTMLMetaElement.getscheme" prim__scheme prim__setScheme v
+
 
 namespace HTMLMeterElement
   
@@ -2923,6 +2986,7 @@ namespace HTMLMeterElement
   value : HTMLMeterElement -> Attribute True I Double
   value v = fromPrim "HTMLMeterElement.getvalue" prim__value prim__setValue v
 
+
 namespace HTMLModElement
   
   export
@@ -2939,6 +3003,7 @@ namespace HTMLModElement
                         prim__dateTime
                         prim__setDateTime
                         v
+
 
 namespace HTMLOListElement
   
@@ -2967,6 +3032,7 @@ namespace HTMLOListElement
   export
   type : HTMLOListElement -> Attribute True I String
   type v = fromPrim "HTMLOListElement.gettype" prim__type prim__setType v
+
 
 namespace HTMLObjectElement
   
@@ -3114,6 +3180,7 @@ namespace HTMLObjectElement
   setCustomValidity : (obj : HTMLObjectElement) -> (error : String) -> JSIO ()
   setCustomValidity a b = primJS $ HTMLObjectElement.prim__setCustomValidity a b
 
+
 namespace HTMLOptGroupElement
   
   export
@@ -3130,6 +3197,7 @@ namespace HTMLOptGroupElement
   export
   label : HTMLOptGroupElement -> Attribute True I String
   label v = fromPrim "HTMLOptGroupElement.getlabel" prim__label prim__setLabel v
+
 
 namespace HTMLOptionElement
   
@@ -3178,6 +3246,7 @@ namespace HTMLOptionElement
   value : HTMLOptionElement -> Attribute True I String
   value v = fromPrim "HTMLOptionElement.getvalue" prim__value prim__setValue v
 
+
 namespace HTMLOptionsCollection
   
   export
@@ -3217,6 +3286,7 @@ namespace HTMLOptionsCollection
   export
   remove : (obj : HTMLOptionsCollection) -> (index : Int32) -> JSIO ()
   remove a b = primJS $ HTMLOptionsCollection.prim__remove a b
+
 
 namespace HTMLOutputElement
   
@@ -3282,6 +3352,7 @@ namespace HTMLOutputElement
   setCustomValidity : (obj : HTMLOutputElement) -> (error : String) -> JSIO ()
   setCustomValidity a b = primJS $ HTMLOutputElement.prim__setCustomValidity a b
 
+
 namespace HTMLParagraphElement
   
   export
@@ -3294,6 +3365,7 @@ namespace HTMLParagraphElement
                      prim__align
                      prim__setAlign
                      v
+
 
 namespace HTMLParamElement
   
@@ -3320,11 +3392,13 @@ namespace HTMLParamElement
                          prim__setValueType
                          v
 
+
 namespace HTMLPictureElement
   
   export
   new : JSIO HTMLPictureElement
   new = primJS $ HTMLPictureElement.prim__new 
+
 
 namespace HTMLPreElement
   
@@ -3335,6 +3409,7 @@ namespace HTMLPreElement
   export
   width : HTMLPreElement -> Attribute True I Int32
   width v = fromPrim "HTMLPreElement.getwidth" prim__width prim__setWidth v
+
 
 namespace HTMLProgressElement
   
@@ -3358,6 +3433,7 @@ namespace HTMLProgressElement
   value : HTMLProgressElement -> Attribute True I Double
   value v = fromPrim "HTMLProgressElement.getvalue" prim__value prim__setValue v
 
+
 namespace HTMLQuoteElement
   
   export
@@ -3367,6 +3443,7 @@ namespace HTMLQuoteElement
   export
   cite : HTMLQuoteElement -> Attribute True I String
   cite v = fromPrim "HTMLQuoteElement.getcite" prim__cite prim__setCite v
+
 
 namespace HTMLScriptElement
   
@@ -3439,6 +3516,7 @@ namespace HTMLScriptElement
   export
   type : HTMLScriptElement -> Attribute True I String
   type v = fromPrim "HTMLScriptElement.gettype" prim__type prim__setType v
+
 
 namespace HTMLSelectElement
   
@@ -3586,6 +3664,7 @@ namespace HTMLSelectElement
   setCustomValidity : (obj : HTMLSelectElement) -> (error : String) -> JSIO ()
   setCustomValidity a b = primJS $ HTMLSelectElement.prim__setCustomValidity a b
 
+
 namespace HTMLSlotElement
   
   export
@@ -3597,7 +3676,7 @@ namespace HTMLSlotElement
   name v = fromPrim "HTMLSlotElement.getname" prim__name prim__setName v
   
   export
-  assignedElements :  JSType t1
+  assignedElements :  (0 _ : JSType t1)
                    => {auto 0 _ : Elem AssignedNodesOptions (Types t1)}
                    -> (obj : HTMLSlotElement)
                    -> (options : Optional t1)
@@ -3610,7 +3689,7 @@ namespace HTMLSlotElement
   assignedElements' a = primJS $ HTMLSlotElement.prim__assignedElements a undef
   
   export
-  assignedNodes :  JSType t1
+  assignedNodes :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem AssignedNodesOptions (Types t1)}
                 -> (obj : HTMLSlotElement)
                 -> (options : Optional t1)
@@ -3620,6 +3699,7 @@ namespace HTMLSlotElement
   export
   assignedNodes' : (obj : HTMLSlotElement) -> JSIO (Array Node)
   assignedNodes' a = primJS $ HTMLSlotElement.prim__assignedNodes a undef
+
 
 namespace HTMLSourceElement
   
@@ -3661,11 +3741,13 @@ namespace HTMLSourceElement
   width : HTMLSourceElement -> Attribute True I Bits32
   width v = fromPrim "HTMLSourceElement.getwidth" prim__width prim__setWidth v
 
+
 namespace HTMLSpanElement
   
   export
   new : JSIO HTMLSpanElement
   new = primJS $ HTMLSpanElement.prim__new 
+
 
 namespace HTMLStyleElement
   
@@ -3681,6 +3763,7 @@ namespace HTMLStyleElement
   type : HTMLStyleElement -> Attribute True I String
   type v = fromPrim "HTMLStyleElement.gettype" prim__type prim__setType v
 
+
 namespace HTMLTableCaptionElement
   
   export
@@ -3693,6 +3776,7 @@ namespace HTMLTableCaptionElement
                      prim__align
                      prim__setAlign
                      v
+
 
 namespace HTMLTableCellElement
   
@@ -3793,6 +3877,7 @@ namespace HTMLTableCellElement
                      prim__setWidth
                      v
 
+
 namespace HTMLTableColElement
   
   export
@@ -3825,6 +3910,7 @@ namespace HTMLTableColElement
   export
   width : HTMLTableColElement -> Attribute True I String
   width v = fromPrim "HTMLTableColElement.getwidth" prim__width prim__setWidth v
+
 
 namespace HTMLTableElement
   
@@ -3954,6 +4040,7 @@ namespace HTMLTableElement
   insertRow' : (obj : HTMLTableElement) -> JSIO HTMLTableRowElement
   insertRow' a = primJS $ HTMLTableElement.prim__insertRow a undef
 
+
 namespace HTMLTableRowElement
   
   export
@@ -4012,6 +4099,7 @@ namespace HTMLTableRowElement
   insertCell' : (obj : HTMLTableRowElement) -> JSIO HTMLTableCellElement
   insertCell' a = primJS $ HTMLTableRowElement.prim__insertCell a undef
 
+
 namespace HTMLTableSectionElement
   
   export
@@ -4061,6 +4149,7 @@ namespace HTMLTableSectionElement
   insertRow' : (obj : HTMLTableSectionElement) -> JSIO HTMLTableRowElement
   insertRow' a = primJS $ HTMLTableSectionElement.prim__insertRow a undef
 
+
 namespace HTMLTemplateElement
   
   export
@@ -4070,6 +4159,7 @@ namespace HTMLTemplateElement
   export
   content : (obj : HTMLTemplateElement) -> JSIO DocumentFragment
   content a = primJS $ HTMLTemplateElement.prim__content a
+
 
 namespace HTMLTextAreaElement
   
@@ -4281,6 +4371,7 @@ namespace HTMLTextAreaElement
                                                                          c
                                                                          undef
 
+
 namespace HTMLTimeElement
   
   export
@@ -4294,6 +4385,7 @@ namespace HTMLTimeElement
                         prim__setDateTime
                         v
 
+
 namespace HTMLTitleElement
   
   export
@@ -4303,6 +4395,7 @@ namespace HTMLTitleElement
   export
   text : HTMLTitleElement -> Attribute True I String
   text v = fromPrim "HTMLTitleElement.gettext" prim__text prim__setText v
+
 
 namespace HTMLTrackElement
   
@@ -4360,6 +4453,7 @@ namespace HTMLTrackElement
   track : (obj : HTMLTrackElement) -> JSIO TextTrack
   track a = primJS $ HTMLTrackElement.prim__track a
 
+
 namespace HTMLUListElement
   
   export
@@ -4376,6 +4470,7 @@ namespace HTMLUListElement
   export
   type : HTMLUListElement -> Attribute True I String
   type v = fromPrim "HTMLUListElement.gettype" prim__type prim__setType v
+
 
 
 namespace HTMLVideoElement
@@ -4417,10 +4512,11 @@ namespace HTMLVideoElement
   width : HTMLVideoElement -> Attribute True I Bits32
   width v = fromPrim "HTMLVideoElement.getwidth" prim__width prim__setWidth v
 
+
 namespace HashChangeEvent
   
   export
-  new :  JSType t1
+  new :  (0 _ : JSType t1)
       => {auto 0 _ : Elem HashChangeEventInit (Types t1)}
       -> (type : String)
       -> (eventInitDict : Optional t1)
@@ -4438,6 +4534,7 @@ namespace HashChangeEvent
   export
   oldURL : (obj : HashChangeEvent) -> JSIO String
   oldURL a = primJS $ HashChangeEvent.prim__oldURL a
+
 
 namespace History
   
@@ -4500,6 +4597,7 @@ namespace History
                 -> JSIO ()
   replaceState' a b c = primJS $ History.prim__replaceState a (toFFI b) c undef
 
+
 namespace ImageBitmap
   
   export
@@ -4513,6 +4611,7 @@ namespace ImageBitmap
   export
   close : (obj : ImageBitmap) -> JSIO ()
   close a = primJS $ ImageBitmap.prim__close a
+
 
 namespace ImageBitmapRenderingContext
   
@@ -4529,6 +4628,7 @@ namespace ImageBitmapRenderingContext
   transferFromImageBitmap a b = primJS
                               $ ImageBitmapRenderingContext.prim__transferFromImageBitmap a
                                                                                           (toFFI b)
+
 
 namespace ImageData
   
@@ -4558,6 +4658,7 @@ namespace ImageData
   export
   width : (obj : ImageData) -> JSIO Bits32
   width a = primJS $ ImageData.prim__width a
+
 
 namespace Location
   
@@ -4622,6 +4723,7 @@ namespace Location
   replace : (obj : Location) -> (url : String) -> JSIO ()
   replace a b = primJS $ Location.prim__replace a b
 
+
 namespace MediaError
   
   public export
@@ -4648,6 +4750,7 @@ namespace MediaError
   message : (obj : MediaError) -> JSIO String
   message a = primJS $ MediaError.prim__message a
 
+
 namespace MessageChannel
   
   export
@@ -4662,10 +4765,11 @@ namespace MessageChannel
   port2 : (obj : MessageChannel) -> JSIO MessagePort
   port2 a = primJS $ MessageChannel.prim__port2 a
 
+
 namespace MessageEvent
   
   export
-  new :  JSType t1
+  new :  (0 _ : JSType t1)
       => {auto 0 _ : Elem MessageEventInit (Types t1)}
       -> (type : String)
       -> (eventInitDict : Optional t1)
@@ -4735,6 +4839,7 @@ namespace MessageEvent
                                                               undef
                                                               undef
 
+
 namespace MessagePort
   
   export
@@ -4763,7 +4868,7 @@ namespace MessagePort
   postMessage a b c = primJS $ MessagePort.prim__postMessage a (toFFI b) c
   
   export
-  postMessage1 :  JSType t1
+  postMessage1 :  (0 _ : JSType t1)
                => {auto 0 _ : Elem PostMessageOptions (Types t1)}
                -> (obj : MessagePort)
                -> (message : Any)
@@ -4779,6 +4884,7 @@ namespace MessagePort
   export
   start : (obj : MessagePort) -> JSIO ()
   start a = primJS $ MessagePort.prim__start a
+
 
 namespace MimeType
   
@@ -4798,6 +4904,7 @@ namespace MimeType
   type : (obj : MimeType) -> JSIO ()
   type a = primJS $ MimeType.prim__type a
 
+
 namespace MimeTypeArray
   
   export
@@ -4812,6 +4919,7 @@ namespace MimeTypeArray
   namedItem : (obj : MimeTypeArray) -> (name : String) -> JSIO (Maybe Object)
   namedItem a b = tryJS "MimeTypeArray.namedItem"
                 $ MimeTypeArray.prim__namedItem a b
+
 
 namespace Navigator
   
@@ -4832,7 +4940,7 @@ namespace Navigator
   serviceWorker a = primJS $ Navigator.prim__serviceWorker a
   
   export
-  getUserMedia :  JSType t1
+  getUserMedia :  (0 _ : JSType t1)
                => {auto 0 _ : Elem MediaStreamConstraints (Types t1)}
                -> (obj : Navigator)
                -> (constraints : t1)
@@ -4840,6 +4948,7 @@ namespace Navigator
                -> (errorCallback : NavigatorUserMediaErrorCallback)
                -> JSIO ()
   getUserMedia a b c d = primJS $ Navigator.prim__getUserMedia a (up b) c d
+
 
 namespace OffscreenCanvas
   
@@ -4856,7 +4965,7 @@ namespace OffscreenCanvas
   width v = fromPrim "OffscreenCanvas.getwidth" prim__width prim__setWidth v
   
   export
-  convertToBlob :  JSType t1
+  convertToBlob :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem ImageEncodeOptions (Types t1)}
                 -> (obj : OffscreenCanvas)
                 -> (options : Optional t1)
@@ -4895,6 +5004,7 @@ namespace OffscreenCanvas
   transferToImageBitmap a = primJS
                           $ OffscreenCanvas.prim__transferToImageBitmap a
 
+
 namespace OffscreenCanvasRenderingContext2D
   
   export
@@ -4905,10 +5015,11 @@ namespace OffscreenCanvasRenderingContext2D
   commit : (obj : OffscreenCanvasRenderingContext2D) -> JSIO ()
   commit a = primJS $ OffscreenCanvasRenderingContext2D.prim__commit a
 
+
 namespace PageTransitionEvent
   
   export
-  new :  JSType t1
+  new :  (0 _ : JSType t1)
       => {auto 0 _ : Elem PageTransitionEventInit (Types t1)}
       -> (type : String)
       -> (eventInitDict : Optional t1)
@@ -4924,6 +5035,7 @@ namespace PageTransitionEvent
   persisted a = tryJS "PageTransitionEvent.persisted"
               $ PageTransitionEvent.prim__persisted a
 
+
 namespace Path2D
   
   export
@@ -4935,7 +5047,7 @@ namespace Path2D
   new' = primJS $ Path2D.prim__new undef
   
   export
-  addPath :  JSType t1
+  addPath :  (0 _ : JSType t1)
           => {auto 0 _ : Elem DOMMatrix2DInit (Types t1)}
           -> (obj : Path2D)
           -> (path : Path2D)
@@ -4946,6 +5058,7 @@ namespace Path2D
   export
   addPath' : (obj : Path2D) -> (path : Path2D) -> JSIO ()
   addPath' a b = primJS $ Path2D.prim__addPath a b undef
+
 
 namespace Plugin
   
@@ -4973,6 +5086,7 @@ namespace Plugin
   namedItem : (obj : Plugin) -> (name : String) -> JSIO ()
   namedItem a b = primJS $ Plugin.prim__namedItem a b
 
+
 namespace PluginArray
   
   export
@@ -4992,10 +5106,11 @@ namespace PluginArray
   refresh : (obj : PluginArray) -> JSIO ()
   refresh a = primJS $ PluginArray.prim__refresh a
 
+
 namespace PopStateEvent
   
   export
-  new :  JSType t1
+  new :  (0 _ : JSType t1)
       => {auto 0 _ : Elem PopStateEventInit (Types t1)}
       -> (type : String)
       -> (eventInitDict : Optional t1)
@@ -5010,10 +5125,11 @@ namespace PopStateEvent
   state : (obj : PopStateEvent) -> JSIO Any
   state a = tryJS "PopStateEvent.state" $ PopStateEvent.prim__state a
 
+
 namespace PromiseRejectionEvent
   
   export
-  new :  JSType t1
+  new :  (0 _ : JSType t1)
       => {auto 0 _ : Elem PromiseRejectionEventInit (Types t1)}
       -> (type : String)
       -> (eventInitDict : t1)
@@ -5029,11 +5145,13 @@ namespace PromiseRejectionEvent
   reason a = tryJS "PromiseRejectionEvent.reason"
            $ PromiseRejectionEvent.prim__reason a
 
+
 namespace RadioNodeList
   
   export
   value : RadioNodeList -> Attribute True I String
   value v = fromPrim "RadioNodeList.getvalue" prim__value prim__setValue v
+
 
 namespace SharedWorker
   
@@ -5050,6 +5168,7 @@ namespace SharedWorker
   export
   port : (obj : SharedWorker) -> JSIO MessagePort
   port a = primJS $ SharedWorker.prim__port a
+
 
 namespace SharedWorkerGlobalScope
   
@@ -5068,6 +5187,7 @@ namespace SharedWorkerGlobalScope
   export
   close : (obj : SharedWorkerGlobalScope) -> JSIO ()
   close a = primJS $ SharedWorkerGlobalScope.prim__close a
+
 
 namespace Storage
   
@@ -5091,10 +5211,11 @@ namespace Storage
   setItem : (obj : Storage) -> (key : String) -> (value : String) -> JSIO ()
   setItem a b c = primJS $ Storage.prim__setItem a b c
 
+
 namespace StorageEvent
   
   export
-  new :  JSType t1
+  new :  (0 _ : JSType t1)
       => {auto 0 _ : Elem StorageEventInit (Types t1)}
       -> (type : String)
       -> (eventInitDict : Optional t1)
@@ -5161,10 +5282,11 @@ namespace StorageEvent
                                                               undef
                                                               undef
 
+
 namespace SubmitEvent
   
   export
-  new :  JSType t1
+  new :  (0 _ : JSType t1)
       => {auto 0 _ : Elem SubmitEventInit (Types t1)}
       -> (type : String)
       -> (eventInitDict : Optional t1)
@@ -5178,6 +5300,7 @@ namespace SubmitEvent
   export
   submitter : (obj : SubmitEvent) -> JSIO (Maybe HTMLElement)
   submitter a = tryJS "SubmitEvent.submitter" $ SubmitEvent.prim__submitter a
+
 
 namespace TextMetrics
   
@@ -5230,6 +5353,7 @@ namespace TextMetrics
   export
   width : (obj : TextMetrics) -> JSIO Double
   width a = primJS $ TextMetrics.prim__width a
+
 
 namespace TextTrack
   
@@ -5286,6 +5410,7 @@ namespace TextTrack
   removeCue : (obj : TextTrack) -> (cue : TextTrackCue) -> JSIO ()
   removeCue a b = primJS $ TextTrack.prim__removeCue a b
 
+
 namespace TextTrackCue
   
   export
@@ -5331,6 +5456,7 @@ namespace TextTrackCue
   track : (obj : TextTrackCue) -> JSIO (Maybe TextTrack)
   track a = tryJS "TextTrackCue.track" $ TextTrackCue.prim__track a
 
+
 namespace TextTrackCueList
   
   export
@@ -5347,6 +5473,7 @@ namespace TextTrackCueList
              -> JSIO (Maybe TextTrackCue)
   getCueById a b = tryJS "TextTrackCueList.getCueById"
                  $ TextTrackCueList.prim__getCueById a b
+
 
 namespace TextTrackList
   
@@ -5386,6 +5513,7 @@ namespace TextTrackList
   getTrackById a b = tryJS "TextTrackList.getTrackById"
                    $ TextTrackList.prim__getTrackById a b
 
+
 namespace TimeRanges
   
   export
@@ -5400,10 +5528,11 @@ namespace TimeRanges
   start : (obj : TimeRanges) -> (index : Bits32) -> JSIO Double
   start a b = primJS $ TimeRanges.prim__start a b
 
+
 namespace TrackEvent
   
   export
-  new :  JSType t1
+  new :  (0 _ : JSType t1)
       => {auto 0 _ : Elem TrackEventInit (Types t1)}
       -> (type : String)
       -> (eventInitDict : Optional t1)
@@ -5418,6 +5547,7 @@ namespace TrackEvent
   track :  (obj : TrackEvent)
         -> JSIO (Maybe (NS I [ VideoTrack , AudioTrack , TextTrack ]))
   track a = tryJS "TrackEvent.track" $ TrackEvent.prim__track a
+
 
 namespace ValidityState
   
@@ -5472,6 +5602,7 @@ namespace ValidityState
   valueMissing a = tryJS "ValidityState.valueMissing"
                  $ ValidityState.prim__valueMissing a
 
+
 namespace VideoTrack
   
   export
@@ -5501,6 +5632,7 @@ namespace VideoTrack
   sourceBuffer : (obj : VideoTrack) -> JSIO (Maybe SourceBuffer)
   sourceBuffer a = tryJS "VideoTrack.sourceBuffer"
                  $ VideoTrack.prim__sourceBuffer a
+
 
 namespace VideoTrackList
   
@@ -5543,6 +5675,7 @@ namespace VideoTrackList
                -> JSIO (Maybe VideoTrack)
   getTrackById a b = tryJS "VideoTrackList.getTrackById"
                    $ VideoTrackList.prim__getTrackById a b
+
 
 namespace WebSocket
   
@@ -5643,7 +5776,7 @@ namespace WebSocket
   send a b = primJS $ WebSocket.prim__send a b
   
   export
-  send1 :  JSType t1
+  send1 :  (0 _ : JSType t1)
         => {auto 0 _ : Elem Blob (Types t1)}
         -> (obj : WebSocket)
         -> (data_ : t1)
@@ -5669,6 +5802,7 @@ namespace WebSocket
                          ])
         -> JSIO ()
   send3 a b = primJS $ WebSocket.prim__send3 a (toFFI b)
+
 
 namespace Window
   
@@ -5810,7 +5944,7 @@ namespace Window
   focus a = primJS $ Window.prim__focus a
   
   export
-  getComputedStyle :  JSType t1
+  getComputedStyle :  (0 _ : JSType t1)
                    => {auto 0 _ : Elem Element (Types t1)}
                    -> (obj : Window)
                    -> (elt : t1)
@@ -5820,7 +5954,7 @@ namespace Window
                          $ Window.prim__getComputedStyle a (up b) (toFFI c)
 
   export
-  getComputedStyle' :  JSType t1
+  getComputedStyle' :  (0 _ : JSType t1)
                     => {auto 0 _ : Elem Element (Types t1)}
                     -> (obj : Window)
                     -> (elt : t1)
@@ -5857,7 +5991,7 @@ namespace Window
   postMessage' a b c = primJS $ Window.prim__postMessage a (toFFI b) c undef
   
   export
-  postMessage1 :  JSType t1
+  postMessage1 :  (0 _ : JSType t1)
                => {auto 0 _ : Elem WindowPostMessageOptions (Types t1)}
                -> (obj : Window)
                -> (message : Any)
@@ -5893,10 +6027,11 @@ namespace Window
   stop : (obj : Window) -> JSIO ()
   stop a = primJS $ Window.prim__stop a
 
+
 namespace Worker
   
   export
-  new :  JSType t1
+  new :  (0 _ : JSType t1)
       => {auto 0 _ : Elem WorkerOptions (Types t1)}
       -> (scriptURL : String)
       -> (options : Optional t1)
@@ -5929,7 +6064,7 @@ namespace Worker
   postMessage a b c = primJS $ Worker.prim__postMessage a (toFFI b) c
   
   export
-  postMessage1 :  JSType t1
+  postMessage1 :  (0 _ : JSType t1)
                => {auto 0 _ : Elem PostMessageOptions (Types t1)}
                -> (obj : Worker)
                -> (message : Any)
@@ -5945,24 +6080,25 @@ namespace Worker
   terminate : (obj : Worker) -> JSIO ()
   terminate a = primJS $ Worker.prim__terminate a
 
+
 namespace WorkerGlobalScope
   
   export
-  location :  JSType t1
+  location :  (0 _ : JSType t1)
            => {auto 0 _ : Elem WorkerGlobalScope (Types t1)}
            -> (obj : t1)
            -> JSIO WorkerLocation
   location a = primJS $ WorkerGlobalScope.prim__location (up a)
   
   export
-  navigator :  JSType t1
+  navigator :  (0 _ : JSType t1)
             => {auto 0 _ : Elem WorkerGlobalScope (Types t1)}
             -> (obj : t1)
             -> JSIO WorkerNavigator
   navigator a = primJS $ WorkerGlobalScope.prim__navigator (up a)
   
   export
-  onerror :  JSType t
+  onerror :  (0 _ : JSType t)
           => {auto 0 _ : Elem WorkerGlobalScope (Types t)}
           -> t
           -> Attribute False Maybe OnErrorEventHandlerNonNull
@@ -5972,7 +6108,7 @@ namespace WorkerGlobalScope
                                (v :> WorkerGlobalScope)
   
   export
-  onlanguagechange :  JSType t
+  onlanguagechange :  (0 _ : JSType t)
                    => {auto 0 _ : Elem WorkerGlobalScope (Types t)}
                    -> t
                    -> Attribute False Maybe EventHandlerNonNull
@@ -5982,7 +6118,7 @@ namespace WorkerGlobalScope
                                         (v :> WorkerGlobalScope)
   
   export
-  onoffline :  JSType t
+  onoffline :  (0 _ : JSType t)
             => {auto 0 _ : Elem WorkerGlobalScope (Types t)}
             -> t
             -> Attribute False Maybe EventHandlerNonNull
@@ -5992,7 +6128,7 @@ namespace WorkerGlobalScope
                                  (v :> WorkerGlobalScope)
   
   export
-  ononline :  JSType t
+  ononline :  (0 _ : JSType t)
            => {auto 0 _ : Elem WorkerGlobalScope (Types t)}
            -> t
            -> Attribute False Maybe EventHandlerNonNull
@@ -6002,7 +6138,7 @@ namespace WorkerGlobalScope
                                 (v :> WorkerGlobalScope)
   
   export
-  onrejectionhandled :  JSType t
+  onrejectionhandled :  (0 _ : JSType t)
                      => {auto 0 _ : Elem WorkerGlobalScope (Types t)}
                      -> t
                      -> Attribute False Maybe EventHandlerNonNull
@@ -6012,7 +6148,7 @@ namespace WorkerGlobalScope
                                           (v :> WorkerGlobalScope)
   
   export
-  onunhandledrejection :  JSType t
+  onunhandledrejection :  (0 _ : JSType t)
                        => {auto 0 _ : Elem WorkerGlobalScope (Types t)}
                        -> t
                        -> Attribute False Maybe EventHandlerNonNull
@@ -6022,20 +6158,21 @@ namespace WorkerGlobalScope
                                             (v :> WorkerGlobalScope)
   
   export
-  self :  JSType t1
+  self :  (0 _ : JSType t1)
        => {auto 0 _ : Elem WorkerGlobalScope (Types t1)}
        -> (obj : t1)
        -> JSIO WorkerGlobalScope
   self a = primJS $ WorkerGlobalScope.prim__self (up a)
   
   export
-  importScripts :  JSType t1
+  importScripts :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem WorkerGlobalScope (Types t1)}
                 -> (obj : t1)
                 -> (urls : List String)
                 -> JSIO ()
   importScripts a b = primJS
                     $ WorkerGlobalScope.prim__importScripts (up a) (toFFI b)
+
 
 namespace WorkerLocation
   
@@ -6075,6 +6212,7 @@ namespace WorkerLocation
   search : (obj : WorkerLocation) -> JSIO String
   search a = primJS $ WorkerLocation.prim__search a
 
+
 namespace WorkerNavigator
   
   export
@@ -6085,10 +6223,11 @@ namespace WorkerNavigator
   serviceWorker : (obj : WorkerNavigator) -> JSIO ServiceWorkerContainer
   serviceWorker a = primJS $ WorkerNavigator.prim__serviceWorker a
 
+
 namespace Worklet
   
   export
-  addModule :  JSType t1
+  addModule :  (0 _ : JSType t1)
             => {auto 0 _ : Elem WorkletOptions (Types t1)}
             -> (obj : Worklet)
             -> (moduleURL : String)
@@ -6103,6 +6242,8 @@ namespace Worklet
   addModule' a b = primJS $ Worklet.prim__addModule a b undef
 
 
+
+
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------
@@ -6110,7 +6251,7 @@ namespace Worklet
 namespace ARIAMixin
   
   export
-  ariaAtomic :  JSType t
+  ariaAtomic :  (0 _ : JSType t)
              => {auto 0 _ : Elem ARIAMixin (Types t)}
              -> t
              -> Attribute True I String
@@ -6120,7 +6261,7 @@ namespace ARIAMixin
                           (v :> ARIAMixin)
   
   export
-  ariaAutoComplete :  JSType t
+  ariaAutoComplete :  (0 _ : JSType t)
                    => {auto 0 _ : Elem ARIAMixin (Types t)}
                    -> t
                    -> Attribute True I String
@@ -6130,7 +6271,7 @@ namespace ARIAMixin
                                 (v :> ARIAMixin)
   
   export
-  ariaBusy :  JSType t
+  ariaBusy :  (0 _ : JSType t)
            => {auto 0 _ : Elem ARIAMixin (Types t)}
            -> t
            -> Attribute True I String
@@ -6140,7 +6281,7 @@ namespace ARIAMixin
                         (v :> ARIAMixin)
   
   export
-  ariaChecked :  JSType t
+  ariaChecked :  (0 _ : JSType t)
               => {auto 0 _ : Elem ARIAMixin (Types t)}
               -> t
               -> Attribute True I String
@@ -6150,7 +6291,7 @@ namespace ARIAMixin
                            (v :> ARIAMixin)
   
   export
-  ariaColCount :  JSType t
+  ariaColCount :  (0 _ : JSType t)
                => {auto 0 _ : Elem ARIAMixin (Types t)}
                -> t
                -> Attribute True I String
@@ -6160,7 +6301,7 @@ namespace ARIAMixin
                             (v :> ARIAMixin)
   
   export
-  ariaColIndex :  JSType t
+  ariaColIndex :  (0 _ : JSType t)
                => {auto 0 _ : Elem ARIAMixin (Types t)}
                -> t
                -> Attribute True I String
@@ -6170,7 +6311,7 @@ namespace ARIAMixin
                             (v :> ARIAMixin)
   
   export
-  ariaColIndexText :  JSType t
+  ariaColIndexText :  (0 _ : JSType t)
                    => {auto 0 _ : Elem ARIAMixin (Types t)}
                    -> t
                    -> Attribute True I String
@@ -6180,7 +6321,7 @@ namespace ARIAMixin
                                 (v :> ARIAMixin)
   
   export
-  ariaColSpan :  JSType t
+  ariaColSpan :  (0 _ : JSType t)
               => {auto 0 _ : Elem ARIAMixin (Types t)}
               -> t
               -> Attribute True I String
@@ -6190,7 +6331,7 @@ namespace ARIAMixin
                            (v :> ARIAMixin)
   
   export
-  ariaCurrent :  JSType t
+  ariaCurrent :  (0 _ : JSType t)
               => {auto 0 _ : Elem ARIAMixin (Types t)}
               -> t
               -> Attribute True I String
@@ -6200,7 +6341,7 @@ namespace ARIAMixin
                            (v :> ARIAMixin)
   
   export
-  ariaDescription :  JSType t
+  ariaDescription :  (0 _ : JSType t)
                   => {auto 0 _ : Elem ARIAMixin (Types t)}
                   -> t
                   -> Attribute True I String
@@ -6210,7 +6351,7 @@ namespace ARIAMixin
                                (v :> ARIAMixin)
   
   export
-  ariaDisabled :  JSType t
+  ariaDisabled :  (0 _ : JSType t)
                => {auto 0 _ : Elem ARIAMixin (Types t)}
                -> t
                -> Attribute True I String
@@ -6220,7 +6361,7 @@ namespace ARIAMixin
                             (v :> ARIAMixin)
   
   export
-  ariaExpanded :  JSType t
+  ariaExpanded :  (0 _ : JSType t)
                => {auto 0 _ : Elem ARIAMixin (Types t)}
                -> t
                -> Attribute True I String
@@ -6230,7 +6371,7 @@ namespace ARIAMixin
                             (v :> ARIAMixin)
   
   export
-  ariaHasPopup :  JSType t
+  ariaHasPopup :  (0 _ : JSType t)
                => {auto 0 _ : Elem ARIAMixin (Types t)}
                -> t
                -> Attribute True I String
@@ -6240,7 +6381,7 @@ namespace ARIAMixin
                             (v :> ARIAMixin)
   
   export
-  ariaHidden :  JSType t
+  ariaHidden :  (0 _ : JSType t)
              => {auto 0 _ : Elem ARIAMixin (Types t)}
              -> t
              -> Attribute True I String
@@ -6250,7 +6391,7 @@ namespace ARIAMixin
                           (v :> ARIAMixin)
   
   export
-  ariaInvalid :  JSType t
+  ariaInvalid :  (0 _ : JSType t)
               => {auto 0 _ : Elem ARIAMixin (Types t)}
               -> t
               -> Attribute True I String
@@ -6260,7 +6401,7 @@ namespace ARIAMixin
                            (v :> ARIAMixin)
   
   export
-  ariaKeyShortcuts :  JSType t
+  ariaKeyShortcuts :  (0 _ : JSType t)
                    => {auto 0 _ : Elem ARIAMixin (Types t)}
                    -> t
                    -> Attribute True I String
@@ -6270,7 +6411,7 @@ namespace ARIAMixin
                                 (v :> ARIAMixin)
   
   export
-  ariaLabel :  JSType t
+  ariaLabel :  (0 _ : JSType t)
             => {auto 0 _ : Elem ARIAMixin (Types t)}
             -> t
             -> Attribute True I String
@@ -6280,7 +6421,7 @@ namespace ARIAMixin
                          (v :> ARIAMixin)
   
   export
-  ariaLevel :  JSType t
+  ariaLevel :  (0 _ : JSType t)
             => {auto 0 _ : Elem ARIAMixin (Types t)}
             -> t
             -> Attribute True I String
@@ -6290,7 +6431,7 @@ namespace ARIAMixin
                          (v :> ARIAMixin)
   
   export
-  ariaLive :  JSType t
+  ariaLive :  (0 _ : JSType t)
            => {auto 0 _ : Elem ARIAMixin (Types t)}
            -> t
            -> Attribute True I String
@@ -6300,7 +6441,7 @@ namespace ARIAMixin
                         (v :> ARIAMixin)
   
   export
-  ariaModal :  JSType t
+  ariaModal :  (0 _ : JSType t)
             => {auto 0 _ : Elem ARIAMixin (Types t)}
             -> t
             -> Attribute True I String
@@ -6310,7 +6451,7 @@ namespace ARIAMixin
                          (v :> ARIAMixin)
   
   export
-  ariaMultiLine :  JSType t
+  ariaMultiLine :  (0 _ : JSType t)
                 => {auto 0 _ : Elem ARIAMixin (Types t)}
                 -> t
                 -> Attribute True I String
@@ -6320,7 +6461,7 @@ namespace ARIAMixin
                              (v :> ARIAMixin)
   
   export
-  ariaMultiSelectable :  JSType t
+  ariaMultiSelectable :  (0 _ : JSType t)
                       => {auto 0 _ : Elem ARIAMixin (Types t)}
                       -> t
                       -> Attribute True I String
@@ -6330,7 +6471,7 @@ namespace ARIAMixin
                                    (v :> ARIAMixin)
   
   export
-  ariaOrientation :  JSType t
+  ariaOrientation :  (0 _ : JSType t)
                   => {auto 0 _ : Elem ARIAMixin (Types t)}
                   -> t
                   -> Attribute True I String
@@ -6340,7 +6481,7 @@ namespace ARIAMixin
                                (v :> ARIAMixin)
   
   export
-  ariaPlaceholder :  JSType t
+  ariaPlaceholder :  (0 _ : JSType t)
                   => {auto 0 _ : Elem ARIAMixin (Types t)}
                   -> t
                   -> Attribute True I String
@@ -6350,7 +6491,7 @@ namespace ARIAMixin
                                (v :> ARIAMixin)
   
   export
-  ariaPosInSet :  JSType t
+  ariaPosInSet :  (0 _ : JSType t)
                => {auto 0 _ : Elem ARIAMixin (Types t)}
                -> t
                -> Attribute True I String
@@ -6360,7 +6501,7 @@ namespace ARIAMixin
                             (v :> ARIAMixin)
   
   export
-  ariaPressed :  JSType t
+  ariaPressed :  (0 _ : JSType t)
               => {auto 0 _ : Elem ARIAMixin (Types t)}
               -> t
               -> Attribute True I String
@@ -6370,7 +6511,7 @@ namespace ARIAMixin
                            (v :> ARIAMixin)
   
   export
-  ariaReadOnly :  JSType t
+  ariaReadOnly :  (0 _ : JSType t)
                => {auto 0 _ : Elem ARIAMixin (Types t)}
                -> t
                -> Attribute True I String
@@ -6380,7 +6521,7 @@ namespace ARIAMixin
                             (v :> ARIAMixin)
   
   export
-  ariaRequired :  JSType t
+  ariaRequired :  (0 _ : JSType t)
                => {auto 0 _ : Elem ARIAMixin (Types t)}
                -> t
                -> Attribute True I String
@@ -6390,7 +6531,7 @@ namespace ARIAMixin
                             (v :> ARIAMixin)
   
   export
-  ariaRoleDescription :  JSType t
+  ariaRoleDescription :  (0 _ : JSType t)
                       => {auto 0 _ : Elem ARIAMixin (Types t)}
                       -> t
                       -> Attribute True I String
@@ -6400,7 +6541,7 @@ namespace ARIAMixin
                                    (v :> ARIAMixin)
   
   export
-  ariaRowCount :  JSType t
+  ariaRowCount :  (0 _ : JSType t)
                => {auto 0 _ : Elem ARIAMixin (Types t)}
                -> t
                -> Attribute True I String
@@ -6410,7 +6551,7 @@ namespace ARIAMixin
                             (v :> ARIAMixin)
   
   export
-  ariaRowIndex :  JSType t
+  ariaRowIndex :  (0 _ : JSType t)
                => {auto 0 _ : Elem ARIAMixin (Types t)}
                -> t
                -> Attribute True I String
@@ -6420,7 +6561,7 @@ namespace ARIAMixin
                             (v :> ARIAMixin)
   
   export
-  ariaRowIndexText :  JSType t
+  ariaRowIndexText :  (0 _ : JSType t)
                    => {auto 0 _ : Elem ARIAMixin (Types t)}
                    -> t
                    -> Attribute True I String
@@ -6430,7 +6571,7 @@ namespace ARIAMixin
                                 (v :> ARIAMixin)
   
   export
-  ariaRowSpan :  JSType t
+  ariaRowSpan :  (0 _ : JSType t)
               => {auto 0 _ : Elem ARIAMixin (Types t)}
               -> t
               -> Attribute True I String
@@ -6440,7 +6581,7 @@ namespace ARIAMixin
                            (v :> ARIAMixin)
   
   export
-  ariaSelected :  JSType t
+  ariaSelected :  (0 _ : JSType t)
                => {auto 0 _ : Elem ARIAMixin (Types t)}
                -> t
                -> Attribute True I String
@@ -6450,7 +6591,7 @@ namespace ARIAMixin
                             (v :> ARIAMixin)
   
   export
-  ariaSetSize :  JSType t
+  ariaSetSize :  (0 _ : JSType t)
               => {auto 0 _ : Elem ARIAMixin (Types t)}
               -> t
               -> Attribute True I String
@@ -6460,7 +6601,7 @@ namespace ARIAMixin
                            (v :> ARIAMixin)
   
   export
-  ariaSort :  JSType t
+  ariaSort :  (0 _ : JSType t)
            => {auto 0 _ : Elem ARIAMixin (Types t)}
            -> t
            -> Attribute True I String
@@ -6470,7 +6611,7 @@ namespace ARIAMixin
                         (v :> ARIAMixin)
   
   export
-  ariaValueMax :  JSType t
+  ariaValueMax :  (0 _ : JSType t)
                => {auto 0 _ : Elem ARIAMixin (Types t)}
                -> t
                -> Attribute True I String
@@ -6480,7 +6621,7 @@ namespace ARIAMixin
                             (v :> ARIAMixin)
   
   export
-  ariaValueMin :  JSType t
+  ariaValueMin :  (0 _ : JSType t)
                => {auto 0 _ : Elem ARIAMixin (Types t)}
                -> t
                -> Attribute True I String
@@ -6490,7 +6631,7 @@ namespace ARIAMixin
                             (v :> ARIAMixin)
   
   export
-  ariaValueNow :  JSType t
+  ariaValueNow :  (0 _ : JSType t)
                => {auto 0 _ : Elem ARIAMixin (Types t)}
                -> t
                -> Attribute True I String
@@ -6500,7 +6641,7 @@ namespace ARIAMixin
                             (v :> ARIAMixin)
   
   export
-  ariaValueText :  JSType t
+  ariaValueText :  (0 _ : JSType t)
                 => {auto 0 _ : Elem ARIAMixin (Types t)}
                 -> t
                 -> Attribute True I String
@@ -6510,7 +6651,7 @@ namespace ARIAMixin
                              (v :> ARIAMixin)
   
   export
-  role :  JSType t
+  role :  (0 _ : JSType t)
        => {auto 0 _ : Elem ARIAMixin (Types t)}
        -> t
        -> Attribute False Maybe String
@@ -6519,10 +6660,11 @@ namespace ARIAMixin
                             prim__setRole
                             (v :> ARIAMixin)
 
+
 namespace AbstractWorker
   
   export
-  onerror :  JSType t
+  onerror :  (0 _ : JSType t)
           => {auto 0 _ : Elem AbstractWorker (Types t)}
           -> t
           -> Attribute False Maybe EventHandlerNonNull
@@ -6531,10 +6673,11 @@ namespace AbstractWorker
                                prim__setOnerror
                                (v :> AbstractWorker)
 
+
 namespace CanvasCompositing
   
   export
-  globalAlpha :  JSType t
+  globalAlpha :  (0 _ : JSType t)
               => {auto 0 _ : Elem CanvasCompositing (Types t)}
               -> t
               -> Attribute True I Double
@@ -6544,7 +6687,7 @@ namespace CanvasCompositing
                            (v :> CanvasCompositing)
   
   export
-  globalCompositeOperation :  JSType t
+  globalCompositeOperation :  (0 _ : JSType t)
                            => {auto 0 _ : Elem CanvasCompositing (Types t)}
                            -> t
                            -> Attribute True I String
@@ -6553,10 +6696,11 @@ namespace CanvasCompositing
                                         prim__setGlobalCompositeOperation
                                         (v :> CanvasCompositing)
 
+
 namespace CanvasDrawImage
   
   export
-  drawImage :  JSType t1
+  drawImage :  (0 _ : JSType t1)
             => {auto 0 _ : Elem CanvasDrawImage (Types t1)}
             -> (obj : t1)
             -> (image : NS I [ HTMLImageElement
@@ -6573,7 +6717,7 @@ namespace CanvasDrawImage
                     $ CanvasDrawImage.prim__drawImage (up a) (toFFI b) c d
   
   export
-  drawImage1 :  JSType t1
+  drawImage1 :  (0 _ : JSType t1)
              => {auto 0 _ : Elem CanvasDrawImage (Types t1)}
              -> (obj : t1)
              -> (image : NS I [ HTMLImageElement
@@ -6597,7 +6741,7 @@ namespace CanvasDrawImage
                                                             f
   
   export
-  drawImage2 :  JSType t1
+  drawImage2 :  (0 _ : JSType t1)
              => {auto 0 _ : Elem CanvasDrawImage (Types t1)}
              -> (obj : t1)
              -> (image : NS I [ HTMLImageElement
@@ -6628,17 +6772,18 @@ namespace CanvasDrawImage
                                                                     i
                                                                     j
 
+
 namespace CanvasDrawPath
   
   export
-  beginPath :  JSType t1
+  beginPath :  (0 _ : JSType t1)
             => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
             -> (obj : t1)
             -> JSIO ()
   beginPath a = primJS $ CanvasDrawPath.prim__beginPath (up a)
   
   export
-  clip :  JSType t1
+  clip :  (0 _ : JSType t1)
        => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
        -> (obj : t1)
        -> (fillRule : Optional CanvasFillRule)
@@ -6646,14 +6791,14 @@ namespace CanvasDrawPath
   clip a b = primJS $ CanvasDrawPath.prim__clip (up a) (toFFI b)
 
   export
-  clip' :  JSType t1
+  clip' :  (0 _ : JSType t1)
         => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
         -> (obj : t1)
         -> JSIO ()
   clip' a = primJS $ CanvasDrawPath.prim__clip (up a) undef
   
   export
-  clip1 :  JSType t1
+  clip1 :  (0 _ : JSType t1)
         => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
         -> (obj : t1)
         -> (path : Path2D)
@@ -6662,7 +6807,7 @@ namespace CanvasDrawPath
   clip1 a b c = primJS $ CanvasDrawPath.prim__clip1 (up a) b (toFFI c)
 
   export
-  clip1' :  JSType t1
+  clip1' :  (0 _ : JSType t1)
          => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
          -> (obj : t1)
          -> (path : Path2D)
@@ -6670,7 +6815,7 @@ namespace CanvasDrawPath
   clip1' a b = primJS $ CanvasDrawPath.prim__clip1 (up a) b undef
   
   export
-  fill :  JSType t1
+  fill :  (0 _ : JSType t1)
        => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
        -> (obj : t1)
        -> (fillRule : Optional CanvasFillRule)
@@ -6678,14 +6823,14 @@ namespace CanvasDrawPath
   fill a b = primJS $ CanvasDrawPath.prim__fill (up a) (toFFI b)
 
   export
-  fill' :  JSType t1
+  fill' :  (0 _ : JSType t1)
         => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
         -> (obj : t1)
         -> JSIO ()
   fill' a = primJS $ CanvasDrawPath.prim__fill (up a) undef
   
   export
-  fill1 :  JSType t1
+  fill1 :  (0 _ : JSType t1)
         => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
         -> (obj : t1)
         -> (path : Path2D)
@@ -6694,7 +6839,7 @@ namespace CanvasDrawPath
   fill1 a b c = primJS $ CanvasDrawPath.prim__fill1 (up a) b (toFFI c)
 
   export
-  fill1' :  JSType t1
+  fill1' :  (0 _ : JSType t1)
          => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
          -> (obj : t1)
          -> (path : Path2D)
@@ -6702,7 +6847,7 @@ namespace CanvasDrawPath
   fill1' a b = primJS $ CanvasDrawPath.prim__fill1 (up a) b undef
   
   export
-  isPointInPath :  JSType t1
+  isPointInPath :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
                 -> (obj : t1)
                 -> (x : Double)
@@ -6716,7 +6861,7 @@ namespace CanvasDrawPath
                                                              (toFFI d)
 
   export
-  isPointInPath' :  JSType t1
+  isPointInPath' :  (0 _ : JSType t1)
                  => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
                  -> (obj : t1)
                  -> (x : Double)
@@ -6726,7 +6871,7 @@ namespace CanvasDrawPath
                        $ CanvasDrawPath.prim__isPointInPath (up a) b c undef
   
   export
-  isPointInPath1 :  JSType t1
+  isPointInPath1 :  (0 _ : JSType t1)
                  => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
                  -> (obj : t1)
                  -> (path : Path2D)
@@ -6742,7 +6887,7 @@ namespace CanvasDrawPath
                                                                  (toFFI e)
 
   export
-  isPointInPath1' :  JSType t1
+  isPointInPath1' :  (0 _ : JSType t1)
                   => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
                   -> (obj : t1)
                   -> (path : Path2D)
@@ -6757,7 +6902,7 @@ namespace CanvasDrawPath
                                                                 undef
   
   export
-  isPointInStroke :  JSType t1
+  isPointInStroke :  (0 _ : JSType t1)
                   => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
                   -> (obj : t1)
                   -> (x : Double)
@@ -6767,7 +6912,7 @@ namespace CanvasDrawPath
                         $ CanvasDrawPath.prim__isPointInStroke (up a) b c
   
   export
-  isPointInStroke1 :  JSType t1
+  isPointInStroke1 :  (0 _ : JSType t1)
                    => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
                    -> (obj : t1)
                    -> (path : Path2D)
@@ -6778,24 +6923,25 @@ namespace CanvasDrawPath
                            $ CanvasDrawPath.prim__isPointInStroke1 (up a) b c d
   
   export
-  stroke :  JSType t1
+  stroke :  (0 _ : JSType t1)
          => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
          -> (obj : t1)
          -> JSIO ()
   stroke a = primJS $ CanvasDrawPath.prim__stroke (up a)
   
   export
-  stroke1 :  JSType t1
+  stroke1 :  (0 _ : JSType t1)
           => {auto 0 _ : Elem CanvasDrawPath (Types t1)}
           -> (obj : t1)
           -> (path : Path2D)
           -> JSIO ()
   stroke1 a b = primJS $ CanvasDrawPath.prim__stroke1 (up a) b
 
+
 namespace CanvasFillStrokeStyles
   
   export
-  fillStyle :  JSType t
+  fillStyle :  (0 _ : JSType t)
             => {auto 0 _ : Elem CanvasFillStrokeStyles (Types t)}
             -> t
             -> Attribute True I (NS I [ String
@@ -6808,7 +6954,7 @@ namespace CanvasFillStrokeStyles
                          (v :> CanvasFillStrokeStyles)
   
   export
-  strokeStyle :  JSType t
+  strokeStyle :  (0 _ : JSType t)
               => {auto 0 _ : Elem CanvasFillStrokeStyles (Types t)}
               -> t
               -> Attribute True I (NS I [ String
@@ -6821,7 +6967,7 @@ namespace CanvasFillStrokeStyles
                            (v :> CanvasFillStrokeStyles)
   
   export
-  createLinearGradient :  JSType t1
+  createLinearGradient :  (0 _ : JSType t1)
                        => {auto 0 _ : Elem CanvasFillStrokeStyles (Types t1)}
                        -> (obj : t1)
                        -> (x0 : Double)
@@ -6837,7 +6983,7 @@ namespace CanvasFillStrokeStyles
                                                                                      e
   
   export
-  createPattern :  JSType t1
+  createPattern :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem CanvasFillStrokeStyles (Types t1)}
                 -> (obj : t1)
                 -> (image : NS I [ HTMLImageElement
@@ -6855,7 +7001,7 @@ namespace CanvasFillStrokeStyles
                                                                    c
   
   export
-  createRadialGradient :  JSType t1
+  createRadialGradient :  (0 _ : JSType t1)
                        => {auto 0 _ : Elem CanvasFillStrokeStyles (Types t1)}
                        -> (obj : t1)
                        -> (x0 : Double)
@@ -6874,10 +7020,11 @@ namespace CanvasFillStrokeStyles
                                                                                          f
                                                                                          g
 
+
 namespace CanvasFilters
   
   export
-  filter :  JSType t
+  filter :  (0 _ : JSType t)
          => {auto 0 _ : Elem CanvasFilters (Types t)}
          -> t
          -> Attribute True I String
@@ -6886,10 +7033,11 @@ namespace CanvasFilters
                       prim__setFilter
                       (v :> CanvasFilters)
 
+
 namespace CanvasImageData
   
   export
-  createImageData :  JSType t1
+  createImageData :  (0 _ : JSType t1)
                   => {auto 0 _ : Elem CanvasImageData (Types t1)}
                   -> (obj : t1)
                   -> (sw : Int32)
@@ -6899,7 +7047,7 @@ namespace CanvasImageData
                         $ CanvasImageData.prim__createImageData (up a) b c
   
   export
-  createImageData1 :  JSType t1
+  createImageData1 :  (0 _ : JSType t1)
                    => {auto 0 _ : Elem CanvasImageData (Types t1)}
                    -> (obj : t1)
                    -> (imagedata : ImageData)
@@ -6908,7 +7056,7 @@ namespace CanvasImageData
                        $ CanvasImageData.prim__createImageData1 (up a) b
   
   export
-  getImageData :  JSType t1
+  getImageData :  (0 _ : JSType t1)
                => {auto 0 _ : Elem CanvasImageData (Types t1)}
                -> (obj : t1)
                -> (sx : Int32)
@@ -6920,7 +7068,7 @@ namespace CanvasImageData
                          $ CanvasImageData.prim__getImageData (up a) b c d e
   
   export
-  putImageData :  JSType t1
+  putImageData :  (0 _ : JSType t1)
                => {auto 0 _ : Elem CanvasImageData (Types t1)}
                -> (obj : t1)
                -> (imagedata : ImageData)
@@ -6931,7 +7079,7 @@ namespace CanvasImageData
                        $ CanvasImageData.prim__putImageData (up a) b c d
   
   export
-  putImageData1 :  JSType t1
+  putImageData1 :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem CanvasImageData (Types t1)}
                 -> (obj : t1)
                 -> (imagedata : ImageData)
@@ -6952,10 +7100,11 @@ namespace CanvasImageData
                                                                       g
                                                                       h
 
+
 namespace CanvasImageSmoothing
   
   export
-  imageSmoothingEnabled :  JSType t
+  imageSmoothingEnabled :  (0 _ : JSType t)
                         => {auto 0 _ : Elem CanvasImageSmoothing (Types t)}
                         -> t
                         -> Attribute True I Bool
@@ -6965,7 +7114,7 @@ namespace CanvasImageSmoothing
                                      (v :> CanvasImageSmoothing)
   
   export
-  imageSmoothingQuality :  JSType t
+  imageSmoothingQuality :  (0 _ : JSType t)
                         => {auto 0 _ : Elem CanvasImageSmoothing (Types t)}
                         -> t
                         -> Attribute True I ImageSmoothingQuality
@@ -6974,10 +7123,11 @@ namespace CanvasImageSmoothing
                                      prim__setImageSmoothingQuality
                                      (v :> CanvasImageSmoothing)
 
+
 namespace CanvasPath
   
   export
-  arc :  JSType t1
+  arc :  (0 _ : JSType t1)
       => {auto 0 _ : Elem CanvasPath (Types t1)}
       -> (obj : t1)
       -> (x : Double)
@@ -6990,7 +7140,7 @@ namespace CanvasPath
   arc a b c d e f g = primJS $ CanvasPath.prim__arc (up a) b c d e f (toFFI g)
 
   export
-  arc' :  JSType t1
+  arc' :  (0 _ : JSType t1)
        => {auto 0 _ : Elem CanvasPath (Types t1)}
        -> (obj : t1)
        -> (x : Double)
@@ -7002,7 +7152,7 @@ namespace CanvasPath
   arc' a b c d e f = primJS $ CanvasPath.prim__arc (up a) b c d e f undef
   
   export
-  arcTo :  JSType t1
+  arcTo :  (0 _ : JSType t1)
         => {auto 0 _ : Elem CanvasPath (Types t1)}
         -> (obj : t1)
         -> (x1 : Double)
@@ -7014,7 +7164,7 @@ namespace CanvasPath
   arcTo a b c d e f = primJS $ CanvasPath.prim__arcTo (up a) b c d e f
   
   export
-  bezierCurveTo :  JSType t1
+  bezierCurveTo :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem CanvasPath (Types t1)}
                 -> (obj : t1)
                 -> (cp1x : Double)
@@ -7034,14 +7184,14 @@ namespace CanvasPath
                                                                g
   
   export
-  closePath :  JSType t1
+  closePath :  (0 _ : JSType t1)
             => {auto 0 _ : Elem CanvasPath (Types t1)}
             -> (obj : t1)
             -> JSIO ()
   closePath a = primJS $ CanvasPath.prim__closePath (up a)
   
   export
-  ellipse :  JSType t1
+  ellipse :  (0 _ : JSType t1)
           => {auto 0 _ : Elem CanvasPath (Types t1)}
           -> (obj : t1)
           -> (x : Double)
@@ -7065,7 +7215,7 @@ namespace CanvasPath
                                                        (toFFI i)
 
   export
-  ellipse' :  JSType t1
+  ellipse' :  (0 _ : JSType t1)
            => {auto 0 _ : Elem CanvasPath (Types t1)}
            -> (obj : t1)
            -> (x : Double)
@@ -7080,7 +7230,7 @@ namespace CanvasPath
                            $ CanvasPath.prim__ellipse (up a) b c d e f g h undef
   
   export
-  lineTo :  JSType t1
+  lineTo :  (0 _ : JSType t1)
          => {auto 0 _ : Elem CanvasPath (Types t1)}
          -> (obj : t1)
          -> (x : Double)
@@ -7089,7 +7239,7 @@ namespace CanvasPath
   lineTo a b c = primJS $ CanvasPath.prim__lineTo (up a) b c
   
   export
-  moveTo :  JSType t1
+  moveTo :  (0 _ : JSType t1)
          => {auto 0 _ : Elem CanvasPath (Types t1)}
          -> (obj : t1)
          -> (x : Double)
@@ -7098,7 +7248,7 @@ namespace CanvasPath
   moveTo a b c = primJS $ CanvasPath.prim__moveTo (up a) b c
   
   export
-  quadraticCurveTo :  JSType t1
+  quadraticCurveTo :  (0 _ : JSType t1)
                    => {auto 0 _ : Elem CanvasPath (Types t1)}
                    -> (obj : t1)
                    -> (cpx : Double)
@@ -7110,7 +7260,7 @@ namespace CanvasPath
                              $ CanvasPath.prim__quadraticCurveTo (up a) b c d e
   
   export
-  rect :  JSType t1
+  rect :  (0 _ : JSType t1)
        => {auto 0 _ : Elem CanvasPath (Types t1)}
        -> (obj : t1)
        -> (x : Double)
@@ -7120,10 +7270,11 @@ namespace CanvasPath
        -> JSIO ()
   rect a b c d e = primJS $ CanvasPath.prim__rect (up a) b c d e
 
+
 namespace CanvasPathDrawingStyles
   
   export
-  lineCap :  JSType t
+  lineCap :  (0 _ : JSType t)
           => {auto 0 _ : Elem CanvasPathDrawingStyles (Types t)}
           -> t
           -> Attribute True I CanvasLineCap
@@ -7133,7 +7284,7 @@ namespace CanvasPathDrawingStyles
                        (v :> CanvasPathDrawingStyles)
   
   export
-  lineDashOffset :  JSType t
+  lineDashOffset :  (0 _ : JSType t)
                  => {auto 0 _ : Elem CanvasPathDrawingStyles (Types t)}
                  -> t
                  -> Attribute True I Double
@@ -7143,7 +7294,7 @@ namespace CanvasPathDrawingStyles
                               (v :> CanvasPathDrawingStyles)
   
   export
-  lineJoin :  JSType t
+  lineJoin :  (0 _ : JSType t)
            => {auto 0 _ : Elem CanvasPathDrawingStyles (Types t)}
            -> t
            -> Attribute True I CanvasLineJoin
@@ -7153,7 +7304,7 @@ namespace CanvasPathDrawingStyles
                         (v :> CanvasPathDrawingStyles)
   
   export
-  lineWidth :  JSType t
+  lineWidth :  (0 _ : JSType t)
             => {auto 0 _ : Elem CanvasPathDrawingStyles (Types t)}
             -> t
             -> Attribute True I Double
@@ -7163,7 +7314,7 @@ namespace CanvasPathDrawingStyles
                          (v :> CanvasPathDrawingStyles)
   
   export
-  miterLimit :  JSType t
+  miterLimit :  (0 _ : JSType t)
              => {auto 0 _ : Elem CanvasPathDrawingStyles (Types t)}
              -> t
              -> Attribute True I Double
@@ -7173,24 +7324,25 @@ namespace CanvasPathDrawingStyles
                           (v :> CanvasPathDrawingStyles)
   
   export
-  getLineDash :  JSType t1
+  getLineDash :  (0 _ : JSType t1)
               => {auto 0 _ : Elem CanvasPathDrawingStyles (Types t1)}
               -> (obj : t1)
               -> JSIO (Array Double)
   getLineDash a = primJS $ CanvasPathDrawingStyles.prim__getLineDash (up a)
   
   export
-  setLineDash :  JSType t1
+  setLineDash :  (0 _ : JSType t1)
               => {auto 0 _ : Elem CanvasPathDrawingStyles (Types t1)}
               -> (obj : t1)
               -> (segments : Array Double)
               -> JSIO ()
   setLineDash a b = primJS $ CanvasPathDrawingStyles.prim__setLineDash (up a) b
 
+
 namespace CanvasRect
   
   export
-  clearRect :  JSType t1
+  clearRect :  (0 _ : JSType t1)
             => {auto 0 _ : Elem CanvasRect (Types t1)}
             -> (obj : t1)
             -> (x : Double)
@@ -7201,7 +7353,7 @@ namespace CanvasRect
   clearRect a b c d e = primJS $ CanvasRect.prim__clearRect (up a) b c d e
   
   export
-  fillRect :  JSType t1
+  fillRect :  (0 _ : JSType t1)
            => {auto 0 _ : Elem CanvasRect (Types t1)}
            -> (obj : t1)
            -> (x : Double)
@@ -7212,7 +7364,7 @@ namespace CanvasRect
   fillRect a b c d e = primJS $ CanvasRect.prim__fillRect (up a) b c d e
   
   export
-  strokeRect :  JSType t1
+  strokeRect :  (0 _ : JSType t1)
              => {auto 0 _ : Elem CanvasRect (Types t1)}
              -> (obj : t1)
              -> (x : Double)
@@ -7222,10 +7374,11 @@ namespace CanvasRect
              -> JSIO ()
   strokeRect a b c d e = primJS $ CanvasRect.prim__strokeRect (up a) b c d e
 
+
 namespace CanvasShadowStyles
   
   export
-  shadowBlur :  JSType t
+  shadowBlur :  (0 _ : JSType t)
              => {auto 0 _ : Elem CanvasShadowStyles (Types t)}
              -> t
              -> Attribute True I Double
@@ -7235,7 +7388,7 @@ namespace CanvasShadowStyles
                           (v :> CanvasShadowStyles)
   
   export
-  shadowColor :  JSType t
+  shadowColor :  (0 _ : JSType t)
               => {auto 0 _ : Elem CanvasShadowStyles (Types t)}
               -> t
               -> Attribute True I String
@@ -7245,7 +7398,7 @@ namespace CanvasShadowStyles
                            (v :> CanvasShadowStyles)
   
   export
-  shadowOffsetX :  JSType t
+  shadowOffsetX :  (0 _ : JSType t)
                 => {auto 0 _ : Elem CanvasShadowStyles (Types t)}
                 -> t
                 -> Attribute True I Double
@@ -7255,7 +7408,7 @@ namespace CanvasShadowStyles
                              (v :> CanvasShadowStyles)
   
   export
-  shadowOffsetY :  JSType t
+  shadowOffsetY :  (0 _ : JSType t)
                 => {auto 0 _ : Elem CanvasShadowStyles (Types t)}
                 -> t
                 -> Attribute True I Double
@@ -7264,26 +7417,28 @@ namespace CanvasShadowStyles
                              prim__setShadowOffsetY
                              (v :> CanvasShadowStyles)
 
+
 namespace CanvasState
   
   export
-  restore :  JSType t1
+  restore :  (0 _ : JSType t1)
           => {auto 0 _ : Elem CanvasState (Types t1)}
           -> (obj : t1)
           -> JSIO ()
   restore a = primJS $ CanvasState.prim__restore (up a)
   
   export
-  save :  JSType t1
+  save :  (0 _ : JSType t1)
        => {auto 0 _ : Elem CanvasState (Types t1)}
        -> (obj : t1)
        -> JSIO ()
   save a = primJS $ CanvasState.prim__save (up a)
 
+
 namespace CanvasText
   
   export
-  fillText :  JSType t1
+  fillText :  (0 _ : JSType t1)
            => {auto 0 _ : Elem CanvasText (Types t1)}
            -> (obj : t1)
            -> (text : String)
@@ -7294,7 +7449,7 @@ namespace CanvasText
   fillText a b c d e = primJS $ CanvasText.prim__fillText (up a) b c d (toFFI e)
 
   export
-  fillText' :  JSType t1
+  fillText' :  (0 _ : JSType t1)
             => {auto 0 _ : Elem CanvasText (Types t1)}
             -> (obj : t1)
             -> (text : String)
@@ -7304,7 +7459,7 @@ namespace CanvasText
   fillText' a b c d = primJS $ CanvasText.prim__fillText (up a) b c d undef
   
   export
-  measureText :  JSType t1
+  measureText :  (0 _ : JSType t1)
               => {auto 0 _ : Elem CanvasText (Types t1)}
               -> (obj : t1)
               -> (text : String)
@@ -7312,7 +7467,7 @@ namespace CanvasText
   measureText a b = primJS $ CanvasText.prim__measureText (up a) b
   
   export
-  strokeText :  JSType t1
+  strokeText :  (0 _ : JSType t1)
              => {auto 0 _ : Elem CanvasText (Types t1)}
              -> (obj : t1)
              -> (text : String)
@@ -7324,7 +7479,7 @@ namespace CanvasText
                        $ CanvasText.prim__strokeText (up a) b c d (toFFI e)
 
   export
-  strokeText' :  JSType t1
+  strokeText' :  (0 _ : JSType t1)
               => {auto 0 _ : Elem CanvasText (Types t1)}
               -> (obj : t1)
               -> (text : String)
@@ -7333,10 +7488,11 @@ namespace CanvasText
               -> JSIO ()
   strokeText' a b c d = primJS $ CanvasText.prim__strokeText (up a) b c d undef
 
+
 namespace CanvasTextDrawingStyles
   
   export
-  direction :  JSType t
+  direction :  (0 _ : JSType t)
             => {auto 0 _ : Elem CanvasTextDrawingStyles (Types t)}
             -> t
             -> Attribute True I CanvasDirection
@@ -7346,7 +7502,7 @@ namespace CanvasTextDrawingStyles
                          (v :> CanvasTextDrawingStyles)
   
   export
-  font :  JSType t
+  font :  (0 _ : JSType t)
        => {auto 0 _ : Elem CanvasTextDrawingStyles (Types t)}
        -> t
        -> Attribute True I String
@@ -7356,7 +7512,7 @@ namespace CanvasTextDrawingStyles
                     (v :> CanvasTextDrawingStyles)
   
   export
-  textAlign :  JSType t
+  textAlign :  (0 _ : JSType t)
             => {auto 0 _ : Elem CanvasTextDrawingStyles (Types t)}
             -> t
             -> Attribute True I CanvasTextAlign
@@ -7366,7 +7522,7 @@ namespace CanvasTextDrawingStyles
                          (v :> CanvasTextDrawingStyles)
   
   export
-  textBaseline :  JSType t
+  textBaseline :  (0 _ : JSType t)
                => {auto 0 _ : Elem CanvasTextDrawingStyles (Types t)}
                -> t
                -> Attribute True I CanvasTextBaseline
@@ -7375,24 +7531,25 @@ namespace CanvasTextDrawingStyles
                             prim__setTextBaseline
                             (v :> CanvasTextDrawingStyles)
 
+
 namespace CanvasTransform
   
   export
-  getTransform :  JSType t1
+  getTransform :  (0 _ : JSType t1)
                => {auto 0 _ : Elem CanvasTransform (Types t1)}
                -> (obj : t1)
                -> JSIO DOMMatrix
   getTransform a = primJS $ CanvasTransform.prim__getTransform (up a)
   
   export
-  resetTransform :  JSType t1
+  resetTransform :  (0 _ : JSType t1)
                  => {auto 0 _ : Elem CanvasTransform (Types t1)}
                  -> (obj : t1)
                  -> JSIO ()
   resetTransform a = primJS $ CanvasTransform.prim__resetTransform (up a)
   
   export
-  rotate :  JSType t1
+  rotate :  (0 _ : JSType t1)
          => {auto 0 _ : Elem CanvasTransform (Types t1)}
          -> (obj : t1)
          -> (angle : Double)
@@ -7400,7 +7557,7 @@ namespace CanvasTransform
   rotate a b = primJS $ CanvasTransform.prim__rotate (up a) b
   
   export
-  scale :  JSType t1
+  scale :  (0 _ : JSType t1)
         => {auto 0 _ : Elem CanvasTransform (Types t1)}
         -> (obj : t1)
         -> (x : Double)
@@ -7409,7 +7566,7 @@ namespace CanvasTransform
   scale a b c = primJS $ CanvasTransform.prim__scale (up a) b c
   
   export
-  setTransform :  JSType t1
+  setTransform :  (0 _ : JSType t1)
                => {auto 0 _ : Elem CanvasTransform (Types t1)}
                -> (obj : t1)
                -> (a : Double)
@@ -7429,8 +7586,8 @@ namespace CanvasTransform
                                                                   g
   
   export
-  setTransform1 :  JSType t1
-                => JSType t2
+  setTransform1 :  (0 _ : JSType t1)
+                => (0 _ : JSType t2)
                 => {auto 0 _ : Elem CanvasTransform (Types t1)}
                 -> {auto 0 _ : Elem DOMMatrix2DInit (Types t2)}
                 -> (obj : t1)
@@ -7440,14 +7597,14 @@ namespace CanvasTransform
                     $ CanvasTransform.prim__setTransform1 (up a) (optUp b)
 
   export
-  setTransform1' :  JSType t1
+  setTransform1' :  (0 _ : JSType t1)
                  => {auto 0 _ : Elem CanvasTransform (Types t1)}
                  -> (obj : t1)
                  -> JSIO ()
   setTransform1' a = primJS $ CanvasTransform.prim__setTransform1 (up a) undef
   
   export
-  transform :  JSType t1
+  transform :  (0 _ : JSType t1)
             => {auto 0 _ : Elem CanvasTransform (Types t1)}
             -> (obj : t1)
             -> (a : Double)
@@ -7461,7 +7618,7 @@ namespace CanvasTransform
                           $ CanvasTransform.prim__transform (up a) b c d e f g
   
   export
-  translate :  JSType t1
+  translate :  (0 _ : JSType t1)
             => {auto 0 _ : Elem CanvasTransform (Types t1)}
             -> (obj : t1)
             -> (x : Double)
@@ -7469,11 +7626,12 @@ namespace CanvasTransform
             -> JSIO ()
   translate a b c = primJS $ CanvasTransform.prim__translate (up a) b c
 
+
 namespace CanvasUserInterface
   
   export
-  drawFocusIfNeeded :  JSType t1
-                    => JSType t2
+  drawFocusIfNeeded :  (0 _ : JSType t1)
+                    => (0 _ : JSType t2)
                     => {auto 0 _ : Elem CanvasUserInterface (Types t1)}
                     -> {auto 0 _ : Elem Element (Types t2)}
                     -> (obj : t1)
@@ -7484,8 +7642,8 @@ namespace CanvasUserInterface
                                                                       (up b)
   
   export
-  drawFocusIfNeeded1 :  JSType t1
-                     => JSType t2
+  drawFocusIfNeeded1 :  (0 _ : JSType t1)
+                     => (0 _ : JSType t2)
                      => {auto 0 _ : Elem CanvasUserInterface (Types t1)}
                      -> {auto 0 _ : Elem Element (Types t2)}
                      -> (obj : t1)
@@ -7498,7 +7656,7 @@ namespace CanvasUserInterface
                                                                           (up c)
   
   export
-  scrollPathIntoView :  JSType t1
+  scrollPathIntoView :  (0 _ : JSType t1)
                      => {auto 0 _ : Elem CanvasUserInterface (Types t1)}
                      -> (obj : t1)
                      -> JSIO ()
@@ -7506,7 +7664,7 @@ namespace CanvasUserInterface
                        $ CanvasUserInterface.prim__scrollPathIntoView (up a)
   
   export
-  scrollPathIntoView1 :  JSType t1
+  scrollPathIntoView1 :  (0 _ : JSType t1)
                       => {auto 0 _ : Elem CanvasUserInterface (Types t1)}
                       -> (obj : t1)
                       -> (path : Path2D)
@@ -7515,10 +7673,11 @@ namespace CanvasUserInterface
                           $ CanvasUserInterface.prim__scrollPathIntoView1 (up a)
                                                                           b
 
+
 namespace DocumentAndElementEventHandlers
   
   export
-  oncopy :  JSType t
+  oncopy :  (0 _ : JSType t)
          => {auto 0 _ : Elem DocumentAndElementEventHandlers (Types t)}
          -> t
          -> Attribute False Maybe EventHandlerNonNull
@@ -7528,7 +7687,7 @@ namespace DocumentAndElementEventHandlers
                               (v :> DocumentAndElementEventHandlers)
   
   export
-  oncut :  JSType t
+  oncut :  (0 _ : JSType t)
         => {auto 0 _ : Elem DocumentAndElementEventHandlers (Types t)}
         -> t
         -> Attribute False Maybe EventHandlerNonNull
@@ -7538,7 +7697,7 @@ namespace DocumentAndElementEventHandlers
                              (v :> DocumentAndElementEventHandlers)
   
   export
-  onpaste :  JSType t
+  onpaste :  (0 _ : JSType t)
           => {auto 0 _ : Elem DocumentAndElementEventHandlers (Types t)}
           -> t
           -> Attribute False Maybe EventHandlerNonNull
@@ -7547,10 +7706,11 @@ namespace DocumentAndElementEventHandlers
                                prim__setOnpaste
                                (v :> DocumentAndElementEventHandlers)
 
+
 namespace ElementContentEditable
   
   export
-  contentEditable :  JSType t
+  contentEditable :  (0 _ : JSType t)
                   => {auto 0 _ : Elem ElementContentEditable (Types t)}
                   -> t
                   -> Attribute True I String
@@ -7560,7 +7720,7 @@ namespace ElementContentEditable
                                (v :> ElementContentEditable)
   
   export
-  enterKeyHint :  JSType t
+  enterKeyHint :  (0 _ : JSType t)
                => {auto 0 _ : Elem ElementContentEditable (Types t)}
                -> t
                -> Attribute True I String
@@ -7570,7 +7730,7 @@ namespace ElementContentEditable
                             (v :> ElementContentEditable)
   
   export
-  inputMode :  JSType t
+  inputMode :  (0 _ : JSType t)
             => {auto 0 _ : Elem ElementContentEditable (Types t)}
             -> t
             -> Attribute True I String
@@ -7580,17 +7740,18 @@ namespace ElementContentEditable
                          (v :> ElementContentEditable)
   
   export
-  isContentEditable :  JSType t1
+  isContentEditable :  (0 _ : JSType t1)
                     => {auto 0 _ : Elem ElementContentEditable (Types t1)}
                     -> (obj : t1)
                     -> JSIO Bool
   isContentEditable a = tryJS "ElementContentEditable.isContentEditable"
                       $ ElementContentEditable.prim__isContentEditable (up a)
 
+
 namespace GlobalEventHandlers
   
   export
-  onabort :  JSType t
+  onabort :  (0 _ : JSType t)
           => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
           -> t
           -> Attribute False Maybe UIEventHandler
@@ -7600,7 +7761,7 @@ namespace GlobalEventHandlers
                                (v :> GlobalEventHandlers)
   
   export
-  onauxclick :  JSType t
+  onauxclick :  (0 _ : JSType t)
              => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
              -> t
              -> Attribute False Maybe MouseEventHandler
@@ -7610,7 +7771,7 @@ namespace GlobalEventHandlers
                                   (v :> GlobalEventHandlers)
   
   export
-  onblur :  JSType t
+  onblur :  (0 _ : JSType t)
          => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
          -> t
          -> Attribute False Maybe FocusEventHandler
@@ -7620,7 +7781,7 @@ namespace GlobalEventHandlers
                               (v :> GlobalEventHandlers)
   
   export
-  oncancel :  JSType t
+  oncancel :  (0 _ : JSType t)
            => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
            -> t
            -> Attribute False Maybe EventHandlerNonNull
@@ -7630,7 +7791,7 @@ namespace GlobalEventHandlers
                                 (v :> GlobalEventHandlers)
   
   export
-  oncanplay :  JSType t
+  oncanplay :  (0 _ : JSType t)
             => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
             -> t
             -> Attribute False Maybe EventHandlerNonNull
@@ -7640,7 +7801,7 @@ namespace GlobalEventHandlers
                                  (v :> GlobalEventHandlers)
   
   export
-  oncanplaythrough :  JSType t
+  oncanplaythrough :  (0 _ : JSType t)
                    => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
                    -> t
                    -> Attribute False Maybe EventHandlerNonNull
@@ -7650,7 +7811,7 @@ namespace GlobalEventHandlers
                                         (v :> GlobalEventHandlers)
   
   export
-  onchange :  JSType t
+  onchange :  (0 _ : JSType t)
            => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
            -> t
            -> Attribute False Maybe EventHandlerNonNull
@@ -7660,7 +7821,7 @@ namespace GlobalEventHandlers
                                 (v :> GlobalEventHandlers)
   
   export
-  onclick :  JSType t
+  onclick :  (0 _ : JSType t)
           => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
           -> t
           -> Attribute False Maybe MouseEventHandler
@@ -7670,7 +7831,7 @@ namespace GlobalEventHandlers
                                (v :> GlobalEventHandlers)
   
   export
-  onclose :  JSType t
+  onclose :  (0 _ : JSType t)
           => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
           -> t
           -> Attribute False Maybe EventHandlerNonNull
@@ -7680,7 +7841,7 @@ namespace GlobalEventHandlers
                                (v :> GlobalEventHandlers)
   
   export
-  oncontextmenu :  JSType t
+  oncontextmenu :  (0 _ : JSType t)
                 => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
                 -> t
                 -> Attribute False Maybe EventHandlerNonNull
@@ -7690,7 +7851,7 @@ namespace GlobalEventHandlers
                                      (v :> GlobalEventHandlers)
   
   export
-  oncuechange :  JSType t
+  oncuechange :  (0 _ : JSType t)
               => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
               -> t
               -> Attribute False Maybe EventHandlerNonNull
@@ -7700,7 +7861,7 @@ namespace GlobalEventHandlers
                                    (v :> GlobalEventHandlers)
   
   export
-  ondblclick :  JSType t
+  ondblclick :  (0 _ : JSType t)
              => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
              -> t
              -> Attribute False Maybe MouseEventHandler
@@ -7710,7 +7871,7 @@ namespace GlobalEventHandlers
                                   (v :> GlobalEventHandlers)
   
   export
-  ondrag :  JSType t
+  ondrag :  (0 _ : JSType t)
          => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
          -> t
          -> Attribute False Maybe EventHandlerNonNull
@@ -7720,7 +7881,7 @@ namespace GlobalEventHandlers
                               (v :> GlobalEventHandlers)
   
   export
-  ondragend :  JSType t
+  ondragend :  (0 _ : JSType t)
             => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
             -> t
             -> Attribute False Maybe EventHandlerNonNull
@@ -7730,7 +7891,7 @@ namespace GlobalEventHandlers
                                  (v :> GlobalEventHandlers)
   
   export
-  ondragenter :  JSType t
+  ondragenter :  (0 _ : JSType t)
               => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
               -> t
               -> Attribute False Maybe EventHandlerNonNull
@@ -7740,7 +7901,7 @@ namespace GlobalEventHandlers
                                    (v :> GlobalEventHandlers)
   
   export
-  ondragleave :  JSType t
+  ondragleave :  (0 _ : JSType t)
               => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
               -> t
               -> Attribute False Maybe EventHandlerNonNull
@@ -7750,7 +7911,7 @@ namespace GlobalEventHandlers
                                    (v :> GlobalEventHandlers)
   
   export
-  ondragover :  JSType t
+  ondragover :  (0 _ : JSType t)
              => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
              -> t
              -> Attribute False Maybe EventHandlerNonNull
@@ -7760,7 +7921,7 @@ namespace GlobalEventHandlers
                                   (v :> GlobalEventHandlers)
   
   export
-  ondragstart :  JSType t
+  ondragstart :  (0 _ : JSType t)
               => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
               -> t
               -> Attribute False Maybe EventHandlerNonNull
@@ -7770,7 +7931,7 @@ namespace GlobalEventHandlers
                                    (v :> GlobalEventHandlers)
   
   export
-  ondrop :  JSType t
+  ondrop :  (0 _ : JSType t)
          => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
          -> t
          -> Attribute False Maybe EventHandlerNonNull
@@ -7780,7 +7941,7 @@ namespace GlobalEventHandlers
                               (v :> GlobalEventHandlers)
   
   export
-  ondurationchange :  JSType t
+  ondurationchange :  (0 _ : JSType t)
                    => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
                    -> t
                    -> Attribute False Maybe EventHandlerNonNull
@@ -7790,7 +7951,7 @@ namespace GlobalEventHandlers
                                         (v :> GlobalEventHandlers)
   
   export
-  onemptied :  JSType t
+  onemptied :  (0 _ : JSType t)
             => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
             -> t
             -> Attribute False Maybe EventHandlerNonNull
@@ -7800,7 +7961,7 @@ namespace GlobalEventHandlers
                                  (v :> GlobalEventHandlers)
   
   export
-  onended :  JSType t
+  onended :  (0 _ : JSType t)
           => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
           -> t
           -> Attribute False Maybe EventHandlerNonNull
@@ -7810,7 +7971,7 @@ namespace GlobalEventHandlers
                                (v :> GlobalEventHandlers)
   
   export
-  onerror :  JSType t
+  onerror :  (0 _ : JSType t)
           => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
           -> t
           -> Attribute False Maybe OnErrorEventHandlerNonNull
@@ -7820,7 +7981,7 @@ namespace GlobalEventHandlers
                                (v :> GlobalEventHandlers)
   
   export
-  onfocus :  JSType t
+  onfocus :  (0 _ : JSType t)
           => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
           -> t
           -> Attribute False Maybe FocusEventHandler
@@ -7830,7 +7991,7 @@ namespace GlobalEventHandlers
                                (v :> GlobalEventHandlers)
   
   export
-  onformdata :  JSType t
+  onformdata :  (0 _ : JSType t)
              => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
              -> t
              -> Attribute False Maybe EventHandlerNonNull
@@ -7840,7 +8001,7 @@ namespace GlobalEventHandlers
                                   (v :> GlobalEventHandlers)
   
   export
-  oninput :  JSType t
+  oninput :  (0 _ : JSType t)
           => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
           -> t
           -> Attribute False Maybe InputEventHandler
@@ -7850,7 +8011,7 @@ namespace GlobalEventHandlers
                                (v :> GlobalEventHandlers)
   
   export
-  oninvalid :  JSType t
+  oninvalid :  (0 _ : JSType t)
             => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
             -> t
             -> Attribute False Maybe EventHandlerNonNull
@@ -7860,7 +8021,7 @@ namespace GlobalEventHandlers
                                  (v :> GlobalEventHandlers)
   
   export
-  onkeydown :  JSType t
+  onkeydown :  (0 _ : JSType t)
             => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
             -> t
             -> Attribute False Maybe KeyboardEventHandler
@@ -7870,7 +8031,7 @@ namespace GlobalEventHandlers
                                  (v :> GlobalEventHandlers)
   
   export
-  onkeypress :  JSType t
+  onkeypress :  (0 _ : JSType t)
              => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
              -> t
              -> Attribute False Maybe EventHandlerNonNull
@@ -7880,7 +8041,7 @@ namespace GlobalEventHandlers
                                   (v :> GlobalEventHandlers)
   
   export
-  onkeyup :  JSType t
+  onkeyup :  (0 _ : JSType t)
           => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
           -> t
           -> Attribute False Maybe KeyboardEventHandler
@@ -7890,7 +8051,7 @@ namespace GlobalEventHandlers
                                (v :> GlobalEventHandlers)
   
   export
-  onload :  JSType t
+  onload :  (0 _ : JSType t)
          => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
          -> t
          -> Attribute False Maybe UIEventHandler
@@ -7900,7 +8061,7 @@ namespace GlobalEventHandlers
                               (v :> GlobalEventHandlers)
   
   export
-  onloadeddata :  JSType t
+  onloadeddata :  (0 _ : JSType t)
                => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
                -> t
                -> Attribute False Maybe EventHandlerNonNull
@@ -7910,7 +8071,7 @@ namespace GlobalEventHandlers
                                     (v :> GlobalEventHandlers)
   
   export
-  onloadedmetadata :  JSType t
+  onloadedmetadata :  (0 _ : JSType t)
                    => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
                    -> t
                    -> Attribute False Maybe EventHandlerNonNull
@@ -7920,7 +8081,7 @@ namespace GlobalEventHandlers
                                         (v :> GlobalEventHandlers)
   
   export
-  onloadstart :  JSType t
+  onloadstart :  (0 _ : JSType t)
               => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
               -> t
               -> Attribute False Maybe EventHandlerNonNull
@@ -7930,7 +8091,7 @@ namespace GlobalEventHandlers
                                    (v :> GlobalEventHandlers)
   
   export
-  onmousedown :  JSType t
+  onmousedown :  (0 _ : JSType t)
               => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
               -> t
               -> Attribute False Maybe MouseEventHandler
@@ -7940,7 +8101,7 @@ namespace GlobalEventHandlers
                                    (v :> GlobalEventHandlers)
   
   export
-  onmouseenter :  JSType t
+  onmouseenter :  (0 _ : JSType t)
                => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
                -> t
                -> Attribute False Maybe MouseEventHandler
@@ -7950,7 +8111,7 @@ namespace GlobalEventHandlers
                                     (v :> GlobalEventHandlers)
   
   export
-  onmouseleave :  JSType t
+  onmouseleave :  (0 _ : JSType t)
                => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
                -> t
                -> Attribute False Maybe MouseEventHandler
@@ -7960,7 +8121,7 @@ namespace GlobalEventHandlers
                                     (v :> GlobalEventHandlers)
   
   export
-  onmousemove :  JSType t
+  onmousemove :  (0 _ : JSType t)
               => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
               -> t
               -> Attribute False Maybe MouseEventHandler
@@ -7970,7 +8131,7 @@ namespace GlobalEventHandlers
                                    (v :> GlobalEventHandlers)
   
   export
-  onmouseout :  JSType t
+  onmouseout :  (0 _ : JSType t)
              => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
              -> t
              -> Attribute False Maybe MouseEventHandler
@@ -7980,7 +8141,7 @@ namespace GlobalEventHandlers
                                   (v :> GlobalEventHandlers)
   
   export
-  onmouseover :  JSType t
+  onmouseover :  (0 _ : JSType t)
               => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
               -> t
               -> Attribute False Maybe MouseEventHandler
@@ -7990,7 +8151,7 @@ namespace GlobalEventHandlers
                                    (v :> GlobalEventHandlers)
   
   export
-  onmouseup :  JSType t
+  onmouseup :  (0 _ : JSType t)
             => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
             -> t
             -> Attribute False Maybe MouseEventHandler
@@ -8000,7 +8161,7 @@ namespace GlobalEventHandlers
                                  (v :> GlobalEventHandlers)
   
   export
-  onpause :  JSType t
+  onpause :  (0 _ : JSType t)
           => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
           -> t
           -> Attribute False Maybe EventHandlerNonNull
@@ -8010,7 +8171,7 @@ namespace GlobalEventHandlers
                                (v :> GlobalEventHandlers)
   
   export
-  onplay :  JSType t
+  onplay :  (0 _ : JSType t)
          => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
          -> t
          -> Attribute False Maybe EventHandlerNonNull
@@ -8020,7 +8181,7 @@ namespace GlobalEventHandlers
                               (v :> GlobalEventHandlers)
   
   export
-  onplaying :  JSType t
+  onplaying :  (0 _ : JSType t)
             => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
             -> t
             -> Attribute False Maybe EventHandlerNonNull
@@ -8030,7 +8191,7 @@ namespace GlobalEventHandlers
                                  (v :> GlobalEventHandlers)
   
   export
-  onprogress :  JSType t
+  onprogress :  (0 _ : JSType t)
              => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
              -> t
              -> Attribute False Maybe EventHandlerNonNull
@@ -8040,7 +8201,7 @@ namespace GlobalEventHandlers
                                   (v :> GlobalEventHandlers)
   
   export
-  onratechange :  JSType t
+  onratechange :  (0 _ : JSType t)
                => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
                -> t
                -> Attribute False Maybe EventHandlerNonNull
@@ -8050,7 +8211,7 @@ namespace GlobalEventHandlers
                                     (v :> GlobalEventHandlers)
   
   export
-  onreset :  JSType t
+  onreset :  (0 _ : JSType t)
           => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
           -> t
           -> Attribute False Maybe EventHandlerNonNull
@@ -8060,7 +8221,7 @@ namespace GlobalEventHandlers
                                (v :> GlobalEventHandlers)
   
   export
-  onresize :  JSType t
+  onresize :  (0 _ : JSType t)
            => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
            -> t
            -> Attribute False Maybe EventHandlerNonNull
@@ -8070,7 +8231,7 @@ namespace GlobalEventHandlers
                                 (v :> GlobalEventHandlers)
   
   export
-  onscroll :  JSType t
+  onscroll :  (0 _ : JSType t)
            => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
            -> t
            -> Attribute False Maybe EventHandlerNonNull
@@ -8080,7 +8241,7 @@ namespace GlobalEventHandlers
                                 (v :> GlobalEventHandlers)
   
   export
-  onsecuritypolicyviolation :  JSType t
+  onsecuritypolicyviolation :  (0 _ : JSType t)
                             => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
                             -> t
                             -> Attribute False Maybe EventHandlerNonNull
@@ -8090,7 +8251,7 @@ namespace GlobalEventHandlers
                                                  (v :> GlobalEventHandlers)
   
   export
-  onseeked :  JSType t
+  onseeked :  (0 _ : JSType t)
            => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
            -> t
            -> Attribute False Maybe EventHandlerNonNull
@@ -8100,7 +8261,7 @@ namespace GlobalEventHandlers
                                 (v :> GlobalEventHandlers)
   
   export
-  onseeking :  JSType t
+  onseeking :  (0 _ : JSType t)
             => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
             -> t
             -> Attribute False Maybe EventHandlerNonNull
@@ -8110,7 +8271,7 @@ namespace GlobalEventHandlers
                                  (v :> GlobalEventHandlers)
   
   export
-  onselect :  JSType t
+  onselect :  (0 _ : JSType t)
            => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
            -> t
            -> Attribute False Maybe UIEventHandler
@@ -8120,7 +8281,7 @@ namespace GlobalEventHandlers
                                 (v :> GlobalEventHandlers)
   
   export
-  onslotchange :  JSType t
+  onslotchange :  (0 _ : JSType t)
                => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
                -> t
                -> Attribute False Maybe EventHandlerNonNull
@@ -8130,7 +8291,7 @@ namespace GlobalEventHandlers
                                     (v :> GlobalEventHandlers)
   
   export
-  onstalled :  JSType t
+  onstalled :  (0 _ : JSType t)
             => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
             -> t
             -> Attribute False Maybe EventHandlerNonNull
@@ -8140,7 +8301,7 @@ namespace GlobalEventHandlers
                                  (v :> GlobalEventHandlers)
   
   export
-  onsubmit :  JSType t
+  onsubmit :  (0 _ : JSType t)
            => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
            -> t
            -> Attribute False Maybe EventHandlerNonNull
@@ -8150,7 +8311,7 @@ namespace GlobalEventHandlers
                                 (v :> GlobalEventHandlers)
   
   export
-  onsuspend :  JSType t
+  onsuspend :  (0 _ : JSType t)
             => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
             -> t
             -> Attribute False Maybe EventHandlerNonNull
@@ -8160,7 +8321,7 @@ namespace GlobalEventHandlers
                                  (v :> GlobalEventHandlers)
   
   export
-  ontimeupdate :  JSType t
+  ontimeupdate :  (0 _ : JSType t)
                => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
                -> t
                -> Attribute False Maybe EventHandlerNonNull
@@ -8170,7 +8331,7 @@ namespace GlobalEventHandlers
                                     (v :> GlobalEventHandlers)
   
   export
-  ontoggle :  JSType t
+  ontoggle :  (0 _ : JSType t)
            => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
            -> t
            -> Attribute False Maybe EventHandlerNonNull
@@ -8180,7 +8341,7 @@ namespace GlobalEventHandlers
                                 (v :> GlobalEventHandlers)
   
   export
-  onvolumechange :  JSType t
+  onvolumechange :  (0 _ : JSType t)
                  => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
                  -> t
                  -> Attribute False Maybe EventHandlerNonNull
@@ -8190,7 +8351,7 @@ namespace GlobalEventHandlers
                                       (v :> GlobalEventHandlers)
   
   export
-  onwaiting :  JSType t
+  onwaiting :  (0 _ : JSType t)
             => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
             -> t
             -> Attribute False Maybe EventHandlerNonNull
@@ -8200,7 +8361,7 @@ namespace GlobalEventHandlers
                                  (v :> GlobalEventHandlers)
   
   export
-  onwebkitanimationend :  JSType t
+  onwebkitanimationend :  (0 _ : JSType t)
                        => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
                        -> t
                        -> Attribute False Maybe EventHandlerNonNull
@@ -8210,7 +8371,7 @@ namespace GlobalEventHandlers
                                             (v :> GlobalEventHandlers)
   
   export
-  onwebkitanimationiteration :  JSType t
+  onwebkitanimationiteration :  (0 _ : JSType t)
                              => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
                              -> t
                              -> Attribute False Maybe EventHandlerNonNull
@@ -8220,7 +8381,7 @@ namespace GlobalEventHandlers
                                                   (v :> GlobalEventHandlers)
   
   export
-  onwebkitanimationstart :  JSType t
+  onwebkitanimationstart :  (0 _ : JSType t)
                          => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
                          -> t
                          -> Attribute False Maybe EventHandlerNonNull
@@ -8230,7 +8391,7 @@ namespace GlobalEventHandlers
                                               (v :> GlobalEventHandlers)
   
   export
-  onwebkittransitionend :  JSType t
+  onwebkittransitionend :  (0 _ : JSType t)
                         => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
                         -> t
                         -> Attribute False Maybe EventHandlerNonNull
@@ -8240,7 +8401,7 @@ namespace GlobalEventHandlers
                                              (v :> GlobalEventHandlers)
   
   export
-  onwheel :  JSType t
+  onwheel :  (0 _ : JSType t)
           => {auto 0 _ : Elem GlobalEventHandlers (Types t)}
           -> t
           -> Attribute False Maybe WheelEventHandler
@@ -8249,10 +8410,11 @@ namespace GlobalEventHandlers
                                prim__setOnwheel
                                (v :> GlobalEventHandlers)
 
+
 namespace HTMLHyperlinkElementUtils
   
   export
-  hash :  JSType t
+  hash :  (0 _ : JSType t)
        => {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
        -> t
        -> Attribute True I String
@@ -8262,7 +8424,7 @@ namespace HTMLHyperlinkElementUtils
                     (v :> HTMLHyperlinkElementUtils)
   
   export
-  host :  JSType t
+  host :  (0 _ : JSType t)
        => {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
        -> t
        -> Attribute True I String
@@ -8272,7 +8434,7 @@ namespace HTMLHyperlinkElementUtils
                     (v :> HTMLHyperlinkElementUtils)
   
   export
-  hostname :  JSType t
+  hostname :  (0 _ : JSType t)
            => {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
            -> t
            -> Attribute True I String
@@ -8282,7 +8444,7 @@ namespace HTMLHyperlinkElementUtils
                         (v :> HTMLHyperlinkElementUtils)
   
   export
-  href :  JSType t
+  href :  (0 _ : JSType t)
        => {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
        -> t
        -> Attribute True I String
@@ -8292,14 +8454,14 @@ namespace HTMLHyperlinkElementUtils
                     (v :> HTMLHyperlinkElementUtils)
   
   export
-  origin :  JSType t1
+  origin :  (0 _ : JSType t1)
          => {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t1)}
          -> (obj : t1)
          -> JSIO String
   origin a = primJS $ HTMLHyperlinkElementUtils.prim__origin (up a)
   
   export
-  password :  JSType t
+  password :  (0 _ : JSType t)
            => {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
            -> t
            -> Attribute True I String
@@ -8309,7 +8471,7 @@ namespace HTMLHyperlinkElementUtils
                         (v :> HTMLHyperlinkElementUtils)
   
   export
-  pathname :  JSType t
+  pathname :  (0 _ : JSType t)
            => {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
            -> t
            -> Attribute True I String
@@ -8319,7 +8481,7 @@ namespace HTMLHyperlinkElementUtils
                         (v :> HTMLHyperlinkElementUtils)
   
   export
-  port :  JSType t
+  port :  (0 _ : JSType t)
        => {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
        -> t
        -> Attribute True I String
@@ -8329,7 +8491,7 @@ namespace HTMLHyperlinkElementUtils
                     (v :> HTMLHyperlinkElementUtils)
   
   export
-  protocol :  JSType t
+  protocol :  (0 _ : JSType t)
            => {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
            -> t
            -> Attribute True I String
@@ -8339,7 +8501,7 @@ namespace HTMLHyperlinkElementUtils
                         (v :> HTMLHyperlinkElementUtils)
   
   export
-  search :  JSType t
+  search :  (0 _ : JSType t)
          => {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
          -> t
          -> Attribute True I String
@@ -8349,7 +8511,7 @@ namespace HTMLHyperlinkElementUtils
                       (v :> HTMLHyperlinkElementUtils)
   
   export
-  username :  JSType t
+  username :  (0 _ : JSType t)
            => {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
            -> t
            -> Attribute True I String
@@ -8358,10 +8520,11 @@ namespace HTMLHyperlinkElementUtils
                         prim__setUsername
                         (v :> HTMLHyperlinkElementUtils)
 
+
 namespace HTMLOrSVGElement
   
   export
-  autofocus :  JSType t
+  autofocus :  (0 _ : JSType t)
             => {auto 0 _ : Elem HTMLOrSVGElement (Types t)}
             -> t
             -> Attribute True I Bool
@@ -8371,14 +8534,14 @@ namespace HTMLOrSVGElement
                          (v :> HTMLOrSVGElement)
   
   export
-  dataset :  JSType t1
+  dataset :  (0 _ : JSType t1)
           => {auto 0 _ : Elem HTMLOrSVGElement (Types t1)}
           -> (obj : t1)
           -> JSIO DOMStringMap
   dataset a = primJS $ HTMLOrSVGElement.prim__dataset (up a)
   
   export
-  nonce :  JSType t
+  nonce :  (0 _ : JSType t)
         => {auto 0 _ : Elem HTMLOrSVGElement (Types t)}
         -> t
         -> Attribute True I String
@@ -8388,7 +8551,7 @@ namespace HTMLOrSVGElement
                      (v :> HTMLOrSVGElement)
   
   export
-  tabIndex :  JSType t
+  tabIndex :  (0 _ : JSType t)
            => {auto 0 _ : Elem HTMLOrSVGElement (Types t)}
            -> t
            -> Attribute True I Int32
@@ -8398,15 +8561,15 @@ namespace HTMLOrSVGElement
                         (v :> HTMLOrSVGElement)
   
   export
-  blur :  JSType t1
+  blur :  (0 _ : JSType t1)
        => {auto 0 _ : Elem HTMLOrSVGElement (Types t1)}
        -> (obj : t1)
        -> JSIO ()
   blur a = primJS $ HTMLOrSVGElement.prim__blur (up a)
   
   export
-  focus :  JSType t1
-        => JSType t2
+  focus :  (0 _ : JSType t1)
+        => (0 _ : JSType t2)
         => {auto 0 _ : Elem HTMLOrSVGElement (Types t1)}
         -> {auto 0 _ : Elem FocusOptions (Types t2)}
         -> (obj : t1)
@@ -8415,26 +8578,28 @@ namespace HTMLOrSVGElement
   focus a b = primJS $ HTMLOrSVGElement.prim__focus (up a) (optUp b)
 
   export
-  focus' :  JSType t1
+  focus' :  (0 _ : JSType t1)
          => {auto 0 _ : Elem HTMLOrSVGElement (Types t1)}
          -> (obj : t1)
          -> JSIO ()
   focus' a = primJS $ HTMLOrSVGElement.prim__focus (up a) undef
 
+
 namespace NavigatorConcurrentHardware
   
   export
-  hardwareConcurrency :  JSType t1
+  hardwareConcurrency :  (0 _ : JSType t1)
                       => {auto 0 _ : Elem NavigatorConcurrentHardware (Types t1)}
                       -> (obj : t1)
                       -> JSIO JSBits64
   hardwareConcurrency a = primJS
                         $ NavigatorConcurrentHardware.prim__hardwareConcurrency (up a)
 
+
 namespace NavigatorContentUtils
   
   export
-  registerProtocolHandler :  JSType t1
+  registerProtocolHandler :  (0 _ : JSType t1)
                           => {auto 0 _ : Elem NavigatorContentUtils (Types t1)}
                           -> (obj : t1)
                           -> (scheme : String)
@@ -8446,7 +8611,7 @@ namespace NavigatorContentUtils
                                                                                       c
   
   export
-  unregisterProtocolHandler :  JSType t1
+  unregisterProtocolHandler :  (0 _ : JSType t1)
                             => {auto 0 _ : Elem NavigatorContentUtils (Types t1)}
                             -> (obj : t1)
                             -> (scheme : String)
@@ -8457,135 +8622,141 @@ namespace NavigatorContentUtils
                                                                                           b
                                                                                           c
 
+
 namespace NavigatorCookies
   
   export
-  cookieEnabled :  JSType t1
+  cookieEnabled :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem NavigatorCookies (Types t1)}
                 -> (obj : t1)
                 -> JSIO Bool
   cookieEnabled a = tryJS "NavigatorCookies.cookieEnabled"
                   $ NavigatorCookies.prim__cookieEnabled (up a)
 
+
 namespace NavigatorID
   
   export
-  appCodeName :  JSType t1
+  appCodeName :  (0 _ : JSType t1)
               => {auto 0 _ : Elem NavigatorID (Types t1)}
               -> (obj : t1)
               -> JSIO String
   appCodeName a = primJS $ NavigatorID.prim__appCodeName (up a)
   
   export
-  appName :  JSType t1
+  appName :  (0 _ : JSType t1)
           => {auto 0 _ : Elem NavigatorID (Types t1)}
           -> (obj : t1)
           -> JSIO String
   appName a = primJS $ NavigatorID.prim__appName (up a)
   
   export
-  appVersion :  JSType t1
+  appVersion :  (0 _ : JSType t1)
              => {auto 0 _ : Elem NavigatorID (Types t1)}
              -> (obj : t1)
              -> JSIO String
   appVersion a = primJS $ NavigatorID.prim__appVersion (up a)
   
   export
-  platform :  JSType t1
+  platform :  (0 _ : JSType t1)
            => {auto 0 _ : Elem NavigatorID (Types t1)}
            -> (obj : t1)
            -> JSIO String
   platform a = primJS $ NavigatorID.prim__platform (up a)
   
   export
-  product :  JSType t1
+  product :  (0 _ : JSType t1)
           => {auto 0 _ : Elem NavigatorID (Types t1)}
           -> (obj : t1)
           -> JSIO String
   product a = primJS $ NavigatorID.prim__product (up a)
   
   export
-  productSub :  JSType t1
+  productSub :  (0 _ : JSType t1)
              => {auto 0 _ : Elem NavigatorID (Types t1)}
              -> (obj : t1)
              -> JSIO String
   productSub a = primJS $ NavigatorID.prim__productSub (up a)
   
   export
-  userAgent :  JSType t1
+  userAgent :  (0 _ : JSType t1)
             => {auto 0 _ : Elem NavigatorID (Types t1)}
             -> (obj : t1)
             -> JSIO String
   userAgent a = primJS $ NavigatorID.prim__userAgent (up a)
   
   export
-  vendor :  JSType t1
+  vendor :  (0 _ : JSType t1)
          => {auto 0 _ : Elem NavigatorID (Types t1)}
          -> (obj : t1)
          -> JSIO String
   vendor a = primJS $ NavigatorID.prim__vendor (up a)
   
   export
-  vendorSub :  JSType t1
+  vendorSub :  (0 _ : JSType t1)
             => {auto 0 _ : Elem NavigatorID (Types t1)}
             -> (obj : t1)
             -> JSIO String
   vendorSub a = primJS $ NavigatorID.prim__vendorSub (up a)
 
+
 namespace NavigatorLanguage
   
   export
-  language :  JSType t1
+  language :  (0 _ : JSType t1)
            => {auto 0 _ : Elem NavigatorLanguage (Types t1)}
            -> (obj : t1)
            -> JSIO String
   language a = primJS $ NavigatorLanguage.prim__language (up a)
   
   export
-  languages :  JSType t1
+  languages :  (0 _ : JSType t1)
             => {auto 0 _ : Elem NavigatorLanguage (Types t1)}
             -> (obj : t1)
             -> JSIO (Array String)
   languages a = primJS $ NavigatorLanguage.prim__languages (up a)
 
+
 namespace NavigatorOnLine
   
   export
-  onLine :  JSType t1
+  onLine :  (0 _ : JSType t1)
          => {auto 0 _ : Elem NavigatorOnLine (Types t1)}
          -> (obj : t1)
          -> JSIO Bool
   onLine a = tryJS "NavigatorOnLine.onLine"
            $ NavigatorOnLine.prim__onLine (up a)
 
+
 namespace NavigatorPlugins
   
   export
-  mimeTypes :  JSType t1
+  mimeTypes :  (0 _ : JSType t1)
             => {auto 0 _ : Elem NavigatorPlugins (Types t1)}
             -> (obj : t1)
             -> JSIO MimeTypeArray
   mimeTypes a = primJS $ NavigatorPlugins.prim__mimeTypes (up a)
   
   export
-  plugins :  JSType t1
+  plugins :  (0 _ : JSType t1)
           => {auto 0 _ : Elem NavigatorPlugins (Types t1)}
           -> (obj : t1)
           -> JSIO PluginArray
   plugins a = primJS $ NavigatorPlugins.prim__plugins (up a)
   
   export
-  javaEnabled :  JSType t1
+  javaEnabled :  (0 _ : JSType t1)
               => {auto 0 _ : Elem NavigatorPlugins (Types t1)}
               -> (obj : t1)
               -> JSIO Bool
   javaEnabled a = tryJS "NavigatorPlugins.javaEnabled"
                 $ NavigatorPlugins.prim__javaEnabled (up a)
 
+
 namespace WindowEventHandlers
   
   export
-  onafterprint :  JSType t
+  onafterprint :  (0 _ : JSType t)
                => {auto 0 _ : Elem WindowEventHandlers (Types t)}
                -> t
                -> Attribute False Maybe EventHandlerNonNull
@@ -8595,7 +8766,7 @@ namespace WindowEventHandlers
                                     (v :> WindowEventHandlers)
   
   export
-  onbeforeprint :  JSType t
+  onbeforeprint :  (0 _ : JSType t)
                 => {auto 0 _ : Elem WindowEventHandlers (Types t)}
                 -> t
                 -> Attribute False Maybe EventHandlerNonNull
@@ -8605,7 +8776,7 @@ namespace WindowEventHandlers
                                      (v :> WindowEventHandlers)
   
   export
-  onbeforeunload :  JSType t
+  onbeforeunload :  (0 _ : JSType t)
                  => {auto 0 _ : Elem WindowEventHandlers (Types t)}
                  -> t
                  -> Attribute False Maybe OnBeforeUnloadEventHandlerNonNull
@@ -8615,7 +8786,7 @@ namespace WindowEventHandlers
                                       (v :> WindowEventHandlers)
   
   export
-  onhashchange :  JSType t
+  onhashchange :  (0 _ : JSType t)
                => {auto 0 _ : Elem WindowEventHandlers (Types t)}
                -> t
                -> Attribute False Maybe EventHandlerNonNull
@@ -8625,7 +8796,7 @@ namespace WindowEventHandlers
                                     (v :> WindowEventHandlers)
   
   export
-  onlanguagechange :  JSType t
+  onlanguagechange :  (0 _ : JSType t)
                    => {auto 0 _ : Elem WindowEventHandlers (Types t)}
                    -> t
                    -> Attribute False Maybe EventHandlerNonNull
@@ -8635,7 +8806,7 @@ namespace WindowEventHandlers
                                         (v :> WindowEventHandlers)
   
   export
-  onmessage :  JSType t
+  onmessage :  (0 _ : JSType t)
             => {auto 0 _ : Elem WindowEventHandlers (Types t)}
             -> t
             -> Attribute False Maybe EventHandlerNonNull
@@ -8645,7 +8816,7 @@ namespace WindowEventHandlers
                                  (v :> WindowEventHandlers)
   
   export
-  onmessageerror :  JSType t
+  onmessageerror :  (0 _ : JSType t)
                  => {auto 0 _ : Elem WindowEventHandlers (Types t)}
                  -> t
                  -> Attribute False Maybe EventHandlerNonNull
@@ -8655,7 +8826,7 @@ namespace WindowEventHandlers
                                       (v :> WindowEventHandlers)
   
   export
-  onoffline :  JSType t
+  onoffline :  (0 _ : JSType t)
             => {auto 0 _ : Elem WindowEventHandlers (Types t)}
             -> t
             -> Attribute False Maybe EventHandlerNonNull
@@ -8665,7 +8836,7 @@ namespace WindowEventHandlers
                                  (v :> WindowEventHandlers)
   
   export
-  ononline :  JSType t
+  ononline :  (0 _ : JSType t)
            => {auto 0 _ : Elem WindowEventHandlers (Types t)}
            -> t
            -> Attribute False Maybe EventHandlerNonNull
@@ -8675,7 +8846,7 @@ namespace WindowEventHandlers
                                 (v :> WindowEventHandlers)
   
   export
-  onpagehide :  JSType t
+  onpagehide :  (0 _ : JSType t)
              => {auto 0 _ : Elem WindowEventHandlers (Types t)}
              -> t
              -> Attribute False Maybe EventHandlerNonNull
@@ -8685,7 +8856,7 @@ namespace WindowEventHandlers
                                   (v :> WindowEventHandlers)
   
   export
-  onpageshow :  JSType t
+  onpageshow :  (0 _ : JSType t)
              => {auto 0 _ : Elem WindowEventHandlers (Types t)}
              -> t
              -> Attribute False Maybe EventHandlerNonNull
@@ -8695,7 +8866,7 @@ namespace WindowEventHandlers
                                   (v :> WindowEventHandlers)
   
   export
-  onpopstate :  JSType t
+  onpopstate :  (0 _ : JSType t)
              => {auto 0 _ : Elem WindowEventHandlers (Types t)}
              -> t
              -> Attribute False Maybe EventHandlerNonNull
@@ -8705,7 +8876,7 @@ namespace WindowEventHandlers
                                   (v :> WindowEventHandlers)
   
   export
-  onrejectionhandled :  JSType t
+  onrejectionhandled :  (0 _ : JSType t)
                      => {auto 0 _ : Elem WindowEventHandlers (Types t)}
                      -> t
                      -> Attribute False Maybe EventHandlerNonNull
@@ -8715,7 +8886,7 @@ namespace WindowEventHandlers
                                           (v :> WindowEventHandlers)
   
   export
-  onstorage :  JSType t
+  onstorage :  (0 _ : JSType t)
             => {auto 0 _ : Elem WindowEventHandlers (Types t)}
             -> t
             -> Attribute False Maybe EventHandlerNonNull
@@ -8725,7 +8896,7 @@ namespace WindowEventHandlers
                                  (v :> WindowEventHandlers)
   
   export
-  onunhandledrejection :  JSType t
+  onunhandledrejection :  (0 _ : JSType t)
                        => {auto 0 _ : Elem WindowEventHandlers (Types t)}
                        -> t
                        -> Attribute False Maybe EventHandlerNonNull
@@ -8735,7 +8906,7 @@ namespace WindowEventHandlers
                                             (v :> WindowEventHandlers)
   
   export
-  onunload :  JSType t
+  onunload :  (0 _ : JSType t)
            => {auto 0 _ : Elem WindowEventHandlers (Types t)}
            -> t
            -> Attribute False Maybe UIEventHandler
@@ -8743,6 +8914,8 @@ namespace WindowEventHandlers
                                 prim__onunload
                                 prim__setOnunload
                                 (v :> WindowEventHandlers)
+
+
 
 --------------------------------------------------------------------------------
 --          Dictionaries
@@ -8759,7 +8932,7 @@ namespace AssignedNodesOptions
   new' = primJS $ AssignedNodesOptions.prim__new undef
   
   export
-  flatten :  JSType t
+  flatten :  (0 _ : JSType t)
           => {auto 0 _ : Elem AssignedNodesOptions (Types t)}
           -> t
           -> Attribute True Optional Bool
@@ -8768,6 +8941,7 @@ namespace AssignedNodesOptions
                               prim__setFlatten
                               False
                               (v :> AssignedNodesOptions)
+
 
 namespace CanvasRenderingContext2DSettings
   
@@ -8783,7 +8957,7 @@ namespace CanvasRenderingContext2DSettings
   new' = primJS $ CanvasRenderingContext2DSettings.prim__new undef undef
   
   export
-  alpha :  JSType t
+  alpha :  (0 _ : JSType t)
         => {auto 0 _ : Elem CanvasRenderingContext2DSettings (Types t)}
         -> t
         -> Attribute True Optional Bool
@@ -8794,7 +8968,7 @@ namespace CanvasRenderingContext2DSettings
                             (v :> CanvasRenderingContext2DSettings)
   
   export
-  desynchronized :  JSType t
+  desynchronized :  (0 _ : JSType t)
                  => {auto 0 _ : Elem CanvasRenderingContext2DSettings (Types t)}
                  -> t
                  -> Attribute True Optional Bool
@@ -8803,6 +8977,7 @@ namespace CanvasRenderingContext2DSettings
                                      prim__setDesynchronized
                                      False
                                      (v :> CanvasRenderingContext2DSettings)
+
 
 namespace CloseEventInit
   
@@ -8818,7 +8993,7 @@ namespace CloseEventInit
   new' = primJS $ CloseEventInit.prim__new undef undef undef
   
   export
-  code :  JSType t
+  code :  (0 _ : JSType t)
        => {auto 0 _ : Elem CloseEventInit (Types t)}
        -> t
        -> Attribute True Optional Bits16
@@ -8829,7 +9004,7 @@ namespace CloseEventInit
                            (v :> CloseEventInit)
   
   export
-  reason :  JSType t
+  reason :  (0 _ : JSType t)
          => {auto 0 _ : Elem CloseEventInit (Types t)}
          -> t
          -> Attribute True Optional String
@@ -8840,7 +9015,7 @@ namespace CloseEventInit
                              (v :> CloseEventInit)
   
   export
-  wasClean :  JSType t
+  wasClean :  (0 _ : JSType t)
            => {auto 0 _ : Elem CloseEventInit (Types t)}
            -> t
            -> Attribute True Optional Bool
@@ -8849,6 +9024,7 @@ namespace CloseEventInit
                                prim__setWasClean
                                False
                                (v :> CloseEventInit)
+
 
 namespace DragEventInit
   
@@ -8861,7 +9037,7 @@ namespace DragEventInit
   new' = primJS $ DragEventInit.prim__new undef
   
   export
-  dataTransfer :  JSType t
+  dataTransfer :  (0 _ : JSType t)
                => {auto 0 _ : Elem DragEventInit (Types t)}
                -> t
                -> Attribute True Optional (Maybe DataTransfer)
@@ -8870,6 +9046,7 @@ namespace DragEventInit
                                    prim__setDataTransfer
                                    Nothing
                                    (v :> DragEventInit)
+
 
 namespace ElementDefinitionOptions
   
@@ -8882,7 +9059,7 @@ namespace ElementDefinitionOptions
   new' = primJS $ ElementDefinitionOptions.prim__new undef
   
   export
-  extends :  JSType t
+  extends :  (0 _ : JSType t)
           => {auto 0 _ : Elem ElementDefinitionOptions (Types t)}
           -> t
           -> Attribute False Optional String
@@ -8890,6 +9067,7 @@ namespace ElementDefinitionOptions
                                        prim__extends
                                        prim__setExtends
                                        (v :> ElementDefinitionOptions)
+
 
 namespace ErrorEventInit
   
@@ -8912,7 +9090,7 @@ namespace ErrorEventInit
   new' = primJS $ ErrorEventInit.prim__new undef undef undef undef undef
   
   export
-  colno :  JSType t
+  colno :  (0 _ : JSType t)
         => {auto 0 _ : Elem ErrorEventInit (Types t)}
         -> t
         -> Attribute True Optional Bits32
@@ -8923,7 +9101,7 @@ namespace ErrorEventInit
                             (v :> ErrorEventInit)
   
   export
-  error :  JSType t
+  error :  (0 _ : JSType t)
         => {auto 0 _ : Elem ErrorEventInit (Types t)}
         -> t
         -> Attribute True Optional Any
@@ -8934,7 +9112,7 @@ namespace ErrorEventInit
                             (v :> ErrorEventInit)
   
   export
-  filename :  JSType t
+  filename :  (0 _ : JSType t)
            => {auto 0 _ : Elem ErrorEventInit (Types t)}
            -> t
            -> Attribute True Optional String
@@ -8945,7 +9123,7 @@ namespace ErrorEventInit
                                (v :> ErrorEventInit)
   
   export
-  lineno :  JSType t
+  lineno :  (0 _ : JSType t)
          => {auto 0 _ : Elem ErrorEventInit (Types t)}
          -> t
          -> Attribute True Optional Bits32
@@ -8956,7 +9134,7 @@ namespace ErrorEventInit
                              (v :> ErrorEventInit)
   
   export
-  message :  JSType t
+  message :  (0 _ : JSType t)
           => {auto 0 _ : Elem ErrorEventInit (Types t)}
           -> t
           -> Attribute True Optional String
@@ -8965,6 +9143,7 @@ namespace ErrorEventInit
                               prim__setMessage
                               ""
                               (v :> ErrorEventInit)
+
 
 namespace EventSourceInit
   
@@ -8977,7 +9156,7 @@ namespace EventSourceInit
   new' = primJS $ EventSourceInit.prim__new undef
   
   export
-  withCredentials :  JSType t
+  withCredentials :  (0 _ : JSType t)
                   => {auto 0 _ : Elem EventSourceInit (Types t)}
                   -> t
                   -> Attribute True Optional Bool
@@ -8986,6 +9165,7 @@ namespace EventSourceInit
                                       prim__setWithCredentials
                                       False
                                       (v :> EventSourceInit)
+
 
 namespace FocusOptions
   
@@ -8998,7 +9178,7 @@ namespace FocusOptions
   new' = primJS $ FocusOptions.prim__new undef
   
   export
-  preventScroll :  JSType t
+  preventScroll :  (0 _ : JSType t)
                 => {auto 0 _ : Elem FocusOptions (Types t)}
                 -> t
                 -> Attribute True Optional Bool
@@ -9008,6 +9188,7 @@ namespace FocusOptions
                                     False
                                     (v :> FocusOptions)
 
+
 namespace FormDataEventInit
   
   export
@@ -9015,7 +9196,7 @@ namespace FormDataEventInit
   new a = primJS $ FormDataEventInit.prim__new a
   
   export
-  formData :  JSType t
+  formData :  (0 _ : JSType t)
            => {auto 0 _ : Elem FormDataEventInit (Types t)}
            -> t
            -> Attribute True I FormData
@@ -9023,6 +9204,7 @@ namespace FormDataEventInit
                         prim__formData
                         prim__setFormData
                         (v :> FormDataEventInit)
+
 
 namespace HashChangeEventInit
   
@@ -9037,7 +9219,7 @@ namespace HashChangeEventInit
   new' = primJS $ HashChangeEventInit.prim__new undef undef
   
   export
-  newURL :  JSType t
+  newURL :  (0 _ : JSType t)
          => {auto 0 _ : Elem HashChangeEventInit (Types t)}
          -> t
          -> Attribute True Optional String
@@ -9048,7 +9230,7 @@ namespace HashChangeEventInit
                              (v :> HashChangeEventInit)
   
   export
-  oldURL :  JSType t
+  oldURL :  (0 _ : JSType t)
          => {auto 0 _ : Elem HashChangeEventInit (Types t)}
          -> t
          -> Attribute True Optional String
@@ -9057,6 +9239,7 @@ namespace HashChangeEventInit
                              prim__setOldURL
                              ""
                              (v :> HashChangeEventInit)
+
 
 namespace ImageBitmapOptions
   
@@ -9082,7 +9265,7 @@ namespace ImageBitmapOptions
        $ ImageBitmapOptions.prim__new undef undef undef undef undef undef
   
   export
-  colorSpaceConversion :  JSType t
+  colorSpaceConversion :  (0 _ : JSType t)
                        => {auto 0 _ : Elem ImageBitmapOptions (Types t)}
                        -> t
                        -> Attribute False Optional ColorSpaceConversion
@@ -9092,7 +9275,7 @@ namespace ImageBitmapOptions
                                                     (v :> ImageBitmapOptions)
   
   export
-  imageOrientation :  JSType t
+  imageOrientation :  (0 _ : JSType t)
                    => {auto 0 _ : Elem ImageBitmapOptions (Types t)}
                    -> t
                    -> Attribute False Optional ImageOrientation
@@ -9102,7 +9285,7 @@ namespace ImageBitmapOptions
                                                 (v :> ImageBitmapOptions)
   
   export
-  premultiplyAlpha :  JSType t
+  premultiplyAlpha :  (0 _ : JSType t)
                    => {auto 0 _ : Elem ImageBitmapOptions (Types t)}
                    -> t
                    -> Attribute False Optional PremultiplyAlpha
@@ -9112,7 +9295,7 @@ namespace ImageBitmapOptions
                                                 (v :> ImageBitmapOptions)
   
   export
-  resizeHeight :  JSType t
+  resizeHeight :  (0 _ : JSType t)
                => {auto 0 _ : Elem ImageBitmapOptions (Types t)}
                -> t
                -> Attribute False Optional Bits32
@@ -9122,7 +9305,7 @@ namespace ImageBitmapOptions
                                             (v :> ImageBitmapOptions)
   
   export
-  resizeQuality :  JSType t
+  resizeQuality :  (0 _ : JSType t)
                 => {auto 0 _ : Elem ImageBitmapOptions (Types t)}
                 -> t
                 -> Attribute False Optional ResizeQuality
@@ -9132,7 +9315,7 @@ namespace ImageBitmapOptions
                                              (v :> ImageBitmapOptions)
   
   export
-  resizeWidth :  JSType t
+  resizeWidth :  (0 _ : JSType t)
               => {auto 0 _ : Elem ImageBitmapOptions (Types t)}
               -> t
               -> Attribute False Optional Bits32
@@ -9140,6 +9323,7 @@ namespace ImageBitmapOptions
                                            prim__resizeWidth
                                            prim__setResizeWidth
                                            (v :> ImageBitmapOptions)
+
 
 namespace ImageBitmapRenderingContextSettings
   
@@ -9152,7 +9336,7 @@ namespace ImageBitmapRenderingContextSettings
   new' = primJS $ ImageBitmapRenderingContextSettings.prim__new undef
   
   export
-  alpha :  JSType t
+  alpha :  (0 _ : JSType t)
         => {auto 0 _ : Elem ImageBitmapRenderingContextSettings (Types t)}
         -> t
         -> Attribute True Optional Bool
@@ -9161,6 +9345,7 @@ namespace ImageBitmapRenderingContextSettings
                             prim__setAlpha
                             True
                             (v :> ImageBitmapRenderingContextSettings)
+
 
 namespace ImageEncodeOptions
   
@@ -9175,7 +9360,7 @@ namespace ImageEncodeOptions
   new' = primJS $ ImageEncodeOptions.prim__new undef undef
   
   export
-  quality :  JSType t
+  quality :  (0 _ : JSType t)
           => {auto 0 _ : Elem ImageEncodeOptions (Types t)}
           -> t
           -> Attribute False Optional Double
@@ -9185,7 +9370,7 @@ namespace ImageEncodeOptions
                                        (v :> ImageEncodeOptions)
   
   export
-  type :  JSType t
+  type :  (0 _ : JSType t)
        => {auto 0 _ : Elem ImageEncodeOptions (Types t)}
        -> t
        -> Attribute True Optional String
@@ -9194,6 +9379,7 @@ namespace ImageEncodeOptions
                            prim__setType
                            "image/png"
                            (v :> ImageEncodeOptions)
+
 
 namespace MessageEventInit
   
@@ -9219,7 +9405,7 @@ namespace MessageEventInit
   new' = primJS $ MessageEventInit.prim__new undef undef undef undef undef
   
   export
-  data_ :  JSType t
+  data_ :  (0 _ : JSType t)
         => {auto 0 _ : Elem MessageEventInit (Types t)}
         -> t
         -> Attribute True Optional Any
@@ -9230,7 +9416,7 @@ namespace MessageEventInit
                             (v :> MessageEventInit)
   
   export
-  lastEventId :  JSType t
+  lastEventId :  (0 _ : JSType t)
               => {auto 0 _ : Elem MessageEventInit (Types t)}
               -> t
               -> Attribute True Optional String
@@ -9241,7 +9427,7 @@ namespace MessageEventInit
                                   (v :> MessageEventInit)
   
   export
-  origin :  JSType t
+  origin :  (0 _ : JSType t)
          => {auto 0 _ : Elem MessageEventInit (Types t)}
          -> t
          -> Attribute True Optional String
@@ -9252,7 +9438,7 @@ namespace MessageEventInit
                              (v :> MessageEventInit)
   
   export
-  ports :  JSType t
+  ports :  (0 _ : JSType t)
         => {auto 0 _ : Elem MessageEventInit (Types t)}
         -> t
         -> Attribute False Optional (Array MessagePort)
@@ -9262,7 +9448,7 @@ namespace MessageEventInit
                                      (v :> MessageEventInit)
   
   export
-  source :  JSType t
+  source :  (0 _ : JSType t)
          => {auto 0 _ : Elem MessageEventInit (Types t)}
          -> t
          -> Attribute True Optional (Maybe (Union3 WindowProxy
@@ -9273,6 +9459,7 @@ namespace MessageEventInit
                              prim__setSource
                              Nothing
                              (v :> MessageEventInit)
+
 
 namespace PageTransitionEventInit
   
@@ -9285,7 +9472,7 @@ namespace PageTransitionEventInit
   new' = primJS $ PageTransitionEventInit.prim__new undef
   
   export
-  persisted :  JSType t
+  persisted :  (0 _ : JSType t)
             => {auto 0 _ : Elem PageTransitionEventInit (Types t)}
             -> t
             -> Attribute True Optional Bool
@@ -9294,6 +9481,7 @@ namespace PageTransitionEventInit
                                 prim__setPersisted
                                 False
                                 (v :> PageTransitionEventInit)
+
 
 namespace PopStateEventInit
   
@@ -9306,7 +9494,7 @@ namespace PopStateEventInit
   new' = primJS $ PopStateEventInit.prim__new undef
   
   export
-  state :  JSType t
+  state :  (0 _ : JSType t)
         => {auto 0 _ : Elem PopStateEventInit (Types t)}
         -> t
         -> Attribute True Optional Any
@@ -9315,6 +9503,7 @@ namespace PopStateEventInit
                             prim__setState
                             (MkAny $ null {a = ()})
                             (v :> PopStateEventInit)
+
 
 namespace PostMessageOptions
   
@@ -9327,7 +9516,7 @@ namespace PostMessageOptions
   new' = primJS $ PostMessageOptions.prim__new undef
   
   export
-  transfer :  JSType t
+  transfer :  (0 _ : JSType t)
            => {auto 0 _ : Elem PostMessageOptions (Types t)}
            -> t
            -> Attribute False Optional (Array Object)
@@ -9335,6 +9524,7 @@ namespace PostMessageOptions
                                         prim__transfer
                                         prim__setTransfer
                                         (v :> PostMessageOptions)
+
 
 namespace PromiseRejectionEventInit
   
@@ -9349,7 +9539,7 @@ namespace PromiseRejectionEventInit
   new' a = primJS $ PromiseRejectionEventInit.prim__new a undef
   
   export
-  promise :  JSType t
+  promise :  (0 _ : JSType t)
           => {auto 0 _ : Elem PromiseRejectionEventInit (Types t)}
           -> t
           -> Attribute True I (Promise AnyPtr)
@@ -9359,7 +9549,7 @@ namespace PromiseRejectionEventInit
                        (v :> PromiseRejectionEventInit)
   
   export
-  reason :  JSType t
+  reason :  (0 _ : JSType t)
          => {auto 0 _ : Elem PromiseRejectionEventInit (Types t)}
          -> t
          -> Attribute False Optional Any
@@ -9367,6 +9557,7 @@ namespace PromiseRejectionEventInit
                                       prim__reason
                                       prim__setReason
                                       (v :> PromiseRejectionEventInit)
+
 
 namespace StorageEventInit
   
@@ -9389,7 +9580,7 @@ namespace StorageEventInit
   new' = primJS $ StorageEventInit.prim__new undef undef undef undef undef
   
   export
-  key :  JSType t
+  key :  (0 _ : JSType t)
       => {auto 0 _ : Elem StorageEventInit (Types t)}
       -> t
       -> Attribute True Optional (Maybe String)
@@ -9400,7 +9591,7 @@ namespace StorageEventInit
                           (v :> StorageEventInit)
   
   export
-  newValue :  JSType t
+  newValue :  (0 _ : JSType t)
            => {auto 0 _ : Elem StorageEventInit (Types t)}
            -> t
            -> Attribute True Optional (Maybe String)
@@ -9411,7 +9602,7 @@ namespace StorageEventInit
                                (v :> StorageEventInit)
   
   export
-  oldValue :  JSType t
+  oldValue :  (0 _ : JSType t)
            => {auto 0 _ : Elem StorageEventInit (Types t)}
            -> t
            -> Attribute True Optional (Maybe String)
@@ -9422,7 +9613,7 @@ namespace StorageEventInit
                                (v :> StorageEventInit)
   
   export
-  storageArea :  JSType t
+  storageArea :  (0 _ : JSType t)
               => {auto 0 _ : Elem StorageEventInit (Types t)}
               -> t
               -> Attribute True Optional (Maybe Storage)
@@ -9433,7 +9624,7 @@ namespace StorageEventInit
                                   (v :> StorageEventInit)
   
   export
-  url :  JSType t
+  url :  (0 _ : JSType t)
       => {auto 0 _ : Elem StorageEventInit (Types t)}
       -> t
       -> Attribute True Optional String
@@ -9443,10 +9634,11 @@ namespace StorageEventInit
                           ""
                           (v :> StorageEventInit)
 
+
 namespace SubmitEventInit
   
   export
-  new :  JSType t1
+  new :  (0 _ : JSType t1)
       => {auto 0 _ : Elem HTMLElement (Types t1)}
       -> (submitter : Optional (Maybe t1))
       -> JSIO SubmitEventInit
@@ -9457,7 +9649,7 @@ namespace SubmitEventInit
   new' = primJS $ SubmitEventInit.prim__new undef
   
   export
-  submitter :  JSType t
+  submitter :  (0 _ : JSType t)
             => {auto 0 _ : Elem SubmitEventInit (Types t)}
             -> t
             -> Attribute True Optional (Maybe HTMLElement)
@@ -9466,6 +9658,7 @@ namespace SubmitEventInit
                                 prim__setSubmitter
                                 Nothing
                                 (v :> SubmitEventInit)
+
 
 namespace TrackEventInit
   
@@ -9482,7 +9675,7 @@ namespace TrackEventInit
   new' = primJS $ TrackEventInit.prim__new undef
   
   export
-  track :  JSType t
+  track :  (0 _ : JSType t)
         => {auto 0 _ : Elem TrackEventInit (Types t)}
         -> t
         -> Attribute True Optional (Maybe (NS I [ VideoTrack
@@ -9494,6 +9687,7 @@ namespace TrackEventInit
                             prim__setTrack
                             Nothing
                             (v :> TrackEventInit)
+
 
 namespace ValidityStateFlags
   
@@ -9536,7 +9730,7 @@ namespace ValidityStateFlags
                                       undef
   
   export
-  badInput :  JSType t
+  badInput :  (0 _ : JSType t)
            => {auto 0 _ : Elem ValidityStateFlags (Types t)}
            -> t
            -> Attribute True Optional Bool
@@ -9547,7 +9741,7 @@ namespace ValidityStateFlags
                                (v :> ValidityStateFlags)
   
   export
-  customError :  JSType t
+  customError :  (0 _ : JSType t)
               => {auto 0 _ : Elem ValidityStateFlags (Types t)}
               -> t
               -> Attribute True Optional Bool
@@ -9558,7 +9752,7 @@ namespace ValidityStateFlags
                                   (v :> ValidityStateFlags)
   
   export
-  patternMismatch :  JSType t
+  patternMismatch :  (0 _ : JSType t)
                   => {auto 0 _ : Elem ValidityStateFlags (Types t)}
                   -> t
                   -> Attribute True Optional Bool
@@ -9569,7 +9763,7 @@ namespace ValidityStateFlags
                                       (v :> ValidityStateFlags)
   
   export
-  rangeOverflow :  JSType t
+  rangeOverflow :  (0 _ : JSType t)
                 => {auto 0 _ : Elem ValidityStateFlags (Types t)}
                 -> t
                 -> Attribute True Optional Bool
@@ -9580,7 +9774,7 @@ namespace ValidityStateFlags
                                     (v :> ValidityStateFlags)
   
   export
-  rangeUnderflow :  JSType t
+  rangeUnderflow :  (0 _ : JSType t)
                  => {auto 0 _ : Elem ValidityStateFlags (Types t)}
                  -> t
                  -> Attribute True Optional Bool
@@ -9591,7 +9785,7 @@ namespace ValidityStateFlags
                                      (v :> ValidityStateFlags)
   
   export
-  stepMismatch :  JSType t
+  stepMismatch :  (0 _ : JSType t)
                => {auto 0 _ : Elem ValidityStateFlags (Types t)}
                -> t
                -> Attribute True Optional Bool
@@ -9602,7 +9796,7 @@ namespace ValidityStateFlags
                                    (v :> ValidityStateFlags)
   
   export
-  tooLong :  JSType t
+  tooLong :  (0 _ : JSType t)
           => {auto 0 _ : Elem ValidityStateFlags (Types t)}
           -> t
           -> Attribute True Optional Bool
@@ -9613,7 +9807,7 @@ namespace ValidityStateFlags
                               (v :> ValidityStateFlags)
   
   export
-  tooShort :  JSType t
+  tooShort :  (0 _ : JSType t)
            => {auto 0 _ : Elem ValidityStateFlags (Types t)}
            -> t
            -> Attribute True Optional Bool
@@ -9624,7 +9818,7 @@ namespace ValidityStateFlags
                                (v :> ValidityStateFlags)
   
   export
-  typeMismatch :  JSType t
+  typeMismatch :  (0 _ : JSType t)
                => {auto 0 _ : Elem ValidityStateFlags (Types t)}
                -> t
                -> Attribute True Optional Bool
@@ -9635,7 +9829,7 @@ namespace ValidityStateFlags
                                    (v :> ValidityStateFlags)
   
   export
-  valueMissing :  JSType t
+  valueMissing :  (0 _ : JSType t)
                => {auto 0 _ : Elem ValidityStateFlags (Types t)}
                -> t
                -> Attribute True Optional Bool
@@ -9644,6 +9838,7 @@ namespace ValidityStateFlags
                                    prim__setValueMissing
                                    False
                                    (v :> ValidityStateFlags)
+
 
 namespace WindowPostMessageOptions
   
@@ -9656,7 +9851,7 @@ namespace WindowPostMessageOptions
   new' = primJS $ WindowPostMessageOptions.prim__new undef
   
   export
-  targetOrigin :  JSType t
+  targetOrigin :  (0 _ : JSType t)
                => {auto 0 _ : Elem WindowPostMessageOptions (Types t)}
                -> t
                -> Attribute True Optional String
@@ -9665,6 +9860,7 @@ namespace WindowPostMessageOptions
                                    prim__setTargetOrigin
                                    "/"
                                    (v :> WindowPostMessageOptions)
+
 
 namespace WorkerOptions
   
@@ -9680,7 +9876,7 @@ namespace WorkerOptions
   new' = primJS $ WorkerOptions.prim__new undef undef undef
   
   export
-  credentials :  JSType t
+  credentials :  (0 _ : JSType t)
               => {auto 0 _ : Elem WorkerOptions (Types t)}
               -> t
               -> Attribute False Optional RequestCredentials
@@ -9690,7 +9886,7 @@ namespace WorkerOptions
                                            (v :> WorkerOptions)
   
   export
-  name :  JSType t
+  name :  (0 _ : JSType t)
        => {auto 0 _ : Elem WorkerOptions (Types t)}
        -> t
        -> Attribute True Optional String
@@ -9701,7 +9897,7 @@ namespace WorkerOptions
                            (v :> WorkerOptions)
   
   export
-  type :  JSType t
+  type :  (0 _ : JSType t)
        => {auto 0 _ : Elem WorkerOptions (Types t)}
        -> t
        -> Attribute False Optional WorkerType
@@ -9709,6 +9905,7 @@ namespace WorkerOptions
                                     prim__type
                                     prim__setType
                                     (v :> WorkerOptions)
+
 
 namespace WorkletOptions
   
@@ -9721,7 +9918,7 @@ namespace WorkletOptions
   new' = primJS $ WorkletOptions.prim__new undef
   
   export
-  credentials :  JSType t
+  credentials :  (0 _ : JSType t)
               => {auto 0 _ : Elem WorkletOptions (Types t)}
               -> t
               -> Attribute False Optional RequestCredentials
@@ -9729,6 +9926,8 @@ namespace WorkletOptions
                                            prim__credentials
                                            prim__setCredentials
                                            (v :> WorkletOptions)
+
+
 
 --------------------------------------------------------------------------------
 --          Callbacks
@@ -9740,12 +9939,14 @@ namespace BlobCallback
   toBlobCallback : ( Nullable Blob -> IO () ) -> JSIO BlobCallback
   toBlobCallback cb = primJS $ prim__toBlobCallback cb
 
+
 namespace CompositionEventHandler
   
   export
   toCompositionEventHandler :  ( CompositionEvent -> IO () )
                             -> JSIO CompositionEventHandler
   toCompositionEventHandler cb = primJS $ prim__toCompositionEventHandler cb
+
 
 namespace CustomElementConstructor
   
@@ -9754,11 +9955,13 @@ namespace CustomElementConstructor
                              -> JSIO CustomElementConstructor
   toCustomElementConstructor cb = primJS $ prim__toCustomElementConstructor cb
 
+
 namespace EventHandlerNonNull
   
   export
   toEventHandlerNonNull : ( Event -> IO AnyPtr ) -> JSIO EventHandlerNonNull
   toEventHandlerNonNull cb = primJS $ prim__toEventHandlerNonNull cb
+
 
 namespace FocusEventHandler
   
@@ -9766,17 +9969,20 @@ namespace FocusEventHandler
   toFocusEventHandler : ( FocusEvent -> IO () ) -> JSIO FocusEventHandler
   toFocusEventHandler cb = primJS $ prim__toFocusEventHandler cb
 
+
 namespace FunctionStringCallback
   
   export
   toFunctionStringCallback : ( String -> IO () ) -> JSIO FunctionStringCallback
   toFunctionStringCallback cb = primJS $ prim__toFunctionStringCallback cb
 
+
 namespace InputEventHandler
   
   export
   toInputEventHandler : ( InputEvent -> IO () ) -> JSIO InputEventHandler
   toInputEventHandler cb = primJS $ prim__toInputEventHandler cb
+
 
 namespace KeyboardEventHandler
   
@@ -9785,11 +9991,13 @@ namespace KeyboardEventHandler
                          -> JSIO KeyboardEventHandler
   toKeyboardEventHandler cb = primJS $ prim__toKeyboardEventHandler cb
 
+
 namespace MouseEventHandler
   
   export
   toMouseEventHandler : ( MouseEvent -> IO () ) -> JSIO MouseEventHandler
   toMouseEventHandler cb = primJS $ prim__toMouseEventHandler cb
+
 
 namespace OnBeforeUnloadEventHandlerNonNull
   
@@ -9797,6 +10005,7 @@ namespace OnBeforeUnloadEventHandlerNonNull
   toOnBeforeUnloadEventHandlerNonNull :  ( Event -> IO (Nullable String) )
                                       -> JSIO OnBeforeUnloadEventHandlerNonNull
   toOnBeforeUnloadEventHandlerNonNull cb = primJS $ prim__toOnBeforeUnloadEventHandlerNonNull cb
+
 
 namespace OnErrorEventHandlerNonNull
   
@@ -9811,14 +10020,17 @@ namespace OnErrorEventHandlerNonNull
                                -> JSIO OnErrorEventHandlerNonNull
   toOnErrorEventHandlerNonNull cb = primJS $ prim__toOnErrorEventHandlerNonNull cb
 
+
 namespace UIEventHandler
   
   export
   toUIEventHandler : ( UIEvent -> IO () ) -> JSIO UIEventHandler
   toUIEventHandler cb = primJS $ prim__toUIEventHandler cb
 
+
 namespace WheelEventHandler
   
   export
   toWheelEventHandler : ( WheelEvent -> IO () ) -> JSIO WheelEventHandler
   toWheelEventHandler cb = primJS $ prim__toWheelEventHandler cb
+

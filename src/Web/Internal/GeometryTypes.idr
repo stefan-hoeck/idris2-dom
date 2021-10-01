@@ -103,6 +103,7 @@ export
 SafeCast DOMRectReadOnly where
   safeCast = unsafeCastOnPrototypeName "DOMRectReadOnly"
 
+
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
@@ -146,4 +147,6 @@ ToFFI DOMRectInit DOMRectInit where toFFI = id
   
 export
 FromFFI DOMRectInit DOMRectInit where fromFFI = Just
+
+
 

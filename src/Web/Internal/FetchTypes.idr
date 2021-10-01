@@ -378,6 +378,7 @@ namespace ReferrerPolicy
   FromFFI ReferrerPolicy String where
     fromFFI = read
 
+
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
@@ -418,6 +419,7 @@ export
 SafeCast Response where
   safeCast = unsafeCastOnPrototypeName "Response"
 
+
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
@@ -438,6 +440,7 @@ ToFFI ResponseInit ResponseInit where toFFI = id
 export
 FromFFI ResponseInit ResponseInit where fromFFI = Just
 
+
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------
@@ -449,3 +452,5 @@ ToFFI Body Body where toFFI = id
   
 export
 FromFFI Body Body where fromFFI = Just
+
+

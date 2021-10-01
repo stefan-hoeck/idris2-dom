@@ -44,6 +44,7 @@ namespace ShadowRootMode
   FromFFI ShadowRootMode String where
     fromFFI = read
 
+
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
@@ -468,6 +469,7 @@ export
 SafeCast XPathResult where
   safeCast = unsafeCastOnPrototypeName "XPathResult"
 
+
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
@@ -544,6 +546,7 @@ ToFFI StaticRangeInit StaticRangeInit where toFFI = id
 export
 FromFFI StaticRangeInit StaticRangeInit where fromFFI = Just
 
+
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------
@@ -612,6 +615,7 @@ ToFFI XPathEvaluatorBase XPathEvaluatorBase where toFFI = id
 export
 FromFFI XPathEvaluatorBase XPathEvaluatorBase where fromFFI = Just
 
+
 --------------------------------------------------------------------------------
 --          Callbacks
 --------------------------------------------------------------------------------
@@ -647,3 +651,4 @@ ToFFI XPathNSResolver XPathNSResolver where toFFI = id
   
 export
 FromFFI XPathNSResolver XPathNSResolver where fromFFI = Just
+

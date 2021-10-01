@@ -56,6 +56,7 @@ namespace SVGAElement
   type : SVGAElement -> Attribute True I String
   type v = fromPrim "SVGAElement.gettype" prim__type prim__setType v
 
+
 namespace SVGAngle
   
   public export
@@ -113,6 +114,7 @@ namespace SVGAngle
   newValueSpecifiedUnits a b c = primJS
                                $ SVGAngle.prim__newValueSpecifiedUnits a b c
 
+
 namespace SVGAnimatedAngle
   
   export
@@ -122,6 +124,7 @@ namespace SVGAnimatedAngle
   export
   baseVal : (obj : SVGAnimatedAngle) -> JSIO SVGAngle
   baseVal a = primJS $ SVGAnimatedAngle.prim__baseVal a
+
 
 namespace SVGAnimatedBoolean
   
@@ -137,6 +140,7 @@ namespace SVGAnimatedBoolean
                        prim__setBaseVal
                        v
 
+
 namespace SVGAnimatedEnumeration
   
   export
@@ -149,6 +153,7 @@ namespace SVGAnimatedEnumeration
                        prim__baseVal
                        prim__setBaseVal
                        v
+
 
 namespace SVGAnimatedInteger
   
@@ -163,6 +168,7 @@ namespace SVGAnimatedInteger
                        prim__setBaseVal
                        v
 
+
 namespace SVGAnimatedLength
   
   export
@@ -173,6 +179,7 @@ namespace SVGAnimatedLength
   baseVal : (obj : SVGAnimatedLength) -> JSIO SVGLength
   baseVal a = primJS $ SVGAnimatedLength.prim__baseVal a
 
+
 namespace SVGAnimatedLengthList
   
   export
@@ -182,6 +189,7 @@ namespace SVGAnimatedLengthList
   export
   baseVal : (obj : SVGAnimatedLengthList) -> JSIO SVGLengthList
   baseVal a = primJS $ SVGAnimatedLengthList.prim__baseVal a
+
 
 namespace SVGAnimatedNumber
   
@@ -196,6 +204,7 @@ namespace SVGAnimatedNumber
                        prim__setBaseVal
                        v
 
+
 namespace SVGAnimatedNumberList
   
   export
@@ -205,6 +214,7 @@ namespace SVGAnimatedNumberList
   export
   baseVal : (obj : SVGAnimatedNumberList) -> JSIO SVGNumberList
   baseVal a = primJS $ SVGAnimatedNumberList.prim__baseVal a
+
 
 namespace SVGAnimatedPreserveAspectRatio
   
@@ -218,6 +228,7 @@ namespace SVGAnimatedPreserveAspectRatio
           -> JSIO SVGPreserveAspectRatio
   baseVal a = primJS $ SVGAnimatedPreserveAspectRatio.prim__baseVal a
 
+
 namespace SVGAnimatedRect
   
   export
@@ -227,6 +238,7 @@ namespace SVGAnimatedRect
   export
   baseVal : (obj : SVGAnimatedRect) -> JSIO DOMRect
   baseVal a = primJS $ SVGAnimatedRect.prim__baseVal a
+
 
 namespace SVGAnimatedString
   
@@ -241,6 +253,7 @@ namespace SVGAnimatedString
                        prim__setBaseVal
                        v
 
+
 namespace SVGAnimatedTransformList
   
   export
@@ -250,6 +263,7 @@ namespace SVGAnimatedTransformList
   export
   baseVal : (obj : SVGAnimatedTransformList) -> JSIO SVGTransformList
   baseVal a = primJS $ SVGAnimatedTransformList.prim__baseVal a
+
 
 namespace SVGCircleElement
   
@@ -267,17 +281,18 @@ namespace SVGCircleElement
 
 
 
+
 namespace SVGElement
   
   export
-  className :  JSType t1
+  className :  (0 _ : JSType t1)
             => {auto 0 _ : Elem SVGElement (Types t1)}
             -> (obj : t1)
             -> JSIO SVGAnimatedString
   className a = primJS $ SVGElement.prim__className (up a)
   
   export
-  ownerSVGElement :  JSType t1
+  ownerSVGElement :  (0 _ : JSType t1)
                   => {auto 0 _ : Elem SVGElement (Types t1)}
                   -> (obj : t1)
                   -> JSIO (Maybe SVGSVGElement)
@@ -285,12 +300,13 @@ namespace SVGElement
                     $ SVGElement.prim__ownerSVGElement (up a)
   
   export
-  viewportElement :  JSType t1
+  viewportElement :  (0 _ : JSType t1)
                   => {auto 0 _ : Elem SVGElement (Types t1)}
                   -> (obj : t1)
                   -> JSIO (Maybe SVGElement)
   viewportElement a = tryJS "SVGElement.viewportElement"
                     $ SVGElement.prim__viewportElement (up a)
+
 
 namespace SVGEllipseElement
   
@@ -309,6 +325,7 @@ namespace SVGEllipseElement
   export
   ry : (obj : SVGEllipseElement) -> JSIO SVGAnimatedLength
   ry a = primJS $ SVGEllipseElement.prim__ry a
+
 
 namespace SVGForeignObjectElement
   
@@ -329,17 +346,18 @@ namespace SVGForeignObjectElement
   y a = primJS $ SVGForeignObjectElement.prim__y a
 
 
+
 namespace SVGGeometryElement
   
   export
-  pathLength :  JSType t1
+  pathLength :  (0 _ : JSType t1)
              => {auto 0 _ : Elem SVGGeometryElement (Types t1)}
              -> (obj : t1)
              -> JSIO SVGAnimatedNumber
   pathLength a = primJS $ SVGGeometryElement.prim__pathLength (up a)
   
   export
-  getPointAtLength :  JSType t1
+  getPointAtLength :  (0 _ : JSType t1)
                    => {auto 0 _ : Elem SVGGeometryElement (Types t1)}
                    -> (obj : t1)
                    -> (distance : Double)
@@ -348,15 +366,15 @@ namespace SVGGeometryElement
                        $ SVGGeometryElement.prim__getPointAtLength (up a) b
   
   export
-  getTotalLength :  JSType t1
+  getTotalLength :  (0 _ : JSType t1)
                  => {auto 0 _ : Elem SVGGeometryElement (Types t1)}
                  -> (obj : t1)
                  -> JSIO Double
   getTotalLength a = primJS $ SVGGeometryElement.prim__getTotalLength (up a)
   
   export
-  isPointInFill :  JSType t1
-                => JSType t2
+  isPointInFill :  (0 _ : JSType t1)
+                => (0 _ : JSType t2)
                 => {auto 0 _ : Elem SVGGeometryElement (Types t1)}
                 -> {auto 0 _ : Elem DOMPointInit (Types t2)}
                 -> (obj : t1)
@@ -366,7 +384,7 @@ namespace SVGGeometryElement
                     $ SVGGeometryElement.prim__isPointInFill (up a) (optUp b)
 
   export
-  isPointInFill' :  JSType t1
+  isPointInFill' :  (0 _ : JSType t1)
                  => {auto 0 _ : Elem SVGGeometryElement (Types t1)}
                  -> (obj : t1)
                  -> JSIO Bool
@@ -374,8 +392,8 @@ namespace SVGGeometryElement
                    $ SVGGeometryElement.prim__isPointInFill (up a) undef
   
   export
-  isPointInStroke :  JSType t1
-                  => JSType t2
+  isPointInStroke :  (0 _ : JSType t1)
+                  => (0 _ : JSType t2)
                   => {auto 0 _ : Elem SVGGeometryElement (Types t1)}
                   -> {auto 0 _ : Elem DOMPointInit (Types t2)}
                   -> (obj : t1)
@@ -386,12 +404,13 @@ namespace SVGGeometryElement
                                                                  (optUp b)
 
   export
-  isPointInStroke' :  JSType t1
+  isPointInStroke' :  (0 _ : JSType t1)
                    => {auto 0 _ : Elem SVGGeometryElement (Types t1)}
                    -> (obj : t1)
                    -> JSIO Bool
   isPointInStroke' a = tryJS "SVGGeometryElement.isPointInStroke'"
                      $ SVGGeometryElement.prim__isPointInStroke (up a) undef
+
 
 namespace SVGGradientElement
   
@@ -412,7 +431,7 @@ namespace SVGGradientElement
   SVG_SPREADMETHOD_UNKNOWN = 0
   
   export
-  gradientTransform :  JSType t1
+  gradientTransform :  (0 _ : JSType t1)
                     => {auto 0 _ : Elem SVGGradientElement (Types t1)}
                     -> (obj : t1)
                     -> JSIO SVGAnimatedTransformList
@@ -420,31 +439,32 @@ namespace SVGGradientElement
                       $ SVGGradientElement.prim__gradientTransform (up a)
   
   export
-  gradientUnits :  JSType t1
+  gradientUnits :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem SVGGradientElement (Types t1)}
                 -> (obj : t1)
                 -> JSIO SVGAnimatedEnumeration
   gradientUnits a = primJS $ SVGGradientElement.prim__gradientUnits (up a)
   
   export
-  spreadMethod :  JSType t1
+  spreadMethod :  (0 _ : JSType t1)
                => {auto 0 _ : Elem SVGGradientElement (Types t1)}
                -> (obj : t1)
                -> JSIO SVGAnimatedEnumeration
   spreadMethod a = primJS $ SVGGradientElement.prim__spreadMethod (up a)
 
+
 namespace SVGGraphicsElement
   
   export
-  transform :  JSType t1
+  transform :  (0 _ : JSType t1)
             => {auto 0 _ : Elem SVGGraphicsElement (Types t1)}
             -> (obj : t1)
             -> JSIO SVGAnimatedTransformList
   transform a = primJS $ SVGGraphicsElement.prim__transform (up a)
   
   export
-  getBBox :  JSType t1
-          => JSType t2
+  getBBox :  (0 _ : JSType t1)
+          => (0 _ : JSType t2)
           => {auto 0 _ : Elem SVGGraphicsElement (Types t1)}
           -> {auto 0 _ : Elem SVGBoundingBoxOptions (Types t2)}
           -> (obj : t1)
@@ -453,14 +473,14 @@ namespace SVGGraphicsElement
   getBBox a b = primJS $ SVGGraphicsElement.prim__getBBox (up a) (optUp b)
 
   export
-  getBBox' :  JSType t1
+  getBBox' :  (0 _ : JSType t1)
            => {auto 0 _ : Elem SVGGraphicsElement (Types t1)}
            -> (obj : t1)
            -> JSIO DOMRect
   getBBox' a = primJS $ SVGGraphicsElement.prim__getBBox (up a) undef
   
   export
-  getCTM :  JSType t1
+  getCTM :  (0 _ : JSType t1)
          => {auto 0 _ : Elem SVGGraphicsElement (Types t1)}
          -> (obj : t1)
          -> JSIO (Maybe DOMMatrix)
@@ -468,12 +488,13 @@ namespace SVGGraphicsElement
            $ SVGGraphicsElement.prim__getCTM (up a)
   
   export
-  getScreenCTM :  JSType t1
+  getScreenCTM :  (0 _ : JSType t1)
                => {auto 0 _ : Elem SVGGraphicsElement (Types t1)}
                -> (obj : t1)
                -> JSIO (Maybe DOMMatrix)
   getScreenCTM a = tryJS "SVGGraphicsElement.getScreenCTM"
                  $ SVGGraphicsElement.prim__getScreenCTM (up a)
+
 
 namespace SVGImageElement
   
@@ -504,6 +525,7 @@ namespace SVGImageElement
   export
   y : (obj : SVGImageElement) -> JSIO SVGAnimatedLength
   y a = primJS $ SVGImageElement.prim__y a
+
 
 namespace SVGLength
   
@@ -586,6 +608,7 @@ namespace SVGLength
   newValueSpecifiedUnits a b c = primJS
                                $ SVGLength.prim__newValueSpecifiedUnits a b c
 
+
 namespace SVGLengthList
   
   export
@@ -637,6 +660,7 @@ namespace SVGLengthList
               -> JSIO SVGLength
   replaceItem a b c = primJS $ SVGLengthList.prim__replaceItem a b c
 
+
 namespace SVGLineElement
   
   export
@@ -655,6 +679,7 @@ namespace SVGLineElement
   y2 : (obj : SVGLineElement) -> JSIO SVGAnimatedLength
   y2 a = primJS $ SVGLineElement.prim__y2 a
 
+
 namespace SVGLinearGradientElement
   
   export
@@ -672,6 +697,7 @@ namespace SVGLinearGradientElement
   export
   y2 : (obj : SVGLinearGradientElement) -> JSIO SVGAnimatedLength
   y2 a = primJS $ SVGLinearGradientElement.prim__y2 a
+
 
 namespace SVGMarkerElement
   
@@ -743,11 +769,13 @@ namespace SVGMarkerElement
   setOrientToAuto a = primJS $ SVGMarkerElement.prim__setOrientToAuto a
 
 
+
 namespace SVGNumber
   
   export
   value : SVGNumber -> Attribute True I Double
   value v = fromPrim "SVGNumber.getvalue" prim__value prim__setValue v
+
 
 namespace SVGNumberList
   
@@ -801,6 +829,7 @@ namespace SVGNumberList
   replaceItem a b c = primJS $ SVGNumberList.prim__replaceItem a b c
 
 
+
 namespace SVGPatternElement
   
   export
@@ -830,6 +859,7 @@ namespace SVGPatternElement
   export
   y : (obj : SVGPatternElement) -> JSIO SVGAnimatedLength
   y a = primJS $ SVGPatternElement.prim__y a
+
 
 namespace SVGPointList
   
@@ -881,6 +911,7 @@ namespace SVGPointList
               -> (index : Bits32)
               -> JSIO DOMPoint
   replaceItem a b c = primJS $ SVGPointList.prim__replaceItem a b c
+
 
 
 
@@ -956,6 +987,7 @@ namespace SVGPreserveAspectRatio
                            prim__setMeetOrSlice
                            v
 
+
 namespace SVGRadialGradientElement
   
   export
@@ -982,6 +1014,7 @@ namespace SVGRadialGradientElement
   r : (obj : SVGRadialGradientElement) -> JSIO SVGAnimatedLength
   r a = primJS $ SVGRadialGradientElement.prim__r a
 
+
 namespace SVGRectElement
   
   export
@@ -1007,6 +1040,7 @@ namespace SVGRectElement
   export
   y : (obj : SVGRectElement) -> JSIO SVGAnimatedLength
   y a = primJS $ SVGRectElement.prim__y a
+
 
 namespace SVGSVGElement
   
@@ -1038,8 +1072,8 @@ namespace SVGSVGElement
   y a = primJS $ SVGSVGElement.prim__y a
   
   export
-  checkEnclosure :  JSType t1
-                 => JSType t2
+  checkEnclosure :  (0 _ : JSType t1)
+                 => (0 _ : JSType t2)
                  => {auto 0 _ : Elem SVGElement (Types t1)}
                  -> {auto 0 _ : Elem DOMRectReadOnly (Types t2)}
                  -> (obj : SVGSVGElement)
@@ -1050,8 +1084,8 @@ namespace SVGSVGElement
                        $ SVGSVGElement.prim__checkEnclosure a (up b) (up c)
   
   export
-  checkIntersection :  JSType t1
-                    => JSType t2
+  checkIntersection :  (0 _ : JSType t1)
+                    => (0 _ : JSType t2)
                     => {auto 0 _ : Elem SVGElement (Types t1)}
                     -> {auto 0 _ : Elem DOMRectReadOnly (Types t2)}
                     -> (obj : SVGSVGElement)
@@ -1088,7 +1122,7 @@ namespace SVGSVGElement
   createSVGRect a = primJS $ SVGSVGElement.prim__createSVGRect a
   
   export
-  createSVGTransformFromMatrix :  JSType t1
+  createSVGTransformFromMatrix :  (0 _ : JSType t1)
                                => {auto 0 _ : Elem DOMMatrix2DInit (Types t1)}
                                -> (obj : SVGSVGElement)
                                -> (matrix : Optional t1)
@@ -1120,8 +1154,8 @@ namespace SVGSVGElement
   getElementById a b = primJS $ SVGSVGElement.prim__getElementById a b
   
   export
-  getEnclosureList :  JSType t1
-                   => JSType t2
+  getEnclosureList :  (0 _ : JSType t1)
+                   => (0 _ : JSType t2)
                    => {auto 0 _ : Elem DOMRectReadOnly (Types t1)}
                    -> {auto 0 _ : Elem SVGElement (Types t2)}
                    -> (obj : SVGSVGElement)
@@ -1134,8 +1168,8 @@ namespace SVGSVGElement
                                                                 (mayUp c)
   
   export
-  getIntersectionList :  JSType t1
-                      => JSType t2
+  getIntersectionList :  (0 _ : JSType t1)
+                      => (0 _ : JSType t2)
                       => {auto 0 _ : Elem DOMRectReadOnly (Types t1)}
                       -> {auto 0 _ : Elem SVGElement (Types t2)}
                       -> (obj : SVGSVGElement)
@@ -1163,6 +1197,7 @@ namespace SVGSVGElement
                   -> JSIO ()
   unsuspendRedraw a b = primJS $ SVGSVGElement.prim__unsuspendRedraw a b
 
+
 namespace SVGScriptElement
   
   export
@@ -1176,11 +1211,13 @@ namespace SVGScriptElement
   type : SVGScriptElement -> Attribute True I String
   type v = fromPrim "SVGScriptElement.gettype" prim__type prim__setType v
 
+
 namespace SVGStopElement
   
   export
   offset : (obj : SVGStopElement) -> JSIO SVGAnimatedNumber
   offset a = primJS $ SVGStopElement.prim__offset a
+
 
 namespace SVGStringList
   
@@ -1233,6 +1270,7 @@ namespace SVGStringList
               -> JSIO String
   replaceItem a b c = primJS $ SVGStringList.prim__replaceItem a b c
 
+
 namespace SVGStyleElement
   
   export
@@ -1246,6 +1284,7 @@ namespace SVGStyleElement
   export
   type : SVGStyleElement -> Attribute True I String
   type v = fromPrim "SVGStyleElement.gettype" prim__type prim__setType v
+
 
 
 
@@ -1265,22 +1304,22 @@ namespace SVGTextContentElement
   LENGTHADJUST_UNKNOWN = 0
   
   export
-  lengthAdjust :  JSType t1
+  lengthAdjust :  (0 _ : JSType t1)
                => {auto 0 _ : Elem SVGTextContentElement (Types t1)}
                -> (obj : t1)
                -> JSIO SVGAnimatedEnumeration
   lengthAdjust a = primJS $ SVGTextContentElement.prim__lengthAdjust (up a)
   
   export
-  textLength :  JSType t1
+  textLength :  (0 _ : JSType t1)
              => {auto 0 _ : Elem SVGTextContentElement (Types t1)}
              -> (obj : t1)
              -> JSIO SVGAnimatedLength
   textLength a = primJS $ SVGTextContentElement.prim__textLength (up a)
   
   export
-  getCharNumAtPosition :  JSType t1
-                       => JSType t2
+  getCharNumAtPosition :  (0 _ : JSType t1)
+                       => (0 _ : JSType t2)
                        => {auto 0 _ : Elem SVGTextContentElement (Types t1)}
                        -> {auto 0 _ : Elem DOMPointInit (Types t2)}
                        -> (obj : t1)
@@ -1291,7 +1330,7 @@ namespace SVGTextContentElement
                                                                               (optUp b)
 
   export
-  getCharNumAtPosition' :  JSType t1
+  getCharNumAtPosition' :  (0 _ : JSType t1)
                         => {auto 0 _ : Elem SVGTextContentElement (Types t1)}
                         -> (obj : t1)
                         -> JSIO Int32
@@ -1300,7 +1339,7 @@ namespace SVGTextContentElement
                                                                              undef
   
   export
-  getComputedTextLength :  JSType t1
+  getComputedTextLength :  (0 _ : JSType t1)
                         => {auto 0 _ : Elem SVGTextContentElement (Types t1)}
                         -> (obj : t1)
                         -> JSIO Double
@@ -1308,7 +1347,7 @@ namespace SVGTextContentElement
                           $ SVGTextContentElement.prim__getComputedTextLength (up a)
   
   export
-  getEndPositionOfChar :  JSType t1
+  getEndPositionOfChar :  (0 _ : JSType t1)
                        => {auto 0 _ : Elem SVGTextContentElement (Types t1)}
                        -> (obj : t1)
                        -> (charnum : Bits32)
@@ -1318,7 +1357,7 @@ namespace SVGTextContentElement
                                                                               b
   
   export
-  getExtentOfChar :  JSType t1
+  getExtentOfChar :  (0 _ : JSType t1)
                   => {auto 0 _ : Elem SVGTextContentElement (Types t1)}
                   -> (obj : t1)
                   -> (charnum : Bits32)
@@ -1327,7 +1366,7 @@ namespace SVGTextContentElement
                       $ SVGTextContentElement.prim__getExtentOfChar (up a) b
   
   export
-  getNumberOfChars :  JSType t1
+  getNumberOfChars :  (0 _ : JSType t1)
                    => {auto 0 _ : Elem SVGTextContentElement (Types t1)}
                    -> (obj : t1)
                    -> JSIO Int32
@@ -1335,7 +1374,7 @@ namespace SVGTextContentElement
                      $ SVGTextContentElement.prim__getNumberOfChars (up a)
   
   export
-  getRotationOfChar :  JSType t1
+  getRotationOfChar :  (0 _ : JSType t1)
                     => {auto 0 _ : Elem SVGTextContentElement (Types t1)}
                     -> (obj : t1)
                     -> (charnum : Bits32)
@@ -1344,7 +1383,7 @@ namespace SVGTextContentElement
                         $ SVGTextContentElement.prim__getRotationOfChar (up a) b
   
   export
-  getStartPositionOfChar :  JSType t1
+  getStartPositionOfChar :  (0 _ : JSType t1)
                          => {auto 0 _ : Elem SVGTextContentElement (Types t1)}
                          -> (obj : t1)
                          -> (charnum : Bits32)
@@ -1354,7 +1393,7 @@ namespace SVGTextContentElement
                                                                                   b
   
   export
-  getSubStringLength :  JSType t1
+  getSubStringLength :  (0 _ : JSType t1)
                      => {auto 0 _ : Elem SVGTextContentElement (Types t1)}
                      -> (obj : t1)
                      -> (charnum : Bits32)
@@ -1366,7 +1405,7 @@ namespace SVGTextContentElement
                                                                             c
   
   export
-  selectSubString :  JSType t1
+  selectSubString :  (0 _ : JSType t1)
                   => {auto 0 _ : Elem SVGTextContentElement (Types t1)}
                   -> (obj : t1)
                   -> (charnum : Bits32)
@@ -1374,6 +1413,7 @@ namespace SVGTextContentElement
                   -> JSIO ()
   selectSubString a b c = primJS
                         $ SVGTextContentElement.prim__selectSubString (up a) b c
+
 
 
 namespace SVGTextPathElement
@@ -1414,42 +1454,44 @@ namespace SVGTextPathElement
   startOffset : (obj : SVGTextPathElement) -> JSIO SVGAnimatedLength
   startOffset a = primJS $ SVGTextPathElement.prim__startOffset a
 
+
 namespace SVGTextPositioningElement
   
   export
-  dx :  JSType t1
+  dx :  (0 _ : JSType t1)
      => {auto 0 _ : Elem SVGTextPositioningElement (Types t1)}
      -> (obj : t1)
      -> JSIO SVGAnimatedLengthList
   dx a = primJS $ SVGTextPositioningElement.prim__dx (up a)
   
   export
-  dy :  JSType t1
+  dy :  (0 _ : JSType t1)
      => {auto 0 _ : Elem SVGTextPositioningElement (Types t1)}
      -> (obj : t1)
      -> JSIO SVGAnimatedLengthList
   dy a = primJS $ SVGTextPositioningElement.prim__dy (up a)
   
   export
-  rotate :  JSType t1
+  rotate :  (0 _ : JSType t1)
          => {auto 0 _ : Elem SVGTextPositioningElement (Types t1)}
          -> (obj : t1)
          -> JSIO SVGAnimatedNumberList
   rotate a = primJS $ SVGTextPositioningElement.prim__rotate (up a)
   
   export
-  x :  JSType t1
+  x :  (0 _ : JSType t1)
     => {auto 0 _ : Elem SVGTextPositioningElement (Types t1)}
     -> (obj : t1)
     -> JSIO SVGAnimatedLengthList
   x a = primJS $ SVGTextPositioningElement.prim__x (up a)
   
   export
-  y :  JSType t1
+  y :  (0 _ : JSType t1)
     => {auto 0 _ : Elem SVGTextPositioningElement (Types t1)}
     -> (obj : t1)
     -> JSIO SVGAnimatedLengthList
   y a = primJS $ SVGTextPositioningElement.prim__y (up a)
+
 
 
 namespace SVGTransform
@@ -1495,7 +1537,7 @@ namespace SVGTransform
   type a = primJS $ SVGTransform.prim__type a
   
   export
-  setMatrix :  JSType t1
+  setMatrix :  (0 _ : JSType t1)
             => {auto 0 _ : Elem DOMMatrix2DInit (Types t1)}
             -> (obj : SVGTransform)
             -> (matrix : Optional t1)
@@ -1533,6 +1575,7 @@ namespace SVGTransform
                -> JSIO ()
   setTranslate a b c = primJS $ SVGTransform.prim__setTranslate a b c
 
+
 namespace SVGTransformList
   
   export
@@ -1566,7 +1609,7 @@ namespace SVGTransformList
                 $ SVGTransformList.prim__consolidate a
   
   export
-  createSVGTransformFromMatrix :  JSType t1
+  createSVGTransformFromMatrix :  (0 _ : JSType t1)
                                => {auto 0 _ : Elem DOMMatrix2DInit (Types t1)}
                                -> (obj : SVGTransformList)
                                -> (matrix : Optional t1)
@@ -1610,6 +1653,7 @@ namespace SVGTransformList
               -> JSIO SVGTransform
   replaceItem a b c = primJS $ SVGTransformList.prim__replaceItem a b c
 
+
 namespace SVGUnitTypes
   
   public export
@@ -1623,6 +1667,7 @@ namespace SVGUnitTypes
   public export
   SVG_UNIT_TYPE_USERSPACEONUSE : Bits16
   SVG_UNIT_TYPE_USERSPACEONUSE = 1
+
 
 namespace SVGUseElement
   
@@ -1654,11 +1699,12 @@ namespace SVGUseElement
 
 
 
+
 namespace ShadowAnimation
   
   export
-  new :  JSType t1
-      => JSType t2
+  new :  (0 _ : JSType t1)
+      => (0 _ : JSType t2)
       => {auto 0 _ : Elem Animation (Types t1)}
       -> {auto 0 _ : Elem Animatable (Types t2)}
       -> (source : t1)
@@ -1670,6 +1716,8 @@ namespace ShadowAnimation
   sourceAnimation : (obj : ShadowAnimation) -> JSIO Animation
   sourceAnimation a = primJS $ ShadowAnimation.prim__sourceAnimation a
 
+
+
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------
@@ -1677,32 +1725,34 @@ namespace ShadowAnimation
 namespace GetSVGDocument
   
   export
-  getSVGDocument :  JSType t1
+  getSVGDocument :  (0 _ : JSType t1)
                  => {auto 0 _ : Elem GetSVGDocument (Types t1)}
                  -> (obj : t1)
                  -> JSIO Document
   getSVGDocument a = primJS $ GetSVGDocument.prim__getSVGDocument (up a)
 
+
 namespace SVGAnimatedPoints
   
   export
-  animatedPoints :  JSType t1
+  animatedPoints :  (0 _ : JSType t1)
                  => {auto 0 _ : Elem SVGAnimatedPoints (Types t1)}
                  -> (obj : t1)
                  -> JSIO SVGPointList
   animatedPoints a = primJS $ SVGAnimatedPoints.prim__animatedPoints (up a)
   
   export
-  points :  JSType t1
+  points :  (0 _ : JSType t1)
          => {auto 0 _ : Elem SVGAnimatedPoints (Types t1)}
          -> (obj : t1)
          -> JSIO SVGPointList
   points a = primJS $ SVGAnimatedPoints.prim__points (up a)
 
+
 namespace SVGElementInstance
   
   export
-  correspondingElement :  JSType t1
+  correspondingElement :  (0 _ : JSType t1)
                        => {auto 0 _ : Elem SVGElementInstance (Types t1)}
                        -> (obj : t1)
                        -> JSIO (Maybe SVGElement)
@@ -1710,17 +1760,18 @@ namespace SVGElementInstance
                          $ SVGElementInstance.prim__correspondingElement (up a)
   
   export
-  correspondingUseElement :  JSType t1
+  correspondingUseElement :  (0 _ : JSType t1)
                           => {auto 0 _ : Elem SVGElementInstance (Types t1)}
                           -> (obj : t1)
                           -> JSIO (Maybe SVGUseElement)
   correspondingUseElement a = tryJS "SVGElementInstance.correspondingUseElement"
                             $ SVGElementInstance.prim__correspondingUseElement (up a)
 
+
 namespace SVGFitToViewBox
   
   export
-  preserveAspectRatio :  JSType t1
+  preserveAspectRatio :  (0 _ : JSType t1)
                       => {auto 0 _ : Elem SVGFitToViewBox (Types t1)}
                       -> (obj : t1)
                       -> JSIO SVGAnimatedPreserveAspectRatio
@@ -1728,36 +1779,40 @@ namespace SVGFitToViewBox
                         $ SVGFitToViewBox.prim__preserveAspectRatio (up a)
   
   export
-  viewBox :  JSType t1
+  viewBox :  (0 _ : JSType t1)
           => {auto 0 _ : Elem SVGFitToViewBox (Types t1)}
           -> (obj : t1)
           -> JSIO SVGAnimatedRect
   viewBox a = primJS $ SVGFitToViewBox.prim__viewBox (up a)
 
+
 namespace SVGTests
   
   export
-  requiredExtensions :  JSType t1
+  requiredExtensions :  (0 _ : JSType t1)
                      => {auto 0 _ : Elem SVGTests (Types t1)}
                      -> (obj : t1)
                      -> JSIO SVGStringList
   requiredExtensions a = primJS $ SVGTests.prim__requiredExtensions (up a)
   
   export
-  systemLanguage :  JSType t1
+  systemLanguage :  (0 _ : JSType t1)
                  => {auto 0 _ : Elem SVGTests (Types t1)}
                  -> (obj : t1)
                  -> JSIO SVGStringList
   systemLanguage a = primJS $ SVGTests.prim__systemLanguage (up a)
 
+
 namespace SVGURIReference
   
   export
-  href :  JSType t1
+  href :  (0 _ : JSType t1)
        => {auto 0 _ : Elem SVGURIReference (Types t1)}
        -> (obj : t1)
        -> JSIO SVGAnimatedString
   href a = primJS $ SVGURIReference.prim__href (up a)
+
+
 
 --------------------------------------------------------------------------------
 --          Dictionaries
@@ -1782,7 +1837,7 @@ namespace SVGBoundingBoxOptions
   new' = primJS $ SVGBoundingBoxOptions.prim__new undef undef undef undef
   
   export
-  clipped :  JSType t
+  clipped :  (0 _ : JSType t)
           => {auto 0 _ : Elem SVGBoundingBoxOptions (Types t)}
           -> t
           -> Attribute True Optional Bool
@@ -1793,7 +1848,7 @@ namespace SVGBoundingBoxOptions
                               (v :> SVGBoundingBoxOptions)
   
   export
-  fill :  JSType t
+  fill :  (0 _ : JSType t)
        => {auto 0 _ : Elem SVGBoundingBoxOptions (Types t)}
        -> t
        -> Attribute True Optional Bool
@@ -1804,7 +1859,7 @@ namespace SVGBoundingBoxOptions
                            (v :> SVGBoundingBoxOptions)
   
   export
-  markers :  JSType t
+  markers :  (0 _ : JSType t)
           => {auto 0 _ : Elem SVGBoundingBoxOptions (Types t)}
           -> t
           -> Attribute True Optional Bool
@@ -1815,7 +1870,7 @@ namespace SVGBoundingBoxOptions
                               (v :> SVGBoundingBoxOptions)
   
   export
-  stroke :  JSType t
+  stroke :  (0 _ : JSType t)
          => {auto 0 _ : Elem SVGBoundingBoxOptions (Types t)}
          -> t
          -> Attribute True Optional Bool
@@ -1824,3 +1879,5 @@ namespace SVGBoundingBoxOptions
                              prim__setStroke
                              False
                              (v :> SVGBoundingBoxOptions)
+
+

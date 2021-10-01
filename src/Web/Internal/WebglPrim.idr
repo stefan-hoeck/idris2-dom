@@ -32,6 +32,7 @@ namespace WebGLActiveInfo
 
 
 
+
 namespace WebGLShaderPrecisionFormat
   
   export
@@ -45,6 +46,8 @@ namespace WebGLShaderPrecisionFormat
   export
   %foreign "browser:lambda:x=>x.rangeMin"
   prim__rangeMin : WebGLShaderPrecisionFormat -> PrimIO Int32
+
+
 
 
 
@@ -951,6 +954,7 @@ namespace WebGL2RenderingContextBase
                  -> JSInt64
                  -> PrimIO ()
 
+
 namespace WebGL2RenderingContextOverloads
   
   export
@@ -1458,6 +1462,7 @@ namespace WebGL2RenderingContextOverloads
                          -> UndefOr Bits32
                          -> UndefOr Bits32
                          -> PrimIO ()
+
 
 namespace WebGLRenderingContextBase
   
@@ -2249,6 +2254,7 @@ namespace WebGLRenderingContextBase
                  -> Int32
                  -> PrimIO ()
 
+
 namespace WebGLRenderingContextOverloads
   
   export
@@ -2518,6 +2524,8 @@ namespace WebGLRenderingContextOverloads
                          -> Union2 Float32Array (Array Double)
                          -> PrimIO ()
 
+
+
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
@@ -2545,6 +2553,7 @@ namespace WebGLContextAttributes
   export
   %foreign "browser:lambda:(x,v)=>{x.alpha = v}"
   prim__setAlpha : WebGLContextAttributes -> UndefOr Boolean -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.antialias"
@@ -2554,6 +2563,7 @@ namespace WebGLContextAttributes
   export
   %foreign "browser:lambda:(x,v)=>{x.antialias = v}"
   prim__setAntialias : WebGLContextAttributes -> UndefOr Boolean -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.depth"
@@ -2563,6 +2573,7 @@ namespace WebGLContextAttributes
   export
   %foreign "browser:lambda:(x,v)=>{x.depth = v}"
   prim__setDepth : WebGLContextAttributes -> UndefOr Boolean -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.desynchronized"
@@ -2574,6 +2585,7 @@ namespace WebGLContextAttributes
   prim__setDesynchronized :  WebGLContextAttributes
                           -> UndefOr Boolean
                           -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.failIfMajorPerformanceCaveat"
@@ -2586,6 +2598,7 @@ namespace WebGLContextAttributes
   prim__setFailIfMajorPerformanceCaveat :  WebGLContextAttributes
                                         -> UndefOr Boolean
                                         -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.powerPreference"
@@ -2597,6 +2610,7 @@ namespace WebGLContextAttributes
   prim__setPowerPreference :  WebGLContextAttributes
                            -> UndefOr String
                            -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.premultipliedAlpha"
@@ -2608,6 +2622,7 @@ namespace WebGLContextAttributes
   prim__setPremultipliedAlpha :  WebGLContextAttributes
                               -> UndefOr Boolean
                               -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.preserveDrawingBuffer"
@@ -2620,6 +2635,7 @@ namespace WebGLContextAttributes
   prim__setPreserveDrawingBuffer :  WebGLContextAttributes
                                  -> UndefOr Boolean
                                  -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.stencil"
@@ -2629,3 +2645,6 @@ namespace WebGLContextAttributes
   export
   %foreign "browser:lambda:(x,v)=>{x.stencil = v}"
   prim__setStencil : WebGLContextAttributes -> UndefOr Boolean -> PrimIO ()
+
+
+

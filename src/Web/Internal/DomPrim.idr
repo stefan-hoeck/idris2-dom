@@ -22,6 +22,7 @@ namespace AbortController
   %foreign "browser:lambda:x=>x.abort()"
   prim__abort : AbortController -> PrimIO ()
 
+
 namespace AbortSignal
   
   export
@@ -40,6 +41,8 @@ namespace AbortSignal
   export
   %foreign "browser:lambda:(x,v)=>{x.onabort = v}"
   prim__setOnabort : AbortSignal -> Nullable EventHandlerNonNull -> PrimIO ()
+
+
 
 namespace AbstractRange
   
@@ -62,6 +65,7 @@ namespace AbstractRange
   export
   %foreign "browser:lambda:x=>x.startOffset"
   prim__startOffset : AbstractRange -> PrimIO Bits32
+
 
 namespace Attr
   
@@ -99,6 +103,8 @@ namespace Attr
   prim__setValue : Attr -> String -> PrimIO ()
 
 
+
+
 namespace CharacterData
   
   export
@@ -109,6 +115,7 @@ namespace CharacterData
   export
   %foreign "browser:lambda:(x,v)=>{x.data = v}"
   prim__setData : CharacterData -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.length"
@@ -134,11 +141,13 @@ namespace CharacterData
   %foreign "browser:lambda:(x,a,b)=>x.substringData(a,b)"
   prim__substringData : CharacterData -> Bits32 -> Bits32 -> PrimIO String
 
+
 namespace Comment
   
   export
   %foreign "browser:lambda:(a)=> new Comment(a)"
   prim__new : UndefOr String -> PrimIO Comment
+
 
 namespace CustomEvent
   
@@ -158,6 +167,7 @@ namespace CustomEvent
                         -> UndefOr Boolean
                         -> UndefOr AnyPtr
                         -> PrimIO ()
+
 
 namespace DOMImplementation
   
@@ -187,6 +197,7 @@ namespace DOMImplementation
   %foreign "browser:lambda:x=>x.hasFeature()"
   prim__hasFeature : DOMImplementation -> PrimIO Boolean
 
+
 namespace DOMTokenList
   
   export
@@ -201,6 +212,7 @@ namespace DOMTokenList
   export
   %foreign "browser:lambda:(x,v)=>{x.value = v}"
   prim__setValue : DOMTokenList -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:(x,va)=>x.add(...va())"
@@ -230,6 +242,7 @@ namespace DOMTokenList
   %foreign "browser:lambda:(x,a,b)=>x.toggle(a,b)"
   prim__toggle : DOMTokenList -> String -> UndefOr Boolean -> PrimIO Boolean
 
+
 namespace Document
   
   export
@@ -252,6 +265,7 @@ namespace Document
   export
   %foreign "browser:lambda:(x,v)=>{x.alinkColor = v}"
   prim__setAlinkColor : Document -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.all"
@@ -273,6 +287,7 @@ namespace Document
   export
   %foreign "browser:lambda:(x,v)=>{x.bgColor = v}"
   prim__setBgColor : Document -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.body"
@@ -282,6 +297,7 @@ namespace Document
   export
   %foreign "browser:lambda:(x,v)=>{x.body = v}"
   prim__setBody : Document -> Nullable HTMLElement -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.characterSet"
@@ -307,6 +323,7 @@ namespace Document
   export
   %foreign "browser:lambda:(x,v)=>{x.cookie = v}"
   prim__setCookie : Document -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.currentScript"
@@ -326,6 +343,7 @@ namespace Document
   export
   %foreign "browser:lambda:(x,v)=>{x.designMode = v}"
   prim__setDesignMode : Document -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.dir"
@@ -335,6 +353,7 @@ namespace Document
   export
   %foreign "browser:lambda:(x,v)=>{x.dir = v}"
   prim__setDir : Document -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.doctype"
@@ -356,6 +375,7 @@ namespace Document
   export
   %foreign "browser:lambda:(x,v)=>{x.domain = v}"
   prim__setDomain : Document -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.embeds"
@@ -369,6 +389,7 @@ namespace Document
   export
   %foreign "browser:lambda:(x,v)=>{x.fgColor = v}"
   prim__setFgColor : Document -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.forms"
@@ -406,6 +427,7 @@ namespace Document
   export
   %foreign "browser:lambda:(x,v)=>{x.linkColor = v}"
   prim__setLinkColor : Document -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.links"
@@ -425,6 +447,7 @@ namespace Document
   prim__setOnreadystatechange :  Document
                               -> Nullable EventHandlerNonNull
                               -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.onvisibilitychange"
@@ -436,6 +459,7 @@ namespace Document
   prim__setOnvisibilitychange :  Document
                               -> Nullable EventHandlerNonNull
                               -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.plugins"
@@ -469,6 +493,7 @@ namespace Document
   export
   %foreign "browser:lambda:(x,v)=>{x.title = v}"
   prim__setTitle : Document -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.visibilityState"
@@ -482,6 +507,7 @@ namespace Document
   export
   %foreign "browser:lambda:(x,v)=>{x.vlinkColor = v}"
   prim__setVlinkColor : Document -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:(x,a)=>x.adoptNode(a)"
@@ -652,11 +678,13 @@ namespace Document
   %foreign "browser:lambda:(x,va)=>x.writeln(...va())"
   prim__writeln : Document -> IO (Array String) -> PrimIO ()
 
+
 namespace DocumentFragment
   
   export
   %foreign "browser:lambda:()=> new DocumentFragment()"
   prim__new : PrimIO DocumentFragment
+
 
 namespace DocumentType
   
@@ -671,6 +699,7 @@ namespace DocumentType
   export
   %foreign "browser:lambda:x=>x.systemId"
   prim__systemId : DocumentType -> PrimIO String
+
 
 namespace Element
   
@@ -690,6 +719,7 @@ namespace Element
   export
   %foreign "browser:lambda:(x,v)=>{x.className = v}"
   prim__setClassName : Element -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.id"
@@ -699,6 +729,7 @@ namespace Element
   export
   %foreign "browser:lambda:(x,v)=>{x.id = v}"
   prim__setId : Element -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.localName"
@@ -716,6 +747,7 @@ namespace Element
   export
   %foreign "browser:lambda:(x,v)=>{x.outerHTML = v}"
   prim__setOuterHTML : Element -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.prefix"
@@ -733,6 +765,7 @@ namespace Element
   export
   %foreign "browser:lambda:(x,v)=>{x.slot = v}"
   prim__setSlot : Element -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.tagName"
@@ -862,6 +895,7 @@ namespace Element
   %foreign "browser:lambda:(x,a)=>x.webkitMatchesSelector(a)"
   prim__webkitMatchesSelector : Element -> String -> PrimIO Boolean
 
+
 namespace Event
   
   export
@@ -880,6 +914,7 @@ namespace Event
   export
   %foreign "browser:lambda:(x,v)=>{x.cancelBubble = v}"
   prim__setCancelBubble : Event -> Boolean -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.cancelable"
@@ -913,6 +948,7 @@ namespace Event
   export
   %foreign "browser:lambda:(x,v)=>{x.returnValue = v}"
   prim__setReturnValue : Event -> Boolean -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.srcElement"
@@ -954,6 +990,7 @@ namespace Event
   %foreign "browser:lambda:x=>x.stopPropagation()"
   prim__stopPropagation : Event -> PrimIO ()
 
+
 namespace EventTarget
   
   export
@@ -980,6 +1017,7 @@ namespace EventTarget
                             -> UndefOr (Union2 EventListenerOptions Boolean)
                             -> PrimIO ()
 
+
 namespace HTMLCollection
   
   export
@@ -993,6 +1031,7 @@ namespace HTMLCollection
   export
   %foreign "browser:lambda:(x,a)=>x.namedItem(a)"
   prim__namedItem : HTMLCollection -> String -> PrimIO (Nullable Element)
+
 
 namespace MutationObserver
   
@@ -1014,6 +1053,7 @@ namespace MutationObserver
   export
   %foreign "browser:lambda:x=>x.takeRecords()"
   prim__takeRecords : MutationObserver -> PrimIO (Array MutationRecord)
+
 
 namespace MutationRecord
   
@@ -1052,6 +1092,7 @@ namespace MutationRecord
   export
   %foreign "browser:lambda:x=>x.type"
   prim__type : MutationRecord -> PrimIO String
+
 
 namespace NamedNodeMap
   
@@ -1092,6 +1133,7 @@ namespace NamedNodeMap
   export
   %foreign "browser:lambda:(x,a)=>x.setNamedItem(a)"
   prim__setNamedItem : NamedNodeMap -> Attr -> PrimIO (Nullable Attr)
+
 
 namespace Node
   
@@ -1135,6 +1177,7 @@ namespace Node
   export
   %foreign "browser:lambda:(x,v)=>{x.nodeValue = v}"
   prim__setNodeValue : Node -> Nullable String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.ownerDocument"
@@ -1160,6 +1203,7 @@ namespace Node
   export
   %foreign "browser:lambda:(x,v)=>{x.textContent = v}"
   prim__setTextContent : Node -> Nullable String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:(x,a)=>x.appendChild(a)"
@@ -1221,6 +1265,7 @@ namespace Node
   %foreign "browser:lambda:(x,a,b)=>x.replaceChild(a,b)"
   prim__replaceChild : Node -> Node -> Node -> PrimIO Node
 
+
 namespace NodeIterator
   
   export
@@ -1255,6 +1300,7 @@ namespace NodeIterator
   %foreign "browser:lambda:x=>x.previousNode()"
   prim__previousNode : NodeIterator -> PrimIO (Nullable Node)
 
+
 namespace NodeList
   
   export
@@ -1264,6 +1310,7 @@ namespace NodeList
   export
   %foreign "browser:lambda:(x,a)=>x.item(a)"
   prim__item : NodeList -> Bits32 -> PrimIO (Nullable Node)
+
 
 namespace Performance
   
@@ -1279,11 +1326,13 @@ namespace Performance
   %foreign "browser:lambda:x=>x.toJSON()"
   prim__toJSON : Performance -> PrimIO Object
 
+
 namespace ProcessingInstruction
   
   export
   %foreign "browser:lambda:x=>x.target"
   prim__target : ProcessingInstruction -> PrimIO String
+
 
 namespace Range
   
@@ -1383,6 +1432,7 @@ namespace Range
   %foreign "browser:lambda:x=>x.toString()"
   prim__toString : Range -> PrimIO String
 
+
 namespace ShadowRoot
   
   export
@@ -1404,11 +1454,14 @@ namespace ShadowRoot
                         -> Nullable EventHandlerNonNull
                         -> PrimIO ()
 
+
+
 namespace StaticRange
   
   export
   %foreign "browser:lambda:(a)=> new StaticRange(a)"
   prim__new : StaticRangeInit -> PrimIO StaticRange
+
 
 namespace Text
   
@@ -1424,6 +1477,7 @@ namespace Text
   %foreign "browser:lambda:(x,a)=>x.splitText(a)"
   prim__splitText : Text -> Bits32 -> PrimIO Text
 
+
 namespace TreeWalker
   
   export
@@ -1434,6 +1488,7 @@ namespace TreeWalker
   export
   %foreign "browser:lambda:(x,v)=>{x.currentNode = v}"
   prim__setCurrentNode : TreeWalker -> Node -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.filter"
@@ -1476,6 +1531,7 @@ namespace TreeWalker
   prim__previousSibling : TreeWalker -> PrimIO (Nullable Node)
 
 
+
 namespace XMLSerializer
   
   export
@@ -1486,11 +1542,13 @@ namespace XMLSerializer
   %foreign "browser:lambda:(x,a)=>x.serializeToString(a)"
   prim__serializeToString : XMLSerializer -> Node -> PrimIO String
 
+
 namespace XPathEvaluator
   
   export
   %foreign "browser:lambda:()=> new XPathEvaluator()"
   prim__new : PrimIO XPathEvaluator
+
 
 namespace XPathExpression
   
@@ -1501,6 +1559,7 @@ namespace XPathExpression
                  -> UndefOr Bits16
                  -> UndefOr (Nullable XPathResult)
                  -> PrimIO XPathResult
+
 
 namespace XPathResult
   
@@ -1540,6 +1599,8 @@ namespace XPathResult
   %foreign "browser:lambda:(x,a)=>x.snapshotItem(a)"
   prim__snapshotItem : XPathResult -> Bits32 -> PrimIO (Nullable Node)
 
+
+
 --------------------------------------------------------------------------------
 --          Mixins
 --------------------------------------------------------------------------------
@@ -1562,11 +1623,13 @@ namespace ChildNode
   %foreign "browser:lambda:(x,va)=>x.replaceWith(...va())"
   prim__replaceWith : ChildNode -> IO (Array (Union2 Node String)) -> PrimIO ()
 
+
 namespace DocumentOrShadowRoot
   
   export
   %foreign "browser:lambda:x=>x.styleSheets"
   prim__styleSheets : DocumentOrShadowRoot -> PrimIO StyleSheetList
+
 
 namespace InnerHTML
   
@@ -1578,6 +1641,8 @@ namespace InnerHTML
   export
   %foreign "browser:lambda:(x,v)=>{x.innerHTML = v}"
   prim__setInnerHTML : InnerHTML -> String -> PrimIO ()
+
+
 
 namespace NonDocumentTypeChildNode
   
@@ -1591,6 +1656,7 @@ namespace NonDocumentTypeChildNode
   prim__previousElementSibling :  NonDocumentTypeChildNode
                                -> PrimIO (Nullable Element)
 
+
 namespace NonElementParentNode
   
   export
@@ -1598,6 +1664,7 @@ namespace NonElementParentNode
   prim__getElementById :  NonElementParentNode
                        -> String
                        -> PrimIO (Nullable Element)
+
 
 namespace ParentNode
   
@@ -1639,11 +1706,13 @@ namespace ParentNode
                         -> IO (Array (Union2 Node String))
                         -> PrimIO ()
 
+
 namespace Slottable
   
   export
   %foreign "browser:lambda:x=>x.assignedSlot"
   prim__assignedSlot : Slottable -> PrimIO (Nullable HTMLSlotElement)
+
 
 namespace XPathEvaluatorBase
   
@@ -1668,6 +1737,8 @@ namespace XPathEvaluatorBase
                  -> UndefOr (Nullable XPathResult)
                  -> PrimIO XPathResult
 
+
+
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
@@ -1689,6 +1760,7 @@ namespace AddEventListenerOptions
   export
   %foreign "browser:lambda:(x,v)=>{x.once = v}"
   prim__setOnce : AddEventListenerOptions -> UndefOr Boolean -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.passive"
@@ -1698,6 +1770,7 @@ namespace AddEventListenerOptions
   export
   %foreign "browser:lambda:(x,v)=>{x.passive = v}"
   prim__setPassive : AddEventListenerOptions -> UndefOr Boolean -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.signal"
@@ -1707,6 +1780,8 @@ namespace AddEventListenerOptions
   export
   %foreign "browser:lambda:(x,v)=>{x.signal = v}"
   prim__setSignal : AddEventListenerOptions -> UndefOr AbortSignal -> PrimIO ()
+
+
 
 namespace CustomEventInit
   
@@ -1723,6 +1798,8 @@ namespace CustomEventInit
   %foreign "browser:lambda:(x,v)=>{x.detail = v}"
   prim__setDetail : CustomEventInit -> UndefOr AnyPtr -> PrimIO ()
 
+
+
 namespace ElementCreationOptions
   
   export
@@ -1737,6 +1814,8 @@ namespace ElementCreationOptions
   export
   %foreign "browser:lambda:(x,v)=>{x.is = v}"
   prim__setIs : ElementCreationOptions -> UndefOr String -> PrimIO ()
+
+
 
 namespace EventInit
   
@@ -1755,6 +1834,7 @@ namespace EventInit
   export
   %foreign "browser:lambda:(x,v)=>{x.bubbles = v}"
   prim__setBubbles : EventInit -> UndefOr Boolean -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.cancelable"
@@ -1764,6 +1844,7 @@ namespace EventInit
   export
   %foreign "browser:lambda:(x,v)=>{x.cancelable = v}"
   prim__setCancelable : EventInit -> UndefOr Boolean -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.composed"
@@ -1773,6 +1854,8 @@ namespace EventInit
   export
   %foreign "browser:lambda:(x,v)=>{x.composed = v}"
   prim__setComposed : EventInit -> UndefOr Boolean -> PrimIO ()
+
+
 
 namespace EventListenerOptions
   
@@ -1789,6 +1872,8 @@ namespace EventListenerOptions
   %foreign "browser:lambda:(x,v)=>{x.capture = v}"
   prim__setCapture : EventListenerOptions -> UndefOr Boolean -> PrimIO ()
 
+
+
 namespace GetRootNodeOptions
   
   export
@@ -1803,6 +1888,8 @@ namespace GetRootNodeOptions
   export
   %foreign "browser:lambda:(x,v)=>{x.composed = v}"
   prim__setComposed : GetRootNodeOptions -> UndefOr Boolean -> PrimIO ()
+
+
 
 namespace MutationObserverInit
   
@@ -1828,6 +1915,7 @@ namespace MutationObserverInit
   prim__setAttributeFilter :  MutationObserverInit
                            -> UndefOr (Array String)
                            -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.attributeOldValue"
@@ -1839,6 +1927,7 @@ namespace MutationObserverInit
   prim__setAttributeOldValue :  MutationObserverInit
                              -> UndefOr Boolean
                              -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.attributes"
@@ -1848,6 +1937,7 @@ namespace MutationObserverInit
   export
   %foreign "browser:lambda:(x,v)=>{x.attributes = v}"
   prim__setAttributes : MutationObserverInit -> UndefOr Boolean -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.characterData"
@@ -1857,6 +1947,7 @@ namespace MutationObserverInit
   export
   %foreign "browser:lambda:(x,v)=>{x.characterData = v}"
   prim__setCharacterData : MutationObserverInit -> UndefOr Boolean -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.characterDataOldValue"
@@ -1868,6 +1959,7 @@ namespace MutationObserverInit
   prim__setCharacterDataOldValue :  MutationObserverInit
                                  -> UndefOr Boolean
                                  -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.childList"
@@ -1877,6 +1969,7 @@ namespace MutationObserverInit
   export
   %foreign "browser:lambda:(x,v)=>{x.childList = v}"
   prim__setChildList : MutationObserverInit -> UndefOr Boolean -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.subtree"
@@ -1886,6 +1979,8 @@ namespace MutationObserverInit
   export
   %foreign "browser:lambda:(x,v)=>{x.subtree = v}"
   prim__setSubtree : MutationObserverInit -> UndefOr Boolean -> PrimIO ()
+
+
 
 namespace ShadowRootInit
   
@@ -1901,6 +1996,7 @@ namespace ShadowRootInit
   export
   %foreign "browser:lambda:(x,v)=>{x.delegatesFocus = v}"
   prim__setDelegatesFocus : ShadowRootInit -> UndefOr Boolean -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.mode"
@@ -1910,6 +2006,8 @@ namespace ShadowRootInit
   export
   %foreign "browser:lambda:(x,v)=>{x.mode = v}"
   prim__setMode : ShadowRootInit -> String -> PrimIO ()
+
+
 
 namespace StaticRangeInit
   
@@ -1925,6 +2023,7 @@ namespace StaticRangeInit
   export
   %foreign "browser:lambda:(x,v)=>{x.endContainer = v}"
   prim__setEndContainer : StaticRangeInit -> Node -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.endOffset"
@@ -1934,6 +2033,7 @@ namespace StaticRangeInit
   export
   %foreign "browser:lambda:(x,v)=>{x.endOffset = v}"
   prim__setEndOffset : StaticRangeInit -> Bits32 -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.startContainer"
@@ -1943,6 +2043,7 @@ namespace StaticRangeInit
   export
   %foreign "browser:lambda:(x,v)=>{x.startContainer = v}"
   prim__setStartContainer : StaticRangeInit -> Node -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.startOffset"
@@ -1952,6 +2053,9 @@ namespace StaticRangeInit
   export
   %foreign "browser:lambda:(x,v)=>{x.startOffset = v}"
   prim__setStartOffset : StaticRangeInit -> Bits32 -> PrimIO ()
+
+
+
 
 --------------------------------------------------------------------------------
 --          Callbacks
@@ -1963,6 +2067,7 @@ namespace EventListener
   %foreign "browser:lambda:x=>(a)=>x(a)()"
   prim__toEventListener : ( Event -> IO () ) -> PrimIO EventListener
 
+
 namespace MutationCallback
   
   export
@@ -1973,11 +2078,13 @@ namespace MutationCallback
                               )
                            -> PrimIO MutationCallback
 
+
 namespace NodeFilter
   
   export
   %foreign "browser:lambda:x=>(a)=>x(a)()"
   prim__toNodeFilter : ( Node -> IO Bits16 ) -> PrimIO NodeFilter
+
 
 namespace XPathNSResolver
   
@@ -1985,3 +2092,4 @@ namespace XPathNSResolver
   %foreign "browser:lambda:x=>(a)=>x(a)()"
   prim__toXPathNSResolver :  ( Nullable String -> IO (Nullable String) )
                           -> PrimIO XPathNSResolver
+

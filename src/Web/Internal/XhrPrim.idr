@@ -46,6 +46,7 @@ namespace FormData
   %foreign "browser:lambda:(x,a,b,c)=>x.set(a,b,c)"
   prim__set1 : FormData -> String -> Blob -> UndefOr String -> PrimIO ()
 
+
 namespace ProgressEvent
   
   export
@@ -64,6 +65,7 @@ namespace ProgressEvent
   %foreign "browser:lambda:x=>x.total"
   prim__total : ProgressEvent -> PrimIO JSBits64
 
+
 namespace XMLHttpRequest
   
   export
@@ -81,6 +83,7 @@ namespace XMLHttpRequest
   prim__setOnreadystatechange :  XMLHttpRequest
                               -> Nullable EventHandlerNonNull
                               -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.readyState"
@@ -102,6 +105,7 @@ namespace XMLHttpRequest
   export
   %foreign "browser:lambda:(x,v)=>{x.responseType = v}"
   prim__setResponseType : XMLHttpRequest -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.responseURL"
@@ -127,6 +131,7 @@ namespace XMLHttpRequest
   export
   %foreign "browser:lambda:(x,v)=>{x.timeout = v}"
   prim__setTimeout : XMLHttpRequest -> Bits32 -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.upload"
@@ -140,6 +145,7 @@ namespace XMLHttpRequest
   export
   %foreign "browser:lambda:(x,v)=>{x.withCredentials = v}"
   prim__setWithCredentials : XMLHttpRequest -> Boolean -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.abort()"
@@ -201,6 +207,7 @@ namespace XMLHttpRequest
                          -> ByteString
                          -> PrimIO ()
 
+
 namespace XMLHttpRequestEventTarget
   
   export
@@ -214,6 +221,7 @@ namespace XMLHttpRequestEventTarget
   prim__setOnabort :  XMLHttpRequestEventTarget
                    -> Nullable EventHandlerNonNull
                    -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.onerror"
@@ -226,6 +234,7 @@ namespace XMLHttpRequestEventTarget
   prim__setOnerror :  XMLHttpRequestEventTarget
                    -> Nullable EventHandlerNonNull
                    -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.onload"
@@ -238,6 +247,7 @@ namespace XMLHttpRequestEventTarget
   prim__setOnload :  XMLHttpRequestEventTarget
                   -> Nullable EventHandlerNonNull
                   -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.onloadend"
@@ -250,6 +260,7 @@ namespace XMLHttpRequestEventTarget
   prim__setOnloadend :  XMLHttpRequestEventTarget
                      -> Nullable EventHandlerNonNull
                      -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.onloadstart"
@@ -262,6 +273,7 @@ namespace XMLHttpRequestEventTarget
   prim__setOnloadstart :  XMLHttpRequestEventTarget
                        -> Nullable EventHandlerNonNull
                        -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.onprogress"
@@ -274,6 +286,7 @@ namespace XMLHttpRequestEventTarget
   prim__setOnprogress :  XMLHttpRequestEventTarget
                       -> Nullable EventHandlerNonNull
                       -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.ontimeout"
@@ -286,6 +299,9 @@ namespace XMLHttpRequestEventTarget
   prim__setOntimeout :  XMLHttpRequestEventTarget
                      -> Nullable EventHandlerNonNull
                      -> PrimIO ()
+
+
+
 
 
 
@@ -310,6 +326,7 @@ namespace ProgressEventInit
   export
   %foreign "browser:lambda:(x,v)=>{x.lengthComputable = v}"
   prim__setLengthComputable : ProgressEventInit -> UndefOr Boolean -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.loaded"
@@ -319,6 +336,7 @@ namespace ProgressEventInit
   export
   %foreign "browser:lambda:(x,v)=>{x.loaded = v}"
   prim__setLoaded : ProgressEventInit -> UndefOr JSBits64 -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.total"
@@ -328,3 +346,6 @@ namespace ProgressEventInit
   export
   %foreign "browser:lambda:(x,v)=>{x.total = v}"
   prim__setTotal : ProgressEventInit -> UndefOr JSBits64 -> PrimIO ()
+
+
+

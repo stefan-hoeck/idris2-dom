@@ -26,6 +26,7 @@ namespace Clipboard
   %foreign "browser:lambda:(x,a)=>x.writeText(a)"
   prim__writeText : Clipboard -> String -> PrimIO (Promise Undefined)
 
+
 namespace ClipboardEvent
   
   export
@@ -35,6 +36,7 @@ namespace ClipboardEvent
   export
   %foreign "browser:lambda:x=>x.clipboardData"
   prim__clipboardData : ClipboardEvent -> PrimIO (Nullable DataTransfer)
+
 
 namespace ClipboardItem
   
@@ -71,6 +73,8 @@ namespace ClipboardItem
   prim__getType : ClipboardItem -> String -> PrimIO (Promise Blob)
 
 
+
+
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
@@ -93,6 +97,8 @@ namespace ClipboardEventInit
                          -> UndefOr (Nullable DataTransfer)
                          -> PrimIO ()
 
+
+
 namespace ClipboardItemOptions
   
   export
@@ -109,6 +115,8 @@ namespace ClipboardItemOptions
   prim__setPresentationStyle :  ClipboardItemOptions
                              -> UndefOr String
                              -> PrimIO ()
+
+
 
 namespace ClipboardPermissionDescriptor
   
@@ -128,6 +136,9 @@ namespace ClipboardPermissionDescriptor
                                -> UndefOr Boolean
                                -> PrimIO ()
 
+
+
+
 --------------------------------------------------------------------------------
 --          Callbacks
 --------------------------------------------------------------------------------
@@ -139,3 +150,4 @@ namespace ClipboardItemDelayedCallback
   prim__toClipboardItemDelayedCallback :  (() -> IO (Promise (Union2 String
                                                                      Blob)))
                                        -> PrimIO ClipboardItemDelayedCallback
+

@@ -57,6 +57,7 @@ namespace XMLHttpRequestResponseType
   FromFFI XMLHttpRequestResponseType String where
     fromFFI = read
 
+
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
@@ -121,6 +122,7 @@ export
 SafeCast XMLHttpRequestUpload where
   safeCast = unsafeCastOnPrototypeName "XMLHttpRequestUpload"
 
+
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
@@ -132,4 +134,6 @@ ToFFI ProgressEventInit ProgressEventInit where toFFI = id
   
 export
 FromFFI ProgressEventInit ProgressEventInit where fromFFI = Just
+
+
 

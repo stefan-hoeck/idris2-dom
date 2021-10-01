@@ -147,11 +147,11 @@ optionalToUndefOr : Optional a -> UndefOr a
 optionalToUndefOr = optional undef def
 
 export
-optUp : JSType a => Optional a -> {auto 0 _ : Elem b (Types a)} -> UndefOr b
+optUp : (0 _ : JSType a) => Optional a -> {auto 0 _ : Elem b (Types a)} -> UndefOr b
 optUp x = optional undef (\v => def $ up v) x
 
 export
-omyUp :  JSType a
+omyUp :  (0 _ : JSType a)
       => Optional (Maybe a)
       -> {auto 0 _ : Elem b (Types a)}
       -> UndefOr (Nullable b)

@@ -43,14 +43,14 @@ Types a = a :: parents {a} ++ mixins {a}
 ||| is correct according to some specification and the backend
 ||| properly adhere to this specification.
 public export %inline
-up : JSType a => a -> {auto 0 _ : Elem b (Types a)} -> b
+up : (0 _ : JSType a) => a -> {auto 0 _ : Elem b (Types a)} -> b
 up v = believe_me v
 
 infixl 1 :>
 
 ||| Operator version of `up`.
 public export %inline
-(:>) : JSType a => a -> (0 b : Type) -> {auto 0 _ : Elem b (Types a)} -> b
+(:>) : (0 _ : JSType a) => a -> (0 b : Type) -> {auto 0 _ : Elem b (Types a)} -> b
 a :> _ = up a
 
 --------------------------------------------------------------------------------

@@ -181,6 +181,7 @@ namespace ClientType
   FromFFI ClientType String where
     fromFFI = read
 
+
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
@@ -341,6 +342,7 @@ export
 SafeCast WindowClient where
   safeCast = unsafeCastOnPrototypeName "WindowClient"
 
+
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
@@ -408,4 +410,6 @@ ToFFI RegistrationOptions RegistrationOptions where toFFI = id
   
 export
 FromFFI RegistrationOptions RegistrationOptions where fromFFI = Just
+
+
 

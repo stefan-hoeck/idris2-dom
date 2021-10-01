@@ -34,6 +34,7 @@ namespace URL
   export
   %foreign "browser:lambda:(x,v)=>{x.hash = v}"
   prim__setHash : URL -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.host"
@@ -43,6 +44,7 @@ namespace URL
   export
   %foreign "browser:lambda:(x,v)=>{x.host = v}"
   prim__setHost : URL -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.hostname"
@@ -52,6 +54,7 @@ namespace URL
   export
   %foreign "browser:lambda:(x,v)=>{x.hostname = v}"
   prim__setHostname : URL -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.href"
@@ -61,6 +64,7 @@ namespace URL
   export
   %foreign "browser:lambda:(x,v)=>{x.href = v}"
   prim__setHref : URL -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.origin"
@@ -74,6 +78,7 @@ namespace URL
   export
   %foreign "browser:lambda:(x,v)=>{x.password = v}"
   prim__setPassword : URL -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.pathname"
@@ -83,6 +88,7 @@ namespace URL
   export
   %foreign "browser:lambda:(x,v)=>{x.pathname = v}"
   prim__setPathname : URL -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.port"
@@ -92,6 +98,7 @@ namespace URL
   export
   %foreign "browser:lambda:(x,v)=>{x.port = v}"
   prim__setPort : URL -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.protocol"
@@ -101,6 +108,7 @@ namespace URL
   export
   %foreign "browser:lambda:(x,v)=>{x.protocol = v}"
   prim__setProtocol : URL -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.search"
@@ -110,6 +118,7 @@ namespace URL
   export
   %foreign "browser:lambda:(x,v)=>{x.search = v}"
   prim__setSearch : URL -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.searchParams"
@@ -123,10 +132,12 @@ namespace URL
   export
   %foreign "browser:lambda:(x,v)=>{x.username = v}"
   prim__setUsername : URL -> String -> PrimIO ()
+
   
   export
   %foreign "browser:lambda:x=>x.toJSON()"
   prim__toJSON : URL -> PrimIO String
+
 
 namespace URLSearchParams
   
@@ -168,5 +179,7 @@ namespace URLSearchParams
   export
   %foreign "browser:lambda:x=>x.toString()"
   prim__toString : URLSearchParams -> PrimIO String
+
+
 
 

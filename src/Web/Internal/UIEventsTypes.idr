@@ -91,6 +91,7 @@ export
 SafeCast WheelEvent where
   safeCast = unsafeCastOnPrototypeName "WheelEvent"
 
+
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
@@ -158,4 +159,6 @@ ToFFI WheelEventInit WheelEventInit where toFFI = id
   
 export
 FromFFI WheelEventInit WheelEventInit where fromFFI = Just
+
+
 

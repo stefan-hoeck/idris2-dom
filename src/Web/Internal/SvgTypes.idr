@@ -751,6 +751,7 @@ export
 SafeCast ShadowAnimation where
   safeCast = unsafeCastOnPrototypeName "ShadowAnimation"
 
+
 --------------------------------------------------------------------------------
 --          Dictionaries
 --------------------------------------------------------------------------------
@@ -762,6 +763,7 @@ ToFFI SVGBoundingBoxOptions SVGBoundingBoxOptions where toFFI = id
   
 export
 FromFFI SVGBoundingBoxOptions SVGBoundingBoxOptions where fromFFI = Just
+
 
 --------------------------------------------------------------------------------
 --          Mixins
@@ -814,3 +816,5 @@ ToFFI SVGURIReference SVGURIReference where toFFI = id
   
 export
 FromFFI SVGURIReference SVGURIReference where fromFFI = Just
+
+
