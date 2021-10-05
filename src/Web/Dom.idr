@@ -162,10 +162,6 @@ namespace Alias
   Mod = HTMLModElement
 
   public export
-  Mod : Type
-  Mod = HTMLModElement
-
-  public export
   OList : Type
   OList = HTMLOListElement
 
