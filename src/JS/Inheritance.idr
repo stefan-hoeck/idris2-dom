@@ -189,13 +189,13 @@ SafeCast Int where
   safeCast = bounded (- 0x80000000) (0x7fffffff)
 
 export
-tryCast : SafeCast a => (fun : String) -> x -> JSIO a
+tryCast : SafeCast a => (fun : Lazy String) -> x -> JSIO a
 tryCast fun val = case safeCast val of
                        Just a  => pure a
                        Nothing => throwError $ CastErr fun val
 
 export
-tryCast_ : (0 a : Type) -> SafeCast a => (fun : String) -> x -> JSIO a
+tryCast_ : (0 a : Type) -> SafeCast a => (fun : Lazy String) -> x -> JSIO a
 tryCast_ _ = tryCast
 
 export
