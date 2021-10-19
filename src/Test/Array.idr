@@ -32,7 +32,7 @@ prop_fromListToList =
 prop_fromString : Property
 prop_fromString =
   property $ do s <- forAll $ string (linear 0 20) ascii
-                unpack s === arrayToList (JS.Array.fromString s)
+                unpack s === arrayToList (fromString s)
 
 prop_map : Property
 prop_map = property $ do arr <- forAll arrInt
