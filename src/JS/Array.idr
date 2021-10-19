@@ -415,10 +415,6 @@ singleton : a -> IArray a
 singleton = fromList . pure
 
 export
-fromString : String -> IArray Char
-fromString s = withArray s freeze
-
-export
 ArrayLike (IArray a) a where
 
 export
@@ -474,3 +470,7 @@ export
 Alternative IArray where
   empty     = fromList []
   as <|> bs = if null as then bs else as
+
+export
+FromString (IArray Char) where
+  fromString s = withArray s freeze
