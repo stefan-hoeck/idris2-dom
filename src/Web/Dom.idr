@@ -323,7 +323,7 @@ data ElementType : (tag : String) -> (htmlElement : Type) -> Type where
   HR         : ElementType "hr" HR
   Html       : ElementType "html" Html
   IFrame     : ElementType "iframe" IFrame
-  Ime        : ElementType "img" Image
+  Img        : ElementType "img" Image
   Input      : ElementType "input" Input
   Ins        : ElementType "ins" Mod
   Label      : ElementType "label" Label
@@ -408,7 +408,7 @@ elemCast _ fun H6         = fun
 elemCast _ fun HR         = fun
 elemCast _ fun Html       = fun
 elemCast _ fun IFrame     = fun
-elemCast _ fun Ime        = fun
+elemCast _ fun Img        = fun
 elemCast _ fun Input      = fun
 elemCast _ fun Ins        = fun
 elemCast _ fun Label      = fun
