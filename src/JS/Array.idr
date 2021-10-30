@@ -31,6 +31,7 @@ import JS.Boolean
 import JS.Marshall
 import JS.Undefined
 import JS.Util
+import JS.Buffer
 
 --------------------------------------------------------------------------------
 --          Utilities
@@ -148,6 +149,15 @@ ArrayLike String Char where
 
 export
 ArrayLike (Array a) a where
+
+export ArrayLike UInt8ClampedArray Bits8 where
+export ArrayLike UInt8Array Bits8 where
+export ArrayLike UInt16Array Bits16 where
+export ArrayLike UInt32Array Bits32 where
+export ArrayLike Int8Array Int8 where
+export ArrayLike Int16Array Int16 where
+export ArrayLike Int32Array Int32 where
+export ArrayLike Float64Array Double where
 
 ||| Witness, that a given value represents an immutable
 ||| Array-like object. The same rules as for `ArrayLike`
