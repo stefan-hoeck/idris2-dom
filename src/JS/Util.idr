@@ -3,6 +3,10 @@
 ||| own package.
 module JS.Util
 
+import Control.Monad.Reader
+import Control.Monad.RWS
+import Control.Monad.State
+import Control.Monad.Writer
 import public Control.Monad.Either
 import Data.Maybe
 
@@ -78,6 +82,22 @@ interface HasIO io => LiftJSIO io where
 export %inline
 LiftJSIO JSIO where
   liftJSIO = id
+
+export %inline
+LiftJSIO m => LiftJSIO (StateT s m) where
+  liftJSIO m = ST $ \st => (st,) <$> liftJSIO m
+
+export %inline
+LiftJSIO m => LiftJSIO (ReaderT e m) where
+  liftJSIO m = MkReaderT $ \_ => liftJSIO m
+
+export %inline
+LiftJSIO m => LiftJSIO (WriterT w m) where
+  liftJSIO m = MkWriterT $ \vw => (,vw) <$> liftJSIO m
+
+export %inline
+LiftJSIO m => LiftJSIO (RWST r w w m) where
+  liftJSIO m = MkRWST $ \_,vs,vw => (,vs,vw) <$> liftJSIO m
 
 export
 runJSWith : Lazy (JSErr -> IO a) -> JSIO a -> IO a
