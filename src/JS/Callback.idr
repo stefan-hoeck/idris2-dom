@@ -2,6 +2,8 @@ module JS.Callback
 
 import JS.Util
 
+%default total
+
 ||| Interface for converting Idris functions to
 ||| an external callback type.
 |||

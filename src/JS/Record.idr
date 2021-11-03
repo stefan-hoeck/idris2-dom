@@ -2,6 +2,8 @@ module JS.Record
 
 import JS.Marshall
 
+%default total
+
 export
 data Record : Type -> Type -> Type where [external]
 

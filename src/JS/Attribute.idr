@@ -8,6 +8,8 @@ import JS.Nullable
 import JS.Undefined
 import JS.Util
 
+%default total
+
 ||| A read-write attribute of a JS object.
 |||
 ||| @alwaysReturns : Bool index if the attribute's getter can

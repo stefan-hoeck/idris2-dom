@@ -5,6 +5,8 @@ import Data.SOP
 import JS.Inheritance
 import JS.Util
 
+%default total
+
 --------------------------------------------------------------------------------
 --          Marshalling from and to JS
 --------------------------------------------------------------------------------

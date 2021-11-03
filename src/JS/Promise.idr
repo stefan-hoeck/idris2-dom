@@ -2,6 +2,8 @@ module JS.Promise
 
 import JS.Marshall
 
+%default total
+
 export
 data Promise : Type -> Type where [external]
 

@@ -10,6 +10,8 @@ import Control.Monad.Writer
 import public Control.Monad.Either
 import Data.Maybe
 
+%default total
+
 export
 doubleToBool : Double -> Bool
 doubleToBool d = d /= 0.0

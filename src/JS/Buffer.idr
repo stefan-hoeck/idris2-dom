@@ -2,6 +2,8 @@ module JS.Buffer
 
 import JS.Marshall
 
+%default total
+
 export
 data ArrayBuffer : Type where [external]
 

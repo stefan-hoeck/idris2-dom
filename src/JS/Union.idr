@@ -5,6 +5,8 @@ import Data.SOP
 import JS.Inheritance
 import JS.Marshall
 
+%default total
+
 public export
 data NPP :  (f : Type -> Type -> Type)
          -> (ps1 : List Type)

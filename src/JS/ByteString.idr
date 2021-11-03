@@ -2,6 +2,8 @@ module JS.ByteString
 
 import JS.Marshall
 
+%default total
+
 export
 data ByteString : Type where [external]
 

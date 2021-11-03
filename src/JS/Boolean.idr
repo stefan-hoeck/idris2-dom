@@ -4,6 +4,8 @@ import JS.Marshall
 import JS.Inheritance
 import JS.Util
 
+%default total
+
 export
 data Boolean : Type where [external]
 

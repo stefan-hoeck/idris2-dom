@@ -3,6 +3,8 @@ module JS.Any
 import JS.Inheritance
 import JS.Marshall
 
+%default total
+
 public export
 record Any where
   constructor MkAny

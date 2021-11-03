@@ -5,6 +5,8 @@ import JS.Inheritance
 import JS.Marshall
 import JS.Util
 
+%default total
+
 export
 data Nullable : Type -> Type where [external]
 

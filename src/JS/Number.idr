@@ -5,6 +5,9 @@ import Data.Bits
 import JS.Inheritance
 import JS.Marshall
 import JS.Util
+
+%default total
+
 --------------------------------------------------------------------------------
 --          Primitives
 --------------------------------------------------------------------------------

@@ -19,6 +19,8 @@ import JS.Marshall
 import JS.Nullable
 import JS.Util
 
+%default total
+
 export
 data Object : Type where [external]
 
@@ -111,7 +113,7 @@ data Value : Type where
 toAny : Value -> Any
 toAny (Obj     x) = MkAny x
 toAny (Boolean x) = MkAny $ toFFI x
-toAny (Arr     x) = MkAny $ map toAny x
+toAny (Arr     x) = MkAny $ assert_total (map toAny x)
 toAny (Str     x) = MkAny x
 toAny (Num     x) = MkAny x
 toAny Null        = MkAny (null {a = ()})
@@ -161,7 +163,7 @@ toVal (MkAny ptr) =   (Str <$> safeCast ptr)
 
   where array : a -> Maybe Value
         array a = let arr = the (IArray Any) (believe_me a)
-                   in Arr <$> traverse toVal arr
+                   in assert_total $ Arr <$> traverse toVal arr
 
 export
 parse : String -> Either JSErr Value
