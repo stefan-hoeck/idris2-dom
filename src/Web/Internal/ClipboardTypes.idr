@@ -10,7 +10,7 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace PresentationStyle
-  
+
   public export
   data PresentationStyle = Unspecified | Inline | Attachment
 
@@ -132,4 +132,3 @@ ToFFI ClipboardItemDelayedCallback ClipboardItemDelayedCallback where toFFI = id
 
 export
 FromFFI ClipboardItemDelayedCallback ClipboardItemDelayedCallback where fromFFI = Just
-

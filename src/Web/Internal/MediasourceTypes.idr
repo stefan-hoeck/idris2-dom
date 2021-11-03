@@ -10,7 +10,7 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace ReadyState
-  
+
   public export
   data ReadyState = Closed | Open | Ended
 
@@ -50,7 +50,7 @@ namespace ReadyState
     fromFFI = read
 
 namespace EndOfStreamError
-  
+
   public export
   data EndOfStreamError = Network | Decode
 
@@ -88,7 +88,7 @@ namespace EndOfStreamError
     fromFFI = read
 
 namespace AppendMode
-  
+
   public export
   data AppendMode = Segments | Sequence
 
@@ -165,7 +165,3 @@ FromFFI SourceBufferList SourceBufferList where fromFFI = Just
 export
 SafeCast SourceBufferList where
   safeCast = unsafeCastOnPrototypeName "SourceBufferList"
-
-
-
-

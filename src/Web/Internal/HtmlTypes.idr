@@ -10,7 +10,7 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace DOMParserSupportedType
-  
+
   public export
   data DOMParserSupportedType = TextHtml
                               | TextXml
@@ -58,7 +58,7 @@ namespace DOMParserSupportedType
     fromFFI = read
 
 namespace DocumentReadyState
-  
+
   public export
   data DocumentReadyState = Loading | Interactive | Complete
 
@@ -98,7 +98,7 @@ namespace DocumentReadyState
     fromFFI = read
 
 namespace CanPlayTypeResult
-  
+
   public export
   data CanPlayTypeResult = Empty | Maybe | Probably
 
@@ -138,7 +138,7 @@ namespace CanPlayTypeResult
     fromFFI = read
 
 namespace ScrollRestoration
-  
+
   public export
   data ScrollRestoration = Auto | Manual
 
@@ -176,7 +176,7 @@ namespace ScrollRestoration
     fromFFI = read
 
 namespace ImageOrientation
-  
+
   public export
   data ImageOrientation = None | FlipY
 
@@ -214,7 +214,7 @@ namespace ImageOrientation
     fromFFI = read
 
 namespace PremultiplyAlpha
-  
+
   public export
   data PremultiplyAlpha = None | Premultiply | Default
 
@@ -254,7 +254,7 @@ namespace PremultiplyAlpha
     fromFFI = read
 
 namespace ColorSpaceConversion
-  
+
   public export
   data ColorSpaceConversion = None | Default
 
@@ -292,7 +292,7 @@ namespace ColorSpaceConversion
     fromFFI = read
 
 namespace ResizeQuality
-  
+
   public export
   data ResizeQuality = Pixelated | Low | Medium | High
 
@@ -334,7 +334,7 @@ namespace ResizeQuality
     fromFFI = read
 
 namespace CanvasFillRule
-  
+
   public export
   data CanvasFillRule = Nonzero | Evenodd
 
@@ -372,7 +372,7 @@ namespace CanvasFillRule
     fromFFI = read
 
 namespace ImageSmoothingQuality
-  
+
   public export
   data ImageSmoothingQuality = Low | Medium | High
 
@@ -412,7 +412,7 @@ namespace ImageSmoothingQuality
     fromFFI = read
 
 namespace CanvasLineCap
-  
+
   public export
   data CanvasLineCap = Butt | Round | Square
 
@@ -452,7 +452,7 @@ namespace CanvasLineCap
     fromFFI = read
 
 namespace CanvasLineJoin
-  
+
   public export
   data CanvasLineJoin = Round | Bevel | Miter
 
@@ -492,7 +492,7 @@ namespace CanvasLineJoin
     fromFFI = read
 
 namespace CanvasTextAlign
-  
+
   public export
   data CanvasTextAlign = Start | End | Left | Right | Center
 
@@ -536,7 +536,7 @@ namespace CanvasTextAlign
     fromFFI = read
 
 namespace CanvasTextBaseline
-  
+
   public export
   data CanvasTextBaseline = Top
                           | Hanging
@@ -587,7 +587,7 @@ namespace CanvasTextBaseline
     fromFFI = read
 
 namespace CanvasDirection
-  
+
   public export
   data CanvasDirection = Ltr | Rtl | Inherit
 
@@ -627,7 +627,7 @@ namespace CanvasDirection
     fromFFI = read
 
 namespace OffscreenRenderingContextId
-  
+
   public export
   data OffscreenRenderingContextId = TwoD | Bitmaprenderer | Webgl | Webgl2
 
@@ -669,7 +669,7 @@ namespace OffscreenRenderingContextId
     fromFFI = read
 
 namespace TextTrackMode
-  
+
   public export
   data TextTrackMode = Disabled | Hidden | Showing
 
@@ -709,7 +709,7 @@ namespace TextTrackMode
     fromFFI = read
 
 namespace TextTrackKind
-  
+
   public export
   data TextTrackKind = Subtitles | Captions | Descriptions | Chapters | Metadata
 
@@ -753,7 +753,7 @@ namespace TextTrackKind
     fromFFI = read
 
 namespace BinaryType
-  
+
   public export
   data BinaryType = Blob | Arraybuffer
 
@@ -791,7 +791,7 @@ namespace BinaryType
     fromFFI = read
 
 namespace WorkerType
-  
+
   public export
   data WorkerType = Classic | Module
 
@@ -829,7 +829,7 @@ namespace WorkerType
     fromFFI = read
 
 namespace SelectionMode
-  
+
   public export
   data SelectionMode = Select | Start | End | Preserve
 
@@ -3145,4 +3145,3 @@ ToFFI WheelEventHandler WheelEventHandler where toFFI = id
 
 export
 FromFFI WheelEventHandler WheelEventHandler where fromFFI = Just
-

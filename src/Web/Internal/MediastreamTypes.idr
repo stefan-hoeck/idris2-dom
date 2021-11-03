@@ -10,7 +10,7 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace MediaStreamTrackState
-  
+
   public export
   data MediaStreamTrackState = Live | Ended
 
@@ -48,7 +48,7 @@ namespace MediaStreamTrackState
     fromFFI = read
 
 namespace VideoFacingModeEnum
-  
+
   public export
   data VideoFacingModeEnum = User | Environment | Left | Right
 
@@ -90,7 +90,7 @@ namespace VideoFacingModeEnum
     fromFFI = read
 
 namespace VideoResizeModeEnum
-  
+
   public export
   data VideoResizeModeEnum = None | CropAndScale
 
@@ -128,7 +128,7 @@ namespace VideoResizeModeEnum
     fromFFI = read
 
 namespace MediaDeviceKind
-  
+
   public export
   data MediaDeviceKind = Audioinput | Audiooutput | Videoinput
 
@@ -430,4 +430,3 @@ ToFFI NavigatorUserMediaSuccessCallback NavigatorUserMediaSuccessCallback where 
 
 export
 FromFFI NavigatorUserMediaSuccessCallback NavigatorUserMediaSuccessCallback where fromFFI = Just
-

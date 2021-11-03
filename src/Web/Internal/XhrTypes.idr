@@ -10,7 +10,7 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace XMLHttpRequestResponseType
-  
+
   public export
   data XMLHttpRequestResponseType = Empty
                                   | Arraybuffer
@@ -137,6 +137,3 @@ ToFFI ProgressEventInit ProgressEventInit where toFFI = id
 
 export
 FromFFI ProgressEventInit ProgressEventInit where fromFFI = Just
-
-
-

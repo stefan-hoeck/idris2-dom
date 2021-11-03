@@ -10,7 +10,7 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace ShadowRootMode
-  
+
   public export
   data ShadowRootMode = Open | Closed
 
@@ -654,4 +654,3 @@ ToFFI XPathNSResolver XPathNSResolver where toFFI = id
 
 export
 FromFFI XPathNSResolver XPathNSResolver where fromFFI = Just
-

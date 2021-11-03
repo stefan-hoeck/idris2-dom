@@ -10,7 +10,7 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace WebGLPowerPreference
-  
+
   public export
   data WebGLPowerPreference = Default | LowPower | HighPerformance
 
@@ -307,5 +307,3 @@ ToFFI WebGLRenderingContextOverloads WebGLRenderingContextOverloads where toFFI 
 
 export
 FromFFI WebGLRenderingContextOverloads WebGLRenderingContextOverloads where fromFFI = Just
-
-

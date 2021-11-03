@@ -15,7 +15,7 @@ import JS.Util
 ||| @alwaysReturns : Bool index if the attribute's getter can
 |||                  always return a value that is neither
 |||                  `null` nor `undefined`. This means, that the
-|||                  attribute is non-nullable and either mandatory 
+|||                  attribute is non-nullable and either mandatory
 |||                  or optional with a proper default value.
 |||
 ||| @f             : Context of values represented by the attribute.

@@ -12,14 +12,14 @@ import Web.Internal.Types
 --------------------------------------------------------------------------------
 
 namespace CompositionEvent
-  
+
   export
   data_ : (obj : CompositionEvent) -> JSIO String
   data_ a = primJS $ CompositionEvent.prim__data a
 
 
 namespace FocusEvent
-  
+
   export
   relatedTarget : (obj : FocusEvent) -> JSIO (Maybe EventTarget)
   relatedTarget a = tryJS "FocusEvent.relatedTarget"
@@ -27,15 +27,15 @@ namespace FocusEvent
 
 
 namespace InputEvent
-  
+
   export
   data_ : (obj : InputEvent) -> JSIO (Maybe String)
   data_ a = tryJS "InputEvent.data_" $ InputEvent.prim__data a
-  
+
   export
   inputType : (obj : InputEvent) -> JSIO String
   inputType a = primJS $ InputEvent.prim__inputType a
-  
+
   export
   isComposing : (obj : InputEvent) -> JSIO Bool
   isComposing a = tryJS "InputEvent.isComposing"
@@ -43,68 +43,68 @@ namespace InputEvent
 
 
 namespace KeyboardEvent
-  
+
   public export
   DOM_KEY_LOCATION_LEFT : Bits32
   DOM_KEY_LOCATION_LEFT = 0x1
-  
+
   public export
   DOM_KEY_LOCATION_NUMPAD : Bits32
   DOM_KEY_LOCATION_NUMPAD = 0x3
-  
+
   public export
   DOM_KEY_LOCATION_RIGHT : Bits32
   DOM_KEY_LOCATION_RIGHT = 0x2
-  
+
   public export
   DOM_KEY_LOCATION_STANDARD : Bits32
   DOM_KEY_LOCATION_STANDARD = 0x0
-  
+
   export
   altKey : (obj : KeyboardEvent) -> JSIO Bool
   altKey a = tryJS "KeyboardEvent.altKey" $ KeyboardEvent.prim__altKey a
-  
+
   export
   charCode : (obj : KeyboardEvent) -> JSIO Bits32
   charCode a = primJS $ KeyboardEvent.prim__charCode a
-  
+
   export
   code : (obj : KeyboardEvent) -> JSIO String
   code a = primJS $ KeyboardEvent.prim__code a
-  
+
   export
   ctrlKey : (obj : KeyboardEvent) -> JSIO Bool
   ctrlKey a = tryJS "KeyboardEvent.ctrlKey" $ KeyboardEvent.prim__ctrlKey a
-  
+
   export
   isComposing : (obj : KeyboardEvent) -> JSIO Bool
   isComposing a = tryJS "KeyboardEvent.isComposing"
                 $ KeyboardEvent.prim__isComposing a
-  
+
   export
   key : (obj : KeyboardEvent) -> JSIO String
   key a = primJS $ KeyboardEvent.prim__key a
-  
+
   export
   keyCode : (obj : KeyboardEvent) -> JSIO Bits32
   keyCode a = primJS $ KeyboardEvent.prim__keyCode a
-  
+
   export
   location : (obj : KeyboardEvent) -> JSIO Bits32
   location a = primJS $ KeyboardEvent.prim__location a
-  
+
   export
   metaKey : (obj : KeyboardEvent) -> JSIO Bool
   metaKey a = tryJS "KeyboardEvent.metaKey" $ KeyboardEvent.prim__metaKey a
-  
+
   export
   repeat : (obj : KeyboardEvent) -> JSIO Bool
   repeat a = tryJS "KeyboardEvent.repeat" $ KeyboardEvent.prim__repeat a
-  
+
   export
   shiftKey : (obj : KeyboardEvent) -> JSIO Bool
   shiftKey a = tryJS "KeyboardEvent.shiftKey" $ KeyboardEvent.prim__shiftKey a
-  
+
   export
   getModifierState : (obj : KeyboardEvent) -> (keyArg : String) -> JSIO Bool
   getModifierState a b = tryJS "KeyboardEvent.getModifierState"
@@ -112,56 +112,56 @@ namespace KeyboardEvent
 
 
 namespace MouseEvent
-  
+
   export
   altKey :  (0 _ : JSType t1)
          => {auto 0 _ : Elem MouseEvent (Types t1)}
          -> (obj : t1)
          -> JSIO Bool
   altKey a = tryJS "MouseEvent.altKey" $ MouseEvent.prim__altKey (up a)
-  
+
   export
   button :  (0 _ : JSType t1)
          => {auto 0 _ : Elem MouseEvent (Types t1)}
          -> (obj : t1)
          -> JSIO Int16
   button a = primJS $ MouseEvent.prim__button (up a)
-  
+
   export
   buttons :  (0 _ : JSType t1)
           => {auto 0 _ : Elem MouseEvent (Types t1)}
           -> (obj : t1)
           -> JSIO Bits16
   buttons a = primJS $ MouseEvent.prim__buttons (up a)
-  
+
   export
   clientX :  (0 _ : JSType t1)
           => {auto 0 _ : Elem MouseEvent (Types t1)}
           -> (obj : t1)
           -> JSIO Int32
   clientX a = primJS $ MouseEvent.prim__clientX (up a)
-  
+
   export
   clientY :  (0 _ : JSType t1)
           => {auto 0 _ : Elem MouseEvent (Types t1)}
           -> (obj : t1)
           -> JSIO Int32
   clientY a = primJS $ MouseEvent.prim__clientY (up a)
-  
+
   export
   ctrlKey :  (0 _ : JSType t1)
           => {auto 0 _ : Elem MouseEvent (Types t1)}
           -> (obj : t1)
           -> JSIO Bool
   ctrlKey a = tryJS "MouseEvent.ctrlKey" $ MouseEvent.prim__ctrlKey (up a)
-  
+
   export
   metaKey :  (0 _ : JSType t1)
           => {auto 0 _ : Elem MouseEvent (Types t1)}
           -> (obj : t1)
           -> JSIO Bool
   metaKey a = tryJS "MouseEvent.metaKey" $ MouseEvent.prim__metaKey (up a)
-  
+
   export
   relatedTarget :  (0 _ : JSType t1)
                 => {auto 0 _ : Elem MouseEvent (Types t1)}
@@ -169,28 +169,28 @@ namespace MouseEvent
                 -> JSIO (Maybe EventTarget)
   relatedTarget a = tryJS "MouseEvent.relatedTarget"
                   $ MouseEvent.prim__relatedTarget (up a)
-  
+
   export
   screenX :  (0 _ : JSType t1)
           => {auto 0 _ : Elem MouseEvent (Types t1)}
           -> (obj : t1)
           -> JSIO Int32
   screenX a = primJS $ MouseEvent.prim__screenX (up a)
-  
+
   export
   screenY :  (0 _ : JSType t1)
           => {auto 0 _ : Elem MouseEvent (Types t1)}
           -> (obj : t1)
           -> JSIO Int32
   screenY a = primJS $ MouseEvent.prim__screenY (up a)
-  
+
   export
   shiftKey :  (0 _ : JSType t1)
            => {auto 0 _ : Elem MouseEvent (Types t1)}
            -> (obj : t1)
            -> JSIO Bool
   shiftKey a = tryJS "MouseEvent.shiftKey" $ MouseEvent.prim__shiftKey (up a)
-  
+
   export
   getModifierState :  (0 _ : JSType t1)
                    => {auto 0 _ : Elem MouseEvent (Types t1)}
@@ -202,21 +202,21 @@ namespace MouseEvent
 
 
 namespace UIEvent
-  
+
   export
   detail :  (0 _ : JSType t1)
          => {auto 0 _ : Elem UIEvent (Types t1)}
          -> (obj : t1)
          -> JSIO Int32
   detail a = primJS $ UIEvent.prim__detail (up a)
-  
+
   export
   view :  (0 _ : JSType t1)
        => {auto 0 _ : Elem UIEvent (Types t1)}
        -> (obj : t1)
        -> JSIO (Maybe Window)
   view a = tryJS "UIEvent.view" $ UIEvent.prim__view (up a)
-  
+
   export
   which :  (0 _ : JSType t1)
         => {auto 0 _ : Elem UIEvent (Types t1)}
@@ -226,31 +226,31 @@ namespace UIEvent
 
 
 namespace WheelEvent
-  
+
   public export
   DOM_DELTA_LINE : Bits32
   DOM_DELTA_LINE = 0x1
-  
+
   public export
   DOM_DELTA_PAGE : Bits32
   DOM_DELTA_PAGE = 0x2
-  
+
   public export
   DOM_DELTA_PIXEL : Bits32
   DOM_DELTA_PIXEL = 0x0
-  
+
   export
   deltaMode : (obj : WheelEvent) -> JSIO Bits32
   deltaMode a = primJS $ WheelEvent.prim__deltaMode a
-  
+
   export
   deltaX : (obj : WheelEvent) -> JSIO Double
   deltaX a = primJS $ WheelEvent.prim__deltaX a
-  
+
   export
   deltaY : (obj : WheelEvent) -> JSIO Double
   deltaY a = primJS $ WheelEvent.prim__deltaY a
-  
+
   export
   deltaZ : (obj : WheelEvent) -> JSIO Double
   deltaZ a = primJS $ WheelEvent.prim__deltaZ a
@@ -263,7 +263,7 @@ namespace WheelEvent
 --------------------------------------------------------------------------------
 
 namespace CompositionEventInit
-  
+
   export
   new : (data_ : Optional String) -> JSIO CompositionEventInit
   new a = primJS $ CompositionEventInit.prim__new (toFFI a)
@@ -271,7 +271,7 @@ namespace CompositionEventInit
   export
   new' : JSIO CompositionEventInit
   new' = primJS $ CompositionEventInit.prim__new undef
-  
+
   export
   data_ :  (0 _ : JSType t)
         => {auto 0 _ : Elem CompositionEventInit (Types t)}
@@ -285,7 +285,7 @@ namespace CompositionEventInit
 
 
 namespace EventModifierInit
-  
+
   export
   new :  (ctrlKey : Optional Bool)
       -> (shiftKey : Optional Bool)
@@ -335,7 +335,7 @@ namespace EventModifierInit
                                      undef
                                      undef
                                      undef
-  
+
   export
   altKey :  (0 _ : JSType t)
          => {auto 0 _ : Elem EventModifierInit (Types t)}
@@ -346,7 +346,7 @@ namespace EventModifierInit
                              prim__setAltKey
                              False
                              (v :> EventModifierInit)
-  
+
   export
   ctrlKey :  (0 _ : JSType t)
           => {auto 0 _ : Elem EventModifierInit (Types t)}
@@ -357,7 +357,7 @@ namespace EventModifierInit
                               prim__setCtrlKey
                               False
                               (v :> EventModifierInit)
-  
+
   export
   metaKey :  (0 _ : JSType t)
           => {auto 0 _ : Elem EventModifierInit (Types t)}
@@ -368,7 +368,7 @@ namespace EventModifierInit
                               prim__setMetaKey
                               False
                               (v :> EventModifierInit)
-  
+
   export
   modifierAltGraph :  (0 _ : JSType t)
                    => {auto 0 _ : Elem EventModifierInit (Types t)}
@@ -379,7 +379,7 @@ namespace EventModifierInit
                                        prim__setModifierAltGraph
                                        False
                                        (v :> EventModifierInit)
-  
+
   export
   modifierCapsLock :  (0 _ : JSType t)
                    => {auto 0 _ : Elem EventModifierInit (Types t)}
@@ -390,7 +390,7 @@ namespace EventModifierInit
                                        prim__setModifierCapsLock
                                        False
                                        (v :> EventModifierInit)
-  
+
   export
   modifierFn :  (0 _ : JSType t)
              => {auto 0 _ : Elem EventModifierInit (Types t)}
@@ -401,7 +401,7 @@ namespace EventModifierInit
                                  prim__setModifierFn
                                  False
                                  (v :> EventModifierInit)
-  
+
   export
   modifierFnLock :  (0 _ : JSType t)
                  => {auto 0 _ : Elem EventModifierInit (Types t)}
@@ -412,7 +412,7 @@ namespace EventModifierInit
                                      prim__setModifierFnLock
                                      False
                                      (v :> EventModifierInit)
-  
+
   export
   modifierHyper :  (0 _ : JSType t)
                 => {auto 0 _ : Elem EventModifierInit (Types t)}
@@ -423,7 +423,7 @@ namespace EventModifierInit
                                     prim__setModifierHyper
                                     False
                                     (v :> EventModifierInit)
-  
+
   export
   modifierNumLock :  (0 _ : JSType t)
                   => {auto 0 _ : Elem EventModifierInit (Types t)}
@@ -434,7 +434,7 @@ namespace EventModifierInit
                                       prim__setModifierNumLock
                                       False
                                       (v :> EventModifierInit)
-  
+
   export
   modifierScrollLock :  (0 _ : JSType t)
                      => {auto 0 _ : Elem EventModifierInit (Types t)}
@@ -445,7 +445,7 @@ namespace EventModifierInit
                                          prim__setModifierScrollLock
                                          False
                                          (v :> EventModifierInit)
-  
+
   export
   modifierSuper :  (0 _ : JSType t)
                 => {auto 0 _ : Elem EventModifierInit (Types t)}
@@ -456,7 +456,7 @@ namespace EventModifierInit
                                     prim__setModifierSuper
                                     False
                                     (v :> EventModifierInit)
-  
+
   export
   modifierSymbol :  (0 _ : JSType t)
                  => {auto 0 _ : Elem EventModifierInit (Types t)}
@@ -467,7 +467,7 @@ namespace EventModifierInit
                                      prim__setModifierSymbol
                                      False
                                      (v :> EventModifierInit)
-  
+
   export
   modifierSymbolLock :  (0 _ : JSType t)
                      => {auto 0 _ : Elem EventModifierInit (Types t)}
@@ -478,7 +478,7 @@ namespace EventModifierInit
                                          prim__setModifierSymbolLock
                                          False
                                          (v :> EventModifierInit)
-  
+
   export
   shiftKey :  (0 _ : JSType t)
            => {auto 0 _ : Elem EventModifierInit (Types t)}
@@ -492,7 +492,7 @@ namespace EventModifierInit
 
 
 namespace FocusEventInit
-  
+
   export
   new :  (0 _ : JSType t1)
       => {auto 0 _ : Elem EventTarget (Types t1)}
@@ -503,7 +503,7 @@ namespace FocusEventInit
   export
   new' : JSIO FocusEventInit
   new' = primJS $ FocusEventInit.prim__new undef
-  
+
   export
   relatedTarget :  (0 _ : JSType t)
                 => {auto 0 _ : Elem FocusEventInit (Types t)}
@@ -517,7 +517,7 @@ namespace FocusEventInit
 
 
 namespace InputEventInit
-  
+
   export
   new :  (data_ : Optional (Maybe String))
       -> (isComposing : Optional Bool)
@@ -528,7 +528,7 @@ namespace InputEventInit
   export
   new' : JSIO InputEventInit
   new' = primJS $ InputEventInit.prim__new undef undef undef
-  
+
   export
   data_ :  (0 _ : JSType t)
         => {auto 0 _ : Elem InputEventInit (Types t)}
@@ -539,7 +539,7 @@ namespace InputEventInit
                             prim__setData
                             (Just "")
                             (v :> InputEventInit)
-  
+
   export
   inputType :  (0 _ : JSType t)
             => {auto 0 _ : Elem InputEventInit (Types t)}
@@ -550,7 +550,7 @@ namespace InputEventInit
                                 prim__setInputType
                                 ""
                                 (v :> InputEventInit)
-  
+
   export
   isComposing :  (0 _ : JSType t)
               => {auto 0 _ : Elem InputEventInit (Types t)}
@@ -564,7 +564,7 @@ namespace InputEventInit
 
 
 namespace KeyboardEventInit
-  
+
   export
   new :  (key : Optional String)
       -> (code : Optional String)
@@ -582,7 +582,7 @@ namespace KeyboardEventInit
   export
   new' : JSIO KeyboardEventInit
   new' = primJS $ KeyboardEventInit.prim__new undef undef undef undef undef
-  
+
   export
   code :  (0 _ : JSType t)
        => {auto 0 _ : Elem KeyboardEventInit (Types t)}
@@ -593,7 +593,7 @@ namespace KeyboardEventInit
                            prim__setCode
                            ""
                            (v :> KeyboardEventInit)
-  
+
   export
   isComposing :  (0 _ : JSType t)
               => {auto 0 _ : Elem KeyboardEventInit (Types t)}
@@ -604,7 +604,7 @@ namespace KeyboardEventInit
                                   prim__setIsComposing
                                   False
                                   (v :> KeyboardEventInit)
-  
+
   export
   key :  (0 _ : JSType t)
       => {auto 0 _ : Elem KeyboardEventInit (Types t)}
@@ -615,7 +615,7 @@ namespace KeyboardEventInit
                           prim__setKey
                           ""
                           (v :> KeyboardEventInit)
-  
+
   export
   location :  (0 _ : JSType t)
            => {auto 0 _ : Elem KeyboardEventInit (Types t)}
@@ -626,7 +626,7 @@ namespace KeyboardEventInit
                                prim__setLocation
                                0
                                (v :> KeyboardEventInit)
-  
+
   export
   repeat :  (0 _ : JSType t)
          => {auto 0 _ : Elem KeyboardEventInit (Types t)}
@@ -640,7 +640,7 @@ namespace KeyboardEventInit
 
 
 namespace MouseEventInit
-  
+
   export
   new :  (0 _ : JSType t1)
       => {auto 0 _ : Elem EventTarget (Types t1)}
@@ -665,7 +665,7 @@ namespace MouseEventInit
   new' : JSIO MouseEventInit
   new' = primJS
        $ MouseEventInit.prim__new undef undef undef undef undef undef undef
-  
+
   export
   button :  (0 _ : JSType t)
          => {auto 0 _ : Elem MouseEventInit (Types t)}
@@ -676,7 +676,7 @@ namespace MouseEventInit
                              prim__setButton
                              0
                              (v :> MouseEventInit)
-  
+
   export
   buttons :  (0 _ : JSType t)
           => {auto 0 _ : Elem MouseEventInit (Types t)}
@@ -687,7 +687,7 @@ namespace MouseEventInit
                               prim__setButtons
                               0
                               (v :> MouseEventInit)
-  
+
   export
   clientX :  (0 _ : JSType t)
           => {auto 0 _ : Elem MouseEventInit (Types t)}
@@ -698,7 +698,7 @@ namespace MouseEventInit
                               prim__setClientX
                               0
                               (v :> MouseEventInit)
-  
+
   export
   clientY :  (0 _ : JSType t)
           => {auto 0 _ : Elem MouseEventInit (Types t)}
@@ -709,7 +709,7 @@ namespace MouseEventInit
                               prim__setClientY
                               0
                               (v :> MouseEventInit)
-  
+
   export
   relatedTarget :  (0 _ : JSType t)
                 => {auto 0 _ : Elem MouseEventInit (Types t)}
@@ -720,7 +720,7 @@ namespace MouseEventInit
                                     prim__setRelatedTarget
                                     Nothing
                                     (v :> MouseEventInit)
-  
+
   export
   screenX :  (0 _ : JSType t)
           => {auto 0 _ : Elem MouseEventInit (Types t)}
@@ -731,7 +731,7 @@ namespace MouseEventInit
                               prim__setScreenX
                               0
                               (v :> MouseEventInit)
-  
+
   export
   screenY :  (0 _ : JSType t)
           => {auto 0 _ : Elem MouseEventInit (Types t)}
@@ -745,7 +745,7 @@ namespace MouseEventInit
 
 
 namespace UIEventInit
-  
+
   export
   new :  (view : Optional (Maybe Window))
       -> (detail : Optional Int32)
@@ -755,7 +755,7 @@ namespace UIEventInit
   export
   new' : JSIO UIEventInit
   new' = primJS $ UIEventInit.prim__new undef undef
-  
+
   export
   detail :  (0 _ : JSType t)
          => {auto 0 _ : Elem UIEventInit (Types t)}
@@ -766,7 +766,7 @@ namespace UIEventInit
                              prim__setDetail
                              0
                              (v :> UIEventInit)
-  
+
   export
   view :  (0 _ : JSType t)
        => {auto 0 _ : Elem UIEventInit (Types t)}
@@ -780,7 +780,7 @@ namespace UIEventInit
 
 
 namespace WheelEventInit
-  
+
   export
   new :  (deltaX : Optional Double)
       -> (deltaY : Optional Double)
@@ -793,7 +793,7 @@ namespace WheelEventInit
   export
   new' : JSIO WheelEventInit
   new' = primJS $ WheelEventInit.prim__new undef undef undef undef
-  
+
   export
   deltaMode :  (0 _ : JSType t)
             => {auto 0 _ : Elem WheelEventInit (Types t)}
@@ -804,7 +804,7 @@ namespace WheelEventInit
                                 prim__setDeltaMode
                                 0
                                 (v :> WheelEventInit)
-  
+
   export
   deltaX :  (0 _ : JSType t)
          => {auto 0 _ : Elem WheelEventInit (Types t)}
@@ -815,7 +815,7 @@ namespace WheelEventInit
                              prim__setDeltaX
                              0.0
                              (v :> WheelEventInit)
-  
+
   export
   deltaY :  (0 _ : JSType t)
          => {auto 0 _ : Elem WheelEventInit (Types t)}
@@ -826,7 +826,7 @@ namespace WheelEventInit
                              prim__setDeltaY
                              0.0
                              (v :> WheelEventInit)
-  
+
   export
   deltaZ :  (0 _ : JSType t)
          => {auto 0 _ : Elem WheelEventInit (Types t)}
@@ -837,5 +837,3 @@ namespace WheelEventInit
                              prim__setDeltaZ
                              0.0
                              (v :> WheelEventInit)
-
-

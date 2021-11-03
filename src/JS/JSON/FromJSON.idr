@@ -236,7 +236,7 @@ withArray = withValue "Array" getArray
 
 export
 withList : Lazy String -> (List Value -> Result a) -> Parser a
-withList s f = withArray s (f . arrayToList) 
+withList s f = withArray s (f . arrayToList)
 
 ||| See `.:`
 export
@@ -266,7 +266,7 @@ explicitParseFieldMaybe' p obj key =
 ||| Retrieve the value associated with the given key of an `IObject`.
 ||| The result is `empty` if the key is not present or the value cannot
 ||| be converted to the desired type.
-||| 
+|||
 ||| This accessor is appropriate if the key and value /must/ be present
 ||| in an object for it to be valid.  If the key and value are
 ||| optional, use `.:?` instead.
@@ -277,7 +277,7 @@ export
 ||| Retrieve the value associated with the given key of an `IObject`. The
 ||| result is `Nothing` if the key is not present or if its value is `Null`,
 ||| or `empty` if the value cannot be converted to the desired type.
-||| 
+|||
 ||| This accessor is most useful if the key and value can be absent
 ||| from an object without affecting its validity.  If the key and
 ||| value are mandatory, use `.:` instead.
@@ -288,7 +288,7 @@ export
 ||| Retrieve the value associated with the given key of an `IObject`
 ||| The result is `Nothing` if the key is not present or 'empty' if the
 ||| value cannot be converted to the desired type.
-||| 
+|||
 ||| This differs from `.:?` by attempting to parse `Null` the same as any
 ||| other JSON value, instead of interpreting it as `Nothing`.
 export
@@ -458,7 +458,7 @@ inj []       = []
 inj (_ :: t) = Z :: mapNP (S .) (inj t)
 
 ns : (all : NP (FromJSON . f) ks) => Parser (NS f ks)
-ns = withObject "NS" $ getFirst 
+ns = withObject "NS" $ getFirst
                      $ hcliftA2 (FromJSON . f) parse (inj all) (indices all)
   where getFirst :  NP (K (IObject -> Result (NS f ks))) ts
                  -> IObject

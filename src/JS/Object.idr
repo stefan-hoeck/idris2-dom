@@ -65,7 +65,7 @@ record LinObject where
   obj : Object
 
 export
-newObj : (1 f : (1 _ : LinObject) -> a) -> a 
+newObj : (1 f : (1 _ : LinObject) -> a) -> a
 newObj f = f (MkLinObject (prim__new ()))
 
 export
@@ -169,7 +169,7 @@ export
 parse : String -> Either JSErr Value
 parse s = do ptr <- try prim__parse s
              maybe (Left $ Caught #"Unable to decode JSON: \#{s}"#)
-                   Right 
+                   Right
                    (toVal (MkAny ptr))
 
 export
@@ -203,4 +203,4 @@ getArray _       = Nothing
 
 export
 valueAt : IObject -> String -> Maybe Value
-valueAt (MkIObject obj) = toVal . MkAny . prim__get obj 
+valueAt (MkIObject obj) = toVal . MkAny . prim__get obj

@@ -12,7 +12,7 @@ import Web.Internal.Types
 --------------------------------------------------------------------------------
 
 namespace Headers
-  
+
   export
   new :  (init : Optional (NS I [ Array (Array ByteString)
                                 , Record ByteString ByteString
@@ -23,26 +23,26 @@ namespace Headers
   export
   new' : JSIO Headers
   new' = primJS $ Headers.prim__new undef
-  
+
   export
   append :  (obj : Headers)
          -> (name : ByteString)
          -> (value : ByteString)
          -> JSIO ()
   append a b c = primJS $ Headers.prim__append a b c
-  
+
   export
   delete : (obj : Headers) -> (name : ByteString) -> JSIO ()
   delete a b = primJS $ Headers.prim__delete a b
-  
+
   export
   get : (obj : Headers) -> (name : ByteString) -> JSIO (Maybe ByteString)
   get a b = tryJS "Headers.get" $ Headers.prim__get a b
-  
+
   export
   has : (obj : Headers) -> (name : ByteString) -> JSIO Bool
   has a b = tryJS "Headers.has" $ Headers.prim__has a b
-  
+
   export
   set :  (obj : Headers)
       -> (name : ByteString)
@@ -52,7 +52,7 @@ namespace Headers
 
 
 namespace Request
-  
+
   export
   new :  (0 _ : JSType t1)
       => {auto 0 _ : Elem RequestInit (Types t1)}
@@ -64,77 +64,77 @@ namespace Request
   export
   new' : (input : NS I [ Request , String ]) -> JSIO Request
   new' a = primJS $ Request.prim__new (toFFI a) undef
-  
+
   export
   cache : (obj : Request) -> JSIO RequestCache
   cache a = tryJS "Request.cache" $ Request.prim__cache a
-  
+
   export
   credentials : (obj : Request) -> JSIO RequestCredentials
   credentials a = tryJS "Request.credentials" $ Request.prim__credentials a
-  
+
   export
   destination : (obj : Request) -> JSIO RequestDestination
   destination a = tryJS "Request.destination" $ Request.prim__destination a
-  
+
   export
   headers : (obj : Request) -> JSIO Headers
   headers a = primJS $ Request.prim__headers a
-  
+
   export
   integrity : (obj : Request) -> JSIO String
   integrity a = primJS $ Request.prim__integrity a
-  
+
   export
   isHistoryNavigation : (obj : Request) -> JSIO Bool
   isHistoryNavigation a = tryJS "Request.isHistoryNavigation"
                         $ Request.prim__isHistoryNavigation a
-  
+
   export
   isReloadNavigation : (obj : Request) -> JSIO Bool
   isReloadNavigation a = tryJS "Request.isReloadNavigation"
                        $ Request.prim__isReloadNavigation a
-  
+
   export
   keepalive : (obj : Request) -> JSIO Bool
   keepalive a = tryJS "Request.keepalive" $ Request.prim__keepalive a
-  
+
   export
   method : (obj : Request) -> JSIO ByteString
   method a = primJS $ Request.prim__method a
-  
+
   export
   mode : (obj : Request) -> JSIO RequestMode
   mode a = tryJS "Request.mode" $ Request.prim__mode a
-  
+
   export
   redirect : (obj : Request) -> JSIO RequestRedirect
   redirect a = tryJS "Request.redirect" $ Request.prim__redirect a
-  
+
   export
   referrer : (obj : Request) -> JSIO String
   referrer a = primJS $ Request.prim__referrer a
-  
+
   export
   referrerPolicy : (obj : Request) -> JSIO ReferrerPolicy
   referrerPolicy a = tryJS "Request.referrerPolicy"
                    $ Request.prim__referrerPolicy a
-  
+
   export
   signal : (obj : Request) -> JSIO AbortSignal
   signal a = primJS $ Request.prim__signal a
-  
+
   export
   url : (obj : Request) -> JSIO String
   url a = primJS $ Request.prim__url a
-  
+
   export
   clone : (obj : Request) -> JSIO Request
   clone a = primJS $ Request.prim__clone a
 
 
 namespace Response
-  
+
   export
   new :  (0 _ : JSType t1)
       => {auto 0 _ : Elem ResponseInit (Types t1)}
@@ -162,11 +162,11 @@ namespace Response
   export
   new' : JSIO Response
   new' = primJS $ Response.prim__new undef undef
-  
+
   export
   error : JSIO Response
-  error = primJS $ Response.prim__error 
-  
+  error = primJS $ Response.prim__error
+
   export
   redirect : (url : String) -> (status : Optional Bits16) -> JSIO Response
   redirect a b = primJS $ Response.prim__redirect a (toFFI b)
@@ -174,35 +174,35 @@ namespace Response
   export
   redirect' : (url : String) -> JSIO Response
   redirect' a = primJS $ Response.prim__redirect a undef
-  
+
   export
   headers : (obj : Response) -> JSIO Headers
   headers a = primJS $ Response.prim__headers a
-  
+
   export
   ok : (obj : Response) -> JSIO Bool
   ok a = tryJS "Response.ok" $ Response.prim__ok a
-  
+
   export
   redirected : (obj : Response) -> JSIO Bool
   redirected a = tryJS "Response.redirected" $ Response.prim__redirected a
-  
+
   export
   status : (obj : Response) -> JSIO Bits16
   status a = primJS $ Response.prim__status a
-  
+
   export
   statusText : (obj : Response) -> JSIO ByteString
   statusText a = primJS $ Response.prim__statusText a
-  
+
   export
   type : (obj : Response) -> JSIO ResponseType
   type a = tryJS "Response.type" $ Response.prim__type a
-  
+
   export
   url : (obj : Response) -> JSIO String
   url a = primJS $ Response.prim__url a
-  
+
   export
   clone : (obj : Response) -> JSIO Response
   clone a = primJS $ Response.prim__clone a
@@ -214,49 +214,49 @@ namespace Response
 --------------------------------------------------------------------------------
 
 namespace Body
-  
+
   export
   body :  (0 _ : JSType t1)
        => {auto 0 _ : Elem Body (Types t1)}
        -> (obj : t1)
        -> JSIO (Maybe ReadableStream)
   body a = tryJS "Body.body" $ Body.prim__body (up a)
-  
+
   export
   bodyUsed :  (0 _ : JSType t1)
            => {auto 0 _ : Elem Body (Types t1)}
            -> (obj : t1)
            -> JSIO Bool
   bodyUsed a = tryJS "Body.bodyUsed" $ Body.prim__bodyUsed (up a)
-  
+
   export
   arrayBuffer :  (0 _ : JSType t1)
               => {auto 0 _ : Elem Body (Types t1)}
               -> (obj : t1)
               -> JSIO (Promise ArrayBuffer)
   arrayBuffer a = primJS $ Body.prim__arrayBuffer (up a)
-  
+
   export
   blob :  (0 _ : JSType t1)
        => {auto 0 _ : Elem Body (Types t1)}
        -> (obj : t1)
        -> JSIO (Promise Blob)
   blob a = primJS $ Body.prim__blob (up a)
-  
+
   export
   formData :  (0 _ : JSType t1)
            => {auto 0 _ : Elem Body (Types t1)}
            -> (obj : t1)
            -> JSIO (Promise FormData)
   formData a = primJS $ Body.prim__formData (up a)
-  
+
   export
   json :  (0 _ : JSType t1)
        => {auto 0 _ : Elem Body (Types t1)}
        -> (obj : t1)
        -> JSIO (Promise AnyPtr)
   json a = primJS $ Body.prim__json (up a)
-  
+
   export
   text :  (0 _ : JSType t1)
        => {auto 0 _ : Elem Body (Types t1)}
@@ -271,7 +271,7 @@ namespace Body
 --------------------------------------------------------------------------------
 
 namespace RequestInit
-  
+
   export
   new :  (method : Optional ByteString)
       -> (headers : Optional (NS I [ Array (Array ByteString)
@@ -336,7 +336,7 @@ namespace RequestInit
                                undef
                                undef
                                undef
-  
+
   export
   body :  (0 _ : JSType t)
        => {auto 0 _ : Elem RequestInit (Types t)}
@@ -361,7 +361,7 @@ namespace RequestInit
                                     prim__body
                                     prim__setBody
                                     (v :> RequestInit)
-  
+
   export
   cache :  (0 _ : JSType t)
         => {auto 0 _ : Elem RequestInit (Types t)}
@@ -371,7 +371,7 @@ namespace RequestInit
                                      prim__cache
                                      prim__setCache
                                      (v :> RequestInit)
-  
+
   export
   credentials :  (0 _ : JSType t)
               => {auto 0 _ : Elem RequestInit (Types t)}
@@ -381,7 +381,7 @@ namespace RequestInit
                                            prim__credentials
                                            prim__setCredentials
                                            (v :> RequestInit)
-  
+
   export
   headers :  (0 _ : JSType t)
           => {auto 0 _ : Elem RequestInit (Types t)}
@@ -392,7 +392,7 @@ namespace RequestInit
                                        prim__headers
                                        prim__setHeaders
                                        (v :> RequestInit)
-  
+
   export
   integrity :  (0 _ : JSType t)
             => {auto 0 _ : Elem RequestInit (Types t)}
@@ -402,7 +402,7 @@ namespace RequestInit
                                          prim__integrity
                                          prim__setIntegrity
                                          (v :> RequestInit)
-  
+
   export
   keepalive :  (0 _ : JSType t)
             => {auto 0 _ : Elem RequestInit (Types t)}
@@ -412,7 +412,7 @@ namespace RequestInit
                                          prim__keepalive
                                          prim__setKeepalive
                                          (v :> RequestInit)
-  
+
   export
   method :  (0 _ : JSType t)
          => {auto 0 _ : Elem RequestInit (Types t)}
@@ -422,7 +422,7 @@ namespace RequestInit
                                       prim__method
                                       prim__setMethod
                                       (v :> RequestInit)
-  
+
   export
   mode :  (0 _ : JSType t)
        => {auto 0 _ : Elem RequestInit (Types t)}
@@ -432,7 +432,7 @@ namespace RequestInit
                                     prim__mode
                                     prim__setMode
                                     (v :> RequestInit)
-  
+
   export
   redirect :  (0 _ : JSType t)
            => {auto 0 _ : Elem RequestInit (Types t)}
@@ -442,7 +442,7 @@ namespace RequestInit
                                         prim__redirect
                                         prim__setRedirect
                                         (v :> RequestInit)
-  
+
   export
   referrer :  (0 _ : JSType t)
            => {auto 0 _ : Elem RequestInit (Types t)}
@@ -452,7 +452,7 @@ namespace RequestInit
                                         prim__referrer
                                         prim__setReferrer
                                         (v :> RequestInit)
-  
+
   export
   referrerPolicy :  (0 _ : JSType t)
                  => {auto 0 _ : Elem RequestInit (Types t)}
@@ -462,7 +462,7 @@ namespace RequestInit
                                               prim__referrerPolicy
                                               prim__setReferrerPolicy
                                               (v :> RequestInit)
-  
+
   export
   signal :  (0 _ : JSType t)
          => {auto 0 _ : Elem RequestInit (Types t)}
@@ -472,7 +472,7 @@ namespace RequestInit
                                       prim__signal
                                       prim__setSignal
                                       (v :> RequestInit)
-  
+
   export
   window :  (0 _ : JSType t)
          => {auto 0 _ : Elem RequestInit (Types t)}
@@ -485,7 +485,7 @@ namespace RequestInit
 
 
 namespace ResponseInit
-  
+
   export
   new :  (status : Optional Bits16)
       -> (statusText : Optional ByteString)
@@ -498,7 +498,7 @@ namespace ResponseInit
   export
   new' : JSIO ResponseInit
   new' = primJS $ ResponseInit.prim__new undef undef undef
-  
+
   export
   headers :  (0 _ : JSType t)
           => {auto 0 _ : Elem ResponseInit (Types t)}
@@ -509,7 +509,7 @@ namespace ResponseInit
                                        prim__headers
                                        prim__setHeaders
                                        (v :> ResponseInit)
-  
+
   export
   status :  (0 _ : JSType t)
          => {auto 0 _ : Elem ResponseInit (Types t)}
@@ -520,7 +520,7 @@ namespace ResponseInit
                              prim__setStatus
                              200
                              (v :> ResponseInit)
-  
+
   export
   statusText :  (0 _ : JSType t)
              => {auto 0 _ : Elem ResponseInit (Types t)}
@@ -530,5 +530,3 @@ namespace ResponseInit
                                           prim__statusText
                                           prim__setStatusText
                                           (v :> ResponseInit)
-
-

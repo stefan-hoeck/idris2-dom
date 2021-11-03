@@ -82,7 +82,7 @@ export
 ToJSON Bool where toJSON = Boolean
 
 export
-ToJSON Int8 where toJSON = Num . cast 
+ToJSON Int8 where toJSON = Num . cast
 
 export
 ToJSON Int16 where toJSON = Num . cast

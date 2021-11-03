@@ -44,4 +44,3 @@ ToFFI VoidFunction VoidFunction where toFFI = id
 
 export
 FromFFI VoidFunction VoidFunction where fromFFI = Just
-

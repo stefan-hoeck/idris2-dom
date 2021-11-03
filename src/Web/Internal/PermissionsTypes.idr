@@ -10,7 +10,7 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace PermissionState
-  
+
   public export
   data PermissionState = Granted | Denied | Prompt
 
@@ -50,7 +50,7 @@ namespace PermissionState
     fromFFI = read
 
 namespace PermissionName
-  
+
   public export
   data PermissionName = Geolocation
                       | Notifications
@@ -223,6 +223,3 @@ ToFFI PushPermissionDescriptor PushPermissionDescriptor where toFFI = id
 
 export
 FromFFI PushPermissionDescriptor PushPermissionDescriptor where fromFFI = Just
-
-
-

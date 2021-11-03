@@ -10,7 +10,7 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace EndingType
-  
+
   public export
   data EndingType = Transparent | Native
 
@@ -132,6 +132,3 @@ ToFFI FilePropertyBag FilePropertyBag where toFFI = id
 
 export
 FromFFI FilePropertyBag FilePropertyBag where fromFFI = Just
-
-
-

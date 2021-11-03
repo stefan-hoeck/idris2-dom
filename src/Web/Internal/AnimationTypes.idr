@@ -10,7 +10,7 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace AnimationPlayState
-  
+
   public export
   data AnimationPlayState = Idle | Running | Paused | Finished
 
@@ -52,7 +52,7 @@ namespace AnimationPlayState
     fromFFI = read
 
 namespace FillMode
-  
+
   public export
   data FillMode = None | Forwards | Backwards | Both | Auto
 
@@ -94,7 +94,7 @@ namespace FillMode
     fromFFI = read
 
 namespace PlaybackDirection
-  
+
   public export
   data PlaybackDirection = Normal | Reverse | Alternate | AlternateReverse
 
@@ -136,7 +136,7 @@ namespace PlaybackDirection
     fromFFI = read
 
 namespace IterationCompositeOperation
-  
+
   public export
   data IterationCompositeOperation = Replace | Accumulate
 
@@ -174,7 +174,7 @@ namespace IterationCompositeOperation
     fromFFI = read
 
 namespace CompositeOperation
-  
+
   public export
   data CompositeOperation = Replace | Add | Accumulate
 
@@ -214,7 +214,7 @@ namespace CompositeOperation
     fromFFI = read
 
 namespace CompositeOperationOrAuto
-  
+
   public export
   data CompositeOperationOrAuto = Replace | Add | Accumulate | Auto
 
@@ -429,5 +429,3 @@ ToFFI Animatable Animatable where toFFI = id
 
 export
 FromFFI Animatable Animatable where fromFFI = Just
-
-

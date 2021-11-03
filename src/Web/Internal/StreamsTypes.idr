@@ -10,7 +10,7 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace ReadableStreamReaderMode
-  
+
   public export
   data ReadableStreamReaderMode = Byob
 
@@ -46,7 +46,7 @@ namespace ReadableStreamReaderMode
     fromFFI = read
 
 namespace ReadableStreamType
-  
+
   public export
   data ReadableStreamType = Bytes
 
@@ -448,4 +448,3 @@ ToFFI UnderlyingSourceStartCallback UnderlyingSourceStartCallback where toFFI = 
 
 export
 FromFFI UnderlyingSourceStartCallback UnderlyingSourceStartCallback where fromFFI = Just
-

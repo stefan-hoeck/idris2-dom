@@ -52,7 +52,7 @@ len32 = fromInteger . natToInteger . length
 ||| Zips a list of elements with the corresponding
 ||| array indices.
 public export
-zipWithIndex : (as : List a) -> List (Ix $ len32 as, a) 
+zipWithIndex : (as : List a) -> List (Ix $ len32 as, a)
 zipWithIndex as = run 0 as
   -- being pragmatic here and going via `believe_me`
   where run : Bits32 -> List a -> List (Ix $ len32 as, a)

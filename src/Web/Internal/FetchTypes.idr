@@ -10,7 +10,7 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace RequestDestination
-  
+
   public export
   data RequestDestination = Empty
                           | Audio
@@ -103,7 +103,7 @@ namespace RequestDestination
     fromFFI = read
 
 namespace RequestMode
-  
+
   public export
   data RequestMode = Navigate | SameOrigin | NoCors | Cors
 
@@ -145,7 +145,7 @@ namespace RequestMode
     fromFFI = read
 
 namespace RequestCredentials
-  
+
   public export
   data RequestCredentials = Omit | SameOrigin | Include
 
@@ -185,7 +185,7 @@ namespace RequestCredentials
     fromFFI = read
 
 namespace RequestCache
-  
+
   public export
   data RequestCache = Default
                     | NoStore
@@ -236,7 +236,7 @@ namespace RequestCache
     fromFFI = read
 
 namespace RequestRedirect
-  
+
   public export
   data RequestRedirect = Follow | Error | Manual
 
@@ -276,7 +276,7 @@ namespace RequestRedirect
     fromFFI = read
 
 namespace ResponseType
-  
+
   public export
   data ResponseType = Basic | Cors | Default | Error | Opaque | Opaqueredirect
 
@@ -322,7 +322,7 @@ namespace ResponseType
     fromFFI = read
 
 namespace ReferrerPolicy
-  
+
   public export
   data ReferrerPolicy = Empty
                       | NoReferrer
@@ -455,5 +455,3 @@ ToFFI Body Body where toFFI = id
 
 export
 FromFFI Body Body where fromFFI = Just
-
-

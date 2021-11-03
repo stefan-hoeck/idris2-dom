@@ -53,5 +53,3 @@ test = ignore . checkGroup . withTests 100 $ MkGroup "Arrays" [
        , ("prop_map", prop_map)
        , ("prop_join", prop_join)
        ]
-            
-       

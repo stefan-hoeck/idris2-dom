@@ -12,58 +12,58 @@ import Web.Internal.Types
 --------------------------------------------------------------------------------
 
 namespace ByteLengthQueuingStrategy
-  
+
   export
   new :  (0 _ : JSType t1)
       => {auto 0 _ : Elem QueuingStrategyInit (Types t1)}
       -> (init : t1)
       -> JSIO ByteLengthQueuingStrategy
   new a = primJS $ ByteLengthQueuingStrategy.prim__new (up a)
-  
+
   export
   highWaterMark : (obj : ByteLengthQueuingStrategy) -> JSIO Double
   highWaterMark a = primJS $ ByteLengthQueuingStrategy.prim__highWaterMark a
-  
+
   export
   size : (obj : ByteLengthQueuingStrategy) -> JSIO Function
   size a = primJS $ ByteLengthQueuingStrategy.prim__size a
 
 
 namespace CountQueuingStrategy
-  
+
   export
   new :  (0 _ : JSType t1)
       => {auto 0 _ : Elem QueuingStrategyInit (Types t1)}
       -> (init : t1)
       -> JSIO CountQueuingStrategy
   new a = primJS $ CountQueuingStrategy.prim__new (up a)
-  
+
   export
   highWaterMark : (obj : CountQueuingStrategy) -> JSIO Double
   highWaterMark a = primJS $ CountQueuingStrategy.prim__highWaterMark a
-  
+
   export
   size : (obj : CountQueuingStrategy) -> JSIO Function
   size a = primJS $ CountQueuingStrategy.prim__size a
 
 
 namespace ReadableByteStreamController
-  
+
   export
   byobRequest :  (obj : ReadableByteStreamController)
               -> JSIO (Maybe ReadableStreamBYOBRequest)
   byobRequest a = tryJS "ReadableByteStreamController.byobRequest"
                 $ ReadableByteStreamController.prim__byobRequest a
-  
+
   export
   desiredSize : (obj : ReadableByteStreamController) -> JSIO (Maybe Double)
   desiredSize a = tryJS "ReadableByteStreamController.desiredSize"
                 $ ReadableByteStreamController.prim__desiredSize a
-  
+
   export
   close : (obj : ReadableByteStreamController) -> JSIO ()
   close a = primJS $ ReadableByteStreamController.prim__close a
-  
+
   export
   enqueue :  (obj : ReadableByteStreamController)
           -> (chunk : NS I [ Int8Array
@@ -79,7 +79,7 @@ namespace ReadableByteStreamController
                            ])
           -> JSIO ()
   enqueue a b = primJS $ ReadableByteStreamController.prim__enqueue a (toFFI b)
-  
+
   export
   error : (obj : ReadableByteStreamController) -> (e : Optional Any) -> JSIO ()
   error a b = primJS $ ReadableByteStreamController.prim__error a (toFFI b)
@@ -90,7 +90,7 @@ namespace ReadableByteStreamController
 
 
 namespace ReadableStream
-  
+
   export
   new :  (0 _ : JSType t1)
       => (0 _ : JSType t2)
@@ -104,11 +104,11 @@ namespace ReadableStream
   export
   new' : JSIO ReadableStream
   new' = primJS $ ReadableStream.prim__new undef undef
-  
+
   export
   locked : (obj : ReadableStream) -> JSIO Bool
   locked a = tryJS "ReadableStream.locked" $ ReadableStream.prim__locked a
-  
+
   export
   cancel :  (obj : ReadableStream)
          -> (reason : Optional Any)
@@ -118,7 +118,7 @@ namespace ReadableStream
   export
   cancel' : (obj : ReadableStream) -> JSIO (Promise Undefined)
   cancel' a = primJS $ ReadableStream.prim__cancel a undef
-  
+
   export
   getReader :  (0 _ : JSType t1)
             => {auto 0 _ : Elem ReadableStreamGetReaderOptions (Types t1)}
@@ -137,7 +137,7 @@ namespace ReadableStream
                            ])
   getReader' a = tryJS "ReadableStream.getReader'"
                $ ReadableStream.prim__getReader a undef
-  
+
   export
   pipeThrough :  (0 _ : JSType t1)
               => (0 _ : JSType t2)
@@ -157,7 +157,7 @@ namespace ReadableStream
                -> (transform : t1)
                -> JSIO ReadableStream
   pipeThrough' a b = primJS $ ReadableStream.prim__pipeThrough a (up b) undef
-  
+
   export
   pipeTo :  (0 _ : JSType t1)
          => {auto 0 _ : Elem StreamPipeOptions (Types t1)}
@@ -172,18 +172,18 @@ namespace ReadableStream
           -> (destination : WritableStream)
           -> JSIO (Promise Undefined)
   pipeTo' a b = primJS $ ReadableStream.prim__pipeTo a b undef
-  
+
   export
   tee : (obj : ReadableStream) -> JSIO (Array ReadableStream)
   tee a = primJS $ ReadableStream.prim__tee a
 
 
 namespace ReadableStreamBYOBReader
-  
+
   export
   new : (stream : ReadableStream) -> JSIO ReadableStreamBYOBReader
   new a = primJS $ ReadableStreamBYOBReader.prim__new a
-  
+
   export
   read :  (obj : ReadableStreamBYOBReader)
        -> (view : NS I [ Int8Array
@@ -199,14 +199,14 @@ namespace ReadableStreamBYOBReader
                        ])
        -> JSIO (Promise ReadableStreamBYOBReadResult)
   read a b = primJS $ ReadableStreamBYOBReader.prim__read a (toFFI b)
-  
+
   export
   releaseLock : (obj : ReadableStreamBYOBReader) -> JSIO ()
   releaseLock a = primJS $ ReadableStreamBYOBReader.prim__releaseLock a
 
 
 namespace ReadableStreamBYOBRequest
-  
+
   export
   view :  (obj : ReadableStreamBYOBRequest)
        -> JSIO (Maybe (Union10 Int8Array
@@ -221,13 +221,13 @@ namespace ReadableStreamBYOBRequest
                                DataView))
   view a = tryJS "ReadableStreamBYOBRequest.view"
          $ ReadableStreamBYOBRequest.prim__view a
-  
+
   export
   respond :  (obj : ReadableStreamBYOBRequest)
           -> (bytesWritten : JSBits64)
           -> JSIO ()
   respond a b = primJS $ ReadableStreamBYOBRequest.prim__respond a b
-  
+
   export
   respondWithNewView :  (obj : ReadableStreamBYOBRequest)
                      -> (view : NS I [ Int8Array
@@ -248,16 +248,16 @@ namespace ReadableStreamBYOBRequest
 
 
 namespace ReadableStreamDefaultController
-  
+
   export
   desiredSize : (obj : ReadableStreamDefaultController) -> JSIO (Maybe Double)
   desiredSize a = tryJS "ReadableStreamDefaultController.desiredSize"
                 $ ReadableStreamDefaultController.prim__desiredSize a
-  
+
   export
   close : (obj : ReadableStreamDefaultController) -> JSIO ()
   close a = primJS $ ReadableStreamDefaultController.prim__close a
-  
+
   export
   enqueue :  (obj : ReadableStreamDefaultController)
           -> (chunk : Optional Any)
@@ -268,7 +268,7 @@ namespace ReadableStreamDefaultController
   export
   enqueue' : (obj : ReadableStreamDefaultController) -> JSIO ()
   enqueue' a = primJS $ ReadableStreamDefaultController.prim__enqueue a undef
-  
+
   export
   error :  (obj : ReadableStreamDefaultController)
         -> (e : Optional Any)
@@ -281,23 +281,23 @@ namespace ReadableStreamDefaultController
 
 
 namespace ReadableStreamDefaultReader
-  
+
   export
   new : (stream : ReadableStream) -> JSIO ReadableStreamDefaultReader
   new a = primJS $ ReadableStreamDefaultReader.prim__new a
-  
+
   export
   read :  (obj : ReadableStreamDefaultReader)
        -> JSIO (Promise ReadableStreamDefaultReadResult)
   read a = primJS $ ReadableStreamDefaultReader.prim__read a
-  
+
   export
   releaseLock : (obj : ReadableStreamDefaultReader) -> JSIO ()
   releaseLock a = primJS $ ReadableStreamDefaultReader.prim__releaseLock a
 
 
 namespace TransformStream
-  
+
   export
   new :  (0 _ : JSType t1)
       => (0 _ : JSType t2)
@@ -314,23 +314,23 @@ namespace TransformStream
   export
   new' : JSIO TransformStream
   new' = primJS $ TransformStream.prim__new undef undef undef
-  
+
   export
   readable : (obj : TransformStream) -> JSIO ReadableStream
   readable a = primJS $ TransformStream.prim__readable a
-  
+
   export
   writable : (obj : TransformStream) -> JSIO WritableStream
   writable a = primJS $ TransformStream.prim__writable a
 
 
 namespace TransformStreamDefaultController
-  
+
   export
   desiredSize : (obj : TransformStreamDefaultController) -> JSIO (Maybe Double)
   desiredSize a = tryJS "TransformStreamDefaultController.desiredSize"
                 $ TransformStreamDefaultController.prim__desiredSize a
-  
+
   export
   enqueue :  (obj : TransformStreamDefaultController)
           -> (chunk : Optional Any)
@@ -341,7 +341,7 @@ namespace TransformStreamDefaultController
   export
   enqueue' : (obj : TransformStreamDefaultController) -> JSIO ()
   enqueue' a = primJS $ TransformStreamDefaultController.prim__enqueue a undef
-  
+
   export
   error :  (obj : TransformStreamDefaultController)
         -> (reason : Optional Any)
@@ -351,14 +351,14 @@ namespace TransformStreamDefaultController
   export
   error' : (obj : TransformStreamDefaultController) -> JSIO ()
   error' a = primJS $ TransformStreamDefaultController.prim__error a undef
-  
+
   export
   terminate : (obj : TransformStreamDefaultController) -> JSIO ()
   terminate a = primJS $ TransformStreamDefaultController.prim__terminate a
 
 
 namespace WritableStream
-  
+
   export
   new :  (0 _ : JSType t1)
       => (0 _ : JSType t2)
@@ -372,11 +372,11 @@ namespace WritableStream
   export
   new' : JSIO WritableStream
   new' = primJS $ WritableStream.prim__new undef undef
-  
+
   export
   locked : (obj : WritableStream) -> JSIO Bool
   locked a = tryJS "WritableStream.locked" $ WritableStream.prim__locked a
-  
+
   export
   abort :  (obj : WritableStream)
         -> (reason : Optional Any)
@@ -386,18 +386,18 @@ namespace WritableStream
   export
   abort' : (obj : WritableStream) -> JSIO (Promise Undefined)
   abort' a = primJS $ WritableStream.prim__abort a undef
-  
+
   export
   close : (obj : WritableStream) -> JSIO (Promise Undefined)
   close a = primJS $ WritableStream.prim__close a
-  
+
   export
   getWriter : (obj : WritableStream) -> JSIO WritableStreamDefaultWriter
   getWriter a = primJS $ WritableStream.prim__getWriter a
 
 
 namespace WritableStreamDefaultController
-  
+
   export
   error :  (obj : WritableStreamDefaultController)
         -> (e : Optional Any)
@@ -410,24 +410,24 @@ namespace WritableStreamDefaultController
 
 
 namespace WritableStreamDefaultWriter
-  
+
   export
   new : (stream : WritableStream) -> JSIO WritableStreamDefaultWriter
   new a = primJS $ WritableStreamDefaultWriter.prim__new a
-  
+
   export
   closed : (obj : WritableStreamDefaultWriter) -> JSIO (Promise Undefined)
   closed a = primJS $ WritableStreamDefaultWriter.prim__closed a
-  
+
   export
   desiredSize : (obj : WritableStreamDefaultWriter) -> JSIO (Maybe Double)
   desiredSize a = tryJS "WritableStreamDefaultWriter.desiredSize"
                 $ WritableStreamDefaultWriter.prim__desiredSize a
-  
+
   export
   ready : (obj : WritableStreamDefaultWriter) -> JSIO (Promise Undefined)
   ready a = primJS $ WritableStreamDefaultWriter.prim__ready a
-  
+
   export
   abort :  (obj : WritableStreamDefaultWriter)
         -> (reason : Optional Any)
@@ -437,15 +437,15 @@ namespace WritableStreamDefaultWriter
   export
   abort' : (obj : WritableStreamDefaultWriter) -> JSIO (Promise Undefined)
   abort' a = primJS $ WritableStreamDefaultWriter.prim__abort a undef
-  
+
   export
   close : (obj : WritableStreamDefaultWriter) -> JSIO (Promise Undefined)
   close a = primJS $ WritableStreamDefaultWriter.prim__close a
-  
+
   export
   releaseLock : (obj : WritableStreamDefaultWriter) -> JSIO ()
   releaseLock a = primJS $ WritableStreamDefaultWriter.prim__releaseLock a
-  
+
   export
   write :  (obj : WritableStreamDefaultWriter)
         -> (chunk : Optional Any)
@@ -463,14 +463,14 @@ namespace WritableStreamDefaultWriter
 --------------------------------------------------------------------------------
 
 namespace GenericTransformStream
-  
+
   export
   readable :  (0 _ : JSType t1)
            => {auto 0 _ : Elem GenericTransformStream (Types t1)}
            -> (obj : t1)
            -> JSIO ReadableStream
   readable a = primJS $ GenericTransformStream.prim__readable (up a)
-  
+
   export
   writable :  (0 _ : JSType t1)
            => {auto 0 _ : Elem GenericTransformStream (Types t1)}
@@ -480,14 +480,14 @@ namespace GenericTransformStream
 
 
 namespace ReadableStreamGenericReader
-  
+
   export
   closed :  (0 _ : JSType t1)
          => {auto 0 _ : Elem ReadableStreamGenericReader (Types t1)}
          -> (obj : t1)
          -> JSIO (Promise Undefined)
   closed a = primJS $ ReadableStreamGenericReader.prim__closed (up a)
-  
+
   export
   cancel :  (0 _ : JSType t1)
          => {auto 0 _ : Elem ReadableStreamGenericReader (Types t1)}
@@ -511,7 +511,7 @@ namespace ReadableStreamGenericReader
 --------------------------------------------------------------------------------
 
 namespace QueuingStrategy
-  
+
   export
   new :  (highWaterMark : Optional Double)
       -> (size : Optional QueuingStrategySize)
@@ -521,7 +521,7 @@ namespace QueuingStrategy
   export
   new' : JSIO QueuingStrategy
   new' = primJS $ QueuingStrategy.prim__new undef undef
-  
+
   export
   highWaterMark :  (0 _ : JSType t)
                 => {auto 0 _ : Elem QueuingStrategy (Types t)}
@@ -531,7 +531,7 @@ namespace QueuingStrategy
                                              prim__highWaterMark
                                              prim__setHighWaterMark
                                              (v :> QueuingStrategy)
-  
+
   export
   size :  (0 _ : JSType t)
        => {auto 0 _ : Elem QueuingStrategy (Types t)}
@@ -544,11 +544,11 @@ namespace QueuingStrategy
 
 
 namespace QueuingStrategyInit
-  
+
   export
   new : (highWaterMark : Double) -> JSIO QueuingStrategyInit
   new a = primJS $ QueuingStrategyInit.prim__new a
-  
+
   export
   highWaterMark :  (0 _ : JSType t)
                 => {auto 0 _ : Elem QueuingStrategyInit (Types t)}
@@ -561,7 +561,7 @@ namespace QueuingStrategyInit
 
 
 namespace ReadableStreamBYOBReadResult
-  
+
   export
   new :  (value : Optional (NS I [ Int8Array
                                  , Int16Array
@@ -581,7 +581,7 @@ namespace ReadableStreamBYOBReadResult
   export
   new' : JSIO ReadableStreamBYOBReadResult
   new' = primJS $ ReadableStreamBYOBReadResult.prim__new undef undef
-  
+
   export
   done :  (0 _ : JSType t)
        => {auto 0 _ : Elem ReadableStreamBYOBReadResult (Types t)}
@@ -591,7 +591,7 @@ namespace ReadableStreamBYOBReadResult
                                     prim__done
                                     prim__setDone
                                     (v :> ReadableStreamBYOBReadResult)
-  
+
   export
   value :  (0 _ : JSType t)
         => {auto 0 _ : Elem ReadableStreamBYOBReadResult (Types t)}
@@ -613,7 +613,7 @@ namespace ReadableStreamBYOBReadResult
 
 
 namespace ReadableStreamDefaultReadResult
-  
+
   export
   new :  (value : Optional Any)
       -> (done : Optional Bool)
@@ -624,7 +624,7 @@ namespace ReadableStreamDefaultReadResult
   export
   new' : JSIO ReadableStreamDefaultReadResult
   new' = primJS $ ReadableStreamDefaultReadResult.prim__new undef undef
-  
+
   export
   done :  (0 _ : JSType t)
        => {auto 0 _ : Elem ReadableStreamDefaultReadResult (Types t)}
@@ -634,7 +634,7 @@ namespace ReadableStreamDefaultReadResult
                                     prim__done
                                     prim__setDone
                                     (v :> ReadableStreamDefaultReadResult)
-  
+
   export
   value :  (0 _ : JSType t)
         => {auto 0 _ : Elem ReadableStreamDefaultReadResult (Types t)}
@@ -647,7 +647,7 @@ namespace ReadableStreamDefaultReadResult
 
 
 namespace ReadableStreamGetReaderOptions
-  
+
   export
   new :  (mode : Optional ReadableStreamReaderMode)
       -> JSIO ReadableStreamGetReaderOptions
@@ -656,7 +656,7 @@ namespace ReadableStreamGetReaderOptions
   export
   new' : JSIO ReadableStreamGetReaderOptions
   new' = primJS $ ReadableStreamGetReaderOptions.prim__new undef
-  
+
   export
   mode :  (0 _ : JSType t)
        => {auto 0 _ : Elem ReadableStreamGetReaderOptions (Types t)}
@@ -669,7 +669,7 @@ namespace ReadableStreamGetReaderOptions
 
 
 namespace ReadableStreamIteratorOptions
-  
+
   export
   new : (preventCancel : Optional Bool) -> JSIO ReadableStreamIteratorOptions
   new a = primJS $ ReadableStreamIteratorOptions.prim__new (toFFI a)
@@ -677,7 +677,7 @@ namespace ReadableStreamIteratorOptions
   export
   new' : JSIO ReadableStreamIteratorOptions
   new' = primJS $ ReadableStreamIteratorOptions.prim__new undef
-  
+
   export
   preventCancel :  (0 _ : JSType t)
                 => {auto 0 _ : Elem ReadableStreamIteratorOptions (Types t)}
@@ -691,13 +691,13 @@ namespace ReadableStreamIteratorOptions
 
 
 namespace ReadableWritablePair
-  
+
   export
   new :  (readable : ReadableStream)
       -> (writable : WritableStream)
       -> JSIO ReadableWritablePair
   new a b = primJS $ ReadableWritablePair.prim__new a b
-  
+
   export
   readable :  (0 _ : JSType t)
            => {auto 0 _ : Elem ReadableWritablePair (Types t)}
@@ -707,7 +707,7 @@ namespace ReadableWritablePair
                         prim__readable
                         prim__setReadable
                         (v :> ReadableWritablePair)
-  
+
   export
   writable :  (0 _ : JSType t)
            => {auto 0 _ : Elem ReadableWritablePair (Types t)}
@@ -720,7 +720,7 @@ namespace ReadableWritablePair
 
 
 namespace StreamPipeOptions
-  
+
   export
   new :  (preventClose : Optional Bool)
       -> (preventAbort : Optional Bool)
@@ -736,7 +736,7 @@ namespace StreamPipeOptions
   export
   new' : JSIO StreamPipeOptions
   new' = primJS $ StreamPipeOptions.prim__new undef undef undef undef
-  
+
   export
   preventAbort :  (0 _ : JSType t)
                => {auto 0 _ : Elem StreamPipeOptions (Types t)}
@@ -747,7 +747,7 @@ namespace StreamPipeOptions
                                    prim__setPreventAbort
                                    False
                                    (v :> StreamPipeOptions)
-  
+
   export
   preventCancel :  (0 _ : JSType t)
                 => {auto 0 _ : Elem StreamPipeOptions (Types t)}
@@ -758,7 +758,7 @@ namespace StreamPipeOptions
                                     prim__setPreventCancel
                                     False
                                     (v :> StreamPipeOptions)
-  
+
   export
   preventClose :  (0 _ : JSType t)
                => {auto 0 _ : Elem StreamPipeOptions (Types t)}
@@ -769,7 +769,7 @@ namespace StreamPipeOptions
                                    prim__setPreventClose
                                    False
                                    (v :> StreamPipeOptions)
-  
+
   export
   signal :  (0 _ : JSType t)
          => {auto 0 _ : Elem StreamPipeOptions (Types t)}
@@ -782,7 +782,7 @@ namespace StreamPipeOptions
 
 
 namespace Transformer
-  
+
   export
   new :  (start : Optional TransformerStartCallback)
       -> (transform : Optional TransformerTransformCallback)
@@ -800,7 +800,7 @@ namespace Transformer
   export
   new' : JSIO Transformer
   new' = primJS $ Transformer.prim__new undef undef undef undef undef
-  
+
   export
   flush :  (0 _ : JSType t)
         => {auto 0 _ : Elem Transformer (Types t)}
@@ -810,7 +810,7 @@ namespace Transformer
                                      prim__flush
                                      prim__setFlush
                                      (v :> Transformer)
-  
+
   export
   readableType :  (0 _ : JSType t)
                => {auto 0 _ : Elem Transformer (Types t)}
@@ -820,7 +820,7 @@ namespace Transformer
                                             prim__readableType
                                             prim__setReadableType
                                             (v :> Transformer)
-  
+
   export
   start :  (0 _ : JSType t)
         => {auto 0 _ : Elem Transformer (Types t)}
@@ -830,7 +830,7 @@ namespace Transformer
                                      prim__start
                                      prim__setStart
                                      (v :> Transformer)
-  
+
   export
   transform :  (0 _ : JSType t)
             => {auto 0 _ : Elem Transformer (Types t)}
@@ -840,7 +840,7 @@ namespace Transformer
                                          prim__transform
                                          prim__setTransform
                                          (v :> Transformer)
-  
+
   export
   writableType :  (0 _ : JSType t)
                => {auto 0 _ : Elem Transformer (Types t)}
@@ -853,7 +853,7 @@ namespace Transformer
 
 
 namespace UnderlyingSink
-  
+
   export
   new :  (start : Optional UnderlyingSinkStartCallback)
       -> (write : Optional UnderlyingSinkWriteCallback)
@@ -871,7 +871,7 @@ namespace UnderlyingSink
   export
   new' : JSIO UnderlyingSink
   new' = primJS $ UnderlyingSink.prim__new undef undef undef undef undef
-  
+
   export
   abort :  (0 _ : JSType t)
         => {auto 0 _ : Elem UnderlyingSink (Types t)}
@@ -881,7 +881,7 @@ namespace UnderlyingSink
                                      prim__abort
                                      prim__setAbort
                                      (v :> UnderlyingSink)
-  
+
   export
   close :  (0 _ : JSType t)
         => {auto 0 _ : Elem UnderlyingSink (Types t)}
@@ -891,7 +891,7 @@ namespace UnderlyingSink
                                      prim__close
                                      prim__setClose
                                      (v :> UnderlyingSink)
-  
+
   export
   start :  (0 _ : JSType t)
         => {auto 0 _ : Elem UnderlyingSink (Types t)}
@@ -901,7 +901,7 @@ namespace UnderlyingSink
                                      prim__start
                                      prim__setStart
                                      (v :> UnderlyingSink)
-  
+
   export
   type :  (0 _ : JSType t)
        => {auto 0 _ : Elem UnderlyingSink (Types t)}
@@ -911,7 +911,7 @@ namespace UnderlyingSink
                                     prim__type
                                     prim__setType
                                     (v :> UnderlyingSink)
-  
+
   export
   write :  (0 _ : JSType t)
         => {auto 0 _ : Elem UnderlyingSink (Types t)}
@@ -924,7 +924,7 @@ namespace UnderlyingSink
 
 
 namespace UnderlyingSource
-  
+
   export
   new :  (start : Optional UnderlyingSourceStartCallback)
       -> (pull : Optional UnderlyingSourcePullCallback)
@@ -942,7 +942,7 @@ namespace UnderlyingSource
   export
   new' : JSIO UnderlyingSource
   new' = primJS $ UnderlyingSource.prim__new undef undef undef undef undef
-  
+
   export
   autoAllocateChunkSize :  (0 _ : JSType t)
                         => {auto 0 _ : Elem UnderlyingSource (Types t)}
@@ -952,7 +952,7 @@ namespace UnderlyingSource
                                                      prim__autoAllocateChunkSize
                                                      prim__setAutoAllocateChunkSize
                                                      (v :> UnderlyingSource)
-  
+
   export
   cancel :  (0 _ : JSType t)
          => {auto 0 _ : Elem UnderlyingSource (Types t)}
@@ -962,7 +962,7 @@ namespace UnderlyingSource
                                       prim__cancel
                                       prim__setCancel
                                       (v :> UnderlyingSource)
-  
+
   export
   pull :  (0 _ : JSType t)
        => {auto 0 _ : Elem UnderlyingSource (Types t)}
@@ -972,7 +972,7 @@ namespace UnderlyingSource
                                     prim__pull
                                     prim__setPull
                                     (v :> UnderlyingSource)
-  
+
   export
   start :  (0 _ : JSType t)
         => {auto 0 _ : Elem UnderlyingSource (Types t)}
@@ -982,7 +982,7 @@ namespace UnderlyingSource
                                      prim__start
                                      prim__setStart
                                      (v :> UnderlyingSource)
-  
+
   export
   type :  (0 _ : JSType t)
        => {auto 0 _ : Elem UnderlyingSource (Types t)}
@@ -1000,7 +1000,7 @@ namespace UnderlyingSource
 --------------------------------------------------------------------------------
 
 namespace QueuingStrategySize
-  
+
   export
   toQueuingStrategySize :  ( UndefOr AnyPtr -> IO Double )
                         -> JSIO QueuingStrategySize
@@ -1008,7 +1008,7 @@ namespace QueuingStrategySize
 
 
 namespace TransformerFlushCallback
-  
+
   export
   toTransformerFlushCallback :  (  TransformStreamDefaultController
                                 -> IO (Promise Undefined)
@@ -1018,7 +1018,7 @@ namespace TransformerFlushCallback
 
 
 namespace TransformerStartCallback
-  
+
   export
   toTransformerStartCallback :  (  TransformStreamDefaultController
                                 -> IO AnyPtr
@@ -1028,7 +1028,7 @@ namespace TransformerStartCallback
 
 
 namespace TransformerTransformCallback
-  
+
   export
   toTransformerTransformCallback :  (  AnyPtr
                                     -> TransformStreamDefaultController
@@ -1039,7 +1039,7 @@ namespace TransformerTransformCallback
 
 
 namespace UnderlyingSinkAbortCallback
-  
+
   export
   toUnderlyingSinkAbortCallback :  ( UndefOr AnyPtr -> IO (Promise Undefined) )
                                 -> JSIO UnderlyingSinkAbortCallback
@@ -1047,7 +1047,7 @@ namespace UnderlyingSinkAbortCallback
 
 
 namespace UnderlyingSinkCloseCallback
-  
+
   export
   toUnderlyingSinkCloseCallback :  (() -> IO (Promise Undefined))
                                 -> JSIO UnderlyingSinkCloseCallback
@@ -1055,7 +1055,7 @@ namespace UnderlyingSinkCloseCallback
 
 
 namespace UnderlyingSinkStartCallback
-  
+
   export
   toUnderlyingSinkStartCallback :  (  WritableStreamDefaultController
                                    -> IO AnyPtr
@@ -1065,7 +1065,7 @@ namespace UnderlyingSinkStartCallback
 
 
 namespace UnderlyingSinkWriteCallback
-  
+
   export
   toUnderlyingSinkWriteCallback :  (  AnyPtr
                                    -> WritableStreamDefaultController
@@ -1076,7 +1076,7 @@ namespace UnderlyingSinkWriteCallback
 
 
 namespace UnderlyingSourceCancelCallback
-  
+
   export
   toUnderlyingSourceCancelCallback :  (  UndefOr AnyPtr
                                       -> IO (Promise Undefined)
@@ -1086,7 +1086,7 @@ namespace UnderlyingSourceCancelCallback
 
 
 namespace UnderlyingSourcePullCallback
-  
+
   export
   toUnderlyingSourcePullCallback :  (  Union2 ReadableStreamDefaultController
                                               ReadableByteStreamController
@@ -1097,7 +1097,7 @@ namespace UnderlyingSourcePullCallback
 
 
 namespace UnderlyingSourceStartCallback
-  
+
   export
   toUnderlyingSourceStartCallback :  (  Union2 ReadableStreamDefaultController
                                                ReadableByteStreamController
@@ -1105,4 +1105,3 @@ namespace UnderlyingSourceStartCallback
                                      )
                                   -> JSIO UnderlyingSourceStartCallback
   toUnderlyingSourceStartCallback cb = primJS $ prim__toUnderlyingSourceStartCallback cb
-

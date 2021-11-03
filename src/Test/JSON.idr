@@ -26,7 +26,7 @@ roundTrip g = property $ do v <- forAll g
 export
 [FastNatEq] Eq Nat where
   (==) = (==) `on` natToInteger
-  
+
 ||| The default Ord for Nat runs in O(n), which leads to stack overflows
 ||| for large Nats
 export

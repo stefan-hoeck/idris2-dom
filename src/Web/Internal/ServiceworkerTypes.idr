@@ -10,7 +10,7 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace ServiceWorkerState
-  
+
   public export
   data ServiceWorkerState = Parsed
                           | Installing
@@ -61,7 +61,7 @@ namespace ServiceWorkerState
     fromFFI = read
 
 namespace ServiceWorkerUpdateViaCache
-  
+
   public export
   data ServiceWorkerUpdateViaCache = Imports | All | None
 
@@ -101,7 +101,7 @@ namespace ServiceWorkerUpdateViaCache
     fromFFI = read
 
 namespace FrameType
-  
+
   public export
   data FrameType = Auxiliary | TopLevel | Nested | None
 
@@ -143,7 +143,7 @@ namespace FrameType
     fromFFI = read
 
 namespace ClientType
-  
+
   public export
   data ClientType = Window | Worker | Sharedworker | All
 
@@ -413,6 +413,3 @@ ToFFI RegistrationOptions RegistrationOptions where toFFI = id
 
 export
 FromFFI RegistrationOptions RegistrationOptions where fromFFI = Just
-
-
-
