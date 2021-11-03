@@ -72,10 +72,6 @@ jobs:
           name: dependencies-for-${{ matrix.idris-version }}
           path: /root/.idris2/idris2-*/${{ matrix.lib }}*
           if-no-files-found: error
-      - name: Install NodeJS
-        run: |
-          apt-get update
-          apt-get install -y nodejs
 
   build:
     name: Build ${{ github.repository }} with ${{ matrix.idris-version }}
@@ -103,4 +99,7 @@ jobs:
       - name: Build docs
         run: make docs
       - name: Build test
-        run: make test
+        run: |
+          apt-get update
+          apt-get install -y nodejs
+          make test
