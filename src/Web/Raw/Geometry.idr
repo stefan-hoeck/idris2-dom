@@ -1,5 +1,5 @@
 module Web.Raw.Geometry
- 
+
 import JS
 import Web.Internal.GeometryPrim
 import Web.Internal.Types

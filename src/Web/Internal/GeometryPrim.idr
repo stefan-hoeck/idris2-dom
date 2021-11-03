@@ -1,8 +1,8 @@
 module Web.Internal.GeometryPrim
- 
+
 import JS
 import Web.Internal.Types
- 
+
 
 --------------------------------------------------------------------------------
 --          Interfaces

@@ -1,5 +1,5 @@
 module Web.Raw.Clipboard
- 
+
 import JS
 import Web.Internal.ClipboardPrim
 import Web.Internal.Types

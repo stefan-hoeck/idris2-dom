@@ -1,5 +1,5 @@
 module Web.Raw.Webgl
- 
+
 import JS
 import Web.Internal.WebglPrim
 import Web.Internal.Types

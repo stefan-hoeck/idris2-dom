@@ -1,8 +1,8 @@
 module Web.Internal.SvgPrim
- 
+
 import JS
 import Web.Internal.Types
- 
+
 
 --------------------------------------------------------------------------------
 --          Interfaces

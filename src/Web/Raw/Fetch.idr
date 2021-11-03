@@ -1,5 +1,5 @@
 module Web.Raw.Fetch
- 
+
 import JS
 import Web.Internal.FetchPrim
 import Web.Internal.Types

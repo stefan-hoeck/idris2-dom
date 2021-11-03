@@ -1,5 +1,5 @@
 module Web.Internal.MediasourceTypes
- 
+
 import JS
 
 --------------------------------------------------------------------------------
@@ -128,10 +128,10 @@ namespace AppendMode
 --------------------------------------------------------------------------------
 
 export data MediaSource : Type where [external]
-  
+
 export
 ToFFI MediaSource MediaSource where toFFI = id
-  
+
 export
 FromFFI MediaSource MediaSource where fromFFI = Just
 
@@ -140,10 +140,10 @@ SafeCast MediaSource where
   safeCast = unsafeCastOnPrototypeName "MediaSource"
 
 export data SourceBuffer : Type where [external]
-  
+
 export
 ToFFI SourceBuffer SourceBuffer where toFFI = id
-  
+
 export
 FromFFI SourceBuffer SourceBuffer where fromFFI = Just
 
@@ -152,10 +152,10 @@ SafeCast SourceBuffer where
   safeCast = unsafeCastOnPrototypeName "SourceBuffer"
 
 export data SourceBufferList : Type where [external]
-  
+
 export
 ToFFI SourceBufferList SourceBufferList where toFFI = id
-  
+
 export
 FromFFI SourceBufferList SourceBufferList where fromFFI = Just
 

@@ -1,5 +1,5 @@
 module Web.Raw.Dom
- 
+
 import JS
 import Web.Internal.DomPrim
 import Web.Internal.Types

@@ -1,5 +1,5 @@
 module Web.Raw.Xhr
- 
+
 import JS
 import Web.Internal.XhrPrim
 import Web.Internal.Types

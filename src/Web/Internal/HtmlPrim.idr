@@ -1,8 +1,8 @@
 module Web.Internal.HtmlPrim
- 
+
 import JS
 import Web.Internal.Types
- 
+
 
 --------------------------------------------------------------------------------
 --          Interfaces

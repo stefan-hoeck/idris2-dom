@@ -1,5 +1,5 @@
 module Web.Raw.Serviceworker
- 
+
 import JS
 import Web.Internal.ServiceworkerPrim
 import Web.Internal.Types

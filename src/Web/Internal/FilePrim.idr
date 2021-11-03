@@ -1,8 +1,8 @@
 module Web.Internal.FilePrim
- 
+
 import JS
 import Web.Internal.Types
- 
+
 
 --------------------------------------------------------------------------------
 --          Interfaces

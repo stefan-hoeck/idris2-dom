@@ -1,8 +1,8 @@
 module Web.Internal.ServiceworkerPrim
- 
+
 import JS
 import Web.Internal.Types
- 
+
 
 --------------------------------------------------------------------------------
 --          Interfaces

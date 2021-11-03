@@ -1,5 +1,5 @@
 module Web.Raw.Url
- 
+
 import JS
 import Web.Internal.UrlPrim
 import Web.Internal.Types

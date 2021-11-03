@@ -1,5 +1,5 @@
 module Web.Internal.FetchTypes
- 
+
 import JS
 
 --------------------------------------------------------------------------------
@@ -384,10 +384,10 @@ namespace ReferrerPolicy
 --------------------------------------------------------------------------------
 
 export data Headers : Type where [external]
-  
+
 export
 ToFFI Headers Headers where toFFI = id
-  
+
 export
 FromFFI Headers Headers where fromFFI = Just
 
@@ -396,10 +396,10 @@ SafeCast Headers where
   safeCast = unsafeCastOnPrototypeName "Headers"
 
 export data Request : Type where [external]
-  
+
 export
 ToFFI Request Request where toFFI = id
-  
+
 export
 FromFFI Request Request where fromFFI = Just
 
@@ -408,10 +408,10 @@ SafeCast Request where
   safeCast = unsafeCastOnPrototypeName "Request"
 
 export data Response : Type where [external]
-  
+
 export
 ToFFI Response Response where toFFI = id
-  
+
 export
 FromFFI Response Response where fromFFI = Just
 
@@ -425,18 +425,18 @@ SafeCast Response where
 --------------------------------------------------------------------------------
 
 export data RequestInit : Type where [external]
-  
+
 export
 ToFFI RequestInit RequestInit where toFFI = id
-  
+
 export
 FromFFI RequestInit RequestInit where fromFFI = Just
 
 export data ResponseInit : Type where [external]
-  
+
 export
 ToFFI ResponseInit ResponseInit where toFFI = id
-  
+
 export
 FromFFI ResponseInit ResponseInit where fromFFI = Just
 
@@ -446,10 +446,10 @@ FromFFI ResponseInit ResponseInit where fromFFI = Just
 --------------------------------------------------------------------------------
 
 export data Body : Type where [external]
-  
+
 export
 ToFFI Body Body where toFFI = id
-  
+
 export
 FromFFI Body Body where fromFFI = Just
 

@@ -1,5 +1,5 @@
 module Web.Raw.Html
- 
+
 import JS
 import Web.Internal.HtmlPrim
 import Web.Internal.Types

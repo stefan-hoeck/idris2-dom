@@ -1,8 +1,8 @@
 module Web.Internal.WebglPrim
- 
+
 import JS
 import Web.Internal.Types
- 
+
 
 --------------------------------------------------------------------------------
 --          Interfaces

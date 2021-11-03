@@ -1,5 +1,5 @@
 module Web.Raw.Permissions
- 
+
 import JS
 import Web.Internal.PermissionsPrim
 import Web.Internal.Types

@@ -1,5 +1,5 @@
 module Web.Raw.Webidl
- 
+
 import JS
 import Web.Internal.WebidlPrim
 import Web.Internal.Types

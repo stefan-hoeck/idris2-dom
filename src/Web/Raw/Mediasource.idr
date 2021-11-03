@@ -1,5 +1,5 @@
 module Web.Raw.Mediasource
- 
+
 import JS
 import Web.Internal.MediasourcePrim
 import Web.Internal.Types

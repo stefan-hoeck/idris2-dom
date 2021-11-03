@@ -1,8 +1,8 @@
 module Web.Internal.DomPrim
- 
+
 import JS
 import Web.Internal.Types
- 
+
 
 --------------------------------------------------------------------------------
 --          Interfaces

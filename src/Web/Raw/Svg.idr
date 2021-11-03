@@ -1,5 +1,5 @@
 module Web.Raw.Svg
- 
+
 import JS
 import Web.Internal.SvgPrim
 import Web.Internal.Types

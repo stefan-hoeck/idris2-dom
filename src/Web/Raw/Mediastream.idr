@@ -1,5 +1,5 @@
 module Web.Raw.Mediastream
- 
+
 import JS
 import Web.Internal.MediastreamPrim
 import Web.Internal.Types

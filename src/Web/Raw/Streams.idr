@@ -1,5 +1,5 @@
 module Web.Raw.Streams
- 
+
 import JS
 import Web.Internal.StreamsPrim
 import Web.Internal.Types

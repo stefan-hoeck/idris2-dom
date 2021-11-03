@@ -1,5 +1,5 @@
 module Web.Raw.Animation
- 
+
 import JS
 import Web.Internal.AnimationPrim
 import Web.Internal.Types

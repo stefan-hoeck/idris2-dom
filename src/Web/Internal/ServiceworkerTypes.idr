@@ -1,5 +1,5 @@
 module Web.Internal.ServiceworkerTypes
- 
+
 import JS
 
 --------------------------------------------------------------------------------
@@ -187,10 +187,10 @@ namespace ClientType
 --------------------------------------------------------------------------------
 
 export data Cache : Type where [external]
-  
+
 export
 ToFFI Cache Cache where toFFI = id
-  
+
 export
 FromFFI Cache Cache where fromFFI = Just
 
@@ -199,10 +199,10 @@ SafeCast Cache where
   safeCast = unsafeCastOnPrototypeName "Cache"
 
 export data CacheStorage : Type where [external]
-  
+
 export
 ToFFI CacheStorage CacheStorage where toFFI = id
-  
+
 export
 FromFFI CacheStorage CacheStorage where fromFFI = Just
 
@@ -211,10 +211,10 @@ SafeCast CacheStorage where
   safeCast = unsafeCastOnPrototypeName "CacheStorage"
 
 export data Client : Type where [external]
-  
+
 export
 ToFFI Client Client where toFFI = id
-  
+
 export
 FromFFI Client Client where fromFFI = Just
 
@@ -223,10 +223,10 @@ SafeCast Client where
   safeCast = unsafeCastOnPrototypeName "Client"
 
 export data Clients : Type where [external]
-  
+
 export
 ToFFI Clients Clients where toFFI = id
-  
+
 export
 FromFFI Clients Clients where fromFFI = Just
 
@@ -235,10 +235,10 @@ SafeCast Clients where
   safeCast = unsafeCastOnPrototypeName "Clients"
 
 export data ExtendableEvent : Type where [external]
-  
+
 export
 ToFFI ExtendableEvent ExtendableEvent where toFFI = id
-  
+
 export
 FromFFI ExtendableEvent ExtendableEvent where fromFFI = Just
 
@@ -247,10 +247,10 @@ SafeCast ExtendableEvent where
   safeCast = unsafeCastOnPrototypeName "ExtendableEvent"
 
 export data ExtendableMessageEvent : Type where [external]
-  
+
 export
 ToFFI ExtendableMessageEvent ExtendableMessageEvent where toFFI = id
-  
+
 export
 FromFFI ExtendableMessageEvent ExtendableMessageEvent where fromFFI = Just
 
@@ -259,10 +259,10 @@ SafeCast ExtendableMessageEvent where
   safeCast = unsafeCastOnPrototypeName "ExtendableMessageEvent"
 
 export data FetchEvent : Type where [external]
-  
+
 export
 ToFFI FetchEvent FetchEvent where toFFI = id
-  
+
 export
 FromFFI FetchEvent FetchEvent where fromFFI = Just
 
@@ -271,10 +271,10 @@ SafeCast FetchEvent where
   safeCast = unsafeCastOnPrototypeName "FetchEvent"
 
 export data NavigationPreloadManager : Type where [external]
-  
+
 export
 ToFFI NavigationPreloadManager NavigationPreloadManager where toFFI = id
-  
+
 export
 FromFFI NavigationPreloadManager NavigationPreloadManager where fromFFI = Just
 
@@ -283,10 +283,10 @@ SafeCast NavigationPreloadManager where
   safeCast = unsafeCastOnPrototypeName "NavigationPreloadManager"
 
 export data ServiceWorker : Type where [external]
-  
+
 export
 ToFFI ServiceWorker ServiceWorker where toFFI = id
-  
+
 export
 FromFFI ServiceWorker ServiceWorker where fromFFI = Just
 
@@ -295,10 +295,10 @@ SafeCast ServiceWorker where
   safeCast = unsafeCastOnPrototypeName "ServiceWorker"
 
 export data ServiceWorkerContainer : Type where [external]
-  
+
 export
 ToFFI ServiceWorkerContainer ServiceWorkerContainer where toFFI = id
-  
+
 export
 FromFFI ServiceWorkerContainer ServiceWorkerContainer where fromFFI = Just
 
@@ -307,10 +307,10 @@ SafeCast ServiceWorkerContainer where
   safeCast = unsafeCastOnPrototypeName "ServiceWorkerContainer"
 
 export data ServiceWorkerGlobalScope : Type where [external]
-  
+
 export
 ToFFI ServiceWorkerGlobalScope ServiceWorkerGlobalScope where toFFI = id
-  
+
 export
 FromFFI ServiceWorkerGlobalScope ServiceWorkerGlobalScope where fromFFI = Just
 
@@ -319,10 +319,10 @@ SafeCast ServiceWorkerGlobalScope where
   safeCast = unsafeCastOnPrototypeName "ServiceWorkerGlobalScope"
 
 export data ServiceWorkerRegistration : Type where [external]
-  
+
 export
 ToFFI ServiceWorkerRegistration ServiceWorkerRegistration where toFFI = id
-  
+
 export
 FromFFI ServiceWorkerRegistration ServiceWorkerRegistration where fromFFI = Just
 
@@ -331,10 +331,10 @@ SafeCast ServiceWorkerRegistration where
   safeCast = unsafeCastOnPrototypeName "ServiceWorkerRegistration"
 
 export data WindowClient : Type where [external]
-  
+
 export
 ToFFI WindowClient WindowClient where toFFI = id
-  
+
 export
 FromFFI WindowClient WindowClient where fromFFI = Just
 
@@ -348,66 +348,66 @@ SafeCast WindowClient where
 --------------------------------------------------------------------------------
 
 export data CacheQueryOptions : Type where [external]
-  
+
 export
 ToFFI CacheQueryOptions CacheQueryOptions where toFFI = id
-  
+
 export
 FromFFI CacheQueryOptions CacheQueryOptions where fromFFI = Just
 
 export data ClientQueryOptions : Type where [external]
-  
+
 export
 ToFFI ClientQueryOptions ClientQueryOptions where toFFI = id
-  
+
 export
 FromFFI ClientQueryOptions ClientQueryOptions where fromFFI = Just
 
 export data ExtendableEventInit : Type where [external]
-  
+
 export
 ToFFI ExtendableEventInit ExtendableEventInit where toFFI = id
-  
+
 export
 FromFFI ExtendableEventInit ExtendableEventInit where fromFFI = Just
 
 export data ExtendableMessageEventInit : Type where [external]
-  
+
 export
 ToFFI ExtendableMessageEventInit ExtendableMessageEventInit where toFFI = id
-  
+
 export
 FromFFI ExtendableMessageEventInit ExtendableMessageEventInit where fromFFI = Just
 
 export data FetchEventInit : Type where [external]
-  
+
 export
 ToFFI FetchEventInit FetchEventInit where toFFI = id
-  
+
 export
 FromFFI FetchEventInit FetchEventInit where fromFFI = Just
 
 export data MultiCacheQueryOptions : Type where [external]
-  
+
 export
 ToFFI MultiCacheQueryOptions MultiCacheQueryOptions where toFFI = id
-  
+
 export
 FromFFI MultiCacheQueryOptions MultiCacheQueryOptions where fromFFI = Just
 
 export data NavigationPreloadState : Type where [external]
-  
+
 export
 ToFFI NavigationPreloadState NavigationPreloadState where toFFI = id
-  
+
 export
 FromFFI NavigationPreloadState NavigationPreloadState where fromFFI = Just
 
 export data RegistrationOptions : Type where [external]
-  
+
 export
 ToFFI RegistrationOptions RegistrationOptions where toFFI = id
-  
+
 export
 FromFFI RegistrationOptions RegistrationOptions where fromFFI = Just
 

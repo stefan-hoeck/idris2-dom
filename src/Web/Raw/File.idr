@@ -1,5 +1,5 @@
 module Web.Raw.File
- 
+
 import JS
 import Web.Internal.FilePrim
 import Web.Internal.Types

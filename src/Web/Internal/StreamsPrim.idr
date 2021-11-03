@@ -1,8 +1,8 @@
 module Web.Internal.StreamsPrim
- 
+
 import JS
 import Web.Internal.Types
- 
+
 
 --------------------------------------------------------------------------------
 --          Interfaces

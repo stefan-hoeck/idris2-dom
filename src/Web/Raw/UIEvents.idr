@@ -1,5 +1,5 @@
 module Web.Raw.UIEvents
- 
+
 import JS
 import Web.Internal.UIEventsPrim
 import Web.Internal.Types

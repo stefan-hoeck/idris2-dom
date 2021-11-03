@@ -1,5 +1,5 @@
 module Web.Internal.PermissionsTypes
- 
+
 import JS
 
 --------------------------------------------------------------------------------
@@ -145,10 +145,10 @@ namespace PermissionName
 --------------------------------------------------------------------------------
 
 export data PermissionStatus : Type where [external]
-  
+
 export
 ToFFI PermissionStatus PermissionStatus where toFFI = id
-  
+
 export
 FromFFI PermissionStatus PermissionStatus where fromFFI = Just
 
@@ -157,10 +157,10 @@ SafeCast PermissionStatus where
   safeCast = unsafeCastOnPrototypeName "PermissionStatus"
 
 export data Permissions : Type where [external]
-  
+
 export
 ToFFI Permissions Permissions where toFFI = id
-  
+
 export
 FromFFI Permissions Permissions where fromFFI = Just
 
@@ -174,50 +174,50 @@ SafeCast Permissions where
 --------------------------------------------------------------------------------
 
 export data CameraDevicePermissionDescriptor : Type where [external]
-  
+
 export
 ToFFI CameraDevicePermissionDescriptor CameraDevicePermissionDescriptor where toFFI = id
-  
+
 export
 FromFFI CameraDevicePermissionDescriptor CameraDevicePermissionDescriptor where fromFFI = Just
 
 export data DevicePermissionDescriptor : Type where [external]
-  
+
 export
 ToFFI DevicePermissionDescriptor DevicePermissionDescriptor where toFFI = id
-  
+
 export
 FromFFI DevicePermissionDescriptor DevicePermissionDescriptor where fromFFI = Just
 
 export data MidiPermissionDescriptor : Type where [external]
-  
+
 export
 ToFFI MidiPermissionDescriptor MidiPermissionDescriptor where toFFI = id
-  
+
 export
 FromFFI MidiPermissionDescriptor MidiPermissionDescriptor where fromFFI = Just
 
 export data PermissionDescriptor : Type where [external]
-  
+
 export
 ToFFI PermissionDescriptor PermissionDescriptor where toFFI = id
-  
+
 export
 FromFFI PermissionDescriptor PermissionDescriptor where fromFFI = Just
 
 export data PermissionSetParameters : Type where [external]
-  
+
 export
 ToFFI PermissionSetParameters PermissionSetParameters where toFFI = id
-  
+
 export
 FromFFI PermissionSetParameters PermissionSetParameters where fromFFI = Just
 
 export data PushPermissionDescriptor : Type where [external]
-  
+
 export
 ToFFI PushPermissionDescriptor PushPermissionDescriptor where toFFI = id
-  
+
 export
 FromFFI PushPermissionDescriptor PushPermissionDescriptor where fromFFI = Just
 

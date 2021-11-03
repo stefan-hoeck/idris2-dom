@@ -1,8 +1,8 @@
 module Web.Internal.ClipboardPrim
- 
+
 import JS
 import Web.Internal.Types
- 
+
 
 --------------------------------------------------------------------------------
 --          Interfaces
