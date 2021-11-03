@@ -33,6 +33,8 @@ import JS.Undefined
 import JS.Util
 import JS.Buffer
 
+%default total
+
 --------------------------------------------------------------------------------
 --          Utilities
 --------------------------------------------------------------------------------
@@ -196,7 +198,7 @@ sameElements a1 a2 =
                Yes prf =>
                  read a1 (Element ix prf) ==
                    read a2 (Element ix (rewrite refl in prf)) &&
-                 run refl (ix+1)
+                 run refl (assert_smaller ix $ ix+1)
 
 export
 foldlArray :  IArrayLike arr el
@@ -204,7 +206,7 @@ foldlArray :  IArrayLike arr el
 foldlArray f ini arr = run 0 ini
   where run : Bits32 -> acc -> acc
         run n res = case readMaybe arr n of
-                         Just el => run (n+1) (f res el)
+                         Just el => run (assert_smaller n $ n+1) (f res el)
                          Nothing => res
 
 export
@@ -213,7 +215,7 @@ foldrArray :  IArrayLike arr el
 foldrArray f ini arr = run 0
   where run : Bits32 -> acc
         run n = case readMaybe arr n of
-                     Just el => f el $ run (n+1)
+                     Just el => f el $ run (assert_smaller n $ n+1)
                      Nothing => ini
 
 export
@@ -352,7 +354,7 @@ iterate' sze f g = undefArray sze (run 0)
   where run : Bits32 -> (1 _ : LinArray sze a) -> b
         run n arr = case toIx sze n of
                          Nothing => g arr
-                         Just ix => run (n+1) (write arr ix (f ix))
+                         Just ix => run (assert_smaller n $ n+1) (write arr ix (f ix))
 
 export
 fromList' : (as : List a) -> ((1 _ : LinArray (len32 as) a) -> b) -> b
@@ -386,7 +388,7 @@ join' vss f = undefArray (totalSize {arr2} vss) (outer 0 0)
                -> LinArray (totalSize {arr2} vss) el
          inner n pos as la =
            case readMaybe as n of
-                Just v  => inner (n+1) pos as (unsafeWrite la (pos + n) v)
+                Just v  => inner (assert_smaller n $ n+1) pos as (unsafeWrite la (pos + n) v)
                 Nothing => la
 
          outer :  (n : Bits32)
@@ -395,7 +397,7 @@ join' vss f = undefArray (totalSize {arr2} vss) (outer 0 0)
                -> a
          outer n pos la =
            case readMaybe vss n of
-                Just v  => outer (n+1) (pos + size v) (inner 0 pos v la)
+                Just v  => outer (assert_smaller n $ n+1) (pos + size v) (inner 0 pos v la)
                 Nothing => f la
 
 --------------------------------------------------------------------------------
