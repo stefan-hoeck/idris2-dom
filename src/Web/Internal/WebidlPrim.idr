@@ -3,6 +3,8 @@ module Web.Internal.WebidlPrim
 import JS
 import Web.Internal.Types
 
+%default total
+
 
 --------------------------------------------------------------------------------
 --          Interfaces

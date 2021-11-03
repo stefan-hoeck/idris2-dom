@@ -3,6 +3,8 @@ module Web.Internal.UIEventsPrim
 import JS
 import Web.Internal.Types
 
+%default total
+
 
 --------------------------------------------------------------------------------
 --          Interfaces

@@ -3,6 +3,8 @@ module Web.Internal.FetchPrim
 import JS
 import Web.Internal.Types
 
+%default total
+
 
 --------------------------------------------------------------------------------
 --          Interfaces

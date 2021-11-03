@@ -3,6 +3,8 @@ module Web.Internal.PermissionsPrim
 import JS
 import Web.Internal.Types
 
+%default total
+
 
 --------------------------------------------------------------------------------
 --          Interfaces

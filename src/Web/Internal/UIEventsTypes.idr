@@ -2,6 +2,9 @@ module Web.Internal.UIEventsTypes
 
 import JS
 
+%default total
+
+
 
 --------------------------------------------------------------------------------
 --          Interfaces

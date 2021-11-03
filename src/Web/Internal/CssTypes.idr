@@ -2,6 +2,9 @@ module Web.Internal.CssTypes
 
 import JS
 
+%default total
+
+
 
 --------------------------------------------------------------------------------
 --          Interfaces

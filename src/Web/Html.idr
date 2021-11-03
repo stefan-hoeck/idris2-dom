@@ -4,6 +4,8 @@ import JS
 import public Web.Internal.Types
 import public Web.Raw.Html as Html
 
+%default total
+
 --------------------------------------------------------------------------------
 --          Callbacks
 --------------------------------------------------------------------------------

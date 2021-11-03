@@ -2,6 +2,9 @@ module Web.Internal.SvgTypes
 
 import JS
 
+%default total
+
+
 
 --------------------------------------------------------------------------------
 --          Interfaces

@@ -22,6 +22,8 @@ import public Web.Internal.WebglTypes as Types
 import public Web.Internal.WebidlTypes as Types
 import public Web.Internal.XhrTypes as Types
 
+%default total
+
 
 --------------------------------------------------------------------------------
 --          Inheritance

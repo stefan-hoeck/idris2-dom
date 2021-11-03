@@ -2,6 +2,9 @@ module Web.Internal.GeometryTypes
 
 import JS
 
+%default total
+
+
 
 --------------------------------------------------------------------------------
 --          Interfaces

@@ -2,6 +2,9 @@ module Web.Internal.WebidlTypes
 
 import JS
 
+%default total
+
+
 
 --------------------------------------------------------------------------------
 --          Interfaces

@@ -4,6 +4,9 @@ import JS
 import Web.Internal.ServiceworkerPrim
 import Web.Internal.Types
 
+%default total
+
+
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------

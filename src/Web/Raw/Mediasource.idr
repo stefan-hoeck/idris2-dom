@@ -4,6 +4,9 @@ import JS
 import Web.Internal.MediasourcePrim
 import Web.Internal.Types
 
+%default total
+
+
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
