@@ -75,7 +75,7 @@ jobs:
       - name: Install NodeJS
         run: |
           apt-get update
-          apt-get install nodejs
+          apt-get install -y nodejs
 
   build:
     name: Build ${{ github.repository }} with ${{ matrix.idris-version }}
