@@ -56,8 +56,6 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: stefan-hoeck/idris2-${{ matrix.lib }}
-      - name: Install NodeJS
-        uses: actions/setup-node@v2
       - name: Download already installed dependencies
         uses: actions/download-artifact@master
         with:
@@ -74,6 +72,10 @@ jobs:
           name: dependencies-for-${{ matrix.idris-version }}
           path: /root/.idris2/idris2-*/${{ matrix.lib }}*
           if-no-files-found: error
+      - name: Install NodeJS
+        run: |
+          sudo apt update
+          sudo apt install nodejs
 
   build:
     name: Build ${{ github.repository }} with ${{ matrix.idris-version }}
