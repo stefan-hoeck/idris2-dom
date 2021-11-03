@@ -89,6 +89,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Install NodeJS
+        uses: actions/setup-node@v2
       - name: Download installed dependencies
         uses: actions/download-artifact@master
         with:
