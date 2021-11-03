@@ -74,8 +74,8 @@ jobs:
           if-no-files-found: error
       - name: Install NodeJS
         run: |
-          sudo apt update
-          sudo apt install nodejs
+          apt-get update
+          apt-get install nodejs
 
   build:
     name: Build ${{ github.repository }} with ${{ matrix.idris-version }}
