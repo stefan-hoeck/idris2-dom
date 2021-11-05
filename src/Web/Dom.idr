@@ -293,7 +293,9 @@ namespace Alias
 public export
 data ElementType : (tag : String) -> (htmlElement : Type) -> Type where
   A          : ElementType "a" Anchor
+  Address    : ElementType "address" HTMLElement
   Area       : ElementType "area" Area
+  Article    : ElementType "article" HTMLElement
   Audio      : ElementType "audio" Audio
   Base       : ElementType "base" Base
   Blockquote : ElementType "blockquote" Quote
@@ -313,6 +315,7 @@ data ElementType : (tag : String) -> (htmlElement : Type) -> Type where
   Dl         : ElementType "dl" DList
   Embed      : ElementType "embed" Embed
   FieldSet   : ElementType "fieldset" FieldSet
+  Footer     : ElementType "footer" HTMLElement
   Form       : ElementType "form" Form
   H1         : ElementType "h1" Heading
   H2         : ElementType "h2" Heading
@@ -321,6 +324,7 @@ data ElementType : (tag : String) -> (htmlElement : Type) -> Type where
   H5         : ElementType "h5" Heading
   H6         : ElementType "h6" Heading
   HR         : ElementType "hr" HR
+  Header     : ElementType "header" HTMLElement
   Html       : ElementType "html" Html
   IFrame     : ElementType "iframe" IFrame
   Img        : ElementType "img" Image
@@ -346,7 +350,8 @@ data ElementType : (tag : String) -> (htmlElement : Type) -> Type where
   Progress   : ElementType "progress" Progress
   Q          : ElementType "q" Quote
   Script     : ElementType "script" Script
-  Select     : ElementType "Select" Select
+  Section    : ElementType "section" HTMLElement
+  Select     : ElementType "select" Select
   Slot       : ElementType "slot" Slot
   Source     : ElementType "source" Source
   Span       : ElementType "span" Span
@@ -378,7 +383,9 @@ elemCast :  (0 f : Type -> Type)
          -> (e : ElementType s t)
          -> f t
 elemCast _ fun A          = fun
+elemCast _ fun Address    = fun
 elemCast _ fun Area       = fun
+elemCast _ fun Article    = fun
 elemCast _ fun Audio      = fun
 elemCast _ fun Base       = fun
 elemCast _ fun Blockquote = fun
@@ -398,6 +405,7 @@ elemCast _ fun Div        = fun
 elemCast _ fun Dl         = fun
 elemCast _ fun Embed      = fun
 elemCast _ fun FieldSet   = fun
+elemCast _ fun Footer     = fun
 elemCast _ fun Form       = fun
 elemCast _ fun H1         = fun
 elemCast _ fun H2         = fun
@@ -405,6 +413,7 @@ elemCast _ fun H3         = fun
 elemCast _ fun H4         = fun
 elemCast _ fun H5         = fun
 elemCast _ fun H6         = fun
+elemCast _ fun Header     = fun
 elemCast _ fun HR         = fun
 elemCast _ fun Html       = fun
 elemCast _ fun IFrame     = fun
@@ -431,6 +440,7 @@ elemCast _ fun Pre        = fun
 elemCast _ fun Progress   = fun
 elemCast _ fun Q          = fun
 elemCast _ fun Script     = fun
+elemCast _ fun Section    = fun
 elemCast _ fun Select     = fun
 elemCast _ fun Slot       = fun
 elemCast _ fun Source     = fun
