@@ -487,6 +487,9 @@ newElement e mods = do res <- createElement e
 --------------------------------------------------------------------------------
 
 export
+ArrayLike HTMLCollection Element
+
+export
 getElementById : String -> JSIO (Maybe Element)
 getElementById s = getElementById !document s
 
@@ -501,6 +504,29 @@ castElementById _ = castElementById_
 export
 htmlElementById : ElementType tag a -> String -> JSIO (Maybe a)
 htmlElementById e s = elemCast (JSIO . Maybe) (castElementById_ s) e
+
+export
+getElementsByClass : String -> JSIO HTMLCollection
+getElementsByClass s = getElementsByClassName !document s
+
+export
+firstElementByClass : String -> JSIO (Maybe Element)
+firstElementByClass s = do
+  col <- getElementsByClass s
+  readIO col 0
+
+export
+castFirstElementByClass_ : SafeCast a => String -> JSIO (Maybe a)
+castFirstElementByClass_ = map (>>= safeCast) . firstElementByClass
+
+export
+castFirstElementByClass : (0 a : Type) -> SafeCast a => String -> JSIO (Maybe a)
+castFirstElementByClass _ = castFirstElementByClass_
+
+export
+firstHtmlElementByClass : ElementType tag a -> String -> JSIO (Maybe a)
+firstHtmlElementByClass e s =
+  elemCast (JSIO . Maybe) (castFirstElementByClass_ s) e
 
 --------------------------------------------------------------------------------
 --          Interfaces
