@@ -528,6 +528,16 @@ firstHtmlElementByClass : ElementType tag a -> String -> JSIO (Maybe a)
 firstHtmlElementByClass e s =
   elemCast (JSIO . Maybe) (castFirstElementByClass_ s) e
 
+||| Tries to retrieve an element of the given type by looking
+||| up its class in the DOM. Unlike `firstElementByClass`, this will throw
+||| an exception in the `JSIO` monad if the element is not found
+||| or can't be safely cast to the desired type.
+export
+getElementByClass : SafeCast t => (class : String) -> JSIO t
+getElementByClass class = do
+  Nothing <- castFirstElementByClass t class | Just t => pure t
+  throwError $ Caught "Web.Dom.getElementByClass: Could not find an element with class \{class}"
+
 --------------------------------------------------------------------------------
 --          Interfaces
 --------------------------------------------------------------------------------
