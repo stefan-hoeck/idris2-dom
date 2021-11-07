@@ -490,51 +490,62 @@ export
 ArrayLike HTMLCollection Element
 
 export
-getElementById : String -> JSIO (Maybe Element)
-getElementById s = getElementById !document s
+getElementById : LiftJSIO m => String -> m (Maybe Element)
+getElementById s = liftJSIO $ document >>= (`getElementById` s)
 
 export
-castElementById_ : SafeCast a => String -> JSIO (Maybe a)
+castElementById_ : LiftJSIO m => SafeCast a => String -> m (Maybe a)
 castElementById_ = map (>>= safeCast) . getElementById
 
 export
-castElementById : (0 a : Type) -> SafeCast a => String -> JSIO (Maybe a)
+castElementById :  LiftJSIO m
+                => (0 a : Type)
+                -> SafeCast a
+                => String
+                -> m (Maybe a)
 castElementById _ = castElementById_
 
 export
-htmlElementById : ElementType tag a -> String -> JSIO (Maybe a)
-htmlElementById e s = elemCast (JSIO . Maybe) (castElementById_ s) e
+htmlElementById : LiftJSIO m => ElementType tag a -> String -> m (Maybe a)
+htmlElementById e s = elemCast (m . Maybe) (castElementById_ s) e
 
 export
-getElementsByClass : String -> JSIO HTMLCollection
-getElementsByClass s = getElementsByClassName !document s
+getElementsByClass : LiftJSIO m => String -> m HTMLCollection
+getElementsByClass s = liftJSIO $ document >>= (`getElementsByClassName` s)
 
 export
-firstElementByClass : String -> JSIO (Maybe Element)
+firstElementByClass : LiftJSIO m => String -> m (Maybe Element)
 firstElementByClass s = do
   col <- getElementsByClass s
   readIO col 0
 
 export
-castFirstElementByClass_ : SafeCast a => String -> JSIO (Maybe a)
+castFirstElementByClass_ : LiftJSIO m => SafeCast a => String -> m (Maybe a)
 castFirstElementByClass_ = map (>>= safeCast) . firstElementByClass
 
 export
-castFirstElementByClass : (0 a : Type) -> SafeCast a => String -> JSIO (Maybe a)
+castFirstElementByClass :  LiftJSIO m
+                        => (0 a : Type)
+                        -> SafeCast a
+                        => String
+                        -> m (Maybe a)
 castFirstElementByClass _ = castFirstElementByClass_
 
 export
-firstHtmlElementByClass : ElementType tag a -> String -> JSIO (Maybe a)
+firstHtmlElementByClass :  LiftJSIO m
+                        => ElementType tag a
+                        -> String
+                        -> m (Maybe a)
 firstHtmlElementByClass e s =
-  elemCast (JSIO . Maybe) (castFirstElementByClass_ s) e
+  elemCast (m . Maybe) (castFirstElementByClass_ s) e
 
 ||| Tries to retrieve an element of the given type by looking
 ||| up its class in the DOM. Unlike `firstElementByClass`, this will throw
 ||| an exception in the `JSIO` monad if the element is not found
 ||| or can't be safely cast to the desired type.
 export
-getElementByClass : SafeCast t => (class : String) -> JSIO t
-getElementByClass class = do
+getElementByClass : LiftJSIO m => SafeCast t => (class : String) -> m t
+getElementByClass class = liftJSIO $ do
   Nothing <- castFirstElementByClass t class | Just t => pure t
   throwError $ Caught "Web.Dom.getElementByClass: Could not find an element with class \{class}"
 
