@@ -50,6 +50,8 @@ modules = JS
         , Web.Internal.GeometryTypes
         , Web.Internal.HtmlPrim
         , Web.Internal.HtmlTypes
+        , Web.Internal.IndexedDBPrim
+        , Web.Internal.IndexedDBTypes
         , Web.Internal.MediasourcePrim
         , Web.Internal.MediasourceTypes
         , Web.Internal.MediastreamPrim
@@ -84,6 +86,7 @@ modules = JS
         , Web.Raw.File
         , Web.Raw.Geometry
         , Web.Raw.Html
+        , Web.Raw.IndexedDB
         , Web.Raw.Mediasource
         , Web.Raw.Mediastream
         , Web.Raw.Permissions
