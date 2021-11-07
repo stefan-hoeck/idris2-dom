@@ -10,7 +10,7 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace IDBRequestReadyState
-  
+
   public export
   data IDBRequestReadyState = Pending | Done
 
@@ -48,7 +48,7 @@ namespace IDBRequestReadyState
     fromFFI = read
 
 namespace IDBTransactionDurability
-  
+
   public export
   data IDBTransactionDurability = Default | Strict | Relaxed
 
@@ -88,7 +88,7 @@ namespace IDBTransactionDurability
     fromFFI = read
 
 namespace IDBCursorDirection
-  
+
   public export
   data IDBCursorDirection = Next | Nextunique | Prev | Prevunique
 
@@ -130,7 +130,7 @@ namespace IDBCursorDirection
     fromFFI = read
 
 namespace IDBTransactionMode
-  
+
   public export
   data IDBTransactionMode = Readonly | Readwrite | Versionchange
 
@@ -350,6 +350,3 @@ ToFFI IDBVersionChangeEventInit IDBVersionChangeEventInit where toFFI = id
 
 export
 FromFFI IDBVersionChangeEventInit IDBVersionChangeEventInit where fromFFI = Just
-
-
-

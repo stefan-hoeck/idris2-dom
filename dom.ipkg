@@ -30,7 +30,7 @@ modules = JS
         , JS.Union
         , JS.Util
         , JS.VarArg
-        
+
         , Web.Dom
         , Web.Html
 
