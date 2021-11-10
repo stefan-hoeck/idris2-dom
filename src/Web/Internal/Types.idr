@@ -9,6 +9,7 @@ import public Web.Internal.FetchTypes as Types
 import public Web.Internal.FileTypes as Types
 import public Web.Internal.GeometryTypes as Types
 import public Web.Internal.HtmlTypes as Types
+import public Web.Internal.IndexedDBTypes as Types
 import public Web.Internal.MediasourceTypes as Types
 import public Web.Internal.MediastreamTypes as Types
 import public Web.Internal.PermissionsTypes as Types
@@ -1831,6 +1832,72 @@ JSType Headers where
 public export
 JSType History where
   parents =  [ Object ]
+
+  mixins =  []
+
+public export
+JSType IDBCursor where
+  parents =  [ Object ]
+
+  mixins =  []
+
+public export
+JSType IDBCursorWithValue where
+  parents =  [ IDBCursor , Object ]
+
+  mixins =  []
+
+public export
+JSType IDBDatabase where
+  parents =  [ EventTarget , Object ]
+
+  mixins =  []
+
+public export
+JSType IDBFactory where
+  parents =  [ Object ]
+
+  mixins =  []
+
+public export
+JSType IDBIndex where
+  parents =  [ Object ]
+
+  mixins =  []
+
+public export
+JSType IDBKeyRange where
+  parents =  [ Object ]
+
+  mixins =  []
+
+public export
+JSType IDBObjectStore where
+  parents =  [ Object ]
+
+  mixins =  []
+
+public export
+JSType IDBOpenDBRequest where
+  parents =  [ IDBRequest , EventTarget , Object ]
+
+  mixins =  []
+
+public export
+JSType IDBRequest where
+  parents =  [ EventTarget , Object ]
+
+  mixins =  []
+
+public export
+JSType IDBTransaction where
+  parents =  [ EventTarget , Object ]
+
+  mixins =  []
+
+public export
+JSType IDBVersionChangeEvent where
+  parents =  [ Event , Object ]
 
   mixins =  []
 
@@ -3905,6 +3972,36 @@ JSType GetRootNodeOptions where
 
 public export
 JSType HashChangeEventInit where
+  parents =  [ EventInit , Object ]
+
+  mixins =  []
+
+public export
+JSType IDBDatabaseInfo where
+  parents =  [ Object ]
+
+  mixins =  []
+
+public export
+JSType IDBIndexParameters where
+  parents =  [ Object ]
+
+  mixins =  []
+
+public export
+JSType IDBObjectStoreParameters where
+  parents =  [ Object ]
+
+  mixins =  []
+
+public export
+JSType IDBTransactionOptions where
+  parents =  [ Object ]
+
+  mixins =  []
+
+public export
+JSType IDBVersionChangeEventInit where
   parents =  [ EventInit , Object ]
 
   mixins =  []
