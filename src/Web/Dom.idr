@@ -487,7 +487,7 @@ newElement e mods = do res <- createElement e
 --------------------------------------------------------------------------------
 
 export
-ArrayLike HTMLCollection Element
+ArrayLike HTMLCollection Element where
 
 export
 getElementById : LiftJSIO m => String -> m (Maybe Element)
