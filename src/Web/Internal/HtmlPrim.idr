@@ -9651,6 +9651,13 @@ namespace WindowEventHandlers
 
 
 
+namespace WindowLocalStorage
+
+  export
+  %foreign "browser:lambda:x=>x.localStorage"
+  prim__localStorage : WindowLocalStorage -> PrimIO Storage
+
+
 
 --------------------------------------------------------------------------------
 --          Dictionaries

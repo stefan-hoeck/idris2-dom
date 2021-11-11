@@ -3545,7 +3545,7 @@ public export
 JSType Window where
   parents =  [ EventTarget , Object ]
 
-  mixins =  [ GlobalEventHandlers , WindowEventHandlers ]
+  mixins =  [ GlobalEventHandlers , WindowEventHandlers , WindowLocalStorage ]
 
 public export
 JSType WindowClient where
