@@ -8919,6 +8919,16 @@ namespace WindowEventHandlers
                                 (v :> WindowEventHandlers)
 
 
+namespace WindowLocalStorage
+
+  export
+  localStorage :  (0 _ : JSType t1)
+               => {auto 0 _ : Elem WindowLocalStorage (Types t1)}
+               -> (obj : t1)
+               -> JSIO Storage
+  localStorage a = primJS $ WindowLocalStorage.prim__localStorage (up a)
+
+
 
 --------------------------------------------------------------------------------
 --          Dictionaries
