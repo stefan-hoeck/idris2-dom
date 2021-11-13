@@ -45,7 +45,7 @@ namespace Permissions
 namespace CameraDevicePermissionDescriptor
 
   export
-  %foreign "browser:lambda:(a)=> {panTiltZoom: a}"
+  %foreign "browser:lambda:(a)=> ({panTiltZoom: a})"
   prim__new : UndefOr Boolean -> PrimIO CameraDevicePermissionDescriptor
 
   export
@@ -65,7 +65,7 @@ namespace CameraDevicePermissionDescriptor
 namespace DevicePermissionDescriptor
 
   export
-  %foreign "browser:lambda:(a)=> {deviceId: a}"
+  %foreign "browser:lambda:(a)=> ({deviceId: a})"
   prim__new : UndefOr String -> PrimIO DevicePermissionDescriptor
 
   export
@@ -82,7 +82,7 @@ namespace DevicePermissionDescriptor
 namespace MidiPermissionDescriptor
 
   export
-  %foreign "browser:lambda:(a)=> {sysex: a}"
+  %foreign "browser:lambda:(a)=> ({sysex: a})"
   prim__new : UndefOr Boolean -> PrimIO MidiPermissionDescriptor
 
   export
@@ -99,7 +99,7 @@ namespace MidiPermissionDescriptor
 namespace PermissionDescriptor
 
   export
-  %foreign "browser:lambda:(a)=> {name: a}"
+  %foreign "browser:lambda:(a)=> ({name: a})"
   prim__new : String -> PrimIO PermissionDescriptor
 
   export
@@ -116,7 +116,7 @@ namespace PermissionDescriptor
 namespace PermissionSetParameters
 
   export
-  %foreign "browser:lambda:(a,b,c)=> {descriptor: a,state: b,oneRealm: c}"
+  %foreign "browser:lambda:(a,b,c)=> ({descriptor: a,state: b,oneRealm: c})"
   prim__new :  PermissionDescriptor
             -> String
             -> UndefOr Boolean
@@ -158,7 +158,7 @@ namespace PermissionSetParameters
 namespace PushPermissionDescriptor
 
   export
-  %foreign "browser:lambda:(a)=> {userVisibleOnly: a}"
+  %foreign "browser:lambda:(a)=> ({userVisibleOnly: a})"
   prim__new : UndefOr Boolean -> PrimIO PushPermissionDescriptor
 
   export
@@ -171,3 +171,6 @@ namespace PushPermissionDescriptor
   prim__setUserVisibleOnly :  PushPermissionDescriptor
                            -> UndefOr Boolean
                            -> PrimIO ()
+
+
+

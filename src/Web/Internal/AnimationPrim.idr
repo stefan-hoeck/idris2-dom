@@ -240,7 +240,7 @@ namespace Animatable
 namespace AnimationPlaybackEventInit
 
   export
-  %foreign "browser:lambda:(a,b)=> {currentTime: a,timelineTime: b}"
+  %foreign "browser:lambda:(a,b)=> ({currentTime: a,timelineTime: b})"
   prim__new :  UndefOr (Nullable Double)
             -> UndefOr (Nullable Double)
             -> PrimIO AnimationPlaybackEventInit
@@ -275,7 +275,7 @@ namespace AnimationPlaybackEventInit
 namespace BaseComputedKeyframe
 
   export
-  %foreign "browser:lambda:(a,b,c,d)=> {offset: a,computedOffset: b,easing: c,composite: d}"
+  %foreign "browser:lambda:(a,b,c,d)=> ({offset: a,computedOffset: b,easing: c,composite: d})"
   prim__new :  UndefOr (Nullable Double)
             -> UndefOr Double
             -> UndefOr String
@@ -328,7 +328,7 @@ namespace BaseComputedKeyframe
 namespace BaseKeyframe
 
   export
-  %foreign "browser:lambda:(a,b,c)=> {offset: a,easing: b,composite: c}"
+  %foreign "browser:lambda:(a,b,c)=> ({offset: a,easing: b,composite: c})"
   prim__new :  UndefOr (Nullable Double)
             -> UndefOr String
             -> UndefOr String
@@ -368,7 +368,7 @@ namespace BaseKeyframe
 namespace BasePropertyIndexedKeyframe
 
   export
-  %foreign "browser:lambda:(a,b,c)=> {offset: a,easing: b,composite: c}"
+  %foreign "browser:lambda:(a,b,c)=> ({offset: a,easing: b,composite: c})"
   prim__new :  UndefOr (Nullable (Union2 Double (Array (Nullable Double))))
             -> UndefOr (Union2 String (Array String))
             -> UndefOr (Union2 String (Array String))
@@ -419,7 +419,7 @@ namespace BasePropertyIndexedKeyframe
 namespace ComputedEffectTiming
 
   export
-  %foreign "browser:lambda:(a,b,c,d,e)=> {endTime: a,activeDuration: b,localTime: c,progress: d,currentIteration: e}"
+  %foreign "browser:lambda:(a,b,c,d,e)=> ({endTime: a,activeDuration: b,localTime: c,progress: d,currentIteration: e})"
   prim__new :  UndefOr Double
             -> UndefOr Double
             -> UndefOr (Nullable Double)
@@ -488,7 +488,7 @@ namespace ComputedEffectTiming
 namespace DocumentTimelineOptions
 
   export
-  %foreign "browser:lambda:(a)=> {originTime: a}"
+  %foreign "browser:lambda:(a)=> ({originTime: a})"
   prim__new : UndefOr Double -> PrimIO DocumentTimelineOptions
 
   export
@@ -505,7 +505,7 @@ namespace DocumentTimelineOptions
 namespace EffectTiming
 
   export
-  %foreign "browser:lambda:(a,b,c,d,e,f,g,h)=> {delay: a,endDelay: b,fill: c,iterationStart: d,iterations: e,duration: f,direction: g,easing: h}"
+  %foreign "browser:lambda:(a,b,c,d,e,f,g,h)=> ({delay: a,endDelay: b,fill: c,iterationStart: d,iterations: e,duration: f,direction: g,easing: h})"
   prim__new :  UndefOr Double
             -> UndefOr Double
             -> UndefOr String
@@ -602,7 +602,7 @@ namespace EffectTiming
 namespace KeyframeAnimationOptions
 
   export
-  %foreign "browser:lambda:(a)=> {id: a}"
+  %foreign "browser:lambda:(a)=> ({id: a})"
   prim__new : UndefOr String -> PrimIO KeyframeAnimationOptions
 
   export
@@ -619,7 +619,7 @@ namespace KeyframeAnimationOptions
 namespace KeyframeEffectOptions
 
   export
-  %foreign "browser:lambda:(a,b)=> {iterationComposite: a,composite: b}"
+  %foreign "browser:lambda:(a,b)=> ({iterationComposite: a,composite: b})"
   prim__new : UndefOr String -> UndefOr String -> PrimIO KeyframeEffectOptions
 
   export
@@ -648,7 +648,7 @@ namespace KeyframeEffectOptions
 namespace OptionalEffectTiming
 
   export
-  %foreign "browser:lambda:(a,b,c,d,e,f,g,h)=> {delay: a,endDelay: b,fill: c,iterationStart: d,iterations: e,duration: f,direction: g,easing: h}"
+  %foreign "browser:lambda:(a,b,c,d,e,f,g,h)=> ({delay: a,endDelay: b,fill: c,iterationStart: d,iterations: e,duration: f,direction: g,easing: h})"
   prim__new :  UndefOr Double
             -> UndefOr Double
             -> UndefOr String

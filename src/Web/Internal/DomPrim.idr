@@ -1748,7 +1748,7 @@ namespace XPathEvaluatorBase
 namespace AddEventListenerOptions
 
   export
-  %foreign "browser:lambda:(a,b,c)=> {passive: a,once: b,signal: c}"
+  %foreign "browser:lambda:(a,b,c)=> ({passive: a,once: b,signal: c})"
   prim__new :  UndefOr Boolean
             -> UndefOr Boolean
             -> UndefOr AbortSignal
@@ -1788,7 +1788,7 @@ namespace AddEventListenerOptions
 namespace CustomEventInit
 
   export
-  %foreign "browser:lambda:(a)=> {detail: a}"
+  %foreign "browser:lambda:(a)=> ({detail: a})"
   prim__new : UndefOr AnyPtr -> PrimIO CustomEventInit
 
   export
@@ -1805,7 +1805,7 @@ namespace CustomEventInit
 namespace ElementCreationOptions
 
   export
-  %foreign "browser:lambda:(a)=> {is: a}"
+  %foreign "browser:lambda:(a)=> ({is: a})"
   prim__new : UndefOr String -> PrimIO ElementCreationOptions
 
   export
@@ -1822,7 +1822,7 @@ namespace ElementCreationOptions
 namespace EventInit
 
   export
-  %foreign "browser:lambda:(a,b,c)=> {bubbles: a,cancelable: b,composed: c}"
+  %foreign "browser:lambda:(a,b,c)=> ({bubbles: a,cancelable: b,composed: c})"
   prim__new :  UndefOr Boolean
             -> UndefOr Boolean
             -> UndefOr Boolean
@@ -1862,7 +1862,7 @@ namespace EventInit
 namespace EventListenerOptions
 
   export
-  %foreign "browser:lambda:(a)=> {capture: a}"
+  %foreign "browser:lambda:(a)=> ({capture: a})"
   prim__new : UndefOr Boolean -> PrimIO EventListenerOptions
 
   export
@@ -1879,7 +1879,7 @@ namespace EventListenerOptions
 namespace GetRootNodeOptions
 
   export
-  %foreign "browser:lambda:(a)=> {composed: a}"
+  %foreign "browser:lambda:(a)=> ({composed: a})"
   prim__new : UndefOr Boolean -> PrimIO GetRootNodeOptions
 
   export
@@ -1896,7 +1896,7 @@ namespace GetRootNodeOptions
 namespace MutationObserverInit
 
   export
-  %foreign "browser:lambda:(a,b,c,d,e,f,g)=> {childList: a,attributes: b,characterData: c,subtree: d,attributeOldValue: e,characterDataOldValue: f,attributeFilter: g}"
+  %foreign "browser:lambda:(a,b,c,d,e,f,g)=> ({childList: a,attributes: b,characterData: c,subtree: d,attributeOldValue: e,characterDataOldValue: f,attributeFilter: g})"
   prim__new :  UndefOr Boolean
             -> UndefOr Boolean
             -> UndefOr Boolean
@@ -1987,7 +1987,7 @@ namespace MutationObserverInit
 namespace ShadowRootInit
 
   export
-  %foreign "browser:lambda:(a,b)=> {mode: a,delegatesFocus: b}"
+  %foreign "browser:lambda:(a,b)=> ({mode: a,delegatesFocus: b})"
   prim__new : String -> UndefOr Boolean -> PrimIO ShadowRootInit
 
   export
@@ -2014,7 +2014,7 @@ namespace ShadowRootInit
 namespace StaticRangeInit
 
   export
-  %foreign "browser:lambda:(a,b,c,d)=> {startContainer: a,startOffset: b,endContainer: c,endOffset: d}"
+  %foreign "browser:lambda:(a,b,c,d)=> ({startContainer: a,startOffset: b,endContainer: c,endOffset: d})"
   prim__new : Node -> Bits32 -> Node -> Bits32 -> PrimIO StaticRangeInit
 
   export

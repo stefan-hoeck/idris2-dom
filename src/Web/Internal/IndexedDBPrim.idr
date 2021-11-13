@@ -540,7 +540,7 @@ namespace IDBVersionChangeEvent
 namespace IDBDatabaseInfo
 
   export
-  %foreign "browser:lambda:(a,b)=> {name: a,version: b}"
+  %foreign "browser:lambda:(a,b)=> ({name: a,version: b})"
   prim__new : UndefOr String -> UndefOr JSBits64 -> PrimIO IDBDatabaseInfo
 
   export
@@ -567,7 +567,7 @@ namespace IDBDatabaseInfo
 namespace IDBIndexParameters
 
   export
-  %foreign "browser:lambda:(a,b)=> {unique: a,multiEntry: b}"
+  %foreign "browser:lambda:(a,b)=> ({unique: a,multiEntry: b})"
   prim__new : UndefOr Boolean -> UndefOr Boolean -> PrimIO IDBIndexParameters
 
   export
@@ -594,7 +594,7 @@ namespace IDBIndexParameters
 namespace IDBObjectStoreParameters
 
   export
-  %foreign "browser:lambda:(a,b)=> {keyPath: a,autoIncrement: b}"
+  %foreign "browser:lambda:(a,b)=> ({keyPath: a,autoIncrement: b})"
   prim__new :  UndefOr (Nullable (Union2 String (Array String)))
             -> UndefOr Boolean
             -> PrimIO IDBObjectStoreParameters
@@ -628,7 +628,7 @@ namespace IDBObjectStoreParameters
 namespace IDBTransactionOptions
 
   export
-  %foreign "browser:lambda:(a)=> {durability: a}"
+  %foreign "browser:lambda:(a)=> ({durability: a})"
   prim__new : UndefOr String -> PrimIO IDBTransactionOptions
 
   export
@@ -645,7 +645,7 @@ namespace IDBTransactionOptions
 namespace IDBVersionChangeEventInit
 
   export
-  %foreign "browser:lambda:(a,b)=> {oldVersion: a,newVersion: b}"
+  %foreign "browser:lambda:(a,b)=> ({oldVersion: a,newVersion: b})"
   prim__new :  UndefOr JSBits64
             -> UndefOr (Nullable JSBits64)
             -> PrimIO IDBVersionChangeEventInit
@@ -673,3 +673,6 @@ namespace IDBVersionChangeEventInit
   prim__setOldVersion :  IDBVersionChangeEventInit
                       -> UndefOr JSBits64
                       -> PrimIO ()
+
+
+

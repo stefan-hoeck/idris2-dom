@@ -2535,7 +2535,7 @@ namespace WebGLRenderingContextOverloads
 namespace WebGLContextAttributes
 
   export
-  %foreign "browser:lambda:(a,b,c,d,e,f,g,h,i)=> {alpha: a,depth: b,stencil: c,antialias: d,premultipliedAlpha: e,preserveDrawingBuffer: f,powerPreference: g,failIfMajorPerformanceCaveat: h,desynchronized: i}"
+  %foreign "browser:lambda:(a,b,c,d,e,f,g,h,i)=> ({alpha: a,depth: b,stencil: c,antialias: d,premultipliedAlpha: e,preserveDrawingBuffer: f,powerPreference: g,failIfMajorPerformanceCaveat: h,desynchronized: i})"
   prim__new :  UndefOr Boolean
             -> UndefOr Boolean
             -> UndefOr Boolean

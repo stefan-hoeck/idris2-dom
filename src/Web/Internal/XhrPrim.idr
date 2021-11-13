@@ -314,7 +314,7 @@ namespace XMLHttpRequestEventTarget
 namespace ProgressEventInit
 
   export
-  %foreign "browser:lambda:(a,b,c)=> {lengthComputable: a,loaded: b,total: c}"
+  %foreign "browser:lambda:(a,b,c)=> ({lengthComputable: a,loaded: b,total: c})"
   prim__new :  UndefOr Boolean
             -> UndefOr JSBits64
             -> UndefOr JSBits64

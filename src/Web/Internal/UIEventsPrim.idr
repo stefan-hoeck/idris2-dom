@@ -184,7 +184,7 @@ namespace WheelEvent
 namespace CompositionEventInit
 
   export
-  %foreign "browser:lambda:(a)=> {data: a}"
+  %foreign "browser:lambda:(a)=> ({data: a})"
   prim__new : UndefOr String -> PrimIO CompositionEventInit
 
   export
@@ -201,7 +201,7 @@ namespace CompositionEventInit
 namespace EventModifierInit
 
   export
-  %foreign "browser:lambda:(a,b,c,d,e,f,g,h,i,j,k,l,m,n)=> {ctrlKey: a,shiftKey: b,altKey: c,metaKey: d,modifierAltGraph: e,modifierCapsLock: f,modifierFn: g,modifierFnLock: h,modifierHyper: i,modifierNumLock: j,modifierScrollLock: k,modifierSuper: l,modifierSymbol: m,modifierSymbolLock: n}"
+  %foreign "browser:lambda:(a,b,c,d,e,f,g,h,i,j,k,l,m,n)=> ({ctrlKey: a,shiftKey: b,altKey: c,metaKey: d,modifierAltGraph: e,modifierCapsLock: f,modifierFn: g,modifierFnLock: h,modifierHyper: i,modifierNumLock: j,modifierScrollLock: k,modifierSuper: l,modifierSymbol: m,modifierSymbolLock: n})"
   prim__new :  UndefOr Boolean
             -> UndefOr Boolean
             -> UndefOr Boolean
@@ -366,7 +366,7 @@ namespace EventModifierInit
 namespace FocusEventInit
 
   export
-  %foreign "browser:lambda:(a)=> {relatedTarget: a}"
+  %foreign "browser:lambda:(a)=> ({relatedTarget: a})"
   prim__new : UndefOr (Nullable EventTarget) -> PrimIO FocusEventInit
 
   export
@@ -386,7 +386,7 @@ namespace FocusEventInit
 namespace InputEventInit
 
   export
-  %foreign "browser:lambda:(a,b,c)=> {data: a,isComposing: b,inputType: c}"
+  %foreign "browser:lambda:(a,b,c)=> ({data: a,isComposing: b,inputType: c})"
   prim__new :  UndefOr (Nullable String)
             -> UndefOr Boolean
             -> UndefOr String
@@ -426,7 +426,7 @@ namespace InputEventInit
 namespace KeyboardEventInit
 
   export
-  %foreign "browser:lambda:(a,b,c,d,e)=> {key: a,code: b,location: c,repeat: d,isComposing: e}"
+  %foreign "browser:lambda:(a,b,c,d,e)=> ({key: a,code: b,location: c,repeat: d,isComposing: e})"
   prim__new :  UndefOr String
             -> UndefOr String
             -> UndefOr Bits32
@@ -488,7 +488,7 @@ namespace KeyboardEventInit
 namespace MouseEventInit
 
   export
-  %foreign "browser:lambda:(a,b,c,d,e,f,g)=> {screenX: a,screenY: b,clientX: c,clientY: d,button: e,buttons: f,relatedTarget: g}"
+  %foreign "browser:lambda:(a,b,c,d,e,f,g)=> ({screenX: a,screenY: b,clientX: c,clientY: d,button: e,buttons: f,relatedTarget: g})"
   prim__new :  UndefOr Int32
             -> UndefOr Int32
             -> UndefOr Int32
@@ -575,7 +575,7 @@ namespace MouseEventInit
 namespace UIEventInit
 
   export
-  %foreign "browser:lambda:(a,b)=> {view: a,detail: b}"
+  %foreign "browser:lambda:(a,b)=> ({view: a,detail: b})"
   prim__new : UndefOr (Nullable Window) -> UndefOr Int32 -> PrimIO UIEventInit
 
   export
@@ -602,7 +602,7 @@ namespace UIEventInit
 namespace WheelEventInit
 
   export
-  %foreign "browser:lambda:(a,b,c,d)=> {deltaX: a,deltaY: b,deltaZ: c,deltaMode: d}"
+  %foreign "browser:lambda:(a,b,c,d)=> ({deltaX: a,deltaY: b,deltaZ: c,deltaMode: d})"
   prim__new :  UndefOr Double
             -> UndefOr Double
             -> UndefOr Double

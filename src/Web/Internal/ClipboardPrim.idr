@@ -84,7 +84,7 @@ namespace ClipboardItem
 namespace ClipboardEventInit
 
   export
-  %foreign "browser:lambda:(a)=> {clipboardData: a}"
+  %foreign "browser:lambda:(a)=> ({clipboardData: a})"
   prim__new : UndefOr (Nullable DataTransfer) -> PrimIO ClipboardEventInit
 
   export
@@ -104,7 +104,7 @@ namespace ClipboardEventInit
 namespace ClipboardItemOptions
 
   export
-  %foreign "browser:lambda:(a)=> {presentationStyle: a}"
+  %foreign "browser:lambda:(a)=> ({presentationStyle: a})"
   prim__new : UndefOr String -> PrimIO ClipboardItemOptions
 
   export
@@ -123,7 +123,7 @@ namespace ClipboardItemOptions
 namespace ClipboardPermissionDescriptor
 
   export
-  %foreign "browser:lambda:(a)=> {allowWithoutGesture: a}"
+  %foreign "browser:lambda:(a)=> ({allowWithoutGesture: a})"
   prim__new : UndefOr Boolean -> PrimIO ClipboardPermissionDescriptor
 
   export
@@ -152,3 +152,4 @@ namespace ClipboardItemDelayedCallback
   prim__toClipboardItemDelayedCallback :  (() -> IO (Promise (Union2 String
                                                                      Blob)))
                                        -> PrimIO ClipboardItemDelayedCallback
+
