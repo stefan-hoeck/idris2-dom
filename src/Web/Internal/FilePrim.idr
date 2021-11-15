@@ -231,7 +231,7 @@ namespace FileReaderSync
 namespace BlobPropertyBag
 
   export
-  %foreign "browser:lambda:(a,b)=> {type: a,endings: b}"
+  %foreign "browser:lambda:(a,b)=> ({type: a,endings: b})"
   prim__new : UndefOr String -> UndefOr String -> PrimIO BlobPropertyBag
 
   export
@@ -258,7 +258,7 @@ namespace BlobPropertyBag
 namespace FilePropertyBag
 
   export
-  %foreign "browser:lambda:(a)=> {lastModified: a}"
+  %foreign "browser:lambda:(a)=> ({lastModified: a})"
   prim__new : UndefOr JSInt64 -> PrimIO FilePropertyBag
 
   export
@@ -269,3 +269,6 @@ namespace FilePropertyBag
   export
   %foreign "browser:lambda:(x,v)=>{x.lastModified = v}"
   prim__setLastModified : FilePropertyBag -> UndefOr JSInt64 -> PrimIO ()
+
+
+

@@ -1399,7 +1399,7 @@ namespace SVGURIReference
 namespace SVGBoundingBoxOptions
 
   export
-  %foreign "browser:lambda:(a,b,c,d)=> {fill: a,stroke: b,markers: c,clipped: d}"
+  %foreign "browser:lambda:(a,b,c,d)=> ({fill: a,stroke: b,markers: c,clipped: d})"
   prim__new :  UndefOr Boolean
             -> UndefOr Boolean
             -> UndefOr Boolean

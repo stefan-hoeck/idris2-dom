@@ -464,7 +464,7 @@ namespace DOMRectReadOnly
 namespace DOMMatrix2DInit
 
   export
-  %foreign "browser:lambda:(a,b,c,d,e,f,g,h,i,j,k,l)=> {a: a,b: b,c: c,d: d,e: e,f: f,m11: g,m12: h,m21: i,m22: j,m41: k,m42: l}"
+  %foreign "browser:lambda:(a,b,c,d,e,f,g,h,i,j,k,l)=> ({a: a,b: b,c: c,d: d,e: e,f: f,m11: g,m12: h,m21: i,m22: j,m41: k,m42: l})"
   prim__new :  UndefOr Double
             -> UndefOr Double
             -> UndefOr Double
@@ -603,7 +603,7 @@ namespace DOMMatrix2DInit
 namespace DOMMatrixInit
 
   export
-  %foreign "browser:lambda:(a,b,c,d,e,f,g,h,i,j,k)=> {m13: a,m14: b,m23: c,m24: d,m31: e,m32: f,m33: g,m34: h,m43: i,m44: j,is2D: k}"
+  %foreign "browser:lambda:(a,b,c,d,e,f,g,h,i,j,k)=> ({m13: a,m14: b,m23: c,m24: d,m31: e,m32: f,m33: g,m34: h,m43: i,m44: j,is2D: k})"
   prim__new :  UndefOr Double
             -> UndefOr Double
             -> UndefOr Double
@@ -731,7 +731,7 @@ namespace DOMMatrixInit
 namespace DOMPointInit
 
   export
-  %foreign "browser:lambda:(a,b,c,d)=> {x: a,y: b,z: c,w: d}"
+  %foreign "browser:lambda:(a,b,c,d)=> ({x: a,y: b,z: c,w: d})"
   prim__new :  UndefOr Double
             -> UndefOr Double
             -> UndefOr Double
@@ -782,7 +782,7 @@ namespace DOMPointInit
 namespace DOMQuadInit
 
   export
-  %foreign "browser:lambda:(a,b,c,d)=> {p1: a,p2: b,p3: c,p4: d}"
+  %foreign "browser:lambda:(a,b,c,d)=> ({p1: a,p2: b,p3: c,p4: d})"
   prim__new :  UndefOr DOMPointInit
             -> UndefOr DOMPointInit
             -> UndefOr DOMPointInit
@@ -833,7 +833,7 @@ namespace DOMQuadInit
 namespace DOMRectInit
 
   export
-  %foreign "browser:lambda:(a,b,c,d)=> {x: a,y: b,width: c,height: d}"
+  %foreign "browser:lambda:(a,b,c,d)=> ({x: a,y: b,width: c,height: d})"
   prim__new :  UndefOr Double
             -> UndefOr Double
             -> UndefOr Double
@@ -878,3 +878,6 @@ namespace DOMRectInit
   export
   %foreign "browser:lambda:(x,v)=>{x.y = v}"
   prim__setY : DOMRectInit -> UndefOr Double -> PrimIO ()
+
+
+

@@ -512,7 +512,7 @@ namespace WindowClient
 namespace CacheQueryOptions
 
   export
-  %foreign "browser:lambda:(a,b,c)=> {ignoreSearch: a,ignoreMethod: b,ignoreVary: c}"
+  %foreign "browser:lambda:(a,b,c)=> ({ignoreSearch: a,ignoreMethod: b,ignoreVary: c})"
   prim__new :  UndefOr Boolean
             -> UndefOr Boolean
             -> UndefOr Boolean
@@ -552,7 +552,7 @@ namespace CacheQueryOptions
 namespace ClientQueryOptions
 
   export
-  %foreign "browser:lambda:(a,b)=> {includeUncontrolled: a,type: b}"
+  %foreign "browser:lambda:(a,b)=> ({includeUncontrolled: a,type: b})"
   prim__new : UndefOr Boolean -> UndefOr String -> PrimIO ClientQueryOptions
 
   export
@@ -581,14 +581,14 @@ namespace ClientQueryOptions
 namespace ExtendableEventInit
 
   export
-  %foreign "browser:lambda:()=> {}"
+  %foreign "browser:lambda:()=> ({})"
   prim__new : PrimIO ExtendableEventInit
 
 
 namespace ExtendableMessageEventInit
 
   export
-  %foreign "browser:lambda:(a,b,c,d,e)=> {data: a,origin: b,lastEventId: c,source: d,ports: e}"
+  %foreign "browser:lambda:(a,b,c,d,e)=> ({data: a,origin: b,lastEventId: c,source: d,ports: e})"
   prim__new :  UndefOr AnyPtr
             -> UndefOr String
             -> UndefOr String
@@ -662,7 +662,7 @@ namespace ExtendableMessageEventInit
 namespace FetchEventInit
 
   export
-  %foreign "browser:lambda:(a,b,c,d,e,f)=> {request: a,preloadResponse: b,clientId: c,resultingClientId: d,replacesClientId: e,handled: f}"
+  %foreign "browser:lambda:(a,b,c,d,e,f)=> ({request: a,preloadResponse: b,clientId: c,resultingClientId: d,replacesClientId: e,handled: f})"
   prim__new :  Request
             -> UndefOr (Promise AnyPtr)
             -> UndefOr String
@@ -737,7 +737,7 @@ namespace FetchEventInit
 namespace MultiCacheQueryOptions
 
   export
-  %foreign "browser:lambda:(a)=> {cacheName: a}"
+  %foreign "browser:lambda:(a)=> ({cacheName: a})"
   prim__new : UndefOr String -> PrimIO MultiCacheQueryOptions
 
   export
@@ -754,7 +754,7 @@ namespace MultiCacheQueryOptions
 namespace NavigationPreloadState
 
   export
-  %foreign "browser:lambda:(a,b)=> {enabled: a,headerValue: b}"
+  %foreign "browser:lambda:(a,b)=> ({enabled: a,headerValue: b})"
   prim__new :  UndefOr Boolean
             -> UndefOr ByteString
             -> PrimIO NavigationPreloadState
@@ -785,7 +785,7 @@ namespace NavigationPreloadState
 namespace RegistrationOptions
 
   export
-  %foreign "browser:lambda:(a,b,c)=> {scope: a,type: b,updateViaCache: c}"
+  %foreign "browser:lambda:(a,b,c)=> ({scope: a,type: b,updateViaCache: c})"
   prim__new :  UndefOr String
             -> UndefOr String
             -> UndefOr String
@@ -819,3 +819,6 @@ namespace RegistrationOptions
   export
   %foreign "browser:lambda:(x,v)=>{x.updateViaCache = v}"
   prim__setUpdateViaCache : RegistrationOptions -> UndefOr String -> PrimIO ()
+
+
+

@@ -218,7 +218,7 @@ namespace Body
 namespace RequestInit
 
   export
-  %foreign "browser:lambda:(a,b,c,d,e,f,g,h,i,j,k,l,m)=> {method: a,headers: b,body: c,referrer: d,referrerPolicy: e,mode: f,credentials: g,cache: h,redirect: i,integrity: j,keepalive: k,signal: l,window: m}"
+  %foreign "browser:lambda:(a,b,c,d,e,f,g,h,i,j,k,l,m)=> ({method: a,headers: b,body: c,referrer: d,referrerPolicy: e,mode: f,credentials: g,cache: h,redirect: i,integrity: j,keepalive: k,signal: l,window: m})"
   prim__new :  UndefOr ByteString
             -> UndefOr (Union2 (Array (Array ByteString))
                                (Record ByteString ByteString))
@@ -422,7 +422,7 @@ namespace RequestInit
 namespace ResponseInit
 
   export
-  %foreign "browser:lambda:(a,b,c)=> {status: a,statusText: b,headers: c}"
+  %foreign "browser:lambda:(a,b,c)=> ({status: a,statusText: b,headers: c})"
   prim__new :  UndefOr Bits16
             -> UndefOr ByteString
             -> UndefOr (Union2 (Array (Array ByteString))
@@ -462,3 +462,6 @@ namespace ResponseInit
   export
   %foreign "browser:lambda:(x,v)=>{x.statusText = v}"
   prim__setStatusText : ResponseInit -> UndefOr ByteString -> PrimIO ()
+
+
+
