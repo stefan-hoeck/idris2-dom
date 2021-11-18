@@ -60,7 +60,7 @@ the following:
 * [idris2-pretty-show](https://github.com/stefan-hoeck/idris2-pretty-show)
 * [idris2-hedgehog](https://github.com/stefan-hoeck/idris2-hedgehog)
 
-### Misc.
+### Misc
 
 This libary is still evolving - as is Idris2 itself - and I try to keep up
 with the latest Idris2 commits. The actual release requires Idris2, version 0.5.1.
