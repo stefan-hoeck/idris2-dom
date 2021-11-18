@@ -24,44 +24,46 @@ Quite a bit of functionality is still missing when it comes
 to external types like `Array` or `Promise`, but will be added
 later on.
 
-### Project structure
+## Project structure
 
-#### DOM
+### DOM
 The DOM bindings as well as the Javascript utilities can be built
 by running `idris2 --build dom.ipkg`. Given the size of the codebase,
 this might take several minutes.
 
-#### Javascript utilities
+### Javascript utilities
 The functionality provided by the submodules of `JS` should eventually
 go to its own repository. As a preparation for this change and to
 speed up development of Javascript utilities (typechecking `dom.ipkg`
 is slow), package file `js.ipkg` is provided.
 
-#### Documentation
+### Documentation
 The tutorial consists of one or more literal Idris2 files to be
 found at `srd/Doc`. It can be built by running `idris2 --build doc.ipkg`
 and tested afterwards by loading `doc.html` in one's favorite browser.
 
-#### Tests
+### Tests
 There is also `test.ipkg` running several Hedgehog property tests.
 This should be built and run with node, as it mainly tests the
 Javascript utilities working on both Javascript backends.
 
-### Dependencies
+## Dependencies
 
 Packages `dom.ipkg`, `doc.ipkg` and `js.ipkg` depend on the following packages:
 
-  * [idris2-elab-util](https://github.com/stefan-hoeck/idris2-elab-util)
-  * [idris2-sop](https://github.com/stefan-hoeck/idris2-sop)
+* [idris2-elab-util](https://github.com/stefan-hoeck/idris2-elab-util)
+* [idris2-sop](https://github.com/stefan-hoeck/idris2-sop)
 
 The test package `test.ipkg` depends on the same libraries plus
 the following:
 
-  * [idris2-pretty-show](https://github.com/stefan-hoeck/idris2-pretty-show)
-  * [idris2-hedgehog](https://github.com/stefan-hoeck/idris2-hedgehog)
+* [idris2-pretty-show](https://github.com/stefan-hoeck/idris2-pretty-show)
+* [idris2-hedgehog](https://github.com/stefan-hoeck/idris2-hedgehog)
 
 ### Misc.
 
 This libary is still evolving - as is Idris2 itself - and I try to keep up
 with the latest Idris2 commits. The actual release requires Idris2, version 0.5.1.
-The latest commit has been built against Idris 2, version 0.5.1-3536f8dab.
+
+The latest commit has been built against Idris 2 of version set in the ``.idris-version`` file.
+This file contains a version in the format which ``git describe --tags`` gives.
