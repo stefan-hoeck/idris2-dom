@@ -4,7 +4,7 @@ This library provides extensive DOM and web bindings for
 writing Idris2 programs that run in the browser.
 
 This library comes "batteries included", as quite a few utility types
-and functions for interacting with the unsafe world of Javascript
+and functions for interacting with the unsafe world of JavaScript
 are provided via the `JS` submodules. These might eventually be moved
 to their own repository, but as Idris2 is still lacking an official
 package repository, it makes sense to keep this stuff in one package
@@ -27,14 +27,14 @@ later on.
 ## Project structure
 
 ### DOM
-The DOM bindings as well as the Javascript utilities can be built
+The DOM bindings as well as the JavaScript utilities can be built
 by running `idris2 --build dom.ipkg`. Given the size of the codebase,
 this might take several minutes.
 
-### Javascript utilities
+### JavaScript utilities
 The functionality provided by the submodules of `JS` should eventually
 go to its own repository. As a preparation for this change and to
-speed up development of Javascript utilities (typechecking `dom.ipkg`
+speed up development of JavaScript utilities (typechecking `dom.ipkg`
 is slow), package file `js.ipkg` is provided.
 
 ### Documentation
@@ -45,7 +45,7 @@ and tested afterwards by loading `doc.html` in one's favorite browser.
 ### Tests
 There is also `test.ipkg` running several Hedgehog property tests.
 This should be built and run with node, as it mainly tests the
-Javascript utilities working on both Javascript backends.
+JavaScript utilities working on both JavaScript backends.
 
 ## Dependencies
 
