@@ -53,12 +53,12 @@ len32 = fromInteger . natToInteger . length
 ||| array indices.
 public export
 zipWithIndex : (as : List a) -> List (Ix $ len32 as, a)
-zipWithIndex as = run 0 as
+zipWithIndex as = run [] 0 as
   -- being pragmatic here and going via `believe_me`
-  where run : Bits32 -> List a -> List (Ix $ len32 as, a)
-        run _ []        = []
-        run n (x :: xs) =  (Element n $ believe_me (Refl {x}), x)
-                        :: run (n+1) xs
+  where run : List (Ix $ len32 as, a) -> Bits32 -> List a -> List (Ix $ len32 as, a)
+        run acc _ []        = reverse acc
+        run acc n (x :: xs) =
+          run ((Element n $ believe_me (Refl {x}), x) :: acc) (n+1) xs
 
 ||| Tries to convert a number into an index for
 ||| an array of the given size.
