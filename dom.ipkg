@@ -4,7 +4,6 @@ authors    = "stefan-hoeck"
 version    = 0.1.0
 sourcedir  = "src"
 depends    = base         >= 0.5.1
-           , contrib      >= 0.5.1
            , sop          >= 0.5.0
            , elab-util    >= 0.5.0
 
