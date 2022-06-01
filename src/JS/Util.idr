@@ -46,7 +46,7 @@ jsShow v = prim__show (believe_me v)
 --          IO
 --------------------------------------------------------------------------------
 
-%foreign "browser:lambda:x=>console.log(x)"
+%foreign "javascript:lambda:x=>console.log(x)"
 prim__consoleLog : String -> PrimIO ()
 
 export
