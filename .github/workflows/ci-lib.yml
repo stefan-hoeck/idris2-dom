@@ -21,23 +21,8 @@ defaults:
 
 jobs:
 
-  read-ver:
-    name: Aquire compiler version
-    runs-on: ubuntu-latest
-    env:
-      IDRIS_VERSION_FILE: .idris-version
-    outputs:
-      idris-ver: ${{ steps.read-ver.outputs.idris-ver }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Read the version
-        id: read-ver
-        run: sed 's/^/::set-output name=idris-ver::/' < "${IDRIS_VERSION_FILE}"
-
   dependencies:
     name: Install ${{ matrix.lib }} for ${{ matrix.idris-version }}
-    needs: read-ver
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 1 # We need sequential run!
@@ -48,7 +33,6 @@ jobs:
           - pretty-show
           - hedgehog
         idris-version:
-          - ${{ needs.read-ver.outputs.idris-ver }}
           - latest
     container: snazzybucket/idris2api:${{ matrix.idris-version }}
     steps:
@@ -76,14 +60,12 @@ jobs:
   build:
     name: Build ${{ github.repository }} with ${{ matrix.idris-version }}
     needs:
-      - read-ver
       - dependencies
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         idris-version:
-          - ${{ needs.read-ver.outputs.idris-ver }}
           - latest
     container: snazzybucket/idris2api:${{ matrix.idris-version }}
     steps:
