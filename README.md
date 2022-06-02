@@ -65,5 +65,10 @@ the following:
 This libary is still evolving - as is Idris2 itself - and I try to keep up
 with the latest Idris2 commits. The actual release requires Idris2, version 0.5.1.
 
-The latest commit has been built against Idris 2 of version set in the ``.idris-version`` file.
-This file contains a version in the format which ``git describe --tags`` gives.
+The latest commit is daily tested to build against the current
+HEAD of the Idris compiler. Since Idris2 releases are happening
+rather infrequently at the moment, it is suggested to use
+a package manager like [pack](https://github.com/stefan-hoeck/idris2-pack)
+to install and maintain matching versions of the Idris compiler
+and this library. Pack will also automatically install all
+required dependencies.

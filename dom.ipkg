@@ -1,6 +1,7 @@
 package dom
 
 authors    = "stefan-hoeck"
+brief      = "Extensive DOM and web bindings for Idris2"
 version    = 0.1.0
 sourcedir  = "src"
 depends    = base         >= 0.5.1
