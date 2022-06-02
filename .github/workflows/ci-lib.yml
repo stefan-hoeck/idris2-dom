@@ -1,3 +1,4 @@
+---
 name: Build
 
 on:
@@ -20,62 +21,39 @@ defaults:
     shell: bash
 
 jobs:
-
-  dependencies:
-    name: Install ${{ matrix.lib }} for ${{ matrix.idris-version }}
-    runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 1 # We need sequential run!
-      matrix:
-        lib:
-          - elab-util
-          - sop
-          - pretty-show
-          - hedgehog
-        idris-version:
-          - latest
-    container: snazzybucket/idris2api:${{ matrix.idris-version }}
-    steps:
-      - name: Checkout ${{ matrix.lib }}
-        uses: actions/checkout@v2
-        with:
-          repository: stefan-hoeck/idris2-${{ matrix.lib }}
-      - name: Download already installed dependencies
-        uses: actions/download-artifact@master
-        with:
-          name: dependencies-for-${{ matrix.idris-version }}
-          path: /root/.idris2/
-        continue-on-error: true
-      - name: Make ${{ matrix.lib }}
-        run: make lib
-      - name: Install ${{ matrix.lib }}
-        run: make install
-      - name: Save installed lib
-        uses: actions/upload-artifact@master
-        with:
-          name: dependencies-for-${{ matrix.idris-version }}
-          path: /root/.idris2/idris2-*/${{ matrix.lib }}*
-          if-no-files-found: error
-
   build:
-    name: Build ${{ github.repository }} with ${{ matrix.idris-version }}
-    needs:
-      - dependencies
+    name: Build ${{ github.repository }} with Idris2 latest
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      matrix:
-        idris-version:
-          - latest
-    container: snazzybucket/idris2api:${{ matrix.idris-version }}
+    container: snazzybucket/idris2api:latest
     steps:
+      - name: Checkout elab-util
+        uses: actions/checkout@v2
+        with:
+          repository: stefan-hoeck/idris2-elab-util
+      - name: Install elab-util
+        run: make install
+      - name: Checkout sop
+        uses: actions/checkout@v2
+        with:
+          repository: stefan-hoeck/idris2-sop
+      - name: Install sop
+        run: make install
+      - name: Checkout pretty-show
+        uses: actions/checkout@v2
+        with:
+          repository: stefan-hoeck/idris2-pretty-show
+      - name: Install pretty-show
+        run: make install
+      - name: Checkout hedgehog
+        uses: actions/checkout@v2
+        with:
+          repository: stefan-hoeck/idris2-hedgehog
+      - name: Install hedgehog
+        run: make install
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Download installed dependencies
-        uses: actions/download-artifact@master
-        with:
-          name: dependencies-for-${{ matrix.idris-version }}
-          path: /root/.idris2/
       - name: Build lib
         run: make lib
       - name: Build docs
