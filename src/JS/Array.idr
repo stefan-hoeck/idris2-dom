@@ -110,8 +110,8 @@ prim__newArrayIO : forall a . Bits32 -> PrimIO (Array a)
 prim__isArray : AnyPtr -> Boolean
 
 -- clones an Array-like object, thus creating a new array.
-%foreign "javascript:lambda:(u,x) => Array.from(x)"
-prim__fromArrayLikeIO : forall arr . arr -> PrimIO (Array a)
+%foreign "javascript:lambda:(_arr,_a,x) => Array.from(x)"
+prim__fromArrayLikeIO : forall a,arr . arr -> PrimIO (Array a)
 
 --------------------------------------------------------------------------------
 --          ArrayLike
