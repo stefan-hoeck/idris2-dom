@@ -1,15 +1,15 @@
-module Test.JSON
+module JSON
 
 import JS
 import JS.JSON
 import Hedgehog
-import Test.Object
+import Object
 
 import Generics.Derive
 
 %language ElabReflection
 
-%runElab derive "Test.Object.Address" [ToJSON1,FromJSON1]
+%runElab derive "Object.Address" [ToJSON1,FromJSON1]
 
 roundTrip : Eq a => FromJSON a => ToJSON a => Show a => Gen a -> Property
 roundTrip g = property $ do v <- forAll g

@@ -27,7 +27,7 @@ by `Web.Internal.Types`, which also includes the subtyping
 relations (more on that later).
 
 FFI bindings are defined in submodules of `Web.Internal` ending on `Prim.idr`.
-If you are interested in how to interact with javascript through the FFI,
+If you are interested in how to interact with JavaScript through the FFI,
 you will find many examples there.
 
 The actual API of this library is provided by the
@@ -43,7 +43,7 @@ by the submodules in folder `src/JS` and reexported by module `JS`
 itself. This includes interfaces for converting values from and to
 their FFI representation, utilities for subtyping and safe casts, nullable
 and undefined values, plus a set of integral types, which are represented
-by Javascript `Number`s in the backend, unlike the Idris2 integer primitives,
+by JavaScript `Number`s in the backend, unlike the Idris2 integer primitives,
 which all are bound to `BigInt` (although this might change in the
 future).
 
@@ -59,7 +59,7 @@ the button. At the same time, during text input, the program
 checks whether the name entered is a palindrome or not.
 
 ```idris
-module Doc.Tutorial
+module Tutorial
 
 import Data.String
 import JS
@@ -102,7 +102,7 @@ prog = do btn <- createElement Button
 ```
 
 You can give this a try in the browser by replacing the
-`main` function in `Doc.Main` with `main = runJS Doc.Tutorial.prog`
+`main` function in `Main` with `main = runJS Tutorial.prog`
 followed by building the `doc` package: `idris2 --build doc.ipkg`.
 Now, load the `doc.html` file in the project's root folder in your browser.
 It will not look very nice, but it should behave as described.
@@ -111,12 +111,12 @@ It will not look very nice, but it should behave as described.
 
 ### The `JSIO` monad
 The program is of type `JSIO ()`, which is just an alias for
-`EitherT JSErr IO ()`. Since the world of Javascript is highly unsafe,
+`EitherT JSErr IO ()`. Since the world of JavaScript is highly unsafe,
 error handling comes built-in in the default IO monad we use (however, we do
 not catch a lot of errors so far).
 The error type `JSErr` is defined in module `JS.Util` and reexported
 by module `JS`, which provides the core types and functionality
-required for interacting with the world of Javascript.
+required for interacting with the world of JavaScript.
 
 In order to run a program of type `JSIO ()`, we need a way to
 deal with the possibility of errors. The most basic option
@@ -138,7 +138,7 @@ about `Attribute`s below).
 
 This is probably the right place to explain how safe type casts
 are handled in this library. There are mainly two ways to inspect
-the type of a value at runtime in Javascript: One is function
+the type of a value at runtime in JavaScript: One is function
 `typeof`, a binding to which is available in `JS.Util`. This
 function is mostly useful to figure out the types of primitives
 like numbers and strings. For other types like `HTMLElement`, which
@@ -159,7 +159,7 @@ types or included mixins): For this, there is another interface,
 which will be desribed below.
 
 As an example: In the program above, we know that the element
-with id "the_button" is a `HTMLButtonElement`. However,
+with ID "the_button" is a `HTMLButtonElement`. However,
 function `getElementById` from `Web.Raw.Dom` returns a `Maybe Element`.
 If we'd like to disable this button, we first have to cast it to
 the proper type. We can use `safeCast` for this:
@@ -176,8 +176,9 @@ disableBtn = do maybeElem <- getElementById !document "the_button"
 You can try the action above by modifying our original
 program:
 
-```
-main = runJS $ prog *> disableBtn
+```idris
+namespace Alt
+  main = runJS $ prog *> disableBtn
 ```
 
 Since looking up an element and refining its type by downcasting
@@ -212,7 +213,7 @@ whether it is possible to always get a concrete value when invoking
 the getter (this is even possible for optional attributes, if
 they have a default value defined in the specification).
 
-Although the Javascript constants `null` and `undefined` both describe
+Although the JavaScript constants `null` and `undefined` both describe
 a missing value, they can - depending on context - still have different
 semantics, therefore we use two different pairs of Idris2 types to deal with
 them. In foreign function calls, nullable values are represented
@@ -235,7 +236,7 @@ callback functions, a topic discussed in more detail below.
 ### Interlude: Marshalling values between the FFI and Idris2
 
 Idris values can typically not be used directly in FFI calls.
-To marshall between the worlds of raw Javascript and Idris, two
+To marshall between the worlds of raw JavaScript and Idris, two
 interfaces are provided by `JS.Marshall`: `ToFFI` and `FromFFI`.
 Both interfaces take two type parameters, the first being an
 Idris type, the second its external representation. As
@@ -245,9 +246,9 @@ an example, consider the following `Answer` data type:
 data Answer = Yes | No
 ```
 
-Values of type `Answer` should be represented by Javascript booleans,
+Values of type `Answer` should be represented by JavaScript booleans,
 for which there already is an external type: `JS.Boolean.Boolean`, which
-also provides values for the Javascript constants `true` and `false`.
+also provides values for the JavaScript constants `true` and `false`.
 
 It is therefore straight forward to implement `ToFFI` for `Answer`:
 
@@ -262,11 +263,11 @@ are considered to be more precise than the ones used in the backend.
 
 Coming from the backend is only slightly more involved. First, the
 conversion might fail (this shouldn't happen if functions implemented
-in Javascript adhere to their spec, but one can never know for sure),
+in JavaScript adhere to their spec, but one can never know for sure),
 so we return a `Maybe`. In addition, we have to compare the FFI value
 against the external constants. For this, heterogeneous equality
 function `JS.Util.eqv` can be used,
-which invokes the Javascript `===` operator internally. Here's the
+which invokes the JavaScript `===` operator internally. Here's the
 implementation of `FromFFI`:
 
 ```idris
@@ -287,7 +288,7 @@ error in case the conversion fails:
 prim__logAndTest : Double -> PrimIO Boolean
 
 logAndTest : Double -> JSIO Answer
-logAndTest d = tryJS "Doc.Tutorial.logAndTest" $ prim__logAndTest d
+logAndTest d = tryJS "Tutorial.logAndTest" $ prim__logAndTest d
 ```
 
 ### Callbacks
@@ -301,7 +302,7 @@ However, it is not possible to directly write a `ToFFI` implementation
 for the corresponding Idris function for two reasons: First, interface
 resolution does not work for function types (but see below), and
 second, converting an Idris function to a callback is not referentially
-transparent, since each conversion will create a new Javascript
+transparent, since each conversion will create a new JavaScript
 function object.
 
 Therefore, we need a new interface for handling this corner case:
@@ -342,7 +343,7 @@ arbitrary order below.
 
 ### Closure Compiler
 
-Generated Javascript files can be further compressed and optimized
+Generated JavaScript files can be further compressed and optimized
 by using a recent release of the [Closure Compiler](https://developers.google.com/closure/compiler/).
 It needs to be recent enough to support `BigInt` literals, which is
 available through the `ECMASCRIPT_2020` output option.
@@ -363,8 +364,8 @@ java -jar ~/downloads/closure-compiler-v20210406.jar \
 
 This script can then be invoked with
 
-```
-$ closure.sh build/exec/runTest.js > test.js
+```sh
+closure.sh build/exec/runTest.js > test.js
 ```
 
 In my experience, this leads to a reduction in size of about 30%
@@ -403,7 +404,7 @@ Example: `Web.Internal.DomTypes.EventListener`.
 
 #### Dictionary
 
-A Web IDL dictionary defines a Javascript object with an
+A Web IDL dictionary defines a JavaScript object with an
 associated set of read / write attributes. A dictionary's type cannot
 easily be inspected at runtime, therefore they come without
 implementations of `SafeCast`.
@@ -413,7 +414,7 @@ reflected by the type of generated Idris `Attribute`s as described in
 the section about attributes above.
 
 Dictionaries can have a weak form of subtyping relation:
-If a Javascript object has attributes of the same names and types
+If a JavaScript object has attributes of the same names and types
 as the ones listed in a Web IDL dictionary definition, this
 object can be as an argument to functions expecting such
 a dictionary value.  This subtyping relation is given in
@@ -434,7 +435,7 @@ Example: `Web.Internal.DomTypes.EventInit`.
 #### Enum
 
 In Web IDL, an enum corresponds to a set of string constants.
-While in the Javascript backend these are just ordinary string values
+While in the JavaScript backend these are just ordinary string values
 (but out the specified set of allowed values), our code generator
 generates proper Idris enum types for them, together with corresponding
 functionality for converting these values from and to `String`.
@@ -524,13 +525,13 @@ To be added...
 
 #### Object
 
-The `object` type is at the root of the inheritance tree in Javascript.
+The `object` type is at the root of the inheritance tree in JavaScript.
 Almost every value that is not a primitive inherits from `object`.
 Module `JS.Object` provides external type `Object` for representing
 external objects.
 
 However, this is by far not the most interesting part about objects
-in Javascript. `Object`s are efficient mutable mappings from `String`s to
+in JavaScript. `Object`s are efficient mutable mappings from `String`s to
 arbitrary values, and module `JS.Object` gives users access to this
 functionality by means of a mutable linear-access object type `LinObject`
 and an immutable variant `IObject`, that can only be used for looking

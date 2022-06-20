@@ -1,4 +1,4 @@
-module Test.Array
+module Array
 
 import Data.SOP
 import Hedgehog

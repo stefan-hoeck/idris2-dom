@@ -1,0 +1,14 @@
+[custom.all.dom]
+type   = "local"
+path   = "."
+ipkg   = "dom.ipkg"
+
+[custom.all.dom-test]
+type   = "local"
+path   = "test"
+ipkg   = "test.ipkg"
+
+[custom.all.dom-docs]
+type   = "local"
+path   = "docs"
+ipkg   = "docs.ipkg"

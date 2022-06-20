@@ -1,4 +1,4 @@
-package dom-doc
+package dom-docs
 
 authors    = "stefan-hoeck"
 version    = 0.1.0
@@ -7,13 +7,14 @@ license    = "BSD-2 Clause"
 
 opts       = "--codegen javascript"
 
-main       = Doc.Main
-executable = "dom-doc.js"
+main       = Main
+executable = "dom-docs.js"
 
 sourcedir  = "src"
 
 depends    = base         >= 0.5.1
-           , elab-util    >= 0.5.0
-           , sop          >= 0.5.0
+           , elab-util
+           , sop
+           , dom
 
-modules = Doc.Tutorial
+modules = Tutorial
