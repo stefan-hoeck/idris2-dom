@@ -1,4 +1,4 @@
-module Test.Util
+module Util
 
 import JS
 import Hedgehog

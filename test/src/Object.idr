@@ -1,4 +1,4 @@
-module Test.Object
+module Object
 
 import Hedgehog
 import Generics.Derive

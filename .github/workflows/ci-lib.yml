@@ -11,9 +11,6 @@ on:
     branches:
       - main
   schedule:
-    # We want to run right after the `latest` image is published.
-    # So, let's do it an hour right after. Look the schedule of publishing here:
-    # https://github.com/alexhumphreys/idris2-dockerfile/blob/main/.github/workflows/docker-image.yml
     - cron: '0 1 * * *'
 
 defaults:
@@ -24,42 +21,17 @@ jobs:
   build:
     name: Build ${{ github.repository }} with Idris2 latest
     runs-on: ubuntu-latest
+    env:
+      PACK_DIR: /root/.pack
     strategy:
       fail-fast: false
-    container: snazzybucket/idris2api:latest
+    container: ghcr.io/stefan-hoeck/idris2-pack:latest
     steps:
-      - name: Checkout elab-util
-        uses: actions/checkout@v2
-        with:
-          repository: stefan-hoeck/idris2-elab-util
-      - name: Install elab-util
-        run: make install
-      - name: Checkout sop
-        uses: actions/checkout@v2
-        with:
-          repository: stefan-hoeck/idris2-sop
-      - name: Install sop
-        run: make install
-      - name: Checkout pretty-show
-        uses: actions/checkout@v2
-        with:
-          repository: stefan-hoeck/idris2-pretty-show
-      - name: Install pretty-show
-        run: make install
-      - name: Checkout hedgehog
-        uses: actions/checkout@v2
-        with:
-          repository: stefan-hoeck/idris2-hedgehog
-      - name: Install hedgehog
-        run: make install
       - name: Checkout
         uses: actions/checkout@v2
       - name: Build lib
-        run: make lib
+        run: pack install dom
       - name: Build docs
-        run: make docs
-      - name: Build test
-        run: |
-          apt-get update
-          apt-get install -y nodejs
-          make test
+        run: pack build docs/docs.ipkg
+      - name: Run test
+        run: pack run dom-test -n 1000

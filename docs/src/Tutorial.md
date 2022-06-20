@@ -59,7 +59,7 @@ the button. At the same time, during text input, the program
 checks whether the name entered is a palindrome or not.
 
 ```idris
-module Doc.Tutorial
+module Tutorial
 
 import Data.String
 import JS
@@ -102,7 +102,7 @@ prog = do btn <- createElement Button
 ```
 
 You can give this a try in the browser by replacing the
-`main` function in `Doc.Main` with `main = runJS Doc.Tutorial.prog`
+`main` function in `Main` with `main = runJS Tutorial.prog`
 followed by building the `doc` package: `idris2 --build doc.ipkg`.
 Now, load the `doc.html` file in the project's root folder in your browser.
 It will not look very nice, but it should behave as described.
@@ -287,7 +287,7 @@ error in case the conversion fails:
 prim__logAndTest : Double -> PrimIO Boolean
 
 logAndTest : Double -> JSIO Answer
-logAndTest d = tryJS "Doc.Tutorial.logAndTest" $ prim__logAndTest d
+logAndTest d = tryJS "Tutorial.logAndTest" $ prim__logAndTest d
 ```
 
 ### Callbacks
