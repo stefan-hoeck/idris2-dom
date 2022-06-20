@@ -7,7 +7,7 @@ license    = "BSD-2 Clause"
 
 opts       = "--codegen node"
 
-main       = Test.Main
+main       = Main
 executable = "runTest.js"
 
 sourcedir  = "src"
