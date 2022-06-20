@@ -27,7 +27,7 @@ by `Web.Internal.Types`, which also includes the subtyping
 relations (more on that later).
 
 FFI bindings are defined in submodules of `Web.Internal` ending on `Prim.idr`.
-If you are interested in how to interact with javascript through the FFI,
+If you are interested in how to interact with JavaScript through the FFI,
 you will find many examples there.
 
 The actual API of this library is provided by the
@@ -176,8 +176,9 @@ disableBtn = do maybeElem <- getElementById !document "the_button"
 You can try the action above by modifying our original
 program:
 
-```
-main = runJS $ prog *> disableBtn
+```idris
+namespace Alt
+  main = runJS $ prog *> disableBtn
 ```
 
 Since looking up an element and refining its type by downcasting
@@ -363,8 +364,8 @@ java -jar ~/downloads/closure-compiler-v20210406.jar \
 
 This script can then be invoked with
 
-```
-$ closure.sh build/exec/runTest.js > test.js
+```sh
+closure.sh build/exec/runTest.js > test.js
 ```
 
 In my experience, this leads to a reduction in size of about 30%
