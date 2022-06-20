@@ -34,4 +34,6 @@ jobs:
       - name: Build docs
         run: pack build docs/docs.ipkg
       - name: Run test
-        run: pack run dom-test -n 1000
+        run: |
+          pack build test/test.ipkg
+          node test/build/exec/runTest.js -n 1000
