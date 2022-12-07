@@ -18,7 +18,7 @@ manually, either for an increase in type safety or convenience or both.
 
 A tutorial with a working example program and detailed
 explanations about how the different pieces in this library fit
-together can be found [here](src/Doc/Tutorial.md).
+together can be found [here](docs/src/Tutorial.md).
 
 Quite a bit of functionality is still missing when it comes
 to external types like `Array` or `Promise`, but will be added
