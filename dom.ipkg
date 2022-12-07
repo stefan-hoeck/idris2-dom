@@ -4,9 +4,9 @@ authors    = "stefan-hoeck"
 brief      = "Extensive DOM and web bindings for Idris2"
 version    = 0.1.0
 sourcedir  = "src"
-depends    = base         >= 0.5.1
-           , sop          >= 0.5.0
-           , elab-util    >= 0.5.0
+depends    = base         >= 0.6.0
+           , sop
+           , elab-util
 
 modules = JS
         , JS.Any
@@ -17,9 +17,6 @@ modules = JS
         , JS.Buffer
         , JS.Callback
         , JS.Inheritance
-        , JS.JSON
-        , JS.JSON.FromJSON
-        , JS.JSON.ToJSON
         , JS.Marshall
         , JS.Nullable
         , JS.Number

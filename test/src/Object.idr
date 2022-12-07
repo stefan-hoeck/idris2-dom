@@ -1,7 +1,7 @@
 module Object
 
 import Hedgehog
-import Generics.Derive
+import Derive.Prelude
 
 import JS
 
@@ -15,7 +15,7 @@ record Address where
   zip    : String
   city   : String
 
-%runElab derive "Address" [Generic,Meta,Show,Eq]
+%runElab derive "Address" [Show,Eq]
 
 -- Direct JSON encoding
 toStr : Address -> String

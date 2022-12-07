@@ -12,3 +12,34 @@ ipkg   = "test.ipkg"
 type   = "local"
 path   = "docs"
 ipkg   = "docs.ipkg"
+
+[custom.all.elab-util]
+type   = "git"
+url    = "https://github.com/stefan-hoeck/idris2-elab-util"
+commit = "latest:main"
+ipkg   = "elab-util.ipkg"
+
+[custom.all.sop]
+type   = "git"
+url    = "https://github.com/stefan-hoeck/idris2-sop"
+commit = "latest:main"
+ipkg   = "sop.ipkg"
+
+[custom.all.pretty-show]
+type   = "git"
+url    = "https://github.com/stefan-hoeck/idris2-pretty-show"
+commit = "latest:main"
+ipkg   = "pretty-show.ipkg"
+
+[custom.all.hedgehog]
+type   = "git"
+url    = "https://github.com/stefan-hoeck/idris2-hedgehog"
+commit = "latest:main"
+ipkg   = "hedgehog.ipkg"
+
+[custom.all.json]
+type   = "git"
+url    = "https://github.com/stefan-hoeck/idris2-json"
+commit = "latest:main"
+ipkg   = "json.ipkg"
+test   = "test/test.ipkg"
