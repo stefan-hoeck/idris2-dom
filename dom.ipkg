@@ -5,30 +5,11 @@ brief      = "Extensive DOM and web bindings for Idris2"
 version    = 0.1.0
 sourcedir  = "src"
 depends    = base         >= 0.6.0
+           , js
            , sop
            , elab-util
 
-modules = JS
-        , JS.Any
-        , JS.Array
-        , JS.Attribute
-        , JS.Boolean
-        , JS.ByteString
-        , JS.Buffer
-        , JS.Callback
-        , JS.Inheritance
-        , JS.Marshall
-        , JS.Nullable
-        , JS.Number
-        , JS.Object
-        , JS.Promise
-        , JS.Record
-        , JS.Undefined
-        , JS.Union
-        , JS.Util
-        , JS.VarArg
-
-        , Web.Dom
+modules = Web.Dom
         , Web.Html
 
         , Web.Internal.AnimationPrim

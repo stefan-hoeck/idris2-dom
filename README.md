@@ -3,12 +3,8 @@
 This library provides extensive DOM and web bindings for
 writing Idris2 programs that run in the browser.
 
-This library comes "batteries included", as quite a few utility types
-and functions for interacting with the unsafe world of JavaScript
-are provided via the `JS` submodules. These might eventually be moved
-to their own repository, but as Idris2 is still lacking an official
-package repository, it makes sense to keep this stuff in one package
-for the time being.
+This project comes "batteries included" with an additional
+library for interop with unsafe world of JavaScript.
 
 The sources in `src/Web/Raw` and `src/Web/Internal`
 have been generated automatically using
@@ -32,10 +28,7 @@ by running `idris2 --build dom.ipkg`. Given the size of the codebase,
 this might take several minutes.
 
 ### JavaScript utilities
-The functionality provided by the submodules of `JS` should eventually
-go to its own repository. As a preparation for this change and to
-speed up development of JavaScript utilities (typechecking `dom.ipkg`
-is slow), package file `js.ipkg` is provided.
+These have been moved to a separate library in the `js` directory.
 
 ### Documentation
 The tutorial consists of one or more literal Idris2 files to be
@@ -43,7 +36,7 @@ found at `srd/Doc`. It can be built by running `idris2 --build doc.ipkg`
 and tested afterwards by loading `doc.html` in one's favorite browser.
 
 ### Tests
-There is also `test.ipkg` running several Hedgehog property tests.
+There is `js/test/test.ipkg` for running several Hedgehog property tests.
 This should be built and run with node, as it mainly tests the
 JavaScript utilities working on both JavaScript backends.
 
@@ -62,13 +55,6 @@ the following:
 
 ### Misc
 
-This libary is still evolving - as is Idris2 itself - and I try to keep up
-with the latest Idris2 commits. The actual release requires Idris2, version 0.5.1.
-
-The latest commit is daily tested to build against the current
-HEAD of the Idris compiler. Since Idris2 releases are happening
-rather infrequently at the moment, it is suggested to use
-a package manager like [pack](https://github.com/stefan-hoeck/idris2-pack)
-to install and maintain matching versions of the Idris compiler
-and this library. Pack will also automatically install all
-required dependencies.
+It is recommended to use
+[pack](https://github.com/stefan-hoeck/idris2-pack)
+for building, testing, and installing the libraries provided here.
