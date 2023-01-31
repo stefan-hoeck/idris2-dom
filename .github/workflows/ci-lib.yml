@@ -29,12 +29,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Build lib
+      - name: Build js
+        run: pack install js
+      - name: Build dom
         run: pack install dom
       - name: Build docs
         run: pack build docs/docs.ipkg
       - name: Run test
         run: |
           apt-get update && apt-get install --yes nodejs
-          pack build test/test.ipkg
-          node test/build/exec/runTest.js -n 1000
+          pack test js -n 1000

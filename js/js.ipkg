@@ -1,6 +1,7 @@
 package js
 
 authors    = "stefan-hoeck"
+brief      = "Utilities for working with the JavaScript backends"
 version    = 0.0.1
 sourcedir  = "src"
 depends    = base         >= 0.6.0

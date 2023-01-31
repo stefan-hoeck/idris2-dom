@@ -12,10 +12,5 @@ executable = "runTest.js"
 
 sourcedir  = "src"
 
-depends    = base         >= 0.5.1
-           , contrib
-           , elab-util
-           , pretty-show
-           , sop
-           , hedgehog
-           , dom
+depends    = hedgehog
+           , js
