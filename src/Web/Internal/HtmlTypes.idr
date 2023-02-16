@@ -2736,6 +2736,14 @@ ToFFI StorageEventInit StorageEventInit where toFFI = id
 export
 FromFFI StorageEventInit StorageEventInit where fromFFI = Just
 
+export data StructuredSerializeOptions : Type where [external]
+
+export
+ToFFI StructuredSerializeOptions StructuredSerializeOptions where toFFI = id
+
+export
+FromFFI StructuredSerializeOptions StructuredSerializeOptions where fromFFI = Just
+
 export data SubmitEventInit : Type where [external]
 
 export

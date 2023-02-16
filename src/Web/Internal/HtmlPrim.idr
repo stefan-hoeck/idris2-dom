@@ -10361,6 +10361,25 @@ namespace StorageEventInit
 
 
 
+namespace StructuredSerializeOptions
+
+  export
+  %foreign "browser:lambda:(a)=> ({transfer: a})"
+  prim__new : UndefOr (Array Object) -> PrimIO StructuredSerializeOptions
+
+  export
+  %foreign "browser:lambda:x=>x.transfer"
+  prim__transfer : StructuredSerializeOptions -> PrimIO (UndefOr (Array Object))
+
+
+  export
+  %foreign "browser:lambda:(x,v)=>{x.transfer = v}"
+  prim__setTransfer :  StructuredSerializeOptions
+                    -> UndefOr (Array Object)
+                    -> PrimIO ()
+
+
+
 namespace SubmitEventInit
 
   export

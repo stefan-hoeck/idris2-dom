@@ -4281,6 +4281,12 @@ JSType StreamPipeOptions where
   mixins =  []
 
 public export
+JSType StructuredSerializeOptions where
+  parents =  [ Object ]
+
+  mixins =  []
+
+public export
 JSType SubmitEventInit where
   parents =  [ EventInit , Object ]
 

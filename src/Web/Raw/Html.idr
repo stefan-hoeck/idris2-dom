@@ -9166,15 +9166,17 @@ namespace WindowOrWorkerGlobalScope
 
   export
   structuredClone :  (0 _ : JSType t1)
+                  => (0 _ : JSType t2)
                   => {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+                  -> {auto 0 _ : Elem StructuredSerializeOptions (Types t2)}
                   -> (obj : t1)
                   -> (value : Any)
-                  -> (options : Optional StructuredSerializeOptions)
+                  -> (options : Optional t2)
                   -> JSIO Any
   structuredClone a b c = tryJS "WindowOrWorkerGlobalScope.structuredClone"
                         $ WindowOrWorkerGlobalScope.prim__structuredClone (up a)
                                                                           (toFFI b)
-                                                                          (toFFI c)
+                                                                          (optUp c)
 
   export
   structuredClone' :  (0 _ : JSType t1)
@@ -9905,6 +9907,27 @@ namespace StorageEventInit
                           prim__setUrl
                           ""
                           (v :> StorageEventInit)
+
+
+namespace StructuredSerializeOptions
+
+  export
+  new : (transfer : Optional (Array Object)) -> JSIO StructuredSerializeOptions
+  new a = primJS $ StructuredSerializeOptions.prim__new (toFFI a)
+
+  export
+  new' : JSIO StructuredSerializeOptions
+  new' = primJS $ StructuredSerializeOptions.prim__new undef
+
+  export
+  transfer :  (0 _ : JSType t)
+           => {auto 0 _ : Elem StructuredSerializeOptions (Types t)}
+           -> t
+           -> Attribute False Optional (Array Object)
+  transfer v = fromUndefOrPrimNoDefault "StructuredSerializeOptions.gettransfer"
+                                        prim__transfer
+                                        prim__setTransfer
+                                        (v :> StructuredSerializeOptions)
 
 
 namespace SubmitEventInit
