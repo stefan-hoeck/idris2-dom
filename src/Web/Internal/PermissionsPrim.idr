@@ -171,6 +171,3 @@ namespace PushPermissionDescriptor
   prim__setUserVisibleOnly :  PushPermissionDescriptor
                            -> UndefOr Boolean
                            -> PrimIO ()
-
-
-

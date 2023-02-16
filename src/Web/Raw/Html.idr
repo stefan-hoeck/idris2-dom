@@ -8929,6 +8929,265 @@ namespace WindowLocalStorage
   localStorage a = primJS $ WindowLocalStorage.prim__localStorage (up a)
 
 
+namespace WindowOrWorkerGlobalScope
+
+  export
+  caches :  (0 _ : JSType t1)
+         => {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+         -> (obj : t1)
+         -> JSIO CacheStorage
+  caches a = primJS $ WindowOrWorkerGlobalScope.prim__caches (up a)
+
+  export
+  crossOriginIsolated :  (0 _ : JSType t1)
+                      => {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+                      -> (obj : t1)
+                      -> JSIO Bool
+  crossOriginIsolated a = tryJS "WindowOrWorkerGlobalScope.crossOriginIsolated"
+                        $ WindowOrWorkerGlobalScope.prim__crossOriginIsolated (up a)
+
+  export
+  indexedDB :  (0 _ : JSType t1)
+            => {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+            -> (obj : t1)
+            -> JSIO IDBFactory
+  indexedDB a = primJS $ WindowOrWorkerGlobalScope.prim__indexedDB (up a)
+
+  export
+  isSecureContext :  (0 _ : JSType t1)
+                  => {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+                  -> (obj : t1)
+                  -> JSIO Bool
+  isSecureContext a = tryJS "WindowOrWorkerGlobalScope.isSecureContext"
+                    $ WindowOrWorkerGlobalScope.prim__isSecureContext (up a)
+
+  export
+  origin :  (0 _ : JSType t1)
+         => {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+         -> (obj : t1)
+         -> JSIO String
+  origin a = primJS $ WindowOrWorkerGlobalScope.prim__origin (up a)
+
+  export
+  performance :  (0 _ : JSType t1)
+              => {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+              -> (obj : t1)
+              -> JSIO Performance
+  performance a = primJS $ WindowOrWorkerGlobalScope.prim__performance (up a)
+
+  export
+  atob :  (0 _ : JSType t1)
+       => {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+       -> (obj : t1)
+       -> (data_ : String)
+       -> JSIO ByteString
+  atob a b = primJS $ WindowOrWorkerGlobalScope.prim__atob (up a) b
+
+  export
+  btoa :  (0 _ : JSType t1)
+       => {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+       -> (obj : t1)
+       -> (data_ : String)
+       -> JSIO String
+  btoa a b = primJS $ WindowOrWorkerGlobalScope.prim__btoa (up a) b
+
+  export
+  clearInterval :  (0 _ : JSType t1)
+                => {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+                -> (obj : t1)
+                -> (id : Optional Int32)
+                -> JSIO ()
+  clearInterval a b = primJS
+                    $ WindowOrWorkerGlobalScope.prim__clearInterval (up a)
+                                                                    (toFFI b)
+
+  export
+  clearInterval' :  (0 _ : JSType t1)
+                 => {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+                 -> (obj : t1)
+                 -> JSIO ()
+  clearInterval' a = primJS
+                   $ WindowOrWorkerGlobalScope.prim__clearInterval (up a) undef
+
+  export
+  clearTimeout :  (0 _ : JSType t1)
+               => {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+               -> (obj : t1)
+               -> (id : Optional Int32)
+               -> JSIO ()
+  clearTimeout a b = primJS
+                   $ WindowOrWorkerGlobalScope.prim__clearTimeout (up a)
+                                                                  (toFFI b)
+
+  export
+  clearTimeout' :  (0 _ : JSType t1)
+                => {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+                -> (obj : t1)
+                -> JSIO ()
+  clearTimeout' a = primJS
+                  $ WindowOrWorkerGlobalScope.prim__clearTimeout (up a) undef
+
+  export
+  createImageBitmap :  (0 _ : JSType t1)
+                    => (0 _ : JSType t2)
+                    => {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+                    -> {auto 0 _ : Elem ImageBitmapOptions (Types t2)}
+                    -> (obj : t1)
+                    -> (image : NS I [ HTMLImageElement
+                                     , SVGImageElement
+                                     , HTMLVideoElement
+                                     , HTMLCanvasElement
+                                     , ImageBitmap
+                                     , OffscreenCanvas
+                                     , Blob
+                                     , ImageData
+                                     ])
+                    -> (options : Optional t2)
+                    -> JSIO (Promise ImageBitmap)
+  createImageBitmap a b c = primJS
+                          $ WindowOrWorkerGlobalScope.prim__createImageBitmap (up a)
+                                                                              (toFFI b)
+                                                                              (optUp c)
+
+  export
+  createImageBitmap' :  (0 _ : JSType t1)
+                     => {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+                     -> (obj : t1)
+                     -> (image : NS I [ HTMLImageElement
+                                      , SVGImageElement
+                                      , HTMLVideoElement
+                                      , HTMLCanvasElement
+                                      , ImageBitmap
+                                      , OffscreenCanvas
+                                      , Blob
+                                      , ImageData
+                                      ])
+                     -> JSIO (Promise ImageBitmap)
+  createImageBitmap' a b = primJS
+                         $ WindowOrWorkerGlobalScope.prim__createImageBitmap (up a)
+                                                                             (toFFI b)
+                                                                             undef
+
+  export
+  createImageBitmap1 :  (0 _ : JSType t1)
+                     => (0 _ : JSType t2)
+                     => {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+                     -> {auto 0 _ : Elem ImageBitmapOptions (Types t2)}
+                     -> (obj : t1)
+                     -> (image : NS I [ HTMLImageElement
+                                      , SVGImageElement
+                                      , HTMLVideoElement
+                                      , HTMLCanvasElement
+                                      , ImageBitmap
+                                      , OffscreenCanvas
+                                      , Blob
+                                      , ImageData
+                                      ])
+                     -> (sx : Int32)
+                     -> (sy : Int32)
+                     -> (sw : Int32)
+                     -> (sh : Int32)
+                     -> (options : Optional t2)
+                     -> JSIO (Promise ImageBitmap)
+  createImageBitmap1 a b c d e f g = primJS
+                                   $ WindowOrWorkerGlobalScope.prim__createImageBitmap1 (up a)
+                                                                                        (toFFI b)
+                                                                                        c
+                                                                                        d
+                                                                                        e
+                                                                                        f
+                                                                                        (optUp g)
+
+  export
+  createImageBitmap1' :  (0 _ : JSType t1)
+                      => {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+                      -> (obj : t1)
+                      -> (image : NS I [ HTMLImageElement
+                                       , SVGImageElement
+                                       , HTMLVideoElement
+                                       , HTMLCanvasElement
+                                       , ImageBitmap
+                                       , OffscreenCanvas
+                                       , Blob
+                                       , ImageData
+                                       ])
+                      -> (sx : Int32)
+                      -> (sy : Int32)
+                      -> (sw : Int32)
+                      -> (sh : Int32)
+                      -> JSIO (Promise ImageBitmap)
+  createImageBitmap1' a b c d e f = primJS
+                                  $ WindowOrWorkerGlobalScope.prim__createImageBitmap1 (up a)
+                                                                                       (toFFI b)
+                                                                                       c
+                                                                                       d
+                                                                                       e
+                                                                                       f
+                                                                                       undef
+
+  export
+  fetch :  (0 _ : JSType t1)
+        => (0 _ : JSType t2)
+        => {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+        -> {auto 0 _ : Elem RequestInit (Types t2)}
+        -> (obj : t1)
+        -> (input : NS I [ Request , String ])
+        -> (init : Optional t2)
+        -> JSIO (Promise Response)
+  fetch a b c = primJS
+              $ WindowOrWorkerGlobalScope.prim__fetch (up a) (toFFI b) (optUp c)
+
+  export
+  fetch' :  (0 _ : JSType t1)
+         => {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+         -> (obj : t1)
+         -> (input : NS I [ Request , String ])
+         -> JSIO (Promise Response)
+  fetch' a b = primJS
+             $ WindowOrWorkerGlobalScope.prim__fetch (up a) (toFFI b) undef
+
+  export
+  queueMicrotask :  (0 _ : JSType t1)
+                 => {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+                 -> (obj : t1)
+                 -> (callback : VoidFunction)
+                 -> JSIO ()
+  queueMicrotask a b = primJS
+                     $ WindowOrWorkerGlobalScope.prim__queueMicrotask (up a) b
+
+  export
+  reportError :  (0 _ : JSType t1)
+              => {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+              -> (obj : t1)
+              -> (e : Any)
+              -> JSIO ()
+  reportError a b = primJS
+                  $ WindowOrWorkerGlobalScope.prim__reportError (up a) (toFFI b)
+
+  export
+  structuredClone :  (0 _ : JSType t1)
+                  => {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+                  -> (obj : t1)
+                  -> (value : Any)
+                  -> (options : Optional StructuredSerializeOptions)
+                  -> JSIO Any
+  structuredClone a b c = tryJS "WindowOrWorkerGlobalScope.structuredClone"
+                        $ WindowOrWorkerGlobalScope.prim__structuredClone (up a)
+                                                                          (toFFI b)
+                                                                          (toFFI c)
+
+  export
+  structuredClone' :  (0 _ : JSType t1)
+                   => {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+                   -> (obj : t1)
+                   -> (value : Any)
+                   -> JSIO Any
+  structuredClone' a b = tryJS "WindowOrWorkerGlobalScope.structuredClone'"
+                       $ WindowOrWorkerGlobalScope.prim__structuredClone (up a)
+                                                                         (toFFI b)
+                                                                         undef
+
+
 
 --------------------------------------------------------------------------------
 --          Dictionaries

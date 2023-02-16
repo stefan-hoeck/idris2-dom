@@ -462,6 +462,3 @@ namespace ResponseInit
   export
   %foreign "browser:lambda:(x,v)=>{x.statusText = v}"
   prim__setStatusText : ResponseInit -> UndefOr ByteString -> PrimIO ()
-
-
-

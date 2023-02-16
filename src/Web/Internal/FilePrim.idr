@@ -269,6 +269,3 @@ namespace FilePropertyBag
   export
   %foreign "browser:lambda:(x,v)=>{x.lastModified = v}"
   prim__setLastModified : FilePropertyBag -> UndefOr JSInt64 -> PrimIO ()
-
-
-

@@ -3045,6 +3045,14 @@ ToFFI WindowLocalStorage WindowLocalStorage where toFFI = id
 export
 FromFFI WindowLocalStorage WindowLocalStorage where fromFFI = Just
 
+export data WindowOrWorkerGlobalScope : Type where [external]
+
+export
+ToFFI WindowOrWorkerGlobalScope WindowOrWorkerGlobalScope where toFFI = id
+
+export
+FromFFI WindowOrWorkerGlobalScope WindowOrWorkerGlobalScope where fromFFI = Just
+
 
 --------------------------------------------------------------------------------
 --          Callbacks
