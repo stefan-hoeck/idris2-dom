@@ -673,6 +673,3 @@ namespace IDBVersionChangeEventInit
   prim__setOldVersion :  IDBVersionChangeEventInit
                       -> UndefOr JSBits64
                       -> PrimIO ()
-
-
-

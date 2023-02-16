@@ -819,6 +819,3 @@ namespace RegistrationOptions
   export
   %foreign "browser:lambda:(x,v)=>{x.updateViaCache = v}"
   prim__setUpdateViaCache : RegistrationOptions -> UndefOr String -> PrimIO ()
-
-
-

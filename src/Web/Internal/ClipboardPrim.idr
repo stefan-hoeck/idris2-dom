@@ -152,4 +152,3 @@ namespace ClipboardItemDelayedCallback
   prim__toClipboardItemDelayedCallback :  (() -> IO (Promise (Union2 String
                                                                      Blob)))
                                        -> PrimIO ClipboardItemDelayedCallback
-

@@ -9658,6 +9658,103 @@ namespace WindowLocalStorage
   prim__localStorage : WindowLocalStorage -> PrimIO Storage
 
 
+namespace WindowOrWorkerGlobalScope
+
+  export
+  %foreign "browser:lambda:x=>x.caches"
+  prim__caches : WindowOrWorkerGlobalScope -> PrimIO CacheStorage
+
+  export
+  %foreign "browser:lambda:x=>x.crossOriginIsolated"
+  prim__crossOriginIsolated : WindowOrWorkerGlobalScope -> PrimIO Boolean
+
+  export
+  %foreign "browser:lambda:x=>x.indexedDB"
+  prim__indexedDB : WindowOrWorkerGlobalScope -> PrimIO IDBFactory
+
+  export
+  %foreign "browser:lambda:x=>x.isSecureContext"
+  prim__isSecureContext : WindowOrWorkerGlobalScope -> PrimIO Boolean
+
+  export
+  %foreign "browser:lambda:x=>x.origin"
+  prim__origin : WindowOrWorkerGlobalScope -> PrimIO String
+
+  export
+  %foreign "browser:lambda:x=>x.performance"
+  prim__performance : WindowOrWorkerGlobalScope -> PrimIO Performance
+
+  export
+  %foreign "browser:lambda:(x,a)=>x.atob(a)"
+  prim__atob : WindowOrWorkerGlobalScope -> String -> PrimIO ByteString
+
+  export
+  %foreign "browser:lambda:(x,a)=>x.btoa(a)"
+  prim__btoa : WindowOrWorkerGlobalScope -> String -> PrimIO String
+
+  export
+  %foreign "browser:lambda:(x,a)=>x.clearInterval(a)"
+  prim__clearInterval : WindowOrWorkerGlobalScope -> UndefOr Int32 -> PrimIO ()
+
+  export
+  %foreign "browser:lambda:(x,a)=>x.clearTimeout(a)"
+  prim__clearTimeout : WindowOrWorkerGlobalScope -> UndefOr Int32 -> PrimIO ()
+
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.createImageBitmap(a,b)"
+  prim__createImageBitmap :  WindowOrWorkerGlobalScope
+                          -> Union8 HTMLImageElement
+                                    SVGImageElement
+                                    HTMLVideoElement
+                                    HTMLCanvasElement
+                                    ImageBitmap
+                                    OffscreenCanvas
+                                    Blob
+                                    ImageData
+                          -> UndefOr ImageBitmapOptions
+                          -> PrimIO (Promise ImageBitmap)
+
+  export
+  %foreign "browser:lambda:(x,a,b,c,d,e,f)=>x.createImageBitmap(a,b,c,d,e,f)"
+  prim__createImageBitmap1 :  WindowOrWorkerGlobalScope
+                           -> Union8 HTMLImageElement
+                                     SVGImageElement
+                                     HTMLVideoElement
+                                     HTMLCanvasElement
+                                     ImageBitmap
+                                     OffscreenCanvas
+                                     Blob
+                                     ImageData
+                           -> Int32
+                           -> Int32
+                           -> Int32
+                           -> Int32
+                           -> UndefOr ImageBitmapOptions
+                           -> PrimIO (Promise ImageBitmap)
+
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.fetch(a,b)"
+  prim__fetch :  WindowOrWorkerGlobalScope
+              -> Union2 Request String
+              -> UndefOr RequestInit
+              -> PrimIO (Promise Response)
+
+  export
+  %foreign "browser:lambda:(x,a)=>x.queueMicrotask(a)"
+  prim__queueMicrotask : WindowOrWorkerGlobalScope -> VoidFunction -> PrimIO ()
+
+  export
+  %foreign "browser:lambda:(x,a)=>x.reportError(a)"
+  prim__reportError : WindowOrWorkerGlobalScope -> AnyPtr -> PrimIO ()
+
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.structuredClone(a,b)"
+  prim__structuredClone :  WindowOrWorkerGlobalScope
+                        -> AnyPtr
+                        -> UndefOr StructuredSerializeOptions
+                        -> PrimIO AnyPtr
+
+
 
 --------------------------------------------------------------------------------
 --          Dictionaries
@@ -10264,6 +10361,25 @@ namespace StorageEventInit
 
 
 
+namespace StructuredSerializeOptions
+
+  export
+  %foreign "browser:lambda:(a)=> ({transfer: a})"
+  prim__new : UndefOr (Array Object) -> PrimIO StructuredSerializeOptions
+
+  export
+  %foreign "browser:lambda:x=>x.transfer"
+  prim__transfer : StructuredSerializeOptions -> PrimIO (UndefOr (Array Object))
+
+
+  export
+  %foreign "browser:lambda:(x,v)=>{x.transfer = v}"
+  prim__setTransfer :  StructuredSerializeOptions
+                    -> UndefOr (Array Object)
+                    -> PrimIO ()
+
+
+
 namespace SubmitEventInit
 
   export
@@ -10610,4 +10726,3 @@ namespace WheelEventHandler
   %foreign "browser:lambda:x=>(a)=>x(a)()"
   prim__toWheelEventHandler :  ( WheelEvent -> IO () )
                             -> PrimIO WheelEventHandler
-

@@ -2736,6 +2736,14 @@ ToFFI StorageEventInit StorageEventInit where toFFI = id
 export
 FromFFI StorageEventInit StorageEventInit where fromFFI = Just
 
+export data StructuredSerializeOptions : Type where [external]
+
+export
+ToFFI StructuredSerializeOptions StructuredSerializeOptions where toFFI = id
+
+export
+FromFFI StructuredSerializeOptions StructuredSerializeOptions where fromFFI = Just
+
 export data SubmitEventInit : Type where [external]
 
 export
@@ -3044,6 +3052,14 @@ ToFFI WindowLocalStorage WindowLocalStorage where toFFI = id
 
 export
 FromFFI WindowLocalStorage WindowLocalStorage where fromFFI = Just
+
+export data WindowOrWorkerGlobalScope : Type where [external]
+
+export
+ToFFI WindowOrWorkerGlobalScope WindowOrWorkerGlobalScope where toFFI = id
+
+export
+FromFFI WindowOrWorkerGlobalScope WindowOrWorkerGlobalScope where fromFFI = Just
 
 
 --------------------------------------------------------------------------------

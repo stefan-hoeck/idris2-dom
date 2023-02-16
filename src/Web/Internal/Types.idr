@@ -422,7 +422,7 @@ public export
 JSType DedicatedWorkerGlobalScope where
   parents =  [ WorkerGlobalScope , EventTarget , Object ]
 
-  mixins =  []
+  mixins =  [ WindowOrWorkerGlobalScope ]
 
 public export
 JSType Document where
@@ -3238,7 +3238,7 @@ public export
 JSType ServiceWorkerGlobalScope where
   parents =  [ WorkerGlobalScope , EventTarget , Object ]
 
-  mixins =  []
+  mixins =  [ WindowOrWorkerGlobalScope ]
 
 public export
 JSType ServiceWorkerRegistration where
@@ -3272,7 +3272,7 @@ public export
 JSType SharedWorkerGlobalScope where
   parents =  [ WorkerGlobalScope , EventTarget , Object ]
 
-  mixins =  []
+  mixins =  [ WindowOrWorkerGlobalScope ]
 
 public export
 JSType SourceBuffer where
@@ -3545,7 +3545,11 @@ public export
 JSType Window where
   parents =  [ EventTarget , Object ]
 
-  mixins =  [ GlobalEventHandlers , WindowEventHandlers , WindowLocalStorage ]
+  mixins =  [ GlobalEventHandlers
+            , WindowEventHandlers
+            , WindowLocalStorage
+            , WindowOrWorkerGlobalScope
+            ]
 
 public export
 JSType WindowClient where
@@ -3563,7 +3567,7 @@ public export
 JSType WorkerGlobalScope where
   parents =  [ EventTarget , Object ]
 
-  mixins =  []
+  mixins =  [ WindowOrWorkerGlobalScope ]
 
 public export
 JSType WorkerLocation where
@@ -4272,6 +4276,12 @@ JSType StorageEventInit where
 
 public export
 JSType StreamPipeOptions where
+  parents =  [ Object ]
+
+  mixins =  []
+
+public export
+JSType StructuredSerializeOptions where
   parents =  [ Object ]
 
   mixins =  []

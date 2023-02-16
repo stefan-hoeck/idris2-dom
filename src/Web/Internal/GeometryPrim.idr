@@ -878,6 +878,3 @@ namespace DOMRectInit
   export
   %foreign "browser:lambda:(x,v)=>{x.y = v}"
   prim__setY : DOMRectInit -> UndefOr Double -> PrimIO ()
-
-
-
