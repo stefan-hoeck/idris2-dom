@@ -12,12 +12,13 @@ import JS
 namespace XMLHttpRequestResponseType
 
   public export
-  data XMLHttpRequestResponseType = Empty
-                                  | Arraybuffer
-                                  | Blob
-                                  | Document
-                                  | Json
-                                  | Text
+  data XMLHttpRequestResponseType =
+      Empty
+    | Arraybuffer
+    | Blob
+    | Document
+    | Json
+    | Text
 
   public export
   Show XMLHttpRequestResponseType where
@@ -47,9 +48,10 @@ namespace XMLHttpRequestResponseType
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (XMLHttpRequestResponseType.read s)}
-             -> XMLHttpRequestResponseType
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (XMLHttpRequestResponseType.read s)}
+    -> XMLHttpRequestResponseType
   fromString s = fromJust $ read s
 
   export
@@ -59,6 +61,7 @@ namespace XMLHttpRequestResponseType
   export
   FromFFI XMLHttpRequestResponseType String where
     fromFFI = read
+
 
 
 --------------------------------------------------------------------------------

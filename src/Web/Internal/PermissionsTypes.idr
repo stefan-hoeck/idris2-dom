@@ -36,9 +36,10 @@ namespace PermissionState
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (PermissionState.read s)}
-             -> PermissionState
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (PermissionState.read s)}
+    -> PermissionState
   fromString s = fromJust $ read s
 
   export
@@ -49,29 +50,31 @@ namespace PermissionState
   FromFFI PermissionState String where
     fromFFI = read
 
+
 namespace PermissionName
 
   public export
-  data PermissionName = Geolocation
-                      | Notifications
-                      | Push
-                      | Midi
-                      | Camera
-                      | Microphone
-                      | SpeakerSelection
-                      | DeviceInfo
-                      | BackgroundFetch
-                      | BackgroundSync
-                      | Bluetooth
-                      | PersistentStorage
-                      | AmbientLightSensor
-                      | Accelerometer
-                      | Gyroscope
-                      | Magnetometer
-                      | ClipboardRead
-                      | ClipboardWrite
-                      | DisplayCapture
-                      | Nfc
+  data PermissionName =
+      Geolocation
+    | Notifications
+    | Push
+    | Midi
+    | Camera
+    | Microphone
+    | SpeakerSelection
+    | DeviceInfo
+    | BackgroundFetch
+    | BackgroundSync
+    | Bluetooth
+    | PersistentStorage
+    | AmbientLightSensor
+    | Accelerometer
+    | Gyroscope
+    | Magnetometer
+    | ClipboardRead
+    | ClipboardWrite
+    | DisplayCapture
+    | Nfc
 
   public export
   Show PermissionName where
@@ -129,9 +132,10 @@ namespace PermissionName
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (PermissionName.read s)}
-             -> PermissionName
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (PermissionName.read s)}
+    -> PermissionName
   fromString s = fromJust $ read s
 
   export
@@ -141,6 +145,7 @@ namespace PermissionName
   export
   FromFFI PermissionName String where
     fromFFI = read
+
 
 
 --------------------------------------------------------------------------------

@@ -34,9 +34,10 @@ namespace ShadowRootMode
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (ShadowRootMode.read s)}
-             -> ShadowRootMode
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (ShadowRootMode.read s)}
+    -> ShadowRootMode
   fromString s = fromJust $ read s
 
   export
@@ -46,6 +47,7 @@ namespace ShadowRootMode
   export
   FromFFI ShadowRootMode String where
     fromFFI = read
+
 
 
 --------------------------------------------------------------------------------

@@ -36,9 +36,10 @@ namespace ReadyState
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (ReadyState.read s)}
-             -> ReadyState
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (ReadyState.read s)}
+    -> ReadyState
   fromString s = fromJust $ read s
 
   export
@@ -48,6 +49,7 @@ namespace ReadyState
   export
   FromFFI ReadyState String where
     fromFFI = read
+
 
 namespace EndOfStreamError
 
@@ -74,9 +76,10 @@ namespace EndOfStreamError
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (EndOfStreamError.read s)}
-             -> EndOfStreamError
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (EndOfStreamError.read s)}
+    -> EndOfStreamError
   fromString s = fromJust $ read s
 
   export
@@ -86,6 +89,7 @@ namespace EndOfStreamError
   export
   FromFFI EndOfStreamError String where
     fromFFI = read
+
 
 namespace AppendMode
 
@@ -112,9 +116,10 @@ namespace AppendMode
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (AppendMode.read s)}
-             -> AppendMode
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (AppendMode.read s)}
+    -> AppendMode
   fromString s = fromJust $ read s
 
   export
@@ -124,6 +129,7 @@ namespace AppendMode
   export
   FromFFI AppendMode String where
     fromFFI = read
+
 
 
 --------------------------------------------------------------------------------
