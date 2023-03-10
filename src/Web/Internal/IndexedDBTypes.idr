@@ -34,9 +34,10 @@ namespace IDBRequestReadyState
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (IDBRequestReadyState.read s)}
-             -> IDBRequestReadyState
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (IDBRequestReadyState.read s)}
+    -> IDBRequestReadyState
   fromString s = fromJust $ read s
 
   export
@@ -46,6 +47,7 @@ namespace IDBRequestReadyState
   export
   FromFFI IDBRequestReadyState String where
     fromFFI = read
+
 
 namespace IDBTransactionDurability
 
@@ -74,9 +76,10 @@ namespace IDBTransactionDurability
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (IDBTransactionDurability.read s)}
-             -> IDBTransactionDurability
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (IDBTransactionDurability.read s)}
+    -> IDBTransactionDurability
   fromString s = fromJust $ read s
 
   export
@@ -86,6 +89,7 @@ namespace IDBTransactionDurability
   export
   FromFFI IDBTransactionDurability String where
     fromFFI = read
+
 
 namespace IDBCursorDirection
 
@@ -116,9 +120,10 @@ namespace IDBCursorDirection
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (IDBCursorDirection.read s)}
-             -> IDBCursorDirection
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (IDBCursorDirection.read s)}
+    -> IDBCursorDirection
   fromString s = fromJust $ read s
 
   export
@@ -128,6 +133,7 @@ namespace IDBCursorDirection
   export
   FromFFI IDBCursorDirection String where
     fromFFI = read
+
 
 namespace IDBTransactionMode
 
@@ -156,9 +162,10 @@ namespace IDBTransactionMode
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (IDBTransactionMode.read s)}
-             -> IDBTransactionMode
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (IDBTransactionMode.read s)}
+    -> IDBTransactionMode
   fromString s = fromJust $ read s
 
   export
@@ -168,6 +175,7 @@ namespace IDBTransactionMode
   export
   FromFFI IDBTransactionMode String where
     fromFFI = read
+
 
 
 --------------------------------------------------------------------------------

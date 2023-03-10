@@ -12,12 +12,13 @@ import JS
 namespace ServiceWorkerState
 
   public export
-  data ServiceWorkerState = Parsed
-                          | Installing
-                          | Installed
-                          | Activating
-                          | Activated
-                          | Redundant
+  data ServiceWorkerState =
+      Parsed
+    | Installing
+    | Installed
+    | Activating
+    | Activated
+    | Redundant
 
   public export
   Show ServiceWorkerState where
@@ -47,9 +48,10 @@ namespace ServiceWorkerState
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (ServiceWorkerState.read s)}
-             -> ServiceWorkerState
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (ServiceWorkerState.read s)}
+    -> ServiceWorkerState
   fromString s = fromJust $ read s
 
   export
@@ -59,6 +61,7 @@ namespace ServiceWorkerState
   export
   FromFFI ServiceWorkerState String where
     fromFFI = read
+
 
 namespace ServiceWorkerUpdateViaCache
 
@@ -87,9 +90,10 @@ namespace ServiceWorkerUpdateViaCache
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (ServiceWorkerUpdateViaCache.read s)}
-             -> ServiceWorkerUpdateViaCache
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (ServiceWorkerUpdateViaCache.read s)}
+    -> ServiceWorkerUpdateViaCache
   fromString s = fromJust $ read s
 
   export
@@ -99,6 +103,7 @@ namespace ServiceWorkerUpdateViaCache
   export
   FromFFI ServiceWorkerUpdateViaCache String where
     fromFFI = read
+
 
 namespace FrameType
 
@@ -129,9 +134,10 @@ namespace FrameType
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (FrameType.read s)}
-             -> FrameType
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (FrameType.read s)}
+    -> FrameType
   fromString s = fromJust $ read s
 
   export
@@ -141,6 +147,7 @@ namespace FrameType
   export
   FromFFI FrameType String where
     fromFFI = read
+
 
 namespace ClientType
 
@@ -171,9 +178,10 @@ namespace ClientType
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (ClientType.read s)}
-             -> ClientType
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (ClientType.read s)}
+    -> ClientType
   fromString s = fromJust $ read s
 
   export
@@ -183,6 +191,7 @@ namespace ClientType
   export
   FromFFI ClientType String where
     fromFFI = read
+
 
 
 --------------------------------------------------------------------------------

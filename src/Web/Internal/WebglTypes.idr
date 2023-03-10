@@ -36,9 +36,10 @@ namespace WebGLPowerPreference
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (WebGLPowerPreference.read s)}
-             -> WebGLPowerPreference
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (WebGLPowerPreference.read s)}
+    -> WebGLPowerPreference
   fromString s = fromJust $ read s
 
   export
@@ -48,6 +49,7 @@ namespace WebGLPowerPreference
   export
   FromFFI WebGLPowerPreference String where
     fromFFI = read
+
 
 
 --------------------------------------------------------------------------------

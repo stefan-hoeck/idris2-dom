@@ -32,9 +32,10 @@ namespace ReadableStreamReaderMode
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (ReadableStreamReaderMode.read s)}
-             -> ReadableStreamReaderMode
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (ReadableStreamReaderMode.read s)}
+    -> ReadableStreamReaderMode
   fromString s = fromJust $ read s
 
   export
@@ -44,6 +45,7 @@ namespace ReadableStreamReaderMode
   export
   FromFFI ReadableStreamReaderMode String where
     fromFFI = read
+
 
 namespace ReadableStreamType
 
@@ -68,9 +70,10 @@ namespace ReadableStreamType
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (ReadableStreamType.read s)}
-             -> ReadableStreamType
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (ReadableStreamType.read s)}
+    -> ReadableStreamType
   fromString s = fromJust $ read s
 
   export
@@ -80,6 +83,7 @@ namespace ReadableStreamType
   export
   FromFFI ReadableStreamType String where
     fromFFI = read
+
 
 
 --------------------------------------------------------------------------------

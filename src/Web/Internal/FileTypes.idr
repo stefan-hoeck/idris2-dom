@@ -34,9 +34,10 @@ namespace EndingType
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (EndingType.read s)}
-             -> EndingType
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (EndingType.read s)}
+    -> EndingType
   fromString s = fromJust $ read s
 
   export
@@ -46,6 +47,7 @@ namespace EndingType
   export
   FromFFI EndingType String where
     fromFFI = read
+
 
 
 --------------------------------------------------------------------------------

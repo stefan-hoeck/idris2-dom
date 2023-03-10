@@ -12,11 +12,12 @@ import JS
 namespace DOMParserSupportedType
 
   public export
-  data DOMParserSupportedType = TextHtml
-                              | TextXml
-                              | ApplicationXml
-                              | ApplicationXhtmlXml
-                              | ImageSvgXml
+  data DOMParserSupportedType =
+      TextHtml
+    | TextXml
+    | ApplicationXml
+    | ApplicationXhtmlXml
+    | ImageSvgXml
 
   public export
   Show DOMParserSupportedType where
@@ -44,9 +45,10 @@ namespace DOMParserSupportedType
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (DOMParserSupportedType.read s)}
-             -> DOMParserSupportedType
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (DOMParserSupportedType.read s)}
+    -> DOMParserSupportedType
   fromString s = fromJust $ read s
 
   export
@@ -56,6 +58,7 @@ namespace DOMParserSupportedType
   export
   FromFFI DOMParserSupportedType String where
     fromFFI = read
+
 
 namespace DocumentReadyState
 
@@ -84,9 +87,10 @@ namespace DocumentReadyState
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (DocumentReadyState.read s)}
-             -> DocumentReadyState
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (DocumentReadyState.read s)}
+    -> DocumentReadyState
   fromString s = fromJust $ read s
 
   export
@@ -96,6 +100,7 @@ namespace DocumentReadyState
   export
   FromFFI DocumentReadyState String where
     fromFFI = read
+
 
 namespace CanPlayTypeResult
 
@@ -124,9 +129,10 @@ namespace CanPlayTypeResult
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (CanPlayTypeResult.read s)}
-             -> CanPlayTypeResult
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (CanPlayTypeResult.read s)}
+    -> CanPlayTypeResult
   fromString s = fromJust $ read s
 
   export
@@ -136,6 +142,7 @@ namespace CanPlayTypeResult
   export
   FromFFI CanPlayTypeResult String where
     fromFFI = read
+
 
 namespace ScrollRestoration
 
@@ -162,9 +169,10 @@ namespace ScrollRestoration
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (ScrollRestoration.read s)}
-             -> ScrollRestoration
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (ScrollRestoration.read s)}
+    -> ScrollRestoration
   fromString s = fromJust $ read s
 
   export
@@ -174,6 +182,7 @@ namespace ScrollRestoration
   export
   FromFFI ScrollRestoration String where
     fromFFI = read
+
 
 namespace ImageOrientation
 
@@ -200,9 +209,10 @@ namespace ImageOrientation
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (ImageOrientation.read s)}
-             -> ImageOrientation
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (ImageOrientation.read s)}
+    -> ImageOrientation
   fromString s = fromJust $ read s
 
   export
@@ -212,6 +222,7 @@ namespace ImageOrientation
   export
   FromFFI ImageOrientation String where
     fromFFI = read
+
 
 namespace PremultiplyAlpha
 
@@ -240,9 +251,10 @@ namespace PremultiplyAlpha
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (PremultiplyAlpha.read s)}
-             -> PremultiplyAlpha
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (PremultiplyAlpha.read s)}
+    -> PremultiplyAlpha
   fromString s = fromJust $ read s
 
   export
@@ -252,6 +264,7 @@ namespace PremultiplyAlpha
   export
   FromFFI PremultiplyAlpha String where
     fromFFI = read
+
 
 namespace ColorSpaceConversion
 
@@ -278,9 +291,10 @@ namespace ColorSpaceConversion
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (ColorSpaceConversion.read s)}
-             -> ColorSpaceConversion
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (ColorSpaceConversion.read s)}
+    -> ColorSpaceConversion
   fromString s = fromJust $ read s
 
   export
@@ -290,6 +304,7 @@ namespace ColorSpaceConversion
   export
   FromFFI ColorSpaceConversion String where
     fromFFI = read
+
 
 namespace ResizeQuality
 
@@ -320,9 +335,10 @@ namespace ResizeQuality
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (ResizeQuality.read s)}
-             -> ResizeQuality
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (ResizeQuality.read s)}
+    -> ResizeQuality
   fromString s = fromJust $ read s
 
   export
@@ -332,6 +348,7 @@ namespace ResizeQuality
   export
   FromFFI ResizeQuality String where
     fromFFI = read
+
 
 namespace CanvasFillRule
 
@@ -358,9 +375,10 @@ namespace CanvasFillRule
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (CanvasFillRule.read s)}
-             -> CanvasFillRule
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (CanvasFillRule.read s)}
+    -> CanvasFillRule
   fromString s = fromJust $ read s
 
   export
@@ -370,6 +388,7 @@ namespace CanvasFillRule
   export
   FromFFI CanvasFillRule String where
     fromFFI = read
+
 
 namespace ImageSmoothingQuality
 
@@ -398,9 +417,10 @@ namespace ImageSmoothingQuality
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (ImageSmoothingQuality.read s)}
-             -> ImageSmoothingQuality
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (ImageSmoothingQuality.read s)}
+    -> ImageSmoothingQuality
   fromString s = fromJust $ read s
 
   export
@@ -410,6 +430,7 @@ namespace ImageSmoothingQuality
   export
   FromFFI ImageSmoothingQuality String where
     fromFFI = read
+
 
 namespace CanvasLineCap
 
@@ -438,9 +459,10 @@ namespace CanvasLineCap
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (CanvasLineCap.read s)}
-             -> CanvasLineCap
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (CanvasLineCap.read s)}
+    -> CanvasLineCap
   fromString s = fromJust $ read s
 
   export
@@ -450,6 +472,7 @@ namespace CanvasLineCap
   export
   FromFFI CanvasLineCap String where
     fromFFI = read
+
 
 namespace CanvasLineJoin
 
@@ -478,9 +501,10 @@ namespace CanvasLineJoin
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (CanvasLineJoin.read s)}
-             -> CanvasLineJoin
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (CanvasLineJoin.read s)}
+    -> CanvasLineJoin
   fromString s = fromJust $ read s
 
   export
@@ -490,6 +514,7 @@ namespace CanvasLineJoin
   export
   FromFFI CanvasLineJoin String where
     fromFFI = read
+
 
 namespace CanvasTextAlign
 
@@ -522,9 +547,10 @@ namespace CanvasTextAlign
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (CanvasTextAlign.read s)}
-             -> CanvasTextAlign
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (CanvasTextAlign.read s)}
+    -> CanvasTextAlign
   fromString s = fromJust $ read s
 
   export
@@ -535,15 +561,17 @@ namespace CanvasTextAlign
   FromFFI CanvasTextAlign String where
     fromFFI = read
 
+
 namespace CanvasTextBaseline
 
   public export
-  data CanvasTextBaseline = Top
-                          | Hanging
-                          | Middle
-                          | Alphabetic
-                          | Ideographic
-                          | Bottom
+  data CanvasTextBaseline =
+      Top
+    | Hanging
+    | Middle
+    | Alphabetic
+    | Ideographic
+    | Bottom
 
   public export
   Show CanvasTextBaseline where
@@ -573,9 +601,10 @@ namespace CanvasTextBaseline
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (CanvasTextBaseline.read s)}
-             -> CanvasTextBaseline
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (CanvasTextBaseline.read s)}
+    -> CanvasTextBaseline
   fromString s = fromJust $ read s
 
   export
@@ -585,6 +614,7 @@ namespace CanvasTextBaseline
   export
   FromFFI CanvasTextBaseline String where
     fromFFI = read
+
 
 namespace CanvasDirection
 
@@ -613,9 +643,10 @@ namespace CanvasDirection
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (CanvasDirection.read s)}
-             -> CanvasDirection
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (CanvasDirection.read s)}
+    -> CanvasDirection
   fromString s = fromJust $ read s
 
   export
@@ -625,6 +656,7 @@ namespace CanvasDirection
   export
   FromFFI CanvasDirection String where
     fromFFI = read
+
 
 namespace OffscreenRenderingContextId
 
@@ -655,9 +687,10 @@ namespace OffscreenRenderingContextId
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (OffscreenRenderingContextId.read s)}
-             -> OffscreenRenderingContextId
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (OffscreenRenderingContextId.read s)}
+    -> OffscreenRenderingContextId
   fromString s = fromJust $ read s
 
   export
@@ -667,6 +700,7 @@ namespace OffscreenRenderingContextId
   export
   FromFFI OffscreenRenderingContextId String where
     fromFFI = read
+
 
 namespace TextTrackMode
 
@@ -695,9 +729,10 @@ namespace TextTrackMode
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (TextTrackMode.read s)}
-             -> TextTrackMode
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (TextTrackMode.read s)}
+    -> TextTrackMode
   fromString s = fromJust $ read s
 
   export
@@ -707,6 +742,7 @@ namespace TextTrackMode
   export
   FromFFI TextTrackMode String where
     fromFFI = read
+
 
 namespace TextTrackKind
 
@@ -739,9 +775,10 @@ namespace TextTrackKind
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (TextTrackKind.read s)}
-             -> TextTrackKind
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (TextTrackKind.read s)}
+    -> TextTrackKind
   fromString s = fromJust $ read s
 
   export
@@ -751,6 +788,7 @@ namespace TextTrackKind
   export
   FromFFI TextTrackKind String where
     fromFFI = read
+
 
 namespace BinaryType
 
@@ -777,9 +815,10 @@ namespace BinaryType
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (BinaryType.read s)}
-             -> BinaryType
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (BinaryType.read s)}
+    -> BinaryType
   fromString s = fromJust $ read s
 
   export
@@ -789,6 +828,7 @@ namespace BinaryType
   export
   FromFFI BinaryType String where
     fromFFI = read
+
 
 namespace WorkerType
 
@@ -815,9 +855,10 @@ namespace WorkerType
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (WorkerType.read s)}
-             -> WorkerType
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (WorkerType.read s)}
+    -> WorkerType
   fromString s = fromJust $ read s
 
   export
@@ -827,6 +868,7 @@ namespace WorkerType
   export
   FromFFI WorkerType String where
     fromFFI = read
+
 
 namespace SelectionMode
 
@@ -857,9 +899,10 @@ namespace SelectionMode
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (SelectionMode.read s)}
-             -> SelectionMode
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (SelectionMode.read s)}
+    -> SelectionMode
   fromString s = fromJust $ read s
 
   export
@@ -869,6 +912,7 @@ namespace SelectionMode
   export
   FromFFI SelectionMode String where
     fromFFI = read
+
 
 
 --------------------------------------------------------------------------------

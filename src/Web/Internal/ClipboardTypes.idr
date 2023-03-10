@@ -36,9 +36,10 @@ namespace PresentationStyle
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (PresentationStyle.read s)}
-             -> PresentationStyle
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (PresentationStyle.read s)}
+    -> PresentationStyle
   fromString s = fromJust $ read s
 
   export
@@ -48,6 +49,7 @@ namespace PresentationStyle
   export
   FromFFI PresentationStyle String where
     fromFFI = read
+
 
 
 --------------------------------------------------------------------------------

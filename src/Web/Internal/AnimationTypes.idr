@@ -38,9 +38,10 @@ namespace AnimationPlayState
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (AnimationPlayState.read s)}
-             -> AnimationPlayState
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (AnimationPlayState.read s)}
+    -> AnimationPlayState
   fromString s = fromJust $ read s
 
   export
@@ -50,6 +51,7 @@ namespace AnimationPlayState
   export
   FromFFI AnimationPlayState String where
     fromFFI = read
+
 
 namespace FillMode
 
@@ -93,6 +95,7 @@ namespace FillMode
   FromFFI FillMode String where
     fromFFI = read
 
+
 namespace PlaybackDirection
 
   public export
@@ -122,9 +125,10 @@ namespace PlaybackDirection
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (PlaybackDirection.read s)}
-             -> PlaybackDirection
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (PlaybackDirection.read s)}
+    -> PlaybackDirection
   fromString s = fromJust $ read s
 
   export
@@ -134,6 +138,7 @@ namespace PlaybackDirection
   export
   FromFFI PlaybackDirection String where
     fromFFI = read
+
 
 namespace IterationCompositeOperation
 
@@ -160,9 +165,10 @@ namespace IterationCompositeOperation
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (IterationCompositeOperation.read s)}
-             -> IterationCompositeOperation
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (IterationCompositeOperation.read s)}
+    -> IterationCompositeOperation
   fromString s = fromJust $ read s
 
   export
@@ -172,6 +178,7 @@ namespace IterationCompositeOperation
   export
   FromFFI IterationCompositeOperation String where
     fromFFI = read
+
 
 namespace CompositeOperation
 
@@ -200,9 +207,10 @@ namespace CompositeOperation
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (CompositeOperation.read s)}
-             -> CompositeOperation
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (CompositeOperation.read s)}
+    -> CompositeOperation
   fromString s = fromJust $ read s
 
   export
@@ -212,6 +220,7 @@ namespace CompositeOperation
   export
   FromFFI CompositeOperation String where
     fromFFI = read
+
 
 namespace CompositeOperationOrAuto
 
@@ -242,9 +251,10 @@ namespace CompositeOperationOrAuto
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (CompositeOperationOrAuto.read s)}
-             -> CompositeOperationOrAuto
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (CompositeOperationOrAuto.read s)}
+    -> CompositeOperationOrAuto
   fromString s = fromJust $ read s
 
   export
@@ -254,6 +264,7 @@ namespace CompositeOperationOrAuto
   export
   FromFFI CompositeOperationOrAuto String where
     fromFFI = read
+
 
 
 --------------------------------------------------------------------------------

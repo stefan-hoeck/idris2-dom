@@ -34,9 +34,10 @@ namespace MediaStreamTrackState
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (MediaStreamTrackState.read s)}
-             -> MediaStreamTrackState
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (MediaStreamTrackState.read s)}
+    -> MediaStreamTrackState
   fromString s = fromJust $ read s
 
   export
@@ -46,6 +47,7 @@ namespace MediaStreamTrackState
   export
   FromFFI MediaStreamTrackState String where
     fromFFI = read
+
 
 namespace VideoFacingModeEnum
 
@@ -76,9 +78,10 @@ namespace VideoFacingModeEnum
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (VideoFacingModeEnum.read s)}
-             -> VideoFacingModeEnum
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (VideoFacingModeEnum.read s)}
+    -> VideoFacingModeEnum
   fromString s = fromJust $ read s
 
   export
@@ -88,6 +91,7 @@ namespace VideoFacingModeEnum
   export
   FromFFI VideoFacingModeEnum String where
     fromFFI = read
+
 
 namespace VideoResizeModeEnum
 
@@ -114,9 +118,10 @@ namespace VideoResizeModeEnum
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (VideoResizeModeEnum.read s)}
-             -> VideoResizeModeEnum
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (VideoResizeModeEnum.read s)}
+    -> VideoResizeModeEnum
   fromString s = fromJust $ read s
 
   export
@@ -126,6 +131,7 @@ namespace VideoResizeModeEnum
   export
   FromFFI VideoResizeModeEnum String where
     fromFFI = read
+
 
 namespace MediaDeviceKind
 
@@ -154,9 +160,10 @@ namespace MediaDeviceKind
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (MediaDeviceKind.read s)}
-             -> MediaDeviceKind
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (MediaDeviceKind.read s)}
+    -> MediaDeviceKind
   fromString s = fromJust $ read s
 
   export
@@ -166,6 +173,7 @@ namespace MediaDeviceKind
   export
   FromFFI MediaDeviceKind String where
     fromFFI = read
+
 
 
 --------------------------------------------------------------------------------

@@ -12,26 +12,27 @@ import JS
 namespace RequestDestination
 
   public export
-  data RequestDestination = Empty
-                          | Audio
-                          | Audioworklet
-                          | Document
-                          | Embed
-                          | Font
-                          | Frame
-                          | Iframe
-                          | Image
-                          | Manifest
-                          | Object
-                          | Paintworklet
-                          | Report
-                          | Script
-                          | Sharedworker
-                          | Style
-                          | Track
-                          | Video
-                          | Worker
-                          | Xslt
+  data RequestDestination =
+      Empty
+    | Audio
+    | Audioworklet
+    | Document
+    | Embed
+    | Font
+    | Frame
+    | Iframe
+    | Image
+    | Manifest
+    | Object
+    | Paintworklet
+    | Report
+    | Script
+    | Sharedworker
+    | Style
+    | Track
+    | Video
+    | Worker
+    | Xslt
 
   public export
   Show RequestDestination where
@@ -89,9 +90,10 @@ namespace RequestDestination
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (RequestDestination.read s)}
-             -> RequestDestination
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (RequestDestination.read s)}
+    -> RequestDestination
   fromString s = fromJust $ read s
 
   export
@@ -101,6 +103,7 @@ namespace RequestDestination
   export
   FromFFI RequestDestination String where
     fromFFI = read
+
 
 namespace RequestMode
 
@@ -131,9 +134,10 @@ namespace RequestMode
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (RequestMode.read s)}
-             -> RequestMode
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (RequestMode.read s)}
+    -> RequestMode
   fromString s = fromJust $ read s
 
   export
@@ -143,6 +147,7 @@ namespace RequestMode
   export
   FromFFI RequestMode String where
     fromFFI = read
+
 
 namespace RequestCredentials
 
@@ -171,9 +176,10 @@ namespace RequestCredentials
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (RequestCredentials.read s)}
-             -> RequestCredentials
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (RequestCredentials.read s)}
+    -> RequestCredentials
   fromString s = fromJust $ read s
 
   export
@@ -184,15 +190,17 @@ namespace RequestCredentials
   FromFFI RequestCredentials String where
     fromFFI = read
 
+
 namespace RequestCache
 
   public export
-  data RequestCache = Default
-                    | NoStore
-                    | Reload
-                    | NoCache
-                    | ForceCache
-                    | OnlyIfCached
+  data RequestCache =
+      Default
+    | NoStore
+    | Reload
+    | NoCache
+    | ForceCache
+    | OnlyIfCached
 
   public export
   Show RequestCache where
@@ -222,9 +230,10 @@ namespace RequestCache
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (RequestCache.read s)}
-             -> RequestCache
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (RequestCache.read s)}
+    -> RequestCache
   fromString s = fromJust $ read s
 
   export
@@ -234,6 +243,7 @@ namespace RequestCache
   export
   FromFFI RequestCache String where
     fromFFI = read
+
 
 namespace RequestRedirect
 
@@ -262,9 +272,10 @@ namespace RequestRedirect
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (RequestRedirect.read s)}
-             -> RequestRedirect
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (RequestRedirect.read s)}
+    -> RequestRedirect
   fromString s = fromJust $ read s
 
   export
@@ -274,6 +285,7 @@ namespace RequestRedirect
   export
   FromFFI RequestRedirect String where
     fromFFI = read
+
 
 namespace ResponseType
 
@@ -308,9 +320,10 @@ namespace ResponseType
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (ResponseType.read s)}
-             -> ResponseType
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (ResponseType.read s)}
+    -> ResponseType
   fromString s = fromJust $ read s
 
   export
@@ -321,18 +334,20 @@ namespace ResponseType
   FromFFI ResponseType String where
     fromFFI = read
 
+
 namespace ReferrerPolicy
 
   public export
-  data ReferrerPolicy = Empty
-                      | NoReferrer
-                      | NoReferrerWhenDowngrade
-                      | SameOrigin
-                      | Origin
-                      | StrictOrigin
-                      | OriginWhenCrossOrigin
-                      | StrictOriginWhenCrossOrigin
-                      | UnsafeUrl
+  data ReferrerPolicy =
+      Empty
+    | NoReferrer
+    | NoReferrerWhenDowngrade
+    | SameOrigin
+    | Origin
+    | StrictOrigin
+    | OriginWhenCrossOrigin
+    | StrictOriginWhenCrossOrigin
+    | UnsafeUrl
 
   public export
   Show ReferrerPolicy where
@@ -368,9 +383,10 @@ namespace ReferrerPolicy
   read _ = Nothing
 
   public export
-  fromString :  (s : String)
-             -> {auto 0 _ : IsJust (ReferrerPolicy.read s)}
-             -> ReferrerPolicy
+  fromString :
+       (s : String)
+    -> {auto 0 _ : IsJust (ReferrerPolicy.read s)}
+    -> ReferrerPolicy
   fromString s = fromJust $ read s
 
   export
@@ -380,6 +396,7 @@ namespace ReferrerPolicy
   export
   FromFFI ReferrerPolicy String where
     fromFFI = read
+
 
 
 --------------------------------------------------------------------------------
