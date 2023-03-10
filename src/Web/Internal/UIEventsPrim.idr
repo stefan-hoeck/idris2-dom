@@ -126,12 +126,12 @@ namespace MouseEvent
 
   export
   %foreign "browser:lambda:x=>x.clientX"
-  prim__clientX : MouseEvent -> PrimIO Int32
+  prim__clientX : MouseEvent -> PrimIO Double
 
 
   export
   %foreign "browser:lambda:x=>x.clientY"
-  prim__clientY : MouseEvent -> PrimIO Int32
+  prim__clientY : MouseEvent -> PrimIO Double
 
 
   export
@@ -145,23 +145,53 @@ namespace MouseEvent
 
 
   export
+  %foreign "browser:lambda:x=>x.offsetX"
+  prim__offsetX : MouseEvent -> PrimIO Double
+
+
+  export
+  %foreign "browser:lambda:x=>x.offsetY"
+  prim__offsetY : MouseEvent -> PrimIO Double
+
+
+  export
+  %foreign "browser:lambda:x=>x.pageX"
+  prim__pageX : MouseEvent -> PrimIO Double
+
+
+  export
+  %foreign "browser:lambda:x=>x.pageY"
+  prim__pageY : MouseEvent -> PrimIO Double
+
+
+  export
   %foreign "browser:lambda:x=>x.relatedTarget"
   prim__relatedTarget : MouseEvent -> PrimIO (Nullable EventTarget)
 
 
   export
   %foreign "browser:lambda:x=>x.screenX"
-  prim__screenX : MouseEvent -> PrimIO Int32
+  prim__screenX : MouseEvent -> PrimIO Double
 
 
   export
   %foreign "browser:lambda:x=>x.screenY"
-  prim__screenY : MouseEvent -> PrimIO Int32
+  prim__screenY : MouseEvent -> PrimIO Double
 
 
   export
   %foreign "browser:lambda:x=>x.shiftKey"
   prim__shiftKey : MouseEvent -> PrimIO Boolean
+
+
+  export
+  %foreign "browser:lambda:x=>x.x"
+  prim__x : MouseEvent -> PrimIO Double
+
+
+  export
+  %foreign "browser:lambda:x=>x.y"
+  prim__y : MouseEvent -> PrimIO Double
 
 
   export
@@ -584,15 +614,15 @@ namespace KeyboardEventInit
 namespace MouseEventInit
 
   export
-  %foreign "browser:lambda:(a,b,c,d,e,f,g)=> ({screenX: a,screenY: b,clientX: c,clientY: d,button: e,buttons: f,relatedTarget: g})"
+  %foreign "browser:lambda:(a,b,c,d,e,f,g)=> ({button: a,buttons: b,relatedTarget: c,screenX: d,screenY: e,clientX: f,clientY: g})"
   prim__new :
-       UndefOr Int32
-    -> UndefOr Int32
-    -> UndefOr Int32
-    -> UndefOr Int32
-    -> UndefOr Int16
+       UndefOr Int16
     -> UndefOr Bits16
     -> UndefOr (Nullable EventTarget)
+    -> UndefOr Double
+    -> UndefOr Double
+    -> UndefOr Double
+    -> UndefOr Double
     -> PrimIO MouseEventInit
 
 
@@ -622,25 +652,25 @@ namespace MouseEventInit
 
   export
   %foreign "browser:lambda:x=>x.clientX"
-  prim__clientX : MouseEventInit -> PrimIO (UndefOr Int32)
+  prim__clientX : MouseEventInit -> PrimIO (UndefOr Double)
 
 
 
   export
   %foreign "browser:lambda:(x,v)=>{x.clientX = v}"
-  prim__setClientX : MouseEventInit -> UndefOr Int32 -> PrimIO ()
+  prim__setClientX : MouseEventInit -> UndefOr Double -> PrimIO ()
 
 
 
   export
   %foreign "browser:lambda:x=>x.clientY"
-  prim__clientY : MouseEventInit -> PrimIO (UndefOr Int32)
+  prim__clientY : MouseEventInit -> PrimIO (UndefOr Double)
 
 
 
   export
   %foreign "browser:lambda:(x,v)=>{x.clientY = v}"
-  prim__setClientY : MouseEventInit -> UndefOr Int32 -> PrimIO ()
+  prim__setClientY : MouseEventInit -> UndefOr Double -> PrimIO ()
 
 
 
@@ -663,25 +693,25 @@ namespace MouseEventInit
 
   export
   %foreign "browser:lambda:x=>x.screenX"
-  prim__screenX : MouseEventInit -> PrimIO (UndefOr Int32)
+  prim__screenX : MouseEventInit -> PrimIO (UndefOr Double)
 
 
 
   export
   %foreign "browser:lambda:(x,v)=>{x.screenX = v}"
-  prim__setScreenX : MouseEventInit -> UndefOr Int32 -> PrimIO ()
+  prim__setScreenX : MouseEventInit -> UndefOr Double -> PrimIO ()
 
 
 
   export
   %foreign "browser:lambda:x=>x.screenY"
-  prim__screenY : MouseEventInit -> PrimIO (UndefOr Int32)
+  prim__screenY : MouseEventInit -> PrimIO (UndefOr Double)
 
 
 
   export
   %foreign "browser:lambda:(x,v)=>{x.screenY = v}"
-  prim__setScreenY : MouseEventInit -> UndefOr Int32 -> PrimIO ()
+  prim__setScreenY : MouseEventInit -> UndefOr Double -> PrimIO ()
 
 
 

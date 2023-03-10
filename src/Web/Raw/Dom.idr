@@ -800,6 +800,16 @@ namespace Document
 
 
   export
+  scrollingElement :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem Document (Types t1)}
+    -> (obj : t1)
+    -> JSIO (Maybe Element)
+  scrollingElement a = tryJS "Document.scrollingElement" $
+    Document.prim__scrollingElement (up a)
+
+
+  export
   timeline :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem Document (Types t1)}
@@ -863,6 +873,18 @@ namespace Document
     -> (obj : t1)
     -> JSIO ()
   captureEvents a = primJS $ Document.prim__captureEvents (up a)
+
+
+  export
+  caretPositionFromPoint :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem Document (Types t1)}
+    -> (obj : t1)
+    -> (x : Double)
+    -> (y : Double)
+    -> JSIO (Maybe CaretPosition)
+  caretPositionFromPoint a b c = tryJS "Document.caretPositionFromPoint" $
+    Document.prim__caretPositionFromPoint (up a) b c
 
 
   export
@@ -1072,6 +1094,29 @@ namespace Document
     -> JSIO TreeWalker
   createTreeWalker' a b = primJS $
     Document.prim__createTreeWalker (up a) (up b) undef undef
+
+
+  export
+  elementFromPoint :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem Document (Types t1)}
+    -> (obj : t1)
+    -> (x : Double)
+    -> (y : Double)
+    -> JSIO (Maybe Element)
+  elementFromPoint a b c = tryJS "Document.elementFromPoint" $
+    Document.prim__elementFromPoint (up a) b c
+
+
+  export
+  elementsFromPoint :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem Document (Types t1)}
+    -> (obj : t1)
+    -> (x : Double)
+    -> (y : Double)
+    -> JSIO (Array Element)
+  elementsFromPoint a b c = primJS $ Document.prim__elementsFromPoint (up a) b c
 
 
   export
@@ -1358,6 +1403,42 @@ namespace Element
 
 
   export
+  clientHeight :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem Element (Types t1)}
+    -> (obj : t1)
+    -> JSIO Int32
+  clientHeight a = primJS $ Element.prim__clientHeight (up a)
+
+
+  export
+  clientLeft :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem Element (Types t1)}
+    -> (obj : t1)
+    -> JSIO Int32
+  clientLeft a = primJS $ Element.prim__clientLeft (up a)
+
+
+  export
+  clientTop :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem Element (Types t1)}
+    -> (obj : t1)
+    -> JSIO Int32
+  clientTop a = primJS $ Element.prim__clientTop (up a)
+
+
+  export
+  clientWidth :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem Element (Types t1)}
+    -> (obj : t1)
+    -> JSIO Int32
+  clientWidth a = primJS $ Element.prim__clientWidth (up a)
+
+
+  export
   id :
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem Element (Types t)}
@@ -1408,6 +1489,50 @@ namespace Element
 
 
   export
+  scrollHeight :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem Element (Types t1)}
+    -> (obj : t1)
+    -> JSIO Int32
+  scrollHeight a = primJS $ Element.prim__scrollHeight (up a)
+
+
+  export
+  scrollLeft :
+       {auto 0 _ : JSType t}
+    -> {auto 0 _ : Elem Element (Types t)}
+    -> t
+    -> Attribute True I Double
+  scrollLeft v = fromPrim
+                   "Element.getscrollLeft"
+                   prim__scrollLeft
+                   prim__setScrollLeft
+                   (v :> Element)
+
+
+  export
+  scrollTop :
+       {auto 0 _ : JSType t}
+    -> {auto 0 _ : Elem Element (Types t)}
+    -> t
+    -> Attribute True I Double
+  scrollTop v = fromPrim
+                  "Element.getscrollTop"
+                  prim__scrollTop
+                  prim__setScrollTop
+                  (v :> Element)
+
+
+  export
+  scrollWidth :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem Element (Types t1)}
+    -> (obj : t1)
+    -> JSIO Int32
+  scrollWidth a = primJS $ Element.prim__scrollWidth (up a)
+
+
+  export
   shadowRoot :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem Element (Types t1)}
@@ -1444,6 +1569,28 @@ namespace Element
     -> (init : t2)
     -> JSIO ShadowRoot
   attachShadow a b = primJS $ Element.prim__attachShadow (up a) (up b)
+
+
+  export
+  checkVisibility :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : JSType t2}
+    -> {auto 0 _ : Elem Element (Types t1)}
+    -> {auto 0 _ : Elem CheckVisibilityOptions (Types t2)}
+    -> (obj : t1)
+    -> (options : Optional t2)
+    -> JSIO Bool
+  checkVisibility a b = tryJS "Element.checkVisibility" $
+    Element.prim__checkVisibility (up a) (optUp b)
+
+  export
+  checkVisibility' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem Element (Types t1)}
+    -> (obj : t1)
+    -> JSIO Bool
+  checkVisibility' a = tryJS "Element.checkVisibility'" $
+    Element.prim__checkVisibility (up a) undef
 
 
   export
@@ -1509,6 +1656,24 @@ namespace Element
     -> JSIO (Maybe Attr)
   getAttributeNodeNS a b c = tryJS "Element.getAttributeNodeNS" $
     Element.prim__getAttributeNodeNS (up a) (toFFI b) c
+
+
+  export
+  getBoundingClientRect :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem Element (Types t1)}
+    -> (obj : t1)
+    -> JSIO DOMRect
+  getBoundingClientRect a = primJS $ Element.prim__getBoundingClientRect (up a)
+
+
+  export
+  getClientRects :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem Element (Types t1)}
+    -> (obj : t1)
+    -> JSIO DOMRectList
+  getClientRects a = primJS $ Element.prim__getClientRects (up a)
 
 
   export
@@ -1666,6 +1831,117 @@ namespace Element
     -> (attr : Attr)
     -> JSIO Attr
   removeAttributeNode a b = primJS $ Element.prim__removeAttributeNode (up a) b
+
+
+  export
+  scrollBy :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : JSType t2}
+    -> {auto 0 _ : Elem Element (Types t1)}
+    -> {auto 0 _ : Elem ScrollToOptions (Types t2)}
+    -> (obj : t1)
+    -> (options : Optional t2)
+    -> JSIO ()
+  scrollBy a b = primJS $ Element.prim__scrollBy (up a) (optUp b)
+
+  export
+  scrollBy' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem Element (Types t1)}
+    -> (obj : t1)
+    -> JSIO ()
+  scrollBy' a = primJS $ Element.prim__scrollBy (up a) undef
+
+
+  export
+  scrollBy1 :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem Element (Types t1)}
+    -> (obj : t1)
+    -> (x : Double)
+    -> (y : Double)
+    -> JSIO ()
+  scrollBy1 a b c = primJS $ Element.prim__scrollBy1 (up a) b c
+
+
+  export
+  scroll :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : JSType t2}
+    -> {auto 0 _ : Elem Element (Types t1)}
+    -> {auto 0 _ : Elem ScrollToOptions (Types t2)}
+    -> (obj : t1)
+    -> (options : Optional t2)
+    -> JSIO ()
+  scroll a b = primJS $ Element.prim__scroll (up a) (optUp b)
+
+  export
+  scroll' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem Element (Types t1)}
+    -> (obj : t1)
+    -> JSIO ()
+  scroll' a = primJS $ Element.prim__scroll (up a) undef
+
+
+  export
+  scroll1 :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem Element (Types t1)}
+    -> (obj : t1)
+    -> (x : Double)
+    -> (y : Double)
+    -> JSIO ()
+  scroll1 a b c = primJS $ Element.prim__scroll1 (up a) b c
+
+
+  export
+  scrollIntoView :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem Element (Types t1)}
+    -> (obj : t1)
+    -> (arg : Optional (NS I [Bool, ScrollIntoViewOptions]))
+    -> JSIO ()
+  scrollIntoView a b = primJS $ Element.prim__scrollIntoView (up a) (toFFI b)
+
+  export
+  scrollIntoView' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem Element (Types t1)}
+    -> (obj : t1)
+    -> JSIO ()
+  scrollIntoView' a = primJS $ Element.prim__scrollIntoView (up a) undef
+
+
+  export
+  scrollTo :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : JSType t2}
+    -> {auto 0 _ : Elem Element (Types t1)}
+    -> {auto 0 _ : Elem ScrollToOptions (Types t2)}
+    -> (obj : t1)
+    -> (options : Optional t2)
+    -> JSIO ()
+  scrollTo a b = primJS $ Element.prim__scrollTo (up a) (optUp b)
+
+  export
+  scrollTo' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem Element (Types t1)}
+    -> (obj : t1)
+    -> JSIO ()
+  scrollTo' a = primJS $ Element.prim__scrollTo (up a) undef
+
+
+  export
+  scrollTo1 :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem Element (Types t1)}
+    -> (obj : t1)
+    -> (x : Double)
+    -> (y : Double)
+    -> JSIO ()
+  scrollTo1 a b c = primJS $ Element.prim__scrollTo1 (up a) b c
 
 
   export
@@ -2835,6 +3111,16 @@ namespace Range
   export
   extractContents : (obj : Range) -> JSIO DocumentFragment
   extractContents a = primJS $ Range.prim__extractContents a
+
+
+  export
+  getBoundingClientRect : (obj : Range) -> JSIO DOMRect
+  getBoundingClientRect a = primJS $ Range.prim__getBoundingClientRect a
+
+
+  export
+  getClientRects : (obj : Range) -> JSIO DOMRectList
+  getClientRects a = primJS $ Range.prim__getClientRects a
 
 
   export

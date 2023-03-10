@@ -588,6 +588,11 @@ namespace Document
 
 
   export
+  %foreign "browser:lambda:x=>x.scrollingElement"
+  prim__scrollingElement : Document -> PrimIO (Nullable Element)
+
+
+  export
   %foreign "browser:lambda:x=>x.timeline"
   prim__timeline : Document -> PrimIO DocumentTimeline
 
@@ -629,6 +634,15 @@ namespace Document
   export
   %foreign "browser:lambda:x=>x.captureEvents()"
   prim__captureEvents : Document -> PrimIO ()
+
+
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.caretPositionFromPoint(a,b)"
+  prim__caretPositionFromPoint :
+       Document
+    -> Double
+    -> Double
+    -> PrimIO (Nullable CaretPosition)
 
 
   export
@@ -727,6 +741,24 @@ namespace Document
     -> UndefOr Bits32
     -> UndefOr (Nullable NodeFilter)
     -> PrimIO TreeWalker
+
+
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.elementFromPoint(a,b)"
+  prim__elementFromPoint :
+       Document
+    -> Double
+    -> Double
+    -> PrimIO (Nullable Element)
+
+
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.elementsFromPoint(a,b)"
+  prim__elementsFromPoint :
+       Document
+    -> Double
+    -> Double
+    -> PrimIO (Array Element)
 
 
   export
@@ -885,6 +917,26 @@ namespace Element
 
 
   export
+  %foreign "browser:lambda:x=>x.clientHeight"
+  prim__clientHeight : Element -> PrimIO Int32
+
+
+  export
+  %foreign "browser:lambda:x=>x.clientLeft"
+  prim__clientLeft : Element -> PrimIO Int32
+
+
+  export
+  %foreign "browser:lambda:x=>x.clientTop"
+  prim__clientTop : Element -> PrimIO Int32
+
+
+  export
+  %foreign "browser:lambda:x=>x.clientWidth"
+  prim__clientWidth : Element -> PrimIO Int32
+
+
+  export
   %foreign "browser:lambda:x=>x.id"
   prim__id : Element -> PrimIO String
 
@@ -924,6 +976,40 @@ namespace Element
 
 
   export
+  %foreign "browser:lambda:x=>x.scrollHeight"
+  prim__scrollHeight : Element -> PrimIO Int32
+
+
+  export
+  %foreign "browser:lambda:x=>x.scrollLeft"
+  prim__scrollLeft : Element -> PrimIO Double
+
+
+
+  export
+  %foreign "browser:lambda:(x,v)=>{x.scrollLeft = v}"
+  prim__setScrollLeft : Element -> Double -> PrimIO ()
+
+
+
+  export
+  %foreign "browser:lambda:x=>x.scrollTop"
+  prim__scrollTop : Element -> PrimIO Double
+
+
+
+  export
+  %foreign "browser:lambda:(x,v)=>{x.scrollTop = v}"
+  prim__setScrollTop : Element -> Double -> PrimIO ()
+
+
+
+  export
+  %foreign "browser:lambda:x=>x.scrollWidth"
+  prim__scrollWidth : Element -> PrimIO Int32
+
+
+  export
   %foreign "browser:lambda:x=>x.shadowRoot"
   prim__shadowRoot : Element -> PrimIO (Nullable ShadowRoot)
 
@@ -948,6 +1034,14 @@ namespace Element
   export
   %foreign "browser:lambda:(x,a)=>x.attachShadow(a)"
   prim__attachShadow : Element -> ShadowRootInit -> PrimIO ShadowRoot
+
+
+  export
+  %foreign "browser:lambda:(x,a)=>x.checkVisibility(a)"
+  prim__checkVisibility :
+       Element
+    -> UndefOr CheckVisibilityOptions
+    -> PrimIO Boolean
 
 
   export
@@ -986,6 +1080,16 @@ namespace Element
     -> Nullable String
     -> String
     -> PrimIO (Nullable Attr)
+
+
+  export
+  %foreign "browser:lambda:x=>x.getBoundingClientRect()"
+  prim__getBoundingClientRect : Element -> PrimIO DOMRect
+
+
+  export
+  %foreign "browser:lambda:x=>x.getClientRects()"
+  prim__getClientRects : Element -> PrimIO DOMRectList
 
 
   export
@@ -1064,6 +1168,44 @@ namespace Element
   export
   %foreign "browser:lambda:(x,a)=>x.removeAttributeNode(a)"
   prim__removeAttributeNode : Element -> Attr -> PrimIO Attr
+
+
+  export
+  %foreign "browser:lambda:(x,a)=>x.scrollBy(a)"
+  prim__scrollBy : Element -> UndefOr ScrollToOptions -> PrimIO ()
+
+
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.scrollBy(a,b)"
+  prim__scrollBy1 : Element -> Double -> Double -> PrimIO ()
+
+
+  export
+  %foreign "browser:lambda:(x,a)=>x.scroll(a)"
+  prim__scroll : Element -> UndefOr ScrollToOptions -> PrimIO ()
+
+
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.scroll(a,b)"
+  prim__scroll1 : Element -> Double -> Double -> PrimIO ()
+
+
+  export
+  %foreign "browser:lambda:(x,a)=>x.scrollIntoView(a)"
+  prim__scrollIntoView :
+       Element
+    -> UndefOr (Union2 Boolean ScrollIntoViewOptions)
+    -> PrimIO ()
+
+
+  export
+  %foreign "browser:lambda:(x,a)=>x.scrollTo(a)"
+  prim__scrollTo : Element -> UndefOr ScrollToOptions -> PrimIO ()
+
+
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.scrollTo(a,b)"
+  prim__scrollTo1 : Element -> Double -> Double -> PrimIO ()
 
 
   export
@@ -1695,6 +1837,16 @@ namespace Range
   export
   %foreign "browser:lambda:x=>x.extractContents()"
   prim__extractContents : Range -> PrimIO DocumentFragment
+
+
+  export
+  %foreign "browser:lambda:x=>x.getBoundingClientRect()"
+  prim__getBoundingClientRect : Range -> PrimIO DOMRect
+
+
+  export
+  %foreign "browser:lambda:x=>x.getClientRects()"
+  prim__getClientRects : Range -> PrimIO DOMRectList
 
 
   export
