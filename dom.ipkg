@@ -18,6 +18,8 @@ modules = Web.Dom
         , Web.Internal.ClipboardTypes
         , Web.Internal.CssPrim
         , Web.Internal.CssTypes
+        , Web.Internal.CssomviewPrim
+        , Web.Internal.CssomviewTypes
         , Web.Internal.DomPrim
         , Web.Internal.DomTypes
         , Web.Internal.FetchPrim
@@ -59,6 +61,7 @@ modules = Web.Dom
         , Web.Raw.Animation
         , Web.Raw.Clipboard
         , Web.Raw.Css
+        , Web.Raw.Cssomview
         , Web.Raw.Dom
         , Web.Raw.Fetch
         , Web.Raw.File

@@ -4,6 +4,7 @@ import JS
 import public Web.Internal.AnimationTypes as Types
 import public Web.Internal.ClipboardTypes as Types
 import public Web.Internal.CssTypes as Types
+import public Web.Internal.CssomviewTypes as Types
 import public Web.Internal.DomTypes as Types
 import public Web.Internal.FetchTypes as Types
 import public Web.Internal.FileTypes as Types
@@ -139,7 +140,7 @@ public export
 JSType CDATASection where
   parents = [Text, CharacterData, Node, EventTarget, Object]
 
-  mixins = [ChildNode, NonDocumentTypeChildNode, Slottable]
+  mixins = [ChildNode, GeometryUtils, NonDocumentTypeChildNode, Slottable]
 
 
 public export
@@ -181,7 +182,7 @@ public export
 JSType CSSPseudoElement where
   parents = [EventTarget, Object]
 
-  mixins = [Animatable]
+  mixins = [Animatable, GeometryUtils]
 
 
 public export
@@ -269,6 +270,13 @@ JSType CanvasRenderingContext2D where
     , CanvasTransform
     , CanvasUserInterface
     ]
+
+
+public export
+JSType CaretPosition where
+  parents = [Object]
+
+  mixins = []
 
 
 public export
@@ -495,6 +503,7 @@ JSType Document where
   mixins =
     [ DocumentAndElementEventHandlers
     , DocumentOrShadowRoot
+    , GeometryUtils
     , GlobalEventHandlers
     , NonElementParentNode
     , ParentNode
@@ -537,6 +546,7 @@ JSType Element where
   mixins =
     [ Animatable
     , ChildNode
+    , GeometryUtils
     , InnerHTML
     , NonDocumentTypeChildNode
     , ParentNode
@@ -673,6 +683,7 @@ JSType HTMLAnchorElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLHyperlinkElementUtils
     , HTMLOrSVGElement
@@ -693,6 +704,7 @@ JSType HTMLAreaElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLHyperlinkElementUtils
     , HTMLOrSVGElement
@@ -713,6 +725,7 @@ JSType HTMLAudioElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -732,6 +745,7 @@ JSType HTMLBRElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -751,6 +765,7 @@ JSType HTMLBaseElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -770,6 +785,7 @@ JSType HTMLBodyElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -790,6 +806,7 @@ JSType HTMLButtonElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -809,6 +826,7 @@ JSType HTMLCanvasElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -835,6 +853,7 @@ JSType HTMLDListElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -854,6 +873,7 @@ JSType HTMLDataElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -873,6 +893,7 @@ JSType HTMLDataListElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -892,6 +913,7 @@ JSType HTMLDetailsElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -911,6 +933,7 @@ JSType HTMLDialogElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -930,6 +953,7 @@ JSType HTMLDirectoryElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -949,6 +973,7 @@ JSType HTMLDivElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -968,6 +993,7 @@ JSType HTMLElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -987,6 +1013,7 @@ JSType HTMLEmbedElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1006,6 +1033,7 @@ JSType HTMLFieldSetElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1025,6 +1053,7 @@ JSType HTMLFontElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1051,6 +1080,7 @@ JSType HTMLFormElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1070,6 +1100,7 @@ JSType HTMLFrameElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1089,6 +1120,7 @@ JSType HTMLFrameSetElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1109,6 +1141,7 @@ JSType HTMLHRElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1128,6 +1161,7 @@ JSType HTMLHeadElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1147,6 +1181,7 @@ JSType HTMLHeadingElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1166,6 +1201,7 @@ JSType HTMLHtmlElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1185,6 +1221,7 @@ JSType HTMLIFrameElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1204,6 +1241,7 @@ JSType HTMLImageElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1223,6 +1261,7 @@ JSType HTMLInputElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1242,6 +1281,7 @@ JSType HTMLLIElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1261,6 +1301,7 @@ JSType HTMLLabelElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1280,6 +1321,7 @@ JSType HTMLLegendElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1299,6 +1341,7 @@ JSType HTMLLinkElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1319,6 +1362,7 @@ JSType HTMLMapElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1338,6 +1382,7 @@ JSType HTMLMarqueeElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1357,6 +1402,7 @@ JSType HTMLMediaElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1376,6 +1422,7 @@ JSType HTMLMenuElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1395,6 +1442,7 @@ JSType HTMLMetaElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1414,6 +1462,7 @@ JSType HTMLMeterElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1433,6 +1482,7 @@ JSType HTMLModElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1452,6 +1502,7 @@ JSType HTMLOListElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1471,6 +1522,7 @@ JSType HTMLObjectElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1490,6 +1542,7 @@ JSType HTMLOptGroupElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1509,6 +1562,7 @@ JSType HTMLOptionElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1535,6 +1589,7 @@ JSType HTMLOutputElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1554,6 +1609,7 @@ JSType HTMLParagraphElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1573,6 +1629,7 @@ JSType HTMLParamElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1592,6 +1649,7 @@ JSType HTMLPictureElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1611,6 +1669,7 @@ JSType HTMLPreElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1630,6 +1689,7 @@ JSType HTMLProgressElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1649,6 +1709,7 @@ JSType HTMLQuoteElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1668,6 +1729,7 @@ JSType HTMLScriptElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1687,6 +1749,7 @@ JSType HTMLSelectElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1706,6 +1769,7 @@ JSType HTMLSlotElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1725,6 +1789,7 @@ JSType HTMLSourceElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1744,6 +1809,7 @@ JSType HTMLSpanElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1763,6 +1829,7 @@ JSType HTMLStyleElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1783,6 +1850,7 @@ JSType HTMLTableCaptionElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1802,6 +1870,7 @@ JSType HTMLTableCellElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1821,6 +1890,7 @@ JSType HTMLTableColElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1840,6 +1910,7 @@ JSType HTMLTableElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1859,6 +1930,7 @@ JSType HTMLTableRowElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1878,6 +1950,7 @@ JSType HTMLTableSectionElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1897,6 +1970,7 @@ JSType HTMLTemplateElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1916,6 +1990,7 @@ JSType HTMLTextAreaElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1935,6 +2010,7 @@ JSType HTMLTimeElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1954,6 +2030,7 @@ JSType HTMLTitleElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1973,6 +2050,7 @@ JSType HTMLTrackElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -1992,6 +2070,7 @@ JSType HTMLUListElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -2011,6 +2090,7 @@ JSType HTMLUnknownElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -2030,6 +2110,7 @@ JSType HTMLVideoElement where
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
     , ElementContentEditable
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -2202,6 +2283,7 @@ JSType MathMLElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -2235,6 +2317,20 @@ JSType MediaError where
 public export
 JSType MediaList where
   parents = [Object]
+
+  mixins = []
+
+
+public export
+JSType MediaQueryList where
+  parents = [EventTarget, Object]
+
+  mixins = []
+
+
+public export
+JSType MediaQueryListEvent where
+  parents = [Event, Object]
 
   mixins = []
 
@@ -2566,6 +2662,7 @@ JSType SVGAElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLHyperlinkElementUtils
     , HTMLOrSVGElement
@@ -2687,6 +2784,7 @@ JSType SVGCircleElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -2707,6 +2805,7 @@ JSType SVGDefsElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -2727,6 +2826,7 @@ JSType SVGDescElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -2746,6 +2846,7 @@ JSType SVGElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -2773,6 +2874,7 @@ JSType SVGEllipseElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -2793,6 +2895,7 @@ JSType SVGForeignObjectElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -2813,6 +2916,7 @@ JSType SVGGElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -2833,6 +2937,7 @@ JSType SVGGeometryElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -2853,6 +2958,7 @@ JSType SVGGradientElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -2873,6 +2979,7 @@ JSType SVGGraphicsElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -2893,6 +3000,7 @@ JSType SVGImageElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -2936,6 +3044,7 @@ JSType SVGLineElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -2956,6 +3065,7 @@ JSType SVGLinearGradientElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -2976,6 +3086,7 @@ JSType SVGMarkerElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -2996,6 +3107,7 @@ JSType SVGMetadataElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -3037,6 +3149,7 @@ JSType SVGPathElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -3057,6 +3170,7 @@ JSType SVGPatternElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -3093,6 +3207,7 @@ JSType SVGPolygonElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -3122,6 +3237,7 @@ JSType SVGPolylineElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -3150,6 +3266,7 @@ JSType SVGRadialGradientElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -3178,6 +3295,7 @@ JSType SVGRectElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -3198,6 +3316,7 @@ JSType SVGSVGElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -3220,6 +3339,7 @@ JSType SVGScriptElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -3240,6 +3360,7 @@ JSType SVGStopElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -3266,6 +3387,7 @@ JSType SVGStyleElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -3286,6 +3408,7 @@ JSType SVGSwitchElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -3306,6 +3429,7 @@ JSType SVGSymbolElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -3336,6 +3460,7 @@ JSType SVGTSpanElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -3356,6 +3481,7 @@ JSType SVGTextContentElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -3385,6 +3511,7 @@ JSType SVGTextElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -3413,6 +3540,7 @@ JSType SVGTextPathElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -3442,6 +3570,7 @@ JSType SVGTextPositioningElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -3462,6 +3591,7 @@ JSType SVGTitleElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -3502,6 +3632,7 @@ JSType SVGUseElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -3530,6 +3661,7 @@ JSType SVGViewElement where
     , ChildNode
     , DocumentAndElementEventHandlers
     , ElementCSSInlineStyle
+    , GeometryUtils
     , GlobalEventHandlers
     , HTMLOrSVGElement
     , InnerHTML
@@ -3539,6 +3671,13 @@ JSType SVGViewElement where
     , SVGFitToViewBox
     , Slottable
     ]
+
+
+public export
+JSType Screen where
+  parents = [Object]
+
+  mixins = []
 
 
 public export
@@ -3657,7 +3796,7 @@ public export
 JSType Text where
   parents = [CharacterData, Node, EventTarget, Object]
 
-  mixins = [ChildNode, NonDocumentTypeChildNode, Slottable]
+  mixins = [ChildNode, GeometryUtils, NonDocumentTypeChildNode, Slottable]
 
 
 public export
@@ -3767,6 +3906,13 @@ JSType VideoTrack where
 
 public export
 JSType VideoTrackList where
+  parents = [EventTarget, Object]
+
+  mixins = []
+
+
+public export
+JSType VisualViewport where
   parents = [EventTarget, Object]
 
   mixins = []
@@ -4003,6 +4149,7 @@ JSType XMLDocument where
   mixins =
     [ DocumentAndElementEventHandlers
     , DocumentOrShadowRoot
+    , GeometryUtils
     , GlobalEventHandlers
     , NonElementParentNode
     , ParentNode
@@ -4109,6 +4256,13 @@ JSType BlobPropertyBag where
 
 
 public export
+JSType BoxQuadOptions where
+  parents = [Object]
+
+  mixins = []
+
+
+public export
 JSType CacheQueryOptions where
   parents = [Object]
 
@@ -4131,6 +4285,13 @@ JSType CanvasRenderingContext2DSettings where
 
 public export
 JSType Capabilities where
+  parents = [Object]
+
+  mixins = []
+
+
+public export
+JSType CheckVisibilityOptions where
   parents = [Object]
 
   mixins = []
@@ -4223,6 +4384,13 @@ JSType ConstraintSet where
 public export
 JSType Constraints where
   parents = [ConstraintSet, Object]
+
+  mixins = []
+
+
+public export
+JSType ConvertCoordinateOptions where
+  parents = [Object]
 
   mixins = []
 
@@ -4501,6 +4669,13 @@ JSType KeyframeEffectOptions where
 
 
 public export
+JSType MediaQueryListEventInit where
+  parents = [EventInit, Object]
+
+  mixins = []
+
+
+public export
 JSType MediaStreamConstraints where
   parents = [Object]
 
@@ -4727,6 +4902,27 @@ JSType ResponseInit where
 public export
 JSType SVGBoundingBoxOptions where
   parents = [Object]
+
+  mixins = []
+
+
+public export
+JSType ScrollIntoViewOptions where
+  parents = [ScrollOptions, Object]
+
+  mixins = []
+
+
+public export
+JSType ScrollOptions where
+  parents = [Object]
+
+  mixins = []
+
+
+public export
+JSType ScrollToOptions where
+  parents = [ScrollOptions, Object]
 
   mixins = []
 

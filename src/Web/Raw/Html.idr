@@ -1543,6 +1543,52 @@ namespace HTMLElement
 
 
   export
+  offsetHeight :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem HTMLElement (Types t1)}
+    -> (obj : t1)
+    -> JSIO Int32
+  offsetHeight a = primJS $ HTMLElement.prim__offsetHeight (up a)
+
+
+  export
+  offsetLeft :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem HTMLElement (Types t1)}
+    -> (obj : t1)
+    -> JSIO Int32
+  offsetLeft a = primJS $ HTMLElement.prim__offsetLeft (up a)
+
+
+  export
+  offsetParent :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem HTMLElement (Types t1)}
+    -> (obj : t1)
+    -> JSIO (Maybe Element)
+  offsetParent a = tryJS "HTMLElement.offsetParent" $
+    HTMLElement.prim__offsetParent (up a)
+
+
+  export
+  offsetTop :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem HTMLElement (Types t1)}
+    -> (obj : t1)
+    -> JSIO Int32
+  offsetTop a = primJS $ HTMLElement.prim__offsetTop (up a)
+
+
+  export
+  offsetWidth :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem HTMLElement (Types t1)}
+    -> (obj : t1)
+    -> JSIO Int32
+  offsetWidth a = primJS $ HTMLElement.prim__offsetWidth (up a)
+
+
+  export
   spellcheck :
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLElement (Types t)}
@@ -2388,6 +2434,16 @@ namespace HTMLImageElement
   export
   width : HTMLImageElement -> Attribute True I Bits32
   width v = fromPrim "HTMLImageElement.getwidth" prim__width prim__setWidth v
+
+
+  export
+  x : (obj : HTMLImageElement) -> JSIO Int32
+  x a = primJS $ HTMLImageElement.prim__x a
+
+
+  export
+  y : (obj : HTMLImageElement) -> JSIO Int32
+  y a = primJS $ HTMLImageElement.prim__y a
 
 
   export
@@ -7144,6 +7200,11 @@ namespace Window
 
 
   export
+  devicePixelRatio : (obj : Window) -> JSIO Double
+  devicePixelRatio a = primJS $ Window.prim__devicePixelRatio a
+
+
+  export
   document : (obj : Window) -> JSIO Document
   document a = primJS $ Window.prim__document a
 
@@ -7171,6 +7232,16 @@ namespace Window
   export
   history : (obj : Window) -> JSIO History
   history a = primJS $ Window.prim__history a
+
+
+  export
+  innerHeight : (obj : Window) -> JSIO Int32
+  innerHeight a = primJS $ Window.prim__innerHeight a
+
+
+  export
+  innerWidth : (obj : Window) -> JSIO Int32
+  innerWidth a = primJS $ Window.prim__innerWidth a
 
 
   export
@@ -7215,6 +7286,26 @@ namespace Window
 
 
   export
+  outerHeight : (obj : Window) -> JSIO Int32
+  outerHeight a = primJS $ Window.prim__outerHeight a
+
+
+  export
+  outerWidth : (obj : Window) -> JSIO Int32
+  outerWidth a = primJS $ Window.prim__outerWidth a
+
+
+  export
+  pageXOffset : (obj : Window) -> JSIO Double
+  pageXOffset a = primJS $ Window.prim__pageXOffset a
+
+
+  export
+  pageYOffset : (obj : Window) -> JSIO Double
+  pageYOffset a = primJS $ Window.prim__pageYOffset a
+
+
+  export
   parent : (obj : Window) -> JSIO (Maybe WindowProxy)
   parent a = tryJS "Window.parent" $ Window.prim__parent a
 
@@ -7222,6 +7313,41 @@ namespace Window
   export
   personalbar : (obj : Window) -> JSIO BarProp
   personalbar a = primJS $ Window.prim__personalbar a
+
+
+  export
+  screen : (obj : Window) -> JSIO Screen
+  screen a = primJS $ Window.prim__screen a
+
+
+  export
+  screenLeft : (obj : Window) -> JSIO Int32
+  screenLeft a = primJS $ Window.prim__screenLeft a
+
+
+  export
+  screenTop : (obj : Window) -> JSIO Int32
+  screenTop a = primJS $ Window.prim__screenTop a
+
+
+  export
+  screenX : (obj : Window) -> JSIO Int32
+  screenX a = primJS $ Window.prim__screenX a
+
+
+  export
+  screenY : (obj : Window) -> JSIO Int32
+  screenY a = primJS $ Window.prim__screenY a
+
+
+  export
+  scrollX : (obj : Window) -> JSIO Double
+  scrollX a = primJS $ Window.prim__scrollX a
+
+
+  export
+  scrollY : (obj : Window) -> JSIO Double
+  scrollY a = primJS $ Window.prim__scrollY a
 
 
   export
@@ -7252,6 +7378,12 @@ namespace Window
   export
   top : (obj : Window) -> JSIO (Maybe WindowProxy)
   top a = tryJS "Window.top" $ Window.prim__top a
+
+
+  export
+  visualViewport : (obj : Window) -> JSIO (Maybe VisualViewport)
+  visualViewport a = tryJS "Window.visualViewport" $
+    Window.prim__visualViewport a
 
 
   export
@@ -7317,6 +7449,21 @@ namespace Window
     -> (elt : t2)
     -> JSIO CSSStyleDeclaration
   getComputedStyle' a b = primJS $ Window.prim__getComputedStyle a (up b) undef
+
+
+  export
+  matchMedia : (obj : Window) -> (query : String) -> JSIO MediaQueryList
+  matchMedia a b = primJS $ Window.prim__matchMedia a b
+
+
+  export
+  moveBy : (obj : Window) -> (x : Int32) -> (y : Int32) -> JSIO ()
+  moveBy a b c = primJS $ Window.prim__moveBy a b c
+
+
+  export
+  moveTo : (obj : Window) -> (x : Int32) -> (y : Int32) -> JSIO ()
+  moveTo a b c = primJS $ Window.prim__moveTo a b c
 
 
   export
@@ -7390,6 +7537,73 @@ namespace Window
   export
   releaseEvents : (obj : Window) -> JSIO ()
   releaseEvents a = primJS $ Window.prim__releaseEvents a
+
+
+  export
+  resizeBy : (obj : Window) -> (x : Int32) -> (y : Int32) -> JSIO ()
+  resizeBy a b c = primJS $ Window.prim__resizeBy a b c
+
+
+  export
+  resizeTo : (obj : Window) -> (width : Int32) -> (height : Int32) -> JSIO ()
+  resizeTo a b c = primJS $ Window.prim__resizeTo a b c
+
+
+  export
+  scrollBy :
+       {auto 0 _ : JSType t2}
+    -> {auto 0 _ : Elem ScrollToOptions (Types t2)}
+    -> (obj : Window)
+    -> (options : Optional t2)
+    -> JSIO ()
+  scrollBy a b = primJS $ Window.prim__scrollBy a (optUp b)
+
+  export
+  scrollBy' : (obj : Window) -> JSIO ()
+  scrollBy' a = primJS $ Window.prim__scrollBy a undef
+
+
+  export
+  scrollBy1 : (obj : Window) -> (x : Double) -> (y : Double) -> JSIO ()
+  scrollBy1 a b c = primJS $ Window.prim__scrollBy1 a b c
+
+
+  export
+  scrollTo :
+       {auto 0 _ : JSType t2}
+    -> {auto 0 _ : Elem ScrollToOptions (Types t2)}
+    -> (obj : Window)
+    -> (options : Optional t2)
+    -> JSIO ()
+  scrollTo a b = primJS $ Window.prim__scrollTo a (optUp b)
+
+  export
+  scrollTo' : (obj : Window) -> JSIO ()
+  scrollTo' a = primJS $ Window.prim__scrollTo a undef
+
+
+  export
+  scrollTo1 : (obj : Window) -> (x : Double) -> (y : Double) -> JSIO ()
+  scrollTo1 a b c = primJS $ Window.prim__scrollTo1 a b c
+
+
+  export
+  scroll :
+       {auto 0 _ : JSType t2}
+    -> {auto 0 _ : Elem ScrollToOptions (Types t2)}
+    -> (obj : Window)
+    -> (options : Optional t2)
+    -> JSIO ()
+  scroll a b = primJS $ Window.prim__scroll a (optUp b)
+
+  export
+  scroll' : (obj : Window) -> JSIO ()
+  scroll' a = primJS $ Window.prim__scroll a undef
+
+
+  export
+  scroll1 : (obj : Window) -> (x : Double) -> (y : Double) -> JSIO ()
+  scroll1 a b c = primJS $ Window.prim__scroll1 a b c
 
 
   export

@@ -166,7 +166,7 @@ namespace MouseEvent
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem MouseEvent (Types t1)}
     -> (obj : t1)
-    -> JSIO Int32
+    -> JSIO Double
   clientX a = primJS $ MouseEvent.prim__clientX (up a)
 
 
@@ -175,7 +175,7 @@ namespace MouseEvent
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem MouseEvent (Types t1)}
     -> (obj : t1)
-    -> JSIO Int32
+    -> JSIO Double
   clientY a = primJS $ MouseEvent.prim__clientY (up a)
 
 
@@ -198,6 +198,42 @@ namespace MouseEvent
 
 
   export
+  offsetX :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem MouseEvent (Types t1)}
+    -> (obj : t1)
+    -> JSIO Double
+  offsetX a = primJS $ MouseEvent.prim__offsetX (up a)
+
+
+  export
+  offsetY :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem MouseEvent (Types t1)}
+    -> (obj : t1)
+    -> JSIO Double
+  offsetY a = primJS $ MouseEvent.prim__offsetY (up a)
+
+
+  export
+  pageX :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem MouseEvent (Types t1)}
+    -> (obj : t1)
+    -> JSIO Double
+  pageX a = primJS $ MouseEvent.prim__pageX (up a)
+
+
+  export
+  pageY :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem MouseEvent (Types t1)}
+    -> (obj : t1)
+    -> JSIO Double
+  pageY a = primJS $ MouseEvent.prim__pageY (up a)
+
+
+  export
   relatedTarget :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem MouseEvent (Types t1)}
@@ -212,7 +248,7 @@ namespace MouseEvent
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem MouseEvent (Types t1)}
     -> (obj : t1)
-    -> JSIO Int32
+    -> JSIO Double
   screenX a = primJS $ MouseEvent.prim__screenX (up a)
 
 
@@ -221,7 +257,7 @@ namespace MouseEvent
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem MouseEvent (Types t1)}
     -> (obj : t1)
-    -> JSIO Int32
+    -> JSIO Double
   screenY a = primJS $ MouseEvent.prim__screenY (up a)
 
 
@@ -232,6 +268,24 @@ namespace MouseEvent
     -> (obj : t1)
     -> JSIO Bool
   shiftKey a = tryJS "MouseEvent.shiftKey" $ MouseEvent.prim__shiftKey (up a)
+
+
+  export
+  x :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem MouseEvent (Types t1)}
+    -> (obj : t1)
+    -> JSIO Double
+  x a = primJS $ MouseEvent.prim__x (up a)
+
+
+  export
+  y :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem MouseEvent (Types t1)}
+    -> (obj : t1)
+    -> JSIO Double
+  y a = primJS $ MouseEvent.prim__y (up a)
 
 
   export
@@ -785,25 +839,25 @@ namespace MouseEventInit
 
   export
   new :
-       {auto 0 _ : JSType t7}
-    -> {auto 0 _ : Elem EventTarget (Types t7)}
-    -> (screenX : Optional Int32)
-    -> (screenY : Optional Int32)
-    -> (clientX : Optional Int32)
-    -> (clientY : Optional Int32)
+       {auto 0 _ : JSType t3}
+    -> {auto 0 _ : Elem EventTarget (Types t3)}
     -> (button : Optional Int16)
     -> (buttons : Optional Bits16)
-    -> (relatedTarget : Optional (Maybe t7))
+    -> (relatedTarget : Optional (Maybe t3))
+    -> (screenX : Optional Double)
+    -> (screenY : Optional Double)
+    -> (clientX : Optional Double)
+    -> (clientY : Optional Double)
     -> JSIO MouseEventInit
   new a b c d e f g = primJS $
     MouseEventInit.prim__new
       (toFFI a)
       (toFFI b)
-      (toFFI c)
+      (omyUp c)
       (toFFI d)
       (toFFI e)
       (toFFI f)
-      (omyUp g)
+      (toFFI g)
 
   export
   new' : JSIO MouseEventInit
@@ -844,12 +898,12 @@ namespace MouseEventInit
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem MouseEventInit (Types t)}
     -> t
-    -> Attribute True Optional Int32
+    -> Attribute True Optional Double
   clientX v = fromUndefOrPrim
                 "MouseEventInit.getclientX"
                 prim__clientX
                 prim__setClientX
-                0
+                0.0
                 (v :> MouseEventInit)
 
 
@@ -858,12 +912,12 @@ namespace MouseEventInit
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem MouseEventInit (Types t)}
     -> t
-    -> Attribute True Optional Int32
+    -> Attribute True Optional Double
   clientY v = fromUndefOrPrim
                 "MouseEventInit.getclientY"
                 prim__clientY
                 prim__setClientY
-                0
+                0.0
                 (v :> MouseEventInit)
 
 
@@ -886,12 +940,12 @@ namespace MouseEventInit
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem MouseEventInit (Types t)}
     -> t
-    -> Attribute True Optional Int32
+    -> Attribute True Optional Double
   screenX v = fromUndefOrPrim
                 "MouseEventInit.getscreenX"
                 prim__screenX
                 prim__setScreenX
-                0
+                0.0
                 (v :> MouseEventInit)
 
 
@@ -900,12 +954,12 @@ namespace MouseEventInit
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem MouseEventInit (Types t)}
     -> t
-    -> Attribute True Optional Int32
+    -> Attribute True Optional Double
   screenY v = fromUndefOrPrim
                 "MouseEventInit.getscreenY"
                 prim__screenY
                 prim__setScreenY
-                0
+                0.0
                 (v :> MouseEventInit)
 
 

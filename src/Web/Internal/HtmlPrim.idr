@@ -1662,6 +1662,31 @@ namespace HTMLElement
 
 
   export
+  %foreign "browser:lambda:x=>x.offsetHeight"
+  prim__offsetHeight : HTMLElement -> PrimIO Int32
+
+
+  export
+  %foreign "browser:lambda:x=>x.offsetLeft"
+  prim__offsetLeft : HTMLElement -> PrimIO Int32
+
+
+  export
+  %foreign "browser:lambda:x=>x.offsetParent"
+  prim__offsetParent : HTMLElement -> PrimIO (Nullable Element)
+
+
+  export
+  %foreign "browser:lambda:x=>x.offsetTop"
+  prim__offsetTop : HTMLElement -> PrimIO Int32
+
+
+  export
+  %foreign "browser:lambda:x=>x.offsetWidth"
+  prim__offsetWidth : HTMLElement -> PrimIO Int32
+
+
+  export
   %foreign "browser:lambda:x=>x.spellcheck"
   prim__spellcheck : HTMLElement -> PrimIO Boolean
 
@@ -2832,6 +2857,16 @@ namespace HTMLImageElement
   %foreign "browser:lambda:(x,v)=>{x.width = v}"
   prim__setWidth : HTMLImageElement -> Bits32 -> PrimIO ()
 
+
+
+  export
+  %foreign "browser:lambda:x=>x.x"
+  prim__x : HTMLImageElement -> PrimIO Int32
+
+
+  export
+  %foreign "browser:lambda:x=>x.y"
+  prim__y : HTMLImageElement -> PrimIO Int32
 
 
   export
@@ -8273,6 +8308,11 @@ namespace Window
 
 
   export
+  %foreign "browser:lambda:x=>x.devicePixelRatio"
+  prim__devicePixelRatio : Window -> PrimIO Double
+
+
+  export
   %foreign "browser:lambda:x=>x.document"
   prim__document : Window -> PrimIO Document
 
@@ -8300,6 +8340,16 @@ namespace Window
   export
   %foreign "browser:lambda:x=>x.history"
   prim__history : Window -> PrimIO History
+
+
+  export
+  %foreign "browser:lambda:x=>x.innerHeight"
+  prim__innerHeight : Window -> PrimIO Int32
+
+
+  export
+  %foreign "browser:lambda:x=>x.innerWidth"
+  prim__innerWidth : Window -> PrimIO Int32
 
 
   export
@@ -8357,6 +8407,26 @@ namespace Window
 
 
   export
+  %foreign "browser:lambda:x=>x.outerHeight"
+  prim__outerHeight : Window -> PrimIO Int32
+
+
+  export
+  %foreign "browser:lambda:x=>x.outerWidth"
+  prim__outerWidth : Window -> PrimIO Int32
+
+
+  export
+  %foreign "browser:lambda:x=>x.pageXOffset"
+  prim__pageXOffset : Window -> PrimIO Double
+
+
+  export
+  %foreign "browser:lambda:x=>x.pageYOffset"
+  prim__pageYOffset : Window -> PrimIO Double
+
+
+  export
   %foreign "browser:lambda:x=>x.parent"
   prim__parent : Window -> PrimIO (Nullable WindowProxy)
 
@@ -8364,6 +8434,41 @@ namespace Window
   export
   %foreign "browser:lambda:x=>x.personalbar"
   prim__personalbar : Window -> PrimIO BarProp
+
+
+  export
+  %foreign "browser:lambda:x=>x.screen"
+  prim__screen : Window -> PrimIO Screen
+
+
+  export
+  %foreign "browser:lambda:x=>x.screenLeft"
+  prim__screenLeft : Window -> PrimIO Int32
+
+
+  export
+  %foreign "browser:lambda:x=>x.screenTop"
+  prim__screenTop : Window -> PrimIO Int32
+
+
+  export
+  %foreign "browser:lambda:x=>x.screenX"
+  prim__screenX : Window -> PrimIO Int32
+
+
+  export
+  %foreign "browser:lambda:x=>x.screenY"
+  prim__screenY : Window -> PrimIO Int32
+
+
+  export
+  %foreign "browser:lambda:x=>x.scrollX"
+  prim__scrollX : Window -> PrimIO Double
+
+
+  export
+  %foreign "browser:lambda:x=>x.scrollY"
+  prim__scrollY : Window -> PrimIO Double
 
 
   export
@@ -8401,6 +8506,11 @@ namespace Window
   export
   %foreign "browser:lambda:x=>x.top"
   prim__top : Window -> PrimIO (Nullable WindowProxy)
+
+
+  export
+  %foreign "browser:lambda:x=>x.visualViewport"
+  prim__visualViewport : Window -> PrimIO (Nullable VisualViewport)
 
 
   export
@@ -8453,6 +8563,21 @@ namespace Window
 
 
   export
+  %foreign "browser:lambda:(x,a)=>x.matchMedia(a)"
+  prim__matchMedia : Window -> String -> PrimIO MediaQueryList
+
+
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.moveBy(a,b)"
+  prim__moveBy : Window -> Int32 -> Int32 -> PrimIO ()
+
+
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.moveTo(a,b)"
+  prim__moveTo : Window -> Int32 -> Int32 -> PrimIO ()
+
+
+  export
   %foreign "browser:lambda:(x,a,b,c)=>x.open(a,b,c)"
   prim__open :
        Window
@@ -8498,6 +8623,46 @@ namespace Window
   export
   %foreign "browser:lambda:x=>x.releaseEvents()"
   prim__releaseEvents : Window -> PrimIO ()
+
+
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.resizeBy(a,b)"
+  prim__resizeBy : Window -> Int32 -> Int32 -> PrimIO ()
+
+
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.resizeTo(a,b)"
+  prim__resizeTo : Window -> Int32 -> Int32 -> PrimIO ()
+
+
+  export
+  %foreign "browser:lambda:(x,a)=>x.scrollBy(a)"
+  prim__scrollBy : Window -> UndefOr ScrollToOptions -> PrimIO ()
+
+
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.scrollBy(a,b)"
+  prim__scrollBy1 : Window -> Double -> Double -> PrimIO ()
+
+
+  export
+  %foreign "browser:lambda:(x,a)=>x.scrollTo(a)"
+  prim__scrollTo : Window -> UndefOr ScrollToOptions -> PrimIO ()
+
+
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.scrollTo(a,b)"
+  prim__scrollTo1 : Window -> Double -> Double -> PrimIO ()
+
+
+  export
+  %foreign "browser:lambda:(x,a)=>x.scroll(a)"
+  prim__scroll : Window -> UndefOr ScrollToOptions -> PrimIO ()
+
+
+  export
+  %foreign "browser:lambda:(x,a,b)=>x.scroll(a,b)"
+  prim__scroll1 : Window -> Double -> Double -> PrimIO ()
 
 
   export
