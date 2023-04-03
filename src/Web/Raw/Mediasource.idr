@@ -30,7 +30,7 @@ namespace MediaSource
 
 
   export
-  duration : MediaSource -> Attribute True I Double
+  duration : MediaSource -> Attribute True Prelude.id Double
   duration v = fromPrim
                  "MediaSource.getduration"
                  prim__duration
@@ -119,7 +119,7 @@ namespace MediaSource
 namespace SourceBuffer
 
   export
-  appendWindowEnd : SourceBuffer -> Attribute True I Double
+  appendWindowEnd : SourceBuffer -> Attribute True Prelude.id Double
   appendWindowEnd v = fromPrim
                         "SourceBuffer.getappendWindowEnd"
                         prim__appendWindowEnd
@@ -128,7 +128,7 @@ namespace SourceBuffer
 
 
   export
-  appendWindowStart : SourceBuffer -> Attribute True I Double
+  appendWindowStart : SourceBuffer -> Attribute True Prelude.id Double
   appendWindowStart v = fromPrim
                           "SourceBuffer.getappendWindowStart"
                           prim__appendWindowStart
@@ -147,7 +147,7 @@ namespace SourceBuffer
 
 
   export
-  mode : SourceBuffer -> Attribute True I AppendMode
+  mode : SourceBuffer -> Attribute True Prelude.id AppendMode
   mode v = fromPrim "SourceBuffer.getmode" prim__mode prim__setMode v
 
 
@@ -202,7 +202,7 @@ namespace SourceBuffer
 
 
   export
-  timestampOffset : SourceBuffer -> Attribute True I Double
+  timestampOffset : SourceBuffer -> Attribute True Prelude.id Double
   timestampOffset v = fromPrim
                         "SourceBuffer.gettimestampOffset"
                         prim__timestampOffset
@@ -228,7 +228,7 @@ namespace SourceBuffer
   export
   appendBuffer :
        (obj : SourceBuffer)
-    -> (data_ : NS I
+    -> (data_ : HSum
                   [ Int8Array
                   , Int16Array
                   , Int32Array

@@ -1,7 +1,6 @@
 module JS.Attribute
 
 import Control.Monad.Either
-import Data.SOP
 import JS.Callback
 import JS.Marshall
 import JS.Nullable
@@ -21,7 +20,7 @@ import JS.Util
 ||| @f             : Context of values represented by the attribute.
 |||                  This is `Maybe` if the attribute is nullable,
 |||                  `Optional` if it is an optional attribute on
-|||                  a dictionary type, or `I` if it is mandatory
+|||                  a dictionary type, or `id` if it is mandatory
 |||                  and non-nullable.
 |||
 ||| @              : Type of values stored in the attribute
@@ -35,7 +34,7 @@ data Attribute :  (alwaysReturns : Bool)
   |||
   ||| This is for data types, which are guaranteed to always return
   ||| a value that is neither `null` nor `undefined`.
-  Attr : (get : JSIO a) -> (set : a -> JSIO ()) -> Attribute True I a
+  Attr : (get : JSIO a) -> (set : a -> JSIO ()) -> Attribute True Prelude.id a
 
   ||| A nullable, non-optional attribute.
   NullableAttr :  (get : JSIO (Maybe a))
@@ -225,7 +224,7 @@ fromPrim :  (ToFFI a b, FromFFI a b)
          -> (obj -> PrimIO b)
          -> (obj -> b -> PrimIO ())
          -> obj
-         -> Attribute True I a
+         -> Attribute True Prelude.id a
 fromPrim msg g s o =
   Attr (tryJS msg $ g o) (\a => primJS $ s o (toFFI a))
 

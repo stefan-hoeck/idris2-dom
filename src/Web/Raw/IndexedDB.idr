@@ -55,7 +55,7 @@ namespace IDBCursor
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem IDBCursor (Types t1)}
     -> (obj : t1)
-    -> JSIO (NS I [IDBObjectStore, IDBIndex])
+    -> JSIO (HSum [IDBObjectStore, IDBIndex])
   source a = tryJS "IDBCursor.source" $ IDBCursor.prim__source (up a)
 
 
@@ -214,7 +214,7 @@ namespace IDBDatabase
        {auto 0 _ : JSType t4}
     -> {auto 0 _ : Elem IDBTransactionOptions (Types t4)}
     -> (obj : IDBDatabase)
-    -> (storeNames : NS I [String, Array String])
+    -> (storeNames : HSum [String, Array String])
     -> (mode : Optional IDBTransactionMode)
     -> (options : Optional t4)
     -> JSIO IDBTransaction
@@ -224,7 +224,7 @@ namespace IDBDatabase
   export
   transaction :
        (obj : IDBDatabase)
-    -> (storeNames : NS I [String, Array String])
+    -> (storeNames : HSum [String, Array String])
     -> JSIO IDBTransaction
   transaction a b = primJS $
     IDBDatabase.prim__transaction a (toFFI b) undef undef
@@ -278,7 +278,7 @@ namespace IDBIndex
 
 
   export
-  name : IDBIndex -> Attribute True I String
+  name : IDBIndex -> Attribute True Prelude.id String
   name v = fromPrim "IDBIndex.getname" prim__name prim__setName v
 
 
@@ -451,7 +451,7 @@ namespace IDBObjectStore
 
 
   export
-  name : IDBObjectStore -> Attribute True I String
+  name : IDBObjectStore -> Attribute True Prelude.id String
   name v = fromPrim "IDBObjectStore.getname" prim__name prim__setName v
 
 
@@ -493,7 +493,7 @@ namespace IDBObjectStore
     -> {auto 0 _ : Elem IDBIndexParameters (Types t4)}
     -> (obj : IDBObjectStore)
     -> (name : String)
-    -> (keyPath : NS I [String, Array String])
+    -> (keyPath : HSum [String, Array String])
     -> (options : Optional t4)
     -> JSIO IDBIndex
   createIndex' a b c d = primJS $
@@ -503,7 +503,7 @@ namespace IDBObjectStore
   createIndex :
        (obj : IDBObjectStore)
     -> (name : String)
-    -> (keyPath : NS I [String, Array String])
+    -> (keyPath : HSum [String, Array String])
     -> JSIO IDBIndex
   createIndex a b c = primJS $
     IDBObjectStore.prim__createIndex a b (toFFI c) undef
@@ -687,7 +687,7 @@ namespace IDBRequest
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem IDBRequest (Types t1)}
     -> (obj : t1)
-    -> JSIO (Maybe (NS I [IDBObjectStore, IDBIndex, IDBCursor]))
+    -> JSIO (Maybe (HSum [IDBObjectStore, IDBIndex, IDBCursor]))
   source a = tryJS "IDBRequest.source" $ IDBRequest.prim__source (up a)
 
 
@@ -895,7 +895,7 @@ namespace IDBObjectStoreParameters
 
   export
   new' :
-       (keyPath : Optional (Maybe (NS I [String, Array String])))
+       (keyPath : Optional (Maybe (HSum [String, Array String])))
     -> (autoIncrement : Optional Bool)
     -> JSIO IDBObjectStoreParameters
   new' a b = primJS $ IDBObjectStoreParameters.prim__new (toFFI a) (toFFI b)

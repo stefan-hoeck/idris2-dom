@@ -23,7 +23,7 @@ namespace URL
 
 
   export
-  createObjectURL : (obj : NS I [Blob, MediaSource]) -> JSIO String
+  createObjectURL : (obj : HSum [Blob, MediaSource]) -> JSIO String
   createObjectURL a = primJS $ URL.prim__createObjectURL (toFFI a)
 
 
@@ -38,22 +38,22 @@ namespace URL
 
 
   export
-  hash : URL -> Attribute True I String
+  hash : URL -> Attribute True Prelude.id String
   hash v = fromPrim "URL.gethash" prim__hash prim__setHash v
 
 
   export
-  host : URL -> Attribute True I String
+  host : URL -> Attribute True Prelude.id String
   host v = fromPrim "URL.gethost" prim__host prim__setHost v
 
 
   export
-  hostname : URL -> Attribute True I String
+  hostname : URL -> Attribute True Prelude.id String
   hostname v = fromPrim "URL.gethostname" prim__hostname prim__setHostname v
 
 
   export
-  href : URL -> Attribute True I String
+  href : URL -> Attribute True Prelude.id String
   href v = fromPrim "URL.gethref" prim__href prim__setHref v
 
 
@@ -63,27 +63,27 @@ namespace URL
 
 
   export
-  password : URL -> Attribute True I String
+  password : URL -> Attribute True Prelude.id String
   password v = fromPrim "URL.getpassword" prim__password prim__setPassword v
 
 
   export
-  pathname : URL -> Attribute True I String
+  pathname : URL -> Attribute True Prelude.id String
   pathname v = fromPrim "URL.getpathname" prim__pathname prim__setPathname v
 
 
   export
-  port : URL -> Attribute True I String
+  port : URL -> Attribute True Prelude.id String
   port v = fromPrim "URL.getport" prim__port prim__setPort v
 
 
   export
-  protocol : URL -> Attribute True I String
+  protocol : URL -> Attribute True Prelude.id String
   protocol v = fromPrim "URL.getprotocol" prim__protocol prim__setProtocol v
 
 
   export
-  search : URL -> Attribute True I String
+  search : URL -> Attribute True Prelude.id String
   search v = fromPrim "URL.getsearch" prim__search prim__setSearch v
 
 
@@ -93,7 +93,7 @@ namespace URL
 
 
   export
-  username : URL -> Attribute True I String
+  username : URL -> Attribute True Prelude.id String
   username v = fromPrim "URL.getusername" prim__username prim__setUsername v
 
 
@@ -108,7 +108,7 @@ namespace URLSearchParams
   export
   new' :
        (init : Optional
-                 (NS I [Array (Array String), Record String String, String]))
+                 (HSum [Array (Array String), Record String String, String]))
     -> JSIO URLSearchParams
   new' a = primJS $ URLSearchParams.prim__new (toFFI a)
 

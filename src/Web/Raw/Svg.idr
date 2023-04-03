@@ -15,7 +15,7 @@ import Web.Internal.Types
 namespace SVGAElement
 
   export
-  download : SVGAElement -> Attribute True I String
+  download : SVGAElement -> Attribute True Prelude.id String
   download v = fromPrim
                  "SVGAElement.getdownload"
                  prim__download
@@ -24,7 +24,7 @@ namespace SVGAElement
 
 
   export
-  hreflang : SVGAElement -> Attribute True I String
+  hreflang : SVGAElement -> Attribute True Prelude.id String
   hreflang v = fromPrim
                  "SVGAElement.gethreflang"
                  prim__hreflang
@@ -33,12 +33,12 @@ namespace SVGAElement
 
 
   export
-  ping : SVGAElement -> Attribute True I String
+  ping : SVGAElement -> Attribute True Prelude.id String
   ping v = fromPrim "SVGAElement.getping" prim__ping prim__setPing v
 
 
   export
-  referrerPolicy : SVGAElement -> Attribute True I String
+  referrerPolicy : SVGAElement -> Attribute True Prelude.id String
   referrerPolicy v = fromPrim
                        "SVGAElement.getreferrerPolicy"
                        prim__referrerPolicy
@@ -47,7 +47,7 @@ namespace SVGAElement
 
 
   export
-  rel : SVGAElement -> Attribute True I String
+  rel : SVGAElement -> Attribute True Prelude.id String
   rel v = fromPrim "SVGAElement.getrel" prim__rel prim__setRel v
 
 
@@ -62,12 +62,12 @@ namespace SVGAElement
 
 
   export
-  text : SVGAElement -> Attribute True I String
+  text : SVGAElement -> Attribute True Prelude.id String
   text v = fromPrim "SVGAElement.gettext" prim__text prim__setText v
 
 
   export
-  type : SVGAElement -> Attribute True I String
+  type : SVGAElement -> Attribute True Prelude.id String
   type v = fromPrim "SVGAElement.gettype" prim__type prim__setType v
 
 
@@ -105,12 +105,12 @@ namespace SVGAngle
 
 
   export
-  value : SVGAngle -> Attribute True I Double
+  value : SVGAngle -> Attribute True Prelude.id Double
   value v = fromPrim "SVGAngle.getvalue" prim__value prim__setValue v
 
 
   export
-  valueAsString : SVGAngle -> Attribute True I String
+  valueAsString : SVGAngle -> Attribute True Prelude.id String
   valueAsString v = fromPrim
                       "SVGAngle.getvalueAsString"
                       prim__valueAsString
@@ -119,7 +119,7 @@ namespace SVGAngle
 
 
   export
-  valueInSpecifiedUnits : SVGAngle -> Attribute True I Double
+  valueInSpecifiedUnits : SVGAngle -> Attribute True Prelude.id Double
   valueInSpecifiedUnits v = fromPrim
                               "SVGAngle.getvalueInSpecifiedUnits"
                               prim__valueInSpecifiedUnits
@@ -166,7 +166,7 @@ namespace SVGAnimatedBoolean
 
 
   export
-  baseVal : SVGAnimatedBoolean -> Attribute True I Bool
+  baseVal : SVGAnimatedBoolean -> Attribute True Prelude.id Bool
   baseVal v = fromPrim
                 "SVGAnimatedBoolean.getbaseVal"
                 prim__baseVal
@@ -183,7 +183,7 @@ namespace SVGAnimatedEnumeration
 
 
   export
-  baseVal : SVGAnimatedEnumeration -> Attribute True I Bits16
+  baseVal : SVGAnimatedEnumeration -> Attribute True Prelude.id Bits16
   baseVal v = fromPrim
                 "SVGAnimatedEnumeration.getbaseVal"
                 prim__baseVal
@@ -200,7 +200,7 @@ namespace SVGAnimatedInteger
 
 
   export
-  baseVal : SVGAnimatedInteger -> Attribute True I Int32
+  baseVal : SVGAnimatedInteger -> Attribute True Prelude.id Int32
   baseVal v = fromPrim
                 "SVGAnimatedInteger.getbaseVal"
                 prim__baseVal
@@ -243,7 +243,7 @@ namespace SVGAnimatedNumber
 
 
   export
-  baseVal : SVGAnimatedNumber -> Attribute True I Double
+  baseVal : SVGAnimatedNumber -> Attribute True Prelude.id Double
   baseVal v = fromPrim
                 "SVGAnimatedNumber.getbaseVal"
                 prim__baseVal
@@ -303,7 +303,7 @@ namespace SVGAnimatedString
 
 
   export
-  baseVal : SVGAnimatedString -> Attribute True I String
+  baseVal : SVGAnimatedString -> Attribute True Prelude.id String
   baseVal v = fromPrim
                 "SVGAnimatedString.getbaseVal"
                 prim__baseVal
@@ -705,12 +705,12 @@ namespace SVGLength
 
 
   export
-  value : SVGLength -> Attribute True I Double
+  value : SVGLength -> Attribute True Prelude.id Double
   value v = fromPrim "SVGLength.getvalue" prim__value prim__setValue v
 
 
   export
-  valueAsString : SVGLength -> Attribute True I String
+  valueAsString : SVGLength -> Attribute True Prelude.id String
   valueAsString v = fromPrim
                       "SVGLength.getvalueAsString"
                       prim__valueAsString
@@ -719,7 +719,7 @@ namespace SVGLength
 
 
   export
-  valueInSpecifiedUnits : SVGLength -> Attribute True I Double
+  valueInSpecifiedUnits : SVGLength -> Attribute True Prelude.id Double
   valueInSpecifiedUnits v = fromPrim
                               "SVGLength.getvalueInSpecifiedUnits"
                               prim__valueInSpecifiedUnits
@@ -903,7 +903,7 @@ namespace SVGMarkerElement
 
 
   export
-  orient : SVGMarkerElement -> Attribute True I String
+  orient : SVGMarkerElement -> Attribute True Prelude.id String
   orient v = fromPrim
                "SVGMarkerElement.getorient"
                prim__orient
@@ -946,7 +946,7 @@ namespace SVGMarkerElement
 namespace SVGNumber
 
   export
-  value : SVGNumber -> Attribute True I Double
+  value : SVGNumber -> Attribute True Prelude.id Double
   value v = fromPrim "SVGNumber.getvalue" prim__value prim__setValue v
 
 
@@ -1195,7 +1195,7 @@ namespace SVGPreserveAspectRatio
 
 
   export
-  align : SVGPreserveAspectRatio -> Attribute True I Bits16
+  align : SVGPreserveAspectRatio -> Attribute True Prelude.id Bits16
   align v = fromPrim
               "SVGPreserveAspectRatio.getalign"
               prim__align
@@ -1204,7 +1204,7 @@ namespace SVGPreserveAspectRatio
 
 
   export
-  meetOrSlice : SVGPreserveAspectRatio -> Attribute True I Bits16
+  meetOrSlice : SVGPreserveAspectRatio -> Attribute True Prelude.id Bits16
   meetOrSlice v = fromPrim
                     "SVGPreserveAspectRatio.getmeetOrSlice"
                     prim__meetOrSlice
@@ -1282,7 +1282,7 @@ namespace SVGRectElement
 namespace SVGSVGElement
 
   export
-  currentScale : SVGSVGElement -> Attribute True I Double
+  currentScale : SVGSVGElement -> Attribute True Prelude.id Double
   currentScale v = fromPrim
                      "SVGSVGElement.getcurrentScale"
                      prim__currentScale
@@ -1471,7 +1471,7 @@ namespace SVGScriptElement
 
 
   export
-  type : SVGScriptElement -> Attribute True I String
+  type : SVGScriptElement -> Attribute True Prelude.id String
   type v = fromPrim "SVGScriptElement.gettype" prim__type prim__setType v
 
 
@@ -1552,17 +1552,17 @@ namespace SVGStringList
 namespace SVGStyleElement
 
   export
-  media : SVGStyleElement -> Attribute True I String
+  media : SVGStyleElement -> Attribute True Prelude.id String
   media v = fromPrim "SVGStyleElement.getmedia" prim__media prim__setMedia v
 
 
   export
-  title : SVGStyleElement -> Attribute True I String
+  title : SVGStyleElement -> Attribute True Prelude.id String
   title v = fromPrim "SVGStyleElement.gettitle" prim__title prim__setTitle v
 
 
   export
-  type : SVGStyleElement -> Attribute True I String
+  type : SVGStyleElement -> Attribute True Prelude.id String
   type v = fromPrim "SVGStyleElement.gettype" prim__type prim__setType v
 
 

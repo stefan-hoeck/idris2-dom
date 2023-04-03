@@ -101,7 +101,7 @@ namespace CSSNamespaceRule
 namespace CSSPageRule
 
   export
-  selectorText : CSSPageRule -> Attribute True I String
+  selectorText : CSSPageRule -> Attribute True Prelude.id String
   selectorText v = fromPrim
                      "CSSPageRule.getselectorText"
                      prim__selectorText
@@ -175,7 +175,7 @@ namespace CSSRule
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem CSSRule (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   cssText v = fromPrim
                 "CSSRule.getcssText"
                 prim__cssText
@@ -228,7 +228,7 @@ namespace CSSRuleList
 namespace CSSStyleDeclaration
 
   export
-  cssFloat : CSSStyleDeclaration -> Attribute True I String
+  cssFloat : CSSStyleDeclaration -> Attribute True Prelude.id String
   cssFloat v = fromPrim
                  "CSSStyleDeclaration.getcssFloat"
                  prim__cssFloat
@@ -237,7 +237,7 @@ namespace CSSStyleDeclaration
 
 
   export
-  cssText : CSSStyleDeclaration -> Attribute True I String
+  cssText : CSSStyleDeclaration -> Attribute True Prelude.id String
   cssText v = fromPrim
                 "CSSStyleDeclaration.getcssText"
                 prim__cssText
@@ -309,7 +309,7 @@ namespace CSSStyleDeclaration
 namespace CSSStyleRule
 
   export
-  selectorText : CSSStyleRule -> Attribute True I String
+  selectorText : CSSStyleRule -> Attribute True Prelude.id String
   selectorText v = fromPrim
                      "CSSStyleRule.getselectorText"
                      prim__selectorText
@@ -392,7 +392,7 @@ namespace MediaList
 
 
   export
-  mediaText : MediaList -> Attribute True I String
+  mediaText : MediaList -> Attribute True Prelude.id String
   mediaText v = fromPrim
                   "MediaList.getmediaText"
                   prim__mediaText
@@ -423,7 +423,7 @@ namespace StyleSheet
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem StyleSheet (Types t)}
     -> t
-    -> Attribute True I Bool
+    -> Attribute True Prelude.id Bool
   disabled v = fromPrim
                  "StyleSheet.getdisabled"
                  prim__disabled
@@ -454,7 +454,7 @@ namespace StyleSheet
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem StyleSheet (Types t1)}
     -> (obj : t1)
-    -> JSIO (Maybe (NS I [Element, ProcessingInstruction]))
+    -> JSIO (Maybe (HSum [Element, ProcessingInstruction]))
   ownerNode a = tryJS "StyleSheet.ownerNode" $ StyleSheet.prim__ownerNode (up a)
 
 

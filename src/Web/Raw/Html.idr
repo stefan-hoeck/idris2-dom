@@ -14,7 +14,7 @@ import Web.Internal.Types
 namespace AudioTrack
 
   export
-  enabled : AudioTrack -> Attribute True I Bool
+  enabled : AudioTrack -> Attribute True Prelude.id Bool
   enabled v = fromPrim "AudioTrack.getenabled" prim__enabled prim__setEnabled v
 
 
@@ -105,7 +105,7 @@ namespace BarProp
 namespace BeforeUnloadEvent
 
   export
-  returnValue : BeforeUnloadEvent -> Attribute True I String
+  returnValue : BeforeUnloadEvent -> Attribute True Prelude.id String
   returnValue v = fromPrim
                     "BeforeUnloadEvent.getreturnValue"
                     prim__returnValue
@@ -338,7 +338,7 @@ namespace DataTransfer
 
 
   export
-  dropEffect : DataTransfer -> Attribute True I String
+  dropEffect : DataTransfer -> Attribute True Prelude.id String
   dropEffect v = fromPrim
                    "DataTransfer.getdropEffect"
                    prim__dropEffect
@@ -347,7 +347,7 @@ namespace DataTransfer
 
 
   export
-  effectAllowed : DataTransfer -> Attribute True I String
+  effectAllowed : DataTransfer -> Attribute True Prelude.id String
   effectAllowed v = fromPrim
                       "DataTransfer.geteffectAllowed"
                       prim__effectAllowed
@@ -615,8 +615,8 @@ namespace ElementInternals
   export
   setFormValue' :
        (obj : ElementInternals)
-    -> (value : Maybe (NS I [File, String, FormData]))
-    -> (state : Optional (Maybe (NS I [File, String, FormData])))
+    -> (value : Maybe (HSum [File, String, FormData]))
+    -> (state : Optional (Maybe (HSum [File, String, FormData])))
     -> JSIO ()
   setFormValue' a b c = primJS $
     ElementInternals.prim__setFormValue a (toFFI b) (toFFI c)
@@ -624,7 +624,7 @@ namespace ElementInternals
   export
   setFormValue :
        (obj : ElementInternals)
-    -> (value : Maybe (NS I [File, String, FormData]))
+    -> (value : Maybe (HSum [File, String, FormData]))
     -> JSIO ()
   setFormValue a b = primJS $
     ElementInternals.prim__setFormValue a (toFFI b) undef
@@ -821,14 +821,14 @@ namespace HTMLAllCollection
   item' :
        (obj : HTMLAllCollection)
     -> (nameOrIndex : Optional String)
-    -> JSIO (Maybe (NS I [HTMLCollection, Element]))
+    -> JSIO (Maybe (HSum [HTMLCollection, Element]))
   item' a b = tryJS "HTMLAllCollection.item'" $
     HTMLAllCollection.prim__item a (toFFI b)
 
   export
   item :
        (obj : HTMLAllCollection)
-    -> JSIO (Maybe (NS I [HTMLCollection, Element]))
+    -> JSIO (Maybe (HSum [HTMLCollection, Element]))
   item a = tryJS "HTMLAllCollection.item" $ HTMLAllCollection.prim__item a undef
 
 
@@ -836,7 +836,7 @@ namespace HTMLAllCollection
   namedItem :
        (obj : HTMLAllCollection)
     -> (name : String)
-    -> JSIO (Maybe (NS I [HTMLCollection, Element]))
+    -> JSIO (Maybe (HSum [HTMLCollection, Element]))
   namedItem a b = tryJS "HTMLAllCollection.namedItem" $
     HTMLAllCollection.prim__namedItem a b
 
@@ -850,7 +850,7 @@ namespace HTMLAnchorElement
 
 
   export
-  charset : HTMLAnchorElement -> Attribute True I String
+  charset : HTMLAnchorElement -> Attribute True Prelude.id String
   charset v = fromPrim
                 "HTMLAnchorElement.getcharset"
                 prim__charset
@@ -859,7 +859,7 @@ namespace HTMLAnchorElement
 
 
   export
-  coords : HTMLAnchorElement -> Attribute True I String
+  coords : HTMLAnchorElement -> Attribute True Prelude.id String
   coords v = fromPrim
                "HTMLAnchorElement.getcoords"
                prim__coords
@@ -868,7 +868,7 @@ namespace HTMLAnchorElement
 
 
   export
-  download : HTMLAnchorElement -> Attribute True I String
+  download : HTMLAnchorElement -> Attribute True Prelude.id String
   download v = fromPrim
                  "HTMLAnchorElement.getdownload"
                  prim__download
@@ -877,7 +877,7 @@ namespace HTMLAnchorElement
 
 
   export
-  hreflang : HTMLAnchorElement -> Attribute True I String
+  hreflang : HTMLAnchorElement -> Attribute True Prelude.id String
   hreflang v = fromPrim
                  "HTMLAnchorElement.gethreflang"
                  prim__hreflang
@@ -886,17 +886,17 @@ namespace HTMLAnchorElement
 
 
   export
-  name : HTMLAnchorElement -> Attribute True I String
+  name : HTMLAnchorElement -> Attribute True Prelude.id String
   name v = fromPrim "HTMLAnchorElement.getname" prim__name prim__setName v
 
 
   export
-  ping : HTMLAnchorElement -> Attribute True I String
+  ping : HTMLAnchorElement -> Attribute True Prelude.id String
   ping v = fromPrim "HTMLAnchorElement.getping" prim__ping prim__setPing v
 
 
   export
-  referrerPolicy : HTMLAnchorElement -> Attribute True I String
+  referrerPolicy : HTMLAnchorElement -> Attribute True Prelude.id String
   referrerPolicy v = fromPrim
                        "HTMLAnchorElement.getreferrerPolicy"
                        prim__referrerPolicy
@@ -905,7 +905,7 @@ namespace HTMLAnchorElement
 
 
   export
-  rel : HTMLAnchorElement -> Attribute True I String
+  rel : HTMLAnchorElement -> Attribute True Prelude.id String
   rel v = fromPrim "HTMLAnchorElement.getrel" prim__rel prim__setRel v
 
 
@@ -915,17 +915,17 @@ namespace HTMLAnchorElement
 
 
   export
-  rev : HTMLAnchorElement -> Attribute True I String
+  rev : HTMLAnchorElement -> Attribute True Prelude.id String
   rev v = fromPrim "HTMLAnchorElement.getrev" prim__rev prim__setRev v
 
 
   export
-  shape : HTMLAnchorElement -> Attribute True I String
+  shape : HTMLAnchorElement -> Attribute True Prelude.id String
   shape v = fromPrim "HTMLAnchorElement.getshape" prim__shape prim__setShape v
 
 
   export
-  target : HTMLAnchorElement -> Attribute True I String
+  target : HTMLAnchorElement -> Attribute True Prelude.id String
   target v = fromPrim
                "HTMLAnchorElement.gettarget"
                prim__target
@@ -934,12 +934,12 @@ namespace HTMLAnchorElement
 
 
   export
-  text : HTMLAnchorElement -> Attribute True I String
+  text : HTMLAnchorElement -> Attribute True Prelude.id String
   text v = fromPrim "HTMLAnchorElement.gettext" prim__text prim__setText v
 
 
   export
-  type : HTMLAnchorElement -> Attribute True I String
+  type : HTMLAnchorElement -> Attribute True Prelude.id String
   type v = fromPrim "HTMLAnchorElement.gettype" prim__type prim__setType v
 
 
@@ -952,17 +952,17 @@ namespace HTMLAreaElement
 
 
   export
-  alt : HTMLAreaElement -> Attribute True I String
+  alt : HTMLAreaElement -> Attribute True Prelude.id String
   alt v = fromPrim "HTMLAreaElement.getalt" prim__alt prim__setAlt v
 
 
   export
-  coords : HTMLAreaElement -> Attribute True I String
+  coords : HTMLAreaElement -> Attribute True Prelude.id String
   coords v = fromPrim "HTMLAreaElement.getcoords" prim__coords prim__setCoords v
 
 
   export
-  download : HTMLAreaElement -> Attribute True I String
+  download : HTMLAreaElement -> Attribute True Prelude.id String
   download v = fromPrim
                  "HTMLAreaElement.getdownload"
                  prim__download
@@ -971,17 +971,17 @@ namespace HTMLAreaElement
 
 
   export
-  noHref : HTMLAreaElement -> Attribute True I Bool
+  noHref : HTMLAreaElement -> Attribute True Prelude.id Bool
   noHref v = fromPrim "HTMLAreaElement.getnoHref" prim__noHref prim__setNoHref v
 
 
   export
-  ping : HTMLAreaElement -> Attribute True I String
+  ping : HTMLAreaElement -> Attribute True Prelude.id String
   ping v = fromPrim "HTMLAreaElement.getping" prim__ping prim__setPing v
 
 
   export
-  referrerPolicy : HTMLAreaElement -> Attribute True I String
+  referrerPolicy : HTMLAreaElement -> Attribute True Prelude.id String
   referrerPolicy v = fromPrim
                        "HTMLAreaElement.getreferrerPolicy"
                        prim__referrerPolicy
@@ -990,7 +990,7 @@ namespace HTMLAreaElement
 
 
   export
-  rel : HTMLAreaElement -> Attribute True I String
+  rel : HTMLAreaElement -> Attribute True Prelude.id String
   rel v = fromPrim "HTMLAreaElement.getrel" prim__rel prim__setRel v
 
 
@@ -1000,12 +1000,12 @@ namespace HTMLAreaElement
 
 
   export
-  shape : HTMLAreaElement -> Attribute True I String
+  shape : HTMLAreaElement -> Attribute True Prelude.id String
   shape v = fromPrim "HTMLAreaElement.getshape" prim__shape prim__setShape v
 
 
   export
-  target : HTMLAreaElement -> Attribute True I String
+  target : HTMLAreaElement -> Attribute True Prelude.id String
   target v = fromPrim "HTMLAreaElement.gettarget" prim__target prim__setTarget v
 
 
@@ -1026,7 +1026,7 @@ namespace HTMLBRElement
 
 
   export
-  clear : HTMLBRElement -> Attribute True I String
+  clear : HTMLBRElement -> Attribute True Prelude.id String
   clear v = fromPrim "HTMLBRElement.getclear" prim__clear prim__setClear v
 
 
@@ -1039,12 +1039,12 @@ namespace HTMLBaseElement
 
 
   export
-  href : HTMLBaseElement -> Attribute True I String
+  href : HTMLBaseElement -> Attribute True Prelude.id String
   href v = fromPrim "HTMLBaseElement.gethref" prim__href prim__setHref v
 
 
   export
-  target : HTMLBaseElement -> Attribute True I String
+  target : HTMLBaseElement -> Attribute True Prelude.id String
   target v = fromPrim "HTMLBaseElement.gettarget" prim__target prim__setTarget v
 
 
@@ -1057,12 +1057,12 @@ namespace HTMLBodyElement
 
 
   export
-  aLink : HTMLBodyElement -> Attribute True I String
+  aLink : HTMLBodyElement -> Attribute True Prelude.id String
   aLink v = fromPrim "HTMLBodyElement.getaLink" prim__aLink prim__setALink v
 
 
   export
-  background : HTMLBodyElement -> Attribute True I String
+  background : HTMLBodyElement -> Attribute True Prelude.id String
   background v = fromPrim
                    "HTMLBodyElement.getbackground"
                    prim__background
@@ -1071,7 +1071,7 @@ namespace HTMLBodyElement
 
 
   export
-  bgColor : HTMLBodyElement -> Attribute True I String
+  bgColor : HTMLBodyElement -> Attribute True Prelude.id String
   bgColor v = fromPrim
                 "HTMLBodyElement.getbgColor"
                 prim__bgColor
@@ -1080,17 +1080,17 @@ namespace HTMLBodyElement
 
 
   export
-  link : HTMLBodyElement -> Attribute True I String
+  link : HTMLBodyElement -> Attribute True Prelude.id String
   link v = fromPrim "HTMLBodyElement.getlink" prim__link prim__setLink v
 
 
   export
-  text : HTMLBodyElement -> Attribute True I String
+  text : HTMLBodyElement -> Attribute True Prelude.id String
   text v = fromPrim "HTMLBodyElement.gettext" prim__text prim__setText v
 
 
   export
-  vLink : HTMLBodyElement -> Attribute True I String
+  vLink : HTMLBodyElement -> Attribute True Prelude.id String
   vLink v = fromPrim "HTMLBodyElement.getvLink" prim__vLink prim__setVLink v
 
 
@@ -1103,7 +1103,7 @@ namespace HTMLButtonElement
 
 
   export
-  disabled : HTMLButtonElement -> Attribute True I Bool
+  disabled : HTMLButtonElement -> Attribute True Prelude.id Bool
   disabled v = fromPrim
                  "HTMLButtonElement.getdisabled"
                  prim__disabled
@@ -1117,7 +1117,7 @@ namespace HTMLButtonElement
 
 
   export
-  formAction : HTMLButtonElement -> Attribute True I String
+  formAction : HTMLButtonElement -> Attribute True Prelude.id String
   formAction v = fromPrim
                    "HTMLButtonElement.getformAction"
                    prim__formAction
@@ -1126,7 +1126,7 @@ namespace HTMLButtonElement
 
 
   export
-  formEnctype : HTMLButtonElement -> Attribute True I String
+  formEnctype : HTMLButtonElement -> Attribute True Prelude.id String
   formEnctype v = fromPrim
                     "HTMLButtonElement.getformEnctype"
                     prim__formEnctype
@@ -1135,7 +1135,7 @@ namespace HTMLButtonElement
 
 
   export
-  formMethod : HTMLButtonElement -> Attribute True I String
+  formMethod : HTMLButtonElement -> Attribute True Prelude.id String
   formMethod v = fromPrim
                    "HTMLButtonElement.getformMethod"
                    prim__formMethod
@@ -1144,7 +1144,7 @@ namespace HTMLButtonElement
 
 
   export
-  formNoValidate : HTMLButtonElement -> Attribute True I Bool
+  formNoValidate : HTMLButtonElement -> Attribute True Prelude.id Bool
   formNoValidate v = fromPrim
                        "HTMLButtonElement.getformNoValidate"
                        prim__formNoValidate
@@ -1153,7 +1153,7 @@ namespace HTMLButtonElement
 
 
   export
-  formTarget : HTMLButtonElement -> Attribute True I String
+  formTarget : HTMLButtonElement -> Attribute True Prelude.id String
   formTarget v = fromPrim
                    "HTMLButtonElement.getformTarget"
                    prim__formTarget
@@ -1167,12 +1167,12 @@ namespace HTMLButtonElement
 
 
   export
-  name : HTMLButtonElement -> Attribute True I String
+  name : HTMLButtonElement -> Attribute True Prelude.id String
   name v = fromPrim "HTMLButtonElement.getname" prim__name prim__setName v
 
 
   export
-  type : HTMLButtonElement -> Attribute True I String
+  type : HTMLButtonElement -> Attribute True Prelude.id String
   type v = fromPrim "HTMLButtonElement.gettype" prim__type prim__setType v
 
 
@@ -1187,7 +1187,7 @@ namespace HTMLButtonElement
 
 
   export
-  value : HTMLButtonElement -> Attribute True I String
+  value : HTMLButtonElement -> Attribute True Prelude.id String
   value v = fromPrim "HTMLButtonElement.getvalue" prim__value prim__setValue v
 
 
@@ -1223,7 +1223,7 @@ namespace HTMLCanvasElement
 
 
   export
-  height : HTMLCanvasElement -> Attribute True I Bits32
+  height : HTMLCanvasElement -> Attribute True Prelude.id Bits32
   height v = fromPrim
                "HTMLCanvasElement.getheight"
                prim__height
@@ -1232,7 +1232,7 @@ namespace HTMLCanvasElement
 
 
   export
-  width : HTMLCanvasElement -> Attribute True I Bits32
+  width : HTMLCanvasElement -> Attribute True Prelude.id Bits32
   width v = fromPrim "HTMLCanvasElement.getwidth" prim__width prim__setWidth v
 
 
@@ -1243,7 +1243,7 @@ namespace HTMLCanvasElement
     -> (options : Optional Any)
     -> JSIO
          (Maybe
-            (NS I
+            (HSum
                [ CanvasRenderingContext2D
                , ImageBitmapRenderingContext
                , WebGLRenderingContext
@@ -1258,7 +1258,7 @@ namespace HTMLCanvasElement
     -> (contextId : String)
     -> JSIO
          (Maybe
-            (NS I
+            (HSum
                [ CanvasRenderingContext2D
                , ImageBitmapRenderingContext
                , WebGLRenderingContext
@@ -1312,7 +1312,7 @@ namespace HTMLDListElement
 
 
   export
-  compact : HTMLDListElement -> Attribute True I Bool
+  compact : HTMLDListElement -> Attribute True Prelude.id Bool
   compact v = fromPrim
                 "HTMLDListElement.getcompact"
                 prim__compact
@@ -1329,7 +1329,7 @@ namespace HTMLDataElement
 
 
   export
-  value : HTMLDataElement -> Attribute True I String
+  value : HTMLDataElement -> Attribute True Prelude.id String
   value v = fromPrim "HTMLDataElement.getvalue" prim__value prim__setValue v
 
 
@@ -1355,7 +1355,7 @@ namespace HTMLDetailsElement
 
 
   export
-  open_ : HTMLDetailsElement -> Attribute True I Bool
+  open_ : HTMLDetailsElement -> Attribute True Prelude.id Bool
   open_ v = fromPrim "HTMLDetailsElement.getopen" prim__open prim__setOpen v
 
 
@@ -1368,12 +1368,12 @@ namespace HTMLDialogElement
 
 
   export
-  open_ : HTMLDialogElement -> Attribute True I Bool
+  open_ : HTMLDialogElement -> Attribute True Prelude.id Bool
   open_ v = fromPrim "HTMLDialogElement.getopen" prim__open prim__setOpen v
 
 
   export
-  returnValue : HTMLDialogElement -> Attribute True I String
+  returnValue : HTMLDialogElement -> Attribute True Prelude.id String
   returnValue v = fromPrim
                     "HTMLDialogElement.getreturnValue"
                     prim__returnValue
@@ -1412,7 +1412,7 @@ namespace HTMLDirectoryElement
 
 
   export
-  compact : HTMLDirectoryElement -> Attribute True I Bool
+  compact : HTMLDirectoryElement -> Attribute True Prelude.id Bool
   compact v = fromPrim
                 "HTMLDirectoryElement.getcompact"
                 prim__compact
@@ -1429,7 +1429,7 @@ namespace HTMLDivElement
 
 
   export
-  align : HTMLDivElement -> Attribute True I String
+  align : HTMLDivElement -> Attribute True Prelude.id String
   align v = fromPrim "HTMLDivElement.getalign" prim__align prim__setAlign v
 
 
@@ -1446,7 +1446,7 @@ namespace HTMLElement
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLElement (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   accessKey v = fromPrim
                   "HTMLElement.getaccessKey"
                   prim__accessKey
@@ -1468,7 +1468,7 @@ namespace HTMLElement
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLElement (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   autocapitalize v = fromPrim
                        "HTMLElement.getautocapitalize"
                        prim__autocapitalize
@@ -1481,7 +1481,7 @@ namespace HTMLElement
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLElement (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   dir v = fromPrim
             "HTMLElement.getdir"
             prim__dir
@@ -1494,7 +1494,7 @@ namespace HTMLElement
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLElement (Types t)}
     -> t
-    -> Attribute True I Bool
+    -> Attribute True Prelude.id Bool
   draggable v = fromPrim
                   "HTMLElement.getdraggable"
                   prim__draggable
@@ -1507,7 +1507,7 @@ namespace HTMLElement
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLElement (Types t)}
     -> t
-    -> Attribute True I Bool
+    -> Attribute True Prelude.id Bool
   hidden v = fromPrim
                "HTMLElement.gethidden"
                prim__hidden
@@ -1520,7 +1520,7 @@ namespace HTMLElement
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLElement (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   innerText v = fromPrim
                   "HTMLElement.getinnerText"
                   prim__innerText
@@ -1533,7 +1533,7 @@ namespace HTMLElement
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLElement (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   lang v = fromPrim
              "HTMLElement.getlang"
              prim__lang
@@ -1592,7 +1592,7 @@ namespace HTMLElement
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLElement (Types t)}
     -> t
-    -> Attribute True I Bool
+    -> Attribute True Prelude.id Bool
   spellcheck v = fromPrim
                    "HTMLElement.getspellcheck"
                    prim__spellcheck
@@ -1605,7 +1605,7 @@ namespace HTMLElement
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLElement (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   title v = fromPrim
               "HTMLElement.gettitle"
               prim__title
@@ -1618,7 +1618,7 @@ namespace HTMLElement
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLElement (Types t)}
     -> t
-    -> Attribute True I Bool
+    -> Attribute True Prelude.id Bool
   translate v = fromPrim
                   "HTMLElement.gettranslate"
                   prim__translate
@@ -1653,12 +1653,12 @@ namespace HTMLEmbedElement
 
 
   export
-  align : HTMLEmbedElement -> Attribute True I String
+  align : HTMLEmbedElement -> Attribute True Prelude.id String
   align v = fromPrim "HTMLEmbedElement.getalign" prim__align prim__setAlign v
 
 
   export
-  height : HTMLEmbedElement -> Attribute True I String
+  height : HTMLEmbedElement -> Attribute True Prelude.id String
   height v = fromPrim
                "HTMLEmbedElement.getheight"
                prim__height
@@ -1667,22 +1667,22 @@ namespace HTMLEmbedElement
 
 
   export
-  name : HTMLEmbedElement -> Attribute True I String
+  name : HTMLEmbedElement -> Attribute True Prelude.id String
   name v = fromPrim "HTMLEmbedElement.getname" prim__name prim__setName v
 
 
   export
-  src : HTMLEmbedElement -> Attribute True I String
+  src : HTMLEmbedElement -> Attribute True Prelude.id String
   src v = fromPrim "HTMLEmbedElement.getsrc" prim__src prim__setSrc v
 
 
   export
-  type : HTMLEmbedElement -> Attribute True I String
+  type : HTMLEmbedElement -> Attribute True Prelude.id String
   type v = fromPrim "HTMLEmbedElement.gettype" prim__type prim__setType v
 
 
   export
-  width : HTMLEmbedElement -> Attribute True I String
+  width : HTMLEmbedElement -> Attribute True Prelude.id String
   width v = fromPrim "HTMLEmbedElement.getwidth" prim__width prim__setWidth v
 
 
@@ -1701,7 +1701,7 @@ namespace HTMLFieldSetElement
 
 
   export
-  disabled : HTMLFieldSetElement -> Attribute True I Bool
+  disabled : HTMLFieldSetElement -> Attribute True Prelude.id Bool
   disabled v = fromPrim
                  "HTMLFieldSetElement.getdisabled"
                  prim__disabled
@@ -1720,7 +1720,7 @@ namespace HTMLFieldSetElement
 
 
   export
-  name : HTMLFieldSetElement -> Attribute True I String
+  name : HTMLFieldSetElement -> Attribute True Prelude.id String
   name v = fromPrim "HTMLFieldSetElement.getname" prim__name prim__setName v
 
 
@@ -1772,17 +1772,17 @@ namespace HTMLFontElement
 
 
   export
-  color : HTMLFontElement -> Attribute True I String
+  color : HTMLFontElement -> Attribute True Prelude.id String
   color v = fromPrim "HTMLFontElement.getcolor" prim__color prim__setColor v
 
 
   export
-  face : HTMLFontElement -> Attribute True I String
+  face : HTMLFontElement -> Attribute True Prelude.id String
   face v = fromPrim "HTMLFontElement.getface" prim__face prim__setFace v
 
 
   export
-  size : HTMLFontElement -> Attribute True I String
+  size : HTMLFontElement -> Attribute True Prelude.id String
   size v = fromPrim "HTMLFontElement.getsize" prim__size prim__setSize v
 
 
@@ -1793,7 +1793,7 @@ namespace HTMLFormControlsCollection
   namedItem :
        (obj : HTMLFormControlsCollection)
     -> (name : String)
-    -> JSIO (Maybe (NS I [RadioNodeList, Element]))
+    -> JSIO (Maybe (HSum [RadioNodeList, Element]))
   namedItem a b = tryJS "HTMLFormControlsCollection.namedItem" $
     HTMLFormControlsCollection.prim__namedItem a b
 
@@ -1815,12 +1815,12 @@ namespace HTMLFormElement
   get1 :
        (obj : HTMLFormElement)
     -> (name : String)
-    -> JSIO (NS I [RadioNodeList, Element])
+    -> JSIO (HSum [RadioNodeList, Element])
   get1 a b = tryJS "HTMLFormElement.get1" $ HTMLFormElement.prim__get1 a b
 
 
   export
-  acceptCharset : HTMLFormElement -> Attribute True I String
+  acceptCharset : HTMLFormElement -> Attribute True Prelude.id String
   acceptCharset v = fromPrim
                       "HTMLFormElement.getacceptCharset"
                       prim__acceptCharset
@@ -1829,12 +1829,12 @@ namespace HTMLFormElement
 
 
   export
-  action : HTMLFormElement -> Attribute True I String
+  action : HTMLFormElement -> Attribute True Prelude.id String
   action v = fromPrim "HTMLFormElement.getaction" prim__action prim__setAction v
 
 
   export
-  autocomplete : HTMLFormElement -> Attribute True I String
+  autocomplete : HTMLFormElement -> Attribute True Prelude.id String
   autocomplete v = fromPrim
                      "HTMLFormElement.getautocomplete"
                      prim__autocomplete
@@ -1848,7 +1848,7 @@ namespace HTMLFormElement
 
 
   export
-  encoding : HTMLFormElement -> Attribute True I String
+  encoding : HTMLFormElement -> Attribute True Prelude.id String
   encoding v = fromPrim
                  "HTMLFormElement.getencoding"
                  prim__encoding
@@ -1857,7 +1857,7 @@ namespace HTMLFormElement
 
 
   export
-  enctype : HTMLFormElement -> Attribute True I String
+  enctype : HTMLFormElement -> Attribute True Prelude.id String
   enctype v = fromPrim
                 "HTMLFormElement.getenctype"
                 prim__enctype
@@ -1871,17 +1871,17 @@ namespace HTMLFormElement
 
 
   export
-  method : HTMLFormElement -> Attribute True I String
+  method : HTMLFormElement -> Attribute True Prelude.id String
   method v = fromPrim "HTMLFormElement.getmethod" prim__method prim__setMethod v
 
 
   export
-  name : HTMLFormElement -> Attribute True I String
+  name : HTMLFormElement -> Attribute True Prelude.id String
   name v = fromPrim "HTMLFormElement.getname" prim__name prim__setName v
 
 
   export
-  noValidate : HTMLFormElement -> Attribute True I Bool
+  noValidate : HTMLFormElement -> Attribute True Prelude.id Bool
   noValidate v = fromPrim
                    "HTMLFormElement.getnoValidate"
                    prim__noValidate
@@ -1890,7 +1890,7 @@ namespace HTMLFormElement
 
 
   export
-  rel : HTMLFormElement -> Attribute True I String
+  rel : HTMLFormElement -> Attribute True Prelude.id String
   rel v = fromPrim "HTMLFormElement.getrel" prim__rel prim__setRel v
 
 
@@ -1900,7 +1900,7 @@ namespace HTMLFormElement
 
 
   export
-  target : HTMLFormElement -> Attribute True I String
+  target : HTMLFormElement -> Attribute True Prelude.id String
   target v = fromPrim "HTMLFormElement.gettarget" prim__target prim__setTarget v
 
 
@@ -1961,7 +1961,7 @@ namespace HTMLFrameElement
 
 
   export
-  frameBorder : HTMLFrameElement -> Attribute True I String
+  frameBorder : HTMLFrameElement -> Attribute True Prelude.id String
   frameBorder v = fromPrim
                     "HTMLFrameElement.getframeBorder"
                     prim__frameBorder
@@ -1970,7 +1970,7 @@ namespace HTMLFrameElement
 
 
   export
-  longDesc : HTMLFrameElement -> Attribute True I String
+  longDesc : HTMLFrameElement -> Attribute True Prelude.id String
   longDesc v = fromPrim
                  "HTMLFrameElement.getlongDesc"
                  prim__longDesc
@@ -1979,7 +1979,7 @@ namespace HTMLFrameElement
 
 
   export
-  marginHeight : HTMLFrameElement -> Attribute True I String
+  marginHeight : HTMLFrameElement -> Attribute True Prelude.id String
   marginHeight v = fromPrim
                      "HTMLFrameElement.getmarginHeight"
                      prim__marginHeight
@@ -1988,7 +1988,7 @@ namespace HTMLFrameElement
 
 
   export
-  marginWidth : HTMLFrameElement -> Attribute True I String
+  marginWidth : HTMLFrameElement -> Attribute True Prelude.id String
   marginWidth v = fromPrim
                     "HTMLFrameElement.getmarginWidth"
                     prim__marginWidth
@@ -1997,12 +1997,12 @@ namespace HTMLFrameElement
 
 
   export
-  name : HTMLFrameElement -> Attribute True I String
+  name : HTMLFrameElement -> Attribute True Prelude.id String
   name v = fromPrim "HTMLFrameElement.getname" prim__name prim__setName v
 
 
   export
-  noResize : HTMLFrameElement -> Attribute True I Bool
+  noResize : HTMLFrameElement -> Attribute True Prelude.id Bool
   noResize v = fromPrim
                  "HTMLFrameElement.getnoResize"
                  prim__noResize
@@ -2011,7 +2011,7 @@ namespace HTMLFrameElement
 
 
   export
-  scrolling : HTMLFrameElement -> Attribute True I String
+  scrolling : HTMLFrameElement -> Attribute True Prelude.id String
   scrolling v = fromPrim
                   "HTMLFrameElement.getscrolling"
                   prim__scrolling
@@ -2020,7 +2020,7 @@ namespace HTMLFrameElement
 
 
   export
-  src : HTMLFrameElement -> Attribute True I String
+  src : HTMLFrameElement -> Attribute True Prelude.id String
   src v = fromPrim "HTMLFrameElement.getsrc" prim__src prim__setSrc v
 
 
@@ -2033,12 +2033,12 @@ namespace HTMLFrameSetElement
 
 
   export
-  cols : HTMLFrameSetElement -> Attribute True I String
+  cols : HTMLFrameSetElement -> Attribute True Prelude.id String
   cols v = fromPrim "HTMLFrameSetElement.getcols" prim__cols prim__setCols v
 
 
   export
-  rows : HTMLFrameSetElement -> Attribute True I String
+  rows : HTMLFrameSetElement -> Attribute True Prelude.id String
   rows v = fromPrim "HTMLFrameSetElement.getrows" prim__rows prim__setRows v
 
 
@@ -2051,17 +2051,17 @@ namespace HTMLHRElement
 
 
   export
-  align : HTMLHRElement -> Attribute True I String
+  align : HTMLHRElement -> Attribute True Prelude.id String
   align v = fromPrim "HTMLHRElement.getalign" prim__align prim__setAlign v
 
 
   export
-  color : HTMLHRElement -> Attribute True I String
+  color : HTMLHRElement -> Attribute True Prelude.id String
   color v = fromPrim "HTMLHRElement.getcolor" prim__color prim__setColor v
 
 
   export
-  noShade : HTMLHRElement -> Attribute True I Bool
+  noShade : HTMLHRElement -> Attribute True Prelude.id Bool
   noShade v = fromPrim
                 "HTMLHRElement.getnoShade"
                 prim__noShade
@@ -2070,12 +2070,12 @@ namespace HTMLHRElement
 
 
   export
-  size : HTMLHRElement -> Attribute True I String
+  size : HTMLHRElement -> Attribute True Prelude.id String
   size v = fromPrim "HTMLHRElement.getsize" prim__size prim__setSize v
 
 
   export
-  width : HTMLHRElement -> Attribute True I String
+  width : HTMLHRElement -> Attribute True Prelude.id String
   width v = fromPrim "HTMLHRElement.getwidth" prim__width prim__setWidth v
 
 
@@ -2096,7 +2096,7 @@ namespace HTMLHeadingElement
 
 
   export
-  align : HTMLHeadingElement -> Attribute True I String
+  align : HTMLHeadingElement -> Attribute True Prelude.id String
   align v = fromPrim "HTMLHeadingElement.getalign" prim__align prim__setAlign v
 
 
@@ -2109,7 +2109,7 @@ namespace HTMLHtmlElement
 
 
   export
-  version : HTMLHtmlElement -> Attribute True I String
+  version : HTMLHtmlElement -> Attribute True Prelude.id String
   version v = fromPrim
                 "HTMLHtmlElement.getversion"
                 prim__version
@@ -2126,17 +2126,17 @@ namespace HTMLIFrameElement
 
 
   export
-  align : HTMLIFrameElement -> Attribute True I String
+  align : HTMLIFrameElement -> Attribute True Prelude.id String
   align v = fromPrim "HTMLIFrameElement.getalign" prim__align prim__setAlign v
 
 
   export
-  allow : HTMLIFrameElement -> Attribute True I String
+  allow : HTMLIFrameElement -> Attribute True Prelude.id String
   allow v = fromPrim "HTMLIFrameElement.getallow" prim__allow prim__setAllow v
 
 
   export
-  allowFullscreen : HTMLIFrameElement -> Attribute True I Bool
+  allowFullscreen : HTMLIFrameElement -> Attribute True Prelude.id Bool
   allowFullscreen v = fromPrim
                         "HTMLIFrameElement.getallowFullscreen"
                         prim__allowFullscreen
@@ -2157,7 +2157,7 @@ namespace HTMLIFrameElement
 
 
   export
-  frameBorder : HTMLIFrameElement -> Attribute True I String
+  frameBorder : HTMLIFrameElement -> Attribute True Prelude.id String
   frameBorder v = fromPrim
                     "HTMLIFrameElement.getframeBorder"
                     prim__frameBorder
@@ -2166,7 +2166,7 @@ namespace HTMLIFrameElement
 
 
   export
-  height : HTMLIFrameElement -> Attribute True I String
+  height : HTMLIFrameElement -> Attribute True Prelude.id String
   height v = fromPrim
                "HTMLIFrameElement.getheight"
                prim__height
@@ -2175,7 +2175,7 @@ namespace HTMLIFrameElement
 
 
   export
-  loading : HTMLIFrameElement -> Attribute True I String
+  loading : HTMLIFrameElement -> Attribute True Prelude.id String
   loading v = fromPrim
                 "HTMLIFrameElement.getloading"
                 prim__loading
@@ -2184,7 +2184,7 @@ namespace HTMLIFrameElement
 
 
   export
-  longDesc : HTMLIFrameElement -> Attribute True I String
+  longDesc : HTMLIFrameElement -> Attribute True Prelude.id String
   longDesc v = fromPrim
                  "HTMLIFrameElement.getlongDesc"
                  prim__longDesc
@@ -2193,7 +2193,7 @@ namespace HTMLIFrameElement
 
 
   export
-  marginHeight : HTMLIFrameElement -> Attribute True I String
+  marginHeight : HTMLIFrameElement -> Attribute True Prelude.id String
   marginHeight v = fromPrim
                      "HTMLIFrameElement.getmarginHeight"
                      prim__marginHeight
@@ -2202,7 +2202,7 @@ namespace HTMLIFrameElement
 
 
   export
-  marginWidth : HTMLIFrameElement -> Attribute True I String
+  marginWidth : HTMLIFrameElement -> Attribute True Prelude.id String
   marginWidth v = fromPrim
                     "HTMLIFrameElement.getmarginWidth"
                     prim__marginWidth
@@ -2211,12 +2211,12 @@ namespace HTMLIFrameElement
 
 
   export
-  name : HTMLIFrameElement -> Attribute True I String
+  name : HTMLIFrameElement -> Attribute True Prelude.id String
   name v = fromPrim "HTMLIFrameElement.getname" prim__name prim__setName v
 
 
   export
-  referrerPolicy : HTMLIFrameElement -> Attribute True I String
+  referrerPolicy : HTMLIFrameElement -> Attribute True Prelude.id String
   referrerPolicy v = fromPrim
                        "HTMLIFrameElement.getreferrerPolicy"
                        prim__referrerPolicy
@@ -2230,7 +2230,7 @@ namespace HTMLIFrameElement
 
 
   export
-  scrolling : HTMLIFrameElement -> Attribute True I String
+  scrolling : HTMLIFrameElement -> Attribute True Prelude.id String
   scrolling v = fromPrim
                   "HTMLIFrameElement.getscrolling"
                   prim__scrolling
@@ -2239,12 +2239,12 @@ namespace HTMLIFrameElement
 
 
   export
-  src : HTMLIFrameElement -> Attribute True I String
+  src : HTMLIFrameElement -> Attribute True Prelude.id String
   src v = fromPrim "HTMLIFrameElement.getsrc" prim__src prim__setSrc v
 
 
   export
-  srcdoc : HTMLIFrameElement -> Attribute True I String
+  srcdoc : HTMLIFrameElement -> Attribute True Prelude.id String
   srcdoc v = fromPrim
                "HTMLIFrameElement.getsrcdoc"
                prim__srcdoc
@@ -2253,7 +2253,7 @@ namespace HTMLIFrameElement
 
 
   export
-  width : HTMLIFrameElement -> Attribute True I String
+  width : HTMLIFrameElement -> Attribute True Prelude.id String
   width v = fromPrim "HTMLIFrameElement.getwidth" prim__width prim__setWidth v
 
 
@@ -2272,17 +2272,17 @@ namespace HTMLImageElement
 
 
   export
-  align : HTMLImageElement -> Attribute True I String
+  align : HTMLImageElement -> Attribute True Prelude.id String
   align v = fromPrim "HTMLImageElement.getalign" prim__align prim__setAlign v
 
 
   export
-  alt : HTMLImageElement -> Attribute True I String
+  alt : HTMLImageElement -> Attribute True Prelude.id String
   alt v = fromPrim "HTMLImageElement.getalt" prim__alt prim__setAlt v
 
 
   export
-  border : HTMLImageElement -> Attribute True I String
+  border : HTMLImageElement -> Attribute True Prelude.id String
   border v = fromPrim
                "HTMLImageElement.getborder"
                prim__border
@@ -2311,7 +2311,7 @@ namespace HTMLImageElement
 
 
   export
-  decoding : HTMLImageElement -> Attribute True I String
+  decoding : HTMLImageElement -> Attribute True Prelude.id String
   decoding v = fromPrim
                  "HTMLImageElement.getdecoding"
                  prim__decoding
@@ -2320,7 +2320,7 @@ namespace HTMLImageElement
 
 
   export
-  height : HTMLImageElement -> Attribute True I Bits32
+  height : HTMLImageElement -> Attribute True Prelude.id Bits32
   height v = fromPrim
                "HTMLImageElement.getheight"
                prim__height
@@ -2329,7 +2329,7 @@ namespace HTMLImageElement
 
 
   export
-  hspace : HTMLImageElement -> Attribute True I Bits32
+  hspace : HTMLImageElement -> Attribute True Prelude.id Bits32
   hspace v = fromPrim
                "HTMLImageElement.gethspace"
                prim__hspace
@@ -2338,12 +2338,12 @@ namespace HTMLImageElement
 
 
   export
-  isMap : HTMLImageElement -> Attribute True I Bool
+  isMap : HTMLImageElement -> Attribute True Prelude.id Bool
   isMap v = fromPrim "HTMLImageElement.getisMap" prim__isMap prim__setIsMap v
 
 
   export
-  loading : HTMLImageElement -> Attribute True I String
+  loading : HTMLImageElement -> Attribute True Prelude.id String
   loading v = fromPrim
                 "HTMLImageElement.getloading"
                 prim__loading
@@ -2352,7 +2352,7 @@ namespace HTMLImageElement
 
 
   export
-  longDesc : HTMLImageElement -> Attribute True I String
+  longDesc : HTMLImageElement -> Attribute True Prelude.id String
   longDesc v = fromPrim
                  "HTMLImageElement.getlongDesc"
                  prim__longDesc
@@ -2361,7 +2361,7 @@ namespace HTMLImageElement
 
 
   export
-  lowsrc : HTMLImageElement -> Attribute True I String
+  lowsrc : HTMLImageElement -> Attribute True Prelude.id String
   lowsrc v = fromPrim
                "HTMLImageElement.getlowsrc"
                prim__lowsrc
@@ -2370,7 +2370,7 @@ namespace HTMLImageElement
 
 
   export
-  name : HTMLImageElement -> Attribute True I String
+  name : HTMLImageElement -> Attribute True Prelude.id String
   name v = fromPrim "HTMLImageElement.getname" prim__name prim__setName v
 
 
@@ -2385,7 +2385,7 @@ namespace HTMLImageElement
 
 
   export
-  referrerPolicy : HTMLImageElement -> Attribute True I String
+  referrerPolicy : HTMLImageElement -> Attribute True Prelude.id String
   referrerPolicy v = fromPrim
                        "HTMLImageElement.getreferrerPolicy"
                        prim__referrerPolicy
@@ -2394,17 +2394,17 @@ namespace HTMLImageElement
 
 
   export
-  sizes : HTMLImageElement -> Attribute True I String
+  sizes : HTMLImageElement -> Attribute True Prelude.id String
   sizes v = fromPrim "HTMLImageElement.getsizes" prim__sizes prim__setSizes v
 
 
   export
-  src : HTMLImageElement -> Attribute True I String
+  src : HTMLImageElement -> Attribute True Prelude.id String
   src v = fromPrim "HTMLImageElement.getsrc" prim__src prim__setSrc v
 
 
   export
-  srcset : HTMLImageElement -> Attribute True I String
+  srcset : HTMLImageElement -> Attribute True Prelude.id String
   srcset v = fromPrim
                "HTMLImageElement.getsrcset"
                prim__srcset
@@ -2413,7 +2413,7 @@ namespace HTMLImageElement
 
 
   export
-  useMap : HTMLImageElement -> Attribute True I String
+  useMap : HTMLImageElement -> Attribute True Prelude.id String
   useMap v = fromPrim
                "HTMLImageElement.getuseMap"
                prim__useMap
@@ -2422,7 +2422,7 @@ namespace HTMLImageElement
 
 
   export
-  vspace : HTMLImageElement -> Attribute True I Bits32
+  vspace : HTMLImageElement -> Attribute True Prelude.id Bits32
   vspace v = fromPrim
                "HTMLImageElement.getvspace"
                prim__vspace
@@ -2431,7 +2431,7 @@ namespace HTMLImageElement
 
 
   export
-  width : HTMLImageElement -> Attribute True I Bits32
+  width : HTMLImageElement -> Attribute True Prelude.id Bits32
   width v = fromPrim "HTMLImageElement.getwidth" prim__width prim__setWidth v
 
 
@@ -2459,7 +2459,7 @@ namespace HTMLInputElement
 
 
   export
-  accept : HTMLInputElement -> Attribute True I String
+  accept : HTMLInputElement -> Attribute True Prelude.id String
   accept v = fromPrim
                "HTMLInputElement.getaccept"
                prim__accept
@@ -2468,17 +2468,17 @@ namespace HTMLInputElement
 
 
   export
-  align : HTMLInputElement -> Attribute True I String
+  align : HTMLInputElement -> Attribute True Prelude.id String
   align v = fromPrim "HTMLInputElement.getalign" prim__align prim__setAlign v
 
 
   export
-  alt : HTMLInputElement -> Attribute True I String
+  alt : HTMLInputElement -> Attribute True Prelude.id String
   alt v = fromPrim "HTMLInputElement.getalt" prim__alt prim__setAlt v
 
 
   export
-  autocomplete : HTMLInputElement -> Attribute True I String
+  autocomplete : HTMLInputElement -> Attribute True Prelude.id String
   autocomplete v = fromPrim
                      "HTMLInputElement.getautocomplete"
                      prim__autocomplete
@@ -2487,7 +2487,7 @@ namespace HTMLInputElement
 
 
   export
-  checked : HTMLInputElement -> Attribute True I Bool
+  checked : HTMLInputElement -> Attribute True Prelude.id Bool
   checked v = fromPrim
                 "HTMLInputElement.getchecked"
                 prim__checked
@@ -2496,7 +2496,7 @@ namespace HTMLInputElement
 
 
   export
-  defaultChecked : HTMLInputElement -> Attribute True I Bool
+  defaultChecked : HTMLInputElement -> Attribute True Prelude.id Bool
   defaultChecked v = fromPrim
                        "HTMLInputElement.getdefaultChecked"
                        prim__defaultChecked
@@ -2505,7 +2505,7 @@ namespace HTMLInputElement
 
 
   export
-  defaultValue : HTMLInputElement -> Attribute True I String
+  defaultValue : HTMLInputElement -> Attribute True Prelude.id String
   defaultValue v = fromPrim
                      "HTMLInputElement.getdefaultValue"
                      prim__defaultValue
@@ -2514,7 +2514,7 @@ namespace HTMLInputElement
 
 
   export
-  dirName : HTMLInputElement -> Attribute True I String
+  dirName : HTMLInputElement -> Attribute True Prelude.id String
   dirName v = fromPrim
                 "HTMLInputElement.getdirName"
                 prim__dirName
@@ -2523,7 +2523,7 @@ namespace HTMLInputElement
 
 
   export
-  disabled : HTMLInputElement -> Attribute True I Bool
+  disabled : HTMLInputElement -> Attribute True Prelude.id Bool
   disabled v = fromPrim
                  "HTMLInputElement.getdisabled"
                  prim__disabled
@@ -2546,7 +2546,7 @@ namespace HTMLInputElement
 
 
   export
-  formAction : HTMLInputElement -> Attribute True I String
+  formAction : HTMLInputElement -> Attribute True Prelude.id String
   formAction v = fromPrim
                    "HTMLInputElement.getformAction"
                    prim__formAction
@@ -2555,7 +2555,7 @@ namespace HTMLInputElement
 
 
   export
-  formEnctype : HTMLInputElement -> Attribute True I String
+  formEnctype : HTMLInputElement -> Attribute True Prelude.id String
   formEnctype v = fromPrim
                     "HTMLInputElement.getformEnctype"
                     prim__formEnctype
@@ -2564,7 +2564,7 @@ namespace HTMLInputElement
 
 
   export
-  formMethod : HTMLInputElement -> Attribute True I String
+  formMethod : HTMLInputElement -> Attribute True Prelude.id String
   formMethod v = fromPrim
                    "HTMLInputElement.getformMethod"
                    prim__formMethod
@@ -2573,7 +2573,7 @@ namespace HTMLInputElement
 
 
   export
-  formNoValidate : HTMLInputElement -> Attribute True I Bool
+  formNoValidate : HTMLInputElement -> Attribute True Prelude.id Bool
   formNoValidate v = fromPrim
                        "HTMLInputElement.getformNoValidate"
                        prim__formNoValidate
@@ -2582,7 +2582,7 @@ namespace HTMLInputElement
 
 
   export
-  formTarget : HTMLInputElement -> Attribute True I String
+  formTarget : HTMLInputElement -> Attribute True Prelude.id String
   formTarget v = fromPrim
                    "HTMLInputElement.getformTarget"
                    prim__formTarget
@@ -2591,7 +2591,7 @@ namespace HTMLInputElement
 
 
   export
-  height : HTMLInputElement -> Attribute True I Bits32
+  height : HTMLInputElement -> Attribute True Prelude.id Bits32
   height v = fromPrim
                "HTMLInputElement.getheight"
                prim__height
@@ -2600,7 +2600,7 @@ namespace HTMLInputElement
 
 
   export
-  indeterminate : HTMLInputElement -> Attribute True I Bool
+  indeterminate : HTMLInputElement -> Attribute True Prelude.id Bool
   indeterminate v = fromPrim
                       "HTMLInputElement.getindeterminate"
                       prim__indeterminate
@@ -2619,12 +2619,12 @@ namespace HTMLInputElement
 
 
   export
-  max : HTMLInputElement -> Attribute True I String
+  max : HTMLInputElement -> Attribute True Prelude.id String
   max v = fromPrim "HTMLInputElement.getmax" prim__max prim__setMax v
 
 
   export
-  maxLength : HTMLInputElement -> Attribute True I Int32
+  maxLength : HTMLInputElement -> Attribute True Prelude.id Int32
   maxLength v = fromPrim
                   "HTMLInputElement.getmaxLength"
                   prim__maxLength
@@ -2633,12 +2633,12 @@ namespace HTMLInputElement
 
 
   export
-  min : HTMLInputElement -> Attribute True I String
+  min : HTMLInputElement -> Attribute True Prelude.id String
   min v = fromPrim "HTMLInputElement.getmin" prim__min prim__setMin v
 
 
   export
-  minLength : HTMLInputElement -> Attribute True I Int32
+  minLength : HTMLInputElement -> Attribute True Prelude.id Int32
   minLength v = fromPrim
                   "HTMLInputElement.getminLength"
                   prim__minLength
@@ -2647,7 +2647,7 @@ namespace HTMLInputElement
 
 
   export
-  multiple : HTMLInputElement -> Attribute True I Bool
+  multiple : HTMLInputElement -> Attribute True Prelude.id Bool
   multiple v = fromPrim
                  "HTMLInputElement.getmultiple"
                  prim__multiple
@@ -2656,12 +2656,12 @@ namespace HTMLInputElement
 
 
   export
-  name : HTMLInputElement -> Attribute True I String
+  name : HTMLInputElement -> Attribute True Prelude.id String
   name v = fromPrim "HTMLInputElement.getname" prim__name prim__setName v
 
 
   export
-  pattern : HTMLInputElement -> Attribute True I String
+  pattern : HTMLInputElement -> Attribute True Prelude.id String
   pattern v = fromPrim
                 "HTMLInputElement.getpattern"
                 prim__pattern
@@ -2670,7 +2670,7 @@ namespace HTMLInputElement
 
 
   export
-  placeholder : HTMLInputElement -> Attribute True I String
+  placeholder : HTMLInputElement -> Attribute True Prelude.id String
   placeholder v = fromPrim
                     "HTMLInputElement.getplaceholder"
                     prim__placeholder
@@ -2679,7 +2679,7 @@ namespace HTMLInputElement
 
 
   export
-  readOnly : HTMLInputElement -> Attribute True I Bool
+  readOnly : HTMLInputElement -> Attribute True Prelude.id Bool
   readOnly v = fromPrim
                  "HTMLInputElement.getreadOnly"
                  prim__readOnly
@@ -2688,7 +2688,7 @@ namespace HTMLInputElement
 
 
   export
-  required : HTMLInputElement -> Attribute True I Bool
+  required : HTMLInputElement -> Attribute True Prelude.id Bool
   required v = fromPrim
                  "HTMLInputElement.getrequired"
                  prim__required
@@ -2724,27 +2724,27 @@ namespace HTMLInputElement
 
 
   export
-  size : HTMLInputElement -> Attribute True I Bits32
+  size : HTMLInputElement -> Attribute True Prelude.id Bits32
   size v = fromPrim "HTMLInputElement.getsize" prim__size prim__setSize v
 
 
   export
-  src : HTMLInputElement -> Attribute True I String
+  src : HTMLInputElement -> Attribute True Prelude.id String
   src v = fromPrim "HTMLInputElement.getsrc" prim__src prim__setSrc v
 
 
   export
-  step : HTMLInputElement -> Attribute True I String
+  step : HTMLInputElement -> Attribute True Prelude.id String
   step v = fromPrim "HTMLInputElement.getstep" prim__step prim__setStep v
 
 
   export
-  type : HTMLInputElement -> Attribute True I String
+  type : HTMLInputElement -> Attribute True Prelude.id String
   type v = fromPrim "HTMLInputElement.gettype" prim__type prim__setType v
 
 
   export
-  useMap : HTMLInputElement -> Attribute True I String
+  useMap : HTMLInputElement -> Attribute True Prelude.id String
   useMap v = fromPrim
                "HTMLInputElement.getuseMap"
                prim__useMap
@@ -2763,7 +2763,7 @@ namespace HTMLInputElement
 
 
   export
-  value : HTMLInputElement -> Attribute True I String
+  value : HTMLInputElement -> Attribute True Prelude.id String
   value v = fromPrim "HTMLInputElement.getvalue" prim__value prim__setValue v
 
 
@@ -2777,7 +2777,7 @@ namespace HTMLInputElement
 
 
   export
-  valueAsNumber : HTMLInputElement -> Attribute True I Double
+  valueAsNumber : HTMLInputElement -> Attribute True Prelude.id Double
   valueAsNumber v = fromPrim
                       "HTMLInputElement.getvalueAsNumber"
                       prim__valueAsNumber
@@ -2786,7 +2786,7 @@ namespace HTMLInputElement
 
 
   export
-  width : HTMLInputElement -> Attribute True I Bits32
+  width : HTMLInputElement -> Attribute True Prelude.id Bits32
   width v = fromPrim "HTMLInputElement.getwidth" prim__width prim__setWidth v
 
 
@@ -2892,12 +2892,12 @@ namespace HTMLLIElement
 
 
   export
-  type : HTMLLIElement -> Attribute True I String
+  type : HTMLLIElement -> Attribute True Prelude.id String
   type v = fromPrim "HTMLLIElement.gettype" prim__type prim__setType v
 
 
   export
-  value : HTMLLIElement -> Attribute True I Int32
+  value : HTMLLIElement -> Attribute True Prelude.id Int32
   value v = fromPrim "HTMLLIElement.getvalue" prim__value prim__setValue v
 
 
@@ -2921,7 +2921,7 @@ namespace HTMLLabelElement
 
 
   export
-  htmlFor : HTMLLabelElement -> Attribute True I String
+  htmlFor : HTMLLabelElement -> Attribute True Prelude.id String
   htmlFor v = fromPrim
                 "HTMLLabelElement.gethtmlFor"
                 prim__htmlFor
@@ -2938,7 +2938,7 @@ namespace HTMLLegendElement
 
 
   export
-  align : HTMLLegendElement -> Attribute True I String
+  align : HTMLLegendElement -> Attribute True Prelude.id String
   align v = fromPrim "HTMLLegendElement.getalign" prim__align prim__setAlign v
 
 
@@ -2956,12 +2956,12 @@ namespace HTMLLinkElement
 
 
   export
-  as : HTMLLinkElement -> Attribute True I String
+  as : HTMLLinkElement -> Attribute True Prelude.id String
   as v = fromPrim "HTMLLinkElement.getas" prim__as prim__setAs v
 
 
   export
-  charset : HTMLLinkElement -> Attribute True I String
+  charset : HTMLLinkElement -> Attribute True Prelude.id String
   charset v = fromPrim
                 "HTMLLinkElement.getcharset"
                 prim__charset
@@ -2979,7 +2979,7 @@ namespace HTMLLinkElement
 
 
   export
-  disabled : HTMLLinkElement -> Attribute True I Bool
+  disabled : HTMLLinkElement -> Attribute True Prelude.id Bool
   disabled v = fromPrim
                  "HTMLLinkElement.getdisabled"
                  prim__disabled
@@ -2988,12 +2988,12 @@ namespace HTMLLinkElement
 
 
   export
-  href : HTMLLinkElement -> Attribute True I String
+  href : HTMLLinkElement -> Attribute True Prelude.id String
   href v = fromPrim "HTMLLinkElement.gethref" prim__href prim__setHref v
 
 
   export
-  hreflang : HTMLLinkElement -> Attribute True I String
+  hreflang : HTMLLinkElement -> Attribute True Prelude.id String
   hreflang v = fromPrim
                  "HTMLLinkElement.gethreflang"
                  prim__hreflang
@@ -3002,7 +3002,7 @@ namespace HTMLLinkElement
 
 
   export
-  imageSizes : HTMLLinkElement -> Attribute True I String
+  imageSizes : HTMLLinkElement -> Attribute True Prelude.id String
   imageSizes v = fromPrim
                    "HTMLLinkElement.getimageSizes"
                    prim__imageSizes
@@ -3011,7 +3011,7 @@ namespace HTMLLinkElement
 
 
   export
-  imageSrcset : HTMLLinkElement -> Attribute True I String
+  imageSrcset : HTMLLinkElement -> Attribute True Prelude.id String
   imageSrcset v = fromPrim
                     "HTMLLinkElement.getimageSrcset"
                     prim__imageSrcset
@@ -3020,7 +3020,7 @@ namespace HTMLLinkElement
 
 
   export
-  integrity : HTMLLinkElement -> Attribute True I String
+  integrity : HTMLLinkElement -> Attribute True Prelude.id String
   integrity v = fromPrim
                   "HTMLLinkElement.getintegrity"
                   prim__integrity
@@ -3029,12 +3029,12 @@ namespace HTMLLinkElement
 
 
   export
-  media : HTMLLinkElement -> Attribute True I String
+  media : HTMLLinkElement -> Attribute True Prelude.id String
   media v = fromPrim "HTMLLinkElement.getmedia" prim__media prim__setMedia v
 
 
   export
-  referrerPolicy : HTMLLinkElement -> Attribute True I String
+  referrerPolicy : HTMLLinkElement -> Attribute True Prelude.id String
   referrerPolicy v = fromPrim
                        "HTMLLinkElement.getreferrerPolicy"
                        prim__referrerPolicy
@@ -3043,7 +3043,7 @@ namespace HTMLLinkElement
 
 
   export
-  rel : HTMLLinkElement -> Attribute True I String
+  rel : HTMLLinkElement -> Attribute True Prelude.id String
   rel v = fromPrim "HTMLLinkElement.getrel" prim__rel prim__setRel v
 
 
@@ -3053,7 +3053,7 @@ namespace HTMLLinkElement
 
 
   export
-  rev : HTMLLinkElement -> Attribute True I String
+  rev : HTMLLinkElement -> Attribute True Prelude.id String
   rev v = fromPrim "HTMLLinkElement.getrev" prim__rev prim__setRev v
 
 
@@ -3063,12 +3063,12 @@ namespace HTMLLinkElement
 
 
   export
-  target : HTMLLinkElement -> Attribute True I String
+  target : HTMLLinkElement -> Attribute True Prelude.id String
   target v = fromPrim "HTMLLinkElement.gettarget" prim__target prim__setTarget v
 
 
   export
-  type : HTMLLinkElement -> Attribute True I String
+  type : HTMLLinkElement -> Attribute True Prelude.id String
   type v = fromPrim "HTMLLinkElement.gettype" prim__type prim__setType v
 
 
@@ -3086,7 +3086,7 @@ namespace HTMLMapElement
 
 
   export
-  name : HTMLMapElement -> Attribute True I String
+  name : HTMLMapElement -> Attribute True Prelude.id String
   name v = fromPrim "HTMLMapElement.getname" prim__name prim__setName v
 
 
@@ -3099,7 +3099,7 @@ namespace HTMLMarqueeElement
 
 
   export
-  behavior : HTMLMarqueeElement -> Attribute True I String
+  behavior : HTMLMarqueeElement -> Attribute True Prelude.id String
   behavior v = fromPrim
                  "HTMLMarqueeElement.getbehavior"
                  prim__behavior
@@ -3108,7 +3108,7 @@ namespace HTMLMarqueeElement
 
 
   export
-  bgColor : HTMLMarqueeElement -> Attribute True I String
+  bgColor : HTMLMarqueeElement -> Attribute True Prelude.id String
   bgColor v = fromPrim
                 "HTMLMarqueeElement.getbgColor"
                 prim__bgColor
@@ -3117,7 +3117,7 @@ namespace HTMLMarqueeElement
 
 
   export
-  direction : HTMLMarqueeElement -> Attribute True I String
+  direction : HTMLMarqueeElement -> Attribute True Prelude.id String
   direction v = fromPrim
                   "HTMLMarqueeElement.getdirection"
                   prim__direction
@@ -3126,7 +3126,7 @@ namespace HTMLMarqueeElement
 
 
   export
-  height : HTMLMarqueeElement -> Attribute True I String
+  height : HTMLMarqueeElement -> Attribute True Prelude.id String
   height v = fromPrim
                "HTMLMarqueeElement.getheight"
                prim__height
@@ -3135,7 +3135,7 @@ namespace HTMLMarqueeElement
 
 
   export
-  hspace : HTMLMarqueeElement -> Attribute True I Bits32
+  hspace : HTMLMarqueeElement -> Attribute True Prelude.id Bits32
   hspace v = fromPrim
                "HTMLMarqueeElement.gethspace"
                prim__hspace
@@ -3144,12 +3144,12 @@ namespace HTMLMarqueeElement
 
 
   export
-  loop : HTMLMarqueeElement -> Attribute True I Int32
+  loop : HTMLMarqueeElement -> Attribute True Prelude.id Int32
   loop v = fromPrim "HTMLMarqueeElement.getloop" prim__loop prim__setLoop v
 
 
   export
-  scrollAmount : HTMLMarqueeElement -> Attribute True I Bits32
+  scrollAmount : HTMLMarqueeElement -> Attribute True Prelude.id Bits32
   scrollAmount v = fromPrim
                      "HTMLMarqueeElement.getscrollAmount"
                      prim__scrollAmount
@@ -3158,7 +3158,7 @@ namespace HTMLMarqueeElement
 
 
   export
-  scrollDelay : HTMLMarqueeElement -> Attribute True I Bits32
+  scrollDelay : HTMLMarqueeElement -> Attribute True Prelude.id Bits32
   scrollDelay v = fromPrim
                     "HTMLMarqueeElement.getscrollDelay"
                     prim__scrollDelay
@@ -3167,7 +3167,7 @@ namespace HTMLMarqueeElement
 
 
   export
-  trueSpeed : HTMLMarqueeElement -> Attribute True I Bool
+  trueSpeed : HTMLMarqueeElement -> Attribute True Prelude.id Bool
   trueSpeed v = fromPrim
                   "HTMLMarqueeElement.gettrueSpeed"
                   prim__trueSpeed
@@ -3176,7 +3176,7 @@ namespace HTMLMarqueeElement
 
 
   export
-  vspace : HTMLMarqueeElement -> Attribute True I Bits32
+  vspace : HTMLMarqueeElement -> Attribute True Prelude.id Bits32
   vspace v = fromPrim
                "HTMLMarqueeElement.getvspace"
                prim__vspace
@@ -3185,7 +3185,7 @@ namespace HTMLMarqueeElement
 
 
   export
-  width : HTMLMarqueeElement -> Attribute True I String
+  width : HTMLMarqueeElement -> Attribute True Prelude.id String
   width v = fromPrim "HTMLMarqueeElement.getwidth" prim__width prim__setWidth v
 
 
@@ -3261,7 +3261,7 @@ namespace HTMLMediaElement
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLMediaElement (Types t)}
     -> t
-    -> Attribute True I Bool
+    -> Attribute True Prelude.id Bool
   autoplay v = fromPrim
                  "HTMLMediaElement.getautoplay"
                  prim__autoplay
@@ -3283,7 +3283,7 @@ namespace HTMLMediaElement
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLMediaElement (Types t)}
     -> t
-    -> Attribute True I Bool
+    -> Attribute True Prelude.id Bool
   controls v = fromPrim
                  "HTMLMediaElement.getcontrols"
                  prim__controls
@@ -3318,7 +3318,7 @@ namespace HTMLMediaElement
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLMediaElement (Types t)}
     -> t
-    -> Attribute True I Double
+    -> Attribute True Prelude.id Double
   currentTime v = fromPrim
                     "HTMLMediaElement.getcurrentTime"
                     prim__currentTime
@@ -3331,7 +3331,7 @@ namespace HTMLMediaElement
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLMediaElement (Types t)}
     -> t
-    -> Attribute True I Bool
+    -> Attribute True Prelude.id Bool
   defaultMuted v = fromPrim
                      "HTMLMediaElement.getdefaultMuted"
                      prim__defaultMuted
@@ -3344,7 +3344,7 @@ namespace HTMLMediaElement
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLMediaElement (Types t)}
     -> t
-    -> Attribute True I Double
+    -> Attribute True Prelude.id Double
   defaultPlaybackRate v = fromPrim
                             "HTMLMediaElement.getdefaultPlaybackRate"
                             prim__defaultPlaybackRate
@@ -3384,7 +3384,7 @@ namespace HTMLMediaElement
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLMediaElement (Types t)}
     -> t
-    -> Attribute True I Bool
+    -> Attribute True Prelude.id Bool
   loop v = fromPrim
              "HTMLMediaElement.getloop"
              prim__loop
@@ -3397,7 +3397,7 @@ namespace HTMLMediaElement
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLMediaElement (Types t)}
     -> t
-    -> Attribute True I Bool
+    -> Attribute True Prelude.id Bool
   muted v = fromPrim
               "HTMLMediaElement.getmuted"
               prim__muted
@@ -3429,7 +3429,7 @@ namespace HTMLMediaElement
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLMediaElement (Types t)}
     -> t
-    -> Attribute True I Double
+    -> Attribute True Prelude.id Double
   playbackRate v = fromPrim
                      "HTMLMediaElement.getplaybackRate"
                      prim__playbackRate
@@ -3451,7 +3451,7 @@ namespace HTMLMediaElement
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLMediaElement (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   preload v = fromPrim
                 "HTMLMediaElement.getpreload"
                 prim__preload
@@ -3464,7 +3464,7 @@ namespace HTMLMediaElement
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLMediaElement (Types t)}
     -> t
-    -> Attribute True I Bool
+    -> Attribute True Prelude.id Bool
   preservesPitch v = fromPrim
                        "HTMLMediaElement.getpreservesPitch"
                        prim__preservesPitch
@@ -3505,7 +3505,7 @@ namespace HTMLMediaElement
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLMediaElement (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   src v = fromPrim
             "HTMLMediaElement.getsrc"
             prim__src
@@ -3518,7 +3518,7 @@ namespace HTMLMediaElement
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLMediaElement (Types t)}
     -> t
-    -> Attribute False Maybe (NS I [MediaStream, MediaSource, Blob])
+    -> Attribute False Maybe (HSum [MediaStream, MediaSource, Blob])
   srcObject v = fromNullablePrim
                   "HTMLMediaElement.getsrcObject"
                   prim__srcObject
@@ -3549,7 +3549,7 @@ namespace HTMLMediaElement
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLMediaElement (Types t)}
     -> t
-    -> Attribute True I Double
+    -> Attribute True Prelude.id Double
   volume v = fromPrim
                "HTMLMediaElement.getvolume"
                prim__volume
@@ -3646,7 +3646,7 @@ namespace HTMLMenuElement
 
 
   export
-  compact : HTMLMenuElement -> Attribute True I Bool
+  compact : HTMLMenuElement -> Attribute True Prelude.id Bool
   compact v = fromPrim
                 "HTMLMenuElement.getcompact"
                 prim__compact
@@ -3663,7 +3663,7 @@ namespace HTMLMetaElement
 
 
   export
-  content : HTMLMetaElement -> Attribute True I String
+  content : HTMLMetaElement -> Attribute True Prelude.id String
   content v = fromPrim
                 "HTMLMetaElement.getcontent"
                 prim__content
@@ -3672,7 +3672,7 @@ namespace HTMLMetaElement
 
 
   export
-  httpEquiv : HTMLMetaElement -> Attribute True I String
+  httpEquiv : HTMLMetaElement -> Attribute True Prelude.id String
   httpEquiv v = fromPrim
                   "HTMLMetaElement.gethttpEquiv"
                   prim__httpEquiv
@@ -3681,12 +3681,12 @@ namespace HTMLMetaElement
 
 
   export
-  name : HTMLMetaElement -> Attribute True I String
+  name : HTMLMetaElement -> Attribute True Prelude.id String
   name v = fromPrim "HTMLMetaElement.getname" prim__name prim__setName v
 
 
   export
-  scheme : HTMLMetaElement -> Attribute True I String
+  scheme : HTMLMetaElement -> Attribute True Prelude.id String
   scheme v = fromPrim "HTMLMetaElement.getscheme" prim__scheme prim__setScheme v
 
 
@@ -3699,7 +3699,7 @@ namespace HTMLMeterElement
 
 
   export
-  high : HTMLMeterElement -> Attribute True I Double
+  high : HTMLMeterElement -> Attribute True Prelude.id Double
   high v = fromPrim "HTMLMeterElement.gethigh" prim__high prim__setHigh v
 
 
@@ -3709,22 +3709,22 @@ namespace HTMLMeterElement
 
 
   export
-  low : HTMLMeterElement -> Attribute True I Double
+  low : HTMLMeterElement -> Attribute True Prelude.id Double
   low v = fromPrim "HTMLMeterElement.getlow" prim__low prim__setLow v
 
 
   export
-  max : HTMLMeterElement -> Attribute True I Double
+  max : HTMLMeterElement -> Attribute True Prelude.id Double
   max v = fromPrim "HTMLMeterElement.getmax" prim__max prim__setMax v
 
 
   export
-  min : HTMLMeterElement -> Attribute True I Double
+  min : HTMLMeterElement -> Attribute True Prelude.id Double
   min v = fromPrim "HTMLMeterElement.getmin" prim__min prim__setMin v
 
 
   export
-  optimum : HTMLMeterElement -> Attribute True I Double
+  optimum : HTMLMeterElement -> Attribute True Prelude.id Double
   optimum v = fromPrim
                 "HTMLMeterElement.getoptimum"
                 prim__optimum
@@ -3733,7 +3733,7 @@ namespace HTMLMeterElement
 
 
   export
-  value : HTMLMeterElement -> Attribute True I Double
+  value : HTMLMeterElement -> Attribute True Prelude.id Double
   value v = fromPrim "HTMLMeterElement.getvalue" prim__value prim__setValue v
 
 
@@ -3746,12 +3746,12 @@ namespace HTMLModElement
 
 
   export
-  cite : HTMLModElement -> Attribute True I String
+  cite : HTMLModElement -> Attribute True Prelude.id String
   cite v = fromPrim "HTMLModElement.getcite" prim__cite prim__setCite v
 
 
   export
-  dateTime : HTMLModElement -> Attribute True I String
+  dateTime : HTMLModElement -> Attribute True Prelude.id String
   dateTime v = fromPrim
                  "HTMLModElement.getdateTime"
                  prim__dateTime
@@ -3768,7 +3768,7 @@ namespace HTMLOListElement
 
 
   export
-  compact : HTMLOListElement -> Attribute True I Bool
+  compact : HTMLOListElement -> Attribute True Prelude.id Bool
   compact v = fromPrim
                 "HTMLOListElement.getcompact"
                 prim__compact
@@ -3777,7 +3777,7 @@ namespace HTMLOListElement
 
 
   export
-  reversed : HTMLOListElement -> Attribute True I Bool
+  reversed : HTMLOListElement -> Attribute True Prelude.id Bool
   reversed v = fromPrim
                  "HTMLOListElement.getreversed"
                  prim__reversed
@@ -3786,12 +3786,12 @@ namespace HTMLOListElement
 
 
   export
-  start : HTMLOListElement -> Attribute True I Int32
+  start : HTMLOListElement -> Attribute True Prelude.id Int32
   start v = fromPrim "HTMLOListElement.getstart" prim__start prim__setStart v
 
 
   export
-  type : HTMLOListElement -> Attribute True I String
+  type : HTMLOListElement -> Attribute True Prelude.id String
   type v = fromPrim "HTMLOListElement.gettype" prim__type prim__setType v
 
 
@@ -3804,12 +3804,12 @@ namespace HTMLObjectElement
 
 
   export
-  align : HTMLObjectElement -> Attribute True I String
+  align : HTMLObjectElement -> Attribute True Prelude.id String
   align v = fromPrim "HTMLObjectElement.getalign" prim__align prim__setAlign v
 
 
   export
-  archive : HTMLObjectElement -> Attribute True I String
+  archive : HTMLObjectElement -> Attribute True Prelude.id String
   archive v = fromPrim
                 "HTMLObjectElement.getarchive"
                 prim__archive
@@ -3818,7 +3818,7 @@ namespace HTMLObjectElement
 
 
   export
-  border : HTMLObjectElement -> Attribute True I String
+  border : HTMLObjectElement -> Attribute True Prelude.id String
   border v = fromPrim
                "HTMLObjectElement.getborder"
                prim__border
@@ -3827,12 +3827,12 @@ namespace HTMLObjectElement
 
 
   export
-  code : HTMLObjectElement -> Attribute True I String
+  code : HTMLObjectElement -> Attribute True Prelude.id String
   code v = fromPrim "HTMLObjectElement.getcode" prim__code prim__setCode v
 
 
   export
-  codeBase : HTMLObjectElement -> Attribute True I String
+  codeBase : HTMLObjectElement -> Attribute True Prelude.id String
   codeBase v = fromPrim
                  "HTMLObjectElement.getcodeBase"
                  prim__codeBase
@@ -3841,7 +3841,7 @@ namespace HTMLObjectElement
 
 
   export
-  codeType : HTMLObjectElement -> Attribute True I String
+  codeType : HTMLObjectElement -> Attribute True Prelude.id String
   codeType v = fromPrim
                  "HTMLObjectElement.getcodeType"
                  prim__codeType
@@ -3862,12 +3862,12 @@ namespace HTMLObjectElement
 
 
   export
-  data_ : HTMLObjectElement -> Attribute True I String
+  data_ : HTMLObjectElement -> Attribute True Prelude.id String
   data_ v = fromPrim "HTMLObjectElement.getdata" prim__data prim__setData v
 
 
   export
-  declare : HTMLObjectElement -> Attribute True I Bool
+  declare : HTMLObjectElement -> Attribute True Prelude.id Bool
   declare v = fromPrim
                 "HTMLObjectElement.getdeclare"
                 prim__declare
@@ -3881,7 +3881,7 @@ namespace HTMLObjectElement
 
 
   export
-  height : HTMLObjectElement -> Attribute True I String
+  height : HTMLObjectElement -> Attribute True Prelude.id String
   height v = fromPrim
                "HTMLObjectElement.getheight"
                prim__height
@@ -3890,7 +3890,7 @@ namespace HTMLObjectElement
 
 
   export
-  hspace : HTMLObjectElement -> Attribute True I Bits32
+  hspace : HTMLObjectElement -> Attribute True Prelude.id Bits32
   hspace v = fromPrim
                "HTMLObjectElement.gethspace"
                prim__hspace
@@ -3899,12 +3899,12 @@ namespace HTMLObjectElement
 
 
   export
-  name : HTMLObjectElement -> Attribute True I String
+  name : HTMLObjectElement -> Attribute True Prelude.id String
   name v = fromPrim "HTMLObjectElement.getname" prim__name prim__setName v
 
 
   export
-  standby : HTMLObjectElement -> Attribute True I String
+  standby : HTMLObjectElement -> Attribute True Prelude.id String
   standby v = fromPrim
                 "HTMLObjectElement.getstandby"
                 prim__standby
@@ -3913,12 +3913,12 @@ namespace HTMLObjectElement
 
 
   export
-  type : HTMLObjectElement -> Attribute True I String
+  type : HTMLObjectElement -> Attribute True Prelude.id String
   type v = fromPrim "HTMLObjectElement.gettype" prim__type prim__setType v
 
 
   export
-  useMap : HTMLObjectElement -> Attribute True I String
+  useMap : HTMLObjectElement -> Attribute True Prelude.id String
   useMap v = fromPrim
                "HTMLObjectElement.getuseMap"
                prim__useMap
@@ -3937,7 +3937,7 @@ namespace HTMLObjectElement
 
 
   export
-  vspace : HTMLObjectElement -> Attribute True I Bits32
+  vspace : HTMLObjectElement -> Attribute True Prelude.id Bits32
   vspace v = fromPrim
                "HTMLObjectElement.getvspace"
                prim__vspace
@@ -3946,7 +3946,7 @@ namespace HTMLObjectElement
 
 
   export
-  width : HTMLObjectElement -> Attribute True I String
+  width : HTMLObjectElement -> Attribute True Prelude.id String
   width v = fromPrim "HTMLObjectElement.getwidth" prim__width prim__setWidth v
 
 
@@ -3988,7 +3988,7 @@ namespace HTMLOptGroupElement
 
 
   export
-  disabled : HTMLOptGroupElement -> Attribute True I Bool
+  disabled : HTMLOptGroupElement -> Attribute True Prelude.id Bool
   disabled v = fromPrim
                  "HTMLOptGroupElement.getdisabled"
                  prim__disabled
@@ -3997,7 +3997,7 @@ namespace HTMLOptGroupElement
 
 
   export
-  label : HTMLOptGroupElement -> Attribute True I String
+  label : HTMLOptGroupElement -> Attribute True Prelude.id String
   label v = fromPrim "HTMLOptGroupElement.getlabel" prim__label prim__setLabel v
 
 
@@ -4010,7 +4010,7 @@ namespace HTMLOptionElement
 
 
   export
-  defaultSelected : HTMLOptionElement -> Attribute True I Bool
+  defaultSelected : HTMLOptionElement -> Attribute True Prelude.id Bool
   defaultSelected v = fromPrim
                         "HTMLOptionElement.getdefaultSelected"
                         prim__defaultSelected
@@ -4019,7 +4019,7 @@ namespace HTMLOptionElement
 
 
   export
-  disabled : HTMLOptionElement -> Attribute True I Bool
+  disabled : HTMLOptionElement -> Attribute True Prelude.id Bool
   disabled v = fromPrim
                  "HTMLOptionElement.getdisabled"
                  prim__disabled
@@ -4038,12 +4038,12 @@ namespace HTMLOptionElement
 
 
   export
-  label : HTMLOptionElement -> Attribute True I String
+  label : HTMLOptionElement -> Attribute True Prelude.id String
   label v = fromPrim "HTMLOptionElement.getlabel" prim__label prim__setLabel v
 
 
   export
-  selected : HTMLOptionElement -> Attribute True I Bool
+  selected : HTMLOptionElement -> Attribute True Prelude.id Bool
   selected v = fromPrim
                  "HTMLOptionElement.getselected"
                  prim__selected
@@ -4052,12 +4052,12 @@ namespace HTMLOptionElement
 
 
   export
-  text : HTMLOptionElement -> Attribute True I String
+  text : HTMLOptionElement -> Attribute True Prelude.id String
   text v = fromPrim "HTMLOptionElement.gettext" prim__text prim__setText v
 
 
   export
-  value : HTMLOptionElement -> Attribute True I String
+  value : HTMLOptionElement -> Attribute True Prelude.id String
   value v = fromPrim "HTMLOptionElement.getvalue" prim__value prim__setValue v
 
 
@@ -4074,7 +4074,7 @@ namespace HTMLOptionsCollection
 
 
   export
-  length : HTMLOptionsCollection -> Attribute True I Bits32
+  length : HTMLOptionsCollection -> Attribute True Prelude.id Bits32
   length v = fromPrim
                "HTMLOptionsCollection.getlength"
                prim__length
@@ -4083,7 +4083,7 @@ namespace HTMLOptionsCollection
 
 
   export
-  selectedIndex : HTMLOptionsCollection -> Attribute True I Int32
+  selectedIndex : HTMLOptionsCollection -> Attribute True Prelude.id Int32
   selectedIndex v = fromPrim
                       "HTMLOptionsCollection.getselectedIndex"
                       prim__selectedIndex
@@ -4094,15 +4094,15 @@ namespace HTMLOptionsCollection
   export
   add' :
        (obj : HTMLOptionsCollection)
-    -> (element : NS I [HTMLOptionElement, HTMLOptGroupElement])
-    -> (before : Optional (Maybe (NS I [HTMLElement, Int32])))
+    -> (element : HSum [HTMLOptionElement, HTMLOptGroupElement])
+    -> (before : Optional (Maybe (HSum [HTMLElement, Int32])))
     -> JSIO ()
   add' a b c = primJS $ HTMLOptionsCollection.prim__add a (toFFI b) (toFFI c)
 
   export
   add :
        (obj : HTMLOptionsCollection)
-    -> (element : NS I [HTMLOptionElement, HTMLOptGroupElement])
+    -> (element : HSum [HTMLOptionElement, HTMLOptGroupElement])
     -> JSIO ()
   add a b = primJS $ HTMLOptionsCollection.prim__add a (toFFI b) undef
 
@@ -4121,7 +4121,7 @@ namespace HTMLOutputElement
 
 
   export
-  defaultValue : HTMLOutputElement -> Attribute True I String
+  defaultValue : HTMLOutputElement -> Attribute True Prelude.id String
   defaultValue v = fromPrim
                      "HTMLOutputElement.getdefaultValue"
                      prim__defaultValue
@@ -4145,7 +4145,7 @@ namespace HTMLOutputElement
 
 
   export
-  name : HTMLOutputElement -> Attribute True I String
+  name : HTMLOutputElement -> Attribute True Prelude.id String
   name v = fromPrim "HTMLOutputElement.getname" prim__name prim__setName v
 
 
@@ -4165,7 +4165,7 @@ namespace HTMLOutputElement
 
 
   export
-  value : HTMLOutputElement -> Attribute True I String
+  value : HTMLOutputElement -> Attribute True Prelude.id String
   value v = fromPrim "HTMLOutputElement.getvalue" prim__value prim__setValue v
 
 
@@ -4201,7 +4201,7 @@ namespace HTMLParagraphElement
 
 
   export
-  align : HTMLParagraphElement -> Attribute True I String
+  align : HTMLParagraphElement -> Attribute True Prelude.id String
   align v = fromPrim
               "HTMLParagraphElement.getalign"
               prim__align
@@ -4218,22 +4218,22 @@ namespace HTMLParamElement
 
 
   export
-  name : HTMLParamElement -> Attribute True I String
+  name : HTMLParamElement -> Attribute True Prelude.id String
   name v = fromPrim "HTMLParamElement.getname" prim__name prim__setName v
 
 
   export
-  type : HTMLParamElement -> Attribute True I String
+  type : HTMLParamElement -> Attribute True Prelude.id String
   type v = fromPrim "HTMLParamElement.gettype" prim__type prim__setType v
 
 
   export
-  value : HTMLParamElement -> Attribute True I String
+  value : HTMLParamElement -> Attribute True Prelude.id String
   value v = fromPrim "HTMLParamElement.getvalue" prim__value prim__setValue v
 
 
   export
-  valueType : HTMLParamElement -> Attribute True I String
+  valueType : HTMLParamElement -> Attribute True Prelude.id String
   valueType v = fromPrim
                   "HTMLParamElement.getvalueType"
                   prim__valueType
@@ -4258,7 +4258,7 @@ namespace HTMLPreElement
 
 
   export
-  width : HTMLPreElement -> Attribute True I Int32
+  width : HTMLPreElement -> Attribute True Prelude.id Int32
   width v = fromPrim "HTMLPreElement.getwidth" prim__width prim__setWidth v
 
 
@@ -4276,7 +4276,7 @@ namespace HTMLProgressElement
 
 
   export
-  max : HTMLProgressElement -> Attribute True I Double
+  max : HTMLProgressElement -> Attribute True Prelude.id Double
   max v = fromPrim "HTMLProgressElement.getmax" prim__max prim__setMax v
 
 
@@ -4286,7 +4286,7 @@ namespace HTMLProgressElement
 
 
   export
-  value : HTMLProgressElement -> Attribute True I Double
+  value : HTMLProgressElement -> Attribute True Prelude.id Double
   value v = fromPrim "HTMLProgressElement.getvalue" prim__value prim__setValue v
 
 
@@ -4299,7 +4299,7 @@ namespace HTMLQuoteElement
 
 
   export
-  cite : HTMLQuoteElement -> Attribute True I String
+  cite : HTMLQuoteElement -> Attribute True Prelude.id String
   cite v = fromPrim "HTMLQuoteElement.getcite" prim__cite prim__setCite v
 
 
@@ -4312,12 +4312,12 @@ namespace HTMLScriptElement
 
 
   export
-  async : HTMLScriptElement -> Attribute True I Bool
+  async : HTMLScriptElement -> Attribute True Prelude.id Bool
   async v = fromPrim "HTMLScriptElement.getasync" prim__async prim__setAsync v
 
 
   export
-  charset : HTMLScriptElement -> Attribute True I String
+  charset : HTMLScriptElement -> Attribute True Prelude.id String
   charset v = fromPrim
                 "HTMLScriptElement.getcharset"
                 prim__charset
@@ -4335,17 +4335,17 @@ namespace HTMLScriptElement
 
 
   export
-  defer : HTMLScriptElement -> Attribute True I Bool
+  defer : HTMLScriptElement -> Attribute True Prelude.id Bool
   defer v = fromPrim "HTMLScriptElement.getdefer" prim__defer prim__setDefer v
 
 
   export
-  event : HTMLScriptElement -> Attribute True I String
+  event : HTMLScriptElement -> Attribute True Prelude.id String
   event v = fromPrim "HTMLScriptElement.getevent" prim__event prim__setEvent v
 
 
   export
-  htmlFor : HTMLScriptElement -> Attribute True I String
+  htmlFor : HTMLScriptElement -> Attribute True Prelude.id String
   htmlFor v = fromPrim
                 "HTMLScriptElement.gethtmlFor"
                 prim__htmlFor
@@ -4354,7 +4354,7 @@ namespace HTMLScriptElement
 
 
   export
-  integrity : HTMLScriptElement -> Attribute True I String
+  integrity : HTMLScriptElement -> Attribute True Prelude.id String
   integrity v = fromPrim
                   "HTMLScriptElement.getintegrity"
                   prim__integrity
@@ -4363,7 +4363,7 @@ namespace HTMLScriptElement
 
 
   export
-  noModule : HTMLScriptElement -> Attribute True I Bool
+  noModule : HTMLScriptElement -> Attribute True Prelude.id Bool
   noModule v = fromPrim
                  "HTMLScriptElement.getnoModule"
                  prim__noModule
@@ -4372,7 +4372,7 @@ namespace HTMLScriptElement
 
 
   export
-  referrerPolicy : HTMLScriptElement -> Attribute True I String
+  referrerPolicy : HTMLScriptElement -> Attribute True Prelude.id String
   referrerPolicy v = fromPrim
                        "HTMLScriptElement.getreferrerPolicy"
                        prim__referrerPolicy
@@ -4381,17 +4381,17 @@ namespace HTMLScriptElement
 
 
   export
-  src : HTMLScriptElement -> Attribute True I String
+  src : HTMLScriptElement -> Attribute True Prelude.id String
   src v = fromPrim "HTMLScriptElement.getsrc" prim__src prim__setSrc v
 
 
   export
-  text : HTMLScriptElement -> Attribute True I String
+  text : HTMLScriptElement -> Attribute True Prelude.id String
   text v = fromPrim "HTMLScriptElement.gettext" prim__text prim__setText v
 
 
   export
-  type : HTMLScriptElement -> Attribute True I String
+  type : HTMLScriptElement -> Attribute True Prelude.id String
   type v = fromPrim "HTMLScriptElement.gettype" prim__type prim__setType v
 
 
@@ -4413,7 +4413,7 @@ namespace HTMLSelectElement
 
 
   export
-  autocomplete : HTMLSelectElement -> Attribute True I String
+  autocomplete : HTMLSelectElement -> Attribute True Prelude.id String
   autocomplete v = fromPrim
                      "HTMLSelectElement.getautocomplete"
                      prim__autocomplete
@@ -4422,7 +4422,7 @@ namespace HTMLSelectElement
 
 
   export
-  disabled : HTMLSelectElement -> Attribute True I Bool
+  disabled : HTMLSelectElement -> Attribute True Prelude.id Bool
   disabled v = fromPrim
                  "HTMLSelectElement.getdisabled"
                  prim__disabled
@@ -4441,7 +4441,7 @@ namespace HTMLSelectElement
 
 
   export
-  length : HTMLSelectElement -> Attribute True I Bits32
+  length : HTMLSelectElement -> Attribute True Prelude.id Bits32
   length v = fromPrim
                "HTMLSelectElement.getlength"
                prim__length
@@ -4450,7 +4450,7 @@ namespace HTMLSelectElement
 
 
   export
-  multiple : HTMLSelectElement -> Attribute True I Bool
+  multiple : HTMLSelectElement -> Attribute True Prelude.id Bool
   multiple v = fromPrim
                  "HTMLSelectElement.getmultiple"
                  prim__multiple
@@ -4459,7 +4459,7 @@ namespace HTMLSelectElement
 
 
   export
-  name : HTMLSelectElement -> Attribute True I String
+  name : HTMLSelectElement -> Attribute True Prelude.id String
   name v = fromPrim "HTMLSelectElement.getname" prim__name prim__setName v
 
 
@@ -4469,7 +4469,7 @@ namespace HTMLSelectElement
 
 
   export
-  required : HTMLSelectElement -> Attribute True I Bool
+  required : HTMLSelectElement -> Attribute True Prelude.id Bool
   required v = fromPrim
                  "HTMLSelectElement.getrequired"
                  prim__required
@@ -4478,7 +4478,7 @@ namespace HTMLSelectElement
 
 
   export
-  selectedIndex : HTMLSelectElement -> Attribute True I Int32
+  selectedIndex : HTMLSelectElement -> Attribute True Prelude.id Int32
   selectedIndex v = fromPrim
                       "HTMLSelectElement.getselectedIndex"
                       prim__selectedIndex
@@ -4492,7 +4492,7 @@ namespace HTMLSelectElement
 
 
   export
-  size : HTMLSelectElement -> Attribute True I Bits32
+  size : HTMLSelectElement -> Attribute True Prelude.id Bits32
   size v = fromPrim "HTMLSelectElement.getsize" prim__size prim__setSize v
 
 
@@ -4512,7 +4512,7 @@ namespace HTMLSelectElement
 
 
   export
-  value : HTMLSelectElement -> Attribute True I String
+  value : HTMLSelectElement -> Attribute True Prelude.id String
   value v = fromPrim "HTMLSelectElement.getvalue" prim__value prim__setValue v
 
 
@@ -4525,15 +4525,15 @@ namespace HTMLSelectElement
   export
   add' :
        (obj : HTMLSelectElement)
-    -> (element : NS I [HTMLOptionElement, HTMLOptGroupElement])
-    -> (before : Optional (Maybe (NS I [HTMLElement, Int32])))
+    -> (element : HSum [HTMLOptionElement, HTMLOptGroupElement])
+    -> (before : Optional (Maybe (HSum [HTMLElement, Int32])))
     -> JSIO ()
   add' a b c = primJS $ HTMLSelectElement.prim__add a (toFFI b) (toFFI c)
 
   export
   add :
        (obj : HTMLSelectElement)
-    -> (element : NS I [HTMLOptionElement, HTMLOptGroupElement])
+    -> (element : HSum [HTMLOptionElement, HTMLOptGroupElement])
     -> JSIO ()
   add a b = primJS $ HTMLSelectElement.prim__add a (toFFI b) undef
 
@@ -4588,7 +4588,7 @@ namespace HTMLSlotElement
 
 
   export
-  name : HTMLSlotElement -> Attribute True I String
+  name : HTMLSlotElement -> Attribute True Prelude.id String
   name v = fromPrim "HTMLSlotElement.getname" prim__name prim__setName v
 
 
@@ -4630,7 +4630,7 @@ namespace HTMLSourceElement
 
 
   export
-  height : HTMLSourceElement -> Attribute True I Bits32
+  height : HTMLSourceElement -> Attribute True Prelude.id Bits32
   height v = fromPrim
                "HTMLSourceElement.getheight"
                prim__height
@@ -4639,22 +4639,22 @@ namespace HTMLSourceElement
 
 
   export
-  media : HTMLSourceElement -> Attribute True I String
+  media : HTMLSourceElement -> Attribute True Prelude.id String
   media v = fromPrim "HTMLSourceElement.getmedia" prim__media prim__setMedia v
 
 
   export
-  sizes : HTMLSourceElement -> Attribute True I String
+  sizes : HTMLSourceElement -> Attribute True Prelude.id String
   sizes v = fromPrim "HTMLSourceElement.getsizes" prim__sizes prim__setSizes v
 
 
   export
-  src : HTMLSourceElement -> Attribute True I String
+  src : HTMLSourceElement -> Attribute True Prelude.id String
   src v = fromPrim "HTMLSourceElement.getsrc" prim__src prim__setSrc v
 
 
   export
-  srcset : HTMLSourceElement -> Attribute True I String
+  srcset : HTMLSourceElement -> Attribute True Prelude.id String
   srcset v = fromPrim
                "HTMLSourceElement.getsrcset"
                prim__srcset
@@ -4663,12 +4663,12 @@ namespace HTMLSourceElement
 
 
   export
-  type : HTMLSourceElement -> Attribute True I String
+  type : HTMLSourceElement -> Attribute True Prelude.id String
   type v = fromPrim "HTMLSourceElement.gettype" prim__type prim__setType v
 
 
   export
-  width : HTMLSourceElement -> Attribute True I Bits32
+  width : HTMLSourceElement -> Attribute True Prelude.id Bits32
   width v = fromPrim "HTMLSourceElement.getwidth" prim__width prim__setWidth v
 
 
@@ -4689,12 +4689,12 @@ namespace HTMLStyleElement
 
 
   export
-  media : HTMLStyleElement -> Attribute True I String
+  media : HTMLStyleElement -> Attribute True Prelude.id String
   media v = fromPrim "HTMLStyleElement.getmedia" prim__media prim__setMedia v
 
 
   export
-  type : HTMLStyleElement -> Attribute True I String
+  type : HTMLStyleElement -> Attribute True Prelude.id String
   type v = fromPrim "HTMLStyleElement.gettype" prim__type prim__setType v
 
 
@@ -4707,7 +4707,7 @@ namespace HTMLTableCaptionElement
 
 
   export
-  align : HTMLTableCaptionElement -> Attribute True I String
+  align : HTMLTableCaptionElement -> Attribute True Prelude.id String
   align v = fromPrim
               "HTMLTableCaptionElement.getalign"
               prim__align
@@ -4724,12 +4724,12 @@ namespace HTMLTableCellElement
 
 
   export
-  abbr : HTMLTableCellElement -> Attribute True I String
+  abbr : HTMLTableCellElement -> Attribute True Prelude.id String
   abbr v = fromPrim "HTMLTableCellElement.getabbr" prim__abbr prim__setAbbr v
 
 
   export
-  align : HTMLTableCellElement -> Attribute True I String
+  align : HTMLTableCellElement -> Attribute True Prelude.id String
   align v = fromPrim
               "HTMLTableCellElement.getalign"
               prim__align
@@ -4738,12 +4738,12 @@ namespace HTMLTableCellElement
 
 
   export
-  axis : HTMLTableCellElement -> Attribute True I String
+  axis : HTMLTableCellElement -> Attribute True Prelude.id String
   axis v = fromPrim "HTMLTableCellElement.getaxis" prim__axis prim__setAxis v
 
 
   export
-  bgColor : HTMLTableCellElement -> Attribute True I String
+  bgColor : HTMLTableCellElement -> Attribute True Prelude.id String
   bgColor v = fromPrim
                 "HTMLTableCellElement.getbgColor"
                 prim__bgColor
@@ -4757,12 +4757,12 @@ namespace HTMLTableCellElement
 
 
   export
-  ch : HTMLTableCellElement -> Attribute True I String
+  ch : HTMLTableCellElement -> Attribute True Prelude.id String
   ch v = fromPrim "HTMLTableCellElement.getch" prim__ch prim__setCh v
 
 
   export
-  chOff : HTMLTableCellElement -> Attribute True I String
+  chOff : HTMLTableCellElement -> Attribute True Prelude.id String
   chOff v = fromPrim
               "HTMLTableCellElement.getchOff"
               prim__chOff
@@ -4771,7 +4771,7 @@ namespace HTMLTableCellElement
 
 
   export
-  colSpan : HTMLTableCellElement -> Attribute True I Bits32
+  colSpan : HTMLTableCellElement -> Attribute True Prelude.id Bits32
   colSpan v = fromPrim
                 "HTMLTableCellElement.getcolSpan"
                 prim__colSpan
@@ -4780,7 +4780,7 @@ namespace HTMLTableCellElement
 
 
   export
-  headers : HTMLTableCellElement -> Attribute True I String
+  headers : HTMLTableCellElement -> Attribute True Prelude.id String
   headers v = fromPrim
                 "HTMLTableCellElement.getheaders"
                 prim__headers
@@ -4789,7 +4789,7 @@ namespace HTMLTableCellElement
 
 
   export
-  height : HTMLTableCellElement -> Attribute True I String
+  height : HTMLTableCellElement -> Attribute True Prelude.id String
   height v = fromPrim
                "HTMLTableCellElement.getheight"
                prim__height
@@ -4798,7 +4798,7 @@ namespace HTMLTableCellElement
 
 
   export
-  noWrap : HTMLTableCellElement -> Attribute True I Bool
+  noWrap : HTMLTableCellElement -> Attribute True Prelude.id Bool
   noWrap v = fromPrim
                "HTMLTableCellElement.getnoWrap"
                prim__noWrap
@@ -4807,7 +4807,7 @@ namespace HTMLTableCellElement
 
 
   export
-  rowSpan : HTMLTableCellElement -> Attribute True I Bits32
+  rowSpan : HTMLTableCellElement -> Attribute True Prelude.id Bits32
   rowSpan v = fromPrim
                 "HTMLTableCellElement.getrowSpan"
                 prim__rowSpan
@@ -4816,7 +4816,7 @@ namespace HTMLTableCellElement
 
 
   export
-  scope : HTMLTableCellElement -> Attribute True I String
+  scope : HTMLTableCellElement -> Attribute True Prelude.id String
   scope v = fromPrim
               "HTMLTableCellElement.getscope"
               prim__scope
@@ -4825,7 +4825,7 @@ namespace HTMLTableCellElement
 
 
   export
-  vAlign : HTMLTableCellElement -> Attribute True I String
+  vAlign : HTMLTableCellElement -> Attribute True Prelude.id String
   vAlign v = fromPrim
                "HTMLTableCellElement.getvAlign"
                prim__vAlign
@@ -4834,7 +4834,7 @@ namespace HTMLTableCellElement
 
 
   export
-  width : HTMLTableCellElement -> Attribute True I String
+  width : HTMLTableCellElement -> Attribute True Prelude.id String
   width v = fromPrim
               "HTMLTableCellElement.getwidth"
               prim__width
@@ -4851,27 +4851,27 @@ namespace HTMLTableColElement
 
 
   export
-  align : HTMLTableColElement -> Attribute True I String
+  align : HTMLTableColElement -> Attribute True Prelude.id String
   align v = fromPrim "HTMLTableColElement.getalign" prim__align prim__setAlign v
 
 
   export
-  ch : HTMLTableColElement -> Attribute True I String
+  ch : HTMLTableColElement -> Attribute True Prelude.id String
   ch v = fromPrim "HTMLTableColElement.getch" prim__ch prim__setCh v
 
 
   export
-  chOff : HTMLTableColElement -> Attribute True I String
+  chOff : HTMLTableColElement -> Attribute True Prelude.id String
   chOff v = fromPrim "HTMLTableColElement.getchOff" prim__chOff prim__setChOff v
 
 
   export
-  span : HTMLTableColElement -> Attribute True I Bits32
+  span : HTMLTableColElement -> Attribute True Prelude.id Bits32
   span v = fromPrim "HTMLTableColElement.getspan" prim__span prim__setSpan v
 
 
   export
-  vAlign : HTMLTableColElement -> Attribute True I String
+  vAlign : HTMLTableColElement -> Attribute True Prelude.id String
   vAlign v = fromPrim
                "HTMLTableColElement.getvAlign"
                prim__vAlign
@@ -4880,7 +4880,7 @@ namespace HTMLTableColElement
 
 
   export
-  width : HTMLTableColElement -> Attribute True I String
+  width : HTMLTableColElement -> Attribute True Prelude.id String
   width v = fromPrim "HTMLTableColElement.getwidth" prim__width prim__setWidth v
 
 
@@ -4893,12 +4893,12 @@ namespace HTMLTableElement
 
 
   export
-  align : HTMLTableElement -> Attribute True I String
+  align : HTMLTableElement -> Attribute True Prelude.id String
   align v = fromPrim "HTMLTableElement.getalign" prim__align prim__setAlign v
 
 
   export
-  bgColor : HTMLTableElement -> Attribute True I String
+  bgColor : HTMLTableElement -> Attribute True Prelude.id String
   bgColor v = fromPrim
                 "HTMLTableElement.getbgColor"
                 prim__bgColor
@@ -4907,7 +4907,7 @@ namespace HTMLTableElement
 
 
   export
-  border : HTMLTableElement -> Attribute True I String
+  border : HTMLTableElement -> Attribute True Prelude.id String
   border v = fromPrim
                "HTMLTableElement.getborder"
                prim__border
@@ -4925,7 +4925,7 @@ namespace HTMLTableElement
 
 
   export
-  cellPadding : HTMLTableElement -> Attribute True I String
+  cellPadding : HTMLTableElement -> Attribute True Prelude.id String
   cellPadding v = fromPrim
                     "HTMLTableElement.getcellPadding"
                     prim__cellPadding
@@ -4934,7 +4934,7 @@ namespace HTMLTableElement
 
 
   export
-  cellSpacing : HTMLTableElement -> Attribute True I String
+  cellSpacing : HTMLTableElement -> Attribute True Prelude.id String
   cellSpacing v = fromPrim
                     "HTMLTableElement.getcellSpacing"
                     prim__cellSpacing
@@ -4943,7 +4943,7 @@ namespace HTMLTableElement
 
 
   export
-  frame : HTMLTableElement -> Attribute True I String
+  frame : HTMLTableElement -> Attribute True Prelude.id String
   frame v = fromPrim "HTMLTableElement.getframe" prim__frame prim__setFrame v
 
 
@@ -4953,12 +4953,12 @@ namespace HTMLTableElement
 
 
   export
-  rules : HTMLTableElement -> Attribute True I String
+  rules : HTMLTableElement -> Attribute True Prelude.id String
   rules v = fromPrim "HTMLTableElement.getrules" prim__rules prim__setRules v
 
 
   export
-  summary : HTMLTableElement -> Attribute True I String
+  summary : HTMLTableElement -> Attribute True Prelude.id String
   summary v = fromPrim
                 "HTMLTableElement.getsummary"
                 prim__summary
@@ -4990,7 +4990,7 @@ namespace HTMLTableElement
 
 
   export
-  width : HTMLTableElement -> Attribute True I String
+  width : HTMLTableElement -> Attribute True Prelude.id String
   width v = fromPrim "HTMLTableElement.getwidth" prim__width prim__setWidth v
 
 
@@ -5055,12 +5055,12 @@ namespace HTMLTableRowElement
 
 
   export
-  align : HTMLTableRowElement -> Attribute True I String
+  align : HTMLTableRowElement -> Attribute True Prelude.id String
   align v = fromPrim "HTMLTableRowElement.getalign" prim__align prim__setAlign v
 
 
   export
-  bgColor : HTMLTableRowElement -> Attribute True I String
+  bgColor : HTMLTableRowElement -> Attribute True Prelude.id String
   bgColor v = fromPrim
                 "HTMLTableRowElement.getbgColor"
                 prim__bgColor
@@ -5074,12 +5074,12 @@ namespace HTMLTableRowElement
 
 
   export
-  ch : HTMLTableRowElement -> Attribute True I String
+  ch : HTMLTableRowElement -> Attribute True Prelude.id String
   ch v = fromPrim "HTMLTableRowElement.getch" prim__ch prim__setCh v
 
 
   export
-  chOff : HTMLTableRowElement -> Attribute True I String
+  chOff : HTMLTableRowElement -> Attribute True Prelude.id String
   chOff v = fromPrim "HTMLTableRowElement.getchOff" prim__chOff prim__setChOff v
 
 
@@ -5094,7 +5094,7 @@ namespace HTMLTableRowElement
 
 
   export
-  vAlign : HTMLTableRowElement -> Attribute True I String
+  vAlign : HTMLTableRowElement -> Attribute True Prelude.id String
   vAlign v = fromPrim
                "HTMLTableRowElement.getvAlign"
                prim__vAlign
@@ -5128,7 +5128,7 @@ namespace HTMLTableSectionElement
 
 
   export
-  align : HTMLTableSectionElement -> Attribute True I String
+  align : HTMLTableSectionElement -> Attribute True Prelude.id String
   align v = fromPrim
               "HTMLTableSectionElement.getalign"
               prim__align
@@ -5137,12 +5137,12 @@ namespace HTMLTableSectionElement
 
 
   export
-  ch : HTMLTableSectionElement -> Attribute True I String
+  ch : HTMLTableSectionElement -> Attribute True Prelude.id String
   ch v = fromPrim "HTMLTableSectionElement.getch" prim__ch prim__setCh v
 
 
   export
-  chOff : HTMLTableSectionElement -> Attribute True I String
+  chOff : HTMLTableSectionElement -> Attribute True Prelude.id String
   chOff v = fromPrim
               "HTMLTableSectionElement.getchOff"
               prim__chOff
@@ -5156,7 +5156,7 @@ namespace HTMLTableSectionElement
 
 
   export
-  vAlign : HTMLTableSectionElement -> Attribute True I String
+  vAlign : HTMLTableSectionElement -> Attribute True Prelude.id String
   vAlign v = fromPrim
                "HTMLTableSectionElement.getvAlign"
                prim__vAlign
@@ -5203,7 +5203,7 @@ namespace HTMLTextAreaElement
 
 
   export
-  autocomplete : HTMLTextAreaElement -> Attribute True I String
+  autocomplete : HTMLTextAreaElement -> Attribute True Prelude.id String
   autocomplete v = fromPrim
                      "HTMLTextAreaElement.getautocomplete"
                      prim__autocomplete
@@ -5212,12 +5212,12 @@ namespace HTMLTextAreaElement
 
 
   export
-  cols : HTMLTextAreaElement -> Attribute True I Bits32
+  cols : HTMLTextAreaElement -> Attribute True Prelude.id Bits32
   cols v = fromPrim "HTMLTextAreaElement.getcols" prim__cols prim__setCols v
 
 
   export
-  defaultValue : HTMLTextAreaElement -> Attribute True I String
+  defaultValue : HTMLTextAreaElement -> Attribute True Prelude.id String
   defaultValue v = fromPrim
                      "HTMLTextAreaElement.getdefaultValue"
                      prim__defaultValue
@@ -5226,7 +5226,7 @@ namespace HTMLTextAreaElement
 
 
   export
-  dirName : HTMLTextAreaElement -> Attribute True I String
+  dirName : HTMLTextAreaElement -> Attribute True Prelude.id String
   dirName v = fromPrim
                 "HTMLTextAreaElement.getdirName"
                 prim__dirName
@@ -5235,7 +5235,7 @@ namespace HTMLTextAreaElement
 
 
   export
-  disabled : HTMLTextAreaElement -> Attribute True I Bool
+  disabled : HTMLTextAreaElement -> Attribute True Prelude.id Bool
   disabled v = fromPrim
                  "HTMLTextAreaElement.getdisabled"
                  prim__disabled
@@ -5254,7 +5254,7 @@ namespace HTMLTextAreaElement
 
 
   export
-  maxLength : HTMLTextAreaElement -> Attribute True I Int32
+  maxLength : HTMLTextAreaElement -> Attribute True Prelude.id Int32
   maxLength v = fromPrim
                   "HTMLTextAreaElement.getmaxLength"
                   prim__maxLength
@@ -5263,7 +5263,7 @@ namespace HTMLTextAreaElement
 
 
   export
-  minLength : HTMLTextAreaElement -> Attribute True I Int32
+  minLength : HTMLTextAreaElement -> Attribute True Prelude.id Int32
   minLength v = fromPrim
                   "HTMLTextAreaElement.getminLength"
                   prim__minLength
@@ -5272,12 +5272,12 @@ namespace HTMLTextAreaElement
 
 
   export
-  name : HTMLTextAreaElement -> Attribute True I String
+  name : HTMLTextAreaElement -> Attribute True Prelude.id String
   name v = fromPrim "HTMLTextAreaElement.getname" prim__name prim__setName v
 
 
   export
-  placeholder : HTMLTextAreaElement -> Attribute True I String
+  placeholder : HTMLTextAreaElement -> Attribute True Prelude.id String
   placeholder v = fromPrim
                     "HTMLTextAreaElement.getplaceholder"
                     prim__placeholder
@@ -5286,7 +5286,7 @@ namespace HTMLTextAreaElement
 
 
   export
-  readOnly : HTMLTextAreaElement -> Attribute True I Bool
+  readOnly : HTMLTextAreaElement -> Attribute True Prelude.id Bool
   readOnly v = fromPrim
                  "HTMLTextAreaElement.getreadOnly"
                  prim__readOnly
@@ -5295,7 +5295,7 @@ namespace HTMLTextAreaElement
 
 
   export
-  required : HTMLTextAreaElement -> Attribute True I Bool
+  required : HTMLTextAreaElement -> Attribute True Prelude.id Bool
   required v = fromPrim
                  "HTMLTextAreaElement.getrequired"
                  prim__required
@@ -5304,12 +5304,12 @@ namespace HTMLTextAreaElement
 
 
   export
-  rows : HTMLTextAreaElement -> Attribute True I Bits32
+  rows : HTMLTextAreaElement -> Attribute True Prelude.id Bits32
   rows v = fromPrim "HTMLTextAreaElement.getrows" prim__rows prim__setRows v
 
 
   export
-  selectionDirection : HTMLTextAreaElement -> Attribute True I String
+  selectionDirection : HTMLTextAreaElement -> Attribute True Prelude.id String
   selectionDirection v = fromPrim
                            "HTMLTextAreaElement.getselectionDirection"
                            prim__selectionDirection
@@ -5318,7 +5318,7 @@ namespace HTMLTextAreaElement
 
 
   export
-  selectionEnd : HTMLTextAreaElement -> Attribute True I Bits32
+  selectionEnd : HTMLTextAreaElement -> Attribute True Prelude.id Bits32
   selectionEnd v = fromPrim
                      "HTMLTextAreaElement.getselectionEnd"
                      prim__selectionEnd
@@ -5327,7 +5327,7 @@ namespace HTMLTextAreaElement
 
 
   export
-  selectionStart : HTMLTextAreaElement -> Attribute True I Bits32
+  selectionStart : HTMLTextAreaElement -> Attribute True Prelude.id Bits32
   selectionStart v = fromPrim
                        "HTMLTextAreaElement.getselectionStart"
                        prim__selectionStart
@@ -5356,7 +5356,7 @@ namespace HTMLTextAreaElement
 
 
   export
-  value : HTMLTextAreaElement -> Attribute True I String
+  value : HTMLTextAreaElement -> Attribute True Prelude.id String
   value v = fromPrim "HTMLTextAreaElement.getvalue" prim__value prim__setValue v
 
 
@@ -5367,7 +5367,7 @@ namespace HTMLTextAreaElement
 
 
   export
-  wrap : HTMLTextAreaElement -> Attribute True I String
+  wrap : HTMLTextAreaElement -> Attribute True Prelude.id String
   wrap v = fromPrim "HTMLTextAreaElement.getwrap" prim__wrap prim__setWrap v
 
 
@@ -5453,7 +5453,7 @@ namespace HTMLTimeElement
 
 
   export
-  dateTime : HTMLTimeElement -> Attribute True I String
+  dateTime : HTMLTimeElement -> Attribute True Prelude.id String
   dateTime v = fromPrim
                  "HTMLTimeElement.getdateTime"
                  prim__dateTime
@@ -5470,7 +5470,7 @@ namespace HTMLTitleElement
 
 
   export
-  text : HTMLTitleElement -> Attribute True I String
+  text : HTMLTitleElement -> Attribute True Prelude.id String
   text v = fromPrim "HTMLTitleElement.gettext" prim__text prim__setText v
 
 
@@ -5503,7 +5503,7 @@ namespace HTMLTrackElement
 
 
   export
-  default_ : HTMLTrackElement -> Attribute True I Bool
+  default_ : HTMLTrackElement -> Attribute True Prelude.id Bool
   default_ v = fromPrim
                  "HTMLTrackElement.getdefault"
                  prim__default
@@ -5512,12 +5512,12 @@ namespace HTMLTrackElement
 
 
   export
-  kind : HTMLTrackElement -> Attribute True I String
+  kind : HTMLTrackElement -> Attribute True Prelude.id String
   kind v = fromPrim "HTMLTrackElement.getkind" prim__kind prim__setKind v
 
 
   export
-  label : HTMLTrackElement -> Attribute True I String
+  label : HTMLTrackElement -> Attribute True Prelude.id String
   label v = fromPrim "HTMLTrackElement.getlabel" prim__label prim__setLabel v
 
 
@@ -5527,12 +5527,12 @@ namespace HTMLTrackElement
 
 
   export
-  src : HTMLTrackElement -> Attribute True I String
+  src : HTMLTrackElement -> Attribute True Prelude.id String
   src v = fromPrim "HTMLTrackElement.getsrc" prim__src prim__setSrc v
 
 
   export
-  srclang : HTMLTrackElement -> Attribute True I String
+  srclang : HTMLTrackElement -> Attribute True Prelude.id String
   srclang v = fromPrim
                 "HTMLTrackElement.getsrclang"
                 prim__srclang
@@ -5554,7 +5554,7 @@ namespace HTMLUListElement
 
 
   export
-  compact : HTMLUListElement -> Attribute True I Bool
+  compact : HTMLUListElement -> Attribute True Prelude.id Bool
   compact v = fromPrim
                 "HTMLUListElement.getcompact"
                 prim__compact
@@ -5563,7 +5563,7 @@ namespace HTMLUListElement
 
 
   export
-  type : HTMLUListElement -> Attribute True I String
+  type : HTMLUListElement -> Attribute True Prelude.id String
   type v = fromPrim "HTMLUListElement.gettype" prim__type prim__setType v
 
 
@@ -5577,7 +5577,7 @@ namespace HTMLVideoElement
 
 
   export
-  height : HTMLVideoElement -> Attribute True I Bits32
+  height : HTMLVideoElement -> Attribute True Prelude.id Bits32
   height v = fromPrim
                "HTMLVideoElement.getheight"
                prim__height
@@ -5586,7 +5586,7 @@ namespace HTMLVideoElement
 
 
   export
-  playsInline : HTMLVideoElement -> Attribute True I Bool
+  playsInline : HTMLVideoElement -> Attribute True Prelude.id Bool
   playsInline v = fromPrim
                     "HTMLVideoElement.getplaysInline"
                     prim__playsInline
@@ -5595,7 +5595,7 @@ namespace HTMLVideoElement
 
 
   export
-  poster : HTMLVideoElement -> Attribute True I String
+  poster : HTMLVideoElement -> Attribute True Prelude.id String
   poster v = fromPrim
                "HTMLVideoElement.getposter"
                prim__poster
@@ -5614,7 +5614,7 @@ namespace HTMLVideoElement
 
 
   export
-  width : HTMLVideoElement -> Attribute True I Bits32
+  width : HTMLVideoElement -> Attribute True Prelude.id Bits32
   width v = fromPrim "HTMLVideoElement.getwidth" prim__width prim__setWidth v
 
 
@@ -5654,7 +5654,7 @@ namespace History
 
 
   export
-  scrollRestoration : History -> Attribute True I ScrollRestoration
+  scrollRestoration : History -> Attribute True Prelude.id ScrollRestoration
   scrollRestoration v = fromPrim
                           "History.getscrollRestoration"
                           prim__scrollRestoration
@@ -5743,7 +5743,7 @@ namespace ImageBitmapRenderingContext
   export
   canvas :
        (obj : ImageBitmapRenderingContext)
-    -> JSIO (NS I [HTMLCanvasElement, OffscreenCanvas])
+    -> JSIO (HSum [HTMLCanvasElement, OffscreenCanvas])
   canvas a = tryJS "ImageBitmapRenderingContext.canvas" $
     ImageBitmapRenderingContext.prim__canvas a
 
@@ -5802,17 +5802,17 @@ namespace Location
 
 
   export
-  hash : Location -> Attribute True I String
+  hash : Location -> Attribute True Prelude.id String
   hash v = fromPrim "Location.gethash" prim__hash prim__setHash v
 
 
   export
-  host : Location -> Attribute True I String
+  host : Location -> Attribute True Prelude.id String
   host v = fromPrim "Location.gethost" prim__host prim__setHost v
 
 
   export
-  hostname : Location -> Attribute True I String
+  hostname : Location -> Attribute True Prelude.id String
   hostname v = fromPrim
                  "Location.gethostname"
                  prim__hostname
@@ -5821,7 +5821,7 @@ namespace Location
 
 
   export
-  href : Location -> Attribute True I String
+  href : Location -> Attribute True Prelude.id String
   href v = fromPrim "Location.gethref" prim__href prim__setHref v
 
 
@@ -5831,7 +5831,7 @@ namespace Location
 
 
   export
-  pathname : Location -> Attribute True I String
+  pathname : Location -> Attribute True Prelude.id String
   pathname v = fromPrim
                  "Location.getpathname"
                  prim__pathname
@@ -5840,12 +5840,12 @@ namespace Location
 
 
   export
-  port : Location -> Attribute True I String
+  port : Location -> Attribute True Prelude.id String
   port v = fromPrim "Location.getport" prim__port prim__setPort v
 
 
   export
-  protocol : Location -> Attribute True I String
+  protocol : Location -> Attribute True Prelude.id String
   protocol v = fromPrim
                  "Location.getprotocol"
                  prim__protocol
@@ -5854,7 +5854,7 @@ namespace Location
 
 
   export
-  search : Location -> Attribute True I String
+  search : Location -> Attribute True Prelude.id String
   search v = fromPrim "Location.getsearch" prim__search prim__setSearch v
 
 
@@ -5978,7 +5978,7 @@ namespace MessageEvent
     -> (origin : Optional String)
     -> (lastEventId : Optional String)
     -> (source : Optional
-                   (Maybe (NS I [WindowProxy, MessagePort, ServiceWorker])))
+                   (Maybe (HSum [WindowProxy, MessagePort, ServiceWorker])))
     -> (ports : Optional (Array MessagePort))
     -> JSIO ()
   initMessageEvent' a b c d e f g h i = primJS $
@@ -6150,12 +6150,12 @@ namespace OffscreenCanvas
 
 
   export
-  height : OffscreenCanvas -> Attribute True I JSBits64
+  height : OffscreenCanvas -> Attribute True Prelude.id JSBits64
   height v = fromPrim "OffscreenCanvas.getheight" prim__height prim__setHeight v
 
 
   export
-  width : OffscreenCanvas -> Attribute True I JSBits64
+  width : OffscreenCanvas -> Attribute True Prelude.id JSBits64
   width v = fromPrim "OffscreenCanvas.getwidth" prim__width prim__setWidth v
 
 
@@ -6180,7 +6180,7 @@ namespace OffscreenCanvas
     -> (options : Optional Any)
     -> JSIO
          (Maybe
-            (NS I
+            (HSum
                [ OffscreenCanvasRenderingContext2D
                , ImageBitmapRenderingContext
                , WebGLRenderingContext
@@ -6195,7 +6195,7 @@ namespace OffscreenCanvas
     -> (contextId : OffscreenRenderingContextId)
     -> JSIO
          (Maybe
-            (NS I
+            (HSum
                [ OffscreenCanvasRenderingContext2D
                , ImageBitmapRenderingContext
                , WebGLRenderingContext
@@ -6251,7 +6251,7 @@ namespace PageTransitionEvent
 namespace Path2D
 
   export
-  new' : (path : Optional (NS I [Path2D, String])) -> JSIO Path2D
+  new' : (path : Optional (HSum [Path2D, String])) -> JSIO Path2D
   new' a = primJS $ Path2D.prim__new (toFFI a)
 
   export
@@ -6381,7 +6381,7 @@ namespace PromiseRejectionEvent
 namespace RadioNodeList
 
   export
-  value : RadioNodeList -> Attribute True I String
+  value : RadioNodeList -> Attribute True Prelude.id String
   value v = fromPrim "RadioNodeList.getvalue" prim__value prim__setValue v
 
 
@@ -6391,7 +6391,7 @@ namespace SharedWorker
   export
   new' :
        (scriptURL : String)
-    -> (options : Optional (NS I [String, WorkerOptions]))
+    -> (options : Optional (HSum [String, WorkerOptions]))
     -> JSIO SharedWorker
   new' a b = primJS $ SharedWorker.prim__new a (toFFI b)
 
@@ -6666,7 +6666,7 @@ namespace TextTrack
 
 
   export
-  mode : TextTrack -> Attribute True I TextTrackMode
+  mode : TextTrack -> Attribute True Prelude.id TextTrackMode
   mode v = fromPrim "TextTrack.getmode" prim__mode prim__setMode v
 
 
@@ -6699,7 +6699,7 @@ namespace TextTrack
 namespace TextTrackCue
 
   export
-  endTime : TextTrackCue -> Attribute True I Double
+  endTime : TextTrackCue -> Attribute True Prelude.id Double
   endTime v = fromPrim
                 "TextTrackCue.getendTime"
                 prim__endTime
@@ -6708,7 +6708,7 @@ namespace TextTrackCue
 
 
   export
-  id : TextTrackCue -> Attribute True I String
+  id : TextTrackCue -> Attribute True Prelude.id String
   id v = fromPrim "TextTrackCue.getid" prim__id prim__setId v
 
 
@@ -6731,7 +6731,7 @@ namespace TextTrackCue
 
 
   export
-  pauseOnExit : TextTrackCue -> Attribute True I Bool
+  pauseOnExit : TextTrackCue -> Attribute True Prelude.id Bool
   pauseOnExit v = fromPrim
                     "TextTrackCue.getpauseOnExit"
                     prim__pauseOnExit
@@ -6740,7 +6740,7 @@ namespace TextTrackCue
 
 
   export
-  startTime : TextTrackCue -> Attribute True I Double
+  startTime : TextTrackCue -> Attribute True Prelude.id Double
   startTime v = fromPrim
                   "TextTrackCue.getstartTime"
                   prim__startTime
@@ -6862,7 +6862,7 @@ namespace TrackEvent
   export
   track :
        (obj : TrackEvent)
-    -> JSIO (Maybe (NS I [VideoTrack, AudioTrack, TextTrack]))
+    -> JSIO (Maybe (HSum [VideoTrack, AudioTrack, TextTrack]))
   track a = tryJS "TrackEvent.track" $ TrackEvent.prim__track a
 
 
@@ -6955,7 +6955,7 @@ namespace VideoTrack
 
 
   export
-  selected : VideoTrack -> Attribute True I Bool
+  selected : VideoTrack -> Attribute True Prelude.id Bool
   selected v = fromPrim
                  "VideoTrack.getselected"
                  prim__selected
@@ -7049,7 +7049,7 @@ namespace WebSocket
   export
   new' :
        (url : String)
-    -> (protocols : Optional (NS I [String, Array String]))
+    -> (protocols : Optional (HSum [String, Array String]))
     -> JSIO WebSocket
   new' a b = primJS $ WebSocket.prim__new a (toFFI b)
 
@@ -7059,7 +7059,7 @@ namespace WebSocket
 
 
   export
-  binaryType : WebSocket -> Attribute True I BinaryType
+  binaryType : WebSocket -> Attribute True Prelude.id BinaryType
   binaryType v = fromPrim
                    "WebSocket.getbinaryType"
                    prim__binaryType
@@ -7164,7 +7164,7 @@ namespace WebSocket
   export
   send3 :
        (obj : WebSocket)
-    -> (data_ : NS I
+    -> (data_ : HSum
                   [ Int8Array
                   , Int16Array
                   , Int32Array
@@ -7209,7 +7209,7 @@ namespace Window
 
 
   export
-  event : (obj : Window) -> JSIO (NS I [Event, Undefined])
+  event : (obj : Window) -> JSIO (HSum [Event, Undefined])
   event a = tryJS "Window.event" $ Window.prim__event a
 
 
@@ -7264,7 +7264,7 @@ namespace Window
 
 
   export
-  name : Window -> Attribute True I String
+  name : Window -> Attribute True Prelude.id String
   name v = fromPrim "Window.getname" prim__name prim__setName v
 
 
@@ -7274,7 +7274,7 @@ namespace Window
 
 
   export
-  opener : Window -> Attribute True I Any
+  opener : Window -> Attribute True Prelude.id Any
   opener v = fromPrim "Window.getopener" prim__opener prim__setOpener v
 
 
@@ -7360,7 +7360,7 @@ namespace Window
 
 
   export
-  status : Window -> Attribute True I String
+  status : Window -> Attribute True Prelude.id String
   status v = fromPrim "Window.getstatus" prim__status prim__setStatus v
 
 
@@ -7889,7 +7889,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaAtomic v = fromPrim
                    "ARIAMixin.getariaAtomic"
                    prim__ariaAtomic
@@ -7902,7 +7902,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaAutoComplete v = fromPrim
                          "ARIAMixin.getariaAutoComplete"
                          prim__ariaAutoComplete
@@ -7915,7 +7915,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaBusy v = fromPrim
                  "ARIAMixin.getariaBusy"
                  prim__ariaBusy
@@ -7928,7 +7928,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaChecked v = fromPrim
                     "ARIAMixin.getariaChecked"
                     prim__ariaChecked
@@ -7941,7 +7941,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaColCount v = fromPrim
                      "ARIAMixin.getariaColCount"
                      prim__ariaColCount
@@ -7954,7 +7954,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaColIndex v = fromPrim
                      "ARIAMixin.getariaColIndex"
                      prim__ariaColIndex
@@ -7967,7 +7967,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaColIndexText v = fromPrim
                          "ARIAMixin.getariaColIndexText"
                          prim__ariaColIndexText
@@ -7980,7 +7980,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaColSpan v = fromPrim
                     "ARIAMixin.getariaColSpan"
                     prim__ariaColSpan
@@ -7993,7 +7993,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaCurrent v = fromPrim
                     "ARIAMixin.getariaCurrent"
                     prim__ariaCurrent
@@ -8006,7 +8006,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaDescription v = fromPrim
                         "ARIAMixin.getariaDescription"
                         prim__ariaDescription
@@ -8019,7 +8019,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaDisabled v = fromPrim
                      "ARIAMixin.getariaDisabled"
                      prim__ariaDisabled
@@ -8032,7 +8032,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaExpanded v = fromPrim
                      "ARIAMixin.getariaExpanded"
                      prim__ariaExpanded
@@ -8045,7 +8045,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaHasPopup v = fromPrim
                      "ARIAMixin.getariaHasPopup"
                      prim__ariaHasPopup
@@ -8058,7 +8058,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaHidden v = fromPrim
                    "ARIAMixin.getariaHidden"
                    prim__ariaHidden
@@ -8071,7 +8071,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaInvalid v = fromPrim
                     "ARIAMixin.getariaInvalid"
                     prim__ariaInvalid
@@ -8084,7 +8084,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaKeyShortcuts v = fromPrim
                          "ARIAMixin.getariaKeyShortcuts"
                          prim__ariaKeyShortcuts
@@ -8097,7 +8097,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaLabel v = fromPrim
                   "ARIAMixin.getariaLabel"
                   prim__ariaLabel
@@ -8110,7 +8110,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaLevel v = fromPrim
                   "ARIAMixin.getariaLevel"
                   prim__ariaLevel
@@ -8123,7 +8123,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaLive v = fromPrim
                  "ARIAMixin.getariaLive"
                  prim__ariaLive
@@ -8136,7 +8136,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaModal v = fromPrim
                   "ARIAMixin.getariaModal"
                   prim__ariaModal
@@ -8149,7 +8149,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaMultiLine v = fromPrim
                       "ARIAMixin.getariaMultiLine"
                       prim__ariaMultiLine
@@ -8162,7 +8162,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaMultiSelectable v = fromPrim
                             "ARIAMixin.getariaMultiSelectable"
                             prim__ariaMultiSelectable
@@ -8175,7 +8175,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaOrientation v = fromPrim
                         "ARIAMixin.getariaOrientation"
                         prim__ariaOrientation
@@ -8188,7 +8188,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaPlaceholder v = fromPrim
                         "ARIAMixin.getariaPlaceholder"
                         prim__ariaPlaceholder
@@ -8201,7 +8201,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaPosInSet v = fromPrim
                      "ARIAMixin.getariaPosInSet"
                      prim__ariaPosInSet
@@ -8214,7 +8214,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaPressed v = fromPrim
                     "ARIAMixin.getariaPressed"
                     prim__ariaPressed
@@ -8227,7 +8227,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaReadOnly v = fromPrim
                      "ARIAMixin.getariaReadOnly"
                      prim__ariaReadOnly
@@ -8240,7 +8240,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaRequired v = fromPrim
                      "ARIAMixin.getariaRequired"
                      prim__ariaRequired
@@ -8253,7 +8253,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaRoleDescription v = fromPrim
                             "ARIAMixin.getariaRoleDescription"
                             prim__ariaRoleDescription
@@ -8266,7 +8266,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaRowCount v = fromPrim
                      "ARIAMixin.getariaRowCount"
                      prim__ariaRowCount
@@ -8279,7 +8279,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaRowIndex v = fromPrim
                      "ARIAMixin.getariaRowIndex"
                      prim__ariaRowIndex
@@ -8292,7 +8292,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaRowIndexText v = fromPrim
                          "ARIAMixin.getariaRowIndexText"
                          prim__ariaRowIndexText
@@ -8305,7 +8305,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaRowSpan v = fromPrim
                     "ARIAMixin.getariaRowSpan"
                     prim__ariaRowSpan
@@ -8318,7 +8318,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaSelected v = fromPrim
                      "ARIAMixin.getariaSelected"
                      prim__ariaSelected
@@ -8331,7 +8331,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaSetSize v = fromPrim
                     "ARIAMixin.getariaSetSize"
                     prim__ariaSetSize
@@ -8344,7 +8344,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaSort v = fromPrim
                  "ARIAMixin.getariaSort"
                  prim__ariaSort
@@ -8357,7 +8357,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaValueMax v = fromPrim
                      "ARIAMixin.getariaValueMax"
                      prim__ariaValueMax
@@ -8370,7 +8370,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaValueMin v = fromPrim
                      "ARIAMixin.getariaValueMin"
                      prim__ariaValueMin
@@ -8383,7 +8383,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaValueNow v = fromPrim
                      "ARIAMixin.getariaValueNow"
                      prim__ariaValueNow
@@ -8396,7 +8396,7 @@ namespace ARIAMixin
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ARIAMixin (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   ariaValueText v = fromPrim
                       "ARIAMixin.getariaValueText"
                       prim__ariaValueText
@@ -8441,7 +8441,7 @@ namespace CanvasCompositing
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem CanvasCompositing (Types t)}
     -> t
-    -> Attribute True I Double
+    -> Attribute True Prelude.id Double
   globalAlpha v = fromPrim
                     "CanvasCompositing.getglobalAlpha"
                     prim__globalAlpha
@@ -8454,7 +8454,7 @@ namespace CanvasCompositing
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem CanvasCompositing (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   globalCompositeOperation v = fromPrim
                                  "CanvasCompositing.getglobalCompositeOperation"
                                  prim__globalCompositeOperation
@@ -8470,7 +8470,7 @@ namespace CanvasDrawImage
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem CanvasDrawImage (Types t1)}
     -> (obj : t1)
-    -> (image : NS I
+    -> (image : HSum
                   [ HTMLImageElement
                   , SVGImageElement
                   , HTMLVideoElement
@@ -8490,7 +8490,7 @@ namespace CanvasDrawImage
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem CanvasDrawImage (Types t1)}
     -> (obj : t1)
-    -> (image : NS I
+    -> (image : HSum
                   [ HTMLImageElement
                   , SVGImageElement
                   , HTMLVideoElement
@@ -8512,7 +8512,7 @@ namespace CanvasDrawImage
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem CanvasDrawImage (Types t1)}
     -> (obj : t1)
-    -> (image : NS I
+    -> (image : HSum
                   [ HTMLImageElement
                   , SVGImageElement
                   , HTMLVideoElement
@@ -8723,7 +8723,7 @@ namespace CanvasFillStrokeStyles
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem CanvasFillStrokeStyles (Types t)}
     -> t
-    -> Attribute True I (NS I [String, CanvasGradient, CanvasPattern])
+    -> Attribute True Prelude.id (HSum [String, CanvasGradient, CanvasPattern])
   fillStyle v = fromPrim
                   "CanvasFillStrokeStyles.getfillStyle"
                   prim__fillStyle
@@ -8736,7 +8736,7 @@ namespace CanvasFillStrokeStyles
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem CanvasFillStrokeStyles (Types t)}
     -> t
-    -> Attribute True I (NS I [String, CanvasGradient, CanvasPattern])
+    -> Attribute True Prelude.id (HSum [String, CanvasGradient, CanvasPattern])
   strokeStyle v = fromPrim
                     "CanvasFillStrokeStyles.getstrokeStyle"
                     prim__strokeStyle
@@ -8763,7 +8763,7 @@ namespace CanvasFillStrokeStyles
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem CanvasFillStrokeStyles (Types t1)}
     -> (obj : t1)
-    -> (image : NS I
+    -> (image : HSum
                   [ HTMLImageElement
                   , SVGImageElement
                   , HTMLVideoElement
@@ -8801,7 +8801,7 @@ namespace CanvasFilters
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem CanvasFilters (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   filter v = fromPrim
                "CanvasFilters.getfilter"
                prim__filter
@@ -8887,7 +8887,7 @@ namespace CanvasImageSmoothing
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem CanvasImageSmoothing (Types t)}
     -> t
-    -> Attribute True I Bool
+    -> Attribute True Prelude.id Bool
   imageSmoothingEnabled v = fromPrim
                               "CanvasImageSmoothing.getimageSmoothingEnabled"
                               prim__imageSmoothingEnabled
@@ -8900,7 +8900,7 @@ namespace CanvasImageSmoothing
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem CanvasImageSmoothing (Types t)}
     -> t
-    -> Attribute True I ImageSmoothingQuality
+    -> Attribute True Prelude.id ImageSmoothingQuality
   imageSmoothingQuality v = fromPrim
                               "CanvasImageSmoothing.getimageSmoothingQuality"
                               prim__imageSmoothingQuality
@@ -9069,7 +9069,7 @@ namespace CanvasPathDrawingStyles
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem CanvasPathDrawingStyles (Types t)}
     -> t
-    -> Attribute True I CanvasLineCap
+    -> Attribute True Prelude.id CanvasLineCap
   lineCap v = fromPrim
                 "CanvasPathDrawingStyles.getlineCap"
                 prim__lineCap
@@ -9082,7 +9082,7 @@ namespace CanvasPathDrawingStyles
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem CanvasPathDrawingStyles (Types t)}
     -> t
-    -> Attribute True I Double
+    -> Attribute True Prelude.id Double
   lineDashOffset v = fromPrim
                        "CanvasPathDrawingStyles.getlineDashOffset"
                        prim__lineDashOffset
@@ -9095,7 +9095,7 @@ namespace CanvasPathDrawingStyles
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem CanvasPathDrawingStyles (Types t)}
     -> t
-    -> Attribute True I CanvasLineJoin
+    -> Attribute True Prelude.id CanvasLineJoin
   lineJoin v = fromPrim
                  "CanvasPathDrawingStyles.getlineJoin"
                  prim__lineJoin
@@ -9108,7 +9108,7 @@ namespace CanvasPathDrawingStyles
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem CanvasPathDrawingStyles (Types t)}
     -> t
-    -> Attribute True I Double
+    -> Attribute True Prelude.id Double
   lineWidth v = fromPrim
                   "CanvasPathDrawingStyles.getlineWidth"
                   prim__lineWidth
@@ -9121,7 +9121,7 @@ namespace CanvasPathDrawingStyles
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem CanvasPathDrawingStyles (Types t)}
     -> t
-    -> Attribute True I Double
+    -> Attribute True Prelude.id Double
   miterLimit v = fromPrim
                    "CanvasPathDrawingStyles.getmiterLimit"
                    prim__miterLimit
@@ -9198,7 +9198,7 @@ namespace CanvasShadowStyles
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem CanvasShadowStyles (Types t)}
     -> t
-    -> Attribute True I Double
+    -> Attribute True Prelude.id Double
   shadowBlur v = fromPrim
                    "CanvasShadowStyles.getshadowBlur"
                    prim__shadowBlur
@@ -9211,7 +9211,7 @@ namespace CanvasShadowStyles
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem CanvasShadowStyles (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   shadowColor v = fromPrim
                     "CanvasShadowStyles.getshadowColor"
                     prim__shadowColor
@@ -9224,7 +9224,7 @@ namespace CanvasShadowStyles
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem CanvasShadowStyles (Types t)}
     -> t
-    -> Attribute True I Double
+    -> Attribute True Prelude.id Double
   shadowOffsetX v = fromPrim
                       "CanvasShadowStyles.getshadowOffsetX"
                       prim__shadowOffsetX
@@ -9237,7 +9237,7 @@ namespace CanvasShadowStyles
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem CanvasShadowStyles (Types t)}
     -> t
-    -> Attribute True I Double
+    -> Attribute True Prelude.id Double
   shadowOffsetY v = fromPrim
                       "CanvasShadowStyles.getshadowOffsetY"
                       prim__shadowOffsetY
@@ -9337,7 +9337,7 @@ namespace CanvasTextDrawingStyles
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem CanvasTextDrawingStyles (Types t)}
     -> t
-    -> Attribute True I CanvasDirection
+    -> Attribute True Prelude.id CanvasDirection
   direction v = fromPrim
                   "CanvasTextDrawingStyles.getdirection"
                   prim__direction
@@ -9350,7 +9350,7 @@ namespace CanvasTextDrawingStyles
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem CanvasTextDrawingStyles (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   font v = fromPrim
              "CanvasTextDrawingStyles.getfont"
              prim__font
@@ -9363,7 +9363,7 @@ namespace CanvasTextDrawingStyles
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem CanvasTextDrawingStyles (Types t)}
     -> t
-    -> Attribute True I CanvasTextAlign
+    -> Attribute True Prelude.id CanvasTextAlign
   textAlign v = fromPrim
                   "CanvasTextDrawingStyles.gettextAlign"
                   prim__textAlign
@@ -9376,7 +9376,7 @@ namespace CanvasTextDrawingStyles
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem CanvasTextDrawingStyles (Types t)}
     -> t
-    -> Attribute True I CanvasTextBaseline
+    -> Attribute True Prelude.id CanvasTextBaseline
   textBaseline v = fromPrim
                      "CanvasTextDrawingStyles.gettextBaseline"
                      prim__textBaseline
@@ -9591,7 +9591,7 @@ namespace ElementContentEditable
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ElementContentEditable (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   contentEditable v = fromPrim
                         "ElementContentEditable.getcontentEditable"
                         prim__contentEditable
@@ -9604,7 +9604,7 @@ namespace ElementContentEditable
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ElementContentEditable (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   enterKeyHint v = fromPrim
                      "ElementContentEditable.getenterKeyHint"
                      prim__enterKeyHint
@@ -9617,7 +9617,7 @@ namespace ElementContentEditable
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ElementContentEditable (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   inputMode v = fromPrim
                   "ElementContentEditable.getinputMode"
                   prim__inputMode
@@ -10504,7 +10504,7 @@ namespace HTMLHyperlinkElementUtils
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   hash v = fromPrim
              "HTMLHyperlinkElementUtils.gethash"
              prim__hash
@@ -10517,7 +10517,7 @@ namespace HTMLHyperlinkElementUtils
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   host v = fromPrim
              "HTMLHyperlinkElementUtils.gethost"
              prim__host
@@ -10530,7 +10530,7 @@ namespace HTMLHyperlinkElementUtils
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   hostname v = fromPrim
                  "HTMLHyperlinkElementUtils.gethostname"
                  prim__hostname
@@ -10543,7 +10543,7 @@ namespace HTMLHyperlinkElementUtils
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   href v = fromPrim
              "HTMLHyperlinkElementUtils.gethref"
              prim__href
@@ -10565,7 +10565,7 @@ namespace HTMLHyperlinkElementUtils
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   password v = fromPrim
                  "HTMLHyperlinkElementUtils.getpassword"
                  prim__password
@@ -10578,7 +10578,7 @@ namespace HTMLHyperlinkElementUtils
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   pathname v = fromPrim
                  "HTMLHyperlinkElementUtils.getpathname"
                  prim__pathname
@@ -10591,7 +10591,7 @@ namespace HTMLHyperlinkElementUtils
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   port v = fromPrim
              "HTMLHyperlinkElementUtils.getport"
              prim__port
@@ -10604,7 +10604,7 @@ namespace HTMLHyperlinkElementUtils
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   protocol v = fromPrim
                  "HTMLHyperlinkElementUtils.getprotocol"
                  prim__protocol
@@ -10617,7 +10617,7 @@ namespace HTMLHyperlinkElementUtils
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   search v = fromPrim
                "HTMLHyperlinkElementUtils.getsearch"
                prim__search
@@ -10630,7 +10630,7 @@ namespace HTMLHyperlinkElementUtils
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   username v = fromPrim
                  "HTMLHyperlinkElementUtils.getusername"
                  prim__username
@@ -10646,7 +10646,7 @@ namespace HTMLOrSVGElement
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLOrSVGElement (Types t)}
     -> t
-    -> Attribute True I Bool
+    -> Attribute True Prelude.id Bool
   autofocus v = fromPrim
                   "HTMLOrSVGElement.getautofocus"
                   prim__autofocus
@@ -10668,7 +10668,7 @@ namespace HTMLOrSVGElement
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLOrSVGElement (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   nonce v = fromPrim
               "HTMLOrSVGElement.getnonce"
               prim__nonce
@@ -10681,7 +10681,7 @@ namespace HTMLOrSVGElement
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem HTMLOrSVGElement (Types t)}
     -> t
-    -> Attribute True I Int32
+    -> Attribute True Prelude.id Int32
   tabIndex v = fromPrim
                  "HTMLOrSVGElement.gettabIndex"
                  prim__tabIndex
@@ -11269,7 +11269,7 @@ namespace WindowOrWorkerGlobalScope
     -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
     -> {auto 0 _ : Elem ImageBitmapOptions (Types t3)}
     -> (obj : t1)
-    -> (image : NS I
+    -> (image : HSum
                   [ HTMLImageElement
                   , SVGImageElement
                   , HTMLVideoElement
@@ -11289,7 +11289,7 @@ namespace WindowOrWorkerGlobalScope
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
     -> (obj : t1)
-    -> (image : NS I
+    -> (image : HSum
                   [ HTMLImageElement
                   , SVGImageElement
                   , HTMLVideoElement
@@ -11311,7 +11311,7 @@ namespace WindowOrWorkerGlobalScope
     -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
     -> {auto 0 _ : Elem ImageBitmapOptions (Types t7)}
     -> (obj : t1)
-    -> (image : NS I
+    -> (image : HSum
                   [ HTMLImageElement
                   , SVGImageElement
                   , HTMLVideoElement
@@ -11342,7 +11342,7 @@ namespace WindowOrWorkerGlobalScope
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
     -> (obj : t1)
-    -> (image : NS I
+    -> (image : HSum
                   [ HTMLImageElement
                   , SVGImageElement
                   , HTMLVideoElement
@@ -11375,7 +11375,7 @@ namespace WindowOrWorkerGlobalScope
     -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
     -> {auto 0 _ : Elem RequestInit (Types t3)}
     -> (obj : t1)
-    -> (input : NS I [Request, String])
+    -> (input : HSum [Request, String])
     -> (init : Optional t3)
     -> JSIO (Promise Response)
   fetch' a b c = primJS $
@@ -11386,7 +11386,7 @@ namespace WindowOrWorkerGlobalScope
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
     -> (obj : t1)
-    -> (input : NS I [Request, String])
+    -> (input : HSum [Request, String])
     -> JSIO (Promise Response)
   fetch a b = primJS $
     WindowOrWorkerGlobalScope.prim__fetch (up a) (toFFI b) undef
@@ -11776,7 +11776,7 @@ namespace FormDataEventInit
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem FormDataEventInit (Types t)}
     -> t
-    -> Attribute True I FormData
+    -> Attribute True Prelude.id FormData
   formData v = fromPrim
                  "FormDataEventInit.getformData"
                  prim__formData
@@ -12009,7 +12009,7 @@ namespace MessageEventInit
     -> (origin : Optional String)
     -> (lastEventId : Optional String)
     -> (source : Optional
-                   (Maybe (NS I [WindowProxy, MessagePort, ServiceWorker])))
+                   (Maybe (HSum [WindowProxy, MessagePort, ServiceWorker])))
     -> (ports : Optional (Array MessagePort))
     -> JSIO MessageEventInit
   new' a b c d e = primJS $
@@ -12190,7 +12190,7 @@ namespace PromiseRejectionEventInit
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem PromiseRejectionEventInit (Types t)}
     -> t
-    -> Attribute True I (Promise AnyPtr)
+    -> Attribute True Prelude.id (Promise AnyPtr)
   promise v = fromPrim
                 "PromiseRejectionEventInit.getpromise"
                 prim__promise
@@ -12360,7 +12360,7 @@ namespace TrackEventInit
 
   export
   new' :
-       (track : Optional (Maybe (NS I [VideoTrack, AudioTrack, TextTrack])))
+       (track : Optional (Maybe (HSum [VideoTrack, AudioTrack, TextTrack])))
     -> JSIO TrackEventInit
   new' a = primJS $ TrackEventInit.prim__new (toFFI a)
 
@@ -12375,7 +12375,7 @@ namespace TrackEventInit
     -> {auto 0 _ : Elem TrackEventInit (Types t)}
     -> t
     -> Attribute True Optional (Maybe
-                                  (NS I [VideoTrack, AudioTrack, TextTrack]))
+                                  (HSum [VideoTrack, AudioTrack, TextTrack]))
   track v = fromUndefOrPrim
               "TrackEventInit.gettrack"
               prim__track

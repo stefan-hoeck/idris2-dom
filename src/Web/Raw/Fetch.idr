@@ -16,7 +16,7 @@ namespace Headers
   export
   new' :
        (init : Optional
-                 (NS I
+                 (HSum
                     [Array (Array ByteString), Record ByteString ByteString]))
     -> JSIO Headers
   new' a = primJS $ Headers.prim__new (toFFI a)
@@ -66,13 +66,13 @@ namespace Request
   new' :
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem RequestInit (Types t2)}
-    -> (input : NS I [Request, String])
+    -> (input : HSum [Request, String])
     -> (init : Optional t2)
     -> JSIO Request
   new' a b = primJS $ Request.prim__new (toFFI a) (optUp b)
 
   export
-  new : (input : NS I [Request, String]) -> JSIO Request
+  new : (input : HSum [Request, String]) -> JSIO Request
   new a = primJS $ Request.prim__new (toFFI a) undef
 
 
@@ -168,7 +168,7 @@ namespace Response
     -> {auto 0 _ : Elem ResponseInit (Types t2)}
     -> (body : Optional
                  (Maybe
-                    (NS I
+                    (HSum
                        [ ReadableStream
                        , Blob
                        , Int8Array
@@ -332,13 +332,13 @@ namespace RequestInit
   new' :
        (method : Optional ByteString)
     -> (headers : Optional
-                    (NS I
+                    (HSum
                        [ Array (Array ByteString)
                        , Record ByteString ByteString
                        ]))
     -> (body : Optional
                  (Maybe
-                    (NS I
+                    (HSum
                        [ ReadableStream
                        , Blob
                        , Int8Array
@@ -598,7 +598,7 @@ namespace ResponseInit
        (status : Optional Bits16)
     -> (statusText : Optional ByteString)
     -> (headers : Optional
-                    (NS I
+                    (HSum
                        [ Array (Array ByteString)
                        , Record ByteString ByteString
                        ]))

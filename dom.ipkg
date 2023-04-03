@@ -6,7 +6,6 @@ version    = 0.1.0
 sourcedir  = "src"
 depends    = base         >= 0.6.0
            , js
-           , sop
            , elab-util
 
 modules = Web.Dom

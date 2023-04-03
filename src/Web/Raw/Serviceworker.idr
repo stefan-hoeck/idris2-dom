@@ -24,7 +24,7 @@ namespace Cache
   export
   add :
        (obj : Cache)
-    -> (request : NS I [Request, String])
+    -> (request : HSum [Request, String])
     -> JSIO (Promise Undefined)
   add a b = primJS $ Cache.prim__add a (toFFI b)
 
@@ -34,7 +34,7 @@ namespace Cache
        {auto 0 _ : JSType t3}
     -> {auto 0 _ : Elem CacheQueryOptions (Types t3)}
     -> (obj : Cache)
-    -> (request : NS I [Request, String])
+    -> (request : HSum [Request, String])
     -> (options : Optional t3)
     -> JSIO (Promise Boolean)
   delete' a b c = primJS $ Cache.prim__delete a (toFFI b) (optUp c)
@@ -42,7 +42,7 @@ namespace Cache
   export
   delete :
        (obj : Cache)
-    -> (request : NS I [Request, String])
+    -> (request : HSum [Request, String])
     -> JSIO (Promise Boolean)
   delete a b = primJS $ Cache.prim__delete a (toFFI b) undef
 
@@ -52,7 +52,7 @@ namespace Cache
        {auto 0 _ : JSType t3}
     -> {auto 0 _ : Elem CacheQueryOptions (Types t3)}
     -> (obj : Cache)
-    -> (request : Optional (NS I [Request, String]))
+    -> (request : Optional (HSum [Request, String]))
     -> (options : Optional t3)
     -> JSIO (Promise (Array Request))
   keys' a b c = primJS $ Cache.prim__keys a (toFFI b) (optUp c)
@@ -67,7 +67,7 @@ namespace Cache
        {auto 0 _ : JSType t3}
     -> {auto 0 _ : Elem CacheQueryOptions (Types t3)}
     -> (obj : Cache)
-    -> (request : Optional (NS I [Request, String]))
+    -> (request : Optional (HSum [Request, String]))
     -> (options : Optional t3)
     -> JSIO (Promise (Array Response))
   matchAll' a b c = primJS $ Cache.prim__matchAll a (toFFI b) (optUp c)
@@ -82,7 +82,7 @@ namespace Cache
        {auto 0 _ : JSType t3}
     -> {auto 0 _ : Elem CacheQueryOptions (Types t3)}
     -> (obj : Cache)
-    -> (request : NS I [Request, String])
+    -> (request : HSum [Request, String])
     -> (options : Optional t3)
     -> JSIO (Promise (Union2 Response Undefined))
   match' a b c = primJS $ Cache.prim__match a (toFFI b) (optUp c)
@@ -90,7 +90,7 @@ namespace Cache
   export
   match :
        (obj : Cache)
-    -> (request : NS I [Request, String])
+    -> (request : HSum [Request, String])
     -> JSIO (Promise (Union2 Response Undefined))
   match a b = primJS $ Cache.prim__match a (toFFI b) undef
 
@@ -98,7 +98,7 @@ namespace Cache
   export
   put :
        (obj : Cache)
-    -> (request : NS I [Request, String])
+    -> (request : HSum [Request, String])
     -> (response : Response)
     -> JSIO (Promise Undefined)
   put a b c = primJS $ Cache.prim__put a (toFFI b) c
@@ -130,7 +130,7 @@ namespace CacheStorage
        {auto 0 _ : JSType t3}
     -> {auto 0 _ : Elem MultiCacheQueryOptions (Types t3)}
     -> (obj : CacheStorage)
-    -> (request : NS I [Request, String])
+    -> (request : HSum [Request, String])
     -> (options : Optional t3)
     -> JSIO (Promise (Union2 Response Undefined))
   match' a b c = primJS $ CacheStorage.prim__match a (toFFI b) (optUp c)
@@ -138,7 +138,7 @@ namespace CacheStorage
   export
   match :
        (obj : CacheStorage)
-    -> (request : NS I [Request, String])
+    -> (request : HSum [Request, String])
     -> JSIO (Promise (Union2 Response Undefined))
   match a b = primJS $ CacheStorage.prim__match a (toFFI b) undef
 
@@ -327,7 +327,7 @@ namespace ExtendableMessageEvent
   export
   source :
        (obj : ExtendableMessageEvent)
-    -> JSIO (Maybe (NS I [Client, ServiceWorker, MessagePort]))
+    -> JSIO (Maybe (HSum [Client, ServiceWorker, MessagePort]))
   source a = tryJS "ExtendableMessageEvent.source" $
     ExtendableMessageEvent.prim__source a
 
@@ -849,7 +849,7 @@ namespace ExtendableMessageEventInit
        (data_ : Optional Any)
     -> (origin : Optional String)
     -> (lastEventId : Optional String)
-    -> (source : Optional (Maybe (NS I [Client, ServiceWorker, MessagePort])))
+    -> (source : Optional (Maybe (HSum [Client, ServiceWorker, MessagePort])))
     -> (ports : Optional (Array MessagePort))
     -> JSIO ExtendableMessageEventInit
   new' a b c d e = primJS $
@@ -927,7 +927,7 @@ namespace ExtendableMessageEventInit
     -> {auto 0 _ : Elem ExtendableMessageEventInit (Types t)}
     -> t
     -> Attribute True Optional (Maybe
-                                  (NS I [Client, ServiceWorker, MessagePort]))
+                                  (HSum [Client, ServiceWorker, MessagePort]))
   source v = fromUndefOrPrim
                "ExtendableMessageEventInit.getsource"
                prim__source
@@ -1015,7 +1015,7 @@ namespace FetchEventInit
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem FetchEventInit (Types t)}
     -> t
-    -> Attribute True I Request
+    -> Attribute True Prelude.id Request
   request v = fromPrim
                 "FetchEventInit.getrequest"
                 prim__request

@@ -2,9 +2,8 @@ module JS.Inheritance
 
 import Control.Monad.Either
 import JS.Util
-import Data.List.Elem
+import Data.List.Quantifiers.Extra
 import Data.String
-import Data.SOP
 
 %default total
 
@@ -105,10 +104,11 @@ castTo _ v = safeCast v
 ||| casts. The first successful cast will determine the
 ||| result.
 export
-safeCastNS : (np : NP SafeCast ts) => x -> Maybe (NS I ts)
-safeCastNS x = choiceMap runNS $ apInjsNP np
-  where runNS : NS SafeCast ts -> Maybe (NS I ts)
-        runNS = htraverse (\sc => safeCast x)
+safeCastAny : (prf : All SafeCast ts) => x -> Maybe (HSum ts)
+safeCastAny @{[]}     x = Nothing
+safeCastAny @{h :: t} x = case safeCast @{h} x of
+  Just v  => Just $ Here v
+  Nothing => There <$> safeCastAny @{t} x
 
 ||| This is a utility function to implement instances of
 ||| `SafeCast`. Only use, if you know what you are doing.

@@ -230,7 +230,7 @@ namespace MediaStream
 namespace MediaStreamTrack
 
   export
-  enabled : MediaStreamTrack -> Attribute True I Bool
+  enabled : MediaStreamTrack -> Attribute True Prelude.id Bool
   enabled v = fromPrim
                 "MediaStreamTrack.getenabled"
                 prim__enabled
@@ -429,8 +429,8 @@ namespace ConstrainDOMStringParameters
 
   export
   new' :
-       (exact : Optional (NS I [String, Array String]))
-    -> (ideal : Optional (NS I [String, Array String]))
+       (exact : Optional (HSum [String, Array String]))
+    -> (ideal : Optional (HSum [String, Array String]))
     -> JSIO ConstrainDOMStringParameters
   new' a b = primJS $ ConstrainDOMStringParameters.prim__new (toFFI a) (toFFI b)
 
@@ -623,8 +623,8 @@ namespace MediaStreamConstraints
 
   export
   new' :
-       (video : Optional (NS I [Bool, MediaTrackConstraints]))
-    -> (audio : Optional (NS I [Bool, MediaTrackConstraints]))
+       (video : Optional (HSum [Bool, MediaTrackConstraints]))
+    -> (audio : Optional (HSum [Bool, MediaTrackConstraints]))
     -> JSIO MediaStreamConstraints
   new' a b = primJS $ MediaStreamConstraints.prim__new (toFFI a) (toFFI b)
 
@@ -672,7 +672,7 @@ namespace MediaStreamTrackEventInit
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem MediaStreamTrackEventInit (Types t)}
     -> t
-    -> Attribute True I MediaStreamTrack
+    -> Attribute True Prelude.id MediaStreamTrack
   track v = fromPrim
               "MediaStreamTrackEventInit.gettrack"
               prim__track
@@ -956,28 +956,28 @@ namespace MediaTrackConstraintSet
 
   export
   new' :
-       (width : Optional (NS I [Bits32, ConstrainULongRange]))
-    -> (height : Optional (NS I [Bits32, ConstrainULongRange]))
-    -> (aspectRatio : Optional (NS I [Double, ConstrainDoubleRange]))
-    -> (frameRate : Optional (NS I [Double, ConstrainDoubleRange]))
+       (width : Optional (HSum [Bits32, ConstrainULongRange]))
+    -> (height : Optional (HSum [Bits32, ConstrainULongRange]))
+    -> (aspectRatio : Optional (HSum [Double, ConstrainDoubleRange]))
+    -> (frameRate : Optional (HSum [Double, ConstrainDoubleRange]))
     -> (facingMode : Optional
-                       (NS I
+                       (HSum
                           [String, Array String, ConstrainDOMStringParameters]))
     -> (resizeMode : Optional
-                       (NS I
+                       (HSum
                           [String, Array String, ConstrainDOMStringParameters]))
-    -> (sampleRate : Optional (NS I [Bits32, ConstrainULongRange]))
-    -> (sampleSize : Optional (NS I [Bits32, ConstrainULongRange]))
-    -> (echoCancellation : Optional (NS I [Bool, ConstrainBooleanParameters]))
-    -> (autoGainControl : Optional (NS I [Bool, ConstrainBooleanParameters]))
-    -> (noiseSuppression : Optional (NS I [Bool, ConstrainBooleanParameters]))
-    -> (latency : Optional (NS I [Double, ConstrainDoubleRange]))
-    -> (channelCount : Optional (NS I [Bits32, ConstrainULongRange]))
+    -> (sampleRate : Optional (HSum [Bits32, ConstrainULongRange]))
+    -> (sampleSize : Optional (HSum [Bits32, ConstrainULongRange]))
+    -> (echoCancellation : Optional (HSum [Bool, ConstrainBooleanParameters]))
+    -> (autoGainControl : Optional (HSum [Bool, ConstrainBooleanParameters]))
+    -> (noiseSuppression : Optional (HSum [Bool, ConstrainBooleanParameters]))
+    -> (latency : Optional (HSum [Double, ConstrainDoubleRange]))
+    -> (channelCount : Optional (HSum [Bits32, ConstrainULongRange]))
     -> (deviceId : Optional
-                     (NS I
+                     (HSum
                         [String, Array String, ConstrainDOMStringParameters]))
     -> (groupId : Optional
-                    (NS I [String, Array String, ConstrainDOMStringParameters]))
+                    (HSum [String, Array String, ConstrainDOMStringParameters]))
     -> JSIO MediaTrackConstraintSet
   new' a b c d e f g h i j k l m n o = primJS $
     MediaTrackConstraintSet.prim__new

@@ -136,7 +136,7 @@ namespace PermissionDescriptor
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem PermissionDescriptor (Types t)}
     -> t
-    -> Attribute True I PermissionName
+    -> Attribute True Prelude.id PermissionName
   name v = fromPrim
              "PermissionDescriptor.getname"
              prim__name
@@ -173,7 +173,7 @@ namespace PermissionSetParameters
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem PermissionSetParameters (Types t)}
     -> t
-    -> Attribute True I PermissionDescriptor
+    -> Attribute True Prelude.id PermissionDescriptor
   descriptor v = fromPrim
                    "PermissionSetParameters.getdescriptor"
                    prim__descriptor
@@ -200,7 +200,7 @@ namespace PermissionSetParameters
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem PermissionSetParameters (Types t)}
     -> t
-    -> Attribute True I PermissionState
+    -> Attribute True Prelude.id PermissionState
   state v = fromPrim
               "PermissionSetParameters.getstate"
               prim__state
