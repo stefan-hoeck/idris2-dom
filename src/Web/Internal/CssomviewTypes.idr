@@ -35,13 +35,6 @@ namespace ScrollBehavior
   read "smooth" = Just Smooth
   read _ = Nothing
 
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (ScrollBehavior.read s)}
-    -> ScrollBehavior
-  fromString s = fromJust $ read s
-
   export
   ToFFI ScrollBehavior String where
     toFFI = show
@@ -79,13 +72,6 @@ namespace ScrollLogicalPosition
   read "nearest" = Just Nearest
   read _ = Nothing
 
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (ScrollLogicalPosition.read s)}
-    -> ScrollLogicalPosition
-  fromString s = fromJust $ read s
-
   export
   ToFFI ScrollLogicalPosition String where
     toFFI = show
@@ -122,13 +108,6 @@ namespace CSSBoxType
   read "padding" = Just Padding
   read "content" = Just Content
   read _ = Nothing
-
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (CSSBoxType.read s)}
-    -> CSSBoxType
-  fromString s = fromJust $ read s
 
   export
   ToFFI CSSBoxType String where

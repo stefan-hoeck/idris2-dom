@@ -89,13 +89,6 @@ namespace RequestDestination
   read "xslt" = Just Xslt
   read _ = Nothing
 
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (RequestDestination.read s)}
-    -> RequestDestination
-  fromString s = fromJust $ read s
-
   export
   ToFFI RequestDestination String where
     toFFI = show
@@ -133,13 +126,6 @@ namespace RequestMode
   read "cors" = Just Cors
   read _ = Nothing
 
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (RequestMode.read s)}
-    -> RequestMode
-  fromString s = fromJust $ read s
-
   export
   ToFFI RequestMode String where
     toFFI = show
@@ -174,13 +160,6 @@ namespace RequestCredentials
   read "same-origin" = Just SameOrigin
   read "include" = Just Include
   read _ = Nothing
-
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (RequestCredentials.read s)}
-    -> RequestCredentials
-  fromString s = fromJust $ read s
 
   export
   ToFFI RequestCredentials String where
@@ -229,13 +208,6 @@ namespace RequestCache
   read "only-if-cached" = Just OnlyIfCached
   read _ = Nothing
 
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (RequestCache.read s)}
-    -> RequestCache
-  fromString s = fromJust $ read s
-
   export
   ToFFI RequestCache String where
     toFFI = show
@@ -270,13 +242,6 @@ namespace RequestRedirect
   read "error" = Just Error
   read "manual" = Just Manual
   read _ = Nothing
-
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (RequestRedirect.read s)}
-    -> RequestRedirect
-  fromString s = fromJust $ read s
 
   export
   ToFFI RequestRedirect String where
@@ -318,13 +283,6 @@ namespace ResponseType
   read "opaque" = Just Opaque
   read "opaqueredirect" = Just Opaqueredirect
   read _ = Nothing
-
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (ResponseType.read s)}
-    -> ResponseType
-  fromString s = fromJust $ read s
 
   export
   ToFFI ResponseType String where
@@ -381,13 +339,6 @@ namespace ReferrerPolicy
   read "strict-origin-when-cross-origin" = Just StrictOriginWhenCrossOrigin
   read "unsafe-url" = Just UnsafeUrl
   read _ = Nothing
-
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (ReferrerPolicy.read s)}
-    -> ReferrerPolicy
-  fromString s = fromJust $ read s
 
   export
   ToFFI ReferrerPolicy String where

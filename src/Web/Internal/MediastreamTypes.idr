@@ -33,13 +33,6 @@ namespace MediaStreamTrackState
   read "ended" = Just Ended
   read _ = Nothing
 
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (MediaStreamTrackState.read s)}
-    -> MediaStreamTrackState
-  fromString s = fromJust $ read s
-
   export
   ToFFI MediaStreamTrackState String where
     toFFI = show
@@ -77,13 +70,6 @@ namespace VideoFacingModeEnum
   read "right" = Just Right
   read _ = Nothing
 
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (VideoFacingModeEnum.read s)}
-    -> VideoFacingModeEnum
-  fromString s = fromJust $ read s
-
   export
   ToFFI VideoFacingModeEnum String where
     toFFI = show
@@ -116,13 +102,6 @@ namespace VideoResizeModeEnum
   read "none" = Just None
   read "crop-and-scale" = Just CropAndScale
   read _ = Nothing
-
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (VideoResizeModeEnum.read s)}
-    -> VideoResizeModeEnum
-  fromString s = fromJust $ read s
 
   export
   ToFFI VideoResizeModeEnum String where
@@ -158,13 +137,6 @@ namespace MediaDeviceKind
   read "audiooutput" = Just Audiooutput
   read "videoinput" = Just Videoinput
   read _ = Nothing
-
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (MediaDeviceKind.read s)}
-    -> MediaDeviceKind
-  fromString s = fromJust $ read s
 
   export
   ToFFI MediaDeviceKind String where

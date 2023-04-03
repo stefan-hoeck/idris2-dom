@@ -33,13 +33,6 @@ namespace IDBRequestReadyState
   read "done" = Just Done
   read _ = Nothing
 
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (IDBRequestReadyState.read s)}
-    -> IDBRequestReadyState
-  fromString s = fromJust $ read s
-
   export
   ToFFI IDBRequestReadyState String where
     toFFI = show
@@ -74,13 +67,6 @@ namespace IDBTransactionDurability
   read "strict" = Just Strict
   read "relaxed" = Just Relaxed
   read _ = Nothing
-
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (IDBTransactionDurability.read s)}
-    -> IDBTransactionDurability
-  fromString s = fromJust $ read s
 
   export
   ToFFI IDBTransactionDurability String where
@@ -119,13 +105,6 @@ namespace IDBCursorDirection
   read "prevunique" = Just Prevunique
   read _ = Nothing
 
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (IDBCursorDirection.read s)}
-    -> IDBCursorDirection
-  fromString s = fromJust $ read s
-
   export
   ToFFI IDBCursorDirection String where
     toFFI = show
@@ -160,13 +139,6 @@ namespace IDBTransactionMode
   read "readwrite" = Just Readwrite
   read "versionchange" = Just Versionchange
   read _ = Nothing
-
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (IDBTransactionMode.read s)}
-    -> IDBTransactionMode
-  fromString s = fromJust $ read s
 
   export
   ToFFI IDBTransactionMode String where

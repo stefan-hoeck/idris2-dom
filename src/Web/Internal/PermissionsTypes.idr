@@ -35,13 +35,6 @@ namespace PermissionState
   read "prompt" = Just Prompt
   read _ = Nothing
 
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (PermissionState.read s)}
-    -> PermissionState
-  fromString s = fromJust $ read s
-
   export
   ToFFI PermissionState String where
     toFFI = show
@@ -130,13 +123,6 @@ namespace PermissionName
   read "display-capture" = Just DisplayCapture
   read "nfc" = Just Nfc
   read _ = Nothing
-
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (PermissionName.read s)}
-    -> PermissionName
-  fromString s = fromJust $ read s
 
   export
   ToFFI PermissionName String where

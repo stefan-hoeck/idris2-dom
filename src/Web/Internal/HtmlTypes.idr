@@ -44,13 +44,6 @@ namespace DOMParserSupportedType
   read "image/svg+xml" = Just ImageSvgXml
   read _ = Nothing
 
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (DOMParserSupportedType.read s)}
-    -> DOMParserSupportedType
-  fromString s = fromJust $ read s
-
   export
   ToFFI DOMParserSupportedType String where
     toFFI = show
@@ -85,13 +78,6 @@ namespace DocumentReadyState
   read "interactive" = Just Interactive
   read "complete" = Just Complete
   read _ = Nothing
-
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (DocumentReadyState.read s)}
-    -> DocumentReadyState
-  fromString s = fromJust $ read s
 
   export
   ToFFI DocumentReadyState String where
@@ -128,13 +114,6 @@ namespace CanPlayTypeResult
   read "probably" = Just Probably
   read _ = Nothing
 
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (CanPlayTypeResult.read s)}
-    -> CanPlayTypeResult
-  fromString s = fromJust $ read s
-
   export
   ToFFI CanPlayTypeResult String where
     toFFI = show
@@ -168,13 +147,6 @@ namespace ScrollRestoration
   read "manual" = Just Manual
   read _ = Nothing
 
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (ScrollRestoration.read s)}
-    -> ScrollRestoration
-  fromString s = fromJust $ read s
-
   export
   ToFFI ScrollRestoration String where
     toFFI = show
@@ -207,13 +179,6 @@ namespace ImageOrientation
   read "none" = Just None
   read "flipY" = Just FlipY
   read _ = Nothing
-
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (ImageOrientation.read s)}
-    -> ImageOrientation
-  fromString s = fromJust $ read s
 
   export
   ToFFI ImageOrientation String where
@@ -250,13 +215,6 @@ namespace PremultiplyAlpha
   read "default" = Just Default
   read _ = Nothing
 
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (PremultiplyAlpha.read s)}
-    -> PremultiplyAlpha
-  fromString s = fromJust $ read s
-
   export
   ToFFI PremultiplyAlpha String where
     toFFI = show
@@ -289,13 +247,6 @@ namespace ColorSpaceConversion
   read "none" = Just None
   read "default" = Just Default
   read _ = Nothing
-
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (ColorSpaceConversion.read s)}
-    -> ColorSpaceConversion
-  fromString s = fromJust $ read s
 
   export
   ToFFI ColorSpaceConversion String where
@@ -334,13 +285,6 @@ namespace ResizeQuality
   read "high" = Just High
   read _ = Nothing
 
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (ResizeQuality.read s)}
-    -> ResizeQuality
-  fromString s = fromJust $ read s
-
   export
   ToFFI ResizeQuality String where
     toFFI = show
@@ -373,13 +317,6 @@ namespace CanvasFillRule
   read "nonzero" = Just Nonzero
   read "evenodd" = Just Evenodd
   read _ = Nothing
-
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (CanvasFillRule.read s)}
-    -> CanvasFillRule
-  fromString s = fromJust $ read s
 
   export
   ToFFI CanvasFillRule String where
@@ -416,13 +353,6 @@ namespace ImageSmoothingQuality
   read "high" = Just High
   read _ = Nothing
 
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (ImageSmoothingQuality.read s)}
-    -> ImageSmoothingQuality
-  fromString s = fromJust $ read s
-
   export
   ToFFI ImageSmoothingQuality String where
     toFFI = show
@@ -458,13 +388,6 @@ namespace CanvasLineCap
   read "square" = Just Square
   read _ = Nothing
 
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (CanvasLineCap.read s)}
-    -> CanvasLineCap
-  fromString s = fromJust $ read s
-
   export
   ToFFI CanvasLineCap String where
     toFFI = show
@@ -499,13 +422,6 @@ namespace CanvasLineJoin
   read "bevel" = Just Bevel
   read "miter" = Just Miter
   read _ = Nothing
-
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (CanvasLineJoin.read s)}
-    -> CanvasLineJoin
-  fromString s = fromJust $ read s
 
   export
   ToFFI CanvasLineJoin String where
@@ -545,13 +461,6 @@ namespace CanvasTextAlign
   read "right" = Just Right
   read "center" = Just Center
   read _ = Nothing
-
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (CanvasTextAlign.read s)}
-    -> CanvasTextAlign
-  fromString s = fromJust $ read s
 
   export
   ToFFI CanvasTextAlign String where
@@ -600,13 +509,6 @@ namespace CanvasTextBaseline
   read "bottom" = Just Bottom
   read _ = Nothing
 
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (CanvasTextBaseline.read s)}
-    -> CanvasTextBaseline
-  fromString s = fromJust $ read s
-
   export
   ToFFI CanvasTextBaseline String where
     toFFI = show
@@ -641,13 +543,6 @@ namespace CanvasDirection
   read "rtl" = Just Rtl
   read "inherit" = Just Inherit
   read _ = Nothing
-
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (CanvasDirection.read s)}
-    -> CanvasDirection
-  fromString s = fromJust $ read s
 
   export
   ToFFI CanvasDirection String where
@@ -686,13 +581,6 @@ namespace OffscreenRenderingContextId
   read "webgl2" = Just Webgl2
   read _ = Nothing
 
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (OffscreenRenderingContextId.read s)}
-    -> OffscreenRenderingContextId
-  fromString s = fromJust $ read s
-
   export
   ToFFI OffscreenRenderingContextId String where
     toFFI = show
@@ -727,13 +615,6 @@ namespace TextTrackMode
   read "hidden" = Just Hidden
   read "showing" = Just Showing
   read _ = Nothing
-
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (TextTrackMode.read s)}
-    -> TextTrackMode
-  fromString s = fromJust $ read s
 
   export
   ToFFI TextTrackMode String where
@@ -774,13 +655,6 @@ namespace TextTrackKind
   read "metadata" = Just Metadata
   read _ = Nothing
 
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (TextTrackKind.read s)}
-    -> TextTrackKind
-  fromString s = fromJust $ read s
-
   export
   ToFFI TextTrackKind String where
     toFFI = show
@@ -814,13 +688,6 @@ namespace BinaryType
   read "arraybuffer" = Just Arraybuffer
   read _ = Nothing
 
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (BinaryType.read s)}
-    -> BinaryType
-  fromString s = fromJust $ read s
-
   export
   ToFFI BinaryType String where
     toFFI = show
@@ -853,13 +720,6 @@ namespace WorkerType
   read "classic" = Just Classic
   read "module" = Just Module
   read _ = Nothing
-
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (WorkerType.read s)}
-    -> WorkerType
-  fromString s = fromJust $ read s
 
   export
   ToFFI WorkerType String where
@@ -897,13 +757,6 @@ namespace SelectionMode
   read "end" = Just End
   read "preserve" = Just Preserve
   read _ = Nothing
-
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (SelectionMode.read s)}
-    -> SelectionMode
-  fromString s = fromJust $ read s
 
   export
   ToFFI SelectionMode String where

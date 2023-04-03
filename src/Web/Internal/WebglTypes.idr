@@ -35,13 +35,6 @@ namespace WebGLPowerPreference
   read "high-performance" = Just HighPerformance
   read _ = Nothing
 
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (WebGLPowerPreference.read s)}
-    -> WebGLPowerPreference
-  fromString s = fromJust $ read s
-
   export
   ToFFI WebGLPowerPreference String where
     toFFI = show
