@@ -226,16 +226,24 @@ namespace AnimationEffect
 
 
   export
-  updateTiming :
+  updateTiming' :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem AnimationEffect (Types t1)}
     -> {auto 0 _ : Elem OptionalEffectTiming (Types t2)}
     -> (obj : t1)
-    -> {default Undef timing : Optional t2}
+    -> (timing : Optional t2)
     -> JSIO ()
-  updateTiming a = primJS $
-    AnimationEffect.prim__updateTiming (up a) (optUp timing)
+  updateTiming' a b = primJS $
+    AnimationEffect.prim__updateTiming (up a) (optUp b)
+
+  export
+  updateTiming :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem AnimationEffect (Types t1)}
+    -> (obj : t1)
+    -> JSIO ()
+  updateTiming a = primJS $ AnimationEffect.prim__updateTiming (up a) undef
 
 
 
@@ -325,6 +333,18 @@ namespace KeyframeEffect
 namespace Animatable
 
   export
+  animate' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : JSType t2}
+    -> {auto 0 _ : Elem Animatable (Types t1)}
+    -> {auto 0 _ : Elem Object (Types t2)}
+    -> (obj : t1)
+    -> (keyframes : Maybe t2)
+    -> (options : Optional (NS I [Double, KeyframeAnimationOptions]))
+    -> JSIO Animation
+  animate' a b c = primJS $ Animatable.prim__animate (up a) (mayUp b) (toFFI c)
+
+  export
   animate :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : JSType t2}
@@ -332,11 +352,8 @@ namespace Animatable
     -> {auto 0 _ : Elem Object (Types t2)}
     -> (obj : t1)
     -> (keyframes : Maybe t2)
-    -> {default Undef options : Optional
-                                  (NS I [Double, KeyframeAnimationOptions])}
     -> JSIO Animation
-  animate a b = primJS $
-    Animatable.prim__animate (up a) (mayUp b) (toFFI options)
+  animate a b = primJS $ Animatable.prim__animate (up a) (mayUp b) undef
 
 
   export
@@ -357,14 +374,15 @@ namespace Animatable
 namespace AnimationPlaybackEventInit
 
   export
-  new :
-       {default Undef currentTime : Optional (Maybe Double)}
-    -> {default Undef timelineTime : Optional (Maybe Double)}
+  new' :
+       (currentTime : Optional (Maybe Double))
+    -> (timelineTime : Optional (Maybe Double))
     -> JSIO AnimationPlaybackEventInit
-  new = primJS $
-    AnimationPlaybackEventInit.prim__new
-      (toFFI currentTime)
-      (toFFI timelineTime)
+  new' a b = primJS $ AnimationPlaybackEventInit.prim__new (toFFI a) (toFFI b)
+
+  export
+  new : JSIO AnimationPlaybackEventInit
+  new = primJS $ AnimationPlaybackEventInit.prim__new undef undef
 
 
   export
@@ -399,18 +417,18 @@ namespace AnimationPlaybackEventInit
 namespace BaseComputedKeyframe
 
   export
-  new :
-       {default Undef offset : Optional (Maybe Double)}
-    -> {default Undef computedOffset : Optional Double}
-    -> {default Undef easing : Optional String}
-    -> {default Undef composite : Optional CompositeOperationOrAuto}
+  new' :
+       (offset : Optional (Maybe Double))
+    -> (computedOffset : Optional Double)
+    -> (easing : Optional String)
+    -> (composite : Optional CompositeOperationOrAuto)
     -> JSIO BaseComputedKeyframe
-  new = primJS $
-    BaseComputedKeyframe.prim__new
-      (toFFI offset)
-      (toFFI computedOffset)
-      (toFFI easing)
-      (toFFI composite)
+  new' a b c d = primJS $
+    BaseComputedKeyframe.prim__new (toFFI a) (toFFI b) (toFFI c) (toFFI d)
+
+  export
+  new : JSIO BaseComputedKeyframe
+  new = primJS $ BaseComputedKeyframe.prim__new undef undef undef undef
 
 
   export
@@ -471,13 +489,16 @@ namespace BaseComputedKeyframe
 namespace BaseKeyframe
 
   export
-  new :
-       {default Undef offset : Optional (Maybe Double)}
-    -> {default Undef easing : Optional String}
-    -> {default Undef composite : Optional CompositeOperationOrAuto}
+  new' :
+       (offset : Optional (Maybe Double))
+    -> (easing : Optional String)
+    -> (composite : Optional CompositeOperationOrAuto)
     -> JSIO BaseKeyframe
-  new = primJS $
-    BaseKeyframe.prim__new (toFFI offset) (toFFI easing) (toFFI composite)
+  new' a b c = primJS $ BaseKeyframe.prim__new (toFFI a) (toFFI b) (toFFI c)
+
+  export
+  new : JSIO BaseKeyframe
+  new = primJS $ BaseKeyframe.prim__new undef undef undef
 
 
   export
@@ -525,22 +546,17 @@ namespace BaseKeyframe
 namespace BasePropertyIndexedKeyframe
 
   export
-  new :
-       {default Undef offset : Optional
-                                 (Maybe
-                                    (NS I [Double, Array (Nullable Double)]))}
-    -> {default Undef easing : Optional (NS I [String, Array String])}
-    -> {default Undef composite : Optional
-                                    (NS I
-                                       [ CompositeOperationOrAuto
-                                       , Array String
-                                       ])}
+  new' :
+       (offset : Optional (Maybe (NS I [Double, Array (Nullable Double)])))
+    -> (easing : Optional (NS I [String, Array String]))
+    -> (composite : Optional (NS I [CompositeOperationOrAuto, Array String]))
     -> JSIO BasePropertyIndexedKeyframe
-  new = primJS $
-    BasePropertyIndexedKeyframe.prim__new
-      (toFFI offset)
-      (toFFI easing)
-      (toFFI composite)
+  new' a b c = primJS $
+    BasePropertyIndexedKeyframe.prim__new (toFFI a) (toFFI b) (toFFI c)
+
+  export
+  new : JSIO BasePropertyIndexedKeyframe
+  new = primJS $ BasePropertyIndexedKeyframe.prim__new undef undef undef
 
 
   export
@@ -587,20 +603,24 @@ namespace BasePropertyIndexedKeyframe
 namespace ComputedEffectTiming
 
   export
-  new :
-       {default Undef endTime : Optional Double}
-    -> {default Undef activeDuration : Optional Double}
-    -> {default Undef localTime : Optional (Maybe Double)}
-    -> {default Undef progress : Optional (Maybe Double)}
-    -> {default Undef currentIteration : Optional (Maybe Double)}
+  new' :
+       (endTime : Optional Double)
+    -> (activeDuration : Optional Double)
+    -> (localTime : Optional (Maybe Double))
+    -> (progress : Optional (Maybe Double))
+    -> (currentIteration : Optional (Maybe Double))
     -> JSIO ComputedEffectTiming
-  new = primJS $
+  new' a b c d e = primJS $
     ComputedEffectTiming.prim__new
-      (toFFI endTime)
-      (toFFI activeDuration)
-      (toFFI localTime)
-      (toFFI progress)
-      (toFFI currentIteration)
+      (toFFI a)
+      (toFFI b)
+      (toFFI c)
+      (toFFI d)
+      (toFFI e)
+
+  export
+  new : JSIO ComputedEffectTiming
+  new = primJS $ ComputedEffectTiming.prim__new undef undef undef undef undef
 
 
   export
@@ -672,10 +692,12 @@ namespace ComputedEffectTiming
 namespace DocumentTimelineOptions
 
   export
-  new :
-       {default Undef originTime : Optional Double}
-    -> JSIO DocumentTimelineOptions
-  new = primJS $ DocumentTimelineOptions.prim__new (toFFI originTime)
+  new' : (originTime : Optional Double) -> JSIO DocumentTimelineOptions
+  new' a = primJS $ DocumentTimelineOptions.prim__new (toFFI a)
+
+  export
+  new : JSIO DocumentTimelineOptions
+  new = primJS $ DocumentTimelineOptions.prim__new undef
 
 
   export
@@ -696,26 +718,31 @@ namespace DocumentTimelineOptions
 namespace EffectTiming
 
   export
-  new :
-       {default Undef delay : Optional Double}
-    -> {default Undef endDelay : Optional Double}
-    -> {default Undef fill : Optional FillMode}
-    -> {default Undef iterationStart : Optional Double}
-    -> {default Undef iterations : Optional Double}
-    -> {default Undef duration : Optional (NS I [Double, String])}
-    -> {default Undef direction : Optional PlaybackDirection}
-    -> {default Undef easing : Optional String}
+  new' :
+       (delay : Optional Double)
+    -> (endDelay : Optional Double)
+    -> (fill : Optional FillMode)
+    -> (iterationStart : Optional Double)
+    -> (iterations : Optional Double)
+    -> (duration : Optional (NS I [Double, String]))
+    -> (direction : Optional PlaybackDirection)
+    -> (easing : Optional String)
     -> JSIO EffectTiming
-  new = primJS $
+  new' a b c d e f g h = primJS $
     EffectTiming.prim__new
-      (toFFI delay)
-      (toFFI endDelay)
-      (toFFI fill)
-      (toFFI iterationStart)
-      (toFFI iterations)
-      (toFFI duration)
-      (toFFI direction)
-      (toFFI easing)
+      (toFFI a)
+      (toFFI b)
+      (toFFI c)
+      (toFFI d)
+      (toFFI e)
+      (toFFI f)
+      (toFFI g)
+      (toFFI h)
+
+  export
+  new : JSIO EffectTiming
+  new = primJS $
+    EffectTiming.prim__new undef undef undef undef undef undef undef undef
 
 
   export
@@ -831,8 +858,12 @@ namespace EffectTiming
 namespace KeyframeAnimationOptions
 
   export
-  new : {default Undef id : Optional String} -> JSIO KeyframeAnimationOptions
-  new = primJS $ KeyframeAnimationOptions.prim__new (toFFI id)
+  new' : (id : Optional String) -> JSIO KeyframeAnimationOptions
+  new' a = primJS $ KeyframeAnimationOptions.prim__new (toFFI a)
+
+  export
+  new : JSIO KeyframeAnimationOptions
+  new = primJS $ KeyframeAnimationOptions.prim__new undef
 
 
   export
@@ -853,12 +884,15 @@ namespace KeyframeAnimationOptions
 namespace KeyframeEffectOptions
 
   export
-  new :
-       {default Undef iterationComposite : Optional IterationCompositeOperation}
-    -> {default Undef composite : Optional CompositeOperation}
+  new' :
+       (iterationComposite : Optional IterationCompositeOperation)
+    -> (composite : Optional CompositeOperation)
     -> JSIO KeyframeEffectOptions
-  new = primJS $
-    KeyframeEffectOptions.prim__new (toFFI iterationComposite) (toFFI composite)
+  new' a b = primJS $ KeyframeEffectOptions.prim__new (toFFI a) (toFFI b)
+
+  export
+  new : JSIO KeyframeEffectOptions
+  new = primJS $ KeyframeEffectOptions.prim__new undef undef
 
 
   export
@@ -891,26 +925,39 @@ namespace KeyframeEffectOptions
 namespace OptionalEffectTiming
 
   export
-  new :
-       {default Undef delay : Optional Double}
-    -> {default Undef endDelay : Optional Double}
-    -> {default Undef fill : Optional FillMode}
-    -> {default Undef iterationStart : Optional Double}
-    -> {default Undef iterations : Optional Double}
-    -> {default Undef duration : Optional (NS I [Double, String])}
-    -> {default Undef direction : Optional PlaybackDirection}
-    -> {default Undef easing : Optional String}
+  new' :
+       (delay : Optional Double)
+    -> (endDelay : Optional Double)
+    -> (fill : Optional FillMode)
+    -> (iterationStart : Optional Double)
+    -> (iterations : Optional Double)
+    -> (duration : Optional (NS I [Double, String]))
+    -> (direction : Optional PlaybackDirection)
+    -> (easing : Optional String)
     -> JSIO OptionalEffectTiming
+  new' a b c d e f g h = primJS $
+    OptionalEffectTiming.prim__new
+      (toFFI a)
+      (toFFI b)
+      (toFFI c)
+      (toFFI d)
+      (toFFI e)
+      (toFFI f)
+      (toFFI g)
+      (toFFI h)
+
+  export
+  new : JSIO OptionalEffectTiming
   new = primJS $
     OptionalEffectTiming.prim__new
-      (toFFI delay)
-      (toFFI endDelay)
-      (toFFI fill)
-      (toFFI iterationStart)
-      (toFFI iterations)
-      (toFFI duration)
-      (toFFI direction)
-      (toFFI easing)
+      undef
+      undef
+      undef
+      undef
+      undef
+      undef
+      undef
+      undef
 
 
   export
