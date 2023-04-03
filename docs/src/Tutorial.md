@@ -80,7 +80,7 @@ prog = do btn <- createElement Button
           textContent btn .= "Click me!"
           Element.id btn .= "the_button"
 
-          txt <- newElement Input [ type =. "text"
+          txt <- newElement Input [ HTMLInputElement.type =. "text"
                                   , placeholder =. "Enter your name here."
                                   ]
 
@@ -573,3 +573,6 @@ types this can be sometimes quite convenient.
 ### Web IDL members
 
 To be added...
+
+<!-- vi: filetype=idris2:syntax=markdown
+-->
