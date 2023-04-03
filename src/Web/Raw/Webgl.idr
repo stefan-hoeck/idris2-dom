@@ -1505,6 +1505,24 @@ namespace WebGL2RenderingContextBase
 
 
   export
+  clearBufferfv' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+    -> (obj : t1)
+    -> (buffer : Bits32)
+    -> (drawbuffer : Int32)
+    -> (values : NS I [Float32Array, Array Double])
+    -> (srcOffset : Optional Bits32)
+    -> JSIO ()
+  clearBufferfv' a b c d e = primJS $
+    WebGL2RenderingContextBase.prim__clearBufferfv
+      (up a)
+      b
+      c
+      (toFFI d)
+      (toFFI e)
+
+  export
   clearBufferfv :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
@@ -1512,16 +1530,28 @@ namespace WebGL2RenderingContextBase
     -> (buffer : Bits32)
     -> (drawbuffer : Int32)
     -> (values : NS I [Float32Array, Array Double])
-    -> {default Undef srcOffset : Optional Bits32}
     -> JSIO ()
   clearBufferfv a b c d = primJS $
-    WebGL2RenderingContextBase.prim__clearBufferfv
+    WebGL2RenderingContextBase.prim__clearBufferfv (up a) b c (toFFI d) undef
+
+
+  export
+  clearBufferiv' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+    -> (obj : t1)
+    -> (buffer : Bits32)
+    -> (drawbuffer : Int32)
+    -> (values : NS I [Int32Array, Array Int32])
+    -> (srcOffset : Optional Bits32)
+    -> JSIO ()
+  clearBufferiv' a b c d e = primJS $
+    WebGL2RenderingContextBase.prim__clearBufferiv
       (up a)
       b
       c
       (toFFI d)
-      (toFFI srcOffset)
-
+      (toFFI e)
 
   export
   clearBufferiv :
@@ -1531,16 +1561,28 @@ namespace WebGL2RenderingContextBase
     -> (buffer : Bits32)
     -> (drawbuffer : Int32)
     -> (values : NS I [Int32Array, Array Int32])
-    -> {default Undef srcOffset : Optional Bits32}
     -> JSIO ()
   clearBufferiv a b c d = primJS $
-    WebGL2RenderingContextBase.prim__clearBufferiv
+    WebGL2RenderingContextBase.prim__clearBufferiv (up a) b c (toFFI d) undef
+
+
+  export
+  clearBufferuiv' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+    -> (obj : t1)
+    -> (buffer : Bits32)
+    -> (drawbuffer : Int32)
+    -> (values : NS I [UInt8Array, Array Bits32])
+    -> (srcOffset : Optional Bits32)
+    -> JSIO ()
+  clearBufferuiv' a b c d e = primJS $
+    WebGL2RenderingContextBase.prim__clearBufferuiv
       (up a)
       b
       c
       (toFFI d)
-      (toFFI srcOffset)
-
+      (toFFI e)
 
   export
   clearBufferuiv :
@@ -1550,15 +1592,9 @@ namespace WebGL2RenderingContextBase
     -> (buffer : Bits32)
     -> (drawbuffer : Int32)
     -> (values : NS I [UInt8Array, Array Bits32])
-    -> {default Undef srcOffset : Optional Bits32}
     -> JSIO ()
   clearBufferuiv a b c d = primJS $
-    WebGL2RenderingContextBase.prim__clearBufferuiv
-      (up a)
-      b
-      c
-      (toFFI d)
-      (toFFI srcOffset)
+    WebGL2RenderingContextBase.prim__clearBufferuiv (up a) b c (toFFI d) undef
 
 
   export
@@ -1604,6 +1640,47 @@ namespace WebGL2RenderingContextBase
 
 
   export
+  compressedTexImage3D1' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+    -> (obj : t1)
+    -> (target : Bits32)
+    -> (level : Int32)
+    -> (internalformat : Bits32)
+    -> (width : Int32)
+    -> (height : Int32)
+    -> (depth : Int32)
+    -> (border : Int32)
+    -> (srcData : NS I
+                    [ Int8Array
+                    , Int16Array
+                    , Int32Array
+                    , UInt8Array
+                    , UInt8Array
+                    , UInt8Array
+                    , UInt8ClampedArray
+                    , Float32Array
+                    , Float64Array
+                    , DataView
+                    ])
+    -> (srcOffset : Optional Bits32)
+    -> (srcLengthOverride : Optional Bits32)
+    -> JSIO ()
+  compressedTexImage3D1' a b c d e f g h i j k = primJS $
+    WebGL2RenderingContextBase.prim__compressedTexImage3D1
+      (up a)
+      b
+      c
+      d
+      e
+      f
+      g
+      h
+      (toFFI i)
+      (toFFI j)
+      (toFFI k)
+
+  export
   compressedTexImage3D1 :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
@@ -1627,8 +1704,6 @@ namespace WebGL2RenderingContextBase
                     , Float64Array
                     , DataView
                     ])
-    -> {default Undef srcOffset : Optional Bits32}
-    -> {default Undef srcLengthOverride : Optional Bits32}
     -> JSIO ()
   compressedTexImage3D1 a b c d e f g h i = primJS $
     WebGL2RenderingContextBase.prim__compressedTexImage3D1
@@ -1641,8 +1716,8 @@ namespace WebGL2RenderingContextBase
       g
       h
       (toFFI i)
-      (toFFI srcOffset)
-      (toFFI srcLengthOverride)
+      undef
+      undef
 
 
   export
@@ -1679,6 +1754,51 @@ namespace WebGL2RenderingContextBase
 
 
   export
+  compressedTexSubImage3D1' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+    -> (obj : t1)
+    -> (target : Bits32)
+    -> (level : Int32)
+    -> (xoffset : Int32)
+    -> (yoffset : Int32)
+    -> (zoffset : Int32)
+    -> (width : Int32)
+    -> (height : Int32)
+    -> (depth : Int32)
+    -> (format : Bits32)
+    -> (srcData : NS I
+                    [ Int8Array
+                    , Int16Array
+                    , Int32Array
+                    , UInt8Array
+                    , UInt8Array
+                    , UInt8Array
+                    , UInt8ClampedArray
+                    , Float32Array
+                    , Float64Array
+                    , DataView
+                    ])
+    -> (srcOffset : Optional Bits32)
+    -> (srcLengthOverride : Optional Bits32)
+    -> JSIO ()
+  compressedTexSubImage3D1' a b c d e f g h i j k l m = primJS $
+    WebGL2RenderingContextBase.prim__compressedTexSubImage3D1
+      (up a)
+      b
+      c
+      d
+      e
+      f
+      g
+      h
+      i
+      j
+      (toFFI k)
+      (toFFI l)
+      (toFFI m)
+
+  export
   compressedTexSubImage3D1 :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
@@ -1704,8 +1824,6 @@ namespace WebGL2RenderingContextBase
                     , Float64Array
                     , DataView
                     ])
-    -> {default Undef srcOffset : Optional Bits32}
-    -> {default Undef srcLengthOverride : Optional Bits32}
     -> JSIO ()
   compressedTexSubImage3D1 a b c d e f g h i j k = primJS $
     WebGL2RenderingContextBase.prim__compressedTexSubImage3D1
@@ -1720,8 +1838,8 @@ namespace WebGL2RenderingContextBase
       i
       j
       (toFFI k)
-      (toFFI srcOffset)
-      (toFFI srcLengthOverride)
+      undef
+      undef
 
 
   export
@@ -2001,6 +2119,37 @@ namespace WebGL2RenderingContextBase
 
 
   export
+  getBufferSubData' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+    -> (obj : t1)
+    -> (target : Bits32)
+    -> (srcByteOffset : JSInt64)
+    -> (dstBuffer : NS I
+                      [ Int8Array
+                      , Int16Array
+                      , Int32Array
+                      , UInt8Array
+                      , UInt8Array
+                      , UInt8Array
+                      , UInt8ClampedArray
+                      , Float32Array
+                      , Float64Array
+                      , DataView
+                      ])
+    -> (dstOffset : Optional Bits32)
+    -> (length : Optional Bits32)
+    -> JSIO ()
+  getBufferSubData' a b c d e f = primJS $
+    WebGL2RenderingContextBase.prim__getBufferSubData
+      (up a)
+      b
+      c
+      (toFFI d)
+      (toFFI e)
+      (toFFI f)
+
+  export
   getBufferSubData :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
@@ -2019,8 +2168,6 @@ namespace WebGL2RenderingContextBase
                       , Float64Array
                       , DataView
                       ])
-    -> {default Undef dstOffset : Optional Bits32}
-    -> {default Undef length : Optional Bits32}
     -> JSIO ()
   getBufferSubData a b c d = primJS $
     WebGL2RenderingContextBase.prim__getBufferSubData
@@ -2028,8 +2175,8 @@ namespace WebGL2RenderingContextBase
       b
       c
       (toFFI d)
-      (toFFI dstOffset)
-      (toFFI length)
+      undef
+      undef
 
 
   export
@@ -2551,6 +2698,52 @@ namespace WebGL2RenderingContextBase
 
 
   export
+  texSubImage3D2' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+    -> (obj : t1)
+    -> (target : Bits32)
+    -> (level : Int32)
+    -> (xoffset : Int32)
+    -> (yoffset : Int32)
+    -> (zoffset : Int32)
+    -> (width : Int32)
+    -> (height : Int32)
+    -> (depth : Int32)
+    -> (format : Bits32)
+    -> (type : Bits32)
+    -> (srcData : Maybe
+                    (NS I
+                       [ Int8Array
+                       , Int16Array
+                       , Int32Array
+                       , UInt8Array
+                       , UInt8Array
+                       , UInt8Array
+                       , UInt8ClampedArray
+                       , Float32Array
+                       , Float64Array
+                       , DataView
+                       ]))
+    -> (srcOffset : Optional Bits32)
+    -> JSIO ()
+  texSubImage3D2' a b c d e f g h i j k l m = primJS $
+    WebGL2RenderingContextBase.prim__texSubImage3D2
+      (up a)
+      b
+      c
+      d
+      e
+      f
+      g
+      h
+      i
+      j
+      k
+      (toFFI l)
+      (toFFI m)
+
+  export
   texSubImage3D2 :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
@@ -2578,7 +2771,6 @@ namespace WebGL2RenderingContextBase
                        , Float64Array
                        , DataView
                        ]))
-    -> {default Undef srcOffset : Optional Bits32}
     -> JSIO ()
   texSubImage3D2 a b c d e f g h i j k l = primJS $
     WebGL2RenderingContextBase.prim__texSubImage3D2
@@ -2594,7 +2786,7 @@ namespace WebGL2RenderingContextBase
       j
       k
       (toFFI l)
-      (toFFI srcOffset)
+      undef
 
 
   export
@@ -2623,22 +2815,38 @@ namespace WebGL2RenderingContextBase
 
 
   export
+  uniform1uiv' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+    -> (obj : t1)
+    -> (location : Maybe WebGLUniformLocation)
+    -> (data_ : NS I [UInt8Array, Array Bits32])
+    -> (srcOffset : Optional Bits32)
+    -> (srcLength : Optional Bits32)
+    -> JSIO ()
+  uniform1uiv' a b c d e = primJS $
+    WebGL2RenderingContextBase.prim__uniform1uiv
+      (up a)
+      (toFFI b)
+      (toFFI c)
+      (toFFI d)
+      (toFFI e)
+
+  export
   uniform1uiv :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (data_ : NS I [UInt8Array, Array Bits32])
-    -> {default Undef srcOffset : Optional Bits32}
-    -> {default Undef srcLength : Optional Bits32}
     -> JSIO ()
   uniform1uiv a b c = primJS $
     WebGL2RenderingContextBase.prim__uniform1uiv
       (up a)
       (toFFI b)
       (toFFI c)
-      (toFFI srcOffset)
-      (toFFI srcLength)
+      undef
+      undef
 
 
   export
@@ -2655,22 +2863,38 @@ namespace WebGL2RenderingContextBase
 
 
   export
+  uniform2uiv' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+    -> (obj : t1)
+    -> (location : Maybe WebGLUniformLocation)
+    -> (data_ : NS I [UInt8Array, Array Bits32])
+    -> (srcOffset : Optional Bits32)
+    -> (srcLength : Optional Bits32)
+    -> JSIO ()
+  uniform2uiv' a b c d e = primJS $
+    WebGL2RenderingContextBase.prim__uniform2uiv
+      (up a)
+      (toFFI b)
+      (toFFI c)
+      (toFFI d)
+      (toFFI e)
+
+  export
   uniform2uiv :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (data_ : NS I [UInt8Array, Array Bits32])
-    -> {default Undef srcOffset : Optional Bits32}
-    -> {default Undef srcLength : Optional Bits32}
     -> JSIO ()
   uniform2uiv a b c = primJS $
     WebGL2RenderingContextBase.prim__uniform2uiv
       (up a)
       (toFFI b)
       (toFFI c)
-      (toFFI srcOffset)
-      (toFFI srcLength)
+      undef
+      undef
 
 
   export
@@ -2688,22 +2912,38 @@ namespace WebGL2RenderingContextBase
 
 
   export
+  uniform3uiv' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+    -> (obj : t1)
+    -> (location : Maybe WebGLUniformLocation)
+    -> (data_ : NS I [UInt8Array, Array Bits32])
+    -> (srcOffset : Optional Bits32)
+    -> (srcLength : Optional Bits32)
+    -> JSIO ()
+  uniform3uiv' a b c d e = primJS $
+    WebGL2RenderingContextBase.prim__uniform3uiv
+      (up a)
+      (toFFI b)
+      (toFFI c)
+      (toFFI d)
+      (toFFI e)
+
+  export
   uniform3uiv :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (data_ : NS I [UInt8Array, Array Bits32])
-    -> {default Undef srcOffset : Optional Bits32}
-    -> {default Undef srcLength : Optional Bits32}
     -> JSIO ()
   uniform3uiv a b c = primJS $
     WebGL2RenderingContextBase.prim__uniform3uiv
       (up a)
       (toFFI b)
       (toFFI c)
-      (toFFI srcOffset)
-      (toFFI srcLength)
+      undef
+      undef
 
 
   export
@@ -2722,22 +2962,38 @@ namespace WebGL2RenderingContextBase
 
 
   export
+  uniform4uiv' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+    -> (obj : t1)
+    -> (location : Maybe WebGLUniformLocation)
+    -> (data_ : NS I [UInt8Array, Array Bits32])
+    -> (srcOffset : Optional Bits32)
+    -> (srcLength : Optional Bits32)
+    -> JSIO ()
+  uniform4uiv' a b c d e = primJS $
+    WebGL2RenderingContextBase.prim__uniform4uiv
+      (up a)
+      (toFFI b)
+      (toFFI c)
+      (toFFI d)
+      (toFFI e)
+
+  export
   uniform4uiv :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (data_ : NS I [UInt8Array, Array Bits32])
-    -> {default Undef srcOffset : Optional Bits32}
-    -> {default Undef srcLength : Optional Bits32}
     -> JSIO ()
   uniform4uiv a b c = primJS $
     WebGL2RenderingContextBase.prim__uniform4uiv
       (up a)
       (toFFI b)
       (toFFI c)
-      (toFFI srcOffset)
-      (toFFI srcLength)
+      undef
+      undef
 
 
   export
@@ -2754,6 +3010,26 @@ namespace WebGL2RenderingContextBase
 
 
   export
+  uniformMatrix2x3fv' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+    -> (obj : t1)
+    -> (location : Maybe WebGLUniformLocation)
+    -> (transpose : Bool)
+    -> (data_ : NS I [Float32Array, Array Double])
+    -> (srcOffset : Optional Bits32)
+    -> (srcLength : Optional Bits32)
+    -> JSIO ()
+  uniformMatrix2x3fv' a b c d e f = primJS $
+    WebGL2RenderingContextBase.prim__uniformMatrix2x3fv
+      (up a)
+      (toFFI b)
+      (toFFI c)
+      (toFFI d)
+      (toFFI e)
+      (toFFI f)
+
+  export
   uniformMatrix2x3fv :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
@@ -2761,8 +3037,6 @@ namespace WebGL2RenderingContextBase
     -> (location : Maybe WebGLUniformLocation)
     -> (transpose : Bool)
     -> (data_ : NS I [Float32Array, Array Double])
-    -> {default Undef srcOffset : Optional Bits32}
-    -> {default Undef srcLength : Optional Bits32}
     -> JSIO ()
   uniformMatrix2x3fv a b c d = primJS $
     WebGL2RenderingContextBase.prim__uniformMatrix2x3fv
@@ -2770,9 +3044,29 @@ namespace WebGL2RenderingContextBase
       (toFFI b)
       (toFFI c)
       (toFFI d)
-      (toFFI srcOffset)
-      (toFFI srcLength)
+      undef
+      undef
 
+
+  export
+  uniformMatrix2x4fv' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+    -> (obj : t1)
+    -> (location : Maybe WebGLUniformLocation)
+    -> (transpose : Bool)
+    -> (data_ : NS I [Float32Array, Array Double])
+    -> (srcOffset : Optional Bits32)
+    -> (srcLength : Optional Bits32)
+    -> JSIO ()
+  uniformMatrix2x4fv' a b c d e f = primJS $
+    WebGL2RenderingContextBase.prim__uniformMatrix2x4fv
+      (up a)
+      (toFFI b)
+      (toFFI c)
+      (toFFI d)
+      (toFFI e)
+      (toFFI f)
 
   export
   uniformMatrix2x4fv :
@@ -2782,8 +3076,6 @@ namespace WebGL2RenderingContextBase
     -> (location : Maybe WebGLUniformLocation)
     -> (transpose : Bool)
     -> (data_ : NS I [Float32Array, Array Double])
-    -> {default Undef srcOffset : Optional Bits32}
-    -> {default Undef srcLength : Optional Bits32}
     -> JSIO ()
   uniformMatrix2x4fv a b c d = primJS $
     WebGL2RenderingContextBase.prim__uniformMatrix2x4fv
@@ -2791,9 +3083,29 @@ namespace WebGL2RenderingContextBase
       (toFFI b)
       (toFFI c)
       (toFFI d)
-      (toFFI srcOffset)
-      (toFFI srcLength)
+      undef
+      undef
 
+
+  export
+  uniformMatrix3x2fv' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+    -> (obj : t1)
+    -> (location : Maybe WebGLUniformLocation)
+    -> (transpose : Bool)
+    -> (data_ : NS I [Float32Array, Array Double])
+    -> (srcOffset : Optional Bits32)
+    -> (srcLength : Optional Bits32)
+    -> JSIO ()
+  uniformMatrix3x2fv' a b c d e f = primJS $
+    WebGL2RenderingContextBase.prim__uniformMatrix3x2fv
+      (up a)
+      (toFFI b)
+      (toFFI c)
+      (toFFI d)
+      (toFFI e)
+      (toFFI f)
 
   export
   uniformMatrix3x2fv :
@@ -2803,8 +3115,6 @@ namespace WebGL2RenderingContextBase
     -> (location : Maybe WebGLUniformLocation)
     -> (transpose : Bool)
     -> (data_ : NS I [Float32Array, Array Double])
-    -> {default Undef srcOffset : Optional Bits32}
-    -> {default Undef srcLength : Optional Bits32}
     -> JSIO ()
   uniformMatrix3x2fv a b c d = primJS $
     WebGL2RenderingContextBase.prim__uniformMatrix3x2fv
@@ -2812,9 +3122,29 @@ namespace WebGL2RenderingContextBase
       (toFFI b)
       (toFFI c)
       (toFFI d)
-      (toFFI srcOffset)
-      (toFFI srcLength)
+      undef
+      undef
 
+
+  export
+  uniformMatrix3x4fv' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+    -> (obj : t1)
+    -> (location : Maybe WebGLUniformLocation)
+    -> (transpose : Bool)
+    -> (data_ : NS I [Float32Array, Array Double])
+    -> (srcOffset : Optional Bits32)
+    -> (srcLength : Optional Bits32)
+    -> JSIO ()
+  uniformMatrix3x4fv' a b c d e f = primJS $
+    WebGL2RenderingContextBase.prim__uniformMatrix3x4fv
+      (up a)
+      (toFFI b)
+      (toFFI c)
+      (toFFI d)
+      (toFFI e)
+      (toFFI f)
 
   export
   uniformMatrix3x4fv :
@@ -2824,8 +3154,6 @@ namespace WebGL2RenderingContextBase
     -> (location : Maybe WebGLUniformLocation)
     -> (transpose : Bool)
     -> (data_ : NS I [Float32Array, Array Double])
-    -> {default Undef srcOffset : Optional Bits32}
-    -> {default Undef srcLength : Optional Bits32}
     -> JSIO ()
   uniformMatrix3x4fv a b c d = primJS $
     WebGL2RenderingContextBase.prim__uniformMatrix3x4fv
@@ -2833,9 +3161,29 @@ namespace WebGL2RenderingContextBase
       (toFFI b)
       (toFFI c)
       (toFFI d)
-      (toFFI srcOffset)
-      (toFFI srcLength)
+      undef
+      undef
 
+
+  export
+  uniformMatrix4x2fv' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+    -> (obj : t1)
+    -> (location : Maybe WebGLUniformLocation)
+    -> (transpose : Bool)
+    -> (data_ : NS I [Float32Array, Array Double])
+    -> (srcOffset : Optional Bits32)
+    -> (srcLength : Optional Bits32)
+    -> JSIO ()
+  uniformMatrix4x2fv' a b c d e f = primJS $
+    WebGL2RenderingContextBase.prim__uniformMatrix4x2fv
+      (up a)
+      (toFFI b)
+      (toFFI c)
+      (toFFI d)
+      (toFFI e)
+      (toFFI f)
 
   export
   uniformMatrix4x2fv :
@@ -2845,8 +3193,6 @@ namespace WebGL2RenderingContextBase
     -> (location : Maybe WebGLUniformLocation)
     -> (transpose : Bool)
     -> (data_ : NS I [Float32Array, Array Double])
-    -> {default Undef srcOffset : Optional Bits32}
-    -> {default Undef srcLength : Optional Bits32}
     -> JSIO ()
   uniformMatrix4x2fv a b c d = primJS $
     WebGL2RenderingContextBase.prim__uniformMatrix4x2fv
@@ -2854,9 +3200,29 @@ namespace WebGL2RenderingContextBase
       (toFFI b)
       (toFFI c)
       (toFFI d)
-      (toFFI srcOffset)
-      (toFFI srcLength)
+      undef
+      undef
 
+
+  export
+  uniformMatrix4x3fv' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
+    -> (obj : t1)
+    -> (location : Maybe WebGLUniformLocation)
+    -> (transpose : Bool)
+    -> (data_ : NS I [Float32Array, Array Double])
+    -> (srcOffset : Optional Bits32)
+    -> (srcLength : Optional Bits32)
+    -> JSIO ()
+  uniformMatrix4x3fv' a b c d e f = primJS $
+    WebGL2RenderingContextBase.prim__uniformMatrix4x3fv
+      (up a)
+      (toFFI b)
+      (toFFI c)
+      (toFFI d)
+      (toFFI e)
+      (toFFI f)
 
   export
   uniformMatrix4x3fv :
@@ -2866,8 +3232,6 @@ namespace WebGL2RenderingContextBase
     -> (location : Maybe WebGLUniformLocation)
     -> (transpose : Bool)
     -> (data_ : NS I [Float32Array, Array Double])
-    -> {default Undef srcOffset : Optional Bits32}
-    -> {default Undef srcLength : Optional Bits32}
     -> JSIO ()
   uniformMatrix4x3fv a b c d = primJS $
     WebGL2RenderingContextBase.prim__uniformMatrix4x3fv
@@ -2875,8 +3239,8 @@ namespace WebGL2RenderingContextBase
       (toFFI b)
       (toFFI c)
       (toFFI d)
-      (toFFI srcOffset)
-      (toFFI srcLength)
+      undef
+      undef
 
 
   export
@@ -3016,6 +3380,37 @@ namespace WebGL2RenderingContextOverloads
 
 
   export
+  bufferData2' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+    -> (obj : t1)
+    -> (target : Bits32)
+    -> (srcData : NS I
+                    [ Int8Array
+                    , Int16Array
+                    , Int32Array
+                    , UInt8Array
+                    , UInt8Array
+                    , UInt8Array
+                    , UInt8ClampedArray
+                    , Float32Array
+                    , Float64Array
+                    , DataView
+                    ])
+    -> (usage : Bits32)
+    -> (srcOffset : Bits32)
+    -> (length : Optional Bits32)
+    -> JSIO ()
+  bufferData2' a b c d e f = primJS $
+    WebGL2RenderingContextOverloads.prim__bufferData2
+      (up a)
+      b
+      (toFFI c)
+      d
+      e
+      (toFFI f)
+
+  export
   bufferData2 :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
@@ -3035,7 +3430,6 @@ namespace WebGL2RenderingContextOverloads
                     ])
     -> (usage : Bits32)
     -> (srcOffset : Bits32)
-    -> {default Undef length : Optional Bits32}
     -> JSIO ()
   bufferData2 a b c d e = primJS $
     WebGL2RenderingContextOverloads.prim__bufferData2
@@ -3044,7 +3438,7 @@ namespace WebGL2RenderingContextOverloads
       (toFFI c)
       d
       e
-      (toFFI length)
+      undef
 
 
   export
@@ -3073,6 +3467,37 @@ namespace WebGL2RenderingContextOverloads
 
 
   export
+  bufferSubData1' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+    -> (obj : t1)
+    -> (target : Bits32)
+    -> (dstByteOffset : JSInt64)
+    -> (srcData : NS I
+                    [ Int8Array
+                    , Int16Array
+                    , Int32Array
+                    , UInt8Array
+                    , UInt8Array
+                    , UInt8Array
+                    , UInt8ClampedArray
+                    , Float32Array
+                    , Float64Array
+                    , DataView
+                    ])
+    -> (srcOffset : Bits32)
+    -> (length : Optional Bits32)
+    -> JSIO ()
+  bufferSubData1' a b c d e f = primJS $
+    WebGL2RenderingContextOverloads.prim__bufferSubData1
+      (up a)
+      b
+      c
+      (toFFI d)
+      e
+      (toFFI f)
+
+  export
   bufferSubData1 :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
@@ -3092,7 +3517,6 @@ namespace WebGL2RenderingContextOverloads
                     , DataView
                     ])
     -> (srcOffset : Bits32)
-    -> {default Undef length : Optional Bits32}
     -> JSIO ()
   bufferSubData1 a b c d e = primJS $
     WebGL2RenderingContextOverloads.prim__bufferSubData1
@@ -3101,7 +3525,7 @@ namespace WebGL2RenderingContextOverloads
       c
       (toFFI d)
       e
-      (toFFI length)
+      undef
 
 
   export
@@ -3132,6 +3556,45 @@ namespace WebGL2RenderingContextOverloads
 
 
   export
+  compressedTexImage2D1' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+    -> (obj : t1)
+    -> (target : Bits32)
+    -> (level : Int32)
+    -> (internalformat : Bits32)
+    -> (width : Int32)
+    -> (height : Int32)
+    -> (border : Int32)
+    -> (srcData : NS I
+                    [ Int8Array
+                    , Int16Array
+                    , Int32Array
+                    , UInt8Array
+                    , UInt8Array
+                    , UInt8Array
+                    , UInt8ClampedArray
+                    , Float32Array
+                    , Float64Array
+                    , DataView
+                    ])
+    -> (srcOffset : Optional Bits32)
+    -> (srcLengthOverride : Optional Bits32)
+    -> JSIO ()
+  compressedTexImage2D1' a b c d e f g h i j = primJS $
+    WebGL2RenderingContextOverloads.prim__compressedTexImage2D1
+      (up a)
+      b
+      c
+      d
+      e
+      f
+      g
+      (toFFI h)
+      (toFFI i)
+      (toFFI j)
+
+  export
   compressedTexImage2D1 :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
@@ -3154,8 +3617,6 @@ namespace WebGL2RenderingContextOverloads
                     , Float64Array
                     , DataView
                     ])
-    -> {default Undef srcOffset : Optional Bits32}
-    -> {default Undef srcLengthOverride : Optional Bits32}
     -> JSIO ()
   compressedTexImage2D1 a b c d e f g h = primJS $
     WebGL2RenderingContextOverloads.prim__compressedTexImage2D1
@@ -3167,8 +3628,8 @@ namespace WebGL2RenderingContextOverloads
       f
       g
       (toFFI h)
-      (toFFI srcOffset)
-      (toFFI srcLengthOverride)
+      undef
+      undef
 
 
   export
@@ -3201,6 +3662,47 @@ namespace WebGL2RenderingContextOverloads
 
 
   export
+  compressedTexSubImage2D1' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+    -> (obj : t1)
+    -> (target : Bits32)
+    -> (level : Int32)
+    -> (xoffset : Int32)
+    -> (yoffset : Int32)
+    -> (width : Int32)
+    -> (height : Int32)
+    -> (format : Bits32)
+    -> (srcData : NS I
+                    [ Int8Array
+                    , Int16Array
+                    , Int32Array
+                    , UInt8Array
+                    , UInt8Array
+                    , UInt8Array
+                    , UInt8ClampedArray
+                    , Float32Array
+                    , Float64Array
+                    , DataView
+                    ])
+    -> (srcOffset : Optional Bits32)
+    -> (srcLengthOverride : Optional Bits32)
+    -> JSIO ()
+  compressedTexSubImage2D1' a b c d e f g h i j k = primJS $
+    WebGL2RenderingContextOverloads.prim__compressedTexSubImage2D1
+      (up a)
+      b
+      c
+      d
+      e
+      f
+      g
+      h
+      (toFFI i)
+      (toFFI j)
+      (toFFI k)
+
+  export
   compressedTexSubImage2D1 :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
@@ -3224,8 +3726,6 @@ namespace WebGL2RenderingContextOverloads
                     , Float64Array
                     , DataView
                     ])
-    -> {default Undef srcOffset : Optional Bits32}
-    -> {default Undef srcLengthOverride : Optional Bits32}
     -> JSIO ()
   compressedTexSubImage2D1 a b c d e f g h i = primJS $
     WebGL2RenderingContextOverloads.prim__compressedTexSubImage2D1
@@ -3238,8 +3738,8 @@ namespace WebGL2RenderingContextOverloads
       g
       h
       (toFFI i)
-      (toFFI srcOffset)
-      (toFFI srcLengthOverride)
+      undef
+      undef
 
 
   export
@@ -3676,23 +4176,57 @@ namespace WebGL2RenderingContextOverloads
 
 
   export
+  uniform1fv' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+    -> (obj : t1)
+    -> (location : Maybe WebGLUniformLocation)
+    -> (data_ : NS I [Float32Array, Array Double])
+    -> (srcOffset : Optional Bits32)
+    -> (srcLength : Optional Bits32)
+    -> JSIO ()
+  uniform1fv' a b c d e = primJS $
+    WebGL2RenderingContextOverloads.prim__uniform1fv
+      (up a)
+      (toFFI b)
+      (toFFI c)
+      (toFFI d)
+      (toFFI e)
+
+  export
   uniform1fv :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (data_ : NS I [Float32Array, Array Double])
-    -> {default Undef srcOffset : Optional Bits32}
-    -> {default Undef srcLength : Optional Bits32}
     -> JSIO ()
   uniform1fv a b c = primJS $
     WebGL2RenderingContextOverloads.prim__uniform1fv
       (up a)
       (toFFI b)
       (toFFI c)
-      (toFFI srcOffset)
-      (toFFI srcLength)
+      undef
+      undef
 
+
+  export
+  uniform1iv' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+    -> (obj : t1)
+    -> (location : Maybe WebGLUniformLocation)
+    -> (data_ : NS I [Int32Array, Array Int32])
+    -> (srcOffset : Optional Bits32)
+    -> (srcLength : Optional Bits32)
+    -> JSIO ()
+  uniform1iv' a b c d e = primJS $
+    WebGL2RenderingContextOverloads.prim__uniform1iv
+      (up a)
+      (toFFI b)
+      (toFFI c)
+      (toFFI d)
+      (toFFI e)
 
   export
   uniform1iv :
@@ -3701,17 +4235,33 @@ namespace WebGL2RenderingContextOverloads
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (data_ : NS I [Int32Array, Array Int32])
-    -> {default Undef srcOffset : Optional Bits32}
-    -> {default Undef srcLength : Optional Bits32}
     -> JSIO ()
   uniform1iv a b c = primJS $
     WebGL2RenderingContextOverloads.prim__uniform1iv
       (up a)
       (toFFI b)
       (toFFI c)
-      (toFFI srcOffset)
-      (toFFI srcLength)
+      undef
+      undef
 
+
+  export
+  uniform2fv' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+    -> (obj : t1)
+    -> (location : Maybe WebGLUniformLocation)
+    -> (data_ : NS I [Float32Array, Array Double])
+    -> (srcOffset : Optional Bits32)
+    -> (srcLength : Optional Bits32)
+    -> JSIO ()
+  uniform2fv' a b c d e = primJS $
+    WebGL2RenderingContextOverloads.prim__uniform2fv
+      (up a)
+      (toFFI b)
+      (toFFI c)
+      (toFFI d)
+      (toFFI e)
 
   export
   uniform2fv :
@@ -3720,17 +4270,33 @@ namespace WebGL2RenderingContextOverloads
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (data_ : NS I [Float32Array, Array Double])
-    -> {default Undef srcOffset : Optional Bits32}
-    -> {default Undef srcLength : Optional Bits32}
     -> JSIO ()
   uniform2fv a b c = primJS $
     WebGL2RenderingContextOverloads.prim__uniform2fv
       (up a)
       (toFFI b)
       (toFFI c)
-      (toFFI srcOffset)
-      (toFFI srcLength)
+      undef
+      undef
 
+
+  export
+  uniform2iv' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+    -> (obj : t1)
+    -> (location : Maybe WebGLUniformLocation)
+    -> (data_ : NS I [Int32Array, Array Int32])
+    -> (srcOffset : Optional Bits32)
+    -> (srcLength : Optional Bits32)
+    -> JSIO ()
+  uniform2iv' a b c d e = primJS $
+    WebGL2RenderingContextOverloads.prim__uniform2iv
+      (up a)
+      (toFFI b)
+      (toFFI c)
+      (toFFI d)
+      (toFFI e)
 
   export
   uniform2iv :
@@ -3739,17 +4305,33 @@ namespace WebGL2RenderingContextOverloads
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (data_ : NS I [Int32Array, Array Int32])
-    -> {default Undef srcOffset : Optional Bits32}
-    -> {default Undef srcLength : Optional Bits32}
     -> JSIO ()
   uniform2iv a b c = primJS $
     WebGL2RenderingContextOverloads.prim__uniform2iv
       (up a)
       (toFFI b)
       (toFFI c)
-      (toFFI srcOffset)
-      (toFFI srcLength)
+      undef
+      undef
 
+
+  export
+  uniform3fv' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+    -> (obj : t1)
+    -> (location : Maybe WebGLUniformLocation)
+    -> (data_ : NS I [Float32Array, Array Double])
+    -> (srcOffset : Optional Bits32)
+    -> (srcLength : Optional Bits32)
+    -> JSIO ()
+  uniform3fv' a b c d e = primJS $
+    WebGL2RenderingContextOverloads.prim__uniform3fv
+      (up a)
+      (toFFI b)
+      (toFFI c)
+      (toFFI d)
+      (toFFI e)
 
   export
   uniform3fv :
@@ -3758,17 +4340,33 @@ namespace WebGL2RenderingContextOverloads
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (data_ : NS I [Float32Array, Array Double])
-    -> {default Undef srcOffset : Optional Bits32}
-    -> {default Undef srcLength : Optional Bits32}
     -> JSIO ()
   uniform3fv a b c = primJS $
     WebGL2RenderingContextOverloads.prim__uniform3fv
       (up a)
       (toFFI b)
       (toFFI c)
-      (toFFI srcOffset)
-      (toFFI srcLength)
+      undef
+      undef
 
+
+  export
+  uniform3iv' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+    -> (obj : t1)
+    -> (location : Maybe WebGLUniformLocation)
+    -> (data_ : NS I [Int32Array, Array Int32])
+    -> (srcOffset : Optional Bits32)
+    -> (srcLength : Optional Bits32)
+    -> JSIO ()
+  uniform3iv' a b c d e = primJS $
+    WebGL2RenderingContextOverloads.prim__uniform3iv
+      (up a)
+      (toFFI b)
+      (toFFI c)
+      (toFFI d)
+      (toFFI e)
 
   export
   uniform3iv :
@@ -3777,17 +4375,33 @@ namespace WebGL2RenderingContextOverloads
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (data_ : NS I [Int32Array, Array Int32])
-    -> {default Undef srcOffset : Optional Bits32}
-    -> {default Undef srcLength : Optional Bits32}
     -> JSIO ()
   uniform3iv a b c = primJS $
     WebGL2RenderingContextOverloads.prim__uniform3iv
       (up a)
       (toFFI b)
       (toFFI c)
-      (toFFI srcOffset)
-      (toFFI srcLength)
+      undef
+      undef
 
+
+  export
+  uniform4fv' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+    -> (obj : t1)
+    -> (location : Maybe WebGLUniformLocation)
+    -> (data_ : NS I [Float32Array, Array Double])
+    -> (srcOffset : Optional Bits32)
+    -> (srcLength : Optional Bits32)
+    -> JSIO ()
+  uniform4fv' a b c d e = primJS $
+    WebGL2RenderingContextOverloads.prim__uniform4fv
+      (up a)
+      (toFFI b)
+      (toFFI c)
+      (toFFI d)
+      (toFFI e)
 
   export
   uniform4fv :
@@ -3796,17 +4410,33 @@ namespace WebGL2RenderingContextOverloads
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (data_ : NS I [Float32Array, Array Double])
-    -> {default Undef srcOffset : Optional Bits32}
-    -> {default Undef srcLength : Optional Bits32}
     -> JSIO ()
   uniform4fv a b c = primJS $
     WebGL2RenderingContextOverloads.prim__uniform4fv
       (up a)
       (toFFI b)
       (toFFI c)
-      (toFFI srcOffset)
-      (toFFI srcLength)
+      undef
+      undef
 
+
+  export
+  uniform4iv' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+    -> (obj : t1)
+    -> (location : Maybe WebGLUniformLocation)
+    -> (data_ : NS I [Int32Array, Array Int32])
+    -> (srcOffset : Optional Bits32)
+    -> (srcLength : Optional Bits32)
+    -> JSIO ()
+  uniform4iv' a b c d e = primJS $
+    WebGL2RenderingContextOverloads.prim__uniform4iv
+      (up a)
+      (toFFI b)
+      (toFFI c)
+      (toFFI d)
+      (toFFI e)
 
   export
   uniform4iv :
@@ -3815,17 +4445,35 @@ namespace WebGL2RenderingContextOverloads
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (data_ : NS I [Int32Array, Array Int32])
-    -> {default Undef srcOffset : Optional Bits32}
-    -> {default Undef srcLength : Optional Bits32}
     -> JSIO ()
   uniform4iv a b c = primJS $
     WebGL2RenderingContextOverloads.prim__uniform4iv
       (up a)
       (toFFI b)
       (toFFI c)
-      (toFFI srcOffset)
-      (toFFI srcLength)
+      undef
+      undef
 
+
+  export
+  uniformMatrix2fv' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+    -> (obj : t1)
+    -> (location : Maybe WebGLUniformLocation)
+    -> (transpose : Bool)
+    -> (data_ : NS I [Float32Array, Array Double])
+    -> (srcOffset : Optional Bits32)
+    -> (srcLength : Optional Bits32)
+    -> JSIO ()
+  uniformMatrix2fv' a b c d e f = primJS $
+    WebGL2RenderingContextOverloads.prim__uniformMatrix2fv
+      (up a)
+      (toFFI b)
+      (toFFI c)
+      (toFFI d)
+      (toFFI e)
+      (toFFI f)
 
   export
   uniformMatrix2fv :
@@ -3835,8 +4483,6 @@ namespace WebGL2RenderingContextOverloads
     -> (location : Maybe WebGLUniformLocation)
     -> (transpose : Bool)
     -> (data_ : NS I [Float32Array, Array Double])
-    -> {default Undef srcOffset : Optional Bits32}
-    -> {default Undef srcLength : Optional Bits32}
     -> JSIO ()
   uniformMatrix2fv a b c d = primJS $
     WebGL2RenderingContextOverloads.prim__uniformMatrix2fv
@@ -3844,9 +4490,29 @@ namespace WebGL2RenderingContextOverloads
       (toFFI b)
       (toFFI c)
       (toFFI d)
-      (toFFI srcOffset)
-      (toFFI srcLength)
+      undef
+      undef
 
+
+  export
+  uniformMatrix3fv' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+    -> (obj : t1)
+    -> (location : Maybe WebGLUniformLocation)
+    -> (transpose : Bool)
+    -> (data_ : NS I [Float32Array, Array Double])
+    -> (srcOffset : Optional Bits32)
+    -> (srcLength : Optional Bits32)
+    -> JSIO ()
+  uniformMatrix3fv' a b c d e f = primJS $
+    WebGL2RenderingContextOverloads.prim__uniformMatrix3fv
+      (up a)
+      (toFFI b)
+      (toFFI c)
+      (toFFI d)
+      (toFFI e)
+      (toFFI f)
 
   export
   uniformMatrix3fv :
@@ -3856,8 +4522,6 @@ namespace WebGL2RenderingContextOverloads
     -> (location : Maybe WebGLUniformLocation)
     -> (transpose : Bool)
     -> (data_ : NS I [Float32Array, Array Double])
-    -> {default Undef srcOffset : Optional Bits32}
-    -> {default Undef srcLength : Optional Bits32}
     -> JSIO ()
   uniformMatrix3fv a b c d = primJS $
     WebGL2RenderingContextOverloads.prim__uniformMatrix3fv
@@ -3865,9 +4529,29 @@ namespace WebGL2RenderingContextOverloads
       (toFFI b)
       (toFFI c)
       (toFFI d)
-      (toFFI srcOffset)
-      (toFFI srcLength)
+      undef
+      undef
 
+
+  export
+  uniformMatrix4fv' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
+    -> (obj : t1)
+    -> (location : Maybe WebGLUniformLocation)
+    -> (transpose : Bool)
+    -> (data_ : NS I [Float32Array, Array Double])
+    -> (srcOffset : Optional Bits32)
+    -> (srcLength : Optional Bits32)
+    -> JSIO ()
+  uniformMatrix4fv' a b c d e f = primJS $
+    WebGL2RenderingContextOverloads.prim__uniformMatrix4fv
+      (up a)
+      (toFFI b)
+      (toFFI c)
+      (toFFI d)
+      (toFFI e)
+      (toFFI f)
 
   export
   uniformMatrix4fv :
@@ -3877,8 +4561,6 @@ namespace WebGL2RenderingContextOverloads
     -> (location : Maybe WebGLUniformLocation)
     -> (transpose : Bool)
     -> (data_ : NS I [Float32Array, Array Double])
-    -> {default Undef srcOffset : Optional Bits32}
-    -> {default Undef srcLength : Optional Bits32}
     -> JSIO ()
   uniformMatrix4fv a b c d = primJS $
     WebGL2RenderingContextOverloads.prim__uniformMatrix4fv
@@ -3886,8 +4568,8 @@ namespace WebGL2RenderingContextOverloads
       (toFFI b)
       (toFFI c)
       (toFFI d)
-      (toFFI srcOffset)
-      (toFFI srcLength)
+      undef
+      undef
 
 
 
@@ -7296,28 +7978,42 @@ namespace WebGLRenderingContextOverloads
 namespace WebGLContextAttributes
 
   export
-  new :
-       {default Undef alpha : Optional Bool}
-    -> {default Undef depth : Optional Bool}
-    -> {default Undef stencil : Optional Bool}
-    -> {default Undef antialias : Optional Bool}
-    -> {default Undef premultipliedAlpha : Optional Bool}
-    -> {default Undef preserveDrawingBuffer : Optional Bool}
-    -> {default Undef powerPreference : Optional WebGLPowerPreference}
-    -> {default Undef failIfMajorPerformanceCaveat : Optional Bool}
-    -> {default Undef desynchronized : Optional Bool}
+  new' :
+       (alpha : Optional Bool)
+    -> (depth : Optional Bool)
+    -> (stencil : Optional Bool)
+    -> (antialias : Optional Bool)
+    -> (premultipliedAlpha : Optional Bool)
+    -> (preserveDrawingBuffer : Optional Bool)
+    -> (powerPreference : Optional WebGLPowerPreference)
+    -> (failIfMajorPerformanceCaveat : Optional Bool)
+    -> (desynchronized : Optional Bool)
     -> JSIO WebGLContextAttributes
+  new' a b c d e f g h i = primJS $
+    WebGLContextAttributes.prim__new
+      (toFFI a)
+      (toFFI b)
+      (toFFI c)
+      (toFFI d)
+      (toFFI e)
+      (toFFI f)
+      (toFFI g)
+      (toFFI h)
+      (toFFI i)
+
+  export
+  new : JSIO WebGLContextAttributes
   new = primJS $
     WebGLContextAttributes.prim__new
-      (toFFI alpha)
-      (toFFI depth)
-      (toFFI stencil)
-      (toFFI antialias)
-      (toFFI premultipliedAlpha)
-      (toFFI preserveDrawingBuffer)
-      (toFFI powerPreference)
-      (toFFI failIfMajorPerformanceCaveat)
-      (toFFI desynchronized)
+      undef
+      undef
+      undef
+      undef
+      undef
+      undef
+      undef
+      undef
+      undef
 
 
   export

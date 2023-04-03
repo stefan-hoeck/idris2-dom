@@ -14,8 +14,12 @@ import Web.Internal.Types
 namespace FormData
 
   export
-  new : {default Undef form : Optional HTMLFormElement} -> JSIO FormData
-  new = primJS $ FormData.prim__new (toFFI form)
+  new' : (form : Optional HTMLFormElement) -> JSIO FormData
+  new' a = primJS $ FormData.prim__new (toFFI a)
+
+  export
+  new : JSIO FormData
+  new = primJS $ FormData.prim__new undef
 
 
   export
@@ -24,15 +28,25 @@ namespace FormData
 
 
   export
+  append1' :
+       {auto 0 _ : JSType t3}
+    -> {auto 0 _ : Elem Blob (Types t3)}
+    -> (obj : FormData)
+    -> (name : String)
+    -> (blobValue : t3)
+    -> (filename : Optional String)
+    -> JSIO ()
+  append1' a b c d = primJS $ FormData.prim__append1 a b (up c) (toFFI d)
+
+  export
   append1 :
        {auto 0 _ : JSType t3}
     -> {auto 0 _ : Elem Blob (Types t3)}
     -> (obj : FormData)
     -> (name : String)
     -> (blobValue : t3)
-    -> {default Undef filename : Optional String}
     -> JSIO ()
-  append1 a b c = primJS $ FormData.prim__append1 a b (up c) (toFFI filename)
+  append1 a b c = primJS $ FormData.prim__append1 a b (up c) undef
 
 
   export
@@ -67,28 +81,42 @@ namespace FormData
 
 
   export
+  set1' :
+       {auto 0 _ : JSType t3}
+    -> {auto 0 _ : Elem Blob (Types t3)}
+    -> (obj : FormData)
+    -> (name : String)
+    -> (blobValue : t3)
+    -> (filename : Optional String)
+    -> JSIO ()
+  set1' a b c d = primJS $ FormData.prim__set1 a b (up c) (toFFI d)
+
+  export
   set1 :
        {auto 0 _ : JSType t3}
     -> {auto 0 _ : Elem Blob (Types t3)}
     -> (obj : FormData)
     -> (name : String)
     -> (blobValue : t3)
-    -> {default Undef filename : Optional String}
     -> JSIO ()
-  set1 a b c = primJS $ FormData.prim__set1 a b (up c) (toFFI filename)
+  set1 a b c = primJS $ FormData.prim__set1 a b (up c) undef
 
 
 
 namespace ProgressEvent
 
   export
-  new :
+  new' :
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem ProgressEventInit (Types t2)}
     -> (type : String)
-    -> {default Undef eventInitDict : Optional t2}
+    -> (eventInitDict : Optional t2)
     -> JSIO ProgressEvent
-  new a = primJS $ ProgressEvent.prim__new a (optUp eventInitDict)
+  new' a b = primJS $ ProgressEvent.prim__new a (optUp b)
+
+  export
+  new : (type : String) -> JSIO ProgressEvent
+  new a = primJS $ ProgressEvent.prim__new a undef
 
 
   export
@@ -249,16 +277,26 @@ namespace XMLHttpRequest
 
 
   export
+  open1' :
+       (obj : XMLHttpRequest)
+    -> (method : ByteString)
+    -> (url : String)
+    -> (async : Bool)
+    -> (username : Optional (Maybe String))
+    -> (password : Optional (Maybe String))
+    -> JSIO ()
+  open1' a b c d e f = primJS $
+    XMLHttpRequest.prim__open1 a b c (toFFI d) (toFFI e) (toFFI f)
+
+  export
   open1 :
        (obj : XMLHttpRequest)
     -> (method : ByteString)
     -> (url : String)
     -> (async : Bool)
-    -> {default Undef username : Optional (Maybe String)}
-    -> {default Undef password : Optional (Maybe String)}
     -> JSIO ()
   open1 a b c d = primJS $
-    XMLHttpRequest.prim__open1 a b c (toFFI d) (toFFI username) (toFFI password)
+    XMLHttpRequest.prim__open1 a b c (toFFI d) undef undef
 
 
   export
@@ -267,30 +305,34 @@ namespace XMLHttpRequest
 
 
   export
-  send :
+  send' :
        (obj : XMLHttpRequest)
-    -> {default Undef body : Optional
-                               (Maybe
-                                  (NS I
-                                     [ Document
-                                     , Blob
-                                     , Int8Array
-                                     , Int16Array
-                                     , Int32Array
-                                     , UInt8Array
-                                     , UInt8Array
-                                     , UInt8Array
-                                     , UInt8ClampedArray
-                                     , Float32Array
-                                     , Float64Array
-                                     , DataView
-                                     , ArrayBuffer
-                                     , FormData
-                                     , URLSearchParams
-                                     , String
-                                     ]))}
+    -> (body : Optional
+                 (Maybe
+                    (NS I
+                       [ Document
+                       , Blob
+                       , Int8Array
+                       , Int16Array
+                       , Int32Array
+                       , UInt8Array
+                       , UInt8Array
+                       , UInt8Array
+                       , UInt8ClampedArray
+                       , Float32Array
+                       , Float64Array
+                       , DataView
+                       , ArrayBuffer
+                       , FormData
+                       , URLSearchParams
+                       , String
+                       ])))
     -> JSIO ()
-  send a = primJS $ XMLHttpRequest.prim__send a (toFFI body)
+  send' a b = primJS $ XMLHttpRequest.prim__send a (toFFI b)
+
+  export
+  send : (obj : XMLHttpRequest) -> JSIO ()
+  send a = primJS $ XMLHttpRequest.prim__send a undef
 
 
   export
@@ -407,16 +449,17 @@ namespace XMLHttpRequestEventTarget
 namespace ProgressEventInit
 
   export
-  new :
-       {default Undef lengthComputable : Optional Bool}
-    -> {default Undef loaded : Optional JSBits64}
-    -> {default Undef total_ : Optional JSBits64}
+  new' :
+       (lengthComputable : Optional Bool)
+    -> (loaded : Optional JSBits64)
+    -> (total_ : Optional JSBits64)
     -> JSIO ProgressEventInit
-  new = primJS $
-    ProgressEventInit.prim__new
-      (toFFI lengthComputable)
-      (toFFI loaded)
-      (toFFI total_)
+  new' a b c = primJS $
+    ProgressEventInit.prim__new (toFFI a) (toFFI b) (toFFI c)
+
+  export
+  new : JSIO ProgressEventInit
+  new = primJS $ ProgressEventInit.prim__new undef undef undef
 
 
   export

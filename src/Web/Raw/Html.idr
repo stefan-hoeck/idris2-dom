@@ -170,13 +170,17 @@ namespace CanvasGradient
 namespace CanvasPattern
 
   export
-  setTransform :
+  setTransform' :
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem DOMMatrix2DInit (Types t2)}
     -> (obj : CanvasPattern)
-    -> {default Undef transform : Optional t2}
+    -> (transform : Optional t2)
     -> JSIO ()
-  setTransform a = primJS $ CanvasPattern.prim__setTransform a (optUp transform)
+  setTransform' a b = primJS $ CanvasPattern.prim__setTransform a (optUp b)
+
+  export
+  setTransform : (obj : CanvasPattern) -> JSIO ()
+  setTransform a = primJS $ CanvasPattern.prim__setTransform a undef
 
 
 
@@ -199,13 +203,17 @@ namespace CanvasRenderingContext2D
 namespace CloseEvent
 
   export
-  new :
+  new' :
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem CloseEventInit (Types t2)}
     -> (type : String)
-    -> {default Undef eventInitDict : Optional t2}
+    -> (eventInitDict : Optional t2)
     -> JSIO CloseEvent
-  new a = primJS $ CloseEvent.prim__new a (optUp eventInitDict)
+  new' a b = primJS $ CloseEvent.prim__new a (optUp b)
+
+  export
+  new : (type : String) -> JSIO CloseEvent
+  new a = primJS $ CloseEvent.prim__new a undef
 
 
   export
@@ -227,16 +235,23 @@ namespace CloseEvent
 namespace CustomElementRegistry
 
   export
-  define :
+  define' :
        {auto 0 _ : JSType t4}
     -> {auto 0 _ : Elem ElementDefinitionOptions (Types t4)}
     -> (obj : CustomElementRegistry)
     -> (name : String)
     -> (constructor : CustomElementConstructor)
-    -> {default Undef options : Optional t4}
+    -> (options : Optional t4)
     -> JSIO ()
-  define a b c = primJS $
-    CustomElementRegistry.prim__define a b c (optUp options)
+  define' a b c d = primJS $ CustomElementRegistry.prim__define a b c (optUp d)
+
+  export
+  define :
+       (obj : CustomElementRegistry)
+    -> (name : String)
+    -> (constructor : CustomElementConstructor)
+    -> JSIO ()
+  define a b c = primJS $ CustomElementRegistry.prim__define a b c undef
 
 
   export
@@ -356,11 +371,12 @@ namespace DataTransfer
 
 
   export
-  clearData :
-       (obj : DataTransfer)
-    -> {default Undef format : Optional String}
-    -> JSIO ()
-  clearData a = primJS $ DataTransfer.prim__clearData a (toFFI format)
+  clearData' : (obj : DataTransfer) -> (format : Optional String) -> JSIO ()
+  clearData' a b = primJS $ DataTransfer.prim__clearData a (toFFI b)
+
+  export
+  clearData : (obj : DataTransfer) -> JSIO ()
+  clearData a = primJS $ DataTransfer.prim__clearData a undef
 
 
   export
@@ -507,28 +523,40 @@ namespace DedicatedWorkerGlobalScope
 
 
   export
-  postMessage1 :
+  postMessage1' :
        {auto 0 _ : JSType t3}
     -> {auto 0 _ : Elem PostMessageOptions (Types t3)}
     -> (obj : DedicatedWorkerGlobalScope)
     -> (message : Any)
-    -> {default Undef options : Optional t3}
+    -> (options : Optional t3)
+    -> JSIO ()
+  postMessage1' a b c = primJS $
+    DedicatedWorkerGlobalScope.prim__postMessage1 a (toFFI b) (optUp c)
+
+  export
+  postMessage1 :
+       (obj : DedicatedWorkerGlobalScope)
+    -> (message : Any)
     -> JSIO ()
   postMessage1 a b = primJS $
-    DedicatedWorkerGlobalScope.prim__postMessage1 a (toFFI b) (optUp options)
+    DedicatedWorkerGlobalScope.prim__postMessage1 a (toFFI b) undef
 
 
 
 namespace DragEvent
 
   export
-  new :
+  new' :
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem DragEventInit (Types t2)}
     -> (type : String)
-    -> {default Undef eventInitDict : Optional t2}
+    -> (eventInitDict : Optional t2)
     -> JSIO DragEvent
-  new a = primJS $ DragEvent.prim__new a (optUp eventInitDict)
+  new' a b = primJS $ DragEvent.prim__new a (optUp b)
+
+  export
+  new : (type : String) -> JSIO DragEvent
+  new a = primJS $ DragEvent.prim__new a undef
 
 
   export
@@ -585,45 +613,58 @@ namespace ElementInternals
 
 
   export
+  setFormValue' :
+       (obj : ElementInternals)
+    -> (value : Maybe (NS I [File, String, FormData]))
+    -> (state : Optional (Maybe (NS I [File, String, FormData])))
+    -> JSIO ()
+  setFormValue' a b c = primJS $
+    ElementInternals.prim__setFormValue a (toFFI b) (toFFI c)
+
+  export
   setFormValue :
        (obj : ElementInternals)
     -> (value : Maybe (NS I [File, String, FormData]))
-    -> {default Undef state : Optional (Maybe (NS I [File, String, FormData]))}
     -> JSIO ()
   setFormValue a b = primJS $
-    ElementInternals.prim__setFormValue a (toFFI b) (toFFI state)
+    ElementInternals.prim__setFormValue a (toFFI b) undef
 
 
   export
-  setValidity :
+  setValidity' :
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : JSType t4}
     -> {auto 0 _ : Elem ValidityStateFlags (Types t2)}
     -> {auto 0 _ : Elem HTMLElement (Types t4)}
     -> (obj : ElementInternals)
-    -> {default Undef flags : Optional t2}
-    -> {default Undef message : Optional String}
-    -> {default Undef anchor : Optional t4}
+    -> (flags : Optional t2)
+    -> (message : Optional String)
+    -> (anchor : Optional t4)
     -> JSIO ()
+  setValidity' a b c d = primJS $
+    ElementInternals.prim__setValidity a (optUp b) (toFFI c) (optUp d)
+
+  export
+  setValidity : (obj : ElementInternals) -> JSIO ()
   setValidity a = primJS $
-    ElementInternals.prim__setValidity
-      a
-      (optUp flags)
-      (toFFI message)
-      (optUp anchor)
+    ElementInternals.prim__setValidity a undef undef undef
 
 
 
 namespace ErrorEvent
 
   export
-  new :
+  new' :
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem ErrorEventInit (Types t2)}
     -> (type : String)
-    -> {default Undef eventInitDict : Optional t2}
+    -> (eventInitDict : Optional t2)
     -> JSIO ErrorEvent
-  new a = primJS $ ErrorEvent.prim__new a (optUp eventInitDict)
+  new' a b = primJS $ ErrorEvent.prim__new a (optUp b)
+
+  export
+  new : (type : String) -> JSIO ErrorEvent
+  new a = primJS $ ErrorEvent.prim__new a undef
 
 
   export
@@ -670,13 +711,17 @@ namespace EventSource
 
 
   export
-  new :
+  new' :
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem EventSourceInit (Types t2)}
     -> (url : String)
-    -> {default Undef eventSourceInitDict : Optional t2}
+    -> (eventSourceInitDict : Optional t2)
     -> JSIO EventSource
-  new a = primJS $ EventSource.prim__new a (optUp eventSourceInitDict)
+  new' a b = primJS $ EventSource.prim__new a (optUp b)
+
+  export
+  new : (url : String) -> JSIO EventSource
+  new a = primJS $ EventSource.prim__new a undef
 
 
   export
@@ -773,12 +818,18 @@ namespace HTMLAllCollection
 
 
   export
+  item' :
+       (obj : HTMLAllCollection)
+    -> (nameOrIndex : Optional String)
+    -> JSIO (Maybe (NS I [HTMLCollection, Element]))
+  item' a b = tryJS "HTMLAllCollection.item'" $
+    HTMLAllCollection.prim__item a (toFFI b)
+
+  export
   item :
        (obj : HTMLAllCollection)
-    -> {default Undef nameOrIndex : Optional String}
     -> JSIO (Maybe (NS I [HTMLCollection, Element]))
-  item a = tryJS "HTMLAllCollection.item" $
-    HTMLAllCollection.prim__item a (toFFI nameOrIndex)
+  item a = tryJS "HTMLAllCollection.item" $ HTMLAllCollection.prim__item a undef
 
 
   export
@@ -1186,10 +1237,25 @@ namespace HTMLCanvasElement
 
 
   export
+  getContext' :
+       (obj : HTMLCanvasElement)
+    -> (contextId : String)
+    -> (options : Optional Any)
+    -> JSIO
+         (Maybe
+            (NS I
+               [ CanvasRenderingContext2D
+               , ImageBitmapRenderingContext
+               , WebGLRenderingContext
+               , WebGL2RenderingContext
+               ]))
+  getContext' a b c = tryJS "HTMLCanvasElement.getContext'" $
+    HTMLCanvasElement.prim__getContext a b (toFFI c)
+
+  export
   getContext :
        (obj : HTMLCanvasElement)
     -> (contextId : String)
-    -> {default Undef options : Optional Any}
     -> JSIO
          (Maybe
             (NS I
@@ -1199,28 +1265,36 @@ namespace HTMLCanvasElement
                , WebGL2RenderingContext
                ]))
   getContext a b = tryJS "HTMLCanvasElement.getContext" $
-    HTMLCanvasElement.prim__getContext a b (toFFI options)
+    HTMLCanvasElement.prim__getContext a b undef
 
 
   export
-  toBlob :
+  toBlob' :
        (obj : HTMLCanvasElement)
     -> (callback : BlobCallback)
-    -> {default Undef type : Optional String}
-    -> {default Undef quality : Optional Any}
+    -> (type : Optional String)
+    -> (quality : Optional Any)
     -> JSIO ()
-  toBlob a b = primJS $
-    HTMLCanvasElement.prim__toBlob a b (toFFI type) (toFFI quality)
+  toBlob' a b c d = primJS $
+    HTMLCanvasElement.prim__toBlob a b (toFFI c) (toFFI d)
+
+  export
+  toBlob : (obj : HTMLCanvasElement) -> (callback : BlobCallback) -> JSIO ()
+  toBlob a b = primJS $ HTMLCanvasElement.prim__toBlob a b undef undef
 
 
   export
-  toDataURL :
+  toDataURL' :
        (obj : HTMLCanvasElement)
-    -> {default Undef type : Optional String}
-    -> {default Undef quality : Optional Any}
+    -> (type : Optional String)
+    -> (quality : Optional Any)
     -> JSIO String
-  toDataURL a = primJS $
-    HTMLCanvasElement.prim__toDataURL a (toFFI type) (toFFI quality)
+  toDataURL' a b c = primJS $
+    HTMLCanvasElement.prim__toDataURL a (toFFI b) (toFFI c)
+
+  export
+  toDataURL : (obj : HTMLCanvasElement) -> JSIO String
+  toDataURL a = primJS $ HTMLCanvasElement.prim__toDataURL a undef undef
 
 
   export
@@ -1308,11 +1382,15 @@ namespace HTMLDialogElement
 
 
   export
-  close :
+  close' :
        (obj : HTMLDialogElement)
-    -> {default Undef returnValue : Optional String}
+    -> (returnValue : Optional String)
     -> JSIO ()
-  close a = primJS $ HTMLDialogElement.prim__close a (toFFI returnValue)
+  close' a b = primJS $ HTMLDialogElement.prim__close a (toFFI b)
+
+  export
+  close : (obj : HTMLDialogElement) -> JSIO ()
+  close a = primJS $ HTMLDialogElement.prim__close a undef
 
 
   export
@@ -1839,14 +1917,17 @@ namespace HTMLFormElement
 
 
   export
-  requestSubmit :
+  requestSubmit' :
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem HTMLElement (Types t2)}
     -> (obj : HTMLFormElement)
-    -> {default Undef submitter : Optional (Maybe t2)}
+    -> (submitter : Optional (Maybe t2))
     -> JSIO ()
-  requestSubmit a = primJS $
-    HTMLFormElement.prim__requestSubmit a (omyUp submitter)
+  requestSubmit' a b = primJS $ HTMLFormElement.prim__requestSubmit a (omyUp b)
+
+  export
+  requestSubmit : (obj : HTMLFormElement) -> JSIO ()
+  requestSubmit a = primJS $ HTMLFormElement.prim__requestSubmit a undef
 
 
   export
@@ -2743,42 +2824,63 @@ namespace HTMLInputElement
 
 
   export
+  setRangeText1' :
+       (obj : HTMLInputElement)
+    -> (replacement : String)
+    -> (start : Bits32)
+    -> (end : Bits32)
+    -> (selectionMode : Optional SelectionMode)
+    -> JSIO ()
+  setRangeText1' a b c d e = primJS $
+    HTMLInputElement.prim__setRangeText1 a b c d (toFFI e)
+
+  export
   setRangeText1 :
        (obj : HTMLInputElement)
     -> (replacement : String)
     -> (start : Bits32)
     -> (end : Bits32)
-    -> {default Undef selectionMode : Optional SelectionMode}
     -> JSIO ()
   setRangeText1 a b c d = primJS $
-    HTMLInputElement.prim__setRangeText1 a b c d (toFFI selectionMode)
+    HTMLInputElement.prim__setRangeText1 a b c d undef
 
+
+  export
+  setSelectionRange' :
+       (obj : HTMLInputElement)
+    -> (start : Bits32)
+    -> (end : Bits32)
+    -> (direction : Optional String)
+    -> JSIO ()
+  setSelectionRange' a b c d = primJS $
+    HTMLInputElement.prim__setSelectionRange a b c (toFFI d)
 
   export
   setSelectionRange :
        (obj : HTMLInputElement)
     -> (start : Bits32)
     -> (end : Bits32)
-    -> {default Undef direction : Optional String}
     -> JSIO ()
   setSelectionRange a b c = primJS $
-    HTMLInputElement.prim__setSelectionRange a b c (toFFI direction)
+    HTMLInputElement.prim__setSelectionRange a b c undef
 
 
   export
-  stepDown :
-       (obj : HTMLInputElement)
-    -> {default Undef n : Optional Int32}
-    -> JSIO ()
-  stepDown a = primJS $ HTMLInputElement.prim__stepDown a (toFFI n)
+  stepDown' : (obj : HTMLInputElement) -> (n : Optional Int32) -> JSIO ()
+  stepDown' a b = primJS $ HTMLInputElement.prim__stepDown a (toFFI b)
+
+  export
+  stepDown : (obj : HTMLInputElement) -> JSIO ()
+  stepDown a = primJS $ HTMLInputElement.prim__stepDown a undef
 
 
   export
-  stepUp :
-       (obj : HTMLInputElement)
-    -> {default Undef n : Optional Int32}
-    -> JSIO ()
-  stepUp a = primJS $ HTMLInputElement.prim__stepUp a (toFFI n)
+  stepUp' : (obj : HTMLInputElement) -> (n : Optional Int32) -> JSIO ()
+  stepUp' a b = primJS $ HTMLInputElement.prim__stepUp a (toFFI b)
+
+  export
+  stepUp : (obj : HTMLInputElement) -> JSIO ()
+  stepUp a = primJS $ HTMLInputElement.prim__stepUp a undef
 
 
 
@@ -3456,20 +3558,26 @@ namespace HTMLMediaElement
 
 
   export
+  addTextTrack' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem HTMLMediaElement (Types t1)}
+    -> (obj : t1)
+    -> (kind : TextTrackKind)
+    -> (label : Optional String)
+    -> (language : Optional String)
+    -> JSIO TextTrack
+  addTextTrack' a b c d = primJS $
+    HTMLMediaElement.prim__addTextTrack (up a) (toFFI b) (toFFI c) (toFFI d)
+
+  export
   addTextTrack :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem HTMLMediaElement (Types t1)}
     -> (obj : t1)
     -> (kind : TextTrackKind)
-    -> {default Undef label : Optional String}
-    -> {default Undef language : Optional String}
     -> JSIO TextTrack
   addTextTrack a b = primJS $
-    HTMLMediaElement.prim__addTextTrack
-      (up a)
-      (toFFI b)
-      (toFFI label)
-      (toFFI language)
+    HTMLMediaElement.prim__addTextTrack (up a) (toFFI b) undef undef
 
 
   export
@@ -3984,12 +4092,19 @@ namespace HTMLOptionsCollection
 
 
   export
+  add' :
+       (obj : HTMLOptionsCollection)
+    -> (element : NS I [HTMLOptionElement, HTMLOptGroupElement])
+    -> (before : Optional (Maybe (NS I [HTMLElement, Int32])))
+    -> JSIO ()
+  add' a b c = primJS $ HTMLOptionsCollection.prim__add a (toFFI b) (toFFI c)
+
+  export
   add :
        (obj : HTMLOptionsCollection)
     -> (element : NS I [HTMLOptionElement, HTMLOptGroupElement])
-    -> {default Undef before : Optional (Maybe (NS I [HTMLElement, Int32]))}
     -> JSIO ()
-  add a b = primJS $ HTMLOptionsCollection.prim__add a (toFFI b) (toFFI before)
+  add a b = primJS $ HTMLOptionsCollection.prim__add a (toFFI b) undef
 
 
   export
@@ -4408,12 +4523,19 @@ namespace HTMLSelectElement
 
 
   export
+  add' :
+       (obj : HTMLSelectElement)
+    -> (element : NS I [HTMLOptionElement, HTMLOptGroupElement])
+    -> (before : Optional (Maybe (NS I [HTMLElement, Int32])))
+    -> JSIO ()
+  add' a b c = primJS $ HTMLSelectElement.prim__add a (toFFI b) (toFFI c)
+
+  export
   add :
        (obj : HTMLSelectElement)
     -> (element : NS I [HTMLOptionElement, HTMLOptGroupElement])
-    -> {default Undef before : Optional (Maybe (NS I [HTMLElement, Int32]))}
     -> JSIO ()
-  add a b = primJS $ HTMLSelectElement.prim__add a (toFFI b) (toFFI before)
+  add a b = primJS $ HTMLSelectElement.prim__add a (toFFI b) undef
 
 
   export
@@ -4471,25 +4593,32 @@ namespace HTMLSlotElement
 
 
   export
-  assignedElements :
+  assignedElements' :
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem AssignedNodesOptions (Types t2)}
     -> (obj : HTMLSlotElement)
-    -> {default Undef options : Optional t2}
+    -> (options : Optional t2)
     -> JSIO (Array Element)
-  assignedElements a = primJS $
-    HTMLSlotElement.prim__assignedElements a (optUp options)
+  assignedElements' a b = primJS $
+    HTMLSlotElement.prim__assignedElements a (optUp b)
+
+  export
+  assignedElements : (obj : HTMLSlotElement) -> JSIO (Array Element)
+  assignedElements a = primJS $ HTMLSlotElement.prim__assignedElements a undef
 
 
   export
-  assignedNodes :
+  assignedNodes' :
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem AssignedNodesOptions (Types t2)}
     -> (obj : HTMLSlotElement)
-    -> {default Undef options : Optional t2}
+    -> (options : Optional t2)
     -> JSIO (Array Node)
-  assignedNodes a = primJS $
-    HTMLSlotElement.prim__assignedNodes a (optUp options)
+  assignedNodes' a b = primJS $ HTMLSlotElement.prim__assignedNodes a (optUp b)
+
+  export
+  assignedNodes : (obj : HTMLSlotElement) -> JSIO (Array Node)
+  assignedNodes a = primJS $ HTMLSlotElement.prim__assignedNodes a undef
 
 
 
@@ -4906,11 +5035,15 @@ namespace HTMLTableElement
 
 
   export
-  insertRow :
+  insertRow' :
        (obj : HTMLTableElement)
-    -> {default Undef index : Optional Int32}
+    -> (index : Optional Int32)
     -> JSIO HTMLTableRowElement
-  insertRow a = primJS $ HTMLTableElement.prim__insertRow a (toFFI index)
+  insertRow' a b = primJS $ HTMLTableElement.prim__insertRow a (toFFI b)
+
+  export
+  insertRow : (obj : HTMLTableElement) -> JSIO HTMLTableRowElement
+  insertRow a = primJS $ HTMLTableElement.prim__insertRow a undef
 
 
 
@@ -4975,11 +5108,15 @@ namespace HTMLTableRowElement
 
 
   export
-  insertCell :
+  insertCell' :
        (obj : HTMLTableRowElement)
-    -> {default Undef index : Optional Int32}
+    -> (index : Optional Int32)
     -> JSIO HTMLTableCellElement
-  insertCell a = primJS $ HTMLTableRowElement.prim__insertCell a (toFFI index)
+  insertCell' a b = primJS $ HTMLTableRowElement.prim__insertCell a (toFFI b)
+
+  export
+  insertCell : (obj : HTMLTableRowElement) -> JSIO HTMLTableCellElement
+  insertCell a = primJS $ HTMLTableRowElement.prim__insertCell a undef
 
 
 
@@ -5033,11 +5170,15 @@ namespace HTMLTableSectionElement
 
 
   export
-  insertRow :
+  insertRow' :
        (obj : HTMLTableSectionElement)
-    -> {default Undef index : Optional Int32}
+    -> (index : Optional Int32)
     -> JSIO HTMLTableRowElement
-  insertRow a = primJS $ HTMLTableSectionElement.prim__insertRow a (toFFI index)
+  insertRow' a b = primJS $ HTMLTableSectionElement.prim__insertRow a (toFFI b)
+
+  export
+  insertRow : (obj : HTMLTableSectionElement) -> JSIO HTMLTableRowElement
+  insertRow a = primJS $ HTMLTableSectionElement.prim__insertRow a undef
 
 
 
@@ -5262,26 +5403,45 @@ namespace HTMLTextAreaElement
 
 
   export
+  setRangeText1' :
+       (obj : HTMLTextAreaElement)
+    -> (replacement : String)
+    -> (start : Bits32)
+    -> (end : Bits32)
+    -> (selectionMode : Optional SelectionMode)
+    -> JSIO ()
+  setRangeText1' a b c d e = primJS $
+    HTMLTextAreaElement.prim__setRangeText1 a b c d (toFFI e)
+
+  export
   setRangeText1 :
        (obj : HTMLTextAreaElement)
     -> (replacement : String)
     -> (start : Bits32)
     -> (end : Bits32)
-    -> {default Undef selectionMode : Optional SelectionMode}
     -> JSIO ()
   setRangeText1 a b c d = primJS $
-    HTMLTextAreaElement.prim__setRangeText1 a b c d (toFFI selectionMode)
+    HTMLTextAreaElement.prim__setRangeText1 a b c d undef
 
+
+  export
+  setSelectionRange' :
+       (obj : HTMLTextAreaElement)
+    -> (start : Bits32)
+    -> (end : Bits32)
+    -> (direction : Optional String)
+    -> JSIO ()
+  setSelectionRange' a b c d = primJS $
+    HTMLTextAreaElement.prim__setSelectionRange a b c (toFFI d)
 
   export
   setSelectionRange :
        (obj : HTMLTextAreaElement)
     -> (start : Bits32)
     -> (end : Bits32)
-    -> {default Undef direction : Optional String}
     -> JSIO ()
   setSelectionRange a b c = primJS $
-    HTMLTextAreaElement.prim__setSelectionRange a b c (toFFI direction)
+    HTMLTextAreaElement.prim__setSelectionRange a b c undef
 
 
 
@@ -5462,13 +5622,17 @@ namespace HTMLVideoElement
 namespace HashChangeEvent
 
   export
-  new :
+  new' :
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem HashChangeEventInit (Types t2)}
     -> (type : String)
-    -> {default Undef eventInitDict : Optional t2}
+    -> (eventInitDict : Optional t2)
     -> JSIO HashChangeEvent
-  new a = primJS $ HashChangeEvent.prim__new a (optUp eventInitDict)
+  new' a b = primJS $ HashChangeEvent.prim__new a (optUp b)
+
+  export
+  new : (type : String) -> JSIO HashChangeEvent
+  new a = primJS $ HashChangeEvent.prim__new a undef
 
 
   export
@@ -5514,29 +5678,45 @@ namespace History
 
 
   export
-  go : (obj : History) -> {default Undef delta : Optional Int32} -> JSIO ()
-  go a = primJS $ History.prim__go a (toFFI delta)
+  go' : (obj : History) -> (delta : Optional Int32) -> JSIO ()
+  go' a b = primJS $ History.prim__go a (toFFI b)
+
+  export
+  go : (obj : History) -> JSIO ()
+  go a = primJS $ History.prim__go a undef
 
 
   export
-  pushState :
+  pushState' :
        (obj : History)
     -> (data_ : Any)
     -> (unused : String)
-    -> {default Undef url : Optional (Maybe String)}
+    -> (url : Optional (Maybe String))
     -> JSIO ()
-  pushState a b c = primJS $ History.prim__pushState a (toFFI b) c (toFFI url)
+  pushState' a b c d = primJS $ History.prim__pushState a (toFFI b) c (toFFI d)
 
+  export
+  pushState : (obj : History) -> (data_ : Any) -> (unused : String) -> JSIO ()
+  pushState a b c = primJS $ History.prim__pushState a (toFFI b) c undef
+
+
+  export
+  replaceState' :
+       (obj : History)
+    -> (data_ : Any)
+    -> (unused : String)
+    -> (url : Optional (Maybe String))
+    -> JSIO ()
+  replaceState' a b c d = primJS $
+    History.prim__replaceState a (toFFI b) c (toFFI d)
 
   export
   replaceState :
        (obj : History)
     -> (data_ : Any)
     -> (unused : String)
-    -> {default Undef url : Optional (Maybe String)}
     -> JSIO ()
-  replaceState a b c = primJS $
-    History.prim__replaceState a (toFFI b) c (toFFI url)
+  replaceState a b c = primJS $ History.prim__replaceState a (toFFI b) c undef
 
 
 
@@ -5586,12 +5766,16 @@ namespace ImageData
 
 
   export
-  new1 :
+  new1' :
        (data_ : UInt8ClampedArray)
     -> (sw : Bits32)
-    -> {default Undef sh : Optional Bits32}
+    -> (sh : Optional Bits32)
     -> JSIO ImageData
-  new1 a b = primJS $ ImageData.prim__new1 a b (toFFI sh)
+  new1' a b c = primJS $ ImageData.prim__new1 a b (toFFI c)
+
+  export
+  new1 : (data_ : UInt8ClampedArray) -> (sw : Bits32) -> JSIO ImageData
+  new1 a b = primJS $ ImageData.prim__new1 a b undef
 
 
   export
@@ -5744,13 +5928,17 @@ namespace MessageChannel
 namespace MessageEvent
 
   export
-  new :
+  new' :
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem MessageEventInit (Types t2)}
     -> (type : String)
-    -> {default Undef eventInitDict : Optional t2}
+    -> (eventInitDict : Optional t2)
     -> JSIO MessageEvent
-  new a = primJS $ MessageEvent.prim__new a (optUp eventInitDict)
+  new' a b = primJS $ MessageEvent.prim__new a (optUp b)
+
+  export
+  new : (type : String) -> JSIO MessageEvent
+  new a = primJS $ MessageEvent.prim__new a undef
 
 
   export
@@ -5781,34 +5969,43 @@ namespace MessageEvent
 
 
   export
-  initMessageEvent :
+  initMessageEvent' :
        (obj : MessageEvent)
     -> (type : String)
-    -> {default Undef bubbles : Optional Bool}
-    -> {default Undef cancelable : Optional Bool}
-    -> {default Undef data_ : Optional Any}
-    -> {default Undef origin : Optional String}
-    -> {default Undef lastEventId : Optional String}
-    -> {default Undef source : Optional
-                                 (Maybe
-                                    (NS I
-                                       [ WindowProxy
-                                       , MessagePort
-                                       , ServiceWorker
-                                       ]))}
-    -> {default Undef ports : Optional (Array MessagePort)}
+    -> (bubbles : Optional Bool)
+    -> (cancelable : Optional Bool)
+    -> (data_ : Optional Any)
+    -> (origin : Optional String)
+    -> (lastEventId : Optional String)
+    -> (source : Optional
+                   (Maybe (NS I [WindowProxy, MessagePort, ServiceWorker])))
+    -> (ports : Optional (Array MessagePort))
     -> JSIO ()
+  initMessageEvent' a b c d e f g h i = primJS $
+    MessageEvent.prim__initMessageEvent
+      a
+      b
+      (toFFI c)
+      (toFFI d)
+      (toFFI e)
+      (toFFI f)
+      (toFFI g)
+      (toFFI h)
+      (toFFI i)
+
+  export
+  initMessageEvent : (obj : MessageEvent) -> (type : String) -> JSIO ()
   initMessageEvent a b = primJS $
     MessageEvent.prim__initMessageEvent
       a
       b
-      (toFFI bubbles)
-      (toFFI cancelable)
-      (toFFI data_)
-      (toFFI origin)
-      (toFFI lastEventId)
-      (toFFI source)
-      (toFFI ports)
+      undef
+      undef
+      undef
+      undef
+      undef
+      undef
+      undef
 
 
 
@@ -5847,15 +6044,19 @@ namespace MessagePort
 
 
   export
-  postMessage1 :
+  postMessage1' :
        {auto 0 _ : JSType t3}
     -> {auto 0 _ : Elem PostMessageOptions (Types t3)}
     -> (obj : MessagePort)
     -> (message : Any)
-    -> {default Undef options : Optional t3}
+    -> (options : Optional t3)
     -> JSIO ()
-  postMessage1 a b = primJS $
-    MessagePort.prim__postMessage1 a (toFFI b) (optUp options)
+  postMessage1' a b c = primJS $
+    MessagePort.prim__postMessage1 a (toFFI b) (optUp c)
+
+  export
+  postMessage1 : (obj : MessagePort) -> (message : Any) -> JSIO ()
+  postMessage1 a b = primJS $ MessagePort.prim__postMessage1 a (toFFI b) undef
 
 
   export
@@ -5959,21 +6160,39 @@ namespace OffscreenCanvas
 
 
   export
-  convertToBlob :
+  convertToBlob' :
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem ImageEncodeOptions (Types t2)}
     -> (obj : OffscreenCanvas)
-    -> {default Undef options : Optional t2}
+    -> (options : Optional t2)
     -> JSIO (Promise Blob)
-  convertToBlob a = primJS $
-    OffscreenCanvas.prim__convertToBlob a (optUp options)
+  convertToBlob' a b = primJS $ OffscreenCanvas.prim__convertToBlob a (optUp b)
 
+  export
+  convertToBlob : (obj : OffscreenCanvas) -> JSIO (Promise Blob)
+  convertToBlob a = primJS $ OffscreenCanvas.prim__convertToBlob a undef
+
+
+  export
+  getContext' :
+       (obj : OffscreenCanvas)
+    -> (contextId : OffscreenRenderingContextId)
+    -> (options : Optional Any)
+    -> JSIO
+         (Maybe
+            (NS I
+               [ OffscreenCanvasRenderingContext2D
+               , ImageBitmapRenderingContext
+               , WebGLRenderingContext
+               , WebGL2RenderingContext
+               ]))
+  getContext' a b c = tryJS "OffscreenCanvas.getContext'" $
+    OffscreenCanvas.prim__getContext a (toFFI b) (toFFI c)
 
   export
   getContext :
        (obj : OffscreenCanvas)
     -> (contextId : OffscreenRenderingContextId)
-    -> {default Undef options : Optional Any}
     -> JSIO
          (Maybe
             (NS I
@@ -5983,7 +6202,7 @@ namespace OffscreenCanvas
                , WebGL2RenderingContext
                ]))
   getContext a b = tryJS "OffscreenCanvas.getContext" $
-    OffscreenCanvas.prim__getContext a (toFFI b) (toFFI options)
+    OffscreenCanvas.prim__getContext a (toFFI b) undef
 
 
   export
@@ -6009,13 +6228,17 @@ namespace OffscreenCanvasRenderingContext2D
 namespace PageTransitionEvent
 
   export
-  new :
+  new' :
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem PageTransitionEventInit (Types t2)}
     -> (type : String)
-    -> {default Undef eventInitDict : Optional t2}
+    -> (eventInitDict : Optional t2)
     -> JSIO PageTransitionEvent
-  new a = primJS $ PageTransitionEvent.prim__new a (optUp eventInitDict)
+  new' a b = primJS $ PageTransitionEvent.prim__new a (optUp b)
+
+  export
+  new : (type : String) -> JSIO PageTransitionEvent
+  new a = primJS $ PageTransitionEvent.prim__new a undef
 
 
   export
@@ -6028,19 +6251,27 @@ namespace PageTransitionEvent
 namespace Path2D
 
   export
-  new : {default Undef path : Optional (NS I [Path2D, String])} -> JSIO Path2D
-  new = primJS $ Path2D.prim__new (toFFI path)
+  new' : (path : Optional (NS I [Path2D, String])) -> JSIO Path2D
+  new' a = primJS $ Path2D.prim__new (toFFI a)
+
+  export
+  new : JSIO Path2D
+  new = primJS $ Path2D.prim__new undef
 
 
   export
-  addPath :
+  addPath' :
        {auto 0 _ : JSType t3}
     -> {auto 0 _ : Elem DOMMatrix2DInit (Types t3)}
     -> (obj : Path2D)
     -> (path : Path2D)
-    -> {default Undef transform : Optional t3}
+    -> (transform : Optional t3)
     -> JSIO ()
-  addPath a b = primJS $ Path2D.prim__addPath a b (optUp transform)
+  addPath' a b c = primJS $ Path2D.prim__addPath a b (optUp c)
+
+  export
+  addPath : (obj : Path2D) -> (path : Path2D) -> JSIO ()
+  addPath a b = primJS $ Path2D.prim__addPath a b undef
 
 
 
@@ -6104,13 +6335,17 @@ namespace PluginArray
 namespace PopStateEvent
 
   export
-  new :
+  new' :
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem PopStateEventInit (Types t2)}
     -> (type : String)
-    -> {default Undef eventInitDict : Optional t2}
+    -> (eventInitDict : Optional t2)
     -> JSIO PopStateEvent
-  new a = primJS $ PopStateEvent.prim__new a (optUp eventInitDict)
+  new' a b = primJS $ PopStateEvent.prim__new a (optUp b)
+
+  export
+  new : (type : String) -> JSIO PopStateEvent
+  new a = primJS $ PopStateEvent.prim__new a undef
 
 
   export
@@ -6154,11 +6389,15 @@ namespace RadioNodeList
 namespace SharedWorker
 
   export
-  new :
+  new' :
        (scriptURL : String)
-    -> {default Undef options : Optional (NS I [String, WorkerOptions])}
+    -> (options : Optional (NS I [String, WorkerOptions]))
     -> JSIO SharedWorker
-  new a = primJS $ SharedWorker.prim__new a (toFFI options)
+  new' a b = primJS $ SharedWorker.prim__new a (toFFI b)
+
+  export
+  new : (scriptURL : String) -> JSIO SharedWorker
+  new a = primJS $ SharedWorker.prim__new a undef
 
 
   export
@@ -6222,13 +6461,17 @@ namespace Storage
 namespace StorageEvent
 
   export
-  new :
+  new' :
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem StorageEventInit (Types t2)}
     -> (type : String)
-    -> {default Undef eventInitDict : Optional t2}
+    -> (eventInitDict : Optional t2)
     -> JSIO StorageEvent
-  new a = primJS $ StorageEvent.prim__new a (optUp eventInitDict)
+  new' a b = primJS $ StorageEvent.prim__new a (optUp b)
+
+  export
+  new : (type : String) -> JSIO StorageEvent
+  new a = primJS $ StorageEvent.prim__new a undef
 
 
   export
@@ -6258,41 +6501,59 @@ namespace StorageEvent
 
 
   export
-  initStorageEvent :
+  initStorageEvent' :
        (obj : StorageEvent)
     -> (type : String)
-    -> {default Undef bubbles : Optional Bool}
-    -> {default Undef cancelable : Optional Bool}
-    -> {default Undef key : Optional (Maybe String)}
-    -> {default Undef oldValue : Optional (Maybe String)}
-    -> {default Undef newValue : Optional (Maybe String)}
-    -> {default Undef url : Optional String}
-    -> {default Undef storageArea : Optional (Maybe Storage)}
+    -> (bubbles : Optional Bool)
+    -> (cancelable : Optional Bool)
+    -> (key : Optional (Maybe String))
+    -> (oldValue : Optional (Maybe String))
+    -> (newValue : Optional (Maybe String))
+    -> (url : Optional String)
+    -> (storageArea : Optional (Maybe Storage))
     -> JSIO ()
+  initStorageEvent' a b c d e f g h i = primJS $
+    StorageEvent.prim__initStorageEvent
+      a
+      b
+      (toFFI c)
+      (toFFI d)
+      (toFFI e)
+      (toFFI f)
+      (toFFI g)
+      (toFFI h)
+      (toFFI i)
+
+  export
+  initStorageEvent : (obj : StorageEvent) -> (type : String) -> JSIO ()
   initStorageEvent a b = primJS $
     StorageEvent.prim__initStorageEvent
       a
       b
-      (toFFI bubbles)
-      (toFFI cancelable)
-      (toFFI key)
-      (toFFI oldValue)
-      (toFFI newValue)
-      (toFFI url)
-      (toFFI storageArea)
+      undef
+      undef
+      undef
+      undef
+      undef
+      undef
+      undef
 
 
 
 namespace SubmitEvent
 
   export
-  new :
+  new' :
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem SubmitEventInit (Types t2)}
     -> (type : String)
-    -> {default Undef eventInitDict : Optional t2}
+    -> (eventInitDict : Optional t2)
     -> JSIO SubmitEvent
-  new a = primJS $ SubmitEvent.prim__new a (optUp eventInitDict)
+  new' a b = primJS $ SubmitEvent.prim__new a (optUp b)
+
+  export
+  new : (type : String) -> JSIO SubmitEvent
+  new a = primJS $ SubmitEvent.prim__new a undef
 
 
   export
@@ -6585,13 +6846,17 @@ namespace TimeRanges
 namespace TrackEvent
 
   export
-  new :
+  new' :
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem TrackEventInit (Types t2)}
     -> (type : String)
-    -> {default Undef eventInitDict : Optional t2}
+    -> (eventInitDict : Optional t2)
     -> JSIO TrackEvent
-  new a = primJS $ TrackEvent.prim__new a (optUp eventInitDict)
+  new' a b = primJS $ TrackEvent.prim__new a (optUp b)
+
+  export
+  new : (type : String) -> JSIO TrackEvent
+  new a = primJS $ TrackEvent.prim__new a undef
 
 
   export
@@ -6782,11 +7047,15 @@ namespace WebSocket
 
 
   export
-  new :
+  new' :
        (url : String)
-    -> {default Undef protocols : Optional (NS I [String, Array String])}
+    -> (protocols : Optional (NS I [String, Array String]))
     -> JSIO WebSocket
-  new a = primJS $ WebSocket.prim__new a (toFFI protocols)
+  new' a b = primJS $ WebSocket.prim__new a (toFFI b)
+
+  export
+  new : (url : String) -> JSIO WebSocket
+  new a = primJS $ WebSocket.prim__new a undef
 
 
   export
@@ -6860,12 +7129,16 @@ namespace WebSocket
 
 
   export
-  close :
+  close' :
        (obj : WebSocket)
-    -> {default Undef code : Optional Bits16}
-    -> {default Undef reason : Optional String}
+    -> (code : Optional Bits16)
+    -> (reason : Optional String)
     -> JSIO ()
-  close a = primJS $ WebSocket.prim__close a (toFFI code) (toFFI reason)
+  close' a b c = primJS $ WebSocket.prim__close a (toFFI b) (toFFI c)
+
+  export
+  close : (obj : WebSocket) -> JSIO ()
+  close a = primJS $ WebSocket.prim__close a undef undef
 
 
   export
@@ -7143,11 +7416,12 @@ namespace Window
 
 
   export
-  confirm :
-       (obj : Window)
-    -> {default Undef message : Optional String}
-    -> JSIO Bool
-  confirm a = tryJS "Window.confirm" $ Window.prim__confirm a (toFFI message)
+  confirm' : (obj : Window) -> (message : Optional String) -> JSIO Bool
+  confirm' a b = tryJS "Window.confirm'" $ Window.prim__confirm a (toFFI b)
+
+  export
+  confirm : (obj : Window) -> JSIO Bool
+  confirm a = tryJS "Window.confirm" $ Window.prim__confirm a undef
 
 
   export
@@ -7156,15 +7430,24 @@ namespace Window
 
 
   export
+  getComputedStyle' :
+       {auto 0 _ : JSType t2}
+    -> {auto 0 _ : Elem Element (Types t2)}
+    -> (obj : Window)
+    -> (elt : t2)
+    -> (pseudoElt : Optional (Maybe String))
+    -> JSIO CSSStyleDeclaration
+  getComputedStyle' a b c = primJS $
+    Window.prim__getComputedStyle a (up b) (toFFI c)
+
+  export
   getComputedStyle :
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem Element (Types t2)}
     -> (obj : Window)
     -> (elt : t2)
-    -> {default Undef pseudoElt : Optional (Maybe String)}
     -> JSIO CSSStyleDeclaration
-  getComputedStyle a b = primJS $
-    Window.prim__getComputedStyle a (up b) (toFFI pseudoElt)
+  getComputedStyle a b = primJS $ Window.prim__getComputedStyle a (up b) undef
 
 
   export
@@ -7183,37 +7466,52 @@ namespace Window
 
 
   export
-  open_ :
+  open' :
        (obj : Window)
-    -> {default Undef url : Optional String}
-    -> {default Undef target : Optional String}
-    -> {default Undef features : Optional String}
+    -> (url : Optional String)
+    -> (target : Optional String)
+    -> (features : Optional String)
     -> JSIO (Maybe WindowProxy)
-  open_ a = tryJS "Window.open_" $
-    Window.prim__open a (toFFI url) (toFFI target) (toFFI features)
+  open' a b c d = tryJS "Window.open'" $
+    Window.prim__open a (toFFI b) (toFFI c) (toFFI d)
 
+  export
+  open_ : (obj : Window) -> JSIO (Maybe WindowProxy)
+  open_ a = tryJS "Window.open_" $ Window.prim__open a undef undef undef
+
+
+  export
+  postMessage' :
+       (obj : Window)
+    -> (message : Any)
+    -> (targetOrigin : String)
+    -> (transfer : Optional (Array Object))
+    -> JSIO ()
+  postMessage' a b c d = primJS $
+    Window.prim__postMessage a (toFFI b) c (toFFI d)
 
   export
   postMessage :
        (obj : Window)
     -> (message : Any)
     -> (targetOrigin : String)
-    -> {default Undef transfer : Optional (Array Object)}
     -> JSIO ()
-  postMessage a b c = primJS $
-    Window.prim__postMessage a (toFFI b) c (toFFI transfer)
+  postMessage a b c = primJS $ Window.prim__postMessage a (toFFI b) c undef
 
 
   export
-  postMessage1 :
+  postMessage1' :
        {auto 0 _ : JSType t3}
     -> {auto 0 _ : Elem WindowPostMessageOptions (Types t3)}
     -> (obj : Window)
     -> (message : Any)
-    -> {default Undef options : Optional t3}
+    -> (options : Optional t3)
     -> JSIO ()
-  postMessage1 a b = primJS $
-    Window.prim__postMessage1 a (toFFI b) (optUp options)
+  postMessage1' a b c = primJS $ Window.prim__postMessage1 a (toFFI b) (optUp c)
+
+  export
+  postMessage1 : (obj : Window) -> (message : Any) -> JSIO ()
+  postMessage1 a b = primJS $ Window.prim__postMessage1 a (toFFI b) undef
 
 
   export
@@ -7222,13 +7520,17 @@ namespace Window
 
 
   export
-  prompt :
+  prompt' :
        (obj : Window)
-    -> {default Undef message : Optional String}
-    -> {default Undef default_ : Optional String}
+    -> (message : Optional String)
+    -> (default_ : Optional String)
     -> JSIO (Maybe String)
-  prompt a = tryJS "Window.prompt" $
-    Window.prim__prompt a (toFFI message) (toFFI default_)
+  prompt' a b c = tryJS "Window.prompt'" $
+    Window.prim__prompt a (toFFI b) (toFFI c)
+
+  export
+  prompt : (obj : Window) -> JSIO (Maybe String)
+  prompt a = tryJS "Window.prompt" $ Window.prim__prompt a undef undef
 
 
   export
@@ -7247,13 +7549,17 @@ namespace Window
 
 
   export
-  scrollBy :
+  scrollBy' :
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem ScrollToOptions (Types t2)}
     -> (obj : Window)
-    -> {default Undef options : Optional t2}
+    -> (options : Optional t2)
     -> JSIO ()
-  scrollBy a = primJS $ Window.prim__scrollBy a (optUp options)
+  scrollBy' a b = primJS $ Window.prim__scrollBy a (optUp b)
+
+  export
+  scrollBy : (obj : Window) -> JSIO ()
+  scrollBy a = primJS $ Window.prim__scrollBy a undef
 
 
   export
@@ -7262,13 +7568,17 @@ namespace Window
 
 
   export
-  scrollTo :
+  scrollTo' :
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem ScrollToOptions (Types t2)}
     -> (obj : Window)
-    -> {default Undef options : Optional t2}
+    -> (options : Optional t2)
     -> JSIO ()
-  scrollTo a = primJS $ Window.prim__scrollTo a (optUp options)
+  scrollTo' a b = primJS $ Window.prim__scrollTo a (optUp b)
+
+  export
+  scrollTo : (obj : Window) -> JSIO ()
+  scrollTo a = primJS $ Window.prim__scrollTo a undef
 
 
   export
@@ -7277,13 +7587,17 @@ namespace Window
 
 
   export
-  scroll :
+  scroll' :
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem ScrollToOptions (Types t2)}
     -> (obj : Window)
-    -> {default Undef options : Optional t2}
+    -> (options : Optional t2)
     -> JSIO ()
-  scroll a = primJS $ Window.prim__scroll a (optUp options)
+  scroll' a b = primJS $ Window.prim__scroll a (optUp b)
+
+  export
+  scroll : (obj : Window) -> JSIO ()
+  scroll a = primJS $ Window.prim__scroll a undef
 
 
   export
@@ -7300,13 +7614,17 @@ namespace Window
 namespace Worker
 
   export
-  new :
+  new' :
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem WorkerOptions (Types t2)}
     -> (scriptURL : String)
-    -> {default Undef options : Optional t2}
+    -> (options : Optional t2)
     -> JSIO Worker
-  new a = primJS $ Worker.prim__new a (optUp options)
+  new' a b = primJS $ Worker.prim__new a (optUp b)
+
+  export
+  new : (scriptURL : String) -> JSIO Worker
+  new a = primJS $ Worker.prim__new a undef
 
 
   export
@@ -7337,15 +7655,18 @@ namespace Worker
 
 
   export
-  postMessage1 :
+  postMessage1' :
        {auto 0 _ : JSType t3}
     -> {auto 0 _ : Elem PostMessageOptions (Types t3)}
     -> (obj : Worker)
     -> (message : Any)
-    -> {default Undef options : Optional t3}
+    -> (options : Optional t3)
     -> JSIO ()
-  postMessage1 a b = primJS $
-    Worker.prim__postMessage1 a (toFFI b) (optUp options)
+  postMessage1' a b c = primJS $ Worker.prim__postMessage1 a (toFFI b) (optUp c)
+
+  export
+  postMessage1 : (obj : Worker) -> (message : Any) -> JSIO ()
+  postMessage1 a b = primJS $ Worker.prim__postMessage1 a (toFFI b) undef
 
 
   export
@@ -7537,14 +7858,21 @@ namespace WorkerNavigator
 namespace Worklet
 
   export
-  addModule :
+  addModule' :
        {auto 0 _ : JSType t3}
     -> {auto 0 _ : Elem WorkletOptions (Types t3)}
     -> (obj : Worklet)
     -> (moduleURL : String)
-    -> {default Undef options : Optional t3}
+    -> (options : Optional t3)
     -> JSIO (Promise Undefined)
-  addModule a b = primJS $ Worklet.prim__addModule a b (optUp options)
+  addModule' a b c = primJS $ Worklet.prim__addModule a b (optUp c)
+
+  export
+  addModule :
+       (obj : Worklet)
+    -> (moduleURL : String)
+    -> JSIO (Promise Undefined)
+  addModule a b = primJS $ Worklet.prim__addModule a b undef
 
 
 
@@ -8218,14 +8546,32 @@ namespace CanvasDrawPath
 
 
   export
+  clip' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+    -> (obj : t1)
+    -> (fillRule : Optional CanvasFillRule)
+    -> JSIO ()
+  clip' a b = primJS $ CanvasDrawPath.prim__clip (up a) (toFFI b)
+
+  export
   clip :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem CanvasDrawPath (Types t1)}
     -> (obj : t1)
-    -> {default Undef fillRule : Optional CanvasFillRule}
     -> JSIO ()
-  clip a = primJS $ CanvasDrawPath.prim__clip (up a) (toFFI fillRule)
+  clip a = primJS $ CanvasDrawPath.prim__clip (up a) undef
 
+
+  export
+  clip1' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+    -> (obj : t1)
+    -> (path : Path2D)
+    -> (fillRule : Optional CanvasFillRule)
+    -> JSIO ()
+  clip1' a b c = primJS $ CanvasDrawPath.prim__clip1 (up a) b (toFFI c)
 
   export
   clip1 :
@@ -8233,20 +8579,37 @@ namespace CanvasDrawPath
     -> {auto 0 _ : Elem CanvasDrawPath (Types t1)}
     -> (obj : t1)
     -> (path : Path2D)
-    -> {default Undef fillRule : Optional CanvasFillRule}
     -> JSIO ()
-  clip1 a b = primJS $ CanvasDrawPath.prim__clip1 (up a) b (toFFI fillRule)
+  clip1 a b = primJS $ CanvasDrawPath.prim__clip1 (up a) b undef
 
+
+  export
+  fill' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+    -> (obj : t1)
+    -> (fillRule : Optional CanvasFillRule)
+    -> JSIO ()
+  fill' a b = primJS $ CanvasDrawPath.prim__fill (up a) (toFFI b)
 
   export
   fill :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem CanvasDrawPath (Types t1)}
     -> (obj : t1)
-    -> {default Undef fillRule : Optional CanvasFillRule}
     -> JSIO ()
-  fill a = primJS $ CanvasDrawPath.prim__fill (up a) (toFFI fillRule)
+  fill a = primJS $ CanvasDrawPath.prim__fill (up a) undef
 
+
+  export
+  fill1' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+    -> (obj : t1)
+    -> (path : Path2D)
+    -> (fillRule : Optional CanvasFillRule)
+    -> JSIO ()
+  fill1' a b c = primJS $ CanvasDrawPath.prim__fill1 (up a) b (toFFI c)
 
   export
   fill1 :
@@ -8254,10 +8617,21 @@ namespace CanvasDrawPath
     -> {auto 0 _ : Elem CanvasDrawPath (Types t1)}
     -> (obj : t1)
     -> (path : Path2D)
-    -> {default Undef fillRule : Optional CanvasFillRule}
     -> JSIO ()
-  fill1 a b = primJS $ CanvasDrawPath.prim__fill1 (up a) b (toFFI fillRule)
+  fill1 a b = primJS $ CanvasDrawPath.prim__fill1 (up a) b undef
 
+
+  export
+  isPointInPath' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+    -> (obj : t1)
+    -> (x : Double)
+    -> (y : Double)
+    -> (fillRule : Optional CanvasFillRule)
+    -> JSIO Bool
+  isPointInPath' a b c d = tryJS "CanvasDrawPath.isPointInPath'" $
+    CanvasDrawPath.prim__isPointInPath (up a) b c (toFFI d)
 
   export
   isPointInPath :
@@ -8266,11 +8640,23 @@ namespace CanvasDrawPath
     -> (obj : t1)
     -> (x : Double)
     -> (y : Double)
-    -> {default Undef fillRule : Optional CanvasFillRule}
     -> JSIO Bool
   isPointInPath a b c = tryJS "CanvasDrawPath.isPointInPath" $
-    CanvasDrawPath.prim__isPointInPath (up a) b c (toFFI fillRule)
+    CanvasDrawPath.prim__isPointInPath (up a) b c undef
 
+
+  export
+  isPointInPath1' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+    -> (obj : t1)
+    -> (path : Path2D)
+    -> (x : Double)
+    -> (y : Double)
+    -> (fillRule : Optional CanvasFillRule)
+    -> JSIO Bool
+  isPointInPath1' a b c d e = tryJS "CanvasDrawPath.isPointInPath1'" $
+    CanvasDrawPath.prim__isPointInPath1 (up a) b c d (toFFI e)
 
   export
   isPointInPath1 :
@@ -8280,10 +8666,9 @@ namespace CanvasDrawPath
     -> (path : Path2D)
     -> (x : Double)
     -> (y : Double)
-    -> {default Undef fillRule : Optional CanvasFillRule}
     -> JSIO Bool
   isPointInPath1 a b c d = tryJS "CanvasDrawPath.isPointInPath1" $
-    CanvasDrawPath.prim__isPointInPath1 (up a) b c d (toFFI fillRule)
+    CanvasDrawPath.prim__isPointInPath1 (up a) b c d undef
 
 
   export
@@ -8527,6 +8912,20 @@ namespace CanvasImageSmoothing
 namespace CanvasPath
 
   export
+  arc' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem CanvasPath (Types t1)}
+    -> (obj : t1)
+    -> (x : Double)
+    -> (y : Double)
+    -> (radius : Double)
+    -> (startAngle : Double)
+    -> (endAngle : Double)
+    -> (counterclockwise : Optional Bool)
+    -> JSIO ()
+  arc' a b c d e f g = primJS $ CanvasPath.prim__arc (up a) b c d e f (toFFI g)
+
+  export
   arc :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem CanvasPath (Types t1)}
@@ -8536,10 +8935,8 @@ namespace CanvasPath
     -> (radius : Double)
     -> (startAngle : Double)
     -> (endAngle : Double)
-    -> {default Undef counterclockwise : Optional Bool}
     -> JSIO ()
-  arc a b c d e f = primJS $
-    CanvasPath.prim__arc (up a) b c d e f (toFFI counterclockwise)
+  arc a b c d e f = primJS $ CanvasPath.prim__arc (up a) b c d e f undef
 
 
   export
@@ -8582,6 +8979,23 @@ namespace CanvasPath
 
 
   export
+  ellipse' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem CanvasPath (Types t1)}
+    -> (obj : t1)
+    -> (x : Double)
+    -> (y : Double)
+    -> (radiusX : Double)
+    -> (radiusY : Double)
+    -> (rotation : Double)
+    -> (startAngle : Double)
+    -> (endAngle : Double)
+    -> (counterclockwise : Optional Bool)
+    -> JSIO ()
+  ellipse' a b c d e f g h i = primJS $
+    CanvasPath.prim__ellipse (up a) b c d e f g h (toFFI i)
+
+  export
   ellipse :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem CanvasPath (Types t1)}
@@ -8593,10 +9007,9 @@ namespace CanvasPath
     -> (rotation : Double)
     -> (startAngle : Double)
     -> (endAngle : Double)
-    -> {default Undef counterclockwise : Optional Bool}
     -> JSIO ()
   ellipse a b c d e f g h = primJS $
-    CanvasPath.prim__ellipse (up a) b c d e f g h (toFFI counterclockwise)
+    CanvasPath.prim__ellipse (up a) b c d e f g h undef
 
 
   export
@@ -8857,6 +9270,19 @@ namespace CanvasState
 namespace CanvasText
 
   export
+  fillText' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem CanvasText (Types t1)}
+    -> (obj : t1)
+    -> (text : String)
+    -> (x : Double)
+    -> (y : Double)
+    -> (maxWidth : Optional Double)
+    -> JSIO ()
+  fillText' a b c d e = primJS $
+    CanvasText.prim__fillText (up a) b c d (toFFI e)
+
+  export
   fillText :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem CanvasText (Types t1)}
@@ -8864,10 +9290,8 @@ namespace CanvasText
     -> (text : String)
     -> (x : Double)
     -> (y : Double)
-    -> {default Undef maxWidth : Optional Double}
     -> JSIO ()
-  fillText a b c d = primJS $
-    CanvasText.prim__fillText (up a) b c d (toFFI maxWidth)
+  fillText a b c d = primJS $ CanvasText.prim__fillText (up a) b c d undef
 
 
   export
@@ -8881,6 +9305,19 @@ namespace CanvasText
 
 
   export
+  strokeText' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem CanvasText (Types t1)}
+    -> (obj : t1)
+    -> (text : String)
+    -> (x : Double)
+    -> (y : Double)
+    -> (maxWidth : Optional Double)
+    -> JSIO ()
+  strokeText' a b c d e = primJS $
+    CanvasText.prim__strokeText (up a) b c d (toFFI e)
+
+  export
   strokeText :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem CanvasText (Types t1)}
@@ -8888,10 +9325,8 @@ namespace CanvasText
     -> (text : String)
     -> (x : Double)
     -> (y : Double)
-    -> {default Undef maxWidth : Optional Double}
     -> JSIO ()
-  strokeText a b c d = primJS $
-    CanvasText.prim__strokeText (up a) b c d (toFFI maxWidth)
+  strokeText a b c d = primJS $ CanvasText.prim__strokeText (up a) b c d undef
 
 
 
@@ -9008,16 +9443,24 @@ namespace CanvasTransform
 
 
   export
-  setTransform1 :
+  setTransform1' :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem CanvasTransform (Types t1)}
     -> {auto 0 _ : Elem DOMMatrix2DInit (Types t2)}
     -> (obj : t1)
-    -> {default Undef transform : Optional t2}
+    -> (transform : Optional t2)
     -> JSIO ()
-  setTransform1 a = primJS $
-    CanvasTransform.prim__setTransform1 (up a) (optUp transform)
+  setTransform1' a b = primJS $
+    CanvasTransform.prim__setTransform1 (up a) (optUp b)
+
+  export
+  setTransform1 :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem CanvasTransform (Types t1)}
+    -> (obj : t1)
+    -> JSIO ()
+  setTransform1 a = primJS $ CanvasTransform.prim__setTransform1 (up a) undef
 
 
   export
@@ -10256,15 +10699,23 @@ namespace HTMLOrSVGElement
 
 
   export
-  focus :
+  focus' :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem HTMLOrSVGElement (Types t1)}
     -> {auto 0 _ : Elem FocusOptions (Types t2)}
     -> (obj : t1)
-    -> {default Undef options : Optional t2}
+    -> (options : Optional t2)
     -> JSIO ()
-  focus a = primJS $ HTMLOrSVGElement.prim__focus (up a) (optUp options)
+  focus' a b = primJS $ HTMLOrSVGElement.prim__focus (up a) (optUp b)
+
+  export
+  focus :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem HTMLOrSVGElement (Types t1)}
+    -> (obj : t1)
+    -> JSIO ()
+  focus a = primJS $ HTMLOrSVGElement.prim__focus (up a) undef
 
 
 
@@ -10772,29 +11223,47 @@ namespace WindowOrWorkerGlobalScope
 
 
   export
+  clearInterval' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+    -> (obj : t1)
+    -> (id : Optional Int32)
+    -> JSIO ()
+  clearInterval' a b = primJS $
+    WindowOrWorkerGlobalScope.prim__clearInterval (up a) (toFFI b)
+
+  export
   clearInterval :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
     -> (obj : t1)
-    -> {default Undef id : Optional Int32}
     -> JSIO ()
   clearInterval a = primJS $
-    WindowOrWorkerGlobalScope.prim__clearInterval (up a) (toFFI id)
+    WindowOrWorkerGlobalScope.prim__clearInterval (up a) undef
 
+
+  export
+  clearTimeout' :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+    -> (obj : t1)
+    -> (id : Optional Int32)
+    -> JSIO ()
+  clearTimeout' a b = primJS $
+    WindowOrWorkerGlobalScope.prim__clearTimeout (up a) (toFFI b)
 
   export
   clearTimeout :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
     -> (obj : t1)
-    -> {default Undef id : Optional Int32}
     -> JSIO ()
   clearTimeout a = primJS $
-    WindowOrWorkerGlobalScope.prim__clearTimeout (up a) (toFFI id)
+    WindowOrWorkerGlobalScope.prim__clearTimeout (up a) undef
 
 
   export
-  createImageBitmap :
+  createImageBitmap' :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : JSType t3}
     -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
@@ -10810,17 +11279,33 @@ namespace WindowOrWorkerGlobalScope
                   , Blob
                   , ImageData
                   ])
-    -> {default Undef options : Optional t3}
+    -> (options : Optional t3)
+    -> JSIO (Promise ImageBitmap)
+  createImageBitmap' a b c = primJS $
+    WindowOrWorkerGlobalScope.prim__createImageBitmap (up a) (toFFI b) (optUp c)
+
+  export
+  createImageBitmap :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+    -> (obj : t1)
+    -> (image : NS I
+                  [ HTMLImageElement
+                  , SVGImageElement
+                  , HTMLVideoElement
+                  , HTMLCanvasElement
+                  , ImageBitmap
+                  , OffscreenCanvas
+                  , Blob
+                  , ImageData
+                  ])
     -> JSIO (Promise ImageBitmap)
   createImageBitmap a b = primJS $
-    WindowOrWorkerGlobalScope.prim__createImageBitmap
-      (up a)
-      (toFFI b)
-      (optUp options)
+    WindowOrWorkerGlobalScope.prim__createImageBitmap (up a) (toFFI b) undef
 
 
   export
-  createImageBitmap1 :
+  createImageBitmap1' :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : JSType t7}
     -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
@@ -10840,7 +11325,37 @@ namespace WindowOrWorkerGlobalScope
     -> (sy : Int32)
     -> (sw : Int32)
     -> (sh : Int32)
-    -> {default Undef options : Optional t7}
+    -> (options : Optional t7)
+    -> JSIO (Promise ImageBitmap)
+  createImageBitmap1' a b c d e f g = primJS $
+    WindowOrWorkerGlobalScope.prim__createImageBitmap1
+      (up a)
+      (toFFI b)
+      c
+      d
+      e
+      f
+      (optUp g)
+
+  export
+  createImageBitmap1 :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+    -> (obj : t1)
+    -> (image : NS I
+                  [ HTMLImageElement
+                  , SVGImageElement
+                  , HTMLVideoElement
+                  , HTMLCanvasElement
+                  , ImageBitmap
+                  , OffscreenCanvas
+                  , Blob
+                  , ImageData
+                  ])
+    -> (sx : Int32)
+    -> (sy : Int32)
+    -> (sw : Int32)
+    -> (sh : Int32)
     -> JSIO (Promise ImageBitmap)
   createImageBitmap1 a b c d e f = primJS $
     WindowOrWorkerGlobalScope.prim__createImageBitmap1
@@ -10850,21 +11365,31 @@ namespace WindowOrWorkerGlobalScope
       d
       e
       f
-      (optUp options)
+      undef
 
 
   export
-  fetch :
+  fetch' :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : JSType t3}
     -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
     -> {auto 0 _ : Elem RequestInit (Types t3)}
     -> (obj : t1)
     -> (input : NS I [Request, String])
-    -> {default Undef init : Optional t3}
+    -> (init : Optional t3)
+    -> JSIO (Promise Response)
+  fetch' a b c = primJS $
+    WindowOrWorkerGlobalScope.prim__fetch (up a) (toFFI b) (optUp c)
+
+  export
+  fetch :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+    -> (obj : t1)
+    -> (input : NS I [Request, String])
     -> JSIO (Promise Response)
   fetch a b = primJS $
-    WindowOrWorkerGlobalScope.prim__fetch (up a) (toFFI b) (optUp init)
+    WindowOrWorkerGlobalScope.prim__fetch (up a) (toFFI b) undef
 
 
   export
@@ -10890,20 +11415,27 @@ namespace WindowOrWorkerGlobalScope
 
 
   export
-  structuredClone :
+  structuredClone' :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : JSType t3}
     -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
     -> {auto 0 _ : Elem StructuredSerializeOptions (Types t3)}
     -> (obj : t1)
     -> (value : Any)
-    -> {default Undef options : Optional t3}
+    -> (options : Optional t3)
+    -> JSIO Any
+  structuredClone' a b c = tryJS "WindowOrWorkerGlobalScope.structuredClone'" $
+    WindowOrWorkerGlobalScope.prim__structuredClone (up a) (toFFI b) (optUp c)
+
+  export
+  structuredClone :
+       {auto 0 _ : JSType t1}
+    -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+    -> (obj : t1)
+    -> (value : Any)
     -> JSIO Any
   structuredClone a b = tryJS "WindowOrWorkerGlobalScope.structuredClone" $
-    WindowOrWorkerGlobalScope.prim__structuredClone
-      (up a)
-      (toFFI b)
-      (optUp options)
+    WindowOrWorkerGlobalScope.prim__structuredClone (up a) (toFFI b) undef
 
 
 
@@ -10915,8 +11447,12 @@ namespace WindowOrWorkerGlobalScope
 namespace AssignedNodesOptions
 
   export
-  new : {default Undef flatten : Optional Bool} -> JSIO AssignedNodesOptions
-  new = primJS $ AssignedNodesOptions.prim__new (toFFI flatten)
+  new' : (flatten : Optional Bool) -> JSIO AssignedNodesOptions
+  new' a = primJS $ AssignedNodesOptions.prim__new (toFFI a)
+
+  export
+  new : JSIO AssignedNodesOptions
+  new = primJS $ AssignedNodesOptions.prim__new undef
 
 
   export
@@ -10937,14 +11473,16 @@ namespace AssignedNodesOptions
 namespace CanvasRenderingContext2DSettings
 
   export
-  new :
-       {default Undef alpha : Optional Bool}
-    -> {default Undef desynchronized : Optional Bool}
+  new' :
+       (alpha : Optional Bool)
+    -> (desynchronized : Optional Bool)
     -> JSIO CanvasRenderingContext2DSettings
-  new = primJS $
-    CanvasRenderingContext2DSettings.prim__new
-      (toFFI alpha)
-      (toFFI desynchronized)
+  new' a b = primJS $
+    CanvasRenderingContext2DSettings.prim__new (toFFI a) (toFFI b)
+
+  export
+  new : JSIO CanvasRenderingContext2DSettings
+  new = primJS $ CanvasRenderingContext2DSettings.prim__new undef undef
 
 
   export
@@ -10979,13 +11517,16 @@ namespace CanvasRenderingContext2DSettings
 namespace CloseEventInit
 
   export
-  new :
-       {default Undef wasClean : Optional Bool}
-    -> {default Undef code : Optional Bits16}
-    -> {default Undef reason : Optional String}
+  new' :
+       (wasClean : Optional Bool)
+    -> (code : Optional Bits16)
+    -> (reason : Optional String)
     -> JSIO CloseEventInit
-  new = primJS $
-    CloseEventInit.prim__new (toFFI wasClean) (toFFI code) (toFFI reason)
+  new' a b c = primJS $ CloseEventInit.prim__new (toFFI a) (toFFI b) (toFFI c)
+
+  export
+  new : JSIO CloseEventInit
+  new = primJS $ CloseEventInit.prim__new undef undef undef
 
 
   export
@@ -11034,10 +11575,12 @@ namespace CloseEventInit
 namespace DragEventInit
 
   export
-  new :
-       {default Undef dataTransfer : Optional (Maybe DataTransfer)}
-    -> JSIO DragEventInit
-  new = primJS $ DragEventInit.prim__new (toFFI dataTransfer)
+  new' : (dataTransfer : Optional (Maybe DataTransfer)) -> JSIO DragEventInit
+  new' a = primJS $ DragEventInit.prim__new (toFFI a)
+
+  export
+  new : JSIO DragEventInit
+  new = primJS $ DragEventInit.prim__new undef
 
 
   export
@@ -11058,10 +11601,12 @@ namespace DragEventInit
 namespace ElementDefinitionOptions
 
   export
-  new :
-       {default Undef extends : Optional String}
-    -> JSIO ElementDefinitionOptions
-  new = primJS $ ElementDefinitionOptions.prim__new (toFFI extends)
+  new' : (extends : Optional String) -> JSIO ElementDefinitionOptions
+  new' a = primJS $ ElementDefinitionOptions.prim__new (toFFI a)
+
+  export
+  new : JSIO ElementDefinitionOptions
+  new = primJS $ ElementDefinitionOptions.prim__new undef
 
 
   export
@@ -11081,20 +11626,19 @@ namespace ElementDefinitionOptions
 namespace ErrorEventInit
 
   export
-  new :
-       {default Undef message : Optional String}
-    -> {default Undef filename : Optional String}
-    -> {default Undef lineno : Optional Bits32}
-    -> {default Undef colno : Optional Bits32}
-    -> {default Undef error : Optional Any}
+  new' :
+       (message : Optional String)
+    -> (filename : Optional String)
+    -> (lineno : Optional Bits32)
+    -> (colno : Optional Bits32)
+    -> (error : Optional Any)
     -> JSIO ErrorEventInit
-  new = primJS $
-    ErrorEventInit.prim__new
-      (toFFI message)
-      (toFFI filename)
-      (toFFI lineno)
-      (toFFI colno)
-      (toFFI error)
+  new' a b c d e = primJS $
+    ErrorEventInit.prim__new (toFFI a) (toFFI b) (toFFI c) (toFFI d) (toFFI e)
+
+  export
+  new : JSIO ErrorEventInit
+  new = primJS $ ErrorEventInit.prim__new undef undef undef undef undef
 
 
   export
@@ -11171,8 +11715,12 @@ namespace ErrorEventInit
 namespace EventSourceInit
 
   export
-  new : {default Undef withCredentials : Optional Bool} -> JSIO EventSourceInit
-  new = primJS $ EventSourceInit.prim__new (toFFI withCredentials)
+  new' : (withCredentials : Optional Bool) -> JSIO EventSourceInit
+  new' a = primJS $ EventSourceInit.prim__new (toFFI a)
+
+  export
+  new : JSIO EventSourceInit
+  new = primJS $ EventSourceInit.prim__new undef
 
 
   export
@@ -11193,8 +11741,12 @@ namespace EventSourceInit
 namespace FocusOptions
 
   export
-  new : {default Undef preventScroll : Optional Bool} -> JSIO FocusOptions
-  new = primJS $ FocusOptions.prim__new (toFFI preventScroll)
+  new' : (preventScroll : Optional Bool) -> JSIO FocusOptions
+  new' a = primJS $ FocusOptions.prim__new (toFFI a)
+
+  export
+  new : JSIO FocusOptions
+  new = primJS $ FocusOptions.prim__new undef
 
 
   export
@@ -11236,11 +11788,15 @@ namespace FormDataEventInit
 namespace HashChangeEventInit
 
   export
-  new :
-       {default Undef oldURL : Optional String}
-    -> {default Undef newURL : Optional String}
+  new' :
+       (oldURL : Optional String)
+    -> (newURL : Optional String)
     -> JSIO HashChangeEventInit
-  new = primJS $ HashChangeEventInit.prim__new (toFFI oldURL) (toFFI newURL)
+  new' a b = primJS $ HashChangeEventInit.prim__new (toFFI a) (toFFI b)
+
+  export
+  new : JSIO HashChangeEventInit
+  new = primJS $ HashChangeEventInit.prim__new undef undef
 
 
   export
@@ -11275,22 +11831,27 @@ namespace HashChangeEventInit
 namespace ImageBitmapOptions
 
   export
-  new :
-       {default Undef imageOrientation : Optional ImageOrientation}
-    -> {default Undef premultiplyAlpha : Optional PremultiplyAlpha}
-    -> {default Undef colorSpaceConversion : Optional ColorSpaceConversion}
-    -> {default Undef resizeWidth : Optional Bits32}
-    -> {default Undef resizeHeight : Optional Bits32}
-    -> {default Undef resizeQuality : Optional ResizeQuality}
+  new' :
+       (imageOrientation : Optional ImageOrientation)
+    -> (premultiplyAlpha : Optional PremultiplyAlpha)
+    -> (colorSpaceConversion : Optional ColorSpaceConversion)
+    -> (resizeWidth : Optional Bits32)
+    -> (resizeHeight : Optional Bits32)
+    -> (resizeQuality : Optional ResizeQuality)
     -> JSIO ImageBitmapOptions
-  new = primJS $
+  new' a b c d e f = primJS $
     ImageBitmapOptions.prim__new
-      (toFFI imageOrientation)
-      (toFFI premultiplyAlpha)
-      (toFFI colorSpaceConversion)
-      (toFFI resizeWidth)
-      (toFFI resizeHeight)
-      (toFFI resizeQuality)
+      (toFFI a)
+      (toFFI b)
+      (toFFI c)
+      (toFFI d)
+      (toFFI e)
+      (toFFI f)
+
+  export
+  new : JSIO ImageBitmapOptions
+  new = primJS $
+    ImageBitmapOptions.prim__new undef undef undef undef undef undef
 
 
   export
@@ -11375,10 +11936,12 @@ namespace ImageBitmapOptions
 namespace ImageBitmapRenderingContextSettings
 
   export
-  new :
-       {default Undef alpha : Optional Bool}
-    -> JSIO ImageBitmapRenderingContextSettings
-  new = primJS $ ImageBitmapRenderingContextSettings.prim__new (toFFI alpha)
+  new' : (alpha : Optional Bool) -> JSIO ImageBitmapRenderingContextSettings
+  new' a = primJS $ ImageBitmapRenderingContextSettings.prim__new (toFFI a)
+
+  export
+  new : JSIO ImageBitmapRenderingContextSettings
+  new = primJS $ ImageBitmapRenderingContextSettings.prim__new undef
 
 
   export
@@ -11399,11 +11962,15 @@ namespace ImageBitmapRenderingContextSettings
 namespace ImageEncodeOptions
 
   export
-  new :
-       {default Undef type : Optional String}
-    -> {default Undef quality : Optional Double}
+  new' :
+       (type : Optional String)
+    -> (quality : Optional Double)
     -> JSIO ImageEncodeOptions
-  new = primJS $ ImageEncodeOptions.prim__new (toFFI type) (toFFI quality)
+  new' a b = primJS $ ImageEncodeOptions.prim__new (toFFI a) (toFFI b)
+
+  export
+  new : JSIO ImageEncodeOptions
+  new = primJS $ ImageEncodeOptions.prim__new undef undef
 
 
   export
@@ -11437,26 +12004,20 @@ namespace ImageEncodeOptions
 namespace MessageEventInit
 
   export
-  new :
-       {default Undef data_ : Optional Any}
-    -> {default Undef origin : Optional String}
-    -> {default Undef lastEventId : Optional String}
-    -> {default Undef source : Optional
-                                 (Maybe
-                                    (NS I
-                                       [ WindowProxy
-                                       , MessagePort
-                                       , ServiceWorker
-                                       ]))}
-    -> {default Undef ports : Optional (Array MessagePort)}
+  new' :
+       (data_ : Optional Any)
+    -> (origin : Optional String)
+    -> (lastEventId : Optional String)
+    -> (source : Optional
+                   (Maybe (NS I [WindowProxy, MessagePort, ServiceWorker])))
+    -> (ports : Optional (Array MessagePort))
     -> JSIO MessageEventInit
-  new = primJS $
-    MessageEventInit.prim__new
-      (toFFI data_)
-      (toFFI origin)
-      (toFFI lastEventId)
-      (toFFI source)
-      (toFFI ports)
+  new' a b c d e = primJS $
+    MessageEventInit.prim__new (toFFI a) (toFFI b) (toFFI c) (toFFI d) (toFFI e)
+
+  export
+  new : JSIO MessageEventInit
+  new = primJS $ MessageEventInit.prim__new undef undef undef undef undef
 
 
   export
@@ -11536,10 +12097,12 @@ namespace MessageEventInit
 namespace PageTransitionEventInit
 
   export
-  new :
-       {default Undef persisted : Optional Bool}
-    -> JSIO PageTransitionEventInit
-  new = primJS $ PageTransitionEventInit.prim__new (toFFI persisted)
+  new' : (persisted : Optional Bool) -> JSIO PageTransitionEventInit
+  new' a = primJS $ PageTransitionEventInit.prim__new (toFFI a)
+
+  export
+  new : JSIO PageTransitionEventInit
+  new = primJS $ PageTransitionEventInit.prim__new undef
 
 
   export
@@ -11560,8 +12123,12 @@ namespace PageTransitionEventInit
 namespace PopStateEventInit
 
   export
-  new : {default Undef state : Optional Any} -> JSIO PopStateEventInit
-  new = primJS $ PopStateEventInit.prim__new (toFFI state)
+  new' : (state : Optional Any) -> JSIO PopStateEventInit
+  new' a = primJS $ PopStateEventInit.prim__new (toFFI a)
+
+  export
+  new : JSIO PopStateEventInit
+  new = primJS $ PopStateEventInit.prim__new undef
 
 
   export
@@ -11582,10 +12149,12 @@ namespace PopStateEventInit
 namespace PostMessageOptions
 
   export
-  new :
-       {default Undef transfer : Optional (Array Object)}
-    -> JSIO PostMessageOptions
-  new = primJS $ PostMessageOptions.prim__new (toFFI transfer)
+  new' : (transfer : Optional (Array Object)) -> JSIO PostMessageOptions
+  new' a = primJS $ PostMessageOptions.prim__new (toFFI a)
+
+  export
+  new : JSIO PostMessageOptions
+  new = primJS $ PostMessageOptions.prim__new undef
 
 
   export
@@ -11605,11 +12174,15 @@ namespace PostMessageOptions
 namespace PromiseRejectionEventInit
 
   export
-  new :
+  new' :
        (promise : Promise AnyPtr)
-    -> {default Undef reason : Optional Any}
+    -> (reason : Optional Any)
     -> JSIO PromiseRejectionEventInit
-  new a = primJS $ PromiseRejectionEventInit.prim__new a (toFFI reason)
+  new' a b = primJS $ PromiseRejectionEventInit.prim__new a (toFFI b)
+
+  export
+  new : (promise : Promise AnyPtr) -> JSIO PromiseRejectionEventInit
+  new a = primJS $ PromiseRejectionEventInit.prim__new a undef
 
 
   export
@@ -11642,20 +12215,19 @@ namespace PromiseRejectionEventInit
 namespace StorageEventInit
 
   export
-  new :
-       {default Undef key : Optional (Maybe String)}
-    -> {default Undef oldValue : Optional (Maybe String)}
-    -> {default Undef newValue : Optional (Maybe String)}
-    -> {default Undef url : Optional String}
-    -> {default Undef storageArea : Optional (Maybe Storage)}
+  new' :
+       (key : Optional (Maybe String))
+    -> (oldValue : Optional (Maybe String))
+    -> (newValue : Optional (Maybe String))
+    -> (url : Optional String)
+    -> (storageArea : Optional (Maybe Storage))
     -> JSIO StorageEventInit
-  new = primJS $
-    StorageEventInit.prim__new
-      (toFFI key)
-      (toFFI oldValue)
-      (toFFI newValue)
-      (toFFI url)
-      (toFFI storageArea)
+  new' a b c d e = primJS $
+    StorageEventInit.prim__new (toFFI a) (toFFI b) (toFFI c) (toFFI d) (toFFI e)
+
+  export
+  new : JSIO StorageEventInit
+  new = primJS $ StorageEventInit.prim__new undef undef undef undef undef
 
 
   export
@@ -11732,10 +12304,12 @@ namespace StorageEventInit
 namespace StructuredSerializeOptions
 
   export
-  new :
-       {default Undef transfer : Optional (Array Object)}
-    -> JSIO StructuredSerializeOptions
-  new = primJS $ StructuredSerializeOptions.prim__new (toFFI transfer)
+  new' : (transfer : Optional (Array Object)) -> JSIO StructuredSerializeOptions
+  new' a = primJS $ StructuredSerializeOptions.prim__new (toFFI a)
+
+  export
+  new : JSIO StructuredSerializeOptions
+  new = primJS $ StructuredSerializeOptions.prim__new undef
 
 
   export
@@ -11755,12 +12329,16 @@ namespace StructuredSerializeOptions
 namespace SubmitEventInit
 
   export
-  new :
+  new' :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem HTMLElement (Types t1)}
-    -> {default Undef submitter : Optional (Maybe t1)}
+    -> (submitter : Optional (Maybe t1))
     -> JSIO SubmitEventInit
-  new = primJS $ SubmitEventInit.prim__new (omyUp submitter)
+  new' a = primJS $ SubmitEventInit.prim__new (omyUp a)
+
+  export
+  new : JSIO SubmitEventInit
+  new = primJS $ SubmitEventInit.prim__new undef
 
 
   export
@@ -11781,12 +12359,14 @@ namespace SubmitEventInit
 namespace TrackEventInit
 
   export
-  new :
-       {default Undef track : Optional
-                                (Maybe
-                                   (NS I [VideoTrack, AudioTrack, TextTrack]))}
+  new' :
+       (track : Optional (Maybe (NS I [VideoTrack, AudioTrack, TextTrack])))
     -> JSIO TrackEventInit
-  new = primJS $ TrackEventInit.prim__new (toFFI track)
+  new' a = primJS $ TrackEventInit.prim__new (toFFI a)
+
+  export
+  new : JSIO TrackEventInit
+  new = primJS $ TrackEventInit.prim__new undef
 
 
   export
@@ -11808,30 +12388,45 @@ namespace TrackEventInit
 namespace ValidityStateFlags
 
   export
-  new :
-       {default Undef valueMissing : Optional Bool}
-    -> {default Undef typeMismatch : Optional Bool}
-    -> {default Undef patternMismatch : Optional Bool}
-    -> {default Undef tooLong : Optional Bool}
-    -> {default Undef tooShort : Optional Bool}
-    -> {default Undef rangeUnderflow : Optional Bool}
-    -> {default Undef rangeOverflow : Optional Bool}
-    -> {default Undef stepMismatch : Optional Bool}
-    -> {default Undef badInput : Optional Bool}
-    -> {default Undef customError : Optional Bool}
+  new' :
+       (valueMissing : Optional Bool)
+    -> (typeMismatch : Optional Bool)
+    -> (patternMismatch : Optional Bool)
+    -> (tooLong : Optional Bool)
+    -> (tooShort : Optional Bool)
+    -> (rangeUnderflow : Optional Bool)
+    -> (rangeOverflow : Optional Bool)
+    -> (stepMismatch : Optional Bool)
+    -> (badInput : Optional Bool)
+    -> (customError : Optional Bool)
     -> JSIO ValidityStateFlags
+  new' a b c d e f g h i j = primJS $
+    ValidityStateFlags.prim__new
+      (toFFI a)
+      (toFFI b)
+      (toFFI c)
+      (toFFI d)
+      (toFFI e)
+      (toFFI f)
+      (toFFI g)
+      (toFFI h)
+      (toFFI i)
+      (toFFI j)
+
+  export
+  new : JSIO ValidityStateFlags
   new = primJS $
     ValidityStateFlags.prim__new
-      (toFFI valueMissing)
-      (toFFI typeMismatch)
-      (toFFI patternMismatch)
-      (toFFI tooLong)
-      (toFFI tooShort)
-      (toFFI rangeUnderflow)
-      (toFFI rangeOverflow)
-      (toFFI stepMismatch)
-      (toFFI badInput)
-      (toFFI customError)
+      undef
+      undef
+      undef
+      undef
+      undef
+      undef
+      undef
+      undef
+      undef
+      undef
 
 
   export
@@ -11978,10 +12573,12 @@ namespace ValidityStateFlags
 namespace WindowPostMessageOptions
 
   export
-  new :
-       {default Undef targetOrigin : Optional String}
-    -> JSIO WindowPostMessageOptions
-  new = primJS $ WindowPostMessageOptions.prim__new (toFFI targetOrigin)
+  new' : (targetOrigin : Optional String) -> JSIO WindowPostMessageOptions
+  new' a = primJS $ WindowPostMessageOptions.prim__new (toFFI a)
+
+  export
+  new : JSIO WindowPostMessageOptions
+  new = primJS $ WindowPostMessageOptions.prim__new undef
 
 
   export
@@ -12002,13 +12599,16 @@ namespace WindowPostMessageOptions
 namespace WorkerOptions
 
   export
-  new :
-       {default Undef type : Optional WorkerType}
-    -> {default Undef credentials : Optional RequestCredentials}
-    -> {default Undef name : Optional String}
+  new' :
+       (type : Optional WorkerType)
+    -> (credentials : Optional RequestCredentials)
+    -> (name : Optional String)
     -> JSIO WorkerOptions
-  new = primJS $
-    WorkerOptions.prim__new (toFFI type) (toFFI credentials) (toFFI name)
+  new' a b c = primJS $ WorkerOptions.prim__new (toFFI a) (toFFI b) (toFFI c)
+
+  export
+  new : JSIO WorkerOptions
+  new = primJS $ WorkerOptions.prim__new undef undef undef
 
 
   export
@@ -12055,10 +12655,12 @@ namespace WorkerOptions
 namespace WorkletOptions
 
   export
-  new :
-       {default Undef credentials : Optional RequestCredentials}
-    -> JSIO WorkletOptions
-  new = primJS $ WorkletOptions.prim__new (toFFI credentials)
+  new' : (credentials : Optional RequestCredentials) -> JSIO WorkletOptions
+  new' a = primJS $ WorkletOptions.prim__new (toFFI a)
+
+  export
+  new : JSIO WorkletOptions
+  new = primJS $ WorkletOptions.prim__new undef
 
 
   export

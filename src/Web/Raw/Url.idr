@@ -14,8 +14,12 @@ import Web.Internal.Types
 namespace URL
 
   export
-  new : (url : String) -> {default Undef base : Optional String} -> JSIO URL
-  new a = primJS $ URL.prim__new a (toFFI base)
+  new' : (url : String) -> (base : Optional String) -> JSIO URL
+  new' a b = primJS $ URL.prim__new a (toFFI b)
+
+  export
+  new : (url : String) -> JSIO URL
+  new a = primJS $ URL.prim__new a undef
 
 
   export
@@ -102,15 +106,15 @@ namespace URL
 namespace URLSearchParams
 
   export
-  new :
-       {default Undef init : Optional
-                               (NS I
-                                  [ Array (Array String)
-                                  , Record String String
-                                  , String
-                                  ])}
+  new' :
+       (init : Optional
+                 (NS I [Array (Array String), Record String String, String]))
     -> JSIO URLSearchParams
-  new = primJS $ URLSearchParams.prim__new (toFFI init)
+  new' a = primJS $ URLSearchParams.prim__new (toFFI a)
+
+  export
+  new : JSIO URLSearchParams
+  new = primJS $ URLSearchParams.prim__new undef
 
 
   export
