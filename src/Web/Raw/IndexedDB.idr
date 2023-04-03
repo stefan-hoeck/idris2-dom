@@ -74,17 +74,9 @@ namespace IDBCursor
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem IDBCursor (Types t1)}
     -> (obj : t1)
-    -> (key : Optional Any)
+    -> {default Undef key : Optional Any}
     -> JSIO ()
-  continue a b = primJS $ IDBCursor.prim__continue (up a) (toFFI b)
-
-  export
-  continue' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem IDBCursor (Types t1)}
-    -> (obj : t1)
-    -> JSIO ()
-  continue' a = primJS $ IDBCursor.prim__continue (up a) undef
+  continue a = primJS $ IDBCursor.prim__continue (up a) (toFFI key)
 
 
   export
@@ -191,18 +183,10 @@ namespace IDBDatabase
     -> {auto 0 _ : Elem IDBObjectStoreParameters (Types t3)}
     -> (obj : IDBDatabase)
     -> (name : String)
-    -> (options : Optional t3)
+    -> {default Undef options : Optional t3}
     -> JSIO IDBObjectStore
-  createObjectStore a b c = primJS $
-    IDBDatabase.prim__createObjectStore a b (optUp c)
-
-  export
-  createObjectStore' :
-       (obj : IDBDatabase)
-    -> (name : String)
-    -> JSIO IDBObjectStore
-  createObjectStore' a b = primJS $
-    IDBDatabase.prim__createObjectStore a b undef
+  createObjectStore a b = primJS $
+    IDBDatabase.prim__createObjectStore a b (optUp options)
 
 
   export
@@ -216,19 +200,11 @@ namespace IDBDatabase
     -> {auto 0 _ : Elem IDBTransactionOptions (Types t4)}
     -> (obj : IDBDatabase)
     -> (storeNames : NS I [String, Array String])
-    -> (mode : Optional IDBTransactionMode)
-    -> (options : Optional t4)
+    -> {default Undef mode : Optional IDBTransactionMode}
+    -> {default Undef options : Optional t4}
     -> JSIO IDBTransaction
-  transaction a b c d = primJS $
-    IDBDatabase.prim__transaction a (toFFI b) (toFFI c) (optUp d)
-
-  export
-  transaction' :
-       (obj : IDBDatabase)
-    -> (storeNames : NS I [String, Array String])
-    -> JSIO IDBTransaction
-  transaction' a b = primJS $
-    IDBDatabase.prim__transaction a (toFFI b) undef undef
+  transaction a b = primJS $
+    IDBDatabase.prim__transaction a (toFFI b) (toFFI mode) (optUp options)
 
 
 
@@ -256,13 +232,9 @@ namespace IDBFactory
   open_ :
        (obj : IDBFactory)
     -> (name : String)
-    -> (version : Optional JSBits64)
+    -> {default Undef version : Optional JSBits64}
     -> JSIO IDBOpenDBRequest
-  open_ a b c = primJS $ IDBFactory.prim__open a b (toFFI c)
-
-  export
-  open' : (obj : IDBFactory) -> (name : String) -> JSIO IDBOpenDBRequest
-  open' a b = primJS $ IDBFactory.prim__open a b undef
+  open_ a b = primJS $ IDBFactory.prim__open a b (toFFI version)
 
 
 
@@ -294,38 +266,30 @@ namespace IDBIndex
 
 
   export
-  count : (obj : IDBIndex) -> (query : Optional Any) -> JSIO IDBRequest
-  count a b = primJS $ IDBIndex.prim__count a (toFFI b)
-
-  export
-  count' : (obj : IDBIndex) -> JSIO IDBRequest
-  count' a = primJS $ IDBIndex.prim__count a undef
+  count :
+       (obj : IDBIndex)
+    -> {default Undef query : Optional Any}
+    -> JSIO IDBRequest
+  count a = primJS $ IDBIndex.prim__count a (toFFI query)
 
 
   export
   getAll :
        (obj : IDBIndex)
-    -> (query : Optional Any)
-    -> (count : Optional Bits32)
+    -> {default Undef query : Optional Any}
+    -> {default Undef count : Optional Bits32}
     -> JSIO IDBRequest
-  getAll a b c = primJS $ IDBIndex.prim__getAll a (toFFI b) (toFFI c)
-
-  export
-  getAll' : (obj : IDBIndex) -> JSIO IDBRequest
-  getAll' a = primJS $ IDBIndex.prim__getAll a undef undef
+  getAll a = primJS $ IDBIndex.prim__getAll a (toFFI query) (toFFI count)
 
 
   export
   getAllKeys :
        (obj : IDBIndex)
-    -> (query : Optional Any)
-    -> (count : Optional Bits32)
+    -> {default Undef query : Optional Any}
+    -> {default Undef count : Optional Bits32}
     -> JSIO IDBRequest
-  getAllKeys a b c = primJS $ IDBIndex.prim__getAllKeys a (toFFI b) (toFFI c)
-
-  export
-  getAllKeys' : (obj : IDBIndex) -> JSIO IDBRequest
-  getAllKeys' a = primJS $ IDBIndex.prim__getAllKeys a undef undef
+  getAllKeys a = primJS $
+    IDBIndex.prim__getAllKeys a (toFFI query) (toFFI count)
 
 
   export
@@ -341,28 +305,21 @@ namespace IDBIndex
   export
   openCursor :
        (obj : IDBIndex)
-    -> (query : Optional Any)
-    -> (direction : Optional IDBCursorDirection)
+    -> {default Undef query : Optional Any}
+    -> {default Undef direction : Optional IDBCursorDirection}
     -> JSIO IDBRequest
-  openCursor a b c = primJS $ IDBIndex.prim__openCursor a (toFFI b) (toFFI c)
-
-  export
-  openCursor' : (obj : IDBIndex) -> JSIO IDBRequest
-  openCursor' a = primJS $ IDBIndex.prim__openCursor a undef undef
+  openCursor a = primJS $
+    IDBIndex.prim__openCursor a (toFFI query) (toFFI direction)
 
 
   export
   openKeyCursor :
        (obj : IDBIndex)
-    -> (query : Optional Any)
-    -> (direction : Optional IDBCursorDirection)
+    -> {default Undef query : Optional Any}
+    -> {default Undef direction : Optional IDBCursorDirection}
     -> JSIO IDBRequest
-  openKeyCursor a b c = primJS $
-    IDBIndex.prim__openKeyCursor a (toFFI b) (toFFI c)
-
-  export
-  openKeyCursor' : (obj : IDBIndex) -> JSIO IDBRequest
-  openKeyCursor' a = primJS $ IDBIndex.prim__openKeyCursor a undef undef
+  openKeyCursor a = primJS $
+    IDBIndex.prim__openKeyCursor a (toFFI query) (toFFI direction)
 
 
 
@@ -372,24 +329,23 @@ namespace IDBKeyRange
   bound :
        (lower : Any)
     -> (upper : Any)
-    -> (lowerOpen : Optional Bool)
-    -> (upperOpen : Optional Bool)
+    -> {default Undef lowerOpen : Optional Bool}
+    -> {default Undef upperOpen : Optional Bool}
     -> JSIO IDBKeyRange
-  bound a b c d = primJS $
-    IDBKeyRange.prim__bound (toFFI a) (toFFI b) (toFFI c) (toFFI d)
+  bound a b = primJS $
+    IDBKeyRange.prim__bound
+      (toFFI a)
+      (toFFI b)
+      (toFFI lowerOpen)
+      (toFFI upperOpen)
+
 
   export
-  bound' : (lower : Any) -> (upper : Any) -> JSIO IDBKeyRange
-  bound' a b = primJS $ IDBKeyRange.prim__bound (toFFI a) (toFFI b) undef undef
-
-
-  export
-  lowerBound : (lower : Any) -> (open_ : Optional Bool) -> JSIO IDBKeyRange
-  lowerBound a b = primJS $ IDBKeyRange.prim__lowerBound (toFFI a) (toFFI b)
-
-  export
-  lowerBound' : (lower : Any) -> JSIO IDBKeyRange
-  lowerBound' a = primJS $ IDBKeyRange.prim__lowerBound (toFFI a) undef
+  lowerBound :
+       (lower : Any)
+    -> {default Undef open_ : Optional Bool}
+    -> JSIO IDBKeyRange
+  lowerBound a = primJS $ IDBKeyRange.prim__lowerBound (toFFI a) (toFFI open_)
 
 
   export
@@ -398,12 +354,11 @@ namespace IDBKeyRange
 
 
   export
-  upperBound : (upper : Any) -> (open_ : Optional Bool) -> JSIO IDBKeyRange
-  upperBound a b = primJS $ IDBKeyRange.prim__upperBound (toFFI a) (toFFI b)
-
-  export
-  upperBound' : (upper : Any) -> JSIO IDBKeyRange
-  upperBound' a = primJS $ IDBKeyRange.prim__upperBound (toFFI a) undef
+  upperBound :
+       (upper : Any)
+    -> {default Undef open_ : Optional Bool}
+    -> JSIO IDBKeyRange
+  upperBound a = primJS $ IDBKeyRange.prim__upperBound (toFFI a) (toFFI open_)
 
 
   export
@@ -465,13 +420,9 @@ namespace IDBObjectStore
   add :
        (obj : IDBObjectStore)
     -> (value : Any)
-    -> (key : Optional Any)
+    -> {default Undef key : Optional Any}
     -> JSIO IDBRequest
-  add a b c = primJS $ IDBObjectStore.prim__add a (toFFI b) (toFFI c)
-
-  export
-  add' : (obj : IDBObjectStore) -> (value : Any) -> JSIO IDBRequest
-  add' a b = primJS $ IDBObjectStore.prim__add a (toFFI b) undef
+  add a b = primJS $ IDBObjectStore.prim__add a (toFFI b) (toFFI key)
 
 
   export
@@ -480,12 +431,11 @@ namespace IDBObjectStore
 
 
   export
-  count : (obj : IDBObjectStore) -> (query : Optional Any) -> JSIO IDBRequest
-  count a b = primJS $ IDBObjectStore.prim__count a (toFFI b)
-
-  export
-  count' : (obj : IDBObjectStore) -> JSIO IDBRequest
-  count' a = primJS $ IDBObjectStore.prim__count a undef
+  count :
+       (obj : IDBObjectStore)
+    -> {default Undef query : Optional Any}
+    -> JSIO IDBRequest
+  count a = primJS $ IDBObjectStore.prim__count a (toFFI query)
 
 
   export
@@ -495,19 +445,10 @@ namespace IDBObjectStore
     -> (obj : IDBObjectStore)
     -> (name : String)
     -> (keyPath : NS I [String, Array String])
-    -> (options : Optional t4)
+    -> {default Undef options : Optional t4}
     -> JSIO IDBIndex
-  createIndex a b c d = primJS $
-    IDBObjectStore.prim__createIndex a b (toFFI c) (optUp d)
-
-  export
-  createIndex' :
-       (obj : IDBObjectStore)
-    -> (name : String)
-    -> (keyPath : NS I [String, Array String])
-    -> JSIO IDBIndex
-  createIndex' a b c = primJS $
-    IDBObjectStore.prim__createIndex a b (toFFI c) undef
+  createIndex a b c = primJS $
+    IDBObjectStore.prim__createIndex a b (toFFI c) (optUp options)
 
 
   export
@@ -523,28 +464,20 @@ namespace IDBObjectStore
   export
   getAll :
        (obj : IDBObjectStore)
-    -> (query : Optional Any)
-    -> (count : Optional Bits32)
+    -> {default Undef query : Optional Any}
+    -> {default Undef count : Optional Bits32}
     -> JSIO IDBRequest
-  getAll a b c = primJS $ IDBObjectStore.prim__getAll a (toFFI b) (toFFI c)
-
-  export
-  getAll' : (obj : IDBObjectStore) -> JSIO IDBRequest
-  getAll' a = primJS $ IDBObjectStore.prim__getAll a undef undef
+  getAll a = primJS $ IDBObjectStore.prim__getAll a (toFFI query) (toFFI count)
 
 
   export
   getAllKeys :
        (obj : IDBObjectStore)
-    -> (query : Optional Any)
-    -> (count : Optional Bits32)
+    -> {default Undef query : Optional Any}
+    -> {default Undef count : Optional Bits32}
     -> JSIO IDBRequest
-  getAllKeys a b c = primJS $
-    IDBObjectStore.prim__getAllKeys a (toFFI b) (toFFI c)
-
-  export
-  getAllKeys' : (obj : IDBObjectStore) -> JSIO IDBRequest
-  getAllKeys' a = primJS $ IDBObjectStore.prim__getAllKeys a undef undef
+  getAllKeys a = primJS $
+    IDBObjectStore.prim__getAllKeys a (toFFI query) (toFFI count)
 
 
   export
@@ -565,42 +498,30 @@ namespace IDBObjectStore
   export
   openCursor :
        (obj : IDBObjectStore)
-    -> (query : Optional Any)
-    -> (direction : Optional IDBCursorDirection)
+    -> {default Undef query : Optional Any}
+    -> {default Undef direction : Optional IDBCursorDirection}
     -> JSIO IDBRequest
-  openCursor a b c = primJS $
-    IDBObjectStore.prim__openCursor a (toFFI b) (toFFI c)
-
-  export
-  openCursor' : (obj : IDBObjectStore) -> JSIO IDBRequest
-  openCursor' a = primJS $ IDBObjectStore.prim__openCursor a undef undef
+  openCursor a = primJS $
+    IDBObjectStore.prim__openCursor a (toFFI query) (toFFI direction)
 
 
   export
   openKeyCursor :
        (obj : IDBObjectStore)
-    -> (query : Optional Any)
-    -> (direction : Optional IDBCursorDirection)
+    -> {default Undef query : Optional Any}
+    -> {default Undef direction : Optional IDBCursorDirection}
     -> JSIO IDBRequest
-  openKeyCursor a b c = primJS $
-    IDBObjectStore.prim__openKeyCursor a (toFFI b) (toFFI c)
-
-  export
-  openKeyCursor' : (obj : IDBObjectStore) -> JSIO IDBRequest
-  openKeyCursor' a = primJS $ IDBObjectStore.prim__openKeyCursor a undef undef
+  openKeyCursor a = primJS $
+    IDBObjectStore.prim__openKeyCursor a (toFFI query) (toFFI direction)
 
 
   export
   put :
        (obj : IDBObjectStore)
     -> (value : Any)
-    -> (key : Optional Any)
+    -> {default Undef key : Optional Any}
     -> JSIO IDBRequest
-  put a b c = primJS $ IDBObjectStore.prim__put a (toFFI b) (toFFI c)
-
-  export
-  put' : (obj : IDBObjectStore) -> (value : Any) -> JSIO IDBRequest
-  put' a b = primJS $ IDBObjectStore.prim__put a (toFFI b) undef
+  put a b = primJS $ IDBObjectStore.prim__put a (toFFI b) (toFFI key)
 
 
 
@@ -781,13 +702,9 @@ namespace IDBVersionChangeEvent
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem IDBVersionChangeEventInit (Types t2)}
     -> (type : String)
-    -> (eventInitDict : Optional t2)
+    -> {default Undef eventInitDict : Optional t2}
     -> JSIO IDBVersionChangeEvent
-  new a b = primJS $ IDBVersionChangeEvent.prim__new a (optUp b)
-
-  export
-  new' : (type : String) -> JSIO IDBVersionChangeEvent
-  new' a = primJS $ IDBVersionChangeEvent.prim__new a undef
+  new a = primJS $ IDBVersionChangeEvent.prim__new a (optUp eventInitDict)
 
 
   export
@@ -812,14 +729,10 @@ namespace IDBDatabaseInfo
 
   export
   new :
-       (name : Optional String)
-    -> (version : Optional JSBits64)
+       {default Undef name : Optional String}
+    -> {default Undef version : Optional JSBits64}
     -> JSIO IDBDatabaseInfo
-  new a b = primJS $ IDBDatabaseInfo.prim__new (toFFI a) (toFFI b)
-
-  export
-  new' : JSIO IDBDatabaseInfo
-  new' = primJS $ IDBDatabaseInfo.prim__new undef undef
+  new = primJS $ IDBDatabaseInfo.prim__new (toFFI name) (toFFI version)
 
 
   export
@@ -853,14 +766,10 @@ namespace IDBIndexParameters
 
   export
   new :
-       (unique : Optional Bool)
-    -> (multiEntry : Optional Bool)
+       {default Undef unique : Optional Bool}
+    -> {default Undef multiEntry : Optional Bool}
     -> JSIO IDBIndexParameters
-  new a b = primJS $ IDBIndexParameters.prim__new (toFFI a) (toFFI b)
-
-  export
-  new' : JSIO IDBIndexParameters
-  new' = primJS $ IDBIndexParameters.prim__new undef undef
+  new = primJS $ IDBIndexParameters.prim__new (toFFI unique) (toFFI multiEntry)
 
 
   export
@@ -896,14 +805,11 @@ namespace IDBObjectStoreParameters
 
   export
   new :
-       (keyPath : Optional (Maybe (NS I [String, Array String])))
-    -> (autoIncrement : Optional Bool)
+       {default Undef keyPath : Optional (Maybe (NS I [String, Array String]))}
+    -> {default Undef autoIncrement : Optional Bool}
     -> JSIO IDBObjectStoreParameters
-  new a b = primJS $ IDBObjectStoreParameters.prim__new (toFFI a) (toFFI b)
-
-  export
-  new' : JSIO IDBObjectStoreParameters
-  new' = primJS $ IDBObjectStoreParameters.prim__new undef undef
+  new = primJS $
+    IDBObjectStoreParameters.prim__new (toFFI keyPath) (toFFI autoIncrement)
 
 
   export
@@ -939,13 +845,9 @@ namespace IDBTransactionOptions
 
   export
   new :
-       (durability : Optional IDBTransactionDurability)
+       {default Undef durability : Optional IDBTransactionDurability}
     -> JSIO IDBTransactionOptions
-  new a = primJS $ IDBTransactionOptions.prim__new (toFFI a)
-
-  export
-  new' : JSIO IDBTransactionOptions
-  new' = primJS $ IDBTransactionOptions.prim__new undef
+  new = primJS $ IDBTransactionOptions.prim__new (toFFI durability)
 
 
   export
@@ -966,14 +868,11 @@ namespace IDBVersionChangeEventInit
 
   export
   new :
-       (oldVersion : Optional JSBits64)
-    -> (newVersion : Optional (Maybe JSBits64))
+       {default Undef oldVersion : Optional JSBits64}
+    -> {default Undef newVersion : Optional (Maybe JSBits64)}
     -> JSIO IDBVersionChangeEventInit
-  new a b = primJS $ IDBVersionChangeEventInit.prim__new (toFFI a) (toFFI b)
-
-  export
-  new' : JSIO IDBVersionChangeEventInit
-  new' = primJS $ IDBVersionChangeEventInit.prim__new undef undef
+  new = primJS $
+    IDBVersionChangeEventInit.prim__new (toFFI oldVersion) (toFFI newVersion)
 
 
   export

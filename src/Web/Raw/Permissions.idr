@@ -50,12 +50,10 @@ namespace Permissions
 namespace CameraDevicePermissionDescriptor
 
   export
-  new : (panTiltZoom : Optional Bool) -> JSIO CameraDevicePermissionDescriptor
-  new a = primJS $ CameraDevicePermissionDescriptor.prim__new (toFFI a)
-
-  export
-  new' : JSIO CameraDevicePermissionDescriptor
-  new' = primJS $ CameraDevicePermissionDescriptor.prim__new undef
+  new :
+       {default Undef panTiltZoom : Optional Bool}
+    -> JSIO CameraDevicePermissionDescriptor
+  new = primJS $ CameraDevicePermissionDescriptor.prim__new (toFFI panTiltZoom)
 
 
   export
@@ -76,12 +74,10 @@ namespace CameraDevicePermissionDescriptor
 namespace DevicePermissionDescriptor
 
   export
-  new : (deviceId : Optional String) -> JSIO DevicePermissionDescriptor
-  new a = primJS $ DevicePermissionDescriptor.prim__new (toFFI a)
-
-  export
-  new' : JSIO DevicePermissionDescriptor
-  new' = primJS $ DevicePermissionDescriptor.prim__new undef
+  new :
+       {default Undef deviceId : Optional String}
+    -> JSIO DevicePermissionDescriptor
+  new = primJS $ DevicePermissionDescriptor.prim__new (toFFI deviceId)
 
 
   export
@@ -101,12 +97,8 @@ namespace DevicePermissionDescriptor
 namespace MidiPermissionDescriptor
 
   export
-  new : (sysex : Optional Bool) -> JSIO MidiPermissionDescriptor
-  new a = primJS $ MidiPermissionDescriptor.prim__new (toFFI a)
-
-  export
-  new' : JSIO MidiPermissionDescriptor
-  new' = primJS $ MidiPermissionDescriptor.prim__new undef
+  new : {default Undef sysex : Optional Bool} -> JSIO MidiPermissionDescriptor
+  new = primJS $ MidiPermissionDescriptor.prim__new (toFFI sysex)
 
 
   export
@@ -153,19 +145,10 @@ namespace PermissionSetParameters
     -> {auto 0 _ : Elem PermissionDescriptor (Types t1)}
     -> (descriptor : t1)
     -> (state : PermissionState)
-    -> (oneRealm : Optional Bool)
+    -> {default Undef oneRealm : Optional Bool}
     -> JSIO PermissionSetParameters
-  new a b c = primJS $
-    PermissionSetParameters.prim__new (up a) (toFFI b) (toFFI c)
-
-  export
-  new' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem PermissionDescriptor (Types t1)}
-    -> (descriptor : t1)
-    -> (state : PermissionState)
-    -> JSIO PermissionSetParameters
-  new' a b = primJS $ PermissionSetParameters.prim__new (up a) (toFFI b) undef
+  new a b = primJS $
+    PermissionSetParameters.prim__new (up a) (toFFI b) (toFFI oneRealm)
 
 
   export
@@ -212,12 +195,10 @@ namespace PermissionSetParameters
 namespace PushPermissionDescriptor
 
   export
-  new : (userVisibleOnly : Optional Bool) -> JSIO PushPermissionDescriptor
-  new a = primJS $ PushPermissionDescriptor.prim__new (toFFI a)
-
-  export
-  new' : JSIO PushPermissionDescriptor
-  new' = primJS $ PushPermissionDescriptor.prim__new undef
+  new :
+       {default Undef userVisibleOnly : Optional Bool}
+    -> JSIO PushPermissionDescriptor
+  new = primJS $ PushPermissionDescriptor.prim__new (toFFI userVisibleOnly)
 
 
   export

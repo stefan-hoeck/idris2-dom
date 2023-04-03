@@ -96,12 +96,11 @@ namespace ReadableByteStreamController
 
 
   export
-  error : (obj : ReadableByteStreamController) -> (e : Optional Any) -> JSIO ()
-  error a b = primJS $ ReadableByteStreamController.prim__error a (toFFI b)
-
-  export
-  error' : (obj : ReadableByteStreamController) -> JSIO ()
-  error' a = primJS $ ReadableByteStreamController.prim__error a undef
+  error :
+       (obj : ReadableByteStreamController)
+    -> {default Undef e : Optional Any}
+    -> JSIO ()
+  error a = primJS $ ReadableByteStreamController.prim__error a (toFFI e)
 
 
 
@@ -113,14 +112,11 @@ namespace ReadableStream
     -> {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem Object (Types t1)}
     -> {auto 0 _ : Elem QueuingStrategy (Types t2)}
-    -> (underlyingSource : Optional t1)
-    -> (strategy : Optional t2)
+    -> {default Undef underlyingSource : Optional t1}
+    -> {default Undef strategy : Optional t2}
     -> JSIO ReadableStream
-  new a b = primJS $ ReadableStream.prim__new (optUp a) (optUp b)
-
-  export
-  new' : JSIO ReadableStream
-  new' = primJS $ ReadableStream.prim__new undef undef
+  new = primJS $
+    ReadableStream.prim__new (optUp underlyingSource) (optUp strategy)
 
 
   export
@@ -131,13 +127,9 @@ namespace ReadableStream
   export
   cancel :
        (obj : ReadableStream)
-    -> (reason : Optional Any)
+    -> {default Undef reason : Optional Any}
     -> JSIO (Promise Undefined)
-  cancel a b = primJS $ ReadableStream.prim__cancel a (toFFI b)
-
-  export
-  cancel' : (obj : ReadableStream) -> JSIO (Promise Undefined)
-  cancel' a = primJS $ ReadableStream.prim__cancel a undef
+  cancel a = primJS $ ReadableStream.prim__cancel a (toFFI reason)
 
 
   export
@@ -145,17 +137,10 @@ namespace ReadableStream
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem ReadableStreamGetReaderOptions (Types t2)}
     -> (obj : ReadableStream)
-    -> (options : Optional t2)
+    -> {default Undef options : Optional t2}
     -> JSIO (NS I [ReadableStreamDefaultReader, ReadableStreamBYOBReader])
-  getReader a b = tryJS "ReadableStream.getReader" $
-    ReadableStream.prim__getReader a (optUp b)
-
-  export
-  getReader' :
-       (obj : ReadableStream)
-    -> JSIO (NS I [ReadableStreamDefaultReader, ReadableStreamBYOBReader])
-  getReader' a = tryJS "ReadableStream.getReader'" $
-    ReadableStream.prim__getReader a undef
+  getReader a = tryJS "ReadableStream.getReader" $
+    ReadableStream.prim__getReader a (optUp options)
 
 
   export
@@ -166,19 +151,10 @@ namespace ReadableStream
     -> {auto 0 _ : Elem StreamPipeOptions (Types t3)}
     -> (obj : ReadableStream)
     -> (transform : t2)
-    -> (options : Optional t3)
+    -> {default Undef options : Optional t3}
     -> JSIO ReadableStream
-  pipeThrough a b c = primJS $
-    ReadableStream.prim__pipeThrough a (up b) (optUp c)
-
-  export
-  pipeThrough' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem ReadableWritablePair (Types t2)}
-    -> (obj : ReadableStream)
-    -> (transform : t2)
-    -> JSIO ReadableStream
-  pipeThrough' a b = primJS $ ReadableStream.prim__pipeThrough a (up b) undef
+  pipeThrough a b = primJS $
+    ReadableStream.prim__pipeThrough a (up b) (optUp options)
 
 
   export
@@ -187,16 +163,9 @@ namespace ReadableStream
     -> {auto 0 _ : Elem StreamPipeOptions (Types t3)}
     -> (obj : ReadableStream)
     -> (destination : WritableStream)
-    -> (options : Optional t3)
+    -> {default Undef options : Optional t3}
     -> JSIO (Promise Undefined)
-  pipeTo a b c = primJS $ ReadableStream.prim__pipeTo a b (optUp c)
-
-  export
-  pipeTo' :
-       (obj : ReadableStream)
-    -> (destination : WritableStream)
-    -> JSIO (Promise Undefined)
-  pipeTo' a b = primJS $ ReadableStream.prim__pipeTo a b undef
+  pipeTo a b = primJS $ ReadableStream.prim__pipeTo a b (optUp options)
 
 
   export
@@ -304,26 +273,18 @@ namespace ReadableStreamDefaultController
   export
   enqueue :
        (obj : ReadableStreamDefaultController)
-    -> (chunk : Optional Any)
+    -> {default Undef chunk : Optional Any}
     -> JSIO ()
-  enqueue a b = primJS $
-    ReadableStreamDefaultController.prim__enqueue a (toFFI b)
-
-  export
-  enqueue' : (obj : ReadableStreamDefaultController) -> JSIO ()
-  enqueue' a = primJS $ ReadableStreamDefaultController.prim__enqueue a undef
+  enqueue a = primJS $
+    ReadableStreamDefaultController.prim__enqueue a (toFFI chunk)
 
 
   export
   error :
        (obj : ReadableStreamDefaultController)
-    -> (e : Optional Any)
+    -> {default Undef e : Optional Any}
     -> JSIO ()
-  error a b = primJS $ ReadableStreamDefaultController.prim__error a (toFFI b)
-
-  export
-  error' : (obj : ReadableStreamDefaultController) -> JSIO ()
-  error' a = primJS $ ReadableStreamDefaultController.prim__error a undef
+  error a = primJS $ ReadableStreamDefaultController.prim__error a (toFFI e)
 
 
 
@@ -357,15 +318,15 @@ namespace TransformStream
     -> {auto 0 _ : Elem Object (Types t1)}
     -> {auto 0 _ : Elem QueuingStrategy (Types t2)}
     -> {auto 0 _ : Elem QueuingStrategy (Types t3)}
-    -> (transformer : Optional t1)
-    -> (writableStrategy : Optional t2)
-    -> (readableStrategy : Optional t3)
+    -> {default Undef transformer : Optional t1}
+    -> {default Undef writableStrategy : Optional t2}
+    -> {default Undef readableStrategy : Optional t3}
     -> JSIO TransformStream
-  new a b c = primJS $ TransformStream.prim__new (optUp a) (optUp b) (optUp c)
-
-  export
-  new' : JSIO TransformStream
-  new' = primJS $ TransformStream.prim__new undef undef undef
+  new = primJS $
+    TransformStream.prim__new
+      (optUp transformer)
+      (optUp writableStrategy)
+      (optUp readableStrategy)
 
 
   export
@@ -390,26 +351,19 @@ namespace TransformStreamDefaultController
   export
   enqueue :
        (obj : TransformStreamDefaultController)
-    -> (chunk : Optional Any)
+    -> {default Undef chunk : Optional Any}
     -> JSIO ()
-  enqueue a b = primJS $
-    TransformStreamDefaultController.prim__enqueue a (toFFI b)
-
-  export
-  enqueue' : (obj : TransformStreamDefaultController) -> JSIO ()
-  enqueue' a = primJS $ TransformStreamDefaultController.prim__enqueue a undef
+  enqueue a = primJS $
+    TransformStreamDefaultController.prim__enqueue a (toFFI chunk)
 
 
   export
   error :
        (obj : TransformStreamDefaultController)
-    -> (reason : Optional Any)
+    -> {default Undef reason : Optional Any}
     -> JSIO ()
-  error a b = primJS $ TransformStreamDefaultController.prim__error a (toFFI b)
-
-  export
-  error' : (obj : TransformStreamDefaultController) -> JSIO ()
-  error' a = primJS $ TransformStreamDefaultController.prim__error a undef
+  error a = primJS $
+    TransformStreamDefaultController.prim__error a (toFFI reason)
 
 
   export
@@ -426,14 +380,11 @@ namespace WritableStream
     -> {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem Object (Types t1)}
     -> {auto 0 _ : Elem QueuingStrategy (Types t2)}
-    -> (underlyingSink : Optional t1)
-    -> (strategy : Optional t2)
+    -> {default Undef underlyingSink : Optional t1}
+    -> {default Undef strategy : Optional t2}
     -> JSIO WritableStream
-  new a b = primJS $ WritableStream.prim__new (optUp a) (optUp b)
-
-  export
-  new' : JSIO WritableStream
-  new' = primJS $ WritableStream.prim__new undef undef
+  new = primJS $
+    WritableStream.prim__new (optUp underlyingSink) (optUp strategy)
 
 
   export
@@ -444,13 +395,9 @@ namespace WritableStream
   export
   abort :
        (obj : WritableStream)
-    -> (reason : Optional Any)
+    -> {default Undef reason : Optional Any}
     -> JSIO (Promise Undefined)
-  abort a b = primJS $ WritableStream.prim__abort a (toFFI b)
-
-  export
-  abort' : (obj : WritableStream) -> JSIO (Promise Undefined)
-  abort' a = primJS $ WritableStream.prim__abort a undef
+  abort a = primJS $ WritableStream.prim__abort a (toFFI reason)
 
 
   export
@@ -469,13 +416,9 @@ namespace WritableStreamDefaultController
   export
   error :
        (obj : WritableStreamDefaultController)
-    -> (e : Optional Any)
+    -> {default Undef e : Optional Any}
     -> JSIO ()
-  error a b = primJS $ WritableStreamDefaultController.prim__error a (toFFI b)
-
-  export
-  error' : (obj : WritableStreamDefaultController) -> JSIO ()
-  error' a = primJS $ WritableStreamDefaultController.prim__error a undef
+  error a = primJS $ WritableStreamDefaultController.prim__error a (toFFI e)
 
 
 
@@ -505,13 +448,9 @@ namespace WritableStreamDefaultWriter
   export
   abort :
        (obj : WritableStreamDefaultWriter)
-    -> (reason : Optional Any)
+    -> {default Undef reason : Optional Any}
     -> JSIO (Promise Undefined)
-  abort a b = primJS $ WritableStreamDefaultWriter.prim__abort a (toFFI b)
-
-  export
-  abort' : (obj : WritableStreamDefaultWriter) -> JSIO (Promise Undefined)
-  abort' a = primJS $ WritableStreamDefaultWriter.prim__abort a undef
+  abort a = primJS $ WritableStreamDefaultWriter.prim__abort a (toFFI reason)
 
 
   export
@@ -527,13 +466,9 @@ namespace WritableStreamDefaultWriter
   export
   write :
        (obj : WritableStreamDefaultWriter)
-    -> (chunk : Optional Any)
+    -> {default Undef chunk : Optional Any}
     -> JSIO (Promise Undefined)
-  write a b = primJS $ WritableStreamDefaultWriter.prim__write a (toFFI b)
-
-  export
-  write' : (obj : WritableStreamDefaultWriter) -> JSIO (Promise Undefined)
-  write' a = primJS $ WritableStreamDefaultWriter.prim__write a undef
+  write a = primJS $ WritableStreamDefaultWriter.prim__write a (toFFI chunk)
 
 
 
@@ -579,18 +514,10 @@ namespace ReadableStreamGenericReader
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem ReadableStreamGenericReader (Types t1)}
     -> (obj : t1)
-    -> (reason : Optional Any)
+    -> {default Undef reason : Optional Any}
     -> JSIO (Promise Undefined)
-  cancel a b = primJS $
-    ReadableStreamGenericReader.prim__cancel (up a) (toFFI b)
-
-  export
-  cancel' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem ReadableStreamGenericReader (Types t1)}
-    -> (obj : t1)
-    -> JSIO (Promise Undefined)
-  cancel' a = primJS $ ReadableStreamGenericReader.prim__cancel (up a) undef
+  cancel a = primJS $
+    ReadableStreamGenericReader.prim__cancel (up a) (toFFI reason)
 
 
 
@@ -603,14 +530,10 @@ namespace QueuingStrategy
 
   export
   new :
-       (highWaterMark : Optional Double)
-    -> (size : Optional QueuingStrategySize)
+       {default Undef highWaterMark : Optional Double}
+    -> {default Undef size : Optional QueuingStrategySize}
     -> JSIO QueuingStrategy
-  new a b = primJS $ QueuingStrategy.prim__new (toFFI a) (toFFI b)
-
-  export
-  new' : JSIO QueuingStrategy
-  new' = primJS $ QueuingStrategy.prim__new undef undef
+  new = primJS $ QueuingStrategy.prim__new (toFFI highWaterMark) (toFFI size)
 
 
   export
@@ -665,26 +588,23 @@ namespace ReadableStreamBYOBReadResult
 
   export
   new :
-       (value : Optional
-                  (NS I
-                     [ Int8Array
-                     , Int16Array
-                     , Int32Array
-                     , UInt8Array
-                     , UInt8Array
-                     , UInt8Array
-                     , UInt8ClampedArray
-                     , Float32Array
-                     , Float64Array
-                     , DataView
-                     ]))
-    -> (done : Optional Bool)
+       {default Undef value : Optional
+                                (NS I
+                                   [ Int8Array
+                                   , Int16Array
+                                   , Int32Array
+                                   , UInt8Array
+                                   , UInt8Array
+                                   , UInt8Array
+                                   , UInt8ClampedArray
+                                   , Float32Array
+                                   , Float64Array
+                                   , DataView
+                                   ])}
+    -> {default Undef done : Optional Bool}
     -> JSIO ReadableStreamBYOBReadResult
-  new a b = primJS $ ReadableStreamBYOBReadResult.prim__new (toFFI a) (toFFI b)
-
-  export
-  new' : JSIO ReadableStreamBYOBReadResult
-  new' = primJS $ ReadableStreamBYOBReadResult.prim__new undef undef
+  new = primJS $
+    ReadableStreamBYOBReadResult.prim__new (toFFI value) (toFFI done)
 
 
   export
@@ -728,15 +648,11 @@ namespace ReadableStreamDefaultReadResult
 
   export
   new :
-       (value : Optional Any)
-    -> (done : Optional Bool)
+       {default Undef value : Optional Any}
+    -> {default Undef done : Optional Bool}
     -> JSIO ReadableStreamDefaultReadResult
-  new a b = primJS $
-    ReadableStreamDefaultReadResult.prim__new (toFFI a) (toFFI b)
-
-  export
-  new' : JSIO ReadableStreamDefaultReadResult
-  new' = primJS $ ReadableStreamDefaultReadResult.prim__new undef undef
+  new = primJS $
+    ReadableStreamDefaultReadResult.prim__new (toFFI value) (toFFI done)
 
 
   export
@@ -770,13 +686,9 @@ namespace ReadableStreamGetReaderOptions
 
   export
   new :
-       (mode : Optional ReadableStreamReaderMode)
+       {default Undef mode : Optional ReadableStreamReaderMode}
     -> JSIO ReadableStreamGetReaderOptions
-  new a = primJS $ ReadableStreamGetReaderOptions.prim__new (toFFI a)
-
-  export
-  new' : JSIO ReadableStreamGetReaderOptions
-  new' = primJS $ ReadableStreamGetReaderOptions.prim__new undef
+  new = primJS $ ReadableStreamGetReaderOptions.prim__new (toFFI mode)
 
 
   export
@@ -796,12 +708,10 @@ namespace ReadableStreamGetReaderOptions
 namespace ReadableStreamIteratorOptions
 
   export
-  new : (preventCancel : Optional Bool) -> JSIO ReadableStreamIteratorOptions
-  new a = primJS $ ReadableStreamIteratorOptions.prim__new (toFFI a)
-
-  export
-  new' : JSIO ReadableStreamIteratorOptions
-  new' = primJS $ ReadableStreamIteratorOptions.prim__new undef
+  new :
+       {default Undef preventCancel : Optional Bool}
+    -> JSIO ReadableStreamIteratorOptions
+  new = primJS $ ReadableStreamIteratorOptions.prim__new (toFFI preventCancel)
 
 
   export
@@ -860,17 +770,17 @@ namespace StreamPipeOptions
 
   export
   new :
-       (preventClose : Optional Bool)
-    -> (preventAbort : Optional Bool)
-    -> (preventCancel : Optional Bool)
-    -> (signal : Optional AbortSignal)
+       {default Undef preventClose : Optional Bool}
+    -> {default Undef preventAbort : Optional Bool}
+    -> {default Undef preventCancel : Optional Bool}
+    -> {default Undef signal : Optional AbortSignal}
     -> JSIO StreamPipeOptions
-  new a b c d = primJS $
-    StreamPipeOptions.prim__new (toFFI a) (toFFI b) (toFFI c) (toFFI d)
-
-  export
-  new' : JSIO StreamPipeOptions
-  new' = primJS $ StreamPipeOptions.prim__new undef undef undef undef
+  new = primJS $
+    StreamPipeOptions.prim__new
+      (toFFI preventClose)
+      (toFFI preventAbort)
+      (toFFI preventCancel)
+      (toFFI signal)
 
 
   export
@@ -933,18 +843,19 @@ namespace Transformer
 
   export
   new :
-       (start : Optional TransformerStartCallback)
-    -> (transform : Optional TransformerTransformCallback)
-    -> (flush : Optional TransformerFlushCallback)
-    -> (readableType : Optional Any)
-    -> (writableType : Optional Any)
+       {default Undef start : Optional TransformerStartCallback}
+    -> {default Undef transform : Optional TransformerTransformCallback}
+    -> {default Undef flush : Optional TransformerFlushCallback}
+    -> {default Undef readableType : Optional Any}
+    -> {default Undef writableType : Optional Any}
     -> JSIO Transformer
-  new a b c d e = primJS $
-    Transformer.prim__new (toFFI a) (toFFI b) (toFFI c) (toFFI d) (toFFI e)
-
-  export
-  new' : JSIO Transformer
-  new' = primJS $ Transformer.prim__new undef undef undef undef undef
+  new = primJS $
+    Transformer.prim__new
+      (toFFI start)
+      (toFFI transform)
+      (toFFI flush)
+      (toFFI readableType)
+      (toFFI writableType)
 
 
   export
@@ -1017,18 +928,19 @@ namespace UnderlyingSink
 
   export
   new :
-       (start : Optional UnderlyingSinkStartCallback)
-    -> (write : Optional UnderlyingSinkWriteCallback)
-    -> (close : Optional UnderlyingSinkCloseCallback)
-    -> (abort : Optional UnderlyingSinkAbortCallback)
-    -> (type : Optional Any)
+       {default Undef start : Optional UnderlyingSinkStartCallback}
+    -> {default Undef write : Optional UnderlyingSinkWriteCallback}
+    -> {default Undef close : Optional UnderlyingSinkCloseCallback}
+    -> {default Undef abort : Optional UnderlyingSinkAbortCallback}
+    -> {default Undef type : Optional Any}
     -> JSIO UnderlyingSink
-  new a b c d e = primJS $
-    UnderlyingSink.prim__new (toFFI a) (toFFI b) (toFFI c) (toFFI d) (toFFI e)
-
-  export
-  new' : JSIO UnderlyingSink
-  new' = primJS $ UnderlyingSink.prim__new undef undef undef undef undef
+  new = primJS $
+    UnderlyingSink.prim__new
+      (toFFI start)
+      (toFFI write)
+      (toFFI close)
+      (toFFI abort)
+      (toFFI type)
 
 
   export
@@ -1101,18 +1013,19 @@ namespace UnderlyingSource
 
   export
   new :
-       (start : Optional UnderlyingSourceStartCallback)
-    -> (pull : Optional UnderlyingSourcePullCallback)
-    -> (cancel : Optional UnderlyingSourceCancelCallback)
-    -> (type : Optional ReadableStreamType)
-    -> (autoAllocateChunkSize : Optional JSBits64)
+       {default Undef start : Optional UnderlyingSourceStartCallback}
+    -> {default Undef pull : Optional UnderlyingSourcePullCallback}
+    -> {default Undef cancel : Optional UnderlyingSourceCancelCallback}
+    -> {default Undef type : Optional ReadableStreamType}
+    -> {default Undef autoAllocateChunkSize : Optional JSBits64}
     -> JSIO UnderlyingSource
-  new a b c d e = primJS $
-    UnderlyingSource.prim__new (toFFI a) (toFFI b) (toFFI c) (toFFI d) (toFFI e)
-
-  export
-  new' : JSIO UnderlyingSource
-  new' = primJS $ UnderlyingSource.prim__new undef undef undef undef undef
+  new = primJS $
+    UnderlyingSource.prim__new
+      (toFFI start)
+      (toFFI pull)
+      (toFFI cancel)
+      (toFFI type)
+      (toFFI autoAllocateChunkSize)
 
 
   export

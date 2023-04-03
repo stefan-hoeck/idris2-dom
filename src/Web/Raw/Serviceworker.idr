@@ -35,16 +35,9 @@ namespace Cache
     -> {auto 0 _ : Elem CacheQueryOptions (Types t3)}
     -> (obj : Cache)
     -> (request : NS I [Request, String])
-    -> (options : Optional t3)
+    -> {default Undef options : Optional t3}
     -> JSIO (Promise Boolean)
-  delete a b c = primJS $ Cache.prim__delete a (toFFI b) (optUp c)
-
-  export
-  delete' :
-       (obj : Cache)
-    -> (request : NS I [Request, String])
-    -> JSIO (Promise Boolean)
-  delete' a b = primJS $ Cache.prim__delete a (toFFI b) undef
+  delete a b = primJS $ Cache.prim__delete a (toFFI b) (optUp options)
 
 
   export
@@ -52,14 +45,10 @@ namespace Cache
        {auto 0 _ : JSType t3}
     -> {auto 0 _ : Elem CacheQueryOptions (Types t3)}
     -> (obj : Cache)
-    -> (request : Optional (NS I [Request, String]))
-    -> (options : Optional t3)
+    -> {default Undef request : Optional (NS I [Request, String])}
+    -> {default Undef options : Optional t3}
     -> JSIO (Promise (Array Request))
-  keys a b c = primJS $ Cache.prim__keys a (toFFI b) (optUp c)
-
-  export
-  keys' : (obj : Cache) -> JSIO (Promise (Array Request))
-  keys' a = primJS $ Cache.prim__keys a undef undef
+  keys a = primJS $ Cache.prim__keys a (toFFI request) (optUp options)
 
 
   export
@@ -67,14 +56,10 @@ namespace Cache
        {auto 0 _ : JSType t3}
     -> {auto 0 _ : Elem CacheQueryOptions (Types t3)}
     -> (obj : Cache)
-    -> (request : Optional (NS I [Request, String]))
-    -> (options : Optional t3)
+    -> {default Undef request : Optional (NS I [Request, String])}
+    -> {default Undef options : Optional t3}
     -> JSIO (Promise (Array Response))
-  matchAll a b c = primJS $ Cache.prim__matchAll a (toFFI b) (optUp c)
-
-  export
-  matchAll' : (obj : Cache) -> JSIO (Promise (Array Response))
-  matchAll' a = primJS $ Cache.prim__matchAll a undef undef
+  matchAll a = primJS $ Cache.prim__matchAll a (toFFI request) (optUp options)
 
 
   export
@@ -83,16 +68,9 @@ namespace Cache
     -> {auto 0 _ : Elem CacheQueryOptions (Types t3)}
     -> (obj : Cache)
     -> (request : NS I [Request, String])
-    -> (options : Optional t3)
+    -> {default Undef options : Optional t3}
     -> JSIO (Promise (Union2 Response Undefined))
-  match a b c = primJS $ Cache.prim__match a (toFFI b) (optUp c)
-
-  export
-  match' :
-       (obj : Cache)
-    -> (request : NS I [Request, String])
-    -> JSIO (Promise (Union2 Response Undefined))
-  match' a b = primJS $ Cache.prim__match a (toFFI b) undef
+  match a b = primJS $ Cache.prim__match a (toFFI b) (optUp options)
 
 
   export
@@ -131,16 +109,9 @@ namespace CacheStorage
     -> {auto 0 _ : Elem MultiCacheQueryOptions (Types t3)}
     -> (obj : CacheStorage)
     -> (request : NS I [Request, String])
-    -> (options : Optional t3)
+    -> {default Undef options : Optional t3}
     -> JSIO (Promise (Union2 Response Undefined))
-  match a b c = primJS $ CacheStorage.prim__match a (toFFI b) (optUp c)
-
-  export
-  match' :
-       (obj : CacheStorage)
-    -> (request : NS I [Request, String])
-    -> JSIO (Promise (Union2 Response Undefined))
-  match' a b = primJS $ CacheStorage.prim__match a (toFFI b) undef
+  match a b = primJS $ CacheStorage.prim__match a (toFFI b) (optUp options)
 
 
   export
@@ -206,19 +177,10 @@ namespace Client
     -> {auto 0 _ : Elem PostMessageOptions (Types t3)}
     -> (obj : t1)
     -> (message : Any)
-    -> (options : Optional t3)
+    -> {default Undef options : Optional t3}
     -> JSIO ()
-  postMessage1 a b c = primJS $
-    Client.prim__postMessage1 (up a) (toFFI b) (optUp c)
-
-  export
-  postMessage1' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Client (Types t1)}
-    -> (obj : t1)
-    -> (message : Any)
-    -> JSIO ()
-  postMessage1' a b = primJS $ Client.prim__postMessage1 (up a) (toFFI b) undef
+  postMessage1 a b = primJS $
+    Client.prim__postMessage1 (up a) (toFFI b) (optUp options)
 
 
 
@@ -242,13 +204,9 @@ namespace Clients
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem ClientQueryOptions (Types t2)}
     -> (obj : Clients)
-    -> (options : Optional t2)
+    -> {default Undef options : Optional t2}
     -> JSIO (Promise (Array Client))
-  matchAll a b = primJS $ Clients.prim__matchAll a (optUp b)
-
-  export
-  matchAll' : (obj : Clients) -> JSIO (Promise (Array Client))
-  matchAll' a = primJS $ Clients.prim__matchAll a undef
+  matchAll a = primJS $ Clients.prim__matchAll a (optUp options)
 
 
   export
@@ -267,13 +225,9 @@ namespace ExtendableEvent
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem ExtendableEventInit (Types t2)}
     -> (type : String)
-    -> (eventInitDict : Optional t2)
+    -> {default Undef eventInitDict : Optional t2}
     -> JSIO ExtendableEvent
-  new a b = primJS $ ExtendableEvent.prim__new a (optUp b)
-
-  export
-  new' : (type : String) -> JSIO ExtendableEvent
-  new' a = primJS $ ExtendableEvent.prim__new a undef
+  new a = primJS $ ExtendableEvent.prim__new a (optUp eventInitDict)
 
 
   export
@@ -294,13 +248,9 @@ namespace ExtendableMessageEvent
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem ExtendableMessageEventInit (Types t2)}
     -> (type : String)
-    -> (eventInitDict : Optional t2)
+    -> {default Undef eventInitDict : Optional t2}
     -> JSIO ExtendableMessageEvent
-  new a b = primJS $ ExtendableMessageEvent.prim__new a (optUp b)
-
-  export
-  new' : (type : String) -> JSIO ExtendableMessageEvent
-  new' a = primJS $ ExtendableMessageEvent.prim__new a undef
+  new a = primJS $ ExtendableMessageEvent.prim__new a (optUp eventInitDict)
 
 
   export
@@ -446,15 +396,10 @@ namespace ServiceWorker
     -> {auto 0 _ : Elem PostMessageOptions (Types t3)}
     -> (obj : ServiceWorker)
     -> (message : Any)
-    -> (options : Optional t3)
+    -> {default Undef options : Optional t3}
     -> JSIO ()
-  postMessage1 a b c = primJS $
-    ServiceWorker.prim__postMessage1 a (toFFI b) (optUp c)
-
-  export
-  postMessage1' : (obj : ServiceWorker) -> (message : Any) -> JSIO ()
-  postMessage1' a b = primJS $
-    ServiceWorker.prim__postMessage1 a (toFFI b) undef
+  postMessage1 a b = primJS $
+    ServiceWorker.prim__postMessage1 a (toFFI b) (optUp options)
 
 
 
@@ -509,17 +454,10 @@ namespace ServiceWorkerContainer
   export
   getRegistration :
        (obj : ServiceWorkerContainer)
-    -> (clientURL : Optional String)
+    -> {default Undef clientURL : Optional String}
     -> JSIO (Promise (Union2 ServiceWorkerRegistration Undefined))
-  getRegistration a b = primJS $
-    ServiceWorkerContainer.prim__getRegistration a (toFFI b)
-
-  export
-  getRegistration' :
-       (obj : ServiceWorkerContainer)
-    -> JSIO (Promise (Union2 ServiceWorkerRegistration Undefined))
-  getRegistration' a = primJS $
-    ServiceWorkerContainer.prim__getRegistration a undef
+  getRegistration a = primJS $
+    ServiceWorkerContainer.prim__getRegistration a (toFFI clientURL)
 
 
   export
@@ -535,16 +473,10 @@ namespace ServiceWorkerContainer
     -> {auto 0 _ : Elem RegistrationOptions (Types t3)}
     -> (obj : ServiceWorkerContainer)
     -> (scriptURL : String)
-    -> (options : Optional t3)
+    -> {default Undef options : Optional t3}
     -> JSIO (Promise ServiceWorkerRegistration)
-  register a b c = primJS $ ServiceWorkerContainer.prim__register a b (optUp c)
-
-  export
-  register' :
-       (obj : ServiceWorkerContainer)
-    -> (scriptURL : String)
-    -> JSIO (Promise ServiceWorkerRegistration)
-  register' a b = primJS $ ServiceWorkerContainer.prim__register a b undef
+  register a b = primJS $
+    ServiceWorkerContainer.prim__register a b (optUp options)
 
 
   export
@@ -738,15 +670,15 @@ namespace CacheQueryOptions
 
   export
   new :
-       (ignoreSearch : Optional Bool)
-    -> (ignoreMethod : Optional Bool)
-    -> (ignoreVary : Optional Bool)
+       {default Undef ignoreSearch : Optional Bool}
+    -> {default Undef ignoreMethod : Optional Bool}
+    -> {default Undef ignoreVary : Optional Bool}
     -> JSIO CacheQueryOptions
-  new a b c = primJS $ CacheQueryOptions.prim__new (toFFI a) (toFFI b) (toFFI c)
-
-  export
-  new' : JSIO CacheQueryOptions
-  new' = primJS $ CacheQueryOptions.prim__new undef undef undef
+  new = primJS $
+    CacheQueryOptions.prim__new
+      (toFFI ignoreSearch)
+      (toFFI ignoreMethod)
+      (toFFI ignoreVary)
 
 
   export
@@ -796,14 +728,11 @@ namespace ClientQueryOptions
 
   export
   new :
-       (includeUncontrolled : Optional Bool)
-    -> (type : Optional ClientType)
+       {default Undef includeUncontrolled : Optional Bool}
+    -> {default Undef type : Optional ClientType}
     -> JSIO ClientQueryOptions
-  new a b = primJS $ ClientQueryOptions.prim__new (toFFI a) (toFFI b)
-
-  export
-  new' : JSIO ClientQueryOptions
-  new' = primJS $ ClientQueryOptions.prim__new undef undef
+  new = primJS $
+    ClientQueryOptions.prim__new (toFFI includeUncontrolled) (toFFI type)
 
 
   export
@@ -846,24 +775,22 @@ namespace ExtendableMessageEventInit
 
   export
   new :
-       (data_ : Optional Any)
-    -> (origin : Optional String)
-    -> (lastEventId : Optional String)
-    -> (source : Optional (Maybe (NS I [Client, ServiceWorker, MessagePort])))
-    -> (ports : Optional (Array MessagePort))
+       {default Undef data_ : Optional Any}
+    -> {default Undef origin : Optional String}
+    -> {default Undef lastEventId : Optional String}
+    -> {default Undef source : Optional
+                                 (Maybe
+                                    (NS I
+                                       [Client, ServiceWorker, MessagePort]))}
+    -> {default Undef ports : Optional (Array MessagePort)}
     -> JSIO ExtendableMessageEventInit
-  new a b c d e = primJS $
+  new = primJS $
     ExtendableMessageEventInit.prim__new
-      (toFFI a)
-      (toFFI b)
-      (toFFI c)
-      (toFFI d)
-      (toFFI e)
-
-  export
-  new' : JSIO ExtendableMessageEventInit
-  new' = primJS $
-    ExtendableMessageEventInit.prim__new undef undef undef undef undef
+      (toFFI data_)
+      (toFFI origin)
+      (toFFI lastEventId)
+      (toFFI source)
+      (toFFI ports)
 
 
   export
@@ -942,18 +869,20 @@ namespace FetchEventInit
   export
   new :
        (request : Request)
-    -> (preloadResponse : Optional (Promise AnyPtr))
-    -> (clientId : Optional String)
-    -> (resultingClientId : Optional String)
-    -> (replacesClientId : Optional String)
-    -> (handled : Optional (Promise Undefined))
+    -> {default Undef preloadResponse : Optional (Promise AnyPtr)}
+    -> {default Undef clientId : Optional String}
+    -> {default Undef resultingClientId : Optional String}
+    -> {default Undef replacesClientId : Optional String}
+    -> {default Undef handled : Optional (Promise Undefined)}
     -> JSIO FetchEventInit
-  new a b c d e f = primJS $
-    FetchEventInit.prim__new a (toFFI b) (toFFI c) (toFFI d) (toFFI e) (toFFI f)
-
-  export
-  new' : (request : Request) -> JSIO FetchEventInit
-  new' a = primJS $ FetchEventInit.prim__new a undef undef undef undef undef
+  new a = primJS $
+    FetchEventInit.prim__new
+      a
+      (toFFI preloadResponse)
+      (toFFI clientId)
+      (toFFI resultingClientId)
+      (toFFI replacesClientId)
+      (toFFI handled)
 
 
   export
@@ -1041,12 +970,10 @@ namespace FetchEventInit
 namespace MultiCacheQueryOptions
 
   export
-  new : (cacheName : Optional String) -> JSIO MultiCacheQueryOptions
-  new a = primJS $ MultiCacheQueryOptions.prim__new (toFFI a)
-
-  export
-  new' : JSIO MultiCacheQueryOptions
-  new' = primJS $ MultiCacheQueryOptions.prim__new undef
+  new :
+       {default Undef cacheName : Optional String}
+    -> JSIO MultiCacheQueryOptions
+  new = primJS $ MultiCacheQueryOptions.prim__new (toFFI cacheName)
 
 
   export
@@ -1067,14 +994,11 @@ namespace NavigationPreloadState
 
   export
   new :
-       (enabled : Optional Bool)
-    -> (headerValue : Optional ByteString)
+       {default Undef enabled : Optional Bool}
+    -> {default Undef headerValue : Optional ByteString}
     -> JSIO NavigationPreloadState
-  new a b = primJS $ NavigationPreloadState.prim__new (toFFI a) (toFFI b)
-
-  export
-  new' : JSIO NavigationPreloadState
-  new' = primJS $ NavigationPreloadState.prim__new undef undef
+  new = primJS $
+    NavigationPreloadState.prim__new (toFFI enabled) (toFFI headerValue)
 
 
   export
@@ -1109,16 +1033,15 @@ namespace RegistrationOptions
 
   export
   new :
-       (scope : Optional String)
-    -> (type : Optional WorkerType)
-    -> (updateViaCache : Optional ServiceWorkerUpdateViaCache)
+       {default Undef scope : Optional String}
+    -> {default Undef type : Optional WorkerType}
+    -> {default Undef updateViaCache : Optional ServiceWorkerUpdateViaCache}
     -> JSIO RegistrationOptions
-  new a b c = primJS $
-    RegistrationOptions.prim__new (toFFI a) (toFFI b) (toFFI c)
-
-  export
-  new' : JSIO RegistrationOptions
-  new' = primJS $ RegistrationOptions.prim__new undef undef undef
+  new = primJS $
+    RegistrationOptions.prim__new
+      (toFFI scope)
+      (toFFI type)
+      (toFFI updateViaCache)
 
 
   export

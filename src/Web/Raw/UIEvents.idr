@@ -377,12 +377,8 @@ namespace WheelEvent
 namespace CompositionEventInit
 
   export
-  new : (data_ : Optional String) -> JSIO CompositionEventInit
-  new a = primJS $ CompositionEventInit.prim__new (toFFI a)
-
-  export
-  new' : JSIO CompositionEventInit
-  new' = primJS $ CompositionEventInit.prim__new undef
+  new : {default Undef data_ : Optional String} -> JSIO CompositionEventInit
+  new = primJS $ CompositionEventInit.prim__new (toFFI data_)
 
 
   export
@@ -404,56 +400,37 @@ namespace EventModifierInit
 
   export
   new :
-       (ctrlKey : Optional Bool)
-    -> (shiftKey : Optional Bool)
-    -> (altKey : Optional Bool)
-    -> (metaKey : Optional Bool)
-    -> (modifierAltGraph : Optional Bool)
-    -> (modifierCapsLock : Optional Bool)
-    -> (modifierFn : Optional Bool)
-    -> (modifierFnLock : Optional Bool)
-    -> (modifierHyper : Optional Bool)
-    -> (modifierNumLock : Optional Bool)
-    -> (modifierScrollLock : Optional Bool)
-    -> (modifierSuper : Optional Bool)
-    -> (modifierSymbol : Optional Bool)
-    -> (modifierSymbolLock : Optional Bool)
+       {default Undef ctrlKey : Optional Bool}
+    -> {default Undef shiftKey : Optional Bool}
+    -> {default Undef altKey : Optional Bool}
+    -> {default Undef metaKey : Optional Bool}
+    -> {default Undef modifierAltGraph : Optional Bool}
+    -> {default Undef modifierCapsLock : Optional Bool}
+    -> {default Undef modifierFn : Optional Bool}
+    -> {default Undef modifierFnLock : Optional Bool}
+    -> {default Undef modifierHyper : Optional Bool}
+    -> {default Undef modifierNumLock : Optional Bool}
+    -> {default Undef modifierScrollLock : Optional Bool}
+    -> {default Undef modifierSuper : Optional Bool}
+    -> {default Undef modifierSymbol : Optional Bool}
+    -> {default Undef modifierSymbolLock : Optional Bool}
     -> JSIO EventModifierInit
-  new a b c d e f g h i j k l m n = primJS $
+  new = primJS $
     EventModifierInit.prim__new
-      (toFFI a)
-      (toFFI b)
-      (toFFI c)
-      (toFFI d)
-      (toFFI e)
-      (toFFI f)
-      (toFFI g)
-      (toFFI h)
-      (toFFI i)
-      (toFFI j)
-      (toFFI k)
-      (toFFI l)
-      (toFFI m)
-      (toFFI n)
-
-  export
-  new' : JSIO EventModifierInit
-  new' = primJS $
-    EventModifierInit.prim__new
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
+      (toFFI ctrlKey)
+      (toFFI shiftKey)
+      (toFFI altKey)
+      (toFFI metaKey)
+      (toFFI modifierAltGraph)
+      (toFFI modifierCapsLock)
+      (toFFI modifierFn)
+      (toFFI modifierFnLock)
+      (toFFI modifierHyper)
+      (toFFI modifierNumLock)
+      (toFFI modifierScrollLock)
+      (toFFI modifierSuper)
+      (toFFI modifierSymbol)
+      (toFFI modifierSymbolLock)
 
 
   export
@@ -659,13 +636,9 @@ namespace FocusEventInit
   new :
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem EventTarget (Types t1)}
-    -> (relatedTarget : Optional (Maybe t1))
+    -> {default Undef relatedTarget : Optional (Maybe t1)}
     -> JSIO FocusEventInit
-  new a = primJS $ FocusEventInit.prim__new (omyUp a)
-
-  export
-  new' : JSIO FocusEventInit
-  new' = primJS $ FocusEventInit.prim__new undef
+  new = primJS $ FocusEventInit.prim__new (omyUp relatedTarget)
 
 
   export
@@ -687,15 +660,12 @@ namespace InputEventInit
 
   export
   new :
-       (data_ : Optional (Maybe String))
-    -> (isComposing : Optional Bool)
-    -> (inputType : Optional String)
+       {default Undef data_ : Optional (Maybe String)}
+    -> {default Undef isComposing : Optional Bool}
+    -> {default Undef inputType : Optional String}
     -> JSIO InputEventInit
-  new a b c = primJS $ InputEventInit.prim__new (toFFI a) (toFFI b) (toFFI c)
-
-  export
-  new' : JSIO InputEventInit
-  new' = primJS $ InputEventInit.prim__new undef undef undef
+  new = primJS $
+    InputEventInit.prim__new (toFFI data_) (toFFI isComposing) (toFFI inputType)
 
 
   export
@@ -745,23 +715,19 @@ namespace KeyboardEventInit
 
   export
   new :
-       (key : Optional String)
-    -> (code : Optional String)
-    -> (location : Optional Bits32)
-    -> (repeat : Optional Bool)
-    -> (isComposing : Optional Bool)
+       {default Undef key : Optional String}
+    -> {default Undef code : Optional String}
+    -> {default Undef location : Optional Bits32}
+    -> {default Undef repeat : Optional Bool}
+    -> {default Undef isComposing : Optional Bool}
     -> JSIO KeyboardEventInit
-  new a b c d e = primJS $
+  new = primJS $
     KeyboardEventInit.prim__new
-      (toFFI a)
-      (toFFI b)
-      (toFFI c)
-      (toFFI d)
-      (toFFI e)
-
-  export
-  new' : JSIO KeyboardEventInit
-  new' = primJS $ KeyboardEventInit.prim__new undef undef undef undef undef
+      (toFFI key)
+      (toFFI code)
+      (toFFI location)
+      (toFFI repeat)
+      (toFFI isComposing)
 
 
   export
@@ -841,28 +807,23 @@ namespace MouseEventInit
   new :
        {auto 0 _ : JSType t3}
     -> {auto 0 _ : Elem EventTarget (Types t3)}
-    -> (button : Optional Int16)
-    -> (buttons : Optional Bits16)
-    -> (relatedTarget : Optional (Maybe t3))
-    -> (screenX : Optional Double)
-    -> (screenY : Optional Double)
-    -> (clientX : Optional Double)
-    -> (clientY : Optional Double)
+    -> {default Undef button : Optional Int16}
+    -> {default Undef buttons : Optional Bits16}
+    -> {default Undef relatedTarget : Optional (Maybe t3)}
+    -> {default Undef screenX : Optional Double}
+    -> {default Undef screenY : Optional Double}
+    -> {default Undef clientX : Optional Double}
+    -> {default Undef clientY : Optional Double}
     -> JSIO MouseEventInit
-  new a b c d e f g = primJS $
+  new = primJS $
     MouseEventInit.prim__new
-      (toFFI a)
-      (toFFI b)
-      (omyUp c)
-      (toFFI d)
-      (toFFI e)
-      (toFFI f)
-      (toFFI g)
-
-  export
-  new' : JSIO MouseEventInit
-  new' = primJS $
-    MouseEventInit.prim__new undef undef undef undef undef undef undef
+      (toFFI button)
+      (toFFI buttons)
+      (omyUp relatedTarget)
+      (toFFI screenX)
+      (toFFI screenY)
+      (toFFI clientX)
+      (toFFI clientY)
 
 
   export
@@ -968,14 +929,10 @@ namespace UIEventInit
 
   export
   new :
-       (view : Optional (Maybe Window))
-    -> (detail : Optional Int32)
+       {default Undef view : Optional (Maybe Window)}
+    -> {default Undef detail : Optional Int32}
     -> JSIO UIEventInit
-  new a b = primJS $ UIEventInit.prim__new (toFFI a) (toFFI b)
-
-  export
-  new' : JSIO UIEventInit
-  new' = primJS $ UIEventInit.prim__new undef undef
+  new = primJS $ UIEventInit.prim__new (toFFI view) (toFFI detail)
 
 
   export
@@ -1011,17 +968,17 @@ namespace WheelEventInit
 
   export
   new :
-       (deltaX : Optional Double)
-    -> (deltaY : Optional Double)
-    -> (deltaZ : Optional Double)
-    -> (deltaMode : Optional Bits32)
+       {default Undef deltaX : Optional Double}
+    -> {default Undef deltaY : Optional Double}
+    -> {default Undef deltaZ : Optional Double}
+    -> {default Undef deltaMode : Optional Bits32}
     -> JSIO WheelEventInit
-  new a b c d = primJS $
-    WheelEventInit.prim__new (toFFI a) (toFFI b) (toFFI c) (toFFI d)
-
-  export
-  new' : JSIO WheelEventInit
-  new' = primJS $ WheelEventInit.prim__new undef undef undef undef
+  new = primJS $
+    WheelEventInit.prim__new
+      (toFFI deltaX)
+      (toFFI deltaY)
+      (toFFI deltaZ)
+      (toFFI deltaMode)
 
 
   export

@@ -15,15 +15,13 @@ namespace Headers
 
   export
   new :
-       (init : Optional
-                 (NS I
-                    [Array (Array ByteString), Record ByteString ByteString]))
+       {default Undef init : Optional
+                               (NS I
+                                  [ Array (Array ByteString)
+                                  , Record ByteString ByteString
+                                  ])}
     -> JSIO Headers
-  new a = primJS $ Headers.prim__new (toFFI a)
-
-  export
-  new' : JSIO Headers
-  new' = primJS $ Headers.prim__new undef
+  new = primJS $ Headers.prim__new (toFFI init)
 
 
   export
@@ -67,13 +65,9 @@ namespace Request
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem RequestInit (Types t2)}
     -> (input : NS I [Request, String])
-    -> (init : Optional t2)
+    -> {default Undef init : Optional t2}
     -> JSIO Request
-  new a b = primJS $ Request.prim__new (toFFI a) (optUp b)
-
-  export
-  new' : (input : NS I [Request, String]) -> JSIO Request
-  new' a = primJS $ Request.prim__new (toFFI a) undef
+  new a = primJS $ Request.prim__new (toFFI a) (optUp init)
 
 
   export
@@ -166,33 +160,29 @@ namespace Response
   new :
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem ResponseInit (Types t2)}
-    -> (body : Optional
-                 (Maybe
-                    (NS I
-                       [ ReadableStream
-                       , Blob
-                       , Int8Array
-                       , Int16Array
-                       , Int32Array
-                       , UInt8Array
-                       , UInt8Array
-                       , UInt8Array
-                       , UInt8ClampedArray
-                       , Float32Array
-                       , Float64Array
-                       , DataView
-                       , ArrayBuffer
-                       , FormData
-                       , URLSearchParams
-                       , String
-                       ])))
-    -> (init : Optional t2)
+    -> {default Undef body : Optional
+                               (Maybe
+                                  (NS I
+                                     [ ReadableStream
+                                     , Blob
+                                     , Int8Array
+                                     , Int16Array
+                                     , Int32Array
+                                     , UInt8Array
+                                     , UInt8Array
+                                     , UInt8Array
+                                     , UInt8ClampedArray
+                                     , Float32Array
+                                     , Float64Array
+                                     , DataView
+                                     , ArrayBuffer
+                                     , FormData
+                                     , URLSearchParams
+                                     , String
+                                     ]))}
+    -> {default Undef init : Optional t2}
     -> JSIO Response
-  new a b = primJS $ Response.prim__new (toFFI a) (optUp b)
-
-  export
-  new' : JSIO Response
-  new' = primJS $ Response.prim__new undef undef
+  new = primJS $ Response.prim__new (toFFI body) (optUp init)
 
 
   export
@@ -201,12 +191,11 @@ namespace Response
 
 
   export
-  redirect : (url : String) -> (status : Optional Bits16) -> JSIO Response
-  redirect a b = primJS $ Response.prim__redirect a (toFFI b)
-
-  export
-  redirect' : (url : String) -> JSIO Response
-  redirect' a = primJS $ Response.prim__redirect a undef
+  redirect :
+       (url : String)
+    -> {default Undef status : Optional Bits16}
+    -> JSIO Response
+  redirect a = primJS $ Response.prim__redirect a (toFFI status)
 
 
   export
@@ -330,76 +319,58 @@ namespace RequestInit
 
   export
   new :
-       (method : Optional ByteString)
-    -> (headers : Optional
-                    (NS I
-                       [ Array (Array ByteString)
-                       , Record ByteString ByteString
-                       ]))
-    -> (body : Optional
-                 (Maybe
-                    (NS I
-                       [ ReadableStream
-                       , Blob
-                       , Int8Array
-                       , Int16Array
-                       , Int32Array
-                       , UInt8Array
-                       , UInt8Array
-                       , UInt8Array
-                       , UInt8ClampedArray
-                       , Float32Array
-                       , Float64Array
-                       , DataView
-                       , ArrayBuffer
-                       , FormData
-                       , URLSearchParams
-                       , String
-                       ])))
-    -> (referrer : Optional String)
-    -> (referrerPolicy : Optional ReferrerPolicy)
-    -> (mode : Optional RequestMode)
-    -> (credentials : Optional RequestCredentials)
-    -> (cache : Optional RequestCache)
-    -> (redirect : Optional RequestRedirect)
-    -> (integrity : Optional String)
-    -> (keepalive : Optional Bool)
-    -> (signal : Optional (Maybe AbortSignal))
-    -> (window : Optional Any)
+       {default Undef method : Optional ByteString}
+    -> {default Undef headers : Optional
+                                  (NS I
+                                     [ Array (Array ByteString)
+                                     , Record ByteString ByteString
+                                     ])}
+    -> {default Undef body : Optional
+                               (Maybe
+                                  (NS I
+                                     [ ReadableStream
+                                     , Blob
+                                     , Int8Array
+                                     , Int16Array
+                                     , Int32Array
+                                     , UInt8Array
+                                     , UInt8Array
+                                     , UInt8Array
+                                     , UInt8ClampedArray
+                                     , Float32Array
+                                     , Float64Array
+                                     , DataView
+                                     , ArrayBuffer
+                                     , FormData
+                                     , URLSearchParams
+                                     , String
+                                     ]))}
+    -> {default Undef referrer : Optional String}
+    -> {default Undef referrerPolicy : Optional ReferrerPolicy}
+    -> {default Undef mode : Optional RequestMode}
+    -> {default Undef credentials : Optional RequestCredentials}
+    -> {default Undef cache : Optional RequestCache}
+    -> {default Undef redirect : Optional RequestRedirect}
+    -> {default Undef integrity : Optional String}
+    -> {default Undef keepalive : Optional Bool}
+    -> {default Undef signal : Optional (Maybe AbortSignal)}
+    -> {default Undef window : Optional Any}
     -> JSIO RequestInit
-  new a b c d e f g h i j k l m = primJS $
+  new = primJS $
     RequestInit.prim__new
-      (toFFI a)
-      (toFFI b)
-      (toFFI c)
-      (toFFI d)
-      (toFFI e)
-      (toFFI f)
-      (toFFI g)
-      (toFFI h)
-      (toFFI i)
-      (toFFI j)
-      (toFFI k)
-      (toFFI l)
-      (toFFI m)
-
-  export
-  new' : JSIO RequestInit
-  new' = primJS $
-    RequestInit.prim__new
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
+      (toFFI method)
+      (toFFI headers)
+      (toFFI body)
+      (toFFI referrer)
+      (toFFI referrerPolicy)
+      (toFFI mode)
+      (toFFI credentials)
+      (toFFI cache)
+      (toFFI redirect)
+      (toFFI integrity)
+      (toFFI keepalive)
+      (toFFI signal)
+      (toFFI window)
 
 
   export
@@ -595,19 +566,16 @@ namespace ResponseInit
 
   export
   new :
-       (status : Optional Bits16)
-    -> (statusText : Optional ByteString)
-    -> (headers : Optional
-                    (NS I
-                       [ Array (Array ByteString)
-                       , Record ByteString ByteString
-                       ]))
+       {default Undef status : Optional Bits16}
+    -> {default Undef statusText : Optional ByteString}
+    -> {default Undef headers : Optional
+                                  (NS I
+                                     [ Array (Array ByteString)
+                                     , Record ByteString ByteString
+                                     ])}
     -> JSIO ResponseInit
-  new a b c = primJS $ ResponseInit.prim__new (toFFI a) (toFFI b) (toFFI c)
-
-  export
-  new' : JSIO ResponseInit
-  new' = primJS $ ResponseInit.prim__new undef undef undef
+  new = primJS $
+    ResponseInit.prim__new (toFFI status) (toFFI statusText) (toFFI headers)
 
 
   export

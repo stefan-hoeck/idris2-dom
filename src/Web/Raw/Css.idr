@@ -38,19 +38,10 @@ namespace CSSGroupingRule
     -> {auto 0 _ : Elem CSSGroupingRule (Types t1)}
     -> (obj : t1)
     -> (rule : String)
-    -> (index : Optional Bits32)
+    -> {default Undef index : Optional Bits32}
     -> JSIO Bits32
-  insertRule a b c = primJS $
-    CSSGroupingRule.prim__insertRule (up a) b (toFFI c)
-
-  export
-  insertRule' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CSSGroupingRule (Types t1)}
-    -> (obj : t1)
-    -> (rule : String)
-    -> JSIO Bits32
-  insertRule' a b = primJS $ CSSGroupingRule.prim__insertRule (up a) b undef
+  insertRule a b = primJS $
+    CSSGroupingRule.prim__insertRule (up a) b (toFFI index)
 
 
 
@@ -291,19 +282,10 @@ namespace CSSStyleDeclaration
        (obj : CSSStyleDeclaration)
     -> (property : String)
     -> (value : String)
-    -> (priority : Optional String)
+    -> {default Undef priority : Optional String}
     -> JSIO ()
-  setProperty a b c d = primJS $
-    CSSStyleDeclaration.prim__setProperty a b c (toFFI d)
-
-  export
-  setProperty' :
-       (obj : CSSStyleDeclaration)
-    -> (property : String)
-    -> (value : String)
-    -> JSIO ()
-  setProperty' a b c = primJS $
-    CSSStyleDeclaration.prim__setProperty a b c undef
+  setProperty a b c = primJS $
+    CSSStyleDeclaration.prim__setProperty a b c (toFFI priority)
 
 
 
@@ -345,16 +327,12 @@ namespace CSSStyleSheet
   export
   addRule :
        (obj : CSSStyleSheet)
-    -> (selector : Optional String)
-    -> (style : Optional String)
-    -> (index : Optional Bits32)
+    -> {default Undef selector : Optional String}
+    -> {default Undef style : Optional String}
+    -> {default Undef index : Optional Bits32}
     -> JSIO Int32
-  addRule a b c d = primJS $
-    CSSStyleSheet.prim__addRule a (toFFI b) (toFFI c) (toFFI d)
-
-  export
-  addRule' : (obj : CSSStyleSheet) -> JSIO Int32
-  addRule' a = primJS $ CSSStyleSheet.prim__addRule a undef undef undef
+  addRule a = primJS $
+    CSSStyleSheet.prim__addRule a (toFFI selector) (toFFI style) (toFFI index)
 
 
   export
@@ -366,22 +344,17 @@ namespace CSSStyleSheet
   insertRule :
        (obj : CSSStyleSheet)
     -> (rule : String)
-    -> (index : Optional Bits32)
+    -> {default Undef index : Optional Bits32}
     -> JSIO Bits32
-  insertRule a b c = primJS $ CSSStyleSheet.prim__insertRule a b (toFFI c)
-
-  export
-  insertRule' : (obj : CSSStyleSheet) -> (rule : String) -> JSIO Bits32
-  insertRule' a b = primJS $ CSSStyleSheet.prim__insertRule a b undef
+  insertRule a b = primJS $ CSSStyleSheet.prim__insertRule a b (toFFI index)
 
 
   export
-  removeRule : (obj : CSSStyleSheet) -> (index : Optional Bits32) -> JSIO ()
-  removeRule a b = primJS $ CSSStyleSheet.prim__removeRule a (toFFI b)
-
-  export
-  removeRule' : (obj : CSSStyleSheet) -> JSIO ()
-  removeRule' a = primJS $ CSSStyleSheet.prim__removeRule a undef
+  removeRule :
+       (obj : CSSStyleSheet)
+    -> {default Undef index : Optional Bits32}
+    -> JSIO ()
+  removeRule a = primJS $ CSSStyleSheet.prim__removeRule a (toFFI index)
 
 
 

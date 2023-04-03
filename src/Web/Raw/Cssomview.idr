@@ -75,13 +75,9 @@ namespace MediaQueryListEvent
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem MediaQueryListEventInit (Types t2)}
     -> (type : String)
-    -> (eventInitDict : Optional t2)
+    -> {default Undef eventInitDict : Optional t2}
     -> JSIO MediaQueryListEvent
-  new a b = primJS $ MediaQueryListEvent.prim__new a (optUp b)
-
-  export
-  new' : (type : String) -> JSIO MediaQueryListEvent
-  new' a = primJS $ MediaQueryListEvent.prim__new a undef
+  new a = primJS $ MediaQueryListEvent.prim__new a (optUp eventInitDict)
 
 
   export
@@ -212,23 +208,14 @@ namespace GeometryUtils
     -> (obj : t1)
     -> (point : t2)
     -> (from : NS I [Text, Element, CSSPseudoElement, Document])
-    -> (options : Optional t4)
+    -> {default Undef options : Optional t4}
     -> JSIO DOMPoint
-  convertPointFromNode a b c d = primJS $
-    GeometryUtils.prim__convertPointFromNode (up a) (up b) (toFFI c) (optUp d)
-
-  export
-  convertPointFromNode' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem GeometryUtils (Types t1)}
-    -> {auto 0 _ : Elem DOMPointInit (Types t2)}
-    -> (obj : t1)
-    -> (point : t2)
-    -> (from : NS I [Text, Element, CSSPseudoElement, Document])
-    -> JSIO DOMPoint
-  convertPointFromNode' a b c = primJS $
-    GeometryUtils.prim__convertPointFromNode (up a) (up b) (toFFI c) undef
+  convertPointFromNode a b c = primJS $
+    GeometryUtils.prim__convertPointFromNode
+      (up a)
+      (up b)
+      (toFFI c)
+      (optUp options)
 
 
   export
@@ -242,23 +229,14 @@ namespace GeometryUtils
     -> (obj : t1)
     -> (quad : t2)
     -> (from : NS I [Text, Element, CSSPseudoElement, Document])
-    -> (options : Optional t4)
+    -> {default Undef options : Optional t4}
     -> JSIO DOMQuad
-  convertQuadFromNode a b c d = primJS $
-    GeometryUtils.prim__convertQuadFromNode (up a) (up b) (toFFI c) (optUp d)
-
-  export
-  convertQuadFromNode' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem GeometryUtils (Types t1)}
-    -> {auto 0 _ : Elem DOMQuadInit (Types t2)}
-    -> (obj : t1)
-    -> (quad : t2)
-    -> (from : NS I [Text, Element, CSSPseudoElement, Document])
-    -> JSIO DOMQuad
-  convertQuadFromNode' a b c = primJS $
-    GeometryUtils.prim__convertQuadFromNode (up a) (up b) (toFFI c) undef
+  convertQuadFromNode a b c = primJS $
+    GeometryUtils.prim__convertQuadFromNode
+      (up a)
+      (up b)
+      (toFFI c)
+      (optUp options)
 
 
   export
@@ -272,23 +250,14 @@ namespace GeometryUtils
     -> (obj : t1)
     -> (rect : t2)
     -> (from : NS I [Text, Element, CSSPseudoElement, Document])
-    -> (options : Optional t4)
+    -> {default Undef options : Optional t4}
     -> JSIO DOMQuad
-  convertRectFromNode a b c d = primJS $
-    GeometryUtils.prim__convertRectFromNode (up a) (up b) (toFFI c) (optUp d)
-
-  export
-  convertRectFromNode' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem GeometryUtils (Types t1)}
-    -> {auto 0 _ : Elem DOMRectReadOnly (Types t2)}
-    -> (obj : t1)
-    -> (rect : t2)
-    -> (from : NS I [Text, Element, CSSPseudoElement, Document])
-    -> JSIO DOMQuad
-  convertRectFromNode' a b c = primJS $
-    GeometryUtils.prim__convertRectFromNode (up a) (up b) (toFFI c) undef
+  convertRectFromNode a b c = primJS $
+    GeometryUtils.prim__convertRectFromNode
+      (up a)
+      (up b)
+      (toFFI c)
+      (optUp options)
 
 
   export
@@ -298,17 +267,10 @@ namespace GeometryUtils
     -> {auto 0 _ : Elem GeometryUtils (Types t1)}
     -> {auto 0 _ : Elem BoxQuadOptions (Types t2)}
     -> (obj : t1)
-    -> (options : Optional t2)
+    -> {default Undef options : Optional t2}
     -> JSIO (Array DOMQuad)
-  getBoxQuads a b = primJS $ GeometryUtils.prim__getBoxQuads (up a) (optUp b)
-
-  export
-  getBoxQuads' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem GeometryUtils (Types t1)}
-    -> (obj : t1)
-    -> JSIO (Array DOMQuad)
-  getBoxQuads' a = primJS $ GeometryUtils.prim__getBoxQuads (up a) undef
+  getBoxQuads a = primJS $
+    GeometryUtils.prim__getBoxQuads (up a) (optUp options)
 
 
 
@@ -321,15 +283,16 @@ namespace BoxQuadOptions
 
   export
   new :
-       (box : Optional CSSBoxType)
-    -> (relativeTo : Optional
-                       (NS I [Text, Element, CSSPseudoElement, Document]))
+       {default Undef box : Optional CSSBoxType}
+    -> {default Undef relativeTo : Optional
+                                     (NS I
+                                        [ Text
+                                        , Element
+                                        , CSSPseudoElement
+                                        , Document
+                                        ])}
     -> JSIO BoxQuadOptions
-  new a b = primJS $ BoxQuadOptions.prim__new (toFFI a) (toFFI b)
-
-  export
-  new' : JSIO BoxQuadOptions
-  new' = primJS $ BoxQuadOptions.prim__new undef undef
+  new = primJS $ BoxQuadOptions.prim__new (toFFI box) (toFFI relativeTo)
 
 
   export
@@ -364,14 +327,13 @@ namespace CheckVisibilityOptions
 
   export
   new :
-       (checkOpacity : Optional Bool)
-    -> (checkVisibilityCSS : Optional Bool)
+       {default Undef checkOpacity : Optional Bool}
+    -> {default Undef checkVisibilityCSS : Optional Bool}
     -> JSIO CheckVisibilityOptions
-  new a b = primJS $ CheckVisibilityOptions.prim__new (toFFI a) (toFFI b)
-
-  export
-  new' : JSIO CheckVisibilityOptions
-  new' = primJS $ CheckVisibilityOptions.prim__new undef undef
+  new = primJS $
+    CheckVisibilityOptions.prim__new
+      (toFFI checkOpacity)
+      (toFFI checkVisibilityCSS)
 
 
   export
@@ -407,14 +369,11 @@ namespace ConvertCoordinateOptions
 
   export
   new :
-       (fromBox : Optional CSSBoxType)
-    -> (toBox : Optional CSSBoxType)
+       {default Undef fromBox : Optional CSSBoxType}
+    -> {default Undef toBox : Optional CSSBoxType}
     -> JSIO ConvertCoordinateOptions
-  new a b = primJS $ ConvertCoordinateOptions.prim__new (toFFI a) (toFFI b)
-
-  export
-  new' : JSIO ConvertCoordinateOptions
-  new' = primJS $ ConvertCoordinateOptions.prim__new undef undef
+  new = primJS $
+    ConvertCoordinateOptions.prim__new (toFFI fromBox) (toFFI toBox)
 
 
   export
@@ -448,14 +407,10 @@ namespace MediaQueryListEventInit
 
   export
   new :
-       (media : Optional String)
-    -> (matches : Optional Bool)
+       {default Undef media : Optional String}
+    -> {default Undef matches : Optional Bool}
     -> JSIO MediaQueryListEventInit
-  new a b = primJS $ MediaQueryListEventInit.prim__new (toFFI a) (toFFI b)
-
-  export
-  new' : JSIO MediaQueryListEventInit
-  new' = primJS $ MediaQueryListEventInit.prim__new undef undef
+  new = primJS $ MediaQueryListEventInit.prim__new (toFFI media) (toFFI matches)
 
 
   export
@@ -491,14 +446,10 @@ namespace ScrollIntoViewOptions
 
   export
   new :
-       (block : Optional ScrollLogicalPosition)
-    -> (inline : Optional ScrollLogicalPosition)
+       {default Undef block : Optional ScrollLogicalPosition}
+    -> {default Undef inline : Optional ScrollLogicalPosition}
     -> JSIO ScrollIntoViewOptions
-  new a b = primJS $ ScrollIntoViewOptions.prim__new (toFFI a) (toFFI b)
-
-  export
-  new' : JSIO ScrollIntoViewOptions
-  new' = primJS $ ScrollIntoViewOptions.prim__new undef undef
+  new = primJS $ ScrollIntoViewOptions.prim__new (toFFI block) (toFFI inline)
 
 
   export
@@ -531,12 +482,8 @@ namespace ScrollIntoViewOptions
 namespace ScrollOptions
 
   export
-  new : (behavior : Optional ScrollBehavior) -> JSIO ScrollOptions
-  new a = primJS $ ScrollOptions.prim__new (toFFI a)
-
-  export
-  new' : JSIO ScrollOptions
-  new' = primJS $ ScrollOptions.prim__new undef
+  new : {default Undef behavior : Optional ScrollBehavior} -> JSIO ScrollOptions
+  new = primJS $ ScrollOptions.prim__new (toFFI behavior)
 
 
   export
@@ -557,14 +504,10 @@ namespace ScrollToOptions
 
   export
   new :
-       (left : Optional Double)
-    -> (top : Optional Double)
+       {default Undef left : Optional Double}
+    -> {default Undef top : Optional Double}
     -> JSIO ScrollToOptions
-  new a b = primJS $ ScrollToOptions.prim__new (toFFI a) (toFFI b)
-
-  export
-  new' : JSIO ScrollToOptions
-  new' = primJS $ ScrollToOptions.prim__new undef undef
+  new = primJS $ ScrollToOptions.prim__new (toFFI left) (toFFI top)
 
 
   export

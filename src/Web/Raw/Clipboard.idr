@@ -44,13 +44,9 @@ namespace ClipboardEvent
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem ClipboardEventInit (Types t2)}
     -> (type : String)
-    -> (eventInitDict : Optional t2)
+    -> {default Undef eventInitDict : Optional t2}
     -> JSIO ClipboardEvent
-  new a b = primJS $ ClipboardEvent.prim__new a (optUp b)
-
-  export
-  new' : (type : String) -> JSIO ClipboardEvent
-  new' a = primJS $ ClipboardEvent.prim__new a undef
+  new a = primJS $ ClipboardEvent.prim__new a (optUp eventInitDict)
 
 
   export
@@ -67,15 +63,9 @@ namespace ClipboardItem
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem ClipboardItemOptions (Types t2)}
     -> (items : Record String (Promise (Union2 String Blob)))
-    -> (options : Optional t2)
+    -> {default Undef options : Optional t2}
     -> JSIO ClipboardItem
-  new a b = primJS $ ClipboardItem.prim__new a (optUp b)
-
-  export
-  new' :
-       (items : Record String (Promise (Union2 String Blob)))
-    -> JSIO ClipboardItem
-  new' a = primJS $ ClipboardItem.prim__new a undef
+  new a = primJS $ ClipboardItem.prim__new a (optUp options)
 
 
   export
@@ -83,15 +73,9 @@ namespace ClipboardItem
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem ClipboardItemOptions (Types t2)}
     -> (items : Record String ClipboardItemDelayedCallback)
-    -> (options : Optional t2)
+    -> {default Undef options : Optional t2}
     -> JSIO ClipboardItem
-  createDelayed a b = primJS $ ClipboardItem.prim__createDelayed a (optUp b)
-
-  export
-  createDelayed' :
-       (items : Record String ClipboardItemDelayedCallback)
-    -> JSIO ClipboardItem
-  createDelayed' a = primJS $ ClipboardItem.prim__createDelayed a undef
+  createDelayed a = primJS $ ClipboardItem.prim__createDelayed a (optUp options)
 
 
   export
@@ -131,13 +115,9 @@ namespace ClipboardEventInit
 
   export
   new :
-       (clipboardData : Optional (Maybe DataTransfer))
+       {default Undef clipboardData : Optional (Maybe DataTransfer)}
     -> JSIO ClipboardEventInit
-  new a = primJS $ ClipboardEventInit.prim__new (toFFI a)
-
-  export
-  new' : JSIO ClipboardEventInit
-  new' = primJS $ ClipboardEventInit.prim__new undef
+  new = primJS $ ClipboardEventInit.prim__new (toFFI clipboardData)
 
 
   export
@@ -159,13 +139,9 @@ namespace ClipboardItemOptions
 
   export
   new :
-       (presentationStyle : Optional PresentationStyle)
+       {default Undef presentationStyle : Optional PresentationStyle}
     -> JSIO ClipboardItemOptions
-  new a = primJS $ ClipboardItemOptions.prim__new (toFFI a)
-
-  export
-  new' : JSIO ClipboardItemOptions
-  new' = primJS $ ClipboardItemOptions.prim__new undef
+  new = primJS $ ClipboardItemOptions.prim__new (toFFI presentationStyle)
 
 
   export
@@ -186,13 +162,10 @@ namespace ClipboardPermissionDescriptor
 
   export
   new :
-       (allowWithoutGesture : Optional Bool)
+       {default Undef allowWithoutGesture : Optional Bool}
     -> JSIO ClipboardPermissionDescriptor
-  new a = primJS $ ClipboardPermissionDescriptor.prim__new (toFFI a)
-
-  export
-  new' : JSIO ClipboardPermissionDescriptor
-  new' = primJS $ ClipboardPermissionDescriptor.prim__new undef
+  new = primJS $
+    ClipboardPermissionDescriptor.prim__new (toFFI allowWithoutGesture)
 
 
   export
