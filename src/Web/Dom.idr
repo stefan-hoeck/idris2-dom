@@ -468,7 +468,7 @@ export
 createElement : {tag : _} -> (e : ElementType tag t) -> JSIO t
 createElement e =
    elemCast JSIO ( castingTo #"JS.Dom.createElement [\#{tag}]"# $
-                   document >>= (`createElement'` tag)) e
+                   document >>= (`createElement` tag)) e
 
 ||| Like `createElement` but applies the given set of
 ||| modifiers. This is especially useful for setting an element's

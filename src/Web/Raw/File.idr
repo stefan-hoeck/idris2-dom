@@ -17,29 +17,25 @@ namespace Blob
   new :
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem BlobPropertyBag (Types t2)}
-    -> (blobParts : Optional
-                      (Array
-                         (Union13
-                            Int8Array
-                            Int16Array
-                            Int32Array
-                            UInt8Array
-                            UInt8Array
-                            UInt8Array
-                            UInt8ClampedArray
-                            Float32Array
-                            Float64Array
-                            DataView
-                            ArrayBuffer
-                            Blob
-                            String)))
-    -> (options : Optional t2)
+    -> {default Undef blobParts : Optional
+                                    (Array
+                                       (Union13
+                                          Int8Array
+                                          Int16Array
+                                          Int32Array
+                                          UInt8Array
+                                          UInt8Array
+                                          UInt8Array
+                                          UInt8ClampedArray
+                                          Float32Array
+                                          Float64Array
+                                          DataView
+                                          ArrayBuffer
+                                          Blob
+                                          String))}
+    -> {default Undef options : Optional t2}
     -> JSIO Blob
-  new a b = primJS $ Blob.prim__new (toFFI a) (optUp b)
-
-  export
-  new' : JSIO Blob
-  new' = primJS $ Blob.prim__new undef undef
+  new = primJS $ Blob.prim__new (toFFI blobParts) (optUp options)
 
 
   export
@@ -74,19 +70,12 @@ namespace Blob
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem Blob (Types t1)}
     -> (obj : t1)
-    -> (start : Optional JSInt64)
-    -> (end : Optional JSInt64)
-    -> (contentType : Optional String)
+    -> {default Undef start : Optional JSInt64}
+    -> {default Undef end : Optional JSInt64}
+    -> {default Undef contentType : Optional String}
     -> JSIO Blob
-  slice a b c d = primJS $ Blob.prim__slice (up a) (toFFI b) (toFFI c) (toFFI d)
-
-  export
-  slice' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Blob (Types t1)}
-    -> (obj : t1)
-    -> JSIO Blob
-  slice' a = primJS $ Blob.prim__slice (up a) undef undef undef
+  slice a = primJS $
+    Blob.prim__slice (up a) (toFFI start) (toFFI end) (toFFI contentType)
 
 
   export
@@ -130,30 +119,9 @@ namespace File
                         Blob
                         String))
     -> (fileName : String)
-    -> (options : Optional t3)
+    -> {default Undef options : Optional t3}
     -> JSIO File
-  new a b c = primJS $ File.prim__new a b (optUp c)
-
-  export
-  new' :
-       (fileBits : Array
-                     (Union13
-                        Int8Array
-                        Int16Array
-                        Int32Array
-                        UInt8Array
-                        UInt8Array
-                        UInt8Array
-                        UInt8ClampedArray
-                        Float32Array
-                        Float64Array
-                        DataView
-                        ArrayBuffer
-                        Blob
-                        String))
-    -> (fileName : String)
-    -> JSIO File
-  new' a b = primJS $ File.prim__new a b undef
+  new a b = primJS $ File.prim__new a b (optUp options)
 
 
   export
@@ -312,18 +280,10 @@ namespace FileReader
     -> {auto 0 _ : Elem Blob (Types t2)}
     -> (obj : FileReader)
     -> (blob : t2)
-    -> (encoding : Optional String)
+    -> {default Undef encoding : Optional String}
     -> JSIO ()
-  readAsText a b c = primJS $ FileReader.prim__readAsText a (up b) (toFFI c)
-
-  export
-  readAsText' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem Blob (Types t2)}
-    -> (obj : FileReader)
-    -> (blob : t2)
-    -> JSIO ()
-  readAsText' a b = primJS $ FileReader.prim__readAsText a (up b) undef
+  readAsText a b = primJS $
+    FileReader.prim__readAsText a (up b) (toFFI encoding)
 
 
 
@@ -372,18 +332,10 @@ namespace FileReaderSync
     -> {auto 0 _ : Elem Blob (Types t2)}
     -> (obj : FileReaderSync)
     -> (blob : t2)
-    -> (encoding : Optional String)
+    -> {default Undef encoding : Optional String}
     -> JSIO String
-  readAsText a b c = primJS $ FileReaderSync.prim__readAsText a (up b) (toFFI c)
-
-  export
-  readAsText' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem Blob (Types t2)}
-    -> (obj : FileReaderSync)
-    -> (blob : t2)
-    -> JSIO String
-  readAsText' a b = primJS $ FileReaderSync.prim__readAsText a (up b) undef
+  readAsText a b = primJS $
+    FileReaderSync.prim__readAsText a (up b) (toFFI encoding)
 
 
 
@@ -397,14 +349,10 @@ namespace BlobPropertyBag
 
   export
   new :
-       (type : Optional String)
-    -> (endings : Optional EndingType)
+       {default Undef type : Optional String}
+    -> {default Undef endings : Optional EndingType}
     -> JSIO BlobPropertyBag
-  new a b = primJS $ BlobPropertyBag.prim__new (toFFI a) (toFFI b)
-
-  export
-  new' : JSIO BlobPropertyBag
-  new' = primJS $ BlobPropertyBag.prim__new undef undef
+  new = primJS $ BlobPropertyBag.prim__new (toFFI type) (toFFI endings)
 
 
   export
@@ -438,12 +386,8 @@ namespace BlobPropertyBag
 namespace FilePropertyBag
 
   export
-  new : (lastModified : Optional JSInt64) -> JSIO FilePropertyBag
-  new a = primJS $ FilePropertyBag.prim__new (toFFI a)
-
-  export
-  new' : JSIO FilePropertyBag
-  new' = primJS $ FilePropertyBag.prim__new undef
+  new : {default Undef lastModified : Optional JSInt64} -> JSIO FilePropertyBag
+  new = primJS $ FilePropertyBag.prim__new (toFFI lastModified)
 
 
   export

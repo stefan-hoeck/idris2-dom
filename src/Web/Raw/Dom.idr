@@ -222,12 +222,8 @@ namespace CharacterData
 namespace Comment
 
   export
-  new : (data_ : Optional String) -> JSIO Comment
-  new a = primJS $ Comment.prim__new (toFFI a)
-
-  export
-  new' : JSIO Comment
-  new' = primJS $ Comment.prim__new undef
+  new : {default Undef data_ : Optional String} -> JSIO Comment
+  new = primJS $ Comment.prim__new (toFFI data_)
 
 
 
@@ -238,13 +234,9 @@ namespace CustomEvent
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem CustomEventInit (Types t2)}
     -> (type : String)
-    -> (eventInitDict : Optional t2)
+    -> {default Undef eventInitDict : Optional t2}
     -> JSIO CustomEvent
-  new a b = primJS $ CustomEvent.prim__new a (optUp b)
-
-  export
-  new' : (type : String) -> JSIO CustomEvent
-  new' a = primJS $ CustomEvent.prim__new a undef
+  new a = primJS $ CustomEvent.prim__new a (optUp eventInitDict)
 
 
   export
@@ -256,17 +248,17 @@ namespace CustomEvent
   initCustomEvent :
        (obj : CustomEvent)
     -> (type : String)
-    -> (bubbles : Optional Bool)
-    -> (cancelable : Optional Bool)
-    -> (detail : Optional Any)
+    -> {default Undef bubbles : Optional Bool}
+    -> {default Undef cancelable : Optional Bool}
+    -> {default Undef detail : Optional Any}
     -> JSIO ()
-  initCustomEvent a b c d e = primJS $
-    CustomEvent.prim__initCustomEvent a b (toFFI c) (toFFI d) (toFFI e)
-
-  export
-  initCustomEvent' : (obj : CustomEvent) -> (type : String) -> JSIO ()
-  initCustomEvent' a b = primJS $
-    CustomEvent.prim__initCustomEvent a b undef undef undef
+  initCustomEvent a b = primJS $
+    CustomEvent.prim__initCustomEvent
+      a
+      b
+      (toFFI bubbles)
+      (toFFI cancelable)
+      (toFFI detail)
 
 
 
@@ -277,19 +269,10 @@ namespace DOMImplementation
        (obj : DOMImplementation)
     -> (namespace_ : Maybe String)
     -> (qualifiedName : String)
-    -> (doctype : Optional (Maybe DocumentType))
+    -> {default Undef doctype : Optional (Maybe DocumentType)}
     -> JSIO XMLDocument
-  createDocument a b c d = primJS $
-    DOMImplementation.prim__createDocument a (toFFI b) c (toFFI d)
-
-  export
-  createDocument' :
-       (obj : DOMImplementation)
-    -> (namespace_ : Maybe String)
-    -> (qualifiedName : String)
-    -> JSIO XMLDocument
-  createDocument' a b c = primJS $
-    DOMImplementation.prim__createDocument a (toFFI b) c undef
+  createDocument a b c = primJS $
+    DOMImplementation.prim__createDocument a (toFFI b) c (toFFI doctype)
 
 
   export
@@ -306,15 +289,10 @@ namespace DOMImplementation
   export
   createHTMLDocument :
        (obj : DOMImplementation)
-    -> (title : Optional String)
+    -> {default Undef title : Optional String}
     -> JSIO Document
-  createHTMLDocument a b = primJS $
-    DOMImplementation.prim__createHTMLDocument a (toFFI b)
-
-  export
-  createHTMLDocument' : (obj : DOMImplementation) -> JSIO Document
-  createHTMLDocument' a = primJS $
-    DOMImplementation.prim__createHTMLDocument a undef
+  createHTMLDocument a = primJS $
+    DOMImplementation.prim__createHTMLDocument a (toFFI title)
 
 
   export
@@ -375,15 +353,10 @@ namespace DOMTokenList
   toggle :
        (obj : DOMTokenList)
     -> (token : String)
-    -> (force : Optional Bool)
+    -> {default Undef force : Optional Bool}
     -> JSIO Bool
-  toggle a b c = tryJS "DOMTokenList.toggle" $
-    DOMTokenList.prim__toggle a b (toFFI c)
-
-  export
-  toggle' : (obj : DOMTokenList) -> (token : String) -> JSIO Bool
-  toggle' a b = tryJS "DOMTokenList.toggle'" $
-    DOMTokenList.prim__toggle a b undef
+  toggle a b = tryJS "DOMTokenList.toggle" $
+    DOMTokenList.prim__toggle a b (toFFI force)
 
 
 
@@ -963,18 +936,11 @@ namespace Document
     -> {auto 0 _ : Elem Document (Types t1)}
     -> (obj : t1)
     -> (localName : String)
-    -> (options : Optional (NS I [String, ElementCreationOptions]))
+    -> {default Undef options : Optional
+                                  (NS I [String, ElementCreationOptions])}
     -> JSIO Element
-  createElement a b c = primJS $ Document.prim__createElement (up a) b (toFFI c)
-
-  export
-  createElement' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Document (Types t1)}
-    -> (obj : t1)
-    -> (localName : String)
-    -> JSIO Element
-  createElement' a b = primJS $ Document.prim__createElement (up a) b undef
+  createElement a b = primJS $
+    Document.prim__createElement (up a) b (toFFI options)
 
 
   export
@@ -984,21 +950,11 @@ namespace Document
     -> (obj : t1)
     -> (namespace_ : Maybe String)
     -> (qualifiedName : String)
-    -> (options : Optional (NS I [String, ElementCreationOptions]))
+    -> {default Undef options : Optional
+                                  (NS I [String, ElementCreationOptions])}
     -> JSIO Element
-  createElementNS a b c d = primJS $
-    Document.prim__createElementNS (up a) (toFFI b) c (toFFI d)
-
-  export
-  createElementNS' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Document (Types t1)}
-    -> (obj : t1)
-    -> (namespace_ : Maybe String)
-    -> (qualifiedName : String)
-    -> JSIO Element
-  createElementNS' a b c = primJS $
-    Document.prim__createElementNS (up a) (toFFI b) c undef
+  createElementNS a b c = primJS $
+    Document.prim__createElementNS (up a) (toFFI b) c (toFFI options)
 
 
   export
@@ -1019,23 +975,15 @@ namespace Document
     -> {auto 0 _ : Elem Node (Types t2)}
     -> (obj : t1)
     -> (root : t2)
-    -> (whatToShow : Optional Bits32)
-    -> (filter : Optional (Maybe NodeFilter))
+    -> {default Undef whatToShow : Optional Bits32}
+    -> {default Undef filter : Optional (Maybe NodeFilter)}
     -> JSIO NodeIterator
-  createNodeIterator a b c d = primJS $
-    Document.prim__createNodeIterator (up a) (up b) (toFFI c) (toFFI d)
-
-  export
-  createNodeIterator' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem Document (Types t1)}
-    -> {auto 0 _ : Elem Node (Types t2)}
-    -> (obj : t1)
-    -> (root : t2)
-    -> JSIO NodeIterator
-  createNodeIterator' a b = primJS $
-    Document.prim__createNodeIterator (up a) (up b) undef undef
+  createNodeIterator a b = primJS $
+    Document.prim__createNodeIterator
+      (up a)
+      (up b)
+      (toFFI whatToShow)
+      (toFFI filter)
 
 
   export
@@ -1077,23 +1025,15 @@ namespace Document
     -> {auto 0 _ : Elem Node (Types t2)}
     -> (obj : t1)
     -> (root : t2)
-    -> (whatToShow : Optional Bits32)
-    -> (filter : Optional (Maybe NodeFilter))
+    -> {default Undef whatToShow : Optional Bits32}
+    -> {default Undef filter : Optional (Maybe NodeFilter)}
     -> JSIO TreeWalker
-  createTreeWalker a b c d = primJS $
-    Document.prim__createTreeWalker (up a) (up b) (toFFI c) (toFFI d)
-
-  export
-  createTreeWalker' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem Document (Types t1)}
-    -> {auto 0 _ : Elem Node (Types t2)}
-    -> (obj : t1)
-    -> (root : t2)
-    -> JSIO TreeWalker
-  createTreeWalker' a b = primJS $
-    Document.prim__createTreeWalker (up a) (up b) undef undef
+  createTreeWalker a b = primJS $
+    Document.prim__createTreeWalker
+      (up a)
+      (up b)
+      (toFFI whatToShow)
+      (toFFI filter)
 
 
   export
@@ -1125,21 +1065,11 @@ namespace Document
     -> {auto 0 _ : Elem Document (Types t1)}
     -> (obj : t1)
     -> (commandId : String)
-    -> (showUI : Optional Bool)
-    -> (value : Optional String)
+    -> {default Undef showUI : Optional Bool}
+    -> {default Undef value : Optional String}
     -> JSIO Bool
-  execCommand a b c d = tryJS "Document.execCommand" $
-    Document.prim__execCommand (up a) b (toFFI c) (toFFI d)
-
-  export
-  execCommand' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Document (Types t1)}
-    -> (obj : t1)
-    -> (commandId : String)
-    -> JSIO Bool
-  execCommand' a b = tryJS "Document.execCommand'" $
-    Document.prim__execCommand (up a) b undef undef
+  execCommand a b = tryJS "Document.execCommand" $
+    Document.prim__execCommand (up a) b (toFFI showUI) (toFFI value)
 
 
   export
@@ -1212,20 +1142,9 @@ namespace Document
     -> {auto 0 _ : Elem Node (Types t2)}
     -> (obj : t1)
     -> (node : t2)
-    -> (deep : Optional Bool)
+    -> {default Undef deep : Optional Bool}
     -> JSIO Node
-  importNode a b c = primJS $ Document.prim__importNode (up a) (up b) (toFFI c)
-
-  export
-  importNode' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem Document (Types t1)}
-    -> {auto 0 _ : Elem Node (Types t2)}
-    -> (obj : t1)
-    -> (node : t2)
-    -> JSIO Node
-  importNode' a b = primJS $ Document.prim__importNode (up a) (up b) undef
+  importNode a b = primJS $ Document.prim__importNode (up a) (up b) (toFFI deep)
 
 
   export
@@ -1233,18 +1152,10 @@ namespace Document
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem Document (Types t1)}
     -> (obj : t1)
-    -> (unused1 : Optional String)
-    -> (unused2 : Optional String)
+    -> {default Undef unused1 : Optional String}
+    -> {default Undef unused2 : Optional String}
     -> JSIO Document
-  open_ a b c = primJS $ Document.prim__open (up a) (toFFI b) (toFFI c)
-
-  export
-  open' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Document (Types t1)}
-    -> (obj : t1)
-    -> JSIO Document
-  open' a = primJS $ Document.prim__open (up a) undef undef
+  open_ a = primJS $ Document.prim__open (up a) (toFFI unused1) (toFFI unused2)
 
 
   export
@@ -1578,19 +1489,10 @@ namespace Element
     -> {auto 0 _ : Elem Element (Types t1)}
     -> {auto 0 _ : Elem CheckVisibilityOptions (Types t2)}
     -> (obj : t1)
-    -> (options : Optional t2)
+    -> {default Undef options : Optional t2}
     -> JSIO Bool
-  checkVisibility a b = tryJS "Element.checkVisibility" $
-    Element.prim__checkVisibility (up a) (optUp b)
-
-  export
-  checkVisibility' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Element (Types t1)}
-    -> (obj : t1)
-    -> JSIO Bool
-  checkVisibility' a = tryJS "Element.checkVisibility'" $
-    Element.prim__checkVisibility (up a) undef
+  checkVisibility a = tryJS "Element.checkVisibility" $
+    Element.prim__checkVisibility (up a) (optUp options)
 
 
   export
@@ -1840,17 +1742,9 @@ namespace Element
     -> {auto 0 _ : Elem Element (Types t1)}
     -> {auto 0 _ : Elem ScrollToOptions (Types t2)}
     -> (obj : t1)
-    -> (options : Optional t2)
+    -> {default Undef options : Optional t2}
     -> JSIO ()
-  scrollBy a b = primJS $ Element.prim__scrollBy (up a) (optUp b)
-
-  export
-  scrollBy' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Element (Types t1)}
-    -> (obj : t1)
-    -> JSIO ()
-  scrollBy' a = primJS $ Element.prim__scrollBy (up a) undef
+  scrollBy a = primJS $ Element.prim__scrollBy (up a) (optUp options)
 
 
   export
@@ -1871,17 +1765,9 @@ namespace Element
     -> {auto 0 _ : Elem Element (Types t1)}
     -> {auto 0 _ : Elem ScrollToOptions (Types t2)}
     -> (obj : t1)
-    -> (options : Optional t2)
+    -> {default Undef options : Optional t2}
     -> JSIO ()
-  scroll a b = primJS $ Element.prim__scroll (up a) (optUp b)
-
-  export
-  scroll' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Element (Types t1)}
-    -> (obj : t1)
-    -> JSIO ()
-  scroll' a = primJS $ Element.prim__scroll (up a) undef
+  scroll a = primJS $ Element.prim__scroll (up a) (optUp options)
 
 
   export
@@ -1900,17 +1786,9 @@ namespace Element
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem Element (Types t1)}
     -> (obj : t1)
-    -> (arg : Optional (NS I [Bool, ScrollIntoViewOptions]))
+    -> {default Undef arg : Optional (NS I [Bool, ScrollIntoViewOptions])}
     -> JSIO ()
-  scrollIntoView a b = primJS $ Element.prim__scrollIntoView (up a) (toFFI b)
-
-  export
-  scrollIntoView' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Element (Types t1)}
-    -> (obj : t1)
-    -> JSIO ()
-  scrollIntoView' a = primJS $ Element.prim__scrollIntoView (up a) undef
+  scrollIntoView a = primJS $ Element.prim__scrollIntoView (up a) (toFFI arg)
 
 
   export
@@ -1920,17 +1798,9 @@ namespace Element
     -> {auto 0 _ : Elem Element (Types t1)}
     -> {auto 0 _ : Elem ScrollToOptions (Types t2)}
     -> (obj : t1)
-    -> (options : Optional t2)
+    -> {default Undef options : Optional t2}
     -> JSIO ()
-  scrollTo a b = primJS $ Element.prim__scrollTo (up a) (optUp b)
-
-  export
-  scrollTo' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Element (Types t1)}
-    -> (obj : t1)
-    -> JSIO ()
-  scrollTo' a = primJS $ Element.prim__scrollTo (up a) undef
+  scrollTo a = primJS $ Element.prim__scrollTo (up a) (optUp options)
 
 
   export
@@ -1996,20 +1866,10 @@ namespace Element
     -> {auto 0 _ : Elem Element (Types t1)}
     -> (obj : t1)
     -> (qualifiedName : String)
-    -> (force : Optional Bool)
+    -> {default Undef force : Optional Bool}
     -> JSIO Bool
-  toggleAttribute a b c = tryJS "Element.toggleAttribute" $
-    Element.prim__toggleAttribute (up a) b (toFFI c)
-
-  export
-  toggleAttribute' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Element (Types t1)}
-    -> (obj : t1)
-    -> (qualifiedName : String)
-    -> JSIO Bool
-  toggleAttribute' a b = tryJS "Element.toggleAttribute'" $
-    Element.prim__toggleAttribute (up a) b undef
+  toggleAttribute a b = tryJS "Element.toggleAttribute" $
+    Element.prim__toggleAttribute (up a) b (toFFI force)
 
 
   export
@@ -2051,13 +1911,9 @@ namespace Event
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem EventInit (Types t2)}
     -> (type : String)
-    -> (eventInitDict : Optional t2)
+    -> {default Undef eventInitDict : Optional t2}
     -> JSIO Event
-  new a b = primJS $ Event.prim__new a (optUp b)
-
-  export
-  new' : (type : String) -> JSIO Event
-  new' a = primJS $ Event.prim__new a undef
+  new a = primJS $ Event.prim__new a (optUp eventInitDict)
 
 
   export
@@ -2202,20 +2058,11 @@ namespace Event
     -> {auto 0 _ : Elem Event (Types t1)}
     -> (obj : t1)
     -> (type : String)
-    -> (bubbles : Optional Bool)
-    -> (cancelable : Optional Bool)
+    -> {default Undef bubbles : Optional Bool}
+    -> {default Undef cancelable : Optional Bool}
     -> JSIO ()
-  initEvent a b c d = primJS $
-    Event.prim__initEvent (up a) b (toFFI c) (toFFI d)
-
-  export
-  initEvent' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Event (Types t1)}
-    -> (obj : t1)
-    -> (type : String)
-    -> JSIO ()
-  initEvent' a b = primJS $ Event.prim__initEvent (up a) b undef undef
+  initEvent a b = primJS $
+    Event.prim__initEvent (up a) b (toFFI bubbles) (toFFI cancelable)
 
 
   export
@@ -2261,21 +2108,10 @@ namespace EventTarget
     -> (obj : t1)
     -> (type : String)
     -> (callback : Maybe EventListener)
-    -> (options : Optional (NS I [AddEventListenerOptions, Bool]))
+    -> {default Undef options : Optional (NS I [AddEventListenerOptions, Bool])}
     -> JSIO ()
-  addEventListener a b c d = primJS $
-    EventTarget.prim__addEventListener (up a) b (toFFI c) (toFFI d)
-
-  export
-  addEventListener' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem EventTarget (Types t1)}
-    -> (obj : t1)
-    -> (type : String)
-    -> (callback : Maybe EventListener)
-    -> JSIO ()
-  addEventListener' a b c = primJS $
-    EventTarget.prim__addEventListener (up a) b (toFFI c) undef
+  addEventListener a b c = primJS $
+    EventTarget.prim__addEventListener (up a) b (toFFI c) (toFFI options)
 
 
   export
@@ -2298,21 +2134,10 @@ namespace EventTarget
     -> (obj : t1)
     -> (type : String)
     -> (callback : Maybe EventListener)
-    -> (options : Optional (NS I [EventListenerOptions, Bool]))
+    -> {default Undef options : Optional (NS I [EventListenerOptions, Bool])}
     -> JSIO ()
-  removeEventListener a b c d = primJS $
-    EventTarget.prim__removeEventListener (up a) b (toFFI c) (toFFI d)
-
-  export
-  removeEventListener' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem EventTarget (Types t1)}
-    -> (obj : t1)
-    -> (type : String)
-    -> (callback : Maybe EventListener)
-    -> JSIO ()
-  removeEventListener' a b c = primJS $
-    EventTarget.prim__removeEventListener (up a) b (toFFI c) undef
+  removeEventListener a b c = primJS $
+    EventTarget.prim__removeEventListener (up a) b (toFFI c) (toFFI options)
 
 
 
@@ -2369,18 +2194,9 @@ namespace MutationObserver
     -> {auto 0 _ : Elem MutationObserverInit (Types t3)}
     -> (obj : MutationObserver)
     -> (target : t2)
-    -> (options : Optional t3)
+    -> {default Undef options : Optional t3}
     -> JSIO ()
-  observe a b c = primJS $ MutationObserver.prim__observe a (up b) (optUp c)
-
-  export
-  observe' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem Node (Types t2)}
-    -> (obj : MutationObserver)
-    -> (target : t2)
-    -> JSIO ()
-  observe' a b = primJS $ MutationObserver.prim__observe a (up b) undef
+  observe a b = primJS $ MutationObserver.prim__observe a (up b) (optUp options)
 
 
   export
@@ -2747,17 +2563,9 @@ namespace Node
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem Node (Types t1)}
     -> (obj : t1)
-    -> (deep : Optional Bool)
+    -> {default Undef deep : Optional Bool}
     -> JSIO Node
-  cloneNode a b = primJS $ Node.prim__cloneNode (up a) (toFFI b)
-
-  export
-  cloneNode' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Node (Types t1)}
-    -> (obj : t1)
-    -> JSIO Node
-  cloneNode' a = primJS $ Node.prim__cloneNode (up a) undef
+  cloneNode a = primJS $ Node.prim__cloneNode (up a) (toFFI deep)
 
 
   export
@@ -2792,17 +2600,9 @@ namespace Node
     -> {auto 0 _ : Elem Node (Types t1)}
     -> {auto 0 _ : Elem GetRootNodeOptions (Types t2)}
     -> (obj : t1)
-    -> (options : Optional t2)
+    -> {default Undef options : Optional t2}
     -> JSIO Node
-  getRootNode a b = primJS $ Node.prim__getRootNode (up a) (optUp b)
-
-  export
-  getRootNode' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Node (Types t1)}
-    -> (obj : t1)
-    -> JSIO Node
-  getRootNode' a = primJS $ Node.prim__getRootNode (up a) undef
+  getRootNode a = primJS $ Node.prim__getRootNode (up a) (optUp options)
 
 
   export
@@ -3061,12 +2861,8 @@ namespace Range
 
 
   export
-  collapse : (obj : Range) -> (toStart : Optional Bool) -> JSIO ()
-  collapse a b = primJS $ Range.prim__collapse a (toFFI b)
-
-  export
-  collapse' : (obj : Range) -> JSIO ()
-  collapse' a = primJS $ Range.prim__collapse a undef
+  collapse : (obj : Range) -> {default Undef toStart : Optional Bool} -> JSIO ()
+  collapse a = primJS $ Range.prim__collapse a (toFFI toStart)
 
 
   export
@@ -3303,12 +3099,8 @@ namespace StaticRange
 namespace Text
 
   export
-  new : (data_ : Optional String) -> JSIO Text
-  new a = primJS $ Text.prim__new (toFFI a)
-
-  export
-  new' : JSIO Text
-  new' = primJS $ Text.prim__new undef
+  new : {default Undef data_ : Optional String} -> JSIO Text
+  new = primJS $ Text.prim__new (toFFI data_)
 
 
   export
@@ -3432,20 +3224,11 @@ namespace XPathExpression
     -> {auto 0 _ : Elem Node (Types t2)}
     -> (obj : XPathExpression)
     -> (contextNode : t2)
-    -> (type : Optional Bits16)
-    -> (result : Optional (Maybe XPathResult))
+    -> {default Undef type : Optional Bits16}
+    -> {default Undef result : Optional (Maybe XPathResult)}
     -> JSIO XPathResult
-  evaluate a b c d = primJS $
-    XPathExpression.prim__evaluate a (up b) (toFFI c) (toFFI d)
-
-  export
-  evaluate' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem Node (Types t2)}
-    -> (obj : XPathExpression)
-    -> (contextNode : t2)
-    -> JSIO XPathResult
-  evaluate' a b = primJS $ XPathExpression.prim__evaluate a (up b) undef undef
+  evaluate a b = primJS $
+    XPathExpression.prim__evaluate a (up b) (toFFI type) (toFFI result)
 
 
 
@@ -3778,20 +3561,10 @@ namespace XPathEvaluatorBase
     -> {auto 0 _ : Elem XPathEvaluatorBase (Types t1)}
     -> (obj : t1)
     -> (expression : String)
-    -> (resolver : Optional (Maybe XPathNSResolver))
+    -> {default Undef resolver : Optional (Maybe XPathNSResolver)}
     -> JSIO XPathExpression
-  createExpression a b c = primJS $
-    XPathEvaluatorBase.prim__createExpression (up a) b (toFFI c)
-
-  export
-  createExpression' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem XPathEvaluatorBase (Types t1)}
-    -> (obj : t1)
-    -> (expression : String)
-    -> JSIO XPathExpression
-  createExpression' a b = primJS $
-    XPathEvaluatorBase.prim__createExpression (up a) b undef
+  createExpression a b = primJS $
+    XPathEvaluatorBase.prim__createExpression (up a) b (toFFI resolver)
 
 
   export
@@ -3816,31 +3589,18 @@ namespace XPathEvaluatorBase
     -> (obj : t1)
     -> (expression : String)
     -> (contextNode : t3)
-    -> (resolver : Optional (Maybe XPathNSResolver))
-    -> (type : Optional Bits16)
-    -> (result : Optional (Maybe XPathResult))
+    -> {default Undef resolver : Optional (Maybe XPathNSResolver)}
+    -> {default Undef type : Optional Bits16}
+    -> {default Undef result : Optional (Maybe XPathResult)}
     -> JSIO XPathResult
-  evaluate a b c d e f = primJS $
+  evaluate a b c = primJS $
     XPathEvaluatorBase.prim__evaluate
       (up a)
       b
       (up c)
-      (toFFI d)
-      (toFFI e)
-      (toFFI f)
-
-  export
-  evaluate' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t3}
-    -> {auto 0 _ : Elem XPathEvaluatorBase (Types t1)}
-    -> {auto 0 _ : Elem Node (Types t3)}
-    -> (obj : t1)
-    -> (expression : String)
-    -> (contextNode : t3)
-    -> JSIO XPathResult
-  evaluate' a b c = primJS $
-    XPathEvaluatorBase.prim__evaluate (up a) b (up c) undef undef undef
+      (toFFI resolver)
+      (toFFI type)
+      (toFFI result)
 
 
 
@@ -3853,16 +3613,15 @@ namespace AddEventListenerOptions
 
   export
   new :
-       (passive : Optional Bool)
-    -> (once : Optional Bool)
-    -> (signal : Optional AbortSignal)
+       {default Undef passive : Optional Bool}
+    -> {default Undef once : Optional Bool}
+    -> {default Undef signal : Optional AbortSignal}
     -> JSIO AddEventListenerOptions
-  new a b c = primJS $
-    AddEventListenerOptions.prim__new (toFFI a) (toFFI b) (toFFI c)
-
-  export
-  new' : JSIO AddEventListenerOptions
-  new' = primJS $ AddEventListenerOptions.prim__new undef undef undef
+  new = primJS $
+    AddEventListenerOptions.prim__new
+      (toFFI passive)
+      (toFFI once)
+      (toFFI signal)
 
 
   export
@@ -3910,12 +3669,8 @@ namespace AddEventListenerOptions
 namespace CustomEventInit
 
   export
-  new : (detail : Optional Any) -> JSIO CustomEventInit
-  new a = primJS $ CustomEventInit.prim__new (toFFI a)
-
-  export
-  new' : JSIO CustomEventInit
-  new' = primJS $ CustomEventInit.prim__new undef
+  new : {default Undef detail : Optional Any} -> JSIO CustomEventInit
+  new = primJS $ CustomEventInit.prim__new (toFFI detail)
 
 
   export
@@ -3936,12 +3691,8 @@ namespace CustomEventInit
 namespace ElementCreationOptions
 
   export
-  new : (is : Optional String) -> JSIO ElementCreationOptions
-  new a = primJS $ ElementCreationOptions.prim__new (toFFI a)
-
-  export
-  new' : JSIO ElementCreationOptions
-  new' = primJS $ ElementCreationOptions.prim__new undef
+  new : {default Undef is : Optional String} -> JSIO ElementCreationOptions
+  new = primJS $ ElementCreationOptions.prim__new (toFFI is)
 
 
   export
@@ -3962,15 +3713,12 @@ namespace EventInit
 
   export
   new :
-       (bubbles : Optional Bool)
-    -> (cancelable : Optional Bool)
-    -> (composed : Optional Bool)
+       {default Undef bubbles : Optional Bool}
+    -> {default Undef cancelable : Optional Bool}
+    -> {default Undef composed : Optional Bool}
     -> JSIO EventInit
-  new a b c = primJS $ EventInit.prim__new (toFFI a) (toFFI b) (toFFI c)
-
-  export
-  new' : JSIO EventInit
-  new' = primJS $ EventInit.prim__new undef undef undef
+  new = primJS $
+    EventInit.prim__new (toFFI bubbles) (toFFI cancelable) (toFFI composed)
 
 
   export
@@ -4019,12 +3767,8 @@ namespace EventInit
 namespace EventListenerOptions
 
   export
-  new : (capture : Optional Bool) -> JSIO EventListenerOptions
-  new a = primJS $ EventListenerOptions.prim__new (toFFI a)
-
-  export
-  new' : JSIO EventListenerOptions
-  new' = primJS $ EventListenerOptions.prim__new undef
+  new : {default Undef capture : Optional Bool} -> JSIO EventListenerOptions
+  new = primJS $ EventListenerOptions.prim__new (toFFI capture)
 
 
   export
@@ -4045,12 +3789,8 @@ namespace EventListenerOptions
 namespace GetRootNodeOptions
 
   export
-  new : (composed : Optional Bool) -> JSIO GetRootNodeOptions
-  new a = primJS $ GetRootNodeOptions.prim__new (toFFI a)
-
-  export
-  new' : JSIO GetRootNodeOptions
-  new' = primJS $ GetRootNodeOptions.prim__new undef
+  new : {default Undef composed : Optional Bool} -> JSIO GetRootNodeOptions
+  new = primJS $ GetRootNodeOptions.prim__new (toFFI composed)
 
 
   export
@@ -4072,28 +3812,23 @@ namespace MutationObserverInit
 
   export
   new :
-       (childList : Optional Bool)
-    -> (attributes : Optional Bool)
-    -> (characterData : Optional Bool)
-    -> (subtree : Optional Bool)
-    -> (attributeOldValue : Optional Bool)
-    -> (characterDataOldValue : Optional Bool)
-    -> (attributeFilter : Optional (Array String))
+       {default Undef childList : Optional Bool}
+    -> {default Undef attributes : Optional Bool}
+    -> {default Undef characterData : Optional Bool}
+    -> {default Undef subtree : Optional Bool}
+    -> {default Undef attributeOldValue : Optional Bool}
+    -> {default Undef characterDataOldValue : Optional Bool}
+    -> {default Undef attributeFilter : Optional (Array String)}
     -> JSIO MutationObserverInit
-  new a b c d e f g = primJS $
+  new = primJS $
     MutationObserverInit.prim__new
-      (toFFI a)
-      (toFFI b)
-      (toFFI c)
-      (toFFI d)
-      (toFFI e)
-      (toFFI f)
-      (toFFI g)
-
-  export
-  new' : JSIO MutationObserverInit
-  new' = primJS $
-    MutationObserverInit.prim__new undef undef undef undef undef undef undef
+      (toFFI childList)
+      (toFFI attributes)
+      (toFFI characterData)
+      (toFFI subtree)
+      (toFFI attributeOldValue)
+      (toFFI characterDataOldValue)
+      (toFFI attributeFilter)
 
 
   export
@@ -4195,13 +3930,9 @@ namespace ShadowRootInit
   export
   new :
        (mode : ShadowRootMode)
-    -> (delegatesFocus : Optional Bool)
+    -> {default Undef delegatesFocus : Optional Bool}
     -> JSIO ShadowRootInit
-  new a b = primJS $ ShadowRootInit.prim__new (toFFI a) (toFFI b)
-
-  export
-  new' : (mode : ShadowRootMode) -> JSIO ShadowRootInit
-  new' a = primJS $ ShadowRootInit.prim__new (toFFI a) undef
+  new a = primJS $ ShadowRootInit.prim__new (toFFI a) (toFFI delegatesFocus)
 
 
   export

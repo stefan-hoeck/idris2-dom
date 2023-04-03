@@ -88,13 +88,9 @@ namespace MediaSource
   export
   endOfStream :
        (obj : MediaSource)
-    -> (error : Optional EndOfStreamError)
+    -> {default Undef error : Optional EndOfStreamError}
     -> JSIO ()
-  endOfStream a b = primJS $ MediaSource.prim__endOfStream a (toFFI b)
-
-  export
-  endOfStream' : (obj : MediaSource) -> JSIO ()
-  endOfStream' a = primJS $ MediaSource.prim__endOfStream a undef
+  endOfStream a = primJS $ MediaSource.prim__endOfStream a (toFFI error)
 
 
   export

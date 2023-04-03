@@ -140,14 +140,10 @@ namespace DOMException
 
   export
   new :
-       (message : Optional String)
-    -> (name : Optional String)
+       {default Undef message : Optional String}
+    -> {default Undef name : Optional String}
     -> JSIO DOMException
-  new a b = primJS $ DOMException.prim__new (toFFI a) (toFFI b)
-
-  export
-  new' : JSIO DOMException
-  new' = primJS $ DOMException.prim__new undef undef
+  new = primJS $ DOMException.prim__new (toFFI message) (toFFI name)
 
 
   export

@@ -462,19 +462,10 @@ namespace SVGGeometryElement
     -> {auto 0 _ : Elem SVGGeometryElement (Types t1)}
     -> {auto 0 _ : Elem DOMPointInit (Types t2)}
     -> (obj : t1)
-    -> (point : Optional t2)
+    -> {default Undef point : Optional t2}
     -> JSIO Bool
-  isPointInFill a b = tryJS "SVGGeometryElement.isPointInFill" $
-    SVGGeometryElement.prim__isPointInFill (up a) (optUp b)
-
-  export
-  isPointInFill' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGGeometryElement (Types t1)}
-    -> (obj : t1)
-    -> JSIO Bool
-  isPointInFill' a = tryJS "SVGGeometryElement.isPointInFill'" $
-    SVGGeometryElement.prim__isPointInFill (up a) undef
+  isPointInFill a = tryJS "SVGGeometryElement.isPointInFill" $
+    SVGGeometryElement.prim__isPointInFill (up a) (optUp point)
 
 
   export
@@ -484,19 +475,10 @@ namespace SVGGeometryElement
     -> {auto 0 _ : Elem SVGGeometryElement (Types t1)}
     -> {auto 0 _ : Elem DOMPointInit (Types t2)}
     -> (obj : t1)
-    -> (point : Optional t2)
+    -> {default Undef point : Optional t2}
     -> JSIO Bool
-  isPointInStroke a b = tryJS "SVGGeometryElement.isPointInStroke" $
-    SVGGeometryElement.prim__isPointInStroke (up a) (optUp b)
-
-  export
-  isPointInStroke' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGGeometryElement (Types t1)}
-    -> (obj : t1)
-    -> JSIO Bool
-  isPointInStroke' a = tryJS "SVGGeometryElement.isPointInStroke'" $
-    SVGGeometryElement.prim__isPointInStroke (up a) undef
+  isPointInStroke a = tryJS "SVGGeometryElement.isPointInStroke" $
+    SVGGeometryElement.prim__isPointInStroke (up a) (optUp point)
 
 
 
@@ -569,17 +551,9 @@ namespace SVGGraphicsElement
     -> {auto 0 _ : Elem SVGGraphicsElement (Types t1)}
     -> {auto 0 _ : Elem SVGBoundingBoxOptions (Types t2)}
     -> (obj : t1)
-    -> (options : Optional t2)
+    -> {default Undef options : Optional t2}
     -> JSIO DOMRect
-  getBBox a b = primJS $ SVGGraphicsElement.prim__getBBox (up a) (optUp b)
-
-  export
-  getBBox' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGGraphicsElement (Types t1)}
-    -> (obj : t1)
-    -> JSIO DOMRect
-  getBBox' a = primJS $ SVGGraphicsElement.prim__getBBox (up a) undef
+  getBBox a = primJS $ SVGGraphicsElement.prim__getBBox (up a) (optUp options)
 
 
   export
@@ -1378,15 +1352,10 @@ namespace SVGSVGElement
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem DOMMatrix2DInit (Types t2)}
     -> (obj : SVGSVGElement)
-    -> (matrix : Optional t2)
+    -> {default Undef matrix : Optional t2}
     -> JSIO SVGTransform
-  createSVGTransformFromMatrix a b = primJS $
-    SVGSVGElement.prim__createSVGTransformFromMatrix a (optUp b)
-
-  export
-  createSVGTransformFromMatrix' : (obj : SVGSVGElement) -> JSIO SVGTransform
-  createSVGTransformFromMatrix' a = primJS $
-    SVGSVGElement.prim__createSVGTransformFromMatrix a undef
+  createSVGTransformFromMatrix a = primJS $
+    SVGSVGElement.prim__createSVGTransformFromMatrix a (optUp matrix)
 
 
   export
@@ -1612,19 +1581,10 @@ namespace SVGTextContentElement
     -> {auto 0 _ : Elem SVGTextContentElement (Types t1)}
     -> {auto 0 _ : Elem DOMPointInit (Types t2)}
     -> (obj : t1)
-    -> (point : Optional t2)
+    -> {default Undef point : Optional t2}
     -> JSIO Int32
-  getCharNumAtPosition a b = primJS $
-    SVGTextContentElement.prim__getCharNumAtPosition (up a) (optUp b)
-
-  export
-  getCharNumAtPosition' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGTextContentElement (Types t1)}
-    -> (obj : t1)
-    -> JSIO Int32
-  getCharNumAtPosition' a = primJS $
-    SVGTextContentElement.prim__getCharNumAtPosition (up a) undef
+  getCharNumAtPosition a = primJS $
+    SVGTextContentElement.prim__getCharNumAtPosition (up a) (optUp point)
 
 
   export
@@ -1871,13 +1831,9 @@ namespace SVGTransform
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem DOMMatrix2DInit (Types t2)}
     -> (obj : SVGTransform)
-    -> (matrix : Optional t2)
+    -> {default Undef matrix : Optional t2}
     -> JSIO ()
-  setMatrix a b = primJS $ SVGTransform.prim__setMatrix a (optUp b)
-
-  export
-  setMatrix' : (obj : SVGTransform) -> JSIO ()
-  setMatrix' a = primJS $ SVGTransform.prim__setMatrix a undef
+  setMatrix a = primJS $ SVGTransform.prim__setMatrix a (optUp matrix)
 
 
   export
@@ -1960,15 +1916,10 @@ namespace SVGTransformList
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem DOMMatrix2DInit (Types t2)}
     -> (obj : SVGTransformList)
-    -> (matrix : Optional t2)
+    -> {default Undef matrix : Optional t2}
     -> JSIO SVGTransform
-  createSVGTransformFromMatrix a b = primJS $
-    SVGTransformList.prim__createSVGTransformFromMatrix a (optUp b)
-
-  export
-  createSVGTransformFromMatrix' : (obj : SVGTransformList) -> JSIO SVGTransform
-  createSVGTransformFromMatrix' a = primJS $
-    SVGTransformList.prim__createSVGTransformFromMatrix a undef
+  createSVGTransformFromMatrix a = primJS $
+    SVGTransformList.prim__createSVGTransformFromMatrix a (optUp matrix)
 
 
   export
@@ -2209,17 +2160,17 @@ namespace SVGBoundingBoxOptions
 
   export
   new :
-       (fill : Optional Bool)
-    -> (stroke : Optional Bool)
-    -> (markers : Optional Bool)
-    -> (clipped : Optional Bool)
+       {default Undef fill : Optional Bool}
+    -> {default Undef stroke : Optional Bool}
+    -> {default Undef markers : Optional Bool}
+    -> {default Undef clipped : Optional Bool}
     -> JSIO SVGBoundingBoxOptions
-  new a b c d = primJS $
-    SVGBoundingBoxOptions.prim__new (toFFI a) (toFFI b) (toFFI c) (toFFI d)
-
-  export
-  new' : JSIO SVGBoundingBoxOptions
-  new' = primJS $ SVGBoundingBoxOptions.prim__new undef undef undef undef
+  new = primJS $
+    SVGBoundingBoxOptions.prim__new
+      (toFFI fill)
+      (toFFI stroke)
+      (toFFI markers)
+      (toFFI clipped)
 
 
   export

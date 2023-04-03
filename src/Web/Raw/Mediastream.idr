@@ -18,15 +18,10 @@ namespace ConstrainablePattern
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem Constraints (Types t2)}
     -> (obj : ConstrainablePattern)
-    -> (constraints : Optional t2)
+    -> {default Undef constraints : Optional t2}
     -> JSIO (Promise Undefined)
-  applyConstraints a b = primJS $
-    ConstrainablePattern.prim__applyConstraints a (optUp b)
-
-  export
-  applyConstraints' : (obj : ConstrainablePattern) -> JSIO (Promise Undefined)
-  applyConstraints' a = primJS $
-    ConstrainablePattern.prim__applyConstraints a undef
+  applyConstraints a = primJS $
+    ConstrainablePattern.prim__applyConstraints a (optUp constraints)
 
 
   export
@@ -132,13 +127,10 @@ namespace MediaDevices
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem MediaStreamConstraints (Types t2)}
     -> (obj : MediaDevices)
-    -> (constraints : Optional t2)
+    -> {default Undef constraints : Optional t2}
     -> JSIO (Promise MediaStream)
-  getUserMedia a b = primJS $ MediaDevices.prim__getUserMedia a (optUp b)
-
-  export
-  getUserMedia' : (obj : MediaDevices) -> JSIO (Promise MediaStream)
-  getUserMedia' a = primJS $ MediaDevices.prim__getUserMedia a undef
+  getUserMedia a = primJS $
+    MediaDevices.prim__getUserMedia a (optUp constraints)
 
 
 
@@ -296,14 +288,10 @@ namespace MediaStreamTrack
        {auto 0 _ : JSType t2}
     -> {auto 0 _ : Elem MediaTrackConstraints (Types t2)}
     -> (obj : MediaStreamTrack)
-    -> (constraints : Optional t2)
+    -> {default Undef constraints : Optional t2}
     -> JSIO (Promise Undefined)
-  applyConstraints a b = primJS $
-    MediaStreamTrack.prim__applyConstraints a (optUp b)
-
-  export
-  applyConstraints' : (obj : MediaStreamTrack) -> JSIO (Promise Undefined)
-  applyConstraints' a = primJS $ MediaStreamTrack.prim__applyConstraints a undef
+  applyConstraints a = primJS $
+    MediaStreamTrack.prim__applyConstraints a (optUp constraints)
 
 
   export
@@ -355,13 +343,9 @@ namespace OverconstrainedError
   export
   new :
        (constraint : String)
-    -> (message : Optional String)
+    -> {default Undef message : Optional String}
     -> JSIO OverconstrainedError
-  new a b = primJS $ OverconstrainedError.prim__new a (toFFI b)
-
-  export
-  new' : (constraint : String) -> JSIO OverconstrainedError
-  new' a = primJS $ OverconstrainedError.prim__new a undef
+  new a = primJS $ OverconstrainedError.prim__new a (toFFI message)
 
 
   export
@@ -388,14 +372,11 @@ namespace ConstrainBooleanParameters
 
   export
   new :
-       (exact : Optional Bool)
-    -> (ideal : Optional Bool)
+       {default Undef exact : Optional Bool}
+    -> {default Undef ideal : Optional Bool}
     -> JSIO ConstrainBooleanParameters
-  new a b = primJS $ ConstrainBooleanParameters.prim__new (toFFI a) (toFFI b)
-
-  export
-  new' : JSIO ConstrainBooleanParameters
-  new' = primJS $ ConstrainBooleanParameters.prim__new undef undef
+  new = primJS $
+    ConstrainBooleanParameters.prim__new (toFFI exact) (toFFI ideal)
 
 
   export
@@ -429,14 +410,11 @@ namespace ConstrainDOMStringParameters
 
   export
   new :
-       (exact : Optional (NS I [String, Array String]))
-    -> (ideal : Optional (NS I [String, Array String]))
+       {default Undef exact : Optional (NS I [String, Array String])}
+    -> {default Undef ideal : Optional (NS I [String, Array String])}
     -> JSIO ConstrainDOMStringParameters
-  new a b = primJS $ ConstrainDOMStringParameters.prim__new (toFFI a) (toFFI b)
-
-  export
-  new' : JSIO ConstrainDOMStringParameters
-  new' = primJS $ ConstrainDOMStringParameters.prim__new undef undef
+  new = primJS $
+    ConstrainDOMStringParameters.prim__new (toFFI exact) (toFFI ideal)
 
 
   export
@@ -470,14 +448,10 @@ namespace ConstrainDoubleRange
 
   export
   new :
-       (exact : Optional Double)
-    -> (ideal : Optional Double)
+       {default Undef exact : Optional Double}
+    -> {default Undef ideal : Optional Double}
     -> JSIO ConstrainDoubleRange
-  new a b = primJS $ ConstrainDoubleRange.prim__new (toFFI a) (toFFI b)
-
-  export
-  new' : JSIO ConstrainDoubleRange
-  new' = primJS $ ConstrainDoubleRange.prim__new undef undef
+  new = primJS $ ConstrainDoubleRange.prim__new (toFFI exact) (toFFI ideal)
 
 
   export
@@ -511,14 +485,10 @@ namespace ConstrainULongRange
 
   export
   new :
-       (exact : Optional Bits32)
-    -> (ideal : Optional Bits32)
+       {default Undef exact : Optional Bits32}
+    -> {default Undef ideal : Optional Bits32}
     -> JSIO ConstrainULongRange
-  new a b = primJS $ ConstrainULongRange.prim__new (toFFI a) (toFFI b)
-
-  export
-  new' : JSIO ConstrainULongRange
-  new' = primJS $ ConstrainULongRange.prim__new undef undef
+  new = primJS $ ConstrainULongRange.prim__new (toFFI exact) (toFFI ideal)
 
 
   export
@@ -559,12 +529,10 @@ namespace ConstraintSet
 namespace Constraints
 
   export
-  new : (advanced : Optional (Array ConstraintSet)) -> JSIO Constraints
-  new a = primJS $ Constraints.prim__new (toFFI a)
-
-  export
-  new' : JSIO Constraints
-  new' = primJS $ Constraints.prim__new undef
+  new :
+       {default Undef advanced : Optional (Array ConstraintSet)}
+    -> JSIO Constraints
+  new = primJS $ Constraints.prim__new (toFFI advanced)
 
 
   export
@@ -584,12 +552,11 @@ namespace Constraints
 namespace DoubleRange
 
   export
-  new : (max : Optional Double) -> (min : Optional Double) -> JSIO DoubleRange
-  new a b = primJS $ DoubleRange.prim__new (toFFI a) (toFFI b)
-
-  export
-  new' : JSIO DoubleRange
-  new' = primJS $ DoubleRange.prim__new undef undef
+  new :
+       {default Undef max : Optional Double}
+    -> {default Undef min : Optional Double}
+    -> JSIO DoubleRange
+  new = primJS $ DoubleRange.prim__new (toFFI max) (toFFI min)
 
 
   export
@@ -623,14 +590,10 @@ namespace MediaStreamConstraints
 
   export
   new :
-       (video : Optional (NS I [Bool, MediaTrackConstraints]))
-    -> (audio : Optional (NS I [Bool, MediaTrackConstraints]))
+       {default Undef video : Optional (NS I [Bool, MediaTrackConstraints])}
+    -> {default Undef audio : Optional (NS I [Bool, MediaTrackConstraints])}
     -> JSIO MediaStreamConstraints
-  new a b = primJS $ MediaStreamConstraints.prim__new (toFFI a) (toFFI b)
-
-  export
-  new' : JSIO MediaStreamConstraints
-  new' = primJS $ MediaStreamConstraints.prim__new undef undef
+  new = primJS $ MediaStreamConstraints.prim__new (toFFI video) (toFFI audio)
 
 
   export
@@ -701,59 +664,39 @@ namespace MediaTrackCapabilities
     -> {auto 0 _ : Elem ULongRange (Types t8)}
     -> {auto 0 _ : Elem DoubleRange (Types t12)}
     -> {auto 0 _ : Elem ULongRange (Types t13)}
-    -> (width : Optional t1)
-    -> (height : Optional t2)
-    -> (aspectRatio : Optional t3)
-    -> (frameRate : Optional t4)
-    -> (facingMode : Optional (Array String))
-    -> (resizeMode : Optional (Array String))
-    -> (sampleRate : Optional t7)
-    -> (sampleSize : Optional t8)
-    -> (echoCancellation : Optional (Array Boolean))
-    -> (autoGainControl : Optional (Array Boolean))
-    -> (noiseSuppression : Optional (Array Boolean))
-    -> (latency : Optional t12)
-    -> (channelCount : Optional t13)
-    -> (deviceId : Optional String)
-    -> (groupId : Optional String)
+    -> {default Undef width : Optional t1}
+    -> {default Undef height : Optional t2}
+    -> {default Undef aspectRatio : Optional t3}
+    -> {default Undef frameRate : Optional t4}
+    -> {default Undef facingMode : Optional (Array String)}
+    -> {default Undef resizeMode : Optional (Array String)}
+    -> {default Undef sampleRate : Optional t7}
+    -> {default Undef sampleSize : Optional t8}
+    -> {default Undef echoCancellation : Optional (Array Boolean)}
+    -> {default Undef autoGainControl : Optional (Array Boolean)}
+    -> {default Undef noiseSuppression : Optional (Array Boolean)}
+    -> {default Undef latency : Optional t12}
+    -> {default Undef channelCount : Optional t13}
+    -> {default Undef deviceId : Optional String}
+    -> {default Undef groupId : Optional String}
     -> JSIO MediaTrackCapabilities
-  new a b c d e f g h i j k l m n o = primJS $
+  new = primJS $
     MediaTrackCapabilities.prim__new
-      (optUp a)
-      (optUp b)
-      (optUp c)
-      (optUp d)
-      (toFFI e)
-      (toFFI f)
-      (optUp g)
-      (optUp h)
-      (toFFI i)
-      (toFFI j)
-      (toFFI k)
-      (optUp l)
-      (optUp m)
-      (toFFI n)
-      (toFFI o)
-
-  export
-  new' : JSIO MediaTrackCapabilities
-  new' = primJS $
-    MediaTrackCapabilities.prim__new
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
+      (optUp width)
+      (optUp height)
+      (optUp aspectRatio)
+      (optUp frameRate)
+      (toFFI facingMode)
+      (toFFI resizeMode)
+      (optUp sampleRate)
+      (optUp sampleSize)
+      (toFFI echoCancellation)
+      (toFFI autoGainControl)
+      (toFFI noiseSuppression)
+      (optUp latency)
+      (optUp channelCount)
+      (toFFI deviceId)
+      (toFFI groupId)
 
 
   export
@@ -956,66 +899,76 @@ namespace MediaTrackConstraintSet
 
   export
   new :
-       (width : Optional (NS I [Bits32, ConstrainULongRange]))
-    -> (height : Optional (NS I [Bits32, ConstrainULongRange]))
-    -> (aspectRatio : Optional (NS I [Double, ConstrainDoubleRange]))
-    -> (frameRate : Optional (NS I [Double, ConstrainDoubleRange]))
-    -> (facingMode : Optional
-                       (NS I
-                          [String, Array String, ConstrainDOMStringParameters]))
-    -> (resizeMode : Optional
-                       (NS I
-                          [String, Array String, ConstrainDOMStringParameters]))
-    -> (sampleRate : Optional (NS I [Bits32, ConstrainULongRange]))
-    -> (sampleSize : Optional (NS I [Bits32, ConstrainULongRange]))
-    -> (echoCancellation : Optional (NS I [Bool, ConstrainBooleanParameters]))
-    -> (autoGainControl : Optional (NS I [Bool, ConstrainBooleanParameters]))
-    -> (noiseSuppression : Optional (NS I [Bool, ConstrainBooleanParameters]))
-    -> (latency : Optional (NS I [Double, ConstrainDoubleRange]))
-    -> (channelCount : Optional (NS I [Bits32, ConstrainULongRange]))
-    -> (deviceId : Optional
-                     (NS I
-                        [String, Array String, ConstrainDOMStringParameters]))
-    -> (groupId : Optional
-                    (NS I [String, Array String, ConstrainDOMStringParameters]))
+       {default Undef width : Optional (NS I [Bits32, ConstrainULongRange])}
+    -> {default Undef height : Optional (NS I [Bits32, ConstrainULongRange])}
+    -> {default Undef aspectRatio : Optional
+                                      (NS I [Double, ConstrainDoubleRange])}
+    -> {default Undef frameRate : Optional
+                                    (NS I [Double, ConstrainDoubleRange])}
+    -> {default Undef facingMode : Optional
+                                     (NS I
+                                        [ String
+                                        , Array String
+                                        , ConstrainDOMStringParameters
+                                        ])}
+    -> {default Undef resizeMode : Optional
+                                     (NS I
+                                        [ String
+                                        , Array String
+                                        , ConstrainDOMStringParameters
+                                        ])}
+    -> {default Undef sampleRate : Optional
+                                     (NS I [Bits32, ConstrainULongRange])}
+    -> {default Undef sampleSize : Optional
+                                     (NS I [Bits32, ConstrainULongRange])}
+    -> {default Undef echoCancellation : Optional
+                                           (NS I
+                                              [ Bool
+                                              , ConstrainBooleanParameters
+                                              ])}
+    -> {default Undef autoGainControl : Optional
+                                          (NS I
+                                             [ Bool
+                                             , ConstrainBooleanParameters
+                                             ])}
+    -> {default Undef noiseSuppression : Optional
+                                           (NS I
+                                              [ Bool
+                                              , ConstrainBooleanParameters
+                                              ])}
+    -> {default Undef latency : Optional (NS I [Double, ConstrainDoubleRange])}
+    -> {default Undef channelCount : Optional
+                                       (NS I [Bits32, ConstrainULongRange])}
+    -> {default Undef deviceId : Optional
+                                   (NS I
+                                      [ String
+                                      , Array String
+                                      , ConstrainDOMStringParameters
+                                      ])}
+    -> {default Undef groupId : Optional
+                                  (NS I
+                                     [ String
+                                     , Array String
+                                     , ConstrainDOMStringParameters
+                                     ])}
     -> JSIO MediaTrackConstraintSet
-  new a b c d e f g h i j k l m n o = primJS $
+  new = primJS $
     MediaTrackConstraintSet.prim__new
-      (toFFI a)
-      (toFFI b)
-      (toFFI c)
-      (toFFI d)
-      (toFFI e)
-      (toFFI f)
-      (toFFI g)
-      (toFFI h)
-      (toFFI i)
-      (toFFI j)
-      (toFFI k)
-      (toFFI l)
-      (toFFI m)
-      (toFFI n)
-      (toFFI o)
-
-  export
-  new' : JSIO MediaTrackConstraintSet
-  new' = primJS $
-    MediaTrackConstraintSet.prim__new
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
+      (toFFI width)
+      (toFFI height)
+      (toFFI aspectRatio)
+      (toFFI frameRate)
+      (toFFI facingMode)
+      (toFFI resizeMode)
+      (toFFI sampleRate)
+      (toFFI sampleSize)
+      (toFFI echoCancellation)
+      (toFFI autoGainControl)
+      (toFFI noiseSuppression)
+      (toFFI latency)
+      (toFFI channelCount)
+      (toFFI deviceId)
+      (toFFI groupId)
 
 
   export
@@ -1230,13 +1183,9 @@ namespace MediaTrackConstraints
 
   export
   new :
-       (advanced : Optional (Array MediaTrackConstraintSet))
+       {default Undef advanced : Optional (Array MediaTrackConstraintSet)}
     -> JSIO MediaTrackConstraints
-  new a = primJS $ MediaTrackConstraints.prim__new (toFFI a)
-
-  export
-  new' : JSIO MediaTrackConstraints
-  new' = primJS $ MediaTrackConstraints.prim__new undef
+  new = primJS $ MediaTrackConstraints.prim__new (toFFI advanced)
 
 
   export
@@ -1257,59 +1206,39 @@ namespace MediaTrackSettings
 
   export
   new :
-       (width : Optional Int32)
-    -> (height : Optional Int32)
-    -> (aspectRatio : Optional Double)
-    -> (frameRate : Optional Double)
-    -> (facingMode : Optional String)
-    -> (resizeMode : Optional String)
-    -> (sampleRate : Optional Int32)
-    -> (sampleSize : Optional Int32)
-    -> (echoCancellation : Optional Bool)
-    -> (autoGainControl : Optional Bool)
-    -> (noiseSuppression : Optional Bool)
-    -> (latency : Optional Double)
-    -> (channelCount : Optional Int32)
-    -> (deviceId : Optional String)
-    -> (groupId : Optional String)
+       {default Undef width : Optional Int32}
+    -> {default Undef height : Optional Int32}
+    -> {default Undef aspectRatio : Optional Double}
+    -> {default Undef frameRate : Optional Double}
+    -> {default Undef facingMode : Optional String}
+    -> {default Undef resizeMode : Optional String}
+    -> {default Undef sampleRate : Optional Int32}
+    -> {default Undef sampleSize : Optional Int32}
+    -> {default Undef echoCancellation : Optional Bool}
+    -> {default Undef autoGainControl : Optional Bool}
+    -> {default Undef noiseSuppression : Optional Bool}
+    -> {default Undef latency : Optional Double}
+    -> {default Undef channelCount : Optional Int32}
+    -> {default Undef deviceId : Optional String}
+    -> {default Undef groupId : Optional String}
     -> JSIO MediaTrackSettings
-  new a b c d e f g h i j k l m n o = primJS $
+  new = primJS $
     MediaTrackSettings.prim__new
-      (toFFI a)
-      (toFFI b)
-      (toFFI c)
-      (toFFI d)
-      (toFFI e)
-      (toFFI f)
-      (toFFI g)
-      (toFFI h)
-      (toFFI i)
-      (toFFI j)
-      (toFFI k)
-      (toFFI l)
-      (toFFI m)
-      (toFFI n)
-      (toFFI o)
-
-  export
-  new' : JSIO MediaTrackSettings
-  new' = primJS $
-    MediaTrackSettings.prim__new
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
+      (toFFI width)
+      (toFFI height)
+      (toFFI aspectRatio)
+      (toFFI frameRate)
+      (toFFI facingMode)
+      (toFFI resizeMode)
+      (toFFI sampleRate)
+      (toFFI sampleSize)
+      (toFFI echoCancellation)
+      (toFFI autoGainControl)
+      (toFFI noiseSuppression)
+      (toFFI latency)
+      (toFFI channelCount)
+      (toFFI deviceId)
+      (toFFI groupId)
 
 
   export
@@ -1512,59 +1441,39 @@ namespace MediaTrackSupportedConstraints
 
   export
   new :
-       (width : Optional Bool)
-    -> (height : Optional Bool)
-    -> (aspectRatio : Optional Bool)
-    -> (frameRate : Optional Bool)
-    -> (facingMode : Optional Bool)
-    -> (resizeMode : Optional Bool)
-    -> (sampleRate : Optional Bool)
-    -> (sampleSize : Optional Bool)
-    -> (echoCancellation : Optional Bool)
-    -> (autoGainControl : Optional Bool)
-    -> (noiseSuppression : Optional Bool)
-    -> (latency : Optional Bool)
-    -> (channelCount : Optional Bool)
-    -> (deviceId : Optional Bool)
-    -> (groupId : Optional Bool)
+       {default Undef width : Optional Bool}
+    -> {default Undef height : Optional Bool}
+    -> {default Undef aspectRatio : Optional Bool}
+    -> {default Undef frameRate : Optional Bool}
+    -> {default Undef facingMode : Optional Bool}
+    -> {default Undef resizeMode : Optional Bool}
+    -> {default Undef sampleRate : Optional Bool}
+    -> {default Undef sampleSize : Optional Bool}
+    -> {default Undef echoCancellation : Optional Bool}
+    -> {default Undef autoGainControl : Optional Bool}
+    -> {default Undef noiseSuppression : Optional Bool}
+    -> {default Undef latency : Optional Bool}
+    -> {default Undef channelCount : Optional Bool}
+    -> {default Undef deviceId : Optional Bool}
+    -> {default Undef groupId : Optional Bool}
     -> JSIO MediaTrackSupportedConstraints
-  new a b c d e f g h i j k l m n o = primJS $
+  new = primJS $
     MediaTrackSupportedConstraints.prim__new
-      (toFFI a)
-      (toFFI b)
-      (toFFI c)
-      (toFFI d)
-      (toFFI e)
-      (toFFI f)
-      (toFFI g)
-      (toFFI h)
-      (toFFI i)
-      (toFFI j)
-      (toFFI k)
-      (toFFI l)
-      (toFFI m)
-      (toFFI n)
-      (toFFI o)
-
-  export
-  new' : JSIO MediaTrackSupportedConstraints
-  new' = primJS $
-    MediaTrackSupportedConstraints.prim__new
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
-      undef
+      (toFFI width)
+      (toFFI height)
+      (toFFI aspectRatio)
+      (toFFI frameRate)
+      (toFFI facingMode)
+      (toFFI resizeMode)
+      (toFFI sampleRate)
+      (toFFI sampleSize)
+      (toFFI echoCancellation)
+      (toFFI autoGainControl)
+      (toFFI noiseSuppression)
+      (toFFI latency)
+      (toFFI channelCount)
+      (toFFI deviceId)
+      (toFFI groupId)
 
 
   export
@@ -1789,12 +1698,11 @@ namespace Settings
 namespace ULongRange
 
   export
-  new : (max : Optional Bits32) -> (min : Optional Bits32) -> JSIO ULongRange
-  new a b = primJS $ ULongRange.prim__new (toFFI a) (toFFI b)
-
-  export
-  new' : JSIO ULongRange
-  new' = primJS $ ULongRange.prim__new undef undef
+  new :
+       {default Undef max : Optional Bits32}
+    -> {default Undef min : Optional Bits32}
+    -> JSIO ULongRange
+  new = primJS $ ULongRange.prim__new (toFFI max) (toFFI min)
 
 
   export
