@@ -133,7 +133,7 @@ namespace Attr
 
 
   export
-  value : Attr -> Attribute True I String
+  value : Attr -> Attribute True Prelude.id String
   value v = fromPrim "Attr.getvalue" prim__value prim__setValue v
 
 
@@ -146,7 +146,7 @@ namespace CharacterData
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem CharacterData (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   data_ v = fromPrim
               "CharacterData.getdata"
               prim__data
@@ -332,7 +332,7 @@ namespace DOMTokenList
 
 
   export
-  value : DOMTokenList -> Attribute True I String
+  value : DOMTokenList -> Attribute True Prelude.id String
   value v = fromPrim "DOMTokenList.getvalue" prim__value prim__setValue v
 
 
@@ -417,7 +417,7 @@ namespace Document
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem Document (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   alinkColor v = fromPrim
                    "Document.getalinkColor"
                    prim__alinkColor
@@ -457,7 +457,7 @@ namespace Document
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem Document (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   bgColor v = fromPrim
                 "Document.getbgColor"
                 prim__bgColor
@@ -519,7 +519,7 @@ namespace Document
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem Document (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   cookie v = fromPrim
                "Document.getcookie"
                prim__cookie
@@ -532,7 +532,7 @@ namespace Document
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem Document (Types t1)}
     -> (obj : t1)
-    -> JSIO (Maybe (NS I [HTMLScriptElement, SVGScriptElement]))
+    -> JSIO (Maybe (HSum [HTMLScriptElement, SVGScriptElement]))
   currentScript a = tryJS "Document.currentScript" $
     Document.prim__currentScript (up a)
 
@@ -552,7 +552,7 @@ namespace Document
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem Document (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   designMode v = fromPrim
                    "Document.getdesignMode"
                    prim__designMode
@@ -565,7 +565,7 @@ namespace Document
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem Document (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   dir v = fromPrim "Document.getdir" prim__dir prim__setDir (v :> Document)
 
 
@@ -602,7 +602,7 @@ namespace Document
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem Document (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   domain v = fromPrim
                "Document.getdomain"
                prim__domain
@@ -624,7 +624,7 @@ namespace Document
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem Document (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   fgColor v = fromPrim
                 "Document.getfgColor"
                 prim__fgColor
@@ -700,7 +700,7 @@ namespace Document
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem Document (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   linkColor v = fromPrim
                   "Document.getlinkColor"
                   prim__linkColor
@@ -822,7 +822,7 @@ namespace Document
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem Document (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   title v = fromPrim
               "Document.gettitle"
               prim__title
@@ -845,7 +845,7 @@ namespace Document
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem Document (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   vlinkColor v = fromPrim
                    "Document.getvlinkColor"
                    prim__vlinkColor
@@ -962,7 +962,7 @@ namespace Document
     -> {auto 0 _ : Elem Document (Types t1)}
     -> (obj : t1)
     -> (localName : String)
-    -> (options : Optional (NS I [String, ElementCreationOptions]))
+    -> (options : Optional (HSum [String, ElementCreationOptions]))
     -> JSIO Element
   createElement' a b c = primJS $
     Document.prim__createElement (up a) b (toFFI c)
@@ -984,7 +984,7 @@ namespace Document
     -> (obj : t1)
     -> (namespace_ : Maybe String)
     -> (qualifiedName : String)
-    -> (options : Optional (NS I [String, ElementCreationOptions]))
+    -> (options : Optional (HSum [String, ElementCreationOptions]))
     -> JSIO Element
   createElementNS' a b c d = primJS $
     Document.prim__createElementNS (up a) (toFFI b) c (toFFI d)
@@ -1394,7 +1394,7 @@ namespace Element
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem Element (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   className v = fromPrim
                   "Element.getclassName"
                   prim__className
@@ -1443,7 +1443,7 @@ namespace Element
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem Element (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   id v = fromPrim "Element.getid" prim__id prim__setId (v :> Element)
 
 
@@ -1471,7 +1471,7 @@ namespace Element
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem Element (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   outerHTML v = fromPrim
                   "Element.getouterHTML"
                   prim__outerHTML
@@ -1502,7 +1502,7 @@ namespace Element
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem Element (Types t)}
     -> t
-    -> Attribute True I Double
+    -> Attribute True Prelude.id Double
   scrollLeft v = fromPrim
                    "Element.getscrollLeft"
                    prim__scrollLeft
@@ -1515,7 +1515,7 @@ namespace Element
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem Element (Types t)}
     -> t
-    -> Attribute True I Double
+    -> Attribute True Prelude.id Double
   scrollTop v = fromPrim
                   "Element.getscrollTop"
                   prim__scrollTop
@@ -1546,7 +1546,7 @@ namespace Element
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem Element (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   slot v = fromPrim "Element.getslot" prim__slot prim__setSlot (v :> Element)
 
 
@@ -1900,7 +1900,7 @@ namespace Element
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem Element (Types t1)}
     -> (obj : t1)
-    -> (arg : Optional (NS I [Bool, ScrollIntoViewOptions]))
+    -> (arg : Optional (HSum [Bool, ScrollIntoViewOptions]))
     -> JSIO ()
   scrollIntoView' a b = primJS $ Element.prim__scrollIntoView (up a) (toFFI b)
 
@@ -2074,7 +2074,7 @@ namespace Event
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem Event (Types t)}
     -> t
-    -> Attribute True I Bool
+    -> Attribute True Prelude.id Bool
   cancelBubble v = fromPrim
                      "Event.getcancelBubble"
                      prim__cancelBubble
@@ -2143,7 +2143,7 @@ namespace Event
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem Event (Types t)}
     -> t
-    -> Attribute True I Bool
+    -> Attribute True Prelude.id Bool
   returnValue v = fromPrim
                     "Event.getreturnValue"
                     prim__returnValue
@@ -2261,7 +2261,7 @@ namespace EventTarget
     -> (obj : t1)
     -> (type : String)
     -> (callback : Maybe EventListener)
-    -> (options : Optional (NS I [AddEventListenerOptions, Bool]))
+    -> (options : Optional (HSum [AddEventListenerOptions, Bool]))
     -> JSIO ()
   addEventListener' a b c d = primJS $
     EventTarget.prim__addEventListener (up a) b (toFFI c) (toFFI d)
@@ -2298,7 +2298,7 @@ namespace EventTarget
     -> (obj : t1)
     -> (type : String)
     -> (callback : Maybe EventListener)
-    -> (options : Optional (NS I [EventListenerOptions, Bool]))
+    -> (options : Optional (HSum [EventListenerOptions, Bool]))
     -> JSIO ()
   removeEventListener' a b c d = primJS $
     EventTarget.prim__removeEventListener (up a) b (toFFI c) (toFFI d)
@@ -3334,7 +3334,7 @@ namespace Text
 namespace TreeWalker
 
   export
-  currentNode : TreeWalker -> Attribute True I Node
+  currentNode : TreeWalker -> Attribute True Prelude.id Node
   currentNode v = fromPrim
                     "TreeWalker.getcurrentNode"
                     prim__currentNode
@@ -3564,7 +3564,7 @@ namespace ChildNode
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem ChildNode (Types t1)}
     -> (obj : t1)
-    -> (nodes : List (NS I [Node, String]))
+    -> (nodes : List (HSum [Node, String]))
     -> JSIO ()
   after a b = primJS $ ChildNode.prim__after (up a) (toFFI b)
 
@@ -3574,7 +3574,7 @@ namespace ChildNode
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem ChildNode (Types t1)}
     -> (obj : t1)
-    -> (nodes : List (NS I [Node, String]))
+    -> (nodes : List (HSum [Node, String]))
     -> JSIO ()
   before a b = primJS $ ChildNode.prim__before (up a) (toFFI b)
 
@@ -3593,7 +3593,7 @@ namespace ChildNode
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem ChildNode (Types t1)}
     -> (obj : t1)
-    -> (nodes : List (NS I [Node, String]))
+    -> (nodes : List (HSum [Node, String]))
     -> JSIO ()
   replaceWith a b = primJS $ ChildNode.prim__replaceWith (up a) (toFFI b)
 
@@ -3618,7 +3618,7 @@ namespace InnerHTML
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem InnerHTML (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   innerHTML v = fromPrim
                   "InnerHTML.getinnerHTML"
                   prim__innerHTML
@@ -3709,7 +3709,7 @@ namespace ParentNode
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem ParentNode (Types t1)}
     -> (obj : t1)
-    -> (nodes : List (NS I [Node, String]))
+    -> (nodes : List (HSum [Node, String]))
     -> JSIO ()
   append a b = primJS $ ParentNode.prim__append (up a) (toFFI b)
 
@@ -3719,7 +3719,7 @@ namespace ParentNode
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem ParentNode (Types t1)}
     -> (obj : t1)
-    -> (nodes : List (NS I [Node, String]))
+    -> (nodes : List (HSum [Node, String]))
     -> JSIO ()
   prepend a b = primJS $ ParentNode.prim__prepend (up a) (toFFI b)
 
@@ -3750,7 +3750,7 @@ namespace ParentNode
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem ParentNode (Types t1)}
     -> (obj : t1)
-    -> (nodes : List (NS I [Node, String]))
+    -> (nodes : List (HSum [Node, String]))
     -> JSIO ()
   replaceChildren a b = primJS $
     ParentNode.prim__replaceChildren (up a) (toFFI b)
@@ -4223,7 +4223,7 @@ namespace ShadowRootInit
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ShadowRootInit (Types t)}
     -> t
-    -> Attribute True I ShadowRootMode
+    -> Attribute True Prelude.id ShadowRootMode
   mode v = fromPrim
              "ShadowRootInit.getmode"
              prim__mode
@@ -4253,7 +4253,7 @@ namespace StaticRangeInit
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem StaticRangeInit (Types t)}
     -> t
-    -> Attribute True I Node
+    -> Attribute True Prelude.id Node
   endContainer v = fromPrim
                      "StaticRangeInit.getendContainer"
                      prim__endContainer
@@ -4266,7 +4266,7 @@ namespace StaticRangeInit
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem StaticRangeInit (Types t)}
     -> t
-    -> Attribute True I Bits32
+    -> Attribute True Prelude.id Bits32
   endOffset v = fromPrim
                   "StaticRangeInit.getendOffset"
                   prim__endOffset
@@ -4279,7 +4279,7 @@ namespace StaticRangeInit
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem StaticRangeInit (Types t)}
     -> t
-    -> Attribute True I Node
+    -> Attribute True Prelude.id Node
   startContainer v = fromPrim
                        "StaticRangeInit.getstartContainer"
                        prim__startContainer
@@ -4292,7 +4292,7 @@ namespace StaticRangeInit
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem StaticRangeInit (Types t)}
     -> t
-    -> Attribute True I Bits32
+    -> Attribute True Prelude.id Bits32
   startOffset v = fromPrim
                     "StaticRangeInit.getstartOffset"
                     prim__startOffset

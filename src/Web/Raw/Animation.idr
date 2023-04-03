@@ -53,7 +53,7 @@ namespace Animation
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem Animation (Types t)}
     -> t
-    -> Attribute True I String
+    -> Attribute True Prelude.id String
   id v = fromPrim "Animation.getid" prim__id prim__setId (v :> Animation)
 
 
@@ -106,7 +106,7 @@ namespace Animation
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem Animation (Types t)}
     -> t
-    -> Attribute True I Double
+    -> Attribute True Prelude.id Double
   playbackRate v = fromPrim
                      "Animation.getplaybackRate"
                      prim__playbackRate
@@ -279,7 +279,7 @@ namespace AnimationTimeline
 namespace KeyframeEffect
 
   export
-  composite : KeyframeEffect -> Attribute True I CompositeOperation
+  composite : KeyframeEffect -> Attribute True Prelude.id CompositeOperation
   composite v = fromPrim
                   "KeyframeEffect.getcomposite"
                   prim__composite
@@ -290,7 +290,7 @@ namespace KeyframeEffect
   export
   iterationComposite :
        KeyframeEffect
-    -> Attribute True I IterationCompositeOperation
+    -> Attribute True Prelude.id IterationCompositeOperation
   iterationComposite v = fromPrim
                            "KeyframeEffect.getiterationComposite"
                            prim__iterationComposite
@@ -301,7 +301,7 @@ namespace KeyframeEffect
   export
   target :
        KeyframeEffect
-    -> Attribute False Maybe (NS I [Element, CSSPseudoElement])
+    -> Attribute False Maybe (HSum [Element, CSSPseudoElement])
   target v = fromNullablePrim
                "KeyframeEffect.gettarget"
                prim__target
@@ -340,7 +340,7 @@ namespace Animatable
     -> {auto 0 _ : Elem Object (Types t2)}
     -> (obj : t1)
     -> (keyframes : Maybe t2)
-    -> (options : Optional (NS I [Double, KeyframeAnimationOptions]))
+    -> (options : Optional (HSum [Double, KeyframeAnimationOptions]))
     -> JSIO Animation
   animate' a b c = primJS $ Animatable.prim__animate (up a) (mayUp b) (toFFI c)
 
@@ -547,9 +547,9 @@ namespace BasePropertyIndexedKeyframe
 
   export
   new' :
-       (offset : Optional (Maybe (NS I [Double, Array (Nullable Double)])))
-    -> (easing : Optional (NS I [String, Array String]))
-    -> (composite : Optional (NS I [CompositeOperationOrAuto, Array String]))
+       (offset : Optional (Maybe (HSum [Double, Array (Nullable Double)])))
+    -> (easing : Optional (HSum [String, Array String]))
+    -> (composite : Optional (HSum [CompositeOperationOrAuto, Array String]))
     -> JSIO BasePropertyIndexedKeyframe
   new' a b c = primJS $
     BasePropertyIndexedKeyframe.prim__new (toFFI a) (toFFI b) (toFFI c)
@@ -724,7 +724,7 @@ namespace EffectTiming
     -> (fill : Optional FillMode)
     -> (iterationStart : Optional Double)
     -> (iterations : Optional Double)
-    -> (duration : Optional (NS I [Double, String]))
+    -> (duration : Optional (HSum [Double, String]))
     -> (direction : Optional PlaybackDirection)
     -> (easing : Optional String)
     -> JSIO EffectTiming
@@ -777,7 +777,7 @@ namespace EffectTiming
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem EffectTiming (Types t)}
     -> t
-    -> Attribute False Optional (NS I [Double, String])
+    -> Attribute False Optional (HSum [Double, String])
   duration v = fromUndefOrPrimNoDefault
                  "EffectTiming.getduration"
                  prim__duration
@@ -931,7 +931,7 @@ namespace OptionalEffectTiming
     -> (fill : Optional FillMode)
     -> (iterationStart : Optional Double)
     -> (iterations : Optional Double)
-    -> (duration : Optional (NS I [Double, String]))
+    -> (duration : Optional (HSum [Double, String]))
     -> (direction : Optional PlaybackDirection)
     -> (easing : Optional String)
     -> JSIO OptionalEffectTiming
@@ -991,7 +991,7 @@ namespace OptionalEffectTiming
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem OptionalEffectTiming (Types t)}
     -> t
-    -> Attribute False Optional (NS I [Double, String])
+    -> Attribute False Optional (HSum [Double, String])
   duration v = fromUndefOrPrimNoDefault
                  "OptionalEffectTiming.getduration"
                  prim__duration

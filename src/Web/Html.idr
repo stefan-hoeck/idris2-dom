@@ -32,7 +32,7 @@ Callback OnBeforeUnloadEventHandlerNonNull (Event -> JSIO (Maybe String)) where
                                                    . runJSWithDefault Nothing
                                                    . f
 export
-Callback OnErrorEventHandlerNonNull (  NS I [Event, String]
+Callback OnErrorEventHandlerNonNull (  HSum [Event, String]
                                     -> Optional String
                                     -> Optional Bits32
                                     -> Optional Bits32

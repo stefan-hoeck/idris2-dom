@@ -1,7 +1,6 @@
 module JS.Marshall
 
 import Control.Monad.Either
-import Data.SOP
 import JS.Inheritance
 import JS.Util
 

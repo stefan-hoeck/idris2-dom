@@ -79,7 +79,7 @@ namespace ReadableByteStreamController
   export
   enqueue :
        (obj : ReadableByteStreamController)
-    -> (chunk : NS I
+    -> (chunk : HSum
                   [ Int8Array
                   , Int16Array
                   , Int32Array
@@ -146,14 +146,14 @@ namespace ReadableStream
     -> {auto 0 _ : Elem ReadableStreamGetReaderOptions (Types t2)}
     -> (obj : ReadableStream)
     -> (options : Optional t2)
-    -> JSIO (NS I [ReadableStreamDefaultReader, ReadableStreamBYOBReader])
+    -> JSIO (HSum [ReadableStreamDefaultReader, ReadableStreamBYOBReader])
   getReader' a b = tryJS "ReadableStream.getReader'" $
     ReadableStream.prim__getReader a (optUp b)
 
   export
   getReader :
        (obj : ReadableStream)
-    -> JSIO (NS I [ReadableStreamDefaultReader, ReadableStreamBYOBReader])
+    -> JSIO (HSum [ReadableStreamDefaultReader, ReadableStreamBYOBReader])
   getReader a = tryJS "ReadableStream.getReader" $
     ReadableStream.prim__getReader a undef
 
@@ -215,7 +215,7 @@ namespace ReadableStreamBYOBReader
   export
   read :
        (obj : ReadableStreamBYOBReader)
-    -> (view : NS I
+    -> (view : HSum
                  [ Int8Array
                  , Int16Array
                  , Int32Array
@@ -270,7 +270,7 @@ namespace ReadableStreamBYOBRequest
   export
   respondWithNewView :
        (obj : ReadableStreamBYOBRequest)
-    -> (view : NS I
+    -> (view : HSum
                  [ Int8Array
                  , Int16Array
                  , Int32Array
@@ -652,7 +652,7 @@ namespace QueuingStrategyInit
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem QueuingStrategyInit (Types t)}
     -> t
-    -> Attribute True I Double
+    -> Attribute True Prelude.id Double
   highWaterMark v = fromPrim
                       "QueuingStrategyInit.gethighWaterMark"
                       prim__highWaterMark
@@ -666,7 +666,7 @@ namespace ReadableStreamBYOBReadResult
   export
   new' :
        (value : Optional
-                  (NS I
+                  (HSum
                      [ Int8Array
                      , Int16Array
                      , Int32Array
@@ -834,7 +834,7 @@ namespace ReadableWritablePair
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ReadableWritablePair (Types t)}
     -> t
-    -> Attribute True I ReadableStream
+    -> Attribute True Prelude.id ReadableStream
   readable v = fromPrim
                  "ReadableWritablePair.getreadable"
                  prim__readable
@@ -847,7 +847,7 @@ namespace ReadableWritablePair
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem ReadableWritablePair (Types t)}
     -> t
-    -> Attribute True I WritableStream
+    -> Attribute True Prelude.id WritableStream
   writable v = fromPrim
                  "ReadableWritablePair.getwritable"
                  prim__writable

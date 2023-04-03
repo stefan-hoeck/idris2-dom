@@ -558,9 +558,9 @@ nodes to the body like so:
 ```idris
 addNodes : HTMLButtonElement -> HTMLDivElement -> HTMLDivElement -> JSIO ()
 addNodes btn txtDiv outDiv =
-  ignore $ (!body `append` [ Z $ btn :> Node
-                           , Z $ txtDiv :> Node
-                           , Z $ outDiv :> Node
+  ignore $ (!body `append` [ Here $ btn :> Node
+                           , Here $ txtDiv :> Node
+                           , Here $ outDiv :> Node
                            ])
 ```
 

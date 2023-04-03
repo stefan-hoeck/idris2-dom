@@ -66,7 +66,7 @@ namespace FormData
   get :
        (obj : FormData)
     -> (name : String)
-    -> JSIO (Maybe (NS I [File, String]))
+    -> JSIO (Maybe (HSum [File, String]))
   get a b = tryJS "FormData.get" $ FormData.prim__get a b
 
 
@@ -195,7 +195,9 @@ namespace XMLHttpRequest
 
 
   export
-  responseType : XMLHttpRequest -> Attribute True I XMLHttpRequestResponseType
+  responseType :
+       XMLHttpRequest
+    -> Attribute True Prelude.id XMLHttpRequestResponseType
   responseType v = fromPrim
                      "XMLHttpRequest.getresponseType"
                      prim__responseType
@@ -225,7 +227,7 @@ namespace XMLHttpRequest
 
 
   export
-  timeout : XMLHttpRequest -> Attribute True I Bits32
+  timeout : XMLHttpRequest -> Attribute True Prelude.id Bits32
   timeout v = fromPrim
                 "XMLHttpRequest.gettimeout"
                 prim__timeout
@@ -239,7 +241,7 @@ namespace XMLHttpRequest
 
 
   export
-  withCredentials : XMLHttpRequest -> Attribute True I Bool
+  withCredentials : XMLHttpRequest -> Attribute True Prelude.id Bool
   withCredentials v = fromPrim
                         "XMLHttpRequest.getwithCredentials"
                         prim__withCredentials
@@ -309,7 +311,7 @@ namespace XMLHttpRequest
        (obj : XMLHttpRequest)
     -> (body : Optional
                  (Maybe
-                    (NS I
+                    (HSum
                        [ Document
                        , Blob
                        , Int8Array

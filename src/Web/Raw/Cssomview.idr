@@ -211,7 +211,7 @@ namespace GeometryUtils
     -> {auto 0 _ : Elem ConvertCoordinateOptions (Types t4)}
     -> (obj : t1)
     -> (point : t2)
-    -> (from : NS I [Text, Element, CSSPseudoElement, Document])
+    -> (from : HSum [Text, Element, CSSPseudoElement, Document])
     -> (options : Optional t4)
     -> JSIO DOMPoint
   convertPointFromNode' a b c d = primJS $
@@ -225,7 +225,7 @@ namespace GeometryUtils
     -> {auto 0 _ : Elem DOMPointInit (Types t2)}
     -> (obj : t1)
     -> (point : t2)
-    -> (from : NS I [Text, Element, CSSPseudoElement, Document])
+    -> (from : HSum [Text, Element, CSSPseudoElement, Document])
     -> JSIO DOMPoint
   convertPointFromNode a b c = primJS $
     GeometryUtils.prim__convertPointFromNode (up a) (up b) (toFFI c) undef
@@ -241,7 +241,7 @@ namespace GeometryUtils
     -> {auto 0 _ : Elem ConvertCoordinateOptions (Types t4)}
     -> (obj : t1)
     -> (quad : t2)
-    -> (from : NS I [Text, Element, CSSPseudoElement, Document])
+    -> (from : HSum [Text, Element, CSSPseudoElement, Document])
     -> (options : Optional t4)
     -> JSIO DOMQuad
   convertQuadFromNode' a b c d = primJS $
@@ -255,7 +255,7 @@ namespace GeometryUtils
     -> {auto 0 _ : Elem DOMQuadInit (Types t2)}
     -> (obj : t1)
     -> (quad : t2)
-    -> (from : NS I [Text, Element, CSSPseudoElement, Document])
+    -> (from : HSum [Text, Element, CSSPseudoElement, Document])
     -> JSIO DOMQuad
   convertQuadFromNode a b c = primJS $
     GeometryUtils.prim__convertQuadFromNode (up a) (up b) (toFFI c) undef
@@ -271,7 +271,7 @@ namespace GeometryUtils
     -> {auto 0 _ : Elem ConvertCoordinateOptions (Types t4)}
     -> (obj : t1)
     -> (rect : t2)
-    -> (from : NS I [Text, Element, CSSPseudoElement, Document])
+    -> (from : HSum [Text, Element, CSSPseudoElement, Document])
     -> (options : Optional t4)
     -> JSIO DOMQuad
   convertRectFromNode' a b c d = primJS $
@@ -285,7 +285,7 @@ namespace GeometryUtils
     -> {auto 0 _ : Elem DOMRectReadOnly (Types t2)}
     -> (obj : t1)
     -> (rect : t2)
-    -> (from : NS I [Text, Element, CSSPseudoElement, Document])
+    -> (from : HSum [Text, Element, CSSPseudoElement, Document])
     -> JSIO DOMQuad
   convertRectFromNode a b c = primJS $
     GeometryUtils.prim__convertRectFromNode (up a) (up b) (toFFI c) undef
@@ -323,7 +323,7 @@ namespace BoxQuadOptions
   new' :
        (box : Optional CSSBoxType)
     -> (relativeTo : Optional
-                       (NS I [Text, Element, CSSPseudoElement, Document]))
+                       (HSum [Text, Element, CSSPseudoElement, Document]))
     -> JSIO BoxQuadOptions
   new' a b = primJS $ BoxQuadOptions.prim__new (toFFI a) (toFFI b)
 
@@ -350,7 +350,7 @@ namespace BoxQuadOptions
        {auto 0 _ : JSType t}
     -> {auto 0 _ : Elem BoxQuadOptions (Types t)}
     -> t
-    -> Attribute False Optional (NS I
+    -> Attribute False Optional (HSum
                                    [Text, Element, CSSPseudoElement, Document])
   relativeTo v = fromUndefOrPrimNoDefault
                    "BoxQuadOptions.getrelativeTo"

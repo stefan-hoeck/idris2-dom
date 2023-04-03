@@ -1511,7 +1511,7 @@ namespace WebGL2RenderingContextBase
     -> (obj : t1)
     -> (buffer : Bits32)
     -> (drawbuffer : Int32)
-    -> (values : NS I [Float32Array, Array Double])
+    -> (values : HSum [Float32Array, Array Double])
     -> (srcOffset : Optional Bits32)
     -> JSIO ()
   clearBufferfv' a b c d e = primJS $
@@ -1529,7 +1529,7 @@ namespace WebGL2RenderingContextBase
     -> (obj : t1)
     -> (buffer : Bits32)
     -> (drawbuffer : Int32)
-    -> (values : NS I [Float32Array, Array Double])
+    -> (values : HSum [Float32Array, Array Double])
     -> JSIO ()
   clearBufferfv a b c d = primJS $
     WebGL2RenderingContextBase.prim__clearBufferfv (up a) b c (toFFI d) undef
@@ -1542,7 +1542,7 @@ namespace WebGL2RenderingContextBase
     -> (obj : t1)
     -> (buffer : Bits32)
     -> (drawbuffer : Int32)
-    -> (values : NS I [Int32Array, Array Int32])
+    -> (values : HSum [Int32Array, Array Int32])
     -> (srcOffset : Optional Bits32)
     -> JSIO ()
   clearBufferiv' a b c d e = primJS $
@@ -1560,7 +1560,7 @@ namespace WebGL2RenderingContextBase
     -> (obj : t1)
     -> (buffer : Bits32)
     -> (drawbuffer : Int32)
-    -> (values : NS I [Int32Array, Array Int32])
+    -> (values : HSum [Int32Array, Array Int32])
     -> JSIO ()
   clearBufferiv a b c d = primJS $
     WebGL2RenderingContextBase.prim__clearBufferiv (up a) b c (toFFI d) undef
@@ -1573,7 +1573,7 @@ namespace WebGL2RenderingContextBase
     -> (obj : t1)
     -> (buffer : Bits32)
     -> (drawbuffer : Int32)
-    -> (values : NS I [UInt8Array, Array Bits32])
+    -> (values : HSum [UInt8Array, Array Bits32])
     -> (srcOffset : Optional Bits32)
     -> JSIO ()
   clearBufferuiv' a b c d e = primJS $
@@ -1591,7 +1591,7 @@ namespace WebGL2RenderingContextBase
     -> (obj : t1)
     -> (buffer : Bits32)
     -> (drawbuffer : Int32)
-    -> (values : NS I [UInt8Array, Array Bits32])
+    -> (values : HSum [UInt8Array, Array Bits32])
     -> JSIO ()
   clearBufferuiv a b c d = primJS $
     WebGL2RenderingContextBase.prim__clearBufferuiv (up a) b c (toFFI d) undef
@@ -1651,7 +1651,7 @@ namespace WebGL2RenderingContextBase
     -> (height : Int32)
     -> (depth : Int32)
     -> (border : Int32)
-    -> (srcData : NS I
+    -> (srcData : HSum
                     [ Int8Array
                     , Int16Array
                     , Int32Array
@@ -1692,7 +1692,7 @@ namespace WebGL2RenderingContextBase
     -> (height : Int32)
     -> (depth : Int32)
     -> (border : Int32)
-    -> (srcData : NS I
+    -> (srcData : HSum
                     [ Int8Array
                     , Int16Array
                     , Int32Array
@@ -1767,7 +1767,7 @@ namespace WebGL2RenderingContextBase
     -> (height : Int32)
     -> (depth : Int32)
     -> (format : Bits32)
-    -> (srcData : NS I
+    -> (srcData : HSum
                     [ Int8Array
                     , Int16Array
                     , Int32Array
@@ -1812,7 +1812,7 @@ namespace WebGL2RenderingContextBase
     -> (height : Int32)
     -> (depth : Int32)
     -> (format : Bits32)
-    -> (srcData : NS I
+    -> (srcData : HSum
                     [ Int8Array
                     , Int16Array
                     , Int32Array
@@ -2125,7 +2125,7 @@ namespace WebGL2RenderingContextBase
     -> (obj : t1)
     -> (target : Bits32)
     -> (srcByteOffset : JSInt64)
-    -> (dstBuffer : NS I
+    -> (dstBuffer : HSum
                       [ Int8Array
                       , Int16Array
                       , Int32Array
@@ -2156,7 +2156,7 @@ namespace WebGL2RenderingContextBase
     -> (obj : t1)
     -> (target : Bits32)
     -> (srcByteOffset : JSInt64)
-    -> (dstBuffer : NS I
+    -> (dstBuffer : HSum
                       [ Int8Array
                       , Int16Array
                       , Int32Array
@@ -2494,7 +2494,7 @@ namespace WebGL2RenderingContextBase
     -> (border : Int32)
     -> (format : Bits32)
     -> (type : Bits32)
-    -> (source : NS I
+    -> (source : HSum
                    [ ImageBitmap
                    , ImageData
                    , HTMLImageElement
@@ -2533,7 +2533,7 @@ namespace WebGL2RenderingContextBase
     -> (format : Bits32)
     -> (type : Bits32)
     -> (srcData : Maybe
-                    (NS I
+                    (HSum
                        [ Int8Array
                        , Int16Array
                        , Int32Array
@@ -2575,7 +2575,7 @@ namespace WebGL2RenderingContextBase
     -> (border : Int32)
     -> (format : Bits32)
     -> (type : Bits32)
-    -> (srcData : NS I
+    -> (srcData : HSum
                     [ Int8Array
                     , Int16Array
                     , Int32Array
@@ -2672,7 +2672,7 @@ namespace WebGL2RenderingContextBase
     -> (depth : Int32)
     -> (format : Bits32)
     -> (type : Bits32)
-    -> (source : NS I
+    -> (source : HSum
                    [ ImageBitmap
                    , ImageData
                    , HTMLImageElement
@@ -2713,7 +2713,7 @@ namespace WebGL2RenderingContextBase
     -> (format : Bits32)
     -> (type : Bits32)
     -> (srcData : Maybe
-                    (NS I
+                    (HSum
                        [ Int8Array
                        , Int16Array
                        , Int32Array
@@ -2759,7 +2759,7 @@ namespace WebGL2RenderingContextBase
     -> (format : Bits32)
     -> (type : Bits32)
     -> (srcData : Maybe
-                    (NS I
+                    (HSum
                        [ Int8Array
                        , Int16Array
                        , Int32Array
@@ -2820,7 +2820,7 @@ namespace WebGL2RenderingContextBase
     -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
-    -> (data_ : NS I [UInt8Array, Array Bits32])
+    -> (data_ : HSum [UInt8Array, Array Bits32])
     -> (srcOffset : Optional Bits32)
     -> (srcLength : Optional Bits32)
     -> JSIO ()
@@ -2838,7 +2838,7 @@ namespace WebGL2RenderingContextBase
     -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
-    -> (data_ : NS I [UInt8Array, Array Bits32])
+    -> (data_ : HSum [UInt8Array, Array Bits32])
     -> JSIO ()
   uniform1uiv a b c = primJS $
     WebGL2RenderingContextBase.prim__uniform1uiv
@@ -2868,7 +2868,7 @@ namespace WebGL2RenderingContextBase
     -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
-    -> (data_ : NS I [UInt8Array, Array Bits32])
+    -> (data_ : HSum [UInt8Array, Array Bits32])
     -> (srcOffset : Optional Bits32)
     -> (srcLength : Optional Bits32)
     -> JSIO ()
@@ -2886,7 +2886,7 @@ namespace WebGL2RenderingContextBase
     -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
-    -> (data_ : NS I [UInt8Array, Array Bits32])
+    -> (data_ : HSum [UInt8Array, Array Bits32])
     -> JSIO ()
   uniform2uiv a b c = primJS $
     WebGL2RenderingContextBase.prim__uniform2uiv
@@ -2917,7 +2917,7 @@ namespace WebGL2RenderingContextBase
     -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
-    -> (data_ : NS I [UInt8Array, Array Bits32])
+    -> (data_ : HSum [UInt8Array, Array Bits32])
     -> (srcOffset : Optional Bits32)
     -> (srcLength : Optional Bits32)
     -> JSIO ()
@@ -2935,7 +2935,7 @@ namespace WebGL2RenderingContextBase
     -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
-    -> (data_ : NS I [UInt8Array, Array Bits32])
+    -> (data_ : HSum [UInt8Array, Array Bits32])
     -> JSIO ()
   uniform3uiv a b c = primJS $
     WebGL2RenderingContextBase.prim__uniform3uiv
@@ -2967,7 +2967,7 @@ namespace WebGL2RenderingContextBase
     -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
-    -> (data_ : NS I [UInt8Array, Array Bits32])
+    -> (data_ : HSum [UInt8Array, Array Bits32])
     -> (srcOffset : Optional Bits32)
     -> (srcLength : Optional Bits32)
     -> JSIO ()
@@ -2985,7 +2985,7 @@ namespace WebGL2RenderingContextBase
     -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
-    -> (data_ : NS I [UInt8Array, Array Bits32])
+    -> (data_ : HSum [UInt8Array, Array Bits32])
     -> JSIO ()
   uniform4uiv a b c = primJS $
     WebGL2RenderingContextBase.prim__uniform4uiv
@@ -3016,7 +3016,7 @@ namespace WebGL2RenderingContextBase
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (transpose : Bool)
-    -> (data_ : NS I [Float32Array, Array Double])
+    -> (data_ : HSum [Float32Array, Array Double])
     -> (srcOffset : Optional Bits32)
     -> (srcLength : Optional Bits32)
     -> JSIO ()
@@ -3036,7 +3036,7 @@ namespace WebGL2RenderingContextBase
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (transpose : Bool)
-    -> (data_ : NS I [Float32Array, Array Double])
+    -> (data_ : HSum [Float32Array, Array Double])
     -> JSIO ()
   uniformMatrix2x3fv a b c d = primJS $
     WebGL2RenderingContextBase.prim__uniformMatrix2x3fv
@@ -3055,7 +3055,7 @@ namespace WebGL2RenderingContextBase
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (transpose : Bool)
-    -> (data_ : NS I [Float32Array, Array Double])
+    -> (data_ : HSum [Float32Array, Array Double])
     -> (srcOffset : Optional Bits32)
     -> (srcLength : Optional Bits32)
     -> JSIO ()
@@ -3075,7 +3075,7 @@ namespace WebGL2RenderingContextBase
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (transpose : Bool)
-    -> (data_ : NS I [Float32Array, Array Double])
+    -> (data_ : HSum [Float32Array, Array Double])
     -> JSIO ()
   uniformMatrix2x4fv a b c d = primJS $
     WebGL2RenderingContextBase.prim__uniformMatrix2x4fv
@@ -3094,7 +3094,7 @@ namespace WebGL2RenderingContextBase
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (transpose : Bool)
-    -> (data_ : NS I [Float32Array, Array Double])
+    -> (data_ : HSum [Float32Array, Array Double])
     -> (srcOffset : Optional Bits32)
     -> (srcLength : Optional Bits32)
     -> JSIO ()
@@ -3114,7 +3114,7 @@ namespace WebGL2RenderingContextBase
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (transpose : Bool)
-    -> (data_ : NS I [Float32Array, Array Double])
+    -> (data_ : HSum [Float32Array, Array Double])
     -> JSIO ()
   uniformMatrix3x2fv a b c d = primJS $
     WebGL2RenderingContextBase.prim__uniformMatrix3x2fv
@@ -3133,7 +3133,7 @@ namespace WebGL2RenderingContextBase
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (transpose : Bool)
-    -> (data_ : NS I [Float32Array, Array Double])
+    -> (data_ : HSum [Float32Array, Array Double])
     -> (srcOffset : Optional Bits32)
     -> (srcLength : Optional Bits32)
     -> JSIO ()
@@ -3153,7 +3153,7 @@ namespace WebGL2RenderingContextBase
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (transpose : Bool)
-    -> (data_ : NS I [Float32Array, Array Double])
+    -> (data_ : HSum [Float32Array, Array Double])
     -> JSIO ()
   uniformMatrix3x4fv a b c d = primJS $
     WebGL2RenderingContextBase.prim__uniformMatrix3x4fv
@@ -3172,7 +3172,7 @@ namespace WebGL2RenderingContextBase
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (transpose : Bool)
-    -> (data_ : NS I [Float32Array, Array Double])
+    -> (data_ : HSum [Float32Array, Array Double])
     -> (srcOffset : Optional Bits32)
     -> (srcLength : Optional Bits32)
     -> JSIO ()
@@ -3192,7 +3192,7 @@ namespace WebGL2RenderingContextBase
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (transpose : Bool)
-    -> (data_ : NS I [Float32Array, Array Double])
+    -> (data_ : HSum [Float32Array, Array Double])
     -> JSIO ()
   uniformMatrix4x2fv a b c d = primJS $
     WebGL2RenderingContextBase.prim__uniformMatrix4x2fv
@@ -3211,7 +3211,7 @@ namespace WebGL2RenderingContextBase
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (transpose : Bool)
-    -> (data_ : NS I [Float32Array, Array Double])
+    -> (data_ : HSum [Float32Array, Array Double])
     -> (srcOffset : Optional Bits32)
     -> (srcLength : Optional Bits32)
     -> JSIO ()
@@ -3231,7 +3231,7 @@ namespace WebGL2RenderingContextBase
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (transpose : Bool)
-    -> (data_ : NS I [Float32Array, Array Double])
+    -> (data_ : HSum [Float32Array, Array Double])
     -> JSIO ()
   uniformMatrix4x3fv a b c d = primJS $
     WebGL2RenderingContextBase.prim__uniformMatrix4x3fv
@@ -3276,7 +3276,7 @@ namespace WebGL2RenderingContextBase
     -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
     -> (obj : t1)
     -> (index : Bits32)
-    -> (values : NS I [Int32Array, Array Int32])
+    -> (values : HSum [Int32Array, Array Int32])
     -> JSIO ()
   vertexAttribI4iv a b c = primJS $
     WebGL2RenderingContextBase.prim__vertexAttribI4iv (up a) b (toFFI c)
@@ -3303,7 +3303,7 @@ namespace WebGL2RenderingContextBase
     -> {auto 0 _ : Elem WebGL2RenderingContextBase (Types t1)}
     -> (obj : t1)
     -> (index : Bits32)
-    -> (values : NS I [UInt8Array, Array Bits32])
+    -> (values : HSum [UInt8Array, Array Bits32])
     -> JSIO ()
   vertexAttribI4uiv a b c = primJS $
     WebGL2RenderingContextBase.prim__vertexAttribI4uiv (up a) b (toFFI c)
@@ -3360,7 +3360,7 @@ namespace WebGL2RenderingContextOverloads
     -> (obj : t1)
     -> (target : Bits32)
     -> (srcData : Maybe
-                    (NS I
+                    (HSum
                        [ Int8Array
                        , Int16Array
                        , Int32Array
@@ -3385,7 +3385,7 @@ namespace WebGL2RenderingContextOverloads
     -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
     -> (obj : t1)
     -> (target : Bits32)
-    -> (srcData : NS I
+    -> (srcData : HSum
                     [ Int8Array
                     , Int16Array
                     , Int32Array
@@ -3416,7 +3416,7 @@ namespace WebGL2RenderingContextOverloads
     -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
     -> (obj : t1)
     -> (target : Bits32)
-    -> (srcData : NS I
+    -> (srcData : HSum
                     [ Int8Array
                     , Int16Array
                     , Int32Array
@@ -3448,7 +3448,7 @@ namespace WebGL2RenderingContextOverloads
     -> (obj : t1)
     -> (target : Bits32)
     -> (dstByteOffset : JSInt64)
-    -> (srcData : NS I
+    -> (srcData : HSum
                     [ Int8Array
                     , Int16Array
                     , Int32Array
@@ -3473,7 +3473,7 @@ namespace WebGL2RenderingContextOverloads
     -> (obj : t1)
     -> (target : Bits32)
     -> (dstByteOffset : JSInt64)
-    -> (srcData : NS I
+    -> (srcData : HSum
                     [ Int8Array
                     , Int16Array
                     , Int32Array
@@ -3504,7 +3504,7 @@ namespace WebGL2RenderingContextOverloads
     -> (obj : t1)
     -> (target : Bits32)
     -> (dstByteOffset : JSInt64)
-    -> (srcData : NS I
+    -> (srcData : HSum
                     [ Int8Array
                     , Int16Array
                     , Int32Array
@@ -3566,7 +3566,7 @@ namespace WebGL2RenderingContextOverloads
     -> (width : Int32)
     -> (height : Int32)
     -> (border : Int32)
-    -> (srcData : NS I
+    -> (srcData : HSum
                     [ Int8Array
                     , Int16Array
                     , Int32Array
@@ -3605,7 +3605,7 @@ namespace WebGL2RenderingContextOverloads
     -> (width : Int32)
     -> (height : Int32)
     -> (border : Int32)
-    -> (srcData : NS I
+    -> (srcData : HSum
                     [ Int8Array
                     , Int16Array
                     , Int32Array
@@ -3673,7 +3673,7 @@ namespace WebGL2RenderingContextOverloads
     -> (width : Int32)
     -> (height : Int32)
     -> (format : Bits32)
-    -> (srcData : NS I
+    -> (srcData : HSum
                     [ Int8Array
                     , Int16Array
                     , Int32Array
@@ -3714,7 +3714,7 @@ namespace WebGL2RenderingContextOverloads
     -> (width : Int32)
     -> (height : Int32)
     -> (format : Bits32)
-    -> (srcData : NS I
+    -> (srcData : HSum
                     [ Int8Array
                     , Int16Array
                     , Int32Array
@@ -3754,7 +3754,7 @@ namespace WebGL2RenderingContextOverloads
     -> (format : Bits32)
     -> (type : Bits32)
     -> (dstData : Maybe
-                    (NS I
+                    (HSum
                        [ Int8Array
                        , Int16Array
                        , Int32Array
@@ -3807,7 +3807,7 @@ namespace WebGL2RenderingContextOverloads
     -> (height : Int32)
     -> (format : Bits32)
     -> (type : Bits32)
-    -> (dstData : NS I
+    -> (dstData : HSum
                     [ Int8Array
                     , Int16Array
                     , Int32Array
@@ -3848,7 +3848,7 @@ namespace WebGL2RenderingContextOverloads
     -> (format : Bits32)
     -> (type : Bits32)
     -> (pixels : Maybe
-                   (NS I
+                   (HSum
                       [ Int8Array
                       , Int16Array
                       , Int32Array
@@ -3885,7 +3885,7 @@ namespace WebGL2RenderingContextOverloads
     -> (internalformat : Int32)
     -> (format : Bits32)
     -> (type : Bits32)
-    -> (source : NS I
+    -> (source : HSum
                    [ ImageBitmap
                    , ImageData
                    , HTMLImageElement
@@ -3930,7 +3930,7 @@ namespace WebGL2RenderingContextOverloads
     -> (border : Int32)
     -> (format : Bits32)
     -> (type : Bits32)
-    -> (source : NS I
+    -> (source : HSum
                    [ ImageBitmap
                    , ImageData
                    , HTMLImageElement
@@ -3966,7 +3966,7 @@ namespace WebGL2RenderingContextOverloads
     -> (border : Int32)
     -> (format : Bits32)
     -> (type : Bits32)
-    -> (srcData : NS I
+    -> (srcData : HSum
                     [ Int8Array
                     , Int16Array
                     , Int32Array
@@ -4009,7 +4009,7 @@ namespace WebGL2RenderingContextOverloads
     -> (format : Bits32)
     -> (type : Bits32)
     -> (pixels : Maybe
-                   (NS I
+                   (HSum
                       [ Int8Array
                       , Int16Array
                       , Int32Array
@@ -4047,7 +4047,7 @@ namespace WebGL2RenderingContextOverloads
     -> (yoffset : Int32)
     -> (format : Bits32)
     -> (type : Bits32)
-    -> (source : NS I
+    -> (source : HSum
                    [ ImageBitmap
                    , ImageData
                    , HTMLImageElement
@@ -4110,7 +4110,7 @@ namespace WebGL2RenderingContextOverloads
     -> (height : Int32)
     -> (format : Bits32)
     -> (type : Bits32)
-    -> (source : NS I
+    -> (source : HSum
                    [ ImageBitmap
                    , ImageData
                    , HTMLImageElement
@@ -4146,7 +4146,7 @@ namespace WebGL2RenderingContextOverloads
     -> (height : Int32)
     -> (format : Bits32)
     -> (type : Bits32)
-    -> (srcData : NS I
+    -> (srcData : HSum
                     [ Int8Array
                     , Int16Array
                     , Int32Array
@@ -4181,7 +4181,7 @@ namespace WebGL2RenderingContextOverloads
     -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
-    -> (data_ : NS I [Float32Array, Array Double])
+    -> (data_ : HSum [Float32Array, Array Double])
     -> (srcOffset : Optional Bits32)
     -> (srcLength : Optional Bits32)
     -> JSIO ()
@@ -4199,7 +4199,7 @@ namespace WebGL2RenderingContextOverloads
     -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
-    -> (data_ : NS I [Float32Array, Array Double])
+    -> (data_ : HSum [Float32Array, Array Double])
     -> JSIO ()
   uniform1fv a b c = primJS $
     WebGL2RenderingContextOverloads.prim__uniform1fv
@@ -4216,7 +4216,7 @@ namespace WebGL2RenderingContextOverloads
     -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
-    -> (data_ : NS I [Int32Array, Array Int32])
+    -> (data_ : HSum [Int32Array, Array Int32])
     -> (srcOffset : Optional Bits32)
     -> (srcLength : Optional Bits32)
     -> JSIO ()
@@ -4234,7 +4234,7 @@ namespace WebGL2RenderingContextOverloads
     -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
-    -> (data_ : NS I [Int32Array, Array Int32])
+    -> (data_ : HSum [Int32Array, Array Int32])
     -> JSIO ()
   uniform1iv a b c = primJS $
     WebGL2RenderingContextOverloads.prim__uniform1iv
@@ -4251,7 +4251,7 @@ namespace WebGL2RenderingContextOverloads
     -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
-    -> (data_ : NS I [Float32Array, Array Double])
+    -> (data_ : HSum [Float32Array, Array Double])
     -> (srcOffset : Optional Bits32)
     -> (srcLength : Optional Bits32)
     -> JSIO ()
@@ -4269,7 +4269,7 @@ namespace WebGL2RenderingContextOverloads
     -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
-    -> (data_ : NS I [Float32Array, Array Double])
+    -> (data_ : HSum [Float32Array, Array Double])
     -> JSIO ()
   uniform2fv a b c = primJS $
     WebGL2RenderingContextOverloads.prim__uniform2fv
@@ -4286,7 +4286,7 @@ namespace WebGL2RenderingContextOverloads
     -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
-    -> (data_ : NS I [Int32Array, Array Int32])
+    -> (data_ : HSum [Int32Array, Array Int32])
     -> (srcOffset : Optional Bits32)
     -> (srcLength : Optional Bits32)
     -> JSIO ()
@@ -4304,7 +4304,7 @@ namespace WebGL2RenderingContextOverloads
     -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
-    -> (data_ : NS I [Int32Array, Array Int32])
+    -> (data_ : HSum [Int32Array, Array Int32])
     -> JSIO ()
   uniform2iv a b c = primJS $
     WebGL2RenderingContextOverloads.prim__uniform2iv
@@ -4321,7 +4321,7 @@ namespace WebGL2RenderingContextOverloads
     -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
-    -> (data_ : NS I [Float32Array, Array Double])
+    -> (data_ : HSum [Float32Array, Array Double])
     -> (srcOffset : Optional Bits32)
     -> (srcLength : Optional Bits32)
     -> JSIO ()
@@ -4339,7 +4339,7 @@ namespace WebGL2RenderingContextOverloads
     -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
-    -> (data_ : NS I [Float32Array, Array Double])
+    -> (data_ : HSum [Float32Array, Array Double])
     -> JSIO ()
   uniform3fv a b c = primJS $
     WebGL2RenderingContextOverloads.prim__uniform3fv
@@ -4356,7 +4356,7 @@ namespace WebGL2RenderingContextOverloads
     -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
-    -> (data_ : NS I [Int32Array, Array Int32])
+    -> (data_ : HSum [Int32Array, Array Int32])
     -> (srcOffset : Optional Bits32)
     -> (srcLength : Optional Bits32)
     -> JSIO ()
@@ -4374,7 +4374,7 @@ namespace WebGL2RenderingContextOverloads
     -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
-    -> (data_ : NS I [Int32Array, Array Int32])
+    -> (data_ : HSum [Int32Array, Array Int32])
     -> JSIO ()
   uniform3iv a b c = primJS $
     WebGL2RenderingContextOverloads.prim__uniform3iv
@@ -4391,7 +4391,7 @@ namespace WebGL2RenderingContextOverloads
     -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
-    -> (data_ : NS I [Float32Array, Array Double])
+    -> (data_ : HSum [Float32Array, Array Double])
     -> (srcOffset : Optional Bits32)
     -> (srcLength : Optional Bits32)
     -> JSIO ()
@@ -4409,7 +4409,7 @@ namespace WebGL2RenderingContextOverloads
     -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
-    -> (data_ : NS I [Float32Array, Array Double])
+    -> (data_ : HSum [Float32Array, Array Double])
     -> JSIO ()
   uniform4fv a b c = primJS $
     WebGL2RenderingContextOverloads.prim__uniform4fv
@@ -4426,7 +4426,7 @@ namespace WebGL2RenderingContextOverloads
     -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
-    -> (data_ : NS I [Int32Array, Array Int32])
+    -> (data_ : HSum [Int32Array, Array Int32])
     -> (srcOffset : Optional Bits32)
     -> (srcLength : Optional Bits32)
     -> JSIO ()
@@ -4444,7 +4444,7 @@ namespace WebGL2RenderingContextOverloads
     -> {auto 0 _ : Elem WebGL2RenderingContextOverloads (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
-    -> (data_ : NS I [Int32Array, Array Int32])
+    -> (data_ : HSum [Int32Array, Array Int32])
     -> JSIO ()
   uniform4iv a b c = primJS $
     WebGL2RenderingContextOverloads.prim__uniform4iv
@@ -4462,7 +4462,7 @@ namespace WebGL2RenderingContextOverloads
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (transpose : Bool)
-    -> (data_ : NS I [Float32Array, Array Double])
+    -> (data_ : HSum [Float32Array, Array Double])
     -> (srcOffset : Optional Bits32)
     -> (srcLength : Optional Bits32)
     -> JSIO ()
@@ -4482,7 +4482,7 @@ namespace WebGL2RenderingContextOverloads
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (transpose : Bool)
-    -> (data_ : NS I [Float32Array, Array Double])
+    -> (data_ : HSum [Float32Array, Array Double])
     -> JSIO ()
   uniformMatrix2fv a b c d = primJS $
     WebGL2RenderingContextOverloads.prim__uniformMatrix2fv
@@ -4501,7 +4501,7 @@ namespace WebGL2RenderingContextOverloads
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (transpose : Bool)
-    -> (data_ : NS I [Float32Array, Array Double])
+    -> (data_ : HSum [Float32Array, Array Double])
     -> (srcOffset : Optional Bits32)
     -> (srcLength : Optional Bits32)
     -> JSIO ()
@@ -4521,7 +4521,7 @@ namespace WebGL2RenderingContextOverloads
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (transpose : Bool)
-    -> (data_ : NS I [Float32Array, Array Double])
+    -> (data_ : HSum [Float32Array, Array Double])
     -> JSIO ()
   uniformMatrix3fv a b c d = primJS $
     WebGL2RenderingContextOverloads.prim__uniformMatrix3fv
@@ -4540,7 +4540,7 @@ namespace WebGL2RenderingContextOverloads
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (transpose : Bool)
-    -> (data_ : NS I [Float32Array, Array Double])
+    -> (data_ : HSum [Float32Array, Array Double])
     -> (srcOffset : Optional Bits32)
     -> (srcLength : Optional Bits32)
     -> JSIO ()
@@ -4560,7 +4560,7 @@ namespace WebGL2RenderingContextOverloads
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (transpose : Bool)
-    -> (data_ : NS I [Float32Array, Array Double])
+    -> (data_ : HSum [Float32Array, Array Double])
     -> JSIO ()
   uniformMatrix4fv a b c d = primJS $
     WebGL2RenderingContextOverloads.prim__uniformMatrix4fv
@@ -6060,7 +6060,7 @@ namespace WebGLRenderingContextBase
        {auto 0 _ : JSType t1}
     -> {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
     -> (obj : t1)
-    -> JSIO (NS I [HTMLCanvasElement, OffscreenCanvas])
+    -> JSIO (HSum [HTMLCanvasElement, OffscreenCanvas])
   canvas a = tryJS "WebGLRenderingContextBase.canvas" $
     WebGLRenderingContextBase.prim__canvas (up a)
 
@@ -7394,7 +7394,7 @@ namespace WebGLRenderingContextBase
     -> {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
     -> (obj : t1)
     -> (index : Bits32)
-    -> (values : NS I [Float32Array, Array Double])
+    -> (values : HSum [Float32Array, Array Double])
     -> JSIO ()
   vertexAttrib1fv a b c = primJS $
     WebGLRenderingContextBase.prim__vertexAttrib1fv (up a) b (toFFI c)
@@ -7419,7 +7419,7 @@ namespace WebGLRenderingContextBase
     -> {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
     -> (obj : t1)
     -> (index : Bits32)
-    -> (values : NS I [Float32Array, Array Double])
+    -> (values : HSum [Float32Array, Array Double])
     -> JSIO ()
   vertexAttrib2fv a b c = primJS $
     WebGLRenderingContextBase.prim__vertexAttrib2fv (up a) b (toFFI c)
@@ -7445,7 +7445,7 @@ namespace WebGLRenderingContextBase
     -> {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
     -> (obj : t1)
     -> (index : Bits32)
-    -> (values : NS I [Float32Array, Array Double])
+    -> (values : HSum [Float32Array, Array Double])
     -> JSIO ()
   vertexAttrib3fv a b c = primJS $
     WebGLRenderingContextBase.prim__vertexAttrib3fv (up a) b (toFFI c)
@@ -7472,7 +7472,7 @@ namespace WebGLRenderingContextBase
     -> {auto 0 _ : Elem WebGLRenderingContextBase (Types t1)}
     -> (obj : t1)
     -> (index : Bits32)
-    -> (values : NS I [Float32Array, Array Double])
+    -> (values : HSum [Float32Array, Array Double])
     -> JSIO ()
   vertexAttrib4fv a b c = primJS $
     WebGLRenderingContextBase.prim__vertexAttrib4fv (up a) b (toFFI c)
@@ -7538,7 +7538,7 @@ namespace WebGLRenderingContextOverloads
     -> (obj : t1)
     -> (target : Bits32)
     -> (data_ : Maybe
-                  (NS I
+                  (HSum
                      [ Int8Array
                      , Int16Array
                      , Int32Array
@@ -7564,7 +7564,7 @@ namespace WebGLRenderingContextOverloads
     -> (obj : t1)
     -> (target : Bits32)
     -> (offset : JSInt64)
-    -> (data_ : NS I
+    -> (data_ : HSum
                   [ Int8Array
                   , Int16Array
                   , Int32Array
@@ -7593,7 +7593,7 @@ namespace WebGLRenderingContextOverloads
     -> (width : Int32)
     -> (height : Int32)
     -> (border : Int32)
-    -> (data_ : NS I
+    -> (data_ : HSum
                   [ Int8Array
                   , Int16Array
                   , Int32Array
@@ -7630,7 +7630,7 @@ namespace WebGLRenderingContextOverloads
     -> (width : Int32)
     -> (height : Int32)
     -> (format : Bits32)
-    -> (data_ : NS I
+    -> (data_ : HSum
                   [ Int8Array
                   , Int16Array
                   , Int32Array
@@ -7668,7 +7668,7 @@ namespace WebGLRenderingContextOverloads
     -> (format : Bits32)
     -> (type : Bits32)
     -> (pixels : Maybe
-                   (NS I
+                   (HSum
                       [ Int8Array
                       , Int16Array
                       , Int32Array
@@ -7699,7 +7699,7 @@ namespace WebGLRenderingContextOverloads
     -> (format : Bits32)
     -> (type : Bits32)
     -> (pixels : Maybe
-                   (NS I
+                   (HSum
                       [ Int8Array
                       , Int16Array
                       , Int32Array
@@ -7736,7 +7736,7 @@ namespace WebGLRenderingContextOverloads
     -> (internalformat : Int32)
     -> (format : Bits32)
     -> (type : Bits32)
-    -> (source : NS I
+    -> (source : HSum
                    [ ImageBitmap
                    , ImageData
                    , HTMLImageElement
@@ -7763,7 +7763,7 @@ namespace WebGLRenderingContextOverloads
     -> (format : Bits32)
     -> (type : Bits32)
     -> (pixels : Maybe
-                   (NS I
+                   (HSum
                       [ Int8Array
                       , Int16Array
                       , Int32Array
@@ -7801,7 +7801,7 @@ namespace WebGLRenderingContextOverloads
     -> (yoffset : Int32)
     -> (format : Bits32)
     -> (type : Bits32)
-    -> (source : NS I
+    -> (source : HSum
                    [ ImageBitmap
                    , ImageData
                    , HTMLImageElement
@@ -7828,7 +7828,7 @@ namespace WebGLRenderingContextOverloads
     -> {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
-    -> (v : NS I [Float32Array, Array Double])
+    -> (v : HSum [Float32Array, Array Double])
     -> JSIO ()
   uniform1fv a b c = primJS $
     WebGLRenderingContextOverloads.prim__uniform1fv (up a) (toFFI b) (toFFI c)
@@ -7840,7 +7840,7 @@ namespace WebGLRenderingContextOverloads
     -> {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
-    -> (v : NS I [Int32Array, Array Int32])
+    -> (v : HSum [Int32Array, Array Int32])
     -> JSIO ()
   uniform1iv a b c = primJS $
     WebGLRenderingContextOverloads.prim__uniform1iv (up a) (toFFI b) (toFFI c)
@@ -7852,7 +7852,7 @@ namespace WebGLRenderingContextOverloads
     -> {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
-    -> (v : NS I [Float32Array, Array Double])
+    -> (v : HSum [Float32Array, Array Double])
     -> JSIO ()
   uniform2fv a b c = primJS $
     WebGLRenderingContextOverloads.prim__uniform2fv (up a) (toFFI b) (toFFI c)
@@ -7864,7 +7864,7 @@ namespace WebGLRenderingContextOverloads
     -> {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
-    -> (v : NS I [Int32Array, Array Int32])
+    -> (v : HSum [Int32Array, Array Int32])
     -> JSIO ()
   uniform2iv a b c = primJS $
     WebGLRenderingContextOverloads.prim__uniform2iv (up a) (toFFI b) (toFFI c)
@@ -7876,7 +7876,7 @@ namespace WebGLRenderingContextOverloads
     -> {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
-    -> (v : NS I [Float32Array, Array Double])
+    -> (v : HSum [Float32Array, Array Double])
     -> JSIO ()
   uniform3fv a b c = primJS $
     WebGLRenderingContextOverloads.prim__uniform3fv (up a) (toFFI b) (toFFI c)
@@ -7888,7 +7888,7 @@ namespace WebGLRenderingContextOverloads
     -> {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
-    -> (v : NS I [Int32Array, Array Int32])
+    -> (v : HSum [Int32Array, Array Int32])
     -> JSIO ()
   uniform3iv a b c = primJS $
     WebGLRenderingContextOverloads.prim__uniform3iv (up a) (toFFI b) (toFFI c)
@@ -7900,7 +7900,7 @@ namespace WebGLRenderingContextOverloads
     -> {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
-    -> (v : NS I [Float32Array, Array Double])
+    -> (v : HSum [Float32Array, Array Double])
     -> JSIO ()
   uniform4fv a b c = primJS $
     WebGLRenderingContextOverloads.prim__uniform4fv (up a) (toFFI b) (toFFI c)
@@ -7912,7 +7912,7 @@ namespace WebGLRenderingContextOverloads
     -> {auto 0 _ : Elem WebGLRenderingContextOverloads (Types t1)}
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
-    -> (v : NS I [Int32Array, Array Int32])
+    -> (v : HSum [Int32Array, Array Int32])
     -> JSIO ()
   uniform4iv a b c = primJS $
     WebGLRenderingContextOverloads.prim__uniform4iv (up a) (toFFI b) (toFFI c)
@@ -7925,7 +7925,7 @@ namespace WebGLRenderingContextOverloads
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (transpose : Bool)
-    -> (value : NS I [Float32Array, Array Double])
+    -> (value : HSum [Float32Array, Array Double])
     -> JSIO ()
   uniformMatrix2fv a b c d = primJS $
     WebGLRenderingContextOverloads.prim__uniformMatrix2fv
@@ -7942,7 +7942,7 @@ namespace WebGLRenderingContextOverloads
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (transpose : Bool)
-    -> (value : NS I [Float32Array, Array Double])
+    -> (value : HSum [Float32Array, Array Double])
     -> JSIO ()
   uniformMatrix3fv a b c d = primJS $
     WebGLRenderingContextOverloads.prim__uniformMatrix3fv
@@ -7959,7 +7959,7 @@ namespace WebGLRenderingContextOverloads
     -> (obj : t1)
     -> (location : Maybe WebGLUniformLocation)
     -> (transpose : Bool)
-    -> (value : NS I [Float32Array, Array Double])
+    -> (value : HSum [Float32Array, Array Double])
     -> JSIO ()
   uniformMatrix4fv a b c d = primJS $
     WebGLRenderingContextOverloads.prim__uniformMatrix4fv
