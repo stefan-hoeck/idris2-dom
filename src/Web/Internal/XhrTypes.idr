@@ -47,13 +47,6 @@ namespace XMLHttpRequestResponseType
   read "text" = Just Text
   read _ = Nothing
 
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (XMLHttpRequestResponseType.read s)}
-    -> XMLHttpRequestResponseType
-  fromString s = fromJust $ read s
-
   export
   ToFFI XMLHttpRequestResponseType String where
     toFFI = show

@@ -33,13 +33,6 @@ namespace EndingType
   read "native" = Just Native
   read _ = Nothing
 
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (EndingType.read s)}
-    -> EndingType
-  fromString s = fromJust $ read s
-
   export
   ToFFI EndingType String where
     toFFI = show

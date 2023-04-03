@@ -35,13 +35,6 @@ namespace ReadyState
   read "ended" = Just Ended
   read _ = Nothing
 
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (ReadyState.read s)}
-    -> ReadyState
-  fromString s = fromJust $ read s
-
   export
   ToFFI ReadyState String where
     toFFI = show
@@ -75,13 +68,6 @@ namespace EndOfStreamError
   read "decode" = Just Decode
   read _ = Nothing
 
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (EndOfStreamError.read s)}
-    -> EndOfStreamError
-  fromString s = fromJust $ read s
-
   export
   ToFFI EndOfStreamError String where
     toFFI = show
@@ -114,13 +100,6 @@ namespace AppendMode
   read "segments" = Just Segments
   read "sequence" = Just Sequence
   read _ = Nothing
-
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (AppendMode.read s)}
-    -> AppendMode
-  fromString s = fromJust $ read s
 
   export
   ToFFI AppendMode String where

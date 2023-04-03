@@ -37,13 +37,6 @@ namespace AnimationPlayState
   read "finished" = Just Finished
   read _ = Nothing
 
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (AnimationPlayState.read s)}
-    -> AnimationPlayState
-  fromString s = fromJust $ read s
-
   export
   ToFFI AnimationPlayState String where
     toFFI = show
@@ -83,10 +76,6 @@ namespace FillMode
   read "auto" = Just Auto
   read _ = Nothing
 
-  public export
-  fromString : (s : String) -> {auto 0 _ : IsJust (FillMode.read s)} -> FillMode
-  fromString s = fromJust $ read s
-
   export
   ToFFI FillMode String where
     toFFI = show
@@ -124,13 +113,6 @@ namespace PlaybackDirection
   read "alternate-reverse" = Just AlternateReverse
   read _ = Nothing
 
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (PlaybackDirection.read s)}
-    -> PlaybackDirection
-  fromString s = fromJust $ read s
-
   export
   ToFFI PlaybackDirection String where
     toFFI = show
@@ -163,13 +145,6 @@ namespace IterationCompositeOperation
   read "replace" = Just Replace
   read "accumulate" = Just Accumulate
   read _ = Nothing
-
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (IterationCompositeOperation.read s)}
-    -> IterationCompositeOperation
-  fromString s = fromJust $ read s
 
   export
   ToFFI IterationCompositeOperation String where
@@ -205,13 +180,6 @@ namespace CompositeOperation
   read "add" = Just Add
   read "accumulate" = Just Accumulate
   read _ = Nothing
-
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (CompositeOperation.read s)}
-    -> CompositeOperation
-  fromString s = fromJust $ read s
 
   export
   ToFFI CompositeOperation String where
@@ -249,13 +217,6 @@ namespace CompositeOperationOrAuto
   read "accumulate" = Just Accumulate
   read "auto" = Just Auto
   read _ = Nothing
-
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (CompositeOperationOrAuto.read s)}
-    -> CompositeOperationOrAuto
-  fromString s = fromJust $ read s
 
   export
   ToFFI CompositeOperationOrAuto String where

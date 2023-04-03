@@ -35,13 +35,6 @@ namespace PresentationStyle
   read "attachment" = Just Attachment
   read _ = Nothing
 
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (PresentationStyle.read s)}
-    -> PresentationStyle
-  fromString s = fromJust $ read s
-
   export
   ToFFI PresentationStyle String where
     toFFI = show

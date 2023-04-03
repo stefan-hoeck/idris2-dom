@@ -33,13 +33,6 @@ namespace VisibilityState
   read "visible" = Just Visible
   read _ = Nothing
 
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (VisibilityState.read s)}
-    -> VisibilityState
-  fromString s = fromJust $ read s
-
   export
   ToFFI VisibilityState String where
     toFFI = show

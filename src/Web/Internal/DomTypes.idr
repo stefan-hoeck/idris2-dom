@@ -33,13 +33,6 @@ namespace ShadowRootMode
   read "closed" = Just Closed
   read _ = Nothing
 
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (ShadowRootMode.read s)}
-    -> ShadowRootMode
-  fromString s = fromJust $ read s
-
   export
   ToFFI ShadowRootMode String where
     toFFI = show

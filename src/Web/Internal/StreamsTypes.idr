@@ -31,13 +31,6 @@ namespace ReadableStreamReaderMode
   read "byob" = Just Byob
   read _ = Nothing
 
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (ReadableStreamReaderMode.read s)}
-    -> ReadableStreamReaderMode
-  fromString s = fromJust $ read s
-
   export
   ToFFI ReadableStreamReaderMode String where
     toFFI = show
@@ -68,13 +61,6 @@ namespace ReadableStreamType
   read : String -> Maybe ReadableStreamType
   read "bytes" = Just Bytes
   read _ = Nothing
-
-  public export
-  fromString :
-       (s : String)
-    -> {auto 0 _ : IsJust (ReadableStreamType.read s)}
-    -> ReadableStreamType
-  fromString s = fromJust $ read s
 
   export
   ToFFI ReadableStreamType String where
