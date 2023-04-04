@@ -29,17 +29,12 @@ appFromFFI []       x         = absurd x
 --          Union2
 --------------------------------------------------------------------------------
 
--- TODO: Add this to quantifiers-extra
-collapseAny : {0 s : Type} -> Any (Prelude.const s) ts -> s
-collapseAny (Here x)  = x
-collapseAny (There x) = collapseAny x
-
 export
 data Union2 : Type -> Type -> Type where [external]
 
 export
 toUnion2 : HSum [a,b] -> Union2 a b
-toUnion2 = collapseAny . mapProperty believe_me
+toUnion2 = collapse' . hmap believe_me
 
 export
 fromUnion2 : All SafeCast [a,b] => Union2 a b -> Maybe $ HSum [a,b]
@@ -72,7 +67,7 @@ data Union3 : Type -> Type -> Type -> Type where [external]
 
 export
 toUnion3 : HSum [a,b,c] -> Union3 a b c
-toUnion3 = collapseAny . mapProperty believe_me
+toUnion3 = collapse' . hmap believe_me
 
 export
 fromUnion3 : All SafeCast [a,b,c] => Union3 a b c -> Maybe $ HSum [a,b,c]
@@ -105,7 +100,7 @@ data Union4 : Type -> Type -> Type -> Type -> Type where [external]
 
 export
 toUnion4 : HSum [a,b,c,d] -> Union4 a b c d
-toUnion4 = collapseAny . mapProperty believe_me
+toUnion4 = collapse' . hmap believe_me
 
 export
 fromUnion4 : All SafeCast [a,b,c,d] => Union4 a b c d -> Maybe $ HSum [a,b,c,d]
@@ -138,7 +133,7 @@ data Union5 : Type -> Type -> Type -> Type -> Type -> Type where [external]
 
 export
 toUnion5 : HSum [a,b,c,d,e] -> Union5 a b c d e
-toUnion5 = collapseAny . mapProperty believe_me
+toUnion5 = collapse' . hmap believe_me
 
 export
 fromUnion5 : All SafeCast [a,b,c,d,e] =>
@@ -172,7 +167,7 @@ data Union6 : Type -> Type -> Type -> Type -> Type -> Type -> Type where [extern
 
 export
 toUnion6 : HSum [a,b,c,d,e,f] -> Union6 a b c d e f
-toUnion6 = collapseAny . mapProperty believe_me
+toUnion6 = collapse' . hmap believe_me
 
 export
 fromUnion6 : All SafeCast [a,b,c,d,e,f] =>
@@ -207,7 +202,7 @@ data Union7 : Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type where
 
 export
 toUnion7 : HSum [a,b,c,d,e,f,g] -> Union7 a b c d e f g
-toUnion7 = collapseAny . mapProperty believe_me
+toUnion7 = collapse' . hmap believe_me
 
 export
 fromUnion7 : All SafeCast [a,b,c,d,e,f,g] =>
@@ -242,7 +237,7 @@ data Union8 : Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Ty
 
 export
 toUnion8 : HSum [a,b,c,d,e,f,g,h] -> Union8 a b c d e f g h
-toUnion8 = collapseAny . mapProperty believe_me
+toUnion8 = collapse' . hmap believe_me
 
 export
 fromUnion8 : All SafeCast [a,b,c,d,e,f,g,h] =>
@@ -277,7 +272,7 @@ data Union9 : Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Ty
 
 export
 toUnion9 : HSum [a,b,c,d,e,f,g,h,i] -> Union9 a b c d e f g h i
-toUnion9 = collapseAny . mapProperty believe_me
+toUnion9 = collapse' . hmap believe_me
 
 export
 fromUnion9 : All SafeCast [a,b,c,d,e,f,g,h,i] =>
@@ -312,7 +307,7 @@ data Union10 : Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> T
 
 export
 toUnion10 : HSum [a,b,c,d,e,f,g,h,i,j] -> Union10 a b c d e f g h i j
-toUnion10 = collapseAny . mapProperty believe_me
+toUnion10 = collapse' . hmap believe_me
 
 export
 fromUnion10 : All SafeCast [a,b,c,d,e,f,g,h,i,j] =>
@@ -347,7 +342,7 @@ data Union11 : Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> T
 
 export
 toUnion11 : HSum [a,b,c,d,e,f,g,h,i,j,k] -> Union11 a b c d e f g h i j k
-toUnion11 = collapseAny . mapProperty believe_me
+toUnion11 = collapse' . hmap believe_me
 
 export
 fromUnion11 : All SafeCast [a,b,c,d,e,f,g,h,i,j,k] =>
@@ -382,7 +377,7 @@ data Union12 : Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> T
 
 export
 toUnion12 : HSum [a,b,c,d,e,f,g,h,i,j,k,l] -> Union12 a b c d e f g h i j k l
-toUnion12 = collapseAny . mapProperty believe_me
+toUnion12 = collapse' . hmap believe_me
 
 export
 fromUnion12 : All SafeCast [a,b,c,d,e,f,g,h,i,j,k,l] =>
@@ -417,7 +412,7 @@ data Union13 : Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> T
 
 export
 toUnion13 : HSum [a,b,c,d,e,f,g,h,i,j,k,l,a1] -> Union13 a b c d e f g h i j k l a1
-toUnion13 = collapseAny . mapProperty believe_me
+toUnion13 = collapse' . hmap believe_me
 
 export
 fromUnion13 : All SafeCast [a,b,c,d,e,f,g,h,i,j,k,l,a1] =>
@@ -452,7 +447,7 @@ data Union14 : Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> T
 
 export
 toUnion14 : HSum [a,b,c,d,e,f,g,h,i,j,k,l,a1,a2] -> Union14 a b c d e f g h i j k l a1 a2
-toUnion14 = collapseAny . mapProperty believe_me
+toUnion14 = collapse' . hmap believe_me
 
 export
 fromUnion14 : All SafeCast [a,b,c,d,e,f,g,h,i,j,k,l,a1,a2] =>
@@ -487,7 +482,7 @@ data Union15 : Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> T
 
 export
 toUnion15 : HSum [a,b,c,d,e,f,g,h,i,j,k,l,a1,a2,a3] -> Union15 a b c d e f g h i j k l a1 a2 a3
-toUnion15 = collapseAny . mapProperty believe_me
+toUnion15 = collapse' . hmap believe_me
 
 export
 fromUnion15 : All SafeCast [a,b,c,d,e,f,g,h,i,j,k,l,a1,a2,a3] =>
@@ -522,7 +517,7 @@ data Union16 : Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> T
 
 export
 toUnion16 : HSum [a,b,c,d,e,f,g,h,i,j,k,l,a1,a2,a3,a4] -> Union16 a b c d e f g h i j k l a1 a2 a3 a4
-toUnion16 = collapseAny . mapProperty believe_me
+toUnion16 = collapse' . hmap believe_me
 
 export
 fromUnion16 : All SafeCast [a,b,c,d,e,f,g,h,i,j,k,l,a1,a2,a3,a4] =>
