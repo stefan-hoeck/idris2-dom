@@ -29,6 +29,259 @@ body : JSIO HTMLElement
 body = unMaybe "Web.Dom.body" $ document >>= to body
 
 --------------------------------------------------------------------------------
+--          Aliases
+--------------------------------------------------------------------------------
+
+namespace Alias
+  public export
+  0 Anchor : Type
+  Anchor = HTMLAnchorElement
+
+  public export
+  0 Area : Type
+  Area = HTMLAreaElement
+
+  public export
+  0 Audio : Type
+  Audio = HTMLAudioElement
+
+  public export
+  0 BR : Type
+  BR = HTMLBRElement
+
+  public export
+  0 Base : Type
+  Base = HTMLBaseElement
+
+  public export
+  0 Body : Type
+  Body = HTMLBodyElement
+
+  public export
+  0 Button : Type
+  Button = HTMLButtonElement
+
+  public export
+  0 Canvas : Type
+  Canvas = HTMLCanvasElement
+
+  public export
+  0 DList : Type
+  DList = HTMLDListElement
+
+  public export
+  0 Data : Type
+  Data = HTMLDataElement
+
+  public export
+  0 DataList : Type
+  DataList = HTMLDataListElement
+
+  public export
+  0 Details : Type
+  Details = HTMLDetailsElement
+
+  public export
+  0 Dialog : Type
+  Dialog = HTMLDialogElement
+
+  public export
+  0 Div : Type
+  Div = HTMLDivElement
+
+  public export
+  0 Embed : Type
+  Embed = HTMLEmbedElement
+
+  public export
+  0 FieldSet : Type
+  FieldSet = HTMLFieldSetElement
+
+  public export
+  0 Form : Type
+  Form = HTMLFormElement
+
+  public export
+  0 HR : Type
+  HR = HTMLHRElement
+
+  public export
+  0 Heading : Type
+  Heading = HTMLHeadingElement
+
+  public export
+  0 Html : Type
+  Html = HTMLHtmlElement
+
+  public export
+  0 IFrame : Type
+  IFrame = HTMLIFrameElement
+
+  public export
+  0 Image : Type
+  Image = HTMLImageElement
+
+  public export
+  0 Input : Type
+  Input = HTMLInputElement
+
+  public export
+  0 LI : Type
+  LI = HTMLLIElement
+
+  public export
+  0 Label : Type
+  Label = HTMLLabelElement
+
+  public export
+  0 Legend : Type
+  Legend = HTMLLegendElement
+
+  public export
+  0 Link : Type
+  Link = HTMLLinkElement
+
+  public export
+  0 Map : Type
+  Map = HTMLMapElement
+
+  public export
+  0 Menu : Type
+  Menu = HTMLMenuElement
+
+  public export
+  0 Meta : Type
+  Meta = HTMLMetaElement
+
+  public export
+  0 Meter : Type
+  Meter = HTMLMeterElement
+
+  public export
+  0 Mod : Type
+  Mod = HTMLModElement
+
+  public export
+  0 OList : Type
+  OList = HTMLOListElement
+
+  public export
+  0 Object : Type
+  Object = HTMLObjectElement
+
+  public export
+  0 OptGroup : Type
+  OptGroup = HTMLOptGroupElement
+
+  public export
+  0 Option : Type
+  Option = HTMLOptionElement
+
+  public export
+  0 Output : Type
+  Output = HTMLOutputElement
+
+  public export
+  0 Paragraph : Type
+  Paragraph = HTMLParagraphElement
+
+  public export
+  0 Param : Type
+  Param = HTMLParamElement
+
+  public export
+  0 Picture : Type
+  Picture = HTMLPictureElement
+
+  public export
+  0 Pre : Type
+  Pre = HTMLPreElement
+
+  public export
+  0 Progress : Type
+  Progress = HTMLProgressElement
+
+  public export
+  0 Quote : Type
+  Quote = HTMLQuoteElement
+
+  public export
+  0 Script : Type
+  Script = HTMLScriptElement
+
+  public export
+  0 Select : Type
+  Select = HTMLSelectElement
+
+  public export
+  0 Slot : Type
+  Slot = HTMLSlotElement
+
+  public export
+  0 Source : Type
+  Source = HTMLSourceElement
+
+  public export
+  0 Span : Type
+  Span = HTMLSpanElement
+
+  public export
+  0 Style : Type
+  Style = HTMLStyleElement
+
+  public export
+  0 TableCaption : Type
+  TableCaption = HTMLTableCaptionElement
+
+  public export
+  0 TableCell : Type
+  TableCell = HTMLTableCellElement
+
+  public export
+  0 TableCol : Type
+  TableCol = HTMLTableColElement
+
+  public export
+  0 Table : Type
+  Table = HTMLTableElement
+
+  public export
+  0 TableRow : Type
+  TableRow = HTMLTableRowElement
+
+  public export
+  0 TableSection : Type
+  TableSection = HTMLTableSectionElement
+
+  public export
+  0 Template : Type
+  Template = HTMLTemplateElement
+
+  public export
+  0 TextArea : Type
+  TextArea = HTMLTextAreaElement
+
+  public export
+  0 Time : Type
+  Time = HTMLTimeElement
+
+  public export
+  0 Title : Type
+  Title = HTMLTitleElement
+
+  public export
+  0 Track : Type
+  Track = HTMLTrackElement
+
+  public export
+  0 UList : Type
+  UList = HTMLUListElement
+
+  public export
+  0 Video : Type
+  Video = HTMLVideoElement
+
+--------------------------------------------------------------------------------
 --          Elements
 --------------------------------------------------------------------------------
 
