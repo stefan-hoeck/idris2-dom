@@ -2,7 +2,7 @@ module Web.Html
 
 import JS
 import public Web.Internal.Types
-import public Web.Raw.Html as Html
+import public Web.Raw.Html
 
 %default total
 
