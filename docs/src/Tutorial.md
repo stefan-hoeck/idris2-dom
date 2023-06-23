@@ -493,7 +493,7 @@ of an unfamiliar function much easier.
 
 #### Subtyping
 
-Subtyping relations as described for interfaces, mixins, and dictionaries,
+~~Subtyping relations as described for interfaces, mixins, and dictionaries,
 are handled by interface `JS.Inheritance.JSType`. Implementations of
 this interface list associated parent types and mixins for an
 external Idris type. Function `up` and operator `(:>)` can be
@@ -517,7 +517,12 @@ additional gain in flexibility.
 Two examples: `Web.Dom.Node.firstChild` abstracts over the
 parent node's type, while `Web.Html.HTMLButtonElement.checkValidity`
 uses concrete types, since there are no child interfaces for
-`HTMLButtonElement` in the spec.
+`HTMLButtonElement` in the spec.~~
+
+The above no longer applies. Subtyping is handle simply by implementing
+`Cast a b`, where `b` is a parent type or mixin of `a`. Since
+types `a` and `b` are usually external types, such `Cast` implementations
+use `believe_me` internally.
 
 ### Web IDL types
 
@@ -558,9 +563,9 @@ nodes to the body like so:
 ```idris
 addNodes : HTMLButtonElement -> HTMLDivElement -> HTMLDivElement -> JSIO ()
 addNodes btn txtDiv outDiv =
-  ignore $ (!body `append` [ Here $ btn :> Node
-                           , Here $ txtDiv :> Node
-                           , Here $ outDiv :> Node
+  ignore $ (!body `append` [ Here $ cast btn
+                           , Here $ cast txtDiv
+                           , Here $ cast outDiv
                            ])
 ```
 

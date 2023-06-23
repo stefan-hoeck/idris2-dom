@@ -10,33 +10,33 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace EndingType
-
+  
   public export
   data EndingType = Transparent | Native
-
-  public export
+  
+  export
   Show EndingType where
     show Transparent = "transparent"
     show Native = "native"
-
-  public export
+  
+  export
   Eq EndingType where
     (==) = (==) `on` show
-
-  public export
+  
+  export
   Ord EndingType where
     compare = compare `on` show
-
-  public export
+  
+  export
   read : String -> Maybe EndingType
   read "transparent" = Just Transparent
   read "native" = Just Native
   read _ = Nothing
-
+  
   export
   ToFFI EndingType String where
     toFFI = show
-
+  
   export
   FromFFI EndingType String where
     fromFFI = read
@@ -127,3 +127,6 @@ ToFFI FilePropertyBag FilePropertyBag where toFFI = id
 
 export
 FromFFI FilePropertyBag FilePropertyBag where fromFFI = Just
+
+
+

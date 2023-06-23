@@ -12,249 +12,199 @@ import Web.Internal.Types
 --------------------------------------------------------------------------------
 
 namespace Animation
-
+  
   export
-  currentTime :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem Animation (Types t)}
-    -> t
-    -> Attribute False Maybe Double
+  currentTime : {auto _ : Cast t Animation} -> t -> Attribute False Maybe Double
   currentTime v = fromNullablePrim
                     "Animation.getcurrentTime"
                     prim__currentTime
                     prim__setCurrentTime
-                    (v :> Animation)
+                    (cast {to = Animation} v)
 
-
+  
   export
   effect :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem Animation (Types t)}
+       {auto _ : Cast t Animation}
     -> t
     -> Attribute False Maybe AnimationEffect
   effect v = fromNullablePrim
                "Animation.geteffect"
                prim__effect
                prim__setEffect
-               (v :> Animation)
+               (cast {to = Animation} v)
 
-
+  
   export
   finished :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Animation (Types t1)}
+       {auto _ : Cast t1 Animation}
     -> (obj : t1)
     -> JSIO (Promise Animation)
-  finished a = primJS $ Animation.prim__finished (up a)
+  finished a = primJS $ Animation.prim__finished (cast a)
 
-
+  
   export
-  id :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem Animation (Types t)}
-    -> t
-    -> Attribute True Prelude.id String
-  id v = fromPrim "Animation.getid" prim__id prim__setId (v :> Animation)
+  id : {auto _ : Cast t Animation} -> t -> Attribute True Prelude.id String
+  id v = fromPrim
+           "Animation.getid"
+           prim__id
+           prim__setId
+           (cast {to = Animation} v)
 
-
+  
   export
   oncancel :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem Animation (Types t)}
+       {auto _ : Cast t Animation}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   oncancel v = fromNullablePrim
                  "Animation.getoncancel"
                  prim__oncancel
                  prim__setOncancel
-                 (v :> Animation)
+                 (cast {to = Animation} v)
 
-
+  
   export
   onfinish :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem Animation (Types t)}
+       {auto _ : Cast t Animation}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onfinish v = fromNullablePrim
                  "Animation.getonfinish"
                  prim__onfinish
                  prim__setOnfinish
-                 (v :> Animation)
+                 (cast {to = Animation} v)
 
-
+  
   export
-  pending :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Animation (Types t1)}
-    -> (obj : t1)
-    -> JSIO Bool
-  pending a = tryJS "Animation.pending" $ Animation.prim__pending (up a)
+  pending : {auto _ : Cast t1 Animation} -> (obj : t1) -> JSIO Bool
+  pending a = tryJS "Animation.pending" $ Animation.prim__pending (cast a)
 
-
+  
   export
   playState :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Animation (Types t1)}
+       {auto _ : Cast t1 Animation}
     -> (obj : t1)
     -> JSIO AnimationPlayState
-  playState a = tryJS "Animation.playState" $ Animation.prim__playState (up a)
+  playState a = tryJS "Animation.playState" $ Animation.prim__playState (cast a)
 
-
+  
   export
   playbackRate :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem Animation (Types t)}
+       {auto _ : Cast t Animation}
     -> t
     -> Attribute True Prelude.id Double
   playbackRate v = fromPrim
                      "Animation.getplaybackRate"
                      prim__playbackRate
                      prim__setPlaybackRate
-                     (v :> Animation)
+                     (cast {to = Animation} v)
 
-
+  
   export
-  ready :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Animation (Types t1)}
-    -> (obj : t1)
-    -> JSIO (Promise Animation)
-  ready a = primJS $ Animation.prim__ready (up a)
+  ready : {auto _ : Cast t1 Animation} -> (obj : t1) -> JSIO (Promise Animation)
+  ready a = primJS $ Animation.prim__ready (cast a)
 
-
+  
   export
-  startTime :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem Animation (Types t)}
-    -> t
-    -> Attribute False Maybe Double
+  startTime : {auto _ : Cast t Animation} -> t -> Attribute False Maybe Double
   startTime v = fromNullablePrim
                   "Animation.getstartTime"
                   prim__startTime
                   prim__setStartTime
-                  (v :> Animation)
+                  (cast {to = Animation} v)
 
-
+  
   export
   timeline :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem Animation (Types t)}
+       {auto _ : Cast t Animation}
     -> t
     -> Attribute False Maybe AnimationTimeline
   timeline v = fromNullablePrim
                  "Animation.gettimeline"
                  prim__timeline
                  prim__setTimeline
-                 (v :> Animation)
+                 (cast {to = Animation} v)
 
-
+  
   export
-  cancel :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Animation (Types t1)}
-    -> (obj : t1)
-    -> JSIO ()
-  cancel a = primJS $ Animation.prim__cancel (up a)
+  cancel : {auto _ : Cast t1 Animation} -> (obj : t1) -> JSIO ()
+  cancel a = primJS $ Animation.prim__cancel (cast a)
 
-
+  
   export
-  finish :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Animation (Types t1)}
-    -> (obj : t1)
-    -> JSIO ()
-  finish a = primJS $ Animation.prim__finish (up a)
+  finish : {auto _ : Cast t1 Animation} -> (obj : t1) -> JSIO ()
+  finish a = primJS $ Animation.prim__finish (cast a)
 
-
+  
   export
-  pause :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Animation (Types t1)}
-    -> (obj : t1)
-    -> JSIO ()
-  pause a = primJS $ Animation.prim__pause (up a)
+  pause : {auto _ : Cast t1 Animation} -> (obj : t1) -> JSIO ()
+  pause a = primJS $ Animation.prim__pause (cast a)
 
-
+  
   export
-  play :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Animation (Types t1)}
-    -> (obj : t1)
-    -> JSIO ()
-  play a = primJS $ Animation.prim__play (up a)
+  play : {auto _ : Cast t1 Animation} -> (obj : t1) -> JSIO ()
+  play a = primJS $ Animation.prim__play (cast a)
 
-
+  
   export
-  reverse :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Animation (Types t1)}
-    -> (obj : t1)
-    -> JSIO ()
-  reverse a = primJS $ Animation.prim__reverse (up a)
+  reverse : {auto _ : Cast t1 Animation} -> (obj : t1) -> JSIO ()
+  reverse a = primJS $ Animation.prim__reverse (cast a)
 
-
+  
   export
   updatePlaybackRate :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Animation (Types t1)}
+       {auto _ : Cast t1 Animation}
     -> (obj : t1)
     -> (playbackRate : Double)
     -> JSIO ()
-  updatePlaybackRate a b = primJS $ Animation.prim__updatePlaybackRate (up a) b
+  updatePlaybackRate a b = primJS $
+    Animation.prim__updatePlaybackRate (cast a) b
 
 
 
 namespace AnimationEffect
-
+  
   export
   getComputedTiming :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem AnimationEffect (Types t1)}
+       {auto _ : Cast t1 AnimationEffect}
     -> (obj : t1)
     -> JSIO ComputedEffectTiming
-  getComputedTiming a = primJS $ AnimationEffect.prim__getComputedTiming (up a)
+  getComputedTiming a = primJS $
+    AnimationEffect.prim__getComputedTiming (cast a)
 
-
+  
   export
   getTiming :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem AnimationEffect (Types t1)}
+       {auto _ : Cast t1 AnimationEffect}
     -> (obj : t1)
     -> JSIO EffectTiming
-  getTiming a = primJS $ AnimationEffect.prim__getTiming (up a)
+  getTiming a = primJS $ AnimationEffect.prim__getTiming (cast a)
 
-
+  
   export
   updateTiming' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem AnimationEffect (Types t1)}
-    -> {auto 0 _ : Elem OptionalEffectTiming (Types t2)}
+       {auto _ : Cast t1 AnimationEffect}
+    -> {auto _ : Cast t2 OptionalEffectTiming}
     -> (obj : t1)
     -> (timing : Optional t2)
     -> JSIO ()
   updateTiming' a b = primJS $
-    AnimationEffect.prim__updateTiming (up a) (optUp b)
-
+    AnimationEffect.prim__updateTiming (cast a) (optUp b)
+  
   export
-  updateTiming :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem AnimationEffect (Types t1)}
-    -> (obj : t1)
-    -> JSIO ()
-  updateTiming a = primJS $ AnimationEffect.prim__updateTiming (up a) undef
+  updateTiming : {auto _ : Cast t1 AnimationEffect} -> (obj : t1) -> JSIO ()
+  updateTiming a = primJS $ AnimationEffect.prim__updateTiming (cast a) undef
 
 
 
 namespace AnimationPlaybackEvent
-
+  
   export
   currentTime : (obj : AnimationPlaybackEvent) -> JSIO (Maybe Double)
   currentTime a = tryJS "AnimationPlaybackEvent.currentTime" $
     AnimationPlaybackEvent.prim__currentTime a
 
-
+  
   export
   timelineTime : (obj : AnimationPlaybackEvent) -> JSIO (Maybe Double)
   timelineTime a = tryJS "AnimationPlaybackEvent.timelineTime" $
@@ -263,21 +213,20 @@ namespace AnimationPlaybackEvent
 
 
 namespace AnimationTimeline
-
+  
   export
   currentTime :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem AnimationTimeline (Types t1)}
+       {auto _ : Cast t1 AnimationTimeline}
     -> (obj : t1)
     -> JSIO (Maybe Double)
   currentTime a = tryJS "AnimationTimeline.currentTime" $
-    AnimationTimeline.prim__currentTime (up a)
+    AnimationTimeline.prim__currentTime (cast a)
 
 
 
 
 namespace KeyframeEffect
-
+  
   export
   composite : KeyframeEffect -> Attribute True Prelude.id CompositeOperation
   composite v = fromPrim
@@ -286,7 +235,7 @@ namespace KeyframeEffect
                   prim__setComposite
                   v
 
-
+  
   export
   iterationComposite :
        KeyframeEffect
@@ -297,7 +246,7 @@ namespace KeyframeEffect
                            prim__setIterationComposite
                            v
 
-
+  
   export
   target :
        KeyframeEffect
@@ -308,16 +257,15 @@ namespace KeyframeEffect
                prim__setTarget
                v
 
-
+  
   export
   getKeyframes : (obj : KeyframeEffect) -> JSIO (Array Object)
   getKeyframes a = primJS $ KeyframeEffect.prim__getKeyframes a
 
-
+  
   export
   setKeyframes :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem Object (Types t2)}
+       {auto _ : Cast t2 Object}
     -> (obj : KeyframeEffect)
     -> (keyframes : Maybe t2)
     -> JSIO ()
@@ -331,38 +279,34 @@ namespace KeyframeEffect
 --------------------------------------------------------------------------------
 
 namespace Animatable
-
+  
   export
   animate' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem Animatable (Types t1)}
-    -> {auto 0 _ : Elem Object (Types t2)}
+       {auto _ : Cast t1 Animatable}
+    -> {auto _ : Cast t2 Object}
     -> (obj : t1)
     -> (keyframes : Maybe t2)
     -> (options : Optional (HSum [Double, KeyframeAnimationOptions]))
     -> JSIO Animation
-  animate' a b c = primJS $ Animatable.prim__animate (up a) (mayUp b) (toFFI c)
-
+  animate' a b c = primJS $
+    Animatable.prim__animate (cast a) (mayUp b) (toFFI c)
+  
   export
   animate :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem Animatable (Types t1)}
-    -> {auto 0 _ : Elem Object (Types t2)}
+       {auto _ : Cast t1 Animatable}
+    -> {auto _ : Cast t2 Object}
     -> (obj : t1)
     -> (keyframes : Maybe t2)
     -> JSIO Animation
-  animate a b = primJS $ Animatable.prim__animate (up a) (mayUp b) undef
+  animate a b = primJS $ Animatable.prim__animate (cast a) (mayUp b) undef
 
-
+  
   export
   getAnimations :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Animatable (Types t1)}
+       {auto _ : Cast t1 Animatable}
     -> (obj : t1)
     -> JSIO (Array Animation)
-  getAnimations a = primJS $ Animatable.prim__getAnimations (up a)
+  getAnimations a = primJS $ Animatable.prim__getAnimations (cast a)
 
 
 
@@ -372,23 +316,22 @@ namespace Animatable
 --------------------------------------------------------------------------------
 
 namespace AnimationPlaybackEventInit
-
+  
   export
   new' :
        (currentTime : Optional (Maybe Double))
     -> (timelineTime : Optional (Maybe Double))
     -> JSIO AnimationPlaybackEventInit
   new' a b = primJS $ AnimationPlaybackEventInit.prim__new (toFFI a) (toFFI b)
-
+  
   export
   new : JSIO AnimationPlaybackEventInit
   new = primJS $ AnimationPlaybackEventInit.prim__new undef undef
 
-
+  
   export
   currentTime :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem AnimationPlaybackEventInit (Types t)}
+       {auto _ : Cast t AnimationPlaybackEventInit}
     -> t
     -> Attribute True Optional (Maybe Double)
   currentTime v = fromUndefOrPrim
@@ -396,13 +339,12 @@ namespace AnimationPlaybackEventInit
                     prim__currentTime
                     prim__setCurrentTime
                     Nothing
-                    (v :> AnimationPlaybackEventInit)
+                    (cast {to = AnimationPlaybackEventInit} v)
 
-
+  
   export
   timelineTime :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem AnimationPlaybackEventInit (Types t)}
+       {auto _ : Cast t AnimationPlaybackEventInit}
     -> t
     -> Attribute True Optional (Maybe Double)
   timelineTime v = fromUndefOrPrim
@@ -410,12 +352,12 @@ namespace AnimationPlaybackEventInit
                      prim__timelineTime
                      prim__setTimelineTime
                      Nothing
-                     (v :> AnimationPlaybackEventInit)
+                     (cast {to = AnimationPlaybackEventInit} v)
 
 
 
 namespace BaseComputedKeyframe
-
+  
   export
   new' :
        (offset : Optional (Maybe Double))
@@ -425,42 +367,39 @@ namespace BaseComputedKeyframe
     -> JSIO BaseComputedKeyframe
   new' a b c d = primJS $
     BaseComputedKeyframe.prim__new (toFFI a) (toFFI b) (toFFI c) (toFFI d)
-
+  
   export
   new : JSIO BaseComputedKeyframe
   new = primJS $ BaseComputedKeyframe.prim__new undef undef undef undef
 
-
+  
   export
   composite :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem BaseComputedKeyframe (Types t)}
+       {auto _ : Cast t BaseComputedKeyframe}
     -> t
     -> Attribute False Optional CompositeOperationOrAuto
   composite v = fromUndefOrPrimNoDefault
                   "BaseComputedKeyframe.getcomposite"
                   prim__composite
                   prim__setComposite
-                  (v :> BaseComputedKeyframe)
+                  (cast {to = BaseComputedKeyframe} v)
 
-
+  
   export
   computedOffset :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem BaseComputedKeyframe (Types t)}
+       {auto _ : Cast t BaseComputedKeyframe}
     -> t
     -> Attribute False Optional Double
   computedOffset v = fromUndefOrPrimNoDefault
                        "BaseComputedKeyframe.getcomputedOffset"
                        prim__computedOffset
                        prim__setComputedOffset
-                       (v :> BaseComputedKeyframe)
+                       (cast {to = BaseComputedKeyframe} v)
 
-
+  
   export
   easing :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem BaseComputedKeyframe (Types t)}
+       {auto _ : Cast t BaseComputedKeyframe}
     -> t
     -> Attribute True Optional String
   easing v = fromUndefOrPrim
@@ -468,13 +407,12 @@ namespace BaseComputedKeyframe
                prim__easing
                prim__setEasing
                "linear"
-               (v :> BaseComputedKeyframe)
+               (cast {to = BaseComputedKeyframe} v)
 
-
+  
   export
   offset :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem BaseComputedKeyframe (Types t)}
+       {auto _ : Cast t BaseComputedKeyframe}
     -> t
     -> Attribute True Optional (Maybe Double)
   offset v = fromUndefOrPrim
@@ -482,12 +420,12 @@ namespace BaseComputedKeyframe
                prim__offset
                prim__setOffset
                Nothing
-               (v :> BaseComputedKeyframe)
+               (cast {to = BaseComputedKeyframe} v)
 
 
 
 namespace BaseKeyframe
-
+  
   export
   new' :
        (offset : Optional (Maybe Double))
@@ -495,43 +433,37 @@ namespace BaseKeyframe
     -> (composite : Optional CompositeOperationOrAuto)
     -> JSIO BaseKeyframe
   new' a b c = primJS $ BaseKeyframe.prim__new (toFFI a) (toFFI b) (toFFI c)
-
+  
   export
   new : JSIO BaseKeyframe
   new = primJS $ BaseKeyframe.prim__new undef undef undef
 
-
+  
   export
   composite :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem BaseKeyframe (Types t)}
+       {auto _ : Cast t BaseKeyframe}
     -> t
     -> Attribute False Optional CompositeOperationOrAuto
   composite v = fromUndefOrPrimNoDefault
                   "BaseKeyframe.getcomposite"
                   prim__composite
                   prim__setComposite
-                  (v :> BaseKeyframe)
+                  (cast {to = BaseKeyframe} v)
 
-
+  
   export
-  easing :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem BaseKeyframe (Types t)}
-    -> t
-    -> Attribute True Optional String
+  easing : {auto _ : Cast t BaseKeyframe} -> t -> Attribute True Optional String
   easing v = fromUndefOrPrim
                "BaseKeyframe.geteasing"
                prim__easing
                prim__setEasing
                "linear"
-               (v :> BaseKeyframe)
+               (cast {to = BaseKeyframe} v)
 
-
+  
   export
   offset :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem BaseKeyframe (Types t)}
+       {auto _ : Cast t BaseKeyframe}
     -> t
     -> Attribute True Optional (Maybe Double)
   offset v = fromUndefOrPrim
@@ -539,12 +471,12 @@ namespace BaseKeyframe
                prim__offset
                prim__setOffset
                Nothing
-               (v :> BaseKeyframe)
+               (cast {to = BaseKeyframe} v)
 
 
 
 namespace BasePropertyIndexedKeyframe
-
+  
   export
   new' :
        (offset : Optional (Maybe (HSum [Double, Array (Nullable Double)])))
@@ -553,42 +485,39 @@ namespace BasePropertyIndexedKeyframe
     -> JSIO BasePropertyIndexedKeyframe
   new' a b c = primJS $
     BasePropertyIndexedKeyframe.prim__new (toFFI a) (toFFI b) (toFFI c)
-
+  
   export
   new : JSIO BasePropertyIndexedKeyframe
   new = primJS $ BasePropertyIndexedKeyframe.prim__new undef undef undef
 
-
+  
   export
   composite :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem BasePropertyIndexedKeyframe (Types t)}
+       {auto _ : Cast t BasePropertyIndexedKeyframe}
     -> t
     -> Attribute False Optional (Union2 String (Array String))
   composite v = fromUndefOrPrimNoDefault
                   "BasePropertyIndexedKeyframe.getcomposite"
                   prim__composite
                   prim__setComposite
-                  (v :> BasePropertyIndexedKeyframe)
+                  (cast {to = BasePropertyIndexedKeyframe} v)
 
-
+  
   export
   easing :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem BasePropertyIndexedKeyframe (Types t)}
+       {auto _ : Cast t BasePropertyIndexedKeyframe}
     -> t
     -> Attribute False Optional (Union2 String (Array String))
   easing v = fromUndefOrPrimNoDefault
                "BasePropertyIndexedKeyframe.geteasing"
                prim__easing
                prim__setEasing
-               (v :> BasePropertyIndexedKeyframe)
+               (cast {to = BasePropertyIndexedKeyframe} v)
 
-
+  
   export
   offset :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem BasePropertyIndexedKeyframe (Types t)}
+       {auto _ : Cast t BasePropertyIndexedKeyframe}
     -> t
     -> Attribute False Optional (Maybe
                                    (Union2 Double (Array (Nullable Double))))
@@ -596,12 +525,12 @@ namespace BasePropertyIndexedKeyframe
                "BasePropertyIndexedKeyframe.getoffset"
                prim__offset
                prim__setOffset
-               (v :> BasePropertyIndexedKeyframe)
+               (cast {to = BasePropertyIndexedKeyframe} v)
 
 
 
 namespace ComputedEffectTiming
-
+  
   export
   new' :
        (endTime : Optional Double)
@@ -617,93 +546,87 @@ namespace ComputedEffectTiming
       (toFFI c)
       (toFFI d)
       (toFFI e)
-
+  
   export
   new : JSIO ComputedEffectTiming
   new = primJS $ ComputedEffectTiming.prim__new undef undef undef undef undef
 
-
+  
   export
   activeDuration :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ComputedEffectTiming (Types t)}
+       {auto _ : Cast t ComputedEffectTiming}
     -> t
     -> Attribute False Optional Double
   activeDuration v = fromUndefOrPrimNoDefault
                        "ComputedEffectTiming.getactiveDuration"
                        prim__activeDuration
                        prim__setActiveDuration
-                       (v :> ComputedEffectTiming)
+                       (cast {to = ComputedEffectTiming} v)
 
-
+  
   export
   currentIteration :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ComputedEffectTiming (Types t)}
+       {auto _ : Cast t ComputedEffectTiming}
     -> t
     -> Attribute False Optional (Maybe Double)
   currentIteration v = fromUndefOrPrimNoDefault
                          "ComputedEffectTiming.getcurrentIteration"
                          prim__currentIteration
                          prim__setCurrentIteration
-                         (v :> ComputedEffectTiming)
+                         (cast {to = ComputedEffectTiming} v)
 
-
+  
   export
   endTime :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ComputedEffectTiming (Types t)}
+       {auto _ : Cast t ComputedEffectTiming}
     -> t
     -> Attribute False Optional Double
   endTime v = fromUndefOrPrimNoDefault
                 "ComputedEffectTiming.getendTime"
                 prim__endTime
                 prim__setEndTime
-                (v :> ComputedEffectTiming)
+                (cast {to = ComputedEffectTiming} v)
 
-
+  
   export
   localTime :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ComputedEffectTiming (Types t)}
+       {auto _ : Cast t ComputedEffectTiming}
     -> t
     -> Attribute False Optional (Maybe Double)
   localTime v = fromUndefOrPrimNoDefault
                   "ComputedEffectTiming.getlocalTime"
                   prim__localTime
                   prim__setLocalTime
-                  (v :> ComputedEffectTiming)
+                  (cast {to = ComputedEffectTiming} v)
 
-
+  
   export
   progress :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ComputedEffectTiming (Types t)}
+       {auto _ : Cast t ComputedEffectTiming}
     -> t
     -> Attribute False Optional (Maybe Double)
   progress v = fromUndefOrPrimNoDefault
                  "ComputedEffectTiming.getprogress"
                  prim__progress
                  prim__setProgress
-                 (v :> ComputedEffectTiming)
+                 (cast {to = ComputedEffectTiming} v)
 
 
 
 namespace DocumentTimelineOptions
-
+  
   export
   new' : (originTime : Optional Double) -> JSIO DocumentTimelineOptions
   new' a = primJS $ DocumentTimelineOptions.prim__new (toFFI a)
-
+  
   export
   new : JSIO DocumentTimelineOptions
   new = primJS $ DocumentTimelineOptions.prim__new undef
 
-
+  
   export
   originTime :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DocumentTimelineOptions (Types t)}
+       {auto _ : Cast t DocumentTimelineOptions}
     -> t
     -> Attribute True Optional Double
   originTime v = fromUndefOrPrim
@@ -711,12 +634,12 @@ namespace DocumentTimelineOptions
                    prim__originTime
                    prim__setOriginTime
                    0
-                   (v :> DocumentTimelineOptions)
+                   (cast {to = DocumentTimelineOptions} v)
 
 
 
 namespace EffectTiming
-
+  
   export
   new' :
        (delay : Optional Double)
@@ -738,71 +661,60 @@ namespace EffectTiming
       (toFFI f)
       (toFFI g)
       (toFFI h)
-
+  
   export
   new : JSIO EffectTiming
   new = primJS $
     EffectTiming.prim__new undef undef undef undef undef undef undef undef
 
-
+  
   export
-  delay :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem EffectTiming (Types t)}
-    -> t
-    -> Attribute True Optional Double
+  delay : {auto _ : Cast t EffectTiming} -> t -> Attribute True Optional Double
   delay v = fromUndefOrPrim
               "EffectTiming.getdelay"
               prim__delay
               prim__setDelay
               0
-              (v :> EffectTiming)
+              (cast {to = EffectTiming} v)
 
-
+  
   export
   direction :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem EffectTiming (Types t)}
+       {auto _ : Cast t EffectTiming}
     -> t
     -> Attribute False Optional PlaybackDirection
   direction v = fromUndefOrPrimNoDefault
                   "EffectTiming.getdirection"
                   prim__direction
                   prim__setDirection
-                  (v :> EffectTiming)
+                  (cast {to = EffectTiming} v)
 
-
+  
   export
   duration :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem EffectTiming (Types t)}
+       {auto _ : Cast t EffectTiming}
     -> t
     -> Attribute False Optional (HSum [Double, String])
   duration v = fromUndefOrPrimNoDefault
                  "EffectTiming.getduration"
                  prim__duration
                  prim__setDuration
-                 (v :> EffectTiming)
+                 (cast {to = EffectTiming} v)
 
-
+  
   export
-  easing :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem EffectTiming (Types t)}
-    -> t
-    -> Attribute True Optional String
+  easing : {auto _ : Cast t EffectTiming} -> t -> Attribute True Optional String
   easing v = fromUndefOrPrim
                "EffectTiming.geteasing"
                prim__easing
                prim__setEasing
                "linear"
-               (v :> EffectTiming)
+               (cast {to = EffectTiming} v)
 
-
+  
   export
   endDelay :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem EffectTiming (Types t)}
+       {auto _ : Cast t EffectTiming}
     -> t
     -> Attribute True Optional Double
   endDelay v = fromUndefOrPrim
@@ -810,26 +722,24 @@ namespace EffectTiming
                  prim__endDelay
                  prim__setEndDelay
                  0
-                 (v :> EffectTiming)
+                 (cast {to = EffectTiming} v)
 
-
+  
   export
   fill :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem EffectTiming (Types t)}
+       {auto _ : Cast t EffectTiming}
     -> t
     -> Attribute False Optional FillMode
   fill v = fromUndefOrPrimNoDefault
              "EffectTiming.getfill"
              prim__fill
              prim__setFill
-             (v :> EffectTiming)
+             (cast {to = EffectTiming} v)
 
-
+  
   export
   iterationStart :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem EffectTiming (Types t)}
+       {auto _ : Cast t EffectTiming}
     -> t
     -> Attribute True Optional Double
   iterationStart v = fromUndefOrPrim
@@ -837,13 +747,12 @@ namespace EffectTiming
                        prim__iterationStart
                        prim__setIterationStart
                        0.0
-                       (v :> EffectTiming)
+                       (cast {to = EffectTiming} v)
 
-
+  
   export
   iterations :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem EffectTiming (Types t)}
+       {auto _ : Cast t EffectTiming}
     -> t
     -> Attribute True Optional Double
   iterations v = fromUndefOrPrim
@@ -851,25 +760,24 @@ namespace EffectTiming
                    prim__iterations
                    prim__setIterations
                    1.0
-                   (v :> EffectTiming)
+                   (cast {to = EffectTiming} v)
 
 
 
 namespace KeyframeAnimationOptions
-
+  
   export
   new' : (id : Optional String) -> JSIO KeyframeAnimationOptions
   new' a = primJS $ KeyframeAnimationOptions.prim__new (toFFI a)
-
+  
   export
   new : JSIO KeyframeAnimationOptions
   new = primJS $ KeyframeAnimationOptions.prim__new undef
 
-
+  
   export
   id :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem KeyframeAnimationOptions (Types t)}
+       {auto _ : Cast t KeyframeAnimationOptions}
     -> t
     -> Attribute True Optional String
   id v = fromUndefOrPrim
@@ -877,53 +785,51 @@ namespace KeyframeAnimationOptions
            prim__id
            prim__setId
            ""
-           (v :> KeyframeAnimationOptions)
+           (cast {to = KeyframeAnimationOptions} v)
 
 
 
 namespace KeyframeEffectOptions
-
+  
   export
   new' :
        (iterationComposite : Optional IterationCompositeOperation)
     -> (composite : Optional CompositeOperation)
     -> JSIO KeyframeEffectOptions
   new' a b = primJS $ KeyframeEffectOptions.prim__new (toFFI a) (toFFI b)
-
+  
   export
   new : JSIO KeyframeEffectOptions
   new = primJS $ KeyframeEffectOptions.prim__new undef undef
 
-
+  
   export
   composite :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem KeyframeEffectOptions (Types t)}
+       {auto _ : Cast t KeyframeEffectOptions}
     -> t
     -> Attribute False Optional CompositeOperation
   composite v = fromUndefOrPrimNoDefault
                   "KeyframeEffectOptions.getcomposite"
                   prim__composite
                   prim__setComposite
-                  (v :> KeyframeEffectOptions)
+                  (cast {to = KeyframeEffectOptions} v)
 
-
+  
   export
   iterationComposite :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem KeyframeEffectOptions (Types t)}
+       {auto _ : Cast t KeyframeEffectOptions}
     -> t
     -> Attribute False Optional IterationCompositeOperation
   iterationComposite v = fromUndefOrPrimNoDefault
                            "KeyframeEffectOptions.getiterationComposite"
                            prim__iterationComposite
                            prim__setIterationComposite
-                           (v :> KeyframeEffectOptions)
+                           (cast {to = KeyframeEffectOptions} v)
 
 
 
 namespace OptionalEffectTiming
-
+  
   export
   new' :
        (delay : Optional Double)
@@ -945,7 +851,7 @@ namespace OptionalEffectTiming
       (toFFI f)
       (toFFI g)
       (toFFI h)
-
+  
   export
   new : JSIO OptionalEffectTiming
   new = primJS $
@@ -959,106 +865,101 @@ namespace OptionalEffectTiming
       undef
       undef
 
-
+  
   export
   delay :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem OptionalEffectTiming (Types t)}
+       {auto _ : Cast t OptionalEffectTiming}
     -> t
     -> Attribute False Optional Double
   delay v = fromUndefOrPrimNoDefault
               "OptionalEffectTiming.getdelay"
               prim__delay
               prim__setDelay
-              (v :> OptionalEffectTiming)
+              (cast {to = OptionalEffectTiming} v)
 
-
+  
   export
   direction :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem OptionalEffectTiming (Types t)}
+       {auto _ : Cast t OptionalEffectTiming}
     -> t
     -> Attribute False Optional PlaybackDirection
   direction v = fromUndefOrPrimNoDefault
                   "OptionalEffectTiming.getdirection"
                   prim__direction
                   prim__setDirection
-                  (v :> OptionalEffectTiming)
+                  (cast {to = OptionalEffectTiming} v)
 
-
+  
   export
   duration :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem OptionalEffectTiming (Types t)}
+       {auto _ : Cast t OptionalEffectTiming}
     -> t
     -> Attribute False Optional (HSum [Double, String])
   duration v = fromUndefOrPrimNoDefault
                  "OptionalEffectTiming.getduration"
                  prim__duration
                  prim__setDuration
-                 (v :> OptionalEffectTiming)
+                 (cast {to = OptionalEffectTiming} v)
 
-
+  
   export
   easing :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem OptionalEffectTiming (Types t)}
+       {auto _ : Cast t OptionalEffectTiming}
     -> t
     -> Attribute False Optional String
   easing v = fromUndefOrPrimNoDefault
                "OptionalEffectTiming.geteasing"
                prim__easing
                prim__setEasing
-               (v :> OptionalEffectTiming)
+               (cast {to = OptionalEffectTiming} v)
 
-
+  
   export
   endDelay :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem OptionalEffectTiming (Types t)}
+       {auto _ : Cast t OptionalEffectTiming}
     -> t
     -> Attribute False Optional Double
   endDelay v = fromUndefOrPrimNoDefault
                  "OptionalEffectTiming.getendDelay"
                  prim__endDelay
                  prim__setEndDelay
-                 (v :> OptionalEffectTiming)
+                 (cast {to = OptionalEffectTiming} v)
 
-
+  
   export
   fill :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem OptionalEffectTiming (Types t)}
+       {auto _ : Cast t OptionalEffectTiming}
     -> t
     -> Attribute False Optional FillMode
   fill v = fromUndefOrPrimNoDefault
              "OptionalEffectTiming.getfill"
              prim__fill
              prim__setFill
-             (v :> OptionalEffectTiming)
+             (cast {to = OptionalEffectTiming} v)
 
-
+  
   export
   iterationStart :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem OptionalEffectTiming (Types t)}
+       {auto _ : Cast t OptionalEffectTiming}
     -> t
     -> Attribute False Optional Double
   iterationStart v = fromUndefOrPrimNoDefault
                        "OptionalEffectTiming.getiterationStart"
                        prim__iterationStart
                        prim__setIterationStart
-                       (v :> OptionalEffectTiming)
+                       (cast {to = OptionalEffectTiming} v)
 
-
+  
   export
   iterations :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem OptionalEffectTiming (Types t)}
+       {auto _ : Cast t OptionalEffectTiming}
     -> t
     -> Attribute False Optional Double
   iterations v = fromUndefOrPrimNoDefault
                    "OptionalEffectTiming.getiterations"
                    prim__iterations
                    prim__setIterations
-                   (v :> OptionalEffectTiming)
+                   (cast {to = OptionalEffectTiming} v)
+
+
+

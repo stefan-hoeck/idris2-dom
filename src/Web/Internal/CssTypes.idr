@@ -199,3 +199,5 @@ ToFFI LinkStyle LinkStyle where toFFI = id
 
 export
 FromFFI LinkStyle LinkStyle where fromFFI = Just
+
+

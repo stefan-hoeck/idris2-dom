@@ -10,35 +10,35 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace PresentationStyle
-
+  
   public export
   data PresentationStyle = Unspecified | Inline | Attachment
-
-  public export
+  
+  export
   Show PresentationStyle where
     show Unspecified = "unspecified"
     show Inline = "inline"
     show Attachment = "attachment"
-
-  public export
+  
+  export
   Eq PresentationStyle where
     (==) = (==) `on` show
-
-  public export
+  
+  export
   Ord PresentationStyle where
     compare = compare `on` show
-
-  public export
+  
+  export
   read : String -> Maybe PresentationStyle
   read "unspecified" = Just Unspecified
   read "inline" = Just Inline
   read "attachment" = Just Attachment
   read _ = Nothing
-
+  
   export
   ToFFI PresentationStyle String where
     toFFI = show
-
+  
   export
   FromFFI PresentationStyle String where
     fromFFI = read
@@ -127,3 +127,4 @@ ToFFI ClipboardItemDelayedCallback ClipboardItemDelayedCallback where toFFI = id
 
 export
 FromFFI ClipboardItemDelayedCallback ClipboardItemDelayedCallback where fromFFI = Just
+

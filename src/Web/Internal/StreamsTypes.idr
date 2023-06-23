@@ -10,62 +10,62 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace ReadableStreamReaderMode
-
+  
   public export
   data ReadableStreamReaderMode = Byob
-
-  public export
+  
+  export
   Show ReadableStreamReaderMode where
     show Byob = "byob"
-
-  public export
+  
+  export
   Eq ReadableStreamReaderMode where
     (==) = (==) `on` show
-
-  public export
+  
+  export
   Ord ReadableStreamReaderMode where
     compare = compare `on` show
-
-  public export
+  
+  export
   read : String -> Maybe ReadableStreamReaderMode
   read "byob" = Just Byob
   read _ = Nothing
-
+  
   export
   ToFFI ReadableStreamReaderMode String where
     toFFI = show
-
+  
   export
   FromFFI ReadableStreamReaderMode String where
     fromFFI = read
 
 
 namespace ReadableStreamType
-
+  
   public export
   data ReadableStreamType = Bytes
-
-  public export
+  
+  export
   Show ReadableStreamType where
     show Bytes = "bytes"
-
-  public export
+  
+  export
   Eq ReadableStreamType where
     (==) = (==) `on` show
-
-  public export
+  
+  export
   Ord ReadableStreamType where
     compare = compare `on` show
-
-  public export
+  
+  export
   read : String -> Maybe ReadableStreamType
   read "bytes" = Just Bytes
   read _ = Nothing
-
+  
   export
   ToFFI ReadableStreamType String where
     toFFI = show
-
+  
   export
   FromFFI ReadableStreamType String where
     fromFFI = read
@@ -438,3 +438,4 @@ ToFFI UnderlyingSourceStartCallback UnderlyingSourceStartCallback where toFFI = 
 
 export
 FromFFI UnderlyingSourceStartCallback UnderlyingSourceStartCallback where fromFFI = Just
+

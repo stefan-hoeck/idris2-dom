@@ -10,138 +10,138 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace MediaStreamTrackState
-
+  
   public export
   data MediaStreamTrackState = Live | Ended
-
-  public export
+  
+  export
   Show MediaStreamTrackState where
     show Live = "live"
     show Ended = "ended"
-
-  public export
+  
+  export
   Eq MediaStreamTrackState where
     (==) = (==) `on` show
-
-  public export
+  
+  export
   Ord MediaStreamTrackState where
     compare = compare `on` show
-
-  public export
+  
+  export
   read : String -> Maybe MediaStreamTrackState
   read "live" = Just Live
   read "ended" = Just Ended
   read _ = Nothing
-
+  
   export
   ToFFI MediaStreamTrackState String where
     toFFI = show
-
+  
   export
   FromFFI MediaStreamTrackState String where
     fromFFI = read
 
 
 namespace VideoFacingModeEnum
-
+  
   public export
   data VideoFacingModeEnum = User | Environment | Left | Right
-
-  public export
+  
+  export
   Show VideoFacingModeEnum where
     show User = "user"
     show Environment = "environment"
     show Left = "left"
     show Right = "right"
-
-  public export
+  
+  export
   Eq VideoFacingModeEnum where
     (==) = (==) `on` show
-
-  public export
+  
+  export
   Ord VideoFacingModeEnum where
     compare = compare `on` show
-
-  public export
+  
+  export
   read : String -> Maybe VideoFacingModeEnum
   read "user" = Just User
   read "environment" = Just Environment
   read "left" = Just Left
   read "right" = Just Right
   read _ = Nothing
-
+  
   export
   ToFFI VideoFacingModeEnum String where
     toFFI = show
-
+  
   export
   FromFFI VideoFacingModeEnum String where
     fromFFI = read
 
 
 namespace VideoResizeModeEnum
-
+  
   public export
   data VideoResizeModeEnum = None | CropAndScale
-
-  public export
+  
+  export
   Show VideoResizeModeEnum where
     show None = "none"
     show CropAndScale = "crop-and-scale"
-
-  public export
+  
+  export
   Eq VideoResizeModeEnum where
     (==) = (==) `on` show
-
-  public export
+  
+  export
   Ord VideoResizeModeEnum where
     compare = compare `on` show
-
-  public export
+  
+  export
   read : String -> Maybe VideoResizeModeEnum
   read "none" = Just None
   read "crop-and-scale" = Just CropAndScale
   read _ = Nothing
-
+  
   export
   ToFFI VideoResizeModeEnum String where
     toFFI = show
-
+  
   export
   FromFFI VideoResizeModeEnum String where
     fromFFI = read
 
 
 namespace MediaDeviceKind
-
+  
   public export
   data MediaDeviceKind = Audioinput | Audiooutput | Videoinput
-
-  public export
+  
+  export
   Show MediaDeviceKind where
     show Audioinput = "audioinput"
     show Audiooutput = "audiooutput"
     show Videoinput = "videoinput"
-
-  public export
+  
+  export
   Eq MediaDeviceKind where
     (==) = (==) `on` show
-
-  public export
+  
+  export
   Ord MediaDeviceKind where
     compare = compare `on` show
-
-  public export
+  
+  export
   read : String -> Maybe MediaDeviceKind
   read "audioinput" = Just Audioinput
   read "audiooutput" = Just Audiooutput
   read "videoinput" = Just Videoinput
   read _ = Nothing
-
+  
   export
   ToFFI MediaDeviceKind String where
     toFFI = show
-
+  
   export
   FromFFI MediaDeviceKind String where
     fromFFI = read
@@ -410,3 +410,4 @@ ToFFI NavigatorUserMediaSuccessCallback NavigatorUserMediaSuccessCallback where 
 
 export
 FromFFI NavigatorUserMediaSuccessCallback NavigatorUserMediaSuccessCallback where fromFFI = Just
+

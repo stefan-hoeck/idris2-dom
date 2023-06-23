@@ -819,3 +819,5 @@ ToFFI SVGURIReference SVGURIReference where toFFI = id
 
 export
 FromFFI SVGURIReference SVGURIReference where fromFFI = Just
+
+

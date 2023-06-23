@@ -10,33 +10,33 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace ShadowRootMode
-
+  
   public export
   data ShadowRootMode = Open | Closed
-
-  public export
+  
+  export
   Show ShadowRootMode where
     show Open = "open"
     show Closed = "closed"
-
-  public export
+  
+  export
   Eq ShadowRootMode where
     (==) = (==) `on` show
-
-  public export
+  
+  export
   Ord ShadowRootMode where
     compare = compare `on` show
-
-  public export
+  
+  export
   read : String -> Maybe ShadowRootMode
   read "open" = Just Open
   read "closed" = Just Closed
   read _ = Nothing
-
+  
   export
   ToFFI ShadowRootMode String where
     toFFI = show
-
+  
   export
   FromFFI ShadowRootMode String where
     fromFFI = read
@@ -649,3 +649,4 @@ ToFFI XPathNSResolver XPathNSResolver where toFFI = id
 
 export
 FromFFI XPathNSResolver XPathNSResolver where fromFFI = Just
+

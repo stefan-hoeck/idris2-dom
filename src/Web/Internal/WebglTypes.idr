@@ -10,35 +10,35 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace WebGLPowerPreference
-
+  
   public export
   data WebGLPowerPreference = Default | LowPower | HighPerformance
-
-  public export
+  
+  export
   Show WebGLPowerPreference where
     show Default = "default"
     show LowPower = "low-power"
     show HighPerformance = "high-performance"
-
-  public export
+  
+  export
   Eq WebGLPowerPreference where
     (==) = (==) `on` show
-
-  public export
+  
+  export
   Ord WebGLPowerPreference where
     compare = compare `on` show
-
-  public export
+  
+  export
   read : String -> Maybe WebGLPowerPreference
   read "default" = Just Default
   read "low-power" = Just LowPower
   read "high-performance" = Just HighPerformance
   read _ = Nothing
-
+  
   export
   ToFFI WebGLPowerPreference String where
     toFFI = show
-
+  
   export
   FromFFI WebGLPowerPreference String where
     fromFFI = read
@@ -302,3 +302,5 @@ ToFFI WebGLRenderingContextOverloads WebGLRenderingContextOverloads where toFFI 
 
 export
 FromFFI WebGLRenderingContextOverloads WebGLRenderingContextOverloads where fromFFI = Just
+
+

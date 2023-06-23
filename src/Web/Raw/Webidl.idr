@@ -12,169 +12,157 @@ import Web.Internal.Types
 --------------------------------------------------------------------------------
 
 namespace DOMException
-
-  public export
+  
+  export
   ABORT_ERR : Bits16
   ABORT_ERR = 20
 
-
-  public export
+  
+  export
   DATA_CLONE_ERR : Bits16
   DATA_CLONE_ERR = 25
 
-
-  public export
+  
+  export
   DOMSTRING_SIZE_ERR : Bits16
   DOMSTRING_SIZE_ERR = 2
 
-
-  public export
+  
+  export
   HIERARCHY_REQUEST_ERR : Bits16
   HIERARCHY_REQUEST_ERR = 3
 
-
-  public export
+  
+  export
   INDEX_SIZE_ERR : Bits16
   INDEX_SIZE_ERR = 1
 
-
-  public export
+  
+  export
   INUSE_ATTRIBUTE_ERR : Bits16
   INUSE_ATTRIBUTE_ERR = 10
 
-
-  public export
+  
+  export
   INVALID_ACCESS_ERR : Bits16
   INVALID_ACCESS_ERR = 15
 
-
-  public export
+  
+  export
   INVALID_CHARACTER_ERR : Bits16
   INVALID_CHARACTER_ERR = 5
 
-
-  public export
+  
+  export
   INVALID_MODIFICATION_ERR : Bits16
   INVALID_MODIFICATION_ERR = 13
 
-
-  public export
+  
+  export
   INVALID_NODE_TYPE_ERR : Bits16
   INVALID_NODE_TYPE_ERR = 24
 
-
-  public export
+  
+  export
   INVALID_STATE_ERR : Bits16
   INVALID_STATE_ERR = 11
 
-
-  public export
+  
+  export
   NAMESPACE_ERR : Bits16
   NAMESPACE_ERR = 14
 
-
-  public export
+  
+  export
   NETWORK_ERR : Bits16
   NETWORK_ERR = 19
 
-
-  public export
+  
+  export
   NOT_FOUND_ERR : Bits16
   NOT_FOUND_ERR = 8
 
-
-  public export
+  
+  export
   NOT_SUPPORTED_ERR : Bits16
   NOT_SUPPORTED_ERR = 9
 
-
-  public export
+  
+  export
   NO_DATA_ALLOWED_ERR : Bits16
   NO_DATA_ALLOWED_ERR = 6
 
-
-  public export
+  
+  export
   NO_MODIFICATION_ALLOWED_ERR : Bits16
   NO_MODIFICATION_ALLOWED_ERR = 7
 
-
-  public export
+  
+  export
   QUOTA_EXCEEDED_ERR : Bits16
   QUOTA_EXCEEDED_ERR = 22
 
-
-  public export
+  
+  export
   SECURITY_ERR : Bits16
   SECURITY_ERR = 18
 
-
-  public export
+  
+  export
   SYNTAX_ERR : Bits16
   SYNTAX_ERR = 12
 
-
-  public export
+  
+  export
   TIMEOUT_ERR : Bits16
   TIMEOUT_ERR = 23
 
-
-  public export
+  
+  export
   TYPE_MISMATCH_ERR : Bits16
   TYPE_MISMATCH_ERR = 17
 
-
-  public export
+  
+  export
   URL_MISMATCH_ERR : Bits16
   URL_MISMATCH_ERR = 21
 
-
-  public export
+  
+  export
   VALIDATION_ERR : Bits16
   VALIDATION_ERR = 16
 
-
-  public export
+  
+  export
   WRONG_DOCUMENT_ERR : Bits16
   WRONG_DOCUMENT_ERR = 4
 
-
+  
   export
   new' :
        (message : Optional String)
     -> (name : Optional String)
     -> JSIO DOMException
   new' a b = primJS $ DOMException.prim__new (toFFI a) (toFFI b)
-
+  
   export
   new : JSIO DOMException
   new = primJS $ DOMException.prim__new undef undef
 
-
+  
   export
-  code :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMException (Types t1)}
-    -> (obj : t1)
-    -> JSIO Bits16
-  code a = primJS $ DOMException.prim__code (up a)
+  code : {auto _ : Cast t1 DOMException} -> (obj : t1) -> JSIO Bits16
+  code a = primJS $ DOMException.prim__code (cast a)
 
-
+  
   export
-  message :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMException (Types t1)}
-    -> (obj : t1)
-    -> JSIO String
-  message a = primJS $ DOMException.prim__message (up a)
+  message : {auto _ : Cast t1 DOMException} -> (obj : t1) -> JSIO String
+  message a = primJS $ DOMException.prim__message (cast a)
 
-
+  
   export
-  name :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMException (Types t1)}
-    -> (obj : t1)
-    -> JSIO String
-  name a = primJS $ DOMException.prim__name (up a)
+  name : {auto _ : Cast t1 DOMException} -> (obj : t1) -> JSIO String
+  name a = primJS $ DOMException.prim__name (cast a)
 
 
 
@@ -186,7 +174,7 @@ namespace DOMException
 --------------------------------------------------------------------------------
 
 namespace Function
-
+  
   export
   toFunction : (IO (Array AnyPtr) -> IO AnyPtr) -> JSIO Function
   toFunction cb = primJS $ prim__toFunction cb
@@ -194,7 +182,9 @@ namespace Function
 
 
 namespace VoidFunction
-
+  
   export
   toVoidFunction : (() -> IO ()) -> JSIO VoidFunction
   toVoidFunction cb = primJS $ prim__toVoidFunction cb
+
+

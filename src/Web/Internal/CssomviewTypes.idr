@@ -10,109 +10,109 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace ScrollBehavior
-
+  
   public export
   data ScrollBehavior = Auto | Instant | Smooth
-
-  public export
+  
+  export
   Show ScrollBehavior where
     show Auto = "auto"
     show Instant = "instant"
     show Smooth = "smooth"
-
-  public export
+  
+  export
   Eq ScrollBehavior where
     (==) = (==) `on` show
-
-  public export
+  
+  export
   Ord ScrollBehavior where
     compare = compare `on` show
-
-  public export
+  
+  export
   read : String -> Maybe ScrollBehavior
   read "auto" = Just Auto
   read "instant" = Just Instant
   read "smooth" = Just Smooth
   read _ = Nothing
-
+  
   export
   ToFFI ScrollBehavior String where
     toFFI = show
-
+  
   export
   FromFFI ScrollBehavior String where
     fromFFI = read
 
 
 namespace ScrollLogicalPosition
-
+  
   public export
   data ScrollLogicalPosition = Start | Center | End | Nearest
-
-  public export
+  
+  export
   Show ScrollLogicalPosition where
     show Start = "start"
     show Center = "center"
     show End = "end"
     show Nearest = "nearest"
-
-  public export
+  
+  export
   Eq ScrollLogicalPosition where
     (==) = (==) `on` show
-
-  public export
+  
+  export
   Ord ScrollLogicalPosition where
     compare = compare `on` show
-
-  public export
+  
+  export
   read : String -> Maybe ScrollLogicalPosition
   read "start" = Just Start
   read "center" = Just Center
   read "end" = Just End
   read "nearest" = Just Nearest
   read _ = Nothing
-
+  
   export
   ToFFI ScrollLogicalPosition String where
     toFFI = show
-
+  
   export
   FromFFI ScrollLogicalPosition String where
     fromFFI = read
 
 
 namespace CSSBoxType
-
+  
   public export
   data CSSBoxType = Margin | Border | Padding | Content
-
-  public export
+  
+  export
   Show CSSBoxType where
     show Margin = "margin"
     show Border = "border"
     show Padding = "padding"
     show Content = "content"
-
-  public export
+  
+  export
   Eq CSSBoxType where
     (==) = (==) `on` show
-
-  public export
+  
+  export
   Ord CSSBoxType where
     compare = compare `on` show
-
-  public export
+  
+  export
   read : String -> Maybe CSSBoxType
   read "margin" = Just Margin
   read "border" = Just Border
   read "padding" = Just Padding
   read "content" = Just Content
   read _ = Nothing
-
+  
   export
   ToFFI CSSBoxType String where
     toFFI = show
-
+  
   export
   FromFFI CSSBoxType String where
     fromFFI = read
@@ -256,3 +256,5 @@ ToFFI GeometryUtils GeometryUtils where toFFI = id
 
 export
 FromFFI GeometryUtils GeometryUtils where fromFFI = Just
+
+
