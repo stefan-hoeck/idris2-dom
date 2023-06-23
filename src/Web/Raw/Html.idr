@@ -171,8 +171,7 @@ namespace CanvasPattern
 
   export
   setTransform' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem DOMMatrix2DInit (Types t2)}
+       {auto _ : Cast t2 DOMMatrix2DInit}
     -> (obj : CanvasPattern)
     -> (transform : Optional t2)
     -> JSIO ()
@@ -204,8 +203,7 @@ namespace CloseEvent
 
   export
   new' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem CloseEventInit (Types t2)}
+       {auto _ : Cast t2 CloseEventInit}
     -> (type : String)
     -> (eventInitDict : Optional t2)
     -> JSIO CloseEvent
@@ -236,8 +234,7 @@ namespace CustomElementRegistry
 
   export
   define' :
-       {auto 0 _ : JSType t4}
-    -> {auto 0 _ : Elem ElementDefinitionOptions (Types t4)}
+       {auto _ : Cast t4 ElementDefinitionOptions}
     -> (obj : CustomElementRegistry)
     -> (name : String)
     -> (constructor : CustomElementConstructor)
@@ -264,12 +261,11 @@ namespace CustomElementRegistry
 
   export
   upgrade :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem Node (Types t2)}
+       {auto _ : Cast t2 Node}
     -> (obj : CustomElementRegistry)
     -> (root : t2)
     -> JSIO ()
-  upgrade a b = primJS $ CustomElementRegistry.prim__upgrade a (up b)
+  upgrade a b = primJS $ CustomElementRegistry.prim__upgrade a (cast b)
 
 
   export
@@ -395,14 +391,13 @@ namespace DataTransfer
 
   export
   setDragImage :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem Element (Types t2)}
+       {auto _ : Cast t2 Element}
     -> (obj : DataTransfer)
     -> (image : t2)
     -> (x : Int32)
     -> (y : Int32)
     -> JSIO ()
-  setDragImage a b c d = primJS $ DataTransfer.prim__setDragImage a (up b) c d
+  setDragImage a b c d = primJS $ DataTransfer.prim__setDragImage a (cast b) c d
 
 
 
@@ -524,8 +519,7 @@ namespace DedicatedWorkerGlobalScope
 
   export
   postMessage1' :
-       {auto 0 _ : JSType t3}
-    -> {auto 0 _ : Elem PostMessageOptions (Types t3)}
+       {auto _ : Cast t3 PostMessageOptions}
     -> (obj : DedicatedWorkerGlobalScope)
     -> (message : Any)
     -> (options : Optional t3)
@@ -547,8 +541,7 @@ namespace DragEvent
 
   export
   new' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem DragEventInit (Types t2)}
+       {auto _ : Cast t2 DragEventInit}
     -> (type : String)
     -> (eventInitDict : Optional t2)
     -> JSIO DragEvent
@@ -632,10 +625,8 @@ namespace ElementInternals
 
   export
   setValidity' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : JSType t4}
-    -> {auto 0 _ : Elem ValidityStateFlags (Types t2)}
-    -> {auto 0 _ : Elem HTMLElement (Types t4)}
+       {auto _ : Cast t2 ValidityStateFlags}
+    -> {auto _ : Cast t4 HTMLElement}
     -> (obj : ElementInternals)
     -> (flags : Optional t2)
     -> (message : Optional String)
@@ -655,8 +646,7 @@ namespace ErrorEvent
 
   export
   new' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem ErrorEventInit (Types t2)}
+       {auto _ : Cast t2 ErrorEventInit}
     -> (type : String)
     -> (eventInitDict : Optional t2)
     -> JSIO ErrorEvent
@@ -695,25 +685,24 @@ namespace ErrorEvent
 
 namespace EventSource
 
-  public export
+  export
   CLOSED : Bits16
   CLOSED = 2
 
 
-  public export
+  export
   CONNECTING : Bits16
   CONNECTING = 0
 
 
-  public export
+  export
   OPEN : Bits16
   OPEN = 1
 
 
   export
   new' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem EventSourceInit (Types t2)}
+       {auto _ : Cast t2 EventSourceInit}
     -> (url : String)
     -> (eventSourceInitDict : Optional t2)
     -> JSIO EventSource
@@ -791,12 +780,11 @@ namespace FormDataEvent
 
   export
   new :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem FormDataEventInit (Types t2)}
+       {auto _ : Cast t2 FormDataEventInit}
     -> (type : String)
     -> (eventInitDict : t2)
     -> JSIO FormDataEvent
-  new a b = primJS $ FormDataEvent.prim__new a (up b)
+  new a b = primJS $ FormDataEvent.prim__new a (cast b)
 
 
   export
@@ -1443,205 +1431,157 @@ namespace HTMLElement
 
   export
   accessKey :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLElement (Types t)}
+       {auto _ : Cast t HTMLElement}
     -> t
     -> Attribute True Prelude.id String
   accessKey v = fromPrim
                   "HTMLElement.getaccessKey"
                   prim__accessKey
                   prim__setAccessKey
-                  (v :> HTMLElement)
+                  (cast {to = HTMLElement} v)
 
 
   export
-  accessKeyLabel :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLElement (Types t1)}
-    -> (obj : t1)
-    -> JSIO String
-  accessKeyLabel a = primJS $ HTMLElement.prim__accessKeyLabel (up a)
+  accessKeyLabel : {auto _ : Cast t1 HTMLElement} -> (obj : t1) -> JSIO String
+  accessKeyLabel a = primJS $ HTMLElement.prim__accessKeyLabel (cast a)
 
 
   export
   autocapitalize :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLElement (Types t)}
+       {auto _ : Cast t HTMLElement}
     -> t
     -> Attribute True Prelude.id String
   autocapitalize v = fromPrim
                        "HTMLElement.getautocapitalize"
                        prim__autocapitalize
                        prim__setAutocapitalize
-                       (v :> HTMLElement)
+                       (cast {to = HTMLElement} v)
 
 
   export
-  dir :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLElement (Types t)}
-    -> t
-    -> Attribute True Prelude.id String
+  dir : {auto _ : Cast t HTMLElement} -> t -> Attribute True Prelude.id String
   dir v = fromPrim
             "HTMLElement.getdir"
             prim__dir
             prim__setDir
-            (v :> HTMLElement)
+            (cast {to = HTMLElement} v)
 
 
   export
   draggable :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLElement (Types t)}
+       {auto _ : Cast t HTMLElement}
     -> t
     -> Attribute True Prelude.id Bool
   draggable v = fromPrim
                   "HTMLElement.getdraggable"
                   prim__draggable
                   prim__setDraggable
-                  (v :> HTMLElement)
+                  (cast {to = HTMLElement} v)
 
 
   export
-  hidden :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLElement (Types t)}
-    -> t
-    -> Attribute True Prelude.id Bool
+  hidden : {auto _ : Cast t HTMLElement} -> t -> Attribute True Prelude.id Bool
   hidden v = fromPrim
                "HTMLElement.gethidden"
                prim__hidden
                prim__setHidden
-               (v :> HTMLElement)
+               (cast {to = HTMLElement} v)
 
 
   export
   innerText :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLElement (Types t)}
+       {auto _ : Cast t HTMLElement}
     -> t
     -> Attribute True Prelude.id String
   innerText v = fromPrim
                   "HTMLElement.getinnerText"
                   prim__innerText
                   prim__setInnerText
-                  (v :> HTMLElement)
+                  (cast {to = HTMLElement} v)
 
 
   export
-  lang :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLElement (Types t)}
-    -> t
-    -> Attribute True Prelude.id String
+  lang : {auto _ : Cast t HTMLElement} -> t -> Attribute True Prelude.id String
   lang v = fromPrim
              "HTMLElement.getlang"
              prim__lang
              prim__setLang
-             (v :> HTMLElement)
+             (cast {to = HTMLElement} v)
 
 
   export
-  offsetHeight :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLElement (Types t1)}
-    -> (obj : t1)
-    -> JSIO Int32
-  offsetHeight a = primJS $ HTMLElement.prim__offsetHeight (up a)
+  offsetHeight : {auto _ : Cast t1 HTMLElement} -> (obj : t1) -> JSIO Int32
+  offsetHeight a = primJS $ HTMLElement.prim__offsetHeight (cast a)
 
 
   export
-  offsetLeft :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLElement (Types t1)}
-    -> (obj : t1)
-    -> JSIO Int32
-  offsetLeft a = primJS $ HTMLElement.prim__offsetLeft (up a)
+  offsetLeft : {auto _ : Cast t1 HTMLElement} -> (obj : t1) -> JSIO Int32
+  offsetLeft a = primJS $ HTMLElement.prim__offsetLeft (cast a)
 
 
   export
   offsetParent :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLElement (Types t1)}
+       {auto _ : Cast t1 HTMLElement}
     -> (obj : t1)
     -> JSIO (Maybe Element)
   offsetParent a = tryJS "HTMLElement.offsetParent" $
-    HTMLElement.prim__offsetParent (up a)
+    HTMLElement.prim__offsetParent (cast a)
 
 
   export
-  offsetTop :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLElement (Types t1)}
-    -> (obj : t1)
-    -> JSIO Int32
-  offsetTop a = primJS $ HTMLElement.prim__offsetTop (up a)
+  offsetTop : {auto _ : Cast t1 HTMLElement} -> (obj : t1) -> JSIO Int32
+  offsetTop a = primJS $ HTMLElement.prim__offsetTop (cast a)
 
 
   export
-  offsetWidth :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLElement (Types t1)}
-    -> (obj : t1)
-    -> JSIO Int32
-  offsetWidth a = primJS $ HTMLElement.prim__offsetWidth (up a)
+  offsetWidth : {auto _ : Cast t1 HTMLElement} -> (obj : t1) -> JSIO Int32
+  offsetWidth a = primJS $ HTMLElement.prim__offsetWidth (cast a)
 
 
   export
   spellcheck :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLElement (Types t)}
+       {auto _ : Cast t HTMLElement}
     -> t
     -> Attribute True Prelude.id Bool
   spellcheck v = fromPrim
                    "HTMLElement.getspellcheck"
                    prim__spellcheck
                    prim__setSpellcheck
-                   (v :> HTMLElement)
+                   (cast {to = HTMLElement} v)
 
 
   export
-  title :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLElement (Types t)}
-    -> t
-    -> Attribute True Prelude.id String
+  title : {auto _ : Cast t HTMLElement} -> t -> Attribute True Prelude.id String
   title v = fromPrim
               "HTMLElement.gettitle"
               prim__title
               prim__setTitle
-              (v :> HTMLElement)
+              (cast {to = HTMLElement} v)
 
 
   export
   translate :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLElement (Types t)}
+       {auto _ : Cast t HTMLElement}
     -> t
     -> Attribute True Prelude.id Bool
   translate v = fromPrim
                   "HTMLElement.gettranslate"
                   prim__translate
                   prim__setTranslate
-                  (v :> HTMLElement)
+                  (cast {to = HTMLElement} v)
 
 
   export
   attachInternals :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLElement (Types t1)}
+       {auto _ : Cast t1 HTMLElement}
     -> (obj : t1)
     -> JSIO ElementInternals
-  attachInternals a = primJS $ HTMLElement.prim__attachInternals (up a)
+  attachInternals a = primJS $ HTMLElement.prim__attachInternals (cast a)
 
 
   export
-  click :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLElement (Types t1)}
-    -> (obj : t1)
-    -> JSIO ()
-  click a = primJS $ HTMLElement.prim__click (up a)
+  click : {auto _ : Cast t1 HTMLElement} -> (obj : t1) -> JSIO ()
+  click a = primJS $ HTMLElement.prim__click (cast a)
 
 
 
@@ -1918,8 +1858,7 @@ namespace HTMLFormElement
 
   export
   requestSubmit' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem HTMLElement (Types t2)}
+       {auto _ : Cast t2 HTMLElement}
     -> (obj : HTMLFormElement)
     -> (submitter : Optional (Maybe t2))
     -> JSIO ()
@@ -3202,439 +3141,378 @@ namespace HTMLMarqueeElement
 
 namespace HTMLMediaElement
 
-  public export
+  export
   HAVE_CURRENT_DATA : Bits16
   HAVE_CURRENT_DATA = 2
 
 
-  public export
+  export
   HAVE_ENOUGH_DATA : Bits16
   HAVE_ENOUGH_DATA = 4
 
 
-  public export
+  export
   HAVE_FUTURE_DATA : Bits16
   HAVE_FUTURE_DATA = 3
 
 
-  public export
+  export
   HAVE_METADATA : Bits16
   HAVE_METADATA = 1
 
 
-  public export
+  export
   HAVE_NOTHING : Bits16
   HAVE_NOTHING = 0
 
 
-  public export
+  export
   NETWORK_EMPTY : Bits16
   NETWORK_EMPTY = 0
 
 
-  public export
+  export
   NETWORK_IDLE : Bits16
   NETWORK_IDLE = 1
 
 
-  public export
+  export
   NETWORK_LOADING : Bits16
   NETWORK_LOADING = 2
 
 
-  public export
+  export
   NETWORK_NO_SOURCE : Bits16
   NETWORK_NO_SOURCE = 3
 
 
   export
   audioTracks :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t1)}
+       {auto _ : Cast t1 HTMLMediaElement}
     -> (obj : t1)
     -> JSIO AudioTrackList
-  audioTracks a = primJS $ HTMLMediaElement.prim__audioTracks (up a)
+  audioTracks a = primJS $ HTMLMediaElement.prim__audioTracks (cast a)
 
 
   export
   autoplay :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t)}
+       {auto _ : Cast t HTMLMediaElement}
     -> t
     -> Attribute True Prelude.id Bool
   autoplay v = fromPrim
                  "HTMLMediaElement.getautoplay"
                  prim__autoplay
                  prim__setAutoplay
-                 (v :> HTMLMediaElement)
+                 (cast {to = HTMLMediaElement} v)
 
 
   export
   buffered :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t1)}
+       {auto _ : Cast t1 HTMLMediaElement}
     -> (obj : t1)
     -> JSIO TimeRanges
-  buffered a = primJS $ HTMLMediaElement.prim__buffered (up a)
+  buffered a = primJS $ HTMLMediaElement.prim__buffered (cast a)
 
 
   export
   controls :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t)}
+       {auto _ : Cast t HTMLMediaElement}
     -> t
     -> Attribute True Prelude.id Bool
   controls v = fromPrim
                  "HTMLMediaElement.getcontrols"
                  prim__controls
                  prim__setControls
-                 (v :> HTMLMediaElement)
+                 (cast {to = HTMLMediaElement} v)
 
 
   export
   crossOrigin :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t)}
+       {auto _ : Cast t HTMLMediaElement}
     -> t
     -> Attribute False Maybe String
   crossOrigin v = fromNullablePrim
                     "HTMLMediaElement.getcrossOrigin"
                     prim__crossOrigin
                     prim__setCrossOrigin
-                    (v :> HTMLMediaElement)
+                    (cast {to = HTMLMediaElement} v)
 
 
   export
-  currentSrc :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t1)}
-    -> (obj : t1)
-    -> JSIO String
-  currentSrc a = primJS $ HTMLMediaElement.prim__currentSrc (up a)
+  currentSrc : {auto _ : Cast t1 HTMLMediaElement} -> (obj : t1) -> JSIO String
+  currentSrc a = primJS $ HTMLMediaElement.prim__currentSrc (cast a)
 
 
   export
   currentTime :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t)}
+       {auto _ : Cast t HTMLMediaElement}
     -> t
     -> Attribute True Prelude.id Double
   currentTime v = fromPrim
                     "HTMLMediaElement.getcurrentTime"
                     prim__currentTime
                     prim__setCurrentTime
-                    (v :> HTMLMediaElement)
+                    (cast {to = HTMLMediaElement} v)
 
 
   export
   defaultMuted :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t)}
+       {auto _ : Cast t HTMLMediaElement}
     -> t
     -> Attribute True Prelude.id Bool
   defaultMuted v = fromPrim
                      "HTMLMediaElement.getdefaultMuted"
                      prim__defaultMuted
                      prim__setDefaultMuted
-                     (v :> HTMLMediaElement)
+                     (cast {to = HTMLMediaElement} v)
 
 
   export
   defaultPlaybackRate :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t)}
+       {auto _ : Cast t HTMLMediaElement}
     -> t
     -> Attribute True Prelude.id Double
   defaultPlaybackRate v = fromPrim
                             "HTMLMediaElement.getdefaultPlaybackRate"
                             prim__defaultPlaybackRate
                             prim__setDefaultPlaybackRate
-                            (v :> HTMLMediaElement)
+                            (cast {to = HTMLMediaElement} v)
 
 
   export
-  duration :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  duration a = primJS $ HTMLMediaElement.prim__duration (up a)
+  duration : {auto _ : Cast t1 HTMLMediaElement} -> (obj : t1) -> JSIO Double
+  duration a = primJS $ HTMLMediaElement.prim__duration (cast a)
 
 
   export
-  ended :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t1)}
-    -> (obj : t1)
-    -> JSIO Bool
-  ended a = tryJS "HTMLMediaElement.ended" $ HTMLMediaElement.prim__ended (up a)
+  ended : {auto _ : Cast t1 HTMLMediaElement} -> (obj : t1) -> JSIO Bool
+  ended a = tryJS "HTMLMediaElement.ended" $
+    HTMLMediaElement.prim__ended (cast a)
 
 
   export
   error :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t1)}
+       {auto _ : Cast t1 HTMLMediaElement}
     -> (obj : t1)
     -> JSIO (Maybe MediaError)
-  error a = tryJS "HTMLMediaElement.error" $ HTMLMediaElement.prim__error (up a)
+  error a = tryJS "HTMLMediaElement.error" $
+    HTMLMediaElement.prim__error (cast a)
 
 
   export
   loop :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t)}
+       {auto _ : Cast t HTMLMediaElement}
     -> t
     -> Attribute True Prelude.id Bool
   loop v = fromPrim
              "HTMLMediaElement.getloop"
              prim__loop
              prim__setLoop
-             (v :> HTMLMediaElement)
+             (cast {to = HTMLMediaElement} v)
 
 
   export
   muted :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t)}
+       {auto _ : Cast t HTMLMediaElement}
     -> t
     -> Attribute True Prelude.id Bool
   muted v = fromPrim
               "HTMLMediaElement.getmuted"
               prim__muted
               prim__setMuted
-              (v :> HTMLMediaElement)
+              (cast {to = HTMLMediaElement} v)
 
 
   export
   networkState :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t1)}
+       {auto _ : Cast t1 HTMLMediaElement}
     -> (obj : t1)
     -> JSIO Bits16
-  networkState a = primJS $ HTMLMediaElement.prim__networkState (up a)
+  networkState a = primJS $ HTMLMediaElement.prim__networkState (cast a)
 
 
   export
-  paused :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t1)}
-    -> (obj : t1)
-    -> JSIO Bool
+  paused : {auto _ : Cast t1 HTMLMediaElement} -> (obj : t1) -> JSIO Bool
   paused a = tryJS "HTMLMediaElement.paused" $
-    HTMLMediaElement.prim__paused (up a)
+    HTMLMediaElement.prim__paused (cast a)
 
 
   export
   playbackRate :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t)}
+       {auto _ : Cast t HTMLMediaElement}
     -> t
     -> Attribute True Prelude.id Double
   playbackRate v = fromPrim
                      "HTMLMediaElement.getplaybackRate"
                      prim__playbackRate
                      prim__setPlaybackRate
-                     (v :> HTMLMediaElement)
+                     (cast {to = HTMLMediaElement} v)
 
 
   export
-  played :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t1)}
-    -> (obj : t1)
-    -> JSIO TimeRanges
-  played a = primJS $ HTMLMediaElement.prim__played (up a)
+  played : {auto _ : Cast t1 HTMLMediaElement} -> (obj : t1) -> JSIO TimeRanges
+  played a = primJS $ HTMLMediaElement.prim__played (cast a)
 
 
   export
   preload :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t)}
+       {auto _ : Cast t HTMLMediaElement}
     -> t
     -> Attribute True Prelude.id String
   preload v = fromPrim
                 "HTMLMediaElement.getpreload"
                 prim__preload
                 prim__setPreload
-                (v :> HTMLMediaElement)
+                (cast {to = HTMLMediaElement} v)
 
 
   export
   preservesPitch :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t)}
+       {auto _ : Cast t HTMLMediaElement}
     -> t
     -> Attribute True Prelude.id Bool
   preservesPitch v = fromPrim
                        "HTMLMediaElement.getpreservesPitch"
                        prim__preservesPitch
                        prim__setPreservesPitch
-                       (v :> HTMLMediaElement)
+                       (cast {to = HTMLMediaElement} v)
 
 
   export
-  readyState :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t1)}
-    -> (obj : t1)
-    -> JSIO Bits16
-  readyState a = primJS $ HTMLMediaElement.prim__readyState (up a)
+  readyState : {auto _ : Cast t1 HTMLMediaElement} -> (obj : t1) -> JSIO Bits16
+  readyState a = primJS $ HTMLMediaElement.prim__readyState (cast a)
 
 
   export
   seekable :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t1)}
+       {auto _ : Cast t1 HTMLMediaElement}
     -> (obj : t1)
     -> JSIO TimeRanges
-  seekable a = primJS $ HTMLMediaElement.prim__seekable (up a)
+  seekable a = primJS $ HTMLMediaElement.prim__seekable (cast a)
 
 
   export
-  seeking :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t1)}
-    -> (obj : t1)
-    -> JSIO Bool
+  seeking : {auto _ : Cast t1 HTMLMediaElement} -> (obj : t1) -> JSIO Bool
   seeking a = tryJS "HTMLMediaElement.seeking" $
-    HTMLMediaElement.prim__seeking (up a)
+    HTMLMediaElement.prim__seeking (cast a)
 
 
   export
   src :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t)}
+       {auto _ : Cast t HTMLMediaElement}
     -> t
     -> Attribute True Prelude.id String
   src v = fromPrim
             "HTMLMediaElement.getsrc"
             prim__src
             prim__setSrc
-            (v :> HTMLMediaElement)
+            (cast {to = HTMLMediaElement} v)
 
 
   export
   srcObject :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t)}
+       {auto _ : Cast t HTMLMediaElement}
     -> t
     -> Attribute False Maybe (HSum [MediaStream, MediaSource, Blob])
   srcObject v = fromNullablePrim
                   "HTMLMediaElement.getsrcObject"
                   prim__srcObject
                   prim__setSrcObject
-                  (v :> HTMLMediaElement)
+                  (cast {to = HTMLMediaElement} v)
 
 
   export
   textTracks :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t1)}
+       {auto _ : Cast t1 HTMLMediaElement}
     -> (obj : t1)
     -> JSIO TextTrackList
-  textTracks a = primJS $ HTMLMediaElement.prim__textTracks (up a)
+  textTracks a = primJS $ HTMLMediaElement.prim__textTracks (cast a)
 
 
   export
   videoTracks :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t1)}
+       {auto _ : Cast t1 HTMLMediaElement}
     -> (obj : t1)
     -> JSIO VideoTrackList
-  videoTracks a = primJS $ HTMLMediaElement.prim__videoTracks (up a)
+  videoTracks a = primJS $ HTMLMediaElement.prim__videoTracks (cast a)
 
 
   export
   volume :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t)}
+       {auto _ : Cast t HTMLMediaElement}
     -> t
     -> Attribute True Prelude.id Double
   volume v = fromPrim
                "HTMLMediaElement.getvolume"
                prim__volume
                prim__setVolume
-               (v :> HTMLMediaElement)
+               (cast {to = HTMLMediaElement} v)
 
 
   export
   addTextTrack' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t1)}
+       {auto _ : Cast t1 HTMLMediaElement}
     -> (obj : t1)
     -> (kind : TextTrackKind)
     -> (label : Optional String)
     -> (language : Optional String)
     -> JSIO TextTrack
   addTextTrack' a b c d = primJS $
-    HTMLMediaElement.prim__addTextTrack (up a) (toFFI b) (toFFI c) (toFFI d)
+    HTMLMediaElement.prim__addTextTrack (cast a) (toFFI b) (toFFI c) (toFFI d)
 
   export
   addTextTrack :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t1)}
+       {auto _ : Cast t1 HTMLMediaElement}
     -> (obj : t1)
     -> (kind : TextTrackKind)
     -> JSIO TextTrack
   addTextTrack a b = primJS $
-    HTMLMediaElement.prim__addTextTrack (up a) (toFFI b) undef undef
+    HTMLMediaElement.prim__addTextTrack (cast a) (toFFI b) undef undef
 
 
   export
   canPlayType :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t1)}
+       {auto _ : Cast t1 HTMLMediaElement}
     -> (obj : t1)
     -> (type : String)
     -> JSIO CanPlayTypeResult
   canPlayType a b = tryJS "HTMLMediaElement.canPlayType" $
-    HTMLMediaElement.prim__canPlayType (up a) b
+    HTMLMediaElement.prim__canPlayType (cast a) b
 
 
   export
   fastSeek :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t1)}
+       {auto _ : Cast t1 HTMLMediaElement}
     -> (obj : t1)
     -> (time : Double)
     -> JSIO ()
-  fastSeek a b = primJS $ HTMLMediaElement.prim__fastSeek (up a) b
+  fastSeek a b = primJS $ HTMLMediaElement.prim__fastSeek (cast a) b
 
 
   export
   getStartDate :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t1)}
+       {auto _ : Cast t1 HTMLMediaElement}
     -> (obj : t1)
     -> JSIO Object
-  getStartDate a = primJS $ HTMLMediaElement.prim__getStartDate (up a)
+  getStartDate a = primJS $ HTMLMediaElement.prim__getStartDate (cast a)
 
 
   export
-  load :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t1)}
-    -> (obj : t1)
-    -> JSIO ()
-  load a = primJS $ HTMLMediaElement.prim__load (up a)
+  load : {auto _ : Cast t1 HTMLMediaElement} -> (obj : t1) -> JSIO ()
+  load a = primJS $ HTMLMediaElement.prim__load (cast a)
 
 
   export
-  pause :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t1)}
-    -> (obj : t1)
-    -> JSIO ()
-  pause a = primJS $ HTMLMediaElement.prim__pause (up a)
+  pause : {auto _ : Cast t1 HTMLMediaElement} -> (obj : t1) -> JSIO ()
+  pause a = primJS $ HTMLMediaElement.prim__pause (cast a)
 
 
   export
   play :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLMediaElement (Types t1)}
+       {auto _ : Cast t1 HTMLMediaElement}
     -> (obj : t1)
     -> JSIO (Promise Undefined)
-  play a = primJS $ HTMLMediaElement.prim__play (up a)
+  play a = primJS $ HTMLMediaElement.prim__play (cast a)
 
 
 
@@ -4594,8 +4472,7 @@ namespace HTMLSlotElement
 
   export
   assignedElements' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem AssignedNodesOptions (Types t2)}
+       {auto _ : Cast t2 AssignedNodesOptions}
     -> (obj : HTMLSlotElement)
     -> (options : Optional t2)
     -> JSIO (Array Element)
@@ -4609,8 +4486,7 @@ namespace HTMLSlotElement
 
   export
   assignedNodes' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem AssignedNodesOptions (Types t2)}
+       {auto _ : Cast t2 AssignedNodesOptions}
     -> (obj : HTMLSlotElement)
     -> (options : Optional t2)
     -> JSIO (Array Node)
@@ -5477,22 +5353,22 @@ namespace HTMLTitleElement
 
 namespace HTMLTrackElement
 
-  public export
+  export
   ERROR : Bits16
   ERROR = 3
 
 
-  public export
+  export
   LOADED : Bits16
   LOADED = 2
 
 
-  public export
+  export
   LOADING : Bits16
   LOADING = 1
 
 
-  public export
+  export
   NONE : Bits16
   NONE = 0
 
@@ -5623,8 +5499,7 @@ namespace HashChangeEvent
 
   export
   new' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem HashChangeEventInit (Types t2)}
+       {auto _ : Cast t2 HashChangeEventInit}
     -> (type : String)
     -> (eventInitDict : Optional t2)
     -> JSIO HashChangeEvent
@@ -5876,22 +5751,22 @@ namespace Location
 
 namespace MediaError
 
-  public export
+  export
   MEDIA_ERR_ABORTED : Bits16
   MEDIA_ERR_ABORTED = 1
 
 
-  public export
+  export
   MEDIA_ERR_DECODE : Bits16
   MEDIA_ERR_DECODE = 3
 
 
-  public export
+  export
   MEDIA_ERR_NETWORK : Bits16
   MEDIA_ERR_NETWORK = 2
 
 
-  public export
+  export
   MEDIA_ERR_SRC_NOT_SUPPORTED : Bits16
   MEDIA_ERR_SRC_NOT_SUPPORTED = 4
 
@@ -5929,8 +5804,7 @@ namespace MessageEvent
 
   export
   new' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem MessageEventInit (Types t2)}
+       {auto _ : Cast t2 MessageEventInit}
     -> (type : String)
     -> (eventInitDict : Optional t2)
     -> JSIO MessageEvent
@@ -6045,8 +5919,7 @@ namespace MessagePort
 
   export
   postMessage1' :
-       {auto 0 _ : JSType t3}
-    -> {auto 0 _ : Elem PostMessageOptions (Types t3)}
+       {auto _ : Cast t3 PostMessageOptions}
     -> (obj : MessagePort)
     -> (message : Any)
     -> (options : Optional t3)
@@ -6131,14 +6004,13 @@ namespace Navigator
 
   export
   getUserMedia :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem MediaStreamConstraints (Types t2)}
+       {auto _ : Cast t2 MediaStreamConstraints}
     -> (obj : Navigator)
     -> (constraints : t2)
     -> (successCallback : NavigatorUserMediaSuccessCallback)
     -> (errorCallback : NavigatorUserMediaErrorCallback)
     -> JSIO ()
-  getUserMedia a b c d = primJS $ Navigator.prim__getUserMedia a (up b) c d
+  getUserMedia a b c d = primJS $ Navigator.prim__getUserMedia a (cast b) c d
 
 
 
@@ -6161,8 +6033,7 @@ namespace OffscreenCanvas
 
   export
   convertToBlob' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem ImageEncodeOptions (Types t2)}
+       {auto _ : Cast t2 ImageEncodeOptions}
     -> (obj : OffscreenCanvas)
     -> (options : Optional t2)
     -> JSIO (Promise Blob)
@@ -6229,8 +6100,7 @@ namespace PageTransitionEvent
 
   export
   new' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem PageTransitionEventInit (Types t2)}
+       {auto _ : Cast t2 PageTransitionEventInit}
     -> (type : String)
     -> (eventInitDict : Optional t2)
     -> JSIO PageTransitionEvent
@@ -6261,8 +6131,7 @@ namespace Path2D
 
   export
   addPath' :
-       {auto 0 _ : JSType t3}
-    -> {auto 0 _ : Elem DOMMatrix2DInit (Types t3)}
+       {auto _ : Cast t3 DOMMatrix2DInit}
     -> (obj : Path2D)
     -> (path : Path2D)
     -> (transform : Optional t3)
@@ -6336,8 +6205,7 @@ namespace PopStateEvent
 
   export
   new' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem PopStateEventInit (Types t2)}
+       {auto _ : Cast t2 PopStateEventInit}
     -> (type : String)
     -> (eventInitDict : Optional t2)
     -> JSIO PopStateEvent
@@ -6358,12 +6226,11 @@ namespace PromiseRejectionEvent
 
   export
   new :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem PromiseRejectionEventInit (Types t2)}
+       {auto _ : Cast t2 PromiseRejectionEventInit}
     -> (type : String)
     -> (eventInitDict : t2)
     -> JSIO PromiseRejectionEvent
-  new a b = primJS $ PromiseRejectionEvent.prim__new a (up b)
+  new a b = primJS $ PromiseRejectionEvent.prim__new a (cast b)
 
 
   export
@@ -6462,8 +6329,7 @@ namespace StorageEvent
 
   export
   new' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem StorageEventInit (Types t2)}
+       {auto _ : Cast t2 StorageEventInit}
     -> (type : String)
     -> (eventInitDict : Optional t2)
     -> JSIO StorageEvent
@@ -6544,8 +6410,7 @@ namespace SubmitEvent
 
   export
   new' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem SubmitEventInit (Types t2)}
+       {auto _ : Cast t2 SubmitEventInit}
     -> (type : String)
     -> (eventInitDict : Optional t2)
     -> JSIO SubmitEvent
@@ -6847,8 +6712,7 @@ namespace TrackEvent
 
   export
   new' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem TrackEventInit (Types t2)}
+       {auto _ : Cast t2 TrackEventInit}
     -> (type : String)
     -> (eventInitDict : Optional t2)
     -> JSIO TrackEvent
@@ -7026,22 +6890,22 @@ namespace VideoTrackList
 
 namespace WebSocket
 
-  public export
+  export
   CLOSED : Bits16
   CLOSED = 3
 
 
-  public export
+  export
   CLOSING : Bits16
   CLOSING = 2
 
 
-  public export
+  export
   CONNECTING : Bits16
   CONNECTING = 0
 
 
-  public export
+  export
   OPEN : Bits16
   OPEN = 1
 
@@ -7148,12 +7012,11 @@ namespace WebSocket
 
   export
   send1 :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem Blob (Types t2)}
+       {auto _ : Cast t2 Blob}
     -> (obj : WebSocket)
     -> (data_ : t2)
     -> JSIO ()
-  send1 a b = primJS $ WebSocket.prim__send1 a (up b)
+  send1 a b = primJS $ WebSocket.prim__send1 a (cast b)
 
 
   export
@@ -7431,23 +7294,21 @@ namespace Window
 
   export
   getComputedStyle' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem Element (Types t2)}
+       {auto _ : Cast t2 Element}
     -> (obj : Window)
     -> (elt : t2)
     -> (pseudoElt : Optional (Maybe String))
     -> JSIO CSSStyleDeclaration
   getComputedStyle' a b c = primJS $
-    Window.prim__getComputedStyle a (up b) (toFFI c)
+    Window.prim__getComputedStyle a (cast b) (toFFI c)
 
   export
   getComputedStyle :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem Element (Types t2)}
+       {auto _ : Cast t2 Element}
     -> (obj : Window)
     -> (elt : t2)
     -> JSIO CSSStyleDeclaration
-  getComputedStyle a b = primJS $ Window.prim__getComputedStyle a (up b) undef
+  getComputedStyle a b = primJS $ Window.prim__getComputedStyle a (cast b) undef
 
 
   export
@@ -7501,8 +7362,7 @@ namespace Window
 
   export
   postMessage1' :
-       {auto 0 _ : JSType t3}
-    -> {auto 0 _ : Elem WindowPostMessageOptions (Types t3)}
+       {auto _ : Cast t3 WindowPostMessageOptions}
     -> (obj : Window)
     -> (message : Any)
     -> (options : Optional t3)
@@ -7550,8 +7410,7 @@ namespace Window
 
   export
   scrollBy' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem ScrollToOptions (Types t2)}
+       {auto _ : Cast t2 ScrollToOptions}
     -> (obj : Window)
     -> (options : Optional t2)
     -> JSIO ()
@@ -7569,8 +7428,7 @@ namespace Window
 
   export
   scrollTo' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem ScrollToOptions (Types t2)}
+       {auto _ : Cast t2 ScrollToOptions}
     -> (obj : Window)
     -> (options : Optional t2)
     -> JSIO ()
@@ -7588,8 +7446,7 @@ namespace Window
 
   export
   scroll' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem ScrollToOptions (Types t2)}
+       {auto _ : Cast t2 ScrollToOptions}
     -> (obj : Window)
     -> (options : Optional t2)
     -> JSIO ()
@@ -7615,8 +7472,7 @@ namespace Worker
 
   export
   new' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem WorkerOptions (Types t2)}
+       {auto _ : Cast t2 WorkerOptions}
     -> (scriptURL : String)
     -> (options : Optional t2)
     -> JSIO Worker
@@ -7656,8 +7512,7 @@ namespace Worker
 
   export
   postMessage1' :
-       {auto 0 _ : JSType t3}
-    -> {auto 0 _ : Elem PostMessageOptions (Types t3)}
+       {auto _ : Cast t3 PostMessageOptions}
     -> (obj : Worker)
     -> (message : Any)
     -> (options : Optional t3)
@@ -7679,118 +7534,108 @@ namespace WorkerGlobalScope
 
   export
   location :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem WorkerGlobalScope (Types t1)}
+       {auto _ : Cast t1 WorkerGlobalScope}
     -> (obj : t1)
     -> JSIO WorkerLocation
-  location a = primJS $ WorkerGlobalScope.prim__location (up a)
+  location a = primJS $ WorkerGlobalScope.prim__location (cast a)
 
 
   export
   navigator :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem WorkerGlobalScope (Types t1)}
+       {auto _ : Cast t1 WorkerGlobalScope}
     -> (obj : t1)
     -> JSIO WorkerNavigator
-  navigator a = primJS $ WorkerGlobalScope.prim__navigator (up a)
+  navigator a = primJS $ WorkerGlobalScope.prim__navigator (cast a)
 
 
   export
   onerror :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem WorkerGlobalScope (Types t)}
+       {auto _ : Cast t WorkerGlobalScope}
     -> t
     -> Attribute False Maybe OnErrorEventHandlerNonNull
   onerror v = fromNullablePrim
                 "WorkerGlobalScope.getonerror"
                 prim__onerror
                 prim__setOnerror
-                (v :> WorkerGlobalScope)
+                (cast {to = WorkerGlobalScope} v)
 
 
   export
   onlanguagechange :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem WorkerGlobalScope (Types t)}
+       {auto _ : Cast t WorkerGlobalScope}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onlanguagechange v = fromNullablePrim
                          "WorkerGlobalScope.getonlanguagechange"
                          prim__onlanguagechange
                          prim__setOnlanguagechange
-                         (v :> WorkerGlobalScope)
+                         (cast {to = WorkerGlobalScope} v)
 
 
   export
   onoffline :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem WorkerGlobalScope (Types t)}
+       {auto _ : Cast t WorkerGlobalScope}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onoffline v = fromNullablePrim
                   "WorkerGlobalScope.getonoffline"
                   prim__onoffline
                   prim__setOnoffline
-                  (v :> WorkerGlobalScope)
+                  (cast {to = WorkerGlobalScope} v)
 
 
   export
   ononline :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem WorkerGlobalScope (Types t)}
+       {auto _ : Cast t WorkerGlobalScope}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   ononline v = fromNullablePrim
                  "WorkerGlobalScope.getononline"
                  prim__ononline
                  prim__setOnonline
-                 (v :> WorkerGlobalScope)
+                 (cast {to = WorkerGlobalScope} v)
 
 
   export
   onrejectionhandled :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem WorkerGlobalScope (Types t)}
+       {auto _ : Cast t WorkerGlobalScope}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onrejectionhandled v = fromNullablePrim
                            "WorkerGlobalScope.getonrejectionhandled"
                            prim__onrejectionhandled
                            prim__setOnrejectionhandled
-                           (v :> WorkerGlobalScope)
+                           (cast {to = WorkerGlobalScope} v)
 
 
   export
   onunhandledrejection :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem WorkerGlobalScope (Types t)}
+       {auto _ : Cast t WorkerGlobalScope}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onunhandledrejection v = fromNullablePrim
                              "WorkerGlobalScope.getonunhandledrejection"
                              prim__onunhandledrejection
                              prim__setOnunhandledrejection
-                             (v :> WorkerGlobalScope)
+                             (cast {to = WorkerGlobalScope} v)
 
 
   export
   self :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem WorkerGlobalScope (Types t1)}
+       {auto _ : Cast t1 WorkerGlobalScope}
     -> (obj : t1)
     -> JSIO WorkerGlobalScope
-  self a = primJS $ WorkerGlobalScope.prim__self (up a)
+  self a = primJS $ WorkerGlobalScope.prim__self (cast a)
 
 
   export
   importScripts :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem WorkerGlobalScope (Types t1)}
+       {auto _ : Cast t1 WorkerGlobalScope}
     -> (obj : t1)
     -> (urls : List String)
     -> JSIO ()
   importScripts a b = primJS $
-    WorkerGlobalScope.prim__importScripts (up a) (toFFI b)
+    WorkerGlobalScope.prim__importScripts (cast a) (toFFI b)
 
 
 
@@ -7859,8 +7704,7 @@ namespace Worklet
 
   export
   addModule' :
-       {auto 0 _ : JSType t3}
-    -> {auto 0 _ : Elem WorkletOptions (Types t3)}
+       {auto _ : Cast t3 WorkletOptions}
     -> (obj : Worklet)
     -> (moduleURL : String)
     -> (options : Optional t3)
@@ -7886,535 +7730,491 @@ namespace ARIAMixin
 
   export
   ariaAtomic :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaAtomic v = fromPrim
                    "ARIAMixin.getariaAtomic"
                    prim__ariaAtomic
                    prim__setAriaAtomic
-                   (v :> ARIAMixin)
+                   (cast {to = ARIAMixin} v)
 
 
   export
   ariaAutoComplete :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaAutoComplete v = fromPrim
                          "ARIAMixin.getariaAutoComplete"
                          prim__ariaAutoComplete
                          prim__setAriaAutoComplete
-                         (v :> ARIAMixin)
+                         (cast {to = ARIAMixin} v)
 
 
   export
   ariaBusy :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaBusy v = fromPrim
                  "ARIAMixin.getariaBusy"
                  prim__ariaBusy
                  prim__setAriaBusy
-                 (v :> ARIAMixin)
+                 (cast {to = ARIAMixin} v)
 
 
   export
   ariaChecked :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaChecked v = fromPrim
                     "ARIAMixin.getariaChecked"
                     prim__ariaChecked
                     prim__setAriaChecked
-                    (v :> ARIAMixin)
+                    (cast {to = ARIAMixin} v)
 
 
   export
   ariaColCount :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaColCount v = fromPrim
                      "ARIAMixin.getariaColCount"
                      prim__ariaColCount
                      prim__setAriaColCount
-                     (v :> ARIAMixin)
+                     (cast {to = ARIAMixin} v)
 
 
   export
   ariaColIndex :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaColIndex v = fromPrim
                      "ARIAMixin.getariaColIndex"
                      prim__ariaColIndex
                      prim__setAriaColIndex
-                     (v :> ARIAMixin)
+                     (cast {to = ARIAMixin} v)
 
 
   export
   ariaColIndexText :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaColIndexText v = fromPrim
                          "ARIAMixin.getariaColIndexText"
                          prim__ariaColIndexText
                          prim__setAriaColIndexText
-                         (v :> ARIAMixin)
+                         (cast {to = ARIAMixin} v)
 
 
   export
   ariaColSpan :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaColSpan v = fromPrim
                     "ARIAMixin.getariaColSpan"
                     prim__ariaColSpan
                     prim__setAriaColSpan
-                    (v :> ARIAMixin)
+                    (cast {to = ARIAMixin} v)
 
 
   export
   ariaCurrent :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaCurrent v = fromPrim
                     "ARIAMixin.getariaCurrent"
                     prim__ariaCurrent
                     prim__setAriaCurrent
-                    (v :> ARIAMixin)
+                    (cast {to = ARIAMixin} v)
 
 
   export
   ariaDescription :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaDescription v = fromPrim
                         "ARIAMixin.getariaDescription"
                         prim__ariaDescription
                         prim__setAriaDescription
-                        (v :> ARIAMixin)
+                        (cast {to = ARIAMixin} v)
 
 
   export
   ariaDisabled :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaDisabled v = fromPrim
                      "ARIAMixin.getariaDisabled"
                      prim__ariaDisabled
                      prim__setAriaDisabled
-                     (v :> ARIAMixin)
+                     (cast {to = ARIAMixin} v)
 
 
   export
   ariaExpanded :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaExpanded v = fromPrim
                      "ARIAMixin.getariaExpanded"
                      prim__ariaExpanded
                      prim__setAriaExpanded
-                     (v :> ARIAMixin)
+                     (cast {to = ARIAMixin} v)
 
 
   export
   ariaHasPopup :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaHasPopup v = fromPrim
                      "ARIAMixin.getariaHasPopup"
                      prim__ariaHasPopup
                      prim__setAriaHasPopup
-                     (v :> ARIAMixin)
+                     (cast {to = ARIAMixin} v)
 
 
   export
   ariaHidden :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaHidden v = fromPrim
                    "ARIAMixin.getariaHidden"
                    prim__ariaHidden
                    prim__setAriaHidden
-                   (v :> ARIAMixin)
+                   (cast {to = ARIAMixin} v)
 
 
   export
   ariaInvalid :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaInvalid v = fromPrim
                     "ARIAMixin.getariaInvalid"
                     prim__ariaInvalid
                     prim__setAriaInvalid
-                    (v :> ARIAMixin)
+                    (cast {to = ARIAMixin} v)
 
 
   export
   ariaKeyShortcuts :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaKeyShortcuts v = fromPrim
                          "ARIAMixin.getariaKeyShortcuts"
                          prim__ariaKeyShortcuts
                          prim__setAriaKeyShortcuts
-                         (v :> ARIAMixin)
+                         (cast {to = ARIAMixin} v)
 
 
   export
   ariaLabel :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaLabel v = fromPrim
                   "ARIAMixin.getariaLabel"
                   prim__ariaLabel
                   prim__setAriaLabel
-                  (v :> ARIAMixin)
+                  (cast {to = ARIAMixin} v)
 
 
   export
   ariaLevel :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaLevel v = fromPrim
                   "ARIAMixin.getariaLevel"
                   prim__ariaLevel
                   prim__setAriaLevel
-                  (v :> ARIAMixin)
+                  (cast {to = ARIAMixin} v)
 
 
   export
   ariaLive :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaLive v = fromPrim
                  "ARIAMixin.getariaLive"
                  prim__ariaLive
                  prim__setAriaLive
-                 (v :> ARIAMixin)
+                 (cast {to = ARIAMixin} v)
 
 
   export
   ariaModal :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaModal v = fromPrim
                   "ARIAMixin.getariaModal"
                   prim__ariaModal
                   prim__setAriaModal
-                  (v :> ARIAMixin)
+                  (cast {to = ARIAMixin} v)
 
 
   export
   ariaMultiLine :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaMultiLine v = fromPrim
                       "ARIAMixin.getariaMultiLine"
                       prim__ariaMultiLine
                       prim__setAriaMultiLine
-                      (v :> ARIAMixin)
+                      (cast {to = ARIAMixin} v)
 
 
   export
   ariaMultiSelectable :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaMultiSelectable v = fromPrim
                             "ARIAMixin.getariaMultiSelectable"
                             prim__ariaMultiSelectable
                             prim__setAriaMultiSelectable
-                            (v :> ARIAMixin)
+                            (cast {to = ARIAMixin} v)
 
 
   export
   ariaOrientation :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaOrientation v = fromPrim
                         "ARIAMixin.getariaOrientation"
                         prim__ariaOrientation
                         prim__setAriaOrientation
-                        (v :> ARIAMixin)
+                        (cast {to = ARIAMixin} v)
 
 
   export
   ariaPlaceholder :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaPlaceholder v = fromPrim
                         "ARIAMixin.getariaPlaceholder"
                         prim__ariaPlaceholder
                         prim__setAriaPlaceholder
-                        (v :> ARIAMixin)
+                        (cast {to = ARIAMixin} v)
 
 
   export
   ariaPosInSet :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaPosInSet v = fromPrim
                      "ARIAMixin.getariaPosInSet"
                      prim__ariaPosInSet
                      prim__setAriaPosInSet
-                     (v :> ARIAMixin)
+                     (cast {to = ARIAMixin} v)
 
 
   export
   ariaPressed :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaPressed v = fromPrim
                     "ARIAMixin.getariaPressed"
                     prim__ariaPressed
                     prim__setAriaPressed
-                    (v :> ARIAMixin)
+                    (cast {to = ARIAMixin} v)
 
 
   export
   ariaReadOnly :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaReadOnly v = fromPrim
                      "ARIAMixin.getariaReadOnly"
                      prim__ariaReadOnly
                      prim__setAriaReadOnly
-                     (v :> ARIAMixin)
+                     (cast {to = ARIAMixin} v)
 
 
   export
   ariaRequired :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaRequired v = fromPrim
                      "ARIAMixin.getariaRequired"
                      prim__ariaRequired
                      prim__setAriaRequired
-                     (v :> ARIAMixin)
+                     (cast {to = ARIAMixin} v)
 
 
   export
   ariaRoleDescription :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaRoleDescription v = fromPrim
                             "ARIAMixin.getariaRoleDescription"
                             prim__ariaRoleDescription
                             prim__setAriaRoleDescription
-                            (v :> ARIAMixin)
+                            (cast {to = ARIAMixin} v)
 
 
   export
   ariaRowCount :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaRowCount v = fromPrim
                      "ARIAMixin.getariaRowCount"
                      prim__ariaRowCount
                      prim__setAriaRowCount
-                     (v :> ARIAMixin)
+                     (cast {to = ARIAMixin} v)
 
 
   export
   ariaRowIndex :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaRowIndex v = fromPrim
                      "ARIAMixin.getariaRowIndex"
                      prim__ariaRowIndex
                      prim__setAriaRowIndex
-                     (v :> ARIAMixin)
+                     (cast {to = ARIAMixin} v)
 
 
   export
   ariaRowIndexText :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaRowIndexText v = fromPrim
                          "ARIAMixin.getariaRowIndexText"
                          prim__ariaRowIndexText
                          prim__setAriaRowIndexText
-                         (v :> ARIAMixin)
+                         (cast {to = ARIAMixin} v)
 
 
   export
   ariaRowSpan :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaRowSpan v = fromPrim
                     "ARIAMixin.getariaRowSpan"
                     prim__ariaRowSpan
                     prim__setAriaRowSpan
-                    (v :> ARIAMixin)
+                    (cast {to = ARIAMixin} v)
 
 
   export
   ariaSelected :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaSelected v = fromPrim
                      "ARIAMixin.getariaSelected"
                      prim__ariaSelected
                      prim__setAriaSelected
-                     (v :> ARIAMixin)
+                     (cast {to = ARIAMixin} v)
 
 
   export
   ariaSetSize :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaSetSize v = fromPrim
                     "ARIAMixin.getariaSetSize"
                     prim__ariaSetSize
                     prim__setAriaSetSize
-                    (v :> ARIAMixin)
+                    (cast {to = ARIAMixin} v)
 
 
   export
   ariaSort :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaSort v = fromPrim
                  "ARIAMixin.getariaSort"
                  prim__ariaSort
                  prim__setAriaSort
-                 (v :> ARIAMixin)
+                 (cast {to = ARIAMixin} v)
 
 
   export
   ariaValueMax :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaValueMax v = fromPrim
                      "ARIAMixin.getariaValueMax"
                      prim__ariaValueMax
                      prim__setAriaValueMax
-                     (v :> ARIAMixin)
+                     (cast {to = ARIAMixin} v)
 
 
   export
   ariaValueMin :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaValueMin v = fromPrim
                      "ARIAMixin.getariaValueMin"
                      prim__ariaValueMin
                      prim__setAriaValueMin
-                     (v :> ARIAMixin)
+                     (cast {to = ARIAMixin} v)
 
 
   export
   ariaValueNow :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaValueNow v = fromPrim
                      "ARIAMixin.getariaValueNow"
                      prim__ariaValueNow
                      prim__setAriaValueNow
-                     (v :> ARIAMixin)
+                     (cast {to = ARIAMixin} v)
 
 
   export
   ariaValueText :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
+       {auto _ : Cast t ARIAMixin}
     -> t
     -> Attribute True Prelude.id String
   ariaValueText v = fromPrim
                       "ARIAMixin.getariaValueText"
                       prim__ariaValueText
                       prim__setAriaValueText
-                      (v :> ARIAMixin)
+                      (cast {to = ARIAMixin} v)
 
 
   export
-  role :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ARIAMixin (Types t)}
-    -> t
-    -> Attribute False Maybe String
+  role : {auto _ : Cast t ARIAMixin} -> t -> Attribute False Maybe String
   role v = fromNullablePrim
              "ARIAMixin.getrole"
              prim__role
              prim__setRole
-             (v :> ARIAMixin)
+             (cast {to = ARIAMixin} v)
 
 
 
@@ -8422,15 +8222,14 @@ namespace AbstractWorker
 
   export
   onerror :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem AbstractWorker (Types t)}
+       {auto _ : Cast t AbstractWorker}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onerror v = fromNullablePrim
                 "AbstractWorker.getonerror"
                 prim__onerror
                 prim__setOnerror
-                (v :> AbstractWorker)
+                (cast {to = AbstractWorker} v)
 
 
 
@@ -8438,28 +8237,26 @@ namespace CanvasCompositing
 
   export
   globalAlpha :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem CanvasCompositing (Types t)}
+       {auto _ : Cast t CanvasCompositing}
     -> t
     -> Attribute True Prelude.id Double
   globalAlpha v = fromPrim
                     "CanvasCompositing.getglobalAlpha"
                     prim__globalAlpha
                     prim__setGlobalAlpha
-                    (v :> CanvasCompositing)
+                    (cast {to = CanvasCompositing} v)
 
 
   export
   globalCompositeOperation :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem CanvasCompositing (Types t)}
+       {auto _ : Cast t CanvasCompositing}
     -> t
     -> Attribute True Prelude.id String
   globalCompositeOperation v = fromPrim
                                  "CanvasCompositing.getglobalCompositeOperation"
                                  prim__globalCompositeOperation
                                  prim__setGlobalCompositeOperation
-                                 (v :> CanvasCompositing)
+                                 (cast {to = CanvasCompositing} v)
 
 
 
@@ -8467,8 +8264,7 @@ namespace CanvasDrawImage
 
   export
   drawImage :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasDrawImage (Types t1)}
+       {auto _ : Cast t1 CanvasDrawImage}
     -> (obj : t1)
     -> (image : HSum
                   [ HTMLImageElement
@@ -8482,13 +8278,12 @@ namespace CanvasDrawImage
     -> (dy : Double)
     -> JSIO ()
   drawImage a b c d = primJS $
-    CanvasDrawImage.prim__drawImage (up a) (toFFI b) c d
+    CanvasDrawImage.prim__drawImage (cast a) (toFFI b) c d
 
 
   export
   drawImage1 :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasDrawImage (Types t1)}
+       {auto _ : Cast t1 CanvasDrawImage}
     -> (obj : t1)
     -> (image : HSum
                   [ HTMLImageElement
@@ -8504,13 +8299,12 @@ namespace CanvasDrawImage
     -> (dh : Double)
     -> JSIO ()
   drawImage1 a b c d e f = primJS $
-    CanvasDrawImage.prim__drawImage1 (up a) (toFFI b) c d e f
+    CanvasDrawImage.prim__drawImage1 (cast a) (toFFI b) c d e f
 
 
   export
   drawImage2 :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasDrawImage (Types t1)}
+       {auto _ : Cast t1 CanvasDrawImage}
     -> (obj : t1)
     -> (image : HSum
                   [ HTMLImageElement
@@ -8530,125 +8324,104 @@ namespace CanvasDrawImage
     -> (dh : Double)
     -> JSIO ()
   drawImage2 a b c d e f g h i j = primJS $
-    CanvasDrawImage.prim__drawImage2 (up a) (toFFI b) c d e f g h i j
+    CanvasDrawImage.prim__drawImage2 (cast a) (toFFI b) c d e f g h i j
 
 
 
 namespace CanvasDrawPath
 
   export
-  beginPath :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasDrawPath (Types t1)}
-    -> (obj : t1)
-    -> JSIO ()
-  beginPath a = primJS $ CanvasDrawPath.prim__beginPath (up a)
+  beginPath : {auto _ : Cast t1 CanvasDrawPath} -> (obj : t1) -> JSIO ()
+  beginPath a = primJS $ CanvasDrawPath.prim__beginPath (cast a)
 
 
   export
   clip' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+       {auto _ : Cast t1 CanvasDrawPath}
     -> (obj : t1)
     -> (fillRule : Optional CanvasFillRule)
     -> JSIO ()
-  clip' a b = primJS $ CanvasDrawPath.prim__clip (up a) (toFFI b)
+  clip' a b = primJS $ CanvasDrawPath.prim__clip (cast a) (toFFI b)
 
   export
-  clip :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasDrawPath (Types t1)}
-    -> (obj : t1)
-    -> JSIO ()
-  clip a = primJS $ CanvasDrawPath.prim__clip (up a) undef
+  clip : {auto _ : Cast t1 CanvasDrawPath} -> (obj : t1) -> JSIO ()
+  clip a = primJS $ CanvasDrawPath.prim__clip (cast a) undef
 
 
   export
   clip1' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+       {auto _ : Cast t1 CanvasDrawPath}
     -> (obj : t1)
     -> (path : Path2D)
     -> (fillRule : Optional CanvasFillRule)
     -> JSIO ()
-  clip1' a b c = primJS $ CanvasDrawPath.prim__clip1 (up a) b (toFFI c)
+  clip1' a b c = primJS $ CanvasDrawPath.prim__clip1 (cast a) b (toFFI c)
 
   export
   clip1 :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+       {auto _ : Cast t1 CanvasDrawPath}
     -> (obj : t1)
     -> (path : Path2D)
     -> JSIO ()
-  clip1 a b = primJS $ CanvasDrawPath.prim__clip1 (up a) b undef
+  clip1 a b = primJS $ CanvasDrawPath.prim__clip1 (cast a) b undef
 
 
   export
   fill' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+       {auto _ : Cast t1 CanvasDrawPath}
     -> (obj : t1)
     -> (fillRule : Optional CanvasFillRule)
     -> JSIO ()
-  fill' a b = primJS $ CanvasDrawPath.prim__fill (up a) (toFFI b)
+  fill' a b = primJS $ CanvasDrawPath.prim__fill (cast a) (toFFI b)
 
   export
-  fill :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasDrawPath (Types t1)}
-    -> (obj : t1)
-    -> JSIO ()
-  fill a = primJS $ CanvasDrawPath.prim__fill (up a) undef
+  fill : {auto _ : Cast t1 CanvasDrawPath} -> (obj : t1) -> JSIO ()
+  fill a = primJS $ CanvasDrawPath.prim__fill (cast a) undef
 
 
   export
   fill1' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+       {auto _ : Cast t1 CanvasDrawPath}
     -> (obj : t1)
     -> (path : Path2D)
     -> (fillRule : Optional CanvasFillRule)
     -> JSIO ()
-  fill1' a b c = primJS $ CanvasDrawPath.prim__fill1 (up a) b (toFFI c)
+  fill1' a b c = primJS $ CanvasDrawPath.prim__fill1 (cast a) b (toFFI c)
 
   export
   fill1 :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+       {auto _ : Cast t1 CanvasDrawPath}
     -> (obj : t1)
     -> (path : Path2D)
     -> JSIO ()
-  fill1 a b = primJS $ CanvasDrawPath.prim__fill1 (up a) b undef
+  fill1 a b = primJS $ CanvasDrawPath.prim__fill1 (cast a) b undef
 
 
   export
   isPointInPath' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+       {auto _ : Cast t1 CanvasDrawPath}
     -> (obj : t1)
     -> (x : Double)
     -> (y : Double)
     -> (fillRule : Optional CanvasFillRule)
     -> JSIO Bool
   isPointInPath' a b c d = tryJS "CanvasDrawPath.isPointInPath'" $
-    CanvasDrawPath.prim__isPointInPath (up a) b c (toFFI d)
+    CanvasDrawPath.prim__isPointInPath (cast a) b c (toFFI d)
 
   export
   isPointInPath :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+       {auto _ : Cast t1 CanvasDrawPath}
     -> (obj : t1)
     -> (x : Double)
     -> (y : Double)
     -> JSIO Bool
   isPointInPath a b c = tryJS "CanvasDrawPath.isPointInPath" $
-    CanvasDrawPath.prim__isPointInPath (up a) b c undef
+    CanvasDrawPath.prim__isPointInPath (cast a) b c undef
 
 
   export
   isPointInPath1' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+       {auto _ : Cast t1 CanvasDrawPath}
     -> (obj : t1)
     -> (path : Path2D)
     -> (x : Double)
@@ -8656,63 +8429,55 @@ namespace CanvasDrawPath
     -> (fillRule : Optional CanvasFillRule)
     -> JSIO Bool
   isPointInPath1' a b c d e = tryJS "CanvasDrawPath.isPointInPath1'" $
-    CanvasDrawPath.prim__isPointInPath1 (up a) b c d (toFFI e)
+    CanvasDrawPath.prim__isPointInPath1 (cast a) b c d (toFFI e)
 
   export
   isPointInPath1 :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+       {auto _ : Cast t1 CanvasDrawPath}
     -> (obj : t1)
     -> (path : Path2D)
     -> (x : Double)
     -> (y : Double)
     -> JSIO Bool
   isPointInPath1 a b c d = tryJS "CanvasDrawPath.isPointInPath1" $
-    CanvasDrawPath.prim__isPointInPath1 (up a) b c d undef
+    CanvasDrawPath.prim__isPointInPath1 (cast a) b c d undef
 
 
   export
   isPointInStroke :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+       {auto _ : Cast t1 CanvasDrawPath}
     -> (obj : t1)
     -> (x : Double)
     -> (y : Double)
     -> JSIO Bool
   isPointInStroke a b c = tryJS "CanvasDrawPath.isPointInStroke" $
-    CanvasDrawPath.prim__isPointInStroke (up a) b c
+    CanvasDrawPath.prim__isPointInStroke (cast a) b c
 
 
   export
   isPointInStroke1 :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+       {auto _ : Cast t1 CanvasDrawPath}
     -> (obj : t1)
     -> (path : Path2D)
     -> (x : Double)
     -> (y : Double)
     -> JSIO Bool
   isPointInStroke1 a b c d = tryJS "CanvasDrawPath.isPointInStroke1" $
-    CanvasDrawPath.prim__isPointInStroke1 (up a) b c d
+    CanvasDrawPath.prim__isPointInStroke1 (cast a) b c d
 
 
   export
-  stroke :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasDrawPath (Types t1)}
-    -> (obj : t1)
-    -> JSIO ()
-  stroke a = primJS $ CanvasDrawPath.prim__stroke (up a)
+  stroke : {auto _ : Cast t1 CanvasDrawPath} -> (obj : t1) -> JSIO ()
+  stroke a = primJS $ CanvasDrawPath.prim__stroke (cast a)
 
 
   export
   stroke1 :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasDrawPath (Types t1)}
+       {auto _ : Cast t1 CanvasDrawPath}
     -> (obj : t1)
     -> (path : Path2D)
     -> JSIO ()
-  stroke1 a b = primJS $ CanvasDrawPath.prim__stroke1 (up a) b
+  stroke1 a b = primJS $ CanvasDrawPath.prim__stroke1 (cast a) b
 
 
 
@@ -8720,34 +8485,31 @@ namespace CanvasFillStrokeStyles
 
   export
   fillStyle :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem CanvasFillStrokeStyles (Types t)}
+       {auto _ : Cast t CanvasFillStrokeStyles}
     -> t
     -> Attribute True Prelude.id (HSum [String, CanvasGradient, CanvasPattern])
   fillStyle v = fromPrim
                   "CanvasFillStrokeStyles.getfillStyle"
                   prim__fillStyle
                   prim__setFillStyle
-                  (v :> CanvasFillStrokeStyles)
+                  (cast {to = CanvasFillStrokeStyles} v)
 
 
   export
   strokeStyle :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem CanvasFillStrokeStyles (Types t)}
+       {auto _ : Cast t CanvasFillStrokeStyles}
     -> t
     -> Attribute True Prelude.id (HSum [String, CanvasGradient, CanvasPattern])
   strokeStyle v = fromPrim
                     "CanvasFillStrokeStyles.getstrokeStyle"
                     prim__strokeStyle
                     prim__setStrokeStyle
-                    (v :> CanvasFillStrokeStyles)
+                    (cast {to = CanvasFillStrokeStyles} v)
 
 
   export
   createLinearGradient :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasFillStrokeStyles (Types t1)}
+       {auto _ : Cast t1 CanvasFillStrokeStyles}
     -> (obj : t1)
     -> (x0 : Double)
     -> (y0 : Double)
@@ -8755,13 +8517,12 @@ namespace CanvasFillStrokeStyles
     -> (y1 : Double)
     -> JSIO CanvasGradient
   createLinearGradient a b c d e = primJS $
-    CanvasFillStrokeStyles.prim__createLinearGradient (up a) b c d e
+    CanvasFillStrokeStyles.prim__createLinearGradient (cast a) b c d e
 
 
   export
   createPattern :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasFillStrokeStyles (Types t1)}
+       {auto _ : Cast t1 CanvasFillStrokeStyles}
     -> (obj : t1)
     -> (image : HSum
                   [ HTMLImageElement
@@ -8774,13 +8535,12 @@ namespace CanvasFillStrokeStyles
     -> (repetition : String)
     -> JSIO (Maybe CanvasPattern)
   createPattern a b c = tryJS "CanvasFillStrokeStyles.createPattern" $
-    CanvasFillStrokeStyles.prim__createPattern (up a) (toFFI b) c
+    CanvasFillStrokeStyles.prim__createPattern (cast a) (toFFI b) c
 
 
   export
   createRadialGradient :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasFillStrokeStyles (Types t1)}
+       {auto _ : Cast t1 CanvasFillStrokeStyles}
     -> (obj : t1)
     -> (x0 : Double)
     -> (y0 : Double)
@@ -8790,7 +8550,7 @@ namespace CanvasFillStrokeStyles
     -> (r1 : Double)
     -> JSIO CanvasGradient
   createRadialGradient a b c d e f g = primJS $
-    CanvasFillStrokeStyles.prim__createRadialGradient (up a) b c d e f g
+    CanvasFillStrokeStyles.prim__createRadialGradient (cast a) b c d e f g
 
 
 
@@ -8798,15 +8558,14 @@ namespace CanvasFilters
 
   export
   filter :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem CanvasFilters (Types t)}
+       {auto _ : Cast t CanvasFilters}
     -> t
     -> Attribute True Prelude.id String
   filter v = fromPrim
                "CanvasFilters.getfilter"
                prim__filter
                prim__setFilter
-               (v :> CanvasFilters)
+               (cast {to = CanvasFilters} v)
 
 
 
@@ -8814,31 +8573,28 @@ namespace CanvasImageData
 
   export
   createImageData :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasImageData (Types t1)}
+       {auto _ : Cast t1 CanvasImageData}
     -> (obj : t1)
     -> (sw : Int32)
     -> (sh : Int32)
     -> JSIO ImageData
   createImageData a b c = primJS $
-    CanvasImageData.prim__createImageData (up a) b c
+    CanvasImageData.prim__createImageData (cast a) b c
 
 
   export
   createImageData1 :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasImageData (Types t1)}
+       {auto _ : Cast t1 CanvasImageData}
     -> (obj : t1)
     -> (imagedata : ImageData)
     -> JSIO ImageData
   createImageData1 a b = primJS $
-    CanvasImageData.prim__createImageData1 (up a) b
+    CanvasImageData.prim__createImageData1 (cast a) b
 
 
   export
   getImageData :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasImageData (Types t1)}
+       {auto _ : Cast t1 CanvasImageData}
     -> (obj : t1)
     -> (sx : Int32)
     -> (sy : Int32)
@@ -8846,26 +8602,24 @@ namespace CanvasImageData
     -> (sh : Int32)
     -> JSIO ImageData
   getImageData a b c d e = primJS $
-    CanvasImageData.prim__getImageData (up a) b c d e
+    CanvasImageData.prim__getImageData (cast a) b c d e
 
 
   export
   putImageData :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasImageData (Types t1)}
+       {auto _ : Cast t1 CanvasImageData}
     -> (obj : t1)
     -> (imagedata : ImageData)
     -> (dx : Int32)
     -> (dy : Int32)
     -> JSIO ()
   putImageData a b c d = primJS $
-    CanvasImageData.prim__putImageData (up a) b c d
+    CanvasImageData.prim__putImageData (cast a) b c d
 
 
   export
   putImageData1 :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasImageData (Types t1)}
+       {auto _ : Cast t1 CanvasImageData}
     -> (obj : t1)
     -> (imagedata : ImageData)
     -> (dx : Int32)
@@ -8876,7 +8630,7 @@ namespace CanvasImageData
     -> (dirtyHeight : Int32)
     -> JSIO ()
   putImageData1 a b c d e f g h = primJS $
-    CanvasImageData.prim__putImageData1 (up a) b c d e f g h
+    CanvasImageData.prim__putImageData1 (cast a) b c d e f g h
 
 
 
@@ -8884,28 +8638,26 @@ namespace CanvasImageSmoothing
 
   export
   imageSmoothingEnabled :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem CanvasImageSmoothing (Types t)}
+       {auto _ : Cast t CanvasImageSmoothing}
     -> t
     -> Attribute True Prelude.id Bool
   imageSmoothingEnabled v = fromPrim
                               "CanvasImageSmoothing.getimageSmoothingEnabled"
                               prim__imageSmoothingEnabled
                               prim__setImageSmoothingEnabled
-                              (v :> CanvasImageSmoothing)
+                              (cast {to = CanvasImageSmoothing} v)
 
 
   export
   imageSmoothingQuality :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem CanvasImageSmoothing (Types t)}
+       {auto _ : Cast t CanvasImageSmoothing}
     -> t
     -> Attribute True Prelude.id ImageSmoothingQuality
   imageSmoothingQuality v = fromPrim
                               "CanvasImageSmoothing.getimageSmoothingQuality"
                               prim__imageSmoothingQuality
                               prim__setImageSmoothingQuality
-                              (v :> CanvasImageSmoothing)
+                              (cast {to = CanvasImageSmoothing} v)
 
 
 
@@ -8913,8 +8665,7 @@ namespace CanvasPath
 
   export
   arc' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasPath (Types t1)}
+       {auto _ : Cast t1 CanvasPath}
     -> (obj : t1)
     -> (x : Double)
     -> (y : Double)
@@ -8923,12 +8674,12 @@ namespace CanvasPath
     -> (endAngle : Double)
     -> (counterclockwise : Optional Bool)
     -> JSIO ()
-  arc' a b c d e f g = primJS $ CanvasPath.prim__arc (up a) b c d e f (toFFI g)
+  arc' a b c d e f g = primJS $
+    CanvasPath.prim__arc (cast a) b c d e f (toFFI g)
 
   export
   arc :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasPath (Types t1)}
+       {auto _ : Cast t1 CanvasPath}
     -> (obj : t1)
     -> (x : Double)
     -> (y : Double)
@@ -8936,13 +8687,12 @@ namespace CanvasPath
     -> (startAngle : Double)
     -> (endAngle : Double)
     -> JSIO ()
-  arc a b c d e f = primJS $ CanvasPath.prim__arc (up a) b c d e f undef
+  arc a b c d e f = primJS $ CanvasPath.prim__arc (cast a) b c d e f undef
 
 
   export
   arcTo :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasPath (Types t1)}
+       {auto _ : Cast t1 CanvasPath}
     -> (obj : t1)
     -> (x1 : Double)
     -> (y1 : Double)
@@ -8950,13 +8700,12 @@ namespace CanvasPath
     -> (y2 : Double)
     -> (radius : Double)
     -> JSIO ()
-  arcTo a b c d e f = primJS $ CanvasPath.prim__arcTo (up a) b c d e f
+  arcTo a b c d e f = primJS $ CanvasPath.prim__arcTo (cast a) b c d e f
 
 
   export
   bezierCurveTo :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasPath (Types t1)}
+       {auto _ : Cast t1 CanvasPath}
     -> (obj : t1)
     -> (cp1x : Double)
     -> (cp1y : Double)
@@ -8966,22 +8715,17 @@ namespace CanvasPath
     -> (y : Double)
     -> JSIO ()
   bezierCurveTo a b c d e f g = primJS $
-    CanvasPath.prim__bezierCurveTo (up a) b c d e f g
+    CanvasPath.prim__bezierCurveTo (cast a) b c d e f g
 
 
   export
-  closePath :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasPath (Types t1)}
-    -> (obj : t1)
-    -> JSIO ()
-  closePath a = primJS $ CanvasPath.prim__closePath (up a)
+  closePath : {auto _ : Cast t1 CanvasPath} -> (obj : t1) -> JSIO ()
+  closePath a = primJS $ CanvasPath.prim__closePath (cast a)
 
 
   export
   ellipse' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasPath (Types t1)}
+       {auto _ : Cast t1 CanvasPath}
     -> (obj : t1)
     -> (x : Double)
     -> (y : Double)
@@ -8993,12 +8737,11 @@ namespace CanvasPath
     -> (counterclockwise : Optional Bool)
     -> JSIO ()
   ellipse' a b c d e f g h i = primJS $
-    CanvasPath.prim__ellipse (up a) b c d e f g h (toFFI i)
+    CanvasPath.prim__ellipse (cast a) b c d e f g h (toFFI i)
 
   export
   ellipse :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasPath (Types t1)}
+       {auto _ : Cast t1 CanvasPath}
     -> (obj : t1)
     -> (x : Double)
     -> (y : Double)
@@ -9009,35 +8752,32 @@ namespace CanvasPath
     -> (endAngle : Double)
     -> JSIO ()
   ellipse a b c d e f g h = primJS $
-    CanvasPath.prim__ellipse (up a) b c d e f g h undef
+    CanvasPath.prim__ellipse (cast a) b c d e f g h undef
 
 
   export
   lineTo :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasPath (Types t1)}
+       {auto _ : Cast t1 CanvasPath}
     -> (obj : t1)
     -> (x : Double)
     -> (y : Double)
     -> JSIO ()
-  lineTo a b c = primJS $ CanvasPath.prim__lineTo (up a) b c
+  lineTo a b c = primJS $ CanvasPath.prim__lineTo (cast a) b c
 
 
   export
   moveTo :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasPath (Types t1)}
+       {auto _ : Cast t1 CanvasPath}
     -> (obj : t1)
     -> (x : Double)
     -> (y : Double)
     -> JSIO ()
-  moveTo a b c = primJS $ CanvasPath.prim__moveTo (up a) b c
+  moveTo a b c = primJS $ CanvasPath.prim__moveTo (cast a) b c
 
 
   export
   quadraticCurveTo :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasPath (Types t1)}
+       {auto _ : Cast t1 CanvasPath}
     -> (obj : t1)
     -> (cpx : Double)
     -> (cpy : Double)
@@ -9045,20 +8785,19 @@ namespace CanvasPath
     -> (y : Double)
     -> JSIO ()
   quadraticCurveTo a b c d e = primJS $
-    CanvasPath.prim__quadraticCurveTo (up a) b c d e
+    CanvasPath.prim__quadraticCurveTo (cast a) b c d e
 
 
   export
   rect :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasPath (Types t1)}
+       {auto _ : Cast t1 CanvasPath}
     -> (obj : t1)
     -> (x : Double)
     -> (y : Double)
     -> (w : Double)
     -> (h : Double)
     -> JSIO ()
-  rect a b c d e = primJS $ CanvasPath.prim__rect (up a) b c d e
+  rect a b c d e = primJS $ CanvasPath.prim__rect (cast a) b c d e
 
 
 
@@ -9066,86 +8805,80 @@ namespace CanvasPathDrawingStyles
 
   export
   lineCap :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem CanvasPathDrawingStyles (Types t)}
+       {auto _ : Cast t CanvasPathDrawingStyles}
     -> t
     -> Attribute True Prelude.id CanvasLineCap
   lineCap v = fromPrim
                 "CanvasPathDrawingStyles.getlineCap"
                 prim__lineCap
                 prim__setLineCap
-                (v :> CanvasPathDrawingStyles)
+                (cast {to = CanvasPathDrawingStyles} v)
 
 
   export
   lineDashOffset :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem CanvasPathDrawingStyles (Types t)}
+       {auto _ : Cast t CanvasPathDrawingStyles}
     -> t
     -> Attribute True Prelude.id Double
   lineDashOffset v = fromPrim
                        "CanvasPathDrawingStyles.getlineDashOffset"
                        prim__lineDashOffset
                        prim__setLineDashOffset
-                       (v :> CanvasPathDrawingStyles)
+                       (cast {to = CanvasPathDrawingStyles} v)
 
 
   export
   lineJoin :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem CanvasPathDrawingStyles (Types t)}
+       {auto _ : Cast t CanvasPathDrawingStyles}
     -> t
     -> Attribute True Prelude.id CanvasLineJoin
   lineJoin v = fromPrim
                  "CanvasPathDrawingStyles.getlineJoin"
                  prim__lineJoin
                  prim__setLineJoin
-                 (v :> CanvasPathDrawingStyles)
+                 (cast {to = CanvasPathDrawingStyles} v)
 
 
   export
   lineWidth :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem CanvasPathDrawingStyles (Types t)}
+       {auto _ : Cast t CanvasPathDrawingStyles}
     -> t
     -> Attribute True Prelude.id Double
   lineWidth v = fromPrim
                   "CanvasPathDrawingStyles.getlineWidth"
                   prim__lineWidth
                   prim__setLineWidth
-                  (v :> CanvasPathDrawingStyles)
+                  (cast {to = CanvasPathDrawingStyles} v)
 
 
   export
   miterLimit :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem CanvasPathDrawingStyles (Types t)}
+       {auto _ : Cast t CanvasPathDrawingStyles}
     -> t
     -> Attribute True Prelude.id Double
   miterLimit v = fromPrim
                    "CanvasPathDrawingStyles.getmiterLimit"
                    prim__miterLimit
                    prim__setMiterLimit
-                   (v :> CanvasPathDrawingStyles)
+                   (cast {to = CanvasPathDrawingStyles} v)
 
 
   export
   getLineDash :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasPathDrawingStyles (Types t1)}
+       {auto _ : Cast t1 CanvasPathDrawingStyles}
     -> (obj : t1)
     -> JSIO (Array Double)
-  getLineDash a = primJS $ CanvasPathDrawingStyles.prim__getLineDash (up a)
+  getLineDash a = primJS $ CanvasPathDrawingStyles.prim__getLineDash (cast a)
 
 
   export
   setLineDash :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasPathDrawingStyles (Types t1)}
+       {auto _ : Cast t1 CanvasPathDrawingStyles}
     -> (obj : t1)
     -> (segments : Array Double)
     -> JSIO ()
-  setLineDash a b = primJS $ CanvasPathDrawingStyles.prim__setLineDash (up a) b
+  setLineDash a b = primJS $
+    CanvasPathDrawingStyles.prim__setLineDash (cast a) b
 
 
 
@@ -9153,41 +8886,38 @@ namespace CanvasRect
 
   export
   clearRect :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasRect (Types t1)}
+       {auto _ : Cast t1 CanvasRect}
     -> (obj : t1)
     -> (x : Double)
     -> (y : Double)
     -> (w : Double)
     -> (h : Double)
     -> JSIO ()
-  clearRect a b c d e = primJS $ CanvasRect.prim__clearRect (up a) b c d e
+  clearRect a b c d e = primJS $ CanvasRect.prim__clearRect (cast a) b c d e
 
 
   export
   fillRect :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasRect (Types t1)}
+       {auto _ : Cast t1 CanvasRect}
     -> (obj : t1)
     -> (x : Double)
     -> (y : Double)
     -> (w : Double)
     -> (h : Double)
     -> JSIO ()
-  fillRect a b c d e = primJS $ CanvasRect.prim__fillRect (up a) b c d e
+  fillRect a b c d e = primJS $ CanvasRect.prim__fillRect (cast a) b c d e
 
 
   export
   strokeRect :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasRect (Types t1)}
+       {auto _ : Cast t1 CanvasRect}
     -> (obj : t1)
     -> (x : Double)
     -> (y : Double)
     -> (w : Double)
     -> (h : Double)
     -> JSIO ()
-  strokeRect a b c d e = primJS $ CanvasRect.prim__strokeRect (up a) b c d e
+  strokeRect a b c d e = primJS $ CanvasRect.prim__strokeRect (cast a) b c d e
 
 
 
@@ -9195,75 +8925,63 @@ namespace CanvasShadowStyles
 
   export
   shadowBlur :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem CanvasShadowStyles (Types t)}
+       {auto _ : Cast t CanvasShadowStyles}
     -> t
     -> Attribute True Prelude.id Double
   shadowBlur v = fromPrim
                    "CanvasShadowStyles.getshadowBlur"
                    prim__shadowBlur
                    prim__setShadowBlur
-                   (v :> CanvasShadowStyles)
+                   (cast {to = CanvasShadowStyles} v)
 
 
   export
   shadowColor :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem CanvasShadowStyles (Types t)}
+       {auto _ : Cast t CanvasShadowStyles}
     -> t
     -> Attribute True Prelude.id String
   shadowColor v = fromPrim
                     "CanvasShadowStyles.getshadowColor"
                     prim__shadowColor
                     prim__setShadowColor
-                    (v :> CanvasShadowStyles)
+                    (cast {to = CanvasShadowStyles} v)
 
 
   export
   shadowOffsetX :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem CanvasShadowStyles (Types t)}
+       {auto _ : Cast t CanvasShadowStyles}
     -> t
     -> Attribute True Prelude.id Double
   shadowOffsetX v = fromPrim
                       "CanvasShadowStyles.getshadowOffsetX"
                       prim__shadowOffsetX
                       prim__setShadowOffsetX
-                      (v :> CanvasShadowStyles)
+                      (cast {to = CanvasShadowStyles} v)
 
 
   export
   shadowOffsetY :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem CanvasShadowStyles (Types t)}
+       {auto _ : Cast t CanvasShadowStyles}
     -> t
     -> Attribute True Prelude.id Double
   shadowOffsetY v = fromPrim
                       "CanvasShadowStyles.getshadowOffsetY"
                       prim__shadowOffsetY
                       prim__setShadowOffsetY
-                      (v :> CanvasShadowStyles)
+                      (cast {to = CanvasShadowStyles} v)
 
 
 
 namespace CanvasState
 
   export
-  restore :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasState (Types t1)}
-    -> (obj : t1)
-    -> JSIO ()
-  restore a = primJS $ CanvasState.prim__restore (up a)
+  restore : {auto _ : Cast t1 CanvasState} -> (obj : t1) -> JSIO ()
+  restore a = primJS $ CanvasState.prim__restore (cast a)
 
 
   export
-  save :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasState (Types t1)}
-    -> (obj : t1)
-    -> JSIO ()
-  save a = primJS $ CanvasState.prim__save (up a)
+  save : {auto _ : Cast t1 CanvasState} -> (obj : t1) -> JSIO ()
+  save a = primJS $ CanvasState.prim__save (cast a)
 
 
 
@@ -9271,8 +8989,7 @@ namespace CanvasText
 
   export
   fillText' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasText (Types t1)}
+       {auto _ : Cast t1 CanvasText}
     -> (obj : t1)
     -> (text : String)
     -> (x : Double)
@@ -9280,34 +8997,31 @@ namespace CanvasText
     -> (maxWidth : Optional Double)
     -> JSIO ()
   fillText' a b c d e = primJS $
-    CanvasText.prim__fillText (up a) b c d (toFFI e)
+    CanvasText.prim__fillText (cast a) b c d (toFFI e)
 
   export
   fillText :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasText (Types t1)}
+       {auto _ : Cast t1 CanvasText}
     -> (obj : t1)
     -> (text : String)
     -> (x : Double)
     -> (y : Double)
     -> JSIO ()
-  fillText a b c d = primJS $ CanvasText.prim__fillText (up a) b c d undef
+  fillText a b c d = primJS $ CanvasText.prim__fillText (cast a) b c d undef
 
 
   export
   measureText :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasText (Types t1)}
+       {auto _ : Cast t1 CanvasText}
     -> (obj : t1)
     -> (text : String)
     -> JSIO TextMetrics
-  measureText a b = primJS $ CanvasText.prim__measureText (up a) b
+  measureText a b = primJS $ CanvasText.prim__measureText (cast a) b
 
 
   export
   strokeText' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasText (Types t1)}
+       {auto _ : Cast t1 CanvasText}
     -> (obj : t1)
     -> (text : String)
     -> (x : Double)
@@ -9315,18 +9029,17 @@ namespace CanvasText
     -> (maxWidth : Optional Double)
     -> JSIO ()
   strokeText' a b c d e = primJS $
-    CanvasText.prim__strokeText (up a) b c d (toFFI e)
+    CanvasText.prim__strokeText (cast a) b c d (toFFI e)
 
   export
   strokeText :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasText (Types t1)}
+       {auto _ : Cast t1 CanvasText}
     -> (obj : t1)
     -> (text : String)
     -> (x : Double)
     -> (y : Double)
     -> JSIO ()
-  strokeText a b c d = primJS $ CanvasText.prim__strokeText (up a) b c d undef
+  strokeText a b c d = primJS $ CanvasText.prim__strokeText (cast a) b c d undef
 
 
 
@@ -9334,54 +9047,50 @@ namespace CanvasTextDrawingStyles
 
   export
   direction :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem CanvasTextDrawingStyles (Types t)}
+       {auto _ : Cast t CanvasTextDrawingStyles}
     -> t
     -> Attribute True Prelude.id CanvasDirection
   direction v = fromPrim
                   "CanvasTextDrawingStyles.getdirection"
                   prim__direction
                   prim__setDirection
-                  (v :> CanvasTextDrawingStyles)
+                  (cast {to = CanvasTextDrawingStyles} v)
 
 
   export
   font :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem CanvasTextDrawingStyles (Types t)}
+       {auto _ : Cast t CanvasTextDrawingStyles}
     -> t
     -> Attribute True Prelude.id String
   font v = fromPrim
              "CanvasTextDrawingStyles.getfont"
              prim__font
              prim__setFont
-             (v :> CanvasTextDrawingStyles)
+             (cast {to = CanvasTextDrawingStyles} v)
 
 
   export
   textAlign :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem CanvasTextDrawingStyles (Types t)}
+       {auto _ : Cast t CanvasTextDrawingStyles}
     -> t
     -> Attribute True Prelude.id CanvasTextAlign
   textAlign v = fromPrim
                   "CanvasTextDrawingStyles.gettextAlign"
                   prim__textAlign
                   prim__setTextAlign
-                  (v :> CanvasTextDrawingStyles)
+                  (cast {to = CanvasTextDrawingStyles} v)
 
 
   export
   textBaseline :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem CanvasTextDrawingStyles (Types t)}
+       {auto _ : Cast t CanvasTextDrawingStyles}
     -> t
     -> Attribute True Prelude.id CanvasTextBaseline
   textBaseline v = fromPrim
                      "CanvasTextDrawingStyles.gettextBaseline"
                      prim__textBaseline
                      prim__setTextBaseline
-                     (v :> CanvasTextDrawingStyles)
+                     (cast {to = CanvasTextDrawingStyles} v)
 
 
 
@@ -9389,47 +9098,39 @@ namespace CanvasTransform
 
   export
   getTransform :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasTransform (Types t1)}
+       {auto _ : Cast t1 CanvasTransform}
     -> (obj : t1)
     -> JSIO DOMMatrix
-  getTransform a = primJS $ CanvasTransform.prim__getTransform (up a)
+  getTransform a = primJS $ CanvasTransform.prim__getTransform (cast a)
 
 
   export
-  resetTransform :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasTransform (Types t1)}
-    -> (obj : t1)
-    -> JSIO ()
-  resetTransform a = primJS $ CanvasTransform.prim__resetTransform (up a)
+  resetTransform : {auto _ : Cast t1 CanvasTransform} -> (obj : t1) -> JSIO ()
+  resetTransform a = primJS $ CanvasTransform.prim__resetTransform (cast a)
 
 
   export
   rotate :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasTransform (Types t1)}
+       {auto _ : Cast t1 CanvasTransform}
     -> (obj : t1)
     -> (angle : Double)
     -> JSIO ()
-  rotate a b = primJS $ CanvasTransform.prim__rotate (up a) b
+  rotate a b = primJS $ CanvasTransform.prim__rotate (cast a) b
 
 
   export
   scale :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasTransform (Types t1)}
+       {auto _ : Cast t1 CanvasTransform}
     -> (obj : t1)
     -> (x : Double)
     -> (y : Double)
     -> JSIO ()
-  scale a b c = primJS $ CanvasTransform.prim__scale (up a) b c
+  scale a b c = primJS $ CanvasTransform.prim__scale (cast a) b c
 
 
   export
   setTransform :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasTransform (Types t1)}
+       {auto _ : Cast t1 CanvasTransform}
     -> (obj : t1)
     -> (a : Double)
     -> (b : Double)
@@ -9439,34 +9140,27 @@ namespace CanvasTransform
     -> (f : Double)
     -> JSIO ()
   setTransform a b c d e f g = primJS $
-    CanvasTransform.prim__setTransform (up a) b c d e f g
+    CanvasTransform.prim__setTransform (cast a) b c d e f g
 
 
   export
   setTransform1' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem CanvasTransform (Types t1)}
-    -> {auto 0 _ : Elem DOMMatrix2DInit (Types t2)}
+       {auto _ : Cast t1 CanvasTransform}
+    -> {auto _ : Cast t2 DOMMatrix2DInit}
     -> (obj : t1)
     -> (transform : Optional t2)
     -> JSIO ()
   setTransform1' a b = primJS $
-    CanvasTransform.prim__setTransform1 (up a) (optUp b)
+    CanvasTransform.prim__setTransform1 (cast a) (optUp b)
 
   export
-  setTransform1 :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasTransform (Types t1)}
-    -> (obj : t1)
-    -> JSIO ()
-  setTransform1 a = primJS $ CanvasTransform.prim__setTransform1 (up a) undef
+  setTransform1 : {auto _ : Cast t1 CanvasTransform} -> (obj : t1) -> JSIO ()
+  setTransform1 a = primJS $ CanvasTransform.prim__setTransform1 (cast a) undef
 
 
   export
   transform :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasTransform (Types t1)}
+       {auto _ : Cast t1 CanvasTransform}
     -> (obj : t1)
     -> (a : Double)
     -> (b : Double)
@@ -9476,18 +9170,17 @@ namespace CanvasTransform
     -> (f : Double)
     -> JSIO ()
   transform a b c d e f g = primJS $
-    CanvasTransform.prim__transform (up a) b c d e f g
+    CanvasTransform.prim__transform (cast a) b c d e f g
 
 
   export
   translate :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasTransform (Types t1)}
+       {auto _ : Cast t1 CanvasTransform}
     -> (obj : t1)
     -> (x : Double)
     -> (y : Double)
     -> JSIO ()
-  translate a b c = primJS $ CanvasTransform.prim__translate (up a) b c
+  translate a b c = primJS $ CanvasTransform.prim__translate (cast a) b c
 
 
 
@@ -9495,50 +9188,44 @@ namespace CanvasUserInterface
 
   export
   drawFocusIfNeeded :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem CanvasUserInterface (Types t1)}
-    -> {auto 0 _ : Elem Element (Types t2)}
+       {auto _ : Cast t1 CanvasUserInterface}
+    -> {auto _ : Cast t2 Element}
     -> (obj : t1)
     -> (element : t2)
     -> JSIO ()
   drawFocusIfNeeded a b = primJS $
-    CanvasUserInterface.prim__drawFocusIfNeeded (up a) (up b)
+    CanvasUserInterface.prim__drawFocusIfNeeded (cast a) (cast b)
 
 
   export
   drawFocusIfNeeded1 :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t3}
-    -> {auto 0 _ : Elem CanvasUserInterface (Types t1)}
-    -> {auto 0 _ : Elem Element (Types t3)}
+       {auto _ : Cast t1 CanvasUserInterface}
+    -> {auto _ : Cast t3 Element}
     -> (obj : t1)
     -> (path : Path2D)
     -> (element : t3)
     -> JSIO ()
   drawFocusIfNeeded1 a b c = primJS $
-    CanvasUserInterface.prim__drawFocusIfNeeded1 (up a) b (up c)
+    CanvasUserInterface.prim__drawFocusIfNeeded1 (cast a) b (cast c)
 
 
   export
   scrollPathIntoView :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasUserInterface (Types t1)}
+       {auto _ : Cast t1 CanvasUserInterface}
     -> (obj : t1)
     -> JSIO ()
   scrollPathIntoView a = primJS $
-    CanvasUserInterface.prim__scrollPathIntoView (up a)
+    CanvasUserInterface.prim__scrollPathIntoView (cast a)
 
 
   export
   scrollPathIntoView1 :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem CanvasUserInterface (Types t1)}
+       {auto _ : Cast t1 CanvasUserInterface}
     -> (obj : t1)
     -> (path : Path2D)
     -> JSIO ()
   scrollPathIntoView1 a b = primJS $
-    CanvasUserInterface.prim__scrollPathIntoView1 (up a) b
+    CanvasUserInterface.prim__scrollPathIntoView1 (cast a) b
 
 
 
@@ -9546,41 +9233,38 @@ namespace DocumentAndElementEventHandlers
 
   export
   oncopy :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DocumentAndElementEventHandlers (Types t)}
+       {auto _ : Cast t DocumentAndElementEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   oncopy v = fromNullablePrim
                "DocumentAndElementEventHandlers.getoncopy"
                prim__oncopy
                prim__setOncopy
-               (v :> DocumentAndElementEventHandlers)
+               (cast {to = DocumentAndElementEventHandlers} v)
 
 
   export
   oncut :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DocumentAndElementEventHandlers (Types t)}
+       {auto _ : Cast t DocumentAndElementEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   oncut v = fromNullablePrim
               "DocumentAndElementEventHandlers.getoncut"
               prim__oncut
               prim__setOncut
-              (v :> DocumentAndElementEventHandlers)
+              (cast {to = DocumentAndElementEventHandlers} v)
 
 
   export
   onpaste :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DocumentAndElementEventHandlers (Types t)}
+       {auto _ : Cast t DocumentAndElementEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onpaste v = fromNullablePrim
                 "DocumentAndElementEventHandlers.getonpaste"
                 prim__onpaste
                 prim__setOnpaste
-                (v :> DocumentAndElementEventHandlers)
+                (cast {to = DocumentAndElementEventHandlers} v)
 
 
 
@@ -9588,51 +9272,47 @@ namespace ElementContentEditable
 
   export
   contentEditable :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ElementContentEditable (Types t)}
+       {auto _ : Cast t ElementContentEditable}
     -> t
     -> Attribute True Prelude.id String
   contentEditable v = fromPrim
                         "ElementContentEditable.getcontentEditable"
                         prim__contentEditable
                         prim__setContentEditable
-                        (v :> ElementContentEditable)
+                        (cast {to = ElementContentEditable} v)
 
 
   export
   enterKeyHint :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ElementContentEditable (Types t)}
+       {auto _ : Cast t ElementContentEditable}
     -> t
     -> Attribute True Prelude.id String
   enterKeyHint v = fromPrim
                      "ElementContentEditable.getenterKeyHint"
                      prim__enterKeyHint
                      prim__setEnterKeyHint
-                     (v :> ElementContentEditable)
+                     (cast {to = ElementContentEditable} v)
 
 
   export
   inputMode :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ElementContentEditable (Types t)}
+       {auto _ : Cast t ElementContentEditable}
     -> t
     -> Attribute True Prelude.id String
   inputMode v = fromPrim
                   "ElementContentEditable.getinputMode"
                   prim__inputMode
                   prim__setInputMode
-                  (v :> ElementContentEditable)
+                  (cast {to = ElementContentEditable} v)
 
 
   export
   isContentEditable :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem ElementContentEditable (Types t1)}
+       {auto _ : Cast t1 ElementContentEditable}
     -> (obj : t1)
     -> JSIO Bool
   isContentEditable a = tryJS "ElementContentEditable.isContentEditable" $
-    ElementContentEditable.prim__isContentEditable (up a)
+    ElementContentEditable.prim__isContentEditable (cast a)
 
 
 
@@ -9640,860 +9320,794 @@ namespace GlobalEventHandlers
 
   export
   onabort :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe UIEventHandler
   onabort v = fromNullablePrim
                 "GlobalEventHandlers.getonabort"
                 prim__onabort
                 prim__setOnabort
-                (v :> GlobalEventHandlers)
+                (cast {to = GlobalEventHandlers} v)
 
 
   export
   onauxclick :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe MouseEventHandler
   onauxclick v = fromNullablePrim
                    "GlobalEventHandlers.getonauxclick"
                    prim__onauxclick
                    prim__setOnauxclick
-                   (v :> GlobalEventHandlers)
+                   (cast {to = GlobalEventHandlers} v)
 
 
   export
   onblur :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe FocusEventHandler
   onblur v = fromNullablePrim
                "GlobalEventHandlers.getonblur"
                prim__onblur
                prim__setOnblur
-               (v :> GlobalEventHandlers)
+               (cast {to = GlobalEventHandlers} v)
 
 
   export
   oncancel :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   oncancel v = fromNullablePrim
                  "GlobalEventHandlers.getoncancel"
                  prim__oncancel
                  prim__setOncancel
-                 (v :> GlobalEventHandlers)
+                 (cast {to = GlobalEventHandlers} v)
 
 
   export
   oncanplay :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   oncanplay v = fromNullablePrim
                   "GlobalEventHandlers.getoncanplay"
                   prim__oncanplay
                   prim__setOncanplay
-                  (v :> GlobalEventHandlers)
+                  (cast {to = GlobalEventHandlers} v)
 
 
   export
   oncanplaythrough :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   oncanplaythrough v = fromNullablePrim
                          "GlobalEventHandlers.getoncanplaythrough"
                          prim__oncanplaythrough
                          prim__setOncanplaythrough
-                         (v :> GlobalEventHandlers)
+                         (cast {to = GlobalEventHandlers} v)
 
 
   export
   onchange :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onchange v = fromNullablePrim
                  "GlobalEventHandlers.getonchange"
                  prim__onchange
                  prim__setOnchange
-                 (v :> GlobalEventHandlers)
+                 (cast {to = GlobalEventHandlers} v)
 
 
   export
   onclick :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe MouseEventHandler
   onclick v = fromNullablePrim
                 "GlobalEventHandlers.getonclick"
                 prim__onclick
                 prim__setOnclick
-                (v :> GlobalEventHandlers)
+                (cast {to = GlobalEventHandlers} v)
 
 
   export
   onclose :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onclose v = fromNullablePrim
                 "GlobalEventHandlers.getonclose"
                 prim__onclose
                 prim__setOnclose
-                (v :> GlobalEventHandlers)
+                (cast {to = GlobalEventHandlers} v)
 
 
   export
   oncontextmenu :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   oncontextmenu v = fromNullablePrim
                       "GlobalEventHandlers.getoncontextmenu"
                       prim__oncontextmenu
                       prim__setOncontextmenu
-                      (v :> GlobalEventHandlers)
+                      (cast {to = GlobalEventHandlers} v)
 
 
   export
   oncuechange :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   oncuechange v = fromNullablePrim
                     "GlobalEventHandlers.getoncuechange"
                     prim__oncuechange
                     prim__setOncuechange
-                    (v :> GlobalEventHandlers)
+                    (cast {to = GlobalEventHandlers} v)
 
 
   export
   ondblclick :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe MouseEventHandler
   ondblclick v = fromNullablePrim
                    "GlobalEventHandlers.getondblclick"
                    prim__ondblclick
                    prim__setOndblclick
-                   (v :> GlobalEventHandlers)
+                   (cast {to = GlobalEventHandlers} v)
 
 
   export
   ondrag :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   ondrag v = fromNullablePrim
                "GlobalEventHandlers.getondrag"
                prim__ondrag
                prim__setOndrag
-               (v :> GlobalEventHandlers)
+               (cast {to = GlobalEventHandlers} v)
 
 
   export
   ondragend :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   ondragend v = fromNullablePrim
                   "GlobalEventHandlers.getondragend"
                   prim__ondragend
                   prim__setOndragend
-                  (v :> GlobalEventHandlers)
+                  (cast {to = GlobalEventHandlers} v)
 
 
   export
   ondragenter :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   ondragenter v = fromNullablePrim
                     "GlobalEventHandlers.getondragenter"
                     prim__ondragenter
                     prim__setOndragenter
-                    (v :> GlobalEventHandlers)
+                    (cast {to = GlobalEventHandlers} v)
 
 
   export
   ondragleave :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   ondragleave v = fromNullablePrim
                     "GlobalEventHandlers.getondragleave"
                     prim__ondragleave
                     prim__setOndragleave
-                    (v :> GlobalEventHandlers)
+                    (cast {to = GlobalEventHandlers} v)
 
 
   export
   ondragover :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   ondragover v = fromNullablePrim
                    "GlobalEventHandlers.getondragover"
                    prim__ondragover
                    prim__setOndragover
-                   (v :> GlobalEventHandlers)
+                   (cast {to = GlobalEventHandlers} v)
 
 
   export
   ondragstart :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   ondragstart v = fromNullablePrim
                     "GlobalEventHandlers.getondragstart"
                     prim__ondragstart
                     prim__setOndragstart
-                    (v :> GlobalEventHandlers)
+                    (cast {to = GlobalEventHandlers} v)
 
 
   export
   ondrop :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   ondrop v = fromNullablePrim
                "GlobalEventHandlers.getondrop"
                prim__ondrop
                prim__setOndrop
-               (v :> GlobalEventHandlers)
+               (cast {to = GlobalEventHandlers} v)
 
 
   export
   ondurationchange :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   ondurationchange v = fromNullablePrim
                          "GlobalEventHandlers.getondurationchange"
                          prim__ondurationchange
                          prim__setOndurationchange
-                         (v :> GlobalEventHandlers)
+                         (cast {to = GlobalEventHandlers} v)
 
 
   export
   onemptied :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onemptied v = fromNullablePrim
                   "GlobalEventHandlers.getonemptied"
                   prim__onemptied
                   prim__setOnemptied
-                  (v :> GlobalEventHandlers)
+                  (cast {to = GlobalEventHandlers} v)
 
 
   export
   onended :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onended v = fromNullablePrim
                 "GlobalEventHandlers.getonended"
                 prim__onended
                 prim__setOnended
-                (v :> GlobalEventHandlers)
+                (cast {to = GlobalEventHandlers} v)
 
 
   export
   onerror :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe OnErrorEventHandlerNonNull
   onerror v = fromNullablePrim
                 "GlobalEventHandlers.getonerror"
                 prim__onerror
                 prim__setOnerror
-                (v :> GlobalEventHandlers)
+                (cast {to = GlobalEventHandlers} v)
 
 
   export
   onfocus :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe FocusEventHandler
   onfocus v = fromNullablePrim
                 "GlobalEventHandlers.getonfocus"
                 prim__onfocus
                 prim__setOnfocus
-                (v :> GlobalEventHandlers)
+                (cast {to = GlobalEventHandlers} v)
 
 
   export
   onformdata :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onformdata v = fromNullablePrim
                    "GlobalEventHandlers.getonformdata"
                    prim__onformdata
                    prim__setOnformdata
-                   (v :> GlobalEventHandlers)
+                   (cast {to = GlobalEventHandlers} v)
 
 
   export
   oninput :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe InputEventHandler
   oninput v = fromNullablePrim
                 "GlobalEventHandlers.getoninput"
                 prim__oninput
                 prim__setOninput
-                (v :> GlobalEventHandlers)
+                (cast {to = GlobalEventHandlers} v)
 
 
   export
   oninvalid :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   oninvalid v = fromNullablePrim
                   "GlobalEventHandlers.getoninvalid"
                   prim__oninvalid
                   prim__setOninvalid
-                  (v :> GlobalEventHandlers)
+                  (cast {to = GlobalEventHandlers} v)
 
 
   export
   onkeydown :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe KeyboardEventHandler
   onkeydown v = fromNullablePrim
                   "GlobalEventHandlers.getonkeydown"
                   prim__onkeydown
                   prim__setOnkeydown
-                  (v :> GlobalEventHandlers)
+                  (cast {to = GlobalEventHandlers} v)
 
 
   export
   onkeypress :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onkeypress v = fromNullablePrim
                    "GlobalEventHandlers.getonkeypress"
                    prim__onkeypress
                    prim__setOnkeypress
-                   (v :> GlobalEventHandlers)
+                   (cast {to = GlobalEventHandlers} v)
 
 
   export
   onkeyup :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe KeyboardEventHandler
   onkeyup v = fromNullablePrim
                 "GlobalEventHandlers.getonkeyup"
                 prim__onkeyup
                 prim__setOnkeyup
-                (v :> GlobalEventHandlers)
+                (cast {to = GlobalEventHandlers} v)
 
 
   export
   onload :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe UIEventHandler
   onload v = fromNullablePrim
                "GlobalEventHandlers.getonload"
                prim__onload
                prim__setOnload
-               (v :> GlobalEventHandlers)
+               (cast {to = GlobalEventHandlers} v)
 
 
   export
   onloadeddata :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onloadeddata v = fromNullablePrim
                      "GlobalEventHandlers.getonloadeddata"
                      prim__onloadeddata
                      prim__setOnloadeddata
-                     (v :> GlobalEventHandlers)
+                     (cast {to = GlobalEventHandlers} v)
 
 
   export
   onloadedmetadata :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onloadedmetadata v = fromNullablePrim
                          "GlobalEventHandlers.getonloadedmetadata"
                          prim__onloadedmetadata
                          prim__setOnloadedmetadata
-                         (v :> GlobalEventHandlers)
+                         (cast {to = GlobalEventHandlers} v)
 
 
   export
   onloadstart :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onloadstart v = fromNullablePrim
                     "GlobalEventHandlers.getonloadstart"
                     prim__onloadstart
                     prim__setOnloadstart
-                    (v :> GlobalEventHandlers)
+                    (cast {to = GlobalEventHandlers} v)
 
 
   export
   onmousedown :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe MouseEventHandler
   onmousedown v = fromNullablePrim
                     "GlobalEventHandlers.getonmousedown"
                     prim__onmousedown
                     prim__setOnmousedown
-                    (v :> GlobalEventHandlers)
+                    (cast {to = GlobalEventHandlers} v)
 
 
   export
   onmouseenter :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe MouseEventHandler
   onmouseenter v = fromNullablePrim
                      "GlobalEventHandlers.getonmouseenter"
                      prim__onmouseenter
                      prim__setOnmouseenter
-                     (v :> GlobalEventHandlers)
+                     (cast {to = GlobalEventHandlers} v)
 
 
   export
   onmouseleave :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe MouseEventHandler
   onmouseleave v = fromNullablePrim
                      "GlobalEventHandlers.getonmouseleave"
                      prim__onmouseleave
                      prim__setOnmouseleave
-                     (v :> GlobalEventHandlers)
+                     (cast {to = GlobalEventHandlers} v)
 
 
   export
   onmousemove :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe MouseEventHandler
   onmousemove v = fromNullablePrim
                     "GlobalEventHandlers.getonmousemove"
                     prim__onmousemove
                     prim__setOnmousemove
-                    (v :> GlobalEventHandlers)
+                    (cast {to = GlobalEventHandlers} v)
 
 
   export
   onmouseout :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe MouseEventHandler
   onmouseout v = fromNullablePrim
                    "GlobalEventHandlers.getonmouseout"
                    prim__onmouseout
                    prim__setOnmouseout
-                   (v :> GlobalEventHandlers)
+                   (cast {to = GlobalEventHandlers} v)
 
 
   export
   onmouseover :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe MouseEventHandler
   onmouseover v = fromNullablePrim
                     "GlobalEventHandlers.getonmouseover"
                     prim__onmouseover
                     prim__setOnmouseover
-                    (v :> GlobalEventHandlers)
+                    (cast {to = GlobalEventHandlers} v)
 
 
   export
   onmouseup :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe MouseEventHandler
   onmouseup v = fromNullablePrim
                   "GlobalEventHandlers.getonmouseup"
                   prim__onmouseup
                   prim__setOnmouseup
-                  (v :> GlobalEventHandlers)
+                  (cast {to = GlobalEventHandlers} v)
 
 
   export
   onpause :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onpause v = fromNullablePrim
                 "GlobalEventHandlers.getonpause"
                 prim__onpause
                 prim__setOnpause
-                (v :> GlobalEventHandlers)
+                (cast {to = GlobalEventHandlers} v)
 
 
   export
   onplay :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onplay v = fromNullablePrim
                "GlobalEventHandlers.getonplay"
                prim__onplay
                prim__setOnplay
-               (v :> GlobalEventHandlers)
+               (cast {to = GlobalEventHandlers} v)
 
 
   export
   onplaying :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onplaying v = fromNullablePrim
                   "GlobalEventHandlers.getonplaying"
                   prim__onplaying
                   prim__setOnplaying
-                  (v :> GlobalEventHandlers)
+                  (cast {to = GlobalEventHandlers} v)
 
 
   export
   onprogress :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onprogress v = fromNullablePrim
                    "GlobalEventHandlers.getonprogress"
                    prim__onprogress
                    prim__setOnprogress
-                   (v :> GlobalEventHandlers)
+                   (cast {to = GlobalEventHandlers} v)
 
 
   export
   onratechange :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onratechange v = fromNullablePrim
                      "GlobalEventHandlers.getonratechange"
                      prim__onratechange
                      prim__setOnratechange
-                     (v :> GlobalEventHandlers)
+                     (cast {to = GlobalEventHandlers} v)
 
 
   export
   onreset :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onreset v = fromNullablePrim
                 "GlobalEventHandlers.getonreset"
                 prim__onreset
                 prim__setOnreset
-                (v :> GlobalEventHandlers)
+                (cast {to = GlobalEventHandlers} v)
 
 
   export
   onresize :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onresize v = fromNullablePrim
                  "GlobalEventHandlers.getonresize"
                  prim__onresize
                  prim__setOnresize
-                 (v :> GlobalEventHandlers)
+                 (cast {to = GlobalEventHandlers} v)
 
 
   export
   onscroll :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onscroll v = fromNullablePrim
                  "GlobalEventHandlers.getonscroll"
                  prim__onscroll
                  prim__setOnscroll
-                 (v :> GlobalEventHandlers)
+                 (cast {to = GlobalEventHandlers} v)
 
 
   export
   onsecuritypolicyviolation :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onsecuritypolicyviolation v = fromNullablePrim
                                   "GlobalEventHandlers.getonsecuritypolicyviolation"
                                   prim__onsecuritypolicyviolation
                                   prim__setOnsecuritypolicyviolation
-                                  (v :> GlobalEventHandlers)
+                                  (cast {to = GlobalEventHandlers} v)
 
 
   export
   onseeked :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onseeked v = fromNullablePrim
                  "GlobalEventHandlers.getonseeked"
                  prim__onseeked
                  prim__setOnseeked
-                 (v :> GlobalEventHandlers)
+                 (cast {to = GlobalEventHandlers} v)
 
 
   export
   onseeking :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onseeking v = fromNullablePrim
                   "GlobalEventHandlers.getonseeking"
                   prim__onseeking
                   prim__setOnseeking
-                  (v :> GlobalEventHandlers)
+                  (cast {to = GlobalEventHandlers} v)
 
 
   export
   onselect :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe UIEventHandler
   onselect v = fromNullablePrim
                  "GlobalEventHandlers.getonselect"
                  prim__onselect
                  prim__setOnselect
-                 (v :> GlobalEventHandlers)
+                 (cast {to = GlobalEventHandlers} v)
 
 
   export
   onslotchange :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onslotchange v = fromNullablePrim
                      "GlobalEventHandlers.getonslotchange"
                      prim__onslotchange
                      prim__setOnslotchange
-                     (v :> GlobalEventHandlers)
+                     (cast {to = GlobalEventHandlers} v)
 
 
   export
   onstalled :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onstalled v = fromNullablePrim
                   "GlobalEventHandlers.getonstalled"
                   prim__onstalled
                   prim__setOnstalled
-                  (v :> GlobalEventHandlers)
+                  (cast {to = GlobalEventHandlers} v)
 
 
   export
   onsubmit :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onsubmit v = fromNullablePrim
                  "GlobalEventHandlers.getonsubmit"
                  prim__onsubmit
                  prim__setOnsubmit
-                 (v :> GlobalEventHandlers)
+                 (cast {to = GlobalEventHandlers} v)
 
 
   export
   onsuspend :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onsuspend v = fromNullablePrim
                   "GlobalEventHandlers.getonsuspend"
                   prim__onsuspend
                   prim__setOnsuspend
-                  (v :> GlobalEventHandlers)
+                  (cast {to = GlobalEventHandlers} v)
 
 
   export
   ontimeupdate :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   ontimeupdate v = fromNullablePrim
                      "GlobalEventHandlers.getontimeupdate"
                      prim__ontimeupdate
                      prim__setOntimeupdate
-                     (v :> GlobalEventHandlers)
+                     (cast {to = GlobalEventHandlers} v)
 
 
   export
   ontoggle :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   ontoggle v = fromNullablePrim
                  "GlobalEventHandlers.getontoggle"
                  prim__ontoggle
                  prim__setOntoggle
-                 (v :> GlobalEventHandlers)
+                 (cast {to = GlobalEventHandlers} v)
 
 
   export
   onvolumechange :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onvolumechange v = fromNullablePrim
                        "GlobalEventHandlers.getonvolumechange"
                        prim__onvolumechange
                        prim__setOnvolumechange
-                       (v :> GlobalEventHandlers)
+                       (cast {to = GlobalEventHandlers} v)
 
 
   export
   onwaiting :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onwaiting v = fromNullablePrim
                   "GlobalEventHandlers.getonwaiting"
                   prim__onwaiting
                   prim__setOnwaiting
-                  (v :> GlobalEventHandlers)
+                  (cast {to = GlobalEventHandlers} v)
 
 
   export
   onwebkitanimationend :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onwebkitanimationend v = fromNullablePrim
                              "GlobalEventHandlers.getonwebkitanimationend"
                              prim__onwebkitanimationend
                              prim__setOnwebkitanimationend
-                             (v :> GlobalEventHandlers)
+                             (cast {to = GlobalEventHandlers} v)
 
 
   export
   onwebkitanimationiteration :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onwebkitanimationiteration v = fromNullablePrim
                                    "GlobalEventHandlers.getonwebkitanimationiteration"
                                    prim__onwebkitanimationiteration
                                    prim__setOnwebkitanimationiteration
-                                   (v :> GlobalEventHandlers)
+                                   (cast {to = GlobalEventHandlers} v)
 
 
   export
   onwebkitanimationstart :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onwebkitanimationstart v = fromNullablePrim
                                "GlobalEventHandlers.getonwebkitanimationstart"
                                prim__onwebkitanimationstart
                                prim__setOnwebkitanimationstart
-                               (v :> GlobalEventHandlers)
+                               (cast {to = GlobalEventHandlers} v)
 
 
   export
   onwebkittransitionend :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onwebkittransitionend v = fromNullablePrim
                               "GlobalEventHandlers.getonwebkittransitionend"
                               prim__onwebkittransitionend
                               prim__setOnwebkittransitionend
-                              (v :> GlobalEventHandlers)
+                              (cast {to = GlobalEventHandlers} v)
 
 
   export
   onwheel :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem GlobalEventHandlers (Types t)}
+       {auto _ : Cast t GlobalEventHandlers}
     -> t
     -> Attribute False Maybe WheelEventHandler
   onwheel v = fromNullablePrim
                 "GlobalEventHandlers.getonwheel"
                 prim__onwheel
                 prim__setOnwheel
-                (v :> GlobalEventHandlers)
+                (cast {to = GlobalEventHandlers} v)
 
 
 
@@ -10501,141 +10115,130 @@ namespace HTMLHyperlinkElementUtils
 
   export
   hash :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
+       {auto _ : Cast t HTMLHyperlinkElementUtils}
     -> t
     -> Attribute True Prelude.id String
   hash v = fromPrim
              "HTMLHyperlinkElementUtils.gethash"
              prim__hash
              prim__setHash
-             (v :> HTMLHyperlinkElementUtils)
+             (cast {to = HTMLHyperlinkElementUtils} v)
 
 
   export
   host :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
+       {auto _ : Cast t HTMLHyperlinkElementUtils}
     -> t
     -> Attribute True Prelude.id String
   host v = fromPrim
              "HTMLHyperlinkElementUtils.gethost"
              prim__host
              prim__setHost
-             (v :> HTMLHyperlinkElementUtils)
+             (cast {to = HTMLHyperlinkElementUtils} v)
 
 
   export
   hostname :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
+       {auto _ : Cast t HTMLHyperlinkElementUtils}
     -> t
     -> Attribute True Prelude.id String
   hostname v = fromPrim
                  "HTMLHyperlinkElementUtils.gethostname"
                  prim__hostname
                  prim__setHostname
-                 (v :> HTMLHyperlinkElementUtils)
+                 (cast {to = HTMLHyperlinkElementUtils} v)
 
 
   export
   href :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
+       {auto _ : Cast t HTMLHyperlinkElementUtils}
     -> t
     -> Attribute True Prelude.id String
   href v = fromPrim
              "HTMLHyperlinkElementUtils.gethref"
              prim__href
              prim__setHref
-             (v :> HTMLHyperlinkElementUtils)
+             (cast {to = HTMLHyperlinkElementUtils} v)
 
 
   export
   origin :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t1)}
+       {auto _ : Cast t1 HTMLHyperlinkElementUtils}
     -> (obj : t1)
     -> JSIO String
-  origin a = primJS $ HTMLHyperlinkElementUtils.prim__origin (up a)
+  origin a = primJS $ HTMLHyperlinkElementUtils.prim__origin (cast a)
 
 
   export
   password :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
+       {auto _ : Cast t HTMLHyperlinkElementUtils}
     -> t
     -> Attribute True Prelude.id String
   password v = fromPrim
                  "HTMLHyperlinkElementUtils.getpassword"
                  prim__password
                  prim__setPassword
-                 (v :> HTMLHyperlinkElementUtils)
+                 (cast {to = HTMLHyperlinkElementUtils} v)
 
 
   export
   pathname :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
+       {auto _ : Cast t HTMLHyperlinkElementUtils}
     -> t
     -> Attribute True Prelude.id String
   pathname v = fromPrim
                  "HTMLHyperlinkElementUtils.getpathname"
                  prim__pathname
                  prim__setPathname
-                 (v :> HTMLHyperlinkElementUtils)
+                 (cast {to = HTMLHyperlinkElementUtils} v)
 
 
   export
   port :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
+       {auto _ : Cast t HTMLHyperlinkElementUtils}
     -> t
     -> Attribute True Prelude.id String
   port v = fromPrim
              "HTMLHyperlinkElementUtils.getport"
              prim__port
              prim__setPort
-             (v :> HTMLHyperlinkElementUtils)
+             (cast {to = HTMLHyperlinkElementUtils} v)
 
 
   export
   protocol :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
+       {auto _ : Cast t HTMLHyperlinkElementUtils}
     -> t
     -> Attribute True Prelude.id String
   protocol v = fromPrim
                  "HTMLHyperlinkElementUtils.getprotocol"
                  prim__protocol
                  prim__setProtocol
-                 (v :> HTMLHyperlinkElementUtils)
+                 (cast {to = HTMLHyperlinkElementUtils} v)
 
 
   export
   search :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
+       {auto _ : Cast t HTMLHyperlinkElementUtils}
     -> t
     -> Attribute True Prelude.id String
   search v = fromPrim
                "HTMLHyperlinkElementUtils.getsearch"
                prim__search
                prim__setSearch
-               (v :> HTMLHyperlinkElementUtils)
+               (cast {to = HTMLHyperlinkElementUtils} v)
 
 
   export
   username :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLHyperlinkElementUtils (Types t)}
+       {auto _ : Cast t HTMLHyperlinkElementUtils}
     -> t
     -> Attribute True Prelude.id String
   username v = fromPrim
                  "HTMLHyperlinkElementUtils.getusername"
                  prim__username
                  prim__setUsername
-                 (v :> HTMLHyperlinkElementUtils)
+                 (cast {to = HTMLHyperlinkElementUtils} v)
 
 
 
@@ -10643,79 +10246,65 @@ namespace HTMLOrSVGElement
 
   export
   autofocus :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLOrSVGElement (Types t)}
+       {auto _ : Cast t HTMLOrSVGElement}
     -> t
     -> Attribute True Prelude.id Bool
   autofocus v = fromPrim
                   "HTMLOrSVGElement.getautofocus"
                   prim__autofocus
                   prim__setAutofocus
-                  (v :> HTMLOrSVGElement)
+                  (cast {to = HTMLOrSVGElement} v)
 
 
   export
   dataset :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLOrSVGElement (Types t1)}
+       {auto _ : Cast t1 HTMLOrSVGElement}
     -> (obj : t1)
     -> JSIO DOMStringMap
-  dataset a = primJS $ HTMLOrSVGElement.prim__dataset (up a)
+  dataset a = primJS $ HTMLOrSVGElement.prim__dataset (cast a)
 
 
   export
   nonce :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLOrSVGElement (Types t)}
+       {auto _ : Cast t HTMLOrSVGElement}
     -> t
     -> Attribute True Prelude.id String
   nonce v = fromPrim
               "HTMLOrSVGElement.getnonce"
               prim__nonce
               prim__setNonce
-              (v :> HTMLOrSVGElement)
+              (cast {to = HTMLOrSVGElement} v)
 
 
   export
   tabIndex :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HTMLOrSVGElement (Types t)}
+       {auto _ : Cast t HTMLOrSVGElement}
     -> t
     -> Attribute True Prelude.id Int32
   tabIndex v = fromPrim
                  "HTMLOrSVGElement.gettabIndex"
                  prim__tabIndex
                  prim__setTabIndex
-                 (v :> HTMLOrSVGElement)
+                 (cast {to = HTMLOrSVGElement} v)
 
 
   export
-  blur :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLOrSVGElement (Types t1)}
-    -> (obj : t1)
-    -> JSIO ()
-  blur a = primJS $ HTMLOrSVGElement.prim__blur (up a)
+  blur : {auto _ : Cast t1 HTMLOrSVGElement} -> (obj : t1) -> JSIO ()
+  blur a = primJS $ HTMLOrSVGElement.prim__blur (cast a)
 
 
   export
   focus' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem HTMLOrSVGElement (Types t1)}
-    -> {auto 0 _ : Elem FocusOptions (Types t2)}
+       {auto _ : Cast t1 HTMLOrSVGElement}
+    -> {auto _ : Cast t2 FocusOptions}
     -> (obj : t1)
     -> (options : Optional t2)
     -> JSIO ()
-  focus' a b = primJS $ HTMLOrSVGElement.prim__focus (up a) (optUp b)
+  focus' a b = primJS $ HTMLOrSVGElement.prim__focus (cast a) (optUp b)
 
   export
-  focus :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLOrSVGElement (Types t1)}
-    -> (obj : t1)
-    -> JSIO ()
-  focus a = primJS $ HTMLOrSVGElement.prim__focus (up a) undef
+  focus : {auto _ : Cast t1 HTMLOrSVGElement} -> (obj : t1) -> JSIO ()
+  focus a = primJS $ HTMLOrSVGElement.prim__focus (cast a) undef
 
 
 
@@ -10723,12 +10312,11 @@ namespace NavigatorConcurrentHardware
 
   export
   hardwareConcurrency :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem NavigatorConcurrentHardware (Types t1)}
+       {auto _ : Cast t1 NavigatorConcurrentHardware}
     -> (obj : t1)
     -> JSIO JSBits64
   hardwareConcurrency a = primJS $
-    NavigatorConcurrentHardware.prim__hardwareConcurrency (up a)
+    NavigatorConcurrentHardware.prim__hardwareConcurrency (cast a)
 
 
 
@@ -10736,157 +10324,106 @@ namespace NavigatorContentUtils
 
   export
   registerProtocolHandler :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem NavigatorContentUtils (Types t1)}
+       {auto _ : Cast t1 NavigatorContentUtils}
     -> (obj : t1)
     -> (scheme : String)
     -> (url : String)
     -> JSIO ()
   registerProtocolHandler a b c = primJS $
-    NavigatorContentUtils.prim__registerProtocolHandler (up a) b c
+    NavigatorContentUtils.prim__registerProtocolHandler (cast a) b c
 
 
   export
   unregisterProtocolHandler :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem NavigatorContentUtils (Types t1)}
+       {auto _ : Cast t1 NavigatorContentUtils}
     -> (obj : t1)
     -> (scheme : String)
     -> (url : String)
     -> JSIO ()
   unregisterProtocolHandler a b c = primJS $
-    NavigatorContentUtils.prim__unregisterProtocolHandler (up a) b c
+    NavigatorContentUtils.prim__unregisterProtocolHandler (cast a) b c
 
 
 
 namespace NavigatorCookies
 
   export
-  cookieEnabled :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem NavigatorCookies (Types t1)}
-    -> (obj : t1)
-    -> JSIO Bool
+  cookieEnabled : {auto _ : Cast t1 NavigatorCookies} -> (obj : t1) -> JSIO Bool
   cookieEnabled a = tryJS "NavigatorCookies.cookieEnabled" $
-    NavigatorCookies.prim__cookieEnabled (up a)
+    NavigatorCookies.prim__cookieEnabled (cast a)
 
 
 
 namespace NavigatorID
 
   export
-  appCodeName :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem NavigatorID (Types t1)}
-    -> (obj : t1)
-    -> JSIO String
-  appCodeName a = primJS $ NavigatorID.prim__appCodeName (up a)
+  appCodeName : {auto _ : Cast t1 NavigatorID} -> (obj : t1) -> JSIO String
+  appCodeName a = primJS $ NavigatorID.prim__appCodeName (cast a)
 
 
   export
-  appName :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem NavigatorID (Types t1)}
-    -> (obj : t1)
-    -> JSIO String
-  appName a = primJS $ NavigatorID.prim__appName (up a)
+  appName : {auto _ : Cast t1 NavigatorID} -> (obj : t1) -> JSIO String
+  appName a = primJS $ NavigatorID.prim__appName (cast a)
 
 
   export
-  appVersion :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem NavigatorID (Types t1)}
-    -> (obj : t1)
-    -> JSIO String
-  appVersion a = primJS $ NavigatorID.prim__appVersion (up a)
+  appVersion : {auto _ : Cast t1 NavigatorID} -> (obj : t1) -> JSIO String
+  appVersion a = primJS $ NavigatorID.prim__appVersion (cast a)
 
 
   export
-  platform :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem NavigatorID (Types t1)}
-    -> (obj : t1)
-    -> JSIO String
-  platform a = primJS $ NavigatorID.prim__platform (up a)
+  platform : {auto _ : Cast t1 NavigatorID} -> (obj : t1) -> JSIO String
+  platform a = primJS $ NavigatorID.prim__platform (cast a)
 
 
   export
-  product :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem NavigatorID (Types t1)}
-    -> (obj : t1)
-    -> JSIO String
-  product a = primJS $ NavigatorID.prim__product (up a)
+  product : {auto _ : Cast t1 NavigatorID} -> (obj : t1) -> JSIO String
+  product a = primJS $ NavigatorID.prim__product (cast a)
 
 
   export
-  productSub :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem NavigatorID (Types t1)}
-    -> (obj : t1)
-    -> JSIO String
-  productSub a = primJS $ NavigatorID.prim__productSub (up a)
+  productSub : {auto _ : Cast t1 NavigatorID} -> (obj : t1) -> JSIO String
+  productSub a = primJS $ NavigatorID.prim__productSub (cast a)
 
 
   export
-  userAgent :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem NavigatorID (Types t1)}
-    -> (obj : t1)
-    -> JSIO String
-  userAgent a = primJS $ NavigatorID.prim__userAgent (up a)
+  userAgent : {auto _ : Cast t1 NavigatorID} -> (obj : t1) -> JSIO String
+  userAgent a = primJS $ NavigatorID.prim__userAgent (cast a)
 
 
   export
-  vendor :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem NavigatorID (Types t1)}
-    -> (obj : t1)
-    -> JSIO String
-  vendor a = primJS $ NavigatorID.prim__vendor (up a)
+  vendor : {auto _ : Cast t1 NavigatorID} -> (obj : t1) -> JSIO String
+  vendor a = primJS $ NavigatorID.prim__vendor (cast a)
 
 
   export
-  vendorSub :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem NavigatorID (Types t1)}
-    -> (obj : t1)
-    -> JSIO String
-  vendorSub a = primJS $ NavigatorID.prim__vendorSub (up a)
+  vendorSub : {auto _ : Cast t1 NavigatorID} -> (obj : t1) -> JSIO String
+  vendorSub a = primJS $ NavigatorID.prim__vendorSub (cast a)
 
 
 
 namespace NavigatorLanguage
 
   export
-  language :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem NavigatorLanguage (Types t1)}
-    -> (obj : t1)
-    -> JSIO String
-  language a = primJS $ NavigatorLanguage.prim__language (up a)
+  language : {auto _ : Cast t1 NavigatorLanguage} -> (obj : t1) -> JSIO String
+  language a = primJS $ NavigatorLanguage.prim__language (cast a)
 
 
   export
   languages :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem NavigatorLanguage (Types t1)}
+       {auto _ : Cast t1 NavigatorLanguage}
     -> (obj : t1)
     -> JSIO (Array String)
-  languages a = primJS $ NavigatorLanguage.prim__languages (up a)
+  languages a = primJS $ NavigatorLanguage.prim__languages (cast a)
 
 
 
 namespace NavigatorOnLine
 
   export
-  onLine :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem NavigatorOnLine (Types t1)}
-    -> (obj : t1)
-    -> JSIO Bool
+  onLine : {auto _ : Cast t1 NavigatorOnLine} -> (obj : t1) -> JSIO Bool
   onLine a = tryJS "NavigatorOnLine.onLine" $
-    NavigatorOnLine.prim__onLine (up a)
+    NavigatorOnLine.prim__onLine (cast a)
 
 
 
@@ -10894,30 +10431,24 @@ namespace NavigatorPlugins
 
   export
   mimeTypes :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem NavigatorPlugins (Types t1)}
+       {auto _ : Cast t1 NavigatorPlugins}
     -> (obj : t1)
     -> JSIO MimeTypeArray
-  mimeTypes a = primJS $ NavigatorPlugins.prim__mimeTypes (up a)
+  mimeTypes a = primJS $ NavigatorPlugins.prim__mimeTypes (cast a)
 
 
   export
   plugins :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem NavigatorPlugins (Types t1)}
+       {auto _ : Cast t1 NavigatorPlugins}
     -> (obj : t1)
     -> JSIO PluginArray
-  plugins a = primJS $ NavigatorPlugins.prim__plugins (up a)
+  plugins a = primJS $ NavigatorPlugins.prim__plugins (cast a)
 
 
   export
-  javaEnabled :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem NavigatorPlugins (Types t1)}
-    -> (obj : t1)
-    -> JSIO Bool
+  javaEnabled : {auto _ : Cast t1 NavigatorPlugins} -> (obj : t1) -> JSIO Bool
   javaEnabled a = tryJS "NavigatorPlugins.javaEnabled" $
-    NavigatorPlugins.prim__javaEnabled (up a)
+    NavigatorPlugins.prim__javaEnabled (cast a)
 
 
 
@@ -10925,210 +10456,194 @@ namespace WindowEventHandlers
 
   export
   onafterprint :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem WindowEventHandlers (Types t)}
+       {auto _ : Cast t WindowEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onafterprint v = fromNullablePrim
                      "WindowEventHandlers.getonafterprint"
                      prim__onafterprint
                      prim__setOnafterprint
-                     (v :> WindowEventHandlers)
+                     (cast {to = WindowEventHandlers} v)
 
 
   export
   onbeforeprint :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem WindowEventHandlers (Types t)}
+       {auto _ : Cast t WindowEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onbeforeprint v = fromNullablePrim
                       "WindowEventHandlers.getonbeforeprint"
                       prim__onbeforeprint
                       prim__setOnbeforeprint
-                      (v :> WindowEventHandlers)
+                      (cast {to = WindowEventHandlers} v)
 
 
   export
   onbeforeunload :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem WindowEventHandlers (Types t)}
+       {auto _ : Cast t WindowEventHandlers}
     -> t
     -> Attribute False Maybe OnBeforeUnloadEventHandlerNonNull
   onbeforeunload v = fromNullablePrim
                        "WindowEventHandlers.getonbeforeunload"
                        prim__onbeforeunload
                        prim__setOnbeforeunload
-                       (v :> WindowEventHandlers)
+                       (cast {to = WindowEventHandlers} v)
 
 
   export
   onhashchange :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem WindowEventHandlers (Types t)}
+       {auto _ : Cast t WindowEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onhashchange v = fromNullablePrim
                      "WindowEventHandlers.getonhashchange"
                      prim__onhashchange
                      prim__setOnhashchange
-                     (v :> WindowEventHandlers)
+                     (cast {to = WindowEventHandlers} v)
 
 
   export
   onlanguagechange :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem WindowEventHandlers (Types t)}
+       {auto _ : Cast t WindowEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onlanguagechange v = fromNullablePrim
                          "WindowEventHandlers.getonlanguagechange"
                          prim__onlanguagechange
                          prim__setOnlanguagechange
-                         (v :> WindowEventHandlers)
+                         (cast {to = WindowEventHandlers} v)
 
 
   export
   onmessage :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem WindowEventHandlers (Types t)}
+       {auto _ : Cast t WindowEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onmessage v = fromNullablePrim
                   "WindowEventHandlers.getonmessage"
                   prim__onmessage
                   prim__setOnmessage
-                  (v :> WindowEventHandlers)
+                  (cast {to = WindowEventHandlers} v)
 
 
   export
   onmessageerror :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem WindowEventHandlers (Types t)}
+       {auto _ : Cast t WindowEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onmessageerror v = fromNullablePrim
                        "WindowEventHandlers.getonmessageerror"
                        prim__onmessageerror
                        prim__setOnmessageerror
-                       (v :> WindowEventHandlers)
+                       (cast {to = WindowEventHandlers} v)
 
 
   export
   onoffline :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem WindowEventHandlers (Types t)}
+       {auto _ : Cast t WindowEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onoffline v = fromNullablePrim
                   "WindowEventHandlers.getonoffline"
                   prim__onoffline
                   prim__setOnoffline
-                  (v :> WindowEventHandlers)
+                  (cast {to = WindowEventHandlers} v)
 
 
   export
   ononline :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem WindowEventHandlers (Types t)}
+       {auto _ : Cast t WindowEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   ononline v = fromNullablePrim
                  "WindowEventHandlers.getononline"
                  prim__ononline
                  prim__setOnonline
-                 (v :> WindowEventHandlers)
+                 (cast {to = WindowEventHandlers} v)
 
 
   export
   onpagehide :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem WindowEventHandlers (Types t)}
+       {auto _ : Cast t WindowEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onpagehide v = fromNullablePrim
                    "WindowEventHandlers.getonpagehide"
                    prim__onpagehide
                    prim__setOnpagehide
-                   (v :> WindowEventHandlers)
+                   (cast {to = WindowEventHandlers} v)
 
 
   export
   onpageshow :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem WindowEventHandlers (Types t)}
+       {auto _ : Cast t WindowEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onpageshow v = fromNullablePrim
                    "WindowEventHandlers.getonpageshow"
                    prim__onpageshow
                    prim__setOnpageshow
-                   (v :> WindowEventHandlers)
+                   (cast {to = WindowEventHandlers} v)
 
 
   export
   onpopstate :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem WindowEventHandlers (Types t)}
+       {auto _ : Cast t WindowEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onpopstate v = fromNullablePrim
                    "WindowEventHandlers.getonpopstate"
                    prim__onpopstate
                    prim__setOnpopstate
-                   (v :> WindowEventHandlers)
+                   (cast {to = WindowEventHandlers} v)
 
 
   export
   onrejectionhandled :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem WindowEventHandlers (Types t)}
+       {auto _ : Cast t WindowEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onrejectionhandled v = fromNullablePrim
                            "WindowEventHandlers.getonrejectionhandled"
                            prim__onrejectionhandled
                            prim__setOnrejectionhandled
-                           (v :> WindowEventHandlers)
+                           (cast {to = WindowEventHandlers} v)
 
 
   export
   onstorage :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem WindowEventHandlers (Types t)}
+       {auto _ : Cast t WindowEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onstorage v = fromNullablePrim
                   "WindowEventHandlers.getonstorage"
                   prim__onstorage
                   prim__setOnstorage
-                  (v :> WindowEventHandlers)
+                  (cast {to = WindowEventHandlers} v)
 
 
   export
   onunhandledrejection :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem WindowEventHandlers (Types t)}
+       {auto _ : Cast t WindowEventHandlers}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onunhandledrejection v = fromNullablePrim
                              "WindowEventHandlers.getonunhandledrejection"
                              prim__onunhandledrejection
                              prim__setOnunhandledrejection
-                             (v :> WindowEventHandlers)
+                             (cast {to = WindowEventHandlers} v)
 
 
   export
   onunload :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem WindowEventHandlers (Types t)}
+       {auto _ : Cast t WindowEventHandlers}
     -> t
     -> Attribute False Maybe UIEventHandler
   onunload v = fromNullablePrim
                  "WindowEventHandlers.getonunload"
                  prim__onunload
                  prim__setOnunload
-                 (v :> WindowEventHandlers)
+                 (cast {to = WindowEventHandlers} v)
 
 
 
@@ -11136,11 +10651,10 @@ namespace WindowLocalStorage
 
   export
   localStorage :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem WindowLocalStorage (Types t1)}
+       {auto _ : Cast t1 WindowLocalStorage}
     -> (obj : t1)
     -> JSIO Storage
-  localStorage a = primJS $ WindowLocalStorage.prim__localStorage (up a)
+  localStorage a = primJS $ WindowLocalStorage.prim__localStorage (cast a)
 
 
 
@@ -11148,126 +10662,112 @@ namespace WindowOrWorkerGlobalScope
 
   export
   caches :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+       {auto _ : Cast t1 WindowOrWorkerGlobalScope}
     -> (obj : t1)
     -> JSIO CacheStorage
-  caches a = primJS $ WindowOrWorkerGlobalScope.prim__caches (up a)
+  caches a = primJS $ WindowOrWorkerGlobalScope.prim__caches (cast a)
 
 
   export
   crossOriginIsolated :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+       {auto _ : Cast t1 WindowOrWorkerGlobalScope}
     -> (obj : t1)
     -> JSIO Bool
   crossOriginIsolated a = tryJS "WindowOrWorkerGlobalScope.crossOriginIsolated" $
-    WindowOrWorkerGlobalScope.prim__crossOriginIsolated (up a)
+    WindowOrWorkerGlobalScope.prim__crossOriginIsolated (cast a)
 
 
   export
   indexedDB :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+       {auto _ : Cast t1 WindowOrWorkerGlobalScope}
     -> (obj : t1)
     -> JSIO IDBFactory
-  indexedDB a = primJS $ WindowOrWorkerGlobalScope.prim__indexedDB (up a)
+  indexedDB a = primJS $ WindowOrWorkerGlobalScope.prim__indexedDB (cast a)
 
 
   export
   isSecureContext :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+       {auto _ : Cast t1 WindowOrWorkerGlobalScope}
     -> (obj : t1)
     -> JSIO Bool
   isSecureContext a = tryJS "WindowOrWorkerGlobalScope.isSecureContext" $
-    WindowOrWorkerGlobalScope.prim__isSecureContext (up a)
+    WindowOrWorkerGlobalScope.prim__isSecureContext (cast a)
 
 
   export
   origin :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+       {auto _ : Cast t1 WindowOrWorkerGlobalScope}
     -> (obj : t1)
     -> JSIO String
-  origin a = primJS $ WindowOrWorkerGlobalScope.prim__origin (up a)
+  origin a = primJS $ WindowOrWorkerGlobalScope.prim__origin (cast a)
 
 
   export
   performance :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+       {auto _ : Cast t1 WindowOrWorkerGlobalScope}
     -> (obj : t1)
     -> JSIO Performance
-  performance a = primJS $ WindowOrWorkerGlobalScope.prim__performance (up a)
+  performance a = primJS $ WindowOrWorkerGlobalScope.prim__performance (cast a)
 
 
   export
   atob :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+       {auto _ : Cast t1 WindowOrWorkerGlobalScope}
     -> (obj : t1)
     -> (data_ : String)
     -> JSIO ByteString
-  atob a b = primJS $ WindowOrWorkerGlobalScope.prim__atob (up a) b
+  atob a b = primJS $ WindowOrWorkerGlobalScope.prim__atob (cast a) b
 
 
   export
   btoa :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+       {auto _ : Cast t1 WindowOrWorkerGlobalScope}
     -> (obj : t1)
     -> (data_ : String)
     -> JSIO String
-  btoa a b = primJS $ WindowOrWorkerGlobalScope.prim__btoa (up a) b
+  btoa a b = primJS $ WindowOrWorkerGlobalScope.prim__btoa (cast a) b
 
 
   export
   clearInterval' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+       {auto _ : Cast t1 WindowOrWorkerGlobalScope}
     -> (obj : t1)
     -> (id : Optional Int32)
     -> JSIO ()
   clearInterval' a b = primJS $
-    WindowOrWorkerGlobalScope.prim__clearInterval (up a) (toFFI b)
+    WindowOrWorkerGlobalScope.prim__clearInterval (cast a) (toFFI b)
 
   export
   clearInterval :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+       {auto _ : Cast t1 WindowOrWorkerGlobalScope}
     -> (obj : t1)
     -> JSIO ()
   clearInterval a = primJS $
-    WindowOrWorkerGlobalScope.prim__clearInterval (up a) undef
+    WindowOrWorkerGlobalScope.prim__clearInterval (cast a) undef
 
 
   export
   clearTimeout' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+       {auto _ : Cast t1 WindowOrWorkerGlobalScope}
     -> (obj : t1)
     -> (id : Optional Int32)
     -> JSIO ()
   clearTimeout' a b = primJS $
-    WindowOrWorkerGlobalScope.prim__clearTimeout (up a) (toFFI b)
+    WindowOrWorkerGlobalScope.prim__clearTimeout (cast a) (toFFI b)
 
   export
   clearTimeout :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+       {auto _ : Cast t1 WindowOrWorkerGlobalScope}
     -> (obj : t1)
     -> JSIO ()
   clearTimeout a = primJS $
-    WindowOrWorkerGlobalScope.prim__clearTimeout (up a) undef
+    WindowOrWorkerGlobalScope.prim__clearTimeout (cast a) undef
 
 
   export
   createImageBitmap' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t3}
-    -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
-    -> {auto 0 _ : Elem ImageBitmapOptions (Types t3)}
+       {auto _ : Cast t1 WindowOrWorkerGlobalScope}
+    -> {auto _ : Cast t3 ImageBitmapOptions}
     -> (obj : t1)
     -> (image : HSum
                   [ HTMLImageElement
@@ -11282,12 +10782,14 @@ namespace WindowOrWorkerGlobalScope
     -> (options : Optional t3)
     -> JSIO (Promise ImageBitmap)
   createImageBitmap' a b c = primJS $
-    WindowOrWorkerGlobalScope.prim__createImageBitmap (up a) (toFFI b) (optUp c)
+    WindowOrWorkerGlobalScope.prim__createImageBitmap
+      (cast a)
+      (toFFI b)
+      (optUp c)
 
   export
   createImageBitmap :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+       {auto _ : Cast t1 WindowOrWorkerGlobalScope}
     -> (obj : t1)
     -> (image : HSum
                   [ HTMLImageElement
@@ -11301,15 +10803,13 @@ namespace WindowOrWorkerGlobalScope
                   ])
     -> JSIO (Promise ImageBitmap)
   createImageBitmap a b = primJS $
-    WindowOrWorkerGlobalScope.prim__createImageBitmap (up a) (toFFI b) undef
+    WindowOrWorkerGlobalScope.prim__createImageBitmap (cast a) (toFFI b) undef
 
 
   export
   createImageBitmap1' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t7}
-    -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
-    -> {auto 0 _ : Elem ImageBitmapOptions (Types t7)}
+       {auto _ : Cast t1 WindowOrWorkerGlobalScope}
+    -> {auto _ : Cast t7 ImageBitmapOptions}
     -> (obj : t1)
     -> (image : HSum
                   [ HTMLImageElement
@@ -11329,7 +10829,7 @@ namespace WindowOrWorkerGlobalScope
     -> JSIO (Promise ImageBitmap)
   createImageBitmap1' a b c d e f g = primJS $
     WindowOrWorkerGlobalScope.prim__createImageBitmap1
-      (up a)
+      (cast a)
       (toFFI b)
       c
       d
@@ -11339,8 +10839,7 @@ namespace WindowOrWorkerGlobalScope
 
   export
   createImageBitmap1 :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+       {auto _ : Cast t1 WindowOrWorkerGlobalScope}
     -> (obj : t1)
     -> (image : HSum
                   [ HTMLImageElement
@@ -11359,7 +10858,7 @@ namespace WindowOrWorkerGlobalScope
     -> JSIO (Promise ImageBitmap)
   createImageBitmap1 a b c d e f = primJS $
     WindowOrWorkerGlobalScope.prim__createImageBitmap1
-      (up a)
+      (cast a)
       (toFFI b)
       c
       d
@@ -11370,72 +10869,64 @@ namespace WindowOrWorkerGlobalScope
 
   export
   fetch' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t3}
-    -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
-    -> {auto 0 _ : Elem RequestInit (Types t3)}
+       {auto _ : Cast t1 WindowOrWorkerGlobalScope}
+    -> {auto _ : Cast t3 RequestInit}
     -> (obj : t1)
     -> (input : HSum [Request, String])
     -> (init : Optional t3)
     -> JSIO (Promise Response)
   fetch' a b c = primJS $
-    WindowOrWorkerGlobalScope.prim__fetch (up a) (toFFI b) (optUp c)
+    WindowOrWorkerGlobalScope.prim__fetch (cast a) (toFFI b) (optUp c)
 
   export
   fetch :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+       {auto _ : Cast t1 WindowOrWorkerGlobalScope}
     -> (obj : t1)
     -> (input : HSum [Request, String])
     -> JSIO (Promise Response)
   fetch a b = primJS $
-    WindowOrWorkerGlobalScope.prim__fetch (up a) (toFFI b) undef
+    WindowOrWorkerGlobalScope.prim__fetch (cast a) (toFFI b) undef
 
 
   export
   queueMicrotask :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+       {auto _ : Cast t1 WindowOrWorkerGlobalScope}
     -> (obj : t1)
     -> (callback : VoidFunction)
     -> JSIO ()
   queueMicrotask a b = primJS $
-    WindowOrWorkerGlobalScope.prim__queueMicrotask (up a) b
+    WindowOrWorkerGlobalScope.prim__queueMicrotask (cast a) b
 
 
   export
   reportError :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+       {auto _ : Cast t1 WindowOrWorkerGlobalScope}
     -> (obj : t1)
     -> (e : Any)
     -> JSIO ()
   reportError a b = primJS $
-    WindowOrWorkerGlobalScope.prim__reportError (up a) (toFFI b)
+    WindowOrWorkerGlobalScope.prim__reportError (cast a) (toFFI b)
 
 
   export
   structuredClone' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t3}
-    -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
-    -> {auto 0 _ : Elem StructuredSerializeOptions (Types t3)}
+       {auto _ : Cast t1 WindowOrWorkerGlobalScope}
+    -> {auto _ : Cast t3 StructuredSerializeOptions}
     -> (obj : t1)
     -> (value : Any)
     -> (options : Optional t3)
     -> JSIO Any
   structuredClone' a b c = tryJS "WindowOrWorkerGlobalScope.structuredClone'" $
-    WindowOrWorkerGlobalScope.prim__structuredClone (up a) (toFFI b) (optUp c)
+    WindowOrWorkerGlobalScope.prim__structuredClone (cast a) (toFFI b) (optUp c)
 
   export
   structuredClone :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem WindowOrWorkerGlobalScope (Types t1)}
+       {auto _ : Cast t1 WindowOrWorkerGlobalScope}
     -> (obj : t1)
     -> (value : Any)
     -> JSIO Any
   structuredClone a b = tryJS "WindowOrWorkerGlobalScope.structuredClone" $
-    WindowOrWorkerGlobalScope.prim__structuredClone (up a) (toFFI b) undef
+    WindowOrWorkerGlobalScope.prim__structuredClone (cast a) (toFFI b) undef
 
 
 
@@ -11457,8 +10948,7 @@ namespace AssignedNodesOptions
 
   export
   flatten :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem AssignedNodesOptions (Types t)}
+       {auto _ : Cast t AssignedNodesOptions}
     -> t
     -> Attribute True Optional Bool
   flatten v = fromUndefOrPrim
@@ -11466,7 +10956,7 @@ namespace AssignedNodesOptions
                 prim__flatten
                 prim__setFlatten
                 False
-                (v :> AssignedNodesOptions)
+                (cast {to = AssignedNodesOptions} v)
 
 
 
@@ -11487,8 +10977,7 @@ namespace CanvasRenderingContext2DSettings
 
   export
   alpha :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem CanvasRenderingContext2DSettings (Types t)}
+       {auto _ : Cast t CanvasRenderingContext2DSettings}
     -> t
     -> Attribute True Optional Bool
   alpha v = fromUndefOrPrim
@@ -11496,13 +10985,12 @@ namespace CanvasRenderingContext2DSettings
               prim__alpha
               prim__setAlpha
               True
-              (v :> CanvasRenderingContext2DSettings)
+              (cast {to = CanvasRenderingContext2DSettings} v)
 
 
   export
   desynchronized :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem CanvasRenderingContext2DSettings (Types t)}
+       {auto _ : Cast t CanvasRenderingContext2DSettings}
     -> t
     -> Attribute True Optional Bool
   desynchronized v = fromUndefOrPrim
@@ -11510,7 +10998,7 @@ namespace CanvasRenderingContext2DSettings
                        prim__desynchronized
                        prim__setDesynchronized
                        False
-                       (v :> CanvasRenderingContext2DSettings)
+                       (cast {to = CanvasRenderingContext2DSettings} v)
 
 
 
@@ -11530,23 +11018,18 @@ namespace CloseEventInit
 
 
   export
-  code :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem CloseEventInit (Types t)}
-    -> t
-    -> Attribute True Optional Bits16
+  code : {auto _ : Cast t CloseEventInit} -> t -> Attribute True Optional Bits16
   code v = fromUndefOrPrim
              "CloseEventInit.getcode"
              prim__code
              prim__setCode
              0
-             (v :> CloseEventInit)
+             (cast {to = CloseEventInit} v)
 
 
   export
   reason :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem CloseEventInit (Types t)}
+       {auto _ : Cast t CloseEventInit}
     -> t
     -> Attribute True Optional String
   reason v = fromUndefOrPrim
@@ -11554,13 +11037,12 @@ namespace CloseEventInit
                prim__reason
                prim__setReason
                ""
-               (v :> CloseEventInit)
+               (cast {to = CloseEventInit} v)
 
 
   export
   wasClean :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem CloseEventInit (Types t)}
+       {auto _ : Cast t CloseEventInit}
     -> t
     -> Attribute True Optional Bool
   wasClean v = fromUndefOrPrim
@@ -11568,7 +11050,7 @@ namespace CloseEventInit
                  prim__wasClean
                  prim__setWasClean
                  False
-                 (v :> CloseEventInit)
+                 (cast {to = CloseEventInit} v)
 
 
 
@@ -11585,8 +11067,7 @@ namespace DragEventInit
 
   export
   dataTransfer :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DragEventInit (Types t)}
+       {auto _ : Cast t DragEventInit}
     -> t
     -> Attribute True Optional (Maybe DataTransfer)
   dataTransfer v = fromUndefOrPrim
@@ -11594,7 +11075,7 @@ namespace DragEventInit
                      prim__dataTransfer
                      prim__setDataTransfer
                      Nothing
-                     (v :> DragEventInit)
+                     (cast {to = DragEventInit} v)
 
 
 
@@ -11611,15 +11092,14 @@ namespace ElementDefinitionOptions
 
   export
   extends :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ElementDefinitionOptions (Types t)}
+       {auto _ : Cast t ElementDefinitionOptions}
     -> t
     -> Attribute False Optional String
   extends v = fromUndefOrPrimNoDefault
                 "ElementDefinitionOptions.getextends"
                 prim__extends
                 prim__setExtends
-                (v :> ElementDefinitionOptions)
+                (cast {to = ElementDefinitionOptions} v)
 
 
 
@@ -11643,8 +11123,7 @@ namespace ErrorEventInit
 
   export
   colno :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ErrorEventInit (Types t)}
+       {auto _ : Cast t ErrorEventInit}
     -> t
     -> Attribute True Optional Bits32
   colno v = fromUndefOrPrim
@@ -11652,27 +11131,22 @@ namespace ErrorEventInit
               prim__colno
               prim__setColno
               0
-              (v :> ErrorEventInit)
+              (cast {to = ErrorEventInit} v)
 
 
   export
-  error :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ErrorEventInit (Types t)}
-    -> t
-    -> Attribute True Optional Any
+  error : {auto _ : Cast t ErrorEventInit} -> t -> Attribute True Optional Any
   error v = fromUndefOrPrim
               "ErrorEventInit.geterror"
               prim__error
               prim__setError
               (MkAny $ null {a = ()})
-              (v :> ErrorEventInit)
+              (cast {to = ErrorEventInit} v)
 
 
   export
   filename :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ErrorEventInit (Types t)}
+       {auto _ : Cast t ErrorEventInit}
     -> t
     -> Attribute True Optional String
   filename v = fromUndefOrPrim
@@ -11680,13 +11154,12 @@ namespace ErrorEventInit
                  prim__filename
                  prim__setFilename
                  ""
-                 (v :> ErrorEventInit)
+                 (cast {to = ErrorEventInit} v)
 
 
   export
   lineno :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ErrorEventInit (Types t)}
+       {auto _ : Cast t ErrorEventInit}
     -> t
     -> Attribute True Optional Bits32
   lineno v = fromUndefOrPrim
@@ -11694,13 +11167,12 @@ namespace ErrorEventInit
                prim__lineno
                prim__setLineno
                0
-               (v :> ErrorEventInit)
+               (cast {to = ErrorEventInit} v)
 
 
   export
   message :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ErrorEventInit (Types t)}
+       {auto _ : Cast t ErrorEventInit}
     -> t
     -> Attribute True Optional String
   message v = fromUndefOrPrim
@@ -11708,7 +11180,7 @@ namespace ErrorEventInit
                 prim__message
                 prim__setMessage
                 ""
-                (v :> ErrorEventInit)
+                (cast {to = ErrorEventInit} v)
 
 
 
@@ -11725,8 +11197,7 @@ namespace EventSourceInit
 
   export
   withCredentials :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem EventSourceInit (Types t)}
+       {auto _ : Cast t EventSourceInit}
     -> t
     -> Attribute True Optional Bool
   withCredentials v = fromUndefOrPrim
@@ -11734,7 +11205,7 @@ namespace EventSourceInit
                         prim__withCredentials
                         prim__setWithCredentials
                         False
-                        (v :> EventSourceInit)
+                        (cast {to = EventSourceInit} v)
 
 
 
@@ -11751,8 +11222,7 @@ namespace FocusOptions
 
   export
   preventScroll :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem FocusOptions (Types t)}
+       {auto _ : Cast t FocusOptions}
     -> t
     -> Attribute True Optional Bool
   preventScroll v = fromUndefOrPrim
@@ -11760,7 +11230,7 @@ namespace FocusOptions
                       prim__preventScroll
                       prim__setPreventScroll
                       False
-                      (v :> FocusOptions)
+                      (cast {to = FocusOptions} v)
 
 
 
@@ -11773,15 +11243,14 @@ namespace FormDataEventInit
 
   export
   formData :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem FormDataEventInit (Types t)}
+       {auto _ : Cast t FormDataEventInit}
     -> t
     -> Attribute True Prelude.id FormData
   formData v = fromPrim
                  "FormDataEventInit.getformData"
                  prim__formData
                  prim__setFormData
-                 (v :> FormDataEventInit)
+                 (cast {to = FormDataEventInit} v)
 
 
 
@@ -11801,8 +11270,7 @@ namespace HashChangeEventInit
 
   export
   newURL :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HashChangeEventInit (Types t)}
+       {auto _ : Cast t HashChangeEventInit}
     -> t
     -> Attribute True Optional String
   newURL v = fromUndefOrPrim
@@ -11810,13 +11278,12 @@ namespace HashChangeEventInit
                prim__newURL
                prim__setNewURL
                ""
-               (v :> HashChangeEventInit)
+               (cast {to = HashChangeEventInit} v)
 
 
   export
   oldURL :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem HashChangeEventInit (Types t)}
+       {auto _ : Cast t HashChangeEventInit}
     -> t
     -> Attribute True Optional String
   oldURL v = fromUndefOrPrim
@@ -11824,7 +11291,7 @@ namespace HashChangeEventInit
                prim__oldURL
                prim__setOldURL
                ""
-               (v :> HashChangeEventInit)
+               (cast {to = HashChangeEventInit} v)
 
 
 
@@ -11856,80 +11323,74 @@ namespace ImageBitmapOptions
 
   export
   colorSpaceConversion :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ImageBitmapOptions (Types t)}
+       {auto _ : Cast t ImageBitmapOptions}
     -> t
     -> Attribute False Optional ColorSpaceConversion
   colorSpaceConversion v = fromUndefOrPrimNoDefault
                              "ImageBitmapOptions.getcolorSpaceConversion"
                              prim__colorSpaceConversion
                              prim__setColorSpaceConversion
-                             (v :> ImageBitmapOptions)
+                             (cast {to = ImageBitmapOptions} v)
 
 
   export
   imageOrientation :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ImageBitmapOptions (Types t)}
+       {auto _ : Cast t ImageBitmapOptions}
     -> t
     -> Attribute False Optional ImageOrientation
   imageOrientation v = fromUndefOrPrimNoDefault
                          "ImageBitmapOptions.getimageOrientation"
                          prim__imageOrientation
                          prim__setImageOrientation
-                         (v :> ImageBitmapOptions)
+                         (cast {to = ImageBitmapOptions} v)
 
 
   export
   premultiplyAlpha :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ImageBitmapOptions (Types t)}
+       {auto _ : Cast t ImageBitmapOptions}
     -> t
     -> Attribute False Optional PremultiplyAlpha
   premultiplyAlpha v = fromUndefOrPrimNoDefault
                          "ImageBitmapOptions.getpremultiplyAlpha"
                          prim__premultiplyAlpha
                          prim__setPremultiplyAlpha
-                         (v :> ImageBitmapOptions)
+                         (cast {to = ImageBitmapOptions} v)
 
 
   export
   resizeHeight :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ImageBitmapOptions (Types t)}
+       {auto _ : Cast t ImageBitmapOptions}
     -> t
     -> Attribute False Optional Bits32
   resizeHeight v = fromUndefOrPrimNoDefault
                      "ImageBitmapOptions.getresizeHeight"
                      prim__resizeHeight
                      prim__setResizeHeight
-                     (v :> ImageBitmapOptions)
+                     (cast {to = ImageBitmapOptions} v)
 
 
   export
   resizeQuality :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ImageBitmapOptions (Types t)}
+       {auto _ : Cast t ImageBitmapOptions}
     -> t
     -> Attribute False Optional ResizeQuality
   resizeQuality v = fromUndefOrPrimNoDefault
                       "ImageBitmapOptions.getresizeQuality"
                       prim__resizeQuality
                       prim__setResizeQuality
-                      (v :> ImageBitmapOptions)
+                      (cast {to = ImageBitmapOptions} v)
 
 
   export
   resizeWidth :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ImageBitmapOptions (Types t)}
+       {auto _ : Cast t ImageBitmapOptions}
     -> t
     -> Attribute False Optional Bits32
   resizeWidth v = fromUndefOrPrimNoDefault
                     "ImageBitmapOptions.getresizeWidth"
                     prim__resizeWidth
                     prim__setResizeWidth
-                    (v :> ImageBitmapOptions)
+                    (cast {to = ImageBitmapOptions} v)
 
 
 
@@ -11946,8 +11407,7 @@ namespace ImageBitmapRenderingContextSettings
 
   export
   alpha :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ImageBitmapRenderingContextSettings (Types t)}
+       {auto _ : Cast t ImageBitmapRenderingContextSettings}
     -> t
     -> Attribute True Optional Bool
   alpha v = fromUndefOrPrim
@@ -11955,7 +11415,7 @@ namespace ImageBitmapRenderingContextSettings
               prim__alpha
               prim__setAlpha
               True
-              (v :> ImageBitmapRenderingContextSettings)
+              (cast {to = ImageBitmapRenderingContextSettings} v)
 
 
 
@@ -11975,21 +11435,19 @@ namespace ImageEncodeOptions
 
   export
   quality :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ImageEncodeOptions (Types t)}
+       {auto _ : Cast t ImageEncodeOptions}
     -> t
     -> Attribute False Optional Double
   quality v = fromUndefOrPrimNoDefault
                 "ImageEncodeOptions.getquality"
                 prim__quality
                 prim__setQuality
-                (v :> ImageEncodeOptions)
+                (cast {to = ImageEncodeOptions} v)
 
 
   export
   type :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ImageEncodeOptions (Types t)}
+       {auto _ : Cast t ImageEncodeOptions}
     -> t
     -> Attribute True Optional String
   type v = fromUndefOrPrim
@@ -11997,7 +11455,7 @@ namespace ImageEncodeOptions
              prim__type
              prim__setType
              "image/png"
-             (v :> ImageEncodeOptions)
+             (cast {to = ImageEncodeOptions} v)
 
 
 
@@ -12021,23 +11479,18 @@ namespace MessageEventInit
 
 
   export
-  data_ :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem MessageEventInit (Types t)}
-    -> t
-    -> Attribute True Optional Any
+  data_ : {auto _ : Cast t MessageEventInit} -> t -> Attribute True Optional Any
   data_ v = fromUndefOrPrim
               "MessageEventInit.getdata"
               prim__data
               prim__setData
               (MkAny $ null {a = ()})
-              (v :> MessageEventInit)
+              (cast {to = MessageEventInit} v)
 
 
   export
   lastEventId :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem MessageEventInit (Types t)}
+       {auto _ : Cast t MessageEventInit}
     -> t
     -> Attribute True Optional String
   lastEventId v = fromUndefOrPrim
@@ -12045,13 +11498,12 @@ namespace MessageEventInit
                     prim__lastEventId
                     prim__setLastEventId
                     ""
-                    (v :> MessageEventInit)
+                    (cast {to = MessageEventInit} v)
 
 
   export
   origin :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem MessageEventInit (Types t)}
+       {auto _ : Cast t MessageEventInit}
     -> t
     -> Attribute True Optional String
   origin v = fromUndefOrPrim
@@ -12059,26 +11511,24 @@ namespace MessageEventInit
                prim__origin
                prim__setOrigin
                ""
-               (v :> MessageEventInit)
+               (cast {to = MessageEventInit} v)
 
 
   export
   ports :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem MessageEventInit (Types t)}
+       {auto _ : Cast t MessageEventInit}
     -> t
     -> Attribute False Optional (Array MessagePort)
   ports v = fromUndefOrPrimNoDefault
               "MessageEventInit.getports"
               prim__ports
               prim__setPorts
-              (v :> MessageEventInit)
+              (cast {to = MessageEventInit} v)
 
 
   export
   source :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem MessageEventInit (Types t)}
+       {auto _ : Cast t MessageEventInit}
     -> t
     -> Attribute True Optional (Maybe
                                   (Union3
@@ -12090,7 +11540,7 @@ namespace MessageEventInit
                prim__source
                prim__setSource
                Nothing
-               (v :> MessageEventInit)
+               (cast {to = MessageEventInit} v)
 
 
 
@@ -12107,8 +11557,7 @@ namespace PageTransitionEventInit
 
   export
   persisted :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem PageTransitionEventInit (Types t)}
+       {auto _ : Cast t PageTransitionEventInit}
     -> t
     -> Attribute True Optional Bool
   persisted v = fromUndefOrPrim
@@ -12116,7 +11565,7 @@ namespace PageTransitionEventInit
                   prim__persisted
                   prim__setPersisted
                   False
-                  (v :> PageTransitionEventInit)
+                  (cast {to = PageTransitionEventInit} v)
 
 
 
@@ -12133,8 +11582,7 @@ namespace PopStateEventInit
 
   export
   state :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem PopStateEventInit (Types t)}
+       {auto _ : Cast t PopStateEventInit}
     -> t
     -> Attribute True Optional Any
   state v = fromUndefOrPrim
@@ -12142,7 +11590,7 @@ namespace PopStateEventInit
               prim__state
               prim__setState
               (MkAny $ null {a = ()})
-              (v :> PopStateEventInit)
+              (cast {to = PopStateEventInit} v)
 
 
 
@@ -12159,15 +11607,14 @@ namespace PostMessageOptions
 
   export
   transfer :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem PostMessageOptions (Types t)}
+       {auto _ : Cast t PostMessageOptions}
     -> t
     -> Attribute False Optional (Array Object)
   transfer v = fromUndefOrPrimNoDefault
                  "PostMessageOptions.gettransfer"
                  prim__transfer
                  prim__setTransfer
-                 (v :> PostMessageOptions)
+                 (cast {to = PostMessageOptions} v)
 
 
 
@@ -12187,28 +11634,26 @@ namespace PromiseRejectionEventInit
 
   export
   promise :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem PromiseRejectionEventInit (Types t)}
+       {auto _ : Cast t PromiseRejectionEventInit}
     -> t
     -> Attribute True Prelude.id (Promise AnyPtr)
   promise v = fromPrim
                 "PromiseRejectionEventInit.getpromise"
                 prim__promise
                 prim__setPromise
-                (v :> PromiseRejectionEventInit)
+                (cast {to = PromiseRejectionEventInit} v)
 
 
   export
   reason :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem PromiseRejectionEventInit (Types t)}
+       {auto _ : Cast t PromiseRejectionEventInit}
     -> t
     -> Attribute False Optional Any
   reason v = fromUndefOrPrimNoDefault
                "PromiseRejectionEventInit.getreason"
                prim__reason
                prim__setReason
-               (v :> PromiseRejectionEventInit)
+               (cast {to = PromiseRejectionEventInit} v)
 
 
 
@@ -12232,8 +11677,7 @@ namespace StorageEventInit
 
   export
   key :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem StorageEventInit (Types t)}
+       {auto _ : Cast t StorageEventInit}
     -> t
     -> Attribute True Optional (Maybe String)
   key v = fromUndefOrPrim
@@ -12241,13 +11685,12 @@ namespace StorageEventInit
             prim__key
             prim__setKey
             Nothing
-            (v :> StorageEventInit)
+            (cast {to = StorageEventInit} v)
 
 
   export
   newValue :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem StorageEventInit (Types t)}
+       {auto _ : Cast t StorageEventInit}
     -> t
     -> Attribute True Optional (Maybe String)
   newValue v = fromUndefOrPrim
@@ -12255,13 +11698,12 @@ namespace StorageEventInit
                  prim__newValue
                  prim__setNewValue
                  Nothing
-                 (v :> StorageEventInit)
+                 (cast {to = StorageEventInit} v)
 
 
   export
   oldValue :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem StorageEventInit (Types t)}
+       {auto _ : Cast t StorageEventInit}
     -> t
     -> Attribute True Optional (Maybe String)
   oldValue v = fromUndefOrPrim
@@ -12269,13 +11711,12 @@ namespace StorageEventInit
                  prim__oldValue
                  prim__setOldValue
                  Nothing
-                 (v :> StorageEventInit)
+                 (cast {to = StorageEventInit} v)
 
 
   export
   storageArea :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem StorageEventInit (Types t)}
+       {auto _ : Cast t StorageEventInit}
     -> t
     -> Attribute True Optional (Maybe Storage)
   storageArea v = fromUndefOrPrim
@@ -12283,13 +11724,12 @@ namespace StorageEventInit
                     prim__storageArea
                     prim__setStorageArea
                     Nothing
-                    (v :> StorageEventInit)
+                    (cast {to = StorageEventInit} v)
 
 
   export
   url :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem StorageEventInit (Types t)}
+       {auto _ : Cast t StorageEventInit}
     -> t
     -> Attribute True Optional String
   url v = fromUndefOrPrim
@@ -12297,7 +11737,7 @@ namespace StorageEventInit
             prim__url
             prim__setUrl
             ""
-            (v :> StorageEventInit)
+            (cast {to = StorageEventInit} v)
 
 
 
@@ -12314,15 +11754,14 @@ namespace StructuredSerializeOptions
 
   export
   transfer :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem StructuredSerializeOptions (Types t)}
+       {auto _ : Cast t StructuredSerializeOptions}
     -> t
     -> Attribute False Optional (Array Object)
   transfer v = fromUndefOrPrimNoDefault
                  "StructuredSerializeOptions.gettransfer"
                  prim__transfer
                  prim__setTransfer
-                 (v :> StructuredSerializeOptions)
+                 (cast {to = StructuredSerializeOptions} v)
 
 
 
@@ -12330,8 +11769,7 @@ namespace SubmitEventInit
 
   export
   new' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem HTMLElement (Types t1)}
+       {auto _ : Cast t1 HTMLElement}
     -> (submitter : Optional (Maybe t1))
     -> JSIO SubmitEventInit
   new' a = primJS $ SubmitEventInit.prim__new (omyUp a)
@@ -12343,8 +11781,7 @@ namespace SubmitEventInit
 
   export
   submitter :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem SubmitEventInit (Types t)}
+       {auto _ : Cast t SubmitEventInit}
     -> t
     -> Attribute True Optional (Maybe HTMLElement)
   submitter v = fromUndefOrPrim
@@ -12352,7 +11789,7 @@ namespace SubmitEventInit
                   prim__submitter
                   prim__setSubmitter
                   Nothing
-                  (v :> SubmitEventInit)
+                  (cast {to = SubmitEventInit} v)
 
 
 
@@ -12371,8 +11808,7 @@ namespace TrackEventInit
 
   export
   track :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem TrackEventInit (Types t)}
+       {auto _ : Cast t TrackEventInit}
     -> t
     -> Attribute True Optional (Maybe
                                   (HSum [VideoTrack, AudioTrack, TextTrack]))
@@ -12381,7 +11817,7 @@ namespace TrackEventInit
               prim__track
               prim__setTrack
               Nothing
-              (v :> TrackEventInit)
+              (cast {to = TrackEventInit} v)
 
 
 
@@ -12431,8 +11867,7 @@ namespace ValidityStateFlags
 
   export
   badInput :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ValidityStateFlags (Types t)}
+       {auto _ : Cast t ValidityStateFlags}
     -> t
     -> Attribute True Optional Bool
   badInput v = fromUndefOrPrim
@@ -12440,13 +11875,12 @@ namespace ValidityStateFlags
                  prim__badInput
                  prim__setBadInput
                  False
-                 (v :> ValidityStateFlags)
+                 (cast {to = ValidityStateFlags} v)
 
 
   export
   customError :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ValidityStateFlags (Types t)}
+       {auto _ : Cast t ValidityStateFlags}
     -> t
     -> Attribute True Optional Bool
   customError v = fromUndefOrPrim
@@ -12454,13 +11888,12 @@ namespace ValidityStateFlags
                     prim__customError
                     prim__setCustomError
                     False
-                    (v :> ValidityStateFlags)
+                    (cast {to = ValidityStateFlags} v)
 
 
   export
   patternMismatch :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ValidityStateFlags (Types t)}
+       {auto _ : Cast t ValidityStateFlags}
     -> t
     -> Attribute True Optional Bool
   patternMismatch v = fromUndefOrPrim
@@ -12468,13 +11901,12 @@ namespace ValidityStateFlags
                         prim__patternMismatch
                         prim__setPatternMismatch
                         False
-                        (v :> ValidityStateFlags)
+                        (cast {to = ValidityStateFlags} v)
 
 
   export
   rangeOverflow :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ValidityStateFlags (Types t)}
+       {auto _ : Cast t ValidityStateFlags}
     -> t
     -> Attribute True Optional Bool
   rangeOverflow v = fromUndefOrPrim
@@ -12482,13 +11914,12 @@ namespace ValidityStateFlags
                       prim__rangeOverflow
                       prim__setRangeOverflow
                       False
-                      (v :> ValidityStateFlags)
+                      (cast {to = ValidityStateFlags} v)
 
 
   export
   rangeUnderflow :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ValidityStateFlags (Types t)}
+       {auto _ : Cast t ValidityStateFlags}
     -> t
     -> Attribute True Optional Bool
   rangeUnderflow v = fromUndefOrPrim
@@ -12496,13 +11927,12 @@ namespace ValidityStateFlags
                        prim__rangeUnderflow
                        prim__setRangeUnderflow
                        False
-                       (v :> ValidityStateFlags)
+                       (cast {to = ValidityStateFlags} v)
 
 
   export
   stepMismatch :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ValidityStateFlags (Types t)}
+       {auto _ : Cast t ValidityStateFlags}
     -> t
     -> Attribute True Optional Bool
   stepMismatch v = fromUndefOrPrim
@@ -12510,13 +11940,12 @@ namespace ValidityStateFlags
                      prim__stepMismatch
                      prim__setStepMismatch
                      False
-                     (v :> ValidityStateFlags)
+                     (cast {to = ValidityStateFlags} v)
 
 
   export
   tooLong :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ValidityStateFlags (Types t)}
+       {auto _ : Cast t ValidityStateFlags}
     -> t
     -> Attribute True Optional Bool
   tooLong v = fromUndefOrPrim
@@ -12524,13 +11953,12 @@ namespace ValidityStateFlags
                 prim__tooLong
                 prim__setTooLong
                 False
-                (v :> ValidityStateFlags)
+                (cast {to = ValidityStateFlags} v)
 
 
   export
   tooShort :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ValidityStateFlags (Types t)}
+       {auto _ : Cast t ValidityStateFlags}
     -> t
     -> Attribute True Optional Bool
   tooShort v = fromUndefOrPrim
@@ -12538,13 +11966,12 @@ namespace ValidityStateFlags
                  prim__tooShort
                  prim__setTooShort
                  False
-                 (v :> ValidityStateFlags)
+                 (cast {to = ValidityStateFlags} v)
 
 
   export
   typeMismatch :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ValidityStateFlags (Types t)}
+       {auto _ : Cast t ValidityStateFlags}
     -> t
     -> Attribute True Optional Bool
   typeMismatch v = fromUndefOrPrim
@@ -12552,13 +11979,12 @@ namespace ValidityStateFlags
                      prim__typeMismatch
                      prim__setTypeMismatch
                      False
-                     (v :> ValidityStateFlags)
+                     (cast {to = ValidityStateFlags} v)
 
 
   export
   valueMissing :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ValidityStateFlags (Types t)}
+       {auto _ : Cast t ValidityStateFlags}
     -> t
     -> Attribute True Optional Bool
   valueMissing v = fromUndefOrPrim
@@ -12566,7 +11992,7 @@ namespace ValidityStateFlags
                      prim__valueMissing
                      prim__setValueMissing
                      False
-                     (v :> ValidityStateFlags)
+                     (cast {to = ValidityStateFlags} v)
 
 
 
@@ -12583,8 +12009,7 @@ namespace WindowPostMessageOptions
 
   export
   targetOrigin :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem WindowPostMessageOptions (Types t)}
+       {auto _ : Cast t WindowPostMessageOptions}
     -> t
     -> Attribute True Optional String
   targetOrigin v = fromUndefOrPrim
@@ -12592,7 +12017,7 @@ namespace WindowPostMessageOptions
                      prim__targetOrigin
                      prim__setTargetOrigin
                      "/"
-                     (v :> WindowPostMessageOptions)
+                     (cast {to = WindowPostMessageOptions} v)
 
 
 
@@ -12613,42 +12038,36 @@ namespace WorkerOptions
 
   export
   credentials :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem WorkerOptions (Types t)}
+       {auto _ : Cast t WorkerOptions}
     -> t
     -> Attribute False Optional RequestCredentials
   credentials v = fromUndefOrPrimNoDefault
                     "WorkerOptions.getcredentials"
                     prim__credentials
                     prim__setCredentials
-                    (v :> WorkerOptions)
+                    (cast {to = WorkerOptions} v)
 
 
   export
-  name :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem WorkerOptions (Types t)}
-    -> t
-    -> Attribute True Optional String
+  name : {auto _ : Cast t WorkerOptions} -> t -> Attribute True Optional String
   name v = fromUndefOrPrim
              "WorkerOptions.getname"
              prim__name
              prim__setName
              ""
-             (v :> WorkerOptions)
+             (cast {to = WorkerOptions} v)
 
 
   export
   type :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem WorkerOptions (Types t)}
+       {auto _ : Cast t WorkerOptions}
     -> t
     -> Attribute False Optional WorkerType
   type v = fromUndefOrPrimNoDefault
              "WorkerOptions.gettype"
              prim__type
              prim__setType
-             (v :> WorkerOptions)
+             (cast {to = WorkerOptions} v)
 
 
 
@@ -12665,15 +12084,14 @@ namespace WorkletOptions
 
   export
   credentials :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem WorkletOptions (Types t)}
+       {auto _ : Cast t WorkletOptions}
     -> t
     -> Attribute False Optional RequestCredentials
   credentials v = fromUndefOrPrimNoDefault
                     "WorkletOptions.getcredentials"
                     prim__credentials
                     prim__setCredentials
-                    (v :> WorkletOptions)
+                    (cast {to = WorkletOptions} v)
 
 
 

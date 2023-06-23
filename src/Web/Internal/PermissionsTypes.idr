@@ -14,21 +14,21 @@ namespace PermissionState
   public export
   data PermissionState = Granted | Denied | Prompt
 
-  public export
+  export
   Show PermissionState where
     show Granted = "granted"
     show Denied = "denied"
     show Prompt = "prompt"
 
-  public export
+  export
   Eq PermissionState where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord PermissionState where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe PermissionState
   read "granted" = Just Granted
   read "denied" = Just Denied
@@ -69,7 +69,7 @@ namespace PermissionName
     | DisplayCapture
     | Nfc
 
-  public export
+  export
   Show PermissionName where
     show Geolocation = "geolocation"
     show Notifications = "notifications"
@@ -92,15 +92,15 @@ namespace PermissionName
     show DisplayCapture = "display-capture"
     show Nfc = "nfc"
 
-  public export
+  export
   Eq PermissionName where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord PermissionName where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe PermissionName
   read "geolocation" = Just Geolocation
   read "notifications" = Just Notifications

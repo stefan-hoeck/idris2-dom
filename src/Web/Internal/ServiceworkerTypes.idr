@@ -20,7 +20,7 @@ namespace ServiceWorkerState
     | Activated
     | Redundant
 
-  public export
+  export
   Show ServiceWorkerState where
     show Parsed = "parsed"
     show Installing = "installing"
@@ -29,15 +29,15 @@ namespace ServiceWorkerState
     show Activated = "activated"
     show Redundant = "redundant"
 
-  public export
+  export
   Eq ServiceWorkerState where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord ServiceWorkerState where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe ServiceWorkerState
   read "parsed" = Just Parsed
   read "installing" = Just Installing
@@ -61,21 +61,21 @@ namespace ServiceWorkerUpdateViaCache
   public export
   data ServiceWorkerUpdateViaCache = Imports | All | None
 
-  public export
+  export
   Show ServiceWorkerUpdateViaCache where
     show Imports = "imports"
     show All = "all"
     show None = "none"
 
-  public export
+  export
   Eq ServiceWorkerUpdateViaCache where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord ServiceWorkerUpdateViaCache where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe ServiceWorkerUpdateViaCache
   read "imports" = Just Imports
   read "all" = Just All
@@ -96,22 +96,22 @@ namespace FrameType
   public export
   data FrameType = Auxiliary | TopLevel | Nested | None
 
-  public export
+  export
   Show FrameType where
     show Auxiliary = "auxiliary"
     show TopLevel = "top-level"
     show Nested = "nested"
     show None = "none"
 
-  public export
+  export
   Eq FrameType where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord FrameType where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe FrameType
   read "auxiliary" = Just Auxiliary
   read "top-level" = Just TopLevel
@@ -133,22 +133,22 @@ namespace ClientType
   public export
   data ClientType = Window | Worker | Sharedworker | All
 
-  public export
+  export
   Show ClientType where
     show Window = "window"
     show Worker = "worker"
     show Sharedworker = "sharedworker"
     show All = "all"
 
-  public export
+  export
   Eq ClientType where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord ClientType where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe ClientType
   read "window" = Just Window
   read "worker" = Just Worker

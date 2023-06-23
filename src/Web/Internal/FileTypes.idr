@@ -14,20 +14,20 @@ namespace EndingType
   public export
   data EndingType = Transparent | Native
 
-  public export
+  export
   Show EndingType where
     show Transparent = "transparent"
     show Native = "native"
 
-  public export
+  export
   Eq EndingType where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord EndingType where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe EndingType
   read "transparent" = Just Transparent
   read "native" = Just Native

@@ -149,14 +149,11 @@ optionalToUndefOr : Optional a -> UndefOr a
 optionalToUndefOr = optional undef def
 
 export
-optUp : (0 _ : JSType a) => Optional a -> {auto 0 _ : Elem b (Types a)} -> UndefOr b
-optUp x = optional undef (\v => def $ up v) x
+optUp : Cast a b => Optional a -> UndefOr b
+optUp x = optional undef (\v => def $ cast v) x
 
 export
-omyUp :  (0 _ : JSType a)
-      => Optional (Maybe a)
-      -> {auto 0 _ : Elem b (Types a)}
-      -> UndefOr (Nullable b)
+omyUp : Cast a b => Optional (Maybe a) -> UndefOr (Nullable b)
 omyUp x = optionalToUndefOr $ map (\m => mayUp m) x
 
 public export

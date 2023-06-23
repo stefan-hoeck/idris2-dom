@@ -41,8 +41,7 @@ namespace ClipboardEvent
 
   export
   new' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem ClipboardEventInit (Types t2)}
+       {auto _ : Cast t2 ClipboardEventInit}
     -> (type : String)
     -> (eventInitDict : Optional t2)
     -> JSIO ClipboardEvent
@@ -64,8 +63,7 @@ namespace ClipboardItem
 
   export
   new' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem ClipboardItemOptions (Types t2)}
+       {auto _ : Cast t2 ClipboardItemOptions}
     -> (items : Record String (Promise (Union2 String Blob)))
     -> (options : Optional t2)
     -> JSIO ClipboardItem
@@ -80,8 +78,7 @@ namespace ClipboardItem
 
   export
   createDelayed' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem ClipboardItemOptions (Types t2)}
+       {auto _ : Cast t2 ClipboardItemOptions}
     -> (items : Record String ClipboardItemDelayedCallback)
     -> (options : Optional t2)
     -> JSIO ClipboardItem
@@ -142,8 +139,7 @@ namespace ClipboardEventInit
 
   export
   clipboardData :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ClipboardEventInit (Types t)}
+       {auto _ : Cast t ClipboardEventInit}
     -> t
     -> Attribute True Optional (Maybe DataTransfer)
   clipboardData v = fromUndefOrPrim
@@ -151,7 +147,7 @@ namespace ClipboardEventInit
                       prim__clipboardData
                       prim__setClipboardData
                       Nothing
-                      (v :> ClipboardEventInit)
+                      (cast {to = ClipboardEventInit} v)
 
 
 
@@ -170,15 +166,14 @@ namespace ClipboardItemOptions
 
   export
   presentationStyle :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ClipboardItemOptions (Types t)}
+       {auto _ : Cast t ClipboardItemOptions}
     -> t
     -> Attribute False Optional PresentationStyle
   presentationStyle v = fromUndefOrPrimNoDefault
                           "ClipboardItemOptions.getpresentationStyle"
                           prim__presentationStyle
                           prim__setPresentationStyle
-                          (v :> ClipboardItemOptions)
+                          (cast {to = ClipboardItemOptions} v)
 
 
 
@@ -197,8 +192,7 @@ namespace ClipboardPermissionDescriptor
 
   export
   allowWithoutGesture :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ClipboardPermissionDescriptor (Types t)}
+       {auto _ : Cast t ClipboardPermissionDescriptor}
     -> t
     -> Attribute True Optional Bool
   allowWithoutGesture v = fromUndefOrPrim
@@ -206,7 +200,7 @@ namespace ClipboardPermissionDescriptor
                             prim__allowWithoutGesture
                             prim__setAllowWithoutGesture
                             False
-                            (v :> ClipboardPermissionDescriptor)
+                            (cast {to = ClipboardPermissionDescriptor} v)
 
 
 

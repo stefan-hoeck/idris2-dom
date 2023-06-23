@@ -14,21 +14,21 @@ namespace PresentationStyle
   public export
   data PresentationStyle = Unspecified | Inline | Attachment
 
-  public export
+  export
   Show PresentationStyle where
     show Unspecified = "unspecified"
     show Inline = "inline"
     show Attachment = "attachment"
 
-  public export
+  export
   Eq PresentationStyle where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord PresentationStyle where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe PresentationStyle
   read "unspecified" = Just Unspecified
   read "inline" = Just Inline

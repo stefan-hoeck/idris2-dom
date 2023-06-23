@@ -15,6 +15,8 @@ import Data.String
 ||| mixins. It is used to safely and conveniently cast a value to a
 ||| less specific type mentioned either in the list of
 ||| mixins or parent types by means of funciton `up` and operator `:>`.
+|||
+||| Deprecated: Use `Cast` and `cast` instead
 public export
 interface JSType a where
 
@@ -22,6 +24,7 @@ interface JSType a where
   ||| (starting at the direct supertype). At runtime, such an inheritance
   ||| chain can be inspected by recursively calling the Javascript
   ||| function `Object.getPrototypeOf`.
+  %deprecate
   parents : List Type
 
   ||| A Mixin is a concept from WebIDL: It is as programming interface
@@ -31,11 +34,13 @@ interface JSType a where
   ||| a value's prototype chain. It is therefore much harder
   ||| (and right now not supported in this library) to at runtime
   ||| check, whether a value implements a given mixin.
+  %deprecate
   mixins : List Type
 
 ||| Convenience alias for `parents`, which takes an explicit
 ||| erased type argument.
-public export
+||| Deprecated: Use `Cast` and `cast` instead
+public export %deprecate
 0 Types : (0 a : Type) -> JSType a => List Type
 Types a = a :: parents {a} ++ mixins {a}
 
@@ -43,14 +48,16 @@ Types a = a :: parents {a} ++ mixins {a}
 ||| therefore of course only safe, if the `JSType` implementation
 ||| is correct according to some specification and the backend
 ||| properly adhere to this specification.
-public export %inline
+||| Deprecated: Use `Cast` and `cast` instead
+public export %inline %deprecate
 up : (0 _ : JSType a) => a -> {auto 0 _ : Elem b (Types a)} -> b
 up v = believe_me v
 
 infixl 1 :>
 
 ||| Operator version of `up`.
-public export %inline
+||| Deprecated: Use `Cast` and `cast` instead
+public export %inline %deprecate
 (:>) : (0 _ : JSType a) => a -> (0 b : Type) -> {auto 0 _ : Elem b (Types a)} -> b
 a :> _ = up a
 

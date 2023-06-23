@@ -14,20 +14,20 @@ namespace VisibilityState
   public export
   data VisibilityState = Hidden | Visible
 
-  public export
+  export
   Show VisibilityState where
     show Hidden = "hidden"
     show Visible = "visible"
 
-  public export
+  export
   Eq VisibilityState where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord VisibilityState where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe VisibilityState
   read "hidden" = Just Hidden
   read "visible" = Just Visible

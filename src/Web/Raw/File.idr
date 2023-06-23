@@ -15,8 +15,7 @@ namespace Blob
 
   export
   new' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem BlobPropertyBag (Types t2)}
+       {auto _ : Cast t2 BlobPropertyBag}
     -> (blobParts : Optional
                       (Array
                          (Union13
@@ -43,69 +42,47 @@ namespace Blob
 
 
   export
-  size :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Blob (Types t1)}
-    -> (obj : t1)
-    -> JSIO JSBits64
-  size a = primJS $ Blob.prim__size (up a)
+  size : {auto _ : Cast t1 Blob} -> (obj : t1) -> JSIO JSBits64
+  size a = primJS $ Blob.prim__size (cast a)
 
 
   export
-  type :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Blob (Types t1)}
-    -> (obj : t1)
-    -> JSIO String
-  type a = primJS $ Blob.prim__type (up a)
+  type : {auto _ : Cast t1 Blob} -> (obj : t1) -> JSIO String
+  type a = primJS $ Blob.prim__type (cast a)
 
 
   export
   arrayBuffer :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Blob (Types t1)}
+       {auto _ : Cast t1 Blob}
     -> (obj : t1)
     -> JSIO (Promise ArrayBuffer)
-  arrayBuffer a = primJS $ Blob.prim__arrayBuffer (up a)
+  arrayBuffer a = primJS $ Blob.prim__arrayBuffer (cast a)
 
 
   export
   slice' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Blob (Types t1)}
+       {auto _ : Cast t1 Blob}
     -> (obj : t1)
     -> (start : Optional JSInt64)
     -> (end : Optional JSInt64)
     -> (contentType : Optional String)
     -> JSIO Blob
   slice' a b c d = primJS $
-    Blob.prim__slice (up a) (toFFI b) (toFFI c) (toFFI d)
+    Blob.prim__slice (cast a) (toFFI b) (toFFI c) (toFFI d)
 
   export
-  slice :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Blob (Types t1)}
-    -> (obj : t1)
-    -> JSIO Blob
-  slice a = primJS $ Blob.prim__slice (up a) undef undef undef
+  slice : {auto _ : Cast t1 Blob} -> (obj : t1) -> JSIO Blob
+  slice a = primJS $ Blob.prim__slice (cast a) undef undef undef
 
 
   export
-  stream :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Blob (Types t1)}
-    -> (obj : t1)
-    -> JSIO ReadableStream
-  stream a = primJS $ Blob.prim__stream (up a)
+  stream : {auto _ : Cast t1 Blob} -> (obj : t1) -> JSIO ReadableStream
+  stream a = primJS $ Blob.prim__stream (cast a)
 
 
   export
-  text :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Blob (Types t1)}
-    -> (obj : t1)
-    -> JSIO (Promise String)
-  text a = primJS $ Blob.prim__text (up a)
+  text : {auto _ : Cast t1 Blob} -> (obj : t1) -> JSIO (Promise String)
+  text a = primJS $ Blob.prim__text (cast a)
 
 
 
@@ -113,8 +90,7 @@ namespace File
 
   export
   new' :
-       {auto 0 _ : JSType t3}
-    -> {auto 0 _ : Elem FilePropertyBag (Types t3)}
+       {auto _ : Cast t3 FilePropertyBag}
     -> (fileBits : Array
                      (Union13
                         Int8Array
@@ -183,17 +159,17 @@ namespace FileList
 
 namespace FileReader
 
-  public export
+  export
   DONE : Bits16
   DONE = 2
 
 
-  public export
+  export
   EMPTY : Bits16
   EMPTY = 0
 
 
-  public export
+  export
   LOADING : Bits16
   LOADING = 1
 
@@ -279,52 +255,48 @@ namespace FileReader
 
   export
   readAsArrayBuffer :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem Blob (Types t2)}
+       {auto _ : Cast t2 Blob}
     -> (obj : FileReader)
     -> (blob : t2)
     -> JSIO ()
-  readAsArrayBuffer a b = primJS $ FileReader.prim__readAsArrayBuffer a (up b)
+  readAsArrayBuffer a b = primJS $ FileReader.prim__readAsArrayBuffer a (cast b)
 
 
   export
   readAsBinaryString :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem Blob (Types t2)}
+       {auto _ : Cast t2 Blob}
     -> (obj : FileReader)
     -> (blob : t2)
     -> JSIO ()
-  readAsBinaryString a b = primJS $ FileReader.prim__readAsBinaryString a (up b)
+  readAsBinaryString a b = primJS $
+    FileReader.prim__readAsBinaryString a (cast b)
 
 
   export
   readAsDataURL :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem Blob (Types t2)}
+       {auto _ : Cast t2 Blob}
     -> (obj : FileReader)
     -> (blob : t2)
     -> JSIO ()
-  readAsDataURL a b = primJS $ FileReader.prim__readAsDataURL a (up b)
+  readAsDataURL a b = primJS $ FileReader.prim__readAsDataURL a (cast b)
 
 
   export
   readAsText' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem Blob (Types t2)}
+       {auto _ : Cast t2 Blob}
     -> (obj : FileReader)
     -> (blob : t2)
     -> (encoding : Optional String)
     -> JSIO ()
-  readAsText' a b c = primJS $ FileReader.prim__readAsText a (up b) (toFFI c)
+  readAsText' a b c = primJS $ FileReader.prim__readAsText a (cast b) (toFFI c)
 
   export
   readAsText :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem Blob (Types t2)}
+       {auto _ : Cast t2 Blob}
     -> (obj : FileReader)
     -> (blob : t2)
     -> JSIO ()
-  readAsText a b = primJS $ FileReader.prim__readAsText a (up b) undef
+  readAsText a b = primJS $ FileReader.prim__readAsText a (cast b) undef
 
 
 
@@ -337,55 +309,50 @@ namespace FileReaderSync
 
   export
   readAsArrayBuffer :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem Blob (Types t2)}
+       {auto _ : Cast t2 Blob}
     -> (obj : FileReaderSync)
     -> (blob : t2)
     -> JSIO ArrayBuffer
   readAsArrayBuffer a b = primJS $
-    FileReaderSync.prim__readAsArrayBuffer a (up b)
+    FileReaderSync.prim__readAsArrayBuffer a (cast b)
 
 
   export
   readAsBinaryString :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem Blob (Types t2)}
+       {auto _ : Cast t2 Blob}
     -> (obj : FileReaderSync)
     -> (blob : t2)
     -> JSIO String
   readAsBinaryString a b = primJS $
-    FileReaderSync.prim__readAsBinaryString a (up b)
+    FileReaderSync.prim__readAsBinaryString a (cast b)
 
 
   export
   readAsDataURL :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem Blob (Types t2)}
+       {auto _ : Cast t2 Blob}
     -> (obj : FileReaderSync)
     -> (blob : t2)
     -> JSIO String
-  readAsDataURL a b = primJS $ FileReaderSync.prim__readAsDataURL a (up b)
+  readAsDataURL a b = primJS $ FileReaderSync.prim__readAsDataURL a (cast b)
 
 
   export
   readAsText' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem Blob (Types t2)}
+       {auto _ : Cast t2 Blob}
     -> (obj : FileReaderSync)
     -> (blob : t2)
     -> (encoding : Optional String)
     -> JSIO String
   readAsText' a b c = primJS $
-    FileReaderSync.prim__readAsText a (up b) (toFFI c)
+    FileReaderSync.prim__readAsText a (cast b) (toFFI c)
 
   export
   readAsText :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem Blob (Types t2)}
+       {auto _ : Cast t2 Blob}
     -> (obj : FileReaderSync)
     -> (blob : t2)
     -> JSIO String
-  readAsText a b = primJS $ FileReaderSync.prim__readAsText a (up b) undef
+  readAsText a b = primJS $ FileReaderSync.prim__readAsText a (cast b) undef
 
 
 
@@ -411,21 +378,19 @@ namespace BlobPropertyBag
 
   export
   endings :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem BlobPropertyBag (Types t)}
+       {auto _ : Cast t BlobPropertyBag}
     -> t
     -> Attribute False Optional EndingType
   endings v = fromUndefOrPrimNoDefault
                 "BlobPropertyBag.getendings"
                 prim__endings
                 prim__setEndings
-                (v :> BlobPropertyBag)
+                (cast {to = BlobPropertyBag} v)
 
 
   export
   type :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem BlobPropertyBag (Types t)}
+       {auto _ : Cast t BlobPropertyBag}
     -> t
     -> Attribute True Optional String
   type v = fromUndefOrPrim
@@ -433,7 +398,7 @@ namespace BlobPropertyBag
              prim__type
              prim__setType
              ""
-             (v :> BlobPropertyBag)
+             (cast {to = BlobPropertyBag} v)
 
 
 
@@ -450,12 +415,11 @@ namespace FilePropertyBag
 
   export
   lastModified :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem FilePropertyBag (Types t)}
+       {auto _ : Cast t FilePropertyBag}
     -> t
     -> Attribute False Optional JSInt64
   lastModified v = fromUndefOrPrimNoDefault
                      "FilePropertyBag.getlastModified"
                      prim__lastModified
                      prim__setLastModified
-                     (v :> FilePropertyBag)
+                     (cast {to = FilePropertyBag} v)
