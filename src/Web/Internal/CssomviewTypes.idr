@@ -10,60 +10,60 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace ScrollBehavior
-  
+
   public export
   data ScrollBehavior = Auto | Instant | Smooth
-  
+
   export
   Show ScrollBehavior where
     show Auto = "auto"
     show Instant = "instant"
     show Smooth = "smooth"
-  
+
   export
   Eq ScrollBehavior where
     (==) = (==) `on` show
-  
+
   export
   Ord ScrollBehavior where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe ScrollBehavior
   read "auto" = Just Auto
   read "instant" = Just Instant
   read "smooth" = Just Smooth
   read _ = Nothing
-  
+
   export
   ToFFI ScrollBehavior String where
     toFFI = show
-  
+
   export
   FromFFI ScrollBehavior String where
     fromFFI = read
 
 
 namespace ScrollLogicalPosition
-  
+
   public export
   data ScrollLogicalPosition = Start | Center | End | Nearest
-  
+
   export
   Show ScrollLogicalPosition where
     show Start = "start"
     show Center = "center"
     show End = "end"
     show Nearest = "nearest"
-  
+
   export
   Eq ScrollLogicalPosition where
     (==) = (==) `on` show
-  
+
   export
   Ord ScrollLogicalPosition where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe ScrollLogicalPosition
   read "start" = Just Start
@@ -71,36 +71,36 @@ namespace ScrollLogicalPosition
   read "end" = Just End
   read "nearest" = Just Nearest
   read _ = Nothing
-  
+
   export
   ToFFI ScrollLogicalPosition String where
     toFFI = show
-  
+
   export
   FromFFI ScrollLogicalPosition String where
     fromFFI = read
 
 
 namespace CSSBoxType
-  
+
   public export
   data CSSBoxType = Margin | Border | Padding | Content
-  
+
   export
   Show CSSBoxType where
     show Margin = "margin"
     show Border = "border"
     show Padding = "padding"
     show Content = "content"
-  
+
   export
   Eq CSSBoxType where
     (==) = (==) `on` show
-  
+
   export
   Ord CSSBoxType where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe CSSBoxType
   read "margin" = Just Margin
@@ -108,11 +108,11 @@ namespace CSSBoxType
   read "padding" = Just Padding
   read "content" = Just Content
   read _ = Nothing
-  
+
   export
   ToFFI CSSBoxType String where
     toFFI = show
-  
+
   export
   FromFFI CSSBoxType String where
     fromFFI = read
@@ -256,5 +256,3 @@ ToFFI GeometryUtils GeometryUtils where toFFI = id
 
 export
 FromFFI GeometryUtils GeometryUtils where fromFFI = Just
-
-

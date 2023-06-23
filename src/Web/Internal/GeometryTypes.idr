@@ -150,6 +150,3 @@ ToFFI DOMRectInit DOMRectInit where toFFI = id
 
 export
 FromFFI DOMRectInit DOMRectInit where fromFFI = Just
-
-
-

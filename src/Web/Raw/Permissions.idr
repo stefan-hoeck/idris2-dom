@@ -12,7 +12,7 @@ import Web.Internal.Types
 --------------------------------------------------------------------------------
 
 namespace PermissionStatus
-  
+
   export
   onchange : PermissionStatus -> Attribute False Maybe EventHandlerNonNull
   onchange v = fromNullablePrim
@@ -21,7 +21,7 @@ namespace PermissionStatus
                  prim__setOnchange
                  v
 
-  
+
   export
   state : (obj : PermissionStatus) -> JSIO PermissionState
   state a = tryJS "PermissionStatus.state" $ PermissionStatus.prim__state a
@@ -29,7 +29,7 @@ namespace PermissionStatus
 
 
 namespace Permissions
-  
+
   export
   query :
        {auto _ : Cast t2 Object}
@@ -47,16 +47,16 @@ namespace Permissions
 --------------------------------------------------------------------------------
 
 namespace CameraDevicePermissionDescriptor
-  
+
   export
   new' : (panTiltZoom : Optional Bool) -> JSIO CameraDevicePermissionDescriptor
   new' a = primJS $ CameraDevicePermissionDescriptor.prim__new (toFFI a)
-  
+
   export
   new : JSIO CameraDevicePermissionDescriptor
   new = primJS $ CameraDevicePermissionDescriptor.prim__new undef
 
-  
+
   export
   panTiltZoom :
        {auto _ : Cast t CameraDevicePermissionDescriptor}
@@ -72,16 +72,16 @@ namespace CameraDevicePermissionDescriptor
 
 
 namespace DevicePermissionDescriptor
-  
+
   export
   new' : (deviceId : Optional String) -> JSIO DevicePermissionDescriptor
   new' a = primJS $ DevicePermissionDescriptor.prim__new (toFFI a)
-  
+
   export
   new : JSIO DevicePermissionDescriptor
   new = primJS $ DevicePermissionDescriptor.prim__new undef
 
-  
+
   export
   deviceId :
        {auto _ : Cast t DevicePermissionDescriptor}
@@ -96,16 +96,16 @@ namespace DevicePermissionDescriptor
 
 
 namespace MidiPermissionDescriptor
-  
+
   export
   new' : (sysex : Optional Bool) -> JSIO MidiPermissionDescriptor
   new' a = primJS $ MidiPermissionDescriptor.prim__new (toFFI a)
-  
+
   export
   new : JSIO MidiPermissionDescriptor
   new = primJS $ MidiPermissionDescriptor.prim__new undef
 
-  
+
   export
   sysex :
        {auto _ : Cast t MidiPermissionDescriptor}
@@ -121,12 +121,12 @@ namespace MidiPermissionDescriptor
 
 
 namespace PermissionDescriptor
-  
+
   export
   new : (name : PermissionName) -> JSIO PermissionDescriptor
   new a = primJS $ PermissionDescriptor.prim__new (toFFI a)
 
-  
+
   export
   name :
        {auto _ : Cast t PermissionDescriptor}
@@ -141,7 +141,7 @@ namespace PermissionDescriptor
 
 
 namespace PermissionSetParameters
-  
+
   export
   new' :
        {auto _ : Cast t1 PermissionDescriptor}
@@ -151,7 +151,7 @@ namespace PermissionSetParameters
     -> JSIO PermissionSetParameters
   new' a b c = primJS $
     PermissionSetParameters.prim__new (cast a) (toFFI b) (toFFI c)
-  
+
   export
   new :
        {auto _ : Cast t1 PermissionDescriptor}
@@ -160,7 +160,7 @@ namespace PermissionSetParameters
     -> JSIO PermissionSetParameters
   new a b = primJS $ PermissionSetParameters.prim__new (cast a) (toFFI b) undef
 
-  
+
   export
   descriptor :
        {auto _ : Cast t PermissionSetParameters}
@@ -172,7 +172,7 @@ namespace PermissionSetParameters
                    prim__setDescriptor
                    (cast {to = PermissionSetParameters} v)
 
-  
+
   export
   oneRealm :
        {auto _ : Cast t PermissionSetParameters}
@@ -185,7 +185,7 @@ namespace PermissionSetParameters
                  False
                  (cast {to = PermissionSetParameters} v)
 
-  
+
   export
   state :
        {auto _ : Cast t PermissionSetParameters}
@@ -200,16 +200,16 @@ namespace PermissionSetParameters
 
 
 namespace PushPermissionDescriptor
-  
+
   export
   new' : (userVisibleOnly : Optional Bool) -> JSIO PushPermissionDescriptor
   new' a = primJS $ PushPermissionDescriptor.prim__new (toFFI a)
-  
+
   export
   new : JSIO PushPermissionDescriptor
   new = primJS $ PushPermissionDescriptor.prim__new undef
 
-  
+
   export
   userVisibleOnly :
        {auto _ : Cast t PushPermissionDescriptor}
@@ -221,6 +221,3 @@ namespace PushPermissionDescriptor
                         prim__setUserVisibleOnly
                         False
                         (cast {to = PushPermissionDescriptor} v)
-
-
-

@@ -10,42 +10,42 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace PermissionState
-  
+
   public export
   data PermissionState = Granted | Denied | Prompt
-  
+
   export
   Show PermissionState where
     show Granted = "granted"
     show Denied = "denied"
     show Prompt = "prompt"
-  
+
   export
   Eq PermissionState where
     (==) = (==) `on` show
-  
+
   export
   Ord PermissionState where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe PermissionState
   read "granted" = Just Granted
   read "denied" = Just Denied
   read "prompt" = Just Prompt
   read _ = Nothing
-  
+
   export
   ToFFI PermissionState String where
     toFFI = show
-  
+
   export
   FromFFI PermissionState String where
     fromFFI = read
 
 
 namespace PermissionName
-  
+
   public export
   data PermissionName =
       Geolocation
@@ -68,7 +68,7 @@ namespace PermissionName
     | ClipboardWrite
     | DisplayCapture
     | Nfc
-  
+
   export
   Show PermissionName where
     show Geolocation = "geolocation"
@@ -91,15 +91,15 @@ namespace PermissionName
     show ClipboardWrite = "clipboard-write"
     show DisplayCapture = "display-capture"
     show Nfc = "nfc"
-  
+
   export
   Eq PermissionName where
     (==) = (==) `on` show
-  
+
   export
   Ord PermissionName where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe PermissionName
   read "geolocation" = Just Geolocation
@@ -123,11 +123,11 @@ namespace PermissionName
   read "display-capture" = Just DisplayCapture
   read "nfc" = Just Nfc
   read _ = Nothing
-  
+
   export
   ToFFI PermissionName String where
     toFFI = show
-  
+
   export
   FromFFI PermissionName String where
     fromFFI = read
@@ -214,6 +214,3 @@ ToFFI PushPermissionDescriptor PushPermissionDescriptor where toFFI = id
 
 export
 FromFFI PushPermissionDescriptor PushPermissionDescriptor where fromFFI = Just
-
-
-

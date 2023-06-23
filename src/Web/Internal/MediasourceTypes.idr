@@ -10,101 +10,101 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace ReadyState
-  
+
   public export
   data ReadyState = Closed | Open | Ended
-  
+
   export
   Show ReadyState where
     show Closed = "closed"
     show Open = "open"
     show Ended = "ended"
-  
+
   export
   Eq ReadyState where
     (==) = (==) `on` show
-  
+
   export
   Ord ReadyState where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe ReadyState
   read "closed" = Just Closed
   read "open" = Just Open
   read "ended" = Just Ended
   read _ = Nothing
-  
+
   export
   ToFFI ReadyState String where
     toFFI = show
-  
+
   export
   FromFFI ReadyState String where
     fromFFI = read
 
 
 namespace EndOfStreamError
-  
+
   public export
   data EndOfStreamError = Network | Decode
-  
+
   export
   Show EndOfStreamError where
     show Network = "network"
     show Decode = "decode"
-  
+
   export
   Eq EndOfStreamError where
     (==) = (==) `on` show
-  
+
   export
   Ord EndOfStreamError where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe EndOfStreamError
   read "network" = Just Network
   read "decode" = Just Decode
   read _ = Nothing
-  
+
   export
   ToFFI EndOfStreamError String where
     toFFI = show
-  
+
   export
   FromFFI EndOfStreamError String where
     fromFFI = read
 
 
 namespace AppendMode
-  
+
   public export
   data AppendMode = Segments | Sequence
-  
+
   export
   Show AppendMode where
     show Segments = "segments"
     show Sequence = "sequence"
-  
+
   export
   Eq AppendMode where
     (==) = (==) `on` show
-  
+
   export
   Ord AppendMode where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe AppendMode
   read "segments" = Just Segments
   read "sequence" = Just Sequence
   read _ = Nothing
-  
+
   export
   ToFFI AppendMode String where
     toFFI = show
-  
+
   export
   FromFFI AppendMode String where
     fromFFI = read
@@ -150,7 +150,3 @@ FromFFI SourceBufferList SourceBufferList where fromFFI = Just
 export
 SafeCast SourceBufferList where
   safeCast = unsafeCastOnPrototypeName "SourceBufferList"
-
-
-
-

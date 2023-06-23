@@ -10,93 +10,93 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace IDBRequestReadyState
-  
+
   public export
   data IDBRequestReadyState = Pending | Done
-  
+
   export
   Show IDBRequestReadyState where
     show Pending = "pending"
     show Done = "done"
-  
+
   export
   Eq IDBRequestReadyState where
     (==) = (==) `on` show
-  
+
   export
   Ord IDBRequestReadyState where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe IDBRequestReadyState
   read "pending" = Just Pending
   read "done" = Just Done
   read _ = Nothing
-  
+
   export
   ToFFI IDBRequestReadyState String where
     toFFI = show
-  
+
   export
   FromFFI IDBRequestReadyState String where
     fromFFI = read
 
 
 namespace IDBTransactionDurability
-  
+
   public export
   data IDBTransactionDurability = Default | Strict | Relaxed
-  
+
   export
   Show IDBTransactionDurability where
     show Default = "default"
     show Strict = "strict"
     show Relaxed = "relaxed"
-  
+
   export
   Eq IDBTransactionDurability where
     (==) = (==) `on` show
-  
+
   export
   Ord IDBTransactionDurability where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe IDBTransactionDurability
   read "default" = Just Default
   read "strict" = Just Strict
   read "relaxed" = Just Relaxed
   read _ = Nothing
-  
+
   export
   ToFFI IDBTransactionDurability String where
     toFFI = show
-  
+
   export
   FromFFI IDBTransactionDurability String where
     fromFFI = read
 
 
 namespace IDBCursorDirection
-  
+
   public export
   data IDBCursorDirection = Next | Nextunique | Prev | Prevunique
-  
+
   export
   Show IDBCursorDirection where
     show Next = "next"
     show Nextunique = "nextunique"
     show Prev = "prev"
     show Prevunique = "prevunique"
-  
+
   export
   Eq IDBCursorDirection where
     (==) = (==) `on` show
-  
+
   export
   Ord IDBCursorDirection where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe IDBCursorDirection
   read "next" = Just Next
@@ -104,46 +104,46 @@ namespace IDBCursorDirection
   read "prev" = Just Prev
   read "prevunique" = Just Prevunique
   read _ = Nothing
-  
+
   export
   ToFFI IDBCursorDirection String where
     toFFI = show
-  
+
   export
   FromFFI IDBCursorDirection String where
     fromFFI = read
 
 
 namespace IDBTransactionMode
-  
+
   public export
   data IDBTransactionMode = Readonly | Readwrite | Versionchange
-  
+
   export
   Show IDBTransactionMode where
     show Readonly = "readonly"
     show Readwrite = "readwrite"
     show Versionchange = "versionchange"
-  
+
   export
   Eq IDBTransactionMode where
     (==) = (==) `on` show
-  
+
   export
   Ord IDBTransactionMode where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe IDBTransactionMode
   read "readonly" = Just Readonly
   read "readwrite" = Just Readwrite
   read "versionchange" = Just Versionchange
   read _ = Nothing
-  
+
   export
   ToFFI IDBTransactionMode String where
     toFFI = show
-  
+
   export
   FromFFI IDBTransactionMode String where
     fromFFI = read
@@ -330,6 +330,3 @@ ToFFI IDBVersionChangeEventInit IDBVersionChangeEventInit where toFFI = id
 
 export
 FromFFI IDBVersionChangeEventInit IDBVersionChangeEventInit where fromFFI = Just
-
-
-

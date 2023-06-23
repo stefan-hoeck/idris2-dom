@@ -162,6 +162,3 @@ ToFFI WheelEventInit WheelEventInit where toFFI = id
 
 export
 FromFFI WheelEventInit WheelEventInit where fromFFI = Just
-
-
-

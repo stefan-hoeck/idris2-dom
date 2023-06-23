@@ -10,7 +10,7 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace ServiceWorkerState
-  
+
   public export
   data ServiceWorkerState =
       Parsed
@@ -19,7 +19,7 @@ namespace ServiceWorkerState
     | Activating
     | Activated
     | Redundant
-  
+
   export
   Show ServiceWorkerState where
     show Parsed = "parsed"
@@ -28,15 +28,15 @@ namespace ServiceWorkerState
     show Activating = "activating"
     show Activated = "activated"
     show Redundant = "redundant"
-  
+
   export
   Eq ServiceWorkerState where
     (==) = (==) `on` show
-  
+
   export
   Ord ServiceWorkerState where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe ServiceWorkerState
   read "parsed" = Just Parsed
@@ -46,71 +46,71 @@ namespace ServiceWorkerState
   read "activated" = Just Activated
   read "redundant" = Just Redundant
   read _ = Nothing
-  
+
   export
   ToFFI ServiceWorkerState String where
     toFFI = show
-  
+
   export
   FromFFI ServiceWorkerState String where
     fromFFI = read
 
 
 namespace ServiceWorkerUpdateViaCache
-  
+
   public export
   data ServiceWorkerUpdateViaCache = Imports | All | None
-  
+
   export
   Show ServiceWorkerUpdateViaCache where
     show Imports = "imports"
     show All = "all"
     show None = "none"
-  
+
   export
   Eq ServiceWorkerUpdateViaCache where
     (==) = (==) `on` show
-  
+
   export
   Ord ServiceWorkerUpdateViaCache where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe ServiceWorkerUpdateViaCache
   read "imports" = Just Imports
   read "all" = Just All
   read "none" = Just None
   read _ = Nothing
-  
+
   export
   ToFFI ServiceWorkerUpdateViaCache String where
     toFFI = show
-  
+
   export
   FromFFI ServiceWorkerUpdateViaCache String where
     fromFFI = read
 
 
 namespace FrameType
-  
+
   public export
   data FrameType = Auxiliary | TopLevel | Nested | None
-  
+
   export
   Show FrameType where
     show Auxiliary = "auxiliary"
     show TopLevel = "top-level"
     show Nested = "nested"
     show None = "none"
-  
+
   export
   Eq FrameType where
     (==) = (==) `on` show
-  
+
   export
   Ord FrameType where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe FrameType
   read "auxiliary" = Just Auxiliary
@@ -118,36 +118,36 @@ namespace FrameType
   read "nested" = Just Nested
   read "none" = Just None
   read _ = Nothing
-  
+
   export
   ToFFI FrameType String where
     toFFI = show
-  
+
   export
   FromFFI FrameType String where
     fromFFI = read
 
 
 namespace ClientType
-  
+
   public export
   data ClientType = Window | Worker | Sharedworker | All
-  
+
   export
   Show ClientType where
     show Window = "window"
     show Worker = "worker"
     show Sharedworker = "sharedworker"
     show All = "all"
-  
+
   export
   Eq ClientType where
     (==) = (==) `on` show
-  
+
   export
   Ord ClientType where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe ClientType
   read "window" = Just Window
@@ -155,11 +155,11 @@ namespace ClientType
   read "sharedworker" = Just Sharedworker
   read "all" = Just All
   read _ = Nothing
-  
+
   export
   ToFFI ClientType String where
     toFFI = show
-  
+
   export
   FromFFI ClientType String where
     fromFFI = read
@@ -394,6 +394,3 @@ ToFFI RegistrationOptions RegistrationOptions where toFFI = id
 
 export
 FromFFI RegistrationOptions RegistrationOptions where fromFFI = Just
-
-
-

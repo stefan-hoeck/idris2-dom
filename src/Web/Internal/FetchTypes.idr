@@ -10,7 +10,7 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace RequestDestination
-  
+
   public export
   data RequestDestination =
       Empty
@@ -33,7 +33,7 @@ namespace RequestDestination
     | Video
     | Worker
     | Xslt
-  
+
   export
   Show RequestDestination where
     show Empty = ""
@@ -56,15 +56,15 @@ namespace RequestDestination
     show Video = "video"
     show Worker = "worker"
     show Xslt = "xslt"
-  
+
   export
   Eq RequestDestination where
     (==) = (==) `on` show
-  
+
   export
   Ord RequestDestination where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe RequestDestination
   read "" = Just Empty
@@ -88,36 +88,36 @@ namespace RequestDestination
   read "worker" = Just Worker
   read "xslt" = Just Xslt
   read _ = Nothing
-  
+
   export
   ToFFI RequestDestination String where
     toFFI = show
-  
+
   export
   FromFFI RequestDestination String where
     fromFFI = read
 
 
 namespace RequestMode
-  
+
   public export
   data RequestMode = Navigate | SameOrigin | NoCors | Cors
-  
+
   export
   Show RequestMode where
     show Navigate = "navigate"
     show SameOrigin = "same-origin"
     show NoCors = "no-cors"
     show Cors = "cors"
-  
+
   export
   Eq RequestMode where
     (==) = (==) `on` show
-  
+
   export
   Ord RequestMode where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe RequestMode
   read "navigate" = Just Navigate
@@ -125,53 +125,53 @@ namespace RequestMode
   read "no-cors" = Just NoCors
   read "cors" = Just Cors
   read _ = Nothing
-  
+
   export
   ToFFI RequestMode String where
     toFFI = show
-  
+
   export
   FromFFI RequestMode String where
     fromFFI = read
 
 
 namespace RequestCredentials
-  
+
   public export
   data RequestCredentials = Omit | SameOrigin | Include
-  
+
   export
   Show RequestCredentials where
     show Omit = "omit"
     show SameOrigin = "same-origin"
     show Include = "include"
-  
+
   export
   Eq RequestCredentials where
     (==) = (==) `on` show
-  
+
   export
   Ord RequestCredentials where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe RequestCredentials
   read "omit" = Just Omit
   read "same-origin" = Just SameOrigin
   read "include" = Just Include
   read _ = Nothing
-  
+
   export
   ToFFI RequestCredentials String where
     toFFI = show
-  
+
   export
   FromFFI RequestCredentials String where
     fromFFI = read
 
 
 namespace RequestCache
-  
+
   public export
   data RequestCache =
       Default
@@ -180,7 +180,7 @@ namespace RequestCache
     | NoCache
     | ForceCache
     | OnlyIfCached
-  
+
   export
   Show RequestCache where
     show Default = "default"
@@ -189,15 +189,15 @@ namespace RequestCache
     show NoCache = "no-cache"
     show ForceCache = "force-cache"
     show OnlyIfCached = "only-if-cached"
-  
+
   export
   Eq RequestCache where
     (==) = (==) `on` show
-  
+
   export
   Ord RequestCache where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe RequestCache
   read "default" = Just Default
@@ -207,56 +207,56 @@ namespace RequestCache
   read "force-cache" = Just ForceCache
   read "only-if-cached" = Just OnlyIfCached
   read _ = Nothing
-  
+
   export
   ToFFI RequestCache String where
     toFFI = show
-  
+
   export
   FromFFI RequestCache String where
     fromFFI = read
 
 
 namespace RequestRedirect
-  
+
   public export
   data RequestRedirect = Follow | Error | Manual
-  
+
   export
   Show RequestRedirect where
     show Follow = "follow"
     show Error = "error"
     show Manual = "manual"
-  
+
   export
   Eq RequestRedirect where
     (==) = (==) `on` show
-  
+
   export
   Ord RequestRedirect where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe RequestRedirect
   read "follow" = Just Follow
   read "error" = Just Error
   read "manual" = Just Manual
   read _ = Nothing
-  
+
   export
   ToFFI RequestRedirect String where
     toFFI = show
-  
+
   export
   FromFFI RequestRedirect String where
     fromFFI = read
 
 
 namespace ResponseType
-  
+
   public export
   data ResponseType = Basic | Cors | Default | Error | Opaque | Opaqueredirect
-  
+
   export
   Show ResponseType where
     show Basic = "basic"
@@ -265,15 +265,15 @@ namespace ResponseType
     show Error = "error"
     show Opaque = "opaque"
     show Opaqueredirect = "opaqueredirect"
-  
+
   export
   Eq ResponseType where
     (==) = (==) `on` show
-  
+
   export
   Ord ResponseType where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe ResponseType
   read "basic" = Just Basic
@@ -283,18 +283,18 @@ namespace ResponseType
   read "opaque" = Just Opaque
   read "opaqueredirect" = Just Opaqueredirect
   read _ = Nothing
-  
+
   export
   ToFFI ResponseType String where
     toFFI = show
-  
+
   export
   FromFFI ResponseType String where
     fromFFI = read
 
 
 namespace ReferrerPolicy
-  
+
   public export
   data ReferrerPolicy =
       Empty
@@ -306,7 +306,7 @@ namespace ReferrerPolicy
     | OriginWhenCrossOrigin
     | StrictOriginWhenCrossOrigin
     | UnsafeUrl
-  
+
   export
   Show ReferrerPolicy where
     show Empty = ""
@@ -318,15 +318,15 @@ namespace ReferrerPolicy
     show OriginWhenCrossOrigin = "origin-when-cross-origin"
     show StrictOriginWhenCrossOrigin = "strict-origin-when-cross-origin"
     show UnsafeUrl = "unsafe-url"
-  
+
   export
   Eq ReferrerPolicy where
     (==) = (==) `on` show
-  
+
   export
   Ord ReferrerPolicy where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe ReferrerPolicy
   read "" = Just Empty
@@ -339,11 +339,11 @@ namespace ReferrerPolicy
   read "strict-origin-when-cross-origin" = Just StrictOriginWhenCrossOrigin
   read "unsafe-url" = Just UnsafeUrl
   read _ = Nothing
-  
+
   export
   ToFFI ReferrerPolicy String where
     toFFI = show
-  
+
   export
   FromFFI ReferrerPolicy String where
     fromFFI = read
@@ -423,5 +423,3 @@ ToFFI Body Body where toFFI = id
 
 export
 FromFFI Body Body where fromFFI = Just
-
-

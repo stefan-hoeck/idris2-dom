@@ -5,7 +5,3 @@ import Web.Internal.VisibilityPrim
 import Web.Internal.Types
 
 %default total
-
-
-
-

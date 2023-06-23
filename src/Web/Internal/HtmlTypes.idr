@@ -10,7 +10,7 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace DOMParserSupportedType
-  
+
   public export
   data DOMParserSupportedType =
       TextHtml
@@ -18,7 +18,7 @@ namespace DOMParserSupportedType
     | ApplicationXml
     | ApplicationXhtmlXml
     | ImageSvgXml
-  
+
   export
   Show DOMParserSupportedType where
     show TextHtml = "text/html"
@@ -26,15 +26,15 @@ namespace DOMParserSupportedType
     show ApplicationXml = "application/xml"
     show ApplicationXhtmlXml = "application/xhtml+xml"
     show ImageSvgXml = "image/svg+xml"
-  
+
   export
   Eq DOMParserSupportedType where
     (==) = (==) `on` show
-  
+
   export
   Ord DOMParserSupportedType where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe DOMParserSupportedType
   read "text/html" = Just TextHtml
@@ -43,240 +43,240 @@ namespace DOMParserSupportedType
   read "application/xhtml+xml" = Just ApplicationXhtmlXml
   read "image/svg+xml" = Just ImageSvgXml
   read _ = Nothing
-  
+
   export
   ToFFI DOMParserSupportedType String where
     toFFI = show
-  
+
   export
   FromFFI DOMParserSupportedType String where
     fromFFI = read
 
 
 namespace DocumentReadyState
-  
+
   public export
   data DocumentReadyState = Loading | Interactive | Complete
-  
+
   export
   Show DocumentReadyState where
     show Loading = "loading"
     show Interactive = "interactive"
     show Complete = "complete"
-  
+
   export
   Eq DocumentReadyState where
     (==) = (==) `on` show
-  
+
   export
   Ord DocumentReadyState where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe DocumentReadyState
   read "loading" = Just Loading
   read "interactive" = Just Interactive
   read "complete" = Just Complete
   read _ = Nothing
-  
+
   export
   ToFFI DocumentReadyState String where
     toFFI = show
-  
+
   export
   FromFFI DocumentReadyState String where
     fromFFI = read
 
 
 namespace CanPlayTypeResult
-  
+
   public export
   data CanPlayTypeResult = Empty | Maybe | Probably
-  
+
   export
   Show CanPlayTypeResult where
     show Empty = ""
     show Maybe = "maybe"
     show Probably = "probably"
-  
+
   export
   Eq CanPlayTypeResult where
     (==) = (==) `on` show
-  
+
   export
   Ord CanPlayTypeResult where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe CanPlayTypeResult
   read "" = Just Empty
   read "maybe" = Just Maybe
   read "probably" = Just Probably
   read _ = Nothing
-  
+
   export
   ToFFI CanPlayTypeResult String where
     toFFI = show
-  
+
   export
   FromFFI CanPlayTypeResult String where
     fromFFI = read
 
 
 namespace ScrollRestoration
-  
+
   public export
   data ScrollRestoration = Auto | Manual
-  
+
   export
   Show ScrollRestoration where
     show Auto = "auto"
     show Manual = "manual"
-  
+
   export
   Eq ScrollRestoration where
     (==) = (==) `on` show
-  
+
   export
   Ord ScrollRestoration where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe ScrollRestoration
   read "auto" = Just Auto
   read "manual" = Just Manual
   read _ = Nothing
-  
+
   export
   ToFFI ScrollRestoration String where
     toFFI = show
-  
+
   export
   FromFFI ScrollRestoration String where
     fromFFI = read
 
 
 namespace ImageOrientation
-  
+
   public export
   data ImageOrientation = None | FlipY
-  
+
   export
   Show ImageOrientation where
     show None = "none"
     show FlipY = "flipY"
-  
+
   export
   Eq ImageOrientation where
     (==) = (==) `on` show
-  
+
   export
   Ord ImageOrientation where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe ImageOrientation
   read "none" = Just None
   read "flipY" = Just FlipY
   read _ = Nothing
-  
+
   export
   ToFFI ImageOrientation String where
     toFFI = show
-  
+
   export
   FromFFI ImageOrientation String where
     fromFFI = read
 
 
 namespace PremultiplyAlpha
-  
+
   public export
   data PremultiplyAlpha = None | Premultiply | Default
-  
+
   export
   Show PremultiplyAlpha where
     show None = "none"
     show Premultiply = "premultiply"
     show Default = "default"
-  
+
   export
   Eq PremultiplyAlpha where
     (==) = (==) `on` show
-  
+
   export
   Ord PremultiplyAlpha where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe PremultiplyAlpha
   read "none" = Just None
   read "premultiply" = Just Premultiply
   read "default" = Just Default
   read _ = Nothing
-  
+
   export
   ToFFI PremultiplyAlpha String where
     toFFI = show
-  
+
   export
   FromFFI PremultiplyAlpha String where
     fromFFI = read
 
 
 namespace ColorSpaceConversion
-  
+
   public export
   data ColorSpaceConversion = None | Default
-  
+
   export
   Show ColorSpaceConversion where
     show None = "none"
     show Default = "default"
-  
+
   export
   Eq ColorSpaceConversion where
     (==) = (==) `on` show
-  
+
   export
   Ord ColorSpaceConversion where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe ColorSpaceConversion
   read "none" = Just None
   read "default" = Just Default
   read _ = Nothing
-  
+
   export
   ToFFI ColorSpaceConversion String where
     toFFI = show
-  
+
   export
   FromFFI ColorSpaceConversion String where
     fromFFI = read
 
 
 namespace ResizeQuality
-  
+
   public export
   data ResizeQuality = Pixelated | Low | Medium | High
-  
+
   export
   Show ResizeQuality where
     show Pixelated = "pixelated"
     show Low = "low"
     show Medium = "medium"
     show High = "high"
-  
+
   export
   Eq ResizeQuality where
     (==) = (==) `on` show
-  
+
   export
   Ord ResizeQuality where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe ResizeQuality
   read "pixelated" = Just Pixelated
@@ -284,159 +284,159 @@ namespace ResizeQuality
   read "medium" = Just Medium
   read "high" = Just High
   read _ = Nothing
-  
+
   export
   ToFFI ResizeQuality String where
     toFFI = show
-  
+
   export
   FromFFI ResizeQuality String where
     fromFFI = read
 
 
 namespace CanvasFillRule
-  
+
   public export
   data CanvasFillRule = Nonzero | Evenodd
-  
+
   export
   Show CanvasFillRule where
     show Nonzero = "nonzero"
     show Evenodd = "evenodd"
-  
+
   export
   Eq CanvasFillRule where
     (==) = (==) `on` show
-  
+
   export
   Ord CanvasFillRule where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe CanvasFillRule
   read "nonzero" = Just Nonzero
   read "evenodd" = Just Evenodd
   read _ = Nothing
-  
+
   export
   ToFFI CanvasFillRule String where
     toFFI = show
-  
+
   export
   FromFFI CanvasFillRule String where
     fromFFI = read
 
 
 namespace ImageSmoothingQuality
-  
+
   public export
   data ImageSmoothingQuality = Low | Medium | High
-  
+
   export
   Show ImageSmoothingQuality where
     show Low = "low"
     show Medium = "medium"
     show High = "high"
-  
+
   export
   Eq ImageSmoothingQuality where
     (==) = (==) `on` show
-  
+
   export
   Ord ImageSmoothingQuality where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe ImageSmoothingQuality
   read "low" = Just Low
   read "medium" = Just Medium
   read "high" = Just High
   read _ = Nothing
-  
+
   export
   ToFFI ImageSmoothingQuality String where
     toFFI = show
-  
+
   export
   FromFFI ImageSmoothingQuality String where
     fromFFI = read
 
 
 namespace CanvasLineCap
-  
+
   public export
   data CanvasLineCap = Butt | Round | Square
-  
+
   export
   Show CanvasLineCap where
     show Butt = "butt"
     show Round = "round"
     show Square = "square"
-  
+
   export
   Eq CanvasLineCap where
     (==) = (==) `on` show
-  
+
   export
   Ord CanvasLineCap where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe CanvasLineCap
   read "butt" = Just Butt
   read "round" = Just Round
   read "square" = Just Square
   read _ = Nothing
-  
+
   export
   ToFFI CanvasLineCap String where
     toFFI = show
-  
+
   export
   FromFFI CanvasLineCap String where
     fromFFI = read
 
 
 namespace CanvasLineJoin
-  
+
   public export
   data CanvasLineJoin = Round | Bevel | Miter
-  
+
   export
   Show CanvasLineJoin where
     show Round = "round"
     show Bevel = "bevel"
     show Miter = "miter"
-  
+
   export
   Eq CanvasLineJoin where
     (==) = (==) `on` show
-  
+
   export
   Ord CanvasLineJoin where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe CanvasLineJoin
   read "round" = Just Round
   read "bevel" = Just Bevel
   read "miter" = Just Miter
   read _ = Nothing
-  
+
   export
   ToFFI CanvasLineJoin String where
     toFFI = show
-  
+
   export
   FromFFI CanvasLineJoin String where
     fromFFI = read
 
 
 namespace CanvasTextAlign
-  
+
   public export
   data CanvasTextAlign = Start | End | Left | Right | Center
-  
+
   export
   Show CanvasTextAlign where
     show Start = "start"
@@ -444,15 +444,15 @@ namespace CanvasTextAlign
     show Left = "left"
     show Right = "right"
     show Center = "center"
-  
+
   export
   Eq CanvasTextAlign where
     (==) = (==) `on` show
-  
+
   export
   Ord CanvasTextAlign where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe CanvasTextAlign
   read "start" = Just Start
@@ -461,18 +461,18 @@ namespace CanvasTextAlign
   read "right" = Just Right
   read "center" = Just Center
   read _ = Nothing
-  
+
   export
   ToFFI CanvasTextAlign String where
     toFFI = show
-  
+
   export
   FromFFI CanvasTextAlign String where
     fromFFI = read
 
 
 namespace CanvasTextBaseline
-  
+
   public export
   data CanvasTextBaseline =
       Top
@@ -481,7 +481,7 @@ namespace CanvasTextBaseline
     | Alphabetic
     | Ideographic
     | Bottom
-  
+
   export
   Show CanvasTextBaseline where
     show Top = "top"
@@ -490,15 +490,15 @@ namespace CanvasTextBaseline
     show Alphabetic = "alphabetic"
     show Ideographic = "ideographic"
     show Bottom = "bottom"
-  
+
   export
   Eq CanvasTextBaseline where
     (==) = (==) `on` show
-  
+
   export
   Ord CanvasTextBaseline where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe CanvasTextBaseline
   read "top" = Just Top
@@ -508,71 +508,71 @@ namespace CanvasTextBaseline
   read "ideographic" = Just Ideographic
   read "bottom" = Just Bottom
   read _ = Nothing
-  
+
   export
   ToFFI CanvasTextBaseline String where
     toFFI = show
-  
+
   export
   FromFFI CanvasTextBaseline String where
     fromFFI = read
 
 
 namespace CanvasDirection
-  
+
   public export
   data CanvasDirection = Ltr | Rtl | Inherit
-  
+
   export
   Show CanvasDirection where
     show Ltr = "ltr"
     show Rtl = "rtl"
     show Inherit = "inherit"
-  
+
   export
   Eq CanvasDirection where
     (==) = (==) `on` show
-  
+
   export
   Ord CanvasDirection where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe CanvasDirection
   read "ltr" = Just Ltr
   read "rtl" = Just Rtl
   read "inherit" = Just Inherit
   read _ = Nothing
-  
+
   export
   ToFFI CanvasDirection String where
     toFFI = show
-  
+
   export
   FromFFI CanvasDirection String where
     fromFFI = read
 
 
 namespace OffscreenRenderingContextId
-  
+
   public export
   data OffscreenRenderingContextId = TwoD | Bitmaprenderer | Webgl | Webgl2
-  
+
   export
   Show OffscreenRenderingContextId where
     show TwoD = "2d"
     show Bitmaprenderer = "bitmaprenderer"
     show Webgl = "webgl"
     show Webgl2 = "webgl2"
-  
+
   export
   Eq OffscreenRenderingContextId where
     (==) = (==) `on` show
-  
+
   export
   Ord OffscreenRenderingContextId where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe OffscreenRenderingContextId
   read "2d" = Just TwoD
@@ -580,56 +580,56 @@ namespace OffscreenRenderingContextId
   read "webgl" = Just Webgl
   read "webgl2" = Just Webgl2
   read _ = Nothing
-  
+
   export
   ToFFI OffscreenRenderingContextId String where
     toFFI = show
-  
+
   export
   FromFFI OffscreenRenderingContextId String where
     fromFFI = read
 
 
 namespace TextTrackMode
-  
+
   public export
   data TextTrackMode = Disabled | Hidden | Showing
-  
+
   export
   Show TextTrackMode where
     show Disabled = "disabled"
     show Hidden = "hidden"
     show Showing = "showing"
-  
+
   export
   Eq TextTrackMode where
     (==) = (==) `on` show
-  
+
   export
   Ord TextTrackMode where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe TextTrackMode
   read "disabled" = Just Disabled
   read "hidden" = Just Hidden
   read "showing" = Just Showing
   read _ = Nothing
-  
+
   export
   ToFFI TextTrackMode String where
     toFFI = show
-  
+
   export
   FromFFI TextTrackMode String where
     fromFFI = read
 
 
 namespace TextTrackKind
-  
+
   public export
   data TextTrackKind = Subtitles | Captions | Descriptions | Chapters | Metadata
-  
+
   export
   Show TextTrackKind where
     show Subtitles = "subtitles"
@@ -637,15 +637,15 @@ namespace TextTrackKind
     show Descriptions = "descriptions"
     show Chapters = "chapters"
     show Metadata = "metadata"
-  
+
   export
   Eq TextTrackKind where
     (==) = (==) `on` show
-  
+
   export
   Ord TextTrackKind where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe TextTrackKind
   read "subtitles" = Just Subtitles
@@ -654,102 +654,102 @@ namespace TextTrackKind
   read "chapters" = Just Chapters
   read "metadata" = Just Metadata
   read _ = Nothing
-  
+
   export
   ToFFI TextTrackKind String where
     toFFI = show
-  
+
   export
   FromFFI TextTrackKind String where
     fromFFI = read
 
 
 namespace BinaryType
-  
+
   public export
   data BinaryType = Blob | Arraybuffer
-  
+
   export
   Show BinaryType where
     show Blob = "blob"
     show Arraybuffer = "arraybuffer"
-  
+
   export
   Eq BinaryType where
     (==) = (==) `on` show
-  
+
   export
   Ord BinaryType where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe BinaryType
   read "blob" = Just Blob
   read "arraybuffer" = Just Arraybuffer
   read _ = Nothing
-  
+
   export
   ToFFI BinaryType String where
     toFFI = show
-  
+
   export
   FromFFI BinaryType String where
     fromFFI = read
 
 
 namespace WorkerType
-  
+
   public export
   data WorkerType = Classic | Module
-  
+
   export
   Show WorkerType where
     show Classic = "classic"
     show Module = "module"
-  
+
   export
   Eq WorkerType where
     (==) = (==) `on` show
-  
+
   export
   Ord WorkerType where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe WorkerType
   read "classic" = Just Classic
   read "module" = Just Module
   read _ = Nothing
-  
+
   export
   ToFFI WorkerType String where
     toFFI = show
-  
+
   export
   FromFFI WorkerType String where
     fromFFI = read
 
 
 namespace SelectionMode
-  
+
   public export
   data SelectionMode = Select | Start | End | Preserve
-  
+
   export
   Show SelectionMode where
     show Select = "select"
     show Start = "start"
     show End = "end"
     show Preserve = "preserve"
-  
+
   export
   Eq SelectionMode where
     (==) = (==) `on` show
-  
+
   export
   Ord SelectionMode where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe SelectionMode
   read "select" = Just Select
@@ -757,11 +757,11 @@ namespace SelectionMode
   read "end" = Just End
   read "preserve" = Just Preserve
   read _ = Nothing
-  
+
   export
   ToFFI SelectionMode String where
     toFFI = show
-  
+
   export
   FromFFI SelectionMode String where
     fromFFI = read
@@ -3066,4 +3066,3 @@ ToFFI WheelEventHandler WheelEventHandler where toFFI = id
 
 export
 FromFFI WheelEventHandler WheelEventHandler where fromFFI = Just
-

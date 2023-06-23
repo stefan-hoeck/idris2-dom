@@ -12,7 +12,7 @@ import Web.Internal.Types
 --------------------------------------------------------------------------------
 
 namespace Animation
-  
+
   export
   currentTime : {auto _ : Cast t Animation} -> t -> Attribute False Maybe Double
   currentTime v = fromNullablePrim
@@ -21,7 +21,7 @@ namespace Animation
                     prim__setCurrentTime
                     (cast {to = Animation} v)
 
-  
+
   export
   effect :
        {auto _ : Cast t Animation}
@@ -33,7 +33,7 @@ namespace Animation
                prim__setEffect
                (cast {to = Animation} v)
 
-  
+
   export
   finished :
        {auto _ : Cast t1 Animation}
@@ -41,7 +41,7 @@ namespace Animation
     -> JSIO (Promise Animation)
   finished a = primJS $ Animation.prim__finished (cast a)
 
-  
+
   export
   id : {auto _ : Cast t Animation} -> t -> Attribute True Prelude.id String
   id v = fromPrim
@@ -50,7 +50,7 @@ namespace Animation
            prim__setId
            (cast {to = Animation} v)
 
-  
+
   export
   oncancel :
        {auto _ : Cast t Animation}
@@ -62,7 +62,7 @@ namespace Animation
                  prim__setOncancel
                  (cast {to = Animation} v)
 
-  
+
   export
   onfinish :
        {auto _ : Cast t Animation}
@@ -74,12 +74,12 @@ namespace Animation
                  prim__setOnfinish
                  (cast {to = Animation} v)
 
-  
+
   export
   pending : {auto _ : Cast t1 Animation} -> (obj : t1) -> JSIO Bool
   pending a = tryJS "Animation.pending" $ Animation.prim__pending (cast a)
 
-  
+
   export
   playState :
        {auto _ : Cast t1 Animation}
@@ -87,7 +87,7 @@ namespace Animation
     -> JSIO AnimationPlayState
   playState a = tryJS "Animation.playState" $ Animation.prim__playState (cast a)
 
-  
+
   export
   playbackRate :
        {auto _ : Cast t Animation}
@@ -99,12 +99,12 @@ namespace Animation
                      prim__setPlaybackRate
                      (cast {to = Animation} v)
 
-  
+
   export
   ready : {auto _ : Cast t1 Animation} -> (obj : t1) -> JSIO (Promise Animation)
   ready a = primJS $ Animation.prim__ready (cast a)
 
-  
+
   export
   startTime : {auto _ : Cast t Animation} -> t -> Attribute False Maybe Double
   startTime v = fromNullablePrim
@@ -113,7 +113,7 @@ namespace Animation
                   prim__setStartTime
                   (cast {to = Animation} v)
 
-  
+
   export
   timeline :
        {auto _ : Cast t Animation}
@@ -125,32 +125,32 @@ namespace Animation
                  prim__setTimeline
                  (cast {to = Animation} v)
 
-  
+
   export
   cancel : {auto _ : Cast t1 Animation} -> (obj : t1) -> JSIO ()
   cancel a = primJS $ Animation.prim__cancel (cast a)
 
-  
+
   export
   finish : {auto _ : Cast t1 Animation} -> (obj : t1) -> JSIO ()
   finish a = primJS $ Animation.prim__finish (cast a)
 
-  
+
   export
   pause : {auto _ : Cast t1 Animation} -> (obj : t1) -> JSIO ()
   pause a = primJS $ Animation.prim__pause (cast a)
 
-  
+
   export
   play : {auto _ : Cast t1 Animation} -> (obj : t1) -> JSIO ()
   play a = primJS $ Animation.prim__play (cast a)
 
-  
+
   export
   reverse : {auto _ : Cast t1 Animation} -> (obj : t1) -> JSIO ()
   reverse a = primJS $ Animation.prim__reverse (cast a)
 
-  
+
   export
   updatePlaybackRate :
        {auto _ : Cast t1 Animation}
@@ -163,7 +163,7 @@ namespace Animation
 
 
 namespace AnimationEffect
-  
+
   export
   getComputedTiming :
        {auto _ : Cast t1 AnimationEffect}
@@ -172,7 +172,7 @@ namespace AnimationEffect
   getComputedTiming a = primJS $
     AnimationEffect.prim__getComputedTiming (cast a)
 
-  
+
   export
   getTiming :
        {auto _ : Cast t1 AnimationEffect}
@@ -180,7 +180,7 @@ namespace AnimationEffect
     -> JSIO EffectTiming
   getTiming a = primJS $ AnimationEffect.prim__getTiming (cast a)
 
-  
+
   export
   updateTiming' :
        {auto _ : Cast t1 AnimationEffect}
@@ -190,7 +190,7 @@ namespace AnimationEffect
     -> JSIO ()
   updateTiming' a b = primJS $
     AnimationEffect.prim__updateTiming (cast a) (optUp b)
-  
+
   export
   updateTiming : {auto _ : Cast t1 AnimationEffect} -> (obj : t1) -> JSIO ()
   updateTiming a = primJS $ AnimationEffect.prim__updateTiming (cast a) undef
@@ -198,13 +198,13 @@ namespace AnimationEffect
 
 
 namespace AnimationPlaybackEvent
-  
+
   export
   currentTime : (obj : AnimationPlaybackEvent) -> JSIO (Maybe Double)
   currentTime a = tryJS "AnimationPlaybackEvent.currentTime" $
     AnimationPlaybackEvent.prim__currentTime a
 
-  
+
   export
   timelineTime : (obj : AnimationPlaybackEvent) -> JSIO (Maybe Double)
   timelineTime a = tryJS "AnimationPlaybackEvent.timelineTime" $
@@ -213,7 +213,7 @@ namespace AnimationPlaybackEvent
 
 
 namespace AnimationTimeline
-  
+
   export
   currentTime :
        {auto _ : Cast t1 AnimationTimeline}
@@ -226,7 +226,7 @@ namespace AnimationTimeline
 
 
 namespace KeyframeEffect
-  
+
   export
   composite : KeyframeEffect -> Attribute True Prelude.id CompositeOperation
   composite v = fromPrim
@@ -235,7 +235,7 @@ namespace KeyframeEffect
                   prim__setComposite
                   v
 
-  
+
   export
   iterationComposite :
        KeyframeEffect
@@ -246,7 +246,7 @@ namespace KeyframeEffect
                            prim__setIterationComposite
                            v
 
-  
+
   export
   target :
        KeyframeEffect
@@ -257,12 +257,12 @@ namespace KeyframeEffect
                prim__setTarget
                v
 
-  
+
   export
   getKeyframes : (obj : KeyframeEffect) -> JSIO (Array Object)
   getKeyframes a = primJS $ KeyframeEffect.prim__getKeyframes a
 
-  
+
   export
   setKeyframes :
        {auto _ : Cast t2 Object}
@@ -279,7 +279,7 @@ namespace KeyframeEffect
 --------------------------------------------------------------------------------
 
 namespace Animatable
-  
+
   export
   animate' :
        {auto _ : Cast t1 Animatable}
@@ -290,7 +290,7 @@ namespace Animatable
     -> JSIO Animation
   animate' a b c = primJS $
     Animatable.prim__animate (cast a) (mayUp b) (toFFI c)
-  
+
   export
   animate :
        {auto _ : Cast t1 Animatable}
@@ -300,7 +300,7 @@ namespace Animatable
     -> JSIO Animation
   animate a b = primJS $ Animatable.prim__animate (cast a) (mayUp b) undef
 
-  
+
   export
   getAnimations :
        {auto _ : Cast t1 Animatable}
@@ -316,19 +316,19 @@ namespace Animatable
 --------------------------------------------------------------------------------
 
 namespace AnimationPlaybackEventInit
-  
+
   export
   new' :
        (currentTime : Optional (Maybe Double))
     -> (timelineTime : Optional (Maybe Double))
     -> JSIO AnimationPlaybackEventInit
   new' a b = primJS $ AnimationPlaybackEventInit.prim__new (toFFI a) (toFFI b)
-  
+
   export
   new : JSIO AnimationPlaybackEventInit
   new = primJS $ AnimationPlaybackEventInit.prim__new undef undef
 
-  
+
   export
   currentTime :
        {auto _ : Cast t AnimationPlaybackEventInit}
@@ -341,7 +341,7 @@ namespace AnimationPlaybackEventInit
                     Nothing
                     (cast {to = AnimationPlaybackEventInit} v)
 
-  
+
   export
   timelineTime :
        {auto _ : Cast t AnimationPlaybackEventInit}
@@ -357,7 +357,7 @@ namespace AnimationPlaybackEventInit
 
 
 namespace BaseComputedKeyframe
-  
+
   export
   new' :
        (offset : Optional (Maybe Double))
@@ -367,12 +367,12 @@ namespace BaseComputedKeyframe
     -> JSIO BaseComputedKeyframe
   new' a b c d = primJS $
     BaseComputedKeyframe.prim__new (toFFI a) (toFFI b) (toFFI c) (toFFI d)
-  
+
   export
   new : JSIO BaseComputedKeyframe
   new = primJS $ BaseComputedKeyframe.prim__new undef undef undef undef
 
-  
+
   export
   composite :
        {auto _ : Cast t BaseComputedKeyframe}
@@ -384,7 +384,7 @@ namespace BaseComputedKeyframe
                   prim__setComposite
                   (cast {to = BaseComputedKeyframe} v)
 
-  
+
   export
   computedOffset :
        {auto _ : Cast t BaseComputedKeyframe}
@@ -396,7 +396,7 @@ namespace BaseComputedKeyframe
                        prim__setComputedOffset
                        (cast {to = BaseComputedKeyframe} v)
 
-  
+
   export
   easing :
        {auto _ : Cast t BaseComputedKeyframe}
@@ -409,7 +409,7 @@ namespace BaseComputedKeyframe
                "linear"
                (cast {to = BaseComputedKeyframe} v)
 
-  
+
   export
   offset :
        {auto _ : Cast t BaseComputedKeyframe}
@@ -425,7 +425,7 @@ namespace BaseComputedKeyframe
 
 
 namespace BaseKeyframe
-  
+
   export
   new' :
        (offset : Optional (Maybe Double))
@@ -433,12 +433,12 @@ namespace BaseKeyframe
     -> (composite : Optional CompositeOperationOrAuto)
     -> JSIO BaseKeyframe
   new' a b c = primJS $ BaseKeyframe.prim__new (toFFI a) (toFFI b) (toFFI c)
-  
+
   export
   new : JSIO BaseKeyframe
   new = primJS $ BaseKeyframe.prim__new undef undef undef
 
-  
+
   export
   composite :
        {auto _ : Cast t BaseKeyframe}
@@ -450,7 +450,7 @@ namespace BaseKeyframe
                   prim__setComposite
                   (cast {to = BaseKeyframe} v)
 
-  
+
   export
   easing : {auto _ : Cast t BaseKeyframe} -> t -> Attribute True Optional String
   easing v = fromUndefOrPrim
@@ -460,7 +460,7 @@ namespace BaseKeyframe
                "linear"
                (cast {to = BaseKeyframe} v)
 
-  
+
   export
   offset :
        {auto _ : Cast t BaseKeyframe}
@@ -476,7 +476,7 @@ namespace BaseKeyframe
 
 
 namespace BasePropertyIndexedKeyframe
-  
+
   export
   new' :
        (offset : Optional (Maybe (HSum [Double, Array (Nullable Double)])))
@@ -485,12 +485,12 @@ namespace BasePropertyIndexedKeyframe
     -> JSIO BasePropertyIndexedKeyframe
   new' a b c = primJS $
     BasePropertyIndexedKeyframe.prim__new (toFFI a) (toFFI b) (toFFI c)
-  
+
   export
   new : JSIO BasePropertyIndexedKeyframe
   new = primJS $ BasePropertyIndexedKeyframe.prim__new undef undef undef
 
-  
+
   export
   composite :
        {auto _ : Cast t BasePropertyIndexedKeyframe}
@@ -502,7 +502,7 @@ namespace BasePropertyIndexedKeyframe
                   prim__setComposite
                   (cast {to = BasePropertyIndexedKeyframe} v)
 
-  
+
   export
   easing :
        {auto _ : Cast t BasePropertyIndexedKeyframe}
@@ -514,7 +514,7 @@ namespace BasePropertyIndexedKeyframe
                prim__setEasing
                (cast {to = BasePropertyIndexedKeyframe} v)
 
-  
+
   export
   offset :
        {auto _ : Cast t BasePropertyIndexedKeyframe}
@@ -530,7 +530,7 @@ namespace BasePropertyIndexedKeyframe
 
 
 namespace ComputedEffectTiming
-  
+
   export
   new' :
        (endTime : Optional Double)
@@ -546,12 +546,12 @@ namespace ComputedEffectTiming
       (toFFI c)
       (toFFI d)
       (toFFI e)
-  
+
   export
   new : JSIO ComputedEffectTiming
   new = primJS $ ComputedEffectTiming.prim__new undef undef undef undef undef
 
-  
+
   export
   activeDuration :
        {auto _ : Cast t ComputedEffectTiming}
@@ -563,7 +563,7 @@ namespace ComputedEffectTiming
                        prim__setActiveDuration
                        (cast {to = ComputedEffectTiming} v)
 
-  
+
   export
   currentIteration :
        {auto _ : Cast t ComputedEffectTiming}
@@ -575,7 +575,7 @@ namespace ComputedEffectTiming
                          prim__setCurrentIteration
                          (cast {to = ComputedEffectTiming} v)
 
-  
+
   export
   endTime :
        {auto _ : Cast t ComputedEffectTiming}
@@ -587,7 +587,7 @@ namespace ComputedEffectTiming
                 prim__setEndTime
                 (cast {to = ComputedEffectTiming} v)
 
-  
+
   export
   localTime :
        {auto _ : Cast t ComputedEffectTiming}
@@ -599,7 +599,7 @@ namespace ComputedEffectTiming
                   prim__setLocalTime
                   (cast {to = ComputedEffectTiming} v)
 
-  
+
   export
   progress :
        {auto _ : Cast t ComputedEffectTiming}
@@ -614,16 +614,16 @@ namespace ComputedEffectTiming
 
 
 namespace DocumentTimelineOptions
-  
+
   export
   new' : (originTime : Optional Double) -> JSIO DocumentTimelineOptions
   new' a = primJS $ DocumentTimelineOptions.prim__new (toFFI a)
-  
+
   export
   new : JSIO DocumentTimelineOptions
   new = primJS $ DocumentTimelineOptions.prim__new undef
 
-  
+
   export
   originTime :
        {auto _ : Cast t DocumentTimelineOptions}
@@ -639,7 +639,7 @@ namespace DocumentTimelineOptions
 
 
 namespace EffectTiming
-  
+
   export
   new' :
        (delay : Optional Double)
@@ -661,13 +661,13 @@ namespace EffectTiming
       (toFFI f)
       (toFFI g)
       (toFFI h)
-  
+
   export
   new : JSIO EffectTiming
   new = primJS $
     EffectTiming.prim__new undef undef undef undef undef undef undef undef
 
-  
+
   export
   delay : {auto _ : Cast t EffectTiming} -> t -> Attribute True Optional Double
   delay v = fromUndefOrPrim
@@ -677,7 +677,7 @@ namespace EffectTiming
               0
               (cast {to = EffectTiming} v)
 
-  
+
   export
   direction :
        {auto _ : Cast t EffectTiming}
@@ -689,7 +689,7 @@ namespace EffectTiming
                   prim__setDirection
                   (cast {to = EffectTiming} v)
 
-  
+
   export
   duration :
        {auto _ : Cast t EffectTiming}
@@ -701,7 +701,7 @@ namespace EffectTiming
                  prim__setDuration
                  (cast {to = EffectTiming} v)
 
-  
+
   export
   easing : {auto _ : Cast t EffectTiming} -> t -> Attribute True Optional String
   easing v = fromUndefOrPrim
@@ -711,7 +711,7 @@ namespace EffectTiming
                "linear"
                (cast {to = EffectTiming} v)
 
-  
+
   export
   endDelay :
        {auto _ : Cast t EffectTiming}
@@ -724,7 +724,7 @@ namespace EffectTiming
                  0
                  (cast {to = EffectTiming} v)
 
-  
+
   export
   fill :
        {auto _ : Cast t EffectTiming}
@@ -736,7 +736,7 @@ namespace EffectTiming
              prim__setFill
              (cast {to = EffectTiming} v)
 
-  
+
   export
   iterationStart :
        {auto _ : Cast t EffectTiming}
@@ -749,7 +749,7 @@ namespace EffectTiming
                        0.0
                        (cast {to = EffectTiming} v)
 
-  
+
   export
   iterations :
        {auto _ : Cast t EffectTiming}
@@ -765,16 +765,16 @@ namespace EffectTiming
 
 
 namespace KeyframeAnimationOptions
-  
+
   export
   new' : (id : Optional String) -> JSIO KeyframeAnimationOptions
   new' a = primJS $ KeyframeAnimationOptions.prim__new (toFFI a)
-  
+
   export
   new : JSIO KeyframeAnimationOptions
   new = primJS $ KeyframeAnimationOptions.prim__new undef
 
-  
+
   export
   id :
        {auto _ : Cast t KeyframeAnimationOptions}
@@ -790,19 +790,19 @@ namespace KeyframeAnimationOptions
 
 
 namespace KeyframeEffectOptions
-  
+
   export
   new' :
        (iterationComposite : Optional IterationCompositeOperation)
     -> (composite : Optional CompositeOperation)
     -> JSIO KeyframeEffectOptions
   new' a b = primJS $ KeyframeEffectOptions.prim__new (toFFI a) (toFFI b)
-  
+
   export
   new : JSIO KeyframeEffectOptions
   new = primJS $ KeyframeEffectOptions.prim__new undef undef
 
-  
+
   export
   composite :
        {auto _ : Cast t KeyframeEffectOptions}
@@ -814,7 +814,7 @@ namespace KeyframeEffectOptions
                   prim__setComposite
                   (cast {to = KeyframeEffectOptions} v)
 
-  
+
   export
   iterationComposite :
        {auto _ : Cast t KeyframeEffectOptions}
@@ -829,7 +829,7 @@ namespace KeyframeEffectOptions
 
 
 namespace OptionalEffectTiming
-  
+
   export
   new' :
        (delay : Optional Double)
@@ -851,7 +851,7 @@ namespace OptionalEffectTiming
       (toFFI f)
       (toFFI g)
       (toFFI h)
-  
+
   export
   new : JSIO OptionalEffectTiming
   new = primJS $
@@ -865,7 +865,7 @@ namespace OptionalEffectTiming
       undef
       undef
 
-  
+
   export
   delay :
        {auto _ : Cast t OptionalEffectTiming}
@@ -877,7 +877,7 @@ namespace OptionalEffectTiming
               prim__setDelay
               (cast {to = OptionalEffectTiming} v)
 
-  
+
   export
   direction :
        {auto _ : Cast t OptionalEffectTiming}
@@ -889,7 +889,7 @@ namespace OptionalEffectTiming
                   prim__setDirection
                   (cast {to = OptionalEffectTiming} v)
 
-  
+
   export
   duration :
        {auto _ : Cast t OptionalEffectTiming}
@@ -901,7 +901,7 @@ namespace OptionalEffectTiming
                  prim__setDuration
                  (cast {to = OptionalEffectTiming} v)
 
-  
+
   export
   easing :
        {auto _ : Cast t OptionalEffectTiming}
@@ -913,7 +913,7 @@ namespace OptionalEffectTiming
                prim__setEasing
                (cast {to = OptionalEffectTiming} v)
 
-  
+
   export
   endDelay :
        {auto _ : Cast t OptionalEffectTiming}
@@ -925,7 +925,7 @@ namespace OptionalEffectTiming
                  prim__setEndDelay
                  (cast {to = OptionalEffectTiming} v)
 
-  
+
   export
   fill :
        {auto _ : Cast t OptionalEffectTiming}
@@ -937,7 +937,7 @@ namespace OptionalEffectTiming
              prim__setFill
              (cast {to = OptionalEffectTiming} v)
 
-  
+
   export
   iterationStart :
        {auto _ : Cast t OptionalEffectTiming}
@@ -949,7 +949,7 @@ namespace OptionalEffectTiming
                        prim__setIterationStart
                        (cast {to = OptionalEffectTiming} v)
 
-  
+
   export
   iterations :
        {auto _ : Cast t OptionalEffectTiming}
@@ -960,6 +960,3 @@ namespace OptionalEffectTiming
                    prim__iterations
                    prim__setIterations
                    (cast {to = OptionalEffectTiming} v)
-
-
-

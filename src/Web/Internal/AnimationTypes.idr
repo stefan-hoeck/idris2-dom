@@ -10,25 +10,25 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace AnimationPlayState
-  
+
   public export
   data AnimationPlayState = Idle | Running | Paused | Finished
-  
+
   export
   Show AnimationPlayState where
     show Idle = "idle"
     show Running = "running"
     show Paused = "paused"
     show Finished = "finished"
-  
+
   export
   Eq AnimationPlayState where
     (==) = (==) `on` show
-  
+
   export
   Ord AnimationPlayState where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe AnimationPlayState
   read "idle" = Just Idle
@@ -36,21 +36,21 @@ namespace AnimationPlayState
   read "paused" = Just Paused
   read "finished" = Just Finished
   read _ = Nothing
-  
+
   export
   ToFFI AnimationPlayState String where
     toFFI = show
-  
+
   export
   FromFFI AnimationPlayState String where
     fromFFI = read
 
 
 namespace FillMode
-  
+
   public export
   data FillMode = None | Forwards | Backwards | Both | Auto
-  
+
   export
   Show FillMode where
     show None = "none"
@@ -58,15 +58,15 @@ namespace FillMode
     show Backwards = "backwards"
     show Both = "both"
     show Auto = "auto"
-  
+
   export
   Eq FillMode where
     (==) = (==) `on` show
-  
+
   export
   Ord FillMode where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe FillMode
   read "none" = Just None
@@ -75,36 +75,36 @@ namespace FillMode
   read "both" = Just Both
   read "auto" = Just Auto
   read _ = Nothing
-  
+
   export
   ToFFI FillMode String where
     toFFI = show
-  
+
   export
   FromFFI FillMode String where
     fromFFI = read
 
 
 namespace PlaybackDirection
-  
+
   public export
   data PlaybackDirection = Normal | Reverse | Alternate | AlternateReverse
-  
+
   export
   Show PlaybackDirection where
     show Normal = "normal"
     show Reverse = "reverse"
     show Alternate = "alternate"
     show AlternateReverse = "alternate-reverse"
-  
+
   export
   Eq PlaybackDirection where
     (==) = (==) `on` show
-  
+
   export
   Ord PlaybackDirection where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe PlaybackDirection
   read "normal" = Just Normal
@@ -112,104 +112,104 @@ namespace PlaybackDirection
   read "alternate" = Just Alternate
   read "alternate-reverse" = Just AlternateReverse
   read _ = Nothing
-  
+
   export
   ToFFI PlaybackDirection String where
     toFFI = show
-  
+
   export
   FromFFI PlaybackDirection String where
     fromFFI = read
 
 
 namespace IterationCompositeOperation
-  
+
   public export
   data IterationCompositeOperation = Replace | Accumulate
-  
+
   export
   Show IterationCompositeOperation where
     show Replace = "replace"
     show Accumulate = "accumulate"
-  
+
   export
   Eq IterationCompositeOperation where
     (==) = (==) `on` show
-  
+
   export
   Ord IterationCompositeOperation where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe IterationCompositeOperation
   read "replace" = Just Replace
   read "accumulate" = Just Accumulate
   read _ = Nothing
-  
+
   export
   ToFFI IterationCompositeOperation String where
     toFFI = show
-  
+
   export
   FromFFI IterationCompositeOperation String where
     fromFFI = read
 
 
 namespace CompositeOperation
-  
+
   public export
   data CompositeOperation = Replace | Add | Accumulate
-  
+
   export
   Show CompositeOperation where
     show Replace = "replace"
     show Add = "add"
     show Accumulate = "accumulate"
-  
+
   export
   Eq CompositeOperation where
     (==) = (==) `on` show
-  
+
   export
   Ord CompositeOperation where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe CompositeOperation
   read "replace" = Just Replace
   read "add" = Just Add
   read "accumulate" = Just Accumulate
   read _ = Nothing
-  
+
   export
   ToFFI CompositeOperation String where
     toFFI = show
-  
+
   export
   FromFFI CompositeOperation String where
     fromFFI = read
 
 
 namespace CompositeOperationOrAuto
-  
+
   public export
   data CompositeOperationOrAuto = Replace | Add | Accumulate | Auto
-  
+
   export
   Show CompositeOperationOrAuto where
     show Replace = "replace"
     show Add = "add"
     show Accumulate = "accumulate"
     show Auto = "auto"
-  
+
   export
   Eq CompositeOperationOrAuto where
     (==) = (==) `on` show
-  
+
   export
   Ord CompositeOperationOrAuto where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe CompositeOperationOrAuto
   read "replace" = Just Replace
@@ -217,11 +217,11 @@ namespace CompositeOperationOrAuto
   read "accumulate" = Just Accumulate
   read "auto" = Just Auto
   read _ = Nothing
-  
+
   export
   ToFFI CompositeOperationOrAuto String where
     toFFI = show
-  
+
   export
   FromFFI CompositeOperationOrAuto String where
     fromFFI = read
@@ -401,5 +401,3 @@ ToFFI Animatable Animatable where toFFI = id
 
 export
 FromFFI Animatable Animatable where fromFFI = Just
-
-

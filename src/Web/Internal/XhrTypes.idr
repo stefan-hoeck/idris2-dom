@@ -10,7 +10,7 @@ import JS
 --------------------------------------------------------------------------------
 
 namespace XMLHttpRequestResponseType
-  
+
   public export
   data XMLHttpRequestResponseType =
       Empty
@@ -19,7 +19,7 @@ namespace XMLHttpRequestResponseType
     | Document
     | Json
     | Text
-  
+
   export
   Show XMLHttpRequestResponseType where
     show Empty = ""
@@ -28,15 +28,15 @@ namespace XMLHttpRequestResponseType
     show Document = "document"
     show Json = "json"
     show Text = "text"
-  
+
   export
   Eq XMLHttpRequestResponseType where
     (==) = (==) `on` show
-  
+
   export
   Ord XMLHttpRequestResponseType where
     compare = compare `on` show
-  
+
   export
   read : String -> Maybe XMLHttpRequestResponseType
   read "" = Just Empty
@@ -46,11 +46,11 @@ namespace XMLHttpRequestResponseType
   read "json" = Just Json
   read "text" = Just Text
   read _ = Nothing
-  
+
   export
   ToFFI XMLHttpRequestResponseType String where
     toFFI = show
-  
+
   export
   FromFFI XMLHttpRequestResponseType String where
     fromFFI = read
@@ -133,6 +133,3 @@ ToFFI ProgressEventInit ProgressEventInit where toFFI = id
 
 export
 FromFFI ProgressEventInit ProgressEventInit where fromFFI = Just
-
-
-
