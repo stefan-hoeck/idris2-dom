@@ -14,19 +14,19 @@ namespace ReadableStreamReaderMode
   public export
   data ReadableStreamReaderMode = Byob
 
-  public export
+  export
   Show ReadableStreamReaderMode where
     show Byob = "byob"
 
-  public export
+  export
   Eq ReadableStreamReaderMode where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord ReadableStreamReaderMode where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe ReadableStreamReaderMode
   read "byob" = Just Byob
   read _ = Nothing
@@ -45,19 +45,19 @@ namespace ReadableStreamType
   public export
   data ReadableStreamType = Bytes
 
-  public export
+  export
   Show ReadableStreamType where
     show Bytes = "bytes"
 
-  public export
+  export
   Eq ReadableStreamType where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord ReadableStreamType where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe ReadableStreamType
   read "bytes" = Just Bytes
   read _ = Nothing

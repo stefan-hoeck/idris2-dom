@@ -15,107 +15,81 @@ namespace IDBCursor
 
   export
   direction :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem IDBCursor (Types t1)}
+       {auto _ : Cast t1 IDBCursor}
     -> (obj : t1)
     -> JSIO IDBCursorDirection
-  direction a = tryJS "IDBCursor.direction" $ IDBCursor.prim__direction (up a)
+  direction a = tryJS "IDBCursor.direction" $ IDBCursor.prim__direction (cast a)
 
 
   export
-  key :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem IDBCursor (Types t1)}
-    -> (obj : t1)
-    -> JSIO Any
-  key a = tryJS "IDBCursor.key" $ IDBCursor.prim__key (up a)
+  key : {auto _ : Cast t1 IDBCursor} -> (obj : t1) -> JSIO Any
+  key a = tryJS "IDBCursor.key" $ IDBCursor.prim__key (cast a)
 
 
   export
-  primaryKey :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem IDBCursor (Types t1)}
-    -> (obj : t1)
-    -> JSIO Any
+  primaryKey : {auto _ : Cast t1 IDBCursor} -> (obj : t1) -> JSIO Any
   primaryKey a = tryJS "IDBCursor.primaryKey" $
-    IDBCursor.prim__primaryKey (up a)
+    IDBCursor.prim__primaryKey (cast a)
 
 
   export
-  request :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem IDBCursor (Types t1)}
-    -> (obj : t1)
-    -> JSIO IDBRequest
-  request a = primJS $ IDBCursor.prim__request (up a)
+  request : {auto _ : Cast t1 IDBCursor} -> (obj : t1) -> JSIO IDBRequest
+  request a = primJS $ IDBCursor.prim__request (cast a)
 
 
   export
   source :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem IDBCursor (Types t1)}
+       {auto _ : Cast t1 IDBCursor}
     -> (obj : t1)
     -> JSIO (HSum [IDBObjectStore, IDBIndex])
-  source a = tryJS "IDBCursor.source" $ IDBCursor.prim__source (up a)
+  source a = tryJS "IDBCursor.source" $ IDBCursor.prim__source (cast a)
 
 
   export
   advance :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem IDBCursor (Types t1)}
+       {auto _ : Cast t1 IDBCursor}
     -> (obj : t1)
     -> (count : Bits32)
     -> JSIO ()
-  advance a b = primJS $ IDBCursor.prim__advance (up a) b
+  advance a b = primJS $ IDBCursor.prim__advance (cast a) b
 
 
   export
   continue' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem IDBCursor (Types t1)}
+       {auto _ : Cast t1 IDBCursor}
     -> (obj : t1)
     -> (key : Optional Any)
     -> JSIO ()
-  continue' a b = primJS $ IDBCursor.prim__continue (up a) (toFFI b)
+  continue' a b = primJS $ IDBCursor.prim__continue (cast a) (toFFI b)
 
   export
-  continue :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem IDBCursor (Types t1)}
-    -> (obj : t1)
-    -> JSIO ()
-  continue a = primJS $ IDBCursor.prim__continue (up a) undef
+  continue : {auto _ : Cast t1 IDBCursor} -> (obj : t1) -> JSIO ()
+  continue a = primJS $ IDBCursor.prim__continue (cast a) undef
 
 
   export
   continuePrimaryKey :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem IDBCursor (Types t1)}
+       {auto _ : Cast t1 IDBCursor}
     -> (obj : t1)
     -> (key : Any)
     -> (primaryKey : Any)
     -> JSIO ()
   continuePrimaryKey a b c = primJS $
-    IDBCursor.prim__continuePrimaryKey (up a) (toFFI b) (toFFI c)
+    IDBCursor.prim__continuePrimaryKey (cast a) (toFFI b) (toFFI c)
 
 
   export
-  delete :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem IDBCursor (Types t1)}
-    -> (obj : t1)
-    -> JSIO IDBRequest
-  delete a = primJS $ IDBCursor.prim__delete (up a)
+  delete : {auto _ : Cast t1 IDBCursor} -> (obj : t1) -> JSIO IDBRequest
+  delete a = primJS $ IDBCursor.prim__delete (cast a)
 
 
   export
   update :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem IDBCursor (Types t1)}
+       {auto _ : Cast t1 IDBCursor}
     -> (obj : t1)
     -> (value : Any)
     -> JSIO IDBRequest
-  update a b = primJS $ IDBCursor.prim__update (up a) (toFFI b)
+  update a b = primJS $ IDBCursor.prim__update (cast a) (toFFI b)
 
 
 
@@ -187,8 +161,7 @@ namespace IDBDatabase
 
   export
   createObjectStore' :
-       {auto 0 _ : JSType t3}
-    -> {auto 0 _ : Elem IDBObjectStoreParameters (Types t3)}
+       {auto _ : Cast t3 IDBObjectStoreParameters}
     -> (obj : IDBDatabase)
     -> (name : String)
     -> (options : Optional t3)
@@ -211,8 +184,7 @@ namespace IDBDatabase
 
   export
   transaction' :
-       {auto 0 _ : JSType t4}
-    -> {auto 0 _ : Elem IDBTransactionOptions (Types t4)}
+       {auto _ : Cast t4 IDBTransactionOptions}
     -> (obj : IDBDatabase)
     -> (storeNames : HSum [String, Array String])
     -> (mode : Optional IDBTransactionMode)
@@ -489,8 +461,7 @@ namespace IDBObjectStore
 
   export
   createIndex' :
-       {auto 0 _ : JSType t4}
-    -> {auto 0 _ : Elem IDBIndexParameters (Types t4)}
+       {auto _ : Cast t4 IDBIndexParameters}
     -> (obj : IDBObjectStore)
     -> (name : String)
     -> (keyPath : HSum [String, Array String])
@@ -630,75 +601,65 @@ namespace IDBRequest
 
   export
   error :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem IDBRequest (Types t1)}
+       {auto _ : Cast t1 IDBRequest}
     -> (obj : t1)
     -> JSIO (Maybe DOMException)
-  error a = tryJS "IDBRequest.error" $ IDBRequest.prim__error (up a)
+  error a = tryJS "IDBRequest.error" $ IDBRequest.prim__error (cast a)
 
 
   export
   onerror :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem IDBRequest (Types t)}
+       {auto _ : Cast t IDBRequest}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onerror v = fromNullablePrim
                 "IDBRequest.getonerror"
                 prim__onerror
                 prim__setOnerror
-                (v :> IDBRequest)
+                (cast {to = IDBRequest} v)
 
 
   export
   onsuccess :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem IDBRequest (Types t)}
+       {auto _ : Cast t IDBRequest}
     -> t
     -> Attribute False Maybe EventHandlerNonNull
   onsuccess v = fromNullablePrim
                   "IDBRequest.getonsuccess"
                   prim__onsuccess
                   prim__setOnsuccess
-                  (v :> IDBRequest)
+                  (cast {to = IDBRequest} v)
 
 
   export
   readyState :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem IDBRequest (Types t1)}
+       {auto _ : Cast t1 IDBRequest}
     -> (obj : t1)
     -> JSIO IDBRequestReadyState
   readyState a = tryJS "IDBRequest.readyState" $
-    IDBRequest.prim__readyState (up a)
+    IDBRequest.prim__readyState (cast a)
 
 
   export
-  result :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem IDBRequest (Types t1)}
-    -> (obj : t1)
-    -> JSIO Any
-  result a = tryJS "IDBRequest.result" $ IDBRequest.prim__result (up a)
+  result : {auto _ : Cast t1 IDBRequest} -> (obj : t1) -> JSIO Any
+  result a = tryJS "IDBRequest.result" $ IDBRequest.prim__result (cast a)
 
 
   export
   source :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem IDBRequest (Types t1)}
+       {auto _ : Cast t1 IDBRequest}
     -> (obj : t1)
     -> JSIO (Maybe (HSum [IDBObjectStore, IDBIndex, IDBCursor]))
-  source a = tryJS "IDBRequest.source" $ IDBRequest.prim__source (up a)
+  source a = tryJS "IDBRequest.source" $ IDBRequest.prim__source (cast a)
 
 
   export
   transaction :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem IDBRequest (Types t1)}
+       {auto _ : Cast t1 IDBRequest}
     -> (obj : t1)
     -> JSIO (Maybe IDBTransaction)
   transaction a = tryJS "IDBRequest.transaction" $
-    IDBRequest.prim__transaction (up a)
+    IDBRequest.prim__transaction (cast a)
 
 
 
@@ -777,8 +738,7 @@ namespace IDBVersionChangeEvent
 
   export
   new' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem IDBVersionChangeEventInit (Types t2)}
+       {auto _ : Cast t2 IDBVersionChangeEventInit}
     -> (type : String)
     -> (eventInitDict : Optional t2)
     -> JSIO IDBVersionChangeEvent
@@ -823,28 +783,26 @@ namespace IDBDatabaseInfo
 
   export
   name :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem IDBDatabaseInfo (Types t)}
+       {auto _ : Cast t IDBDatabaseInfo}
     -> t
     -> Attribute False Optional String
   name v = fromUndefOrPrimNoDefault
              "IDBDatabaseInfo.getname"
              prim__name
              prim__setName
-             (v :> IDBDatabaseInfo)
+             (cast {to = IDBDatabaseInfo} v)
 
 
   export
   version :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem IDBDatabaseInfo (Types t)}
+       {auto _ : Cast t IDBDatabaseInfo}
     -> t
     -> Attribute False Optional JSBits64
   version v = fromUndefOrPrimNoDefault
                 "IDBDatabaseInfo.getversion"
                 prim__version
                 prim__setVersion
-                (v :> IDBDatabaseInfo)
+                (cast {to = IDBDatabaseInfo} v)
 
 
 
@@ -864,8 +822,7 @@ namespace IDBIndexParameters
 
   export
   multiEntry :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem IDBIndexParameters (Types t)}
+       {auto _ : Cast t IDBIndexParameters}
     -> t
     -> Attribute True Optional Bool
   multiEntry v = fromUndefOrPrim
@@ -873,13 +830,12 @@ namespace IDBIndexParameters
                    prim__multiEntry
                    prim__setMultiEntry
                    False
-                   (v :> IDBIndexParameters)
+                   (cast {to = IDBIndexParameters} v)
 
 
   export
   unique :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem IDBIndexParameters (Types t)}
+       {auto _ : Cast t IDBIndexParameters}
     -> t
     -> Attribute True Optional Bool
   unique v = fromUndefOrPrim
@@ -887,7 +843,7 @@ namespace IDBIndexParameters
                prim__unique
                prim__setUnique
                False
-               (v :> IDBIndexParameters)
+               (cast {to = IDBIndexParameters} v)
 
 
 
@@ -907,8 +863,7 @@ namespace IDBObjectStoreParameters
 
   export
   autoIncrement :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem IDBObjectStoreParameters (Types t)}
+       {auto _ : Cast t IDBObjectStoreParameters}
     -> t
     -> Attribute True Optional Bool
   autoIncrement v = fromUndefOrPrim
@@ -916,13 +871,12 @@ namespace IDBObjectStoreParameters
                       prim__autoIncrement
                       prim__setAutoIncrement
                       False
-                      (v :> IDBObjectStoreParameters)
+                      (cast {to = IDBObjectStoreParameters} v)
 
 
   export
   keyPath :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem IDBObjectStoreParameters (Types t)}
+       {auto _ : Cast t IDBObjectStoreParameters}
     -> t
     -> Attribute True Optional (Maybe (Union2 String (Array String)))
   keyPath v = fromUndefOrPrim
@@ -930,7 +884,7 @@ namespace IDBObjectStoreParameters
                 prim__keyPath
                 prim__setKeyPath
                 Nothing
-                (v :> IDBObjectStoreParameters)
+                (cast {to = IDBObjectStoreParameters} v)
 
 
 
@@ -949,15 +903,14 @@ namespace IDBTransactionOptions
 
   export
   durability :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem IDBTransactionOptions (Types t)}
+       {auto _ : Cast t IDBTransactionOptions}
     -> t
     -> Attribute False Optional IDBTransactionDurability
   durability v = fromUndefOrPrimNoDefault
                    "IDBTransactionOptions.getdurability"
                    prim__durability
                    prim__setDurability
-                   (v :> IDBTransactionOptions)
+                   (cast {to = IDBTransactionOptions} v)
 
 
 
@@ -977,8 +930,7 @@ namespace IDBVersionChangeEventInit
 
   export
   newVersion :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem IDBVersionChangeEventInit (Types t)}
+       {auto _ : Cast t IDBVersionChangeEventInit}
     -> t
     -> Attribute True Optional (Maybe JSBits64)
   newVersion v = fromUndefOrPrim
@@ -986,13 +938,12 @@ namespace IDBVersionChangeEventInit
                    prim__newVersion
                    prim__setNewVersion
                    Nothing
-                   (v :> IDBVersionChangeEventInit)
+                   (cast {to = IDBVersionChangeEventInit} v)
 
 
   export
   oldVersion :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem IDBVersionChangeEventInit (Types t)}
+       {auto _ : Cast t IDBVersionChangeEventInit}
     -> t
     -> Attribute True Optional JSBits64
   oldVersion v = fromUndefOrPrim
@@ -1000,4 +951,4 @@ namespace IDBVersionChangeEventInit
                    prim__oldVersion
                    prim__setOldVersion
                    0
-                   (v :> IDBVersionChangeEventInit)
+                   (cast {to = IDBVersionChangeEventInit} v)

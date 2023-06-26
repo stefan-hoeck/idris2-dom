@@ -14,20 +14,20 @@ namespace IDBRequestReadyState
   public export
   data IDBRequestReadyState = Pending | Done
 
-  public export
+  export
   Show IDBRequestReadyState where
     show Pending = "pending"
     show Done = "done"
 
-  public export
+  export
   Eq IDBRequestReadyState where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord IDBRequestReadyState where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe IDBRequestReadyState
   read "pending" = Just Pending
   read "done" = Just Done
@@ -47,21 +47,21 @@ namespace IDBTransactionDurability
   public export
   data IDBTransactionDurability = Default | Strict | Relaxed
 
-  public export
+  export
   Show IDBTransactionDurability where
     show Default = "default"
     show Strict = "strict"
     show Relaxed = "relaxed"
 
-  public export
+  export
   Eq IDBTransactionDurability where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord IDBTransactionDurability where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe IDBTransactionDurability
   read "default" = Just Default
   read "strict" = Just Strict
@@ -82,22 +82,22 @@ namespace IDBCursorDirection
   public export
   data IDBCursorDirection = Next | Nextunique | Prev | Prevunique
 
-  public export
+  export
   Show IDBCursorDirection where
     show Next = "next"
     show Nextunique = "nextunique"
     show Prev = "prev"
     show Prevunique = "prevunique"
 
-  public export
+  export
   Eq IDBCursorDirection where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord IDBCursorDirection where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe IDBCursorDirection
   read "next" = Just Next
   read "nextunique" = Just Nextunique
@@ -119,21 +119,21 @@ namespace IDBTransactionMode
   public export
   data IDBTransactionMode = Readonly | Readwrite | Versionchange
 
-  public export
+  export
   Show IDBTransactionMode where
     show Readonly = "readonly"
     show Readwrite = "readwrite"
     show Versionchange = "versionchange"
 
-  public export
+  export
   Eq IDBTransactionMode where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord IDBTransactionMode where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe IDBTransactionMode
   read "readonly" = Just Readonly
   read "readwrite" = Just Readwrite

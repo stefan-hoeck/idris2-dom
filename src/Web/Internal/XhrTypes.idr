@@ -20,7 +20,7 @@ namespace XMLHttpRequestResponseType
     | Json
     | Text
 
-  public export
+  export
   Show XMLHttpRequestResponseType where
     show Empty = ""
     show Arraybuffer = "arraybuffer"
@@ -29,15 +29,15 @@ namespace XMLHttpRequestResponseType
     show Json = "json"
     show Text = "text"
 
-  public export
+  export
   Eq XMLHttpRequestResponseType where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord XMLHttpRequestResponseType where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe XMLHttpRequestResponseType
   read "" = Just Empty
   read "arraybuffer" = Just Arraybuffer

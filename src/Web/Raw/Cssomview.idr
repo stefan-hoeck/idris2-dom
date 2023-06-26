@@ -72,8 +72,7 @@ namespace MediaQueryListEvent
 
   export
   new' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem MediaQueryListEventInit (Types t2)}
+       {auto _ : Cast t2 MediaQueryListEventInit}
     -> (type : String)
     -> (eventInitDict : Optional t2)
     -> JSIO MediaQueryListEvent
@@ -203,112 +202,106 @@ namespace GeometryUtils
 
   export
   convertPointFromNode' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t2}
-    -> {auto 0 _ : JSType t4}
-    -> {auto 0 _ : Elem GeometryUtils (Types t1)}
-    -> {auto 0 _ : Elem DOMPointInit (Types t2)}
-    -> {auto 0 _ : Elem ConvertCoordinateOptions (Types t4)}
+       {auto _ : Cast t1 GeometryUtils}
+    -> {auto _ : Cast t2 DOMPointInit}
+    -> {auto _ : Cast t4 ConvertCoordinateOptions}
     -> (obj : t1)
     -> (point : t2)
     -> (from : HSum [Text, Element, CSSPseudoElement, Document])
     -> (options : Optional t4)
     -> JSIO DOMPoint
   convertPointFromNode' a b c d = primJS $
-    GeometryUtils.prim__convertPointFromNode (up a) (up b) (toFFI c) (optUp d)
+    GeometryUtils.prim__convertPointFromNode
+      (cast a)
+      (cast b)
+      (toFFI c)
+      (optUp d)
 
   export
   convertPointFromNode :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem GeometryUtils (Types t1)}
-    -> {auto 0 _ : Elem DOMPointInit (Types t2)}
+       {auto _ : Cast t1 GeometryUtils}
+    -> {auto _ : Cast t2 DOMPointInit}
     -> (obj : t1)
     -> (point : t2)
     -> (from : HSum [Text, Element, CSSPseudoElement, Document])
     -> JSIO DOMPoint
   convertPointFromNode a b c = primJS $
-    GeometryUtils.prim__convertPointFromNode (up a) (up b) (toFFI c) undef
+    GeometryUtils.prim__convertPointFromNode (cast a) (cast b) (toFFI c) undef
 
 
   export
   convertQuadFromNode' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t2}
-    -> {auto 0 _ : JSType t4}
-    -> {auto 0 _ : Elem GeometryUtils (Types t1)}
-    -> {auto 0 _ : Elem DOMQuadInit (Types t2)}
-    -> {auto 0 _ : Elem ConvertCoordinateOptions (Types t4)}
+       {auto _ : Cast t1 GeometryUtils}
+    -> {auto _ : Cast t2 DOMQuadInit}
+    -> {auto _ : Cast t4 ConvertCoordinateOptions}
     -> (obj : t1)
     -> (quad : t2)
     -> (from : HSum [Text, Element, CSSPseudoElement, Document])
     -> (options : Optional t4)
     -> JSIO DOMQuad
   convertQuadFromNode' a b c d = primJS $
-    GeometryUtils.prim__convertQuadFromNode (up a) (up b) (toFFI c) (optUp d)
+    GeometryUtils.prim__convertQuadFromNode
+      (cast a)
+      (cast b)
+      (toFFI c)
+      (optUp d)
 
   export
   convertQuadFromNode :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem GeometryUtils (Types t1)}
-    -> {auto 0 _ : Elem DOMQuadInit (Types t2)}
+       {auto _ : Cast t1 GeometryUtils}
+    -> {auto _ : Cast t2 DOMQuadInit}
     -> (obj : t1)
     -> (quad : t2)
     -> (from : HSum [Text, Element, CSSPseudoElement, Document])
     -> JSIO DOMQuad
   convertQuadFromNode a b c = primJS $
-    GeometryUtils.prim__convertQuadFromNode (up a) (up b) (toFFI c) undef
+    GeometryUtils.prim__convertQuadFromNode (cast a) (cast b) (toFFI c) undef
 
 
   export
   convertRectFromNode' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t2}
-    -> {auto 0 _ : JSType t4}
-    -> {auto 0 _ : Elem GeometryUtils (Types t1)}
-    -> {auto 0 _ : Elem DOMRectReadOnly (Types t2)}
-    -> {auto 0 _ : Elem ConvertCoordinateOptions (Types t4)}
+       {auto _ : Cast t1 GeometryUtils}
+    -> {auto _ : Cast t2 DOMRectReadOnly}
+    -> {auto _ : Cast t4 ConvertCoordinateOptions}
     -> (obj : t1)
     -> (rect : t2)
     -> (from : HSum [Text, Element, CSSPseudoElement, Document])
     -> (options : Optional t4)
     -> JSIO DOMQuad
   convertRectFromNode' a b c d = primJS $
-    GeometryUtils.prim__convertRectFromNode (up a) (up b) (toFFI c) (optUp d)
+    GeometryUtils.prim__convertRectFromNode
+      (cast a)
+      (cast b)
+      (toFFI c)
+      (optUp d)
 
   export
   convertRectFromNode :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem GeometryUtils (Types t1)}
-    -> {auto 0 _ : Elem DOMRectReadOnly (Types t2)}
+       {auto _ : Cast t1 GeometryUtils}
+    -> {auto _ : Cast t2 DOMRectReadOnly}
     -> (obj : t1)
     -> (rect : t2)
     -> (from : HSum [Text, Element, CSSPseudoElement, Document])
     -> JSIO DOMQuad
   convertRectFromNode a b c = primJS $
-    GeometryUtils.prim__convertRectFromNode (up a) (up b) (toFFI c) undef
+    GeometryUtils.prim__convertRectFromNode (cast a) (cast b) (toFFI c) undef
 
 
   export
   getBoxQuads' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem GeometryUtils (Types t1)}
-    -> {auto 0 _ : Elem BoxQuadOptions (Types t2)}
+       {auto _ : Cast t1 GeometryUtils}
+    -> {auto _ : Cast t2 BoxQuadOptions}
     -> (obj : t1)
     -> (options : Optional t2)
     -> JSIO (Array DOMQuad)
-  getBoxQuads' a b = primJS $ GeometryUtils.prim__getBoxQuads (up a) (optUp b)
+  getBoxQuads' a b = primJS $ GeometryUtils.prim__getBoxQuads (cast a) (optUp b)
 
   export
   getBoxQuads :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem GeometryUtils (Types t1)}
+       {auto _ : Cast t1 GeometryUtils}
     -> (obj : t1)
     -> JSIO (Array DOMQuad)
-  getBoxQuads a = primJS $ GeometryUtils.prim__getBoxQuads (up a) undef
+  getBoxQuads a = primJS $ GeometryUtils.prim__getBoxQuads (cast a) undef
 
 
 
@@ -334,21 +327,19 @@ namespace BoxQuadOptions
 
   export
   box :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem BoxQuadOptions (Types t)}
+       {auto _ : Cast t BoxQuadOptions}
     -> t
     -> Attribute False Optional CSSBoxType
   box v = fromUndefOrPrimNoDefault
             "BoxQuadOptions.getbox"
             prim__box
             prim__setBox
-            (v :> BoxQuadOptions)
+            (cast {to = BoxQuadOptions} v)
 
 
   export
   relativeTo :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem BoxQuadOptions (Types t)}
+       {auto _ : Cast t BoxQuadOptions}
     -> t
     -> Attribute False Optional (HSum
                                    [Text, Element, CSSPseudoElement, Document])
@@ -356,7 +347,7 @@ namespace BoxQuadOptions
                    "BoxQuadOptions.getrelativeTo"
                    prim__relativeTo
                    prim__setRelativeTo
-                   (v :> BoxQuadOptions)
+                   (cast {to = BoxQuadOptions} v)
 
 
 
@@ -376,8 +367,7 @@ namespace CheckVisibilityOptions
 
   export
   checkOpacity :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem CheckVisibilityOptions (Types t)}
+       {auto _ : Cast t CheckVisibilityOptions}
     -> t
     -> Attribute True Optional Bool
   checkOpacity v = fromUndefOrPrim
@@ -385,13 +375,12 @@ namespace CheckVisibilityOptions
                      prim__checkOpacity
                      prim__setCheckOpacity
                      False
-                     (v :> CheckVisibilityOptions)
+                     (cast {to = CheckVisibilityOptions} v)
 
 
   export
   checkVisibilityCSS :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem CheckVisibilityOptions (Types t)}
+       {auto _ : Cast t CheckVisibilityOptions}
     -> t
     -> Attribute True Optional Bool
   checkVisibilityCSS v = fromUndefOrPrim
@@ -399,7 +388,7 @@ namespace CheckVisibilityOptions
                            prim__checkVisibilityCSS
                            prim__setCheckVisibilityCSS
                            False
-                           (v :> CheckVisibilityOptions)
+                           (cast {to = CheckVisibilityOptions} v)
 
 
 
@@ -419,28 +408,26 @@ namespace ConvertCoordinateOptions
 
   export
   fromBox :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ConvertCoordinateOptions (Types t)}
+       {auto _ : Cast t ConvertCoordinateOptions}
     -> t
     -> Attribute False Optional CSSBoxType
   fromBox v = fromUndefOrPrimNoDefault
                 "ConvertCoordinateOptions.getfromBox"
                 prim__fromBox
                 prim__setFromBox
-                (v :> ConvertCoordinateOptions)
+                (cast {to = ConvertCoordinateOptions} v)
 
 
   export
   toBox :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ConvertCoordinateOptions (Types t)}
+       {auto _ : Cast t ConvertCoordinateOptions}
     -> t
     -> Attribute False Optional CSSBoxType
   toBox v = fromUndefOrPrimNoDefault
               "ConvertCoordinateOptions.gettoBox"
               prim__toBox
               prim__setToBox
-              (v :> ConvertCoordinateOptions)
+              (cast {to = ConvertCoordinateOptions} v)
 
 
 
@@ -460,8 +447,7 @@ namespace MediaQueryListEventInit
 
   export
   matches :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem MediaQueryListEventInit (Types t)}
+       {auto _ : Cast t MediaQueryListEventInit}
     -> t
     -> Attribute True Optional Bool
   matches v = fromUndefOrPrim
@@ -469,13 +455,12 @@ namespace MediaQueryListEventInit
                 prim__matches
                 prim__setMatches
                 False
-                (v :> MediaQueryListEventInit)
+                (cast {to = MediaQueryListEventInit} v)
 
 
   export
   media :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem MediaQueryListEventInit (Types t)}
+       {auto _ : Cast t MediaQueryListEventInit}
     -> t
     -> Attribute True Optional String
   media v = fromUndefOrPrim
@@ -483,7 +468,7 @@ namespace MediaQueryListEventInit
               prim__media
               prim__setMedia
               ""
-              (v :> MediaQueryListEventInit)
+              (cast {to = MediaQueryListEventInit} v)
 
 
 
@@ -503,28 +488,26 @@ namespace ScrollIntoViewOptions
 
   export
   block :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ScrollIntoViewOptions (Types t)}
+       {auto _ : Cast t ScrollIntoViewOptions}
     -> t
     -> Attribute False Optional ScrollLogicalPosition
   block v = fromUndefOrPrimNoDefault
               "ScrollIntoViewOptions.getblock"
               prim__block
               prim__setBlock
-              (v :> ScrollIntoViewOptions)
+              (cast {to = ScrollIntoViewOptions} v)
 
 
   export
   inline :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ScrollIntoViewOptions (Types t)}
+       {auto _ : Cast t ScrollIntoViewOptions}
     -> t
     -> Attribute False Optional ScrollLogicalPosition
   inline v = fromUndefOrPrimNoDefault
                "ScrollIntoViewOptions.getinline"
                prim__inline
                prim__setInline
-               (v :> ScrollIntoViewOptions)
+               (cast {to = ScrollIntoViewOptions} v)
 
 
 
@@ -541,15 +524,14 @@ namespace ScrollOptions
 
   export
   behavior :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ScrollOptions (Types t)}
+       {auto _ : Cast t ScrollOptions}
     -> t
     -> Attribute False Optional ScrollBehavior
   behavior v = fromUndefOrPrimNoDefault
                  "ScrollOptions.getbehavior"
                  prim__behavior
                  prim__setBehavior
-                 (v :> ScrollOptions)
+                 (cast {to = ScrollOptions} v)
 
 
 
@@ -569,25 +551,23 @@ namespace ScrollToOptions
 
   export
   left :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ScrollToOptions (Types t)}
+       {auto _ : Cast t ScrollToOptions}
     -> t
     -> Attribute False Optional Double
   left v = fromUndefOrPrimNoDefault
              "ScrollToOptions.getleft"
              prim__left
              prim__setLeft
-             (v :> ScrollToOptions)
+             (cast {to = ScrollToOptions} v)
 
 
   export
   top :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ScrollToOptions (Types t)}
+       {auto _ : Cast t ScrollToOptions}
     -> t
     -> Attribute False Optional Double
   top v = fromUndefOrPrimNoDefault
             "ScrollToOptions.gettop"
             prim__top
             prim__setTop
-            (v :> ScrollToOptions)
+            (cast {to = ScrollToOptions} v)

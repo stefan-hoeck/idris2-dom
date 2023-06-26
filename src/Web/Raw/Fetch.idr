@@ -64,8 +64,7 @@ namespace Request
 
   export
   new' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem RequestInit (Types t2)}
+       {auto _ : Cast t2 RequestInit}
     -> (input : HSum [Request, String])
     -> (init : Optional t2)
     -> JSIO Request
@@ -164,8 +163,7 @@ namespace Response
 
   export
   new' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem ResponseInit (Types t2)}
+       {auto _ : Cast t2 ResponseInit}
     -> (body : Optional
                  (Maybe
                     (HSum
@@ -258,66 +256,41 @@ namespace Response
 namespace Body
 
   export
-  body :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Body (Types t1)}
-    -> (obj : t1)
-    -> JSIO (Maybe ReadableStream)
-  body a = tryJS "Body.body" $ Body.prim__body (up a)
+  body : {auto _ : Cast t1 Body} -> (obj : t1) -> JSIO (Maybe ReadableStream)
+  body a = tryJS "Body.body" $ Body.prim__body (cast a)
 
 
   export
-  bodyUsed :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Body (Types t1)}
-    -> (obj : t1)
-    -> JSIO Bool
-  bodyUsed a = tryJS "Body.bodyUsed" $ Body.prim__bodyUsed (up a)
+  bodyUsed : {auto _ : Cast t1 Body} -> (obj : t1) -> JSIO Bool
+  bodyUsed a = tryJS "Body.bodyUsed" $ Body.prim__bodyUsed (cast a)
 
 
   export
   arrayBuffer :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Body (Types t1)}
+       {auto _ : Cast t1 Body}
     -> (obj : t1)
     -> JSIO (Promise ArrayBuffer)
-  arrayBuffer a = primJS $ Body.prim__arrayBuffer (up a)
+  arrayBuffer a = primJS $ Body.prim__arrayBuffer (cast a)
 
 
   export
-  blob :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Body (Types t1)}
-    -> (obj : t1)
-    -> JSIO (Promise Blob)
-  blob a = primJS $ Body.prim__blob (up a)
+  blob : {auto _ : Cast t1 Body} -> (obj : t1) -> JSIO (Promise Blob)
+  blob a = primJS $ Body.prim__blob (cast a)
 
 
   export
-  formData :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Body (Types t1)}
-    -> (obj : t1)
-    -> JSIO (Promise FormData)
-  formData a = primJS $ Body.prim__formData (up a)
+  formData : {auto _ : Cast t1 Body} -> (obj : t1) -> JSIO (Promise FormData)
+  formData a = primJS $ Body.prim__formData (cast a)
 
 
   export
-  json :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Body (Types t1)}
-    -> (obj : t1)
-    -> JSIO (Promise AnyPtr)
-  json a = primJS $ Body.prim__json (up a)
+  json : {auto _ : Cast t1 Body} -> (obj : t1) -> JSIO (Promise AnyPtr)
+  json a = primJS $ Body.prim__json (cast a)
 
 
   export
-  text :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem Body (Types t1)}
-    -> (obj : t1)
-    -> JSIO (Promise String)
-  text a = primJS $ Body.prim__text (up a)
+  text : {auto _ : Cast t1 Body} -> (obj : t1) -> JSIO (Promise String)
+  text a = primJS $ Body.prim__text (cast a)
 
 
 
@@ -404,8 +377,7 @@ namespace RequestInit
 
   export
   body :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem RequestInit (Types t)}
+       {auto _ : Cast t RequestInit}
     -> t
     -> Attribute False Optional (Maybe
                                    (Union16
@@ -429,39 +401,36 @@ namespace RequestInit
              "RequestInit.getbody"
              prim__body
              prim__setBody
-             (v :> RequestInit)
+             (cast {to = RequestInit} v)
 
 
   export
   cache :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem RequestInit (Types t)}
+       {auto _ : Cast t RequestInit}
     -> t
     -> Attribute False Optional RequestCache
   cache v = fromUndefOrPrimNoDefault
               "RequestInit.getcache"
               prim__cache
               prim__setCache
-              (v :> RequestInit)
+              (cast {to = RequestInit} v)
 
 
   export
   credentials :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem RequestInit (Types t)}
+       {auto _ : Cast t RequestInit}
     -> t
     -> Attribute False Optional RequestCredentials
   credentials v = fromUndefOrPrimNoDefault
                     "RequestInit.getcredentials"
                     prim__credentials
                     prim__setCredentials
-                    (v :> RequestInit)
+                    (cast {to = RequestInit} v)
 
 
   export
   headers :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem RequestInit (Types t)}
+       {auto _ : Cast t RequestInit}
     -> t
     -> Attribute False Optional (Union2
                                    (Array (Array ByteString))
@@ -470,124 +439,112 @@ namespace RequestInit
                 "RequestInit.getheaders"
                 prim__headers
                 prim__setHeaders
-                (v :> RequestInit)
+                (cast {to = RequestInit} v)
 
 
   export
   integrity :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem RequestInit (Types t)}
+       {auto _ : Cast t RequestInit}
     -> t
     -> Attribute False Optional String
   integrity v = fromUndefOrPrimNoDefault
                   "RequestInit.getintegrity"
                   prim__integrity
                   prim__setIntegrity
-                  (v :> RequestInit)
+                  (cast {to = RequestInit} v)
 
 
   export
   keepalive :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem RequestInit (Types t)}
+       {auto _ : Cast t RequestInit}
     -> t
     -> Attribute False Optional Bool
   keepalive v = fromUndefOrPrimNoDefault
                   "RequestInit.getkeepalive"
                   prim__keepalive
                   prim__setKeepalive
-                  (v :> RequestInit)
+                  (cast {to = RequestInit} v)
 
 
   export
   method :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem RequestInit (Types t)}
+       {auto _ : Cast t RequestInit}
     -> t
     -> Attribute False Optional ByteString
   method v = fromUndefOrPrimNoDefault
                "RequestInit.getmethod"
                prim__method
                prim__setMethod
-               (v :> RequestInit)
+               (cast {to = RequestInit} v)
 
 
   export
   mode :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem RequestInit (Types t)}
+       {auto _ : Cast t RequestInit}
     -> t
     -> Attribute False Optional RequestMode
   mode v = fromUndefOrPrimNoDefault
              "RequestInit.getmode"
              prim__mode
              prim__setMode
-             (v :> RequestInit)
+             (cast {to = RequestInit} v)
 
 
   export
   redirect :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem RequestInit (Types t)}
+       {auto _ : Cast t RequestInit}
     -> t
     -> Attribute False Optional RequestRedirect
   redirect v = fromUndefOrPrimNoDefault
                  "RequestInit.getredirect"
                  prim__redirect
                  prim__setRedirect
-                 (v :> RequestInit)
+                 (cast {to = RequestInit} v)
 
 
   export
   referrer :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem RequestInit (Types t)}
+       {auto _ : Cast t RequestInit}
     -> t
     -> Attribute False Optional String
   referrer v = fromUndefOrPrimNoDefault
                  "RequestInit.getreferrer"
                  prim__referrer
                  prim__setReferrer
-                 (v :> RequestInit)
+                 (cast {to = RequestInit} v)
 
 
   export
   referrerPolicy :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem RequestInit (Types t)}
+       {auto _ : Cast t RequestInit}
     -> t
     -> Attribute False Optional ReferrerPolicy
   referrerPolicy v = fromUndefOrPrimNoDefault
                        "RequestInit.getreferrerPolicy"
                        prim__referrerPolicy
                        prim__setReferrerPolicy
-                       (v :> RequestInit)
+                       (cast {to = RequestInit} v)
 
 
   export
   signal :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem RequestInit (Types t)}
+       {auto _ : Cast t RequestInit}
     -> t
     -> Attribute False Optional (Maybe AbortSignal)
   signal v = fromUndefOrPrimNoDefault
                "RequestInit.getsignal"
                prim__signal
                prim__setSignal
-               (v :> RequestInit)
+               (cast {to = RequestInit} v)
 
 
   export
-  window :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem RequestInit (Types t)}
-    -> t
-    -> Attribute False Optional Any
+  window : {auto _ : Cast t RequestInit} -> t -> Attribute False Optional Any
   window v = fromUndefOrPrimNoDefault
                "RequestInit.getwindow"
                prim__window
                prim__setWindow
-               (v :> RequestInit)
+               (cast {to = RequestInit} v)
 
 
 
@@ -612,8 +569,7 @@ namespace ResponseInit
 
   export
   headers :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ResponseInit (Types t)}
+       {auto _ : Cast t ResponseInit}
     -> t
     -> Attribute False Optional (Union2
                                    (Array (Array ByteString))
@@ -622,31 +578,26 @@ namespace ResponseInit
                 "ResponseInit.getheaders"
                 prim__headers
                 prim__setHeaders
-                (v :> ResponseInit)
+                (cast {to = ResponseInit} v)
 
 
   export
-  status :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ResponseInit (Types t)}
-    -> t
-    -> Attribute True Optional Bits16
+  status : {auto _ : Cast t ResponseInit} -> t -> Attribute True Optional Bits16
   status v = fromUndefOrPrim
                "ResponseInit.getstatus"
                prim__status
                prim__setStatus
                200
-               (v :> ResponseInit)
+               (cast {to = ResponseInit} v)
 
 
   export
   statusText :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem ResponseInit (Types t)}
+       {auto _ : Cast t ResponseInit}
     -> t
     -> Attribute False Optional ByteString
   statusText v = fromUndefOrPrimNoDefault
                    "ResponseInit.getstatusText"
                    prim__statusText
                    prim__setStatusText
-                   (v :> ResponseInit)
+                   (cast {to = ResponseInit} v)

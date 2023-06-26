@@ -1,0 +1,22 @@
+module Web.Raw.SVGUnitTypes
+
+import JS
+import Web.Types.SVGUnitTypes
+
+
+%default total
+
+
+export
+SVG_UNIT_TYPE_OBJECTBOUNDINGBOX : Bits16
+SVG_UNIT_TYPE_OBJECTBOUNDINGBOX = 2
+
+
+export
+SVG_UNIT_TYPE_UNKNOWN : Bits16
+SVG_UNIT_TYPE_UNKNOWN = 0
+
+
+export
+SVG_UNIT_TYPE_USERSPACEONUSE : Bits16
+SVG_UNIT_TYPE_USERSPACEONUSE = 1

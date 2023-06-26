@@ -25,8 +25,7 @@ namespace DOMMatrix
 
   export
   fromMatrix' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixInit (Types t1)}
+       {auto _ : Cast t1 DOMMatrixInit}
     -> (other : Optional t1)
     -> JSIO DOMMatrix
   fromMatrix' a = primJS $ DOMMatrix.prim__fromMatrix (optUp a)
@@ -43,8 +42,7 @@ namespace DOMMatrix
 
   export
   multiplySelf' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem DOMMatrixInit (Types t2)}
+       {auto _ : Cast t2 DOMMatrixInit}
     -> (obj : DOMMatrix)
     -> (other : Optional t2)
     -> JSIO DOMMatrix
@@ -57,8 +55,7 @@ namespace DOMMatrix
 
   export
   preMultiplySelf' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem DOMMatrixInit (Types t2)}
+       {auto _ : Cast t2 DOMMatrixInit}
     -> (obj : DOMMatrix)
     -> (other : Optional t2)
     -> JSIO DOMMatrix
@@ -219,8 +216,7 @@ namespace DOMMatrixReadOnly
 
   export
   fromMatrix' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixInit (Types t1)}
+       {auto _ : Cast t1 DOMMatrixInit}
     -> (other : Optional t1)
     -> JSIO DOMMatrixReadOnly
   fromMatrix' a = primJS $ DOMMatrixReadOnly.prim__fromMatrix (optUp a)
@@ -231,273 +227,162 @@ namespace DOMMatrixReadOnly
 
 
   export
-  a :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  a b = primJS $ DOMMatrixReadOnly.prim__a (up b)
+  a : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO Double
+  a b = primJS $ DOMMatrixReadOnly.prim__a (cast b)
 
 
   export
-  b :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  b a = primJS $ DOMMatrixReadOnly.prim__b (up a)
+  b : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO Double
+  b a = primJS $ DOMMatrixReadOnly.prim__b (cast a)
 
 
   export
-  c :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  c a = primJS $ DOMMatrixReadOnly.prim__c (up a)
+  c : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO Double
+  c a = primJS $ DOMMatrixReadOnly.prim__c (cast a)
 
 
   export
-  d :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  d a = primJS $ DOMMatrixReadOnly.prim__d (up a)
+  d : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO Double
+  d a = primJS $ DOMMatrixReadOnly.prim__d (cast a)
 
 
   export
-  e :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  e a = primJS $ DOMMatrixReadOnly.prim__e (up a)
+  e : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO Double
+  e a = primJS $ DOMMatrixReadOnly.prim__e (cast a)
 
 
   export
-  f :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  f a = primJS $ DOMMatrixReadOnly.prim__f (up a)
+  f : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO Double
+  f a = primJS $ DOMMatrixReadOnly.prim__f (cast a)
 
 
   export
-  is2D :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Bool
-  is2D a = tryJS "DOMMatrixReadOnly.is2D" $ DOMMatrixReadOnly.prim__is2D (up a)
+  is2D : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO Bool
+  is2D a = tryJS "DOMMatrixReadOnly.is2D" $
+    DOMMatrixReadOnly.prim__is2D (cast a)
 
 
   export
-  isIdentity :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Bool
+  isIdentity : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO Bool
   isIdentity a = tryJS "DOMMatrixReadOnly.isIdentity" $
-    DOMMatrixReadOnly.prim__isIdentity (up a)
+    DOMMatrixReadOnly.prim__isIdentity (cast a)
 
 
   export
-  m11 :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  m11 a = primJS $ DOMMatrixReadOnly.prim__m11 (up a)
+  m11 : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO Double
+  m11 a = primJS $ DOMMatrixReadOnly.prim__m11 (cast a)
 
 
   export
-  m12 :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  m12 a = primJS $ DOMMatrixReadOnly.prim__m12 (up a)
+  m12 : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO Double
+  m12 a = primJS $ DOMMatrixReadOnly.prim__m12 (cast a)
 
 
   export
-  m13 :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  m13 a = primJS $ DOMMatrixReadOnly.prim__m13 (up a)
+  m13 : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO Double
+  m13 a = primJS $ DOMMatrixReadOnly.prim__m13 (cast a)
 
 
   export
-  m14 :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  m14 a = primJS $ DOMMatrixReadOnly.prim__m14 (up a)
+  m14 : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO Double
+  m14 a = primJS $ DOMMatrixReadOnly.prim__m14 (cast a)
 
 
   export
-  m21 :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  m21 a = primJS $ DOMMatrixReadOnly.prim__m21 (up a)
+  m21 : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO Double
+  m21 a = primJS $ DOMMatrixReadOnly.prim__m21 (cast a)
 
 
   export
-  m22 :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  m22 a = primJS $ DOMMatrixReadOnly.prim__m22 (up a)
+  m22 : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO Double
+  m22 a = primJS $ DOMMatrixReadOnly.prim__m22 (cast a)
 
 
   export
-  m23 :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  m23 a = primJS $ DOMMatrixReadOnly.prim__m23 (up a)
+  m23 : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO Double
+  m23 a = primJS $ DOMMatrixReadOnly.prim__m23 (cast a)
 
 
   export
-  m24 :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  m24 a = primJS $ DOMMatrixReadOnly.prim__m24 (up a)
+  m24 : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO Double
+  m24 a = primJS $ DOMMatrixReadOnly.prim__m24 (cast a)
 
 
   export
-  m31 :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  m31 a = primJS $ DOMMatrixReadOnly.prim__m31 (up a)
+  m31 : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO Double
+  m31 a = primJS $ DOMMatrixReadOnly.prim__m31 (cast a)
 
 
   export
-  m32 :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  m32 a = primJS $ DOMMatrixReadOnly.prim__m32 (up a)
+  m32 : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO Double
+  m32 a = primJS $ DOMMatrixReadOnly.prim__m32 (cast a)
 
 
   export
-  m33 :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  m33 a = primJS $ DOMMatrixReadOnly.prim__m33 (up a)
+  m33 : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO Double
+  m33 a = primJS $ DOMMatrixReadOnly.prim__m33 (cast a)
 
 
   export
-  m34 :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  m34 a = primJS $ DOMMatrixReadOnly.prim__m34 (up a)
+  m34 : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO Double
+  m34 a = primJS $ DOMMatrixReadOnly.prim__m34 (cast a)
 
 
   export
-  m41 :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  m41 a = primJS $ DOMMatrixReadOnly.prim__m41 (up a)
+  m41 : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO Double
+  m41 a = primJS $ DOMMatrixReadOnly.prim__m41 (cast a)
 
 
   export
-  m42 :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  m42 a = primJS $ DOMMatrixReadOnly.prim__m42 (up a)
+  m42 : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO Double
+  m42 a = primJS $ DOMMatrixReadOnly.prim__m42 (cast a)
 
 
   export
-  m43 :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  m43 a = primJS $ DOMMatrixReadOnly.prim__m43 (up a)
+  m43 : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO Double
+  m43 a = primJS $ DOMMatrixReadOnly.prim__m43 (cast a)
 
 
   export
-  m44 :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  m44 a = primJS $ DOMMatrixReadOnly.prim__m44 (up a)
+  m44 : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO Double
+  m44 a = primJS $ DOMMatrixReadOnly.prim__m44 (cast a)
 
 
   export
-  flipX :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO DOMMatrix
-  flipX a = primJS $ DOMMatrixReadOnly.prim__flipX (up a)
+  flipX : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO DOMMatrix
+  flipX a = primJS $ DOMMatrixReadOnly.prim__flipX (cast a)
 
 
   export
-  flipY :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO DOMMatrix
-  flipY a = primJS $ DOMMatrixReadOnly.prim__flipY (up a)
+  flipY : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO DOMMatrix
+  flipY a = primJS $ DOMMatrixReadOnly.prim__flipY (cast a)
 
 
   export
-  inverse :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO DOMMatrix
-  inverse a = primJS $ DOMMatrixReadOnly.prim__inverse (up a)
+  inverse : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO DOMMatrix
+  inverse a = primJS $ DOMMatrixReadOnly.prim__inverse (cast a)
 
 
   export
   multiply' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> {auto 0 _ : Elem DOMMatrixInit (Types t2)}
+       {auto _ : Cast t1 DOMMatrixReadOnly}
+    -> {auto _ : Cast t2 DOMMatrixInit}
     -> (obj : t1)
     -> (other : Optional t2)
     -> JSIO DOMMatrix
-  multiply' a b = primJS $ DOMMatrixReadOnly.prim__multiply (up a) (optUp b)
+  multiply' a b = primJS $ DOMMatrixReadOnly.prim__multiply (cast a) (optUp b)
 
   export
   multiply :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
+       {auto _ : Cast t1 DOMMatrixReadOnly}
     -> (obj : t1)
     -> JSIO DOMMatrix
-  multiply a = primJS $ DOMMatrixReadOnly.prim__multiply (up a) undef
+  multiply a = primJS $ DOMMatrixReadOnly.prim__multiply (cast a) undef
 
 
   export
   rotateAxisAngle' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
+       {auto _ : Cast t1 DOMMatrixReadOnly}
     -> (obj : t1)
     -> (x : Optional Double)
     -> (y : Optional Double)
@@ -506,7 +391,7 @@ namespace DOMMatrixReadOnly
     -> JSIO DOMMatrix
   rotateAxisAngle' a b c d e = primJS $
     DOMMatrixReadOnly.prim__rotateAxisAngle
-      (up a)
+      (cast a)
       (toFFI b)
       (toFFI c)
       (toFFI d)
@@ -514,60 +399,51 @@ namespace DOMMatrixReadOnly
 
   export
   rotateAxisAngle :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
+       {auto _ : Cast t1 DOMMatrixReadOnly}
     -> (obj : t1)
     -> JSIO DOMMatrix
   rotateAxisAngle a = primJS $
-    DOMMatrixReadOnly.prim__rotateAxisAngle (up a) undef undef undef undef
+    DOMMatrixReadOnly.prim__rotateAxisAngle (cast a) undef undef undef undef
 
 
   export
   rotate' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
+       {auto _ : Cast t1 DOMMatrixReadOnly}
     -> (obj : t1)
     -> (rotX : Optional Double)
     -> (rotY : Optional Double)
     -> (rotZ : Optional Double)
     -> JSIO DOMMatrix
   rotate' a b c d = primJS $
-    DOMMatrixReadOnly.prim__rotate (up a) (toFFI b) (toFFI c) (toFFI d)
+    DOMMatrixReadOnly.prim__rotate (cast a) (toFFI b) (toFFI c) (toFFI d)
 
   export
-  rotate :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO DOMMatrix
-  rotate a = primJS $ DOMMatrixReadOnly.prim__rotate (up a) undef undef undef
+  rotate : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO DOMMatrix
+  rotate a = primJS $ DOMMatrixReadOnly.prim__rotate (cast a) undef undef undef
 
 
   export
   rotateFromVector' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
+       {auto _ : Cast t1 DOMMatrixReadOnly}
     -> (obj : t1)
     -> (x : Optional Double)
     -> (y : Optional Double)
     -> JSIO DOMMatrix
   rotateFromVector' a b c = primJS $
-    DOMMatrixReadOnly.prim__rotateFromVector (up a) (toFFI b) (toFFI c)
+    DOMMatrixReadOnly.prim__rotateFromVector (cast a) (toFFI b) (toFFI c)
 
   export
   rotateFromVector :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
+       {auto _ : Cast t1 DOMMatrixReadOnly}
     -> (obj : t1)
     -> JSIO DOMMatrix
   rotateFromVector a = primJS $
-    DOMMatrixReadOnly.prim__rotateFromVector (up a) undef undef
+    DOMMatrixReadOnly.prim__rotateFromVector (cast a) undef undef
 
 
   export
   scale3d' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
+       {auto _ : Cast t1 DOMMatrixReadOnly}
     -> (obj : t1)
     -> (scale : Optional Double)
     -> (originX : Optional Double)
@@ -576,26 +452,21 @@ namespace DOMMatrixReadOnly
     -> JSIO DOMMatrix
   scale3d' a b c d e = primJS $
     DOMMatrixReadOnly.prim__scale3d
-      (up a)
+      (cast a)
       (toFFI b)
       (toFFI c)
       (toFFI d)
       (toFFI e)
 
   export
-  scale3d :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO DOMMatrix
+  scale3d : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO DOMMatrix
   scale3d a = primJS $
-    DOMMatrixReadOnly.prim__scale3d (up a) undef undef undef undef
+    DOMMatrixReadOnly.prim__scale3d (cast a) undef undef undef undef
 
 
   export
   scale' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
+       {auto _ : Cast t1 DOMMatrixReadOnly}
     -> (obj : t1)
     -> (scaleX : Optional Double)
     -> (scaleY : Optional Double)
@@ -606,7 +477,7 @@ namespace DOMMatrixReadOnly
     -> JSIO DOMMatrix
   scale' a b c d e f g = primJS $
     DOMMatrixReadOnly.prim__scale
-      (up a)
+      (cast a)
       (toFFI b)
       (toFFI c)
       (toFFI d)
@@ -615,150 +486,119 @@ namespace DOMMatrixReadOnly
       (toFFI g)
 
   export
-  scale :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO DOMMatrix
+  scale : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO DOMMatrix
   scale a = primJS $
-    DOMMatrixReadOnly.prim__scale (up a) undef undef undef undef undef undef
+    DOMMatrixReadOnly.prim__scale (cast a) undef undef undef undef undef undef
 
 
   export
   scaleNonUniform' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
+       {auto _ : Cast t1 DOMMatrixReadOnly}
     -> (obj : t1)
     -> (scaleX : Optional Double)
     -> (scaleY : Optional Double)
     -> JSIO DOMMatrix
   scaleNonUniform' a b c = primJS $
-    DOMMatrixReadOnly.prim__scaleNonUniform (up a) (toFFI b) (toFFI c)
+    DOMMatrixReadOnly.prim__scaleNonUniform (cast a) (toFFI b) (toFFI c)
 
   export
   scaleNonUniform :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
+       {auto _ : Cast t1 DOMMatrixReadOnly}
     -> (obj : t1)
     -> JSIO DOMMatrix
   scaleNonUniform a = primJS $
-    DOMMatrixReadOnly.prim__scaleNonUniform (up a) undef undef
+    DOMMatrixReadOnly.prim__scaleNonUniform (cast a) undef undef
 
 
   export
   skewX' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
+       {auto _ : Cast t1 DOMMatrixReadOnly}
     -> (obj : t1)
     -> (sx : Optional Double)
     -> JSIO DOMMatrix
-  skewX' a b = primJS $ DOMMatrixReadOnly.prim__skewX (up a) (toFFI b)
+  skewX' a b = primJS $ DOMMatrixReadOnly.prim__skewX (cast a) (toFFI b)
 
   export
-  skewX :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO DOMMatrix
-  skewX a = primJS $ DOMMatrixReadOnly.prim__skewX (up a) undef
+  skewX : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO DOMMatrix
+  skewX a = primJS $ DOMMatrixReadOnly.prim__skewX (cast a) undef
 
 
   export
   skewY' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
+       {auto _ : Cast t1 DOMMatrixReadOnly}
     -> (obj : t1)
     -> (sy : Optional Double)
     -> JSIO DOMMatrix
-  skewY' a b = primJS $ DOMMatrixReadOnly.prim__skewY (up a) (toFFI b)
+  skewY' a b = primJS $ DOMMatrixReadOnly.prim__skewY (cast a) (toFFI b)
 
   export
-  skewY :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO DOMMatrix
-  skewY a = primJS $ DOMMatrixReadOnly.prim__skewY (up a) undef
+  skewY : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO DOMMatrix
+  skewY a = primJS $ DOMMatrixReadOnly.prim__skewY (cast a) undef
 
 
   export
   toFloat32Array :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
+       {auto _ : Cast t1 DOMMatrixReadOnly}
     -> (obj : t1)
     -> JSIO Float32Array
-  toFloat32Array a = primJS $ DOMMatrixReadOnly.prim__toFloat32Array (up a)
+  toFloat32Array a = primJS $ DOMMatrixReadOnly.prim__toFloat32Array (cast a)
 
 
   export
   toFloat64Array :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
+       {auto _ : Cast t1 DOMMatrixReadOnly}
     -> (obj : t1)
     -> JSIO Float64Array
-  toFloat64Array a = primJS $ DOMMatrixReadOnly.prim__toFloat64Array (up a)
+  toFloat64Array a = primJS $ DOMMatrixReadOnly.prim__toFloat64Array (cast a)
 
 
   export
-  toJSON :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Object
-  toJSON a = primJS $ DOMMatrixReadOnly.prim__toJSON (up a)
+  toJSON : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO Object
+  toJSON a = primJS $ DOMMatrixReadOnly.prim__toJSON (cast a)
 
 
   export
-  toString :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO String
-  toString a = primJS $ DOMMatrixReadOnly.prim__toString (up a)
+  toString : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO String
+  toString a = primJS $ DOMMatrixReadOnly.prim__toString (cast a)
 
 
   export
   transformPoint' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
-    -> {auto 0 _ : Elem DOMPointInit (Types t2)}
+       {auto _ : Cast t1 DOMMatrixReadOnly}
+    -> {auto _ : Cast t2 DOMPointInit}
     -> (obj : t1)
     -> (point : Optional t2)
     -> JSIO DOMPoint
   transformPoint' a b = primJS $
-    DOMMatrixReadOnly.prim__transformPoint (up a) (optUp b)
+    DOMMatrixReadOnly.prim__transformPoint (cast a) (optUp b)
 
   export
   transformPoint :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
+       {auto _ : Cast t1 DOMMatrixReadOnly}
     -> (obj : t1)
     -> JSIO DOMPoint
   transformPoint a = primJS $
-    DOMMatrixReadOnly.prim__transformPoint (up a) undef
+    DOMMatrixReadOnly.prim__transformPoint (cast a) undef
 
 
   export
   translate' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
+       {auto _ : Cast t1 DOMMatrixReadOnly}
     -> (obj : t1)
     -> (tx : Optional Double)
     -> (ty : Optional Double)
     -> (tz : Optional Double)
     -> JSIO DOMMatrix
   translate' a b c d = primJS $
-    DOMMatrixReadOnly.prim__translate (up a) (toFFI b) (toFFI c) (toFFI d)
+    DOMMatrixReadOnly.prim__translate (cast a) (toFFI b) (toFFI c) (toFFI d)
 
   export
   translate :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMMatrixReadOnly (Types t1)}
+       {auto _ : Cast t1 DOMMatrixReadOnly}
     -> (obj : t1)
     -> JSIO DOMMatrix
   translate a = primJS $
-    DOMMatrixReadOnly.prim__translate (up a) undef undef undef
+    DOMMatrixReadOnly.prim__translate (cast a) undef undef undef
 
 
 
@@ -766,8 +606,7 @@ namespace DOMPoint
 
   export
   fromPoint' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMPointInit (Types t1)}
+       {auto _ : Cast t1 DOMPointInit}
     -> (other : Optional t1)
     -> JSIO DOMPoint
   fromPoint' a = primJS $ DOMPoint.prim__fromPoint (optUp a)
@@ -782,8 +621,7 @@ namespace DOMPointReadOnly
 
   export
   fromPoint' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMPointInit (Types t1)}
+       {auto _ : Cast t1 DOMPointInit}
     -> (other : Optional t1)
     -> JSIO DOMPointReadOnly
   fromPoint' a = primJS $ DOMPointReadOnly.prim__fromPoint (optUp a)
@@ -794,70 +632,47 @@ namespace DOMPointReadOnly
 
 
   export
-  w :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMPointReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  w a = primJS $ DOMPointReadOnly.prim__w (up a)
+  w : {auto _ : Cast t1 DOMPointReadOnly} -> (obj : t1) -> JSIO Double
+  w a = primJS $ DOMPointReadOnly.prim__w (cast a)
 
 
   export
-  x :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMPointReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  x a = primJS $ DOMPointReadOnly.prim__x (up a)
+  x : {auto _ : Cast t1 DOMPointReadOnly} -> (obj : t1) -> JSIO Double
+  x a = primJS $ DOMPointReadOnly.prim__x (cast a)
 
 
   export
-  y :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMPointReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  y a = primJS $ DOMPointReadOnly.prim__y (up a)
+  y : {auto _ : Cast t1 DOMPointReadOnly} -> (obj : t1) -> JSIO Double
+  y a = primJS $ DOMPointReadOnly.prim__y (cast a)
 
 
   export
-  z :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMPointReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  z a = primJS $ DOMPointReadOnly.prim__z (up a)
+  z : {auto _ : Cast t1 DOMPointReadOnly} -> (obj : t1) -> JSIO Double
+  z a = primJS $ DOMPointReadOnly.prim__z (cast a)
 
 
   export
   matrixTransform' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem DOMPointReadOnly (Types t1)}
-    -> {auto 0 _ : Elem DOMMatrixInit (Types t2)}
+       {auto _ : Cast t1 DOMPointReadOnly}
+    -> {auto _ : Cast t2 DOMMatrixInit}
     -> (obj : t1)
     -> (matrix : Optional t2)
     -> JSIO DOMPoint
   matrixTransform' a b = primJS $
-    DOMPointReadOnly.prim__matrixTransform (up a) (optUp b)
+    DOMPointReadOnly.prim__matrixTransform (cast a) (optUp b)
 
   export
   matrixTransform :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMPointReadOnly (Types t1)}
+       {auto _ : Cast t1 DOMPointReadOnly}
     -> (obj : t1)
     -> JSIO DOMPoint
   matrixTransform a = primJS $
-    DOMPointReadOnly.prim__matrixTransform (up a) undef
+    DOMPointReadOnly.prim__matrixTransform (cast a) undef
 
 
   export
-  toJSON :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMPointReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Object
-  toJSON a = primJS $ DOMPointReadOnly.prim__toJSON (up a)
+  toJSON : {auto _ : Cast t1 DOMPointReadOnly} -> (obj : t1) -> JSIO Object
+  toJSON a = primJS $ DOMPointReadOnly.prim__toJSON (cast a)
 
 
 
@@ -865,8 +680,7 @@ namespace DOMQuad
 
   export
   fromQuad' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMQuadInit (Types t1)}
+       {auto _ : Cast t1 DOMQuadInit}
     -> (other : Optional t1)
     -> JSIO DOMQuad
   fromQuad' a = primJS $ DOMQuad.prim__fromQuad (optUp a)
@@ -878,8 +692,7 @@ namespace DOMQuad
 
   export
   fromRect' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMRectInit (Types t1)}
+       {auto _ : Cast t1 DOMRectInit}
     -> (other : Optional t1)
     -> JSIO DOMQuad
   fromRect' a = primJS $ DOMQuad.prim__fromRect (optUp a)
@@ -924,8 +737,7 @@ namespace DOMRect
 
   export
   fromRect' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMRectInit (Types t1)}
+       {auto _ : Cast t1 DOMRectInit}
     -> (other : Optional t1)
     -> JSIO DOMRect
   fromRect' a = primJS $ DOMRect.prim__fromRect (optUp a)
@@ -953,8 +765,7 @@ namespace DOMRectReadOnly
 
   export
   fromRect' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMRectInit (Types t1)}
+       {auto _ : Cast t1 DOMRectInit}
     -> (other : Optional t1)
     -> JSIO DOMRectReadOnly
   fromRect' a = primJS $ DOMRectReadOnly.prim__fromRect (optUp a)
@@ -965,84 +776,48 @@ namespace DOMRectReadOnly
 
 
   export
-  bottom :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMRectReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  bottom a = primJS $ DOMRectReadOnly.prim__bottom (up a)
+  bottom : {auto _ : Cast t1 DOMRectReadOnly} -> (obj : t1) -> JSIO Double
+  bottom a = primJS $ DOMRectReadOnly.prim__bottom (cast a)
 
 
   export
-  height :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMRectReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  height a = primJS $ DOMRectReadOnly.prim__height (up a)
+  height : {auto _ : Cast t1 DOMRectReadOnly} -> (obj : t1) -> JSIO Double
+  height a = primJS $ DOMRectReadOnly.prim__height (cast a)
 
 
   export
-  left :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMRectReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  left a = primJS $ DOMRectReadOnly.prim__left (up a)
+  left : {auto _ : Cast t1 DOMRectReadOnly} -> (obj : t1) -> JSIO Double
+  left a = primJS $ DOMRectReadOnly.prim__left (cast a)
 
 
   export
-  right :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMRectReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  right a = primJS $ DOMRectReadOnly.prim__right (up a)
+  right : {auto _ : Cast t1 DOMRectReadOnly} -> (obj : t1) -> JSIO Double
+  right a = primJS $ DOMRectReadOnly.prim__right (cast a)
 
 
   export
-  top :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMRectReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  top a = primJS $ DOMRectReadOnly.prim__top (up a)
+  top : {auto _ : Cast t1 DOMRectReadOnly} -> (obj : t1) -> JSIO Double
+  top a = primJS $ DOMRectReadOnly.prim__top (cast a)
 
 
   export
-  width :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMRectReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  width a = primJS $ DOMRectReadOnly.prim__width (up a)
+  width : {auto _ : Cast t1 DOMRectReadOnly} -> (obj : t1) -> JSIO Double
+  width a = primJS $ DOMRectReadOnly.prim__width (cast a)
 
 
   export
-  x :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMRectReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  x a = primJS $ DOMRectReadOnly.prim__x (up a)
+  x : {auto _ : Cast t1 DOMRectReadOnly} -> (obj : t1) -> JSIO Double
+  x a = primJS $ DOMRectReadOnly.prim__x (cast a)
 
 
   export
-  y :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMRectReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Double
-  y a = primJS $ DOMRectReadOnly.prim__y (up a)
+  y : {auto _ : Cast t1 DOMRectReadOnly} -> (obj : t1) -> JSIO Double
+  y a = primJS $ DOMRectReadOnly.prim__y (cast a)
 
 
   export
-  toJSON :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem DOMRectReadOnly (Types t1)}
-    -> (obj : t1)
-    -> JSIO Object
-  toJSON a = primJS $ DOMRectReadOnly.prim__toJSON (up a)
+  toJSON : {auto _ : Cast t1 DOMRectReadOnly} -> (obj : t1) -> JSIO Object
+  toJSON a = primJS $ DOMRectReadOnly.prim__toJSON (cast a)
 
 
 
@@ -1103,159 +878,129 @@ namespace DOMMatrix2DInit
 
 
   export
-  a :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMMatrix2DInit (Types t)}
-    -> t
-    -> Attribute False Optional Double
+  a : {auto _ : Cast t DOMMatrix2DInit} -> t -> Attribute False Optional Double
   a v = fromUndefOrPrimNoDefault
           "DOMMatrix2DInit.geta"
           prim__a
           prim__setA
-          (v :> DOMMatrix2DInit)
+          (cast {to = DOMMatrix2DInit} v)
 
 
   export
-  b :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMMatrix2DInit (Types t)}
-    -> t
-    -> Attribute False Optional Double
+  b : {auto _ : Cast t DOMMatrix2DInit} -> t -> Attribute False Optional Double
   b v = fromUndefOrPrimNoDefault
           "DOMMatrix2DInit.getb"
           prim__b
           prim__setB
-          (v :> DOMMatrix2DInit)
+          (cast {to = DOMMatrix2DInit} v)
 
 
   export
-  c :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMMatrix2DInit (Types t)}
-    -> t
-    -> Attribute False Optional Double
+  c : {auto _ : Cast t DOMMatrix2DInit} -> t -> Attribute False Optional Double
   c v = fromUndefOrPrimNoDefault
           "DOMMatrix2DInit.getc"
           prim__c
           prim__setC
-          (v :> DOMMatrix2DInit)
+          (cast {to = DOMMatrix2DInit} v)
 
 
   export
-  d :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMMatrix2DInit (Types t)}
-    -> t
-    -> Attribute False Optional Double
+  d : {auto _ : Cast t DOMMatrix2DInit} -> t -> Attribute False Optional Double
   d v = fromUndefOrPrimNoDefault
           "DOMMatrix2DInit.getd"
           prim__d
           prim__setD
-          (v :> DOMMatrix2DInit)
+          (cast {to = DOMMatrix2DInit} v)
 
 
   export
-  e :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMMatrix2DInit (Types t)}
-    -> t
-    -> Attribute False Optional Double
+  e : {auto _ : Cast t DOMMatrix2DInit} -> t -> Attribute False Optional Double
   e v = fromUndefOrPrimNoDefault
           "DOMMatrix2DInit.gete"
           prim__e
           prim__setE
-          (v :> DOMMatrix2DInit)
+          (cast {to = DOMMatrix2DInit} v)
 
 
   export
-  f :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMMatrix2DInit (Types t)}
-    -> t
-    -> Attribute False Optional Double
+  f : {auto _ : Cast t DOMMatrix2DInit} -> t -> Attribute False Optional Double
   f v = fromUndefOrPrimNoDefault
           "DOMMatrix2DInit.getf"
           prim__f
           prim__setF
-          (v :> DOMMatrix2DInit)
+          (cast {to = DOMMatrix2DInit} v)
 
 
   export
   m11 :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMMatrix2DInit (Types t)}
+       {auto _ : Cast t DOMMatrix2DInit}
     -> t
     -> Attribute False Optional Double
   m11 v = fromUndefOrPrimNoDefault
             "DOMMatrix2DInit.getm11"
             prim__m11
             prim__setM11
-            (v :> DOMMatrix2DInit)
+            (cast {to = DOMMatrix2DInit} v)
 
 
   export
   m12 :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMMatrix2DInit (Types t)}
+       {auto _ : Cast t DOMMatrix2DInit}
     -> t
     -> Attribute False Optional Double
   m12 v = fromUndefOrPrimNoDefault
             "DOMMatrix2DInit.getm12"
             prim__m12
             prim__setM12
-            (v :> DOMMatrix2DInit)
+            (cast {to = DOMMatrix2DInit} v)
 
 
   export
   m21 :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMMatrix2DInit (Types t)}
+       {auto _ : Cast t DOMMatrix2DInit}
     -> t
     -> Attribute False Optional Double
   m21 v = fromUndefOrPrimNoDefault
             "DOMMatrix2DInit.getm21"
             prim__m21
             prim__setM21
-            (v :> DOMMatrix2DInit)
+            (cast {to = DOMMatrix2DInit} v)
 
 
   export
   m22 :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMMatrix2DInit (Types t)}
+       {auto _ : Cast t DOMMatrix2DInit}
     -> t
     -> Attribute False Optional Double
   m22 v = fromUndefOrPrimNoDefault
             "DOMMatrix2DInit.getm22"
             prim__m22
             prim__setM22
-            (v :> DOMMatrix2DInit)
+            (cast {to = DOMMatrix2DInit} v)
 
 
   export
   m41 :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMMatrix2DInit (Types t)}
+       {auto _ : Cast t DOMMatrix2DInit}
     -> t
     -> Attribute False Optional Double
   m41 v = fromUndefOrPrimNoDefault
             "DOMMatrix2DInit.getm41"
             prim__m41
             prim__setM41
-            (v :> DOMMatrix2DInit)
+            (cast {to = DOMMatrix2DInit} v)
 
 
   export
   m42 :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMMatrix2DInit (Types t)}
+       {auto _ : Cast t DOMMatrix2DInit}
     -> t
     -> Attribute False Optional Double
   m42 v = fromUndefOrPrimNoDefault
             "DOMMatrix2DInit.getm42"
             prim__m42
             prim__setM42
-            (v :> DOMMatrix2DInit)
+            (cast {to = DOMMatrix2DInit} v)
 
 
 
@@ -1307,156 +1052,112 @@ namespace DOMMatrixInit
 
 
   export
-  is2D :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMMatrixInit (Types t)}
-    -> t
-    -> Attribute False Optional Bool
+  is2D : {auto _ : Cast t DOMMatrixInit} -> t -> Attribute False Optional Bool
   is2D v = fromUndefOrPrimNoDefault
              "DOMMatrixInit.getis2D"
              prim__is2D
              prim__setIs2D
-             (v :> DOMMatrixInit)
+             (cast {to = DOMMatrixInit} v)
 
 
   export
-  m13 :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMMatrixInit (Types t)}
-    -> t
-    -> Attribute True Optional Double
+  m13 : {auto _ : Cast t DOMMatrixInit} -> t -> Attribute True Optional Double
   m13 v = fromUndefOrPrim
             "DOMMatrixInit.getm13"
             prim__m13
             prim__setM13
             0
-            (v :> DOMMatrixInit)
+            (cast {to = DOMMatrixInit} v)
 
 
   export
-  m14 :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMMatrixInit (Types t)}
-    -> t
-    -> Attribute True Optional Double
+  m14 : {auto _ : Cast t DOMMatrixInit} -> t -> Attribute True Optional Double
   m14 v = fromUndefOrPrim
             "DOMMatrixInit.getm14"
             prim__m14
             prim__setM14
             0
-            (v :> DOMMatrixInit)
+            (cast {to = DOMMatrixInit} v)
 
 
   export
-  m23 :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMMatrixInit (Types t)}
-    -> t
-    -> Attribute True Optional Double
+  m23 : {auto _ : Cast t DOMMatrixInit} -> t -> Attribute True Optional Double
   m23 v = fromUndefOrPrim
             "DOMMatrixInit.getm23"
             prim__m23
             prim__setM23
             0
-            (v :> DOMMatrixInit)
+            (cast {to = DOMMatrixInit} v)
 
 
   export
-  m24 :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMMatrixInit (Types t)}
-    -> t
-    -> Attribute True Optional Double
+  m24 : {auto _ : Cast t DOMMatrixInit} -> t -> Attribute True Optional Double
   m24 v = fromUndefOrPrim
             "DOMMatrixInit.getm24"
             prim__m24
             prim__setM24
             0
-            (v :> DOMMatrixInit)
+            (cast {to = DOMMatrixInit} v)
 
 
   export
-  m31 :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMMatrixInit (Types t)}
-    -> t
-    -> Attribute True Optional Double
+  m31 : {auto _ : Cast t DOMMatrixInit} -> t -> Attribute True Optional Double
   m31 v = fromUndefOrPrim
             "DOMMatrixInit.getm31"
             prim__m31
             prim__setM31
             0
-            (v :> DOMMatrixInit)
+            (cast {to = DOMMatrixInit} v)
 
 
   export
-  m32 :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMMatrixInit (Types t)}
-    -> t
-    -> Attribute True Optional Double
+  m32 : {auto _ : Cast t DOMMatrixInit} -> t -> Attribute True Optional Double
   m32 v = fromUndefOrPrim
             "DOMMatrixInit.getm32"
             prim__m32
             prim__setM32
             0
-            (v :> DOMMatrixInit)
+            (cast {to = DOMMatrixInit} v)
 
 
   export
-  m33 :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMMatrixInit (Types t)}
-    -> t
-    -> Attribute True Optional Double
+  m33 : {auto _ : Cast t DOMMatrixInit} -> t -> Attribute True Optional Double
   m33 v = fromUndefOrPrim
             "DOMMatrixInit.getm33"
             prim__m33
             prim__setM33
             1
-            (v :> DOMMatrixInit)
+            (cast {to = DOMMatrixInit} v)
 
 
   export
-  m34 :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMMatrixInit (Types t)}
-    -> t
-    -> Attribute True Optional Double
+  m34 : {auto _ : Cast t DOMMatrixInit} -> t -> Attribute True Optional Double
   m34 v = fromUndefOrPrim
             "DOMMatrixInit.getm34"
             prim__m34
             prim__setM34
             0
-            (v :> DOMMatrixInit)
+            (cast {to = DOMMatrixInit} v)
 
 
   export
-  m43 :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMMatrixInit (Types t)}
-    -> t
-    -> Attribute True Optional Double
+  m43 : {auto _ : Cast t DOMMatrixInit} -> t -> Attribute True Optional Double
   m43 v = fromUndefOrPrim
             "DOMMatrixInit.getm43"
             prim__m43
             prim__setM43
             0
-            (v :> DOMMatrixInit)
+            (cast {to = DOMMatrixInit} v)
 
 
   export
-  m44 :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMMatrixInit (Types t)}
-    -> t
-    -> Attribute True Optional Double
+  m44 : {auto _ : Cast t DOMMatrixInit} -> t -> Attribute True Optional Double
   m44 v = fromUndefOrPrim
             "DOMMatrixInit.getm44"
             prim__m44
             prim__setM44
             1
-            (v :> DOMMatrixInit)
+            (cast {to = DOMMatrixInit} v)
 
 
 
@@ -1478,59 +1179,43 @@ namespace DOMPointInit
 
 
   export
-  w :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMPointInit (Types t)}
-    -> t
-    -> Attribute True Optional Double
+  w : {auto _ : Cast t DOMPointInit} -> t -> Attribute True Optional Double
   w v = fromUndefOrPrim
           "DOMPointInit.getw"
           prim__w
           prim__setW
           1
-          (v :> DOMPointInit)
+          (cast {to = DOMPointInit} v)
 
 
   export
-  x :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMPointInit (Types t)}
-    -> t
-    -> Attribute True Optional Double
+  x : {auto _ : Cast t DOMPointInit} -> t -> Attribute True Optional Double
   x v = fromUndefOrPrim
           "DOMPointInit.getx"
           prim__x
           prim__setX
           0
-          (v :> DOMPointInit)
+          (cast {to = DOMPointInit} v)
 
 
   export
-  y :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMPointInit (Types t)}
-    -> t
-    -> Attribute True Optional Double
+  y : {auto _ : Cast t DOMPointInit} -> t -> Attribute True Optional Double
   y v = fromUndefOrPrim
           "DOMPointInit.gety"
           prim__y
           prim__setY
           0
-          (v :> DOMPointInit)
+          (cast {to = DOMPointInit} v)
 
 
   export
-  z :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMPointInit (Types t)}
-    -> t
-    -> Attribute True Optional Double
+  z : {auto _ : Cast t DOMPointInit} -> t -> Attribute True Optional Double
   z v = fromUndefOrPrim
           "DOMPointInit.getz"
           prim__z
           prim__setZ
           0
-          (v :> DOMPointInit)
+          (cast {to = DOMPointInit} v)
 
 
 
@@ -1538,14 +1223,10 @@ namespace DOMQuadInit
 
   export
   new' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t2}
-    -> {auto 0 _ : JSType t3}
-    -> {auto 0 _ : JSType t4}
-    -> {auto 0 _ : Elem DOMPointInit (Types t1)}
-    -> {auto 0 _ : Elem DOMPointInit (Types t2)}
-    -> {auto 0 _ : Elem DOMPointInit (Types t3)}
-    -> {auto 0 _ : Elem DOMPointInit (Types t4)}
+       {auto _ : Cast t1 DOMPointInit}
+    -> {auto _ : Cast t2 DOMPointInit}
+    -> {auto _ : Cast t3 DOMPointInit}
+    -> {auto _ : Cast t4 DOMPointInit}
     -> (p1 : Optional t1)
     -> (p2 : Optional t2)
     -> (p3 : Optional t3)
@@ -1561,54 +1242,50 @@ namespace DOMQuadInit
 
   export
   p1 :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMQuadInit (Types t)}
+       {auto _ : Cast t DOMQuadInit}
     -> t
     -> Attribute False Optional DOMPointInit
   p1 v = fromUndefOrPrimNoDefault
            "DOMQuadInit.getp1"
            prim__p1
            prim__setP1
-           (v :> DOMQuadInit)
+           (cast {to = DOMQuadInit} v)
 
 
   export
   p2 :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMQuadInit (Types t)}
+       {auto _ : Cast t DOMQuadInit}
     -> t
     -> Attribute False Optional DOMPointInit
   p2 v = fromUndefOrPrimNoDefault
            "DOMQuadInit.getp2"
            prim__p2
            prim__setP2
-           (v :> DOMQuadInit)
+           (cast {to = DOMQuadInit} v)
 
 
   export
   p3 :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMQuadInit (Types t)}
+       {auto _ : Cast t DOMQuadInit}
     -> t
     -> Attribute False Optional DOMPointInit
   p3 v = fromUndefOrPrimNoDefault
            "DOMQuadInit.getp3"
            prim__p3
            prim__setP3
-           (v :> DOMQuadInit)
+           (cast {to = DOMQuadInit} v)
 
 
   export
   p4 :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMQuadInit (Types t)}
+       {auto _ : Cast t DOMQuadInit}
     -> t
     -> Attribute False Optional DOMPointInit
   p4 v = fromUndefOrPrimNoDefault
            "DOMQuadInit.getp4"
            prim__p4
            prim__setP4
-           (v :> DOMQuadInit)
+           (cast {to = DOMQuadInit} v)
 
 
 
@@ -1630,56 +1307,40 @@ namespace DOMRectInit
 
 
   export
-  height :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMRectInit (Types t)}
-    -> t
-    -> Attribute True Optional Double
+  height : {auto _ : Cast t DOMRectInit} -> t -> Attribute True Optional Double
   height v = fromUndefOrPrim
                "DOMRectInit.getheight"
                prim__height
                prim__setHeight
                0
-               (v :> DOMRectInit)
+               (cast {to = DOMRectInit} v)
 
 
   export
-  width :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMRectInit (Types t)}
-    -> t
-    -> Attribute True Optional Double
+  width : {auto _ : Cast t DOMRectInit} -> t -> Attribute True Optional Double
   width v = fromUndefOrPrim
               "DOMRectInit.getwidth"
               prim__width
               prim__setWidth
               0
-              (v :> DOMRectInit)
+              (cast {to = DOMRectInit} v)
 
 
   export
-  x :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMRectInit (Types t)}
-    -> t
-    -> Attribute True Optional Double
+  x : {auto _ : Cast t DOMRectInit} -> t -> Attribute True Optional Double
   x v = fromUndefOrPrim
           "DOMRectInit.getx"
           prim__x
           prim__setX
           0
-          (v :> DOMRectInit)
+          (cast {to = DOMRectInit} v)
 
 
   export
-  y :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem DOMRectInit (Types t)}
-    -> t
-    -> Attribute True Optional Double
+  y : {auto _ : Cast t DOMRectInit} -> t -> Attribute True Optional Double
   y v = fromUndefOrPrim
           "DOMRectInit.gety"
           prim__y
           prim__setY
           0
-          (v :> DOMRectInit)
+          (cast {to = DOMRectInit} v)

@@ -14,20 +14,20 @@ namespace MediaStreamTrackState
   public export
   data MediaStreamTrackState = Live | Ended
 
-  public export
+  export
   Show MediaStreamTrackState where
     show Live = "live"
     show Ended = "ended"
 
-  public export
+  export
   Eq MediaStreamTrackState where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord MediaStreamTrackState where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe MediaStreamTrackState
   read "live" = Just Live
   read "ended" = Just Ended
@@ -47,22 +47,22 @@ namespace VideoFacingModeEnum
   public export
   data VideoFacingModeEnum = User | Environment | Left | Right
 
-  public export
+  export
   Show VideoFacingModeEnum where
     show User = "user"
     show Environment = "environment"
     show Left = "left"
     show Right = "right"
 
-  public export
+  export
   Eq VideoFacingModeEnum where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord VideoFacingModeEnum where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe VideoFacingModeEnum
   read "user" = Just User
   read "environment" = Just Environment
@@ -84,20 +84,20 @@ namespace VideoResizeModeEnum
   public export
   data VideoResizeModeEnum = None | CropAndScale
 
-  public export
+  export
   Show VideoResizeModeEnum where
     show None = "none"
     show CropAndScale = "crop-and-scale"
 
-  public export
+  export
   Eq VideoResizeModeEnum where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord VideoResizeModeEnum where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe VideoResizeModeEnum
   read "none" = Just None
   read "crop-and-scale" = Just CropAndScale
@@ -117,21 +117,21 @@ namespace MediaDeviceKind
   public export
   data MediaDeviceKind = Audioinput | Audiooutput | Videoinput
 
-  public export
+  export
   Show MediaDeviceKind where
     show Audioinput = "audioinput"
     show Audiooutput = "audiooutput"
     show Videoinput = "videoinput"
 
-  public export
+  export
   Eq MediaDeviceKind where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord MediaDeviceKind where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe MediaDeviceKind
   read "audioinput" = Just Audioinput
   read "audiooutput" = Just Audiooutput

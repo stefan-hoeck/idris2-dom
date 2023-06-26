@@ -74,27 +74,27 @@ namespace SVGAElement
 
 namespace SVGAngle
 
-  public export
+  export
   SVG_ANGLETYPE_DEG : Bits16
   SVG_ANGLETYPE_DEG = 2
 
 
-  public export
+  export
   SVG_ANGLETYPE_GRAD : Bits16
   SVG_ANGLETYPE_GRAD = 4
 
 
-  public export
+  export
   SVG_ANGLETYPE_RAD : Bits16
   SVG_ANGLETYPE_RAD = 3
 
 
-  public export
+  export
   SVG_ANGLETYPE_UNKNOWN : Bits16
   SVG_ANGLETYPE_UNKNOWN = 0
 
 
-  public export
+  export
   SVG_ANGLETYPE_UNSPECIFIED : Bits16
   SVG_ANGLETYPE_UNSPECIFIED = 1
 
@@ -349,31 +349,28 @@ namespace SVGElement
 
   export
   className :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGElement (Types t1)}
+       {auto _ : Cast t1 SVGElement}
     -> (obj : t1)
     -> JSIO SVGAnimatedString
-  className a = primJS $ SVGElement.prim__className (up a)
+  className a = primJS $ SVGElement.prim__className (cast a)
 
 
   export
   ownerSVGElement :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGElement (Types t1)}
+       {auto _ : Cast t1 SVGElement}
     -> (obj : t1)
     -> JSIO (Maybe SVGSVGElement)
   ownerSVGElement a = tryJS "SVGElement.ownerSVGElement" $
-    SVGElement.prim__ownerSVGElement (up a)
+    SVGElement.prim__ownerSVGElement (cast a)
 
 
   export
   viewportElement :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGElement (Types t1)}
+       {auto _ : Cast t1 SVGElement}
     -> (obj : t1)
     -> JSIO (Maybe SVGElement)
   viewportElement a = tryJS "SVGElement.viewportElement" $
-    SVGElement.prim__viewportElement (up a)
+    SVGElement.prim__viewportElement (cast a)
 
 
 
@@ -428,126 +425,114 @@ namespace SVGGeometryElement
 
   export
   pathLength :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGGeometryElement (Types t1)}
+       {auto _ : Cast t1 SVGGeometryElement}
     -> (obj : t1)
     -> JSIO SVGAnimatedNumber
-  pathLength a = primJS $ SVGGeometryElement.prim__pathLength (up a)
+  pathLength a = primJS $ SVGGeometryElement.prim__pathLength (cast a)
 
 
   export
   getPointAtLength :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGGeometryElement (Types t1)}
+       {auto _ : Cast t1 SVGGeometryElement}
     -> (obj : t1)
     -> (distance : Double)
     -> JSIO DOMPoint
   getPointAtLength a b = primJS $
-    SVGGeometryElement.prim__getPointAtLength (up a) b
+    SVGGeometryElement.prim__getPointAtLength (cast a) b
 
 
   export
   getTotalLength :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGGeometryElement (Types t1)}
+       {auto _ : Cast t1 SVGGeometryElement}
     -> (obj : t1)
     -> JSIO Double
-  getTotalLength a = primJS $ SVGGeometryElement.prim__getTotalLength (up a)
+  getTotalLength a = primJS $ SVGGeometryElement.prim__getTotalLength (cast a)
 
 
   export
   isPointInFill' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem SVGGeometryElement (Types t1)}
-    -> {auto 0 _ : Elem DOMPointInit (Types t2)}
+       {auto _ : Cast t1 SVGGeometryElement}
+    -> {auto _ : Cast t2 DOMPointInit}
     -> (obj : t1)
     -> (point : Optional t2)
     -> JSIO Bool
   isPointInFill' a b = tryJS "SVGGeometryElement.isPointInFill'" $
-    SVGGeometryElement.prim__isPointInFill (up a) (optUp b)
+    SVGGeometryElement.prim__isPointInFill (cast a) (optUp b)
 
   export
   isPointInFill :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGGeometryElement (Types t1)}
+       {auto _ : Cast t1 SVGGeometryElement}
     -> (obj : t1)
     -> JSIO Bool
   isPointInFill a = tryJS "SVGGeometryElement.isPointInFill" $
-    SVGGeometryElement.prim__isPointInFill (up a) undef
+    SVGGeometryElement.prim__isPointInFill (cast a) undef
 
 
   export
   isPointInStroke' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem SVGGeometryElement (Types t1)}
-    -> {auto 0 _ : Elem DOMPointInit (Types t2)}
+       {auto _ : Cast t1 SVGGeometryElement}
+    -> {auto _ : Cast t2 DOMPointInit}
     -> (obj : t1)
     -> (point : Optional t2)
     -> JSIO Bool
   isPointInStroke' a b = tryJS "SVGGeometryElement.isPointInStroke'" $
-    SVGGeometryElement.prim__isPointInStroke (up a) (optUp b)
+    SVGGeometryElement.prim__isPointInStroke (cast a) (optUp b)
 
   export
   isPointInStroke :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGGeometryElement (Types t1)}
+       {auto _ : Cast t1 SVGGeometryElement}
     -> (obj : t1)
     -> JSIO Bool
   isPointInStroke a = tryJS "SVGGeometryElement.isPointInStroke" $
-    SVGGeometryElement.prim__isPointInStroke (up a) undef
+    SVGGeometryElement.prim__isPointInStroke (cast a) undef
 
 
 
 namespace SVGGradientElement
 
-  public export
+  export
   SVG_SPREADMETHOD_PAD : Bits16
   SVG_SPREADMETHOD_PAD = 1
 
 
-  public export
+  export
   SVG_SPREADMETHOD_REFLECT : Bits16
   SVG_SPREADMETHOD_REFLECT = 2
 
 
-  public export
+  export
   SVG_SPREADMETHOD_REPEAT : Bits16
   SVG_SPREADMETHOD_REPEAT = 3
 
 
-  public export
+  export
   SVG_SPREADMETHOD_UNKNOWN : Bits16
   SVG_SPREADMETHOD_UNKNOWN = 0
 
 
   export
   gradientTransform :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGGradientElement (Types t1)}
+       {auto _ : Cast t1 SVGGradientElement}
     -> (obj : t1)
     -> JSIO SVGAnimatedTransformList
   gradientTransform a = primJS $
-    SVGGradientElement.prim__gradientTransform (up a)
+    SVGGradientElement.prim__gradientTransform (cast a)
 
 
   export
   gradientUnits :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGGradientElement (Types t1)}
+       {auto _ : Cast t1 SVGGradientElement}
     -> (obj : t1)
     -> JSIO SVGAnimatedEnumeration
-  gradientUnits a = primJS $ SVGGradientElement.prim__gradientUnits (up a)
+  gradientUnits a = primJS $ SVGGradientElement.prim__gradientUnits (cast a)
 
 
   export
   spreadMethod :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGGradientElement (Types t1)}
+       {auto _ : Cast t1 SVGGradientElement}
     -> (obj : t1)
     -> JSIO SVGAnimatedEnumeration
-  spreadMethod a = primJS $ SVGGradientElement.prim__spreadMethod (up a)
+  spreadMethod a = primJS $ SVGGradientElement.prim__spreadMethod (cast a)
 
 
 
@@ -555,51 +540,42 @@ namespace SVGGraphicsElement
 
   export
   transform :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGGraphicsElement (Types t1)}
+       {auto _ : Cast t1 SVGGraphicsElement}
     -> (obj : t1)
     -> JSIO SVGAnimatedTransformList
-  transform a = primJS $ SVGGraphicsElement.prim__transform (up a)
+  transform a = primJS $ SVGGraphicsElement.prim__transform (cast a)
 
 
   export
   getBBox' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem SVGGraphicsElement (Types t1)}
-    -> {auto 0 _ : Elem SVGBoundingBoxOptions (Types t2)}
+       {auto _ : Cast t1 SVGGraphicsElement}
+    -> {auto _ : Cast t2 SVGBoundingBoxOptions}
     -> (obj : t1)
     -> (options : Optional t2)
     -> JSIO DOMRect
-  getBBox' a b = primJS $ SVGGraphicsElement.prim__getBBox (up a) (optUp b)
+  getBBox' a b = primJS $ SVGGraphicsElement.prim__getBBox (cast a) (optUp b)
 
   export
-  getBBox :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGGraphicsElement (Types t1)}
-    -> (obj : t1)
-    -> JSIO DOMRect
-  getBBox a = primJS $ SVGGraphicsElement.prim__getBBox (up a) undef
+  getBBox : {auto _ : Cast t1 SVGGraphicsElement} -> (obj : t1) -> JSIO DOMRect
+  getBBox a = primJS $ SVGGraphicsElement.prim__getBBox (cast a) undef
 
 
   export
   getCTM :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGGraphicsElement (Types t1)}
+       {auto _ : Cast t1 SVGGraphicsElement}
     -> (obj : t1)
     -> JSIO (Maybe DOMMatrix)
   getCTM a = tryJS "SVGGraphicsElement.getCTM" $
-    SVGGraphicsElement.prim__getCTM (up a)
+    SVGGraphicsElement.prim__getCTM (cast a)
 
 
   export
   getScreenCTM :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGGraphicsElement (Types t1)}
+       {auto _ : Cast t1 SVGGraphicsElement}
     -> (obj : t1)
     -> JSIO (Maybe DOMMatrix)
   getScreenCTM a = tryJS "SVGGraphicsElement.getScreenCTM" $
-    SVGGraphicsElement.prim__getScreenCTM (up a)
+    SVGGraphicsElement.prim__getScreenCTM (cast a)
 
 
 
@@ -644,57 +620,57 @@ namespace SVGImageElement
 
 namespace SVGLength
 
-  public export
+  export
   SVG_LENGTHTYPE_CM : Bits16
   SVG_LENGTHTYPE_CM = 6
 
 
-  public export
+  export
   SVG_LENGTHTYPE_EMS : Bits16
   SVG_LENGTHTYPE_EMS = 3
 
 
-  public export
+  export
   SVG_LENGTHTYPE_EXS : Bits16
   SVG_LENGTHTYPE_EXS = 4
 
 
-  public export
+  export
   SVG_LENGTHTYPE_IN : Bits16
   SVG_LENGTHTYPE_IN = 8
 
 
-  public export
+  export
   SVG_LENGTHTYPE_MM : Bits16
   SVG_LENGTHTYPE_MM = 7
 
 
-  public export
+  export
   SVG_LENGTHTYPE_NUMBER : Bits16
   SVG_LENGTHTYPE_NUMBER = 1
 
 
-  public export
+  export
   SVG_LENGTHTYPE_PC : Bits16
   SVG_LENGTHTYPE_PC = 10
 
 
-  public export
+  export
   SVG_LENGTHTYPE_PERCENTAGE : Bits16
   SVG_LENGTHTYPE_PERCENTAGE = 2
 
 
-  public export
+  export
   SVG_LENGTHTYPE_PT : Bits16
   SVG_LENGTHTYPE_PT = 9
 
 
-  public export
+  export
   SVG_LENGTHTYPE_PX : Bits16
   SVG_LENGTHTYPE_PX = 5
 
 
-  public export
+  export
   SVG_LENGTHTYPE_UNKNOWN : Bits16
   SVG_LENGTHTYPE_UNKNOWN = 0
 
@@ -857,32 +833,32 @@ namespace SVGLinearGradientElement
 
 namespace SVGMarkerElement
 
-  public export
+  export
   SVG_MARKERUNITS_STROKEWIDTH : Bits16
   SVG_MARKERUNITS_STROKEWIDTH = 2
 
 
-  public export
+  export
   SVG_MARKERUNITS_UNKNOWN : Bits16
   SVG_MARKERUNITS_UNKNOWN = 0
 
 
-  public export
+  export
   SVG_MARKERUNITS_USERSPACEONUSE : Bits16
   SVG_MARKERUNITS_USERSPACEONUSE = 1
 
 
-  public export
+  export
   SVG_MARKER_ORIENT_ANGLE : Bits16
   SVG_MARKER_ORIENT_ANGLE = 2
 
 
-  public export
+  export
   SVG_MARKER_ORIENT_AUTO : Bits16
   SVG_MARKER_ORIENT_AUTO = 1
 
 
-  public export
+  export
   SVG_MARKER_ORIENT_UNKNOWN : Bits16
   SVG_MARKER_ORIENT_UNKNOWN = 0
 
@@ -1124,72 +1100,72 @@ namespace SVGPointList
 
 namespace SVGPreserveAspectRatio
 
-  public export
+  export
   SVG_MEETORSLICE_MEET : Bits16
   SVG_MEETORSLICE_MEET = 1
 
 
-  public export
+  export
   SVG_MEETORSLICE_SLICE : Bits16
   SVG_MEETORSLICE_SLICE = 2
 
 
-  public export
+  export
   SVG_MEETORSLICE_UNKNOWN : Bits16
   SVG_MEETORSLICE_UNKNOWN = 0
 
 
-  public export
+  export
   SVG_PRESERVEASPECTRATIO_NONE : Bits16
   SVG_PRESERVEASPECTRATIO_NONE = 1
 
 
-  public export
+  export
   SVG_PRESERVEASPECTRATIO_UNKNOWN : Bits16
   SVG_PRESERVEASPECTRATIO_UNKNOWN = 0
 
 
-  public export
+  export
   SVG_PRESERVEASPECTRATIO_XMAXYMAX : Bits16
   SVG_PRESERVEASPECTRATIO_XMAXYMAX = 10
 
 
-  public export
+  export
   SVG_PRESERVEASPECTRATIO_XMAXYMID : Bits16
   SVG_PRESERVEASPECTRATIO_XMAXYMID = 7
 
 
-  public export
+  export
   SVG_PRESERVEASPECTRATIO_XMAXYMIN : Bits16
   SVG_PRESERVEASPECTRATIO_XMAXYMIN = 4
 
 
-  public export
+  export
   SVG_PRESERVEASPECTRATIO_XMIDYMAX : Bits16
   SVG_PRESERVEASPECTRATIO_XMIDYMAX = 9
 
 
-  public export
+  export
   SVG_PRESERVEASPECTRATIO_XMIDYMID : Bits16
   SVG_PRESERVEASPECTRATIO_XMIDYMID = 6
 
 
-  public export
+  export
   SVG_PRESERVEASPECTRATIO_XMIDYMIN : Bits16
   SVG_PRESERVEASPECTRATIO_XMIDYMIN = 3
 
 
-  public export
+  export
   SVG_PRESERVEASPECTRATIO_XMINYMAX : Bits16
   SVG_PRESERVEASPECTRATIO_XMINYMAX = 8
 
 
-  public export
+  export
   SVG_PRESERVEASPECTRATIO_XMINYMID : Bits16
   SVG_PRESERVEASPECTRATIO_XMINYMID = 5
 
 
-  public export
+  export
   SVG_PRESERVEASPECTRATIO_XMINYMIN : Bits16
   SVG_PRESERVEASPECTRATIO_XMINYMIN = 2
 
@@ -1317,30 +1293,26 @@ namespace SVGSVGElement
 
   export
   checkEnclosure :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : JSType t3}
-    -> {auto 0 _ : Elem SVGElement (Types t2)}
-    -> {auto 0 _ : Elem DOMRectReadOnly (Types t3)}
+       {auto _ : Cast t2 SVGElement}
+    -> {auto _ : Cast t3 DOMRectReadOnly}
     -> (obj : SVGSVGElement)
     -> (element : t2)
     -> (rect : t3)
     -> JSIO Bool
   checkEnclosure a b c = tryJS "SVGSVGElement.checkEnclosure" $
-    SVGSVGElement.prim__checkEnclosure a (up b) (up c)
+    SVGSVGElement.prim__checkEnclosure a (cast b) (cast c)
 
 
   export
   checkIntersection :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : JSType t3}
-    -> {auto 0 _ : Elem SVGElement (Types t2)}
-    -> {auto 0 _ : Elem DOMRectReadOnly (Types t3)}
+       {auto _ : Cast t2 SVGElement}
+    -> {auto _ : Cast t3 DOMRectReadOnly}
     -> (obj : SVGSVGElement)
     -> (element : t2)
     -> (rect : t3)
     -> JSIO Bool
   checkIntersection a b c = tryJS "SVGSVGElement.checkIntersection" $
-    SVGSVGElement.prim__checkIntersection a (up b) (up c)
+    SVGSVGElement.prim__checkIntersection a (cast b) (cast c)
 
 
   export
@@ -1375,8 +1347,7 @@ namespace SVGSVGElement
 
   export
   createSVGTransformFromMatrix' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem DOMMatrix2DInit (Types t2)}
+       {auto _ : Cast t2 DOMMatrix2DInit}
     -> (obj : SVGSVGElement)
     -> (matrix : Optional t2)
     -> JSIO SVGTransform
@@ -1411,30 +1382,26 @@ namespace SVGSVGElement
 
   export
   getEnclosureList :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : JSType t3}
-    -> {auto 0 _ : Elem DOMRectReadOnly (Types t2)}
-    -> {auto 0 _ : Elem SVGElement (Types t3)}
+       {auto _ : Cast t2 DOMRectReadOnly}
+    -> {auto _ : Cast t3 SVGElement}
     -> (obj : SVGSVGElement)
     -> (rect : t2)
     -> (referenceElement : Maybe t3)
     -> JSIO NodeList
   getEnclosureList a b c = primJS $
-    SVGSVGElement.prim__getEnclosureList a (up b) (mayUp c)
+    SVGSVGElement.prim__getEnclosureList a (cast b) (mayUp c)
 
 
   export
   getIntersectionList :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : JSType t3}
-    -> {auto 0 _ : Elem DOMRectReadOnly (Types t2)}
-    -> {auto 0 _ : Elem SVGElement (Types t3)}
+       {auto _ : Cast t2 DOMRectReadOnly}
+    -> {auto _ : Cast t3 SVGElement}
     -> (obj : SVGSVGElement)
     -> (rect : t2)
     -> (referenceElement : Maybe t3)
     -> JSIO NodeList
   getIntersectionList a b c = primJS $
-    SVGSVGElement.prim__getIntersectionList a (up b) (mayUp c)
+    SVGSVGElement.prim__getIntersectionList a (cast b) (mayUp c)
 
 
   export
@@ -1572,179 +1539,166 @@ namespace SVGStyleElement
 
 namespace SVGTextContentElement
 
-  public export
+  export
   LENGTHADJUST_SPACING : Bits16
   LENGTHADJUST_SPACING = 1
 
 
-  public export
+  export
   LENGTHADJUST_SPACINGANDGLYPHS : Bits16
   LENGTHADJUST_SPACINGANDGLYPHS = 2
 
 
-  public export
+  export
   LENGTHADJUST_UNKNOWN : Bits16
   LENGTHADJUST_UNKNOWN = 0
 
 
   export
   lengthAdjust :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGTextContentElement (Types t1)}
+       {auto _ : Cast t1 SVGTextContentElement}
     -> (obj : t1)
     -> JSIO SVGAnimatedEnumeration
-  lengthAdjust a = primJS $ SVGTextContentElement.prim__lengthAdjust (up a)
+  lengthAdjust a = primJS $ SVGTextContentElement.prim__lengthAdjust (cast a)
 
 
   export
   textLength :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGTextContentElement (Types t1)}
+       {auto _ : Cast t1 SVGTextContentElement}
     -> (obj : t1)
     -> JSIO SVGAnimatedLength
-  textLength a = primJS $ SVGTextContentElement.prim__textLength (up a)
+  textLength a = primJS $ SVGTextContentElement.prim__textLength (cast a)
 
 
   export
   getCharNumAtPosition' :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem SVGTextContentElement (Types t1)}
-    -> {auto 0 _ : Elem DOMPointInit (Types t2)}
+       {auto _ : Cast t1 SVGTextContentElement}
+    -> {auto _ : Cast t2 DOMPointInit}
     -> (obj : t1)
     -> (point : Optional t2)
     -> JSIO Int32
   getCharNumAtPosition' a b = primJS $
-    SVGTextContentElement.prim__getCharNumAtPosition (up a) (optUp b)
+    SVGTextContentElement.prim__getCharNumAtPosition (cast a) (optUp b)
 
   export
   getCharNumAtPosition :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGTextContentElement (Types t1)}
+       {auto _ : Cast t1 SVGTextContentElement}
     -> (obj : t1)
     -> JSIO Int32
   getCharNumAtPosition a = primJS $
-    SVGTextContentElement.prim__getCharNumAtPosition (up a) undef
+    SVGTextContentElement.prim__getCharNumAtPosition (cast a) undef
 
 
   export
   getComputedTextLength :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGTextContentElement (Types t1)}
+       {auto _ : Cast t1 SVGTextContentElement}
     -> (obj : t1)
     -> JSIO Double
   getComputedTextLength a = primJS $
-    SVGTextContentElement.prim__getComputedTextLength (up a)
+    SVGTextContentElement.prim__getComputedTextLength (cast a)
 
 
   export
   getEndPositionOfChar :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGTextContentElement (Types t1)}
+       {auto _ : Cast t1 SVGTextContentElement}
     -> (obj : t1)
     -> (charnum : Bits32)
     -> JSIO DOMPoint
   getEndPositionOfChar a b = primJS $
-    SVGTextContentElement.prim__getEndPositionOfChar (up a) b
+    SVGTextContentElement.prim__getEndPositionOfChar (cast a) b
 
 
   export
   getExtentOfChar :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGTextContentElement (Types t1)}
+       {auto _ : Cast t1 SVGTextContentElement}
     -> (obj : t1)
     -> (charnum : Bits32)
     -> JSIO DOMRect
   getExtentOfChar a b = primJS $
-    SVGTextContentElement.prim__getExtentOfChar (up a) b
+    SVGTextContentElement.prim__getExtentOfChar (cast a) b
 
 
   export
   getNumberOfChars :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGTextContentElement (Types t1)}
+       {auto _ : Cast t1 SVGTextContentElement}
     -> (obj : t1)
     -> JSIO Int32
   getNumberOfChars a = primJS $
-    SVGTextContentElement.prim__getNumberOfChars (up a)
+    SVGTextContentElement.prim__getNumberOfChars (cast a)
 
 
   export
   getRotationOfChar :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGTextContentElement (Types t1)}
+       {auto _ : Cast t1 SVGTextContentElement}
     -> (obj : t1)
     -> (charnum : Bits32)
     -> JSIO Double
   getRotationOfChar a b = primJS $
-    SVGTextContentElement.prim__getRotationOfChar (up a) b
+    SVGTextContentElement.prim__getRotationOfChar (cast a) b
 
 
   export
   getStartPositionOfChar :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGTextContentElement (Types t1)}
+       {auto _ : Cast t1 SVGTextContentElement}
     -> (obj : t1)
     -> (charnum : Bits32)
     -> JSIO DOMPoint
   getStartPositionOfChar a b = primJS $
-    SVGTextContentElement.prim__getStartPositionOfChar (up a) b
+    SVGTextContentElement.prim__getStartPositionOfChar (cast a) b
 
 
   export
   getSubStringLength :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGTextContentElement (Types t1)}
+       {auto _ : Cast t1 SVGTextContentElement}
     -> (obj : t1)
     -> (charnum : Bits32)
     -> (nchars : Bits32)
     -> JSIO Double
   getSubStringLength a b c = primJS $
-    SVGTextContentElement.prim__getSubStringLength (up a) b c
+    SVGTextContentElement.prim__getSubStringLength (cast a) b c
 
 
   export
   selectSubString :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGTextContentElement (Types t1)}
+       {auto _ : Cast t1 SVGTextContentElement}
     -> (obj : t1)
     -> (charnum : Bits32)
     -> (nchars : Bits32)
     -> JSIO ()
   selectSubString a b c = primJS $
-    SVGTextContentElement.prim__selectSubString (up a) b c
+    SVGTextContentElement.prim__selectSubString (cast a) b c
 
 
 
 
 namespace SVGTextPathElement
 
-  public export
+  export
   TEXTPATH_METHODTYPE_ALIGN : Bits16
   TEXTPATH_METHODTYPE_ALIGN = 1
 
 
-  public export
+  export
   TEXTPATH_METHODTYPE_STRETCH : Bits16
   TEXTPATH_METHODTYPE_STRETCH = 2
 
 
-  public export
+  export
   TEXTPATH_METHODTYPE_UNKNOWN : Bits16
   TEXTPATH_METHODTYPE_UNKNOWN = 0
 
 
-  public export
+  export
   TEXTPATH_SPACINGTYPE_AUTO : Bits16
   TEXTPATH_SPACINGTYPE_AUTO = 1
 
 
-  public export
+  export
   TEXTPATH_SPACINGTYPE_EXACT : Bits16
   TEXTPATH_SPACINGTYPE_EXACT = 2
 
 
-  public export
+  export
   TEXTPATH_SPACINGTYPE_UNKNOWN : Bits16
   TEXTPATH_SPACINGTYPE_UNKNOWN = 0
 
@@ -1769,84 +1723,79 @@ namespace SVGTextPositioningElement
 
   export
   dx :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGTextPositioningElement (Types t1)}
+       {auto _ : Cast t1 SVGTextPositioningElement}
     -> (obj : t1)
     -> JSIO SVGAnimatedLengthList
-  dx a = primJS $ SVGTextPositioningElement.prim__dx (up a)
+  dx a = primJS $ SVGTextPositioningElement.prim__dx (cast a)
 
 
   export
   dy :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGTextPositioningElement (Types t1)}
+       {auto _ : Cast t1 SVGTextPositioningElement}
     -> (obj : t1)
     -> JSIO SVGAnimatedLengthList
-  dy a = primJS $ SVGTextPositioningElement.prim__dy (up a)
+  dy a = primJS $ SVGTextPositioningElement.prim__dy (cast a)
 
 
   export
   rotate :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGTextPositioningElement (Types t1)}
+       {auto _ : Cast t1 SVGTextPositioningElement}
     -> (obj : t1)
     -> JSIO SVGAnimatedNumberList
-  rotate a = primJS $ SVGTextPositioningElement.prim__rotate (up a)
+  rotate a = primJS $ SVGTextPositioningElement.prim__rotate (cast a)
 
 
   export
   x :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGTextPositioningElement (Types t1)}
+       {auto _ : Cast t1 SVGTextPositioningElement}
     -> (obj : t1)
     -> JSIO SVGAnimatedLengthList
-  x a = primJS $ SVGTextPositioningElement.prim__x (up a)
+  x a = primJS $ SVGTextPositioningElement.prim__x (cast a)
 
 
   export
   y :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGTextPositioningElement (Types t1)}
+       {auto _ : Cast t1 SVGTextPositioningElement}
     -> (obj : t1)
     -> JSIO SVGAnimatedLengthList
-  y a = primJS $ SVGTextPositioningElement.prim__y (up a)
+  y a = primJS $ SVGTextPositioningElement.prim__y (cast a)
 
 
 
 
 namespace SVGTransform
 
-  public export
+  export
   SVG_TRANSFORM_MATRIX : Bits16
   SVG_TRANSFORM_MATRIX = 1
 
 
-  public export
+  export
   SVG_TRANSFORM_ROTATE : Bits16
   SVG_TRANSFORM_ROTATE = 4
 
 
-  public export
+  export
   SVG_TRANSFORM_SCALE : Bits16
   SVG_TRANSFORM_SCALE = 3
 
 
-  public export
+  export
   SVG_TRANSFORM_SKEWX : Bits16
   SVG_TRANSFORM_SKEWX = 5
 
 
-  public export
+  export
   SVG_TRANSFORM_SKEWY : Bits16
   SVG_TRANSFORM_SKEWY = 6
 
 
-  public export
+  export
   SVG_TRANSFORM_TRANSLATE : Bits16
   SVG_TRANSFORM_TRANSLATE = 2
 
 
-  public export
+  export
   SVG_TRANSFORM_UNKNOWN : Bits16
   SVG_TRANSFORM_UNKNOWN = 0
 
@@ -1868,8 +1817,7 @@ namespace SVGTransform
 
   export
   setMatrix' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem DOMMatrix2DInit (Types t2)}
+       {auto _ : Cast t2 DOMMatrix2DInit}
     -> (obj : SVGTransform)
     -> (matrix : Optional t2)
     -> JSIO ()
@@ -1957,8 +1905,7 @@ namespace SVGTransformList
 
   export
   createSVGTransformFromMatrix' :
-       {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem DOMMatrix2DInit (Types t2)}
+       {auto _ : Cast t2 DOMMatrix2DInit}
     -> (obj : SVGTransformList)
     -> (matrix : Optional t2)
     -> JSIO SVGTransform
@@ -2011,17 +1958,17 @@ namespace SVGTransformList
 
 namespace SVGUnitTypes
 
-  public export
+  export
   SVG_UNIT_TYPE_OBJECTBOUNDINGBOX : Bits16
   SVG_UNIT_TYPE_OBJECTBOUNDINGBOX = 2
 
 
-  public export
+  export
   SVG_UNIT_TYPE_UNKNOWN : Bits16
   SVG_UNIT_TYPE_UNKNOWN = 0
 
 
-  public export
+  export
   SVG_UNIT_TYPE_USERSPACEONUSE : Bits16
   SVG_UNIT_TYPE_USERSPACEONUSE = 1
 
@@ -2068,14 +2015,12 @@ namespace ShadowAnimation
 
   export
   new :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : JSType t2}
-    -> {auto 0 _ : Elem Animation (Types t1)}
-    -> {auto 0 _ : Elem Animatable (Types t2)}
+       {auto _ : Cast t1 Animation}
+    -> {auto _ : Cast t2 Animatable}
     -> (source : t1)
     -> (newTarget : t2)
     -> JSIO ShadowAnimation
-  new a b = primJS $ ShadowAnimation.prim__new (up a) (up b)
+  new a b = primJS $ ShadowAnimation.prim__new (cast a) (cast b)
 
 
   export
@@ -2093,11 +2038,10 @@ namespace GetSVGDocument
 
   export
   getSVGDocument :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem GetSVGDocument (Types t1)}
+       {auto _ : Cast t1 GetSVGDocument}
     -> (obj : t1)
     -> JSIO Document
-  getSVGDocument a = primJS $ GetSVGDocument.prim__getSVGDocument (up a)
+  getSVGDocument a = primJS $ GetSVGDocument.prim__getSVGDocument (cast a)
 
 
 
@@ -2105,20 +2049,18 @@ namespace SVGAnimatedPoints
 
   export
   animatedPoints :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGAnimatedPoints (Types t1)}
+       {auto _ : Cast t1 SVGAnimatedPoints}
     -> (obj : t1)
     -> JSIO SVGPointList
-  animatedPoints a = primJS $ SVGAnimatedPoints.prim__animatedPoints (up a)
+  animatedPoints a = primJS $ SVGAnimatedPoints.prim__animatedPoints (cast a)
 
 
   export
   points :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGAnimatedPoints (Types t1)}
+       {auto _ : Cast t1 SVGAnimatedPoints}
     -> (obj : t1)
     -> JSIO SVGPointList
-  points a = primJS $ SVGAnimatedPoints.prim__points (up a)
+  points a = primJS $ SVGAnimatedPoints.prim__points (cast a)
 
 
 
@@ -2126,22 +2068,20 @@ namespace SVGElementInstance
 
   export
   correspondingElement :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGElementInstance (Types t1)}
+       {auto _ : Cast t1 SVGElementInstance}
     -> (obj : t1)
     -> JSIO (Maybe SVGElement)
   correspondingElement a = tryJS "SVGElementInstance.correspondingElement" $
-    SVGElementInstance.prim__correspondingElement (up a)
+    SVGElementInstance.prim__correspondingElement (cast a)
 
 
   export
   correspondingUseElement :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGElementInstance (Types t1)}
+       {auto _ : Cast t1 SVGElementInstance}
     -> (obj : t1)
     -> JSIO (Maybe SVGUseElement)
   correspondingUseElement a = tryJS "SVGElementInstance.correspondingUseElement" $
-    SVGElementInstance.prim__correspondingUseElement (up a)
+    SVGElementInstance.prim__correspondingUseElement (cast a)
 
 
 
@@ -2149,21 +2089,19 @@ namespace SVGFitToViewBox
 
   export
   preserveAspectRatio :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGFitToViewBox (Types t1)}
+       {auto _ : Cast t1 SVGFitToViewBox}
     -> (obj : t1)
     -> JSIO SVGAnimatedPreserveAspectRatio
   preserveAspectRatio a = primJS $
-    SVGFitToViewBox.prim__preserveAspectRatio (up a)
+    SVGFitToViewBox.prim__preserveAspectRatio (cast a)
 
 
   export
   viewBox :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGFitToViewBox (Types t1)}
+       {auto _ : Cast t1 SVGFitToViewBox}
     -> (obj : t1)
     -> JSIO SVGAnimatedRect
-  viewBox a = primJS $ SVGFitToViewBox.prim__viewBox (up a)
+  viewBox a = primJS $ SVGFitToViewBox.prim__viewBox (cast a)
 
 
 
@@ -2171,20 +2109,18 @@ namespace SVGTests
 
   export
   requiredExtensions :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGTests (Types t1)}
+       {auto _ : Cast t1 SVGTests}
     -> (obj : t1)
     -> JSIO SVGStringList
-  requiredExtensions a = primJS $ SVGTests.prim__requiredExtensions (up a)
+  requiredExtensions a = primJS $ SVGTests.prim__requiredExtensions (cast a)
 
 
   export
   systemLanguage :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGTests (Types t1)}
+       {auto _ : Cast t1 SVGTests}
     -> (obj : t1)
     -> JSIO SVGStringList
-  systemLanguage a = primJS $ SVGTests.prim__systemLanguage (up a)
+  systemLanguage a = primJS $ SVGTests.prim__systemLanguage (cast a)
 
 
 
@@ -2192,11 +2128,10 @@ namespace SVGURIReference
 
   export
   href :
-       {auto 0 _ : JSType t1}
-    -> {auto 0 _ : Elem SVGURIReference (Types t1)}
+       {auto _ : Cast t1 SVGURIReference}
     -> (obj : t1)
     -> JSIO SVGAnimatedString
-  href a = primJS $ SVGURIReference.prim__href (up a)
+  href a = primJS $ SVGURIReference.prim__href (cast a)
 
 
 
@@ -2224,8 +2159,7 @@ namespace SVGBoundingBoxOptions
 
   export
   clipped :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem SVGBoundingBoxOptions (Types t)}
+       {auto _ : Cast t SVGBoundingBoxOptions}
     -> t
     -> Attribute True Optional Bool
   clipped v = fromUndefOrPrim
@@ -2233,13 +2167,12 @@ namespace SVGBoundingBoxOptions
                 prim__clipped
                 prim__setClipped
                 False
-                (v :> SVGBoundingBoxOptions)
+                (cast {to = SVGBoundingBoxOptions} v)
 
 
   export
   fill :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem SVGBoundingBoxOptions (Types t)}
+       {auto _ : Cast t SVGBoundingBoxOptions}
     -> t
     -> Attribute True Optional Bool
   fill v = fromUndefOrPrim
@@ -2247,13 +2180,12 @@ namespace SVGBoundingBoxOptions
              prim__fill
              prim__setFill
              True
-             (v :> SVGBoundingBoxOptions)
+             (cast {to = SVGBoundingBoxOptions} v)
 
 
   export
   markers :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem SVGBoundingBoxOptions (Types t)}
+       {auto _ : Cast t SVGBoundingBoxOptions}
     -> t
     -> Attribute True Optional Bool
   markers v = fromUndefOrPrim
@@ -2261,13 +2193,12 @@ namespace SVGBoundingBoxOptions
                 prim__markers
                 prim__setMarkers
                 False
-                (v :> SVGBoundingBoxOptions)
+                (cast {to = SVGBoundingBoxOptions} v)
 
 
   export
   stroke :
-       {auto 0 _ : JSType t}
-    -> {auto 0 _ : Elem SVGBoundingBoxOptions (Types t)}
+       {auto _ : Cast t SVGBoundingBoxOptions}
     -> t
     -> Attribute True Optional Bool
   stroke v = fromUndefOrPrim
@@ -2275,4 +2206,4 @@ namespace SVGBoundingBoxOptions
                prim__stroke
                prim__setStroke
                False
-               (v :> SVGBoundingBoxOptions)
+               (cast {to = SVGBoundingBoxOptions} v)

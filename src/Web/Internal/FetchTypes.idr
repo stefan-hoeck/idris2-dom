@@ -34,7 +34,7 @@ namespace RequestDestination
     | Worker
     | Xslt
 
-  public export
+  export
   Show RequestDestination where
     show Empty = ""
     show Audio = "audio"
@@ -57,15 +57,15 @@ namespace RequestDestination
     show Worker = "worker"
     show Xslt = "xslt"
 
-  public export
+  export
   Eq RequestDestination where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord RequestDestination where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe RequestDestination
   read "" = Just Empty
   read "audio" = Just Audio
@@ -103,22 +103,22 @@ namespace RequestMode
   public export
   data RequestMode = Navigate | SameOrigin | NoCors | Cors
 
-  public export
+  export
   Show RequestMode where
     show Navigate = "navigate"
     show SameOrigin = "same-origin"
     show NoCors = "no-cors"
     show Cors = "cors"
 
-  public export
+  export
   Eq RequestMode where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord RequestMode where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe RequestMode
   read "navigate" = Just Navigate
   read "same-origin" = Just SameOrigin
@@ -140,21 +140,21 @@ namespace RequestCredentials
   public export
   data RequestCredentials = Omit | SameOrigin | Include
 
-  public export
+  export
   Show RequestCredentials where
     show Omit = "omit"
     show SameOrigin = "same-origin"
     show Include = "include"
 
-  public export
+  export
   Eq RequestCredentials where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord RequestCredentials where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe RequestCredentials
   read "omit" = Just Omit
   read "same-origin" = Just SameOrigin
@@ -181,7 +181,7 @@ namespace RequestCache
     | ForceCache
     | OnlyIfCached
 
-  public export
+  export
   Show RequestCache where
     show Default = "default"
     show NoStore = "no-store"
@@ -190,15 +190,15 @@ namespace RequestCache
     show ForceCache = "force-cache"
     show OnlyIfCached = "only-if-cached"
 
-  public export
+  export
   Eq RequestCache where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord RequestCache where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe RequestCache
   read "default" = Just Default
   read "no-store" = Just NoStore
@@ -222,21 +222,21 @@ namespace RequestRedirect
   public export
   data RequestRedirect = Follow | Error | Manual
 
-  public export
+  export
   Show RequestRedirect where
     show Follow = "follow"
     show Error = "error"
     show Manual = "manual"
 
-  public export
+  export
   Eq RequestRedirect where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord RequestRedirect where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe RequestRedirect
   read "follow" = Just Follow
   read "error" = Just Error
@@ -257,7 +257,7 @@ namespace ResponseType
   public export
   data ResponseType = Basic | Cors | Default | Error | Opaque | Opaqueredirect
 
-  public export
+  export
   Show ResponseType where
     show Basic = "basic"
     show Cors = "cors"
@@ -266,15 +266,15 @@ namespace ResponseType
     show Opaque = "opaque"
     show Opaqueredirect = "opaqueredirect"
 
-  public export
+  export
   Eq ResponseType where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord ResponseType where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe ResponseType
   read "basic" = Just Basic
   read "cors" = Just Cors
@@ -307,7 +307,7 @@ namespace ReferrerPolicy
     | StrictOriginWhenCrossOrigin
     | UnsafeUrl
 
-  public export
+  export
   Show ReferrerPolicy where
     show Empty = ""
     show NoReferrer = "no-referrer"
@@ -319,15 +319,15 @@ namespace ReferrerPolicy
     show StrictOriginWhenCrossOrigin = "strict-origin-when-cross-origin"
     show UnsafeUrl = "unsafe-url"
 
-  public export
+  export
   Eq ReferrerPolicy where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord ReferrerPolicy where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe ReferrerPolicy
   read "" = Just Empty
   read "no-referrer" = Just NoReferrer

@@ -14,21 +14,21 @@ namespace WebGLPowerPreference
   public export
   data WebGLPowerPreference = Default | LowPower | HighPerformance
 
-  public export
+  export
   Show WebGLPowerPreference where
     show Default = "default"
     show LowPower = "low-power"
     show HighPerformance = "high-performance"
 
-  public export
+  export
   Eq WebGLPowerPreference where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord WebGLPowerPreference where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe WebGLPowerPreference
   read "default" = Just Default
   read "low-power" = Just LowPower

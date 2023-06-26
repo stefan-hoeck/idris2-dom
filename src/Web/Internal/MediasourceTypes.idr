@@ -14,21 +14,21 @@ namespace ReadyState
   public export
   data ReadyState = Closed | Open | Ended
 
-  public export
+  export
   Show ReadyState where
     show Closed = "closed"
     show Open = "open"
     show Ended = "ended"
 
-  public export
+  export
   Eq ReadyState where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord ReadyState where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe ReadyState
   read "closed" = Just Closed
   read "open" = Just Open
@@ -49,20 +49,20 @@ namespace EndOfStreamError
   public export
   data EndOfStreamError = Network | Decode
 
-  public export
+  export
   Show EndOfStreamError where
     show Network = "network"
     show Decode = "decode"
 
-  public export
+  export
   Eq EndOfStreamError where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord EndOfStreamError where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe EndOfStreamError
   read "network" = Just Network
   read "decode" = Just Decode
@@ -82,20 +82,20 @@ namespace AppendMode
   public export
   data AppendMode = Segments | Sequence
 
-  public export
+  export
   Show AppendMode where
     show Segments = "segments"
     show Sequence = "sequence"
 
-  public export
+  export
   Eq AppendMode where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord AppendMode where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe AppendMode
   read "segments" = Just Segments
   read "sequence" = Just Sequence

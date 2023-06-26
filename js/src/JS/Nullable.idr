@@ -13,16 +13,16 @@ data Nullable : Type -> Type where [external]
 %foreign "javascript:lambda:()=>null"
 prim__null : AnyPtr
 
-export
+export %inline
 null : Nullable a
 null = believe_me prim__null
 
-export
+export %inline
 nonNull : a -> Nullable a
 nonNull = believe_me
 
 ||| Tests, whether a value of questionable origin is null
-export
+export %inline
 isNull : a -> Bool
 isNull = eqv prim__null
 
@@ -31,8 +31,8 @@ maybeToNullable : Maybe a -> Nullable a
 maybeToNullable = maybe null nonNull
 
 export
-mayUp : (0 _ : JSType a) => Maybe a -> {auto 0 _ : Elem b (Types a)} -> Nullable b
-mayUp x = maybe null (\v => nonNull $ up v) x
+mayUp : Cast a b => Maybe a -> Nullable b
+mayUp x = maybe null (\v => nonNull $ cast v) x
 
 export
 nullableToMaybe : Nullable a -> Maybe a

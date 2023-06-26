@@ -33,6 +33,8 @@ jobs:
         run: pack install js
       - name: Build dom
         run: pack install dom
+      - name: Build modular-dom
+        run: pack install modular-dom
       - name: Build docs
         run: pack build docs/docs.ipkg
       - name: Run test

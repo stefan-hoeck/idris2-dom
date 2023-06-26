@@ -19,7 +19,7 @@ namespace DOMParserSupportedType
     | ApplicationXhtmlXml
     | ImageSvgXml
 
-  public export
+  export
   Show DOMParserSupportedType where
     show TextHtml = "text/html"
     show TextXml = "text/xml"
@@ -27,15 +27,15 @@ namespace DOMParserSupportedType
     show ApplicationXhtmlXml = "application/xhtml+xml"
     show ImageSvgXml = "image/svg+xml"
 
-  public export
+  export
   Eq DOMParserSupportedType where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord DOMParserSupportedType where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe DOMParserSupportedType
   read "text/html" = Just TextHtml
   read "text/xml" = Just TextXml
@@ -58,21 +58,21 @@ namespace DocumentReadyState
   public export
   data DocumentReadyState = Loading | Interactive | Complete
 
-  public export
+  export
   Show DocumentReadyState where
     show Loading = "loading"
     show Interactive = "interactive"
     show Complete = "complete"
 
-  public export
+  export
   Eq DocumentReadyState where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord DocumentReadyState where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe DocumentReadyState
   read "loading" = Just Loading
   read "interactive" = Just Interactive
@@ -93,21 +93,21 @@ namespace CanPlayTypeResult
   public export
   data CanPlayTypeResult = Empty | Maybe | Probably
 
-  public export
+  export
   Show CanPlayTypeResult where
     show Empty = ""
     show Maybe = "maybe"
     show Probably = "probably"
 
-  public export
+  export
   Eq CanPlayTypeResult where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord CanPlayTypeResult where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe CanPlayTypeResult
   read "" = Just Empty
   read "maybe" = Just Maybe
@@ -128,20 +128,20 @@ namespace ScrollRestoration
   public export
   data ScrollRestoration = Auto | Manual
 
-  public export
+  export
   Show ScrollRestoration where
     show Auto = "auto"
     show Manual = "manual"
 
-  public export
+  export
   Eq ScrollRestoration where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord ScrollRestoration where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe ScrollRestoration
   read "auto" = Just Auto
   read "manual" = Just Manual
@@ -161,20 +161,20 @@ namespace ImageOrientation
   public export
   data ImageOrientation = None | FlipY
 
-  public export
+  export
   Show ImageOrientation where
     show None = "none"
     show FlipY = "flipY"
 
-  public export
+  export
   Eq ImageOrientation where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord ImageOrientation where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe ImageOrientation
   read "none" = Just None
   read "flipY" = Just FlipY
@@ -194,21 +194,21 @@ namespace PremultiplyAlpha
   public export
   data PremultiplyAlpha = None | Premultiply | Default
 
-  public export
+  export
   Show PremultiplyAlpha where
     show None = "none"
     show Premultiply = "premultiply"
     show Default = "default"
 
-  public export
+  export
   Eq PremultiplyAlpha where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord PremultiplyAlpha where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe PremultiplyAlpha
   read "none" = Just None
   read "premultiply" = Just Premultiply
@@ -229,20 +229,20 @@ namespace ColorSpaceConversion
   public export
   data ColorSpaceConversion = None | Default
 
-  public export
+  export
   Show ColorSpaceConversion where
     show None = "none"
     show Default = "default"
 
-  public export
+  export
   Eq ColorSpaceConversion where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord ColorSpaceConversion where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe ColorSpaceConversion
   read "none" = Just None
   read "default" = Just Default
@@ -262,22 +262,22 @@ namespace ResizeQuality
   public export
   data ResizeQuality = Pixelated | Low | Medium | High
 
-  public export
+  export
   Show ResizeQuality where
     show Pixelated = "pixelated"
     show Low = "low"
     show Medium = "medium"
     show High = "high"
 
-  public export
+  export
   Eq ResizeQuality where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord ResizeQuality where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe ResizeQuality
   read "pixelated" = Just Pixelated
   read "low" = Just Low
@@ -299,20 +299,20 @@ namespace CanvasFillRule
   public export
   data CanvasFillRule = Nonzero | Evenodd
 
-  public export
+  export
   Show CanvasFillRule where
     show Nonzero = "nonzero"
     show Evenodd = "evenodd"
 
-  public export
+  export
   Eq CanvasFillRule where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord CanvasFillRule where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe CanvasFillRule
   read "nonzero" = Just Nonzero
   read "evenodd" = Just Evenodd
@@ -332,21 +332,21 @@ namespace ImageSmoothingQuality
   public export
   data ImageSmoothingQuality = Low | Medium | High
 
-  public export
+  export
   Show ImageSmoothingQuality where
     show Low = "low"
     show Medium = "medium"
     show High = "high"
 
-  public export
+  export
   Eq ImageSmoothingQuality where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord ImageSmoothingQuality where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe ImageSmoothingQuality
   read "low" = Just Low
   read "medium" = Just Medium
@@ -367,21 +367,21 @@ namespace CanvasLineCap
   public export
   data CanvasLineCap = Butt | Round | Square
 
-  public export
+  export
   Show CanvasLineCap where
     show Butt = "butt"
     show Round = "round"
     show Square = "square"
 
-  public export
+  export
   Eq CanvasLineCap where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord CanvasLineCap where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe CanvasLineCap
   read "butt" = Just Butt
   read "round" = Just Round
@@ -402,21 +402,21 @@ namespace CanvasLineJoin
   public export
   data CanvasLineJoin = Round | Bevel | Miter
 
-  public export
+  export
   Show CanvasLineJoin where
     show Round = "round"
     show Bevel = "bevel"
     show Miter = "miter"
 
-  public export
+  export
   Eq CanvasLineJoin where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord CanvasLineJoin where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe CanvasLineJoin
   read "round" = Just Round
   read "bevel" = Just Bevel
@@ -437,7 +437,7 @@ namespace CanvasTextAlign
   public export
   data CanvasTextAlign = Start | End | Left | Right | Center
 
-  public export
+  export
   Show CanvasTextAlign where
     show Start = "start"
     show End = "end"
@@ -445,15 +445,15 @@ namespace CanvasTextAlign
     show Right = "right"
     show Center = "center"
 
-  public export
+  export
   Eq CanvasTextAlign where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord CanvasTextAlign where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe CanvasTextAlign
   read "start" = Just Start
   read "end" = Just End
@@ -482,7 +482,7 @@ namespace CanvasTextBaseline
     | Ideographic
     | Bottom
 
-  public export
+  export
   Show CanvasTextBaseline where
     show Top = "top"
     show Hanging = "hanging"
@@ -491,15 +491,15 @@ namespace CanvasTextBaseline
     show Ideographic = "ideographic"
     show Bottom = "bottom"
 
-  public export
+  export
   Eq CanvasTextBaseline where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord CanvasTextBaseline where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe CanvasTextBaseline
   read "top" = Just Top
   read "hanging" = Just Hanging
@@ -523,21 +523,21 @@ namespace CanvasDirection
   public export
   data CanvasDirection = Ltr | Rtl | Inherit
 
-  public export
+  export
   Show CanvasDirection where
     show Ltr = "ltr"
     show Rtl = "rtl"
     show Inherit = "inherit"
 
-  public export
+  export
   Eq CanvasDirection where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord CanvasDirection where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe CanvasDirection
   read "ltr" = Just Ltr
   read "rtl" = Just Rtl
@@ -558,22 +558,22 @@ namespace OffscreenRenderingContextId
   public export
   data OffscreenRenderingContextId = TwoD | Bitmaprenderer | Webgl | Webgl2
 
-  public export
+  export
   Show OffscreenRenderingContextId where
     show TwoD = "2d"
     show Bitmaprenderer = "bitmaprenderer"
     show Webgl = "webgl"
     show Webgl2 = "webgl2"
 
-  public export
+  export
   Eq OffscreenRenderingContextId where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord OffscreenRenderingContextId where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe OffscreenRenderingContextId
   read "2d" = Just TwoD
   read "bitmaprenderer" = Just Bitmaprenderer
@@ -595,21 +595,21 @@ namespace TextTrackMode
   public export
   data TextTrackMode = Disabled | Hidden | Showing
 
-  public export
+  export
   Show TextTrackMode where
     show Disabled = "disabled"
     show Hidden = "hidden"
     show Showing = "showing"
 
-  public export
+  export
   Eq TextTrackMode where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord TextTrackMode where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe TextTrackMode
   read "disabled" = Just Disabled
   read "hidden" = Just Hidden
@@ -630,7 +630,7 @@ namespace TextTrackKind
   public export
   data TextTrackKind = Subtitles | Captions | Descriptions | Chapters | Metadata
 
-  public export
+  export
   Show TextTrackKind where
     show Subtitles = "subtitles"
     show Captions = "captions"
@@ -638,15 +638,15 @@ namespace TextTrackKind
     show Chapters = "chapters"
     show Metadata = "metadata"
 
-  public export
+  export
   Eq TextTrackKind where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord TextTrackKind where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe TextTrackKind
   read "subtitles" = Just Subtitles
   read "captions" = Just Captions
@@ -669,20 +669,20 @@ namespace BinaryType
   public export
   data BinaryType = Blob | Arraybuffer
 
-  public export
+  export
   Show BinaryType where
     show Blob = "blob"
     show Arraybuffer = "arraybuffer"
 
-  public export
+  export
   Eq BinaryType where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord BinaryType where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe BinaryType
   read "blob" = Just Blob
   read "arraybuffer" = Just Arraybuffer
@@ -702,20 +702,20 @@ namespace WorkerType
   public export
   data WorkerType = Classic | Module
 
-  public export
+  export
   Show WorkerType where
     show Classic = "classic"
     show Module = "module"
 
-  public export
+  export
   Eq WorkerType where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord WorkerType where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe WorkerType
   read "classic" = Just Classic
   read "module" = Just Module
@@ -735,22 +735,22 @@ namespace SelectionMode
   public export
   data SelectionMode = Select | Start | End | Preserve
 
-  public export
+  export
   Show SelectionMode where
     show Select = "select"
     show Start = "start"
     show End = "end"
     show Preserve = "preserve"
 
-  public export
+  export
   Eq SelectionMode where
     (==) = (==) `on` show
 
-  public export
+  export
   Ord SelectionMode where
     compare = compare `on` show
 
-  public export
+  export
   read : String -> Maybe SelectionMode
   read "select" = Just Select
   read "start" = Just Start
