@@ -25,4 +25,3 @@ Cast EventSource EventTarget where cast = believe_me
 
 export %inline
 Cast EventSource Object where cast = believe_me
-

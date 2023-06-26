@@ -20,4 +20,3 @@ SafeCast DOMRectList where
 
 export %inline
 Cast DOMRectList Object where cast = believe_me
-

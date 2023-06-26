@@ -19,4 +19,3 @@ hardwareConcurrency :
   -> JSIO JSBits64
 hardwareConcurrency a = primJS $
   NavigatorConcurrentHardware.prim__hardwareConcurrency (cast a)
-

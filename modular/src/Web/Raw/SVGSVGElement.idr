@@ -348,4 +348,3 @@ unsuspendRedrawAll a = primJS $ SVGSVGElement.prim__unsuspendRedrawAll a
 export
 unsuspendRedraw : (obj : SVGSVGElement) -> (suspendHandleID : Bits32) -> JSIO ()
 unsuspendRedraw a b = primJS $ SVGSVGElement.prim__unsuspendRedraw a b
-

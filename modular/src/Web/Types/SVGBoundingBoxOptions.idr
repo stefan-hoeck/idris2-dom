@@ -16,4 +16,3 @@ FromFFI SVGBoundingBoxOptions SVGBoundingBoxOptions where fromFFI = Just
 
 export %inline
 Cast SVGBoundingBoxOptions Object where cast = believe_me
-

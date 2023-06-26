@@ -21,4 +21,3 @@ Cast ClipboardEventInit EventInit where cast = believe_me
 
 export %inline
 Cast ClipboardEventInit Object where cast = believe_me
-

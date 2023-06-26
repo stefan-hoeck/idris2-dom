@@ -39,4 +39,3 @@ highWaterMark v = fromPrim
                     prim__highWaterMark
                     prim__setHighWaterMark
                     (cast {to = QueuingStrategyInit} v)
-

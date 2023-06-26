@@ -63,4 +63,3 @@ deltaY a = primJS $ WheelEvent.prim__deltaY a
 export
 deltaZ : (obj : WheelEvent) -> JSIO Double
 deltaZ a = primJS $ WheelEvent.prim__deltaZ a
-

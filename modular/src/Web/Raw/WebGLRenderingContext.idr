@@ -7,4 +7,3 @@ import Web.Types.WebGLRenderingContextOverloads
 
 
 %default total
-

@@ -136,4 +136,3 @@ getContext a b = tryJS "OffscreenCanvas.getContext" $
 export
 transferToImageBitmap : (obj : OffscreenCanvas) -> JSIO ImageBitmap
 transferToImageBitmap a = primJS $ OffscreenCanvas.prim__transferToImageBitmap a
-

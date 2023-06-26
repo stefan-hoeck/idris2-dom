@@ -33,4 +33,3 @@ new a b = primJS $ ShadowAnimation.prim__new (cast a) (cast b)
 export
 sourceAnimation : (obj : ShadowAnimation) -> JSIO Animation
 sourceAnimation a = primJS $ ShadowAnimation.prim__sourceAnimation a
-

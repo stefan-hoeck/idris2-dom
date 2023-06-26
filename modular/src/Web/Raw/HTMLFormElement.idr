@@ -340,4 +340,3 @@ reset a = primJS $ HTMLFormElement.prim__reset a
 export
 submit : (obj : HTMLFormElement) -> JSIO ()
 submit a = primJS $ HTMLFormElement.prim__submit a
-

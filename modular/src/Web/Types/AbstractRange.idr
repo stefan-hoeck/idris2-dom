@@ -20,4 +20,3 @@ SafeCast AbstractRange where
 
 export %inline
 Cast AbstractRange Object where cast = believe_me
-

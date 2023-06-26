@@ -12,4 +12,3 @@ ToFFI QueuingStrategySize QueuingStrategySize where toFFI = id
 
 export
 FromFFI QueuingStrategySize QueuingStrategySize where fromFFI = Just
-

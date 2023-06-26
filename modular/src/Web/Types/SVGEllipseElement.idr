@@ -115,4 +115,3 @@ Cast SVGEllipseElement SVGTests where cast = believe_me
 
 export %inline
 Cast SVGEllipseElement Slottable where cast = believe_me
-

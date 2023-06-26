@@ -35,4 +35,3 @@ size a = primJS $ WebGLActiveInfo.prim__size a
 export
 type : (obj : WebGLActiveInfo) -> JSIO Bits32
 type a = primJS $ WebGLActiveInfo.prim__type a
-

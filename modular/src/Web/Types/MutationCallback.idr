@@ -12,4 +12,3 @@ ToFFI MutationCallback MutationCallback where toFFI = id
 
 export
 FromFFI MutationCallback MutationCallback where fromFFI = Just
-

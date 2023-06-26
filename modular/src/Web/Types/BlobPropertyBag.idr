@@ -16,4 +16,3 @@ FromFFI BlobPropertyBag BlobPropertyBag where fromFFI = Just
 
 export %inline
 Cast BlobPropertyBag Object where cast = believe_me
-

@@ -20,4 +20,3 @@ SafeCast DOMTokenList where
 
 export %inline
 Cast DOMTokenList Object where cast = believe_me
-

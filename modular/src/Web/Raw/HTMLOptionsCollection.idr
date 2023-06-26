@@ -104,4 +104,3 @@ add a b = primJS $ HTMLOptionsCollection.prim__add a (toFFI b) undef
 export
 remove : (obj : HTMLOptionsCollection) -> (index : Int32) -> JSIO ()
 remove a b = primJS $ HTMLOptionsCollection.prim__remove a b
-

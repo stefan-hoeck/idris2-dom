@@ -16,4 +16,3 @@ FromFFI EffectTiming EffectTiming where fromFFI = Just
 
 export %inline
 Cast EffectTiming Object where cast = believe_me
-

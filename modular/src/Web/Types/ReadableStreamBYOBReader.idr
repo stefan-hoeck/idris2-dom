@@ -25,4 +25,3 @@ Cast ReadableStreamBYOBReader Object where cast = believe_me
 
 export %inline
 Cast ReadableStreamBYOBReader ReadableStreamGenericReader where cast = believe_me
-

@@ -63,4 +63,3 @@ export
 initCustomEvent : (obj : CustomEvent) -> (type : String) -> JSIO ()
 initCustomEvent a b = primJS $
   CustomEvent.prim__initCustomEvent a b undef undef undef
-

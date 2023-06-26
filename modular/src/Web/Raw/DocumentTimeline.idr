@@ -6,4 +6,3 @@ import Web.Types.DocumentTimeline
 
 
 %default total
-

@@ -22,4 +22,3 @@ prim__setValue : SVGNumber -> Double -> PrimIO ()
 export
 value : SVGNumber -> Attribute True Prelude.id Double
 value v = fromPrim "SVGNumber.getvalue" prim__value prim__setValue v
-

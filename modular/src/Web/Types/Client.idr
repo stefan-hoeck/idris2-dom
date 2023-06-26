@@ -20,4 +20,3 @@ SafeCast Client where
 
 export %inline
 Cast Client Object where cast = believe_me
-

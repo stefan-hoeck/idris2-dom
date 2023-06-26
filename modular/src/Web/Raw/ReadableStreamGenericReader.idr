@@ -43,4 +43,3 @@ cancel :
   -> (obj : t1)
   -> JSIO (Promise Undefined)
 cancel a = primJS $ ReadableStreamGenericReader.prim__cancel (cast a) undef
-

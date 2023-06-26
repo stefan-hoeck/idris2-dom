@@ -25,4 +25,3 @@ Cast MediaStreamTrackEvent Event where cast = believe_me
 
 export %inline
 Cast MediaStreamTrackEvent Object where cast = believe_me
-

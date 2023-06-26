@@ -85,4 +85,3 @@ getUserMedia' a b = primJS $ MediaDevices.prim__getUserMedia a (optUp b)
 export
 getUserMedia : (obj : MediaDevices) -> JSIO (Promise MediaStream)
 getUserMedia a = primJS $ MediaDevices.prim__getUserMedia a undef
-

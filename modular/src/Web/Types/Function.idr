@@ -12,4 +12,3 @@ ToFFI Function Function where toFFI = id
 
 export
 FromFFI Function Function where fromFFI = Just
-

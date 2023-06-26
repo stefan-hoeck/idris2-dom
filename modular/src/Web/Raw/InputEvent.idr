@@ -37,4 +37,3 @@ inputType a = primJS $ InputEvent.prim__inputType a
 export
 isComposing : (obj : InputEvent) -> JSIO Bool
 isComposing a = tryJS "InputEvent.isComposing" $ InputEvent.prim__isComposing a
-

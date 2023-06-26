@@ -20,4 +20,3 @@ toClipboardItemDelayedCallback :
      (() -> IO (Promise (Union2 String Blob)))
   -> JSIO ClipboardItemDelayedCallback
 toClipboardItemDelayedCallback cb = primJS $ prim__toClipboardItemDelayedCallback cb
-

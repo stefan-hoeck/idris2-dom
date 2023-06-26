@@ -12,4 +12,3 @@ ToFFI NavigatorContentUtils NavigatorContentUtils where toFFI = id
 
 export
 FromFFI NavigatorContentUtils NavigatorContentUtils where fromFFI = Just
-

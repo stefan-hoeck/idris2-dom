@@ -20,4 +20,3 @@ SafeCast NamedNodeMap where
 
 export %inline
 Cast NamedNodeMap Object where cast = believe_me
-

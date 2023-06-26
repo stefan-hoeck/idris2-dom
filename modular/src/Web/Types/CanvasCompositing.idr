@@ -12,4 +12,3 @@ ToFFI CanvasCompositing CanvasCompositing where toFFI = id
 
 export
 FromFFI CanvasCompositing CanvasCompositing where fromFFI = Just
-

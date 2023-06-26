@@ -55,4 +55,3 @@ Cast ShadowRoot NonElementParentNode where cast = believe_me
 
 export %inline
 Cast ShadowRoot ParentNode where cast = believe_me
-

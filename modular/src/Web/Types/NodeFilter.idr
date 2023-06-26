@@ -12,4 +12,3 @@ ToFFI NodeFilter NodeFilter where toFFI = id
 
 export
 FromFFI NodeFilter NodeFilter where fromFFI = Just
-

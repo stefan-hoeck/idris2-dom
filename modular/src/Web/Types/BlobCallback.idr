@@ -12,4 +12,3 @@ ToFFI BlobCallback BlobCallback where toFFI = id
 
 export
 FromFFI BlobCallback BlobCallback where fromFFI = Just
-

@@ -120,4 +120,3 @@ Cast SVGTextPathElement SVGURIReference where cast = believe_me
 
 export %inline
 Cast SVGTextPathElement Slottable where cast = believe_me
-

@@ -15,4 +15,3 @@ prim__new : PrimIO Settings
 export
 new : JSIO Settings
 new = primJS $ Settings.prim__new
-

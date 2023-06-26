@@ -145,4 +145,3 @@ export
 getSVGDocument : (obj : HTMLEmbedElement) -> JSIO (Maybe Document)
 getSVGDocument a = tryJS "HTMLEmbedElement.getSVGDocument" $
   HTMLEmbedElement.prim__getSVGDocument a
-

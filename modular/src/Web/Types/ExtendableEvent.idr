@@ -25,4 +25,3 @@ Cast ExtendableEvent Event where cast = believe_me
 
 export %inline
 Cast ExtendableEvent Object where cast = believe_me
-

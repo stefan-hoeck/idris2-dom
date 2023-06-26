@@ -20,4 +20,3 @@ SafeCast MimeType where
 
 export %inline
 Cast MimeType Object where cast = believe_me
-

@@ -44,4 +44,3 @@ flatten v = fromUndefOrPrim
               prim__setFlatten
               False
               (cast {to = AssignedNodesOptions} v)
-

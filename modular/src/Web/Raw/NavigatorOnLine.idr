@@ -16,4 +16,3 @@ export
 onLine : {auto _ : Cast t1 NavigatorOnLine} -> (obj : t1) -> JSIO Bool
 onLine a = tryJS "NavigatorOnLine.onLine" $
   NavigatorOnLine.prim__onLine (cast a)
-

@@ -21,4 +21,3 @@ Cast KeyframeEffectOptions EffectTiming where cast = believe_me
 
 export %inline
 Cast KeyframeEffectOptions Object where cast = believe_me
-

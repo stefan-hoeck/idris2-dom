@@ -20,4 +20,3 @@ SafeCast IDBCursor where
 
 export %inline
 Cast IDBCursor Object where cast = believe_me
-

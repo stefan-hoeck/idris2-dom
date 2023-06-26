@@ -20,4 +20,3 @@ SafeCast ImageBitmap where
 
 export %inline
 Cast ImageBitmap Object where cast = believe_me
-

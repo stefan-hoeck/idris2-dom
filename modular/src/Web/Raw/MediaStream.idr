@@ -177,4 +177,3 @@ getVideoTracks a = primJS $ MediaStream.prim__getVideoTracks a
 export
 removeTrack : (obj : MediaStream) -> (track : MediaStreamTrack) -> JSIO ()
 removeTrack a b = primJS $ MediaStream.prim__removeTrack a b
-

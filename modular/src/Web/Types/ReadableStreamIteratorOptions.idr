@@ -16,4 +16,3 @@ FromFFI ReadableStreamIteratorOptions ReadableStreamIteratorOptions where fromFF
 
 export %inline
 Cast ReadableStreamIteratorOptions Object where cast = believe_me
-

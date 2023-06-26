@@ -12,4 +12,3 @@ ToFFI UnderlyingSinkWriteCallback UnderlyingSinkWriteCallback where toFFI = id
 
 export
 FromFFI UnderlyingSinkWriteCallback UnderlyingSinkWriteCallback where fromFFI = Just
-

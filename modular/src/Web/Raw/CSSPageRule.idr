@@ -39,4 +39,3 @@ selectorText v = fromPrim
 export
 style : (obj : CSSPageRule) -> JSIO CSSStyleDeclaration
 style a = primJS $ CSSPageRule.prim__style a
-

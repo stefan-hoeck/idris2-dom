@@ -25,4 +25,3 @@ Cast TextTrackCue EventTarget where cast = believe_me
 
 export %inline
 Cast TextTrackCue Object where cast = believe_me
-

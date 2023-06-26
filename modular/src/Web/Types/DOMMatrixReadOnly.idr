@@ -20,4 +20,3 @@ SafeCast DOMMatrixReadOnly where
 
 export %inline
 Cast DOMMatrixReadOnly Object where cast = believe_me
-

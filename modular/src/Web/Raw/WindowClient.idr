@@ -64,4 +64,3 @@ navigate :
   -> (url : String)
   -> JSIO (Promise (Nullable WindowClient))
 navigate a b = primJS $ WindowClient.prim__navigate a b
-

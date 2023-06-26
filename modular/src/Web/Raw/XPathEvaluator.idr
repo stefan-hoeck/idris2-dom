@@ -16,4 +16,3 @@ prim__new : PrimIO XPathEvaluator
 export
 new : JSIO XPathEvaluator
 new = primJS $ XPathEvaluator.prim__new
-

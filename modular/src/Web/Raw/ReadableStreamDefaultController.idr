@@ -61,4 +61,3 @@ error' a b = primJS $ ReadableStreamDefaultController.prim__error a (toFFI b)
 export
 error : (obj : ReadableStreamDefaultController) -> JSIO ()
 error a = primJS $ ReadableStreamDefaultController.prim__error a undef
-

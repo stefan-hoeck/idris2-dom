@@ -12,4 +12,3 @@ ToFFI NavigatorUserMediaSuccessCallback NavigatorUserMediaSuccessCallback where 
 
 export
 FromFFI NavigatorUserMediaSuccessCallback NavigatorUserMediaSuccessCallback where fromFFI = Just
-

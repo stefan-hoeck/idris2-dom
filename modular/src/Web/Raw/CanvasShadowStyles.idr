@@ -101,4 +101,3 @@ shadowOffsetY v = fromPrim
                     prim__shadowOffsetY
                     prim__setShadowOffsetY
                     (cast {to = CanvasShadowStyles} v)
-

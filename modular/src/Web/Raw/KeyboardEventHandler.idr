@@ -18,4 +18,3 @@ prim__toKeyboardEventHandler :
 export
 toKeyboardEventHandler : (KeyboardEvent -> IO ()) -> JSIO KeyboardEventHandler
 toKeyboardEventHandler cb = primJS $ prim__toKeyboardEventHandler cb
-

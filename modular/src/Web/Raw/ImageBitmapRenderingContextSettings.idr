@@ -47,4 +47,3 @@ alpha v = fromUndefOrPrim
             prim__setAlpha
             True
             (cast {to = ImageBitmapRenderingContextSettings} v)
-

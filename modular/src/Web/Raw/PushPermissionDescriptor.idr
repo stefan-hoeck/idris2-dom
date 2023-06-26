@@ -48,4 +48,3 @@ userVisibleOnly v = fromUndefOrPrim
                       prim__setUserVisibleOnly
                       False
                       (cast {to = PushPermissionDescriptor} v)
-

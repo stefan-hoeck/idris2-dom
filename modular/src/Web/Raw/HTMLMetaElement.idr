@@ -107,4 +107,3 @@ name v = fromPrim "HTMLMetaElement.getname" prim__name prim__setName v
 export
 scheme : HTMLMetaElement -> Attribute True Prelude.id String
 scheme v = fromPrim "HTMLMetaElement.getscheme" prim__scheme prim__setScheme v
-

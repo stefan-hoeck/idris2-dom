@@ -20,4 +20,3 @@ SafeCast MediaList where
 
 export %inline
 Cast MediaList Object where cast = believe_me
-

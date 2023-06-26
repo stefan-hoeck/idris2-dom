@@ -25,4 +25,3 @@ Cast Animation EventTarget where cast = believe_me
 
 export %inline
 Cast Animation Object where cast = believe_me
-

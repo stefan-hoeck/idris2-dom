@@ -12,4 +12,3 @@ ToFFI UnderlyingSourceStartCallback UnderlyingSourceStartCallback where toFFI = 
 
 export
 FromFFI UnderlyingSourceStartCallback UnderlyingSourceStartCallback where fromFFI = Just
-

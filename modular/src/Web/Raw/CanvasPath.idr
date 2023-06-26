@@ -225,4 +225,3 @@ rect :
   -> (h : Double)
   -> JSIO ()
 rect a b c d e = primJS $ CanvasPath.prim__rect (cast a) b c d e
-

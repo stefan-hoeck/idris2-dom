@@ -19,4 +19,3 @@ toUnderlyingSinkAbortCallback :
      (UndefOr AnyPtr -> IO (Promise Undefined))
   -> JSIO UnderlyingSinkAbortCallback
 toUnderlyingSinkAbortCallback cb = primJS $ prim__toUnderlyingSinkAbortCallback cb
-

@@ -21,4 +21,3 @@ Cast PopStateEventInit EventInit where cast = believe_me
 
 export %inline
 Cast PopStateEventInit Object where cast = believe_me
-

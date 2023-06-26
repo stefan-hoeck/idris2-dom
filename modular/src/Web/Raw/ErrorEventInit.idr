@@ -149,4 +149,3 @@ message v = fromUndefOrPrim
               prim__setMessage
               ""
               (cast {to = ErrorEventInit} v)
-

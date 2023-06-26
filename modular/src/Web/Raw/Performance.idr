@@ -36,4 +36,3 @@ now a = primJS $ Performance.prim__now a
 export
 toJSON : (obj : Performance) -> JSIO Object
 toJSON a = primJS $ Performance.prim__toJSON a
-

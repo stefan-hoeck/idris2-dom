@@ -20,4 +20,3 @@ SafeCast ReadableStreamDefaultController where
 
 export %inline
 Cast ReadableStreamDefaultController Object where cast = believe_me
-

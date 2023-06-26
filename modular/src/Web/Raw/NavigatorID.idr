@@ -95,4 +95,3 @@ vendor a = primJS $ NavigatorID.prim__vendor (cast a)
 export
 vendorSub : {auto _ : Cast t1 NavigatorID} -> (obj : t1) -> JSIO String
 vendorSub a = primJS $ NavigatorID.prim__vendorSub (cast a)
-

@@ -12,4 +12,3 @@ ToFFI ARIAMixin ARIAMixin where toFFI = id
 
 export
 FromFFI ARIAMixin ARIAMixin where fromFFI = Just
-

@@ -20,4 +20,3 @@ SafeCast ReadableStreamBYOBRequest where
 
 export %inline
 Cast ReadableStreamBYOBRequest Object where cast = believe_me
-

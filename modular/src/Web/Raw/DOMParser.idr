@@ -31,4 +31,3 @@ parseFromString :
   -> (type : DOMParserSupportedType)
   -> JSIO Document
 parseFromString a b c = primJS $ DOMParser.prim__parseFromString a b (toFFI c)
-

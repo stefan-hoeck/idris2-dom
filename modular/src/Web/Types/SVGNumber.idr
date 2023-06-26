@@ -20,4 +20,3 @@ SafeCast SVGNumber where
 
 export %inline
 Cast SVGNumber Object where cast = believe_me
-

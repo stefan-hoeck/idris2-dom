@@ -37,4 +37,3 @@ evaluate :
   -> (contextNode : t2)
   -> JSIO XPathResult
 evaluate a b = primJS $ XPathExpression.prim__evaluate a (cast b) undef undef
-

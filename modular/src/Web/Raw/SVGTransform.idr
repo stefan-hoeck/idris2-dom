@@ -145,4 +145,3 @@ setSkewY a b = primJS $ SVGTransform.prim__setSkewY a b
 export
 setTranslate : (obj : SVGTransform) -> (tx : Double) -> (ty : Double) -> JSIO ()
 setTranslate a b c = primJS $ SVGTransform.prim__setTranslate a b c
-

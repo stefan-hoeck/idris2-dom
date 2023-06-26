@@ -75,4 +75,3 @@ checkVisibilityCSS v = fromUndefOrPrim
                          prim__setCheckVisibilityCSS
                          False
                          (cast {to = CheckVisibilityOptions} v)
-

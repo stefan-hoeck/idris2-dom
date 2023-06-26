@@ -19,4 +19,3 @@ addColorStop :
   -> (color : String)
   -> JSIO ()
 addColorStop a b c = primJS $ CanvasGradient.prim__addColorStop a b c
-

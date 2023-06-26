@@ -16,4 +16,3 @@ FromFFI ULongRange ULongRange where fromFFI = Just
 
 export %inline
 Cast ULongRange Object where cast = believe_me
-

@@ -21,4 +21,3 @@ Cast TrackEventInit EventInit where cast = believe_me
 
 export %inline
 Cast TrackEventInit Object where cast = believe_me
-

@@ -26,4 +26,3 @@ Cast FetchEventInit EventInit where cast = believe_me
 
 export %inline
 Cast FetchEventInit Object where cast = believe_me
-

@@ -20,4 +20,3 @@ SafeCast CountQueuingStrategy where
 
 export %inline
 Cast CountQueuingStrategy Object where cast = believe_me
-

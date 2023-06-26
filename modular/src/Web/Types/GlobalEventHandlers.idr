@@ -12,4 +12,3 @@ ToFFI GlobalEventHandlers GlobalEventHandlers where toFFI = id
 
 export
 FromFFI GlobalEventHandlers GlobalEventHandlers where fromFFI = Just
-

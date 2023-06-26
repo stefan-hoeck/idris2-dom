@@ -151,4 +151,3 @@ addCue a b = primJS $ TextTrack.prim__addCue a b
 export
 removeCue : (obj : TextTrack) -> (cue : TextTrackCue) -> JSIO ()
 removeCue a b = primJS $ TextTrack.prim__removeCue a b
-

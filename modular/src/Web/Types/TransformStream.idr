@@ -20,4 +20,3 @@ SafeCast TransformStream where
 
 export %inline
 Cast TransformStream Object where cast = believe_me
-

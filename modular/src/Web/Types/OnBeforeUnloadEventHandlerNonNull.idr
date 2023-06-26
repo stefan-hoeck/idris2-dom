@@ -12,4 +12,3 @@ ToFFI OnBeforeUnloadEventHandlerNonNull OnBeforeUnloadEventHandlerNonNull where 
 
 export
 FromFFI OnBeforeUnloadEventHandlerNonNull OnBeforeUnloadEventHandlerNonNull where fromFFI = Just
-

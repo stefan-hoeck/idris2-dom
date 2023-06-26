@@ -16,4 +16,3 @@ FromFFI ConvertCoordinateOptions ConvertCoordinateOptions where fromFFI = Just
 
 export %inline
 Cast ConvertCoordinateOptions Object where cast = believe_me
-

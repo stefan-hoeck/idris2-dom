@@ -12,4 +12,3 @@ ToFFI UnderlyingSourcePullCallback UnderlyingSourcePullCallback where toFFI = id
 
 export
 FromFFI UnderlyingSourcePullCallback UnderlyingSourcePullCallback where fromFFI = Just
-

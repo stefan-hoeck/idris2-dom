@@ -24,4 +24,3 @@ setTransform' a b = primJS $ CanvasPattern.prim__setTransform a (optUp b)
 export
 setTransform : (obj : CanvasPattern) -> JSIO ()
 setTransform a = primJS $ CanvasPattern.prim__setTransform a undef
-

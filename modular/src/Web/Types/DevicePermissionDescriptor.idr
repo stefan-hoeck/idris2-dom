@@ -21,4 +21,3 @@ Cast DevicePermissionDescriptor PermissionDescriptor where cast = believe_me
 
 export %inline
 Cast DevicePermissionDescriptor Object where cast = believe_me
-

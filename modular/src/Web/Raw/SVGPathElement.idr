@@ -24,4 +24,3 @@ import Web.Types.Slottable
 
 
 %default total
-

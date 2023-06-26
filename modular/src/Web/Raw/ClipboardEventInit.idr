@@ -53,4 +53,3 @@ clipboardData v = fromUndefOrPrim
                     prim__setClipboardData
                     Nothing
                     (cast {to = ClipboardEventInit} v)
-

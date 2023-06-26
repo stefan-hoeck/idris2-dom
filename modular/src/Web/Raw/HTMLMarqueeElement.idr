@@ -274,4 +274,3 @@ start a = primJS $ HTMLMarqueeElement.prim__start a
 export
 stop : (obj : HTMLMarqueeElement) -> JSIO ()
 stop a = primJS $ HTMLMarqueeElement.prim__stop a
-

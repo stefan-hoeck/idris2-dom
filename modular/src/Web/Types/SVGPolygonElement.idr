@@ -120,4 +120,3 @@ Cast SVGPolygonElement SVGTests where cast = believe_me
 
 export %inline
 Cast SVGPolygonElement Slottable where cast = believe_me
-

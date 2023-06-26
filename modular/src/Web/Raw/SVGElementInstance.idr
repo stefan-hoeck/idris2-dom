@@ -37,4 +37,3 @@ correspondingUseElement :
   -> JSIO (Maybe SVGUseElement)
 correspondingUseElement a = tryJS "SVGElementInstance.correspondingUseElement" $
   SVGElementInstance.prim__correspondingUseElement (cast a)
-

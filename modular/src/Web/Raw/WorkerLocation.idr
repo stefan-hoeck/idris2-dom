@@ -95,4 +95,3 @@ protocol a = primJS $ WorkerLocation.prim__protocol a
 export
 search : (obj : WorkerLocation) -> JSIO String
 search a = primJS $ WorkerLocation.prim__search a
-

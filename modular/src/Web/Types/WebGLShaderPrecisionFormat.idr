@@ -20,4 +20,3 @@ SafeCast WebGLShaderPrecisionFormat where
 
 export %inline
 Cast WebGLShaderPrecisionFormat Object where cast = believe_me
-

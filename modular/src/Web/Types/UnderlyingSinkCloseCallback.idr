@@ -12,4 +12,3 @@ ToFFI UnderlyingSinkCloseCallback UnderlyingSinkCloseCallback where toFFI = id
 
 export
 FromFFI UnderlyingSinkCloseCallback UnderlyingSinkCloseCallback where fromFFI = Just
-

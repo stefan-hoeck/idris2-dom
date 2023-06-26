@@ -20,4 +20,3 @@ SafeCast BarProp where
 
 export %inline
 Cast BarProp Object where cast = believe_me
-

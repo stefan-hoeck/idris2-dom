@@ -20,4 +20,3 @@ SafeCast IDBFactory where
 
 export %inline
 Cast IDBFactory Object where cast = believe_me
-

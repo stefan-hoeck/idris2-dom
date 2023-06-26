@@ -25,4 +25,3 @@ Cast WebGLQuery WebGLObject where cast = believe_me
 
 export %inline
 Cast WebGLQuery Object where cast = believe_me
-

@@ -12,4 +12,3 @@ ToFFI SVGTests SVGTests where toFFI = id
 
 export
 FromFFI SVGTests SVGTests where fromFFI = Just
-

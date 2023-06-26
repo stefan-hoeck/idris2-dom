@@ -20,4 +20,3 @@ SafeCast ConstrainablePattern where
 
 export %inline
 Cast ConstrainablePattern Object where cast = believe_me
-

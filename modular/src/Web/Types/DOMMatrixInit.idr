@@ -21,4 +21,3 @@ Cast DOMMatrixInit DOMMatrix2DInit where cast = believe_me
 
 export %inline
 Cast DOMMatrixInit Object where cast = believe_me
-

@@ -20,4 +20,3 @@ SafeCast CanvasGradient where
 
 export %inline
 Cast CanvasGradient Object where cast = believe_me
-

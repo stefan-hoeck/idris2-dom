@@ -65,4 +65,3 @@ Cast Document ParentNode where cast = believe_me
 
 export %inline
 Cast Document XPathEvaluatorBase where cast = believe_me
-

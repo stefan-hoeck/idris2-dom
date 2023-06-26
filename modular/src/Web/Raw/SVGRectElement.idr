@@ -85,4 +85,3 @@ x a = primJS $ SVGRectElement.prim__x a
 export
 y : (obj : SVGRectElement) -> JSIO SVGAnimatedLength
 y a = primJS $ SVGRectElement.prim__y a
-

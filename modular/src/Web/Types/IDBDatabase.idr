@@ -25,4 +25,3 @@ Cast IDBDatabase EventTarget where cast = believe_me
 
 export %inline
 Cast IDBDatabase Object where cast = believe_me
-

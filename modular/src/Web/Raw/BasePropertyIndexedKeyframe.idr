@@ -116,4 +116,3 @@ offset v = fromUndefOrPrimNoDefault
              prim__offset
              prim__setOffset
              (cast {to = BasePropertyIndexedKeyframe} v)
-

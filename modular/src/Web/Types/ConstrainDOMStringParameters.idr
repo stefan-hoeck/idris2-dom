@@ -16,4 +16,3 @@ FromFFI ConstrainDOMStringParameters ConstrainDOMStringParameters where fromFFI 
 
 export %inline
 Cast ConstrainDOMStringParameters Object where cast = believe_me
-

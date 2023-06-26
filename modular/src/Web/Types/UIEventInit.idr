@@ -21,4 +21,3 @@ Cast UIEventInit EventInit where cast = believe_me
 
 export %inline
 Cast UIEventInit Object where cast = believe_me
-

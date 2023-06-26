@@ -153,4 +153,3 @@ put :
   -> (response : Response)
   -> JSIO (Promise Undefined)
 put a b c = primJS $ Cache.prim__put a (toFFI b) c
-

@@ -12,4 +12,3 @@ ToFFI Animatable Animatable where toFFI = id
 
 export
 FromFFI Animatable Animatable where fromFFI = Just
-

@@ -252,4 +252,3 @@ username v = fromPrim "URL.getusername" prim__username prim__setUsername v
 export
 toJSON : (obj : URL) -> JSIO String
 toJSON a = primJS $ URL.prim__toJSON a
-

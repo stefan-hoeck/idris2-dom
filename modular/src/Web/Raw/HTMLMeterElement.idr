@@ -148,4 +148,3 @@ optimum v = fromPrim
 export
 value : HTMLMeterElement -> Attribute True Prelude.id Double
 value v = fromPrim "HTMLMeterElement.getvalue" prim__value prim__setValue v
-

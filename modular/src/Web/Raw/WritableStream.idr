@@ -73,4 +73,3 @@ close a = primJS $ WritableStream.prim__close a
 export
 getWriter : (obj : WritableStream) -> JSIO WritableStreamDefaultWriter
 getWriter a = primJS $ WritableStream.prim__getWriter a
-

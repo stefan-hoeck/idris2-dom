@@ -294,4 +294,3 @@ reportValidity a = tryJS "HTMLButtonElement.reportValidity" $
 export
 setCustomValidity : (obj : HTMLButtonElement) -> (error : String) -> JSIO ()
 setCustomValidity a b = primJS $ HTMLButtonElement.prim__setCustomValidity a b
-

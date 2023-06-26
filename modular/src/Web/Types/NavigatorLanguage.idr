@@ -12,4 +12,3 @@ ToFFI NavigatorLanguage NavigatorLanguage where toFFI = id
 
 export
 FromFFI NavigatorLanguage NavigatorLanguage where fromFFI = Just
-

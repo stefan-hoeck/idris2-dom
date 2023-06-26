@@ -12,4 +12,3 @@ ToFFI WindowLocalStorage WindowLocalStorage where toFFI = id
 
 export
 FromFFI WindowLocalStorage WindowLocalStorage where fromFFI = Just
-

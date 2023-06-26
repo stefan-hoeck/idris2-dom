@@ -25,4 +25,3 @@ Cast DOMMatrix DOMMatrixReadOnly where cast = believe_me
 
 export %inline
 Cast DOMMatrix Object where cast = believe_me
-

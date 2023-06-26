@@ -19,4 +19,3 @@ localStorage :
   -> (obj : t1)
   -> JSIO Storage
 localStorage a = primJS $ WindowLocalStorage.prim__localStorage (cast a)
-

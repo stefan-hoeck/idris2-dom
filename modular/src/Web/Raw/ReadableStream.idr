@@ -148,4 +148,3 @@ pipeTo a b = primJS $ ReadableStream.prim__pipeTo a b undef
 export
 tee : (obj : ReadableStream) -> JSIO (Array ReadableStream)
 tee a = primJS $ ReadableStream.prim__tee a
-

@@ -25,4 +25,3 @@ Cast MessageEvent Event where cast = believe_me
 
 export %inline
 Cast MessageEvent Object where cast = believe_me
-

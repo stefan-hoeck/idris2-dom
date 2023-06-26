@@ -75,4 +75,3 @@ lineno a = primJS $ ErrorEvent.prim__lineno a
 export
 message : (obj : ErrorEvent) -> JSIO String
 message a = primJS $ ErrorEvent.prim__message a
-

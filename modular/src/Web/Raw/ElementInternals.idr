@@ -152,4 +152,3 @@ setValidity' a b c d = primJS $
 export
 setValidity : (obj : ElementInternals) -> JSIO ()
 setValidity a = primJS $ ElementInternals.prim__setValidity a undef undef undef
-

@@ -282,4 +282,3 @@ send3 :
                 ])
   -> JSIO ()
 send3 a b = primJS $ WebSocket.prim__send3 a (toFFI b)
-

@@ -30,4 +30,3 @@ Cast Attr EventTarget where cast = believe_me
 
 export %inline
 Cast Attr Object where cast = believe_me
-

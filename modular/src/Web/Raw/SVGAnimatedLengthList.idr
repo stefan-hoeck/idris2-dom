@@ -26,4 +26,3 @@ animVal a = primJS $ SVGAnimatedLengthList.prim__animVal a
 export
 baseVal : (obj : SVGAnimatedLengthList) -> JSIO SVGLengthList
 baseVal a = primJS $ SVGAnimatedLengthList.prim__baseVal a
-

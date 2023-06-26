@@ -25,4 +25,3 @@ Cast OffscreenCanvas EventTarget where cast = believe_me
 
 export %inline
 Cast OffscreenCanvas Object where cast = believe_me
-

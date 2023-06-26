@@ -36,4 +36,3 @@ viewBox :
   -> (obj : t1)
   -> JSIO SVGAnimatedRect
 viewBox a = primJS $ SVGFitToViewBox.prim__viewBox (cast a)
-

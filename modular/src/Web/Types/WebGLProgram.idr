@@ -25,4 +25,3 @@ Cast WebGLProgram WebGLObject where cast = believe_me
 
 export %inline
 Cast WebGLProgram Object where cast = believe_me
-

@@ -20,4 +20,3 @@ SafeCast DOMStringMap where
 
 export %inline
 Cast DOMStringMap Object where cast = believe_me
-

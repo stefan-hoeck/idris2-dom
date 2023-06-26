@@ -167,4 +167,3 @@ replaceItem :
   -> (index : Bits32)
   -> JSIO SVGTransform
 replaceItem a b c = primJS $ SVGTransformList.prim__replaceItem a b c
-

@@ -95,4 +95,3 @@ lastModified a = primJS $ File.prim__lastModified a
 export
 name : (obj : File) -> JSIO String
 name a = primJS $ File.prim__name a
-

@@ -21,4 +21,3 @@ Cast ScrollIntoViewOptions ScrollOptions where cast = believe_me
 
 export %inline
 Cast ScrollIntoViewOptions Object where cast = believe_me
-

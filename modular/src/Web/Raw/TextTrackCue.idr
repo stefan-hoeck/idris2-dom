@@ -136,4 +136,3 @@ startTime v = fromPrim
 export
 track : (obj : TextTrackCue) -> JSIO (Maybe TextTrack)
 track a = tryJS "TextTrackCue.track" $ TextTrackCue.prim__track a
-

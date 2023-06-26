@@ -35,4 +35,3 @@ contains a b = tryJS "DOMStringList.contains" $ DOMStringList.prim__contains a b
 export
 item : (obj : DOMStringList) -> (index : Bits32) -> JSIO (Maybe String)
 item a b = tryJS "DOMStringList.item" $ DOMStringList.prim__item a b
-

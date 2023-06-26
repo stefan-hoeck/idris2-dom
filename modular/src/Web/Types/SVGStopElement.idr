@@ -100,4 +100,3 @@ Cast SVGStopElement SVGElementInstance where cast = believe_me
 
 export %inline
 Cast SVGStopElement Slottable where cast = believe_me
-

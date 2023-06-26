@@ -301,4 +301,3 @@ put' a b c = primJS $ IDBObjectStore.prim__put a (toFFI b) (toFFI c)
 export
 put : (obj : IDBObjectStore) -> (value : Any) -> JSIO IDBRequest
 put a b = primJS $ IDBObjectStore.prim__put a (toFFI b) undef
-

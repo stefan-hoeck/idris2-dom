@@ -12,4 +12,3 @@ ToFFI CanvasImageSmoothing CanvasImageSmoothing where toFFI = id
 
 export
 FromFFI CanvasImageSmoothing CanvasImageSmoothing where fromFFI = Just
-

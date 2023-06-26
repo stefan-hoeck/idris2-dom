@@ -272,4 +272,3 @@ stopImmediatePropagation a = primJS $
 export
 stopPropagation : {auto _ : Cast t1 Event} -> (obj : t1) -> JSIO ()
 stopPropagation a = primJS $ Event.prim__stopPropagation (cast a)
-

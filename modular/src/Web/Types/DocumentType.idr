@@ -35,4 +35,3 @@ Cast DocumentType Object where cast = believe_me
 
 export %inline
 Cast DocumentType ChildNode where cast = believe_me
-

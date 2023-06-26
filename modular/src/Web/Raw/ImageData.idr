@@ -63,4 +63,3 @@ height a = primJS $ ImageData.prim__height a
 export
 width : (obj : ImageData) -> JSIO Bits32
 width a = primJS $ ImageData.prim__width a
-

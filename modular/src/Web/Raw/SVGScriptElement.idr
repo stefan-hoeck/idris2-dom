@@ -60,4 +60,3 @@ crossOrigin v = fromNullablePrim
 export
 type : SVGScriptElement -> Attribute True Prelude.id String
 type v = fromPrim "SVGScriptElement.gettype" prim__type prim__setType v
-

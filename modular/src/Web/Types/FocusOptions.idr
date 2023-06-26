@@ -16,4 +16,3 @@ FromFFI FocusOptions FocusOptions where fromFFI = Just
 
 export %inline
 Cast FocusOptions Object where cast = believe_me
-

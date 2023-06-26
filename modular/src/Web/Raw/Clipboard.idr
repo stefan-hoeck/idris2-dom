@@ -50,4 +50,3 @@ write a b = primJS $ Clipboard.prim__write a b
 export
 writeText : (obj : Clipboard) -> (data_ : String) -> JSIO (Promise Undefined)
 writeText a b = primJS $ Clipboard.prim__writeText a b
-

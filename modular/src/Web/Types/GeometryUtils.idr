@@ -12,4 +12,3 @@ ToFFI GeometryUtils GeometryUtils where toFFI = id
 
 export
 FromFFI GeometryUtils GeometryUtils where fromFFI = Just
-

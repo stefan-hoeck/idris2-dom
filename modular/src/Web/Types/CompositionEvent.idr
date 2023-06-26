@@ -30,4 +30,3 @@ Cast CompositionEvent Event where cast = believe_me
 
 export %inline
 Cast CompositionEvent Object where cast = believe_me
-

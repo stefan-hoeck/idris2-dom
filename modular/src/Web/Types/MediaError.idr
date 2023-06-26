@@ -20,4 +20,3 @@ SafeCast MediaError where
 
 export %inline
 Cast MediaError Object where cast = believe_me
-

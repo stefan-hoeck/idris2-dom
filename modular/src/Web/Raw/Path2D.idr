@@ -40,4 +40,3 @@ addPath' a b c = primJS $ Path2D.prim__addPath a b (optUp c)
 export
 addPath : (obj : Path2D) -> (path : Path2D) -> JSIO ()
 addPath a b = primJS $ Path2D.prim__addPath a b undef
-

@@ -52,4 +52,3 @@ compact v = fromPrim
               prim__compact
               prim__setCompact
               v
-

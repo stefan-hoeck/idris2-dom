@@ -108,4 +108,3 @@ statusText v = fromUndefOrPrimNoDefault
                  prim__statusText
                  prim__setStatusText
                  (cast {to = ResponseInit} v)
-

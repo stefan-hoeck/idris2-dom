@@ -36,4 +36,3 @@ new a = primJS $ SubmitEvent.prim__new a undef
 export
 submitter : (obj : SubmitEvent) -> JSIO (Maybe HTMLElement)
 submitter a = tryJS "SubmitEvent.submitter" $ SubmitEvent.prim__submitter a
-

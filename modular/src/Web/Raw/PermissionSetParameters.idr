@@ -111,4 +111,3 @@ state v = fromPrim
             prim__state
             prim__setState
             (cast {to = PermissionSetParameters} v)
-

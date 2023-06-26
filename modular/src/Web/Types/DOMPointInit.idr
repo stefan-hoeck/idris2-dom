@@ -16,4 +16,3 @@ FromFFI DOMPointInit DOMPointInit where fromFFI = Just
 
 export %inline
 Cast DOMPointInit Object where cast = believe_me
-

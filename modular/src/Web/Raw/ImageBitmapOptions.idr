@@ -191,4 +191,3 @@ resizeWidth v = fromUndefOrPrimNoDefault
                   prim__resizeWidth
                   prim__setResizeWidth
                   (cast {to = ImageBitmapOptions} v)
-

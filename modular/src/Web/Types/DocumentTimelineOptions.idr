@@ -16,4 +16,3 @@ FromFFI DocumentTimelineOptions DocumentTimelineOptions where fromFFI = Just
 
 export %inline
 Cast DocumentTimelineOptions Object where cast = believe_me
-

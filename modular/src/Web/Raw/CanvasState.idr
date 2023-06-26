@@ -25,4 +25,3 @@ restore a = primJS $ CanvasState.prim__restore (cast a)
 export
 save : {auto _ : Cast t1 CanvasState} -> (obj : t1) -> JSIO ()
 save a = primJS $ CanvasState.prim__save (cast a)
-

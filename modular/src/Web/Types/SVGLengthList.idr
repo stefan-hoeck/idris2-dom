@@ -20,4 +20,3 @@ SafeCast SVGLengthList where
 
 export %inline
 Cast SVGLengthList Object where cast = believe_me
-

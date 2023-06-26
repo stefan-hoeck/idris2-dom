@@ -56,4 +56,3 @@ setHeaderValue :
   -> (value : ByteString)
   -> JSIO (Promise Undefined)
 setHeaderValue a b = primJS $ NavigationPreloadManager.prim__setHeaderValue a b
-

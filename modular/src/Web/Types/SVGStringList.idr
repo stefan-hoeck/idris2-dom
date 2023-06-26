@@ -20,4 +20,3 @@ SafeCast SVGStringList where
 
 export %inline
 Cast SVGStringList Object where cast = believe_me
-

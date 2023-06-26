@@ -20,4 +20,3 @@ SafeCast Event where
 
 export %inline
 Cast Event Object where cast = believe_me
-

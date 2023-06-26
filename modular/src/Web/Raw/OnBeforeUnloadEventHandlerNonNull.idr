@@ -20,4 +20,3 @@ toOnBeforeUnloadEventHandlerNonNull :
      (Event -> IO (Nullable String))
   -> JSIO OnBeforeUnloadEventHandlerNonNull
 toOnBeforeUnloadEventHandlerNonNull cb = primJS $ prim__toOnBeforeUnloadEventHandlerNonNull cb
-

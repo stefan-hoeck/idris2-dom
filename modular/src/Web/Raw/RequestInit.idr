@@ -495,4 +495,3 @@ window v = fromUndefOrPrimNoDefault
              prim__window
              prim__setWindow
              (cast {to = RequestInit} v)
-

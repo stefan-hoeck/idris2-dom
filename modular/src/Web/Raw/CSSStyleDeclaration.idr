@@ -148,4 +148,3 @@ setProperty :
   -> (value : String)
   -> JSIO ()
 setProperty a b c = primJS $ CSSStyleDeclaration.prim__setProperty a b c undef
-

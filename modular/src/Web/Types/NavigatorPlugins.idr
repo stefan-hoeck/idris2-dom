@@ -12,4 +12,3 @@ ToFFI NavigatorPlugins NavigatorPlugins where toFFI = id
 
 export
 FromFFI NavigatorPlugins NavigatorPlugins where fromFFI = Just
-

@@ -12,4 +12,3 @@ ToFFI AbstractWorker AbstractWorker where toFFI = id
 
 export
 FromFFI AbstractWorker AbstractWorker where fromFFI = Just
-

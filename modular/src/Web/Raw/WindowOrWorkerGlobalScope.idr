@@ -404,4 +404,3 @@ structuredClone :
   -> JSIO Any
 structuredClone a b = tryJS "WindowOrWorkerGlobalScope.structuredClone" $
   WindowOrWorkerGlobalScope.prim__structuredClone (cast a) (toFFI b) undef
-

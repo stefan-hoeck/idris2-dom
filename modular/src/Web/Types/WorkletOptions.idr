@@ -16,4 +16,3 @@ FromFFI WorkletOptions WorkletOptions where fromFFI = Just
 
 export %inline
 Cast WorkletOptions Object where cast = believe_me
-

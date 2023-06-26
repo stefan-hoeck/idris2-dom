@@ -20,4 +20,3 @@ SafeCast PluginArray where
 
 export %inline
 Cast PluginArray Object where cast = believe_me
-

@@ -20,4 +20,3 @@ SafeCast TextMetrics where
 
 export %inline
 Cast TextMetrics Object where cast = believe_me
-

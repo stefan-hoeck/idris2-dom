@@ -12,4 +12,3 @@ ToFFI XPathEvaluatorBase XPathEvaluatorBase where toFFI = id
 
 export
 FromFFI XPathEvaluatorBase XPathEvaluatorBase where fromFFI = Just
-

@@ -48,4 +48,3 @@ new = primJS $ HTMLParagraphElement.prim__new
 export
 align : HTMLParagraphElement -> Attribute True Prelude.id String
 align v = fromPrim "HTMLParagraphElement.getalign" prim__align prim__setAlign v
-

@@ -25,4 +25,3 @@ Cast PromiseRejectionEvent Event where cast = believe_me
 
 export %inline
 Cast PromiseRejectionEvent Object where cast = believe_me
-

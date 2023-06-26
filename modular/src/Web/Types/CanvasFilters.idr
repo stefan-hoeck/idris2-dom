@@ -12,4 +12,3 @@ ToFFI CanvasFilters CanvasFilters where toFFI = id
 
 export
 FromFFI CanvasFilters CanvasFilters where fromFFI = Just
-

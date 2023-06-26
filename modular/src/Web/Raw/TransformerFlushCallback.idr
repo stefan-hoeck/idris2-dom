@@ -20,4 +20,3 @@ toTransformerFlushCallback :
      (TransformStreamDefaultController -> IO (Promise Undefined))
   -> JSIO TransformerFlushCallback
 toTransformerFlushCallback cb = primJS $ prim__toTransformerFlushCallback cb
-

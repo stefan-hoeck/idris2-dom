@@ -12,4 +12,3 @@ ToFFI EventListener EventListener where toFFI = id
 
 export
 FromFFI EventListener EventListener where fromFFI = Just
-

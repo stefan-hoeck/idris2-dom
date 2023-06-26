@@ -46,4 +46,3 @@ mode v = fromUndefOrPrimNoDefault
            prim__mode
            prim__setMode
            (cast {to = ReadableStreamGetReaderOptions} v)
-

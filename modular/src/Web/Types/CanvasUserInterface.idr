@@ -12,4 +12,3 @@ ToFFI CanvasUserInterface CanvasUserInterface where toFFI = id
 
 export
 FromFFI CanvasUserInterface CanvasUserInterface where fromFFI = Just
-

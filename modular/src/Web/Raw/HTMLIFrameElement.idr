@@ -363,4 +363,3 @@ export
 getSVGDocument : (obj : HTMLIFrameElement) -> JSIO (Maybe Document)
 getSVGDocument a = tryJS "HTMLIFrameElement.getSVGDocument" $
   HTMLIFrameElement.prim__getSVGDocument a
-

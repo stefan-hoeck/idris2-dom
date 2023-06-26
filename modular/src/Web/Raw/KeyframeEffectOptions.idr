@@ -76,4 +76,3 @@ iterationComposite v = fromUndefOrPrimNoDefault
                          prim__iterationComposite
                          prim__setIterationComposite
                          (cast {to = KeyframeEffectOptions} v)
-

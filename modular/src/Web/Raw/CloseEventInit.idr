@@ -94,4 +94,3 @@ wasClean v = fromUndefOrPrim
                prim__setWasClean
                False
                (cast {to = CloseEventInit} v)
-

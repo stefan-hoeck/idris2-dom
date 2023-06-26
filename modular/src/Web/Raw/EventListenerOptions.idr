@@ -44,4 +44,3 @@ capture v = fromUndefOrPrim
               prim__setCapture
               False
               (cast {to = EventListenerOptions} v)
-

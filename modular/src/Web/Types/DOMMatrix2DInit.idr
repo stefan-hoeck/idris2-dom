@@ -16,4 +16,3 @@ FromFFI DOMMatrix2DInit DOMMatrix2DInit where fromFFI = Just
 
 export %inline
 Cast DOMMatrix2DInit Object where cast = believe_me
-

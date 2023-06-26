@@ -80,4 +80,3 @@ clear a = primJS $ DataTransferItemList.prim__clear a
 export
 remove : (obj : DataTransferItemList) -> (index : Bits32) -> JSIO ()
 remove a b = primJS $ DataTransferItemList.prim__remove a b
-

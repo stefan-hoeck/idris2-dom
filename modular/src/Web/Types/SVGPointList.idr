@@ -20,4 +20,3 @@ SafeCast SVGPointList where
 
 export %inline
 Cast SVGPointList Object where cast = believe_me
-

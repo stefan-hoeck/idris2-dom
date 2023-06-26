@@ -16,4 +16,3 @@ prim__toFocusEventHandler : (FocusEvent -> IO ()) -> PrimIO FocusEventHandler
 export
 toFocusEventHandler : (FocusEvent -> IO ()) -> JSIO FocusEventHandler
 toFocusEventHandler cb = primJS $ prim__toFocusEventHandler cb
-

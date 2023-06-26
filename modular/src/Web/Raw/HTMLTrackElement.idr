@@ -165,4 +165,3 @@ srclang v = fromPrim
 export
 track : (obj : HTMLTrackElement) -> JSIO TextTrack
 track a = primJS $ HTMLTrackElement.prim__track a
-

@@ -259,4 +259,3 @@ text v = fromPrim "HTMLScriptElement.gettext" prim__text prim__setText v
 export
 type : HTMLScriptElement -> Attribute True Prelude.id String
 type v = fromPrim "HTMLScriptElement.gettype" prim__type prim__setType v
-

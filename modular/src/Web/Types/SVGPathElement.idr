@@ -115,4 +115,3 @@ Cast SVGPathElement SVGTests where cast = believe_me
 
 export %inline
 Cast SVGPathElement Slottable where cast = believe_me
-

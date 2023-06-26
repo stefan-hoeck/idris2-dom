@@ -20,4 +20,3 @@ SafeCast DOMException where
 
 export %inline
 Cast DOMException Object where cast = believe_me
-

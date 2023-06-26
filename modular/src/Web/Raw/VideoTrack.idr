@@ -78,4 +78,3 @@ export
 sourceBuffer : (obj : VideoTrack) -> JSIO (Maybe SourceBuffer)
 sourceBuffer a = tryJS "VideoTrack.sourceBuffer" $
   VideoTrack.prim__sourceBuffer a
-

@@ -103,4 +103,3 @@ getBounds a = primJS $ DOMQuad.prim__getBounds a
 export
 toJSON : (obj : DOMQuad) -> JSIO Object
 toJSON a = primJS $ DOMQuad.prim__toJSON a
-

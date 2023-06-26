@@ -108,4 +108,3 @@ putImageData1 :
   -> JSIO ()
 putImageData1 a b c d e f g h = primJS $
   CanvasImageData.prim__putImageData1 (cast a) b c d e f g h
-

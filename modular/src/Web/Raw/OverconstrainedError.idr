@@ -33,4 +33,3 @@ new a = primJS $ OverconstrainedError.prim__new a undef
 export
 constraint : (obj : OverconstrainedError) -> JSIO String
 constraint a = primJS $ OverconstrainedError.prim__constraint a
-

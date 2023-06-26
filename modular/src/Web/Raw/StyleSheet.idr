@@ -99,4 +99,3 @@ title a = tryJS "StyleSheet.title" $ StyleSheet.prim__title (cast a)
 export
 type : {auto _ : Cast t1 StyleSheet} -> (obj : t1) -> JSIO String
 type a = primJS $ StyleSheet.prim__type (cast a)
-

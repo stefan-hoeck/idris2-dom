@@ -122,4 +122,3 @@ replaceItem :
   -> (index : Bits32)
   -> JSIO SVGNumber
 replaceItem a b c = primJS $ SVGNumberList.prim__replaceItem a b c
-

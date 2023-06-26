@@ -20,4 +20,3 @@ assignedSlot :
   -> JSIO (Maybe HTMLSlotElement)
 assignedSlot a = tryJS "Slottable.assignedSlot" $
   Slottable.prim__assignedSlot (cast a)
-

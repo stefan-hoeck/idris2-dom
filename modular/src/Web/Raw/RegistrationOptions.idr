@@ -102,4 +102,3 @@ updateViaCache v = fromUndefOrPrimNoDefault
                      prim__updateViaCache
                      prim__setUpdateViaCache
                      (cast {to = RegistrationOptions} v)
-

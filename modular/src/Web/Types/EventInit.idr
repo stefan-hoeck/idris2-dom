@@ -16,4 +16,3 @@ FromFFI EventInit EventInit where fromFFI = Just
 
 export %inline
 Cast EventInit Object where cast = believe_me
-

@@ -53,4 +53,3 @@ globalCompositeOperation v = fromPrim
                                prim__globalCompositeOperation
                                prim__setGlobalCompositeOperation
                                (cast {to = CanvasCompositing} v)
-

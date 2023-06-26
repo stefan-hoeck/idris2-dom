@@ -20,4 +20,3 @@ SafeCast TransformStreamDefaultController where
 
 export %inline
 Cast TransformStreamDefaultController Object where cast = believe_me
-

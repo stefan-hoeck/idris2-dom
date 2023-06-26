@@ -19,4 +19,3 @@ toUnderlyingSourceCancelCallback :
      (UndefOr AnyPtr -> IO (Promise Undefined))
   -> JSIO UnderlyingSourceCancelCallback
 toUnderlyingSourceCancelCallback cb = primJS $ prim__toUnderlyingSourceCancelCallback cb
-

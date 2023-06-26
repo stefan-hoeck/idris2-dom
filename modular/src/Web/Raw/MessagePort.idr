@@ -111,4 +111,3 @@ postMessage1 a b = primJS $ MessagePort.prim__postMessage1 a (toFFI b) undef
 export
 start : (obj : MessagePort) -> JSIO ()
 start a = primJS $ MessagePort.prim__start a
-

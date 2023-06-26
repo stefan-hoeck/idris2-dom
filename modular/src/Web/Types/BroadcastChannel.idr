@@ -25,4 +25,3 @@ Cast BroadcastChannel EventTarget where cast = believe_me
 
 export %inline
 Cast BroadcastChannel Object where cast = believe_me
-

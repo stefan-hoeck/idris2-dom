@@ -116,4 +116,3 @@ size v = fromPrim "HTMLHRElement.getsize" prim__size prim__setSize v
 export
 width : HTMLHRElement -> Attribute True Prelude.id String
 width v = fromPrim "HTMLHRElement.getwidth" prim__width prim__setWidth v
-

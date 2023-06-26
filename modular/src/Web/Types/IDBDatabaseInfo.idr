@@ -16,4 +16,3 @@ FromFFI IDBDatabaseInfo IDBDatabaseInfo where fromFFI = Just
 
 export %inline
 Cast IDBDatabaseInfo Object where cast = believe_me
-

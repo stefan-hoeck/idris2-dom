@@ -21,4 +21,3 @@ Cast FilePropertyBag BlobPropertyBag where cast = believe_me
 
 export %inline
 Cast FilePropertyBag Object where cast = believe_me
-

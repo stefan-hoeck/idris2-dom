@@ -16,4 +16,3 @@ FromFFI Capabilities Capabilities where fromFFI = Just
 
 export %inline
 Cast Capabilities Object where cast = believe_me
-

@@ -32,4 +32,3 @@ new a b = primJS $ FormDataEvent.prim__new a (cast b)
 export
 formData : (obj : FormDataEvent) -> JSIO FormData
 formData a = primJS $ FormDataEvent.prim__formData a
-

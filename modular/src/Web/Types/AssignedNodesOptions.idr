@@ -16,4 +16,3 @@ FromFFI AssignedNodesOptions AssignedNodesOptions where fromFFI = Just
 
 export %inline
 Cast AssignedNodesOptions Object where cast = believe_me
-

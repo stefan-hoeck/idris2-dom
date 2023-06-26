@@ -50,4 +50,3 @@ Cast ProcessingInstruction LinkStyle where cast = believe_me
 
 export %inline
 Cast ProcessingInstruction NonDocumentTypeChildNode where cast = believe_me
-

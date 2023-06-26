@@ -119,4 +119,3 @@ startOffset v = fromPrim
                   prim__startOffset
                   prim__setStartOffset
                   (cast {to = StaticRangeInit} v)
-

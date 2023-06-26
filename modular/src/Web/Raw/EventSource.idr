@@ -145,4 +145,3 @@ withCredentials a = tryJS "EventSource.withCredentials" $
 export
 close : (obj : EventSource) -> JSIO ()
 close a = primJS $ EventSource.prim__close a
-

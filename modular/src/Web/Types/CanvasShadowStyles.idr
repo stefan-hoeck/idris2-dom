@@ -12,4 +12,3 @@ ToFFI CanvasShadowStyles CanvasShadowStyles where toFFI = id
 
 export
 FromFFI CanvasShadowStyles CanvasShadowStyles where fromFFI = Just
-

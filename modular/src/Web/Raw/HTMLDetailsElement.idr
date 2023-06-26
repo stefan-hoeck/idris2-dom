@@ -48,4 +48,3 @@ new = primJS $ HTMLDetailsElement.prim__new
 export
 open_ : HTMLDetailsElement -> Attribute True Prelude.id Bool
 open_ v = fromPrim "HTMLDetailsElement.getopen" prim__open prim__setOpen v
-

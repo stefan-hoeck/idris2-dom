@@ -87,4 +87,3 @@ spacing a = primJS $ SVGTextPathElement.prim__spacing a
 export
 startOffset : (obj : SVGTextPathElement) -> JSIO SVGAnimatedLength
 startOffset a = primJS $ SVGTextPathElement.prim__startOffset a
-

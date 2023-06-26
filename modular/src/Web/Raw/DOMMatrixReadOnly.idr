@@ -665,4 +665,3 @@ export
 translate : {auto _ : Cast t1 DOMMatrixReadOnly} -> (obj : t1) -> JSIO DOMMatrix
 translate a = primJS $
   DOMMatrixReadOnly.prim__translate (cast a) undef undef undef
-

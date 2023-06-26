@@ -20,4 +20,3 @@ SafeCast DOMQuad where
 
 export %inline
 Cast DOMQuad Object where cast = believe_me
-

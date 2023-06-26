@@ -26,4 +26,3 @@ Cast CameraDevicePermissionDescriptor PermissionDescriptor where cast = believe_
 
 export %inline
 Cast CameraDevicePermissionDescriptor Object where cast = believe_me
-

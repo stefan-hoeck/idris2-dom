@@ -142,4 +142,3 @@ text v = fromPrim "HTMLBodyElement.gettext" prim__text prim__setText v
 export
 vLink : HTMLBodyElement -> Attribute True Prelude.id String
 vLink v = fromPrim "HTMLBodyElement.getvLink" prim__vLink prim__setVLink v
-

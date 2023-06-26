@@ -16,4 +16,3 @@ FromFFI ReadableWritablePair ReadableWritablePair where fromFFI = Just
 
 export %inline
 Cast ReadableWritablePair Object where cast = believe_me
-

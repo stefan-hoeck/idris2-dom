@@ -21,4 +21,3 @@ Cast ComputedEffectTiming EffectTiming where cast = believe_me
 
 export %inline
 Cast ComputedEffectTiming Object where cast = believe_me
-

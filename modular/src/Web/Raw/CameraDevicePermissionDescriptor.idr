@@ -49,4 +49,3 @@ panTiltZoom v = fromUndefOrPrim
                   prim__setPanTiltZoom
                   False
                   (cast {to = CameraDevicePermissionDescriptor} v)
-

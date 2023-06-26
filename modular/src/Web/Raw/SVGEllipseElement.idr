@@ -65,4 +65,3 @@ rx a = primJS $ SVGEllipseElement.prim__rx a
 export
 ry : (obj : SVGEllipseElement) -> JSIO SVGAnimatedLength
 ry a = primJS $ SVGEllipseElement.prim__ry a
-

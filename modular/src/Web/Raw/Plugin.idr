@@ -65,4 +65,3 @@ item a b = primJS $ Plugin.prim__item a b
 export
 namedItem : (obj : Plugin) -> (name : String) -> JSIO ()
 namedItem a b = primJS $ Plugin.prim__namedItem a b
-

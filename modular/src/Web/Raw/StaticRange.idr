@@ -17,4 +17,3 @@ prim__new : StaticRangeInit -> PrimIO StaticRange
 export
 new : {auto _ : Cast t1 StaticRangeInit} -> (init : t1) -> JSIO StaticRange
 new a = primJS $ StaticRange.prim__new (cast a)
-

@@ -20,4 +20,3 @@ SafeCast XPathResult where
 
 export %inline
 Cast XPathResult Object where cast = believe_me
-

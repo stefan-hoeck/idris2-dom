@@ -25,4 +25,3 @@ Cast WebGLSync WebGLObject where cast = believe_me
 
 export %inline
 Cast WebGLSync Object where cast = believe_me
-

@@ -16,4 +16,3 @@ FromFFI BaseComputedKeyframe BaseComputedKeyframe where fromFFI = Just
 
 export %inline
 Cast BaseComputedKeyframe Object where cast = believe_me
-

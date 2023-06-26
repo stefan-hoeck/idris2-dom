@@ -6,4 +6,3 @@ import Web.Types.WebGLTexture
 
 
 %default total
-

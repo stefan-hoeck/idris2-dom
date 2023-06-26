@@ -16,4 +16,3 @@ FromFFI ClientQueryOptions ClientQueryOptions where fromFFI = Just
 
 export %inline
 Cast ClientQueryOptions Object where cast = believe_me
-

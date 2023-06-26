@@ -21,4 +21,3 @@ Cast PageTransitionEventInit EventInit where cast = believe_me
 
 export %inline
 Cast PageTransitionEventInit Object where cast = believe_me
-

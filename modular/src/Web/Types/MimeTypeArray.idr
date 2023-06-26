@@ -20,4 +20,3 @@ SafeCast MimeTypeArray where
 
 export %inline
 Cast MimeTypeArray Object where cast = believe_me
-

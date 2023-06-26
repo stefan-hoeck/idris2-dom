@@ -67,4 +67,3 @@ observe a b = primJS $ MutationObserver.prim__observe a (cast b) undef
 export
 takeRecords : (obj : MutationObserver) -> JSIO (Array MutationRecord)
 takeRecords a = primJS $ MutationObserver.prim__takeRecords a
-

@@ -16,4 +16,3 @@ FromFFI StaticRangeInit StaticRangeInit where fromFFI = Just
 
 export %inline
 Cast StaticRangeInit Object where cast = believe_me
-

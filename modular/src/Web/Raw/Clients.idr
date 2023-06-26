@@ -65,4 +65,3 @@ openWindow :
   -> (url : String)
   -> JSIO (Promise (Nullable WindowClient))
 openWindow a b = primJS $ Clients.prim__openWindow a b
-

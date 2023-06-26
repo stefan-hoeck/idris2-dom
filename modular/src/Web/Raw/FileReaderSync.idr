@@ -84,4 +84,3 @@ readAsText :
   -> (blob : t2)
   -> JSIO String
 readAsText a b = primJS $ FileReaderSync.prim__readAsText a (cast b) undef
-

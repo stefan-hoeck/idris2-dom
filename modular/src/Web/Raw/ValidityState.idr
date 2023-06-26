@@ -122,4 +122,3 @@ export
 valueMissing : (obj : ValidityState) -> JSIO Bool
 valueMissing a = tryJS "ValidityState.valueMissing" $
   ValidityState.prim__valueMissing a
-

@@ -155,4 +155,3 @@ newValueSpecifiedUnits :
   -> JSIO ()
 newValueSpecifiedUnits a b c = primJS $
   SVGLength.prim__newValueSpecifiedUnits a b c
-

@@ -32,4 +32,3 @@ new a b = primJS $ MediaStreamTrackEvent.prim__new a (cast b)
 export
 track : (obj : MediaStreamTrackEvent) -> JSIO MediaStreamTrack
 track a = primJS $ MediaStreamTrackEvent.prim__track a
-

@@ -40,4 +40,3 @@ transferFromImageBitmap :
   -> JSIO ()
 transferFromImageBitmap a b = primJS $
   ImageBitmapRenderingContext.prim__transferFromImageBitmap a (toFFI b)
-

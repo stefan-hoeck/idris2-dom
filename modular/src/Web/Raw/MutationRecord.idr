@@ -101,4 +101,3 @@ target a = primJS $ MutationRecord.prim__target a
 export
 type : (obj : MutationRecord) -> JSIO String
 type a = primJS $ MutationRecord.prim__type a
-

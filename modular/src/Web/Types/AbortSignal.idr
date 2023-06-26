@@ -25,4 +25,3 @@ Cast AbortSignal EventTarget where cast = believe_me
 
 export %inline
 Cast AbortSignal Object where cast = believe_me
-

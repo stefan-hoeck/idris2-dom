@@ -149,4 +149,3 @@ export
 getModifierState : (obj : KeyboardEvent) -> (keyArg : String) -> JSIO Bool
 getModifierState a b = tryJS "KeyboardEvent.getModifierState" $
   KeyboardEvent.prim__getModifierState a b
-

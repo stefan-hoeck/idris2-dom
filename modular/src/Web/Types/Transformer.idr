@@ -16,4 +16,3 @@ FromFFI Transformer Transformer where fromFFI = Just
 
 export %inline
 Cast Transformer Object where cast = believe_me
-

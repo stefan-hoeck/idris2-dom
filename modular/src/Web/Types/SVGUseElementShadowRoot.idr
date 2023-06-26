@@ -60,4 +60,3 @@ Cast SVGUseElementShadowRoot NonElementParentNode where cast = believe_me
 
 export %inline
 Cast SVGUseElementShadowRoot ParentNode where cast = believe_me
-

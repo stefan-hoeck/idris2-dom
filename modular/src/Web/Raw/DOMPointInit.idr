@@ -118,4 +118,3 @@ z v = fromUndefOrPrim
         prim__setZ
         0
         (cast {to = DOMPointInit} v)
-

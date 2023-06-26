@@ -130,4 +130,3 @@ export
 postMessage1 : (obj : DedicatedWorkerGlobalScope) -> (message : Any) -> JSIO ()
 postMessage1 a b = primJS $
   DedicatedWorkerGlobalScope.prim__postMessage1 a (toFFI b) undef
-

@@ -30,4 +30,3 @@ Cast InputEvent Event where cast = believe_me
 
 export %inline
 Cast InputEvent Object where cast = believe_me
-

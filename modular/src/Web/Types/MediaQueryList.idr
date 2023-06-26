@@ -25,4 +25,3 @@ Cast MediaQueryList EventTarget where cast = believe_me
 
 export %inline
 Cast MediaQueryList Object where cast = believe_me
-

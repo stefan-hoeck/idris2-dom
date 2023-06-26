@@ -25,4 +25,3 @@ Cast Path2D Object where cast = believe_me
 
 export %inline
 Cast Path2D CanvasPath where cast = believe_me
-

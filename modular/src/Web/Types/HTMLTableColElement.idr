@@ -100,4 +100,3 @@ Cast HTMLTableColElement ParentNode where cast = believe_me
 
 export %inline
 Cast HTMLTableColElement Slottable where cast = believe_me
-

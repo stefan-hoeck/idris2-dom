@@ -25,4 +25,3 @@ Cast TextTrack EventTarget where cast = believe_me
 
 export %inline
 Cast TextTrack Object where cast = believe_me
-

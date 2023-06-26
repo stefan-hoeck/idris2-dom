@@ -30,4 +30,3 @@ onerror v = fromNullablePrim
               prim__onerror
               prim__setOnerror
               (cast {to = AbstractWorker} v)
-

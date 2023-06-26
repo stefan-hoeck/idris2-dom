@@ -105,4 +105,3 @@ Cast SVGStyleElement SVGElementInstance where cast = believe_me
 
 export %inline
 Cast SVGStyleElement Slottable where cast = believe_me
-

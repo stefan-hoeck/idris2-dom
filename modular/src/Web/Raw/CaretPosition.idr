@@ -38,4 +38,3 @@ export
 getClientRect : (obj : CaretPosition) -> JSIO (Maybe DOMRect)
 getClientRect a = tryJS "CaretPosition.getClientRect" $
   CaretPosition.prim__getClientRect a
-

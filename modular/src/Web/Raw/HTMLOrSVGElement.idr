@@ -118,4 +118,3 @@ focus' a b = primJS $ HTMLOrSVGElement.prim__focus (cast a) (optUp b)
 export
 focus : {auto _ : Cast t1 HTMLOrSVGElement} -> (obj : t1) -> JSIO ()
 focus a = primJS $ HTMLOrSVGElement.prim__focus (cast a) undef
-

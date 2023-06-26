@@ -52,4 +52,3 @@ allowWithoutGesture v = fromUndefOrPrim
                           prim__setAllowWithoutGesture
                           False
                           (cast {to = ClipboardPermissionDescriptor} v)
-

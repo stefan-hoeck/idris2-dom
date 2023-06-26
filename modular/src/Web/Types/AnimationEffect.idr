@@ -20,4 +20,3 @@ SafeCast AnimationEffect where
 
 export %inline
 Cast AnimationEffect Object where cast = believe_me
-

@@ -16,4 +16,3 @@ FromFFI IDBIndexParameters IDBIndexParameters where fromFFI = Just
 
 export %inline
 Cast IDBIndexParameters Object where cast = believe_me
-

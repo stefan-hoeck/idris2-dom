@@ -20,4 +20,3 @@ SafeCast Screen where
 
 export %inline
 Cast Screen Object where cast = believe_me
-

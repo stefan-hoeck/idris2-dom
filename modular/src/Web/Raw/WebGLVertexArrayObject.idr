@@ -6,4 +6,3 @@ import Web.Types.WebGLVertexArrayObject
 
 
 %default total
-

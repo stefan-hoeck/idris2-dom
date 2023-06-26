@@ -12,4 +12,3 @@ ToFFI NavigatorConcurrentHardware NavigatorConcurrentHardware where toFFI = id
 
 export
 FromFFI NavigatorConcurrentHardware NavigatorConcurrentHardware where fromFFI = Just
-

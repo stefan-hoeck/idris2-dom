@@ -64,4 +64,3 @@ y1 a = primJS $ SVGLinearGradientElement.prim__y1 a
 export
 y2 : (obj : SVGLinearGradientElement) -> JSIO SVGAnimatedLength
 y2 a = primJS $ SVGLinearGradientElement.prim__y2 a
-

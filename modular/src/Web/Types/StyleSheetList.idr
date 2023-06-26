@@ -20,4 +20,3 @@ SafeCast StyleSheetList where
 
 export %inline
 Cast StyleSheetList Object where cast = believe_me
-

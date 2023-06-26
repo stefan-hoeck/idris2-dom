@@ -16,4 +16,3 @@ FromFFI RegistrationOptions RegistrationOptions where fromFFI = Just
 
 export %inline
 Cast RegistrationOptions Object where cast = believe_me
-

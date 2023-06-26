@@ -44,4 +44,3 @@ composed v = fromUndefOrPrim
                prim__setComposed
                False
                (cast {to = GetRootNodeOptions} v)
-

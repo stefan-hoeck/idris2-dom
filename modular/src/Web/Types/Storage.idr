@@ -20,4 +20,3 @@ SafeCast Storage where
 
 export %inline
 Cast Storage Object where cast = believe_me
-

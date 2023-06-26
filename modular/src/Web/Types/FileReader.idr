@@ -25,4 +25,3 @@ Cast FileReader EventTarget where cast = believe_me
 
 export %inline
 Cast FileReader Object where cast = believe_me
-

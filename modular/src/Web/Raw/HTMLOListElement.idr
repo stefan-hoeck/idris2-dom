@@ -107,4 +107,3 @@ start v = fromPrim "HTMLOListElement.getstart" prim__start prim__setStart v
 export
 type : HTMLOListElement -> Attribute True Prelude.id String
 type v = fromPrim "HTMLOListElement.gettype" prim__type prim__setType v
-

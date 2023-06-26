@@ -36,4 +36,3 @@ Cast DragEventInit EventInit where cast = believe_me
 
 export %inline
 Cast DragEventInit Object where cast = believe_me
-

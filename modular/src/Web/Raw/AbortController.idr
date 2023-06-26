@@ -36,4 +36,3 @@ signal a = primJS $ AbortController.prim__signal a
 export
 abort : (obj : AbortController) -> JSIO ()
 abort a = primJS $ AbortController.prim__abort a
-

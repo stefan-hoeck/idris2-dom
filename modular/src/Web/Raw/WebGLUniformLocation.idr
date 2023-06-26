@@ -5,4 +5,3 @@ import Web.Types.WebGLUniformLocation
 
 
 %default total
-

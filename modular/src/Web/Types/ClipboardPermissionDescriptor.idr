@@ -21,4 +21,3 @@ Cast ClipboardPermissionDescriptor PermissionDescriptor where cast = believe_me
 
 export %inline
 Cast ClipboardPermissionDescriptor Object where cast = believe_me
-

@@ -192,4 +192,3 @@ reload a = primJS $ Location.prim__reload a
 export
 replace : (obj : Location) -> (url : String) -> JSIO ()
 replace a b = primJS $ Location.prim__replace a b
-

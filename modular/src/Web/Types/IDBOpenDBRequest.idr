@@ -30,4 +30,3 @@ Cast IDBOpenDBRequest EventTarget where cast = believe_me
 
 export %inline
 Cast IDBOpenDBRequest Object where cast = believe_me
-

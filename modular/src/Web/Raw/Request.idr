@@ -196,4 +196,3 @@ url a = primJS $ Request.prim__url a
 export
 clone : (obj : Request) -> JSIO Request
 clone a = primJS $ Request.prim__clone a
-

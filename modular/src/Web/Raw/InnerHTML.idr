@@ -26,4 +26,3 @@ innerHTML v = fromPrim
                 prim__innerHTML
                 prim__setInnerHTML
                 (cast {to = InnerHTML} v)
-

@@ -65,4 +65,3 @@ read a b = primJS $ ReadableStreamBYOBReader.prim__read a (toFFI b)
 export
 releaseLock : (obj : ReadableStreamBYOBReader) -> JSIO ()
 releaseLock a = primJS $ ReadableStreamBYOBReader.prim__releaseLock a
-

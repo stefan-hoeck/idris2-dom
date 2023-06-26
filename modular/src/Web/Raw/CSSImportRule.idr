@@ -38,4 +38,3 @@ media a = primJS $ CSSImportRule.prim__media a
 export
 styleSheet : (obj : CSSImportRule) -> JSIO CSSStyleSheet
 styleSheet a = primJS $ CSSImportRule.prim__styleSheet a
-

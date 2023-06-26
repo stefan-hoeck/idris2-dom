@@ -40,4 +40,3 @@ getCueById :
   -> JSIO (Maybe TextTrackCue)
 getCueById a b = tryJS "TextTrackCueList.getCueById" $
   TextTrackCueList.prim__getCueById a b
-

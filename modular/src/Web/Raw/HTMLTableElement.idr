@@ -396,4 +396,3 @@ insertRow' a b = primJS $ HTMLTableElement.prim__insertRow a (toFFI b)
 export
 insertRow : (obj : HTMLTableElement) -> JSIO HTMLTableRowElement
 insertRow a = primJS $ HTMLTableElement.prim__insertRow a undef
-

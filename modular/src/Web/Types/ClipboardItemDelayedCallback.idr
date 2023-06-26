@@ -12,4 +12,3 @@ ToFFI ClipboardItemDelayedCallback ClipboardItemDelayedCallback where toFFI = id
 
 export
 FromFFI ClipboardItemDelayedCallback ClipboardItemDelayedCallback where fromFFI = Just
-

@@ -42,4 +42,3 @@ state v = fromUndefOrPrim
             prim__setState
             (MkAny $ null {a = ()})
             (cast {to = PopStateEventInit} v)
-

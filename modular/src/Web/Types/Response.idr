@@ -25,4 +25,3 @@ Cast Response Object where cast = believe_me
 
 export %inline
 Cast Response Body where cast = believe_me
-

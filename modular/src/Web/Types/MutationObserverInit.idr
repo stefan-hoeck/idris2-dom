@@ -16,4 +16,3 @@ FromFFI MutationObserverInit MutationObserverInit where fromFFI = Just
 
 export %inline
 Cast MutationObserverInit Object where cast = believe_me
-

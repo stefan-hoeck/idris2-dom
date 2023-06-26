@@ -16,4 +16,3 @@ FromFFI BasePropertyIndexedKeyframe BasePropertyIndexedKeyframe where fromFFI = 
 
 export %inline
 Cast BasePropertyIndexedKeyframe Object where cast = believe_me
-

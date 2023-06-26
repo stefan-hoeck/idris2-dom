@@ -16,4 +16,3 @@ prim__new : PrimIO ExtendableEventInit
 export
 new : JSIO ExtendableEventInit
 new = primJS $ ExtendableEventInit.prim__new
-

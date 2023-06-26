@@ -20,4 +20,3 @@ SafeCast Location where
 
 export %inline
 Cast Location Object where cast = believe_me
-

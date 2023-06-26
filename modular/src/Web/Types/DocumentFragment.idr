@@ -40,4 +40,3 @@ Cast DocumentFragment NonElementParentNode where cast = believe_me
 
 export %inline
 Cast DocumentFragment ParentNode where cast = believe_me
-

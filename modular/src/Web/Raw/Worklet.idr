@@ -29,4 +29,3 @@ addModule' a b c = primJS $ Worklet.prim__addModule a b (optUp c)
 export
 addModule : (obj : Worklet) -> (moduleURL : String) -> JSIO (Promise Undefined)
 addModule a b = primJS $ Worklet.prim__addModule a b undef
-

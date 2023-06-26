@@ -16,4 +16,3 @@ FromFFI ImageBitmapRenderingContextSettings ImageBitmapRenderingContextSettings 
 
 export %inline
 Cast ImageBitmapRenderingContextSettings Object where cast = believe_me
-

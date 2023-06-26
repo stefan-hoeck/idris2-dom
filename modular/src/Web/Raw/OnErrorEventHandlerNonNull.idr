@@ -32,4 +32,3 @@ toOnErrorEventHandlerNonNull :
      )
   -> JSIO OnErrorEventHandlerNonNull
 toOnErrorEventHandlerNonNull cb = primJS $ prim__toOnErrorEventHandlerNonNull cb
-

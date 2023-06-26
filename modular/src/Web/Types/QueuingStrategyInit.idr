@@ -16,4 +16,3 @@ FromFFI QueuingStrategyInit QueuingStrategyInit where fromFFI = Just
 
 export %inline
 Cast QueuingStrategyInit Object where cast = believe_me
-

@@ -78,4 +78,3 @@ has a b = tryJS "Headers.has" $ Headers.prim__has a b
 export
 set : (obj : Headers) -> (name : ByteString) -> (value : ByteString) -> JSIO ()
 set a b c = primJS $ Headers.prim__set a b c
-

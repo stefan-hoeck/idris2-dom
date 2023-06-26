@@ -20,4 +20,3 @@ toCustomElementConstructor :
      (() -> IO HTMLElement)
   -> JSIO CustomElementConstructor
 toCustomElementConstructor cb = primJS $ prim__toCustomElementConstructor cb
-

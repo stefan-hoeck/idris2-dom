@@ -28,4 +28,3 @@ languages :
   -> (obj : t1)
   -> JSIO (Array String)
 languages a = primJS $ NavigatorLanguage.prim__languages (cast a)
-

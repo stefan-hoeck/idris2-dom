@@ -119,4 +119,3 @@ export
 includes : (obj : IDBKeyRange) -> (key : Any) -> JSIO Bool
 includes a b = tryJS "IDBKeyRange.includes" $
   IDBKeyRange.prim__includes a (toFFI b)
-

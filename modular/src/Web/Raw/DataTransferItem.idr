@@ -54,4 +54,3 @@ getAsString :
   -> (callback : Maybe FunctionStringCallback)
   -> JSIO ()
 getAsString a b = primJS $ DataTransferItem.prim__getAsString a (toFFI b)
-

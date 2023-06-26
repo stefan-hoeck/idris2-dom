@@ -99,4 +99,3 @@ removeEventListener :
   -> JSIO ()
 removeEventListener a b c = primJS $
   EventTarget.prim__removeEventListener (cast a) b (toFFI c) undef
-

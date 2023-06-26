@@ -25,4 +25,3 @@ Cast CSSStyleRule CSSRule where cast = believe_me
 
 export %inline
 Cast CSSStyleRule Object where cast = believe_me
-

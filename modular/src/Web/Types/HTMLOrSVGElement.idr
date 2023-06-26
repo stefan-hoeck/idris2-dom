@@ -12,4 +12,3 @@ ToFFI HTMLOrSVGElement HTMLOrSVGElement where toFFI = id
 
 export
 FromFFI HTMLOrSVGElement HTMLOrSVGElement where fromFFI = Just
-

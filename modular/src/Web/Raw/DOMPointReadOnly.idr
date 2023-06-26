@@ -102,4 +102,3 @@ matrixTransform a = primJS $
 export
 toJSON : {auto _ : Cast t1 DOMPointReadOnly} -> (obj : t1) -> JSIO Object
 toJSON a = primJS $ DOMPointReadOnly.prim__toJSON (cast a)
-

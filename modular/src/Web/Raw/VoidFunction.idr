@@ -15,4 +15,3 @@ prim__toVoidFunction : (() -> IO ()) -> PrimIO VoidFunction
 export
 toVoidFunction : (() -> IO ()) -> JSIO VoidFunction
 toVoidFunction cb = primJS $ prim__toVoidFunction cb
-

@@ -95,4 +95,3 @@ close a = primJS $ BroadcastChannel.prim__close a
 export
 postMessage : (obj : BroadcastChannel) -> (message : Any) -> JSIO ()
 postMessage a b = primJS $ BroadcastChannel.prim__postMessage a (toFFI b)
-

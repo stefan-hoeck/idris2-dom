@@ -20,4 +20,3 @@ SafeCast NodeIterator where
 
 export %inline
 Cast NodeIterator Object where cast = believe_me
-

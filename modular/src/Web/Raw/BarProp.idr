@@ -15,4 +15,3 @@ prim__visible : BarProp -> PrimIO Boolean
 export
 visible : (obj : BarProp) -> JSIO Bool
 visible a = tryJS "BarProp.visible" $ BarProp.prim__visible a
-

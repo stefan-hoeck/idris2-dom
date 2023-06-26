@@ -20,4 +20,3 @@ SafeCast URL where
 
 export %inline
 Cast URL Object where cast = believe_me
-

@@ -24,4 +24,3 @@ fromPoint' a = primJS $ DOMPoint.prim__fromPoint (optUp a)
 export
 fromPoint : JSIO DOMPoint
 fromPoint = primJS $ DOMPoint.prim__fromPoint undef
-

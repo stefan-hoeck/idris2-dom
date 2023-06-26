@@ -20,4 +20,3 @@ SafeCast SVGAnimatedNumber where
 
 export %inline
 Cast SVGAnimatedNumber Object where cast = believe_me
-

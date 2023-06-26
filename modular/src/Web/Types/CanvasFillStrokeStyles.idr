@@ -12,4 +12,3 @@ ToFFI CanvasFillStrokeStyles CanvasFillStrokeStyles where toFFI = id
 
 export
 FromFFI CanvasFillStrokeStyles CanvasFillStrokeStyles where fromFFI = Just
-

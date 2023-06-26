@@ -31,4 +31,3 @@ permissions a = primJS $ WorkerNavigator.prim__permissions a
 export
 serviceWorker : (obj : WorkerNavigator) -> JSIO ServiceWorkerContainer
 serviceWorker a = primJS $ WorkerNavigator.prim__serviceWorker a
-

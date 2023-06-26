@@ -110,4 +110,3 @@ Cast SVGPatternElement SVGURIReference where cast = believe_me
 
 export %inline
 Cast SVGPatternElement Slottable where cast = believe_me
-

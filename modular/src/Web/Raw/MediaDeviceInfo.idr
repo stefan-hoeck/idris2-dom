@@ -56,4 +56,3 @@ label a = primJS $ MediaDeviceInfo.prim__label (cast a)
 export
 toJSON : {auto _ : Cast t1 MediaDeviceInfo} -> (obj : t1) -> JSIO Object
 toJSON a = primJS $ MediaDeviceInfo.prim__toJSON (cast a)
-

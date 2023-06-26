@@ -21,4 +21,3 @@ Cast ConstrainULongRange ULongRange where cast = believe_me
 
 export %inline
 Cast ConstrainULongRange Object where cast = believe_me
-

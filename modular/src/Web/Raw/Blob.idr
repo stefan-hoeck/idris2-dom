@@ -137,4 +137,3 @@ stream a = primJS $ Blob.prim__stream (cast a)
 export
 text : {auto _ : Cast t1 Blob} -> (obj : t1) -> JSIO (Promise String)
 text a = primJS $ Blob.prim__text (cast a)
-

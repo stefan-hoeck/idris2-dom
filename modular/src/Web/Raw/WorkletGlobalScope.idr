@@ -5,4 +5,3 @@ import Web.Types.WorkletGlobalScope
 
 
 %default total
-

@@ -55,4 +55,3 @@ cy a = primJS $ SVGCircleElement.prim__cy a
 export
 r : (obj : SVGCircleElement) -> JSIO SVGAnimatedLength
 r a = primJS $ SVGCircleElement.prim__r a
-

@@ -20,4 +20,3 @@ SafeCast ClipboardItem where
 
 export %inline
 Cast ClipboardItem Object where cast = believe_me
-

@@ -20,4 +20,3 @@ SafeCast DOMImplementation where
 
 export %inline
 Cast DOMImplementation Object where cast = believe_me
-

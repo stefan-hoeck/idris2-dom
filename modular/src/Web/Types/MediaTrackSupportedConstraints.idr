@@ -16,4 +16,3 @@ FromFFI MediaTrackSupportedConstraints MediaTrackSupportedConstraints where from
 
 export %inline
 Cast MediaTrackSupportedConstraints Object where cast = believe_me
-

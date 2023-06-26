@@ -21,4 +21,3 @@ Cast ProgressEventInit EventInit where cast = believe_me
 
 export %inline
 Cast ProgressEventInit Object where cast = believe_me
-

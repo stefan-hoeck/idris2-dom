@@ -21,4 +21,3 @@ Cast FormDataEventInit EventInit where cast = believe_me
 
 export %inline
 Cast FormDataEventInit Object where cast = believe_me
-

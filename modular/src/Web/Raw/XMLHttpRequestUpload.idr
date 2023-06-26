@@ -7,4 +7,3 @@ import Web.Types.XMLHttpRequestUpload
 
 
 %default total
-

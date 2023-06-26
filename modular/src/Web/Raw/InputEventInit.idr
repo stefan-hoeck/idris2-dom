@@ -104,4 +104,3 @@ isComposing v = fromUndefOrPrim
                   prim__setIsComposing
                   False
                   (cast {to = InputEventInit} v)
-

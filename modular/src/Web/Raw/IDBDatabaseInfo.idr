@@ -67,4 +67,3 @@ version v = fromUndefOrPrimNoDefault
               prim__version
               prim__setVersion
               (cast {to = IDBDatabaseInfo} v)
-

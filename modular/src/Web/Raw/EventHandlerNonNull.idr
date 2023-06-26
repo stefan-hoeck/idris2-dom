@@ -16,4 +16,3 @@ prim__toEventHandlerNonNull : (Event -> IO AnyPtr) -> PrimIO EventHandlerNonNull
 export
 toEventHandlerNonNull : (Event -> IO AnyPtr) -> JSIO EventHandlerNonNull
 toEventHandlerNonNull cb = primJS $ prim__toEventHandlerNonNull cb
-

@@ -20,4 +20,3 @@ SafeCast DataTransfer where
 
 export %inline
 Cast DataTransfer Object where cast = believe_me
-

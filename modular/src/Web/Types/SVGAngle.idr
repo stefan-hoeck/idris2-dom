@@ -20,4 +20,3 @@ SafeCast SVGAngle where
 
 export %inline
 Cast SVGAngle Object where cast = believe_me
-

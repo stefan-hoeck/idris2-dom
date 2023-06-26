@@ -295,4 +295,3 @@ stencil v = fromUndefOrPrim
               prim__setStencil
               False
               (cast {to = WebGLContextAttributes} v)
-

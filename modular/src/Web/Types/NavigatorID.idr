@@ -12,4 +12,3 @@ ToFFI NavigatorID NavigatorID where toFFI = id
 
 export
 FromFFI NavigatorID NavigatorID where fromFFI = Just
-

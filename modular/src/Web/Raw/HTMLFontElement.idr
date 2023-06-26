@@ -82,4 +82,3 @@ face v = fromPrim "HTMLFontElement.getface" prim__face prim__setFace v
 export
 size : HTMLFontElement -> Attribute True Prelude.id String
 size v = fromPrim "HTMLFontElement.getsize" prim__size prim__setSize v
-

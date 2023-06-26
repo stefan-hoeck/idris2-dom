@@ -20,4 +20,3 @@ SafeCast IDBObjectStore where
 
 export %inline
 Cast IDBObjectStore Object where cast = believe_me
-

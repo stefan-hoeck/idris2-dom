@@ -73,4 +73,3 @@ oldURL v = fromUndefOrPrim
              prim__setOldURL
              ""
              (cast {to = HashChangeEventInit} v)
-

@@ -210,4 +210,3 @@ ontimeout v = fromNullablePrim
                 prim__ontimeout
                 prim__setOntimeout
                 (cast {to = XMLHttpRequestEventTarget} v)
-

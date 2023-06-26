@@ -40,4 +40,3 @@ Cast WorkerNavigator NavigatorLanguage where cast = believe_me
 
 export %inline
 Cast WorkerNavigator NavigatorOnLine where cast = believe_me
-

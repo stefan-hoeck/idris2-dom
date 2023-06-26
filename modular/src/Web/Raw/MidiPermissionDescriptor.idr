@@ -45,4 +45,3 @@ sysex v = fromUndefOrPrim
             prim__setSysex
             False
             (cast {to = MidiPermissionDescriptor} v)
-

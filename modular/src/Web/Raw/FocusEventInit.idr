@@ -53,4 +53,3 @@ relatedTarget v = fromUndefOrPrim
                     prim__setRelatedTarget
                     Nothing
                     (cast {to = FocusEventInit} v)
-

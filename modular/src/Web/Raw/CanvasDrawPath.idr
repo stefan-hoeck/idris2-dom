@@ -228,4 +228,3 @@ stroke1 :
   -> (path : Path2D)
   -> JSIO ()
 stroke1 a b = primJS $ CanvasDrawPath.prim__stroke1 (cast a) b
-

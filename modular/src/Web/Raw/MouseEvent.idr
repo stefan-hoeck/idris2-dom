@@ -197,4 +197,3 @@ getModifierState :
   -> JSIO Bool
 getModifierState a b = tryJS "MouseEvent.getModifierState" $
   MouseEvent.prim__getModifierState (cast a) b
-

@@ -27,4 +27,3 @@ name a = primJS $ CSSMarginRule.prim__name a
 export
 style : (obj : CSSMarginRule) -> JSIO CSSStyleDeclaration
 style a = primJS $ CSSMarginRule.prim__style a
-

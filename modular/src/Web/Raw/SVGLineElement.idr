@@ -65,4 +65,3 @@ y1 a = primJS $ SVGLineElement.prim__y1 a
 export
 y2 : (obj : SVGLineElement) -> JSIO SVGAnimatedLength
 y2 a = primJS $ SVGLineElement.prim__y2 a
-

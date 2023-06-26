@@ -21,4 +21,3 @@ Cast AnimationPlaybackEventInit EventInit where cast = believe_me
 
 export %inline
 Cast AnimationPlaybackEventInit Object where cast = believe_me
-

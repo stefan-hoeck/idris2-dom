@@ -81,4 +81,3 @@ json a = primJS $ Body.prim__json (cast a)
 export
 text : {auto _ : Cast t1 Body} -> (obj : t1) -> JSIO (Promise String)
 text a = primJS $ Body.prim__text (cast a)
-

@@ -55,4 +55,3 @@ key a b = tryJS "Storage.key" $ Storage.prim__key a b
 export
 setItem : (obj : Storage) -> (key : String) -> (value : String) -> JSIO ()
 setItem a b c = primJS $ Storage.prim__setItem a b c
-

@@ -105,4 +105,3 @@ Cast SVGScriptElement SVGURIReference where cast = believe_me
 
 export %inline
 Cast SVGScriptElement Slottable where cast = believe_me
-

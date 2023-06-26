@@ -95,4 +95,3 @@ respondWithNewView :
   -> JSIO ()
 respondWithNewView a b = primJS $
   ReadableStreamBYOBRequest.prim__respondWithNewView a (toFFI b)
-

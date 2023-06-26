@@ -40,4 +40,3 @@ highWaterMark a = primJS $ ByteLengthQueuingStrategy.prim__highWaterMark a
 export
 size : (obj : ByteLengthQueuingStrategy) -> JSIO Function
 size a = primJS $ ByteLengthQueuingStrategy.prim__size a
-

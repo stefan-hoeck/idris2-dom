@@ -95,4 +95,3 @@ Cast OffscreenCanvasRenderingContext2D CanvasTextDrawingStyles where cast = beli
 
 export %inline
 Cast OffscreenCanvasRenderingContext2D CanvasTransform where cast = believe_me
-

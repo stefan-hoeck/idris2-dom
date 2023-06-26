@@ -45,4 +45,3 @@ suffixes a = primJS $ MimeType.prim__suffixes a
 export
 type : (obj : MimeType) -> JSIO ()
 type a = primJS $ MimeType.prim__type a
-

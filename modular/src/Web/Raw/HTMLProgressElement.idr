@@ -86,4 +86,3 @@ position a = primJS $ HTMLProgressElement.prim__position a
 export
 value : HTMLProgressElement -> Attribute True Prelude.id Double
 value v = fromPrim "HTMLProgressElement.getvalue" prim__value prim__setValue v
-

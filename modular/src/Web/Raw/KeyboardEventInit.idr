@@ -157,4 +157,3 @@ repeat v = fromUndefOrPrim
              prim__setRepeat
              False
              (cast {to = KeyboardEventInit} v)
-

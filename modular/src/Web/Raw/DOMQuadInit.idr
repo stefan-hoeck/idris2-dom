@@ -119,4 +119,3 @@ p4 v = fromUndefOrPrimNoDefault
          prim__p4
          prim__setP4
          (cast {to = DOMQuadInit} v)
-

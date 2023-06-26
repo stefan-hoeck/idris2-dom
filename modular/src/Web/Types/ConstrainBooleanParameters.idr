@@ -16,4 +16,3 @@ FromFFI ConstrainBooleanParameters ConstrainBooleanParameters where fromFFI = Ju
 
 export %inline
 Cast ConstrainBooleanParameters Object where cast = believe_me
-

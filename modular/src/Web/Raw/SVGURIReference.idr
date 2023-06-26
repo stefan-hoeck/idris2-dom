@@ -19,4 +19,3 @@ href :
   -> (obj : t1)
   -> JSIO SVGAnimatedString
 href a = primJS $ SVGURIReference.prim__href (cast a)
-

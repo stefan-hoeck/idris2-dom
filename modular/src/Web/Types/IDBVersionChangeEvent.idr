@@ -25,4 +25,3 @@ Cast IDBVersionChangeEvent Event where cast = believe_me
 
 export %inline
 Cast IDBVersionChangeEvent Object where cast = believe_me
-

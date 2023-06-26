@@ -36,4 +36,3 @@ export
 namedItem : (obj : MimeTypeArray) -> (name : String) -> JSIO (Maybe Object)
 namedItem a b = tryJS "MimeTypeArray.namedItem" $
   MimeTypeArray.prim__namedItem a b
-

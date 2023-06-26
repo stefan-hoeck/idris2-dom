@@ -30,4 +30,3 @@ Cast XMLHttpRequestUpload EventTarget where cast = believe_me
 
 export %inline
 Cast XMLHttpRequestUpload Object where cast = believe_me
-

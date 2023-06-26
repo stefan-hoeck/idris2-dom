@@ -12,4 +12,3 @@ ToFFI CanvasPath CanvasPath where toFFI = id
 
 export
 FromFFI CanvasPath CanvasPath where fromFFI = Just
-

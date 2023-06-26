@@ -184,4 +184,3 @@ openKeyCursor' a b c = primJS $
 export
 openKeyCursor : (obj : IDBIndex) -> JSIO IDBRequest
 openKeyCursor a = primJS $ IDBIndex.prim__openKeyCursor a undef undef
-

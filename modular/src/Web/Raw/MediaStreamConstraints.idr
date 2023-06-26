@@ -84,4 +84,3 @@ video v = fromUndefOrPrimNoDefault
             prim__video
             prim__setVideo
             (cast {to = MediaStreamConstraints} v)
-

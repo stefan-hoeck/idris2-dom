@@ -25,4 +25,3 @@ namedItem :
   -> JSIO (Maybe (HSum [RadioNodeList, Element]))
 namedItem a b = tryJS "HTMLFormControlsCollection.namedItem" $
   HTMLFormControlsCollection.prim__namedItem a b
-

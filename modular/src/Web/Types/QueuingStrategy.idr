@@ -16,4 +16,3 @@ FromFFI QueuingStrategy QueuingStrategy where fromFFI = Just
 
 export %inline
 Cast QueuingStrategy Object where cast = believe_me
-

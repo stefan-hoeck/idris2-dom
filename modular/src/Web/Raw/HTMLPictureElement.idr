@@ -31,4 +31,3 @@ prim__new : PrimIO HTMLPictureElement
 export
 new : JSIO HTMLPictureElement
 new = primJS $ HTMLPictureElement.prim__new
-

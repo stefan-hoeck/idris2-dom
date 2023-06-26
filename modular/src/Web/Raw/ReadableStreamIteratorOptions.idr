@@ -47,4 +47,3 @@ preventCancel v = fromUndefOrPrim
                     prim__setPreventCancel
                     False
                     (cast {to = ReadableStreamIteratorOptions} v)
-

@@ -106,4 +106,3 @@ types a = primJS $ ClipboardItem.prim__types a
 export
 getType : (obj : ClipboardItem) -> (type : String) -> JSIO (Promise Blob)
 getType a b = primJS $ ClipboardItem.prim__getType a b
-

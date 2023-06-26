@@ -113,4 +113,3 @@ postMessage1 a b = primJS $ Worker.prim__postMessage1 a (toFFI b) undef
 export
 terminate : (obj : Worker) -> JSIO ()
 terminate a = primJS $ Worker.prim__terminate a
-

@@ -16,4 +16,3 @@ FromFFI Settings Settings where fromFFI = Just
 
 export %inline
 Cast Settings Object where cast = believe_me
-

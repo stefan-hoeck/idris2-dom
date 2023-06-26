@@ -558,4 +558,3 @@ setSelectionRange :
   -> JSIO ()
 setSelectionRange a b c = primJS $
   HTMLTextAreaElement.prim__setSelectionRange a b c undef
-

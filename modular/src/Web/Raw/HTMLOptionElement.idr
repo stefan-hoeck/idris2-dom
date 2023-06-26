@@ -166,4 +166,3 @@ text v = fromPrim "HTMLOptionElement.gettext" prim__text prim__setText v
 export
 value : HTMLOptionElement -> Attribute True Prelude.id String
 value v = fromPrim "HTMLOptionElement.getvalue" prim__value prim__setValue v
-

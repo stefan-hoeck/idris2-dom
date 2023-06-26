@@ -16,4 +16,3 @@ FromFFI MediaTrackCapabilities MediaTrackCapabilities where fromFFI = Just
 
 export %inline
 Cast MediaTrackCapabilities Object where cast = believe_me
-

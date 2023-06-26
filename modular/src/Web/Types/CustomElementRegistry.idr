@@ -20,4 +20,3 @@ SafeCast CustomElementRegistry where
 
 export %inline
 Cast CustomElementRegistry Object where cast = believe_me
-

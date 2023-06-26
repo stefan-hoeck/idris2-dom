@@ -25,4 +25,3 @@ Cast StaticRange AbstractRange where cast = believe_me
 
 export %inline
 Cast StaticRange Object where cast = believe_me
-

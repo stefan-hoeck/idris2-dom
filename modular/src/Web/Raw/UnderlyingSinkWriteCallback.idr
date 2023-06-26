@@ -20,4 +20,3 @@ toUnderlyingSinkWriteCallback :
      (AnyPtr -> WritableStreamDefaultController -> IO (Promise Undefined))
   -> JSIO UnderlyingSinkWriteCallback
 toUnderlyingSinkWriteCallback cb = primJS $ prim__toUnderlyingSinkWriteCallback cb
-

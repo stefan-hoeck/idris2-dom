@@ -12,4 +12,3 @@ ToFFI InnerHTML InnerHTML where toFFI = id
 
 export
 FromFFI InnerHTML InnerHTML where fromFFI = Just
-

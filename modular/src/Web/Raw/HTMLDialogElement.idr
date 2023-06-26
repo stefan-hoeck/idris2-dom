@@ -103,4 +103,3 @@ show a = primJS $ HTMLDialogElement.prim__show a
 export
 showModal : (obj : HTMLDialogElement) -> JSIO ()
 showModal a = primJS $ HTMLDialogElement.prim__showModal a
-

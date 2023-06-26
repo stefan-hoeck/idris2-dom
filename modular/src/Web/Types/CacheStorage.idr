@@ -20,4 +20,3 @@ SafeCast CacheStorage where
 
 export %inline
 Cast CacheStorage Object where cast = believe_me
-

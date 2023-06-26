@@ -20,4 +20,3 @@ SafeCast VideoTrack where
 
 export %inline
 Cast VideoTrack Object where cast = believe_me
-

@@ -20,4 +20,3 @@ SafeCast WritableStreamDefaultWriter where
 
 export %inline
 Cast WritableStreamDefaultWriter Object where cast = believe_me
-

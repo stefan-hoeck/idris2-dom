@@ -130,4 +130,3 @@ replaceState' a b c d = primJS $
 export
 replaceState : (obj : History) -> (data_ : Any) -> (unused : String) -> JSIO ()
 replaceState a b c = primJS $ History.prim__replaceState a (toFFI b) c undef
-

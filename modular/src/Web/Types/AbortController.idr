@@ -20,4 +20,3 @@ SafeCast AbortController where
 
 export %inline
 Cast AbortController Object where cast = believe_me
-

@@ -66,4 +66,3 @@ cols v = fromPrim "HTMLFrameSetElement.getcols" prim__cols prim__setCols v
 export
 rows : HTMLFrameSetElement -> Attribute True Prelude.id String
 rows v = fromPrim "HTMLFrameSetElement.getrows" prim__rows prim__setRows v
-

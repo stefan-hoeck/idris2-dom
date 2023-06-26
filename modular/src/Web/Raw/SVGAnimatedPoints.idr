@@ -29,4 +29,3 @@ animatedPoints a = primJS $ SVGAnimatedPoints.prim__animatedPoints (cast a)
 export
 points : {auto _ : Cast t1 SVGAnimatedPoints} -> (obj : t1) -> JSIO SVGPointList
 points a = primJS $ SVGAnimatedPoints.prim__points (cast a)
-

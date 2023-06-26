@@ -73,4 +73,3 @@ title v = fromPrim "SVGStyleElement.gettitle" prim__title prim__setTitle v
 export
 type : SVGStyleElement -> Attribute True Prelude.id String
 type v = fromPrim "SVGStyleElement.gettype" prim__type prim__setType v
-

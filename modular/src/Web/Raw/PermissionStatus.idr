@@ -42,4 +42,3 @@ onchange v = fromNullablePrim
 export
 state : (obj : PermissionStatus) -> JSIO PermissionState
 state a = tryJS "PermissionStatus.state" $ PermissionStatus.prim__state a
-

@@ -68,4 +68,3 @@ writable v = fromPrim
                prim__writable
                prim__setWritable
                (cast {to = ReadableWritablePair} v)
-

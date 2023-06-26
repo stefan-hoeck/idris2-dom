@@ -20,4 +20,3 @@ toTransformerTransformCallback :
      (AnyPtr -> TransformStreamDefaultController -> IO (Promise Undefined))
   -> JSIO TransformerTransformCallback
 toTransformerTransformCallback cb = primJS $ prim__toTransformerTransformCallback cb
-

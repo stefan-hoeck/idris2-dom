@@ -16,4 +16,3 @@ FromFFI CanvasRenderingContext2DSettings CanvasRenderingContext2DSettings where 
 
 export %inline
 Cast CanvasRenderingContext2DSettings Object where cast = believe_me
-

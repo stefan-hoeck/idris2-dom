@@ -20,4 +20,3 @@ SafeCast External where
 
 export %inline
 Cast External Object where cast = believe_me
-

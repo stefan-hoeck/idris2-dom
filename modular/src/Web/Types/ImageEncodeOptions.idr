@@ -16,4 +16,3 @@ FromFFI ImageEncodeOptions ImageEncodeOptions where fromFFI = Just
 
 export %inline
 Cast ImageEncodeOptions Object where cast = believe_me
-

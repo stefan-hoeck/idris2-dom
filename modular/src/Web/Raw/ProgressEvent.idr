@@ -56,4 +56,3 @@ loaded a = primJS $ ProgressEvent.prim__loaded a
 export
 total_ : (obj : ProgressEvent) -> JSIO JSBits64
 total_ a = primJS $ ProgressEvent.prim__total a
-

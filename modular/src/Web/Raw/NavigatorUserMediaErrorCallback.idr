@@ -20,4 +20,3 @@ toNavigatorUserMediaErrorCallback :
      (DOMException -> IO ())
   -> JSIO NavigatorUserMediaErrorCallback
 toNavigatorUserMediaErrorCallback cb = primJS $ prim__toNavigatorUserMediaErrorCallback cb
-

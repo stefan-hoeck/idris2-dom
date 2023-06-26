@@ -16,4 +16,3 @@ prim__toEventListener : (Event -> IO ()) -> PrimIO EventListener
 export
 toEventListener : (Event -> IO ()) -> JSIO EventListener
 toEventListener cb = primJS $ prim__toEventListener cb
-

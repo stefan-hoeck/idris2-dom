@@ -25,4 +25,3 @@ Cast WebGLSampler WebGLObject where cast = believe_me
 
 export %inline
 Cast WebGLSampler Object where cast = believe_me
-

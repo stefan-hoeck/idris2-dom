@@ -120,4 +120,3 @@ Cast SVGTextElement SVGTests where cast = believe_me
 
 export %inline
 Cast SVGTextElement Slottable where cast = believe_me
-

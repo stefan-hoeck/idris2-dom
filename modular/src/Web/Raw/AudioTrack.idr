@@ -74,4 +74,3 @@ export
 sourceBuffer : (obj : AudioTrack) -> JSIO (Maybe SourceBuffer)
 sourceBuffer a = tryJS "AudioTrack.sourceBuffer" $
   AudioTrack.prim__sourceBuffer a
-

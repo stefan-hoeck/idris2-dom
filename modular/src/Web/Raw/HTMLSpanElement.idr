@@ -31,4 +31,3 @@ prim__new : PrimIO HTMLSpanElement
 export
 new : JSIO HTMLSpanElement
 new = primJS $ HTMLSpanElement.prim__new
-

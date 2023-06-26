@@ -12,4 +12,3 @@ ToFFI NavigatorUserMediaErrorCallback NavigatorUserMediaErrorCallback where toFF
 
 export
 FromFFI NavigatorUserMediaErrorCallback NavigatorUserMediaErrorCallback where fromFFI = Just
-

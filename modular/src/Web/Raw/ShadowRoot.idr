@@ -59,4 +59,3 @@ onslotchange v = fromNullablePrim
                    prim__onslotchange
                    prim__setOnslotchange
                    (cast {to = ShadowRoot} v)
-

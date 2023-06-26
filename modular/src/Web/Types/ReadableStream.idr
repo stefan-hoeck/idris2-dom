@@ -20,4 +20,3 @@ SafeCast ReadableStream where
 
 export %inline
 Cast ReadableStream Object where cast = believe_me
-

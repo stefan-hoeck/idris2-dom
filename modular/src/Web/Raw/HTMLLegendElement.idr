@@ -59,4 +59,3 @@ align v = fromPrim "HTMLLegendElement.getalign" prim__align prim__setAlign v
 export
 form : (obj : HTMLLegendElement) -> JSIO (Maybe HTMLFormElement)
 form a = tryJS "HTMLLegendElement.form" $ HTMLLegendElement.prim__form a
-

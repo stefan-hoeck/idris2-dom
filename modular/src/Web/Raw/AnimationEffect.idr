@@ -57,4 +57,3 @@ updateTiming' a b = primJS $
 export
 updateTiming : {auto _ : Cast t1 AnimationEffect} -> (obj : t1) -> JSIO ()
 updateTiming a = primJS $ AnimationEffect.prim__updateTiming (cast a) undef
-

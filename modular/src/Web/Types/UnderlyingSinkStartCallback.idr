@@ -12,4 +12,3 @@ ToFFI UnderlyingSinkStartCallback UnderlyingSinkStartCallback where toFFI = id
 
 export
 FromFFI UnderlyingSinkStartCallback UnderlyingSinkStartCallback where fromFFI = Just
-

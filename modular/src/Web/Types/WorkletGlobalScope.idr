@@ -20,4 +20,3 @@ SafeCast WorkletGlobalScope where
 
 export %inline
 Cast WorkletGlobalScope Object where cast = believe_me
-

@@ -16,4 +16,3 @@ prim__value : IDBCursorWithValue -> PrimIO AnyPtr
 export
 value : (obj : IDBCursorWithValue) -> JSIO Any
 value a = tryJS "IDBCursorWithValue.value" $ IDBCursorWithValue.prim__value a
-

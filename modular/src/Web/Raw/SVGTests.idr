@@ -29,4 +29,3 @@ requiredExtensions a = primJS $ SVGTests.prim__requiredExtensions (cast a)
 export
 systemLanguage : {auto _ : Cast t1 SVGTests} -> (obj : t1) -> JSIO SVGStringList
 systemLanguage a = primJS $ SVGTests.prim__systemLanguage (cast a)
-

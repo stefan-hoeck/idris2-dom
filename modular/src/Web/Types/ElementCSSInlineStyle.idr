@@ -12,4 +12,3 @@ ToFFI ElementCSSInlineStyle ElementCSSInlineStyle where toFFI = id
 
 export
 FromFFI ElementCSSInlineStyle ElementCSSInlineStyle where fromFFI = Just
-

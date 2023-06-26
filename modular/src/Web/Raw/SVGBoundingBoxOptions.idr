@@ -130,4 +130,3 @@ stroke v = fromUndefOrPrim
              prim__setStroke
              False
              (cast {to = SVGBoundingBoxOptions} v)
-

@@ -55,4 +55,3 @@ reason a = primJS $ CloseEvent.prim__reason a
 export
 wasClean : (obj : CloseEvent) -> JSIO Bool
 wasClean a = tryJS "CloseEvent.wasClean" $ CloseEvent.prim__wasClean a
-

@@ -129,4 +129,3 @@ unregister a = primJS $ ServiceWorkerRegistration.prim__unregister a
 export
 update : (obj : ServiceWorkerRegistration) -> JSIO (Promise Undefined)
 update a = primJS $ ServiceWorkerRegistration.prim__update a
-

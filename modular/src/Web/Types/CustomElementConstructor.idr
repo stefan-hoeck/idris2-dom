@@ -12,4 +12,3 @@ ToFFI CustomElementConstructor CustomElementConstructor where toFFI = id
 
 export
 FromFFI CustomElementConstructor CustomElementConstructor where fromFFI = Just
-

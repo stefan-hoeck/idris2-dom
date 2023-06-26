@@ -84,4 +84,3 @@ desynchronized v = fromUndefOrPrim
                      prim__setDesynchronized
                      False
                      (cast {to = CanvasRenderingContext2DSettings} v)
-

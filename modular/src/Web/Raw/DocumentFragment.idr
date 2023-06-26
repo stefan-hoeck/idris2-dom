@@ -19,4 +19,3 @@ prim__new : PrimIO DocumentFragment
 export
 new : JSIO DocumentFragment
 new = primJS $ DocumentFragment.prim__new
-

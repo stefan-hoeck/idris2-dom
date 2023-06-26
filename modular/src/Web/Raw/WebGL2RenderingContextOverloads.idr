@@ -1788,4 +1788,3 @@ uniformMatrix4fv a b c d = primJS $
     (toFFI d)
     undef
     undef
-

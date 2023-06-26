@@ -822,4 +822,3 @@ scroll1 a b c = primJS $ Window.prim__scroll1 a b c
 export
 stop : (obj : Window) -> JSIO ()
 stop a = primJS $ Window.prim__stop a
-

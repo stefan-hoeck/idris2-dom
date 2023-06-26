@@ -177,4 +177,3 @@ export
 transferControlToOffscreen : (obj : HTMLCanvasElement) -> JSIO OffscreenCanvas
 transferControlToOffscreen a = primJS $
   HTMLCanvasElement.prim__transferControlToOffscreen a
-

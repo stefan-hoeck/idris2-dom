@@ -17,4 +17,3 @@ prim__getCapabilities : InputDeviceInfo -> PrimIO MediaTrackCapabilities
 export
 getCapabilities : (obj : InputDeviceInfo) -> JSIO MediaTrackCapabilities
 getCapabilities a = primJS $ InputDeviceInfo.prim__getCapabilities a
-

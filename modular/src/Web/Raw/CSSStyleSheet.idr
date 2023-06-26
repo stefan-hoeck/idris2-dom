@@ -105,4 +105,3 @@ removeRule' a b = primJS $ CSSStyleSheet.prim__removeRule a (toFFI b)
 export
 removeRule : (obj : CSSStyleSheet) -> JSIO ()
 removeRule a = primJS $ CSSStyleSheet.prim__removeRule a undef
-

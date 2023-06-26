@@ -35,4 +35,3 @@ Cast SharedWorkerGlobalScope Object where cast = believe_me
 
 export %inline
 Cast SharedWorkerGlobalScope WindowOrWorkerGlobalScope where cast = believe_me
-

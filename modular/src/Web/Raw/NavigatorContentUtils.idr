@@ -45,4 +45,3 @@ unregisterProtocolHandler :
   -> JSIO ()
 unregisterProtocolHandler a b c = primJS $
   NavigatorContentUtils.prim__unregisterProtocolHandler (cast a) b c
-

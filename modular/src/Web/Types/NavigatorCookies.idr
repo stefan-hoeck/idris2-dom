@@ -12,4 +12,3 @@ ToFFI NavigatorCookies NavigatorCookies where toFFI = id
 
 export
 FromFFI NavigatorCookies NavigatorCookies where fromFFI = Just
-

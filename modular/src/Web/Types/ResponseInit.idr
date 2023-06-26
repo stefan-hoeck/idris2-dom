@@ -16,4 +16,3 @@ FromFFI ResponseInit ResponseInit where fromFFI = Just
 
 export %inline
 Cast ResponseInit Object where cast = believe_me
-

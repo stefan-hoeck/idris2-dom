@@ -36,4 +36,3 @@ Cast WheelEventInit EventInit where cast = believe_me
 
 export %inline
 Cast WheelEventInit Object where cast = believe_me
-

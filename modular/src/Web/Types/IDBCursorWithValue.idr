@@ -25,4 +25,3 @@ Cast IDBCursorWithValue IDBCursor where cast = believe_me
 
 export %inline
 Cast IDBCursorWithValue Object where cast = believe_me
-

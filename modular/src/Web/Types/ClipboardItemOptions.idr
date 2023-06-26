@@ -16,4 +16,3 @@ FromFFI ClipboardItemOptions ClipboardItemOptions where fromFFI = Just
 
 export %inline
 Cast ClipboardItemOptions Object where cast = believe_me
-

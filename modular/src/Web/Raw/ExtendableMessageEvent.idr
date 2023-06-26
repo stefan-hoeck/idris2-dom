@@ -88,4 +88,3 @@ source :
   -> JSIO (Maybe (HSum [Client, ServiceWorker, MessagePort]))
 source a = tryJS "ExtendableMessageEvent.source" $
   ExtendableMessageEvent.prim__source a
-

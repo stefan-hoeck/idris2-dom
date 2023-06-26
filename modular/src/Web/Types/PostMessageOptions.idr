@@ -16,4 +16,3 @@ FromFFI PostMessageOptions PostMessageOptions where fromFFI = Just
 
 export %inline
 Cast PostMessageOptions Object where cast = believe_me
-

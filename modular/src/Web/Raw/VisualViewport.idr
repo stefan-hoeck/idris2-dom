@@ -143,4 +143,3 @@ scale a = primJS $ VisualViewport.prim__scale a
 export
 width : (obj : VisualViewport) -> JSIO Double
 width a = primJS $ VisualViewport.prim__width a
-

@@ -101,4 +101,3 @@ parentStyleSheet a = tryJS "CSSRule.parentStyleSheet" $
 export
 type : {auto _ : Cast t1 CSSRule} -> (obj : t1) -> JSIO Bits16
 type a = primJS $ CSSRule.prim__type (cast a)
-

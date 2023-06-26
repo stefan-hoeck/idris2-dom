@@ -23,4 +23,3 @@ prim__setValue : RadioNodeList -> String -> PrimIO ()
 export
 value : RadioNodeList -> Attribute True Prelude.id String
 value v = fromPrim "RadioNodeList.getvalue" prim__value prim__setValue v
-

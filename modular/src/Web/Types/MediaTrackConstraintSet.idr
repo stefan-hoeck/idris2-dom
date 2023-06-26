@@ -16,4 +16,3 @@ FromFFI MediaTrackConstraintSet MediaTrackConstraintSet where fromFFI = Just
 
 export %inline
 Cast MediaTrackConstraintSet Object where cast = believe_me
-

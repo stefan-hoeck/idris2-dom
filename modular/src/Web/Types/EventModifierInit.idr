@@ -26,4 +26,3 @@ Cast EventModifierInit EventInit where cast = believe_me
 
 export %inline
 Cast EventModifierInit Object where cast = believe_me
-

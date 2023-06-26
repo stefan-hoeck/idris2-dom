@@ -20,4 +20,3 @@ toCompositionEventHandler :
      (CompositionEvent -> IO ())
   -> JSIO CompositionEventHandler
 toCompositionEventHandler cb = primJS $ prim__toCompositionEventHandler cb
-

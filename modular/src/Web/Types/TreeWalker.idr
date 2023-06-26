@@ -20,4 +20,3 @@ SafeCast TreeWalker where
 
 export %inline
 Cast TreeWalker Object where cast = believe_me
-

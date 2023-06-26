@@ -32,4 +32,3 @@ prim__new : PrimIO HTMLAudioElement
 export
 new : JSIO HTMLAudioElement
 new = primJS $ HTMLAudioElement.prim__new
-

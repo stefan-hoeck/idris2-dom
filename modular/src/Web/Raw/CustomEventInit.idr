@@ -42,4 +42,3 @@ detail v = fromUndefOrPrim
              prim__setDetail
              (MkAny $ null {a = ()})
              (cast {to = CustomEventInit} v)
-

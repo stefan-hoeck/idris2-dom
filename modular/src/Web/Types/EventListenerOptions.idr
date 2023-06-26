@@ -16,4 +16,3 @@ FromFFI EventListenerOptions EventListenerOptions where fromFFI = Just
 
 export %inline
 Cast EventListenerOptions Object where cast = believe_me
-

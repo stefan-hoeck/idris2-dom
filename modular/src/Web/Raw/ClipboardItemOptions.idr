@@ -46,4 +46,3 @@ presentationStyle v = fromUndefOrPrimNoDefault
                         prim__presentationStyle
                         prim__setPresentationStyle
                         (cast {to = ClipboardItemOptions} v)
-

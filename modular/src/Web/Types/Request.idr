@@ -25,4 +25,3 @@ Cast Request Object where cast = believe_me
 
 export %inline
 Cast Request Body where cast = believe_me
-

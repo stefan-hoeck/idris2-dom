@@ -67,4 +67,3 @@ namedItem :
   -> JSIO (Maybe (HSum [HTMLCollection, Element]))
 namedItem a b = tryJS "HTMLAllCollection.namedItem" $
   HTMLAllCollection.prim__namedItem a b
-

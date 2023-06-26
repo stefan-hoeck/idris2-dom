@@ -159,4 +159,3 @@ url v = fromUndefOrPrim
           prim__setUrl
           ""
           (cast {to = StorageEventInit} v)
-

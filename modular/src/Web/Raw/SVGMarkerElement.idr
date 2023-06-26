@@ -163,4 +163,3 @@ setOrientToAngle a b = primJS $ SVGMarkerElement.prim__setOrientToAngle a b
 export
 setOrientToAuto : (obj : SVGMarkerElement) -> JSIO ()
 setOrientToAuto a = primJS $ SVGMarkerElement.prim__setOrientToAuto a
-

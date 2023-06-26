@@ -20,4 +20,3 @@ SafeCast Worklet where
 
 export %inline
 Cast Worklet Object where cast = believe_me
-

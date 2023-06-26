@@ -92,4 +92,3 @@ postMessage1' a b c = primJS $
 export
 postMessage1 : (obj : ServiceWorker) -> (message : Any) -> JSIO ()
 postMessage1 a b = primJS $ ServiceWorker.prim__postMessage1 a (toFFI b) undef
-

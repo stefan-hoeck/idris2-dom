@@ -25,4 +25,3 @@ Cast KeyframeEffect AnimationEffect where cast = believe_me
 
 export %inline
 Cast KeyframeEffect Object where cast = believe_me
-

@@ -20,4 +20,3 @@ SafeCast MutationRecord where
 
 export %inline
 Cast MutationRecord Object where cast = believe_me
-

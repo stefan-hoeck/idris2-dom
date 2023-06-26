@@ -44,4 +44,3 @@ deviceId v = fromUndefOrPrimNoDefault
                prim__deviceId
                prim__setDeviceId
                (cast {to = DevicePermissionDescriptor} v)
-

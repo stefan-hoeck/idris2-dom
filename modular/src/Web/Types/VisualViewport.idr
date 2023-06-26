@@ -25,4 +25,3 @@ Cast VisualViewport EventTarget where cast = believe_me
 
 export %inline
 Cast VisualViewport Object where cast = believe_me
-

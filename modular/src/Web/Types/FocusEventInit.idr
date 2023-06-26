@@ -26,4 +26,3 @@ Cast FocusEventInit EventInit where cast = believe_me
 
 export %inline
 Cast FocusEventInit Object where cast = believe_me
-

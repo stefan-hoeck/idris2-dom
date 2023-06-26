@@ -16,4 +16,3 @@ FromFFI GetRootNodeOptions GetRootNodeOptions where fromFFI = Just
 
 export %inline
 Cast GetRootNodeOptions Object where cast = believe_me
-

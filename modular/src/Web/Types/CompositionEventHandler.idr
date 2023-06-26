@@ -12,4 +12,3 @@ ToFFI CompositionEventHandler CompositionEventHandler where toFFI = id
 
 export
 FromFFI CompositionEventHandler CompositionEventHandler where fromFFI = Just
-

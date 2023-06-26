@@ -92,4 +92,3 @@ assignedNodes' a b = primJS $ HTMLSlotElement.prim__assignedNodes a (optUp b)
 export
 assignedNodes : (obj : HTMLSlotElement) -> JSIO (Array Node)
 assignedNodes a = primJS $ HTMLSlotElement.prim__assignedNodes a undef
-

@@ -26,4 +26,3 @@ animVal a = primJS $ SVGAnimatedTransformList.prim__animVal a
 export
 baseVal : (obj : SVGAnimatedTransformList) -> JSIO SVGTransformList
 baseVal a = primJS $ SVGAnimatedTransformList.prim__baseVal a
-

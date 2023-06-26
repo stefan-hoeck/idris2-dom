@@ -25,4 +25,3 @@ Cast Range AbstractRange where cast = believe_me
 
 export %inline
 Cast Range Object where cast = believe_me
-

@@ -30,4 +30,3 @@ Cast Worker Object where cast = believe_me
 
 export %inline
 Cast Worker AbstractWorker where cast = believe_me
-

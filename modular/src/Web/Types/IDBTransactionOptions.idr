@@ -16,4 +16,3 @@ FromFFI IDBTransactionOptions IDBTransactionOptions where fromFFI = Just
 
 export %inline
 Cast IDBTransactionOptions Object where cast = believe_me
-

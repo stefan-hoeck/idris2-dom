@@ -39,4 +39,3 @@ new a = primJS $ SharedWorker.prim__new a undef
 export
 port : (obj : SharedWorker) -> JSIO MessagePort
 port a = primJS $ SharedWorker.prim__port a
-

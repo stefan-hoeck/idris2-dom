@@ -214,4 +214,3 @@ scrolling v = fromPrim
 export
 src : HTMLFrameElement -> Attribute True Prelude.id String
 src v = fromPrim "HTMLFrameElement.getsrc" prim__src prim__setSrc v
-

@@ -20,4 +20,3 @@ SafeCast Blob where
 
 export %inline
 Cast Blob Object where cast = believe_me
-

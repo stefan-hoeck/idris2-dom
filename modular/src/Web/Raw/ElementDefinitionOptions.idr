@@ -43,4 +43,3 @@ extends v = fromUndefOrPrimNoDefault
               prim__extends
               prim__setExtends
               (cast {to = ElementDefinitionOptions} v)
-

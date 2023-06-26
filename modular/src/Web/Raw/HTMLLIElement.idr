@@ -65,4 +65,3 @@ type v = fromPrim "HTMLLIElement.gettype" prim__type prim__setType v
 export
 value : HTMLLIElement -> Attribute True Prelude.id Int32
 value v = fromPrim "HTMLLIElement.getvalue" prim__value prim__setValue v
-

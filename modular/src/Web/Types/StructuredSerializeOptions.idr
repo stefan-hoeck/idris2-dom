@@ -16,4 +16,3 @@ FromFFI StructuredSerializeOptions StructuredSerializeOptions where fromFFI = Ju
 
 export %inline
 Cast StructuredSerializeOptions Object where cast = believe_me
-

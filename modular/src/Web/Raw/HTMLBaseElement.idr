@@ -65,4 +65,3 @@ href v = fromPrim "HTMLBaseElement.gethref" prim__href prim__setHref v
 export
 target : HTMLBaseElement -> Attribute True Prelude.id String
 target v = fromPrim "HTMLBaseElement.gettarget" prim__target prim__setTarget v
-

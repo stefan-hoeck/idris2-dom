@@ -16,4 +16,3 @@ FromFFI OptionalEffectTiming OptionalEffectTiming where fromFFI = Just
 
 export %inline
 Cast OptionalEffectTiming Object where cast = believe_me
-

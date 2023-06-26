@@ -12,4 +12,3 @@ ToFFI WebGL2RenderingContextOverloads WebGL2RenderingContextOverloads where toFF
 
 export
 FromFFI WebGL2RenderingContextOverloads WebGL2RenderingContextOverloads where fromFFI = Just
-

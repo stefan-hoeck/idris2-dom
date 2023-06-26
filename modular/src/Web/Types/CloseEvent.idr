@@ -25,4 +25,3 @@ Cast CloseEvent Event where cast = believe_me
 
 export %inline
 Cast CloseEvent Object where cast = believe_me
-

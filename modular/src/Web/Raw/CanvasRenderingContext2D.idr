@@ -48,4 +48,3 @@ getContextAttributes :
   -> JSIO CanvasRenderingContext2DSettings
 getContextAttributes a = primJS $
   CanvasRenderingContext2D.prim__getContextAttributes a
-

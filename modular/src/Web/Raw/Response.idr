@@ -175,4 +175,3 @@ url a = primJS $ Response.prim__url a
 export
 clone : (obj : Response) -> JSIO Response
 clone a = primJS $ Response.prim__clone a
-

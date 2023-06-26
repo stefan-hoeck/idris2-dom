@@ -104,4 +104,3 @@ signal v = fromUndefOrPrimNoDefault
              prim__signal
              prim__setSignal
              (cast {to = AddEventListenerOptions} v)
-

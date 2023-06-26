@@ -52,4 +52,3 @@ submitter v = fromUndefOrPrim
                 prim__setSubmitter
                 Nothing
                 (cast {to = SubmitEventInit} v)
-

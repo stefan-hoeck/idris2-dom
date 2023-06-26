@@ -110,4 +110,3 @@ Cast SVGForeignObjectElement SVGTests where cast = believe_me
 
 export %inline
 Cast SVGForeignObjectElement Slottable where cast = believe_me
-

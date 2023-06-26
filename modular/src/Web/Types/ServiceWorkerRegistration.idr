@@ -25,4 +25,3 @@ Cast ServiceWorkerRegistration EventTarget where cast = believe_me
 
 export %inline
 Cast ServiceWorkerRegistration Object where cast = believe_me
-

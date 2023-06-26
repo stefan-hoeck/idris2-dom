@@ -69,4 +69,3 @@ scrollPathIntoView1 :
   -> JSIO ()
 scrollPathIntoView1 a b = primJS $
   CanvasUserInterface.prim__scrollPathIntoView1 (cast a) b
-

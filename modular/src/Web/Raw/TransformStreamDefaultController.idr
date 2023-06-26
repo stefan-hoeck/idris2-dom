@@ -61,4 +61,3 @@ error a = primJS $ TransformStreamDefaultController.prim__error a undef
 export
 terminate : (obj : TransformStreamDefaultController) -> JSIO ()
 terminate a = primJS $ TransformStreamDefaultController.prim__terminate a
-

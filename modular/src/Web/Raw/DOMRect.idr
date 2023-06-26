@@ -24,4 +24,3 @@ fromRect' a = primJS $ DOMRect.prim__fromRect (optUp a)
 export
 fromRect : JSIO DOMRect
 fromRect = primJS $ DOMRect.prim__fromRect undef
-

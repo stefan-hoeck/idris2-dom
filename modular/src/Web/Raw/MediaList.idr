@@ -66,4 +66,3 @@ deleteMedium a b = primJS $ MediaList.prim__deleteMedium a b
 export
 item : (obj : MediaList) -> (index : Bits32) -> JSIO (Maybe String)
 item a b = tryJS "MediaList.item" $ MediaList.prim__item a b
-

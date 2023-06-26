@@ -882,4 +882,3 @@ webkitMatchesSelector :
   -> JSIO Bool
 webkitMatchesSelector a b = tryJS "Element.webkitMatchesSelector" $
   Element.prim__webkitMatchesSelector (cast a) b
-

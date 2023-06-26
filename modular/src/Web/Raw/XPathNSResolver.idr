@@ -19,4 +19,3 @@ toXPathNSResolver :
      (Nullable String -> IO (Nullable String))
   -> JSIO XPathNSResolver
 toXPathNSResolver cb = primJS $ prim__toXPathNSResolver cb
-

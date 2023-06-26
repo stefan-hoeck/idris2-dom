@@ -40,4 +40,3 @@ Cast CharacterData ChildNode where cast = believe_me
 
 export %inline
 Cast CharacterData NonDocumentTypeChildNode where cast = believe_me
-

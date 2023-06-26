@@ -115,4 +115,3 @@ Cast SVGSymbolElement SVGTests where cast = believe_me
 
 export %inline
 Cast SVGSymbolElement Slottable where cast = believe_me
-

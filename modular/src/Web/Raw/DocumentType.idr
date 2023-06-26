@@ -38,4 +38,3 @@ publicId a = primJS $ DocumentType.prim__publicId a
 export
 systemId : (obj : DocumentType) -> JSIO String
 systemId a = primJS $ DocumentType.prim__systemId a
-

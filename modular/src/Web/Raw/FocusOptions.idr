@@ -44,4 +44,3 @@ preventScroll v = fromUndefOrPrim
                     prim__setPreventScroll
                     False
                     (cast {to = FocusOptions} v)
-

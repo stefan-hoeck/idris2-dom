@@ -16,4 +16,3 @@ FromFFI IDBObjectStoreParameters IDBObjectStoreParameters where fromFFI = Just
 
 export %inline
 Cast IDBObjectStoreParameters Object where cast = believe_me
-

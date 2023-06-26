@@ -12,4 +12,3 @@ ToFFI WheelEventHandler WheelEventHandler where toFFI = id
 
 export
 FromFFI WheelEventHandler WheelEventHandler where fromFFI = Just
-

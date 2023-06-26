@@ -50,4 +50,3 @@ splitText :
   -> (offset : Bits32)
   -> JSIO Text
 splitText a b = primJS $ Text.prim__splitText (cast a) b
-

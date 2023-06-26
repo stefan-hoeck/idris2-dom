@@ -26,4 +26,3 @@ length a = primJS $ CSSRuleList.prim__length a
 export
 item : (obj : CSSRuleList) -> (index : Bits32) -> JSIO (Maybe CSSRule)
 item a b = tryJS "CSSRuleList.item" $ CSSRuleList.prim__item a b
-

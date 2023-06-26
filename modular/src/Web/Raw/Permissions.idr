@@ -20,4 +20,3 @@ query :
   -> (permissionDesc : t2)
   -> JSIO (Promise PermissionStatus)
 query a b = primJS $ Permissions.prim__query a (cast b)
-

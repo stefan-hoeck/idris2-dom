@@ -19,4 +19,3 @@ style :
   -> (obj : t1)
   -> JSIO CSSStyleDeclaration
 style a = primJS $ ElementCSSInlineStyle.prim__style (cast a)
-

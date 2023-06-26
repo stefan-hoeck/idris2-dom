@@ -113,4 +113,3 @@ y a = primJS $ DOMRectReadOnly.prim__y (cast a)
 export
 toJSON : {auto _ : Cast t1 DOMRectReadOnly} -> (obj : t1) -> JSIO Object
 toJSON a = primJS $ DOMRectReadOnly.prim__toJSON (cast a)
-

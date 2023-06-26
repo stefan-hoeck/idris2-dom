@@ -12,4 +12,3 @@ ToFFI CanvasPathDrawingStyles CanvasPathDrawingStyles where toFFI = id
 
 export
 FromFFI CanvasPathDrawingStyles CanvasPathDrawingStyles where fromFFI = Just
-

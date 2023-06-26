@@ -41,4 +41,3 @@ canvas a = primJS $ OffscreenCanvasRenderingContext2D.prim__canvas a
 export
 commit : (obj : OffscreenCanvasRenderingContext2D) -> JSIO ()
 commit a = primJS $ OffscreenCanvasRenderingContext2D.prim__commit a
-

@@ -35,4 +35,3 @@ new a = primJS $ PopStateEvent.prim__new a undef
 export
 state : (obj : PopStateEvent) -> JSIO Any
 state a = tryJS "PopStateEvent.state" $ PopStateEvent.prim__state a
-

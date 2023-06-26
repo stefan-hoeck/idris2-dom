@@ -55,4 +55,3 @@ insertRule :
   -> (rule : String)
   -> JSIO Bits32
 insertRule a b = primJS $ CSSGroupingRule.prim__insertRule (cast a) b undef
-

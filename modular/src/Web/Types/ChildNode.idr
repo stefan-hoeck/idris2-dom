@@ -12,4 +12,3 @@ ToFFI ChildNode ChildNode where toFFI = id
 
 export
 FromFFI ChildNode ChildNode where fromFFI = Just
-

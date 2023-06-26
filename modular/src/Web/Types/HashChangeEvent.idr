@@ -25,4 +25,3 @@ Cast HashChangeEvent Event where cast = believe_me
 
 export %inline
 Cast HashChangeEvent Object where cast = believe_me
-

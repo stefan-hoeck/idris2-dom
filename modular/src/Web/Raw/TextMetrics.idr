@@ -126,4 +126,3 @@ ideographicBaseline a = primJS $ TextMetrics.prim__ideographicBaseline a
 export
 width : (obj : TextMetrics) -> JSIO Double
 width a = primJS $ TextMetrics.prim__width a
-

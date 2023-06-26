@@ -39,4 +39,3 @@ waitUntil :
   -> (f : Promise AnyPtr)
   -> JSIO ()
 waitUntil a b = primJS $ ExtendableEvent.prim__waitUntil (cast a) b
-

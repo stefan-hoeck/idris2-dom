@@ -74,4 +74,3 @@ size v = fromUndefOrPrimNoDefault
            prim__size
            prim__setSize
            (cast {to = QueuingStrategy} v)
-

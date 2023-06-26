@@ -26,4 +26,3 @@ length a = primJS $ FileList.prim__length a
 export
 item : (obj : FileList) -> (index : Bits32) -> JSIO (Maybe File)
 item a b = tryJS "FileList.item" $ FileList.prim__item a b
-

@@ -89,4 +89,3 @@ getScreenCTM :
   -> JSIO (Maybe DOMMatrix)
 getScreenCTM a = tryJS "SVGGraphicsElement.getScreenCTM" $
   SVGGraphicsElement.prim__getScreenCTM (cast a)
-

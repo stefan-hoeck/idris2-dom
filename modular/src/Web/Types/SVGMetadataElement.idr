@@ -100,4 +100,3 @@ Cast SVGMetadataElement SVGElementInstance where cast = believe_me
 
 export %inline
 Cast SVGMetadataElement Slottable where cast = believe_me
-

@@ -25,4 +25,3 @@ Cast ServiceWorkerContainer EventTarget where cast = believe_me
 
 export %inline
 Cast ServiceWorkerContainer Object where cast = believe_me
-

@@ -25,4 +25,3 @@ Cast CSSNamespaceRule CSSRule where cast = believe_me
 
 export %inline
 Cast CSSNamespaceRule Object where cast = believe_me
-

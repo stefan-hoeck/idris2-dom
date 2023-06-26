@@ -45,4 +45,3 @@ namedItem :
   -> JSIO (Maybe Element)
 namedItem a b = tryJS "HTMLCollection.namedItem" $
   HTMLCollection.prim__namedItem (cast a) b
-

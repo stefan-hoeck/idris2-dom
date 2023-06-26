@@ -20,4 +20,3 @@ SafeCast TextTrackCueList where
 
 export %inline
 Cast TextTrackCueList Object where cast = believe_me
-

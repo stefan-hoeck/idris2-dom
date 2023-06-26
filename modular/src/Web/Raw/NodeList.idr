@@ -30,4 +30,3 @@ item :
   -> (index : Bits32)
   -> JSIO (Maybe Node)
 item a b = tryJS "NodeList.item" $ NodeList.prim__item (cast a) b
-

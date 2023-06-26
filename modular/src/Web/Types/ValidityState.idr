@@ -20,4 +20,3 @@ SafeCast ValidityState where
 
 export %inline
 Cast ValidityState Object where cast = believe_me
-

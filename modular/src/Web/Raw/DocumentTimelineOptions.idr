@@ -44,4 +44,3 @@ originTime v = fromUndefOrPrim
                  prim__setOriginTime
                  0
                  (cast {to = DocumentTimelineOptions} v)
-

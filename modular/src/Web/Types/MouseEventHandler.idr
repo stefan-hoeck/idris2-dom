@@ -12,4 +12,3 @@ ToFFI MouseEventHandler MouseEventHandler where toFFI = id
 
 export
 FromFFI MouseEventHandler MouseEventHandler where fromFFI = Just
-

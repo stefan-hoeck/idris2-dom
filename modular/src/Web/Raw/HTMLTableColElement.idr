@@ -137,4 +137,3 @@ vAlign v = fromPrim
 export
 width : HTMLTableColElement -> Attribute True Prelude.id String
 width v = fromPrim "HTMLTableColElement.getwidth" prim__width prim__setWidth v
-

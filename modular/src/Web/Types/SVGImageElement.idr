@@ -115,4 +115,3 @@ Cast SVGImageElement SVGURIReference where cast = believe_me
 
 export %inline
 Cast SVGImageElement Slottable where cast = believe_me
-

@@ -16,4 +16,3 @@ FromFFI WorkerOptions WorkerOptions where fromFFI = Just
 
 export %inline
 Cast WorkerOptions Object where cast = believe_me
-

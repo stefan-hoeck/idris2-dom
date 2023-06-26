@@ -194,4 +194,3 @@ serviceWorker a = primJS $ ServiceWorkerGlobalScope.prim__serviceWorker a
 export
 skipWaiting : (obj : ServiceWorkerGlobalScope) -> JSIO (Promise Undefined)
 skipWaiting a = primJS $ ServiceWorkerGlobalScope.prim__skipWaiting a
-

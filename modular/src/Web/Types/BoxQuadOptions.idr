@@ -16,4 +16,3 @@ FromFFI BoxQuadOptions BoxQuadOptions where fromFFI = Just
 
 export %inline
 Cast BoxQuadOptions Object where cast = believe_me
-

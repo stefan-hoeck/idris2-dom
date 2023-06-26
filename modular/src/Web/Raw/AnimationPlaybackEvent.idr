@@ -28,4 +28,3 @@ export
 timelineTime : (obj : AnimationPlaybackEvent) -> JSIO (Maybe Double)
 timelineTime a = tryJS "AnimationPlaybackEvent.timelineTime" $
   AnimationPlaybackEvent.prim__timelineTime a
-

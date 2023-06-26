@@ -6,4 +6,3 @@ import Web.Types.WebGLRenderbuffer
 
 
 %default total
-

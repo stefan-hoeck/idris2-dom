@@ -178,4 +178,3 @@ text v = fromPrim "SVGAElement.gettext" prim__text prim__setText v
 export
 type : SVGAElement -> Attribute True Prelude.id String
 type v = fromPrim "SVGAElement.gettype" prim__type prim__setType v
-

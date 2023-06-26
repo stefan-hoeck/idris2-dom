@@ -81,4 +81,3 @@ oldVersion v = fromUndefOrPrim
                  prim__setOldVersion
                  0
                  (cast {to = IDBVersionChangeEventInit} v)
-

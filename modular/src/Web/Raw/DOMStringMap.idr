@@ -25,4 +25,3 @@ get a b = primJS $ DOMStringMap.prim__get a b
 export
 set : (obj : DOMStringMap) -> (name : String) -> (value : String) -> JSIO ()
 set a b c = primJS $ DOMStringMap.prim__set a b c
-

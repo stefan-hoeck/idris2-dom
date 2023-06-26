@@ -12,4 +12,3 @@ ToFFI ReadableStreamGenericReader ReadableStreamGenericReader where toFFI = id
 
 export
 FromFFI ReadableStreamGenericReader ReadableStreamGenericReader where fromFFI = Just
-

@@ -108,4 +108,3 @@ sort a = primJS $ URLSearchParams.prim__sort a
 export
 toString : (obj : URLSearchParams) -> JSIO String
 toString a = primJS $ URLSearchParams.prim__toString a
-

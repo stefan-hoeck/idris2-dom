@@ -49,4 +49,3 @@ getAnimations :
   -> (obj : t1)
   -> JSIO (Array Animation)
 getAnimations a = primJS $ Animatable.prim__getAnimations (cast a)
-

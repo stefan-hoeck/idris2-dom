@@ -115,4 +115,3 @@ substringData :
   -> (count : Bits32)
   -> JSIO String
 substringData a b c = primJS $ CharacterData.prim__substringData (cast a) b c
-

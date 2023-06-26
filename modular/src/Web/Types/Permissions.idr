@@ -20,4 +20,3 @@ SafeCast Permissions where
 
 export %inline
 Cast Permissions Object where cast = believe_me
-

@@ -33,4 +33,3 @@ writable :
   -> (obj : t1)
   -> JSIO WritableStream
 writable a = primJS $ GenericTransformStream.prim__writable (cast a)
-

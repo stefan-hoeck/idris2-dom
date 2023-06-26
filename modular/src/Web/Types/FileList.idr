@@ -20,4 +20,3 @@ SafeCast FileList where
 
 export %inline
 Cast FileList Object where cast = believe_me
-

@@ -224,4 +224,3 @@ screenY v = fromUndefOrPrim
               prim__setScreenY
               0.0
               (cast {to = MouseEventInit} v)
-

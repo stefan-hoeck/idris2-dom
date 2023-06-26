@@ -93,4 +93,3 @@ error' a b = primJS $ ReadableByteStreamController.prim__error a (toFFI b)
 export
 error : (obj : ReadableByteStreamController) -> JSIO ()
 error a = primJS $ ReadableByteStreamController.prim__error a undef
-

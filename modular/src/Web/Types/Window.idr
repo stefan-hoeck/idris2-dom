@@ -45,4 +45,3 @@ Cast Window WindowLocalStorage where cast = believe_me
 
 export %inline
 Cast Window WindowOrWorkerGlobalScope where cast = believe_me
-

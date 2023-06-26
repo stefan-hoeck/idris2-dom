@@ -25,4 +25,3 @@ Cast MediaDevices EventTarget where cast = believe_me
 
 export %inline
 Cast MediaDevices Object where cast = believe_me
-

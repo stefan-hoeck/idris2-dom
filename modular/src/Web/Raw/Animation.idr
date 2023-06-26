@@ -299,4 +299,3 @@ updatePlaybackRate :
   -> (playbackRate : Double)
   -> JSIO ()
 updatePlaybackRate a b = primJS $ Animation.prim__updatePlaybackRate (cast a) b
-

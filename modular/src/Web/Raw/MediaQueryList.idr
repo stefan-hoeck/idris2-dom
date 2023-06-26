@@ -75,4 +75,3 @@ removeListener :
   -> (callback : Maybe EventListener)
   -> JSIO ()
 removeListener a b = primJS $ MediaQueryList.prim__removeListener a (toFFI b)
-

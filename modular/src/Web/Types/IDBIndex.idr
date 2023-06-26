@@ -20,4 +20,3 @@ SafeCast IDBIndex where
 
 export %inline
 Cast IDBIndex Object where cast = believe_me
-

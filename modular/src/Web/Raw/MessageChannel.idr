@@ -36,4 +36,3 @@ port1 a = primJS $ MessageChannel.prim__port1 a
 export
 port2 : (obj : MessageChannel) -> JSIO MessagePort
 port2 a = primJS $ MessageChannel.prim__port2 a
-

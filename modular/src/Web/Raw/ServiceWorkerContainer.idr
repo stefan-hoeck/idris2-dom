@@ -191,4 +191,3 @@ register a b = primJS $ ServiceWorkerContainer.prim__register a b undef
 export
 startMessages : (obj : ServiceWorkerContainer) -> JSIO ()
 startMessages a = primJS $ ServiceWorkerContainer.prim__startMessages a
-

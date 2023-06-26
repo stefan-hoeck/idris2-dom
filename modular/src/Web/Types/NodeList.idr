@@ -20,4 +20,3 @@ SafeCast NodeList where
 
 export %inline
 Cast NodeList Object where cast = believe_me
-

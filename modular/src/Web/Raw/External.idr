@@ -26,4 +26,3 @@ export
 IsSearchProviderInstalled : (obj : External) -> JSIO ()
 IsSearchProviderInstalled a = primJS $
   External.prim__IsSearchProviderInstalled a
-

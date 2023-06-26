@@ -12,4 +12,3 @@ ToFFI InputEventHandler InputEventHandler where toFFI = id
 
 export
 FromFFI InputEventHandler InputEventHandler where fromFFI = Just
-

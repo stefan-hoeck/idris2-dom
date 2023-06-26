@@ -12,4 +12,3 @@ ToFFI HTMLHyperlinkElementUtils HTMLHyperlinkElementUtils where toFFI = id
 
 export
 FromFFI HTMLHyperlinkElementUtils HTMLHyperlinkElementUtils where fromFFI = Just
-

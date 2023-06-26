@@ -4258,4 +4258,3 @@ waitSync :
   -> JSIO ()
 waitSync a b c d = primJS $
   WebGL2RenderingContextBase.prim__waitSync (cast a) b c d
-

@@ -21,4 +21,3 @@ Cast HashChangeEventInit EventInit where cast = believe_me
 
 export %inline
 Cast HashChangeEventInit Object where cast = believe_me
-

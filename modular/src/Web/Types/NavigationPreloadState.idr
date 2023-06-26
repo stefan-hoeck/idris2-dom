@@ -16,4 +16,3 @@ FromFFI NavigationPreloadState NavigationPreloadState where fromFFI = Just
 
 export %inline
 Cast NavigationPreloadState Object where cast = believe_me
-

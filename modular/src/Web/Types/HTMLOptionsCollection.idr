@@ -25,4 +25,3 @@ Cast HTMLOptionsCollection HTMLCollection where cast = believe_me
 
 export %inline
 Cast HTMLOptionsCollection Object where cast = believe_me
-

@@ -223,4 +223,3 @@ selectSubString :
   -> JSIO ()
 selectSubString a b c = primJS $
   SVGTextContentElement.prim__selectSubString (cast a) b c
-

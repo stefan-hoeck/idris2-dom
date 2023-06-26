@@ -16,4 +16,3 @@ FromFFI UnderlyingSink UnderlyingSink where fromFFI = Just
 
 export %inline
 Cast UnderlyingSink Object where cast = believe_me
-

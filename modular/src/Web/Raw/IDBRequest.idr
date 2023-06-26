@@ -124,4 +124,3 @@ transaction :
   -> JSIO (Maybe IDBTransaction)
 transaction a = tryJS "IDBRequest.transaction" $
   IDBRequest.prim__transaction (cast a)
-

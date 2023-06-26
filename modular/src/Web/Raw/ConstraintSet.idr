@@ -15,4 +15,3 @@ prim__new : PrimIO ConstraintSet
 export
 new : JSIO ConstraintSet
 new = primJS $ ConstraintSet.prim__new
-

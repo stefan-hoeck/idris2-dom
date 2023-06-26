@@ -158,4 +158,3 @@ writableType v = fromUndefOrPrimNoDefault
                    prim__writableType
                    prim__setWritableType
                    (cast {to = Transformer} v)
-

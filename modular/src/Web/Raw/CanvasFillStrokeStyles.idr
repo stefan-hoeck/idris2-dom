@@ -156,4 +156,3 @@ createRadialGradient :
   -> JSIO CanvasGradient
 createRadialGradient a b c d e f g = primJS $
   CanvasFillStrokeStyles.prim__createRadialGradient (cast a) b c d e f g
-

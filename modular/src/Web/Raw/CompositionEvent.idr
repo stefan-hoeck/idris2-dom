@@ -17,4 +17,3 @@ prim__data : CompositionEvent -> PrimIO String
 export
 data_ : (obj : CompositionEvent) -> JSIO String
 data_ a = primJS $ CompositionEvent.prim__data a
-

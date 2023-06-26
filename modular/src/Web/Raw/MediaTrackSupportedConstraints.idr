@@ -503,4 +503,3 @@ width v = fromUndefOrPrim
             prim__setWidth
             True
             (cast {to = MediaTrackSupportedConstraints} v)
-

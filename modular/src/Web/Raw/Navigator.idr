@@ -80,4 +80,3 @@ getUserMedia :
   -> (errorCallback : NavigatorUserMediaErrorCallback)
   -> JSIO ()
 getUserMedia a b c d = primJS $ Navigator.prim__getUserMedia a (cast b) c d
-

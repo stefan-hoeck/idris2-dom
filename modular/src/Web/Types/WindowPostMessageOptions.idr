@@ -21,4 +21,3 @@ Cast WindowPostMessageOptions PostMessageOptions where cast = believe_me
 
 export %inline
 Cast WindowPostMessageOptions Object where cast = believe_me
-

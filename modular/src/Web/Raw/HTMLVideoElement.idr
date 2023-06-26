@@ -124,4 +124,3 @@ videoWidth a = primJS $ HTMLVideoElement.prim__videoWidth a
 export
 width : HTMLVideoElement -> Attribute True Prelude.id Bits32
 width v = fromPrim "HTMLVideoElement.getwidth" prim__width prim__setWidth v
-

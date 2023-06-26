@@ -120,4 +120,3 @@ Cast SVGSVGElement Slottable where cast = believe_me
 
 export %inline
 Cast SVGSVGElement WindowEventHandlers where cast = believe_me
-

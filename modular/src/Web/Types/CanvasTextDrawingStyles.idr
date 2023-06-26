@@ -12,4 +12,3 @@ ToFFI CanvasTextDrawingStyles CanvasTextDrawingStyles where toFFI = id
 
 export
 FromFFI CanvasTextDrawingStyles CanvasTextDrawingStyles where fromFFI = Just
-

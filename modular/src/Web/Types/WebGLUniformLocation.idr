@@ -20,4 +20,3 @@ SafeCast WebGLUniformLocation where
 
 export %inline
 Cast WebGLUniformLocation Object where cast = believe_me
-

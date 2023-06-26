@@ -25,4 +25,3 @@ Cast OverconstrainedError DOMException where cast = believe_me
 
 export %inline
 Cast OverconstrainedError Object where cast = believe_me
-

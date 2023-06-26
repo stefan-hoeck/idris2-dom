@@ -21,4 +21,3 @@ Cast PushPermissionDescriptor PermissionDescriptor where cast = believe_me
 
 export %inline
 Cast PushPermissionDescriptor Object where cast = believe_me
-

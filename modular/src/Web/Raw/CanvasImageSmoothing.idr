@@ -54,4 +54,3 @@ imageSmoothingQuality v = fromPrim
                             prim__imageSmoothingQuality
                             prim__setImageSmoothingQuality
                             (cast {to = CanvasImageSmoothing} v)
-

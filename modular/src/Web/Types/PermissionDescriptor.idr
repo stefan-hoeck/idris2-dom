@@ -16,4 +16,3 @@ FromFFI PermissionDescriptor PermissionDescriptor where fromFFI = Just
 
 export %inline
 Cast PermissionDescriptor Object where cast = believe_me
-

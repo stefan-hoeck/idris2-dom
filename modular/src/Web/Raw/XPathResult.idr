@@ -151,4 +151,3 @@ export
 snapshotItem : (obj : XPathResult) -> (index : Bits32) -> JSIO (Maybe Node)
 snapshotItem a b = tryJS "XPathResult.snapshotItem" $
   XPathResult.prim__snapshotItem a b
-

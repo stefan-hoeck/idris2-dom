@@ -16,4 +16,3 @@ FromFFI PermissionSetParameters PermissionSetParameters where fromFFI = Just
 
 export %inline
 Cast PermissionSetParameters Object where cast = believe_me
-

@@ -25,4 +25,3 @@ Cast PopStateEvent Event where cast = believe_me
 
 export %inline
 Cast PopStateEvent Object where cast = believe_me
-

@@ -204,4 +204,3 @@ shape v = fromPrim "HTMLAreaElement.getshape" prim__shape prim__setShape v
 export
 target : HTMLAreaElement -> Attribute True Prelude.id String
 target v = fromPrim "HTMLAreaElement.gettarget" prim__target prim__setTarget v
-

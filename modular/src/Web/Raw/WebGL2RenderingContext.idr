@@ -8,4 +8,3 @@ import Web.Types.WebGLRenderingContextBase
 
 
 %default total
-

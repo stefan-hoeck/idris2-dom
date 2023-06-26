@@ -16,4 +16,3 @@ FromFFI ReadableStreamGetReaderOptions ReadableStreamGetReaderOptions where from
 
 export %inline
 Cast ReadableStreamGetReaderOptions Object where cast = believe_me
-

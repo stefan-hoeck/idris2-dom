@@ -12,4 +12,3 @@ ToFFI FunctionStringCallback FunctionStringCallback where toFFI = id
 
 export
 FromFFI FunctionStringCallback FunctionStringCallback where fromFFI = Just
-

@@ -12,4 +12,3 @@ ToFFI CanvasTransform CanvasTransform where toFFI = id
 
 export
 FromFFI CanvasTransform CanvasTransform where fromFFI = Just
-

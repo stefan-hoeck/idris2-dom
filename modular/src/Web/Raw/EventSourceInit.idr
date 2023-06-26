@@ -44,4 +44,3 @@ withCredentials v = fromUndefOrPrim
                       prim__setWithCredentials
                       False
                       (cast {to = EventSourceInit} v)
-

@@ -20,4 +20,3 @@ SafeCast SVGUnitTypes where
 
 export %inline
 Cast SVGUnitTypes Object where cast = believe_me
-

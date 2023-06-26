@@ -12,4 +12,3 @@ ToFFI NonDocumentTypeChildNode NonDocumentTypeChildNode where toFFI = id
 
 export
 FromFFI NonDocumentTypeChildNode NonDocumentTypeChildNode where fromFFI = Just
-

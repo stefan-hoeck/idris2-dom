@@ -36,4 +36,3 @@ previousElementSibling :
   -> JSIO (Maybe Element)
 previousElementSibling a = tryJS "NonDocumentTypeChildNode.previousElementSibling" $
   NonDocumentTypeChildNode.prim__previousElementSibling (cast a)
-

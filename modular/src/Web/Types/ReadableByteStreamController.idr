@@ -20,4 +20,3 @@ SafeCast ReadableByteStreamController where
 
 export %inline
 Cast ReadableByteStreamController Object where cast = believe_me
-

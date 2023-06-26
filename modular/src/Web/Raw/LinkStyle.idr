@@ -16,4 +16,3 @@ prim__sheet : LinkStyle -> PrimIO (Nullable CSSStyleSheet)
 export
 sheet : {auto _ : Cast t1 LinkStyle} -> (obj : t1) -> JSIO (Maybe CSSStyleSheet)
 sheet a = tryJS "LinkStyle.sheet" $ LinkStyle.prim__sheet (cast a)
-

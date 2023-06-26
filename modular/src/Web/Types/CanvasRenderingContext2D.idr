@@ -100,4 +100,3 @@ Cast CanvasRenderingContext2D CanvasTransform where cast = believe_me
 
 export %inline
 Cast CanvasRenderingContext2D CanvasUserInterface where cast = believe_me
-

@@ -118,4 +118,3 @@ isPointInStroke :
   -> JSIO Bool
 isPointInStroke a = tryJS "SVGGeometryElement.isPointInStroke" $
   SVGGeometryElement.prim__isPointInStroke (cast a) undef
-

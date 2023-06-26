@@ -144,4 +144,3 @@ setDragImage :
   -> (y : Int32)
   -> JSIO ()
 setDragImage a b c d = primJS $ DataTransfer.prim__setDragImage a (cast b) c d
-

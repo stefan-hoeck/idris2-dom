@@ -16,4 +16,3 @@ FromFFI ConstraintSet ConstraintSet where fromFFI = Just
 
 export %inline
 Cast ConstraintSet Object where cast = believe_me
-

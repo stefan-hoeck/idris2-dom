@@ -63,4 +63,3 @@ viewportElement :
   -> JSIO (Maybe SVGElement)
 viewportElement a = tryJS "SVGElement.viewportElement" $
   SVGElement.prim__viewportElement (cast a)
-

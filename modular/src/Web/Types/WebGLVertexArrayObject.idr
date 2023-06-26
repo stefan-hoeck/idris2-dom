@@ -25,4 +25,3 @@ Cast WebGLVertexArrayObject WebGLObject where cast = believe_me
 
 export %inline
 Cast WebGLVertexArrayObject Object where cast = believe_me
-

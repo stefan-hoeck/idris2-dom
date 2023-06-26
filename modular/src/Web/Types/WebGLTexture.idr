@@ -25,4 +25,3 @@ Cast WebGLTexture WebGLObject where cast = believe_me
 
 export %inline
 Cast WebGLTexture Object where cast = believe_me
-

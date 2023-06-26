@@ -20,4 +20,3 @@ SafeCast DataTransferItemList where
 
 export %inline
 Cast DataTransferItemList Object where cast = believe_me
-

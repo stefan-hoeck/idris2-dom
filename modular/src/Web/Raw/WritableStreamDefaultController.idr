@@ -22,4 +22,3 @@ error' a b = primJS $ WritableStreamDefaultController.prim__error a (toFFI b)
 export
 error : (obj : WritableStreamDefaultController) -> JSIO ()
 error a = primJS $ WritableStreamDefaultController.prim__error a undef
-

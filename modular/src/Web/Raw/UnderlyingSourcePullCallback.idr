@@ -25,4 +25,3 @@ toUnderlyingSourcePullCallback :
      )
   -> JSIO UnderlyingSourcePullCallback
 toUnderlyingSourcePullCallback cb = primJS $ prim__toUnderlyingSourcePullCallback cb
-

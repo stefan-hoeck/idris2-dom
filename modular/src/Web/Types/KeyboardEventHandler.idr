@@ -12,4 +12,3 @@ ToFFI KeyboardEventHandler KeyboardEventHandler where toFFI = id
 
 export
 FromFFI KeyboardEventHandler KeyboardEventHandler where fromFFI = Just
-

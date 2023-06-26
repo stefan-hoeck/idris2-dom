@@ -12,4 +12,3 @@ ToFFI WindowEventHandlers WindowEventHandlers where toFFI = id
 
 export
 FromFFI WindowEventHandlers WindowEventHandlers where fromFFI = Just
-

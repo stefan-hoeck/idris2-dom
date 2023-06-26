@@ -309,4 +309,3 @@ m44 v = fromUndefOrPrim
           prim__setM44
           1
           (cast {to = DOMMatrixInit} v)
-

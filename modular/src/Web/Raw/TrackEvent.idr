@@ -42,4 +42,3 @@ track :
      (obj : TrackEvent)
   -> JSIO (Maybe (HSum [VideoTrack, AudioTrack, TextTrack]))
 track a = tryJS "TrackEvent.track" $ TrackEvent.prim__track a
-

@@ -20,4 +20,3 @@ SafeCast TimeRanges where
 
 export %inline
 Cast TimeRanges Object where cast = believe_me
-

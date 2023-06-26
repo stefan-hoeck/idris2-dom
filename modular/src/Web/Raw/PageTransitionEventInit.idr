@@ -45,4 +45,3 @@ persisted v = fromUndefOrPrim
                 prim__setPersisted
                 False
                 (cast {to = PageTransitionEventInit} v)
-

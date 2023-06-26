@@ -20,4 +20,3 @@ toNavigatorUserMediaSuccessCallback :
      (MediaStream -> IO ())
   -> JSIO NavigatorUserMediaSuccessCallback
 toNavigatorUserMediaSuccessCallback cb = primJS $ prim__toNavigatorUserMediaSuccessCallback cb
-

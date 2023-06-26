@@ -12,4 +12,3 @@ ToFFI DocumentAndElementEventHandlers DocumentAndElementEventHandlers where toFF
 
 export
 FromFFI DocumentAndElementEventHandlers DocumentAndElementEventHandlers where fromFFI = Just
-

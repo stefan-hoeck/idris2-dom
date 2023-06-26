@@ -71,4 +71,3 @@ type v = fromUndefOrPrim
            prim__setType
            "image/png"
            (cast {to = ImageEncodeOptions} v)
-

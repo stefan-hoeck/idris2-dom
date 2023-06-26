@@ -387,4 +387,3 @@ setRequestHeader :
   -> (value : ByteString)
   -> JSIO ()
 setRequestHeader a b c = primJS $ XMLHttpRequest.prim__setRequestHeader a b c
-

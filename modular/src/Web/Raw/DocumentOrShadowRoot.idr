@@ -19,4 +19,3 @@ styleSheets :
   -> (obj : t1)
   -> JSIO StyleSheetList
 styleSheets a = primJS $ DocumentOrShadowRoot.prim__styleSheets (cast a)
-

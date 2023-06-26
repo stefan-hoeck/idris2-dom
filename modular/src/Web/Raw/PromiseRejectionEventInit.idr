@@ -71,4 +71,3 @@ reason v = fromUndefOrPrimNoDefault
              prim__reason
              prim__setReason
              (cast {to = PromiseRejectionEventInit} v)
-

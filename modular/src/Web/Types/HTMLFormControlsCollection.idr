@@ -25,4 +25,3 @@ Cast HTMLFormControlsCollection HTMLCollection where cast = believe_me
 
 export %inline
 Cast HTMLFormControlsCollection Object where cast = believe_me
-

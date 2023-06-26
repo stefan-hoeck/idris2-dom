@@ -37,4 +37,3 @@ view a = tryJS "UIEvent.view" $ UIEvent.prim__view (cast a)
 export
 which : {auto _ : Cast t1 UIEvent} -> (obj : t1) -> JSIO Bits32
 which a = primJS $ UIEvent.prim__which (cast a)
-

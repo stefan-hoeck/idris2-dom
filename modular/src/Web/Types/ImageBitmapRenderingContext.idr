@@ -20,4 +20,3 @@ SafeCast ImageBitmapRenderingContext where
 
 export %inline
 Cast ImageBitmapRenderingContext Object where cast = believe_me
-

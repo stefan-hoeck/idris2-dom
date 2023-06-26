@@ -20,4 +20,3 @@ SafeCast CSSRule where
 
 export %inline
 Cast CSSRule Object where cast = believe_me
-

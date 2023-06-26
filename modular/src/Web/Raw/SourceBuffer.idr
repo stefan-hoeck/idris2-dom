@@ -309,4 +309,3 @@ appendBuffer a b = primJS $ SourceBuffer.prim__appendBuffer a (toFFI b)
 export
 remove : (obj : SourceBuffer) -> (start : Double) -> (end : Double) -> JSIO ()
 remove a b c = primJS $ SourceBuffer.prim__remove a b c
-

@@ -37,4 +37,3 @@ export
 clipboardData : (obj : ClipboardEvent) -> JSIO (Maybe DataTransfer)
 clipboardData a = tryJS "ClipboardEvent.clipboardData" $
   ClipboardEvent.prim__clipboardData a
-

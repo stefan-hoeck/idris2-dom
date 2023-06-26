@@ -16,4 +16,3 @@ export
 cookieEnabled : {auto _ : Cast t1 NavigatorCookies} -> (obj : t1) -> JSIO Bool
 cookieEnabled a = tryJS "NavigatorCookies.cookieEnabled" $
   NavigatorCookies.prim__cookieEnabled (cast a)
-

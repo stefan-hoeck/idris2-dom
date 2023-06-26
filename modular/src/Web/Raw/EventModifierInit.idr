@@ -431,4 +431,3 @@ shiftKey v = fromUndefOrPrim
                prim__setShiftKey
                False
                (cast {to = EventModifierInit} v)
-

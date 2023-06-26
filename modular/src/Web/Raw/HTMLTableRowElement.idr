@@ -186,4 +186,3 @@ insertCell' a b = primJS $ HTMLTableRowElement.prim__insertCell a (toFFI b)
 export
 insertCell : (obj : HTMLTableRowElement) -> JSIO HTMLTableCellElement
 insertCell a = primJS $ HTMLTableRowElement.prim__insertCell a undef
-

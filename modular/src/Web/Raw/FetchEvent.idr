@@ -94,4 +94,3 @@ resultingClientId a = primJS $ FetchEvent.prim__resultingClientId a
 export
 respondWith : (obj : FetchEvent) -> (r : Promise Response) -> JSIO ()
 respondWith a b = primJS $ FetchEvent.prim__respondWith a b
-

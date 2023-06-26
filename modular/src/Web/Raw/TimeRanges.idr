@@ -35,4 +35,3 @@ end a b = primJS $ TimeRanges.prim__end a b
 export
 start : (obj : TimeRanges) -> (index : Bits32) -> JSIO Double
 start a b = primJS $ TimeRanges.prim__start a b
-

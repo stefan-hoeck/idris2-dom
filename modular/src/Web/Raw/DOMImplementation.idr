@@ -92,4 +92,3 @@ export
 hasFeature : (obj : DOMImplementation) -> JSIO Bool
 hasFeature a = tryJS "DOMImplementation.hasFeature" $
   DOMImplementation.prim__hasFeature a
-

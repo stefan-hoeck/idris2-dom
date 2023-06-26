@@ -48,4 +48,3 @@ new = primJS $ HTMLQuoteElement.prim__new
 export
 cite : HTMLQuoteElement -> Attribute True Prelude.id String
 cite v = fromPrim "HTMLQuoteElement.getcite" prim__cite prim__setCite v
-

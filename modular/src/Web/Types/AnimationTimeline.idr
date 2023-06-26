@@ -20,4 +20,3 @@ SafeCast AnimationTimeline where
 
 export %inline
 Cast AnimationTimeline Object where cast = believe_me
-

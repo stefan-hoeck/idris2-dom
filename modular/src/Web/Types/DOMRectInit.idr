@@ -16,4 +16,3 @@ FromFFI DOMRectInit DOMRectInit where fromFFI = Just
 
 export %inline
 Cast DOMRectInit Object where cast = believe_me
-

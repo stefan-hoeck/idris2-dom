@@ -296,4 +296,3 @@ translateSelf' a b c d = primJS $
 export
 translateSelf : (obj : DOMMatrix) -> JSIO DOMMatrix
 translateSelf a = primJS $ DOMMatrix.prim__translateSelf a undef undef undef
-

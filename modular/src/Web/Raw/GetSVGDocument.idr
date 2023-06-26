@@ -19,4 +19,3 @@ getSVGDocument :
   -> (obj : t1)
   -> JSIO Document
 getSVGDocument a = primJS $ GetSVGDocument.prim__getSVGDocument (cast a)
-

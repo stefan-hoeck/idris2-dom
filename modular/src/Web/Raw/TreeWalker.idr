@@ -130,4 +130,3 @@ export
 previousSibling : (obj : TreeWalker) -> JSIO (Maybe Node)
 previousSibling a = tryJS "TreeWalker.previousSibling" $
   TreeWalker.prim__previousSibling a
-

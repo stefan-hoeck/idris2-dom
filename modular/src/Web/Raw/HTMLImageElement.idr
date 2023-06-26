@@ -445,4 +445,3 @@ y a = primJS $ HTMLImageElement.prim__y a
 export
 decode : (obj : HTMLImageElement) -> JSIO (Promise Undefined)
 decode a = primJS $ HTMLImageElement.prim__decode a
-

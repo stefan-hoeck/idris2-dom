@@ -160,4 +160,3 @@ commit a = primJS $ IDBTransaction.prim__commit a
 export
 objectStore : (obj : IDBTransaction) -> (name : String) -> JSIO IDBObjectStore
 objectStore a b = primJS $ IDBTransaction.prim__objectStore a b
-

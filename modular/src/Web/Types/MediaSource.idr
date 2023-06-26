@@ -25,4 +25,3 @@ Cast MediaSource EventTarget where cast = believe_me
 
 export %inline
 Cast MediaSource Object where cast = believe_me
-

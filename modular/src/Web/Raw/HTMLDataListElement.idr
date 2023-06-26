@@ -42,4 +42,3 @@ new = primJS $ HTMLDataListElement.prim__new
 export
 options : (obj : HTMLDataListElement) -> JSIO HTMLCollection
 options a = primJS $ HTMLDataListElement.prim__options a
-

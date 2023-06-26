@@ -20,4 +20,3 @@ SafeCast Plugin where
 
 export %inline
 Cast Plugin Object where cast = believe_me
-

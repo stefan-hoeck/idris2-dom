@@ -24,4 +24,3 @@ new' a = primJS $ Comment.prim__new (toFFI a)
 export
 new : JSIO Comment
 new = primJS $ Comment.prim__new undef
-

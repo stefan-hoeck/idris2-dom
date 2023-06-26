@@ -12,4 +12,3 @@ ToFFI CanvasRect CanvasRect where toFFI = id
 
 export
 FromFFI CanvasRect CanvasRect where fromFFI = Just
-

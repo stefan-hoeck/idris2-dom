@@ -21,4 +21,3 @@ toMutationCallback :
      (Array MutationRecord -> MutationObserver -> IO ())
   -> JSIO MutationCallback
 toMutationCallback cb = primJS $ prim__toMutationCallback cb
-

@@ -25,4 +25,3 @@ Cast DOMRect DOMRectReadOnly where cast = believe_me
 
 export %inline
 Cast DOMRect Object where cast = believe_me
-

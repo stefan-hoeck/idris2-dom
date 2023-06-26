@@ -280,4 +280,3 @@ text v = fromPrim "HTMLAnchorElement.gettext" prim__text prim__setText v
 export
 type : HTMLAnchorElement -> Attribute True Prelude.id String
 type v = fromPrim "HTMLAnchorElement.gettype" prim__type prim__setType v
-

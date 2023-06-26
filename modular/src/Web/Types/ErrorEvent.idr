@@ -25,4 +25,3 @@ Cast ErrorEvent Event where cast = believe_me
 
 export %inline
 Cast ErrorEvent Object where cast = believe_me
-

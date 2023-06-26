@@ -16,4 +16,3 @@ prim__toBlobCallback : (Nullable Blob -> IO ()) -> PrimIO BlobCallback
 export
 toBlobCallback : (Nullable Blob -> IO ()) -> JSIO BlobCallback
 toBlobCallback cb = primJS $ prim__toBlobCallback cb
-

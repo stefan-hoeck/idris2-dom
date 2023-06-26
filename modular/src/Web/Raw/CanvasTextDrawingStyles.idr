@@ -104,4 +104,3 @@ textBaseline v = fromPrim
                    prim__textBaseline
                    prim__setTextBaseline
                    (cast {to = CanvasTextDrawingStyles} v)
-

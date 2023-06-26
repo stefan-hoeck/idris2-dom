@@ -20,4 +20,3 @@ SafeCast URLSearchParams where
 
 export %inline
 Cast URLSearchParams Object where cast = believe_me
-

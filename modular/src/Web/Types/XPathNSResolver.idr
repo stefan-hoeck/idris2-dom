@@ -12,4 +12,3 @@ ToFFI XPathNSResolver XPathNSResolver where toFFI = id
 
 export
 FromFFI XPathNSResolver XPathNSResolver where fromFFI = Just
-

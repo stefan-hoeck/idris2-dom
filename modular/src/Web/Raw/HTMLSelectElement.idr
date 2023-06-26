@@ -414,4 +414,3 @@ reportValidity a = tryJS "HTMLSelectElement.reportValidity" $
 export
 setCustomValidity : (obj : HTMLSelectElement) -> (error : String) -> JSIO ()
 setCustomValidity a b = primJS $ HTMLSelectElement.prim__setCustomValidity a b
-

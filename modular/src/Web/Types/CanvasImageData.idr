@@ -12,4 +12,3 @@ ToFFI CanvasImageData CanvasImageData where toFFI = id
 
 export
 FromFFI CanvasImageData CanvasImageData where fromFFI = Just
-

@@ -20,4 +20,3 @@ SafeCast SVGAnimatedBoolean where
 
 export %inline
 Cast SVGAnimatedBoolean Object where cast = believe_me
-

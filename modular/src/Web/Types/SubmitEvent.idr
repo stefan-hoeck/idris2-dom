@@ -25,4 +25,3 @@ Cast SubmitEvent Event where cast = believe_me
 
 export %inline
 Cast SubmitEvent Object where cast = believe_me
-

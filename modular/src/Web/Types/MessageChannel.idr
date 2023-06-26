@@ -20,4 +20,3 @@ SafeCast MessageChannel where
 
 export %inline
 Cast MessageChannel Object where cast = believe_me
-

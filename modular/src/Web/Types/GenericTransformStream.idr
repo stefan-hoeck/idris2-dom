@@ -12,4 +12,3 @@ ToFFI GenericTransformStream GenericTransformStream where toFFI = id
 
 export
 FromFFI GenericTransformStream GenericTransformStream where fromFFI = Just
-

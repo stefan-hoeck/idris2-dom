@@ -71,4 +71,3 @@ view v = fromUndefOrPrim
            prim__setView
            Nothing
            (cast {to = UIEventInit} v)
-

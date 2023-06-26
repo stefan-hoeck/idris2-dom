@@ -64,4 +64,3 @@ x a = primJS $ SVGForeignObjectElement.prim__x a
 export
 y : (obj : SVGForeignObjectElement) -> JSIO SVGAnimatedLength
 y a = primJS $ SVGForeignObjectElement.prim__y a
-

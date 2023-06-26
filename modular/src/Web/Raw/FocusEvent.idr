@@ -19,4 +19,3 @@ export
 relatedTarget : (obj : FocusEvent) -> JSIO (Maybe EventTarget)
 relatedTarget a = tryJS "FocusEvent.relatedTarget" $
   FocusEvent.prim__relatedTarget a
-

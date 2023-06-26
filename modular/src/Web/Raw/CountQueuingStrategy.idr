@@ -40,4 +40,3 @@ highWaterMark a = primJS $ CountQueuingStrategy.prim__highWaterMark a
 export
 size : (obj : CountQueuingStrategy) -> JSIO Function
 size a = primJS $ CountQueuingStrategy.prim__size a
-

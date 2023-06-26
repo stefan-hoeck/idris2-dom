@@ -12,4 +12,3 @@ ToFFI TransformerTransformCallback TransformerTransformCallback where toFFI = id
 
 export
 FromFFI TransformerTransformCallback TransformerTransformCallback where fromFFI = Just
-

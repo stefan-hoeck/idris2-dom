@@ -16,4 +16,3 @@ FromFFI ElementDefinitionOptions ElementDefinitionOptions where fromFFI = Just
 
 export %inline
 Cast ElementDefinitionOptions Object where cast = believe_me
-

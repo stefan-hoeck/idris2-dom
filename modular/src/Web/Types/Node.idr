@@ -25,4 +25,3 @@ Cast Node EventTarget where cast = believe_me
 
 export %inline
 Cast Node Object where cast = believe_me
-

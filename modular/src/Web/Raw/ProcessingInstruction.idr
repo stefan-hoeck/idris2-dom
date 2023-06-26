@@ -21,4 +21,3 @@ prim__target : ProcessingInstruction -> PrimIO String
 export
 target : (obj : ProcessingInstruction) -> JSIO String
 target a = primJS $ ProcessingInstruction.prim__target a
-

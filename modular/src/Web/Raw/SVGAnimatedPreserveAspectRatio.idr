@@ -26,4 +26,3 @@ animVal a = primJS $ SVGAnimatedPreserveAspectRatio.prim__animVal a
 export
 baseVal : (obj : SVGAnimatedPreserveAspectRatio) -> JSIO SVGPreserveAspectRatio
 baseVal a = primJS $ SVGAnimatedPreserveAspectRatio.prim__baseVal a
-

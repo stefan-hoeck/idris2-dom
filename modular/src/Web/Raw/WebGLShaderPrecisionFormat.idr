@@ -35,4 +35,3 @@ rangeMax a = primJS $ WebGLShaderPrecisionFormat.prim__rangeMax a
 export
 rangeMin : (obj : WebGLShaderPrecisionFormat) -> JSIO Int32
 rangeMin a = primJS $ WebGLShaderPrecisionFormat.prim__rangeMin a
-

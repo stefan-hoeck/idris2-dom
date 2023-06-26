@@ -118,4 +118,3 @@ y v = fromUndefOrPrim
         prim__setY
         0
         (cast {to = DOMRectInit} v)
-

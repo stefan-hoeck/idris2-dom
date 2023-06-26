@@ -83,4 +83,3 @@ keyPath v = fromUndefOrPrim
               prim__setKeyPath
               Nothing
               (cast {to = IDBObjectStoreParameters} v)
-

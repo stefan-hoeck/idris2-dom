@@ -30,4 +30,3 @@ Cast MouseEvent Event where cast = believe_me
 
 export %inline
 Cast MouseEvent Object where cast = believe_me
-

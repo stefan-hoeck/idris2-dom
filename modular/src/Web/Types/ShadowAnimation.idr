@@ -30,4 +30,3 @@ Cast ShadowAnimation EventTarget where cast = believe_me
 
 export %inline
 Cast ShadowAnimation Object where cast = believe_me
-

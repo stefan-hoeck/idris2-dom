@@ -165,4 +165,3 @@ reportValidity a = tryJS "HTMLFieldSetElement.reportValidity" $
 export
 setCustomValidity : (obj : HTMLFieldSetElement) -> (error : String) -> JSIO ()
 setCustomValidity a b = primJS $ HTMLFieldSetElement.prim__setCustomValidity a b
-

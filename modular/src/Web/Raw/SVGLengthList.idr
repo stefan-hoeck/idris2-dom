@@ -122,4 +122,3 @@ replaceItem :
   -> (index : Bits32)
   -> JSIO SVGLength
 replaceItem a b c = primJS $ SVGLengthList.prim__replaceItem a b c
-

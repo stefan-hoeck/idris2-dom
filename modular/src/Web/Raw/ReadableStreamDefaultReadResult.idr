@@ -74,4 +74,3 @@ value v = fromUndefOrPrimNoDefault
             prim__value
             prim__setValue
             (cast {to = ReadableStreamDefaultReadResult} v)
-

@@ -12,4 +12,3 @@ ToFFI CanvasState CanvasState where toFFI = id
 
 export
 FromFFI CanvasState CanvasState where fromFFI = Just
-

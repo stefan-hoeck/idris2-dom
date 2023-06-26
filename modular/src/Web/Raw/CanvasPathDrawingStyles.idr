@@ -154,4 +154,3 @@ setLineDash :
   -> (segments : Array Double)
   -> JSIO ()
 setLineDash a b = primJS $ CanvasPathDrawingStyles.prim__setLineDash (cast a) b
-

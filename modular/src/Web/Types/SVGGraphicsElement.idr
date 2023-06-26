@@ -105,4 +105,3 @@ Cast SVGGraphicsElement SVGTests where cast = believe_me
 
 export %inline
 Cast SVGGraphicsElement Slottable where cast = believe_me
-

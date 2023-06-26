@@ -101,4 +101,3 @@ x a = primJS $ SVGImageElement.prim__x a
 export
 y : (obj : SVGImageElement) -> JSIO SVGAnimatedLength
 y a = primJS $ SVGImageElement.prim__y a
-

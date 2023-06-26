@@ -131,4 +131,3 @@ initStorageEvent a b = primJS $
     undef
     undef
     undef
-

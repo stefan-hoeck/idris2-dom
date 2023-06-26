@@ -44,4 +44,3 @@ lastModified v = fromUndefOrPrimNoDefault
                    prim__lastModified
                    prim__setLastModified
                    (cast {to = FilePropertyBag} v)
-

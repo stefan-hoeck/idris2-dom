@@ -61,4 +61,3 @@ getConstraints a = primJS $ ConstrainablePattern.prim__getConstraints a
 export
 getSettings : (obj : ConstrainablePattern) -> JSIO Settings
 getSettings a = primJS $ ConstrainablePattern.prim__getSettings a
-

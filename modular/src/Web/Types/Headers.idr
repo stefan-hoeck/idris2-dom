@@ -20,4 +20,3 @@ SafeCast Headers where
 
 export %inline
 Cast Headers Object where cast = believe_me
-

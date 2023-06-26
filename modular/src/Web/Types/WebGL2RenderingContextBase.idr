@@ -12,4 +12,3 @@ ToFFI WebGL2RenderingContextBase WebGL2RenderingContextBase where toFFI = id
 
 export
 FromFFI WebGL2RenderingContextBase WebGL2RenderingContextBase where fromFFI = Just
-

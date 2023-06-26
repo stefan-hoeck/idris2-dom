@@ -21,4 +21,3 @@ Cast SubmitEventInit EventInit where cast = believe_me
 
 export %inline
 Cast SubmitEventInit Object where cast = believe_me
-

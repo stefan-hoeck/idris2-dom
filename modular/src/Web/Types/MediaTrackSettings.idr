@@ -16,4 +16,3 @@ FromFFI MediaTrackSettings MediaTrackSettings where fromFFI = Just
 
 export %inline
 Cast MediaTrackSettings Object where cast = believe_me
-

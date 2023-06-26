@@ -12,4 +12,3 @@ ToFFI SVGFitToViewBox SVGFitToViewBox where toFFI = id
 
 export
 FromFFI SVGFitToViewBox SVGFitToViewBox where fromFFI = Just
-

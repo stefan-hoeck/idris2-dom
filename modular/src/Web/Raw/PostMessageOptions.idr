@@ -43,4 +43,3 @@ transfer v = fromUndefOrPrimNoDefault
                prim__transfer
                prim__setTransfer
                (cast {to = PostMessageOptions} v)
-

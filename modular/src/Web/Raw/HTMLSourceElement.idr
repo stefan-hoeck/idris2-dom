@@ -150,4 +150,3 @@ type v = fromPrim "HTMLSourceElement.gettype" prim__type prim__setType v
 export
 width : HTMLSourceElement -> Attribute True Prelude.id Bits32
 width v = fromPrim "HTMLSourceElement.getwidth" prim__width prim__setWidth v
-

@@ -12,4 +12,3 @@ ToFFI GetSVGDocument GetSVGDocument where toFFI = id
 
 export
 FromFFI GetSVGDocument GetSVGDocument where fromFFI = Just
-

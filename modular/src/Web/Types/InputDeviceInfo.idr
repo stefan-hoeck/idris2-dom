@@ -25,4 +25,3 @@ Cast InputDeviceInfo MediaDeviceInfo where cast = believe_me
 
 export %inline
 Cast InputDeviceInfo Object where cast = believe_me
-

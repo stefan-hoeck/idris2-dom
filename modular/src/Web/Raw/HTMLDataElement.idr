@@ -48,4 +48,3 @@ new = primJS $ HTMLDataElement.prim__new
 export
 value : HTMLDataElement -> Attribute True Prelude.id String
 value v = fromPrim "HTMLDataElement.getvalue" prim__value prim__setValue v
-

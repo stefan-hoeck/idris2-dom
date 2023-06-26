@@ -69,4 +69,3 @@ disabled v = fromPrim
 export
 label : HTMLOptGroupElement -> Attribute True Prelude.id String
 label v = fromPrim "HTMLOptGroupElement.getlabel" prim__label prim__setLabel v
-

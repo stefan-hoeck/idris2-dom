@@ -12,4 +12,3 @@ ToFFI UnderlyingSourceCancelCallback UnderlyingSourceCancelCallback where toFFI 
 
 export
 FromFFI UnderlyingSourceCancelCallback UnderlyingSourceCancelCallback where fromFFI = Just
-

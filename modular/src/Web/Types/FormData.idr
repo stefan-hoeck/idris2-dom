@@ -20,4 +20,3 @@ SafeCast FormData where
 
 export %inline
 Cast FormData Object where cast = believe_me
-

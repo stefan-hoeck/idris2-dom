@@ -12,4 +12,3 @@ ToFFI DocumentOrShadowRoot DocumentOrShadowRoot where toFFI = id
 
 export
 FromFFI DocumentOrShadowRoot DocumentOrShadowRoot where fromFFI = Just
-

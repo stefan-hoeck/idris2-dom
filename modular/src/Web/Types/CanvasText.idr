@@ -12,4 +12,3 @@ ToFFI CanvasText CanvasText where toFFI = id
 
 export
 FromFFI CanvasText CanvasText where fromFFI = Just
-

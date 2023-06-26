@@ -132,4 +132,3 @@ drawImage2 :
   -> JSIO ()
 drawImage2 a b c d e f g h i j = primJS $
   CanvasDrawImage.prim__drawImage2 (cast a) (toFFI b) c d e f g h i j
-

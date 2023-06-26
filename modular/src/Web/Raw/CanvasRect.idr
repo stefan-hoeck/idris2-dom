@@ -68,4 +68,3 @@ strokeRect :
   -> (h : Double)
   -> JSIO ()
 strokeRect a b c d e = primJS $ CanvasRect.prim__strokeRect (cast a) b c d e
-

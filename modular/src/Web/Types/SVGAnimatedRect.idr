@@ -20,4 +20,3 @@ SafeCast SVGAnimatedRect where
 
 export %inline
 Cast SVGAnimatedRect Object where cast = believe_me
-

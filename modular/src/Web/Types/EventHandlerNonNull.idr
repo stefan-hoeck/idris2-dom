@@ -12,4 +12,3 @@ ToFFI EventHandlerNonNull EventHandlerNonNull where toFFI = id
 
 export
 FromFFI EventHandlerNonNull EventHandlerNonNull where fromFFI = Just
-

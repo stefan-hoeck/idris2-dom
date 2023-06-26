@@ -221,4 +221,3 @@ getSettings a = primJS $ MediaStreamTrack.prim__getSettings a
 export
 stop : (obj : MediaStreamTrack) -> JSIO ()
 stop a = primJS $ MediaStreamTrack.prim__stop a
-

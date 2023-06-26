@@ -21,4 +21,3 @@ Cast MediaTrackConstraints MediaTrackConstraintSet where cast = believe_me
 
 export %inline
 Cast MediaTrackConstraints Object where cast = believe_me
-

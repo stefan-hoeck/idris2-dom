@@ -187,4 +187,3 @@ resultingClientId v = fromUndefOrPrim
                         prim__setResultingClientId
                         ""
                         (cast {to = FetchEventInit} v)
-

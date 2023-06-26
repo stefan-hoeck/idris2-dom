@@ -177,4 +177,3 @@ message a = primJS $ DOMException.prim__message (cast a)
 export
 name : {auto _ : Cast t1 DOMException} -> (obj : t1) -> JSIO String
 name a = primJS $ DOMException.prim__name (cast a)
-

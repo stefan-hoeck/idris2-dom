@@ -86,4 +86,3 @@ timelineTime v = fromUndefOrPrim
                    prim__setTimelineTime
                    Nothing
                    (cast {to = AnimationPlaybackEventInit} v)
-

@@ -20,4 +20,3 @@ SafeCast NavigationPreloadManager where
 
 export %inline
 Cast NavigationPreloadManager Object where cast = believe_me
-

@@ -12,4 +12,3 @@ ToFFI SVGElementInstance SVGElementInstance where toFFI = id
 
 export
 FromFFI SVGElementInstance SVGElementInstance where fromFFI = Just
-

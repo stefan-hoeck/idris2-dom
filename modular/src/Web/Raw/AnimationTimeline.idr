@@ -19,4 +19,3 @@ currentTime :
   -> JSIO (Maybe Double)
 currentTime a = tryJS "AnimationTimeline.currentTime" $
   AnimationTimeline.prim__currentTime (cast a)
-

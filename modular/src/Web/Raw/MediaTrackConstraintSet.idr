@@ -544,4 +544,3 @@ width v = fromUndefOrPrimNoDefault
             prim__width
             prim__setWidth
             (cast {to = MediaTrackConstraintSet} v)
-

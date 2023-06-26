@@ -16,4 +16,3 @@ FromFFI WebGLContextAttributes WebGLContextAttributes where fromFFI = Just
 
 export %inline
 Cast WebGLContextAttributes Object where cast = believe_me
-

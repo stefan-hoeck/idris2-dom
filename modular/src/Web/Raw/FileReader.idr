@@ -265,4 +265,3 @@ readAsText :
   -> (blob : t2)
   -> JSIO ()
 readAsText a b = primJS $ FileReader.prim__readAsText a (cast b) undef
-

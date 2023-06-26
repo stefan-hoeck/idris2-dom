@@ -19,4 +19,3 @@ toUnderlyingSinkCloseCallback :
      (() -> IO (Promise Undefined))
   -> JSIO UnderlyingSinkCloseCallback
 toUnderlyingSinkCloseCallback cb = primJS $ prim__toUnderlyingSinkCloseCallback cb
-

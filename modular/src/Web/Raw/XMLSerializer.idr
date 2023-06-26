@@ -31,4 +31,3 @@ serializeToString :
   -> JSIO String
 serializeToString a b = primJS $
   XMLSerializer.prim__serializeToString a (cast b)
-

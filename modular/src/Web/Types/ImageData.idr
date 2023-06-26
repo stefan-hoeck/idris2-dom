@@ -20,4 +20,3 @@ SafeCast ImageData where
 
 export %inline
 Cast ImageData Object where cast = believe_me
-

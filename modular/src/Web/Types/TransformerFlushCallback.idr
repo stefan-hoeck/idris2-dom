@@ -12,4 +12,3 @@ ToFFI TransformerFlushCallback TransformerFlushCallback where toFFI = id
 
 export
 FromFFI TransformerFlushCallback TransformerFlushCallback where fromFFI = Just
-

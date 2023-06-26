@@ -16,4 +16,3 @@ FromFFI StreamPipeOptions StreamPipeOptions where fromFFI = Just
 
 export %inline
 Cast StreamPipeOptions Object where cast = believe_me
-

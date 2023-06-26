@@ -26,4 +26,3 @@ length a = primJS $ StyleSheetList.prim__length a
 export
 item : (obj : StyleSheetList) -> (index : Bits32) -> JSIO (Maybe CSSStyleSheet)
 item a b = tryJS "StyleSheetList.item" $ StyleSheetList.prim__item a b
-

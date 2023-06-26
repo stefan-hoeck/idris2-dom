@@ -6,4 +6,3 @@ import Web.Types.WebGLQuery
 
 
 %default total
-

@@ -347,4 +347,3 @@ surroundContents a b = primJS $ Range.prim__surroundContents a (cast b)
 export
 toString : (obj : Range) -> JSIO String
 toString a = primJS $ Range.prim__toString a
-

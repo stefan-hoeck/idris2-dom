@@ -150,4 +150,3 @@ translate :
   -> (y : Double)
   -> JSIO ()
 translate a b c = primJS $ CanvasTransform.prim__translate (cast a) b c
-

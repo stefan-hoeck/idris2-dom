@@ -102,4 +102,3 @@ ignoreVary v = fromUndefOrPrim
                  prim__setIgnoreVary
                  False
                  (cast {to = CacheQueryOptions} v)
-

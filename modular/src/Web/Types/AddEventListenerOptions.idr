@@ -21,4 +21,3 @@ Cast AddEventListenerOptions EventListenerOptions where cast = believe_me
 
 export %inline
 Cast AddEventListenerOptions Object where cast = believe_me
-

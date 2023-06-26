@@ -42,4 +42,3 @@ export
 reason : (obj : PromiseRejectionEvent) -> JSIO Any
 reason a = tryJS "PromiseRejectionEvent.reason" $
   PromiseRejectionEvent.prim__reason a
-

@@ -105,4 +105,3 @@ export
 getTrackById : (obj : TextTrackList) -> (id : String) -> JSIO (Maybe TextTrack)
 getTrackById a b = tryJS "TextTrackList.getTrackById" $
   TextTrackList.prim__getTrackById a b
-

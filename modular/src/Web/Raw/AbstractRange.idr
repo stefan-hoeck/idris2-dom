@@ -57,4 +57,3 @@ startContainer a = primJS $ AbstractRange.prim__startContainer (cast a)
 export
 startOffset : {auto _ : Cast t1 AbstractRange} -> (obj : t1) -> JSIO Bits32
 startOffset a = primJS $ AbstractRange.prim__startOffset (cast a)
-

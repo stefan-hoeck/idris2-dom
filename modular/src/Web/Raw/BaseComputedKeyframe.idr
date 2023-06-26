@@ -129,4 +129,3 @@ offset v = fromUndefOrPrim
              prim__setOffset
              Nothing
              (cast {to = BaseComputedKeyframe} v)
-

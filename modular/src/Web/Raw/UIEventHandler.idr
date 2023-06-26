@@ -16,4 +16,3 @@ prim__toUIEventHandler : (UIEvent -> IO ()) -> PrimIO UIEventHandler
 export
 toUIEventHandler : (UIEvent -> IO ()) -> JSIO UIEventHandler
 toUIEventHandler cb = primJS $ prim__toUIEventHandler cb
-

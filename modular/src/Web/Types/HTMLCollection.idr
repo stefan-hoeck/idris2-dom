@@ -20,4 +20,3 @@ SafeCast HTMLCollection where
 
 export %inline
 Cast HTMLCollection Object where cast = believe_me
-

@@ -73,4 +73,3 @@ ideal v = fromUndefOrPrimNoDefault
             prim__ideal
             prim__setIdeal
             (cast {to = ConstrainBooleanParameters} v)
-

@@ -12,4 +12,3 @@ ToFFI SVGAnimatedPoints SVGAnimatedPoints where toFFI = id
 
 export
 FromFFI SVGAnimatedPoints SVGAnimatedPoints where fromFFI = Just
-

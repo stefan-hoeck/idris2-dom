@@ -43,4 +43,3 @@ is v = fromUndefOrPrimNoDefault
          prim__is
          prim__setIs
          (cast {to = ElementCreationOptions} v)
-

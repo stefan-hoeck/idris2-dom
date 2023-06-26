@@ -113,4 +113,3 @@ replaceItem :
   -> (index : Bits32)
   -> JSIO String
 replaceItem a b c = primJS $ SVGStringList.prim__replaceItem a b c
-

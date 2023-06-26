@@ -30,4 +30,3 @@ Cast CSSPageRule CSSRule where cast = believe_me
 
 export %inline
 Cast CSSPageRule Object where cast = believe_me
-

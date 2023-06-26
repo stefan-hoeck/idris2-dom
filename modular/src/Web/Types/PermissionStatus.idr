@@ -25,4 +25,3 @@ Cast PermissionStatus EventTarget where cast = believe_me
 
 export %inline
 Cast PermissionStatus Object where cast = believe_me
-

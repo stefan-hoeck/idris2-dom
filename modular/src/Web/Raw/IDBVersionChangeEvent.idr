@@ -49,4 +49,3 @@ newVersion a = tryJS "IDBVersionChangeEvent.newVersion" $
 export
 oldVersion : (obj : IDBVersionChangeEvent) -> JSIO JSBits64
 oldVersion a = primJS $ IDBVersionChangeEvent.prim__oldVersion a
-

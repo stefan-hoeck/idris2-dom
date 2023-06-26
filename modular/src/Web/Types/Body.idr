@@ -12,4 +12,3 @@ ToFFI Body Body where toFFI = id
 
 export
 FromFFI Body Body where fromFFI = Just
-

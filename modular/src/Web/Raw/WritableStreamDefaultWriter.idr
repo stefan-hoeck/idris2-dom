@@ -107,4 +107,3 @@ write' a b = primJS $ WritableStreamDefaultWriter.prim__write a (toFFI b)
 export
 write : (obj : WritableStreamDefaultWriter) -> JSIO (Promise Undefined)
 write a = primJS $ WritableStreamDefaultWriter.prim__write a undef
-

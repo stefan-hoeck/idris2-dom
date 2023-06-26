@@ -25,4 +25,3 @@ Cast UIEvent Event where cast = believe_me
 
 export %inline
 Cast UIEvent Object where cast = believe_me
-

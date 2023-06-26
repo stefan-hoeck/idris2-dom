@@ -83,4 +83,3 @@ whenDefined :
   -> (name : String)
   -> JSIO (Promise CustomElementConstructor)
 whenDefined a b = primJS $ CustomElementRegistry.prim__whenDefined a b
-

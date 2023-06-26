@@ -25,4 +25,3 @@ Cast WebGLShader WebGLObject where cast = believe_me
 
 export %inline
 Cast WebGLShader Object where cast = believe_me
-

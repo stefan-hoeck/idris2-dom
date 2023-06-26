@@ -21,4 +21,3 @@ Cast StorageEventInit EventInit where cast = believe_me
 
 export %inline
 Cast StorageEventInit Object where cast = believe_me
-

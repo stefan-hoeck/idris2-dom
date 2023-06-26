@@ -20,4 +20,3 @@ SafeCast History where
 
 export %inline
 Cast History Object where cast = believe_me
-

@@ -20,4 +20,3 @@ SafeCast XMLSerializer where
 
 export %inline
 Cast XMLSerializer Object where cast = believe_me
-

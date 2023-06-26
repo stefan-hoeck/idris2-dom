@@ -70,4 +70,3 @@ Cast XMLDocument ParentNode where cast = believe_me
 
 export %inline
 Cast XMLDocument XPathEvaluatorBase where cast = believe_me
-

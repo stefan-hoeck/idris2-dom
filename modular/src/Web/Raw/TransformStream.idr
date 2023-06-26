@@ -53,4 +53,3 @@ readable a = primJS $ TransformStream.prim__readable a
 export
 writable : (obj : TransformStream) -> JSIO WritableStream
 writable a = primJS $ TransformStream.prim__writable a
-

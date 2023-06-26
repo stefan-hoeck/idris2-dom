@@ -46,4 +46,3 @@ durability v = fromUndefOrPrimNoDefault
                  prim__durability
                  prim__setDurability
                  (cast {to = IDBTransactionOptions} v)
-

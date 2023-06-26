@@ -55,4 +55,3 @@ open' a b c = primJS $ IDBFactory.prim__open a b (toFFI c)
 export
 open_ : (obj : IDBFactory) -> (name : String) -> JSIO IDBOpenDBRequest
 open_ a b = primJS $ IDBFactory.prim__open a b undef
-

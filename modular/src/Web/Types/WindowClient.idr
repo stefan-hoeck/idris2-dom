@@ -25,4 +25,3 @@ Cast WindowClient Client where cast = believe_me
 
 export %inline
 Cast WindowClient Object where cast = believe_me
-

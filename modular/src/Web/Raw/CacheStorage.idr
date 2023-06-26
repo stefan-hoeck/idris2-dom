@@ -75,4 +75,3 @@ match a b = primJS $ CacheStorage.prim__match a (toFFI b) undef
 export
 open_ : (obj : CacheStorage) -> (cacheName : String) -> JSIO (Promise Cache)
 open_ a b = primJS $ CacheStorage.prim__open a b
-

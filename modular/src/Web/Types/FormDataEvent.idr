@@ -25,4 +25,3 @@ Cast FormDataEvent Event where cast = believe_me
 
 export %inline
 Cast FormDataEvent Object where cast = believe_me
-

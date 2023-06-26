@@ -25,4 +25,3 @@ Cast WebGLTransformFeedback WebGLObject where cast = believe_me
 
 export %inline
 Cast WebGLTransformFeedback Object where cast = believe_me
-

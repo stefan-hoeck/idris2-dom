@@ -20,4 +20,3 @@ SafeCast SVGPreserveAspectRatio where
 
 export %inline
 Cast SVGPreserveAspectRatio Object where cast = believe_me
-

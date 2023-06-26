@@ -25,4 +25,3 @@ Cast Clipboard EventTarget where cast = believe_me
 
 export %inline
 Cast Clipboard Object where cast = believe_me
-

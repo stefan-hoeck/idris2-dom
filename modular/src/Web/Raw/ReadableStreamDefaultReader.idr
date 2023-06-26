@@ -42,4 +42,3 @@ read a = primJS $ ReadableStreamDefaultReader.prim__read a
 export
 releaseLock : (obj : ReadableStreamDefaultReader) -> JSIO ()
 releaseLock a = primJS $ ReadableStreamDefaultReader.prim__releaseLock a
-

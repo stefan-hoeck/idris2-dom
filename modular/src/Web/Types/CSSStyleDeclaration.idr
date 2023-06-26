@@ -20,4 +20,3 @@ SafeCast CSSStyleDeclaration where
 
 export %inline
 Cast CSSStyleDeclaration Object where cast = believe_me
-

@@ -115,4 +115,3 @@ Cast SVGTextPositioningElement SVGTests where cast = believe_me
 
 export %inline
 Cast SVGTextPositioningElement Slottable where cast = believe_me
-

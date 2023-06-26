@@ -45,4 +45,3 @@ namedItem a b = tryJS "PluginArray.namedItem" $ PluginArray.prim__namedItem a b
 export
 refresh : (obj : PluginArray) -> JSIO ()
 refresh a = primJS $ PluginArray.prim__refresh a
-

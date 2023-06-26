@@ -59,4 +59,3 @@ areas a = primJS $ HTMLMapElement.prim__areas a
 export
 name : HTMLMapElement -> Attribute True Prelude.id String
 name v = fromPrim "HTMLMapElement.getname" prim__name prim__setName v
-

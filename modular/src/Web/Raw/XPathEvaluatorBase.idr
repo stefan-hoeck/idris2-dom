@@ -98,4 +98,3 @@ evaluate :
   -> JSIO XPathResult
 evaluate a b c = primJS $
   XPathEvaluatorBase.prim__evaluate (cast a) b (cast c) undef undef undef
-

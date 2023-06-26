@@ -30,4 +30,3 @@ Cast FetchEvent Event where cast = believe_me
 
 export %inline
 Cast FetchEvent Object where cast = believe_me
-

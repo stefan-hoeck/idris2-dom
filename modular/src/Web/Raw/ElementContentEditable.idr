@@ -91,4 +91,3 @@ isContentEditable :
   -> JSIO Bool
 isContentEditable a = tryJS "ElementContentEditable.isContentEditable" $
   ElementContentEditable.prim__isContentEditable (cast a)
-

@@ -44,4 +44,3 @@ advanced v = fromUndefOrPrimNoDefault
                prim__advanced
                prim__setAdvanced
                (cast {to = Constraints} v)
-

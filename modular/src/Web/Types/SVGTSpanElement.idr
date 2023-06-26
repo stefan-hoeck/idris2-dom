@@ -120,4 +120,3 @@ Cast SVGTSpanElement SVGTests where cast = believe_me
 
 export %inline
 Cast SVGTSpanElement Slottable where cast = believe_me
-

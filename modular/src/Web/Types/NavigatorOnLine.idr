@@ -12,4 +12,3 @@ ToFFI NavigatorOnLine NavigatorOnLine where toFFI = id
 
 export
 FromFFI NavigatorOnLine NavigatorOnLine where fromFFI = Just
-

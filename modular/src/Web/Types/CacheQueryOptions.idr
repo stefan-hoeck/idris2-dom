@@ -16,4 +16,3 @@ FromFFI CacheQueryOptions CacheQueryOptions where fromFFI = Just
 
 export %inline
 Cast CacheQueryOptions Object where cast = believe_me
-

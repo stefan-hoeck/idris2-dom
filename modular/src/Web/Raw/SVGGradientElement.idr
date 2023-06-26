@@ -84,4 +84,3 @@ spreadMethod :
   -> (obj : t1)
   -> JSIO SVGAnimatedEnumeration
 spreadMethod a = primJS $ SVGGradientElement.prim__spreadMethod (cast a)
-

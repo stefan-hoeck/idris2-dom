@@ -75,4 +75,3 @@ type v = fromUndefOrPrimNoDefault
            prim__type
            prim__setType
            (cast {to = ClientQueryOptions} v)
-

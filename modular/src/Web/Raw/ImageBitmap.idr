@@ -35,4 +35,3 @@ width a = primJS $ ImageBitmap.prim__width a
 export
 close : (obj : ImageBitmap) -> JSIO ()
 close a = primJS $ ImageBitmap.prim__close a
-

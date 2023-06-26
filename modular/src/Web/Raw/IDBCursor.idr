@@ -138,4 +138,3 @@ update :
   -> (value : Any)
   -> JSIO IDBRequest
 update a b = primJS $ IDBCursor.prim__update (cast a) (toFFI b)
-

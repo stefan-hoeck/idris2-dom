@@ -103,4 +103,3 @@ total_ v = fromUndefOrPrim
              prim__setTotal
              0
              (cast {to = ProgressEventInit} v)
-

@@ -16,4 +16,3 @@ FromFFI ShadowRootInit ShadowRootInit where fromFFI = Just
 
 export %inline
 Cast ShadowRootInit Object where cast = believe_me
-

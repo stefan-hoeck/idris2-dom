@@ -16,4 +16,3 @@ prim__toMouseEventHandler : (MouseEvent -> IO ()) -> PrimIO MouseEventHandler
 export
 toMouseEventHandler : (MouseEvent -> IO ()) -> JSIO MouseEventHandler
 toMouseEventHandler cb = primJS $ prim__toMouseEventHandler cb
-

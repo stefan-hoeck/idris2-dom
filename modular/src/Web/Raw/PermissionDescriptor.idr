@@ -40,4 +40,3 @@ name v = fromPrim
            prim__name
            prim__setName
            (cast {to = PermissionDescriptor} v)
-

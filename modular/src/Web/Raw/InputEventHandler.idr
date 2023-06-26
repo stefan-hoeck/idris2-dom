@@ -16,4 +16,3 @@ prim__toInputEventHandler : (InputEvent -> IO ()) -> PrimIO InputEventHandler
 export
 toInputEventHandler : (InputEvent -> IO ()) -> JSIO InputEventHandler
 toInputEventHandler cb = primJS $ prim__toInputEventHandler cb
-

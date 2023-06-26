@@ -26,4 +26,3 @@ namespaceURI a = primJS $ CSSNamespaceRule.prim__namespaceURI a
 export
 prefix_ : (obj : CSSNamespaceRule) -> JSIO String
 prefix_ a = primJS $ CSSNamespaceRule.prim__prefix a
-

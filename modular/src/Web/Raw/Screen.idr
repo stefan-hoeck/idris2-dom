@@ -65,4 +65,3 @@ pixelDepth a = primJS $ Screen.prim__pixelDepth a
 export
 width : (obj : Screen) -> JSIO Int32
 width a = primJS $ Screen.prim__width a
-

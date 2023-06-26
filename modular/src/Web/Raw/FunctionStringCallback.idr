@@ -17,4 +17,3 @@ prim__toFunctionStringCallback :
 export
 toFunctionStringCallback : (String -> IO ()) -> JSIO FunctionStringCallback
 toFunctionStringCallback cb = primJS $ prim__toFunctionStringCallback cb
-

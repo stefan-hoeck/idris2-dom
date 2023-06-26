@@ -20,4 +20,3 @@ SafeCast SVGAnimatedLengthList where
 
 export %inline
 Cast SVGAnimatedLengthList Object where cast = believe_me
-

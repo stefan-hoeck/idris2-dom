@@ -16,4 +16,3 @@ FromFFI ValidityStateFlags ValidityStateFlags where fromFFI = Just
 
 export %inline
 Cast ValidityStateFlags Object where cast = believe_me
-

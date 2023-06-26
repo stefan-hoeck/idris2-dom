@@ -235,4 +235,3 @@ importScripts :
   -> JSIO ()
 importScripts a b = primJS $
   WorkerGlobalScope.prim__importScripts (cast a) (toFFI b)
-

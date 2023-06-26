@@ -16,4 +16,3 @@ FromFFI DOMQuadInit DOMQuadInit where fromFFI = Just
 
 export %inline
 Cast DOMQuadInit Object where cast = believe_me
-

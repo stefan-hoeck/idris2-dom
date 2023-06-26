@@ -20,4 +20,3 @@ SafeCast CaretPosition where
 
 export %inline
 Cast CaretPosition Object where cast = believe_me
-

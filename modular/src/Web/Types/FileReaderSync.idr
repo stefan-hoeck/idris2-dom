@@ -20,4 +20,3 @@ SafeCast FileReaderSync where
 
 export %inline
 Cast FileReaderSync Object where cast = believe_me
-

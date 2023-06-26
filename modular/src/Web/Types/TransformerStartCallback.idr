@@ -12,4 +12,3 @@ ToFFI TransformerStartCallback TransformerStartCallback where toFFI = id
 
 export
 FromFFI TransformerStartCallback TransformerStartCallback where fromFFI = Just
-

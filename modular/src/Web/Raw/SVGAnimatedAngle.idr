@@ -26,4 +26,3 @@ animVal a = primJS $ SVGAnimatedAngle.prim__animVal a
 export
 baseVal : (obj : SVGAnimatedAngle) -> JSIO SVGAngle
 baseVal a = primJS $ SVGAnimatedAngle.prim__baseVal a
-

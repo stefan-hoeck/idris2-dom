@@ -20,4 +20,3 @@ SafeCast IDBKeyRange where
 
 export %inline
 Cast IDBKeyRange Object where cast = believe_me
-

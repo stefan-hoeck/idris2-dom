@@ -25,4 +25,3 @@ Cast CustomEvent Event where cast = believe_me
 
 export %inline
 Cast CustomEvent Object where cast = believe_me
-

@@ -20,4 +20,3 @@ SafeCast WebGLActiveInfo where
 
 export %inline
 Cast WebGLActiveInfo Object where cast = believe_me
-

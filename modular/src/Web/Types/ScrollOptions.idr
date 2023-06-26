@@ -16,4 +16,3 @@ FromFFI ScrollOptions ScrollOptions where fromFFI = Just
 
 export %inline
 Cast ScrollOptions Object where cast = believe_me
-

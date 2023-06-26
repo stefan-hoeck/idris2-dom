@@ -89,4 +89,3 @@ export
 previousNode : (obj : NodeIterator) -> JSIO (Maybe Node)
 previousNode a = tryJS "NodeIterator.previousNode" $
   NodeIterator.prim__previousNode a
-

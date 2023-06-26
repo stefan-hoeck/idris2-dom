@@ -25,4 +25,3 @@ Cast BeforeUnloadEvent Event where cast = believe_me
 
 export %inline
 Cast BeforeUnloadEvent Object where cast = believe_me
-

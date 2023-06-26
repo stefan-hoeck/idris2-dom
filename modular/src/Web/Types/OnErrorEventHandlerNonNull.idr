@@ -12,4 +12,3 @@ ToFFI OnErrorEventHandlerNonNull OnErrorEventHandlerNonNull where toFFI = id
 
 export
 FromFFI OnErrorEventHandlerNonNull OnErrorEventHandlerNonNull where fromFFI = Just
-

@@ -16,4 +16,3 @@ FromFFI ImageBitmapOptions ImageBitmapOptions where fromFFI = Just
 
 export %inline
 Cast ImageBitmapOptions Object where cast = believe_me
-

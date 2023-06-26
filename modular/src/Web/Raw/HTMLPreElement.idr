@@ -48,4 +48,3 @@ new = primJS $ HTMLPreElement.prim__new
 export
 width : HTMLPreElement -> Attribute True Prelude.id Int32
 width v = fromPrim "HTMLPreElement.getwidth" prim__width prim__setWidth v
-

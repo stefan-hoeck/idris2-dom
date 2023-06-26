@@ -16,4 +16,3 @@ FromFFI CheckVisibilityOptions CheckVisibilityOptions where fromFFI = Just
 
 export %inline
 Cast CheckVisibilityOptions Object where cast = believe_me
-

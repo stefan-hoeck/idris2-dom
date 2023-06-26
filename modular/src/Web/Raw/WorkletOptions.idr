@@ -44,4 +44,3 @@ credentials v = fromUndefOrPrimNoDefault
                   prim__credentials
                   prim__setCredentials
                   (cast {to = WorkletOptions} v)
-

@@ -20,4 +20,3 @@ SafeCast DOMRectReadOnly where
 
 export %inline
 Cast DOMRectReadOnly Object where cast = believe_me
-

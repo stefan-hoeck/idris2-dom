@@ -25,4 +25,3 @@ Cast CSSStyleSheet StyleSheet where cast = believe_me
 
 export %inline
 Cast CSSStyleSheet Object where cast = believe_me
-

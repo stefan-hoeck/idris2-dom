@@ -66,4 +66,3 @@ media v = fromPrim "HTMLStyleElement.getmedia" prim__media prim__setMedia v
 export
 type : HTMLStyleElement -> Attribute True Prelude.id String
 type v = fromPrim "HTMLStyleElement.gettype" prim__type prim__setType v
-

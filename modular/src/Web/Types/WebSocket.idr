@@ -25,4 +25,3 @@ Cast WebSocket EventTarget where cast = believe_me
 
 export %inline
 Cast WebSocket Object where cast = believe_me
-

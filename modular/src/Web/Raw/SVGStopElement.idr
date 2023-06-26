@@ -32,4 +32,3 @@ prim__offset : SVGStopElement -> PrimIO SVGAnimatedNumber
 export
 offset : (obj : SVGStopElement) -> JSIO SVGAnimatedNumber
 offset a = primJS $ SVGStopElement.prim__offset a
-

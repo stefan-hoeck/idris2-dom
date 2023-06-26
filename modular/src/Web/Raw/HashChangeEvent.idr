@@ -45,4 +45,3 @@ newURL a = primJS $ HashChangeEvent.prim__newURL a
 export
 oldURL : (obj : HashChangeEvent) -> JSIO String
 oldURL a = primJS $ HashChangeEvent.prim__oldURL a
-

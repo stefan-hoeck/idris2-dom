@@ -21,4 +21,3 @@ Cast ConstrainDoubleRange DoubleRange where cast = believe_me
 
 export %inline
 Cast ConstrainDoubleRange Object where cast = believe_me
-

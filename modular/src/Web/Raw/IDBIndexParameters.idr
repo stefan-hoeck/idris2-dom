@@ -72,4 +72,3 @@ unique v = fromUndefOrPrim
              prim__setUnique
              False
              (cast {to = IDBIndexParameters} v)
-

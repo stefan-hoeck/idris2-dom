@@ -16,4 +16,3 @@ FromFFI MediaStreamConstraints MediaStreamConstraints where fromFFI = Just
 
 export %inline
 Cast MediaStreamConstraints Object where cast = believe_me
-

@@ -20,4 +20,3 @@ SafeCast WebGLObject where
 
 export %inline
 Cast WebGLObject Object where cast = believe_me
-

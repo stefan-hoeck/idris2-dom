@@ -110,4 +110,3 @@ Cast SVGGeometryElement SVGTests where cast = believe_me
 
 export %inline
 Cast SVGGeometryElement Slottable where cast = believe_me
-

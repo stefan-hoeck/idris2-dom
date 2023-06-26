@@ -72,4 +72,3 @@ mode v = fromPrim
            prim__mode
            prim__setMode
            (cast {to = ShadowRootInit} v)
-

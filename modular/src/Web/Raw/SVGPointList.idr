@@ -118,4 +118,3 @@ replaceItem :
   -> (index : Bits32)
   -> JSIO DOMPoint
 replaceItem a b c = primJS $ SVGPointList.prim__replaceItem a b c
-

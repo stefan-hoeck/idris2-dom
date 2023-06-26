@@ -21,4 +21,3 @@ Cast MediaQueryListEventInit EventInit where cast = believe_me
 
 export %inline
 Cast MediaQueryListEventInit Object where cast = believe_me
-

@@ -121,4 +121,3 @@ getTrackById :
   -> JSIO (Maybe VideoTrack)
 getTrackById a b = tryJS "VideoTrackList.getTrackById" $
   VideoTrackList.prim__getTrackById a b
-

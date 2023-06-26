@@ -19,4 +19,3 @@ toQueuingStrategySize :
      (UndefOr AnyPtr -> IO Double)
   -> JSIO QueuingStrategySize
 toQueuingStrategySize cb = primJS $ prim__toQueuingStrategySize cb
-

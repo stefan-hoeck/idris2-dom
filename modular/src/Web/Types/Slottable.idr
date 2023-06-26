@@ -12,4 +12,3 @@ ToFFI Slottable Slottable where toFFI = id
 
 export
 FromFFI Slottable Slottable where fromFFI = Just
-

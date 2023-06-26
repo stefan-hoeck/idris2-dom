@@ -41,4 +41,3 @@ export
 javaEnabled : {auto _ : Cast t1 NavigatorPlugins} -> (obj : t1) -> JSIO Bool
 javaEnabled a = tryJS "NavigatorPlugins.javaEnabled" $
   NavigatorPlugins.prim__javaEnabled (cast a)
-

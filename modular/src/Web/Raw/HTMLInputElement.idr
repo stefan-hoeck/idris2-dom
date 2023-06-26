@@ -1003,4 +1003,3 @@ stepUp' a b = primJS $ HTMLInputElement.prim__stepUp a (toFFI b)
 export
 stepUp : (obj : HTMLInputElement) -> JSIO ()
 stepUp a = primJS $ HTMLInputElement.prim__stepUp a undef
-

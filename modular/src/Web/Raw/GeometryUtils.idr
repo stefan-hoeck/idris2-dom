@@ -146,4 +146,3 @@ getBoxQuads :
   -> (obj : t1)
   -> JSIO (Array DOMQuad)
 getBoxQuads a = primJS $ GeometryUtils.prim__getBoxQuads (cast a) undef
-

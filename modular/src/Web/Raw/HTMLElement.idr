@@ -340,4 +340,3 @@ attachInternals a = primJS $ HTMLElement.prim__attachInternals (cast a)
 export
 click : {auto _ : Cast t1 HTMLElement} -> (obj : t1) -> JSIO ()
 click a = primJS $ HTMLElement.prim__click (cast a)
-

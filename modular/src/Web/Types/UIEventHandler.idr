@@ -12,4 +12,3 @@ ToFFI UIEventHandler UIEventHandler where toFFI = id
 
 export
 FromFFI UIEventHandler UIEventHandler where fromFFI = Just
-

@@ -20,4 +20,3 @@ SafeCast DOMParser where
 
 export %inline
 Cast DOMParser Object where cast = believe_me
-

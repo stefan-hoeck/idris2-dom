@@ -21,4 +21,3 @@ Cast MultiCacheQueryOptions CacheQueryOptions where cast = believe_me
 
 export %inline
 Cast MultiCacheQueryOptions Object where cast = believe_me
-

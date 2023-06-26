@@ -20,4 +20,3 @@ SafeCast ByteLengthQueuingStrategy where
 
 export %inline
 Cast ByteLengthQueuingStrategy Object where cast = believe_me
-

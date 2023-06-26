@@ -20,4 +20,3 @@ SafeCast CanvasPattern where
 
 export %inline
 Cast CanvasPattern Object where cast = believe_me
-

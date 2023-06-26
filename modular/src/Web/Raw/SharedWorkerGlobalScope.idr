@@ -55,4 +55,3 @@ onconnect v = fromNullablePrim
 export
 close : (obj : SharedWorkerGlobalScope) -> JSIO ()
 close a = primJS $ SharedWorkerGlobalScope.prim__close a
-

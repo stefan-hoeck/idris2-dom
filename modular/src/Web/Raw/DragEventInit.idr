@@ -52,4 +52,3 @@ dataTransfer v = fromUndefOrPrim
                    prim__setDataTransfer
                    Nothing
                    (cast {to = DragEventInit} v)
-

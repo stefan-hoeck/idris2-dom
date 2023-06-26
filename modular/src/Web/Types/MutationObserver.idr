@@ -20,4 +20,3 @@ SafeCast MutationObserver where
 
 export %inline
 Cast MutationObserver Object where cast = believe_me
-

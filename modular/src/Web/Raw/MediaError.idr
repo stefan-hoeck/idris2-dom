@@ -45,4 +45,3 @@ code a = primJS $ MediaError.prim__code a
 export
 message : (obj : MediaError) -> JSIO String
 message a = primJS $ MediaError.prim__message a
-

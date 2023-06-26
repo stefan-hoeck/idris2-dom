@@ -99,4 +99,3 @@ offset v = fromUndefOrPrim
              prim__setOffset
              Nothing
              (cast {to = BaseKeyframe} v)
-

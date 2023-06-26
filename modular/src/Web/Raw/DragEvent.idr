@@ -38,4 +38,3 @@ new a = primJS $ DragEvent.prim__new a undef
 export
 dataTransfer : (obj : DragEvent) -> JSIO (Maybe DataTransfer)
 dataTransfer a = tryJS "DragEvent.dataTransfer" $ DragEvent.prim__dataTransfer a
-

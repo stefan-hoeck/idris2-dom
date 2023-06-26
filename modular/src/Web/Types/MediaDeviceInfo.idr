@@ -20,4 +20,3 @@ SafeCast MediaDeviceInfo where
 
 export %inline
 Cast MediaDeviceInfo Object where cast = believe_me
-

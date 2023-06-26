@@ -84,4 +84,3 @@ fy a = primJS $ SVGRadialGradientElement.prim__fy a
 export
 r : (obj : SVGRadialGradientElement) -> JSIO SVGAnimatedLength
 r a = primJS $ SVGRadialGradientElement.prim__r a
-

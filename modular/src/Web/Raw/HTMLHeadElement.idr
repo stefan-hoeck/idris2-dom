@@ -31,4 +31,3 @@ prim__new : PrimIO HTMLHeadElement
 export
 new : JSIO HTMLHeadElement
 new = primJS $ HTMLHeadElement.prim__new
-

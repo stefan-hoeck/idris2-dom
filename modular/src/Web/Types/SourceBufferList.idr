@@ -25,4 +25,3 @@ Cast SourceBufferList EventTarget where cast = believe_me
 
 export %inline
 Cast SourceBufferList Object where cast = believe_me
-

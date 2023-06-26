@@ -45,4 +45,3 @@ targetOrigin v = fromUndefOrPrim
                    prim__setTargetOrigin
                    "/"
                    (cast {to = WindowPostMessageOptions} v)
-

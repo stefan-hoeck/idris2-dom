@@ -85,4 +85,3 @@ specified a = tryJS "Attr.specified" $ Attr.prim__specified a
 export
 value : Attr -> Attribute True Prelude.id String
 value v = fromPrim "Attr.getvalue" prim__value prim__setValue v
-

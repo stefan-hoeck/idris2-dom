@@ -24,4 +24,3 @@ getElementById :
   -> JSIO (Maybe Element)
 getElementById a b = tryJS "NonElementParentNode.getElementById" $
   NonElementParentNode.prim__getElementById (cast a) b
-

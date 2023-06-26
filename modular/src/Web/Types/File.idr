@@ -25,4 +25,3 @@ Cast File Blob where cast = believe_me
 
 export %inline
 Cast File Object where cast = believe_me
-

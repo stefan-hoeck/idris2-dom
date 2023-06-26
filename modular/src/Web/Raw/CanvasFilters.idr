@@ -29,4 +29,3 @@ filter v = fromPrim
              prim__filter
              prim__setFilter
              (cast {to = CanvasFilters} v)
-

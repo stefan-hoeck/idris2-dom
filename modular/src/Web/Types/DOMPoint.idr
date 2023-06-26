@@ -25,4 +25,3 @@ Cast DOMPoint DOMPointReadOnly where cast = believe_me
 
 export %inline
 Cast DOMPoint Object where cast = believe_me
-

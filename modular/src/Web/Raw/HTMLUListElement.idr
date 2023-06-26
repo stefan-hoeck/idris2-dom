@@ -69,4 +69,3 @@ compact v = fromPrim
 export
 type : HTMLUListElement -> Attribute True Prelude.id String
 type v = fromPrim "HTMLUListElement.gettype" prim__type prim__setType v
-

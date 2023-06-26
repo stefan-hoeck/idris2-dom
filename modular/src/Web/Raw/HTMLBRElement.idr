@@ -48,4 +48,3 @@ new = primJS $ HTMLBRElement.prim__new
 export
 clear : HTMLBRElement -> Attribute True Prelude.id String
 clear v = fromPrim "HTMLBRElement.getclear" prim__clear prim__setClear v
-

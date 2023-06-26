@@ -12,4 +12,3 @@ ToFFI FocusEventHandler FocusEventHandler where toFFI = id
 
 export
 FromFFI FocusEventHandler FocusEventHandler where fromFFI = Just
-

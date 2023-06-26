@@ -25,4 +25,3 @@ Cast ProgressEvent Event where cast = believe_me
 
 export %inline
 Cast ProgressEvent Object where cast = believe_me
-

@@ -165,4 +165,3 @@ write v = fromUndefOrPrimNoDefault
             prim__write
             prim__setWrite
             (cast {to = UnderlyingSink} v)
-

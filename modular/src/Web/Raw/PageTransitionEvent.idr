@@ -39,4 +39,3 @@ export
 persisted : (obj : PageTransitionEvent) -> JSIO Bool
 persisted a = tryJS "PageTransitionEvent.persisted" $
   PageTransitionEvent.prim__persisted a
-

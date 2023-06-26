@@ -340,4 +340,3 @@ target v = fromPrim "HTMLLinkElement.gettarget" prim__target prim__setTarget v
 export
 type : HTMLLinkElement -> Attribute True Prelude.id String
 type v = fromPrim "HTMLLinkElement.gettype" prim__type prim__setType v
-

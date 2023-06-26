@@ -20,4 +20,3 @@ toUnderlyingSinkStartCallback :
      (WritableStreamDefaultController -> IO AnyPtr)
   -> JSIO UnderlyingSinkStartCallback
 toUnderlyingSinkStartCallback cb = primJS $ prim__toUnderlyingSinkStartCallback cb
-

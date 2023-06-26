@@ -42,4 +42,3 @@ new = primJS $ HTMLTemplateElement.prim__new
 export
 content : (obj : HTMLTemplateElement) -> JSIO DocumentFragment
 content a = primJS $ HTMLTemplateElement.prim__content a
-

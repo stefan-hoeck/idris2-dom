@@ -26,4 +26,3 @@ Cast ExtendableMessageEventInit EventInit where cast = believe_me
 
 export %inline
 Cast ExtendableMessageEventInit Object where cast = believe_me
-

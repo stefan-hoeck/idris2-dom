@@ -69,4 +69,3 @@ type v = fromUndefOrPrim
            prim__setType
            ""
            (cast {to = BlobPropertyBag} v)
-

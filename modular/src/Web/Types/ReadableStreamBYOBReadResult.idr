@@ -16,4 +16,3 @@ FromFFI ReadableStreamBYOBReadResult ReadableStreamBYOBReadResult where fromFFI 
 
 export %inline
 Cast ReadableStreamBYOBReadResult Object where cast = believe_me
-

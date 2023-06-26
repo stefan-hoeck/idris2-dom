@@ -110,4 +110,3 @@ export
 setNamedItem : (obj : NamedNodeMap) -> (attr : Attr) -> JSIO (Maybe Attr)
 setNamedItem a b = tryJS "NamedNodeMap.setNamedItem" $
   NamedNodeMap.prim__setNamedItem a b
-

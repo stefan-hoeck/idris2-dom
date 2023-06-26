@@ -25,4 +25,3 @@ Cast XPathEvaluator Object where cast = believe_me
 
 export %inline
 Cast XPathEvaluator XPathEvaluatorBase where cast = believe_me
-

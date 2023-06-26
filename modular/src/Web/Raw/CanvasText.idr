@@ -88,4 +88,3 @@ strokeText :
   -> (y : Double)
   -> JSIO ()
 strokeText a b c d = primJS $ CanvasText.prim__strokeText (cast a) b c d undef
-

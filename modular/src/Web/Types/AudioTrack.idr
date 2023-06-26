@@ -20,4 +20,3 @@ SafeCast AudioTrack where
 
 export %inline
 Cast AudioTrack Object where cast = believe_me
-

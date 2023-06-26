@@ -48,4 +48,3 @@ new = primJS $ HTMLTitleElement.prim__new
 export
 text : HTMLTitleElement -> Attribute True Prelude.id String
 text v = fromPrim "HTMLTitleElement.gettext" prim__text prim__setText v
-

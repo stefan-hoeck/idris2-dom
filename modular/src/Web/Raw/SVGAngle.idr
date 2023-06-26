@@ -125,4 +125,3 @@ newValueSpecifiedUnits :
   -> JSIO ()
 newValueSpecifiedUnits a b c = primJS $
   SVGAngle.prim__newValueSpecifiedUnits a b c
-

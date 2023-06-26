@@ -672,4 +672,3 @@ play :
   -> (obj : t1)
   -> JSIO (Promise Undefined)
 play a = primJS $ HTMLMediaElement.prim__play (cast a)
-

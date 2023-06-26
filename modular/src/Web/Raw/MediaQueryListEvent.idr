@@ -49,4 +49,3 @@ matches a = tryJS "MediaQueryListEvent.matches" $
 export
 media : (obj : MediaQueryListEvent) -> JSIO String
 media a = primJS $ MediaQueryListEvent.prim__media a
-

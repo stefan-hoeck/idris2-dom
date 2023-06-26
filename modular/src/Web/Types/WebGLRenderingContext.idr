@@ -30,4 +30,3 @@ Cast WebGLRenderingContext WebGLRenderingContextBase where cast = believe_me
 
 export %inline
 Cast WebGLRenderingContext WebGLRenderingContextOverloads where cast = believe_me
-

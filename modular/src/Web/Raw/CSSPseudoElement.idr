@@ -29,4 +29,3 @@ element a = primJS $ CSSPseudoElement.prim__element a
 export
 type : (obj : CSSPseudoElement) -> JSIO String
 type a = primJS $ CSSPseudoElement.prim__type a
-

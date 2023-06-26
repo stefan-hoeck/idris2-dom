@@ -45,4 +45,3 @@ Cast Comment ChildNode where cast = believe_me
 
 export %inline
 Cast Comment NonDocumentTypeChildNode where cast = believe_me
-

@@ -206,4 +206,3 @@ transaction :
   -> (storeNames : HSum [String, Array String])
   -> JSIO IDBTransaction
 transaction a b = primJS $ IDBDatabase.prim__transaction a (toFFI b) undef undef
-

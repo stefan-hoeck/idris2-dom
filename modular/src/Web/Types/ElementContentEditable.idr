@@ -12,4 +12,3 @@ ToFFI ElementContentEditable ElementContentEditable where toFFI = id
 
 export
 FromFFI ElementContentEditable ElementContentEditable where fromFFI = Just
-

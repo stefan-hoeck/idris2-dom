@@ -115,4 +115,3 @@ toggle' a b c = tryJS "DOMTokenList.toggle'" $
 export
 toggle : (obj : DOMTokenList) -> (token : String) -> JSIO Bool
 toggle a b = tryJS "DOMTokenList.toggle" $ DOMTokenList.prim__toggle a b undef
-

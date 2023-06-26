@@ -25,4 +25,3 @@ Cast IDBRequest EventTarget where cast = believe_me
 
 export %inline
 Cast IDBRequest Object where cast = believe_me
-

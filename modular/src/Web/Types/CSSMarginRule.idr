@@ -25,4 +25,3 @@ Cast CSSMarginRule CSSRule where cast = believe_me
 
 export %inline
 Cast CSSMarginRule Object where cast = believe_me
-
