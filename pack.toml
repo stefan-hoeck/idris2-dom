@@ -9,6 +9,11 @@ type   = "local"
 path   = "."
 ipkg   = "dom.ipkg"
 
+[custom.all.modular-dom]
+type   = "local"
+path   = "modular"
+ipkg   = "modular-dom.ipkg"
+
 [custom.all.js-test]
 type   = "local"
 path   = "js/test"
