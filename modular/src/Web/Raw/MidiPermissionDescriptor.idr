@@ -21,7 +21,7 @@ prim__sysex : MidiPermissionDescriptor -> PrimIO (UndefOr Boolean)
 
 export
 %foreign "browser:lambda:(x,v)=>{x.sysex = v}"
-prim__setSysex : MidiPermissionDescriptor -> UndefOr Boolean -> PrimIO ()
+prim__setSysex : MidiPermissionDescriptor -> UndefOr Boolean -> PrimIO () -- gitleaks:allow
 
 
 
