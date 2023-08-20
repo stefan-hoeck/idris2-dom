@@ -137,9 +137,11 @@ lsetVal o f v = lset o f (toFFI $ toAny v)
 export
 withPairs : List (String,Value) -> ((1 _ : LinObject) -> a) -> a
 withPairs ps f = newObj (run ps)
-  where run : List (String,Value) -> (1 _ : LinObject) -> a
-        run []            o = f o
-        run ((s,v) :: ps) o = run ps (lsetVal o s v)
+
+  where
+    run : List (String,Value) -> (1 _ : LinObject) -> a
+    run []            o = f o
+    run ((s,v) :: ps) o = run ps (lsetVal o s v)
 
 export
 pairs : List (String,Value) -> Value
@@ -154,23 +156,28 @@ vals = Arr . fromList
 --------------------------------------------------------------------------------
 
 toVal : Any -> Maybe Value
-toVal (MkAny ptr) =   (Str <$> safeCast ptr)
-                  <|> (Boolean <$> (safeCast ptr >>= fromFFI))
-                  <|> (if isArray ptr then array ptr else Nothing)
-                  <|> (if isNull ptr then Just Null else Nothing)
-                  <|> (Num <$> safeCast ptr)
-                  <|> (Obj . MkIObject <$> unsafeCastOnTypeof "object" ptr)
+toVal (MkAny ptr) =
+      (Str <$> safeCast ptr)
+  <|> (Boolean <$> (safeCast ptr >>= fromFFI))
+  <|> (if isArray ptr then array ptr else Nothing)
+  <|> (if isNull ptr then Just Null else Nothing)
+  <|> (Num <$> safeCast ptr)
+  <|> (Obj . MkIObject <$> unsafeCastOnTypeof "object" ptr)
 
-  where array : a -> Maybe Value
-        array a = let arr = the (IArray Any) (believe_me a)
-                   in assert_total $ Arr <$> traverse toVal arr
+  where
+    array : a -> Maybe Value
+    array a =
+      let arr := the (IArray Any) (believe_me a)
+       in assert_total $ Arr <$> traverse toVal arr
 
 export
 parse : String -> Either JSErr Value
-parse s = do ptr <- try prim__parse s
-             maybe (Left $ Caught #"Unable to decode JSON: \#{s}"#)
-                   Right
-                   (toVal (MkAny ptr))
+parse s = do
+  ptr <- try prim__parse s
+  maybe
+    (Left $ Caught #"Unable to decode JSON: \#{s}"#)
+    Right
+   (toVal (MkAny ptr))
 
 export
 parseMaybe : String -> Maybe Value

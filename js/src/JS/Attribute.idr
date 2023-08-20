@@ -37,20 +37,23 @@ data Attribute :  (alwaysReturns : Bool)
   Attr : (get : JSIO a) -> (set : a -> JSIO ()) -> Attribute True Prelude.id a
 
   ||| A nullable, non-optional attribute.
-  NullableAttr :  (get : JSIO (Maybe a))
-               -> (set : Maybe a -> JSIO ())
-               -> Attribute False Maybe a
+  NullableAttr :
+       (get : JSIO (Maybe a))
+    -> (set : Maybe a -> JSIO ())
+    -> Attribute False Maybe a
 
   ||| An optional attribute with a predefined default value.
-  OptionalAttr :  (get : JSIO (Optional a))
-               -> (set : Optional a -> JSIO ())
-               -> (def : a)
-               -> Attribute True Optional a
+  OptionalAttr :
+       (get : JSIO (Optional a))
+    -> (set : Optional a -> JSIO ())
+    -> (def : a)
+    -> Attribute True Optional a
 
   ||| An optional attribute without default value.
-  OptionalAttrNoDefault :  (get : JSIO (Optional a))
-                        -> (set : Optional a -> JSIO ())
-                        -> Attribute False Optional a
+  OptionalAttrNoDefault :
+       (get : JSIO (Optional a))
+    -> (set : Optional a -> JSIO ())
+    -> Attribute False Optional a
 
 ||| Returns the value of an attribute in its proper context.
 ||| Typically used in infix notation.
@@ -61,10 +64,10 @@ data Attribute :  (alwaysReturns : Bool)
 export
 get : (o : obj) -> (attr : obj -> Attribute b f a) -> JSIO $ f a
 get o g = case g o of
-               Attr                  gt _   => gt
-               NullableAttr          gt _   => gt
-               OptionalAttr          gt _ _ => gt
-               OptionalAttrNoDefault gt _   => gt
+  Attr                  gt _   => gt
+  NullableAttr          gt _   => gt
+  OptionalAttr          gt _ _ => gt
+  OptionalAttrNoDefault gt _   => gt
 
 ||| Maps a function over the value retrieved from an `Attribute`.
 export
@@ -99,8 +102,8 @@ set' (OptionalAttrNoDefault _ s)   = s
 export
 getDef : (o : obj) -> (attr : obj -> Attribute True f a) -> JSIO a
 getDef o g = case g o of
-                  Attr         gt _     => gt
-                  OptionalAttr gt _ def => map (fromOptional def) gt
+  Attr         gt _     => gt
+  OptionalAttr gt _ def => map (fromOptional def) gt
 
 ||| Maps a function over the value retrieved from an `Attribute`.
 ||| Since this operates
@@ -219,42 +222,50 @@ a ?> v = a !> const v
 --------------------------------------------------------------------------------
 
 export
-fromPrim :  (ToFFI a b, FromFFI a b)
-         => String
-         -> (obj -> PrimIO b)
-         -> (obj -> b -> PrimIO ())
-         -> obj
-         -> Attribute True Prelude.id a
+fromPrim :
+     {auto _ : ToFFI a b}
+  -> {auto _ : FromFFI a b}
+  -> String
+  -> (obj -> PrimIO b)
+  -> (obj -> b -> PrimIO ())
+  -> obj
+  -> Attribute True Prelude.id a
 fromPrim msg g s o =
   Attr (tryJS msg $ g o) (\a => primJS $ s o (toFFI a))
 
 export
-fromNullablePrim :  (ToFFI a b, FromFFI a b)
-                 => String
-                 -> (obj -> PrimIO $ Nullable b)
-                 -> (obj -> Nullable b -> PrimIO ())
-                 -> obj
-                 -> Attribute False Maybe a
+fromNullablePrim :
+     {auto _ : ToFFI a b}
+  -> {auto _ : FromFFI a b}
+  -> String
+  -> (obj -> PrimIO $ Nullable b)
+  -> (obj -> Nullable b -> PrimIO ())
+  -> obj
+  -> Attribute False Maybe a
 fromNullablePrim msg g s o =
   NullableAttr (tryJS msg $ g o) (\a => primJS $ s o (toFFI a))
 
 export
-fromUndefOrPrim :  (ToFFI a b, FromFFI a b)
-                => String
-                -> (obj -> PrimIO $ UndefOr b)
-                -> (obj -> UndefOr b -> PrimIO ())
-                -> a
-                -> obj
-                -> Attribute True Optional a
+fromUndefOrPrim :
+     {auto _ : ToFFI a b}
+  -> {auto _ : FromFFI a b}
+  -> String
+  -> (obj -> PrimIO $ UndefOr b)
+  -> (obj -> UndefOr b -> PrimIO ())
+  -> a
+  -> obj
+  -> Attribute True Optional a
 fromUndefOrPrim msg g s def o =
   OptionalAttr (tryJS msg $ g o) (\a => primJS $ s o (toFFI a)) def
 
 export
-fromUndefOrPrimNoDefault :  (ToFFI a b, FromFFI a b)
-                         => String
-                         -> (obj -> PrimIO $ UndefOr b)
-                         -> (obj -> UndefOr b -> PrimIO ())
-                         -> obj
-                         -> Attribute False Optional a
+fromUndefOrPrimNoDefault :
+     {auto _ : ToFFI a b}
+  -> {auto _ : FromFFI a b}
+  -> String
+  -> (obj -> PrimIO $ UndefOr b)
+  -> (obj -> UndefOr b -> PrimIO ())
+  -> obj
+  -> Attribute False Optional a
 fromUndefOrPrimNoDefault msg g s o =
   OptionalAttrNoDefault (tryJS msg $ g o) (\a => primJS $ s o (toFFI a))

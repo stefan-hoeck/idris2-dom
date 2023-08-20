@@ -23,22 +23,25 @@ toStr s = #"{"street":\#{show s.street},"nr":\#{show s.nr},"zip":\#{show s.zip},
 
 -- Encoding via `stringify`.
 toJSON : Address -> String
-toJSON a = let ps = [ ("street",Str a.street)
-                    , ("nr", Num . fromInteger $ cast a.nr)
-                    , ("zip", Str a.zip)
-                    , ("city", Str a.city)
-                    ]
-            in stringify (pairs ps)
+toJSON a =
+  let ps :=
+        [ ("street",Str a.street)
+        , ("nr", Num . fromInteger $ cast a.nr)
+        , ("zip", Str a.zip)
+        , ("city", Str a.city)
+        ]
+   in stringify (pairs ps)
 
 export
 fromJSON : String -> Maybe Address
-fromJSON s =
-  do val <- parseMaybe s
-     obj <- getObject val
-     [| MkAddress (valueAt obj "street" >>= getStr)
-                  (valueAt obj "nr" >>= map (fromInteger . cast) . getNum)
-                  (valueAt obj "zip" >>= getStr)
-                  (valueAt obj "city" >>= getStr) |]
+fromJSON s = do
+  val <- parseMaybe s
+  obj <- getObject val
+  [| MkAddress
+       (valueAt obj "street" >>= getStr)
+       (valueAt obj "nr" >>= map (fromInteger . cast) . getNum)
+       (valueAt obj "zip" >>= getStr)
+       (valueAt obj "city" >>= getStr) |]
 
 --------------------------------------------------------------------------------
 --          Generators
@@ -50,34 +53,39 @@ plainString = string (linear 1 10) alphaNum
 
 export
 addresses : Gen Address
-addresses = [| MkAddress plainString
-                         (bits32 $ linear 0 50)
-                         plainString
-                         plainString |]
+addresses =
+  [| MkAddress
+       plainString
+       (bits32 $ linear 0 50)
+       plainString
+       plainString |]
 
 --------------------------------------------------------------------------------
 --          Properties
 --------------------------------------------------------------------------------
 
 prop_toJSON : Property
-prop_toJSON = property $ do a <- forAll addresses
-                            toStr a === toJSON a
+prop_toJSON = property $ do
+  a <- forAll addresses
+  toStr a === toJSON a
 
 prop_decode : Property
-prop_decode = property $ do a <- forAll addresses
-                            case parse (toJSON a) of
-                                 Left e => do footnote (dispErr e)
-                                              assert False
-                                 Right _ => assert True
+prop_decode = property $ do
+  a <- forAll addresses
+  case parse (toJSON a) of
+       Left e => do footnote (dispErr e)
+                    assert False
+       Right _ => assert True
 
 prop_roundTrip : Property
-prop_roundTrip = property $ do a <- forAll addresses
-                               Just a === fromJSON (toJSON a)
+prop_roundTrip = property $ do
+  a <- forAll addresses
+  Just a === fromJSON (toJSON a)
 
 export
 test : IO ()
-test = ignore . checkGroup . withTests 100 $ MkGroup "Object" [
-         ("prop_toJSON", prop_toJSON)
-       , ("prop_decode", prop_decode)
-       , ("prop_roundTrip", prop_roundTrip)
-       ]
+test = ignore . checkGroup . withTests 100 $ MkGroup "Object"
+  [ ("prop_toJSON", prop_toJSON)
+  , ("prop_decode", prop_decode)
+  , ("prop_roundTrip", prop_roundTrip)
+  ]

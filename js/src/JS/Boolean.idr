@@ -24,9 +24,10 @@ ToFFI Bool Boolean where
 
 export
 FromFFI Bool Boolean where
-  fromFFI v = if eqv v true then Just True
-              else if eqv v false then Just False
-              else Nothing
+  fromFFI v =
+    if eqv v true then Just True
+    else if eqv v false then Just False
+    else Nothing
 
 export
 SafeCast Boolean where

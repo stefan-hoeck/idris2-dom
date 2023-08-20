@@ -55,18 +55,19 @@ public export
 zipWithIndex : (as : List a) -> List (Ix $ len32 as, a)
 zipWithIndex as = run [] 0 as
   -- being pragmatic here and going via `believe_me`
-  where run : List (Ix $ len32 as, a) -> Bits32 -> List a -> List (Ix $ len32 as, a)
-        run acc _ []        = reverse acc
-        run acc n (x :: xs) =
-          run ((Element n $ believe_me (Refl {x}), x) :: acc) (n+1) xs
+  where
+    run : List (Ix $ len32 as, a) -> Bits32 -> List a -> List (Ix $ len32 as, a)
+    run acc _ []        = reverse acc
+    run acc n (x :: xs) =
+      run ((Element n $ believe_me (Refl {x}), x) :: acc) (n+1) xs
 
 ||| Tries to convert a number into an index for
 ||| an array of the given size.
 public export
 toIx : (size : Bits32) -> Bits32 -> Maybe (Ix size)
 toIx size x = case decEq (x < size) True of
-                   Yes prf => Just $ Element x prf
-                   No  _   => Nothing
+  Yes prf => Just $ Element x prf
+  No  _   => Nothing
 
 --------------------------------------------------------------------------------
 --          FFI
@@ -189,34 +190,39 @@ export
 sameElements : (IArrayLike arr el, Eq el) => arr -> arr -> Bool
 sameElements a1 a2 =
   case decEq (size a2) (size a1) of
-       Yes prf => run prf 0
-       No _    => False
-  where run : (0 _ : size a2 = size a1) -> Bits32 -> Bool
-        run refl ix =
-          case decEq (ix < size a1) True of
-               No  _   => True
-               Yes prf =>
-                 read a1 (Element ix prf) ==
-                   read a2 (Element ix (rewrite refl in prf)) &&
-                 run refl (assert_smaller ix $ ix+1)
+    Yes prf => run prf 0
+    No _    => False
+
+  where
+    run : (0 _ : size a2 = size a1) -> Bits32 -> Bool
+    run refl ix =
+      case decEq (ix < size a1) True of
+        No  _   => True
+        Yes prf =>
+          read a1 (Element ix prf) ==
+            read a2 (Element ix (rewrite refl in prf)) &&
+          run refl (assert_smaller ix $ ix+1)
 
 export
-foldlArray :  IArrayLike arr el
-           => (acc -> el -> acc) -> acc -> arr -> acc
+foldlArray :
+  IArrayLike arr el => (acc -> el -> acc) -> acc -> arr -> acc
 foldlArray f ini arr = run 0 ini
-  where run : Bits32 -> acc -> acc
-        run n res = case readMaybe arr n of
-                         Just el => run (assert_smaller n $ n+1) (f res el)
-                         Nothing => res
+
+  where
+    run : Bits32 -> acc -> acc
+    run n res = case readMaybe arr n of
+      Just el => run (assert_smaller n $ n+1) (f res el)
+      Nothing => res
 
 export
-foldrArray :  IArrayLike arr el
-           => (el -> acc -> acc) -> acc -> arr -> acc
+foldrArray :
+  IArrayLike arr el => (el -> acc -> acc) -> acc -> arr -> acc
 foldrArray f ini arr = run 0
-  where run : Bits32 -> acc
-        run n = case readMaybe arr n of
-                     Just el => f el $ run (assert_smaller n $ n+1)
-                     Nothing => ini
+  where
+    run : Bits32 -> acc
+    run n = case readMaybe arr n of
+      Just el => f el $ run (assert_smaller n $ n+1)
+      Nothing => ini
 
 export
 arrayToList : IArrayLike arr el => arr -> List el
@@ -257,12 +263,16 @@ arrayDataFrom arr = primIO $ prim__fromArrayLikeIO arr
 
 export
 fromListIO : HasIO io => List a -> io (Array a)
-fromListIO as = let len = the Bits32 (fromInteger . natToInteger $ length as)
-                 in newArrayIO len >>= fill 0 as
-  where fill : Bits32 -> List a -> Array a -> io (Array a)
-        fill _ []        arr = pure arr
-        fill n (x :: xs) arr = do writeIO arr n x
-                                  fill (n+1) xs arr
+fromListIO as =
+  let len := the Bits32 (fromInteger . natToInteger $ length as)
+   in newArrayIO len >>= fill 0 as
+
+  where
+    fill : Bits32 -> List a -> Array a -> io (Array a)
+    fill _ []        arr = pure arr
+    fill n (x :: xs) arr = do
+      writeIO arr n x
+      fill (n+1) xs arr
 
 export
 fromFoldableIO : (HasIO io, Foldable t) => t a -> io (Array a)
@@ -317,17 +327,19 @@ emptyArray : (1 _ : (1 _ : LinArray 0 a) -> b) -> b
 emptyArray f = f (MkLinArray $ prim__emptyArray)
 
 export
-newArray :  (val : a)
-         -> (sze : Bits32)
-         -> (1 _ : (1 _ : LinArray sze a) -> b)
-         -> b
+newArray :
+     (val : a)
+  -> (sze : Bits32)
+  -> (1 _ : (1 _ : LinArray sze a) -> b)
+  -> b
 newArray v sze f = f (MkLinArray $ prim__newArray (toFFI sze) v)
 
 export
-withArray :  IArrayLike arr el
-          => (v : arr)
-          -> (1 _ : (1 _ : LinArray (size v) el) -> a)
-          -> a
+withArray :
+     {auto _ : IArrayLike arr el}
+  -> (v : arr)
+  -> (1 _ : (1 _ : LinArray (size v) el) -> a)
+  -> a
 withArray array f = f (MkLinArray $ prim__fromArray array)
 
 export
@@ -335,9 +347,10 @@ write : (1 _ : LinArray sze a) -> (ix : Ix sze) -> a -> LinArray sze a
 write arr (Element n _) = unsafeWrite arr n
 
 export
-lread :  (1 _ : LinArray sze a)
-      -> (ix : Ix sze)
-      -> Res a (const $ LinArray sze a)
+lread :
+     (1 _ : LinArray sze a)
+  -> (ix : Ix sze)
+  -> Res a (const $ LinArray sze a)
 lread (MkLinArray arr) (Element ix _) =
   prim__read arr (toFFI ix) # MkLinArray arr
 
@@ -346,59 +359,74 @@ lsize : (1 _ : LinArray sze a) -> Res Bits32 (\s => LinArray s a)
 lsize (MkLinArray arr) = fromInteger (cast $ prim__size arr) # MkLinArray arr
 
 export
-iterate' :  (sze : Bits32)
-         -> (Ix sze -> a)
-         -> ((1 _ : LinArray sze a) -> b)
-         -> b
+iterate' :
+     (sze : Bits32)
+  -> (Ix sze -> a)
+  -> ((1 _ : LinArray sze a) -> b)
+  -> b
 iterate' sze f g = undefArray sze (run 0)
-  where run : Bits32 -> (1 _ : LinArray sze a) -> b
-        run n arr = case toIx sze n of
-                         Nothing => g arr
-                         Just ix => run (assert_smaller n $ n+1) (write arr ix (f ix))
+
+  where
+    run : Bits32 -> (1 _ : LinArray sze a) -> b
+    run n arr = case toIx sze n of
+      Nothing => g arr
+      Just ix => run (assert_smaller n $ n+1) (write arr ix (f ix))
 
 export
 fromList' : (as : List a) -> ((1 _ : LinArray (len32 as) a) -> b) -> b
 fromList' as f = undefArray (len32 as) (run $ zipWithIndex as)
-  where run :  List (Ix $ len32 as, a) -> (1 _ : LinArray (len32 as) a) -> b
-        run []            linA = f linA
-        run ((ix,a) :: t) linA = run t (write linA ix a)
+
+  where
+    run :  List (Ix $ len32 as, a) -> (1 _ : LinArray (len32 as) a) -> b
+    run []            linA = f linA
+    run ((ix,a) :: t) linA = run t (write linA ix a)
 
 export
-map' : IArrayLike arr a =>
-       (vs : arr) -> ((1 _ : LinArray (size vs) b) -> c) -> (a -> b) -> c
+map' :
+     {auto _ : IArrayLike arr a}
+  -> (vs : arr)
+  -> ((1 _ : LinArray (size vs) b) -> c)
+  -> (a -> b)
+  -> c
 map' vs fromArr f = iterate' (size vs) (\ix => f (read vs ix)) fromArr
 
 export
-totalSize : (IArrayLike arr1 arr2, IArrayLike arr2 el)
-          => arr1 -> Bits32
+totalSize :
+  (IArrayLike arr1 arr2, IArrayLike arr2 el) => arr1 -> Bits32
 totalSize = foldlArray (\n,vs => n + size vs) 0
 
 ||| Concatenates to nested layers of immutable
 ||| array-like objects.
 export
-join' :  (IArrayLike arr1 arr2, IArrayLike arr2 el)
-      => (vss : arr1)
-      -> ((1 _ : LinArray (totalSize {arr2} vss) el) -> a)
-      -> a
+join' :
+     {auto _ : IArrayLike arr1 arr2}
+  -> {auto _ : IArrayLike arr2 el}
+  -> (vss : arr1)
+  -> ((1 _ : LinArray (totalSize {arr2} vss) el) -> a)
+  -> a
 join' vss f = undefArray (totalSize {arr2} vss) (outer 0 0)
-   where inner :  (n : Bits32)
-               -> (pos : Bits32)
-               -> arr2
-               -> (1 _ : LinArray (totalSize {arr2} vss) el)
-               -> LinArray (totalSize {arr2} vss) el
-         inner n pos as la =
-           case readMaybe as n of
-                Just v  => inner (assert_smaller n $ n+1) pos as (unsafeWrite la (pos + n) v)
-                Nothing => la
 
-         outer :  (n : Bits32)
-               -> (pos : Bits32)
-               -> (1 _ : LinArray (totalSize {arr2} vss) el)
-               -> a
-         outer n pos la =
-           case readMaybe vss n of
-                Just v  => outer (assert_smaller n $ n+1) (pos + size v) (inner 0 pos v la)
-                Nothing => f la
+   where
+     inner :
+          (n : Bits32)
+       -> (pos : Bits32)
+       -> arr2
+       -> (1 _ : LinArray (totalSize {arr2} vss) el)
+       -> LinArray (totalSize {arr2} vss) el
+     inner n pos as la =
+       case readMaybe as n of
+         Just v  => inner (assert_smaller n $ n+1) pos as (unsafeWrite la (pos + n) v)
+         Nothing => la
+
+     outer :
+          (n : Bits32)
+       -> (pos : Bits32)
+       -> (1 _ : LinArray (totalSize {arr2} vss) el)
+       -> a
+     outer n pos la =
+       case readMaybe vss n of
+         Just v  => outer (assert_smaller n $ n+1) (pos + size v) (inner 0 pos v la)
+         Nothing => f la
 
 --------------------------------------------------------------------------------
 --          Immutable Arrays

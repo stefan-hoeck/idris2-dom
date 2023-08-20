@@ -394,10 +394,10 @@ newElement :
   -> (0 e : ElementType tag t)
   -> (mods : List (t -> JSIO ()))
   -> JSIO t
-newElement e mods =
-  do res <- createElement e
-     for_ mods $ \m => m res
-     pure res
+newElement e mods = do
+  res <- createElement e
+  for_ mods $ \m => m res
+  pure res
 
 --------------------------------------------------------------------------------
 --          Finding Elements
@@ -481,9 +481,8 @@ Callback EventListener (Event -> JSIO ()) where
   callback f = toEventListener (runJS . f)
 
 export
-Callback MutationCallback (  Array MutationRecord
-                          -> MutationObserver
-                          -> JSIO () ) where
+Callback MutationCallback
+  (Array MutationRecord -> MutationObserver -> JSIO ()) where
   callback f = toMutationCallback $ \a,m => runJS (f a m)
 
 ||| In case of an error, the error is logged to the console and
@@ -494,7 +493,9 @@ Callback NodeFilter (Node -> JSIO Bits16) where
 
 export
 Callback XPathNSResolver (Maybe String -> JSIO (Maybe String) ) where
-  callback f = toXPathNSResolver $ map maybeToNullable
-                                 . runJSWithDefault Nothing
-                                 . f
-                                 . nullableToMaybe
+  callback f =
+    toXPathNSResolver $
+        map maybeToNullable
+      . runJSWithDefault Nothing
+      . f
+      . nullableToMaybe
