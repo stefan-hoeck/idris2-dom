@@ -119,9 +119,9 @@ primJS = primIO
 
 export
 unMaybe : (callSite : String) -> JSIO (Maybe a) -> JSIO a
-unMaybe callSite io = do Just a <- io
-                           | Nothing => throwError $ IsNothing callSite
-                         pure a
+unMaybe callSite io = do
+  Just a <- io | Nothing => throwError $ IsNothing callSite
+  pure a
 
 --------------------------------------------------------------------------------
 --          Error handling
@@ -140,18 +140,20 @@ prim__errTag : AnyPtr -> Double
 prim__errVal : AnyPtr -> AnyPtr
 
 toEither : AnyPtr -> Either JSErr a
-toEither ptr = if 1 == prim__errTag ptr
-                  then Right (believe_me (prim__errVal ptr))
-                  else Left $ Caught (believe_me (prim__errVal ptr))
+toEither ptr =
+  if 1 == prim__errTag ptr
+    then Right (believe_me (prim__errVal ptr))
+    else Left $ Caught (believe_me (prim__errVal ptr))
 
 ||| Tries to execute an IO action, wrapping any runtime exception
 ||| in its stringified version in a `Left . Caught`.
 export
 tryIO : IO a -> JSIO a
-tryIO io = do ptr <- primIO $ prim__tryIO io
-              if 1 == prim__errTag ptr
-                 then pure (believe_me (prim__errVal ptr))
-                 else throwError $ Caught (believe_me (prim__errVal ptr))
+tryIO io = do
+  ptr <- primIO $ prim__tryIO io
+  if 1 == prim__errTag ptr
+     then pure (believe_me (prim__errVal ptr))
+     else throwError $ Caught (believe_me (prim__errVal ptr))
 
 ||| Error handling in pure functions. This should only be used
 ||| in foreign function calls that might fail but or otherwise

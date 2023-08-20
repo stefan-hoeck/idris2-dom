@@ -51,7 +51,12 @@ infixl 1 :>
 
 ||| Operator version of `up`.
 public export %inline
-(:>) : (0 _ : JSType a) => a -> (0 b : Type) -> {auto 0 _ : Elem b (Types a)} -> b
+(:>) :
+     {auto 0 _ : JSType a}
+  -> a
+  -> (0 b : Type)
+  -> {auto 0 _ : Elem b (Types a)}
+  -> b
 a :> _ = up a
 
 --------------------------------------------------------------------------------
@@ -143,16 +148,18 @@ SafeCast String where
 -- String here
 export
 SafeCast Char where
-  safeCast v = safeCast v >>= \s => case strM s of
-                                         StrCons x "" => Just x
-                                         _            => Nothing
+  safeCast v = safeCast v >>= \s =>
+    case strM s of
+      StrCons x "" => Just x
+      _            => Nothing
 
 export
 bounded : Num a => (min : Integer) -> (max : Integer) -> x -> Maybe a
 bounded min max ptr =
-  safeCast ptr >>= \n => if n >= min && n <= max
-                            then Just (fromInteger n)
-                            else Nothing
+  safeCast ptr >>= \n =>
+    if n >= min && n <= max
+      then Just (fromInteger n)
+      else Nothing
 
 export
 SafeCast Bits8 where
@@ -193,8 +200,8 @@ SafeCast Int where
 export
 tryCast : SafeCast a => (fun : Lazy String) -> x -> JSIO a
 tryCast fun val = case safeCast val of
-                       Just a  => pure a
-                       Nothing => throwError $ CastErr fun val
+  Just a  => pure a
+  Nothing => throwError $ CastErr fun val
 
 export
 tryCast_ : (0 a : Type) -> SafeCast a => (fun : Lazy String) -> x -> JSIO a

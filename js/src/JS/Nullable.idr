@@ -31,7 +31,11 @@ maybeToNullable : Maybe a -> Nullable a
 maybeToNullable = maybe null nonNull
 
 export
-mayUp : (0 _ : JSType a) => Maybe a -> {auto 0 _ : Elem b (Types a)} -> Nullable b
+mayUp :
+     {auto 0 _ : JSType a}
+  -> Maybe a
+  -> {auto 0 _ : Elem b (Types a)}
+  -> Nullable b
 mayUp x = maybe null (\v => nonNull $ up v) x
 
 export
@@ -45,11 +49,12 @@ ToFFI a b => ToFFI (Maybe a) (Nullable b) where
 export
 FromFFI a b => FromFFI (Maybe a) (Nullable b) where
   fromFFI v = case nullableToMaybe v of
-                   Nothing => Just Nothing
-                   Just x  => map Just $ fromFFI x
+    Nothing => Just Nothing
+    Just x  => map Just $ fromFFI x
 
 export
 SafeCast a => SafeCast (Nullable a) where
-  safeCast ptr = if isNull ptr
-                    then Just null
-                    else map nonNull $ safeCast ptr
+  safeCast ptr =
+    if isNull ptr
+      then Just null
+      else map nonNull $ safeCast ptr

@@ -65,9 +65,10 @@ def = believe_me
 
 export
 SafeCast a => SafeCast (UndefOr a) where
-  safeCast ptr = if isUndefined ptr
-                    then Just undef
-                    else map def $ safeCast ptr
+  safeCast ptr =
+    if isUndefined ptr
+      then Just undef
+      else map def $ safeCast ptr
 
 --------------------------------------------------------------------------------
 --          Optional
@@ -149,14 +150,19 @@ optionalToUndefOr : Optional a -> UndefOr a
 optionalToUndefOr = optional undef def
 
 export
-optUp : (0 _ : JSType a) => Optional a -> {auto 0 _ : Elem b (Types a)} -> UndefOr b
+optUp :
+     {auto 0 _ : JSType a}
+  -> Optional a
+  -> {auto 0 _ : Elem b (Types a)}
+  -> UndefOr b
 optUp x = optional undef (\v => def $ up v) x
 
 export
-omyUp :  (0 _ : JSType a)
-      => Optional (Maybe a)
-      -> {auto 0 _ : Elem b (Types a)}
-      -> UndefOr (Nullable b)
+omyUp :
+     {auto 0 _ : JSType a}
+  -> Optional (Maybe a)
+  -> {auto 0 _ : Elem b (Types a)}
+  -> UndefOr (Nullable b)
 omyUp x = optionalToUndefOr $ map (\m => mayUp m) x
 
 public export
@@ -182,5 +188,5 @@ ToFFI a b => ToFFI (Optional a) (UndefOr b) where
 export
 FromFFI a b => FromFFI (Optional a) (UndefOr b) where
   fromFFI v = case undeforToOptional v of
-                   Undef => Just Undef
-                   Def x => map Def $ fromFFI x
+    Undef => Just Undef
+    Def x => map Def $ fromFFI x

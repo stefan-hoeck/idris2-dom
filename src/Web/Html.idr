@@ -40,12 +40,14 @@ Callback OnErrorEventHandlerNonNull (  HSum [Event, String]
                                     -> JSIO Any
                                     ) where
   callback f = toOnErrorEventHandlerNonNull $ \u,b,c,d,e =>
-                 map toFFI $ runJSWithDefault (MkAny ()) $
-                   do ns <- tryFromFFI "JS.Html.ErrorEventHandlerNonNull.callback" u
-                      f ns (undeforToOptional b)
-                           (undeforToOptional c)
-                           (undeforToOptional d)
-                           (MkAny <$> undeforToOptional e)
+    map toFFI $ runJSWithDefault (MkAny ()) $ do
+      ns <- tryFromFFI "JS.Html.ErrorEventHandlerNonNull.callback" u
+      f
+        ns
+        (undeforToOptional b)
+        (undeforToOptional c)
+        (undeforToOptional d)
+        (MkAny <$> undeforToOptional e)
 
 export
 Callback FocusEventHandler (FocusEvent -> JSIO ()) where

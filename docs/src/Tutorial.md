@@ -76,29 +76,31 @@ checkPalindrome s =
 
 export
 prog : JSIO ()
-prog = do btn <- createElement Button
-          textContent btn .= "Click me!"
-          Element.id btn .= "the_button"
+prog = do
+  btn <- createElement Button
+  textContent btn .= "Click me!"
+  Element.id btn .= "the_button"
 
-          txt <- newElement Input [ HTMLInputElement.type =. "text"
-                                  , placeholder =. "Enter your name here."
-                                  ]
+  txt <- newElement Input [ HTMLInputElement.type =. "text"
+                          , placeholder =. "Enter your name here."
+                          ]
 
-          txtDiv <- createElement Div
-          lenDiv <- createElement Div
-          outDiv <- createElement Div
+  txtDiv <- createElement Div
+  lenDiv <- createElement Div
+  outDiv <- createElement Div
 
-          onclick btn ?> do name <- txt `get` value
-                            textContent outDiv .= #"Hello \#{name}!"#
+  onclick btn ?> do name <- txt `get` value
+                    textContent outDiv .= #"Hello \#{name}!"#
 
-          oninput txt ?> do reply <- checkPalindrome `over` value txt
-                            textContent lenDiv .= reply
+  oninput txt ?> do reply <- checkPalindrome `over` value txt
+                    textContent lenDiv .= reply
 
-          ignore $ (!body `appendChild` btn)    *>
-                   (!body `appendChild` txtDiv) *>
-                   (!body `appendChild` outDiv) *>
-                   (!body `appendChild` lenDiv) *>
-                   (txtDiv `appendChild` txt)
+  ignore $
+    (!body `appendChild` btn)    *>
+    (!body `appendChild` txtDiv) *>
+    (!body `appendChild` outDiv) *>
+    (!body `appendChild` lenDiv) *>
+    (txtDiv `appendChild` txt)
 ```
 
 You can give this a try in the browser by replacing the
@@ -167,10 +169,12 @@ the proper type. We can use `safeCast` for this:
 ```idris
 export
 disableBtn : JSIO ()
-disableBtn = do maybeElem <- getElementById !document "the_button"
-                let maybeBtn = maybeElem >>= castTo HTMLButtonElement
-                for_ maybeBtn $ \btn => do disabled btn .= True
-                                           consoleLog "Disabled button"
+disableBtn = do
+  maybeElem <- getElementById !document "the_button"
+  let maybeBtn = maybeElem >>= castTo HTMLButtonElement
+  for_ maybeBtn $ \btn => do
+    disabled btn .= True
+    consoleLog "Disabled button"
 ```
 
 You can try the action above by modifying our original
@@ -188,8 +192,9 @@ and `htmlElementById` in `Web.Dom`:
 ```idris
 export
 disableBtn2 : JSIO ()
-disableBtn2 = do maybeBtn <- htmlElementById Button "the_button"
-                 for_ maybeBtn $ disabled =. True
+disableBtn2 = do
+  maybeBtn <- htmlElementById Button "the_button"
+  for_ maybeBtn $ disabled =. True
 ```
 
 ### Attributes
@@ -272,9 +277,10 @@ implementation of `FromFFI`:
 
 ```idris
 FromFFI Answer Boolean where
-  fromFFI v = if eqv v true then Just Yes
-              else if eqv v false then Just No
-              else Nothing
+  fromFFI v =
+    if eqv v true then Just Yes
+      else if eqv v false then Just No
+      else Nothing
 ```
 
 Most of the time, foreign function calls wrap their result in `PrimIO`.
@@ -325,10 +331,11 @@ complainOnClick : HTMLButtonElement -> JSIO ()
 complainOnClick btn = onclick btn ?> consoleLog "Don't touch me!"
 
 doComplain : MouseEvent -> JSIO ()
-doComplain me = do shiftPressed <- shiftKey me
-                   if shiftPressed
-                      then consoleLog "DON'T TOUCH ME!"
-                      else consoleLog "Don't touch me!"
+doComplain me = do
+  shiftPressed <- shiftKey me
+  if shiftPressed
+     then consoleLog "DON'T TOUCH ME!"
+     else consoleLog "Don't touch me!"
 
 export
 complainSomeMore : HTMLButtonElement -> JSIO ()
@@ -558,10 +565,12 @@ nodes to the body like so:
 ```idris
 addNodes : HTMLButtonElement -> HTMLDivElement -> HTMLDivElement -> JSIO ()
 addNodes btn txtDiv outDiv =
-  ignore $ (!body `append` [ Here $ btn :> Node
-                           , Here $ txtDiv :> Node
-                           , Here $ outDiv :> Node
-                           ])
+  ignore $
+    (!body `append`
+      [ Here $ btn :> Node
+      , Here $ txtDiv :> Node
+      , Here $ outDiv :> Node
+      ])
 ```
 
 In this case, we wouldn't have gained much, as we'd need to

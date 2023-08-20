@@ -120,8 +120,8 @@ FromFFI WindowProxy WindowProxy where fromFFI = Just
 export
 tryFromFFI : FromFFI a ffiRepr => (fun : Lazy String) -> ffiRepr -> JSIO a
 tryFromFFI fun ptr = case fromFFI ptr of
-                          Nothing => throwError $ CastErr fun ptr
-                          Just v  => pure v
+  Nothing => throwError $ CastErr fun ptr
+  Just v  => pure v
 
 export
 tryJS : FromFFI a ffiRepr => (fun : Lazy String) -> PrimIO ffiRepr -> JSIO a
