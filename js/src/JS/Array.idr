@@ -443,6 +443,10 @@ record IArray (a : Type) where
   array : Array a
 
 export
+freezeCloneIO : (HasIO io, ArrayLike arr el) => arr -> io (IArray el)
+freezeCloneIO xs = MkIArray <$> primIO (prim__fromArrayLikeIO xs)
+
+export
 freeze : forall sze,a . (1 _ : LinArray sze a) -> IArray a
 freeze (MkLinArray arr) = MkIArray arr
 
