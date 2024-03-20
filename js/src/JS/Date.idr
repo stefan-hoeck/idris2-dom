@@ -1,5 +1,7 @@
 module JS.Date
 
+import Data.String
+
 %default total
 
 ||| External data type for working with JS `Date` values
@@ -59,3 +61,13 @@ getMonth = prim__getMonth
 export %inline
 getDate : JSDate -> Bits32
 getDate = prim__getDate
+
+pad2 : Bits32 -> String
+pad2 v = padLeft 2 '0' (show v)
+
+||| Prints a date in the format "yyyy-mm-dd"
+export
+dateString : Bits32 -> String
+dateString ts =
+  let d := cast {to = JSDate} ts
+   in "\{show $ getFullYear d}-\{pad2 $ getMonth d + 1}-\{pad2 $ getDate d}"
