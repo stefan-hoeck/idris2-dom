@@ -16,6 +16,7 @@ modules = JS
         , JS.ByteString
         , JS.Buffer
         , JS.Callback
+        , JS.Date
         , JS.Inheritance
         , JS.Marshall
         , JS.Nullable
