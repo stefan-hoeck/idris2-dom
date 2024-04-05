@@ -146,7 +146,7 @@ export
 unset : Alternative f => (o : obj) -> (obj -> Attribute b f a) -> JSIO ()
 unset o g = set' (g o) empty
 
-infix 1 .=, =., %=, =%
+export infix 1 .=, =., %=, =%
 
 ||| Operator version of `set`.
 |||
@@ -196,7 +196,7 @@ export
 (=%) : (obj -> Attribute b f a) -> (a -> a) -> obj -> JSIO ()
 (=%) f g o = mod (f o) g
 
-infixr 0 !>, ?>
+export infixr 0 !>, ?>
 
 ||| Sets a callback function at an attribute.
 |||
