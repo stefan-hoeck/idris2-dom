@@ -47,7 +47,7 @@ public export %inline
 up : (0 _ : JSType a) => a -> {auto 0 _ : Elem b (Types a)} -> b
 up v = believe_me v
 
-infixl 1 :>
+export infixl 1 :>
 
 ||| Operator version of `up`.
 public export %inline
