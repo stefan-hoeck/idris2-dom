@@ -105,8 +105,8 @@ prog = do
 
 You can give this a try in the browser by replacing the
 `main` function in `Main` with `main = runJS Tutorial.prog`
-followed by building the `doc` package: `idris2 --build doc.ipkg`.
-Now, load the `doc.html` file in the project's root folder in your browser.
+followed by building the `docs` package: `idris2 --build docs.ipkg`.
+Now, load the `docs.html` file in the project's root folder in your browser.
 It will not look very nice, but it should behave as described.
 
 ## Step-by-step program walkthrough
