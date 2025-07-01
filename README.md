@@ -32,8 +32,8 @@ These have been moved to a separate library in the `js` directory.
 
 ### Documentation
 The tutorial consists of one or more literal Idris2 files to be
-found at `srd/Doc`. It can be built by running `idris2 --build doc.ipkg`
-and tested afterwards by loading `doc.html` in one's favorite browser.
+found at `docs/src`. It can be built by running `idris2 --build docs.ipkg`
+and tested afterwards by loading `docs.html` in one's favorite browser.
 
 ### Tests
 There is `js/test/test.ipkg` for running several Hedgehog property tests.
@@ -42,7 +42,7 @@ JavaScript utilities working on both JavaScript backends.
 
 ## Dependencies
 
-Packages `dom.ipkg`, `doc.ipkg` and `js.ipkg` depend on the following packages:
+Packages `dom.ipkg`, `docs.ipkg` and `js.ipkg` depend on the following packages:
 
 * [idris2-elab-util](https://github.com/stefan-hoeck/idris2-elab-util)
 * [idris2-sop](https://github.com/stefan-hoeck/idris2-sop)
