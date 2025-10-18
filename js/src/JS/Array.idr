@@ -27,7 +27,6 @@ import Data.DPair
 import Data.List
 
 import JS.Any
-import JS.Boolean
 import JS.Marshall
 import JS.Undefined
 import JS.Util
@@ -107,8 +106,8 @@ prim__writeIO : forall a . Array a -> Bits32 -> a -> PrimIO ()
 prim__newArrayIO : forall a . Bits32 -> PrimIO (Array a)
 
 -- determines, whether the given pointer is an array.
-%foreign "javascript:lambda:x => Array.isArray(x)"
-prim__isArray : AnyPtr -> Boolean
+%foreign "javascript:lambda:x => Array.isArray(x)?1:0"
+prim__isArray : AnyPtr -> Bool
 
 -- clones an Array-like object, thus creating a new array.
 %foreign "javascript:lambda:(_arr,_a,x) => Array.from(x)"
@@ -243,7 +242,7 @@ FromFFI (Array a) (Array a) where fromFFI = Just
 
 export %inline
 isArray : anyVal -> Bool
-isArray v = eqv true $ prim__isArray (toFFI $ MkAny v)
+isArray v = prim__isArray (toFFI $ MkAny v)
 
 export
 writeIO : HasIO io => Array a -> Bits32 -> a -> io ()
