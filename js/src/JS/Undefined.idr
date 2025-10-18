@@ -29,12 +29,12 @@ Show Undefined where
   show _ = "undefined"
 
 %foreign "javascript:lambda:x=>x === undefined?1:0"
-prim__isUndefined : AnyPtr -> Double
+prim__isUndefined : AnyPtr -> Bool
 
 ||| Tests, whether a value of questionable origin is undefined
 export
 isUndefined : a -> Bool
-isUndefined v = doubleToBool $ prim__isUndefined (believe_me v)
+isUndefined v = prim__isUndefined (believe_me v)
 
 export
 ToFFI Undefined Undefined where

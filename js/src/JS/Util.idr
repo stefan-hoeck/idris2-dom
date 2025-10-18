@@ -12,33 +12,29 @@ import Data.Maybe
 
 %default total
 
-export
-doubleToBool : Double -> Bool
-doubleToBool d = d /= 0.0
-
 %foreign "javascript:lambda:v=>typeof(v)"
 prim__typeOf : AnyPtr -> String
 
 ||| Inspect the type of a value at runtime by means of
 ||| Javascript function `typeof`.
-export
+export %inline
 typeof : a -> String
 typeof v = prim__typeOf (believe_me v)
 
 %foreign "javascript:lambda:(a,b)=>a === b?1:0"
-prim__eqv : AnyPtr -> AnyPtr -> Double
+prim__eqv : AnyPtr -> AnyPtr -> Bool
 
 ||| Heterogeneous pointer equality. This calls the Javascript
 ||| `===` operator internally.
-export
+export %inline
 eqv : a -> b -> Bool
-eqv x y = doubleToBool $ prim__eqv (believe_me x) (believe_me y)
+eqv x y = prim__eqv (believe_me x) (believe_me y)
 
 %foreign "javascript:lambda:x=>String(x)"
 prim__show : AnyPtr -> String
 
 ||| Displays a JS value by passing it to `String(...)`.
-export
+export %inline
 jsShow : a -> String
 jsShow v = prim__show (believe_me v)
 
