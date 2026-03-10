@@ -13,6 +13,9 @@ ToFFI (Promise a) (Promise a) where toFFI = id
 export
 FromFFI (Promise a) (Promise a) where fromFFI = Just
 
+%foreign "javascript:lambda:(reg,w) => new Promise ((cb) => reg((x) => cb(x)(w))(w))"
+prim__promise : ((a -> PrimIO ()) -> PrimIO ()) -> PrimIO (Promise a)
+
 %foreign "javascript:lambda:(a,b,p,succ,err,w) => p.then((x) => succ(x)(w),(x) => err(`${x}`)(w))"
 prim__then :
      Promise a
@@ -26,6 +29,10 @@ prim__thenp :
   -> (a -> PrimIO (Promise b))
   -> (String -> PrimIO (Promise b))
   -> PrimIO (Promise b)
+
+export %inline
+toPromise : ((a -> IO ()) -> IO ()) -> IO (Promise a)
+toPromise reg = primIO $ prim__promise (\f => toPrim (reg $ \x => fromPrim $ f x))
 
 ||| Attaches two handlers to a promise.
 export %inline
