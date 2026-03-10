@@ -13,7 +13,7 @@ ToFFI (Promise a) (Promise a) where toFFI = id
 export
 FromFFI (Promise a) (Promise a) where fromFFI = Just
 
-%foreign "javascript:lambda:(a,reg,w) => new Promise ((cb) => reg((x) => cb(x)))"
+%foreign "javascript:lambda:(a,reg,w) => new Promise ((cb) => reg((x,w) => cb(x))(w))"
 prim__promise : ((a -> PrimIO ()) -> PrimIO ()) -> PrimIO (Promise a)
 
 %foreign "javascript:lambda:(a,b,p,succ,err,w) => p.then((x) => succ(x)(w),(x) => err(`${x}`)(w))"
